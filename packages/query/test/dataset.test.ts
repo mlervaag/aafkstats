@@ -1,5 +1,6 @@
-import { afterAll, describe, expect, it } from "vitest";
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { connect } from "@aafkstats/db";
+import type { Sql } from "@aafkstats/db";
 import { datasetPrompt, exampleQueries, views } from "../src/dataset.js";
 import { runSafeSql } from "@aafkstats/db/sql";
 import { connectReadonly } from "@aafkstats/db";
@@ -25,11 +26,16 @@ const url = process.env.DATABASE_URL;
 const describeIfDb = url ? describe : describe.skip;
 
 describeIfDb("dokumentasjonen mot faktisk database", () => {
-  const sql = connect(url);
-  const ro = connectReadonly();
+  // Se kommentaren i safe-sql.integration.test.ts.
+  let sql: Sql;
+  let ro: Sql;
+  beforeAll(() => {
+    sql = connect(url);
+    ro = connectReadonly();
+  });
   afterAll(async () => {
-    await sql.end();
-    await ro.end();
+    await sql?.end();
+    await ro?.end();
   });
 
   it("dokumenterer nøyaktig de kolonnene som finnes", async () => {

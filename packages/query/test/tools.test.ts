@@ -1,5 +1,6 @@
-import { afterAll, describe, expect, it } from "vitest";
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { connectReadonly } from "@aafkstats/db";
+import type { Sql } from "@aafkstats/db";
 import { toolsByName, tools } from "../src/tools.js";
 import type { ToolContext } from "../src/tools.js";
 
@@ -20,11 +21,17 @@ const url = process.env.DATABASE_URL_READONLY;
 const describeIfDb = url ? describe : describe.skip;
 
 describeIfDb("verktøy mot ekte database", () => {
-  const sql = connectReadonly(url);
+  // Se kommentaren i safe-sql.integration.test.ts: tilkoblingen må opprettes i
+  // beforeAll for at suiten faktisk skal kunne hoppes over uten database.
+  let sql: Sql;
+  let ctx: ToolContext;
   const queries: string[] = [];
-  const ctx: ToolContext = { sql, onQuery: (i) => queries.push(i.sql) };
+  beforeAll(() => {
+    sql = connectReadonly(url);
+    ctx = { sql, onQuery: (i) => queries.push(i.sql) };
+  });
   afterAll(async () => {
-    await sql.end();
+    await sql?.end();
   });
 
   const call = async (name: string, input: unknown) => {

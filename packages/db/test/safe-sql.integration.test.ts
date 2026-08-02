@@ -1,5 +1,6 @@
-import { afterAll, describe, expect, it } from "vitest";
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { connectReadonly } from "../src/index.js";
+import type { Sql } from "../src/index.js";
 import { runSafeSql } from "../src/safe-sql.js";
 
 /**
@@ -13,9 +14,15 @@ const url = process.env.DATABASE_URL_READONLY;
 const describeIfDb = url ? describe : describe.skip;
 
 describeIfDb("runSafeSql mot ekte database", () => {
-  const sql = connectReadonly(url);
+  // Tilkoblingen opprettes i beforeAll, ikke i describe-kroppen. Vitest kjører
+  // kroppen også for en skippet suite for å registrere testene, så en connect()
+  // her ville kastet på manglende DATABASE_URL og gjort «hoppes over» til «feiler».
+  let sql: Sql;
+  beforeAll(() => {
+    sql = connectReadonly(url);
+  });
   afterAll(async () => {
-    await sql.end();
+    await sql?.end();
   });
 
   it("kjører en lovlig spørring og returnerer rader", async () => {
