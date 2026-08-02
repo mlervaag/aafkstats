@@ -1,0 +1,396 @@
+/*
+ * Designsystem — redaksjonelt arkiv.
+ *
+ * Rolig base, sterk typografi, oransje kun som aksent. Data får puste. Uttrykket skal
+ * ligge nærmere en velsatt oppslagsbok enn et dashbord: arkivet inneholder referat og
+ * historie, ikke bare tall.
+ */
+
+:root {
+  color-scheme: light dark;
+
+  /* AaFK-oransje som aksent, blå som sekundær. Bevisst sparsomt brukt — når alt er
+     oransje betyr oransje ingenting. */
+  --accent: #e2570f;
+  --accent-soft: #fbe8dc;
+  --accent-2: #1b3a6b;
+
+  --bg: #faf8f5;
+  --surface: #ffffff;
+  --surface-2: #f2eee8;
+  --text: #16130f;
+  --muted: #6b6259;
+  --border: #e3ddd4;
+
+  --win: #1f7a4d;
+  --draw: #8a7c68;
+  --loss: #b3341f;
+
+  --radius: 10px;
+  --measure: 68ch;
+
+  --font-display: ui-serif, Georgia, "Times New Roman", serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #ff7a3d;
+    --accent-soft: #3a2317;
+    --accent-2: #7fa6dd;
+
+    --bg: #14120f;
+    --surface: #1c1916;
+    --surface-2: #24201c;
+    --text: #f2ece4;
+    --muted: #a2988b;
+    --border: #322c26;
+
+    --win: #4cc98a;
+    --draw: #b0a693;
+    --loss: #ff7a63;
+  }
+}
+
+/* Manuell overstyring vinner over systemvalget i begge retninger. */
+:root[data-theme="light"] {
+  --accent: #e2570f;
+  --accent-soft: #fbe8dc;
+  --accent-2: #1b3a6b;
+  --bg: #faf8f5;
+  --surface: #ffffff;
+  --surface-2: #f2eee8;
+  --text: #16130f;
+  --muted: #6b6259;
+  --border: #e3ddd4;
+  --win: #1f7a4d;
+  --draw: #8a7c68;
+  --loss: #b3341f;
+}
+
+:root[data-theme="dark"] {
+  --accent: #ff7a3d;
+  --accent-soft: #3a2317;
+  --accent-2: #7fa6dd;
+  --bg: #14120f;
+  --surface: #1c1916;
+  --surface-2: #24201c;
+  --text: #f2ece4;
+  --muted: #a2988b;
+  --border: #322c26;
+  --win: #4cc98a;
+  --draw: #b0a693;
+  --loss: #ff7a63;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.4em;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+h2 {
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Tabularsiffer overalt der tall stilles opp under hverandre. Uten dette hopper
+   sifrene i resultatkolonner og tabeller blir merkbart vanskeligere å skanne. */
+.num,
+table,
+.score {
+  font-variant-numeric: tabular-nums;
+}
+
+.wrap {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.prose {
+  max-width: var(--measure);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.small {
+  font-size: 0.875rem;
+}
+
+/* ── Topplinje ───────────────────────────────────────────────────────── */
+.masthead {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.masthead-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.9rem 1.25rem;
+  max-width: 62rem;
+  margin: 0 auto;
+}
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.wordmark span {
+  color: var(--accent);
+}
+.masthead nav {
+  display: flex;
+  gap: 1.1rem;
+  font-size: 0.925rem;
+  flex-wrap: wrap;
+}
+.masthead nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.masthead nav a:hover {
+  color: var(--text);
+}
+
+/* ── Spørrefelt ──────────────────────────────────────────────────────── */
+.ask {
+  margin: 2.5rem 0 1rem;
+}
+.ask-form {
+  display: flex;
+  gap: 0.6rem;
+  align-items: stretch;
+}
+.ask-input {
+  flex: 1;
+  font: inherit;
+  font-size: 1.05rem;
+  padding: 0.85rem 1rem;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.ask-input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+.ask-button {
+  font: inherit;
+  font-weight: 600;
+  padding: 0 1.4rem;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.ask-button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.ask-button:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}
+.suggestion {
+  font: inherit;
+  font-size: 0.875rem;
+  padding: 0.4rem 0.75rem;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  text-align: left;
+}
+.suggestion:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+/* ── Svar ────────────────────────────────────────────────────────────── */
+.answer {
+  margin-top: 1.75rem;
+  padding: 1.4rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  /* Aksentstripe i venstremargen — nok til å markere svaret uten å fargelegge flaten. */
+  border-left: 3px solid var(--accent);
+}
+.answer p {
+  margin: 0 0 0.9em;
+  max-width: var(--measure);
+}
+.answer p:last-child {
+  margin-bottom: 0;
+}
+
+.thinking {
+  color: var(--muted);
+  font-size: 0.925rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dot { animation: none; opacity: 0.7; }
+}
+
+/* Vist SQL. Et tillitsgrep: brukeren skal kunne se nøyaktig hva svaret bygger på. */
+.queries {
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  padding-top: 0.9rem;
+}
+.queries summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.queries summary:hover {
+  color: var(--text);
+}
+.queries pre {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  overflow-x: auto;
+  margin: 0.75rem 0 0;
+}
+
+.notice {
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  font-size: 0.925rem;
+}
+.notice-error {
+  border-color: var(--loss);
+  color: var(--loss);
+}
+
+/* ── Resultatvisning ─────────────────────────────────────────────────── */
+.result-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding: 0 0.4rem;
+  border-radius: 5px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #fff;
+}
+/* Formen bærer betydningen sammen med fargen — S/U/T står skrevet i merket, så
+   det er lesbart også ved fargeblindhet og i svart-hvitt. */
+.result-S { background: var(--win); }
+.result-U { background: var(--draw); }
+.result-T { background: var(--loss); }
+
+/* Brede tabeller scroller i sin egen container, aldri hele siden. */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.925rem;
+}
+th, td {
+  text-align: left;
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+th {
+  font-weight: 600;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+footer {
+  margin-top: 4rem;
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
+  padding: 0.5rem 0.9rem;
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+}

@@ -1,0 +1,115 @@
+import { describe, expect, it } from "vitest";
+import { match } from "../src/match.js";
+import { club } from "../src/entities.js";
+import { crossValidate, loadArchive } from "../src/load.js";
+import { resolve } from "node:path";
+
+const base = {
+  id: "2024-04-01-aalesunds-fk-molde-fk",
+  date: "2024-04-01",
+  status: "played",
+  competition: { id: "eliteserien", season: 2024 },
+  home: { clubId: "aalesunds-fk", score: 2 },
+  away: { clubId: "molde-fk", score: 1 },
+};
+
+describe("kampskjema", () => {
+  it("godtar en minimal gyldig kamp", () => {
+    expect(match.safeParse(base).success).toBe(true);
+  });
+
+  it("avviser ukjente felt", () => {
+    // .strict() er det som fanger skrivefeil i YAML. Uten den blir «attendence: 500»
+    // stille ignorert, og tallet forsvinner uten spor.
+    const r = match.safeParse({ ...base, attendence: 500 });
+    expect(r.success).toBe(false);
+  });
+
+  it("krever at ID-en starter med kampdatoen", () => {
+    const r = match.safeParse({ ...base, id: "1999-01-01-aalesunds-fk-molde-fk" });
+    expect(r.success).toBe(false);
+    if (!r.success) expect(r.error.issues[0]?.message).toContain("må starte med kampdatoen");
+  });
+
+  it("krever at én av lagene er AaFK", () => {
+    const r = match.safeParse({
+      ...base,
+      home: { clubId: "molde-fk", score: 2 },
+      away: { clubId: "sk-brann", score: 1 },
+    });
+    expect(r.success).toBe(false);
+  });
+
+  it("krever resultat på en kamp med status «played»", () => {
+    const r = match.safeParse({ ...base, home: { clubId: "aalesunds-fk" } });
+    expect(r.success).toBe(false);
+  });
+
+  it("godtar manglende resultat på en kamp som ikke er spilt", () => {
+    const r = match.safeParse({
+      ...base,
+      status: "scheduled",
+      home: { clubId: "aalesunds-fk" },
+      away: { clubId: "molde-fk" },
+    });
+    expect(r.success).toBe(true);
+  });
+
+  it("avviser straffekonkurranse uten uavgjort etter ordinær tid", () => {
+    const r = match.safeParse({ ...base, penaltyShootout: { home: 5, away: 4 } });
+    expect(r.success).toBe(false);
+  });
+
+  it("krever en registrert konflikt når confidence er «disputed»", () => {
+    const r = match.safeParse({ ...base, confidence: "disputed" });
+    expect(r.success).toBe(false);
+  });
+
+  it("godtar en kamp der bare året er kjent", () => {
+    const r = match.safeParse({
+      ...base,
+      id: "1932-01-01-aalesunds-fk-molde-fk",
+      date: "1932-01-01",
+      dateConfidence: "year",
+      confidence: "probable",
+    });
+    expect(r.success).toBe(true);
+  });
+
+  it("normaliserer en Date fra YAML til datostreng", () => {
+    const r = match.safeParse({ ...base, date: new Date("2024-04-01T00:00:00Z") });
+    expect(r.success).toBe(true);
+    if (r.success) expect(r.data.date).toBe("2024-04-01");
+  });
+});
+
+describe("klubbskjema", () => {
+  it("godtar motstandere som er eldre enn AaFK", () => {
+    // Brann ble stiftet i 1908, seks år før AaFK — stiftelsesår og sesongår er
+    // ikke samme type, selv om begge er årstall.
+    expect(club.safeParse({ id: "sk-brann", name: "SK Brann", founded: 1908 }).success).toBe(true);
+  });
+
+  it("avviser en ID som ikke er en slug", () => {
+    expect(club.safeParse({ id: "SK Brann", name: "SK Brann" }).success).toBe(false);
+  });
+});
+
+describe("fixture-arkivet", () => {
+  const root = resolve(import.meta.dirname, "../../../fixtures/data");
+
+  it("laster og validerer uten feil", async () => {
+    const archive = await loadArchive(root);
+    const issues = [...archive.issues, ...crossValidate(archive)];
+    expect(issues).toEqual([]);
+    expect(archive.matches.length).toBeGreaterThan(0);
+  });
+
+  it("fanger opp brutte referanser", async () => {
+    const archive = await loadArchive(root);
+    // Fjern en klubb og bekreft at kampene som peker på den gir feil.
+    archive.clubs = archive.clubs.filter((c) => c.id !== "molde-fk");
+    const issues = crossValidate(archive);
+    expect(issues.some((i) => i.message.includes("ukjent klubb «molde-fk»"))).toBe(true);
+  });
+});

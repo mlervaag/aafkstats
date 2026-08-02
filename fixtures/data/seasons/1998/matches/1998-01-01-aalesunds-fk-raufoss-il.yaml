@@ -1,0 +1,12 @@
+id: 1998-01-01-aalesunds-fk-raufoss-il
+date: 1998-01-01
+dateConfidence: year
+status: played
+competition: { id: treningskamp, season: 1998, stage: friendly }
+home: { clubId: aalesunds-fk, score: 2 }
+away: { clubId: raufoss-il, score: 2 }
+confidence: probable
+tags: [fixture]
+note: >
+  Konstruert fixture. Kun året er kjent — tester at en kamp med minimal informasjon
+  kan ligge i arkivet i stedet for å holdes utenfor.

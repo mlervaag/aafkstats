@@ -1,0 +1,12 @@
+id: 2024-11-24-sk-brann-aalesunds-fk
+date: 2024-11-24
+kickoff: "17:00"
+status: scheduled
+competition: { id: eliteserien, season: 2024, stage: regular_season, round: 30 }
+home: { clubId: sk-brann }
+away: { clubId: aalesunds-fk }
+venueId: brann-stadion
+sources:
+  - { sourceId: aafk-no, retrievedAt: 2026-08-02, fields: [date, kickoff] }
+confidence: confirmed
+tags: [fixture]

@@ -1,0 +1,70 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    # Ekte Postgres i stedet for mock. Guardrailsene rundt run_sql håndheves av
+    # databaserollen, så en test uten database ville bevist nesten ingenting av det
+    # som faktisk betyr noe.
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: aafk
+          POSTGRES_PASSWORD: aafk-local
+          POSTGRES_DB: aafkstats
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DATABASE_URL: postgres://aafk:aafk-local@localhost:5432/aafkstats
+      DATABASE_URL_READONLY: postgres://aafk_chat:chat-ci@localhost:5432/aafkstats
+      CHAT_DB_PASSWORD: chat-ci
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # Arkivet må validere før noe annet. Feiler dette, er dataene ødelagte og
+      # resten av jobben sier ingenting nyttig.
+      - name: Valider arkivet
+        run: pnpm validate
+
+      - name: Valider fixture-arkivet
+        run: AAFK_DATA_DIR=fixtures/data pnpm validate
+
+      - name: Migrer databasen
+        run: pnpm db:migrate
+
+      - name: Synkroniser fixture-data
+        run: AAFK_DATA_DIR=fixtures/data pnpm db:sync
+
+      - name: Kjør tester
+        run: pnpm test
+
+      - name: Bygg nettstedet
+        run: pnpm --filter @aafkstats/web exec next build

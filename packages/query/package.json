@@ -1,0 +1,20 @@
+{
+  "name": "@aafkstats/query",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./dataset": "./src/dataset.ts",
+    "./tools": "./src/tools.ts",
+    "./prompt": "./src/prompt.ts"
+  },
+  "dependencies": {
+    "@aafkstats/db": "workspace:*",
+    "@aafkstats/schema": "workspace:*",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2"
+  }
+}

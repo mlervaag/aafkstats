@@ -1,0 +1,52 @@
+import { crossValidate, dataDir, loadArchive } from "../load.js";
+
+const RED = "[31m";
+const GREEN = "[32m";
+const DIM = "[2m";
+const RESET = "[0m";
+
+const root = dataDir();
+const archive = await loadArchive(root);
+const issues = [...archive.issues, ...crossValidate(archive)];
+
+// Et tomt arkiv er nesten alltid feil sti, ikke et gyldig arkiv. Å melde «✓» på null
+// filer er verre enn å feile: det ser ut som alt er i orden.
+if (archive.clubs.length === 0 && archive.matches.length === 0) {
+  console.error(`${RED}✗${RESET} Fant ingen data i ${root}`);
+  console.error(`${DIM}  Sjekk stien, eller sett AAFK_DATA_DIR (relativ til repo-rota).${RESET}`);
+  process.exit(1);
+}
+
+const counts = [
+  `${archive.matches.length} kamper`,
+  `${archive.seasons.length} sesonger`,
+  `${archive.clubs.length} klubber`,
+  `${archive.venues.length} stadion`,
+  `${archive.competitions.length} konkurranser`,
+  `${archive.sources.length} kilder`,
+].join(" · ");
+
+if (issues.length === 0) {
+  console.log(`${GREEN}✓${RESET} Arkivet validerer. ${DIM}${counts}${RESET}`);
+  process.exit(0);
+}
+
+// Grupper etter fil så en ødelagt fil vises som én blokk i stedet for spredte linjer.
+const byFile = new Map<string, typeof issues>();
+for (const issue of issues) {
+  const list = byFile.get(issue.file) ?? [];
+  list.push(issue);
+  byFile.set(issue.file, list);
+}
+
+console.error(`${RED}✗${RESET} ${issues.length} feil i ${byFile.size} fil(er):\n`);
+for (const [file, fileIssues] of [...byFile].sort()) {
+  console.error(`  ${file}`);
+  for (const issue of fileIssues) {
+    const where = issue.path === "" ? "" : `${DIM}${issue.path}${RESET} — `;
+    console.error(`    ${where}${issue.message}`);
+  }
+  console.error("");
+}
+console.error(`${DIM}Datakatalog: ${root}${RESET}`);
+process.exit(1);

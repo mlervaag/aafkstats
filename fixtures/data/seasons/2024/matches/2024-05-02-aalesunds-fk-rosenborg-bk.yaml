@@ -1,0 +1,15 @@
+id: 2024-05-02-aalesunds-fk-rosenborg-bk
+date: 2024-05-02
+status: played
+competition: { id: nm, season: 2024, stage: quarter_final }
+home: { clubId: aalesunds-fk, score: 1, halfTimeScore: 0 }
+away: { clubId: rosenborg-bk, score: 1, halfTimeScore: 1 }
+extraTime: { home: 0, away: 0 }
+penaltyShootout: { home: 5, away: 4 }
+venueId: color-line-stadion
+attendance: 8233
+sources:
+  - { sourceId: fotmob, retrievedAt: 2026-08-02, fields: [home.score, away.score, penaltyShootout] }
+confidence: confirmed
+tags: [fixture, cupkamp]
+note: Fixture som tester at straffekonkurranse gir resultat U, men wonOnPenalties true.
