@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { JugendMark, JugendRule } from "@/components/Jugend";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -36,9 +37,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </header>
         <main id="innhold" className="wrap">{children}</main>
+        {/* Skillet mot bunnteksten. Ornamentet står her i stedet for en strek,
+            og er det eneste stedet på siden jugendstilen får plass i full form. */}
+        <JugendRule />
         <footer>
           <div className="wrap footer-grid">
-            <div><a className="wordmark" href="/">AaFK<span>-arkivet</span></a><p>Et uoffisielt, åpent prosjekt uten tilknytning til Aalesunds Fotballklubb eller datakildene.</p></div>
+            <div><a className="wordmark footer-wordmark" href="/"><JugendMark />AaFK<span>-arkivet</span></a><p>Et uoffisielt, åpent prosjekt uten tilknytning til Aalesunds Fotballklubb eller datakildene.</p></div>
             <div><strong>Arkivet</strong><a href="/sesonger">Sesonger</a><a href="/motstandere">Motstandere</a><a href="/data">Datasettet</a></div>
             <div><strong>Prosjektet</strong><a href="/om">Om og kilder</a><a href="/bidra">Bidra</a><a href="https://github.com/mlervaag/aafkstats">GitHub</a></div>
           </div>

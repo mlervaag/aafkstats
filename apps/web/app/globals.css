@@ -4,6 +4,24 @@
  * Rolig base, sterk typografi, oransje kun som aksent. Data får puste. Uttrykket skal
  * ligge nærmere en velsatt oppslagsbok enn et dashbord: arkivet inneholder referat og
  * historie, ikke bare tall.
+ *
+ * ## Tre regler som holder uttrykket i sjakk
+ *
+ * **Hårstrek, ikke skygge.** Ingenting på siden svever. Skiller mellom flater er
+ * 1 px linjer og små bakgrunnsskift — aldri `box-shadow`. Slagskygge lager et
+ * kortstokk-preg der alt konkurrerer om å ligge øverst, og et arkiv skal ligge flatt.
+ *
+ * **Nesten rette hjørner.** Radiusskalaen er 3 og 4 px, og den gjelder alt. Store
+ * radier og pilleformer gjør flater til bobler; her skal de være ark.
+ *
+ * **Versaler er for etiketter.** Sperrede versaler brukes kun der teksten faktisk
+ * merker et tall — tabellhoder og nøkkeltall. Ikke som pynt over overskrifter.
+ *
+ * ## Jugend
+ *
+ * Ålesund ble gjenreist i jugendstil etter brannen i 1904. Ornamentikken ligger i
+ * `components/Jugend.tsx` og brukes som linje, ikke flate: én skillelinje mot
+ * bunnteksten, ett merke ved navnetrekket. Se filen for begrunnelsen.
  */
 
 :root {
@@ -16,7 +34,9 @@
   --accent-2: #1b3a6b;
 
   --bg: #f7f2e9;
-  --surface: #ffffff;
+  /* Ikke ren hvit. Papirhvitt mot varm krem gir et mykere skille enn #fff, som
+     stikker seg ut som et lyspunkt på en varm bakgrunn. */
+  --surface: #fffcf8;
   --surface-2: #f2eee8;
   --text: #16130f;
   --muted: #6b6259;
@@ -26,7 +46,9 @@
   --draw: #8a7c68;
   --loss: #b3341f;
 
-  --radius: 10px;
+  /* Hele radiusskalaen. To verdier, begge nesten rette. */
+  --radius: 3px;
+  --radius-lg: 4px;
   --measure: 68ch;
 
   --font-display: ui-serif, Georgia, "Times New Roman", serif;
@@ -59,7 +81,7 @@
   --accent-soft: #fbe8dc;
   --accent-2: #1b3a6b;
   --bg: #faf8f5;
-  --surface: #ffffff;
+  --surface: #fffcf8;
   --surface-2: #f2eee8;
   --text: #16130f;
   --muted: #6b6259;
@@ -103,16 +125,25 @@ h2,
 h3 {
   font-family: var(--font-display);
   font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  line-height: 1.2;
+  letter-spacing: -0.008em;
   margin: 0 0 0.4em;
+  /* Overskrifter brekkes så linjene blir jevnlange, brødtekst så siste linje
+     ikke blir ett ord. Faller stille tilbake der det ikke støttes. */
+  text-wrap: balance;
 }
 
+p {
+  text-wrap: pretty;
+}
+
+/* Redaksjonell skala, ikke landingsside-skala. En overskrift skal lede lesingen,
+   ikke fylle skjermen. */
 h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.9rem, 3.6vw, 2.6rem);
 }
 h2 {
-  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
 }
 
 a {
@@ -230,13 +261,14 @@ table,
   outline-offset: 2px;
 }
 
+/* Treffliste under søkefeltet. Den ligger over innholdet i leserekkefølgen, men
+   ikke visuelt — en kraftigere ramme skiller den fra flaten, uten slagskygge. */
 .live-results {
   margin-top: 0.6rem;
   background: var(--surface);
-  border: 1px solid var(--border);
+  border: 1px solid var(--muted);
   border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: 0 10px 28px rgb(0 0 0 / 8%);
 }
 .live-results-heading {
   display: flex;
@@ -287,7 +319,7 @@ table,
   color: var(--muted);
   background: transparent;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--radius);
   cursor: pointer;
   text-align: left;
 }
@@ -297,14 +329,15 @@ table,
 }
 
 /* ── Svar ────────────────────────────────────────────────────────────── */
+/* Svaret er brødtekst, ikke et varsel. Det trenger ingen farget stripe i margen
+   for å bli funnet — det er det eneste som står der etter at du har spurt. En
+   flate og en hårstrek holder. */
 .answer {
   margin-top: 1.75rem;
   padding: 1.4rem 1.5rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  /* Aksentstripe i venstremargen — nok til å markere svaret uten å fargelegge flaten. */
-  border-left: 3px solid var(--accent);
 }
 .answer p {
   margin: 0 0 0.9em;
@@ -363,7 +396,7 @@ table,
   line-height: 1.5;
   background: var(--surface-2);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radius);
   padding: 0.85rem 1rem;
   overflow-x: auto;
   margin: 0.75rem 0 0;
@@ -389,7 +422,7 @@ table,
   min-width: 1.5rem;
   height: 1.5rem;
   padding: 0 0.4rem;
-  border-radius: 5px;
+  border-radius: var(--radius);
   font-size: 0.8125rem;
   font-weight: 700;
   color: #fff;
@@ -416,13 +449,16 @@ th, td {
   border-bottom: 1px solid var(--border);
   white-space: nowrap;
 }
-th {
+/* Versaler i tabellhodet er en etikett på en kolonne. Radhoder er derimot ofte
+   hele setninger — der gjør versaler teksten uleselig, så de holdes utenfor. */
+thead th {
   font-weight: 600;
   font-size: 0.8125rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--muted);
 }
+th { font-weight: 600; }
 
 .match-page section {
   margin-top: 2.5rem;
@@ -441,18 +477,27 @@ th {
   align-items: center;
   gap: 1rem;
 }
-.scoreboard h1 { font-size: clamp(1.35rem, 4vw, 2.4rem); }
+.scoreboard h1 { font-size: clamp(1.2rem, 3vw, 1.7rem); }
+/* Resultatet får være stort. Det er sidens eneste virkelige poeng, og til
+   forskjell fra en overskrift er det ett tall som skal leses på et blunk. */
 .scoreline {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 7vw, 4rem);
+  font-size: clamp(2rem, 6vw, 3.4rem);
   font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
 }
+/* Kampfakta under resultatet. Radene skilles med hårstrek slik at etikett og
+   verdi henger sammen parvis — uten den flyter dt og dd fra hverandre så snart
+   én verdi er lengre enn de andre. */
 .facts {
   display: grid;
   grid-template-columns: max-content 1fr;
-  gap: 0.3rem 1.2rem;
+  gap: 0 1.5rem;
   margin: 1.5rem 0 0;
+  border-top: 1px solid var(--border);
 }
+.facts dt,
+.facts dd { padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
 .facts dt { color: var(--muted); }
 .facts dd { margin: 0; }
 .timeline {
@@ -538,40 +583,57 @@ footer {
   padding: 0.5rem 0.9rem;
   background: var(--surface);
   border: 2px solid var(--accent);
-  border-radius: 6px;
+  border-radius: var(--radius);
 }
 
 /* ── MVP-flater ─────────────────────────────────────────────────────────── */
+/* Forbeholdet står øverst fordi det gjelder hele siden. Det skal leses én gang,
+   ikke rope hver gang du ser på det — derfor liten skrift i vanlig kasus. */
 .prototype-bar {
-  padding: 0.35rem 1rem;
-  color: #fff8ee;
+  padding: 0.4rem 1rem;
+  color: #e8dccb;
   background: #0d2943;
-  font-size: 0.68rem;
-  font-weight: 650;
-  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  font-weight: 400;
   white-space: nowrap;
   text-align: center;
-  text-transform: uppercase;
 }
 
 .masthead { position: sticky; top: 0; z-index: 20; }
 .masthead-inner { justify-content: space-between; }
 .masthead nav { align-items: center; }
+/* «Bidra» skiller seg fra de andre lenkene med en aksentstrek under, ikke med en
+   pilleformet knapp. Menyen er en linje med lenker; én av dem skal bare veie litt
+   mer enn resten. */
 .masthead nav .nav-cta {
-  padding: 0.32rem 0.7rem;
-  color: #fff;
-  background: var(--accent);
-  border-radius: 999px;
+  color: var(--text);
+  padding-bottom: 2px;
+  border-bottom: 2px solid var(--accent);
 }
+.masthead nav .nav-cta:hover { color: var(--accent); }
 
 main.wrap { padding-top: clamp(2rem, 5vw, 4rem); }
+
+/* Kicker over overskriften. En kort aksentstrek foran teksten i stedet for
+   sperrede oransje versaler: samme funksjon, men den skriker ikke, og oransje
+   blir liggende som en tråd gjennom siden framfor som et varselskilt. */
 .eyebrow {
-  margin: 0 0 0.55rem;
-  color: var(--accent);
-  font-size: 0.75rem;
-  font-weight: 750;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 0.7rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.eyebrow::before {
+  content: "";
+  flex: none;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--accent);
 }
 .lede {
   max-width: 44rem;
@@ -593,7 +655,10 @@ main.wrap { padding-top: clamp(2rem, 5vw, 4rem); }
   gap: clamp(2rem, 6vw, 5rem);
   padding-bottom: clamp(2rem, 5vw, 4rem);
 }
-.hero h1 { max-width: 14ch; font-size: clamp(2.8rem, 7vw, 5.25rem); letter-spacing: -0.045em; }
+/* Ingressoverskriften er stor fordi den er sidens tittel, ikke fordi den skal
+   fylle skjermen. Tallet i den er poenget — over ~3,5rem slutter den å lese som
+   en setning og begynner å lese som et banner. */
+.hero h1 { max-width: 20ch; font-size: clamp(2.1rem, 4.6vw, 3.4rem); letter-spacing: -0.02em; }
 .hero-stats {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -602,46 +667,77 @@ main.wrap { padding-top: clamp(2rem, 5vw, 4rem); }
   border-left: 1px solid var(--border);
 }
 .hero-stats div { padding: 1rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.hero-stats dt { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.07em; }
-.hero-stats dd { margin: 0.1rem 0 0; font-family: var(--font-display); font-size: 2rem; font-variant-numeric: tabular-nums; }
+/* Versaler beholdes her: dette er etiketter på tall, som i et tabellhode. */
+.hero-stats dt { color: var(--muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.hero-stats dd { margin: 0.15rem 0 0; font-family: var(--font-display); font-size: 1.7rem; font-variant-numeric: tabular-nums; }
 
+/* Spørrefeltet er sidens hovedinngang, og den mørkeblå flaten er det som sier
+   det. Den ligger flatt i sideflyten — ingen slagskygge, ingen store hjørner:
+   et innfelt felt, ikke et kort som svever over resten. */
 .ask {
   margin: 0;
-  padding: clamp(1.25rem, 4vw, 2.5rem);
+  padding: clamp(1.4rem, 4vw, 2.6rem);
   color: #fff8ee;
   background: #0d2943;
-  border-radius: 18px;
-  box-shadow: 0 24px 60px rgb(13 41 67 / 18%);
+  border-radius: var(--radius-lg);
 }
-.ask h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); }
+.ask h2 { font-size: clamp(1.4rem, 2.8vw, 1.9rem); }
 .ask > .muted { color: #bdcad4; }
-.ask .eyebrow { color: #ff8a45; }
+.ask .eyebrow { color: #c3d0da; }
+.ask .eyebrow::before { background: #ff8a45; }
 .ask .suggestion { color: #d8e0e6; border-color: #496177; }
 .ask .suggestion:hover { color: #fff; border-color: #ff8a45; }
 .ask .answer, .ask .live-results { color: var(--text); }
+.ask .live-results { border-color: var(--border); }
 .ask-input { min-height: 3.4rem; border: 0; }
 .ask-button { min-width: 8rem; background: #e86118; }
 
 .content-section { margin-top: clamp(3rem, 7vw, 5rem); }
-.section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+/* Seksjonsskille med hårstrek under, som en spaltetittel i en avis. Det gjør at
+   seksjonene under kan stå uten egen ramme. */
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--border);
+}
 .section-heading h2 { margin: 0; }
 .home-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(16rem, 0.75fr); gap: clamp(2rem, 5vw, 4rem); }
-.explore-panel { padding: 1.5rem; background: var(--surface-2); border-radius: 14px; }
+/* Marginalspalte, ikke boks. Den følger samme oppbygning som spalten ved siden
+   av — kicker, overskrift, hårstrek, liste — så de to spaltene leser som ett
+   oppslag. En fyllflate her ville gjort den til et «kort» ved siden av en liste
+   som ikke er det. */
+.explore-panel { align-self: start; }
+.explore-panel h2 { margin-bottom: 0; padding-bottom: 0.7rem; border-bottom: 1px solid var(--border); }
 .explore-panel > a { display: flex; flex-direction: column; gap: 0.1rem; padding: 0.9rem 0; color: var(--text); text-decoration: none; border-top: 1px solid var(--border); }
+.explore-panel > a:first-of-type { border-top: 0; }
 .explore-panel > a span { color: var(--muted); font-size: 0.875rem; }
 .explore-panel > a:hover strong { color: var(--accent); }
-.scope-note { display: grid; grid-template-columns: minmax(15rem, 0.75fr) minmax(0, 1.25fr); gap: 2rem; margin-top: clamp(3rem, 8vw, 6rem); padding: clamp(1.5rem, 4vw, 2.5rem); border: 1px solid var(--border); border-radius: 14px; }
+.scope-note { display: grid; grid-template-columns: minmax(15rem, 0.75fr) minmax(0, 1.25fr); gap: 2rem; margin-top: clamp(3rem, 8vw, 6rem); padding: clamp(1.5rem, 4vw, 2.5rem); border: 1px solid var(--border); border-radius: var(--radius-lg); }
 .scope-note p:last-child { max-width: var(--measure); margin: 0; }
+.scope-note > .notice { margin-top: 1.1rem; }
+/* Dekningsnotisen er tredje barn og havner ellers under overskriften i venstre
+   spalte, der den blir en smal boks i et bredt oppslag. Den hører til teksten.
+   Kun i to spalter: i én spalte ville en eksplisitt kolonne 2 laget en implisitt
+   kolonne og dratt oppslaget tilbake til to smale spalter på mobil. */
+@media (min-width: 50rem) {
+  .scope-note > .notice { grid-column: 2; }
+}
 
 .page-intro { max-width: 52rem; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
-.page-intro h1 { font-size: clamp(2.6rem, 7vw, 4.8rem); letter-spacing: -0.035em; }
+.page-intro h1 { font-size: clamp(2rem, 4.2vw, 3.1rem); letter-spacing: -0.02em; }
 .page-intro.compact { margin-bottom: 2rem; }
-.page-intro.compact h1 { font-size: clamp(2.2rem, 6vw, 4rem); }
+.page-intro.compact h1 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); }
 .season-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
-.archive-card { display: flex; flex-direction: column; padding: 1.35rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 12px; text-decoration: none; }
-a.archive-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 30px rgb(36 26 15 / 8%); }
-.card-kicker { color: var(--muted); font-size: 0.75rem; font-weight: 650; letter-spacing: 0.07em; text-transform: uppercase; }
-.card-title { margin: 0.45rem 0 0.8rem; font-family: var(--font-display); font-size: 2.6rem; }
+.archive-card { display: flex; flex-direction: column; padding: 1.35rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); text-decoration: none; }
+/* Kortet løftes ikke. Det er en lenke i en liste, og et løft er en animasjon
+   som lover en interaksjon den ikke har. Rammen og flaten svarer i stedet. */
+a.archive-card:hover { border-color: var(--accent); background: var(--surface-2); }
+.card-kicker { color: var(--muted); font-size: 0.82rem; font-weight: 500; letter-spacing: 0; text-transform: none; }
+.card-title { margin: 0.35rem 0 0.8rem; font-family: var(--font-display); font-size: 2rem; letter-spacing: -0.015em; }
 .record-line { color: var(--text); font-weight: 650; }
 .card-meta { margin-top: 0.25rem; color: var(--muted); font-size: 0.85rem; }
 .season-grid + .notice { margin-top: 1.5rem; }
@@ -651,11 +747,14 @@ a.archive-card:hover { border-color: var(--accent); transform: translateY(-2px);
 .opponent-list > a:hover { padding-inline: 0.75rem; background: var(--surface); }
 .opponent-list small { display: block; color: var(--muted); }
 
-.stat-strip { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin-bottom: 2rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+/* Antall kolonner følger antall tall. «Plass» finnes bare for serier, så en fast
+   femkolonners rute etterlot en tom celle på hver cupsesong. */
+.stat-strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); margin-bottom: 2rem; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
 .stat-strip > div { display: flex; flex-direction: column; padding: 1rem 1.2rem; background: var(--surface); border-right: 1px solid var(--border); }
 .stat-strip > div:last-child { border-right: 0; }
-.stat-strip strong { font-family: var(--font-display); font-size: 1.8rem; }
-.stat-strip span { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.stat-strip strong { font-family: var(--font-display); font-size: 1.55rem; }
+/* Versaler: etikett på et tall. Samme begrunnelse som i tabellhodene. */
+.stat-strip span { color: var(--muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; }
 
 .archive-match-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border); }
 .archive-match-list li { border-bottom: 1px solid var(--border); }
@@ -669,23 +768,57 @@ a.archive-card:hover { border-color: var(--accent); transform: translateY(-2px);
 .article-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(15rem, 0.65fr); gap: clamp(2rem, 6vw, 5rem); }
 .prose-stack { max-width: var(--measure); }
 .prose-stack section + section, .prose-stack > * + * { margin-top: 2rem; }
-.facts-panel { align-self: start; padding: 1.5rem; background: var(--surface-2); border-radius: 12px; }
+.facts-panel { align-self: start; padding-top: 0.9rem; border-top: 2px solid var(--text); }
 .facts-panel dl { margin: 1.2rem 0; }
-.facts-panel dt { margin-top: 0.8rem; color: var(--muted); font-size: 0.75rem; text-transform: uppercase; }
+.facts-panel dt { margin-top: 0.9rem; color: var(--muted); font-size: 0.82rem; text-transform: none; }
 .facts-panel dd { margin: 0; }
-.button-link { display: inline-flex; justify-content: center; padding: 0.7rem 1rem; color: #fff; background: var(--accent); border-radius: 8px; font-weight: 650; text-decoration: none; }
-.button-link.secondary { color: var(--text); background: var(--surface-2); border: 1px solid var(--border); }
+.button-link { display: inline-flex; justify-content: center; padding: 0.7rem 1rem; color: #fff; background: var(--accent); border-radius: var(--radius); font-weight: 600; text-decoration: none; }
+.button-link.secondary { color: var(--text); background: transparent; border: 1px solid var(--border); }
+.button-link.secondary:hover { border-color: var(--text); }
 .contribute-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .contribute-grid .button-link { align-self: flex-start; margin-top: auto; }
-.empty-state { max-width: 38rem; margin: 8vh auto; padding: 3rem; text-align: center; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; }
+.empty-state { max-width: 38rem; margin: 8vh auto; padding: 3rem; text-align: center; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+/* Kickeren er en flex-linje med aksentstrek foran. Her står den midtstilt. */
+.empty-state .eyebrow { justify-content: center; }
 
-footer { margin-top: clamp(4rem, 10vw, 8rem); padding: 3rem 0 1.5rem; color: var(--muted); background: var(--surface); border-top: 1px solid var(--border); }
+/* Bunnteksten har verken egen flate eller topplinje. Jugendskillelinja rett over
+   gjør jobben, og en ramme i tillegg ville vært to skiller på samme sted. */
+footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none; border-top: 0; }
 .footer-grid { display: grid; grid-template-columns: minmax(14rem, 1.5fr) repeat(2, minmax(9rem, 0.6fr)); gap: 2rem; }
 .footer-grid > div { display: flex; flex-direction: column; align-items: flex-start; gap: 0.4rem; }
 .footer-grid p { max-width: 34rem; margin: 0.6rem 0 0; }
 .footer-grid a:not(.wordmark) { color: var(--muted); text-decoration: none; }
 .footer-grid a:hover { color: var(--text); }
 .footer-legal { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.75rem; }
+.footer-wordmark { display: flex; align-items: center; gap: 0.55rem; }
+
+/* ── Jugend ──────────────────────────────────────────────────────────────
+   Ornamentikken fra byen, brukt som linje. Se components/Jugend.tsx. */
+
+/* Skillelinjen mot bunnteksten. Den er bevisst smal og lys: sett rett på skal
+   den knapt registreres, og først når man ser etter den skal den vise seg å
+   være rankeverk og ikke en strek. */
+.jugend-rule {
+  display: block;
+  width: min(16rem, 55%);
+  height: auto;
+  margin: clamp(3rem, 8vw, 6rem) auto clamp(1.75rem, 4vw, 3rem);
+  color: color-mix(in srgb, var(--muted) 55%, transparent);
+}
+
+/* Merket ved navnetrekket i bunnteksten. Oransje, litt større enn teksten det
+   står ved — under ~24 px går den innerste vindingen tapt. */
+.jugend-mark {
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  color: var(--accent);
+}
+
+/* Navnetrekket i bunnteksten står ved siden av merket. Bare merket skal ha
+   luft rundt seg — «AaFK» og «-arkivet» er ett ord og settes tett. */
+.footer-wordmark { display: flex; align-items: center; gap: 0; }
+.footer-wordmark .jugend-mark { margin-right: 0.5rem; }
 
 @media (max-width: 50rem) {
   .hero, .home-grid, .scope-note, .article-grid { grid-template-columns: 1fr; }
@@ -696,17 +829,18 @@ footer { margin-top: clamp(4rem, 10vw, 8rem); padding: 3rem 0 1.5rem; color: var
 
 @media (max-width: 42rem) {
   main.wrap { padding-top: 1.75rem; }
-  .hero h1 { font-size: clamp(2.55rem, 13vw, 4rem); }
+  .hero h1 { font-size: clamp(1.95rem, 8vw, 2.6rem); }
   .hero-stats { display: none; }
-  .prototype-bar { padding-inline: 0.35rem; }
+  .prototype-bar { padding-inline: 0.35rem; font-size: 0.7rem; }
   .masthead nav { scrollbar-width: none; }
   .masthead nav::-webkit-scrollbar { display: none; }
-  .ask { margin-inline: -0.25rem; border-radius: 14px; }
+  .ask { margin-inline: -0.25rem; }
   .section-heading { align-items: flex-start; flex-direction: column; }
   .season-grid, .contribute-grid, .footer-grid { grid-template-columns: 1fr; }
-  .stat-strip { grid-template-columns: repeat(2, 1fr); }
+  .stat-strip { grid-auto-flow: row; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stat-strip > div { border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .stat-strip > div:last-child { grid-column: 1 / -1; border-bottom: 0; }
+  .stat-strip > div:nth-child(odd):last-child { grid-column: 1 / -1; }
+  .stat-strip > div:last-child { border-bottom: 0; }
   .opponent-list > a { grid-template-columns: minmax(0, 1fr) auto; gap: 0.2rem 0.75rem; }
   .opponent-list .record-line { grid-column: 1; font-size: 0.82rem; }
   .opponent-list > a > .muted { grid-column: 2; grid-row: 1 / span 2; }
@@ -752,7 +886,7 @@ footer { margin-top: clamp(4rem, 10vw, 8rem); padding: 3rem 0 1.5rem; color: var
   color: inherit;
   font: inherit;
   font-size: 0.85rem;
-  border-radius: 999px;
+  border-radius: var(--radius);
 }
 
 .prompt-text {
@@ -764,7 +898,7 @@ footer { margin-top: clamp(4rem, 10vw, 8rem); padding: 3rem 0 1.5rem; color: var
   overflow-wrap: anywhere;
   font-size: 0.86rem;
   line-height: 1.55;
-  border-radius: 8px;
+  border-radius: var(--radius);
   background: color-mix(in srgb, currentColor 5%, transparent);
 }
 
@@ -792,10 +926,12 @@ footer { margin-top: clamp(4rem, 10vw, 8rem); padding: 3rem 0 1.5rem; color: var
   font-weight: 400;
 }
 
-/* Forbehold på en kampside — dempet, men lesbart. */
+/* Forbehold på en kampside — dempet, men lesbart. Kampheaderen er midtstilt, så
+   den begrensede tekstbredden må sentreres med den; ellers legger blokka seg
+   inntil venstre kant med midtstilt tekst inni. */
 .match-note {
   max-width: 46ch;
-  margin-top: 0.6rem;
+  margin: 0.6rem auto 0;
   font-style: italic;
 }
 
@@ -804,7 +940,9 @@ footer { margin-top: clamp(4rem, 10vw, 8rem); padding: 3rem 0 1.5rem; color: var
 .rights-table th[scope="row"] {
   text-align: left;
   font-weight: 600;
-  max-width: 26rem;
+  /* Radhodet er det bredeste i tabellen, og hver rem den tar er en rem mindre
+     til statuskolonnene lengst til høyre — de som er hele poenget med tabellen. */
+  max-width: 20rem;
 }
 
 .rights-note {
@@ -817,7 +955,7 @@ footer { margin-top: clamp(4rem, 10vw, 8rem); padding: 3rem 0 1.5rem; color: var
 .rights-status {
   display: inline-block;
   padding: 0.15rem 0.55rem;
-  border-radius: 999px;
+  border-radius: var(--radius);
   font-size: 0.8rem;
   white-space: nowrap;
   border: 1px solid currentColor;
