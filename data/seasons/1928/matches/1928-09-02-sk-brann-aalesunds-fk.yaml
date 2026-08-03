@@ -1,0 +1,39 @@
+id: 1928-09-02-sk-brann-aalesunds-fk
+date: 1928-09-02
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1928
+  stage: regular_season
+  round: 4
+home:
+  clubId: sk-brann
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1928/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1928-cup-1928-09-02-brann-aalesunds-fk
+manual: []

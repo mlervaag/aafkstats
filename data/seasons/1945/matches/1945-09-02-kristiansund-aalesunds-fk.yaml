@@ -1,0 +1,44 @@
+id: 1945-09-02-kristiansund-aalesunds-fk
+date: 1945-09-02
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1945
+  stage: regular_season
+  round: 3
+home:
+  clubId: kristiansund
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+extraTime:
+  home: 0
+  away: 0
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1945/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - extraTime
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1945-cup-1945-09-02-kristiansund-aalesunds-fk
+manual: []
+note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.

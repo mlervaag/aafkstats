@@ -1,0 +1,39 @@
+id: 1961-08-06-rosenborg-bk-aalesunds-fk
+date: 1961-08-06
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1961
+  stage: regular_season
+  round: 3
+home:
+  clubId: rosenborg-bk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1961/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1961-cup-1961-08-06-rosenborg-aalesunds-fk
+manual: []

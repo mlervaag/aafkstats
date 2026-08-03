@@ -1,0 +1,44 @@
+id: 1948-08-15-skeid-aalesunds-fk
+date: 1948-08-15
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1948
+  stage: regular_season
+  round: 3
+home:
+  clubId: skeid
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+extraTime:
+  home: 0
+  away: 0
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1948/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - extraTime
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1948-cup-1948-08-15-skeid-aalesunds-fk
+manual: []
+note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.

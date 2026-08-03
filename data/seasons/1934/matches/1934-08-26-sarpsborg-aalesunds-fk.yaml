@@ -1,0 +1,39 @@
+id: 1934-08-26-sarpsborg-aalesunds-fk
+date: 1934-08-26
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1934
+  stage: regular_season
+  round: 3
+home:
+  clubId: sarpsborg
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1934/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1934-cup-1934-08-26-sarpsborg-aalesunds-fk
+manual: []

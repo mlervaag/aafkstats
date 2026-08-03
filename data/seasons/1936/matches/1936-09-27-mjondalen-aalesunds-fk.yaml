@@ -1,0 +1,39 @@
+id: 1936-09-27-mjondalen-aalesunds-fk
+date: 1936-09-27
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1936
+  stage: regular_season
+  round: 4
+home:
+  clubId: mjondalen
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1936/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1936-cup-1936-09-27-mjondalen-aalesunds-fk
+manual: []

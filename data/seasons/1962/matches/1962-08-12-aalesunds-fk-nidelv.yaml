@@ -1,0 +1,39 @@
+id: 1962-08-12-aalesunds-fk-nidelv
+date: 1962-08-12
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1962
+  stage: regular_season
+  round: 3
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: nidelv
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1962/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1962-cup-1962-08-12-aalesunds-fk-nidelv
+manual: []

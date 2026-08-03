@@ -1,0 +1,37 @@
+id: 1978-10-15-aalesunds-fk-neset
+date: 1978-10-15
+dateConfidence: exact
+status: played
+competition:
+  id: tredjedivisjon
+  season: 1978
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: neset
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1978/Third.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1978-third-1978-10-15-aalesunds-fk-neset
+manual: []
