@@ -164,12 +164,26 @@ spørsmål ingen har laget et ferdig oppslag for. Fem lag holder det trygt:
 |---|---|
 | Filen åpnes med `readOnly` | **SQLite** |
 | Spørringen kjøres i en egen prosess som drepes med `SIGKILL` ved timeout | **operativsystemet** |
-| Én setning, kun SELECT/WITH, ingen `core_*` eller `sqlite_*` | koden |
-| Radtak på 200 | koden |
+| Prosessen får et miljø uten hemmeligheter, og et tak på haugen | **operativsystemet** |
+| Én setning, kun SELECT/WITH, ingen `core_*`, `sqlite_*` eller `pragma_*` | koden |
+| Radtak på 200, og et tak på 256 kB uansett hvor mange rader det er | koden |
 | Logging av hver spørring | koden |
 
-Bare de to første er sikkerhet. De tre siste finnes for å gi modellen forståelige
+De tre første er sikkerhet. Resten finnes for å gi modellen forståelige
 feilmeldinger — hele opplegget skal være trygt selv om de skulle svikte.
+
+Navnekontrollen er unntaket: den *er* grensen mot `core_`-tabellene, for SQLite har
+ingen roller og kan ikke gi leserett på viewene alene. Derfor leses spørringen i to
+utgaver. Setningsdeling og nøkkelord sjekkes mot en utgave der strenger og siterte
+navn er blanket ut, så `WHERE note = 'a;b'` ikke leses som to setninger. Navnene
+sjekkes mot en utgave der siterte identifikatorer er pakket ut, for SQLite godtar
+`"core_matches"`, `[core_matches]` og `` `core_matches` `` som samme tabell — leser
+kontrollen bare den første utgaven, gjemmer et par anførselstegn navnet for filteret
+og viser det til motoren.
+
+Radtaket sier ingenting om størrelsen: én celle kan være vilkårlig stor, og
+resultatet går rett inn i modellens kontekst. Derfor er det også et tak i byte, og
+det er like mye en kostnadsgrense som en minnegrense.
 
 SQLite har ingen `statement_timeout`, og en spørring som blokkerer i motoren lar seg ikke
 avbryte fra JavaScript: kallet er synkront og holder tråden. En `Worker` ville ikke hjulpet,
@@ -180,6 +194,19 @@ den eneste måten grensen faktisk holder.
 Rate-limiting og bruksmåling ligger foran applikasjonen — Vercel Firewall og et kostnadstak
 i Anthropic Console — ikke i datasettet. Testene i `packages/db/test/` prøver å bryte hvert
 lag, inkludert direkte mot arkivfilen utenom koden.
+
+Det som *kan* koste penger, er derfor avgrenset i selve forespørselen: spørsmålet er
+begrenset til 1000 tegn, samtalehistorikken klienten sender med til seks meldinger og
+12 000 tegn til sammen, og kroppen leses aldri større enn 64 kB. Uten det siste er de
+andre grensene rådgivende — vi har lest og parset alt før første kontroll kjører.
+Historikken kontrolleres også på rolle: den kommer fra klienten, og bare `user` og
+`assistant` skal videre til modellen.
+
+Chatten avviser POST-kall som kommer fra et annet nettsted. Det er ikke CSRF i vanlig
+forstand, for det finnes ingen innlogging å misbruke — det er regningen som står på spill:
+`Content-Type: text/plain` gjør en POST til en «simple request» uten forhåndssjekk, og da
+kan en hvilken som helst side sette sine besøkendes nettlesere til å tømme API-budsjettet.
+Kall uten `Origin` slipper gjennom, for de stoppes av fartsgrensen i stedet.
 
 Datasettdokumentasjonen på `/data` er **samme kilde** som chattens systemprompt
 (`packages/query/src/dataset.ts`). Det finnes ingen skjult beskrivelse modellen har og

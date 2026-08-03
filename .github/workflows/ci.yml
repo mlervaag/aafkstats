@@ -9,6 +9,12 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+# Jobben leser bare koden. Uten dette arver den standardrettighetene til
+# repoet, og en kompromittert avhengighet i pnpm-treet ville hatt tokenet
+# som skal til for å skrive tilbake hit.
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest

@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { UnsafeSqlError, stripLiterals, validateReadOnlySql } from "../src/safe-sql.js";
+import {
+  UnsafeSqlError,
+  revealIdentifiers,
+  runnerEnv,
+  stripLiterals,
+  validateReadOnlySql,
+} from "../src/safe-sql.js";
 
 const rejects = (sql: string) => {
   expect(() => validateReadOnlySql(sql)).toThrow(UnsafeSqlError);
@@ -41,6 +47,53 @@ describe("stripLiterals", () => {
 
   it("nøytraliserer siterte identifikatorer", () => {
     expect(stripLiterals('SELECT "rar;kolonne" FROM t')).not.toContain(";");
+  });
+});
+
+describe("revealIdentifiers", () => {
+  it("beholder lengden", () => {
+    const input = 'SELECT "en kolonne" FROM t';
+    expect(revealIdentifiers(input)).toHaveLength(input.length);
+  });
+
+  it("pakker ut alle tre sitatformene SQLite godtar", () => {
+    expect(revealIdentifiers('SELECT * FROM "core_matches"')).toContain("core_matches");
+    expect(revealIdentifiers("SELECT * FROM [core_matches]")).toContain("core_matches");
+    expect(revealIdentifiers("SELECT * FROM `core_matches`")).toContain("core_matches");
+  });
+
+  it("nøytraliserer fortsatt tekststrenger", () => {
+    // Et navn skrevet som streng har ikke rørt en tabell, og skal ikke avvises.
+    expect(revealIdentifiers("SELECT * FROM reports WHERE body LIKE '%core_matches%'")).not.toContain(
+      "core_matches",
+    );
+  });
+
+  it("nøytraliserer fortsatt kommentarer", () => {
+    expect(revealIdentifiers("SELECT 1 -- core_matches\nFROM t")).not.toContain("core_matches");
+  });
+});
+
+describe("runnerEnv", () => {
+  it("gir ikke child-prosessen hemmeligheter eller NODE_OPTIONS", () => {
+    // Prosessen som kjører modellens SQL skal åpne én fil og ikke mer. Arver den
+    // hele miljøet, bærer det innerste og minst privilegerte laget også
+    // API-nøkkelen — og NODE_OPTIONS kan inneholde --require, som ville kjørt
+    // fremmed kode nettopp der.
+    const before = { key: process.env.ANTHROPIC_API_KEY, opts: process.env.NODE_OPTIONS };
+    process.env.ANTHROPIC_API_KEY = "sk-ant-skal-ikke-arves";
+    process.env.NODE_OPTIONS = "--require /tmp/ondsinnet.js";
+    try {
+      const env = runnerEnv();
+      expect(env.ANTHROPIC_API_KEY).toBeUndefined();
+      expect(env.NODE_OPTIONS).toBeUndefined();
+      expect(Object.keys(env)).toContain("PATH");
+    } finally {
+      if (before.key === undefined) delete process.env.ANTHROPIC_API_KEY;
+      else process.env.ANTHROPIC_API_KEY = before.key;
+      if (before.opts === undefined) delete process.env.NODE_OPTIONS;
+      else process.env.NODE_OPTIONS = before.opts;
+    }
   });
 });
 
@@ -112,6 +165,36 @@ describe("validateReadOnlySql — det som skal avvises", () => {
 
   it("avviser skriveoperasjon skjult i en CTE", () => {
     rejects("WITH x AS (DELETE FROM core_matches RETURNING *) SELECT * FROM x");
+  });
+
+  it("avviser siterte navn like godt som usiterte", () => {
+    // Kontrollen leste tidligere spørringen med identifikatorene blanket ut, mens
+    // det var råteksten som ble kjørt. Sitattegn holdt derfor navnet skjult for
+    // filteret og synlig for SQLite — hele grensen mot core_ og sqlite_ falt på
+    // ett par anførselstegn.
+    rejects('SELECT * FROM "core_matches"');
+    rejects("SELECT * FROM [core_matches]");
+    rejects("SELECT * FROM `core_matches`");
+    rejects('SELECT name FROM "sqlite_master"');
+    rejects("SELECT name FROM [sqlite_master]");
+  });
+
+  it("avviser PRAGMA-tabellfunksjonene", () => {
+    // `\\bpragma\\b` traff ingen av disse, for understrek er et ordtegn.
+    // pragma_database_list røper hvor arkivfilen ligger på disk.
+    rejects("SELECT * FROM pragma_database_list");
+    rejects("SELECT * FROM pragma_table_info('matches')");
+    rejects("SELECT * FROM pragma_table_list");
+  });
+
+  it("avviser hele sqlite_-navnerommet, ikke bare de kjente navnene", () => {
+    // sqlite_dbpage leser rå sider ut av filen og sto ikke i den gamle lista.
+    rejects("SELECT * FROM sqlite_dbpage");
+    rejects("SELECT * FROM sqlite_temp_schema");
+  });
+
+  it("lar sqlite_version() stå, den røper ingenting", () => {
+    accepts("SELECT sqlite_version()");
   });
 
   it("avviser tom spørring", () => rejects("   "));
