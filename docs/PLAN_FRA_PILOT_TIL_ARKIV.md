@@ -140,6 +140,59 @@ go/no-go-beslutning og helst skriftlig tillatelse.
 
 ## Fase B — Gjør reconcile klar for flere kilder
 
+**Status: dette er nå det viktigste som gjenstår.** Kilde nummer to (RSSSF) er sluppet til,
+og den kolliderte med den første med en gang: sesongen 2010 finnes hos begge. Det ble løst
+med en oppdeling per kamp (`--skip-existing`) — de overlappende kampene står i fred, de nye
+skrives, og hver kamp har fortsatt nøyaktig én kilde. Det er en holdbar nødløsning, ikke et
+observasjonslag.
+
+Grensen merkes så snart to kilder er uenige om *samme felt* i *samme kamp*:
+
+- RSSSF sier 12. mai, avisen sier 13. mai.
+- NIFS sier 3 241 tilskuere, klubbladet sier 3 421.
+- Én kilde oppgir sluttresultatet etter ekstraomganger, en annen stillingen etter 90.
+- Klubben har byttet navn mellom de to kildenes utgivelsestidspunkt.
+
+I dag ville den ene importen enten stoppet eller overskrevet den andre. Begge deler taper
+informasjon.
+
+### Foreslått form
+
+Én rad per observasjon, ikke per kamp:
+
+```
+sourceId          rsssf
+externalMatchId   1998-first-1998-04-19-hamarkameratene-aalesunds
+retrievedAt       2026-08-03
+adapterVersion    rsssf@2
+payloadHash       sha256:…
+fieldPath         home.score
+rawValue          "3"
+normalizedValue   3
+chosen            true
+reason            høyest kildeprioritet blant tre observasjoner
+manualLock        false
+```
+
+Da kan samme kamp bygges av RSSSF, NIFS, avis og klubbarkiv uten at én import sletter en
+annens arbeid, og `conflicts[]` kan utledes i stedet for å måtte skrives for hånd.
+`payloadHash` gjør det mulig å se at en kilde har endret seg siden sist uten å hente på nytt.
+
+### Akseptanse
+
+- samme snapshot gir ingen diff;
+- to kilder kan være uenige uten at data forsvinner;
+- manuelle felt overlever alle kjøringer;
+- payloadendringer gir en lesbar forklaring på valgt verdi;
+- tvetydige treff gir `manual_review` og non-zero status;
+- en kilde kan fjernes og bygges inn på nytt uten tap av andre kilders arbeid.
+
+Dette bør bygges **før** NIFS, avisfunn og de eldste RSSSF-sidene importeres — ikke etterpå.
+
+---
+
+Den opprinnelige beskrivelsen av fasen, som fortsatt gjelder:
+
 Dagens reconcile er med vilje konservativt: det lager nye kamper og kan oppdatere kamper
 som allerede har samme eksterne kamp-ID. Før en kilde nummer to slippes til, trenger vi et
 ordentlig observasjonslag.
