@@ -1,0 +1,39 @@
+id: 1989-06-07-hodd-aalesunds-fk
+date: 1989-06-07
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1989
+  stage: regular_season
+  round: 1
+home:
+  clubId: hodd
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1989/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1989-cup-1989-06-07-hodd-aalesunds-fk
+manual: []

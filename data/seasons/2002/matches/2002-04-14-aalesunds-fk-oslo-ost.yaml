@@ -1,0 +1,39 @@
+id: 2002-04-14-aalesunds-fk-oslo-ost
+date: 2002-04-14
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 2002
+  stage: regular_season
+  round: 1
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: oslo-ost
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2002/First.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2002-first-2002-04-14-aalesunds-fk-oslo-ost
+manual: []

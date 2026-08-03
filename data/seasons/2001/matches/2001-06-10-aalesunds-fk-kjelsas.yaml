@@ -1,0 +1,39 @@
+id: 2001-06-10-aalesunds-fk-kjelsas
+date: 2001-06-10
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 2001
+  stage: regular_season
+  round: 10
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: kjelsas
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2001/First.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2001-first-2001-06-10-aalesunds-fk-kjelsas
+manual: []

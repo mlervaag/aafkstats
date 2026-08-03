@@ -1,0 +1,39 @@
+id: 2003-05-04-rosenborg-bk-aalesunds-fk
+date: 2003-05-04
+dateConfidence: exact
+status: played
+competition:
+  id: eliteserien
+  season: 2003
+  stage: regular_season
+  round: 4
+home:
+  clubId: rosenborg-bk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2003/Premier.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2003-premier-2003-05-04-rosenborg-aalesunds-fk
+manual: []

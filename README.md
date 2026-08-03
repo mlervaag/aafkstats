@@ -56,12 +56,23 @@ Les den før du skriver en adapter — flere av de opplagte kildene er røde.
 Den reviderte gjennomføringsrekkefølgen står i
 [Plan fra faktapilot til historisk arkiv](docs/PLAN_FRA_PILOT_TIL_ARKIV.md).
 
+To kilder er i bruk, og de dekker hver sin del av historien:
+
+| Kilde | Periode | Gir |
+|---|---|---|
+| [FotMob](docs/data/FOTMOB_DEKNINGSTAK.md) | 2010→ | Kampfakta, hendelser, lagoppstillinger, statistikk, tilskuertall |
+| [RSSSF Norway](docs/data/RSSSF_DEKNING.md) | ←2009 | Dato, lag, resultat og runde. Ingen detaljer |
+
+Begge dokumentene sier hvor kilden slutter og hvorfor — det er lettere å lese enn å
+gjenoppdage.
+
 ## Kommandoer
 
 | Kommando | Hva den gjør |
 |---|---|
 | `pnpm validate` | Validerer hele arkivet: skjema, referanser, duplikater |
 | `pnpm ingest:fotmob -- --league ID --season ÅR --competition ID` | Tørrkjører én eksplisitt FotMob-sesong |
+| `pnpm ingest:rsssf -- --season ÅR --division Premier\|First\|Cup --competition ID` | Tørrkjører én eksplisitt RSSSF-sesong |
 | `pnpm db:build` | Bygger arkivfilen fra `data/`. Respekterer `AAFK_DATA_DIR` |
 | `pnpm test` | Kjører testene. Ingen tjeneste kreves — de bygger sitt eget arkiv |
 | `pnpm typecheck` | Typesjekker pakkene og nettstedet |
@@ -81,6 +92,7 @@ Den reviderte gjennomføringsrekkefølgen står i
 | `packages/query/` | Datasettdokumentasjon, verktøy og systemprompt |
 | `apps/web/` | Next.js: portal, `/api/chat`, `/data` |
 | `docs/research/` | Kildekart og innhentingsstrategi |
+| `docs/data/` | Hva hver kilde faktisk dekker, og hvor den slutter |
 
 ## Datamodellen
 

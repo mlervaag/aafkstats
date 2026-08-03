@@ -1,0 +1,39 @@
+id: 1983-06-02-aalesunds-fk-stranda
+date: 1983-06-02
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1983
+  stage: regular_season
+  round: 1
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: stranda
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1983/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1983-cup-1983-06-02-aalesunds-fk-stranda
+manual: []

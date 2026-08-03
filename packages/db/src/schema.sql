@@ -191,6 +191,7 @@ SELECT
   m.confidence,
   CASE WHEN json_array_length(m.conflicts) > 0 THEN 1 ELSE 0 END AS has_conflicts,
   m.completeness,
+  m.note,
   m.tags,
   '/kamp/' || m.id    AS url
 FROM core_matches m

@@ -1,0 +1,39 @@
+id: 2002-08-04-lorenskog-aalesunds-fk
+date: 2002-08-04
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 2002
+  stage: regular_season
+  round: 18
+home:
+  clubId: lorenskog
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2002/First.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2002-first-2002-08-04-lorenskog-aalesunds-fk
+manual: []

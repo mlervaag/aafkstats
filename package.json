@@ -16,6 +16,7 @@
   "scripts": {
     "validate": "pnpm --filter @aafkstats/schema run validate",
     "ingest:fotmob": "pnpm --filter @aafkstats/ingest run fotmob",
+    "ingest:rsssf": "pnpm --filter @aafkstats/ingest run rsssf",
     "db:build": "pnpm --filter @aafkstats/db run build-archive",
     "typecheck": "tsc --build --force && tsc -p apps/web/tsconfig.json --noEmit",
     "test": "vitest run",

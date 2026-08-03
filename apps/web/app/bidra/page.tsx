@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PromptCard } from "@/components/PromptCard";
+import { GapNote } from "@/components/CoverageNote";
 import { contributionPrompts } from "@/lib/prompts";
 
 export const metadata: Metadata = {
@@ -95,10 +96,9 @@ export default function ContributePage() {
 
       <section className="content-section prose-stack">
         <h2>Hva som mangler mest</h2>
+        <GapNote />
         <p>
-          Arkivet er tynt før 2011 og har foreløpig ingen kampreferat. Kamper fra
-          1914–2010, cupkamper og europakamper er der et bidrag monner mest. Se{" "}
-          <a href="/sesonger">sesongoversikten</a> for hva som allerede ligger inne.
+          Se <a href="/sesonger">sesongoversikten</a> for hva som allerede ligger inne.
         </p>
       </section>
     </>

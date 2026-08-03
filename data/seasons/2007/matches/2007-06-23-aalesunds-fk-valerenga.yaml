@@ -1,0 +1,39 @@
+id: 2007-06-23-aalesunds-fk-valerenga
+date: 2007-06-23
+dateConfidence: exact
+status: played
+competition:
+  id: eliteserien
+  season: 2007
+  stage: regular_season
+  round: 12
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: valerenga
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2007/Premier.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2007-premier-2007-06-23-aalesunds-fk-valerenga
+manual: []

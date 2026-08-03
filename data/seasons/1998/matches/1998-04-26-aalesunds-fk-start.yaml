@@ -1,0 +1,39 @@
+id: 1998-04-26-aalesunds-fk-start
+date: 1998-04-26
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1998
+  stage: regular_season
+  round: 2
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: start
+  score: 6
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1998/First.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1998-first-1998-04-26-aalesunds-fk-start
+manual: []

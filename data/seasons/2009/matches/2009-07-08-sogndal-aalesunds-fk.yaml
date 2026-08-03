@@ -1,0 +1,39 @@
+id: 2009-07-08-sogndal-aalesunds-fk
+date: 2009-07-08
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 2009
+  stage: regular_season
+  round: 4
+home:
+  clubId: sogndal
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2009/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2009-cup-2009-07-08-sogndal-aalesunds-fk
+manual: []

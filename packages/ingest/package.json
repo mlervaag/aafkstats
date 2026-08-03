@@ -7,10 +7,15 @@
     ".": "./src/index.ts",
     "./fotmob": "./src/adapters/fotmob.ts"
   },
-  "scripts": { "fotmob": "tsx src/cli/fotmob.ts" },
+  "scripts": {
+    "fotmob": "tsx src/cli/fotmob.ts",
+    "rsssf": "tsx src/cli/rsssf.ts"
+  },
   "dependencies": {
     "@aafkstats/schema": "workspace:*",
     "yaml": "^2.6.1"
   },
-  "devDependencies": { "tsx": "^4.19.2" }
+  "devDependencies": {
+    "tsx": "^4.19.2"
+  }
 }

@@ -1,0 +1,39 @@
+id: 1985-07-31-aalesunds-fk-sogndal
+date: 1985-07-31
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1985
+  stage: regular_season
+  round: 4
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: sogndal
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1985/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1985-cup-1985-07-31-aalesunds-fk-sogndal
+manual: []

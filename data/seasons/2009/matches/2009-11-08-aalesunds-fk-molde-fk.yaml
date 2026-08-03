@@ -1,0 +1,47 @@
+id: 2009-11-08-aalesunds-fk-molde-fk
+date: 2009-11-08
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 2009
+  stage: final
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: molde-fk
+  score: 2
+  halfTimeScore: null
+extraTime:
+  home: 0
+  away: 0
+penaltyShootout:
+  home: 5
+  away: 4
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2009/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.stage
+      - extraTime
+      - penaltyShootout
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2009-cup-2009-11-08-aalesunds-fk-molde
+manual: []
+note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.

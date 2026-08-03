@@ -1,0 +1,39 @@
+id: 1990-07-25-aalesunds-fk-fyllingen
+date: 1990-07-25
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1990
+  stage: regular_season
+  round: 4
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: fyllingen
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1990/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1990-cup-1990-07-25-aalesunds-fk-fyllingen
+manual: []

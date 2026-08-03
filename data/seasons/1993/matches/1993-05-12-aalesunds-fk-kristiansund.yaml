@@ -1,0 +1,39 @@
+id: 1993-05-12-aalesunds-fk-kristiansund
+date: 1993-05-12
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1993
+  stage: regular_season
+  round: 1
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: kristiansund
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1993/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1993-cup-1993-05-12-aalesunds-fk-kristiansund
+manual: []

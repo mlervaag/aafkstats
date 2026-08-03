@@ -1,0 +1,39 @@
+id: 2009-05-28-kristiansund-aalesunds-fk
+date: 2009-05-28
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 2009
+  stage: regular_season
+  round: 2
+home:
+  clubId: kristiansund
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2009/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2009-cup-2009-05-28-kristiansund-bk-aalesunds-fk
+manual: []
