@@ -42,13 +42,17 @@ export function ThinkingLine({ activeTool }: { activeTool: string | null }) {
   return (
     <p className="thinking">
       <span className="dot" aria-hidden="true" />
+      {/* Skjermleseren får én stabil setning. Uten dette ville aria-live-området
+          rundt svaret lest opp et nytt tenkeord annethvert sekund — samme grunn
+          som at det rullerende ordet er skjult for den. */}
+      <span className="sr-only">Henter svar fra arkivet</span>
       {/* key gjør at spanet monteres på nytt for hvert ord, så CSS-animasjonen
           spilles av igjen. Uten den ville bare teksten byttes, uten overgang. */}
-      <span key={index} className="thinking-word">
+      <span key={index} className="thinking-word" aria-hidden="true">
         {word} …
       </span>
       {activeTool && (
-        <span className="small muted thinking-tool"> · {activeTool}</span>
+        <span className="small muted thinking-tool" aria-hidden="true"> · {activeTool}</span>
       )}
     </p>
   );
