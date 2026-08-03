@@ -1,0 +1,42 @@
+id: 2020-07-04-valerenga-aalesunds-fk
+date: 2020-07-04
+dateConfidence: exact
+kickoff: 20:30
+status: played
+competition:
+  id: eliteserien
+  season: 2020
+  stage: regular_season
+  round: 6
+home:
+  clubId: valerenga
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/valerenga-vs-aalesund/286lhq#3237654
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3237654"
+manual: []

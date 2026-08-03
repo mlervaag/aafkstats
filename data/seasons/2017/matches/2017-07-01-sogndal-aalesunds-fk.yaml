@@ -1,0 +1,42 @@
+id: 2017-07-01-sogndal-aalesunds-fk
+date: 2017-07-01
+dateConfidence: exact
+kickoff: 20:15
+status: played
+competition:
+  id: eliteserien
+  season: 2017
+  stage: regular_season
+  round: 15
+home:
+  clubId: sogndal
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-sogndal/2e8smm#2427128
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2427128"
+manual: []

@@ -1,0 +1,42 @@
+id: 2022-10-16-aalesunds-fk-hamarkameratene
+date: 2022-10-16
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: eliteserien
+  season: 2022
+  stage: regular_season
+  round: 26
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: hamarkameratene
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-hamarkameratene/2cjt0y#3803283
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3803283"
+manual: []

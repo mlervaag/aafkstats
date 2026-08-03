@@ -1,0 +1,42 @@
+id: 2021-09-11-bryne-aalesunds-fk
+date: 2021-09-11
+dateConfidence: exact
+kickoff: 15:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2021
+  stage: regular_season
+  round: 17
+home:
+  clubId: bryne
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-bryne/2ddv1b#3517661
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3517661"
+manual: []

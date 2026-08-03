@@ -1,0 +1,42 @@
+id: 2017-10-30-lillestrom-aalesunds-fk
+date: 2017-10-30
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: eliteserien
+  season: 2017
+  stage: regular_season
+  round: 27
+home:
+  clubId: lillestrom
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-lillestrom/2ctxg4#2427224
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2427224"
+manual: []

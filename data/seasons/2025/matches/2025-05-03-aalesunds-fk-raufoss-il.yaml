@@ -1,0 +1,189 @@
+id: 2025-05-03-aalesunds-fk-raufoss-il
+date: 2025-05-03
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2025
+  stage: regular_season
+  round: 5
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 1
+away:
+  clubId: raufoss-il
+  score: 1
+  halfTimeScore: 0
+venueId: color-line-stadion
+neutralVenue: false
+referee: Mischa Huru Kellerhals
+events:
+  - minute: 8
+    type: goal
+    team: home
+    player: Claudio Braga
+    assist: assist by Jesper Gregersen
+  - minute: 47
+    type: penalty_goal
+    team: home
+    player: Håkon Butli Hammer
+  - minute: 53
+    type: goal
+    team: away
+    player: James Ampofo
+    assist: assist by Ryan Nelson
+  - minute: 58
+    type: yellow_card
+    team: away
+    player: Adrian Aleksander Hansen
+  - minute: 60
+    type: substitution
+    team: home
+    player: Henrik Melland
+    playerOff: Jesper Gregersen
+  - minute: 60
+    type: substitution
+    team: home
+    player: David Snær Johannsson
+    playerOff: Marius Andresen
+  - minute: 63
+    type: substitution
+    team: away
+    player: Kodjo Somesi
+    playerOff: Tinus Embergsrud Engebakken
+  - minute: 63
+    type: substitution
+    team: away
+    player: Yaw Agyeman
+    playerOff: Markus Aanesland
+  - minute: 65
+    type: yellow_card
+    team: home
+    player: Håkon Butli Hammer
+  - minute: 80
+    type: goal
+    team: home
+    player: Håkon Butli Hammer
+  - minute: 82
+    type: substitution
+    team: home
+    player: Philip Sandvik Aukland
+    playerOff: Olafur Gudmundsson
+  - minute: 88
+    type: substitution
+    team: away
+    player: Elias Soerum
+    playerOff: Victor Fors
+  - minute: 88
+    type: substitution
+    team: away
+    player: Kebba Badjie
+    playerOff: Ole Amund Sveen
+  - minute: 90
+    type: substitution
+    team: away
+    player: Elias Aarflot
+    playerOff: James Ampofo
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: home
+    player: Frederik Heiselberg
+    playerOff: Paul Ngongo Iversen
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: home
+    player: Kristian Hemmingsen Lonebu
+    playerOff: Claudio Braga
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Olafur Gudmundsson
+      - Marius Andresen
+      - Jesper Gregersen
+      - Håkon Butli Hammer
+      - Janus Seehusen
+      - Kristoffer Nessø
+      - Claudio Braga
+      - Paul Ngongo Iversen
+    subs:
+      - David Snær Johannsson
+      - Henrik Melland
+      - Philip Sandvik Aukland
+      - Frederik Heiselberg
+      - Kristian Hemmingsen Lonebu
+      - Tor Erik Valderhaug Larsen
+      - Jørgen Bøe
+      - Marius Gulbrandsen
+      - Marcus Haagensen Reed
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - Anders Klemensson
+      - Victor Fors
+      - Kristoffer Hay
+      - Adrian Aleksander Hansen
+      - Jan Inge Solemsløkk Lynum
+      - Tinus Embergsrud Engebakken
+      - Jonas Sørensen Selnæs
+      - Ole Amund Sveen
+      - Markus Aanesland
+      - James Ampofo
+      - Ryan Nelson
+    subs:
+      - Kodjo Somesi
+      - Yaw Agyeman
+      - Elias Soerum
+      - Kebba Badjie
+      - Elias Aarflot
+      - Petter Eichler Jensen
+      - Aime Vaillance Nihorimbere
+    coach: Tom Dent
+stats:
+  home:
+    possession: 56
+    shots: 18
+    shotsOnTarget: 10
+    corners: 9
+  away:
+    possession: 44
+    shots: 5
+    shotsOnTarget: 3
+    corners: 2
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-raufoss/2qsglk#4695629
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4695629"
+manual: []

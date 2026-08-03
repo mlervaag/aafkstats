@@ -1,0 +1,68 @@
+import { createHash } from "node:crypto";
+import { existsSync } from "node:fs";
+import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
+import { join, resolve } from "node:path";
+import { repoRoot } from "@aafkstats/schema/load";
+
+const USER_AGENT = "aafkstats-arkiv/0.1 (+https://github.com/mlervaag/aafkstats)";
+const MIN_INTERVAL_MS = 1100;
+const REQUEST_TIMEOUT_MS = 20_000;
+const lastRequestAt = new Map<string, number>();
+const sleep = (ms: number) => new Promise((resolveSleep) => setTimeout(resolveSleep, ms));
+
+export interface FetchJsonOptions {
+  refresh?: boolean;
+  onNetworkRequest?: () => void;
+}
+
+function cacheDir(): string {
+  return resolve(repoRoot(), ".cache/ingest");
+}
+
+/** JSON-henting med per-vert-fartsgrense, retry, tidsgrense og atomisk cache. */
+export async function fetchJson<T>(url: string, options: FetchJsonOptions = {}): Promise<T> {
+  const key = createHash("sha256").update(url).digest("hex").slice(0, 32);
+  const file = join(cacheDir(), `${key}.json`);
+  if (!options.refresh && existsSync(file)) {
+    return JSON.parse(await readFile(file, "utf8")) as T;
+  }
+
+  const host = new URL(url).host;
+  const since = Date.now() - (lastRequestAt.get(host) ?? 0);
+  if (since < MIN_INTERVAL_MS) await sleep(MIN_INTERVAL_MS - since);
+  lastRequestAt.set(host, Date.now());
+  options.onNetworkRequest?.();
+
+  const body = await withRetry(url);
+  const parsed = JSON.parse(body) as T;
+  await mkdir(cacheDir(), { recursive: true });
+  const temporary = `${file}.${process.pid}.tmp`;
+  await writeFile(temporary, body, "utf8");
+  await rename(temporary, file);
+  return parsed;
+}
+
+async function withRetry(url: string, attempts = 4): Promise<string> {
+  let lastError: unknown;
+  for (let attempt = 0; attempt < attempts; attempt++) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+    try {
+      const response = await fetch(url, {
+        headers: { "User-Agent": USER_AGENT, accept: "application/json" },
+        signal: controller.signal,
+      });
+      if (response.ok) return await response.text();
+      const error = new Error(`${response.status} ${response.statusText} for ${url}`);
+      if (response.status >= 400 && response.status < 500) throw error;
+      lastError = error;
+    } catch (error) {
+      lastError = error;
+      if (error instanceof Error && /^4\d\d /.test(error.message)) throw error;
+    } finally {
+      clearTimeout(timer);
+    }
+    if (attempt < attempts - 1) await sleep(2 ** attempt * 1000);
+  }
+  throw lastError instanceof Error ? lastError : new Error(String(lastError));
+}

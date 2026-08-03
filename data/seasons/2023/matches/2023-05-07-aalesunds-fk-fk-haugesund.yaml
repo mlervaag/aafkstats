@@ -1,0 +1,42 @@
+id: 2023-05-07-aalesunds-fk-fk-haugesund
+date: 2023-05-07
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: eliteserien
+  season: 2023
+  stage: regular_season
+  round: 5
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: fk-haugesund
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-fk-haugesund/2d6yvm#4077033
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4077033"
+manual: []

@@ -1,0 +1,141 @@
+id: 2025-04-28-asane-aalesunds-fk
+date: 2025-04-28
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2025
+  stage: regular_season
+  round: 4
+home:
+  clubId: asane
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+venueId: asane-arena
+neutralVenue: false
+attendance: 585
+referee: Harald Vollstad Sletner
+events:
+  - minute: 42
+    type: yellow_card
+    team: home
+    player: Eirik Wollen Steen
+  - minute: 46
+    type: substitution
+    team: home
+    player: Dennis Møller Wolfe
+    playerOff: Eirik Wollen Steen
+  - minute: 66
+    type: yellow_card
+    team: away
+    player: Jesper Gregersen
+  - minute: 71
+    type: substitution
+    team: away
+    player: Henrik Melland
+    playerOff: Jesper Gregersen
+  - minute: 75
+    type: substitution
+    team: away
+    player: Frederik Heiselberg
+    playerOff: David Snær Johannsson
+  - minute: 77
+    type: substitution
+    team: home
+    player: Steffen Lie Skålevik
+    playerOff: Erling Myklebust
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sebastian Selin
+      - Eirik Wollen Steen
+      - Isak Vådebu
+      - Patrick André Wik
+      - Eirik Lereng
+      - Didrik Fredriksen
+      - Kristoffer Barmen
+      - Jesper Eikrem
+      - Knut Haga
+      - Erling Myklebust
+      - Sebastian Heimvik Haugland
+    subs:
+      - Dennis Møller Wolfe
+      - Steffen Lie Skålevik
+      - Oliver Andreas Madsen
+      - Ola Heltne Nilsen
+      - Emil Sildnes
+      - Sander Strand
+      - Sverre Haga
+      - Efe Lucky
+      - Nobel Gebrezgi
+    coach: Eirik Bakke
+  away:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Olafur Gudmundsson
+      - Marius Andresen
+      - David Snær Johannsson
+      - Håkon Butli Hammer
+      - Jesper Gregersen
+      - Kristoffer Nessø
+      - Claudio Braga
+      - Paul Ngongo Iversen
+    subs:
+      - Henrik Melland
+      - Frederik Heiselberg
+      - Tor Erik Valderhaug Larsen
+      - Jørgen Bøe
+      - Thomas Gulbrandsen
+      - Janus Seehusen
+      - Kristian Hemmingsen Lonebu
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 44
+    shots: 3
+    shotsOnTarget: 1
+    corners: 5
+  away:
+    possession: 56
+    shots: 13
+    shotsOnTarget: 3
+    corners: 12
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-asane/2t2i21#4695621
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4695621"
+manual: []

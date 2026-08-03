@@ -1,0 +1,42 @@
+id: 2021-09-15-aalesunds-fk-grorud
+date: 2021-09-15
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2021
+  stage: regular_season
+  round: 18
+home:
+  clubId: aalesunds-fk
+  score: 6
+  halfTimeScore: null
+away:
+  clubId: grorud
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/grorud-vs-aalesund/1bb1yv#3517669
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3517669"
+manual: []

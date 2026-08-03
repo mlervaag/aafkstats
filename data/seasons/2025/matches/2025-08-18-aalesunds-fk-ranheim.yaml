@@ -1,0 +1,42 @@
+id: 2025-08-18-aalesunds-fk-ranheim
+date: 2025-08-18
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2025
+  stage: regular_season
+  round: 19
+home:
+  clubId: aalesunds-fk
+  score: 6
+  halfTimeScore: null
+away:
+  clubId: ranheim
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/ranheim-vs-aalesund/1up0ag#4695738
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4695738"
+manual: []

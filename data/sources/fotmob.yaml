@@ -2,6 +2,8 @@ id: fotmob
 name: FotMob
 url: https://www.fotmob.com
 priority: 70
+license: Uavklart. Udokumentert endepunkt; vilkårene begrenser automatisert og systematisk bruk.
 note: >
-  Uoffisielt, åpent JSON-endepunkt. Rik dekning fra ca. 2010 med hendelser, lag og
-  statistikk. Kan forsvinne uten varsel — derfor er YAML-filene sannheten, ikke FotMob.
+  Uoffisielt og udokumentert JSON-endepunkt. En avgrenset teknisk pilot viser rik
+  dekning fra nyere sesonger, men dette er ikke en åpen API-lisens. FotMob skal ikke
+  være eneste sannhetskilde, og større eller løpende innhøsting krever rettighetsavklaring.

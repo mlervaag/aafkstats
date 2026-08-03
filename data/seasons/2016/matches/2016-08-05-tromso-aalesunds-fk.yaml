@@ -1,0 +1,42 @@
+id: 2016-08-05-tromso-aalesunds-fk
+date: 2016-08-05
+dateConfidence: exact
+kickoff: 18:30
+status: played
+competition:
+  id: eliteserien
+  season: 2016
+  stage: regular_season
+  round: 19
+home:
+  clubId: tromso
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-tromso/2e5vky#2147849
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2147849"
+manual: []

@@ -1,0 +1,42 @@
+id: 2020-08-16-rosenborg-bk-aalesunds-fk
+date: 2020-08-16
+dateConfidence: exact
+kickoff: 20:30
+status: played
+competition:
+  id: eliteserien
+  season: 2020
+  stage: regular_season
+  round: 14
+home:
+  clubId: rosenborg-bk
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-rosenborg/2caf6d#3237808
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3237808"
+manual: []

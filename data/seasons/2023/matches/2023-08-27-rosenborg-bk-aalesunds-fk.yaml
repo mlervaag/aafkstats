@@ -1,0 +1,42 @@
+id: 2023-08-27-rosenborg-bk-aalesunds-fk
+date: 2023-08-27
+dateConfidence: exact
+kickoff: 19:15
+status: played
+competition:
+  id: eliteserien
+  season: 2023
+  stage: regular_season
+  round: 20
+home:
+  clubId: rosenborg-bk
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-rosenborg/2caf6d#4077083
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4077083"
+manual: []

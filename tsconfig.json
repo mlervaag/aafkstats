@@ -8,6 +8,7 @@
   "files": [],
   "references": [
     { "path": "packages/schema" },
+    { "path": "packages/ingest" },
     { "path": "packages/db" },
     { "path": "packages/query" }
   ]

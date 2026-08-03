@@ -1,0 +1,42 @@
+id: 2022-06-19-aalesunds-fk-valerenga
+date: 2022-06-19
+dateConfidence: exact
+kickoff: 20:00
+status: played
+competition:
+  id: eliteserien
+  season: 2022
+  stage: regular_season
+  round: 10
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: valerenga
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/valerenga-vs-aalesund/286lhq#3803201
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3803201"
+manual: []

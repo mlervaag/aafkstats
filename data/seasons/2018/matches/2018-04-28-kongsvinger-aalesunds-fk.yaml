@@ -1,0 +1,42 @@
+id: 2018-04-28-kongsvinger-aalesunds-fk
+date: 2018-04-28
+dateConfidence: exact
+kickoff: 15:30
+status: played
+competition:
+  id: forstedivisjon
+  season: 2018
+  stage: regular_season
+  round: 5
+home:
+  clubId: kongsvinger
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/kongsvinger-vs-aalesund/29vez4#2685050
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2685050"
+manual: []

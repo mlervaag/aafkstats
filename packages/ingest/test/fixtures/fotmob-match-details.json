@@ -1,0 +1,43 @@
+{
+  "content": {
+    "matchFacts": {
+      "infoBox": {
+        "Attendance": 3944,
+        "Stadium": { "name": "Color Line Stadion", "city": "Ålesund", "capacity": 10778 },
+        "Referee": { "text": "Steinar Hauge" }
+      },
+      "events": {
+        "events": [
+          { "type": "Card", "time": 19, "isHome": false, "card": "Yellow", "player": { "name": "Magnus Christensen" } },
+          { "type": "Half", "time": 45, "halfStrShort": "HT", "homeScore": 0, "awayScore": 0 },
+          { "type": "Substitution", "time": 46, "isHome": false, "swap": [{ "name": "Sebastian Olderheim" }, { "name": "Chris Hegardt" }] },
+          { "type": "Goal", "time": 90, "overloadTime": 2, "isHome": true, "player": { "name": "Målscorer" } },
+          { "type": "Goal", "time": 120, "isHome": true, "isPenaltyShootoutEvent": true, "player": { "name": "Straffeskytter" } },
+          { "type": "Half", "time": 90, "halfStrShort": "FT", "homeScore": 1, "awayScore": 1 }
+        ]
+      }
+    },
+    "stats": {
+      "Periods": {
+        "All": {
+          "stats": [
+            { "title": "Top stats", "stats": [
+              { "title": "Ball possession", "stats": [53, 47] },
+              { "title": "Total shots", "stats": [19, 7] },
+              { "title": "Expected goals (xG)", "stats": ["1.42", "0.61"] }
+            ] }
+          ]
+        }
+      }
+    },
+    "lineup": {
+      "homeTeam": {
+        "formation": "4-3-3",
+        "starters": [{ "name": "Sten Grytebust" }],
+        "subs": [{ "name": "Innbytter" }],
+        "coach": { "name": "Christian Johnsen" }
+      },
+      "awayTeam": { "starters": [{ "name": "Bortespiller" }], "subs": [] }
+    }
+  }
+}
