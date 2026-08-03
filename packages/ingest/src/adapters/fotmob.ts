@@ -324,14 +324,33 @@ export function splitExtraTime(match: SourceMatch, detail: RawMatchDetails): voi
 }
 
 /**
- * Straffesparkkonkurransen, som FotMob legger som egne hendelser med
- * `isPenaltyShootoutEvent`. Bare de som ble scoret telles — bommene ligger i samme
- * liste og skal ikke inn i sluttsifferet.
+ * Straffesparkkonkurransen.
+ *
+ * FotMob oppgir den to måter, og den ene er lett å overse. Vanligst er én
+ * oppsummerende hendelse av typen `PenaltyShootout` med `penaltyScore: [hjemme,
+ * borte]`. Noen kamper har i stedet ett straffespark per hendelse, merket med
+ * `isPenaltyShootoutEvent`. Vi leser oppsummeringen først og teller enkeltspark
+ * bare når den mangler.
+ *
+ * Uten dette blir en cupkamp stående som uavgjort uten at noe forteller hvem som
+ * gikk videre — og en cupkamp kan ikke ende uavgjort.
  */
 export function readShootout(match: SourceMatch, detail: RawMatchDetails): void {
-  const shots = (detail.content?.matchFacts?.events?.events ?? []).filter(
-    (event) => event.isPenaltyShootoutEvent,
-  );
+  const events = detail.content?.matchFacts?.events?.events ?? [];
+
+  const summary = events.find((event) => event.type === "PenaltyShootout");
+  const pair = summary?.penaltyScore;
+  if (Array.isArray(pair) && pair.length === 2) {
+    const home = toInt(pair[0]);
+    const away = toInt(pair[1]);
+    if (home !== undefined && away !== undefined) {
+      match.penaltyShootout = { home, away };
+      match.fields.push("penaltyShootout");
+      return;
+    }
+  }
+
+  const shots = events.filter((event) => event.isPenaltyShootoutEvent);
   if (shots.length === 0) return;
 
   let home = 0;
@@ -519,6 +538,8 @@ interface RawEvent {
   isPenalty?: boolean;
   goalDescription?: string;
   isPenaltyShootoutEvent?: boolean;
+  /** Oppsummert straffesparkkonkurranse: [hjemme, borte]. */
+  penaltyScore?: unknown[];
   card?: string;
   nameStr?: string;
   assistStr?: string;

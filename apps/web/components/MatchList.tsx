@@ -1,14 +1,11 @@
 import type { ArchiveMatch } from "@/lib/archive";
+import { readableScore } from "@/lib/score";
 
 export function MatchList({ matches }: { matches: ArchiveMatch[] }) {
   return (
     <ol className="archive-match-list">
       {matches.map((match) => {
-        const score = match.aafkScore === null || match.opponentScore === null
-          ? "–"
-          : match.isHome
-            ? `${match.aafkScore}–${match.opponentScore}`
-            : `${match.opponentScore}–${match.aafkScore}`;
+        const { score, qualifier, label } = readableScore(match);
         return (
           <li key={match.matchId}>
             <a href={match.url}>
@@ -17,7 +14,10 @@ export function MatchList({ matches }: { matches: ArchiveMatch[] }) {
                 {match.result && <span className={`result-badge result-${match.result}`}>{match.result}</span>}
                 <span>{match.isHome ? "AaFK – " : ""}{match.opponent}{match.isHome ? "" : " – AaFK"}</span>
               </span>
-              <strong className="match-score score">{score}</strong>
+              <strong className="match-score score" title={label}>
+                {score}
+                {qualifier && <span className="score-qualifier"> {qualifier}</span>}
+              </strong>
               <span className="match-meta muted">{match.isHome ? "Hjemme" : "Borte"} · {match.competition}</span>
             </a>
           </li>

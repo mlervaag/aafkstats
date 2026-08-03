@@ -7,6 +7,7 @@ import {
   parseMinute,
   readAssist,
   readRound,
+  readShootout,
   readStats,
   splitExtraTime,
 } from "../src/adapters/fotmob.js";
@@ -182,5 +183,57 @@ describe("ekstraomganger", () => {
     expect(match.warnings?.[0]).toMatch(/forklarer ikke sluttresultatet/);
   });
 });
+
+describe("straffesparkkonkurranse", () => {
+  const base = (): SourceMatch => ({
+    externalId: "4182983",
+    date: "2023-06-07",
+    status: "played",
+    rawStatus: "Pen",
+    home: { externalId: "8404", name: "Aalesund" },
+    away: { externalId: "8468", name: "Brann" },
+    homeScore: 3,
+    awayScore: 3,
+    competitionExternalId: "206",
+    competitionName: "Norgesmesterskapet",
+    season: 2023,
+    fields: [],
+  });
+
+  // Den vanlige formen: én oppsummerende hendelse. Uten den blir en cupkamp
+  // stående som uavgjort uten at noe forteller hvem som gikk videre.
+  it("leser den oppsummerte hendelsen", () => {
+    const match = base();
+    readShootout(match, {
+      content: { matchFacts: { events: { events: [
+        { type: "PenaltyShootout", time: 121, penaltyScore: [5, 6] },
+      ] } } },
+    } as unknown as RawMatchDetails);
+    expect(match.penaltyShootout).toEqual({ home: 5, away: 6 });
+    expect(match.fields).toContain("penaltyShootout");
+  });
+
+  it("teller enkeltspark når oppsummeringen mangler", () => {
+    const match = base();
+    readShootout(match, {
+      content: { matchFacts: { events: { events: [
+        { type: "Goal", isHome: true, isPenaltyShootoutEvent: true },
+        { type: "Goal", isHome: false, isPenaltyShootoutEvent: true },
+        { type: "MissedPenalty", isHome: true, isPenaltyShootoutEvent: true },
+        { type: "Goal", isHome: false, isPenaltyShootoutEvent: true },
+      ] } } },
+    } as unknown as RawMatchDetails);
+    expect(match.penaltyShootout).toEqual({ home: 1, away: 2 });
+  });
+
+  it("rører ikke kamper uten straffesparkkonkurranse", () => {
+    const match = base();
+    readShootout(match, {
+      content: { matchFacts: { events: { events: [{ type: "Goal", isHome: true, time: 12 }] } } },
+    } as unknown as RawMatchDetails);
+    expect(match.penaltyShootout).toBeUndefined();
+  });
+});
+
 
 

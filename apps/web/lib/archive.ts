@@ -9,6 +9,9 @@ export interface ArchiveMatch {
   aafkScore: number | null;
   opponentScore: number | null;
   result: "S" | "U" | "T" | null;
+  afterExtraTime: boolean;
+  decidedOnPenalties: boolean;
+  wonOnPenalties: boolean | null;
   url: string;
 }
 
@@ -21,6 +24,9 @@ interface MatchRow {
   aafk_score: number | null;
   opponent_score: number | null;
   result: "S" | "U" | "T" | null;
+  after_extra_time: number;
+  decided_on_penalties: number;
+  won_on_penalties: number | null;
   url: string;
 }
 
@@ -111,7 +117,8 @@ export interface ArchiveTotals {
 }
 
 const matchColumns = `match_id, date, competition, is_home, opponent,
-  aafk_score, opponent_score, result, url`;
+  aafk_score, opponent_score, result, after_extra_time, decided_on_penalties,
+  won_on_penalties, url`;
 
 function mapMatch(row: MatchRow): ArchiveMatch {
   return {
@@ -123,6 +130,9 @@ function mapMatch(row: MatchRow): ArchiveMatch {
     aafkScore: row.aafk_score,
     opponentScore: row.opponent_score,
     result: row.result,
+    afterExtraTime: row.after_extra_time === 1,
+    decidedOnPenalties: row.decided_on_penalties === 1,
+    wonOnPenalties: row.won_on_penalties === null ? null : row.won_on_penalties === 1,
     url: row.url,
   };
 }

@@ -58,16 +58,38 @@ interface MatchDetail {
   stats: string | null;
   sources: string;
   confidence: string;
+  stage: string | null;
+  home_et_score: number | null;
+  away_et_score: number | null;
+  home_pens: number | null;
+  away_pens: number | null;
 }
+
+/** Sluttspillstadium skrevet ut. Cupkamper viser dette i stedet for et rundenummer. */
+const stageNames: Record<string, string> = {
+  group: "Gruppespill",
+  qualifying: "Kvalifisering",
+  round_of_32: "16-delsfinale",
+  round_of_16: "Åttedelsfinale",
+  quarter_final: "Kvartfinale",
+  semi_final: "Semifinale",
+  third_place: "Bronsefinale",
+  final: "Finale",
+  promotion_playoff: "Kvalifisering til opprykk",
+  relegation_playoff: "Nedrykkskvalifisering",
+  friendly: "Treningskamp",
+};
 
 function loadMatch(id: string): MatchDetail | undefined {
   const db = open();
   try {
     return one<MatchDetail>(
       db,
-      `SELECT m.id, m.match_date, m.kickoff, m.status, m.competition_name, m.round,
+      `SELECT m.id, m.match_date, m.kickoff, m.status, m.competition_name, m.round, m.stage,
               h.name AS home_name, a.name AS away_name, m.home_score, m.away_score,
-              m.home_ht_score, m.away_ht_score, m.venue_name, m.attendance, m.referee,
+              m.home_ht_score, m.away_ht_score, m.home_et_score, m.away_et_score,
+              m.home_pens, m.away_pens,
+              m.venue_name, m.attendance, m.referee,
               m.events, m.lineups, m.stats, m.sources, m.confidence
        FROM core_matches m
        JOIN core_clubs h ON h.id = m.home_club_id
@@ -106,9 +128,19 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
   const lineups = json<{ home?: Lineup; away?: Lineup }>(match.lineups, {});
   const stats = json<{ home?: TeamStats; away?: TeamStats }>(match.stats, {});
   const sources = json<SourceRef[]>(match.sources, []);
-  const score = match.home_score === null || match.away_score === null
-    ? "–"
-    : `${match.home_score}–${match.away_score}`;
+  // Overskriftsresultatet er sluttresultatet. home_score er stillingen etter
+  // ordinær tid, så ekstraomgangsmålene må legges til — ellers står en cupkamp
+  // som endte 2-1 på overtid oppført som 1-1.
+  const hasScore = match.home_score !== null && match.away_score !== null;
+  const homeFull = hasScore ? match.home_score! + (match.home_et_score ?? 0) : null;
+  const awayFull = hasScore ? match.away_score! + (match.away_et_score ?? 0) : null;
+  const score = homeFull === null || awayFull === null ? "–" : `${homeFull}–${awayFull}`;
+
+  const afterExtraTime = match.home_et_score !== null || match.away_et_score !== null;
+  const shootout = match.home_pens !== null && match.away_pens !== null;
+  const stageLabel = match.stage && match.stage !== "regular_season"
+    ? stageNames[match.stage] ?? null
+    : null;
 
   return (
     <article className="match-page">
@@ -116,13 +148,23 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
       <header className="match-header">
         <p className="small muted num">
           {match.match_date}{match.kickoff ? ` kl. ${match.kickoff}` : ""} · {match.competition_name}
-          {match.round ? ` · Runde ${match.round}` : ""}
+          {stageLabel ? ` · ${stageLabel}` : match.round ? ` · Runde ${match.round}` : ""}
         </p>
         <div className="scoreboard">
           <h1>{match.home_name}</h1>
           <strong className="scoreline">{score}</strong>
           <h1>{match.away_name}</h1>
         </div>
+        {(afterExtraTime || shootout) && (
+          <p className="small muted">
+            {shootout
+              ? `Avgjort på straffespark ${match.home_pens}–${match.away_pens}`
+              : "Etter ekstraomganger"}
+            {afterExtraTime && hasScore
+              ? ` · ${match.home_score}–${match.away_score} etter ordinær tid`
+              : ""}
+          </p>
+        )}
         {match.home_ht_score !== null && match.away_ht_score !== null && (
           <p className="small muted">Pause {match.home_ht_score}–{match.away_ht_score}</p>
         )}

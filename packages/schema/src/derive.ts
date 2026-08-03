@@ -10,6 +10,8 @@ export interface AafkPerspective {
   opponentScore: number | null;
   goalDifference: number | null;
   result: Result | null;
+  /** Sant når kampen gikk til ekstraomganger. Målene er allerede med i aafkScore. */
+  afterExtraTime: boolean;
   /** Sant når kampen ble avgjort på straffespark. */
   decidedOnPenalties: boolean;
   /** Ved straffesparkkonkurranse: vant AaFK den? Ellers null. */
@@ -47,6 +49,11 @@ export function toAafkPerspective(m: Match): AafkPerspective {
     result = goalDifference > 0 ? "S" : goalDifference < 0 ? "T" : "U";
   }
 
+  // Om kampen gikk til ekstraomganger. Et 2-1 etter ekstraomganger er en annen
+  // opplysning enn et 2-1 på ordinær tid, og skillet forsvinner i selve sifferet
+  // fordi ekstraomgangsmål er lagt inn i det. Derfor bæres det som eget felt.
+  const afterExtraTime = m.extraTime !== undefined;
+
   const shootout = m.penaltyShootout;
   const decidedOnPenalties =
     shootout !== undefined && shootout.home !== null && shootout.away !== null;
@@ -65,6 +72,7 @@ export function toAafkPerspective(m: Match): AafkPerspective {
     opponentScore,
     goalDifference,
     result,
+    afterExtraTime,
     decidedOnPenalties,
     wonOnPenalties,
   };
