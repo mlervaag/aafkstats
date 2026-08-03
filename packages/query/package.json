@@ -7,7 +7,8 @@
     ".": "./src/index.ts",
     "./dataset": "./src/dataset.ts",
     "./tools": "./src/tools.ts",
-    "./prompt": "./src/prompt.ts"
+    "./prompt": "./src/prompt.ts",
+    "./style": "./src/style.ts"
   },
   "dependencies": {
     "@aafkstats/db": "workspace:*",

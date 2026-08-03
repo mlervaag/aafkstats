@@ -1,6 +1,7 @@
 "use client";
 
 import { useDeferredValue, useEffect, useRef, useState } from "react";
+import { stripProseDashes } from "@aafkstats/query/style";
 import { InterludeRotator } from "@/components/Interlude";
 import { ThinkingLine } from "@/components/ThinkingLine";
 import { interludes } from "@/lib/interludes";
@@ -217,7 +218,14 @@ export function AskBox({ trivia = [] }: { trivia?: string[] }) {
               <ThinkingLine activeTool={activeTool} />
               <InterludeRotator items={interludes} trivia={trivia} />
             </>
-          ) : <Answer text={answer} />}
+          ) : (
+            // Siste sikring mot tankestrek. Systemprompten ber modellen la være,
+            // og dette fanger resten. Den kjøres på hele svaret ved hver
+            // opptegning, ikke per delta, så den aldri ser en halv setning.
+            // Mens svaret strømmer holdes de siste tegnene urørt: «2–» kan bli
+            // «2–1», og en forhastet erstatning ville blinket på skjermen.
+            <Answer text={stripProseDashes(answer, state === "loading")} />
+          )}
 
           {queries.length > 0 && (
             <details className="queries">
