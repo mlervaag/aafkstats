@@ -981,12 +981,45 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
   max-width: 52ch;
 }
 
+/* Linja skrives ut tegn for tegn, så de to lagene stables i samme rute: den
+   usynlige fullteksten holder høyden, den synlige vokser. Uten stabling ville
+   blokka vokse mens den skrives og dytte alt under seg nedover. */
 .interlude-text {
+  display: grid;
   margin: 0;
   font-size: 0.98rem;
   line-height: 1.55;
   font-style: italic;
   opacity: 0.85;
+}
+
+.interlude-ghost,
+.interlude-typed {
+  grid-area: 1 / 1;
+}
+
+.interlude-ghost {
+  visibility: hidden;
+}
+
+/* Skrivemarkøren. En strek på linjehøyde, ikke en understrek — den skal se ut som
+   et innsettingspunkt og ikke som en del av teksten.
+   Den blinker ikke. Markøren finnes bare mens det faktisk skrives, og da flytter
+   den seg allerede ett tegn av gangen; en blink oppå det ville skjult den
+   halvparten av tiden uten å legge til noe. */
+.interlude-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--accent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Kilden kommer på plass når linja står ferdig, og skal gli inn i stedet for
+     å slå på. */
+  .interlude-source { animation: interlude-in 320ms ease-out; }
 }
 
 .interlude-source {
@@ -999,13 +1032,27 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
   color: inherit;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .interlude-text {
-    animation: interlude-in 420ms ease-out;
-  }
+@keyframes interlude-in {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 0.6; transform: none; }
 }
 
-@keyframes interlude-in {
-  from { opacity: 0; transform: translateY(4px); }
-  to   { opacity: 0.85; transform: none; }
+/* Tenkeordet ved prikken. Det byttes helt ut hvert 2,4. sekund, så overgangen
+   må være kort nok til å ikke rekke å bli lagt merke til som en animasjon. */
+.thinking-word {
+  display: inline-block;
+}
+
+.thinking-tool {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .thinking-word { animation: thinking-word-in 240ms ease-out; }
+}
+
+@keyframes thinking-word-in {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: none; }
 }
