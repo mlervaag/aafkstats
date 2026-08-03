@@ -24,7 +24,12 @@ interface Args {
   retrievedAt: string;
 }
 
-const DIVISIONS: RsssfDivision[] = ["Premier", "First", "Cup"];
+// Discovery kan finne andre sider, så lista er en veiledning og ikke en sperre.
+// Den holder tastefeil ute uten å låse CLI-en til tre filnavn.
+const KNOWN_DIVISIONS = [
+  "Premier", "First", "Second", "Third", "Fourth", "Cup",
+  "Hoved", "Landsdel", "Krets", "Ecup",
+];
 
 async function main(): Promise<void> {
   const args = parseArgs(process.argv.slice(2));
@@ -115,8 +120,8 @@ function parseArgs(argv: string[]): Args {
       "bruk: --season ÅR --division Premier|First|Cup --competition ARKIV-ID [--limit N] [--skip-existing] [--write]",
     );
   }
-  if (!DIVISIONS.includes(division)) {
-    throw new Error(`--division må være en av ${DIVISIONS.join(", ")}`);
+  if (!/^[A-Za-z][A-Za-z0-9]*$/.test(division)) {
+    throw new Error(`--division må være et sidenavn uten filendelse, f.eks. ${KNOWN_DIVISIONS.slice(0, 3).join(", ")}`);
   }
   if (season < 1902 || season > 2100) throw new Error("--season er utenfor arkivets område");
 

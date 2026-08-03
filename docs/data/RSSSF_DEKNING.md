@@ -107,11 +107,56 @@ har fortsatt nøyaktig én kilde — dette er en oppdeling per kamp, ikke en sam
 Flagget er ikke standard, og skal ikke bli det. Det er riktig når to kilder dekker hver sin
 del av en sesong, og feil når de dekker samme del.
 
+## Rettigheter
+
+Dette er ikke avklart, og det er verdt å si tydelig.
+
+Nettstedet oppgir at privat, ikke-kommersiell kopiering er tillatt med kreditering, mens
+kommersiell bruk krever skriftlig tillatelse. Et offentlig GitHub-arkiv og et offentlig
+nettsted er ikke åpenbart privat bruk. `robots.txt` stenger bare `/cgi-bin/` og `/krets/`,
+så *hentingen* er grei — men henting og publisering er to forskjellige spørsmål.
+
+`data/sources/rsssf.yaml` fører derfor `publicRedistribution: permission_required` og
+`permissionStatus: pending`, og innhøstings-CLI-en **nekter å skrive** fra RSSSF til den
+statusen endrer seg. Tørrkjøring og kartlegging virker fortsatt.
+
+Neste steg er å be lars@rsssf.no skriftlig om tillatelse til automatisert uthenting og
+offentlig publisering av normaliserte kampfakta, med tydelig kreditering og lenke tilbake
+til kildesiden fra hver kamp. Det er en realistisk forespørsel: arkivet konkurrerer ikke med
+nettstedet, kopierer ingen tekst, og sender trafikk tilbake.
+
+De 417 kampene som allerede ligger inne, ble hentet før denne porten fantes.
+
+## Kartlegging framfor gjetting
+
+`pnpm ingest:rsssf-discover -- --from 1914 --to 1979` henter årsindeksen, følger lenkene og
+klassifiserer hver side. Den skriver aldri data.
+
+Det er nødvendig fordi filnavnene varierer: `Premier`, `First` og `Cup` holder fra 1980, men
+bakover heter sidene `Hoved`, `Landsdel`, `Krets`, `Second`, `Third`, `Fourth` og `Ecup`, og
+hvilke som finnes skifter fra år til år. En adapter som må gjette filnavn finner ikke det
+den ikke vet om.
+
+Hver side klassifiseres to ganger — etter hva indeksen kaller den, og etter hva som faktisk
+står på den:
+
+| Klasse | Betyr |
+|---|---|
+| `match_list` | Kampoversikt runde for runde. Kan høstes |
+| `mixed` | Stort sett tabeller, men med kamper i tillegg — typisk kvalifisering |
+| `tables_only` | Bare tabeller. Kan brukes til kontroll, ikke til enkeltkamper |
+| `unknown` | Verken tabeller eller kamper vi kjenner igjen |
+
+`mixed` finnes fordi «tables only» i indeksen ofte er en sannhet med modifikasjoner: 3.
+divisjon i 1965 er merket slik og er stort sett tabeller, men har åtte ekte
+kvalifiseringskamper nederst. En klassifisering med bare to utfall ville kastet dem.
+
+Når etikett og innhold spriker, er det innholdet som gjelder, og siden flagges for kontroll.
+
 ## Hva som fortsatt mangler
 
-- **Før 1980.** RSSSF har sidene helt tilbake til 1902, men AaFK spilte i 2. divisjon og
-  lavere store deler av den tiden. De ligger under `Second1.html` til `Second8.html`
-  (regionale avdelinger), som krever at man vet hvilken avdeling laget spilte i hvert år.
+- **Før 1980.** RSSSF har sidene helt tilbake til 1902. Kartleggingen viser hvor mye som
+  faktisk er hentbart — se dekningskartet.
 - **Europakampene.** Ingen av kildene vi har brukt dekker AaFKs europacupkvalifisering.
   Kildekartet peker på UEFA, og antallet er lite nok til at manuell registrering med
   kildehenvisning er forsvarlig.
