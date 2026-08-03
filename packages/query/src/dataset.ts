@@ -218,6 +218,18 @@ WHERE reports MATCH 'snuoperasjon'
 ORDER BY date DESC`,
   },
   {
+    question: "Hva er den eldste kampen i arkivet?",
+    sql: `SELECT date, opponent, is_home, aafk_score, opponent_score, competition, url
+FROM matches
+ORDER BY date ASC LIMIT 1`,
+  },
+  {
+    question: "Hvor mange kamper har vi fra hvert tiår?",
+    sql: `SELECT substr(date, 1, 3) || '0-tallet' AS tiar, count(*) AS kamper
+FROM matches
+GROUP BY tiar ORDER BY tiar`,
+  },
+  {
     question: "Har vi noen gang vunnet en cupkamp på straffer?",
     sql: `SELECT date, opponent, aafk_score, opponent_score, url
 FROM matches
