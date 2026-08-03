@@ -1,6 +1,6 @@
 import { exampleQueries, views } from "@aafkstats/query/dataset";
 
-export const metadata = { title: "Datasettet — AaFK-arkivet" };
+export const metadata = { title: "Datasettet" };
 
 /**
  * Dokumentasjon av det publiserte datasettet.
@@ -16,13 +16,17 @@ export default function DataPage() {
       <h1>Datasettet</h1>
       <p className="prose">
         Alt i arkivet ligger som YAML-filer på GitHub. Ved hver utrulling bygges de om til
-        en skrivebeskyttet SQLite-fil, og tabellene under er det nettstedet, API-et,
-        MCP-serveren og spørrefunksjonen leser fra.
+        en skrivebeskyttet SQLite-fil. Nettstedet og spørrefunksjonen leser tabellene under.
       </p>
       <p className="prose">
         Beskrivelsen under er den samme teksten spørrefunksjonen får i systemprompten sin.
         Det finnes ingen egen, skjult versjon — det du leser her er det modellen vet.
       </p>
+      <div className="notice prose" style={{ marginTop: "1.5rem" }}>
+        <strong>Testgrunnlag:</strong> Arkivet dekker foreløpig 450 ligakamper fra 2011–2025.
+        De fleste kampene har grunnfakta, mens detaljdata og referat har svært tynn dekning.
+        Se <a href="/om">kilder og forbehold</a> før du gjenbruker data.
+      </div>
 
       <nav aria-label="Tabeller" style={{ margin: "2rem 0" }}>
         <ul style={{ paddingLeft: "1.1rem" }}>

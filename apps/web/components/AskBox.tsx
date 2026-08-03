@@ -22,10 +22,10 @@ interface SearchMatch {
 }
 
 const SUGGESTIONS = [
-  "Når tapte vi sist med 6 mål på hjemmebane?",
+  "Når vant vi sist med minst 4 mål på hjemmebane?",
   "Hvilken motstander har vi tapt flest ganger mot?",
-  "Hvor mange mål scoret vi i 2025?",
-  "Har vi noen gang vunnet en cupkamp på straffer?",
+  "Hvor mange mål scoret vi i 2024?",
+  "Hvilken sesong hadde vi best målforskjell?",
 ];
 
 /** Portalens hovedinngang: direkte kampsøk mens man skriver, AI-svar ved innsending. */
@@ -140,11 +140,12 @@ export function AskBox() {
 
   return (
     <section className="ask" aria-labelledby="sporre">
-      <h1 id="sporre">Søk og spør arkivet</h1>
+      <p className="eyebrow">Smart kampsøk</p>
+      <h2 id="sporre">Hva leter du etter?</h2>
       <p className="prose muted">
-        Skriv år og motstander for direkte treff, for eksempel <strong>2025</strong>,{" "}
+        Skriv år og motstander for direkte treff, for eksempel <strong>2024</strong>,{" "}
         <strong>Sogndal</strong> eller <strong>2013 Tromsø</strong>. Skriv et spørsmål og trykk
-        Enter for å få et AI-generert svar fra arkivdataene.
+        Enter for et AI-generert svar som bare bruker arkivdataene.
       </p>
 
       <form className="ask-form" onSubmit={(event) => { event.preventDefault(); void ask(question); }}>

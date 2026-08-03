@@ -1,43 +1,32 @@
-# Lisens for dataene
+# Lisens og kildevilkår for data
 
-Innholdet i `data/` er lisensiert under
-[Creative Commons Navngivelse 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.no).
+Arkivets egne tekster, redaksjonelle sammendrag og egen dokumentasjon er lisensiert
+under [Creative Commons Navngivelse 4.0](https://creativecommons.org/licenses/by/4.0/deed.no).
+Koden er lisensiert separat under MIT.
 
-Koden er lisensiert separat under MIT — se `LICENSE`.
+## Fakta fra tredjepartskilder
 
-## Hvorfor to lisenser
+Kampdatoer, resultater, målscorere og tilskuertall er faktiske opplysninger. Kildene
+kan likevel ha avtalevilkår, databasevern eller andre begrensninger som gjelder for
+innhenting og systematisk gjenbruk. AaFK-arkivet gir derfor ingen videre lisens til
+tredjepartsmateriale utover rettighetene prosjektet selv har.
 
-Kode og data har ulike bruksmønstre. Vi vil at hvem som helst skal kunne bygge videre på
-koden uten forpliktelser, og samtidig at arkivet skal krediteres når dataene brukes andre
-steder. Det er hele poenget med å samle dem.
+Hver kamp har kildehenvisning per felt. `data/sources/` beskriver kjent lisens og
+forbehold for hver kilde. Brukere som eksporterer eller bygger videre på datasettet må
+selv kontrollere disse vilkårene.
 
-## Opphavsrett — hva vi kan og ikke kan gjøre
+FotMob-dataene fra 2011–2025 er et teknisk testgrunnlag fra et udokumentert endepunkt.
+FotMobs vilkår tillater ikke automatiske tjenester eller systematisk bruk. Datasettet
+skal derfor ikke omtales som en rettighetsavklart, fritt viderelisensiert FotMob-dump.
 
-Dette er den viktigste delen av dokumentet, og gjelder både mennesker og agentene som
-vedlikeholder arkivet.
+## Opphavsrettsbeskyttet tekst
 
-**Fakta er frie.** Datoer, resultater, målscorere, tilskuertall og tabellplasseringer er
-opplysninger om virkeligheten, ikke åndsverk. De kan samles inn og gjengis fritt.
+Kampreferat fra Sunnmørsposten, aafk.no, NTB eller andre kopieres aldri inn i arkivet.
 
-**Tekst er det ikke.** Kampreferat fra Sunnmørsposten, aafk.no, NTB eller andre er
-opphavsrettsbeskyttet. De kan ikke kopieres inn i arkivet — heller ikke omskrevet så tett
-at det i praksis er samme tekst.
-
-Derfor gjelder:
-
-- `report.body` og `report.summary` skal alltid være skrevet for dette arkivet.
+- `report.body` og `report.summary` skal være skrevet for dette arkivet.
 - Originalen lenkes fra `externalReports`, med utgiver og dato.
-- Korte, tydelig markerte sitat er greit (`externalReports[].quote`, maks 300 tegn).
-  Gjengivelse av en hel artikkel er det ikke.
-- **Wikipedia-tekst er CC BY-SA**, som smitter over på avledede verk. Wikipedia brukes til
-  fakta, aldri til formuleringer.
+- Korte, tydelig markerte sitat kan brukes når sitatretten gjelder. Feltet har en teknisk
+  grense på 300 tegn, men grensen er ikke i seg selv en juridisk tillatelse.
+- Wikipedia brukes til faktasjekk, ikke som kilde for formuleringer.
 
-Dette gjelder også når en agent skriver referat. Instruksen står i agentens prompt, og et
-bidrag som ser kopiert ut skal avvises i PR-vurderingen.
-
-## Kildehenvisning
-
-Hvert felt i arkivet bærer sin egen kilde i `sources[]`, med hvilke felt kilden dekker og
-når den ble hentet. `data/sources/` beskriver hver kilde, dens lisens og forbehold.
-
-Bruker du dataene, ber vi om kreditering til «AaFK-arkivet» med lenke til prosjektet.
+Bruker du arkivets egne tekster, krediter «AaFK-arkivet» med lenke til prosjektet.

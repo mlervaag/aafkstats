@@ -8,14 +8,14 @@ spørsmål til dataene er hovedinngangen.
 ```
 
 Alt ligger som YAML-filer i `data/`. Ved hver utrulling bygges de om til en skrivebeskyttet
-SQLite-fil som nettstedet, REST-API-et, MCP-serveren og spørrefunksjonen leser fra.
+SQLite-fil som nettstedet og spørrefunksjonen leser fra. REST-API og MCP er planlagt.
 
 ## Hvordan det henger sammen
 
 ```
-data/ (YAML, git)  ──build──►  aafkstats.sqlite  ──►  nettsted · REST-API · MCP · chat
+data/ (YAML, git)  ──build──►  aafkstats.sqlite  ──►  nettsted · søk · chat
       ▲                                                      │
-      └────────────── PR fra /bidra og agentrutiner ◄────────┘
+      └────────────── kontrollert pull request ◄─────────────┘
 ```
 
 **Git er sannheten.** Arkivfilen er et derivat som når som helst kan kastes og bygges opp
@@ -147,7 +147,8 @@ brukeren ikke har, og en test feiler hvis dokumentasjonen ikke stemmer med datab
 
 ## Lisens
 
-Kode under MIT (`LICENSE`), data under CC BY 4.0 (`DATA_LICENSE.md`).
+Kode under MIT. Egne tekster og arkivets eget redaksjonelle innhold under CC BY 4.0.
+Tredjepartskilder har egne vilkår — se `DATA_LICENSE.md` og `data/sources/`.
 
 **Referat skrives alltid for dette arkivet — aldri kopiert fra avis eller klubbside.**
 Fakta er frie, tekst er det ikke. Se `DATA_LICENSE.md`.
@@ -160,5 +161,5 @@ hendelser, lagoppstillinger og statistikk. Hovedfeltet gir direkte kamptreff men
 skriver år og motstander; Enter sender i stedet teksten til AI-søket. Se
 [testrapporten for 2011–2025](docs/data/FOTMOB_TESTDATA_2011_2025.md) og
 [detaljpiloten for 2025](docs/data/FOTMOB_PILOT_2025.md). Gjenstår blant annet flere
-kampklasser, rettighetsavklart innhøsting, REST-API, MCP-server, bidragsside og
-agentrutinene.
+kampklasser, rettighetsavklart innhøsting, REST-API, MCP-server, et automatisk
+bidragsskjema og agentrutinene.

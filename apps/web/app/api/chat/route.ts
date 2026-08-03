@@ -15,9 +15,10 @@ export const runtime = "nodejs";
 export const maxDuration = 60;
 
 const MODEL = "claude-opus-5";
-const MAX_TOKENS = 16_000;
+// Et statistikksvar skal være kort. Dette er også et hardt tak på kostnaden per kall.
+const MAX_TOKENS = 6_000;
 /** Maks antall runder modellen får med verktøy før vi stopper løkken. */
-const MAX_ITERATIONS = 8;
+const MAX_ITERATIONS = 5;
 
 interface ChatRequest {
   question: string;
