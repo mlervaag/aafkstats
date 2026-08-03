@@ -1,0 +1,39 @@
+id: 1975-06-25-aalesunds-fk-molde-fk
+date: 1975-06-25
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1975
+  stage: regular_season
+  round: 3
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: molde-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1975/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1975-cup-1975-06-25-aalesunds-fk-molde
+manual: []

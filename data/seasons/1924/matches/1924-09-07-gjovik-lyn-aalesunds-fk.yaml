@@ -1,0 +1,43 @@
+id: 1924-09-07-gjovik-lyn-aalesunds-fk
+date: 1924-09-07
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1924
+  stage: quarter_final
+home:
+  clubId: gjovik-lyn
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+extraTime:
+  home: 0
+  away: 0
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1924/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.stage
+      - extraTime
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1924-cup-1924-09-07-gjovik-lyn-aalesunds-fk
+manual: []
+note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.

@@ -1,0 +1,39 @@
+id: 1932-08-28-aalesunds-fk-larvik-turn
+date: 1932-08-28
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1932
+  stage: regular_season
+  round: 3
+home:
+  clubId: aalesunds-fk
+  score: 5
+  halfTimeScore: null
+away:
+  clubId: larvik-turn
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1932/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1932-cup-1932-08-28-aalesunds-fk-larvik-turn
+manual: []

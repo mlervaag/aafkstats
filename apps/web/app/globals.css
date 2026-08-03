@@ -798,3 +798,76 @@ footer { margin-top: clamp(4rem, 10vw, 8rem); padding: 3rem 0 1.5rem; color: var
   margin-top: 0.6rem;
   font-style: italic;
 }
+
+/* Rettighetstabellen på om-siden. Statusen er poenget, så den får farge —
+   men aldri farge alene: teksten sier det samme. */
+.rights-table th[scope="row"] {
+  text-align: left;
+  font-weight: 600;
+  max-width: 26rem;
+}
+
+.rights-note {
+  display: block;
+  margin-top: 0.35rem;
+  font-weight: 400;
+  white-space: normal;
+}
+
+.rights-status {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  border: 1px solid currentColor;
+}
+
+.rights-ok { color: #1a7f4b; }
+.rights-note-status,
+.rights-note.rights-status { color: inherit; }
+.rights-open { color: #a4551b; }
+
+@media (prefers-color-scheme: dark) {
+  .rights-ok { color: #58c98d; }
+  .rights-open { color: #e2a06a; }
+}
+
+/* Kortstoff mens spørrefunksjonen tenker.
+   Dempet med vilje — dette skal fylle en pause, ikke konkurrere med svaret som
+   kommer rett etterpå. */
+.interlude {
+  margin: 1.1rem 0 0;
+  padding: 0.9rem 0 0;
+  border-top: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+  max-width: 52ch;
+}
+
+.interlude-text {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.interlude-source {
+  margin-top: 0.45rem;
+  font-size: 0.78rem;
+  opacity: 0.6;
+}
+
+.interlude-source a {
+  color: inherit;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .interlude-text {
+    animation: interlude-in 420ms ease-out;
+  }
+}
+
+@keyframes interlude-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 0.85; transform: none; }
+}

@@ -3,6 +3,15 @@ name: Wikipedia
 url: https://no.wikipedia.org
 priority: 40
 license: CC BY-SA 4.0
+automatedAccess: allowed
+publicRedistribution: allowed
+attributionRequired: true
+permissionStatus: not_needed
+termsCheckedAt: 2026-08-03
+robotsCheckedAt: 2026-08-03
+permissionNote: >
+  Åpent MediaWiki-API. Teksten er CC BY-SA og smitter, men rene fakta gjør ikke det.
+  Brukes derfor bare til fakta.
 note: >
   Brukes til FAKTA (datoer, resultater, plasseringer), aldri til tekst. Wikipedia-tekst
   er CC BY-SA og smitter over på avledede verk. Se DATA_LICENSE.md.

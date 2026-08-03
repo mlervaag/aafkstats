@@ -3,6 +3,21 @@ name: FotMob
 url: https://www.fotmob.com
 priority: 70
 license: Uavklart. Udokumentert endepunkt; vilkårene begrenser automatisert og systematisk bruk.
+automatedAccess: allowed
+publicRedistribution: permission_required
+attributionRequired: true
+permissionStatus: accepted_risk
+termsCheckedAt: 2026-08-03
+robotsCheckedAt: 2026-08-03
+permissionNote: >
+  Udokumentert endepunkt. Vilkårene begrenser automatiserte tjenester og systematisk
+  eller regelmessig bruk, og robots.txt blokkerer API-rutene. Ingen tillatelse er
+  innhentet.
+  Prosjekteier besluttet 2026-08-03 å hente kampfakta herfra likevel, som et
+  avgrenset engangsuttrekk for et ikke-kommersielt supporterarkiv: bare fakta, aldri
+  artikkeltekst, ingen omgåelse av tilgangskontroll, og fartsgrense mot kilden.
+  Statusen er «accepted_risk» og ikke «granted» nettopp fordi det er en beslutning,
+  ikke en tillatelse.
 note: >
   Uoffisielt og udokumentert JSON-endepunkt. En avgrenset teknisk pilot viser rik
   dekning fra nyere sesonger, men dette er ikke en åpen API-lisens. FotMob skal ikke

@@ -1,0 +1,39 @@
+id: 1926-09-05-orn-aalesunds-fk
+date: 1926-09-05
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1926
+  stage: regular_season
+  round: 3
+home:
+  clubId: orn
+  score: 5
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1926/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1926-cup-1926-09-05-orn-aalesunds-fk
+manual: []

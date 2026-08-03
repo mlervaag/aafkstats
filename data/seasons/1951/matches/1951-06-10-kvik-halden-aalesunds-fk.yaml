@@ -1,0 +1,37 @@
+id: 1951-06-10-kvik-halden-aalesunds-fk
+date: 1951-06-10
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1951
+  stage: regular_season
+home:
+  clubId: kvik-halden
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1951/First.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1951-first-1951-06-10-kvik-halden-aalesunds-fk
+manual: []

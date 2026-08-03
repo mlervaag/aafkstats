@@ -1,0 +1,37 @@
+id: 1962-10-14-aalesunds-fk-kvik
+date: 1962-10-14
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1962
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: kvik
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1962/Landsdel.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1962-landsdel-1962-10-14-aalesunds-fk-kvik
+manual: []

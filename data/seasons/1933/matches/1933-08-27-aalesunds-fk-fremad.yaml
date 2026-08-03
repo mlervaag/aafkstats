@@ -1,0 +1,39 @@
+id: 1933-08-27-aalesunds-fk-fremad
+date: 1933-08-27
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1933
+  stage: regular_season
+  round: 3
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: fremad
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1933/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1933-cup-1933-08-27-aalesunds-fk-fremad
+manual: []

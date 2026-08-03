@@ -1,0 +1,39 @@
+id: 1966-07-31-frigg-aalesunds-fk
+date: 1966-07-31
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1966
+  stage: regular_season
+  round: 3
+home:
+  clubId: frigg
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1966/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1966-cup-1966-07-31-frigg-aalesunds-fk
+manual: []

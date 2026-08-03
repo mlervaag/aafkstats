@@ -1,0 +1,39 @@
+id: 1937-06-27-fredrikstad-aalesunds-fk
+date: 1937-06-27
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1937
+  stage: regular_season
+  round: 3
+home:
+  clubId: fredrikstad
+  score: 8
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1937/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1937-cup-1937-06-27-fredrikstad-aalesunds-fk
+manual: []

@@ -1,6 +1,8 @@
 "use client";
 
 import { useDeferredValue, useEffect, useRef, useState } from "react";
+import { InterludeRotator } from "@/components/Interlude";
+import { interludes } from "@/lib/interludes";
 
 interface ExecutedQuery {
   sql: string;
@@ -36,7 +38,7 @@ const SUGGESTIONS = [
 ];
 
 /** Portalens hovedinngang: direkte kampsøk mens man skriver, AI-svar ved innsending. */
-export function AskBox() {
+export function AskBox({ trivia = [] }: { trivia?: string[] }) {
   const [question, setQuestion] = useState("");
   const deferredQuestion = useDeferredValue(question);
   const [matches, setMatches] = useState<SearchMatch[]>([]);
@@ -210,10 +212,13 @@ export function AskBox() {
       {(state === "loading" || answer !== "") && !error && (
         <div className="answer" aria-live="polite" aria-busy={state === "loading"}>
           {answer === "" ? (
-            <p className="thinking">
-              <span className="dot" aria-hidden="true" />
-              {activeTool ? `Slår opp i arkivet (${activeTool}) …` : "Tolker spørsmålet …"}
-            </p>
+            <>
+              <p className="thinking">
+                <span className="dot" aria-hidden="true" />
+                {activeTool ? `Slår opp i arkivet (${activeTool}) …` : "Tolker spørsmålet …"}
+              </p>
+              <InterludeRotator items={interludes} trivia={trivia} />
+            </>
           ) : <Answer text={answer} />}
 
           {queries.length > 0 && (

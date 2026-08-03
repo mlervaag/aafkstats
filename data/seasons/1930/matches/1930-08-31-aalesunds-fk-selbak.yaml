@@ -1,0 +1,39 @@
+id: 1930-08-31-aalesunds-fk-selbak
+date: 1930-08-31
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1930
+  stage: regular_season
+  round: 3
+home:
+  clubId: aalesunds-fk
+  score: 6
+  halfTimeScore: null
+away:
+  clubId: selbak
+  score: 3
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1930/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1930-cup-1930-08-31-aalesunds-fk-selbak
+manual: []

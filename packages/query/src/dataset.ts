@@ -77,12 +77,13 @@ export const views: ViewDoc[] = [
   },
   {
     name: "seasons",
-    summary: "Ett sammendrag per sesong: plassering, målforskjell og resultatfordeling.",
+    summary: "Ett sammendrag per sesong OG konkurranse: plassering, målforskjell og resultatfordeling. Et år med både serie og cup gir to rader, så filtrer på competition_id eller competition_type når du vil ha bare den ene.",
     caveats: [
       "Tallene dekker kun sesongens hovedkonkurranse. Cup, europa og treningskamper er ikke med — bruk matches hvis du vil ha alt.",
     ],
     columns: [
       { name: "season", type: "integer", description: "Sesongår." },
+      { name: "competition_id", type: "text", description: "Konkurransens ID. Ett år kan ha flere rader — serie, cup og treningskamper hver for seg." },
       { name: "competition", type: "text", description: "Konkurransens navn det året." },
       { name: "competition_type", type: "text", description: "Konkurransetype." },
       { name: "competition_tier", type: "integer", description: "Nivå, 1 er øverst." },
@@ -175,6 +176,13 @@ export const views: ViewDoc[] = [
       { name: "url", type: "text", description: "Kildens nettadresse." },
       { name: "priority", type: "integer", description: "Høyere tall vinner når kilder er uenige." },
       { name: "license", type: "text", description: "Lisens, der den er kjent." },
+            { name: "automated_access", type: "text", description: "Om kilden kan hentes automatisk: allowed, permission_required, blocked eller unknown." },
+      { name: "public_redistribution", type: "text", description: "Om data derfra kan publiseres videre: allowed, permission_required, denied eller unknown. Et annet spørsmål enn om den kan hentes." },
+      { name: "attribution_required", type: "integer (0/1)", description: "Om kilden krever kreditering." },
+      { name: "permission_status", type: "text", description: "not_needed, pending, requested, granted, accepted_risk eller denied. «accepted_risk» betyr at prosjekteier har valgt å gå videre uten tillatelse, ikke at tillatelse finnes." },
+      { name: "terms_checked_at", type: "text (YYYY-MM-DD)", description: "Når vilkårene sist ble lest av et menneske." },
+      { name: "robots_checked_at", type: "text (YYYY-MM-DD)", description: "Når robots.txt sist ble kontrollert." },
+      { name: "permission_note", type: "text", description: "Hva som er avklart, hvem som er spurt, og hva som gjenstår." },
       { name: "note", type: "text", description: "Forbehold og dekningsområde." },
     ],
   },

@@ -50,7 +50,15 @@ export const RSSSF_CLUB_ALIASES: Record<string, string> = {
 /** Navnet AaFK står oppført med hos RSSSF. */
 const AAFK_SOURCE_NAME = "Aalesund";
 
-export type RsssfDivision = "Premier" | "First" | "Cup";
+/**
+ * Sidene vi høster fra rutinemessig. Discovery finner flere — Hoved, Landsdel,
+ * Krets, Second, Third, Ecup — og de er bare strenger, siden filnavnene varierer
+ * fra år til år.
+ */
+export type RsssfDivision = string;
+
+/** De vanlige, for hjelpetekst og validering i CLI-en. */
+export const COMMON_DIVISIONS = ["Premier", "First", "Cup"] as const;
 
 export interface RsssfFetchOptions {
   season: number;

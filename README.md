@@ -66,13 +66,41 @@ To kilder er i bruk, og de dekker hver sin del av historien:
 Begge dokumentene sier hvor kilden slutter og hvorfor — det er lettere å lese enn å
 gjenoppdage.
 
+### Kan hentes er ikke kan publiseres
+
+At et sluttresultat er et faktum uten opphavsrett sier ingenting om to andre ting:
+databasevernet på samlingen det ble hentet fra, og vilkårene kilden selv har satt. De to
+spørsmålene holdes derfor i hvert sitt felt i `data/sources/*.yaml`:
+
+```yaml
+automatedAccess: allowed              # kan vi hente?
+publicRedistribution: permission_required   # kan vi publisere videre?
+permissionStatus: pending
+termsCheckedAt: 2026-08-03
+robotsCheckedAt: 2026-08-03
+```
+
+Innhøstings-CLI-ene leser statusen før nettverkskallet. Tørrkjøring krever bare at kilden
+kan hentes; `--write` krever i tillegg at den kan publiseres. `unknown` regnes aldri som et
+ja.
+
+`accepted_risk` betyr at vilkårene er lest, at bruken ikke er uttrykkelig tillatt, og at
+prosjekteier likevel har besluttet å gå videre — for et åpent, ikke-kommersielt
+supporterarkiv over offentlige kampfakta. Statusen krever begrunnelse, håndhevet av
+skjemaet. Poenget med å skille den fra `granted` er at arkivet skal si hva det vet framfor å
+pynte på det.
+
+Statusen vises offentlig på `/om`. Et arkiv som lever av etterprøvbarhet bør ikke gjemme sin
+egen rettighetssituasjon.
+
 ## Kommandoer
 
 | Kommando | Hva den gjør |
 |---|---|
 | `pnpm validate` | Validerer hele arkivet: skjema, referanser, duplikater |
 | `pnpm ingest:fotmob -- --league ID --season ÅR --competition ID` | Tørrkjører én eksplisitt FotMob-sesong |
-| `pnpm ingest:rsssf -- --season ÅR --division Premier\|First\|Cup --competition ID` | Tørrkjører én eksplisitt RSSSF-sesong |
+| `pnpm ingest:rsssf -- --season ÅR --division SIDE --competition ID` | Tørrkjører én eksplisitt RSSSF-sesong |
+| `pnpm ingest:rsssf-discover -- --from ÅR --to ÅR` | Kartlegger hva RSSSF har. Skriver aldri data |
 | `pnpm db:build` | Bygger arkivfilen fra `data/`. Respekterer `AAFK_DATA_DIR` |
 | `pnpm test` | Kjører testene. Ingen tjeneste kreves — de bygger sitt eget arkiv |
 | `pnpm typecheck` | Typesjekker pakkene og nettstedet |

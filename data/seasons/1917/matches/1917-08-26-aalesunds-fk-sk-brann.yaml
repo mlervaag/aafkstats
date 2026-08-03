@@ -1,0 +1,39 @@
+id: 1917-08-26-aalesunds-fk-sk-brann
+date: 1917-08-26
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1917
+  stage: regular_season
+  round: 2
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: sk-brann
+  score: 14
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1917/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1917-cup-1917-08-26-aalesunds-fk-brann
+manual: []

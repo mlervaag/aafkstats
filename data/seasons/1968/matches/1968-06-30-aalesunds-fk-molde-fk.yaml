@@ -1,0 +1,39 @@
+id: 1968-06-30-aalesunds-fk-molde-fk
+date: 1968-06-30
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1968
+  stage: regular_season
+  round: 3
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: molde-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1968/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1968-cup-1968-06-30-aalesunds-fk-molde
+manual: []

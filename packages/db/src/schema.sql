@@ -56,6 +56,15 @@ CREATE TABLE core_sources (
   url       TEXT,
   priority  INTEGER NOT NULL,
   license   TEXT,
+  -- Rettighetsstatus. «Kan hentes» og «kan publiseres» er to forskjellige
+  -- spørsmål, og de holdes derfor i hvert sitt felt.
+  automated_access       TEXT NOT NULL DEFAULT 'unknown',
+  public_redistribution  TEXT NOT NULL DEFAULT 'unknown',
+  attribution_required   INTEGER NOT NULL DEFAULT 0,
+  permission_status      TEXT NOT NULL DEFAULT 'pending',
+  terms_checked_at       TEXT,
+  robots_checked_at      TEXT,
+  permission_note        TEXT,
   note      TEXT
 );
 
@@ -197,18 +206,31 @@ SELECT
 FROM core_matches m
 JOIN core_competitions c ON c.id = m.competition_id;
 
--- Ett sammendrag per sesong. Dekker kun sesongens hovedkonkurranse.
+-- Ett sammendrag per sesong OG konkurranse.
+--
+-- Var tidligere én rad per år, knyttet til core_seasons.competition_id. Det holdt
+-- så lenge arkivet bare hadde serien. Med cup og treningskamper inne ble raden
+-- feil på en stille måte: sesongposten peker på den konkurransen som tilfeldigvis
+-- ble høstet først, og aggregatet talte bare den. Sesongen 1998 har 26 seriekamper
+-- og 3 cupkamper, men sto med «Norgesmesterskapet, 3 kamper» — hele
+-- divisjonssesongen var usynlig.
+--
+-- Sannheten om hvilke konkurranser et år inneholder ligger i kampene, så den
+-- utledes derfra. core_seasons bidrar fortsatt med det bare den vet: sluttplass,
+-- antall lag, trener, opp- og nedrykk og forbehold — men bare for den
+-- konkurransen sesongposten faktisk gjelder.
 CREATE VIEW seasons AS
 SELECT
-  s.year                                                    AS season,
-  s.competition_name                                        AS competition,
+  m.season                                                  AS season,
+  m.competition_id                                          AS competition_id,
+  m.competition_name                                        AS competition,
   c.type                                                    AS competition_type,
   c.tier                                                    AS competition_tier,
   s.final_position,
   s.teams_in_league,
   s.head_coach,
-  s.promoted,
-  s.relegated,
+  coalesce(s.promoted, 0)                                   AS promoted,
+  coalesce(s.relegated, 0)                                  AS relegated,
   s.note,
   count(m.id)                                               AS played,
   sum(CASE WHEN m.result = 'S' THEN 1 ELSE 0 END)           AS wins,
@@ -219,14 +241,14 @@ SELECT
   coalesce(sum(m.goal_difference), 0)                       AS goal_difference,
   CAST(round(avg(CASE WHEN m.is_home = 1 THEN m.attendance END)) AS INTEGER)
                                                             AS avg_home_attendance,
-  '/sesong/' || s.year                                      AS url
-FROM core_seasons s
-JOIN core_competitions c ON c.id = s.competition_id
-LEFT JOIN core_matches m
-  ON m.season = s.year
- AND m.competition_id = s.competition_id
- AND m.status = 'played'
-GROUP BY s.year;
+  '/sesong/' || m.season                                    AS url
+FROM core_matches m
+JOIN core_competitions c ON c.id = m.competition_id
+LEFT JOIN core_seasons s
+  ON s.year = m.season
+ AND s.competition_id = m.competition_id
+WHERE m.status = 'played'
+GROUP BY m.season, m.competition_id;
 
 -- Innbyrdes statistikk mot hver motstander, hele arkivet og alle konkurranser.
 CREATE VIEW opponents AS
@@ -266,7 +288,12 @@ FROM core_matches m, json_each(m.events) e;
 
 -- Kildekatalogen, så svar kan forklare hvor dataene kommer fra.
 CREATE VIEW sources AS
-SELECT id AS source_id, name, url, priority, license, note FROM core_sources;
+SELECT
+  id AS source_id, name, url, priority, license,
+  automated_access, public_redistribution, attribution_required,
+  permission_status, terms_checked_at, robots_checked_at, permission_note,
+  note
+FROM core_sources;
 
 -- Referat, som en FTS5-tabell.
 --

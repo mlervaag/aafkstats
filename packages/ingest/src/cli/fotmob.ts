@@ -3,6 +3,7 @@ import { dirname, resolve } from "node:path";
 import { crossValidate, loadArchive, repoRoot } from "@aafkstats/schema/load";
 import { fetchFotmobSeason } from "../adapters/fotmob.js";
 import { pilotReport } from "../report.js";
+import { assertMayFetch, assertMayPublish } from "../policy.js";
 import { reconcile, writePlan } from "../reconcile.js";
 
 interface Args {
@@ -27,6 +28,11 @@ async function main(): Promise<void> {
   const before = await loadArchive(root);
   const existingIssues = [...before.issues, ...crossValidate(before)];
   if (existingIssues.length > 0) throw new Error(`arkivet har ${existingIssues.length} valideringsfeil før høsting`);
+
+  // Rettighetsporten står før nettverkskallet. Tørrkjøring krever bare at
+  // kilden kan hentes; skriving krever i tillegg at den kan publiseres.
+  assertMayFetch(before, "fotmob");
+  if (args.write) assertMayPublish(before, "fotmob");
 
   console.log(`FotMob ${args.league}, sesong ${args.season}${args.write ? " (skriv)" : " (tørrkjøring)"}`);
   const fetched = await fetchFotmobSeason({
