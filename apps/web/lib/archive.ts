@@ -82,6 +82,26 @@ interface OpponentRow {
   url: string;
 }
 
+/**
+ * Hva arkivet faktisk inneholder akkurat nå.
+ *
+ * Finnes fordi tallene ellers står som tekst i seks forskjellige sider, og hver
+ * innhøsting gjør dem gale igjen. Et arkiv som lyver om sitt eget omfang er verre
+ * enn et som ikke sier noe — særlig når hele poenget er etterprøvbarhet.
+ */
+export interface ArchiveCoverage {
+  matches: number;
+  seasons: number;
+  firstSeason: number | null;
+  lastSeason: number | null;
+  /** Kamper per konkurranse, flest først. */
+  byCompetition: { competition: string; type: string; matches: number }[];
+  /** Kamper med minst én registrert hendelse — mål, kort eller bytte. */
+  withEvents: number;
+  withAttendance: number;
+  withReport: number;
+}
+
 export interface ArchiveTotals {
   matches: number;
   seasons: number;
@@ -152,6 +172,40 @@ export function loadOverview(): { recent: ArchiveMatch[]; totals: ArchiveTotals 
        FROM matches`,
     );
     return { recent: recent.map(mapMatch), totals: totals ?? { matches: 0, seasons: 0, opponents: 0, first: null, last: null } };
+  } finally {
+    db.close();
+  }
+}
+
+export function loadCoverage(): ArchiveCoverage {
+  const db = open();
+  try {
+    const base = one<{ matches: number; seasons: number; first: number | null; last: number | null }>(
+      db,
+      `SELECT count(*) AS matches, count(DISTINCT season) AS seasons,
+              min(season) AS first, max(season) AS last
+       FROM matches`,
+    );
+    const byCompetition = all<{ competition: string; type: string; matches: number }>(
+      db,
+      `SELECT competition, competition_type AS type, count(*) AS matches
+       FROM matches GROUP BY competition, competition_type ORDER BY matches DESC`,
+    );
+    // Hendelser ligger i sitt eget view, én rad per hendelse — derfor DISTINCT.
+    const withEvents = one<{ n: number }>(db, `SELECT count(DISTINCT match_id) AS n FROM match_events`);
+    const withAttendance = one<{ n: number }>(db, `SELECT count(*) AS n FROM matches WHERE attendance IS NOT NULL`);
+    const withReport = one<{ n: number }>(db, `SELECT count(*) AS n FROM matches WHERE report_summary IS NOT NULL`);
+
+    return {
+      matches: base?.matches ?? 0,
+      seasons: base?.seasons ?? 0,
+      firstSeason: base?.first ?? null,
+      lastSeason: base?.last ?? null,
+      byCompetition,
+      withEvents: withEvents?.n ?? 0,
+      withAttendance: withAttendance?.n ?? 0,
+      withReport: withReport?.n ?? 0,
+    };
   } finally {
     db.close();
   }

@@ -4,10 +4,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://aafkstats.vercel.app"),
   title: { default: "AaFK-arkivet", template: "%s · AaFK-arkivet" },
-  description: "Et uoffisielt, søkbart arkiv med 450 AaFK-kamper fra 2011 til 2025.",
+  description: "Et uoffisielt, søkbart arkiv over Aalesunds Fotballklubbs kamphistorikk.",
   openGraph: {
     title: "AaFK-arkivet",
-    description: "450 kamper · 15 sesonger · 2011–2025",
+    description: "Kamphistorikken til AaFK — søkbar, kildeført og åpen.",
     type: "website",
     locale: "nb_NO",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "AaFK-arkivet – uoffisielt historisk arkiv" }],

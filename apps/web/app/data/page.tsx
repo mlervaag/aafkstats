@@ -1,4 +1,5 @@
 import { exampleQueries, views } from "@aafkstats/query/dataset";
+import { CoverageNote } from "@/components/CoverageNote";
 
 export const metadata = { title: "Datasettet" };
 
@@ -22,11 +23,10 @@ export default function DataPage() {
         Beskrivelsen under er den samme teksten spørrefunksjonen får i systemprompten sin.
         Det finnes ingen egen, skjult versjon — det du leser her er det modellen vet.
       </p>
-      <div className="notice prose" style={{ marginTop: "1.5rem" }}>
-        <strong>Testgrunnlag:</strong> Arkivet dekker foreløpig 450 ligakamper fra 2011–2025.
-        De fleste kampene har grunnfakta, mens detaljdata og referat har svært tynn dekning.
+      <CoverageNote />
+      <p className="prose small muted">
         Se <a href="/om">kilder og forbehold</a> før du gjenbruker data.
-      </div>
+      </p>
 
       <nav aria-label="Tabeller" style={{ margin: "2rem 0" }}>
         <ul style={{ paddingLeft: "1.1rem" }}>
