@@ -1,0 +1,106 @@
+id: 2011-11-06-sk-brann-aalesunds-fk
+date: 2011-11-06
+dateConfidence: exact
+kickoff: 13:15
+status: played
+competition:
+  id: nm
+  season: 2011
+  stage: final
+home:
+  clubId: sk-brann
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 2
+venueId: ullevaal
+neutralVenue: false
+events:
+  - minute: 19
+    type: goal
+    team: away
+    player: Michael Barrantes
+  - minute: 21
+    type: goal
+    team: home
+    player: Zsolt Korcsmár
+  - minute: 38
+    type: goal
+    team: away
+    player: Michael Barrantes
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Piotr Leciejewski
+      - Birkir Sævarsson
+      - Lars Grorud
+      - Zsolt Korcsmár
+      - Hassan El Fakiri
+      - Maximiliano Bajter
+      - Rodolph Austin
+      - Erik Mjelde
+      - Diego Guastavino
+      - Bjørnar Holmvik
+      - Kim Ojo
+    subs:
+      - Bjarte Haugsdal
+      - Chukwuma Akabueze
+      - Fredrik Haugen
+      - Håkon Andre Opdal
+      - Kristoffer Larsen
+      - Tadas Labukas
+      - Yaw-Ihle Amankwah
+    coach: Rune Skarsfjord
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Jo Nymo Matland
+      - Jason Morrison
+      - Fredrik Ulvestad
+      - Magnus Sylling Olsen
+      - Michael Barrantes
+      - Demar Phillips
+      - Edvard Skagestad
+    subs:
+      - Christian Myklebust
+      - Jonas Sandqvist
+      - Kjell Rune Sellin
+      - Lars Fuhre
+      - Peter Orry Larsen
+      - Sander Post
+      - Ville Jalasto
+    coach: Kjetil Rekdal
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-brann/2cr19k#1115206
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.stage
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1115206"
+manual: []

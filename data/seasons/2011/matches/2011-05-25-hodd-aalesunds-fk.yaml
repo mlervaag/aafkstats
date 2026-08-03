@@ -1,0 +1,63 @@
+id: 2011-05-25-hodd-aalesunds-fk
+date: 2011-05-25
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2011
+  stage: regular_season
+  round: 3
+home:
+  clubId: hodd
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+extraTime:
+  home: 0
+  away: 1
+venueId: hoddvoll-stadion
+neutralVenue: false
+events:
+  - minute: 50
+    type: goal
+    team: home
+    player: Erik Sandal
+  - minute: 90
+    type: goal
+    team: away
+    player: Daniel Arnefjord
+  - minute: 120
+    type: goal
+    team: away
+    player: Michael Barrantes
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/hodd-vs-aalesund/27i0yj#1011785
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - extraTime
+      - events
+    note: "Kildestatus: AET"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1011785"
+manual: []

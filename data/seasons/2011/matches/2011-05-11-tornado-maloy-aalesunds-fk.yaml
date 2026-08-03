@@ -1,0 +1,42 @@
+id: 2011-05-11-tornado-maloy-aalesunds-fk
+date: 2011-05-11
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2011
+  stage: regular_season
+  round: 2
+home:
+  clubId: tornado-maloy
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 5
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/tornado-maloy-vs-aalesund/y8rim#1009489
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1009489"
+manual: []

@@ -52,6 +52,13 @@ export interface SourceMatch {
   stats?: { home?: SourceTeamStats; away?: SourceTeamStats };
   url?: string;
   fields: string[];
+  /**
+   * Ting adapteren så, men ikke turde tolke. Reconcile løfter disse til
+   * kontrollpunkter, så en tvilsom kamp stopper skrivingen i stedet for å bli
+   * skrevet feil. Typisk: en kamp som gikk til ekstraomganger uten at
+   * hendelseslista kan forklare stillingen etter 90.
+   */
+  warnings?: string[];
 }
 
 export interface FetchFailure {

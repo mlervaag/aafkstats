@@ -1,0 +1,205 @@
+{
+  "header": {
+    "status": {
+      "utcTime": "2011-05-25T16:00:00.000Z",
+      "numberOfHomeRedCards": 0,
+      "numberOfAwayRedCards": 0,
+      "halfs": {
+        "firstHalfStarted": "25.05.2011 18:00:07",
+        "firstHalfEnded": "25.05.2011 18:46:49",
+        "secondHalfStarted": "25.05.2011 18:59:49",
+        "secondHalfEnded": "25.05.2011 19:51:43",
+        "firstExtraHalfStarted": "",
+        "secondExtraHalfStarted": "",
+        "gameEnded": "25.05.2011 20:28:10"
+      },
+      "finished": true,
+      "started": true,
+      "cancelled": false,
+      "awarded": false,
+      "scoreStr": "1 - 2",
+      "reason": {
+        "short": "AET",
+        "shortKey": "afterextratime_short",
+        "long": "After extra time",
+        "longKey": "afterextra"
+      },
+      "whoLostOnPenalties": null,
+      "whoLostOnAggregated": ""
+    }
+  },
+  "content": {
+    "matchFacts": {
+      "infoBox": {
+        "legInfo": null,
+        "Match Date": {
+          "utcTime": "2011-05-25T16:00:00.000Z",
+          "isDateCorrect": true
+        },
+        "Tournament": {
+          "id": 206,
+          "parentLeagueId": 206,
+          "link": "/leagues/206/overview/cup",
+          "leagueName": "Cup",
+          "roundName": "3",
+          "round": "3"
+        },
+        "Stadium": {
+          "name": "Høddvoll Stadion",
+          "country": ""
+        },
+        "Referee": {
+          "text": "",
+          "countryCode": "",
+          "country": ""
+        },
+        "Attendance": null
+      },
+      "events": {
+        "events": [
+          {
+            "reactKey": "undefined45HalfNaNundefinedundefined",
+            "timeStr": 45,
+            "type": "Half",
+            "time": 45,
+            "overloadTime": null,
+            "player": {
+              "id": null,
+              "profileUrl": ""
+            },
+            "homeScore": 0,
+            "awayScore": 0,
+            "halfStrShort": "HT",
+            "halfStrKey": "halftime_short"
+          },
+          {
+            "reactKey": "170919550Goal28210undefinedtrue",
+            "timeStr": 50,
+            "type": "Goal",
+            "time": 50,
+            "overloadTime": null,
+            "eventId": 1709195,
+            "player": {
+              "id": 28210,
+              "name": "Erik Sandal",
+              "profileUrl": "/players/28210/erik-sandal"
+            },
+            "homeScore": 0,
+            "awayScore": 0,
+            "profileUrl": "/players/28210/erik-sandal",
+            "overloadTimeStr": false,
+            "isHome": true,
+            "ownGoal": null,
+            "goalDescription": null,
+            "goalDescriptionKey": null,
+            "suffix": null,
+            "suffixKey": null,
+            "isPenaltyShootoutEvent": false,
+            "nameStr": "Erik Sandal",
+            "firstName": "Erik",
+            "lastName": "Sandal",
+            "fullName": "Erik Sandal",
+            "playerId": 28210,
+            "newScore": [
+              1,
+              0
+            ],
+            "penShootoutScore": null,
+            "shotmapEvent": null,
+            "assistStr": null,
+            "assistProfileUrl": null
+          },
+          {
+            "reactKey": "170927390Goal39911undefinedfalse",
+            "timeStr": 90,
+            "type": "Goal",
+            "time": 90,
+            "overloadTime": null,
+            "eventId": 1709273,
+            "player": {
+              "id": 39911,
+              "name": "Daniel Arnefjord",
+              "profileUrl": "/players/39911/daniel-arnefjord"
+            },
+            "homeScore": 1,
+            "awayScore": 0,
+            "profileUrl": "/players/39911/daniel-arnefjord",
+            "overloadTimeStr": false,
+            "isHome": false,
+            "ownGoal": null,
+            "goalDescription": null,
+            "goalDescriptionKey": null,
+            "suffix": null,
+            "suffixKey": null,
+            "isPenaltyShootoutEvent": false,
+            "nameStr": "Daniel Arnefjord",
+            "firstName": "Daniel",
+            "lastName": "Arnefjord",
+            "fullName": "Daniel Arnefjord",
+            "playerId": 39911,
+            "newScore": [
+              1,
+              1
+            ],
+            "penShootoutScore": null,
+            "shotmapEvent": null,
+            "assistStr": null,
+            "assistProfileUrl": null
+          },
+          {
+            "reactKey": "undefined90HalfNaNundefinedundefined",
+            "timeStr": 90,
+            "type": "Half",
+            "time": 90,
+            "overloadTime": null,
+            "player": {
+              "id": null,
+              "profileUrl": ""
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "halfStrShort": "FT",
+            "halfStrKey": "fulltime_short"
+          },
+          {
+            "reactKey": "1709322120Goal119021undefinedfalse",
+            "timeStr": 120,
+            "type": "Goal",
+            "time": 120,
+            "overloadTime": null,
+            "eventId": 1709322,
+            "player": {
+              "id": 119021,
+              "name": "Michael Barrantes",
+              "profileUrl": "/players/119021/michael-barrantes"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "profileUrl": "/players/119021/michael-barrantes",
+            "overloadTimeStr": false,
+            "isHome": false,
+            "ownGoal": null,
+            "goalDescription": null,
+            "goalDescriptionKey": null,
+            "suffix": null,
+            "suffixKey": null,
+            "isPenaltyShootoutEvent": false,
+            "nameStr": "Michael Barrantes",
+            "firstName": "Michael",
+            "lastName": "Barrantes",
+            "fullName": "Michael Barrantes",
+            "playerId": 119021,
+            "newScore": [
+              1,
+              2
+            ],
+            "penShootoutScore": null,
+            "shotmapEvent": null,
+            "assistStr": null,
+            "assistProfileUrl": null
+          }
+        ]
+      }
+    }
+  }
+}

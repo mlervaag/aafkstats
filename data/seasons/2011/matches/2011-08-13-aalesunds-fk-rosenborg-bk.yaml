@@ -1,0 +1,106 @@
+id: 2011-08-13-aalesunds-fk-rosenborg-bk
+date: 2011-08-13
+dateConfidence: exact
+kickoff: 19:45
+status: played
+competition:
+  id: nm
+  season: 2011
+  stage: quarter_final
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 1
+away:
+  clubId: rosenborg-bk
+  score: 1
+  halfTimeScore: 1
+venueId: color-line-stadion
+neutralVenue: false
+events:
+  - minute: 10
+    type: goal
+    team: away
+    player: Mikael Dorsin
+  - minute: 26
+    type: own_goal
+    team: home
+    player: Simen Wangberg
+  - minute: 56
+    type: goal
+    team: home
+    player: Michael Barrantes
+  - minute: 59
+    type: red_card
+    team: away
+    player: Mohammed-Awal Issah
+  - minute: 75
+    type: goal
+    team: home
+    player: Demar Phillips
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Jo Nymo Matland
+      - Daniel Arnefjord
+      - Enar Jääger
+      - Ville Jalasto
+      - Fredrik Carlsen
+      - Jason Morrison
+      - Michael Barrantes
+      - Demar Phillips
+      - Magnus Sylling Olsen
+      - Christian Myklebust
+    subs:
+      - Dan Peter Ulvestad
+      - Kjell Rune Sellin
+      - Peter Orry Larsen
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - Daniel Örlund
+      - Mikael Dorsin
+      - Simen Wangberg
+      - Jim Larsen
+      - Mikael Lustig
+      - Fredrik Winsnes
+      - Mohammed-Awal Issah
+      - Jonas Svensson
+      - Daniel Fredheim Holm
+      - Rade Prica
+      - Borek Dockal
+    subs:
+      - Alejandro Lago
+      - Fredrik Midtsjø
+      - Morten Moldskred
+    coach: Jan Jönsson
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-rosenborg/2caf6d#1035173
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.stage
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1035173"
+manual: []

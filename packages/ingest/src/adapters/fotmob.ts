@@ -115,12 +115,59 @@ export function normalizeLeagueMatch(
     url: raw.pageUrl ? `https://www.fotmob.com${raw.pageUrl}` : undefined,
     fields,
   };
-  const round = toInt(raw.round);
-  if (round !== undefined && round > 0) {
+  const { round, stage } = readRound(raw.round);
+  if (round !== undefined) {
     match.round = round;
     fields.push("competition.round");
   }
+  if (stage) {
+    match.stage = stage;
+    fields.push("competition.stage");
+  }
   return match;
+}
+
+/**
+ * Tolker FotMobs `round` til enten et rundenummer eller et sluttspillstadium.
+ *
+ * I serien er verdien et tall. I cupen er den en brøk eller et ord: «1/4», «1/2»,
+ * «final». Det er verdt en egen funksjon fordi den naive tolkningen er farlig
+ * stille: en generisk «strip alt som ikke er siffer» gjør «1/4» til rundenummer
+ * **14** og «1/8» til 18. Kampen blir da skrevet uten at noe klager, og feilen
+ * oppdages først når noen lurer på hvorfor cupfinalen ligger i runde 14.
+ */
+export function readRound(value: unknown): { round?: number; stage?: SourceMatch["stage"] } {
+  if (typeof value === "number" && Number.isInteger(value) && value > 0) {
+    return { round: value };
+  }
+  if (typeof value !== "string") return {};
+
+  const text = value.trim().toLowerCase();
+  if (text === "") return {};
+
+  if (/^\d+$/.test(text)) {
+    const n = Number(text);
+    return n > 0 ? { round: n } : {};
+  }
+
+  const fractions: Record<string, SourceMatch["stage"]> = {
+    "1/2": "semi_final",
+    "1/4": "quarter_final",
+    "1/8": "round_of_16",
+    "1/16": "round_of_32",
+  };
+  const fraction = fractions[text.replace(/\s+/g, "")];
+  if (fraction) return { stage: fraction };
+
+  if (/^final$/.test(text)) return { stage: "final" };
+  if (/(semi|semifinal)/.test(text)) return { stage: "semi_final" };
+  if (/(quarter|kvartfinale)/.test(text)) return { stage: "quarter_final" };
+  if (/(3rd place|third place|bronse)/.test(text)) return { stage: "third_place" };
+  if (/(group|gruppe)/.test(text)) return { stage: "group" };
+  if (/(qualif|kvalif|play-?off round)/.test(text)) return { stage: "qualifying" };
+
+  // Ukjent form. Bedre å la runde og stadium stå tomt enn å gjette et tall.
+  return {};
 }
 
 export function enrichFromDetails(match: SourceMatch, detail: RawMatchDetails): void {
@@ -151,6 +198,9 @@ export function enrichFromDetails(match: SourceMatch, detail: RawMatchDetails): 
     match.awayHalfTime = halfEvent.awayScore;
     match.fields.push("home.halfTimeScore", "away.halfTimeScore");
   }
+
+  splitExtraTime(match, detail);
+  readShootout(match, detail);
 
   const events = readEvents(detail);
   if (events.length > 0) {
@@ -190,7 +240,7 @@ export function readEvents(detail: RawMatchDetails): MatchEvent[] {
         ...base,
         type: raw.ownGoal ? "own_goal" : (raw.isPenalty || raw.goalDescription === "Penalty") ? "penalty_goal" : "goal",
         player,
-        assist: raw.assistStr ?? raw.assistInput,
+        assist: readAssist(raw),
       });
     } else if (raw.type === "Card") {
       const card = raw.card?.toLowerCase() ?? "";
@@ -207,6 +257,113 @@ export function readEvents(detail: RawMatchDetails): MatchEvent[] {
     }
   }
   return events.sort((a, b) => a.minute - b.minute || (a.stoppage ?? 0) - (b.stoppage ?? 0));
+}
+
+/**
+ * Deler et AET-resultat i stillingen etter 90 minutter og det som kom i ekstraomgangene.
+ *
+ * Nødvendig fordi de to sidene mener forskjellige ting med «resultatet». Arkivets
+ * `home.score` er stillingen etter ordinær tid, og `extraTime` er det som kom i
+ * tillegg — det er den formen straffesparkinvarianten i skjemaet hviler på.
+ * FotMobs `scoreStr` er derimot sluttresultatet inklusive ekstraomganger. Skrives
+ * det rett inn, får en cupkamp feil ordinærresultat, og en påfølgende
+ * straffesparkkonkurranse ser ut som om den fulgte på et ikke-uavgjort resultat.
+ *
+ * Payloaden oppgir ingen stilling ved 90. Den utledes derfor fra måltidspunktene.
+ * Går ikke regnestykket opp mot sluttresultatet — typisk fordi hendelseslista er
+ * ufullstendig på eldre kamper — skrives ingenting. Da er det bedre å mangle
+ * ekstraomgangen enn å finne på en stilling.
+ */
+export function splitExtraTime(match: SourceMatch, detail: RawMatchDetails): void {
+  if (match.rawStatus !== "AET" && match.rawStatus !== "Pen") return;
+  if (match.homeScore === undefined || match.awayScore === undefined) return;
+
+  const goals = (detail.content?.matchFacts?.events?.events ?? []).filter(
+    (event) => event.type === "Goal" && !event.isPenaltyShootoutEvent,
+  );
+
+  let home90 = 0;
+  let away90 = 0;
+  let homeTotal = 0;
+  let awayTotal = 0;
+  for (const goal of goals) {
+    const clock = parseMinute(goal.time, goal.overloadTime);
+    if (!clock) return void warn(match, "mål uten lesbart tidspunkt; ekstraomgang ikke utledet");
+    // Selvmål står oppført på laget som scoret imot, ikke på laget som fikk målet.
+    const forHome = goal.ownGoal ? !goal.isHome : goal.isHome;
+    if (forHome) homeTotal++;
+    else awayTotal++;
+    if (clock.minute <= 90) {
+      if (forHome) home90++;
+      else away90++;
+    }
+  }
+
+  // Kontrollsum: klarer ikke hendelsene å forklare sluttresultatet, er de ufullstendige.
+  if (homeTotal !== match.homeScore || awayTotal !== match.awayScore) {
+    warn(
+      match,
+      `hendelsene forklarer ikke sluttresultatet (${homeTotal}–${awayTotal} mot ${match.homeScore}–${match.awayScore}); ekstraomgang må settes manuelt`,
+    );
+    return;
+  }
+
+  const extraHome = match.homeScore - home90;
+  const extraAway = match.awayScore - away90;
+  match.homeScore = home90;
+  match.awayScore = away90;
+  if (extraHome > 0 || extraAway > 0) {
+    match.extraTime = { home: extraHome, away: extraAway };
+    match.fields.push("extraTime");
+  }
+}
+
+/**
+ * Straffesparkkonkurransen, som FotMob legger som egne hendelser med
+ * `isPenaltyShootoutEvent`. Bare de som ble scoret telles — bommene ligger i samme
+ * liste og skal ikke inn i sluttsifferet.
+ */
+export function readShootout(match: SourceMatch, detail: RawMatchDetails): void {
+  const shots = (detail.content?.matchFacts?.events?.events ?? []).filter(
+    (event) => event.isPenaltyShootoutEvent,
+  );
+  if (shots.length === 0) return;
+
+  let home = 0;
+  let away = 0;
+  for (const shot of shots) {
+    if (shot.type !== "Goal") continue;
+    if (shot.isHome) home++;
+    else away++;
+  }
+  match.penaltyShootout = { home, away };
+  match.fields.push("penaltyShootout");
+}
+
+function warn(match: SourceMatch, message: string): void {
+  (match.warnings ??= []).push(message);
+}
+
+/**
+ * Målgiverens navn, uten FotMobs visningstekst.
+ *
+ * `assistStr` er ferdig formatert for skjerm og lyder «assist by Janus Seehusen».
+ * `assistInput` har det rene navnet, men mangler i noen kamper. Vi foretrekker
+ * derfor det rene feltet og skreller prefikset av det andre — ellers havner
+ * «assist by » inni verdien og følger med videre i arkivet, API-et og svarene
+ * fra spørrefunksjonen.
+ */
+export function readAssist(raw: { assistStr?: string; assistInput?: string }): string | undefined {
+  const clean = raw.assistInput?.trim();
+  if (clean) return clean;
+
+  const display = raw.assistStr;
+  if (!display) return undefined;
+  // Både engelsk og norsk form, siden språket følger kildens lokalisering.
+  // Prefikset skrelles før trimming: «assist by » uten navn skal bli undefined,
+  // ikke den nakne etiketten.
+  const stripped = display.replace(/^\s*(assist(ed)? by|målgivende av|assist av)\s*/i, "").trim();
+  return stripped === "" ? undefined : stripped;
 }
 
 export function parseMinute(value: unknown, overload: unknown): { minute: number; stoppage?: number } | undefined {

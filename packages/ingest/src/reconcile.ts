@@ -122,6 +122,12 @@ export function reconcile(
       continue;
     }
 
+    // Adapteren så noe den ikke turde tolke. Det løftes til et kontrollpunkt her,
+    // slik at kampen stopper skrivingen framfor å bli skrevet på en gjetning.
+    for (const warning of source.warnings ?? []) {
+      issues.push(`${id}: ${warning}`);
+    }
+
     const fresh = matchSchema.parse({
       id,
       date: source.date,

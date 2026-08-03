@@ -1,0 +1,59 @@
+id: 2011-06-22-aalesunds-fk-sarpsborg-08
+date: 2011-06-22
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2011
+  stage: regular_season
+  round: 4
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 0
+away:
+  clubId: sarpsborg-08
+  score: 0
+  halfTimeScore: 0
+venueId: color-line-stadion
+neutralVenue: false
+events:
+  - minute: 59
+    type: goal
+    team: home
+    player: Fredrik Ulvestad
+  - minute: 62
+    type: goal
+    team: home
+    player: Daniel Arnefjord
+  - minute: 84
+    type: goal
+    team: home
+    player: Michael Barrantes
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-sarpsborg-08/2d5vpy#1015175
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1015175"
+manual: []

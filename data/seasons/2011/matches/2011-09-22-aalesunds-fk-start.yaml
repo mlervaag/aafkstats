@@ -1,0 +1,96 @@
+id: 2011-09-22-aalesunds-fk-start
+date: 2011-09-22
+dateConfidence: exact
+kickoff: 20:00
+status: played
+competition:
+  id: nm
+  season: 2011
+  stage: semi_final
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: start
+  score: 0
+  halfTimeScore: 0
+venueId: color-line-stadion
+neutralVenue: false
+events:
+  - minute: 40
+    type: own_goal
+    team: home
+    player: Haraldur Gudmundsson
+lineups:
+  home:
+    starters: []
+    subs:
+      - Christian Myklebust
+      - Daniel Arnefjord
+      - Demar Phillips
+      - Edvard Skagestad
+      - Enar Jääger
+      - Fredrik Carlsen
+      - Fredrik Ulvestad
+      - Jason Morrison
+      - Jo Nymo Matland
+      - Jonas Sandqvist
+      - Jonatan Tollås Nation
+      - Kjell Rune Sellin
+      - Magnus Sylling Olsen
+      - Michael Barrantes
+      - Peter Orry Larsen
+      - Sander Post
+      - Solomon Okoronkwo
+      - Sten Michael Grytebust
+    coach: Kjetil Rekdal
+  away:
+    starters: []
+    subs:
+      - Alexander Lund Hansen
+      - Amin Nouri
+      - Avni Pepa
+      - Bård Borgersen
+      - Christer Kleiven
+      - Ernest Asante
+      - Espen Børufsen
+      - Espen Knudsen
+      - Espen Søgård
+      - Haraldur Gudmundsson
+      - Jesper Mathisen
+      - Kenneth Høie
+      - Øyvind Gausdal
+      - Oladapo Olufemi
+      - Olav Tuelo Johannesen
+      - Ole Martin Årst
+      - Rolf Daniel Vikstøl
+      - Solomon James Owello
+    coach: Mons Ivar Mjelde
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-start/2ryd31#1100081
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.stage
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1100081"
+manual: []
