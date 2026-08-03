@@ -11,6 +11,18 @@ export interface ReconcileOptions {
   sourceId: string;
   competitionId: string;
   retrievedAt: string;
+  /**
+   * La kamper en annen kilde allerede eier stå i fred, i stedet for å stoppe
+   * kjøringen.
+   *
+   * Standard er å stoppe: to kilder på samme kamp krever et observasjonslag som
+   * ikke er bygget ennå, og en stille sammenslåing ville skjult hvem som mente
+   * hva. Men når en kilde kan fylle hullene i en sesong en annen kilde bare har
+   * halve av, er det bortkastet å nekte hele kjøringen. Da hoppes de overlappende
+   * kampene over og telles, mens de nye skrives. Hver kamp har fortsatt nøyaktig
+   * én kilde — dette er en oppdeling per kamp, ikke en sammenslåing.
+   */
+  skipExisting?: boolean;
 }
 
 export interface PlannedFile {
@@ -22,6 +34,8 @@ export interface PlannedFile {
 export interface ReconcilePlan {
   files: PlannedFile[];
   issues: string[];
+  /** Kamp-ID-er en annen kilde eier, hoppet over fordi `skipExisting` var satt. */
+  skipped: string[];
   summary: {
     matchesCreated: number;
     matchesUpdated: number;
@@ -29,6 +43,7 @@ export interface ReconcilePlan {
     clubsUpdated: number;
     venuesCreated: number;
     seasonsCreated: number;
+    matchesSkipped: number;
   };
 }
 
@@ -43,6 +58,7 @@ export function reconcile(
 ): ReconcilePlan {
   const files: PlannedFile[] = [];
   const issues: string[] = [];
+  const skipped: string[] = [];
   const clubs = archive.clubs.map((club) => structuredClone(club));
   const venues = archive.venues.map((venue) => structuredClone(venue));
   const clubFiles = new Map(archive.clubs.map((club) => [club.id, `clubs/${club.id}.yaml`]));
@@ -118,6 +134,10 @@ export function reconcile(
     const bySource = existingBySource.get(source.externalId);
     const collision = existingById.get(id);
     if (!bySource && collision) {
+      if (options.skipExisting) {
+        skipped.push(id);
+        continue;
+      }
       issues.push(`${id}: finnes fra før uten ${options.sourceId}-alias; krever manuell reconcile`);
       continue;
     }
@@ -165,6 +185,7 @@ export function reconcile(
         note: source.rawStatus ? `Kildestatus: ${source.rawStatus}` : undefined,
       }],
       confidence: "probable",
+      note: source.note,
       aliases: { [options.sourceId]: source.externalId },
     });
 
@@ -204,7 +225,9 @@ export function reconcile(
       clubsUpdated: changedClubs.size,
       venuesCreated: newVenues.size,
       seasonsCreated: files.filter((file) => /seasons\/\d+\/season\.yaml$/.test(file.relativePath)).length,
+      matchesSkipped: skipped.length,
     },
+    skipped,
   };
 }
 
