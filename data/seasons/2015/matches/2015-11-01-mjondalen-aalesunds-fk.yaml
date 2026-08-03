@@ -1,0 +1,42 @@
+id: 2015-11-01-mjondalen-aalesunds-fk
+date: 2015-11-01
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2015
+  stage: regular_season
+  round: 29
+home:
+  clubId: mjondalen
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/mjondalen-vs-aalesund/1uhyed#1879392
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1879392"
+manual: []

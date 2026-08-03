@@ -1,0 +1,42 @@
+id: 2025-09-29-odds-ballklubb-aalesunds-fk
+date: 2025-09-29
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2025
+  stage: regular_season
+  round: 24
+home:
+  clubId: odds-ballklubb
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/odds-ballklubb-vs-aalesund/27zx14#4695776
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4695776"
+manual: []

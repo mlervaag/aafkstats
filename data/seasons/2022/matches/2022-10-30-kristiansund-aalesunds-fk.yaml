@@ -1,0 +1,42 @@
+id: 2022-10-30-kristiansund-aalesunds-fk
+date: 2022-10-30
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: eliteserien
+  season: 2022
+  stage: regular_season
+  round: 28
+home:
+  clubId: kristiansund
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#3803299
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3803299"
+manual: []

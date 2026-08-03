@@ -1,0 +1,42 @@
+id: 2012-08-05-rosenborg-bk-aalesunds-fk
+date: 2012-08-05
+dateConfidence: exact
+kickoff: 20:00
+status: played
+competition:
+  id: eliteserien
+  season: 2012
+  stage: regular_season
+  round: 18
+home:
+  clubId: rosenborg-bk
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-rosenborg/2caf6d#1141709
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1141709"
+manual: []

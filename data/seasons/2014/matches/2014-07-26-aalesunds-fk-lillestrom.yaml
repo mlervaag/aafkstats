@@ -1,0 +1,42 @@
+id: 2014-07-26-aalesunds-fk-lillestrom
+date: 2014-07-26
+dateConfidence: exact
+kickoff: 15:30
+status: played
+competition:
+  id: eliteserien
+  season: 2014
+  stage: regular_season
+  round: 17
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: lillestrom
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-lillestrom/2ctxg4#1622854
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1622854"
+manual: []

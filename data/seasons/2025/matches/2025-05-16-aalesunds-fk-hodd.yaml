@@ -1,0 +1,42 @@
+id: 2025-05-16-aalesunds-fk-hodd
+date: 2025-05-16
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2025
+  stage: regular_season
+  round: 7
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: hodd
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/hodd-vs-aalesund/27i0yj#4695645
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4695645"
+manual: []

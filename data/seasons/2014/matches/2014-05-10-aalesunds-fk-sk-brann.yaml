@@ -1,0 +1,42 @@
+id: 2014-05-10-aalesunds-fk-sk-brann
+date: 2014-05-10
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2014
+  stage: regular_season
+  round: 8
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: sk-brann
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-brann/2cr19k#1622781
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1622781"
+manual: []

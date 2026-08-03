@@ -1,0 +1,42 @@
+id: 2025-07-26-aalesunds-fk-moss
+date: 2025-07-26
+dateConfidence: exact
+kickoff: 14:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2025
+  stage: regular_season
+  round: 14
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: moss
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-moss/2c4ak2#4695699
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4695699"
+manual: []

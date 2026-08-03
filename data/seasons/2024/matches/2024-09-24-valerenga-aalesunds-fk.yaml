@@ -1,0 +1,42 @@
+id: 2024-09-24-valerenga-aalesunds-fk
+date: 2024-09-24
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2024
+  stage: regular_season
+  round: 24
+home:
+  clubId: valerenga
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/valerenga-vs-aalesund/286lhq#4385815
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4385815"
+manual: []

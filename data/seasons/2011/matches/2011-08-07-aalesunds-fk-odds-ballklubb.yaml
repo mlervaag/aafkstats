@@ -1,0 +1,42 @@
+id: 2011-08-07-aalesunds-fk-odds-ballklubb
+date: 2011-08-07
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2011
+  stage: regular_season
+  round: 19
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: odds-ballklubb
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/odds-ballklubb-vs-aalesund/27zx14#958772
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "958772"
+manual: []

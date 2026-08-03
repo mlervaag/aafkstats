@@ -1,0 +1,42 @@
+id: 2018-04-03-aalesunds-fk-sogndal
+date: 2018-04-03
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2018
+  stage: regular_season
+  round: 1
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: sogndal
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-sogndal/2e8smm#2685025
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2685025"
+manual: []

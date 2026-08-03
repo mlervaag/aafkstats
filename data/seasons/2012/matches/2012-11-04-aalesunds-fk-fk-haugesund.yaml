@@ -1,0 +1,42 @@
+id: 2012-11-04-aalesunds-fk-fk-haugesund
+date: 2012-11-04
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2012
+  stage: regular_season
+  round: 28
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: fk-haugesund
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-fk-haugesund/2d6yvm#1141784
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1141784"
+manual: []

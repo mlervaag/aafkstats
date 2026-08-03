@@ -1,0 +1,42 @@
+id: 2018-07-22-aalesunds-fk-sandnes-ulf
+date: 2018-07-22
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2018
+  stage: regular_season
+  round: 16
+home:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: sandnes-ulf
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/sandnes-ulf-vs-aalesund/29f36h#2685138
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2685138"
+manual: []

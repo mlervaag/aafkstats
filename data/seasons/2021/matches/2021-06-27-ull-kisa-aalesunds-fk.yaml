@@ -1,0 +1,42 @@
+id: 2021-06-27-ull-kisa-aalesunds-fk
+date: 2021-06-27
+dateConfidence: exact
+kickoff: 15:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2021
+  stage: regular_season
+  round: 8
+home:
+  clubId: ull-kisa
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-ullkisa/2veb2a#3517409
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3517409"
+manual: []

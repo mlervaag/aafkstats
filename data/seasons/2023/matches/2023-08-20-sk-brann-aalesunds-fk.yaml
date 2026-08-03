@@ -1,0 +1,42 @@
+id: 2023-08-20-sk-brann-aalesunds-fk
+date: 2023-08-20
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: eliteserien
+  season: 2023
+  stage: regular_season
+  round: 19
+home:
+  clubId: sk-brann
+  score: 5
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-brann/2cr19k#4076992
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4076992"
+manual: []

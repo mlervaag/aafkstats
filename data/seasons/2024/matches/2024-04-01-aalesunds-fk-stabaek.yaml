@@ -1,0 +1,42 @@
+id: 2024-04-01-aalesunds-fk-stabaek
+date: 2024-04-01
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2024
+  stage: regular_season
+  round: 1
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: stabaek
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-stabaek/2rxyy1#4385655
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4385655"
+manual: []

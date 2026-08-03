@@ -1,0 +1,42 @@
+id: 2024-06-09-aalesunds-fk-kongsvinger
+date: 2024-06-09
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2024
+  stage: regular_season
+  round: 12
+home:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: kongsvinger
+  score: 4
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/kongsvinger-vs-aalesund/29vez4#4385747
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4385747"
+manual: []

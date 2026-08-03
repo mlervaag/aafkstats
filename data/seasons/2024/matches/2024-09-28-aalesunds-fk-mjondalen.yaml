@@ -1,0 +1,42 @@
+id: 2024-09-28-aalesunds-fk-mjondalen
+date: 2024-09-28
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2024
+  stage: regular_season
+  round: 25
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: mjondalen
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/mjondalen-vs-aalesund/1uhyed#4385840
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4385840"
+manual: []

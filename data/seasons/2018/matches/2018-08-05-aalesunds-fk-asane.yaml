@@ -1,0 +1,42 @@
+id: 2018-08-05-aalesunds-fk-asane
+date: 2018-08-05
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2018
+  stage: regular_season
+  round: 18
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: asane
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-asane/2t2i21#2685154
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2685154"
+manual: []

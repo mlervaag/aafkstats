@@ -1,0 +1,42 @@
+id: 2022-09-18-molde-fk-aalesunds-fk
+date: 2022-09-18
+dateConfidence: exact
+kickoff: 20:00
+status: played
+competition:
+  id: eliteserien
+  season: 2022
+  stage: regular_season
+  round: 23
+home:
+  clubId: molde-fk
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#3803259
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3803259"
+manual: []

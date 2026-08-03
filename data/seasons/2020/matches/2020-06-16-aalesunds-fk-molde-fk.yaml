@@ -1,0 +1,42 @@
+id: 2020-06-16-aalesunds-fk-molde-fk
+date: 2020-06-16
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2020
+  stage: regular_season
+  round: 1
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: molde-fk
+  score: 4
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#3237827
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3237827"
+manual: []

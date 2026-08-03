@@ -1,0 +1,42 @@
+id: 2021-08-23-strommen-aalesunds-fk
+date: 2021-08-23
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2021
+  stage: regular_season
+  round: 15
+home:
+  clubId: strommen
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/strommen-vs-aalesund/1bo1q7#3517523
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3517523"
+manual: []

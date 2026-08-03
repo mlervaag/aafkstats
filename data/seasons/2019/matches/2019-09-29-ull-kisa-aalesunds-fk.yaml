@@ -1,0 +1,42 @@
+id: 2019-09-29-ull-kisa-aalesunds-fk
+date: 2019-09-29
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2019
+  stage: regular_season
+  round: 25
+home:
+  clubId: ull-kisa
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-ullkisa/2veb2a#2948679
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2948679"
+manual: []

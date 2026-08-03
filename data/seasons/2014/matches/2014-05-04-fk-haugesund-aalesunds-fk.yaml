@@ -1,0 +1,42 @@
+id: 2014-05-04-fk-haugesund-aalesunds-fk
+date: 2014-05-04
+dateConfidence: exact
+kickoff: 15:30
+status: played
+competition:
+  id: eliteserien
+  season: 2014
+  stage: regular_season
+  round: 7
+home:
+  clubId: fk-haugesund
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-fk-haugesund/2d6yvm#1622773
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1622773"
+manual: []

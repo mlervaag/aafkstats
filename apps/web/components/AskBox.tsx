@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useDeferredValue, useEffect, useRef, useState } from "react";
 
 interface ExecutedQuery {
   sql: string;
@@ -9,27 +9,69 @@ interface ExecutedQuery {
   error?: string;
 }
 
+interface SearchMatch {
+  matchId: string;
+  date: string;
+  competition: string;
+  isHome: boolean;
+  opponent: string;
+  aafkScore: number | null;
+  opponentScore: number | null;
+  result: "S" | "U" | "T" | null;
+  url: string;
+}
+
 const SUGGESTIONS = [
   "Når tapte vi sist med 6 mål på hjemmebane?",
   "Hvilken motstander har vi tapt flest ganger mot?",
-  "Hvor mange mål scoret vi i 2024?",
+  "Hvor mange mål scoret vi i 2025?",
   "Har vi noen gang vunnet en cupkamp på straffer?",
 ];
 
-/**
- * Spørrefeltet — portalens hovedinngang.
- *
- * Leser SSE-strømmen fra /api/chat rå i stedet for å bruke et bibliotek: formatet er
- * fire hendelsestyper, og en egen avhengighet for det ville kostet mer enn den sparer.
- */
+/** Portalens hovedinngang: direkte kampsøk mens man skriver, AI-svar ved innsending. */
 export function AskBox() {
   const [question, setQuestion] = useState("");
+  const deferredQuestion = useDeferredValue(question);
+  const [matches, setMatches] = useState<SearchMatch[]>([]);
+  const [searchState, setSearchState] = useState<"idle" | "loading" | "done">("idle");
   const [answer, setAnswer] = useState("");
   const [queries, setQueries] = useState<ExecutedQuery[]>([]);
   const [activeTool, setActiveTool] = useState<string | null>(null);
   const [state, setState] = useState<"idle" | "loading" | "done" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const query = deferredQuestion.trim();
+    if (query.length < 2) {
+      setMatches([]);
+      setSearchState("idle");
+      return;
+    }
+
+    const controller = new AbortController();
+    const timer = setTimeout(async () => {
+      setSearchState("loading");
+      try {
+        const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`, {
+          signal: controller.signal,
+        });
+        if (!response.ok) throw new Error("Søket feilet");
+        const data = (await response.json()) as { matches?: SearchMatch[] };
+        setMatches(data.matches ?? []);
+        setSearchState("done");
+      } catch (fetchError) {
+        if (fetchError instanceof Error && fetchError.name === "AbortError") return;
+        setMatches([]);
+        setSearchState("done");
+      }
+    }, 180);
+
+    return () => {
+      clearTimeout(timer);
+      controller.abort();
+    };
+  }, [deferredQuestion]);
 
   async function ask(q: string) {
     if (q.trim() === "" || state === "loading") return;
@@ -41,20 +83,20 @@ export function AskBox() {
     setActiveTool(null);
 
     try {
-      const res = await fetch("/api/chat", {
+      const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: q }),
       });
 
-      if (!res.ok) {
-        const data = (await res.json().catch(() => ({}))) as { error?: string };
+      if (!response.ok) {
+        const data = (await response.json().catch(() => ({}))) as { error?: string };
         setError(data.error ?? "Noe gikk galt. Prøv igjen om litt.");
         setState("error");
         return;
       }
 
-      const reader = res.body?.getReader();
+      const reader = response.body?.getReader();
       if (!reader) throw new Error("Ingen svarstrøm");
       const decoder = new TextDecoder();
       let buffer = "";
@@ -63,23 +105,19 @@ export function AskBox() {
         const { done, value } = await reader.read();
         if (done) break;
         buffer += decoder.decode(value, { stream: true });
-
-        // SSE-rammer skilles av blank linje. Alt etter siste blanke linje er en
-        // ufullstendig ramme og må ligge igjen i bufferet til neste chunk.
         const frames = buffer.split("\n\n");
         buffer = frames.pop() ?? "";
 
         for (const frame of frames) {
-          const eventLine = frame.split("\n").find((l) => l.startsWith("event: "));
-          const dataLine = frame.split("\n").find((l) => l.startsWith("data: "));
+          const eventLine = frame.split("\n").find((line) => line.startsWith("event: "));
+          const dataLine = frame.split("\n").find((line) => line.startsWith("data: "));
           if (!eventLine || !dataLine) continue;
-
           const event = eventLine.slice(7).trim();
           const data = JSON.parse(dataLine.slice(6)) as Record<string, unknown>;
 
           if (event === "text") {
             setActiveTool(null);
-            setAnswer((prev) => prev + String(data.text ?? ""));
+            setAnswer((previous) => previous + String(data.text ?? ""));
           } else if (event === "tool") {
             setActiveTool(String(data.name ?? ""));
           } else if (event === "queries") {
@@ -91,86 +129,93 @@ export function AskBox() {
           }
         }
       }
-      setState((s) => (s === "loading" ? "done" : s));
+      setState((current) => current === "loading" ? "done" : current);
     } catch {
       setError("Mistet forbindelsen. Prøv igjen.");
       setState("error");
     }
   }
 
+  const showSearch = deferredQuestion.trim().length >= 2 && state !== "loading";
+
   return (
     <section className="ask" aria-labelledby="sporre">
-      <h1 id="sporre">Spør arkivet</h1>
+      <h1 id="sporre">Søk og spør arkivet</h1>
       <p className="prose muted">
-        Still et spørsmål om AaFKs kamphistorikk. Svaret bygger på arkivet, og du får se
-        nøyaktig hvilken spørring som ble kjørt.
+        Skriv år og motstander for direkte treff, for eksempel <strong>2025</strong>,{" "}
+        <strong>Sogndal</strong> eller <strong>2013 Tromsø</strong>. Skriv et spørsmål og trykk
+        Enter for å få et AI-generert svar fra arkivdataene.
       </p>
 
-      <form
-        className="ask-form"
-        onSubmit={(e) => {
-          e.preventDefault();
-          void ask(question);
-        }}
-      >
+      <form className="ask-form" onSubmit={(event) => { event.preventDefault(); void ask(question); }}>
         <input
           ref={inputRef}
           className="ask-input"
-          type="text"
+          type="search"
           value={question}
           maxLength={1000}
-          placeholder="Når tapte vi sist med 6 mål på hjemmebane?"
-          aria-label="Spørsmål til arkivet"
-          onChange={(e) => setQuestion(e.target.value)}
+          placeholder="Søk på år eller motstander, eller still et spørsmål …"
+          aria-label="Søk i eller spør arkivet"
+          aria-controls="direkte-treff"
+          autoComplete="off"
+          enterKeyHint="search"
+          onChange={(event) => setQuestion(event.target.value)}
         />
         <button className="ask-button" type="submit" disabled={state === "loading"}>
-          {state === "loading" ? "Søker …" : "Spør"}
+          {state === "loading" ? "Svarer …" : "Spør AI"}
         </button>
       </form>
 
-      <div className="suggestions">
-        {SUGGESTIONS.map((s) => (
+      {showSearch && (
+        <div id="direkte-treff" className="live-results" aria-live="polite">
+          <div className="live-results-heading">
+            <strong>Direkte kamptreff</strong>
+            <span className="small muted">
+              {searchState === "loading" ? "Søker …" : `${matches.length} ${matches.length === 1 ? "kamp" : "kamper"}`}
+            </span>
+          </div>
+          {searchState === "done" && matches.length === 0 ? (
+            <p className="small muted live-empty">Ingen direkte treff. Trykk Enter for å spørre AI.</p>
+          ) : (
+            <ul className="match-results">
+              {matches.map((match) => <SearchResult key={match.matchId} match={match} />)}
+            </ul>
+          )}
+        </div>
+      )}
+
+      <div className="suggestions" aria-label="Forslag til spørsmål">
+        {SUGGESTIONS.map((suggestion) => (
           <button
-            key={s}
+            key={suggestion}
             type="button"
             className="suggestion"
-            onClick={() => {
-              setQuestion(s);
-              void ask(s);
-            }}
+            onClick={() => { setQuestion(suggestion); void ask(suggestion); }}
           >
-            {s}
+            {suggestion}
           </button>
         ))}
       </div>
 
-      {error && (
-        <div className="answer notice notice-error" role="alert" style={{ marginTop: "1.5rem" }}>
-          {error}
-        </div>
-      )}
+      {error && <div className="answer notice notice-error" role="alert">{error}</div>}
 
       {(state === "loading" || answer !== "") && !error && (
         <div className="answer" aria-live="polite" aria-busy={state === "loading"}>
           {answer === "" ? (
             <p className="thinking">
               <span className="dot" aria-hidden="true" />
-              {activeTool ? `Slår opp i arkivet (${activeTool}) …` : "Tenker …"}
+              {activeTool ? `Slår opp i arkivet (${activeTool}) …` : "Tolker spørsmålet …"}
             </p>
-          ) : (
-            <Answer text={answer} />
-          )}
+          ) : <Answer text={answer} />}
 
           {queries.length > 0 && (
             <details className="queries">
-              <summary>
-                Vis spørringen{queries.length > 1 ? `e (${queries.length})` : ""} som ble kjørt
-              </summary>
-              {queries.map((q, i) => (
-                <div key={i}>
-                  <pre>{q.sql}</pre>
+              <summary>Vis spørringen{queries.length > 1 ? `e (${queries.length})` : ""} som ble kjørt</summary>
+              {queries.map((query, index) => (
+                <div key={`${query.sql}-${index}`}>
+                  <pre>{query.sql}</pre>
                   <p className="small muted">
-                    {q.error ? `Feilet: ${q.error}` : `${q.rowCount} rader · ${q.durationMs} ms`}
+                    {query.error ? `Feilet: ${query.error}` : `${query.rowCount} rader · ${query.durationMs} ms`}
                   </p>
                 </div>
               ))}
@@ -182,34 +227,85 @@ export function AskBox() {
   );
 }
 
-/**
- * Renderer svaret med markdown-lenker som ekte lenker.
- *
- * Bevisst minimal: kun avsnitt og [tekst](/sti). Vi tar ikke inn en markdown-parser
- * for å rendre modellgenerert tekst — det utvider angrepsflaten (rå HTML, bilder,
- * eksterne URL-er) for en gevinst vi ikke trenger. Kun interne stier slipper gjennom.
- */
-function Answer({ text }: { text: string }) {
-  const linkPattern = /\[([^\]]+)\]\((\/[^)\s]*)\)/g;
-
+function SearchResult({ match }: { match: SearchMatch }) {
+  const score = match.aafkScore === null || match.opponentScore === null
+    ? "–"
+    : match.isHome
+      ? `${match.aafkScore}–${match.opponentScore}`
+      : `${match.opponentScore}–${match.aafkScore}`;
   return (
-    <>
-      {text.split(/\n\n+/).map((paragraph, pi) => {
-        const parts: React.ReactNode[] = [];
-        let last = 0;
-        for (const m of paragraph.matchAll(linkPattern)) {
-          const start = m.index;
-          if (start > last) parts.push(paragraph.slice(last, start));
-          parts.push(
-            <a key={`${pi}-${start}`} href={m[2]}>
-              {m[1]}
-            </a>,
-          );
-          last = start + m[0].length;
-        }
-        if (last < paragraph.length) parts.push(paragraph.slice(last));
-        return <p key={pi}>{parts}</p>;
-      })}
-    </>
+    <li>
+      <a className="match-result-link" href={match.url}>
+        <span className="num muted">{match.date}</span>
+        <span className="result-opponent">
+          {match.result && <span className={`result-badge result-${match.result}`}>{match.result}</span>}
+          {match.isHome ? "AaFK – " : ""}{match.opponent}{match.isHome ? "" : " – AaFK"}
+        </span>
+        <strong className="score">{score}</strong>
+        <span className="small muted">{match.competition}</span>
+      </a>
+    </li>
   );
+}
+
+function Answer({ text }: { text: string }) {
+  const lines = text.split("\n");
+  const blocks: React.ReactNode[] = [];
+  let index = 0;
+
+  while (index < lines.length) {
+    const line = lines[index]!.trim();
+    if (!line) { index += 1; continue; }
+    const heading = /^(#{1,3})\s+(.+)$/.exec(line);
+    if (heading) {
+      const content = inline(heading[2]!, `h-${index}`);
+      blocks.push(heading[1]!.length === 1 ? <h2 key={index}>{content}</h2> : <h3 key={index}>{content}</h3>);
+      index += 1;
+      continue;
+    }
+    if (/^[-*]\s+/.test(line)) {
+      const items: React.ReactNode[] = [];
+      while (index < lines.length && /^[-*]\s+/.test(lines[index]!.trim())) {
+        items.push(<li key={index}>{inline(lines[index]!.trim().replace(/^[-*]\s+/, ""), `u-${index}`)}</li>);
+        index += 1;
+      }
+      blocks.push(<ul key={`ul-${index}`}>{items}</ul>);
+      continue;
+    }
+    if (/^\d+[.)]\s+/.test(line)) {
+      const items: React.ReactNode[] = [];
+      while (index < lines.length && /^\d+[.)]\s+/.test(lines[index]!.trim())) {
+        items.push(<li key={index}>{inline(lines[index]!.trim().replace(/^\d+[.)]\s+/, ""), `o-${index}`)}</li>);
+        index += 1;
+      }
+      blocks.push(<ol key={`ol-${index}`}>{items}</ol>);
+      continue;
+    }
+    const paragraph = [line];
+    index += 1;
+    while (index < lines.length && lines[index]!.trim() && !/^(#{1,3})\s+|^[-*]\s+|^\d+[.)]\s+/.test(lines[index]!.trim())) {
+      paragraph.push(lines[index]!.trim());
+      index += 1;
+    }
+    blocks.push(<p key={`p-${index}`}>{inline(paragraph.join(" "), `p-${index}`)}</p>);
+  }
+  return <div className="answer-content">{blocks}</div>;
+}
+
+function inline(text: string, keyPrefix: string): React.ReactNode[] {
+  const pattern = /(\*\*[^*]+\*\*|\[[^\]]+\]\(\/[^)\s]*\))/g;
+  const parts: React.ReactNode[] = [];
+  let last = 0;
+  for (const match of text.matchAll(pattern)) {
+    const start = match.index;
+    if (start > last) parts.push(text.slice(last, start));
+    const token = match[0];
+    const link = /^\[([^\]]+)\]\((\/[^)\s]*)\)$/.exec(token);
+    parts.push(link
+      ? <a key={`${keyPrefix}-${start}`} href={link[2]}>{link[1]}</a>
+      : <strong key={`${keyPrefix}-${start}`}>{token.slice(2, -2)}</strong>);
+    last = start + token.length;
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return parts;
 }

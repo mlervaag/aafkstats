@@ -1,0 +1,42 @@
+id: 2015-08-23-sarpsborg-08-aalesunds-fk
+date: 2015-08-23
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2015
+  stage: regular_season
+  round: 21
+home:
+  clubId: sarpsborg-08
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-sarpsborg-08/2d5vpy#1879358
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1879358"
+manual: []

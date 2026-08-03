@@ -1,0 +1,42 @@
+id: 2020-11-08-bodo-glimt-aalesunds-fk
+date: 2020-11-08
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2020
+  stage: regular_season
+  round: 24
+home:
+  clubId: bodo-glimt
+  score: 7
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/bodoglimt-vs-aalesund/2c37nd#3237716
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3237716"
+manual: []

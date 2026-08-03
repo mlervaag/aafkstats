@@ -1,0 +1,42 @@
+id: 2021-08-28-aalesunds-fk-raufoss-il
+date: 2021-08-28
+dateConfidence: exact
+kickoff: 15:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2021
+  stage: regular_season
+  round: 16
+home:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: raufoss-il
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-raufoss/2qsglk#3517653
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3517653"
+manual: []

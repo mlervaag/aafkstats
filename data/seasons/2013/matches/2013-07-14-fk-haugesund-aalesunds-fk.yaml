@@ -1,0 +1,42 @@
+id: 2013-07-14-fk-haugesund-aalesunds-fk
+date: 2013-07-14
+dateConfidence: exact
+kickoff: 15:30
+status: played
+competition:
+  id: eliteserien
+  season: 2013
+  stage: regular_season
+  round: 16
+home:
+  clubId: fk-haugesund
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-fk-haugesund/2d6yvm#1375233
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1375233"
+manual: []

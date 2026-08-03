@@ -1,0 +1,42 @@
+id: 2011-03-21-aalesunds-fk-fredrikstad
+date: 2011-03-21
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: eliteserien
+  season: 2011
+  stage: regular_season
+  round: 1
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: fredrikstad
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-fredrikstad/2c8m9k#958615
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "958615"
+manual: []

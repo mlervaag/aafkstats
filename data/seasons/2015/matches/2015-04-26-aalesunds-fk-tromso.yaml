@@ -1,0 +1,42 @@
+id: 2015-04-26-aalesunds-fk-tromso
+date: 2015-04-26
+dateConfidence: exact
+kickoff: 15:30
+status: played
+competition:
+  id: eliteserien
+  season: 2015
+  stage: regular_season
+  round: 4
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: tromso
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-tromso/2e5vky#1879412
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1879412"
+manual: []

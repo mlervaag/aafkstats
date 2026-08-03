@@ -1,0 +1,42 @@
+id: 2018-06-03-oygarden-fk-aalesunds-fk
+date: 2018-06-03
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2018
+  stage: regular_season
+  round: 11
+home:
+  clubId: oygarden-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/oygarden-fk-vs-aalesund/ufo2d#2685103
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2685103"
+manual: []

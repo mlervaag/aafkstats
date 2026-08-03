@@ -1,0 +1,42 @@
+id: 2018-10-07-hamarkameratene-aalesunds-fk
+date: 2018-10-07
+dateConfidence: exact
+kickoff: 15:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2018
+  stage: regular_season
+  round: 26
+home:
+  clubId: hamarkameratene
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-hamarkameratene/2cjt0y#2685218
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2685218"
+manual: []

@@ -1,0 +1,42 @@
+id: 2016-10-15-aalesunds-fk-bodo-glimt
+date: 2016-10-15
+dateConfidence: exact
+kickoff: 15:30
+status: played
+competition:
+  id: eliteserien
+  season: 2016
+  stage: regular_season
+  round: 27
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: bodo-glimt
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/bodoglimt-vs-aalesund/2c37nd#2147587
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2147587"
+manual: []

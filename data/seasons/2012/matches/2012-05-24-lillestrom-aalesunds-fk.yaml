@@ -1,0 +1,42 @@
+id: 2012-05-24-lillestrom-aalesunds-fk
+date: 2012-05-24
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: eliteserien
+  season: 2012
+  stage: regular_season
+  round: 11
+home:
+  clubId: lillestrom
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-lillestrom/2ctxg4#1141650
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1141650"
+manual: []

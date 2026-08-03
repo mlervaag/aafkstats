@@ -1,0 +1,207 @@
+id: 2025-04-05-sogndal-aalesunds-fk
+date: 2025-04-05
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2025
+  stage: regular_season
+  round: 2
+home:
+  clubId: sogndal
+  score: 3
+  halfTimeScore: 2
+away:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: 1
+venueId: fosshaugane-campus
+neutralVenue: false
+attendance: 2050
+referee: Jørgen Haugen
+events:
+  - minute: 29
+    type: own_goal
+    team: away
+    player: Diogo Bras
+  - minute: 33
+    type: yellow_card
+    team: away
+    player: John Kitolano
+  - minute: 35
+    type: goal
+    team: home
+    player: Martin Høyland
+  - minute: 39
+    type: goal
+    team: home
+    player: Erik Flataker
+    assist: assist by Oliver Hintsa
+  - minute: 41
+    type: substitution
+    team: away
+    player: Simen Haram
+    playerOff: John Kitolano
+  - minute: 45
+    stoppage: 3
+    type: substitution
+    team: home
+    player: Vegard Haugerud Hagen
+    playerOff: Jacob Blixt Flaten
+  - minute: 52
+    type: penalty_goal
+    team: away
+    player: Claudio Braga
+  - minute: 53
+    type: yellow_card
+    team: home
+    player: Lukass Vapne
+  - minute: 61
+    type: substitution
+    team: home
+    player: Oskar Borgthorsson
+    playerOff: Lukass Vapne
+  - minute: 67
+    type: substitution
+    team: away
+    player: Håkon Butli Hammer
+    playerOff: Henrik Melland
+  - minute: 71
+    type: substitution
+    team: away
+    player: Frederik Heiselberg
+    playerOff: Paul Ngongo Iversen
+  - minute: 71
+    type: substitution
+    team: away
+    player: Jørgen Bøe
+    playerOff: Marius Andresen
+  - minute: 72
+    type: goal
+    team: away
+    player: Simen Haram
+  - minute: 73
+    type: yellow_card
+    team: home
+    player: Martin Høyland
+  - minute: 80
+    type: substitution
+    team: home
+    player: Emmanuel Mensah
+    playerOff: Oliver Hintsa
+  - minute: 80
+    type: substitution
+    team: home
+    player: Jamal Deen Haruna
+    playerOff: Mathias Øren
+  - minute: 80
+    type: substitution
+    team: home
+    player: Rooney Onyango
+    playerOff: Sander Aske Granheim
+  - minute: 89
+    type: yellow_card
+    team: away
+    player: Claudio Braga
+  - minute: 90
+    stoppage: 3
+    type: goal
+    team: home
+    player: Vegard Haugerud Hagen
+  - minute: 90
+    stoppage: 4
+    type: goal
+    team: away
+    player: David Snær Johannsson
+    assist: assist by Claudio Braga
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Daniel Gjerde Sætren
+      - Diogo Bras
+      - Mathias Øren
+      - Sander Aske Granheim
+      - Martin André Sjølstad
+      - Lukass Vapne
+      - Kasper Skaanes
+      - Martin Høyland
+      - Jacob Blixt Flaten
+      - Oliver Hintsa
+      - Erik Flataker
+    subs:
+      - Vegard Haugerud Hagen
+      - Oskar Borgthorsson
+      - Jamal Deen Haruna
+      - Emmanuel Mensah
+      - Rooney Onyango
+      - Lars Jendal
+      - Andreas Kalstad
+      - Kristoffer Haukås Steinset
+      - Marius Årøy
+    coach: Luis Pimenta
+  away:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - John Kitolano
+      - Philip Sandvik Aukland
+      - Aleksander Hammer Kjelsen
+      - Kristoffer Nessø
+      - Henrik Melland
+      - Janus Seehusen
+      - David Snær Johannsson
+      - Marius Andresen
+      - Claudio Braga
+      - Paul Ngongo Iversen
+    subs:
+      - Simen Haram
+      - Håkon Butli Hammer
+      - Jørgen Bøe
+      - Frederik Heiselberg
+      - Tor Erik Valderhaug Larsen
+      - Olafur Gudmundsson
+      - Kristian Hemmingsen Lonebu
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 45
+    shots: 13
+    shotsOnTarget: 8
+    corners: 6
+  away:
+    possession: 55
+    shots: 12
+    shotsOnTarget: 9
+    corners: 8
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-sogndal/2e8smm#4695604
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4695604"
+manual: []

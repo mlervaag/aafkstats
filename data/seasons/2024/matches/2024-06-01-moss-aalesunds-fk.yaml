@@ -1,0 +1,42 @@
+id: 2024-06-01-moss-aalesunds-fk
+date: 2024-06-01
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2024
+  stage: regular_season
+  round: 11
+home:
+  clubId: moss
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-moss/2c4ak2#4385758
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4385758"
+manual: []

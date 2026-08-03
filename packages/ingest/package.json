@@ -1,0 +1,16 @@
+{
+  "name": "@aafkstats/ingest",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./fotmob": "./src/adapters/fotmob.ts"
+  },
+  "scripts": { "fotmob": "tsx src/cli/fotmob.ts" },
+  "dependencies": {
+    "@aafkstats/schema": "workspace:*",
+    "yaml": "^2.6.1"
+  },
+  "devDependencies": { "tsx": "^4.19.2" }
+}

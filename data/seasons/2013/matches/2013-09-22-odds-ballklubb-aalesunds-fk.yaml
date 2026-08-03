@@ -1,0 +1,42 @@
+id: 2013-09-22-odds-ballklubb-aalesunds-fk
+date: 2013-09-22
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2013
+  stage: regular_season
+  round: 24
+home:
+  clubId: odds-ballklubb
+  score: 5
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/odds-ballklubb-vs-aalesund/27zx14#1375358
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1375358"
+manual: []

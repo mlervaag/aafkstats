@@ -1,0 +1,42 @@
+id: 2019-10-26-aalesunds-fk-start
+date: 2019-10-26
+dateConfidence: exact
+kickoff: 18:30
+status: played
+competition:
+  id: forstedivisjon
+  season: 2019
+  stage: regular_season
+  round: 28
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: start
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-start/2ryd31#2948699
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2948699"
+manual: []

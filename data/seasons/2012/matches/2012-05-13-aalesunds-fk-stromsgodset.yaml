@@ -1,0 +1,42 @@
+id: 2012-05-13-aalesunds-fk-stromsgodset
+date: 2012-05-13
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2012
+  stage: regular_season
+  round: 8
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: stromsgodset
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/stromsgodset-vs-aalesund/29vrrs#1141624
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1141624"
+manual: []

@@ -1,0 +1,42 @@
+id: 2019-04-06-aalesunds-fk-kongsvinger
+date: 2019-04-06
+dateConfidence: exact
+kickoff: 15:30
+status: played
+competition:
+  id: forstedivisjon
+  season: 2019
+  stage: regular_season
+  round: 2
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: kongsvinger
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/kongsvinger-vs-aalesund/29vez4#2948229
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2948229"
+manual: []

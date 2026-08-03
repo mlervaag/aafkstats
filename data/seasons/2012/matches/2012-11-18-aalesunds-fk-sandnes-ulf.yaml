@@ -1,0 +1,42 @@
+id: 2012-11-18-aalesunds-fk-sandnes-ulf
+date: 2012-11-18
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2012
+  stage: regular_season
+  round: 30
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: sandnes-ulf
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/sandnes-ulf-vs-aalesund/29f36h#1141800
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1141800"
+manual: []

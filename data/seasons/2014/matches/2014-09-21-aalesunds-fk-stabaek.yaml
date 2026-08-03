@@ -1,0 +1,42 @@
+id: 2014-09-21-aalesunds-fk-stabaek
+date: 2014-09-21
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2014
+  stage: regular_season
+  round: 24
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: stabaek
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-stabaek/2rxyy1#1622909
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1622909"
+manual: []

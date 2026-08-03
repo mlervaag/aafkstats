@@ -1,0 +1,42 @@
+id: 2021-07-05-sandnes-ulf-aalesunds-fk
+date: 2021-07-05
+dateConfidence: exact
+kickoff: 20:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2021
+  stage: regular_season
+  round: 10
+home:
+  clubId: sandnes-ulf
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/sandnes-ulf-vs-aalesund/29f36h#3517396
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3517396"
+manual: []

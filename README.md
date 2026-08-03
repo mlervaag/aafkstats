@@ -39,25 +39,29 @@ AAFK_DATA_DIR=fixtures/data pnpm db:build   # bygger apps/web/.data/aafkstats.sq
 pnpm dev                                    # http://localhost:3000
 ```
 
-Uten `AAFK_DATA_DIR` bygges arkivet fra `data/`, som ennå er tomt for kamper — da starter
-nettstedet, men uten noe å vise. Arkivfilen ligger ikke i git: binærfiler gir ubrukelige
+Uten `AAFK_DATA_DIR` bygges arkivet fra de ekte kampene i `data/`. Arkivfilen ligger ikke
+i git: binærfiler gir ubrukelige
 differ, og den bygges fra kildefilene på et øyeblikk uansett.
 
 For at spørrefunksjonen skal virke må `ANTHROPIC_API_KEY` settes i `.env`. Resten av
 nettstedet fungerer uten.
 
 `fixtures/data` er et lite konstruert arkiv brukt til utvikling og tester — se
-`fixtures/README.md`. Det ekte arkivet i `data/` fylles av innhøstingen i `packages/ingest`.
+`fixtures/README.md`. Det ekte arkivet i `data/` kan fylles av de avgrensede verktøyene i
+`packages/ingest`, men hver kilde må først gjennom en deknings- og rettighetsvurdering.
 
 Hvilke kilder som kan brukes, og hvordan, er kartlagt i
 [Kildekart og innhentingsstrategi](docs/research/KILDEKART_OG_INNHENTINGSSTRATEGI.md).
 Les den før du skriver en adapter — flere av de opplagte kildene er røde.
+Den reviderte gjennomføringsrekkefølgen står i
+[Plan fra faktapilot til historisk arkiv](docs/PLAN_FRA_PILOT_TIL_ARKIV.md).
 
 ## Kommandoer
 
 | Kommando | Hva den gjør |
 |---|---|
 | `pnpm validate` | Validerer hele arkivet: skjema, referanser, duplikater |
+| `pnpm ingest:fotmob -- --league ID --season ÅR --competition ID` | Tørrkjører én eksplisitt FotMob-sesong |
 | `pnpm db:build` | Bygger arkivfilen fra `data/`. Respekterer `AAFK_DATA_DIR` |
 | `pnpm test` | Kjører testene. Ingen tjeneste kreves — de bygger sitt eget arkiv |
 | `pnpm typecheck` | Typesjekker pakkene og nettstedet |
@@ -73,6 +77,7 @@ Les den før du skriver en adapter — flere av de opplagte kildene er røde.
 | `fixtures/data/` | Konstruert testarkiv |
 | `packages/schema/` | Zod-skjema, validering, avledning til AaFK-perspektiv |
 | `packages/db/` | SQLite-skjema, byggesteget, SQL-guardrails |
+| `packages/ingest/` | Avgrenset innhøsting, cache, normalisering og reconcile |
 | `packages/query/` | Datasettdokumentasjon, verktøy og systemprompt |
 | `apps/web/` | Next.js: portal, `/api/chat`, `/data` |
 | `docs/research/` | Kildekart og innhentingsstrategi |
@@ -150,4 +155,10 @@ Fakta er frie, tekst er det ikke. Se `DATA_LICENSE.md`.
 ## Status
 
 Grunnmuren står: datamodell, database, guardrails, portal og datasettdokumentasjon.
-Gjenstår: innhøsting fra kildene, REST-API, MCP-server, bidragsside og agentrutinene.
+Testarkivet har 450 ligakamper fra 15 sesonger (2011–2025); fem kamper fra 2025 har
+hendelser, lagoppstillinger og statistikk. Hovedfeltet gir direkte kamptreff mens brukeren
+skriver år og motstander; Enter sender i stedet teksten til AI-søket. Se
+[testrapporten for 2011–2025](docs/data/FOTMOB_TESTDATA_2011_2025.md) og
+[detaljpiloten for 2025](docs/data/FOTMOB_PILOT_2025.md). Gjenstår blant annet flere
+kampklasser, rettighetsavklart innhøsting, REST-API, MCP-server, bidragsside og
+agentrutinene.

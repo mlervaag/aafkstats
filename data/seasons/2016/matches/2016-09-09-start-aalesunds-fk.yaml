@@ -1,0 +1,42 @@
+id: 2016-09-09-start-aalesunds-fk
+date: 2016-09-09
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: eliteserien
+  season: 2016
+  stage: regular_season
+  round: 23
+home:
+  clubId: start
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-start/2ryd31#2147624
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2147624"
+manual: []

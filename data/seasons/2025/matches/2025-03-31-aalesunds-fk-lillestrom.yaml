@@ -1,0 +1,180 @@
+id: 2025-03-31-aalesunds-fk-lillestrom
+date: 2025-03-31
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2025
+  stage: regular_season
+  round: 1
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 2
+away:
+  clubId: lillestrom
+  score: 2
+  halfTimeScore: 2
+venueId: color-line-stadion
+neutralVenue: false
+attendance: 5003
+referee: Steinar Hauge
+events:
+  - minute: 5
+    type: goal
+    team: home
+    player: Claudio Braga
+    assist: assist by Janus Seehusen
+  - minute: 11
+    type: goal
+    team: away
+    player: Eric Kitolano
+    assist: assist by Markus Seehusen Karlsbakk
+  - minute: 25
+    type: goal
+    team: home
+    player: David Snær Johannsson
+  - minute: 43
+    type: goal
+    team: away
+    player: Thomas Lehne Olsen
+    assist: assist by Frederik Elkær
+  - minute: 50
+    type: missed_penalty
+    team: home
+    player: Paul Ngongo Iversen
+  - minute: 50
+    type: yellow_card
+    team: away
+    player: Eric Kitolano
+  - minute: 55
+    type: yellow_card
+    team: home
+    player: Aleksander Hammer Kjelsen
+  - minute: 60
+    type: substitution
+    team: home
+    player: Frederik Heiselberg
+    playerOff: Paul Ngongo Iversen
+  - minute: 60
+    type: substitution
+    team: home
+    player: Henrik Melland
+    playerOff: Håkon Butli Hammer
+  - minute: 68
+    type: substitution
+    team: away
+    player: Jubril Adedeji
+    playerOff: Salieu Drammeh
+  - minute: 68
+    type: substitution
+    team: away
+    player: Lars Mogstad Ranger
+    playerOff: Eric Larsson
+  - minute: 74
+    type: yellow_card
+    team: home
+    player: Claudio Braga
+  - minute: 83
+    type: substitution
+    team: away
+    player: Kevin Martin Krygård
+    playerOff: Markus Seehusen Karlsbakk
+  - minute: 83
+    type: substitution
+    team: home
+    player: Kristian Hemmingsen Lonebu
+    playerOff: Claudio Braga
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Aleksander Hammer Kjelsen
+      - Philip Sandvik Aukland
+      - John Kitolano
+      - Marius Andresen
+      - Kristoffer Nessø
+      - David Snær Johannsson
+      - Håkon Butli Hammer
+      - Janus Seehusen
+      - Paul Ngongo Iversen
+      - Claudio Braga
+    subs:
+      - Henrik Melland
+      - Frederik Heiselberg
+      - Kristian Hemmingsen Lonebu
+      - Tor Erik Valderhaug Larsen
+      - Jørgen Bøe
+      - Olafur Gudmundsson
+      - Simen Haram
+      - Thomas Gulbrandsen
+      - Magnus Vestre Døving
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - Mads Hedenstad Christiansen
+      - Eric Larsson
+      - Espen Garnås
+      - Ruben Gabrielsen
+      - Frederik Elkær
+      - Eric Kitolano
+      - Vebjørn Hoff
+      - Markus Seehusen Karlsbakk
+      - Felix Va
+      - Thomas Lehne Olsen
+      - Salieu Drammeh
+    subs:
+      - Lars Mogstad Ranger
+      - Jubril Adedeji
+      - Kevin Martin Krygård
+      - Stefan Hagerup
+      - Lucas Svenningsen
+      - Sander Moen Foss
+      - Leandro Elvestad Neto
+      - Kparobo Arierhi
+      - Moctar Diop
+    coach: Hans Erik Ødegaard
+stats:
+  home:
+    possession: 42
+    shots: 9
+    shotsOnTarget: 7
+    corners: 5
+  away:
+    possession: 58
+    shots: 9
+    shotsOnTarget: 6
+    corners: 12
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-lillestrom/2ctxg4#4695597
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4695597"
+manual: []

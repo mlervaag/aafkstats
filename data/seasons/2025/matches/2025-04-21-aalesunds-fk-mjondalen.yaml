@@ -1,0 +1,185 @@
+id: 2025-04-21-aalesunds-fk-mjondalen
+date: 2025-04-21
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: forstedivisjon
+  season: 2025
+  stage: regular_season
+  round: 3
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: mjondalen
+  score: 0
+  halfTimeScore: 0
+venueId: color-line-stadion
+neutralVenue: false
+attendance: 4346
+referee: Ali Al-Hatem
+events:
+  - minute: 43
+    type: yellow_card
+    team: away
+    player: Alie Conteh
+  - minute: 59
+    type: substitution
+    team: home
+    player: Olafur Gudmundsson
+    playerOff: Philip Sandvik Aukland
+  - minute: 63
+    type: substitution
+    team: away
+    player: Jonas Bruusgaard
+    playerOff: Karim Bata
+  - minute: 67
+    type: yellow_card
+    team: away
+    player: Fredrick Godwin
+  - minute: 68
+    type: substitution
+    team: home
+    player: Henrik Melland
+    playerOff: Håkon Butli Hammer
+  - minute: 68
+    type: substitution
+    team: home
+    player: Mathias Kristensen
+    playerOff: Marius Andresen
+  - minute: 69
+    type: substitution
+    team: home
+    player: Frederik Heiselberg
+    playerOff: Paul Ngongo Iversen
+  - minute: 74
+    type: substitution
+    team: away
+    player: Oliver Aaser Midtgård
+    playerOff: Fredrick Godwin
+  - minute: 75
+    type: substitution
+    team: away
+    player: Fabian Kvam
+    playerOff: Nickolay Årsbog
+  - minute: 82
+    type: substitution
+    team: home
+    player: Kristian Hemmingsen Lonebu
+    playerOff: Mathias Kristensen
+  - minute: 84
+    type: yellow_card
+    team: away
+    player: Erik Midtgarden
+  - minute: 85
+    type: substitution
+    team: away
+    player: Tarik Mrakovic
+    playerOff: Ebrima Sawaneh
+  - minute: 85
+    type: substitution
+    team: away
+    player: Sander Bratvold
+    playerOff: Alie Conteh
+  - minute: 90
+    stoppage: 5
+    type: yellow_card
+    team: away
+    player: Isak Kjelsrud Vik
+  - minute: 90
+    stoppage: 6
+    type: yellow_card
+    team: home
+    player: David Snær Johannsson
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Aleksander Hammer Kjelsen
+      - Philip Sandvik Aukland
+      - Simen Haram
+      - Marius Andresen
+      - David Snær Johannsson
+      - Håkon Butli Hammer
+      - Janus Seehusen
+      - Kristoffer Nessø
+      - Paul Ngongo Iversen
+      - Claudio Braga
+    subs:
+      - Olafur Gudmundsson
+      - Henrik Melland
+      - Mathias Kristensen
+      - Frederik Heiselberg
+      - Kristian Hemmingsen Lonebu
+      - Tor Erik Valderhaug Larsen
+      - Magnus Vestre Døving
+      - Marius Gulbrandsen
+      - Marcus Haagensen Reed
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Leander Øy
+      - Syver Skaar Eriksen
+      - Erik Midtgarden
+      - Isak Kjelsrud Vik
+      - Anders Molund
+      - Fredrick Godwin
+      - Karim Bata
+      - Ebrima Sawaneh
+      - Jesper Svenungsen Skau
+      - Nickolay Årsbog
+      - Alie Conteh
+    subs:
+      - Jonas Bruusgaard
+      - Oliver Aaser Midtgård
+      - Fabian Kvam
+      - Tarik Mrakovic
+      - Sander Bratvold
+      - Philip Sørlie Bro
+      - Birk Auråen Dahl
+    coach: Kevin Nicol
+stats:
+  home:
+    possession: 65
+    shots: 9
+    shotsOnTarget: 5
+    corners: 7
+  away:
+    possession: 35
+    shots: 6
+    shotsOnTarget: 4
+    corners: 4
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/mjondalen-vs-aalesund/1uhyed#4695613
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4695613"
+manual: []
