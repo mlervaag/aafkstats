@@ -1,0 +1,39 @@
+id: 2003-06-25-aalesunds-fk-hodd
+date: 2003-06-25
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 2003
+  stage: regular_season
+  round: 3
+home:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: hodd
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2003/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2003-cup-2003-06-25-aalesunds-fk-hodd
+manual: []

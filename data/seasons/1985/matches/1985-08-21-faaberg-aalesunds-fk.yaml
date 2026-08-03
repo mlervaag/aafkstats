@@ -1,0 +1,38 @@
+id: 1985-08-21-faaberg-aalesunds-fk
+date: 1985-08-21
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1985
+  stage: quarter_final
+home:
+  clubId: faaberg
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1985/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.stage
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1985-cup-1985-08-21-faaberg-aalesunds-fk
+manual: []

@@ -1,5 +1,6 @@
 import { fetchText } from "../http.js";
 import { slugify } from "../ids.js";
+import { clubKey } from "../reconcile.js";
 import type { FetchResult, SourceMatch } from "../types.js";
 
 const BASE = "http://www.rsssf.no";
@@ -249,8 +250,11 @@ function buildMatch(input: BuildInput): SourceMatch {
     externalId,
     date: input.date,
     status: "played",
-    home: { externalId: slugify(alias(input.home)), name: alias(input.home) },
-    away: { externalId: slugify(alias(input.away)), name: alias(input.away) },
+    // Klubbens kilde-ID må tåle at samme klubb skrives på flere måter. RSSSF
+    // veksler mellom «Kristiansund» og «Kristiansund BK»; uten en felles nøkkel
+    // får de hver sin ID, og den andre kolliderer med aliaset den første la igjen.
+    home: { externalId: clubKey(alias(input.home)), name: alias(input.home) },
+    away: { externalId: clubKey(alias(input.away)), name: alias(input.away) },
     homeScore: input.homeGoals,
     awayScore: input.awayGoals,
     competitionExternalId: `${input.division}`,

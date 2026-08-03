@@ -1,0 +1,39 @@
+id: 2008-07-09-hodd-aalesunds-fk
+date: 2008-07-09
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 2008
+  stage: regular_season
+  round: 3
+home:
+  clubId: hodd
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2008/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2008-cup-2008-07-09-hodd-aalesunds-fk
+manual: []

@@ -1,0 +1,39 @@
+id: 1998-05-28-ullern-aalesunds-fk
+date: 1998-05-28
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1998
+  stage: regular_season
+  round: 3
+home:
+  clubId: ullern
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1998/First.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1998-first-1998-05-28-ullern-aalesunds-fk
+manual: []

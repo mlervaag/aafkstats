@@ -1,0 +1,39 @@
+id: 1996-05-23-skarbovik-aalesunds-fk
+date: 1996-05-23
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1996
+  stage: regular_season
+  round: 1
+home:
+  clubId: skarbovik
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1996/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1996-cup-1996-05-23-skarbovik-aalesunds-fk
+manual: []

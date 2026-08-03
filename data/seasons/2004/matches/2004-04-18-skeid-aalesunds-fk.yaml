@@ -1,0 +1,39 @@
+id: 2004-04-18-skeid-aalesunds-fk
+date: 2004-04-18
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 2004
+  stage: regular_season
+  round: 2
+home:
+  clubId: skeid
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2004/First.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2004-first-2004-04-18-skeid-aalesunds-fk
+manual: []

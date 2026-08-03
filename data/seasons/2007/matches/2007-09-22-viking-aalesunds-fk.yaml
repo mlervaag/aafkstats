@@ -1,0 +1,39 @@
+id: 2007-09-22-viking-aalesunds-fk
+date: 2007-09-22
+dateConfidence: exact
+status: played
+competition:
+  id: eliteserien
+  season: 2007
+  stage: regular_season
+  round: 21
+home:
+  clubId: viking
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2007/Premier.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2007-premier-2007-09-22-viking-aalesunds-fk
+manual: []

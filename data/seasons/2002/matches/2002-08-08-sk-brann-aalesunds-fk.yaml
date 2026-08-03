@@ -1,0 +1,48 @@
+id: 2002-08-08-sk-brann-aalesunds-fk
+date: 2002-08-08
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 2002
+  stage: regular_season
+  round: 4
+home:
+  clubId: sk-brann
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+extraTime:
+  home: 0
+  away: 0
+penaltyShootout:
+  home: 5
+  away: 6
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2002/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - extraTime
+      - penaltyShootout
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2002-cup-2002-08-08-brann-aalesunds-fk
+manual: []
+note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.

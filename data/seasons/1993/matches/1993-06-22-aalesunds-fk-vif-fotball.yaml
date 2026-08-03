@@ -1,0 +1,39 @@
+id: 1993-06-22-aalesunds-fk-vif-fotball
+date: 1993-06-22
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1993
+  stage: regular_season
+  round: 3
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: vif-fotball
+  score: 4
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1993/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1993-cup-1993-06-22-aalesunds-fk-vif-fotball
+manual: []

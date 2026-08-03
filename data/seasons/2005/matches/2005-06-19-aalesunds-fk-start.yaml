@@ -1,0 +1,39 @@
+id: 2005-06-19-aalesunds-fk-start
+date: 2005-06-19
+dateConfidence: exact
+status: played
+competition:
+  id: eliteserien
+  season: 2005
+  stage: regular_season
+  round: 11
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: start
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2005/Premier.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2005-premier-2005-06-19-aalesunds-fk-start
+manual: []

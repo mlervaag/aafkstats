@@ -1,0 +1,39 @@
+id: 2003-06-15-aalesunds-fk-bodo-glimt
+date: 2003-06-15
+dateConfidence: exact
+status: played
+competition:
+  id: eliteserien
+  season: 2003
+  stage: regular_season
+  round: 10
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: bodo-glimt
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2003/Premier.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2003-premier-2003-06-15-aalesunds-fk-bodo-glimt
+manual: []

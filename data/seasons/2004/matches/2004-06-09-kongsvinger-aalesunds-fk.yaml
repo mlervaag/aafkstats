@@ -1,0 +1,48 @@
+id: 2004-06-09-kongsvinger-aalesunds-fk
+date: 2004-06-09
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 2004
+  stage: regular_season
+  round: 3
+home:
+  clubId: kongsvinger
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+extraTime:
+  home: 0
+  away: 0
+penaltyShootout:
+  home: 3
+  away: 0
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2004/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - extraTime
+      - penaltyShootout
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2004-cup-2004-06-09-kongsvinger-aalesunds-fk
+manual: []
+note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.

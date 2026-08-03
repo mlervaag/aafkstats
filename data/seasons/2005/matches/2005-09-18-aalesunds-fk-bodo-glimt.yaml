@@ -1,0 +1,39 @@
+id: 2005-09-18-aalesunds-fk-bodo-glimt
+date: 2005-09-18
+dateConfidence: exact
+status: played
+competition:
+  id: eliteserien
+  season: 2005
+  stage: regular_season
+  round: 21
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: bodo-glimt
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2005/Premier.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2005-premier-2005-09-18-aalesunds-fk-bodo-glimt
+manual: []

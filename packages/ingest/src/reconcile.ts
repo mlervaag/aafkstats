@@ -231,7 +231,15 @@ export function reconcile(
   };
 }
 
-function clubKey(value: string): string {
+/**
+ * Normaliserer et klubbnavn til nøkkelen navnematchingen bruker.
+ *
+ * Eksportert fordi kilder uten egne klubb-ID-er må lage sine egne, og de må lages
+ * på nøyaktig denne formen. Gjør de ikke det, gir «Kristiansund» og
+ * «Kristiansund BK» hver sin ID for samme klubb, og den andre kolliderer med
+ * aliaset den første la igjen.
+ */
+export function clubKey(value: string): string {
   return slugify(value).replace(/-(fotballklubb|fotball|fk|il|bk|sk)$/, "");
 }
 

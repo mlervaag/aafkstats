@@ -1,0 +1,39 @@
+id: 1985-06-05-aalesunds-fk-sykkylven
+date: 1985-06-05
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1985
+  stage: regular_season
+  round: 1
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: sykkylven
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1985/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1985-cup-1985-06-05-aalesunds-fk-sykkylven
+manual: []

@@ -1,0 +1,39 @@
+id: 2001-08-05-aalesunds-fk-tromsdalen
+date: 2001-08-05
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 2001
+  stage: regular_season
+  round: 18
+home:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: tromsdalen
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2001/First.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2001-first-2001-08-05-aalesunds-fk-tromsdalen
+manual: []

@@ -1,0 +1,39 @@
+id: 1984-06-20-aalesunds-fk-clausenengen
+date: 1984-06-20
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1984
+  stage: regular_season
+  round: 2
+home:
+  clubId: aalesunds-fk
+  score: 5
+  halfTimeScore: null
+away:
+  clubId: clausenengen
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1984/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1984-cup-1984-06-20-aalesunds-fk-clausenengen
+manual: []

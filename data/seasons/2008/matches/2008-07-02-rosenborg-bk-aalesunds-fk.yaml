@@ -1,0 +1,39 @@
+id: 2008-07-02-rosenborg-bk-aalesunds-fk
+date: 2008-07-02
+dateConfidence: exact
+status: played
+competition:
+  id: eliteserien
+  season: 2008
+  stage: regular_season
+  round: 12
+home:
+  clubId: rosenborg-bk
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2008/Premier.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2008-premier-2008-07-02-rosenborg-aalesunds-fk
+manual: []

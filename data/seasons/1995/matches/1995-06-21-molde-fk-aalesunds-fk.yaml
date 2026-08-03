@@ -1,0 +1,39 @@
+id: 1995-06-21-molde-fk-aalesunds-fk
+date: 1995-06-21
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1995
+  stage: regular_season
+  round: 3
+home:
+  clubId: molde-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1995/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1995-cup-1995-06-21-molde-aalesunds-fk
+manual: []

@@ -1,0 +1,39 @@
+id: 2009-09-27-viking-aalesunds-fk
+date: 2009-09-27
+dateConfidence: exact
+status: played
+competition:
+  id: eliteserien
+  season: 2009
+  stage: regular_season
+  round: 26
+home:
+  clubId: viking
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2009/Premier.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2009-premier-2009-09-27-viking-aalesunds-fk
+manual: []
