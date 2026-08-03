@@ -835,6 +835,14 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
   .masthead nav { scrollbar-width: none; }
   .masthead nav::-webkit-scrollbar { display: none; }
   .ask { margin-inline: -0.25rem; }
+  /* Spørsmålet står uansett i feltet rett over. På en smal skjerm er det
+     viktigere at svaret ikke skyves nedover enn at gjentakelsen er komplett. */
+  .answer-head p {
+    flex: 1 1 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
   .section-heading { align-items: flex-start; flex-direction: column; }
   .season-grid, .contribute-grid, .footer-grid { grid-template-columns: 1fr; }
   .stat-strip { grid-auto-flow: row; grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -971,72 +979,6 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
   .rights-open { color: #e2a06a; }
 }
 
-/* Kortstoff mens spørrefunksjonen tenker.
-   Dempet med vilje — dette skal fylle en pause, ikke konkurrere med svaret som
-   kommer rett etterpå. */
-.interlude {
-  margin: 1.1rem 0 0;
-  padding: 0.9rem 0 0;
-  border-top: 1px solid color-mix(in srgb, currentColor 12%, transparent);
-  max-width: 52ch;
-}
-
-/* Linja skrives ut tegn for tegn, så de to lagene stables i samme rute: den
-   usynlige fullteksten holder høyden, den synlige vokser. Uten stabling ville
-   blokka vokse mens den skrives og dytte alt under seg nedover. */
-.interlude-text {
-  display: grid;
-  margin: 0;
-  font-size: 0.98rem;
-  line-height: 1.55;
-  font-style: italic;
-  opacity: 0.85;
-}
-
-.interlude-ghost,
-.interlude-typed {
-  grid-area: 1 / 1;
-}
-
-.interlude-ghost {
-  visibility: hidden;
-}
-
-/* Skrivemarkøren. En strek på linjehøyde, ikke en understrek — den skal se ut som
-   et innsettingspunkt og ikke som en del av teksten.
-   Den blinker ikke. Markøren finnes bare mens det faktisk skrives, og da flytter
-   den seg allerede ett tegn av gangen; en blink oppå det ville skjult den
-   halvparten av tiden uten å legge til noe. */
-.interlude-caret {
-  display: inline-block;
-  width: 2px;
-  height: 1em;
-  margin-left: 2px;
-  vertical-align: text-bottom;
-  background: var(--accent);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  /* Kilden kommer på plass når linja står ferdig, og skal gli inn i stedet for
-     å slå på. */
-  .interlude-source { animation: interlude-in 320ms ease-out; }
-}
-
-.interlude-source {
-  margin-top: 0.45rem;
-  font-size: 0.78rem;
-  opacity: 0.6;
-}
-
-.interlude-source a {
-  color: inherit;
-}
-
-@keyframes interlude-in {
-  from { opacity: 0; transform: translateY(3px); }
-  to   { opacity: 0.6; transform: none; }
-}
-
 /* Tenkeordet ved prikken. Det byttes helt ut hvert 2,4. sekund, så overgangen
    må være kort nok til å ikke rekke å bli lagt merke til som en animasjon. */
 .thinking-word {
@@ -1055,4 +997,58 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
 @keyframes thinking-word-in {
   from { opacity: 0; transform: translateY(3px); }
   to   { opacity: 1; transform: none; }
+}
+
+/* Synlig kun for skjermlesere. Brukes der en rullerende eller rent visuell
+   tekst må ha en stabil, opplest motpart. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Linja over svaret: spørsmålet til venstre, veien ut til høyre. */
+.answer-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  /* Liten avstand når linja brekker, større når den ikke gjør det. Med lik gap i
+     begge retninger fikk mobil en tom stripe mellom spørsmålet og utveien. */
+  gap: 0.35rem 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.answer-head p {
+  min-width: 0;
+  margin: 0;
+}
+
+.answer-head + .answer {
+  margin-top: 0.5rem;
+}
+
+/* «Nytt spørsmål» er en handling, ikke en lenke, men den skal ikke veie like
+   mye som «Spør AI». Derfor tekst med understrek framfor en knappeflate. */
+.answer-reset {
+  flex: none;
+  padding: 0;
+  font: inherit;
+  font-size: 0.875rem;
+  color: inherit;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.answer-reset:hover {
+  opacity: 1;
 }
