@@ -26,14 +26,40 @@ export interface RateLimitVerdict {
 
 const QUESTIONS_PER_HOUR = 10;
 const WINDOW_MS = 60 * 60 * 1000;
+/**
+ * Tak på antall avsendere vi holder styr på samtidig.
+ *
+ * Kartet var tidligere ubegrenset: opprydningen over 5000 nøkler slettet bare
+ * utløpte vinduer, så en strøm av nye avsendere ryddet ingenting og utløste i
+ * stedet en full gjennomgang av kartet ved *hver* forespørsel. Kostnaden per
+ * forespørsel vokste med et kart som aldri sluttet å vokse. Nå er taket hardt,
+ * og vi kaster de eldste når det er nådd.
+ */
+const MAX_TRACKED = 5000;
 
 /** Teller per IP i denne instansens minne. Se forbeholdet i filkommentaren. */
 const recent = new Map<string, number[]>();
 
+/**
+ * Hvem forespørselen kommer fra, så godt vi kan vite det.
+ *
+ * `x-forwarded-for` er den svakeste kilden: alle ledd i kjeden kan legge til i
+ * den, og den kan settes av avsenderen selv. På Vercel overskrives den av
+ * plattformen, men koden kjører også lokalt og bak andre proxyer, og der er den
+ * fri tekst. Derfor leses de plattformsatte hodene først. Faller vi ned på
+ * `x-forwarded-for`, tas den *siste* oppføringen — den er lagt på av leddet
+ * nærmest oss, mens den første er den avsenderen kunne finne på selv.
+ */
 export function clientIp(req: Request): string {
+  const platform = req.headers.get("x-vercel-forwarded-for") ?? req.headers.get("x-real-ip");
+  if (platform) return platform.trim();
+
   const forwarded = req.headers.get("x-forwarded-for");
-  if (forwarded) return forwarded.split(",")[0]!.trim();
-  return req.headers.get("x-real-ip") ?? "ukjent";
+  if (forwarded) {
+    const hops = forwarded.split(",").map((hop) => hop.trim()).filter(Boolean);
+    if (hops.length > 0) return hops[hops.length - 1]!;
+  }
+  return "ukjent";
 }
 
 function tooManyMessage(): string {
@@ -64,12 +90,22 @@ function checkInMemory(ip: string): RateLimitVerdict {
   }
 
   hits.push(now);
+  // Sett på nytt slik at nøkkelen flyttes bakerst i innsettingsrekkefølgen. Map
+  // bevarer den, og det er dét utkastingen under bruker til å finne de eldste.
+  recent.delete(ip);
   recent.set(ip, hits);
 
-  // Hold kartet lite. Uten dette vokser det ubegrenset i en langlevd instans.
-  if (recent.size > 5000) {
+  if (recent.size > MAX_TRACKED) {
+    // Først de som uansett er utløpt.
     for (const [key, times] of recent) {
       if (times.every((t) => now - t >= WINDOW_MS)) recent.delete(key);
+    }
+    // Er vi fortsatt over taket, kastes de eldste til vi er under. Det gir en
+    // avsender som fyller kartet en vei ut av sitt eget vindu, men kostnaden er
+    // avgrenset — og det harde kostnadsgulvet ligger i Anthropic Console.
+    for (const key of recent.keys()) {
+      if (recent.size <= MAX_TRACKED) break;
+      recent.delete(key);
     }
   }
 

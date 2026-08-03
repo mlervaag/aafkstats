@@ -29,6 +29,17 @@ export interface ParsedSearch {
   terms: string[];
 }
 
+/**
+ * Tak på hvor mange ledd ett søk får bli.
+ *
+ * Hvert ord legger tre LIKE-tester med ledende jokertegn til spørringen, og hver
+ * av dem er en full gjennomgang av tabellen. Endepunktet er åpent og uten
+ * fartsgrense, så uten et tak bestemmer avsenderen hvor mye arbeid ett kall
+ * koster oss. Et ekte søk er noen få ord.
+ */
+const MAX_TERMS = 6;
+const MAX_YEARS = 6;
+
 export function parseSearchQuery(query: string): ParsedSearch {
   const years: number[] = [];
   const terms: string[] = [];
@@ -37,7 +48,7 @@ export function parseSearchQuery(query: string): ParsedSearch {
     if (year !== null && year >= 1914 && year <= 2100) years.push(year);
     else terms.push(token);
   }
-  return { years: [...new Set(years)], terms };
+  return { years: [...new Set(years)].slice(0, MAX_YEARS), terms: terms.slice(0, MAX_TERMS) };
 }
 
 export function searchMatches(query: string, limit = 200): SearchMatch[] {

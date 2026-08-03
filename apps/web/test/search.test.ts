@@ -31,6 +31,17 @@ describe("parseSearchQuery", () => {
     expect(parseSearchQuery("2025 2025 Sogndal")).toEqual({ years: [2025], terms: ["sogndal"] });
   });
 
+  it("setter tak på hvor mange ledd ett søk blir", () => {
+    // Hvert ord legger tre LIKE-tester med ledende jokertegn til spørringen, og
+    // hver av dem er en full gjennomgang av tabellen. Endepunktet er åpent og
+    // uten fartsgrense, så uten et tak bestemmer avsenderen arbeidsmengden.
+    const parsed = parseSearchQuery("a b c d e f g h i j k l m n o p");
+    expect(parsed.terms.length).toBeLessThanOrEqual(6);
+
+    const manyYears = parseSearchQuery("1990 1991 1992 1993 1994 1995 1996 1997 1998");
+    expect(manyYears.years.length).toBeLessThanOrEqual(6);
+  });
+
   it("finner alle kamper i et år uten AI", () => {
     expect(searchMatches("2024")).toHaveLength(6);
   });
