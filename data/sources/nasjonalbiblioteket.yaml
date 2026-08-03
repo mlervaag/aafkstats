@@ -5,12 +5,18 @@ priority: 60
 automatedAccess: allowed
 publicRedistribution: permission_required
 attributionRequired: true
-permissionStatus: pending
+permissionStatus: accepted_risk
 termsCheckedAt: 2026-08-03
 permissionNote: >
   Katalog-API-et er åpent og egnet som oppdagelsesmotor. Tilgang til fulltekst
   avhenger av rettighetsstatus per dokument, og avistekst er opphavsrettsbeskyttet.
   Bare faktaopplysninger og kildehenvisning skal registreres — aldri OCR-teksten.
+  Prosjekteier besluttet 2026-08-03 å høste herfra: åpent, ikke-kommersielt
+  supporterarkiv som registrerer offentlige kampfakta, med kildehenvisning og lenke
+  tilbake til kilden fra hver kamp. Ingen artikkeltekst kopieres, ingen
+  tilgangskontroll omgås, og kilden avlastes med fartsgrense og hurtiglager.
+  Statusen er «accepted_risk» og ikke «granted», siden ingen har gitt uttrykkelig
+  tillatelse — arkivet skal si hva det vet, ikke pynte på det.
 note: >
   Digitaliserte aviser, særlig Sunnmørsposten. Beste kilde for kamper før 1990.
   Avistekst er opphavsrettsbeskyttet — referat skrives om, med lenke til originalen.

@@ -109,23 +109,20 @@ del av en sesong, og feil når de dekker samme del.
 
 ## Rettigheter
 
-Dette er ikke avklart, og det er verdt å si tydelig.
+RSSSF oppgir at privat, ikke-kommersiell kopiering er tillatt med kreditering, mens
+kommersiell bruk krever skriftlig tillatelse. `robots.txt` stenger bare `/cgi-bin/` og
+`/krets/`.
 
-Nettstedet oppgir at privat, ikke-kommersiell kopiering er tillatt med kreditering, mens
-kommersiell bruk krever skriftlig tillatelse. Et offentlig GitHub-arkiv og et offentlig
-nettsted er ikke åpenbart privat bruk. `robots.txt` stenger bare `/cgi-bin/` og `/krets/`,
-så *hentingen* er grei — men henting og publisering er to forskjellige spørsmål.
+Prosjekteier har besluttet å høste herfra: dette er et åpent, ikke-kommersielt
+supporterarkiv som registrerer offentlige kampfakta, med kildehenvisning og lenke tilbake
+til kildesiden fra hver kamp. Ingen artikkeltekst kopieres, ingen tilgangskontroll omgås, og
+kilden avlastes med fartsgrense og hurtiglager.
 
-`data/sources/rsssf.yaml` fører derfor `publicRedistribution: permission_required` og
-`permissionStatus: pending`, og innhøstings-CLI-en **nekter å skrive** fra RSSSF til den
-statusen endrer seg. Tørrkjøring og kartlegging virker fortsatt.
-
-Neste steg er å be lars@rsssf.no skriftlig om tillatelse til automatisert uthenting og
-offentlig publisering av normaliserte kampfakta, med tydelig kreditering og lenke tilbake
-til kildesiden fra hver kamp. Det er en realistisk forespørsel: arkivet konkurrerer ikke med
-nettstedet, kopierer ingen tekst, og sender trafikk tilbake.
-
-De 417 kampene som allerede ligger inne, ble hentet før denne porten fantes.
+`data/sources/rsssf.yaml` fører derfor `permissionStatus: accepted_risk` og ikke `granted`.
+Forskjellen er ikke pedanteri: ingen har gitt uttrykkelig tillatelse, og arkivet skal si hva
+det vet framfor å pynte på det. Å be lars@rsssf.no om en skriftlig avklaring er fortsatt en
+god idé — arkivet konkurrerer ikke med nettstedet, kopierer ingen tekst, og sender trafikk
+tilbake — men det er ikke en forutsetning for å komme videre.
 
 ## Kartlegging framfor gjetting
 

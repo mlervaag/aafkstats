@@ -82,8 +82,13 @@ robotsCheckedAt: 2026-08-03
 
 Innhøstings-CLI-ene leser statusen før nettverkskallet. Tørrkjøring krever bare at kilden
 kan hentes; `--write` krever i tillegg at den kan publiseres. `unknown` regnes aldri som et
-ja, og det finnes ingen flagg som slår av porten — å undersøke hva en kilde inneholder er
-nettopp det man må gjøre for å kunne be om tillatelse.
+ja.
+
+`accepted_risk` betyr at vilkårene er lest, at bruken ikke er uttrykkelig tillatt, og at
+prosjekteier likevel har besluttet å gå videre — for et åpent, ikke-kommersielt
+supporterarkiv over offentlige kampfakta. Statusen krever begrunnelse, håndhevet av
+skjemaet. Poenget med å skille den fra `granted` er at arkivet skal si hva det vet framfor å
+pynte på det.
 
 Statusen vises offentlig på `/om`. Et arkiv som lever av etterprøvbarhet bør ikke gjemme sin
 egen rettighetssituasjon.
