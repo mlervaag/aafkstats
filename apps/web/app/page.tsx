@@ -1,4 +1,4 @@
-import { connect } from "@aafkstats/db";
+import { all, one, open } from "@aafkstats/db";
 import { AskBox } from "@/components/AskBox";
 
 export const dynamic = "force-dynamic";
@@ -7,7 +7,7 @@ interface RecentMatch {
   match_id: string;
   date: string;
   competition: string;
-  is_home: boolean;
+  is_home: number;   // SQLite har ingen boolsk type: 0 eller 1
   opponent: string;
   aafk_score: number | null;
   opponent_score: number | null;
@@ -15,34 +15,27 @@ interface RecentMatch {
   url: string;
 }
 
-async function loadOverview() {
-  const sql = connect();
+function loadOverview() {
+  const db = open();
   try {
-    const recent = await sql<RecentMatch[]>`
-      SELECT match_id, date, competition, is_home, opponent,
-             aafk_score, opponent_score, result, url
-      FROM public_api.matches
-      WHERE status = 'played'
-      ORDER BY date DESC
-      LIMIT 5
-    `;
-    const next = await sql<RecentMatch[]>`
-      SELECT match_id, date, competition, is_home, opponent,
-             aafk_score, opponent_score, result, url
-      FROM public_api.matches
-      WHERE status = 'scheduled'
-      ORDER BY date ASC
-      LIMIT 1
-    `;
-    const [totals] = await sql<{ matches: string; seasons: string; first: string | null }[]>`
-      SELECT count(*)::text AS matches,
-             count(DISTINCT season)::text AS seasons,
-             min(date)::text AS first
-      FROM public_api.matches
-    `;
+    const columns = `match_id, date, competition, is_home, opponent,
+                     aafk_score, opponent_score, result, url`;
+    const recent = all<RecentMatch>(
+      db,
+      `SELECT ${columns} FROM matches WHERE status = 'played' ORDER BY date DESC LIMIT 5`,
+    );
+    const next = all<RecentMatch>(
+      db,
+      `SELECT ${columns} FROM matches WHERE status = 'scheduled' ORDER BY date ASC LIMIT 1`,
+    );
+    const totals = one<{ matches: number; seasons: number; first: string | null }>(
+      db,
+      `SELECT count(*) AS matches, count(DISTINCT season) AS seasons, min(date) AS first
+       FROM matches`,
+    );
     return { recent, next: next[0] ?? null, totals };
   } finally {
-    await sql.end();
+    db.close();
   }
 }
 
@@ -50,7 +43,7 @@ function MatchRow({ m }: { m: RecentMatch }) {
   const score =
     m.aafk_score === null || m.opponent_score === null
       ? "–"
-      : m.is_home
+      : m.is_home === 1
         ? `${m.aafk_score}–${m.opponent_score}`
         : `${m.opponent_score}–${m.aafk_score}`;
 
@@ -66,7 +59,7 @@ function MatchRow({ m }: { m: RecentMatch }) {
           </span>
         )}
       </td>
-      <td>{m.is_home ? "H" : "B"}</td>
+      <td>{m.is_home === 1 ? "H" : "B"}</td>
       <td>
         <a href={m.url}>{m.opponent}</a>
       </td>
@@ -76,13 +69,16 @@ function MatchRow({ m }: { m: RecentMatch }) {
   );
 }
 
-export default async function Home() {
-  let data: Awaited<ReturnType<typeof loadOverview>> | null = null;
+export default function Home() {
+  let data: ReturnType<typeof loadOverview> | null = null;
   let dbError: string | null = null;
   try {
-    data = await loadOverview();
+    data = loadOverview();
   } catch (err) {
     dbError = err instanceof Error ? err.message : String(err);
+    // Logges til Vercel Logs. Uten dette ser man bare den generelle meldingen på
+    // siden og må gjette på årsaken.
+    console.error("Kunne ikke lese arkivet:", dbError);
   }
 
   return (
@@ -91,8 +87,8 @@ export default async function Home() {
 
       {dbError && (
         <div className="notice notice-error" style={{ marginTop: "2rem" }}>
-          Fikk ikke kontakt med databasen. Kjør <code>pnpm db:migrate</code> og{" "}
-          <code>pnpm db:sync</code>, og sjekk <code>DATABASE_URL</code>.
+          Fant ikke arkivfilen. Kjør{" "}
+          <code>AAFK_DATA_DIR=fixtures/data pnpm db:build</code>.
         </div>
       )}
 
@@ -102,7 +98,7 @@ export default async function Home() {
             <section style={{ marginTop: "3rem" }}>
               <h2>Neste kamp</h2>
               <p className="prose">
-                <strong>{data.next.date}</strong> — {data.next.is_home ? "hjemme mot" : "borte mot"}{" "}
+                <strong>{data.next.date}</strong> — {data.next.is_home === 1 ? "hjemme mot" : "borte mot"}{" "}
                 <a href={data.next.url}>{data.next.opponent}</a>{" "}
                 <span className="muted">({data.next.competition})</span>
               </p>

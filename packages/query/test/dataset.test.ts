@@ -1,9 +1,10 @@
-import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { connect } from "@aafkstats/db";
-import type { Sql } from "@aafkstats/db";
-import { datasetPrompt, exampleQueries, views } from "../src/dataset.js";
+import { beforeAll, describe, expect, it } from "vitest";
+import { mkdtempSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join, resolve } from "node:path";
+import { loadValidateAndBuild } from "@aafkstats/db/build";
 import { runSafeSql } from "@aafkstats/db/sql";
-import { connectReadonly } from "@aafkstats/db";
+import { datasetPrompt, exampleQueries, views } from "../src/dataset.js";
 
 describe("datasetPrompt", () => {
   it("nevner alle viewene", () => {
@@ -22,35 +23,27 @@ describe("datasetPrompt", () => {
   });
 });
 
-const url = process.env.DATABASE_URL;
-const describeIfDb = url ? describe : describe.skip;
+describe("dokumentasjonen mot faktisk database", () => {
+  let dbPath: string;
 
-describeIfDb("dokumentasjonen mot faktisk database", () => {
-  // Se kommentaren i safe-sql.integration.test.ts.
-  let sql: Sql;
-  let ro: Sql;
-  beforeAll(() => {
-    sql = connect(url);
-    ro = connectReadonly();
-  });
-  afterAll(async () => {
-    await sql?.end();
-    await ro?.end();
-  });
+  beforeAll(async () => {
+    dbPath = join(mkdtempSync(join(tmpdir(), "aafk-dataset-")), "arkiv.sqlite");
+    await loadValidateAndBuild(resolve(import.meta.dirname, "../../../fixtures/data"), dbPath);
+  }, 30_000);
 
   it("dokumenterer nøyaktig de kolonnene som finnes", async () => {
     // Dette er mekanismen som hindrer at dokumentasjonen og databasen gliser fra
     // hverandre. Legges en kolonne til i en migrasjon uten å dokumenteres, feiler
     // testen — og siden samme dokument går inn i systemprompten, ville modellen
     // ellers fått et ufullstendig bilde av datasettet uten at noen merket det.
+    const { createRequire } = await import("node:module");
+    const { DatabaseSync } = createRequire(import.meta.url)("node:sqlite");
+    const db = new DatabaseSync(dbPath, { readOnly: true });
     for (const view of views) {
-      const [schema, name] = view.name.split(".");
-      const rows = await sql<{ column_name: string }[]>`
-        SELECT column_name
-        FROM information_schema.columns
-        WHERE table_schema = ${schema!} AND table_name = ${name!}
-      `;
-      const actual = new Set(rows.map((r) => r.column_name));
+      // PRAGMA table_info er blokkert for modellen, men ikke for oss — dette er
+      // testkode som kjører med full lesetilgang, ikke chattens sti.
+      const rows = db.prepare(`PRAGMA table_info(${view.name})`).all() as { name: string }[];
+      const actual = new Set(rows.map((r) => r.name));
       const documented = new Set(view.columns.map((c) => c.name));
 
       const missing = [...actual].filter((c) => !documented.has(c));
@@ -62,13 +55,14 @@ describeIfDb("dokumentasjonen mot faktisk database", () => {
         finnesIkke: [],
       });
     }
+    db.close();
   });
 
   it("alle eksempelspørringene kjører", async () => {
     // Et eksempel som ikke kjører er verre enn ingen eksempler: modellen kopierer
     // mønsteret og får feil, og brukeren ser en spørring som ikke virker på /data.
     for (const ex of exampleQueries) {
-      const result = await runSafeSql(ro, ex.sql);
+      const result = await runSafeSql(ex.sql, { dbPath });
       expect(result.columns.length, `feilet: ${ex.question}`).toBeGreaterThan(0);
     }
   });

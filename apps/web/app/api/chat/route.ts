@@ -1,10 +1,9 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { betaZodTool } from "@anthropic-ai/sdk/helpers/beta/zod";
-import { connect, connectReadonly } from "@aafkstats/db";
 import { systemPrompt } from "@aafkstats/query/prompt";
 import { tools as toolDefs } from "@aafkstats/query/tools";
 import type { ToolContext } from "@aafkstats/query/tools";
-import { checkRateLimit, clientIp, hashIp, logQuestion } from "@/lib/rate-limit";
+import { checkRateLimit, logQuestion } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 
@@ -53,12 +52,8 @@ export async function POST(req: Request): Promise<Response> {
     return Response.json({ error: "Spørsmålet er for langt (maks 1000 tegn)." }, { status: 400 });
   }
 
-  const admin = connect();
-  const ipHash = hashIp(clientIp(req));
-
-  const verdict = await checkRateLimit(admin, ipHash);
+  const verdict = checkRateLimit(req);
   if (!verdict.allowed) {
-    await admin.end();
     return Response.json(
       { error: verdict.message },
       {
@@ -70,15 +65,12 @@ export async function POST(req: Request): Promise<Response> {
     );
   }
 
-  // Egen skrivebeskyttet tilkobling som rollen aafk_chat. Modellens spørringer kommer
-  // aldri i nærheten av `admin`.
-  const readonly = connectReadonly();
-
   // Spørringene modellen faktisk kjørte. Sendes til grensesnittet så brukeren kan se
   // hva svaret bygger på, og logges for feilsøking og misbruksdeteksjon.
   const executedQueries: { sql: string; durationMs: number; rowCount: number; error?: string }[] = [];
+  // Ingen tilkobling å sende med: hver spørring åpner arkivfilen skrivebeskyttet
+  // i sin egen child-prosess. Standardstien gjelder.
   const ctx: ToolContext = {
-    sql: readonly,
     onQuery: (info) => executedQueries.push(info),
   };
 
@@ -182,10 +174,10 @@ export async function POST(req: Request): Promise<Response> {
         });
       } finally {
         try {
-          await logQuestion(admin, {
-            ipHash,
+          logQuestion({
             question,
-            sqlRun: executedQueries.map((q) => q.sql).join("\n---\n") || null,
+            answerLength: answer.length,
+            queries: executedQueries,
             durationMs: Date.now() - started,
             inputTokens,
             outputTokens,
@@ -194,7 +186,6 @@ export async function POST(req: Request): Promise<Response> {
         } catch {
           // Logging skal aldri velte et svar som ellers gikk bra.
         }
-        await Promise.allSettled([readonly.end(), admin.end()]);
         controller.close();
       }
     },

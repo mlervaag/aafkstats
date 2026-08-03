@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000",
-    "build": "pnpm --filter @aafkstats/db run sync && next build",
+    "build": "pnpm --filter @aafkstats/db run build-archive && next build",
     "start": "next start"
   },
   "dependencies": {

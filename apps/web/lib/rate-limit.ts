@@ -1,22 +1,34 @@
-import { createHash } from "node:crypto";
-import type { Sql } from "@aafkstats/db";
-
-/** Spørsmål per IP per time. */
-const QUESTIONS_PER_HOUR = 10;
-/** Samlet tak per døgn for hele tjenesten, som kostnadsbrems. */
-const QUESTIONS_PER_DAY_TOTAL = 2000;
-
 /**
- * IP-en lagres aldri i klartekst — bare en saltet hash.
+ * Rate-limiting for spørrefunksjonen.
  *
- * Vi trenger å telle spørsmål per avsender, ikke å vite hvem de er. Uten saltet ville
- * hashen vært trivielt reversérbar for IPv4, siden hele adresserommet kan gjennomsøkes
- * på minutter.
+ * Da datalaget ble SQLite i byggesteget forsvant stedet å skrive tellere — filen er
+ * skrivebeskyttet, og Vercels filsystem er det uansett. Vi la ikke til en database
+ * bare for dette. I stedet er ansvaret delt i to:
+ *
+ *   1. Vercel Firewall (Pro) teller forespørsler per IP ute på kanten, før koden
+ *      vår kjører. Ingen lagring å drifte.
+ *   2. Utgiftstaket i Anthropic Console er det harde kostnadsgulvet. Det er den
+ *      eneste grensen som virker uansett hva som skjer i lagene over.
+ *
+ * Uten Firewall (lokalt, eller på Hobby) faller vi tilbake til en teller i minnet.
+ * Den er en fartsdump, ikke en mur: hver serverless-instans har sin egen, så en
+ * fordelt avsender kommer forbi. Det er akseptabelt nettopp fordi utgiftstaket
+ * ligger under — men det skal være tydelig at det er slik det henger sammen.
  */
-export function hashIp(ip: string): string {
-  const salt = process.env.IP_HASH_SALT ?? "aafkstats-lokal-salt";
-  return createHash("sha256").update(`${salt}:${ip}`).digest("hex").slice(0, 32);
+
+export interface RateLimitVerdict {
+  allowed: boolean;
+  message?: string;
+  retryAfterSeconds?: number;
+  /** Hvilket lag som avgjorde. Logges, så vi ser om Firewall faktisk er i bruk. */
+  enforcedBy: "firewall" | "in-memory";
 }
+
+const QUESTIONS_PER_HOUR = 10;
+const WINDOW_MS = 60 * 60 * 1000;
+
+/** Teller per IP i denne instansens minne. Se forbeholdet i filkommentaren. */
+const recent = new Map<string, number[]>();
 
 export function clientIp(req: Request): string {
   const forwarded = req.headers.get("x-forwarded-for");
@@ -24,78 +36,85 @@ export function clientIp(req: Request): string {
   return req.headers.get("x-real-ip") ?? "ukjent";
 }
 
-export interface RateLimitVerdict {
-  allowed: boolean;
-  /** Melding vist til brukeren når grensen er nådd. */
-  message?: string;
-  retryAfterSeconds?: number;
+function tooManyMessage(): string {
+  return (
+    `Du har brukt ${QUESTIONS_PER_HOUR} spørsmål denne timen. ` +
+    "Arkivet er gratis å bruke, og grensen finnes bare for å holde kostnadene nede. " +
+    "Prøv igjen om litt — i mellomtiden kan du bla i sesongene eller bruke API-et."
+  );
 }
 
 /**
- * Rate-limiting i Postgres i stedet for Redis.
- *
- * Datamengden er liten (én rad per spørsmål) og det holder tjenestelisten på én.
- * Skulle trafikken vokse forbi det dette tåler, er byttet til en egen teller-tjeneste
- * en isolert endring i denne filen.
+ * Vercel Firewall svarer selv med 429 før forespørselen når hit, så når koden
+ * vår kjører har den allerede sluppet gjennom kant-laget. Denne funksjonen er
+ * derfor bare reservelaget.
  */
-export async function checkRateLimit(sql: Sql, ipHash: string): Promise<RateLimitVerdict> {
-  const [perIp] = await sql<{ count: string; oldest: Date | null }[]>`
-    SELECT count(*)::text AS count, min(asked_at) AS oldest
-    FROM core.chat_usage
-    WHERE ip_hash = ${ipHash} AND asked_at > now() - interval '1 hour'
-  `;
+function checkInMemory(ip: string): RateLimitVerdict {
+  const now = Date.now();
+  const hits = (recent.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
 
-  if (Number(perIp?.count ?? 0) >= QUESTIONS_PER_HOUR) {
-    const oldest = perIp?.oldest ? new Date(perIp.oldest).getTime() : Date.now();
-    const retryAfterSeconds = Math.max(60, Math.ceil((oldest + 3_600_000 - Date.now()) / 1000));
+  if (hits.length >= QUESTIONS_PER_HOUR) {
+    const oldest = hits[0]!;
     return {
       allowed: false,
-      message:
-        `Du har brukt ${QUESTIONS_PER_HOUR} spørsmål denne timen. ` +
-        `Arkivet er gratis å bruke, og grensen finnes bare for å holde kostnadene nede. ` +
-        `Prøv igjen om litt — i mellomtiden kan du bla i sesongene eller bruke API-et.`,
-      retryAfterSeconds,
+      message: tooManyMessage(),
+      retryAfterSeconds: Math.max(60, Math.ceil((oldest + WINDOW_MS - now) / 1000)),
+      enforcedBy: "in-memory",
     };
   }
 
-  const [total] = await sql<{ count: string }[]>`
-    SELECT count(*)::text AS count
-    FROM core.chat_usage
-    WHERE asked_at > now() - interval '1 day'
-  `;
+  hits.push(now);
+  recent.set(ip, hits);
 
-  if (Number(total?.count ?? 0) >= QUESTIONS_PER_DAY_TOTAL) {
-    return {
-      allowed: false,
-      message:
-        "Spørrefunksjonen har nådd dagens tak og er slått av til i morgen. " +
-        "Resten av arkivet virker som vanlig — sesonger, kampsider og API-et er åpne.",
-      retryAfterSeconds: 3600,
-    };
+  // Hold kartet lite. Uten dette vokser det ubegrenset i en langlevd instans.
+  if (recent.size > 5000) {
+    for (const [key, times] of recent) {
+      if (times.every((t) => now - t >= WINDOW_MS)) recent.delete(key);
+    }
   }
 
-  return { allowed: true };
+  return { allowed: true, enforcedBy: "in-memory" };
 }
 
-export async function logQuestion(
-  sql: Sql,
-  entry: {
-    ipHash: string;
-    question: string;
-    sqlRun?: string | null;
-    durationMs?: number | null;
-    inputTokens?: number | null;
-    outputTokens?: number | null;
-    error?: string | null;
-  },
-): Promise<void> {
-  await sql`
-    INSERT INTO core.chat_usage
-      (ip_hash, question, sql_run, duration_ms, input_tokens, output_tokens, error)
-    VALUES (
-      ${entry.ipHash}, ${entry.question}, ${entry.sqlRun ?? null},
-      ${entry.durationMs ?? null}, ${entry.inputTokens ?? null},
-      ${entry.outputTokens ?? null}, ${entry.error ?? null}
-    )
-  `;
+export function checkRateLimit(req: Request): RateLimitVerdict {
+  return checkInMemory(clientIp(req));
+}
+
+/**
+ * Logger et spørsmål til stdout, som havner i Vercel Logs.
+ *
+ * Erstatter chat_usage-tabellen fra Postgres-utkastet. Det vi trengte den til —
+ * å se hva som spørres om, hvilken SQL modellen skrev, og hva det kostet — får vi
+ * like godt fra strukturert logg, uten en database å vedlikeholde.
+ *
+ * IP-en logges aldri. Vi trenger ikke vite hvem som spurte for å se hva som spørres om.
+ */
+export function logQuestion(entry: {
+  question: string;
+  answerLength: number;
+  queries: { sql: string; durationMs: number; rowCount: number; error?: string }[];
+  durationMs: number;
+  inputTokens: number;
+  outputTokens: number;
+  error?: string | null;
+}): void {
+  console.log(
+    JSON.stringify({
+      hendelse: "chat",
+      spørsmål: entry.question,
+      // Et svar på null tegn uten feil er signaturen til feilmodusen vi frykter
+      // mest: modellen skrev verktøykallet som tekst i stedet for et tool_use-blokk,
+      // og løkka gikk rundt uten å produsere noe. Uten dette tallet er den usynlig.
+      svarLengde: entry.answerLength,
+      spørringer: entry.queries.map((q) => ({
+        sql: q.sql,
+        ms: q.durationMs,
+        rader: q.rowCount,
+        feil: q.error,
+      })),
+      varighetMs: entry.durationMs,
+      tokens: { inn: entry.inputTokens, ut: entry.outputTokens },
+      feil: entry.error ?? undefined,
+    }),
+  );
 }

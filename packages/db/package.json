@@ -5,16 +5,14 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
+    "./build": "./src/build.ts",
     "./sql": "./src/safe-sql.ts"
   },
   "scripts": {
-    "migrate": "tsx src/cli/migrate.ts",
-    "sync": "tsx src/cli/sync.ts",
-    "reset": "tsx src/cli/migrate.ts --reset"
+    "build-archive": "tsx src/cli/build.ts"
   },
   "dependencies": {
-    "@aafkstats/schema": "workspace:*",
-    "postgres": "^3.4.5"
+    "@aafkstats/schema": "workspace:*"
   },
   "devDependencies": {
     "tsx": "^4.19.2"

@@ -1,32 +1,28 @@
-import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { connectReadonly } from "../src/index.js";
-import type { Sql } from "../src/index.js";
+import { beforeAll, describe, expect, it } from "vitest";
+import { mkdtempSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join, resolve } from "node:path";
+import { loadValidateAndBuild } from "../src/build.js";
 import { runSafeSql } from "../src/safe-sql.js";
 
 /**
- * Kjører mot en ekte database som rollen aafk_chat.
+ * Kjører mot en ekte arkivfil.
  *
- * Hoppes over når DATABASE_URL_READONLY ikke er satt, slik at `pnpm test` fungerer
- * uten Postgres. I CI settes variabelen, og da er dette den eneste testen som faktisk
- * beviser at radtaket, timeouten og rollegrensen virker sammen.
+ * Til forskjell fra Postgres-utkastet trenger dette ingen tjeneste: fixture-arkivet
+ * bygges til en midlertidig fil i beforeAll og kastes etterpå. Testene kjører derfor
+ * likt lokalt og i CI — ingen «hoppes over uten database».
  */
-const url = process.env.DATABASE_URL_READONLY;
-const describeIfDb = url ? describe : describe.skip;
+const fixtures = resolve(import.meta.dirname, "../../../fixtures/data");
+let dbPath: string;
 
-describeIfDb("runSafeSql mot ekte database", () => {
-  // Tilkoblingen opprettes i beforeAll, ikke i describe-kroppen. Vitest kjører
-  // kroppen også for en skippet suite for å registrere testene, så en connect()
-  // her ville kastet på manglende DATABASE_URL og gjort «hoppes over» til «feiler».
-  let sql: Sql;
-  beforeAll(() => {
-    sql = connectReadonly(url);
-  });
-  afterAll(async () => {
-    await sql?.end();
-  });
+beforeAll(async () => {
+  dbPath = join(mkdtempSync(join(tmpdir(), "aafk-test-")), "arkiv.sqlite");
+  await loadValidateAndBuild(fixtures, dbPath);
+}, 30_000);
 
+describe("runSafeSql mot ekte arkivfil", () => {
   it("kjører en lovlig spørring og returnerer rader", async () => {
-    const r = await runSafeSql(sql, "SELECT match_id, date FROM public_api.matches ORDER BY date");
+    const r = await runSafeSql("SELECT match_id, date FROM matches ORDER BY date", { dbPath });
     expect(r.rowCount).toBeGreaterThan(0);
     expect(r.columns).toEqual(["match_id", "date"]);
     expect(r.truncated).toBe(false);
@@ -34,22 +30,31 @@ describeIfDb("runSafeSql mot ekte database", () => {
 
   it("svarer riktig på testspørsmålet", async () => {
     const r = await runSafeSql(
-      sql,
       `SELECT date, opponent, aafk_score, opponent_score
-       FROM public_api.matches
-       WHERE is_home AND result = 'T' AND goal_difference <= -6
+       FROM matches
+       WHERE is_home = 1 AND result = 'T' AND goal_difference <= -6
        ORDER BY date DESC LIMIT 1`,
+      { dbPath },
     );
     expect(r.rowCount).toBe(1);
     const row = r.rows[0]!;
     // Fixturen har et større, nyere bortetap (0–7) som felle. Treffer vi det, er
     // is_home-filtreringen — og dermed hele AaFK-perspektivet — feil.
-    expect(String(row.date)).toContain("2005-09-18");
+    expect(row.date).toBe("2005-09-18");
     expect(row.opponent).toBe("Rosenborg BK");
   });
 
+  it("gir datoer som rene kalenderdatoer, ikke tidsstempler", async () => {
+    // I Postgres-utkastet kom datoer tilbake som JS-Date og ble til
+    // «Sun Sep 18 2005 00:00:00 GMT+0000» i JSON-en modellen fikk. Med TEXT-datoer
+    // i SQLite finnes ikke problemet — men det skal ikke kunne snike seg inn igjen.
+    const r = await runSafeSql("SELECT date FROM matches ORDER BY date LIMIT 1", { dbPath });
+    expect(r.rows[0]!.date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+  });
+
   it("håndhever radtaket og melder fra om at det ble kuttet", async () => {
-    const r = await runSafeSql(sql, "SELECT * FROM generate_series(1, 500) AS n", {
+    const r = await runSafeSql("SELECT m1.match_id FROM matches m1, matches m2", {
+      dbPath,
       maxRows: 10,
     });
     expect(r.rowCount).toBe(10);
@@ -57,31 +62,33 @@ describeIfDb("runSafeSql mot ekte database", () => {
   });
 
   it("melder ikke «kuttet» når treffene akkurat fyller taket", async () => {
-    const r = await runSafeSql(sql, "SELECT * FROM generate_series(1, 10) AS n", { maxRows: 10 });
-    expect(r.rowCount).toBe(10);
+    const r = await runSafeSql("SELECT match_id FROM matches LIMIT 3", { dbPath, maxRows: 3 });
+    expect(r.rowCount).toBe(3);
     expect(r.truncated).toBe(false);
   });
 
   it("avbryter en treg spørring på timeout", async () => {
-    // repeat() er billig per rad, men 5 millioner rader tar lang nok tid til å
-    // treffe taket. pg_sleep ville vært enklere, men er blokkert av denylisten.
+    // Et kryssprodukt av åtte kopier av kamptabellen. SQLite har ingen
+    // statement_timeout, så dette beviser at SIGKILL-en mot child-prosessen
+    // faktisk virker — en worker-tråd ville ikke latt seg avbryte her.
     await expect(
       runSafeSql(
-        sql,
-        "SELECT count(*) FROM generate_series(1, 5000000) AS n, LATERAL (SELECT repeat('x', 200)) AS r",
-        { timeoutMs: 250 },
+        `SELECT count(*) FROM matches a, matches b, matches c, matches d,
+                                matches e, matches f, matches g, matches h`,
+        { dbPath, timeoutMs: 800 },
       ),
-    ).rejects.toThrow(/timeout|avbrutt|canceling/i);
-  });
+    ).rejects.toThrow(/for lang tid/i);
+  }, 15_000);
 
-  it("nektes tilgang til core selv om kodelaget skulle svikte", async () => {
-    // Går utenom validateReadOnlySql med vilje: dette tester databasegrensen alene.
-    await expect(sql.unsafe("SELECT * FROM core.matches")).rejects.toThrow(/permission denied/i);
-  });
-
-  it("kan ikke skrive selv om kodelaget skulle svikte", async () => {
-    await expect(
-      sql.unsafe("INSERT INTO core.clubs (id, name) VALUES ('x', 'y')"),
-    ).rejects.toThrow(/read-only|permission denied/i);
+  it("nektes skriving av SQLite selv om kodelaget skulle svikte", async () => {
+    // Går utenom validateReadOnlySql med vilje: dette tester motorgrensen alene.
+    // runSafeSql validerer, så vi kjører spørringen direkte mot en readOnly-fil.
+    const { createRequire } = await import("node:module");
+    const { DatabaseSync } = createRequire(import.meta.url)("node:sqlite");
+    const db = new DatabaseSync(dbPath, { readOnly: true });
+    expect(() => db.exec("INSERT INTO core_clubs (id, name) VALUES ('x', 'y')")).toThrow(
+      /readonly/i,
+    );
+    db.close();
   });
 });

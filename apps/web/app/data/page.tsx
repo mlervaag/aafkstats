@@ -16,7 +16,7 @@ export default function DataPage() {
       <h1>Datasettet</h1>
       <p className="prose">
         Alt i arkivet ligger som YAML-filer på GitHub. Ved hver utrulling bygges de om til
-        et Postgres-skjema, <code>public_api</code>, som er det nettstedet, API-et,
+        en skrivebeskyttet SQLite-fil, og tabellene under er det nettstedet, API-et,
         MCP-serveren og spørrefunksjonen leser fra.
       </p>
       <p className="prose">
@@ -102,16 +102,18 @@ export default function DataPage() {
         <h2>Slik er spørrefunksjonen begrenset</h2>
         <div className="prose">
           <p>
-            Spørrefunksjonen kan kjøre egne SELECT-spørringer mot <code>public_api</code>.
-            Det er dét som gjør at den kan svare på spørsmål ingen har laget et ferdig
-            oppslag for. Grensene er:
+            Spørrefunksjonen kan kjøre egne SELECT-spørringer mot tabellene over. Det er
+            dét som gjør at den kan svare på spørsmål ingen har laget et ferdig oppslag
+            for. Grensene er:
           </p>
           <ul>
             <li>
-              Den kjører som en egen databaserolle med leserett <em>kun</em> på{" "}
-              <code>public_api</code>. Rollen har ingen tilgang til de underliggende
-              tabellene og kan ikke skrive noe sted. Dette håndheves av Postgres, ikke av
-              koden vår.
+              Arkivfilen åpnes skrivebeskyttet. Et forsøk på å endre noe avvises av SQLite
+              selv, ikke av koden vår.
+            </li>
+            <li>
+              Spørringen kjører i en egen prosess som avlives ved timeout, og den ser bare
+              tabellene dokumentert på denne siden — ikke rådataene bak dem.
             </li>
             <li>Én setning per spørring, og bare SELECT.</li>
             <li>Maks 200 rader og 3 sekunders kjøretid.</li>

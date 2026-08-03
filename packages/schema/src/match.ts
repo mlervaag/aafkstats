@@ -198,7 +198,7 @@ export const match = z
     }
 
     // Arkivet handler om AaFK. Nøyaktig én av sidene må være oss — det er invarianten
-    // som gjør AaFK-perspektivet i public_api.matches mulig.
+    // som gjør AaFK-perspektivet i matches-viewet mulig.
     const aafkIsHome = value.home.clubId === AAFK_CLUB_ID;
     const aafkIsAway = value.away.clubId === AAFK_CLUB_ID;
     if (!aafkIsHome && !aafkIsAway) {

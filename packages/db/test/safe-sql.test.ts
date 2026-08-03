@@ -46,7 +46,7 @@ describe("stripLiterals", () => {
 
 describe("validateReadOnlySql — det som skal slippe gjennom", () => {
   it("godtar en enkel SELECT", () => {
-    accepts("SELECT * FROM public_api.matches");
+    accepts("SELECT * FROM matches");
   });
 
   it("godtar WITH", () => {
@@ -59,21 +59,21 @@ describe("validateReadOnlySql — det som skal slippe gjennom", () => {
 
   it("godtar semikolon inne i en streng", () => {
     // Den klassiske falske positiven. En naiv .includes(';') avviser dette.
-    accepts("SELECT * FROM public_api.matches WHERE referee = 'Berg; Ola'");
+    accepts("SELECT * FROM matches WHERE referee = 'Berg; Ola'");
   });
 
   it("godtar et forbudt ord inne i en streng", () => {
-    accepts("SELECT * FROM public_api.reports WHERE body LIKE '%drop%'");
+    accepts("SELECT * FROM reports WHERE body LIKE '%drop%'");
   });
 
   it("godtar OFFSET uten å forveksle det med SET", () => {
-    accepts("SELECT * FROM public_api.matches ORDER BY date LIMIT 5 OFFSET 10");
+    accepts("SELECT * FROM matches ORDER BY date LIMIT 5 OFFSET 10");
   });
 
   it("godtar testspørsmålet", () => {
     accepts(`SELECT date, opponent, aafk_score, opponent_score
-             FROM public_api.matches
-             WHERE is_home AND result = 'T' AND goal_difference <= -6
+             FROM matches
+             WHERE is_home = 1 AND result = 'T' AND goal_difference <= -6
              ORDER BY date DESC LIMIT 1`);
   });
 });
@@ -84,33 +84,34 @@ describe("validateReadOnlySql — det som skal avvises", () => {
   });
 
   it("avviser en skjult andre setning etter kommentar", () => {
-    rejects("SELECT 1 -- kommentar\n; DROP TABLE core.matches");
+    rejects("SELECT 1 -- kommentar\n; DROP TABLE core_matches");
   });
 
-  it("avviser DROP", () => rejects("DROP TABLE core.matches"));
-  it("avviser INSERT", () => rejects("INSERT INTO core.clubs VALUES ('x')"));
-  it("avviser UPDATE", () => rejects("UPDATE core.matches SET result = 'S'"));
-  it("avviser DELETE", () => rejects("DELETE FROM core.matches"));
-  it("avviser TRUNCATE", () => rejects("TRUNCATE core.matches"));
-  it("avviser GRANT", () => rejects("GRANT ALL ON public_api.matches TO aafk_chat"));
-  it("avviser COPY", () => rejects("COPY public_api.matches TO '/tmp/ut.csv'"));
-  it("avviser pg_sleep", () => rejects("SELECT pg_sleep(30)"));
-  it("avviser pg_read_file", () => rejects("SELECT pg_read_file('/etc/passwd')"));
-  it("avviser SET", () => rejects("SET statement_timeout = 0"));
+  it("avviser DROP", () => rejects("DROP TABLE core_matches"));
+  it("avviser INSERT", () => rejects("INSERT INTO core_clubs VALUES ('x')"));
+  it("avviser UPDATE", () => rejects("UPDATE core_matches SET result = 'S'"));
+  it("avviser DELETE", () => rejects("DELETE FROM core_matches"));
+  it("avviser ATTACH", () => rejects("SELECT 1 FROM matches WHERE 1=1 /* */ ATTACH DATABASE '/tmp/x' AS p"));
+  it("avviser PRAGMA", () => rejects("PRAGMA table_list"));
+  it("avviser load_extension", () => rejects("SELECT load_extension('/tmp/x.so')"));
+  it("avviser readfile", () => rejects("SELECT readfile('/etc/passwd')"));
+  it("avviser WITH RECURSIVE", () => rejects("WITH RECURSIVE t(n) AS (SELECT 1 UNION ALL SELECT n+1 FROM t) SELECT n FROM t"));
+  it("avviser VACUUM", () => rejects("VACUUM"));
 
-  it("avviser tilgang til core-skjemaet", () => {
-    // Rollen ville stoppet det uansett; her handler det om å gi modellen en
-    // forståelig melding i stedet for en rå rettighetsfeil.
-    rejects("SELECT * FROM core.matches");
+  it("avviser tilgang til de interne core_-tabellene", () => {
+    // SQLite har ingen roller, så denne avvisningen ER grensen — ikke bare en
+    // hjelpsom melding slik den var med en Postgres-rolle bak.
+    rejects("SELECT * FROM core_matches");
+    rejects("SELECT * FROM core_clubs JOIN matches ON 1=1");
   });
 
-  it("avviser tilgang til pg_catalog og information_schema", () => {
-    rejects("SELECT * FROM pg_catalog.pg_tables");
-    rejects("SELECT * FROM information_schema.columns");
+  it("avviser SQLites systemtabeller", () => {
+    rejects("SELECT name FROM sqlite_master");
+    rejects("SELECT * FROM sqlite_schema");
   });
 
   it("avviser skriveoperasjon skjult i en CTE", () => {
-    rejects("WITH x AS (DELETE FROM core.matches RETURNING *) SELECT * FROM x");
+    rejects("WITH x AS (DELETE FROM core_matches RETURNING *) SELECT * FROM x");
   });
 
   it("avviser tom spørring", () => rejects("   "));

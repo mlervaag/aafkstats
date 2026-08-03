@@ -13,28 +13,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    # Ekte Postgres i stedet for mock. Guardrailsene rundt run_sql håndheves av
-    # databaserollen, så en test uten database ville bevist nesten ingenting av det
-    # som faktisk betyr noe.
-    services:
-      postgres:
-        image: postgres:16
-        env:
-          POSTGRES_USER: aafk
-          POSTGRES_PASSWORD: aafk-local
-          POSTGRES_DB: aafkstats
-        ports: ["5432:5432"]
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-
-    env:
-      DATABASE_URL: postgres://aafk:aafk-local@localhost:5432/aafkstats
-      DATABASE_URL_READONLY: postgres://aafk_chat:chat-ci@localhost:5432/aafkstats
-      CHAT_DB_PASSWORD: chat-ci
-
+    # Ingen databasetjeneste. Arkivet er en SQLite-fil som bygges fra data/ på
+    # millisekunder, og testene bygger sin egen fixture-fil i beforeAll. Dermed
+    # kjører alt likt her og lokalt — ingen tester som «hoppes over uten database».
     steps:
       - uses: actions/checkout@v4
 
@@ -57,14 +38,16 @@ jobs:
       - name: Valider fixture-arkivet
         run: AAFK_DATA_DIR=fixtures/data pnpm validate
 
-      - name: Migrer databasen
-        run: pnpm db:migrate
+      - name: Typesjekk
+        run: pnpm typecheck
 
-      - name: Synkroniser fixture-data
-        run: AAFK_DATA_DIR=fixtures/data pnpm db:sync
+      - name: Lint
+        run: pnpm lint
 
       - name: Kjør tester
         run: pnpm test
 
+      # Bygger med fixture-data, ikke data/. Da rendres sidene med kamper i seg —
+      # med et tomt data/ ville byggesteget vært grønt uten å ha vist noe.
       - name: Bygg nettstedet
-        run: pnpm --filter @aafkstats/web exec next build
+        run: AAFK_DATA_DIR=fixtures/data pnpm build

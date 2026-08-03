@@ -1,73 +1,113 @@
-import postgres from "postgres";
+import { existsSync } from "node:fs";
+import { createRequire } from "node:module";
+import { resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+import type { DatabaseSync as DatabaseSyncType } from "node:sqlite";
 
 /**
- * Behold DATE-kolonner som «YYYY-MM-DD»-strenger i stedet for JS-Date.
+ * `node:sqlite` hentes via createRequire i stedet for en vanlig import.
  *
- * Standardoppførselen gir `Sun Sep 18 2005 00:00:00 GMT+0000` i JSON-en som sendes til
- * modellen. Det er både uleselig og en kilde til feil: en modell som ser et tidssone-
- * formatert klokkeslett kan begynne å resonnere om tidssoner på en ren kalenderdato.
- * Datoene i arkivet er kalenderdatoer uten klokkeslett, og skal se sånn ut hele veien.
+ * Modulen er eksperimentell i Node 22 og står derfor ikke i Nodes `builtinModules`.
+ * Bundlere bruker den lista til å kjenne igjen innebygde moduler, så både Vite og
+ * Next stripper «node:»-prefikset og leter etter en npm-pakke som heter «sqlite» —
+ * som ikke finnes. Et require-kall er ugjennomsiktig for statisk analyse og går
+ * rett til Node, så dette virker likt under vitest, webpack og turbopack uten at
+ * hver bundler må konfigureres for seg.
+ *
+ * Typene importeres separat som `import type`, og forsvinner ved kompilering.
  */
-const DATE_AS_STRING = {
-  date: {
-    to: 1082,
-    from: [1082] as number[],
-    serialize: (value: string) => value,
-    parse: (value: string) => value,
-  },
+const nodeRequire = createRequire(import.meta.url);
+const { DatabaseSync } = nodeRequire("node:sqlite") as {
+  DatabaseSync: typeof DatabaseSyncType;
 };
 
-/**
- * Tilkoblingstypen, med de egendefinerte typene bakt inn.
- *
- * Utledes fra DATE_AS_STRING i stedet for å skrives for hånd, slik at typen følger med
- * automatisk hvis vi legger til flere typeoverstyringer senere.
- */
-export type Sql = postgres.Sql<{
-  [K in keyof typeof DATE_AS_STRING]: ReturnType<(typeof DATE_AS_STRING)[K]["parse"]>;
-}>;
+export type Db = DatabaseSyncType;
 
-function requireUrl(name: string): string {
-  const url = process.env[name];
-  if (!url) {
+const ARCHIVE_FILE = ".data/aafkstats.sqlite";
+
+/**
+ * Hvor byggesteget skriver arkivfilen: alltid apps/web/.data, regnet fra repo-rota.
+ *
+ * Der ligger den fordi Next.js må kunne spore den inn i funksjonsbunten. Den er
+ * ikke i git — binærfiler gir ubrukelige differ, og den bygges fra data/ på
+ * millisekunder uansett.
+ */
+export function archiveBuildPath(): string {
+  if (process.env.AAFK_DB_PATH) return resolve(process.env.AAFK_DB_PATH);
+  const here = fileURLToPath(new URL(".", import.meta.url));
+  return resolve(here, "../../../apps/web", ARCHIVE_FILE);
+}
+
+/**
+ * Hvor lesende kode finner arkivfilen.
+ *
+ * Kan ikke utledes fra `import.meta.url` slik byggestien kan: etter Next sin
+ * bunting peker den inn i `.next/server/`, og en relativ sti derfra treffer ikke
+ * kildetreet. Vi prøver derfor kandidatene i tur og bruker den første som finnes —
+ * det dekker Next i produksjon (cwd = apps/web), CLI og tester fra repo-rota, og
+ * kildeoppsettet under utvikling.
+ */
+export function archivePath(): string {
+  if (process.env.AAFK_DB_PATH) return resolve(process.env.AAFK_DB_PATH);
+
+  // Kun cwd-baserte kandidater her — bevisst ingen fileURLToPath.
+  //
+  // Webpack polyfiller `URL` med sin egen klasse, og Nodes `fileURLToPath` avviser
+  // den med «Received an instance of URL». Byggestien kan trygt bruke den, for
+  // CLI-en kjører som ekte ESM under tsx; lesestien kjører inne i Next-bunten.
+  const candidates = [
+    resolve(process.cwd(), ARCHIVE_FILE),
+    resolve(process.cwd(), "apps/web", ARCHIVE_FILE),
+  ];
+
+  return candidates.find((p) => existsSync(p)) ?? candidates[0]!;
+}
+
+function requireArchive(path: string): string {
+  if (!existsSync(path)) {
     throw new Error(
-      `${name} er ikke satt. Kopier .env.example til .env, eller hent verdien fra ` +
-        `Vercel-prosjektets miljøvariabler (Neon-integrasjonen setter DATABASE_URL).`,
+      `Fant ingen arkivfil på ${path} (cwd: ${process.cwd()}).\n` +
+        `Kjør «pnpm db:build», eller «AAFK_DATA_DIR=fixtures/data pnpm db:build» for testdata.`,
     );
   }
-  return url;
+  return path;
 }
 
 /**
- * Tilkobling med fulle rettigheter. Brukes av migrasjoner, synkronisering og av
- * nettstedets vanlige spørringer. Skal aldri brukes av chattens run_sql.
- */
-export function connect(url = requireUrl("DATABASE_URL")): Sql {
-  return postgres(url, {
-    max: 5,
-    idle_timeout: 20,
-    // Neon skalerer til null etter inaktivitet; første spørring etter dvale
-    // trenger litt ekstra tid på å vekke instansen.
-    connect_timeout: 30,
-    types: DATE_AS_STRING,
-    onnotice: () => {},
-  });
-}
-
-/**
- * Skrivebeskyttet tilkobling for chattens run_sql, som rollen aafk_chat.
+ * Åpner arkivet skrivebeskyttet.
  *
- * Egen tilkoblingsstreng med vilje: da er det umulig å ved et uhell kjøre en
- * modellgenerert spørring på eierrollen, selv om koden skulle bomme et sted.
+ * `readOnly` håndheves av SQLite selv, ikke av koden vår — et forsøk på å skrive
+ * feiler i motoren uansett hvor det kommer fra. Dette er det tyngste laget i
+ * guardrailen rundt chattens SQL-tilgang.
  */
-export function connectReadonly(url = requireUrl("DATABASE_URL_READONLY")): Sql {
-  return postgres(url, {
-    max: 3,
-    idle_timeout: 20,
-    connect_timeout: 30,
-    types: DATE_AS_STRING,
-    onnotice: () => {},
-  });
+export function open(path = archivePath()): Db {
+  return new DatabaseSync(requireArchive(path), { readOnly: true });
 }
 
-export { postgres };
+/**
+ * Åpner arkivet med skrivetilgang. Kun for byggesteget.
+ *
+ * Egen funksjon med et navn som gjør det tydelig i diffen hvis noen tar den i bruk
+ * fra en forespørselssti. Alt som svarer på en HTTP-forespørsel skal bruke open().
+ */
+export function openForBuild(path: string): Db {
+  return new DatabaseSync(path);
+}
+
+/** Kjører en spørring vi selv har skrevet og returnerer radene. */
+export function all<T = Record<string, unknown>>(
+  db: Db,
+  sql: string,
+  ...params: (string | number | null)[]
+): T[] {
+  return db.prepare(sql).all(...params) as T[];
+}
+
+/** Første rad, eller undefined. */
+export function one<T = Record<string, unknown>>(
+  db: Db,
+  sql: string,
+  ...params: (string | number | null)[]
+): T | undefined {
+  return db.prepare(sql).get(...params) as T | undefined;
+}

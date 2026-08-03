@@ -3,7 +3,6 @@
 // @aafkstats/schema bruker fortsatt v3 — de to er uavhengige, og zod 3.25 leverer
 // begge API-ene fra samme pakke.
 import { z } from "zod/v4";
-import type { Sql } from "@aafkstats/db";
 import { runSafeSql, UnsafeSqlError } from "@aafkstats/db/sql";
 
 /**
@@ -15,8 +14,13 @@ import { runSafeSql, UnsafeSqlError } from "@aafkstats/db/sql";
  */
 
 export interface ToolContext {
-  /** Skrivebeskyttet tilkobling som rollen aafk_chat. */
-  readonly sql: Sql;
+  /**
+   * Sti til arkivfilen. Utelates den, brukes standardstien.
+   *
+   * Selve åpningen skjer i child-prosessen som kjører spørringen, med readOnly på —
+   * ingen delt tilkobling å komme til fra en forespørselssti ved et uhell.
+   */
+  readonly dbPath?: string;
   /** Kalles etter hver SQL-kjøring, for logging og bruksmåling. */
   onQuery?: (info: { sql: string; durationMs: number; rowCount: number; error?: string }) => void;
 }
@@ -47,7 +51,7 @@ function defineTool<S extends z.ZodType>(def: ToolDef<S>): ToolDef<S> {
 /** Kjører en spørring vi selv har skrevet, gjennom samme guardrails som modellens. */
 async function query(ctx: ToolContext, sql: string): Promise<ToolResult> {
   try {
-    const r = await runSafeSql(ctx.sql, sql);
+    const r = await runSafeSql(sql, { dbPath: ctx.dbPath });
     ctx.onQuery?.({ sql, durationMs: r.durationMs, rowCount: r.rowCount, error: undefined });
     return { content: { rows: r.rows, rowCount: r.rowCount, truncated: r.truncated } };
   } catch (err) {
@@ -92,7 +96,7 @@ const searchMatches = defineTool({
       where.push(`(lower(opponent) LIKE ${needle} OR opponent_club_id LIKE ${needle})`);
     }
     if (input.competitionType) where.push(`competition_type = ${lit(input.competitionType)}`);
-    if (input.isHome !== undefined) where.push(`is_home = ${input.isHome}`);
+    if (input.isHome !== undefined) where.push(`is_home = ${input.isHome ? 1 : 0}`);
     if (input.result) where.push(`result = ${lit(input.result)}`);
     if (input.minGoalDifference !== undefined) where.push(`goal_difference >= ${input.minGoalDifference}`);
     if (input.maxGoalDifference !== undefined) where.push(`goal_difference <= ${input.maxGoalDifference}`);
@@ -102,7 +106,7 @@ const searchMatches = defineTool({
       `SELECT match_id, date, season, competition, is_home, opponent,
               aafk_score, opponent_score, goal_difference, result, venue, attendance,
               confidence, url
-       FROM public_api.matches
+       FROM matches
        WHERE ${where.join(" AND ")}
        ORDER BY date DESC
        LIMIT ${input.limit}`,
@@ -120,16 +124,16 @@ const getMatch = defineTool({
     const id = lit(input.matchId);
     const match = await query(
       ctx,
-      `SELECT * FROM public_api.matches WHERE match_id = ${id}`,
+      `SELECT * FROM matches WHERE match_id = ${id}`,
     );
     const events = await query(
       ctx,
       `SELECT minute, stoppage, event_type, team, player, assist
-       FROM public_api.match_events WHERE match_id = ${id} ORDER BY minute, stoppage`,
+       FROM match_events WHERE match_id = ${id} ORDER BY minute, stoppage`,
     );
     const report = await query(
       ctx,
-      `SELECT summary, body, byline FROM public_api.reports WHERE match_id = ${id}`,
+      `SELECT summary, body, byline FROM reports WHERE match_id = ${id}`,
     );
     return { content: { match: match.content, events: events.content, report: report.content } };
   },
@@ -140,7 +144,7 @@ const getSeasonSummary = defineTool({
   description: "Sammendrag for én sesong: plassering, resultatfordeling og målforskjell.",
   inputSchema: z.object({ season: z.number().int().describe("Sesongår") }),
   async run(input, ctx) {
-    return query(ctx, `SELECT * FROM public_api.seasons WHERE season = ${input.season}`);
+    return query(ctx, `SELECT * FROM seasons WHERE season = ${input.season}`);
   },
 });
 
@@ -154,7 +158,7 @@ const headToHead = defineTool({
     const needle = lit(`%${input.opponent.toLowerCase()}%`);
     return query(
       ctx,
-      `SELECT * FROM public_api.opponents
+      `SELECT * FROM opponents
        WHERE lower(opponent) LIKE ${needle} OR opponent_club_id LIKE ${needle}
        ORDER BY played DESC LIMIT 10`,
     );
@@ -172,8 +176,8 @@ const searchReports = defineTool({
     return query(
       ctx,
       `SELECT match_id, date, opponent, is_home, result, summary, url
-       FROM public_api.reports
-       WHERE search_vector @@ plainto_tsquery('simple', ${lit(input.q)})
+       FROM reports
+       WHERE reports MATCH ${lit(input.q)}
        ORDER BY date DESC LIMIT ${input.limit}`,
     );
   },
@@ -182,16 +186,16 @@ const searchReports = defineTool({
 const runSql = defineTool({
   name: "run_sql",
   description:
-    "Kjør en SELECT mot public_api-skjemaet. Bruk dette når spørsmålet ikke passer de " +
+    "Kjør en SELECT mot arkivet. Bruk dette når spørsmålet ikke passer de " +
     "andre verktøyene — aggregeringer, uvanlige kombinasjoner, «hvor mange ganger har …». " +
-    "Kun én SELECT-setning. Ingen andre skjemaer er tilgjengelige. Maks 200 rader.",
+    "Kun én SELECT-setning. Interne core_-tabeller er ikke tilgjengelige. Maks 200 rader.",
   inputSchema: z.object({
-    sql: z.string().describe("Én SELECT-setning mot public_api"),
+    sql: z.string().describe("Én SELECT-setning mot arkivets tabeller"),
     reason: z.string().optional().describe("Kort forklaring på hva spørringen svarer på"),
   }),
   async run(input, ctx) {
     try {
-      const r = await runSafeSql(ctx.sql, input.sql);
+      const r = await runSafeSql(input.sql, { dbPath: ctx.dbPath });
       ctx.onQuery?.({ sql: input.sql, durationMs: r.durationMs, rowCount: r.rowCount });
       return {
         content: {

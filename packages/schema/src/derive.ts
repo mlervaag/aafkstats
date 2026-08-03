@@ -21,8 +21,8 @@ export interface AafkPerspective {
  *
  * Dette er det som gjør spørsmål som «når tapte vi sist med 6 mål på hjemmebane?»
  * til en triviell filtrering i stedet for et resonnement om hvilken side vi spilte på.
- * Samme logikk brukes av databasesynkroniseringen og av testene, så visningen i
- * Postgres og forventningene i testene aldri kan gli fra hverandre.
+ * Samme logikk brukes av byggesteget og av testene, så kolonnene i arkivfilen og
+ * forventningene i testene aldri kan gli fra hverandre.
  *
  * Merk om straffespark: målforskjell og resultat regnes ut fra ordinær tid pluss
  * ekstraomgang, slik fotballstatistikk normalt gjør. En cupkamp som endte 1–1 og ble

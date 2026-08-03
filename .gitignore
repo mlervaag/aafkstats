@@ -20,3 +20,6 @@ out/
 .DS_Store
 *.log
 coverage/
+
+# Bygd arkivfil — genereres fra data/, binærfil gir ubrukelige differ
+apps/web/.data/
