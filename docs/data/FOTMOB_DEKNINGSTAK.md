@@ -86,11 +86,15 @@ endrer seg ikke.
 
 ## Hva som må komme fra andre kilder
 
-Alt før 2010 — altså 1914 til 2009, som er størstedelen av klubbens historie. Det er ikke
-en mangel ved innhøstingen; det er en egenskap ved kilden. Rekkefølgen i
-[planen](../PLAN_FRA_PILOT_TIL_ARKIV.md) står ved lag: en kanonisk kampryggrad må bygges
-fra NIFS/NTB, NFF, klubbens eget historiske arkiv og avisarkivene, og FotMob forblir en
-moderne sekundærkilde.
+Alt før 2010. Det er ikke en mangel ved innhøstingen; det er en egenskap ved kilden.
+
+Hullet er siden fylt et godt stykke av **RSSSF Norway**, som har rene tekstsider tilbake
+til 1902 — se [RSSSF-dekningen](RSSSF_DEKNING.md). FotMob er dermed ikke lenger arkivets
+eneste kilde, og er det den bør være: den moderne, detaljrike kilden fra 2010 og framover.
+
+For de eldste sesongene og for europakampene står rekkefølgen i
+[planen](../PLAN_FRA_PILOT_TIL_ARKIV.md) fortsatt ved lag: NIFS/NTB, NFF, klubbens eget
+historiske arkiv og avisarkivene.
 
 Inntil da er [bidragssiden](https://github.com/mlervaag/aafkstats) veien inn for eldre
 kamper, og de ferdige AI-promptene der er laget nettopp for den jobben.
