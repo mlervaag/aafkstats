@@ -11,13 +11,112 @@ competition:
 home:
   clubId: sarpsborg-08
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: sarpsborg-stadion
 neutralVenue: false
-events: []
+attendance: 4600
+referee: Martin Lundby
+events:
+  - minute: 11
+    type: substitution
+    team: away
+    player: Jørgen Hatlehol
+    playerOff: Mikkel Kirkeskov
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Oddbjørn Lie
+  - minute: 48
+    type: goal
+    team: home
+    player: Patrick Mortensen
+  - minute: 60
+    type: yellow_card
+    team: away
+    player: Kaj Ramsteijn
+  - minute: 62
+    type: yellow_card
+    team: home
+    player: Joackim Jørgensen
+  - minute: 66
+    type: substitution
+    team: away
+    player: Fredrik Carlsen
+    playerOff: Sondre Brunstad Fet
+  - minute: 70
+    type: red_card
+    team: away
+    player: Kaj Ramsteijn
+  - minute: 83
+    type: substitution
+    team: away
+    player: Marlinho
+    playerOff: Mostafa Abdellaoue
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Anders Kristiansen
+      - Amin Askar
+      - Joackim Jørgensen
+      - Sigurd Rosted
+      - Joachim Thomassen
+      - Ole Jørgen Halvorsen
+      - Matti Lund Nielsen
+      - Nicolai Poulsen
+      - Kristoffer Zachariassen
+      - Patrick Mortensen
+      - Krepin Diatta
+    subs:
+      - Anders Østli
+      - Jon Helge Tveita
+      - Jonas Lindberg
+      - Ole Heieren Hansen
+      - Stefan Cupic
+      - Tobias Heintz
+      - Tor Øivind Hovda
+    coach: Geir Bakke
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Kaj Ramsteijn
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Bjørn Helge Riise
+      - Vebjørn Hoff
+      - Sondre Brunstad Fet
+      - Athanassios Papazoglou
+      - Mostafa Abdellaoue
+    subs:
+      - Jørgen Hatlehol
+      - Fredrik Carlsen
+      - Marlinho
+      - Aron Elis Thrándarson
+      - Jan Lennart Urke
+      - Valmir Berisha
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 72
+    shots: 18
+    shotsOnTarget: 6
+    corners: 2
+    fouls: 7
+    offsides: 0
+  away:
+    possession: 28
+    shots: 6
+    shotsOnTarget: 1
+    corners: 2
+    fouls: 13
+    offsides: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +132,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

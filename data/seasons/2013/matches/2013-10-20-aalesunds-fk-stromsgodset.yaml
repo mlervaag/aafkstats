@@ -11,13 +11,111 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: stromsgodset
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 25
+    type: yellow_card
+    team: away
+    player: Øyvind Storflor
+  - minute: 29
+    type: yellow_card
+    team: away
+    player: Jørgen Horn
+  - minute: 41
+    type: substitution
+    team: away
+    player: Flamur Kastrati
+    playerOff: Muhamed Keita
+  - minute: 51
+    type: yellow_card
+    team: away
+    player: Kim André Madsen
+  - minute: 63
+    type: substitution
+    team: home
+    player: Edvard Skagestad
+    playerOff: Houcine Zaidoune
+  - minute: 66
+    type: substitution
+    team: away
+    player: Peter Kovacs
+    playerOff: Adama Diomande
+  - minute: 79
+    type: substitution
+    team: home
+    player: Tor Hogne Aarøy
+    playerOff: Fredrik Carlsen
+  - minute: 82
+    type: goal
+    team: away
+    player: Peter Kovacs
+    assist: Jarl André Storbæk
+  - minute: 83
+    type: yellow_card
+    team: home
+    player: Michael Barrantes
+  - minute: 84
+    type: yellow_card
+    team: home
+    player: Abderrazak Hamdallah
+  - minute: 90
+    type: substitution
+    team: away
+    player: Lars Sætra
+    playerOff: Flamur Kastrati
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Jo Nymo Matland
+      - Houcine Zaidoune
+      - Fredrik Carlsen
+      - Michael Barrantes
+      - Peter Orry Larsen
+      - Demar Phillips
+      - Abderrazak Hamdallah
+    subs:
+      - Edvard Skagestad
+      - Tor Hogne Aarøy
+      - Andreas Nordvik
+      - Henrik Rørvik Bjørdal
+      - Lars Fuhre
+      - Lasse Staw
+      - Thomas Skog Martinussen
+    coach: Jan Jönsson
+  away:
+    formation: 4-3-3
+    starters:
+      - Adam Larsen Kwarasey
+      - Lars-Christopher Vilsvik
+      - Kim André Madsen
+      - Jørgen Horn
+      - Jarl André Storbæk
+      - Muhamed Keita
+      - Stefan Johansen
+      - Abdisalam Ibrahim
+      - Øyvind Storflor
+      - Ola Kamara
+      - Adama Diomande
+    subs:
+      - Flamur Kastrati
+      - Peter Kovacs
+      - Lars Sætra
+      - Anders Gundersen
+      - Gustav Wikheim
+      - Martin Rønning Ovenstad
+      - Mounir Hamoud
+    coach: Ronny Deila
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +131,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,109 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: kongsvinger
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 36
+    type: substitution
+    team: away
+    player: Harald Holter
+    playerOff: Fredrik Sjølstad
+  - minute: 45
+    type: goal
+    team: away
+    player: Dong-Wan Gang
+  - minute: 53
+    type: substitution
+    team: home
+    player: Pape Habib Gueye
+    playerOff: Adam Örn Arnarson
+  - minute: 55
+    type: yellow_card
+    team: home
+    player: Jonas Grønner
+  - minute: 66
+    type: substitution
+    team: away
+    player: Fredrik Mani Pålerud
+    playerOff: Iman Mafi
+  - minute: 69
+    type: yellow_card
+    team: away
+    player: Harald Holter
+  - minute: 71
+    type: substitution
+    team: away
+    player: Olav Øby
+    playerOff: Marlinho
+  - minute: 74
+    type: yellow_card
+    team: away
+    player: Shuaibu Ibrahim
+  - minute: 76
+    type: substitution
+    team: home
+    player: Ståle Steen Sæthre
+    playerOff: Jens Petter Hauge
+  - minute: 85
+    type: goal
+    team: home
+    player: Torbjørn Agdestein
+    assist: Nikola Tkalcic
+  - minute: 90
+    type: goal
+    team: home
+    player: Sondre Brunstad Fet
+lineups:
+  home:
+    formation: 3-4-3
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Adam Örn Arnarson
+      - Fredrik Carlsen
+      - Erikson Lima
+      - Nikola Tkalcic
+      - Jens Petter Hauge
+      - Torbjørn Agdestein
+      - Sondre Brunstad Fet
+    subs:
+      - Pape Habib Gueye
+      - Ståle Steen Sæthre
+      - Håvard Breivik
+      - Holmbert Aron Fridjonsson
+      - Jørgen Hatlehol
+      - Markus Seehusen Karlsbakk
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
+  away:
+    formation: 4-3-1-2
+    starters:
+      - Arnold Origi Otieno
+      - Christian Røer
+      - Edvard Skagestad
+      - Martin Lundal
+      - Ridouan Boulahuane Essaeh
+      - Dong-Wan Gang
+      - Fredrik Sjølstad
+      - Iman Mafi
+      - Marlinho
+      - Shuaibu Ibrahim
+      - Adem Güven
+    subs:
+      - Harald Holter
+      - Fredrik Mani Pålerud
+      - Olav Øby
+      - Even Bydal
+      - Tobias Trautner
+    coach: Mark Dempsey
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +129,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

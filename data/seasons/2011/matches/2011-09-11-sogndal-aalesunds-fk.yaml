@@ -11,13 +11,98 @@ competition:
 home:
   clubId: sogndal
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: fosshaugane-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 27
+    type: yellow_card
+    team: home
+    player: Cato Hansen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Solomon Okoronkwo
+    playerOff: Kjell Rune Sellin
+  - minute: 53
+    type: yellow_card
+    team: away
+    player: Peter Orry Larsen
+  - minute: 60
+    type: substitution
+    team: away
+    player: Fredrik Ulvestad
+    playerOff: Fredrik Carlsen
+  - minute: 60
+    type: substitution
+    team: home
+    player: Tonny Brochmann
+    playerOff: Cato Hansen
+  - minute: 81
+    type: substitution
+    team: home
+    player: Ulrik Flo
+    playerOff: Eirik Bakke
+  - minute: 89
+    type: substitution
+    team: away
+    player: Edvard Skagestad
+    playerOff: Michael Barrantes
+  - minute: 90
+    type: substitution
+    team: home
+    player: Taijo Teniste
+    playerOff: Ole Jørgen Halvorsen
+lineups:
+  home:
+    formation: 5-4-1
+    starters:
+      - Kenneth Udjus
+      - Mats Solheim
+      - Even Hovland
+      - Per Egil Flo
+      - Isak Scheel
+      - Ahyee Aye Elvis
+      - Henrik Furebotn
+      - Eirik Bakke
+      - Ole Jørgen Halvorsen
+      - Ørjan Hopen
+      - Cato Hansen
+    subs:
+      - Tonny Brochmann
+      - Ulrik Flo
+      - Taijo Teniste
+      - Barry Kader
+      - Gustav Valsvik
+      - Joe Bendik
+      - Vegard Gjermundstad
+    coach: Harald Aabrekk
+  away:
+    formation: 5-2-3
+    starters:
+      - Sten Michael Grytebust
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Enar Jääger
+      - Jo Nymo Matland
+      - Fredrik Carlsen
+      - Peter Orry Larsen
+      - Michael Barrantes
+      - Sander Post
+      - Demar Phillips
+      - Kjell Rune Sellin
+    subs:
+      - Solomon Okoronkwo
+      - Fredrik Ulvestad
+      - Edvard Skagestad
+      - Christian Myklebust
+      - Jonas Sandqvist
+      - Robert Sandnes
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +118,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

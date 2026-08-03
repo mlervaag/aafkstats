@@ -11,13 +11,121 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: sandnes-ulf
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 37
+    type: yellow_card
+    team: away
+    player: Axel Kryger
+  - minute: 44
+    type: goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+    assist: Torbjørn Agdestein
+  - minute: 46
+    type: substitution
+    team: home
+    player: Jørgen Hatlehol
+    playerOff: Robert Sandnes
+  - minute: 46
+    type: substitution
+    team: away
+    player: Onyekachi Ugwuadu
+    playerOff: Tapio Heikkilä
+  - minute: 57
+    type: goal
+    team: home
+    player: Sondre Brunstad Fet
+    assist: Aron Elis Thrándarson
+  - minute: 62
+    type: substitution
+    team: away
+    player: Daniel Edvardsen
+    playerOff: Axel Kryger
+  - minute: 71
+    type: substitution
+    team: away
+    player: Vegard Aasen
+    playerOff: Erixon Danso
+  - minute: 72
+    type: substitution
+    team: home
+    player: Pape Habib Gueye
+    playerOff: Torbjørn Agdestein
+  - minute: 78
+    type: goal
+    team: home
+    player: Pape Habib Gueye
+    assist: Fredrik Carlsen
+  - minute: 79
+    type: substitution
+    team: home
+    player: Erikson Lima
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 83
+    type: yellow_card
+    team: away
+    player: Onyekachi Ugwuadu
+  - minute: 89
+    type: yellow_card
+    team: away
+    player: Akinbola Akinyemi
+  - minute: 90
+    type: goal
+    team: home
+    player: Pape Habib Gueye
+    assist: Aron Elis Thrándarson
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Ståle Steen Sæthre
+      - Oddbjørn Lie
+      - Adam Örn Arnarson
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Sondre Brunstad Fet
+      - Robert Sandnes
+      - Holmbert Aron Fridjonsson
+      - Torbjørn Agdestein
+    subs:
+      - Jørgen Hatlehol
+      - Pape Habib Gueye
+      - Erikson Lima
+      - Bjørn Helge Riise
+      - Håvard Breivik
+      - Jonas Grønner
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
+  away:
+    formation: 4-5-1
+    starters:
+      - Deniss Korneiciks
+      - Axel Kryger
+      - Jasmin Bogdanovic
+      - Tapio Heikkilä
+      - Herman Kleppa
+      - Vegard Østraat Erlien
+      - Erixon Danso
+      - Akinsola Akinyemi
+      - Akinbola Akinyemi
+      - Kristian Brix
+      - Niels Vorthoren
+    subs:
+      - Onyekachi Ugwuadu
+      - Daniel Edvardsen
+      - Vegard Aasen
+      - Andreas Dybevik
+      - Aron Christensen
+    coach: Bengt Sæternes
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +141,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,109 @@ competition:
 home:
   clubId: oygarden-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: aagotnes-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 13
+    type: yellow_card
+    team: away
+    player: Erikson Lima
+  - minute: 18
+    type: yellow_card
+    team: away
+    player: David Kristjan Olafsson
+  - minute: 21
+    type: yellow_card
+    team: home
+    player: Thor Kristian Økland
+  - minute: 71
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Peter Orry Larsen
+  - minute: 73
+    type: substitution
+    team: home
+    player: Peter Sørensen Nergaard
+    playerOff: Tobias Hammer Svendsen
+  - minute: 77
+    type: substitution
+    team: away
+    player: Holmbert Aron Fridjonsson
+    playerOff: Pape Habib Gueye
+  - minute: 79
+    type: red_card
+    team: home
+    player: Thor Kristian Økland
+  - minute: 83
+    type: yellow_card
+    team: home
+    player: Jonas Hestetun
+  - minute: 84
+    type: penalty_goal
+    team: away
+    player: Niklas Castro
+  - minute: 90
+    type: substitution
+    team: home
+    player: Andreas Petersson
+    playerOff: Elmin Nurkic
+  - minute: 90
+    type: substitution
+    team: away
+    player: Håvard Breivik
+    playerOff: Niklas Castro
+lineups:
+  home:
+    formation: 3-4-1-2
+    starters:
+      - Renze Fij
+      - Daniel Arrocha
+      - Thor Kristian Økland
+      - Elmin Nurkic
+      - Jonas Hestetun
+      - Tobias Hammer Svendsen
+      - Mads Sande
+      - Kristoffer Nesse Stephensen
+      - Jo Sondre Aas
+      - Bjarte Haugsdal
+      - Marcus Mehnert
+    subs:
+      - Peter Sørensen Nergaard
+      - Andreas Petersson
+      - Emil Harloff
+      - Erlend Hellevik Larsen
+      - Mads Bjørsvik Songve
+      - Vladan Radojkic
+    coach: Steffen Landro
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Daniel Gretarsson
+      - Jonas Grønner
+      - Ståle Steen Sæthre
+      - Jørgen Hatlehol
+      - Niklas Castro
+      - Peter Orry Larsen
+      - Erikson Lima
+      - David Kristjan Olafsson
+      - Torbjørn Agdestein
+      - Pape Habib Gueye
+    subs:
+      - Sondre Brunstad Fet
+      - Holmbert Aron Fridjonsson
+      - Håvard Breivik
+      - Fredrik Carlsen
+      - Jernade Meade
+      - Marius Berntzen
+      - Oddbjørn Lie
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +129,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

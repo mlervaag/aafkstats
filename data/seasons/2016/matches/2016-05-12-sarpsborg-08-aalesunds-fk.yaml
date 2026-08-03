@@ -11,13 +11,119 @@ competition:
 home:
   clubId: sarpsborg-08
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: sarpsborg-stadion
 neutralVenue: false
-events: []
+attendance: 3540
+referee: Tom Harald Hagen
+events:
+  - minute: 40
+    type: yellow_card
+    team: home
+    player: Alexander Groven
+  - minute: 45
+    type: goal
+    team: home
+    player: Anders Trondsen
+    assist: Tor Øivind Hovda
+  - minute: 49
+    type: yellow_card
+    team: home
+    player: Ole Heieren Hansen
+  - minute: 61
+    type: substitution
+    team: away
+    player: Aron Elis Thrándarson
+    playerOff: Peter Orry Larsen
+  - minute: 69
+    type: substitution
+    team: away
+    player: Edwin Gyasi
+    playerOff: Vebjørn Hoff
+  - minute: 72
+    type: yellow_card
+    team: away
+    player: Edwin Gyasi
+  - minute: 83
+    type: yellow_card
+    team: home
+    player: Tor Øivind Hovda
+  - minute: 84
+    type: substitution
+    team: home
+    player: Jonas Lindberg
+    playerOff: Pål Alexander Kirkevold
+  - minute: 87
+    type: substitution
+    team: away
+    player: Marlinho
+    playerOff: Adam Örn Arnarson
+  - minute: 88
+    type: substitution
+    team: home
+    player: Matti Lund Nielsen
+    playerOff: Tor Øivind Hovda
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Arild Østbø
+      - Henri Toivomäki
+      - Ole Heieren Hansen
+      - Sigurd Rosted
+      - Joachim Thomassen
+      - Kristoffer Tokstad
+      - Tor Øivind Hovda
+      - Anders Trondsen
+      - Alexander Groven
+      - Patrick Mortensen
+      - Pål Alexander Kirkevold
+    subs:
+      - Jonas Lindberg
+      - Matti Lund Nielsen
+      - Anders Kristiansen
+      - Jakob Glesnes
+      - Jon Helge Tveita
+      - Kjetil Berge
+      - Kristinn Jonsson
+    coach: Geir Bakke
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Oddbjørn Lie
+      - Edvard Skagestad
+      - Mikkel Kirkeskov
+      - Vebjørn Hoff
+      - Bjørn Helge Riise
+      - John Arne Riise
+      - Peter Orry Larsen
+      - Franck Boli
+      - Mostafa Abdellaoue
+    subs:
+      - Aron Elis Thrándarson
+      - Edwin Gyasi
+      - Marlinho
+      - Lars Cramer
+      - Tero Mäntylä
+      - Thomas Skog Martinussen
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 53
+    shots: 21
+    shotsOnTarget: 8
+    corners: 10
+  away:
+    possession: 47
+    shots: 9
+    shotsOnTarget: 3
+    corners: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +139,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

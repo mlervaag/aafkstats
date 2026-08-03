@@ -19,6 +19,9 @@ away:
 extraTime:
   home: 1
   away: 1
+penaltyShootout:
+  home: 5
+  away: 4
 neutralVenue: false
 events:
   - minute: 27
@@ -124,6 +127,7 @@ sources:
       - home.halfTimeScore
       - away.halfTimeScore
       - extraTime
+      - penaltyShootout
       - events
       - lineups
     note: "Kildestatus: Pen"

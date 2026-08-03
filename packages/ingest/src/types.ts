@@ -75,7 +75,16 @@ export interface FetchResult {
 
 export interface SeasonFetchOptions {
   leagueId: string;
+  /** Sesongen kampene havner under i arkivet. Alltid et årstall. */
   season: number;
+  /**
+   * Sesongen slik kilden vil ha den, når den skiller seg fra årstallet.
+   *
+   * Norgesmesterskapet 2021 og 2022 ble spilt over to kalenderår og ligger hos
+   * FotMob som «2021/2022» og «2022/2023». Ber man om «2021», finnes ikke
+   * sesongen, og kilden svarer med inneværende sesong i stedet for en feil.
+   */
+  sourceSeason?: string;
   withDetails?: boolean;
   detailsLimit?: number;
   /** Hvor i kamplista detaljvinduet starter. Lar en sesong detaljeres over flere kjøringer. */

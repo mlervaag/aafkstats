@@ -11,13 +11,151 @@ competition:
 home:
   clubId: sandnes-ulf
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: oster-hus-arena
 neutralVenue: false
-events: []
+attendance: 2136
+referee: Harald Vollstad Sletner
+events:
+  - minute: 26
+    type: yellow_card
+    team: away
+    player: Sam Rogers
+  - minute: 38
+    type: yellow_card
+    team: home
+    player: Jarmund Øyen Kvernstuen
+  - minute: 42
+    type: yellow_card
+    team: away
+    player: David Snær Johannsson
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Andreas Nyhagen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Bjørn Martin Kristensen
+    playerOff: Sander Hestetun Kilen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Marcus Rafferty
+    playerOff: Kristoffer Nessø
+  - minute: 46
+    type: substitution
+    team: home
+    player: Daniel Braut
+    playerOff: Jarmund Øyen Kvernstuen
+  - minute: 54
+    type: goal
+    team: away
+    player: Håkon Butli Hammer
+    assist: Bjørn Martin Kristensen
+  - minute: 65
+    type: goal
+    team: away
+    player: Marcus Rafferty
+  - minute: 68
+    type: substitution
+    team: home
+    player: Haris Brkic
+    playerOff: Herman Kleppa
+  - minute: 68
+    type: substitution
+    team: home
+    player: Matias Belli Moldskred
+    playerOff: Tommy Høiland
+  - minute: 68
+    type: substitution
+    team: home
+    player: Endre Osenbroch
+    playerOff: Andreas Nyhagen
+  - minute: 74
+    type: substitution
+    team: home
+    player: Jonas Brune Aune
+    playerOff: Olav Øby
+  - minute: 81
+    type: substitution
+    team: away
+    player: Simen Haram
+    playerOff: Nikolai Hopland
+  - minute: 87
+    type: substitution
+    team: away
+    player: Moctar Diop
+    playerOff: Claudio Braga
+  - minute: 87
+    type: substitution
+    team: away
+    player: Eivind Strømsheim Kolve
+    playerOff: Janus Seehusen
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Serigne Mbaye
+      - Eirik Asante Gayi
+      - Espen Hammer Berger
+      - Mads Thorsøe Bager
+      - Herman Kleppa
+      - Olav Øby
+      - Vajebah Sakor
+      - Isak Hjorteseth
+      - Andreas Nyhagen
+      - Jarmund Øyen Kvernstuen
+      - Tommy Høiland
+    subs:
+      - Daniel Braut
+      - Haris Brkic
+      - Matias Belli Moldskred
+      - Endre Osenbroch
+      - Jonas Brune Aune
+      - Tord Flolid
+      - Christer Salvesen
+      - Erik Berland
+      - Gullbrandur Øregaard
+    coach: Steinar Nilsen
+  away:
+    formation: 3-5-2
+    starters:
+      - Tor Erik Valderhaug Larsen
+      - Sam Rogers
+      - Mads Nielsen
+      - Nikolai Hopland
+      - Kristoffer Nessø
+      - David Snær Johannsson
+      - Håkon Butli Hammer
+      - Janus Seehusen
+      - Thomas Grøgaard
+      - Claudio Braga
+      - Sander Hestetun Kilen
+    subs:
+      - Bjørn Martin Kristensen
+      - Marcus Rafferty
+      - Simen Haram
+      - Eivind Strømsheim Kolve
+      - Moctar Diop
+      - Sondre Midthjell
+      - Stian Aarønes Holte
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 47
+    shots: 9
+    shotsOnTarget: 4
+    corners: 6
+  away:
+    possession: 53
+    shots: 11
+    shotsOnTarget: 5
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +171,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

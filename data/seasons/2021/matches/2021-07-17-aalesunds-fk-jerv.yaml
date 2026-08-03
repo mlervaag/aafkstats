@@ -11,13 +11,134 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: jerv
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 1655
+events:
+  - minute: 42
+    type: yellow_card
+    team: away
+    player: Diego Campos
+  - minute: 45
+    stoppage: 2
+    type: goal
+    team: away
+    player: Willis Furtado
+  - minute: 64
+    type: yellow_card
+    team: away
+    player: Torje Wichne
+  - minute: 68
+    type: substitution
+    team: away
+    player: Erik Sandberg
+    playerOff: Diego Campos
+  - minute: 68
+    type: substitution
+    team: away
+    player: Iman Mafi
+    playerOff: Aboubacar Konté
+  - minute: 71
+    type: substitution
+    team: home
+    player: Kristoffer Ødemarksbakken
+    playerOff: Torbjørn Kallevåg
+  - minute: 71
+    type: substitution
+    team: home
+    player: Mamadou Diaw
+    playerOff: Simen Bolkan Nordli
+  - minute: 75
+    type: substitution
+    team: away
+    player: Thomas Zernichow
+    playerOff: Torje Wichne
+  - minute: 75
+    type: substitution
+    team: away
+    player: Ikhsan Fandi
+    playerOff: Pibe
+  - minute: 75
+    type: yellow_card
+    team: home
+    player: Simen Rafn
+  - minute: 77
+    type: substitution
+    team: home
+    player: Isak Dybvik
+    playerOff: Erikson Lima
+  - minute: 84
+    type: substitution
+    team: home
+    player: Jørgen Hatlehol
+    playerOff: Simen Rafn
+  - minute: 88
+    type: goal
+    team: home
+    player: Erlend Segberg
+    assist: Quint Jansen
+  - minute: 90
+    stoppage: 4
+    type: yellow_card
+    team: away
+    player: Mathias Wichmann
+  - minute: 90
+    stoppage: 4
+    type: yellow_card
+    team: home
+    player: Niklas Castro
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Simen Rafn
+      - Quint Jansen
+      - Nikolai Hopland
+      - David Kristjan Olafsson
+      - Erlend Segberg
+      - Erikson Lima
+      - Niklas Castro
+      - Simen Bolkan Nordli
+      - Torbjørn Kallevåg
+      - Sigurd Haugen
+    subs:
+      - Kristoffer Ødemarksbakken
+      - Mamadou Diaw
+      - Isak Dybvik
+      - Jørgen Hatlehol
+      - Andreas Lie
+      - Henrik Melland
+      - Stian Aarønes Holte
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Øystein Øvretveit
+      - Torje Wichne
+      - Daniel Arrocha
+      - John Olav Norheim
+      - Jørgen Solli
+      - Thomas Kok
+      - Mathias Wichmann
+      - Willis Furtado
+      - Aboubacar Konté
+      - Diego Campos
+      - Pibe
+    subs:
+      - Erik Sandberg
+      - Iman Mafi
+      - Ikhsan Fandi
+      - Thomas Zernichow
+      - Andreas Olsvoll
+      - Håkon Suggelia
+      - Ole Marius Håbestad
+    coach: Arne Sandstø
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +154,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

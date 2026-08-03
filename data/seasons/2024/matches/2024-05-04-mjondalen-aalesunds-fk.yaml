@@ -11,13 +11,134 @@ competition:
 home:
   clubId: mjondalen
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: consto-arena
 neutralVenue: false
-events: []
+attendance: 1341
+referee: Ajdin Medic
+events:
+  - minute: 18
+    type: penalty_goal
+    team: home
+    player: Meinhard Olsen
+  - minute: 18
+    type: yellow_card
+    team: away
+    player: Sten Michael Grytebust
+  - minute: 40
+    type: substitution
+    team: home
+    player: Simon Appiah
+    playerOff: Kristoffer Tokstad
+  - minute: 46
+    type: substitution
+    team: home
+    player: Markus Olsvik Welinder
+    playerOff: Peder Vogt
+  - minute: 51
+    type: yellow_card
+    team: away
+    player: Simen Haram
+  - minute: 65
+    type: substitution
+    team: away
+    player: Metodi Maksimov
+    playerOff: John Ruud Norvik
+  - minute: 65
+    type: substitution
+    team: away
+    player: Amidou Diop
+    playerOff: Martin Ramsland
+  - minute: 67
+    type: goal
+    team: away
+    player: Isaac Atanga
+    assist: Sander Hestetun Kilen
+  - minute: 75
+    type: substitution
+    team: home
+    player: Eivind Helgeland
+    playerOff: Meinhard Olsen
+  - minute: 75
+    type: substitution
+    team: home
+    player: Keerat Singh
+    playerOff: Sivert Øverby
+  - minute: 75
+    type: substitution
+    team: away
+    player: John Kitolano
+    playerOff: Isaac Atanga
+  - minute: 85
+    type: substitution
+    team: away
+    player: Sebastian Berntsen
+    playerOff: Eivind Strømsheim Kolve
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: John Kitolano
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Thomas Kinn
+      - Peder Vogt
+      - Sondre Skogen
+      - Rasmus Holten
+      - Sivert Øverby
+      - Erik Næsbak Brenden
+      - Meinhard Olsen
+      - Ole Amund Sveen
+      - Mats Pedersen
+      - Kristoffer Tokstad
+      - Alie Conteh
+    subs:
+      - Simon Appiah
+      - Markus Olsvik Welinder
+      - Eivind Helgeland
+      - Keerat Singh
+      - Andreas Fagereng
+      - Johannes Dahlby
+    coach: Kevin Nicol
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - John Ruud Norvik
+      - Simen Haram
+      - Martin Ramsland
+      - Thomas Grøgaard
+      - Håkon Butli Hammer
+      - Eivind Strømsheim Kolve
+      - David Snær Johannsson
+      - Isaac Atanga
+      - Claudio Braga
+      - Sander Hestetun Kilen
+    subs:
+      - Amidou Diop
+      - Metodi Maksimov
+      - John Kitolano
+      - Sebastian Berntsen
+      - Sondre Midthjell
+      - Thomas Gulbrandsen
+      - Kristian Hemmingsen Lonebu
+    coach: Christian Johnsen
+stats:
+  home:
+    possession: 55
+    shots: 16
+    shotsOnTarget: 11
+    corners: 6
+  away:
+    possession: 45
+    shots: 12
+    shotsOnTarget: 5
+    corners: 4
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +154,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

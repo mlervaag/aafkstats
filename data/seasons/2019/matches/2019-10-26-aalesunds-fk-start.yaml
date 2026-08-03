@@ -11,13 +11,112 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: start
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 12
+    type: yellow_card
+    team: home
+    player: Fredrik Carlsen
+  - minute: 46
+    type: substitution
+    team: home
+    player: Erikson Lima
+    playerOff: Niklas Castro
+  - minute: 72
+    type: yellow_card
+    team: away
+    player: Damion Lowe
+  - minute: 73
+    type: penalty_goal
+    team: home
+    player: Pape Habib Gueye
+  - minute: 76
+    type: substitution
+    team: away
+    player: Mathias Bringaker
+    playerOff: Kasper Skaanes
+  - minute: 76
+    type: goal
+    team: home
+    player: Pape Habib Gueye
+    assist: Aron Elis Thrándarson
+  - minute: 79
+    type: substitution
+    team: away
+    player: Eman Markovic
+    playerOff: Martin Ramsland
+  - minute: 80
+    type: goal
+    team: away
+    player: Eirik Wichne
+    assist: Erlend Segberg
+  - minute: 81
+    type: substitution
+    team: away
+    player: Adnan Hadzic
+    playerOff: Aremu Afeez
+  - minute: 90
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Aron Elis Thrándarson
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Mathias Bringaker
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Ståle Steen Sæthre
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Jørgen Hatlehol
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Niklas Castro
+      - Jernade Meade
+      - Torbjørn Agdestein
+      - Pape Habib Gueye
+    subs:
+      - Erikson Lima
+      - Peter Orry Larsen
+      - David Kristjan Olafsson
+      - Håvard Breivik
+      - Kristoffer Hay
+      - Marius Berntzen
+      - Sondre Brunstad Fet
+    coach: Lars Bohinen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Jonas Deumeland
+      - Eirik Wichne
+      - Damion Lowe
+      - Joackim Jørgensen
+      - Henrik Robstad
+      - Aremu Afeez
+      - Erlend Segberg
+      - Kasper Skaanes
+      - Kevin Kabran
+      - Aron Sigurdarson
+      - Martin Ramsland
+    subs:
+      - Mathias Bringaker
+      - Eman Markovic
+      - Adnan Hadzic
+      - Alexander Pedersen
+      - Espen Hammer Berger
+      - Mikael Ugland
+      - Sander Sjökvist
+    coach: Johannes Hardarson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +132,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

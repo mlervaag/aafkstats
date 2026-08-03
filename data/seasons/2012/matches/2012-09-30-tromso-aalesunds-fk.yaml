@@ -11,13 +11,100 @@ competition:
 home:
   clubId: tromso
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: alfheim
 neutralVenue: false
-events: []
+events:
+  - minute: 7
+    type: goal
+    team: home
+    player: Kara Mbodji
+  - minute: 36
+    type: yellow_card
+    team: away
+    player: Demar Phillips
+  - minute: 44
+    type: yellow_card
+    team: away
+    player: Tremaine Stewart
+  - minute: 46
+    type: substitution
+    team: home
+    player: Hans Åge Yndestad
+    playerOff: Hans Norbye
+  - minute: 58
+    type: substitution
+    team: home
+    player: Steffen Nystrøm
+    playerOff: Ole Martin Årst
+  - minute: 69
+    type: substitution
+    team: away
+    player: Thomas Skog Martinussen
+    playerOff: Peter Orry Larsen
+  - minute: 80
+    type: substitution
+    team: away
+    player: Sander Post
+    playerOff: Leke James
+  - minute: 83
+    type: substitution
+    team: away
+    player: Torbjørn Grytten
+    playerOff: Demar Phillips
+  - minute: 86
+    type: substitution
+    team: home
+    player: Remi Johansen
+    playerOff: Aleksandar Prijovic
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Benny Lekström
+      - Hans Norbye
+      - Fredrik Björck
+      - Saliou Ciss
+      - Ruben Kristiansen
+      - Magnus Andersen
+      - Kara Mbodji
+      - Ruben Yttergård Jenssen
+      - Thomas Drage
+      - Aleksandar Prijovic
+      - Ole Martin Årst
+    subs:
+      - Hans Åge Yndestad
+      - Steffen Nystrøm
+      - Remi Johansen
+      - Henri Sillanpää
+      - Miika Koppinen
+      - Thomas Kind Bendiksen
+      - William Johan Frantzen
+    coach: Per-Mathias Høgmo
+  away:
+    formation: 5-3-2
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Edvard Skagestad
+      - Jonatan Tollås Nation
+      - Amund Skiri
+      - Jo Nymo Matland
+      - Peter Orry Larsen
+      - Fredrik Ulvestad
+      - Tremaine Stewart
+      - Demar Phillips
+      - Leke James
+    subs:
+      - Thomas Skog Martinussen
+      - Sander Post
+      - Torbjørn Grytten
+      - Mathias Rasmussen
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +120,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,133 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: sandefjord
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 15
+    type: yellow_card
+    team: home
+    player: Pape Habib Gueye
+  - minute: 21
+    type: goal
+    team: away
+    player: William Albin Kurtovic
+  - minute: 24
+    type: goal
+    team: home
+    player: Torbjørn Agdestein
+    assist: Niklas Castro
+  - minute: 62
+    type: substitution
+    team: home
+    player: Sondre Brunstad Fet
+    playerOff: Erikson Lima
+  - minute: 62
+    type: substitution
+    team: home
+    player: Holmbert Aron Fridjonsson
+    playerOff: Pape Habib Gueye
+  - minute: 67
+    type: yellow_card
+    team: away
+    player: Rufo
+  - minute: 68
+    type: goal
+    team: home
+    player: Niklas Castro
+    assist: Sondre Brunstad Fet
+  - minute: 71
+    type: substitution
+    team: away
+    player: Erik Mjelde
+    playerOff: Marc Vales
+  - minute: 76
+    type: substitution
+    team: away
+    player: George Nuah Gibson
+    playerOff: Pontus Engblom
+  - minute: 77
+    type: yellow_card
+    team: home
+    player: Andreas Lie
+  - minute: 77
+    type: yellow_card
+    team: away
+    player: George Nuah Gibson
+  - minute: 79
+    type: goal
+    team: home
+    player: Torbjørn Agdestein
+    assist: Holmbert Aron Fridjonsson
+  - minute: 80
+    type: yellow_card
+    team: away
+    player: Anton Kralj
+  - minute: 82
+    type: yellow_card
+    team: home
+    player: Sondre Brunstad Fet
+  - minute: 87
+    type: substitution
+    team: home
+    player: Isak Dybvik
+    playerOff: Jørgen Hatlehol
+  - minute: 88
+    type: substitution
+    team: away
+    player: Martin Andersen
+    playerOff: Mohamed Ofkir
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Jørgen Hatlehol
+      - Erikson Lima
+      - Fredrik Carlsen
+      - Niklas Castro
+      - Jernade Meade
+      - Torbjørn Agdestein
+      - Pape Habib Gueye
+    subs:
+      - Holmbert Aron Fridjonsson
+      - Sondre Brunstad Fet
+      - Isak Dybvik
+      - David Kristjan Olafsson
+      - Marius Berntzen
+      - Peter Orry Larsen
+      - Ståle Steen Sæthre
+    coach: Lars Bohinen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Jacob Storevik
+      - Marc Vales
+      - Lars Grorud
+      - Marius Høibråten
+      - Anton Kralj
+      - Tito
+      - Emil Palsson
+      - Mohamed Ofkir
+      - William Albin Kurtovic
+      - Rufo
+      - Pontus Engblom
+    subs:
+      - Erik Mjelde
+      - George Nuah Gibson
+      - Martin Andersen
+      - Henrik Falchener
+      - Sander Moen Foss
+      - Walter Viitala
+    coach: Marti Cifuentes
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +153,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

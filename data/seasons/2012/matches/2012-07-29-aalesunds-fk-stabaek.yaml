@@ -11,13 +11,113 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: stabaek
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 9
+    type: substitution
+    team: away
+    player: Jan Kjell Larsen
+    playerOff: Sayouba Mandé
+  - minute: 43
+    type: goal
+    team: home
+    player: Daniel Arnefjord
+  - minute: 45
+    type: goal
+    team: away
+    player: Franck Boli
+  - minute: 46
+    type: substitution
+    team: home
+    player: Lars Fuhre
+    playerOff: Christian Myklebust
+  - minute: 59
+    type: substitution
+    team: home
+    player: Tremaine Stewart
+    playerOff: Kjell Rune Sellin
+  - minute: 63
+    type: yellow_card
+    team: away
+    player: Bjarni Olafur Eiriksson
+  - minute: 65
+    type: goal
+    team: home
+    player: Tremaine Stewart
+  - minute: 77
+    type: substitution
+    team: away
+    player: Mads Stokkelien
+    playerOff: Stian Sortevik
+  - minute: 83
+    type: substitution
+    team: away
+    player: Ståle Steen Sæthre
+    playerOff: Fredrik Brustad
+  - minute: 84
+    type: yellow_card
+    team: away
+    player: Ståle Steen Sæthre
+  - minute: 88
+    type: penalty_goal
+    team: home
+    player: Fredrik Ulvestad
+  - minute: 89
+    type: substitution
+    team: home
+    player: Fredrik Carlsen
+    playerOff: Michael Barrantes
+lineups:
+  home:
+    formation: 4-2-1-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Jo Nymo Matland
+      - Jason Morrison
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Kjell Rune Sellin
+      - Christian Myklebust
+      - Leke James
+    subs:
+      - Lars Fuhre
+      - Tremaine Stewart
+      - Fredrik Carlsen
+      - Edvard Skagestad
+      - Hugues Wembangomo
+      - Ole Christian Rørvik
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-4-2
+    starters:
+      - Sayouba Mandé
+      - Bjarni Olafur Eiriksson
+      - Sean Cunningham
+      - Jørgen Hammer
+      - David A. Hanssen
+      - Fredrik Brustad
+      - Bjarte Haugsdal
+      - Hermann Stengel
+      - Christer Kleiven
+      - Stian Sortevik
+      - Franck Boli
+    subs:
+      - Jan Kjell Larsen
+      - Mads Stokkelien
+      - Ståle Steen Sæthre
+      - Anders Trondsen
+      - Erik Benjaminsen
+      - Thor Søndergaard Lange
+    coach: Petter Belsvik
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +133,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

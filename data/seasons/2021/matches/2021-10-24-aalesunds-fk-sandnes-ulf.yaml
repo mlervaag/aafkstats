@@ -11,13 +11,145 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: sandnes-ulf
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4006
+events:
+  - minute: 2
+    type: yellow_card
+    team: away
+    player: Christian Landu Landu
+  - minute: 21
+    type: goal
+    team: away
+    player: Jostein Ekeland
+    assist: Ståle Steen Sæthre
+  - minute: 36
+    type: substitution
+    team: home
+    player: Torbjørn Kallevåg
+    playerOff: Kristoffer Barmen
+  - minute: 39
+    type: yellow_card
+    team: away
+    player: Torbjoern Lysaker Heggem
+  - minute: 45
+    type: goal
+    team: home
+    player: Kristoffer Ødemarksbakken
+    assist: Simen Bolkan Nordli
+  - minute: 46
+    type: substitution
+    team: away
+    player: Mathias Bringaker
+    playerOff: Erlend Hustad
+  - minute: 51
+    type: goal
+    team: home
+    player: David Fällman
+    assist: David Kristjan Olafsson
+  - minute: 60
+    type: goal
+    team: away
+    player: Jostein Ekeland
+    assist: Ingvald Halgunset
+  - minute: 66
+    type: substitution
+    team: away
+    player: Chris Sleveland
+    playerOff: Ingvald Halgunset
+  - minute: 67
+    type: yellow_card
+    team: home
+    player: Erikson Lima
+  - minute: 68
+    type: yellow_card
+    team: away
+    player: Jostein Ekeland
+  - minute: 69
+    type: substitution
+    team: home
+    player: Simen Rafn
+    playerOff: Jørgen Hatlehol
+  - minute: 69
+    type: substitution
+    team: home
+    player: Isak Dybvik Määttä
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 83
+    type: substitution
+    team: away
+    player: Maxwell Effiom
+    playerOff: Jostein Ekeland
+  - minute: 85
+    type: substitution
+    team: home
+    player: Muamer Brajanac
+    playerOff: Sigurd Haugen
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Jørgen Hatlehol
+      - Quint Jansen
+      - David Fällman
+      - David Kristjan Olafsson
+      - Erikson Lima
+      - Erlend Segberg
+      - Kristoffer Ødemarksbakken
+      - Kristoffer Barmen
+      - Simen Bolkan Nordli
+      - Sigurd Haugen
+    subs:
+      - Torbjørn Kallevåg
+      - Simen Rafn
+      - Isak Dybvik Määttä
+      - Muamer Brajanac
+      - Andreas Lie
+      - Jonas Grønner
+      - Nikolai Hopland
+      - Kristoffer Strand Ødven
+      - Mamadou Diaw
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Aslak Falch
+      - Jørgen Øveraas
+      - Ståle Steen Sæthre
+      - Espen Hammer Berger
+      - Torbjoern Lysaker Heggem
+      - Christian Landu Landu
+      - Ingvald Halgunset
+      - Horenus Tadesse
+      - Michael Baidoo
+      - Jostein Ekeland
+      - Erlend Hustad
+    subs:
+      - Mathias Bringaker
+      - Chris Sleveland
+      - Maxwell Effiom
+      - Sander Lønning
+      - Gullbrandur Øregaard
+      - Sander Ringberg
+    coach: Bjarne Berntsen
+stats:
+  home:
+    possession: 60
+    shots: 16
+    shotsOnTarget: 9
+    corners: 7
+  away:
+    possession: 40
+    shots: 6
+    shotsOnTarget: 2
+    corners: 0
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +165,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

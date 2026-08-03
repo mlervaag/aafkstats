@@ -11,13 +11,137 @@ competition:
 home:
   clubId: kfum
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: kfum-arena
 neutralVenue: false
-events: []
+events:
+  - minute: 25
+    type: goal
+    team: home
+    player: Moses Mawa
+    assist: Robin Rasch
+  - minute: 29
+    type: yellow_card
+    team: away
+    player: Aron Elis Thrándarson
+  - minute: 45
+    type: substitution
+    team: home
+    player: Tore André Sørås
+    playerOff: Tobias Collett
+  - minute: 49
+    type: goal
+    team: away
+    player: David Kristjan Olafsson
+  - minute: 55
+    type: yellow_card
+    team: away
+    player: Holmbert Aron Fridjonsson
+  - minute: 65
+    type: goal
+    team: home
+    player: Olav Øby
+  - minute: 67
+    type: yellow_card
+    team: home
+    player: Stian Sortevik
+  - minute: 68
+    type: substitution
+    team: away
+    player: Jonas Grønner
+    playerOff: Oddbjørn Lie
+  - minute: 68
+    type: substitution
+    team: away
+    player: Torbjørn Agdestein
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 74
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Erikson Lima
+  - minute: 82
+    type: substitution
+    team: home
+    player: Abdul-Basit Agouda
+    playerOff: Lars Olden Larsen
+  - minute: 84
+    type: yellow_card
+    team: home
+    player: Olav Øby
+  - minute: 89
+    type: goal
+    team: away
+    player: Sondre Brunstad Fet
+  - minute: 90
+    type: substitution
+    team: home
+    player: Juba Massinissa Moula
+    playerOff: Olav Øby
+  - minute: 90
+    type: goal
+    team: away
+    player: Torbjørn Agdestein
+    assist: David Kristjan Olafsson
+  - minute: 90
+    type: goal
+    team: away
+    player: Pape Habib Gueye
+    assist: David Kristjan Olafsson
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Torbjørn Agdestein
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Knut-André Skjærstein
+      - Tobias Collett
+      - Mansour Gueye
+      - Emmanuel Troudart
+      - Dadi Dodou Gaye
+      - Olav Øby
+      - Robin Rasch
+      - Lars Olden Larsen
+      - Stian Sortevik
+      - Kristian Brix
+      - Moses Mawa
+    subs:
+      - Tore André Sørås
+      - Abdul-Basit Agouda
+      - Juba Massinissa Moula
+      - Håkon Aalmen
+      - Marius Brevig
+      - Simon Thomas
+      - Yannis Maxitas Moula
+    coach: Jørgen Isnes
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Daniel Gretarsson
+      - Kaj Ramsteijn
+      - Oddbjørn Lie
+      - Jørgen Hatlehol
+      - Erikson Lima
+      - Izunna Uzochukwu
+      - Aron Elis Thrándarson
+      - David Kristjan Olafsson
+      - Pape Habib Gueye
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Jonas Grønner
+      - Torbjørn Agdestein
+      - Sondre Brunstad Fet
+      - Fredrik Carlsen
+      - Jernade Meade
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +157,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,145 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: fk-haugesund
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 200
+referee: Tom Harald Hagen
+events:
+  - minute: 12
+    type: goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+    assist: Shaquill Sno
+  - minute: 22
+    type: yellow_card
+    team: away
+    player: Bruno Leite
+  - minute: 25
+    type: goal
+    team: away
+    player: Ibrahima Wadji
+    assist: Mikkel Desler
+  - minute: 34
+    type: penalty_goal
+    team: away
+    player: Niklas Sandberg
+  - minute: 37
+    type: substitution
+    team: away
+    player: Fredrik Knudsen
+    playerOff: Mikkel Desler
+  - minute: 46
+    type: substitution
+    team: home
+    player: Izunna Uzochukwu
+    playerOff: Simen Bolkan Nordli
+  - minute: 46
+    type: substitution
+    team: home
+    player: David Kristjan Olafsson
+    playerOff: Isak Dybvik
+  - minute: 46
+    type: substitution
+    team: home
+    player: Sigurd Haugen
+    playerOff: Parfait Bizoza
+  - minute: 58
+    type: goal
+    team: away
+    player: Niklas Sandberg
+    assist: Kristoffer Velde
+  - minute: 74
+    type: substitution
+    team: away
+    player: Alexander Ammitzbøll
+    playerOff: Ibrahima Wadji
+  - minute: 76
+    type: substitution
+    team: home
+    player: Jordon Mutch
+    playerOff: Fredrik Carlsen
+  - minute: 76
+    type: substitution
+    team: home
+    player: Jørgen Hatlehol
+    playerOff: Shaquill Sno
+  - minute: 82
+    type: substitution
+    team: away
+    player: Kevin Martin Krygård
+    playerOff: Christian Grindheim
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Shaquill Sno
+      - Parfait Bizoza
+      - Fredrik Carlsen
+      - Simen Bolkan Nordli
+      - Isak Dybvik
+      - Holmbert Aron Fridjonsson
+      - Niklas Castro
+    subs:
+      - David Kristjan Olafsson
+      - Izunna Uzochukwu
+      - Sigurd Haugen
+      - Jørgen Hatlehol
+      - Jordon Mutch
+      - Daan Klinkenberg
+      - Erikson Lima
+      - Gudmund Taksdal Kongshavn
+      - Markus Seehusen Karlsbakk
+    coach: Lars Bohinen
+  away:
+    formation: 4-3-3
+    starters:
+      - Helge Sandvik
+      - Mikkel Desler
+      - Ulrik Fredriksen
+      - Benjamin Hansen
+      - Alexander Stølås
+      - Thore Pedersen
+      - Christian Grindheim
+      - Bruno Leite
+      - Niklas Sandberg
+      - Ibrahima Wadji
+      - Kristoffer Velde
+    subs:
+      - Fredrik Knudsen
+      - Alexander Ammitzbøll
+      - Kevin Martin Krygård
+      - Ben Karamoko
+      - Kristoffer Gunnarshaug
+      - Ludek Vejmola
+      - Mads Sande
+    coach: Jostein Grindhaug
+stats:
+  home:
+    possession: 59
+    shots: 12
+    shotsOnTarget: 2
+    corners: 3
+    fouls: 16
+    offsides: 1
+    xg: 1.06
+  away:
+    possession: 41
+    shots: 12
+    shotsOnTarget: 3
+    corners: 2
+    fouls: 10
+    offsides: 2
+    xg: 1.29
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +165,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

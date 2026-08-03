@@ -11,13 +11,95 @@ competition:
 home:
   clubId: sk-brann
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: brann-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 4
+    type: yellow_card
+    team: away
+    player: Fredrik Carlsen
+  - minute: 28
+    type: goal
+    team: home
+    player: Kim Ojo
+  - minute: 48
+    type: goal
+    team: away
+    player: Michael Barrantes
+  - minute: 54
+    type: substitution
+    team: away
+    player: Fredrik Ulvestad
+    playerOff: Magnus Sylling Olsen
+  - minute: 71
+    type: substitution
+    team: away
+    player: Amund Skiri
+    playerOff: Fredrik Carlsen
+  - minute: 79
+    type: substitution
+    team: home
+    player: Lars Henrik Skage
+    playerOff: Christian Kalvenes
+  - minute: 84
+    type: yellow_card
+    team: home
+    player: Kim Ojo
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Michael Barrantes
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Piotr Leciejewski
+      - Lars Grorud
+      - Christian Kalvenes
+      - Zsolt Korcsmár
+      - Hassan El Fakiri
+      - Carl-Erik Torp
+      - Erik Mjelde
+      - Chukwuma Akabueze
+      - Diego Guastavino
+      - Bjørnar Holmvik
+      - Kim Ojo
+    subs:
+      - Lars Henrik Skage
+      - Bjarte Haugsdal
+      - Eirik Birkelund
+      - Fredrik Haugen
+      - Håkon Andre Opdal
+      - Nicolas Mezquida
+      - Yaw-Ihle Amankwah
+    coach: Rune Skarsfjord
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Ville Jalasto
+      - Edvard Skagestad
+      - Daniel Arnefjord
+      - Enar Jääger
+      - Peter Orry Larsen
+      - Fredrik Carlsen
+      - Michael Barrantes
+      - Magnus Sylling Olsen
+      - Jonathan Parr
+      - Kjell Rune Sellin
+    subs:
+      - Fredrik Ulvestad
+      - Amund Skiri
+      - Didrik Fløtre
+      - Jonas Sandqvist
+      - Jonatan Tollås Nation
+      - Robert Sandnes
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +115,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

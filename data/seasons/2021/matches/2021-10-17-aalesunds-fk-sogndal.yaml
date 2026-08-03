@@ -11,13 +11,142 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: sogndal
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4002
+events:
+  - minute: 2
+    type: goal
+    team: home
+    player: Erlend Segberg
+    assist: David Fällman
+  - minute: 9
+    type: goal
+    team: home
+    player: Niklas Castro
+    assist: Simen Rafn
+  - minute: 56
+    type: yellow_card
+    team: home
+    player: Erlend Segberg
+  - minute: 67
+    type: substitution
+    team: away
+    player: Ronan Darcy
+    playerOff: Amin Nouri
+  - minute: 67
+    type: substitution
+    team: away
+    player: Tobias Bjørnebye
+    playerOff: Emil Palsson
+  - minute: 67
+    type: substitution
+    team: away
+    player: Endre Kupen
+    playerOff: Akor Adams
+  - minute: 71
+    type: substitution
+    team: home
+    player: Torbjørn Kallevåg
+    playerOff: Niklas Castro
+  - minute: 72
+    type: substitution
+    team: home
+    player: Isak Dybvik Määttä
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 75
+    type: yellow_card
+    team: home
+    player: Isak Dybvik Määttä
+  - minute: 77
+    type: substitution
+    team: home
+    player: Mamadou Diaw
+    playerOff: Sigurd Haugen
+  - minute: 83
+    type: substitution
+    team: away
+    player: Noah Solskjær
+    playerOff: Johan Bakke
+  - minute: 89
+    type: substitution
+    team: home
+    player: Muamer Brajanac
+    playerOff: Simen Bolkan Nordli
+  - minute: 90
+    type: substitution
+    team: home
+    player: Jørgen Hatlehol
+    playerOff: Simen Rafn
+  - minute: 90
+    stoppage: 1
+    type: goal
+    team: home
+    player: Muamer Brajanac
+    assist: Isak Dybvik Määttä
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Simen Rafn
+      - Quint Jansen
+      - David Fällman
+      - David Kristjan Olafsson
+      - Erlend Segberg
+      - Kristoffer Barmen
+      - Kristoffer Ødemarksbakken
+      - Niklas Castro
+      - Simen Bolkan Nordli
+      - Sigurd Haugen
+    subs:
+      - Torbjørn Kallevåg
+      - Isak Dybvik Määttä
+      - Mamadou Diaw
+      - Muamer Brajanac
+      - Jørgen Hatlehol
+      - Andreas Lie
+      - Jonas Grønner
+      - Nikolai Hopland
+      - Kristoffer Strand Ødven
+    coach: Lars Arne Nilsen
+  away:
+    formation: 3-4-3
+    starters:
+      - Renze Fij
+      - Martin Roseth
+      - Eirik Lereng
+      - Per Egil Flo
+      - Daniel Eid
+      - Emil Palsson
+      - Johan Bakke
+      - Amin Nouri
+      - Akor Adams
+      - Steffen Lie Skålevik
+      - Kristoffer Nessø
+    subs:
+      - Ronan Darcy
+      - Tobias Bjørnebye
+      - Endre Kupen
+      - Noah Solskjær
+      - Jørgen Johnsen
+    coach: Eirik Bakke
+stats:
+  home:
+    possession: 54
+    shots: 12
+    shotsOnTarget: 6
+    corners: 4
+  away:
+    possession: 46
+    shots: 8
+    shotsOnTarget: 4
+    corners: 7
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +162,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

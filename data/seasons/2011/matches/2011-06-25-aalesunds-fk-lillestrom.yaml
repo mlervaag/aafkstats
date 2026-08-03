@@ -11,13 +11,102 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: lillestrom
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 38
+    type: substitution
+    team: home
+    player: Amund Skiri
+    playerOff: Fredrik Ulvestad
+  - minute: 45
+    type: goal
+    team: home
+    player: Kjell Rune Sellin
+  - minute: 51
+    type: yellow_card
+    team: home
+    player: Michael Barrantes
+  - minute: 64
+    type: substitution
+    team: away
+    player: Arild Sundgot
+    playerOff: Kristoffer Tokstad
+  - minute: 72
+    type: substitution
+    team: home
+    player: Edvard Skagestad
+    playerOff: Kjell Rune Sellin
+  - minute: 74
+    type: yellow_card
+    team: home
+    player: Enar Jääger
+  - minute: 83
+    type: substitution
+    team: away
+    player: Pål Steffen Andresen
+    playerOff: Espen Søgård
+  - minute: 83
+    type: substitution
+    team: home
+    player: Jason Morrison
+    playerOff: Christian Myklebust
+  - minute: 88
+    type: substitution
+    team: away
+    player: Ohi Anthony Omoijuanfo
+    playerOff: Lars Kristian Eriksen
+lineups:
+  home:
+    formation: 4-2-1-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Ville Jalasto
+      - Daniel Arnefjord
+      - Jonathan Parr
+      - Peter Orry Larsen
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Christian Myklebust
+      - Magnus Sylling Olsen
+      - Kjell Rune Sellin
+    subs:
+      - Amund Skiri
+      - Edvard Skagestad
+      - Jason Morrison
+      - Demar Phillips
+      - Didrik Fløtre
+      - Jonas Sandqvist
+      - Jonatan Tollås Nation
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-4-2
+    starters:
+      - Stefan Logi Magnusson
+      - Lars Kristian Eriksen
+      - Steinar Pedersen
+      - Frode Kippe
+      - Stian Ringstad
+      - Kristoffer Tokstad
+      - Ruben Gabrielsen
+      - Espen Søgård
+      - Fredrik Gulbrandsen
+      - Nicolay Solberg
+      - Björn Sigurdarson
+    subs:
+      - Arild Sundgot
+      - Pål Steffen Andresen
+      - Ohi Anthony Omoijuanfo
+      - Alexander Nadj
+      - Karim Essediri
+      - Marius Amundsen
+    coach: Henning Berg
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +122,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

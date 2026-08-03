@@ -11,13 +11,120 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: lillestrom
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 7362
+events:
+  - minute: 28
+    type: yellow_card
+    team: home
+    player: Michael Barrantes
+  - minute: 50
+    type: goal
+    team: away
+    player: Erling Knudtzon
+    assist: Moryke Fofana
+  - minute: 56
+    type: yellow_card
+    team: away
+    player: Moryke Fofana
+  - minute: 57
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Michael Barrantes
+  - minute: 75
+    type: substitution
+    team: away
+    player: Jørgen Kolstad
+    playerOff: Arni Vilhjalmsson
+  - minute: 79
+    type: substitution
+    team: away
+    player: Fred Friday
+    playerOff: Moryke Fofana
+  - minute: 83
+    type: substitution
+    team: home
+    player: Carl Björk
+    playerOff: Mostafa Abdellaoue
+  - minute: 85
+    type: substitution
+    team: home
+    player: Oddbjørn Lie
+    playerOff: Vebjørn Hoff
+  - minute: 85
+    type: substitution
+    team: away
+    player: Amahl Pellegrino
+    playerOff: Erling Knudtzon
+  - minute: 89
+    type: goal
+    team: home
+    player: Peter Orry Larsen
+    assist: Leke James
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Edvard Skagestad
+      - Mikael Dyrestam
+      - Jo Nymo Matland
+      - Henrik Rørvik Bjørdal
+      - Sakari Mattila
+      - Vebjørn Hoff
+      - Mostafa Abdellaoue
+      - Michael Barrantes
+      - Leke James
+    subs:
+      - Peter Orry Larsen
+      - Carl Björk
+      - Oddbjørn Lie
+      - Andreas Lie
+      - Daniel Gretarsson
+      - Tero Mäntylä
+      - Thomas Skog Martinussen
+    coach: Harald Aabrekk
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Arnold Origi Otieno
+      - Bjørn Helge Riise
+      - Johan Andersson
+      - Marius Amundsen
+      - Stian Ringstad
+      - Marius Lundemo
+      - Finnur Orri Margeirsson
+      - Mohamed Ofkir
+      - Arni Vilhjalmsson
+      - Moryke Fofana
+      - Erling Knudtzon
+    subs:
+      - Jørgen Kolstad
+      - Fred Friday
+      - Amahl Pellegrino
+      - Emil Ødegaard
+      - Fredrik Krogstad
+      - Markus Brændsrød
+    coach: Runar Kristinsson
+stats:
+  home:
+    possession: 54
+    shots: 21
+    shotsOnTarget: 5
+    corners: 7
+  away:
+    possession: 46
+    shots: 12
+    shotsOnTarget: 3
+    corners: 4
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +140,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,102 @@ competition:
 home:
   clubId: sarpsborg-08
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: sarpsborg-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 26
+    type: yellow_card
+    team: away
+    player: Abderrazak Hamdallah
+  - minute: 44
+    type: goal
+    team: away
+    player: Abderrazak Hamdallah
+    assist: Tremaine Stewart
+  - minute: 60
+    type: yellow_card
+    team: away
+    player: Michael Barrantes
+  - minute: 70
+    type: substitution
+    team: home
+    player: Magnus Sylling Olsen
+    playerOff: Øyvind Hoås
+  - minute: 74
+    type: substitution
+    team: home
+    player: Claes Kronberg
+    playerOff: Kjetil Berge
+  - minute: 77
+    type: substitution
+    team: away
+    player: Christian Myklebust
+    playerOff: Abderrazak Hamdallah
+  - minute: 81
+    type: goal
+    team: away
+    player: Leke James
+  - minute: 85
+    type: yellow_card
+    team: home
+    player: Magnus Sylling Olsen
+  - minute: 89
+    type: substitution
+    team: away
+    player: Andreas Nordvik
+    playerOff: Michael Barrantes
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - DuWayne Kerr
+      - Kjetil Berge
+      - Ole Heieren Hansen
+      - Christian Brink
+      - Jérémy Berthod
+      - Tom Erik Breive
+      - Gudmundur Thorarinsson
+      - Thorarinn Ingi Valdimarsson
+      - Øyvind Hoås
+      - Mohamed Elyounoussi
+      - Martin Wiig
+    subs:
+      - Magnus Sylling Olsen
+      - Claes Kronberg
+      - Asgeir Börkur Asgeirsson
+      - Christian Sukke
+      - Martin Thømt Jensen
+      - Mathias Engebretsen
+      - Michael Røn
+    coach: Brian Deane
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Sten Michael Grytebust
+      - Hugues Wembangomo
+      - Jonatan Tollås Nation
+      - Edvard Skagestad
+      - Jo Nymo Matland
+      - Fredrik Ulvestad
+      - Peter Orry Larsen
+      - Tremaine Stewart
+      - Michael Barrantes
+      - Leke James
+      - Abderrazak Hamdallah
+    subs:
+      - Christian Myklebust
+      - Andreas Nordvik
+      - Fredrik Carlsen
+      - Izantullah Ahmadzai
+      - Lasse Staw
+      - Thomas Skog Martinussen
+      - Tor Hogne Aarøy
+    coach: Jan Jönsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +122,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

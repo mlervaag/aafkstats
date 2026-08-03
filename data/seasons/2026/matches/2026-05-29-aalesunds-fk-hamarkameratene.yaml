@@ -1,0 +1,201 @@
+id: 2026-05-29-aalesunds-fk-hamarkameratene
+date: 2026-05-29
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 11
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: hamarkameratene
+  score: 2
+  halfTimeScore: 1
+venueId: color-line-stadion
+neutralVenue: false
+attendance: 5611
+referee: Mathias Stoefringshaug
+events:
+  - minute: 24
+    type: own_goal
+    team: home
+    player: Vidar Ari Jónsson
+  - minute: 42
+    type: yellow_card
+    team: home
+    player: Elias Hagen
+  - minute: 44
+    type: goal
+    team: away
+    player: Markus Johnsgård
+    assist: Patrick Metcalfe
+  - minute: 46
+    type: substitution
+    team: home
+    player: Kristoffer Nessø
+    playerOff: Jakob Nyland Ørsahl
+  - minute: 54
+    type: goal
+    team: away
+    player: Martin Gjone
+    assist: Patrick Metcalfe
+  - minute: 57
+    type: goal
+    team: home
+    player: Marcus Haagensen Reed
+    assist: Endre Osenbroch
+  - minute: 65
+    type: substitution
+    team: away
+    player: William Osnes-Ringen
+    playerOff: Markus Johnsgård
+  - minute: 65
+    type: substitution
+    team: away
+    player: Ilir Kukleci
+    playerOff: Fredrik Sjølstad
+  - minute: 70
+    type: var_decision
+    team: away
+    player: Mame Alassane Niang
+  - minute: 71
+    type: substitution
+    team: home
+    player: Simen Haram
+    playerOff: Ulrik Valderhaug Syversen
+  - minute: 71
+    type: substitution
+    team: home
+    player: Henrik Melland
+    playerOff: Marcus Haagensen Reed
+  - minute: 73
+    type: yellow_card
+    team: home
+    player: Mathias Christensen
+  - minute: 80
+    type: substitution
+    team: away
+    player: Snorre Nilsen
+    playerOff: Vidar Ari Jónsson
+  - minute: 80
+    type: substitution
+    team: away
+    player: Julian Bakkeli Gonstad
+    playerOff: Henrik Udahl
+  - minute: 81
+    type: substitution
+    team: home
+    player: Ivan Djantou
+    playerOff: Kristian Hemmingsen Lonebu
+  - minute: 81
+    type: substitution
+    team: home
+    player: Håkon Butli Hammer
+    playerOff: Mathias Christensen
+  - minute: 90
+    stoppage: 4
+    type: yellow_card
+    team: home
+    player: Kjetil Rekdal
+lineups:
+  home:
+    formation: 5-3-2
+    starters:
+      - Kristoffer Klaesson
+      - Aleksander Hammer Kjelsen
+      - Ulrik Valderhaug Syversen
+      - Ólafur Gudmundsson
+      - Uba Charles
+      - Jakob Nyland Ørsahl
+      - Mathias Christensen
+      - Elias Hagen
+      - Endre Osenbroch
+      - Kristian Hemmingsen Lonebu
+      - Marcus Haagensen Reed
+    subs:
+      - Kristoffer Nessø
+      - Simen Haram
+      - Henrik Melland
+      - Håkon Butli Hammer
+      - Ivan Djantou
+      - Tor Erik Valderhaug Larsen
+      - Emil Engqvist
+      - Marius Andresen
+    coach: Kjetil Rekdal
+  away:
+    formation: 5-3-2
+    starters:
+      - Marcus Sandberg
+      - Martin Gjone
+      - Fredrik Sjølstad
+      - Ethan Amundsen-Day
+      - Vidar Ari Jónsson
+      - Ian Hoffmann
+      - Patrick Metcalfe
+      - Markus Johnsgård
+      - Aksel Baran Potur
+      - Mame Alassane Niang
+      - Henrik Udahl
+    subs:
+      - Ilir Kukleci
+      - William Osnes-Ringen
+      - Snorre Nilsen
+      - Julian Bakkeli Gonstad
+      - Sander Østraat
+      - Halvor Rødølen Opsahl
+      - Gard Simenstad
+      - Loris Mettler
+      - David Benjamin
+    coach: Thomas Myhre
+stats:
+  home:
+    possession: 43
+    shots: 17
+    shotsOnTarget: 7
+    corners: 8
+    fouls: 9
+    offsides: 0
+    xg: 2.38
+  away:
+    possession: 57
+    shots: 15
+    shotsOnTarget: 6
+    corners: 4
+    fouls: 10
+    offsides: 1
+    xg: 2.28
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-hamarkameratene/2cjt0y#5104928
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5104928"
+manual: []

@@ -11,13 +11,178 @@ competition:
 home:
   clubId: fk-haugesund
   score: 6
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: haugesund-sparebank-arena
 neutralVenue: false
-events: []
+attendance: 5016
+referee: Marius Lien
+events:
+  - minute: 7
+    type: goal
+    team: home
+    player: Claus Niyukuri
+    assist: Julius Eskesen
+  - minute: 11
+    type: own_goal
+    team: home
+    player: Nikolai Hopland
+  - minute: 38
+    type: goal
+    team: home
+    player: Alexander Søderlund
+    assist: Julius Eskesen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Moctar Diop
+    playerOff: Martin Ramsland
+  - minute: 51
+    type: yellow_card
+    team: away
+    player: Amidou Diop
+  - minute: 55
+    type: yellow_card
+    team: away
+    player: Nikolai Hopland
+  - minute: 61
+    type: substitution
+    team: home
+    player: Sory Diarra
+    playerOff: Alexander Søderlund
+  - minute: 61
+    type: substitution
+    team: home
+    player: Oscar Krusnell
+    playerOff: Claus Niyukuri
+  - minute: 61
+    type: substitution
+    team: home
+    player: Troy Nyhammer
+    playerOff: Julius Eskesen
+  - minute: 67
+    type: substitution
+    team: away
+    player: Moses Ebiye
+    playerOff: Erlend Segberg
+  - minute: 71
+    type: substitution
+    team: home
+    player: Daan Huisman
+    playerOff: Bruno Leite
+  - minute: 75
+    type: yellow_card
+    team: home
+    player: Magnus Christensen
+  - minute: 76
+    type: yellow_card
+    team: home
+    player: Sory Diarra
+  - minute: 77
+    type: goal
+    team: away
+    player: Moctar Diop
+    assist: Markus Seehusen Karlsbakk
+  - minute: 80
+    type: goal
+    team: home
+    player: Kevin Martin Krygård
+    assist: Peter Therkildsen
+  - minute: 81
+    type: substitution
+    team: home
+    player: Sander Håvik Innvær
+    playerOff: Bilal Njie
+  - minute: 82
+    type: substitution
+    team: away
+    player: Kristoffer Ødemarksbakken
+    playerOff: Markus Seehusen Karlsbakk
+  - minute: 90
+    stoppage: 1
+    type: goal
+    team: home
+    player: Peter Therkildsen
+  - minute: 90
+    stoppage: 6
+    type: goal
+    team: home
+    player: Sory Diarra
+    assist: Kevin Martin Krygård
+  - minute: 90
+    stoppage: 6
+    type: red_card
+    team: home
+    player: Sory Diarra
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Egil Selvik
+      - Peter Therkildsen
+      - Anders Bærtelsen
+      - Ulrik Fredriksen
+      - Claus Niyukuri
+      - Kevin Martin Krygård
+      - Magnus Christensen
+      - Julius Eskesen
+      - Bruno Leite
+      - Bilal Njie
+      - Alexander Søderlund
+    subs:
+      - Oscar Krusnell
+      - Troy Nyhammer
+      - Sory Diarra
+      - Daan Huisman
+      - Sander Håvik Innvær
+      - Amund Wichne
+      - Madiodio Dia
+      - Mikkel Hope
+      - Martin Samuelsen
+    coach: Sancheev Manoharan
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Erik Frøysa
+      - Amidou Diop
+      - Nikolai Hopland
+      - John Kitolano
+      - Erlend Segberg
+      - Håkon Butli Hammer
+      - Henrik Melland
+      - Bjørn Martin Kristensen
+      - Martin Ramsland
+      - Markus Seehusen Karlsbakk
+    subs:
+      - Moctar Diop
+      - Moses Ebiye
+      - Kristoffer Ødemarksbakken
+      - Michael Lansing
+      - David Fällman
+      - Simen Haram
+      - Trace Murray
+    coach: Christian Johnsen
+stats:
+  home:
+    possession: 53
+    shots: 19
+    shotsOnTarget: 13
+    corners: 5
+    fouls: 13
+    offsides: 3
+    xg: 2
+  away:
+    possession: 47
+    shots: 8
+    shotsOnTarget: 1
+    corners: 5
+    fouls: 9
+    offsides: 0
+    xg: 0.4
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +198,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

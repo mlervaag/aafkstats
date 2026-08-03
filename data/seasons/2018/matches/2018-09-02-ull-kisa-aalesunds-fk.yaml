@@ -11,13 +11,117 @@ competition:
 home:
   clubId: ull-kisa
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: jessheim-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 13
+    type: goal
+    team: home
+    player: Lars-Jørgen Salvesen
+    assist: Nikolas Walstad
+  - minute: 21
+    type: yellow_card
+    team: away
+    player: Aron Elis Thrándarson
+  - minute: 56
+    type: substitution
+    team: away
+    player: Pape Habib Gueye
+    playerOff: Erikson Lima
+  - minute: 62
+    type: red_card
+    team: away
+    player: Aron Elis Thrándarson
+  - minute: 63
+    type: yellow_card
+    team: home
+    player: Martin Trøen
+  - minute: 68
+    type: substitution
+    team: home
+    player: Ciise Abshir
+    playerOff: Martin Trøen
+  - minute: 70
+    type: substitution
+    team: away
+    player: Daniel Gretarsson
+    playerOff: Jørgen Hatlehol
+  - minute: 73
+    type: goal
+    team: home
+    player: Kristoffer Normann Hansen
+    assist: Eric Kitolano
+  - minute: 75
+    type: substitution
+    team: away
+    player: Jens Petter Hauge
+    playerOff: Adam Örn Arnarson
+  - minute: 77
+    type: goal
+    team: home
+    player: Lars-Jørgen Salvesen
+    assist: Sverre Martin Torp
+  - minute: 83
+    type: substitution
+    team: home
+    player: Sebastian Remme Berge
+    playerOff: Christian Aas
+  - minute: 89
+    type: substitution
+    team: home
+    player: Herman Henriksen
+    playerOff: Lars-Jørgen Salvesen
+lineups:
+  home:
+    formation: 4-1-4-1
+    starters:
+      - Stefan Hagerup
+      - Mats André Kaland
+      - Espen Garnås
+      - Morten Sundli
+      - Nikolas Walstad
+      - Christian Aas
+      - Lars-Jørgen Salvesen
+      - Eric Kitolano
+      - Sverre Martin Torp
+      - Kristoffer Normann Hansen
+      - Martin Trøen
+    subs:
+      - Ciise Abshir
+      - Sebastian Remme Berge
+      - Herman Henriksen
+      - Alexander Vangen
+      - Emmanuel Troudart
+      - Jan Tore Amundsen
+      - Truls Jørstad
+    coach: Vegard Skogheim
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Ståle Steen Sæthre
+      - Jonas Grønner
+      - Jørgen Hatlehol
+      - Adam Örn Arnarson
+      - Sondre Brunstad Fet
+      - Fredrik Carlsen
+      - Erikson Lima
+      - Nikola Tkalcic
+      - Torbjørn Agdestein
+      - Aron Elis Thrándarson
+    subs:
+      - Pape Habib Gueye
+      - Daniel Gretarsson
+      - Jens Petter Hauge
+      - Håvard Breivik
+      - Holmbert Aron Fridjonsson
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +137,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

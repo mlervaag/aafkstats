@@ -11,13 +11,132 @@ competition:
 home:
   clubId: ranheim
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: extra-arena
 neutralVenue: false
-events: []
+attendance: 1172
+referee: Mischa Huru Kellerhals
+events:
+  - minute: 30
+    type: yellow_card
+    team: away
+    player: Janus Seehusen
+  - minute: 46
+    type: substitution
+    team: home
+    player: Mikael Toerset Johnsen
+    playerOff: Vetle Wenaas
+  - minute: 46
+    type: substitution
+    team: home
+    player: Per Ciljan Skjelbred
+    playerOff: Mathias Johnsrud Emilsen
+  - minute: 54
+    type: goal
+    team: away
+    player: Claudio Braga
+    assist: Marcus Rafferty
+  - minute: 63
+    type: substitution
+    team: home
+    player: Oliver Kvendbø Holden
+    playerOff: Sivert Solli
+  - minute: 70
+    type: substitution
+    team: home
+    player: Mamadou Diang
+    playerOff: Håkon Gangstad
+  - minute: 81
+    type: substitution
+    team: home
+    player: Gustav Mogensen
+    playerOff: Lucas Kolstad
+  - minute: 87
+    type: substitution
+    team: away
+    player: Noah Solskjær
+    playerOff: Paul Ngongo Iversen
+  - minute: 87
+    type: substitution
+    team: away
+    player: Sam Rogers
+    playerOff: Thomas Grøgaard
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: away
+    player: Eivind Strømsheim Kolve
+    playerOff: Marcus Rafferty
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: away
+    player: Stian Aarønes Holte
+    playerOff: Claudio Braga
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Simen Vidtun Nilsen
+      - Sander Amble Haugen
+      - Håkon Røsten
+      - Jakob Tromsdal
+      - Håkon Gangstad
+      - Mathias Johnsrud Emilsen
+      - Lucas Kolstad
+      - John Hou Sæther
+      - Sivert Solli
+      - Bendik Bye
+      - Vetle Wenaas
+    subs:
+      - Mikael Toerset Johnsen
+      - Per Ciljan Skjelbred
+      - Oliver Kvendbø Holden
+      - Mamadou Diang
+      - Gustav Mogensen
+      - Tor Solvoll
+      - Seydina Diop
+    coach: Kåre Ingebrigtsen
+  away:
+    formation: 3-5-2
+    starters:
+      - Tor Erik Valderhaug Larsen
+      - Vinko Medimorec
+      - Mads Nielsen
+      - John Kitolano
+      - Kristoffer Nessø
+      - Janus Seehusen
+      - Håkon Butli Hammer
+      - Marcus Rafferty
+      - Thomas Grøgaard
+      - Paul Ngongo Iversen
+      - Claudio Braga
+    subs:
+      - Sam Rogers
+      - Noah Solskjær
+      - Stian Aarønes Holte
+      - Eivind Strømsheim Kolve
+      - Sondre Midthjell
+      - Simen Haram
+      - Henrik Melland
+      - Bjørn Martin Kristensen
+      - Martin Ramsland
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 55
+    shots: 7
+    shotsOnTarget: 5
+    corners: 4
+  away:
+    possession: 45
+    shots: 16
+    shotsOnTarget: 8
+    corners: 8
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +152,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

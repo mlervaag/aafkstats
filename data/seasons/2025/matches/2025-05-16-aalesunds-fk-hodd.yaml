@@ -11,13 +11,148 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: hodd
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 10225
+referee: Jan Morten Tennøy
+events:
+  - minute: 28
+    type: yellow_card
+    team: home
+    player: Simen Haram
+  - minute: 46
+    type: goal
+    team: home
+    player: Paul Ngongo Iversen
+    assist: Simen Haram
+  - minute: 50
+    type: yellow_card
+    team: home
+    player: Janus Seehusen
+  - minute: 57
+    type: goal
+    team: home
+    player: Janus Seehusen
+  - minute: 58
+    type: substitution
+    team: home
+    player: David Snær Johannsson
+    playerOff: Janus Seehusen
+  - minute: 58
+    type: substitution
+    team: home
+    player: Frederik Heiselberg
+    playerOff: Claudio Braga
+  - minute: 58
+    type: substitution
+    team: home
+    player: Henrik Melland
+    playerOff: Jesper Gregersen
+  - minute: 72
+    type: substitution
+    team: away
+    player: Daniel Brandal
+    playerOff: Tage Johansen
+  - minute: 73
+    type: substitution
+    team: away
+    player: Fredrik Dimmen Gjerde
+    playerOff: Marcus Mikhail
+  - minute: 76
+    type: substitution
+    team: home
+    player: Olafur Gudmundsson
+    playerOff: Marius Andresen
+  - minute: 83
+    type: substitution
+    team: away
+    player: Robin Hjelmeseth
+    playerOff: Isak Gabriel Skotheim
+  - minute: 83
+    type: substitution
+    team: away
+    player: Andreas Waterfield Skjold
+    playerOff: Torbjørn Kallevåg
+  - minute: 83
+    type: substitution
+    team: away
+    player: Magnus Holte
+    playerOff: Elias Heggland Myrlid
+  - minute: 87
+    type: yellow_card
+    team: away
+    player: Mirza Mulac
+  - minute: 90
+    stoppage: 1
+    type: substitution
+    team: home
+    player: Kristian Hemmingsen Lonebu
+    playerOff: Paul Ngongo Iversen
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Philip Sandvik Aukland
+      - Marius Andresen
+      - Claudio Braga
+      - Håkon Butli Hammer
+      - Jesper Gregersen
+      - Kristoffer Nessø
+      - Paul Ngongo Iversen
+      - Janus Seehusen
+    subs:
+      - David Snær Johannsson
+      - Henrik Melland
+      - Frederik Heiselberg
+      - Olafur Gudmundsson
+      - Kristian Hemmingsen Lonebu
+      - Tor Erik Valderhaug Larsen
+      - Jørgen Bøe
+      - Thomas Gulbrandsen
+      - Marcus Haagensen Reed
+    coach: Kjetil Rekdal
+  away:
+    formation: 3-4-3
+    starters:
+      - Marius Ulla
+      - Sondre Fosnæss Hanssen
+      - Eirik Espelid Blikstad
+      - Mirza Mulac
+      - Tage Johansen
+      - Torbjørn Kallevåg
+      - Halvard Urnes
+      - Marcus Mikhail
+      - Ola Visted
+      - Elias Heggland Myrlid
+      - Isak Gabriel Skotheim
+    subs:
+      - Daniel Brandal
+      - Fredrik Dimmen Gjerde
+      - Andreas Waterfield Skjold
+      - Magnus Holte
+      - Robin Hjelmeseth
+      - Peder Hoel Lervik
+      - Vegard Håheim Elveseter
+    coach: Marius Bøe
+stats:
+  home:
+    possession: 53
+    shots: 8
+    shotsOnTarget: 4
+    corners: 6
+  away:
+    possession: 47
+    shots: 5
+    shotsOnTarget: 2
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +168,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

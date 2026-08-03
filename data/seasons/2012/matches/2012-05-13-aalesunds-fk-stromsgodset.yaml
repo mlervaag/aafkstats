@@ -11,13 +11,123 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: stromsgodset
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 8
+    type: yellow_card
+    team: away
+    player: Alexander Aas
+  - minute: 33
+    type: goal
+    team: away
+    player: Adama Diomande
+  - minute: 34
+    type: yellow_card
+    team: away
+    player: Razak Nuhu
+  - minute: 41
+    type: goal
+    team: home
+    player: Michael Barrantes
+  - minute: 43
+    type: goal
+    team: home
+    player: Lars Fuhre
+  - minute: 53
+    type: yellow_card
+    team: away
+    player: Stefan Johansen
+  - minute: 56
+    type: substitution
+    team: away
+    player: Anders Konradsen
+    playerOff: Alfred Sankoh
+  - minute: 59
+    type: substitution
+    team: away
+    player: Lars Iver Strand
+    playerOff: Stefan Johansen
+  - minute: 62
+    type: yellow_card
+    team: home
+    player: Michael Barrantes
+  - minute: 68
+    type: substitution
+    team: home
+    player: Christian Myklebust
+    playerOff: Sander Post
+  - minute: 72
+    type: goal
+    team: home
+    player: Lars Fuhre
+  - minute: 73
+    type: substitution
+    team: away
+    player: Peter Kovacs
+    playerOff: Ola Kamara
+  - minute: 75
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Lars Fuhre
+  - minute: 80
+    type: substitution
+    team: home
+    player: Edvard Skagestad
+    playerOff: Michael Barrantes
+lineups:
+  home:
+    formation: 4-2-1-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Ville Jalasto
+      - Demar Phillips
+      - Jason Morrison
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Magnus Sylling Olsen
+      - Lars Fuhre
+      - Sander Post
+    subs:
+      - Christian Myklebust
+      - Peter Orry Larsen
+      - Edvard Skagestad
+      - Amund Skiri
+      - Hugues Wembangomo
+      - Ole Christian Rørvik
+      - Tremaine Stewart
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Adam Larsen Kwarasey
+      - Lars-Christopher Vilsvik
+      - Kim André Madsen
+      - Alexander Aas
+      - Razak Nuhu
+      - Stefan Johansen
+      - Mohammed Abu
+      - Alfred Sankoh
+      - Øyvind Storflor
+      - Ola Kamara
+      - Adama Diomande
+    subs:
+      - Anders Konradsen
+      - Lars Iver Strand
+      - Peter Kovacs
+      - Gustav Wikheim
+      - Lars Cramer
+      - Lars Sætra
+      - Muhamed Keita
+    coach: Ronny Deila
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +143,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

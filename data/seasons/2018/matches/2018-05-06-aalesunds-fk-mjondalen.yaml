@@ -11,13 +11,136 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: mjondalen
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 24
+    type: yellow_card
+    team: away
+    player: Andreas Hellum
+  - minute: 43
+    type: yellow_card
+    team: home
+    player: Bjørn Helge Riise
+  - minute: 49
+    type: substitution
+    team: home
+    player: Sondre Brunstad Fet
+    playerOff: Bjørn Helge Riise
+  - minute: 52
+    type: yellow_card
+    team: away
+    player: Christian Gauseth
+  - minute: 54
+    type: goal
+    team: home
+    player: Daniel Gretarsson
+    assist: Fredrik Carlsen
+  - minute: 58
+    type: goal
+    team: away
+    player: Andreas Hellum
+    assist: Vetle Dragsnes
+  - minute: 60
+    type: substitution
+    team: away
+    player: Ousseynou Boye
+    playerOff: Andreas Hellum
+  - minute: 69
+    type: yellow_card
+    team: away
+    player: Sondre Solholm Johansen
+  - minute: 71
+    type: substitution
+    team: home
+    player: Kaj Ramsteijn
+    playerOff: Sonni Nattestad
+  - minute: 72
+    type: yellow_card
+    team: home
+    player: Sondre Brunstad Fet
+  - minute: 76
+    type: substitution
+    team: away
+    player: Mahmoud Eid
+    playerOff: Vamouti Diomande
+  - minute: 79
+    type: yellow_card
+    team: home
+    player: Fredrik Carlsen
+  - minute: 82
+    type: yellow_card
+    team: home
+    player: Andreas Lie
+  - minute: 87
+    type: substitution
+    team: home
+    player: Pape Habib Gueye
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 87
+    type: yellow_card
+    team: away
+    player: Jonathan Lindseth
+  - minute: 87
+    type: yellow_card
+    team: home
+    player: Daniel Gretarsson
+  - minute: 90
+    type: goal
+    team: home
+    player: Adam Örn Arnarson
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Daniel Gretarsson
+      - Sonni Nattestad
+      - Oddbjørn Lie
+      - Adam Örn Arnarson
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Bjørn Helge Riise
+      - Jørgen Hatlehol
+      - Torbjørn Agdestein
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Sondre Brunstad Fet
+      - Kaj Ramsteijn
+      - Pape Habib Gueye
+      - Anders Waagan
+      - Emil Solnørdal
+      - Håvard Breivik
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
+  away:
+    formation: 4-3-3
+    starters:
+      - Lukas Jonsson
+      - William Sælid Sell
+      - Quint Jansen
+      - Sondre Solholm Johansen
+      - Vetle Dragsnes
+      - Ylldren Ibrahimaj
+      - Christian Gauseth
+      - Jonathan Lindseth
+      - Andreas Hellum
+      - Jibril Bojang
+      - Vamouti Diomande
+    subs:
+      - Ousseynou Boye
+      - Mahmoud Eid
+      - Alexander Betten Hansen
+      - Georges Bokwe
+      - Henrik Gulden
+      - Mads Gundersen
+      - Sebastian Starke Hedlund
+    coach: Vegard Hansen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +156,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,172 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: kristiansund
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 200
+events:
+  - minute: 2
+    type: yellow_card
+    team: away
+    player: Christoffer Aasbak
+  - minute: 28
+    type: goal
+    team: home
+    player: Markus Seehusen Karlsbakk
+    assist: Simen Bolkan Nordli
+  - minute: 46
+    type: substitution
+    team: away
+    player: Sondre Sørli
+    playerOff: Bendik Bye
+  - minute: 46
+    type: substitution
+    team: away
+    player: Amin Askar
+    playerOff: Christoffer Aasbak
+  - minute: 53
+    type: goal
+    team: away
+    player: Faris Moumbagna
+    assist: Liridon Kalludra
+  - minute: 54
+    type: yellow_card
+    team: away
+    player: Faris Moumbagna
+  - minute: 65
+    type: goal
+    team: away
+    player: Liridon Kalludra
+    assist: Amahl Pellegrino
+  - minute: 66
+    type: substitution
+    team: away
+    player: Flamur Kastrati
+    playerOff: Faris Moumbagna
+  - minute: 69
+    type: substitution
+    team: home
+    player: Shaquill Sno
+    playerOff: Erikson Lima
+  - minute: 76
+    type: substitution
+    team: home
+    player: Izunna Uzochukwu
+    playerOff: Peter Orry Larsen
+  - minute: 77
+    type: substitution
+    team: home
+    player: Parfait Bizoza
+    playerOff: Simen Bolkan Nordli
+  - minute: 80
+    type: substitution
+    team: away
+    player: Pål Erik Ulvestad
+    playerOff: Liridon Kalludra
+  - minute: 86
+    type: yellow_card
+    team: away
+    player: Flamur Kastrati
+  - minute: 87
+    type: substitution
+    team: home
+    player: Sigurd Tafjord
+    playerOff: Markus Seehusen Karlsbakk
+  - minute: 87
+    type: substitution
+    team: home
+    player: Ståle Steen Sæthre
+    playerOff: Isak Dybvik Määttä
+  - minute: 87
+    type: yellow_card
+    team: home
+    player: Ben Karamoko
+  - minute: 88
+    type: substitution
+    team: away
+    player: Christophe Psyché
+    playerOff: Amidou Diop
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Pål Erik Ulvestad
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Sigurd Haugen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Andreas Lie
+      - David Kristjan Olafsson
+      - Daan Klinkenberg
+      - Ben Karamoko
+      - Erikson Lima
+      - Peter Orry Larsen
+      - Fredrik Carlsen
+      - Simen Bolkan Nordli
+      - Markus Seehusen Karlsbakk
+      - Sigurd Haugen
+      - Isak Dybvik Määttä
+    subs:
+      - Shaquill Sno
+      - Izunna Uzochukwu
+      - Parfait Bizoza
+      - Sigurd Tafjord
+      - Ståle Steen Sæthre
+      - Gudmund Taksdal Kongshavn
+      - Daniel Gretarsson
+      - Jonas Grønner
+      - Vetle Fiskerstrand
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Sean McDermott
+      - Christoffer Aasbak
+      - Ivar Erlien Furu
+      - Aliou Coly
+      - Bent Sørmo
+      - Andreas Hopmark
+      - Amidou Diop
+      - Amahl Pellegrino
+      - Liridon Kalludra
+      - Bendik Bye
+      - Faris Moumbagna
+    subs:
+      - Amin Askar
+      - Sondre Sørli
+      - Flamur Kastrati
+      - Pål Erik Ulvestad
+      - Christophe Psyché
+      - Eirik Holmen Johansen
+      - Dan Peter Ulvestad
+      - Max Normann Williamsen
+      - Olaus Jair Skarsem
+    coach: Christian Michelsen
+stats:
+  home:
+    possession: 48
+    shots: 21
+    shotsOnTarget: 4
+    corners: 7
+    fouls: 9
+    offsides: 1
+    xg: 1.68
+  away:
+    possession: 52
+    shots: 18
+    shotsOnTarget: 6
+    corners: 5
+    fouls: 13
+    offsides: 1
+    xg: 1.89
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +192,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

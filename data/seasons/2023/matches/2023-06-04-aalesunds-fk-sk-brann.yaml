@@ -11,13 +11,166 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: sk-brann
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5331
+referee: Marius Hansen Grøtta
+events:
+  - minute: 30
+    type: substitution
+    team: home
+    player: Markus Seehusen Karlsbakk
+    playerOff: Kasper Lunding
+  - minute: 37
+    type: yellow_card
+    team: away
+    player: Ruben Kristiansen
+  - minute: 44
+    type: goal
+    team: home
+    player: Moses Ebiye
+    assist: Alexander Munksgaard
+  - minute: 46
+    type: substitution
+    team: home
+    player: Trace Murray
+    playerOff: John Kitolano
+  - minute: 46
+    type: substitution
+    team: home
+    player: Kristoffer Barmen
+    playerOff: Amidou Diop
+  - minute: 47
+    type: yellow_card
+    team: home
+    player: Alexander Munksgaard
+  - minute: 48
+    type: penalty_goal
+    team: away
+    player: Sivert Heltne Nilsen
+  - minute: 52
+    type: yellow_card
+    team: home
+    player: Kristoffer Barmen
+  - minute: 61
+    type: substitution
+    team: away
+    player: Ulrik Mathisen
+    playerOff: Frederik Børsting
+  - minute: 70
+    type: red_card
+    team: home
+    player: Kristoffer Barmen
+  - minute: 77
+    type: substitution
+    team: home
+    player: Henrik Melland
+    playerOff: Moses Ebiye
+  - minute: 77
+    type: substitution
+    team: home
+    player: Bjørn Martin Kristensen
+    playerOff: Isaac Atanga
+  - minute: 77
+    type: substitution
+    team: away
+    player: Niklas Castro
+    playerOff: Ole Blomberg
+  - minute: 77
+    type: substitution
+    team: away
+    player: Thore Pedersen
+    playerOff: Fredrik Knudsen
+  - minute: 80
+    type: goal
+    team: away
+    player: Niklas Castro
+  - minute: 88
+    type: yellow_card
+    team: away
+    player: David Møller Wolfe
+  - minute: 90
+    type: goal
+    team: away
+    player: Ulrik Mathisen
+    assist: Bård Finne
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: away
+    player: Elias Heggland Myrlid
+    playerOff: Bård Finne
+lineups:
+  home:
+    formation: 3-4-2-1
+    starters:
+      - Sten Michael Grytebust
+      - Alexander Juel Andersen
+      - David Fällman
+      - Nikolai Hopland
+      - Alexander Munksgaard
+      - Erlend Segberg
+      - Amidou Diop
+      - John Kitolano
+      - Kasper Lunding
+      - Isaac Atanga
+      - Moses Ebiye
+    subs:
+      - Markus Seehusen Karlsbakk
+      - Kristoffer Barmen
+      - Trace Murray
+      - Bjørn Martin Kristensen
+      - Henrik Melland
+      - Kristoffer Ødemarksbakken
+      - Michael Lansing
+      - Ole Kolskogen
+      - Simen Haram
+    coach: Marius Bøe
+  away:
+    formation: 4-3-3
+    starters:
+      - Mathias Dyngeland
+      - Svenn Crone
+      - Fredrik Knudsen
+      - Ruben Kristiansen
+      - David Møller Wolfe
+      - Mathias Rasmussen
+      - Sivert Heltne Nilsen
+      - Felix Horn Myhre
+      - Ole Blomberg
+      - Bård Finne
+      - Frederik Børsting
+    subs:
+      - Ulrik Mathisen
+      - Niklas Castro
+      - Thore Pedersen
+      - Elias Heggland Myrlid
+      - Eirik Holmen Johansen
+      - Isak Hjorteseth
+      - Jonas Torsvik
+    coach: Eirik Horneland
+stats:
+  home:
+    possession: 31
+    shots: 6
+    shotsOnTarget: 3
+    corners: 3
+    fouls: 10
+    offsides: 3
+    xg: 0.33
+  away:
+    possession: 69
+    shots: 23
+    shotsOnTarget: 7
+    corners: 10
+    fouls: 8
+    offsides: 1
+    xg: 3.45
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +186,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

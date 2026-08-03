@@ -11,13 +11,120 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: stromsgodset
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4701
+referee: Marius Hansen Grøtta
+events:
+  - minute: 52
+    type: goal
+    team: home
+    player: Sigurd Haugen
+    assist: Erikson Lima
+  - minute: 55
+    type: yellow_card
+    team: away
+    player: Thomas Grøgaard
+  - minute: 60
+    type: substitution
+    team: away
+    player: Halldor Stenevik
+    playerOff: Kristoffer Tokstad
+  - minute: 60
+    type: substitution
+    team: away
+    player: Ole Kristian Enersen
+    playerOff: Jack Ipalibo
+  - minute: 73
+    type: substitution
+    team: home
+    player: Kristoffer Ødemarksbakken
+    playerOff: Simen Bolkan Nordli
+  - minute: 73
+    type: substitution
+    team: away
+    player: Fred Friday
+    playerOff: Tobias Gulliksen
+  - minute: 79
+    type: substitution
+    team: home
+    player: Jeppe Arctander Moe
+    playerOff: Alexander Juel Andersen
+  - minute: 88
+    type: substitution
+    team: home
+    player: Mamadou Diaw
+    playerOff: Sigurd Haugen
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Besim Serbecic
+      - David Fällman
+      - Alexander Juel Andersen
+      - Simen Rafn
+      - Erikson Lima
+      - Kristoffer Barmen
+      - Torbjørn Kallevåg
+      - Isak Dybvik
+      - Sigurd Haugen
+      - Simen Bolkan Nordli
+    subs:
+      - Kristoffer Ødemarksbakken
+      - Jeppe Arctander Moe
+      - Mamadou Diaw
+      - Alexander Ammitzbøll
+      - Henrik Melland
+      - Jørgen Hatlehol
+      - Michael Lansing
+      - Oscar Solnørdal
+      - Stian Aarønes Holte
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-3-3
+    starters:
+      - Viljar Røsholt Myhra
+      - Lars-Christopher Vilsvik
+      - Ari Leifsson
+      - Gustav Valsvik
+      - Thomas Grøgaard
+      - Johan Hove
+      - Hermann Stengel
+      - Jack Ipalibo
+      - Kristoffer Tokstad
+      - Lars-Jørgen Salvesen
+      - Tobias Gulliksen
+    subs:
+      - Halldor Stenevik
+      - Ole Kristian Enersen
+      - Fred Friday
+      - Ernest Boahene
+      - Morten Sætra
+      - Niklas Gunnarsson
+    coach: Håkon Wibe-Lund
+stats:
+  home:
+    possession: 45
+    shots: 12
+    shotsOnTarget: 5
+    corners: 6
+    fouls: 11
+    offsides: 1
+    xg: 1.01
+  away:
+    possession: 55
+    shots: 13
+    shotsOnTarget: 3
+    corners: 4
+    fouls: 12
+    offsides: 3
+    xg: 0.69
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +140,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

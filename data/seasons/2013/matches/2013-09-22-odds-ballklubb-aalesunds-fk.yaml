@@ -11,13 +11,122 @@ competition:
 home:
   clubId: odds-ballklubb
   score: 5
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: skagerak-arena
 neutralVenue: false
-events: []
+attendance: 5564
+events:
+  - minute: 26
+    type: goal
+    team: away
+    player: Leke James
+  - minute: 31
+    type: goal
+    team: home
+    player: Håvard Storbæk
+  - minute: 35
+    type: goal
+    team: home
+    player: Frode Johnsen
+  - minute: 37
+    type: yellow_card
+    team: away
+    player: Abderrazak Hamdallah
+  - minute: 41
+    type: goal
+    team: home
+    player: Elbasan Rashani
+  - minute: 46
+    type: substitution
+    team: away
+    player: Tor Hogne Aarøy
+    playerOff: Michael Barrantes
+  - minute: 46
+    type: substitution
+    team: away
+    player: Fredrik Carlsen
+    playerOff: Thomas Skog Martinussen
+  - minute: 57
+    type: goal
+    team: home
+    player: Frode Johnsen
+  - minute: 66
+    type: substitution
+    team: away
+    player: Houcine Zaidoune
+    playerOff: Edvard Skagestad
+  - minute: 73
+    type: substitution
+    team: home
+    player: Herolind Shala
+    playerOff: Elbasan Rashani
+  - minute: 75
+    type: yellow_card
+    team: home
+    player: Jone Samuelsen
+  - minute: 80
+    type: substitution
+    team: home
+    player: Morten Fevang
+    playerOff: Fredrik Oldrup Jensen
+  - minute: 81
+    type: substitution
+    team: home
+    player: Christer Kleiven
+    playerOff: Håvard Storbæk
+  - minute: 85
+    type: goal
+    team: home
+    player: Frode Johnsen
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Sondre Løvseth Rossbach
+      - Thomas Grøgaard
+      - Steffen Hagen
+      - Fredrik Semb Berge
+      - Niklas Gunnarsson
+      - Håvard Storbæk
+      - Fredrik Oldrup Jensen
+      - Ole Jørgen Halvorsen
+      - Jone Samuelsen
+      - Elbasan Rashani
+      - Frode Johnsen
+    subs:
+      - Herolind Shala
+      - Morten Fevang
+      - Christer Kleiven
+      - Mattias Andersson
+      - Viljar Myhra
+      - Emil Jonassen
+      - Mathias Fredriksen
+    coach: Dag-Eilev Fagermo
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Jo Nymo Matland
+      - Daniel Arnefjord
+      - Edvard Skagestad
+      - Jonatan Tollås Nation
+      - Michael Barrantes
+      - Thomas Skog Martinussen
+      - Peter Orry Larsen
+      - Fredrik Ulvestad
+      - Leke James
+      - Abderrazak Hamdallah
+    subs:
+      - Fredrik Carlsen
+      - Tor Hogne Aarøy
+      - Houcine Zaidoune
+      - Lars Fuhre
+      - Lasse Staw
+    coach: Jan Jönsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +142,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

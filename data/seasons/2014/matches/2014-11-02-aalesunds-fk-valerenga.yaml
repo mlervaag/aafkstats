@@ -11,13 +11,132 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: valerenga
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 11
+    type: goal
+    team: away
+    player: Simon Andreas Larsen
+  - minute: 27
+    type: goal
+    team: home
+    player: Leke James
+    assist: Demar Phillips
+  - minute: 35
+    type: goal
+    team: home
+    player: Michael Barrantes
+    assist: Demar Phillips
+  - minute: 37
+    type: yellow_card
+    team: away
+    player: Kamran Ali Iqbal
+  - minute: 46
+    type: substitution
+    team: away
+    player: Morten Berre
+    playerOff: Kamran Ali Iqbal
+  - minute: 51
+    type: yellow_card
+    team: away
+    player: Daniel Fredheim Holm
+  - minute: 53
+    type: goal
+    team: home
+    player: Michael Barrantes
+  - minute: 63
+    type: yellow_card
+    team: home
+    player: Oddbjørn Lie
+  - minute: 71
+    type: yellow_card
+    team: home
+    player: Demar Phillips
+  - minute: 72
+    type: substitution
+    team: away
+    player: Markus Brændsrød
+    playerOff: Christian Grindheim
+  - minute: 78
+    type: yellow_card
+    team: away
+    player: Morten Berre
+  - minute: 79
+    type: substitution
+    team: home
+    player: Mostafa Abdellaoue
+    playerOff: Michael Barrantes
+  - minute: 79
+    type: substitution
+    team: away
+    player: Hermann Stengel
+    playerOff: Mathias Blårud
+  - minute: 81
+    type: goal
+    team: home
+    player: Mostafa Abdellaoue
+    assist: Henrik Rørvik Bjørdal
+  - minute: 86
+    type: substitution
+    team: home
+    player: Thomas Skog Martinussen
+    playerOff: Sakari Mattila
+  - minute: 88
+    type: substitution
+    team: home
+    player: Tor Hogne Aarøy
+    playerOff: Henrik Rørvik Bjørdal
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Mikael Dyrestam
+      - Oddbjørn Lie
+      - Demar Phillips
+      - Fredrik Ulvestad
+      - Sakari Mattila
+      - Henrik Rørvik Bjørdal
+      - Michael Barrantes
+      - Mehdi Karnass
+      - Leke James
+    subs:
+      - Mostafa Abdellaoue
+      - Thomas Skog Martinussen
+      - Tor Hogne Aarøy
+      - Andreas Lie
+      - Jo Nymo Matland
+      - Peter Orry Larsen
+      - Torbjørn Grytten
+    coach: Jan Jönsson
+  away:
+    formation: 4-4-2
+    starters:
+      - Michael Langer
+      - Kamran Ali Iqbal
+      - Simon Andreas Larsen
+      - Niklas Gunnarsson
+      - Ivan Näsberg
+      - Max Bjørsvik
+      - Christian Grindheim
+      - Ghayas Zahid
+      - Mathias Blårud
+      - Daniel Fredheim Holm
+      - Vidar Örn Kjartansson
+    subs:
+      - Morten Berre
+      - Markus Brændsrød
+      - Hermann Stengel
+      - Lars Hirschfeld
+      - Moussa Njie
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +152,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

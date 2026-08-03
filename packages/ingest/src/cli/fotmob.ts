@@ -8,6 +8,7 @@ import { reconcile, writePlan } from "../reconcile.js";
 interface Args {
   league: string;
   season: number;
+  sourceSeason?: string;
   competition: string;
   details: boolean;
   detailsLimit?: number;
@@ -31,6 +32,7 @@ async function main(): Promise<void> {
   const fetched = await fetchFotmobSeason({
     leagueId: args.league,
     season: args.season,
+    sourceSeason: args.sourceSeason,
     withDetails: args.details,
     detailsLimit: args.detailsLimit,
     detailsOffset: args.detailsOffset,
@@ -94,10 +96,15 @@ function parseArgs(argv: string[]): Args {
     }
   }
   const league = values.get("--league");
-  const season = Number(values.get("--season"));
+  // «2021/2022» er en gyldig sesong hos kilden. Kampene arkiveres under det første
+  // årstallet, som er den utgaven av turneringen de tilhører.
+  const seasonRaw = values.get("--season") ?? "";
+  const crossYear = /^(\d{4})\/(\d{4})$/.exec(seasonRaw);
+  const sourceSeason = crossYear ? seasonRaw : undefined;
+  const season = crossYear ? Number(crossYear[1]) : Number(seasonRaw);
   const competition = values.get("--competition");
   if (!league || !Number.isInteger(season) || !competition) {
-    throw new Error("bruk: --league ID --season ÅR --competition ARKIV-ID [--with-details] [--details-offset N] [--limit N] [--write]");
+    throw new Error("bruk: --league ID --season ÅR|ÅR/ÅR --competition ARKIV-ID [--with-details] [--details-offset N] [--limit N] [--write]");
   }
   const limitRaw = values.get("--limit");
   const limit = limitRaw === undefined ? undefined : Number(limitRaw);
@@ -122,6 +129,7 @@ function parseArgs(argv: string[]): Args {
   return {
     league,
     season,
+    sourceSeason,
     competition,
     details: flags.has("--with-details"),
     detailsLimit,

@@ -11,13 +11,120 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: bodo-glimt
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 6007
+referee: Svein-Erik Edvartsen
+events:
+  - minute: 15
+    type: yellow_card
+    team: away
+    player: Sascha Mockenhaupt
+  - minute: 23
+    type: yellow_card
+    team: away
+    player: Mathias Normann
+  - minute: 48
+    type: yellow_card
+    team: home
+    player: Vito Wormgoor
+  - minute: 58
+    type: substitution
+    team: away
+    player: Morten Konradsen
+    playerOff: Alexander Jakobsen
+  - minute: 63
+    type: own_goal
+    team: home
+    player: Ulrik Saltnes
+  - minute: 64
+    type: substitution
+    team: home
+    player: Marlinho
+    playerOff: Sondre Brunstad Fet
+  - minute: 73
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Mostafa Abdellaoue
+  - minute: 79
+    type: substitution
+    team: away
+    player: Vadim Manzon
+    playerOff: Patrick Berg
+  - minute: 81
+    type: substitution
+    team: away
+    player: Jens Petter Hauge
+    playerOff: Ole Jørgen Halvorsen
+  - minute: 86
+    type: substitution
+    team: home
+    player: Vebjørn Hoff
+    playerOff: Fredrik Carlsen
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Vito Wormgoor
+      - Daniel Gretarsson
+      - Mikkel Kirkeskov
+      - Sondre Brunstad Fet
+      - Bjørn Helge Riise
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Franck Boli
+      - Mostafa Abdellaoue
+    subs:
+      - Marlinho
+      - Peter Orry Larsen
+      - Vebjørn Hoff
+      - Anders Waagan
+      - Edvard Skagestad
+      - Lars Cramer
+      - Tero Mäntylä
+    coach: Trond Fredriksen
+  away:
+    formation: 4-3-3
+    starters:
+      - Sergey Pogorili
+      - Ulrik Saltnes
+      - Sascha Mockenhaupt
+      - Martin Bjørnbak
+      - Thomas Jacobsen
+      - Alexander Jakobsen
+      - Mathias Normann
+      - Patrick Berg
+      - Ole Jørgen Halvorsen
+      - Fitim Azemi
+      - Trond Olsen
+    subs:
+      - Morten Konradsen
+      - Vadim Manzon
+      - Jens Petter Hauge
+      - Emil Jonassen
+      - Joachim Osvold
+      - Jonas Ueland Kolstad
+      - Vebjørn Vinje
+    coach: Aasmund Bjørkan
+stats:
+  home:
+    possession: 58
+    shots: 16
+    shotsOnTarget: 7
+    corners: 8
+  away:
+    possession: 42
+    shots: 7
+    shotsOnTarget: 3
+    corners: 3
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +140,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

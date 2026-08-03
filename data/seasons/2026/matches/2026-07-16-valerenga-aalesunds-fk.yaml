@@ -1,0 +1,207 @@
+id: 2026-07-16-valerenga-aalesunds-fk
+date: 2026-07-16
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 14
+home:
+  clubId: valerenga
+  score: 6
+  halfTimeScore: 3
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+venueId: intility-arena
+neutralVenue: false
+attendance: 8506
+referee: Daniel Higraff
+events:
+  - minute: 28
+    type: substitution
+    team: away
+    player: Ulrik Valderhaug Syversen
+    playerOff: Aleksander Hammer Kjelsen
+  - minute: 39
+    type: goal
+    team: home
+    player: Lucas Ravn-Haren
+    assist: Henrik Rørvik Bjørdal
+  - minute: 42
+    type: goal
+    team: home
+    player: Lucas Ravn-Haren
+    assist: Filip Thorvaldsen
+  - minute: 45
+    stoppage: 1
+    type: goal
+    team: home
+    player: Filip Thorvaldsen
+    assist: Mathias Grundetjern
+  - minute: 46
+    type: substitution
+    team: away
+    player: Håkon Butli Hammer
+    playerOff: Elias Hagen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Elias Heggland Myrlid
+    playerOff: Kristian Hemmingsen Lonebu
+  - minute: 46
+    type: substitution
+    team: away
+    player: Emil Engqvist
+    playerOff: Simen Haram
+  - minute: 53
+    type: goal
+    team: home
+    player: Filip Thorvaldsen
+    assist: Henrik Rørvik Bjørdal
+  - minute: 58
+    type: substitution
+    team: home
+    player: Petter Strand
+    playerOff: Lucas Ravn-Haren
+  - minute: 71
+    type: substitution
+    team: home
+    player: Kevin Tshiembe
+    playerOff: Aaron Kiil Olsen
+  - minute: 71
+    type: substitution
+    team: home
+    player: Mohamed Ofkir
+    playerOff: Mathias Grundetjern
+  - minute: 71
+    type: substitution
+    team: home
+    player: Gabriel Larsen Rajkovic
+    playerOff: Filip Thorvaldsen
+  - minute: 74
+    type: goal
+    team: away
+    player: Endre Osenbroch
+    assist: Uba Charles
+  - minute: 83
+    type: goal
+    team: home
+    player: Mohamed Ofkir
+    assist: Henrik Rørvik Bjørdal
+  - minute: 84
+    type: substitution
+    team: away
+    player: Ivan Djantou
+    playerOff: Mathias Christensen
+  - minute: 84
+    type: substitution
+    team: home
+    player: Magnus Westergaard
+    playerOff: Carl Lange
+  - minute: 89
+    type: goal
+    team: home
+    player: Mohamed Ofkir
+    assist: Kolbeinn Finnsson
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Oscar Hedvall
+      - Sebastian Jarl
+      - Aaron Kiil Olsen
+      - Ivan Näsberg
+      - Kolbeinn Finnsson
+      - Henrik Rørvik Bjørdal
+      - Fidel Brice Ambina
+      - Carl Lange
+      - Lucas Ravn-Haren
+      - Filip Thorvaldsen
+      - Mathias Grundetjern
+    subs:
+      - Petter Strand
+      - Kevin Tshiembe
+      - Gabriel Larsen Rajkovic
+      - Mohamed Ofkir
+      - Magnus Westergaard
+      - Alexander Svensen Ordal
+      - Håkon Sjåtil
+      - Vegar Eggen Hedenstad
+      - Promise Meliga
+    coach: Johannes Moesgaard
+  away:
+    formation: 3-5-2
+    starters:
+      - Tor Erik Valderhaug Larsen
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Ólafur Gudmundsson
+      - Uba Charles
+      - Mathias Christensen
+      - Elias Hagen
+      - Henrik Melland
+      - Kristoffer Nessø
+      - Kristian Hemmingsen Lonebu
+      - Endre Osenbroch
+    subs:
+      - Ulrik Valderhaug Syversen
+      - Emil Engqvist
+      - Håkon Butli Hammer
+      - Elias Heggland Myrlid
+      - Ivan Djantou
+      - Luca Podlech
+      - Philip Sandvik Aukland
+      - Jakob Nyland Ørsahl
+      - Marius Andresen
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 46
+    shots: 22
+    shotsOnTarget: 10
+    corners: 8
+    fouls: 7
+    offsides: 1
+    xg: 2.82
+  away:
+    possession: 54
+    shots: 19
+    shotsOnTarget: 6
+    corners: 7
+    fouls: 5
+    offsides: 0
+    xg: 1.71
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/valerenga-vs-aalesund/286lhq#5104953
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5104953"
+manual: []

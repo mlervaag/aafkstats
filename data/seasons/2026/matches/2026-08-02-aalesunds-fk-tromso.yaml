@@ -1,0 +1,214 @@
+id: 2026-08-02-aalesunds-fk-tromso
+date: 2026-08-02
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 16
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: tromso
+  score: 6
+  halfTimeScore: 1
+venueId: color-line-stadion
+neutralVenue: false
+attendance: 4293
+referee: Marius Hansen Grøtta
+events:
+  - minute: 7
+    type: yellow_card
+    team: away
+    player: Mathias Tønnessen
+  - minute: 9
+    type: goal
+    team: away
+    player: David Edvardsson
+    assist: Troy Nyhammer
+  - minute: 42
+    type: own_goal
+    team: home
+    player: Isak Vådebu
+  - minute: 44
+    type: var_decision
+    team: home
+    player: Henrik Melland
+  - minute: 46
+    type: substitution
+    team: home
+    player: Ulrik Valderhaug Syversen
+    playerOff: Simen Haram
+  - minute: 47
+    type: goal
+    team: away
+    player: Alexander Warneryd
+    assist: Lars Olden Larsen
+  - minute: 54
+    type: goal
+    team: away
+    player: Alexander Warneryd
+    assist: Isak Dahlqvist
+  - minute: 59
+    type: goal
+    team: home
+    player: Endre Osenbroch
+    assist: Håkon Butli Hammer
+  - minute: 60
+    type: substitution
+    team: home
+    player: Kristoffer Nessø
+    playerOff: Marius Andresen
+  - minute: 60
+    type: substitution
+    team: home
+    player: Elias Heggland Myrlid
+    playerOff: Håkon Butli Hammer
+  - minute: 69
+    type: goal
+    team: away
+    player: Alexander Warneryd
+  - minute: 72
+    type: substitution
+    team: away
+    player: Ieltsin Camões
+    playerOff: Troy Nyhammer
+  - minute: 77
+    type: substitution
+    team: home
+    player: Mathias Kristensen
+    playerOff: Ólafur Gudmundsson
+  - minute: 77
+    type: substitution
+    team: home
+    player: Ivan Djantou
+    playerOff: Kristian Hemmingsen Lonebu
+  - minute: 82
+    type: goal
+    team: away
+    player: Heine Åsen Larsen
+    assist: David Edvardsson
+  - minute: 89
+    type: substitution
+    team: away
+    player: Jesper Grundt
+    playerOff: Lars Olden Larsen
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: away
+    player: Aleksander Lilletun Elvebu
+    playerOff: Heine Åsen Larsen
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: away
+    player: Sander Håvik Innvær
+    playerOff: Alexander Warneryd
+  - minute: 90
+    stoppage: 2
+    type: own_goal
+    team: away
+    player: Ulrik Valderhaug Syversen
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Luca Podlech
+      - Simen Haram
+      - Emil Engqvist
+      - Ólafur Gudmundsson
+      - Marius Andresen
+      - Håkon Butli Hammer
+      - Elias Hagen
+      - Henrik Melland
+      - Uba Charles
+      - Kristian Hemmingsen Lonebu
+      - Endre Osenbroch
+    subs:
+      - Ulrik Valderhaug Syversen
+      - Kristoffer Nessø
+      - Elias Heggland Myrlid
+      - Mathias Kristensen
+      - Ivan Djantou
+      - Tor Erik Valderhaug Larsen
+      - Philip Sandvik Aukland
+      - David Snær Johannsson
+      - Jakob Nyland Ørsahl
+    coach: Kjetil Rekdal
+  away:
+    formation: 3-5-2
+    starters:
+      - Jakob Haugaard
+      - Vetle Skjærvik
+      - Mathias Tønnessen
+      - Isak Vådebu
+      - Isak Dahlqvist
+      - David Edvardsson
+      - Ruben Yttergård Jenssen
+      - Lars Olden Larsen
+      - Alexander Warneryd
+      - Troy Nyhammer
+      - Heine Åsen Larsen
+    subs:
+      - Ieltsin Camões
+      - Jesper Grundt
+      - Sander Håvik Innvær
+      - Aleksander Lilletun Elvebu
+      - Ole Kristian Gjefle Lauvli
+      - Benjamin Myrvold
+      - Casper Øyvann
+      - Mads Mikkelsen
+      - Daniel Braut
+    coach: Jørgen Vik
+stats:
+  home:
+    possession: 53
+    shots: 24
+    shotsOnTarget: 3
+    corners: 9
+    fouls: 14
+    offsides: 1
+    xg: 2.62
+  away:
+    possession: 47
+    shots: 12
+    shotsOnTarget: 7
+    corners: 4
+    fouls: 14
+    offsides: 1
+    xg: 1.95
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-tromso/2e5vky#5104967
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5104967"
+manual: []

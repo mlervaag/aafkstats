@@ -1,0 +1,188 @@
+id: 2026-03-21-start-aalesunds-fk
+date: 2026-03-21
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 2
+home:
+  clubId: start
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 1
+venueId: sparebanken-norge-arena-kristiansand
+neutralVenue: false
+attendance: 6194
+referee: Stian Røvig Sletner
+events:
+  - minute: 8
+    type: goal
+    team: away
+    player: Kristian Hemmingsen Lonebu
+    assist: Håkon Butli Hammer
+  - minute: 11
+    type: substitution
+    team: away
+    player: Aleksander Hammer Kjelsen
+    playerOff: Ulrik Valderhaug Syversen
+  - minute: 16
+    type: yellow_card
+    team: away
+    player: Marius Andresen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Kristoffer Nessø
+    playerOff: Marius Andresen
+  - minute: 48
+    type: goal
+    team: home
+    player: Erlend Dahl Reitan
+    assist: Mikael Ugland
+  - minute: 60
+    type: substitution
+    team: away
+    player: Uba Charles
+    playerOff: Henrik Melland
+  - minute: 60
+    type: substitution
+    team: away
+    player: Endre Osenbroch
+    playerOff: Ólafur Gudmundsson
+  - minute: 69
+    type: substitution
+    team: home
+    player: Lukas Hjelleset Gausdal
+    playerOff: Eirik Schulze
+  - minute: 73
+    type: yellow_card
+    team: away
+    player: Kristoffer Klaesson
+  - minute: 73
+    type: missed_penalty
+    team: home
+    player: Jesper Cornelius
+  - minute: 75
+    type: yellow_card
+    team: home
+    player: Kristoffer Tønnessen
+  - minute: 80
+    type: substitution
+    team: home
+    player: Ousmane Toure
+    playerOff: Markus Soomets
+  - minute: 84
+    type: substitution
+    team: away
+    player: Emil Engqvist
+    playerOff: Philip Sandvik Aukland
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: home
+    player: Omar Jebali
+    playerOff: Erlend Dahl Reitan
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Jacob Pryts
+      - Erlend Dahl Reitan
+      - John Olav Norheim
+      - Kristoffer Tønnessen
+      - Mikael Ugland
+      - Erlend Segberg
+      - Markus Soomets
+      - Eirik Schulze
+      - Tom Strannegård
+      - Håkon Lorentzen
+      - Jesper Cornelius
+    subs:
+      - Lukas Hjelleset Gausdal
+      - Ousmane Toure
+      - Omar Jebali
+      - Storm Strand-Kolbjørnsen
+      - Altin Ujkani
+      - Deni Dashaev
+      - Sebastian Griesbeck
+      - Filip Lien
+      - Marius Nordal
+    coach: Azar Karadas
+  away:
+    formation: 3-5-2
+    starters:
+      - Kristoffer Klaesson
+      - Philip Sandvik Aukland
+      - Ulrik Valderhaug Syversen
+      - Simen Haram
+      - Marius Andresen
+      - Henrik Melland
+      - Mathias Christensen
+      - Håkon Butli Hammer
+      - Ólafur Gudmundsson
+      - Kristian Hemmingsen Lonebu
+      - David Snær Johannsson
+    subs:
+      - Aleksander Hammer Kjelsen
+      - Kristoffer Nessø
+      - Uba Charles
+      - Endre Osenbroch
+      - Emil Engqvist
+      - Tor Erik Valderhaug Larsen
+      - Jakob Nyland Ørsahl
+      - Elias Heggland Myrlid
+      - Ivan Djantou
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 58
+    shots: 16
+    shotsOnTarget: 4
+    corners: 11
+    fouls: 14
+    offsides: 2
+    xg: 2.67
+  away:
+    possession: 42
+    shots: 10
+    shotsOnTarget: 3
+    corners: 2
+    fouls: 13
+    offsides: 0
+    xg: 1.27
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-start/2ryd31#5104850
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5104850"
+manual: []

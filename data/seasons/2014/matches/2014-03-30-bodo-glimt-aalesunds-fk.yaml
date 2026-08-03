@@ -11,13 +11,99 @@ competition:
 home:
   clubId: bodo-glimt
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: aspmyra-stadion
 neutralVenue: false
-events: []
+attendance: 3851
+events:
+  - minute: 13
+    type: goal
+    team: away
+    player: Demar Phillips
+    assist: Fredrik Carlsen
+  - minute: 25
+    type: goal
+    team: home
+    player: Dane Richards
+    assist: Thomas Jacobsen
+  - minute: 68
+    type: yellow_card
+    team: home
+    player: Dominic Chatto
+  - minute: 74
+    type: substitution
+    team: home
+    player: Jim Johansen
+    playerOff: Abdurahim Laajab
+  - minute: 74
+    type: substitution
+    team: away
+    player: Sakari Mattila
+    playerOff: Demar Phillips
+  - minute: 81
+    type: yellow_card
+    team: home
+    player: Jim Johansen
+  - minute: 82
+    type: substitution
+    team: away
+    player: Tor Hogne Aaroey
+    playerOff: Fredrik Carlsen
+  - minute: 86
+    type: substitution
+    team: home
+    player: Kristian Brix
+    playerOff: Dane Richards
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Pavel Londak
+      - Zarek Valentin
+      - Vieux Yakhya Sane
+      - Thomas Braaten
+      - Ruben Imingen
+      - Thomas Jacobsen
+      - Dominic Chatto
+      - Pape Alioune Ndiaye
+      - Dane Richards
+      - Abdurahim Laajab
+      - Trond Olsen
+    subs:
+      - Jim Johansen
+      - Kristian Brix
+      - Ulrik Berglann
+      - Lasse Staw
+      - Anders Karlsen
+      - Morten Konradsen
+      - Brede Mathias Moe
+    coach: Jan Halvor Halvorsen
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Jonatan Tollaas Nation
+      - Jo Nymo Matland
+      - Peter Orry Larsen
+      - Fredrik Ulvestad
+      - Fredrik Carlsen
+      - Demar Phillips
+      - Michael Barrantes
+      - Leke James
+    subs:
+      - Sakari Mattila
+      - Tor Hogne Aaroey
+      - Torbjoern Grytten
+      - Tremaine Stewart
+      - Andreas Lie
+      - Oddbjoern Lie
+    coach: Jan Joensson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +119,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -208,6 +208,7 @@ SELECT
   s.head_coach,
   s.promoted,
   s.relegated,
+  s.note,
   count(m.id)                                               AS played,
   sum(CASE WHEN m.result = 'S' THEN 1 ELSE 0 END)           AS wins,
   sum(CASE WHEN m.result = 'U' THEN 1 ELSE 0 END)           AS draws,

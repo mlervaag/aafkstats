@@ -11,13 +11,159 @@ competition:
 home:
   clubId: start
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: sparebanken-sor-arena
 neutralVenue: false
-events: []
+attendance: 2892
+referee: Ali Al Hatam
+events:
+  - minute: 13
+    type: substitution
+    team: away
+    player: Simen Haram
+    playerOff: Erik Frøysa
+  - minute: 16
+    type: yellow_card
+    team: away
+    player: Simen Haram
+  - minute: 27
+    type: goal
+    team: away
+    player: Markus Seehusen Karlsbakk
+  - minute: 31
+    type: goal
+    team: away
+    player: Claudio Braga
+  - minute: 46
+    type: substitution
+    team: home
+    player: Jesper Gregersen
+    playerOff: Marijan Cosic
+  - minute: 60
+    type: goal
+    team: away
+    player: Håkon Butli Hammer
+  - minute: 62
+    type: substitution
+    team: home
+    player: Mathias Grundetjern
+    playerOff: Tom Strannegård
+  - minute: 62
+    type: substitution
+    team: home
+    player: Kristoffer Hoven
+    playerOff: Fabian Østigård Ness
+  - minute: 62
+    type: substitution
+    team: home
+    player: Deni Dashaev
+    playerOff: Salim Nkubiri
+  - minute: 84
+    type: substitution
+    team: away
+    player: Amidou Diop
+    playerOff: Eivind Strømsheim Kolve
+  - minute: 84
+    type: substitution
+    team: home
+    player: Marius Nordal
+    playerOff: Eirik Schulze
+  - minute: 86
+    type: goal
+    team: home
+    player: Kristoffer Hoven
+    assist: Sander Sjökvist
+  - minute: 90
+    stoppage: 1
+    type: yellow_card
+    team: home
+    player: Deni Dashaev
+  - minute: 90
+    stoppage: 4
+    type: substitution
+    team: away
+    player: David Snær Johannsson
+    playerOff: Markus Seehusen Karlsbakk
+  - minute: 90
+    stoppage: 4
+    type: yellow_card
+    team: away
+    player: Markus Seehusen Karlsbakk
+  - minute: 90
+    stoppage: 4
+    type: yellow_card
+    team: home
+    player: Mathias Grundetjern
+  - minute: 90
+    stoppage: 5
+    type: substitution
+    team: away
+    player: Bjørn Martin Kristensen
+    playerOff: Isaac Atanga
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Jasper Silva Torkildsen
+      - Sander Sjökvist
+      - Nicolas Pignatel Jenssen
+      - Sivert Hansen
+      - Fabian Østigård Ness
+      - Eirik Schulze
+      - Faites Makosso
+      - Tom Strannegård
+      - Marijan Cosic
+      - Alagie Sanyang
+      - Salim Nkubiri
+    subs:
+      - Jesper Gregersen
+      - Deni Dashaev
+      - Kristoffer Hoven
+      - Mathias Grundetjern
+      - Marius Nordal
+      - Mats Viken
+      - Jesper Gravdahl
+      - David Lunde
+      - Jonas Seim
+    coach: Azar Karadas
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Kristoffer Nessø
+      - Erik Frøysa
+      - Nikolai Hopland
+      - Thomas Grøgaard
+      - Eivind Strømsheim Kolve
+      - Håkon Butli Hammer
+      - Markus Seehusen Karlsbakk
+      - Isaac Atanga
+      - Claudio Braga
+      - Sander Hestetun Kilen
+    subs:
+      - Simen Haram
+      - Amidou Diop
+      - David Snær Johannsson
+      - Bjørn Martin Kristensen
+      - Tor Erik Valderhaug Larsen
+      - Metodi Maksimov
+      - Sebastian Berntsen
+    coach: Christian Johnsen
+stats:
+  home:
+    possession: 47
+    shots: 8
+    shotsOnTarget: 5
+    corners: 4
+  away:
+    possession: 53
+    shots: 7
+    shotsOnTarget: 4
+    corners: 3
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +179,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

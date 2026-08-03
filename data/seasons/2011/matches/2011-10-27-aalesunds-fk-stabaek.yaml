@@ -11,13 +11,106 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: stabaek
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 23
+    type: yellow_card
+    team: home
+    player: Demar Phillips
+  - minute: 34
+    type: yellow_card
+    team: away
+    player: Bjarni Olafur Eiriksson
+  - minute: 43
+    type: goal
+    team: home
+    player: Michael Barrantes
+  - minute: 47
+    type: yellow_card
+    team: away
+    player: Alain Junior Ollé Ollé
+  - minute: 54
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Michael Barrantes
+  - minute: 55
+    type: substitution
+    team: away
+    player: Fredrik Brustad
+    playerOff: Gilles Mbang Ondo
+  - minute: 58
+    type: substitution
+    team: home
+    player: Edvard Skagestad
+    playerOff: Kjell Rune Sellin
+  - minute: 62
+    type: goal
+    team: home
+    player: Peter Orry Larsen
+  - minute: 73
+    type: substitution
+    team: away
+    player: Hermann Stengel
+    playerOff: Alain Junior Ollé Ollé
+  - minute: 83
+    type: substitution
+    team: home
+    player: Ville Jalasto
+    playerOff: Demar Phillips
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Sten Michael Grytebust
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Enar Jääger
+      - Jo Nymo Matland
+      - Jason Morrison
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Magnus Sylling Olsen
+      - Demar Phillips
+      - Kjell Rune Sellin
+    subs:
+      - Peter Orry Larsen
+      - Edvard Skagestad
+      - Ville Jalasto
+      - Jonas Sandqvist
+      - Lars Fuhre
+      - Sander Post
+      - Solomon Okoronkwo
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-4-2
+    starters:
+      - Jan Kjell Larsen
+      - Bjarni Olafur Eiriksson
+      - Morten M. Skjønsberg
+      - Tor-Marius Gromstad
+      - Vegar Eggen Hedenstad
+      - Alain Junior Ollé Ollé
+      - Palmi Rafn Palmason
+      - Pontus Farnerud
+      - Mix Diskerud
+      - Gilles Mbang Ondo
+      - Johan Andersson
+    subs:
+      - Fredrik Brustad
+      - Hermann Stengel
+      - Erik Benjaminsen
+      - Haris Skenderovic
+      - Jørgen Hammer
+      - Jon Knudsen
+      - Torstein Andersen Aase
+    coach: Jörgen Lennartsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +126,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

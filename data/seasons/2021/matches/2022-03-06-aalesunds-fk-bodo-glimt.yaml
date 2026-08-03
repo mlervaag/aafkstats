@@ -1,0 +1,52 @@
+id: 2022-03-06-aalesunds-fk-bodo-glimt
+date: 2022-03-06
+dateConfidence: exact
+kickoff: 18:00
+status: awarded
+competition:
+  id: nm
+  season: 2021
+  stage: regular_season
+  round: 4
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: bodo-glimt
+  score: 3
+  halfTimeScore: null
+venueId: color-line-stadion
+neutralVenue: false
+events: []
+lineups:
+  home:
+    starters: []
+    subs: []
+  away:
+    starters: []
+    subs: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/bodoglimt-vs-aalesund/2c37nd#3731785
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - lineups
+    note: "Kildestatus: AW"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3731785"
+manual: []

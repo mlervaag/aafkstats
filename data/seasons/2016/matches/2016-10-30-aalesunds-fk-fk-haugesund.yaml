@@ -11,13 +11,141 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: fk-haugesund
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 7095
+referee: Martin Lundby
+events:
+  - minute: 21
+    type: goal
+    team: away
+    player: Torbjørn Agdestein
+  - minute: 28
+    type: penalty_goal
+    team: home
+    player: Mostafa Abdellaoue
+  - minute: 30
+    type: goal
+    team: away
+    player: Vegard Skjerve
+    assist: William Troost-Ekong
+  - minute: 34
+    type: substitution
+    team: away
+    player: Erling Myklebust
+    playerOff: Torbjørn Agdestein
+  - minute: 38
+    type: yellow_card
+    team: away
+    player: William Troost-Ekong
+  - minute: 56
+    type: missed_penalty
+    team: home
+    player: Mostafa Abdellaoue
+  - minute: 57
+    type: goal
+    team: home
+    player: Mostafa Abdellaoue
+  - minute: 57
+    type: yellow_card
+    team: away
+    player: Vegard Skjerve
+  - minute: 62
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Franck Boli
+  - minute: 64
+    type: substitution
+    team: away
+    player: Robert Kling
+    playerOff: Eirik Mæland
+  - minute: 65
+    type: substitution
+    team: home
+    player: Flamur Kastrati
+    playerOff: Vebjørn Hoff
+  - minute: 72
+    type: goal
+    team: home
+    player: Peter Orry Larsen
+    assist: Mikkel Kirkeskov
+  - minute: 78
+    type: goal
+    team: away
+    player: Haris Hajradinovic
+  - minute: 87
+    type: substitution
+    team: home
+    player: Marlinho
+    playerOff: Edwin Gyasi
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Vito Wormgoor
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Vito Wormgoor
+      - Daniel Gretarsson
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Vebjørn Hoff
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Franck Boli
+      - Mostafa Abdellaoue
+    subs:
+      - Peter Orry Larsen
+      - Flamur Kastrati
+      - Marlinho
+      - Edvard Skagestad
+      - Lars Cramer
+      - Sondre Brunstad Fet
+      - Tero Mäntylä
+    coach: Trond Fredriksen
+  away:
+    formation: 4-5-1
+    starters:
+      - Per Kristian Bråtveit
+      - Vegard Skjerve
+      - Izuchukwu Anthony
+      - William Troost-Ekong
+      - David Myrestam
+      - Kristoffer Haraldseid
+      - Eirik Mæland
+      - Filip Kiss
+      - Haris Hajradinovic
+      - Alexander Stølås
+      - Torbjørn Agdestein
+    subs:
+      - Erling Myklebust
+      - Robert Kling
+      - Arent-Emil Hauge
+      - Helge Sandvik
+      - Roy Miljeteig
+      - Shuaibu Ibrahim
+      - Sondre Tronstad
+    coach: Andrea Loberto
+stats:
+  home:
+    possession: 53
+    shots: 15
+    shotsOnTarget: 7
+    corners: 7
+  away:
+    possession: 47
+    shots: 7
+    shotsOnTarget: 4
+    corners: 4
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +161,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

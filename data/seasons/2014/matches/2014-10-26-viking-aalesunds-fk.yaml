@@ -11,13 +11,112 @@ competition:
 home:
   clubId: viking
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: viking-stadion
 neutralVenue: false
-events: []
+attendance: 10850
+events:
+  - minute: 20
+    type: goal
+    team: away
+    player: Leke James
+    assist: Sakari Mattila
+  - minute: 24
+    type: goal
+    team: away
+    player: Leke James
+    assist: Sakari Mattila
+  - minute: 30
+    type: yellow_card
+    team: away
+    player: Sakari Mattila
+  - minute: 42
+    type: yellow_card
+    team: away
+    player: Daniel Arnefjord
+  - minute: 51
+    type: substitution
+    team: away
+    player: Mehdi Karnass
+    playerOff: Peter Orry Larsen
+  - minute: 57
+    type: substitution
+    team: home
+    player: Joackim Joergensen
+    playerOff: Bjoern Daniel Sverrisson
+  - minute: 69
+    type: substitution
+    team: away
+    player: Mostafa Abdellaoue
+    playerOff: Michael Barrantes
+  - minute: 69
+    type: substitution
+    team: home
+    player: Osita Henry Chikere
+    playerOff: Steinthor Freyr Thorsteinsson
+  - minute: 74
+    type: yellow_card
+    team: away
+    player: Akeem Latifu
+  - minute: 80
+    type: goal
+    team: home
+    player: Sverrir Ingi Ingason
+  - minute: 85
+    type: substitution
+    team: away
+    player: Tor Hogne Aaroey
+    playerOff: Mehdi Karnass
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Iven Austboe
+      - Christian Landu Landu
+      - Indridi Sigurdsson
+      - Sverrir Ingi Ingason
+      - Kristoffer Haugen
+      - Yann-Erik de Lanlay
+      - Bjoern Daniel Sverrisson
+      - Andre Danielsen
+      - Steinthor Freyr Thorsteinsson
+      - Jon Dadi Boedvarsson
+      - Vidar Nisja
+    subs:
+      - Joackim Joergensen
+      - Osita Henry Chikere
+      - Arild Oestboe
+      - Haakon Skogseid
+      - Trond Erik Bertelsen
+      - El Hadji Makhtar Thioune
+      - Julian Veen Uldal
+    coach: Kjell Jonevret
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Oddbjoern Lie
+      - Demar Phillips
+      - Henrik Roervik Bjoerdal
+      - Fredrik Ulvestad
+      - Sakari Mattila
+      - Peter Orry Larsen
+      - Leke James
+      - Michael Barrantes
+    subs:
+      - Mehdi Karnass
+      - Mostafa Abdellaoue
+      - Tor Hogne Aaroey
+      - Thomas Skog Martinussen
+      - Torbjoern Grytten
+      - Andreas Lie
+    coach: Jan Joensson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +132,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

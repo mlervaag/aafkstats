@@ -41,6 +41,8 @@ export interface SeasonSummary {
   goalsFor: number;
   goalsAgainst: number;
   goalDifference: number;
+  /** Forbehold om sesongen, f.eks. at den er ufullstendig i arkivet. */
+  note: string | null;
   url: string;
 }
 
@@ -55,6 +57,7 @@ interface SeasonRow {
   goals_for: number;
   goals_against: number;
   goal_difference: number;
+  note: string | null;
   url: string;
 }
 
@@ -149,6 +152,7 @@ function mapSeason(row: SeasonRow): SeasonSummary {
     goalsFor: row.goals_for,
     goalsAgainst: row.goals_against,
     goalDifference: row.goal_difference,
+    note: row.note,
     url: row.url,
   };
 }

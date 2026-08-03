@@ -1,0 +1,177 @@
+id: 2026-05-25-tromso-aalesunds-fk
+date: 2026-05-25
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 10
+home:
+  clubId: tromso
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+venueId: romssa-arena
+neutralVenue: false
+attendance: 5249
+referee: Espen Eskås
+events:
+  - minute: 3
+    type: goal
+    team: home
+    player: Sander Håvik Innvær
+    assist: Jens Hjertø-Dahl
+  - minute: 28
+    type: yellow_card
+    team: away
+    player: Marcus Haagensen Reed
+  - minute: 55
+    type: yellow_card
+    team: home
+    player: Sander Håvik Innvær
+  - minute: 57
+    type: goal
+    team: away
+    player: Mathias Christensen
+  - minute: 66
+    type: substitution
+    team: home
+    player: Daniel Braut
+    playerOff: Heine Åsen Larsen
+  - minute: 66
+    type: substitution
+    team: home
+    player: Lars Olden Larsen
+    playerOff: Troy Nyhammer
+  - minute: 67
+    type: substitution
+    team: away
+    player: Kristoffer Nessø
+    playerOff: Marius Andresen
+  - minute: 67
+    type: substitution
+    team: away
+    player: Ivan Djantou
+    playerOff: Marcus Haagensen Reed
+  - minute: 75
+    type: substitution
+    team: away
+    player: Håkon Butli Hammer
+    playerOff: Henrik Melland
+  - minute: 82
+    type: yellow_card
+    team: away
+    player: Ulrik Valderhaug Syversen
+  - minute: 85
+    type: substitution
+    team: home
+    player: Sigurd Prestmo
+    playerOff: Jens Hjertø-Dahl
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: away
+    player: Emil Engqvist
+    playerOff: Endre Osenbroch
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Jakob Haugaard
+      - Vetle Skjærvik
+      - Tobias Guddal
+      - Abubacarr Sedi Kinteh
+      - Leo Cornic
+      - David Edvardsson
+      - Ruben Yttergård Jenssen
+      - Jens Hjertø-Dahl
+      - Sander Håvik Innvær
+      - Troy Nyhammer
+      - Heine Åsen Larsen
+    subs:
+      - Daniel Braut
+      - Lars Olden Larsen
+      - Sigurd Prestmo
+      - Ole Kristian Gjefle Lauvli
+      - Isak Vådebu
+      - Jens Husebø
+      - Mads Mikkelsen
+      - Mathias Tønnessen
+      - Aleksander Lilletun Elvebu
+    coach: Jørgen Vik
+  away:
+    formation: 3-5-2
+    starters:
+      - Kristoffer Klaesson
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Ulrik Valderhaug Syversen
+      - Marius Andresen
+      - Elias Hagen
+      - Mathias Christensen
+      - Henrik Melland
+      - Uba Charles
+      - Endre Osenbroch
+      - Marcus Haagensen Reed
+    subs:
+      - Kristoffer Nessø
+      - Ivan Djantou
+      - Håkon Butli Hammer
+      - Emil Engqvist
+      - Tor Erik Valderhaug Larsen
+      - Jakob Nyland Ørsahl
+      - Elias Heggland Myrlid
+      - Storm Karlsson Knutsen
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 62
+    shots: 16
+    shotsOnTarget: 7
+    corners: 6
+    fouls: 9
+    offsides: 2
+    xg: 1.76
+  away:
+    possession: 38
+    shots: 15
+    shotsOnTarget: 3
+    corners: 9
+    fouls: 10
+    offsides: 0
+    xg: 1.12
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-tromso/2e5vky#5104914
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5104914"
+manual: []

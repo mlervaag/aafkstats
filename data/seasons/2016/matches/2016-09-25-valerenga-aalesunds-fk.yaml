@@ -11,13 +11,136 @@ competition:
 home:
   clubId: valerenga
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: ullevaal
 neutralVenue: false
-events: []
+attendance: 6845
+referee: Ken Henry Johnsen
+events:
+  - minute: 1
+    type: goal
+    team: away
+    player: Mostafa Abdellaoue
+    assist: Franck Boli
+  - minute: 30
+    type: yellow_card
+    team: away
+    player: Vebjørn Hoff
+  - minute: 32
+    type: yellow_card
+    team: home
+    player: Rasmus Lindkvist
+  - minute: 34
+    type: yellow_card
+    team: away
+    player: Fredrik Carlsen
+  - minute: 36
+    type: substitution
+    team: home
+    player: Hermann Stengel
+    playerOff: Vajebah Sakor
+  - minute: 41
+    type: yellow_card
+    team: home
+    player: Robert Lundström
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Kjetil Wæhler
+  - minute: 46
+    type: substitution
+    team: home
+    player: Mohammed Abdellaoue
+    playerOff: Henrik Kjelsrud Johansen
+  - minute: 60
+    type: substitution
+    team: home
+    player: Niklas Castro
+    playerOff: Kjetil Wæhler
+  - minute: 64
+    type: substitution
+    team: away
+    player: Peter Orry Larsen
+    playerOff: Aron Elis Thrándarson
+  - minute: 71
+    type: yellow_card
+    team: away
+    player: Mikkel Kirkeskov
+  - minute: 78
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Mostafa Abdellaoue
+  - minute: 83
+    type: substitution
+    team: away
+    player: Daniel Gretarsson
+    playerOff: Edwin Gyasi
+  - minute: 88
+    type: yellow_card
+    team: away
+    player: Andreas Lie
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Marcus Sandberg
+      - Robert Lundström
+      - Simon Andreas Larsen
+      - Kjetil Wæhler
+      - Rasmus Lindkvist
+      - Sander Berge
+      - Christian Grindheim
+      - Simen Kristiansen Juklerød
+      - Vajebah Sakor
+      - Ghayas Zahid
+      - Henrik Kjelsrud Johansen
+    subs:
+      - Hermann Stengel
+      - Mohammed Abdellaoue
+      - Niklas Castro
+      - Aslak Falch
+      - Ernest Agyiri
+      - Magnus Retsius Grødem
+      - Markus Nakkim
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Vito Wormgoor
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Vebjørn Hoff
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Mostafa Abdellaoue
+      - Franck Boli
+    subs:
+      - Peter Orry Larsen
+      - Sondre Brunstad Fet
+      - Daniel Gretarsson
+      - Lars Cramer
+      - Marlinho
+      - Tero Mäntylä
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 58
+    shots: 12
+    shotsOnTarget: 5
+    corners: 15
+  away:
+    possession: 42
+    shots: 6
+    shotsOnTarget: 3
+    corners: 3
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +156,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

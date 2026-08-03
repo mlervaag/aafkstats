@@ -11,13 +11,128 @@ competition:
 home:
   clubId: fk-haugesund
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: haugesund-stadion
 neutralVenue: false
-events: []
+attendance: 3831
+referee: Espen Eskaas
+events:
+  - minute: 22
+    type: yellow_card
+    team: home
+    player: Vegard Skjerve
+  - minute: 37
+    type: yellow_card
+    team: away
+    player: Fredrik Carlsen
+  - minute: 45
+    type: substitution
+    team: home
+    player: Sverre Bjørkkjær
+    playerOff: Kristoffer Haraldseid
+  - minute: 55
+    type: goal
+    team: home
+    player: Shuaibu Ibrahim
+    assist: Filip Kiss
+  - minute: 65
+    type: substitution
+    team: away
+    player: Valmir Berisha
+    playerOff: Sondre Brunstad Fet
+  - minute: 68
+    type: yellow_card
+    team: away
+    player: Edwin Gyasi
+  - minute: 75
+    type: substitution
+    team: home
+    player: Tor Arne Andreassen
+    playerOff: Frederik Gytkjær
+  - minute: 84
+    type: goal
+    team: home
+    player: Tor Arne Andreassen
+    assist: Liban Abdi
+  - minute: 85
+    type: substitution
+    team: away
+    player: Oddbjørn Lie
+    playerOff: Adam Örn Arnarson
+  - minute: 87
+    type: substitution
+    team: home
+    player: Johnny Per Buduson
+    playerOff: Shuaibu Ibrahim
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Kaj Ramsteijn
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Per Kristian Bråtveit
+      - Kristoffer Haraldseid
+      - Fredrik Knudsen
+      - Vegard Skjerve
+      - Alexander Stølås
+      - Sondre Tronstad
+      - Filip Kiss
+      - Bruno Leite
+      - Liban Abdi
+      - Shuaibu Ibrahim
+      - Frederik Gytkjær
+    subs:
+      - Sverre Bjørkkjær
+      - Tor Arne Andreassen
+      - Johnny Per Buduson
+      - Erik Huseklepp
+      - Haris Hajradinovic
+      - Helge Sandvik
+      - Ikenna Ikedi
+    coach: Eirik Horneland
+  away:
+    formation: 4-4-2
+    starters:
+      - Pål Vestly Heigre
+      - Adam Örn Arnarson
+      - Kaj Ramsteijn
+      - Daniel Gretarsson
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Fredrik Carlsen
+      - Vebjørn Hoff
+      - Aron Elis Thrándarson
+      - Mostafa Abdellaoue
+      - Sondre Brunstad Fet
+    subs:
+      - Valmir Berisha
+      - Oddbjørn Lie
+      - Jørgen Hatlehol
+      - Lars Veldwijk
+      - Marlinho
+      - Sondre Sødergren
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 49
+    shots: 14
+    shotsOnTarget: 6
+    corners: 7
+    fouls: 15
+    offsides: 5
+  away:
+    possession: 51
+    shots: 5
+    shotsOnTarget: 0
+    corners: 5
+    fouls: 18
+    offsides: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +148,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

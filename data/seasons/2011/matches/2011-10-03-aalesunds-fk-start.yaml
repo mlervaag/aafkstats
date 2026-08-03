@@ -11,13 +11,99 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: start
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 23
+    type: substitution
+    team: away
+    player: Amin Nouri
+    playerOff: Avni Pepa
+  - minute: 32
+    type: yellow_card
+    team: home
+    player: Enar Jääger
+  - minute: 46
+    type: substitution
+    team: home
+    player: Edvard Skagestad
+    playerOff: Sander Post
+  - minute: 51
+    type: red_card
+    team: home
+    player: Magnus Sylling Olsen
+  - minute: 70
+    type: substitution
+    team: away
+    player: Ernest Asante
+    playerOff: Espen Børufsen
+  - minute: 75
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Michael Barrantes
+  - minute: 78
+    type: substitution
+    team: away
+    player: Olav Tuelo Johannesen
+    playerOff: Christer Kleiven
+  - minute: 87
+    type: substitution
+    team: home
+    player: Fredrik Carlsen
+    playerOff: Fredrik Ulvestad
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Jo Nymo Matland
+      - Jason Morrison
+      - Fredrik Ulvestad
+      - Magnus Sylling Olsen
+      - Michael Barrantes
+      - Demar Phillips
+      - Sander Post
+    subs:
+      - Edvard Skagestad
+      - Peter Orry Larsen
+      - Fredrik Carlsen
+      - Didrik Fløtre
+      - Jonas Sandqvist
+      - Kjell Rune Sellin
+      - Solomon Okoronkwo
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-4-2
+    starters:
+      - Kenneth Høie
+      - Avni Pepa
+      - Haraldur Gudmundsson
+      - Jesper Mathisen
+      - Rolf Daniel Vikstøl
+      - Christer Kleiven
+      - Espen Søgård
+      - Solomon James Owello
+      - Espen Børufsen
+      - Espen Hoff
+      - Ole Martin Årst
+    subs:
+      - Amin Nouri
+      - Ernest Asante
+      - Olav Tuelo Johannesen
+      - Alexander Lund Hansen
+      - Espen Knudsen
+      - Øyvind Gausdal
+      - Oladapo Olufemi
+    coach: Mons Ivar Mjelde
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +119,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

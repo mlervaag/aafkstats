@@ -11,13 +11,109 @@ competition:
 home:
   clubId: rosenborg-bk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: lerkendal-stadion
 neutralVenue: false
-events: []
+attendance: 10709
+events:
+  - minute: 6
+    type: goal
+    team: home
+    player: Mike Jensen
+    assist: Joergen Skjelvik
+  - minute: 32
+    type: substitution
+    team: home
+    player: Holmar Oern Eyjolfsson
+    playerOff: Morten Gamst Pedersen
+  - minute: 42
+    type: goal
+    team: home
+    player: Holmar Oern Eyjolfsson
+    assist: Tore Reginiussen
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Daniel Arnefjord
+  - minute: 49
+    type: goal
+    team: home
+    player: Tomas Malec
+    assist: Mikkel Diskerud
+  - minute: 58
+    type: substitution
+    team: away
+    player: Mikael Dyrestam
+    playerOff: Daniel Arnefjord
+  - minute: 58
+    type: substitution
+    team: away
+    player: Mostafa Abdellaoue
+    playerOff: Peter Orry Larsen
+  - minute: 69
+    type: substitution
+    team: away
+    player: Jo Nymo Matland
+    playerOff: Mehdi Karnass
+  - minute: 69
+    type: substitution
+    team: home
+    player: Tobias P. Mikkelsen
+    playerOff: Joergen Skjelvik
+  - minute: 81
+    type: substitution
+    team: home
+    player: John Hou Saether
+    playerOff: Tore Reginiussen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Daniel Oerlund
+      - Jonas Svensson
+      - Stefan Strandberg
+      - Tore Reginiussen
+      - Mikael Dorsin
+      - Mike Jensen
+      - Mikkel Diskerud
+      - Morten Gamst Pedersen
+      - Riku Riski
+      - Tomas Malec
+      - Joergen Skjelvik
+    subs:
+      - Holmar Oern Eyjolfsson
+      - Tobias P. Mikkelsen
+      - John Hou Saether
+      - Bent Soermo
+      - Jacob Storevik
+      - Alexander Soerloth
+      - Paal Andre Helland
+    coach: Kaare Ingebrigtsen
+  away:
+    formation: 4-5-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Oddbjoern Lie
+      - Demar Phillips
+      - Henrik Roervik Bjoerdal
+      - Fredrik Ulvestad
+      - Sakari Mattila
+      - Peter Orry Larsen
+      - Mehdi Karnass
+      - Leke James
+    subs:
+      - Mikael Dyrestam
+      - Mostafa Abdellaoue
+      - Jo Nymo Matland
+      - Andreas Lie
+      - Tor Hogne Aaroey
+    coach: Jan Joensson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +129,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

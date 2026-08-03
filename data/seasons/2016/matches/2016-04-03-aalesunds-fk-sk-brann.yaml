@@ -11,13 +11,139 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: sk-brann
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 10013
+referee: Tom Harald Hagen
+events:
+  - minute: 6
+    type: goal
+    team: home
+    player: Peter Orry Larsen
+    assist: Aron Elis Thrándarson
+  - minute: 25
+    type: yellow_card
+    team: home
+    player: Edwin Gyasi
+  - minute: 35
+    type: yellow_card
+    team: home
+    player: Peter Orry Larsen
+  - minute: 43
+    type: yellow_card
+    team: away
+    player: Daniel Omoya Braaten
+  - minute: 53
+    type: yellow_card
+    team: away
+    player: Remi Johansen
+  - minute: 58
+    type: substitution
+    team: away
+    player: Steffen Lie Skålevik
+    playerOff: Mads Hvilsom
+  - minute: 59
+    type: goal
+    team: away
+    player: Remi Johansen
+    assist: Amin Nouri
+  - minute: 60
+    type: substitution
+    team: home
+    player: John Arne Riise
+    playerOff: Vebjørn Hoff
+  - minute: 70
+    type: substitution
+    team: home
+    player: Mostafa Abdellaoue
+    playerOff: Edwin Gyasi
+  - minute: 73
+    type: substitution
+    team: away
+    player: Deyver Vega
+    playerOff: Remi Johansen
+  - minute: 80
+    type: substitution
+    team: home
+    player: Marlinho
+    playerOff: Franck Boli
+  - minute: 82
+    type: substitution
+    team: away
+    player: Azar Karadas
+    playerOff: Erik Huseklepp
+  - minute: 83
+    type: goal
+    team: away
+    player: Azar Karadas
+    assist: Deyver Vega
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Ruben Kristiansen
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Edvard Skagestad
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Bjørn Helge Riise
+      - Vebjørn Hoff
+      - Edwin Gyasi
+      - Peter Orry Larsen
+      - Aron Elis Thrándarson
+      - Franck Boli
+    subs:
+      - John Arne Riise
+      - Mostafa Abdellaoue
+      - Marlinho
+      - Daniel Gretarsson
+      - Sondre Brunstad Fet
+      - Sondre Sødergren
+      - Thomas Skog Martinussen
+    coach: Trond Fredriksen
+  away:
+    formation: 4-3-3
+    starters:
+      - Piotr Leciejewski
+      - Amin Nouri
+      - Vadim Demidov
+      - Bismark Acosta
+      - Ruben Kristiansen
+      - Sivert Heltne Nilsen
+      - Fredrik Haugen
+      - Remi Johansen
+      - Daniel Omoya Braaten
+      - Mads Hvilsom
+      - Erik Huseklepp
+    subs:
+      - Steffen Lie Skålevik
+      - Deyver Vega
+      - Azar Karadas
+      - Alex Horwath
+      - Dani Hatakka
+      - Jonas Grønner
+      - Kristoffer Larsen
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 40
+    shots: 11
+    shotsOnTarget: 3
+    corners: 6
+  away:
+    possession: 60
+    shots: 19
+    shotsOnTarget: 9
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +159,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

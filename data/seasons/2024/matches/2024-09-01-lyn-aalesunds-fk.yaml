@@ -11,13 +11,108 @@ competition:
 home:
   clubId: lyn
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: bislett-stadion
 neutralVenue: false
-events: []
+attendance: 2229
+referee: Mohammad Hafezi
+events:
+  - minute: 67
+    type: substitution
+    team: home
+    player: Salim Laghzaoui
+    playerOff: Even Bydal
+  - minute: 67
+    type: substitution
+    team: away
+    player: Sander Hestetun Kilen
+    playerOff: Martin Ramsland
+  - minute: 73
+    type: substitution
+    team: away
+    player: Thomas Grøgaard
+    playerOff: John Kitolano
+  - minute: 78
+    type: substitution
+    team: home
+    player: Adrian Berntsen
+    playerOff: Henrik Kristiansen
+  - minute: 78
+    type: substitution
+    team: home
+    player: Andreas Hellum
+    playerOff: Jacob Hanstad
+  - minute: 86
+    type: substitution
+    team: away
+    player: Noah Solskjær
+    playerOff: Claudio Braga
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Alexander Pedersen
+      - Jørgen Vedal Sjøl
+      - Daniel Schneider
+      - William Sælid Sell
+      - Herman Solberg Nilsen
+      - Julius Friberg Skaug
+      - Even Bydal
+      - Henrik Kristiansen
+      - Anders Bjørntvedt Olsen
+      - Mathias Johansen
+      - Jacob Hanstad
+    subs:
+      - Salim Laghzaoui
+      - Adrian Berntsen
+      - Andreas Hellum
+      - Marius Devor Lunde
+      - Håvard Meinseth
+      - Jonas Skulstad
+      - Malvin Ingebrigtsen
+      - Tobias Myhre
+      - Brage Hylen
+    coach: Jan Halvor Halvorsen
+  away:
+    formation: 3-4-3
+    starters:
+      - Tor Erik Valderhaug Larsen
+      - Vinko Medimorec
+      - Mads Nielsen
+      - Sam Rogers
+      - Kristoffer Nessø
+      - Janus Seehusen
+      - Håkon Butli Hammer
+      - John Kitolano
+      - David Snær Johannsson
+      - Martin Ramsland
+      - Claudio Braga
+    subs:
+      - Sander Hestetun Kilen
+      - Thomas Grøgaard
+      - Noah Solskjær
+      - Sondre Midthjell
+      - Simen Haram
+      - Eivind Strømsheim Kolve
+      - Henrik Melland
+      - Bjørn Martin Kristensen
+      - Marcus Rafferty
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 58
+    shots: 8
+    shotsOnTarget: 4
+    corners: 5
+  away:
+    possession: 42
+    shots: 14
+    shotsOnTarget: 5
+    corners: 6
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +128,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

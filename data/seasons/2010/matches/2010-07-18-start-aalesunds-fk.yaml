@@ -1,0 +1,136 @@
+id: 2010-07-18-start-aalesunds-fk
+date: 2010-07-18
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2010
+  stage: regular_season
+  round: 17
+home:
+  clubId: start
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+venueId: sor-arena
+neutralVenue: false
+events:
+  - minute: 5
+    type: goal
+    team: home
+    player: Clarence Goodson
+  - minute: 6
+    type: yellow_card
+    team: home
+    player: Hunter Freeman
+  - minute: 44
+    type: yellow_card
+    team: away
+    player: Daniel Arnefjord
+  - minute: 64
+    type: substitution
+    team: away
+    player: Magnus Sylling Olsen
+    playerOff: Alexander Mathisen
+  - minute: 70
+    type: yellow_card
+    team: away
+    player: Magnus Sylling Olsen
+  - minute: 74
+    type: substitution
+    team: home
+    player: Petter Bruer Hansen
+    playerOff: Christer Kleiven
+  - minute: 83
+    type: substitution
+    team: away
+    player: Didrik Fløtre
+    playerOff: Jonatan Tollås Nation
+  - minute: 87
+    type: substitution
+    team: home
+    player: Jesper Mathisen
+    playerOff: Espen Børufsen
+  - minute: 89
+    type: yellow_card
+    team: home
+    player: Petter Bruer Hansen
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Christian Bolanos
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Kenneth Høie
+      - Hunter Freeman
+      - Clarence Goodson
+      - Avni Pepa
+      - Rolf Daniel Vikstøl
+      - Christian Bolanos
+      - Christer Kleiven
+      - Solomon James Owello
+      - Espen Børufsen
+      - Geir Ludvig Fevang
+      - Mads Stokkelien
+    subs:
+      - Petter Bruer Hansen
+      - Jesper Mathisen
+      - Espen Knudsen
+      - Johnny Kristiansen
+      - Knut Henry Haraldsen
+    coach: Knut Tørum
+  away:
+    formation: 4-3-3
+    starters:
+      - Anders Lindegaard
+      - Alexander Mathisen
+      - Ville Jalasto
+      - Daniel Arnefjord
+      - Enar Jääger
+      - Johan Arneng
+      - Jonatan Tollås Nation
+      - Peter Orry Larsen
+      - Pablo Herrera
+      - Demar Phillips
+      - Tor Hogne Aarøy
+    subs:
+      - Magnus Sylling Olsen
+      - Didrik Fløtre
+      - Dan Peter Ulvestad
+      - Fredrik Ulvestad
+      - Sten Michael Grytebust
+      - Trond Fredriksen
+    coach: Kjetil Rekdal
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-start/2ryd31#761832
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "761832"
+manual: []

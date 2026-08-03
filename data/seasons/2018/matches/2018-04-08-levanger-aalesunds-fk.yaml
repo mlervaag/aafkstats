@@ -11,13 +11,112 @@ competition:
 home:
   clubId: levanger
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: levanger-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 6
+    type: goal
+    team: home
+    player: Tom Erik Nordberg
+    assist: Adria Mateo
+  - minute: 15
+    type: substitution
+    team: home
+    player: Ermal Hajdari
+    playerOff: Andreas Petersson
+  - minute: 26
+    type: yellow_card
+    team: home
+    player: Igoh Ogbu
+  - minute: 42
+    type: goal
+    team: away
+    player: Erikson Lima
+  - minute: 48
+    type: yellow_card
+    team: away
+    player: Fredrik Carlsen
+  - minute: 50
+    type: goal
+    team: away
+    player: Aron Elis Thrándarson
+  - minute: 63
+    type: substitution
+    team: home
+    player: Solomon Duah
+    playerOff: Andreas Lykke Strand
+  - minute: 68
+    type: substitution
+    team: away
+    player: Jernade Meade
+    playerOff: Adam Örn Arnarson
+  - minute: 76
+    type: substitution
+    team: away
+    player: Daniel Gretarsson
+    playerOff: Kaj Ramsteijn
+  - minute: 80
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Aron Elis Thrándarson
+  - minute: 84
+    type: substitution
+    team: home
+    player: Vegard Voll
+    playerOff: Ermal Hajdari
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Julian Faye Lund
+      - Andreas Wrele
+      - Igoh Ogbu
+      - Tom Erik Nordberg
+      - Viktor Ljung
+      - Horenus Tadesse
+      - Jo Sondre Aas
+      - Adria Mateo
+      - Andreas Petersson
+      - Robert Stene
+      - Andreas Lykke Strand
+    subs:
+      - Ermal Hajdari
+      - Solomon Duah
+      - Vegard Voll
+      - Håvard Kleven Lorentsen
+      - Hampus Holmgren
+      - Jonathan Strand Byttingsvik
+      - Pål Aamodt
+    coach: Roger Naustan
+  away:
+    formation: 3-4-1-2
+    starters:
+      - Andreas Lie
+      - Sonni Nattestad
+      - Oddbjørn Lie
+      - Kaj Ramsteijn
+      - Adam Örn Arnarson
+      - Fredrik Carlsen
+      - Erikson Lima
+      - Aron Elis Thrándarson
+      - Jørgen Hatlehol
+      - Holmbert Aron Fridjonsson
+      - Torbjørn Agdestein
+    subs:
+      - Jernade Meade
+      - Daniel Gretarsson
+      - Sondre Brunstad Fet
+      - Anders Waagan
+      - Bjørn Helge Riise
+      - Emil Solnørdal
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +132,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

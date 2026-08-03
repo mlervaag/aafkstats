@@ -1,0 +1,186 @@
+id: 2026-05-03-sandefjord-aalesunds-fk
+date: 2026-05-03
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 7
+home:
+  clubId: sandefjord
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+venueId: jotun-arena
+neutralVenue: false
+attendance: 4043
+referee: Stian Røvig Sletner
+events:
+  - minute: 25
+    type: yellow_card
+    team: away
+    player: Emil Engqvist
+  - minute: 29
+    type: yellow_card
+    team: home
+    player: Nikolaj Möller
+  - minute: 46
+    type: substitution
+    team: away
+    player: Ulrik Valderhaug Syversen
+    playerOff: Emil Engqvist
+  - minute: 46
+    type: substitution
+    team: away
+    player: David Snær Johannsson
+    playerOff: Ivan Djantou
+  - minute: 58
+    type: substitution
+    team: away
+    player: Håkon Butli Hammer
+    playerOff: Henrik Melland
+  - minute: 58
+    type: substitution
+    team: away
+    player: Marius Andresen
+    playerOff: Uba Charles
+  - minute: 71
+    type: substitution
+    team: home
+    player: Edvard Sundbø Pettersen
+    playerOff: Bendik Berntsen
+  - minute: 71
+    type: substitution
+    team: home
+    player: Robin Dzabic
+    playerOff: Marcus Melchior
+  - minute: 71
+    type: substitution
+    team: home
+    player: Sebastian Holm Mathisen
+    playerOff: Nikolaj Möller
+  - minute: 72
+    type: yellow_card
+    team: away
+    player: Mathias Christensen
+  - minute: 79
+    type: yellow_card
+    team: away
+    player: Marius Andresen
+  - minute: 83
+    type: substitution
+    team: away
+    player: Elias Heggland Myrlid
+    playerOff: Kristian Hemmingsen Lonebu
+  - minute: 88
+    type: goal
+    team: home
+    player: Sebastian Holm Mathisen
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: home
+    player: Stian Kristiansen
+    playerOff: Vetle Walle Egeli
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Elias Hadaya
+      - Fredrik Carson Pedersen
+      - Zinedin Smajlovic
+      - Xander Lambrix
+      - Vetle Walle Egeli
+      - Marcus Melchior
+      - Sander Mørk
+      - Evangelos Patoulidis
+      - Ruben Kristensen Alte
+      - Bendik Berntsen
+      - Nikolaj Möller
+    subs:
+      - Edvard Sundbø Pettersen
+      - Robin Dzabic
+      - Sebastian Holm Mathisen
+      - Stian Kristiansen
+      - Alf Lukas Grønneberg
+      - Henrik Barstad Skretteberg
+      - Alexander Blomdahl
+      - Kristoffer Halvorsen
+      - Foster Apetorgbor
+    coach: Andreas Tegström
+  away:
+    formation: 5-3-2
+    starters:
+      - Kristoffer Klaesson
+      - Emil Engqvist
+      - Aleksander Hammer Kjelsen
+      - Ólafur Gudmundsson
+      - Uba Charles
+      - Jakob Nyland Ørsahl
+      - Mathias Christensen
+      - Elias Hagen
+      - Henrik Melland
+      - Ivan Djantou
+      - Kristian Hemmingsen Lonebu
+    subs:
+      - Ulrik Valderhaug Syversen
+      - David Snær Johannsson
+      - Håkon Butli Hammer
+      - Marius Andresen
+      - Elias Heggland Myrlid
+      - Tor Erik Valderhaug Larsen
+      - Simen Haram
+      - Endre Osenbroch
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 63
+    shots: 27
+    shotsOnTarget: 7
+    corners: 8
+    fouls: 9
+    offsides: 4
+    xg: 2.46
+  away:
+    possession: 37
+    shots: 14
+    shotsOnTarget: 3
+    corners: 2
+    fouls: 15
+    offsides: 0
+    xg: 0.93
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-sandefjord/2e68pk#5104894
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5104894"
+manual: []

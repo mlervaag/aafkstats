@@ -1,0 +1,127 @@
+id: 2010-07-04-tromso-aalesunds-fk
+date: 2010-07-04
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2010
+  stage: regular_season
+  round: 15
+home:
+  clubId: tromso
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 1
+venueId: alfheim
+neutralVenue: false
+events:
+  - minute: 33
+    type: goal
+    team: away
+    player: Demar Phillips
+  - minute: 53
+    type: substitution
+    team: away
+    player: Trond Fredriksen
+    playerOff: Fredrik Carlsen
+  - minute: 63
+    type: substitution
+    team: home
+    player: Tommy Knarvik
+    playerOff: Sigurd Rushfeldt
+  - minute: 78
+    type: substitution
+    team: away
+    player: Magnus Sylling Olsen
+    playerOff: Pablo Herrera
+  - minute: 79
+    type: substitution
+    team: home
+    player: Thomas Drage
+    playerOff: Mohammed Ahamed Jama
+  - minute: 85
+    type: substitution
+    team: home
+    player: Mads Reginiussen
+    playerOff: Remi Johansen
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Magnus Sylling Olsen
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Marcus Sahlman
+      - Tom Høgli
+      - Jade North
+      - Miika Koppinen
+      - Hans Åge Yndestad
+      - Remi Johansen
+      - Kara Mbodji
+      - Ruben Yttergård Jenssen
+      - Mohammed Ahamed Jama
+      - George Mourad
+      - Sigurd Rushfeldt
+    subs:
+      - Tommy Knarvik
+      - Thomas Drage
+      - Mads Reginiussen
+      - Hans Norbye
+      - Helge Haugen
+      - Saliou Ciss
+      - Sead Ramovic
+    coach: Per-Mathias Høgmo
+  away:
+    formation: 4-3-2-1
+    starters:
+      - Anders Lindegaard
+      - Alexander Mathisen
+      - Jonatan Tollås Nation
+      - Ville Jalasto
+      - Enar Jääger
+      - Johan Arneng
+      - Peter Orry Larsen
+      - Fredrik Carlsen
+      - Pablo Herrera
+      - Demar Phillips
+      - Tor Hogne Aarøy
+    subs:
+      - Trond Fredriksen
+      - Magnus Sylling Olsen
+      - Dan Peter Ulvestad
+      - Didrik Fløtre
+      - Magnus Solevåg
+      - Sten Michael Grytebust
+    coach: Kjetil Rekdal
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-tromso/2e5vky#762063
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "762063"
+manual: []

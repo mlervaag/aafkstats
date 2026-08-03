@@ -11,13 +11,110 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: sogndal
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 44
+    type: substitution
+    team: home
+    player: Fredrik Ulvestad
+    playerOff: Fredrik Carlsen
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Kjell Rune Sellin
+  - minute: 46
+    type: substitution
+    team: away
+    player: Ulrik Flo
+    playerOff: Espen Olsen
+  - minute: 46
+    type: substitution
+    team: home
+    player: Christian Myklebust
+    playerOff: Kjell Rune Sellin
+  - minute: 57
+    type: yellow_card
+    team: away
+    player: Barry Kader
+  - minute: 58
+    type: yellow_card
+    team: home
+    player: Demar Phillips
+  - minute: 69
+    type: substitution
+    team: away
+    player: Thomas Ness
+    playerOff: Barry Kader
+  - minute: 77
+    type: substitution
+    team: home
+    player: Michael Barrantes
+    playerOff: Sander Post
+  - minute: 85
+    type: yellow_card
+    team: away
+    player: Even Hovland
+  - minute: 86
+    type: red_card
+    team: away
+    player: Even Hovland
+  - minute: 89
+    type: goal
+    team: home
+    player: Fredrik Ulvestad
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Ville Jalasto
+      - Daniel Arnefjord
+      - Jonathan Parr
+      - Peter Orry Larsen
+      - Jason Morrison
+      - Fredrik Carlsen
+      - Kjell Rune Sellin
+      - Demar Phillips
+      - Sander Post
+    subs:
+      - Fredrik Ulvestad
+      - Christian Myklebust
+      - Michael Barrantes
+      - Amund Skiri
+      - Jonas Sandqvist
+      - Magnus Sylling Olsen
+      - Solomon Okoronkwo
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-4-2
+    starters:
+      - Kenneth Udjus
+      - Mats Solheim
+      - Even Hovland
+      - Isak Scheel
+      - Per Egil Flo
+      - Ole Jørgen Halvorsen
+      - Ahyee Aye Elvis
+      - Henrik Furebotn
+      - Barry Kader
+      - Espen Olsen
+      - Cato Hansen
+    subs:
+      - Ulrik Flo
+      - Thomas Ness
+      - Espen Næss Lund
+      - Gustav Valsvik
+      - Joe Bendik
+      - Ørjan Hopen
+      - Vegard Gjermundstad
+    coach: Harald Aabrekk
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +130,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

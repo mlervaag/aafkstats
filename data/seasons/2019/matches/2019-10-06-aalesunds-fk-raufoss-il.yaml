@@ -11,13 +11,109 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: raufoss-il
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 8
+    type: goal
+    team: home
+    player: Jernade Meade
+    assist: Torbjørn Agdestein
+  - minute: 18
+    type: goal
+    team: home
+    player: Niklas Castro
+    assist: Torbjørn Agdestein
+  - minute: 64
+    type: substitution
+    team: away
+    player: Ikhsan Fandi
+    playerOff: Gard Simenstad
+  - minute: 69
+    type: yellow_card
+    team: home
+    player: Pape Habib Gueye
+  - minute: 70
+    type: yellow_card
+    team: away
+    player: Parfait Bizoza
+  - minute: 73
+    type: substitution
+    team: away
+    player: Emil Breivik
+    playerOff: Marius Svanberg Alm
+  - minute: 76
+    type: goal
+    team: home
+    player: Niklas Castro
+    assist: Pape Habib Gueye
+  - minute: 81
+    type: substitution
+    team: home
+    player: Erikson Lima
+    playerOff: Torbjørn Agdestein
+  - minute: 84
+    type: substitution
+    team: away
+    player: Nicolai Fremstad
+    playerOff: Matias Belli Moldskred
+  - minute: 90
+    type: goal
+    team: away
+    player: Emile Dadjo
+    assist: Nicolai Fremstad
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Jørgen Hatlehol
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Niklas Castro
+      - Jernade Meade
+      - Torbjørn Agdestein
+      - Pape Habib Gueye
+    subs:
+      - Erikson Lima
+      - David Kristjan Olafsson
+      - Marius Berntzen
+      - Peter Orry Larsen
+      - Sondre Brunstad Fet
+      - Ståle Steen Sæthre
+      - Wilmer Azofeifa
+    coach: Lars Bohinen
+  away:
+    formation: 4-4-2
+    starters:
+      - Ole Kristian Gjefle Lauvli
+      - Snorre Nilsen
+      - Solomon Owusu
+      - Marius Svanberg Alm
+      - Stian Simenstad
+      - Matias Belli Moldskred
+      - Parfait Bizoza
+      - Ryan Doghman
+      - Oskar Johannes Løken
+      - Emile Dadjo
+      - Gard Simenstad
+    subs:
+      - Ikhsan Fandi
+      - Emil Breivik
+      - Nicolai Fremstad
+      - Anton Henningsson
+      - Edvard Race
+      - Rino Lund Johnsen
+      - Simen Giæver
+    coach: Christian Johnsen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +129,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

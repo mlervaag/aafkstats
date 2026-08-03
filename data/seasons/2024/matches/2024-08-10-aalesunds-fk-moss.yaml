@@ -11,13 +11,138 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: moss
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4005
+referee: Anders Bodding
+events:
+  - minute: 21
+    type: substitution
+    team: home
+    player: Tor Erik Valderhaug Larsen
+    playerOff: Sten Michael Grytebust
+  - minute: 27
+    type: goal
+    team: home
+    player: Håkon Butli Hammer
+    assist: Marcus Rafferty
+  - minute: 46
+    type: substitution
+    team: away
+    player: Aksel Baran Potur
+    playerOff: Kristoffer Harrison
+  - minute: 59
+    type: yellow_card
+    team: away
+    player: Alexander Håpnes
+  - minute: 65
+    type: substitution
+    team: away
+    player: Benarfa
+    playerOff: Noah Alexandersson
+  - minute: 69
+    type: substitution
+    team: home
+    player: Bjørn Martin Kristensen
+    playerOff: Martin Ramsland
+  - minute: 69
+    type: substitution
+    team: home
+    player: Eivind Strømsheim Kolve
+    playerOff: Marcus Rafferty
+  - minute: 78
+    type: yellow_card
+    team: home
+    player: Håkon Butli Hammer
+  - minute: 80
+    type: substitution
+    team: away
+    player: Eythor Martin Bjørgolfsson
+    playerOff: Thomas Klemetsen Jakobsen
+  - minute: 80
+    type: substitution
+    team: away
+    player: Altin Lajqi
+    playerOff: Bo Åsulv Hegland
+  - minute: 84
+    type: yellow_card
+    team: away
+    player: Sebastian Pedersen
+  - minute: 86
+    type: substitution
+    team: home
+    player: Simen Haram
+    playerOff: Vinko Medimorec
+  - minute: 90
+    stoppage: 5
+    type: yellow_card
+    team: home
+    player: Thomas Grøgaard
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Vinko Medimorec
+      - Mads Nielsen
+      - Nikolai Hopland
+      - Kristoffer Nessø
+      - Marcus Rafferty
+      - Håkon Butli Hammer
+      - Janus Seehusen
+      - Thomas Grøgaard
+      - Claudio Braga
+      - Martin Ramsland
+    subs:
+      - Tor Erik Valderhaug Larsen
+      - Eivind Strømsheim Kolve
+      - Bjørn Martin Kristensen
+      - Simen Haram
+      - John Ruud Norvik
+      - Stian Aarønes Holte
+      - Moctar Diop
+      - Noah Solskjær
+      - Sander Hestetun Kilen
+    coach: Kjetil Rekdal
+  away:
+    formation: 5-4-1
+    starters:
+      - Mathias Eriksen
+      - Kristian Strande
+      - Kristoffer Harrison
+      - Ilir Kukleci
+      - Marius Andresen
+      - Saadiq Faisal Elmi
+      - Thomas Klemetsen Jakobsen
+      - Noah Alexandersson
+      - Alexander Håpnes
+      - Sebastian Pedersen
+      - Bo Åsulv Hegland
+    subs:
+      - Aksel Baran Potur
+      - Benarfa
+      - Altin Lajqi
+      - Eythor Martin Bjørgolfsson
+      - Jarik Sundling
+      - Blerton Isufi
+      - Laurent Mendy
+    coach: Thomas Myhre
+stats:
+  home:
+    possession: 54
+    shots: 18
+    shotsOnTarget: 14
+    corners: 5
+  away:
+    possession: 46
+    shots: 15
+    shotsOnTarget: 11
+    corners: 3
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +158,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

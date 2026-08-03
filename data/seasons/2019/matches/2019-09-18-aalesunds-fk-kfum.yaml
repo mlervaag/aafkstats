@@ -11,13 +11,115 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: kfum
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 19
+    type: substitution
+    team: away
+    player: Dadi Dodou Gaye
+    playerOff: Kristian Brix
+  - minute: 42
+    type: yellow_card
+    team: home
+    player: Daniel Gretarsson
+  - minute: 44
+    type: penalty_goal
+    team: away
+    player: Robin Rasch
+  - minute: 45
+    type: goal
+    team: home
+    player: Torbjørn Agdestein
+    assist: Holmbert Aron Fridjonsson
+  - minute: 55
+    type: penalty_goal
+    team: home
+    player: Niklas Castro
+  - minute: 56
+    type: red_card
+    team: home
+    player: Daniel Gretarsson
+  - minute: 60
+    type: substitution
+    team: home
+    player: Oddbjørn Lie
+    playerOff: Torbjørn Agdestein
+  - minute: 60
+    type: substitution
+    team: away
+    player: Lars Olden Larsen
+    playerOff: Abdul-Basit Agouda
+  - minute: 71
+    type: substitution
+    team: home
+    player: Pape Habib Gueye
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 82
+    type: substitution
+    team: away
+    player: Daniel Fredheim Holm
+    playerOff: Yannis Maxitas Moula
+  - minute: 85
+    type: substitution
+    team: home
+    player: Erikson Lima
+    playerOff: Jørgen Hatlehol
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Andreas Lie
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Ståle Steen Sæthre
+      - Daniel Gretarsson
+      - Jonas Grønner
+      - Jørgen Hatlehol
+      - Aron Elis Thrándarson
+      - Wilmer Azofeifa
+      - Niklas Castro
+      - David Kristjan Olafsson
+      - Torbjørn Agdestein
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Oddbjørn Lie
+      - Pape Habib Gueye
+      - Erikson Lima
+      - Kristoffer Hay
+      - Marius Berntzen
+      - Peter Orry Larsen
+      - Sondre Brunstad Fet
+    coach: Lars Bohinen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Simon Thomas
+      - Tobias Collett
+      - Jørgen Hammer
+      - Emmanuel Troudart
+      - Kristian Brix
+      - Robin Rasch
+      - Tore André Sørås
+      - Yannis Maxitas Moula
+      - Stian Sortevik
+      - David Tavakoli
+      - Abdul-Basit Agouda
+    subs:
+      - Dadi Dodou Gaye
+      - Lars Olden Larsen
+      - Daniel Fredheim Holm
+      - Knut-André Skjærstein
+      - Mansour Gueye
+      - Sebastian Jarl
+    coach: Jørgen Isnes
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +135,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

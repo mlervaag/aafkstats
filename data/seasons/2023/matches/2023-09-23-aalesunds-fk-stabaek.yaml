@@ -11,13 +11,138 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: stabaek
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4562
+referee: Mohammad Usman Aslam
+events:
+  - minute: 16
+    type: goal
+    team: home
+    player: Erlend Segberg
+    assist: Markus Seehusen Karlsbakk
+  - minute: 45
+    type: goal
+    team: away
+    player: Kay Kostadinov
+    assist: Rasmus Eggen Vinge
+  - minute: 46
+    type: substitution
+    team: home
+    player: Isaac Atanga
+    playerOff: Amidou Diop
+  - minute: 46
+    type: substitution
+    team: away
+    player: Kevin Kabran
+    playerOff: Keegan Jelacic
+  - minute: 46
+    type: yellow_card
+    team: home
+    player: Erik Frøysa
+  - minute: 60
+    type: substitution
+    team: away
+    player: Fredrik Haugen
+    playerOff: Gaute Høberg Vetti
+  - minute: 60
+    type: substitution
+    team: away
+    player: Mushaga Bakenga
+    playerOff: Luca Kjerrumgaard
+  - minute: 64
+    type: substitution
+    team: home
+    player: Henrik Melland
+    playerOff: Markus Seehusen Karlsbakk
+  - minute: 66
+    type: yellow_card
+    team: home
+    player: Isaac Atanga
+  - minute: 71
+    type: yellow_card
+    team: home
+    player: John Kitolano
+  - minute: 78
+    type: substitution
+    team: away
+    player: Fredrik Krogstad
+    playerOff: Kay Kostadinov
+  - minute: 81
+    type: substitution
+    team: home
+    player: Moses Ebiye
+    playerOff: Erlend Segberg
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Erik Frøysa
+      - Amidou Diop
+      - Nikolai Hopland
+      - John Kitolano
+      - Erlend Segberg
+      - Håkon Butli Hammer
+      - Markus Seehusen Karlsbakk
+      - Moctar Diop
+      - Martin Ramsland
+      - Bjørn Martin Kristensen
+    subs:
+      - Isaac Atanga
+      - Henrik Melland
+      - Moses Ebiye
+      - Michael Lansing
+      - Simen Haram
+      - Stian Aarønes Holte
+      - Oscar Solnørdal
+      - Trace Murray
+    coach: Christian Johnsen
+  away:
+    formation: 4-3-3
+    starters:
+      - Isak Pettersson
+      - Sturla Ottesen
+      - Kasper Pedersen
+      - Nicolai Næss
+      - Aleksander Andresen
+      - Curtis Edwards
+      - Gaute Høberg Vetti
+      - Keegan Jelacic
+      - Rasmus Eggen Vinge
+      - Luca Kjerrumgaard
+      - Kay Kostadinov
+    subs:
+      - Kevin Kabran
+      - Fredrik Haugen
+      - Mushaga Bakenga
+      - Fredrik Krogstad
+      - Marius Ulla
+      - Nikolas Walstad
+      - Olav Lilleøren Veum
+    coach: Bob Bradley
+stats:
+  home:
+    possession: 34
+    shots: 12
+    shotsOnTarget: 6
+    corners: 3
+    fouls: 18
+    offsides: 2
+    xg: 1.65
+  away:
+    possession: 66
+    shots: 15
+    shotsOnTarget: 3
+    corners: 4
+    fouls: 17
+    offsides: 1
+    xg: 0.97
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +158,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

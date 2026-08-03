@@ -38,6 +38,11 @@ export default async function SeasonPage({ params }: Props) {
       <p className="small muted stat-strip-note">
         Tallene over gjelder {summary.competition}. Cup- og treningskamper står for seg under.
       </p>
+      {summary.note && (
+        <div className="notice prose" style={{ marginTop: "1rem" }}>
+          <strong>Forbehold:</strong> {summary.note}
+        </div>
+      )}
 
       {groupByCompetition(matches).map(([competition, group]) => (
         <section className="content-section" key={competition}>

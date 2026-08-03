@@ -11,13 +11,111 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: stromsgodset
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 5
+    type: goal
+    team: away
+    player: Fredrik Nordkvelle
+  - minute: 34
+    type: yellow_card
+    team: away
+    player: Mohammed Abu
+  - minute: 35
+    type: substitution
+    team: home
+    player: Sander Post
+    playerOff: Kjell Rune Sellin
+  - minute: 36
+    type: substitution
+    team: home
+    player: Fredrik Ulvestad
+    playerOff: Peter Orry Larsen
+  - minute: 44
+    type: goal
+    team: home
+    player: Sander Post
+  - minute: 46
+    type: substitution
+    team: away
+    player: Ola Kamara
+    playerOff: Jo Inge Berget
+  - minute: 46
+    type: substitution
+    team: away
+    player: Lars Sætra
+    playerOff: Kim André Madsen
+  - minute: 66
+    type: yellow_card
+    team: home
+    player: Daniel Arnefjord
+  - minute: 69
+    type: goal
+    team: home
+    player: Fredrik Ulvestad
+  - minute: 75
+    type: substitution
+    team: home
+    player: Amund Skiri
+    playerOff: Christian Myklebust
+  - minute: 78
+    type: substitution
+    team: away
+    player: Muhamed Keita
+    playerOff: Øyvind Storflor
+lineups:
+  home:
+    formation: 4-2-1-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Ville Jalasto
+      - Daniel Arnefjord
+      - Jonathan Parr
+      - Jason Morrison
+      - Peter Orry Larsen
+      - Michael Barrantes
+      - Christian Myklebust
+      - Demar Phillips
+      - Kjell Rune Sellin
+    subs:
+      - Sander Post
+      - Fredrik Ulvestad
+      - Amund Skiri
+      - Jonatan Tollås Nation
+      - Lars Fuhre
+      - Mathias Rasmussen
+      - Solomon Okoronkwo
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Adam Larsen Kwarasey
+      - Glenn Andersen
+      - Kim André Madsen
+      - Alexander Aas
+      - Lars-Christopher Vilsvik
+      - Mohammed Abu
+      - Anders Konradsen
+      - Omar Elabdellaoui
+      - Fredrik Nordkvelle
+      - Øyvind Storflor
+      - Jo Inge Berget
+    subs:
+      - Lars Sætra
+      - Ola Kamara
+      - Muhamed Keita
+      - Alfred Sankoh
+      - Gustav Wikheim
+      - Krister Aunan
+      - Lars Stubhaug
+    coach: Ronny Deila
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +131,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

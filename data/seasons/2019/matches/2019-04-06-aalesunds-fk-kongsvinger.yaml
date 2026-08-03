@@ -11,13 +11,108 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: kongsvinger
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 9
+    type: yellow_card
+    team: away
+    player: Harald Holter
+  - minute: 12
+    type: goal
+    team: home
+    player: Jørgen Hatlehol
+    assist: Sondre Brunstad Fet
+  - minute: 46
+    type: substitution
+    team: home
+    player: Jonas Grønner
+    playerOff: Kaj Ramsteijn
+  - minute: 55
+    type: substitution
+    team: away
+    player: Iman Mafi
+    playerOff: Martin Lundal
+  - minute: 66
+    type: yellow_card
+    team: home
+    player: Oddbjørn Lie
+  - minute: 69
+    type: substitution
+    team: away
+    player: Markus Aanesland
+    playerOff: Simon Marklund
+  - minute: 71
+    type: yellow_card
+    team: away
+    player: Christian Røer
+  - minute: 73
+    type: substitution
+    team: away
+    player: Landry N'Guémo
+    playerOff: Harald Holter
+  - minute: 84
+    type: substitution
+    team: home
+    player: Tega George
+    playerOff: Peter Orry Larsen
+  - minute: 90
+    type: substitution
+    team: home
+    player: Vetle Fiskerstrand
+    playerOff: Ståle Steen Sæthre
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Jørgen Hatlehol
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Peter Orry Larsen
+      - Sondre Brunstad Fet
+      - Ståle Steen Sæthre
+      - Pape Habib Gueye
+    subs:
+      - Jonas Grønner
+      - Tega George
+      - Vetle Fiskerstrand
+      - Isak Dybvik
+      - Kristoffer Hay
+      - Markus Seehusen Karlsbakk
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Ali Ahamada
+      - Fredrik Mani Pålerud
+      - Edvard Skagestad
+      - Martin Lundal
+      - Christian Røer
+      - Harald Holter
+      - Mathias Berg Gjerstrøm
+      - Jonas Rønningen
+      - Simon Marklund
+      - Marlinho
+      - Adem Güven
+    subs:
+      - Iman Mafi
+      - Markus Aanesland
+      - Landry N'Guémo
+      - Andreas Smedplass
+      - Even Bydal
+      - Martin Tangen Vinjor
+      - Sulayman Bojang
+    coach: Vitor Gazimba
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +128,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,135 @@ competition:
 home:
   clubId: viking
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: viking-stadion
 neutralVenue: false
-events: []
+attendance: 7642
+events:
+  - minute: 4
+    type: goal
+    team: home
+    player: Suleiman Abdullahi
+    assist: Jon Dadi Bödvarsson
+  - minute: 11
+    type: yellow_card
+    team: home
+    player: Samuel Adegbenro
+  - minute: 29
+    type: goal
+    team: home
+    player: Jon Dadi Bödvarsson
+    assist: Samuel Adegbenro
+  - minute: 43
+    type: goal
+    team: home
+    player: Jon Dadi Bödvarsson
+    assist: Suleiman Abdullahi
+  - minute: 43
+    type: yellow_card
+    team: away
+    player: Edvard Skagestad
+  - minute: 46
+    type: substitution
+    team: away
+    player: Jo Nymo Matland
+    playerOff: Daniel Gretarsson
+  - minute: 50
+    type: substitution
+    team: away
+    player: Carl Björk
+    playerOff: Aron Elis Thrándarson
+  - minute: 61
+    type: goal
+    team: away
+    player: Mostafa Abdellaoue
+    assist: Tero Mäntylä
+  - minute: 65
+    type: goal
+    team: home
+    player: Indridi Sigurdsson
+    assist: Kristoffer Haugen
+  - minute: 67
+    type: substitution
+    team: home
+    player: Steinthor Freyr Thorsteinsson
+    playerOff: Yann-Erik de Lanlay
+  - minute: 75
+    type: substitution
+    team: away
+    player: Elias Dahlberg
+    playerOff: Henrik Rørvik Bjørdal
+  - minute: 77
+    type: substitution
+    team: home
+    player: Osita Henry Chikere
+    playerOff: Suleiman Abdullahi
+  - minute: 85
+    type: substitution
+    team: home
+    player: Julian Veen Uldal
+    playerOff: Samuel Adegbenro
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Iven Austbø
+      - André Danielsen
+      - Indridi Sigurdsson
+      - Karol Mets
+      - Kristoffer Haugen
+      - Yann-Erik de Lanlay
+      - Makhtar Thioune
+      - Vidar Nisja
+      - Samuel Adegbenro
+      - Suleiman Abdullahi
+      - Jon Dadi Bödvarsson
+    subs:
+      - Steinthor Freyr Thorsteinsson
+      - Osita Henry Chikere
+      - Julian Veen Uldal
+      - Arild Østbø
+      - Magne Hoseth
+      - Martin Hummervoll
+      - Zymer Bytyqi
+    coach: Kjell Jonevret
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Edvard Skagestad
+      - Tero Mäntylä
+      - Daniel Gretarsson
+      - Vebjørn Hoff
+      - Henrik Rørvik Bjørdal
+      - Sakari Mattila
+      - Aron Elis Thrándarson
+      - Leke James
+      - Mostafa Abdellaoue
+    subs:
+      - Jo Nymo Matland
+      - Carl Björk
+      - Elias Dahlberg
+      - Andreas Lie
+      - Sondre Brunstad Fet
+      - Thomas Skog Martinussen
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 48
+    shots: 22
+    shotsOnTarget: 8
+    corners: 4
+  away:
+    possession: 52
+    shots: 13
+    shotsOnTarget: 2
+    corners: 8
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +155,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,125 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: sandefjord
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 7463
+events:
+  - minute: 23
+    type: goal
+    team: away
+    player: Jean Alassane Mendy
+    assist: Erik Lamøy
+  - minute: 39
+    type: substitution
+    team: home
+    player: Mostafa Abdellaoue
+    playerOff: Magne Hoseth
+  - minute: 39
+    type: substitution
+    team: home
+    player: Aron Elis Thrándarson
+    playerOff: Peter Orry Larsen
+  - minute: 60
+    type: yellow_card
+    team: away
+    player: Erik Mjelde
+  - minute: 62
+    type: substitution
+    team: away
+    player: Kevin Larsen
+    playerOff: Victor Demba Bindia
+  - minute: 71
+    type: yellow_card
+    team: away
+    player: Pau Morer
+  - minute: 77
+    type: substitution
+    team: home
+    player: Carl Björk
+    playerOff: Jo Nymo Matland
+  - minute: 77
+    type: substitution
+    team: away
+    player: Varg Støvland
+    playerOff: Pau Morer
+  - minute: 89
+    type: goal
+    team: home
+    player: Mostafa Abdellaoue
+    assist: Akeem Latifu
+  - minute: 90
+    type: substitution
+    team: away
+    player: William Albin Kurtovic
+    playerOff: Jean Alassane Mendy
+  - minute: 90
+    type: goal
+    team: home
+    player: Aron Elis Thrándarson
+    assist: Akeem Latifu
+lineups:
+  home:
+    formation: 4-5-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Oddbjørn Lie
+      - Mikael Dyrestam
+      - Jo Nymo Matland
+      - Bjørn Helge Riise
+      - Vebjørn Hoff
+      - Magne Hoseth
+      - Peter Orry Larsen
+      - Henrik Rørvik Bjørdal
+      - Leke James
+    subs:
+      - Aron Elis Thrándarson
+      - Mostafa Abdellaoue
+      - Carl Björk
+      - Andreas Lie
+      - Edvard Skagestad
+      - Fredrik Carlsen
+      - Marlinho
+    coach: Trond Fredriksen
+  away:
+    formation: 3-5-2
+    starters:
+      - Jakob Busk
+      - Victor Demba Bindia
+      - Thomas Juel-Nielsen
+      - Lars Grorud
+      - Cheikhou Dieng
+      - Geir Ludvig Fevang
+      - Pau Morer
+      - Erik Mjelde
+      - Erik Lamøy
+      - Jean Alassane Mendy
+      - Kjell Rune Sellin
+    subs:
+      - Kevin Larsen
+      - Varg Støvland
+      - William Albin Kurtovic
+      - Anders Gundersen
+      - Kristoffer Normann Hansen
+      - Sverre Martin Torp
+    coach: Lars Bohinen
+stats:
+  home:
+    possession: 60
+    shots: 24
+    shotsOnTarget: 6
+    corners: 6
+  away:
+    possession: 40
+    shots: 9
+    shotsOnTarget: 5
+    corners: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +145,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

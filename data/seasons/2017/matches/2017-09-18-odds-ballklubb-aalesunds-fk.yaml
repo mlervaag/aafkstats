@@ -11,13 +11,152 @@ competition:
 home:
   clubId: odds-ballklubb
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: skagerak-arena
 neutralVenue: false
-events: []
+attendance: 6854
+referee: Espen Eskaas
+events:
+  - minute: 5
+    type: penalty_goal
+    team: home
+    player: Jone Samuelsen
+  - minute: 20
+    type: own_goal
+    team: home
+    player: Daniel Gretarsson
+  - minute: 46
+    type: substitution
+    team: home
+    player: Martin Broberg
+    playerOff: Sigurd Haugen
+  - minute: 47
+    type: goal
+    team: home
+    player: Elbasan Rashani
+    assist: Etzaz Hussain
+  - minute: 57
+    type: yellow_card
+    team: home
+    player: Jone Samuelsen
+  - minute: 61
+    type: yellow_card
+    team: home
+    player: Elbasan Rashani
+  - minute: 62
+    type: penalty_goal
+    team: away
+    player: Mostafa Abdellaoue
+  - minute: 64
+    type: yellow_card
+    team: away
+    player: Fredrik Carlsen
+  - minute: 68
+    type: own_goal
+    team: away
+    player: Fredrik Semb Berge
+  - minute: 69
+    type: substitution
+    team: away
+    player: Valmir Berisha
+    playerOff: Aron Elis Thrándarson
+  - minute: 69
+    type: yellow_card
+    team: away
+    player: Bjørn Helge Riise
+  - minute: 73
+    type: substitution
+    team: home
+    player: Joakim Våge Nilsen
+    playerOff: Etzaz Hussain
+  - minute: 74
+    type: yellow_card
+    team: away
+    player: Athanassios Papazoglou
+  - minute: 77
+    type: substitution
+    team: home
+    player: Fredrik Nordkvelle
+    playerOff: Elbasan Rashani
+  - minute: 80
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Marlinho
+  - minute: 85
+    type: yellow_card
+    team: away
+    player: Kaj Ramsteijn
+  - minute: 88
+    type: substitution
+    team: away
+    player: Anders Waagan
+    playerOff: Mostafa Abdellaoue
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sondre Løvseth Rossbach
+      - Espen Ruud
+      - Fredrik Semb Berge
+      - Steffen Hagen
+      - Thomas Grøgaard
+      - Etzaz Hussain
+      - Jone Samuelsen
+      - Oliver Berg
+      - Pape Pate Diouf
+      - Sigurd Haugen
+      - Elbasan Rashani
+    subs:
+      - Martin Broberg
+      - Joakim Våge Nilsen
+      - Fredrik Nordkvelle
+      - John Kitolano
+      - Stefan Mladenovic
+      - Torbjørn Agdestein
+      - Vegard Bergan
+    coach: Dag-Eilev Fagermo
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Mikkel Kirkeskov
+      - Daniel Gretarsson
+      - Kaj Ramsteijn
+      - Bjørn Helge Riise
+      - Marlinho
+      - Vebjørn Hoff
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Athanassios Papazoglou
+      - Mostafa Abdellaoue
+    subs:
+      - Valmir Berisha
+      - Sondre Brunstad Fet
+      - Anders Waagan
+      - Jan Lennart Urke
+      - Jørgen Hatlehol
+      - Oddbjørn Lie
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 49
+    shots: 7
+    shotsOnTarget: 4
+    corners: 4
+    fouls: 12
+    offsides: 5
+  away:
+    possession: 51
+    shots: 19
+    shotsOnTarget: 6
+    corners: 4
+    fouls: 13
+    offsides: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +172,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

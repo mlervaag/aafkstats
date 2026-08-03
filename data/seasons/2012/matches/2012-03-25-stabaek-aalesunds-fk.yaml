@@ -11,13 +11,92 @@ competition:
 home:
   clubId: stabaek
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: fornebu-arena
 neutralVenue: false
-events: []
+events:
+  - minute: 6
+    type: yellow_card
+    team: away
+    player: Daniel Arnefjord
+  - minute: 31
+    type: yellow_card
+    team: home
+    player: Ricardo A. Clark
+  - minute: 33
+    type: yellow_card
+    team: home
+    player: Mads Stokkelien
+  - minute: 57
+    type: substitution
+    team: away
+    player: Edvard Skagestad
+    playerOff: Christian Myklebust
+  - minute: 66
+    type: substitution
+    team: away
+    player: Tremaine Stewart
+    playerOff: Fredrik Carlsen
+  - minute: 70
+    type: substitution
+    team: home
+    player: Stian Sortevik
+    playerOff: David A. Hanssen
+  - minute: 89
+    type: substitution
+    team: away
+    player: Ville Jalasto
+    playerOff: Magnus Sylling Olsen
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Jan Kjell Larsen
+      - Bjarni Olafur Eiriksson
+      - Sean Cunningham
+      - Tor-Marius Gromstad
+      - Vegar Eggen Hedenstad
+      - Adnan Haidar
+      - Ricardo A. Clark
+      - David A. Hanssen
+      - Christer Kleiven
+      - Franck Boli
+      - Mads Stokkelien
+    subs:
+      - Stian Sortevik
+      - Bjarte Haugsdal
+      - Fredrik Brustad
+      - Hermann Stengel
+      - Jørgen Hammer
+      - Johannnes Bødtker
+      - Torstein Andersen Aase
+    coach: Petter Belsvik
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Sten Michael Grytebust
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Jo Nymo Matland
+      - Enar Jääger
+      - Jason Morrison
+      - Fredrik Carlsen
+      - Demar Phillips
+      - Christian Myklebust
+      - Michael Barrantes
+      - Magnus Sylling Olsen
+    subs:
+      - Edvard Skagestad
+      - Tremaine Stewart
+      - Ville Jalasto
+      - Ole Christian Rørvik
+      - Sander Post
+      - Thomas Skog Martinussen
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +112,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

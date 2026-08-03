@@ -11,13 +11,139 @@ competition:
 home:
   clubId: skeid
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: nordre-asen-kunstgress
 neutralVenue: false
-events: []
+attendance: 763
+referee: Ali Al-Hatem
+events:
+  - minute: 12
+    type: yellow_card
+    team: home
+    player: Lucas Svenningsen
+  - minute: 46
+    type: substitution
+    team: home
+    player: Akinsola Akinyemi
+    playerOff: Lucas Svenningsen
+  - minute: 57
+    type: substitution
+    team: away
+    player: Kristian Hemmingsen Lonebu
+    playerOff: Frederik Heiselberg
+  - minute: 57
+    type: substitution
+    team: away
+    player: Marius Andresen
+    playerOff: Kristoffer Nessø
+  - minute: 57
+    type: substitution
+    team: away
+    player: David Snær Johannsson
+    playerOff: Henrik Melland
+  - minute: 57
+    type: substitution
+    team: home
+    player: Bendik Rise
+    playerOff: Mikkel Wennberg Lindbäck
+  - minute: 60
+    type: goal
+    team: away
+    player: Paul Ngongo Iversen
+    assist: John Kitolano
+  - minute: 60
+    type: yellow_card
+    team: away
+    player: David Snær Johannsson
+  - minute: 69
+    type: substitution
+    team: home
+    player: Hassan Mohamed Yusuf
+    playerOff: Fredrik Flo
+  - minute: 69
+    type: substitution
+    team: home
+    player: Filip Møller Delaveris
+    playerOff: Ousmane Toure
+  - minute: 75
+    type: substitution
+    team: away
+    player: Philip Sandvik Aukland
+    playerOff: Olafur Gudmundsson
+  - minute: 79
+    type: goal
+    team: home
+    player: Martin Hoel Andersen
+    assist: Torje Naustdal
+  - minute: 81
+    type: substitution
+    team: home
+    player: Kristoffer Ødemarksbakken
+    playerOff: Jesper Fiksdal
+lineups:
+  home:
+    formation: 3-4-3
+    starters:
+      - Marcus Ellingsen Andersen
+      - Lucas Svenningsen
+      - Per-Magnus Steiring
+      - Fredrik Flo
+      - Sulayman Bojang
+      - Adnan Hadzic
+      - Torje Naustdal
+      - Ousmane Toure
+      - Mikkel Wennberg Lindbäck
+      - Jesper Fiksdal
+      - Martin Hoel Andersen
+    subs:
+      - Akinsola Akinyemi
+      - Bendik Rise
+      - Filip Møller Delaveris
+      - Hassan Mohamed Yusuf
+      - Kristoffer Ødemarksbakken
+      - Isak Solberg
+      - Emil Tjøstheim
+      - Filip Stensland
+    coach: Vilde Rislaa
+  away:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Olafur Gudmundsson
+      - Kristoffer Nessø
+      - Janus Seehusen
+      - Håkon Butli Hammer
+      - Henrik Melland
+      - John Kitolano
+      - Frederik Heiselberg
+      - Paul Ngongo Iversen
+    subs:
+      - David Snær Johannsson
+      - Marius Andresen
+      - Kristian Hemmingsen Lonebu
+      - Philip Sandvik Aukland
+      - Tor Erik Valderhaug Larsen
+      - Jørgen Bøe
+      - Eivind Strømsheim Kolve
+      - Tellef Brattberg Ytterland
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 51
+    shots: 6
+    shotsOnTarget: 4
+    corners: 1
+  away:
+    possession: 49
+    shots: 9
+    shotsOnTarget: 5
+    corners: 4
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +159,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

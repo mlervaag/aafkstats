@@ -11,13 +11,147 @@ competition:
 home:
   clubId: viking
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: viking-stadion
 neutralVenue: false
-events: []
+attendance: 7069
+referee: Kai Erik Steen
+events:
+  - minute: 26
+    type: goal
+    team: home
+    player: Patrick Pedersen
+  - minute: 35
+    type: goal
+    team: away
+    player: Mostafa Abdellaoue
+  - minute: 57
+    type: red_card
+    team: home
+    player: Karol Mets
+  - minute: 57
+    type: penalty_goal
+    team: away
+    player: Mostafa Abdellaoue
+  - minute: 59
+    type: yellow_card
+    team: home
+    player: Chris Dawson
+  - minute: 64
+    type: substitution
+    team: home
+    player: Michael Haukås
+    playerOff: Chris Dawson
+  - minute: 64
+    type: substitution
+    team: home
+    player: Usmani Sale
+    playerOff: Patrick Pedersen
+  - minute: 68
+    type: yellow_card
+    team: home
+    player: Kristoffer Haugen
+  - minute: 69
+    type: goal
+    team: away
+    player: Mikkel Kirkeskov
+  - minute: 76
+    type: substitution
+    team: home
+    player: Mathias Bringaker
+    playerOff: Zymer Bytyqi
+  - minute: 78
+    type: yellow_card
+    team: home
+    player: Abdisalam Ibrahim
+  - minute: 83
+    type: substitution
+    team: away
+    player: Edvard Skagestad
+    playerOff: Adam Örn Arnarson
+  - minute: 83
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Aron Elis Thrándarson
+  - minute: 84
+    type: substitution
+    team: away
+    player: Vebjørn Hoff
+    playerOff: Fredrik Carlsen
+  - minute: 88
+    type: yellow_card
+    team: home
+    player: Usmani Sale
+  - minute: 90
+    type: goal
+    team: home
+    player: Mathias Bringaker
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Mostafa Abdellaoue
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Iven Austbø
+      - Kristoffer Haugen
+      - Karol Mets
+      - Joackim Jørgensen
+      - Claes Kronberg
+      - Chris Dawson
+      - André Danielsen
+      - Abdisalam Ibrahim
+      - Samuel Adegbenro
+      - Patrick Pedersen
+      - Zymer Bytyqi
+    subs:
+      - Michael Haukås
+      - Usmani Sale
+      - Mathias Bringaker
+      - Julian Ryerson
+      - Pål Vestly Heigre
+      - Per-Magnus Steiring
+      - Tor André Aasheim
+    coach: Kjell Jonevret
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Vito Wormgoor
+      - Daniel Gretarsson
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Bjørn Helge Riise
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Franck Boli
+      - Mostafa Abdellaoue
+    subs:
+      - Edvard Skagestad
+      - Sondre Brunstad Fet
+      - Vebjørn Hoff
+      - Flamur Kastrati
+      - Lars Cramer
+      - Marlinho
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 53
+    shots: 17
+    shotsOnTarget: 6
+    corners: 4
+  away:
+    possession: 47
+    shots: 12
+    shotsOnTarget: 5
+    corners: 8
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +167,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

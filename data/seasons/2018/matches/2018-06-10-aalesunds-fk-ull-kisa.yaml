@@ -11,13 +11,124 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: ull-kisa
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 2
+    type: goal
+    team: away
+    player: Nicolay Solberg
+    assist: William Albin Kurtovic
+  - minute: 22
+    type: goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+    assist: Adam Örn Arnarson
+  - minute: 38
+    type: goal
+    team: away
+    player: Ole Andreas Nesset
+    assist: Nicolay Solberg
+  - minute: 50
+    type: yellow_card
+    team: away
+    player: Eric Kitolano
+  - minute: 54
+    type: yellow_card
+    team: home
+    player: Adam Örn Arnarson
+  - minute: 54
+    type: yellow_card
+    team: away
+    player: Ole Andreas Nesset
+  - minute: 66
+    type: penalty_goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+  - minute: 70
+    type: yellow_card
+    team: home
+    player: Jørgen Hatlehol
+  - minute: 74
+    type: substitution
+    team: home
+    player: Pape Habib Gueye
+    playerOff: Torbjørn Agdestein
+  - minute: 81
+    type: substitution
+    team: home
+    player: Robert Sandnes
+    playerOff: Jørgen Hatlehol
+  - minute: 81
+    type: substitution
+    team: home
+    player: Sondre Brunstad Fet
+    playerOff: Erikson Lima
+  - minute: 83
+    type: goal
+    team: home
+    player: Pape Habib Gueye
+    assist: Fredrik Carlsen
+  - minute: 86
+    type: substitution
+    team: away
+    player: Andreas Aalbu
+    playerOff: Ole Andreas Nesset
+  - minute: 86
+    type: substitution
+    team: away
+    player: Espen Garnås
+    playerOff: Nikolas Walstad
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Sonni Nattestad
+      - Oddbjørn Lie
+      - Adam Örn Arnarson
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Erikson Lima
+      - Jørgen Hatlehol
+      - Torbjørn Agdestein
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Pape Habib Gueye
+      - Robert Sandnes
+      - Sondre Brunstad Fet
+      - Anders Waagan
+      - Emil Solnørdal
+      - Håvard Breivik
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
+  away:
+    formation: 4-3-3
+    starters:
+      - Stefan Hagerup
+      - Mats André Kaland
+      - Emmanuel Troudart
+      - Morten Sundli
+      - Nikolas Walstad
+      - Eric Kitolano
+      - William Albin Kurtovic
+      - Sverre Martin Torp
+      - Nicolay Solberg
+      - Ole Andreas Nesset
+      - Kristoffer Normann Hansen
+    subs:
+      - Andreas Aalbu
+      - Espen Garnås
+      - Alexander Vangen
+      - Karsten Rognerud
+      - Truls Jørstad
+    coach: Vegard Skogheim
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +144,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

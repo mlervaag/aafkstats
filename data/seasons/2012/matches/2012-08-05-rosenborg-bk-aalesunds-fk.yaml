@@ -11,13 +11,122 @@ competition:
 home:
   clubId: rosenborg-bk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: lerkendal-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 36
+    type: goal
+    team: home
+    player: Borek Dockal
+  - minute: 37
+    type: yellow_card
+    team: away
+    player: Jason Morrison
+  - minute: 38
+    type: goal
+    team: home
+    player: Rade Prica
+  - minute: 46
+    type: substitution
+    team: away
+    player: Kjell Rune Sellin
+    playerOff: Lars Fuhre
+  - minute: 53
+    type: substitution
+    team: away
+    player: Enar Jääger
+    playerOff: Hugues Wembangomo
+  - minute: 55
+    type: yellow_card
+    team: away
+    player: Enar Jääger
+  - minute: 56
+    type: goal
+    team: home
+    player: Stefan Strandberg
+  - minute: 65
+    type: yellow_card
+    team: away
+    player: Tremaine Stewart
+  - minute: 66
+    type: substitution
+    team: away
+    player: Edvard Skagestad
+    playerOff: Daniel Arnefjord
+  - minute: 73
+    type: substitution
+    team: home
+    player: Jaime Alas
+    playerOff: Daniel Fredheim Holm
+  - minute: 76
+    type: yellow_card
+    team: home
+    player: Markus Henriksen
+  - minute: 83
+    type: substitution
+    team: home
+    player: Ole Kristian Selnæs
+    playerOff: Borek Dockal
+  - minute: 83
+    type: substitution
+    team: home
+    player: John Chibuike
+    playerOff: Rade Prica
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Fredrik Ulvestad
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Daniel Örlund
+      - Peter Ankersen
+      - Per Verner Rønning
+      - Stefan Strandberg
+      - Mikael Dorsin
+      - Mohammed-Awal Issah
+      - Jonas Svensson
+      - Borek Dockal
+      - Markus Henriksen
+      - Daniel Fredheim Holm
+      - Rade Prica
+    subs:
+      - Jaime Alas
+      - John Chibuike
+      - Ole Kristian Selnæs
+      - Alexander Hovdevik
+      - Fredrik Midtsjø
+      - Jon Inge Høiland
+      - Simen Wangberg
+    coach: Jan Jönsson
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Sten Michael Grytebust
+      - Hugues Wembangomo
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Jo Nymo Matland
+      - Jason Morrison
+      - Fredrik Ulvestad
+      - Tremaine Stewart
+      - Michael Barrantes
+      - Lars Fuhre
+      - Leke James
+    subs:
+      - Kjell Rune Sellin
+      - Enar Jääger
+      - Edvard Skagestad
+      - Fredrik Carlsen
+      - Magnus Sylling Olsen
+      - Ole Christian Rørvik
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +142,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

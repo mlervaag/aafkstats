@@ -1,0 +1,160 @@
+id: 2010-08-29-aalesunds-fk-honefoss
+date: 2010-08-29
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2010
+  stage: regular_season
+  round: 22
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: honefoss
+  score: 3
+  halfTimeScore: 2
+venueId: color-line-stadion
+neutralVenue: false
+events:
+  - minute: 16
+    type: goal
+    team: away
+    player: Kenneth Jensen
+  - minute: 24
+    type: substitution
+    team: home
+    player: Pablo Herrera
+    playerOff: Alexander Mathisen
+  - minute: 30
+    type: goal
+    team: away
+    player: Kjetil Byfuglien
+  - minute: 52
+    type: red_card
+    team: home
+    player: Daniel Arnefjord
+  - minute: 56
+    type: yellow_card
+    team: away
+    player: Umaru Bangura
+  - minute: 58
+    type: substitution
+    team: home
+    player: Jonatan Tollås Nation
+    playerOff: Enar Jääger
+  - minute: 59
+    type: substitution
+    team: home
+    player: Magnus Sylling Olsen
+    playerOff: Peter Orry Larsen
+  - minute: 61
+    type: yellow_card
+    team: home
+    player: Magnus Sylling Olsen
+  - minute: 65
+    type: yellow_card
+    team: away
+    player: Aleksandr Dmitrijev
+  - minute: 70
+    type: substitution
+    team: away
+    player: Kamal Saaliti
+    playerOff: Paul Obiefule
+  - minute: 73
+    type: yellow_card
+    team: home
+    player: Fredrik Carlsen
+  - minute: 75
+    type: substitution
+    team: away
+    player: Lars Lafton
+    playerOff: Madiou Konate
+  - minute: 79
+    type: substitution
+    team: away
+    player: Leo Olsen
+    playerOff: Kenneth Jensen
+  - minute: 81
+    type: goal
+    team: away
+    player: Lars Lafton
+  - minute: 83
+    type: goal
+    team: home
+    player: Magnus Sylling Olsen
+lineups:
+  home:
+    formation: 3-4-1-2
+    starters:
+      - Anders Lindegaard
+      - Enar Jääger
+      - Ville Jalasto
+      - Daniel Arnefjord
+      - Jonathan Parr
+      - Peter Orry Larsen
+      - Johan Arneng
+      - Fredrik Carlsen
+      - Alexander Mathisen
+      - Demar Phillips
+      - Tor Hogne Aarøy
+    subs:
+      - Pablo Herrera
+      - Jonatan Tollås Nation
+      - Magnus Sylling Olsen
+      - Amund Skiri
+      - Lars Fuhre
+      - Michael Barrantes
+      - Sten Michael Grytebust
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - Thomas Solvoll
+      - Kristjan Örn Sigurdsson
+      - Erik Hagen
+      - Tor Øivind Hovda
+      - Frode Lafton
+      - Aleksandr Dmitrijev
+      - Paul Obiefule
+      - Umaru Bangura
+      - Kjetil Byfuglien
+      - Kenneth Jensen
+      - Madiou Konate
+    subs:
+      - Kamal Saaliti
+      - Lars Lafton
+      - Leo Olsen
+      - Alexander Groven
+      - Håkon Langdalen
+      - Steve Clark
+    coach: Reidar Vågnes
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/honefoss-vs-aalesund/28rqo8#761924
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "761924"
+manual: []

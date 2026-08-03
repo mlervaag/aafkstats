@@ -23,10 +23,15 @@ export async function fetchFotmobSeason(options: SeasonFetchOptions): Promise<Fe
       onNetworkRequest: () => { requests += 1; },
     });
 
+  // Det kilden spørres om, som ikke alltid er årstallet kampene arkiveres under.
+  const askedFor = options.sourceSeason ?? String(options.season);
+
   const failures: FetchResult["failures"] = [];
   let league: RawLeague;
   try {
-    league = await request(`${BASE}/leagues?id=${options.leagueId}&season=${options.season}`);
+    league = await request(
+      `${BASE}/leagues?id=${options.leagueId}&season=${encodeURIComponent(askedFor)}`,
+    );
   } catch (error) {
     return {
       matches: [],
@@ -34,13 +39,13 @@ export async function fetchFotmobSeason(options: SeasonFetchOptions): Promise<Fe
       requests,
     };
   }
-  if (String(league.details?.selectedSeason ?? "") !== String(options.season)) {
+  if (String(league.details?.selectedSeason ?? "") !== askedFor) {
     return {
       matches: [],
       failures: [{
         scope: "season",
         externalId: options.leagueId,
-        message: `kilden returnerte sesong ${league.details?.selectedSeason ?? "ukjent"}, ikke ${options.season}`,
+        message: `kilden returnerte sesong ${league.details?.selectedSeason ?? "ukjent"}, ikke ${askedFor}`,
       }],
       requests,
     };

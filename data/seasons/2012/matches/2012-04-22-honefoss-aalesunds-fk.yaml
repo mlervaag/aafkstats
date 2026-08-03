@@ -11,13 +11,110 @@ competition:
 home:
   clubId: honefoss
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: aka-arena
 neutralVenue: false
-events: []
+events:
+  - minute: 6
+    type: goal
+    team: home
+    player: Rune Bolseth
+  - minute: 8
+    type: goal
+    team: away
+    player: Jo Nymo Matland
+  - minute: 29
+    type: substitution
+    team: away
+    player: Fredrik Ulvestad
+    playerOff: Christian Myklebust
+  - minute: 46
+    type: substitution
+    team: home
+    player: Tor Øivind Hovda
+    playerOff: Arnor Sveinn Adalsteinsson
+  - minute: 50
+    type: goal
+    team: home
+    player: Riku Riski
+  - minute: 61
+    type: substitution
+    team: home
+    player: Kenneth Jensen
+    playerOff: Remond Macougne Mendy
+  - minute: 75
+    type: substitution
+    team: away
+    player: Edvard Skagestad
+    playerOff: Peter Orry Larsen
+  - minute: 76
+    type: goal
+    team: home
+    player: Riku Riski
+  - minute: 80
+    type: substitution
+    team: away
+    player: Sander Post
+    playerOff: Magnus Sylling Olsen
+  - minute: 81
+    type: yellow_card
+    team: home
+    player: Kenneth Jensen
+  - minute: 89
+    type: substitution
+    team: home
+    player: Christoffer Dahl
+    playerOff: Kevin Larsen
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Steve Clark
+      - Arnor Sveinn Adalsteinsson
+      - Frode Lafton
+      - Kristjan Örn Sigurdsson
+      - Alexander Groven
+      - Héiner Mora
+      - Rune Bolseth
+      - Helge Haugen
+      - Kevin Larsen
+      - Riku Riski
+      - Remond Macougne Mendy
+    subs:
+      - Tor Øivind Hovda
+      - Kenneth Jensen
+      - Christoffer Dahl
+      - Kevin Beugre
+      - Lars Stubhaug
+      - Mats André Kaland
+      - Roope Riski
+    coach: Leif Gunnar Smerud
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Jo Nymo Matland
+      - Jason Morrison
+      - Peter Orry Larsen
+      - Michael Barrantes
+      - Christian Myklebust
+      - Demar Phillips
+      - Magnus Sylling Olsen
+    subs:
+      - Fredrik Ulvestad
+      - Edvard Skagestad
+      - Sander Post
+      - Mathias Rasmussen
+      - Tremaine Stewart
+      - Ville Jalasto
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +130,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

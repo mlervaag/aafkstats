@@ -11,13 +11,152 @@ competition:
 home:
   clubId: kongsvinger
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: gjemselund-stadion
 neutralVenue: false
-events: []
+referee: Magnus Nicolai Koløy
+events:
+  - minute: 14
+    type: yellow_card
+    team: away
+    player: Simen Haram
+  - minute: 27
+    type: goal
+    team: home
+    player: Lucas Ravn-Haren
+    assist: Martin Tangen Vinjor
+  - minute: 46
+    type: substitution
+    team: away
+    player: Marius Andresen
+    playerOff: Olafur Gudmundsson
+  - minute: 46
+    type: substitution
+    team: away
+    player: Aleksander Hammer Kjelsen
+    playerOff: Henrik Melland
+  - minute: 46
+    type: substitution
+    team: away
+    player: Eivind Strømsheim Kolve
+    playerOff: John Kitolano
+  - minute: 59
+    type: substitution
+    team: home
+    player: Mathias Berg Gjerstrøm
+    playerOff: Martin Tangen Vinjor
+  - minute: 59
+    type: substitution
+    team: home
+    player: Armand Oeverby
+    playerOff: Rasmus Opdal Christiansen
+  - minute: 65
+    type: substitution
+    team: away
+    player: Frederik Heiselberg
+    playerOff: Kristian Hemmingsen Lonebu
+  - minute: 72
+    type: yellow_card
+    team: away
+    player: David Snær Johannsson
+  - minute: 73
+    type: substitution
+    team: away
+    player: Jørgen Bøe
+    playerOff: David Snær Johannsson
+  - minute: 75
+    type: yellow_card
+    team: away
+    player: Philip Sandvik Aukland
+  - minute: 82
+    type: goal
+    team: home
+    player: Armand Oeverby
+    assist: Lucas Ravn-Haren
+  - minute: 85
+    type: substitution
+    team: home
+    player: Daniel Lysgård
+    playerOff: Eric Taylor
+  - minute: 88
+    type: substitution
+    team: home
+    player: Albert Sandstad
+    playerOff: Noa Williams
+  - minute: 88
+    type: substitution
+    team: home
+    player: Joacim Holtan
+    playerOff: Lucas Ravn-Haren
+  - minute: 90
+    stoppage: 3
+    type: goal
+    team: home
+    player: Albert Sandstad
+    assist: Andreas Dybevik
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Aleksey Gorodovoy
+      - Joel Nilsson
+      - Fredrik Holmé
+      - Mapenda Mbow
+      - Emil Adrendrup Nielsen
+      - Eric Taylor
+      - Martin Tangen Vinjor
+      - Andreas Dybevik
+      - Lucas Ravn-Haren
+      - Rasmus Opdal Christiansen
+      - Noa Williams
+    subs:
+      - Mathias Berg Gjerstrøm
+      - Armand Oeverby
+      - Daniel Lysgård
+      - Albert Sandstad
+      - Joacim Holtan
+      - Sebastian Naerum Ekerhaugen
+      - Elias Berstad Tenden
+      - Lars Julian Fjeld
+    coach: Johan Peter Vennberg
+  away:
+    formation: 3-5-2
+    starters:
+      - Tor Erik Valderhaug Larsen
+      - Simen Haram
+      - Philip Sandvik Aukland
+      - John Kitolano
+      - Olafur Gudmundsson
+      - David Snær Johannsson
+      - Håkon Butli Hammer
+      - Henrik Melland
+      - Kristoffer Nessø
+      - Kristian Hemmingsen Lonebu
+      - Paul Ngongo Iversen
+    subs:
+      - Aleksander Hammer Kjelsen
+      - Eivind Strømsheim Kolve
+      - Marius Andresen
+      - Frederik Heiselberg
+      - Jørgen Bøe
+      - Sten Michael Grytebust
+      - Tellef Brattberg Ytterland
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 59
+    shots: 13
+    shotsOnTarget: 5
+    corners: 8
+  away:
+    possession: 41
+    shots: 9
+    shotsOnTarget: 3
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +172,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

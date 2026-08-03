@@ -11,13 +11,104 @@ competition:
 home:
   clubId: jerv
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: j-j-ugland-stadion-levermyr
 neutralVenue: false
-events: []
+events:
+  - minute: 48
+    type: yellow_card
+    team: away
+    player: Niklas Castro
+  - minute: 51
+    type: yellow_card
+    team: home
+    player: Thomas Zernichow
+  - minute: 53
+    type: yellow_card
+    team: away
+    player: Izunna Uzochukwu
+  - minute: 56
+    type: yellow_card
+    team: away
+    player: Holmbert Aron Fridjonsson
+  - minute: 57
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: David Kristjan Olafsson
+  - minute: 65
+    type: substitution
+    team: away
+    player: Erikson Lima
+    playerOff: Izunna Uzochukwu
+  - minute: 75
+    type: substitution
+    team: away
+    player: Pape Habib Gueye
+    playerOff: Torbjørn Agdestein
+  - minute: 76
+    type: substitution
+    team: home
+    player: Torje Wichne
+    playerOff: Martin Hoel Andersen
+  - minute: 87
+    type: yellow_card
+    team: home
+    player: Peter Reinhardsen
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Torje Wichne
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Benjamin Boujar
+      - Peter Reinhardsen
+      - Simon Andreas Larsen
+      - Espen Knudsen
+      - Thomas Zernichow
+      - Martin Hoel Andersen
+      - Mathias Wichmann
+      - Daniel Aase
+      - Kristoffer Toennessen
+      - Chuma Anene
+      - Ole Marius Håbestad
+    subs:
+      - Torje Wichne
+      - Aram Khalili
+      - Håkon Suggelia
+      - Halvor Hovstad
+      - Luke Ferreira
+      - Michael Ogungbaro
+      - Øystein Øvretveit
+    coach: Arne Sandstø
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Ståle Steen Sæthre
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Jørgen Hatlehol
+      - Aron Elis Thrándarson
+      - Izunna Uzochukwu
+      - Niklas Castro
+      - David Kristjan Olafsson
+      - Torbjørn Agdestein
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Sondre Brunstad Fet
+      - Erikson Lima
+      - Pape Habib Gueye
+      - Kristoffer Hay
+      - Peter Orry Larsen
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +124,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

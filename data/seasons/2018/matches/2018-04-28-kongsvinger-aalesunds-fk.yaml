@@ -11,13 +11,104 @@ competition:
 home:
   clubId: kongsvinger
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: gjemselund-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 20
+    type: goal
+    team: away
+    player: Aron Elis Thrándarson
+    assist: Jørgen Hatlehol
+  - minute: 46
+    type: substitution
+    team: away
+    player: Kaj Ramsteijn
+    playerOff: Erikson Lima
+  - minute: 48
+    type: substitution
+    team: away
+    player: Adam Örn Arnarson
+    playerOff: Robert Sandnes
+  - minute: 60
+    type: goal
+    team: away
+    player: Holmbert Aron Fridjonsson
+    assist: Aron Elis Thrándarson
+  - minute: 62
+    type: substitution
+    team: home
+    player: Shuaibu Ibrahim
+    playerOff: Marlinho
+  - minute: 64
+    type: goal
+    team: home
+    player: Adem Güven
+    assist: Shuaibu Ibrahim
+  - minute: 71
+    type: goal
+    team: away
+    player: Oddbjørn Lie
+    assist: Fredrik Carlsen
+  - minute: 76
+    type: substitution
+    team: home
+    player: Jørgen Kolstad
+    playerOff: Adem Güven
+  - minute: 77
+    type: substitution
+    team: home
+    player: Martin Lundal
+    playerOff: Edvard Skagestad
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Simon Thomas
+      - Fredrik Mani Pålerud
+      - Edvard Skagestad
+      - Markus Skjellum
+      - Christian Røer
+      - Niklas Castro
+      - Olav Øby
+      - Fredrik Sjølstad
+      - Markus Aanesland
+      - Adem Güven
+      - Marlinho
+    subs:
+      - Shuaibu Ibrahim
+      - Jørgen Kolstad
+      - Martin Lundal
+      - Even Bydal
+      - Iman Mafi
+      - Martin Tangen Vinjor
+      - Tobias Trautner
+    coach: Hans-Erik Eriksen
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Oddbjørn Lie
+      - Sonni Nattestad
+      - Daniel Gretarsson
+      - Jørgen Hatlehol
+      - Sondre Brunstad Fet
+      - Fredrik Carlsen
+      - Erikson Lima
+      - Robert Sandnes
+      - Aron Elis Thrándarson
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Kaj Ramsteijn
+      - Adam Örn Arnarson
+      - Anders Waagan
+      - Emil Solnørdal
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +124,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

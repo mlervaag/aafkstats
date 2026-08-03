@@ -11,13 +11,120 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: molde-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 8023
+events:
+  - minute: 15
+    type: goal
+    team: away
+    player: Tommy Høiland
+    assist: Per Egil Flo
+  - minute: 38
+    type: yellow_card
+    team: away
+    player: Tommy Høiland
+  - minute: 39
+    type: goal
+    team: home
+    player: Leke James
+    assist: Jo Nymo Matland
+  - minute: 46
+    type: substitution
+    team: away
+    player: Mattias Moström
+    playerOff: Tommy Høiland
+  - minute: 69
+    type: substitution
+    team: away
+    player: Mushaga Bakenga
+    playerOff: Ola Kamara
+  - minute: 75
+    type: yellow_card
+    team: away
+    player: Harmeet Singh
+  - minute: 77
+    type: goal
+    team: away
+    player: Mohamed Elyounoussi
+    assist: Martin Linnes
+  - minute: 79
+    type: substitution
+    team: home
+    player: Marlinho
+    playerOff: Magne Hoseth
+  - minute: 80
+    type: yellow_card
+    team: home
+    player: Edvard Skagestad
+  - minute: 85
+    type: substitution
+    team: away
+    player: Daniel Berg Hestad
+    playerOff: Sander Svendsen
+lineups:
+  home:
+    formation: 4-5-1
+    starters:
+      - Sten Michael Grytebust
+      - Mikael Dyrestam
+      - Edvard Skagestad
+      - Oddbjørn Lie
+      - Jo Nymo Matland
+      - Henrik Rørvik Bjørdal
+      - Magne Hoseth
+      - Vebjørn Hoff
+      - Bjørn Helge Riise
+      - Aron Elis Thrándarson
+      - Leke James
+    subs:
+      - Marlinho
+      - Andreas Lie
+      - Daniel Gretarsson
+      - Sebastian Andreassen
+      - Sondre Brunstad Fet
+      - Tero Mäntylä
+      - Thomas Skog Martinussen
+    coach: Trond Fredriksen
+  away:
+    formation: 4-4-2
+    starters:
+      - Ethan Horvath
+      - Martin Linnes
+      - Vegard Forren
+      - Fredrik Semb Berge
+      - Per Egil Flo
+      - Sander Svendsen
+      - Eirik Hestad
+      - Harmeet Singh
+      - Mohamed Elyounoussi
+      - Tommy Høiland
+      - Ola Kamara
+    subs:
+      - Mattias Moström
+      - Mushaga Bakenga
+      - Daniel Berg Hestad
+      - Agnaldo
+      - Joona Toivio
+      - Magne Simonsen
+      - Neydson da Silva
+    coach: Ole Gunnar Solskjær
+stats:
+  home:
+    possession: 51
+    shots: 8
+    shotsOnTarget: 3
+    corners: 6
+  away:
+    possession: 49
+    shots: 10
+    shotsOnTarget: 3
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +140,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

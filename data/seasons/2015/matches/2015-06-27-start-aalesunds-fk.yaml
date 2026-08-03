@@ -11,13 +11,145 @@ competition:
 home:
   clubId: start
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: soer-arena
 neutralVenue: false
-events: []
+attendance: 6002
+events:
+  - minute: 2
+    type: goal
+    team: home
+    player: Matthias Vilhjalmsson
+    assist: Espen Hoff
+  - minute: 14
+    type: yellow_card
+    team: home
+    player: Michael Christensen
+  - minute: 19
+    type: yellow_card
+    team: away
+    player: Mikael Dyrestam
+  - minute: 21
+    type: goal
+    team: home
+    player: Espen Børufsen
+    assist: Kristoffer Ajer
+  - minute: 22
+    type: goal
+    team: away
+    player: Aron Elis Thrándarson
+    assist: Oddbjørn Lie
+  - minute: 29
+    type: yellow_card
+    team: home
+    player: Rolf Daniel Vikstøl
+  - minute: 46
+    type: substitution
+    team: home
+    player: Alex De John
+    playerOff: Andreas Hollingen
+  - minute: 52
+    type: substitution
+    team: away
+    player: Tero Mäntylä
+    playerOff: Mikael Dyrestam
+  - minute: 58
+    type: substitution
+    team: away
+    player: Daniel Gretarsson
+    playerOff: Oddbjørn Lie
+  - minute: 68
+    type: substitution
+    team: home
+    player: Robert Sandnes
+    playerOff: Solomon James Owello
+  - minute: 69
+    type: yellow_card
+    team: away
+    player: Aron Elis Thrándarson
+  - minute: 79
+    type: substitution
+    team: home
+    player: Mathias Rasmussen
+    playerOff: Espen Hoff
+  - minute: 79
+    type: substitution
+    team: away
+    player: Torbjørn Grytten
+    playerOff: Thomas Skog Martinussen
+  - minute: 83
+    type: yellow_card
+    team: home
+    player: Gudmundur Kristjansson
+  - minute: 85
+    type: penalty_goal
+    team: home
+    player: Kristoffer Ajer
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Mostafa Abdellaoue
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Håkon Andre Opdal
+      - Gudmundur Kristjansson
+      - Rolf Daniel Vikstøl
+      - Michael Christensen
+      - Ole Martin Rindarøy
+      - Espen Hoff
+      - Solomon James Owello
+      - Kristoffer Ajer
+      - Espen Børufsen
+      - Andreas Hollingen
+      - Matthias Vilhjalmsson
+    subs:
+      - Alex De John
+      - Robert Sandnes
+      - Mathias Rasmussen
+      - Emil Dahle
+      - Ingvar Jonsson
+      - Jon Hodnemyr
+      - Lars-Jørgen Salvesen
+    coach: Mons Ivar Mjelde
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Edvard Skagestad
+      - Mikael Dyrestam
+      - Oddbjørn Lie
+      - Henrik Rørvik Bjørdal
+      - Thomas Skog Martinussen
+      - Peter Orry Larsen
+      - Aron Elis Thrándarson
+      - Mostafa Abdellaoue
+      - Leke James
+    subs:
+      - Tero Mäntylä
+      - Daniel Gretarsson
+      - Torbjørn Grytten
+      - Andreas Lie
+      - Carl Björk
+      - Vebjørn Hoff
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 42
+    shots: 15
+    shotsOnTarget: 7
+    corners: 6
+  away:
+    possession: 58
+    shots: 19
+    shotsOnTarget: 7
+    corners: 6
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +165,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

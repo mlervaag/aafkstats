@@ -11,13 +11,116 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: jerv
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 11
+    type: substitution
+    team: away
+    player: Ole Marius Håbestad
+    playerOff: Alexander Dang
+  - minute: 27
+    type: yellow_card
+    team: home
+    player: Aron Elis Thrándarson
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Mathias Wichmann
+  - minute: 51
+    type: goal
+    team: home
+    player: Torbjørn Agdestein
+    assist: David Kristjan Olafsson
+  - minute: 53
+    type: goal
+    team: home
+    player: Torbjørn Agdestein
+    assist: Niklas Castro
+  - minute: 59
+    type: substitution
+    team: away
+    player: Luke Ferreira
+    playerOff: Anthony Okachi
+  - minute: 62
+    type: substitution
+    team: away
+    player: Håkon Suggelia
+    playerOff: Mathias Wichmann
+  - minute: 64
+    type: substitution
+    team: home
+    player: Holmbert Aron Fridjonsson
+    playerOff: Pape Habib Gueye
+  - minute: 77
+    type: goal
+    team: home
+    player: Aron Elis Thrándarson
+    assist: Niklas Castro
+  - minute: 79
+    type: substitution
+    team: home
+    player: Erikson Lima
+    playerOff: Aron Elis Thrándarson
+  - minute: 82
+    type: goal
+    team: home
+    player: Niklas Castro
+  - minute: 85
+    type: substitution
+    team: home
+    player: Sondre Brunstad Fet
+    playerOff: Niklas Castro
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Daniel Gretarsson
+      - Jonas Grønner
+      - Jørgen Hatlehol
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Niklas Castro
+      - David Kristjan Olafsson
+      - Torbjørn Agdestein
+      - Pape Habib Gueye
+    subs:
+      - Holmbert Aron Fridjonsson
+      - Erikson Lima
+      - Sondre Brunstad Fet
+      - Kristoffer Hay
+      - Marius Berntzen
+      - Ståle Steen Sæthre
+      - Wilmer Azofeifa
+    coach: Lars Bohinen
+  away:
+    formation: 3-5-2
+    starters:
+      - Øystein Øvretveit
+      - Bjørnar Hove
+      - Simon Andreas Larsen
+      - Espen Knudsen
+      - Thomas Zernichow
+      - Michael Baidoo
+      - Mathias Wichmann
+      - Daniel Aase
+      - Jørgen Solli
+      - Alexander Dang
+      - Anthony Okachi
+    subs:
+      - Ole Marius Håbestad
+      - Luke Ferreira
+      - Håkon Suggelia
+      - Benjamin Boujar
+      - Peter Reinhardsen
+    coach: Arne Sandstø
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +136,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

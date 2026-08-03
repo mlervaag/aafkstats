@@ -11,13 +11,152 @@ competition:
 home:
   clubId: sogndal
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 3
+venueId: fosshaugane-stadion
 neutralVenue: false
-events: []
+attendance: 2864
+referee: Tom Harald Hagen
+events:
+  - minute: 3
+    type: goal
+    team: home
+    player: Christophe Psyché
+    assist: Ole Amund Sveen
+  - minute: 12
+    type: goal
+    team: away
+    player: Mostafa Abdellaoue
+  - minute: 17
+    type: goal
+    team: home
+    player: Martin Ramsland
+    assist: Gilbert Koomson
+  - minute: 23
+    type: goal
+    team: away
+    player: Aron Elis Thrándarson
+    assist: Vebjørn Hoff
+  - minute: 35
+    type: goal
+    team: away
+    player: Edwin Gyasi
+    assist: Mostafa Abdellaoue
+  - minute: 51
+    type: yellow_card
+    team: home
+    player: Rune Bolseth
+  - minute: 53
+    type: yellow_card
+    team: away
+    player: Mikkel Kirkeskov
+  - minute: 60
+    type: substitution
+    team: home
+    player: Mahatma Otoo
+    playerOff: Eirik Birkelund
+  - minute: 61
+    type: substitution
+    team: away
+    player: Edvard Skagestad
+    playerOff: Oddbjørn Lie
+  - minute: 65
+    type: yellow_card
+    team: home
+    player: Martin Ramsland
+  - minute: 68
+    type: substitution
+    team: home
+    player: Ruben Holsæter
+    playerOff: Rune Bolseth
+  - minute: 72
+    type: yellow_card
+    team: away
+    player: Adam Örn Arnarson
+  - minute: 76
+    type: own_goal
+    team: away
+    player: Taijo Teniste
+  - minute: 77
+    type: yellow_card
+    team: home
+    player: Hannu Patronen
+  - minute: 78
+    type: substitution
+    team: away
+    player: Tero Mäntylä
+    playerOff: Daniel Gretarsson
+  - minute: 85
+    type: substitution
+    team: home
+    player: Edin Øy
+    playerOff: Gilbert Koomson
+  - minute: 88
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Vebjørn Hoff
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Mathias Dyngeland
+      - Taijo Teniste
+      - Hannu Patronen
+      - Christophe Psyché
+      - Jukka Raitala
+      - Gilbert Koomson
+      - Rune Bolseth
+      - Eirik Birkelund
+      - Henrik Furebotn
+      - Ole Amund Sveen
+      - Martin Ramsland
+    subs:
+      - Mahatma Otoo
+      - Ruben Holsæter
+      - Edin Øy
+      - Lars Christian Kjemhus
+      - Magnus Pedersen
+      - Stefan Hagerup
+      - Vegard Leikvoll Moberg
+    coach: Eirik Bakke
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Peter Orry Larsen
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Vebjørn Hoff
+      - Mostafa Abdellaoue
+    subs:
+      - Edvard Skagestad
+      - Tero Mäntylä
+      - Sondre Brunstad Fet
+      - Anders Waagan
+      - Flamur Kastrati
+      - Lars Cramer
+      - Marlinho
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 59
+    shots: 13
+    shotsOnTarget: 4
+    corners: 7
+  away:
+    possession: 41
+    shots: 11
+    shotsOnTarget: 9
+    corners: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +172,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

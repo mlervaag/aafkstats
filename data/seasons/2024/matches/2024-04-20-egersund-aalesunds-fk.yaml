@@ -11,13 +11,162 @@ competition:
 home:
   clubId: egersund
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: egersund-idrettsparken
 neutralVenue: false
-events: []
+attendance: 1200
+referee: Mohammad Hafezi
+events:
+  - minute: 2
+    type: goal
+    team: away
+    player: Markus Seehusen Karlsbakk
+    assist: Claudio Braga
+  - minute: 37
+    type: goal
+    team: home
+    player: Stian Rokås Michalsen
+    assist: Chris Sleveland
+  - minute: 45
+    type: goal
+    team: home
+    player: Henrik Falchener
+    assist: Stian Rokås Michalsen
+  - minute: 56
+    type: yellow_card
+    team: away
+    player: Thomas Grøgaard
+  - minute: 60
+    type: substitution
+    team: home
+    player: Ingvald Halgunset
+    playerOff: Horenus Tadesse
+  - minute: 61
+    type: substitution
+    team: home
+    player: Magnus Sandvik Høiseth
+    playerOff: Henrik Elvevold
+  - minute: 63
+    type: yellow_card
+    team: home
+    player: Andreas Helmersen
+  - minute: 66
+    type: yellow_card
+    team: home
+    player: Ingvald Halgunset
+  - minute: 72
+    type: substitution
+    team: away
+    player: Sebastian Berntsen
+    playerOff: Eivind Strømsheim Kolve
+  - minute: 73
+    type: yellow_card
+    team: away
+    player: Isaac Atanga
+  - minute: 75
+    type: substitution
+    team: home
+    player: Magnus Lankhof-Dahlby
+    playerOff: Stian Rokås Michalsen
+  - minute: 75
+    type: substitution
+    team: home
+    player: Justin Salmon
+    playerOff: Heine Åsen Larsen
+  - minute: 79
+    type: yellow_card
+    team: home
+    player: Justin Salmon
+  - minute: 85
+    type: red_card
+    team: away
+    player: Isaac Atanga
+  - minute: 86
+    type: substitution
+    team: away
+    player: Amidou Diop
+    playerOff: David Snær Johannsson
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: away
+    player: Kristian Hemmingsen Lonebu
+    playerOff: Thomas Grøgaard
+  - minute: 90
+    stoppage: 2
+    type: goal
+    team: home
+    player: Magnus Lankhof-Dahlby
+    assist: Chris Sleveland
+  - minute: 90
+    stoppage: 5
+    type: yellow_card
+    team: away
+    player: Metodi Maksimov
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Knut-André Skjærstein
+      - Jo Stålesen
+      - Ådne Midtskogen
+      - Henrik Falchener
+      - Robert Williams
+      - Heine Åsen Larsen
+      - Chris Sleveland
+      - Horenus Tadesse
+      - Henrik Elvevold
+      - Andreas Helmersen
+      - Stian Rokås Michalsen
+    subs:
+      - Ingvald Halgunset
+      - Magnus Sandvik Høiseth
+      - Justin Salmon
+      - Magnus Lankhof-Dahlby
+      - Anders Klemensson
+      - Fanuel Yrga-Alem
+      - Kristian Eggen
+      - Madiodio Dia
+      - Oskar Aron Opsahl
+    coach: Kjell André Thu
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Metodi Maksimov
+      - Simen Haram
+      - Nikolai Hopland
+      - Thomas Grøgaard
+      - Eivind Strømsheim Kolve
+      - Håkon Butli Hammer
+      - Markus Seehusen Karlsbakk
+      - Isaac Atanga
+      - Claudio Braga
+      - David Snær Johannsson
+    subs:
+      - Sebastian Berntsen
+      - Amidou Diop
+      - Kristian Hemmingsen Lonebu
+      - Tor Erik Valderhaug Larsen
+      - John Ruud Norvik
+      - Thomas Gulbrandsen
+      - Tellef Brattberg Ytterland
+    coach: Christian Johnsen
+stats:
+  home:
+    possession: 64
+    shots: 18
+    shotsOnTarget: 13
+    corners: 4
+  away:
+    possession: 36
+    shots: 7
+    shotsOnTarget: 6
+    corners: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +182,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

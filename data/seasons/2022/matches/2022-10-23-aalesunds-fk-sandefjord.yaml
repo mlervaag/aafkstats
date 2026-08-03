@@ -11,13 +11,141 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: sandefjord
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4194
+referee: Espen Eskås
+events:
+  - minute: 42
+    type: yellow_card
+    team: away
+    player: Rufo
+  - minute: 58
+    type: yellow_card
+    team: home
+    player: Dario Canadjija
+  - minute: 66
+    type: substitution
+    team: home
+    player: Gilbert Koomson
+    playerOff: Moses Ebiye
+  - minute: 66
+    type: substitution
+    team: home
+    player: Erikson Lima
+    playerOff: Kristoffer Barmen
+  - minute: 68
+    type: substitution
+    team: away
+    player: Federico Bikoro
+    playerOff: Amer Ordagic
+  - minute: 72
+    type: substitution
+    team: home
+    player: Kristoffer Ødemarksbakken
+    playerOff: Dario Canadjija
+  - minute: 73
+    type: goal
+    team: home
+    player: Gilbert Koomson
+  - minute: 83
+    type: substitution
+    team: away
+    player: Franklin Nyenetue
+    playerOff: Rufo
+  - minute: 83
+    type: substitution
+    team: away
+    player: Albin Winbo
+    playerOff: Deyver Vega
+  - minute: 86
+    type: substitution
+    team: away
+    player: Sivert Gussiås
+    playerOff: Alexander Ruud Tveter
+  - minute: 86
+    type: substitution
+    team: away
+    player: Mats Haakenstad
+    playerOff: Ian Smeulers
+  - minute: 89
+    type: substitution
+    team: home
+    player: Torbjørn Kallevåg
+    playerOff: Simen Bolkan Nordli
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Petar Golubovic
+      - David Fällman
+      - Nikolai Hopland
+      - Simen Rafn
+      - John Kitolano
+      - Kristoffer Barmen
+      - Erlend Segberg
+      - Dario Canadjija
+      - Moses Ebiye
+      - Simen Bolkan Nordli
+    subs:
+      - Erikson Lima
+      - Gilbert Koomson
+      - Kristoffer Ødemarksbakken
+      - Torbjørn Kallevåg
+      - Michael Lansing
+      - Jeppe Arctander Moe
+      - Fredrik Haugen
+      - Oscar Solnørdal
+      - Bjørn Martin Kristensen
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-3-3
+    starters:
+      - Jacob Storevik
+      - Fredrik Mani Pålerud
+      - Quint Jansen
+      - Jesper Taaje
+      - Ian Smeulers
+      - Amer Ordagic
+      - William Albin Kurtovic
+      - Rufo
+      - Deyver Vega
+      - Alexander Ruud Tveter
+      - Mohamed Ofkir
+    subs:
+      - Federico Bikoro
+      - Albin Winbo
+      - Franklin Nyenetue
+      - Mats Haakenstad
+      - Sivert Gussiås
+      - Hugo Keto
+      - Fredrik Flo
+      - Vetle Walle Egeli
+      - Wally Njie
+    coach: Andreas Tegström
+stats:
+  home:
+    possession: 52
+    shots: 9
+    shotsOnTarget: 2
+    corners: 11
+    fouls: 8
+    offsides: 2
+    xg: 1.07
+  away:
+    possession: 48
+    shots: 10
+    shotsOnTarget: 1
+    corners: 4
+    fouls: 8
+    offsides: 2
+    xg: 0.74
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +161,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

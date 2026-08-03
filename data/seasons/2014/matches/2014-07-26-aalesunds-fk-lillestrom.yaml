@@ -11,13 +11,107 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: lillestrom
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 6596
+events:
+  - minute: 12
+    type: yellow_card
+    team: away
+    player: Johan Andersson
+  - minute: 44
+    type: yellow_card
+    team: away
+    player: Simen Kind Mikalsen
+  - minute: 46
+    type: substitution
+    team: home
+    player: Mehdi Karnass
+    playerOff: Jo Nymo Matland
+  - minute: 54
+    type: yellow_card
+    team: home
+    player: Mehdi Karnass
+  - minute: 64
+    type: substitution
+    team: away
+    player: Erik Mjelde
+    playerOff: Johan Andersson
+  - minute: 66
+    type: goal
+    team: home
+    player: Sakari Mattila
+  - minute: 78
+    type: substitution
+    team: away
+    player: Fred Friday
+    playerOff: Erling Knudtzon
+  - minute: 78
+    type: substitution
+    team: away
+    player: Petter Vaagan Moen
+    playerOff: Moryke Fofana
+  - minute: 79
+    type: substitution
+    team: home
+    player: Henrik Roervik Bjoerdal
+    playerOff: Torbjoern Grytten
+  - minute: 89
+    type: goal
+    team: away
+    player: Palmi Rafn Palmason
+    assist: Fred Friday
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Oddbjoern Lie
+      - Jo Nymo Matland
+      - Fredrik Ulvestad
+      - Sakari Mattila
+      - Peter Orry Larsen
+      - Torbjoern Grytten
+      - Mostafa Abdellaoue
+      - Demar Phillips
+    subs:
+      - Mehdi Karnass
+      - Henrik Roervik Bjoerdal
+      - Vebjoern Hoff
+      - Vegard Saetre
+      - Andreas Lie
+      - Thomas Skog Martinussen
+      - Elias Dahlberg
+    coach: Jan Joensson
+  away:
+    formation: 4-4-2
+    starters:
+      - Arnold Origi Otieno
+      - Bjoern Helge Riise
+      - Magnar Oedegaard
+      - Marius Amundsen
+      - Simen Kind Mikalsen
+      - Ohi Anthony Omoijuanfo
+      - Marius Lundemo
+      - Johan Andersson
+      - Moryke Fofana
+      - Palmi Rafn Palmason
+      - Erling Knudtzon
+    subs:
+      - Erik Mjelde
+      - Fred Friday
+      - Petter Vaagan Moen
+      - Stian Ringstad
+      - Joachim Osvold
+      - Jacob Faye Lund
+    coach: Magnus Haglund
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +127,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

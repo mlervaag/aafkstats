@@ -11,13 +11,128 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: fk-haugesund
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5660
+events:
+  - minute: 36
+    type: yellow_card
+    team: home
+    player: Akeem Latifu
+  - minute: 40
+    type: goal
+    team: home
+    player: Peter Orry Larsen
+    assist: Aron Elis Thrándarson
+  - minute: 45
+    type: goal
+    team: home
+    player: Michael Barrantes
+  - minute: 48
+    type: substitution
+    team: home
+    player: Helge Sandvik
+    playerOff: Andreas Lie
+  - minute: 62
+    type: substitution
+    team: away
+    player: Michael Haukås
+    playerOff: Joakim Våge Nilsen
+  - minute: 68
+    type: goal
+    team: away
+    player: Simon Diedhiou
+    assist: Christian Gytkjær
+  - minute: 71
+    type: substitution
+    team: home
+    player: Torbjørn Grytten
+    playerOff: Aron Elis Thrándarson
+  - minute: 72
+    type: yellow_card
+    team: away
+    player: Roope Riski
+  - minute: 74
+    type: yellow_card
+    team: away
+    player: Simon Diedhiou
+  - minute: 80
+    type: substitution
+    team: away
+    player: Alexander Stølås
+    playerOff: Roope Riski
+  - minute: 83
+    type: yellow_card
+    team: away
+    player: Michael Haukås
+  - minute: 85
+    type: substitution
+    team: home
+    player: Vebjørn Hoff
+    playerOff: Michael Barrantes
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Andreas Lie
+      - Akeem Latifu
+      - Edvard Skagestad
+      - Mikael Dyrestam
+      - Oddbjørn Lie
+      - Henrik Rørvik Bjørdal
+      - Peter Orry Larsen
+      - Sakari Mattila
+      - Aron Elis Thrándarson
+      - Michael Barrantes
+      - Leke James
+    subs:
+      - Helge Sandvik
+      - Torbjørn Grytten
+      - Vebjørn Hoff
+      - Carl Björk
+      - Daniel Gretarsson
+      - Jo Nymo Matland
+      - Mostafa Abdellaoue
+    coach: Trond Fredriksen
+  away:
+    formation: 4-4-2
+    starters:
+      - Per Kristian Bråtveit
+      - Kristoffer Haraldseid
+      - Vegard Skjerve
+      - Dusan Cvetinovic
+      - David Myrestam
+      - Daniel Bamberg
+      - Joakim Våge Nilsen
+      - Patrick Olsen
+      - Roope Riski
+      - Simon Diedhiou
+      - Christian Gytkjær
+    subs:
+      - Michael Haukås
+      - Alexander Stølås
+      - Erling Myklebust
+      - Martin Bjørnbak
+      - Mirko Kramaric
+      - Per Morten Kristiansen
+      - Tor André Aasheim
+    coach: Jostein Grindhaug
+stats:
+  home:
+    possession: 47
+    shots: 19
+    shotsOnTarget: 4
+    corners: 5
+  away:
+    possession: 53
+    shots: 12
+    shotsOnTarget: 4
+    corners: 10
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +148,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

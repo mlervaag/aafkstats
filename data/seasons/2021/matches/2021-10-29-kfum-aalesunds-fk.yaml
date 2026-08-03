@@ -11,13 +11,156 @@ competition:
 home:
   clubId: kfum
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: kfum-arena
 neutralVenue: false
-events: []
+attendance: 435
+events:
+  - minute: 25
+    type: goal
+    team: away
+    player: Kristoffer Ødemarksbakken
+    assist: Simen Bolkan Nordli
+  - minute: 30
+    type: goal
+    team: home
+    player: Bilal Njie
+    assist: Johannes Hummelvoll-Nunez
+  - minute: 38
+    type: goal
+    team: home
+    player: Jesper Taaje
+    assist: Keivan Ghaedamini
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Jørgen Hammer
+  - minute: 46
+    type: substitution
+    team: away
+    player: Nikolai Hopland
+    playerOff: Erikson Lima
+  - minute: 46
+    type: substitution
+    team: away
+    player: Niklas Castro
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 49
+    type: goal
+    team: away
+    player: Sigurd Haugen
+  - minute: 59
+    type: goal
+    team: away
+    player: Simen Bolkan Nordli
+    assist: Niklas Castro
+  - minute: 61
+    type: substitution
+    team: home
+    player: Dadi Dodou Gaye
+    playerOff: Fredrik Kristensen Dahl
+  - minute: 71
+    type: goal
+    team: away
+    player: Torbjørn Kallevåg
+    assist: Niklas Castro
+  - minute: 75
+    type: substitution
+    team: home
+    player: Philip Romsaas
+    playerOff: Alagie Sanyang
+  - minute: 75
+    type: substitution
+    team: home
+    player: Christopher Lindquist
+    playerOff: Bilal Njie
+  - minute: 75
+    type: yellow_card
+    team: home
+    player: Marius Svanberg Alm
+  - minute: 76
+    type: substitution
+    team: home
+    player: David Tavakoli
+    playerOff: Johannes Hummelvoll-Nunez
+  - minute: 82
+    type: substitution
+    team: home
+    player: Mohammed Mahnin
+    playerOff: Tore André Sørås
+  - minute: 90
+    type: substitution
+    team: away
+    player: Isak Dybvik Määttä
+    playerOff: Simen Bolkan Nordli
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: away
+    player: Mamadou Diaw
+    playerOff: Torbjørn Kallevåg
+lineups:
+  home:
+    formation: 3-4-3
+    starters:
+      - Emil Ødegaard
+      - Jesper Taaje
+      - Marius Svanberg Alm
+      - Aaron Kiil Olsen
+      - Keivan Ghaedamini
+      - Jørgen Hammer
+      - Tore André Sørås
+      - Fredrik Kristensen Dahl
+      - Alagie Sanyang
+      - Johannes Hummelvoll-Nunez
+      - Bilal Njie
+    subs:
+      - Dadi Dodou Gaye
+      - Christopher Lindquist
+      - Philip Romsaas
+      - David Tavakoli
+      - Mohammed Mahnin
+      - Jonas Vatne Brauti
+      - Kristian Solberg Aarstad
+    coach: Jørgen Isnes
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Simen Rafn
+      - Quint Jansen
+      - David Fällman
+      - David Kristjan Olafsson
+      - Erikson Lima
+      - Erlend Segberg
+      - Kristoffer Ødemarksbakken
+      - Torbjørn Kallevåg
+      - Simen Bolkan Nordli
+      - Sigurd Haugen
+    subs:
+      - Nikolai Hopland
+      - Niklas Castro
+      - Isak Dybvik Määttä
+      - Mamadou Diaw
+      - Andreas Lie
+      - Jørgen Hatlehol
+      - Muamer Brajanac
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 49
+    shots: 9
+    shotsOnTarget: 4
+    corners: 8
+  away:
+    possession: 51
+    shots: 13
+    shotsOnTarget: 7
+    corners: 4
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +176,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

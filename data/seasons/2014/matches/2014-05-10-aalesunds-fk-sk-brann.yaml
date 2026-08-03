@@ -11,13 +11,117 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: sk-brann
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 7198
+events:
+  - minute: 20
+    type: substitution
+    team: home
+    player: Tor Hogne Aaroey
+    playerOff: Torbjoern Grytten
+  - minute: 37
+    type: goal
+    team: away
+    player: Andreas Vindheim
+    assist: Hassan El Fakiri
+  - minute: 46
+    type: yellow_card
+    team: away
+    player: Kristoffer Barmen
+  - minute: 54
+    type: substitution
+    team: home
+    player: Demar Phillips
+    playerOff: Hugues Wembangomo
+  - minute: 58
+    type: yellow_card
+    team: away
+    player: Daniel Mojsov
+  - minute: 65
+    type: substitution
+    team: away
+    player: Erik Huseklepp
+    playerOff: Kristoffer Barmen
+  - minute: 70
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Henrik Roervik Bjoerdal
+  - minute: 70
+    type: substitution
+    team: away
+    player: Kristoffer Larsen
+    playerOff: Amin Askar
+  - minute: 74
+    type: yellow_card
+    team: home
+    player: Michael Barrantes
+  - minute: 80
+    type: substitution
+    team: away
+    player: Birkir Saevarsson
+    playerOff: Fredrik Haugen
+  - minute: 85
+    type: yellow_card
+    team: home
+    player: Sakari Mattila
+  - minute: 87
+    type: yellow_card
+    team: away
+    player: Piotr Leciejewski
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Oddbjoern Lie
+      - Jonatan Tollaas Nation
+      - Hugues Wembangomo
+      - Michael Barrantes
+      - Fredrik Ulvestad
+      - Sakari Mattila
+      - Henrik Roervik Bjoerdal
+      - Torbjoern Grytten
+      - Tremaine Stewart
+    subs:
+      - Tor Hogne Aaroey
+      - Demar Phillips
+      - Peter Orry Larsen
+      - Vebjoern Hoff
+      - Fredrik Carlsen
+      - Andreas Lie
+      - Jo Nymo Matland
+    coach: Jan Joensson
+  away:
+    formation: 4-4-2
+    starters:
+      - Piotr Leciejewski
+      - Andreas Vindheim
+      - Jonas Groenner
+      - Daniel Mojsov
+      - Erdin Demir
+      - Amin Askar
+      - Fredrik Haugen
+      - Hassan El Fakiri
+      - Kasper Skaanes
+      - Jakob Orlov
+      - Kristoffer Barmen
+    subs:
+      - Erik Huseklepp
+      - Kristoffer Larsen
+      - Birkir Saevarsson
+      - Haakon Lorentzen
+      - Erland Hanstveit
+      - Ibrahima Drame
+      - Aadne Nissestad
+    coach: Rikard Norling
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +137,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

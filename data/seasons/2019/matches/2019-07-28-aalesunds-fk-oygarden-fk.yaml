@@ -11,13 +11,113 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: oygarden-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 10
+    type: yellow_card
+    team: home
+    player: Fredrik Carlsen
+  - minute: 30
+    type: substitution
+    team: home
+    player: Sondre Brunstad Fet
+    playerOff: Izunna Uzochukwu
+  - minute: 46
+    type: substitution
+    team: away
+    player: Senai Hagos
+    playerOff: Jefferson De Souza
+  - minute: 50
+    type: goal
+    team: home
+    player: Kaj Ramsteijn
+  - minute: 57
+    type: yellow_card
+    team: away
+    player: Elmin Nurkic
+  - minute: 61
+    type: substitution
+    team: away
+    player: Erlend Hellevik Larsen
+    playerOff: Elmin Nurkic
+  - minute: 66
+    type: substitution
+    team: home
+    player: Jernade Meade
+    playerOff: Jørgen Hatlehol
+  - minute: 69
+    type: substitution
+    team: away
+    player: Jo Sondre Aas
+    playerOff: Jonas Hestetun
+  - minute: 72
+    type: substitution
+    team: home
+    player: Erikson Lima
+    playerOff: Fredrik Carlsen
+  - minute: 81
+    type: yellow_card
+    team: home
+    player: David Kristjan Olafsson
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Sondre Brunstad Fet
+  - minute: 90
+    type: penalty_goal
+    team: home
+    player: Niklas Castro
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Daniel Gretarsson
+      - Jonas Grønner
+      - Jørgen Hatlehol
+      - Aron Elis Thrándarson
+      - Izunna Uzochukwu
+      - Fredrik Carlsen
+      - David Kristjan Olafsson
+      - Pape Habib Gueye
+      - Niklas Castro
+    subs:
+      - Sondre Brunstad Fet
+      - Jernade Meade
+      - Erikson Lima
+      - Kristoffer Hay
+      - Ståle Steen Sæthre
+      - Tarjei Aase Omenås
+      - Torbjørn Agdestein
+    coach: Lars Bohinen
+  away:
+    formation: 3-5-2
+    starters:
+      - Renze Fij
+      - Izuchukwu Anthony
+      - Daniel Arrocha
+      - Jonas Hestetun
+      - Andreas Hoven
+      - Mads Sande
+      - Kristoffer Nesse Stephensen
+      - Elmin Nurkic
+      - Bjarte Haugsdal
+      - Marcus Mehnert
+      - Jefferson De Souza
+    subs:
+      - Senai Hagos
+      - Erlend Hellevik Larsen
+      - Jo Sondre Aas
+      - Markus Pettersen
+      - Thor Kristian Økland
+    coach: Steffen Landro
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +133,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,127 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 7
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: lillestrom
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 7270
+events:
+  - minute: 2
+    type: own_goal
+    team: home
+    player: Isak Scheel
+  - minute: 6
+    type: goal
+    team: away
+    player: Ohi Anthony Omoijuanfo
+  - minute: 29
+    type: substitution
+    team: home
+    player: Thomas Skog Martinussen
+    playerOff: Andreas Nordvik
+  - minute: 41
+    type: goal
+    team: home
+    player: Leke James
+  - minute: 42
+    type: yellow_card
+    team: away
+    player: Kenneth Udjus
+  - minute: 45
+    type: goal
+    team: home
+    player: Fredrik Ulvestad
+  - minute: 59
+    type: goal
+    team: home
+    player: Fredrik Carlsen
+  - minute: 67
+    type: substitution
+    team: home
+    player: Christian Myklebust
+    playerOff: Jason Morrison
+  - minute: 69
+    type: penalty_goal
+    team: home
+    player: Abderrazak Hamdallah
+  - minute: 72
+    type: substitution
+    team: away
+    player: Markus Furseth
+    playerOff: Fredrik Gulbrandsen
+  - minute: 73
+    type: substitution
+    team: away
+    player: Joachim Osvold
+    playerOff: Moryke Fofana
+  - minute: 77
+    type: goal
+    team: home
+    player: Abderrazak Hamdallah
+  - minute: 81
+    type: substitution
+    team: home
+    player: Henrik Rørvik Bjørdal
+    playerOff: Michael Barrantes
+  - minute: 82
+    type: goal
+    team: home
+    player: Abderrazak Hamdallah
+  - minute: 90
+    type: substitution
+    team: away
+    player: Simen Nordermoen
+    playerOff: Johan Andersson
+lineups:
+  home:
+    formation: 5-3-2
+    starters:
+      - Sten Michael Grytebust
+      - Hugues Wembangomo
+      - Jonatan Tollås Nation
+      - Edvard Skagestad
+      - Andreas Nordvik
+      - Jason Morrison
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Fredrik Carlsen
+      - Leke James
+      - Abderrazak Hamdallah
+    subs:
+      - Thomas Skog Martinussen
+      - Christian Myklebust
+      - Henrik Rørvik Bjørdal
+      - Lars Fuhre
+      - Daniel Stensøe
+      - Tor Hogne Aarøy
+      - Lasse Staw
+    coach: Jan Jönsson
+  away:
+    formation: 4-4-2
+    starters:
+      - Kenneth Udjus
+      - Isak Scheel
+      - Anders Østli
+      - Marius Christopher Høibråten
+      - Johan Andersson
+      - Palmi Rafn Palmason
+      - Bjørn Helge Riise
+      - Erik Mjelde
+      - Ohi Anthony Omoijuanfo
+      - Fredrik Gulbrandsen
+      - Moryke Fofana
+    subs:
+      - Markus Furseth
+      - Joachim Osvold
+      - Simen Nordermoen
+      - Ruben Gabrielsen
+      - Joakim Holmedal
+      - Jacob Faye Lund
+    coach: Magnus Haglund
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +147,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

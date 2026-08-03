@@ -11,13 +11,159 @@ competition:
 home:
   clubId: valerenga
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: intility-arena
 neutralVenue: false
-events: []
+attendance: 7407
+referee: Ali Al Hatam
+events:
+  - minute: 12
+    type: yellow_card
+    team: away
+    player: Mads Nielsen
+  - minute: 13
+    type: penalty_goal
+    team: home
+    player: Henrik Rørvik Bjørdal
+  - minute: 17
+    type: goal
+    team: home
+    player: Mees Rijks
+    assist: Magnus Bech Riisnæs
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Christian Dahle Borchgrevink
+  - minute: 46
+    type: substitution
+    team: away
+    player: Marcus Rafferty
+    playerOff: Henrik Melland
+  - minute: 62
+    type: goal
+    team: away
+    player: David Snær Johannsson
+    assist: Claudio Braga
+  - minute: 63
+    type: yellow_card
+    team: away
+    player: Janus Seehusen
+  - minute: 70
+    type: substitution
+    team: away
+    player: Paul Ngongo Iversen
+    playerOff: Sander Hestetun Kilen
+  - minute: 72
+    type: substitution
+    team: home
+    player: Vegar Eggen Hedenstad
+    playerOff: Christian Dahle Borchgrevink
+  - minute: 72
+    type: substitution
+    team: home
+    player: Carl Lange
+    playerOff: Elias Hagen
+  - minute: 72
+    type: substitution
+    team: home
+    player: Petter Strand
+    playerOff: Jones El-Abdellaoui
+  - minute: 76
+    type: goal
+    team: home
+    player: Mees Rijks
+    assist: Simen Kristiansen Juklerød
+  - minute: 80
+    type: substitution
+    team: home
+    player: Filip Thorvaldsen
+    playerOff: Henrik Rørvik Bjørdal
+  - minute: 87
+    type: substitution
+    team: home
+    player: Ola Kamara
+    playerOff: Mees Rijks
+  - minute: 90
+    type: substitution
+    team: away
+    player: John Kitolano
+    playerOff: Kristoffer Nessø
+  - minute: 90
+    type: substitution
+    team: away
+    player: John Ruud Norvik
+    playerOff: Thomas Grøgaard
+  - minute: 90
+    type: goal
+    team: home
+    player: Petter Strand
+    assist: Fidel Brice Ambina
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Magnus Smelhus Sjøeng
+      - Christian Dahle Borchgrevink
+      - Aaron Kiil Olsen
+      - Sebastian Jarl
+      - Simen Kristiansen Juklerød
+      - Henrik Rørvik Bjørdal
+      - Fidel Brice Ambina
+      - Elias Hagen
+      - Jones El-Abdellaoui
+      - Mees Rijks
+      - Magnus Bech Riisnæs
+    subs:
+      - Vegar Eggen Hedenstad
+      - Carl Lange
+      - Petter Strand
+      - Filip Thorvaldsen
+      - Ola Kamara
+      - Jacob Storevik
+      - Aleksander Hammer Kjelsen
+      - Nathan Fasika
+      - Muamer Brajanac
+    coach: Geir Bakke
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Gülstorff
+      - Vinko Medimorec
+      - Mads Nielsen
+      - Sam Rogers
+      - Kristoffer Nessø
+      - Janus Seehusen
+      - Henrik Melland
+      - David Snær Johannsson
+      - Thomas Grøgaard
+      - Claudio Braga
+      - Sander Hestetun Kilen
+    subs:
+      - Marcus Rafferty
+      - Paul Ngongo Iversen
+      - John Kitolano
+      - John Ruud Norvik
+      - Tor Erik Valderhaug Larsen
+      - Stian Aarønes Holte
+      - Bjørn Martin Kristensen
+      - Martin Ramsland
+      - Noah Solskjær
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 48
+    shots: 6
+    shotsOnTarget: 6
+    corners: 10
+  away:
+    possession: 52
+    shots: 1
+    shotsOnTarget: 1
+    corners: 6
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +179,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

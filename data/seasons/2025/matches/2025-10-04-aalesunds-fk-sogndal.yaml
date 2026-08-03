@@ -11,13 +11,125 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: sogndal
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 3965
+referee: Steinar Hauge
+events:
+  - minute: 25
+    type: yellow_card
+    team: away
+    player: Tuomas Pippola
+  - minute: 30
+    type: penalty_goal
+    team: home
+    player: Paul Ngongo Iversen
+  - minute: 33
+    type: yellow_card
+    team: home
+    player: Janus Seehusen
+  - minute: 44
+    type: yellow_card
+    team: home
+    player: Paul Ngongo Iversen
+  - minute: 56
+    type: goal
+    team: home
+    player: Kristian Hemmingsen Lonebu
+    assist: Janus Seehusen
+  - minute: 65
+    type: substitution
+    team: home
+    player: David Snær Johannsson
+    playerOff: Henrik Melland
+  - minute: 67
+    type: substitution
+    team: away
+    player: Preben Asp
+    playerOff: Oliver Hintsa
+  - minute: 67
+    type: substitution
+    team: away
+    player: Martin André Sjølstad
+    playerOff: Martin Høyland
+  - minute: 70
+    type: substitution
+    team: home
+    player: Elias Heggland Myrlid
+    playerOff: Kristian Hemmingsen Lonebu
+  - minute: 73
+    type: yellow_card
+    team: home
+    player: David Snær Johannsson
+  - minute: 86
+    type: red_card
+    team: home
+    player: Paul Ngongo Iversen
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Nikolai Skuseth
+      - Kristoffer Nessø
+      - Janus Seehusen
+      - Håkon Butli Hammer
+      - Henrik Melland
+      - Jakob Nyland Ørsahl
+      - Kristian Hemmingsen Lonebu
+      - Paul Ngongo Iversen
+    subs:
+      - David Snær Johannsson
+      - Elias Heggland Myrlid
+      - Tor Erik Valderhaug Larsen
+      - Erik Frøysa
+      - Jørgen Bøe
+      - John Kitolano
+      - Olafur Gudmundsson
+      - Frederik Heiselberg
+      - Tellef Brattberg Ytterland
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-1-3-2
+    starters:
+      - Daniel Gjerde Sætren
+      - Diogo Bras
+      - Sander Aske Granheim
+      - Per Egil Flo
+      - Jacob Blixt Flaten
+      - Martin Høyland
+      - Tuomas Pippola
+      - Kasper Skaanes
+      - Lukass Vapne
+      - Oliver Hintsa
+      - Sebastian Pedersen
+    subs:
+      - Martin André Sjølstad
+      - Preben Asp
+      - Ard Ragnar Sundal
+      - Andreas Kalstad
+      - Marius Årøy
+      - Joakim Berg Nundal
+      - Vegard Haugerud Hagen
+    coach: Luis Pimenta
+stats:
+  home:
+    possession: 41
+    shots: 6
+    shotsOnTarget: 5
+    corners: 6
+  away:
+    possession: 59
+    shots: 11
+    shotsOnTarget: 3
+    corners: 4
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +145,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

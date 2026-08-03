@@ -11,13 +11,132 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: sogndal
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 22
+    type: substitution
+    team: home
+    player: Izunna Uzochukwu
+    playerOff: Fredrik Carlsen
+  - minute: 41
+    type: yellow_card
+    team: home
+    player: Jonas Grønner
+  - minute: 51
+    type: yellow_card
+    team: home
+    player: Holmbert Aron Fridjonsson
+  - minute: 52
+    type: goal
+    team: away
+    player: Eirik Schulze
+    assist: Martin Ramsland
+  - minute: 62
+    type: substitution
+    team: home
+    player: Sondre Brunstad Fet
+    playerOff: Jernade Meade
+  - minute: 64
+    type: yellow_card
+    team: away
+    player: Ole Amund Sveen
+  - minute: 71
+    type: yellow_card
+    team: away
+    player: Mathias Dyngeland
+  - minute: 72
+    type: substitution
+    team: home
+    player: Pape Habib Gueye
+    playerOff: Torbjørn Agdestein
+  - minute: 82
+    type: yellow_card
+    team: away
+    player: Martin Ramsland
+  - minute: 88
+    type: goal
+    team: home
+    player: Aron Elis Thrándarson
+    assist: Jørgen Hatlehol
+  - minute: 90
+    type: substitution
+    team: away
+    player: Joachim Soltvedt
+    playerOff: Ole Martin Rindarøy
+  - minute: 90
+    type: substitution
+    team: away
+    player: Sigurd Haugen
+    playerOff: Martin Roseth
+  - minute: 90
+    type: goal
+    team: home
+    player: Niklas Castro
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Niklas Castro
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Per-Magnus Steiring
+  - minute: 90
+    type: penalty_goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Jørgen Hatlehol
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Niklas Castro
+      - Jernade Meade
+      - Holmbert Aron Fridjonsson
+      - Torbjørn Agdestein
+    subs:
+      - Izunna Uzochukwu
+      - Sondre Brunstad Fet
+      - Pape Habib Gueye
+      - Erikson Lima
+      - Ståle Steen Sæthre
+      - Tarjei Aase Omenås
+      - Tega George
+    coach: Lars Bohinen
+  away:
+    formation: 4-4-2
+    starters:
+      - Mathias Dyngeland
+      - Tomas Totland
+      - Per-Magnus Steiring
+      - Martin Roseth
+      - Ole Martin Rindarøy
+      - Eirik Birkelund
+      - Ulrik Fredriksen
+      - Eirik Schulze
+      - Sivert Heggheim Mannsverk
+      - Martin Ramsland
+      - Ole Amund Sveen
+    subs:
+      - Joachim Soltvedt
+      - Sigurd Haugen
+      - Alioune Ndour
+      - Eivind Helgesen
+      - Håvard Hetle
+      - Sixten Jensen
+      - Steffen Ernemann
+    coach: Eirik Bakke
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +152,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

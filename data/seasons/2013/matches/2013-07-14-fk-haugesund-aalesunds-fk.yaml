@@ -11,13 +11,121 @@ competition:
 home:
   clubId: fk-haugesund
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: haugesund-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 25
+    type: goal
+    team: away
+    player: Peter Orry Larsen
+    assist: Jo Nymo Matland
+  - minute: 34
+    type: goal
+    team: home
+    player: Daniel Bamberg
+  - minute: 39
+    type: yellow_card
+    team: away
+    player: Demar Phillips
+  - minute: 46
+    type: substitution
+    team: away
+    player: Andreas Nordvik
+    playerOff: Thomas Skog Martinussen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Lars Fuhre
+    playerOff: Demar Phillips
+  - minute: 60
+    type: substitution
+    team: home
+    player: Pontus Engblom
+    playerOff: Henrik Kjelsrud Johansen
+  - minute: 60
+    type: goal
+    team: away
+    player: Fredrik Carlsen
+    assist: Abderrazak Hamdallah
+  - minute: 64
+    type: yellow_card
+    team: home
+    player: Michael Haukås
+  - minute: 72
+    type: substitution
+    team: home
+    player: Kristoffer Haraldseid
+    playerOff: Daniel Bamberg
+  - minute: 75
+    type: substitution
+    team: home
+    player: Joakim Våge Nilsen
+    playerOff: David Myrestam
+  - minute: 85
+    type: yellow_card
+    team: away
+    player: Leke James
+  - minute: 89
+    type: substitution
+    team: away
+    player: Christian Myklebust
+    playerOff: Abderrazak Hamdallah
+  - minute: 90
+    type: red_card
+    team: home
+    player: Michael Haukås
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Christian Gytkjær
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Per Morten Kristiansen
+      - Henrik Kildentoft
+      - Vegard Skjerve
+      - Umaru Bangura
+      - David Myrestam
+      - Daniel Bamberg
+      - Trygve Nygaard
+      - Michael Haukås
+      - Tor Arne Andreassen
+      - Christian Gytkjær
+      - Henrik Kjelsrud Johansen
+    subs:
+      - Pontus Engblom
+      - Kristoffer Haraldseid
+      - Joakim Våge Nilsen
+      - Martin Bjørnbak
+      - Olav Dalen
+    coach: Jostein Grindhaug
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Thomas Skog Martinussen
+      - Jonatan Tollås Nation
+      - Edvard Skagestad
+      - Jo Nymo Matland
+      - Peter Orry Larsen
+      - Fredrik Carlsen
+      - Fredrik Ulvestad
+      - Demar Phillips
+      - Abderrazak Hamdallah
+      - Leke James
+    subs:
+      - Andreas Nordvik
+      - Lars Fuhre
+      - Christian Myklebust
+      - Henrik Rørvik Bjørdal
+      - Lasse Staw
+    coach: Jan Jönsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +141,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

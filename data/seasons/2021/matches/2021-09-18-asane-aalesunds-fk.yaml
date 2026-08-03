@@ -11,13 +11,167 @@ competition:
 home:
   clubId: asane
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 6
-  halfTimeScore: null
+  halfTimeScore: 4
+venueId: myrdal-gress
 neutralVenue: false
-events: []
+attendance: 375
+events:
+  - minute: 3
+    type: goal
+    team: home
+    player: Håkon Lorentzen
+    assist: Stian Bogetveit Nygard
+  - minute: 17
+    type: goal
+    team: away
+    player: David Kristjan Olafsson
+    assist: Erlend Segberg
+  - minute: 24
+    type: goal
+    team: away
+    player: Kristoffer Ødemarksbakken
+    assist: Quint Jansen
+  - minute: 31
+    type: goal
+    team: away
+    player: Sigurd Haugen
+    assist: David Kristjan Olafsson
+  - minute: 36
+    type: yellow_card
+    team: home
+    player: Martin Ueland
+  - minute: 39
+    type: substitution
+    team: home
+    player: Emil Kalsaas
+    playerOff: Sindre Austevoll
+  - minute: 40
+    type: goal
+    team: away
+    player: Sigurd Haugen
+    assist: Simen Bolkan Nordli
+  - minute: 40
+    type: yellow_card
+    team: home
+    player: Emil Kalsaas
+  - minute: 46
+    type: substitution
+    team: away
+    player: Kristoffer Barmen
+    playerOff: Quint Jansen
+  - minute: 55
+    type: yellow_card
+    team: away
+    player: Erikson Lima
+  - minute: 60
+    type: substitution
+    team: away
+    player: Torbjørn Kallevåg
+    playerOff: Niklas Castro
+  - minute: 60
+    type: substitution
+    team: away
+    player: Isak Dybvik Maeaettae
+    playerOff: Simen Bolkan Nordli
+  - minute: 60
+    type: substitution
+    team: home
+    player: Senai Hagos
+    playerOff: Jonas Eide Vågen
+  - minute: 69
+    type: substitution
+    team: home
+    player: Erlend Hellevik Larsen
+    playerOff: Senai Hagos
+  - minute: 71
+    type: substitution
+    team: away
+    player: Muamer Brajanac
+    playerOff: Sigurd Haugen
+  - minute: 78
+    type: substitution
+    team: away
+    player: Nikolai Hopland
+    playerOff: David Fällman
+  - minute: 78
+    type: goal
+    team: away
+    player: Torbjørn Kallevåg
+    assist: Kristoffer Ødemarksbakken
+  - minute: 85
+    type: yellow_card
+    team: away
+    player: David Kristjan Olafsson
+  - minute: 88
+    type: goal
+    team: away
+    player: Isak Dybvik Maeaettae
+    assist: Torbjørn Kallevåg
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Eirik Østgaard
+      - Bjarte Haugsdal
+      - Sindre Austevoll
+      - Eirik Wollen Steen
+      - Jonas Eide Vågen
+      - Stian Bogetveit Nygard
+      - Didrik Fredriksen
+      - Martin Ueland
+      - Sondre Auklend
+      - Joakim Hammersland
+      - Håkon Lorentzen
+    subs:
+      - Emil Kalsaas
+      - Senai Hagos
+      - Erlend Hellevik Larsen
+      - Mark Jensen
+      - Henrik Gjerde Ødemark
+      - Jonas Fredriksen
+      - Ryan Doghman
+      - Ole Kallevåg
+      - Tomas Kristoffersen
+    coach: Morten Røssland
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Simen Rafn
+      - Quint Jansen
+      - David Fällman
+      - David Kristjan Olafsson
+      - Erikson Lima
+      - Erlend Segberg
+      - Kristoffer Ødemarksbakken
+      - Niklas Castro
+      - Simen Bolkan Nordli
+      - Sigurd Haugen
+    subs:
+      - Kristoffer Barmen
+      - Isak Dybvik Maeaettae
+      - Torbjørn Kallevåg
+      - Muamer Brajanac
+      - Nikolai Hopland
+      - Enock Mwimba
+      - Jonas Grønner
+      - Jørgen Hatlehol
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 57
+    shots: 8
+    shotsOnTarget: 5
+    corners: 7
+  away:
+    possession: 43
+    shots: 20
+    shotsOnTarget: 13
+    corners: 8
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +187,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

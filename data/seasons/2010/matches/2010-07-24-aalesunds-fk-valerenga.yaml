@@ -1,0 +1,134 @@
+id: 2010-07-24-aalesunds-fk-valerenga
+date: 2010-07-24
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: eliteserien
+  season: 2010
+  stage: regular_season
+  round: 18
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: valerenga
+  score: 0
+  halfTimeScore: 0
+venueId: color-line-stadion
+neutralVenue: false
+events:
+  - minute: 12
+    type: substitution
+    team: away
+    player: Amin Nouri
+    playerOff: Freddy dos Santos
+  - minute: 38
+    type: yellow_card
+    team: home
+    player: Enar Jääger
+  - minute: 44
+    type: yellow_card
+    team: away
+    player: Morten Berre
+  - minute: 64
+    type: substitution
+    team: away
+    player: Bengt Sæternes
+    playerOff: Luton Shelton
+  - minute: 66
+    type: substitution
+    team: home
+    player: Trond Fredriksen
+    playerOff: Fredrik Carlsen
+  - minute: 74
+    type: yellow_card
+    team: away
+    player: Mohammed Fellah
+  - minute: 76
+    type: substitution
+    team: away
+    player: Mostafa Abdellaoue
+    playerOff: Morten Berre
+  - minute: 90
+    type: substitution
+    team: home
+    player: Didrik Fløtre
+    playerOff: Alexander Mathisen
+  - minute: 90
+    type: goal
+    team: home
+    player: Alexander Mathisen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Anders Lindegaard
+      - Enar Jääger
+      - Ville Jalasto
+      - Daniel Arnefjord
+      - Jonathan Parr
+      - Johan Arneng
+      - Peter Orry Larsen
+      - Fredrik Carlsen
+      - Alexander Mathisen
+      - Demar Phillips
+      - Tor Hogne Aarøy
+    subs:
+      - Trond Fredriksen
+      - Didrik Fløtre
+      - Dan Peter Ulvestad
+      - Fredrik Ulvestad
+      - Jonatan Tollås Nation
+      - Pablo Herrera
+      - Sten Michael Grytebust
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Lars Hirschfeld
+      - Freddy dos Santos
+      - André Muri
+      - Stefan Strandberg
+      - Andreas Nordvik
+      - Harmeet Singh
+      - Bojan Zajic
+      - Morten Berre
+      - Mohammed Fellah
+      - Luton Shelton
+      - Mohammed Abdellaoue
+    subs:
+      - Amin Nouri
+      - Bengt Sæternes
+      - Mostafa Abdellaoue
+      - Frode Larsen
+      - Lars Iver Strand
+    coach: Martin Andresen
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/valerenga-vs-aalesund/286lhq#761860
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "761860"
+manual: []

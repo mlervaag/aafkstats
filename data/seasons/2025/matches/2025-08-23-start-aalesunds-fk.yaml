@@ -11,13 +11,148 @@ competition:
 home:
   clubId: start
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: sparebanken-norge-arena-kristiansand
 neutralVenue: false
-events: []
+referee: Eivind Bodding
+events:
+  - minute: 33
+    type: goal
+    team: home
+    player: Håkon Lorentzen
+    assist: Eirik Schulze
+  - minute: 46
+    type: substitution
+    team: home
+    player: Sebastian Griesbeck
+    playerOff: Altin Ujkani
+  - minute: 46
+    type: substitution
+    team: away
+    player: Frederik Heiselberg
+    playerOff: Elias Heggland Myrlid
+  - minute: 65
+    type: goal
+    team: home
+    player: Eirik Schulze
+    assist: Håkon Lorentzen
+  - minute: 65
+    type: yellow_card
+    team: away
+    player: Sten Michael Grytebust
+  - minute: 69
+    type: yellow_card
+    team: away
+    player: Frederik Heiselberg
+  - minute: 70
+    type: goal
+    team: home
+    player: Sebastian Griesbeck
+    assist: John Olav Norheim
+  - minute: 75
+    type: substitution
+    team: home
+    player: Sander Sjökvist
+    playerOff: Fredrik Mani Pålerud
+  - minute: 75
+    type: substitution
+    team: away
+    player: Marius Andresen
+    playerOff: Kristoffer Nessø
+  - minute: 75
+    type: substitution
+    team: away
+    player: Kristian Hemmingsen Lonebu
+    playerOff: Paul Ngongo Iversen
+  - minute: 75
+    type: substitution
+    team: away
+    player: Olafur Gudmundsson
+    playerOff: Henrik Melland
+  - minute: 79
+    type: yellow_card
+    team: away
+    player: Håkon Butli Hammer
+  - minute: 82
+    type: substitution
+    team: away
+    player: Erik Frøysa
+    playerOff: Jakob Nyland Ørsahl
+  - minute: 88
+    type: goal
+    team: away
+    player: David Snær Johannsson
+    assist: Kristian Hemmingsen Lonebu
+  - minute: 90
+    stoppage: 1
+    type: substitution
+    team: home
+    player: Ahmed Adebayo
+    playerOff: Lukas Hjelleset Gausdal
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Jacob Pryts
+      - Sivert Hansen
+      - John Olav Norheim
+      - Altin Ujkani
+      - Fredrik Mani Pålerud
+      - Steve Mvoué
+      - Markus Soomets
+      - Lukas Hjelleset Gausdal
+      - Tom Strannegård
+      - Eirik Schulze
+      - Håkon Lorentzen
+    subs:
+      - Sebastian Griesbeck
+      - Sander Sjökvist
+      - Ahmed Adebayo
+      - Storm Strand-Kolbjørnsen
+      - Benjamin Sundo
+      - Deni Dashaev
+      - Omar Jebali
+      - Adrian Eftestad Nilsen
+      - Emmanuel Gono
+    coach: Azar Karadas
+  away:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - John Kitolano
+      - Kristoffer Nessø
+      - Mathias Christensen
+      - Håkon Butli Hammer
+      - Henrik Melland
+      - Jakob Nyland Ørsahl
+      - Paul Ngongo Iversen
+      - Elias Heggland Myrlid
+    subs:
+      - Frederik Heiselberg
+      - Olafur Gudmundsson
+      - Marius Andresen
+      - Kristian Hemmingsen Lonebu
+      - Erik Frøysa
+      - Tor Erik Valderhaug Larsen
+      - David Snær Johannsson
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 47
+    shots: 6
+    shotsOnTarget: 5
+    corners: 4
+  away:
+    possession: 53
+    shots: 10
+    shotsOnTarget: 4
+    corners: 7
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +168,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

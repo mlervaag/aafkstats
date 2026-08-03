@@ -11,13 +11,108 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: molde-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 9386
+events:
+  - minute: 14
+    type: yellow_card
+    team: away
+    player: Daniel Chima
+  - minute: 33
+    type: goal
+    team: away
+    player: Vegard Forren
+  - minute: 36
+    type: substitution
+    team: away
+    player: Agnaldo
+    playerOff: Fredrik Gulbrandsen
+  - minute: 48
+    type: yellow_card
+    team: home
+    player: Akeem Latifu
+  - minute: 55
+    type: substitution
+    team: home
+    player: Torbjoern Grytten
+    playerOff: Henrik Roervik Bjoerdal
+  - minute: 62
+    type: yellow_card
+    team: away
+    player: Harmeet Singh
+  - minute: 66
+    type: substitution
+    team: home
+    player: Jo Nymo Matland
+    playerOff: Akeem Latifu
+  - minute: 76
+    type: substitution
+    team: home
+    player: Tor Hogne Aaroey
+    playerOff: Sakari Mattila
+  - minute: 81
+    type: substitution
+    team: away
+    player: Etzaz Hussain
+    playerOff: Mattias Mostroem
+  - minute: 89
+    type: substitution
+    team: away
+    player: Per Egil Flo
+    playerOff: Mohamed Elyounoussi
+lineups:
+  home:
+    formation: 4-5-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Mikael Dyrestam
+      - Oddbjoern Lie
+      - Henrik Roervik Bjoerdal
+      - Fredrik Ulvestad
+      - Peter Orry Larsen
+      - Sakari Mattila
+      - Demar Phillips
+      - Leke James
+    subs:
+      - Torbjoern Grytten
+      - Jo Nymo Matland
+      - Tor Hogne Aaroey
+      - Jonatan Tollaas Nation
+      - Vebjoern Hoff
+      - Thomas Skog Martinussen
+      - Andreas Lie
+    coach: Jan Joensson
+  away:
+    formation: 4-3-3
+    starters:
+      - Oerjan Haaskjold Nyland
+      - Martin Linnes
+      - Vegard Forren
+      - Joona Toivio
+      - Knut Olav Rindaroey
+      - Mattias Mostroem
+      - Daniel Berg Hestad
+      - Harmeet Singh
+      - Fredrik Gulbrandsen
+      - Mohamed Elyounoussi
+      - Daniel Chima
+    subs:
+      - Agnaldo
+      - Etzaz Hussain
+      - Per Egil Flo
+      - Emmanuel Ekpo
+      - Ethan Horvath
+      - Magne Hoseth
+      - Andreas Hollingen
+    coach: Tor Ole Skullerud
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +128,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

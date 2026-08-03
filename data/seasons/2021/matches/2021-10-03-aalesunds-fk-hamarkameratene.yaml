@@ -11,13 +11,129 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: hamarkameratene
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5505
+events:
+  - minute: 11
+    type: yellow_card
+    team: home
+    player: Erikson Lima
+  - minute: 33
+    type: goal
+    team: home
+    player: Erlend Segberg
+    assist: Simen Bolkan Nordli
+  - minute: 41
+    type: goal
+    team: away
+    player: Jonas Enkerud
+    assist: Kristian Eriksen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Halvor Rødølen Opsahl
+    playerOff: Sam Rogers
+  - minute: 66
+    type: substitution
+    team: home
+    player: Simen Rafn
+    playerOff: Jørgen Hatlehol
+  - minute: 66
+    type: substitution
+    team: home
+    player: Kristoffer Ødemarksbakken
+    playerOff: Torbjørn Kallevåg
+  - minute: 68
+    type: yellow_card
+    team: away
+    player: Morten Bjørlo
+  - minute: 82
+    type: substitution
+    team: away
+    player: Thelonius Bair
+    playerOff: Emil Sildnes
+  - minute: 83
+    type: substitution
+    team: home
+    player: Mamadou Diaw
+    playerOff: Sigurd Haugen
+  - minute: 83
+    type: substitution
+    team: home
+    player: Niklas Castro
+    playerOff: Kristoffer Barmen
+  - minute: 90
+    stoppage: 3
+    type: substitution
+    team: away
+    player: Niklas Rekdal
+    playerOff: Morten Bjørlo
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Jørgen Hatlehol
+      - Quint Jansen
+      - David Fällman
+      - David Kristjan Olafsson
+      - Erikson Lima
+      - Erlend Segberg
+      - Torbjørn Kallevåg
+      - Kristoffer Barmen
+      - Simen Bolkan Nordli
+      - Sigurd Haugen
+    subs:
+      - Simen Rafn
+      - Kristoffer Ødemarksbakken
+      - Mamadou Diaw
+      - Niklas Castro
+      - Andreas Lie
+      - Jonas Grønner
+      - Nikolai Hopland
+      - Isak Dybvik Määttä
+      - Muamer Brajanac
+    coach: Lars Arne Nilsen
+  away:
+    formation: 3-4-3
+    starters:
+      - Nicholas Hagen
+      - Sam Rogers
+      - Steinar Strømnes
+      - Hasan Kurucay
+      - Aleksander Melgalvis
+      - Kristian Lønstad Onsrud
+      - Morten Bjørlo
+      - Rasmus Lindkvist
+      - Kristian Eriksen
+      - Jonas Enkerud
+      - Emil Sildnes
+    subs:
+      - Halvor Rødølen Opsahl
+      - Thelonius Bair
+      - Niklas Rekdal
+      - Lukasz Jarosinski
+      - Davod Arzani
+      - Albert Berisha
+      - Eduards Daskevics
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 53
+    shots: 11
+    shotsOnTarget: 4
+    corners: 6
+  away:
+    possession: 47
+    shots: 8
+    shotsOnTarget: 4
+    corners: 4
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +149,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -1,0 +1,225 @@
+id: 2026-04-07-aalesunds-fk-fredrikstad
+date: 2026-04-07
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 3
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: fredrikstad
+  score: 3
+  halfTimeScore: 1
+venueId: color-line-stadion
+neutralVenue: false
+attendance: 4008
+referee: Kristoffer Hagenes
+events:
+  - minute: 32
+    type: goal
+    team: home
+    player: Henrik Melland
+    assist: Mathias Christensen
+  - minute: 38
+    type: substitution
+    team: away
+    player: Samuel Leach Holm
+    playerOff: Fredrik Holmé
+  - minute: 38
+    type: yellow_card
+    team: home
+    player: David Snær Johannsson
+  - minute: 43
+    type: yellow_card
+    team: home
+    player: Philip Sandvik Aukland
+  - minute: 44
+    type: goal
+    team: away
+    player: Samuel Leach Holm
+  - minute: 49
+    type: goal
+    team: home
+    player: Kristian Hemmingsen Lonebu
+    assist: Henrik Melland
+  - minute: 58
+    type: substitution
+    team: away
+    player: Salim Laghzaoui
+    playerOff: Henrik Langaas Skogvold
+  - minute: 58
+    type: substitution
+    team: away
+    player: Fanuel Yrga-Alem
+    playerOff: Sondre Sørløkk
+  - minute: 64
+    type: substitution
+    team: home
+    player: Kristoffer Nessø
+    playerOff: Uba Charles
+  - minute: 64
+    type: substitution
+    team: home
+    player: Håkon Butli Hammer
+    playerOff: Mathias Christensen
+  - minute: 66
+    type: yellow_card
+    team: home
+    player: Aleksander Hammer Kjelsen
+  - minute: 70
+    type: goal
+    team: away
+    player: Rocco Shein
+    assist: Salim Laghzaoui
+  - minute: 75
+    type: substitution
+    team: home
+    player: Endre Osenbroch
+    playerOff: Henrik Melland
+  - minute: 75
+    type: substitution
+    team: home
+    player: Ivan Djantou
+    playerOff: David Snær Johannsson
+  - minute: 78
+    type: yellow_card
+    team: away
+    player: Andreas Hagen
+  - minute: 84
+    type: substitution
+    team: away
+    player: Jonathan Vonheim Norbye
+    playerOff: Simen Rafn
+  - minute: 84
+    type: substitution
+    team: away
+    player: Eirik Granaas
+    playerOff: Rocco Shein
+  - minute: 88
+    type: goal
+    team: away
+    player: Eirik Granaas
+    assist: Oskar Öhlenschlaeger
+  - minute: 89
+    type: substitution
+    team: home
+    player: Elias Heggland Myrlid
+    playerOff: Ulrik Valderhaug Syversen
+  - minute: 90
+    stoppage: 1
+    type: yellow_card
+    team: away
+    player: Martin Børsheim
+  - minute: 90
+    stoppage: 3
+    type: yellow_card
+    team: home
+    player: Håkon Butli Hammer
+  - minute: 90
+    stoppage: 6
+    type: yellow_card
+    team: away
+    player: Eirik Granaas
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Kristoffer Klaesson
+      - Philip Sandvik Aukland
+      - Aleksander Hammer Kjelsen
+      - Ulrik Valderhaug Syversen
+      - Uba Charles
+      - Mathias Christensen
+      - Elias Hagen
+      - Henrik Melland
+      - Jakob Nyland Ørsahl
+      - Kristian Hemmingsen Lonebu
+      - David Snær Johannsson
+    subs:
+      - Håkon Butli Hammer
+      - Kristoffer Nessø
+      - Endre Osenbroch
+      - Ivan Djantou
+      - Elias Heggland Myrlid
+      - Tor Erik Valderhaug Larsen
+      - Emil Engqvist
+      - Simen Haram
+      - Marius Andresen
+    coach: Kjetil Rekdal
+  away:
+    formation: 3-4-3
+    starters:
+      - Martin Børsheim
+      - Simen Rafn
+      - Ulrik Fredriksen
+      - Fredrik Holmé
+      - Daniel Eid
+      - Leonard Owusu
+      - Rocco Shein
+      - Sondre Sørløkk
+      - Oskar Öhlenschlaeger
+      - Johannes Nuñez
+      - Henrik Langaas Skogvold
+    subs:
+      - Samuel Leach Holm
+      - Fanuel Yrga-Alem
+      - Salim Laghzaoui
+      - Jonathan Vonheim Norbye
+      - Eirik Granaas
+      - Øystein Øvretveit
+      - Kennedy Okpaleke
+      - Max Nilsson
+    coach: Andreas Hagen
+stats:
+  home:
+    possession: 48
+    shots: 15
+    shotsOnTarget: 6
+    corners: 3
+    fouls: 18
+    offsides: 1
+    xg: 1.1
+  away:
+    possession: 52
+    shots: 9
+    shotsOnTarget: 5
+    corners: 5
+    fouls: 14
+    offsides: 4
+    xg: 0.57
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-fredrikstad/2c8m9k#5104865
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5104865"
+manual: []

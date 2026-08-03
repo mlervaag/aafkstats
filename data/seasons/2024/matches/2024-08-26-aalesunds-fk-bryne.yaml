@@ -11,13 +11,140 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: bryne
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 3346
+referee: Ali Al Hatam
+events:
+  - minute: 57
+    type: goal
+    team: away
+    player: Lars Erik Sødal
+    assist: Alfred Scriven
+  - minute: 59
+    type: substitution
+    team: home
+    player: Kristoffer Nessø
+    playerOff: Bjørn Martin Kristensen
+  - minute: 59
+    type: substitution
+    team: home
+    player: Martin Ramsland
+    playerOff: Marcus Rafferty
+  - minute: 63
+    type: substitution
+    team: away
+    player: Robert Undheim
+    playerOff: Mats Selmer Thornes
+  - minute: 63
+    type: substitution
+    team: away
+    player: Jon Helge Tveita
+    playerOff: Sjur Jonassen
+  - minute: 69
+    type: goal
+    team: home
+    player: Claudio Braga
+    assist: Kristoffer Nessø
+  - minute: 70
+    type: substitution
+    team: home
+    player: Nikolai Hopland
+    playerOff: Vinko Medimorec
+  - minute: 70
+    type: substitution
+    team: home
+    player: Moctar Diop
+    playerOff: Janus Seehusen
+  - minute: 77
+    type: yellow_card
+    team: home
+    player: Sam Rogers
+  - minute: 83
+    type: yellow_card
+    team: away
+    player: Christian Landu Landu
+  - minute: 88
+    type: substitution
+    team: home
+    player: Henrik Melland
+    playerOff: David Snær Johannsson
+  - minute: 90
+    type: goal
+    team: away
+    player: Alfred Scriven
+    assist: Axel Kryger
+  - minute: 90
+    stoppage: 3
+    type: substitution
+    team: away
+    player: Jens Husebø
+    playerOff: Christian Landu Landu
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Tor Erik Valderhaug Larsen
+      - Vinko Medimorec
+      - Mads Nielsen
+      - Sam Rogers
+      - David Snær Johannsson
+      - Marcus Rafferty
+      - Håkon Butli Hammer
+      - Janus Seehusen
+      - John Kitolano
+      - Bjørn Martin Kristensen
+      - Claudio Braga
+    subs:
+      - Kristoffer Nessø
+      - Martin Ramsland
+      - Nikolai Hopland
+      - Moctar Diop
+      - Henrik Melland
+      - Sondre Midthjell
+      - Simen Haram
+      - Noah Solskjær
+      - Sander Senior-Haarvik
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-4-2
+    starters:
+      - Igor Spiridonov
+      - Axel Kryger
+      - Jacob Haahr
+      - Sondre Norheim
+      - Eirik Saunes
+      - Alfred Scriven
+      - Lars Erik Sødal
+      - Christian Landu Landu
+      - Mats Selmer Thornes
+      - Duarte Moreira
+      - Sjur Jonassen
+    subs:
+      - Jon Helge Tveita
+      - Robert Undheim
+      - Jens Husebø
+      - Sem Aleksander Bergene
+      - Lasse Qvigstad
+      - Luis Görlich
+      - Kristian Skurve Håland
+    coach: Ole Kevin Knappen
+stats:
+  home:
+    possession: 44
+    shots: 11
+    shotsOnTarget: 10
+    corners: 5
+  away:
+    possession: 56
+    shots: 15
+    shotsOnTarget: 11
+    corners: 7
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +160,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

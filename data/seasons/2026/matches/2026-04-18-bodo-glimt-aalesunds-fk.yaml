@@ -1,0 +1,186 @@
+id: 2026-04-18-bodo-glimt-aalesunds-fk
+date: 2026-04-18
+dateConfidence: exact
+kickoff: 14:00
+status: played
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 5
+home:
+  clubId: bodo-glimt
+  score: 3
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+venueId: aspmyra-stadion
+neutralVenue: false
+attendance: 7109
+referee: Mohammad Usman Aslam
+events:
+  - minute: 23
+    type: goal
+    team: home
+    player: Anders Klynge
+  - minute: 52
+    type: yellow_card
+    team: away
+    player: David Snær Johannsson
+  - minute: 65
+    type: substitution
+    team: away
+    player: Uba Charles
+    playerOff: Kristoffer Nessø
+  - minute: 65
+    type: substitution
+    team: away
+    player: Mathias Christensen
+    playerOff: David Snær Johannsson
+  - minute: 65
+    type: substitution
+    team: home
+    player: Sondre Auklend
+    playerOff: Anders Klynge
+  - minute: 65
+    type: substitution
+    team: home
+    player: Fredrik André Bjørkan
+    playerOff: Ole Blomberg
+  - minute: 65
+    type: substitution
+    team: away
+    player: Jakob Nyland Ørsahl
+    playerOff: Marius Andresen
+  - minute: 71
+    type: goal
+    team: home
+    player: Fredrik Sjøvold
+  - minute: 72
+    type: substitution
+    team: away
+    player: Henrik Melland
+    playerOff: Endre Osenbroch
+  - minute: 79
+    type: substitution
+    team: home
+    player: Andreas Helmersen
+    playerOff: Kasper Waarts Høgh
+  - minute: 79
+    type: substitution
+    team: home
+    player: Daniel Bassi
+    playerOff: Jens Petter Hauge
+  - minute: 83
+    type: substitution
+    team: home
+    player: Sondre Brunstad Fet
+    playerOff: Håkon Evjen
+  - minute: 86
+    type: substitution
+    team: away
+    player: Elias Heggland Myrlid
+    playerOff: Kristian Hemmingsen Lonebu
+  - minute: 89
+    type: own_goal
+    team: home
+    player: Emil Engqvist
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Nikita Haikin
+      - Fredrik Sjøvold
+      - Odin Lurås Bjørtuft
+      - Haitam Aleesami
+      - Isak Dybvik Määttä
+      - Anders Klynge
+      - Patrick Berg
+      - Håkon Evjen
+      - Ole Blomberg
+      - Kasper Waarts Høgh
+      - Jens Petter Hauge
+    subs:
+      - Fredrik André Bjørkan
+      - Sondre Auklend
+      - Andreas Helmersen
+      - Daniel Bassi
+      - Sondre Brunstad Fet
+      - Julian Faye Lund
+      - Jostein Gundersen
+      - Villads Nielsen
+      - Mikkel Bro
+    coach: Kjetil Knutsen
+  away:
+    formation: 3-5-1-1
+    starters:
+      - Kristoffer Klaesson
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Emil Engqvist
+      - Marius Andresen
+      - David Snær Johannsson
+      - Elias Hagen
+      - Håkon Butli Hammer
+      - Kristoffer Nessø
+      - Endre Osenbroch
+      - Kristian Hemmingsen Lonebu
+    subs:
+      - Jakob Nyland Ørsahl
+      - Mathias Christensen
+      - Uba Charles
+      - Henrik Melland
+      - Elias Heggland Myrlid
+      - Tor Erik Valderhaug Larsen
+      - Ulrik Valderhaug Syversen
+      - Ivan Djantou
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 63
+    shots: 22
+    shotsOnTarget: 9
+    corners: 11
+    fouls: 9
+    offsides: 0
+    xg: 3.51
+  away:
+    possession: 37
+    shots: 10
+    shotsOnTarget: 4
+    corners: 1
+    fouls: 6
+    offsides: 0
+    xg: 0.63
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/bodoglimt-vs-aalesund/2c37nd#5104874
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5104874"
+manual: []

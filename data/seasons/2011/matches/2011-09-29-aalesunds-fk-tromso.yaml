@@ -11,13 +11,96 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: tromso
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 46
+    type: substitution
+    team: home
+    player: Magnus Sylling Olsen
+    playerOff: Peter Orry Larsen
+  - minute: 51
+    type: goal
+    team: home
+    player: Enar Jääger
+  - minute: 59
+    type: substitution
+    team: away
+    player: El Hadj Sega Ngom
+    playerOff: Sigurd Rushfeldt
+  - minute: 67
+    type: substitution
+    team: away
+    player: Remi Johansen
+    playerOff: Thomas Drage
+  - minute: 76
+    type: substitution
+    team: home
+    player: Edvard Skagestad
+    playerOff: Sander Post
+  - minute: 80
+    type: substitution
+    team: away
+    player: Yaya Sané
+    playerOff: Miika Koppinen
+  - minute: 88
+    type: substitution
+    team: home
+    player: Solomon Okoronkwo
+    playerOff: Michael Barrantes
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Demar Phillips
+lineups:
+  home:
+    formation: 4-2-1-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Jo Nymo Matland
+      - Jason Morrison
+      - Peter Orry Larsen
+      - Michael Barrantes
+      - Fredrik Ulvestad
+      - Demar Phillips
+      - Sander Post
+    subs:
+      - Magnus Sylling Olsen
+      - Edvard Skagestad
+      - Solomon Okoronkwo
+      - Didrik Fløtre
+      - Jonas Sandqvist
+      - Kjell Rune Sellin
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-4-2
+    starters:
+      - Marcus Sahlman
+      - Hans Norbye
+      - Fredrik Björck
+      - Miika Koppinen
+      - Hans Åge Yndestad
+      - Magnus Andersen
+      - Ruben Yttergård Jenssen
+      - Thomas Holm
+      - Thomas Drage
+      - Sigurd Rushfeldt
+      - Mostafa Abdellaoue
+    subs:
+      - El Hadj Sega Ngom
+      - Remi Johansen
+      - Yaya Sané
+      - Ludvig Rinde
+      - Robin Malmkvist
+    coach: Per-Mathias Høgmo
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +116,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

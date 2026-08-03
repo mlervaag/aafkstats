@@ -11,13 +11,101 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: odds-ballklubb
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 32
+    type: goal
+    team: home
+    player: Demar Phillips
+  - minute: 57
+    type: substitution
+    team: home
+    player: Edvard Skagestad
+    playerOff: Sander Post
+  - minute: 59
+    type: substitution
+    team: away
+    player: Adem Güven
+    playerOff: Elbasan Rashani
+  - minute: 64
+    type: goal
+    team: away
+    player: Snorre Krogsgård
+  - minute: 67
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Fredrik Ulvestad
+  - minute: 75
+    type: goal
+    team: home
+    player: Jonatan Tollås Nation
+  - minute: 77
+    type: yellow_card
+    team: away
+    player: Simen Brenne
+  - minute: 80
+    type: substitution
+    team: away
+    player: Herolind Shala
+    playerOff: Simen Brenne
+  - minute: 90
+    type: substitution
+    team: home
+    player: Ville Jalasto
+    playerOff: Magnus Sylling Olsen
+lineups:
+  home:
+    formation: 4-2-1-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Jo Nymo Matland
+      - Jason Morrison
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Magnus Sylling Olsen
+      - Demar Phillips
+      - Sander Post
+    subs:
+      - Edvard Skagestad
+      - Peter Orry Larsen
+      - Ville Jalasto
+      - Fredrik Carlsen
+      - Lars Fuhre
+      - Ole Christian Rørvik
+      - Tremaine Stewart
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - André Hansen
+      - Lars Kristian Eriksen
+      - Steffen Hagen
+      - Morten Fevang
+      - Emil Jonassen
+      - Simen Brenne
+      - Jone Samuelsen
+      - Frode Johnsen
+      - Torgeir Børven
+      - Elbasan Rashani
+      - Snorre Krogsgård
+    subs:
+      - Adem Güven
+      - Herolind Shala
+      - Andreas Lie
+      - Mattias Andersson
+      - Niklas Gunnarsson
+      - Paul Addo
+    coach: Dag-Eilev Fagermo
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +121,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

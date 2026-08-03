@@ -11,13 +11,123 @@ competition:
 home:
   clubId: viking
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: viking-stadion
 neutralVenue: false
-events: []
+attendance: 8431
+referee: Ola Hobber Nilsen
+events:
+  - minute: 11
+    type: own_goal
+    team: home
+    player: Vebjørn Hoff
+  - minute: 28
+    type: penalty_goal
+    team: away
+    player: Mostafa Abdellaoue
+  - minute: 30
+    type: yellow_card
+    team: away
+    player: Lars Veldwijk
+  - minute: 60
+    type: substitution
+    team: home
+    player: Stian Rokås Michalsen
+    playerOff: Usmani Sale
+  - minute: 66
+    type: substitution
+    team: away
+    player: Valmir Berisha
+    playerOff: Marlinho
+  - minute: 78
+    type: substitution
+    team: away
+    player: Joakim Barstad
+    playerOff: Daniel Gretarsson
+  - minute: 79
+    type: substitution
+    team: home
+    player: Steffen Ernemann
+    playerOff: Zymer Bytyqi
+  - minute: 85
+    type: substitution
+    team: home
+    player: Michael Haukås
+    playerOff: Mathias Bringaker
+  - minute: 87
+    type: goal
+    team: away
+    player: Edwin Gyasi
+    assist: Lars Veldwijk
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Andreas Lie
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Iven Austbø
+      - Claes Kronberg
+      - Michael Ledger
+      - Karol Mets
+      - Kristoffer Haugen
+      - Julian Ryerson
+      - André Danielsen
+      - Usmani Sale
+      - Samuel Adegbenro
+      - Zymer Bytyqi
+      - Mathias Bringaker
+    subs:
+      - Stian Rokås Michalsen
+      - Steffen Ernemann
+      - Michael Haukås
+      - Amund Wichne
+      - Rasmus Martinsen
+      - Robin Shroot
+      - Tor André Aasheim
+    coach: Ian Burchnall
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Oddbjørn Lie
+      - Daniel Gretarsson
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Marlinho
+      - Vebjørn Hoff
+      - Sondre Brunstad Fet
+      - Lars Veldwijk
+      - Mostafa Abdellaoue
+    subs:
+      - Valmir Berisha
+      - Joakim Barstad
+      - Anders Waagan
+      - Emil Solnørdal
+      - Jørgen Hatlehol
+      - Pål Vestly Heigre
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 49
+    shots: 13
+    shotsOnTarget: 4
+    corners: 7
+    fouls: 19
+    offsides: 5
+  away:
+    possession: 51
+    shots: 16
+    shotsOnTarget: 6
+    corners: 3
+    fouls: 12
+    offsides: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +143,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,125 @@ competition:
 home:
   clubId: bodo-glimt
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: aspmyra-stadion
 neutralVenue: false
-events: []
+attendance: 7851
+referee: Steinar Hauge
+events:
+  - minute: 37
+    type: own_goal
+    team: home
+    player: Nikolai Hopland
+  - minute: 60
+    type: substitution
+    team: away
+    player: Martin Ramsland
+    playerOff: Moctar Diop
+  - minute: 73
+    type: substitution
+    team: home
+    player: Oscar Forsmo Kapskarmo
+    playerOff: Faris Moumbagna
+  - minute: 73
+    type: substitution
+    team: home
+    player: Sondre Sørli
+    playerOff: Nino Zugelj
+  - minute: 82
+    type: substitution
+    team: away
+    player: Trace Murray
+    playerOff: John Kitolano
+  - minute: 82
+    type: substitution
+    team: away
+    player: Isaac Atanga
+    playerOff: Bjørn Martin Kristensen
+  - minute: 87
+    type: substitution
+    team: home
+    player: Adam Sørensen
+    playerOff: Fredrik André Bjørkan
+  - minute: 87
+    type: substitution
+    team: home
+    player: Fredrik Sjøvold
+    playerOff: Brice Wembangomo
+  - minute: 87
+    type: substitution
+    team: home
+    player: Tobias Gulliksen
+    playerOff: Amahl Pellegrino
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Magnus Brøndbo
+      - Brice Wembangomo
+      - Brede Mathias Moe
+      - Odin Lurås Bjørtuft
+      - Fredrik André Bjørkan
+      - Ulrik Saltnes
+      - Patrick Berg
+      - Albert Grønbæk
+      - Nino Zugelj
+      - Faris Moumbagna
+      - Amahl Pellegrino
+    subs:
+      - Oscar Forsmo Kapskarmo
+      - Sondre Sørli
+      - Adam Sørensen
+      - Fredrik Sjøvold
+      - Tobias Gulliksen
+      - Isak Helstad Amundsen
+      - Marius Lode
+      - Sondre Brunstad Fet
+      - Daniel Bassi
+    coach: Kjetil Knutsen
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Erik Frøysa
+      - Amidou Diop
+      - Nikolai Hopland
+      - John Kitolano
+      - Henrik Melland
+      - Håkon Butli Hammer
+      - Markus Seehusen Karlsbakk
+      - Bjørn Martin Kristensen
+      - Moctar Diop
+      - Kristoffer Ødemarksbakken
+    subs:
+      - Martin Ramsland
+      - Trace Murray
+      - Isaac Atanga
+      - Michael Lansing
+      - David Fällman
+      - Simen Haram
+    coach: Christian Johnsen
+stats:
+  home:
+    possession: 65
+    shots: 25
+    shotsOnTarget: 6
+    corners: 8
+    fouls: 7
+    offsides: 2
+    xg: 3.18
+  away:
+    possession: 35
+    shots: 7
+    shotsOnTarget: 2
+    corners: 5
+    fouls: 7
+    offsides: 2
+    xg: 1.13
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +145,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

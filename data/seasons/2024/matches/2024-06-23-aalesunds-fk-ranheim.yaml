@@ -11,13 +11,153 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: ranheim
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 3640
+referee: Stian Røvig Sletner
+events:
+  - minute: 6
+    type: goal
+    team: home
+    player: Sander Hestetun Kilen
+    assist: Isaac Atanga
+  - minute: 31
+    type: substitution
+    team: away
+    player: Oliver Kvendbø Holden
+    playerOff: Per Ciljan Skjelbred
+  - minute: 45
+    stoppage: 1
+    type: goal
+    team: away
+    player: Bendik Bye
+    assist: Oliver Kvendbø Holden
+  - minute: 46
+    type: substitution
+    team: home
+    player: Stian Aarønes Holte
+    playerOff: John Kitolano
+  - minute: 67
+    type: substitution
+    team: home
+    player: Bjørn Martin Kristensen
+    playerOff: David Snær Johannsson
+  - minute: 67
+    type: substitution
+    team: home
+    player: Simen Haram
+    playerOff: Isaac Atanga
+  - minute: 72
+    type: substitution
+    team: away
+    player: Gustav Mogensen
+    playerOff: Bendik Bye
+  - minute: 72
+    type: substitution
+    team: away
+    player: Jakob Tromsdal
+    playerOff: Philip Slørdahl
+  - minute: 72
+    type: substitution
+    team: away
+    player: Vetle Wenaas
+    playerOff: Mikael Toerset Johnsen
+  - minute: 74
+    type: yellow_card
+    team: home
+    player: Martin Ramsland
+  - minute: 76
+    type: substitution
+    team: home
+    player: Noah Solskjær
+    playerOff: Sander Hestetun Kilen
+  - minute: 85
+    type: substitution
+    team: away
+    player: Håkon Gangstad
+    playerOff: Erik Tønne
+  - minute: 90
+    stoppage: 5
+    type: yellow_card
+    team: home
+    player: John Kitolano
+  - minute: 90
+    stoppage: 6
+    type: penalty_goal
+    team: away
+    player: John Hou Sæther
+  - minute: 90
+    stoppage: 7
+    type: yellow_card
+    team: home
+    player: Kristoffer Nessø
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Kristoffer Nessø
+      - Håkon Butli Hammer
+      - Martin Ramsland
+      - John Kitolano
+      - Eivind Strømsheim Kolve
+      - Markus Seehusen Karlsbakk
+      - David Snær Johannsson
+      - Isaac Atanga
+      - Sander Hestetun Kilen
+      - Claudio Braga
+    subs:
+      - Stian Aarønes Holte
+      - Simen Haram
+      - Bjørn Martin Kristensen
+      - Noah Solskjær
+      - Tor Erik Valderhaug Larsen
+      - John Ruud Norvik
+      - Magnus von Loewensprung
+      - Thomas Gulbrandsen
+      - Sebastian Berntsen
+    coach: Sindre Eid
+  away:
+    formation: 4-3-3
+    starters:
+      - Simen Vidtun Nilsen
+      - Sander Amble Haugen
+      - Nikolai Skuseth
+      - Philip Slørdahl
+      - Erik Tønne
+      - Per Ciljan Skjelbred
+      - Mathias Johnsrud Emilsen
+      - John Hou Sæther
+      - Dennis Gaustad
+      - Bendik Bye
+      - Mikael Toerset Johnsen
+    subs:
+      - Oliver Kvendbø Holden
+      - Jakob Tromsdal
+      - Gustav Mogensen
+      - Vetle Wenaas
+      - Håkon Gangstad
+      - Nicklas Frenderup
+      - Lasse Qvigstad
+      - Lucas Kolstad
+      - Sivert Solli
+    coach: Kåre Ingebrigtsen
+stats:
+  home:
+    possession: 47
+    shots: 5
+    shotsOnTarget: 5
+    corners: 8
+  away:
+    possession: 53
+    shots: 10
+    shotsOnTarget: 7
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +173,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

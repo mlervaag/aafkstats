@@ -11,13 +11,163 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: sarpsborg-08
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4933
+referee: Marius Hansen Grøtta
+events:
+  - minute: 24
+    type: goal
+    team: away
+    player: Mikkel Maigaard
+    assist: Gustav Engvall
+  - minute: 36
+    type: substitution
+    team: home
+    player: David Fällman
+    playerOff: Alexander Juel Andersen
+  - minute: 44
+    type: own_goal
+    team: away
+    player: Petar Golubovic
+  - minute: 46
+    type: substitution
+    team: home
+    player: Erlend Segberg
+    playerOff: Kristoffer Barmen
+  - minute: 46
+    type: substitution
+    team: home
+    player: Kristoffer Ødemarksbakken
+    playerOff: Fredrik Haugen
+  - minute: 52
+    type: yellow_card
+    team: home
+    player: Erikson Lima
+  - minute: 56
+    type: goal
+    team: away
+    player: Simon Tibbling
+    assist: Eirik Wichne
+  - minute: 65
+    type: yellow_card
+    team: away
+    player: Gustav Engvall
+  - minute: 66
+    type: substitution
+    team: away
+    player: Steffen Lie Skålevik
+    playerOff: Simon Tibbling
+  - minute: 66
+    type: yellow_card
+    team: home
+    player: Petar Golubovic
+  - minute: 72
+    type: substitution
+    team: home
+    player: John Kitolano
+    playerOff: Simen Bolkan Nordli
+  - minute: 74
+    type: goal
+    team: home
+    player: Moses Ebiye
+    assist: John Kitolano
+  - minute: 77
+    type: substitution
+    team: away
+    player: Joachim Soltvedt
+    playerOff: Joachim Thomassen
+  - minute: 77
+    type: substitution
+    team: away
+    player: Martin Høyland
+    playerOff: Victor Torp
+  - minute: 80
+    type: substitution
+    team: away
+    player: Ole Jørgen Halvorsen
+    playerOff: Tobias Heintz
+  - minute: 80
+    type: yellow_card
+    team: away
+    player: Anders Kristiansen
+  - minute: 82
+    type: substitution
+    team: home
+    player: Bjørn Martin Kristensen
+    playerOff: Gilbert Koomson
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Petar Golubovic
+      - Besim Serbecic
+      - Alexander Juel Andersen
+      - Simen Rafn
+      - Fredrik Haugen
+      - Kristoffer Barmen
+      - Erikson Lima
+      - Gilbert Koomson
+      - Moses Ebiye
+      - Simen Bolkan Nordli
+    subs:
+      - David Fällman
+      - Erlend Segberg
+      - Kristoffer Ødemarksbakken
+      - John Kitolano
+      - Bjørn Martin Kristensen
+      - Henrik Melland
+      - Jeppe Arctander Moe
+      - Michael Lansing
+      - Nikolai Hopland
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Anders Kristiansen
+      - Eirik Wichne
+      - Magnar Ødegaard
+      - Anders Hagelskjær
+      - Joachim Thomassen
+      - Serge-Junior Ngouali
+      - Victor Torp
+      - Mikkel Maigaard
+      - Simon Tibbling
+      - Tobias Heintz
+      - Gustav Engvall
+    subs:
+      - Steffen Lie Skålevik
+      - Joachim Soltvedt
+      - Martin Høyland
+      - Ole Jørgen Halvorsen
+      - Anton Skipper
+      - Guillermo Molins
+      - Jørgen Horn
+      - Leander Øy
+    coach: Stefan Billborn
+stats:
+  home:
+    possession: 62
+    shots: 14
+    shotsOnTarget: 2
+    corners: 9
+    fouls: 10
+    offsides: 5
+    xg: 1.11
+  away:
+    possession: 38
+    shots: 13
+    shotsOnTarget: 5
+    corners: 3
+    fouls: 10
+    offsides: 2
+    xg: 1.09
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +183,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

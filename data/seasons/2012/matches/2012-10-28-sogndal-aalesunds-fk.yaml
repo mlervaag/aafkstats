@@ -11,13 +11,86 @@ competition:
 home:
   clubId: sogndal
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: fosshaugane-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 4
+    type: goal
+    team: away
+    player: Leke James
+  - minute: 45
+    type: substitution
+    team: away
+    player: Fredrik Carlsen
+    playerOff: Lars Fuhre
+  - minute: 46
+    type: substitution
+    team: home
+    player: Azar Karadas
+    playerOff: Ruben Holsæter
+  - minute: 79
+    type: substitution
+    team: home
+    player: Stian Lønne Dyngeland
+    playerOff: Tonny Brochmann
+  - minute: 82
+    type: goal
+    team: home
+    player: Stian Lønne Dyngeland
+  - minute: 86
+    type: substitution
+    team: away
+    player: Sander Post
+    playerOff: Michael Barrantes
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Kenneth Udjus
+      - Eirik Bergum Skaasheim
+      - Hannu Patronen
+      - Gustav Valsvik
+      - Per Egil Flo
+      - Tonny Brochmann
+      - Ruben Holsæter
+      - Stéphane Badji
+      - Ørjan Hopen
+      - Ricardo Santos
+      - Malick Mane
+    subs:
+      - Azar Karadas
+      - Stian Lønne Dyngeland
+      - Ahyee Aye Elvis
+      - Leif Kvamme Lysne
+      - Peter Aase
+      - Stefan Aase
+      - Thomas Ness
+    coach: Jonas Olsson
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Edvard Skagestad
+      - Amund Skiri
+      - Jo Nymo Matland
+      - Fredrik Ulvestad
+      - Peter Orry Larsen
+      - Michael Barrantes
+      - Tremaine Stewart
+      - Leke James
+      - Lars Fuhre
+    subs:
+      - Fredrik Carlsen
+      - Sander Post
+      - Mathias Rasmussen
+      - Thomas Skog Martinussen
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +106,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

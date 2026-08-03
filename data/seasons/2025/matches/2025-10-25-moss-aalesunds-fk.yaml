@@ -11,13 +11,137 @@ competition:
 home:
   clubId: moss
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: mellos-stadion
 neutralVenue: false
-events: []
+referee: Jan Morten Tennøy
+events:
+  - minute: 33
+    type: penalty_goal
+    team: away
+    player: Paul Ngongo Iversen
+  - minute: 39
+    type: yellow_card
+    team: away
+    player: Paul Ngongo Iversen
+  - minute: 39
+    type: goal
+    team: home
+    player: Leonardo Rossi
+    assist: Patrik Andersen
+  - minute: 47
+    type: substitution
+    team: home
+    player: Joao Barros
+    playerOff: Thomas Klemetsen Jakobsen
+  - minute: 52
+    type: yellow_card
+    team: home
+    player: Leonardo Rossi
+  - minute: 63
+    type: substitution
+    team: home
+    player: Håkon Vold Krohg
+    playerOff: Patrik Andersen
+  - minute: 68
+    type: substitution
+    team: away
+    player: Elias Heggland Myrlid
+    playerOff: Kristian Hemmingsen Lonebu
+  - minute: 68
+    type: substitution
+    team: away
+    player: David Snær Johannsson
+    playerOff: Henrik Melland
+  - minute: 68
+    type: substitution
+    team: away
+    player: John Kitolano
+    playerOff: Jakob Nyland Ørsahl
+  - minute: 76
+    type: substitution
+    team: home
+    player: Sigurd Grønli
+    playerOff: Leonardo Rossi
+  - minute: 76
+    type: substitution
+    team: home
+    player: Benarfa
+    playerOff: Aksel Aasheim Engesvik
+  - minute: 81
+    type: substitution
+    team: home
+    player: Artan Memedov
+    playerOff: William Kvale
+  - minute: 89
+    type: substitution
+    team: away
+    player: Frederik Heiselberg
+    playerOff: Paul Ngongo Iversen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Mathias Eriksen
+      - Mikkel Lassen
+      - Kristian Strande
+      - Kristoffer Harrison
+      - William Kvale
+      - Patrik Andersen
+      - Jamiu Musbaudeen
+      - Aksel Aasheim Engesvik
+      - Niklas Fuglestad
+      - Leonardo Rossi
+      - Thomas Klemetsen Jakobsen
+    subs:
+      - Joao Barros
+      - Håkon Vold Krohg
+      - Sigurd Grønli
+      - Benarfa
+      - Artan Memedov
+      - Jarik Sundling
+      - Edvard Race
+      - Markus Olsvik Welinder
+      - Katoto Michee Mayonga
+    coach: Ole Martin Nesselquist
+  away:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Nikolai Skuseth
+      - Kristoffer Nessø
+      - Håkon Butli Hammer
+      - Henrik Melland
+      - Mathias Christensen
+      - Jakob Nyland Ørsahl
+      - Kristian Hemmingsen Lonebu
+      - Paul Ngongo Iversen
+    subs:
+      - John Kitolano
+      - David Snær Johannsson
+      - Elias Heggland Myrlid
+      - Frederik Heiselberg
+      - Tor Erik Valderhaug Larsen
+      - Erik Frøysa
+      - Olafur Gudmundsson
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 33
+    shots: 4
+    shotsOnTarget: 1
+    corners: 0
+  away:
+    possession: 67
+    shots: 11
+    shotsOnTarget: 5
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +157,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

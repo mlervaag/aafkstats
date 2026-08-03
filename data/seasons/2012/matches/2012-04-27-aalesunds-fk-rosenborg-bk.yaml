@@ -11,13 +11,138 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: rosenborg-bk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 8
+    type: goal
+    team: away
+    player: Rade Prica
+  - minute: 13
+    type: substitution
+    team: away
+    player: Peter Ankersen
+    playerOff: Mikael Dorsin
+  - minute: 20
+    type: yellow_card
+    team: away
+    player: Rade Prica
+  - minute: 23
+    type: yellow_card
+    team: home
+    player: Magnus Sylling Olsen
+  - minute: 27
+    type: yellow_card
+    team: home
+    player: Enar Jääger
+  - minute: 29
+    type: substitution
+    team: home
+    player: Lars Fuhre
+    playerOff: Ville Jalasto
+  - minute: 41
+    type: substitution
+    team: away
+    player: Simen Wangberg
+    playerOff: Jim Larsen
+  - minute: 41
+    type: goal
+    team: home
+    player: Lars Fuhre
+  - minute: 63
+    type: yellow_card
+    team: home
+    player: Michael Barrantes
+  - minute: 63
+    type: yellow_card
+    team: away
+    player: Peter Ankersen
+  - minute: 80
+    type: substitution
+    team: away
+    player: Jonas Svensson
+    playerOff: Daniel Fredheim Holm
+  - minute: 82
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Edvard Skagestad
+  - minute: 82
+    type: yellow_card
+    team: home
+    player: Daniel Arnefjord
+  - minute: 84
+    type: goal
+    team: away
+    player: Steffen Iversen
+  - minute: 87
+    type: missed_penalty
+    team: away
+    player: Steffen Iversen
+  - minute: 88
+    type: substitution
+    team: home
+    player: Sander Post
+    playerOff: Fredrik Ulvestad
+  - minute: 88
+    type: yellow_card
+    team: home
+    player: Jason Morrison
+  - minute: 90
+    type: goal
+    team: home
+    player: Jonatan Tollås Nation
+lineups:
+  home:
+    formation: 4-2-1-3
+    starters:
+      - Sten Michael Grytebust
+      - Jonatan Tollås Nation
+      - Ville Jalasto
+      - Daniel Arnefjord
+      - Enar Jääger
+      - Jason Morrison
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Edvard Skagestad
+      - Magnus Sylling Olsen
+      - Demar Phillips
+    subs:
+      - Lars Fuhre
+      - Peter Orry Larsen
+      - Sander Post
+      - Amund Skiri
+      - Fredrik Carlsen
+      - Ole Christian Rørvik
+      - Tremaine Stewart
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Daniel Örlund
+      - Mikael Dorsin
+      - Jim Larsen
+      - Jon Inge Høiland
+      - Stefan Strandberg
+      - Borek Dockal
+      - Markus Henriksen
+      - Ole Kristian Selnæs
+      - Daniel Fredheim Holm
+      - Steffen Iversen
+      - Rade Prica
+    subs:
+      - Peter Ankersen
+      - Simen Wangberg
+      - Jonas Svensson
+      - Erik Bråthen
+      - Fredrik Midtsjø
+      - Mohammed-Awal Issah
+    coach: Jan Jönsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +158,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

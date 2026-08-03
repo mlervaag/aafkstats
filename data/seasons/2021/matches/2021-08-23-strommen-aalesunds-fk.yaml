@@ -11,13 +11,132 @@ competition:
 home:
   clubId: strommen
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: strommen-stadion
 neutralVenue: false
-events: []
+attendance: 273
+events:
+  - minute: 11
+    type: yellow_card
+    team: away
+    player: Niklas Castro
+  - minute: 43
+    type: substitution
+    team: home
+    player: Youseff Chaib
+    playerOff: Mats André Kaland
+  - minute: 46
+    type: substitution
+    team: home
+    player: Lorent Callaku
+    playerOff: Magnus Lankhof-Dahlby
+  - minute: 61
+    type: substitution
+    team: home
+    player: William Moan Mikalsen
+    playerOff: Morten Renå Olsen
+  - minute: 62
+    type: substitution
+    team: away
+    player: Isak Dybvik
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 62
+    type: substitution
+    team: away
+    player: Torbjørn Kallevåg
+    playerOff: Niklas Castro
+  - minute: 63
+    type: yellow_card
+    team: away
+    player: Simen Rafn
+  - minute: 65
+    type: yellow_card
+    team: home
+    player: William Moan Mikalsen
+  - minute: 70
+    type: yellow_card
+    team: home
+    player: Magnus Tvedte
+  - minute: 73
+    type: yellow_card
+    team: home
+    player: Marius Hagen
+  - minute: 79
+    type: substitution
+    team: away
+    player: Jørgen Hatlehol
+    playerOff: Simen Rafn
+  - minute: 87
+    type: yellow_card
+    team: home
+    player: Youseff Chaib
+  - minute: 90
+    stoppage: 4
+    type: substitution
+    team: home
+    player: Tobias Myhre
+    playerOff: Marius Hagen
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Simen Lillevik Kjellevold
+      - Kristian Jahr
+      - Simen Olafsen
+      - Magnus Tvedte
+      - Sander Amble Haugen
+      - Marius Hagen
+      - Sander Birkeland
+      - Mats André Kaland
+      - Morten Renå Olsen
+      - Magnus Lankhof-Dahlby
+      - Christopher Cheng
+    subs:
+      - Youseff Chaib
+      - Lorent Callaku
+      - William Moan Mikalsen
+      - Tobias Myhre
+      - Alexander Sannes
+      - Brage Naustdal
+      - Daniel Ravneng
+      - Mustafa Achrifi
+    coach: Ole Martin Nesselquist
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Simen Rafn
+      - Quint Jansen
+      - David Fällman
+      - David Kristjan Olafsson
+      - Erlend Segberg
+      - Erikson Lima
+      - Kristoffer Ødemarksbakken
+      - Niklas Castro
+      - Simen Bolkan Nordli
+      - Sigurd Haugen
+    subs:
+      - Isak Dybvik
+      - Torbjørn Kallevåg
+      - Jørgen Hatlehol
+      - Andreas Lie
+      - Jonas Grønner
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 45
+    shots: 3
+    shotsOnTarget: 1
+    corners: 3
+  away:
+    possession: 55
+    shots: 6
+    shotsOnTarget: 3
+    corners: 8
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +152,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

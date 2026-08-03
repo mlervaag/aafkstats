@@ -1,0 +1,141 @@
+id: 2010-09-26-aalesunds-fk-fk-haugesund
+date: 2010-09-26
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2010
+  stage: regular_season
+  round: 25
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 2
+away:
+  clubId: fk-haugesund
+  score: 1
+  halfTimeScore: 1
+venueId: color-line-stadion
+neutralVenue: false
+events:
+  - minute: 18
+    type: goal
+    team: home
+    player: Trond Fredriksen
+  - minute: 19
+    type: goal
+    team: home
+    player: Tor Hogne Aarøy
+  - minute: 22
+    type: yellow_card
+    team: home
+    player: Trond Fredriksen
+  - minute: 43
+    type: goal
+    team: away
+    player: Nikola Djurdjic
+  - minute: 46
+    type: substitution
+    team: away
+    player: Eirik Mæland
+    playerOff: John Pelu
+  - minute: 67
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Fredrik Carlsen
+  - minute: 67
+    type: substitution
+    team: home
+    player: Magnus Sylling Olsen
+    playerOff: Demar Phillips
+  - minute: 76
+    type: substitution
+    team: away
+    player: Sten Ove Eike
+    playerOff: Jarle Steinsland
+  - minute: 83
+    type: substitution
+    team: home
+    player: Ville Jalasto
+    playerOff: Alexander Mathisen
+  - minute: 85
+    type: substitution
+    team: away
+    player: Martin Christensen
+    playerOff: Tor Arne Andreassen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Anders Lindegaard
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Jonathan Parr
+      - Trond Fredriksen
+      - Amund Skiri
+      - Fredrik Carlsen
+      - Alexander Mathisen
+      - Demar Phillips
+      - Tor Hogne Aarøy
+    subs:
+      - Magnus Sylling Olsen
+      - Peter Orry Larsen
+      - Ville Jalasto
+      - Lars Fuhre
+      - Michael Barrantes
+      - Pablo Herrera
+      - Sten Michael Grytebust
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-4-2
+    starters:
+      - Per Morten Kristiansen
+      - Chris Pozniak
+      - Are Tronseth
+      - Vegard Skjerve
+      - Joakim Våge Nilsen
+      - Jacob Sørensen
+      - Trygve Nygaard
+      - Jarle Steinsland
+      - Tor Arne Andreassen
+      - John Pelu
+      - Nikola Djurdjic
+    subs:
+      - Eirik Mæland
+      - Sten Ove Eike
+      - Martin Christensen
+      - Allan Olesen
+      - Juska Savolainen
+      - Lars Øvernes
+      - Rok Elsner
+    coach: Jostein Grindhaug
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-fk-haugesund/2d6yvm#761978
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "761978"
+manual: []

@@ -11,13 +11,150 @@ competition:
 home:
   clubId: raufoss-il
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: nammo-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 14
+    type: goal
+    team: away
+    player: Simen Bolkan Nordli
+    assist: Erlend Segberg
+  - minute: 21
+    type: yellow_card
+    team: home
+    player: Sivert Westerlund
+  - minute: 24
+    type: goal
+    team: home
+    player: Mame Mor Ndiaye
+    assist: Teodor Berg Haltvik
+  - minute: 33
+    type: goal
+    team: away
+    player: Sigurd Haugen
+    assist: Simen Bolkan Nordli
+  - minute: 41
+    type: goal
+    team: home
+    player: Edvard Race
+    assist: Teodor Berg Haltvik
+  - minute: 54
+    type: yellow_card
+    team: away
+    player: Isak Dybvik
+  - minute: 58
+    type: substitution
+    team: away
+    player: Mamadou Diaw
+    playerOff: Isak Dybvik
+  - minute: 60
+    type: goal
+    team: home
+    player: Mame Mor Ndiaye
+    assist: Sander Haugaard Werni
+  - minute: 66
+    type: substitution
+    team: home
+    player: Tobias Hestad
+    playerOff: Sander Haugaard Werni
+  - minute: 69
+    type: goal
+    team: home
+    player: Marius Svanberg Alm
+    assist: Mame Mor Ndiaye
+  - minute: 73
+    type: yellow_card
+    team: home
+    player: Teodor Berg Haltvik
+  - minute: 77
+    type: substitution
+    team: away
+    player: Quint Jansen
+    playerOff: Nikolai Hopland
+  - minute: 77
+    type: substitution
+    team: away
+    player: Torbjørn Agdestein
+    playerOff: Sigurd Haugen
+  - minute: 77
+    type: yellow_card
+    team: home
+    player: Markus Seehusen Karlsbakk
+  - minute: 80
+    type: substitution
+    team: home
+    player: Mathias Nygaard Kristensen
+    playerOff: Teodor Berg Haltvik
+  - minute: 80
+    type: substitution
+    team: home
+    player: Enoch Banza
+    playerOff: Markus Aanesland
+  - minute: 85
+    type: substitution
+    team: home
+    player: Andreas Helmersen
+    playerOff: Mame Mor Ndiaye
+  - minute: 89
+    type: substitution
+    team: away
+    player: Kristoffer Strand Ødven
+    playerOff: Torbjørn Kallevåg
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Ole Kristian Gjefle Lauvli
+      - Herman Kleppa
+      - Edvard Race
+      - Marius Svanberg Alm
+      - Sivert Westerlund
+      - Teodor Berg Haltvik
+      - Even Bydal
+      - Markus Seehusen Karlsbakk
+      - Sander Haugaard Werni
+      - Mame Mor Ndiaye
+      - Markus Aanesland
+    subs:
+      - Tobias Hestad
+      - Enoch Banza
+      - Mathias Nygaard Kristensen
+      - Andreas Helmersen
+      - Amund Møllerhagen
+      - Håvar Befring
+      - Jakob Nyland Ørsahl
+      - Rino Lund Johnsen
+    coach: Christian Johnsen
+  away:
+    formation: 4-3-3
+    starters:
+      - Michael Lansing
+      - Erikson Lima
+      - Jonas Grønner
+      - Nikolai Hopland
+      - Simen Rafn
+      - Torbjørn Kallevåg
+      - Erlend Segberg
+      - Simen Bolkan Nordli
+      - Kristoffer Ødemarksbakken
+      - Sigurd Haugen
+      - Isak Dybvik
+    subs:
+      - Mamadou Diaw
+      - Quint Jansen
+      - Torbjørn Agdestein
+      - Kristoffer Strand Ødven
+      - Andreas Lie
+      - David Kristjan Olafsson
+      - Jørgen Hatlehol
+      - Oscar Solnørdal
+      - Shaquill Sno
+    coach: Lars Arne Nilsen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +170,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

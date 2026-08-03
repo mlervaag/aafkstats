@@ -1,0 +1,133 @@
+id: 2010-08-08-aalesunds-fk-tromso
+date: 2010-08-08
+dateConfidence: exact
+kickoff: 20:00
+status: played
+competition:
+  id: eliteserien
+  season: 2010
+  stage: regular_season
+  round: 20
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: tromso
+  score: 0
+  halfTimeScore: 0
+venueId: color-line-stadion
+neutralVenue: false
+events:
+  - minute: 34
+    type: goal
+    team: home
+    player: Tor Hogne Aarøy
+  - minute: 56
+    type: substitution
+    team: away
+    player: Kayke
+    playerOff: Mohammed Ahamed Jama
+  - minute: 60
+    type: substitution
+    team: home
+    player: Magnus Sylling Olsen
+    playerOff: Lars Fuhre
+  - minute: 63
+    type: substitution
+    team: away
+    player: Tommy Knarvik
+    playerOff: Hans Åge Yndestad
+  - minute: 66
+    type: substitution
+    team: home
+    player: Pablo Herrera
+    playerOff: Alexander Mathisen
+  - minute: 73
+    type: substitution
+    team: away
+    player: Helge Haugen
+    playerOff: Remi Johansen
+  - minute: 78
+    type: goal
+    team: home
+    player: Tor Hogne Aarøy
+  - minute: 90
+    type: substitution
+    team: home
+    player: Michael Barrantes
+    playerOff: Fredrik Carlsen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Anders Lindegaard
+      - Enar Jääger
+      - Ville Jalasto
+      - Daniel Arnefjord
+      - Jonathan Parr
+      - Johan Arneng
+      - Peter Orry Larsen
+      - Fredrik Carlsen
+      - Alexander Mathisen
+      - Lars Fuhre
+      - Tor Hogne Aarøy
+    subs:
+      - Magnus Sylling Olsen
+      - Pablo Herrera
+      - Michael Barrantes
+      - Didrik Fløtre
+      - Jonatan Tollås Nation
+      - Sten Michael Grytebust
+      - Trond Fredriksen
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-4-2
+    starters:
+      - Marcus Sahlman
+      - Tom Høgli
+      - Fredrik Björck
+      - Miika Koppinen
+      - Saliou Ciss
+      - Remi Johansen
+      - Kara Mbodji
+      - Ruben Yttergård Jenssen
+      - Hans Åge Yndestad
+      - George Mourad
+      - Mohammed Ahamed Jama
+    subs:
+      - Kayke
+      - Tommy Knarvik
+      - Helge Haugen
+      - Jade North
+      - Lars Henrik Andreassen
+      - Mads Reginiussen
+      - Mads Toppel
+    coach: Per-Mathias Høgmo
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-tromso/2e5vky#761892
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "761892"
+manual: []

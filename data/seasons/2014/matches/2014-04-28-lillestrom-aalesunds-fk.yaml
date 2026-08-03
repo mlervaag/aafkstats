@@ -11,13 +11,95 @@ competition:
 home:
   clubId: lillestrom
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: arasen
 neutralVenue: false
-events: []
+attendance: 5230
+events:
+  - minute: 68
+    type: substitution
+    team: home
+    player: Erling Knudtzon
+    playerOff: Tommy Hoeiland
+  - minute: 69
+    type: substitution
+    team: home
+    player: Petter Vaagan Moen
+    playerOff: Palmi Rafn Palmason
+  - minute: 69
+    type: yellow_card
+    team: home
+    player: Stian Ringstad
+  - minute: 77
+    type: substitution
+    team: away
+    player: Sakari Mattila
+    playerOff: Peter Orry Larsen
+  - minute: 79
+    type: substitution
+    team: home
+    player: Ohi Anthony Omoijuanfo
+    playerOff: Moryke Fofana
+  - minute: 84
+    type: substitution
+    team: away
+    player: Hugues Wembangomo
+    playerOff: Torbjoern Grytten
+  - minute: 89
+    type: substitution
+    team: away
+    player: Tor Hogne Aaroey
+    playerOff: Michael Barrantes
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Arnold Origi Otieno
+      - Anders Oestli
+      - Ruben Gabrielsen
+      - Frode Kippe
+      - Stian Ringstad
+      - Bjoern Helge Riise
+      - Marius Lundemo
+      - Johan Andersson
+      - Moryke Fofana
+      - Tommy Hoeiland
+      - Palmi Rafn Palmason
+    subs:
+      - Erling Knudtzon
+      - Petter Vaagan Moen
+      - Ohi Anthony Omoijuanfo
+      - Simen Kind Mikalsen
+      - Magnar Oedegaard
+      - Erik Mjelde
+      - Kenneth Udjus
+    coach: Magnus Haglund
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Jonatan Tollaas Nation
+      - Jo Nymo Matland
+      - Torbjoern Grytten
+      - Fredrik Ulvestad
+      - Peter Orry Larsen
+      - Demar Phillips
+      - Leke James
+      - Michael Barrantes
+    subs:
+      - Sakari Mattila
+      - Hugues Wembangomo
+      - Tor Hogne Aaroey
+      - Henrik Roervik Bjoerdal
+      - Oddbjoern Lie
+      - Andreas Lie
+    coach: Jan Joensson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +115,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

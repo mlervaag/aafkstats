@@ -11,13 +11,170 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: kongsvinger
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 3643
+referee: Eivind Bodding
+events:
+  - minute: 5
+    type: yellow_card
+    team: home
+    player: Martin Ramsland
+  - minute: 9
+    type: yellow_card
+    team: home
+    player: Thomas Grøgaard
+  - minute: 21
+    type: goal
+    team: home
+    player: Claudio Braga
+  - minute: 27
+    type: goal
+    team: home
+    player: Håkon Butli Hammer
+    assist: Isaac Atanga
+  - minute: 33
+    type: substitution
+    team: away
+    player: Lars Christian Krogh Gerson
+    playerOff: Fredrik Holmé
+  - minute: 39
+    type: yellow_card
+    team: away
+    player: Emil Adrendrup Nielsen
+  - minute: 41
+    type: goal
+    team: away
+    player: Lucas Ravn-Haren
+    assist: Emil Adrendrup Nielsen
+  - minute: 42
+    type: yellow_card
+    team: away
+    player: Jesper Grundt
+  - minute: 44
+    type: goal
+    team: home
+    player: Sander Hestetun Kilen
+    assist: Claudio Braga
+  - minute: 46
+    type: substitution
+    team: away
+    player: Ludvig Langrekken
+    playerOff: Vegard Leikvoll Moberg
+  - minute: 65
+    type: goal
+    team: away
+    player: Emil Adrendrup Nielsen
+    assist: Noa Williams
+  - minute: 66
+    type: substitution
+    team: away
+    player: Joacim Holtan
+    playerOff: Emil Adrendrup Nielsen
+  - minute: 66
+    type: substitution
+    team: away
+    player: Mathias Berg Gjerstrøm
+    playerOff: Daniel Lysgård
+  - minute: 71
+    type: substitution
+    team: home
+    player: Noah Solskjær
+    playerOff: Sander Hestetun Kilen
+  - minute: 73
+    type: goal
+    team: away
+    player: Joel Nilsson
+    assist: Jesper Grundt
+  - minute: 77
+    type: substitution
+    team: home
+    player: Bjørn Martin Kristensen
+    playerOff: Isaac Atanga
+  - minute: 77
+    type: substitution
+    team: home
+    player: Markus Seehusen Karlsbakk
+    playerOff: Eivind Strømsheim Kolve
+  - minute: 82
+    type: goal
+    team: home
+    player: Kristoffer Nessø
+    assist: Claudio Braga
+  - minute: 86
+    type: substitution
+    team: away
+    player: Albert Sandstad
+    playerOff: Jesper Grundt
+  - minute: 87
+    type: goal
+    team: away
+    player: Lucas Ravn-Haren
+    assist: Ludvig Langrekken
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Kristoffer Nessø
+      - Martin Ramsland
+      - John Kitolano
+      - Thomas Grøgaard
+      - Eivind Strømsheim Kolve
+      - Håkon Butli Hammer
+      - Claudio Braga
+      - Isaac Atanga
+      - Sander Hestetun Kilen
+      - David Snær Johannsson
+    subs:
+      - Noah Solskjær
+      - Markus Seehusen Karlsbakk
+      - Bjørn Martin Kristensen
+      - Tor Erik Valderhaug Larsen
+      - John Ruud Norvik
+      - Stian Aarønes Holte
+      - Sebastian Berntsen
+    coach: Christian Johnsen
+  away:
+    formation: 3-4-3
+    starters:
+      - August Strömberg
+      - Daniel Lysgård
+      - Fredrik Holmé
+      - Robert Orri Thorkelsson
+      - Joel Nilsson
+      - Harald Holter
+      - Jesper Grundt
+      - Emil Adrendrup Nielsen
+      - Lucas Ravn-Haren
+      - Vegard Leikvoll Moberg
+      - Noa Williams
+    subs:
+      - Lars Christian Krogh Gerson
+      - Ludvig Langrekken
+      - Mathias Berg Gjerstrøm
+      - Joacim Holtan
+      - Albert Sandstad
+      - Sayouba Mandé
+      - Mapenda Mbow
+      - Marius Trengereid
+    coach: Johan Peter Vennberg
+stats:
+  home:
+    possession: 47
+    shots: 10
+    shotsOnTarget: 7
+    corners: 0
+  away:
+    possession: 53
+    shots: 24
+    shotsOnTarget: 15
+    corners: 8
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +190,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

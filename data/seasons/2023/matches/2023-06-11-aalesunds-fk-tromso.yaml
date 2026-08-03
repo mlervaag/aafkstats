@@ -11,13 +11,156 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: tromso
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4042
+referee: Daniel Higraff
+events:
+  - minute: 24
+    type: goal
+    team: home
+    player: Bjørn Martin Kristensen
+    assist: Nikolai Hopland
+  - minute: 28
+    type: yellow_card
+    team: away
+    player: Christophe Psyché
+  - minute: 40
+    type: goal
+    team: away
+    player: Vegard Østraat Erlien
+    assist: Sakarias Opsahl
+  - minute: 46
+    type: substitution
+    team: away
+    player: Anders Jenssen
+    playerOff: Christophe Psyché
+  - minute: 46
+    type: substitution
+    team: home
+    player: Kristoffer Ødemarksbakken
+    playerOff: Bjørn Martin Kristensen
+  - minute: 54
+    type: goal
+    team: away
+    player: Vegard Østraat Erlien
+    assist: Ruben Yttergård Jenssen
+  - minute: 63
+    type: substitution
+    team: home
+    player: Amidou Diop
+    playerOff: Alexander Juel Andersen
+  - minute: 63
+    type: substitution
+    team: home
+    player: Alexander Stølås
+    playerOff: John Kitolano
+  - minute: 73
+    type: goal
+    team: away
+    player: Niklas Vesterlund
+    assist: Yaw Paintsil
+  - minute: 77
+    type: substitution
+    team: away
+    player: Tobias Hafstad
+    playerOff: Yaw Paintsil
+  - minute: 80
+    type: substitution
+    team: home
+    player: Eivind Strømsheim Kolve
+    playerOff: Kasper Lunding
+  - minute: 81
+    type: goal
+    team: home
+    player: Markus Seehusen Karlsbakk
+    assist: Kristoffer Ødemarksbakken
+  - minute: 86
+    type: substitution
+    team: away
+    player: Jens Hjertø-Dahl
+    playerOff: Kent-Are Antonsen
+  - minute: 90
+    type: substitution
+    team: away
+    player: Miika Koskela
+    playerOff: Sakarias Opsahl
+  - minute: 90
+    type: substitution
+    team: home
+    player: Moctar Diop
+    playerOff: Nikolai Hopland
+lineups:
+  home:
+    formation: 3-4-2-1
+    starters:
+      - Sten Michael Grytebust
+      - Ole Kolskogen
+      - David Fällman
+      - Alexander Juel Andersen
+      - Alexander Munksgaard
+      - Erlend Segberg
+      - Nikolai Hopland
+      - John Kitolano
+      - Kasper Lunding
+      - Markus Seehusen Karlsbakk
+      - Bjørn Martin Kristensen
+    subs:
+      - Kristoffer Ødemarksbakken
+      - Alexander Stølås
+      - Amidou Diop
+      - Eivind Strømsheim Kolve
+      - Moctar Diop
+      - Michael Lansing
+      - Simen Haram
+      - Stian Aarønes Holte
+      - Trace Murray
+    coach: Marius Bøe
+  away:
+    formation: 3-4-2-1
+    starters:
+      - Simon Thomas
+      - Jostein Gundersen
+      - Christophe Psyché
+      - Casper Øyvann
+      - Niklas Vesterlund
+      - Sakarias Opsahl
+      - Ruben Yttergård Jenssen
+      - Daniel Bassi
+      - Yaw Paintsil
+      - Kent-Are Antonsen
+      - Vegard Østraat Erlien
+    subs:
+      - Anders Jenssen
+      - Tobias Hafstad
+      - Jens Hjertø-Dahl
+      - Miika Koskela
+      - Jakob Napoleon Romsaas
+      - Jesper Robertsen
+      - Marius Tollefsen
+    coach: Gaute Helstrup
+stats:
+  home:
+    possession: 50
+    shots: 8
+    shotsOnTarget: 2
+    corners: 4
+    fouls: 10
+    offsides: 3
+    xg: 0.86
+  away:
+    possession: 50
+    shots: 11
+    shotsOnTarget: 5
+    corners: 2
+    fouls: 8
+    offsides: 1
+    xg: 2.14
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +176,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

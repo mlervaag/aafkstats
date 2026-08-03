@@ -1,0 +1,155 @@
+id: 2021-07-25-traeff-aalesunds-fk
+date: 2021-07-25
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: nm
+  season: 2021
+  stage: regular_season
+  round: 1
+home:
+  clubId: traeff
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: 2
+neutralVenue: false
+events:
+  - minute: 16
+    type: goal
+    team: away
+    player: Erlend Segberg
+  - minute: 33
+    type: goal
+    team: away
+    player: Isak Dybvik
+  - minute: 46
+    type: substitution
+    team: home
+    player: Haavard Haugli Nybraaten
+    playerOff: Lars Ranheim
+  - minute: 46
+    type: substitution
+    team: home
+    player: Makhtar Thioune
+    playerOff: Stian Rødal
+  - minute: 69
+    type: substitution
+    team: away
+    player: Sigurd Haugen
+    playerOff: Mamadou Diaw
+  - minute: 70
+    type: substitution
+    team: away
+    player: Niklas Castro
+    playerOff: Simen Bolkan Nordli
+  - minute: 71
+    type: goal
+    team: away
+    player: Jonas Grønner
+  - minute: 75
+    type: substitution
+    team: away
+    player: Stian Aarønes Holte
+    playerOff: David Kristjan Olafsson
+  - minute: 75
+    type: substitution
+    team: away
+    player: Henrik Melland
+    playerOff: Nikolai Hopland
+  - minute: 78
+    type: goal
+    team: away
+    player: Sigurd Haugen
+  - minute: 81
+    type: yellow_card
+    team: home
+    player: Makhtar Thioune
+  - minute: 82
+    type: substitution
+    team: home
+    player: Adrian Gruener Bygland
+    playerOff: Martin Olimb
+  - minute: 87
+    type: substitution
+    team: home
+    player: Mats Brenden
+    playerOff: Bjørnar Eltervåg
+  - minute: 87
+    type: substitution
+    team: home
+    player: Adrian Kosinski
+    playerOff: Eirik Kjørsvik
+lineups:
+  home:
+    starters:
+      - Sivert Viken Beinset
+      - Bjørnar Eltervåg
+      - Jahn Ove Wiik
+      - Joergen Boee
+      - Julian Mikalsen Kristengard
+      - Mikael Wenaas
+      - Odin Bellingmo
+      - Stian Rødal
+      - Eirik Kjørsvik
+      - Lars Ranheim
+      - Martin Olimb
+    subs:
+      - Haavard Haugli Nybraaten
+      - Makhtar Thioune
+      - Adrian Gruener Bygland
+      - Adrian Kosinski
+      - Mats Brenden
+      - Fredrik Sivertsen Bergslid
+      - Sondre Eide Blikås
+  away:
+    starters:
+      - Andreas Lie
+      - David Kristjan Olafsson
+      - Jørgen Hatlehol
+      - Jonas Grønner
+      - Nikolai Hopland
+      - Erlend Segberg
+      - Simen Bolkan Nordli
+      - Isak Dybvik
+      - Kristoffer Ødemarksbakken
+      - Mamadou Diaw
+      - Torbjørn Kallevåg
+    subs:
+      - Sigurd Haugen
+      - Niklas Castro
+      - Henrik Melland
+      - Stian Aarønes Holte
+      - Enock Mwimba
+      - Kristoffer Strand Ødven
+      - Quint Jansen
+      - Simen Rafn
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/traeff-vs-aalesund/1qrfrs#3625230
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3625230"
+manual: []

@@ -11,13 +11,140 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: sarpsborg-08
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 3
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5363
+referee: Trygve Kjensli
+events:
+  - minute: 9
+    type: goal
+    team: away
+    player: Patrick Mortensen
+    assist: Anders Trondsen
+  - minute: 19
+    type: goal
+    team: home
+    player: Fredrik Carlsen
+    assist: Edwin Gyasi
+  - minute: 21
+    type: goal
+    team: away
+    player: Patrick Mortensen
+    assist: Anders Trondsen
+  - minute: 22
+    type: substitution
+    team: away
+    player: Tobias Heintz
+    playerOff: Joachim Thomassen
+  - minute: 28
+    type: substitution
+    team: home
+    player: Vebjørn Hoff
+    playerOff: Adam Örn Arnarson
+  - minute: 32
+    type: yellow_card
+    team: away
+    player: Matti Lund Nielsen
+  - minute: 45
+    type: goal
+    team: away
+    player: Joackim Jørgensen
+    assist: Anders Trondsen
+  - minute: 51
+    type: yellow_card
+    team: away
+    player: Andreas Albech
+  - minute: 55
+    type: substitution
+    team: away
+    player: Henri Toivomäki
+    playerOff: Andreas Albech
+  - minute: 58
+    type: substitution
+    team: home
+    player: Valmir Berisha
+    playerOff: Sondre Brunstad Fet
+  - minute: 59
+    type: substitution
+    team: home
+    player: Lars Veldwijk
+    playerOff: Aron Elis Thrándarson
+  - minute: 75
+    type: substitution
+    team: away
+    player: Erton Fejzullahu
+    playerOff: Jonas Lindberg
+  - minute: 85
+    type: yellow_card
+    team: home
+    player: Vebjørn Hoff
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Kaj Ramsteijn
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Fredrik Carlsen
+      - Bjørn Helge Riise
+      - Aron Elis Thrándarson
+      - Mostafa Abdellaoue
+      - Sondre Brunstad Fet
+    subs:
+      - Vebjørn Hoff
+      - Valmir Berisha
+      - Lars Veldwijk
+      - Daniel Gretarsson
+      - Jørgen Hatlehol
+      - Marlinho
+      - Pål Vestly Heigre
+    coach: Trond Fredriksen
+  away:
+    formation: 4-4-2
+    starters:
+      - Anders Kristiansen
+      - Andreas Albech
+      - Joackim Jørgensen
+      - Sigurd Rosted
+      - Joachim Thomassen
+      - Ole Jørgen Halvorsen
+      - Kristoffer Zachariassen
+      - Matti Lund Nielsen
+      - Anders Trondsen
+      - Jonas Lindberg
+      - Patrick Mortensen
+    subs:
+      - Tobias Heintz
+      - Henri Toivomäki
+      - Erton Fejzullahu
+      - Anders Østli
+      - Jon Helge Tveita
+      - Krepin Diatta
+      - Stefan Cupic
+    coach: Geir Bakke
+stats:
+  home:
+    possession: 49
+    shots: 12
+    shotsOnTarget: 5
+    corners: 8
+    fouls: 12
+    offsides: 1
+  away:
+    possession: 51
+    shots: 13
+    shotsOnTarget: 7
+    corners: 4
+    fouls: 13
+    offsides: 7
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +160,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

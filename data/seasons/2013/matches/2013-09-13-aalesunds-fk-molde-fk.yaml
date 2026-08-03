@@ -11,13 +11,124 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: molde-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 10
+    type: yellow_card
+    team: away
+    player: Even Hovland
+  - minute: 26
+    type: goal
+    team: away
+    player: Even Hovland
+    assist: Magne Hoseth
+  - minute: 39
+    type: red_card
+    team: home
+    player: Demar Phillips
+  - minute: 39
+    type: yellow_card
+    team: away
+    player: Tommy Høiland
+  - minute: 44
+    type: goal
+    team: away
+    player: Magne Hoseth
+  - minute: 46
+    type: substitution
+    team: home
+    player: Daniel Arnefjord
+    playerOff: Lars Fuhre
+  - minute: 46
+    type: substitution
+    team: home
+    player: Michael Barrantes
+    playerOff: Fredrik Carlsen
+  - minute: 62
+    type: goal
+    team: home
+    player: Abderrazak Hamdallah
+    assist: Houcine Zaidoune
+  - minute: 63
+    type: substitution
+    team: away
+    player: Zlatko Tripic
+    playerOff: Mattias Moström
+  - minute: 67
+    type: penalty_goal
+    team: away
+    player: Magne Hoseth
+  - minute: 68
+    type: substitution
+    team: away
+    player: Daniel Chima Chukwu
+    playerOff: Mats Møller Dæhli
+  - minute: 72
+    type: red_card
+    team: away
+    player: Tommy Høiland
+  - minute: 73
+    type: substitution
+    team: home
+    player: Tor Hogne Aarøy
+    playerOff: Houcine Zaidoune
+  - minute: 86
+    type: substitution
+    team: away
+    player: Emmanuel Ekpo
+    playerOff: Jo Inge Berget
+lineups:
+  home:
+    formation: 7-1-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Jonatan Tollås Nation
+      - Edvard Skagestad
+      - Demar Phillips
+      - Peter Orry Larsen
+      - Houcine Zaidoune
+      - Fredrik Carlsen
+      - Fredrik Ulvestad
+      - Abderrazak Hamdallah
+      - Lars Fuhre
+    subs:
+      - Daniel Arnefjord
+      - Michael Barrantes
+      - Tor Hogne Aarøy
+      - Henrik Rørvik Bjørdal
+      - Lasse Staw
+      - Thomas Skog Martinussen
+    coach: Jan Jönsson
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Ørjan Håskjold Nyland
+      - Martin Linnes
+      - Even Hovland
+      - Vegard Forren
+      - Per Egil Flo
+      - Daniel Berg Hestad
+      - Magne Hoseth
+      - Mats Møller Dæhli
+      - Jo Inge Berget
+      - Mattias Moström
+      - Tommy Høiland
+    subs:
+      - Zlatko Tripic
+      - Daniel Chima Chukwu
+      - Emmanuel Ekpo
+      - Joona Toivio
+      - Knut Olav Rindarøy
+      - Kristoffer Paulsen Vatshaug
+      - Ole Söderberg
+    coach: Ole Gunnar Solskjær
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +144,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

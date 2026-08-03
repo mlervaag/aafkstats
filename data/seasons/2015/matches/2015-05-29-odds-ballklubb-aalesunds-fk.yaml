@@ -11,13 +11,125 @@ competition:
 home:
   clubId: odds-ballklubb
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: skagerak-arena
 neutralVenue: false
-events: []
+attendance: 6769
+events:
+  - minute: 19
+    type: goal
+    team: home
+    player: Olivier Occean
+    assist: Chukwuma Akabueze
+  - minute: 46
+    type: substitution
+    team: away
+    player: Vebjørn Hoff
+    playerOff: Mostafa Abdellaoue
+  - minute: 69
+    type: substitution
+    team: home
+    player: Håvard Storbæk
+    playerOff: Oliver Berg
+  - minute: 72
+    type: substitution
+    team: home
+    player: Mathias Fredriksen
+    playerOff: Ole Jørgen Halvorsen
+  - minute: 74
+    type: substitution
+    team: away
+    player: Carl Björk
+    playerOff: Peter Orry Larsen
+  - minute: 76
+    type: substitution
+    team: home
+    player: Ardian Gashi
+    playerOff: Mathias Fredriksen
+  - minute: 76
+    type: yellow_card
+    team: home
+    player: Olivier Occean
+  - minute: 78
+    type: goal
+    team: away
+    player: Carl Björk
+    assist: Sakari Mattila
+  - minute: 90
+    type: substitution
+    team: away
+    player: Edvard Skagestad
+    playerOff: Henrik Rørvik Bjørdal
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Tero Mäntylä
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Jone Samuelsen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sondre Løvseth Rossbach
+      - Jarkko Hurme
+      - Lars Kristian Eriksen
+      - Steffen Hagen
+      - Thomas Grøgaard
+      - Jone Samuelsen
+      - Fredrik Oldrup Jensen
+      - Oliver Berg
+      - Ole Jørgen Halvorsen
+      - Olivier Occean
+      - Chukwuma Akabueze
+    subs:
+      - Håvard Storbæk
+      - Mathias Fredriksen
+      - Ardian Gashi
+      - Emil Jonassen
+      - Frode Johnsen
+      - Vegard Bergan
+      - Viljar Røsholt Myhra
+    coach: Dag-Eilev Fagermo
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Akeem Latifu
+      - Mikael Dyrestam
+      - Tero Mäntylä
+      - Oddbjørn Lie
+      - Peter Orry Larsen
+      - Michael Barrantes
+      - Sakari Mattila
+      - Henrik Rørvik Bjørdal
+      - Mostafa Abdellaoue
+      - Leke James
+    subs:
+      - Vebjørn Hoff
+      - Carl Björk
+      - Edvard Skagestad
+      - Daniel Gretarsson
+      - Helge Sandvik
+      - Jo Nymo Matland
+      - Thomas Skog Martinussen
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 55
+    shots: 17
+    shotsOnTarget: 4
+    corners: 8
+  away:
+    possession: 45
+    shots: 15
+    shotsOnTarget: 6
+    corners: 4
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +145,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

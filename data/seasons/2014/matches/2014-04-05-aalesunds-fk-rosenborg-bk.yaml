@@ -11,13 +11,109 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: rosenborg-bk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 9049
+events:
+  - minute: 8
+    type: substitution
+    team: away
+    player: Joergen Skjelvik
+    playerOff: Cristian Gamboa
+  - minute: 24
+    type: yellow_card
+    team: away
+    player: John Chibuike
+  - minute: 40
+    type: yellow_card
+    team: home
+    player: Michael Barrantes
+  - minute: 56
+    type: goal
+    team: home
+    player: Peter Orry Larsen
+    assist: Demar Phillips
+  - minute: 59
+    type: substitution
+    team: home
+    player: Sakari Mattila
+    playerOff: Demar Phillips
+  - minute: 69
+    type: substitution
+    team: away
+    player: Alexander Soederlund
+    playerOff: Tobias P. Mikkelsen
+  - minute: 73
+    type: substitution
+    team: home
+    player: Torbjoern Grytten
+    playerOff: Fredrik Carlsen
+  - minute: 75
+    type: goal
+    team: away
+    player: Riku Riski
+    assist: Alexander Soederlund
+  - minute: 85
+    type: yellow_card
+    team: away
+    player: Mikael Dorsin
+  - minute: 90
+    type: substitution
+    team: home
+    player: Tor Hogne Aaroey
+    playerOff: Michael Barrantes
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Jonatan Tollaas Nation
+      - Jo Nymo Matland
+      - Fredrik Carlsen
+      - Fredrik Ulvestad
+      - Peter Orry Larsen
+      - Demar Phillips
+      - Michael Barrantes
+      - Leke James
+    subs:
+      - Sakari Mattila
+      - Torbjoern Grytten
+      - Tor Hogne Aaroey
+      - Oddbjoern Lie
+      - Tremaine Stewart
+      - Andreas Lie
+      - Henrik Roervik Bjoerdal
+    coach: Jan Joensson
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Alexander Lund Hansen
+      - Cristian Gamboa
+      - Per Verner Roenning
+      - Tore Reginiussen
+      - Mikael Dorsin
+      - Morten Gamst Pedersen
+      - Mike Jensen
+      - Tobias P. Mikkelsen
+      - John Chibuike
+      - Riku Riski
+      - Nicki Bille Nielsen
+    subs:
+      - Joergen Skjelvik
+      - Alexander Soederlund
+      - Mikkel Diskerud
+      - Ole Kristian Selnaes
+      - Lars Stubhaug
+      - Paal Andre Helland
+      - Daniel Berntsen
+    coach: Per Joar Hansen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +129,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

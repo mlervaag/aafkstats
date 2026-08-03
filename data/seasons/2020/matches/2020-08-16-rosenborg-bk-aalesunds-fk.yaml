@@ -11,13 +11,152 @@ competition:
 home:
   clubId: rosenborg-bk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: lerkendal-stadion
 neutralVenue: false
-events: []
+attendance: 200
+referee: Rohit Saggi
+events:
+  - minute: 16
+    type: goal
+    team: away
+    player: Holmbert Aron Fridjonsson
+    assist: Niklas Castro
+  - minute: 31
+    type: yellow_card
+    team: away
+    player: Gudmund Taksdal Kongshavn
+  - minute: 32
+    type: penalty_goal
+    team: home
+    player: Dino Islamovic
+  - minute: 34
+    type: goal
+    team: home
+    player: Dino Islamovic
+    assist: Vegar Eggen Hedenstad
+  - minute: 39
+    type: yellow_card
+    team: home
+    player: Dino Islamovic
+  - minute: 45
+    type: goal
+    team: home
+    player: Kristoffer Zachariassen
+    assist: Carlo Holse
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Fredrik Carlsen
+  - minute: 46
+    type: substitution
+    team: home
+    player: Pål André Helland
+    playerOff: Kristoffer Zachariassen
+  - minute: 51
+    type: yellow_card
+    team: away
+    player: Simen Bolkan Nordli
+  - minute: 66
+    type: substitution
+    team: away
+    player: Kristoffer Strand Ødven
+    playerOff: Fredrik Carlsen
+  - minute: 66
+    type: substitution
+    team: away
+    player: Erikson Lima
+    playerOff: Simen Bolkan Nordli
+  - minute: 69
+    type: goal
+    team: away
+    player: Holmbert Aron Fridjonsson
+    assist: Niklas Castro
+  - minute: 75
+    type: substitution
+    team: away
+    player: Markus Seehusen Karlsbakk
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 79
+    type: substitution
+    team: home
+    player: Torgeir Børven
+    playerOff: Dino Islamovic
+  - minute: 83
+    type: substitution
+    team: home
+    player: Gustav Valsvik
+    playerOff: Vegar Eggen Hedenstad
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Julian Faye Lund
+      - Erlend Dahl Reitan
+      - Tore Reginiussen
+      - Even Hovland
+      - Vegar Eggen Hedenstad
+      - Kristoffer Zachariassen
+      - Edvard Tagseth
+      - Gjermund Åsen
+      - Carlo Holse
+      - Dino Islamovic
+      - Emil Konradsen Ceide
+    subs:
+      - Pål André Helland
+      - Torgeir Børven
+      - Gustav Valsvik
+      - Filip Brattbakk
+      - Samuel Adegbenro
+      - Sander Tangvik
+      - Sondre Skogen
+      - Warren Kamanzi
+    coach: Trond Henriksen
+  away:
+    formation: 3-5-2
+    starters:
+      - Gudmund Taksdal Kongshavn
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Daan Klinkenberg
+      - Isak Dybvik
+      - Simen Bolkan Nordli
+      - Fredrik Carlsen
+      - Sigurd Haugen
+      - David Kristjan Olafsson
+      - Holmbert Aron Fridjonsson
+      - Niklas Castro
+    subs:
+      - Erikson Lima
+      - Kristoffer Strand Ødven
+      - Markus Seehusen Karlsbakk
+      - Andreas Lie
+      - Håvard Breivik
+      - Izunna Uzochukwu
+      - Jordon Mutch
+      - Oddbjørn Lie
+    coach: Lars Bohinen
+stats:
+  home:
+    possession: 66
+    shots: 15
+    shotsOnTarget: 5
+    corners: 7
+    fouls: 13
+    offsides: 1
+    xg: 1.66
+  away:
+    possession: 34
+    shots: 10
+    shotsOnTarget: 5
+    corners: 3
+    fouls: 18
+    offsides: 3
+    xg: 1.9
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +172,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -1,0 +1,152 @@
+id: 2022-06-29-lillestrom-aalesunds-fk
+date: 2022-06-29
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2022
+  stage: regular_season
+  round: 3
+home:
+  clubId: lillestrom
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+venueId: arasen-stadion
+neutralVenue: false
+events:
+  - minute: 40
+    type: substitution
+    team: home
+    player: Espen Garnås
+    playerOff: Philip Slørdahl
+  - minute: 45
+    stoppage: 2
+    type: goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+  - minute: 46
+    type: substitution
+    team: home
+    player: Ylldren Ibrahimaj
+    playerOff: Pål André Helland
+  - minute: 55
+    type: yellow_card
+    team: home
+    player: Vetle Dragsnes
+  - minute: 68
+    type: substitution
+    team: home
+    player: Akor Adams
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 68
+    type: substitution
+    team: home
+    player: Ifeanyi Matthew
+    playerOff: Kaan Kairinen
+  - minute: 71
+    type: substitution
+    team: away
+    player: Mamadou Diaw
+    playerOff: Simen Bolkan Nordli
+  - minute: 71
+    type: substitution
+    team: away
+    player: Torbjørn Kallevåg
+    playerOff: Dario Canadjija
+  - minute: 78
+    type: substitution
+    team: away
+    player: Oscar Solnørdal
+    playerOff: Erikson Lima
+  - minute: 78
+    type: substitution
+    team: away
+    player: Kristoffer Ødemarksbakken
+    playerOff: Sigurd Haugen
+  - minute: 81
+    type: substitution
+    team: home
+    player: Tom Pettersson
+    playerOff: Eskil Smidesang Edh
+lineups:
+  home:
+    formation: 3-4-2-1
+    starters:
+      - Knut-André Skjærstein
+      - Philip Slørdahl
+      - Colin Rösler
+      - Vetle Dragsnes
+      - Frederik Holst
+      - Magnus Knudsen
+      - Kaan Kairinen
+      - Eskil Smidesang Edh
+      - Pål André Helland
+      - Gjermund Åsen
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Espen Garnås
+      - Ylldren Ibrahimaj
+      - Akor Adams
+      - Ifeanyi Matthew
+      - Tom Pettersson
+      - Igoh Ogbu
+      - Lars Mogstad Ranger
+      - Mads Hedenstad Christiansen
+      - Tobias Hammer Svendsen
+    coach: Geir Bakke
+  away:
+    formation: 5-3-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Rafn
+      - Alexander Juel Andersen
+      - Besim Serbecic
+      - Nikolai Hopland
+      - Isak Dybvik
+      - Erikson Lima
+      - Kristoffer Barmen
+      - Dario Canadjija
+      - Sigurd Haugen
+      - Simen Bolkan Nordli
+    subs:
+      - Mamadou Diaw
+      - Torbjørn Kallevåg
+      - Kristoffer Ødemarksbakken
+      - Oscar Solnørdal
+      - Jørgen Hatlehol
+      - Michael Lansing
+      - Stian Aarønes Holte
+      - Ulrik Valderhaug Syversen
+    coach: Lars Arne Nilsen
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-lillestrom/2ctxg4#3918819
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3918819"
+manual: []

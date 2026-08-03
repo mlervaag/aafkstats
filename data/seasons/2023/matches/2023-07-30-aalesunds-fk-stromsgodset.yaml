@@ -11,13 +11,116 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: stromsgodset
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4303
+referee: Jan Morten Tennøy
+events:
+  - minute: 10
+    type: yellow_card
+    team: home
+    player: John Kitolano
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Thomas Grøgaard
+  - minute: 46
+    type: substitution
+    team: home
+    player: Kristoffer Barmen
+    playerOff: Moctar Diop
+  - minute: 65
+    type: substitution
+    team: away
+    player: Ole Kristian Enersen
+    playerOff: Marko Lawk Farji
+  - minute: 72
+    type: substitution
+    team: away
+    player: Albert Palmberg Thorsen
+    playerOff: Emmanuel Danso
+  - minute: 90
+    type: substitution
+    team: home
+    player: Kasper Lunding
+    playerOff: Kristoffer Barmen
+  - minute: 90
+    stoppage: 3
+    type: goal
+    team: home
+    player: Bjørn Martin Kristensen
+    assist: Markus Seehusen Karlsbakk
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Alexander Munksgaard
+      - David Fällman
+      - Nikolai Hopland
+      - John Kitolano
+      - Henrik Melland
+      - Erlend Segberg
+      - Markus Seehusen Karlsbakk
+      - Bjørn Martin Kristensen
+      - Moctar Diop
+      - Isaac Atanga
+    subs:
+      - Kristoffer Barmen
+      - Kasper Lunding
+      - Alexander Juel Andersen
+      - Kristoffer Ødemarksbakken
+      - Michael Lansing
+      - Sebastian Berntsen
+      - Stian Aarønes Holte
+      - Tor Erik Valderhaug Larsen
+      - Trace Murray
+    coach: Christian Johnsen
+  away:
+    formation: 3-4-2-1
+    starters:
+      - Viljar Røsholt Myhra
+      - Ari Leifsson
+      - Gustav Valsvik
+      - Fredrik Kristensen Dahl
+      - Halldor Stenevik
+      - Hermann Stengel
+      - Emmanuel Danso
+      - Thomas Grøgaard
+      - Marcus Mehnert
+      - Jonas Torrissen Therkelsen
+      - Marko Lawk Farji
+    subs:
+      - Ole Kristian Enersen
+      - Albert Palmberg Thorsen
+      - Andreas Heredia-Randen
+      - Eirik Espelid Blikstad
+      - Fabian Holst-Larsen
+      - Morten Sætra
+      - Sondre Fosnæss Hanssen
+    coach: Jørgen Isnes
+stats:
+  home:
+    possession: 54
+    shots: 22
+    shotsOnTarget: 4
+    corners: 10
+    fouls: 11
+    offsides: 0
+    xg: 1.74
+  away:
+    possession: 46
+    shots: 14
+    shotsOnTarget: 2
+    corners: 7
+    fouls: 12
+    offsides: 1
+    xg: 1.19
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +136,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

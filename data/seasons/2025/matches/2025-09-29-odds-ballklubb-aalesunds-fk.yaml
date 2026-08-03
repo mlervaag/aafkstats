@@ -11,13 +11,157 @@ competition:
 home:
   clubId: odds-ballklubb
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: skagerak-arena
 neutralVenue: false
-events: []
+attendance: 2958
+referee: Mohammad Hafezi
+events:
+  - minute: 16
+    type: yellow_card
+    team: away
+    player: Mathias Christensen
+  - minute: 29
+    type: yellow_card
+    team: away
+    player: Nikolai Skuseth
+  - minute: 33
+    type: yellow_card
+    team: home
+    player: Mukhtar Adamu
+  - minute: 36
+    type: red_card
+    team: away
+    player: Mathias Christensen
+  - minute: 41
+    type: substitution
+    team: away
+    player: Håkon Butli Hammer
+    playerOff: Elias Heggland Myrlid
+  - minute: 46
+    type: substitution
+    team: home
+    player: Tobias Hammer Svendsen
+    playerOff: Justin Salmon
+  - minute: 62
+    type: goal
+    team: home
+    player: Tobias Hammer Svendsen
+    assist: Rafik Zekhnini
+  - minute: 70
+    type: substitution
+    team: away
+    player: Marius Andresen
+    playerOff: Nikolai Skuseth
+  - minute: 70
+    type: substitution
+    team: away
+    player: Frederik Heiselberg
+    playerOff: Jakob Nyland Ørsahl
+  - minute: 78
+    type: substitution
+    team: home
+    player: Abduljeleel Abdulateef
+    playerOff: Oliver Hagen
+  - minute: 78
+    type: substitution
+    team: home
+    player: Noah Kojo
+    playerOff: Filip Rønningen Jørgensen
+  - minute: 78
+    type: yellow_card
+    team: home
+    player: Nikolas Walstad
+  - minute: 85
+    type: substitution
+    team: away
+    player: Henrik Melland
+    playerOff: Janus Seehusen
+  - minute: 85
+    type: substitution
+    team: away
+    player: Kristian Hemmingsen Lonebu
+    playerOff: David Snær Johannsson
+  - minute: 87
+    type: yellow_card
+    team: home
+    player: Abduljeleel Abdulateef
+  - minute: 89
+    type: substitution
+    team: home
+    player: Josef Brian Baccay
+    playerOff: Rafik Zekhnini
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: home
+    player: Syver Aas
+    playerOff: Abduljeleel Abdulateef
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - André Hansen
+      - Samuel Skree Skjeldal
+      - Steffen Hagen
+      - Hans Christian Bonnesen
+      - Nikolas Walstad
+      - Filip Rønningen Jørgensen
+      - Justin Salmon
+      - Mukhtar Adamu
+      - Oliver Hagen
+      - Ivan Djantou
+      - Rafik Zekhnini
+    subs:
+      - Tobias Hammer Svendsen
+      - Noah Kojo
+      - Abduljeleel Abdulateef
+      - Josef Brian Baccay
+      - Syver Aas
+      - Sebastian Hansen
+      - Godwill Ambrose
+      - Jørgen Vedal Sjøl
+      - Hinrik Hardarson
+    coach: Per Frandsen
+  away:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Nikolai Skuseth
+      - Kristoffer Nessø
+      - Mathias Christensen
+      - David Snær Johannsson
+      - Janus Seehusen
+      - Jakob Nyland Ørsahl
+      - Paul Ngongo Iversen
+      - Elias Heggland Myrlid
+    subs:
+      - Håkon Butli Hammer
+      - Marius Andresen
+      - Frederik Heiselberg
+      - Henrik Melland
+      - Kristian Hemmingsen Lonebu
+      - Tor Erik Valderhaug Larsen
+      - John Kitolano
+      - Olafur Gudmundsson
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 43
+    shots: 15
+    shotsOnTarget: 4
+    corners: 6
+  away:
+    possession: 57
+    shots: 22
+    shotsOnTarget: 4
+    corners: 9
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +177,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

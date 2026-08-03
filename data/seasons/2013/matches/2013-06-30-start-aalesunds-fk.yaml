@@ -11,13 +11,118 @@ competition:
 home:
   clubId: start
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: sor-arena
 neutralVenue: false
-events: []
+events:
+  - minute: 34
+    type: goal
+    team: away
+    player: Fredrik Ulvestad
+  - minute: 38
+    type: goal
+    team: away
+    player: Peter Orry Larsen
+    assist: Fredrik Carlsen
+  - minute: 49
+    type: goal
+    team: home
+    player: Ernest Asante
+  - minute: 54
+    type: yellow_card
+    team: home
+    player: Rolf Daniel Vikstøl
+  - minute: 61
+    type: goal
+    team: home
+    player: Matthias Vilhjalmsson
+    assist: Ernest Asante
+  - minute: 70
+    type: substitution
+    team: away
+    player: Demar Phillips
+    playerOff: Fredrik Carlsen
+  - minute: 71
+    type: substitution
+    team: home
+    player: Babacar Sarr
+    playerOff: Sondre Tronstad
+  - minute: 77
+    type: yellow_card
+    team: home
+    player: Bismark Acosta
+  - minute: 82
+    type: substitution
+    team: home
+    player: Alejandro Castro
+    playerOff: Matthias Vilhjalmsson
+  - minute: 85
+    type: substitution
+    team: away
+    player: Andreas Nordvik
+    playerOff: Lars Fuhre
+  - minute: 90
+    type: substitution
+    team: home
+    player: Glenn Andersen
+    playerOff: Gudmundur Kristjansson
+  - minute: 90
+    type: substitution
+    team: away
+    player: Christian Myklebust
+    playerOff: Thomas Skog Martinussen
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Demar Phillips
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Håkon Andre Opdal
+      - Gudmundur Kristjansson
+      - Bismark Acosta
+      - Jesper Mathisen
+      - Rolf Daniel Vikstøl
+      - Ernest Asante
+      - Sondre Tronstad
+      - Solomon James Owello
+      - Espen Børufsen
+      - Espen Hoff
+      - Matthias Vilhjalmsson
+    subs:
+      - Babacar Sarr
+      - Alejandro Castro
+      - Glenn Andersen
+      - Alain Delgado
+      - Amin Nouri
+      - Terje Reinertsen
+    coach: Mons Ivar Mjelde
+  away:
+    formation: 5-2-3
+    starters:
+      - Sten Michael Grytebust
+      - Thomas Skog Martinussen
+      - Edvard Skagestad
+      - Jonatan Tollås Nation
+      - Jo Nymo Matland
+      - Peter Orry Larsen
+      - Fredrik Carlsen
+      - Fredrik Ulvestad
+      - Lars Fuhre
+      - Abderrazak Hamdallah
+      - Leke James
+    subs:
+      - Demar Phillips
+      - Andreas Nordvik
+      - Christian Myklebust
+      - Henrik Rørvik Bjørdal
+      - Lasse Staw
+    coach: Jan Jönsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +138,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

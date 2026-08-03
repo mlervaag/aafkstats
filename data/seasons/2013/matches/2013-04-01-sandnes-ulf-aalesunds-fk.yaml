@@ -11,13 +11,114 @@ competition:
 home:
   clubId: sandnes-ulf
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: sandnes-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 10
+    type: yellow_card
+    team: away
+    player: Leke James
+  - minute: 39
+    type: yellow_card
+    team: away
+    player: Tremaine Stewart
+  - minute: 46
+    type: substitution
+    team: home
+    player: Marius Helle
+    playerOff: Fredrik Torsteinbø
+  - minute: 52
+    type: goal
+    team: away
+    player: Tremaine Stewart
+  - minute: 63
+    type: substitution
+    team: home
+    player: Tosaint Ricketts
+    playerOff: Tommy Høiland
+  - minute: 63
+    type: yellow_card
+    team: home
+    player: Bjørnar Holmvik
+  - minute: 71
+    type: substitution
+    team: away
+    player: Abderrazak Hamdallah
+    playerOff: Michael Barrantes
+  - minute: 80
+    type: yellow_card
+    team: away
+    player: Hugues Wembangomo
+  - minute: 84
+    type: yellow_card
+    team: away
+    player: Jonatan Tollås Nation
+  - minute: 86
+    type: substitution
+    team: away
+    player: Andreas Nordvik
+    playerOff: Hugues Wembangomo
+  - minute: 90
+    type: substitution
+    team: away
+    player: Tor Hogne Aarøy
+    playerOff: Leke James
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Demar Phillips
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Sean McDermott
+      - Vegard Aanestad
+      - Avni Pepa
+      - Edier Frejd
+      - Bjørnar Holmvik
+      - Fredrik Torsteinbø
+      - Anel Raskaj
+      - Aksel Berget Skjølsvik
+      - Steinthor Freyr Thorsteinsson
+      - Henrik Furebotn
+      - Tommy Høiland
+    subs:
+      - Marius Helle
+      - Tosaint Ricketts
+      - Aslak Falch
+      - Jakob Olsson
+      - Johnny Lundberg
+      - Kenneth Sola
+      - Krister Landa
+    coach: Asle Andersen
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Hugues Wembangomo
+      - Jonatan Tollås Nation
+      - Edvard Skagestad
+      - Jo Nymo Matland
+      - Fredrik Ulvestad
+      - Peter Orry Larsen
+      - Michael Barrantes
+      - Tremaine Stewart
+      - Leke James
+      - Demar Phillips
+    subs:
+      - Abderrazak Hamdallah
+      - Andreas Nordvik
+      - Tor Hogne Aarøy
+      - Christian Myklebust
+      - Fredrik Carlsen
+      - Mathias Rasmussen
+      - Thomas Skog Martinussen
+    coach: Jan Jönsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +134,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,172 @@ competition:
 home:
   clubId: lillestrom
   score: 5
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: arasen-stadion
 neutralVenue: false
-events: []
+attendance: 6433
+referee: Mathias Støfringshaug
+events:
+  - minute: 6
+    type: goal
+    team: home
+    player: Salieu Drammeh
+    assist: Eric Kitolano
+  - minute: 9
+    type: yellow_card
+    team: home
+    player: Mads Hedenstad Christiansen
+  - minute: 22
+    type: goal
+    team: home
+    player: Eric Kitolano
+    assist: Lars Mogstad Ranger
+  - minute: 51
+    type: yellow_card
+    team: away
+    player: Olafur Gudmundsson
+  - minute: 52
+    type: goal
+    team: home
+    player: Thomas Lehne Olsen
+  - minute: 52
+    type: missed_penalty
+    team: home
+    player: Thomas Lehne Olsen
+  - minute: 61
+    type: substitution
+    team: home
+    player: Yaw Paintsil
+    playerOff: Linus Alperud
+  - minute: 61
+    type: substitution
+    team: home
+    player: Kristoffer Toennessen
+    playerOff: Frederik Elkær
+  - minute: 61
+    type: substitution
+    team: away
+    player: David Snær Johannsson
+    playerOff: Håkon Butli Hammer
+  - minute: 61
+    type: substitution
+    team: away
+    player: Philip Sandvik Aukland
+    playerOff: Erik Frøysa
+  - minute: 61
+    type: substitution
+    team: away
+    player: Jakob Nyland Ørsahl
+    playerOff: Marius Andresen
+  - minute: 67
+    type: yellow_card
+    team: away
+    player: Jakob Nyland Ørsahl
+  - minute: 72
+    type: substitution
+    team: away
+    player: Elias Heggland Myrlid
+    playerOff: Frederik Heiselberg
+  - minute: 72
+    type: goal
+    team: away
+    player: Olafur Gudmundsson
+    assist: Jakob Nyland Ørsahl
+  - minute: 77
+    type: yellow_card
+    team: away
+    player: Paul Ngongo Iversen
+  - minute: 82
+    type: goal
+    team: home
+    player: Markus Seehusen Karlsbakk
+    assist: Eric Kitolano
+  - minute: 83
+    type: substitution
+    team: home
+    player: Harald Woxen
+    playerOff: Markus Seehusen Karlsbakk
+  - minute: 83
+    type: substitution
+    team: home
+    player: Moctar Diop
+    playerOff: Thomas Lehne Olsen
+  - minute: 86
+    type: goal
+    team: home
+    player: Eric Kitolano
+    assist: Yaw Paintsil
+  - minute: 88
+    type: substitution
+    team: home
+    player: Gjermund Åsen
+    playerOff: Vebjørn Hoff
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Mads Hedenstad Christiansen
+      - Lars Mogstad Ranger
+      - Espen Garnås
+      - Ruben Gabrielsen
+      - Frederik Elkær
+      - Markus Seehusen Karlsbakk
+      - Vebjørn Hoff
+      - Eric Kitolano
+      - Linus Alperud
+      - Thomas Lehne Olsen
+      - Salieu Drammeh
+    subs:
+      - Kristoffer Toennessen
+      - Yaw Paintsil
+      - Harald Woxen
+      - Moctar Diop
+      - Gjermund Åsen
+      - Stefan Hagerup
+      - Eric Larsson
+      - Sander Moen Foss
+      - Leandro Elvestad Neto
+    coach: Hans Erik Ødegaard
+  away:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Olafur Gudmundsson
+      - Aleksander Hammer Kjelsen
+      - Erik Frøysa
+      - Marius Andresen
+      - Henrik Melland
+      - Håkon Butli Hammer
+      - Mathias Christensen
+      - Kristoffer Nessø
+      - Paul Ngongo Iversen
+      - Frederik Heiselberg
+    subs:
+      - Philip Sandvik Aukland
+      - David Snær Johannsson
+      - Jakob Nyland Ørsahl
+      - Elias Heggland Myrlid
+      - Tor Erik Valderhaug Larsen
+      - Jørgen Bøe
+      - John Kitolano
+      - Simen Haram
+      - Kristian Hemmingsen Lonebu
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 65
+    shots: 15
+    shotsOnTarget: 5
+    corners: 2
+  away:
+    possession: 35
+    shots: 6
+    shotsOnTarget: 3
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +192,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,107 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: valerenga
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 27
+    type: goal
+    team: home
+    player: Abderrazak Hamdallah
+    assist: Demar Phillips
+  - minute: 59
+    type: substitution
+    team: away
+    player: Moussa Njie
+    playerOff: Fitim Kastrati
+  - minute: 60
+    type: substitution
+    team: away
+    player: Kristofer Hæstad
+    playerOff: Jan Gunnar Solli
+  - minute: 60
+    type: yellow_card
+    team: away
+    player: Moussa Njie
+  - minute: 69
+    type: substitution
+    team: home
+    player: Fredrik Ulvestad
+    playerOff: Demar Phillips
+  - minute: 75
+    type: yellow_card
+    team: away
+    player: Daniel Fredheim Holm
+  - minute: 78
+    type: substitution
+    team: away
+    player: Bojan Zajic
+    playerOff: Morten Berre
+  - minute: 80
+    type: red_card
+    team: away
+    player: Fegor Ogude
+  - minute: 87
+    type: yellow_card
+    team: home
+    player: Peter Orry Larsen
+  - minute: 89
+    type: substitution
+    team: home
+    player: Tor Hogne Aarøy
+    playerOff: Michael Barrantes
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Jo Nymo Matland
+      - Michael Barrantes
+      - Edvard Skagestad
+      - Peter Orry Larsen
+      - Demar Phillips
+      - Abderrazak Hamdallah
+      - Leke James
+    subs:
+      - Fredrik Ulvestad
+      - Tor Hogne Aarøy
+      - Andreas Nordvik
+      - Fredrik Carlsen
+      - Lars Fuhre
+      - Lasse Staw
+      - Thomas Skog Martinussen
+    coach: Jan Jönsson
+  away:
+    formation: 5-3-2
+    starters:
+      - Lars Hirschfeld
+      - Jan Gunnar Solli
+      - Geancarlo González
+      - Fegor Ogude
+      - André Muri
+      - Nicolai Høgh
+      - Christian Grindheim
+      - Morten Berre
+      - Fitim Kastrati
+      - Torgeir Børven
+      - Daniel Fredheim Holm
+    subs:
+      - Moussa Njie
+      - Kristofer Hæstad
+      - Bojan Zajic
+      - Diego Calvo
+      - Gudmund Taksdal Kongshavn
+      - Ivan Näsberg
+      - Marcel Wawrzynkiewicz
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +127,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

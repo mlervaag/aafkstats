@@ -11,13 +11,104 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: fk-haugesund
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 9
+    type: goal
+    team: home
+    player: Tremaine Stewart
+    assist: Leke James
+  - minute: 36
+    type: goal
+    team: home
+    player: Michael Barrantes
+  - minute: 41
+    type: goal
+    team: home
+    player: Michael Barrantes
+    assist: Fredrik Ulvestad
+  - minute: 60
+    type: substitution
+    team: away
+    player: Michael Haukås
+    playerOff: Henrik Kjelsrud Johansen
+  - minute: 60
+    type: substitution
+    team: away
+    player: Eirik Mæland
+    playerOff: Trygve Nygaard
+  - minute: 73
+    type: substitution
+    team: home
+    player: Fredrik Carlsen
+    playerOff: Tremaine Stewart
+  - minute: 80
+    type: substitution
+    team: away
+    player: Kristoffer Haraldseid
+    playerOff: Håvard Storbæk
+  - minute: 86
+    type: substitution
+    team: home
+    player: Jason Morrison
+    playerOff: Demar Phillips
+  - minute: 89
+    type: substitution
+    team: home
+    player: Christian Myklebust
+    playerOff: Leke James
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Sten Michael Grytebust
+      - Hugues Wembangomo
+      - Edvard Skagestad
+      - Jonatan Tollås Nation
+      - Jo Nymo Matland
+      - Peter Orry Larsen
+      - Fredrik Ulvestad
+      - Tremaine Stewart
+      - Michael Barrantes
+      - Demar Phillips
+      - Leke James
+    subs:
+      - Fredrik Carlsen
+      - Jason Morrison
+      - Christian Myklebust
+      - Andreas Nordvik
+      - Lasse Staw
+      - Thomas Skog Martinussen
+      - Tor Hogne Aarøy
+    coach: Jan Jönsson
+  away:
+    formation: 4-4-2
+    starters:
+      - Per Morten Kristiansen
+      - Henrik Kildentoft
+      - Umaru Bangura
+      - Vegard Skjerve
+      - David Myrestam
+      - Håvard Storbæk
+      - Trygve Nygaard
+      - Ugonna Anyora
+      - Tor Arne Andreassen
+      - Henrik Kjelsrud Johansen
+      - Alexander Søderlund
+    subs:
+      - Eirik Mæland
+      - Michael Haukås
+      - Kristoffer Haraldseid
+      - Maic Sema
+      - Martin Bjørnbak
+      - Olav Dalen
+    coach: Jostein Grindhaug
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +124,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

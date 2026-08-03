@@ -11,13 +11,108 @@ competition:
 home:
   clubId: odds-ballklubb
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: skagerak-arena
 neutralVenue: false
-events: []
+attendance: 5652
+events:
+  - minute: 18
+    type: goal
+    team: home
+    player: Jone Samuelsen
+    assist: Steffen Hagen
+  - minute: 30
+    type: goal
+    team: home
+    player: Jone Samuelsen
+    assist: Frode Johnsen
+  - minute: 41
+    type: yellow_card
+    team: away
+    player: Sakari Mattila
+  - minute: 49
+    type: goal
+    team: away
+    player: Jonatan Tollaas Nation
+  - minute: 60
+    type: substitution
+    team: home
+    player: Elbasan Rashani
+    playerOff: Bentley
+  - minute: 72
+    type: substitution
+    team: home
+    player: Haavard Storbaek
+    playerOff: Ole Joergen Halvorsen
+  - minute: 76
+    type: substitution
+    team: away
+    player: Henrik Roervik Bjoerdal
+    playerOff: Peter Orry Larsen
+  - minute: 83
+    type: substitution
+    team: away
+    player: Jo Nymo Matland
+    playerOff: Oddbjoern Lie
+  - minute: 87
+    type: substitution
+    team: away
+    player: Tremaine Stewart
+    playerOff: Fredrik Carlsen
+  - minute: 89
+    type: substitution
+    team: home
+    player: Henrik Kjelsrud Johansen
+    playerOff: Herolind Shala
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Andre Hansen
+      - Jarkko Hurme
+      - Steffen Hagen
+      - Fredrik Semb Berge
+      - Thomas Groegaard
+      - Jone Samuelsen
+      - Fredrik Oldrup Jensen
+      - Herolind Shala
+      - Ole Joergen Halvorsen
+      - Frode Johnsen
+      - Bentley
+    subs:
+      - Elbasan Rashani
+      - Haavard Storbaek
+      - Henrik Kjelsrud Johansen
+      - Sondre Loevseth Rossbach
+      - Fredrik Nordkvelle
+      - Emil Jonassen
+      - Lars Kristian Eriksen
+    coach: Dag-Eilev Fagermo
+  away:
+    formation: 4-5-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Jonatan Tollaas Nation
+      - Oddbjoern Lie
+      - Demar Phillips
+      - Peter Orry Larsen
+      - Fredrik Ulvestad
+      - Sakari Mattila
+      - Fredrik Carlsen
+      - Tor Hogne Aaroey
+    subs:
+      - Henrik Roervik Bjoerdal
+      - Jo Nymo Matland
+      - Tremaine Stewart
+      - Andreas Lie
+      - Izantullah Ahmadzai
+    coach: Jan Joensson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +128,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

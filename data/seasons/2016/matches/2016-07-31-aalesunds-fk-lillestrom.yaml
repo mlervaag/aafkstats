@@ -11,13 +11,115 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: lillestrom
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5652
+referee: Tommy Skjerven
+events:
+  - minute: 28
+    type: substitution
+    team: away
+    player: Mohamed Ofkir
+    playerOff: Frode Kippe
+  - minute: 49
+    type: goal
+    team: home
+    player: Mikkel Kirkeskov
+  - minute: 53
+    type: goal
+    team: home
+    player: Franck Boli
+  - minute: 57
+    type: substitution
+    team: away
+    player: Tomas Malec
+    playerOff: Jørgen Kolstad
+  - minute: 65
+    type: yellow_card
+    team: home
+    player: Edwin Gyasi
+  - minute: 70
+    type: substitution
+    team: away
+    player: Malaury Martin
+    playerOff: Bonke Innocent
+  - minute: 74
+    type: substitution
+    team: home
+    player: Vebjørn Hoff
+    playerOff: Fredrik Carlsen
+  - minute: 85
+    type: substitution
+    team: home
+    player: Adam Örn Arnarson
+    playerOff: Edwin Gyasi
+  - minute: 90
+    type: substitution
+    team: home
+    player: Sondre Brunstad Fet
+    playerOff: Mostafa Abdellaoue
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Bjørn Helge Riise
+      - Edvard Skagestad
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Fredrik Carlsen
+      - Peter Orry Larsen
+      - Aron Elis Thrándarson
+      - Mostafa Abdellaoue
+      - Franck Boli
+    subs:
+      - Vebjørn Hoff
+      - Adam Örn Arnarson
+      - Sondre Brunstad Fet
+      - Jørgen Hatlehol
+      - Lars Cramer
+      - Marlinho
+      - Tero Mäntylä
+    coach: Trond Fredriksen
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Arnold Origi Otieno
+      - Håkon Skogseid
+      - Marius Amundsen
+      - Frode Kippe
+      - Simen Kind Mikalsen
+      - Jørgen Kolstad
+      - Marius Lundemo
+      - Bonke Innocent
+      - Ole Martin Rindarøy
+      - Bassel Jradi
+      - Erling Knudtzon
+    subs:
+      - Mohamed Ofkir
+      - Tomas Malec
+      - Malaury Martin
+      - Emil Ødegaard
+      - Erik Næsbak Brenden
+      - Sheriff Sinyan
+    coach: Runar Kristinsson
+stats:
+  home:
+    possession: 48
+    shots: 14
+    shotsOnTarget: 6
+    corners: 9
+  away:
+    possession: 52
+    shots: 19
+    shotsOnTarget: 6
+    corners: 9
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +135,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

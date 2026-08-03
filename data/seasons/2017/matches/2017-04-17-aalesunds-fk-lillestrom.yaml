@@ -11,13 +11,135 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: lillestrom
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5370
+referee: Ola Hobber Nilsen
+events:
+  - minute: 5
+    type: goal
+    team: home
+    player: Daniel Gretarsson
+    assist: Fredrik Carlsen
+  - minute: 22
+    type: yellow_card
+    team: away
+    player: Marius Amundsen
+  - minute: 45
+    type: goal
+    team: home
+    player: Lars Veldwijk
+    assist: Aron Elis Thrándarson
+  - minute: 46
+    type: substitution
+    team: away
+    player: Frode Kippe
+    playerOff: Aleksander Melgalvis
+  - minute: 46
+    type: substitution
+    team: away
+    player: Bajram Ajeti
+    playerOff: Shaloze Udoji Chigozie
+  - minute: 48
+    type: goal
+    team: home
+    player: Mostafa Abdellaoue
+    assist: Edwin Gyasi
+  - minute: 62
+    type: yellow_card
+    team: away
+    player: Erling Knudtzon
+  - minute: 67
+    type: substitution
+    team: home
+    player: Oddbjørn Lie
+    playerOff: Fredrik Carlsen
+  - minute: 72
+    type: goal
+    team: away
+    player: Tomas Malec
+    assist: Erling Knudtzon
+  - minute: 74
+    type: substitution
+    team: home
+    player: Sondre Brunstad Fet
+    playerOff: Aron Elis Thrándarson
+  - minute: 76
+    type: substitution
+    team: home
+    player: Valmir Berisha
+    playerOff: Edwin Gyasi
+  - minute: 86
+    type: substitution
+    team: away
+    player: Erik Næsbak Brenden
+    playerOff: Erling Knudtzon
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Bjørn Helge Riise
+      - Kaj Ramsteijn
+      - Daniel Gretarsson
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Vebjørn Hoff
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Lars Veldwijk
+      - Mostafa Abdellaoue
+    subs:
+      - Oddbjørn Lie
+      - Sondre Brunstad Fet
+      - Valmir Berisha
+      - Adam Örn Arnarson
+      - Anders Waagan
+      - Jørgen Hatlehol
+      - Pål Vestly Heigre
+    coach: Trond Fredriksen
+  away:
+    formation: 4-4-2
+    starters:
+      - Arnold Origi Otieno
+      - Aleksander Melgalvis
+      - Simen Kind Mikalsen
+      - Marius Amundsen
+      - Mats Haakenstad
+      - Erling Knudtzon
+      - Ifeanyi Matthew
+      - Fredrik Krogstad
+      - Shaloze Udoji Chigozie
+      - Tomas Malec
+      - Michal Skoda
+    subs:
+      - Bajram Ajeti
+      - Frode Kippe
+      - Erik Næsbak Brenden
+      - Daniel Fernandes
+      - Simen Rafn
+      - Stefan Antonijevic
+    coach: Arne Erlandsen
+stats:
+  home:
+    possession: 53
+    shots: 14
+    shotsOnTarget: 6
+    corners: 4
+    fouls: 13
+    offsides: 2
+  away:
+    possession: 47
+    shots: 11
+    shotsOnTarget: 3
+    corners: 3
+    fouls: 24
+    offsides: 6
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +155,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

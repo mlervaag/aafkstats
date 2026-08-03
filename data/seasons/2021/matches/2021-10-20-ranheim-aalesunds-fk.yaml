@@ -11,13 +11,159 @@ competition:
 home:
   clubId: ranheim
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: extra-arena
 neutralVenue: false
-events: []
+attendance: 1003
+events:
+  - minute: 12
+    type: goal
+    team: home
+    player: Daniel Kvande
+    assist: Simon Marklund
+  - minute: 22
+    type: substitution
+    team: away
+    player: Kristoffer Ødemarksbakken
+    playerOff: Niklas Castro
+  - minute: 28
+    type: yellow_card
+    team: away
+    player: Simen Rafn
+  - minute: 46
+    type: substitution
+    team: away
+    player: Jørgen Hatlehol
+    playerOff: Simen Rafn
+  - minute: 46
+    type: substitution
+    team: away
+    player: Quint Jansen
+    playerOff: Erlend Segberg
+  - minute: 46
+    type: substitution
+    team: away
+    player: Torbjørn Kallevåg
+    playerOff: Isak Dybvik Määttä
+  - minute: 48
+    type: yellow_card
+    team: home
+    player: Marcus Mehnert
+  - minute: 60
+    type: goal
+    team: away
+    player: Sigurd Haugen
+    assist: Torbjørn Kallevåg
+  - minute: 63
+    type: goal
+    team: home
+    player: Marcus Mehnert
+  - minute: 63
+    type: yellow_card
+    team: away
+    player: David Fällman
+  - minute: 69
+    type: penalty_goal
+    team: home
+    player: Elias Hoff Melkersen
+  - minute: 71
+    type: substitution
+    team: home
+    player: Vegard Østraat Erlien
+    playerOff: Filip Brattbakk
+  - minute: 73
+    type: goal
+    team: away
+    player: Simen Bolkan Nordli
+    assist: David Kristjan Olafsson
+  - minute: 75
+    type: penalty_goal
+    team: away
+    player: Kristoffer Barmen
+  - minute: 77
+    type: yellow_card
+    team: away
+    player: Kristoffer Barmen
+  - minute: 79
+    type: yellow_card
+    team: home
+    player: Daniel Kvande
+  - minute: 83
+    type: substitution
+    team: home
+    player: Christian Eggen Rismark
+    playerOff: Marcus Mehnert
+  - minute: 90
+    stoppage: 1
+    type: substitution
+    team: home
+    player: Adrian Bartel
+    playerOff: Sivert Solli
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Magnus Lenes
+      - Sivert Solli
+      - Daniel Kvande
+      - Mikkel Konradsen Ceïde
+      - Erik Tønne
+      - Mads Reginiussen
+      - Jakob Tromsdal
+      - Simon Marklund
+      - Marcus Mehnert
+      - Elias Hoff Melkersen
+      - Filip Brattbakk
+    subs:
+      - Vegard Østraat Erlien
+      - Christian Eggen Rismark
+      - Adrian Bartel
+      - Edvard Sjøli
+      - Noah Sevaldsen Aarmo
+      - Robert Williams
+      - Adria Mateo
+      - Ruben Kristensen Alte
+      - Michael Karlsen
+    coach: Hugo Pereira
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Simen Rafn
+      - Kristoffer Barmen
+      - David Fällman
+      - David Kristjan Olafsson
+      - Erlend Segberg
+      - Erikson Lima
+      - Isak Dybvik Määttä
+      - Niklas Castro
+      - Simen Bolkan Nordli
+      - Sigurd Haugen
+    subs:
+      - Kristoffer Ødemarksbakken
+      - Quint Jansen
+      - Jørgen Hatlehol
+      - Torbjørn Kallevåg
+      - Andreas Lie
+      - Nikolai Hopland
+      - Mamadou Diaw
+      - Muamer Brajanac
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 45
+    shots: 14
+    shotsOnTarget: 7
+    corners: 6
+  away:
+    possession: 55
+    shots: 15
+    shotsOnTarget: 9
+    corners: 4
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +179,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

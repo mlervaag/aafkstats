@@ -12,14 +12,17 @@ europakampene, må komme et annet sted fra.
 
 | Kamptype | Periode | Status | Merknad |
 |---|---|---|---|
-| Serie (Eliteserien / 1. divisjon) | 2011–2025 | ✅ hentet | 450 kamper, komplette sesonger |
-| Norgesmesterskapet | 2011–2025 | ✅ hentet | 44 kamper. 2021 og 2022 mangler, se under |
-| Serie | 2010 | ⚠️ delvis | Bare runde 15–30. 16 av 30 kamper |
-| Treningskamper | inneværende sesong | ⚠️ kun nåtid | Sesongparameteren ignoreres |
-| Serie og cup | før 2010 | ❌ finnes ikke | Se «Den stille tilbakefallet» |
+| Serie (Eliteserien / 1. divisjon) | 2011–2026 | ✅ hentet | Komplette sesonger med detaljer |
+| Serie | 2010 | ✅ hentet, delvis | Bare runde 15–30. 16 av 30 kamper, merket i sesongfilen |
+| Norgesmesterskapet | 2011–2025 | ✅ hentet | 51 kamper, inkludert 2021/2022 og 2022/2023 |
+| Treningskamper | inneværende sesong | ✅ hentet | 8 kamper. Kun nåtid — se under |
+| Serie og cup | før 2010 | ❌ finnes ikke | Se «Det stille tilbakefallet» |
 | Europacup | alle år | ❌ finnes ikke | Se «Europakampene» |
 
-## Den stille tilbakefallet
+Status per 3. august 2026: **555 kamper, 17 sesonger, 2010–2026**, hvorav 523 har
+hendelsesdata.
+
+## Det stille tilbakefallet
 
 Dette er den viktigste enkeltobservasjonen, og grunnen til at CLI-en har en vaktpost.
 
@@ -41,8 +44,13 @@ avviser avviket som en `season`-failure. Det er samme vaktpost som stoppet NM 20
 de sesongene ligger hos FotMob under kryssårsformen `2021/2022`, og på det rene årstallet
 faller kilden tilbake til inneværende sesong.
 
-**Konsekvens:** NM 2021 og 2022 kan trolig hentes ved å sende `2021/2022` og `2022/2023`
-som sesong. CLI-en tar i dag bare heltall, så det krever en liten endring.
+**Løst:** `--season` godtar nå både `2025` og `2021/2022`. Kryssårssesongen sendes videre
+til kilden som den er, mens kampene arkiveres under det første årstallet — det er den
+utgaven av turneringen de tilhører. NM 2021/2022 og 2022/2023 er hentet.
+
+Treningskampene har samme problem uten samme løsning: turnering 489 svarer alltid med
+inneværende sesong uansett hva man ber om. Derfor kan bare årets treningskamper hentes, og
+eldre må komme fra en annen kilde.
 
 ## Europakampene
 
@@ -66,13 +74,15 @@ er fullt forsvarlig.
 
 ## Hva som gjenstår å hente herfra
 
-Fortsatt mulig innenfor FotMobs tak:
+Alt som lot seg hente innenfor taket, er hentet. Det som står igjen er løpende arbeid:
 
-1. **Serien 2010**, runde 15–30. Sesongen blir ufullstendig og bør merkes som det, ikke
-   presenteres som en hel sesong.
-2. **Treningskamper for inneværende sesong**, åtte kamper. Ny kamptype for arkivet.
-3. **Inneværende seriesesong**, som må hentes på nytt jevnlig etter hvert som den spilles.
-4. **NM 2021 og 2022**, hvis CLI-en får støtte for kryssårssesonger.
+1. **Inneværende sesong** må hentes på nytt etter hvert som den spilles. Per i dag er 15 av
+   30 kamper i 2026 ferdigspilt.
+2. **NM 2026** når cupen kommer i gang.
+3. **Nye treningskamper** gjennom sesongen.
+
+Dette er den eneste delen av innhøstingen som bør gjentas jevnlig. Resten er historikk og
+endrer seg ikke.
 
 ## Hva som må komme fra andre kilder
 

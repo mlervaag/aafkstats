@@ -11,13 +11,129 @@ competition:
 home:
   clubId: lillestrom
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: aaraasen
 neutralVenue: false
-events: []
+attendance: 5353
+events:
+  - minute: 12
+    type: goal
+    team: home
+    player: Marius Lundemo
+  - minute: 37
+    type: yellow_card
+    team: away
+    player: Bjørn Helge Riise
+  - minute: 43
+    type: goal
+    team: home
+    player: Jørgen Kolstad
+    assist: Erling Knudtzon
+  - minute: 47
+    type: goal
+    team: home
+    player: Fred Friday
+    assist: Jørgen Kolstad
+  - minute: 54
+    type: substitution
+    team: away
+    player: Carl Björk
+    playerOff: Magne Hoseth
+  - minute: 54
+    type: substitution
+    team: away
+    player: Aron Elis Thrándarson
+    playerOff: Mostafa Abdellaoue
+  - minute: 68
+    type: substitution
+    team: home
+    player: Bonke Innocent
+    playerOff: Jørgen Kolstad
+  - minute: 75
+    type: substitution
+    team: home
+    player: Simen Kind Mikalsen
+    playerOff: Stian Ringstad
+  - minute: 77
+    type: yellow_card
+    team: away
+    player: Akeem Latifu
+  - minute: 84
+    type: substitution
+    team: away
+    player: Marlinho
+    playerOff: Oddbjørn Lie
+  - minute: 86
+    type: substitution
+    team: home
+    player: Arni Vilhjalmsson
+    playerOff: Fred Friday
+  - minute: 89
+    type: penalty_goal
+    team: away
+    player: Leke James
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Arnold Origi Otieno
+      - Michael Timisela
+      - Frode Kippe
+      - Marius Amundsen
+      - Stian Ringstad
+      - Marius Lundemo
+      - Malaury Martin
+      - Jørgen Kolstad
+      - Fred Friday
+      - Mohamed Ofkir
+      - Erling Knudtzon
+    subs:
+      - Bonke Innocent
+      - Simen Kind Mikalsen
+      - Arni Vilhjalmsson
+      - Finnur Orri Margeirsson
+      - Håkon Skogseid
+      - Jacob Faye Lund
+      - Markus Brændsrød
+    coach: Runar Kristinsson
+  away:
+    formation: 4-5-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Edvard Skagestad
+      - Mikael Dyrestam
+      - Oddbjørn Lie
+      - Henrik Rørvik Bjørdal
+      - Peter Orry Larsen
+      - Magne Hoseth
+      - Bjørn Helge Riise
+      - Mostafa Abdellaoue
+      - Leke James
+    subs:
+      - Aron Elis Thrándarson
+      - Carl Björk
+      - Marlinho
+      - Andreas Lie
+      - Jo Nymo Matland
+      - Tero Mäntylä
+      - Vebjørn Hoff
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 46
+    shots: 16
+    shotsOnTarget: 7
+    corners: 6
+  away:
+    possession: 54
+    shots: 13
+    shotsOnTarget: 5
+    corners: 6
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +149,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,107 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: honefoss
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 7
+    type: yellow_card
+    team: away
+    player: Mikkel Vendelbo
+  - minute: 36
+    type: yellow_card
+    team: home
+    player: Tremaine Stewart
+  - minute: 50
+    type: goal
+    team: home
+    player: Michael Barrantes
+  - minute: 58
+    type: substitution
+    team: away
+    player: Toni Kolehmainen
+    playerOff: Tor Øivind Hovda
+  - minute: 64
+    type: substitution
+    team: home
+    player: Hugues Wembangomo
+    playerOff: Christian Myklebust
+  - minute: 71
+    type: substitution
+    team: home
+    player: Edvard Skagestad
+    playerOff: Sander Post
+  - minute: 74
+    type: substitution
+    team: away
+    player: Mats André Kaland
+    playerOff: Alexander Groven
+  - minute: 80
+    type: goal
+    team: home
+    player: Jonatan Tollås Nation
+  - minute: 83
+    type: substitution
+    team: away
+    player: Kevin Beugre
+    playerOff: Helge Haugen
+  - minute: 85
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Michael Barrantes
+lineups:
+  home:
+    formation: 4-2-1-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Jo Nymo Matland
+      - Jason Morrison
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Tremaine Stewart
+      - Christian Myklebust
+      - Sander Post
+    subs:
+      - Hugues Wembangomo
+      - Edvard Skagestad
+      - Peter Orry Larsen
+      - Fredrik Carlsen
+      - Mathias Rasmussen
+      - Thomas Skog Martinussen
+      - Torbjørn Grytten
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-4-2
+    starters:
+      - Steve Clark
+      - Arnor Sveinn Adalsteinsson
+      - Frode Lafton
+      - Kristjan Örn Sigurdsson
+      - Alexander Groven
+      - Tor Øivind Hovda
+      - Mikkel Vendelbo
+      - Helge Haugen
+      - Kevin Larsen
+      - Riku Riski
+      - Remond Macougne Mendy
+    subs:
+      - Toni Kolehmainen
+      - Mats André Kaland
+      - Kevin Beugre
+      - Joachim Magnussen
+      - Lars Stubhaug
+      - Leo Olsen
+      - Vegard Gjermundstad
+    coach: Leif Gunnar Smerud
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +127,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

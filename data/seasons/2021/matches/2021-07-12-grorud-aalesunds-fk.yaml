@@ -11,13 +11,131 @@ competition:
 home:
   clubId: grorud
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: grorud-stadion
 neutralVenue: false
-events: []
+attendance: 360
+events:
+  - minute: 8
+    type: goal
+    team: away
+    player: Niklas Castro
+    assist: Sigurd Haugen
+  - minute: 13
+    type: substitution
+    team: away
+    player: Jonas Grønner
+    playerOff: David Fällman
+  - minute: 55
+    type: yellow_card
+    team: home
+    player: Preben Mankowitz
+  - minute: 57
+    type: goal
+    team: away
+    player: Sigurd Haugen
+  - minute: 60
+    type: goal
+    team: home
+    player: Oscar Aga
+    assist: Sindre Osestad
+  - minute: 63
+    type: yellow_card
+    team: away
+    player: Erlend Segberg
+  - minute: 64
+    type: substitution
+    team: away
+    player: Torbjørn Kallevåg
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 64
+    type: substitution
+    team: away
+    player: Mamadou Diaw
+    playerOff: Simen Bolkan Nordli
+  - minute: 66
+    type: substitution
+    team: home
+    player: Thomas Elsebutangen
+    playerOff: Nikolai Jakobsen Hristov
+  - minute: 78
+    type: yellow_card
+    team: away
+    player: Torbjørn Kallevåg
+  - minute: 79
+    type: substitution
+    team: home
+    player: Kevin Mankowitz
+    playerOff: Sindre Osestad
+  - minute: 79
+    type: substitution
+    team: home
+    player: Vetle Skåttun
+    playerOff: Tobias Collett
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: home
+    player: Elias Skogvoll
+    playerOff: Christos Zafeiris
+  - minute: 90
+    stoppage: 4
+    type: yellow_card
+    team: away
+    player: Mamadou Diaw
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Mats Viken
+      - Tobias Collett
+      - Henrik Bredeli
+      - Glenn André Harviken
+      - Fabian Østigård Ness
+      - Sindre Osestad
+      - Martin Høyland
+      - Christos Zafeiris
+      - Nikolai Jakobsen Hristov
+      - Preben Mankowitz
+      - Oscar Aga
+    subs:
+      - Thomas Elsebutangen
+      - Kevin Mankowitz
+      - Vetle Skåttun
+      - Elias Skogvoll
+      - Arnar Thor Gudjonsson
+      - Hassan Mohamed Yusuf
+      - Jonas Pereira
+      - Saadiq Faisal Elmi
+      - Vegard Storsve
+    coach: Aksel Bergo
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Simen Rafn
+      - Quint Jansen
+      - David Fällman
+      - David Kristjan Olafsson
+      - Erlend Segberg
+      - Erikson Lima
+      - Niklas Castro
+      - Simen Bolkan Nordli
+      - Kristoffer Ødemarksbakken
+      - Sigurd Haugen
+    subs:
+      - Jonas Grønner
+      - Mamadou Diaw
+      - Torbjørn Kallevåg
+      - Andreas Lie
+      - Isak Dybvik
+      - Jørgen Hatlehol
+      - Stian Aarønes Holte
+    coach: Lars Arne Nilsen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +151,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

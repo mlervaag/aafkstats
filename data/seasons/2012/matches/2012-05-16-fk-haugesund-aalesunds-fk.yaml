@@ -11,13 +11,134 @@ competition:
 home:
   clubId: fk-haugesund
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: haugesund-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 27
+    type: penalty_goal
+    team: home
+    player: Nikola Djurdjic
+  - minute: 29
+    type: goal
+    team: home
+    player: Nikola Djurdjic
+  - minute: 35
+    type: yellow_card
+    team: home
+    player: Geir Ludvig Fevang
+  - minute: 45
+    type: goal
+    team: home
+    player: Nikola Djurdjic
+  - minute: 46
+    type: substitution
+    team: away
+    player: Hugues Wembangomo
+    playerOff: Demar Phillips
+  - minute: 46
+    type: substitution
+    team: away
+    player: Magnus Sylling Olsen
+    playerOff: Michael Barrantes
+  - minute: 46
+    type: yellow_card
+    team: home
+    player: Joakim Våge Nilsen
+  - minute: 51
+    type: goal
+    team: home
+    player: Michael Haukås
+  - minute: 55
+    type: yellow_card
+    team: home
+    player: Trygve Nygaard
+  - minute: 56
+    type: goal
+    team: away
+    player: Tremaine Stewart
+  - minute: 57
+    type: yellow_card
+    team: home
+    player: Nikola Djurdjic
+  - minute: 61
+    type: goal
+    team: away
+    player: Daniel Arnefjord
+  - minute: 63
+    type: yellow_card
+    team: away
+    player: Tremaine Stewart
+  - minute: 64
+    type: substitution
+    team: home
+    player: Tor Arne Andreassen
+    playerOff: Michael Haukås
+  - minute: 67
+    type: substitution
+    team: away
+    player: Sander Post
+    playerOff: Lars Fuhre
+  - minute: 85
+    type: yellow_card
+    team: away
+    player: Jonatan Tollås Nation
+  - minute: 87
+    type: substitution
+    team: home
+    player: Oddbjørn Skartun
+    playerOff: Nikola Djurdjic
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Per Morten Kristiansen
+      - Vegard Skjerve
+      - Derek Decamps
+      - Umaru Bangura
+      - Joakim Våge Nilsen
+      - Michael Haukås
+      - Trygve Nygaard
+      - Geir Ludvig Fevang
+      - Maic Sema
+      - Alexander Søderlund
+      - Nikola Djurdjic
+    subs:
+      - Tor Arne Andreassen
+      - Oddbjørn Skartun
+      - Andres Mar Johannesson
+      - Håvard Storbæk
+      - Lars Øvernes
+      - Martin Bjørnbak
+      - Ugonna Anyora
+    coach: Jostein Grindhaug
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Demar Phillips
+      - Tremaine Stewart
+      - Jason Morrison
+      - Fredrik Ulvestad
+      - Lars Fuhre
+      - Michael Barrantes
+      - Peter Orry Larsen
+    subs:
+      - Hugues Wembangomo
+      - Magnus Sylling Olsen
+      - Sander Post
+      - Amund Skiri
+      - Edvard Skagestad
+      - Ole Christian Rørvik
+      - Ville Jalasto
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +154,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

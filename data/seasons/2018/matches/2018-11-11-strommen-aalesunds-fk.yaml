@@ -11,13 +11,103 @@ competition:
 home:
   clubId: strommen
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: stroemmen-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 41
+    type: yellow_card
+    team: home
+    player: Kristian Jahr
+  - minute: 43
+    type: yellow_card
+    team: home
+    player: Charles Ezeh
+  - minute: 49
+    type: yellow_card
+    team: away
+    player: Pape Habib Gueye
+  - minute: 57
+    type: goal
+    team: away
+    player: Holmbert Aron Fridjonsson
+    assist: Oddbjørn Lie
+  - minute: 65
+    type: substitution
+    team: away
+    player: Torbjørn Agdestein
+    playerOff: Pape Habib Gueye
+  - minute: 65
+    type: substitution
+    team: home
+    player: Emil Sildnes
+    playerOff: Moses Ebiye
+  - minute: 72
+    type: substitution
+    team: home
+    player: Mustafa Achrifi
+    playerOff: Charles Ezeh
+  - minute: 81
+    type: substitution
+    team: away
+    player: Adam Örn Arnarson
+    playerOff: Nikola Tkalcic
+  - minute: 84
+    type: substitution
+    team: home
+    player: Pål Steffen Andresen
+    playerOff: Mathias Blårud
+lineups:
+  home:
+    formation: 4-3-1-2
+    starters:
+      - Simon Thomas
+      - Sverre Bjørkkjær
+      - Mathias Blårud
+      - Kristian Jahr
+      - Victor Grodås
+      - Öystein Vestvatn
+      - Charles Ezeh
+      - Anders Dieserud
+      - Sindre Mauritz-Hansen
+      - Moses Ebiye
+      - Alexander Ruud Tveter
+    subs:
+      - Emil Sildnes
+      - Mustafa Achrifi
+      - Pål Steffen Andresen
+      - Johannes Grødtlien
+      - Simen Melby
+      - Stian Bolstad
+      - Ulrich Ness
+    coach: Espen Olsen
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Nikola Tkalcic
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Sondre Brunstad Fet
+      - Jørgen Hatlehol
+      - Pape Habib Gueye
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Torbjørn Agdestein
+      - Adam Örn Arnarson
+      - Erikson Lima
+      - Håvard Breivik
+      - Jens Petter Hauge
+      - Jernade Meade
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +123,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

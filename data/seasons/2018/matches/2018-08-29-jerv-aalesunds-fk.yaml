@@ -11,13 +11,120 @@ competition:
 home:
   clubId: jerv
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 3
+venueId: j-j-ugland-stadion-levermyr
 neutralVenue: false
-events: []
+events:
+  - minute: 10
+    type: goal
+    team: away
+    player: Holmbert Aron Fridjonsson
+    assist: Torbjørn Agdestein
+  - minute: 13
+    type: goal
+    team: away
+    player: Aron Elis Thrándarson
+    assist: Nikola Tkalcic
+  - minute: 29
+    type: goal
+    team: away
+    player: Sondre Brunstad Fet
+  - minute: 34
+    type: yellow_card
+    team: home
+    player: Mathias Wichmann
+  - minute: 38
+    type: yellow_card
+    team: away
+    player: Kaj Ramsteijn
+  - minute: 59
+    type: substitution
+    team: away
+    player: Pape Habib Gueye
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 61
+    type: substitution
+    team: home
+    player: Aram Khalili
+    playerOff: Sean Okoli
+  - minute: 61
+    type: substitution
+    team: home
+    player: Ulrik Berglann
+    playerOff: Daniel Aase
+  - minute: 71
+    type: yellow_card
+    team: away
+    player: Aron Elis Thrándarson
+  - minute: 73
+    type: substitution
+    team: away
+    player: Jens Petter Hauge
+    playerOff: Aron Elis Thrándarson
+  - minute: 74
+    type: yellow_card
+    team: home
+    player: Espen Knudsen
+  - minute: 79
+    type: substitution
+    team: home
+    player: Martin Hoel Andersen
+    playerOff: Luke Ferreira
+  - minute: 83
+    type: substitution
+    team: away
+    player: Adam Örn Arnarson
+    playerOff: Torbjørn Agdestein
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Øystein Øvretveit
+      - Brice Wembangomo
+      - Espen Knudsen
+      - Glenn Andersen
+      - Kristoffer Toennessen
+      - Thomas Zernichow
+      - Mathias Wichmann
+      - Andreas Hagen
+      - Daniel Aase
+      - Sean Okoli
+      - Luke Ferreira
+    subs:
+      - Aram Khalili
+      - Ulrik Berglann
+      - Martin Hoel Andersen
+      - Håkon Suggelia
+      - Marc Nordqvist
+      - Peter Reinhardsen
+      - Vegard Somdal
+    coach: Arne Sandstø
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Jonas Grønner
+      - Ståle Steen Sæthre
+      - Nikola Tkalcic
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Sondre Brunstad Fet
+      - Erikson Lima
+      - Holmbert Aron Fridjonsson
+      - Torbjørn Agdestein
+    subs:
+      - Pape Habib Gueye
+      - Jens Petter Hauge
+      - Adam Örn Arnarson
+      - Håvard Breivik
+      - Jørgen Hatlehol
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +140,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

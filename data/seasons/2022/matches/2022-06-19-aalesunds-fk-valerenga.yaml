@@ -11,13 +11,148 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: valerenga
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 6761
+referee: Kristoffer Hagenes
+events:
+  - minute: 37
+    type: goal
+    team: home
+    player: Sigurd Haugen
+    assist: Simen Bolkan Nordli
+  - minute: 42
+    type: yellow_card
+    team: away
+    player: Vegar Eggen Hedenstad
+  - minute: 46
+    type: substitution
+    team: away
+    player: Aron Dønnum
+    playerOff: Taofeek Ismaheel
+  - minute: 61
+    type: substitution
+    team: away
+    player: Jacob Eng
+    playerOff: Henrik Udahl
+  - minute: 67
+    type: goal
+    team: home
+    player: Torbjørn Kallevåg
+    assist: Isak Dybvik Maeaettae
+  - minute: 77
+    type: substitution
+    team: home
+    player: Dario Canadjija
+    playerOff: Kristoffer Barmen
+  - minute: 81
+    type: substitution
+    team: away
+    player: Fredrik Oldrup Jensen
+    playerOff: Osame Sahraoui
+  - minute: 82
+    type: goal
+    team: away
+    player: Jacob Eng
+    assist: Fredrik Oldrup Jensen
+  - minute: 85
+    type: goal
+    team: away
+    player: Ivan Näsberg
+    assist: Vegar Eggen Hedenstad
+  - minute: 86
+    type: substitution
+    team: home
+    player: Simen Rafn
+    playerOff: Torbjørn Kallevåg
+  - minute: 86
+    type: substitution
+    team: home
+    player: Oscar Solnørdal
+    playerOff: Simen Bolkan Nordli
+  - minute: 90
+    stoppage: 2
+    type: yellow_card
+    team: home
+    player: Simen Rafn
+  - minute: 90
+    stoppage: 2
+    type: yellow_card
+    team: away
+    player: Petter Strand
+lineups:
+  home:
+    formation: 5-4-1
+    starters:
+      - Sten Michael Grytebust
+      - Petar Golubovic
+      - David Fällman
+      - Besim Serbecic
+      - Alexander Juel Andersen
+      - Isak Dybvik Maeaettae
+      - Torbjørn Kallevåg
+      - Kristoffer Barmen
+      - Erikson Lima
+      - Simen Bolkan Nordli
+      - Sigurd Haugen
+    subs:
+      - Dario Canadjija
+      - Oscar Solnørdal
+      - Simen Rafn
+      - Michael Lansing
+      - Jeppe Arctander Moe
+      - Nikolai Hopland
+      - Stian Aarønes Holte
+      - Jørgen Hatlehol
+      - Mamadou Diaw
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-3-3
+    starters:
+      - Kjetil Haug
+      - Vegar Eggen Hedenstad
+      - Jonatan Tollås Nation
+      - Ivan Näsberg
+      - Leonard Zuta
+      - Henrik Rørvik Bjørdal
+      - Tobias Christensen
+      - Petter Strand
+      - Taofeek Ismaheel
+      - Henrik Udahl
+      - Osame Sahraoui
+    subs:
+      - Aron Dønnum
+      - Jacob Eng
+      - Fredrik Oldrup Jensen
+      - Magnus Smelhus Sjøeng
+      - Brynjar Ingi Bjarnason
+      - Magnus Bech Riisnæs
+      - Mathias Johnsrud Emilsen
+      - Amor Layouni
+      - Seedy Jatta
+    coach: Dag-Eilev Fagermo
+stats:
+  home:
+    possession: 39
+    shots: 7
+    shotsOnTarget: 3
+    corners: 2
+    fouls: 14
+    offsides: 3
+    xg: 0.69
+  away:
+    possession: 61
+    shots: 17
+    shotsOnTarget: 6
+    corners: 6
+    fouls: 10
+    offsides: 0
+    xg: 1.61
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +168,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -1,0 +1,202 @@
+id: 2026-03-15-aalesunds-fk-lillestrom
+date: 2026-03-15
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 1
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: lillestrom
+  score: 3
+  halfTimeScore: 1
+venueId: color-line-stadion
+neutralVenue: false
+attendance: 4761
+referee: Espen Eskaas
+events:
+  - minute: 6
+    type: goal
+    team: home
+    player: Kristian Hemmingsen Lonebu
+    assist: Jakob Nyland Ørsahl
+  - minute: 18
+    type: goal
+    team: away
+    player: Vá
+  - minute: 58
+    type: goal
+    team: away
+    player: Thomas Lehne Olsen
+  - minute: 61
+    type: substitution
+    team: home
+    player: Ólafur Gudmundsson
+    playerOff: Jakob Nyland Ørsahl
+  - minute: 61
+    type: substitution
+    team: home
+    player: Marcus Haagensen Reed
+    playerOff: Ivan Djantou
+  - minute: 62
+    type: yellow_card
+    team: away
+    player: Vá
+  - minute: 72
+    type: substitution
+    team: home
+    player: David Snær Johannsson
+    playerOff: Henrik Melland
+  - minute: 75
+    type: substitution
+    team: away
+    player: Camil Jebara
+    playerOff: Markus Seehusen Karlsbakk
+  - minute: 75
+    type: substitution
+    team: away
+    player: Gustav Kjølstad Nyheim
+    playerOff: Vá
+  - minute: 75
+    type: yellow_card
+    team: home
+    player: Emil Engqvist
+  - minute: 79
+    type: missed_penalty
+    team: away
+    player: Thomas Lehne Olsen
+  - minute: 79
+    type: goal
+    team: away
+    player: Thomas Lehne Olsen
+  - minute: 80
+    type: substitution
+    team: home
+    player: Endre Osenbroch
+    playerOff: Håkon Butli Hammer
+  - minute: 80
+    type: substitution
+    team: home
+    player: Elias Heggland Myrlid
+    playerOff: Kristian Hemmingsen Lonebu
+  - minute: 80
+    type: substitution
+    team: away
+    player: Ulrik Yttergård Jenssen
+    playerOff: Espen Garnås
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: away
+    player: Kparobo Arierhi
+    playerOff: Thomas Lehne Olsen
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: away
+    player: Harald Woxen
+    playerOff: Eric Kitolano
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Kristoffer Klaesson
+      - Aleksander Hammer Kjelsen
+      - Philip Sandvik Aukland
+      - Emil Engqvist
+      - Kristoffer Nessø
+      - Mathias Christensen
+      - Håkon Butli Hammer
+      - Henrik Melland
+      - Jakob Nyland Ørsahl
+      - Kristian Hemmingsen Lonebu
+      - Ivan Djantou
+    subs:
+      - Ólafur Gudmundsson
+      - Marcus Haagensen Reed
+      - David Snær Johannsson
+      - Elias Heggland Myrlid
+      - Endre Osenbroch
+      - Tor Erik Valderhaug Larsen
+      - Simen Haram
+      - Ulrik Valderhaug Syversen
+      - Marius Andresen
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - Pontus Dahlberg
+      - Lars Mogstad Ranger
+      - Espen Garnås
+      - Sander Moen Foss
+      - Sturla Ottesen
+      - Markus Seehusen Karlsbakk
+      - Ylldren Ibrahimaj
+      - Eric Kitolano
+      - Vá
+      - Thomas Lehne Olsen
+      - Salieu Drammeh
+    subs:
+      - Camil Jebara
+      - Gustav Kjølstad Nyheim
+      - Ulrik Yttergård Jenssen
+      - Harald Woxen
+      - Kparobo Arierhi
+      - Stefan Hagerup
+      - John Kitolano
+      - Kevin Martin Krygård
+      - Linus Alperud
+    coach: Hans Erik Ødegaard
+stats:
+  home:
+    possession: 42
+    shots: 14
+    shotsOnTarget: 7
+    corners: 3
+    fouls: 12
+    offsides: 2
+    xg: 1.19
+  away:
+    possession: 58
+    shots: 18
+    shotsOnTarget: 7
+    corners: 7
+    fouls: 9
+    offsides: 1
+    xg: 3.06
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-lillestrom/2ctxg4#5104848
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5104848"
+manual: []

@@ -11,13 +11,123 @@ competition:
 home:
   clubId: bodo-glimt
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: aspmyra-stadion
 neutralVenue: false
-events: []
+attendance: 7513
+referee: Espen Eskaas
+events:
+  - minute: 8
+    type: goal
+    team: away
+    player: Oddbjørn Lie
+  - minute: 31
+    type: yellow_card
+    team: away
+    player: Adam Örn Arnarson
+  - minute: 46
+    type: substitution
+    team: home
+    player: Fredrik André Björkan
+    playerOff: Emil Jonassen
+  - minute: 65
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Edwin Gyasi
+  - minute: 67
+    type: substitution
+    team: home
+    player: Mathias Normann
+    playerOff: Daniel Edvardsen
+  - minute: 74
+    type: substitution
+    team: away
+    player: Daniel Gretarsson
+    playerOff: Fredrik Carlsen
+  - minute: 74
+    type: substitution
+    team: home
+    player: Martin Wiig
+    playerOff: Anders Karlsen
+  - minute: 81
+    type: substitution
+    team: away
+    player: Marlinho
+    playerOff: Aron Elis Thrándarson
+  - minute: 85
+    type: yellow_card
+    team: away
+    player: Vebjørn Hoff
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Brede Mathias Moe
+  - minute: 90
+    type: red_card
+    team: away
+    player: Adam Örn Arnarson
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Hannes Thor Halldorsson
+      - Daniel Edvardsen
+      - Brede Mathias Moe
+      - Martin Bjørnbak
+      - Emil Jonassen
+      - Henrik Furebotn
+      - Anders Karlsen
+      - Thomas Jacobsen
+      - Milan Jevtovic
+      - Fitim Azemi
+      - Trond Olsen
+    subs:
+      - Fredrik André Björkan
+      - Mathias Normann
+      - Martin Wiig
+      - Jens Petter Hauge
+      - Patrick Berg
+      - Simon Thomas
+      - Ulrik Saltnes
+    coach: Aasmund Bjørkan
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Edvard Skagestad
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Fredrik Carlsen
+      - Vebjørn Hoff
+      - John Arne Riise
+      - Aron Elis Thrándarson
+      - Franck Boli
+    subs:
+      - Sondre Brunstad Fet
+      - Daniel Gretarsson
+      - Marlinho
+      - Jørgen Hatlehol
+      - Lars Cramer
+      - Tero Mäntylä
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 61
+    shots: 19
+    shotsOnTarget: 8
+    corners: 13
+  away:
+    possession: 39
+    shots: 10
+    shotsOnTarget: 4
+    corners: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +143,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

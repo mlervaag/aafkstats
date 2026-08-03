@@ -11,13 +11,163 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: egersund
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5412
+referee: Magnus Nicolai Koløy
+events:
+  - minute: 26
+    type: goal
+    team: home
+    player: Bjørn Martin Kristensen
+    assist: David Snær Johannsson
+  - minute: 32
+    type: yellow_card
+    team: away
+    player: Justin Salmon
+  - minute: 36
+    type: yellow_card
+    team: home
+    player: Nikolai Hopland
+  - minute: 37
+    type: goal
+    team: away
+    player: Justin Salmon
+    assist: Jo Stålesen
+  - minute: 46
+    type: substitution
+    team: home
+    player: Stian Aarønes Holte
+    playerOff: Nikolai Hopland
+  - minute: 62
+    type: goal
+    team: away
+    player: Justin Salmon
+    assist: Horenus Tadesse
+  - minute: 63
+    type: substitution
+    team: away
+    player: Henrik Elvevold
+    playerOff: Magnus Sandvik Høiseth
+  - minute: 68
+    type: yellow_card
+    team: home
+    player: Kristoffer Nessø
+  - minute: 70
+    type: substitution
+    team: home
+    player: Isaac Atanga
+    playerOff: Bjørn Martin Kristensen
+  - minute: 70
+    type: substitution
+    team: home
+    player: Eivind Strømsheim Kolve
+    playerOff: David Snær Johannsson
+  - minute: 70
+    type: substitution
+    team: home
+    player: Sander Senior-Haarvik
+    playerOff: Thomas Grøgaard
+  - minute: 81
+    type: substitution
+    team: away
+    player: Bjørn Mæland
+    playerOff: Justin Salmon
+  - minute: 81
+    type: substitution
+    team: away
+    player: Ingvald Halgunset
+    playerOff: Magnus Lankhof-Dahlby
+  - minute: 85
+    type: goal
+    team: away
+    player: Joacim Holtan
+  - minute: 86
+    type: substitution
+    team: home
+    player: Moctar Diop
+    playerOff: Claudio Braga
+  - minute: 90
+    type: substitution
+    team: away
+    player: Jørgen Voilås
+    playerOff: Joacim Holtan
+  - minute: 90
+    stoppage: 1
+    type: yellow_card
+    team: away
+    player: Chris Sleveland
+  - minute: 90
+    stoppage: 4
+    type: goal
+    team: home
+    player: Stian Aarønes Holte
+    assist: Moctar Diop
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Nikolai Hopland
+      - Vinko Medimorec
+      - John Kitolano
+      - Kristoffer Nessø
+      - David Snær Johannsson
+      - Håkon Butli Hammer
+      - Claudio Braga
+      - Thomas Grøgaard
+      - Martin Ramsland
+      - Bjørn Martin Kristensen
+    subs:
+      - Stian Aarønes Holte
+      - Eivind Strømsheim Kolve
+      - Isaac Atanga
+      - Sander Senior-Haarvik
+      - Moctar Diop
+      - Tor Erik Valderhaug Larsen
+      - Amidou Diop
+      - John Ruud Norvik
+      - Noah Solskjær
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - Knut-André Skjærstein
+      - Jo Stålesen
+      - Ådne Midtskogen
+      - Henrik Falchener
+      - Robert Williams
+      - Horenus Tadesse
+      - Chris Sleveland
+      - Justin Salmon
+      - Magnus Lankhof-Dahlby
+      - Joacim Holtan
+      - Magnus Sandvik Høiseth
+    subs:
+      - Henrik Elvevold
+      - Bjørn Mæland
+      - Ingvald Halgunset
+      - Jørgen Voilås
+      - Anders Klemensson
+      - Fanuel Yrga-Alem
+      - Kristian Eggen
+    coach: Kjell André Thu
+stats:
+  home:
+    possession: 49
+    shots: 10
+    shotsOnTarget: 4
+    corners: 4
+  away:
+    possession: 51
+    shots: 12
+    shotsOnTarget: 7
+    corners: 8
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +183,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

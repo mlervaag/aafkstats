@@ -11,13 +11,90 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: sk-brann
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 7901
+events:
+  - minute: 27
+    type: substitution
+    team: home
+    player: Tor Hogne Aarøy
+    playerOff: Leke James
+  - minute: 41
+    type: substitution
+    team: home
+    player: Thomas Skog Martinussen
+    playerOff: Fredrik Ulvestad
+  - minute: 77
+    type: substitution
+    team: away
+    player: Fredrik Haugen
+    playerOff: Tomasz Sokolowski
+  - minute: 78
+    type: substitution
+    team: home
+    player: Torbjørn Grytten
+    playerOff: Fredrik Carlsen
+  - minute: 86
+    type: yellow_card
+    team: away
+    player: Martin Pusic
+  - minute: 88
+    type: substitution
+    team: away
+    player: Bård Finne
+    playerOff: Kristoffer Barmen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Jo Nymo Matland
+      - Fredrik Ulvestad
+      - Fredrik Carlsen
+      - Peter Orry Larsen
+      - Michael Barrantes
+      - Lars Fuhre
+      - Leke James
+    subs:
+      - Tor Hogne Aarøy
+      - Thomas Skog Martinussen
+      - Torbjørn Grytten
+      - Houcine Zaidoune
+      - Robert Ekroll
+      - Andreas Nordvik
+    coach: Jan Jönsson
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Jørgen Mohus
+      - Birkir Sævarsson
+      - Markus Jonsson
+      - Daniel Mojsov
+      - Hassan El Fakiri
+      - Stéphane Badji
+      - Tomasz Sokolowski
+      - Amin Askar
+      - Kristoffer Barmen
+      - Erik Huseklepp
+      - Martin Pusic
+    subs:
+      - Fredrik Haugen
+      - Bård Finne
+      - Kennedy Ashia
+      - Øystein Øvretveit
+      - Henrik Gjesdal
+      - Simen Wangberg
+      - Kasper Skaanes
+    coach: Rune Skarsfjord
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +110,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,110 @@ competition:
 home:
   clubId: start
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: soer-arena
 neutralVenue: false
-events: []
+events:
+  - minute: 16
+    type: yellow_card
+    team: away
+    player: Kaj Ramsteijn
+  - minute: 35
+    type: substitution
+    team: home
+    player: Kristjan Floki Finnbogason
+    playerOff: Adeleke Akinyemi
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Aremu Afeez
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Oddbjørn Lie
+  - minute: 48
+    type: yellow_card
+    team: away
+    player: Jørgen Hatlehol
+  - minute: 63
+    type: substitution
+    team: away
+    player: Pape Habib Gueye
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 65
+    type: substitution
+    team: home
+    player: Sander Sjökvist
+    playerOff: Adnan Hadzic
+  - minute: 71
+    type: substitution
+    team: home
+    player: Mathias Bringaker
+    playerOff: Aron Sigurdarson
+  - minute: 80
+    type: substitution
+    team: away
+    player: Ståle Steen Sæthre
+    playerOff: Torbjørn Agdestein
+  - minute: 84
+    type: yellow_card
+    team: home
+    player: Erlend Segberg
+  - minute: 87
+    type: goal
+    team: away
+    player: Pape Habib Gueye
+    assist: Ståle Steen Sæthre
+lineups:
+  home:
+    formation: 3-4-3
+    starters:
+      - Jonas Deumeland
+      - Espen Hammer Berger
+      - Isaac Twum
+      - Henrik Robstad
+      - Eirik Wichne
+      - Aremu Afeez
+      - Erlend Segberg
+      - Adnan Hadzic
+      - Tobias Christensen
+      - Adeleke Akinyemi
+      - Aron Sigurdarson
+    subs:
+      - Kristjan Floki Finnbogason
+      - Sander Sjökvist
+      - Mathias Bringaker
+      - Alexander Pedersen
+      - Gudmundur Tryggvason
+      - Johannes Eftevaag
+      - Kasper Skaanes
+    coach: Johannes Hardarson
+  away:
+    formation: 5-3-2
+    starters:
+      - Andreas Lie
+      - Jørgen Hatlehol
+      - Kaj Ramsteijn
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Sondre Brunstad Fet
+      - Peter Orry Larsen
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Holmbert Aron Fridjonsson
+      - Torbjørn Agdestein
+    subs:
+      - Pape Habib Gueye
+      - Ståle Steen Sæthre
+      - Jonas Grønner
+      - Markus Seehusen Karlsbakk
+      - Tarjei Aase Omenås
+      - Tega George
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +130,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

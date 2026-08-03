@@ -11,13 +11,106 @@ competition:
 home:
   clubId: sandnes-ulf
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: oster-hus-arena
 neutralVenue: false
-events: []
+events:
+  - minute: 14
+    type: yellow_card
+    team: home
+    player: Chris Sleveland
+  - minute: 46
+    type: substitution
+    team: home
+    player: Adnan Hadzic
+    playerOff: Christian Landu Landu
+  - minute: 46
+    type: substitution
+    team: home
+    player: Erlend Hustad
+    playerOff: Horenus Tadesse
+  - minute: 46
+    type: substitution
+    team: home
+    player: Mathias Bringaker
+    playerOff: Jostein Ekeland
+  - minute: 59
+    type: substitution
+    team: home
+    player: Fredrik Mani Pålerud
+    playerOff: Sander Ringberg
+  - minute: 68
+    type: substitution
+    team: away
+    player: Kristoffer Ødemarksbakken
+    playerOff: Torbjørn Kallevåg
+  - minute: 81
+    type: yellow_card
+    team: away
+    player: Niklas Castro
+  - minute: 86
+    type: substitution
+    team: home
+    player: Ståle Steen Sæthre
+    playerOff: Jørgen Øveraas
+  - minute: 86
+    type: substitution
+    team: away
+    player: Isak Dybvik
+    playerOff: Simen Bolkan Nordli
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Aslak Falch
+      - Jørgen Øveraas
+      - Espen Hammer Berger
+      - Torbjoern Lysaker Heggem
+      - Sander Ringberg
+      - Horenus Tadesse
+      - Chris Sleveland
+      - Christian Landu Landu
+      - Ari Mohr Jonsson
+      - Jostein Ekeland
+      - Michael Baidoo
+    subs:
+      - Adnan Hadzic
+      - Erlend Hustad
+      - Mathias Bringaker
+      - Fredrik Mani Pålerud
+      - Ståle Steen Sæthre
+      - Ingvald Halgunset
+      - Johannes Hummelvoll-Nunez
+      - Markus Vassøy Nilsen
+      - Maxwell Effiom
+    coach: Steffen Landro
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Simen Rafn
+      - Quint Jansen
+      - David Fällman
+      - David Kristjan Olafsson
+      - Erlend Segberg
+      - Erikson Lima
+      - Niklas Castro
+      - Simen Bolkan Nordli
+      - Torbjørn Kallevåg
+      - Sigurd Haugen
+    subs:
+      - Kristoffer Ødemarksbakken
+      - Isak Dybvik
+      - Andreas Lie
+      - Jørgen Hatlehol
+      - Jonas Grønner
+      - Mamadou Diaw
+      - Nikolai Hopland
+    coach: Lars Arne Nilsen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +126,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

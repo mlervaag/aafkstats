@@ -11,13 +11,113 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: molde-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 33
+    type: goal
+    team: away
+    player: Etzaz Hussain
+  - minute: 46
+    type: substitution
+    team: home
+    player: Magnus Sylling Olsen
+    playerOff: Kjell Rune Sellin
+  - minute: 46
+    type: substitution
+    team: home
+    player: Lars Fuhre
+    playerOff: Jo Nymo Matland
+  - minute: 71
+    type: yellow_card
+    team: away
+    player: Mattias Moström
+  - minute: 74
+    type: substitution
+    team: away
+    player: Daniel Chima Chukwu
+    playerOff: Davy Claude Angan
+  - minute: 74
+    type: substitution
+    team: away
+    player: Daniel Berg Hestad
+    playerOff: Mattias Moström
+  - minute: 76
+    type: yellow_card
+    team: home
+    player: Fredrik Carlsen
+  - minute: 78
+    type: substitution
+    team: home
+    player: Sander Post
+    playerOff: Fredrik Carlsen
+  - minute: 82
+    type: yellow_card
+    team: away
+    player: Etzaz Hussain
+  - minute: 85
+    type: yellow_card
+    team: home
+    player: Magnus Sylling Olsen
+  - minute: 88
+    type: substitution
+    team: away
+    player: Børre Steenslid
+    playerOff: Etzaz Hussain
+  - minute: 89
+    type: yellow_card
+    team: away
+    player: Daniel Berg Hestad
+lineups:
+  home:
+    formation: 4-2-1-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Hugues Wembangomo
+      - Edvard Skagestad
+      - Fredrik Carlsen
+      - Michael Barrantes
+      - Kjell Rune Sellin
+      - Jo Nymo Matland
+      - Leke James
+    subs:
+      - Lars Fuhre
+      - Magnus Sylling Olsen
+      - Sander Post
+      - Mathias Rasmussen
+      - Thomas Skog Martinussen
+    coach: Kjetil Rekdal
+  away:
+    formation: 7-1-2
+    starters:
+      - Espen Bugge Pettersen
+      - Kristoffer Paulsen Vatshaug
+      - Vegard Forren
+      - Martin Linnes
+      - Knut Olav Rindarøy
+      - Magnus Wolff Eikrem
+      - Mattias Moström
+      - Magne Hoseth
+      - Etzaz Hussain
+      - Jo Inge Berget
+      - Davy Claude Angan
+    subs:
+      - Daniel Berg Hestad
+      - Daniel Chima Chukwu
+      - Børre Steenslid
+      - Abdou Karim Camara
+      - Magne Simonsen
+      - Magnus Stamnestrø
+      - Ole Söderberg
+    coach: Ole Gunnar Solskjær
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +133,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

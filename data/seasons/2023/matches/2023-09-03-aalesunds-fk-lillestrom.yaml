@@ -11,13 +11,123 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: lillestrom
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4418
+referee: Daniel Higraff
+events:
+  - minute: 8
+    type: yellow_card
+    team: home
+    player: Håkon Butli Hammer
+  - minute: 11
+    type: substitution
+    team: home
+    player: Amidou Diop
+    playerOff: David Fällman
+  - minute: 12
+    type: goal
+    team: away
+    player: Thomas Lehne Olsen
+    assist: Kristoffer Toennessen
+  - minute: 62
+    type: substitution
+    team: away
+    player: Kosi Thompson
+    playerOff: Henrik Langaas Skogvold
+  - minute: 64
+    type: goal
+    team: home
+    player: Bjørn Martin Kristensen
+    assist: Markus Seehusen Karlsbakk
+  - minute: 81
+    type: substitution
+    team: home
+    player: Isaac Atanga
+    playerOff: Bjørn Martin Kristensen
+  - minute: 87
+    type: substitution
+    team: home
+    player: Tobias Klysner
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 90
+    stoppage: 1
+    type: substitution
+    team: away
+    player: Frederik Elkær
+    playerOff: Kristoffer Toennessen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Erik Frøysa
+      - David Fällman
+      - Simen Haram
+      - John Kitolano
+      - Henrik Melland
+      - Håkon Butli Hammer
+      - Markus Seehusen Karlsbakk
+      - Bjørn Martin Kristensen
+      - Martin Ramsland
+      - Kristoffer Ødemarksbakken
+    subs:
+      - Amidou Diop
+      - Isaac Atanga
+      - Tobias Klysner
+      - Eivind Strømsheim Kolve
+      - Michael Lansing
+      - Stian Aarønes Holte
+      - Tor Erik Valderhaug Larsen
+      - Trace Murray
+    coach: Christian Johnsen
+  away:
+    formation: 3-5-2
+    starters:
+      - Mads Hedenstad Christiansen
+      - Espen Garnås
+      - Ruben Gabrielsen
+      - Samuel Rogers
+      - Eskil Smidesang Edh
+      - Ylldren Ibrahimaj
+      - Vebjørn Hoff
+      - Gjermund Åsen
+      - Kristoffer Toennessen
+      - Thomas Lehne Olsen
+      - Henrik Langaas Skogvold
+    subs:
+      - Kosi Thompson
+      - Frederik Elkær
+      - Elias Solberg
+      - Jørgen Sveinhaug
+      - Marius Lundemo
+      - Oliver Henriksrud
+      - Philip Slørdahl
+      - Uba Charles
+      - Vetle Skjærvik
+    coach: Eirik Bakke
+stats:
+  home:
+    possession: 47
+    shots: 16
+    shotsOnTarget: 5
+    corners: 8
+    fouls: 9
+    offsides: 1
+    xg: 1.26
+  away:
+    possession: 53
+    shots: 14
+    shotsOnTarget: 5
+    corners: 5
+    fouls: 5
+    offsides: 3
+    xg: 0.77
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +143,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

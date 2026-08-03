@@ -11,13 +11,114 @@ competition:
 home:
   clubId: lillestrom
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: arasen
 neutralVenue: false
-events: []
+events:
+  - minute: 30
+    type: goal
+    team: away
+    player: Edvard Skagestad
+  - minute: 43
+    type: yellow_card
+    team: home
+    player: Lars Kristian Eriksen
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Ruben Gabrielsen
+  - minute: 60
+    type: substitution
+    team: home
+    player: Karim Essediri
+    playerOff: Erling Knudtzon
+  - minute: 65
+    type: yellow_card
+    team: away
+    player: Solomon Okoronkwo
+  - minute: 66
+    type: yellow_card
+    team: home
+    player: Frode Kippe
+  - minute: 67
+    type: substitution
+    team: home
+    player: Henrik Kjelsrud Johansen
+    playerOff: Ohi Anthony Omoijuanfo
+  - minute: 67
+    type: substitution
+    team: away
+    player: Fredrik Ulvestad
+    playerOff: Solomon Okoronkwo
+  - minute: 69
+    type: goal
+    team: home
+    player: Stefan Gislason
+  - minute: 71
+    type: yellow_card
+    team: away
+    player: Jason Morrison
+  - minute: 83
+    type: yellow_card
+    team: home
+    player: Stefan Gislason
+  - minute: 84
+    type: substitution
+    team: home
+    player: Paul Obiefule
+    playerOff: Mathis Bolly
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Stefan Logi Magnusson
+      - Lars Kristian Eriksen
+      - Steinar Pedersen
+      - Frode Kippe
+      - Stian Ringstad
+      - Erling Knudtzon
+      - Ruben Gabrielsen
+      - Stefan Gislason
+      - Mathis Bolly
+      - Ohi Anthony Omoijuanfo
+      - Fredrik Gulbrandsen
+    subs:
+      - Karim Essediri
+      - Henrik Kjelsrud Johansen
+      - Paul Obiefule
+      - Andreas Fjeldstad
+      - Effiom Otu-Bassey
+      - Kristoffer Tokstad
+      - Nicolay Solberg
+      - Pål Steffen Andresen
+    coach: Henning Berg
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Ville Jalasto
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Enar Jääger
+      - Solomon Okoronkwo
+      - Jason Morrison
+      - Peter Orry Larsen
+      - Magnus Sylling Olsen
+      - Michael Barrantes
+      - Edvard Skagestad
+    subs:
+      - Fredrik Ulvestad
+      - Christian Myklebust
+      - Jo Nymo Matland
+      - Jonas Sandqvist
+      - Kjell Rune Sellin
+      - Lars Fuhre
+      - Sander Post
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +134,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

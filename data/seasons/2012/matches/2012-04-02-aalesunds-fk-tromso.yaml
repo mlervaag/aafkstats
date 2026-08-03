@@ -11,13 +11,92 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: tromso
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 62
+    type: yellow_card
+    team: away
+    player: Zdenek Ondrasek
+  - minute: 64
+    type: substitution
+    team: home
+    player: Edvard Skagestad
+    playerOff: Christian Myklebust
+  - minute: 64
+    type: substitution
+    team: away
+    player: Ole Martin Årst
+    playerOff: Magnus Andersen
+  - minute: 70
+    type: substitution
+    team: home
+    player: Ville Jalasto
+    playerOff: Fredrik Carlsen
+  - minute: 73
+    type: yellow_card
+    team: away
+    player: Kara Mbodji
+  - minute: 82
+    type: substitution
+    team: home
+    player: Tremaine Stewart
+    playerOff: Magnus Sylling Olsen
+  - minute: 90
+    type: substitution
+    team: away
+    player: Steffen Nystrøm
+    playerOff: Thomas Drage
+lineups:
+  home:
+    formation: 4-2-1-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Jo Nymo Matland
+      - Jason Morrison
+      - Fredrik Carlsen
+      - Michael Barrantes
+      - Christian Myklebust
+      - Demar Phillips
+      - Magnus Sylling Olsen
+    subs:
+      - Edvard Skagestad
+      - Ville Jalasto
+      - Tremaine Stewart
+      - Ole Christian Rørvik
+      - Sander Post
+      - Thomas Skog Martinussen
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Benny Lekström
+      - Hans Norbye
+      - Fredrik Björck
+      - Miika Koppinen
+      - Hans Åge Yndestad
+      - Magnus Andersen
+      - Kara Mbodji
+      - Ruben Yttergård Jenssen
+      - Thomas Drage
+      - Thomas Kind Bendiksen
+      - Zdenek Ondrasek
+    subs:
+      - Ole Martin Årst
+      - Steffen Nystrøm
+      - Marcus Sahlman
+      - Remi Johansen
+      - Ruben Kristiansen
+      - Vegard Lysvoll
+    coach: Per-Mathias Høgmo
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +112,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

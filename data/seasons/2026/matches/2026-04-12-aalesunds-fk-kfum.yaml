@@ -1,0 +1,208 @@
+id: 2026-04-12-aalesunds-fk-kfum
+date: 2026-04-12
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 4
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: kfum
+  score: 2
+  halfTimeScore: 1
+venueId: color-line-stadion
+neutralVenue: false
+attendance: 4186
+referee: Mischa Huru Kellerhals
+events:
+  - minute: 12
+    type: goal
+    team: away
+    player: Simen Hestnes
+    assist: Jonas Lange Hjorth
+  - minute: 16
+    type: goal
+    team: home
+    player: Henrik Melland
+    assist: Uba Charles
+  - minute: 34
+    type: yellow_card
+    team: away
+    player: Robin Rasch
+  - minute: 58
+    type: substitution
+    team: away
+    player: Rasmus Eggen Vinge
+    playerOff: Magnus Wolff Eikrem
+  - minute: 58
+    type: substitution
+    team: away
+    player: Håkon Hoseth
+    playerOff: Jonas Lange Hjorth
+  - minute: 62
+    type: yellow_card
+    team: home
+    player: David Snær Johannsson
+  - minute: 63
+    type: goal
+    team: away
+    player: Håkon Hoseth
+    assist: Teodor Berg Haltvik
+  - minute: 75
+    type: substitution
+    team: home
+    player: Elias Heggland Myrlid
+    playerOff: David Snær Johannsson
+  - minute: 75
+    type: substitution
+    team: home
+    player: Kristoffer Nessø
+    playerOff: Uba Charles
+  - minute: 75
+    type: substitution
+    team: home
+    player: Endre Osenbroch
+    playerOff: Mathias Christensen
+  - minute: 76
+    type: substitution
+    team: away
+    player: Bjørn Martin Kristensen
+    playerOff: Robin Rasch
+  - minute: 81
+    type: substitution
+    team: home
+    player: Ivan Djantou
+    playerOff: Philip Sandvik Aukland
+  - minute: 83
+    type: yellow_card
+    team: away
+    player: Martin Tangen Vinjor
+  - minute: 84
+    type: substitution
+    team: away
+    player: Amin Nouri
+    playerOff: Martin Tangen Vinjor
+  - minute: 84
+    type: substitution
+    team: away
+    player: Magnus Retsius Grødem
+    playerOff: Teodor Berg Haltvik
+  - minute: 88
+    type: goal
+    team: home
+    player: Ivan Djantou
+    assist: Jakob Nyland Ørsahl
+  - minute: 90
+    stoppage: 5
+    type: substitution
+    team: home
+    player: Håkon Butli Hammer
+    playerOff: Henrik Melland
+  - minute: 90
+    stoppage: 5
+    type: yellow_card
+    team: home
+    player: Endre Osenbroch
+lineups:
+  home:
+    formation: 5-4-1
+    starters:
+      - Kristoffer Klaesson
+      - Philip Sandvik Aukland
+      - Aleksander Hammer Kjelsen
+      - Ólafur Gudmundsson
+      - Uba Charles
+      - Jakob Nyland Ørsahl
+      - David Snær Johannsson
+      - Mathias Christensen
+      - Elias Hagen
+      - Henrik Melland
+      - Kristian Hemmingsen Lonebu
+    subs:
+      - Kristoffer Nessø
+      - Elias Heggland Myrlid
+      - Endre Osenbroch
+      - Ivan Djantou
+      - Håkon Butli Hammer
+      - Tor Erik Valderhaug Larsen
+      - Emil Engqvist
+      - Simen Haram
+      - Marius Andresen
+    coach: Kjetil Rekdal
+  away:
+    formation: 5-4-1
+    starters:
+      - Håvar Jenssen
+      - Daniel Schneider
+      - Fredrik Tobias Berglie
+      - Eirik Saunes
+      - Sander Sjökvist
+      - Jonas Lange Hjorth
+      - Martin Tangen Vinjor
+      - Simen Hestnes
+      - Robin Rasch
+      - Magnus Wolff Eikrem
+      - Teodor Berg Haltvik
+    subs:
+      - Håkon Hoseth
+      - Rasmus Eggen Vinge
+      - Bjørn Martin Kristensen
+      - Amin Nouri
+      - Magnus Retsius Grødem
+      - Krzysztof Bakowski
+      - Momodou Lion Njie
+      - Mostafa Najafzadeh
+    coach: Johannes Moesgaard
+stats:
+  home:
+    possession: 53
+    shots: 14
+    shotsOnTarget: 4
+    corners: 8
+    fouls: 13
+    offsides: 4
+    xg: 1.27
+  away:
+    possession: 47
+    shots: 17
+    shotsOnTarget: 7
+    corners: 3
+    fouls: 10
+    offsides: 1
+    xg: 2.94
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/kfum-vs-aalesund/y5bh7#5104872
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5104872"
+manual: []

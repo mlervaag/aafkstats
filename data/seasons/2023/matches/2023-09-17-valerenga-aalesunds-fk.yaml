@@ -11,13 +11,151 @@ competition:
 home:
   clubId: valerenga
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: intility-arena
 neutralVenue: false
-events: []
+attendance: 7769
+referee: Kai Erik Steen
+events:
+  - minute: 7
+    type: yellow_card
+    team: away
+    player: Henrik Melland
+  - minute: 13
+    type: goal
+    team: away
+    player: Martin Ramsland
+    assist: Isaac Atanga
+  - minute: 17
+    type: goal
+    team: home
+    player: Andrej Ilic
+    assist: Mohamed Ofkir
+  - minute: 46
+    type: substitution
+    team: home
+    player: Martin Kreuzriegler
+    playerOff: Aleksander Hammer Kjelsen
+  - minute: 46
+    type: substitution
+    team: away
+    player: David Fällman
+    playerOff: Simen Haram
+  - minute: 50
+    type: goal
+    team: home
+    player: Elias Hagen
+    assist: Magnus Bech Riisnæs
+  - minute: 54
+    type: goal
+    team: home
+    player: Andrej Ilic
+    assist: Magnus Bech Riisnæs
+  - minute: 58
+    type: substitution
+    team: away
+    player: Moctar Diop
+    playerOff: Isaac Atanga
+  - minute: 58
+    type: substitution
+    team: away
+    player: Nikolai Hopland
+    playerOff: Henrik Melland
+  - minute: 80
+    type: substitution
+    team: away
+    player: Eivind Strømsheim Kolve
+    playerOff: Martin Ramsland
+  - minute: 82
+    type: substitution
+    team: home
+    player: Torgeir Børven
+    playerOff: Mohamed Ofkir
+  - minute: 82
+    type: substitution
+    team: home
+    player: Simen Kristiansen Juklerød
+    playerOff: Henrik Rørvik Bjørdal
+  - minute: 87
+    type: yellow_card
+    team: away
+    player: Erlend Segberg
+  - minute: 90
+    stoppage: 1
+    type: substitution
+    team: home
+    player: Jacob Eng
+    playerOff: Andrej Ilic
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Jacob Storevik
+      - Aleksander Hammer Kjelsen
+      - Eneo Bitri
+      - Stefan Strandberg
+      - Christian Dahle Borchgrevink
+      - Henrik Rørvik Bjørdal
+      - Elias Hagen
+      - Petter Strand
+      - Magnus Bech Riisnæs
+      - Mohamed Ofkir
+      - Andrej Ilic
+    subs:
+      - Martin Kreuzriegler
+      - Simen Kristiansen Juklerød
+      - Torgeir Børven
+      - Jacob Eng
+      - Aaron Kiil Olsen
+      - Daniel Håkans
+      - Magnus Smelhus Sjøeng
+      - Omar Bully Drammeh
+      - Vitinho
+    coach: Geir Bakke
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Erik Frøysa
+      - Amidou Diop
+      - Simen Haram
+      - John Kitolano
+      - Henrik Melland
+      - Erlend Segberg
+      - Markus Seehusen Karlsbakk
+      - Bjørn Martin Kristensen
+      - Martin Ramsland
+      - Isaac Atanga
+    subs:
+      - David Fällman
+      - Moctar Diop
+      - Nikolai Hopland
+      - Eivind Strømsheim Kolve
+      - Michael Lansing
+      - Tobias Klysner
+      - Trace Murray
+    coach: Christian Johnsen
+stats:
+  home:
+    possession: 57
+    shots: 15
+    shotsOnTarget: 7
+    corners: 4
+    fouls: 5
+    offsides: 2
+    xg: 1.11
+  away:
+    possession: 43
+    shots: 11
+    shotsOnTarget: 3
+    corners: 7
+    fouls: 12
+    offsides: 2
+    xg: 1.72
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +171,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,93 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: fk-haugesund
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 19
+    type: goal
+    team: home
+    player: Demar Phillips
+  - minute: 46
+    type: substitution
+    team: away
+    player: Alexander Søderlund
+    playerOff: Joakim Våge Nilsen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Umaru Bangura
+    playerOff: Trygve Nygaard
+  - minute: 62
+    type: substitution
+    team: home
+    player: Fredrik Ulvestad
+    playerOff: Fredrik Carlsen
+  - minute: 75
+    type: substitution
+    team: away
+    player: Eirik Ulland Andersen
+    playerOff: Eirik Mæland
+  - minute: 80
+    type: substitution
+    team: home
+    player: Michael Barrantes
+    playerOff: Kjell Rune Sellin
+  - minute: 83
+    type: substitution
+    team: home
+    player: Amund Skiri
+    playerOff: Jason Morrison
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Ville Jalasto
+      - Jonathan Parr
+      - Peter Orry Larsen
+      - Jason Morrison
+      - Fredrik Carlsen
+      - Kjell Rune Sellin
+      - Demar Phillips
+      - Sander Post
+    subs:
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Amund Skiri
+      - Christian Myklebust
+      - Edvard Skagestad
+      - Jonas Sandqvist
+      - Solomon Okoronkwo
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-4-2
+    starters:
+      - Per Morten Kristiansen
+      - Ole Kristian Kråkmo
+      - Tom Erik Nordberg
+      - Vegard Skjerve
+      - Joakim Våge Nilsen
+      - Jacob Sørensen
+      - Trygve Nygaard
+      - Eirik Mæland
+      - Daniel Bamberg
+      - Thomas Sørum
+      - Nikola Djurdjic
+    subs:
+      - Alexander Søderlund
+      - Umaru Bangura
+      - Eirik Ulland Andersen
+      - Lars Øvernes
+      - Ugonna Anyora
+    coach: Jostein Grindhaug
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +113,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

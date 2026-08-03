@@ -11,13 +11,121 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: viking
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 29
+    type: substitution
+    team: home
+    player: Sondre Brunstad Fet
+    playerOff: Adam Örn Arnarson
+  - minute: 32
+    type: yellow_card
+    team: away
+    player: Steffen Ernemann
+  - minute: 43
+    type: yellow_card
+    team: away
+    player: Axel Andrésson
+  - minute: 53
+    type: goal
+    team: away
+    player: Tommy Høiland
+    assist: Zymer Bytyqi
+  - minute: 61
+    type: goal
+    team: away
+    player: Tommy Høiland
+    assist: Sondre Bjørshol
+  - minute: 62
+    type: substitution
+    team: home
+    player: Nikola Tkalcic
+    playerOff: Daniel Gretarsson
+  - minute: 66
+    type: substitution
+    team: home
+    player: Pape Habib Gueye
+    playerOff: Aron Elis Thrándarson
+  - minute: 74
+    type: yellow_card
+    team: away
+    player: Iven Austbø
+  - minute: 74
+    type: yellow_card
+    team: home
+    player: Jonas Grønner
+  - minute: 74
+    type: goal
+    team: home
+    player: Kaj Ramsteijn
+    assist: Fredrik Carlsen
+  - minute: 80
+    type: substitution
+    team: away
+    player: Even Østensen
+    playerOff: Zymer Bytyqi
+  - minute: 83
+    type: goal
+    team: away
+    player: Even Østensen
+  - minute: 90
+    type: substitution
+    team: away
+    player: Claes Kronberg
+    playerOff: Tommy Høiland
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Jonas Grønner
+      - Oddbjørn Lie
+      - Adam Örn Arnarson
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Erikson Lima
+      - Daniel Gretarsson
+      - Holmbert Aron Fridjonsson
+      - Torbjørn Agdestein
+    subs:
+      - Sondre Brunstad Fet
+      - Nikola Tkalcic
+      - Pape Habib Gueye
+      - Jens Petter Hauge
+      - Jørgen Hatlehol
+      - Ståle Steen Sæthre
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
+  away:
+    formation: 4-3-3
+    starters:
+      - Iven Austbø
+      - Sondre Bjørshol
+      - Markus Nakkim
+      - Axel Andrésson
+      - Rolf Daniel Vikstøl
+      - André Danielsen
+      - Steffen Ernemann
+      - Fredrik Torsteinbø
+      - Usmani Sale
+      - Tommy Høiland
+      - Zymer Bytyqi
+    subs:
+      - Even Østensen
+      - Claes Kronberg
+      - Amund Wichne
+      - Harald Tangen
+      - Jonas Pereira
+      - Rasmus Martinsen
+      - Tord Johnsen Salte
+    coach: Bjarne Berntsen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +141,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

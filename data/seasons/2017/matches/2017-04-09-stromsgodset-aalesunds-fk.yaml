@@ -11,13 +11,129 @@ competition:
 home:
   clubId: stromsgodset
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: marienlyst-stadion
 neutralVenue: false
-events: []
+attendance: 5813
+referee: Dag Vidar Hafsaas
+events:
+  - minute: 17
+    type: goal
+    team: away
+    player: Mostafa Abdellaoue
+    assist: Mikkel Kirkeskov
+  - minute: 27
+    type: yellow_card
+    team: home
+    player: Bassel Jradi
+  - minute: 37
+    type: substitution
+    team: away
+    player: Daniel Gretarsson
+    playerOff: Oddbjørn Lie
+  - minute: 45
+    type: goal
+    team: home
+    player: Marco Tagbajumi
+    assist: Lars-Christopher Vilsvik
+  - minute: 46
+    type: substitution
+    team: home
+    player: Kristoffer Tokstad
+    playerOff: Francisco Junior
+  - minute: 59
+    type: missed_penalty
+    team: home
+    player: Marcus Pedersen
+  - minute: 61
+    type: yellow_card
+    team: home
+    player: Henning Hauger
+  - minute: 67
+    type: substitution
+    team: home
+    player: Tommy Høiland
+    playerOff: Marcus Pedersen
+  - minute: 68
+    type: substitution
+    team: away
+    player: Edwin Gyasi
+    playerOff: Sondre Brunstad Fet
+  - minute: 78
+    type: substitution
+    team: away
+    player: Valmir Berisha
+    playerOff: Lars Veldwijk
+  - minute: 80
+    type: substitution
+    team: home
+    player: Pontus Engblom
+    playerOff: Tokmac Chol Nguen
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Radoslaw Janukiewicz
+      - Lars-Christopher Vilsvik
+      - Jakob Glesnes
+      - Marius Høibråten
+      - Jonathan Parr
+      - Bassel Jradi
+      - Henning Hauger
+      - Francisco Junior
+      - Tokmac Chol Nguen
+      - Marcus Pedersen
+      - Marco Tagbajumi
+    subs:
+      - Kristoffer Tokstad
+      - Tommy Høiland
+      - Pontus Engblom
+      - Christian Sivodedov
+      - Kim André Madsen
+      - Soosha Makani
+      - Stian Ringstad
+    coach: Tor Ole Skullerud
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Bjørn Helge Riise
+      - Kaj Ramsteijn
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Vebjørn Hoff
+      - Sondre Brunstad Fet
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Lars Veldwijk
+      - Mostafa Abdellaoue
+    subs:
+      - Daniel Gretarsson
+      - Edwin Gyasi
+      - Valmir Berisha
+      - Adam Örn Arnarson
+      - Marlinho
+      - Pål Vestly Heigre
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 61
+    shots: 21
+    shotsOnTarget: 7
+    corners: 11
+    fouls: 11
+    offsides: 3
+  away:
+    possession: 39
+    shots: 12
+    shotsOnTarget: 5
+    corners: 7
+    fouls: 14
+    offsides: 3
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +149,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

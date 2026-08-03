@@ -11,13 +11,121 @@ competition:
 home:
   clubId: fredrikstad
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: fredrikstad-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Joachim Thomassen
+  - minute: 55
+    type: substitution
+    team: home
+    player: James Keene
+    playerOff: Alexander Ruud Tveter
+  - minute: 61
+    type: substitution
+    team: away
+    player: Christian Myklebust
+    playerOff: Kjell Rune Sellin
+  - minute: 62
+    type: substitution
+    team: home
+    player: Celso Borges
+    playerOff: Hans Erik Ramberg
+  - minute: 67
+    type: yellow_card
+    team: home
+    player: Amin Askar
+  - minute: 69
+    type: substitution
+    team: home
+    player: Vidar Martinsen
+    playerOff: Mads Hansen
+  - minute: 74
+    type: goal
+    team: home
+    player: James Keene
+  - minute: 75
+    type: yellow_card
+    team: away
+    player: Michael Barrantes
+  - minute: 77
+    type: goal
+    team: home
+    player: Tarik Elyounoussi
+  - minute: 80
+    type: substitution
+    team: away
+    player: Sander Post
+    playerOff: Demar Phillips
+  - minute: 82
+    type: substitution
+    team: away
+    player: Ville Jalasto
+    playerOff: Jason Morrison
+  - minute: 82
+    type: goal
+    team: away
+    player: Magnus Sylling Olsen
+  - minute: 85
+    type: yellow_card
+    team: away
+    player: Enar Jääger
+  - minute: 90
+    type: penalty_goal
+    team: home
+    player: Celso Borges
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Arnold Origi Otieno
+      - Andreas Landgren
+      - Jørgen Horn
+      - Kevin Duré
+      - Amin Askar
+      - Simen Rafn
+      - Hans Erik Ramberg
+      - Joachim Thomassen
+      - Mads Hansen
+      - Alexander Ruud Tveter
+      - Tarik Elyounoussi
+    subs:
+      - James Keene
+      - Celso Borges
+      - Vidar Martinsen
+      - Jan Tore Ophaug
+      - Sanpreet Singh
+      - Simen Standerholen
+    coach: Tom Freddy Aune
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Jo Nymo Matland
+      - Jason Morrison
+      - Michael Barrantes
+      - Fredrik Ulvestad
+      - Magnus Sylling Olsen
+      - Kjell Rune Sellin
+      - Demar Phillips
+    subs:
+      - Christian Myklebust
+      - Sander Post
+      - Ville Jalasto
+      - Didrik Fløtre
+      - Ole Christian Rørvik
+      - Solomon Okoronkwo
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +141,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

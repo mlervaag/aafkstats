@@ -11,13 +11,120 @@ competition:
 home:
   clubId: stabaek
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: fornebu-arena
 neutralVenue: false
-events: []
+events:
+  - minute: 7
+    type: goal
+    team: away
+    player: Jonathan Parr
+  - minute: 23
+    type: yellow_card
+    team: away
+    player: Jonathan Parr
+  - minute: 40
+    type: yellow_card
+    team: home
+    player: Palmi Rafn Palmason
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Jonatan Tollås Nation
+  - minute: 56
+    type: goal
+    team: home
+    player: Alain Junior Ollé Ollé
+  - minute: 59
+    type: substitution
+    team: home
+    player: Gilles Mbang Ondo
+    playerOff: Palmi Rafn Palmason
+  - minute: 64
+    type: yellow_card
+    team: away
+    player: Ville Jalasto
+  - minute: 67
+    type: substitution
+    team: away
+    player: Magnus Sylling Olsen
+    playerOff: Solomon Okoronkwo
+  - minute: 67
+    type: yellow_card
+    team: home
+    player: Alain Junior Ollé Ollé
+  - minute: 73
+    type: goal
+    team: away
+    player: Christian Myklebust
+  - minute: 77
+    type: substitution
+    team: home
+    player: Torstein Andersen Aase
+    playerOff: Alain Junior Ollé Ollé
+  - minute: 78
+    type: substitution
+    team: away
+    player: Fredrik Carlsen
+    playerOff: Michael Barrantes
+  - minute: 83
+    type: yellow_card
+    team: away
+    player: Fredrik Ulvestad
+  - minute: 88
+    type: substitution
+    team: away
+    player: Edvard Skagestad
+    playerOff: Christian Myklebust
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Jan Kjell Larsen
+      - Bjarni Olafur Eiriksson
+      - Jørgen Hammer
+      - Morten M. Skjønsberg
+      - Vegar Eggen Hedenstad
+      - Palmi Rafn Palmason
+      - Henning Hauger
+      - Pontus Farnerud
+      - Alain Junior Ollé Ollé
+      - Mix Diskerud
+      - Veigar Pall Gunnarsson
+    subs:
+      - Gilles Mbang Ondo
+      - Torstein Andersen Aase
+      - Haris Skenderovic
+      - Jørgen Skjelvik
+      - Jon Knudsen
+      - Tor-Marius Gromstad
+    coach: Jörgen Lennartsson
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Ville Jalasto
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Enar Jääger
+      - Christian Myklebust
+      - Peter Orry Larsen
+      - Fredrik Ulvestad
+      - Jonathan Parr
+      - Michael Barrantes
+      - Solomon Okoronkwo
+    subs:
+      - Magnus Sylling Olsen
+      - Fredrik Carlsen
+      - Edvard Skagestad
+      - Didrik Fløtre
+      - Jonas Sandqvist
+      - Kjell Rune Sellin
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +140,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

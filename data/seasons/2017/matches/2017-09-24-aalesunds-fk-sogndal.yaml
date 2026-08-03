@@ -11,13 +11,125 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: sogndal
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5178
+referee: Martin Lundby
+events:
+  - minute: 34
+    type: goal
+    team: away
+    player: Eirik Schulze
+    assist: Gilbert Koomson
+  - minute: 53
+    type: substitution
+    team: home
+    player: Edwin Gyasi
+    playerOff: Marlinho
+  - minute: 56
+    type: yellow_card
+    team: away
+    player: Eirik Schulze
+  - minute: 64
+    type: yellow_card
+    team: away
+    player: Martin Ramsland
+  - minute: 65
+    type: substitution
+    team: home
+    player: Sondre Brunstad Fet
+    playerOff: Aron Elis Thrándarson
+  - minute: 71
+    type: substitution
+    team: home
+    player: Valmir Berisha
+    playerOff: Athanassios Papazoglou
+  - minute: 84
+    type: substitution
+    team: away
+    player: Johan Hove
+    playerOff: Eirik Schulze
+  - minute: 85
+    type: yellow_card
+    team: home
+    player: Jørgen Hatlehol
+  - minute: 88
+    type: substitution
+    team: away
+    player: Bendik Bye
+    playerOff: Gilbert Koomson
+  - minute: 90
+    type: substitution
+    team: away
+    player: Per-Magnus Steiring
+    playerOff: Chidiebere Nwakali
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Jørgen Hatlehol
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Marlinho
+      - Vebjørn Hoff
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Athanassios Papazoglou
+      - Mostafa Abdellaoue
+    subs:
+      - Edwin Gyasi
+      - Sondre Brunstad Fet
+      - Valmir Berisha
+      - Anders Waagan
+      - Emil Solnørdal
+      - Jan Lennart Urke
+      - Joakim Barstad
+    coach: Trond Fredriksen
+  away:
+    formation: 3-4-3
+    starters:
+      - Mathias Dyngeland
+      - Ulrik Fredriksen
+      - Even Hovland
+      - Reiss Greenidge
+      - Taijo Teniste
+      - Eirik Birkelund
+      - Chidiebere Nwakali
+      - Victor Grodås
+      - Gilbert Koomson
+      - Martin Ramsland
+      - Eirik Schulze
+    subs:
+      - Johan Hove
+      - Bendik Bye
+      - Per-Magnus Steiring
+      - Joachim Soltvedt
+      - Mohamed Didé Fofana
+      - Stanisa Mandic
+      - Tarjei Aase Omenås
+    coach: Eirik Bakke
+stats:
+  home:
+    possession: 62
+    shots: 18
+    shotsOnTarget: 3
+    corners: 12
+    fouls: 10
+    offsides: 2
+  away:
+    possession: 38
+    shots: 10
+    shotsOnTarget: 4
+    corners: 3
+    fouls: 16
+    offsides: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +145,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

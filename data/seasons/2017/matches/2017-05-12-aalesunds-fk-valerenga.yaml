@@ -11,13 +11,124 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: valerenga
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 7500
+referee: Dag Vidar Hafsaas
+events:
+  - minute: 7
+    type: substitution
+    team: away
+    player: Hermann Stengel
+    playerOff: Christian Grindheim
+  - minute: 34
+    type: substitution
+    team: home
+    player: Oddbjørn Lie
+    playerOff: Daniel Gretarsson
+  - minute: 40
+    type: goal
+    team: away
+    player: Hermann Stengel
+    assist: Robert Lundström
+  - minute: 41
+    type: yellow_card
+    team: away
+    player: Magnus Lekven
+  - minute: 46
+    type: substitution
+    team: away
+    player: Muhamed Keita
+    playerOff: Chidera Ejuke
+  - minute: 60
+    type: yellow_card
+    team: away
+    player: Hermann Stengel
+  - minute: 66
+    type: yellow_card
+    team: away
+    player: Ivan Näsberg
+  - minute: 74
+    type: substitution
+    team: away
+    player: Mohammed Abdellaoue
+    playerOff: Bård Finne
+  - minute: 77
+    type: yellow_card
+    team: home
+    player: Kaj Ramsteijn
+  - minute: 86
+    type: substitution
+    team: home
+    player: Valmir Berisha
+    playerOff: Sondre Brunstad Fet
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Kaj Ramsteijn
+      - Daniel Gretarsson
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Fredrik Carlsen
+      - Vebjørn Hoff
+      - Sondre Brunstad Fet
+      - Mostafa Abdellaoue
+      - Lars Veldwijk
+    subs:
+      - Oddbjørn Lie
+      - Valmir Berisha
+      - Anders Waagan
+      - Emil Solnørdal
+      - Jørgen Hatlehol
+      - Marlinho
+      - Pål Vestly Heigre
+    coach: Trond Fredriksen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Marcus Sandberg
+      - Robert Lundström
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Ivan Näsberg
+      - Christian Grindheim
+      - Magnus Lekven
+      - Chidera Ejuke
+      - Abdisalam Ibrahim
+      - Ghayas Zahid
+      - Bård Finne
+    subs:
+      - Hermann Stengel
+      - Muhamed Keita
+      - Mohammed Abdellaoue
+      - Aslak Falch
+      - Daniel Berntsen
+      - Henrik Kjelsrud Johansen
+      - Markus Nakkim
+    coach: Ronny Deila
+stats:
+  home:
+    possession: 46
+    shots: 5
+    shotsOnTarget: 1
+    corners: 6
+    fouls: 6
+    offsides: 1
+  away:
+    possession: 54
+    shots: 7
+    shotsOnTarget: 4
+    corners: 5
+    fouls: 6
+    offsides: 6
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +144,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,98 @@ competition:
 home:
   clubId: viking
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: viking-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 46
+    type: substitution
+    team: home
+    player: Veton Berisha
+    playerOff: Tommy Knarvik
+  - minute: 46
+    type: substitution
+    team: home
+    player: Bengt Sæternes
+    playerOff: Erik Nevland
+  - minute: 50
+    type: yellow_card
+    team: home
+    player: King Osei Gyan
+  - minute: 58
+    type: goal
+    team: home
+    player: Veton Berisha
+  - minute: 64
+    type: substitution
+    team: away
+    player: Kjell Rune Sellin
+    playerOff: Christian Myklebust
+  - minute: 66
+    type: substitution
+    team: away
+    player: Edvard Skagestad
+    playerOff: Lars Fuhre
+  - minute: 80
+    type: substitution
+    team: away
+    player: Sander Post
+    playerOff: Peter Orry Larsen
+  - minute: 83
+    type: substitution
+    team: home
+    player: Björn Andersson
+    playerOff: Birkir Bjarnason
+lineups:
+  home:
+    formation: 5-2-3
+    starters:
+      - Rune Almenning Jarstein
+      - Håkon Skogseid
+      - Indridi Sigurdsson
+      - Johan Lædre Bjørdal
+      - Trond Erik Bertelsen
+      - King Osei Gyan
+      - Birkir Bjarnason
+      - Valon Berisha
+      - Yann-Erik de Lanlay
+      - Tommy Knarvik
+      - Erik Nevland
+    subs:
+      - Bengt Sæternes
+      - Veton Berisha
+      - Björn Andersson
+      - Arild Østbø
+      - Tomasz Sokolowski
+      - Vidar Nisja
+    coach: Åge Hareide
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Ville Jalasto
+      - Daniel Arnefjord
+      - Jonathan Parr
+      - Jason Morrison
+      - Peter Orry Larsen
+      - Christian Myklebust
+      - Michael Barrantes
+      - Lars Fuhre
+      - Magnus Sylling Olsen
+    subs:
+      - Kjell Rune Sellin
+      - Edvard Skagestad
+      - Sander Post
+      - Fredrik Ulvestad
+      - Jonas Sandqvist
+      - Jonatan Tollås Nation
+      - Solomon Okoronkwo
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +118,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

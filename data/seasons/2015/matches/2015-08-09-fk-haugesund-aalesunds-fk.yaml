@@ -11,13 +11,137 @@ competition:
 home:
   clubId: fk-haugesund
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: haugesund-stadion
 neutralVenue: false
-events: []
+attendance: 4668
+events:
+  - minute: 17
+    type: substitution
+    team: home
+    player: Sverre Bjørkkjær
+    playerOff: David Myrestam
+  - minute: 29
+    type: goal
+    team: home
+    player: Christian Gytkjær
+    assist: Michael Haukås
+  - minute: 42
+    type: goal
+    team: home
+    player: Christian Gytkjær
+    assist: Sad'eeq Yusuf Ahmat
+  - minute: 43
+    type: yellow_card
+    team: away
+    player: Aron Elis Thrándarson
+  - minute: 44
+    type: yellow_card
+    team: away
+    player: Oddbjørn Lie
+  - minute: 46
+    type: substitution
+    team: away
+    player: Carl Björk
+    playerOff: Vebjørn Hoff
+  - minute: 46
+    type: substitution
+    team: away
+    player: Henrik Rørvik Bjørdal
+    playerOff: Oddbjørn Lie
+  - minute: 53
+    type: yellow_card
+    team: home
+    player: Kristoffer Haraldseid
+  - minute: 54
+    type: penalty_goal
+    team: away
+    player: Leke James
+  - minute: 66
+    type: substitution
+    team: away
+    player: Mostafa Abdellaoue
+    playerOff: Aron Elis Thrándarson
+  - minute: 77
+    type: substitution
+    team: home
+    player: Daniel Bamberg
+    playerOff: Sad'eeq Yusuf Ahmat
+  - minute: 80
+    type: substitution
+    team: home
+    player: Torbjørn Agdestein
+    playerOff: Simon Diedhiou
+  - minute: 82
+    type: yellow_card
+    team: away
+    player: Henrik Rørvik Bjørdal
+  - minute: 88
+    type: goal
+    team: home
+    player: Christian Gytkjær
+    assist: Søren Christensen
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Per Kristian Bråtveit
+      - Kristoffer Haraldseid
+      - Martin Bjørnbak
+      - William Troost-Ekong
+      - David Myrestam
+      - Sad'eeq Yusuf Ahmat
+      - Søren Christensen
+      - Tor Arne Andreassen
+      - Michael Haukås
+      - Simon Diedhiou
+      - Christian Gytkjær
+    subs:
+      - Sverre Bjørkkjær
+      - Daniel Bamberg
+      - Torbjørn Agdestein
+      - Alexander Stølås
+      - Arent-Emil Hauge
+      - Erling Myklebust
+      - Per Morten Kristiansen
+    coach: Jostein Grindhaug
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Edvard Skagestad
+      - Mikael Dyrestam
+      - Jo Nymo Matland
+      - Bjørn Helge Riise
+      - Peter Orry Larsen
+      - Oddbjørn Lie
+      - Vebjørn Hoff
+      - Leke James
+      - Aron Elis Thrándarson
+    subs:
+      - Carl Björk
+      - Henrik Rørvik Bjørdal
+      - Mostafa Abdellaoue
+      - Andreas Lie
+      - Tero Mäntylä
+      - Thomas Skog Martinussen
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 47
+    shots: 13
+    shotsOnTarget: 4
+    corners: 9
+  away:
+    possession: 53
+    shots: 11
+    shotsOnTarget: 3
+    corners: 7
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +157,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

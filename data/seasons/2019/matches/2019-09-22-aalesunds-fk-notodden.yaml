@@ -11,13 +11,137 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: notodden
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 4
+    type: goal
+    team: home
+    player: Torbjørn Agdestein
+    assist: Niklas Castro
+  - minute: 6
+    type: goal
+    team: away
+    player: Marco Tagbajumi
+    assist: Even Parkstad Johansen
+  - minute: 29
+    type: yellow_card
+    team: away
+    player: Alfred Sankoh
+  - minute: 43
+    type: yellow_card
+    team: away
+    player: Martin Brekke
+  - minute: 53
+    type: goal
+    team: home
+    player: Niklas Castro
+    assist: David Kristjan Olafsson
+  - minute: 56
+    type: yellow_card
+    team: away
+    player: Marco Tagbajumi
+  - minute: 66
+    type: yellow_card
+    team: home
+    player: Jonas Grønner
+  - minute: 70
+    type: substitution
+    team: away
+    player: Sebastian Hansen
+    playerOff: Martin Holmen
+  - minute: 70
+    type: goal
+    team: home
+    player: Niklas Castro
+  - minute: 72
+    type: substitution
+    team: home
+    player: Kristoffer Hay
+    playerOff: Oddbjørn Lie
+  - minute: 76
+    type: yellow_card
+    team: home
+    player: Ståle Steen Sæthre
+  - minute: 77
+    type: substitution
+    team: away
+    player: Pipo Ferreira
+    playerOff: André Bakke
+  - minute: 77
+    type: substitution
+    team: home
+    player: Holmbert Aron Fridjonsson
+    playerOff: Torbjørn Agdestein
+  - minute: 86
+    type: substitution
+    team: away
+    player: Magnus Langset
+    playerOff: Alfred Sankoh
+  - minute: 86
+    type: yellow_card
+    team: home
+    player: Erikson Lima
+  - minute: 87
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Niklas Castro
+  - minute: 87
+    type: yellow_card
+    team: away
+    player: Pipo Ferreira
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Ståle Steen Sæthre
+      - Jonas Grønner
+      - Oddbjørn Lie
+      - Sondre Brunstad Fet
+      - Erikson Lima
+      - Fredrik Carlsen
+      - Niklas Castro
+      - David Kristjan Olafsson
+      - Torbjørn Agdestein
+      - Pape Habib Gueye
+    subs:
+      - Kristoffer Hay
+      - Holmbert Aron Fridjonsson
+      - Peter Orry Larsen
+      - Aron Elis Thrándarson
+      - Jørgen Hatlehol
+      - Marius Berntzen
+      - Wilmer Azofeifa
+    coach: Lars Bohinen
+  away:
+    formation: 4-3-3
+    starters:
+      - Espen Vasby
+      - Even Parkstad Johansen
+      - Henrik Gustavsen
+      - Michael Ledger
+      - Morten Renå Olsen
+      - Martin Holmen
+      - Kjetil Holand Tøsse
+      - Alfred Sankoh
+      - André Bakke
+      - Marco Tagbajumi
+      - Martin Brekke
+    subs:
+      - Sebastian Hansen
+      - Pipo Ferreira
+      - Magnus Langset
+      - Bror Ness Grøtterud
+      - Espen Mogen Hagen
+      - Josh Robson
+    coach: Kenneth Dokken
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +157,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

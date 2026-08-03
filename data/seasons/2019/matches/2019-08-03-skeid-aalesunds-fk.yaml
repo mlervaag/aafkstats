@@ -11,13 +11,118 @@ competition:
 home:
   clubId: skeid
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: nordre-asen
 neutralVenue: false
-events: []
+events:
+  - minute: 20
+    type: yellow_card
+    team: away
+    player: Kaj Ramsteijn
+  - minute: 29
+    type: yellow_card
+    team: away
+    player: Pape Habib Gueye
+  - minute: 57
+    type: substitution
+    team: away
+    player: Holmbert Aron Fridjonsson
+    playerOff: Sondre Brunstad Fet
+  - minute: 62
+    type: penalty_goal
+    team: away
+    player: Niklas Castro
+  - minute: 66
+    type: substitution
+    team: home
+    player: Johannes Hummelvoll-Nunez
+    playerOff: Hassan Mohamed Yusuf
+  - minute: 77
+    type: substitution
+    team: away
+    player: Torbjørn Agdestein
+    playerOff: Pape Habib Gueye
+  - minute: 77
+    type: substitution
+    team: home
+    player: Taofeek Ismaheel
+    playerOff: Mesut Can
+  - minute: 77
+    type: substitution
+    team: home
+    player: David Hickson Gyedu
+    playerOff: Johnny Per Buduson
+  - minute: 78
+    type: yellow_card
+    team: away
+    player: Andreas Lie
+  - minute: 80
+    type: substitution
+    team: away
+    player: Erikson Lima
+    playerOff: Jørgen Hatlehol
+  - minute: 81
+    type: yellow_card
+    team: home
+    player: Taofeek Ismaheel
+  - minute: 87
+    type: yellow_card
+    team: home
+    player: David Tavakoli
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Daniel Gretarsson
+lineups:
+  home:
+    formation: 4-1-2-3
+    starters:
+      - Idar Nordby Lysgård
+      - Tom Even Skogsrud
+      - Kim Eugen Skogsrud
+      - Ayoub Aleesami
+      - Ahmed El-Amrani
+      - Mohammed Mahnin
+      - Henning Tønsberg Andresen
+      - Hassan Mohamed Yusuf
+      - Johnny Per Buduson
+      - David Tavakoli
+      - Mesut Can
+    subs:
+      - Johannes Hummelvoll-Nunez
+      - David Hickson Gyedu
+      - Taofeek Ismaheel
+      - Emil Fiskvik
+      - Erik Sandberg
+      - Fredrik Tobias Berglie
+      - Simen Hestnes
+    coach: Tom Nordlie
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Daniel Gretarsson
+      - Jonas Grønner
+      - Kaj Ramsteijn
+      - David Kristjan Olafsson
+      - Sondre Brunstad Fet
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Jørgen Hatlehol
+      - Pape Habib Gueye
+      - Niklas Castro
+    subs:
+      - Holmbert Aron Fridjonsson
+      - Torbjørn Agdestein
+      - Erikson Lima
+      - Peter Orry Larsen
+      - Ståle Steen Sæthre
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +138,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

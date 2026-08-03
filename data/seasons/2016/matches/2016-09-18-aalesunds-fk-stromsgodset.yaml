@@ -11,13 +11,151 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: stromsgodset
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5634
+referee: Dag Vidar Hafsaas
+events:
+  - minute: 1
+    type: goal
+    team: away
+    player: Kristoffer Tokstad
+    assist: Kim André Madsen
+  - minute: 14
+    type: goal
+    team: home
+    player: Edwin Gyasi
+  - minute: 50
+    type: goal
+    team: home
+    player: Fredrik Carlsen
+  - minute: 51
+    type: yellow_card
+    team: away
+    player: Mounir Hamoud
+  - minute: 55
+    type: missed_penalty
+    team: away
+    player: Kristoffer Tokstad
+  - minute: 56
+    type: yellow_card
+    team: home
+    player: Bjørn Helge Riise
+  - minute: 56
+    type: yellow_card
+    team: away
+    player: Lars-Christopher Vilsvik
+  - minute: 57
+    type: substitution
+    team: away
+    player: Marcus Pedersen
+    playerOff: Francisco Junior
+  - minute: 60
+    type: yellow_card
+    team: away
+    player: Martin Rønning Ovenstad
+  - minute: 62
+    type: goal
+    team: home
+    player: Mostafa Abdellaoue
+    assist: Aron Elis Thrándarson
+  - minute: 65
+    type: substitution
+    team: home
+    player: Daniel Gretarsson
+    playerOff: Vito Wormgoor
+  - minute: 69
+    type: substitution
+    team: away
+    player: Bismarck Adjei-Boateng
+    playerOff: Martin Rønning Ovenstad
+  - minute: 69
+    type: substitution
+    team: away
+    player: Tommy Høiland
+    playerOff: Kristoffer Tokstad
+  - minute: 72
+    type: substitution
+    team: home
+    player: Vebjørn Hoff
+    playerOff: Fredrik Carlsen
+  - minute: 73
+    type: goal
+    team: home
+    player: Bjørn Helge Riise
+    assist: Edwin Gyasi
+  - minute: 85
+    type: substitution
+    team: home
+    player: Marlinho
+    playerOff: Edwin Gyasi
+  - minute: 90
+    type: penalty_goal
+    team: away
+    player: Marcus Pedersen
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Vito Wormgoor
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Fredrik Carlsen
+      - Bjørn Helge Riise
+      - Aron Elis Thrándarson
+      - Franck Boli
+      - Mostafa Abdellaoue
+    subs:
+      - Daniel Gretarsson
+      - Vebjørn Hoff
+      - Marlinho
+      - Lars Cramer
+      - Peter Orry Larsen
+      - Sondre Brunstad Fet
+      - Tero Mäntylä
+    coach: Trond Fredriksen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Espen Bugge Pettersen
+      - Lars-Christopher Vilsvik
+      - Kim André Madsen
+      - Jakob Glesnes
+      - Mounir Hamoud
+      - Martin Rønning Ovenstad
+      - Mohammed Abu
+      - Kristoffer Tokstad
+      - Francisco Junior
+      - Jonathan Parr
+      - Eirik Ulland Andersen
+    subs:
+      - Marcus Pedersen
+      - Bismarck Adjei-Boateng
+      - Tommy Høiland
+      - Lukasz Jarosinski
+      - Marius Høibråten
+      - Mathias Berg Gjerstrøm
+      - Øyvind Storflor
+    coach: Bjørn Petter Ingebretsen
+stats:
+  home:
+    possession: 50
+    shots: 15
+    shotsOnTarget: 5
+    corners: 7
+  away:
+    possession: 50
+    shots: 13
+    shotsOnTarget: 7
+    corners: 10
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +171,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,121 @@ competition:
 home:
   clubId: molde-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: aker-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 25
+    type: goal
+    team: home
+    player: Joona Toivio
+  - minute: 35
+    type: goal
+    team: home
+    player: Magnus Wolff Eikrem
+  - minute: 35
+    type: yellow_card
+    team: away
+    player: Hugues Wembangomo
+  - minute: 46
+    type: substitution
+    team: away
+    player: Fredrik Carlsen
+    playerOff: Demar Phillips
+  - minute: 52
+    type: goal
+    team: away
+    player: Michael Barrantes
+  - minute: 63
+    type: goal
+    team: home
+    player: Jo Inge Berget
+    assist: Etzaz Hussain
+  - minute: 67
+    type: goal
+    team: home
+    player: Jo Inge Berget
+    assist: Magnus Wolff Eikrem
+  - minute: 68
+    type: substitution
+    team: home
+    player: Joshua Gatt
+    playerOff: Etzaz Hussain
+  - minute: 69
+    type: yellow_card
+    team: away
+    player: Abderrazak Hamdallah
+  - minute: 70
+    type: substitution
+    team: away
+    player: Thomas Skog Martinussen
+    playerOff: Jason Morrison
+  - minute: 78
+    type: substitution
+    team: away
+    player: Christian Myklebust
+    playerOff: Abderrazak Hamdallah
+  - minute: 78
+    type: substitution
+    team: home
+    player: Emmanuel Ekpo
+    playerOff: Magnus Wolff Eikrem
+  - minute: 87
+    type: substitution
+    team: home
+    player: Sander Svendsen
+    playerOff: Mattias Moström
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Ørjan Håskjold Nyland
+      - Martin Linnes
+      - Joona Toivio
+      - Even Hovland
+      - Knut Olav Rindarøy
+      - Daniel Berg Hestad
+      - Magnus Wolff Eikrem
+      - Etzaz Hussain
+      - Mattias Moström
+      - Jo Inge Berget
+      - Daniel Chima Chukwu
+    subs:
+      - Joshua Gatt
+      - Emmanuel Ekpo
+      - Sander Svendsen
+      - Magnar Ødegaard
+      - Magne Simonsen
+      - Ole Söderberg
+      - Zlatko Tripic
+    coach: Ole Gunnar Solskjær
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Sten Michael Grytebust
+      - Hugues Wembangomo
+      - Jonatan Tollås Nation
+      - Edvard Skagestad
+      - Andreas Nordvik
+      - Fredrik Ulvestad
+      - Jason Morrison
+      - Leke James
+      - Michael Barrantes
+      - Demar Phillips
+      - Abderrazak Hamdallah
+    subs:
+      - Fredrik Carlsen
+      - Thomas Skog Martinussen
+      - Christian Myklebust
+      - Daniel Stensøe
+      - Lars Fuhre
+      - Lasse Staw
+      - Tor Hogne Aarøy
+    coach: Jan Jönsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +141,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

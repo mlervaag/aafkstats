@@ -11,13 +11,91 @@ competition:
 home:
   clubId: fk-haugesund
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: haugesund-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 48
+    type: yellow_card
+    team: away
+    player: Fredrik Carlsen
+  - minute: 51
+    type: yellow_card
+    team: home
+    player: Vegard Skjerve
+  - minute: 54
+    type: goal
+    team: home
+    player: Umaru Bangura
+  - minute: 60
+    type: substitution
+    team: away
+    player: Michael Barrantes
+    playerOff: Fredrik Carlsen
+  - minute: 60
+    type: substitution
+    team: away
+    player: Fredrik Ulvestad
+    playerOff: Kjell Rune Sellin
+  - minute: 80
+    type: substitution
+    team: away
+    player: Solomon Okoronkwo
+    playerOff: Peter Orry Larsen
+  - minute: 90
+    type: substitution
+    team: home
+    player: Derek Decamps
+    playerOff: Kristoffer Haraldseid
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Per Morten Kristiansen
+      - Chris Pozniak
+      - Are Tronseth
+      - Vegard Skjerve
+      - Joakim Våge Nilsen
+      - Kristoffer Haraldseid
+      - Trygve Nygaard
+      - Ugonna Anyora
+      - Daniel Bamberg
+      - Umaru Bangura
+      - Alexander Søderlund
+    subs:
+      - Derek Decamps
+      - Eirik Mæland
+      - Eirik Ulland Andersen
+      - Juska Savolainen
+      - Lars Øvernes
+      - Ole Kristian Kråkmo
+    coach: Jostein Grindhaug
+  away:
+    formation: 5-3-2
+    starters:
+      - Sten Michael Grytebust
+      - Edvard Skagestad
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Demar Phillips
+      - Sander Post
+      - Peter Orry Larsen
+      - Jason Morrison
+      - Fredrik Carlsen
+      - Magnus Sylling Olsen
+      - Kjell Rune Sellin
+    subs:
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Solomon Okoronkwo
+      - Christian Myklebust
+      - Jo Nymo Matland
+      - Jonas Sandqvist
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +111,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

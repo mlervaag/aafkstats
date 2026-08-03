@@ -1,0 +1,49 @@
+id: 2026-08-16-aalesunds-fk-valerenga
+date: 2026-08-16
+dateConfidence: exact
+kickoff: 14:30
+status: scheduled
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 18
+home:
+  clubId: aalesunds-fk
+  score: null
+  halfTimeScore: null
+away:
+  clubId: valerenga
+  score: null
+  halfTimeScore: null
+venueId: color-line-stadion
+neutralVenue: false
+events: []
+lineups:
+  home:
+    starters: []
+    subs: []
+  away:
+    starters: []
+    subs: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/valerenga-vs-aalesund/286lhq#5104980
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - competition.round
+      - venueId
+      - lineups
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5104980"
+manual: []

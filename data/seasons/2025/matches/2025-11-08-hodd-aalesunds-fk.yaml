@@ -11,13 +11,130 @@ competition:
 home:
   clubId: hodd
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: nye-hoddvoll-stadion
 neutralVenue: false
-events: []
+attendance: 3475
+referee: Magnus Nicolai Koløy
+events:
+  - minute: 15
+    type: yellow_card
+    team: home
+    player: Matthew Scarcella
+  - minute: 29
+    type: yellow_card
+    team: away
+    player: Paul Ngongo Iversen
+  - minute: 69
+    type: substitution
+    team: home
+    player: Jesper Robertsen
+    playerOff: Torbjørn Kallevåg
+  - minute: 78
+    type: substitution
+    team: home
+    player: Vegard Håheim Elveseter
+    playerOff: Isak Gabriel Skotheim
+  - minute: 78
+    type: substitution
+    team: home
+    player: Åsmund Dimmen Roppen
+    playerOff: Marcus Mikhail
+  - minute: 83
+    type: substitution
+    team: away
+    player: Elias Heggland Myrlid
+    playerOff: Paul Ngongo Iversen
+  - minute: 83
+    type: substitution
+    team: away
+    player: David Snær Johannsson
+    playerOff: Henrik Melland
+  - minute: 86
+    type: substitution
+    team: away
+    player: Marius Andresen
+    playerOff: Jakob Nyland Ørsahl
+  - minute: 86
+    type: substitution
+    team: home
+    player: Magnus Holte
+    playerOff: Sebastian Heimvik Haugland
+  - minute: 86
+    type: substitution
+    team: home
+    player: Manaf Rawufu
+    playerOff: Ola Visted
+  - minute: 87
+    type: yellow_card
+    team: home
+    player: Sebastian Heimvik Haugland
+lineups:
+  home:
+    formation: 3-4-3
+    starters:
+      - Marius Ulla
+      - Tage Johansen
+      - Sondre Fosnæss Hanssen
+      - Mirza Mulac
+      - Matthew Scarcella
+      - Torbjørn Kallevåg
+      - Halvard Urnes
+      - Marcus Mikhail
+      - Ola Visted
+      - Sebastian Heimvik Haugland
+      - Isak Gabriel Skotheim
+    subs:
+      - Jesper Robertsen
+      - Åsmund Dimmen Roppen
+      - Vegard Håheim Elveseter
+      - Magnus Holte
+      - Manaf Rawufu
+      - Ole-Monrad Alme
+      - Eirik Espelid Blikstad
+      - Noah Jenssen Riise
+      - Fredrik Dimmen Gjerde
+    coach: Marius Bøe
+  away:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Nikolai Skuseth
+      - Kristoffer Nessø
+      - Mathias Christensen
+      - Håkon Butli Hammer
+      - Henrik Melland
+      - Jakob Nyland Ørsahl
+      - Kristian Hemmingsen Lonebu
+      - Paul Ngongo Iversen
+    subs:
+      - David Snær Johannsson
+      - Elias Heggland Myrlid
+      - Marius Andresen
+      - Tor Erik Valderhaug Larsen
+      - Erik Frøysa
+      - Jørgen Bøe
+      - Olafur Gudmundsson
+      - Philip Sandvik Aukland
+      - Frederik Heiselberg
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 29
+    shots: 6
+    shotsOnTarget: 4
+    corners: 1
+  away:
+    possession: 71
+    shots: 11
+    shotsOnTarget: 3
+    corners: 13
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +150,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

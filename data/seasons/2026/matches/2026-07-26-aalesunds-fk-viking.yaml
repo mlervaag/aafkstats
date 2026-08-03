@@ -1,0 +1,206 @@
+id: 2026-07-26-aalesunds-fk-viking
+date: 2026-07-26
+dateConfidence: exact
+kickoff: 19:15
+status: played
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 15
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: viking
+  score: 1
+  halfTimeScore: 1
+venueId: color-line-stadion
+neutralVenue: false
+attendance: 4286
+referee: Stian Røvig Sletner
+events:
+  - minute: 25
+    type: yellow_card
+    team: away
+    player: Edvin Austbø
+  - minute: 45
+    stoppage: 1
+    type: goal
+    team: away
+    player: Kristoffer Askildsen
+  - minute: 46
+    type: goal
+    team: home
+    player: Mathias Christensen
+    assist: Kristian Hemmingsen Lonebu
+  - minute: 64
+    type: substitution
+    team: home
+    player: David Snær Johannsson
+    playerOff: Endre Osenbroch
+  - minute: 68
+    type: substitution
+    team: away
+    player: Herman Haugen
+    playerOff: Sondre Bjørshol
+  - minute: 68
+    type: substitution
+    team: away
+    player: Ruben Kristensen Alte
+    playerOff: Simen Kvia-Egeskog
+  - minute: 68
+    type: substitution
+    team: away
+    player: Tobias Moi
+    playerOff: Joe Bell
+  - minute: 71
+    type: substitution
+    team: home
+    player: Kristoffer Nessø
+    playerOff: Marius Andresen
+  - minute: 76
+    type: yellow_card
+    team: home
+    player: Mathias Christensen
+  - minute: 78
+    type: yellow_card
+    team: away
+    player: Gianni Stensness
+  - minute: 82
+    type: substitution
+    team: home
+    player: Elias Heggland Myrlid
+    playerOff: Kristian Hemmingsen Lonebu
+  - minute: 82
+    type: substitution
+    team: home
+    player: Henrik Melland
+    playerOff: Mathias Christensen
+  - minute: 84
+    type: substitution
+    team: away
+    player: Amin Cosic
+    playerOff: Niklas Fuglestad
+  - minute: 86
+    type: yellow_card
+    team: home
+    player: Ólafur Gudmundsson
+  - minute: 87
+    type: substitution
+    team: away
+    player: Kristoffer Haugen
+    playerOff: Vetle Auklend
+  - minute: 87
+    type: yellow_card
+    team: away
+    player: Tobias Moi
+  - minute: 90
+    stoppage: 6
+    type: yellow_card
+    team: home
+    player: Henrik Melland
+  - minute: 90
+    stoppage: 7
+    type: yellow_card
+    team: away
+    player: Kristoffer Askildsen
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Luca Podlech
+      - Simen Haram
+      - Emil Engqvist
+      - Ólafur Gudmundsson
+      - Marius Andresen
+      - Mathias Christensen
+      - Håkon Butli Hammer
+      - Elias Hagen
+      - Uba Charles
+      - Kristian Hemmingsen Lonebu
+      - Endre Osenbroch
+    subs:
+      - David Snær Johannsson
+      - Kristoffer Nessø
+      - Henrik Melland
+      - Elias Heggland Myrlid
+      - Tor Erik Valderhaug Larsen
+      - Philip Sandvik Aukland
+      - Ulrik Valderhaug Syversen
+      - Jakob Nyland Ørsahl
+      - Ivan Djantou
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-1-4-1
+    starters:
+      - Lubomír Belko
+      - Sondre Bjørshol
+      - Gianni Stensness
+      - Anders Bærtelsen
+      - Vetle Auklend
+      - Joe Bell
+      - Niklas Fuglestad
+      - Kristoffer Askildsen
+      - Simen Kvia-Egeskog
+      - Edvin Austbø
+      - Peter Christiansen
+    subs:
+      - Ruben Kristensen Alte
+      - Tobias Moi
+      - Herman Haugen
+      - Amin Cosic
+      - Kristoffer Haugen
+      - Arild Østbø
+      - Viljar Vevatne
+      - Jakob Segadal Hansen
+      - Ola Visted
+    coach: Morten Jensen
+stats:
+  home:
+    possession: 39
+    shots: 19
+    shotsOnTarget: 7
+    corners: 4
+    fouls: 18
+    offsides: 3
+    xg: 1.88
+  away:
+    possession: 61
+    shots: 22
+    shotsOnTarget: 7
+    corners: 10
+    fouls: 8
+    offsides: 1
+    xg: 2.24
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-viking/2cuni1#5104960
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5104960"
+manual: []

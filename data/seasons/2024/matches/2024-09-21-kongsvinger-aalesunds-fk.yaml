@@ -11,13 +11,164 @@ competition:
 home:
   clubId: kongsvinger
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 5
-  halfTimeScore: null
+  halfTimeScore: 4
+venueId: gjemselund-stadion
 neutralVenue: false
-events: []
+attendance: 1289
+referee: Anders Bodding
+events:
+  - minute: 21
+    type: goal
+    team: away
+    player: Marcus Rafferty
+    assist: Janus Seehusen
+  - minute: 34
+    type: goal
+    team: away
+    player: Paul Ngongo Iversen
+    assist: Sander Hestetun Kilen
+  - minute: 43
+    type: goal
+    team: away
+    player: Sander Hestetun Kilen
+  - minute: 45
+    stoppage: 2
+    type: yellow_card
+    team: home
+    player: Harald Holter
+  - minute: 45
+    stoppage: 3
+    type: goal
+    team: away
+    player: Marcus Rafferty
+    assist: Sander Hestetun Kilen
+  - minute: 46
+    type: substitution
+    team: home
+    player: Mathias Berg Gjerstrøm
+    playerOff: Andreas Dybevik
+  - minute: 46
+    type: substitution
+    team: home
+    player: Adem Güven
+    playerOff: Noa Williams
+  - minute: 46
+    type: substitution
+    team: home
+    player: Anders Klemensson
+    playerOff: August Strömberg
+  - minute: 60
+    type: substitution
+    team: home
+    player: Jesper Grundt
+    playerOff: Eric Taylor
+  - minute: 62
+    type: yellow_card
+    team: home
+    player: Emil Adrendrup Nielsen
+  - minute: 63
+    type: penalty_goal
+    team: away
+    player: Paul Ngongo Iversen
+  - minute: 69
+    type: substitution
+    team: away
+    player: David Snær Johannsson
+    playerOff: Marcus Rafferty
+  - minute: 75
+    type: substitution
+    team: away
+    player: Eivind Strømsheim Kolve
+    playerOff: Janus Seehusen
+  - minute: 80
+    type: substitution
+    team: home
+    player: Albert Sandstad
+    playerOff: Lars Christian Krogh Gerson
+  - minute: 80
+    type: goal
+    team: home
+    player: Oscar Forsmo Kapskarmo
+    assist: Adem Güven
+  - minute: 81
+    type: substitution
+    team: away
+    player: Henrik Melland
+    playerOff: Håkon Butli Hammer
+  - minute: 81
+    type: substitution
+    team: away
+    player: Noah Solskjær
+    playerOff: Sander Hestetun Kilen
+  - minute: 81
+    type: substitution
+    team: away
+    player: Martin Ramsland
+    playerOff: Paul Ngongo Iversen
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - August Strömberg
+      - Joel Nilsson
+      - Mapenda Mbow
+      - Lars Christian Krogh Gerson
+      - Emil Adrendrup Nielsen
+      - Andreas Dybevik
+      - Harald Holter
+      - Eric Taylor
+      - Noa Williams
+      - Ludvig Langrekken
+      - Oscar Forsmo Kapskarmo
+    subs:
+      - Anders Klemensson
+      - Mathias Berg Gjerstrøm
+      - Adem Güven
+      - Jesper Grundt
+      - Albert Sandstad
+      - Christian Øien Damhaug
+      - Marius Øien Damhaug
+    coach: Johan Peter Vennberg
+  away:
+    formation: 3-5-2
+    starters:
+      - Tor Erik Valderhaug Larsen
+      - Thomas Grøgaard
+      - Mads Nielsen
+      - Sam Rogers
+      - Kristoffer Nessø
+      - Janus Seehusen
+      - Håkon Butli Hammer
+      - Marcus Rafferty
+      - Vinko Medimorec
+      - Paul Ngongo Iversen
+      - Sander Hestetun Kilen
+    subs:
+      - David Snær Johannsson
+      - Eivind Strømsheim Kolve
+      - Henrik Melland
+      - Martin Ramsland
+      - Noah Solskjær
+      - Andreas Gülstorff
+      - John Kitolano
+      - Stian Aarønes Holte
+      - Claudio Braga
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 58
+    shots: 15
+    shotsOnTarget: 9
+    corners: 5
+  away:
+    possession: 42
+    shots: 13
+    shotsOnTarget: 9
+    corners: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +184,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

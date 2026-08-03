@@ -11,13 +11,106 @@ competition:
 home:
   clubId: sarpsborg-08
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 neutralVenue: false
-events: []
+events:
+  - minute: 19
+    type: yellow_card
+    team: away
+    player: Demar Phillips
+  - minute: 46
+    type: substitution
+    team: home
+    player: Magnar Ødegaard
+    playerOff: Berat Jusufi
+  - minute: 56
+    type: substitution
+    team: home
+    player: Glenn Roberts
+    playerOff: Martin Wiig
+  - minute: 61
+    type: yellow_card
+    team: away
+    player: Ville Jalasto
+  - minute: 62
+    type: substitution
+    team: away
+    player: Lars Fuhre
+    playerOff: Demar Phillips
+  - minute: 62
+    type: substitution
+    team: away
+    player: Sander Post
+    playerOff: Kjell Rune Sellin
+  - minute: 78
+    type: goal
+    team: home
+    player: Øyvind Hoås
+  - minute: 84
+    type: substitution
+    team: away
+    player: Solomon Okoronkwo
+    playerOff: Peter Orry Larsen
+  - minute: 87
+    type: goal
+    team: home
+    player: Tom Erik Breive
+  - minute: 89
+    type: substitution
+    team: home
+    player: Erik Lundanes Jonvik
+    playerOff: Michael Røn
+lineups:
+  home:
+    formation: 3-4-1-2
+    starters:
+      - Joachim Heier
+      - Berat Jusufi
+      - Kjetil Berge
+      - Ole Heieren Hansen
+      - Jo Nymo Matland
+      - Joackim Jørgensen
+      - Tom Erik Breive
+      - Morten Giæver
+      - Michael Røn
+      - Martin Wiig
+      - Øyvind Hoås
+    subs:
+      - Magnar Ødegaard
+      - Glenn Roberts
+      - Erik Lundanes Jonvik
+      - Joakim Eyde
+      - Magnus Hjulstad
+      - Mehmed Divanovic
+      - Michael Trulsen
+    coach: Roar Johansen
+  away:
+    formation: 4-3-2-1
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Ville Jalasto
+      - Daniel Arnefjord
+      - Jonathan Parr
+      - Jason Morrison
+      - Amund Skiri
+      - Peter Orry Larsen
+      - Michael Barrantes
+      - Demar Phillips
+      - Kjell Rune Sellin
+    subs:
+      - Lars Fuhre
+      - Sander Post
+      - Solomon Okoronkwo
+      - Edvard Skagestad
+      - Jonatan Tollås Nation
+      - Magnus Sylling Olsen
+      - Mathias Rasmussen
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +126,10 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

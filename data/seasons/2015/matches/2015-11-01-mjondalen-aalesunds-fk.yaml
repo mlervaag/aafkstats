@@ -11,13 +11,123 @@ competition:
 home:
   clubId: mjondalen
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: mjoendalen-stadion
 neutralVenue: false
-events: []
+attendance: 2912
+events:
+  - minute: 35
+    type: goal
+    team: away
+    player: Leke James
+    assist: Marlinho
+  - minute: 54
+    type: yellow_card
+    team: home
+    player: Morten Sundli
+  - minute: 58
+    type: substitution
+    team: home
+    player: Amahl Pellegrino
+    playerOff: Erik Hurtado
+  - minute: 65
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Marlinho
+  - minute: 66
+    type: yellow_card
+    team: home
+    player: Christian Gauseth
+  - minute: 71
+    type: substitution
+    team: home
+    player: Tokmac Chol Nguen
+    playerOff: Mads Hansen
+  - minute: 74
+    type: yellow_card
+    team: away
+    player: Oddbjørn Lie
+  - minute: 84
+    type: substitution
+    team: away
+    player: Mostafa Abdellaoue
+    playerOff: Henrik Rørvik Bjørdal
+  - minute: 90
+    type: substitution
+    team: away
+    player: Daniel Gretarsson
+    playerOff: Vebjørn Hoff
+  - minute: 90
+    type: goal
+    team: home
+    player: Tokmac Chol Nguen
+    assist: Sanel Kapidzic
+  - minute: 90
+    type: goal
+    team: away
+    player: Aron Elis Thrándarson
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Marco Jørgensen
+      - Magnus Sylling Olsen
+      - Morten Sundli
+      - Ulrich Arneberg
+      - Joackim Olsen Solberg
+      - Erik Hurtado
+      - Stian Semb Aasmundsen
+      - Christian Gauseth
+      - Mads Hansen
+      - Sanel Kapidzic
+      - Erik Midtgarden
+    subs:
+      - Amahl Pellegrino
+      - Tokmac Chol Nguen
+      - Craig Henderson
+      - Ivar Andreas Forn
+      - Mads Gundersen
+      - Ousseynou Boye
+      - Stian Rasch
+    coach: Vegard Hansen
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Mikael Dyrestam
+      - Oddbjørn Lie
+      - Akeem Latifu
+      - Jo Nymo Matland
+      - Marlinho
+      - Vebjørn Hoff
+      - Bjørn Helge Riise
+      - Henrik Rørvik Bjørdal
+      - Leke James
+      - Aron Elis Thrándarson
+    subs:
+      - Sondre Brunstad Fet
+      - Mostafa Abdellaoue
+      - Daniel Gretarsson
+      - Andreas Lie
+      - Tero Mäntylä
+      - Thomas Skog Martinussen
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 51
+    shots: 23
+    shotsOnTarget: 7
+    corners: 10
+  away:
+    possession: 49
+    shots: 12
+    shotsOnTarget: 4
+    corners: 3
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +143,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,139 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: lillestrom
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 6902
+referee: Daniel Higraff
+events:
+  - minute: 10
+    type: goal
+    team: home
+    player: Erikson Lima
+    assist: Simen Bolkan Nordli
+  - minute: 23
+    type: goal
+    team: away
+    player: Akor Adams
+    assist: Kaan Kairinen
+  - minute: 62
+    type: yellow_card
+    team: away
+    player: Magnus Knudsen
+  - minute: 67
+    type: yellow_card
+    team: away
+    player: Igoh Ogbu
+  - minute: 68
+    type: goal
+    team: home
+    player: Nikolai Hopland
+  - minute: 69
+    type: substitution
+    team: home
+    player: Moses Ebiye
+    playerOff: Bjørn Martin Kristensen
+  - minute: 69
+    type: substitution
+    team: home
+    player: Gilbert Koomson
+    playerOff: Torbjørn Kallevåg
+  - minute: 74
+    type: substitution
+    team: away
+    player: Holmbert Aron Fridjonsson
+    playerOff: Ylldren Ibrahimaj
+  - minute: 74
+    type: substitution
+    team: away
+    player: Gjermund Åsen
+    playerOff: Akor Adams
+  - minute: 77
+    type: substitution
+    team: home
+    player: Kristoffer Barmen
+    playerOff: Simen Bolkan Nordli
+  - minute: 77
+    type: substitution
+    team: home
+    player: Kristoffer Ødemarksbakken
+    playerOff: Erikson Lima
+  - minute: 85
+    type: substitution
+    team: away
+    player: Pål André Helland
+    playerOff: Magnus Knudsen
+lineups:
+  home:
+    formation: 5-3-2
+    starters:
+      - Sten Michael Grytebust
+      - Nikolai Hopland
+      - David Fällman
+      - Petar Golubovic
+      - John Kitolano
+      - Simen Rafn
+      - Erlend Segberg
+      - Erikson Lima
+      - Torbjørn Kallevåg
+      - Bjørn Martin Kristensen
+      - Simen Bolkan Nordli
+    subs:
+      - Moses Ebiye
+      - Gilbert Koomson
+      - Kristoffer Barmen
+      - Kristoffer Ødemarksbakken
+      - Michael Lansing
+      - Besim Serbecic
+      - Jeppe Arctander Moe
+      - Dario Canadjija
+      - Fredrik Haugen
+    coach: Lars Arne Nilsen
+  away:
+    formation: 3-4-3
+    starters:
+      - Mads Hedenstad Christiansen
+      - Vetle Dragsnes
+      - Igoh Ogbu
+      - Colin Rösler
+      - Magnus Knudsen
+      - Ifeanyi Mathew
+      - Kaan Kairinen
+      - Lars Mogstad Ranger
+      - Ylldren Ibrahimaj
+      - Akor Adams
+      - Thomas Lehne Olsen
+    subs:
+      - Gjermund Åsen
+      - Holmbert Aron Fridjonsson
+      - Pål André Helland
+      - Knut-André Skjærstein
+      - Ibrahim Cissé
+      - Aral Simsir
+      - Henrik Langaas Skogvold
+    coach: Geir Bakke
+stats:
+  home:
+    possession: 40
+    shots: 16
+    shotsOnTarget: 8
+    corners: 7
+    fouls: 8
+    offsides: 0
+    xg: 0.96
+  away:
+    possession: 60
+    shots: 9
+    shotsOnTarget: 6
+    corners: 2
+    fouls: 5
+    offsides: 2
+    xg: 0.8
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +159,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

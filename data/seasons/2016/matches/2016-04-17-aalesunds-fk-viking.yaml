@@ -11,13 +11,139 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: viking
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5798
+referee: Trond Ivar Doevle
+events:
+  - minute: 4
+    type: yellow_card
+    team: away
+    player: Samuel Adegbenro
+  - minute: 11
+    type: goal
+    team: home
+    player: Franck Boli
+    assist: Edvard Skagestad
+  - minute: 13
+    type: yellow_card
+    team: home
+    player: Peter Orry Larsen
+  - minute: 24
+    type: yellow_card
+    team: home
+    player: Fredrik Carlsen
+  - minute: 42
+    type: goal
+    team: away
+    player: Mathias Bringaker
+    assist: Abdisalam Ibrahim
+  - minute: 54
+    type: substitution
+    team: away
+    player: Joackim Jørgensen
+    playerOff: Abdisalam Ibrahim
+  - minute: 56
+    type: goal
+    team: away
+    player: Suleiman Abdullahi
+    assist: Joackim Jørgensen
+  - minute: 58
+    type: substitution
+    team: home
+    player: Marlinho
+    playerOff: Fredrik Carlsen
+  - minute: 71
+    type: yellow_card
+    team: home
+    player: Mikkel Kirkeskov
+  - minute: 74
+    type: substitution
+    team: home
+    player: Mostafa Abdellaoue
+    playerOff: Aron Elis Thrándarson
+  - minute: 74
+    type: substitution
+    team: home
+    player: Vebjørn Hoff
+    playerOff: Oddbjørn Lie
+  - minute: 75
+    type: substitution
+    team: away
+    player: Patrick Pedersen
+    playerOff: Mathias Bringaker
+  - minute: 83
+    type: substitution
+    team: away
+    player: Michael Haukås
+    playerOff: Samuel Adegbenro
+  - minute: 89
+    type: yellow_card
+    team: home
+    player: Bjørn Helge Riise
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Edvard Skagestad
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Fredrik Carlsen
+      - Bjørn Helge Riise
+      - John Arne Riise
+      - Aron Elis Thrándarson
+      - Peter Orry Larsen
+      - Franck Boli
+    subs:
+      - Marlinho
+      - Mostafa Abdellaoue
+      - Vebjørn Hoff
+      - Daniel Gretarsson
+      - Edwin Gyasi
+      - Lars Cramer
+      - Sondre Brunstad Fet
+    coach: Trond Fredriksen
+  away:
+    formation: 4-4-2
+    starters:
+      - Iven Austbø
+      - André Danielsen
+      - Anthony J. Soares
+      - Karol Mets
+      - Kristoffer Haugen
+      - Claes Kronberg
+      - Björn Daniel Sverrisson
+      - Abdisalam Ibrahim
+      - Samuel Adegbenro
+      - Mathias Bringaker
+      - Suleiman Abdullahi
+    subs:
+      - Joackim Jørgensen
+      - Patrick Pedersen
+      - Michael Haukås
+      - Julian Ryerson
+      - Pål Vestly Heigre
+      - Tor André Aasheim
+      - Usmani Sale
+    coach: Kjell Jonevret
+stats:
+  home:
+    possession: 48
+    shots: 14
+    shotsOnTarget: 5
+    corners: 9
+  away:
+    possession: 52
+    shots: 13
+    shotsOnTarget: 4
+    corners: 3
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +159,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

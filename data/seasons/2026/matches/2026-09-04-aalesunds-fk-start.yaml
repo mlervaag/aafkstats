@@ -1,0 +1,49 @@
+id: 2026-09-04-aalesunds-fk-start
+date: 2026-09-04
+dateConfidence: exact
+kickoff: 19:00
+status: scheduled
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 20
+home:
+  clubId: aalesunds-fk
+  score: null
+  halfTimeScore: null
+away:
+  clubId: start
+  score: null
+  halfTimeScore: null
+venueId: color-line-stadion
+neutralVenue: false
+events: []
+lineups:
+  home:
+    starters: []
+    subs: []
+  away:
+    starters: []
+    subs: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-start/2ryd31#5104999
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - competition.round
+      - venueId
+      - lineups
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5104999"
+manual: []

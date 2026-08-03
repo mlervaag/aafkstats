@@ -11,13 +11,122 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: sarpsborg-08
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 17
+    type: substitution
+    team: home
+    player: Akeem Latifu
+    playerOff: Demar Phillips
+  - minute: 29
+    type: goal
+    team: home
+    player: Abderrazak Hamdallah
+    assist: Jo Nymo Matland
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Kjetil Berge
+  - minute: 58
+    type: goal
+    team: home
+    player: Jo Nymo Matland
+    assist: Fredrik Ulvestad
+  - minute: 59
+    type: yellow_card
+    team: away
+    player: Thorarinn Ingi Valdimarsson
+  - minute: 62
+    type: substitution
+    team: away
+    player: Claes Kronberg
+    playerOff: Thorarinn Ingi Valdimarsson
+  - minute: 74
+    type: substitution
+    team: home
+    player: Lars Fuhre
+    playerOff: Fredrik Carlsen
+  - minute: 77
+    type: goal
+    team: home
+    player: Fredrik Ulvestad
+    assist: Abderrazak Hamdallah
+  - minute: 83
+    type: substitution
+    team: away
+    player: Olav Øby
+    playerOff: Tom Erik Breive
+  - minute: 83
+    type: substitution
+    team: away
+    player: Martin Thømt Jensen
+    playerOff: Kjetil Berge
+  - minute: 88
+    type: own_goal
+    team: away
+    player: Edvard Skagestad
+  - minute: 90
+    type: substitution
+    team: home
+    player: Daniel Arnefjord
+    playerOff: Michael Barrantes
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Steffen Ernemann
+lineups:
+  home:
+    formation: 7-1-2
+    starters:
+      - Sten Michael Grytebust
+      - Jo Nymo Matland
+      - Edvard Skagestad
+      - Jonatan Tollås Nation
+      - Demar Phillips
+      - Fredrik Ulvestad
+      - Peter Orry Larsen
+      - Fredrik Carlsen
+      - Michael Barrantes
+      - Abderrazak Hamdallah
+      - Leke James
+    subs:
+      - Akeem Latifu
+      - Lars Fuhre
+      - Daniel Arnefjord
+      - Henrik Rørvik Bjørdal
+      - Lasse Staw
+      - Thomas Skog Martinussen
+      - Tremaine Stewart
+    coach: Jan Jönsson
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Christian Sukke
+      - Kjetil Berge
+      - Ole Heieren Hansen
+      - Derek Decamps
+      - Jérémy Berthod
+      - Steffen Ernemann
+      - Tom Erik Breive
+      - Mohamed Elyounoussi
+      - Gudmundur Thorarinsson
+      - Thorarinn Ingi Valdimarsson
+      - Aaron Samuel Olanare
+    subs:
+      - Claes Kronberg
+      - Martin Thømt Jensen
+      - Olav Øby
+      - Berat Jusufi
+      - Christian Brink
+      - DuWayne Kerr
+      - Martin Wiig
+    coach: Brian Deane
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +142,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

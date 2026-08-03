@@ -11,13 +11,130 @@ competition:
 home:
   clubId: stabaek
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: nadderud-stadion
 neutralVenue: false
-events: []
+attendance: 2602
+referee: Tore Hansen
+events:
+  - minute: 64
+    type: substitution
+    team: away
+    player: Markus Seehusen Karlsbakk
+    playerOff: Isaac Atanga
+  - minute: 64
+    type: substitution
+    team: away
+    player: Bjørn Martin Kristensen
+    playerOff: Moses Ebiye
+  - minute: 65
+    type: substitution
+    team: away
+    player: Kristoffer Ødemarksbakken
+    playerOff: Kasper Lunding
+  - minute: 65
+    type: substitution
+    team: home
+    player: Aleksander Andresen
+    playerOff: Sturla Ottesen
+  - minute: 70
+    type: substitution
+    team: home
+    player: Kevin Kabran
+    playerOff: Kasper Waarst Høgh
+  - minute: 71
+    type: substitution
+    team: home
+    player: Kaloyan Kostadinov
+    playerOff: Curtis Edwards
+  - minute: 76
+    type: goal
+    team: home
+    player: Kevin Kabran
+    assist: Nicolai Næss
+  - minute: 82
+    type: substitution
+    team: home
+    player: Simen Wangberg
+    playerOff: Nicolai Næss
+  - minute: 86
+    type: substitution
+    team: away
+    player: Ole Kolskogen
+    playerOff: Nikolai Hopland
+  - minute: 90
+    stoppage: 1
+    type: yellow_card
+    team: away
+    player: Ole Kolskogen
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Isak Pettersson
+      - Kasper Pedersen
+      - Nicolai Næss
+      - Andreas Skovgaard
+      - Sturla Ottesen
+      - Curtis Edwards
+      - Jonathan Lucca
+      - Fredrik Krogstad
+      - Tobias Pachonik
+      - Kasper Waarst Høgh
+      - Mushaga Bakenga
+    subs:
+      - Aleksander Andresen
+      - Kevin Kabran
+      - Kaloyan Kostadinov
+      - Simen Wangberg
+      - Herman Geelmuyden
+      - Marius Ulla
+      - Nicolas Pignatel Jenssen
+    coach: Lars Bohinen
+  away:
+    formation: 3-4-2-1
+    starters:
+      - Sten Michael Grytebust
+      - Alexander Juel Andersen
+      - David Fällman
+      - Nikolai Hopland
+      - Alexander Munksgaard
+      - Amidou Diop
+      - Erlend Segberg
+      - John Kitolano
+      - Kasper Lunding
+      - Isaac Atanga
+      - Moses Ebiye
+    subs:
+      - Bjørn Martin Kristensen
+      - Markus Seehusen Karlsbakk
+      - Kristoffer Ødemarksbakken
+      - Ole Kolskogen
+      - Michael Lansing
+      - Stian Aarønes Holte
+      - Trace Murray
+    coach: Marius Bøe
+stats:
+  home:
+    possession: 61
+    shots: 11
+    shotsOnTarget: 3
+    corners: 4
+    fouls: 10
+    offsides: 1
+    xg: 0.87
+  away:
+    possession: 39
+    shots: 14
+    shotsOnTarget: 5
+    corners: 7
+    fouls: 11
+    offsides: 4
+    xg: 1.09
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +150,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,118 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: start
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 6751
+referee: Tommy Skjerven
+events:
+  - minute: 53
+    type: substitution
+    team: away
+    player: Daniel Aase
+    playerOff: Jens Skogmo
+  - minute: 61
+    type: yellow_card
+    team: home
+    player: Bjørn Helge Riise
+  - minute: 66
+    type: goal
+    team: away
+    player: Chidiebere Nwakali
+    assist: Kristoffer Ajer
+  - minute: 70
+    type: substitution
+    team: home
+    player: Edwin Gyasi
+    playerOff: Vebjørn Hoff
+  - minute: 70
+    type: substitution
+    team: home
+    player: Aron Elis Thrándarson
+    playerOff: Mostafa Abdellaoue
+  - minute: 78
+    type: goal
+    team: home
+    player: Edvard Skagestad
+    assist: Aron Elis Thrándarson
+  - minute: 80
+    type: substitution
+    team: away
+    player: Espen Hoff
+    playerOff: Lars-Jørgen Salvesen
+  - minute: 84
+    type: substitution
+    team: away
+    player: Robert Sandnes
+    playerOff: Espen Børufsen
+  - minute: 89
+    type: substitution
+    team: home
+    player: Sondre Brunstad Fet
+    playerOff: Peter Orry Larsen
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Mikkel Kirkeskov
+      - Edvard Skagestad
+      - Oddbjørn Lie
+      - John Arne Riise
+      - Vebjørn Hoff
+      - Fredrik Carlsen
+      - Bjørn Helge Riise
+      - Peter Orry Larsen
+      - Mostafa Abdellaoue
+      - Franck Boli
+    subs:
+      - Aron Elis Thrándarson
+      - Edwin Gyasi
+      - Sondre Brunstad Fet
+      - Lars Cramer
+      - Marlinho
+      - Tero Mäntylä
+      - Thomas Skog Martinussen
+    coach: Trond Fredriksen
+  away:
+    formation: 4-4-2
+    starters:
+      - Håkon Andre Opdal
+      - Alex De John
+      - Tapio Heikkilä
+      - Rolf Daniel Vikstøl
+      - Henrik Robstad
+      - Jens Skogmo
+      - Kristoffer Ajer
+      - Chidiebere Nwakali
+      - Espen Børufsen
+      - Lars-Jørgen Salvesen
+      - Mathias Rasmussen
+    subs:
+      - Daniel Aase
+      - Espen Hoff
+      - Robert Sandnes
+      - Eirik Wichne
+      - Henrik Breimyr
+      - Lasse Sigurdsen
+      - Sean McDermott
+    coach: Steinar Pedersen
+stats:
+  home:
+    possession: 58
+    shots: 11
+    shotsOnTarget: 3
+    corners: 9
+  away:
+    possession: 42
+    shots: 14
+    shotsOnTarget: 4
+    corners: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +138,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

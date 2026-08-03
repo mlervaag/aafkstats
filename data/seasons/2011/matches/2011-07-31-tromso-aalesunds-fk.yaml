@@ -11,13 +11,102 @@ competition:
 home:
   clubId: tromso
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: alfheim
 neutralVenue: false
-events: []
+events:
+  - minute: 46
+    type: substitution
+    team: away
+    player: Demar Phillips
+    playerOff: Jonatan Tollås Nation
+  - minute: 60
+    type: substitution
+    team: away
+    player: Didrik Fløtre
+    playerOff: Solomon Okoronkwo
+  - minute: 64
+    type: substitution
+    team: home
+    player: Sigurd Rushfeldt
+    playerOff: Steffen Nystrøm
+  - minute: 66
+    type: substitution
+    team: home
+    player: Remi Johansen
+    playerOff: Magnus Andersen
+  - minute: 75
+    type: yellow_card
+    team: away
+    player: Enar Jääger
+  - minute: 78
+    type: substitution
+    team: home
+    player: Ludvig Rinde
+    playerOff: Hans Åge Yndestad
+  - minute: 81
+    type: goal
+    team: home
+    player: Sigurd Rushfeldt
+  - minute: 88
+    type: substitution
+    team: away
+    player: Fredrik Ulvestad
+    playerOff: Christian Myklebust
+  - minute: 89
+    type: yellow_card
+    team: away
+    player: Jason Morrison
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Marcus Sahlman
+      - Hans Norbye
+      - Fredrik Björck
+      - Saliou Ciss
+      - Hans Åge Yndestad
+      - Magnus Andersen
+      - Kara Mbodji
+      - Ruben Yttergård Jenssen
+      - Thomas Drage
+      - Steffen Nystrøm
+      - Mostafa Abdellaoue
+    subs:
+      - Sigurd Rushfeldt
+      - Remi Johansen
+      - Ludvig Rinde
+      - Mohammed Ahamed Jama
+      - Robin Malmkvist
+      - Simen Stamsø Møller
+      - William Johan Frantzen
+    coach: Per-Mathias Høgmo
+  away:
+    formation: 4-3-2-1
+    starters:
+      - Sten Michael Grytebust
+      - Ville Jalasto
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Enar Jääger
+      - Jason Morrison
+      - Michael Barrantes
+      - Peter Orry Larsen
+      - Christian Myklebust
+      - Lars Fuhre
+      - Solomon Okoronkwo
+    subs:
+      - Demar Phillips
+      - Didrik Fløtre
+      - Fredrik Ulvestad
+      - Fredrik Carlsen
+      - Jonas Sandqvist
+      - Robert Sandnes
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +122,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

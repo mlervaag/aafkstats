@@ -11,13 +11,145 @@ competition:
 home:
   clubId: levanger
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: tobb-arena-levanger
 neutralVenue: false
-events: []
+attendance: 1186
+referee: Anders Bodding
+events:
+  - minute: 3
+    type: penalty_goal
+    team: home
+    player: Sanel Bojadzic
+  - minute: 9
+    type: goal
+    team: home
+    player: Adrian Olsen Teigen
+    assist: Ermal Hajdari
+  - minute: 33
+    type: goal
+    team: home
+    player: Arne Gunnes
+    assist: Jonas Pereira
+  - minute: 61
+    type: substitution
+    team: away
+    player: Bjørn Martin Kristensen
+    playerOff: Isaac Atanga
+  - minute: 61
+    type: substitution
+    team: away
+    player: Markus Seehusen Karlsbakk
+    playerOff: Noah Solskjær
+  - minute: 73
+    type: substitution
+    team: home
+    player: Herman Stang Stakset
+    playerOff: Sanel Bojadzic
+  - minute: 76
+    type: yellow_card
+    team: away
+    player: Eivind Strømsheim Kolve
+  - minute: 77
+    type: substitution
+    team: away
+    player: Eivind Strømsheim Kolve
+    playerOff: David Snær Johannsson
+  - minute: 81
+    type: yellow_card
+    team: away
+    player: Thomas Grøgaard
+  - minute: 82
+    type: goal
+    team: home
+    player: Arne Gunnes
+    assist: Sander Saugestad
+  - minute: 85
+    type: yellow_card
+    team: home
+    player: Herman Stang Stakset
+  - minute: 86
+    type: substitution
+    team: home
+    player: Ådne Gikling Bruseth
+    playerOff: Isak Vådebu
+  - minute: 86
+    type: substitution
+    team: home
+    player: Gabriel Andersen
+    playerOff: Arne Gunnes
+  - minute: 88
+    type: substitution
+    team: home
+    player: William Fredriksen Bjeglerud
+    playerOff: Adrian Olsen Teigen
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: John Kitolano
+lineups:
+  home:
+    formation: 3-4-3
+    starters:
+      - Morten Sætra
+      - Jonas Pereira
+      - Håvard Kleven Lorentsen
+      - Daniel Pollen
+      - Isak Vådebu
+      - Adrian Olsen Teigen
+      - Sander Saugestad
+      - Ermal Hajdari
+      - Arne Gunnes
+      - Sanel Bojadzic
+      - Jo Sondre Aas
+    subs:
+      - Herman Stang Stakset
+      - Ådne Gikling Bruseth
+      - Gabriel Andersen
+      - William Fredriksen Bjeglerud
+      - Erlend Henriksen
+      - Marcus Solhaug Wenneberg
+      - Marius Høstland
+      - Theo Aksnes Olsen
+    coach: Per Verner Rønning
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Kristoffer Nessø
+      - Martin Ramsland
+      - John Kitolano
+      - Thomas Grøgaard
+      - David Snær Johannsson
+      - Håkon Butli Hammer
+      - Claudio Braga
+      - Isaac Atanga
+      - Noah Solskjær
+      - Sander Hestetun Kilen
+    subs:
+      - Markus Seehusen Karlsbakk
+      - Bjørn Martin Kristensen
+      - Eivind Strømsheim Kolve
+      - Tor Erik Valderhaug Larsen
+      - John Ruud Norvik
+      - Stian Aarønes Holte
+      - Sebastian Berntsen
+    coach: Christian Johnsen
+stats:
+  home:
+    possession: 37
+    shots: 12
+    shotsOnTarget: 8
+    corners: 0
+  away:
+    possession: 63
+    shots: 16
+    shotsOnTarget: 6
+    corners: 13
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +165,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

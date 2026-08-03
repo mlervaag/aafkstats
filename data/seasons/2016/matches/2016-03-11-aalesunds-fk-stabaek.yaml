@@ -11,13 +11,113 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: stabaek
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5941
+referee: Tore Hansen
+events:
+  - minute: 47
+    type: goal
+    team: home
+    player: Peter Orry Larsen
+    assist: Bjørn Helge Riise
+  - minute: 64
+    type: substitution
+    team: home
+    player: Marlinho
+    playerOff: Aron Elis Thrándarson
+  - minute: 65
+    type: substitution
+    team: home
+    player: Mostafa Abdellaoue
+    playerOff: Edwin Gyasi
+  - minute: 66
+    type: substitution
+    team: away
+    player: Birger Meling
+    playerOff: Marcus Mehnert
+  - minute: 71
+    type: yellow_card
+    team: away
+    player: Kamal Issah
+  - minute: 74
+    type: substitution
+    team: away
+    player: Moussa Njie
+    playerOff: Giorgi Gorozia
+  - minute: 83
+    type: substitution
+    team: away
+    player: Eirik Haugstad
+    playerOff: Daniel Granli
+  - minute: 90
+    type: substitution
+    team: home
+    player: Sondre Brunstad Fet
+    playerOff: Franck Boli
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Edvard Skagestad
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Bjørn Helge Riise
+      - Vebjørn Hoff
+      - Aron Elis Thrándarson
+      - Peter Orry Larsen
+      - Franck Boli
+    subs:
+      - Marlinho
+      - Mostafa Abdellaoue
+      - Sondre Brunstad Fet
+      - Daniel Gretarsson
+      - Sondre Sødergren
+      - Tero Mäntylä
+      - Thomas Skog Martinussen
+    coach: Trond Fredriksen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Sayouba Mandé
+      - Daniel Granli
+      - Morten M. Skjønsberg
+      - Nicolai Næss
+      - Edvard Race
+      - Kamal Issah
+      - Luc Kassi
+      - Ernest Asante
+      - Ohi Anthony Omoijuanfo
+      - Giorgi Gorozia
+      - Marcus Mehnert
+    subs:
+      - Birger Meling
+      - Moussa Njie
+      - Eirik Haugstad
+      - Emil Ekblom
+      - Gurpreet Singh Sandhu
+      - Jeppe Arctander Moe
+      - Shadrach Eghan Kwesi
+    coach: Billy McKinlay
+stats:
+  home:
+    possession: 53
+    shots: 4
+    shotsOnTarget: 1
+    corners: 7
+  away:
+    possession: 47
+    shots: 10
+    shotsOnTarget: 1
+    corners: 4
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +133,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,156 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: tromso
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5191
+referee: Marius Lien
+events:
+  - minute: 16
+    type: yellow_card
+    team: away
+    player: Casper Øyvann
+  - minute: 18
+    type: goal
+    team: home
+    player: Sigurd Haugen
+    assist: Erlend Segberg
+  - minute: 51
+    type: goal
+    team: away
+    player: Casper Øyvann
+    assist: Ruben Yttergård Jenssen
+  - minute: 64
+    type: substitution
+    team: home
+    player: Kristoffer Barmen
+    playerOff: Erlend Segberg
+  - minute: 64
+    type: substitution
+    team: home
+    player: Kristoffer Ødemarksbakken
+    playerOff: Torbjørn Kallevåg
+  - minute: 64
+    type: substitution
+    team: home
+    player: Fredrik Haugen
+    playerOff: Erikson Lima
+  - minute: 65
+    type: substitution
+    team: away
+    player: Jostein Gundersen
+    playerOff: Christophe Psyché
+  - minute: 68
+    type: substitution
+    team: away
+    player: Jasse Tuominen
+    playerOff: Moses Ebiye
+  - minute: 68
+    type: substitution
+    team: away
+    player: Eric Kitolano
+    playerOff: Kent-Are Antonsen
+  - minute: 69
+    type: goal
+    team: home
+    player: Sigurd Haugen
+    assist: Fredrik Haugen
+  - minute: 75
+    type: substitution
+    team: home
+    player: Alexander Juel Andersen
+    playerOff: Simen Bolkan Nordli
+  - minute: 85
+    type: substitution
+    team: away
+    player: Felix Winther
+    playerOff: Casper Øyvann
+  - minute: 85
+    type: substitution
+    team: away
+    player: Warren Kamanzi
+    playerOff: Lasse Nilsen
+  - minute: 88
+    type: substitution
+    team: home
+    player: Mamadou Diaw
+    playerOff: Sigurd Haugen
+  - minute: 90
+    stoppage: 5
+    type: goal
+    team: away
+    player: Jostein Gundersen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Petar Golubovic
+      - Besim Serbecic
+      - David Fällman
+      - Isak Dybvik Määttä
+      - Erikson Lima
+      - Erlend Segberg
+      - Dario Canadjija
+      - Torbjørn Kallevåg
+      - Sigurd Haugen
+      - Simen Bolkan Nordli
+    subs:
+      - Fredrik Haugen
+      - Kristoffer Barmen
+      - Kristoffer Ødemarksbakken
+      - Alexander Juel Andersen
+      - Mamadou Diaw
+      - Michael Lansing
+      - Nikolai Hopland
+      - Simen Rafn
+      - Alexander Ammitzbøll
+    coach: Lars Arne Nilsen
+  away:
+    formation: 3-5-2
+    starters:
+      - Jakob Haugaard
+      - Casper Øyvann
+      - Christophe Psyché
+      - Anders Jenssen
+      - Niklas Vesterlund
+      - Sakarias Opsahl
+      - Ruben Yttergård Jenssen
+      - Kent-Are Antonsen
+      - Lasse Nilsen
+      - Moses Ebiye
+      - August Mikkelsen
+    subs:
+      - Jostein Gundersen
+      - Eric Kitolano
+      - Jasse Tuominen
+      - Felix Winther
+      - Warren Kamanzi
+      - Simon Thomas
+      - Tobias Hafstad
+    coach: Gaute Helstrup
+stats:
+  home:
+    possession: 41
+    shots: 11
+    shotsOnTarget: 3
+    corners: 5
+    fouls: 17
+    offsides: 0
+    xg: 0.73
+  away:
+    possession: 59
+    shots: 16
+    shotsOnTarget: 7
+    corners: 5
+    fouls: 12
+    offsides: 0
+    xg: 1.07
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +176,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

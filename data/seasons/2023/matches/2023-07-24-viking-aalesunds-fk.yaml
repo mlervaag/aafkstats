@@ -11,13 +11,146 @@ competition:
 home:
   clubId: viking
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: sr-bank-arena
 neutralVenue: false
-events: []
+attendance: 11089
+referee: Svein Tore Sinnes
+events:
+  - minute: 24
+    type: goal
+    team: home
+    player: David Brekalo
+    assist: Zlatko Tripic
+  - minute: 28
+    type: yellow_card
+    team: away
+    player: Isaac Atanga
+  - minute: 40
+    type: goal
+    team: away
+    player: Erlend Segberg
+  - minute: 55
+    type: substitution
+    team: home
+    player: Nicholas D'Agostino
+    playerOff: Sander Svendsen
+  - minute: 67
+    type: yellow_card
+    team: away
+    player: Markus Seehusen Karlsbakk
+  - minute: 70
+    type: substitution
+    team: home
+    player: Kristoffer Løkberg
+    playerOff: Harald Tangen
+  - minute: 70
+    type: substitution
+    team: home
+    player: Birkir Bjarnason
+    playerOff: Patrick Yazbek
+  - minute: 70
+    type: substitution
+    team: home
+    player: Niklas Sandberg
+    playerOff: Lars-Jørgen Salvesen
+  - minute: 70
+    type: penalty_goal
+    team: home
+    player: Zlatko Tripic
+  - minute: 73
+    type: substitution
+    team: away
+    player: Kristoffer Ødemarksbakken
+    playerOff: Isaac Atanga
+  - minute: 82
+    type: substitution
+    team: home
+    player: Herman Haugen
+    playerOff: Sondre Bjørshol
+  - minute: 82
+    type: yellow_card
+    team: away
+    player: Moctar Diop
+  - minute: 85
+    type: yellow_card
+    team: home
+    player: Kristoffer Løkberg
+  - minute: 90
+    stoppage: 5
+    type: goal
+    team: home
+    player: Zlatko Tripic
+    assist: Niklas Sandberg
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Patrik Sigurdur Gunnarsson
+      - Sondre Bjørshol
+      - David Brekalo
+      - Djibril Diop
+      - Shayne Pattynama
+      - Harald Tangen
+      - Yann-Erik de Lanlay
+      - Patrick Yazbek
+      - Sander Svendsen
+      - Lars-Jørgen Salvesen
+      - Zlatko Tripic
+    subs:
+      - Nicholas D'Agostino
+      - Birkir Bjarnason
+      - Kristoffer Løkberg
+      - Niklas Sandberg
+      - Herman Haugen
+      - Arild Østbø
+      - Jone Nygård Berg
+      - Simen Kvia-Egeskog
+      - Viljar Vevatne
+    coach: Bjarte Lunde Aarsheim
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - John Kitolano
+      - David Fällman
+      - Nikolai Hopland
+      - Alexander Munksgaard
+      - Markus Seehusen Karlsbakk
+      - Erlend Segberg
+      - Henrik Melland
+      - Bjørn Martin Kristensen
+      - Moctar Diop
+      - Isaac Atanga
+    subs:
+      - Kristoffer Ødemarksbakken
+      - Alexander Juel Andersen
+      - Michael Lansing
+      - Sebastian Berntsen
+      - Simen Haram
+      - Trace Murray
+    coach: Christian Johnsen
+stats:
+  home:
+    possession: 57
+    shots: 28
+    shotsOnTarget: 8
+    corners: 11
+    fouls: 8
+    offsides: 0
+    xg: 3.34
+  away:
+    possession: 43
+    shots: 19
+    shotsOnTarget: 6
+    corners: 5
+    fouls: 14
+    offsides: 4
+    xg: 2.12
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +166,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

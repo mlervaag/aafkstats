@@ -11,13 +11,110 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: valerenga
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 6479
+events:
+  - minute: 12
+    type: goal
+    team: home
+    player: Leke James
+  - minute: 35
+    type: yellow_card
+    team: away
+    player: Jonatan Tollås Nation
+  - minute: 39
+    type: substitution
+    team: home
+    player: Vebjørn Hoff
+    playerOff: Magne Hoseth
+  - minute: 45
+    type: goal
+    team: home
+    player: Peter Orry Larsen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Simon Andreas Larsen
+    playerOff: Rasmus Lindkvist
+  - minute: 63
+    type: substitution
+    team: away
+    player: Deshorn Brown
+    playerOff: Alexander Mathisen
+  - minute: 82
+    type: substitution
+    team: home
+    player: Fredrik Carlsen
+    playerOff: Mostafa Abdellaoue
+  - minute: 87
+    type: substitution
+    team: home
+    player: Aron Elis Thrándarson
+    playerOff: Henrik Rørvik Bjørdal
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Edvard Skagestad
+      - Mikael Dyrestam
+      - Jo Nymo Matland
+      - Henrik Rørvik Bjørdal
+      - Bjørn Helge Riise
+      - Peter Orry Larsen
+      - Mostafa Abdellaoue
+      - Magne Hoseth
+      - Leke James
+    subs:
+      - Vebjørn Hoff
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Andreas Lie
+      - Carl Björk
+      - Oddbjørn Lie
+      - Tero Mäntylä
+    coach: Trond Fredriksen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Sascha Burchert
+      - Robert Lundström
+      - Markus Nakkim
+      - Jonatan Tollås Nation
+      - Enar Jääger
+      - Christian Grindheim
+      - Melker Hallberg
+      - Alexander Mathisen
+      - Ghayas Zahid
+      - Rasmus Lindkvist
+      - Mohammed Abdellaoue
+    subs:
+      - Simon Andreas Larsen
+      - Deshorn Brown
+      - Elias Mar Omarsson
+      - Hermann Stengel
+      - Ivan Näsberg
+      - Michael Langer
+      - Sander Berge
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 42
+    shots: 19
+    shotsOnTarget: 9
+    corners: 5
+  away:
+    possession: 58
+    shots: 16
+    shotsOnTarget: 4
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +130,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -90,6 +90,7 @@ export const views: ViewDoc[] = [
       { name: "head_coach", type: "text", description: "Hovedtrener." },
       { name: "promoted", type: "integer (0/1)", description: "Rykket opp." },
       { name: "relegated", type: "integer (0/1)", description: "Rykket ned." },
+      { name: "note", type: "text", description: "Forbehold om sesongen, f.eks. at arkivet bare har deler av den. NULL når det ikke er noe å ta forbehold om." },
       { name: "played", type: "integer", description: "Antall spilte kamper." },
       { name: "wins", type: "integer", description: "Seire." },
       { name: "draws", type: "integer", description: "Uavgjorte." },

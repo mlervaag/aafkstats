@@ -11,13 +11,123 @@ competition:
 home:
   clubId: honefoss
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 5
-  halfTimeScore: null
+  halfTimeScore: 4
+venueId: aka-arena
 neutralVenue: false
-events: []
+events:
+  - minute: 13
+    type: goal
+    team: away
+    player: Michael Barrantes
+    assist: Leke James
+  - minute: 20
+    type: goal
+    team: away
+    player: Jo Nymo Matland
+  - minute: 21
+    type: goal
+    team: away
+    player: Abderrazak Hamdallah
+    assist: Jonatan Tollås Nation
+  - minute: 35
+    type: goal
+    team: away
+    player: Leke James
+    assist: Abderrazak Hamdallah
+  - minute: 55
+    type: goal
+    team: home
+    player: Aleksander Solli
+  - minute: 65
+    type: substitution
+    team: home
+    player: Alexander Mathisen
+    playerOff: Mats André Kaland
+  - minute: 71
+    type: substitution
+    team: home
+    player: Erik Midtgarden
+    playerOff: Alexander Groven
+  - minute: 77
+    type: substitution
+    team: home
+    player: Remond Macougne Mendy
+    playerOff: Mikkel Vendelbo
+  - minute: 77
+    type: substitution
+    team: away
+    player: Lars Fuhre
+    playerOff: Abderrazak Hamdallah
+  - minute: 78
+    type: yellow_card
+    team: away
+    player: Demar Phillips
+  - minute: 80
+    type: goal
+    team: home
+    player: Aleksander Solli
+  - minute: 90
+    type: substitution
+    team: away
+    player: Thomas Skog Martinussen
+    playerOff: Michael Barrantes
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Helge Haugen
+  - minute: 90
+    type: goal
+    team: away
+    player: Peter Orry Larsen
+    assist: Jo Nymo Matland
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Steve Clark
+      - Arnor Sveinn Adalsteinsson
+      - Aleksander Solli
+      - Kristjan Örn Sigurdsson
+      - Alexander Groven
+      - Mats André Kaland
+      - Mikkel Vendelbo
+      - Tor Øivind Hovda
+      - Helge Haugen
+      - Riku Riski
+      - Øyvind Hoås
+    subs:
+      - Alexander Mathisen
+      - Erik Midtgarden
+      - Remond Macougne Mendy
+      - Alexander Pedersen
+      - Kevin Beugre
+      - Sigurd S. Svendsen
+    coach: Leif Gunnar Smerud
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Jo Nymo Matland
+      - Edvard Skagestad
+      - Jonatan Tollås Nation
+      - Demar Phillips
+      - Fredrik Carlsen
+      - Peter Orry Larsen
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Abderrazak Hamdallah
+      - Leke James
+    subs:
+      - Lars Fuhre
+      - Thomas Skog Martinussen
+      - Daniel Arnefjord
+      - Henrik Rørvik Bjørdal
+      - Lasse Staw
+    coach: Jan Jönsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +143,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

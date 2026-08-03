@@ -11,13 +11,137 @@ competition:
 home:
   clubId: tromsdalen
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: tuil-arena
 neutralVenue: false
-events: []
+events:
+  - minute: 18
+    type: goal
+    team: home
+    player: Mohammed Ahamed Jama
+    assist: Vegard Lysvoll
+  - minute: 20
+    type: yellow_card
+    team: home
+    player: Vegard Lysvoll
+  - minute: 24
+    type: yellow_card
+    team: home
+    player: Lars-Gunnar Johnsen
+  - minute: 25
+    type: yellow_card
+    team: away
+    player: Nikola Tkalcic
+  - minute: 29
+    type: goal
+    team: away
+    player: Torbjørn Agdestein
+    assist: Sondre Brunstad Fet
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Anders Jenssen
+  - minute: 49
+    type: yellow_card
+    team: home
+    player: Mathias Dahl Abelsen
+  - minute: 67
+    type: goal
+    team: home
+    player: Mohammed Ahamed Jama
+    assist: Mathias Dahl Abelsen
+  - minute: 68
+    type: substitution
+    team: away
+    player: Erikson Lima
+    playerOff: Nikola Tkalcic
+  - minute: 74
+    type: yellow_card
+    team: away
+    player: Aron Elis Thrándarson
+  - minute: 76
+    type: substitution
+    team: home
+    player: Andreas Løvland
+    playerOff: Mohammed Ahamed Jama
+  - minute: 80
+    type: substitution
+    team: away
+    player: Jens Petter Hauge
+    playerOff: Aron Elis Thrándarson
+  - minute: 81
+    type: goal
+    team: away
+    player: Torbjørn Agdestein
+  - minute: 85
+    type: substitution
+    team: away
+    player: Pape Habib Gueye
+    playerOff: Torbjørn Agdestein
+  - minute: 86
+    type: substitution
+    team: home
+    player: Henrik Johnsgård
+    playerOff: Håvard Lysvoll
+  - minute: 88
+    type: substitution
+    team: home
+    player: Tor Martin Mienna
+    playerOff: Vegard Lysvoll
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Erikson Lima
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Marius Berntzen
+      - Steffen Skogvang Pedersen
+      - Anders Jenssen
+      - Kristoffer Hay
+      - Håvard Lysvoll
+      - Håkon Kjæve
+      - Lars-Gunnar Johnsen
+      - Anders Karlsen
+      - Mathias Dahl Abelsen
+      - Vegard Lysvoll
+      - Mohammed Ahamed Jama
+    subs:
+      - Andreas Løvland
+      - Henrik Johnsgård
+      - Tor Martin Mienna
+      - Adrian Mikkelsen
+      - August Mikkelsen
+      - Lars Henrik Andreassen
+      - Mehdi Dioury
+    coach: Gaute Helstrup
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Jonas Grønner
+      - Oddbjørn Lie
+      - Adam Örn Arnarson
+      - Nikola Tkalcic
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Sondre Brunstad Fet
+      - Torbjørn Agdestein
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Erikson Lima
+      - Jens Petter Hauge
+      - Pape Habib Gueye
+      - Jørgen Hatlehol
+      - Ståle Steen Sæthre
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +157,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,112 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: sogndal
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 6580
+events:
+  - minute: 39
+    type: goal
+    team: away
+    player: Mahatma Otoo
+    assist: Hjoertur Logi Valgardsson
+  - minute: 62
+    type: substitution
+    team: home
+    player: Jo Nymo Matland
+    playerOff: Oddbjoern Lie
+  - minute: 62
+    type: substitution
+    team: home
+    player: Demar Phillips
+    playerOff: Fredrik Carlsen
+  - minute: 62
+    type: substitution
+    team: away
+    player: Tonny Brochmann
+    playerOff: Rune Bolseth
+  - minute: 70
+    type: substitution
+    team: away
+    player: Tim Andre Nilsen
+    playerOff: Mahatma Otoo
+  - minute: 75
+    type: goal
+    team: away
+    player: Tim Andre Nilsen
+    assist: Ulrik Flo
+  - minute: 78
+    type: substitution
+    team: home
+    player: Henrik Roervik Bjoerdal
+    playerOff: Sakari Mattila
+  - minute: 84
+    type: goal
+    team: home
+    player: Daniel Arnefjord
+    assist: Jonatan Tollaas Nation
+  - minute: 87
+    type: goal
+    team: home
+    player: Michael Barrantes
+    assist: Jo Nymo Matland
+  - minute: 90
+    type: substitution
+    team: away
+    player: Bjoern Inge Utvik
+    playerOff: Taijo Teniste
+lineups:
+  home:
+    formation: 4-3-1-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Jonatan Tollaas Nation
+      - Oddbjoern Lie
+      - Fredrik Ulvestad
+      - Sakari Mattila
+      - Fredrik Carlsen
+      - Michael Barrantes
+      - Peter Orry Larsen
+      - Tor Hogne Aaroey
+    subs:
+      - Jo Nymo Matland
+      - Demar Phillips
+      - Henrik Roervik Bjoerdal
+      - Thomas Skog Martinussen
+      - Tremaine Stewart
+      - Hugues Wembangomo
+      - Andreas Lie
+    coach: Jan Joensson
+  away:
+    formation: 5-3-2
+    starters:
+      - Erik Dahlin
+      - Azar Karadas
+      - Hannu Patronen
+      - Gustav Valsvik
+      - Taijo Teniste
+      - Hjoertur Logi Valgardsson
+      - Petter Strand
+      - Helge Haugen
+      - Rune Bolseth
+      - Mahatma Otoo
+      - Ulrik Flo
+    subs:
+      - Tonny Brochmann
+      - Tim Andre Nilsen
+      - Bjoern Inge Utvik
+      - Ruben Holsaeter
+      - Kristian Fardal Opseth
+      - Kristoffer Nesse Stephensen
+      - Matias Dyngeland
+    coach: Jonas Olsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +132,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

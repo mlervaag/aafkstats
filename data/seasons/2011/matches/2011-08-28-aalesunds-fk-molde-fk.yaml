@@ -11,13 +11,119 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: molde-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 1
+    type: goal
+    team: away
+    player: Joshua Gatt
+  - minute: 9
+    type: yellow_card
+    team: away
+    player: Knut Olav Rindarøy
+  - minute: 27
+    type: goal
+    team: away
+    player: Magne Hoseth
+  - minute: 39
+    type: substitution
+    team: away
+    player: Daniel Berg Hestad
+    playerOff: Knut Olav Rindarøy
+  - minute: 46
+    type: substitution
+    team: home
+    player: Sander Post
+    playerOff: Jo Nymo Matland
+  - minute: 46
+    type: substitution
+    team: home
+    player: Jonatan Tollås Nation
+    playerOff: Daniel Arnefjord
+  - minute: 62
+    type: yellow_card
+    team: home
+    player: Magnus Sylling Olsen
+  - minute: 67
+    type: yellow_card
+    team: home
+    player: Jonatan Tollås Nation
+  - minute: 71
+    type: substitution
+    team: away
+    player: Makhtar Thioune
+    playerOff: Magne Hoseth
+  - minute: 75
+    type: goal
+    team: away
+    player: Makhtar Thioune
+  - minute: 86
+    type: substitution
+    team: home
+    player: Kjell Rune Sellin
+    playerOff: Peter Orry Larsen
+  - minute: 88
+    type: substitution
+    team: away
+    player: Zlatko Tripic
+    playerOff: Mattias Moström
+  - minute: 90
+    type: goal
+    team: home
+    player: Magnus Sylling Olsen
+lineups:
+  home:
+    formation: 4-2-1-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Ville Jalasto
+      - Daniel Arnefjord
+      - Jo Nymo Matland
+      - Peter Orry Larsen
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Christian Myklebust
+      - Demar Phillips
+      - Magnus Sylling Olsen
+    subs:
+      - Jonatan Tollås Nation
+      - Sander Post
+      - Kjell Rune Sellin
+      - Edvard Skagestad
+      - Fredrik Carlsen
+      - Jonas Sandqvist
+      - Solomon Okoronkwo
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-2-1-3
+    starters:
+      - Espen Bugge Pettersen
+      - Joshua Gatt
+      - Kristoffer Paulsen Vatshaug
+      - Vegard Forren
+      - Knut Olav Rindarøy
+      - Magnus Wolff Eikrem
+      - Magne Hoseth
+      - Jo Inge Berget
+      - Magne Simonsen
+      - Mattias Moström
+      - Davy Claude Angan
+    subs:
+      - Daniel Berg Hestad
+      - Makhtar Thioune
+      - Zlatko Tripic
+      - Christian Steen
+      - Daniel Chima Chukwu
+      - Elias Valderhaug
+      - Sean Cunningham
+    coach: Ole Gunnar Solskjær
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +139,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

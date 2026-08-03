@@ -11,13 +11,118 @@ competition:
 home:
   clubId: start
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: sparebanken-sor-arena
 neutralVenue: false
-events: []
+events:
+  - minute: 29
+    type: yellow_card
+    team: home
+    player: Peter Reinhardsen
+  - minute: 54
+    type: goal
+    team: home
+    player: Kristoffer Toennessen
+    assist: Eman Markovic
+  - minute: 56
+    type: yellow_card
+    team: home
+    player: Eirik Schulze
+  - minute: 58
+    type: substitution
+    team: home
+    player: Mikael Ugland
+    playerOff: Matias Belli Moldskred
+  - minute: 60
+    type: yellow_card
+    team: away
+    player: Niklas Castro
+  - minute: 64
+    type: goal
+    team: home
+    player: Eman Markovic
+    assist: Kristoffer Toennessen
+  - minute: 70
+    type: substitution
+    team: away
+    player: Torbjørn Agdestein
+    playerOff: Simen Bolkan Nordli
+  - minute: 70
+    type: substitution
+    team: away
+    player: Erikson Lima
+    playerOff: Torbjørn Kallevåg
+  - minute: 70
+    type: substitution
+    team: away
+    player: Mamadou Diaw
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 75
+    type: substitution
+    team: home
+    player: Sander Sjökvist
+    playerOff: Joackim Jørgensen
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Jonas Deumeland
+  - minute: 90
+    stoppage: 8
+    type: substitution
+    team: away
+    player: Isak Dybvik
+    playerOff: Torbjørn Agdestein
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Jonas Deumeland
+      - Peter Reinhardsen
+      - Vegard Bergan
+      - Joackim Jørgensen
+      - Henrik Robstad
+      - Eirik Schulze
+      - Kristoffer Toennessen
+      - Matias Belli Moldskred
+      - Adeleke Akinyemi
+      - Martin Ramsland
+      - Eman Markovic
+    subs:
+      - Mikael Ugland
+      - Sander Sjökvist
+      - Altin Ujkani
+      - Amund Wichne
+      - Emil Grønn Pedersen
+      - Lyder Daland
+      - Sebastian Buch
+    coach: Johannes Hardarson
+  away:
+    formation: 4-3-3
+    starters:
+      - Michael Lansing
+      - Jørgen Hatlehol
+      - Quint Jansen
+      - Nikolai Hopland
+      - Simen Rafn
+      - Torbjørn Kallevåg
+      - Erlend Segberg
+      - Simen Bolkan Nordli
+      - Kristoffer Ødemarksbakken
+      - Niklas Castro
+      - Sigurd Haugen
+    subs:
+      - Erikson Lima
+      - Mamadou Diaw
+      - Torbjørn Agdestein
+      - Isak Dybvik
+      - Andreas Lie
+      - David Kristjan Olafsson
+      - Jonas Grønner
+    coach: Lars Arne Nilsen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +138,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

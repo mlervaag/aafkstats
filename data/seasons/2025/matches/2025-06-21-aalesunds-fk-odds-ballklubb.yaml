@@ -11,13 +11,137 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: odds-ballklubb
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+referee: Jørgen Haugen
+events:
+  - minute: 39
+    type: yellow_card
+    team: away
+    player: Rafik Zekhnini
+  - minute: 60
+    type: substitution
+    team: home
+    player: Henrik Melland
+    playerOff: Janus Seehusen
+  - minute: 65
+    type: substitution
+    team: away
+    player: Josef Brian Baccay
+    playerOff: Julian Gunnerød
+  - minute: 65
+    type: substitution
+    team: away
+    player: Bilal Njie
+    playerOff: Rafik Zekhnini
+  - minute: 65
+    type: substitution
+    team: away
+    player: Filip Rønningen Jørgensen
+    playerOff: Tobias Hammer Svendsen
+  - minute: 68
+    type: substitution
+    team: home
+    player: Eivind Strømsheim Kolve
+    playerOff: David Snær Johannsson
+  - minute: 68
+    type: substitution
+    team: home
+    player: Kristian Hemmingsen Lonebu
+    playerOff: Frederik Heiselberg
+  - minute: 78
+    type: substitution
+    team: home
+    player: Philip Sandvik Aukland
+    playerOff: John Kitolano
+  - minute: 78
+    type: substitution
+    team: away
+    player: Syver Aas
+    playerOff: Oliver Hagen
+  - minute: 78
+    type: substitution
+    team: away
+    player: Steffen Hagen
+    playerOff: Nikolas Walstad
+  - minute: 84
+    type: yellow_card
+    team: away
+    player: Etzaz Hussain
+  - minute: 86
+    type: goal
+    team: home
+    player: Henrik Melland
+    assist: Paul Ngongo Iversen
+  - minute: 90
+    stoppage: 5
+    type: yellow_card
+    team: home
+    player: Henrik Melland
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - John Kitolano
+      - Marius Andresen
+      - David Snær Johannsson
+      - Håkon Butli Hammer
+      - Janus Seehusen
+      - Olafur Gudmundsson
+      - Frederik Heiselberg
+      - Paul Ngongo Iversen
+    subs:
+      - Henrik Melland
+      - Eivind Strømsheim Kolve
+      - Kristian Hemmingsen Lonebu
+      - Philip Sandvik Aukland
+      - Tor Erik Valderhaug Larsen
+      - Jørgen Bøe
+      - Thomas Gulbrandsen
+      - Tellef Brattberg Ytterland
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - André Hansen
+      - Julian Gunnerød
+      - Nikolas Walstad
+      - Godwill Ambrose
+      - Samuel Skree Skjeldal
+      - Noah Kojo
+      - Etzaz Hussain
+      - Tobias Hammer Svendsen
+      - Oliver Hagen
+      - Torgeir Børven
+      - Rafik Zekhnini
+    subs:
+      - Josef Brian Baccay
+      - Filip Rønningen Jørgensen
+      - Bilal Njie
+      - Steffen Hagen
+      - Syver Aas
+      - Sebastian Hansen
+      - Hinrik Hardarson
+    coach: Knut Rønningene
+stats:
+  home:
+    possession: 49
+    shots: 12
+    shotsOnTarget: 7
+    corners: 3
+  away:
+    possession: 51
+    shots: 7
+    shotsOnTarget: 2
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +157,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

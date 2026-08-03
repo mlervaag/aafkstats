@@ -11,13 +11,110 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: sk-brann
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 17
+    type: goal
+    team: home
+    player: Michael Barrantes
+  - minute: 42
+    type: yellow_card
+    team: away
+    player: Rodolph Austin
+  - minute: 43
+    type: yellow_card
+    team: home
+    player: Michael Barrantes
+  - minute: 44
+    type: yellow_card
+    team: away
+    player: Amin Askar
+  - minute: 46
+    type: substitution
+    team: away
+    player: Kristoffer Barmen
+    playerOff: Fredrik Haugen
+  - minute: 46
+    type: goal
+    team: home
+    player: Sander Post
+  - minute: 60
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Lars Fuhre
+  - minute: 69
+    type: red_card
+    team: away
+    player: Rodolph Austin
+  - minute: 70
+    type: substitution
+    team: home
+    player: Edvard Skagestad
+    playerOff: Sander Post
+  - minute: 81
+    type: substitution
+    team: away
+    player: Kristoffer Larsen
+    playerOff: Amin Askar
+  - minute: 90
+    type: substitution
+    team: home
+    player: Amund Skiri
+    playerOff: Magnus Sylling Olsen
+lineups:
+  home:
+    formation: 4-2-1-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Demar Phillips
+      - Jason Morrison
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Magnus Sylling Olsen
+      - Lars Fuhre
+      - Sander Post
+    subs:
+      - Peter Orry Larsen
+      - Edvard Skagestad
+      - Amund Skiri
+      - Hugues Wembangomo
+      - Ole Christian Rørvik
+      - Tremaine Stewart
+      - Ville Jalasto
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-2-1-3
+    starters:
+      - Øystein Øvretveit
+      - Birkir Sævarsson
+      - Lars Grorud
+      - Markus Jonsson
+      - Christian Kalvenes
+      - Fredrik Nordkvelle
+      - Rodolph Austin
+      - Fredrik Haugen
+      - Amin Askar
+      - Chukwuma Akabueze
+      - Kim Ojo
+    subs:
+      - Kristoffer Barmen
+      - Kristoffer Larsen
+      - Bård Finne
+      - Erik Mjelde
+      - Jørgen Mohus
+      - Jonas Grønner
+      - Zsolt Korcsmár
+    coach: Rune Skarsfjord
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +130,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

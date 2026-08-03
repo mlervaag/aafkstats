@@ -11,13 +11,115 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: stabaek
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5228
+referee: Rohit Saggi
+events:
+  - minute: 37
+    type: goal
+    team: away
+    player: Ohi Anthony Omoijuanfo
+    assist: Ronald Hernández
+  - minute: 68
+    type: substitution
+    team: home
+    player: Sondre Brunstad Fet
+    playerOff: Aron Elis Thrándarson
+  - minute: 70
+    type: yellow_card
+    team: away
+    player: Tortol Lumanza
+  - minute: 77
+    type: substitution
+    team: away
+    player: Moussa Njie
+    playerOff: Raymond Gyasi
+  - minute: 77
+    type: yellow_card
+    team: away
+    player: Ohi Anthony Omoijuanfo
+  - minute: 79
+    type: penalty_goal
+    team: home
+    player: Mostafa Abdellaoue
+  - minute: 80
+    type: substitution
+    team: home
+    player: Valmir Berisha
+    playerOff: Jørgen Hatlehol
+  - minute: 80
+    type: substitution
+    team: away
+    player: Franck Boli
+    playerOff: John Hou Sæther
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Jørgen Hatlehol
+      - Kaj Ramsteijn
+      - Oddbjørn Lie
+      - Bjørn Helge Riise
+      - Marlinho
+      - Fredrik Carlsen
+      - Vebjørn Hoff
+      - Aron Elis Thrándarson
+      - Athanassios Papazoglou
+      - Mostafa Abdellaoue
+    subs:
+      - Sondre Brunstad Fet
+      - Valmir Berisha
+      - Anders Waagan
+      - Emil Solnørdal
+      - Jan Lennart Urke
+      - Joakim Barstad
+      - Markus Seehusen Karlsbakk
+    coach: Trond Fredriksen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Sayouba Mandé
+      - Håkon Skogseid
+      - Ronald Hernández
+      - Morten M. Skjønsberg
+      - Daniel Granli
+      - Hugo Vetlesen
+      - Tortol Lumanza
+      - Raymond Gyasi
+      - John Hou Sæther
+      - Tonny Brochmann
+      - Ohi Anthony Omoijuanfo
+    subs:
+      - Moussa Njie
+      - Franck Boli
+      - Ahmed El-Amrani
+      - Emil Bohinen
+      - Jeppe Arctander Moe
+      - John Alvbåge
+      - Rubio Rubin
+    coach: Antoni Ordinas
+stats:
+  home:
+    possession: 44
+    shots: 15
+    shotsOnTarget: 5
+    corners: 8
+    fouls: 15
+    offsides: 4
+  away:
+    possession: 56
+    shots: 15
+    shotsOnTarget: 11
+    corners: 5
+    fouls: 12
+    offsides: 3
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +135,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

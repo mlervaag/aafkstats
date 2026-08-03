@@ -11,13 +11,137 @@ competition:
 home:
   clubId: lillestrom
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: arasen-stadion
 neutralVenue: false
-events: []
+attendance: 4567
+referee: Sivert Amland
+events:
+  - minute: 9
+    type: goal
+    team: home
+    player: Tom Pettersson
+    assist: Magnus Knudsen
+  - minute: 33
+    type: goal
+    team: home
+    player: Ylldren Ibrahimaj
+  - minute: 66
+    type: substitution
+    team: away
+    player: Erlend Segberg
+    playerOff: Fredrik Haugen
+  - minute: 66
+    type: substitution
+    team: away
+    player: Torbjørn Kallevåg
+    playerOff: Kristoffer Barmen
+  - minute: 66
+    type: substitution
+    team: away
+    player: Simen Bolkan Nordli
+    playerOff: Erikson Lima
+  - minute: 70
+    type: substitution
+    team: home
+    player: Akor Adams
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 70
+    type: substitution
+    team: home
+    player: Pål André Helland
+    playerOff: Ylldren Ibrahimaj
+  - minute: 76
+    type: yellow_card
+    team: away
+    player: Simen Bolkan Nordli
+  - minute: 83
+    type: substitution
+    team: away
+    player: Simen Rafn
+    playerOff: Petar Golubovic
+  - minute: 83
+    type: substitution
+    team: away
+    player: Nikolai Hopland
+    playerOff: David Fällman
+  - minute: 90
+    type: substitution
+    team: home
+    player: Frederik Holst
+    playerOff: Magnus Knudsen
+lineups:
+  home:
+    formation: 3-4-2-1
+    starters:
+      - Mads Hedenstad Christiansen
+      - Espen Garnås
+      - Igoh Ogbu
+      - Tom Pettersson
+      - Eskil Smidesang Edh
+      - Magnus Knudsen
+      - Ifeanyi Matthew
+      - Vetle Dragsnes
+      - Ylldren Ibrahimaj
+      - Gjermund Åsen
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Akor Adams
+      - Pål André Helland
+      - Frederik Holst
+      - Colin Rösler
+      - Dylan Murugesapillai
+      - Eric Taylor
+      - Knut-André Skjærstein
+      - Lars Mogstad Ranger
+      - Tobias Hammer Svendsen
+    coach: Geir Bakke
+  away:
+    formation: 5-3-2
+    starters:
+      - Sten Michael Grytebust
+      - Petar Golubovic
+      - Besim Serbecic
+      - David Fällman
+      - Alexander Juel Andersen
+      - Isak Dybvik
+      - Fredrik Haugen
+      - Kristoffer Barmen
+      - Erikson Lima
+      - Kristoffer Ødemarksbakken
+      - Sigurd Haugen
+    subs:
+      - Erlend Segberg
+      - Simen Bolkan Nordli
+      - Torbjørn Kallevåg
+      - Nikolai Hopland
+      - Simen Rafn
+      - Alexander Ammitzbøll
+      - Dario Canadjija
+      - Jeppe Arctander Moe
+      - Michael Lansing
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 51
+    shots: 13
+    shotsOnTarget: 3
+    corners: 5
+    fouls: 5
+    offsides: 1
+    xg: 1.07
+  away:
+    possession: 49
+    shots: 12
+    shotsOnTarget: 5
+    corners: 7
+    fouls: 13
+    offsides: 3
+    xg: 0.75
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +157,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

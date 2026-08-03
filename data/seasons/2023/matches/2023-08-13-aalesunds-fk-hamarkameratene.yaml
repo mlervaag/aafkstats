@@ -11,13 +11,161 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: hamarkameratene
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5864
+referee: Espen Eskås
+events:
+  - minute: 21
+    type: yellow_card
+    team: away
+    player: Jakob Michelsen
+  - minute: 37
+    type: yellow_card
+    team: home
+    player: Nikolai Hopland
+  - minute: 38
+    type: goal
+    team: away
+    player: Pål Alexander Kirkevold
+  - minute: 47
+    type: goal
+    team: away
+    player: Pål Alexander Kirkevold
+  - minute: 52
+    type: yellow_card
+    team: away
+    player: Brynjar Ingi Bjarnason
+  - minute: 58
+    type: yellow_card
+    team: away
+    player: Benjamin Thoresen Faraas
+  - minute: 59
+    type: substitution
+    team: away
+    player: Oliver Kjærgaard
+    playerOff: Moses Mawa
+  - minute: 59
+    type: substitution
+    team: away
+    player: Amin Nouri
+    playerOff: Jens Martin Gammelby
+  - minute: 59
+    type: substitution
+    team: home
+    player: Kasper Lunding
+    playerOff: Isaac Atanga
+  - minute: 61
+    type: red_card
+    team: home
+    player: Nikolai Hopland
+  - minute: 72
+    type: substitution
+    team: home
+    player: Håkon Butli Hammer
+    playerOff: Henrik Melland
+  - minute: 72
+    type: substitution
+    team: home
+    player: Amidou Diop
+    playerOff: Markus Seehusen Karlsbakk
+  - minute: 72
+    type: substitution
+    team: away
+    player: Henrik Udahl
+    playerOff: Pål Alexander Kirkevold
+  - minute: 72
+    type: substitution
+    team: away
+    player: Aleksander Melgalvis
+    playerOff: Vegard Kongsro
+  - minute: 81
+    type: substitution
+    team: home
+    player: Trace Murray
+    playerOff: Erik Frøysa
+  - minute: 81
+    type: substitution
+    team: home
+    player: Moses Ebiye
+    playerOff: Martin Ramsland
+  - minute: 84
+    type: substitution
+    team: away
+    player: Jonas Enkerud
+    playerOff: Benjamin Thoresen Faraas
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Erik Frøysa
+      - David Fällman
+      - Nikolai Hopland
+      - John Kitolano
+      - Henrik Melland
+      - Erlend Segberg
+      - Markus Seehusen Karlsbakk
+      - Bjørn Martin Kristensen
+      - Martin Ramsland
+      - Isaac Atanga
+    subs:
+      - Kasper Lunding
+      - Amidou Diop
+      - Håkon Butli Hammer
+      - Moses Ebiye
+      - Trace Murray
+      - Alexander Juel Andersen
+      - Kristoffer Barmen
+      - Kristoffer Ødemarksbakken
+      - Michael Lansing
+    coach: Christian Johnsen
+  away:
+    formation: 3-5-2
+    starters:
+      - Marcus Sandberg
+      - Brynjar Ingi Bjarnason
+      - Fredrik Sjølstad
+      - John Olav Norheim
+      - Jens Martin Gammelby
+      - Kristian Lønstad Onsrud
+      - William Albin Kurtovic
+      - Benjamin Thoresen Faraas
+      - Vegard Kongsro
+      - Pål Alexander Kirkevold
+      - Moses Mawa
+    subs:
+      - Amin Nouri
+      - Oliver Kjærgaard
+      - Aleksander Melgalvis
+      - Henrik Udahl
+      - Jonas Enkerud
+      - Kobe Hernandez-Foster
+      - Lars Brotangen
+      - Lars Jendal
+    coach: Jakob Michelsen
+stats:
+  home:
+    possession: 57
+    shots: 18
+    shotsOnTarget: 3
+    corners: 8
+    fouls: 8
+    offsides: 1
+    xg: 1.07
+  away:
+    possession: 43
+    shots: 14
+    shotsOnTarget: 6
+    corners: 5
+    fouls: 16
+    offsides: 5
+    xg: 0.76
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +181,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

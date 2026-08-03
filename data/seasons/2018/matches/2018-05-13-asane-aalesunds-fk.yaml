@@ -11,13 +11,126 @@ competition:
 home:
   clubId: asane
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: myrdal-gress
 neutralVenue: false
-events: []
+events:
+  - minute: 31
+    type: yellow_card
+    team: home
+    player: Michael Ogungbaro
+  - minute: 35
+    type: goal
+    team: home
+    player: Dennis Agyare Antwi
+  - minute: 39
+    type: goal
+    team: away
+    player: Torbjørn Agdestein
+    assist: Holmbert Aron Fridjonsson
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Kaj Ramsteijn
+  - minute: 45
+    type: goal
+    team: away
+    player: Torbjørn Agdestein
+    assist: Adam Örn Arnarson
+  - minute: 52
+    type: goal
+    team: away
+    player: Torbjørn Agdestein
+    assist: Kaj Ramsteijn
+  - minute: 58
+    type: substitution
+    team: away
+    player: Sonni Nattestad
+    playerOff: Daniel Gretarsson
+  - minute: 59
+    type: substitution
+    team: home
+    player: Håkon Lorentzen
+    playerOff: Jonas Hestetun
+  - minute: 73
+    type: goal
+    team: home
+    player: Håkon Lorentzen
+    assist: Dennis Agyare Antwi
+  - minute: 77
+    type: substitution
+    team: away
+    player: Robert Sandnes
+    playerOff: Oddbjørn Lie
+  - minute: 79
+    type: substitution
+    team: home
+    player: Sondre Bjørshol
+    playerOff: Joakim Hammersland
+  - minute: 79
+    type: substitution
+    team: away
+    player: Pape Habib Gueye
+    playerOff: Torbjørn Agdestein
+  - minute: 86
+    type: substitution
+    team: home
+    player: Stian Bogetveit Nygard
+    playerOff: Tomas Kristoffersen
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Dennis Agyare Antwi
+lineups:
+  home:
+    formation: 3-4-1-2
+    starters:
+      - Borger Thomas
+      - Magnus Nybakken Bruun-Hanssen
+      - Aleksander Solli
+      - Martin Ueland
+      - Joakim Hammersland
+      - Michael Ogungbaro
+      - Tomas Kristoffersen
+      - Nikolai Harris
+      - Erik Huseklepp
+      - Dennis Agyare Antwi
+      - Jonas Hestetun
+    subs:
+      - Håkon Lorentzen
+      - Sondre Bjørshol
+      - Stian Bogetveit Nygard
+      - Andreas Fantoft
+      - Andreas Søreide
+      - Sander Bjørndal
+      - Viljar Birkeland
+    coach: Mons Ivar Mjelde
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Daniel Gretarsson
+      - Kaj Ramsteijn
+      - Oddbjørn Lie
+      - Adam Örn Arnarson
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Sondre Brunstad Fet
+      - Jørgen Hatlehol
+      - Torbjørn Agdestein
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Sonni Nattestad
+      - Robert Sandnes
+      - Pape Habib Gueye
+      - Emil Solnørdal
+      - Håvard Breivik
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +146,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

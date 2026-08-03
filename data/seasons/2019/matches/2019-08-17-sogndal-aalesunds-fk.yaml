@@ -11,13 +11,137 @@ competition:
 home:
   clubId: sogndal
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: fosshaugane-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 8
+    type: goal
+    team: home
+    player: Tomas Totland
+    assist: Sixten Jensen
+  - minute: 40
+    type: yellow_card
+    team: home
+    player: Steffen Ernemann
+  - minute: 40
+    type: yellow_card
+    team: away
+    player: Niklas Castro
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Ulrik Flo
+  - minute: 46
+    type: substitution
+    team: away
+    player: Pape Habib Gueye
+    playerOff: David Kristjan Olafsson
+  - minute: 47
+    type: substitution
+    team: home
+    player: Joachim Soltvedt
+    playerOff: Eirik Lereng
+  - minute: 52
+    type: goal
+    team: away
+    player: Daniel Gretarsson
+  - minute: 57
+    type: yellow_card
+    team: away
+    player: Sondre Brunstad Fet
+  - minute: 68
+    type: yellow_card
+    team: away
+    player: Fredrik Carlsen
+  - minute: 69
+    type: substitution
+    team: away
+    player: Ståle Steen Sæthre
+    playerOff: Daniel Gretarsson
+  - minute: 70
+    type: yellow_card
+    team: home
+    player: Sivert Heggheim Mannsverk
+  - minute: 71
+    type: goal
+    team: away
+    player: Aron Elis Thrándarson
+  - minute: 80
+    type: substitution
+    team: home
+    player: Akor Adams
+    playerOff: Sixten Jensen
+  - minute: 81
+    type: substitution
+    team: home
+    player: Halldor Stenevik
+    playerOff: Steffen Ernemann
+  - minute: 84
+    type: goal
+    team: away
+    player: Pape Habib Gueye
+    assist: Sondre Brunstad Fet
+  - minute: 88
+    type: yellow_card
+    team: home
+    player: Ulrik Fredriksen
+  - minute: 90
+    type: goal
+    team: home
+    player: Akor Adams
+    assist: Ulrik Flo
+lineups:
+  home:
+    formation: 5-4-1
+    starters:
+      - Mathias Dyngeland
+      - Sixten Jensen
+      - Igoh Ogbu
+      - Ulrik Fredriksen
+      - Eirik Lereng
+      - Tomas Totland
+      - Eirik Schulze
+      - Steffen Ernemann
+      - Sivert Heggheim Mannsverk
+      - Andreas Hoven
+      - Ulrik Flo
+    subs:
+      - Joachim Soltvedt
+      - Akor Adams
+      - Halldor Stenevik
+      - Eivind Helgesen
+      - Håvard Hetle
+      - Jonas Fredriksen
+      - Tomas Kristoffersen
+    coach: Eirik Bakke
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Daniel Gretarsson
+      - Jonas Grønner
+      - Jørgen Hatlehol
+      - Sondre Brunstad Fet
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - David Kristjan Olafsson
+      - Niklas Castro
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Pape Habib Gueye
+      - Ståle Steen Sæthre
+      - Enock Mwimba
+      - Erikson Lima
+      - Kristoffer Hay
+      - Torbjørn Agdestein
+      - Wilmer Azofeifa
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +157,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

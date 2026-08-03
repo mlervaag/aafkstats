@@ -11,13 +11,122 @@ competition:
 home:
   clubId: sandnes-ulf
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: sandnes-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 11
+    type: yellow_card
+    team: away
+    player: Jason Morrison
+  - minute: 26
+    type: yellow_card
+    team: home
+    player: Vegard Aanestad
+  - minute: 32
+    type: substitution
+    team: home
+    player: Tommy Høiland
+    playerOff: Gilles Mbang Ondo
+  - minute: 46
+    type: substitution
+    team: away
+    player: Magnus Sylling Olsen
+    playerOff: Demar Phillips
+  - minute: 54
+    type: yellow_card
+    team: home
+    player: Andreas Andersen
+  - minute: 55
+    type: substitution
+    team: home
+    player: Andreas Westlye
+    playerOff: Kamal Saaliti
+  - minute: 56
+    type: goal
+    team: away
+    player: Daniel Arnefjord
+  - minute: 58
+    type: substitution
+    team: away
+    player: Fredrik Carlsen
+    playerOff: Tremaine Stewart
+  - minute: 58
+    type: yellow_card
+    team: away
+    player: Tremaine Stewart
+  - minute: 64
+    type: yellow_card
+    team: away
+    player: Fredrik Carlsen
+  - minute: 73
+    type: goal
+    team: home
+    player: Anel Raskaj
+  - minute: 75
+    type: yellow_card
+    team: home
+    player: Kenneth Sola
+  - minute: 80
+    type: substitution
+    team: away
+    player: Lars Fuhre
+    playerOff: Christian Myklebust
+  - minute: 81
+    type: substitution
+    team: home
+    player: Fredrik Torsteinbø
+    playerOff: Andreas Andersen
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Bo Andersen
+      - Vegard Aanestad
+      - Ronny Espedal
+      - Edier Frejd
+      - Kenneth Sola
+      - Andreas Andersen
+      - Aksel Berget Skjølsvik
+      - Anel Raskaj
+      - Steinthor Freyr Thorsteinsson
+      - Kamal Saaliti
+      - Gilles Mbang Ondo
+    subs:
+      - Tommy Høiland
+      - Andreas Westlye
+      - Fredrik Torsteinbø
+      - Aslak Falch
+      - Harald Vindenes
+      - Mobi Okoli
+      - Steffen Haugland
+    coach: Asle Andersen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Ville Jalasto
+      - Michael Barrantes
+      - Christian Myklebust
+      - Tremaine Stewart
+      - Jason Morrison
+      - Demar Phillips
+      - Edvard Skagestad
+    subs:
+      - Magnus Sylling Olsen
+      - Fredrik Carlsen
+      - Lars Fuhre
+      - Jo Nymo Matland
+      - Ole Christian Rørvik
+      - Sander Post
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +142,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

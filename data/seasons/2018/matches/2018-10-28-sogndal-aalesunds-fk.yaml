@@ -11,13 +11,108 @@ competition:
 home:
   clubId: sogndal
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: fosshaugane-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 1
+    type: goal
+    team: home
+    player: Eirik Birkelund
+  - minute: 28
+    type: yellow_card
+    team: away
+    player: Erikson Lima
+  - minute: 61
+    type: substitution
+    team: away
+    player: Daniel Gretarsson
+    playerOff: Erikson Lima
+  - minute: 67
+    type: substitution
+    team: away
+    player: Pape Habib Gueye
+    playerOff: Torbjørn Agdestein
+  - minute: 74
+    type: yellow_card
+    team: home
+    player: Akeem Latifu
+  - minute: 75
+    type: substitution
+    team: home
+    player: Sixten Jensen
+    playerOff: Stanisa Mandic
+  - minute: 78
+    type: substitution
+    team: away
+    player: Kaj Ramsteijn
+    playerOff: Sondre Brunstad Fet
+  - minute: 84
+    type: substitution
+    team: home
+    player: Joachim Soltvedt
+    playerOff: Bjørn Helge Riise
+  - minute: 90
+    type: substitution
+    team: home
+    player: Akor Adams
+    playerOff: Sigurd Haugen
+  - minute: 90
+    type: goal
+    team: home
+    player: Sixten Jensen
+    assist: Akor Adams
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Mathias Dyngeland
+      - Akeem Latifu
+      - Ulrik Fredriksen
+      - Per-Magnus Steiring
+      - Tomas Totland
+      - Stanisa Mandic
+      - Bjørn Helge Riise
+      - Eirik Birkelund
+      - Eirik Schulze
+      - Sigurd Haugen
+      - Ulrik Flo
+    subs:
+      - Sixten Jensen
+      - Joachim Soltvedt
+      - Akor Adams
+      - Jonas Fredriksen
+      - Kjetil Wæhler
+      - Kristian Rutlin
+      - Mohamed Didé Fofana
+    coach: Eirik Bakke
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Ståle Steen Sæthre
+      - Jonas Grønner
+      - Oddbjørn Lie
+      - Sondre Brunstad Fet
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Erikson Lima
+      - Nikola Tkalcic
+      - Torbjørn Agdestein
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Daniel Gretarsson
+      - Pape Habib Gueye
+      - Kaj Ramsteijn
+      - Jens Petter Hauge
+      - Jernade Meade
+      - Jørgen Hatlehol
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +128,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

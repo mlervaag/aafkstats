@@ -11,13 +11,169 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: start
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 200
+referee: Ola Hobber Nilsen
+events:
+  - minute: 14
+    type: yellow_card
+    team: away
+    player: Eirik Schulze
+  - minute: 16
+    type: goal
+    team: away
+    player: Mathias Bringaker
+    assist: Espen Børufsen
+  - minute: 17
+    type: goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+    assist: Niklas Castro
+  - minute: 19
+    type: goal
+    team: away
+    player: Eirik Schulze
+  - minute: 30
+    type: substitution
+    team: home
+    player: Daan Klinkenberg
+    playerOff: Oddbjørn Lie
+  - minute: 33
+    type: yellow_card
+    team: home
+    player: Niklas Castro
+  - minute: 39
+    type: yellow_card
+    team: away
+    player: Eirik Wichne
+  - minute: 46
+    type: substitution
+    team: home
+    player: Isak Dybvik Maeaettae
+    playerOff: Jørgen Hatlehol
+  - minute: 46
+    type: substitution
+    team: away
+    player: Henrik Robstad
+    playerOff: Kristoffer Toennessen
+  - minute: 50
+    type: substitution
+    team: away
+    player: Kasper Skaanes
+    playerOff: Mathias Bringaker
+  - minute: 61
+    type: substitution
+    team: home
+    player: Izunna Uzochukwu
+    playerOff: Peter Orry Larsen
+  - minute: 61
+    type: penalty_goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+  - minute: 65
+    type: yellow_card
+    team: home
+    player: Parfait Bizoza
+  - minute: 75
+    type: substitution
+    team: away
+    player: Erlend Segberg
+    playerOff: Espen Børufsen
+  - minute: 78
+    type: yellow_card
+    team: away
+    player: Erlend Segberg
+  - minute: 81
+    type: goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+    assist: Niklas Castro
+  - minute: 82
+    type: substitution
+    team: away
+    player: Adeleke Akinyemi
+    playerOff: Steffen Lie Skålevik
+  - minute: 88
+    type: substitution
+    team: home
+    player: Ståle Steen Sæthre
+    playerOff: Shaquill Sno
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Isak Dybvik Maeaettae
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Gudmund Taksdal Kongshavn
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Jørgen Hatlehol
+      - Peter Orry Larsen
+      - Parfait Bizoza
+      - Simen Bolkan Nordli
+      - Shaquill Sno
+      - Holmbert Aron Fridjonsson
+      - Niklas Castro
+    subs:
+      - Daan Klinkenberg
+      - Isak Dybvik Maeaettae
+      - Izunna Uzochukwu
+      - Ståle Steen Sæthre
+      - Andreas Lie
+      - Kristoffer Strand Ødven
+      - Markus Seehusen Karlsbakk
+      - Vetle Fiskerstrand
+    coach: Lars Bohinen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Amund Wichne
+      - Eirik Wichne
+      - Vegard Bergan
+      - Jesper Daland
+      - Kristoffer Toennessen
+      - Isaac Twum
+      - Eirik Schulze
+      - Mathias Bringaker
+      - Kevin Kabran
+      - Espen Børufsen
+      - Steffen Lie Skålevik
+    subs:
+      - Henrik Robstad
+      - Kasper Skaanes
+      - Erlend Segberg
+      - Adeleke Akinyemi
+      - Fredrik Repstad Hansen
+      - Adnan Hadzic
+      - Mikael Ugland
+      - Eman Markovic
+    coach: Johannes Hardarson
+stats:
+  home:
+    possession: 58
+    shots: 24
+    shotsOnTarget: 7
+    corners: 5
+    fouls: 13
+    offsides: 2
+    xg: 2.59
+  away:
+    possession: 42
+    shots: 14
+    shotsOnTarget: 5
+    corners: 1
+    fouls: 14
+    offsides: 2
+    xg: 2.63
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +189,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

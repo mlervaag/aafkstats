@@ -11,13 +11,124 @@ competition:
 home:
   clubId: sogndal
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: fosshaugane-stadion
 neutralVenue: false
-events: []
+attendance: 5089
+referee: Trond Ivar Doevle
+events:
+  - minute: 2
+    type: goal
+    team: home
+    player: Chidiebere Nwakali
+  - minute: 51
+    type: substitution
+    team: home
+    player: Johan Hove
+    playerOff: Taijo Teniste
+  - minute: 56
+    type: yellow_card
+    team: home
+    player: Gilbert Koomson
+  - minute: 65
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Aron Elis Thrándarson
+  - minute: 65
+    type: substitution
+    team: away
+    player: Vebjørn Hoff
+    playerOff: Daniel Gretarsson
+  - minute: 77
+    type: yellow_card
+    team: away
+    player: Adam Örn Arnarson
+  - minute: 84
+    type: red_card
+    team: home
+    player: Chidiebere Nwakali
+  - minute: 85
+    type: substitution
+    team: home
+    player: Eirik Bergum Skaasheim
+    playerOff: Gilbert Koomson
+  - minute: 86
+    type: substitution
+    team: away
+    player: Marlinho
+    playerOff: Adam Örn Arnarson
+  - minute: 90
+    type: substitution
+    team: home
+    player: Espen Næss Lund
+    playerOff: Martin Ramsland
+lineups:
+  home:
+    formation: 3-4-3
+    starters:
+      - Mathias Dyngeland
+      - Ulrik Fredriksen
+      - Kjetil Wæhler
+      - Per-Magnus Steiring
+      - Lars Christian Kjemhus
+      - Eirik Birkelund
+      - Chidiebere Nwakali
+      - Taijo Teniste
+      - Gilbert Koomson
+      - Martin Ramsland
+      - Eirik Schulze
+    subs:
+      - Johan Hove
+      - Eirik Bergum Skaasheim
+      - Espen Næss Lund
+      - Bendik Bye
+      - Henrik Furebotn
+      - Kristian Rutlin
+      - Simen Brekkhus
+    coach: Eirik Bakke
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Kaj Ramsteijn
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Fredrik Carlsen
+      - Daniel Gretarsson
+      - Aron Elis Thrándarson
+      - Mostafa Abdellaoue
+      - Lars Veldwijk
+    subs:
+      - Sondre Brunstad Fet
+      - Vebjørn Hoff
+      - Marlinho
+      - Anders Waagan
+      - Joakim Barstad
+      - Jørgen Hatlehol
+      - Sondre Sødergren
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 33
+    shots: 13
+    shotsOnTarget: 5
+    corners: 4
+    fouls: 15
+    offsides: 2
+  away:
+    possession: 67
+    shots: 17
+    shotsOnTarget: 2
+    corners: 10
+    fouls: 6
+    offsides: 1
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +144,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

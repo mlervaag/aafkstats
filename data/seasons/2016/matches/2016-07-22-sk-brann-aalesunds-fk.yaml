@@ -11,13 +11,138 @@ competition:
 home:
   clubId: sk-brann
   score: 6
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: brann-stadion
 neutralVenue: false
-events: []
+attendance: 10348
+referee: Svein-Erik Edvartsen
+events:
+  - minute: 24
+    type: goal
+    team: home
+    player: Bismark Acosta
+    assist: Fredrik Haugen
+  - minute: 38
+    type: own_goal
+    team: home
+    player: Edvard Skagestad
+  - minute: 46
+    type: substitution
+    team: home
+    player: Erik Huseklepp
+    playerOff: Deyver Vega
+  - minute: 55
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Adam Örn Arnarson
+  - minute: 56
+    type: substitution
+    team: away
+    player: Oddbjørn Lie
+    playerOff: Marlinho
+  - minute: 59
+    type: goal
+    team: home
+    player: Sivert Heltne Nilsen
+    assist: Bismark Acosta
+  - minute: 65
+    type: penalty_goal
+    team: home
+    player: Erik Huseklepp
+  - minute: 65
+    type: red_card
+    team: away
+    player: Daniel Gretarsson
+  - minute: 66
+    type: substitution
+    team: home
+    player: Jonas Grønner
+    playerOff: Vadim Demidov
+  - minute: 67
+    type: substitution
+    team: away
+    player: Tero Mäntylä
+    playerOff: Bjørn Helge Riise
+  - minute: 71
+    type: yellow_card
+    team: home
+    player: Jonas Grønner
+  - minute: 75
+    type: substitution
+    team: home
+    player: Azar Karadas
+    playerOff: Jakob Orlov
+  - minute: 77
+    type: goal
+    team: home
+    player: Azar Karadas
+    assist: Erik Huseklepp
+  - minute: 85
+    type: goal
+    team: home
+    player: Azar Karadas
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Piotr Leciejewski
+      - Amin Nouri
+      - Vadim Demidov
+      - Bismark Acosta
+      - Sivert Heltne Nilsen
+      - Fredrik Haugen
+      - Ruben Kristiansen
+      - Kristoffer Barmen
+      - Deyver Vega
+      - Jakob Orlov
+      - Daniel Omoya Braaten
+    subs:
+      - Erik Huseklepp
+      - Jonas Grønner
+      - Azar Karadas
+      - Alex Horwath
+      - Dani Hatakka
+      - Kasper Skaanes
+      - Steffen Lie Skålevik
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-4-2
+    starters:
+      - Lars Cramer
+      - Adam Örn Arnarson
+      - Edvard Skagestad
+      - Daniel Gretarsson
+      - Mikkel Kirkeskov
+      - Marlinho
+      - Vebjørn Hoff
+      - Bjørn Helge Riise
+      - Peter Orry Larsen
+      - Mostafa Abdellaoue
+      - Aron Elis Thrándarson
+    subs:
+      - Sondre Brunstad Fet
+      - Oddbjørn Lie
+      - Tero Mäntylä
+      - Andreas Lie
+      - Emil Solnørdal
+      - Jørgen Hatlehol
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 63
+    shots: 24
+    shotsOnTarget: 11
+    corners: 11
+  away:
+    possession: 37
+    shots: 1
+    shotsOnTarget: 1
+    corners: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +158,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

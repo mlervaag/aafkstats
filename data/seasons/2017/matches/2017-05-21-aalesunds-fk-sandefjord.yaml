@@ -11,13 +11,128 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: sandefjord
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5284
+referee: Rohit Saggi
+events:
+  - minute: 9
+    type: penalty_goal
+    team: home
+    player: Mostafa Abdellaoue
+  - minute: 21
+    type: yellow_card
+    team: away
+    player: Christer Reppesgård Hansen
+  - minute: 26
+    type: goal
+    team: home
+    player: Edwin Gyasi
+    assist: Daniel Gretarsson
+  - minute: 70
+    type: yellow_card
+    team: away
+    player: Pau Morer
+  - minute: 71
+    type: substitution
+    team: away
+    player: Elliot Kebbie
+    playerOff: Alexander Gabrielsen
+  - minute: 73
+    type: substitution
+    team: home
+    player: Aron Elis Thrándarson
+    playerOff: Marlinho
+  - minute: 76
+    type: substitution
+    team: away
+    player: Erik Mjelde
+    playerOff: William Albin Kurtovic
+  - minute: 83
+    type: substitution
+    team: away
+    player: Håkon Lorentzen
+    playerOff: Pau Morer
+  - minute: 88
+    type: substitution
+    team: home
+    player: Fredrik Carlsen
+    playerOff: Daniel Gretarsson
+  - minute: 88
+    type: substitution
+    team: home
+    player: Valmir Berisha
+    playerOff: Mostafa Abdellaoue
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Flamur Kastrati
+lineups:
+  home:
+    formation: 4-1-2-1-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Kaj Ramsteijn
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Daniel Gretarsson
+      - Edwin Gyasi
+      - Marlinho
+      - Vebjørn Hoff
+      - Lars Veldwijk
+      - Mostafa Abdellaoue
+    subs:
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Valmir Berisha
+      - Anders Waagan
+      - Emil Solnørdal
+      - Jørgen Hatlehol
+      - Pål Vestly Heigre
+    coach: Trond Fredriksen
+  away:
+    formation: 3-4-3
+    starters:
+      - Ingvar Jonsson
+      - Alexander Gabrielsen
+      - Christer Reppesgård Hansen
+      - Abdoulaye Seck
+      - Victor Demba Bindia
+      - Enric Vallés
+      - William Albin Kurtovic
+      - Joackim Olsen Solberg
+      - Pau Morer
+      - Flamur Kastrati
+      - Andre Sødlund
+    subs:
+      - Elliot Kebbie
+      - Erik Mjelde
+      - Håkon Lorentzen
+      - Mats Holt
+      - Øystein Øvretveit
+      - Sabawon Wahid Shamohammad
+    coach: Lars Bohinen
+stats:
+  home:
+    possession: 42
+    shots: 18
+    shotsOnTarget: 8
+    corners: 7
+    fouls: 17
+    offsides: 3
+  away:
+    possession: 58
+    shots: 11
+    shotsOnTarget: 5
+    corners: 3
+    fouls: 14
+    offsides: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +148,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

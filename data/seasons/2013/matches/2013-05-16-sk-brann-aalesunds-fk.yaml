@@ -11,13 +11,105 @@ competition:
 home:
   clubId: sk-brann
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: brann-stadion
 neutralVenue: false
-events: []
+attendance: 17179
+events:
+  - minute: 45
+    type: goal
+    team: home
+    player: Bård Finne
+  - minute: 46
+    type: substitution
+    team: away
+    player: Tor Hogne Aarøy
+    playerOff: Hugues Wembangomo
+  - minute: 46
+    type: substitution
+    team: home
+    player: Kristoffer Larsen
+    playerOff: Martin Pusic
+  - minute: 52
+    type: goal
+    team: home
+    player: Birkir Sævarsson
+  - minute: 63
+    type: substitution
+    team: home
+    player: Kristoffer Barmen
+    playerOff: Bård Finne
+  - minute: 63
+    type: yellow_card
+    team: away
+    player: Tor Hogne Aarøy
+  - minute: 64
+    type: yellow_card
+    team: home
+    player: Erdin Demir
+  - minute: 71
+    type: substitution
+    team: away
+    player: Lars Fuhre
+    playerOff: Christian Myklebust
+  - minute: 83
+    type: substitution
+    team: home
+    player: Tomasz Sokolowski
+    playerOff: Fredrik Haugen
+  - minute: 89
+    type: substitution
+    team: away
+    player: Daniel Stensøe
+    playerOff: Fredrik Carlsen
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Piotr Leciejewski
+      - Birkir Sævarsson
+      - Henrik Gjesdal
+      - Zsolt Korcsmar
+      - Erdin Demir
+      - Erik Huseklepp
+      - Stéphane Badji
+      - Fredrik Haugen
+      - Amin Askar
+      - Martin Pusic
+      - Bård Finne
+    subs:
+      - Kristoffer Larsen
+      - Kristoffer Barmen
+      - Tomasz Sokolowski
+      - Jonas Grønner
+      - Vasili Pavlov
+      - Hassan El Fakiri
+      - Øystein Øvretveit
+    coach: Rune Skarsfjord
+  away:
+    formation: 5-3-2
+    starters:
+      - Sten Michael Grytebust
+      - Hugues Wembangomo
+      - Edvard Skagestad
+      - Jonatan Tollås Nation
+      - Thomas Skog Martinussen
+      - Christian Myklebust
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Fredrik Carlsen
+      - Abderrazak Hamdallah
+      - Leke James
+    subs:
+      - Tor Hogne Aarøy
+      - Lars Fuhre
+      - Daniel Stensøe
+      - Lasse Staw
+    coach: Jan Jönsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +125,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

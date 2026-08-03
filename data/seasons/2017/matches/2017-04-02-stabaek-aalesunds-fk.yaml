@@ -11,13 +11,141 @@ competition:
 home:
   clubId: stabaek
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: nadderud-stadion
 neutralVenue: false
-events: []
+attendance: 4049
+referee: Kai Erik Steen
+events:
+  - minute: 7
+    type: yellow_card
+    team: home
+    player: El-Hadji Ba
+  - minute: 14
+    type: goal
+    team: home
+    player: Ohi Anthony Omoijuanfo
+  - minute: 14
+    type: yellow_card
+    team: home
+    player: Ohi Anthony Omoijuanfo
+  - minute: 20
+    type: goal
+    team: home
+    player: Ohi Anthony Omoijuanfo
+    assist: Jeppe Arctander Moe
+  - minute: 46
+    type: substitution
+    team: away
+    player: Valmir Berisha
+    playerOff: Daniel Gretarsson
+  - minute: 50
+    type: goal
+    team: home
+    player: Ohi Anthony Omoijuanfo
+  - minute: 59
+    type: substitution
+    team: home
+    player: Luc Kassi
+    playerOff: Tortol Lumanza
+  - minute: 59
+    type: yellow_card
+    team: away
+    player: Kaj Ramsteijn
+  - minute: 60
+    type: substitution
+    team: away
+    player: Lars Veldwijk
+    playerOff: Edwin Gyasi
+  - minute: 60
+    type: substitution
+    team: away
+    player: Vebjørn Hoff
+    playerOff: Bjørn Helge Riise
+  - minute: 65
+    type: goal
+    team: away
+    player: Mostafa Abdellaoue
+  - minute: 68
+    type: substitution
+    team: home
+    player: Ahmed El-Amrani
+    playerOff: Ohi Anthony Omoijuanfo
+  - minute: 83
+    type: substitution
+    team: home
+    player: Sebastian Pedersen
+    playerOff: Tonny Brochmann
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Adam Örn Arnarson
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Sayouba Mandé
+      - Håkon Skogseid
+      - Morten M. Skjønsberg
+      - Andreas Hanche-Olsen
+      - Jeppe Arctander Moe
+      - El-Hadji Ba
+      - Tortol Lumanza
+      - Tonny Brochmann
+      - Hugo Vetlesen
+      - Moussa Njie
+      - Ohi Anthony Omoijuanfo
+    subs:
+      - Luc Kassi
+      - Ahmed El-Amrani
+      - Sebastian Pedersen
+      - Daniel Granli
+      - Gurpreet Singh Sandhu
+      - Morten Renå Olsen
+      - Ola Brynhildsen
+    coach: Antoni Ordinas
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Kaj Ramsteijn
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Fredrik Carlsen
+      - Daniel Gretarsson
+      - Edwin Gyasi
+      - Bjørn Helge Riise
+      - Aron Elis Thrándarson
+      - Mostafa Abdellaoue
+    subs:
+      - Valmir Berisha
+      - Lars Veldwijk
+      - Vebjørn Hoff
+      - Jørgen Hatlehol
+      - Marlinho
+      - Pål Vestly Heigre
+      - Sondre Brunstad Fet
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 56
+    shots: 16
+    shotsOnTarget: 9
+    corners: 5
+    fouls: 12
+    offsides: 5
+  away:
+    possession: 44
+    shots: 13
+    shotsOnTarget: 2
+    corners: 1
+    fouls: 19
+    offsides: 4
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +161,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,118 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 5
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: tromsdalen
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 9
+    type: goal
+    team: home
+    player: Pape Habib Gueye
+    assist: Sondre Brunstad Fet
+  - minute: 37
+    type: goal
+    team: home
+    player: Oddbjørn Lie
+  - minute: 46
+    type: substitution
+    team: home
+    player: Erikson Lima
+    playerOff: Sondre Brunstad Fet
+  - minute: 59
+    type: yellow_card
+    team: home
+    player: Aron Elis Thrándarson
+  - minute: 65
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Niklas Castro
+  - minute: 65
+    type: yellow_card
+    team: away
+    player: Andreas Arntzen
+  - minute: 71
+    type: red_card
+    team: away
+    player: Andreas Arntzen
+  - minute: 72
+    type: penalty_goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+  - minute: 75
+    type: substitution
+    team: home
+    player: Ståle Steen Sæthre
+    playerOff: Jørgen Hatlehol
+  - minute: 80
+    type: substitution
+    team: away
+    player: Gabriel Andersen
+    playerOff: Sander Ringberg
+  - minute: 81
+    type: goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+    assist: Aron Elis Thrándarson
+  - minute: 88
+    type: substitution
+    team: away
+    player: Sebastian Tounekti
+    playerOff: Lars Henrik Andreassen
+  - minute: 90
+    type: goal
+    team: home
+    player: Pape Habib Gueye
+    assist: Jonas Grønner
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Jørgen Hatlehol
+      - Aron Elis Thrándarson
+      - Izunna Uzochukwu
+      - Niklas Castro
+      - Sondre Brunstad Fet
+      - Holmbert Aron Fridjonsson
+      - Pape Habib Gueye
+    subs:
+      - Erikson Lima
+      - Peter Orry Larsen
+      - Ståle Steen Sæthre
+      - Kristoffer Hay
+      - Tarjei Aase Omenås
+      - Tega George
+      - Torbjørn Agdestein
+    coach: Lars Bohinen
+  away:
+    formation: 4-5-1
+    starters:
+      - Teodor Nilsen
+      - Andreas Arntzen
+      - Thomas Braaten
+      - Henrik Breimyr
+      - Håvard Lysvoll
+      - Sander Ringberg
+      - Thomas Kind Bendiksen
+      - Tomas Kristoffersen
+      - Lars Henrik Andreassen
+      - Håkon Kjæve
+      - Vegard Lysvoll
+    subs:
+      - Gabriel Andersen
+      - Sebastian Tounekti
+      - Adrian Mikkelsen
+      - Robin Lorentzen
+    coach: Jonathan Hill
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +138,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

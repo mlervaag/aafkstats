@@ -11,13 +11,99 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: fk-haugesund
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 11
+    type: goal
+    team: home
+    player: Michael Barrantes
+  - minute: 34
+    type: goal
+    team: home
+    player: Leke James
+  - minute: 59
+    type: substitution
+    team: away
+    player: Tor Arne Andreassen
+    playerOff: Eirik Mæland
+  - minute: 68
+    type: substitution
+    team: away
+    player: Henrik Kjelsrud Johansen
+    playerOff: Pontus Engblom
+  - minute: 78
+    type: goal
+    team: away
+    player: Michael Haukås
+  - minute: 85
+    type: substitution
+    team: home
+    player: Amund Skiri
+    playerOff: Lars Fuhre
+  - minute: 87
+    type: goal
+    team: away
+    player: Geir Ludvig Fevang
+  - minute: 90
+    type: substitution
+    team: away
+    player: Håvard Storbæk
+    playerOff: Michael Haukås
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Tremaine Stewart
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Edvard Skagestad
+      - Jo Nymo Matland
+      - Peter Orry Larsen
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Tremaine Stewart
+      - Lars Fuhre
+      - Leke James
+    subs:
+      - Amund Skiri
+      - Fredrik Carlsen
+      - Mathias Rasmussen
+      - Sander Post
+      - Thomas Skog Martinussen
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-4-2
+    starters:
+      - Per Morten Kristiansen
+      - Andres Mar Johannesson
+      - Umaru Bangura
+      - Martin Bjørnbak
+      - Joakim Våge Nilsen
+      - Geir Ludvig Fevang
+      - Eirik Mæland
+      - Ugonna Anyora
+      - Michael Haukås
+      - Pontus Engblom
+      - Alexander Søderlund
+    subs:
+      - Tor Arne Andreassen
+      - Henrik Kjelsrud Johansen
+      - Håvard Storbæk
+      - David Myrestam
+      - Lars Øvernes
+      - Trygve Nygaard
+      - Vegard Skjerve
+    coach: Jostein Grindhaug
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +119,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

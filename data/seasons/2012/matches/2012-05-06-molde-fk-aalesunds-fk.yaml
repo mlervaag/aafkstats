@@ -11,13 +11,122 @@ competition:
 home:
   clubId: molde-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: aker-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 18
+    type: yellow_card
+    team: away
+    player: Edvard Skagestad
+  - minute: 24
+    type: goal
+    team: home
+    player: Mattias Moström
+  - minute: 38
+    type: goal
+    team: away
+    player: Daniel Arnefjord
+  - minute: 56
+    type: substitution
+    team: home
+    player: Joshua Gatt
+    playerOff: Jo Inge Berget
+  - minute: 57
+    type: substitution
+    team: away
+    player: Magnus Sylling Olsen
+    playerOff: Lars Fuhre
+  - minute: 59
+    type: penalty_goal
+    team: home
+    player: Magne Hoseth
+  - minute: 67
+    type: yellow_card
+    team: home
+    player: Martin Linnes
+  - minute: 69
+    type: yellow_card
+    team: home
+    player: Knut Olav Rindarøy
+  - minute: 71
+    type: substitution
+    team: away
+    player: Tremaine Stewart
+    playerOff: Edvard Skagestad
+  - minute: 72
+    type: substitution
+    team: home
+    player: Daniel Chima Chukwu
+    playerOff: Davy Claude Angan
+  - minute: 83
+    type: substitution
+    team: away
+    player: Sander Post
+    playerOff: Fredrik Ulvestad
+  - minute: 89
+    type: substitution
+    team: home
+    player: Kristoffer Paulsen Vatshaug
+    playerOff: Knut Olav Rindarøy
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Joshua Gatt
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Daniel Arnefjord
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Espen Bugge Pettersen
+      - Even Hovland
+      - Vegard Forren
+      - Martin Linnes
+      - Knut Olav Rindarøy
+      - Daniel Berg Hestad
+      - Magnus Wolff Eikrem
+      - Magne Hoseth
+      - Mattias Moström
+      - Jo Inge Berget
+      - Davy Claude Angan
+    subs:
+      - Joshua Gatt
+      - Daniel Chima Chukwu
+      - Kristoffer Paulsen Vatshaug
+      - Abdou Karim Camara
+      - Magne Simonsen
+      - Magnus Stamnestrø
+      - Ole Söderberg
+    coach: Ole Gunnar Solskjær
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Sten Michael Grytebust
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Demar Phillips
+      - Enar Jääger
+      - Jason Morrison
+      - Fredrik Ulvestad
+      - Peter Orry Larsen
+      - Lars Fuhre
+      - Michael Barrantes
+      - Edvard Skagestad
+    subs:
+      - Magnus Sylling Olsen
+      - Tremaine Stewart
+      - Sander Post
+      - Amund Skiri
+      - Ole Christian Rørvik
+      - Ville Jalasto
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +142,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

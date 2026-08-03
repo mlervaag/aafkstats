@@ -11,13 +11,144 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: strommen
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 1704
+events:
+  - minute: 6
+    type: goal
+    team: home
+    player: Sigurd Haugen
+    assist: Simen Bolkan Nordli
+  - minute: 26
+    type: goal
+    team: home
+    player: Erlend Segberg
+    assist: Quint Jansen
+  - minute: 32
+    type: penalty_goal
+    team: home
+    player: Kristoffer Barmen
+  - minute: 34
+    type: goal
+    team: away
+    player: Christopher Cheng
+  - minute: 57
+    type: substitution
+    team: away
+    player: Magnus Lankhof-Dahlby
+    playerOff: Alexander Sannes
+  - minute: 57
+    type: yellow_card
+    team: home
+    player: Isak Dybvik Maeaettae
+  - minute: 63
+    type: substitution
+    team: home
+    player: Niklas Castro
+    playerOff: Simen Bolkan Nordli
+  - minute: 63
+    type: substitution
+    team: home
+    player: Torbjørn Kallevåg
+    playerOff: Isak Dybvik Maeaettae
+  - minute: 63
+    type: substitution
+    team: home
+    player: Kristoffer Ødemarksbakken
+    playerOff: Kristoffer Barmen
+  - minute: 65
+    type: substitution
+    team: away
+    player: Mats André Kaland
+    playerOff: Tega George
+  - minute: 70
+    type: substitution
+    team: home
+    player: Muamer Brajanac
+    playerOff: Sigurd Haugen
+  - minute: 84
+    type: substitution
+    team: away
+    player: Lorent Callaku
+    playerOff: Laurent Mendy
+  - minute: 84
+    type: substitution
+    team: away
+    player: Martin André Sjølstad
+    playerOff: Kristian Jahr
+  - minute: 85
+    type: goal
+    team: away
+    player: Magnus Lankhof-Dahlby
+    assist: Christopher Cheng
+  - minute: 89
+    type: yellow_card
+    team: home
+    player: Torbjørn Kallevåg
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Simen Rafn
+      - Quint Jansen
+      - David Fällman
+      - David Kristjan Olafsson
+      - Erikson Lima
+      - Erlend Segberg
+      - Isak Dybvik Maeaettae
+      - Kristoffer Barmen
+      - Simen Bolkan Nordli
+      - Sigurd Haugen
+    subs:
+      - Torbjørn Kallevåg
+      - Kristoffer Ødemarksbakken
+      - Niklas Castro
+      - Muamer Brajanac
+      - Andreas Lie
+      - Jonas Grønner
+      - Nikolai Hopland
+      - Jørgen Hatlehol
+      - Mamadou Diaw
+    coach: Lars Arne Nilsen
+  away:
+    formation: 3-4-2-1
+    starters:
+      - Simen Lillevik Kjellevold
+      - Magnus Tvedte
+      - Kristian Jahr
+      - Simen Olafsen
+      - Sander Amble Haugen
+      - Sander Birkeland
+      - Christopher Cheng
+      - Morten Renå Olsen
+      - Tega George
+      - Laurent Mendy
+      - Alexander Sannes
+    subs:
+      - Magnus Lankhof-Dahlby
+      - Mats André Kaland
+      - Martin André Sjølstad
+      - Lorent Callaku
+      - Clement Twizere
+    coach: Ole Martin Nesselquist
+stats:
+  home:
+    possession: 55
+    shots: 12
+    shotsOnTarget: 7
+    corners: 7
+  away:
+    possession: 45
+    shots: 10
+    shotsOnTarget: 5
+    corners: 1
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +164,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,127 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: kristiansund
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 7347
+referee: Dag Vidar Hafsaas
+events:
+  - minute: 41
+    type: yellow_card
+    team: home
+    player: Athanassios Papazoglou
+  - minute: 58
+    type: yellow_card
+    team: away
+    player: Amidou Diop
+  - minute: 68
+    type: red_card
+    team: away
+    player: Amidou Diop
+  - minute: 69
+    type: substitution
+    team: home
+    player: Mostafa Abdellaoue
+    playerOff: Aron Elis Thrándarson
+  - minute: 76
+    type: substitution
+    team: home
+    player: Bjørn Helge Riise
+    playerOff: Daniel Gretarsson
+  - minute: 77
+    type: substitution
+    team: away
+    player: Jonas Rønningen
+    playerOff: Benjamin Stokke
+  - minute: 86
+    type: goal
+    team: away
+    player: Torgil Øwre Gjertsen
+  - minute: 87
+    type: substitution
+    team: home
+    player: Valmir Berisha
+    playerOff: Adam Örn Arnarson
+  - minute: 89
+    type: yellow_card
+    team: home
+    player: Adam Örn Arnarson
+  - minute: 90
+    type: substitution
+    team: away
+    player: Jean Alassane Mendy
+    playerOff: Daouda Bamba
+  - minute: 90
+    type: goal
+    team: home
+    player: Vebjørn Hoff
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Kaj Ramsteijn
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Fredrik Carlsen
+      - Daniel Gretarsson
+      - Aron Elis Thrándarson
+      - Vebjørn Hoff
+      - Athanassios Papazoglou
+    subs:
+      - Mostafa Abdellaoue
+      - Bjørn Helge Riise
+      - Valmir Berisha
+      - Jan Lennart Urke
+      - Jørgen Hatlehol
+      - Marlinho
+      - Sondre Brunstad Fet
+    coach: Trond Fredriksen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Sean McDermott
+      - Nikita Baranov
+      - Dan Peter Ulvestad
+      - Henrik Gjesdal
+      - Christoffer Aasbak
+      - Pål Erik Ulvestad
+      - Andreas Hopmark
+      - Amidou Diop
+      - Benjamin Stokke
+      - Torgil Øwre Gjertsen
+      - Daouda Bamba
+    subs:
+      - Jonas Rønningen
+      - Jean Alassane Mendy
+      - Ante Knezovic
+      - Liridon Kalludra
+      - Olav Øby
+      - Sondre Sørli
+      - Sverre Økland
+    coach: Christian Michelsen
+stats:
+  home:
+    possession: 57
+    shots: 20
+    shotsOnTarget: 3
+    corners: 6
+    fouls: 8
+    offsides: 4
+  away:
+    possession: 43
+    shots: 9
+    shotsOnTarget: 3
+    corners: 2
+    fouls: 14
+    offsides: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +147,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

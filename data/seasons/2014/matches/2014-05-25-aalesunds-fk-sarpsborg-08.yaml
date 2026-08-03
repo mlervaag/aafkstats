@@ -11,13 +11,96 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: sarpsborg-08
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 22
+    type: yellow_card
+    team: home
+    player: Demar Phillips
+  - minute: 43
+    type: substitution
+    team: away
+    player: Kristoffer Tokstad
+    playerOff: Jérémy Berthod
+  - minute: 52
+    type: yellow_card
+    team: away
+    player: Kristoffer Tokstad
+  - minute: 82
+    type: substitution
+    team: home
+    player: Henrik Rørvik Bjørdal
+    playerOff: Fredrik Carlsen
+  - minute: 87
+    type: substitution
+    team: away
+    player: Tom Erik Breive
+    playerOff: Bojan Zajic
+  - minute: 90
+    type: substitution
+    team: home
+    player: Daniel Arnefjord
+    playerOff: Tremaine Stewart
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: DuWayne Kerr
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Gudmundur Thorarinsson
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Oddbjørn Lie
+      - Jonatan Tollås Nation
+      - Jo Nymo Matland
+      - Fredrik Carlsen
+      - Fredrik Ulvestad
+      - Peter Orry Larsen
+      - Demar Phillips
+      - Leke James
+      - Tremaine Stewart
+    subs:
+      - Henrik Rørvik Bjørdal
+      - Daniel Arnefjord
+      - Andreas Lie
+      - Elias Dahlberg
+      - Izantullah Ahmadzai
+      - Tor Hogne Aarøy
+      - Vebjørn Hoff
+    coach: Jan Jönsson
+  away:
+    formation: 4-2-3-1
+    starters:
+      - DuWayne Kerr
+      - Kjetil Berge
+      - Martin Thømt Jensen
+      - Ole Heieren Hansen
+      - Jérémy Berthod
+      - Steffen Ernemann
+      - Gudmundur Thorarinsson
+      - Claes Kronberg
+      - Bojan Zajic
+      - Franck Dja Djedje
+      - Aaron Samuel Olanare
+    subs:
+      - Kristoffer Tokstad
+      - Tom Erik Breive
+      - Christian Brink
+      - Christian Sukke
+      - Olav Øby
+      - Thorarinn Ingi Valdimarsson
+    coach: Brian Deane
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +116,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

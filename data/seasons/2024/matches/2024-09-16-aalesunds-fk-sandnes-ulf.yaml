@@ -11,13 +11,146 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: sandnes-ulf
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 3585
+referee: Johan William Grundt
+events:
+  - minute: 28
+    type: substitution
+    team: home
+    player: Vinko Medimorec
+    playerOff: Stian Aarønes Holte
+  - minute: 33
+    type: yellow_card
+    team: away
+    player: Alwande Roaldsøy
+  - minute: 46
+    type: substitution
+    team: home
+    player: Sander Hestetun Kilen
+    playerOff: Claudio Braga
+  - minute: 47
+    type: missed_penalty
+    team: home
+    player: Sander Hestetun Kilen
+  - minute: 48
+    type: yellow_card
+    team: away
+    player: Espen Hammer Berger
+  - minute: 48
+    type: goal
+    team: home
+    player: Sander Hestetun Kilen
+  - minute: 49
+    type: yellow_card
+    team: away
+    player: Serigne Mbaye
+  - minute: 55
+    type: yellow_card
+    team: away
+    player: Vuk Latinovich
+  - minute: 56
+    type: goal
+    team: home
+    player: Vinko Medimorec
+    assist: Thomas Grøgaard
+  - minute: 60
+    type: substitution
+    team: away
+    player: Matias Belli Moldskred
+    playerOff: Olav Øby
+  - minute: 60
+    type: substitution
+    team: away
+    player: Vajebah Sakor
+    playerOff: Riki Alba
+  - minute: 62
+    type: substitution
+    team: home
+    player: David Snær Johannsson
+    playerOff: Marcus Rafferty
+  - minute: 71
+    type: substitution
+    team: away
+    player: Endre Osenbroch
+    playerOff: Artan Memedov
+  - minute: 80
+    type: substitution
+    team: away
+    player: Gullbrandur Øregaard
+    playerOff: Espen Hammer Berger
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: home
+    player: Eivind Strømsheim Kolve
+    playerOff: Paul Ngongo Iversen
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Tor Erik Valderhaug Larsen
+      - Stian Aarønes Holte
+      - Mads Nielsen
+      - Sam Rogers
+      - Kristoffer Nessø
+      - Marcus Rafferty
+      - Håkon Butli Hammer
+      - Janus Seehusen
+      - Thomas Grøgaard
+      - Paul Ngongo Iversen
+      - Claudio Braga
+    subs:
+      - Vinko Medimorec
+      - Sander Hestetun Kilen
+      - David Snær Johannsson
+      - Eivind Strømsheim Kolve
+      - Andreas Gülstorff
+      - John Kitolano
+      - Henrik Melland
+      - Martin Ramsland
+      - Noah Solskjær
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - Serigne Mbaye
+      - Mads Thorsøe Bager
+      - Eirik Asante Gayi
+      - Espen Hammer Berger
+      - Vuk Latinovich
+      - Haris Brkic
+      - Olav Øby
+      - Alwande Roaldsøy
+      - Daniel Braut
+      - Artan Memedov
+      - Riki Alba
+    subs:
+      - Matias Belli Moldskred
+      - Vajebah Sakor
+      - Endre Osenbroch
+      - Gullbrandur Øregaard
+      - Tord Flolid
+      - Herman Kleppa
+      - Isak Hjorteseth
+    coach: Steinar Nilsen
+stats:
+  home:
+    possession: 49
+    shots: 18
+    shotsOnTarget: 13
+    corners: 12
+  away:
+    possession: 51
+    shots: 15
+    shotsOnTarget: 5
+    corners: 6
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +166,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

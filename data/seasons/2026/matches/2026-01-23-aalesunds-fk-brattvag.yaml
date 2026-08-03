@@ -1,0 +1,42 @@
+id: 2026-01-23-aalesunds-fk-brattvag
+date: 2026-01-23
+dateConfidence: exact
+kickoff: 15:00
+status: played
+competition:
+  id: treningskamp
+  season: 2026
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: brattvag
+  score: 2
+  halfTimeScore: null
+venueId: sparebanken-more-arena
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-brattvag/pr57f8#5126246
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - venueId
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5126246"
+manual: []

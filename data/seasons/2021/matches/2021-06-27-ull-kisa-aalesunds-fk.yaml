@@ -11,13 +11,122 @@ competition:
 home:
   clubId: ull-kisa
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: jessheim-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 37
+    type: yellow_card
+    team: home
+    player: Jens Husebø
+  - minute: 47
+    type: yellow_card
+    team: home
+    player: Christian Aas
+  - minute: 59
+    type: substitution
+    team: home
+    player: Ole Breistøl
+    playerOff: Magnus Knudsen
+  - minute: 59
+    type: substitution
+    team: home
+    player: Robert Williams
+    playerOff: Stian Ringstad
+  - minute: 70
+    type: substitution
+    team: away
+    player: Mamadou Diaw
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 72
+    type: substitution
+    team: home
+    player: Mikkel Rakneberg
+    playerOff: Ole Sebastian Sundgot
+  - minute: 72
+    type: substitution
+    team: home
+    player: Sebastian Remme Berge
+    playerOff: Ole Kristian Langås
+  - minute: 76
+    type: substitution
+    team: away
+    player: Isak Dybvik
+    playerOff: Simen Bolkan Nordli
+  - minute: 80
+    type: yellow_card
+    team: home
+    player: Sebastian Remme Berge
+  - minute: 90
+    stoppage: 1
+    type: substitution
+    team: home
+    player: Sverre Martin Torp
+    playerOff: Henrik Kristiansen
+  - minute: 90
+    stoppage: 1
+    type: penalty_goal
+    team: away
+    player: Sigurd Haugen
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: away
+    player: Jonas Grønner
+    playerOff: Sigurd Haugen
+lineups:
+  home:
+    formation: 3-1-4-2
+    starters:
+      - Stefan Hagerup
+      - Jens Husebø
+      - Steffen Jenssen
+      - William Sundby
+      - Christian Aas
+      - Ole Kristian Langås
+      - Magnus Knudsen
+      - Henrik Kristiansen
+      - Stian Ringstad
+      - Sondre Sørløkk
+      - Ole Sebastian Sundgot
+    subs:
+      - Ole Breistøl
+      - Robert Williams
+      - Mikkel Rakneberg
+      - Sebastian Remme Berge
+      - Sverre Martin Torp
+      - Christoffer Gjertsen
+      - Edin Øy
+      - Petter Hokstad
+      - Sindre Engja Rindal
+    coach: Arild Sundgot
+  away:
+    formation: 4-3-3
+    starters:
+      - Michael Lansing
+      - Simen Rafn
+      - David Fällman
+      - Quint Jansen
+      - David Kristjan Olafsson
+      - Simen Bolkan Nordli
+      - Erlend Segberg
+      - Erikson Lima
+      - Kristoffer Ødemarksbakken
+      - Sigurd Haugen
+      - Torbjørn Kallevåg
+    subs:
+      - Mamadou Diaw
+      - Isak Dybvik
+      - Jonas Grønner
+      - Andreas Lie
+      - Jørgen Hatlehol
+      - Oscar Solnørdal
+      - Stian Aarønes Holte
+    coach: Lars Arne Nilsen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +142,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

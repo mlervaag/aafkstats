@@ -1,0 +1,196 @@
+id: 2026-05-20-aalesunds-fk-sk-brann
+date: 2026-05-20
+dateConfidence: exact
+kickoff: 20:00
+status: played
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 8
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: sk-brann
+  score: 1
+  halfTimeScore: 0
+venueId: color-line-stadion
+neutralVenue: false
+attendance: 5003
+referee: Joergen Haugen
+events:
+  - minute: 21
+    type: yellow_card
+    team: home
+    player: Marius Andresen
+  - minute: 27
+    type: substitution
+    team: home
+    player: Kristoffer Nessø
+    playerOff: Marius Andresen
+  - minute: 27
+    type: goal
+    team: home
+    player: Marcus Haagensen Reed
+  - minute: 43
+    type: substitution
+    team: away
+    player: Cheikh Mbacke Diop
+    playerOff: Thore Pedersen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Markus Haaland
+    playerOff: Martin Hellan
+  - minute: 53
+    type: yellow_card
+    team: away
+    player: Kristian Eriksen
+  - minute: 57
+    type: yellow_card
+    team: away
+    player: Niklas Jensen Wassberg
+  - minute: 68
+    type: substitution
+    team: away
+    player: Rabbi Matondo
+    playerOff: Jón Thorsteinsson
+  - minute: 68
+    type: substitution
+    team: away
+    player: Bård Finne
+    playerOff: Niklas Jensen Wassberg
+  - minute: 68
+    type: goal
+    team: away
+    player: Noah Holm
+    assist: Jón Thorsteinsson
+  - minute: 74
+    type: substitution
+    team: home
+    player: David Snær Johannsson
+    playerOff: Endre Osenbroch
+  - minute: 74
+    type: substitution
+    team: home
+    player: Henrik Melland
+    playerOff: Mathias Christensen
+  - minute: 83
+    type: substitution
+    team: away
+    player: Jonas Torsvik
+    playerOff: Joachim Soltvedt
+  - minute: 86
+    type: substitution
+    team: home
+    player: Elias Heggland Myrlid
+    playerOff: Marcus Haagensen Reed
+  - minute: 90
+    stoppage: 4
+    type: goal
+    team: home
+    player: Henrik Melland
+  - minute: 90
+    stoppage: 7
+    type: yellow_card
+    team: away
+    player: Noah Holm
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Kristoffer Klaesson
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Ólafur Gudmundsson
+      - Uba Charles
+      - Mathias Christensen
+      - Elias Hagen
+      - Endre Osenbroch
+      - Marius Andresen
+      - Kristian Hemmingsen Lonebu
+      - Marcus Haagensen Reed
+    subs:
+      - Kristoffer Nessø
+      - David Snær Johannsson
+      - Henrik Melland
+      - Elias Heggland Myrlid
+      - Tor Erik Valderhaug Larsen
+      - Emil Engqvist
+      - Håkon Butli Hammer
+      - Jakob Nyland Ørsahl
+      - Ivan Djantou
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - Simen Vidtun Nilsen
+      - Martin Hellan
+      - Thore Pedersen
+      - Vetle Dragsnes
+      - Joachim Soltvedt
+      - Kristall Ingason
+      - Kristian Eriksen
+      - Niklas Jensen Wassberg
+      - Ulrik Mathisen
+      - Noah Holm
+      - Jón Thorsteinsson
+    subs:
+      - Cheikh Mbacke Diop
+      - Markus Haaland
+      - Bård Finne
+      - Rabbi Matondo
+      - Jonas Torsvik
+      - Håkon Melås Hellesøy
+      - Rasmus Holten
+      - Felix Horn Myhre
+    coach: Freyr Alexandersson
+stats:
+  home:
+    possession: 42
+    shots: 25
+    shotsOnTarget: 5
+    corners: 4
+    fouls: 17
+    offsides: 1
+    xg: 3.57
+  away:
+    possession: 58
+    shots: 13
+    shotsOnTarget: 4
+    corners: 7
+    fouls: 15
+    offsides: 3
+    xg: 1.59
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-brann/2cr19k#5104905
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5104905"
+manual: []

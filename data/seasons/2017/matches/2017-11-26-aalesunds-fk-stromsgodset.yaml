@@ -11,13 +11,156 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: stromsgodset
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 6421
+referee: Kai Erik Steen
+events:
+  - minute: 12
+    type: goal
+    team: home
+    player: Mostafa Abdellaoue
+    assist: Sondre Brunstad Fet
+  - minute: 29
+    type: substitution
+    team: home
+    player: Aron Elis Thrándarson
+    playerOff: Bjørn Helge Riise
+  - minute: 38
+    type: yellow_card
+    team: home
+    player: Aron Elis Thrándarson
+  - minute: 39
+    type: goal
+    team: away
+    player: Bassel Jradi
+    assist: Tokmac Chol Nguen
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Athanassios Papazoglou
+  - minute: 54
+    type: goal
+    team: home
+    player: Edwin Gyasi
+    assist: Aron Elis Thrándarson
+  - minute: 74
+    type: yellow_card
+    team: home
+    player: Edwin Gyasi
+  - minute: 74
+    type: yellow_card
+    team: away
+    player: Bassel Jradi
+  - minute: 75
+    type: substitution
+    team: away
+    player: Pontus Engblom
+    playerOff: Francisco Junior
+  - minute: 77
+    type: substitution
+    team: home
+    player: Valmir Berisha
+    playerOff: Jørgen Hatlehol
+  - minute: 78
+    type: yellow_card
+    team: home
+    player: Daniel Gretarsson
+  - minute: 81
+    type: goal
+    team: away
+    player: Tokmac Chol Nguen
+    assist: Bassel Jradi
+  - minute: 82
+    type: substitution
+    team: away
+    player: Kristoffer Tokstad
+    playerOff: Tokmac Chol Nguen
+  - minute: 82
+    type: yellow_card
+    team: home
+    player: Fredrik Carlsen
+  - minute: 88
+    type: goal
+    team: away
+    player: Marcus Pedersen
+  - minute: 90
+    type: goal
+    team: home
+    player: Mostafa Abdellaoue
+    assist: Athanassios Papazoglou
+  - minute: 90
+    type: goal
+    team: home
+    player: Mostafa Abdellaoue
+    assist: Athanassios Papazoglou
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Daniel Gretarsson
+      - Vebjørn Hoff
+      - Jørgen Hatlehol
+      - Edwin Gyasi
+      - Fredrik Carlsen
+      - Bjørn Helge Riise
+      - Sondre Brunstad Fet
+      - Mostafa Abdellaoue
+      - Athanassios Papazoglou
+    subs:
+      - Aron Elis Thrándarson
+      - Valmir Berisha
+      - Anders Waagan
+      - Jan Lennart Urke
+      - Joakim Barstad
+      - Marlinho
+      - Mikkel Kirkeskov
+    coach: Trond Fredriksen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Espen Bugge Pettersen
+      - Lars-Christopher Vilsvik
+      - Jakob Glesnes
+      - Marius Høibråten
+      - Jonathan Parr
+      - Francisco Junior
+      - Henning Hauger
+      - Tokmac Chol Nguen
+      - Bassel Jradi
+      - Eirik Ulland Andersen
+      - Marcus Pedersen
+    subs:
+      - Pontus Engblom
+      - Kristoffer Tokstad
+      - Abdul-Basit Agouda
+      - Andreas Hoven
+      - Christian Sivodedov
+      - Mounir Hamoud
+      - Pål Vestly Heigre
+    coach: Tor Ole Skullerud
+stats:
+  home:
+    possession: 40
+    shots: 19
+    shotsOnTarget: 7
+    corners: 7
+    fouls: 11
+    offsides: 3
+  away:
+    possession: 60
+    shots: 15
+    shotsOnTarget: 5
+    corners: 12
+    fouls: 8
+    offsides: 4
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +176,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

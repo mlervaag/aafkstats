@@ -11,13 +11,156 @@ competition:
 home:
   clubId: sarpsborg-08
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: sarpsborg-stadion
 neutralVenue: false
-events: []
+attendance: 5435
+referee: Svein Tore Sinnes
+events:
+  - minute: 19
+    type: goal
+    team: home
+    player: Christopher Bonsu Baah
+    assist: Serge-Junior Ngouali
+  - minute: 36
+    type: goal
+    team: home
+    player: Joachim Soltvedt
+    assist: Simon Tibbling
+  - minute: 39
+    type: goal
+    team: away
+    player: Isaac Atanga
+    assist: Erlend Segberg
+  - minute: 58
+    type: yellow_card
+    team: away
+    player: David Fällman
+  - minute: 67
+    type: substitution
+    team: away
+    player: Markus Seehusen Karlsbakk
+    playerOff: Kasper Lunding
+  - minute: 67
+    type: substitution
+    team: away
+    player: Bjørn Martin Kristensen
+    playerOff: Moses Ebiye
+  - minute: 68
+    type: goal
+    team: home
+    player: Bjørn Inge Utvik
+    assist: Joachim Soltvedt
+  - minute: 70
+    type: substitution
+    team: home
+    player: Kristian Fardal Opseth
+    playerOff: Simon Tibbling
+  - minute: 70
+    type: substitution
+    team: home
+    player: Victor Torp
+    playerOff: Jeppe Andersen
+  - minute: 78
+    type: substitution
+    team: away
+    player: Kristoffer Ødemarksbakken
+    playerOff: Isaac Atanga
+  - minute: 80
+    type: substitution
+    team: home
+    player: Martin Høyland
+    playerOff: Ramon-Pascal Lundqvist
+  - minute: 80
+    type: substitution
+    team: home
+    player: Steffen Lie Skålevik
+    playerOff: Christopher Bonsu Baah
+  - minute: 86
+    type: substitution
+    team: away
+    player: Trace Murray
+    playerOff: John Kitolano
+  - minute: 89
+    type: substitution
+    team: home
+    player: Martin Hoel Andersen
+    playerOff: Mikkel Maigaard
+  - minute: 90
+    stoppage: 1
+    type: yellow_card
+    team: home
+    player: Steffen Lie Skålevik
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Anders Kristiansen
+      - Eirik Wichne
+      - Bjørn Inge Utvik
+      - Anton Skipper
+      - Joachim Soltvedt
+      - Serge-Junior Ngouali
+      - Jeppe Andersen
+      - Christopher Bonsu Baah
+      - Mikkel Maigaard
+      - Simon Tibbling
+      - Ramon-Pascal Lundqvist
+    subs:
+      - Kristian Fardal Opseth
+      - Victor Torp
+      - Martin Høyland
+      - Steffen Lie Skålevik
+      - Martin Hoel Andersen
+      - Gustav Mogensen
+      - Leander Øy
+      - Markus Olsvik Welinder
+      - Sander Christiansen
+    coach: Stefan Billborn
+  away:
+    formation: 3-4-2-1
+    starters:
+      - Sten Michael Grytebust
+      - Ole Kolskogen
+      - David Fällman
+      - Alexander Juel Andersen
+      - Alexander Munksgaard
+      - Amidou Diop
+      - Erlend Segberg
+      - John Kitolano
+      - Isaac Atanga
+      - Moses Ebiye
+      - Kasper Lunding
+    subs:
+      - Bjørn Martin Kristensen
+      - Markus Seehusen Karlsbakk
+      - Kristoffer Ødemarksbakken
+      - Trace Murray
+      - Alexander Stølås
+      - Jeppe Arctander Moe
+      - Michael Lansing
+    coach: Marius Bøe
+stats:
+  home:
+    possession: 61
+    shots: 20
+    shotsOnTarget: 4
+    corners: 11
+    fouls: 5
+    offsides: 1
+    xg: 1.22
+  away:
+    possession: 39
+    shots: 13
+    shotsOnTarget: 2
+    corners: 7
+    fouls: 9
+    offsides: 0
+    xg: 0.89
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +176,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

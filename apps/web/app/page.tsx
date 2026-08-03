@@ -15,7 +15,8 @@ export default function Home() {
           <h1>{totals.matches} AaFK-kamper.<br />Ett sted å lete.</h1>
           <p className="lede">
             Finn en kamp mens du skriver, eller still et spørsmål med vanlige ord.
-            Arkivet dekker foreløpig seriespillet fra 2011 til 2025.
+            Arkivet dekker foreløpig serie og cup fra {totals.first?.slice(0, 4) ?? "–"} til{" "}
+            {totals.last?.slice(0, 4) ?? "–"}.
           </p>
         </div>
         <dl className="hero-stats">

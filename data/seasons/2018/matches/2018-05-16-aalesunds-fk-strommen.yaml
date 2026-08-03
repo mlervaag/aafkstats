@@ -11,13 +11,107 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: strommen
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 14
+    type: goal
+    team: away
+    player: Sverre Bjørkkjær
+  - minute: 24
+    type: substitution
+    team: home
+    player: Robert Sandnes
+    playerOff: Adam Örn Arnarson
+  - minute: 35
+    type: substitution
+    team: home
+    player: Pape Habib Gueye
+    playerOff: Torbjørn Agdestein
+  - minute: 41
+    type: goal
+    team: home
+    player: Pape Habib Gueye
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Sindre Mauritz-Hansen
+  - minute: 45
+    type: goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+    assist: Sondre Brunstad Fet
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Mustafa Achrifi
+  - minute: 50
+    type: goal
+    team: away
+    player: Emil Sildnes
+  - minute: 62
+    type: yellow_card
+    team: away
+    player: Petter Olsen
+  - minute: 73
+    type: substitution
+    team: away
+    player: Magnus Solum
+    playerOff: Petter Olsen
+  - minute: 83
+    type: substitution
+    team: away
+    player: Mathias Blårud
+    playerOff: Mustafa Achrifi
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Tarjei Aase Omenås
+      - Kaj Ramsteijn
+      - Oddbjørn Lie
+      - Sonni Nattestad
+      - Adam Örn Arnarson
+      - Sondre Brunstad Fet
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Jørgen Hatlehol
+      - Torbjørn Agdestein
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Robert Sandnes
+      - Pape Habib Gueye
+      - Anders Waagan
+      - Emil Solnørdal
+      - Fredrik Opdahl
+      - Håvard Breivik
+    coach: Lars Bohinen
+  away:
+    formation: 4-4-2
+    starters:
+      - Oumar Diaby
+      - Sverre Bjørkkjær
+      - Kristian Jahr
+      - Mansour Gueye
+      - Öystein Vestvatn
+      - Petter Olsen
+      - Anders Dieserud
+      - Mustafa Achrifi
+      - Emil Sildnes
+      - Sindre Mauritz-Hansen
+      - Martin Trøen
+    subs:
+      - Magnus Solum
+      - Mathias Blårud
+      - Pål Steffen Andresen
+      - Sebastian Pedersen
+      - Stian Bolstad
+    coach: Espen Olsen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +127,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

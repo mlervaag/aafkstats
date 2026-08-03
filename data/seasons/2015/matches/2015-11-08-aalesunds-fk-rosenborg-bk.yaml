@@ -11,13 +11,115 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: rosenborg-bk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 8287
+events:
+  - minute: 61
+    type: yellow_card
+    team: home
+    player: Aron Elis Thrándarson
+  - minute: 64
+    type: substitution
+    team: away
+    player: Tobias P. Mikkelsen
+    playerOff: Morten Gamst Pedersen
+  - minute: 65
+    type: substitution
+    team: home
+    player: Sondre Brunstad Fet
+    playerOff: Henrik Rørvik Bjørdal
+  - minute: 67
+    type: yellow_card
+    team: home
+    player: Jo Nymo Matland
+  - minute: 72
+    type: substitution
+    team: away
+    player: John Hou Sæther
+    playerOff: Magnus Stamnestrø
+  - minute: 72
+    type: yellow_card
+    team: away
+    player: Mike Jensen
+  - minute: 73
+    type: substitution
+    team: home
+    player: Mostafa Abdellaoue
+    playerOff: Magne Hoseth
+  - minute: 73
+    type: substitution
+    team: home
+    player: Daniel Gretarsson
+    playerOff: Mikael Dyrestam
+  - minute: 90
+    type: penalty_goal
+    team: away
+    player: Mike Jensen
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Bjørn Helge Riise
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Edvard Skagestad
+      - Mikael Dyrestam
+      - Jo Nymo Matland
+      - Henrik Rørvik Bjørdal
+      - Vebjørn Hoff
+      - Bjørn Helge Riise
+      - Aron Elis Thrándarson
+      - Magne Hoseth
+      - Leke James
+    subs:
+      - Sondre Brunstad Fet
+      - Daniel Gretarsson
+      - Mostafa Abdellaoue
+      - Andreas Lie
+      - Marlinho
+      - Tero Mäntylä
+      - Thomas Skog Martinussen
+    coach: Trond Fredriksen
+  away:
+    formation: 4-3-3
+    starters:
+      - André Hansen
+      - Jonas Svensson
+      - Jørgen Skjelvik
+      - Johan Lædre Bjørdal
+      - Fredrik Midtsjø
+      - Mike Jensen
+      - Anders Konradsen
+      - Magnus Stamnestrø
+      - Yann-Erik de Lanlay
+      - Matthias Vilhjalmsson
+      - Morten Gamst Pedersen
+    subs:
+      - Tobias P. Mikkelsen
+      - John Hou Sæther
+      - Alexander Lund Hansen
+      - Erlend Dahl Reitan
+    coach: Kåre Ingebrigtsen
+stats:
+  home:
+    possession: 53
+    shots: 9
+    shotsOnTarget: 3
+    corners: 7
+  away:
+    possession: 47
+    shots: 16
+    shotsOnTarget: 6
+    corners: 4
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +135,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

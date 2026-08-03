@@ -11,13 +11,124 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: sarpsborg-08
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 6478
+events:
+  - minute: 30
+    type: own_goal
+    team: away
+    player: Sten Michael Grytebust
+  - minute: 56
+    type: goal
+    team: home
+    player: Leke James
+    assist: Mostafa Abdellaoue
+  - minute: 59
+    type: substitution
+    team: home
+    player: Torbjørn Grytten
+    playerOff: Michael Barrantes
+  - minute: 65
+    type: substitution
+    team: away
+    player: Bojan Zajic
+    playerOff: Henrik Ojamaa
+  - minute: 70
+    type: yellow_card
+    team: home
+    player: Tero Mäntylä
+  - minute: 71
+    type: substitution
+    team: home
+    player: Carl Björk
+    playerOff: Mostafa Abdellaoue
+  - minute: 73
+    type: substitution
+    team: away
+    player: Martin Wiig
+    playerOff: Tom Erik Breive
+  - minute: 78
+    type: yellow_card
+    team: away
+    player: Bojan Zajic
+  - minute: 84
+    type: substitution
+    team: home
+    player: Jo Nymo Matland
+    playerOff: Tero Mäntylä
+  - minute: 86
+    type: goal
+    team: home
+    player: Peter Orry Larsen
+    assist: Henrik Rørvik Bjørdal
+  - minute: 90
+    type: goal
+    team: away
+    player: Liridon Kalludra
+    assist: Claes Kronberg
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Mikael Dyrestam
+      - Tero Mäntylä
+      - Oddbjørn Lie
+      - Michael Barrantes
+      - Peter Orry Larsen
+      - Sakari Mattila
+      - Henrik Rørvik Bjørdal
+      - Mostafa Abdellaoue
+      - Leke James
+    subs:
+      - Torbjørn Grytten
+      - Carl Björk
+      - Jo Nymo Matland
+      - Andreas Lie
+      - Daniel Gretarsson
+      - Edvard Skagestad
+      - Vebjørn Hoff
+    coach: Trond Fredriksen
+  away:
+    formation: 4-4-2
+    starters:
+      - DuWayne Kerr
+      - Claes Kronberg
+      - Ole Heieren Hansen
+      - Andreas Nordvik
+      - Martin Thømt Jensen
+      - Kristoffer Tokstad
+      - Tom Erik Breive
+      - Anders Trondsen
+      - Liridon Kalludra
+      - Amin Askar
+      - Henrik Ojamaa
+    subs:
+      - Bojan Zajic
+      - Martin Wiig
+      - Kamer Qaka
+      - Olav Øby
+      - Oliver Feldballe
+      - Quentin Westberg
+    coach: Geir Bakke
+stats:
+  home:
+    possession: 52
+    shots: 8
+    shotsOnTarget: 4
+    corners: 4
+  away:
+    possession: 48
+    shots: 20
+    shotsOnTarget: 7
+    corners: 6
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +144,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,93 @@ competition:
 home:
   clubId: oygarden-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: aagotnes-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 32
+    type: goal
+    team: home
+    player: Ståle Steen Sæthre
+    assist: Bjarte Haugsdal
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Johnny Furdal
+  - minute: 46
+    type: substitution
+    team: away
+    player: Pape Habib Gueye
+    playerOff: Anders Waagan
+  - minute: 75
+    type: substitution
+    team: home
+    player: Sondre Liseth
+    playerOff: Alexander Dang
+  - minute: 84
+    type: substitution
+    team: away
+    player: Robert Sandnes
+    playerOff: Sondre Brunstad Fet
+  - minute: 85
+    type: substitution
+    team: home
+    player: Bendik Torset
+    playerOff: Petter Martinsen
+  - minute: 89
+    type: yellow_card
+    team: home
+    player: Haris Cirak
+lineups:
+  home:
+    formation: 3-5-1-1
+    starters:
+      - Egil Selvik
+      - Bjarte Haugsdal
+      - Ståle Steen Sæthre
+      - Kristoffer Bidne
+      - Erlend Hellevik Larsen
+      - Kristoffer Nesse Stephensen
+      - Haris Cirak
+      - Peter Sørensen Nergaard
+      - Petter Martinsen
+      - Johnny Furdal
+      - Alexander Dang
+    subs:
+      - Sondre Liseth
+      - Bendik Torset
+      - Andreas Rødsand
+      - Erlend Johansen
+      - Joachim Edvardsen
+      - Mads Bjørsvik Songve
+      - Morten Bjørlo
+    coach: Steffen Landro
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Sonni Nattestad
+      - Oddbjørn Lie
+      - Adam Örn Arnarson
+      - Erikson Lima
+      - Fredrik Carlsen
+      - Sondre Brunstad Fet
+      - Jørgen Hatlehol
+      - Anders Waagan
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Pape Habib Gueye
+      - Robert Sandnes
+      - Emil Solnørdal
+      - Jørgen Fylling
+      - Tarjei Aase Omenås
+      - Vemund Hole Vik
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +113,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

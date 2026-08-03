@@ -11,13 +11,157 @@ competition:
 home:
   clubId: egersund
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: b-g-banen
 neutralVenue: false
-events: []
+referee: Herman Holthe
+events:
+  - minute: 26
+    type: yellow_card
+    team: away
+    player: Simen Haram
+  - minute: 30
+    type: yellow_card
+    team: away
+    player: Håkon Butli Hammer
+  - minute: 37
+    type: substitution
+    team: away
+    player: Philip Sandvik Aukland
+    playerOff: Simen Haram
+  - minute: 43
+    type: yellow_card
+    team: away
+    player: Mathias Christensen
+  - minute: 46
+    type: substitution
+    team: away
+    player: John Kitolano
+    playerOff: Philip Sandvik Aukland
+  - minute: 51
+    type: yellow_card
+    team: away
+    player: Paul Ngongo Iversen
+  - minute: 59
+    type: goal
+    team: home
+    player: Horenus Tadesse
+  - minute: 62
+    type: goal
+    team: away
+    player: Henrik Melland
+    assist: Mathias Christensen
+  - minute: 66
+    type: yellow_card
+    team: home
+    player: Bjørn Mæland
+  - minute: 73
+    type: yellow_card
+    team: home
+    player: Horenus Tadesse
+  - minute: 74
+    type: substitution
+    team: home
+    player: Adrian Bergersen
+    playerOff: Martin Håheim Elveseter
+  - minute: 74
+    type: substitution
+    team: home
+    player: Justin Salmon
+    playerOff: Chris Sleveland
+  - minute: 74
+    type: penalty_goal
+    team: away
+    player: Henrik Melland
+  - minute: 78
+    type: goal
+    team: home
+    player: Adrian Bergersen
+    assist: Justin Salmon
+  - minute: 79
+    type: substitution
+    team: away
+    player: Kristian Hemmingsen Lonebu
+    playerOff: Elias Heggland Myrlid
+  - minute: 88
+    type: substitution
+    team: home
+    player: Kristian Eggen
+    playerOff: Adrian Rogulj
+  - minute: 88
+    type: substitution
+    team: home
+    player: Nicolaj Tornvig
+    playerOff: Herman Kleppa
+  - minute: 90
+    stoppage: 5
+    type: red_card
+    team: home
+    player: Nicolas Pignatel Jenssen
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Andreas Hermansen
+      - Herman Kleppa
+      - Nicolas Pignatel Jenssen
+      - Isak Jönsson
+      - Bjørn Mæland
+      - Horenus Tadesse
+      - Paya Pichkah
+      - Mathias Sauer
+      - Chris Sleveland
+      - Martin Håheim Elveseter
+      - Adrian Rogulj
+    subs:
+      - Justin Salmon
+      - Adrian Bergersen
+      - Kristian Eggen
+      - Nicolaj Tornvig
+      - Peder Nygaard Klausen
+      - Phillip Hovland
+      - Sammi Davis
+      - Ingvald Halgunset
+      - Mustapha Abu
+    coach: Endre Eide
+  away:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Olafur Gudmundsson
+      - Kristoffer Nessø
+      - Henrik Melland
+      - Håkon Butli Hammer
+      - Mathias Christensen
+      - Jakob Nyland Ørsahl
+      - Elias Heggland Myrlid
+      - Paul Ngongo Iversen
+    subs:
+      - Philip Sandvik Aukland
+      - John Kitolano
+      - Kristian Hemmingsen Lonebu
+      - Tor Erik Valderhaug Larsen
+      - Marius Andresen
+      - Frederik Heiselberg
+      - Tellef Brattberg Ytterland
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 45
+    shots: 9
+    shotsOnTarget: 4
+    corners: 5
+  away:
+    possession: 55
+    shots: 11
+    shotsOnTarget: 5
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +177,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

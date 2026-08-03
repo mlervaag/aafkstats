@@ -1,0 +1,127 @@
+id: 2021-09-22-ranheim-aalesunds-fk
+date: 2021-09-22
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2021
+  stage: regular_season
+  round: 3
+home:
+  clubId: ranheim
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+penaltyShootout:
+  home: 1
+  away: 3
+venueId: extra-arena
+neutralVenue: false
+attendance: 650
+events:
+  - minute: 15
+    type: goal
+    team: home
+    player: Elias Hoff Melkersen
+  - minute: 54
+    type: yellow_card
+    team: away
+    player: Erikson Lima
+  - minute: 54
+    type: yellow_card
+    team: home
+    player: Waren Kamanzi
+  - minute: 76
+    type: yellow_card
+    team: home
+    player: Vegard Østraat Erlien
+  - minute: 88
+    type: yellow_card
+    team: home
+    player: Erik Tønne
+  - minute: 90
+    type: goal
+    team: away
+    player: Mamadou Diaw
+lineups:
+  home:
+    formation: 4-3-1-2
+    starters:
+      - Magnus Lenes
+      - Waren Kamanzi
+      - Daniel Kvande
+      - Mikkel Konradsen Ceide
+      - Erik Tønne
+      - Mads Reginiussen
+      - Jakob Tromsdal
+      - Adria Mateo
+      - Simon Marklund
+      - Elias Hoff Melkersen
+      - Marcus Mehnert
+    subs:
+      - Adrian Bartel
+      - Christian Rismark
+      - Edvard Sjoli
+      - Erland Tangvik
+      - Filip Brattbakk
+      - Michael Karlsen
+      - Ruben Kristensen Alte
+      - Sivert Solli
+      - Vegard Østraat Erlien
+    coach: Hugo Pereira
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Jørgen Hatlehol
+      - Kristoffer Barmen
+      - David Fällman
+      - David Kristjan Olafsson
+      - Erikson Lima
+      - Erlend Segberg
+      - Isak Dybvik
+      - Torbjørn Kallevåg
+      - Simen Bolkan Nordli
+      - Sigurd Haugen
+    subs:
+      - Enock Mwimba
+      - Mamadou Diaw
+      - Muamer Brajanac
+      - Niklas Castro
+      - Nikolai Hopland
+      - Quint Jansen
+      - Simen Rafn
+    coach: Lars Arne Nilsen
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/ranheim-vs-aalesund/1up0ag#3689988
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - penaltyShootout
+      - events
+      - lineups
+    note: "Kildestatus: Pen"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3689988"
+manual: []

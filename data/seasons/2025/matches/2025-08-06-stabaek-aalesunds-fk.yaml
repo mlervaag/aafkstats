@@ -11,13 +11,150 @@ competition:
 home:
   clubId: stabaek
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: nadderud-stadion
 neutralVenue: false
-events: []
+attendance: 2368
+referee: Ole-Alexander Ekeli Valen
+events:
+  - minute: 37
+    type: goal
+    team: home
+    player: Bassekou Diabaté
+    assist: Rasmus Eggen Vinge
+  - minute: 46
+    type: substitution
+    team: away
+    player: Marius Andresen
+    playerOff: Jakob Nyland Ørsahl
+  - minute: 52
+    type: substitution
+    team: away
+    player: Olafur Gudmundsson
+    playerOff: Simen Haram
+  - minute: 52
+    type: substitution
+    team: away
+    player: Henrik Melland
+    playerOff: David Snær Johannsson
+  - minute: 52
+    type: substitution
+    team: home
+    player: Sebastian Olderheim
+    playerOff: Rasmus Eggen Vinge
+  - minute: 68
+    type: substitution
+    team: away
+    player: Kristian Hemmingsen Lonebu
+    playerOff: Elias Heggland Myrlid
+  - minute: 76
+    type: substitution
+    team: home
+    player: Abu Bawa
+    playerOff: Kristian Lønstad Onsrud
+  - minute: 76
+    type: substitution
+    team: home
+    player: Bossman Debra
+    playerOff: Bassekou Diabaté
+  - minute: 78
+    type: yellow_card
+    team: home
+    player: Bossman Debra
+  - minute: 79
+    type: goal
+    team: away
+    player: Frederik Heiselberg
+    assist: Mathias Christensen
+  - minute: 85
+    type: goal
+    team: away
+    player: Håkon Butli Hammer
+    assist: Håkon Butli Hammer
+  - minute: 89
+    type: yellow_card
+    team: away
+    player: Sten Michael Grytebust
+  - minute: 90
+    stoppage: 1
+    type: yellow_card
+    team: away
+    player: Aleksander Hammer Kjelsen
+  - minute: 90
+    stoppage: 2
+    type: yellow_card
+    team: home
+    player: Magnus Lankhof-Dahlby
+  - minute: 90
+    stoppage: 3
+    type: substitution
+    team: home
+    player: Kasper Pedersen
+    playerOff: Martin Hellan
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Magnus Smelhus Sjøeng
+      - Martin Hellan
+      - Olav Lilleøren Veum
+      - Nicolai Næss
+      - Aleksander Andresen
+      - Aleksa Matic
+      - Emmanuel Danso
+      - Kristian Lønstad Onsrud
+      - Magnus Lankhof-Dahlby
+      - Bassekou Diabaté
+      - Rasmus Eggen Vinge
+    subs:
+      - Sebastian Olderheim
+      - Abu Bawa
+      - Bossman Debra
+      - Kasper Pedersen
+      - Kimi Loekkevik
+      - Karsten Arman Ekorness
+      - Mads Nielsen
+      - William Wendt
+      - Herman Geelmuyden
+    coach: Bjørn Helge Riise
+  away:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Jakob Nyland Ørsahl
+      - Kristoffer Nessø
+      - David Snær Johannsson
+      - Håkon Butli Hammer
+      - Mathias Christensen
+      - John Kitolano
+      - Frederik Heiselberg
+      - Elias Heggland Myrlid
+    subs:
+      - Marius Andresen
+      - Olafur Gudmundsson
+      - Henrik Melland
+      - Kristian Hemmingsen Lonebu
+      - Tor Erik Valderhaug Larsen
+      - Erik Frøysa
+      - Jørgen Bøe
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 49
+    shots: 13
+    shotsOnTarget: 3
+    corners: 3
+  away:
+    possession: 51
+    shots: 7
+    shotsOnTarget: 4
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +170,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

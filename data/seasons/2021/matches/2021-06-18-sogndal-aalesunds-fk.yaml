@@ -11,13 +11,142 @@ competition:
 home:
   clubId: sogndal
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: fosshaugane-campus
 neutralVenue: false
-events: []
+events:
+  - minute: 14
+    type: goal
+    team: home
+    player: Mansour Gueye
+    assist: Per Egil Flo
+  - minute: 32
+    type: yellow_card
+    team: home
+    player: Martin Roseth
+  - minute: 43
+    type: yellow_card
+    team: home
+    player: Axel Kryger
+  - minute: 54
+    type: yellow_card
+    team: away
+    player: Sigurd Haugen
+  - minute: 61
+    type: yellow_card
+    team: home
+    player: Daniel Eid
+  - minute: 72
+    type: substitution
+    team: away
+    player: Jørgen Hatlehol
+    playerOff: David Kristjan Olafsson
+  - minute: 72
+    type: substitution
+    team: away
+    player: Erikson Lima
+    playerOff: Torbjørn Kallevåg
+  - minute: 73
+    type: substitution
+    team: home
+    player: Sivert Heggheim Mannsverk
+    playerOff: Kristoffer Valsvik
+  - minute: 76
+    type: yellow_card
+    team: away
+    player: Erikson Lima
+  - minute: 81
+    type: substitution
+    team: home
+    player: Endre Kupen
+    playerOff: Akor Adams
+  - minute: 85
+    type: substitution
+    team: away
+    player: Isak Dybvik
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 85
+    type: substitution
+    team: away
+    player: Jonas Grønner
+    playerOff: David Fällman
+  - minute: 89
+    type: goal
+    team: home
+    player: Per Egil Flo
+    assist: Kristoffer Nessø
+  - minute: 90
+    stoppage: 1
+    type: substitution
+    team: home
+    player: Andreas Hoven
+    playerOff: Kristoffer Nessø
+  - minute: 90
+    stoppage: 1
+    type: substitution
+    team: home
+    player: Tobias Bjørnebye
+    playerOff: Axel Kryger
+  - minute: 90
+    stoppage: 3
+    type: yellow_card
+    team: home
+    player: Sivert Heggheim Mannsverk
+lineups:
+  home:
+    formation: 3-4-3
+    starters:
+      - Serigne Mbaye
+      - Tord Johnsen Salte
+      - Mansour Gueye
+      - Martin Roseth
+      - Daniel Eid
+      - Kristoffer Valsvik
+      - Axel Kryger
+      - Per Egil Flo
+      - Akor Adams
+      - Kristoffer Hoven
+      - Kristoffer Nessø
+    subs:
+      - Sivert Heggheim Mannsverk
+      - Endre Kupen
+      - Andreas Hoven
+      - Tobias Bjørnebye
+      - Adrian Solberg
+      - Eirik Lereng
+      - Johan Bakke
+      - Noah Solskjær
+      - Renze Fij
+    coach: Eirik Bakke
+  away:
+    formation: 4-3-3
+    starters:
+      - Michael Lansing
+      - Simen Rafn
+      - Quint Jansen
+      - David Fällman
+      - David Kristjan Olafsson
+      - Torbjørn Kallevåg
+      - Erlend Segberg
+      - Simen Bolkan Nordli
+      - Kristoffer Ødemarksbakken
+      - Niklas Castro
+      - Sigurd Haugen
+    subs:
+      - Erikson Lima
+      - Jørgen Hatlehol
+      - Isak Dybvik
+      - Jonas Grønner
+      - Andreas Lie
+      - Kristoffer Strand Ødven
+      - Mamadou Diaw
+      - Nikolai Hopland
+      - Oscar Solnørdal
+    coach: Lars Arne Nilsen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +162,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

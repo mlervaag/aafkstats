@@ -11,13 +11,135 @@ competition:
 home:
   clubId: odds-ballklubb
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: skagerak-arena
 neutralVenue: false
-events: []
+attendance: 7067
+referee: Espen Eskaas
+events:
+  - minute: 15
+    type: goal
+    team: home
+    player: Olivier Occean
+    assist: Espen Ruud
+  - minute: 30
+    type: yellow_card
+    team: away
+    player: Bjørn Helge Riise
+  - minute: 35
+    type: substitution
+    team: away
+    player: Fredrik Carlsen
+    playerOff: Vebjørn Hoff
+  - minute: 38
+    type: goal
+    team: home
+    player: Chukwuma Akabueze
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Franck Boli
+  - minute: 46
+    type: substitution
+    team: away
+    player: Edwin Gyasi
+    playerOff: Mostafa Abdellaoue
+  - minute: 47
+    type: goal
+    team: away
+    player: Edwin Gyasi
+    assist: Bjørn Helge Riise
+  - minute: 59
+    type: goal
+    team: home
+    player: Olivier Occean
+    assist: Thomas Grøgaard
+  - minute: 67
+    type: goal
+    team: home
+    player: Rafik Zekhnini
+    assist: Chukwuma Akabueze
+  - minute: 74
+    type: substitution
+    team: home
+    player: Ole Jørgen Halvorsen
+    playerOff: Chukwuma Akabueze
+  - minute: 74
+    type: substitution
+    team: home
+    player: Joakim Våge Nilsen
+    playerOff: Oliver Berg
+  - minute: 79
+    type: substitution
+    team: away
+    player: Marlinho
+    playerOff: Peter Orry Larsen
+  - minute: 89
+    type: substitution
+    team: home
+    player: Vegard Bergan
+    playerOff: Rafik Zekhnini
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sondre Løvseth Rossbach
+      - Espen Ruud
+      - Thomas Grøgaard
+      - Fredrik Semb Berge
+      - Steffen Hagen
+      - Oliver Berg
+      - Fredrik Nordkvelle
+      - Fredrik Oldrup Jensen
+      - Olivier Occean
+      - Rafik Zekhnini
+      - Chukwuma Akabueze
+    subs:
+      - Joakim Våge Nilsen
+      - Ole Jørgen Halvorsen
+      - Vegard Bergan
+      - Ardian Gashi
+      - Henrik Kjelsrud Johansen
+      - Lars Kristian Eriksen
+      - Viljar Røsholt Myhra
+    coach: Dag-Eilev Fagermo
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Mikkel Kirkeskov
+      - Oddbjørn Lie
+      - Adam Örn Arnarson
+      - Edvard Skagestad
+      - Peter Orry Larsen
+      - Vebjørn Hoff
+      - Bjørn Helge Riise
+      - Franck Boli
+      - Aron Elis Thrándarson
+      - Mostafa Abdellaoue
+    subs:
+      - Fredrik Carlsen
+      - Edwin Gyasi
+      - Marlinho
+      - Daniel Gretarsson
+      - Lars Cramer
+      - Sondre Brunstad Fet
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 58
+    shots: 19
+    shotsOnTarget: 11
+    corners: 6
+  away:
+    possession: 42
+    shots: 10
+    shotsOnTarget: 2
+    corners: 3
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +155,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

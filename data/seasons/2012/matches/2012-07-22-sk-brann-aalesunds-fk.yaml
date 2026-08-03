@@ -11,13 +11,106 @@ competition:
 home:
   clubId: sk-brann
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: brann-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 20
+    type: yellow_card
+    team: home
+    player: Rodolph Austin
+  - minute: 35
+    type: goal
+    team: home
+    player: Rodolph Austin
+  - minute: 46
+    type: substitution
+    team: away
+    player: Tremaine Stewart
+    playerOff: Christian Myklebust
+  - minute: 56
+    type: substitution
+    team: home
+    player: Fredrik Nordkvelle
+    playerOff: Erik Mjelde
+  - minute: 64
+    type: substitution
+    team: away
+    player: Sander Post
+    playerOff: Kjell Rune Sellin
+  - minute: 75
+    type: yellow_card
+    team: away
+    player: Demar Phillips
+  - minute: 76
+    type: substitution
+    team: away
+    player: Lars Fuhre
+    playerOff: Demar Phillips
+  - minute: 84
+    type: goal
+    team: away
+    player: Lars Fuhre
+  - minute: 88
+    type: goal
+    team: home
+    player: Chukwuma Akabueze
+  - minute: 90
+    type: substitution
+    team: home
+    player: Kristoffer Larsen
+    playerOff: Chukwuma Akabueze
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Piotr Leciejewski
+      - Birkir Sævarsson
+      - Zsolt Korcsmár
+      - Markus Jonsson
+      - Erdin Demir
+      - Rodolph Austin
+      - Tomasz Sokolowski
+      - Amin Askar
+      - Erik Mjelde
+      - Chukwuma Akabueze
+      - Kim Ojo
+    subs:
+      - Fredrik Nordkvelle
+      - Kristoffer Larsen
+      - Fredrik Haugen
+      - Hassan El Fakiri
+      - Jørgen Mohus
+      - Kristoffer Barmen
+      - Lars Grorud
+    coach: Rune Skarsfjord
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Daniel Arnefjord
+      - Jonatan Tollås Nation
+      - Jo Nymo Matland
+      - Jason Morrison
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Demar Phillips
+      - Christian Myklebust
+      - Kjell Rune Sellin
+    subs:
+      - Tremaine Stewart
+      - Sander Post
+      - Lars Fuhre
+      - Edvard Skagestad
+      - Fredrik Carlsen
+      - Hugues Wembangomo
+      - Ole Christian Rørvik
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +126,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

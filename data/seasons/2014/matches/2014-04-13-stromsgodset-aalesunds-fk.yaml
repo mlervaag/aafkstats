@@ -11,13 +11,126 @@ competition:
 home:
   clubId: stromsgodset
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: marienlyst-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Daniel Arnefjord
+  - minute: 60
+    type: yellow_card
+    team: home
+    player: Marius Høibråten
+  - minute: 61
+    type: substitution
+    team: away
+    player: Torbjørn Grytten
+    playerOff: Fredrik Carlsen
+  - minute: 65
+    type: substitution
+    team: home
+    player: Thomas Sørum
+    playerOff: Muhamed Keita
+  - minute: 72
+    type: substitution
+    team: home
+    player: Martin Ødegaard
+    playerOff: Peter Kovacs
+  - minute: 73
+    type: yellow_card
+    team: home
+    player: Lars Sætra
+  - minute: 77
+    type: goal
+    team: home
+    player: Øyvind Storflor
+  - minute: 79
+    type: substitution
+    team: away
+    player: Sakari Mattila
+    playerOff: Peter Orry Larsen
+  - minute: 79
+    type: substitution
+    team: away
+    player: Tor Hogne Aarøy
+    playerOff: Demar Phillips
+  - minute: 85
+    type: substitution
+    team: home
+    player: Patrick Olsen
+    playerOff: Martin Rønning Ovenstad
+  - minute: 90
+    type: goal
+    team: home
+    player: Thomas Sørum
+    assist: Martin Ødegaard
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Adam Larsen Kwarasey
+      - Lars-Christopher Vilsvik
+      - Jarl André Storbæk
+      - Lars Sætra
+      - Marius Høibråten
+      - Mohammed Abu
+      - Martin Rønning Ovenstad
+      - Øyvind Storflor
+      - Gustav Wikheim
+      - Muhamed Keita
+      - Peter Kovacs
+    subs:
+      - Thomas Sørum
+      - Martin Ødegaard
+      - Patrick Olsen
+      - Iver Fossum
+      - Sead Ramovic
+      - Thomas Lehne Olsen
+      - Tokmac Chol Nguen
+    coach: Ronny Deila
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Jonatan Tollås Nation
+      - Jo Nymo Matland
+      - Fredrik Carlsen
+      - Fredrik Ulvestad
+      - Peter Orry Larsen
+      - Demar Phillips
+      - Michael Barrantes
+      - Leke James
+    subs:
+      - Torbjørn Grytten
+      - Sakari Mattila
+      - Tor Hogne Aarøy
+      - Andreas Lie
+      - Henrik Rørvik Bjørdal
+      - Oddbjørn Lie
+    coach: Jan Jönsson
+stats:
+  home:
+    possession: 57
+    shots: 16
+    shotsOnTarget: 9
+    corners: 6
+    fouls: 16
+    offsides: 3
+  away:
+    possession: 43
+    shots: 8
+    shotsOnTarget: 3
+    corners: 1
+    fouls: 8
+    offsides: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +146,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

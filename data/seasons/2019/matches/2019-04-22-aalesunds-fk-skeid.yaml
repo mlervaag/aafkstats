@@ -11,13 +11,139 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: skeid
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 17
+    type: goal
+    team: home
+    player: Aron Elis Thrándarson
+  - minute: 21
+    type: goal
+    team: home
+    player: Daniel Gretarsson
+  - minute: 24
+    type: goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+    assist: Oddbjørn Lie
+  - minute: 40
+    type: goal
+    team: away
+    player: Ayoub Aleesami
+    assist: Tom Even Skogsrud
+  - minute: 46
+    type: substitution
+    team: home
+    player: Ståle Steen Sæthre
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 56
+    type: goal
+    team: home
+    player: Ståle Steen Sæthre
+    assist: Aron Elis Thrándarson
+  - minute: 65
+    type: substitution
+    team: home
+    player: Vetle Fiskerstrand
+    playerOff: Oddbjørn Lie
+  - minute: 67
+    type: substitution
+    team: away
+    player: Ahmed El-Amrani
+    playerOff: Henning Tønsberg Andresen
+  - minute: 67
+    type: substitution
+    team: away
+    player: Johannes Hummelvoll-Nunez
+    playerOff: Johnny Per Buduson
+  - minute: 72
+    type: goal
+    team: away
+    player: David Tavakoli
+    assist: Stian Pettersen
+  - minute: 75
+    type: substitution
+    team: home
+    player: Izunna Uzochukwu
+    playerOff: Niklas Castro
+  - minute: 76
+    type: yellow_card
+    team: home
+    player: Fredrik Carlsen
+  - minute: 78
+    type: yellow_card
+    team: home
+    player: Jonas Grønner
+  - minute: 80
+    type: substitution
+    team: away
+    player: Mustafa Hassan Ahmad
+    playerOff: Mesut Can
+  - minute: 82
+    type: yellow_card
+    team: away
+    player: Johannes Hummelvoll-Nunez
+  - minute: 87
+    type: yellow_card
+    team: away
+    player: Ayoub Aleesami
+  - minute: 89
+    type: red_card
+    team: away
+    player: Ayoub Aleesami
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Jernade Meade
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Niklas Castro
+      - Jørgen Hatlehol
+      - Holmbert Aron Fridjonsson
+      - Pape Habib Gueye
+    subs:
+      - Ståle Steen Sæthre
+      - Vetle Fiskerstrand
+      - Izunna Uzochukwu
+      - Kristoffer Hay
+      - Markus Seehusen Karlsbakk
+      - Tarjei Aase Omenås
+      - Tega George
+    coach: Lars Bohinen
+  away:
+    formation: 4-3-3
+    starters:
+      - Idar Nordby Lysgård
+      - Stian Pettersen
+      - Kim Eugen Skogsrud
+      - Tom Even Skogsrud
+      - Ayoub Aleesami
+      - Hassan Mohamed Yusuf
+      - Mohammed Mahnin
+      - Henning Tønsberg Andresen
+      - Johnny Per Buduson
+      - David Tavakoli
+      - Mesut Can
+    subs:
+      - Ahmed El-Amrani
+      - Johannes Hummelvoll-Nunez
+      - Mustafa Hassan Ahmad
+      - Emil Fiskvik
+      - Jonas Bergersen
+      - Mathias Dahl Abelsen
+      - Sander Flåte
+    coach: Tom Nordlie
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +159,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

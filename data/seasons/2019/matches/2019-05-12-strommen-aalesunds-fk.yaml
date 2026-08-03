@@ -11,13 +11,108 @@ competition:
 home:
   clubId: strommen
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: stroemmen-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 62
+    type: substitution
+    team: away
+    player: Peter Orry Larsen
+    playerOff: Aron Elis Thrándarson
+  - minute: 62
+    type: substitution
+    team: away
+    player: Pape Habib Gueye
+    playerOff: Torbjørn Agdestein
+  - minute: 70
+    type: substitution
+    team: home
+    player: Ulrich Ness
+    playerOff: Mahmoud Al Laham
+  - minute: 71
+    type: substitution
+    team: away
+    player: Erikson Lima
+    playerOff: Izunna Uzochukwu
+  - minute: 78
+    type: penalty_goal
+    team: away
+    player: Niklas Castro
+  - minute: 83
+    type: substitution
+    team: home
+    player: Sivert Gussiås
+    playerOff: Victor Grodås
+  - minute: 83
+    type: yellow_card
+    team: away
+    player: Niklas Castro
+  - minute: 86
+    type: goal
+    team: away
+    player: Pape Habib Gueye
+    assist: Niklas Castro
+  - minute: 87
+    type: substitution
+    team: home
+    player: Magnus Tvedte
+    playerOff: Mats André Kaland
+  - minute: 88
+    type: goal
+    team: home
+    player: Magnus Tvedte
+    assist: Andreas Hellum
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Marius Berntzen
+      - Sverre Bjørkkjær
+      - John Olav Norheim
+      - Pål Steffen Andresen
+      - Victor Grodås
+      - Mats André Kaland
+      - Mathias Blårud
+      - Öystein Vestvatn
+      - Håvard Thun
+      - Mahmoud Al Laham
+      - Andreas Hellum
+    subs:
+      - Ulrich Ness
+      - Sivert Gussiås
+      - Magnus Tvedte
+      - Johannes Grødtlien
+      - Mustafa Achrifi
+      - Simen Melby
+      - Stian Christensen
+    coach: Ole Martin Nesselquist
+  away:
+    formation: 3-5-2
+    starters:
+      - Tarjei Aase Omenås
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Jørgen Hatlehol
+      - Niklas Castro
+      - Izunna Uzochukwu
+      - Aron Elis Thrándarson
+      - Sondre Brunstad Fet
+      - Torbjørn Agdestein
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Pape Habib Gueye
+      - Peter Orry Larsen
+      - Erikson Lima
+      - Enock Mwimba
+      - Ståle Steen Sæthre
+      - Tega George
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +128,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,120 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: bodo-glimt
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 6825
+events:
+  - minute: 22
+    type: goal
+    team: home
+    player: Leke James
+  - minute: 23
+    type: substitution
+    team: away
+    player: Morten Konradsen
+    playerOff: Danny Cruz
+  - minute: 30
+    type: yellow_card
+    team: away
+    player: Badou Ndiaye
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Dominic Chatto
+  - minute: 46
+    type: substitution
+    team: home
+    player: Vebjørn Hoff
+    playerOff: Torbjørn Grytten
+  - minute: 57
+    type: substitution
+    team: home
+    player: Thomas Skog Martinussen
+    playerOff: Henrik Rørvik Bjørdal
+  - minute: 63
+    type: goal
+    team: home
+    player: Mostafa Abdellaoue
+    assist: Vebjørn Hoff
+  - minute: 76
+    type: substitution
+    team: away
+    player: Ulrik Berglann
+    playerOff: Trond Olsen
+  - minute: 77
+    type: substitution
+    team: away
+    player: Alexander Sørloth
+    playerOff: Dominic Chatto
+  - minute: 80
+    type: substitution
+    team: home
+    player: Carl Björk
+    playerOff: Michael Barrantes
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Mikael Dyrestam
+      - Tero Mäntylä
+      - Oddbjørn Lie
+      - Henrik Rørvik Bjørdal
+      - Michael Barrantes
+      - Peter Orry Larsen
+      - Torbjørn Grytten
+      - Mostafa Abdellaoue
+      - Leke James
+    subs:
+      - Vebjørn Hoff
+      - Thomas Skog Martinussen
+      - Carl Björk
+      - Andreas Lie
+      - Daniel Gretarsson
+      - Edvard Skagestad
+      - Jo Nymo Matland
+    coach: Trond Fredriksen
+  away:
+    formation: 4-3-3
+    starters:
+      - Lasse Staw
+      - Zarek Valentin
+      - Brede Mathias Moe
+      - Dominic Chatto
+      - Kristian Brix
+      - Thomas Jacobsen
+      - Ulrik Saltnes
+      - Badou Ndiaye
+      - Danny Cruz
+      - Fitim Azemi
+      - Trond Olsen
+    subs:
+      - Morten Konradsen
+      - Ulrik Berglann
+      - Alexander Sørloth
+      - Joshua Silva
+      - Patrick Berg
+      - Pavel Londak
+      - Vebjørn Vinje
+    coach: Jan Halvor Halvorsen
+stats:
+  home:
+    possession: 44
+    shots: 10
+    shotsOnTarget: 5
+    corners: 3
+  away:
+    possession: 56
+    shots: 16
+    shotsOnTarget: 6
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +140,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []
