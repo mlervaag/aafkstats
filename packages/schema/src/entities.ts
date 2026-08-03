@@ -78,6 +78,44 @@ export const competition = z
 export type Competition = z.infer<typeof competition>;
 
 /** En kildekatalogoppføring — hvem leverer data, under hvilken lisens, og hvor mye vi stoler på den. */
+/**
+ * Om kilden kan hentes automatisk.
+ *
+ * `blocked` betyr at vi vet vi ikke skal: robots.txt, uttrykkelig forbud mot
+ * roboter, eller en teknisk sperre som bare kan omgås ved å late som noe annet.
+ */
+export const automatedAccess = z.enum(["allowed", "permission_required", "blocked", "unknown"]);
+
+/**
+ * Om det vi henter kan publiseres videre i et offentlig arkiv.
+ *
+ * Dette er et *annet* spørsmål enn om vi kan hente. At et sluttresultat er et
+ * faktum uten opphavsrett sier ingenting om databasevernet på samlingen det ble
+ * hentet fra, og heller ikke om vilkårene kilden selv har satt. RSSSF tillater
+ * for eksempel privat, ikke-kommersiell kopiering med kreditering — et offentlig
+ * GitHub-arkiv og et offentlig nettsted er ikke åpenbart privat bruk.
+ */
+export const publicRedistribution = z.enum(["allowed", "permission_required", "denied", "unknown"]);
+
+/**
+ * Hvor langt en forespørsel om tillatelse har kommet.
+ *
+ * `accepted_risk` er ikke det samme som `granted`. Den betyr at prosjekteieren har
+ * lest vilkårene, forstått at bruken ikke er uttrykkelig tillatt, og likevel
+ * bestemt seg for å gå videre. Den skilles ut nettopp for at forskjellen skal
+ * være synlig: et arkiv som fører «tillatelse gitt» der ingen tillatelse finnes,
+ * er verre enn ett som sier hva det faktisk vet. Krever permissionNote som sier
+ * hvem som bestemte og når.
+ */
+export const permissionStatus = z.enum([
+  "not_needed",
+  "pending",
+  "requested",
+  "granted",
+  "accepted_risk",
+  "denied",
+]);
+
 export const source = z
   .object({
     id: slug,
@@ -86,10 +124,58 @@ export const source = z
     /** Høyere tall vinner når to kilder er uenige om samme felt. */
     priority: z.number().int().min(0).max(100),
     license: z.string().optional(),
+
+    /**
+     * Rettighetsstatus som data, ikke som prosa i et notat.
+     *
+     * Poenget er at «kan hentes» og «kan publiseres» blir to felt en maskin kan
+     * lese, slik at innhøstings-CLI-en kan nekte å skrive når publisering ikke er
+     * avklart — selv om adapteren teknisk sett virker utmerket.
+     */
+    automatedAccess: automatedAccess.default("unknown"),
+    publicRedistribution: publicRedistribution.default("unknown"),
+    attributionRequired: z.boolean().default(false),
+    permissionStatus: permissionStatus.default("pending"),
+    /** Når vilkårene sist ble lest av et menneske. */
+    termsCheckedAt: isoDate.optional(),
+    /** Når robots.txt sist ble kontrollert. */
+    robotsCheckedAt: isoDate.optional(),
+    /** Hvem som er spurt, hva svaret var, hvor korrespondansen ligger. */
+    permissionNote: z.string().optional(),
+
     /** Kort notat om hva kilden dekker og hvilke forbehold som gjelder. */
     note: z.string().optional(),
   })
-  .strict();
+  .strict()
+  .superRefine((value, ctx) => {
+    // En bevisst risikobeslutning uten begrunnelse er ikke etterprøvbar, og da er
+    // den heller ikke en beslutning — bare en avkrysning.
+    if (value.permissionStatus === "accepted_risk" && !value.permissionNote) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["permissionNote"],
+        message: "permissionStatus «accepted_risk» krever permissionNote som sier hvem som bestemte og når",
+      });
+    }
+  });
+
+/**
+ * Om arkivet har lov til å publisere data fra denne kilden.
+ *
+ * Brukes som port i innhøstingen. Den er bevisst streng: `unknown` er ikke et ja.
+ */
+export function mayPublish(value: Source): boolean {
+  if (value.publicRedistribution === "allowed") return true;
+  if (value.publicRedistribution === "denied") return false;
+  return value.permissionStatus === "granted" || value.permissionStatus === "accepted_risk";
+}
+
+/** Om arkivet har lov til å hente automatisk fra kilden. */
+export function mayFetch(value: Source): boolean {
+  if (value.automatedAccess === "allowed") return true;
+  if (value.automatedAccess === "blocked") return false;
+  return value.permissionStatus === "granted" || value.permissionStatus === "accepted_risk";
+}
 
 export type Source = z.infer<typeof source>;
 

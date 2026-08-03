@@ -2,6 +2,7 @@ import { crossValidate, loadArchive, repoRoot } from "@aafkstats/schema/load";
 import { resolve } from "node:path";
 import { fetchRsssfSeason } from "../adapters/rsssf.js";
 import type { RsssfDivision } from "../adapters/rsssf.js";
+import { assertMayFetch, assertMayPublish } from "../policy.js";
 import { reconcile, writePlan } from "../reconcile.js";
 
 /**
@@ -34,6 +35,11 @@ async function main(): Promise<void> {
   if (existingIssues.length > 0) {
     throw new Error(`arkivet har ${existingIssues.length} valideringsfeil før høsting`);
   }
+
+  // Rettighetsporten står før nettverkskallet. Tørrkjøring krever bare at
+  // kilden kan hentes; skriving krever i tillegg at den kan publiseres.
+  assertMayFetch(before, "rsssf");
+  if (args.write) assertMayPublish(before, "rsssf");
 
   console.log(
     `RSSSF ${args.division} ${args.season} → ${args.competition}` +

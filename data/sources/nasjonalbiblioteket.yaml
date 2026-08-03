@@ -2,6 +2,15 @@ id: nasjonalbiblioteket
 name: Nasjonalbiblioteket
 url: https://www.nb.no
 priority: 60
+automatedAccess: allowed
+publicRedistribution: permission_required
+attributionRequired: true
+permissionStatus: pending
+termsCheckedAt: 2026-08-03
+permissionNote: >
+  Katalog-API-et er åpent og egnet som oppdagelsesmotor. Tilgang til fulltekst
+  avhenger av rettighetsstatus per dokument, og avistekst er opphavsrettsbeskyttet.
+  Bare faktaopplysninger og kildehenvisning skal registreres — aldri OCR-teksten.
 note: >
   Digitaliserte aviser, særlig Sunnmørsposten. Beste kilde for kamper før 1990.
   Avistekst er opphavsrettsbeskyttet — referat skrives om, med lenke til originalen.

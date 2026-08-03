@@ -56,6 +56,15 @@ CREATE TABLE core_sources (
   url       TEXT,
   priority  INTEGER NOT NULL,
   license   TEXT,
+  -- Rettighetsstatus. «Kan hentes» og «kan publiseres» er to forskjellige
+  -- spørsmål, og de holdes derfor i hvert sitt felt.
+  automated_access       TEXT NOT NULL DEFAULT 'unknown',
+  public_redistribution  TEXT NOT NULL DEFAULT 'unknown',
+  attribution_required   INTEGER NOT NULL DEFAULT 0,
+  permission_status      TEXT NOT NULL DEFAULT 'pending',
+  terms_checked_at       TEXT,
+  robots_checked_at      TEXT,
+  permission_note        TEXT,
   note      TEXT
 );
 
@@ -279,7 +288,12 @@ FROM core_matches m, json_each(m.events) e;
 
 -- Kildekatalogen, så svar kan forklare hvor dataene kommer fra.
 CREATE VIEW sources AS
-SELECT id AS source_id, name, url, priority, license, note FROM core_sources;
+SELECT
+  id AS source_id, name, url, priority, license,
+  automated_access, public_redistribution, attribution_required,
+  permission_status, terms_checked_at, robots_checked_at, permission_note,
+  note
+FROM core_sources;
 
 -- Referat, som en FTS5-tabell.
 --

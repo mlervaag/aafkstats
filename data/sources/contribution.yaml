@@ -2,6 +2,12 @@ id: contribution
 name: Bidrag fra publikum
 url: https://github.com/mlervaag/aafkstats
 priority: 30
+automatedAccess: allowed
+publicRedistribution: allowed
+attributionRequired: false
+permissionStatus: not_needed
+permissionNote: >
+  Innsendt av bidragsytere som selv har akseptert at bidraget publiseres i arkivet.
 note: >
   Sendt inn via /bidra og gjennomgått som pull request. Lav prioritet med vilje:
   et bidrag skal ikke kunne overskrive en verifisert kilde uten manuell vurdering.
