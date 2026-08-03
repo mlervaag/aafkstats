@@ -185,6 +185,45 @@ Datasettdokumentasjonen på `/data` er **samme kilde** som chattens systemprompt
 (`packages/query/src/dataset.ts`). Det finnes ingen skjult beskrivelse modellen har og
 brukeren ikke har, og en test feiler hvis dokumentasjonen ikke stemmer med databasen.
 
+## Måling
+
+Vercel Web Analytics og Speed Insights kjører på nettstedet. Begge er cookiefrie og lagrer
+ingen IP-adresse, så det trengs ikke samtykkebanner — men de må skrus på i Vercel-prosjektet
+(Analytics-fanen) før de begynner å samle noe. Koden ligger i `apps/web/components/Analytics.tsx`.
+
+| Måling | Svarer på |
+|---|---|
+| Sidevisninger og referanser | Finner folk fram, og hvorfra? |
+| Speed Insights (Core Web Vitals) | Hvor raskt laster sidene hos ekte brukere |
+| `ask-submitted` / `ask-answered` | Blir spørrefunksjonen brukt, og gir den svar eller feiler den? |
+| `match-opened` | Traff direktesøket, målt på at noen faktisk åpnet et treff |
+
+**Spørsmålsteksten telles aldri.** Den er det mest personlige på hele nettstedet, og
+hendelsene bærer bare grovkornede egenskaper — «forslag» eller «skjema», status og sekunder.
+Listen over lovlige egenskaper står som en type i `apps/web/lib/analytics.ts`, så det ikke
+kan skje ved et uhell senere. Nettleserens `Do Not Track` og `Global Privacy Control`
+respekteres: sier de nei, sendes ingenting.
+
+Egendefinerte hendelser krever Vercel Pro. På Hobby er sidevisninger og Speed Insights
+gratis, og `track()`-kallene er da bare virkningsløse — ingenting går i stykker.
+
+Vercel tar vare på de siste 30 dagene på Hobby-planen. Et arkiv er interessant over
+sesonger, ikke uker, så koden støtter en Plausible-kompatibel teller ved siden av:
+
+```sh
+NEXT_PUBLIC_PLAUSIBLE_DOMAIN=aafkstats.vercel.app   # tomt = av
+NEXT_PUBLIC_PLAUSIBLE_SRC=https://plausible.io/js/script.js
+```
+
+Plausible er hostet i EU og cookiefritt. `NEXT_PUBLIC_PLAUSIBLE_SRC` finnes for selvhostet
+Plausible eller [Umami](https://umami.is), som lastes på nøyaktig samme måte fra eget
+domene. Google Analytics er bevisst ikke brukt: det krever samtykkebanner, og det ville vært
+et merkelig valg for et prosjekt som ellers ber om tillit.
+
+Feil i produksjon dekkes foreløpig av Vercels egne runtime-logger. Skal det bli behov for
+mer — stakksporing, grupperte feil over tid — er [Sentry](https://sentry.io) det naturlige
+neste steget, men det er ikke lagt inn nå.
+
 ## Lisens
 
 Kode under MIT. Egne tekster og arkivets eget redaksjonelle innhold under CC BY 4.0.
