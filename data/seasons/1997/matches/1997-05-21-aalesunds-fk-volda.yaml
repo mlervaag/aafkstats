@@ -1,0 +1,39 @@
+id: 1997-05-21-aalesunds-fk-volda
+date: 1997-05-21
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1997
+  stage: regular_season
+  round: 1
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: volda
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1997/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1997-cup-1997-05-21-aalesunds-fk-volda
+manual: []

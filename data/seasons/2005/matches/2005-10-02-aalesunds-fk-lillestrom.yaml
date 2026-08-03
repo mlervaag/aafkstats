@@ -1,0 +1,39 @@
+id: 2005-10-02-aalesunds-fk-lillestrom
+date: 2005-10-02
+dateConfidence: exact
+status: played
+competition:
+  id: eliteserien
+  season: 2005
+  stage: regular_season
+  round: 23
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: lillestrom
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2005/Premier.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2005-premier-2005-10-02-aalesunds-fk-lillestrom
+manual: []

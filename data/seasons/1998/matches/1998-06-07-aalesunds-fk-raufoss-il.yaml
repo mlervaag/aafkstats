@@ -1,0 +1,39 @@
+id: 1998-06-07-aalesunds-fk-raufoss-il
+date: 1998-06-07
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1998
+  stage: regular_season
+  round: 10
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: raufoss-il
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1998/First.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1998-first-1998-06-07-aalesunds-fk-raufoss
+manual: []

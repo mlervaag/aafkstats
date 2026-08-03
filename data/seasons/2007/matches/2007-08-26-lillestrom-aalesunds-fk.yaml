@@ -1,0 +1,39 @@
+id: 2007-08-26-lillestrom-aalesunds-fk
+date: 2007-08-26
+dateConfidence: exact
+status: played
+competition:
+  id: eliteserien
+  season: 2007
+  stage: regular_season
+  round: 18
+home:
+  clubId: lillestrom
+  score: 7
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2007/Premier.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2007-premier-2007-08-26-lillestrom-aalesunds-fk
+manual: []

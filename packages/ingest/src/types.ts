@@ -52,6 +52,8 @@ export interface SourceMatch {
   stats?: { home?: SourceTeamStats; away?: SourceTeamStats };
   url?: string;
   fields: string[];
+  /** Forbehold som hører til kampen selv, ikke til kilden. */
+  note?: string;
   /**
    * Ting adapteren så, men ikke turde tolke. Reconcile løfter disse til
    * kontrollpunkter, så en tvilsom kamp stopper skrivingen i stedet for å bli

@@ -1,0 +1,38 @@
+id: 2009-09-24-aalesunds-fk-odds-ballklubb
+date: 2009-09-24
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 2009
+  stage: semi_final
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: odds-ballklubb
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2009/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.stage
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2009-cup-2009-09-24-aalesunds-fk-odds-ballklubb
+manual: []

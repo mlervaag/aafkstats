@@ -1,0 +1,39 @@
+id: 1995-05-10-langevag-aalesunds-fk
+date: 1995-05-10
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1995
+  stage: regular_season
+  round: 1
+home:
+  clubId: langevag
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 5
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1995/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1995-cup-1995-05-10-langevag-aalesunds-fk
+manual: []

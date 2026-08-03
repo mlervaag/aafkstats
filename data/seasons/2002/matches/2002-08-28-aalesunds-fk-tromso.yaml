@@ -1,0 +1,43 @@
+id: 2002-08-28-aalesunds-fk-tromso
+date: 2002-08-28
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 2002
+  stage: quarter_final
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: tromso
+  score: 0
+  halfTimeScore: null
+extraTime:
+  home: 0
+  away: 0
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2002/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.stage
+      - extraTime
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2002-cup-2002-08-28-aalesunds-fk-tromso
+manual: []
+note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.

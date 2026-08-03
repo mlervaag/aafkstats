@@ -1,0 +1,38 @@
+id: 2003-08-27-bodo-glimt-aalesunds-fk
+date: 2003-08-27
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 2003
+  stage: quarter_final
+home:
+  clubId: bodo-glimt
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2003/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.stage
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2003-cup-2003-08-27-bodo-glimt-aalesunds-fk
+manual: []

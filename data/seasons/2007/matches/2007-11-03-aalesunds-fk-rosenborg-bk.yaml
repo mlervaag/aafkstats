@@ -1,0 +1,39 @@
+id: 2007-11-03-aalesunds-fk-rosenborg-bk
+date: 2007-11-03
+dateConfidence: exact
+status: played
+competition:
+  id: eliteserien
+  season: 2007
+  stage: regular_season
+  round: 26
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: rosenborg-bk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2007/Premier.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2007-premier-2007-11-03-aalesunds-fk-rosenborg
+manual: []

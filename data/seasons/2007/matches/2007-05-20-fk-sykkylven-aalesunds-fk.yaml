@@ -1,0 +1,39 @@
+id: 2007-05-20-fk-sykkylven-aalesunds-fk
+date: 2007-05-20
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 2007
+  stage: regular_season
+  round: 1
+home:
+  clubId: fk-sykkylven
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 7
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2007/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 2007-cup-2007-05-20-fk-sykkylven-aalesunds-fk
+manual: []

@@ -3,7 +3,7 @@ import { loadOpponents } from "@/lib/archive";
 
 export const metadata: Metadata = {
   title: "Motstandere",
-  description: "Innbyrdes statistikk mot AaFKs motstandere i ligaspill fra 2011 til 2025.",
+  description: "Innbyrdes statistikk mot alle AaFKs motstandere gjennom arkivet.",
 };
 export const dynamic = "force-dynamic";
 

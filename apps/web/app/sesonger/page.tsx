@@ -3,7 +3,7 @@ import { loadSeasons } from "@/lib/archive";
 
 export const metadata: Metadata = {
   title: "Sesonger",
-  description: "AaFKs ligasesonger fra 2011 til 2025, med resultater og målforskjell.",
+  description: "AaFKs sesonger med resultater, målforskjell og alle kamper.",
 };
 export const dynamic = "force-dynamic";
 
@@ -14,7 +14,11 @@ export default function SeasonsPage() {
       <header className="page-intro">
         <p className="eyebrow">Sesong for sesong</p>
         <h1>Sesonger</h1>
-        <p className="lede">Femten ligasesonger samlet på ett sted. Velg et år for alle kamper og sesongtall.</p>
+        <p className="lede">
+          {seasons.length} sesonger samlet på ett sted, fra{" "}
+          {seasons.at(-1)?.season} til {seasons[0]?.season}. Velg et år for alle kamper og
+          sesongtall.
+        </p>
       </header>
       <div className="season-grid">
         {seasons.map((season) => (

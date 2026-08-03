@@ -60,6 +60,7 @@ export const views: ViewDoc[] = [
       { name: "goal_difference", type: "integer", description: "aafk_score minus opponent_score. Negativ ved tap." },
       { name: "result", type: "text", description: "'S' seier, 'U' uavgjort, 'T' tap. NULL når kampen ikke er spilt." },
       { name: "after_extra_time", type: "integer (0/1)", description: "Sant når kampen gikk til ekstraomganger. Målene derfra er allerede med i aafk_score." },
+      { name: "note", type: "text", description: "Forbehold om denne kampen. Eldre kilder oppgir ofte bare sluttresultatet, ikke stillingen etter ordinær tid. Står det noe her, skal det tas med i svaret." },
       { name: "decided_on_penalties", type: "integer (0/1)", description: "Sant når kampen gikk til straffesparkkonkurranse." },
       { name: "won_on_penalties", type: "integer (0/1)", description: "Ved straffekonkurranse: vant AaFK den? Ellers NULL." },
       { name: "venue", type: "text", description: "Stadionnavn slik det var på kampdatoen." },
@@ -215,6 +216,18 @@ LIMIT 5`,
 FROM reports
 WHERE reports MATCH 'snuoperasjon'
 ORDER BY date DESC`,
+  },
+  {
+    question: "Hva er den eldste kampen i arkivet?",
+    sql: `SELECT date, opponent, is_home, aafk_score, opponent_score, competition, url
+FROM matches
+ORDER BY date ASC LIMIT 1`,
+  },
+  {
+    question: "Hvor mange kamper har vi fra hvert tiår?",
+    sql: `SELECT substr(date, 1, 3) || '0-tallet' AS tiar, count(*) AS kamper
+FROM matches
+GROUP BY tiar ORDER BY tiar`,
   },
   {
     question: "Har vi noen gang vunnet en cupkamp på straffer?",

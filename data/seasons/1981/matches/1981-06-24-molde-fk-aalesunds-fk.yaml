@@ -1,0 +1,44 @@
+id: 1981-06-24-molde-fk-aalesunds-fk
+date: 1981-06-24
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1981
+  stage: regular_season
+  round: 2
+home:
+  clubId: molde-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+extraTime:
+  home: 0
+  away: 0
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/1981/Cup.html
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - extraTime
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1981-cup-1981-06-24-molde-aalesunds-fk
+manual: []
+note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.

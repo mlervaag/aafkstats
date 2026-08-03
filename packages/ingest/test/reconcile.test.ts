@@ -37,7 +37,7 @@ describe("reconcile", () => {
     const second = reconcile(archive, [source], { sourceId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03" });
     expect(first).toEqual(second);
     expect(first.issues).toEqual([]);
-    expect(first.summary).toEqual({ matchesCreated: 1, matchesUpdated: 0, clubsCreated: 1, clubsUpdated: 0, venuesCreated: 1, seasonsCreated: 1 });
+    expect(first.summary).toEqual({ matchesCreated: 1, matchesSkipped: 0, matchesUpdated: 0, clubsCreated: 1, clubsUpdated: 0, venuesCreated: 1, seasonsCreated: 1 });
     const match = first.files.find((file) => file.relativePath.includes("/matches/"))?.value;
     expect(match).toMatchObject({
       id: "2024-04-01-aalesunds-fk-stabaek",

@@ -21,10 +21,17 @@ interface SearchMatch {
   url: string;
 }
 
+/**
+ * Forslagene skal vise bredden i arkivet, ikke bare at det virker.
+ *
+ * Ett spørsmål per type: tidsdybde, innbyrdes statistikk, en enkelt sesong, og
+ * noe fra cupen. De to første viser at arkivet nå rekker tilbake til 1980-tallet
+ * — det gjorde det ikke da forslagene ble skrevet.
+ */
 const SUGGESTIONS = [
-  "Når vant vi sist med minst 4 mål på hjemmebane?",
+  "Hva er den eldste kampen i arkivet?",
   "Hvilken motstander har vi tapt flest ganger mot?",
-  "Hvor mange mål scoret vi i 2024?",
+  "Hvordan har vi gjort det i cupen gjennom årene?",
   "Hvilken sesong hadde vi best målforskjell?",
 ];
 

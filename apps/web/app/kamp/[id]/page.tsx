@@ -63,6 +63,7 @@ interface MatchDetail {
   away_et_score: number | null;
   home_pens: number | null;
   away_pens: number | null;
+  note: string | null;
 }
 
 /** Sluttspillstadium skrevet ut. Cupkamper viser dette i stedet for et rundenummer. */
@@ -89,7 +90,7 @@ function loadMatch(id: string): MatchDetail | undefined {
               h.name AS home_name, a.name AS away_name, m.home_score, m.away_score,
               m.home_ht_score, m.away_ht_score, m.home_et_score, m.away_et_score,
               m.home_pens, m.away_pens,
-              m.venue_name, m.attendance, m.referee,
+              m.venue_name, m.attendance, m.referee, m.note,
               m.events, m.lineups, m.stats, m.sources, m.confidence
        FROM core_matches m
        JOIN core_clubs h ON h.id = m.home_club_id
@@ -137,6 +138,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
   const score = homeFull === null || awayFull === null ? "–" : `${homeFull}–${awayFull}`;
 
   const afterExtraTime = match.home_et_score !== null || match.away_et_score !== null;
+  const extraTimeGoals = (match.home_et_score ?? 0) > 0 || (match.away_et_score ?? 0) > 0;
   const shootout = match.home_pens !== null && match.away_pens !== null;
   const stageLabel = match.stage && match.stage !== "regular_season"
     ? stageNames[match.stage] ?? null
@@ -160,7 +162,11 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
             {shootout
               ? `Avgjort på straffespark ${match.home_pens}–${match.away_pens}`
               : "Etter ekstraomganger"}
-            {afterExtraTime && hasScore
+            {/* Bare når ekstraomgangene faktisk ga mål. Er extraTime 0-0, er
+                ordinærresultatet identisk med sluttresultatet i tallene våre — og
+                for kilder som bare oppgir sluttresultatet vet vi ikke stillingen
+                etter 90. Da ville linja påstått noe kilden ikke dekker. */}
+            {extraTimeGoals && hasScore
               ? ` · ${match.home_score}–${match.away_score} etter ordinær tid`
               : ""}
           </p>
@@ -168,6 +174,9 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
         {match.home_ht_score !== null && match.away_ht_score !== null && (
           <p className="small muted">Pause {match.home_ht_score}–{match.away_ht_score}</p>
         )}
+        {/* Forbehold som hører til kampen selv. Typisk fra eldre kilder som bare
+            oppgir sluttresultatet. Lagres det uten å vises, er det like borte. */}
+        {match.note && <p className="small muted match-note">{match.note}</p>}
       </header>
 
       <dl className="facts">

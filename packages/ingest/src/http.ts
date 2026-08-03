@@ -21,10 +21,21 @@ function cacheDir(): string {
 
 /** JSON-henting med per-vert-fartsgrense, retry, tidsgrense og atomisk cache. */
 export async function fetchJson<T>(url: string, options: FetchJsonOptions = {}): Promise<T> {
+  return JSON.parse(await fetchText(url, options)) as T;
+}
+
+/**
+ * Rå tekst med samme fartsgrense, retry og cache som JSON-henteren.
+ *
+ * Finnes fordi ikke alle kilder er API-er. RSSSF er statiske tekstsider, og de
+ * skal gjennom nøyaktig samme hensyn — én forespørsel i sekundet per vert, cache
+ * på disk, og ingen ny runde mot kilden når vi bare skal rette en parsefeil.
+ */
+export async function fetchText(url: string, options: FetchJsonOptions = {}): Promise<string> {
   const key = createHash("sha256").update(url).digest("hex").slice(0, 32);
   const file = join(cacheDir(), `${key}.json`);
   if (!options.refresh && existsSync(file)) {
-    return JSON.parse(await readFile(file, "utf8")) as T;
+    return await readFile(file, "utf8");
   }
 
   const host = new URL(url).host;
@@ -34,12 +45,11 @@ export async function fetchJson<T>(url: string, options: FetchJsonOptions = {}):
   options.onNetworkRequest?.();
 
   const body = await withRetry(url);
-  const parsed = JSON.parse(body) as T;
   await mkdir(cacheDir(), { recursive: true });
   const temporary = `${file}.${process.pid}.tmp`;
   await writeFile(temporary, body, "utf8");
   await rename(temporary, file);
-  return parsed;
+  return body;
 }
 
 async function withRetry(url: string, attempts = 4): Promise<string> {
