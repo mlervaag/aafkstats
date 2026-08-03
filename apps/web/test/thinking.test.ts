@@ -2,19 +2,19 @@ import { describe, expect, it } from "vitest";
 import { thinkingWords } from "../lib/thinking.js";
 
 /**
- * Tenkeordene er tekst uten logikk, så det er lite å teste. Det som er verdt å
- * feste er formen de må ha for at komponenten skal sette dem riktig sammen, og
- * de par feilene som faktisk oppsto da lista ble skrevet.
+ * Tenkeordene er tekst uten logikk, så det er lite å teste. Det som festes her
+ * er formen komponenten krever, og de to feiltypene som faktisk har oppstått:
+ * bøyningsformer skrevet fra hukommelsen, og ord som ikke står i kilden.
  */
 describe("thinkingWords", () => {
   it("har ingen duplikater", () => {
     expect(new Set(thinkingWords).size).toBe(thinkingWords.length);
   });
 
-  it("avslutter ikke med ellipse", () => {
-    // ThinkingLine legger på « …» selv. Står den også her, blir det «… …».
+  it("avslutter ikke med ellipse eller punktum", () => {
+    // ThinkingLine legger på « …» selv. Står det også her, blir det «… …».
     for (const word of thinkingWords) {
-      expect(word).not.toMatch(/[.…]\s*$/);
+      expect(word).not.toMatch(/[.…!?]\s*$/);
     }
   });
 
@@ -31,23 +31,41 @@ describe("thinkingWords", () => {
     }
   });
 
-  it("bruker presensformene fra Nynorskordboka", () => {
-    // Seks former var gale i første utkast, og alle seks var av typen en lokal
-    // leser ville sett med en gang. Formene under er slått opp på ord.uib.no.
-    const looked_up: [string, string][] = [
-      ["Maskineriet mel", "male"],
-      ["Sløyer tala", "sløye"],
-      ["Flekkjer og saltar", "flekkje"],
-      ["Røktar garna", "røkte"],
-      ["Fyrer opp under kjelen", "fyre"],
-      ["Grunnar på det", "grunne"],
-    ];
-    for (const [phrase] of looked_up) {
-      expect(thinkingWords).toContain(phrase);
-    }
-    // Og formene som var gale skal ikke ha sneket seg inn igjen.
-    for (const wrong of ["malar", "sløyar", "flekkjar", "røkter", "fyrar", "grundar"]) {
+  it("bruker bøyningsformene fra Nynorskordboka", () => {
+    // «Andøvar» ser riktig ut og er galt: andøve er et e-verb og bøyes
+    // «andøver». Seks slike feil sto i forrige liste, alle av typen en lokal
+    // leser ser med en gang.
+    expect(thinkingWords).toContain("Andøver over staden");
+    expect(thinkingWords).toContain("Ventar på opplett");
+    for (const wrong of ["Andøvar", "Ventar på opplet ", "Vår nota"]) {
       expect(thinkingWords.join(" ")).not.toContain(wrong);
+    }
+  });
+
+  it("gjengir setningene fra kilden ordrett", () => {
+    // Disse er ikke satt sammen av oss. De står slik i ordlista, og skal ikke
+    // «ryddes» til bokmål eller normert nynorsk av en senere endring.
+    for (const sentence of [
+      "Ej he fole låkt i haude",
+      "Ka e ditte for nåke",
+      "Dæ va fole te kaule",
+      "Han sit og maular småsei",
+      "Nedi djupaste kavet",
+      "Ikkje heilt i pussentur",
+      "Mo plitt åleine",
+      "I eit hattefok",
+    ]) {
+      expect(thinkingWords).toContain(sentence);
+    }
+  });
+
+  it("bruker ord som ikke står i ordboka bare i kildens egen form", () => {
+    // våe, kjantre, kjave og læke finnes ikke i Nynorskordboka. De kan ikke
+    // bøyes på gjetning, så de står som kilden ga dem eller ikke i det hele tatt.
+    const joined = thinkingWords.join(" ");
+    expect(thinkingWords).toContain("Våe nota");
+    for (const invented of ["Våar", "Kjantrar", "Kjavar", "Lækar"]) {
+      expect(joined).not.toContain(invented);
     }
   });
 });

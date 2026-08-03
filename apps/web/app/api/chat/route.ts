@@ -14,7 +14,25 @@ export const runtime = "nodejs";
  */
 export const maxDuration = 60;
 
-const MODEL = "claude-opus-5";
+/**
+ * Sonnet 5, ikke Opus 5.
+ *
+ * Arbeidet her er avgrenset: les et dokumentert skjema, velg et verktøy, skriv
+ * én SELECT mot seks views. Det er ikke det Opus er til for, og prislappen er
+ * dobbel: 5/25 dollar per million tokens mot Sonnet 5s 3/15 (2/10 i
+ * introduksjonspris ut august 2026). For et gratis supporterarkiv er det
+ * forskjellen som betyr noe.
+ *
+ * Overgangen krevde ingen andre endringer. Sonnet 5 tar samme forespørsel som
+ * Opus 5: adaptiv tenkning, effort i output_config, ingen temperature. Haiku
+ * 4.5 ville derimot brutt begge — den avviser effort og kjenner ikke adaptiv
+ * tenkning, bare det utgåtte budget_tokens. Den er ikke et alternativ her uten
+ * å skrive om kallet.
+ *
+ * Kan overstyres med AAFK_CHAT_MODEL for å prøve en annen modell uten å
+ * deploye på nytt.
+ */
+const MODEL = process.env.AAFK_CHAT_MODEL ?? "claude-sonnet-5";
 // Et statistikksvar skal være kort. Dette er også et hardt tak på kostnaden per kall.
 const MAX_TOKENS = 6_000;
 /** Maks antall runder modellen får med verktøy før vi stopper løkken. */
@@ -117,12 +135,16 @@ export async function POST(req: Request): Promise<Response> {
         const runner = client.beta.messages.toolRunner({
           model: MODEL,
           max_tokens: MAX_TOKENS,
-          // Adaptiv tenkning står PÅ med vilje. Slås den av på Opus 5, kan modellen
-          // skrive verktøykall som vanlig tekst i stedet for et tool_use-blokk —
-          // kallet kjører aldri, uten feilmelding. Kostnaden styres med effort i
-          // stedet, som er trygt.
+          // Adaptiv tenkning står PÅ med vilje. Slås den av, kan modellen skrive
+          // verktøykall som vanlig tekst i stedet for en tool_use-blokk. Kallet
+          // kjører aldri, uten feilmelding. Kostnaden styres med effort i stedet,
+          // som er trygt.
           thinking: { type: "adaptive" },
-          output_config: { effort: "low" },
+          // Hevet fra «low» sammen med modellbyttet. Sonnet 5 respekterer effort
+          // strengt i nedre ende, og et spørsmål som må oversettes til SQL over
+          // seks views er ikke et oppslag. «medium» på Sonnet 5 ligger omtrent
+          // der Sonnet 4.6 lå på «high», og koster fortsatt en brøkdel av Opus.
+          output_config: { effort: "medium" },
           system: [
             {
               type: "text",
