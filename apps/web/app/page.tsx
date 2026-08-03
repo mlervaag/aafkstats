@@ -1,7 +1,7 @@
 import { AskBox } from "@/components/AskBox";
 import { CoverageNote } from "@/components/CoverageNote";
 import { MatchList } from "@/components/MatchList";
-import { loadOverview } from "@/lib/archive";
+import { loadOverview, loadTrivia } from "@/lib/archive";
 
 export const dynamic = "force-dynamic";
 
@@ -27,7 +27,7 @@ export default function Home() {
         </dl>
       </section>
 
-      <AskBox />
+      <AskBox trivia={loadTrivia()} />
 
       <section className="home-grid content-section">
         <div>

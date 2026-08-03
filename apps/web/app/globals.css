@@ -832,3 +832,42 @@ footer { margin-top: clamp(4rem, 10vw, 8rem); padding: 3rem 0 1.5rem; color: var
   .rights-ok { color: #58c98d; }
   .rights-open { color: #e2a06a; }
 }
+
+/* Kortstoff mens spørrefunksjonen tenker.
+   Dempet med vilje — dette skal fylle en pause, ikke konkurrere med svaret som
+   kommer rett etterpå. */
+.interlude {
+  margin: 1.1rem 0 0;
+  padding: 0.9rem 0 0;
+  border-top: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+  max-width: 52ch;
+}
+
+.interlude-text {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.interlude-source {
+  margin-top: 0.45rem;
+  font-size: 0.78rem;
+  opacity: 0.6;
+}
+
+.interlude-source a {
+  color: inherit;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .interlude-text {
+    animation: interlude-in 420ms ease-out;
+  }
+}
+
+@keyframes interlude-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 0.85; transform: none; }
+}
