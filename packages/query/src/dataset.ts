@@ -30,12 +30,12 @@ export const views: ViewDoc[] = [
   {
     name: "matches",
     summary:
-      "Én rad per kamp i arkivet, sett fra AaFKs synsvinkel. Dette er hovedtabellen — " +
+      "Én rad per kamp i arkivet, sett fra AaFKs synsvinkel. Dette er hovedtabellen. " +
       "de fleste spørsmål besvares herfra alene.",
     caveats: [
       "Alle kamper i arkivet involverer AaFK. «aafk_score» er alltid vårt lag, uansett om vi spilte hjemme eller borte.",
       "goal_difference er aafk_score minus opponent_score, altså negativ ved tap.",
-      "result regnes etter ordinær tid pluss ekstraomgang. En kamp avgjort på straffer har result = 'U' — bruk won_on_penalties for å se hvem som gikk videre.",
+      "result regnes etter ordinær tid pluss ekstraomgang. En kamp avgjort på straffer har result = 'U'. Bruk won_on_penalties for å se hvem som gikk videre.",
       "Kamper som ennå ikke er spilt har status 'scheduled' og NULL i alle resultatkolonner. Filtrer på status = 'played' når du regner statistikk.",
       "confidence sier hvor sikre opplysningene er. 'probable' er vanlig for kamper før 1990. Si fra i svaret når en kamp ikke er 'confirmed'.",
       "SQLite har ingen boolsk type: is_home, neutral_venue og has_conflicts er heltall 0 eller 1. Skriv «WHERE is_home = 1», ikke «WHERE is_home IS TRUE».",
@@ -47,7 +47,7 @@ export const views: ViewDoc[] = [
       { name: "date_confidence", type: "text", description: "'exact', 'month' eller 'year'. For gamle kamper er noen ganger bare året kjent." },
       { name: "kickoff", type: "text (HH:MM)", description: "Avspark, lokal tid. Ofte NULL for eldre kamper." },
       { name: "status", type: "text", description: "'played', 'scheduled', 'abandoned', 'awarded', 'cancelled' eller 'postponed'." },
-      { name: "competition", type: "text", description: "Konkurransens navn slik det var på kampdatoen — «Tippeligaen» for en kamp i 2005, «Eliteserien» for en i 2024." },
+      { name: "competition", type: "text", description: "Konkurransens navn slik det var på kampdatoen: «Tippeligaen» for en kamp i 2005, «Eliteserien» for en i 2024." },
       { name: "competition_type", type: "text", description: "'league', 'national_cup', 'european', 'friendly' eller 'playoff'." },
       { name: "competition_tier", type: "integer", description: "Nivå i seriepyramiden, 1 er øverst. NULL for cup og europa." },
       { name: "stage", type: "text", description: "'regular_season', 'quarter_final', 'final' osv." },
@@ -79,11 +79,11 @@ export const views: ViewDoc[] = [
     name: "seasons",
     summary: "Ett sammendrag per sesong OG konkurranse: plassering, målforskjell og resultatfordeling. Et år med både serie og cup gir to rader, så filtrer på competition_id eller competition_type når du vil ha bare den ene.",
     caveats: [
-      "Tallene dekker kun sesongens hovedkonkurranse. Cup, europa og treningskamper er ikke med — bruk matches hvis du vil ha alt.",
+      "Tallene dekker kun sesongens hovedkonkurranse. Cup, europa og treningskamper er ikke med. Bruk matches hvis du vil ha alt.",
     ],
     columns: [
       { name: "season", type: "integer", description: "Sesongår." },
-      { name: "competition_id", type: "text", description: "Konkurransens ID. Ett år kan ha flere rader — serie, cup og treningskamper hver for seg." },
+      { name: "competition_id", type: "text", description: "Konkurransens ID. Ett år kan ha flere rader: serie, cup og treningskamper hver for seg." },
       { name: "competition", type: "text", description: "Konkurransens navn det året." },
       { name: "competition_type", type: "text", description: "Konkurransetype." },
       { name: "competition_tier", type: "integer", description: "Nivå, 1 er øverst." },
@@ -126,7 +126,7 @@ export const views: ViewDoc[] = [
     name: "match_events",
     summary: "Én rad per hendelse i en kamp: mål, kort og innbytter.",
     caveats: [
-      "Dekningen er svært ujevn. I testdatasettet har bare fem kamper fra 2025 hendelser. Fravær av mål her betyr ikke at det ikke ble scoret — sjekk aafk_score i matches.",
+      "Dekningen er svært ujevn. I testdatasettet har bare fem kamper fra 2025 hendelser. Fravær av mål her betyr ikke at det ikke ble scoret. Sjekk aafk_score i matches.",
       "team er 'aafk' eller 'opponent', ikke hjemme/borte.",
     ],
     columns: [
@@ -149,10 +149,10 @@ export const views: ViewDoc[] = [
       "Kampreferat, som en FTS5-tabell. Samme objekt dekker begge bruksmåtene: " +
       "fritekstsøk og oppslag på match_id.",
     caveats: [
-      "Alle referat er skrevet for dette arkivet — aldri kopiert fra avis eller klubbside.",
+      "Alle referat er skrevet for dette arkivet, aldri kopiert fra avis eller klubbside.",
       "Fritekstsøk: WHERE reports MATCH 'ordet'. Flere ord: MATCH 'ord1 ord2' (OG), MATCH 'ord1 OR ord2'. Prefiks: MATCH 'snuoper*'.",
       "Bare summary og body er søkbare. De andre kolonnene leses ut som vanlig, men treffer ikke på MATCH.",
-      "Dekningen er tynn — de fleste kamper har ennå ikke referat. Tomt søkeresultat betyr som regel at referatet mangler, ikke at kampen ikke finnes.",
+      "Dekningen er tynn, og de fleste kamper har ennå ikke referat. Tomt søkeresultat betyr som regel at referatet mangler, ikke at kampen ikke finnes.",
     ],
     columns: [
       { name: "match_id", type: "text", description: "Kampens ID." },
@@ -169,7 +169,7 @@ export const views: ViewDoc[] = [
   },
   {
     name: "sources",
-    summary: "Kildekatalogen — hvor dataene kommer fra og hvor mye vi stoler på hver kilde.",
+    summary: "Kildekatalogen: hvor dataene kommer fra og hvor mye vi stoler på hver kilde.",
     columns: [
       { name: "source_id", type: "text", description: "Kildens ID." },
       { name: "name", type: "text", description: "Kildens navn." },
