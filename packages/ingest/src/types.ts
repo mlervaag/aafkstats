@@ -78,6 +78,8 @@ export interface SeasonFetchOptions {
   season: number;
   withDetails?: boolean;
   detailsLimit?: number;
+  /** Hvor i kamplista detaljvinduet starter. Lar en sesong detaljeres over flere kjøringer. */
+  detailsOffset?: number;
   limit?: number;
   refresh?: boolean;
   onProgress?: (message: string) => void;

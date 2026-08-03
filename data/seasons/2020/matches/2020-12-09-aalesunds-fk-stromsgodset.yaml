@@ -11,13 +11,149 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: stromsgodset
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 600
+referee: Sivert Oeksnes Amland
+events:
+  - minute: 10
+    type: goal
+    team: away
+    player: Johan Hove
+    assist: Lars-Jørgen Salvesen
+  - minute: 14
+    type: yellow_card
+    team: away
+    player: Kristoffer Tokstad
+  - minute: 33
+    type: substitution
+    team: away
+    player: Valdimar Ingimundarson
+    playerOff: Kristoffer Tokstad
+  - minute: 39
+    type: yellow_card
+    team: home
+    player: Jonas Grønner
+  - minute: 46
+    type: substitution
+    team: home
+    player: Ståle Steen Sæthre
+    playerOff: Vetle Fiskerstrand
+  - minute: 46
+    type: substitution
+    team: home
+    player: Izunna Uzochukwu
+    playerOff: Peter Orry Larsen
+  - minute: 47
+    type: goal
+    team: away
+    player: Lars-Christopher Vilsvik
+  - minute: 54
+    type: goal
+    team: away
+    player: Lars-Jørgen Salvesen
+    assist: Lars-Christopher Vilsvik
+  - minute: 63
+    type: goal
+    team: away
+    player: Duplexe Tchamba
+  - minute: 68
+    type: substitution
+    team: home
+    player: Sigurd Tafjord
+    playerOff: David Kristjan Olafsson
+  - minute: 69
+    type: substitution
+    team: home
+    player: Mamadou Diaw
+    playerOff: Niklas Castro
+  - minute: 77
+    type: substitution
+    team: home
+    player: Markus Seehusen Karlsbakk
+    playerOff: Simen Bolkan Nordli
+  - minute: 77
+    type: substitution
+    team: away
+    player: Ari Leifsson
+    playerOff: Duplexe Tchamba
+  - minute: 80
+    type: goal
+    team: home
+    player: Markus Seehusen Karlsbakk
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Enock Mwimba
+      - Kasper Jørgensen
+      - Jonas Grønner
+      - Daan Klinkenberg
+      - David Kristjan Olafsson
+      - Peter Orry Larsen
+      - Parfait Bizoza
+      - Erikson Lima
+      - Niklas Castro
+      - Vetle Fiskerstrand
+      - Simen Bolkan Nordli
+    subs:
+      - Ståle Steen Sæthre
+      - Izunna Uzochukwu
+      - Sigurd Tafjord
+      - Mamadou Diaw
+      - Markus Seehusen Karlsbakk
+      - Gudmund Taksdal Kongshavn
+      - Shaquill Sno
+      - Jørgen Hatlehol
+      - Kristoffer Strand Ødven
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-3-3
+    starters:
+      - Viljar Myhra
+      - Lars-Christopher Vilsvik
+      - Duplexe Tchamba
+      - Sondre Fosnæss Hanssen
+      - Halldor Stenevik
+      - Mikkel Maigaard
+      - Herman Stengel
+      - Johan Hove
+      - Kristoffer Tokstad
+      - Lars-Jørgen Salvesen
+      - Moses Mawa
+    subs:
+      - Valdimar Ingimundarson
+      - Ari Leifsson
+      - Morten Sætra
+      - Andreas Nyhagen
+      - Jack Ipalibo
+      - Kreshnik Krasniqi
+      - Aleksander Stenseth
+      - Simen Hammershaug
+      - Tobias Gulliksen
+    coach: Henrik Pedersen
+stats:
+  home:
+    possession: 51
+    shots: 14
+    shotsOnTarget: 3
+    corners: 3
+    fouls: 12
+    offsides: 3
+    xg: 0.74
+  away:
+    possession: 49
+    shots: 15
+    shotsOnTarget: 4
+    corners: 1
+    fouls: 9
+    offsides: 1
+    xg: 0.76
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +169,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

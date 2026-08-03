@@ -1,0 +1,167 @@
+id: 2025-05-12-aalesunds-fk-bodo-glimt
+date: 2025-05-12
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: nm
+  season: 2025
+  stage: regular_season
+  round: 3
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: bodo-glimt
+  score: 0
+  halfTimeScore: 0
+venueId: color-line-stadion
+neutralVenue: false
+events:
+  - minute: 15
+    type: yellow_card
+    team: home
+    player: Marius Andresen
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Philip Sandvik Aukland
+  - minute: 46
+    type: substitution
+    team: away
+    player: Kasper Waarts Høgh
+    playerOff: Isak Dybvik Määttä
+  - minute: 46
+    type: substitution
+    team: away
+    player: Jens Petter Hauge
+    playerOff: Mikkel Bro
+  - minute: 46
+    type: substitution
+    team: away
+    player: Fredrik Sjøvold
+    playerOff: Daniel Bassi
+  - minute: 52
+    type: goal
+    team: home
+    player: Marius Andresen
+    assist: David Snær Johannsson
+  - minute: 64
+    type: substitution
+    team: home
+    player: Kristoffer Nessø
+    playerOff: Marius Andresen
+  - minute: 64
+    type: substitution
+    team: home
+    player: Henrik Melland
+    playerOff: Jesper Gregersen
+  - minute: 70
+    type: substitution
+    team: home
+    player: Frederik Heiselberg
+    playerOff: Olafur Gudmundsson
+  - minute: 75
+    type: substitution
+    team: away
+    player: Håkon Evjen
+    playerOff: Sondre Auklend
+  - minute: 75
+    type: substitution
+    team: away
+    player: Ulrik Saltnes
+    playerOff: Sondre Brunstad Fet
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Paul Ngongo Iversen
+  - minute: 90
+    stoppage: 4
+    type: yellow_card
+    team: home
+    player: Aleksander Hammer Kjelsen
+  - minute: 90
+    stoppage: 5
+    type: substitution
+    team: home
+    player: Marius Gulbrandsen
+    playerOff: Paul Ngongo Iversen
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Tor Erik Valderhaug Larsen
+      - Philip Sandvik Aukland
+      - Aleksander Hammer Kjelsen
+      - Simen Haram
+      - Marius Andresen
+      - Janus Seehusen
+      - Håkon Butli Hammer
+      - Jesper Gregersen
+      - Olafur Gudmundsson
+      - Paul Ngongo Iversen
+      - David Snær Johannsson
+    subs:
+      - Henrik Melland
+      - Kristoffer Nessø
+      - Frederik Heiselberg
+      - Marius Gulbrandsen
+      - Sten Michael Grytebust
+      - Jakob Roenningen
+      - Jørgen Bøe
+      - Kristian Hemmingsen Lonebu
+      - Marcus Haagensen Reed
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - Nikita Haikin
+      - Daniel Bassi
+      - Villads Nielsen
+      - Jostein Gundersen
+      - Haitam Aleesami
+      - Sondre Brunstad Fet
+      - Patrick Berg
+      - Sondre Auklend
+      - Sondre Sørli
+      - Mikkel Bro
+      - Isak Dybvik Määttä
+    subs:
+      - Fredrik Sjøvold
+      - Jens Petter Hauge
+      - Kasper Waarts Høgh
+      - Håkon Evjen
+      - Ulrik Saltnes
+      - Magnus Brøndbo
+      - Fredrik André Bjørkan
+      - Jeppe Kjær
+      - Ole Blomberg
+    coach: Kjetil Knutsen
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/bodoglimt-vs-aalesund/2c37nd#4779152
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4779152"
+manual: []

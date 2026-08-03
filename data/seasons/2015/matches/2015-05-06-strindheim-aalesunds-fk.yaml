@@ -1,0 +1,123 @@
+id: 2015-05-06-strindheim-aalesunds-fk
+date: 2015-05-06
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2015
+  stage: regular_season
+  round: 2
+home:
+  clubId: strindheim
+  score: 2
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 5
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 58
+    type: substitution
+    team: home
+    player: Andreas Rye
+    playerOff: Bjørn Erik Løkås
+  - minute: 67
+    type: substitution
+    team: away
+    player: Vebjørn Hoff
+    playerOff: Sakari Mattila
+  - minute: 71
+    type: substitution
+    team: home
+    player: Julian Rygh
+    playerOff: Daniel Krogstad
+  - minute: 71
+    type: substitution
+    team: home
+    player: Håkon Kroglund Haugen
+    playerOff: Lars Ramstad
+  - minute: 72
+    type: substitution
+    team: away
+    player: Elias Dahlberg
+    playerOff: Carl Björk
+  - minute: 72
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Henrik Rørvik Bjørdal
+lineups:
+  home:
+    formation: 3-4-3
+    starters:
+      - Magnus Lenes
+      - Lars Ramstad
+      - Jonas Altinius
+      - Fredrik Kosberg
+      - Eirik Nerland
+      - Christian Reginiussen
+      - Stian Romslo Torgersen
+      - Bjørn Erik Løkås
+      - Jeffter Osafo
+      - Joachim Andersen
+      - Daniel Krogstad
+    subs:
+      - Andreas Rye
+      - Håkon Kroglund Haugen
+      - Julian Rygh
+      - Christ Oulahi
+      - Mats Wærøe Langseth
+      - Ricardo Djupvik Kahegezo
+      - Thomas Skarsvåg Adsen
+    coach: ""
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Akeem Latifu
+      - Edvard Skagestad
+      - Oddbjørn Lie
+      - Jo Nymo Matland
+      - Henrik Rørvik Bjørdal
+      - Sakari Mattila
+      - Daniel Gretarsson
+      - Thomas Skog Martinussen
+      - Leke James
+      - Carl Björk
+    subs:
+      - Vebjørn Hoff
+      - Elias Dahlberg
+      - Sondre Brunstad Fet
+      - Mikael Dyrestam
+      - Sten Michael Grytebust
+      - Tero Mäntylä
+      - Torbjørn Grytten
+    coach: Trond Fredriksen
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-strindheim/2t2w9v#1958970
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1958970"
+manual: []

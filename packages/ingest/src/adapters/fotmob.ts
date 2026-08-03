@@ -57,7 +57,12 @@ export async function fetchFotmobSeason(options: SeasonFetchOptions): Promise<Fe
       failures.push({ scope: "match", externalId: String(raw.id ?? "mangler-id"), message: "mangler ID, lag eller gyldig dato" });
       continue;
     }
-    if (options.withDetails && index < (options.detailsLimit ?? candidates.length)) {
+    // Detaljvinduet er [offset, offset + limit). Uten offset ville hver kjøring
+    // hentet de samme første kampene om igjen, og en sesong kunne aldri bli
+    // ferdig detaljert med et tak på ti per kjøring.
+    const from = options.detailsOffset ?? 0;
+    const to = from + (options.detailsLimit ?? candidates.length);
+    if (options.withDetails && index >= from && index < to) {
       options.onProgress?.(`detaljer ${index + 1}/${candidates.length}: ${normalized.date}`);
       try {
         const detail = await request<RawMatchDetails>(`${BASE}/matchDetails?matchId=${normalized.externalId}`);

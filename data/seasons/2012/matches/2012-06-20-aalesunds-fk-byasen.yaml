@@ -1,0 +1,63 @@
+id: 2012-06-20-aalesunds-fk-byasen
+date: 2012-06-20
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2012
+  stage: regular_season
+  round: 3
+home:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: 0
+away:
+  clubId: byasen
+  score: 0
+  halfTimeScore: 0
+venueId: color-line-stadion
+neutralVenue: false
+events:
+  - minute: 59
+    type: goal
+    team: home
+    player: Sander Post
+  - minute: 76
+    type: goal
+    team: home
+    player: Kjell Rune Sellin
+  - minute: 86
+    type: penalty_goal
+    team: home
+    player: Fredrik Ulvestad
+  - minute: 88
+    type: goal
+    team: home
+    player: Demar Phillips
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-byasen/2qo60s#1205026
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1205026"
+manual: []

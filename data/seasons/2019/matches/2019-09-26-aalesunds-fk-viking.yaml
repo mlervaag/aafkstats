@@ -1,0 +1,164 @@
+id: 2019-09-26-aalesunds-fk-viking
+date: 2019-09-26
+dateConfidence: exact
+kickoff: 20:00
+status: played
+competition:
+  id: nm
+  season: 2019
+  stage: quarter_final
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: viking
+  score: 1
+  halfTimeScore: 1
+neutralVenue: false
+attendance: 5829
+events:
+  - minute: 11
+    type: goal
+    team: home
+    player: Niklas Castro
+  - minute: 23
+    type: yellow_card
+    team: home
+    player: Holmbert Aron Fridjonsson
+  - minute: 39
+    type: substitution
+    team: home
+    player: Pape Habib Gueye
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 40
+    type: goal
+    team: away
+    player: Fredrik Torsteinbø
+  - minute: 51
+    type: yellow_card
+    team: home
+    player: Jørgen Hatlehol
+  - minute: 59
+    type: yellow_card
+    team: away
+    player: Adrian Pereira
+  - minute: 69
+    type: yellow_card
+    team: away
+    player: Kristian Thorstvedt
+  - minute: 71
+    type: yellow_card
+    team: home
+    player: Niklas Castro
+  - minute: 82
+    type: substitution
+    team: away
+    player: Samuel Fridjonsson
+    playerOff: Kristoffer Løkberg
+  - minute: 84
+    type: substitution
+    team: home
+    player: Oddbjørn Lie
+    playerOff: Jørgen Hatlehol
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Jonas Grønner
+  - minute: 91
+    type: substitution
+    team: away
+    player: Johnny Furdal
+    playerOff: Fredrik Torsteinbø
+  - minute: 91
+    type: substitution
+    team: away
+    player: Zymer Bytyqi
+    playerOff: Kristian Thorstvedt
+  - minute: 104
+    type: substitution
+    team: home
+    player: Wilmer Azofeifa
+    playerOff: Fredrik Carlsen
+  - minute: 116
+    type: substitution
+    team: home
+    player: Jernade Meade
+    playerOff: Sondre Brunstad Fet
+  - minute: 119
+    type: substitution
+    team: away
+    player: Even Østensen
+    playerOff: Sondre Bjørshol
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Ståle Steen Sæthre
+      - Daniel Gretarsson
+      - Jonas Grønner
+      - Jørgen Hatlehol
+      - Erikson Lima
+      - Fredrik Carlsen
+      - Aron Elis Thrandarson
+      - Sondre Brunstad Fet
+      - Holmbert Aron Fridjonsson
+      - Niklas Castro
+    subs:
+      - Pape Habib Gueye
+      - Oddbjørn Lie
+      - Wilmer Azofeifa
+      - Jernade Meade
+      - Marius Berntzen
+      - Peter Orry Larsen
+      - Torbjørn Agdestein
+  away:
+    formation: 4-3-3
+    starters:
+      - Iven Austbø
+      - Sondre Bjørshol
+      - Runar Hove
+      - Viljar Vevatne
+      - Adrian Pereira
+      - Fredrik Torsteinbø
+      - Kristoffer Løkberg
+      - Kristian Thorstvedt
+      - Ylldren Ibrahimaj
+      - Tommy Høiland
+      - Zlatko Tripic
+    subs:
+      - Samuel Fridjonsson
+      - Johnny Furdal
+      - Zymer Bytyqi
+      - Even Østensen
+      - Amund Wichne
+      - Benjamin Källman
+      - Tord Johnsen Salte
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-viking/2cuni1#3078435
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.stage
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: Pen"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3078435"
+manual: []

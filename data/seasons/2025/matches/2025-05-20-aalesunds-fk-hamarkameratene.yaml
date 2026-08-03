@@ -1,0 +1,193 @@
+id: 2025-05-20-aalesunds-fk-hamarkameratene
+date: 2025-05-20
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2025
+  stage: regular_season
+  round: 4
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: hamarkameratene
+  score: 2
+  halfTimeScore: 1
+venueId: color-line-stadion
+neutralVenue: false
+attendance: 1923
+events:
+  - minute: 15
+    type: yellow_card
+    team: away
+    player: Anton Ekeroth
+  - minute: 34
+    type: goal
+    team: home
+    player: Paul Ngongo Iversen
+  - minute: 39
+    type: yellow_card
+    team: away
+    player: Alwande Roaldsøy
+  - minute: 45
+    stoppage: 2
+    type: penalty_goal
+    team: away
+    player: Luc Mares
+  - minute: 58
+    type: substitution
+    team: home
+    player: Claudio Braga
+    playerOff: Jesper Gregersen
+  - minute: 58
+    type: substitution
+    team: home
+    player: Kristoffer Nessø
+    playerOff: Olafur Gudmundsson
+  - minute: 65
+    type: goal
+    team: home
+    player: Simen Haram
+    assist: Kristoffer Nessø
+  - minute: 69
+    type: goal
+    team: away
+    player: William Osnes-Ringen
+    assist: Alwande Roaldsøy
+  - minute: 72
+    type: substitution
+    team: away
+    player: Gard Simenstad
+    playerOff: Kristian Lien
+  - minute: 73
+    type: substitution
+    team: away
+    player: Vidar Ari Jonsson
+    playerOff: Anton Ekeroth
+  - minute: 82
+    type: substitution
+    team: away
+    player: Aksel Baran Potur
+    playerOff: William Osnes-Ringen
+  - minute: 91
+    type: substitution
+    team: away
+    player: Julian Bakkeli Gonstad
+    playerOff: Snorre Nilsen
+  - minute: 91
+    type: substitution
+    team: home
+    player: Frederik Heiselberg
+    playerOff: Paul Ngongo Iversen
+  - minute: 91
+    type: substitution
+    team: home
+    player: Henrik Melland
+    playerOff: Janus Seehusen
+  - minute: 104
+    type: substitution
+    team: away
+    player: Pål Alexander Kirkevold
+    playerOff: Moses Mawa
+  - minute: 110
+    type: substitution
+    team: home
+    player: Kristian Hemmingsen Lonebu
+    playerOff: Philip Sandvik Aukland
+  - minute: 118
+    type: yellow_card
+    team: away
+    player: Tore André Sørås
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Tor Erik Valderhaug Larsen
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Philip Sandvik Aukland
+      - Marius Andresen
+      - Janus Seehusen
+      - Håkon Butli Hammer
+      - Jesper Gregersen
+      - Olafur Gudmundsson
+      - Paul Ngongo Iversen
+      - David Snær Johannsson
+    subs:
+      - Kristoffer Nessø
+      - Claudio Braga
+      - Henrik Melland
+      - Frederik Heiselberg
+      - Kristian Hemmingsen Lonebu
+      - Sten Michael Grytebust
+      - Jørgen Bøe
+      - Thomas Gulbrandsen
+      - Marcus Haagensen Reed
+    coach: Kjetil Rekdal
+  away:
+    formation: 3-5-2
+    starters:
+      - Alexander Nilsson
+      - Gustav Granath
+      - Luc Mares
+      - Brynjar Ingi Bjarnason
+      - Snorre Nilsen
+      - William Osnes-Ringen
+      - Tore André Sørås
+      - Alwande Roaldsøy
+      - Anton Ekeroth
+      - Kristian Lien
+      - Moses Mawa
+    subs:
+      - Gard Simenstad
+      - Vidar Ari Jonsson
+      - Aksel Baran Potur
+      - Julian Bakkeli Gonstad
+      - Pål Alexander Kirkevold
+      - Marcus Sandberg
+      - Mads Orrhaug Larsen
+      - Arne Ødegård
+    coach: Jakob Michelsen
+stats:
+  home:
+    possession: 49
+    shots: 15
+    shotsOnTarget: 3
+    corners: 12
+  away:
+    possession: 51
+    shots: 8
+    shotsOnTarget: 5
+    corners: 5
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-hamarkameratene/2cjt0y#4787659
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: Pen"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4787659"
+manual: []

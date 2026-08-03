@@ -11,6 +11,7 @@ interface Args {
   competition: string;
   details: boolean;
   detailsLimit?: number;
+  detailsOffset?: number;
   limit?: number;
   refresh: boolean;
   write: boolean;
@@ -32,6 +33,7 @@ async function main(): Promise<void> {
     season: args.season,
     withDetails: args.details,
     detailsLimit: args.detailsLimit,
+    detailsOffset: args.detailsOffset,
     limit: args.limit,
     refresh: args.refresh,
     onProgress: (line) => console.log(`  ${line}`),
@@ -95,7 +97,7 @@ function parseArgs(argv: string[]): Args {
   const season = Number(values.get("--season"));
   const competition = values.get("--competition");
   if (!league || !Number.isInteger(season) || !competition) {
-    throw new Error("bruk: --league ID --season ÅR --competition ARKIV-ID [--with-details] [--limit N] [--write]");
+    throw new Error("bruk: --league ID --season ÅR --competition ARKIV-ID [--with-details] [--details-offset N] [--limit N] [--write]");
   }
   const limitRaw = values.get("--limit");
   const limit = limitRaw === undefined ? undefined : Number(limitRaw);
@@ -107,6 +109,12 @@ function parseArgs(argv: string[]): Args {
   if (detailsLimit !== undefined && (!Number.isInteger(detailsLimit) || detailsLimit < 1 || detailsLimit > 10)) {
     throw new Error("--details-limit må være 1–10");
   }
+  const detailsOffsetRaw = values.get("--details-offset");
+  const detailsOffset = detailsOffsetRaw === undefined ? undefined : Number(detailsOffsetRaw);
+  if (detailsOffset !== undefined && (!Number.isInteger(detailsOffset) || detailsOffset < 0)) {
+    throw new Error("--details-offset må være 0 eller større");
+  }
+
   const retrievedAt = values.get("--retrieved-at") ?? new Date().toISOString().slice(0, 10);
   if (flags.has("--write") && !values.has("--retrieved-at")) {
     throw new Error("--write krever eksplisitt --retrieved-at YYYY-MM-DD for reproduserbare differ");
@@ -117,6 +125,7 @@ function parseArgs(argv: string[]): Args {
     competition,
     details: flags.has("--with-details"),
     detailsLimit,
+    detailsOffset,
     limit,
     refresh: flags.has("--refresh"),
     write: flags.has("--write"),

@@ -1,0 +1,127 @@
+id: 2014-06-04-kristiansund-aalesunds-fk
+date: 2014-06-04
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2014
+  stage: regular_season
+  round: 3
+home:
+  clubId: kristiansund
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+venueId: atlanten
+neutralVenue: false
+events:
+  - minute: 44
+    type: substitution
+    team: home
+    player: Joakim Bjerkås
+    playerOff: Espen Næss Lund
+  - minute: 64
+    type: substitution
+    team: away
+    player: Tor Hogne Aarøy
+    playerOff: Peter Orry Larsen
+  - minute: 72
+    type: substitution
+    team: away
+    player: Henrik Rørvik Bjørdal
+    playerOff: Tremaine Stewart
+  - minute: 77
+    type: goal
+    team: away
+    player: Demar Phillips
+  - minute: 81
+    type: substitution
+    team: home
+    player: Jonas Rønningen
+    playerOff: Sverre Økland
+  - minute: 81
+    type: substitution
+    team: home
+    player: Daouda Bamba
+    playerOff: Tor Erik Torske
+  - minute: 83
+    type: substitution
+    team: away
+    player: Daniel Arnefjord
+    playerOff: Jo Nymo Matland
+lineups:
+  home:
+    starters:
+      - Conny Månsson
+      - Aliou Coly
+      - Dan Peter Ulvestad
+      - Erlend Sivertsen
+      - Espen Næss Lund
+      - Andreas Hopmark
+      - Andreas Rødsand
+      - Liridon Kalludra
+      - Sverre Økland
+      - Jean Alassane Mendy
+      - Tor Erik Torske
+    subs:
+      - Joakim Bjerkås
+      - Daouda Bamba
+      - Jonas Rønningen
+      - Elias Valderhaug
+      - Marc Serramitja Taberner
+      - Simen Tomren
+      - Tommy Edvardsen
+    coach: Christian Michelsen
+  away:
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Demar Phillips
+      - Jonatan Tollås Nation
+      - Oddbjørn Lie
+      - Fredrik Ulvestad
+      - Jo Nymo Matland
+      - Peter Orry Larsen
+      - Sakari Mattila
+      - Leke James
+      - Tremaine Stewart
+    subs:
+      - Tor Hogne Aarøy
+      - Henrik Rørvik Bjørdal
+      - Daniel Arnefjord
+      - Andreas Lie
+      - Fredrik Carlsen
+      - Mikael Dyrestam
+      - Thomas Skog Martinussen
+    coach: Jan Jönsson
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#1702532
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1702532"
+manual: []

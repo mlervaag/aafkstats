@@ -1,0 +1,127 @@
+id: 2015-06-03-hodd-aalesunds-fk
+date: 2015-06-03
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2015
+  stage: regular_season
+  round: 3
+home:
+  clubId: hodd
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 37
+    type: goal
+    team: home
+    player: Magnus Myklebust
+  - minute: 61
+    type: substitution
+    team: away
+    player: Carl Björk
+    playerOff: Peter Orry Larsen
+  - minute: 61
+    type: substitution
+    team: away
+    player: Edvard Skagestad
+    playerOff: Mikael Dyrestam
+  - minute: 69
+    type: substitution
+    team: home
+    player: Torbjørn Kallevåg
+    playerOff: Michael Karlsen
+  - minute: 74
+    type: substitution
+    team: away
+    player: Aron Elis Thrándarson
+    playerOff: Mostafa Abdellaoue
+  - minute: 81
+    type: substitution
+    team: home
+    player: Bendik Torset
+    playerOff: Magnus Myklebust
+  - minute: 88
+    type: substitution
+    team: home
+    player: Joachim Magnussen
+    playerOff: Eirik Ulland Andersen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Aslak Falch
+      - Jonas Ingebrigtsen
+      - Jesper Törnqvist
+      - Steffen Moltu
+      - Christoffer Aasbak
+      - Fredrik Aursnes
+      - Joakim Wrele
+      - Ole Amund Sveen
+      - Magnus Myklebust
+      - Michael Karlsen
+      - Eirik Ulland Andersen
+    subs:
+      - Torbjørn Kallevåg
+      - Bendik Torset
+      - Joachim Magnussen
+      - Erik Sandal
+      - Ole-Monrad Alme
+      - Sondre Sandnes Beite
+      - Vegard Heltne
+    coach: Sindre Eid
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Akeem Latifu
+      - Mikael Dyrestam
+      - Tero Mäntylä
+      - Oddbjørn Lie
+      - Peter Orry Larsen
+      - Michael Barrantes
+      - Sakari Mattila
+      - Henrik Rørvik Bjørdal
+      - Mostafa Abdellaoue
+      - Leke James
+    subs:
+      - Carl Björk
+      - Edvard Skagestad
+      - Aron Elis Thrándarson
+      - Daniel Gretarsson
+      - Helge Sandvik
+      - Jo Nymo Matland
+      - Torbjørn Grytten
+    coach: Trond Fredriksen
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/hodd-vs-aalesund/27i0yj#1965269
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1965269"
+manual: []

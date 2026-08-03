@@ -1,0 +1,87 @@
+id: 2013-05-29-ranheim-aalesunds-fk
+date: 2013-05-29
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2013
+  stage: regular_season
+  round: 3
+home:
+  clubId: ranheim
+  score: 2
+  halfTimeScore: 2
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+extraTime:
+  home: 2
+  away: 0
+venueId: dnb-nor-arena
+neutralVenue: false
+attendance: 1285
+events:
+  - minute: 17
+    type: goal
+    team: home
+    player: Daniel Krogstad
+  - minute: 21
+    type: goal
+    team: away
+    player: Leke James
+  - minute: 28
+    type: goal
+    team: home
+    player: Jo Sondre Aas
+  - minute: 77
+    type: goal
+    team: away
+    player: Thomas Skog Martinussen
+  - minute: 113
+    type: goal
+    team: home
+    player: Jo Sondre Aas
+  - minute: 117
+    type: goal
+    team: home
+    player: Jo Sondre Aas
+lineups:
+  home:
+    starters: []
+    subs: []
+    coach: ""
+  away:
+    starters: []
+    subs: []
+    coach: Jan Jönsson
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/ranheim-vs-aalesund/1up0ag#1450263
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - extraTime
+      - events
+      - lineups
+    note: "Kildestatus: AET"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1450263"
+manual: []

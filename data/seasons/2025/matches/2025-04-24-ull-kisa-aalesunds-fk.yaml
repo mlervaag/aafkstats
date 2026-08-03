@@ -1,0 +1,67 @@
+id: 2025-04-24-ull-kisa-aalesunds-fk
+date: 2025-04-24
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2025
+  stage: regular_season
+  round: 2
+home:
+  clubId: ull-kisa
+  score: 2
+  halfTimeScore: 2
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 3
+venueId: jessheim-stadion
+neutralVenue: false
+events:
+  - minute: 9
+    type: goal
+    team: away
+    player: Janus Seehusen
+  - minute: 28
+    type: goal
+    team: away
+    player: Claudio Braga
+  - minute: 37
+    type: goal
+    team: home
+    player: Markus Flores
+  - minute: 41
+    type: goal
+    team: away
+    player: Marius Andresen
+  - minute: 44
+    type: penalty_goal
+    team: home
+    player: Jakob Rømo Skille
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-ullkisa/2veb2a#4773456
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4773456"
+manual: []

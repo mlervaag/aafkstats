@@ -1,0 +1,71 @@
+id: 2023-05-24-eid-il-aalesunds-fk
+date: 2023-05-24
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2023
+  stage: regular_season
+  round: 1
+home:
+  clubId: eid-il
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: 3
+venueId: eid-stadion
+neutralVenue: false
+events:
+  - minute: 11
+    type: goal
+    team: away
+    player: Erlend Segberg
+  - minute: 35
+    type: goal
+    team: away
+    player: Moses Ebiye
+  - minute: 38
+    type: goal
+    team: away
+    player: Isaac Atanga
+  - minute: 85
+    type: own_goal
+    team: away
+    player: Oliver Holmøyvik
+lineups:
+  home:
+    starters: []
+    subs: []
+  away:
+    starters: []
+    subs: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/eid-il-vs-aalesund/1umfx8#4156095
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4156095"
+manual: []

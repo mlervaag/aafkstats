@@ -11,13 +11,149 @@ competition:
 home:
   clubId: valerenga
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: intility-arena
 neutralVenue: false
-events: []
+attendance: 200
+referee: Tom Harald Hagen
+events:
+  - minute: 24
+    type: yellow_card
+    team: away
+    player: Daan Klinkenberg
+  - minute: 30
+    type: yellow_card
+    team: home
+    player: Fredrik Oldrup Jensen
+  - minute: 34
+    type: goal
+    team: away
+    player: Holmbert Aron Fridjonsson
+    assist: David Kristjan Olafsson
+  - minute: 46
+    type: substitution
+    team: away
+    player: Markus Seehusen Karlsbakk
+    playerOff: Simen Bolkan Nordli
+  - minute: 46
+    type: goal
+    team: away
+    player: Holmbert Aron Fridjonsson
+  - minute: 49
+    type: yellow_card
+    team: home
+    player: Sam Adekugbe
+  - minute: 57
+    type: substitution
+    team: home
+    player: Benjamin Stokke
+    playerOff: Fredrik Oldrup Jensen
+  - minute: 57
+    type: substitution
+    team: home
+    player: Bård Finne
+    playerOff: Osame Sahraoui
+  - minute: 62
+    type: yellow_card
+    team: away
+    player: Niklas Castro
+  - minute: 63
+    type: goal
+    team: home
+    player: Benjamin Stokke
+    assist: Matthias Vilhjalmsson
+  - minute: 65
+    type: goal
+    team: home
+    player: Bård Finne
+    assist: Aron Dønnum
+  - minute: 69
+    type: red_card
+    team: home
+    player: Sam Adekugbe
+  - minute: 71
+    type: substitution
+    team: away
+    player: Oddbjørn Lie
+    playerOff: Daan Klinkenberg
+  - minute: 81
+    type: substitution
+    team: away
+    player: Jørgen Hatlehol
+    playerOff: Shaquill Sno
+  - minute: 81
+    type: substitution
+    team: away
+    player: Izunna Uzochukwu
+    playerOff: Ståle Steen Sæthre
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Kristoffer Klaesson
+      - Christian Dahle Borchgrevink
+      - Jonatan Tollås Nation
+      - Ivan Näsberg
+      - Sam Adekugbe
+      - Magnus Lekven
+      - Fredrik Oldrup Jensen
+      - Herolind Shala
+      - Aron Dønnum
+      - Matthias Vilhjalmsson
+      - Osame Sahraoui
+    subs:
+      - Bård Finne
+      - Benjamin Stokke
+      - Amin Nouri
+      - Felix Horn Myhre
+      - Johan Lædre Bjørdal
+      - Kjetil Haug
+      - Odin Thiago Holm
+    coach: Dag-Eilev Fagermo
+  away:
+    formation: 3-4-3
+    starters:
+      - Gudmund Taksdal Kongshavn
+      - Ståle Steen Sæthre
+      - Jonas Grønner
+      - Daan Klinkenberg
+      - Shaquill Sno
+      - Peter Orry Larsen
+      - Parfait Bizoza
+      - David Kristjan Olafsson
+      - Niklas Castro
+      - Holmbert Aron Fridjonsson
+      - Simen Bolkan Nordli
+    subs:
+      - Markus Seehusen Karlsbakk
+      - Oddbjørn Lie
+      - Izunna Uzochukwu
+      - Jørgen Hatlehol
+      - Enock Mwimba
+      - Isak Dybvik
+      - Vetle Fiskerstrand
+    coach: Lars Bohinen
+stats:
+  home:
+    possession: 51
+    shots: 9
+    shotsOnTarget: 6
+    corners: 4
+    fouls: 12
+    offsides: 1
+    xg: 3.24
+  away:
+    possession: 49
+    shots: 6
+    shotsOnTarget: 3
+    corners: 3
+    fouls: 17
+    offsides: 1
+    xg: 1.12
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +169,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

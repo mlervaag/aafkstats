@@ -1,0 +1,157 @@
+id: 2019-06-26-rosenborg-bk-aalesunds-fk
+date: 2019-06-26
+dateConfidence: exact
+kickoff: 20:00
+status: played
+competition:
+  id: nm
+  season: 2019
+  stage: regular_season
+  round: 4
+home:
+  clubId: rosenborg-bk
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 1
+neutralVenue: false
+attendance: 5122
+events:
+  - minute: 9
+    type: yellow_card
+    team: away
+    player: David Kristjan Olafsson
+  - minute: 33
+    type: red_card
+    team: home
+    player: Pål André Helland
+  - minute: 35
+    type: goal
+    team: away
+    player: Niklas Castro
+  - minute: 45
+    type: red_card
+    team: away
+    player: David Kristjan Olafsson
+  - minute: 46
+    type: substitution
+    team: home
+    player: Gjermund Åsen
+    playerOff: Anders Trondsen
+  - minute: 52
+    type: yellow_card
+    team: away
+    player: Izunna Uzochukwu
+  - minute: 65
+    type: substitution
+    team: away
+    player: Jørgen Hatlehol
+    playerOff: Niklas Castro
+  - minute: 67
+    type: substitution
+    team: home
+    player: Samuel Adegbenro
+    playerOff: Vegar Eggen Hedenstad
+  - minute: 82
+    type: goal
+    team: home
+    player: Tore Reginiussen
+  - minute: 85
+    type: substitution
+    team: away
+    player: Jernade Meade
+    playerOff: Sondre Brunstad Fet
+  - minute: 87
+    type: substitution
+    team: away
+    player: Oddbjørn Lie
+    playerOff: Kaj Ramsteijn
+  - minute: 91
+    type: substitution
+    team: home
+    player: Gustav Valsvik
+    playerOff: Tore Reginiussen
+  - minute: 111
+    type: substitution
+    team: away
+    player: Fredrik Carlsen
+    playerOff: Izunna Uzochukwu
+  - minute: 111
+    type: substitution
+    team: home
+    player: Djordje Denic
+    playerOff: Marius Lundemo
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - André Hansen
+      - Vegar Eggen Hedenstad
+      - Tore Reginiussen
+      - Even Hovland
+      - Birger Meling
+      - Mike Jensen
+      - Marius Lundemo
+      - Anders Trondsen
+      - Babajide David
+      - Alexander Søderlund
+      - Pål André Helland
+    subs:
+      - Gjermund Åsen
+      - Samuel Adegbenro
+      - Gustav Valsvik
+      - Djordje Denic
+      - Arild Østbø
+      - Erik Botheim
+      - Mikael Toerset Johnsen
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Jonas Grønner
+      - Ståle Steen Sæthre
+      - Sondre Brunstad Fet
+      - Aron Elis Thrandarson
+      - Izunna Uzochukwu
+      - Erikson Lima
+      - David Kristjan Olafsson
+      - Holmbert Aron Fridjonsson
+      - Niklas Castro
+    subs:
+      - Jørgen Hatlehol
+      - Jernade Meade
+      - Oddbjørn Lie
+      - Fredrik Carlsen
+      - Håvard Breivik
+      - Tarjei Aase Omenås
+      - Torbjørn Agdestein
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-rosenborg/2caf6d#3065515
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: Pen"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3065515"
+manual: []

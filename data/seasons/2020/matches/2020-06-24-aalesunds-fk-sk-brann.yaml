@@ -11,13 +11,160 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: sk-brann
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 200
+referee: Espen Eskaas
+events:
+  - minute: 11
+    type: yellow_card
+    team: home
+    player: Ståle Steen Sæthre
+  - minute: 29
+    type: goal
+    team: home
+    player: Niklas Castro
+    assist: Simen Bolkan Nordli
+  - minute: 34
+    type: yellow_card
+    team: away
+    player: Vegard Forren
+  - minute: 46
+    type: substitution
+    team: away
+    player: Kristoffer Barmen
+    playerOff: Amer Ordagic
+  - minute: 54
+    type: goal
+    team: away
+    player: Daouda Bamba
+    assist: Petter Strand
+  - minute: 60
+    type: goal
+    team: away
+    player: Daouda Bamba
+  - minute: 62
+    type: substitution
+    team: home
+    player: Holmbert Aron Fridjonsson
+    playerOff: Simen Bolkan Nordli
+  - minute: 63
+    type: substitution
+    team: home
+    player: Izunna Uzochukwu
+    playerOff: Peter Orry Larsen
+  - minute: 67
+    type: substitution
+    team: away
+    player: Thomas Grøgaard
+    playerOff: Fredrik Haugen
+  - minute: 69
+    type: substitution
+    team: home
+    player: Oddbjørn Lie
+    playerOff: Daan Klinkenberg
+  - minute: 69
+    type: substitution
+    team: home
+    player: David Kristjan Olafsson
+    playerOff: Shaquill Sno
+  - minute: 72
+    type: goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+    assist: Niklas Castro
+  - minute: 73
+    type: substitution
+    team: away
+    player: Erlend Hustad
+    playerOff: Daouda Bamba
+  - minute: 74
+    type: substitution
+    team: away
+    player: Ole Kolskogen
+    playerOff: Vegard Forren
+  - minute: 75
+    type: yellow_card
+    team: home
+    player: Izunna Uzochukwu
+  - minute: 87
+    type: yellow_card
+    team: home
+    player: Niklas Castro
+  - minute: 88
+    type: substitution
+    team: away
+    player: Gilli Rolantsson
+    playerOff: Robert Taylor
+lineups:
+  home:
+    formation: 3-4-3
+    starters:
+      - Andreas Lie
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Daan Klinkenberg
+      - Jørgen Hatlehol
+      - Ståle Steen Sæthre
+      - Peter Orry Larsen
+      - Shaquill Sno
+      - Niklas Castro
+      - Sigurd Haugen
+      - Simen Bolkan Nordli
+    subs:
+      - Holmbert Aron Fridjonsson
+      - Izunna Uzochukwu
+      - David Kristjan Olafsson
+      - Oddbjørn Lie
+      - Gudmund Taksdal Kongshavn
+      - Markus Seehusen Karlsbakk
+      - Parfait Bizoza
+    coach: Lars Bohinen
+  away:
+    formation: 4-3-3
+    starters:
+      - Ali Ahamada
+      - Petter Strand
+      - Vegard Forren
+      - Bismark Acosta
+      - Ruben Kristiansen
+      - Amer Ordagic
+      - Daniel A. Pedersen
+      - Fredrik Haugen
+      - Gilbert Koomson
+      - Daouda Bamba
+      - Robert Taylor
+    subs:
+      - Kristoffer Barmen
+      - Thomas Grøgaard
+      - Erlend Hustad
+      - Ole Kolskogen
+      - Gilli Rolantsson
+      - Christian Eggen Rismark
+      - Markus Pettersen
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 35
+    shots: 9
+    shotsOnTarget: 5
+    corners: 2
+    fouls: 18
+    offsides: 0
+    xg: 1.41
+  away:
+    possession: 65
+    shots: 15
+    shotsOnTarget: 5
+    corners: 9
+    fouls: 9
+    offsides: 4
+    xg: 2.55
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +180,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

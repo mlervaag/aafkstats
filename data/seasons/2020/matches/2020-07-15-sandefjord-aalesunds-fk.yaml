@@ -11,13 +11,136 @@ competition:
 home:
   clubId: sandefjord
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: sandefjord-arena
 neutralVenue: false
-events: []
+attendance: 200
+referee: Sivert Oeksnes Amland
+events:
+  - minute: 27
+    type: yellow_card
+    team: home
+    player: Anton Kralj
+  - minute: 38
+    type: goal
+    team: home
+    player: Sander Moen Foss
+    assist: Erik Næsbak Brenden
+  - minute: 41
+    type: substitution
+    team: away
+    player: Parfait Bizoza
+    playerOff: Fredrik Carlsen
+  - minute: 51
+    type: substitution
+    team: home
+    player: Kristoffer Normann Hansen
+    playerOff: Marcos Celorrio
+  - minute: 53
+    type: substitution
+    team: home
+    player: Sander Risan
+    playerOff: Emil Palsson
+  - minute: 65
+    type: substitution
+    team: away
+    player: Ståle Steen Sæthre
+    playerOff: Daniel Gretarsson
+  - minute: 75
+    type: substitution
+    team: home
+    player: William Albin Kurtovic
+    playerOff: Rufo
+  - minute: 75
+    type: substitution
+    team: home
+    player: George Nuah Gibson
+    playerOff: Enric Vallés
+  - minute: 79
+    type: substitution
+    team: away
+    player: Daan Klinkenberg
+    playerOff: Simen Bolkan Nordli
+  - minute: 80
+    type: yellow_card
+    team: away
+    player: Shaquill Sno
+  - minute: 87
+    type: yellow_card
+    team: home
+    player: Erik Næsbak Brenden
+  - minute: 88
+    type: yellow_card
+    team: home
+    player: Kristoffer Normann Hansen
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Jacob Storevik
+      - Marc Vales
+      - Sander Moen Foss
+      - Martin Kreuzriegler
+      - Anton Kralj
+      - Enric Vallés
+      - Emil Palsson
+      - Erik Næsbak Brenden
+      - Rufo
+      - Sivert Gussiås
+      - Marcos Celorrio
+    subs:
+      - Kristoffer Normann Hansen
+      - Sander Risan
+      - George Nuah Gibson
+      - William Albin Kurtovic
+      - Jesper Granlund
+      - Lars Markmanrud
+      - Peder Meen Johansen
+    coach: Marti Cifuentes
+  away:
+    formation: 3-4-3
+    starters:
+      - Gudmund Taksdal Kongshavn
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Shaquill Sno
+      - Fredrik Carlsen
+      - Simen Bolkan Nordli
+      - David Kristjan Olafsson
+      - Niklas Castro
+      - Holmbert Aron Fridjonsson
+      - Sigurd Haugen
+    subs:
+      - Parfait Bizoza
+      - Ståle Steen Sæthre
+      - Daan Klinkenberg
+      - Enock Mwimba
+      - Isak Dybvik
+      - Jørgen Hatlehol
+      - Markus Seehusen Karlsbakk
+    coach: Lars Bohinen
+stats:
+  home:
+    possession: 37
+    shots: 9
+    shotsOnTarget: 2
+    corners: 9
+    fouls: 20
+    offsides: 2
+    xg: 0.53
+  away:
+    possession: 63
+    shots: 6
+    shotsOnTarget: 0
+    corners: 3
+    fouls: 17
+    offsides: 2
+    xg: 0.61
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +156,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -1,0 +1,83 @@
+id: 2023-06-01-byasen-aalesunds-fk
+date: 2023-06-01
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2023
+  stage: regular_season
+  round: 2
+home:
+  clubId: byasen
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 6
+  halfTimeScore: 3
+venueId: byasen-arena
+neutralVenue: false
+events:
+  - minute: 12
+    type: goal
+    team: away
+    player: Markus Seehusen Karlsbakk
+  - minute: 35
+    type: goal
+    team: away
+    player: Markus Seehusen Karlsbakk
+  - minute: 38
+    type: own_goal
+    team: home
+    player: Trace Murray
+  - minute: 45
+    type: goal
+    team: away
+    player: Bjørn Martin Kristensen
+  - minute: 62
+    type: goal
+    team: away
+    player: Kristoffer Ødemarksbakken
+  - minute: 75
+    type: goal
+    team: away
+    player: Kristoffer Barmen
+  - minute: 80
+    type: goal
+    team: away
+    player: Kristoffer Barmen
+lineups:
+  home:
+    starters: []
+    subs: []
+  away:
+    starters: []
+    subs: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-byasen/2qo60s#4179007
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4179007"
+manual: []

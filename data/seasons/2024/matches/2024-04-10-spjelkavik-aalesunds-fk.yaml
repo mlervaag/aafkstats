@@ -1,0 +1,55 @@
+id: 2024-04-10-spjelkavik-aalesunds-fk
+date: 2024-04-10
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2024
+  stage: regular_season
+  round: 1
+home:
+  clubId: spjelkavik
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+venueId: spjelkavik-kunstgress
+neutralVenue: false
+events:
+  - minute: 20
+    type: goal
+    team: away
+    player: Sander Hestetun Kilen
+  - minute: 70
+    type: goal
+    team: away
+    player: Claudio Braga
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/spjelkavik-vs-aalesund/y8ayv#4457150
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4457150"
+manual: []
