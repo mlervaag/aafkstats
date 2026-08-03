@@ -281,6 +281,33 @@ export function loadTrivia(): string[] {
       add(`Flest registrerte mål i arkivet: ${topScorer.player}, ${topScorer.n} stykker.`);
     }
 
+    // Spillere arkivet faktisk har hendelser på. Tallene er med vilje merket
+    // «i arkivet»: detaljdataene begynner i 2010, så en spiller kan ha en langt
+    // lengre fasit enn den vi kan vise. Å skrive «X mål for AaFK» ville vært feil.
+    for (const name of TRACKED_PLAYERS) {
+      const stats = one<{ goals: number; cards: number; fra: string; til: string }>(
+        db,
+        `SELECT
+           sum(CASE WHEN event_type IN ('goal', 'penalty_goal') THEN 1 ELSE 0 END) AS goals,
+           sum(CASE WHEN event_type LIKE '%card' THEN 1 ELSE 0 END) AS cards,
+           min(date) AS fra, max(date) AS til
+         FROM match_events WHERE player = ? AND team = 'aafk'`,
+        name,
+      );
+      if (!stats?.fra) continue;
+
+      const span = stats.fra.slice(0, 4) === stats.til.slice(0, 4)
+        ? stats.fra.slice(0, 4)
+        : `${stats.fra.slice(0, 4)}–${stats.til.slice(0, 4)}`;
+
+      if (stats.goals > 0) {
+        add(`${name} står med ${stats.goals} mål i arkivet, ${span}.`);
+      }
+      if (stats.cards > 2) {
+        add(`${name} står med ${stats.cards} kort i arkivet. Noen tar plass.`);
+      }
+    }
+
     return lines;
   } catch {
     // Småstoff er pynt. Feiler det, skal siden fortsatt svare.
@@ -289,6 +316,14 @@ export function loadTrivia(): string[] {
     db.close();
   }
 }
+
+/**
+ * Spillere vi lager egne linjer om.
+ *
+ * Lista er kort og håndplukket. Å generere en linje om hver eneste spiller ville
+ * gitt hundrevis av like setninger, og de fleste av dem uinteressante.
+ */
+const TRACKED_PLAYERS = ["Amund Skiri", "Magnus Sylling Olsen", "Mostafa Abdellaoue"];
 
 const MONTHS = [
   "januar", "februar", "mars", "april", "mai", "juni",

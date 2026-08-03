@@ -30,7 +30,9 @@ export interface Interlude {
   attribution?: string;
   /** Hvor det kan kontrolleres. */
   source?: string;
-  kind: "dikt" | "historie" | "klubb" | "by" | "arkivet";
+  /** Kamp i arkivet som hører til opplysningen, når det finnes en. */
+  matchUrl?: string;
+  kind: "dikt" | "historie" | "klubb" | "by" | "arkivet" | "spiller";
 }
 
 export const interludes: Interlude[] = [
@@ -108,6 +110,88 @@ export const interludes: Interlude[] = [
     text: "Fra Kråmyra til Color Line Stadion i 2005. Samme klubb, ny bakke å gå opp.",
     attribution: "Skrevet for arkivet",
     kind: "klubb",
+  },
+
+
+  // ── Spillere.
+  //
+  // Alt her er slått opp, ikke husket. Å finne på en detalj om en navngitt person
+  // er en annen sak enn å bomme på et årstall — det er en påstand om et menneske
+  // som fortsatt lever, på et nettsted som bærer klubbens navn. Derfor står kilden
+  // på hver linje, og derfor står det ingenting her jeg ikke fant.
+
+  // Amund Skiri (f. 1978, Åndalsnes)
+  {
+    text: "Amund Skiri satte det avgjørende straffesparket i cupfinalen i 2009. Ballen traff stolpen og trillet inn.",
+    attribution: "Amund Skiri",
+    source: "https://en.wikipedia.org/wiki/Amund_Skiri",
+    matchUrl: "/kamp/2009-11-08-aalesunds-fk-molde-fk",
+    kind: "spiller",
+  },
+  {
+    text: "Amund Skiri spilte for AaFK i to omganger: 113 kamper fra 2001 til 2004, og 118 til fra 2006 til 2012.",
+    attribution: "Amund Skiri",
+    source: "https://en.wikipedia.org/wiki/Amund_Skiri",
+    kind: "spiller",
+  },
+  {
+    text: "Det ble 23 mål på forsvarsspilleren fra Åndalsnes gjennom to perioder i AaFK. Ikke verst for en midtstopper.",
+    attribution: "Amund Skiri (f. 1978)",
+    source: "https://en.wikipedia.org/wiki/Amund_Skiri",
+    kind: "spiller",
+  },
+  {
+    text: "Amund Skiri er i dag trener for Kristiansund BK.",
+    attribution: "Amund Skiri",
+    source: "https://en.wikipedia.org/wiki/Amund_Skiri",
+    kind: "spiller",
+  },
+
+  // Gustave Bahoken (f. 1979, Douala)
+  {
+    text: "Gustave Bahoken kom fra Douala i Kamerun til Ålesund i 2005, og ble stopper i tre sesonger: 48 kamper.",
+    attribution: "Gustave Bahoken",
+    source: "https://en.wikipedia.org/wiki/Gustave_Bahoken",
+    kind: "spiller",
+  },
+  {
+    text: "Før han kom til AaFK spilte Gustave Bahoken to landskamper for Kamerun, og var med i Confederations Cup i 2003.",
+    attribution: "Gustave Bahoken",
+    source: "https://en.wikipedia.org/wiki/Gustave_Bahoken",
+    kind: "spiller",
+  },
+  {
+    text: "Gustave Bahoken ble mester i Kamerun med Cotonsport Garoua i 1998, før veien gikk om Sion, Le Havre, Livingston og til slutt Ålesund.",
+    attribution: "Gustave Bahoken",
+    source: "https://en.wikipedia.org/wiki/Gustave_Bahoken",
+    kind: "spiller",
+  },
+  {
+    // Denne er både en opplysning om Bahoken og en om arkivet.
+    text: "Gustave Bahoken spilte 48 kamper for AaFK, men finnes ikke i dette arkivet. Han sluttet i 2008, og detaljdataene våre begynner i 2010.",
+    attribution: "Om dekningen",
+    source: "https://en.wikipedia.org/wiki/Gustave_Bahoken",
+    kind: "spiller",
+  },
+
+  // Magnus Sylling Olsen (f. 1983, Kongsberg)
+  {
+    text: "Magnus Sylling Olsen kom til Ålesund i 2010. Det ble 96 kamper og 16 mål fra venstrekanten.",
+    attribution: "Magnus Sylling Olsen",
+    source: "https://en.wikipedia.org/wiki/Magnus_Sylling_Olsen",
+    kind: "spiller",
+  },
+  {
+    text: "Året før han kom til AaFK var Magnus Sylling Olsen Kongsvingers toppscorer med 10 mål på 30 kamper, og skjøt laget opp i Tippeligaen.",
+    attribution: "Magnus Sylling Olsen",
+    source: "https://en.wikipedia.org/wiki/Magnus_Sylling_Olsen",
+    kind: "spiller",
+  },
+  {
+    text: "Magnus Sylling Olsen, født i Kongsberg i 1983, spilte som regel på venstrekanten.",
+    attribution: "Magnus Sylling Olsen",
+    source: "https://en.wikipedia.org/wiki/Magnus_Sylling_Olsen",
+    kind: "spiller",
   },
 
   // ── Om arkivet selv.

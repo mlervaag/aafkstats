@@ -63,12 +63,20 @@ export function InterludeRotator({
       <blockquote key={index} className="interlude-text">
         {current.text}
       </blockquote>
-      {current.attribution && (
+      {(current.attribution || current.matchUrl) && (
         <figcaption className="interlude-source">
           {current.source ? (
             <a href={current.source} rel="noreferrer">{current.attribution}</a>
           ) : (
             current.attribution
+          )}
+          {/* Når opplysningen har en kamp i arkivet, skal den kunne åpnes. Det er
+              hele poenget med å ha kampene: en påstand du kan gå etter i sømmene. */}
+          {current.matchUrl && (
+            <>
+              {" · "}
+              <a href={current.matchUrl}>se kampen</a>
+            </>
           )}
         </figcaption>
       )}
