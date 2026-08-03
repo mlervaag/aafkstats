@@ -1,0 +1,174 @@
+/**
+ * Ferdige prompts folk kan lime inn i sin egen AI-modell for å bidra til arkivet.
+ *
+ * Poenget er å flytte tersklen: den som vet noe om en gammel kamp skal slippe å
+ * lære seg YAML-strukturen, slug-reglene og PR-flyten først. Modellen gjør
+ * formatet, mennesket står for kildene og kontrollen.
+ *
+ * Promptene beskriver derfor formatet konkret nok til at resultatet validerer,
+ * og sier tydelig fra om de to tingene som faktisk kan gå galt: gjettede fakta,
+ * og kopiert referattekst. Begge er skrevet som krav til modellen, ikke som
+ * høflige ønsker — en modell som blir bedt om å «prøve å ikke gjette» gjetter.
+ */
+
+const REPO = "https://github.com/mlervaag/aafkstats";
+
+const FORMAT = `Datamodellen, kort:
+
+- Én YAML-fil per kamp: data/seasons/<år>/matches/<id>.yaml
+- id = filnavn = <dato>-<hjemmelag>-<bortelag>, f.eks. 2011-11-06-sk-brann-aalesunds-fk
+  Lagdelen er klubbens slug slik den heter i data/clubs/ (små bokstaver, bindestrek,
+  æ→ae, ø→o, å→a).
+- Påkrevd: id, date, status, competition.id, competition.season, home.clubId, away.clubId
+- Alt annet er valgfritt. En kamp fra 1930 med bare dato og motstander er velkommen
+  med confidence: probable — det er bedre enn at den mangler.
+- competition.id er en av: eliteserien, forstedivisjon, nm, treningskamp
+- status: played | scheduled | abandoned | awarded | cancelled
+- confidence: confirmed (to uavhengige kilder) | probable (én kilde) | disputed (kilder er uenige)
+
+Viktig om resultat: home.score og away.score er stillingen etter ORDINÆR TID.
+Mål i ekstraomganger føres i extraTime, og straffesparkkonkurranse i penaltyShootout.
+En kamp som endte 1-1 og ble avgjort 4-3 på straffer skrives altså med score 1 og 1,
+ikke 4 og 3.`;
+
+const SOURCE_RULES = `Kildekrav — dette er ufravikelig:
+
+- Hver opplysning skal kunne etterprøves. Legg inn sources[] med sourceId, url og
+  retrievedAt (dagens dato), og list i fields[] hvilke felt kilden faktisk dekker.
+- Finner du ikke en opplysning, LA FELTET STÅ TOMT. Ikke gjett, ikke rund av, ikke
+  regn deg fram til et tilskuertall. Et hull er greit; en oppdiktet verdi er ikke.
+- Er du usikker, sett confidence: probable og skriv hvorfor i PR-beskrivelsen.
+- Motsier to kilder hverandre, behold begge i conflicts[] og sett confidence: disputed
+  framfor å velge den ene i stillhet.`;
+
+const PR_FLOW = `Slik leverer du:
+
+1. Fork ${REPO}
+2. Lag en gren, f.eks. bidrag/1974-cupkamp
+3. Legg til eller endre YAML-filene
+4. Kjør «pnpm install» og deretter «pnpm validate» — den må si at arkivet validerer.
+   Får du feil, rett dem før du sender. Feilmeldingene peker på felt og fil.
+5. Åpne en pull request. Skriv i beskrivelsen hvilke kilder du brukte, og hva du
+   eventuelt var usikker på.
+
+Alle forslag kontrolleres før de slås sammen. Det er helt greit å sende noe du er
+usikker på — bare si fra at du er det.`;
+
+export interface ContributionPrompt {
+  id: string;
+  title: string;
+  purpose: string;
+  description: string;
+  prompt: string;
+}
+
+export const contributionPrompts: ContributionPrompt[] = [
+  {
+    id: "ny-kamp",
+    title: "Legg til en kamp som mangler",
+    purpose: "Vanligst",
+    description:
+      "For eldre kamper arkivet ikke har ennå. Arkivet er tynt før 2011, så dette er der det monner mest.",
+    prompt: `Du skal hjelpe meg å legge til en AaFK-kamp i det åpne arkivet ${REPO}.
+
+Kampen det gjelder: [BESKRIV KAMPEN — dato eller omtrentlig dato, motstander, og hva du vet]
+
+${FORMAT}
+
+${SOURCE_RULES}
+
+Slik vil jeg at du jobber:
+
+1. Finn kampen i kilder du har tilgang til. Si tydelig fra hvilke du brukte.
+2. Sjekk om motstanderklubben allerede finnes i data/clubs/. Gjør den ikke det,
+   lag også en klubbfil med id, name, country og eventuelt founded og names[] hvis
+   klubben har byttet navn.
+3. Skriv den ferdige YAML-filen, klar til å lime inn.
+4. List opp hva du IKKE fant, slik at jeg vet hva som mangler.
+
+${PR_FLOW}`,
+  },
+  {
+    id: "detaljer",
+    title: "Fyll ut detaljer på en kamp",
+    purpose: "Utdyping",
+    description:
+      "Når kampen finnes, men mangler målscorere, oppstilling, tilskuertall eller dommer.",
+    prompt: `Jeg vil fylle ut detaljer på en kamp som allerede ligger i det åpne AaFK-arkivet ${REPO}.
+
+Kampen: [LIM INN DAGENS YAML-FIL, eller oppgi kamp-ID]
+
+${FORMAT}
+
+Hendelser skrives slik, sortert på minutt:
+
+events:
+  - minute: 34
+    type: goal
+    team: home
+    player: Fullt navn
+    assist: Fullt navn        # utelates hvis ingen målgivende
+  - minute: 67
+    type: yellow_card
+    team: away
+    player: Fullt navn
+
+Gyldige typer: goal, own_goal, penalty_goal, missed_penalty, yellow_card,
+second_yellow_card, red_card, substitution (med playerOff), var_decision.
+Tilleggstid skrives som minute: 45 med stoppage: 2 — ikke som minute: 47.
+
+${SOURCE_RULES}
+
+Behold alt som allerede står i filen. Står et felt oppført i manual[], skal det
+ikke endres — det er låst med vilje. Legg din kilde til i sources[] som en ny
+oppføring; ikke overskriv kilden som var der.
+
+Gi meg den komplette filen tilbake, og en liste over hva du la til.
+
+${PR_FLOW}`,
+  },
+  {
+    id: "referat",
+    title: "Skriv et kampreferat",
+    purpose: "Tekst",
+    description:
+      "Et kort, selvstendig sammendrag basert på flere kilder. Ingen kamper har referat ennå.",
+    prompt: `Jeg vil skrive et kampreferat til det åpne AaFK-arkivet ${REPO}.
+
+Kampen: [LIM INN YAML-FILEN ELLER BESKRIV KAMPEN]
+Kilder jeg har: [LIM INN LENKER ELLER UTDRAG]
+
+ABSOLUTT KRAV — les dette først:
+
+Referatet skal være DIN EGEN formulering, skrevet for dette arkivet. Du skal ikke
+kopiere setninger fra avisartikler, klubbsider eller andre referat, og du skal ikke
+omskrive én enkelt artikkel setning for setning. Det siste er like ulovlig som å
+kopiere, bare vanskeligere å oppdage. Bygg teksten på FAKTA fra flere kilder —
+hvem scoret, når, hva som avgjorde — og skriv den fra bunnen.
+
+Fakta er frie. Tekst er det ikke.
+
+Har du bare én kilde, si fra om det i stedet for å skrive noe som ligger tett på den.
+
+Formatet:
+
+report:
+  summary: En eller to setninger. Dette vises i lister og søk.
+  body: |
+    Tre til seks avsnitt. Hva som skjedde, hva som avgjorde, hva kampen betydde
+    i sesongen. Nøktern tone — dette er et arkiv, ikke en heiarop.
+
+Lenker til originalene legges ved som:
+
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Overskriften slik den står
+    url: https://...
+    date: 2011-11-06
+
+Skriv referatet, og list opp hvilke faktapåstander som kommer fra hvilken kilde,
+slik at jeg kan kontrollere dem.
+
+${PR_FLOW}`,
+  },
+];

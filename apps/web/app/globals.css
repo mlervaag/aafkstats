@@ -716,3 +716,60 @@ footer { margin-top: clamp(4rem, 10vw, 8rem); padding: 3rem 0 1.5rem; color: var
   .match-score { grid-column: 2; grid-row: 1 / span 2; }
   .match-meta { grid-column: 1 / -1; grid-row: 3; }
 }
+
+/* Ferdige AI-prompts på bidragssiden.
+   Selve teksten skal kunne leses og merkes, ikke bare kopieres med knappen —
+   derfor en ekte <pre> med ombrekking i stedet for en avkortet forhåndsvisning. */
+.prompt-list {
+  display: grid;
+  gap: 2.25rem;
+  margin-top: 2rem;
+}
+
+.prompt-intro {
+  margin-bottom: 0.75rem;
+}
+
+.prompt-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.prompt-head h3 {
+  margin: 0.35rem 0 0;
+}
+
+.prompt-copy {
+  flex: none;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border: 1px solid var(--border, currentColor);
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 0.85rem;
+  border-radius: 999px;
+}
+
+.prompt-text {
+  margin-top: 1.1rem;
+  padding: 1rem 1.1rem;
+  max-height: 22rem;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  border-radius: 8px;
+  background: color-mix(in srgb, currentColor 5%, transparent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .prompt-copy {
+    transition: opacity 120ms ease;
+  }
+}
