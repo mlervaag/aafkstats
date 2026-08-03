@@ -791,3 +791,10 @@ footer { margin-top: clamp(4rem, 10vw, 8rem); padding: 3rem 0 1.5rem; color: var
   font-size: 0.7em;
   font-weight: 400;
 }
+
+/* Forbehold på en kampside — dempet, men lesbart. */
+.match-note {
+  max-width: 46ch;
+  margin-top: 0.6rem;
+  font-style: italic;
+}
