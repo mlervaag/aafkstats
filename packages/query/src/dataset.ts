@@ -122,7 +122,7 @@ export const views: ViewDoc[] = [
     name: "match_events",
     summary: "Én rad per hendelse i en kamp: mål, kort og innbytter.",
     caveats: [
-      "Dekningen er svært ujevn. Hendelser finnes stort sett bare for kamper fra ca. 2010 og framover. Fravær av mål her betyr ikke at det ikke ble scoret — sjekk aafk_score i matches.",
+      "Dekningen er svært ujevn. I testdatasettet har bare fem kamper fra 2025 hendelser. Fravær av mål her betyr ikke at det ikke ble scoret — sjekk aafk_score i matches.",
       "team er 'aafk' eller 'opponent', ikke hjemme/borte.",
     ],
     columns: [

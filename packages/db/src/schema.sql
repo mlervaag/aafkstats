@@ -6,7 +6,8 @@
 --
 -- SQLite har ingen skjemaer, så skillet mellom internt og publisert uttrykkes med
 -- navn: tabeller med core_-prefiks er interne, og viewene uten prefiks er den
--- offentlige kontrakten som nettstedet, API-et, MCP-serveren og chatten leser fra.
+-- offentlige kontrakten som nettstedet og spørrefunksjonen leser fra. Senere API- og
+-- MCP-grensesnitt skal bruke den samme kontrakten når de blir bygget.
 
 PRAGMA journal_mode = OFF;
 PRAGMA synchronous = OFF;

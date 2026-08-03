@@ -6,11 +6,11 @@ import { z } from "zod/v4";
 import { runSafeSql, UnsafeSqlError } from "@aafkstats/db/sql";
 
 /**
- * Verktøyene chatten og MCP-serveren deler.
+ * Verktøyene chatten bruker, og som et senere MCP-grensesnitt kan gjenbruke.
  *
  * Definert som rene data (navn, beskrivelse, Zod-skjema, handler) i stedet for bundet
- * til ett SDK. Chatten pakker dem i `betaZodTool`, MCP-serveren i `registerTool` — og
- * begge får nøyaktig samme oppførsel, som er hele poenget med å ha ett sted.
+ * til ett SDK. Chatten pakker dem i `betaZodTool`; et senere MCP-grensesnitt kan
+ * registrere de samme definisjonene uten å lage en ny implementasjon.
  */
 
 export interface ToolContext {

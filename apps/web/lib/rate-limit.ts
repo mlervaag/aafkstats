@@ -40,7 +40,7 @@ function tooManyMessage(): string {
   return (
     `Du har brukt ${QUESTIONS_PER_HOUR} spørsmål denne timen. ` +
     "Arkivet er gratis å bruke, og grensen finnes bare for å holde kostnadene nede. " +
-    "Prøv igjen om litt — i mellomtiden kan du bla i sesongene eller bruke API-et."
+    "Prøv igjen om litt — i mellomtiden kan du bla i sesongene og motstanderne."
   );
 }
 
