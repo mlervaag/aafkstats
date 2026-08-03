@@ -32,8 +32,12 @@ interface MatchRow {
 
 export interface SeasonSummary {
   season: number;
+  competitionId: string;
+  competitionType: string;
   competition: string;
   competitionTier: number | null;
+  /** Sluttplass i tabellen. Kun for serien, og bare der arkivet vet det. */
+  finalPosition: number | null;
   played: number;
   wins: number;
   draws: number;
@@ -48,8 +52,11 @@ export interface SeasonSummary {
 
 interface SeasonRow {
   season: number;
+  competition_id: string;
+  competition_type: string;
   competition: string;
   competition_tier: number | null;
+  final_position: number | null;
   played: number;
   wins: number;
   draws: number;
@@ -143,8 +150,11 @@ function mapMatch(row: MatchRow): ArchiveMatch {
 function mapSeason(row: SeasonRow): SeasonSummary {
   return {
     season: row.season,
+    competitionId: row.competition_id,
+    competitionType: row.competition_type,
     competition: row.competition,
     competitionTier: row.competition_tier,
+    finalPosition: row.final_position,
     played: row.played,
     wins: row.wins,
     draws: row.draws,
@@ -225,6 +235,29 @@ export function loadCoverage(): ArchiveCoverage {
   }
 }
 
+/**
+ * Ett år, med den konkurransen som bærer sesongen og resten ved siden av.
+ *
+ * Et år er ikke lenger én konkurranse. Serien er sesongen i vanlig forstand — det
+ * er den tabellen og plasseringen hører til — mens cup og treningskamper er noe
+ * som skjer i tillegg. Grensesnittet må vise begge uten å blande dem, og uten å
+ * la et cupexit på én kamp se ut som en hel sesong.
+ */
+export interface SeasonYear {
+  year: number;
+  /** Serien når den finnes, ellers den konkurransen med flest kamper. */
+  primary: SeasonSummary;
+  /** Øvrige konkurranser samme år, flest kamper først. */
+  others: SeasonSummary[];
+  totalMatches: number;
+}
+
+/** Serien først, deretter etter antall kamper. */
+function seasonRank(a: SeasonSummary, b: SeasonSummary): number {
+  const league = (s: SeasonSummary) => (s.competitionType === "league" ? 0 : 1);
+  return league(a) - league(b) || b.played - a.played;
+}
+
 export function loadSeasons(): SeasonSummary[] {
   const db = open();
   try {
@@ -234,13 +267,36 @@ export function loadSeasons(): SeasonSummary[] {
   }
 }
 
-export function loadSeason(year: number): { summary: SeasonSummary; matches: ArchiveMatch[] } | undefined {
+export function loadSeasonYears(): SeasonYear[] {
+  const byYear = new Map<number, SeasonSummary[]>();
+  for (const row of loadSeasons()) {
+    const list = byYear.get(row.season);
+    if (list) list.push(row);
+    else byYear.set(row.season, [row]);
+  }
+
+  return [...byYear.entries()]
+    .map(([year, rows]) => {
+      const sorted = [...rows].sort(seasonRank);
+      return {
+        year,
+        primary: sorted[0]!,
+        others: sorted.slice(1),
+        totalMatches: rows.reduce((sum, r) => sum + r.played, 0),
+      };
+    })
+    .sort((a, b) => b.year - a.year);
+}
+
+export function loadSeason(
+  year: number,
+): { summaries: SeasonSummary[]; matches: ArchiveMatch[] } | undefined {
   const db = open();
   try {
-    const summary = one<SeasonRow>(db, "SELECT * FROM seasons WHERE season = ?", year);
-    if (!summary) return undefined;
+    const rows = all<SeasonRow>(db, "SELECT * FROM seasons WHERE season = ?", year);
+    if (rows.length === 0) return undefined;
     const matches = all<MatchRow>(db, `SELECT ${matchColumns} FROM matches WHERE season = ? ORDER BY date`, year);
-    return { summary: mapSeason(summary), matches: matches.map(mapMatch) };
+    return { summaries: rows.map(mapSeason).sort(seasonRank), matches: matches.map(mapMatch) };
   } finally {
     db.close();
   }

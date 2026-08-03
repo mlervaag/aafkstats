@@ -77,12 +77,13 @@ export const views: ViewDoc[] = [
   },
   {
     name: "seasons",
-    summary: "Ett sammendrag per sesong: plassering, målforskjell og resultatfordeling.",
+    summary: "Ett sammendrag per sesong OG konkurranse: plassering, målforskjell og resultatfordeling. Et år med både serie og cup gir to rader, så filtrer på competition_id eller competition_type når du vil ha bare den ene.",
     caveats: [
       "Tallene dekker kun sesongens hovedkonkurranse. Cup, europa og treningskamper er ikke med — bruk matches hvis du vil ha alt.",
     ],
     columns: [
       { name: "season", type: "integer", description: "Sesongår." },
+      { name: "competition_id", type: "text", description: "Konkurransens ID. Ett år kan ha flere rader — serie, cup og treningskamper hver for seg." },
       { name: "competition", type: "text", description: "Konkurransens navn det året." },
       { name: "competition_type", type: "text", description: "Konkurransetype." },
       { name: "competition_tier", type: "integer", description: "Nivå, 1 er øverst." },
