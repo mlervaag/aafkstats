@@ -49,6 +49,10 @@ nettstedet fungerer uten.
 `fixtures/data` er et lite konstruert arkiv brukt til utvikling og tester — se
 `fixtures/README.md`. Det ekte arkivet i `data/` fylles av innhøstingen i `packages/ingest`.
 
+Hvilke kilder som kan brukes, og hvordan, er kartlagt i
+[Kildekart og innhentingsstrategi](docs/research/KILDEKART_OG_INNHENTINGSSTRATEGI.md).
+Les den før du skriver en adapter — flere av de opplagte kildene er røde.
+
 ## Kommandoer
 
 | Kommando | Hva den gjør |
@@ -71,6 +75,7 @@ nettstedet fungerer uten.
 | `packages/db/` | SQLite-skjema, byggesteget, SQL-guardrails |
 | `packages/query/` | Datasettdokumentasjon, verktøy og systemprompt |
 | `apps/web/` | Next.js: portal, `/api/chat`, `/data` |
+| `docs/research/` | Kildekart og innhentingsstrategi |
 
 ## Datamodellen
 
