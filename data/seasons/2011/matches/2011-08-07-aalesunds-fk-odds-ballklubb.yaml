@@ -11,13 +11,105 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: odds-ballklubb
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 46
+    type: substitution
+    team: home
+    player: Solomon Okoronkwo
+    playerOff: Christian Myklebust
+  - minute: 59
+    type: substitution
+    team: away
+    player: Tommy Svindal Larsen
+    playerOff: Magnus Myklebust
+  - minute: 60
+    type: goal
+    team: away
+    player: Torgeir Børven
+  - minute: 63
+    type: substitution
+    team: home
+    player: Fredrik Ulvestad
+    playerOff: Peter Orry Larsen
+  - minute: 66
+    type: yellow_card
+    team: away
+    player: Jone Samuelsen
+  - minute: 75
+    type: substitution
+    team: home
+    player: Magnus Sylling Olsen
+    playerOff: Demar Phillips
+  - minute: 79
+    type: substitution
+    team: away
+    player: Ulf Riis
+    playerOff: Torgeir Børven
+  - minute: 81
+    type: yellow_card
+    team: away
+    player: Fredrik Semb Berge
+  - minute: 85
+    type: yellow_card
+    team: home
+    player: Solomon Okoronkwo
+  - minute: 87
+    type: yellow_card
+    team: away
+    player: Magnus Lekven
+lineups:
+  home:
+    formation: 4-2-1-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Ville Jalasto
+      - Daniel Arnefjord
+      - Jo Nymo Matland
+      - Jason Morrison
+      - Peter Orry Larsen
+      - Michael Barrantes
+      - Christian Myklebust
+      - Demar Phillips
+      - Sander Post
+    subs:
+      - Solomon Okoronkwo
+      - Fredrik Ulvestad
+      - Magnus Sylling Olsen
+      - Didrik Fløtre
+      - Edvard Skagestad
+      - Fredrik Carlsen
+      - Jonas Sandqvist
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - André Hansen
+      - Steffen Hagen
+      - Fredrik Semb Berge
+      - Morten Fevang
+      - Paul Addo
+      - Jone Samuelsen
+      - Magnus Lekven
+      - Simen Brenne
+      - Håvard Storbæk
+      - Magnus Myklebust
+      - Torgeir Børven
+    subs:
+      - Tommy Svindal Larsen
+      - Ulf Riis
+      - Andreas Lie
+      - Elbasan Rashani
+      - Emil Jonassen
+      - Snorre Krogsgård
+    coach: Dag-Eilev Fagermo
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +125,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

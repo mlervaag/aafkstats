@@ -11,13 +11,114 @@ competition:
 home:
   clubId: fredrikstad
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: fredrikstad-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 4
+    type: goal
+    team: away
+    player: Tremaine Stewart
+  - minute: 40
+    type: goal
+    team: away
+    player: Tremaine Stewart
+  - minute: 46
+    type: substitution
+    team: home
+    player: Mouhamed Gueye
+    playerOff: Alex Valencia
+  - minute: 56
+    type: goal
+    team: away
+    player: Michael Barrantes
+  - minute: 57
+    type: substitution
+    team: home
+    player: Zlatko Tripic
+    playerOff: Alexander Ruud Tveter
+  - minute: 60
+    type: yellow_card
+    team: home
+    player: Vidar Martinsen
+  - minute: 64
+    type: substitution
+    team: away
+    player: Fredrik Carlsen
+    playerOff: Christian Myklebust
+  - minute: 73
+    type: goal
+    team: home
+    player: Mouhamed Gueye
+  - minute: 75
+    type: yellow_card
+    team: home
+    player: Thomas Holm
+  - minute: 88
+    type: substitution
+    team: away
+    player: Hugues Wembangomo
+    playerOff: Michael Barrantes
+  - minute: 88
+    type: substitution
+    team: home
+    player: Simen Rafn
+    playerOff: Mouhamed Gueye
+  - minute: 90
+    type: substitution
+    team: away
+    player: Sander Post
+    playerOff: Tremaine Stewart
+lineups:
+  home:
+    formation: 4-2-1-3
+    starters:
+      - Jon Masalin
+      - Vidar Martinsen
+      - Jørgen Horn
+      - Lars Grorud
+      - Haitam Aleesami
+      - Andreas Landgren
+      - Thomas Holm
+      - Ole Jørgen Halvorsen
+      - Nenad Sreckovic
+      - Alex Valencia
+      - Alexander Ruud Tveter
+    subs:
+      - Mouhamed Gueye
+      - Zlatko Tripic
+      - Simen Rafn
+      - Hans Erik Ramberg
+      - Jon Knudsen
+      - Khalifa Jabbie
+      - Mads Hansen
+    coach: Tom Freddy Aune
+  away:
+    formation: 4-2-1-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Jo Nymo Matland
+      - Fredrik Ulvestad
+      - Jason Morrison
+      - Michael Barrantes
+      - Tremaine Stewart
+      - Christian Myklebust
+      - Edvard Skagestad
+    subs:
+      - Fredrik Carlsen
+      - Hugues Wembangomo
+      - Sander Post
+      - Mathias Rasmussen
+      - Thomas Skog Martinussen
+      - Torbjørn Grytten
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +134,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,174 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: odds-ballklubb
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4461
+referee: Rohit Saggi
+events:
+  - minute: 32
+    type: yellow_card
+    team: home
+    player: David Fällman
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Espen Ruud
+  - minute: 46
+    type: goal
+    team: away
+    player: Espen Ruud
+  - minute: 63
+    type: yellow_card
+    team: home
+    player: Isaac Atanga
+  - minute: 65
+    type: yellow_card
+    team: home
+    player: Kristoffer Barmen
+  - minute: 70
+    type: goal
+    team: away
+    player: Espen Ruud
+    assist: Filip Rønningen Jørgensen
+  - minute: 71
+    type: substitution
+    team: home
+    player: Nikolai Hopland
+    playerOff: Alexander Juel Andersen
+  - minute: 75
+    type: goal
+    team: away
+    player: Diogo Tomas
+    assist: Espen Ruud
+  - minute: 80
+    type: substitution
+    team: home
+    player: Kasper Lunding
+    playerOff: Isaac Atanga
+  - minute: 80
+    type: substitution
+    team: home
+    player: Moctar Diop
+    playerOff: Bjørn Martin Kristensen
+  - minute: 80
+    type: substitution
+    team: home
+    player: Henrik Melland
+    playerOff: Kristoffer Barmen
+  - minute: 87
+    type: substitution
+    team: home
+    player: Simen Haram
+    playerOff: David Fällman
+  - minute: 90
+    stoppage: 3
+    type: substitution
+    team: away
+    player: Anders Ryste
+    playerOff: Ole Erik Midtskogen
+  - minute: 90
+    stoppage: 3
+    type: substitution
+    team: away
+    player: Thomas Rekdal
+    playerOff: Solomon Owusu
+  - minute: 90
+    stoppage: 3
+    type: substitution
+    team: away
+    player: Jesper Svenungsen Skau
+    playerOff: Leonard Owusu
+  - minute: 90
+    stoppage: 3
+    type: substitution
+    team: away
+    player: Mikael Ingebrigtsen
+    playerOff: Dennis Gjengaar
+  - minute: 90
+    stoppage: 4
+    type: substitution
+    team: away
+    player: Samuel Skree Skjeldal
+    playerOff: Josef Brian Baccay
+  - minute: 90
+    stoppage: 5
+    type: yellow_card
+    team: home
+    player: Kasper Lunding
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Alexander Munksgaard
+      - David Fällman
+      - Alexander Juel Andersen
+      - John Kitolano
+      - Kristoffer Barmen
+      - Erlend Segberg
+      - Markus Seehusen Karlsbakk
+      - Isaac Atanga
+      - Bjørn Martin Kristensen
+      - Kristoffer Ødemarksbakken
+    subs:
+      - Nikolai Hopland
+      - Henrik Melland
+      - Kasper Lunding
+      - Moctar Diop
+      - Simen Haram
+      - Amidou Diop
+      - Michael Lansing
+      - Ole Kolskogen
+      - Trace Murray
+    coach: Christian Johnsen
+  away:
+    formation: 3-4-3
+    starters:
+      - Leopold Wahlstedt
+      - Sondre Solholm Johansen
+      - Steffen Hagen
+      - Diogo Tomas
+      - Espen Ruud
+      - Leonard Owusu
+      - Solomon Owusu
+      - Josef Brian Baccay
+      - Dennis Gjengaar
+      - Ole Erik Midtskogen
+      - Filip Rønningen Jørgensen
+    subs:
+      - Anders Ryste
+      - Jesper Svenungsen Skau
+      - Mikael Ingebrigtsen
+      - Samuel Skree Skjeldal
+      - Thomas Rekdal
+      - Bork Classønn Bang-Kittilsen
+      - Casper Glenna
+      - Leon Hien
+      - Peder Nygaard Klausen
+    coach: Pål Arne Johansen
+stats:
+  home:
+    possession: 34
+    shots: 16
+    shotsOnTarget: 2
+    corners: 9
+    fouls: 9
+    offsides: 1
+    xg: 1.04
+  away:
+    possession: 66
+    shots: 15
+    shotsOnTarget: 7
+    corners: 3
+    fouls: 7
+    offsides: 1
+    xg: 2.2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +194,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

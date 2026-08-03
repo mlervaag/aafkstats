@@ -11,13 +11,118 @@ competition:
 home:
   clubId: viking
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: viking-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 29
+    type: yellow_card
+    team: home
+    player: Zlatko Tripic
+  - minute: 38
+    type: goal
+    team: away
+    player: Holmbert Aron Fridjonsson
+    assist: Aron Elis Thrándarson
+  - minute: 40
+    type: yellow_card
+    team: home
+    player: Leo Østigard
+  - minute: 42
+    type: yellow_card
+    team: away
+    player: Adam Örn Arnarson
+  - minute: 46
+    type: substitution
+    team: away
+    player: Pape Habib Gueye
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 60
+    type: substitution
+    team: away
+    player: Robert Sandnes
+    playerOff: Aron Elis Thrándarson
+  - minute: 64
+    type: goal
+    team: away
+    player: Sondre Brunstad Fet
+  - minute: 66
+    type: substitution
+    team: home
+    player: Aniekpeno Udoh
+    playerOff: Steffen Ernemann
+  - minute: 72
+    type: substitution
+    team: home
+    player: Tord Johnsen Salte
+    playerOff: Kristian Thorstvedt
+  - minute: 74
+    type: yellow_card
+    team: away
+    player: Pape Habib Gueye
+  - minute: 81
+    type: substitution
+    team: home
+    player: Stian Rokås Michalsen
+    playerOff: Zymer Bytyqi
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Andreas Lie
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Julian Ryerson
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Iven Austbø
+      - Claes Kronberg
+      - Markus Nakkim
+      - Leo Østigard
+      - Viljar Vevatne
+      - Kristian Thorstvedt
+      - Julian Ryerson
+      - Steffen Ernemann
+      - Zymer Bytyqi
+      - Tommy Høiland
+      - Zlatko Tripic
+    subs:
+      - Aniekpeno Udoh
+      - Tord Johnsen Salte
+      - Stian Rokås Michalsen
+      - Amund Wichne
+      - André Danielsen
+      - Rasmus Martinsen
+      - Usmani Sale
+    coach: Bjarne Berntsen
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Oddbjørn Lie
+      - Sonni Nattestad
+      - Adam Örn Arnarson
+      - Sondre Brunstad Fet
+      - Fredrik Carlsen
+      - Erikson Lima
+      - Jørgen Hatlehol
+      - Aron Elis Thrándarson
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Pape Habib Gueye
+      - Robert Sandnes
+      - Emil Solnørdal
+      - Håvard Breivik
+      - Tarjei Aase Omenås
+      - Tobias Aarseth Heggem
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +138,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

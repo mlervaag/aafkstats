@@ -11,13 +11,84 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: tromso
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 10101
+events:
+  - minute: 46
+    type: substitution
+    team: home
+    player: Jason Morrison
+    playerOff: Christian Myklebust
+  - minute: 73
+    type: substitution
+    team: away
+    player: Lars Gunnar Johnsen
+    playerOff: Remi Johansen
+  - minute: 82
+    type: yellow_card
+    team: away
+    player: Ruben Yttergård Jenssen
+  - minute: 87
+    type: substitution
+    team: away
+    player: Aleksandar Prijovic
+    playerOff: Zdenek Ondrasek
+  - minute: 90
+    type: substitution
+    team: away
+    player: Thomas Drage
+    playerOff: Magnus Andersen
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Hugues Wembangomo
+      - Jonatan Tollås Nation
+      - Edvard Skagestad
+      - Jo Nymo Matland
+      - Christian Myklebust
+      - Michael Barrantes
+      - Fredrik Ulvestad
+      - Tremaine Stewart
+      - Leke James
+      - Abderrazak Hamdallah
+    subs:
+      - Jason Morrison
+      - Fredrik Carlsen
+      - Andreas Nordvik
+      - Tor Hogne Aarøy
+      - Izantullah Ahmadzai
+      - Lasse Staw
+    coach: Jan Jönsson
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Marcus Sahlman
+      - Hans Nordbye
+      - Saliou Ciss
+      - Miika Koppinen
+      - Ruben Kristiansen
+      - Remi Johansen
+      - Ruben Yttergård Jenssen
+      - Magnus Andersen
+      - Thomas Kind Bendiksen
+      - Morten Moldskred
+      - Zdenek Ondrasek
+    subs:
+      - Lars Gunnar Johnsen
+      - Aleksandar Prijovic
+      - Thomas Drage
+      - Adnan Causevic
+      - Benny Lekström
+      - Jaroslaw Fojut
+    coach: Agnar Christensen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +104,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

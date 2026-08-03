@@ -11,13 +11,155 @@ competition:
 home:
   clubId: bryne
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: bryne-stadion
 neutralVenue: false
-events: []
+attendance: 790
+events:
+  - minute: 23
+    type: yellow_card
+    team: home
+    player: Oliver Rotihaug
+  - minute: 25
+    type: goal
+    team: away
+    player: Kristoffer Barmen
+    assist: Sigurd Haugen
+  - minute: 29
+    type: yellow_card
+    team: away
+    player: David Kristjan Olafsson
+  - minute: 31
+    type: goal
+    team: home
+    player: Andreas Dybevik
+    assist: Josh Robson
+  - minute: 40
+    type: yellow_card
+    team: away
+    player: Sigurd Haugen
+  - minute: 57
+    type: yellow_card
+    team: away
+    player: Simen Bolkan Nordli
+  - minute: 61
+    type: goal
+    team: away
+    player: Simen Bolkan Nordli
+    assist: Sigurd Haugen
+  - minute: 63
+    type: substitution
+    team: away
+    player: Muamer Brajanac
+    playerOff: Niklas Castro
+  - minute: 63
+    type: substitution
+    team: away
+    player: Isak Dybvik
+    playerOff: Torbjørn Kallevåg
+  - minute: 65
+    type: substitution
+    team: home
+    player: Meinhard Olsen
+    playerOff: Oliver Rotihaug
+  - minute: 72
+    type: goal
+    team: away
+    player: Sigurd Haugen
+    assist: Kristoffer Barmen
+  - minute: 74
+    type: substitution
+    team: home
+    player: Sixten Jensen
+    playerOff: Bjarne Langeland
+  - minute: 75
+    type: substitution
+    team: away
+    player: Kristoffer Ødemarksbakken
+    playerOff: Simen Bolkan Nordli
+  - minute: 75
+    type: substitution
+    team: away
+    player: Erikson Lima
+    playerOff: Kristoffer Barmen
+  - minute: 87
+    type: substitution
+    team: away
+    player: Simen Rafn
+    playerOff: Jørgen Hatlehol
+  - minute: 88
+    type: substitution
+    team: home
+    player: Tobias Bakken Dalbye
+    playerOff: Josh Robson
+  - minute: 90
+    type: goal
+    team: home
+    player: Joacim Holtan
+    assist: Kristoffer Hay
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Nicklas Frenderup
+      - Sondre Norheim
+      - Josh Robson
+      - Kristoffer Hay
+      - Pål Aamodt
+      - Andreas Dybevik
+      - Henning Romslo
+      - Bjarne Langeland
+      - Robert Undheim
+      - Joacim Holtan
+      - Oliver Rotihaug
+    subs:
+      - Meinhard Olsen
+      - Sixten Jensen
+      - Tobias Bakken Dalbye
+      - Marius Andersen
+      - Sondre Kyllingstad
+      - Tobias Guddal
+      - Torben Dvergsdal
+      - Vegard Aasen
+    coach: Jan Halvor Halvorsen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Jørgen Hatlehol
+      - Quint Jansen
+      - David Fällman
+      - David Kristjan Olafsson
+      - Kristoffer Barmen
+      - Erlend Segberg
+      - Torbjørn Kallevåg
+      - Niklas Castro
+      - Simen Bolkan Nordli
+      - Sigurd Haugen
+    subs:
+      - Isak Dybvik
+      - Muamer Brajanac
+      - Erikson Lima
+      - Kristoffer Ødemarksbakken
+      - Simen Rafn
+      - Andreas Lie
+      - Jonas Grønner
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 46
+    shots: 6
+    shotsOnTarget: 5
+    corners: 2
+  away:
+    possession: 54
+    shots: 10
+    shotsOnTarget: 6
+    corners: 8
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +175,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

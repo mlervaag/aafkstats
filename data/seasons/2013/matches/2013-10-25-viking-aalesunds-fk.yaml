@@ -11,13 +11,122 @@ competition:
 home:
   clubId: viking
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: viking-stadion
 neutralVenue: false
-events: []
+attendance: 9604
+events:
+  - minute: 24
+    type: goal
+    team: away
+    player: Abderrazak Hamdallah
+  - minute: 31
+    type: substitution
+    team: home
+    player: Christian Landu Landu
+    playerOff: Trond Erik Bertelsen
+  - minute: 46
+    type: substitution
+    team: home
+    player: Yann-Erik de Lanlay
+    playerOff: André Danielsen
+  - minute: 51
+    type: goal
+    team: away
+    player: Abderrazak Hamdallah
+  - minute: 53
+    type: goal
+    team: away
+    player: Abderrazak Hamdallah
+  - minute: 57
+    type: yellow_card
+    team: away
+    player: Jo Nymo Matland
+  - minute: 63
+    type: yellow_card
+    team: home
+    player: El Hadji Makhtar Thioune
+  - minute: 64
+    type: substitution
+    team: home
+    player: Vidar Nisja
+    playerOff: El Hadji Makhtar Thioune
+  - minute: 67
+    type: goal
+    team: home
+    player: Indridi Sigurdsson
+  - minute: 71
+    type: yellow_card
+    team: home
+    player: Yann-Erik de Lanlay
+  - minute: 72
+    type: yellow_card
+    team: away
+    player: Edvard Skagestad
+  - minute: 83
+    type: yellow_card
+    team: home
+    player: Benjamin Sulimani
+  - minute: 84
+    type: substitution
+    team: away
+    player: Andreas Nordvik
+    playerOff: Fredrik Carlsen
+  - minute: 90
+    type: substitution
+    team: away
+    player: Thomas Skog Martinussen
+    playerOff: Akeem Latifu
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Rune Almenning Jarstein
+      - André Danielsen
+      - Johan Lædre Bjørdal
+      - Indridi Sigurdsson
+      - Trond Erik Bertelsen
+      - King Osei Gyan
+      - El Hadji Makhtar Thioune
+      - Jon Dadi Bödvarsson
+      - Patrik Ingelsten
+      - Benjamin Sulimani
+      - Veton Berisha
+    subs:
+      - Christian Landu Landu
+      - Yann-Erik de Lanlay
+      - Vidar Nisja
+      - Osita Henry Chikere
+      - Trond Olsen
+      - Christoffer Midbøe Lunde
+      - Richard Ekunde
+    coach: Kjell Jonevret
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Jonatan Tollås Nation
+      - Jo Nymo Matland
+      - Fredrik Carlsen
+      - Peter Orry Larsen
+      - Edvard Skagestad
+      - Demar Phillips
+      - Abderrazak Hamdallah
+      - Tor Hogne Aarøy
+    subs:
+      - Andreas Nordvik
+      - Thomas Skog Martinussen
+      - Torbjørn Grytten
+      - Lars Fuhre
+      - Henrik Rørvik Bjørdal
+      - Lasse Staw
+    coach: Jan Jönsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +142,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,138 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: valerenga
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4012
+referee: Mathias Støfringshaug
+events:
+  - minute: 29
+    type: goal
+    team: away
+    player: Magnus Bech Riisnæs
+  - minute: 46
+    type: substitution
+    team: home
+    player: Moctar Diop
+    playerOff: Simen Haram
+  - minute: 46
+    type: substitution
+    team: home
+    player: Metodi Maksimov
+    playerOff: Martin Ramsland
+  - minute: 57
+    type: goal
+    team: away
+    player: Jones El-Abdellaoui
+    assist: Henrik Rørvik Bjørdal
+  - minute: 64
+    type: substitution
+    team: home
+    player: Sebastian Berntsen
+    playerOff: Kristoffer Nessø
+  - minute: 64
+    type: substitution
+    team: home
+    player: John Kitolano
+    playerOff: Thomas Grøgaard
+  - minute: 71
+    type: substitution
+    team: away
+    player: Filip Thorvaldsen
+    playerOff: Magnus Bech Riisnæs
+  - minute: 72
+    type: yellow_card
+    team: home
+    player: Claudio Braga
+  - minute: 78
+    type: substitution
+    team: away
+    player: Adrian Kurd Rønning
+    playerOff: Petter Strand
+  - minute: 78
+    type: substitution
+    team: away
+    player: Vegar Eggen Hedenstad
+    playerOff: Christian Dahle Borchgrevink
+  - minute: 83
+    type: substitution
+    team: home
+    player: John Ruud Norvik
+    playerOff: Eivind Strømsheim Kolve
+  - minute: 88
+    type: substitution
+    team: away
+    player: Nathan Fasika
+    playerOff: Jones El-Abdellaoui
+  - minute: 88
+    type: substitution
+    team: away
+    player: Mees Rijks
+    playerOff: Martin Kreuzriegler
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Kristoffer Nessø
+      - Nikolai Hopland
+      - Simen Haram
+      - Thomas Grøgaard
+      - Eivind Strømsheim Kolve
+      - Håkon Butli Hammer
+      - David Snær Johannsson
+      - Isaac Atanga
+      - Martin Ramsland
+      - Claudio Braga
+    subs:
+      - Metodi Maksimov
+      - Moctar Diop
+      - John Kitolano
+      - Sebastian Berntsen
+      - John Ruud Norvik
+      - Sondre Midthjell
+      - Tor Erik Valderhaug Larsen
+      - Stian Aarønes Holte
+    coach: Christian Johnsen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Magnus Smelhus Sjøeng
+      - Christian Dahle Borchgrevink
+      - Aaron Kiil Olsen
+      - Martin Kreuzriegler
+      - Simen Kristiansen Juklerød
+      - Petter Strand
+      - Fidel Brice Ambina
+      - Jones El-Abdellaoui
+      - Henrik Rørvik Bjørdal
+      - Magnus Bech Riisnæs
+      - Ola Kamara
+    subs:
+      - Filip Thorvaldsen
+      - Vegar Eggen Hedenstad
+      - Adrian Kurd Rønning
+      - Nathan Fasika
+      - Mees Rijks
+      - Jacob Storevik
+      - Aleksander Hammer Kjelsen
+    coach: Geir Bakke
+stats:
+  home:
+    possession: 50
+    shots: 5
+    shotsOnTarget: 2
+    corners: 2
+  away:
+    possession: 50
+    shots: 10
+    shotsOnTarget: 8
+    corners: 7
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +158,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

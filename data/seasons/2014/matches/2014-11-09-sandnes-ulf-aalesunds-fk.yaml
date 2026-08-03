@@ -11,13 +11,104 @@ competition:
 home:
   clubId: sandnes-ulf
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: sandnes-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 12
+    type: goal
+    team: home
+    player: Diego Rubio
+    assist: Derek Decamps
+  - minute: 65
+    type: substitution
+    team: away
+    player: Mostafa Abdellaoue
+    playerOff: Mehdi Karnass
+  - minute: 69
+    type: substitution
+    team: home
+    player: Zymer Bytyqi
+    playerOff: Randall Brenes
+  - minute: 74
+    type: goal
+    team: away
+    player: Michael Barrantes
+  - minute: 77
+    type: substitution
+    team: home
+    player: Marius Helle
+    playerOff: Ole Kristian Langås
+  - minute: 77
+    type: substitution
+    team: home
+    player: Hannes Sigurdsson
+    playerOff: Diego Rubio
+  - minute: 78
+    type: substitution
+    team: away
+    player: Tor Hogne Aarøy
+    playerOff: Oddbjørn Lie
+  - minute: 78
+    type: substitution
+    team: away
+    player: Jo Nymo Matland
+    playerOff: Henrik Rørvik Bjørdal
+  - minute: 90
+    type: goal
+    team: away
+    player: Sakari Mattila
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Hannes Thor Halldorsson
+      - Vegard Aanestad
+      - Derek Decamps
+      - Eidur Aron Sigurbjörnsson
+      - Edier Frejd
+      - Tijan Jaiteh
+      - Aksel Berget Skjølsvik
+      - Fredrik Midtsjø
+      - Randall Brenes
+      - Diego Rubio
+      - Ole Kristian Langås
+    subs:
+      - Zymer Bytyqi
+      - Hannes Sigurdsson
+      - Marius Helle
+      - Avni Pepa
+      - Kenneth Sola
+      - Kent Håvard Eriksen
+      - Sean McDermott
+    coach: Tom Nordlie
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Oddbjørn Lie
+      - Mikael Dyrestam
+      - Sakari Mattila
+      - Henrik Rørvik Bjørdal
+      - Fredrik Ulvestad
+      - Mehdi Karnass
+      - Leke James
+      - Michael Barrantes
+    subs:
+      - Mostafa Abdellaoue
+      - Jo Nymo Matland
+      - Tor Hogne Aarøy
+      - Andreas Lie
+      - Peter Orry Larsen
+      - Thomas Skog Martinussen
+      - Torbjørn Grytten
+    coach: Jan Jönsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +124,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

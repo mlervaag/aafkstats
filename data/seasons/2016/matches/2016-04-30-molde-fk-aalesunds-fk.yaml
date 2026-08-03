@@ -11,13 +11,125 @@ competition:
 home:
   clubId: molde-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: aker-stadion
 neutralVenue: false
-events: []
+attendance: 9661
+referee: Svein Oddvar Moen
+events:
+  - minute: 6
+    type: yellow_card
+    team: away
+    player: Andreas Lie
+  - minute: 14
+    type: yellow_card
+    team: home
+    player: Vegard Forren
+  - minute: 46
+    type: substitution
+    team: away
+    player: Thomas Skog Martinussen
+    playerOff: Adam Örn Arnarson
+  - minute: 57
+    type: substitution
+    team: home
+    player: Sander Svendsen
+    playerOff: Isak Ssewankambo
+  - minute: 75
+    type: substitution
+    team: home
+    player: Fredrik Gulbrandsen
+    playerOff: Eirik Hestad
+  - minute: 75
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Fredrik Carlsen
+  - minute: 81
+    type: yellow_card
+    team: away
+    player: Oddbjørn Lie
+  - minute: 83
+    type: yellow_card
+    team: home
+    player: Joona Toivio
+  - minute: 85
+    type: substitution
+    team: home
+    player: Agnaldo
+    playerOff: Harmeet Singh
+  - minute: 90
+    type: substitution
+    team: away
+    player: Edwin Gyasi
+    playerOff: Mikkel Kirkeskov
+  - minute: 90
+    type: goal
+    team: home
+    player: Fredrik Gulbrandsen
+    assist: Fredrik Aursnes
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Ethan Horvath
+      - Joona Toivio
+      - Ruben Gabrielsen
+      - Vegard Forren
+      - Per Egil Flo
+      - Isak Ssewankambo
+      - Harmeet Singh
+      - Fredrik Aursnes
+      - Eirik Hestad
+      - Petter Strand
+      - Mohamed Elyounoussi
+    subs:
+      - Sander Svendsen
+      - Fredrik Gulbrandsen
+      - Agnaldo
+      - Andreas Linde
+      - Knut Olav Rindarøy
+      - Kristian Strande
+      - Pape Pate Diouf
+    coach: Ole Gunnar Solskjær
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Edvard Skagestad
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Vebjørn Hoff
+      - Fredrik Carlsen
+      - Bjørn Helge Riise
+      - Peter Orry Larsen
+      - Mostafa Abdellaoue
+      - Franck Boli
+    subs:
+      - Thomas Skog Martinussen
+      - Sondre Brunstad Fet
+      - Edwin Gyasi
+      - Jørgen Hatlehol
+      - Lars Cramer
+      - Marlinho
+      - Tero Mäntylä
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 59
+    shots: 26
+    shotsOnTarget: 12
+    corners: 3
+  away:
+    possession: 41
+    shots: 10
+    shotsOnTarget: 4
+    corners: 3
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +145,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

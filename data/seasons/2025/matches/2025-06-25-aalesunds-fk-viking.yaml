@@ -1,0 +1,179 @@
+id: 2025-06-25-aalesunds-fk-viking
+date: 2025-06-25
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2025
+  stage: quarter_final
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: viking
+  score: 1
+  halfTimeScore: 0
+venueId: color-line-stadion
+neutralVenue: false
+attendance: 3796
+events:
+  - minute: 44
+    type: yellow_card
+    team: away
+    player: Viljar Vevatne
+  - minute: 60
+    type: substitution
+    team: away
+    player: Sondre Bjørshol
+    playerOff: Vetle Auklend
+  - minute: 60
+    type: substitution
+    team: away
+    player: Martin Roseth
+    playerOff: Viljar Vevatne
+  - minute: 60
+    type: yellow_card
+    team: home
+    player: Kristoffer Nessø
+  - minute: 69
+    type: yellow_card
+    team: away
+    player: Sondre Bjørshol
+  - minute: 73
+    type: substitution
+    team: away
+    player: Christian Cappis
+    playerOff: Edvin Austbø
+  - minute: 73
+    type: substitution
+    team: away
+    player: Kristoffer Askildsen
+    playerOff: Jakob Segadal Hansen
+  - minute: 75
+    type: substitution
+    team: home
+    player: Frederik Heiselberg
+    playerOff: Janus Seehusen
+  - minute: 75
+    type: substitution
+    team: home
+    player: John Kitolano
+    playerOff: Marius Andresen
+  - minute: 78
+    type: substitution
+    team: away
+    player: Herman Haugen
+    playerOff: Henrik Heggheim
+  - minute: 82
+    type: goal
+    team: away
+    player: Peter Christiansen
+    assist: Zlatko Tripic
+  - minute: 90
+    type: substitution
+    team: home
+    player: Kristian Hemmingsen Lonebu
+    playerOff: David Snær Johannsson
+  - minute: 90
+    stoppage: 8
+    type: yellow_card
+    team: away
+    player: Martin Roseth
+  - minute: 90
+    stoppage: 8
+    type: yellow_card
+    team: home
+    player: Aleksander Hammer Kjelsen
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Tor Erik Valderhaug Larsen
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Olafur Gudmundsson
+      - Marius Andresen
+      - David Snær Johannsson
+      - Håkon Butli Hammer
+      - Janus Seehusen
+      - Kristoffer Nessø
+      - Henrik Melland
+      - Paul Ngongo Iversen
+    subs:
+      - John Kitolano
+      - Frederik Heiselberg
+      - Kristian Hemmingsen Lonebu
+      - Sten Michael Grytebust
+      - Jørgen Bøe
+      - Philip Sandvik Aukland
+      - Eivind Strømsheim Kolve
+      - Marcus Haagensen Reed
+      - Tellef Brattberg Ytterland
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - Kristoffer Klaesson
+      - Henrik Heggheim
+      - Viljar Vevatne
+      - Henrik Falchener
+      - Vetle Auklend
+      - Simen Kvia-Egeskog
+      - Joe Bell
+      - Jakob Segadal Hansen
+      - Zlatko Tripic
+      - Peter Christiansen
+      - Edvin Austbø
+    subs:
+      - Martin Roseth
+      - Sondre Bjørshol
+      - Christian Cappis
+      - Kristoffer Askildsen
+      - Herman Haugen
+      - Arild Østbø
+      - Anders Bærtelsen
+      - Hilmir Mikaelsson
+      - Niklas Fuglestad
+    coach: Bjarte Lunde Aarsheim
+stats:
+  home:
+    possession: 46
+    shots: 10
+    shotsOnTarget: 2
+    corners: 5
+  away:
+    possession: 54
+    shots: 6
+    shotsOnTarget: 3
+    corners: 5
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-viking/2cuni1#4792870
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.stage
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4792870"
+manual: []

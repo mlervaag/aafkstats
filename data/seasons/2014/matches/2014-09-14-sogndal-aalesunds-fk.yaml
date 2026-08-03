@@ -11,13 +11,107 @@ competition:
 home:
   clubId: sogndal
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: fosshaugane-stadion
 neutralVenue: false
-events: []
+attendance: 4517
+events:
+  - minute: 18
+    type: yellow_card
+    team: away
+    player: Fredrik Ulvestad
+  - minute: 25
+    type: yellow_card
+    team: home
+    player: Hannu Patronen
+  - minute: 27
+    type: yellow_card
+    team: home
+    player: Edward Ofere
+  - minute: 39
+    type: substitution
+    team: away
+    player: Mostafa Abdellaoue
+    playerOff: Torbjoern Grytten
+  - minute: 44
+    type: goal
+    team: away
+    player: Leke James
+    assist: Jo Nymo Matland
+  - minute: 51
+    type: substitution
+    team: away
+    player: Michael Barrantes
+    playerOff: Leke James
+  - minute: 53
+    type: goal
+    team: home
+    player: Christophe Psyche
+    assist: Hjoertur Logi Valgardsson
+  - minute: 62
+    type: substitution
+    team: home
+    player: Rune Bolseth
+    playerOff: Helge Haugen
+  - minute: 62
+    type: substitution
+    team: home
+    player: Ulrik Flo
+    playerOff: Petter Strand
+  - minute: 83
+    type: substitution
+    team: away
+    player: Sakari Mattila
+    playerOff: Henrik Roervik Bjoerdal
+lineups:
+  home:
+    formation: 5-3-2
+    starters:
+      - Matias Dyngeland
+      - Taijo Teniste
+      - Christophe Psyche
+      - Hannu Patronen
+      - Tom Soederberg
+      - Hjoertur Logi Valgardsson
+      - Tonny Brochmann
+      - Helge Haugen
+      - Petter Strand
+      - Edward Ofere
+      - Mahatma Otoo
+    subs:
+      - Ulrik Flo
+      - Rune Bolseth
+      - Tim Andre Nilsen
+      - Eirik Bergum Skaasheim
+      - Joar Tryti
+      - Kenneth Udjus
+    coach: Jonas Olsson
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Jo Nymo Matland
+      - Daniel Arnefjord
+      - Oddbjoern Lie
+      - Henrik Roervik Bjoerdal
+      - Fredrik Ulvestad
+      - Peter Orry Larsen
+      - Mehdi Karnass
+      - Torbjoern Grytten
+      - Leke James
+    subs:
+      - Mostafa Abdellaoue
+      - Michael Barrantes
+      - Sakari Mattila
+      - Tor Hogne Aaroey
+      - Andreas Lie
+      - Thomas Skog Martinussen
+    coach: Jan Joensson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +127,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

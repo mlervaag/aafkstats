@@ -1,0 +1,159 @@
+id: 2019-06-19-aalesunds-fk-molde-fk
+date: 2019-06-19
+dateConfidence: exact
+kickoff: 20:00
+status: played
+competition:
+  id: nm
+  season: 2019
+  stage: regular_season
+  round: 3
+home:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: 2
+away:
+  clubId: molde-fk
+  score: 0
+  halfTimeScore: 0
+neutralVenue: false
+attendance: 4017
+events:
+  - minute: 14
+    type: goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+  - minute: 17
+    type: goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+  - minute: 30
+    type: red_card
+    team: away
+    player: Ruben Gabrielsen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Martin Ellingsen
+    playerOff: Magnus Wolff Eikrem
+  - minute: 55
+    type: goal
+    team: home
+    player: Sondre Brunstad Fet
+  - minute: 55
+    type: yellow_card
+    team: away
+    player: Eirik Hestad
+  - minute: 57
+    type: yellow_card
+    team: away
+    player: Vegard Forren
+  - minute: 58
+    type: goal
+    team: home
+    player: Aron Elis Thrandarson
+  - minute: 62
+    type: substitution
+    team: away
+    player: Mattias Moström
+    playerOff: Erling Knudtzon
+  - minute: 64
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Izunna Uzochukwu
+  - minute: 68
+    type: yellow_card
+    team: away
+    player: Mattias Moström
+  - minute: 75
+    type: substitution
+    team: home
+    player: Jernade Meade
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 79
+    type: substitution
+    team: away
+    player: Emil Breivik
+    playerOff: Christoffer Remmer
+  - minute: 82
+    type: substitution
+    team: home
+    player: Isak Dybvik
+    playerOff: Aron Elis Thrandarson
+  - minute: 84
+    type: yellow_card
+    team: home
+    player: Erikson Lima
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Ståle Steen Sæthre
+      - Sondre Brunstad Fet
+      - Aron Elis Thrandarson
+      - Izunna Uzochukwu
+      - Erikson Lima
+      - David Kristjan Olafsson
+      - Pape Habib Gueye
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Peter Orry Larsen
+      - Jernade Meade
+      - Isak Dybvik
+      - Kaj Ramsteijn
+      - Oddbjørn Lie
+      - Tarjei Aase Omenås
+      - Torbjørn Agdestein
+  away:
+    formation: 4-3-3
+    starters:
+      - Alex Craninx
+      - Christoffer Remmer
+      - Ruben Gabrielsen
+      - Vegard Forren
+      - Christopher Telo
+      - Etzaz Hussain
+      - Magnus Wolff Eikrem
+      - Fredrik Sjølstad
+      - Eirik Hestad
+      - Ohi Anthony Omoijuanfo
+      - Erling Knudtzon
+    subs:
+      - Martin Ellingsen
+      - Mattias Moström
+      - Emil Breivik
+      - Fredrik Aursnes
+      - Jakob Nyland Orsahl
+      - Kristoffer Haugen
+      - Oliver Petersen
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#3045094
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3045094"
+manual: []

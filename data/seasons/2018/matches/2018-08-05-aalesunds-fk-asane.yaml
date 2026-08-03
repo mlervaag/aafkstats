@@ -11,13 +11,90 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: asane
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 60
+    type: substitution
+    team: away
+    player: Michael Ogungbaro
+    playerOff: Simen Lassen
+  - minute: 60
+    type: substitution
+    team: away
+    player: Andreas Fantoft
+    playerOff: Senai Hagos
+  - minute: 62
+    type: goal
+    team: home
+    player: Torbjørn Agdestein
+    assist: Holmbert Aron Fridjonsson
+  - minute: 69
+    type: substitution
+    team: home
+    player: Jørgen Hatlehol
+    playerOff: Adam Örn Arnarson
+  - minute: 75
+    type: substitution
+    team: home
+    player: Pape Habib Gueye
+    playerOff: Torbjørn Agdestein
+  - minute: 77
+    type: substitution
+    team: away
+    player: Nikolai Harris
+    playerOff: Joakim Hammersland
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Jonas Grønner
+      - Oddbjørn Lie
+      - Adam Örn Arnarson
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Erikson Lima
+      - Sondre Brunstad Fet
+      - Holmbert Aron Fridjonsson
+      - Torbjørn Agdestein
+    subs:
+      - Jørgen Hatlehol
+      - Pape Habib Gueye
+      - Bjørn Helge Riise
+      - Daniel Gretarsson
+      - Håvard Breivik
+      - Nikola Tkalcic
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
+  away:
+    formation: 3-4-1-2
+    starters:
+      - Borger Thomas
+      - Jonas Hestetun
+      - Magnus Nybakken Bruun-Hanssen
+      - Aleksander Solli
+      - Simen Lassen
+      - Tomas Kristoffersen
+      - Joakim Hammersland
+      - Sondre Bjørshol
+      - Senai Hagos
+      - Dennis Agyare Antwi
+      - Håkon Lorentzen
+    subs:
+      - Andreas Fantoft
+      - Michael Ogungbaro
+      - Nikolai Harris
+      - August Jegerstedt Selnes
+      - Eirik Østgaard
+      - Ole Kolskogen
+    coach: Mons Ivar Mjelde
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +110,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

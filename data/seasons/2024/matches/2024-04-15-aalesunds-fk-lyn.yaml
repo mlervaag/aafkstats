@@ -11,13 +11,143 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: lyn
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 3188
+referee: Mischa Huru Kellerhals
+events:
+  - minute: 14
+    type: yellow_card
+    team: home
+    player: Sander Hestetun Kilen
+  - minute: 22
+    type: substitution
+    team: home
+    player: Metodi Maksimov
+    playerOff: Kristoffer Nessø
+  - minute: 34
+    type: red_card
+    team: home
+    player: Sander Hestetun Kilen
+  - minute: 38
+    type: goal
+    team: away
+    player: Daniel Schneider
+    assist: Mathias Johansen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Adrian Berntsen
+    playerOff: Tobias Myhre
+  - minute: 51
+    type: yellow_card
+    team: home
+    player: Sten Michael Grytebust
+  - minute: 67
+    type: goal
+    team: away
+    player: Henrik Kristiansen
+  - minute: 75
+    type: substitution
+    team: away
+    player: Julius Friberg Skaug
+    playerOff: Henrik Kristiansen
+  - minute: 75
+    type: substitution
+    team: away
+    player: Jacob Hanstad
+    playerOff: Mathias Johansen
+  - minute: 77
+    type: substitution
+    team: home
+    player: David Snær Johannsson
+    playerOff: Isaac Atanga
+  - minute: 77
+    type: goal
+    team: away
+    player: Andreas Hellum
+    assist: Anders Bjørntvedt Olsen
+  - minute: 80
+    type: substitution
+    team: away
+    player: Brage Hylen
+    playerOff: Andreas Hellum
+  - minute: 80
+    type: substitution
+    team: away
+    player: Ibba
+    playerOff: Anders Bjørntvedt Olsen
+  - minute: 84
+    type: substitution
+    team: home
+    player: Sebastian Berntsen
+    playerOff: Markus Seehusen Karlsbakk
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Kristoffer Nessø
+      - Simen Haram
+      - Nikolai Hopland
+      - Thomas Grøgaard
+      - Eivind Strømsheim Kolve
+      - Håkon Butli Hammer
+      - Markus Seehusen Karlsbakk
+      - Isaac Atanga
+      - Claudio Braga
+      - Sander Hestetun Kilen
+    subs:
+      - Metodi Maksimov
+      - David Snær Johannsson
+      - Sebastian Berntsen
+      - Tor Erik Valderhaug Larsen
+      - John Ruud Norvik
+      - Thomas Gulbrandsen
+      - Amidou Diop
+      - Tellef Brattberg Ytterland
+    coach: Christian Johnsen
+  away:
+    formation: 4-3-3
+    starters:
+      - Alexander Pedersen
+      - Herman Solberg Nilsen
+      - Daniel Schneider
+      - William Sælid Sell
+      - Jørgen Vedal Sjøl
+      - Tobias Myhre
+      - Even Bydal
+      - Henrik Kristiansen
+      - Anders Bjørntvedt Olsen
+      - Andreas Hellum
+      - Mathias Johansen
+    subs:
+      - Adrian Berntsen
+      - Julius Friberg Skaug
+      - Jacob Hanstad
+      - Brage Hylen
+      - Ibba
+      - Viktor Engh
+      - Håvard Meinseth
+      - Christopher Lindquist
+      - Malvin Ingebrigtsen
+    coach: Jan Halvor Halvorsen
+stats:
+  home:
+    possession: 56
+    shots: 5
+    shotsOnTarget: 5
+    corners: 7
+  away:
+    possession: 44
+    shots: 22
+    shotsOnTarget: 16
+    corners: 8
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +163,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

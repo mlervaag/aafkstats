@@ -11,13 +11,159 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: ull-kisa
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 8536
+events:
+  - minute: 31
+    type: goal
+    team: away
+    player: Henrik Kristiansen
+  - minute: 33
+    type: yellow_card
+    team: away
+    player: Stian Ringstad
+  - minute: 40
+    type: goal
+    team: home
+    player: Sigurd Haugen
+  - minute: 46
+    type: substitution
+    team: home
+    player: Torbjørn Kallevåg
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 50
+    type: yellow_card
+    team: away
+    player: Juba Massinissa Moula
+  - minute: 69
+    type: goal
+    team: away
+    player: Sondre Sørløkk
+    assist: Jens Husebø
+  - minute: 72
+    type: substitution
+    team: away
+    player: William Sundby
+    playerOff: Jens Husebø
+  - minute: 73
+    type: yellow_card
+    team: away
+    player: William Sundby
+  - minute: 78
+    type: goal
+    team: home
+    player: Sigurd Haugen
+    assist: Niklas Castro
+  - minute: 79
+    type: substitution
+    team: home
+    player: Erikson Lima
+    playerOff: Erlend Segberg
+  - minute: 81
+    type: goal
+    team: home
+    player: Simen Bolkan Nordli
+  - minute: 82
+    type: yellow_card
+    team: home
+    player: Simen Bolkan Nordli
+  - minute: 88
+    type: substitution
+    team: away
+    player: Ole Breistøl
+    playerOff: Christian Aas
+  - minute: 88
+    type: substitution
+    team: away
+    player: Kristoffer Gunnarshaug
+    playerOff: Juba Massinissa Moula
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: home
+    player: Isak Dybvik
+    playerOff: Simen Bolkan Nordli
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: home
+    player: Nikolai Hopland
+    playerOff: Niklas Castro
+  - minute: 90
+    stoppage: 3
+    type: goal
+    team: home
+    player: David Kristjan Olafsson
+  - minute: 90
+    stoppage: 5
+    type: substitution
+    team: home
+    player: Andreas Lie
+    playerOff: Michael Lansing
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Jørgen Hatlehol
+      - Quint Jansen
+      - David Fällman
+      - David Kristjan Olafsson
+      - Kristoffer Barmen
+      - Erlend Segberg
+      - Kristoffer Ødemarksbakken
+      - Niklas Castro
+      - Simen Bolkan Nordli
+      - Sigurd Haugen
+    subs:
+      - Torbjørn Kallevåg
+      - Erikson Lima
+      - Andreas Lie
+      - Isak Dybvik
+      - Nikolai Hopland
+      - Jonas Grønner
+      - Mamadou Diaw
+      - Muamer Brajanac
+      - Oscar Solnørdal
+    coach: Lars Arne Nilsen
+  away:
+    formation: 5-2-3
+    starters:
+      - Stefan Hagerup
+      - Steffen Jenssen
+      - Henning Tønsberg Andresen
+      - Morten Sundli
+      - Stian Ringstad
+      - Jens Husebø
+      - Henrik Kristiansen
+      - Christian Aas
+      - Mikkel Rakneberg
+      - Sondre Sørløkk
+      - Juba Massinissa Moula
+    subs:
+      - William Sundby
+      - Kristoffer Gunnarshaug
+      - Ole Breistøl
+      - Christoffer Gjertsen
+      - Thomas Hallstensen
+    coach: Steffen Landro
+stats:
+  home:
+    possession: 53
+    shots: 20
+    shotsOnTarget: 12
+    corners: 5
+  away:
+    possession: 47
+    shots: 6
+    shotsOnTarget: 4
+    corners: 1
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +179,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

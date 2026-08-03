@@ -1,0 +1,225 @@
+id: 2026-05-16-rosenborg-bk-aalesunds-fk
+date: 2026-05-16
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 9
+home:
+  clubId: rosenborg-bk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 1
+venueId: lerkendal-stadion
+neutralVenue: false
+attendance: 21426
+referee: Stian Røvig Sletner
+events:
+  - minute: 3
+    type: goal
+    team: home
+    player: Amin Chiakha
+    assist: Mads Bomholt
+  - minute: 6
+    type: yellow_card
+    team: away
+    player: Kristoffer Klaesson
+  - minute: 29
+    type: goal
+    team: away
+    player: Kristian Hemmingsen Lonebu
+    assist: Marius Andresen
+  - minute: 39
+    type: yellow_card
+    team: home
+    player: Tomás Nemcík
+  - minute: 46
+    type: substitution
+    team: home
+    player: Adrian Pereira
+    playerOff: Jonas Søgaard Mortensen
+  - minute: 46
+    type: substitution
+    team: home
+    player: Iver Fossum
+    playerOff: Ole Kristian Selnæs
+  - minute: 50
+    type: goal
+    team: away
+    player: Mathias Christensen
+    assist: Endre Osenbroch
+  - minute: 55
+    type: yellow_card
+    team: away
+    player: Mathias Christensen
+  - minute: 66
+    type: yellow_card
+    team: away
+    player: Elias Hagen
+  - minute: 68
+    type: substitution
+    team: home
+    player: Noah Sahsah
+    playerOff: Mads Bomholt
+  - minute: 68
+    type: substitution
+    team: home
+    player: Dino Islamovic
+    playerOff: Simen Bolkan Nordli
+  - minute: 76
+    type: substitution
+    team: away
+    player: David Snær Johannsson
+    playerOff: Mathias Christensen
+  - minute: 78
+    type: goal
+    team: home
+    player: Emil Konradsen Ceïde
+  - minute: 80
+    type: goal
+    team: away
+    player: Endre Osenbroch
+    assist: David Snær Johannsson
+  - minute: 81
+    type: substitution
+    team: away
+    player: Håkon Butli Hammer
+    playerOff: Endre Osenbroch
+  - minute: 81
+    type: substitution
+    team: away
+    player: Elias Heggland Myrlid
+    playerOff: Marcus Haagensen Reed
+  - minute: 84
+    type: substitution
+    team: away
+    player: Kristoffer Nessø
+    playerOff: Marius Andresen
+  - minute: 88
+    type: substitution
+    team: home
+    player: Dávid Duris
+    playerOff: Adrian Pereira
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Uba Charles
+  - minute: 90
+    stoppage: 3
+    type: yellow_card
+    team: away
+    player: Aleksander Hammer Kjelsen
+  - minute: 90
+    stoppage: 3
+    type: yellow_card
+    team: home
+    player: Dino Islamovic
+  - minute: 90
+    stoppage: 8
+    type: yellow_card
+    team: away
+    player: Elias Heggland Myrlid
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Leopold Wahlstedt
+      - Jonas Søgaard Mortensen
+      - Håkon Røsten
+      - Tomás Nemcík
+      - Tobias Solheim Dahl
+      - Santeri Väänänen
+      - Ole Kristian Selnæs
+      - Mads Bomholt
+      - Simen Bolkan Nordli
+      - Emil Konradsen Ceïde
+      - Amin Chiakha
+    subs:
+      - Adrian Pereira
+      - Iver Fossum
+      - Dino Islamovic
+      - Noah Sahsah
+      - Dávid Duris
+      - Rasmus Sandberg
+      - Håkon Volden
+      - Mikkel Konradsen Ceïde
+      - Johan Bakke
+    coach: Alexander Tettey
+  away:
+    formation: 5-3-2
+    starters:
+      - Kristoffer Klaesson
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Ólafur Gudmundsson
+      - Marius Andresen
+      - Uba Charles
+      - Mathias Christensen
+      - Elias Hagen
+      - Endre Osenbroch
+      - Kristian Hemmingsen Lonebu
+      - Marcus Haagensen Reed
+    subs:
+      - David Snær Johannsson
+      - Håkon Butli Hammer
+      - Elias Heggland Myrlid
+      - Kristoffer Nessø
+      - Tor Erik Valderhaug Larsen
+      - Emil Engqvist
+      - Henrik Melland
+      - Jakob Nyland Ørsahl
+      - Ivan Djantou
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 67
+    shots: 13
+    shotsOnTarget: 4
+    corners: 11
+    fouls: 7
+    offsides: 1
+    xg: 1.23
+  away:
+    possession: 33
+    shots: 9
+    shotsOnTarget: 4
+    corners: 0
+    fouls: 15
+    offsides: 1
+    xg: 1.13
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-rosenborg/2caf6d#5104910
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5104910"
+manual: []

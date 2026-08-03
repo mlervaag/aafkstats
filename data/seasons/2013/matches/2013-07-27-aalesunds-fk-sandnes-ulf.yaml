@@ -11,13 +11,131 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: sandnes-ulf
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 17
+    type: yellow_card
+    team: away
+    player: Avni Pepa
+  - minute: 28
+    type: goal
+    team: away
+    player: Fredrik Torsteinbø
+    assist: Henrik Furebotn
+  - minute: 46
+    type: substitution
+    team: home
+    player: Andreas Nordvik
+    playerOff: Thomas Skog Martinussen
+  - minute: 47
+    type: penalty_goal
+    team: home
+    player: Fredrik Ulvestad
+  - minute: 48
+    type: yellow_card
+    team: away
+    player: Sean McDermott
+  - minute: 51
+    type: goal
+    team: away
+    player: Henrik Furebotn
+  - minute: 64
+    type: substitution
+    team: home
+    player: Tor Hogne Aarøy
+    playerOff: Jo Nymo Matland
+  - minute: 65
+    type: yellow_card
+    team: away
+    player: Marius Helle
+  - minute: 73
+    type: goal
+    team: home
+    player: Abderrazak Hamdallah
+    assist: Leke James
+  - minute: 76
+    type: substitution
+    team: home
+    player: Tremaine Stewart
+    playerOff: Fredrik Carlsen
+  - minute: 78
+    type: yellow_card
+    team: home
+    player: Jonatan Tollås Nation
+  - minute: 78
+    type: yellow_card
+    team: home
+    player: Tremaine Stewart
+  - minute: 79
+    type: substitution
+    team: away
+    player: Steven Lennon
+    playerOff: Marius Helle
+  - minute: 87
+    type: substitution
+    team: away
+    player: Tosaint Ricketts
+    playerOff: Henrik Furebotn
+  - minute: 90
+    type: substitution
+    team: away
+    player: Bjørnar Holmvik
+    playerOff: Steinthor Freyr Thorsteinsson
+  - minute: 90
+    type: goal
+    team: away
+    player: Steinthor Freyr Thorsteinsson
+lineups:
+  home:
+    formation: 7-1-2
+    starters:
+      - Sten Michael Grytebust
+      - Thomas Skog Martinussen
+      - Jonatan Tollås Nation
+      - Edvard Skagestad
+      - Jo Nymo Matland
+      - Fredrik Ulvestad
+      - Peter Orry Larsen
+      - Fredrik Carlsen
+      - Michael Barrantes
+      - Leke James
+      - Abderrazak Hamdallah
+    subs:
+      - Andreas Nordvik
+      - Tor Hogne Aarøy
+      - Tremaine Stewart
+      - Henrik Rørvik Bjørdal
+      - Izantullah Ahmadzai
+      - Lars Fuhre
+      - Lasse Staw
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Sean McDermott
+      - Edier Frejd
+      - Milos Mihajlov
+      - Avni Pepa
+      - Kenneth Sola
+      - Steinthor Freyr Thorsteinsson
+      - Aksel Berget Skjølsvik
+      - Anel Raskaj
+      - Fredrik Torsteinbø
+      - Henrik Furebotn
+      - Marius Helle
+    subs:
+      - Steven Lennon
+      - Tosaint Ricketts
+      - Bjørnar Holmvik
+      - Aslak Falch
+      - Johnny Lundberg
+      - Nemanja Jovanovic
+      - Zymer Bytyqi
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +151,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

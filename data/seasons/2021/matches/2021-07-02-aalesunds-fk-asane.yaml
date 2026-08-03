@@ -11,13 +11,122 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: asane
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 53
+    type: yellow_card
+    team: away
+    player: Tomas Kristoffersen
+  - minute: 55
+    type: yellow_card
+    team: away
+    player: Simen Lassen
+  - minute: 57
+    type: substitution
+    team: away
+    player: Geir André Herrem
+    playerOff: Senai Hagos
+  - minute: 59
+    type: substitution
+    team: home
+    player: Niklas Castro
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 71
+    type: goal
+    team: home
+    player: Niklas Castro
+  - minute: 72
+    type: substitution
+    team: away
+    player: Jonas Fredriksen
+    playerOff: Tomas Kristoffersen
+  - minute: 74
+    type: yellow_card
+    team: away
+    player: Martin Ueland
+  - minute: 81
+    type: yellow_card
+    team: home
+    player: David Fällman
+  - minute: 82
+    type: substitution
+    team: away
+    player: Jonas Eide Vågen
+    playerOff: Joel Mvuka
+  - minute: 86
+    type: red_card
+    team: away
+    player: Martin Ueland
+  - minute: 90
+    stoppage: 1
+    type: goal
+    team: home
+    player: Niklas Castro
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: home
+    player: Oscar Solnørdal
+    playerOff: Simen Bolkan Nordli
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: home
+    player: Mamadou Diaw
+    playerOff: Sigurd Haugen
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Simen Rafn
+      - Quint Jansen
+      - David Fällman
+      - David Kristjan Olafsson
+      - Erikson Lima
+      - Erlend Segberg
+      - Kristoffer Ødemarksbakken
+      - Simen Bolkan Nordli
+      - Torbjørn Kallevåg
+      - Sigurd Haugen
+    subs:
+      - Niklas Castro
+      - Mamadou Diaw
+      - Oscar Solnørdal
+      - Andreas Lie
+      - Henrik Melland
+      - Jørgen Hatlehol
+      - Jonas Grønner
+      - Nikolai Hopland
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Mark Jensen
+      - Didrik Fredriksen
+      - Sindre Austevoll
+      - Martin Ueland
+      - Ryan Doghman
+      - Tomas Kristoffersen
+      - Simen Lassen
+      - Stian Bogetveit Nygard
+      - Senai Hagos
+      - Joel Mvuka
+      - Håkon Lorentzen
+    subs:
+      - Geir André Herrem
+      - Jonas Fredriksen
+      - Jonas Eide Vågen
+      - Henrik Gjerde Ødemark
+      - Ole Kallevåg
+      - Thomas Hille
+    coach: Morten Røssland
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +142,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

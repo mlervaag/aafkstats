@@ -11,13 +11,142 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: tromso
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5562
+referee: Kristoffer Hagenes
+events:
+  - minute: 18
+    type: yellow_card
+    team: home
+    player: Mostafa Abdellaoue
+  - minute: 19
+    type: yellow_card
+    team: away
+    player: Gjermund Åsen
+  - minute: 21
+    type: goal
+    team: away
+    player: Mikael Ingebrigtsen
+  - minute: 29
+    type: yellow_card
+    team: away
+    player: Mikael Ingebrigtsen
+  - minute: 47
+    type: yellow_card
+    team: away
+    player: Patrick Kpozo
+  - minute: 54
+    type: substitution
+    team: home
+    player: Bjørn Helge Riise
+    playerOff: Valmir Berisha
+  - minute: 61
+    type: goal
+    team: home
+    player: Bjørn Helge Riise
+    assist: Vebjørn Hoff
+  - minute: 67
+    type: goal
+    team: home
+    player: Mostafa Abdellaoue
+    assist: Vebjørn Hoff
+  - minute: 70
+    type: substitution
+    team: away
+    player: Magnus Andersen
+    playerOff: Aron Sigurdarson
+  - minute: 75
+    type: substitution
+    team: away
+    player: Mour Samb
+    playerOff: Christian Landu Landu
+  - minute: 80
+    type: goal
+    team: home
+    player: Vebjørn Hoff
+    assist: Mikkel Kirkeskov
+  - minute: 82
+    type: substitution
+    team: away
+    player: Magnar Ødegaard
+    playerOff: Simen Wangberg
+  - minute: 84
+    type: substitution
+    team: home
+    player: Jørgen Hatlehol
+    playerOff: Sondre Brunstad Fet
+  - minute: 90
+    type: substitution
+    team: home
+    player: Oddbjørn Lie
+    playerOff: Vebjørn Hoff
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Kaj Ramsteijn
+      - Daniel Gretarsson
+      - Mikkel Kirkeskov
+      - Valmir Berisha
+      - Vebjørn Hoff
+      - Fredrik Carlsen
+      - Sondre Brunstad Fet
+      - Mostafa Abdellaoue
+      - Lars Veldwijk
+    subs:
+      - Bjørn Helge Riise
+      - Jørgen Hatlehol
+      - Oddbjørn Lie
+      - Emil Solnørdal
+      - Joakim Barstad
+      - Marlinho
+      - Pål Vestly Heigre
+    coach: Trond Fredriksen
+  away:
+    formation: 4-3-3
+    starters:
+      - Gudmund Taksdal Kongshavn
+      - Hans Norbye
+      - Simen Wangberg
+      - Jostein Gundersen
+      - Patrick Kpozo
+      - Mikael Ingebrigtsen
+      - Ulrik Yttergård Jenssen
+      - Christian Landu Landu
+      - Gjermund Åsen
+      - Thomas Lehne Olsen
+      - Aron Sigurdarson
+    subs:
+      - Magnus Andersen
+      - Mour Samb
+      - Magnar Ødegaard
+      - Jacob Karlstrøm
+      - Jonas Johansen
+      - Kent-Are Antonsen
+    coach: Bård Flovik
+stats:
+  home:
+    possession: 54
+    shots: 16
+    shotsOnTarget: 6
+    corners: 8
+    fouls: 13
+    offsides: 4
+  away:
+    possession: 46
+    shots: 13
+    shotsOnTarget: 4
+    corners: 0
+    fouls: 15
+    offsides: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +162,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

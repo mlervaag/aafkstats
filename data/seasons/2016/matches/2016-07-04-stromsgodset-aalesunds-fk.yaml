@@ -11,13 +11,135 @@ competition:
 home:
   clubId: stromsgodset
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: marienlyst-stadion
 neutralVenue: false
-events: []
+attendance: 6467
+referee: Kai Erik Steen
+events:
+  - minute: 5
+    type: goal
+    team: away
+    player: Mostafa Abdellaoue
+    assist: Peter Orry Larsen
+  - minute: 17
+    type: goal
+    team: home
+    player: Muhamed Keita
+    assist: Petter Vaagan Moen
+  - minute: 26
+    type: own_goal
+    team: home
+    player: Mikkel Kirkeskov
+  - minute: 34
+    type: goal
+    team: away
+    player: Peter Orry Larsen
+    assist: Aron Elis Thrándarson
+  - minute: 74
+    type: goal
+    team: home
+    player: Lars-Christopher Vilsvik
+    assist: Petter Vaagan Moen
+  - minute: 76
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Mostafa Abdellaoue
+  - minute: 80
+    type: yellow_card
+    team: away
+    player: Bjørn Helge Riise
+  - minute: 83
+    type: substitution
+    team: home
+    player: Thomas Sørum
+    playerOff: Muhamed Keita
+  - minute: 84
+    type: substitution
+    team: away
+    player: Daniel Gretarsson
+    playerOff: Adam Örn Arnarson
+  - minute: 86
+    type: substitution
+    team: away
+    player: Fredrik Carlsen
+    playerOff: Vebjørn Hoff
+  - minute: 90
+    type: substitution
+    team: home
+    player: Flamur Kastrati
+    playerOff: Øyvind Storflor
+  - minute: 90
+    type: goal
+    team: home
+    player: Flamur Kastrati
+    assist: Marcus Pedersen
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Flamur Kastrati
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Espen Bugge Pettersen
+      - Lars-Christopher Vilsvik
+      - Kim André Madsen
+      - Gustav Valsvik
+      - Jonathan Parr
+      - Bismarck Adjei-Boateng
+      - Petter Vaagan Moen
+      - Martin Rønning Ovenstad
+      - Øyvind Storflor
+      - Marcus Pedersen
+      - Muhamed Keita
+    subs:
+      - Thomas Sørum
+      - Flamur Kastrati
+      - Christopher Lindquist
+      - Knut Ahlander
+      - Lukasz Jarosinski
+      - Mounir Hamoud
+      - Sondre Solholm Johansen
+    coach: Thomas André Ødegaard
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Edvard Skagestad
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Vebjørn Hoff
+      - Bjørn Helge Riise
+      - Peter Orry Larsen
+      - Aron Elis Thrándarson
+      - Mostafa Abdellaoue
+      - Franck Boli
+    subs:
+      - Sondre Brunstad Fet
+      - Daniel Gretarsson
+      - Fredrik Carlsen
+      - Lars Cramer
+      - Marlinho
+      - Thomas Skog Martinussen
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 54
+    shots: 19
+    shotsOnTarget: 7
+    corners: 10
+  away:
+    possession: 46
+    shots: 18
+    shotsOnTarget: 6
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +155,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

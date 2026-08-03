@@ -11,13 +11,129 @@ competition:
 home:
   clubId: lillestrom
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: aaraasen
 neutralVenue: false
-events: []
+attendance: 4774
+referee: Kai Erik Steen
+events:
+  - minute: 7
+    type: yellow_card
+    team: home
+    player: Malaury Martin
+  - minute: 25
+    type: yellow_card
+    team: away
+    player: Mikkel Kirkeskov
+  - minute: 37
+    type: yellow_card
+    team: away
+    player: Adam Örn Arnarson
+  - minute: 38
+    type: goal
+    team: home
+    player: Fred Friday
+    assist: Mohamed Ofkir
+  - minute: 39
+    type: goal
+    team: away
+    player: Franck Boli
+    assist: Peter Orry Larsen
+  - minute: 54
+    type: yellow_card
+    team: away
+    player: Oddbjørn Lie
+  - minute: 62
+    type: substitution
+    team: away
+    player: Aron Elis Thrándarson
+    playerOff: John Arne Riise
+  - minute: 64
+    type: substitution
+    team: home
+    player: Marius Lundemo
+    playerOff: Arni Vilhjalmsson
+  - minute: 73
+    type: substitution
+    team: away
+    player: Edwin Gyasi
+    playerOff: Mostafa Abdellaoue
+  - minute: 81
+    type: substitution
+    team: away
+    player: Fredrik Carlsen
+    playerOff: Franck Boli
+  - minute: 82
+    type: substitution
+    team: home
+    player: Ole Martin Rindarøy
+    playerOff: Jørgen Kolstad
+  - minute: 90
+    type: substitution
+    team: home
+    player: Frode Kippe
+    playerOff: Malaury Martin
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Arnold Origi Otieno
+      - Håkon Skogseid
+      - Marius Amundsen
+      - Michael Jakobsen
+      - Simen Kind Mikalsen
+      - Jørgen Kolstad
+      - Bonke Innocent
+      - Malaury Martin
+      - Mohamed Ofkir
+      - Arni Vilhjalmsson
+      - Fred Friday
+    subs:
+      - Marius Lundemo
+      - Ole Martin Rindarøy
+      - Frode Kippe
+      - Erik Næsbak Brenden
+      - Jacob Faye Lund
+      - Martin Falkeborn
+      - Sheriff Sinyan
+    coach: Runar Kristinsson
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Edvard Skagestad
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Vebjørn Hoff
+      - Bjørn Helge Riise
+      - John Arne Riise
+      - Peter Orry Larsen
+      - Mostafa Abdellaoue
+      - Franck Boli
+    subs:
+      - Aron Elis Thrándarson
+      - Edwin Gyasi
+      - Fredrik Carlsen
+      - Daniel Gretarsson
+      - Lars Cramer
+      - Marlinho
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 56
+    shots: 19
+    shotsOnTarget: 5
+    corners: 5
+  away:
+    possession: 44
+    shots: 11
+    shotsOnTarget: 4
+    corners: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +149,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

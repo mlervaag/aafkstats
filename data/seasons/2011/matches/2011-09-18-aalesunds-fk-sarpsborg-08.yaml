@@ -11,13 +11,111 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: sarpsborg-08
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 15
+    type: goal
+    team: home
+    player: Magnus Sylling Olsen
+  - minute: 33
+    type: yellow_card
+    team: away
+    player: Ole Heieren Hansen
+  - minute: 35
+    type: substitution
+    team: home
+    player: Kjell Rune Sellin
+    playerOff: Solomon Okoronkwo
+  - minute: 51
+    type: yellow_card
+    team: home
+    player: Magnus Sylling Olsen
+  - minute: 55
+    type: substitution
+    team: away
+    player: Mohammed Ahamed Jama
+    playerOff: Martin Wiig
+  - minute: 59
+    type: yellow_card
+    team: home
+    player: Enar Jääger
+  - minute: 61
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Fredrik Ulvestad
+  - minute: 79
+    type: substitution
+    team: away
+    player: Glenn Roberts
+    playerOff: Tom Erik Breive
+  - minute: 81
+    type: goal
+    team: home
+    player: Demar Phillips
+  - minute: 83
+    type: substitution
+    team: home
+    player: Christian Myklebust
+    playerOff: Magnus Sylling Olsen
+  - minute: 85
+    type: substitution
+    team: away
+    player: Claes Kronberg
+    playerOff: Hugues Wembangomo
+lineups:
+  home:
+    formation: 4-2-1-3
+    starters:
+      - Sten Michael Grytebust
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Enar Jääger
+      - Jo Nymo Matland
+      - Jason Morrison
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Magnus Sylling Olsen
+      - Demar Phillips
+      - Solomon Okoronkwo
+    subs:
+      - Kjell Rune Sellin
+      - Peter Orry Larsen
+      - Christian Myklebust
+      - Edvard Skagestad
+      - Fredrik Carlsen
+      - Jonas Sandqvist
+      - Sander Post
+    coach: Kjetil Rekdal
+  away:
+    formation: 3-4-1-2
+    starters:
+      - Joachim Heier
+      - Hugues Wembangomo
+      - Kjetil Berge
+      - Ole Heieren Hansen
+      - Magnar Ødegaard
+      - Morten Giæver
+      - Joackim Jørgensen
+      - Tom Erik Breive
+      - Stanley Chinedu Ihugba
+      - Martin Wiig
+      - Øyvind Hoås
+    subs:
+      - Mohammed Ahamed Jama
+      - Glenn Roberts
+      - Claes Kronberg
+      - Magnus Hjulstad
+      - Mathias Engebretsen
+      - Mohamed Elyounoussi
+      - Tobias Henanger
+    coach: Roar Johansen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +131,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,123 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: tromso
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5655
+events:
+  - minute: 29
+    type: goal
+    team: away
+    player: Mikael Ingebrigtsen
+    assist: Kent-Are Antonsen
+  - minute: 32
+    type: yellow_card
+    team: home
+    player: Vebjørn Hoff
+  - minute: 65
+    type: substitution
+    team: home
+    player: Mostafa Abdellaoue
+    playerOff: Vebjørn Hoff
+  - minute: 73
+    type: yellow_card
+    team: home
+    player: Michael Barrantes
+  - minute: 77
+    type: yellow_card
+    team: away
+    player: Marcus Hansson
+  - minute: 79
+    type: substitution
+    team: away
+    player: Morten Moldskred
+    playerOff: Hans Norbye
+  - minute: 85
+    type: substitution
+    team: home
+    player: Torbjørn Grytten
+    playerOff: Henrik Rørvik Bjørdal
+  - minute: 87
+    type: goal
+    team: away
+    player: Zdenek Ondrasek
+    assist: Gjermund Åsen
+  - minute: 89
+    type: substitution
+    team: away
+    player: Thomas Drage
+    playerOff: Mikael Ingebrigtsen
+  - minute: 90
+    type: substitution
+    team: away
+    player: Jonas Johansen
+    playerOff: Zdenek Ondrasek
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Kent-Are Antonsen
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Mikael Dyrestam
+      - Tero Mäntylä
+      - Jo Nymo Matland
+      - Henrik Rørvik Bjørdal
+      - Sakari Mattila
+      - Vebjørn Hoff
+      - Peter Orry Larsen
+      - Michael Barrantes
+      - Leke James
+    subs:
+      - Mostafa Abdellaoue
+      - Torbjørn Grytten
+      - Andreas Lie
+      - Carl Björk
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Thomas Skog Martinussen
+    coach: Harald Aabrekk
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Benny Lekström
+      - Hans Norbye
+      - Simen Wangberg
+      - Magnar Ødegaard
+      - Kent-Are Antonsen
+      - Remi Johansen
+      - Marcus Hansson
+      - Magnus Andersen
+      - Gjermund Åsen
+      - Mikael Ingebrigtsen
+      - Zdenek Ondrasek
+    subs:
+      - Morten Moldskred
+      - Thomas Drage
+      - Jonas Johansen
+      - Henrik Gjesdal
+      - Lasse Nilsen
+      - Pål Vestly Heigre
+    coach: Steinar Nilsen
+stats:
+  home:
+    possession: 67
+    shots: 19
+    shotsOnTarget: 6
+    corners: 5
+  away:
+    possession: 33
+    shots: 10
+    shotsOnTarget: 6
+    corners: 6
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +143,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

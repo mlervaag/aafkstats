@@ -1,0 +1,145 @@
+id: 2019-05-22-floro-aalesunds-fk
+date: 2019-05-22
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2019
+  stage: regular_season
+  round: 2
+home:
+  clubId: floro
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+neutralVenue: false
+attendance: 679
+events:
+  - minute: 33
+    type: substitution
+    team: away
+    player: Oddbjørn Lie
+    playerOff: Jonas Grønner
+  - minute: 39
+    type: yellow_card
+    team: away
+    player: Kristoffer Hay
+  - minute: 64
+    type: substitution
+    team: away
+    player: Holmbert Aron Fridjonsson
+    playerOff: David Kristjan Olafsson
+  - minute: 68
+    type: yellow_card
+    team: away
+    player: Oddbjørn Lie
+  - minute: 71
+    type: substitution
+    team: home
+    player: Peter Aase
+    playerOff: Vegard Savland
+  - minute: 79
+    type: substitution
+    team: home
+    player: Thomas Hallstensen
+    playerOff: Brage Naustdal
+  - minute: 82
+    type: red_card
+    team: home
+    player: Christer Husa
+  - minute: 83
+    type: penalty_goal
+    team: away
+    player: Niklas Castro
+  - minute: 83
+    type: yellow_card
+    team: home
+    player: Mark Jensen
+  - minute: 90
+    type: substitution
+    team: home
+    player: Agashan Puththisigamany
+    playerOff: Johan Peter Vennberg
+  - minute: 90
+    type: substitution
+    team: away
+    player: Aron Elis Thrandarson
+    playerOff: Erikson Lima
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Halvor Solheim Olsen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Mark Jensen
+      - Torkel Aarønes
+      - Hasan Kurucay
+      - Christer Husa
+      - Eirik Høydal
+      - Brage Naustdal
+      - Johan Peter Vennberg
+      - Halvor Solheim Olsen
+      - Vegard Savland
+      - Kasper Nissen
+      - Lorent Callaku
+    subs:
+      - Peter Aase
+      - Thomas Hallstensen
+      - Agashan Puththisigamany
+      - Fredrik Hanssen
+      - Leander-Nikolai Hoeyvik
+      - Oscar Nordal
+  away:
+    formation: 4-4-2
+    starters:
+      - Tarjei Aase Omenås
+      - Tega George
+      - Ståle Steen Sæthre
+      - Jonas Grønner
+      - Kristoffer Hay
+      - David Kristjan Olafsson
+      - Peter Orry Larsen
+      - Erikson Lima
+      - Sondre Brunstad Fet
+      - Pape Habib Gueye
+      - Niklas Castro
+    subs:
+      - Oddbjørn Lie
+      - Holmbert Aron Fridjonsson
+      - Aron Elis Thrandarson
+      - Andreas Lie
+      - Izunna Uzochukwu
+      - Jernade Meade
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/floro-vs-aalesund/1c732a#3035645
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3035645"
+manual: []

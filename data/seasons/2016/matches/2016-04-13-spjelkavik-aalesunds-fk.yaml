@@ -1,0 +1,122 @@
+id: 2016-04-13-spjelkavik-aalesunds-fk
+date: 2016-04-13
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2016
+  stage: regular_season
+  round: 1
+home:
+  clubId: spjelkavik
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 50
+    type: penalty_goal
+    team: away
+    player: Mostafa Abdellaoue
+  - minute: 62
+    type: substitution
+    team: away
+    player: Vebjørn Hoff
+    playerOff: John Arne Riise
+  - minute: 76
+    type: substitution
+    team: home
+    player: Marius Walderhaug Heltne
+    playerOff: Tore Johan Gjerde
+  - minute: 76
+    type: substitution
+    team: home
+    player: Oskar Gunnarstein
+    playerOff: Christian Gjerde
+  - minute: 86
+    type: substitution
+    team: home
+    player: Daniel Wootton
+    playerOff: Emil Viddal
+  - minute: 90
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Edwin Gyasi
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Odd Einar Hatløy
+      - Christian Gjerde
+      - Sondre Skulstad
+      - Andreas Stensøe
+      - Knut-Idar Dalhus
+      - Daniel Stensøe
+      - Emil Viddal
+      - Tore Johan Gjerde
+      - Roald Andreas Runde
+      - Benjamin Skulstad Sunde
+      - Markus Kampenes
+    subs:
+      - Marius Walderhaug Heltne
+      - Oskar Gunnarstein
+      - Daniel Wootton
+      - Michael Tomren
+      - Sondre Hole
+      - Thomas Hamnes
+      - Tobias Vestre
+    coach: ""
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Daniel Gretarsson
+      - Edvard Skagestad
+      - Mikkel Kirkeskov
+      - Marlinho
+      - John Arne Riise
+      - Bjørn Helge Riise
+      - Edwin Gyasi
+      - Peter Orry Larsen
+      - Mostafa Abdellaoue
+    subs:
+      - Vebjørn Hoff
+      - Sondre Brunstad Fet
+      - Franck Boli
+      - Fredrik Carlsen
+      - Jørgen Hatlehol
+      - Sondre Sødergren
+      - Tero Mäntylä
+    coach: Trond Fredriksen
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/spjelkavik-vs-aalesund/y8ayv#2211853
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2211853"
+manual: []

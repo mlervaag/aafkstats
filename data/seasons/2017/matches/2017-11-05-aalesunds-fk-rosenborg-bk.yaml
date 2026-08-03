@@ -11,13 +11,138 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: rosenborg-bk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 6105
+referee: Svein Oddvar Moen
+events:
+  - minute: 55
+    type: penalty_goal
+    team: away
+    player: Nicklas Bendtner
+  - minute: 55
+    type: yellow_card
+    team: home
+    player: Adam Örn Arnarson
+  - minute: 56
+    type: yellow_card
+    team: home
+    player: Andreas Lie
+  - minute: 57
+    type: yellow_card
+    team: home
+    player: Edwin Gyasi
+  - minute: 67
+    type: yellow_card
+    team: away
+    player: Milan Jevtovic
+  - minute: 68
+    type: goal
+    team: home
+    player: Mostafa Abdellaoue
+    assist: Athanassios Papazoglou
+  - minute: 75
+    type: goal
+    team: home
+    player: Edwin Gyasi
+    assist: Mostafa Abdellaoue
+  - minute: 77
+    type: substitution
+    team: home
+    player: Valmir Berisha
+    playerOff: Sondre Brunstad Fet
+  - minute: 78
+    type: substitution
+    team: away
+    player: Jonathan Levi
+    playerOff: Pål André Helland
+  - minute: 78
+    type: substitution
+    team: away
+    player: Samuel Adegbenro
+    playerOff: Milan Jevtovic
+  - minute: 83
+    type: substitution
+    team: away
+    player: Andreas Helmersen
+    playerOff: Jacob Rasmussen
+  - minute: 85
+    type: substitution
+    team: home
+    player: Jørgen Hatlehol
+    playerOff: Adam Örn Arnarson
+  - minute: 89
+    type: substitution
+    team: home
+    player: Aron Elis Thrándarson
+    playerOff: Edwin Gyasi
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Kaj Ramsteijn
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Bjørn Helge Riise
+      - Daniel Gretarsson
+      - Sondre Brunstad Fet
+      - Athanassios Papazoglou
+      - Mostafa Abdellaoue
+    subs:
+      - Valmir Berisha
+      - Jørgen Hatlehol
+      - Aron Elis Thrándarson
+      - Anders Waagan
+      - Jan Lennart Urke
+      - Joakim Barstad
+      - Marlinho
+    coach: Trond Fredriksen
+  away:
+    formation: 4-3-3
+    starters:
+      - Arild Østbø
+      - Morten Konradsen
+      - Johan Lædre Bjørdal
+      - Jørgen Skjelvik
+      - Birger Meling
+      - Mike Jensen
+      - Jacob Rasmussen
+      - Anders Trondsen
+      - Pål André Helland
+      - Nicklas Bendtner
+      - Milan Jevtovic
+    subs:
+      - Jonathan Levi
+      - Samuel Adegbenro
+      - Andreas Helmersen
+      - Alex Gersbach
+      - André Hansen
+      - Erik Botheim
+      - Tore Reginiussen
+    coach: Kåre Ingebrigtsen
+stats:
+  home:
+    possession: 32
+    shots: 12
+    shotsOnTarget: 3
+    corners: 3
+    fouls: 15
+    offsides: 1
+  away:
+    possession: 68
+    shots: 8
+    shotsOnTarget: 3
+    corners: 6
+    fouls: 9
+    offsides: 3
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +158,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

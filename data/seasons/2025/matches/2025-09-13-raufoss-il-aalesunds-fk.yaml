@@ -11,13 +11,144 @@ competition:
 home:
   clubId: raufoss-il
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: nammo-stadion
 neutralVenue: false
-events: []
+attendance: 1281
+referee: Herman Holthe
+events:
+  - minute: 12
+    type: goal
+    team: away
+    player: Elias Heggland Myrlid
+    assist: Paul Ngongo Iversen
+  - minute: 46
+    type: substitution
+    team: home
+    player: Kristoffer Haukås Steinset
+    playerOff: Jan Inge Solemsløkk Lynum
+  - minute: 52
+    type: substitution
+    team: home
+    player: Yaw Agyeman
+    playerOff: Markus Aanesland
+  - minute: 62
+    type: yellow_card
+    team: away
+    player: Mathias Christensen
+  - minute: 64
+    type: substitution
+    team: home
+    player: Emmanuel Mensah
+    playerOff: Sander Nordbø
+  - minute: 65
+    type: substitution
+    team: away
+    player: David Snær Johannsson
+    playerOff: Henrik Melland
+  - minute: 65
+    type: substitution
+    team: away
+    player: Marius Andresen
+    playerOff: Jakob Nyland Ørsahl
+  - minute: 65
+    type: substitution
+    team: away
+    player: Janus Seehusen
+    playerOff: Håkon Butli Hammer
+  - minute: 77
+    type: substitution
+    team: away
+    player: Kristian Hemmingsen Lonebu
+    playerOff: Elias Heggland Myrlid
+  - minute: 86
+    type: substitution
+    team: home
+    player: Oliver Rotihaug
+    playerOff: Victor Fors
+  - minute: 86
+    type: substitution
+    team: home
+    player: Nicolai Fremstad
+    playerOff: Ole Amund Sveen
+  - minute: 87
+    type: yellow_card
+    team: away
+    player: Marius Andresen
+  - minute: 90
+    stoppage: 1
+    type: red_card
+    team: home
+    player: Ryan Nelson
+  - minute: 90
+    stoppage: 5
+    type: yellow_card
+    team: away
+    player: Kristoffer Nessø
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Anders Klemensson
+      - Victor Fors
+      - Kristoffer Hay
+      - Adrian Aleksander Hansen
+      - Rasmus Bonde
+      - Jan Inge Solemsløkk Lynum
+      - Ole Amund Sveen
+      - Sander Nordbø
+      - Ryan Nelson
+      - Erlend Hustad
+      - Markus Aanesland
+    subs:
+      - Kristoffer Haukås Steinset
+      - Yaw Agyeman
+      - Emmanuel Mensah
+      - Nicolai Fremstad
+      - Oliver Rotihaug
+      - Petter Eichler Jensen
+      - Martin Dalby
+      - Kebba Badjie
+    coach: Tom Dent
+  away:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Nikolai Skuseth
+      - Aleksander Hammer Kjelsen
+      - Simen Haram
+      - Kristoffer Nessø
+      - Håkon Butli Hammer
+      - Henrik Melland
+      - Mathias Christensen
+      - Jakob Nyland Ørsahl
+      - Paul Ngongo Iversen
+      - Elias Heggland Myrlid
+    subs:
+      - David Snær Johannsson
+      - Janus Seehusen
+      - Marius Andresen
+      - Kristian Hemmingsen Lonebu
+      - Tor Erik Valderhaug Larsen
+      - John Kitolano
+      - Olafur Gudmundsson
+      - Frederik Heiselberg
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 52
+    shots: 7
+    shotsOnTarget: 5
+    corners: 5
+  away:
+    possession: 48
+    shots: 13
+    shotsOnTarget: 8
+    corners: 6
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +164,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

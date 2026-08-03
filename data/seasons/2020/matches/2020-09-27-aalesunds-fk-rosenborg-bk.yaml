@@ -11,13 +11,151 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: rosenborg-bk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 200
+referee: Mohammad Aslam
+events:
+  - minute: 41
+    type: goal
+    team: away
+    player: Kristoffer Zachariassen
+    assist: Emil Konradsen Ceïde
+  - minute: 43
+    type: yellow_card
+    team: home
+    player: Peter Orry Larsen
+  - minute: 62
+    type: goal
+    team: home
+    player: Sigurd Haugen
+    assist: Ben Karamoko
+  - minute: 63
+    type: substitution
+    team: away
+    player: Gjermund Åsen
+    playerOff: Edvard Tagseth
+  - minute: 63
+    type: substitution
+    team: away
+    player: Samuel Adegbenro
+    playerOff: Emil Konradsen Ceïde
+  - minute: 68
+    type: goal
+    team: away
+    player: Kristoffer Zachariassen
+  - minute: 73
+    type: yellow_card
+    team: home
+    player: Fredrik Carlsen
+  - minute: 74
+    type: substitution
+    team: home
+    player: Markus Seehusen Karlsbakk
+    playerOff: Isak Dybvik Määttä
+  - minute: 82
+    type: substitution
+    team: home
+    player: Izunna Uzochukwu
+    playerOff: Peter Orry Larsen
+  - minute: 83
+    type: substitution
+    team: home
+    player: Jonas Grønner
+    playerOff: Ben Karamoko
+  - minute: 83
+    type: yellow_card
+    team: home
+    player: Sigurd Haugen
+  - minute: 85
+    type: substitution
+    team: away
+    player: Pål André Helland
+    playerOff: Torgeir Børven
+  - minute: 89
+    type: yellow_card
+    team: home
+    player: Jonas Grønner
+  - minute: 90
+    type: substitution
+    team: home
+    player: Parfait Bizoza
+    playerOff: Fredrik Carlsen
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Niklas Castro
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Andreas Lie
+      - Erikson Lima
+      - Ben Karamoko
+      - Daan Klinkenberg
+      - David Kristjan Olafsson
+      - Niklas Castro
+      - Fredrik Carlsen
+      - Peter Orry Larsen
+      - Isak Dybvik Määttä
+      - Sigurd Haugen
+      - Simen Bolkan Nordli
+    subs:
+      - Markus Seehusen Karlsbakk
+      - Izunna Uzochukwu
+      - Jonas Grønner
+      - Parfait Bizoza
+      - Gudmund Taksdal Kongshavn
+      - Oddbjørn Lie
+      - Shaquill Sno
+      - Kristoffer Strand Ødven
+      - Vetle Fiskerstrand
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-3-3
+    starters:
+      - André Hansen
+      - Vegar Eggen Hedenstad
+      - Tore Reginiussen
+      - Even Hovland
+      - Pa Konate
+      - Anders Konradsen
+      - Kristoffer Zachariassen
+      - Edvard Tagseth
+      - Carlo Holse
+      - Torgeir Børven
+      - Emil Konradsen Ceïde
+    subs:
+      - Gjermund Åsen
+      - Samuel Adegbenro
+      - Pål André Helland
+      - Julian Faye Lund
+      - Erlend Dahl Reitan
+      - Gustav Valsvik
+      - Holmar Örn Eyjolfsson
+    coach: Åge Hareide
+stats:
+  home:
+    possession: 57
+    shots: 14
+    shotsOnTarget: 5
+    corners: 6
+    fouls: 14
+    offsides: 2
+    xg: 1.01
+  away:
+    possession: 43
+    shots: 18
+    shotsOnTarget: 6
+    corners: 12
+    fouls: 13
+    offsides: 0
+    xg: 2.26
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +171,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

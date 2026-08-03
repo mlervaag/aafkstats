@@ -11,13 +11,122 @@ competition:
 home:
   clubId: sandefjord
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: komplett-no-arena
 neutralVenue: false
-events: []
+attendance: 3426
+referee: Trygve Kjensli
+events:
+  - minute: 35
+    type: yellow_card
+    team: away
+    player: Marlinho
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Joackim Olsen Solberg
+  - minute: 46
+    type: substitution
+    team: home
+    player: Carlos Grossmüller
+    playerOff: Flamur Kastrati
+  - minute: 68
+    type: goal
+    team: home
+    player: Carlos Grossmüller
+  - minute: 73
+    type: substitution
+    team: away
+    player: Valmir Berisha
+    playerOff: Jørgen Hatlehol
+  - minute: 74
+    type: substitution
+    team: home
+    player: Andre Sødlund
+    playerOff: Pau Morer
+  - minute: 78
+    type: substitution
+    team: away
+    player: Aron Elis Thrándarson
+    playerOff: Marlinho
+  - minute: 81
+    type: goal
+    team: home
+    player: Andre Sødlund
+  - minute: 86
+    type: yellow_card
+    team: home
+    player: Facundo Rodriguez
+  - minute: 90
+    type: substitution
+    team: home
+    player: Erik Mjelde
+    playerOff: Facundo Rodriguez
+lineups:
+  home:
+    formation: 3-4-3
+    starters:
+      - Ingvar Jonsson
+      - Christer Reppesgård Hansen
+      - Lars Grorud
+      - Crescendo van Berkel
+      - Victor Demba Bindia
+      - Håvard Storbæk
+      - Enric Vallés
+      - Joackim Olsen Solberg
+      - Flamur Kastrati
+      - Facundo Rodriguez
+      - Pau Morer
+    subs:
+      - Carlos Grossmüller
+      - Andre Sødlund
+      - Erik Mjelde
+      - El-Hadji Gana Kane
+      - Øystein Øvretveit
+      - Sabawon Wahid Shamohammad
+      - William Albin Kurtovic
+    coach: Lars Bohinen
+  away:
+    formation: 3-4-3
+    starters:
+      - Andreas Lie
+      - Bjørn Helge Riise
+      - Daniel Gretarsson
+      - Kaj Ramsteijn
+      - Jørgen Hatlehol
+      - Vebjørn Hoff
+      - Fredrik Carlsen
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Mostafa Abdellaoue
+      - Marlinho
+    subs:
+      - Valmir Berisha
+      - Aron Elis Thrándarson
+      - Anders Waagan
+      - Jan Lennart Urke
+      - Joakim Barstad
+      - Sondre Brunstad Fet
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 51
+    shots: 11
+    shotsOnTarget: 5
+    corners: 2
+    fouls: 16
+    offsides: 2
+  away:
+    possession: 49
+    shots: 7
+    shotsOnTarget: 2
+    corners: 3
+    fouls: 11
+    offsides: 3
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +142,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

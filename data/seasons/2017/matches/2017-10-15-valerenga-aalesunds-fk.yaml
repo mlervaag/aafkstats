@@ -11,13 +11,139 @@ competition:
 home:
   clubId: valerenga
   score: 5
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: intility-arena
 neutralVenue: false
-events: []
+attendance: 8932
+referee: Tom Harald Hagen
+events:
+  - minute: 5
+    type: goal
+    team: home
+    player: Ivan Näsberg
+  - minute: 7
+    type: goal
+    team: home
+    player: Chidera Ejuke
+    assist: Christian Grindheim
+  - minute: 11
+    type: yellow_card
+    team: home
+    player: Jonatan Tollås Nation
+  - minute: 22
+    type: goal
+    team: away
+    player: Edwin Gyasi
+  - minute: 29
+    type: goal
+    team: home
+    player: Chidera Ejuke
+    assist: Christian Grindheim
+  - minute: 46
+    type: substitution
+    team: away
+    player: Adam Örn Arnarson
+    playerOff: Bjørn Helge Riise
+  - minute: 46
+    type: substitution
+    team: home
+    player: Samuel Fridjonsson
+    playerOff: Christian Grindheim
+  - minute: 62
+    type: substitution
+    team: home
+    player: Daniel Berntsen
+    playerOff: Chidera Ejuke
+  - minute: 66
+    type: goal
+    team: home
+    player: Simen Kristiansen Juklerød
+    assist: Hermann Stengel
+  - minute: 70
+    type: goal
+    team: home
+    player: Henrik Kjelsrud Johansen
+    assist: Daniel Berntsen
+  - minute: 75
+    type: substitution
+    team: home
+    player: Fitim Azemi
+    playerOff: Henrik Kjelsrud Johansen
+  - minute: 80
+    type: substitution
+    team: away
+    player: Valmir Berisha
+    playerOff: Mostafa Abdellaoue
+  - minute: 82
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Aron Elis Thrándarson
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Adam Larsen Kwarasey
+      - Robert Lundström
+      - Jonatan Tollås Nation
+      - Enar Jääger
+      - Ivan Näsberg
+      - Hermann Stengel
+      - Magnus Lekven
+      - Simen Kristiansen Juklerød
+      - Christian Grindheim
+      - Chidera Ejuke
+      - Henrik Kjelsrud Johansen
+    subs:
+      - Samuel Fridjonsson
+      - Daniel Berntsen
+      - Fitim Azemi
+      - Abdisalam Ibrahim
+      - Christian Dahle Borchgrevink
+      - Marcus Sandberg
+      - Markus Nakkim
+    coach: Ronny Deila
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Bjørn Helge Riise
+      - Kaj Ramsteijn
+      - Daniel Gretarsson
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Vebjørn Hoff
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Athanassios Papazoglou
+      - Mostafa Abdellaoue
+    subs:
+      - Adam Örn Arnarson
+      - Valmir Berisha
+      - Sondre Brunstad Fet
+      - Jan Lennart Urke
+      - Marlinho
+      - Oddbjørn Lie
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 56
+    shots: 20
+    shotsOnTarget: 8
+    corners: 4
+    fouls: 11
+    offsides: 4
+  away:
+    possession: 44
+    shots: 12
+    shotsOnTarget: 4
+    corners: 3
+    fouls: 9
+    offsides: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +159,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

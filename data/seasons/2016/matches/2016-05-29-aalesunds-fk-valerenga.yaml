@@ -11,13 +11,115 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: valerenga
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 6121
+referee: Tom Harald Hagen
+events:
+  - minute: 12
+    type: goal
+    team: home
+    player: Edwin Gyasi
+    assist: John Arne Riise
+  - minute: 38
+    type: yellow_card
+    team: away
+    player: Sander Berge
+  - minute: 46
+    type: substitution
+    team: home
+    player: Daniel Gretarsson
+    playerOff: Oddbjørn Lie
+  - minute: 62
+    type: substitution
+    team: home
+    player: Mostafa Abdellaoue
+    playerOff: Aron Elis Thrándarson
+  - minute: 66
+    type: substitution
+    team: home
+    player: Fredrik Carlsen
+    playerOff: Bjørn Helge Riise
+  - minute: 71
+    type: goal
+    team: away
+    player: Elias Mar Omarsson
+  - minute: 83
+    type: goal
+    team: home
+    player: Edwin Gyasi
+  - minute: 88
+    type: goal
+    team: away
+    player: Kjetil Wæhler
+    assist: Robert Lundström
+  - minute: 90
+    type: substitution
+    team: away
+    player: Vajebah Sakor
+    playerOff: Ghayas Zahid
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Vebjørn Hoff
+      - Edvard Skagestad
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Peter Orry Larsen
+      - Bjørn Helge Riise
+      - John Arne Riise
+      - Aron Elis Thrándarson
+      - Franck Boli
+    subs:
+      - Daniel Gretarsson
+      - Mostafa Abdellaoue
+      - Fredrik Carlsen
+      - Lars Cramer
+      - Marlinho
+      - Sondre Brunstad Fet
+      - Tero Mäntylä
+    coach: Trond Fredriksen
+  away:
+    formation: 4-3-3
+    starters:
+      - Aslak Falch
+      - Robert Lundström
+      - Jonatan Tollås Nation
+      - Kjetil Wæhler
+      - Simon Andreas Larsen
+      - Christian Grindheim
+      - Sander Berge
+      - Hermann Stengel
+      - Ghayas Zahid
+      - Deshorn Brown
+      - Elias Mar Omarsson
+    subs:
+      - Vajebah Sakor
+      - Anders Nedrebø
+      - Jesper Arvidsson
+      - Marcus Sandberg
+      - Rino Falk Larsen
+      - Simen Kristiansen Juklerød
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 30
+    shots: 9
+    shotsOnTarget: 3
+    corners: 2
+  away:
+    possession: 70
+    shots: 20
+    shotsOnTarget: 7
+    corners: 6
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +135,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

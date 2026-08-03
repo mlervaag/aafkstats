@@ -11,13 +11,117 @@ competition:
 home:
   clubId: moss
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: mellos-stadion
 neutralVenue: false
-events: []
+attendance: 3200
+referee: Mohammad Hafezi
+events:
+  - minute: 56
+    type: yellow_card
+    team: away
+    player: David Snær Johannsson
+  - minute: 63
+    type: substitution
+    team: home
+    player: Noah Alexandersson
+    playerOff: Alexander Håpnes
+  - minute: 64
+    type: yellow_card
+    team: home
+    player: Ian Hoffmann
+  - minute: 65
+    type: yellow_card
+    team: home
+    player: Kristoffer Harrison
+  - minute: 72
+    type: yellow_card
+    team: home
+    player: Noah Alexandersson
+  - minute: 75
+    type: substitution
+    team: home
+    player: Eythor Martin Bjørgolfsson
+    playerOff: Oliver Kjeilen Stavdal
+  - minute: 77
+    type: substitution
+    team: away
+    player: Noah Solskjær
+    playerOff: Isaac Atanga
+  - minute: 77
+    type: goal
+    team: home
+    player: Sebastian Pedersen
+    assist: Marius Andresen
+  - minute: 83
+    type: substitution
+    team: away
+    player: Sebastian Berntsen
+    playerOff: Stian Aarønes Holte
+lineups:
+  home:
+    formation: 4-1-4-1
+    starters:
+      - Mathias Eriksen
+      - Marius Andresen
+      - Kristian Strande
+      - Ilir Kukleci
+      - Ian Hoffmann
+      - Kristoffer Harrison
+      - Oliver Kjeilen Stavdal
+      - Thomas Klemetsen Jakobsen
+      - Alexander Håpnes
+      - Sebastian Pedersen
+      - Bo Åsulv Hegland
+    subs:
+      - Noah Alexandersson
+      - Eythor Martin Bjørgolfsson
+      - Elias Bachke
+      - Adan Abadala Hussein
+      - Henrik Gjesdal
+      - Joao Barros
+      - Altin Lajqi
+      - Blerton Isufi
+      - Vetle Hellestø
+    coach: Thomas Myhre
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Kristoffer Nessø
+      - Martin Ramsland
+      - John Kitolano
+      - Stian Aarønes Holte
+      - Eivind Strømsheim Kolve
+      - Håkon Butli Hammer
+      - Claudio Braga
+      - Isaac Atanga
+      - Sander Hestetun Kilen
+      - David Snær Johannsson
+    subs:
+      - Noah Solskjær
+      - Sebastian Berntsen
+      - Tor Erik Valderhaug Larsen
+      - John Ruud Norvik
+      - Thomas Gulbrandsen
+      - Kristian Hemmingsen Lonebu
+      - Sander Senior-Haarvik
+    coach: Christian Johnsen
+stats:
+  home:
+    possession: 50
+    shots: 12
+    shotsOnTarget: 7
+    corners: 8
+  away:
+    possession: 50
+    shots: 5
+    shotsOnTarget: 4
+    corners: 4
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +137,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

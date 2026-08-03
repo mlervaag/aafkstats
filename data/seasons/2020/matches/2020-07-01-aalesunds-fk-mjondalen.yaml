@@ -11,13 +11,171 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: mjondalen
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 200
+referee: Sivert Oeksnes Amland
+events:
+  - minute: 9
+    type: yellow_card
+    team: away
+    player: Stian Semb Aasmundsen
+  - minute: 12
+    type: yellow_card
+    team: away
+    player: Lars Olden Larsen
+  - minute: 28
+    type: goal
+    team: away
+    player: Shuaibu Ibrahim
+  - minute: 31
+    type: goal
+    team: away
+    player: Vetle Dragsnes
+    assist: Alexander Betten Hansen
+  - minute: 41
+    type: yellow_card
+    team: away
+    player: Tonny Brochmann
+  - minute: 46
+    type: substitution
+    team: home
+    player: Niklas Castro
+    playerOff: Markus Seehusen Karlsbakk
+  - minute: 46
+    type: substitution
+    team: home
+    player: Sigurd Haugen
+    playerOff: Vetle Fiskerstrand
+  - minute: 48
+    type: yellow_card
+    team: home
+    player: Sigurd Haugen
+  - minute: 54
+    type: substitution
+    team: away
+    player: Sondre Liseth
+    playerOff: Christian Gauseth
+  - minute: 54
+    type: substitution
+    team: away
+    player: Martin Rønning Ovenstad
+    playerOff: Tonny Brochmann
+  - minute: 60
+    type: yellow_card
+    team: home
+    player: Parfait Bizoza
+  - minute: 63
+    type: substitution
+    team: home
+    player: Shaquill Sno
+    playerOff: Peter Orry Larsen
+  - minute: 63
+    type: substitution
+    team: home
+    player: Daan Klinkenberg
+    playerOff: Jørgen Hatlehol
+  - minute: 64
+    type: substitution
+    team: away
+    player: Fredrik Brustad
+    playerOff: Shuaibu Ibrahim
+  - minute: 83
+    type: penalty_goal
+    team: home
+    player: Niklas Castro
+  - minute: 84
+    type: substitution
+    team: away
+    player: Quint Jansen
+    playerOff: Joackim Olsen Solberg
+  - minute: 84
+    type: substitution
+    team: away
+    player: Dagur Dan Thorhallsson
+    playerOff: Lars Olden Larsen
+  - minute: 90
+    type: red_card
+    team: home
+    player: Sigurd Haugen
+  - minute: 90
+    type: goal
+    team: away
+    player: Sondre Liseth
+    assist: Martin Rønning Ovenstad
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Jonas Grønner
+lineups:
+  home:
+    formation: 3-4-3
+    starters:
+      - Andreas Lie
+      - Jonas Grønner
+      - Ståle Steen Sæthre
+      - Oddbjørn Lie
+      - Jørgen Hatlehol
+      - Peter Orry Larsen
+      - Parfait Bizoza
+      - David Kristjan Olafsson
+      - Markus Seehusen Karlsbakk
+      - Vetle Fiskerstrand
+      - Simen Bolkan Nordli
+    subs:
+      - Niklas Castro
+      - Sigurd Haugen
+      - Daan Klinkenberg
+      - Shaquill Sno
+      - Gudmund Taksdal Kongshavn
+      - Isak Dybvik
+      - Kristoffer Strand Ødven
+    coach: Lars Bohinen
+  away:
+    formation: 4-4-2
+    starters:
+      - Soosha Makani
+      - Alexander Betten Hansen
+      - Markus Nakkim
+      - Sondre Solholm Johansen
+      - Vetle Dragsnes
+      - Lars Olden Larsen
+      - Christian Gauseth
+      - Joackim Olsen Solberg
+      - Tonny Brochmann
+      - Shuaibu Ibrahim
+      - Stian Semb Aasmundsen
+    subs:
+      - Martin Rønning Ovenstad
+      - Sondre Liseth
+      - Fredrik Brustad
+      - Dagur Dan Thorhallsson
+      - Quint Jansen
+      - Jorge Vieira
+      - William Sælid Sell
+    coach: Vegard Hansen
+stats:
+  home:
+    possession: 62
+    shots: 14
+    shotsOnTarget: 3
+    corners: 6
+    fouls: 15
+    offsides: 3
+    xg: 2.01
+  away:
+    possession: 38
+    shots: 12
+    shotsOnTarget: 4
+    corners: 1
+    fouls: 16
+    offsides: 5
+    xg: 1.91
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +191,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

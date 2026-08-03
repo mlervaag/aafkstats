@@ -11,13 +11,150 @@ competition:
 home:
   clubId: viking
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: sr-bank-arena
 neutralVenue: false
-events: []
+attendance: 8832
+referee: Espen Eskås
+events:
+  - minute: 51
+    type: yellow_card
+    team: away
+    player: Erikson Lima
+  - minute: 56
+    type: yellow_card
+    team: away
+    player: David Fällman
+  - minute: 66
+    type: substitution
+    team: away
+    player: Kristoffer Ødemarksbakken
+    playerOff: Torbjørn Kallevåg
+  - minute: 68
+    type: substitution
+    team: home
+    player: Niklas Sandberg
+    playerOff: Kevin Kabran
+  - minute: 68
+    type: substitution
+    team: home
+    player: Sondre Bjørshol
+    playerOff: Sebastian Sebulonsen
+  - minute: 68
+    type: substitution
+    team: home
+    player: Yann-Erik de Lanlay
+    playerOff: Kristoffer Løkberg
+  - minute: 72
+    type: goal
+    team: home
+    player: Zlatko Tripic
+    assist: Sondre Bjørshol
+  - minute: 76
+    type: substitution
+    team: away
+    player: Petar Golubovic
+    playerOff: Simen Rafn
+  - minute: 76
+    type: substitution
+    team: away
+    player: Fredrik Haugen
+    playerOff: Erikson Lima
+  - minute: 81
+    type: substitution
+    team: away
+    player: Erlend Segberg
+    playerOff: Simen Bolkan Nordli
+  - minute: 81
+    type: substitution
+    team: away
+    player: Mamadou Diaw
+    playerOff: Dario Canadjija
+  - minute: 89
+    type: yellow_card
+    team: away
+    player: Besim Serbecic
+  - minute: 90
+    type: substitution
+    team: home
+    player: Mai Traore
+    playerOff: Harald Tangen
+  - minute: 90
+    type: substitution
+    team: home
+    player: Viljar Vevatne
+    playerOff: Zlatko Tripic
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Patrik Sigurdur Gunnarsson
+      - Sebastian Sebulonsen
+      - Gianni Stensness
+      - David Brekalo
+      - Shayne Pattynama
+      - Harald Tangen
+      - Markus Solbakken
+      - Kristoffer Løkberg
+      - Kevin Kabran
+      - Veton Berisha
+      - Zlatko Tripic
+    subs:
+      - Sondre Bjørshol
+      - Yann-Erik de Lanlay
+      - Niklas Sandberg
+      - Viljar Vevatne
+      - Mai Traore
+      - Arild Østbø
+      - Samuel Fridjonsson
+      - Sondre Auklend
+      - Daniel Seland Karlsbakk
+    coach: Bjarte Lunde Aarsheim
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Simen Rafn
+      - Besim Serbecic
+      - David Fällman
+      - Isak Dybvik Määttä
+      - Erikson Lima
+      - Kristoffer Barmen
+      - Dario Canadjija
+      - Torbjørn Kallevåg
+      - Sigurd Haugen
+      - Simen Bolkan Nordli
+    subs:
+      - Kristoffer Ødemarksbakken
+      - Petar Golubovic
+      - Fredrik Haugen
+      - Erlend Segberg
+      - Mamadou Diaw
+      - Michael Lansing
+      - Nikolai Hopland
+      - Oscar Solnørdal
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 69
+    shots: 17
+    shotsOnTarget: 5
+    corners: 9
+    fouls: 11
+    offsides: 2
+    xg: 1.37
+  away:
+    possession: 31
+    shots: 5
+    shotsOnTarget: 4
+    corners: 2
+    fouls: 19
+    offsides: 1
+    xg: 0.45
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +170,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

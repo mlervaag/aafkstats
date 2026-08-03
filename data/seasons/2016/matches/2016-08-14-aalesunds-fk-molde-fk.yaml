@@ -11,13 +11,123 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: molde-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 8323
+referee: Tom Harald Hagen
+events:
+  - minute: 42
+    type: goal
+    team: away
+    player: Fredrik Brustad
+    assist: Ruben Gabrielsen
+  - minute: 50
+    type: substitution
+    team: away
+    player: Björn Sigurdarson
+    playerOff: Fredrik Brustad
+  - minute: 52
+    type: yellow_card
+    team: home
+    player: Franck Boli
+  - minute: 55
+    type: goal
+    team: away
+    player: Eirik Hestad
+  - minute: 65
+    type: yellow_card
+    team: home
+    player: Bjørn Helge Riise
+  - minute: 67
+    type: substitution
+    team: away
+    player: Amidou Diop
+    playerOff: Sander Svendsen
+  - minute: 71
+    type: substitution
+    team: home
+    player: Edvard Skagestad
+    playerOff: Fredrik Carlsen
+  - minute: 80
+    type: yellow_card
+    team: away
+    player: Eirik Hestad
+  - minute: 81
+    type: yellow_card
+    team: home
+    player: Edvard Skagestad
+  - minute: 85
+    type: substitution
+    team: away
+    player: Stian Gregersen
+    playerOff: Eirik Hestad
+  - minute: 89
+    type: yellow_card
+    team: away
+    player: Björn Sigurdarson
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Bjørn Helge Riise
+      - Vito Wormgoor
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Fredrik Carlsen
+      - Peter Orry Larsen
+      - Aron Elis Thrándarson
+      - Mostafa Abdellaoue
+      - Franck Boli
+    subs:
+      - Edvard Skagestad
+      - Adam Örn Arnarson
+      - Daniel Gretarsson
+      - Lars Cramer
+      - Sondre Brunstad Fet
+      - Tero Mäntylä
+      - Vebjørn Hoff
+    coach: Trond Fredriksen
+  away:
+    formation: 4-5-1
+    starters:
+      - Ethan Horvath
+      - Petter Strand
+      - Ruben Gabrielsen
+      - Vegard Forren
+      - Christoffer Remmer
+      - Mattias Moström
+      - Fredrik Aursnes
+      - Babacar Sarr
+      - Eirik Hestad
+      - Sander Svendsen
+      - Fredrik Brustad
+    subs:
+      - Björn Sigurdarson
+      - Amidou Diop
+      - Stian Gregersen
+      - Agnaldo
+      - Harmeet Singh
+      - Neydson da Silva
+      - Thomas Amang
+    coach: Ole Gunnar Solskjær
+stats:
+  home:
+    possession: 56
+    shots: 13
+    shotsOnTarget: 6
+    corners: 5
+  away:
+    possession: 44
+    shots: 12
+    shotsOnTarget: 7
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +143,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

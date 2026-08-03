@@ -11,13 +11,143 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: bryne
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 31
+    type: yellow_card
+    team: away
+    player: Bjarne Langeland
+  - minute: 35
+    type: goal
+    team: home
+    player: Kristoffer Ødemarksbakken
+    assist: Simen Bolkan Nordli
+  - minute: 37
+    type: goal
+    team: away
+    player: Robert Undheim
+    assist: Bjarne Langeland
+  - minute: 40
+    type: yellow_card
+    team: home
+    player: Jonas Grønner
+  - minute: 41
+    type: yellow_card
+    team: away
+    player: Josh Robson
+  - minute: 46
+    type: substitution
+    team: home
+    player: Torbjørn Kallevåg
+    playerOff: Oscar Solnørdal
+  - minute: 65
+    type: red_card
+    team: home
+    player: Niklas Castro
+  - minute: 70
+    type: yellow_card
+    team: away
+    player: Kristoffer Hay
+  - minute: 71
+    type: penalty_goal
+    team: home
+    player: Sigurd Haugen
+  - minute: 79
+    type: substitution
+    team: away
+    player: Oliver Rotihaug
+    playerOff: Josh Robson
+  - minute: 79
+    type: substitution
+    team: home
+    player: Mamadou Diaw
+    playerOff: Sigurd Haugen
+  - minute: 80
+    type: substitution
+    team: home
+    player: Quint Jansen
+    playerOff: Nikolai Soeyset Hopland
+  - minute: 84
+    type: substitution
+    team: away
+    player: Daniel Seland Karlsbakk
+    playerOff: Meinhard Olsen
+  - minute: 85
+    type: substitution
+    team: away
+    player: Sixten Jensen
+    playerOff: Andreas Dybevik
+  - minute: 88
+    type: substitution
+    team: away
+    player: Tobias Guddal
+    playerOff: Bjarne Langeland
+  - minute: 89
+    type: substitution
+    team: home
+    player: Erikson Lima
+    playerOff: Simen Bolkan Nordli
+  - minute: 90
+    stoppage: 3
+    type: substitution
+    team: home
+    player: Isak Dybvik
+    playerOff: Kristoffer Ødemarksbakken
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Michael Lansing
+      - Jørgen Hatlehol
+      - Jonas Grønner
+      - Nikolai Soeyset Hopland
+      - Simen Rafn
+      - Oscar Solnørdal
+      - Erlend Segberg
+      - Simen Bolkan Nordli
+      - Kristoffer Ødemarksbakken
+      - Niklas Castro
+      - Sigurd Haugen
+    subs:
+      - Torbjørn Kallevåg
+      - Mamadou Diaw
+      - Quint Jansen
+      - Erikson Lima
+      - Isak Dybvik
+      - Andreas Lie
+      - David Kristjan Olafsson
+      - Shaquill Sno
+      - Torbjørn Agdestein
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-3-3
+    starters:
+      - Igor Spiridonov
+      - Josh Robson
+      - Kristoffer Hay
+      - Rogvi Baldvinsson
+      - Pål Aamodt
+      - Andreas Dybevik
+      - Henning Romslo
+      - Bjarne Langeland
+      - Robert Undheim
+      - Joacim Holtan
+      - Meinhard Olsen
+    subs:
+      - Oliver Rotihaug
+      - Daniel Seland Karlsbakk
+      - Sixten Jensen
+      - Tobias Guddal
+      - Marius Andersen
+      - Sondre Kyllingstad
+      - Tobias Bakken Dalbye
+    coach: Jan Halvor Halvorsen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +163,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

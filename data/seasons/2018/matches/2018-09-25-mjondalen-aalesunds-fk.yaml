@@ -11,13 +11,119 @@ competition:
 home:
   clubId: mjondalen
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: isachsen-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 40
+    type: yellow_card
+    team: away
+    player: Erikson Lima
+  - minute: 68
+    type: substitution
+    team: home
+    player: Jibril Bojang
+    playerOff: Mathias Fredriksen
+  - minute: 77
+    type: substitution
+    team: away
+    player: Ståle Steen Sæthre
+    playerOff: Daniel Gretarsson
+  - minute: 80
+    type: yellow_card
+    team: away
+    player: Fredrik Carlsen
+  - minute: 81
+    type: goal
+    team: home
+    player: Tonny Brochmann
+  - minute: 85
+    type: goal
+    team: home
+    player: Quint Jansen
+  - minute: 86
+    type: substitution
+    team: away
+    player: Pape Habib Gueye
+    playerOff: Torbjørn Agdestein
+  - minute: 86
+    type: substitution
+    team: away
+    player: Adam Örn Arnarson
+    playerOff: Sondre Brunstad Fet
+  - minute: 90
+    type: substitution
+    team: home
+    player: William Sælid Sell
+    playerOff: Jonathan Lindseth
+  - minute: 90
+    type: substitution
+    team: home
+    player: Mads Gundersen
+    playerOff: Tonny Brochmann
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Ståle Steen Sæthre
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Andreas Lie
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Christian Gauseth
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Soosha Makani
+      - Alexander Betten Hansen
+      - Quint Jansen
+      - Sondre Solholm Johansen
+      - Vetle Dragsnes
+      - Jonathan Lindseth
+      - Christian Gauseth
+      - Tonny Brochmann
+      - Mathias Fredriksen
+      - Olivier Occean
+      - Joackim Olsen Solberg
+    subs:
+      - Jibril Bojang
+      - Mads Gundersen
+      - William Sælid Sell
+      - Georges Bokwe
+      - Henrik Gulden
+      - Ousseynou Boye
+      - Vamouti Diomande
+    coach: Vegard Hansen
+  away:
+    formation: 3-4-3
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Erikson Lima
+      - Nikola Tkalcic
+      - Holmbert Aron Fridjonsson
+      - Torbjørn Agdestein
+      - Sondre Brunstad Fet
+    subs:
+      - Ståle Steen Sæthre
+      - Adam Örn Arnarson
+      - Pape Habib Gueye
+      - Jens Petter Hauge
+      - Jørgen Hatlehol
+      - Oddbjørn Lie
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +139,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

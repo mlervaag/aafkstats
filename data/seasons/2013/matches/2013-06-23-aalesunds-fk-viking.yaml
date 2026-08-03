@@ -11,13 +11,106 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: viking
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 7256
+events:
+  - minute: 20
+    type: goal
+    team: home
+    player: Leke James
+  - minute: 46
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Andreas Nordvik
+  - minute: 57
+    type: goal
+    team: home
+    player: Lars Fuhre
+  - minute: 62
+    type: substitution
+    team: away
+    player: King Osei Gyan
+    playerOff: Christian Landu Landu
+  - minute: 62
+    type: substitution
+    team: away
+    player: Patrik Ingelsten
+    playerOff: Veton Berisha
+  - minute: 69
+    type: yellow_card
+    team: away
+    player: Joan Simun Edmundsson
+  - minute: 76
+    type: substitution
+    team: away
+    player: Jon Dadi Bödvarsson
+    playerOff: Trond Olsen
+  - minute: 76
+    type: substitution
+    team: home
+    player: Christian Myklebust
+    playerOff: Fredrik Carlsen
+  - minute: 85
+    type: substitution
+    team: home
+    player: Henrik Rørvik Bjørdal
+    playerOff: Lars Fuhre
+  - minute: 90
+    type: goal
+    team: away
+    player: Patrik Ingelsten
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Sten Michael Grytebust
+      - Andreas Nordvik
+      - Jonatan Tollås Nation
+      - Edvard Skagestad
+      - Jo Nymo Matland
+      - Thomas Skog Martinussen
+      - Fredrik Ulvestad
+      - Lars Fuhre
+      - Michael Barrantes
+      - Fredrik Carlsen
+      - Leke James
+    subs:
+      - Peter Orry Larsen
+      - Christian Myklebust
+      - Henrik Rørvik Bjørdal
+      - Izantullah Ahmadzai
+      - Daniel Stensøe
+      - Lasse Staw
+    coach: Jan Jönsson
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Rune Almenning Jarstein
+      - Håkon Skogseid
+      - Johan Lædre Bjørdal
+      - Indridi Sigurdsson
+      - Trond Erik Bertelsen
+      - Christian Landu Landu
+      - Martin Ørnskov
+      - Yann-Erik de Lanlay
+      - Joan Simun Edmundsson
+      - Trond Olsen
+      - Veton Berisha
+    subs:
+      - King Osei Gyan
+      - Patrik Ingelsten
+      - Jon Dadi Bödvarsson
+      - Vidar Nisja
+      - Christoffer Midbøe Lunde
+      - Richard Ekunde
+    coach: Kjell Jonevret
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +126,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,159 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: stabaek
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 200
+referee: Rohit Saggi
+events:
+  - minute: 7
+    type: goal
+    team: away
+    player: Kosuke Kinoshita
+    assist: Hugo Vetlesen
+  - minute: 19
+    type: yellow_card
+    team: home
+    player: Ståle Steen Sæthre
+  - minute: 26
+    type: yellow_card
+    team: home
+    player: Shaquill Sno
+  - minute: 42
+    type: goal
+    team: home
+    player: Simen Bolkan Nordli
+  - minute: 51
+    type: substitution
+    team: away
+    player: Romain Gall
+    playerOff: Kornelius Hansen
+  - minute: 60
+    type: goal
+    team: away
+    player: Oliver Edvardsen
+    assist: Romain Gall
+  - minute: 63
+    type: substitution
+    team: away
+    player: Erik Botheim
+    playerOff: Kosuke Kinoshita
+  - minute: 64
+    type: substitution
+    team: away
+    player: Jesper Isaksen
+    playerOff: Oliver Edvardsen
+  - minute: 70
+    type: substitution
+    team: home
+    player: Jørgen Hatlehol
+    playerOff: Shaquill Sno
+  - minute: 75
+    type: substitution
+    team: home
+    player: Daniel Gretarsson
+    playerOff: Sigurd Haugen
+  - minute: 87
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Niklas Castro
+  - minute: 87
+    type: substitution
+    team: away
+    player: Peder Vogt
+    playerOff: Mats Solheim
+  - minute: 87
+    type: penalty_goal
+    team: away
+    player: Andreas Hanche-Olsen
+  - minute: 88
+    type: substitution
+    team: home
+    player: Izunna Uzochukwu
+    playerOff: Simen Bolkan Nordli
+  - minute: 88
+    type: substitution
+    team: away
+    player: Nicolas Pignatel Jenssen
+    playerOff: Hugo Vetlesen
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Erik Botheim
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Gudmund Taksdal Kongshavn
+      - Ståle Steen Sæthre
+      - Jonas Grønner
+      - Oddbjørn Lie
+      - Shaquill Sno
+      - Niklas Castro
+      - Parfait Bizoza
+      - Simen Bolkan Nordli
+      - David Kristjan Olafsson
+      - Holmbert Aron Fridjonsson
+      - Sigurd Haugen
+    subs:
+      - Jørgen Hatlehol
+      - Daniel Gretarsson
+      - Peter Orry Larsen
+      - Izunna Uzochukwu
+      - Daan Klinkenberg
+      - Enock Mwimba
+      - Isak Dybvik
+      - Markus Seehusen Karlsbakk
+      - Vetle Fiskerstrand
+    coach: Lars Bohinen
+  away:
+    formation: 4-3-3
+    starters:
+      - Marcus Sandberg
+      - Jørgen Øveraas
+      - Mats Solheim
+      - Andreas Hanche-Olsen
+      - Emil Jonassen
+      - Magnus Lundal
+      - Tortol Lumanza
+      - Hugo Vetlesen
+      - Oliver Edvardsen
+      - Kornelius Hansen
+      - Kosuke Kinoshita
+    subs:
+      - Romain Gall
+      - Erik Botheim
+      - Jesper Isaksen
+      - Peder Vogt
+      - Nicolas Pignatel Jenssen
+      - Christopher Cheng
+      - Emil Bohinen
+      - Filip Valencic
+      - Jonas Vatne Brauti
+    coach: Jan Jönsson
+stats:
+  home:
+    possession: 63
+    shots: 16
+    shotsOnTarget: 4
+    corners: 3
+    fouls: 19
+    offsides: 1
+    xg: 0.89
+  away:
+    possession: 37
+    shots: 12
+    shotsOnTarget: 4
+    corners: 3
+    fouls: 16
+    offsides: 2
+    xg: 2.02
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +179,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

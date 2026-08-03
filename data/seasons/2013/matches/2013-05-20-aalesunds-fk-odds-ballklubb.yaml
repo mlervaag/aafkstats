@@ -11,13 +11,108 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: odds-ballklubb
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 7591
+events:
+  - minute: 40
+    type: penalty_goal
+    team: home
+    player: Fredrik Ulvestad
+  - minute: 46
+    type: substitution
+    team: away
+    player: Herolind Shala
+    playerOff: Håvard Storbæk
+  - minute: 53
+    type: yellow_card
+    team: away
+    player: Fredrik Semb Berge
+  - minute: 55
+    type: goal
+    team: home
+    player: Abderrazak Hamdallah
+  - minute: 62
+    type: substitution
+    team: away
+    player: Niklas Gunnarsson
+    playerOff: Lars Kristian Eriksen
+  - minute: 69
+    type: substitution
+    team: home
+    player: Demar Phillips
+    playerOff: Fredrik Carlsen
+  - minute: 77
+    type: substitution
+    team: away
+    player: Adem Güven
+    playerOff: Fredrik Oldrup Jensen
+  - minute: 82
+    type: substitution
+    team: home
+    player: Christian Myklebust
+    playerOff: Jo Nymo Matland
+  - minute: 85
+    type: substitution
+    team: home
+    player: Tor Hogne Aarøy
+    playerOff: Leke James
+  - minute: 88
+    type: yellow_card
+    team: away
+    player: Elbasan Rashani
+lineups:
+  home:
+    formation: 7-1-2
+    starters:
+      - Sten Michael Grytebust
+      - Hugues Wembangomo
+      - Jonatan Tollås Nation
+      - Edvard Skagestad
+      - Jo Nymo Matland
+      - Fredrik Ulvestad
+      - Thomas Skog Martinussen
+      - Fredrik Carlsen
+      - Michael Barrantes
+      - Leke James
+      - Abderrazak Hamdallah
+    subs:
+      - Demar Phillips
+      - Christian Myklebust
+      - Tor Hogne Aarøy
+      - Lars Fuhre
+      - Daniel Stensøe
+      - Lasse Staw
+      - Henrik Rørvik Bjørdal
+    coach: Jan Jönsson
+  away:
+    formation: 4-3-3
+    starters:
+      - André Hansen
+      - Lars Kristian Eriksen
+      - Morten Fevang
+      - Fredrik Semb Berge
+      - Emil Jonassen
+      - Jone Samuelsen
+      - Fredrik Oldrup Jensen
+      - Håvard Storbæk
+      - Snorre Krogsgård
+      - Frode Johnsen
+      - Elbasan Rashani
+    subs:
+      - Herolind Shala
+      - Niklas Gunnarsson
+      - Adem Güven
+      - Mathias Fredriksen
+      - Steffen Hagen
+      - Christer Kleiven
+      - Sondre Løvseth Rossbach
+    coach: Dag-Eilev Fagermo
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +128,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

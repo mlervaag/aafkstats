@@ -11,13 +11,157 @@ competition:
 home:
   clubId: sk-brann
   score: 5
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: brann-stadion
 neutralVenue: false
-events: []
+attendance: 13317
+referee: Christian Moen
+events:
+  - minute: 18
+    type: goal
+    team: home
+    player: Frederik Børsting
+    assist: Sander Erik Kartum
+  - minute: 24
+    type: goal
+    team: home
+    player: Felix Horn Myhre
+    assist: Bård Finne
+  - minute: 35
+    type: yellow_card
+    team: away
+    player: Trace Murray
+  - minute: 44
+    type: goal
+    team: home
+    player: Niklas Castro
+    assist: Sander Erik Kartum
+  - minute: 46
+    type: substitution
+    team: home
+    player: Ulrik Mathisen
+    playerOff: Sander Erik Kartum
+  - minute: 52
+    type: goal
+    team: away
+    player: Isaac Atanga
+  - minute: 54
+    type: goal
+    team: home
+    player: Bård Finne
+    assist: Ulrik Mathisen
+  - minute: 64
+    type: substitution
+    team: home
+    player: Aune Selland Heggebø
+    playerOff: Bård Finne
+  - minute: 64
+    type: substitution
+    team: home
+    player: Moonga Simba
+    playerOff: Thore Pedersen
+  - minute: 67
+    type: substitution
+    team: away
+    player: Amidou Diop
+    playerOff: Trace Murray
+  - minute: 67
+    type: substitution
+    team: away
+    player: Markus Seehusen Karlsbakk
+    playerOff: Erlend Segberg
+  - minute: 67
+    type: substitution
+    team: away
+    player: Kristoffer Ødemarksbakken
+    playerOff: Isaac Atanga
+  - minute: 74
+    type: substitution
+    team: away
+    player: Moses Ebiye
+    playerOff: Martin Ramsland
+  - minute: 80
+    type: goal
+    team: home
+    player: Aune Selland Heggebø
+    assist: Ulrik Mathisen
+  - minute: 81
+    type: substitution
+    team: home
+    player: Eivind Helland
+    playerOff: Niklas Castro
+  - minute: 84
+    type: yellow_card
+    team: away
+    player: Kristoffer Ødemarksbakken
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Mathias Dyngeland
+      - Svenn Crone
+      - Fredrik Knudsen
+      - Ruben Kristiansen
+      - Thore Pedersen
+      - Sander Erik Kartum
+      - Sivert Heltne Nilsen
+      - Felix Horn Myhre
+      - Frederik Børsting
+      - Bård Finne
+      - Niklas Castro
+    subs:
+      - Ulrik Mathisen
+      - Aune Selland Heggebø
+      - Moonga Simba
+      - Eivind Helland
+      - Eirik Holmen Johansen
+      - Japhet Sery Larsen
+      - Jesper Eikrem
+      - William Kvale
+    coach: Eirik Horneland
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Trace Murray
+      - David Fällman
+      - Erik Frøysa
+      - John Kitolano
+      - Henrik Melland
+      - Erlend Segberg
+      - Håkon Butli Hammer
+      - Bjørn Martin Kristensen
+      - Martin Ramsland
+      - Isaac Atanga
+    subs:
+      - Amidou Diop
+      - Kristoffer Ødemarksbakken
+      - Markus Seehusen Karlsbakk
+      - Moses Ebiye
+      - Kristoffer Barmen
+      - Michael Lansing
+    coach: Christian Johnsen
+stats:
+  home:
+    possession: 65
+    shots: 21
+    shotsOnTarget: 11
+    corners: 6
+    fouls: 14
+    offsides: 1
+    xg: 4.35
+  away:
+    possession: 35
+    shots: 9
+    shotsOnTarget: 4
+    corners: 10
+    fouls: 10
+    offsides: 0
+    xg: 0.57
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +177,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

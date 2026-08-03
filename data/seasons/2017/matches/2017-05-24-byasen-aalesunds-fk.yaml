@@ -1,0 +1,91 @@
+id: 2017-05-24-byasen-aalesunds-fk
+date: 2017-05-24
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2017
+  stage: regular_season
+  round: 2
+home:
+  clubId: byasen
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 26
+    type: yellow_card
+    team: away
+    player: Kaj Ramsteijn
+  - minute: 36
+    type: goal
+    team: away
+    player: Valmir Berisha
+  - minute: 63
+    type: substitution
+    team: away
+    player: Aron Elis Thrandarson
+    playerOff: Oddbjørn Lie
+  - minute: 63
+    type: substitution
+    team: away
+    player: Fredrik Carlsen
+    playerOff: Marlinho
+  - minute: 75
+    type: substitution
+    team: home
+    player: Andreas Hanssen
+    playerOff: Arne Gunnes
+  - minute: 76
+    type: substitution
+    team: home
+    player: Sander Halgunset
+    playerOff: Martin Kristoffer Berdal
+  - minute: 80
+    type: substitution
+    team: home
+    player: Espen Langøren
+    playerOff: Roholla Iqbalzadeh
+  - minute: 86
+    type: goal
+    team: away
+    player: Lars Veldwijk
+  - minute: 88
+    type: substitution
+    team: away
+    player: Tero Mantyla
+    playerOff: Lars Veldwijk
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Valmir Berisha
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-byasen/2qo60s#2494771
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2494771"
+manual: []

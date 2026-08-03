@@ -1,0 +1,149 @@
+id: 2010-10-17-aalesunds-fk-sandefjord
+date: 2010-10-17
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2010
+  stage: regular_season
+  round: 27
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: sandefjord
+  score: 2
+  halfTimeScore: 0
+venueId: color-line-stadion
+neutralVenue: false
+events:
+  - minute: 21
+    type: goal
+    team: home
+    player: Johan Arneng
+  - minute: 46
+    type: substitution
+    team: home
+    player: Pablo Herrera
+    playerOff: Lars Fuhre
+  - minute: 64
+    type: goal
+    team: away
+    player: Erik Lamøy
+  - minute: 69
+    type: goal
+    team: home
+    player: Daniel Arnefjord
+  - minute: 71
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Amund Skiri
+  - minute: 73
+    type: substitution
+    team: away
+    player: Ørjan Røyrane
+    playerOff: Fredrik Gulsvik
+  - minute: 73
+    type: substitution
+    team: away
+    player: Vamouti Diomande
+    playerOff: Malick Mane
+  - minute: 73
+    type: substitution
+    team: home
+    player: Trond Fredriksen
+    playerOff: Fredrik Carlsen
+  - minute: 77
+    type: yellow_card
+    team: home
+    player: Johan Arneng
+  - minute: 80
+    type: yellow_card
+    team: away
+    player: Ebrima Sohna
+  - minute: 83
+    type: substitution
+    team: away
+    player: Sverre Martin Torp
+    playerOff: Panajotis Dimitriadis
+  - minute: 88
+    type: goal
+    team: away
+    player: Alexander Gabrielsen
+lineups:
+  home:
+    formation: 3-4-1-2
+    starters:
+      - Anders Lindegaard
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Jonathan Parr
+      - Amund Skiri
+      - Johan Arneng
+      - Fredrik Carlsen
+      - Alexander Mathisen
+      - Lars Fuhre
+      - Tor Hogne Aarøy
+    subs:
+      - Pablo Herrera
+      - Peter Orry Larsen
+      - Trond Fredriksen
+      - Didrik Fløtre
+      - Michael Barrantes
+      - Sten Michael Grytebust
+      - Ville Jalasto
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Joachim Heier
+      - Victor Demba Bindia
+      - Alexander Gabrielsen
+      - Espen Nystuen
+      - Martin Jensen
+      - Panajotis Dimitriadis
+      - Ebrima Sohna
+      - Henrik Gustavsen
+      - Malick Mane
+      - Fredrik Gulsvik
+      - Erik Lamøy
+    subs:
+      - Ørjan Røyrane
+      - Vamouti Diomande
+      - Sverre Martin Torp
+      - Marciano
+      - Mathias Raade Olsen
+      - Olav Zanetti
+      - Rune Hansen
+    coach: Patrick Walker
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-sandefjord/2e68pk#762018
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "762018"
+manual: []

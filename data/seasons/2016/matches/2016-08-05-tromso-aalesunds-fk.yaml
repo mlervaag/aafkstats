@@ -11,13 +11,125 @@ competition:
 home:
   clubId: tromso
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: alfheim-stadion
 neutralVenue: false
-events: []
+attendance: 3335
+referee: Dag Vidar Hafsaas
+events:
+  - minute: 4
+    type: own_goal
+    team: away
+    player: Kent-Are Antonsen
+  - minute: 14
+    type: goal
+    team: home
+    player: Runar Espejord
+    assist: Thomas Lehne Olsen
+  - minute: 20
+    type: goal
+    team: away
+    player: Mostafa Abdellaoue
+    assist: Aron Elis Thrándarson
+  - minute: 44
+    type: yellow_card
+    team: away
+    player: Aron Elis Thrándarson
+  - minute: 64
+    type: substitution
+    team: home
+    player: Ulrik Yttergård Jenssen
+    playerOff: Christian Landu Landu
+  - minute: 69
+    type: yellow_card
+    team: away
+    player: Franck Boli
+  - minute: 71
+    type: substitution
+    team: home
+    player: Aron Sigurdarson
+    playerOff: Runar Espejord
+  - minute: 77
+    type: substitution
+    team: away
+    player: Adam Örn Arnarson
+    playerOff: Edwin Gyasi
+  - minute: 82
+    type: substitution
+    team: away
+    player: Vebjørn Hoff
+    playerOff: Fredrik Carlsen
+  - minute: 83
+    type: substitution
+    team: home
+    player: Fredrik Michalsen
+    playerOff: Magnus Andersen
+  - minute: 87
+    type: substitution
+    team: away
+    player: Vito Wormgoor
+    playerOff: Mostafa Abdellaoue
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Filip Loncaric
+      - Hans Norbye
+      - Magnar Ødegaard
+      - Jostein Gundersen
+      - Kent-Are Antonsen
+      - Magnus Andersen
+      - Christian Landu Landu
+      - Gjermund Åsen
+      - Mikael Ingebrigtsen
+      - Runar Espejord
+      - Thomas Lehne Olsen
+    subs:
+      - Ulrik Yttergård Jenssen
+      - Aron Sigurdarson
+      - Fredrik Michalsen
+      - Henrik Gjesdal
+      - Jacob Karlstrøm
+      - Jonas Johansen
+      - Lasse Nilsen
+    coach: Bård Flovik
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Bjørn Helge Riise
+      - Edvard Skagestad
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Fredrik Carlsen
+      - Peter Orry Larsen
+      - Aron Elis Thrándarson
+      - Mostafa Abdellaoue
+      - Franck Boli
+    subs:
+      - Adam Örn Arnarson
+      - Vebjørn Hoff
+      - Vito Wormgoor
+      - Daniel Gretarsson
+      - Lars Cramer
+      - Sondre Brunstad Fet
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 62
+    shots: 27
+    shotsOnTarget: 5
+    corners: 13
+  away:
+    possession: 38
+    shots: 8
+    shotsOnTarget: 4
+    corners: 7
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +145,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

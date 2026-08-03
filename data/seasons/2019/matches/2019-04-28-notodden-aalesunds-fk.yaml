@@ -11,13 +11,97 @@ competition:
 home:
   clubId: notodden
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: notodden-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 43
+    type: yellow_card
+    team: home
+    player: Henrik Gustavsen
+  - minute: 52
+    type: goal
+    team: away
+    player: Jørgen Hatlehol
+  - minute: 72
+    type: substitution
+    team: away
+    player: Izunna Uzochukwu
+    playerOff: Pape Habib Gueye
+  - minute: 72
+    type: yellow_card
+    team: home
+    player: Gaston Salasiwa
+  - minute: 75
+    type: substitution
+    team: home
+    player: Morten Renå Olsen
+    playerOff: Martin Strange
+  - minute: 75
+    type: substitution
+    team: home
+    player: Kjetil Holand Tøsse
+    playerOff: Josh Robson
+  - minute: 82
+    type: yellow_card
+    team: home
+    player: Morten Renå Olsen
+  - minute: 83
+    type: substitution
+    team: home
+    player: Erlend Hustad
+    playerOff: André Bakke
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Jonathan Johansson
+      - Martin Strange
+      - Christian Dahle Borchgrevink
+      - Steffen Jenssen
+      - Josh Robson
+      - Henrik Gustavsen
+      - Gaston Salasiwa
+      - Martin Holmen
+      - Martin Brekke
+      - Abubakar Ibrahim Aliyu
+      - André Bakke
+    subs:
+      - Kjetil Holand Tøsse
+      - Morten Renå Olsen
+      - Erlend Hustad
+      - Erik Midtgarden
+      - Espen Vasby
+      - Even Parkstad Johansen
+      - Sebastian Hansen
+    coach: Kenneth Dokken
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Ståle Steen Sæthre
+      - Jørgen Hatlehol
+      - Niklas Castro
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Jernade Meade
+      - Holmbert Aron Fridjonsson
+      - Pape Habib Gueye
+    subs:
+      - Izunna Uzochukwu
+      - Erikson Lima
+      - Kristoffer Hay
+      - Markus Seehusen Karlsbakk
+      - Tarjei Aase Omenås
+      - Tega George
+      - Torbjørn Agdestein
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +117,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

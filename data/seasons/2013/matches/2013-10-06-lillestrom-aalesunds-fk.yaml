@@ -11,13 +11,102 @@ competition:
 home:
   clubId: lillestrom
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: arasen
 neutralVenue: false
-events: []
+attendance: 4065
+events:
+  - minute: 6
+    type: yellow_card
+    team: home
+    player: Fredrik Stoor
+  - minute: 64
+    type: goal
+    team: away
+    player: Daniel Arnefjord
+  - minute: 72
+    type: substitution
+    team: home
+    player: Thorstein Helstad
+    playerOff: Erling Knudtzon
+  - minute: 74
+    type: goal
+    team: home
+    player: Thorstein Helstad
+  - minute: 79
+    type: substitution
+    team: home
+    player: Erik Mjelde
+    playerOff: Petter Vaagen Moen
+  - minute: 81
+    type: substitution
+    team: away
+    player: Tor Hogne Aarøy
+    playerOff: Fredrik Carlsen
+  - minute: 86
+    type: yellow_card
+    team: away
+    player: Tor Hogne Aarøy
+  - minute: 90
+    type: substitution
+    team: away
+    player: Lars Fuhre
+    playerOff: Demar Phillips
+  - minute: 90
+    type: substitution
+    team: home
+    player: Ohi Anthony Omoijuanfo
+    playerOff: Moryke Fofana
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Kenneth Udjus
+      - Fredrik Stoor
+      - Frode Kippe
+      - Anders Østli
+      - Stian Ringstad
+      - Palmi Rafn Palmason
+      - Bjørn Helge Riise
+      - Johan Andersson
+      - Moryke Fofana
+      - Erling Knudtzon
+      - Petter Vaagen Moen
+    subs:
+      - Thorstein Helstad
+      - Erik Mjelde
+      - Ohi Anthony Omoijuanfo
+      - Marius Christopher Høibråten
+      - Thomas Piermayr
+      - Jon Knudsen
+      - Magnar Ødegaard
+    coach: Magnus Haglund
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Jonatan Tollås Nation
+      - Jo Nymo Matland
+      - Peter Orry Larsen
+      - Michael Barrantes
+      - Fredrik Carlsen
+      - Demar Phillips
+      - Abderrazak Hamdallah
+      - Houcine Zaidoune
+    subs:
+      - Tor Hogne Aarøy
+      - Lars Fuhre
+      - Torbjørn Grytten
+      - Henrik Rørvik Bjørdal
+      - Robert Ekroll
+      - Andreas Nordvik
+    coach: Jan Jönsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +122,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

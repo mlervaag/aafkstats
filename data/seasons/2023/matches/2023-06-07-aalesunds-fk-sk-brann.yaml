@@ -1,0 +1,129 @@
+id: 2023-06-07-aalesunds-fk-sk-brann
+date: 2023-06-07
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2023
+  stage: regular_season
+  round: 3
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 2
+away:
+  clubId: sk-brann
+  score: 2
+  halfTimeScore: 1
+extraTime:
+  home: 1
+  away: 1
+penaltyShootout:
+  home: 5
+  away: 6
+venueId: color-line-stadion
+neutralVenue: false
+events:
+  - minute: 25
+    type: goal
+    team: home
+    player: Isaac Atanga
+    assist: Markus Seehusen Karlsbakk
+  - minute: 37
+    type: goal
+    team: away
+    player: Svenn Crone
+  - minute: 43
+    type: penalty_goal
+    team: home
+    player: Markus Seehusen Karlsbakk
+  - minute: 88
+    type: goal
+    team: away
+    player: Thore Pedersen
+    assist: Isak Hjorteseth
+  - minute: 97
+    type: goal
+    team: home
+    player: Markus Seehusen Karlsbakk
+    assist: Kasper Lunding
+  - minute: 101
+    type: goal
+    team: away
+    player: Ole Blomberg
+    assist: Isak Hjorteseth
+lineups:
+  home:
+    starters:
+      - Isaac Atanga
+      - David Fällman
+      - Sten Michael Grytebust
+      - Bjørn Martin Kristensen
+      - Ole Kolskogen
+      - Alexander Munksgaard
+      - Kristoffer Barmen
+      - Markus Seehusen Karlsbakk
+      - Erlend Segberg
+      - Alexander Stølås
+      - Nikolai Hopland
+    subs:
+      - Stian Aarønes Holte
+      - Alexander Juel Andersen
+      - Amidou Diop
+      - Michael Lansing
+      - Kasper Lunding
+      - Trace Murray
+      - Eivind Strømsheim Kolve
+      - Simen Haram
+      - Kristoffer Ødemarksbakken
+  away:
+    starters:
+      - Ole Blomberg
+      - Svenn Crone
+      - Bård Finne
+      - Sivert Heltne Nilsen
+      - Felix Horn Myhre
+      - Mathias Rasmussen
+      - Ruben Kristiansen
+      - Mathias Dyngeland
+      - David Møller Wolfe
+      - Niklas Castro
+      - Fredrik Knudsen
+    subs:
+      - Thore Pedersen
+      - Marius Trengereid
+      - Elias Heggland Myrlid
+      - Eirik Holmen Johansen
+      - Ulrik Mathisen
+      - Isak Hjorteseth
+      - Jonas Torsvik
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-brann/2cr19k#4182983
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - extraTime
+      - penaltyShootout
+      - events
+      - lineups
+    note: "Kildestatus: Pen"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4182983"
+manual: []

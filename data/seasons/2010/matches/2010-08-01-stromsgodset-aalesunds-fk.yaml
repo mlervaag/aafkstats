@@ -1,0 +1,150 @@
+id: 2010-08-01-stromsgodset-aalesunds-fk
+date: 2010-08-01
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2010
+  stage: regular_season
+  round: 19
+home:
+  clubId: stromsgodset
+  score: 3
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+venueId: marienlyst-stadion
+neutralVenue: false
+events:
+  - minute: 24
+    type: yellow_card
+    team: away
+    player: Demar Phillips
+  - minute: 39
+    type: goal
+    team: home
+    player: Øyvind Storflor
+  - minute: 52
+    type: yellow_card
+    team: home
+    player: Petar Rnkovic
+  - minute: 63
+    type: substitution
+    team: home
+    player: Ola Kamara
+    playerOff: Muhamed Keita
+  - minute: 63
+    type: substitution
+    team: away
+    player: Lars Fuhre
+    playerOff: Demar Phillips
+  - minute: 67
+    type: penalty_goal
+    team: home
+    player: Lars-Christopher Vilsvik
+  - minute: 70
+    type: substitution
+    team: away
+    player: Magnus Sylling Olsen
+    playerOff: Fredrik Carlsen
+  - minute: 75
+    type: substitution
+    team: away
+    player: Pablo Herrera
+    playerOff: Alexander Mathisen
+  - minute: 77
+    type: substitution
+    team: home
+    player: Jim Johansen
+    playerOff: Fredrik Nordkvelle
+  - minute: 78
+    type: goal
+    team: away
+    player: Peter Orry Larsen
+  - minute: 80
+    type: substitution
+    team: home
+    player: Mads Ryghseter
+    playerOff: Alfred Sankoh
+  - minute: 80
+    type: goal
+    team: home
+    player: Lars Sætra
+  - minute: 85
+    type: yellow_card
+    team: away
+    player: Enar Jääger
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Adam Larsen Kwarasey
+      - Krister Aunan
+      - Glenn Andersen
+      - Lars Sætra
+      - Lars-Christopher Vilsvik
+      - Alfred Sankoh
+      - André Hanssen
+      - Fredrik Nordkvelle
+      - Øyvind Storflor
+      - Muhamed Keita
+      - Petar Rnkovic
+    subs:
+      - Ola Kamara
+      - Jim Johansen
+      - Mads Ryghseter
+      - Lars Stubhaug
+      - Steffen Nystrøm
+    coach: Ronny Deila
+  away:
+    formation: 4-3-3
+    starters:
+      - Anders Lindegaard
+      - Enar Jääger
+      - Ville Jalasto
+      - Daniel Arnefjord
+      - Jonathan Parr
+      - Johan Arneng
+      - Peter Orry Larsen
+      - Fredrik Carlsen
+      - Alexander Mathisen
+      - Demar Phillips
+      - Tor Hogne Aarøy
+    subs:
+      - Lars Fuhre
+      - Magnus Sylling Olsen
+      - Pablo Herrera
+      - Jonatan Tollås Nation
+      - Sten Michael Grytebust
+      - Trond Fredriksen
+    coach: Kjetil Rekdal
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/stromsgodset-vs-aalesund/29vrrs#761871
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "761871"
+manual: []

@@ -1,0 +1,49 @@
+id: 2026-12-06-aalesunds-fk-bodo-glimt
+date: 2026-12-06
+dateConfidence: exact
+kickoff: 17:00
+status: scheduled
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 29
+home:
+  clubId: aalesunds-fk
+  score: null
+  halfTimeScore: null
+away:
+  clubId: bodo-glimt
+  score: null
+  halfTimeScore: null
+venueId: color-line-stadion
+neutralVenue: false
+events: []
+lineups:
+  home:
+    starters: []
+    subs: []
+  away:
+    starters: []
+    subs: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/bodoglimt-vs-aalesund/2c37nd#5105066
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - competition.round
+      - venueId
+      - lineups
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5105066"
+manual: []

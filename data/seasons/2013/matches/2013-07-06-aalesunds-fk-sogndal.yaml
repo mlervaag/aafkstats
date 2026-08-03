@@ -11,13 +11,123 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: sogndal
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 7601
+events:
+  - minute: 29
+    type: goal
+    team: home
+    player: Leke James
+  - minute: 37
+    type: yellow_card
+    team: away
+    player: Malick Mane
+  - minute: 40
+    type: yellow_card
+    team: home
+    player: Jo Nymo Matland
+  - minute: 41
+    type: penalty_goal
+    team: away
+    player: Malick Mane
+  - minute: 42
+    type: yellow_card
+    team: away
+    player: Sidy Sagna
+  - minute: 46
+    type: substitution
+    team: away
+    player: Ricardo Santos
+    playerOff: Ulrik Flo
+  - minute: 49
+    type: goal
+    team: home
+    player: Abderrazak Hamdallah
+  - minute: 65
+    type: substitution
+    team: home
+    player: Demar Phillips
+    playerOff: Lars Fuhre
+  - minute: 65
+    type: substitution
+    team: away
+    player: Magnus Stamnestrø
+    playerOff: Ruben Holsæter
+  - minute: 72
+    type: substitution
+    team: home
+    player: Andreas Nordvik
+    playerOff: Thomas Skog Martinussen
+  - minute: 74
+    type: red_card
+    team: away
+    player: Sidy Sagna
+  - minute: 78
+    type: yellow_card
+    team: away
+    player: Azar Karadas
+  - minute: 80
+    type: substitution
+    team: home
+    player: Tremaine Stewart
+    playerOff: Fredrik Carlsen
+  - minute: 82
+    type: goal
+    team: away
+    player: Magnus Stamnestrø
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Thomas Skog Martinussen
+      - Jonatan Tollås Nation
+      - Edvard Skagestad
+      - Jo Nymo Matland
+      - Peter Orry Larsen
+      - Fredrik Carlsen
+      - Fredrik Ulvestad
+      - Lars Fuhre
+      - Abderrazak Hamdallah
+      - Leke James
+    subs:
+      - Demar Phillips
+      - Andreas Nordvik
+      - Tremaine Stewart
+      - Torbjørn Grytten
+      - Henrik Rørvik Bjørdal
+      - Lasse Staw
+      - Christian Myklebust
+    coach: Jan Jönsson
+  away:
+    formation: 4-4-2
+    starters:
+      - Erik Dahlin
+      - Taijo Teniste
+      - Hannu Patronen
+      - Gustav Valsvik
+      - Eirik Bergum Skaasheim
+      - Malick Mane
+      - Rune Bolseth
+      - Sidy Sagna
+      - Ruben Holsæter
+      - Ulrik Flo
+      - Azar Karadas
+    subs:
+      - Ricardo Santos
+      - Magnus Stamnestrø
+      - Stian Lønne Dyngeland
+      - Ørjan Hopen
+      - Leif Kvamme Lysne
+      - Bjørn Inge Utvik
+      - Espen Næss Lund
+    coach: Jonas Olsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +143,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

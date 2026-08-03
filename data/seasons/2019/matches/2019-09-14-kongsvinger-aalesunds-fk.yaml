@@ -11,13 +11,94 @@ competition:
 home:
   clubId: kongsvinger
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: gjemselund-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 12
+    type: yellow_card
+    team: away
+    player: Fredrik Carlsen
+  - minute: 59
+    type: substitution
+    team: away
+    player: Erikson Lima
+    playerOff: Torbjørn Agdestein
+  - minute: 73
+    type: substitution
+    team: away
+    player: Holmbert Aron Fridjonsson
+    playerOff: Pape Habib Gueye
+  - minute: 75
+    type: goal
+    team: home
+    player: Shuaibu Ibrahim
+    assist: Adem Güven
+  - minute: 85
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Jørgen Hatlehol
+  - minute: 89
+    type: substitution
+    team: home
+    player: Markus Aanesland
+    playerOff: Shuaibu Ibrahim
+  - minute: 90
+    type: goal
+    team: away
+    player: Aron Elis Thrándarson
+    assist: David Kristjan Olafsson
+lineups:
+  home:
+    formation: 4-3-1-2
+    starters:
+      - Ali Ahamada
+      - Fredrik Mani Pålerud
+      - Ville Jalasto
+      - Edvard Skagestad
+      - Iman Mafi
+      - Harald Holter
+      - Landry N'Guémo
+      - Martin Tangen Vinjor
+      - Simon Marklund
+      - Adem Güven
+      - Shuaibu Ibrahim
+    subs:
+      - Markus Aanesland
+      - Dong-Wan Gang
+      - Gyu-Hwan Lee
+      - Marlinho
+      - Martin Lundal
+      - Mathias Berg Gjerstrøm
+      - Stian Bolstad
+    coach: Vitor Gazimba
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Ståle Steen Sæthre
+      - Daniel Gretarsson
+      - Jonas Grønner
+      - Jørgen Hatlehol
+      - Niklas Castro
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - David Kristjan Olafsson
+      - Pape Habib Gueye
+      - Torbjørn Agdestein
+    subs:
+      - Erikson Lima
+      - Holmbert Aron Fridjonsson
+      - Sondre Brunstad Fet
+      - Kristoffer Hay
+      - Marius Berntzen
+      - Wilmer Azofeifa
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +114,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

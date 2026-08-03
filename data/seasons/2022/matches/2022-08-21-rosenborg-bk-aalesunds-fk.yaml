@@ -11,13 +11,154 @@ competition:
 home:
   clubId: rosenborg-bk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: lerkendal-stadion
 neutralVenue: false
-events: []
+attendance: 9764
+referee: Svein Oddvar Moen
+events:
+  - minute: 30
+    type: goal
+    team: away
+    player: Simen Bolkan Nordli
+    assist: Dario Canadjija
+  - minute: 40
+    type: penalty_goal
+    team: home
+    player: Ole Christian Sæter
+  - minute: 46
+    type: substitution
+    team: home
+    player: Edvard Tagseth
+    playerOff: Olaus Jair Skarsem
+  - minute: 46
+    type: substitution
+    team: home
+    player: Renzo Giampaoli
+    playerOff: Adrian Pereira
+  - minute: 48
+    type: yellow_card
+    team: away
+    player: Besim Serbecic
+  - minute: 48
+    type: yellow_card
+    team: home
+    player: Victor Jensen
+  - minute: 61
+    type: substitution
+    team: home
+    player: Kristall Mani Ingason
+    playerOff: Tobias Borchgrevink Børkeeiet
+  - minute: 72
+    type: substitution
+    team: away
+    player: Fredrik Haugen
+    playerOff: Dario Canadjija
+  - minute: 72
+    type: substitution
+    team: away
+    player: Moses Ebiye
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 76
+    type: substitution
+    team: home
+    player: Leo Cornic
+    playerOff: Samuel Rogers
+  - minute: 79
+    type: substitution
+    team: away
+    player: Torbjørn Kallevåg
+    playerOff: Simen Bolkan Nordli
+  - minute: 82
+    type: substitution
+    team: home
+    player: Noah Holm
+    playerOff: Ole Christian Sæter
+  - minute: 85
+    type: yellow_card
+    team: away
+    player: Fredrik Haugen
+  - minute: 90
+    type: substitution
+    team: away
+    player: Erlend Segberg
+    playerOff: Erikson Lima
+  - minute: 90
+    type: goal
+    team: home
+    player: Casper Tengstedt
+    assist: Erlend Dahl Reitan
+lineups:
+  home:
+    formation: 5-3-2
+    starters:
+      - André Hansen
+      - Erlend Dahl Reitan
+      - Tobias Borchgrevink Børkeeiet
+      - Markus Henriksen
+      - Samuel Rogers
+      - Adrian Pereira
+      - Olaus Jair Skarsem
+      - Victor Jensen
+      - Carlo Holse
+      - Ole Christian Sæter
+      - Casper Tengstedt
+    subs:
+      - Edvard Tagseth
+      - Renzo Giampaoli
+      - Kristall Mani Ingason
+      - Leo Cornic
+      - Noah Holm
+      - Bryan Solhaug Fiabema
+      - Pawel Chrupalla
+      - Sander Tangvik
+    coach: Kjetil Rekdal
+  away:
+    formation: 5-3-2
+    starters:
+      - Sten Michael Grytebust
+      - Petar Golubovic
+      - Besim Serbecic
+      - David Fällman
+      - Alexander Juel Andersen
+      - Simen Rafn
+      - Erikson Lima
+      - Kristoffer Barmen
+      - Dario Canadjija
+      - Kristoffer Ødemarksbakken
+      - Simen Bolkan Nordli
+    subs:
+      - Fredrik Haugen
+      - Moses Ebiye
+      - Torbjørn Kallevåg
+      - Erlend Segberg
+      - Jeppe Arctander Moe
+      - John Kitolano
+      - Michael Lansing
+      - Nikolai Hopland
+      - Oscar Solnørdal
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 54
+    shots: 16
+    shotsOnTarget: 4
+    corners: 6
+    fouls: 11
+    offsides: 1
+    xg: 1.84
+  away:
+    possession: 46
+    shots: 18
+    shotsOnTarget: 4
+    corners: 5
+    fouls: 7
+    offsides: 1
+    xg: 1.36
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +174,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

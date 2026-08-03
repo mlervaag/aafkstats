@@ -11,13 +11,99 @@ competition:
 home:
   clubId: lillestrom
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: arasen
 neutralVenue: false
-events: []
+events:
+  - minute: 46
+    type: substitution
+    team: home
+    player: Erling Knudtzon
+    playerOff: Luke Rodgers
+  - minute: 46
+    type: substitution
+    team: away
+    player: Magnus Sylling Olsen
+    playerOff: Tremaine Stewart
+  - minute: 47
+    type: yellow_card
+    team: home
+    player: Jesper Westerberg
+  - minute: 65
+    type: substitution
+    team: home
+    player: Mathis Bolly
+    playerOff: Ohi Anthony Omoijuanfo
+  - minute: 71
+    type: substitution
+    team: away
+    player: Ville Jalasto
+    playerOff: Jonatan Tollås Nation
+  - minute: 74
+    type: substitution
+    team: away
+    player: Sander Post
+    playerOff: Magnus Sylling Olsen
+  - minute: 87
+    type: substitution
+    team: home
+    player: Joachim Osvold
+    playerOff: Johan Andersson
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Ville Jalasto
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Sead Ramovic
+      - Fredrik Stoor
+      - Espen Nystuen
+      - Frode Kippe
+      - Jesper Westerberg
+      - Palmi Rafn Palmason
+      - Ohi Anthony Omoijuanfo
+      - Guy Roger Toindouba
+      - Johan Andersson
+      - Björn Sigurdarson
+      - Luke Rodgers
+    subs:
+      - Erling Knudtzon
+      - Mathis Bolly
+      - Joachim Osvold
+      - Isak Scheel
+      - Marius Høibråten
+      - Simen Nordermoen
+      - Stefan Logi Magnusson
+    coach: Magnus Haglund
+  away:
+    formation: 4-5-1
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Hugues Wembangomo
+      - Tremaine Stewart
+      - Fredrik Ulvestad
+      - Jason Morrison
+      - Peter Orry Larsen
+      - Demar Phillips
+      - Edvard Skagestad
+    subs:
+      - Magnus Sylling Olsen
+      - Ville Jalasto
+      - Sander Post
+      - Amund Skiri
+      - Fredrik Carlsen
+      - Lars Fuhre
+      - Ole Christian Rørvik
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +119,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

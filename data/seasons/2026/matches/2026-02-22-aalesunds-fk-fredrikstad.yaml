@@ -1,0 +1,66 @@
+id: 2026-02-22-aalesunds-fk-fredrikstad
+date: 2026-02-22
+dateConfidence: exact
+kickoff: 15:00
+status: played
+competition:
+  id: treningskamp
+  season: 2026
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 0
+away:
+  clubId: fredrikstad
+  score: 3
+  halfTimeScore: 1
+venueId: color-line-stadion
+neutralVenue: false
+events:
+  - minute: 20
+    type: goal
+    team: away
+    player: Oskar Öhlenschlaeger
+  - minute: 50
+    type: goal
+    team: away
+    player: Henrik Langaas Skogvold
+  - minute: 58
+    type: goal
+    team: home
+    player: <TBD>
+  - minute: 70
+    type: goal
+    team: away
+    player: Johannes Hummelvoll-Nunez
+  - minute: 90
+    stoppage: 3
+    type: goal
+    team: home
+    player: <TBD>
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-fredrikstad/2c8m9k#5126382
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5126382"
+manual: []

@@ -1,0 +1,151 @@
+id: 2010-10-31-aalesunds-fk-sk-brann
+date: 2010-10-31
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2010
+  stage: regular_season
+  round: 29
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 3
+away:
+  clubId: sk-brann
+  score: 1
+  halfTimeScore: 1
+venueId: color-line-stadion
+neutralVenue: false
+events:
+  - minute: 2
+    type: goal
+    team: home
+    player: Alexander Mathisen
+  - minute: 30
+    type: red_card
+    team: away
+    player: Birkir Sævarsson
+  - minute: 31
+    type: penalty_goal
+    team: home
+    player: Pablo Herrera
+  - minute: 34
+    type: goal
+    team: away
+    player: Diego Guastavino
+  - minute: 37
+    type: yellow_card
+    team: home
+    player: Pablo Herrera
+  - minute: 45
+    type: penalty_goal
+    team: home
+    player: Alexander Mathisen
+  - minute: 62
+    type: substitution
+    team: away
+    player: Juninho
+    playerOff: Erik Mjelde
+  - minute: 71
+    type: substitution
+    team: away
+    player: Cato Hansen
+    playerOff: Diego Guastavino
+  - minute: 79
+    type: substitution
+    team: away
+    player: Cato Guntveit
+    playerOff: Yaw-Ihle Amankwah
+  - minute: 80
+    type: substitution
+    team: home
+    player: Michael Barrantes
+    playerOff: Fredrik Carlsen
+  - minute: 82
+    type: substitution
+    team: home
+    player: Lars Fuhre
+    playerOff: Alexander Mathisen
+  - minute: 90
+    type: substitution
+    team: home
+    player: Fredrik Ulvestad
+    playerOff: Trond Fredriksen
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Zsolt Korcsmár
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Anders Lindegaard
+      - Enar Jääger
+      - Ville Jalasto
+      - Daniel Arnefjord
+      - Jonathan Parr
+      - Trond Fredriksen
+      - Peter Orry Larsen
+      - Fredrik Carlsen
+      - Pablo Herrera
+      - Alexander Mathisen
+      - Tor Hogne Aarøy
+    subs:
+      - Michael Barrantes
+      - Lars Fuhre
+      - Fredrik Ulvestad
+      - Didrik Fløtre
+      - Johan Arneng
+      - Jonatan Tollås Nation
+      - Sten Michael Grytebust
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Håkon Andre Opdal
+      - Birkir Sævarsson
+      - Christian Kalvenes
+      - Yaw-Ihle Amankwah
+      - Bjørnar Holmvik
+      - Zsolt Korcsmár
+      - Hassan El Fakiri
+      - Diego Guastavino
+      - Petter Vaagan Moen
+      - Erik Mjelde
+      - Erik Huseklepp
+    subs:
+      - Juninho
+      - Cato Hansen
+      - Cato Guntveit
+      - David Nielsen
+      - Kenneth Udjus
+    coach: Rune Skarsfjord
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-brann/2cr19k#762058
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "762058"
+manual: []

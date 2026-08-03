@@ -11,13 +11,109 @@ competition:
 home:
   clubId: sandefjord
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: komplett-no-arena
 neutralVenue: false
-events: []
+events:
+  - minute: 32
+    type: yellow_card
+    team: away
+    player: Tega George
+  - minute: 66
+    type: goal
+    team: away
+    player: Peter Orry Larsen
+  - minute: 68
+    type: substitution
+    team: home
+    player: William Albin Kurtovic
+    playerOff: Vidar Ari Jonsson
+  - minute: 70
+    type: yellow_card
+    team: away
+    player: Holmbert Aron Fridjonsson
+  - minute: 75
+    type: substitution
+    team: away
+    player: Pape Habib Gueye
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 76
+    type: substitution
+    team: home
+    player: Stefan Mladenovic
+    playerOff: Håvard Storbæk
+  - minute: 76
+    type: yellow_card
+    team: away
+    player: Jørgen Hatlehol
+  - minute: 78
+    type: yellow_card
+    team: home
+    player: Enric Vallés
+  - minute: 81
+    type: goal
+    team: home
+    player: William Albin Kurtovic
+    assist: Brice Wembangomo
+  - minute: 84
+    type: yellow_card
+    team: away
+    player: Jonas Grønner
+  - minute: 89
+    type: substitution
+    team: home
+    player: Tobias Hammer Svendsen
+    playerOff: Mohamed Ofkir
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Walter Viitala
+      - Brice Wembangomo
+      - Lars Grorud
+      - Marius Høibråten
+      - Anton Kralj
+      - Tito
+      - Enric Vallés
+      - Vidar Ari Jonsson
+      - Håvard Storbæk
+      - Mohamed Ofkir
+      - Pontus Engblom
+    subs:
+      - William Albin Kurtovic
+      - Stefan Mladenovic
+      - Tobias Hammer Svendsen
+      - Christer Reppesgård Hansen
+      - Erik Mjelde
+      - Jesper Granlund
+      - Sander Moen Foss
+    coach: Marti Cifuentes
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Tega George
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Peter Orry Larsen
+      - Jørgen Hatlehol
+      - Ståle Steen Sæthre
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Pape Habib Gueye
+      - Kristoffer Hay
+      - Markus Seehusen Karlsbakk
+      - Niklas Castro
+      - Tarjei Aase Omenås
+      - Vetle Fiskerstrand
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +129,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

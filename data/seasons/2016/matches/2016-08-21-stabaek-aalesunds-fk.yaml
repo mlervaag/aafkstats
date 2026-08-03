@@ -11,13 +11,137 @@ competition:
 home:
   clubId: stabaek
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: nadderud-stadion
 neutralVenue: false
-events: []
+attendance: 4938
+referee: Trond Ivar Doevle
+events:
+  - minute: 8
+    type: substitution
+    team: home
+    player: Daniel Granli
+    playerOff: Marcus Nilsson
+  - minute: 16
+    type: goal
+    team: home
+    player: Cole Grossman
+    assist: Moussa Njie
+  - minute: 30
+    type: goal
+    team: home
+    player: Muhamed Keita
+    assist: Cole Grossman
+  - minute: 50
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Aron Elis Thrándarson
+  - minute: 52
+    type: yellow_card
+    team: away
+    player: Fredrik Carlsen
+  - minute: 66
+    type: yellow_card
+    team: home
+    player: Daniel Granli
+  - minute: 72
+    type: substitution
+    team: home
+    player: Giorgi Gorozia
+    playerOff: Alanzinho
+  - minute: 76
+    type: yellow_card
+    team: home
+    player: Muhamed Keita
+  - minute: 80
+    type: substitution
+    team: home
+    player: Ohi Anthony Omoijuanfo
+    playerOff: Muhamed Keita
+  - minute: 81
+    type: substitution
+    team: away
+    player: Edvard Skagestad
+    playerOff: Flamur Kastrati
+  - minute: 81
+    type: yellow_card
+    team: away
+    player: Bjørn Helge Riise
+  - minute: 83
+    type: red_card
+    team: away
+    player: Bjørn Helge Riise
+  - minute: 86
+    type: goal
+    team: home
+    player: Luc Kassi
+    assist: Ohi Anthony Omoijuanfo
+  - minute: 86
+    type: yellow_card
+    team: away
+    player: Sondre Brunstad Fet
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Sayouba Mandé
+      - Morten M. Skjønsberg
+      - Marcus Nilsson
+      - Andreas Hanche-Olsen
+      - Jeppe Arctander Moe
+      - Cole Grossman
+      - Luc Kassi
+      - Alanzinho
+      - Muhamed Keita
+      - Moussa Njie
+      - Agon Mehmeti
+    subs:
+      - Daniel Granli
+      - Giorgi Gorozia
+      - Ohi Anthony Omoijuanfo
+      - Edvard Race
+      - Emil Bohinen
+      - Gurpreet Singh Sandhu
+      - Sebastian Pedersen
+    coach: Antoni Ordinas
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Mikkel Kirkeskov
+      - Oddbjørn Lie
+      - Vito Wormgoor
+      - Bjørn Helge Riise
+      - Fredrik Carlsen
+      - Peter Orry Larsen
+      - Aron Elis Thrándarson
+      - Edwin Gyasi
+      - Flamur Kastrati
+      - Mostafa Abdellaoue
+    subs:
+      - Sondre Brunstad Fet
+      - Edvard Skagestad
+      - Adam Örn Arnarson
+      - Daniel Gretarsson
+      - Lars Cramer
+      - Vebjørn Hoff
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 54
+    shots: 10
+    shotsOnTarget: 7
+    corners: 7
+  away:
+    possession: 46
+    shots: 9
+    shotsOnTarget: 4
+    corners: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +157,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,137 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: rosenborg-bk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 6154
+referee: Svein Torre Sinnes
+events:
+  - minute: 46
+    type: substitution
+    team: away
+    player: Renzo Giampaoli
+    playerOff: Tobias Borchgrevink Børkeeiet
+  - minute: 59
+    type: yellow_card
+    team: home
+    player: Kristoffer Barmen
+  - minute: 64
+    type: substitution
+    team: away
+    player: Pawel Chrupalla
+    playerOff: Bryan Solhaug Fiabema
+  - minute: 64
+    type: substitution
+    team: away
+    player: Per Ciljan Skjelbred
+    playerOff: Edvard Tagseth
+  - minute: 65
+    type: substitution
+    team: home
+    player: Mamadou Diaw
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 66
+    type: substitution
+    team: home
+    player: Torbjørn Kallevåg
+    playerOff: Simen Bolkan Nordli
+  - minute: 72
+    type: substitution
+    team: away
+    player: Vebjørn Hoff
+    playerOff: Victor Jensen
+  - minute: 81
+    type: substitution
+    team: away
+    player: Marius Broholm
+    playerOff: Olaus Jair Skarsem
+  - minute: 85
+    type: yellow_card
+    team: home
+    player: Petar Golubovic
+  - minute: 88
+    type: substitution
+    team: home
+    player: Simen Rafn
+    playerOff: Petar Golubovic
+  - minute: 88
+    type: substitution
+    team: home
+    player: Nikolai Hopland
+    playerOff: Dario Canadjija
+lineups:
+  home:
+    formation: 5-3-2
+    starters:
+      - Sten Michael Grytebust
+      - Petar Golubovic
+      - Besim Serbecic
+      - David Fällman
+      - Alexander Juel Andersen
+      - Isak Dybvik
+      - Erikson Lima
+      - Kristoffer Barmen
+      - Dario Canadjija
+      - Kristoffer Ødemarksbakken
+      - Simen Bolkan Nordli
+    subs:
+      - Mamadou Diaw
+      - Torbjørn Kallevåg
+      - Nikolai Hopland
+      - Simen Rafn
+      - Henrik Melland
+      - Jeppe Arctander Moe
+      - Jørgen Hatlehol
+      - Michael Lansing
+      - Oscar Solnørdal
+    coach: Lars Arne Nilsen
+  away:
+    formation: 5-3-2
+    starters:
+      - André Hansen
+      - Erlend Dahl Reitan
+      - Tobias Borchgrevink Børkeeiet
+      - Markus Henriksen
+      - Samuel Rogers
+      - Adrian Pereira
+      - Olaus Jair Skarsem
+      - Victor Jensen
+      - Edvard Tagseth
+      - Carlo Holse
+      - Bryan Solhaug Fiabema
+    subs:
+      - Renzo Giampaoli
+      - Pawel Chrupalla
+      - Per Ciljan Skjelbred
+      - Vebjørn Hoff
+      - Marius Broholm
+      - Jonathan Augustinsson
+      - Julian Faye Lund
+      - Sander Tangvik
+      - Sverre Halseth Nypan
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 49
+    shots: 7
+    shotsOnTarget: 5
+    corners: 2
+    fouls: 15
+    offsides: 1
+    xg: 0.39
+  away:
+    possession: 51
+    shots: 10
+    shotsOnTarget: 1
+    corners: 3
+    fouls: 9
+    offsides: 3
+    xg: 0.71
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +157,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,135 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: sarpsborg-08
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 200
+referee: Tommy Skjerven
+events:
+  - minute: 28
+    type: substitution
+    team: home
+    player: Markus Seehusen Karlsbakk
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Niklas Castro
+  - minute: 48
+    type: goal
+    team: away
+    player: Tobias Heintz
+    assist: Joachim Soltvedt
+  - minute: 63
+    type: substitution
+    team: home
+    player: Isak Dybvik
+    playerOff: Peter Orry Larsen
+  - minute: 63
+    type: substitution
+    team: home
+    player: Daan Klinkenberg
+    playerOff: Daniel Gretarsson
+  - minute: 71
+    type: substitution
+    team: away
+    player: Alexander Ruud Tveter
+    playerOff: Mostafa Abdellaoue
+  - minute: 71
+    type: substitution
+    team: away
+    player: Jørgen Horn
+    playerOff: Jordan Adéoti
+  - minute: 76
+    type: substitution
+    team: away
+    player: Mohamed Ofkir
+    playerOff: Tobias Heintz
+  - minute: 76
+    type: substitution
+    team: home
+    player: Shaquill Sno
+    playerOff: Jørgen Hatlehol
+  - minute: 81
+    type: yellow_card
+    team: away
+    player: Bjørn Inge Utvik
+  - minute: 85
+    type: yellow_card
+    team: away
+    player: David Mitov Nilsson
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Andreas Lie
+      - Jørgen Hatlehol
+      - Ben Karamoko
+      - Daniel Gretarsson
+      - David Kristjan Olafsson
+      - Niklas Castro
+      - Fredrik Carlsen
+      - Peter Orry Larsen
+      - Sigurd Haugen
+      - Holmbert Aron Fridjonsson
+      - Simen Bolkan Nordli
+    subs:
+      - Markus Seehusen Karlsbakk
+      - Daan Klinkenberg
+      - Isak Dybvik
+      - Shaquill Sno
+      - Erikson Lima
+      - Gudmund Taksdal Kongshavn
+      - Izunna Uzochukwu
+      - Jonas Grønner
+      - Parfait Bizoza
+    coach: Lars Arne Nilsen
+  away:
+    formation: 3-5-1-1
+    starters:
+      - David Mitov Nilsson
+      - Magnar Ødegaard
+      - Bjørn Inge Utvik
+      - Mikael Dyrestam
+      - Ole Jørgen Halvorsen
+      - Jordan Adéoti
+      - Nicolai Næss
+      - Jonathan Lindseth
+      - Joachim Soltvedt
+      - Tobias Heintz
+      - Mostafa Abdellaoue
+    subs:
+      - Alexander Ruud Tveter
+      - Jørgen Horn
+      - Mohamed Ofkir
+      - Aboubacar Konté
+      - Gaute Høberg Vetti
+      - Sebastian Jarl
+      - Simon Thomas
+      - Sulayman Bojang
+    coach: Mikael Stahre
+stats:
+  home:
+    possession: 55
+    shots: 17
+    shotsOnTarget: 2
+    corners: 4
+    fouls: 11
+    offsides: 3
+    xg: 1.41
+  away:
+    possession: 45
+    shots: 8
+    shotsOnTarget: 5
+    corners: 5
+    fouls: 24
+    offsides: 2
+    xg: 1.24
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +155,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

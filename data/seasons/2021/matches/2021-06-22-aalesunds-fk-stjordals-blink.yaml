@@ -11,13 +11,159 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 5
-  halfTimeScore: null
+  halfTimeScore: 4
 away:
   clubId: stjordals-blink
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 2000
+events:
+  - minute: 2
+    type: goal
+    team: home
+    player: Sigurd Haugen
+    assist: Simen Bolkan Nordli
+  - minute: 13
+    type: goal
+    team: home
+    player: Torbjørn Kallevåg
+  - minute: 23
+    type: yellow_card
+    team: away
+    player: Joachim Olufsen
+  - minute: 30
+    type: goal
+    team: home
+    player: Erlend Segberg
+    assist: Kristoffer Ødemarksbakken
+  - minute: 34
+    type: goal
+    team: home
+    player: David Fällman
+    assist: Simen Bolkan Nordli
+  - minute: 46
+    type: substitution
+    team: away
+    player: Morten Strand
+    playerOff: Runar Hauge
+  - minute: 46
+    type: substitution
+    team: home
+    player: Nikolai Hopland
+    playerOff: David Fällman
+  - minute: 52
+    type: own_goal
+    team: away
+    player: Quint Jansen
+  - minute: 55
+    type: substitution
+    team: away
+    player: Lars Ramstad
+    playerOff: Aleksander Foosnæs
+  - minute: 57
+    type: goal
+    team: home
+    player: Kristoffer Ødemarksbakken
+  - minute: 62
+    type: yellow_card
+    team: away
+    player: Ask Tjærandsen-Skau
+  - minute: 63
+    type: substitution
+    team: away
+    player: Sondre Hopmark Stokke
+    playerOff: Joachim Olufsen
+  - minute: 64
+    type: substitution
+    team: home
+    player: Kristoffer Strand Ødven
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 65
+    type: substitution
+    team: home
+    player: Isak Dybvik
+    playerOff: Simen Bolkan Nordli
+  - minute: 68
+    type: yellow_card
+    team: home
+    player: Simen Rafn
+  - minute: 70
+    type: substitution
+    team: away
+    player: Andreas Pettersen
+    playerOff: Ask Tjærandsen-Skau
+  - minute: 71
+    type: substitution
+    team: away
+    player: Mats Lillebo
+    playerOff: Jakob Rømo Skille
+  - minute: 76
+    type: substitution
+    team: home
+    player: Oscar Solnørdal
+    playerOff: Sigurd Haugen
+  - minute: 76
+    type: substitution
+    team: home
+    player: Mamadou Diaw
+    playerOff: Torbjørn Kallevåg
+  - minute: 90
+    stoppage: 3
+    type: yellow_card
+    team: home
+    player: David Kristjan Olafsson
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Michael Lansing
+      - Simen Rafn
+      - Quint Jansen
+      - David Fällman
+      - David Kristjan Olafsson
+      - Torbjørn Kallevåg
+      - Erlend Segberg
+      - Simen Bolkan Nordli
+      - Kristoffer Ødemarksbakken
+      - Niklas Castro
+      - Sigurd Haugen
+    subs:
+      - Nikolai Hopland
+      - Kristoffer Strand Ødven
+      - Isak Dybvik
+      - Mamadou Diaw
+      - Oscar Solnørdal
+      - Andreas Lie
+      - Erikson Lima
+      - Jørgen Hatlehol
+      - Jonas Grønner
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-3-3
+    starters:
+      - Rasmus Sandberg
+      - Fredrik Vinje
+      - Robin Bjørnholm-Jatta
+      - Vegard Fiske
+      - Aleksander Foosnæs
+      - Kjetil Holand Tøsse
+      - Ole Kristian Rødahl
+      - Ask Tjærandsen-Skau
+      - Joachim Olufsen
+      - Jakob Rømo Skille
+      - Runar Hauge
+    subs:
+      - Morten Strand
+      - Lars Ramstad
+      - Sondre Hopmark Stokke
+      - Andreas Pettersen
+      - Mats Lillebo
+      - Emil Ødegaard
+      - Johann Kosberg
+      - Lasse Bransdal
+    coach: Tom Dent
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +179,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

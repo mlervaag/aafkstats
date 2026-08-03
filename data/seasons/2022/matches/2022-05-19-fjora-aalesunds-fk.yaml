@@ -1,0 +1,154 @@
+id: 2022-05-19-fjora-aalesunds-fk
+date: 2022-05-19
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2022
+  stage: regular_season
+  round: 1
+home:
+  clubId: fjora
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 1
+venueId: fosshaugane-campus
+neutralVenue: false
+events:
+  - minute: 13
+    type: goal
+    team: away
+    player: Isak Dybvik
+  - minute: 46
+    type: substitution
+    team: home
+    player: Jakob Thormodsen Høyland
+    playerOff: Mathias Sunde Årdal
+  - minute: 53
+    type: goal
+    team: away
+    player: Mamadou Diaw
+  - minute: 55
+    type: goal
+    team: away
+    player: Mamadou Diaw
+  - minute: 60
+    type: substitution
+    team: away
+    player: Henrik Melland
+    playerOff: Isak Dybvik
+  - minute: 60
+    type: substitution
+    team: away
+    player: Iver Krogh Hagen
+    playerOff: Besim Serbecic
+  - minute: 68
+    type: substitution
+    team: away
+    player: Eivind Strømsheim Kolve
+    playerOff: Simen Bolkan Nordli
+  - minute: 68
+    type: substitution
+    team: away
+    player: Ulrik Valderhaug Syversen
+    playerOff: Torbjørn Kallevåg
+  - minute: 80
+    type: substitution
+    team: away
+    player: Henrik Andreassen Olset
+    playerOff: Mamadou Diaw
+  - minute: 83
+    type: substitution
+    team: home
+    player: Pål Gundegjerde
+    playerOff: Jonas Torvanger
+  - minute: 89
+    type: substitution
+    team: home
+    player: Sondre Loftesnes
+    playerOff: Adam Khamurzayev
+  - minute: 90
+    type: substitution
+    team: home
+    player: Kim Andre Stokke
+    playerOff: Steffen Ljosheim
+  - minute: 90
+    type: substitution
+    team: home
+    player: Mathias Sønnesyn
+    playerOff: Ulrik Flo
+lineups:
+  home:
+    starters:
+      - Mathias Hovland
+      - Kristian Rutlin
+      - Adam Khamurzayev
+      - Eirik Stokkenes
+      - Rainer Pando
+      - Jonas Torvanger
+      - Mathias Sunde Årdal
+      - Steffen Ljosheim
+      - Andreas Lerheim Olsen
+      - Johan Svedal Flo
+      - Ulrik Flo
+    subs:
+      - Jakob Thormodsen Høyland
+      - Pål Gundegjerde
+      - Sondre Loftesnes
+      - Kim Andre Stokke
+      - Mathias Sønnesyn
+      - Håkon Wathne
+      - Tor Erik Eide
+    coach: ""
+  away:
+    starters:
+      - Michael Lansing
+      - Besim Serbecic
+      - Isak Dybvik
+      - Jeppe Arctander Moe
+      - Jørgen Hatlehol
+      - Simen Rafn
+      - Oscar Solnørdal
+      - Torbjørn Kallevåg
+      - Alexander Ammitzbøll
+      - Mamadou Diaw
+      - Simen Bolkan Nordli
+    subs:
+      - Henrik Melland
+      - Iver Krogh Hagen
+      - Eivind Strømsheim Kolve
+      - Ulrik Valderhaug Syversen
+      - Henrik Andreassen Olset
+      - Tor Erik Valderhaug Larsen
+    coach: Lars Arne Nilsen
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/fjora-vs-aalesund/1qpkkd#3860256
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3860256"
+manual: []

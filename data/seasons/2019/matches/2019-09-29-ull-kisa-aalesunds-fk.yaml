@@ -11,13 +11,122 @@ competition:
 home:
   clubId: ull-kisa
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: jessheim-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 13
+    type: goal
+    team: away
+    player: Pape Habib Gueye
+    assist: Andreas Lie
+  - minute: 19
+    type: substitution
+    team: away
+    player: Kristoffer Hay
+    playerOff: Oddbjørn Lie
+  - minute: 46
+    type: substitution
+    team: away
+    player: Niklas Castro
+    playerOff: Peter Orry Larsen
+  - minute: 53
+    type: substitution
+    team: home
+    player: Alfred Scriven
+    playerOff: Vamouti Diomande
+  - minute: 62
+    type: yellow_card
+    team: home
+    player: Espen Garnås
+  - minute: 63
+    type: goal
+    team: away
+    player: Niklas Castro
+  - minute: 67
+    type: substitution
+    team: home
+    player: Eric Kitolano
+    playerOff: Sverre Martin Torp
+  - minute: 67
+    type: substitution
+    team: home
+    player: Sakarias Opsahl
+    playerOff: Sverre Økland
+  - minute: 73
+    type: goal
+    team: home
+    player: Alfred Scriven
+    assist: Kristoffer Normann Hansen
+  - minute: 75
+    type: substitution
+    team: away
+    player: Fredrik Carlsen
+    playerOff: Wilmer Azofeifa
+  - minute: 76
+    type: yellow_card
+    team: home
+    player: Alfred Scriven
+  - minute: 86
+    type: goal
+    team: home
+    player: Espen Garnås
+    assist: Nikolas Walstad
+  - minute: 89
+    type: red_card
+    team: home
+    player: Alfred Scriven
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Stefan Hagerup
+      - Ole Kristian Langås
+      - Espen Garnås
+      - Nikolas Walstad
+      - Lars Mogstad Ranger
+      - Sverre Martin Torp
+      - Christian Aas
+      - Sverre Økland
+      - Vamouti Diomande
+      - Ole Andreas Nesset
+      - Kristoffer Normann Hansen
+    subs:
+      - Alfred Scriven
+      - Eric Kitolano
+      - Sakarias Opsahl
+      - Christoffer Gjertsen
+      - Ciise Abshir
+      - Henrik Kristiansen
+      - Vegard Kongsro
+    coach: Trond Fredriksen
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Ståle Steen Sæthre
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Jørgen Hatlehol
+      - Aron Elis Thrándarson
+      - Wilmer Azofeifa
+      - Peter Orry Larsen
+      - David Kristjan Olafsson
+      - Torbjørn Agdestein
+      - Pape Habib Gueye
+    subs:
+      - Kristoffer Hay
+      - Niklas Castro
+      - Fredrik Carlsen
+      - Erikson Lima
+      - Håvard Breivik
+      - Jernade Meade
+      - Marius Berntzen
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +142,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

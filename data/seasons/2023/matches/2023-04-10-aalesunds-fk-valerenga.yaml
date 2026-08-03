@@ -11,13 +11,155 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: valerenga
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 6876
+referee: Kristoffer Hagenes
+events:
+  - minute: 27
+    type: yellow_card
+    team: home
+    player: Bjørn Martin Kristensen
+  - minute: 43
+    type: yellow_card
+    team: away
+    player: Leonard Zuta
+  - minute: 46
+    type: substitution
+    team: away
+    player: Petter Strand
+    playerOff: Fredrik Oldrup Jensen
+  - minute: 56
+    type: yellow_card
+    team: home
+    player: Ole Kolskogen
+  - minute: 62
+    type: substitution
+    team: home
+    player: Moses Ebiye
+    playerOff: Bjørn Martin Kristensen
+  - minute: 62
+    type: substitution
+    team: home
+    player: Isaac Atanga
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 67
+    type: substitution
+    team: away
+    player: Seedy Jatta
+    playerOff: Torgeir Børven
+  - minute: 67
+    type: substitution
+    team: away
+    player: Mohamed Ofkir
+    playerOff: Jacob Eng
+  - minute: 73
+    type: substitution
+    team: away
+    player: Magnus Bech Riisnæs
+    playerOff: Odin Thiago Holm
+  - minute: 79
+    type: goal
+    team: away
+    player: Daniel Håkans
+    assist: Henrik Rørvik Bjørdal
+  - minute: 82
+    type: substitution
+    team: home
+    player: Alexander Stølås
+    playerOff: Trace Murray
+  - minute: 82
+    type: substitution
+    team: home
+    player: Kasper Lunding
+    playerOff: Jeppe Arctander Moe
+  - minute: 82
+    type: substitution
+    team: home
+    player: Kristoffer Barmen
+    playerOff: Markus Seehusen Karlsbakk
+  - minute: 86
+    type: substitution
+    team: away
+    player: Simen Kristiansen Juklerød
+    playerOff: Daniel Håkans
+  - minute: 90
+    stoppage: 6
+    type: yellow_card
+    team: home
+    player: Alexander Munksgaard
+lineups:
+  home:
+    formation: 3-4-2-1
+    starters:
+      - Sten Michael Grytebust
+      - Ole Kolskogen
+      - David Fällman
+      - Jeppe Arctander Moe
+      - Alexander Munksgaard
+      - Trace Murray
+      - Amidou Diop
+      - Nikolai Hopland
+      - Kristoffer Ødemarksbakken
+      - Markus Seehusen Karlsbakk
+      - Bjørn Martin Kristensen
+    subs:
+      - Moses Ebiye
+      - Isaac Atanga
+      - Alexander Stølås
+      - Kristoffer Barmen
+      - Kasper Lunding
+      - Michael Lansing
+      - Erlend Segberg
+      - Henrik Melland
+      - Kristoffer Strand Ødven
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-3-3
+    starters:
+      - Magnus Smelhus Sjøeng
+      - Vegar Eggen Hedenstad
+      - Henrik Heggheim
+      - Stefan Strandberg
+      - Leonard Zuta
+      - Henrik Rørvik Bjørdal
+      - Fredrik Oldrup Jensen
+      - Odin Thiago Holm
+      - Daniel Håkans
+      - Torgeir Børven
+      - Jacob Eng
+    subs:
+      - Petter Strand
+      - Mohamed Ofkir
+      - Seedy Jatta
+      - Magnus Bech Riisnæs
+      - Simen Kristiansen Juklerød
+      - Jacob Storevik
+      - Aaron Kiil Olsen
+      - Aleksander Hammer Kjelsen
+    coach: Dag-Eilev Fagermo
+stats:
+  home:
+    possession: 46
+    shots: 13
+    shotsOnTarget: 5
+    corners: 3
+    fouls: 12
+    offsides: 0
+    xg: 0.94
+  away:
+    possession: 54
+    shots: 9
+    shotsOnTarget: 3
+    corners: 2
+    fouls: 10
+    offsides: 1
+    xg: 0.6
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +175,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,129 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: viking
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 6197
+events:
+  - minute: 29
+    type: substitution
+    team: away
+    player: Zymer Bytyqi
+    playerOff: Yann-Erik de Lanlay
+  - minute: 35
+    type: yellow_card
+    team: home
+    player: Peter Orry Larsen
+  - minute: 44
+    type: goal
+    team: away
+    player: Suleiman Abdullahi
+    assist: Veton Berisha
+  - minute: 65
+    type: substitution
+    team: away
+    player: Jon Dadi Bödvarsson
+    playerOff: Suleiman Abdullahi
+  - minute: 70
+    type: goal
+    team: away
+    player: Veton Berisha
+    assist: Samuel Adegbenro
+  - minute: 71
+    type: substitution
+    team: home
+    player: Carl Björk
+    playerOff: Mostafa Abdellaoue
+  - minute: 72
+    type: goal
+    team: away
+    player: Veton Berisha
+  - minute: 75
+    type: yellow_card
+    team: away
+    player: Karol Mets
+  - minute: 76
+    type: substitution
+    team: home
+    player: Sondre Brunstad Fet
+    playerOff: Peter Orry Larsen
+  - minute: 78
+    type: substitution
+    team: away
+    player: Joackim Jørgensen
+    playerOff: Samuel Adegbenro
+  - minute: 85
+    type: goal
+    team: away
+    player: Jon Dadi Bödvarsson
+  - minute: 87
+    type: substitution
+    team: home
+    player: Daniel Gretarsson
+    playerOff: Oddbjørn Lie
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Akeem Latifu
+      - Mikael Dyrestam
+      - Tero Mäntylä
+      - Oddbjørn Lie
+      - Peter Orry Larsen
+      - Michael Barrantes
+      - Sakari Mattila
+      - Henrik Rørvik Bjørdal
+      - Mostafa Abdellaoue
+      - Leke James
+    subs:
+      - Carl Björk
+      - Sondre Brunstad Fet
+      - Daniel Gretarsson
+      - Edvard Skagestad
+      - Jo Nymo Matland
+      - Thomas Skog Martinussen
+      - Vebjørn Hoff
+    coach: Trond Fredriksen
+  away:
+    formation: 4-4-2
+    starters:
+      - Iven Austbø
+      - André Danielsen
+      - Indridi Sigurdsson
+      - Anthony J. Soares
+      - Kristoffer Haugen
+      - Samuel Adegbenro
+      - Makhtar Thioune
+      - Karol Mets
+      - Yann-Erik de Lanlay
+      - Suleiman Abdullahi
+      - Veton Berisha
+    subs:
+      - Zymer Bytyqi
+      - Jon Dadi Bödvarsson
+      - Joackim Jørgensen
+      - Arild Østbø
+      - Magne Hoseth
+      - Steinthor Freyr Thorsteinsson
+      - Vidar Nisja
+    coach: Kjell Jonevret
+stats:
+  home:
+    possession: 63
+    shots: 14
+    shotsOnTarget: 4
+    corners: 9
+  away:
+    possession: 37
+    shots: 10
+    shotsOnTarget: 7
+    corners: 4
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +149,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

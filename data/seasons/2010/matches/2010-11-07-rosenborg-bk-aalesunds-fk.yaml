@@ -1,0 +1,148 @@
+id: 2010-11-07-rosenborg-bk-aalesunds-fk
+date: 2010-11-07
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2010
+  stage: regular_season
+  round: 30
+home:
+  clubId: rosenborg-bk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+venueId: lerkendal-stadion
+neutralVenue: false
+events:
+  - minute: 22
+    type: goal
+    team: away
+    player: Michael Barrantes
+  - minute: 27
+    type: yellow_card
+    team: away
+    player: Jonathan Parr
+  - minute: 37
+    type: goal
+    team: home
+    player: Mikael Dorsin
+  - minute: 41
+    type: substitution
+    team: away
+    player: Alexander Mathisen
+    playerOff: Pablo Herrera
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Tor Hogne Aarøy
+  - minute: 53
+    type: yellow_card
+    team: home
+    player: Mattias Bjärsmyr
+  - minute: 55
+    type: goal
+    team: home
+    player: Rade Prica
+  - minute: 66
+    type: substitution
+    team: home
+    player: Roar Strand
+    playerOff: Markus Henriksen
+  - minute: 78
+    type: substitution
+    team: home
+    player: Bakary Sare
+    playerOff: Per Ciljan Skjelbred
+  - minute: 78
+    type: substitution
+    team: away
+    player: Trond Fredriksen
+    playerOff: Fredrik Carlsen
+  - minute: 87
+    type: substitution
+    team: away
+    player: Magnus Sylling Olsen
+    playerOff: Jonathan Parr
+  - minute: 89
+    type: goal
+    team: away
+    player: Magnus Sylling Olsen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Daniel Örlund
+      - Mikael Lustig
+      - Mattias Bjärsmyr
+      - Vadim Demidov
+      - Mikael Dorsin
+      - Markus Henriksen
+      - Anthony Annan
+      - Per Ciljan Skjelbred
+      - Morten Moldskred
+      - Rade Prica
+      - Steffen Iversen
+    subs:
+      - Roar Strand
+      - Bakary Sare
+      - Erik Bråthen
+      - Fredrik Winsnes
+      - Michael Kleppe Jamtfall
+      - Simen Wangberg
+      - Trond Olsen
+    coach: Nils Arne Eggen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Anders Lindegaard
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Ville Jalasto
+      - Peter Orry Larsen
+      - Fredrik Carlsen
+      - Pablo Herrera
+      - Michael Barrantes
+      - Jonathan Parr
+      - Tor Hogne Aarøy
+    subs:
+      - Alexander Mathisen
+      - Trond Fredriksen
+      - Magnus Sylling Olsen
+      - Amund Skiri
+      - Didrik Fløtre
+      - Lars Fuhre
+      - Sten Michael Grytebust
+    coach: Kjetil Rekdal
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-rosenborg/2caf6d#762072
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "762072"
+manual: []

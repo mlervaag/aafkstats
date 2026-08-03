@@ -11,13 +11,133 @@ competition:
 home:
   clubId: floro
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: floroe-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 31
+    type: goal
+    team: away
+    player: Holmbert Aron Fridjonsson
+  - minute: 40
+    type: yellow_card
+    team: away
+    player: Fredrik Carlsen
+  - minute: 41
+    type: substitution
+    team: home
+    player: Simen Reksten Solheim
+    playerOff: Oliver Rotihaug
+  - minute: 46
+    type: substitution
+    team: away
+    player: Nikola Tkalcic
+    playerOff: Erikson Lima
+  - minute: 47
+    type: goal
+    team: away
+    player: Holmbert Aron Fridjonsson
+    assist: Sondre Brunstad Fet
+  - minute: 48
+    type: yellow_card
+    team: away
+    player: Kaj Ramsteijn
+  - minute: 56
+    type: penalty_goal
+    team: home
+    player: Stefan Aase
+  - minute: 63
+    type: goal
+    team: away
+    player: Ståle Steen Sæthre
+    assist: Andreas Lie
+  - minute: 65
+    type: substitution
+    team: away
+    player: Pape Habib Gueye
+    playerOff: Torbjørn Agdestein
+  - minute: 75
+    type: penalty_goal
+    team: away
+    player: Holmbert Aron Fridjonsson
+  - minute: 76
+    type: substitution
+    team: home
+    player: Patrik Johannesen
+    playerOff: Vegard Savland
+  - minute: 78
+    type: substitution
+    team: away
+    player: Bjørn Helge Riise
+    playerOff: Sondre Brunstad Fet
+  - minute: 80
+    type: substitution
+    team: home
+    player: Lorent Callaku
+    playerOff: Stefan Aase
+  - minute: 85
+    type: yellow_card
+    team: home
+    player: Christer Husa
+  - minute: 88
+    type: yellow_card
+    team: home
+    player: Andre Reksten
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Pape Habib Gueye
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Jacob Storevik
+      - Andre Reksten
+      - Vegard Gjermundstad
+      - Christer Husa
+      - Oliver Rotihaug
+      - Stefan Aase
+      - Halvor Solheim Olsen
+      - Peter Aase
+      - Otar Javashvili
+      - Vegard Savland
+      - Erik Eikeng
+    subs:
+      - Simen Reksten Solheim
+      - Patrik Johannesen
+      - Lorent Callaku
+      - Alioune Ndour
+      - Moses Dyer
+      - Renze Fij
+      - Torje Naustdal
+    coach: Terje Rognsø
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Jonas Grønner
+      - Oddbjørn Lie
+      - Erikson Lima
+      - Ståle Steen Sæthre
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Sondre Brunstad Fet
+      - Torbjørn Agdestein
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Nikola Tkalcic
+      - Pape Habib Gueye
+      - Bjørn Helge Riise
+      - Adam Örn Arnarson
+      - Håvard Breivik
+      - Jørgen Hatlehol
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +153,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

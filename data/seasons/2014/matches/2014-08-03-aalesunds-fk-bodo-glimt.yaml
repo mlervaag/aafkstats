@@ -11,13 +11,104 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: bodo-glimt
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 6747
+events:
+  - minute: 36
+    type: substitution
+    team: away
+    player: Anders Karlsen
+    playerOff: Thomas Jacobsen
+  - minute: 45
+    type: goal
+    team: home
+    player: Michael Barrantes
+    assist: Peter Orry Larsen
+  - minute: 60
+    type: goal
+    team: home
+    player: Leke James
+    assist: Peter Orry Larsen
+  - minute: 71
+    type: substitution
+    team: home
+    player: Torbjoern Grytten
+    playerOff: Michael Barrantes
+  - minute: 75
+    type: substitution
+    team: away
+    player: Moustapha Ndiaye
+    playerOff: Dane Richards
+  - minute: 83
+    type: substitution
+    team: home
+    player: Henrik Roervik Bjoerdal
+    playerOff: Peter Orry Larsen
+  - minute: 83
+    type: own_goal
+    team: away
+    player: Sten Michael Grytebust
+  - minute: 86
+    type: yellow_card
+    team: away
+    player: Moustapha Ndiaye
+  - minute: 90
+    type: substitution
+    team: home
+    player: Jo Nymo Matland
+    playerOff: Mostafa Abdellaoue
+lineups:
+  home:
+    formation: 4-3-1-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Mikael Dyrestam
+      - Oddbjoern Lie
+      - Fredrik Ulvestad
+      - Sakari Mattila
+      - Peter Orry Larsen
+      - Michael Barrantes
+      - Mostafa Abdellaoue
+      - Leke James
+    subs:
+      - Torbjoern Grytten
+      - Henrik Roervik Bjoerdal
+      - Jo Nymo Matland
+      - Vebjoern Hoff
+      - Andreas Lie
+      - Thomas Skog Martinussen
+      - Elias Dahlberg
+    coach: Jan Joensson
+  away:
+    formation: 4-3-3
+    starters:
+      - Pavel Londak
+      - Brede Mathias Moe
+      - Vieux Yakhya Sane
+      - Thomas Braaten
+      - Kristian Brix
+      - Thomas Jacobsen
+      - Dominic Chatto
+      - Pape Alioune Ndiaye
+      - Dane Richards
+      - Abdurahim Laajab
+      - Trond Olsen
+    subs:
+      - Anders Karlsen
+      - Moustapha Ndiaye
+      - Lasse Staw
+      - Ulrik Saltnes
+      - Ulrik Berglann
+      - Morten Konradsen
+    coach: Jan Halvor Halvorsen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +124,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

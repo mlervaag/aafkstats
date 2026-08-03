@@ -11,13 +11,122 @@ competition:
 home:
   clubId: sandefjord
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: komplett-no-arena
 neutralVenue: false
-events: []
+attendance: 4613
+events:
+  - minute: 40
+    type: yellow_card
+    team: away
+    player: Tero Mäntylä
+  - minute: 53
+    type: goal
+    team: home
+    player: Geir Ludvig Fevang
+    assist: Kristoffer Normann Hansen
+  - minute: 63
+    type: substitution
+    team: away
+    player: Torbjørn Grytten
+    playerOff: Peter Orry Larsen
+  - minute: 70
+    type: substitution
+    team: away
+    player: Jo Nymo Matland
+    playerOff: Tero Mäntylä
+  - minute: 71
+    type: goal
+    team: away
+    player: Mostafa Abdellaoue
+  - minute: 76
+    type: yellow_card
+    team: away
+    player: Oddbjørn Lie
+  - minute: 81
+    type: yellow_card
+    team: home
+    player: Mads Pedersen
+  - minute: 83
+    type: substitution
+    team: home
+    player: Kjell Rune Sellin
+    playerOff: Kristoffer Normann Hansen
+  - minute: 85
+    type: substitution
+    team: away
+    player: Edvard Skagestad
+    playerOff: Mostafa Abdellaoue
+  - minute: 89
+    type: goal
+    team: away
+    player: Michael Barrantes
+    assist: Henrik Rørvik Bjørdal
+  - minute: 90
+    type: penalty_goal
+    team: away
+    player: Sakari Mattila
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Michael Tørnes
+      - Kevin Larsen
+      - Christer Reppesgård Hansen
+      - Alexander Gabrielsen
+      - Victor Demba Bindia
+      - Geir Ludvig Fevang
+      - Mads Pedersen
+      - Erik Mjelde
+      - Kristoffer Normann Hansen
+      - Pål Alexander Kirkevold
+      - Cheikhou Dieng
+    subs:
+      - Kjell Rune Sellin
+      - Andre Sødlund
+      - Jakob Busk
+      - Jean Alassane Mendy
+      - Sverre Martin Torp
+      - Thomas Juel-Nielsen
+      - Yaw-Ihle Amankwah
+    coach: Lars Bohinen
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Mikael Dyrestam
+      - Tero Mäntylä
+      - Oddbjørn Lie
+      - Michael Barrantes
+      - Peter Orry Larsen
+      - Sakari Mattila
+      - Henrik Rørvik Bjørdal
+      - Mostafa Abdellaoue
+      - Leke James
+    subs:
+      - Torbjørn Grytten
+      - Jo Nymo Matland
+      - Edvard Skagestad
+      - Andreas Lie
+      - Daniel Gretarsson
+      - Thomas Skog Martinussen
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 46
+    shots: 14
+    shotsOnTarget: 4
+    corners: 2
+  away:
+    possession: 54
+    shots: 14
+    shotsOnTarget: 10
+    corners: 6
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +142,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

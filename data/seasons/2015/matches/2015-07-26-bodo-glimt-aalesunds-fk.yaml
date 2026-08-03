@@ -11,13 +11,110 @@ competition:
 home:
   clubId: bodo-glimt
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: aspmyra-stadion
 neutralVenue: false
-events: []
+attendance: 4051
+events:
+  - minute: 39
+    type: yellow_card
+    team: away
+    player: Jo Nymo Matland
+  - minute: 56
+    type: substitution
+    team: away
+    player: Vebjørn Hoff
+    playerOff: Henrik Rørvik Bjørdal
+  - minute: 63
+    type: goal
+    team: home
+    player: Badou Ndiaye
+  - minute: 68
+    type: substitution
+    team: away
+    player: Carl Björk
+    playerOff: Mostafa Abdellaoue
+  - minute: 74
+    type: substitution
+    team: away
+    player: Thomas Skog Martinussen
+    playerOff: Sakari Mattila
+  - minute: 82
+    type: substitution
+    team: home
+    player: Morten Konradsen
+    playerOff: Badou Ndiaye
+  - minute: 88
+    type: substitution
+    team: home
+    player: Danny Cruz
+    playerOff: Fitim Azemi
+  - minute: 90
+    type: substitution
+    team: home
+    player: Anders Karlsen
+    playerOff: Henrik Furebotn
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Pavel Londak
+      - Zarek Valentin
+      - Brede Mathias Moe
+      - Yaya Sané
+      - Thomas Jacobsen
+      - Henrik Furebotn
+      - Dominic Chatto
+      - Badou Ndiaye
+      - Fitim Azemi
+      - Alexander Sørloth
+      - Trond Olsen
+    subs:
+      - Morten Konradsen
+      - Danny Cruz
+      - Anders Karlsen
+      - Daniel Edvardsen
+      - Jonas Ueland Kolstad
+      - Kristian Brix
+      - Ulrik Saltnes
+    coach: Jan Halvor Halvorsen
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Edvard Skagestad
+      - Mikael Dyrestam
+      - Jo Nymo Matland
+      - Bjørn Helge Riise
+      - Peter Orry Larsen
+      - Sakari Mattila
+      - Aron Elis Thrándarson
+      - Mostafa Abdellaoue
+      - Henrik Rørvik Bjørdal
+    subs:
+      - Vebjørn Hoff
+      - Carl Björk
+      - Thomas Skog Martinussen
+      - Andreas Lie
+      - Fredrik Carlsen
+      - Tero Mäntylä
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 47
+    shots: 19
+    shotsOnTarget: 5
+    corners: 6
+  away:
+    possession: 53
+    shots: 8
+    shotsOnTarget: 2
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +130,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

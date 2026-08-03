@@ -11,13 +11,123 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: viking
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5480
+referee: Kristoffer Hagenes
+events:
+  - minute: 13
+    type: goal
+    team: away
+    player: Tommy Høiland
+    assist: André Danielsen
+  - minute: 31
+    type: yellow_card
+    team: away
+    player: Ross Jenkins
+  - minute: 51
+    type: yellow_card
+    team: away
+    player: Rasmus Martinsen
+  - minute: 55
+    type: yellow_card
+    team: away
+    player: Samuel Adegbenro
+  - minute: 66
+    type: substitution
+    team: away
+    player: Steffen Ernemann
+    playerOff: Samuel Adegbenro
+  - minute: 68
+    type: substitution
+    team: home
+    player: Aron Elis Thrándarson
+    playerOff: Sondre Brunstad Fet
+  - minute: 79
+    type: yellow_card
+    team: home
+    player: Daniel Gretarsson
+  - minute: 81
+    type: substitution
+    team: away
+    player: Mathias Bringaker
+    playerOff: Tommy Høiland
+  - minute: 88
+    type: yellow_card
+    team: home
+    player: Bjørn Helge Riise
+  - minute: 90
+    type: goal
+    team: home
+    player: Athanassios Papazoglou
+    assist: Daniel Gretarsson
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Bjørn Helge Riise
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Fredrik Carlsen
+      - Vebjørn Hoff
+      - Sondre Brunstad Fet
+      - Athanassios Papazoglou
+      - Mostafa Abdellaoue
+    subs:
+      - Aron Elis Thrándarson
+      - Adam Örn Arnarson
+      - Jan Lennart Urke
+      - Joakim Barstad
+      - Jørgen Hatlehol
+      - Marlinho
+      - Valmir Berisha
+    coach: Trond Fredriksen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Iven Austbø
+      - Claes Kronberg
+      - Sime Gregov
+      - Rasmus Martinsen
+      - Kristoffer Haugen
+      - André Danielsen
+      - Julian Ryerson
+      - Ross Jenkins
+      - Samuel Adegbenro
+      - Fredrik Torsteinbø
+      - Tommy Høiland
+    subs:
+      - Steffen Ernemann
+      - Mathias Bringaker
+      - Amund Wichne
+      - Jose Manuel Cruz
+      - Tor André Aasheim
+      - Usmani Sale
+      - Zymer Bytyqi
+    coach: Ian Burchnall
+stats:
+  home:
+    possession: 55
+    shots: 13
+    shotsOnTarget: 4
+    corners: 6
+    fouls: 14
+    offsides: 0
+  away:
+    possession: 45
+    shots: 8
+    shotsOnTarget: 1
+    corners: 1
+    fouls: 10
+    offsides: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +143,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

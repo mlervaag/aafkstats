@@ -11,13 +11,105 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: notodden
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 32
+    type: goal
+    team: home
+    player: Robert Sandnes
+    assist: Adam Örn Arnarson
+  - minute: 60
+    type: substitution
+    team: home
+    player: Sondre Brunstad Fet
+    playerOff: Erikson Lima
+  - minute: 63
+    type: substitution
+    team: away
+    player: Josh Robson
+    playerOff: Erlend Hustad
+  - minute: 67
+    type: substitution
+    team: away
+    player: Amani Dickson Mbedule
+    playerOff: Even Parkstad Johansen
+  - minute: 71
+    type: goal
+    team: home
+    player: Torbjørn Agdestein
+    assist: Aron Elis Thrándarson
+  - minute: 74
+    type: substitution
+    team: home
+    player: Jørgen Hatlehol
+    playerOff: Robert Sandnes
+  - minute: 80
+    type: own_goal
+    team: home
+    player: Jonathan Asp
+  - minute: 82
+    type: substitution
+    team: away
+    player: Kjetil Holand Tøsse
+    playerOff: Pipo Ferreira
+  - minute: 84
+    type: substitution
+    team: home
+    player: Håvard Breivik
+    playerOff: Kaj Ramsteijn
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Sonni Nattestad
+      - Oddbjørn Lie
+      - Adam Örn Arnarson
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Erikson Lima
+      - Robert Sandnes
+      - Torbjørn Agdestein
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Sondre Brunstad Fet
+      - Jørgen Hatlehol
+      - Håvard Breivik
+      - Emil Solnørdal
+      - Jørgen Fylling
+      - Pape Habib Gueye
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
+  away:
+    formation: 4-3-3
+    starters:
+      - Jonathan Johansson
+      - Even Parkstad Johansen
+      - Steffen Jenssen
+      - Michael Ledger
+      - Jonathan Asp
+      - Pipo Ferreira
+      - Henrik Gustavsen
+      - Martin Holmen
+      - Martin Brekke
+      - Erlend Hustad
+      - Erik Midtgarden
+    subs:
+      - Josh Robson
+      - Amani Dickson Mbedule
+      - Kjetil Holand Tøsse
+      - Andreas Hoven
+      - Espen Vasby
+      - Jeffrey Perez
+      - Martin Strange
+    coach: Kenneth Dokken
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +125,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

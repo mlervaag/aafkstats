@@ -11,13 +11,122 @@ competition:
 home:
   clubId: sk-brann
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: brann-stadion
 neutralVenue: false
-events: []
+attendance: 12019
+referee: Ola Hobber Nilsen
+events:
+  - minute: 34
+    type: own_goal
+    team: home
+    player: Kaj Ramsteijn
+  - minute: 40
+    type: yellow_card
+    team: home
+    player: Sivert Heltne Nilsen
+  - minute: 40
+    type: yellow_card
+    team: away
+    player: Andreas Lie
+  - minute: 52
+    type: yellow_card
+    team: home
+    player: Daniel Omoya Braaten
+  - minute: 74
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Aron Elis Thrándarson
+  - minute: 81
+    type: goal
+    team: away
+    player: Edwin Gyasi
+    assist: Fredrik Carlsen
+  - minute: 82
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Kristoffer Barmen
+  - minute: 83
+    type: red_card
+    team: home
+    player: Sivert Heltne Nilsen
+  - minute: 86
+    type: substitution
+    team: away
+    player: Oddbjørn Lie
+    playerOff: Vebjørn Hoff
+  - minute: 90
+    type: substitution
+    team: home
+    player: Azar Karadas
+    playerOff: Jakob Orlov
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Piotr Leciejewski
+      - Amin Nouri
+      - Vito Wormgoor
+      - Bismark Acosta
+      - Ruben Kristiansen
+      - Fredrik Haugen
+      - Sivert Heltne Nilsen
+      - Kristoffer Barmen
+      - Daniel Omoya Braaten
+      - Jakob Orlov
+      - Gilli Rolantsson
+    subs:
+      - Peter Orry Larsen
+      - Azar Karadas
+      - Alex Horwath
+      - Deyver Vega
+      - Jonas Grønner
+      - Steffen Lie Skålevik
+      - Torgeir Børven
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Daniel Gretarsson
+      - Kaj Ramsteijn
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Vebjørn Hoff
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Lars Veldwijk
+      - Mostafa Abdellaoue
+    subs:
+      - Sondre Brunstad Fet
+      - Oddbjørn Lie
+      - Jørgen Hatlehol
+      - Marlinho
+      - Pål Vestly Heigre
+      - Valmir Berisha
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 50
+    shots: 15
+    shotsOnTarget: 5
+    corners: 15
+    fouls: 11
+    offsides: 4
+  away:
+    possession: 50
+    shots: 11
+    shotsOnTarget: 5
+    corners: 4
+    fouls: 6
+    offsides: 0
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +142,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

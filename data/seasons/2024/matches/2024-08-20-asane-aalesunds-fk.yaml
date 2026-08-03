@@ -11,13 +11,148 @@ competition:
 home:
   clubId: asane
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: asane-arena
 neutralVenue: false
-events: []
+attendance: 768
+referee: Ole-Alexander Ekeli Valen
+events:
+  - minute: 21
+    type: missed_penalty
+    team: home
+    player: Kristoffer Barmen
+  - minute: 22
+    type: goal
+    team: home
+    player: Ole Kallevåg
+    assist: Dennis Møller Wolfe
+  - minute: 53
+    type: substitution
+    team: home
+    player: Erling Myklebust
+    playerOff: Sebastian Heimvik Haugland
+  - minute: 53
+    type: substitution
+    team: home
+    player: Steffen Lie Skålevik
+    playerOff: Efe Lucky
+  - minute: 59
+    type: substitution
+    team: away
+    player: Moctar Diop
+    playerOff: Martin Ramsland
+  - minute: 59
+    type: substitution
+    team: away
+    player: John Kitolano
+    playerOff: Thomas Grøgaard
+  - minute: 59
+    type: substitution
+    team: away
+    player: Bjørn Martin Kristensen
+    playerOff: Claudio Braga
+  - minute: 73
+    type: substitution
+    team: home
+    player: Stian Bogetveit Nygard
+    playerOff: Emil Sildnes
+  - minute: 75
+    type: yellow_card
+    team: home
+    player: Steffen Lie Skålevik
+  - minute: 78
+    type: substitution
+    team: away
+    player: Sander Hestetun Kilen
+    playerOff: Janus Seehusen
+  - minute: 78
+    type: substitution
+    team: away
+    player: Eivind Strømsheim Kolve
+    playerOff: Marcus Rafferty
+  - minute: 79
+    type: goal
+    team: home
+    player: Erling Myklebust
+    assist: Steffen Lie Skålevik
+  - minute: 82
+    type: red_card
+    team: home
+    player: Steffen Lie Skålevik
+  - minute: 86
+    type: substitution
+    team: home
+    player: Magnus Nybakken Bruun-Hanssen
+    playerOff: Ole Kallevåg
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Eivind Strømsheim Kolve
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sebastian Selin
+      - Kristoffer Barmen
+      - Eirik Wollen Steen
+      - Patrick André Wik
+      - Dennis Møller Wolfe
+      - Didrik Fredriksen
+      - Ole Kallevåg
+      - Emil Sildnes
+      - Knut Haga
+      - Efe Lucky
+      - Sebastian Heimvik Haugland
+    subs:
+      - Erling Myklebust
+      - Steffen Lie Skålevik
+      - Stian Bogetveit Nygard
+      - Magnus Nybakken Bruun-Hanssen
+      - Oliver Andreas Madsen
+      - Martin Ueland
+      - Sander Strand
+      - Thomas Lotsberg
+      - Jon Berisha
+    coach: Eirik Bakke
+  away:
+    formation: 3-5-2
+    starters:
+      - Tor Erik Valderhaug Larsen
+      - Sam Rogers
+      - Mads Nielsen
+      - Nikolai Hopland
+      - David Snær Johannsson
+      - Marcus Rafferty
+      - Håkon Butli Hammer
+      - Janus Seehusen
+      - Thomas Grøgaard
+      - Martin Ramsland
+      - Claudio Braga
+    subs:
+      - John Kitolano
+      - Bjørn Martin Kristensen
+      - Moctar Diop
+      - Eivind Strømsheim Kolve
+      - Sander Hestetun Kilen
+      - Sondre Midthjell
+      - Simen Haram
+      - Vinko Medimorec
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 44
+    shots: 7
+    shotsOnTarget: 2
+    corners: 3
+  away:
+    possession: 56
+    shots: 14
+    shotsOnTarget: 5
+    corners: 12
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +168,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

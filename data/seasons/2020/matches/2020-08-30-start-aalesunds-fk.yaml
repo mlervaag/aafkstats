@@ -11,13 +11,132 @@ competition:
 home:
   clubId: start
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: sparebanken-sor-arena
 neutralVenue: false
-events: []
+attendance: 200
+referee: Dag Vidar Hafsaas
+events:
+  - minute: 29
+    type: goal
+    team: home
+    player: Isaac Twum
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Joackim Jørgensen
+  - minute: 46
+    type: substitution
+    team: home
+    player: Espen Børufsen
+    playerOff: Mikael Ugland
+  - minute: 62
+    type: substitution
+    team: away
+    player: Simen Bolkan Nordli
+    playerOff: Isak Dybvik
+  - minute: 62
+    type: substitution
+    team: away
+    player: Erikson Lima
+    playerOff: Parfait Bizoza
+  - minute: 67
+    type: substitution
+    team: home
+    player: Erlend Segberg
+    playerOff: Joackim Jørgensen
+  - minute: 83
+    type: substitution
+    team: away
+    player: Shaquill Sno
+    playerOff: Jørgen Hatlehol
+  - minute: 83
+    type: substitution
+    team: home
+    player: Henrik Robstad
+    playerOff: Kristoffer Toennessen
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Jonas Grønner
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Espen Børufsen
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Kevin Kabran
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Jonas Deumeland
+      - Eirik Wichne
+      - Vegard Bergan
+      - Jesper Daland
+      - Kristoffer Toennessen
+      - Isaac Twum
+      - Joackim Jørgensen
+      - Eirik Schulze
+      - Kasper Skaanes
+      - Kevin Kabran
+      - Mikael Ugland
+    subs:
+      - Espen Børufsen
+      - Erlend Segberg
+      - Henrik Robstad
+      - Adeleke Akinyemi
+      - Amund Wichne
+      - Eman Markovic
+      - Johannes Eftevaag
+      - Steffen Lie Skålevik
+    coach: Johannes Hardarson
+  away:
+    formation: 4-3-3
+    starters:
+      - Andreas Lie
+      - Jørgen Hatlehol
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - David Kristjan Olafsson
+      - Niklas Castro
+      - Fredrik Carlsen
+      - Parfait Bizoza
+      - Sigurd Haugen
+      - Holmbert Aron Fridjonsson
+      - Isak Dybvik
+    subs:
+      - Erikson Lima
+      - Simen Bolkan Nordli
+      - Shaquill Sno
+      - Daan Klinkenberg
+      - Gudmund Taksdal Kongshavn
+      - Izunna Uzochukwu
+      - Markus Seehusen Karlsbakk
+      - Oddbjørn Lie
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 48
+    shots: 15
+    shotsOnTarget: 4
+    corners: 7
+    fouls: 14
+    offsides: 0
+    xg: 1.38
+  away:
+    possession: 52
+    shots: 11
+    shotsOnTarget: 4
+    corners: 0
+    fouls: 13
+    offsides: 0
+    xg: 0.56
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +152,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

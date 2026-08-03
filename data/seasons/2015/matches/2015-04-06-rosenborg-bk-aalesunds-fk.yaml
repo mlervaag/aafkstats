@@ -11,13 +11,141 @@ competition:
 home:
   clubId: rosenborg-bk
   score: 5
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 neutralVenue: false
-events: []
+attendance: 19872
+events:
+  - minute: 1
+    type: goal
+    team: home
+    player: Pål Andre Helland
+    assist: Mikael Dorsin
+  - minute: 15
+    type: goal
+    team: home
+    player: Pål Andre Helland
+  - minute: 21
+    type: yellow_card
+    team: away
+    player: Sakari Mattila
+  - minute: 42
+    type: goal
+    team: home
+    player: Alexander Søderlund
+  - minute: 46
+    type: substitution
+    team: away
+    player: Akeem Latifu
+    playerOff: Jo Nymo Matland
+  - minute: 46
+    type: substitution
+    team: away
+    player: Tero Mantyla
+    playerOff: Vebjørn Hoff
+  - minute: 60
+    type: yellow_card
+    team: home
+    player: Jonas Svensson
+  - minute: 65
+    type: substitution
+    team: home
+    player: Holmar Örn Eyjolfsson
+    playerOff: Tore Reginiussen
+  - minute: 67
+    type: substitution
+    team: away
+    player: Peter Orry Larsen
+    playerOff: Henrik Rørvik Bjørdal
+  - minute: 67
+    type: yellow_card
+    team: away
+    player: Michael Barrantes
+  - minute: 71
+    type: goal
+    team: home
+    player: Alexander Søderlund
+    assist: Riku Riski
+  - minute: 73
+    type: substitution
+    team: home
+    player: Tomas Malec
+    playerOff: Alexander Søderlund
+  - minute: 75
+    type: missed_penalty
+    team: home
+    player: Pål Andre Helland
+  - minute: 79
+    type: substitution
+    team: home
+    player: Emil Nielsen
+    playerOff: Pål Andre Helland
+  - minute: 85
+    type: goal
+    team: home
+    player: Tomas Malec
+    assist: Jonas Svensson
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - André Hansen
+      - Jonas Svensson
+      - Stefan Strandberg
+      - Tore Reginiussen
+      - Mikael Dorsin
+      - Mike Jensen
+      - Ole Kristian Selnæs
+      - Fredrik Midtsjø
+      - Pål Andre Helland
+      - Alexander Søderlund
+      - Riku Riski
+    subs:
+      - Holmar Örn Eyjolfsson
+      - Tomas Malec
+      - Emil Nielsen
+      - Alexander Lund Hansen
+      - Jørgen Skjelvik
+      - Morten Gamst Pedersen
+      - Tobias P. Mikkelsen
+    coach: Kaare Ingebrigtsen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Sten Michael Grytebust
+      - Jo Nymo Matland
+      - Edvard Skagestad
+      - Mikael Dyrestam
+      - Daniel Gretarsson
+      - Sakari Mattila
+      - Vebjørn Hoff
+      - Mostafa Abdellaoue
+      - Michael Barrantes
+      - Henrik Rørvik Bjørdal
+      - Leke James
+    subs:
+      - Akeem Latifu
+      - Tero Mantyla
+      - Peter Orry Larsen
+      - Andreas Lie
+      - Carl Björk
+      - Jørgen Hatlehol
+      - Thomas Skog Martinussen
+    coach: Harald Aabrekk
+stats:
+  home:
+    possession: 63
+    shots: 24
+    shotsOnTarget: 15
+    corners: 6
+  away:
+    possession: 37
+    shots: 8
+    shotsOnTarget: 3
+    corners: 3
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +161,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,144 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: start
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 3651
+referee: Johan William Grundt
+events:
+  - minute: 19
+    type: yellow_card
+    team: home
+    player: Jesper Gregersen
+  - minute: 30
+    type: yellow_card
+    team: away
+    player: Lukas Hjelleset Gausdal
+  - minute: 45
+    type: goal
+    team: away
+    player: Mathias Grundetjern
+  - minute: 57
+    type: yellow_card
+    team: home
+    player: Janus Seehusen
+  - minute: 58
+    type: substitution
+    team: home
+    player: Henrik Melland
+    playerOff: Jesper Gregersen
+  - minute: 58
+    type: substitution
+    team: home
+    player: David Snær Johannsson
+    playerOff: Janus Seehusen
+  - minute: 58
+    type: substitution
+    team: home
+    player: Frederik Heiselberg
+    playerOff: Claudio Braga
+  - minute: 58
+    type: substitution
+    team: home
+    player: Olafur Gudmundsson
+    playerOff: Philip Sandvik Aukland
+  - minute: 60
+    type: goal
+    team: home
+    player: Frederik Heiselberg
+    assist: David Snær Johannsson
+  - minute: 65
+    type: yellow_card
+    team: away
+    player: Steve Mvoué
+  - minute: 66
+    type: substitution
+    team: away
+    player: Tom Strannegård
+    playerOff: Lukas Hjelleset Gausdal
+  - minute: 75
+    type: yellow_card
+    team: home
+    player: Olafur Gudmundsson
+  - minute: 81
+    type: substitution
+    team: home
+    player: John Kitolano
+    playerOff: Marius Andresen
+  - minute: 85
+    type: yellow_card
+    team: away
+    player: Håkon Lorentzen
+  - minute: 87
+    type: substitution
+    team: away
+    player: Adrian Eftestad Nilsen
+    playerOff: Mikael Ugland
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Philip Sandvik Aukland
+      - Aleksander Hammer Kjelsen
+      - Marius Andresen
+      - Jesper Gregersen
+      - Håkon Butli Hammer
+      - Janus Seehusen
+      - Kristoffer Nessø
+      - Claudio Braga
+      - Paul Ngongo Iversen
+    subs:
+      - Olafur Gudmundsson
+      - David Snær Johannsson
+      - Henrik Melland
+      - Frederik Heiselberg
+      - John Kitolano
+      - Tor Erik Valderhaug Larsen
+      - Jørgen Bøe
+      - Thomas Gulbrandsen
+      - Kristian Hemmingsen Lonebu
+    coach: Kjetil Rekdal
+  away:
+    formation: 3-5-2
+    starters:
+      - Jacob Pryts
+      - Sivert Hansen
+      - Sebastian Griesbeck
+      - Omar Jebali
+      - Fredrik Mani Pålerud
+      - Mikael Ugland
+      - Steve Mvoué
+      - Lukas Hjelleset Gausdal
+      - Altin Ujkani
+      - Mathias Grundetjern
+      - Håkon Lorentzen
+    subs:
+      - Tom Strannegård
+      - Adrian Eftestad Nilsen
+      - Storm Strand-Kolbjørnsen
+      - Sondre Joergensen
+      - Emmanuel Gono
+      - Gift Sunday
+      - Terry Benjamin
+    coach: Azar Karadas
+stats:
+  home:
+    possession: 56
+    shots: 6
+    shotsOnTarget: 6
+    corners: 9
+  away:
+    possession: 44
+    shots: 9
+    shotsOnTarget: 4
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +164,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

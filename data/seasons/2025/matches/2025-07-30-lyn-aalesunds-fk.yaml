@@ -11,13 +11,138 @@ competition:
 home:
   clubId: lyn
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: bislett-stadion
 neutralVenue: false
-events: []
+referee: Johan William Grundt
+events:
+  - minute: 5
+    type: goal
+    team: away
+    player: Håkon Butli Hammer
+    assist: Mathias Christensen
+  - minute: 23
+    type: yellow_card
+    team: home
+    player: Massire Sylla
+  - minute: 32
+    type: goal
+    team: away
+    player: Elias Heggland Myrlid
+    assist: Jakob Nyland Ørsahl
+  - minute: 54
+    type: yellow_card
+    team: away
+    player: Paul Ngongo Iversen
+  - minute: 61
+    type: goal
+    team: home
+    player: Mathias Johansen
+    assist: Massire Sylla
+  - minute: 62
+    type: substitution
+    team: away
+    player: Henrik Melland
+    playerOff: Elias Heggland Myrlid
+  - minute: 63
+    type: substitution
+    team: home
+    player: Tobias Myhre
+    playerOff: Didrik Fredriksen
+  - minute: 65
+    type: yellow_card
+    team: home
+    player: Tobias Myhre
+  - minute: 67
+    type: substitution
+    team: away
+    player: Frederik Heiselberg
+    playerOff: Paul Ngongo Iversen
+  - minute: 67
+    type: substitution
+    team: away
+    player: Simen Haram
+    playerOff: John Kitolano
+  - minute: 68
+    type: goal
+    team: home
+    player: Andreas Hellum
+    assist: Salim Laghzaoui
+  - minute: 89
+    type: substitution
+    team: home
+    player: Brage Hylen
+    playerOff: Mathias Johansen
+  - minute: 90
+    stoppage: 5
+    type: substitution
+    team: away
+    player: Marius Andresen
+    playerOff: David Snær Johannsson
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Alexander Pedersen
+      - Sander Amble Haugen
+      - Massire Sylla
+      - Ådne Midtskogen
+      - Herman Solberg Nilsen
+      - Salim Laghzaoui
+      - Even Bydal
+      - Didrik Fredriksen
+      - Anders Bjørntvedt Olsen
+      - Andreas Hellum
+      - Mathias Johansen
+    subs:
+      - Tobias Myhre
+      - Brage Hylen
+      - Jesper Wold
+      - Davod Arzani
+      - Isaac Barnett
+      - Jo Stålesen
+      - William Sælid Sell
+      - Adrian Berntsen
+      - Malvin Ingebrigtsen
+    coach: Magnus Aadland
+  away:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - John Kitolano
+      - Aleksander Hammer Kjelsen
+      - Olafur Gudmundsson
+      - David Snær Johannsson
+      - Kristoffer Nessø
+      - Håkon Butli Hammer
+      - Mathias Christensen
+      - Jakob Nyland Ørsahl
+      - Paul Ngongo Iversen
+      - Elias Heggland Myrlid
+    subs:
+      - Henrik Melland
+      - Simen Haram
+      - Frederik Heiselberg
+      - Marius Andresen
+      - Tor Erik Valderhaug Larsen
+      - Erik Frøysa
+      - Kristian Hemmingsen Lonebu
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 54
+    shots: 15
+    shotsOnTarget: 4
+    corners: 8
+  away:
+    possession: 46
+    shots: 12
+    shotsOnTarget: 6
+    corners: 4
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +158,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

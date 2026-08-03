@@ -11,13 +11,115 @@ competition:
 home:
   clubId: odds-ballklubb
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: skagerak-arena
 neutralVenue: false
-events: []
+events:
+  - minute: 10
+    type: yellow_card
+    team: home
+    player: Jone Samuelsen
+  - minute: 25
+    type: goal
+    team: away
+    player: Demar Phillips
+  - minute: 36
+    type: substitution
+    team: away
+    player: Jonatan Tollås Nation
+    playerOff: Daniel Arnefjord
+  - minute: 58
+    type: goal
+    team: home
+    player: Frode Johnsen
+  - minute: 59
+    type: substitution
+    team: home
+    player: Tommy Svindal Larsen
+    playerOff: Jone Samuelsen
+  - minute: 61
+    type: yellow_card
+    team: home
+    player: Morten Fevang
+  - minute: 67
+    type: substitution
+    team: away
+    player: Fredrik Ulvestad
+    playerOff: Michael Barrantes
+  - minute: 68
+    type: substitution
+    team: home
+    player: Snorre Krogsgård
+    playerOff: Magnus Myklebust
+  - minute: 81
+    type: goal
+    team: away
+    player: Peter Orry Larsen
+  - minute: 82
+    type: substitution
+    team: home
+    player: Erik Midtgarden
+    playerOff: Magnus Lekven
+  - minute: 86
+    type: substitution
+    team: away
+    player: Amund Skiri
+    playerOff: Demar Phillips
+  - minute: 87
+    type: goal
+    team: home
+    player: Frode Johnsen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - André Hansen
+      - Steffen Hagen
+      - Torjus Hansén
+      - Morten Fevang
+      - Paul Addo
+      - Jone Samuelsen
+      - Magnus Lekven
+      - Simen Brenne
+      - Torgeir Børven
+      - Magnus Myklebust
+      - Frode Johnsen
+    subs:
+      - Tommy Svindal Larsen
+      - Snorre Krogsgård
+      - Erik Midtgarden
+      - Andreas Lie
+      - Emil Jonassen
+      - Håvard Storbæk
+      - Mattias Andersson
+    coach: Dag-Eilev Fagermo
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Ville Jalasto
+      - Daniel Arnefjord
+      - Jonathan Parr
+      - Demar Phillips
+      - Jason Morrison
+      - Peter Orry Larsen
+      - Christian Myklebust
+      - Michael Barrantes
+      - Sander Post
+    subs:
+      - Jonatan Tollås Nation
+      - Fredrik Ulvestad
+      - Amund Skiri
+      - Kjell Rune Sellin
+      - Magnus Sylling Olsen
+      - Mathias Rasmussen
+      - Solomon Okoronkwo
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +135,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

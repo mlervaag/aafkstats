@@ -11,13 +11,158 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: molde-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 10778
+referee: Mohammad Usman Aslam
+events:
+  - minute: 3
+    type: goal
+    team: away
+    player: Magnus Wolff Eikrem
+  - minute: 21
+    type: yellow_card
+    team: home
+    player: Dario Canadjija
+  - minute: 26
+    type: yellow_card
+    team: home
+    player: Petar Golubovic
+  - minute: 43
+    type: goal
+    team: away
+    player: Rafik Zekhnini
+  - minute: 46
+    type: substitution
+    team: home
+    player: Simen Bolkan Nordli
+    playerOff: Dario Canadjija
+  - minute: 50
+    type: yellow_card
+    team: away
+    player: Sivert Heggheim Mannsverk
+  - minute: 62
+    type: substitution
+    team: away
+    player: Markus André Kaasa
+    playerOff: Magnus Wolff Eikrem
+  - minute: 67
+    type: substitution
+    team: away
+    player: Eirik Haugan
+    playerOff: Martin Bjørnbak
+  - minute: 67
+    type: substitution
+    team: away
+    player: Mathis Bolly
+    playerOff: Rafik Zekhnini
+  - minute: 70
+    type: substitution
+    team: home
+    player: Alexander Ammitzbøll
+    playerOff: Alexander Juel Andersen
+  - minute: 70
+    type: substitution
+    team: home
+    player: Torbjørn Kallevåg
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 78
+    type: substitution
+    team: away
+    player: Kristoffer Haugen
+    playerOff: Erling Knudtzon
+  - minute: 84
+    type: yellow_card
+    team: away
+    player: Eirik Haugan
+  - minute: 85
+    type: substitution
+    team: home
+    player: Jeppe Arctander Moe
+    playerOff: Isak Dybvik
+  - minute: 85
+    type: substitution
+    team: home
+    player: Oscar Solnørdal
+    playerOff: Fredrik Haugen
+  - minute: 90
+    stoppage: 2
+    type: yellow_card
+    team: home
+    player: Oscar Solnørdal
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Besim Serbecic
+      - David Fällman
+      - Alexander Juel Andersen
+      - Petar Golubovic
+      - Fredrik Haugen
+      - Dario Canadjija
+      - Erikson Lima
+      - Isak Dybvik
+      - Sigurd Haugen
+      - Kristoffer Ødemarksbakken
+    subs:
+      - Simen Bolkan Nordli
+      - Alexander Ammitzbøll
+      - Torbjørn Kallevåg
+      - Jeppe Arctander Moe
+      - Oscar Solnørdal
+      - Jørgen Hatlehol
+      - Mamadou Diaw
+      - Michael Lansing
+      - Simen Rafn
+    coach: Lars Arne Nilsen
+  away:
+    formation: 3-4-3
+    starters:
+      - Jacob Karlstrøm
+      - Benjamin Hansen
+      - Martin Bjørnbak
+      - Birk Risa
+      - Martin Linnes
+      - Sivert Heggheim Mannsverk
+      - Emil Breivik
+      - Erling Knudtzon
+      - Magnus Retsius Grødem
+      - Magnus Wolff Eikrem
+      - Rafik Zekhnini
+    subs:
+      - Markus André Kaasa
+      - Eirik Haugan
+      - Mathis Bolly
+      - Kristoffer Haugen
+      - David Datro Fofana
+      - Johan Bakke
+      - Mathias Fjørtoft Løvik
+      - Niklas Ødegård
+      - Oliver Petersen
+    coach: Erling Moe
+stats:
+  home:
+    possession: 50
+    shots: 15
+    shotsOnTarget: 0
+    corners: 5
+    fouls: 15
+    offsides: 2
+    xg: 0.79
+  away:
+    possession: 50
+    shots: 11
+    shotsOnTarget: 6
+    corners: 2
+    fouls: 12
+    offsides: 3
+    xg: 1.72
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +178,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

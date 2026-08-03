@@ -11,13 +11,151 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: sandefjord
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 600
+referee: Marius Hansen Groetta
+events:
+  - minute: 15
+    type: yellow_card
+    team: home
+    player: Daan Klinkenberg
+  - minute: 34
+    type: goal
+    team: away
+    player: Deyver Vega
+  - minute: 54
+    type: yellow_card
+    team: home
+    player: Jonas Grønner
+  - minute: 58
+    type: yellow_card
+    team: home
+    player: Sigurd Haugen
+  - minute: 61
+    type: substitution
+    team: home
+    player: Fredrik Carlsen
+    playerOff: Izunna Uzochukwu
+  - minute: 61
+    type: substitution
+    team: home
+    player: Shaquill Sno
+    playerOff: Kasper Jørgensen
+  - minute: 71
+    type: substitution
+    team: away
+    player: Mats Haakenstad
+    playerOff: Sivert Gussiås
+  - minute: 71
+    type: substitution
+    team: away
+    player: Sander Risan
+    playerOff: Brice Wembangomo
+  - minute: 79
+    type: substitution
+    team: home
+    player: Vetle Fiskerstrand
+    playerOff: Erikson Lima
+  - minute: 83
+    type: substitution
+    team: away
+    player: Joseph Michael Williams
+    playerOff: Deyver Vega
+  - minute: 88
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Fredrik Carlsen
+  - minute: 90
+    type: substitution
+    team: away
+    player: Erik Næsbak Brenden
+    playerOff: Vidar Ari Jonsson
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Marc Vales
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Emil Palsson
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Sander Risan
+lineups:
+  home:
+    formation: 5-4-1
+    starters:
+      - Andreas Lie
+      - Kasper Jørgensen
+      - Ståle Steen Sæthre
+      - Jonas Grønner
+      - Daan Klinkenberg
+      - David Kristjan Olafsson
+      - Niklas Castro
+      - Izunna Uzochukwu
+      - Parfait Bizoza
+      - Erikson Lima
+      - Sigurd Haugen
+    subs:
+      - Shaquill Sno
+      - Fredrik Carlsen
+      - Vetle Fiskerstrand
+      - Peter Orry Larsen
+      - Enock Mwimba
+      - Jørgen Hatlehol
+      - Kristoffer Strand Ødven
+      - Markus Seehusen Karlsbakk
+      - Mamadou Diaw
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Jacob Storevik
+      - Brice Wembangomo
+      - Lars Grorud
+      - Marc Vales
+      - Martin Kreuzriegler
+      - Lars Markmanrud
+      - Emil Palsson
+      - Kristoffer Normann Hansen
+      - Vidar Ari Jonsson
+      - Deyver Vega
+      - Sivert Gussiås
+    subs:
+      - Mats Haakenstad
+      - Sander Risan
+      - Joseph Michael Williams
+      - Erik Næsbak Brenden
+      - Jesper Granlund
+      - Sander Moen Foss
+      - Peder Meen Johansen
+      - William Albin Kurtovic
+    coach: Marti Cifuentes
+stats:
+  home:
+    possession: 59
+    shots: 6
+    shotsOnTarget: 4
+    corners: 3
+    fouls: 12
+    offsides: 4
+    xg: 0.42
+  away:
+    possession: 41
+    shots: 21
+    shotsOnTarget: 7
+    corners: 8
+    fouls: 12
+    offsides: 0
+    xg: 1.69
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +171,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

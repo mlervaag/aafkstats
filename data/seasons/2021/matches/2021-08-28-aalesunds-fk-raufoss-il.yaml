@@ -11,13 +11,153 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: raufoss-il
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 1349
+events:
+  - minute: 5
+    type: goal
+    team: home
+    player: Simen Bolkan Nordli
+    assist: Torbjørn Kallevåg
+  - minute: 23
+    type: goal
+    team: home
+    player: Isak Dybvik Maeaettae
+    assist: Simen Bolkan Nordli
+  - minute: 28
+    type: own_goal
+    team: home
+    player: Marius Svanberg Alm
+  - minute: 43
+    type: goal
+    team: away
+    player: Markus Seehusen Karlsbakk
+    assist: Teodor Berg Haltvik
+  - minute: 45
+    stoppage: 1
+    type: yellow_card
+    team: away
+    player: Emile Dadjo
+  - minute: 59
+    type: goal
+    team: away
+    player: Andreas Helmersen
+    assist: Marius Svanberg Alm
+  - minute: 62
+    type: goal
+    team: home
+    player: Sigurd Haugen
+    assist: Simen Bolkan Nordli
+  - minute: 64
+    type: substitution
+    team: home
+    player: Kristoffer Ødemarksbakken
+    playerOff: Isak Dybvik Maeaettae
+  - minute: 66
+    type: red_card
+    team: away
+    player: Emile Dadjo
+  - minute: 71
+    type: substitution
+    team: away
+    player: Enoch Banza
+    playerOff: Markus Aanesland
+  - minute: 78
+    type: substitution
+    team: home
+    player: Mamadou Diaw
+    playerOff: Torbjørn Kallevåg
+  - minute: 78
+    type: yellow_card
+    team: away
+    player: Marius Svanberg Alm
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: home
+    player: Henrik Melland
+    playerOff: Erikson Lima
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: home
+    player: Stian Aarønes Holte
+    playerOff: Quint Jansen
+  - minute: 90
+    stoppage: 3
+    type: yellow_card
+    team: away
+    player: Nicolai Fremstad
+  - minute: 90
+    stoppage: 3
+    type: missed_penalty
+    team: home
+    player: Sigurd Haugen
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Jørgen Hatlehol
+      - Quint Jansen
+      - David Fällman
+      - David Kristjan Olafsson
+      - Erikson Lima
+      - Erlend Segberg
+      - Isak Dybvik Maeaettae
+      - Simen Bolkan Nordli
+      - Torbjørn Kallevåg
+      - Sigurd Haugen
+    subs:
+      - Kristoffer Ødemarksbakken
+      - Mamadou Diaw
+      - Stian Aarønes Holte
+      - Henrik Melland
+      - Andreas Lie
+      - Jonas Grønner
+      - Nikolai Hopland
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-3-3
+    starters:
+      - Ole Kristian Gjefle Lauvli
+      - Sivert Westerlund
+      - Marius Svanberg Alm
+      - Nicolai Fremstad
+      - Herman Kleppa
+      - Teodor Berg Haltvik
+      - Emile Dadjo
+      - Markus Seehusen Karlsbakk
+      - Andreas Helmersen
+      - Mame Mor Ndiaye
+      - Markus Aanesland
+    subs:
+      - Enoch Banza
+      - Rino Lund Johnsen
+      - Amund Møllerhagen
+      - Tobias Sagstuen Andersen
+      - Jakob Nyland Ørsahl
+      - Mikkel Frankoch
+      - Tobias Hestad
+      - Sander Haugaard Werni
+    coach: Christian Johnsen
+stats:
+  home:
+    possession: 46
+    shots: 14
+    shotsOnTarget: 9
+    corners: 4
+  away:
+    possession: 54
+    shots: 13
+    shotsOnTarget: 10
+    corners: 7
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +173,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

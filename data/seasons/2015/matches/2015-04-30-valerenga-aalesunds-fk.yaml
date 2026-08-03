@@ -11,13 +11,123 @@ competition:
 home:
   clubId: valerenga
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: ullevaal
 neutralVenue: false
-events: []
+attendance: 8089
+events:
+  - minute: 43
+    type: goal
+    team: home
+    player: Niklas Gunnarsson
+    assist: Rasmus Lindkvist
+  - minute: 46
+    type: substitution
+    team: home
+    player: Markus Nakkim
+    playerOff: Kjetil Wæhler
+  - minute: 51
+    type: yellow_card
+    team: away
+    player: Leke James
+  - minute: 60
+    type: substitution
+    team: away
+    player: Carl Björk
+    playerOff: Torbjørn Grytten
+  - minute: 60
+    type: substitution
+    team: away
+    player: Vebjørn Hoff
+    playerOff: Henrik Rørvik Bjørdal
+  - minute: 62
+    type: substitution
+    team: home
+    player: Hermann Stengel
+    playerOff: Rasmus Lindkvist
+  - minute: 65
+    type: yellow_card
+    team: away
+    player: Sakari Mattila
+  - minute: 67
+    type: substitution
+    team: home
+    player: Alexander Mathisen
+    playerOff: Ruben Kristiansen
+  - minute: 76
+    type: goal
+    team: away
+    player: Leke James
+  - minute: 78
+    type: substitution
+    team: away
+    player: Edvard Skagestad
+    playerOff: Oddbjørn Lie
+  - minute: 81
+    type: goal
+    team: away
+    player: Sakari Mattila
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Michael Langer
+      - Niklas Gunnarsson
+      - Kjetil Wæhler
+      - Simon Andreas Larsen
+      - Ruben Kristiansen
+      - Christian Grindheim
+      - Sivert Heltne Nilsen
+      - Daniel Fredheim Holm
+      - Ghayas Zahid
+      - Rasmus Lindkvist
+      - Deshorn Brown
+    subs:
+      - Markus Nakkim
+      - Hermann Stengel
+      - Alexander Mathisen
+      - Daniel Omoya Braaten
+      - Elias Mar Omarsson
+      - Lars Hirschfeld
+      - Moussa Njie
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Mikael Dyrestam
+      - Tero Mäntylä
+      - Oddbjørn Lie
+      - Torbjørn Grytten
+      - Peter Orry Larsen
+      - Sakari Mattila
+      - Henrik Rørvik Bjørdal
+      - Mostafa Abdellaoue
+      - Leke James
+    subs:
+      - Carl Björk
+      - Vebjørn Hoff
+      - Edvard Skagestad
+      - Andreas Lie
+      - Daniel Gretarsson
+      - Jo Nymo Matland
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 58
+    shots: 18
+    shotsOnTarget: 5
+    corners: 8
+  away:
+    possession: 42
+    shots: 13
+    shotsOnTarget: 5
+    corners: 3
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +143,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

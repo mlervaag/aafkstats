@@ -11,13 +11,143 @@ competition:
 home:
   clubId: hamarkameratene
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: briskeby-arena
 neutralVenue: false
-events: []
+attendance: 3037
+referee: Kai Erik Steen
+events:
+  - minute: 18
+    type: yellow_card
+    team: away
+    player: Besim Serbecic
+  - minute: 31
+    type: substitution
+    team: away
+    player: Torbjørn Kallevåg
+    playerOff: Kristoffer Barmen
+  - minute: 38
+    type: substitution
+    team: away
+    player: Erikson Lima
+    playerOff: Erlend Segberg
+  - minute: 51
+    type: yellow_card
+    team: home
+    player: Oliver Sørensen
+  - minute: 73
+    type: substitution
+    team: home
+    player: Emil Sildnes
+    playerOff: Oliver Sørensen
+  - minute: 74
+    type: yellow_card
+    team: home
+    player: Aleksander Melgalvis
+  - minute: 77
+    type: substitution
+    team: home
+    player: Yuri Yakovenko
+    playerOff: Pål Alexander Kirkevold
+  - minute: 79
+    type: yellow_card
+    team: away
+    player: Sigurd Haugen
+  - minute: 81
+    type: substitution
+    team: away
+    player: Kristoffer Ødemarksbakken
+    playerOff: Simen Bolkan Nordli
+  - minute: 82
+    type: substitution
+    team: away
+    player: Simen Rafn
+    playerOff: Petar Golubovic
+  - minute: 83
+    type: substitution
+    team: away
+    player: Nikolai Hopland
+    playerOff: Fredrik Haugen
+  - minute: 85
+    type: yellow_card
+    team: home
+    player: Jonas Enkerud
+  - minute: 89
+    type: yellow_card
+    team: home
+    player: Yuri Yakovenko
+lineups:
+  home:
+    formation: 3-4-2-1
+    starters:
+      - Nicholas Hagen
+      - Halvor Rødølen Opsahl
+      - Hasan Kurucay
+      - Vetle Skjærvik
+      - Aleksander Melgalvis
+      - Oliver Sørensen
+      - Fredrik Sjølstad
+      - Vegard Kongsro
+      - Kristian Eriksen
+      - Jonas Enkerud
+      - Pål Alexander Kirkevold
+    subs:
+      - Emil Sildnes
+      - Yuri Yakovenko
+      - Lars Jendal
+      - Fernan Faerron
+      - Julian Dunn-Johnson
+      - Amin Nouri
+      - Benjamin Thoresen Faraas
+      - Kobe Hernandez-Foster
+      - Eduards Daskevics
+    coach: Jakob Michelsen
+  away:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Besim Serbecic
+      - David Fällman
+      - Alexander Juel Andersen
+      - Petar Golubovic
+      - Fredrik Haugen
+      - Kristoffer Barmen
+      - Erlend Segberg
+      - Isak Dybvik Määttä
+      - Sigurd Haugen
+      - Simen Bolkan Nordli
+    subs:
+      - Torbjørn Kallevåg
+      - Erikson Lima
+      - Kristoffer Ødemarksbakken
+      - Simen Rafn
+      - Nikolai Hopland
+      - Michael Lansing
+      - Jeppe Arctander Moe
+      - Alexander Ammitzbøll
+      - Mamadou Diaw
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 39
+    shots: 7
+    shotsOnTarget: 2
+    corners: 5
+    fouls: 13
+    offsides: 0
+    xg: 0.42
+  away:
+    possession: 61
+    shots: 11
+    shotsOnTarget: 3
+    corners: 5
+    fouls: 11
+    offsides: 0
+    xg: 0.46
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +163,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

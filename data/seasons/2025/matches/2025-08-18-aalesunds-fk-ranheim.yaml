@@ -11,13 +11,175 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 6
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: ranheim
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+referee: Anders Bodding
+events:
+  - minute: 6
+    type: yellow_card
+    team: home
+    player: Paul Ngongo Iversen
+  - minute: 9
+    type: goal
+    team: home
+    player: Jakob Nyland Ørsahl
+    assist: Mathias Christensen
+  - minute: 22
+    type: yellow_card
+    team: away
+    player: Erik Tønne
+  - minute: 27
+    type: goal
+    team: home
+    player: Jakob Nyland Ørsahl
+  - minute: 40
+    type: goal
+    team: home
+    player: Paul Ngongo Iversen
+    assist: Frederik Heiselberg
+  - minute: 46
+    type: substitution
+    team: away
+    player: Lucas Kolstad
+    playerOff: Mathias Johnsrud Emilsen
+  - minute: 57
+    type: yellow_card
+    team: away
+    player: Seydina Diop
+  - minute: 59
+    type: goal
+    team: home
+    player: Mathias Christensen
+  - minute: 60
+    type: substitution
+    team: away
+    player: Oliver Kvendbø Holden
+    playerOff: Morten Konradsen
+  - minute: 60
+    type: substitution
+    team: away
+    player: Bendik Bye
+    playerOff: Jon Berisha
+  - minute: 61
+    type: yellow_card
+    team: home
+    player: Henrik Melland
+  - minute: 62
+    type: substitution
+    team: home
+    player: Elias Heggland Myrlid
+    playerOff: Frederik Heiselberg
+  - minute: 62
+    type: substitution
+    team: home
+    player: John Kitolano
+    playerOff: Olafur Gudmundsson
+  - minute: 65
+    type: yellow_card
+    team: away
+    player: Christoffer Aasbak
+  - minute: 66
+    type: goal
+    team: home
+    player: Elias Heggland Myrlid
+  - minute: 68
+    type: substitution
+    team: away
+    player: Philip Slørdahl
+    playerOff: Christoffer Aasbak
+  - minute: 77
+    type: substitution
+    team: away
+    player: Tage Bjørdal Haukeberg
+    playerOff: Jonas Pereira
+  - minute: 78
+    type: substitution
+    team: home
+    player: David Snær Johannsson
+    playerOff: Håkon Butli Hammer
+  - minute: 87
+    type: red_card
+    team: away
+    player: Tage Bjørdal Haukeberg
+  - minute: 88
+    type: substitution
+    team: home
+    player: Erik Frøysa
+    playerOff: Simen Haram
+  - minute: 88
+    type: substitution
+    team: home
+    player: Jørgen Bøe
+    playerOff: Jakob Nyland Ørsahl
+  - minute: 88
+    type: penalty_goal
+    team: home
+    player: Henrik Melland
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Olafur Gudmundsson
+      - Jakob Nyland Ørsahl
+      - Mathias Christensen
+      - Håkon Butli Hammer
+      - Henrik Melland
+      - Kristoffer Nessø
+      - Paul Ngongo Iversen
+      - Frederik Heiselberg
+    subs:
+      - John Kitolano
+      - Elias Heggland Myrlid
+      - David Snær Johannsson
+      - Erik Frøysa
+      - Jørgen Bøe
+      - Tor Erik Valderhaug Larsen
+      - Marius Andresen
+      - Kristian Hemmingsen Lonebu
+      - Tellef Brattberg Ytterland
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - Simen Vidtun Nilsen
+      - Jonas Pereira
+      - Håkon Røsten
+      - Christoffer Aasbak
+      - Erik Tønne
+      - Mathias Johnsrud Emilsen
+      - Håkon Gangstad
+      - Morten Konradsen
+      - Seydina Diop
+      - Jon Berisha
+      - Vetle Wenaas
+    subs:
+      - Lucas Kolstad
+      - Oliver Kvendbø Holden
+      - Bendik Bye
+      - Philip Slørdahl
+      - Tage Bjørdal Haukeberg
+      - Tor Solvoll
+      - Per Ciljan Skjelbred
+    coach: Christian Eggen Rismark
+stats:
+  home:
+    possession: 49
+    shots: 15
+    shotsOnTarget: 13
+    corners: 5
+  away:
+    possession: 51
+    shots: 8
+    shotsOnTarget: 3
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +195,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

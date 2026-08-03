@@ -11,13 +11,128 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: lyn
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4010
+referee: Ole-Alexander Ekeli Valen
+events:
+  - minute: 1
+    type: yellow_card
+    team: home
+    player: Håkon Butli Hammer
+  - minute: 25
+    type: goal
+    team: home
+    player: Kristian Hemmingsen Lonebu
+    assist: Jakob Nyland Ørsahl
+  - minute: 52
+    type: goal
+    team: away
+    player: Anders Bjørntvedt Olsen
+    assist: Even Bydal
+  - minute: 63
+    type: substitution
+    team: away
+    player: Tobias Myhre
+    playerOff: Julius Friberg Skaug
+  - minute: 71
+    type: yellow_card
+    team: home
+    player: Aleksander Hammer Kjelsen
+  - minute: 80
+    type: substitution
+    team: away
+    player: Eron Isufi
+    playerOff: Mathias Johansen
+  - minute: 83
+    type: yellow_card
+    team: away
+    player: Didrik Fredriksen
+  - minute: 85
+    type: substitution
+    team: home
+    player: Elias Heggland Myrlid
+    playerOff: Paul Ngongo Iversen
+  - minute: 89
+    type: goal
+    team: home
+    player: Henrik Melland
+  - minute: 90
+    stoppage: 1
+    type: substitution
+    team: away
+    player: Davod Arzani
+    playerOff: Sander Amble Haugen
+  - minute: 90
+    stoppage: 1
+    type: substitution
+    team: away
+    player: Mame Alassane Niang
+    playerOff: Didrik Fredriksen
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Nikolai Skuseth
+      - Kristoffer Nessø
+      - Henrik Melland
+      - Håkon Butli Hammer
+      - Mathias Christensen
+      - Jakob Nyland Ørsahl
+      - Kristian Hemmingsen Lonebu
+      - Paul Ngongo Iversen
+    subs:
+      - Elias Heggland Myrlid
+      - Tor Erik Valderhaug Larsen
+      - Erik Frøysa
+      - Jørgen Bøe
+      - John Kitolano
+      - Olafur Gudmundsson
+      - Frederik Heiselberg
+      - Tellef Brattberg Ytterland
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Alexander Pedersen
+      - Sander Amble Haugen
+      - William Sælid Sell
+      - Ådne Midtskogen
+      - Herman Solberg Nilsen
+      - Even Bydal
+      - Didrik Fredriksen
+      - Anders Bjørntvedt Olsen
+      - Julius Friberg Skaug
+      - Mathias Johansen
+      - Andreas Hellum
+    subs:
+      - Tobias Myhre
+      - Eron Isufi
+      - Davod Arzani
+      - Mame Alassane Niang
+      - Jesper Wold
+      - Isaac Barnett
+      - Malvin Ingebrigtsen
+    coach: Magnus Aadland
+stats:
+  home:
+    possession: 53
+    shots: 25
+    shotsOnTarget: 8
+    corners: 10
+  away:
+    possession: 47
+    shots: 7
+    shotsOnTarget: 2
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +148,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

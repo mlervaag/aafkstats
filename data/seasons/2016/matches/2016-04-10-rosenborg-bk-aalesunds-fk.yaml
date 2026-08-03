@@ -11,13 +11,128 @@ competition:
 home:
   clubId: rosenborg-bk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: lerkendal-stadion
 neutralVenue: false
-events: []
+attendance: 16996
+referee: Ken Henry Johnsen
+events:
+  - minute: 22
+    type: substitution
+    team: home
+    player: Matthias Vilhjalmsson
+    playerOff: Christian Gytkjær
+  - minute: 30
+    type: yellow_card
+    team: away
+    player: Franck Boli
+  - minute: 32
+    type: yellow_card
+    team: home
+    player: Pål André Helland
+  - minute: 44
+    type: yellow_card
+    team: away
+    player: Aron Elis Thrándarson
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Mike Jensen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Fredrik Carlsen
+    playerOff: Aron Elis Thrándarson
+  - minute: 62
+    type: substitution
+    team: away
+    player: Mostafa Abdellaoue
+    playerOff: Vebjørn Hoff
+  - minute: 68
+    type: yellow_card
+    team: away
+    player: Fredrik Carlsen
+  - minute: 69
+    type: goal
+    team: home
+    player: Tore Reginiussen
+  - minute: 76
+    type: substitution
+    team: away
+    player: Edwin Gyasi
+    playerOff: John Arne Riise
+  - minute: 84
+    type: substitution
+    team: home
+    player: Alex Gersbach
+    playerOff: Tore Reginiussen
+  - minute: 87
+    type: substitution
+    team: home
+    player: Elbasan Rashani
+    playerOff: Pål André Helland
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - André Hansen
+      - Jonas Svensson
+      - Tore Reginiussen
+      - Holmar Örn Eyjolfsson
+      - Jørgen Skjelvik
+      - Mike Jensen
+      - Anders Konradsen
+      - Fredrik Midtsjø
+      - Pål André Helland
+      - Christian Gytkjær
+      - Yann-Erik de Lanlay
+    subs:
+      - Matthias Vilhjalmsson
+      - Alex Gersbach
+      - Elbasan Rashani
+      - Gudmundur Thorarinsson
+      - Johan Lædre Bjørdal
+      - Magnus Stamnestrø
+      - Pavel Londak
+    coach: Kåre Ingebrigtsen
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Oddbjørn Lie
+      - Edvard Skagestad
+      - Mikkel Kirkeskov
+      - Vebjørn Hoff
+      - Bjørn Helge Riise
+      - John Arne Riise
+      - Aron Elis Thrándarson
+      - Peter Orry Larsen
+      - Franck Boli
+    subs:
+      - Fredrik Carlsen
+      - Mostafa Abdellaoue
+      - Edwin Gyasi
+      - Daniel Gretarsson
+      - Marlinho
+      - Sondre Sødergren
+      - Thomas Skog Martinussen
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 60
+    shots: 25
+    shotsOnTarget: 9
+    corners: 6
+  away:
+    possession: 40
+    shots: 7
+    shotsOnTarget: 3
+    corners: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +148,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

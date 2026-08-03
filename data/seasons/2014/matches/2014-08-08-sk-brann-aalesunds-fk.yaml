@@ -11,13 +11,95 @@ competition:
 home:
   clubId: sk-brann
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: brann-stadion
 neutralVenue: false
-events: []
+attendance: 13574
+events:
+  - minute: 46
+    type: substitution
+    team: away
+    player: Mehdi Karnass
+    playerOff: Mostafa Abdellaoue
+  - minute: 65
+    type: substitution
+    team: home
+    player: Kasper Skaanes
+    playerOff: Amin Askar
+  - minute: 69
+    type: substitution
+    team: home
+    player: Jonas Groenner
+    playerOff: Fredrik Haugen
+  - minute: 78
+    type: yellow_card
+    team: home
+    player: Azar Karadas
+  - minute: 83
+    type: goal
+    team: home
+    player: Jakob Orlov
+    assist: Azar Karadas
+  - minute: 85
+    type: substitution
+    team: home
+    player: Hassan El Fakiri
+    playerOff: Kristoffer Barmen
+  - minute: 87
+    type: substitution
+    team: away
+    player: Henrik Roervik Bjoerdal
+    playerOff: Peter Orry Larsen
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Piotr Leciejewski
+      - Andreas Vindheim
+      - Azar Karadas
+      - Erland Hanstveit
+      - Erdin Demir
+      - Amin Askar
+      - Stephane Badji
+      - Fredrik Haugen
+      - Erik Huseklepp
+      - Jakob Orlov
+      - Kristoffer Barmen
+    subs:
+      - Kasper Skaanes
+      - Jonas Groenner
+      - Hassan El Fakiri
+      - Haakon Lorentzen
+      - Birkir Saevarsson
+      - Eirik Birkelund
+      - Oeystein Oevretveit
+    coach: Rikard Norling
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Mikael Dyrestam
+      - Oddbjoern Lie
+      - Peter Orry Larsen
+      - Fredrik Ulvestad
+      - Sakari Mattila
+      - Michael Barrantes
+      - Leke James
+      - Mostafa Abdellaoue
+    subs:
+      - Mehdi Karnass
+      - Henrik Roervik Bjoerdal
+      - Torbjoern Grytten
+      - Jo Nymo Matland
+      - Andreas Lie
+      - Thomas Skog Martinussen
+    coach: Jan Joensson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +115,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

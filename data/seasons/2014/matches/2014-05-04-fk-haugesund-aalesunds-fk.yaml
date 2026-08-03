@@ -11,13 +11,120 @@ competition:
 home:
   clubId: fk-haugesund
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: haugesund-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 15
+    type: substitution
+    team: home
+    player: Pontus Engblom
+    playerOff: Christian Gytkjær
+  - minute: 18
+    type: yellow_card
+    team: home
+    player: Ugonna Anyora
+  - minute: 25
+    type: yellow_card
+    team: away
+    player: Sakari Mattila
+  - minute: 44
+    type: goal
+    team: away
+    player: Sakari Mattila
+    assist: Torbjørn Grytten
+  - minute: 53
+    type: substitution
+    team: home
+    player: David Myrestam
+    playerOff: Ugonna Anyora
+  - minute: 57
+    type: goal
+    team: away
+    player: Torbjørn Grytten
+    assist: Sakari Mattila
+  - minute: 65
+    type: goal
+    team: home
+    player: Daniel Bamberg
+  - minute: 78
+    type: yellow_card
+    team: away
+    player: Daniel Arnefjord
+  - minute: 79
+    type: substitution
+    team: home
+    player: Alexander Stølås
+    playerOff: Tor Arne Andreassen
+  - minute: 81
+    type: substitution
+    team: away
+    player: Fredrik Carlsen
+    playerOff: Henrik Rørvik Bjørdal
+  - minute: 82
+    type: substitution
+    team: away
+    player: Hugues Wembangomo
+    playerOff: Oddbjørn Lie
+  - minute: 88
+    type: yellow_card
+    team: away
+    player: Tor Hogne Aarøy
+  - minute: 90
+    type: substitution
+    team: away
+    player: Peter Orry Larsen
+    playerOff: Tremaine Stewart
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Olav Dalen
+      - Vegard Skjerve
+      - Dusan Cvetinovic
+      - Rok Elsner
+      - Joakim Våge Nilsen
+      - Daniel Bamberg
+      - Geir Ludvig Fevang
+      - Ugonna Anyora
+      - Tor Arne Andreassen
+      - Maic Sema
+      - Christian Gytkjær
+    subs:
+      - Pontus Engblom
+      - David Myrestam
+      - Alexander Stølås
+      - Martin Bjørnbak
+      - Per Kristian Bråtveit
+      - Tonny Mawejje
+      - Torbjørn Agdestein
+    coach: Jostein Grindhaug
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Oddbjørn Lie
+      - Tremaine Stewart
+      - Sakari Mattila
+      - Fredrik Ulvestad
+      - Henrik Rørvik Bjørdal
+      - Torbjørn Grytten
+      - Tor Hogne Aarøy
+    subs:
+      - Fredrik Carlsen
+      - Hugues Wembangomo
+      - Peter Orry Larsen
+      - Andreas Lie
+      - Jo Nymo Matland
+      - Thomas Skog Martinussen
+    coach: Jan Jönsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +140,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

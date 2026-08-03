@@ -11,13 +11,148 @@ competition:
 home:
   clubId: jerv
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: j-j-ugland-stadion
 neutralVenue: false
-events: []
+attendance: 2212
+referee: Rohit Saggi
+events:
+  - minute: 33
+    type: yellow_card
+    team: away
+    player: Besim Serbecic
+  - minute: 43
+    type: yellow_card
+    team: home
+    player: Erik Sandberg
+  - minute: 45
+    type: goal
+    team: away
+    player: Simen Bolkan Nordli
+  - minute: 63
+    type: substitution
+    team: home
+    player: Henrik Bredeli
+    playerOff: Peter Wilson
+  - minute: 63
+    type: substitution
+    team: home
+    player: Felix Schröter
+    playerOff: Erik Sandberg
+  - minute: 67
+    type: yellow_card
+    team: away
+    player: Moses Ebiye
+  - minute: 73
+    type: substitution
+    team: home
+    player: Leandro Fernandes
+    playerOff: Ask Tjærandsen-Skau
+  - minute: 75
+    type: substitution
+    team: away
+    player: Kristoffer Barmen
+    playerOff: Simen Bolkan Nordli
+  - minute: 75
+    type: substitution
+    team: away
+    player: Kristoffer Ødemarksbakken
+    playerOff: Gilbert Koomson
+  - minute: 81
+    type: substitution
+    team: home
+    player: Iman Mafi
+    playerOff: Torje Wichne
+  - minute: 86
+    type: substitution
+    team: away
+    player: Torbjørn Kallevåg
+    playerOff: Moses Ebiye
+  - minute: 86
+    type: substitution
+    team: away
+    player: Fredrik Haugen
+    playerOff: Erikson Lima
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Erik Næsbak Brenden
+  - minute: 90
+    stoppage: 3
+    type: yellow_card
+    team: home
+    player: Leandro Fernandes
+lineups:
+  home:
+    formation: 5-3-2
+    starters:
+      - Amund Wichne
+      - Ole Kolskogen
+      - John Olav Norheim
+      - Erik Sandberg
+      - Torje Wichne
+      - Mathias Haarup
+      - Erik Næsbak Brenden
+      - Mathias Wichmann
+      - Ask Tjærandsen-Skau
+      - Erlend Hustad
+      - Peter Wilson
+    subs:
+      - Henrik Bredeli
+      - Felix Schröter
+      - Leandro Fernandes
+      - Iman Mafi
+      - Øystein Øvretveit
+      - Bendik Kristiansen
+      - Mikael Ugland
+      - Thomas Ness
+      - Jeremy Cijntje
+    coach: Arne Sandstø
+  away:
+    formation: 5-3-2
+    starters:
+      - Sten Michael Grytebust
+      - Besim Serbecic
+      - David Fällman
+      - Nikolai Hopland
+      - Petar Golubovic
+      - Simen Rafn
+      - Simen Bolkan Nordli
+      - Erlend Segberg
+      - Erikson Lima
+      - Gilbert Koomson
+      - Moses Ebiye
+    subs:
+      - Kristoffer Barmen
+      - Kristoffer Ødemarksbakken
+      - Fredrik Haugen
+      - Torbjørn Kallevåg
+      - Michael Lansing
+      - Jeppe Arctander Moe
+      - John Kitolano
+      - Bjørn Martin Kristensen
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 59
+    shots: 15
+    shotsOnTarget: 1
+    corners: 3
+    fouls: 8
+    offsides: 0
+    xg: 0.66
+  away:
+    possession: 41
+    shots: 6
+    shotsOnTarget: 4
+    corners: 3
+    fouls: 16
+    offsides: 1
+    xg: 0.33
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +168,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

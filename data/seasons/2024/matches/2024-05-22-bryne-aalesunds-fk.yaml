@@ -11,13 +11,136 @@ competition:
 home:
   clubId: bryne
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: bryne-stadion
 neutralVenue: false
-events: []
+attendance: 1130
+referee: Ole-Alexander Ekeli Valen
+events:
+  - minute: 44
+    type: goal
+    team: home
+    player: Robert Undheim
+    assist: Duarte Moreira
+  - minute: 50
+    type: goal
+    team: home
+    player: Luis Görlich
+    assist: Lars Erik Sødal
+  - minute: 56
+    type: yellow_card
+    team: away
+    player: David Snær Johannsson
+  - minute: 63
+    type: substitution
+    team: away
+    player: Moctar Diop
+    playerOff: Sander Hestetun Kilen
+  - minute: 63
+    type: substitution
+    team: away
+    player: John Ruud Norvik
+    playerOff: David Snær Johannsson
+  - minute: 78
+    type: substitution
+    team: away
+    player: Martin Ramsland
+    playerOff: Claudio Braga
+  - minute: 80
+    type: yellow_card
+    team: home
+    player: Andreas Dybevik
+  - minute: 84
+    type: substitution
+    team: home
+    player: Jon Helge Tveita
+    playerOff: Duarte Moreira
+  - minute: 84
+    type: substitution
+    team: home
+    player: Sjur Jonassen
+    playerOff: Robert Undheim
+  - minute: 89
+    type: substitution
+    team: away
+    player: Stian Aarønes Holte
+    playerOff: Isaac Atanga
+  - minute: 89
+    type: substitution
+    team: away
+    player: Sebastian Berntsen
+    playerOff: Thomas Grøgaard
+  - minute: 89
+    type: yellow_card
+    team: home
+    player: Jon Helge Tveita
+  - minute: 90
+    type: substitution
+    team: home
+    player: Kristian Skurve Håland
+    playerOff: Lars Erik Sødal
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Anton Cajtoft
+      - Luis Görlich
+      - Jacob Haahr
+      - Sondre Norheim
+      - Jens Husebø
+      - Andreas Dybevik
+      - Lars Erik Sødal
+      - Christian Landu Landu
+      - Robert Undheim
+      - Duarte Moreira
+      - Alfred Scriven
+    subs:
+      - Jon Helge Tveita
+      - Sjur Jonassen
+      - Kristian Skurve Håland
+      - Sem Aleksander Bergene
+      - Isak Kjelsrud Vik
+      - Marius Mattingsdal
+      - Noah Mneney
+      - Sigurd Grønli
+    coach: Ole Kevin Knappen
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Kristoffer Nessø
+      - Amidou Diop
+      - John Kitolano
+      - Thomas Grøgaard
+      - David Snær Johannsson
+      - Håkon Butli Hammer
+      - Eivind Strømsheim Kolve
+      - Isaac Atanga
+      - Claudio Braga
+      - Sander Hestetun Kilen
+    subs:
+      - John Ruud Norvik
+      - Moctar Diop
+      - Martin Ramsland
+      - Stian Aarønes Holte
+      - Sebastian Berntsen
+      - Tor Erik Valderhaug Larsen
+    coach: Christian Johnsen
+stats:
+  home:
+    possession: 49
+    shots: 14
+    shotsOnTarget: 8
+    corners: 4
+  away:
+    possession: 51
+    shots: 8
+    shotsOnTarget: 0
+    corners: 7
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +156,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

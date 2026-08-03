@@ -11,13 +11,153 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: jerv
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4429
+referee: Daniel Higraff
+events:
+  - minute: 31
+    type: yellow_card
+    team: home
+    player: Erikson Lima
+  - minute: 46
+    type: substitution
+    team: home
+    player: Nikolai Hopland
+    playerOff: Torbjørn Kallevåg
+  - minute: 65
+    type: goal
+    team: away
+    player: Erik Næsbak Brenden
+    assist: Aral Simsir
+  - minute: 72
+    type: substitution
+    team: away
+    player: Mikael Ugland
+    playerOff: Aral Simsir
+  - minute: 72
+    type: substitution
+    team: away
+    player: Rodney Antwi
+    playerOff: Tidiane Amadou Diallo
+  - minute: 78
+    type: goal
+    team: home
+    player: Simen Bolkan Nordli
+  - minute: 79
+    type: yellow_card
+    team: away
+    player: Mikael Ugland
+  - minute: 80
+    type: substitution
+    team: home
+    player: Kristoffer Barmen
+    playerOff: Erikson Lima
+  - minute: 80
+    type: substitution
+    team: home
+    player: Alexander Ammitzbøll
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 80
+    type: substitution
+    team: home
+    player: Simen Rafn
+    playerOff: Petar Golubovic
+  - minute: 80
+    type: goal
+    team: home
+    player: Isak Dybvik Maeaettae
+    assist: Simen Bolkan Nordli
+  - minute: 84
+    type: substitution
+    team: home
+    player: Jeppe Arctander Moe
+    playerOff: Simen Bolkan Nordli
+  - minute: 87
+    type: yellow_card
+    team: away
+    player: Ole Kolskogen
+  - minute: 89
+    type: substitution
+    team: away
+    player: Kristian Sirum Novak
+    playerOff: Ole Kolskogen
+  - minute: 89
+    type: substitution
+    team: away
+    player: Erik Sandberg
+    playerOff: Mathias Wichmann
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Sten Michael Grytebust
+      - Petar Golubovic
+      - Besim Serbecic
+      - Alexander Juel Andersen
+      - Isak Dybvik Maeaettae
+      - Erikson Lima
+      - Fredrik Haugen
+      - Torbjørn Kallevåg
+      - Simen Bolkan Nordli
+      - Kristoffer Ødemarksbakken
+      - Sigurd Haugen
+    subs:
+      - Nikolai Hopland
+      - Kristoffer Barmen
+      - Simen Rafn
+      - Alexander Ammitzbøll
+      - Jeppe Arctander Moe
+      - Michael Lansing
+      - Stian Aarønes Holte
+      - Jørgen Hatlehol
+      - Oscar Solnørdal
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-5-1
+    starters:
+      - Øystein Øvretveit
+      - Torje Wichne
+      - Daniel Arrocha
+      - Ole Kolskogen
+      - Mathias Haarup
+      - Willis Furtado
+      - Erik Næsbak Brenden
+      - Mathias Wichmann
+      - John Olav Norheim
+      - Aral Simsir
+      - Tidiane Amadou Diallo
+    subs:
+      - Mikael Ugland
+      - Rodney Antwi
+      - Erik Sandberg
+      - Kristian Sirum Novak
+      - Amund Wichne
+      - Thomas Ness
+      - Felix Schröter
+    coach: Arne Sandstø
+stats:
+  home:
+    possession: 52
+    shots: 23
+    shotsOnTarget: 8
+    corners: 9
+    fouls: 14
+    offsides: 0
+    xg: 1.04
+  away:
+    possession: 48
+    shots: 16
+    shotsOnTarget: 7
+    corners: 2
+    fouls: 10
+    offsides: 1
+    xg: 0.98
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +173,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

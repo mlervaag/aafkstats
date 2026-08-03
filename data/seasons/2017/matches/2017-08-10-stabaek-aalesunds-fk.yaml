@@ -1,0 +1,137 @@
+id: 2017-08-10-stabaek-aalesunds-fk
+date: 2017-08-10
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2017
+  stage: regular_season
+  round: 4
+home:
+  clubId: stabaek
+  score: 3
+  halfTimeScore: 2
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 20
+    type: goal
+    team: home
+    player: Raymond Gyasi
+  - minute: 41
+    type: goal
+    team: home
+    player: Tortol Lumanza Lembi
+  - minute: 46
+    type: substitution
+    team: away
+    player: Bjørn Helge Riise
+    playerOff: Aron Elis Thrandarson
+  - minute: 47
+    type: goal
+    team: home
+    player: Tonny Brochmann
+  - minute: 50
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Oddbjørn Lie
+  - minute: 62
+    type: yellow_card
+    team: away
+    player: Kaj Ramsteijn
+  - minute: 69
+    type: substitution
+    team: home
+    player: John Hou Sæther
+    playerOff: Tortol Lumanza Lembi
+  - minute: 74
+    type: substitution
+    team: home
+    player: Emil Bohinen
+    playerOff: Ohi Anthony Omoijuanfo
+  - minute: 77
+    type: substitution
+    team: away
+    player: Valmir Berisha
+    playerOff: Mostafa Abdellaoue
+  - minute: 81
+    type: substitution
+    team: home
+    player: Ahmed El-Amrani
+    playerOff: Tonny Brochmann
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Sayouba Mandé
+      - Håkon Skogseid
+      - Andreas Hanche-Olsen
+      - Morten M. Skjønsberg
+      - Daniel Granli
+      - Hugo Vetlesen
+      - Tortol Lumanza Lembi
+      - Raymond Gyasi
+      - Luc Kassi
+      - Tonny Brochmann
+      - Ohi Anthony Omoijuanfo
+    subs:
+      - John Hou Sæther
+      - Emil Bohinen
+      - Ahmed El-Amrani
+      - Gurpreet Singh Sandhu
+      - Morten Renå Olsen
+      - Sebastian Pedersen
+      - Sindre Mauritz-Hansen
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Kaj Ramsteijn
+      - Oddbjørn Lie
+      - Daniel Gretarsson
+      - Edwin Gyasi
+      - Vebjørn Hoff
+      - Fredrik Carlsen
+      - Aron Elis Thrandarson
+      - Athanassios Papazoglou
+      - Mostafa Abdellaoue
+    subs:
+      - Bjørn Helge Riise
+      - Sondre Brunstad Fet
+      - Valmir Berisha
+      - Joakim Barstad
+      - Jørgen Hatlehol
+      - Marlinho
+      - Sondre Sødergren
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-stabaek/2rxyy1#2507541
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2507541"
+manual: []

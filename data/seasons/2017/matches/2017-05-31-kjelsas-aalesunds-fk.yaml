@@ -1,0 +1,87 @@
+id: 2017-05-31-kjelsas-aalesunds-fk
+date: 2017-05-31
+dateConfidence: exact
+kickoff: 18:30
+status: played
+competition:
+  id: nm
+  season: 2017
+  stage: regular_season
+  round: 3
+home:
+  clubId: kjelsas
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 11
+    type: goal
+    team: away
+    player: Marlinho
+  - minute: 16
+    type: yellow_card
+    team: away
+    player: Mikkel Kirkeskov
+  - minute: 46
+    type: substitution
+    team: home
+    player: Jesper Solli
+    playerOff: Nicholas Kristiansen
+  - minute: 54
+    type: yellow_card
+    team: away
+    player: Adam Örn Arnarson
+  - minute: 60
+    type: substitution
+    team: away
+    player: Valmir Berisha
+    playerOff: Sondre Brunstad Fet
+  - minute: 62
+    type: substitution
+    team: home
+    player: Axel Pedersen
+    playerOff: Walid Idrissi
+  - minute: 81
+    type: substitution
+    team: away
+    player: Aron Elis Thrandarson
+    playerOff: Marlinho
+  - minute: 84
+    type: substitution
+    team: home
+    player: Håkon Snorresønn Wæhler
+    playerOff: Jens Bonde Aslaksrud
+  - minute: 88
+    type: substitution
+    team: away
+    player: Daniel Gretarsson
+    playerOff: Mostafa Abdellaoue
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/kjelsas-vs-aalesund/1uo1na#2503657
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2503657"
+manual: []

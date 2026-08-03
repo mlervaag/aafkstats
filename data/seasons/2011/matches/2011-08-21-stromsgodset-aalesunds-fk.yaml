@@ -11,13 +11,114 @@ competition:
 home:
   clubId: stromsgodset
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: marienlyst-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 13
+    type: goal
+    team: away
+    player: Michael Barrantes
+  - minute: 26
+    type: yellow_card
+    team: away
+    player: Christian Myklebust
+  - minute: 34
+    type: goal
+    team: home
+    player: Alfred Sankoh
+  - minute: 36
+    type: goal
+    team: home
+    player: Muhamed Keita
+  - minute: 39
+    type: substitution
+    team: away
+    player: Solomon Okoronkwo
+    playerOff: Christian Myklebust
+  - minute: 46
+    type: substitution
+    team: away
+    player: Demar Phillips
+    playerOff: Lars Fuhre
+  - minute: 50
+    type: yellow_card
+    team: away
+    player: Magnus Sylling Olsen
+  - minute: 77
+    type: substitution
+    team: away
+    player: Sander Post
+    playerOff: Magnus Sylling Olsen
+  - minute: 78
+    type: substitution
+    team: home
+    player: Fredrik Nordkvelle
+    playerOff: Muhamed Keita
+  - minute: 89
+    type: substitution
+    team: home
+    player: Lars Sætra
+    playerOff: Lars-Christopher Vilsvik
+  - minute: 90
+    type: substitution
+    team: home
+    player: Stefan Johansen
+    playerOff: Ola Kamara
+  - minute: 90
+    type: goal
+    team: away
+    player: Demar Phillips
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Adam Larsen Kwarasey
+      - Glenn Andersen
+      - Kim André Madsen
+      - Alexander Aas
+      - Lars-Christopher Vilsvik
+      - Mohammed Abu
+      - Anders Konradsen
+      - Muhamed Keita
+      - Alfred Sankoh
+      - Øyvind Storflor
+      - Ola Kamara
+    subs:
+      - Fredrik Nordkvelle
+      - Lars Sætra
+      - Stefan Johansen
+      - Eirik Markegård
+      - Krister Aunan
+      - Lars Cramer
+      - Razak Nuhu
+    coach: Ronny Deila
+  away:
+    formation: 4-2-1-3
+    starters:
+      - Sten Michael Grytebust
+      - Edvard Skagestad
+      - Ville Jalasto
+      - Daniel Arnefjord
+      - Jo Nymo Matland
+      - Jason Morrison
+      - Dan Peter Ulvestad
+      - Michael Barrantes
+      - Lars Fuhre
+      - Magnus Sylling Olsen
+      - Christian Myklebust
+    subs:
+      - Solomon Okoronkwo
+      - Demar Phillips
+      - Sander Post
+      - Fredrik Carlsen
+      - Jonas Sandqvist
+      - Jonatan Tollås Nation
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +134,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

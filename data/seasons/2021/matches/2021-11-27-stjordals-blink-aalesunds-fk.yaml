@@ -11,13 +11,135 @@ competition:
 home:
   clubId: stjordals-blink
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: mus-stadion-sandskogan
 neutralVenue: false
-events: []
+attendance: 495
+events:
+  - minute: 36
+    type: goal
+    team: home
+    player: Kjetil Holand Tøsse
+    assist: Johann Kosberg
+  - minute: 46
+    type: substitution
+    team: away
+    player: Kristoffer Barmen
+    playerOff: Erikson Lima
+  - minute: 46
+    type: substitution
+    team: away
+    player: Torbjørn Kallevåg
+    playerOff: Simen Bolkan Nordli
+  - minute: 46
+    type: substitution
+    team: away
+    player: Quint Jansen
+    playerOff: Nikolai Hopland
+  - minute: 58
+    type: substitution
+    team: away
+    player: Kristoffer Ødemarksbakken
+    playerOff: Isak Dybvik Määttä
+  - minute: 62
+    type: substitution
+    team: home
+    player: Mats Lillebo
+    playerOff: Johann Kosberg
+  - minute: 86
+    type: substitution
+    team: away
+    player: Mamadou Diaw
+    playerOff: Niklas Castro
+  - minute: 88
+    type: substitution
+    team: home
+    player: Vegard Fiske
+    playerOff: Martin Lundal
+  - minute: 89
+    type: yellow_card
+    team: home
+    player: Kjetil Holand Tøsse
+  - minute: 89
+    type: yellow_card
+    team: away
+    player: Torbjørn Kallevåg
+  - minute: 90
+    stoppage: 5
+    type: yellow_card
+    team: home
+    player: Rasmus Sandberg
+  - minute: 90
+    stoppage: 6
+    type: substitution
+    team: home
+    player: Lasse Bransdal
+    playerOff: Joachim Olufsen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Rasmus Sandberg
+      - Dejan Corovic
+      - Robin Bjørnholm-Jatta
+      - Martin Lundal
+      - Aleksander Foosnæs
+      - Håvard Kleven Lorentsen
+      - Morten Strand
+      - Kjetil Holand Tøsse
+      - Joachim Olufsen
+      - Johann Kosberg
+      - Runar Hauge
+    subs:
+      - Mats Lillebo
+      - Vegard Fiske
+      - Lasse Bransdal
+      - David Paulmin
+      - Lars Ramstad
+      - Andreas Pettersen
+      - Ole Kristian Rødahl
+      - Sondre Hopmark Stokke
+      - Marius Augdal
+    coach: Tom Dent
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Jørgen Hatlehol
+      - Nikolai Hopland
+      - David Fällman
+      - David Kristjan Olafsson
+      - Erlend Segberg
+      - Erikson Lima
+      - Isak Dybvik Määttä
+      - Niklas Castro
+      - Simen Bolkan Nordli
+      - Sigurd Haugen
+    subs:
+      - Quint Jansen
+      - Kristoffer Barmen
+      - Torbjørn Kallevåg
+      - Kristoffer Ødemarksbakken
+      - Mamadou Diaw
+      - Enock Mwimba
+      - Jonas Grønner
+      - Simen Rafn
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 42
+    shots: 11
+    shotsOnTarget: 4
+    corners: 5
+  away:
+    possession: 58
+    shots: 7
+    shotsOnTarget: 4
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +155,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -12,7 +12,7 @@ export default function SeasonsPage() {
   return (
     <>
       <header className="page-intro">
-        <p className="eyebrow">2011–2025</p>
+        <p className="eyebrow">Sesong for sesong</p>
         <h1>Sesonger</h1>
         <p className="lede">Femten ligasesonger samlet på ett sted. Velg et år for alle kamper og sesongtall.</p>
       </header>

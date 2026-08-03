@@ -11,13 +11,166 @@ competition:
 home:
   clubId: bodo-glimt
   score: 7
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: aspmyra-stadion
 neutralVenue: false
-events: []
+attendance: 600
+referee: Dag Vidar Hafsaas
+events:
+  - minute: 28
+    type: yellow_card
+    team: home
+    player: Hugo Vetlesen
+  - minute: 38
+    type: goal
+    team: home
+    player: Hugo Vetlesen
+    assist: Kasper Junker
+  - minute: 44
+    type: goal
+    team: home
+    player: Ulrik Saltnes
+    assist: Hugo Vetlesen
+  - minute: 56
+    type: goal
+    team: home
+    player: Ulrik Saltnes
+    assist: Fredrik André Bjørkan
+  - minute: 60
+    type: substitution
+    team: away
+    player: Markus Seehusen Karlsbakk
+    playerOff: Izunna Uzochukwu
+  - minute: 61
+    type: substitution
+    team: away
+    player: Ståle Steen Sæthre
+    playerOff: Niklas Castro
+  - minute: 70
+    type: goal
+    team: home
+    player: Ola Solbakken
+    assist: Ulrik Saltnes
+  - minute: 71
+    type: substitution
+    team: home
+    player: Morten Konradsen
+    playerOff: Hugo Vetlesen
+  - minute: 71
+    type: substitution
+    team: home
+    player: Isak Helstad Amundsen
+    playerOff: Marius Høibråten
+  - minute: 77
+    type: substitution
+    team: home
+    player: Elias Hagen
+    playerOff: Patrick Berg
+  - minute: 77
+    type: substitution
+    team: home
+    player: Victor Okoh Boniface
+    playerOff: Ola Solbakken
+  - minute: 81
+    type: goal
+    team: home
+    player: Kasper Junker
+    assist: Philip Zinckernagel
+  - minute: 84
+    type: substitution
+    team: away
+    player: Vetle Fiskerstrand
+    playerOff: Simen Bolkan Nordli
+  - minute: 84
+    type: substitution
+    team: away
+    player: Sigurd Tafjord
+    playerOff: David Kristjan Olafsson
+  - minute: 88
+    type: substitution
+    team: home
+    player: Runar Hauge
+    playerOff: Alfons Sampsted
+  - minute: 90
+    type: goal
+    team: home
+    player: Fredrik André Bjørkan
+    assist: Elias Hagen
+  - minute: 90
+    type: goal
+    team: home
+    player: Kasper Junker
+    assist: Elias Hagen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Nikita Haikin
+      - Alfons Sampsted
+      - Marius Lode
+      - Marius Høibråten
+      - Fredrik André Bjørkan
+      - Hugo Vetlesen
+      - Patrick Berg
+      - Ulrik Saltnes
+      - Philip Zinckernagel
+      - Kasper Junker
+      - Ola Solbakken
+    subs:
+      - Isak Helstad Amundsen
+      - Morten Konradsen
+      - Elias Hagen
+      - Victor Okoh Boniface
+      - Runar Hauge
+      - Joshua Smits
+      - Aleksander Foosnæs
+      - Sebastian Tounekti
+      - Vegard Leikvoll Moberg
+    coach: Kjetil Knutsen
+  away:
+    formation: 5-4-1
+    starters:
+      - Gudmund Taksdal Kongshavn
+      - Kasper Jørgensen
+      - Jonas Grønner
+      - Ben Karamoko
+      - Daan Klinkenberg
+      - David Kristjan Olafsson
+      - Erikson Lima
+      - Izunna Uzochukwu
+      - Simen Bolkan Nordli
+      - Niklas Castro
+      - Sigurd Haugen
+    subs:
+      - Markus Seehusen Karlsbakk
+      - Ståle Steen Sæthre
+      - Sigurd Tafjord
+      - Vetle Fiskerstrand
+      - Enock Mwimba
+      - Shaquill Sno
+      - Mamadou Diaw
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 77
+    shots: 26
+    shotsOnTarget: 12
+    corners: 11
+    fouls: 13
+    offsides: 0
+    xg: 4.26
+  away:
+    possession: 23
+    shots: 4
+    shotsOnTarget: 1
+    corners: 2
+    fouls: 10
+    offsides: 2
+    xg: 0.17
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +186,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

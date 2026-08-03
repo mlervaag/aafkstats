@@ -11,13 +11,141 @@ competition:
 home:
   clubId: tromso
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: romssa-arena
 neutralVenue: false
-events: []
+attendance: 4613
+referee: Ajdin Medic
+events:
+  - minute: 41
+    type: yellow_card
+    team: away
+    player: Erlend Segberg
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Bjørn Martin Kristensen
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Christophe Psyché
+  - minute: 45
+    stoppage: 1
+    type: penalty_goal
+    team: away
+    player: Markus Seehusen Karlsbakk
+  - minute: 52
+    type: goal
+    team: home
+    player: Vegard Østraat Erlien
+    assist: Kent-Are Antonsen
+  - minute: 67
+    type: substitution
+    team: home
+    player: Lasse Nordås
+    playerOff: Mai Traore
+  - minute: 67
+    type: substitution
+    team: home
+    player: Malick Diouf
+    playerOff: Yaw Paintsil
+  - minute: 73
+    type: yellow_card
+    team: away
+    player: John Kitolano
+  - minute: 81
+    type: substitution
+    team: away
+    player: Isaac Atanga
+    playerOff: Henrik Melland
+  - minute: 81
+    type: substitution
+    team: away
+    player: Moses Ebiye
+    playerOff: Bjørn Martin Kristensen
+  - minute: 84
+    type: yellow_card
+    team: home
+    player: Lasse Nordås
+  - minute: 89
+    type: goal
+    team: away
+    player: Håkon Butli Hammer
+  - minute: 90
+    type: substitution
+    team: home
+    player: Felix Winther
+    playerOff: Jakob Napoleon Romsaas
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Jakob Haugaard
+      - Jostein Gundersen
+      - Christophe Psyché
+      - Kent-Are Antonsen
+      - Niklas Vesterlund
+      - Sakarias Opsahl
+      - Ruben Yttergård Jenssen
+      - Jakob Napoleon Romsaas
+      - Yaw Paintsil
+      - Vegard Østraat Erlien
+      - Mai Traore
+    subs:
+      - Malick Diouf
+      - Lasse Nordås
+      - Felix Winther
+      - Marius Tollefsen
+      - Simon Thomas
+      - Anders Jenssen
+      - Dadi Dodou Gaye
+      - Jens Hjertø-Dahl
+      - Runar Robinsønn Norheim
+    coach: Gaute Helstrup
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Erik Frøysa
+      - Amidou Diop
+      - Nikolai Hopland
+      - John Kitolano
+      - Erlend Segberg
+      - Håkon Butli Hammer
+      - Henrik Melland
+      - Bjørn Martin Kristensen
+      - Martin Ramsland
+      - Markus Seehusen Karlsbakk
+    subs:
+      - Moses Ebiye
+      - Isaac Atanga
+      - Michael Lansing
+      - David Fällman
+      - Simen Haram
+      - Trace Murray
+      - Moctar Diop
+    coach: Christian Johnsen
+stats:
+  home:
+    possession: 58
+    shots: 13
+    shotsOnTarget: 5
+    corners: 3
+    fouls: 15
+    offsides: 0
+    xg: 1.01
+  away:
+    possession: 42
+    shots: 12
+    shotsOnTarget: 4
+    corners: 5
+    fouls: 10
+    offsides: 1
+    xg: 1.63
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +161,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

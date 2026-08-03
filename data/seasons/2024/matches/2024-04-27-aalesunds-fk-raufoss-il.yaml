@@ -11,13 +11,159 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: raufoss-il
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 2944
+referee: Stian Røvig Sletner
+events:
+  - minute: 25
+    type: goal
+    team: home
+    player: Håkon Butli Hammer
+    assist: Eivind Strømsheim Kolve
+  - minute: 36
+    type: goal
+    team: away
+    player: Jan Inge Solemsløkk Lynum
+    assist: Jakob Nyland Ørsahl
+  - minute: 42
+    type: yellow_card
+    team: away
+    player: Eduards Emsis
+  - minute: 42
+    type: yellow_card
+    team: home
+    player: David Snær Johannsson
+  - minute: 45
+    type: goal
+    team: away
+    player: Adrian Aleksander Hansen
+    assist: Kristoffer Hay
+  - minute: 46
+    type: substitution
+    team: home
+    player: Thomas Gulbrandsen
+    playerOff: Nikolai Hopland
+  - minute: 46
+    type: yellow_card
+    team: home
+    player: Thomas Gulbrandsen
+  - minute: 58
+    type: goal
+    team: away
+    player: Oliver Rotihaug
+    assist: Ryan Nelson
+  - minute: 60
+    type: substitution
+    team: home
+    player: Martin Ramsland
+    playerOff: Sebastian Berntsen
+  - minute: 64
+    type: yellow_card
+    team: home
+    player: Metodi Maksimov
+  - minute: 71
+    type: yellow_card
+    team: away
+    player: Kristoffer Hay
+  - minute: 76
+    type: substitution
+    team: home
+    player: Kristian Hemmingsen Lonebu
+    playerOff: Amidou Diop
+  - minute: 77
+    type: substitution
+    team: home
+    player: John Ruud Norvik
+    playerOff: Metodi Maksimov
+  - minute: 77
+    type: substitution
+    team: away
+    player: Torjus Engebakken
+    playerOff: Ryan Nelson
+  - minute: 85
+    type: substitution
+    team: away
+    player: Kodjo Somesi
+    playerOff: Jan Inge Solemsløkk Lynum
+  - minute: 86
+    type: goal
+    team: away
+    player: Kodjo Somesi
+    assist: Torjus Engebakken
+  - minute: 90
+    stoppage: 1
+    type: substitution
+    team: away
+    player: Victor Fors
+    playerOff: Jakob Nyland Ørsahl
+  - minute: 90
+    stoppage: 1
+    type: substitution
+    team: away
+    player: James Ampofo
+    playerOff: Erlend Hustad
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Metodi Maksimov
+      - Amidou Diop
+      - Nikolai Hopland
+      - Thomas Grøgaard
+      - Eivind Strømsheim Kolve
+      - Håkon Butli Hammer
+      - David Snær Johannsson
+      - Sebastian Berntsen
+      - Claudio Braga
+      - Sander Hestetun Kilen
+    subs:
+      - Thomas Gulbrandsen
+      - Martin Ramsland
+      - Kristian Hemmingsen Lonebu
+      - John Ruud Norvik
+      - Sondre Midthjell
+      - Tor Erik Valderhaug Larsen
+    coach: Christian Johnsen
+  away:
+    formation: 3-5-2
+    starters:
+      - Ole Kristian Gjefle Lauvli
+      - Adrian Aleksander Hansen
+      - Jamal Deen Haruna
+      - Kristoffer Hay
+      - Oliver Rotihaug
+      - Eduards Emsis
+      - Nicolai Fremstad
+      - Ryan Nelson
+      - Jakob Nyland Ørsahl
+      - Erlend Hustad
+      - Jan Inge Solemsløkk Lynum
+    subs:
+      - Torjus Engebakken
+      - Kodjo Somesi
+      - Victor Fors
+      - James Ampofo
+      - Petter Eichler Jensen
+      - Marius Svanberg Alm
+    coach: Jörgen Wålemark
+stats:
+  home:
+    possession: 53
+    shots: 6
+    shotsOnTarget: 4
+    corners: 5
+  away:
+    possession: 47
+    shots: 19
+    shotsOnTarget: 12
+    corners: 9
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +179,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

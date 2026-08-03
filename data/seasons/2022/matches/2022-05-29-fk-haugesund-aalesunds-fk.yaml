@@ -11,13 +11,153 @@ competition:
 home:
   clubId: fk-haugesund
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: haugesund-stadion
 neutralVenue: false
-events: []
+attendance: 3238
+referee: Sivert Amland
+events:
+  - minute: 19
+    type: goal
+    team: away
+    player: Isak Dybvik Maeaettae
+    assist: Simen Rafn
+  - minute: 20
+    type: yellow_card
+    team: away
+    player: Torbjørn Kallevåg
+  - minute: 31
+    type: goal
+    team: home
+    player: Peter Therkildsen
+    assist: Kevin Martin Krygård
+  - minute: 46
+    type: substitution
+    team: home
+    player: Thore Pedersen
+    playerOff: Julius Eskesen
+  - minute: 69
+    type: goal
+    team: home
+    player: Alioune Ndour
+    assist: Christos Zafeiris
+  - minute: 71
+    type: substitution
+    team: home
+    player: Joacim Holtan
+    playerOff: Alexander Søderlund
+  - minute: 71
+    type: substitution
+    team: home
+    player: Torje Naustdal
+    playerOff: Mads Sande
+  - minute: 78
+    type: substitution
+    team: away
+    player: Alexander Ammitzbøll
+    playerOff: Torbjørn Kallevåg
+  - minute: 78
+    type: substitution
+    team: away
+    player: Kristoffer Ødemarksbakken
+    playerOff: Erikson Lima
+  - minute: 78
+    type: substitution
+    team: away
+    player: Nikolai Hopland
+    playerOff: Simen Rafn
+  - minute: 81
+    type: substitution
+    team: away
+    player: Oscar Solnørdal
+    playerOff: Kristoffer Barmen
+  - minute: 86
+    type: goal
+    team: away
+    player: Oscar Solnørdal
+  - minute: 89
+    type: substitution
+    team: home
+    player: Vegard Solheim
+    playerOff: Peter Therkildsen
+  - minute: 90
+    type: substitution
+    team: away
+    player: Mamadou Diaw
+    playerOff: Sigurd Haugen
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Thore Pedersen
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Egil Selvik
+      - Peter Therkildsen
+      - Anders Bærtelsen
+      - Søren Reese
+      - Nikolas Walstad
+      - Julius Eskesen
+      - Kevin Martin Krygård
+      - Christos Zafeiris
+      - Mads Sande
+      - Alioune Ndour
+      - Alexander Søderlund
+    subs:
+      - Thore Pedersen
+      - Torje Naustdal
+      - Joacim Holtan
+      - Vegard Solheim
+      - Frank Stople
+      - Ulrik Fredriksen
+      - Bilal Njie
+      - Hillary Gong
+    coach: Jostein Grindhaug
+  away:
+    formation: 3-4-2-1
+    starters:
+      - Sten Michael Grytebust
+      - Petar Golubovic
+      - Besim Serbecic
+      - Alexander Juel Andersen
+      - Simen Rafn
+      - Kristoffer Barmen
+      - Erikson Lima
+      - Isak Dybvik Maeaettae
+      - Simen Bolkan Nordli
+      - Torbjørn Kallevåg
+      - Sigurd Haugen
+    subs:
+      - Nikolai Hopland
+      - Alexander Ammitzbøll
+      - Kristoffer Ødemarksbakken
+      - Oscar Solnørdal
+      - Mamadou Diaw
+      - Michael Lansing
+      - Jeppe Arctander Moe
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 54
+    shots: 15
+    shotsOnTarget: 5
+    corners: 5
+    fouls: 10
+    offsides: 0
+    xg: 1.49
+  away:
+    possession: 46
+    shots: 13
+    shotsOnTarget: 5
+    corners: 4
+    fouls: 18
+    offsides: 1
+    xg: 1.15
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +173,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

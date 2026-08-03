@@ -11,13 +11,156 @@ competition:
 home:
   clubId: stromsgodset
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: marienlyst-stadion
 neutralVenue: false
-events: []
+attendance: 4602
+referee: Svein Tore Sinnes
+events:
+  - minute: 26
+    type: goal
+    team: away
+    player: Moses Ebiye
+    assist: Simen Bolkan Nordli
+  - minute: 38
+    type: yellow_card
+    team: home
+    player: Hermann Stengel
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Halldor Stenevik
+  - minute: 45
+    type: goal
+    team: away
+    player: Moses Ebiye
+  - minute: 58
+    type: substitution
+    team: home
+    player: Kristoffer Tokstad
+    playerOff: Jack Ipalibo
+  - minute: 58
+    type: substitution
+    team: home
+    player: Jonatan Braut Brunes
+    playerOff: Fred Friday
+  - minute: 61
+    type: goal
+    team: home
+    player: Gustav Valsvik
+    assist: Hermann Stengel
+  - minute: 61
+    type: yellow_card
+    team: away
+    player: Dario Canadjija
+  - minute: 68
+    type: yellow_card
+    team: home
+    player: Lars-Christopher Vilsvik
+  - minute: 74
+    type: substitution
+    team: away
+    player: Torbjørn Kallevåg
+    playerOff: Simen Bolkan Nordli
+  - minute: 74
+    type: substitution
+    team: away
+    player: Fredrik Haugen
+    playerOff: Kristoffer Barmen
+  - minute: 74
+    type: substitution
+    team: away
+    player: Kristoffer Ødemarksbakken
+    playerOff: Moses Ebiye
+  - minute: 81
+    type: yellow_card
+    team: away
+    player: Torbjørn Kallevåg
+  - minute: 83
+    type: substitution
+    team: home
+    player: Sondre Fosnæss Hanssen
+    playerOff: Niklas Gunnarsson
+  - minute: 83
+    type: substitution
+    team: home
+    player: Ernest Boahene
+    playerOff: Tobias Gulliksen
+  - minute: 90
+    type: substitution
+    team: away
+    player: David Fällman
+    playerOff: Dario Canadjija
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Viljar Røsholt Myhra
+      - Lars-Christopher Vilsvik
+      - Niklas Gunnarsson
+      - Gustav Valsvik
+      - Thomas Grøgaard
+      - Johan Hove
+      - Jack Ipalibo
+      - Hermann Stengel
+      - Halldor Stenevik
+      - Fred Friday
+      - Tobias Gulliksen
+    subs:
+      - Jonatan Braut Brunes
+      - Kristoffer Tokstad
+      - Ernest Boahene
+      - Sondre Fosnæss Hanssen
+      - Emmanuel Danso
+      - Fabian Holst-Larsen
+      - Morten Sætra
+    coach: Håkon Wibe-Lund
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Sten Michael Grytebust
+      - Petar Golubovic
+      - Besim Serbecic
+      - Alexander Juel Andersen
+      - Simen Rafn
+      - Kristoffer Barmen
+      - Erikson Lima
+      - Gilbert Koomson
+      - Dario Canadjija
+      - Simen Bolkan Nordli
+      - Moses Ebiye
+    subs:
+      - Fredrik Haugen
+      - Kristoffer Ødemarksbakken
+      - Torbjørn Kallevåg
+      - David Fällman
+      - Bjørn Martin Kristensen
+      - Jeppe Arctander Moe
+      - John Kitolano
+      - Michael Lansing
+      - Nikolai Hopland
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 54
+    shots: 11
+    shotsOnTarget: 6
+    corners: 9
+    fouls: 17
+    offsides: 3
+    xg: 0.78
+  away:
+    possession: 46
+    shots: 16
+    shotsOnTarget: 7
+    corners: 5
+    fouls: 15
+    offsides: 2
+    xg: 1.61
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +176,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

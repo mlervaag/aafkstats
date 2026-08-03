@@ -11,13 +11,104 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: viking
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 46
+    type: substitution
+    team: away
+    player: Patrik Ingelsten
+    playerOff: Björn Andersson
+  - minute: 58
+    type: substitution
+    team: home
+    player: Lars Fuhre
+    playerOff: Kjell Rune Sellin
+  - minute: 60
+    type: yellow_card
+    team: away
+    player: André Danielsen
+  - minute: 68
+    type: yellow_card
+    team: home
+    player: Sander Post
+  - minute: 73
+    type: substitution
+    team: away
+    player: Trond Olsen
+    playerOff: Veton Berisha
+  - minute: 80
+    type: substitution
+    team: away
+    player: Vidar Nisja
+    playerOff: Yann-Erik de Lanlay
+  - minute: 83
+    type: substitution
+    team: home
+    player: Tremaine Stewart
+    playerOff: Demar Phillips
+  - minute: 85
+    type: substitution
+    team: home
+    player: Amund Skiri
+    playerOff: Fredrik Ulvestad
+  - minute: 88
+    type: goal
+    team: away
+    player: Trond Olsen
+  - minute: 90
+    type: goal
+    team: home
+    player: Daniel Arnefjord
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Ville Jalasto
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Hugues Wembangomo
+      - Fredrik Ulvestad
+      - Jason Morrison
+      - Michael Barrantes
+      - Kjell Rune Sellin
+      - Demar Phillips
+      - Sander Post
+    subs:
+      - Lars Fuhre
+      - Tremaine Stewart
+      - Amund Skiri
+      - Fredrik Carlsen
+      - Jo Nymo Matland
+      - Ole Christian Rørvik
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Rune Almenning Jarstein
+      - Christian Landu Landu
+      - Håkon Skogseid
+      - Indridi Sigurdsson
+      - Trond Erik Bertelsen
+      - Martin Ørnskov
+      - André Danielsen
+      - Yann-Erik de Lanlay
+      - Valon Berisha
+      - Veton Berisha
+      - Björn Andersson
+    subs:
+      - Patrik Ingelsten
+      - Trond Olsen
+      - Vidar Nisja
+      - Arild Østbø
+      - Jon Helge Tveita
+    coach: Kjell Jonevret
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +124,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

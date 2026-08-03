@@ -11,13 +11,159 @@ competition:
 home:
   clubId: tromso
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: alfheim-stadion
 neutralVenue: false
-events: []
+attendance: 3938
+referee: Kai Erik Steen
+events:
+  - minute: 6
+    type: goal
+    team: home
+    player: Gjermund Åsen
+    assist: Lasse Nilsen
+  - minute: 20
+    type: goal
+    team: away
+    player: Athanassios Papazoglou
+    assist: Fredrik Carlsen
+  - minute: 26
+    type: yellow_card
+    team: away
+    player: Mikkel Kirkeskov
+  - minute: 35
+    type: yellow_card
+    team: away
+    player: Kaj Ramsteijn
+  - minute: 39
+    type: yellow_card
+    team: home
+    player: Christian Landu Landu
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Simen Wangberg
+  - minute: 48
+    type: goal
+    team: home
+    player: Thomas Lehne Olsen
+    assist: Morten Gamst Pedersen
+  - minute: 53
+    type: yellow_card
+    team: away
+    player: Bjørn Helge Riise
+  - minute: 54
+    type: goal
+    team: away
+    player: Aron Elis Thrándarson
+    assist: Mostafa Abdellaoue
+  - minute: 63
+    type: red_card
+    team: away
+    player: Mikkel Kirkeskov
+  - minute: 66
+    type: substitution
+    team: away
+    player: Oddbjørn Lie
+    playerOff: Sondre Brunstad Fet
+  - minute: 67
+    type: substitution
+    team: home
+    player: Mikael Ingebrigtsen
+    playerOff: Mushaga Bakenga
+  - minute: 75
+    type: goal
+    team: home
+    player: Thomas Lehne Olsen
+    assist: Hans Norbye
+  - minute: 78
+    type: substitution
+    team: away
+    player: Vebjørn Hoff
+    playerOff: Bjørn Helge Riise
+  - minute: 83
+    type: substitution
+    team: away
+    player: Edwin Gyasi
+    playerOff: Mostafa Abdellaoue
+  - minute: 90
+    type: substitution
+    team: home
+    player: Jostein Gundersen
+    playerOff: Mikael Ingebrigtsen
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Lasse Nilsen
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Daniel Gretarsson
+lineups:
+  home:
+    formation: 3-4-2-1
+    starters:
+      - Gudmund Taksdal Kongshavn
+      - Magnar Ødegaard
+      - Simen Wangberg
+      - Ulrik Yttergård Jenssen
+      - Hans Norbye
+      - Christian Landu Landu
+      - Morten Gamst Pedersen
+      - Lasse Nilsen
+      - Gjermund Åsen
+      - Thomas Lehne Olsen
+      - Mushaga Bakenga
+    subs:
+      - Mikael Ingebrigtsen
+      - Jostein Gundersen
+      - Jacob Karlstrøm
+      - Kent-Are Antonsen
+      - Magnus Andersen
+      - Mour Samb
+      - Slobodan Vuk
+    coach: Simo Valakari
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Kaj Ramsteijn
+      - Daniel Gretarsson
+      - Mikkel Kirkeskov
+      - Sondre Brunstad Fet
+      - Bjørn Helge Riise
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Athanassios Papazoglou
+      - Mostafa Abdellaoue
+    subs:
+      - Oddbjørn Lie
+      - Vebjørn Hoff
+      - Edwin Gyasi
+      - Jan Lennart Urke
+      - Marlinho
+      - Valmir Berisha
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 62
+    shots: 17
+    shotsOnTarget: 6
+    corners: 5
+    fouls: 13
+    offsides: 5
+  away:
+    possession: 38
+    shots: 10
+    shotsOnTarget: 4
+    corners: 5
+    fouls: 13
+    offsides: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +179,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

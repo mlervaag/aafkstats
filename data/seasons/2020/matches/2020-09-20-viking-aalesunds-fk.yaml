@@ -11,13 +11,184 @@ competition:
 home:
   clubId: viking
   score: 5
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: sr-bank-arena
 neutralVenue: false
-events: []
+attendance: 200
+referee: Kristoffer Hagenes
+events:
+  - minute: 5
+    type: goal
+    team: home
+    player: Zymer Bytyqi
+    assist: Jefferson De Souza
+  - minute: 26
+    type: penalty_goal
+    team: away
+    player: Simen Bolkan Nordli
+  - minute: 32
+    type: yellow_card
+    team: home
+    player: Rolf Daniel Vikstøl
+  - minute: 49
+    type: yellow_card
+    team: home
+    player: Henrik Heggheim
+  - minute: 57
+    type: yellow_card
+    team: home
+    player: Zymer Bytyqi
+  - minute: 62
+    type: substitution
+    team: home
+    player: Yann-Erik de Lanlay
+    playerOff: Jefferson De Souza
+  - minute: 65
+    type: penalty_goal
+    team: home
+    player: Veton Berisha
+  - minute: 66
+    type: yellow_card
+    team: away
+    player: Erikson Lima
+  - minute: 73
+    type: goal
+    team: home
+    player: Zymer Bytyqi
+  - minute: 74
+    type: yellow_card
+    team: away
+    player: Sigurd Haugen
+  - minute: 75
+    type: goal
+    team: home
+    player: Rolf Daniel Vikstøl
+    assist: Yann-Erik de Lanlay
+  - minute: 78
+    type: substitution
+    team: away
+    player: Izunna Uzochukwu
+    playerOff: Fredrik Carlsen
+  - minute: 78
+    type: substitution
+    team: home
+    player: Even Østensen
+    playerOff: Zymer Bytyqi
+  - minute: 78
+    type: substitution
+    team: away
+    player: Markus Seehusen Karlsbakk
+    playerOff: Simen Bolkan Nordli
+  - minute: 78
+    type: substitution
+    team: home
+    player: Tommy Høiland
+    playerOff: Veton Berisha
+  - minute: 78
+    type: substitution
+    team: home
+    player: Sebastian Sebulonsen
+    playerOff: Fredrik Torsteinbø
+  - minute: 81
+    type: yellow_card
+    team: home
+    player: Ylldren Ibrahimaj
+  - minute: 82
+    type: penalty_goal
+    team: away
+    player: Sigurd Haugen
+  - minute: 89
+    type: substitution
+    team: away
+    player: Jonas Grønner
+    playerOff: Peter Orry Larsen
+  - minute: 89
+    type: substitution
+    team: home
+    player: Sondre Auklend
+    playerOff: Ylldren Ibrahimaj
+  - minute: 89
+    type: substitution
+    team: away
+    player: Vetle Fiskerstrand
+    playerOff: Isak Dybvik
+  - minute: 90
+    type: substitution
+    team: away
+    player: Håvard Breivik
+    playerOff: Parfait Bizoza
+  - minute: 90
+    type: goal
+    team: home
+    player: Joe Bell
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Iven Austbø
+      - Viljar Vevatne
+      - Henrik Heggheim
+      - Axel Andrésson
+      - Rolf Daniel Vikstøl
+      - Ylldren Ibrahimaj
+      - Joe Bell
+      - Fredrik Torsteinbø
+      - Jefferson De Souza
+      - Veton Berisha
+      - Zymer Bytyqi
+    subs:
+      - Yann-Erik de Lanlay
+      - Even Østensen
+      - Sebastian Sebulonsen
+      - Tommy Høiland
+      - Sondre Auklend
+      - Michael Crowe
+      - Sondre Bjørshol
+    coach: Bjarne Berntsen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Andreas Lie
+      - Erikson Lima
+      - Ben Karamoko
+      - Daan Klinkenberg
+      - David Kristjan Olafsson
+      - Parfait Bizoza
+      - Fredrik Carlsen
+      - Isak Dybvik
+      - Peter Orry Larsen
+      - Simen Bolkan Nordli
+      - Sigurd Haugen
+    subs:
+      - Izunna Uzochukwu
+      - Markus Seehusen Karlsbakk
+      - Jonas Grønner
+      - Vetle Fiskerstrand
+      - Håvard Breivik
+      - Gudmund Taksdal Kongshavn
+      - Kristoffer Strand Ødven
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 61
+    shots: 18
+    shotsOnTarget: 7
+    corners: 6
+    fouls: 7
+    offsides: 2
+    xg: 1.72
+  away:
+    possession: 39
+    shots: 12
+    shotsOnTarget: 4
+    corners: 5
+    fouls: 11
+    offsides: 0
+    xg: 2.72
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +204,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -114,6 +114,7 @@ CREATE TABLE core_matches (
   opponent_score   INTEGER,
   goal_difference  INTEGER,
   result           TEXT CHECK (result IN ('S','U','T')),
+  after_extra_time INTEGER NOT NULL DEFAULT 0,
   decided_on_pens  INTEGER NOT NULL DEFAULT 0,
   won_on_pens      INTEGER,
 
@@ -179,6 +180,7 @@ SELECT
   m.opponent_score,
   m.goal_difference,
   m.result,
+  m.after_extra_time,
   m.decided_on_pens   AS decided_on_penalties,
   m.won_on_pens       AS won_on_penalties,
   m.venue_name        AS venue,
@@ -206,6 +208,7 @@ SELECT
   s.head_coach,
   s.promoted,
   s.relegated,
+  s.note,
   count(m.id)                                               AS played,
   sum(CASE WHEN m.result = 'S' THEN 1 ELSE 0 END)           AS wins,
   sum(CASE WHEN m.result = 'U' THEN 1 ELSE 0 END)           AS draws,

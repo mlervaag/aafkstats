@@ -11,13 +11,111 @@ competition:
 home:
   clubId: raufoss-il
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: nammo-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 21
+    type: goal
+    team: away
+    player: Torbjørn Agdestein
+  - minute: 39
+    type: goal
+    team: home
+    player: Oskar Johannes Løken
+  - minute: 51
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Peter Orry Larsen
+  - minute: 51
+    type: yellow_card
+    team: away
+    player: Daniel Gretarsson
+  - minute: 67
+    type: yellow_card
+    team: home
+    player: Kristoffer Nessø
+  - minute: 69
+    type: yellow_card
+    team: away
+    player: Sondre Brunstad Fet
+  - minute: 78
+    type: substitution
+    team: away
+    player: David Kristjan Olafsson
+    playerOff: Jernade Meade
+  - minute: 81
+    type: substitution
+    team: home
+    player: Ikhsan Fandi
+    playerOff: Anton Henningsson
+  - minute: 86
+    type: substitution
+    team: away
+    player: Ståle Steen Sæthre
+    playerOff: Torbjørn Agdestein
+  - minute: 87
+    type: goal
+    team: home
+    player: Ikhsan Fandi
+    assist: Stian Simenstad
+  - minute: 90
+    type: substitution
+    team: home
+    player: Martin Heiberg
+    playerOff: Oskar Johannes Løken
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Ole Kristian Gjefle Lauvli
+      - Edvard Race
+      - Solomon Owusu
+      - Marius Svanberg Alm
+      - Stian Simenstad
+      - Mikkel Maigaard
+      - Parfait Bizoza
+      - Oskar Johannes Løken
+      - Ryan Doghman
+      - Anton Henningsson
+      - Kristoffer Nessø
+    subs:
+      - Ikhsan Fandi
+      - Martin Heiberg
+      - Henrik Fløgum
+      - Matias Belli Moldskred
+      - Rino Lund Johnsen
+      - Simen Giæver
+      - Thierry Dabove
+    coach: Christian Johnsen
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Jørgen Hatlehol
+      - Peter Orry Larsen
+      - Izunna Uzochukwu
+      - Aron Elis Thrándarson
+      - Jernade Meade
+      - Holmbert Aron Fridjonsson
+      - Torbjørn Agdestein
+    subs:
+      - Sondre Brunstad Fet
+      - David Kristjan Olafsson
+      - Ståle Steen Sæthre
+      - Erikson Lima
+      - Jonas Grønner
+      - Niklas Castro
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +131,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,152 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: kongsvinger
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 3632
+referee: Mischa Huru Kellerhals
+events:
+  - minute: 25
+    type: yellow_card
+    team: home
+    player: Paul Ngongo Iversen
+  - minute: 27
+    type: yellow_card
+    team: away
+    player: Andreas Dybevik
+  - minute: 41
+    type: goal
+    team: away
+    player: Joel Nilsson
+  - minute: 56
+    type: goal
+    team: home
+    player: Mathias Christensen
+  - minute: 63
+    type: substitution
+    team: away
+    player: Jesper Grundt
+    playerOff: Harald Holter
+  - minute: 63
+    type: substitution
+    team: away
+    player: Martin Tangen Vinjor
+    playerOff: Noa Williams
+  - minute: 69
+    type: substitution
+    team: home
+    player: John Kitolano
+    playerOff: Olafur Gudmundsson
+  - minute: 69
+    type: substitution
+    team: home
+    player: David Snær Johannsson
+    playerOff: Henrik Melland
+  - minute: 69
+    type: substitution
+    team: home
+    player: Frederik Heiselberg
+    playerOff: Elias Heggland Myrlid
+  - minute: 70
+    type: yellow_card
+    team: away
+    player: Aleksey Gorodovoy
+  - minute: 76
+    type: substitution
+    team: away
+    player: Rasmus Opdal Christiansen
+    playerOff: Lucas Ravn-Haren
+  - minute: 79
+    type: goal
+    team: home
+    player: Paul Ngongo Iversen
+    assist: David Snær Johannsson
+  - minute: 81
+    type: goal
+    team: home
+    player: Mathias Christensen
+  - minute: 84
+    type: substitution
+    team: away
+    player: Albert Sandstad
+    playerOff: Ludvig Langrekken
+  - minute: 84
+    type: substitution
+    team: away
+    player: Daniel Lysgård
+    playerOff: Joel Nilsson
+  - minute: 90
+    stoppage: 4
+    type: substitution
+    team: home
+    player: Tellef Brattberg Ytterland
+    playerOff: Mathias Christensen
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Olafur Gudmundsson
+      - Kristoffer Nessø
+      - Henrik Melland
+      - Håkon Butli Hammer
+      - Mathias Christensen
+      - Jakob Nyland Ørsahl
+      - Elias Heggland Myrlid
+      - Paul Ngongo Iversen
+    subs:
+      - John Kitolano
+      - David Snær Johannsson
+      - Frederik Heiselberg
+      - Tellef Brattberg Ytterland
+      - Tor Erik Valderhaug Larsen
+      - Erik Frøysa
+      - Jørgen Bøe
+      - Marius Andresen
+      - Kristian Hemmingsen Lonebu
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - Aleksey Gorodovoy
+      - Emil Adrendrup Nielsen
+      - Mapenda Mbow
+      - Fredrik Holmé
+      - Joel Nilsson
+      - Mathias Berg Gjerstrøm
+      - Harald Holter
+      - Andreas Dybevik
+      - Ludvig Langrekken
+      - Lucas Ravn-Haren
+      - Noa Williams
+    subs:
+      - Jesper Grundt
+      - Martin Tangen Vinjor
+      - Rasmus Opdal Christiansen
+      - Albert Sandstad
+      - Daniel Lysgård
+      - Sebastian Naerum Ekerhaugen
+      - Markus Flores
+      - Philip Fjellman
+    coach: Johan Peter Vennberg
+stats:
+  home:
+    possession: 57
+    shots: 12
+    shotsOnTarget: 10
+    corners: 4
+  away:
+    possession: 43
+    shots: 11
+    shotsOnTarget: 6
+    corners: 7
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +172,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

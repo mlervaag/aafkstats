@@ -1,4 +1,5 @@
 import { AskBox } from "@/components/AskBox";
+import { CoverageNote } from "@/components/CoverageNote";
 import { MatchList } from "@/components/MatchList";
 import { loadOverview } from "@/lib/archive";
 
@@ -14,7 +15,8 @@ export default function Home() {
           <h1>{totals.matches} AaFK-kamper.<br />Ett sted å lete.</h1>
           <p className="lede">
             Finn en kamp mens du skriver, eller still et spørsmål med vanlige ord.
-            Arkivet dekker foreløpig seriespillet fra 2011 til 2025.
+            Arkivet dekker foreløpig serie og cup fra {totals.first?.slice(0, 4) ?? "–"} til{" "}
+            {totals.last?.slice(0, 4) ?? "–"}.
           </p>
         </div>
         <dl className="hero-stats">
@@ -39,7 +41,7 @@ export default function Home() {
           <p className="eyebrow">Utforsk</p>
           <h2>Gå rett i arkivet</h2>
           <a href="/sesonger"><strong>Sesonger</strong><span>Resultater og alle kamper, år for år</span></a>
-          <a href="/motstandere"><strong>Motstandere</strong><span>Innbyrdes statistikk mot 43 lag</span></a>
+          <a href="/motstandere"><strong>Motstandere</strong><span>Innbyrdes statistikk gjennom historien</span></a>
           <a href="/data"><strong>Datasettet</strong><span>Se feltene og SQL-en bak AI-svarene</span></a>
         </aside>
       </section>
@@ -47,10 +49,11 @@ export default function Home() {
       <section className="scope-note">
         <div><p className="eyebrow">Dette er en MVP</p><h2>God bredde, ulik detaljgrad</h2></div>
         <p>
-          Dato, motstander og sluttresultat finnes for alle 450 ligakampene. Fem kamper har
-          hendelser, oppstillinger og detaljstatistikk. Kildene er dokumentert, men datasettet
-          er ikke en offisiell AaFK-publikasjon. <a href="/om">Les om omfang og forbehold.</a>
+          Dato, motstander og sluttresultat finnes for hver kamp i arkivet; detaljgraden
+          varierer. Kildene er dokumentert, men datasettet er ikke en offisiell
+          AaFK-publikasjon. <a href="/om">Les om omfang og forbehold.</a>
         </p>
+        <CoverageNote heading={false} />
       </section>
     </>
   );

@@ -11,13 +11,171 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 6
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: grorud
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 1803
+events:
+  - minute: 13
+    type: goal
+    team: home
+    player: Sigurd Haugen
+    assist: Isak Dybvik Maeaettae
+  - minute: 27
+    type: goal
+    team: home
+    player: Simen Bolkan Nordli
+    assist: David Kristjan Olafsson
+  - minute: 29
+    type: goal
+    team: home
+    player: Sigurd Haugen
+    assist: Isak Dybvik Maeaettae
+  - minute: 42
+    type: yellow_card
+    team: away
+    player: Omar Bully Drammeh
+  - minute: 46
+    type: substitution
+    team: home
+    player: Niklas Castro
+    playerOff: Torbjørn Kallevåg
+  - minute: 46
+    type: substitution
+    team: home
+    player: Nikolai Hopland
+    playerOff: Quint Jansen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Kevin Mankowitz
+    playerOff: Nikolai Jakobsen Hristov
+  - minute: 48
+    type: yellow_card
+    team: home
+    player: David Fällman
+  - minute: 49
+    type: goal
+    team: home
+    player: Niklas Castro
+    assist: David Kristjan Olafsson
+  - minute: 61
+    type: substitution
+    team: away
+    player: Ridouan Boulahuane Essaeh
+    playerOff: Omar Bully Drammeh
+  - minute: 61
+    type: substitution
+    team: away
+    player: Fredrick Pettersen
+    playerOff: Christos Zafeiris
+  - minute: 61
+    type: goal
+    team: away
+    player: Bjørn Martin Kristensen
+  - minute: 62
+    type: substitution
+    team: home
+    player: Muamer Brajanac
+    playerOff: Sigurd Haugen
+  - minute: 63
+    type: substitution
+    team: home
+    player: Erikson Lima
+    playerOff: Kristoffer Barmen
+  - minute: 66
+    type: yellow_card
+    team: away
+    player: Saadiq Faisal Elmi
+  - minute: 67
+    type: goal
+    team: home
+    player: Niklas Castro
+    assist: David Fällman
+  - minute: 72
+    type: substitution
+    team: home
+    player: Jonas Grønner
+    playerOff: David Fällman
+  - minute: 73
+    type: goal
+    team: away
+    player: Fredrick Pettersen
+    assist: Ridouan Boulahuane Essaeh
+  - minute: 77
+    type: substitution
+    team: away
+    player: Arnar Thor Gudjonsson
+    playerOff: Bjørn Martin Kristensen
+  - minute: 77
+    type: goal
+    team: home
+    player: Niklas Castro
+    assist: Simen Bolkan Nordli
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Jørgen Hatlehol
+      - Quint Jansen
+      - David Fällman
+      - David Kristjan Olafsson
+      - Kristoffer Barmen
+      - Erlend Segberg
+      - Isak Dybvik Maeaettae
+      - Torbjørn Kallevåg
+      - Simen Bolkan Nordli
+      - Sigurd Haugen
+    subs:
+      - Nikolai Hopland
+      - Niklas Castro
+      - Muamer Brajanac
+      - Erikson Lima
+      - Jonas Grønner
+      - Andreas Lie
+      - Simen Rafn
+      - Kristoffer Ødemarksbakken
+      - Mamadou Diaw
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Mats Viken
+      - Vetle Skåttun
+      - Geirald Meyer
+      - Henrik Bredeli
+      - Fabian Østigård Ness
+      - Nikolai Jakobsen Hristov
+      - Saadiq Faisal Elmi
+      - Christos Zafeiris
+      - Omar Bully Drammeh
+      - Preben Mankowitz
+      - Bjørn Martin Kristensen
+    subs:
+      - Kevin Mankowitz
+      - Fredrick Pettersen
+      - Ridouan Boulahuane Essaeh
+      - Arnar Thor Gudjonsson
+      - Oliver Petersen
+      - Hassan Mohamed Yusuf
+      - Sindre Osestad
+    coach: Johan Gjønnes Nilsen
+stats:
+  home:
+    possession: 58
+    shots: 15
+    shotsOnTarget: 11
+    corners: 5
+  away:
+    possession: 42
+    shots: 4
+    shotsOnTarget: 2
+    corners: 0
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +191,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -1,0 +1,122 @@
+id: 2014-06-27-aalesunds-fk-lillestrom
+date: 2014-06-27
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: nm
+  season: 2014
+  stage: regular_season
+  round: 4
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: lillestrom
+  score: 1
+  halfTimeScore: 0
+extraTime:
+  home: 0
+  away: 2
+venueId: color-line-stadion
+neutralVenue: false
+attendance: 2589
+events:
+  - minute: 10
+    type: substitution
+    team: home
+    player: Sakari Mattila
+    playerOff: Fredrik Carlsen
+  - minute: 51
+    type: goal
+    team: away
+    player: Petter Vaagan Moen
+  - minute: 56
+    type: substitution
+    team: home
+    player: Jo Nymo Matland
+    playerOff: Akeem Latifu
+  - minute: 66
+    type: substitution
+    team: away
+    player: Tommy Hoeiland
+    playerOff: Petter Vaagan Moen
+  - minute: 81
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Demar Phillips
+  - minute: 86
+    type: substitution
+    team: away
+    player: Anders Oestli
+    playerOff: Moryke Fofana
+  - minute: 90
+    type: goal
+    team: home
+    player: Leke James
+  - minute: 103
+    type: substitution
+    team: away
+    player: Fred Friday
+    playerOff: Erling Knudtzon
+  - minute: 119
+    type: goal
+    team: away
+    player: Anders Oestli
+  - minute: 120
+    type: goal
+    team: away
+    player: Tommy Hoeiland
+lineups:
+  home:
+    starters: []
+    subs:
+      - Sakari Mattila
+      - Jo Nymo Matland
+      - Peter Orry Larsen
+      - Vebjoern Hoff
+      - Andreas Lie
+      - Henrik Roervik Bjoerdal
+      - Thomas Skog Martinussen
+      - Sten Michael Grytebust
+  away:
+    starters: []
+    subs:
+      - Tommy Hoeiland
+      - Anders Oestli
+      - Fred Friday
+      - Simen Kind Mikalsen
+      - Arnold Origi Otieno
+      - Simen Nordermoen
+      - Kenneth Udjus
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-lillestrom/2ctxg4#1712335
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - extraTime
+      - events
+      - lineups
+    note: "Kildestatus: AET"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1712335"
+manual: []

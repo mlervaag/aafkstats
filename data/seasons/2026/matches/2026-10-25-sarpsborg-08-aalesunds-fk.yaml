@@ -1,0 +1,49 @@
+id: 2026-10-25-sarpsborg-08-aalesunds-fk
+date: 2026-10-25
+dateConfidence: exact
+kickoff: 17:00
+status: scheduled
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 12
+home:
+  clubId: sarpsborg-08
+  score: null
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: null
+  halfTimeScore: null
+venueId: sarpsborg-stadion
+neutralVenue: false
+events: []
+lineups:
+  home:
+    starters: []
+    subs: []
+  away:
+    starters: []
+    subs: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-sarpsborg-08/2d5vpy#5104935
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - competition.round
+      - venueId
+      - lineups
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5104935"
+manual: []

@@ -11,13 +11,151 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: odds-ballklubb
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 600
+referee: Kai Erik Steen
+events:
+  - minute: 10
+    type: yellow_card
+    team: away
+    player: Vladimir Rodic
+  - minute: 16
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Fredrik Carlsen
+  - minute: 27
+    type: yellow_card
+    team: away
+    player: John Kitolano
+  - minute: 36
+    type: yellow_card
+    team: home
+    player: Izunna Uzochukwu
+  - minute: 45
+    type: goal
+    team: away
+    player: Odin Lurås Bjørtuft
+  - minute: 64
+    type: goal
+    team: away
+    player: Kevin Egell-Johnsen
+    assist: John Kitolano
+  - minute: 67
+    type: yellow_card
+    team: home
+    player: Sigurd Haugen
+  - minute: 68
+    type: substitution
+    team: away
+    player: Tobias Lauritsen
+    playerOff: Vladimir Rodic
+  - minute: 79
+    type: substitution
+    team: away
+    player: Fredrik Nordkvelle
+    playerOff: Markus André Kaasa
+  - minute: 84
+    type: substitution
+    team: home
+    player: Jonas Grønner
+    playerOff: Ben Karamoko
+  - minute: 84
+    type: substitution
+    team: home
+    player: Markus Seehusen Karlsbakk
+    playerOff: Simen Bolkan Nordli
+  - minute: 84
+    type: goal
+    team: away
+    player: Mushaga Bakenga
+    assist: Kevin Egell-Johnsen
+  - minute: 86
+    type: substitution
+    team: home
+    player: Shaquill Sno
+    playerOff: Isak Dybvik Määttä
+  - minute: 86
+    type: yellow_card
+    team: home
+    player: Kasper Jørgensen
+  - minute: 87
+    type: substitution
+    team: home
+    player: Parfait Bizoza
+    playerOff: Izunna Uzochukwu
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Andreas Lie
+      - Erikson Lima
+      - Ben Karamoko
+      - Daan Klinkenberg
+      - Kasper Jørgensen
+      - Niklas Castro
+      - Fredrik Carlsen
+      - Izunna Uzochukwu
+      - Isak Dybvik Määttä
+      - Sigurd Haugen
+      - Simen Bolkan Nordli
+    subs:
+      - Peter Orry Larsen
+      - Jonas Grønner
+      - Markus Seehusen Karlsbakk
+      - Shaquill Sno
+      - Parfait Bizoza
+      - Gudmund Taksdal Kongshavn
+      - David Kristjan Olafsson
+      - Kristoffer Strand Ødven
+      - Vetle Fiskerstrand
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-3-3
+    starters:
+      - Sondre Løvseth Rossbach
+      - Vebjørn Hoff
+      - Kevin Egell-Johnsen
+      - Odin Lurås Bjørtuft
+      - John Kitolano
+      - Markus André Kaasa
+      - Filip Rønningen Jørgensen
+      - Joshua Kitolano
+      - Vladimir Rodic
+      - Mushaga Bakenga
+      - Elbasan Rashani
+    subs:
+      - Tobias Lauritsen
+      - Fredrik Nordkvelle
+      - Egil Selvik
+      - Bjørn Mæland
+      - Eirik Asante Gayi
+      - Rasmus Minor Petersen
+      - Kachi
+    coach: Jan-Frode Nornes
+stats:
+  home:
+    possession: 39
+    shots: 3
+    shotsOnTarget: 2
+    corners: 2
+    fouls: 20
+    offsides: 7
+    xg: 0.13
+  away:
+    possession: 61
+    shots: 17
+    shotsOnTarget: 7
+    corners: 1
+    fouls: 9
+    offsides: 0
+    xg: 2.08
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +171,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

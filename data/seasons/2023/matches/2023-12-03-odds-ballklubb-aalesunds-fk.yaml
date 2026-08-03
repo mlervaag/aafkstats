@@ -11,13 +11,163 @@ competition:
 home:
   clubId: odds-ballklubb
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: skagerak-arena
 neutralVenue: false
-events: []
+attendance: 3844
+referee: Kristoffer Hagenes
+events:
+  - minute: 8
+    type: substitution
+    team: away
+    player: Michael Lansing
+    playerOff: Sten Michael Grytebust
+  - minute: 13
+    type: own_goal
+    team: home
+    player: Amidou Diop
+  - minute: 24
+    type: yellow_card
+    team: away
+    player: Håkon Butli Hammer
+  - minute: 31
+    type: goal
+    team: home
+    player: Mikael Ingebrigtsen
+    assist: Espen Ruud
+  - minute: 38
+    type: goal
+    team: away
+    player: Moctar Diop
+    assist: Markus Seehusen Karlsbakk
+  - minute: 45
+    stoppage: 3
+    type: yellow_card
+    team: away
+    player: Simen Haram
+  - minute: 57
+    type: substitution
+    team: home
+    player: Faniel Temesgen Tewelde
+    playerOff: Tobias Hammer Svendsen
+  - minute: 72
+    type: substitution
+    team: home
+    player: Jesper Svenungsen Skau
+    playerOff: Thomas Rekdal
+  - minute: 74
+    type: substitution
+    team: away
+    player: Martin Ramsland
+    playerOff: Eivind Strømsheim Kolve
+  - minute: 74
+    type: substitution
+    team: away
+    player: Kristoffer Ødemarksbakken
+    playerOff: Sander Hestetun Kilen
+  - minute: 83
+    type: goal
+    team: home
+    player: Filip Rønningen Jørgensen
+    assist: Espen Ruud
+  - minute: 86
+    type: substitution
+    team: home
+    player: Peder Nygaard Klausen
+    playerOff: Per Kristian Bråtveit
+  - minute: 86
+    type: substitution
+    team: home
+    player: Zakaria Mugeese
+    playerOff: Mikael Ingebrigtsen
+  - minute: 86
+    type: substitution
+    team: home
+    player: Dennis Gjengaar
+    playerOff: Filip Rønningen Jørgensen
+  - minute: 89
+    type: substitution
+    team: away
+    player: Iver Krogh Hagen
+    playerOff: Trace Murray
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Bjørn Martin Kristensen
+  - minute: 90
+    stoppage: 1
+    type: goal
+    team: home
+    player: Jesper Svenungsen Skau
+    assist: Espen Ruud
+lineups:
+  home:
+    formation: 3-4-2-1
+    starters:
+      - Per Kristian Bråtveit
+      - Leon Hien
+      - Solomon Owusu
+      - Steffen Hagen
+      - Espen Ruud
+      - Casper Glenna Andersen
+      - Leonard Owusu
+      - Thomas Rekdal
+      - Mikael Ingebrigtsen
+      - Tobias Hammer Svendsen
+      - Filip Rønningen Jørgensen
+    subs:
+      - Faniel Temesgen Tewelde
+      - Jesper Svenungsen Skau
+      - Peder Nygaard Klausen
+      - Dennis Gjengaar
+      - Zakaria Mugeese
+      - Diogo Tomas
+      - Anders Ryste
+      - Bork Classønn Bang-Kittilsen
+    coach: Pål Arne Johansen
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Erik Frøysa
+      - Amidou Diop
+      - Simen Haram
+      - Trace Murray
+      - Eivind Strømsheim Kolve
+      - Håkon Butli Hammer
+      - Markus Seehusen Karlsbakk
+      - Bjørn Martin Kristensen
+      - Moctar Diop
+      - Sander Hestetun Kilen
+    subs:
+      - Michael Lansing
+      - Kristoffer Ødemarksbakken
+      - Martin Ramsland
+      - Iver Krogh Hagen
+      - Stian Aarønes Holte
+      - Kristoffer Strand Ødven
+    coach: Christian Johnsen
+stats:
+  home:
+    possession: 60
+    shots: 25
+    shotsOnTarget: 9
+    corners: 10
+    fouls: 12
+    offsides: 0
+    xg: 2.47
+  away:
+    possession: 40
+    shots: 14
+    shotsOnTarget: 5
+    corners: 6
+    fouls: 12
+    offsides: 1
+    xg: 1.36
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +183,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

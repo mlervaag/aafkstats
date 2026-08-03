@@ -11,13 +11,108 @@ competition:
 home:
   clubId: odds-ballklubb
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: skagerak-arena
 neutralVenue: false
-events: []
+events:
+  - minute: 20
+    type: goal
+    team: home
+    player: Simen Brenne
+  - minute: 27
+    type: goal
+    team: home
+    player: Morten Fevang
+  - minute: 34
+    type: yellow_card
+    team: away
+    player: Jo Nymo Matland
+  - minute: 40
+    type: substitution
+    team: home
+    player: Jone Samuelsen
+    playerOff: Simen Brenne
+  - minute: 44
+    type: goal
+    team: home
+    player: Frode Johnsen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Thomas Skog Martinussen
+    playerOff: Fredrik Carlsen
+  - minute: 60
+    type: substitution
+    team: home
+    player: Elbasan Rashani
+    playerOff: Adem Güven
+  - minute: 64
+    type: yellow_card
+    team: away
+    player: Enar Jääger
+  - minute: 75
+    type: substitution
+    team: away
+    player: Lars Fuhre
+    playerOff: Fredrik Ulvestad
+  - minute: 82
+    type: substitution
+    team: away
+    player: Amund Skiri
+    playerOff: Michael Barrantes
+  - minute: 88
+    type: substitution
+    team: home
+    player: Paul Addo
+    playerOff: Jone Samuelsen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - André Hansen
+      - Niklas Gunnarsson
+      - Fredrik Semb Berge
+      - Steffen Hagen
+      - Emil Jonassen
+      - Simen Brenne
+      - Morten Fevang
+      - Herolind Shala
+      - Adem Güven
+      - Snorre Krogsgård
+      - Frode Johnsen
+    subs:
+      - Jone Samuelsen
+      - Elbasan Rashani
+      - Paul Addo
+      - Andreas Lie
+      - George White
+      - Lars Kristian Eriksen
+      - Mattias Andersson
+    coach: Dag-Eilev Fagermo
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Edvard Skagestad
+      - Jonatan Tollås Nation
+      - Jo Nymo Matland
+      - Michael Barrantes
+      - Fredrik Carlsen
+      - Peter Orry Larsen
+      - Fredrik Ulvestad
+      - Sander Post
+      - Leke James
+    subs:
+      - Thomas Skog Martinussen
+      - Lars Fuhre
+      - Amund Skiri
+      - Mathias Rasmussen
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +128,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

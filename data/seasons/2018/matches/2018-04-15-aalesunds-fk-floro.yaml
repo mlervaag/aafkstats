@@ -11,13 +11,110 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: floro
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 18
+    type: goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+    assist: Oddbjørn Lie
+  - minute: 23
+    type: yellow_card
+    team: home
+    player: Erikson Lima
+  - minute: 42
+    type: goal
+    team: home
+    player: Torbjørn Agdestein
+    assist: Holmbert Aron Fridjonsson
+  - minute: 46
+    type: substitution
+    team: away
+    player: Patrik Johannesen
+    playerOff: Lorent Callaku
+  - minute: 47
+    type: goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+    assist: Adam Örn Arnarson
+  - minute: 58
+    type: substitution
+    team: home
+    player: Jernade Meade
+    playerOff: Adam Örn Arnarson
+  - minute: 73
+    type: substitution
+    team: away
+    player: Robert Kling
+    playerOff: Alioune Ndour
+  - minute: 73
+    type: substitution
+    team: home
+    player: Bjørn Helge Riise
+    playerOff: Aron Elis Thrándarson
+  - minute: 87
+    type: substitution
+    team: away
+    player: Torbjørn Aabrekk
+    playerOff: Oliver Rotihaug
+  - minute: 88
+    type: goal
+    team: home
+    player: Torbjørn Agdestein
+    assist: Sonni Nattestad
+lineups:
+  home:
+    formation: 3-4-1-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Sonni Nattestad
+      - Oddbjørn Lie
+      - Adam Örn Arnarson
+      - Fredrik Carlsen
+      - Erikson Lima
+      - Jørgen Hatlehol
+      - Aron Elis Thrándarson
+      - Torbjørn Agdestein
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Jernade Meade
+      - Bjørn Helge Riise
+      - Anders Waagan
+      - Emil Solnørdal
+      - Robert Sandnes
+      - Sondre Brunstad Fet
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
+  away:
+    formation: 4-3-3
+    starters:
+      - Nicklas Frenderup
+      - Andre Reksten
+      - Vegard Gjermundstad
+      - Simen Reksten Solheim
+      - Christer Husa
+      - Peter Aase
+      - Stefan Aase
+      - Halvor Solheim Olsen
+      - Lorent Callaku
+      - Alioune Ndour
+      - Oliver Rotihaug
+    subs:
+      - Patrik Johannesen
+      - Robert Kling
+      - Torbjørn Aabrekk
+      - Dejan Corovic
+      - Dino Omerovic
+      - Eirik Høydal
+      - Jacob Storevik
+    coach: Terje Rognsø
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +130,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

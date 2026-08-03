@@ -11,13 +11,108 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: sandnes-ulf
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 16
+    type: yellow_card
+    team: away
+    player: Tijan Jaiteh
+  - minute: 34
+    type: goal
+    team: home
+    player: Tor Hogne Aarøy
+    assist: Oddbjørn Lie
+  - minute: 54
+    type: goal
+    team: home
+    player: Fredrik Ulvestad
+    assist: Leke James
+  - minute: 58
+    type: substitution
+    team: away
+    player: Fredrik Midtsjø
+    playerOff: Steven Lennon
+  - minute: 63
+    type: goal
+    team: home
+    player: Leke James
+    assist: Akeem Latifu
+  - minute: 76
+    type: substitution
+    team: home
+    player: Henrik Rørvik Bjørdal
+    playerOff: Torbjørn Grytten
+  - minute: 79
+    type: substitution
+    team: away
+    player: Kent Håvard Eriksen
+    playerOff: Anel Raskaj
+  - minute: 79
+    type: substitution
+    team: away
+    player: Zymer Bytyqi
+    playerOff: Diego Rubio
+  - minute: 81
+    type: substitution
+    team: home
+    player: Jo Nymo Matland
+    playerOff: Oddbjørn Lie
+  - minute: 90
+    type: substitution
+    team: home
+    player: Thomas Skog Martinussen
+    playerOff: Tor Hogne Aarøy
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Mikael Dyrestam
+      - Oddbjørn Lie
+      - Torbjørn Grytten
+      - Fredrik Ulvestad
+      - Fredrik Carlsen
+      - Demar Phillips
+      - Tor Hogne Aarøy
+      - Leke James
+    subs:
+      - Henrik Rørvik Bjørdal
+      - Jo Nymo Matland
+      - Thomas Skog Martinussen
+      - Andreas Lie
+      - Sakari Mattila
+      - Tremaine Stewart
+    coach: Jan Jönsson
+  away:
+    formation: 4-4-2
+    starters:
+      - Hannes Thor Halldorsson
+      - Vegard Aanestad
+      - Erik Tønne
+      - Kenneth Sola
+      - Derek Decamps
+      - Steven Lennon
+      - Anel Raskaj
+      - Tijan Jaiteh
+      - Aksel Berget Skjølsvik
+      - Ole Kristian Langås
+      - Diego Rubio
+    subs:
+      - Fredrik Midtsjø
+      - Kent Håvard Eriksen
+      - Zymer Bytyqi
+      - Edier Frejd
+      - Marius Helle
+      - Sean McDermott
+    coach: Asle Andersen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +128,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

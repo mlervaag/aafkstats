@@ -11,13 +11,134 @@ competition:
 home:
   clubId: start
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: soer-arena
 neutralVenue: false
-events: []
+attendance: 3401
+referee: Tommy Skjerven
+events:
+  - minute: 8
+    type: yellow_card
+    team: home
+    player: Dennis Agyare Antwi
+  - minute: 11
+    type: yellow_card
+    team: home
+    player: Erlend Segberg
+  - minute: 18
+    type: goal
+    team: home
+    player: Chidiebere Nwakali
+    assist: Dennis Agyare Antwi
+  - minute: 27
+    type: yellow_card
+    team: away
+    player: Vito Wormgoor
+  - minute: 52
+    type: goal
+    team: away
+    player: Bjørn Helge Riise
+    assist: Edwin Gyasi
+  - minute: 58
+    type: yellow_card
+    team: away
+    player: Franck Boli
+  - minute: 64
+    type: substitution
+    team: home
+    player: Jibril Bojang
+    playerOff: Eirik Wichne
+  - minute: 71
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Bjørn Helge Riise
+  - minute: 74
+    type: goal
+    team: away
+    player: Aron Elis Thrándarson
+    assist: Edwin Gyasi
+  - minute: 75
+    type: substitution
+    team: home
+    player: Lars-Jørgen Salvesen
+    playerOff: Dulee Johnson
+  - minute: 76
+    type: goal
+    team: away
+    player: Sondre Brunstad Fet
+    assist: Edwin Gyasi
+  - minute: 81
+    type: substitution
+    team: away
+    player: Edvard Skagestad
+    playerOff: Mostafa Abdellaoue
+  - minute: 87
+    type: goal
+    team: away
+    player: Franck Boli
+    assist: Edwin Gyasi
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Håkon Andre Opdal
+      - Jens Skogmo
+      - Tapio Heikkilä
+      - Gudmundur Kristjansson
+      - Henrik Robstad
+      - Dulee Johnson
+      - Erlend Segberg
+      - Chidiebere Nwakali
+      - Eirik Wichne
+      - Dennis Agyare Antwi
+      - Espen Børufsen
+    subs:
+      - Jibril Bojang
+      - Lars-Jørgen Salvesen
+      - Alex De John
+      - Daniel Aase
+      - Espen Hoff
+      - Robert Sandnes
+      - Sebastian Hornnes Heggland
+    coach: Steinar Pedersen
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Oddbjørn Lie
+      - Vito Wormgoor
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Vebjørn Hoff
+      - Bjørn Helge Riise
+      - Aron Elis Thrándarson
+      - Franck Boli
+      - Mostafa Abdellaoue
+    subs:
+      - Sondre Brunstad Fet
+      - Edvard Skagestad
+      - Daniel Gretarsson
+      - Lars Cramer
+      - Marlinho
+      - Tero Mäntylä
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 52
+    shots: 12
+    shotsOnTarget: 5
+    corners: 10
+  away:
+    possession: 48
+    shots: 15
+    shotsOnTarget: 7
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +154,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

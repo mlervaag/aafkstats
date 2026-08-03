@@ -1,0 +1,42 @@
+id: 2026-02-06-hodd-aalesunds-fk
+date: 2026-02-06
+dateConfidence: exact
+kickoff: 12:00
+status: played
+competition:
+  id: treningskamp
+  season: 2026
+  stage: regular_season
+home:
+  clubId: hodd
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+venueId: hoddvoll-stadion
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/hodd-vs-aalesund/27i0yj#5126268
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - venueId
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5126268"
+manual: []

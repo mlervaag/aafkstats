@@ -1,0 +1,132 @@
+id: 2010-07-10-aalesunds-fk-molde-fk
+date: 2010-07-10
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: eliteserien
+  season: 2010
+  stage: regular_season
+  round: 16
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: molde-fk
+  score: 0
+  halfTimeScore: 0
+venueId: color-line-stadion
+neutralVenue: false
+events:
+  - minute: 15
+    type: yellow_card
+    team: home
+    player: Johan Arneng
+  - minute: 33
+    type: substitution
+    team: away
+    player: Marcus Andreasson
+    playerOff: Christian Steen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Kristoffer Paulsen Vatshaug
+    playerOff: Magne Simonsen
+  - minute: 61
+    type: substitution
+    team: home
+    player: Magnus Sylling Olsen
+    playerOff: Pablo Herrera
+  - minute: 65
+    type: yellow_card
+    team: away
+    player: Magne Hoseth
+  - minute: 72
+    type: substitution
+    team: home
+    player: Jonatan Tollås Nation
+    playerOff: Alexander Mathisen
+  - minute: 86
+    type: substitution
+    team: home
+    player: Dan Peter Ulvestad
+    playerOff: Trond Fredriksen
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Tor Hogne Aarøy
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Anders Lindegaard
+      - Alexander Mathisen
+      - Ville Jalasto
+      - Daniel Arnefjord
+      - Enar Jääger
+      - Johan Arneng
+      - Peter Orry Larsen
+      - Trond Fredriksen
+      - Pablo Herrera
+      - Demar Phillips
+      - Tor Hogne Aarøy
+    subs:
+      - Magnus Sylling Olsen
+      - Jonatan Tollås Nation
+      - Dan Peter Ulvestad
+      - Didrik Fløtre
+      - Fredrik Ulvestad
+      - Magnus Solevåg
+      - Sten Michael Grytebust
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - Knut Dørum Lillebakk
+      - Magne Simonsen
+      - Christian Steen
+      - Vegard Forren
+      - Knut Olav Rindarøy
+      - Thomas Holm
+      - Makhtar Thioune
+      - Magne Hoseth
+      - Mattias Moström
+      - Aksel Berget Skjølsvik
+      - Björn Runström
+    subs:
+      - Marcus Andreasson
+      - Kristoffer Paulsen Vatshaug
+      - Daniel Berg Hestad
+      - Elias Valderhaug
+      - Magnus Stamnestrø
+      - Øyvind Gjerde
+      - Simon Markeng
+    coach: Kjell Jonevret
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#761821
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "761821"
+manual: []

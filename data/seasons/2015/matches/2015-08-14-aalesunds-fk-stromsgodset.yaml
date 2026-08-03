@@ -11,13 +11,129 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: stromsgodset
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 6388
+events:
+  - minute: 25
+    type: goal
+    team: home
+    player: Henrik Rørvik Bjørdal
+    assist: Leke James
+  - minute: 38
+    type: yellow_card
+    team: away
+    player: Bassel Jradi
+  - minute: 46
+    type: goal
+    team: away
+    player: Bassel Jradi
+    assist: Kim André Madsen
+  - minute: 48
+    type: yellow_card
+    team: home
+    player: Bjørn Helge Riise
+  - minute: 50
+    type: substitution
+    team: home
+    player: Vebjørn Hoff
+    playerOff: Fredrik Carlsen
+  - minute: 59
+    type: yellow_card
+    team: home
+    player: Edvard Skagestad
+  - minute: 62
+    type: goal
+    team: home
+    player: Mostafa Abdellaoue
+    assist: Henrik Rørvik Bjørdal
+  - minute: 63
+    type: substitution
+    team: home
+    player: Aron Elis Thrándarson
+    playerOff: Mostafa Abdellaoue
+  - minute: 67
+    type: substitution
+    team: away
+    player: Martin Rønning Ovenstad
+    playerOff: Flamur Kastrati
+  - minute: 80
+    type: substitution
+    team: home
+    player: Tero Mäntylä
+    playerOff: Oddbjørn Lie
+  - minute: 81
+    type: yellow_card
+    team: away
+    player: Marcus Pedersen
+  - minute: 83
+    type: substitution
+    team: away
+    player: Thomas Sørum
+    playerOff: Bassel Jradi
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Edvard Skagestad
+      - Mikael Dyrestam
+      - Oddbjørn Lie
+      - Bjørn Helge Riise
+      - Peter Orry Larsen
+      - Fredrik Carlsen
+      - Henrik Rørvik Bjørdal
+      - Mostafa Abdellaoue
+      - Leke James
+    subs:
+      - Vebjørn Hoff
+      - Aron Elis Thrándarson
+      - Tero Mäntylä
+      - Andreas Lie
+      - Carl Björk
+      - Daniel Gretarsson
+      - Elias Dahlberg
+    coach: Trond Fredriksen
+  away:
+    formation: 4-3-3
+    starters:
+      - Espen Bugge Pettersen
+      - Lars-Christopher Vilsvik
+      - Marius Høibråten
+      - Kim André Madsen
+      - Florent Hanin
+      - Bassel Jradi
+      - Mohammed Abu
+      - Iver Fossum
+      - Øyvind Storflor
+      - Marcus Pedersen
+      - Flamur Kastrati
+    subs:
+      - Martin Rønning Ovenstad
+      - Thomas Sørum
+      - Bismarck Adjei-Boateng
+      - Gustav Valsvik
+      - Lukasz Jarosinski
+      - Mounir Hamoud
+      - Thomas Lehne Olsen
+    coach: Bjørn Petter Ingebretsen
+stats:
+  home:
+    possession: 34
+    shots: 9
+    shotsOnTarget: 5
+    corners: 1
+  away:
+    possession: 66
+    shots: 17
+    shotsOnTarget: 9
+    corners: 7
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +149,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

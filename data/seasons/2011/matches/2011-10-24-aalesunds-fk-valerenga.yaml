@@ -11,13 +11,109 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: valerenga
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 24
+    type: goal
+    team: away
+    player: Bojan Zajic
+  - minute: 29
+    type: goal
+    team: home
+    player: Magnus Sylling Olsen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Harmeet Singh
+    playerOff: Veigar Pall Gunnarsson
+  - minute: 47
+    type: substitution
+    team: home
+    player: Fredrik Carlsen
+    playerOff: Michael Barrantes
+  - minute: 67
+    type: substitution
+    team: away
+    player: Aleksander Solli
+    playerOff: Benjamin Dahl Hagen
+  - minute: 68
+    type: goal
+    team: home
+    player: Peter Orry Larsen
+  - minute: 73
+    type: substitution
+    team: away
+    player: Chuma Anene
+    playerOff: Mohammed Fellah
+  - minute: 80
+    type: substitution
+    team: home
+    player: Edvard Skagestad
+    playerOff: Kjell Rune Sellin
+  - minute: 86
+    type: substitution
+    team: home
+    player: Sander Post
+    playerOff: Magnus Sylling Olsen
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Chuma Anene
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Freddy dos Santos
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Daniel Arnefjord
+      - Ville Jalasto
+      - Jo Nymo Matland
+      - Peter Orry Larsen
+      - Michael Barrantes
+      - Fredrik Ulvestad
+      - Demar Phillips
+      - Kjell Rune Sellin
+      - Magnus Sylling Olsen
+    subs:
+      - Fredrik Carlsen
+      - Edvard Skagestad
+      - Sander Post
+      - Didrik Fløtre
+      - Jonas Sandqvist
+      - Lars Fuhre
+      - Solomon Okoronkwo
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-2-1-3
+    starters:
+      - Lars Hirschfeld
+      - Freddy dos Santos
+      - André Muri
+      - Stefan Strandberg
+      - Benjamin Dahl Hagen
+      - Kristofer Hæstad
+      - Bojan Zajic
+      - Mohammed Fellah
+      - Morten Berre
+      - Veigar Pall Gunnarsson
+      - Dawda Leigh
+    subs:
+      - Harmeet Singh
+      - Aleksander Solli
+      - Chuma Anene
+      - Adnan Haidar
+      - Gudmund Taksdal Kongshavn
+    coach: Martin Andresen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +129,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

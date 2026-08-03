@@ -1,0 +1,49 @@
+id: 2026-09-13-kfum-aalesunds-fk
+date: 2026-09-13
+dateConfidence: exact
+kickoff: 17:00
+status: scheduled
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 21
+home:
+  clubId: kfum
+  score: null
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: null
+  halfTimeScore: null
+venueId: kfum-arena
+neutralVenue: false
+events: []
+lineups:
+  home:
+    starters: []
+    subs: []
+  away:
+    starters: []
+    subs: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/kfum-vs-aalesund/y5bh7#5105007
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - competition.round
+      - venueId
+      - lineups
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5105007"
+manual: []

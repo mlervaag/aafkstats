@@ -11,13 +11,131 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: odds-ballklubb
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 6140
+events:
+  - minute: 23
+    type: goal
+    team: home
+    player: Leke James
+    assist: Mostafa Abdellaoue
+  - minute: 34
+    type: goal
+    team: away
+    player: Pape Pate Diouf
+    assist: Fredrik Nordkvelle
+  - minute: 46
+    type: substitution
+    team: away
+    player: Ulrik Flo
+    playerOff: Rafik Zekhnini
+  - minute: 55
+    type: goal
+    team: away
+    player: Pape Pate Diouf
+    assist: Chukwuma Akabueze
+  - minute: 57
+    type: substitution
+    team: home
+    player: Magne Hoseth
+    playerOff: Mostafa Abdellaoue
+  - minute: 59
+    type: substitution
+    team: home
+    player: Marlinho
+    playerOff: Aron Elis Thrándarson
+  - minute: 65
+    type: substitution
+    team: away
+    player: Ole Jørgen Halvorsen
+    playerOff: Chukwuma Akabueze
+  - minute: 73
+    type: substitution
+    team: home
+    player: Carl Björk
+    playerOff: Vebjørn Hoff
+  - minute: 77
+    type: yellow_card
+    team: away
+    player: Jone Samuelsen
+  - minute: 81
+    type: goal
+    team: away
+    player: Fredrik Oldrup Jensen
+    assist: Espen Ruud
+  - minute: 84
+    type: substitution
+    team: away
+    player: Håvard Storbæk
+    playerOff: Pape Pate Diouf
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Fredrik Oldrup Jensen
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Mikael Dyrestam
+      - Tero Mäntylä
+      - Jo Nymo Matland
+      - Henrik Rørvik Bjørdal
+      - Vebjørn Hoff
+      - Peter Orry Larsen
+      - Aron Elis Thrándarson
+      - Mostafa Abdellaoue
+      - Leke James
+    subs:
+      - Magne Hoseth
+      - Marlinho
+      - Carl Björk
+      - Andreas Lie
+      - Edvard Skagestad
+      - Oddbjørn Lie
+      - Thomas Skog Martinussen
+    coach: Trond Fredriksen
+  away:
+    formation: 4-3-3
+    starters:
+      - Sondre Løvseth Rossbach
+      - Espen Ruud
+      - Lars Kristian Eriksen
+      - Steffen Hagen
+      - Thomas Grøgaard
+      - Jone Samuelsen
+      - Fredrik Nordkvelle
+      - Fredrik Oldrup Jensen
+      - Rafik Zekhnini
+      - Pape Pate Diouf
+      - Chukwuma Akabueze
+    subs:
+      - Ulrik Flo
+      - Ole Jørgen Halvorsen
+      - Håvard Storbæk
+      - Emil Jonassen
+      - Oliver Berg
+      - Vegard Bergan
+      - Viljar Røsholt Myhra
+    coach: Dag-Eilev Fagermo
+stats:
+  home:
+    possession: 43
+    shots: 13
+    shotsOnTarget: 4
+    corners: 5
+  away:
+    possession: 57
+    shots: 18
+    shotsOnTarget: 7
+    corners: 4
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +151,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

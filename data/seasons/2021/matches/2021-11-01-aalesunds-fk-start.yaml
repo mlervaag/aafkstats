@@ -11,13 +11,157 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: start
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 3850
+events:
+  - minute: 19
+    type: substitution
+    team: home
+    player: Jørgen Hatlehol
+    playerOff: Simen Rafn
+  - minute: 45
+    stoppage: 1
+    type: goal
+    team: away
+    player: Eman Markovic
+    assist: Luc Mares
+  - minute: 46
+    type: substitution
+    team: away
+    player: Jon Helge Tveita
+    playerOff: Sander Sjökvist
+  - minute: 49
+    type: yellow_card
+    team: home
+    player: David Fällman
+  - minute: 51
+    type: yellow_card
+    team: away
+    player: Cameron Cresswell
+  - minute: 52
+    type: yellow_card
+    team: away
+    player: Luc Mares
+  - minute: 61
+    type: goal
+    team: home
+    player: Sigurd Haugen
+    assist: Jørgen Hatlehol
+  - minute: 65
+    type: goal
+    team: away
+    player: Martin Ramsland
+    assist: Cameron Cresswell
+  - minute: 67
+    type: substitution
+    team: home
+    player: Erikson Lima
+    playerOff: Nikolai Hopland
+  - minute: 67
+    type: substitution
+    team: home
+    player: Kristoffer Ødemarksbakken
+    playerOff: Torbjørn Kallevåg
+  - minute: 71
+    type: goal
+    team: home
+    player: Sigurd Haugen
+    assist: Jørgen Hatlehol
+  - minute: 73
+    type: yellow_card
+    team: away
+    player: Henrik Robstad
+  - minute: 78
+    type: substitution
+    team: away
+    player: Vegard Bergan
+    playerOff: Cameron Cresswell
+  - minute: 81
+    type: substitution
+    team: away
+    player: Matias Belli Moldskred
+    playerOff: Peter Reinhardsen
+  - minute: 84
+    type: substitution
+    team: away
+    player: Basilio Ndong
+    playerOff: Kristoffer Valsvik
+  - minute: 84
+    type: goal
+    team: home
+    player: Simen Bolkan Nordli
+    assist: Kristoffer Ødemarksbakken
+  - minute: 87
+    type: substitution
+    team: home
+    player: Jonas Grønner
+    playerOff: Simen Bolkan Nordli
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Simen Rafn
+      - Quint Jansen
+      - David Fällman
+      - David Kristjan Olafsson
+      - Nikolai Hopland
+      - Erlend Segberg
+      - Torbjørn Kallevåg
+      - Niklas Castro
+      - Simen Bolkan Nordli
+      - Sigurd Haugen
+    subs:
+      - Jørgen Hatlehol
+      - Erikson Lima
+      - Kristoffer Ødemarksbakken
+      - Jonas Grønner
+      - Andreas Lie
+      - Stian Aarønes Holte
+      - Isak Dybvik Määttä
+      - Mamadou Diaw
+      - Muamer Brajanac
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-3-3
+    starters:
+      - Amund Wichne
+      - Peter Reinhardsen
+      - Luc Mares
+      - Henrik Robstad
+      - Kristoffer Toennessen
+      - Cameron Cresswell
+      - Kristoffer Valsvik
+      - Eirik Schulze
+      - Sander Sjökvist
+      - Martin Ramsland
+      - Eman Markovic
+    subs:
+      - Jon Helge Tveita
+      - Vegard Bergan
+      - Matias Belli Moldskred
+      - Basilio Ndong
+      - Jasper Silva Torkildsen
+      - Emir Derviskadic
+      - Sander Svela
+    coach: Sindre Tjelmeland
+stats:
+  home:
+    possession: 50
+    shots: 13
+    shotsOnTarget: 8
+    corners: 9
+  away:
+    possession: 50
+    shots: 12
+    shotsOnTarget: 5
+    corners: 1
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +177,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

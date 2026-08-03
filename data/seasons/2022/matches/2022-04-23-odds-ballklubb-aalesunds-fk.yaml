@@ -11,13 +11,168 @@ competition:
 home:
   clubId: odds-ballklubb
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: skagerak-arena
 neutralVenue: false
-events: []
+attendance: 4893
+referee: Daniel Higraff
+events:
+  - minute: 14
+    type: goal
+    team: away
+    player: Sigurd Haugen
+    assist: Kristoffer Ødemarksbakken
+  - minute: 34
+    type: goal
+    team: away
+    player: Isak Dybvik Määttä
+    assist: Sigurd Haugen
+  - minute: 44
+    type: yellow_card
+    team: home
+    player: Ivan Mesik
+  - minute: 46
+    type: substitution
+    team: home
+    player: Magnus Lekven
+    playerOff: Ivan Mesik
+  - minute: 50
+    type: goal
+    team: home
+    player: Tobias Lauritsen
+  - minute: 52
+    type: yellow_card
+    team: home
+    player: Magnus Lekven
+  - minute: 55
+    type: goal
+    team: away
+    player: Kristoffer Ødemarksbakken
+  - minute: 62
+    type: substitution
+    team: home
+    player: Flamur Kastrati
+    playerOff: Conrad Wallem
+  - minute: 62
+    type: substitution
+    team: home
+    player: Milan Jevtovic
+    playerOff: Mikael Ingebrigtsen
+  - minute: 62
+    type: substitution
+    team: home
+    player: Gilli Rolantsson
+    playerOff: John Kitolano
+  - minute: 65
+    type: substitution
+    team: away
+    player: Erikson Lima
+    playerOff: Fredrik Haugen
+  - minute: 65
+    type: goal
+    team: home
+    player: Tobias Lauritsen
+  - minute: 77
+    type: substitution
+    team: away
+    player: Erlend Segberg
+    playerOff: Kristoffer Barmen
+  - minute: 78
+    type: substitution
+    team: away
+    player: Torbjørn Kallevåg
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 78
+    type: substitution
+    team: away
+    player: Simen Rafn
+    playerOff: Petar Golubovic
+  - minute: 82
+    type: substitution
+    team: home
+    player: Abel William Stensrud
+    playerOff: Joshua Kitolano
+  - minute: 83
+    type: yellow_card
+    team: away
+    player: Dario Canadjija
+  - minute: 85
+    type: substitution
+    team: away
+    player: Nikolai Hopland
+    playerOff: Alexander Juel Andersen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Leopold Wahlstedt
+      - Espen Ruud
+      - Odin Lurås Bjørtuft
+      - Ivan Mesik
+      - John Kitolano
+      - Joshua Kitolano
+      - Solomon Owusu
+      - Filip Rønningen Jørgensen
+      - Conrad Wallem
+      - Tobias Lauritsen
+      - Mikael Ingebrigtsen
+    subs:
+      - Magnus Lekven
+      - Gilli Rolantsson
+      - Milan Jevtovic
+      - Flamur Kastrati
+      - Abel William Stensrud
+      - Sondre Løvseth Rossbach
+      - Josef Brian Baccay
+      - Jesper Svenungsen Skau
+      - Syver Aas
+    coach: Pål Arne Johansen
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Petar Golubovic
+      - Besim Serbecic
+      - David Fällman
+      - Alexander Juel Andersen
+      - Fredrik Haugen
+      - Kristoffer Barmen
+      - Dario Canadjija
+      - Kristoffer Ødemarksbakken
+      - Sigurd Haugen
+      - Isak Dybvik Määttä
+    subs:
+      - Erikson Lima
+      - Erlend Segberg
+      - Simen Rafn
+      - Torbjørn Kallevåg
+      - Nikolai Hopland
+      - Tor Erik Valderhaug Larsen
+      - Simen Bolkan Nordli
+      - Alexander Ammitzbøll
+      - Mamadou Diaw
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 67
+    shots: 15
+    shotsOnTarget: 5
+    corners: 13
+    fouls: 9
+    offsides: 2
+    xg: 1.19
+  away:
+    possession: 33
+    shots: 10
+    shotsOnTarget: 5
+    corners: 3
+    fouls: 8
+    offsides: 1
+    xg: 1.04
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +188,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

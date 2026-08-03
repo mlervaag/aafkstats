@@ -11,13 +11,115 @@ competition:
 home:
   clubId: valerenga
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: ullevaal
 neutralVenue: false
-events: []
+events:
+  - minute: 14
+    type: yellow_card
+    team: away
+    player: Fredrik Carlsen
+  - minute: 27
+    type: goal
+    team: home
+    player: Fegor Ogude
+  - minute: 46
+    type: substitution
+    team: away
+    player: Kjell Rune Sellin
+    playerOff: Fredrik Carlsen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Enar Jääger
+    playerOff: Ville Jalasto
+  - minute: 57
+    type: yellow_card
+    team: away
+    player: Jason Morrison
+  - minute: 59
+    type: substitution
+    team: home
+    player: Bojan Zajic
+    playerOff: Mohammed Fellah
+  - minute: 60
+    type: substitution
+    team: away
+    player: Sander Post
+    playerOff: Lars Fuhre
+  - minute: 61
+    type: goal
+    team: home
+    player: Bojan Zajic
+  - minute: 66
+    type: substitution
+    team: home
+    player: Håvard Nielsen
+    playerOff: Dawda Leigh
+  - minute: 83
+    type: yellow_card
+    team: home
+    player: Fegor Ogude
+  - minute: 88
+    type: yellow_card
+    team: home
+    player: Bojan Zajic
+  - minute: 89
+    type: substitution
+    team: home
+    player: Luton Shelton
+    playerOff: Fegor Ogude
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Lars Hirschfeld
+      - Fredrik Stoor
+      - André Muri
+      - Stefan Strandberg
+      - Freddy dos Santos
+      - Fegor Ogude
+      - Kristofer Hæstad
+      - Harmeet Singh
+      - Mohammed Fellah
+      - Dawda Leigh
+      - Morten Berre
+    subs:
+      - Bojan Zajic
+      - Håvard Nielsen
+      - Luton Shelton
+      - Adnan Haidar
+      - Amin Nouri
+      - Andreas Nordvik
+      - Gudmund Taksdal Kongshavn
+    coach: Martin Andresen
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Ville Jalasto
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Jonathan Parr
+      - Fredrik Carlsen
+      - Jason Morrison
+      - Peter Orry Larsen
+      - Lars Fuhre
+      - Michael Barrantes
+      - Solomon Okoronkwo
+    subs:
+      - Enar Jääger
+      - Kjell Rune Sellin
+      - Sander Post
+      - Amund Skiri
+      - Christian Myklebust
+      - Dan Peter Ulvestad
+      - Jonas Sandqvist
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +135,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

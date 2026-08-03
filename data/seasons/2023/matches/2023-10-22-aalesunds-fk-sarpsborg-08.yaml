@@ -11,13 +11,148 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: sarpsborg-08
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4348
+referee: Svein Tore Sinnes
+events:
+  - minute: 23
+    type: own_goal
+    team: away
+    player: Amidou Diop
+  - minute: 39
+    type: penalty_goal
+    team: home
+    player: Markus Seehusen Karlsbakk
+  - minute: 40
+    type: goal
+    team: home
+    player: Bjørn Martin Kristensen
+    assist: Erlend Segberg
+  - minute: 43
+    type: goal
+    team: away
+    player: Mikkel Maigaard
+    assist: Victor Torp
+  - minute: 46
+    type: substitution
+    team: away
+    player: Anders Hiim
+    playerOff: Sander Christiansen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Rafik Zekhnini
+    playerOff: Simon Tibbling
+  - minute: 46
+    type: substitution
+    team: away
+    player: Peter Reinhardsen
+    playerOff: Eirik Wichne
+  - minute: 50
+    type: substitution
+    team: away
+    player: Kristian Fardal Opseth
+    playerOff: Serge-Junior Ngouali
+  - minute: 60
+    type: yellow_card
+    team: away
+    player: Victor Torp
+  - minute: 61
+    type: substitution
+    team: home
+    player: Isaac Atanga
+    playerOff: Bjørn Martin Kristensen
+  - minute: 69
+    type: substitution
+    team: home
+    player: Moses Ebiye
+    playerOff: Martin Ramsland
+  - minute: 69
+    type: substitution
+    team: home
+    player: Moctar Diop
+    playerOff: Henrik Melland
+  - minute: 80
+    type: substitution
+    team: home
+    player: David Fällman
+    playerOff: Trace Murray
+  - minute: 90
+    stoppage: 1
+    type: goal
+    team: home
+    player: Moses Ebiye
+    assist: Amidou Diop
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Erik Frøysa
+      - Amidou Diop
+      - Nikolai Hopland
+      - Trace Murray
+      - Erlend Segberg
+      - Håkon Butli Hammer
+      - Henrik Melland
+      - Bjørn Martin Kristensen
+      - Martin Ramsland
+      - Markus Seehusen Karlsbakk
+    subs:
+      - Isaac Atanga
+      - Moctar Diop
+      - Moses Ebiye
+      - David Fällman
+      - Michael Lansing
+      - Simen Haram
+      - Eivind Strømsheim Kolve
+      - Kristoffer Ødemarksbakken
+    coach: Christian Johnsen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Kjetil Haug
+      - Eirik Wichne
+      - Bjørn Inge Utvik
+      - Franklin Uchenna
+      - Sander Christiansen
+      - Serge-Junior Ngouali
+      - Jeppe Andersen
+      - Simon Tibbling
+      - Victor Torp
+      - Mikkel Maigaard
+      - Ramon-Pascal Lundqvist
+    subs:
+      - Anders Hiim
+      - Peter Reinhardsen
+      - Rafik Zekhnini
+      - Kristian Fardal Opseth
+      - Anders Kristiansen
+      - Anton Skipper
+    coach: Stefan Billborn
+stats:
+  home:
+    possession: 38
+    shots: 14
+    shotsOnTarget: 6
+    corners: 4
+    fouls: 9
+    offsides: 1
+    xg: 2.42
+  away:
+    possession: 62
+    shots: 20
+    shotsOnTarget: 4
+    corners: 6
+    fouls: 8
+    offsides: 1
+    xg: 1.38
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +168,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

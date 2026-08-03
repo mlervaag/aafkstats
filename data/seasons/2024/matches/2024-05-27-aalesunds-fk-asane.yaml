@@ -11,13 +11,155 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: asane
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 2967
+referee: Jørgen Haugen
+events:
+  - minute: 28
+    type: goal
+    team: home
+    player: Isaac Atanga
+    assist: Claudio Braga
+  - minute: 35
+    type: goal
+    team: home
+    player: John Kitolano
+    assist: Thomas Grøgaard
+  - minute: 40
+    type: yellow_card
+    team: away
+    player: Kristoffer Barmen
+  - minute: 44
+    type: yellow_card
+    team: away
+    player: Sander Strand
+  - minute: 63
+    type: substitution
+    team: away
+    player: Stian Bogetveit Nygard
+    playerOff: Einar Iversen
+  - minute: 67
+    type: substitution
+    team: home
+    player: Moctar Diop
+    playerOff: Eivind Strømsheim Kolve
+  - minute: 70
+    type: substitution
+    team: away
+    player: Jon Berisha
+    playerOff: Kristoffer Larsen
+  - minute: 74
+    type: yellow_card
+    team: away
+    player: Ole Kallevåg
+  - minute: 79
+    type: goal
+    team: home
+    player: Claudio Braga
+    assist: Sander Hestetun Kilen
+  - minute: 82
+    type: goal
+    team: home
+    player: Moctar Diop
+    assist: Claudio Braga
+  - minute: 83
+    type: substitution
+    team: away
+    player: Emmanuel Bangoura
+    playerOff: Steffen Lie Skålevik
+  - minute: 83
+    type: substitution
+    team: away
+    player: Thomas Lotsberg
+    playerOff: Ole Kallevåg
+  - minute: 83
+    type: substitution
+    team: away
+    player: Knut Haga
+    playerOff: Ole Kolskogen
+  - minute: 84
+    type: substitution
+    team: home
+    player: Sebastian Berntsen
+    playerOff: Sander Hestetun Kilen
+  - minute: 88
+    type: substitution
+    team: home
+    player: Stian Aarønes Holte
+    playerOff: Amidou Diop
+  - minute: 88
+    type: substitution
+    team: home
+    player: John Ruud Norvik
+    playerOff: Claudio Braga
+  - minute: 90
+    stoppage: 1
+    type: goal
+    team: away
+    player: Thomas Lotsberg
+    assist: Stian Bogetveit Nygard
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Kristoffer Nessø
+      - Amidou Diop
+      - John Kitolano
+      - Thomas Grøgaard
+      - David Snær Johannsson
+      - Håkon Butli Hammer
+      - Eivind Strømsheim Kolve
+      - Isaac Atanga
+      - Claudio Braga
+      - Sander Hestetun Kilen
+    subs:
+      - Moctar Diop
+      - Sebastian Berntsen
+      - John Ruud Norvik
+      - Stian Aarønes Holte
+      - Tor Erik Valderhaug Larsen
+      - Martin Ramsland
+    coach: Christian Johnsen
+  away:
+    formation: 3-4-3
+    starters:
+      - Simen Lillevik Kjellevold
+      - Kristoffer Barmen
+      - Eirik Wollen Steen
+      - Ole Kolskogen
+      - Dennis Møller Wolfe
+      - Ole Kallevåg
+      - Didrik Fredriksen
+      - Sander Strand
+      - Einar Iversen
+      - Steffen Lie Skålevik
+      - Kristoffer Larsen
+    subs:
+      - Stian Bogetveit Nygard
+      - Jon Berisha
+      - Knut Haga
+      - Thomas Lotsberg
+      - Emmanuel Bangoura
+      - Oliver Andreas Madsen
+    coach: Morten Røssland
+stats:
+  home:
+    possession: 56
+    shots: 11
+    shotsOnTarget: 6
+    corners: 7
+  away:
+    possession: 44
+    shots: 3
+    shotsOnTarget: 2
+    corners: 6
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +175,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

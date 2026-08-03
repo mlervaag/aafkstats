@@ -11,13 +11,164 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: fk-haugesund
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4272
+referee: Sivert Amland
+events:
+  - minute: 26
+    type: yellow_card
+    team: away
+    player: Peter Therkildsen
+  - minute: 52
+    type: substitution
+    team: home
+    player: Kristoffer Ødemarksbakken
+    playerOff: Alexander Ammitzbøll
+  - minute: 58
+    type: yellow_card
+    team: away
+    player: Martin Samuelsen
+  - minute: 68
+    type: substitution
+    team: home
+    player: Torbjørn Kallevåg
+    playerOff: Simen Bolkan Nordli
+  - minute: 68
+    type: substitution
+    team: home
+    player: Fredrik Haugen
+    playerOff: Erikson Lima
+  - minute: 70
+    type: yellow_card
+    team: away
+    player: Søren Reese
+  - minute: 76
+    type: substitution
+    team: away
+    player: Julius Eskesen
+    playerOff: Mads Sande
+  - minute: 76
+    type: substitution
+    team: away
+    player: Thore Pedersen
+    playerOff: Nikolas Walstad
+  - minute: 79
+    type: yellow_card
+    team: away
+    player: Kevin Martin Krygård
+  - minute: 80
+    type: yellow_card
+    team: away
+    player: Anders Bærtelsen
+  - minute: 81
+    type: goal
+    team: away
+    player: Alioune Ndour
+    assist: Peter Therkildsen
+  - minute: 82
+    type: substitution
+    team: away
+    player: Magnus Christensen
+    playerOff: Kevin Martin Krygård
+  - minute: 83
+    type: goal
+    team: home
+    player: Kristoffer Barmen
+    assist: Kristoffer Ødemarksbakken
+  - minute: 89
+    type: substitution
+    team: home
+    player: Nikolai Hopland
+    playerOff: Dario Canadjija
+  - minute: 90
+    type: substitution
+    team: away
+    player: Joacim Holtan
+    playerOff: Alioune Ndour
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Bilal Njie
+  - minute: 90
+    stoppage: 1
+    type: goal
+    team: away
+    player: Bilal Njie
+    assist: Christos Zafeiris
+lineups:
+  home:
+    formation: 5-3-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Rafn
+      - Besim Serbecic
+      - David Fällman
+      - Alexander Juel Andersen
+      - Petar Golubovic
+      - Erikson Lima
+      - Kristoffer Barmen
+      - Dario Canadjija
+      - Alexander Ammitzbøll
+      - Simen Bolkan Nordli
+    subs:
+      - Kristoffer Ødemarksbakken
+      - Fredrik Haugen
+      - Torbjørn Kallevåg
+      - Nikolai Hopland
+      - Jeppe Arctander Moe
+      - John Kitolano
+      - Michael Lansing
+      - Oscar Solnørdal
+      - Ulrik Valderhaug Syversen
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-4-2
+    starters:
+      - Egil Selvik
+      - Peter Therkildsen
+      - Anders Bærtelsen
+      - Søren Reese
+      - Nikolas Walstad
+      - Bilal Njie
+      - Kevin Martin Krygård
+      - Christos Zafeiris
+      - Mads Sande
+      - Alioune Ndour
+      - Martin Samuelsen
+    subs:
+      - Julius Eskesen
+      - Thore Pedersen
+      - Magnus Christensen
+      - Joacim Holtan
+      - Eivind Helgeland
+      - Frank Stople
+      - Hillary Gong
+      - Ulrik Fredriksen
+      - Vegard Solheim
+    coach: Jostein Grindhaug
+stats:
+  home:
+    possession: 57
+    shots: 22
+    shotsOnTarget: 6
+    corners: 6
+    fouls: 13
+    offsides: 0
+    xg: 2.82
+  away:
+    possession: 43
+    shots: 14
+    shotsOnTarget: 7
+    corners: 6
+    fouls: 10
+    offsides: 0
+    xg: 1.58
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +184,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

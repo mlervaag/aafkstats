@@ -11,13 +11,133 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: mjondalen
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 3808
+referee: Harald Vollstad Sletner
+events:
+  - minute: 21
+    type: substitution
+    team: home
+    player: Stian Aarønes Holte
+    playerOff: Sam Rogers
+  - minute: 50
+    type: yellow_card
+    team: home
+    player: Paul Ngongo Iversen
+  - minute: 61
+    type: substitution
+    team: home
+    player: John Kitolano
+    playerOff: Sander Hestetun Kilen
+  - minute: 61
+    type: substitution
+    team: home
+    player: Claudio Braga
+    playerOff: Marcus Rafferty
+  - minute: 61
+    type: substitution
+    team: away
+    player: Mats Pedersen
+    playerOff: Martin Rønning Ovenstad
+  - minute: 61
+    type: substitution
+    team: away
+    player: Andreas Heredia-Randen
+    playerOff: Vegard Leikvoll Moberg
+  - minute: 62
+    type: yellow_card
+    team: away
+    player: Joackim Olsen Solberg
+  - minute: 67
+    type: yellow_card
+    team: away
+    player: Mathias Bringaker
+  - minute: 76
+    type: substitution
+    team: away
+    player: Alie Conteh
+    playerOff: Niclas Schjøth Semmen
+  - minute: 83
+    type: substitution
+    team: away
+    player: Erik Næsbak Brenden
+    playerOff: Jesper Svenungsen Skau
+  - minute: 87
+    type: yellow_card
+    team: away
+    player: Andreas Heredia-Randen
+  - minute: 90
+    stoppage: 3
+    type: goal
+    team: away
+    player: Alie Conteh
+    assist: Mathias Bringaker
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Tor Erik Valderhaug Larsen
+      - Vinko Medimorec
+      - Mads Nielsen
+      - Sam Rogers
+      - Kristoffer Nessø
+      - Janus Seehusen
+      - Håkon Butli Hammer
+      - Marcus Rafferty
+      - David Snær Johannsson
+      - Paul Ngongo Iversen
+      - Sander Hestetun Kilen
+    subs:
+      - Stian Aarønes Holte
+      - John Kitolano
+      - Claudio Braga
+      - Andreas Gülstorff
+      - Eivind Strømsheim Kolve
+      - Henrik Melland
+      - Bjørn Martin Kristensen
+      - Noah Solskjær
+      - Sander Senior-Haarvik
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - Thomas Kinn
+      - Syver Skaar Eriksen
+      - Ole Amund Sveen
+      - Sivert Øverby
+      - Joackim Olsen Solberg
+      - Martin Rønning Ovenstad
+      - Jesper Svenungsen Skau
+      - Niclas Schjøth Semmen
+      - Mathias Bringaker
+      - Vegard Leikvoll Moberg
+      - Meinhard Olsen
+    subs:
+      - Andreas Heredia-Randen
+      - Mats Pedersen
+      - Alie Conteh
+      - Erik Næsbak Brenden
+      - Andreas Fagereng
+      - Aleksandar Lukic
+      - Fabian Holst-Larsen
+    coach: Kevin Nicol
+stats:
+  home:
+    possession: 55
+    shots: 11
+    shotsOnTarget: 2
+    corners: 4
+  away:
+    possession: 45
+    shots: 6
+    shotsOnTarget: 4
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +153,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

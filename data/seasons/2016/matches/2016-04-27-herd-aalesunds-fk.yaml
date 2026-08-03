@@ -1,0 +1,153 @@
+id: 2016-04-27-herd-aalesunds-fk
+date: 2016-04-27
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2016
+  stage: regular_season
+  round: 2
+home:
+  clubId: herd
+  score: 3
+  halfTimeScore: 2
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 1
+extraTime:
+  home: 0
+  away: 1
+neutralVenue: false
+events:
+  - minute: 6
+    type: goal
+    team: home
+    player: Ingolfur Örn Kristjansson
+  - minute: 12
+    type: goal
+    team: home
+    player: Ingolfur Örn Kristjansson
+  - minute: 40
+    type: goal
+    team: away
+    player: Sondre Brunstad Fet
+  - minute: 46
+    type: substitution
+    team: away
+    player: Franck Boli
+    playerOff: Edwin Gyasi
+  - minute: 46
+    type: substitution
+    team: away
+    player: Bjørn Helge Riise
+    playerOff: Thomas Skog Martinussen
+  - minute: 54
+    type: substitution
+    team: home
+    player: Eirik Sandvik
+    playerOff: Vegard Bruland
+  - minute: 68
+    type: substitution
+    team: away
+    player: Mostafa Abdellaoue
+    playerOff: Tero Mäntylä
+  - minute: 75
+    type: goal
+    team: home
+    player: Andreas Rekdal
+  - minute: 85
+    type: goal
+    team: away
+    player: Mostafa Abdellaoue
+  - minute: 88
+    type: goal
+    team: away
+    player: Mostafa Abdellaoue
+  - minute: 106
+    type: substitution
+    team: home
+    player: Håkon Solli-Sæther
+    playerOff: Andreas Rekdal
+  - minute: 106
+    type: substitution
+    team: home
+    player: Kristian Hjelvik Halvorsen
+    playerOff: Patrik Hjelmseth
+  - minute: 107
+    type: goal
+    team: away
+    player: Mostafa Abdellaoue
+lineups:
+  home:
+    starters:
+      - Henrik Skaugseth Hagen
+      - Audun Kåre Øvrelid
+      - Erik Dietrichson
+      - Jonas Ingebrigtsen
+      - Mathias Sæther
+      - Preben Alexander Sætre
+      - Andreas Rekdal
+      - Christoffer Rekdal
+      - Ingolfur Örn Kristjansson
+      - Patrik Hjelmseth
+      - Vegard Bruland
+    subs:
+      - Eirik Sandvik
+      - Håkon Solli-Sæther
+      - Kristian Hjelvik Halvorsen
+      - Eric Solheim
+      - Ole Henrik Strand Ødven
+      - Petter Holand
+      - Sivert Heggdal Strand
+    coach: ""
+  away:
+    starters:
+      - Lars Cramer
+      - Adam Örn Arnarson
+      - Daniel Gretarsson
+      - John Arne Riise
+      - Mikkel Kirkeskov
+      - Tero Mäntylä
+      - Aron Elis Thrándarson
+      - Marlinho
+      - Sondre Brunstad Fet
+      - Thomas Skog Martinussen
+      - Edwin Gyasi
+    subs:
+      - Bjørn Helge Riise
+      - Franck Boli
+      - Mostafa Abdellaoue
+      - Andreas Lie
+      - Oddbjørn Lie
+      - Peter Orry Larsen
+      - Vebjørn Hoff
+    coach: Trond Fredriksen
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-herd/74usqja#2218325
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - extraTime
+      - events
+      - lineups
+    note: "Kildestatus: AET"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2218325"
+manual: []

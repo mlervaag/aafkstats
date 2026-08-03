@@ -1,0 +1,132 @@
+id: 2010-09-19-aalesunds-fk-kongsvinger
+date: 2010-09-19
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2010
+  stage: regular_season
+  round: 24
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: kongsvinger
+  score: 0
+  halfTimeScore: 0
+venueId: color-line-stadion
+neutralVenue: false
+events:
+  - minute: 5
+    type: goal
+    team: home
+    player: Alexander Mathisen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Ørjan Berg Hansen
+    playerOff: Olav Tuelo Johannesen
+  - minute: 59
+    type: substitution
+    team: home
+    player: Lars Fuhre
+    playerOff: Demar Phillips
+  - minute: 65
+    type: substitution
+    team: away
+    player: Kim Holmen
+    playerOff: Kai Risholt
+  - minute: 69
+    type: substitution
+    team: home
+    player: Trond Fredriksen
+    playerOff: Fredrik Carlsen
+  - minute: 76
+    type: substitution
+    team: home
+    player: Pablo Herrera
+    playerOff: Alexander Mathisen
+  - minute: 80
+    type: substitution
+    team: away
+    player: Magne Sturød
+    playerOff: Lars Cristian Krogh Gerson
+  - minute: 86
+    type: goal
+    team: home
+    player: Peter Orry Larsen
+lineups:
+  home:
+    formation: 3-4-1-2
+    starters:
+      - Anders Lindegaard
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Jonathan Parr
+      - Amund Skiri
+      - Peter Orry Larsen
+      - Fredrik Carlsen
+      - Alexander Mathisen
+      - Demar Phillips
+      - Tor Hogne Aarøy
+    subs:
+      - Lars Fuhre
+      - Trond Fredriksen
+      - Pablo Herrera
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Sten Michael Grytebust
+      - Ville Jalasto
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Olav Dalen
+      - Edier Frejd
+      - Henry Joseph Shindika
+      - Bobbie Friberg da Cruz
+      - Yngvar Håkonsen
+      - Adem Güven
+      - Lars Cristian Krogh Gerson
+      - Carl-Erik Torp
+      - Kai Risholt
+      - Olav Tuelo Johannesen
+      - Kjell Rune Sellin
+    subs:
+      - Ørjan Berg Hansen
+      - Kim Holmen
+      - Magne Sturød
+      - Kai Olav Ryen
+      - Martin Linnes
+      - Tobias Johansen
+    coach: ""
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/kongsvinger-vs-aalesund/29vez4#761959
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "761959"
+manual: []

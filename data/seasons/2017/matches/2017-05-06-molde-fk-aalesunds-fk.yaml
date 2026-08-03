@@ -11,13 +11,119 @@ competition:
 home:
   clubId: molde-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: aker-stadion
 neutralVenue: false
-events: []
+attendance: 9488
+referee: Trond Ivar Doevle
+events:
+  - minute: 38
+    type: yellow_card
+    team: home
+    player: Etzaz Hussain
+  - minute: 45
+    type: goal
+    team: away
+    player: Mostafa Abdellaoue
+    assist: Sondre Brunstad Fet
+  - minute: 59
+    type: yellow_card
+    team: away
+    player: Kaj Ramsteijn
+  - minute: 64
+    type: substitution
+    team: home
+    player: Ottar Magnus Karlsson
+    playerOff: Fredrik Aursnes
+  - minute: 72
+    type: substitution
+    team: home
+    player: Isak Ssewankambo
+    playerOff: Christoffer Remmer
+  - minute: 79
+    type: substitution
+    team: home
+    player: Tobias Hammer Svendsen
+    playerOff: Stian Gregersen
+  - minute: 86
+    type: substitution
+    team: away
+    player: Oddbjørn Lie
+    playerOff: Sondre Brunstad Fet
+  - minute: 90
+    type: substitution
+    team: away
+    player: Valmir Berisha
+    playerOff: Edwin Gyasi
+  - minute: 90
+    type: substitution
+    team: away
+    player: Jørgen Hatlehol
+    playerOff: Mostafa Abdellaoue
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Andreas Linde
+      - Christoffer Remmer
+      - Joona Toivio
+      - Ruben Gabrielsen
+      - Knut Olav Rindarøy
+      - Etzaz Hussain
+      - Stian Gregersen
+      - Fredrik Aursnes
+      - Eirik Hestad
+      - Fredrik Brustad
+      - Björn Sigurdarson
+    subs:
+      - Ottar Magnus Karlsson
+      - Isak Ssewankambo
+      - Tobias Hammer Svendsen
+      - Leo Østigard
+      - Neydson da Silva
+      - Ole Martin Rindarøy
+    coach: Ole Gunnar Solskjær
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Kaj Ramsteijn
+      - Daniel Gretarsson
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Vebjørn Hoff
+      - Fredrik Carlsen
+      - Sondre Brunstad Fet
+      - Lars Veldwijk
+      - Mostafa Abdellaoue
+    subs:
+      - Oddbjørn Lie
+      - Jørgen Hatlehol
+      - Valmir Berisha
+      - Emil Solnørdal
+      - Marlinho
+      - Pål Vestly Heigre
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 52
+    shots: 21
+    shotsOnTarget: 7
+    corners: 5
+    fouls: 11
+    offsides: 4
+  away:
+    possession: 48
+    shots: 10
+    shotsOnTarget: 3
+    corners: 4
+    fouls: 12
+    offsides: 0
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +139,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

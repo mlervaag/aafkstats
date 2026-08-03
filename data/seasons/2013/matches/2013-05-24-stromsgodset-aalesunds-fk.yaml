@@ -11,13 +11,111 @@ competition:
 home:
   clubId: stromsgodset
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: marienlyst-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 13
+    type: goal
+    team: away
+    player: Michael Barrantes
+    assist: Abderrazak Hamdallah
+  - minute: 19
+    type: goal
+    team: home
+    player: Adama Diomande
+    assist: Simen Brenne
+  - minute: 22
+    type: substitution
+    team: home
+    player: Peter Kovacs
+    playerOff: Adama Diomande
+  - minute: 43
+    type: goal
+    team: home
+    player: Peter Kovacs
+    assist: Øyvind Storflor
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Michael Barrantes
+  - minute: 48
+    type: yellow_card
+    team: away
+    player: Abderrazak Hamdallah
+  - minute: 51
+    type: yellow_card
+    team: home
+    player: Bismarck Adjei-Boateng
+  - minute: 55
+    type: substitution
+    team: away
+    player: Christian Myklebust
+    playerOff: Fredrik Carlsen
+  - minute: 59
+    type: substitution
+    team: home
+    player: Thomas Lehne Olsen
+    playerOff: Gustav Wikheim
+  - minute: 81
+    type: substitution
+    team: away
+    player: Daniel Stensøe
+    playerOff: Thomas Skog Martinussen
+  - minute: 90
+    type: substitution
+    team: home
+    player: Martin Rønning Ovenstad
+    playerOff: Bismarck Adjei-Boateng
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Adam Larsen Kwarasey
+      - Lars-Christopher Vilsvik
+      - Jarl André Storbæk
+      - Kim André Madsen
+      - Mounir Hamoud
+      - Bismarck Adjei-Boateng
+      - Stefan Johansen
+      - Simen Brenne
+      - Øyvind Storflor
+      - Adama Diomande
+      - Gustav Wikheim
+    subs:
+      - Peter Kovacs
+      - Thomas Lehne Olsen
+      - Martin Rønning Ovenstad
+      - Hermann Rhodén
+      - Iver Fossum
+      - Ole Amund Sveen
+      - Razak Nuhu
+    coach: Ronny Deila
+  away:
+    formation: 5-3-2
+    starters:
+      - Sten Michael Grytebust
+      - Fredrik Carlsen
+      - Jonatan Tollås Nation
+      - Tor Hogne Aarøy
+      - Edvard Skagestad
+      - Jo Nymo Matland
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Thomas Skog Martinussen
+      - Abderrazak Hamdallah
+      - Leke James
+    subs:
+      - Christian Myklebust
+      - Daniel Stensøe
+      - Henrik Rørvik Bjørdal
+      - Lars Fuhre
+      - Lasse Staw
+    coach: Jan Jönsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +131,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

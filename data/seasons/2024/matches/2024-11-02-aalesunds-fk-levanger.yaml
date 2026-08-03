@@ -11,13 +11,174 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: levanger
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5014
+referee: Magnus Nicolai Koløy
+events:
+  - minute: 6
+    type: yellow_card
+    team: away
+    player: Kjartan Ulstad
+  - minute: 7
+    type: goal
+    team: home
+    player: Claudio Braga
+  - minute: 11
+    type: goal
+    team: home
+    player: Marcus Rafferty
+    assist: Claudio Braga
+  - minute: 42
+    type: yellow_card
+    team: home
+    player: Sam Rogers
+  - minute: 45
+    stoppage: 1
+    type: goal
+    team: away
+    player: Håvard Kleven Lorentsen
+    assist: Adrian Olsen Teigen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Arne Gunnes
+    playerOff: Kjartan Ulstad
+  - minute: 59
+    type: goal
+    team: home
+    player: Claudio Braga
+    assist: Kristoffer Nessø
+  - minute: 67
+    type: yellow_card
+    team: away
+    player: Sander Sundnes
+  - minute: 68
+    type: substitution
+    team: away
+    player: Daniel Pollen
+    playerOff: Sander Sundnes
+  - minute: 68
+    type: substitution
+    team: home
+    player: David Snær Johannsson
+    playerOff: Kristoffer Nessø
+  - minute: 75
+    type: goal
+    team: home
+    player: David Snær Johannsson
+    assist: Thomas Grøgaard
+  - minute: 78
+    type: substitution
+    team: home
+    player: Eivind Strømsheim Kolve
+    playerOff: Håkon Butli Hammer
+  - minute: 79
+    type: goal
+    team: away
+    player: Herman Stang Stakset
+    assist: Adrian Olsen Teigen
+  - minute: 82
+    type: substitution
+    team: away
+    player: William Fredriksen Bjeglerud
+    playerOff: Sander Saugestad
+  - minute: 82
+    type: substitution
+    team: away
+    player: Nikolai Jakobsen Hristov
+    playerOff: Herman Stang Stakset
+  - minute: 86
+    type: yellow_card
+    team: home
+    player: David Snær Johannsson
+  - minute: 90
+    stoppage: 1
+    type: substitution
+    team: home
+    player: John Kitolano
+    playerOff: Sam Rogers
+  - minute: 90
+    stoppage: 1
+    type: substitution
+    team: home
+    player: Noah Solskjær
+    playerOff: Claudio Braga
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: away
+    player: Marcus Solhaug Wenneberg
+    playerOff: Simen Hagbø
+  - minute: 90
+    stoppage: 5
+    type: goal
+    team: away
+    player: Arne Gunnes
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Tor Erik Valderhaug Larsen
+      - Vinko Medimorec
+      - Mads Nielsen
+      - Sam Rogers
+      - Kristoffer Nessø
+      - Janus Seehusen
+      - Håkon Butli Hammer
+      - Marcus Rafferty
+      - Thomas Grøgaard
+      - Paul Ngongo Iversen
+      - Claudio Braga
+    subs:
+      - David Snær Johannsson
+      - Eivind Strømsheim Kolve
+      - John Kitolano
+      - Noah Solskjær
+      - Sondre Midthjell
+      - Simen Haram
+      - Stian Aarønes Holte
+      - Henrik Melland
+      - Bjørn Martin Kristensen
+    coach: Kjetil Rekdal
+  away:
+    formation: 3-5-2
+    starters:
+      - Morten Sætra
+      - Jonas Pereira
+      - Håvard Kleven Lorentsen
+      - Sander Sundnes
+      - Simen Hagbø
+      - Sander Saugestad
+      - Kjartan Ulstad
+      - Adrian Olsen Teigen
+      - Ermal Hajdari
+      - Herman Stang Stakset
+      - Jo Sondre Aas
+    subs:
+      - Arne Gunnes
+      - Daniel Pollen
+      - William Fredriksen Bjeglerud
+      - Nikolai Jakobsen Hristov
+      - Marcus Solhaug Wenneberg
+      - Sondre Fosnæss Hanssen
+    coach: Per Verner Rønning
+stats:
+  home:
+    possession: 50
+    shots: 12
+    shotsOnTarget: 8
+    corners: 6
+  away:
+    possession: 50
+    shots: 9
+    shotsOnTarget: 6
+    corners: 3
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +194,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

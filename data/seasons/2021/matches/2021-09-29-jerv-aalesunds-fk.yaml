@@ -11,13 +11,147 @@ competition:
 home:
   clubId: jerv
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: j-j-ugland-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 3
+    type: goal
+    team: home
+    player: Mathias Wichmann
+    assist: Diego Campos
+  - minute: 17
+    type: yellow_card
+    team: home
+    player: Erik Sandberg
+  - minute: 21
+    type: yellow_card
+    team: home
+    player: Willis Furtado
+  - minute: 35
+    type: yellow_card
+    team: away
+    player: Sigurd Haugen
+  - minute: 36
+    type: goal
+    team: home
+    player: Shuaibu Ibrahim
+  - minute: 58
+    type: goal
+    team: away
+    player: Kristoffer Barmen
+  - minute: 65
+    type: substitution
+    team: home
+    player: Ikhsan Fandi
+    playerOff: Willis Furtado
+  - minute: 65
+    type: substitution
+    team: home
+    player: Pibe
+    playerOff: Felix Schröter
+  - minute: 70
+    type: substitution
+    team: away
+    player: Jørgen Hatlehol
+    playerOff: Simen Rafn
+  - minute: 70
+    type: substitution
+    team: away
+    player: Isak Dybvik
+    playerOff: David Fällman
+  - minute: 70
+    type: substitution
+    team: away
+    player: Niklas Castro
+    playerOff: Torbjørn Kallevåg
+  - minute: 72
+    type: substitution
+    team: home
+    player: Kristian Sirum Novak
+    playerOff: Torje Wichne
+  - minute: 72
+    type: substitution
+    team: home
+    player: Thomas Kok
+    playerOff: Diego Campos
+  - minute: 78
+    type: substitution
+    team: away
+    player: Nikolai Hopland
+    playerOff: Erlend Segberg
+  - minute: 81
+    type: penalty_goal
+    team: away
+    player: Kristoffer Barmen
+  - minute: 86
+    type: substitution
+    team: away
+    player: Mamadou Diaw
+    playerOff: Sigurd Haugen
+lineups:
+  home:
+    formation: 5-2-3
+    starters:
+      - Øystein Øvretveit
+      - Erik Sandberg
+      - John Olav Norheim
+      - Daniel Arrocha
+      - Iman Mafi
+      - Torje Wichne
+      - Diego Campos
+      - Mathias Wichmann
+      - Willis Furtado
+      - Shuaibu Ibrahim
+      - Felix Schröter
+    subs:
+      - Ikhsan Fandi
+      - Pibe
+      - Kristian Sirum Novak
+      - Thomas Kok
+      - Andreas Olsvoll
+      - Bendik Kristiansen
+      - Thomas Zernichow
+    coach: Arne Sandstø
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Simen Rafn
+      - Quint Jansen
+      - David Fällman
+      - David Kristjan Olafsson
+      - Erlend Segberg
+      - Erikson Lima
+      - Simen Bolkan Nordli
+      - Kristoffer Barmen
+      - Torbjørn Kallevåg
+      - Sigurd Haugen
+    subs:
+      - Isak Dybvik
+      - Jørgen Hatlehol
+      - Niklas Castro
+      - Nikolai Hopland
+      - Mamadou Diaw
+      - Andreas Lie
+      - Kristoffer Ødemarksbakken
+      - Muamer Brajanac
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 42
+    shots: 9
+    shotsOnTarget: 4
+    corners: 2
+  away:
+    possession: 58
+    shots: 14
+    shotsOnTarget: 10
+    corners: 6
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +167,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

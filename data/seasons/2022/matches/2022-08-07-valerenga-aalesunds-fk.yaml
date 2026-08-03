@@ -11,13 +11,155 @@ competition:
 home:
   clubId: valerenga
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: intility-arena
 neutralVenue: false
-events: []
+attendance: 7845
+referee: Rohit Saggi
+events:
+  - minute: 57
+    type: yellow_card
+    team: away
+    player: Nikolai Hopland
+  - minute: 60
+    type: goal
+    team: home
+    player: Odin Thiago Holm
+  - minute: 61
+    type: substitution
+    team: away
+    player: Jeppe Arctander Moe
+    playerOff: John Kitolano
+  - minute: 61
+    type: substitution
+    team: away
+    player: Torbjørn Kallevåg
+    playerOff: Dario Canadjija
+  - minute: 62
+    type: goal
+    team: home
+    player: Osame Sahraoui
+    assist: Petter Strand
+  - minute: 68
+    type: substitution
+    team: away
+    player: Alexander Ammitzbøll
+    playerOff: Simen Bolkan Nordli
+  - minute: 68
+    type: substitution
+    team: away
+    player: Fredrik Haugen
+    playerOff: Erikson Lima
+  - minute: 70
+    type: goal
+    team: home
+    player: Henrik Udahl
+  - minute: 75
+    type: yellow_card
+    team: away
+    player: Torbjørn Kallevåg
+  - minute: 79
+    type: substitution
+    team: home
+    player: Jacob Eng
+    playerOff: Amor Layouni
+  - minute: 79
+    type: substitution
+    team: home
+    player: Seedy Jatta
+    playerOff: Henrik Udahl
+  - minute: 79
+    type: substitution
+    team: home
+    player: Magnus Bech Riisnæs
+    playerOff: Osame Sahraoui
+  - minute: 82
+    type: substitution
+    team: away
+    player: Oscar Solnørdal
+    playerOff: Kristoffer Barmen
+  - minute: 86
+    type: substitution
+    team: home
+    player: Brage Skaret
+    playerOff: Fredrik Oldrup Jensen
+  - minute: 88
+    type: substitution
+    team: home
+    player: Jones El-Abdellaoui
+    playerOff: Tobias Christensen
+  - minute: 90
+    type: goal
+    team: home
+    player: Seedy Jatta
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Magnus Smelhus Sjøeng
+      - Vegar Eggen Hedenstad
+      - Jonatan Tollås Nation
+      - Fredrik Oldrup Jensen
+      - Leonard Zuta
+      - Tobias Christensen
+      - Odin Thiago Holm
+      - Petter Strand
+      - Amor Layouni
+      - Henrik Udahl
+      - Osame Sahraoui
+    subs:
+      - Jacob Eng
+      - Magnus Bech Riisnæs
+      - Seedy Jatta
+      - Brage Skaret
+      - Jones El-Abdellaoui
+      - Brynjar Ingi Bjarnason
+      - Mathias Johnsrud Emilsen
+      - Storm Strand-Kolbjørnsen
+    coach: Dag-Eilev Fagermo
+  away:
+    formation: 5-3-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Rafn
+      - Nikolai Hopland
+      - David Fällman
+      - Alexander Juel Andersen
+      - John Kitolano
+      - Erikson Lima
+      - Kristoffer Barmen
+      - Dario Canadjija
+      - Kristoffer Ødemarksbakken
+      - Simen Bolkan Nordli
+    subs:
+      - Jeppe Arctander Moe
+      - Torbjørn Kallevåg
+      - Alexander Ammitzbøll
+      - Fredrik Haugen
+      - Oscar Solnørdal
+      - Michael Lansing
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 60
+    shots: 17
+    shotsOnTarget: 8
+    corners: 9
+    fouls: 8
+    offsides: 2
+    xg: 1.79
+  away:
+    possession: 40
+    shots: 3
+    shotsOnTarget: 0
+    corners: 3
+    fouls: 12
+    offsides: 0
+    xg: 0.19
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +175,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

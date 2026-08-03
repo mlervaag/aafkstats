@@ -11,13 +11,174 @@ competition:
 home:
   clubId: lillestrom
   score: 5
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: arasen-stadion
 neutralVenue: false
-events: []
+attendance: 5853
+referee: Kristoffer Hagenes
+events:
+  - minute: 11
+    type: goal
+    team: away
+    player: Isaac Atanga
+    assist: Bjørn Martin Kristensen
+  - minute: 24
+    type: red_card
+    team: away
+    player: Amidou Diop
+  - minute: 30
+    type: goal
+    team: home
+    player: Ylldren Ibrahimaj
+    assist: Vetle Skjærvik
+  - minute: 33
+    type: yellow_card
+    team: home
+    player: Ylldren Ibrahimaj
+  - minute: 39
+    type: substitution
+    team: home
+    player: Eskil Smidesang Edh
+    playerOff: Ruben Gabrielsen
+  - minute: 41
+    type: goal
+    team: home
+    player: Vetle Skjærvik
+    assist: Gjermund Åsen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Alexander Juel Andersen
+    playerOff: Bjørn Martin Kristensen
+  - minute: 47
+    type: yellow_card
+    team: home
+    player: Espen Garnås
+  - minute: 56
+    type: goal
+    team: home
+    player: Akor Adams
+    assist: Gjermund Åsen
+  - minute: 59
+    type: substitution
+    team: away
+    player: Kasper Lunding
+    playerOff: Kristoffer Barmen
+  - minute: 69
+    type: substitution
+    team: home
+    player: Marius Lundemo
+    playerOff: Vebjørn Hoff
+  - minute: 69
+    type: substitution
+    team: home
+    player: Tobias Hammer Svendsen
+    playerOff: Ylldren Ibrahimaj
+  - minute: 75
+    type: substitution
+    team: away
+    player: Henrik Melland
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 75
+    type: substitution
+    team: away
+    player: Moctar Diop
+    playerOff: Isaac Atanga
+  - minute: 77
+    type: goal
+    team: home
+    player: Thomas Lehne Olsen
+    assist: Eskil Smidesang Edh
+  - minute: 81
+    type: goal
+    team: home
+    player: Thomas Lehne Olsen
+    assist: Gjermund Åsen
+  - minute: 83
+    type: substitution
+    team: home
+    player: Uba Charles
+    playerOff: Lars Mogstad Ranger
+  - minute: 83
+    type: substitution
+    team: home
+    player: Henrik Langaas Skogvold
+    playerOff: Akor Adams
+  - minute: 90
+    type: substitution
+    team: away
+    player: Trace Murray
+    playerOff: Alexander Munksgaard
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Mads Hedenstad Christiansen
+      - Espen Garnås
+      - Ruben Gabrielsen
+      - Vetle Skjærvik
+      - Lars Mogstad Ranger
+      - Ylldren Ibrahimaj
+      - Vebjørn Hoff
+      - Gjermund Åsen
+      - Vetle Dragsnes
+      - Thomas Lehne Olsen
+      - Akor Adams
+    subs:
+      - Eskil Smidesang Edh
+      - Marius Lundemo
+      - Tobias Hammer Svendsen
+      - Henrik Langaas Skogvold
+      - Uba Charles
+      - Knut-André Skjærstein
+      - Leandro Elvestad Neto
+      - Oliver Henriksrud
+      - Philip Slørdahl
+    coach: Simon Mesfin
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Alexander Munksgaard
+      - Amidou Diop
+      - Nikolai Hopland
+      - John Kitolano
+      - Kristoffer Barmen
+      - Erlend Segberg
+      - Markus Seehusen Karlsbakk
+      - Isaac Atanga
+      - Bjørn Martin Kristensen
+      - Kristoffer Ødemarksbakken
+    subs:
+      - Alexander Juel Andersen
+      - Kasper Lunding
+      - Henrik Melland
+      - Moctar Diop
+      - Trace Murray
+      - Michael Lansing
+      - Ole Kolskogen
+    coach: Christian Johnsen
+stats:
+  home:
+    possession: 74
+    shots: 24
+    shotsOnTarget: 9
+    corners: 8
+    fouls: 11
+    offsides: 1
+    xg: 2.26
+  away:
+    possession: 26
+    shots: 8
+    shotsOnTarget: 3
+    corners: 2
+    fouls: 14
+    offsides: 0
+    xg: 0.45
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +194,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,91 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: start
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 46
+    type: substitution
+    team: away
+    player: Matthias Vilhjalmsson
+    playerOff: Alejandro Castro
+  - minute: 65
+    type: substitution
+    team: away
+    player: Ernest Asante
+    playerOff: Gudmundur Kristjansson
+  - minute: 69
+    type: yellow_card
+    team: away
+    player: Solomon James Owello
+  - minute: 74
+    type: goal
+    team: home
+    player: Michael Barrantes
+    assist: Abderrazak Hamdallah
+  - minute: 78
+    type: goal
+    team: away
+    player: Markus Heikkinen
+  - minute: 83
+    type: substitution
+    team: home
+    player: Lars Fuhre
+    playerOff: Fredrik Carlsen
+  - minute: 87
+    type: substitution
+    team: away
+    player: Christian Tveit
+    playerOff: Espen Børufsen
+lineups:
+  home:
+    formation: 7-1-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Jonatan Tollås Nation
+      - Edvard Skagestad
+      - Jo Nymo Matland
+      - Fredrik Ulvestad
+      - Peter Orry Larsen
+      - Fredrik Carlsen
+      - Michael Barrantes
+      - Leke James
+      - Abderrazak Hamdallah
+    subs:
+      - Lars Fuhre
+      - Daniel Arnefjord
+      - Izantullah Ahmadzai
+      - Lasse Staw
+      - Thomas Skog Martinussen
+      - Vebjørn Hoff
+    coach: Jan Jönsson
+  away:
+    formation: 4-4-2
+    starters:
+      - Håkon Andre Opdal
+      - Amin Nouri
+      - Glenn Andersen
+      - Jesper Mathisen
+      - Rolf Daniel Vikstøl
+      - Gudmundur Kristjansson
+      - Solomon James Owello
+      - Markus Heikkinen
+      - Espen Børufsen
+      - Alejandro Castro
+      - Espen Hoff
+    subs:
+      - Matthias Vilhjalmsson
+      - Ernest Asante
+      - Christian Tveit
+      - Sondre Tronstad
+      - Terje Reinertsen
+    coach: Mons Ivar Mjelde
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +111,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

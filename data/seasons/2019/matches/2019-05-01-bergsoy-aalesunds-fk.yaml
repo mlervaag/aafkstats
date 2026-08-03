@@ -1,0 +1,42 @@
+id: 2019-05-01-bergsoy-aalesunds-fk
+date: 2019-05-01
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: nm
+  season: 2019
+  stage: regular_season
+  round: 1
+home:
+  clubId: bergsoy
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/bergsoy-vs-aalesund/1c1d2d#3022793
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3022793"
+manual: []

@@ -11,13 +11,114 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: viking
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 8289
+events:
+  - minute: 36
+    type: goal
+    team: away
+    player: Sverrir Ingi Ingason
+    assist: Bjoern Daniel Sverrisson
+  - minute: 46
+    type: substitution
+    team: home
+    player: Torbjoern Grytten
+    playerOff: Jo Nymo Matland
+  - minute: 54
+    type: substitution
+    team: home
+    player: Tremaine Stewart
+    playerOff: Demar Phillips
+  - minute: 56
+    type: goal
+    team: away
+    player: Bjoern Daniel Sverrisson
+    assist: Steinthor Freyr Thorsteinsson
+  - minute: 60
+    type: yellow_card
+    team: home
+    player: Daniel Arnefjord
+  - minute: 62
+    type: yellow_card
+    team: away
+    player: Andre Danielsen
+  - minute: 71
+    type: substitution
+    team: home
+    player: Oddbjoern Lie
+    playerOff: Hugues Wembangomo
+  - minute: 75
+    type: substitution
+    team: away
+    player: Veton Berisha
+    playerOff: Jon Dadi Boedvarsson
+  - minute: 76
+    type: goal
+    team: home
+    player: Torbjoern Grytten
+    assist: Michael Barrantes
+  - minute: 80
+    type: substitution
+    team: away
+    player: Haakon Skogseid
+    playerOff: Andre Danielsen
+  - minute: 83
+    type: substitution
+    team: away
+    player: Vidar Nisja
+    playerOff: Christian Landu Landu
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Jonatan Tollaas Nation
+      - Jo Nymo Matland
+      - Hugues Wembangomo
+      - Fredrik Ulvestad
+      - Peter Orry Larsen
+      - Demar Phillips
+      - Michael Barrantes
+      - Tor Hogne Aaroey
+    subs:
+      - Torbjoern Grytten
+      - Tremaine Stewart
+      - Oddbjoern Lie
+      - Sakari Mattila
+      - Thomas Skog Martinussen
+      - Andreas Lie
+      - Henrik Roervik Bjoerdal
+    coach: Jan Joensson
+  away:
+    formation: 4-3-3
+    starters:
+      - Iven Austboe
+      - Andre Danielsen
+      - Indridi Sigurdsson
+      - Sverrir Ingi Ingason
+      - Kristoffer Haugen
+      - Bjoern Daniel Sverrisson
+      - Christian Landu Landu
+      - El Hadji Makhtar Thioune
+      - Yann-Erik de Lanlay
+      - Steinthor Freyr Thorsteinsson
+      - Jon Dadi Boedvarsson
+    subs:
+      - Veton Berisha
+      - Haakon Skogseid
+      - Vidar Nisja
+      - Osita Henry Chikere
+      - Paal Fjelde
+      - Paal Vestly Heigre
+    coach: Kjell Jonevret
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +134,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

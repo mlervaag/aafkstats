@@ -11,13 +11,113 @@ competition:
 home:
   clubId: stromsgodset
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: marienlyst-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 21
+    type: yellow_card
+    team: home
+    player: Stefan Johansen
+  - minute: 24
+    type: goal
+    team: home
+    player: Peter Kovacs
+  - minute: 39
+    type: goal
+    team: home
+    player: Stefan Johansen
+  - minute: 41
+    type: yellow_card
+    team: home
+    player: Jarl André Storbæk
+  - minute: 46
+    type: substitution
+    team: away
+    player: Edvard Skagestad
+    playerOff: Fredrik Carlsen
+  - minute: 61
+    type: goal
+    team: home
+    player: Razak Nuhu
+  - minute: 63
+    type: substitution
+    team: home
+    player: Ola Kamara
+    playerOff: Stefan Johansen
+  - minute: 65
+    type: yellow_card
+    team: away
+    player: Tremaine Stewart
+  - minute: 68
+    type: substitution
+    team: away
+    player: Jo Nymo Matland
+    playerOff: Michael Barrantes
+  - minute: 68
+    type: substitution
+    team: home
+    player: Gustav Wikheim
+    playerOff: Muhamed Keita
+  - minute: 73
+    type: substitution
+    team: home
+    player: Abdisalam Ibrahim
+    playerOff: Bismarck Adjei-Boateng
+  - minute: 86
+    type: goal
+    team: home
+    player: Gustav Wikheim
+lineups:
+  home:
+    formation: 5-2-3
+    starters:
+      - Adam Larsen Kwarasey
+      - Lars-Christopher Vilsvik
+      - Jarl André Storbæk
+      - Kim André Madsen
+      - Razak Nuhu
+      - Stefan Johansen
+      - Anders Konradsen
+      - Bismarck Adjei-Boateng
+      - Øyvind Storflor
+      - Muhamed Keita
+      - Peter Kovacs
+    subs:
+      - Ola Kamara
+      - Gustav Wikheim
+      - Abdisalam Ibrahim
+      - Adama Diomande
+      - Lars Cramer
+      - Lars Sætra
+      - Mounir Hamoud
+    coach: Ronny Deila
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Hugues Wembangomo
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Enar Jääger
+      - Fredrik Ulvestad
+      - Fredrik Carlsen
+      - Peter Orry Larsen
+      - Michael Barrantes
+      - Tremaine Stewart
+      - Leke James
+    subs:
+      - Edvard Skagestad
+      - Jo Nymo Matland
+      - Jason Morrison
+      - Mathias Rasmussen
+      - Sander Post
+      - Torbjørn Grytten
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +133,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

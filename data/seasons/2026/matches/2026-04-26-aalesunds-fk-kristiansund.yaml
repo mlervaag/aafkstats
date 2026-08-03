@@ -1,0 +1,201 @@
+id: 2026-04-26-aalesunds-fk-kristiansund
+date: 2026-04-26
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 6
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: kristiansund
+  score: 1
+  halfTimeScore: 0
+venueId: color-line-stadion
+neutralVenue: false
+attendance: 5013
+referee: Ola Hobber Nilsen
+events:
+  - minute: 28
+    type: yellow_card
+    team: away
+    player: Júlíus Júlíusson
+  - minute: 43
+    type: yellow_card
+    team: away
+    player: Adrian Kurd Rønning
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Henrik Melland
+  - minute: 46
+    type: substitution
+    team: home
+    player: Ivan Djantou
+    playerOff: David Snær Johannsson
+  - minute: 46
+    type: substitution
+    team: home
+    player: Endre Osenbroch
+    playerOff: Henrik Melland
+  - minute: 56
+    type: yellow_card
+    team: away
+    player: Mustapha Isah
+  - minute: 59
+    type: substitution
+    team: away
+    player: Tobias Hammer Svendsen
+    playerOff: Adrian Kurd Rønning
+  - minute: 59
+    type: substitution
+    team: home
+    player: Emil Engqvist
+    playerOff: Ólafur Gudmundsson
+  - minute: 62
+    type: goal
+    team: away
+    player: Wilfred George Igor
+    assist: Sander Hestetun Kilen
+  - minute: 69
+    type: substitution
+    team: home
+    player: Ulrik Valderhaug Syversen
+    playerOff: Simen Haram
+  - minute: 69
+    type: substitution
+    team: home
+    player: Jakob Nyland Ørsahl
+    playerOff: Kristoffer Nessø
+  - minute: 72
+    type: substitution
+    team: away
+    player: Syver Skundberg Skeide
+    playerOff: Mustapha Isah
+  - minute: 81
+    type: yellow_card
+    team: home
+    player: Jakob Nyland Ørsahl
+  - minute: 83
+    type: goal
+    team: home
+    player: Kristian Hemmingsen Lonebu
+    assist: Ivan Djantou
+  - minute: 88
+    type: substitution
+    team: away
+    player: Haakon Haugen
+    playerOff: Frederik Flex
+  - minute: 88
+    type: substitution
+    team: away
+    player: Jesper Isaksen
+    playerOff: Sander Hestetun Kilen
+  - minute: 88
+    type: substitution
+    team: away
+    player: Max Normann Williamsen
+    playerOff: Heine Gikling Bruseth
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Kristoffer Klaesson
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Ólafur Gudmundsson
+      - Uba Charles
+      - Mathias Christensen
+      - Elias Hagen
+      - Henrik Melland
+      - Kristoffer Nessø
+      - Kristian Hemmingsen Lonebu
+      - David Snær Johannsson
+    subs:
+      - Endre Osenbroch
+      - Ivan Djantou
+      - Emil Engqvist
+      - Ulrik Valderhaug Syversen
+      - Jakob Nyland Ørsahl
+      - Tor Erik Valderhaug Larsen
+      - Håkon Butli Hammer
+      - Marius Andresen
+      - Elias Heggland Myrlid
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - Adrian Sæther
+      - Alexander Munksgaard
+      - Júlíus Júlíusson
+      - Dan Peter Ulvestad
+      - Frederik Flex
+      - Heine Gikling Bruseth
+      - Wilfred George Igor
+      - Adrian Kurd Rønning
+      - Mustapha Isah
+      - Leander Alvheim
+      - Sander Hestetun Kilen
+    subs:
+      - Tobias Hammer Svendsen
+      - Syver Skundberg Skeide
+      - Haakon Haugen
+      - Max Normann Williamsen
+      - Jesper Isaksen
+      - Michael Lansing
+      - Nikolai Skuseth
+      - Hrannar Snær Magnusson
+      - Promise Meliga
+    coach: Amund Skiri
+stats:
+  home:
+    possession: 56
+    shots: 20
+    shotsOnTarget: 7
+    corners: 10
+    fouls: 14
+    offsides: 2
+    xg: 1.15
+  away:
+    possession: 44
+    shots: 11
+    shotsOnTarget: 6
+    corners: 8
+    fouls: 10
+    offsides: 0
+    xg: 1.65
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#5104888
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5104888"
+manual: []

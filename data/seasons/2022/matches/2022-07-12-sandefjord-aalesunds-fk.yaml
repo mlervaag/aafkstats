@@ -11,13 +11,148 @@ competition:
 home:
   clubId: sandefjord
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: sandefjord-arena
 neutralVenue: false
-events: []
+attendance: 2643
+referee: Ola Hobber Nilsen
+events:
+  - minute: 4
+    type: goal
+    team: home
+    player: Mats Haakenstad
+    assist: Quint Jansen
+  - minute: 35
+    type: yellow_card
+    team: away
+    player: Simen Rafn
+  - minute: 39
+    type: goal
+    team: away
+    player: Erikson Lima
+  - minute: 49
+    type: goal
+    team: away
+    player: Dario Canadjija
+    assist: David Fällman
+  - minute: 62
+    type: substitution
+    team: away
+    player: Torbjørn Kallevåg
+    playerOff: Alexander Ammitzbøll
+  - minute: 65
+    type: goal
+    team: home
+    player: Mohamed Ofkir
+    assist: Alexander Ruud Tveter
+  - minute: 67
+    type: substitution
+    team: home
+    player: Franklin Daddys Boy Nyenetue
+    playerOff: Deyver Vega
+  - minute: 74
+    type: substitution
+    team: home
+    player: Lars Markmanrud
+    playerOff: Harmeet Singh
+  - minute: 74
+    type: substitution
+    team: away
+    player: Petar Golubovic
+    playerOff: Simen Rafn
+  - minute: 74
+    type: substitution
+    team: away
+    player: Mamadou Diaw
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 76
+    type: yellow_card
+    team: home
+    player: Jesper Taaje
+  - minute: 84
+    type: yellow_card
+    team: away
+    player: Petar Golubovic
+  - minute: 87
+    type: substitution
+    team: home
+    player: Youseff Chaib
+    playerOff: Mohamed Ofkir
+  - minute: 87
+    type: substitution
+    team: away
+    player: Simen Bolkan Nordli
+    playerOff: Dario Canadjija
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Hugo Keto
+      - Mats Haakenstad
+      - Jesper Taaje
+      - Quint Jansen
+      - Ian Smeulers
+      - William Albin Kurtovic
+      - Harmeet Singh
+      - Aleksander Damnjanovic Nilsson
+      - Deyver Vega
+      - Alexander Ruud Tveter
+      - Mohamed Ofkir
+    subs:
+      - Franklin Daddys Boy Nyenetue
+      - Lars Markmanrud
+      - Youseff Chaib
+      - Filip Loftesnes-Bjune
+      - Fredrik Flo
+      - Jacob Storevik
+      - Sivert Gussiås
+      - Vetle Walle Egeli
+    coach: Andreas Tegström
+  away:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Besim Serbecic
+      - David Fällman
+      - Alexander Juel Andersen
+      - Simen Rafn
+      - Erikson Lima
+      - Kristoffer Barmen
+      - Dario Canadjija
+      - Isak Dybvik
+      - Kristoffer Ødemarksbakken
+      - Alexander Ammitzbøll
+    subs:
+      - Torbjørn Kallevåg
+      - Mamadou Diaw
+      - Petar Golubovic
+      - Simen Bolkan Nordli
+      - Jeppe Arctander Moe
+      - Michael Lansing
+      - Nikolai Hopland
+      - Oscar Solnørdal
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 49
+    shots: 13
+    shotsOnTarget: 5
+    corners: 4
+    fouls: 5
+    offsides: 1
+    xg: 1.5
+  away:
+    possession: 51
+    shots: 18
+    shotsOnTarget: 6
+    corners: 3
+    fouls: 9
+    offsides: 2
+    xg: 1.52
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +168,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

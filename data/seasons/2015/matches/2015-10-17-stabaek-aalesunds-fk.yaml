@@ -11,13 +11,139 @@ competition:
 home:
   clubId: stabaek
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: nadderud-stadion
 neutralVenue: false
-events: []
+attendance: 3852
+events:
+  - minute: 27
+    type: missed_penalty
+    team: home
+    player: Yassine El Ghanassy
+  - minute: 33
+    type: substitution
+    team: away
+    player: Magne Hoseth
+    playerOff: Fredrik Carlsen
+  - minute: 34
+    type: goal
+    team: away
+    player: Magne Hoseth
+    assist: Henrik Rørvik Bjørdal
+  - minute: 51
+    type: goal
+    team: away
+    player: Jo Nymo Matland
+  - minute: 52
+    type: yellow_card
+    team: home
+    player: Ernest Asante
+  - minute: 56
+    type: substitution
+    team: home
+    player: Muhamed Keita
+    playerOff: Kamal Issah
+  - minute: 63
+    type: substitution
+    team: home
+    player: Eirik Haugstad
+    playerOff: Nicolai Næss
+  - minute: 68
+    type: yellow_card
+    team: away
+    player: Akeem Latifu
+  - minute: 74
+    type: goal
+    team: home
+    player: Ernest Asante
+    assist: Yassine El Ghanassy
+  - minute: 76
+    type: yellow_card
+    team: away
+    player: Leke James
+  - minute: 79
+    type: goal
+    team: away
+    player: Magne Hoseth
+  - minute: 80
+    type: substitution
+    team: away
+    player: Edvard Skagestad
+    playerOff: Aron Elis Thrándarson
+  - minute: 84
+    type: substitution
+    team: home
+    player: Giorgi Gorozia
+    playerOff: Cole Grossman
+  - minute: 84
+    type: substitution
+    team: away
+    player: Mostafa Abdellaoue
+    playerOff: Henrik Rørvik Bjørdal
+  - minute: 90
+    type: goal
+    team: away
+    player: Leke James
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Sayouba Mandé
+      - Ville Jalasto
+      - Morten M. Skjønsberg
+      - Nicolai Næss
+      - Daniel Granli
+      - Cole Grossman
+      - Anthony Annan
+      - Ernest Asante
+      - Kamal Issah
+      - Yassine El Ghanassy
+      - Luc Kassi
+    subs:
+      - Muhamed Keita
+      - Eirik Haugstad
+      - Giorgi Gorozia
+      - Andreas Hanche-Olsen
+      - Cornelius Bencsik
+      - Edvard Race
+      - Gurpreet Singh Sandhu
+    coach: Bob Bradley
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Oddbjørn Lie
+      - Mikael Dyrestam
+      - Jo Nymo Matland
+      - Henrik Rørvik Bjørdal
+      - Vebjørn Hoff
+      - Bjørn Helge Riise
+      - Fredrik Carlsen
+      - Leke James
+      - Aron Elis Thrándarson
+    subs:
+      - Magne Hoseth
+      - Edvard Skagestad
+      - Mostafa Abdellaoue
+      - Lars Valderhaug
+      - Sondre Sødergren
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 70
+    shots: 17
+    shotsOnTarget: 7
+    corners: 7
+  away:
+    possession: 30
+    shots: 11
+    shotsOnTarget: 5
+    corners: 6
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +159,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

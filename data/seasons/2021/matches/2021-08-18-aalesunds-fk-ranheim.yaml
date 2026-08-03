@@ -11,13 +11,119 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: ranheim
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 5
+    type: goal
+    team: away
+    player: Filip Brattbakk
+  - minute: 14
+    type: yellow_card
+    team: away
+    player: Adria Mateo
+  - minute: 27
+    type: substitution
+    team: away
+    player: Sivert Solli
+    playerOff: Waren Kamanzi
+  - minute: 55
+    type: yellow_card
+    team: away
+    player: Christian Rismark
+  - minute: 56
+    type: penalty_goal
+    team: home
+    player: Sigurd Haugen
+  - minute: 61
+    type: substitution
+    team: away
+    player: Ruben Kristensen Alte
+    playerOff: Simon Marklund
+  - minute: 62
+    type: substitution
+    team: away
+    player: Marcus Mehnert
+    playerOff: Filip Brattbakk
+  - minute: 67
+    type: substitution
+    team: home
+    player: Kristoffer Ødemarksbakken
+    playerOff: Torbjørn Kallevåg
+  - minute: 67
+    type: substitution
+    team: home
+    player: Jørgen Hatlehol
+    playerOff: Simen Rafn
+  - minute: 73
+    type: substitution
+    team: home
+    player: Isak Dybvik
+    playerOff: Simen Bolkan Nordli
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Simen Rafn
+      - Quint Jansen
+      - David Fällman
+      - David Kristjan Olafsson
+      - Erlend Segberg
+      - Erikson Lima
+      - Torbjørn Kallevåg
+      - Niklas Castro
+      - Simen Bolkan Nordli
+      - Sigurd Haugen
+    subs:
+      - Jørgen Hatlehol
+      - Kristoffer Ødemarksbakken
+      - Isak Dybvik
+      - Andreas Lie
+      - Henrik Melland
+      - Jonas Grønner
+      - Nikolai Hopland
+      - Stian Aarønes Holte
+      - Sverre Orten
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-3-3
+    starters:
+      - Magnus Lenes
+      - Waren Kamanzi
+      - Daniel Kvande
+      - Christian Rismark
+      - Erik Tønne
+      - Mads Reginiussen
+      - Simon Marklund
+      - Adria Mateo
+      - Vegard Østraat Erlien
+      - Elias Hoff Melkersen
+      - Filip Brattbakk
+    subs:
+      - Sivert Solli
+      - Ruben Kristensen Alte
+      - Marcus Mehnert
+      - Adrian Bartel
+      - Erland Tangvik
+      - Martin Lundal
+    coach: Hugo Pereira
+stats:
+  home:
+    possession: 54
+    shots: 8
+    shotsOnTarget: 4
+    corners: 7
+  away:
+    possession: 46
+    shots: 18
+    shotsOnTarget: 10
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +139,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

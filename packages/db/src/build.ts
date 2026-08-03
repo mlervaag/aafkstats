@@ -119,12 +119,12 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
          home_ht_score, away_ht_score, home_et_score, away_et_score, home_pens, away_pens,
          venue_id, neutral_venue, attendance, referee,
          is_home, opponent_club_id, aafk_score, opponent_score, goal_difference,
-         result, decided_on_pens, won_on_pens,
+         result, after_extra_time, decided_on_pens, won_on_pens,
          competition_name, opponent_name, venue_name,
          events, lineups, stats, report_summary, report_body, report_byline,
          external_reports, sources, confidence, conflicts, tags, aliases,
          completeness, missing_fields, note, source_file
-       ) VALUES (${Array.from({ length: 52 }, () => "?").join(", ")})`,
+       ) VALUES (${Array.from({ length: 53 }, () => "?").join(", ")})`,
     );
 
     const insertReport = db.prepare(
@@ -160,7 +160,7 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
         m.penaltyShootout?.home ?? null, m.penaltyShootout?.away ?? null,
         m.venueId ?? null, bool(m.neutralVenue), m.attendance ?? null, m.referee ?? null,
         bool(p.isHome), p.opponentClubId, p.aafkScore, p.opponentScore, p.goalDifference,
-        p.result, bool(p.decidedOnPenalties),
+        p.result, bool(p.afterExtraTime), bool(p.decidedOnPenalties),
         p.wonOnPenalties === null ? null : bool(p.wonOnPenalties),
         competitionName, opponentName, venueName,
         json(m.events), m.lineups ? json(m.lineups) : null, m.stats ? json(m.stats) : null,

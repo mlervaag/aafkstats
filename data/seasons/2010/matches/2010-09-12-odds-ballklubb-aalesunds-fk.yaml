@@ -1,0 +1,152 @@
+id: 2010-09-12-odds-ballklubb-aalesunds-fk
+date: 2010-09-12
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2010
+  stage: regular_season
+  round: 23
+home:
+  clubId: odds-ballklubb
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 1
+venueId: skagerak-arena
+neutralVenue: false
+events:
+  - minute: 2
+    type: penalty_goal
+    team: home
+    player: Morten Fevang
+  - minute: 34
+    type: own_goal
+    team: away
+    player: Morten Fevang
+  - minute: 40
+    type: yellow_card
+    team: home
+    player: Magnus Lekven
+  - minute: 47
+    type: goal
+    team: home
+    player: Torgeir Børven
+  - minute: 52
+    type: substitution
+    team: away
+    player: Tor Hogne Aarøy
+    playerOff: Demar Phillips
+  - minute: 61
+    type: substitution
+    team: home
+    player: Tommy Svindal Larsen
+    playerOff: Magnus Lekven
+  - minute: 62
+    type: yellow_card
+    team: away
+    player: Tor Hogne Aarøy
+  - minute: 64
+    type: yellow_card
+    team: away
+    player: Johan Arneng
+  - minute: 71
+    type: substitution
+    team: away
+    player: Pablo Herrera
+    playerOff: Michael Barrantes
+  - minute: 71
+    type: substitution
+    team: away
+    player: Amund Skiri
+    playerOff: Peter Orry Larsen
+  - minute: 80
+    type: substitution
+    team: home
+    player: Torjus Hansén
+    playerOff: Håvard Storbæk
+  - minute: 89
+    type: substitution
+    team: home
+    player: Morten Sundli
+    playerOff: Torgeir Børven
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Magnus Sylling Olsen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Andreas Lie
+      - Steffen Hagen
+      - Fredrik Semb Berge
+      - Morten Fevang
+      - Anders Rambekk
+      - Jone Samuelsen
+      - Magnus Lekven
+      - Håvard Storbæk
+      - Magnus Myklebust
+      - Mattias Andersson
+      - Torgeir Børven
+    subs:
+      - Tommy Svindal Larsen
+      - Torjus Hansén
+      - Morten Sundli
+      - Dag Ole Thomassen
+      - Elbasan Rashani
+      - Emil Jonassen
+      - Vegard Landaas
+    coach: Dag-Eilev Fagermo
+  away:
+    formation: 4-3-3
+    starters:
+      - Anders Lindegaard
+      - Alexander Mathisen
+      - Jonatan Tollås Nation
+      - Ville Jalasto
+      - Jonathan Parr
+      - Peter Orry Larsen
+      - Johan Arneng
+      - Michael Barrantes
+      - Demar Phillips
+      - Magnus Sylling Olsen
+      - Lars Fuhre
+    subs:
+      - Tor Hogne Aarøy
+      - Amund Skiri
+      - Pablo Herrera
+      - Enar Jääger
+      - Fredrik Ulvestad
+      - Sten Michael Grytebust
+    coach: Kjetil Rekdal
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/odds-ballklubb-vs-aalesund/27zx14#761940
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "761940"
+manual: []

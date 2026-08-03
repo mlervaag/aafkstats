@@ -11,13 +11,126 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: odds-ballklubb
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 7804
+events:
+  - minute: 32
+    type: yellow_card
+    team: away
+    player: Lars Kristian Eriksen
+  - minute: 40
+    type: goal
+    team: home
+    player: Michael Barrantes
+  - minute: 45
+    type: substitution
+    team: away
+    player: Sondre Loevseth Rossbach
+    playerOff: Andre Hansen
+  - minute: 49
+    type: yellow_card
+    team: home
+    player: Mehdi Karnass
+  - minute: 54
+    type: substitution
+    team: away
+    player: Fredrik Nordkvelle
+    playerOff: Ole Joergen Halvorsen
+  - minute: 73
+    type: goal
+    team: away
+    player: Frode Johnsen
+  - minute: 76
+    type: yellow_card
+    team: away
+    player: Fredrik Oldrup Jensen
+  - minute: 82
+    type: goal
+    team: away
+    player: Frode Johnsen
+    assist: Bentley
+  - minute: 84
+    type: substitution
+    team: away
+    player: Ardian Gashi
+    playerOff: Bentley
+  - minute: 87
+    type: yellow_card
+    team: home
+    player: Sakari Mattila
+  - minute: 88
+    type: substitution
+    team: home
+    player: Tor Hogne Aaroey
+    playerOff: Henrik Roervik Bjoerdal
+  - minute: 88
+    type: substitution
+    team: home
+    player: Mikael Dyrestam
+    playerOff: Michael Barrantes
+  - minute: 88
+    type: substitution
+    team: home
+    player: Mostafa Abdellaoue
+    playerOff: Mehdi Karnass
+  - minute: 90
+    type: goal
+    team: home
+    player: Akeem Latifu
+    assist: Mostafa Abdellaoue
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Oddbjoern Lie
+      - Demar Phillips
+      - Henrik Roervik Bjoerdal
+      - Fredrik Ulvestad
+      - Sakari Mattila
+      - Mehdi Karnass
+      - Michael Barrantes
+      - Leke James
+    subs:
+      - Tor Hogne Aaroey
+      - Mikael Dyrestam
+      - Mostafa Abdellaoue
+      - Thomas Skog Martinussen
+      - Jo Nymo Matland
+      - Vebjoern Hoff
+      - Andreas Lie
+    coach: Jan Joensson
+  away:
+    formation: 4-3-3
+    starters:
+      - Andre Hansen
+      - Haavard Storbaek
+      - Lars Kristian Eriksen
+      - Steffen Hagen
+      - Thomas Groegaard
+      - Jone Samuelsen
+      - Herolind Shala
+      - Fredrik Oldrup Jensen
+      - Ole Joergen Halvorsen
+      - Frode Johnsen
+      - Bentley
+    subs:
+      - Sondre Loevseth Rossbach
+      - Fredrik Nordkvelle
+      - Ardian Gashi
+      - Jarkko Hurme
+      - Snorre Krogsgaard
+      - Emil Jonassen
+      - Vegard Bergan
+    coach: Dag-Eilev Fagermo
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +146,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,125 @@ competition:
 home:
   clubId: stromsgodset
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: marienlyst-stadion
 neutralVenue: false
-events: []
+attendance: 7409
+events:
+  - minute: 33
+    type: goal
+    team: home
+    player: Iver Fossum
+    assist: Thomas Sørum
+  - minute: 37
+    type: goal
+    team: home
+    player: Thomas Sørum
+    assist: Gustav Wikheim
+  - minute: 59
+    type: goal
+    team: away
+    player: Akeem Latifu
+  - minute: 61
+    type: substitution
+    team: away
+    player: Daniel Gretarsson
+    playerOff: Oddbjørn Lie
+  - minute: 66
+    type: substitution
+    team: home
+    player: Martin Rønning Ovenstad
+    playerOff: Bismarck Adjei-Boateng
+  - minute: 66
+    type: substitution
+    team: home
+    player: Bassel Jradi
+    playerOff: Øyvind Storflor
+  - minute: 73
+    type: goal
+    team: home
+    player: Iver Fossum
+    assist: Thomas Sørum
+  - minute: 78
+    type: substitution
+    team: away
+    player: Torbjørn Grytten
+    playerOff: Vebjørn Hoff
+  - minute: 81
+    type: substitution
+    team: home
+    player: Mounir Hamoud
+    playerOff: Thomas Sørum
+  - minute: 84
+    type: substitution
+    team: away
+    player: Thomas Skog Martinussen
+    playerOff: Peter Orry Larsen
+  - minute: 85
+    type: yellow_card
+    team: home
+    player: Espen Bugge Pettersen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Espen Bugge Pettersen
+      - Lars-Christopher Vilsvik
+      - Gustav Valsvik
+      - Marius Høibråten
+      - Florent Hanin
+      - Bismarck Adjei-Boateng
+      - Mohammed Abu
+      - Iver Fossum
+      - Gustav Wikheim
+      - Thomas Sørum
+      - Øyvind Storflor
+    subs:
+      - Bassel Jradi
+      - Martin Rønning Ovenstad
+      - Mounir Hamoud
+      - Borger Thomas
+      - Flamur Kastrati
+      - Marvin Ogunjimi
+      - Peter Kovacs
+    coach: David Nielsen
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Edvard Skagestad
+      - Mikael Dyrestam
+      - Oddbjørn Lie
+      - Michael Barrantes
+      - Peter Orry Larsen
+      - Vebjørn Hoff
+      - Henrik Rørvik Bjørdal
+      - Leke James
+      - Mostafa Abdellaoue
+    subs:
+      - Daniel Gretarsson
+      - Torbjørn Grytten
+      - Thomas Skog Martinussen
+      - Andreas Lie
+      - Jo Nymo Matland
+      - Tero Mäntylä
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 52
+    shots: 11
+    shotsOnTarget: 7
+    corners: 5
+  away:
+    possession: 48
+    shots: 16
+    shotsOnTarget: 3
+    corners: 5
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +145,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

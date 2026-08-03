@@ -11,13 +11,160 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: egersund
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+referee: Stian Røvig Sletner
+events:
+  - minute: 6
+    type: missed_penalty
+    team: home
+    player: Henrik Melland
+  - minute: 16
+    type: goal
+    team: away
+    player: Mathias Sauer
+  - minute: 43
+    type: goal
+    team: home
+    player: Paul Ngongo Iversen
+    assist: Jakob Nyland Ørsahl
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Isak Jönsson
+  - minute: 46
+    type: substitution
+    team: away
+    player: Kristian Eggen
+    playerOff: Paya Pichkah
+  - minute: 51
+    type: yellow_card
+    team: home
+    player: Jakob Nyland Ørsahl
+  - minute: 56
+    type: yellow_card
+    team: home
+    player: David Snær Johannsson
+  - minute: 58
+    type: yellow_card
+    team: home
+    player: Kristoffer Nessø
+  - minute: 64
+    type: substitution
+    team: home
+    player: John Kitolano
+    playerOff: Olafur Gudmundsson
+  - minute: 64
+    type: substitution
+    team: home
+    player: Frederik Heiselberg
+    playerOff: Elias Heggland Myrlid
+  - minute: 66
+    type: substitution
+    team: away
+    player: Oscar Forsmo Kapskarmo
+    playerOff: Nicolaj Tornvig
+  - minute: 67
+    type: goal
+    team: home
+    player: Kristoffer Nessø
+    assist: Henrik Melland
+  - minute: 81
+    type: substitution
+    team: home
+    player: Erik Frøysa
+    playerOff: Henrik Melland
+  - minute: 83
+    type: goal
+    team: away
+    player: Chris Sleveland
+    assist: Martin Håheim Elveseter
+  - minute: 90
+    type: substitution
+    team: away
+    player: Samuel Adegbenro
+    playerOff: Mathias Sauer
+  - minute: 90
+    type: substitution
+    team: away
+    player: Sammi Davis
+    playerOff: Martin Håheim Elveseter
+  - minute: 90
+    type: substitution
+    team: home
+    player: Kristian Hemmingsen Lonebu
+    playerOff: David Snær Johannsson
+  - minute: 90
+    type: goal
+    team: away
+    player: Kristian Eggen
+    assist: Herman Kleppa
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Nikolai Skuseth
+      - Aleksander Hammer Kjelsen
+      - Olafur Gudmundsson
+      - Kristoffer Nessø
+      - David Snær Johannsson
+      - Mathias Christensen
+      - Henrik Melland
+      - Jakob Nyland Ørsahl
+      - Paul Ngongo Iversen
+      - Elias Heggland Myrlid
+    subs:
+      - John Kitolano
+      - Frederik Heiselberg
+      - Erik Frøysa
+      - Kristian Hemmingsen Lonebu
+      - Tor Erik Valderhaug Larsen
+      - Jørgen Bøe
+      - Simen Haram
+      - Marius Andresen
+      - Tellef Brattberg Ytterland
+    coach: Kjetil Rekdal
+  away:
+    formation: 3-4-3
+    starters:
+      - Andreas Hermansen
+      - Nicolas Pignatel Jenssen
+      - Isak Jönsson
+      - Bjørn Mæland
+      - Herman Kleppa
+      - Chris Sleveland
+      - Paya Pichkah
+      - Scott Vatne
+      - Mathias Sauer
+      - Nicolaj Tornvig
+      - Martin Håheim Elveseter
+    subs:
+      - Kristian Eggen
+      - Oscar Forsmo Kapskarmo
+      - Sammi Davis
+      - Samuel Adegbenro
+      - Sem Aleksander Bergene
+      - Adrian Rogulj
+      - Franklin Nyenetue
+      - Mustapha Abu
+    coach: Endre Eide
+stats:
+  home:
+    possession: 53
+    shots: 22
+    shotsOnTarget: 15
+    corners: 13
+  away:
+    possession: 47
+    shots: 19
+    shotsOnTarget: 13
+    corners: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +180,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

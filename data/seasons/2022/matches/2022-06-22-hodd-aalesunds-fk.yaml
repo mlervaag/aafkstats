@@ -1,0 +1,159 @@
+id: 2022-06-22-hodd-aalesunds-fk
+date: 2022-06-22
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2022
+  stage: regular_season
+  round: 2
+home:
+  clubId: hodd
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 2
+venueId: nye-hoddvoll-stadion
+neutralVenue: false
+events:
+  - minute: 15
+    type: goal
+    team: away
+    player: Dario Canadjija
+  - minute: 29
+    type: goal
+    team: away
+    player: Sigurd Haugen
+  - minute: 46
+    type: substitution
+    team: home
+    player: Isak Gabriel Skotheim
+    playerOff: Kristoffer Strand Ødven
+  - minute: 46
+    type: substitution
+    team: away
+    player: Oscar Solnørdal
+    playerOff: Simen Bolkan Nordli
+  - minute: 46
+    type: substitution
+    team: away
+    player: Alexander Juel Andersen
+    playerOff: David Fällman
+  - minute: 60
+    type: goal
+    team: away
+    player: Oscar Solnørdal
+  - minute: 61
+    type: substitution
+    team: away
+    player: Mamadou Diaw
+    playerOff: Sigurd Haugen
+  - minute: 61
+    type: substitution
+    team: away
+    player: Erikson Lima
+    playerOff: Dario Canadjija
+  - minute: 68
+    type: substitution
+    team: home
+    player: Eivind Helgesen
+    playerOff: Syver Skundberg Skeide
+  - minute: 68
+    type: substitution
+    team: home
+    player: Anselmi Nurmela
+    playerOff: Jann Benjaminsen
+  - minute: 68
+    type: substitution
+    team: away
+    player: Jørgen Hatlehol
+    playerOff: Kristoffer Barmen
+  - minute: 76
+    type: substitution
+    team: home
+    player: Andreas Hofset Televik
+    playerOff: Robin Hjelmeseth
+  - minute: 77
+    type: substitution
+    team: home
+    player: Bendik August Engen
+    playerOff: Alfred Scriven
+lineups:
+  home:
+    starters:
+      - Ole-Monrad Alme
+      - Jann Benjaminsen
+      - Magnus Nybakken Bruun-Hanssen
+      - Ola Heltne Nilsen
+      - Peder Nersveen
+      - Thomas Lillo
+      - Eirik Saunes
+      - Kristoffer Strand Ødven
+      - Syver Skundberg Skeide
+      - Alfred Scriven
+      - Robin Hjelmeseth
+    subs:
+      - Isak Gabriel Skotheim
+      - Anselmi Nurmela
+      - Eivind Helgesen
+      - Andreas Hofset Televik
+      - Bendik August Engen
+      - Andreas Fjørtoft
+      - Deniss Korneiciks
+      - Fredrik Dimmen Gjerde
+      - Martin Håheim Elveseter
+    coach: ""
+  away:
+    starters:
+      - Michael Lansing
+      - David Fällman
+      - Jeppe Arctander Moe
+      - Nikolai Hopland
+      - Petar Golubovic
+      - Simen Rafn
+      - Dario Canadjija
+      - Kristoffer Barmen
+      - Torbjørn Kallevåg
+      - Sigurd Haugen
+      - Simen Bolkan Nordli
+    subs:
+      - Alexander Juel Andersen
+      - Oscar Solnørdal
+      - Erikson Lima
+      - Mamadou Diaw
+      - Jørgen Hatlehol
+      - Besim Serbecic
+      - Isak Dybvik
+      - Stian Aarønes Holte
+      - Tor Erik Valderhaug Larsen
+    coach: Lars Arne Nilsen
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/hodd-vs-aalesund/27i0yj#3881206
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3881206"
+manual: []

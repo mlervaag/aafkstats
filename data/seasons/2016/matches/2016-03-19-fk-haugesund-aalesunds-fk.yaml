@@ -11,13 +11,146 @@ competition:
 home:
   clubId: fk-haugesund
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: haugesund-stadion
 neutralVenue: false
-events: []
+attendance: 5168
+referee: Trond Ivar Doevle
+events:
+  - minute: 10
+    type: goal
+    team: home
+    player: William Troost-Ekong
+    assist: Alexander Stølås
+  - minute: 27
+    type: yellow_card
+    team: away
+    player: Adam Örn Arnarson
+  - minute: 28
+    type: yellow_card
+    team: home
+    player: William Troost-Ekong
+  - minute: 38
+    type: goal
+    team: home
+    player: Sondre Tronstad
+    assist: Roy Miljeteig
+  - minute: 51
+    type: substitution
+    team: away
+    player: John Arne Riise
+    playerOff: Vebjørn Hoff
+  - minute: 52
+    type: substitution
+    team: away
+    player: Mostafa Abdellaoue
+    playerOff: Edwin Gyasi
+  - minute: 54
+    type: yellow_card
+    team: home
+    player: Torbjørn Agdestein
+  - minute: 61
+    type: substitution
+    team: away
+    player: Marlinho
+    playerOff: Adam Örn Arnarson
+  - minute: 62
+    type: yellow_card
+    team: home
+    player: Roy Miljeteig
+  - minute: 65
+    type: substitution
+    team: home
+    player: Haris Hajradinovic
+    playerOff: Eirik Mæland
+  - minute: 73
+    type: yellow_card
+    team: home
+    player: Sondre Tronstad
+  - minute: 74
+    type: substitution
+    team: home
+    player: Kwame Karikari
+    playerOff: Roy Miljeteig
+  - minute: 77
+    type: yellow_card
+    team: home
+    player: Haris Hajradinovic
+  - minute: 82
+    type: substitution
+    team: home
+    player: Derrick Mensah
+    playerOff: Filip Kiss
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Derrick Mensah
+  - minute: 90
+    type: goal
+    team: home
+    player: Kwame Karikari
+    assist: Haris Hajradinovic
+lineups:
+  home:
+    formation: 5-3-1-1
+    starters:
+      - Per Kristian Bråtveit
+      - Vegard Skjerve
+      - Izuchukwu Anthony
+      - William Troost-Ekong
+      - David Myrestam
+      - Alexander Stølås
+      - Sondre Tronstad
+      - Filip Kiss
+      - Eirik Mæland
+      - Roy Miljeteig
+      - Torbjørn Agdestein
+    subs:
+      - Haris Hajradinovic
+      - Kwame Karikari
+      - Derrick Mensah
+      - Helge Sandvik
+      - Kristoffer Haraldseid
+      - Nemanja Tubic
+      - Sverre Bjørkkjær
+    coach: Mark Dempsey
+  away:
+    formation: 4-5-1
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Edvard Skagestad
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Vebjørn Hoff
+      - Bjørn Helge Riise
+      - Peter Orry Larsen
+      - Aron Elis Thrándarson
+      - Franck Boli
+    subs:
+      - John Arne Riise
+      - Mostafa Abdellaoue
+      - Marlinho
+      - Daniel Gretarsson
+      - Sondre Sødergren
+      - Thomas Skog Martinussen
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 48
+    shots: 15
+    shotsOnTarget: 7
+    corners: 8
+  away:
+    possession: 52
+    shots: 7
+    shotsOnTarget: 1
+    corners: 3
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +166,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

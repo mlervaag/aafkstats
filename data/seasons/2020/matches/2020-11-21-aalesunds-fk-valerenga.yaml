@@ -11,13 +11,137 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: valerenga
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 200
+referee: Tommy Skjerven
+events:
+  - minute: 32
+    type: goal
+    team: home
+    player: Parfait Bizoza
+    assist: Simen Bolkan Nordli
+  - minute: 55
+    type: yellow_card
+    team: home
+    player: Ben Karamoko
+  - minute: 61
+    type: substitution
+    team: home
+    player: Sigurd Haugen
+    playerOff: Vetle Fiskerstrand
+  - minute: 64
+    type: penalty_goal
+    team: away
+    player: Aron Dønnum
+  - minute: 66
+    type: substitution
+    team: away
+    player: Bård Finne
+    playerOff: Herolind Shala
+  - minute: 73
+    type: substitution
+    team: home
+    player: Markus Seehusen Karlsbakk
+    playerOff: Izunna Uzochukwu
+  - minute: 80
+    type: substitution
+    team: away
+    player: Odin Thiago Holm
+    playerOff: Henrik Rørvik Bjørdal
+  - minute: 80
+    type: substitution
+    team: away
+    player: Matthias Vilhjalmsson
+    playerOff: Vidar Örn Kjartansson
+  - minute: 81
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Parfait Bizoza
+  - minute: 90
+    type: substitution
+    team: away
+    player: Benjamin Stokke
+    playerOff: Osame Sahraoui
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Kasper Jørgensen
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Sigurd Haugen
+lineups:
+  home:
+    formation: 5-4-1
+    starters:
+      - Gudmund Taksdal Kongshavn
+      - Kasper Jørgensen
+      - Jonas Grønner
+      - Ben Karamoko
+      - Daan Klinkenberg
+      - David Kristjan Olafsson
+      - Erikson Lima
+      - Izunna Uzochukwu
+      - Parfait Bizoza
+      - Simen Bolkan Nordli
+      - Vetle Fiskerstrand
+    subs:
+      - Sigurd Haugen
+      - Markus Seehusen Karlsbakk
+      - Peter Orry Larsen
+      - Andreas Lie
+      - Enock Mwimba
+      - Shaquill Sno
+      - Ståle Steen Sæthre
+      - Mamadou Diaw
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-3-3
+    starters:
+      - Kristoffer Klaesson
+      - Christian Dahle Borchgrevink
+      - Jonatan Tollås Nation
+      - Ivan Näsberg
+      - Sam Adekugbe
+      - Henrik Rørvik Bjørdal
+      - Magnus Lekven
+      - Herolind Shala
+      - Aron Dønnum
+      - Vidar Örn Kjartansson
+      - Osame Sahraoui
+    subs:
+      - Bård Finne
+      - Matthias Vilhjalmsson
+      - Odin Thiago Holm
+      - Benjamin Stokke
+      - Kjetil Haug
+      - Johan Lædre Bjørdal
+      - Felix Horn Myhre
+    coach: Dag-Eilev Fagermo
+stats:
+  home:
+    possession: 41
+    shots: 8
+    shotsOnTarget: 3
+    corners: 6
+    fouls: 17
+    offsides: 2
+    xg: 0.93
+  away:
+    possession: 59
+    shots: 14
+    shotsOnTarget: 1
+    corners: 6
+    fouls: 15
+    offsides: 1
+    xg: 1.58
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +157,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

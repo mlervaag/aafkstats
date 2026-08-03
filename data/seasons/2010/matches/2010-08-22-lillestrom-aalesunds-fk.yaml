@@ -1,0 +1,128 @@
+id: 2010-08-22-lillestrom-aalesunds-fk
+date: 2010-08-22
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2010
+  stage: regular_season
+  round: 21
+home:
+  clubId: lillestrom
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+venueId: arasen
+neutralVenue: false
+events:
+  - minute: 46
+    type: substitution
+    team: away
+    player: Michael Barrantes
+    playerOff: Pablo Herrera
+  - minute: 60
+    type: substitution
+    team: away
+    player: Demar Phillips
+    playerOff: Lars Fuhre
+  - minute: 61
+    type: substitution
+    team: home
+    player: Fredrik Gulbrandsen
+    playerOff: Erling Knudtzon
+  - minute: 62
+    type: goal
+    team: home
+    player: Edwin Eziyodawe
+  - minute: 75
+    type: substitution
+    team: away
+    player: Magnus Sylling Olsen
+    playerOff: Fredrik Carlsen
+  - minute: 75
+    type: substitution
+    team: home
+    player: Arild Sundgot
+    playerOff: Edwin Eziyodawe
+  - minute: 79
+    type: substitution
+    team: home
+    player: Lars Kristian Eriksen
+    playerOff: Björn Sigurdarson
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Stefan Logi Magnusson
+      - Karim Essediri
+      - Frode Kippe
+      - Mads Dahm
+      - Steinar Pedersen
+      - Erling Knudtzon
+      - Espen Søgård
+      - Nosa Igiebor
+      - Edwin Eziyodawe
+      - Björn Sigurdarson
+      - Anthony Ujah
+    subs:
+      - Fredrik Gulbrandsen
+      - Arild Sundgot
+      - Lars Kristian Eriksen
+      - André Hansen
+      - Kristoffer Tokstad
+      - Mathis Bolly
+      - Tom Sadeh
+    coach: Henning Berg
+  away:
+    formation: 4-5-1
+    starters:
+      - Anders Lindegaard
+      - Enar Jääger
+      - Ville Jalasto
+      - Daniel Arnefjord
+      - Jonathan Parr
+      - Pablo Herrera
+      - Fredrik Carlsen
+      - Peter Orry Larsen
+      - Johan Arneng
+      - Lars Fuhre
+      - Tor Hogne Aarøy
+    subs:
+      - Michael Barrantes
+      - Demar Phillips
+      - Magnus Sylling Olsen
+      - Amund Skiri
+      - Jonatan Tollås Nation
+      - Sten Michael Grytebust
+    coach: Kjetil Rekdal
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-lillestrom/2ctxg4#761901
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "761901"
+manual: []

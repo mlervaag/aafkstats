@@ -11,13 +11,139 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: fk-haugesund
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4471
+referee: Ola Hobber Nilsen
+events:
+  - minute: 31
+    type: yellow_card
+    team: away
+    player: Bilal Njie
+  - minute: 52
+    type: yellow_card
+    team: away
+    player: Oscar Krusnell
+  - minute: 60
+    type: substitution
+    team: home
+    player: Kristoffer Barmen
+    playerOff: Amidou Diop
+  - minute: 60
+    type: substitution
+    team: home
+    player: Moses Ebiye
+    playerOff: Bjørn Martin Kristensen
+  - minute: 64
+    type: yellow_card
+    team: home
+    player: Kasper Lunding
+  - minute: 71
+    type: substitution
+    team: home
+    player: Ole Kolskogen
+    playerOff: Alexander Juel Andersen
+  - minute: 73
+    type: substitution
+    team: away
+    player: Bruno Leite
+    playerOff: Adrion Pajaziti
+  - minute: 78
+    type: substitution
+    team: away
+    player: Sebastian Tounekti
+    playerOff: Mads Sande
+  - minute: 78
+    type: substitution
+    team: away
+    player: Martin Samuelsen
+    playerOff: Vegard Solheim
+  - minute: 80
+    type: substitution
+    team: home
+    player: Kristoffer Ødemarksbakken
+    playerOff: Isaac Atanga
+  - minute: 80
+    type: substitution
+    team: home
+    player: Markus Seehusen Karlsbakk
+    playerOff: Kasper Lunding
+  - minute: 83
+    type: substitution
+    team: away
+    player: Sory Diarra
+    playerOff: Bilal Njie
+lineups:
+  home:
+    formation: 3-4-2-1
+    starters:
+      - Sten Michael Grytebust
+      - Alexander Juel Andersen
+      - David Fällman
+      - Nikolai Hopland
+      - Alexander Munksgaard
+      - Amidou Diop
+      - Erlend Segberg
+      - John Kitolano
+      - Kasper Lunding
+      - Isaac Atanga
+      - Bjørn Martin Kristensen
+    subs:
+      - Kristoffer Barmen
+      - Moses Ebiye
+      - Ole Kolskogen
+      - Kristoffer Ødemarksbakken
+      - Markus Seehusen Karlsbakk
+      - Alexander Stølås
+      - Jeppe Arctander Moe
+      - Michael Lansing
+      - Trace Murray
+    coach: Marius Bøe
+  away:
+    formation: 3-4-2-1
+    starters:
+      - Egil Selvik
+      - Anders Bærtelsen
+      - Ulrik Fredriksen
+      - Søren Reese
+      - Vegard Solheim
+      - Peter Therkildsen
+      - Magnus Christensen
+      - Oscar Krusnell
+      - Bilal Njie
+      - Mads Sande
+      - Adrion Pajaziti
+    subs:
+      - Bruno Leite
+      - Martin Samuelsen
+      - Sebastian Tounekti
+      - Sory Diarra
+      - Amund Wichne
+      - Mikkel Hope
+      - Troy Nyhammer
+    coach: Jostein Grindhaug
+stats:
+  home:
+    possession: 43
+    shots: 15
+    shotsOnTarget: 3
+    corners: 6
+    fouls: 9
+    offsides: 1
+    xg: 1
+  away:
+    possession: 57
+    shots: 8
+    shotsOnTarget: 0
+    corners: 3
+    fouls: 11
+    offsides: 1
+    xg: 0.46
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +159,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

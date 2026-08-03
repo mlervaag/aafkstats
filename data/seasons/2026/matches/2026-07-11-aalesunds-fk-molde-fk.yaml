@@ -1,0 +1,208 @@
+id: 2026-07-11-aalesunds-fk-molde-fk
+date: 2026-07-11
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 13
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: molde-fk
+  score: 2
+  halfTimeScore: 2
+venueId: color-line-stadion
+neutralVenue: false
+attendance: 6735
+referee: Tore Hansen
+events:
+  - minute: 14
+    type: goal
+    team: home
+    player: Endre Osenbroch
+    assist: Elias Hagen
+  - minute: 18
+    type: goal
+    team: away
+    player: Oskar Spiten-Nysæter
+    assist: Eirik Hestad
+  - minute: 31
+    type: goal
+    team: away
+    player: Eirik Hestad
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Mats Møller Dæhli
+  - minute: 46
+    type: substitution
+    team: away
+    player: Samukelo Kabini
+    playerOff: Martin Linnes
+  - minute: 58
+    type: substitution
+    team: home
+    player: Ulrik Valderhaug Syversen
+    playerOff: Simen Haram
+  - minute: 59
+    type: substitution
+    team: away
+    player: Sivert Hansen
+    playerOff: Birk Risa
+  - minute: 63
+    type: yellow_card
+    team: away
+    player: Oskar Spiten-Nysæter
+  - minute: 67
+    type: substitution
+    team: away
+    player: Caleb Zady Sery
+    playerOff: Oskar Spiten-Nysæter
+  - minute: 67
+    type: substitution
+    team: away
+    player: Jalal Abdullai
+    playerOff: Trent Koné-Doherty
+  - minute: 75
+    type: substitution
+    team: away
+    player: Eirik Haugan
+    playerOff: Isak Helstad Amundsen
+  - minute: 80
+    type: substitution
+    team: home
+    player: Elias Heggland Myrlid
+    playerOff: Henrik Melland
+  - minute: 80
+    type: yellow_card
+    team: away
+    player: Jalal Abdullai
+  - minute: 86
+    type: substitution
+    team: home
+    player: Håkon Butli Hammer
+    playerOff: Elias Hagen
+  - minute: 86
+    type: substitution
+    team: home
+    player: Marius Andresen
+    playerOff: Kristoffer Nessø
+  - minute: 86
+    type: substitution
+    team: home
+    player: Jakob Nyland Ørsahl
+    playerOff: Uba Charles
+  - minute: 90
+    stoppage: 1
+    type: yellow_card
+    team: home
+    player: Aleksander Hammer Kjelsen
+  - minute: 90
+    stoppage: 6
+    type: goal
+    team: home
+    player: Mathias Christensen
+    assist: Ulrik Valderhaug Syversen
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Tor Erik Valderhaug Larsen
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Ólafur Gudmundsson
+      - Uba Charles
+      - Mathias Christensen
+      - Elias Hagen
+      - Henrik Melland
+      - Kristoffer Nessø
+      - Kristian Hemmingsen Lonebu
+      - Endre Osenbroch
+    subs:
+      - Ulrik Valderhaug Syversen
+      - Elias Heggland Myrlid
+      - Håkon Butli Hammer
+      - Jakob Nyland Ørsahl
+      - Marius Andresen
+      - Philip Storås
+      - Emil Engqvist
+      - Philip Sandvik Aukland
+      - Tobias Leikanger
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Albert Posiadala
+      - Halldor Stenevik
+      - Isak Helstad Amundsen
+      - Birk Risa
+      - Martin Linnes
+      - Emil Breivik
+      - Mats Møller Dæhli
+      - Eirik Hestad
+      - Sondre Milian Granaas
+      - Oskar Spiten-Nysæter
+      - Trent Koné-Doherty
+    subs:
+      - Samukelo Kabini
+      - Sivert Hansen
+      - Caleb Zady Sery
+      - Jalal Abdullai
+      - Eirik Haugan
+      - Peder Hoel Lervik
+      - Blerton Isufi
+      - Daniel Daga
+      - Vebjørn Hoff
+    coach: Martin Falk
+stats:
+  home:
+    possession: 47
+    shots: 9
+    shotsOnTarget: 4
+    corners: 2
+    fouls: 18
+    offsides: 4
+    xg: 0.7
+  away:
+    possession: 53
+    shots: 20
+    shotsOnTarget: 8
+    corners: 7
+    fouls: 11
+    offsides: 0
+    xg: 1.92
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#5104938
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5104938"
+manual: []

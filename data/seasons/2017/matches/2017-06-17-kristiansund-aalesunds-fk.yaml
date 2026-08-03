@@ -11,13 +11,129 @@ competition:
 home:
   clubId: kristiansund
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: kristiansund-stadion
 neutralVenue: false
-events: []
+attendance: 4033
+referee: Tommy Skjerven
+events:
+  - minute: 22
+    type: goal
+    team: away
+    player: Lars Veldwijk
+    assist: Fredrik Carlsen
+  - minute: 45
+    type: substitution
+    team: away
+    player: Oddbjørn Lie
+    playerOff: Kaj Ramsteijn
+  - minute: 60
+    type: goal
+    team: home
+    player: Benjamin Stokke
+  - minute: 62
+    type: yellow_card
+    team: home
+    player: Christoffer Aasbak
+  - minute: 70
+    type: substitution
+    team: home
+    player: Daouda Bamba
+    playerOff: Benjamin Stokke
+  - minute: 71
+    type: yellow_card
+    team: away
+    player: Adam Örn Arnarson
+  - minute: 72
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Aron Elis Thrándarson
+  - minute: 81
+    type: yellow_card
+    team: home
+    player: Daouda Bamba
+  - minute: 82
+    type: substitution
+    team: away
+    player: Valmir Berisha
+    playerOff: Mostafa Abdellaoue
+  - minute: 87
+    type: substitution
+    team: home
+    player: Jonas Rønningen
+    playerOff: Jean Alassane Mendy
+  - minute: 90
+    type: substitution
+    team: home
+    player: Thompson Unachi Ekpe
+    playerOff: Liridon Kalludra
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Sean McDermott
+      - Aliou Coly
+      - Andreas Hopmark
+      - Dan Peter Ulvestad
+      - Christoffer Aasbak
+      - Sondre Sørli
+      - Pål Erik Ulvestad
+      - Sverre Økland
+      - Liridon Kalludra
+      - Jean Alassane Mendy
+      - Benjamin Stokke
+    subs:
+      - Daouda Bamba
+      - Jonas Rønningen
+      - Thompson Unachi Ekpe
+      - Ante Knezovic
+      - Joakim Bjerkås
+      - Rocky Lekaj
+      - Tor Erik Torske
+    coach: Christian Michelsen
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Kaj Ramsteijn
+      - Daniel Gretarsson
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Vebjørn Hoff
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Lars Veldwijk
+      - Mostafa Abdellaoue
+    subs:
+      - Oddbjørn Lie
+      - Sondre Brunstad Fet
+      - Valmir Berisha
+      - Jørgen Hatlehol
+      - Marlinho
+      - Pål Vestly Heigre
+      - Sondre Sødergren
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 43
+    shots: 7
+    shotsOnTarget: 1
+    corners: 6
+    fouls: 17
+    offsides: 5
+  away:
+    possession: 57
+    shots: 14
+    shotsOnTarget: 4
+    corners: 4
+    fouls: 7
+    offsides: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +149,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

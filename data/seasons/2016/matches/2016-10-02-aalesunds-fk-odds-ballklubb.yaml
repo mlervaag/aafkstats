@@ -11,13 +11,116 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: odds-ballklubb
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5832
+referee: Kai Erik Steen
+events:
+  - minute: 15
+    type: substitution
+    team: away
+    player: Vegard Bergan
+    playerOff: Rafik Zekhnini
+  - minute: 64
+    type: substitution
+    team: away
+    player: Stefan Mladenovic
+    playerOff: Vegard Bergan
+  - minute: 78
+    type: substitution
+    team: away
+    player: Olivier Occean
+    playerOff: Riku Riski
+  - minute: 83
+    type: yellow_card
+    team: away
+    player: Fredrik Oldrup Jensen
+  - minute: 85
+    type: goal
+    team: home
+    player: Edwin Gyasi
+  - minute: 86
+    type: yellow_card
+    team: home
+    player: Edwin Gyasi
+  - minute: 87
+    type: substitution
+    team: home
+    player: Sondre Brunstad Fet
+    playerOff: Edwin Gyasi
+  - minute: 88
+    type: substitution
+    team: home
+    player: Vebjørn Hoff
+    playerOff: Mostafa Abdellaoue
+  - minute: 90
+    type: substitution
+    team: home
+    player: Tero Mäntylä
+    playerOff: Franck Boli
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Vito Wormgoor
+      - Oddbjørn Lie
+      - Daniel Gretarsson
+      - Edwin Gyasi
+      - Bjørn Helge Riise
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Franck Boli
+      - Mostafa Abdellaoue
+    subs:
+      - Sondre Brunstad Fet
+      - Vebjørn Hoff
+      - Tero Mäntylä
+      - Anders Waagan
+      - Jørgen Hatlehol
+      - Lars Cramer
+      - Marlinho
+    coach: Trond Fredriksen
+  away:
+    formation: 4-3-3
+    starters:
+      - Sondre Løvseth Rossbach
+      - Espen Ruud
+      - Fredrik Semb Berge
+      - Steffen Hagen
+      - Thomas Grøgaard
+      - Fredrik Nordkvelle
+      - Fredrik Oldrup Jensen
+      - Oliver Berg
+      - Chukwuma Akabueze
+      - Riku Riski
+      - Rafik Zekhnini
+    subs:
+      - Vegard Bergan
+      - Stefan Mladenovic
+      - Olivier Occean
+      - Ardian Gashi
+      - Lars Kristian Eriksen
+      - Sigurd Haugen
+      - Viljar Røsholt Myhra
+    coach: Dag-Eilev Fagermo
+stats:
+  home:
+    possession: 47
+    shots: 11
+    shotsOnTarget: 3
+    corners: 3
+  away:
+    possession: 53
+    shots: 13
+    shotsOnTarget: 5
+    corners: 8
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +136,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

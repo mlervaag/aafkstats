@@ -11,13 +11,163 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: molde-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 200
+referee: Tommy Skjerven
+events:
+  - minute: 10
+    type: goal
+    team: away
+    player: Magnus Wolff Eikrem
+  - minute: 24
+    type: yellow_card
+    team: away
+    player: Leke James
+  - minute: 25
+    type: missed_penalty
+    team: home
+    player: Niklas Castro
+  - minute: 29
+    type: goal
+    team: home
+    player: Simen Bolkan Nordli
+  - minute: 45
+    type: goal
+    team: away
+    player: Etzaz Hussain
+  - minute: 50
+    type: substitution
+    team: home
+    player: Izunna Uzochukwu
+    playerOff: Fredrik Carlsen
+  - minute: 54
+    type: goal
+    team: away
+    player: Leke James
+    assist: Kristoffer Haugen
+  - minute: 58
+    type: substitution
+    team: home
+    player: Holmbert Aron Fridjonsson
+    playerOff: Daniel Gretarsson
+  - minute: 62
+    type: substitution
+    team: away
+    player: Tobias Christensen
+    playerOff: Magnus Wolff Eikrem
+  - minute: 62
+    type: substitution
+    team: away
+    player: Mattias Moström
+    playerOff: Ola Brynhildsen
+  - minute: 69
+    type: red_card
+    team: away
+    player: Leke James
+  - minute: 75
+    type: substitution
+    team: home
+    player: Shaquill Sno
+    playerOff: Jørgen Hatlehol
+  - minute: 75
+    type: substitution
+    team: home
+    player: Daan Klinkenberg
+    playerOff: Oddbjørn Lie
+  - minute: 81
+    type: substitution
+    team: away
+    player: Eirik Hestad
+    playerOff: Erling Knudtzon
+  - minute: 81
+    type: substitution
+    team: away
+    player: Martin Ellingsen
+    playerOff: Etzaz Hussain
+  - minute: 86
+    type: goal
+    team: away
+    player: Eirik Hestad
+    assist: Martin Ellingsen
+  - minute: 89
+    type: substitution
+    team: away
+    player: Henry Wingo
+    playerOff: Kristoffer Haugen
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Henry Wingo
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Jørgen Hatlehol
+      - Niklas Castro
+      - Fredrik Carlsen
+      - Simen Bolkan Nordli
+      - David Kristjan Olafsson
+      - Ståle Steen Sæthre
+      - Sigurd Haugen
+    subs:
+      - Izunna Uzochukwu
+      - Holmbert Aron Fridjonsson
+      - Daan Klinkenberg
+      - Shaquill Sno
+      - Gudmund Taksdal Kongshavn
+      - Markus Seehusen Karlsbakk
+      - Parfait Bizoza
+    coach: Lars Bohinen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Andreas Linde
+      - Marcus Holmgren Pedersen
+      - Martin Bjørnbak
+      - Stian Gregersen
+      - Kristoffer Haugen
+      - Fredrik Aursnes
+      - Etzaz Hussain
+      - Erling Knudtzon
+      - Magnus Wolff Eikrem
+      - Ola Brynhildsen
+      - Leke James
+    subs:
+      - Mattias Moström
+      - Tobias Christensen
+      - Eirik Hestad
+      - Martin Ellingsen
+      - Henry Wingo
+      - Álex Craninx
+      - Eirik Ulland Andersen
+    coach: Erling Moe
+stats:
+  home:
+    possession: 48
+    shots: 10
+    shotsOnTarget: 2
+    corners: 8
+    fouls: 12
+    offsides: 3
+    xg: 1.67
+  away:
+    possession: 52
+    shots: 15
+    shotsOnTarget: 6
+    corners: 4
+    fouls: 17
+    offsides: 2
+    xg: 2.02
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +183,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

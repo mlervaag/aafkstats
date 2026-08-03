@@ -11,13 +11,163 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: bodo-glimt
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4950
+referee: Mohammad Usman Aslam
+events:
+  - minute: 3
+    type: yellow_card
+    team: home
+    player: Amidou Diop
+  - minute: 5
+    type: goal
+    team: away
+    player: Albert Grønbæk
+    assist: Morten Konradsen
+  - minute: 16
+    type: goal
+    team: away
+    player: Faris Moumbagna
+    assist: Morten Konradsen
+  - minute: 23
+    type: var_decision
+    team: away
+    player: Faris Moumbagna
+  - minute: 33
+    type: yellow_card
+    team: home
+    player: Jeppe Arctander Moe
+  - minute: 39
+    type: yellow_card
+    team: home
+    player: Alexander Munksgaard
+  - minute: 46
+    type: substitution
+    team: home
+    player: Alexander Juel Andersen
+    playerOff: Kristoffer Barmen
+  - minute: 58
+    type: goal
+    team: away
+    player: Amahl Pellegrino
+    assist: Patrick Berg
+  - minute: 67
+    type: substitution
+    team: away
+    player: Isak Helstad Amundsen
+    playerOff: Amahl Pellegrino
+  - minute: 69
+    type: substitution
+    team: away
+    player: Lasse Nordås
+    playerOff: Faris Moumbagna
+  - minute: 69
+    type: substitution
+    team: away
+    player: Sondre Sørli
+    playerOff: Marius Lode
+  - minute: 72
+    type: substitution
+    team: home
+    player: Henrik Melland
+    playerOff: Amidou Diop
+  - minute: 72
+    type: substitution
+    team: home
+    player: Bjørn Martin Kristensen
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 72
+    type: substitution
+    team: home
+    player: Isaac Atanga
+    playerOff: Moses Ebiye
+  - minute: 73
+    type: substitution
+    team: away
+    player: Jeppe Kjær
+    playerOff: Albert Grønbæk
+  - minute: 88
+    type: substitution
+    team: away
+    player: Lucas Kubr
+    playerOff: Fredrik André Bjørkan
+  - minute: 88
+    type: substitution
+    team: home
+    player: Kristoffer Strand Ødven
+    playerOff: Erlend Segberg
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Michael Lansing
+      - Nikolai Hopland
+      - David Fällman
+      - Jeppe Arctander Moe
+      - Alexander Munksgaard
+      - Trace Murray
+      - Amidou Diop
+      - Kristoffer Barmen
+      - Erlend Segberg
+      - Kristoffer Ødemarksbakken
+      - Moses Ebiye
+    subs:
+      - Alexander Juel Andersen
+      - Henrik Melland
+      - Bjørn Martin Kristensen
+      - Isaac Atanga
+      - Kristoffer Strand Ødven
+      - Tor Erik Valderhaug Larsen
+      - John Kitolano
+      - Kasper Lunding
+      - Moctar Diop
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-3-3
+    starters:
+      - Nikita Haikin
+      - Adam Sørensen
+      - Odin Lurås Bjørtuft
+      - Marius Lode
+      - Fredrik André Bjørkan
+      - Morten Konradsen
+      - Patrick Berg
+      - Albert Grønbæk
+      - Joel Mvuka
+      - Faris Moumbagna
+      - Amahl Pellegrino
+    subs:
+      - Isak Helstad Amundsen
+      - Lasse Nordås
+      - Sondre Sørli
+      - Jeppe Kjær
+      - Lucas Kubr
+      - Julian Faye Lund
+      - Runar Espejord
+    coach: Kjetil Knutsen
+stats:
+  home:
+    possession: 36
+    shots: 7
+    shotsOnTarget: 2
+    corners: 1
+    fouls: 13
+    offsides: 6
+    xg: 0.54
+  away:
+    possession: 64
+    shots: 20
+    shotsOnTarget: 6
+    corners: 4
+    fouls: 7
+    offsides: 1
+    xg: 2.65
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +183,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

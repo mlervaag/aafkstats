@@ -11,13 +11,158 @@ competition:
 home:
   clubId: mjondalen
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 6
-  halfTimeScore: null
+  halfTimeScore: 3
+venueId: consto-arena
 neutralVenue: false
-events: []
+attendance: 1124
+referee: Herman Holthe
+events:
+  - minute: 10
+    type: yellow_card
+    team: home
+    player: Love Reuterswärd
+  - minute: 20
+    type: goal
+    team: away
+    player: Kristian Hemmingsen Lonebu
+    assist: Jakob Nyland Ørsahl
+  - minute: 27
+    type: goal
+    team: away
+    player: Kristian Hemmingsen Lonebu
+    assist: Mathias Christensen
+  - minute: 40
+    type: yellow_card
+    team: home
+    player: Kasper Sætherbø
+  - minute: 42
+    type: goal
+    team: away
+    player: Håkon Butli Hammer
+    assist: Mathias Christensen
+  - minute: 46
+    type: substitution
+    team: home
+    player: Kparobo Arierhi
+    playerOff: Love Reuterswärd
+  - minute: 67
+    type: substitution
+    team: away
+    player: David Snær Johannsson
+    playerOff: Frederik Heiselberg
+  - minute: 67
+    type: substitution
+    team: away
+    player: Henrik Melland
+    playerOff: Mathias Christensen
+  - minute: 68
+    type: substitution
+    team: home
+    player: Oliver Aaser Midtgård
+    playerOff: Markus Edner Wæhler
+  - minute: 68
+    type: substitution
+    team: home
+    player: Fabian Kvam
+    playerOff: Kasper Sætherbø
+  - minute: 78
+    type: goal
+    team: away
+    player: David Snær Johannsson
+  - minute: 80
+    type: substitution
+    team: away
+    player: Elias Heggland Myrlid
+    playerOff: Janus Seehusen
+  - minute: 84
+    type: goal
+    team: away
+    player: Henrik Melland
+    assist: Håkon Butli Hammer
+  - minute: 85
+    type: substitution
+    team: home
+    player: Kweku Kekeli
+    playerOff: Victor Ekström
+  - minute: 85
+    type: substitution
+    team: home
+    player: Nickolay Årsbog
+    playerOff: Ebrima Sawaneh
+  - minute: 85
+    type: substitution
+    team: away
+    player: Jørgen Bøe
+    playerOff: Jakob Nyland Ørsahl
+  - minute: 87
+    type: goal
+    team: away
+    player: Håkon Butli Hammer
+    assist: Aleksander Hammer Kjelsen
+lineups:
+  home:
+    formation: 3-4-2-1
+    starters:
+      - Leander Øy
+      - Erik Midtgarden
+      - Isak Kjelsrud Vik
+      - Jesper Svenungsen Skau
+      - Victor Ekström
+      - Kasper Sætherbø
+      - Jonas Bruusgaard
+      - Anders Molund
+      - Ebrima Sawaneh
+      - Love Reuterswärd
+      - Markus Edner Wæhler
+    subs:
+      - Kparobo Arierhi
+      - Fabian Kvam
+      - Oliver Aaser Midtgård
+      - Kweku Kekeli
+      - Nickolay Årsbog
+      - Philip Sørlie Bro
+      - Tochukwu Joseph
+      - Fredrick Godwin
+      - Karim Bata
+    coach: Kevin Nicol
+  away:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Nikolai Skuseth
+      - Kristoffer Nessø
+      - Janus Seehusen
+      - Håkon Butli Hammer
+      - Mathias Christensen
+      - Jakob Nyland Ørsahl
+      - Kristian Hemmingsen Lonebu
+      - Frederik Heiselberg
+    subs:
+      - David Snær Johannsson
+      - Henrik Melland
+      - Elias Heggland Myrlid
+      - Jørgen Bøe
+      - Tor Erik Valderhaug Larsen
+      - Erik Frøysa
+      - John Kitolano
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 41
+    shots: 7
+    shotsOnTarget: 3
+    corners: 6
+  away:
+    possession: 59
+    shots: 21
+    shotsOnTarget: 20
+    corners: 10
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +178,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

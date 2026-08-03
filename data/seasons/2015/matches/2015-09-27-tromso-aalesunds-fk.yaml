@@ -11,13 +11,131 @@ competition:
 home:
   clubId: tromso
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: alfheim-stadion
 neutralVenue: false
-events: []
+attendance: 3402
+events:
+  - minute: 51
+    type: own_goal
+    team: away
+    player: Remi Johansen
+  - minute: 59
+    type: yellow_card
+    team: home
+    player: Marin Orsulic
+  - minute: 60
+    type: substitution
+    team: home
+    player: Runar Espejord
+    playerOff: Gjermund Åsen
+  - minute: 66
+    type: yellow_card
+    team: away
+    player: Magne Hoseth
+  - minute: 70
+    type: yellow_card
+    team: away
+    player: Henrik Rørvik Bjørdal
+  - minute: 71
+    type: goal
+    team: home
+    player: Runar Espejord
+    assist: Simen Wangberg
+  - minute: 74
+    type: substitution
+    team: away
+    player: Fredrik Carlsen
+    playerOff: Magne Hoseth
+  - minute: 78
+    type: substitution
+    team: home
+    player: Marcus Hansson
+    playerOff: Marin Orsulic
+  - minute: 78
+    type: yellow_card
+    team: away
+    player: Vebjørn Hoff
+  - minute: 81
+    type: substitution
+    team: home
+    player: Morten Moldskred
+    playerOff: Hans Norbye
+  - minute: 85
+    type: yellow_card
+    team: home
+    player: Zdenek Ondrasek
+  - minute: 90
+    type: substitution
+    team: away
+    player: Edvard Skagestad
+    playerOff: Vebjørn Hoff
+  - minute: 90
+    type: substitution
+    team: away
+    player: Tero Mäntylä
+    playerOff: Henrik Rørvik Bjørdal
+lineups:
+  home:
+    formation: 4-5-1
+    starters:
+      - Pål Vestly Heigre
+      - Hans Norbye
+      - Simen Wangberg
+      - Magnar Ødegaard
+      - Kent-Are Antonsen
+      - Marin Orsulic
+      - Magnus Andersen
+      - Thomas Kind Bendiksen
+      - Gjermund Åsen
+      - Remi Johansen
+      - Zdenek Ondrasek
+    subs:
+      - Runar Espejord
+      - Marcus Hansson
+      - Morten Moldskred
+      - Benny Lekström
+      - Henrik Gjesdal
+      - Jonas Johansen
+      - Lasse Nilsen
+    coach: Bård Flovik
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Oddbjørn Lie
+      - Mikael Dyrestam
+      - Jo Nymo Matland
+      - Vebjørn Hoff
+      - Peter Orry Larsen
+      - Bjørn Helge Riise
+      - Magne Hoseth
+      - Henrik Rørvik Bjørdal
+      - Leke James
+    subs:
+      - Fredrik Carlsen
+      - Edvard Skagestad
+      - Tero Mäntylä
+      - Andreas Lie
+      - Aron Elis Thrándarson
+      - Mostafa Abdellaoue
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 56
+    shots: 20
+    shotsOnTarget: 8
+    corners: 7
+  away:
+    possession: 44
+    shots: 10
+    shotsOnTarget: 4
+    corners: 8
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +151,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

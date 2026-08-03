@@ -11,13 +11,178 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: molde-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 9050
+referee: Sivert Øksnes Amland
+events:
+  - minute: 40
+    type: penalty_goal
+    team: home
+    player: Moses Ebiye
+  - minute: 41
+    type: yellow_card
+    team: home
+    player: Amidou Diop
+  - minute: 45
+    type: missed_penalty
+    team: away
+    player: Sivert Heggheim Mannsverk
+  - minute: 46
+    type: substitution
+    team: away
+    player: Veton Berisha
+    playerOff: Markus André Kaasa
+  - minute: 50
+    type: yellow_card
+    team: home
+    player: Alexander Juel Andersen
+  - minute: 55
+    type: yellow_card
+    team: away
+    player: Ola Brynhildsen
+  - minute: 57
+    type: goal
+    team: home
+    player: Isaac Atanga
+    assist: Alexander Juel Andersen
+  - minute: 60
+    type: goal
+    team: home
+    player: Isaac Atanga
+    assist: Moses Ebiye
+  - minute: 64
+    type: substitution
+    team: away
+    player: Mathias Fjørtoft Løvik
+    playerOff: Erling Knudtzon
+  - minute: 64
+    type: substitution
+    team: away
+    player: Magnus Retsius Grødem
+    playerOff: Emil Breivik
+  - minute: 64
+    type: substitution
+    team: away
+    player: Benjamin Hansen
+    playerOff: Martin Bjørnbak
+  - minute: 65
+    type: yellow_card
+    team: home
+    player: John Kitolano
+  - minute: 67
+    type: substitution
+    team: home
+    player: Kristoffer Ødemarksbakken
+    playerOff: Isaac Atanga
+  - minute: 68
+    type: substitution
+    team: home
+    player: Markus Seehusen Karlsbakk
+    playerOff: Kasper Lunding
+  - minute: 75
+    type: substitution
+    team: home
+    player: Ole Kolskogen
+    playerOff: Alexander Juel Andersen
+  - minute: 85
+    type: substitution
+    team: away
+    player: Niklas Ødegård
+    playerOff: Ola Brynhildsen
+  - minute: 86
+    type: substitution
+    team: home
+    player: Bjørn Martin Kristensen
+    playerOff: Moses Ebiye
+  - minute: 90
+    type: goal
+    team: away
+    player: Niklas Ødegård
+    assist: Magnus Retsius Grødem
+  - minute: 90
+    stoppage: 2
+    type: yellow_card
+    team: home
+    player: David Fällman
+  - minute: 90
+    stoppage: 2
+    type: yellow_card
+    team: away
+    player: Veton Berisha
+lineups:
+  home:
+    formation: 3-4-3
+    starters:
+      - Sten Michael Grytebust
+      - Alexander Juel Andersen
+      - David Fällman
+      - Nikolai Hopland
+      - Alexander Munksgaard
+      - Amidou Diop
+      - Erlend Segberg
+      - John Kitolano
+      - Kasper Lunding
+      - Isaac Atanga
+      - Moses Ebiye
+    subs:
+      - Kristoffer Ødemarksbakken
+      - Markus Seehusen Karlsbakk
+      - Ole Kolskogen
+      - Bjørn Martin Kristensen
+      - Eivind Strømsheim Kolve
+      - Michael Lansing
+      - Simen Haram
+      - Stian Aarønes Holte
+      - Trace Murray
+    coach: Marius Bøe
+  away:
+    formation: 3-5-2
+    starters:
+      - Jacob Karlstrøm
+      - Martin Bjørnbak
+      - Eirik Haugan
+      - Birk Risa
+      - Martin Linnes
+      - Markus André Kaasa
+      - Sivert Heggheim Mannsverk
+      - Emil Breivik
+      - Erling Knudtzon
+      - Kristian Eriksen
+      - Ola Brynhildsen
+    subs:
+      - Veton Berisha
+      - Benjamin Hansen
+      - Magnus Retsius Grødem
+      - Mathias Fjørtoft Løvik
+      - Niklas Ødegård
+      - Anders Hagelskjær
+      - Eric Kitolano
+      - Magnus Wolff Eikrem
+      - Oliver Petersen
+    coach: Erling Moe
+stats:
+  home:
+    possession: 31
+    shots: 13
+    shotsOnTarget: 7
+    corners: 5
+    fouls: 13
+    offsides: 2
+    xg: 2
+  away:
+    possession: 69
+    shots: 16
+    shotsOnTarget: 8
+    corners: 11
+    fouls: 9
+    offsides: 1
+    xg: 2.59
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +198,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

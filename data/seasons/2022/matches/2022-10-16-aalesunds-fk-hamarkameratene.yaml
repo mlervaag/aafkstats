@@ -11,13 +11,125 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: hamarkameratene
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4392
+referee: Christian Moen
+events:
+  - minute: 60
+    type: substitution
+    team: away
+    player: Jonas Enkerud
+    playerOff: Victor Lind
+  - minute: 72
+    type: substitution
+    team: home
+    player: Fredrik Haugen
+    playerOff: Erikson Lima
+  - minute: 72
+    type: substitution
+    team: home
+    player: Gilbert Koomson
+    playerOff: Moses Ebiye
+  - minute: 72
+    type: yellow_card
+    team: away
+    player: Fredrik Sjølstad
+  - minute: 75
+    type: yellow_card
+    team: home
+    player: Dario Canadjija
+  - minute: 81
+    type: substitution
+    team: home
+    player: Kristoffer Barmen
+    playerOff: Simen Bolkan Nordli
+  - minute: 82
+    type: substitution
+    team: home
+    player: Jeppe Arctander Moe
+    playerOff: John Kitolano
+  - minute: 85
+    type: yellow_card
+    team: away
+    player: Lars Jendal
+  - minute: 90
+    type: substitution
+    team: away
+    player: Kobe Hernandez-Foster
+    playerOff: Fredrik Sjølstad
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Besim Serbecic
+      - David Fällman
+      - Nikolai Hopland
+      - Simen Rafn
+      - John Kitolano
+      - Erikson Lima
+      - Erlend Segberg
+      - Dario Canadjija
+      - Moses Ebiye
+      - Simen Bolkan Nordli
+    subs:
+      - Fredrik Haugen
+      - Gilbert Koomson
+      - Kristoffer Barmen
+      - Jeppe Arctander Moe
+      - Michael Lansing
+      - Kristoffer Ødemarksbakken
+      - Torbjørn Kallevåg
+      - Bjørn Martin Kristensen
+    coach: Lars Arne Nilsen
+  away:
+    formation: 3-5-2
+    starters:
+      - Lars Jendal
+      - Halvor Rødølen Opsahl
+      - Hasan Kurucay
+      - Vetle Skjærvik
+      - Aleksander Melgalvis
+      - Vegard Kongsro
+      - Morten Bjørlo
+      - Fredrik Sjølstad
+      - Kristian Lønstad Onsrud
+      - Victor Lind
+      - Pål Alexander Kirkevold
+    subs:
+      - Jonas Enkerud
+      - Kobe Hernandez-Foster
+      - Nicholas Hagen
+      - Fernan Faerron
+      - Markus Nakkim
+      - Amin Nouri
+      - Benjamin Thoresen Faraas
+      - Emil Sildnes
+      - Rilwan Hassan
+    coach: Jakob Michelsen
+stats:
+  home:
+    possession: 62
+    shots: 14
+    shotsOnTarget: 2
+    corners: 5
+    fouls: 8
+    offsides: 3
+    xg: 0.53
+  away:
+    possession: 38
+    shots: 7
+    shotsOnTarget: 2
+    corners: 3
+    fouls: 3
+    offsides: 1
+    xg: 0.32
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +145,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

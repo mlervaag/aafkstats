@@ -1,0 +1,63 @@
+id: 2012-07-05-sandefjord-aalesunds-fk
+date: 2012-07-05
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2012
+  stage: regular_season
+  round: 4
+home:
+  clubId: sandefjord
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 1
+extraTime:
+  home: 1
+  away: 0
+venueId: komplett-no-arena
+neutralVenue: false
+events:
+  - minute: 33
+    type: goal
+    team: away
+    player: Jason Morrison
+  - minute: 36
+    type: penalty_goal
+    team: home
+    player: Panajotis Dimitriadis
+  - minute: 104
+    type: goal
+    team: home
+    player: Erik Lamøy
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-sandefjord/2e68pk#1235805
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - extraTime
+      - events
+    note: "Kildestatus: AET"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1235805"
+manual: []

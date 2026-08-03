@@ -11,13 +11,130 @@ competition:
 home:
   clubId: hamarkameratene
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: briskeby-arena
 neutralVenue: false
-events: []
+attendance: 3244
+referee: Christian Moen
+events:
+  - minute: 59
+    type: substitution
+    team: away
+    player: Kasper Lunding
+    playerOff: Isaac Atanga
+  - minute: 66
+    type: goal
+    team: home
+    player: Henrik Udahl
+    assist: William Albin Kurtovic
+  - minute: 69
+    type: substitution
+    team: home
+    player: Oliver Kjærgaard
+    playerOff: William Albin Kurtovic
+  - minute: 69
+    type: substitution
+    team: home
+    player: Tore André Sørås
+    playerOff: Kristian Lønstad Onsrud
+  - minute: 71
+    type: goal
+    team: away
+    player: Markus Seehusen Karlsbakk
+    assist: Kasper Lunding
+  - minute: 77
+    type: substitution
+    team: home
+    player: Rasmus Wiedesheim-Paul
+    playerOff: Henrik Udahl
+  - minute: 77
+    type: substitution
+    team: away
+    player: Moctar Diop
+    playerOff: Bjørn Martin Kristensen
+  - minute: 80
+    type: goal
+    team: home
+    player: Halvor Rødølen Opsahl
+  - minute: 83
+    type: substitution
+    team: away
+    player: Amidou Diop
+    playerOff: Kristoffer Barmen
+  - minute: 87
+    type: yellow_card
+    team: away
+    player: Markus Seehusen Karlsbakk
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Lars Jendal
+      - Halvor Rødølen Opsahl
+      - Fredrik Sjølstad
+      - John Olav Norheim
+      - Jens Martin Gammelby
+      - William Albin Kurtovic
+      - Kobe Hernandez-Foster
+      - Kristian Lønstad Onsrud
+      - Vegard Kongsro
+      - Pål Alexander Kirkevold
+      - Henrik Udahl
+    subs:
+      - Oliver Kjærgaard
+      - Tore André Sørås
+      - Rasmus Wiedesheim-Paul
+      - Aleksander Melgalvis
+      - Amin Nouri
+      - Arne Ødegård
+      - Brynjar Ingi Bjarnason
+      - Julian Bakkeli Gonstad
+      - Marcus Sandberg
+    coach: Jakob Michelsen
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Ole Kolskogen
+      - David Fällman
+      - Alexander Juel Andersen
+      - John Kitolano
+      - Kristoffer Barmen
+      - Erlend Segberg
+      - Markus Seehusen Karlsbakk
+      - Isaac Atanga
+      - Bjørn Martin Kristensen
+      - Kristoffer Ødemarksbakken
+    subs:
+      - Kasper Lunding
+      - Moctar Diop
+      - Amidou Diop
+      - Alexander Stølås
+      - Eivind Strømsheim Kolve
+      - Henrik Melland
+      - Michael Lansing
+    coach: Christian Johnsen
+stats:
+  home:
+    possession: 49
+    shots: 16
+    shotsOnTarget: 4
+    corners: 12
+    fouls: 6
+    offsides: 1
+    xg: 1.11
+  away:
+    possession: 51
+    shots: 17
+    shotsOnTarget: 3
+    corners: 6
+    fouls: 9
+    offsides: 0
+    xg: 0.87
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +150,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

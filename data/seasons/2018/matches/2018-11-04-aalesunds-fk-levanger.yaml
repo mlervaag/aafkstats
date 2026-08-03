@@ -11,13 +11,119 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: levanger
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 20
+    type: yellow_card
+    team: away
+    player: Andreas Petersson
+  - minute: 28
+    type: yellow_card
+    team: home
+    player: Oddbjørn Lie
+  - minute: 45
+    type: goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+    assist: Pape Habib Gueye
+  - minute: 49
+    type: goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+    assist: Fredrik Carlsen
+  - minute: 71
+    type: goal
+    team: home
+    player: Pape Habib Gueye
+    assist: Aron Elis Thrándarson
+  - minute: 74
+    type: goal
+    team: home
+    player: Pape Habib Gueye
+  - minute: 75
+    type: substitution
+    team: home
+    player: Torbjørn Agdestein
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 75
+    type: substitution
+    team: away
+    player: Kasper Nissen
+    playerOff: Robert Stene
+  - minute: 76
+    type: yellow_card
+    team: away
+    player: Simen Raaen Sandmæl
+  - minute: 78
+    type: substitution
+    team: home
+    player: Jens Petter Hauge
+    playerOff: Aron Elis Thrándarson
+  - minute: 83
+    type: substitution
+    team: away
+    player: Adrian Olsen Teigen
+    playerOff: Ermal Hajdari
+  - minute: 86
+    type: substitution
+    team: home
+    player: Markus Seehusen Karlsbakk
+    playerOff: Sondre Brunstad Fet
+  - minute: 90
+    type: substitution
+    team: away
+    player: Sander Sundnes
+    playerOff: Andreas Petersson
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Kaj Ramsteijn
+      - Nikola Tkalcic
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Sondre Brunstad Fet
+      - Jørgen Hatlehol
+      - Holmbert Aron Fridjonsson
+      - Pape Habib Gueye
+    subs:
+      - Torbjørn Agdestein
+      - Jens Petter Hauge
+      - Markus Seehusen Karlsbakk
+      - Jernade Meade
+      - Jonas Grønner
+      - Ståle Steen Sæthre
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
+  away:
+    formation: 4-3-3
+    starters:
+      - Julian Faye Lund
+      - Simen Raaen Sandmæl
+      - Andreas Wrele
+      - Håvard Kleven Lorentsen
+      - Viktor Ljung
+      - Andreas Petersson
+      - Adria Mateo
+      - Jo Sondre Aas
+      - Horenus Tadesse
+      - Robert Stene
+      - Ermal Hajdari
+    subs:
+      - Kasper Nissen
+      - Adrian Olsen Teigen
+      - Sander Sundnes
+      - Jonathan Strand Byttingsvik
+    coach: Roger Naustan
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +139,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

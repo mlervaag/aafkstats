@@ -11,13 +11,185 @@ competition:
 home:
   clubId: odds-ballklubb
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: skagerak-arena
 neutralVenue: false
-events: []
+attendance: 200
+referee: Kai Erik Steen
+events:
+  - minute: 10
+    type: yellow_card
+    team: away
+    player: Daniel Gretarsson
+  - minute: 11
+    type: penalty_goal
+    team: home
+    player: Tobias Lauritsen
+  - minute: 15
+    type: yellow_card
+    team: home
+    player: Joshua Kitolano
+  - minute: 18
+    type: goal
+    team: away
+    player: Simen Bolkan Nordli
+    assist: Parfait Bizoza
+  - minute: 21
+    type: yellow_card
+    team: away
+    player: David Kristjan Olafsson
+  - minute: 22
+    type: red_card
+    team: away
+    player: David Kristjan Olafsson
+  - minute: 36
+    type: substitution
+    team: away
+    player: Jørgen Hatlehol
+    playerOff: Sigurd Haugen
+  - minute: 36
+    type: substitution
+    team: home
+    player: Mushaga Bakenga
+    playerOff: Tobias Lauritsen
+  - minute: 37
+    type: penalty_goal
+    team: home
+    player: Espen Ruud
+  - minute: 43
+    type: goal
+    team: away
+    player: Parfait Bizoza
+    assist: Shaquill Sno
+  - minute: 46
+    type: substitution
+    team: home
+    player: Fredrik Nordkvelle
+    playerOff: Filip Rønningen Jørgensen
+  - minute: 46
+    type: substitution
+    team: home
+    player: Kasper Lunding
+    playerOff: Joshua Kitolano
+  - minute: 57
+    type: substitution
+    team: away
+    player: Izunna Uzochukwu
+    playerOff: Niklas Castro
+  - minute: 57
+    type: substitution
+    team: away
+    player: Peter Orry Larsen
+    playerOff: Shaquill Sno
+  - minute: 68
+    type: yellow_card
+    team: home
+    player: Elbasan Rashani
+  - minute: 74
+    type: yellow_card
+    team: away
+    player: Simen Bolkan Nordli
+  - minute: 77
+    type: substitution
+    team: away
+    player: Markus Seehusen Karlsbakk
+    playerOff: Simen Bolkan Nordli
+  - minute: 77
+    type: substitution
+    team: away
+    player: Daan Klinkenberg
+    playerOff: Oddbjørn Lie
+  - minute: 78
+    type: yellow_card
+    team: away
+    player: Gudmund Taksdal Kongshavn
+  - minute: 80
+    type: yellow_card
+    team: away
+    player: Andreas Lie
+  - minute: 88
+    type: yellow_card
+    team: home
+    player: Vebjørn Hoff
+  - minute: 89
+    type: substitution
+    team: home
+    player: Onyekachi Ugwuadu
+    playerOff: Elbasan Rashani
+  - minute: 90
+    type: own_goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sondre Løvseth Rossbach
+      - Espen Ruud
+      - Odin Lurås Bjørtuft
+      - Steffen Hagen
+      - Birk Risa
+      - Joshua Kitolano
+      - Filip Rønningen Jørgensen
+      - Vebjørn Hoff
+      - Markus André Kaasa
+      - Tobias Lauritsen
+      - Elbasan Rashani
+    subs:
+      - Mushaga Bakenga
+      - Fredrik Nordkvelle
+      - Kasper Lunding
+      - Onyekachi Ugwuadu
+      - Bilal Njie
+      - Bjørn Mæland
+      - Egil Selvik
+      - Elias Skogvoll
+      - Kevin Egell-Johnsen
+    coach: Jan-Frode Nornes
+  away:
+    formation: 3-5-2
+    starters:
+      - Gudmund Taksdal Kongshavn
+      - Daniel Gretarsson
+      - Jonas Grønner
+      - Oddbjørn Lie
+      - Shaquill Sno
+      - Niklas Castro
+      - Parfait Bizoza
+      - Simen Bolkan Nordli
+      - David Kristjan Olafsson
+      - Holmbert Aron Fridjonsson
+      - Sigurd Haugen
+    subs:
+      - Jørgen Hatlehol
+      - Izunna Uzochukwu
+      - Peter Orry Larsen
+      - Daan Klinkenberg
+      - Markus Seehusen Karlsbakk
+      - Andreas Lie
+      - Isak Dybvik
+    coach: Lars Bohinen
+stats:
+  home:
+    possession: 74
+    shots: 29
+    shotsOnTarget: 9
+    corners: 13
+    fouls: 15
+    offsides: 4
+    xg: 5.19
+  away:
+    possession: 26
+    shots: 6
+    shotsOnTarget: 2
+    corners: 3
+    fouls: 14
+    offsides: 1
+    xg: 0.26
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +205,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

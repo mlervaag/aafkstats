@@ -11,13 +11,94 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: sogndal
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 39
+    type: yellow_card
+    team: home
+    player: Sonni Nattestad
+  - minute: 44
+    type: yellow_card
+    team: away
+    player: Markus Brændsrød
+  - minute: 66
+    type: substitution
+    team: home
+    player: Jernade Meade
+    playerOff: Robert Sandnes
+  - minute: 72
+    type: substitution
+    team: home
+    player: Jørgen Hatlehol
+    playerOff: Adam Örn Arnarson
+  - minute: 79
+    type: substitution
+    team: away
+    player: Ulrik Flo
+    playerOff: Markus Brændsrød
+  - minute: 86
+    type: substitution
+    team: away
+    player: Joachim Soltvedt
+    playerOff: Stanisa Mandic
+  - minute: 87
+    type: substitution
+    team: home
+    player: Aron Elis Thrándarson
+    playerOff: Torbjørn Agdestein
+lineups:
+  home:
+    formation: 3-4-1-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Sonni Nattestad
+      - Oddbjørn Lie
+      - Adam Örn Arnarson
+      - Fredrik Carlsen
+      - Erikson Lima
+      - Robert Sandnes
+      - Bjørn Helge Riise
+      - Torbjørn Agdestein
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Jernade Meade
+      - Jørgen Hatlehol
+      - Aron Elis Thrándarson
+      - Daniel Gretarsson
+      - Sondre Brunstad Fet
+      - Tarjei Aase Omenås
+      - Valmir Berisha
+    coach: Lars Bohinen
+  away:
+    formation: 4-4-2
+    starters:
+      - Mathias Dyngeland
+      - Akeem Latifu
+      - Per-Magnus Steiring
+      - Even Hovland
+      - Reiss Greenidge
+      - Eirik Schulze
+      - Eirik Birkelund
+      - Stanisa Mandic
+      - Sixten Jensen
+      - Ulrik Fredriksen
+      - Markus Brændsrød
+    subs:
+      - Ulrik Flo
+      - Joachim Soltvedt
+      - Kjetil Haug
+      - Lars Christian Kjemhus
+      - Mohamed Didé Fofana
+      - Sigurd Haugen
+      - Tomas Totland
+    coach: Eirik Bakke
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +114,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

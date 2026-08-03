@@ -11,13 +11,147 @@ competition:
 home:
   clubId: ranheim
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: extra-arena
 neutralVenue: false
-events: []
+attendance: 1145
+referee: Stian Røvig Sletner
+events:
+  - minute: 7
+    type: goal
+    team: away
+    player: Paul Ngongo Iversen
+    assist: Frederik Heiselberg
+  - minute: 18
+    type: yellow_card
+    team: away
+    player: Simen Haram
+  - minute: 34
+    type: penalty_goal
+    team: home
+    player: Áki Samuelsen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Olafur Gudmundsson
+    playerOff: Jesper Gregersen
+  - minute: 46
+    type: substitution
+    team: away
+    player: John Kitolano
+    playerOff: Simen Haram
+  - minute: 58
+    type: substitution
+    team: home
+    player: Lucas Kolstad
+    playerOff: Vetle Wenaas
+  - minute: 60
+    type: substitution
+    team: away
+    player: Claudio Braga
+    playerOff: Frederik Heiselberg
+  - minute: 60
+    type: substitution
+    team: away
+    player: Kristian Hemmingsen Lonebu
+    playerOff: Henrik Melland
+  - minute: 67
+    type: yellow_card
+    team: home
+    player: Lucas Kolstad
+  - minute: 69
+    type: substitution
+    team: home
+    player: Bendik Bye
+    playerOff: Leander Alvheim
+  - minute: 78
+    type: yellow_card
+    team: away
+    player: Paul Ngongo Iversen
+  - minute: 78
+    type: yellow_card
+    team: home
+    player: Simen Vidtun Nilsen
+  - minute: 82
+    type: substitution
+    team: home
+    player: Mathias Johnsrud Emilsen
+    playerOff: Oliver Kvendbø Holden
+  - minute: 89
+    type: red_card
+    team: away
+    player: Philip Sandvik Aukland
+  - minute: 90
+    type: penalty_goal
+    team: home
+    player: Áki Samuelsen
+  - minute: 90
+    stoppage: 1
+    type: yellow_card
+    team: home
+    player: Áki Samuelsen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Simen Vidtun Nilsen
+      - Jonas Pereira
+      - Håkon Røsten
+      - Philip Slørdahl
+      - Erik Tønne
+      - Mikael Toerset Johnsen
+      - Famara Camara
+      - Oliver Kvendbø Holden
+      - Vetle Wenaas
+      - Leander Alvheim
+      - Áki Samuelsen
+    subs:
+      - Lucas Kolstad
+      - Bendik Bye
+      - Mathias Johnsrud Emilsen
+      - Tor Solvoll
+      - Mamadou Diang
+      - Dennis Torp Helland
+      - Elias Sandøy Myrvågnes
+    coach: Christian Eggen Rismark
+  away:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Philip Sandvik Aukland
+      - David Snær Johannsson
+      - Henrik Melland
+      - Jesper Gregersen
+      - Håkon Butli Hammer
+      - Kristoffer Nessø
+      - Paul Ngongo Iversen
+      - Frederik Heiselberg
+    subs:
+      - John Kitolano
+      - Olafur Gudmundsson
+      - Claudio Braga
+      - Kristian Hemmingsen Lonebu
+      - Tor Erik Valderhaug Larsen
+      - Thomas Gulbrandsen
+      - Magnus Vestre Døving
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 46
+    shots: 9
+    shotsOnTarget: 5
+    corners: 3
+  away:
+    possession: 54
+    shots: 5
+    shotsOnTarget: 3
+    corners: 6
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +167,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

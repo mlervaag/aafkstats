@@ -11,13 +11,164 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: viking
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 200
+referee: Tommy Skjerven
+events:
+  - minute: 6
+    type: goal
+    team: home
+    player: Peter Orry Larsen
+    assist: Niklas Castro
+  - minute: 13
+    type: substitution
+    team: home
+    player: Izunna Uzochukwu
+    playerOff: Peter Orry Larsen
+  - minute: 24
+    type: goal
+    team: away
+    player: Veton Berisha
+    assist: Zymer Bytyqi
+  - minute: 37
+    type: yellow_card
+    team: home
+    player: Parfait Bizoza
+  - minute: 40
+    type: yellow_card
+    team: home
+    player: Shaquill Sno
+  - minute: 41
+    type: penalty_goal
+    team: away
+    player: Veton Berisha
+  - minute: 62
+    type: substitution
+    team: away
+    player: Axel Andrésson
+    playerOff: Johnny Furdal
+  - minute: 67
+    type: substitution
+    team: away
+    player: Tommy Høiland
+    playerOff: Zymer Bytyqi
+  - minute: 69
+    type: substitution
+    team: home
+    player: David Kristjan Olafsson
+    playerOff: Isak Dybvik
+  - minute: 69
+    type: substitution
+    team: home
+    player: Daan Klinkenberg
+    playerOff: Oddbjørn Lie
+  - minute: 75
+    type: substitution
+    team: home
+    player: Fredrik Carlsen
+    playerOff: Parfait Bizoza
+  - minute: 75
+    type: substitution
+    team: home
+    player: Sigurd Haugen
+    playerOff: Simen Bolkan Nordli
+  - minute: 75
+    type: yellow_card
+    team: away
+    player: Kristoffer Løkberg
+  - minute: 78
+    type: yellow_card
+    team: away
+    player: Veton Berisha
+  - minute: 79
+    type: yellow_card
+    team: away
+    player: Fredrik Torsteinbø
+  - minute: 80
+    type: penalty_goal
+    team: home
+    player: Niklas Castro
+  - minute: 84
+    type: substitution
+    team: away
+    player: Yann-Erik de Lanlay
+    playerOff: Kristoffer Løkberg
+  - minute: 85
+    type: yellow_card
+    team: away
+    player: Joe Bell
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Gudmund Taksdal Kongshavn
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Shaquill Sno
+      - Peter Orry Larsen
+      - Parfait Bizoza
+      - Simen Bolkan Nordli
+      - Isak Dybvik
+      - Holmbert Aron Fridjonsson
+      - Niklas Castro
+    subs:
+      - Izunna Uzochukwu
+      - Daan Klinkenberg
+      - David Kristjan Olafsson
+      - Fredrik Carlsen
+      - Sigurd Haugen
+      - Andreas Lie
+      - Jørgen Hatlehol
+      - Kristoffer Strand Ødven
+      - Markus Seehusen Karlsbakk
+    coach: Lars Bohinen
+  away:
+    formation: 4-3-3
+    starters:
+      - Arild Østbø
+      - Fredrik Torsteinbø
+      - Henrik Heggheim
+      - Viljar Vevatne
+      - Adrian Pereira
+      - Kristoffer Løkberg
+      - Joe Bell
+      - Johnny Furdal
+      - Ylldren Ibrahimaj
+      - Veton Berisha
+      - Zymer Bytyqi
+    subs:
+      - Axel Andrésson
+      - Tommy Høiland
+      - Yann-Erik de Lanlay
+      - Michael Crowe
+      - Rolf Daniel Vikstøl
+      - Sebastian Sebulonsen
+      - Sondre Auklend
+    coach: Bjarne Berntsen
+stats:
+  home:
+    possession: 58
+    shots: 18
+    shotsOnTarget: 6
+    corners: 8
+    fouls: 9
+    offsides: 2
+    xg: 2.74
+  away:
+    possession: 42
+    shots: 11
+    shotsOnTarget: 4
+    corners: 1
+    fouls: 20
+    offsides: 2
+    xg: 1.36
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +184,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

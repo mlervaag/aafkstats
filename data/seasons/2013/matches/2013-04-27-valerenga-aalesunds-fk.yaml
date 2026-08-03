@@ -11,13 +11,107 @@ competition:
 home:
   clubId: valerenga
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: ullevaal
 neutralVenue: false
-events: []
+events:
+  - minute: 42
+    type: goal
+    team: home
+    player: Mohammed Fellah
+    assist: Daniel Fredheim Holm
+  - minute: 53
+    type: substitution
+    team: home
+    player: Bojan Zajic
+    playerOff: Christian Grindheim
+  - minute: 56
+    type: substitution
+    team: away
+    player: Leke James
+    playerOff: Andreas Nordvik
+  - minute: 59
+    type: goal
+    team: home
+    player: Mostafa Abdellaoue
+  - minute: 63
+    type: substitution
+    team: home
+    player: Joachim Thomassen
+    playerOff: Kristofer Hæstad
+  - minute: 68
+    type: substitution
+    team: away
+    player: Christian Myklebust
+    playerOff: Tremaine Stewart
+  - minute: 68
+    type: yellow_card
+    team: home
+    player: Fegor Ogude
+  - minute: 73
+    type: substitution
+    team: away
+    player: Fredrik Carlsen
+    playerOff: Jo Nymo Matland
+  - minute: 80
+    type: substitution
+    team: home
+    player: Torgeir Børven
+    playerOff: Mostafa Abdellaoue
+  - minute: 83
+    type: penalty_goal
+    team: away
+    player: Fredrik Ulvestad
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Gudmund Taksdal Kongshavn
+      - Marcel Wawrzynkiewicz
+      - Simon Andreas Larsen
+      - André Muri
+      - Jan Lecjaks
+      - Christian Grindheim
+      - Fegor Ogude
+      - Kristofer Hæstad
+      - Mohammed Fellah
+      - Mostafa Abdellaoue
+      - Daniel Fredheim Holm
+    subs:
+      - Bojan Zajic
+      - Joachim Thomassen
+      - Torgeir Børven
+      - Aaron Samuel Olanare
+      - Diego Calvo
+      - Geancarlo González
+      - Lars Hirschfeld
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Hugues Wembangomo
+      - Jonatan Tollås Nation
+      - Edvard Skagestad
+      - Andreas Nordvik
+      - Fredrik Ulvestad
+      - Jason Morrison
+      - Michael Barrantes
+      - Tremaine Stewart
+      - Abderrazak Hamdallah
+      - Jo Nymo Matland
+    subs:
+      - Leke James
+      - Christian Myklebust
+      - Fredrik Carlsen
+      - Daniel Stensøe
+      - Lars Fuhre
+      - Lasse Staw
+    coach: Jan Jönsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +127,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,115 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: hamarkameratene
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 48
+    type: yellow_card
+    team: home
+    player: Holmbert Aron Fridjonsson
+  - minute: 51
+    type: yellow_card
+    team: away
+    player: Kristian Lønstad Onsrud
+  - minute: 51
+    type: yellow_card
+    team: home
+    player: Oddbjørn Lie
+  - minute: 55
+    type: goal
+    team: away
+    player: Ruben Alegre Guerro
+    assist: Petter Vaagan Moen
+  - minute: 59
+    type: goal
+    team: away
+    player: Ivar Sollie Rønning
+    assist: Petter Vaagan Moen
+  - minute: 68
+    type: substitution
+    team: home
+    player: Robert Sandnes
+    playerOff: Erikson Lima
+  - minute: 69
+    type: substitution
+    team: away
+    player: Abubakar Ibrahim Aliyu
+    playerOff: Simen Bolkan Nordli
+  - minute: 77
+    type: substitution
+    team: away
+    player: Peder Nersveen
+    playerOff: Kristian Lønstad Onsrud
+  - minute: 78
+    type: substitution
+    team: away
+    player: Ole Erik Midtskogen
+    playerOff: Ivar Sollie Rønning
+  - minute: 81
+    type: goal
+    team: home
+    player: Pape Habib Gueye
+    assist: Robert Sandnes
+  - minute: 81
+    type: yellow_card
+    team: away
+    player: Jacob Egeris
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Kaj Ramsteijn
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Oddbjørn Lie
+      - Sonni Nattestad
+      - Adam Örn Arnarson
+      - Sondre Brunstad Fet
+      - Erikson Lima
+      - Fredrik Carlsen
+      - Jørgen Hatlehol
+      - Holmbert Aron Fridjonsson
+      - Pape Habib Gueye
+    subs:
+      - Robert Sandnes
+      - Anders Waagan
+      - Emil Solnørdal
+      - Jørgen Fylling
+      - Tarjei Aase Omenås
+      - Tobias Aarseth Heggem
+      - Vemund Hole Vik
+    coach: Lars Bohinen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Lukasz Jarosinski
+      - Truls Jevne Hagen
+      - Orri Sigurdur Omarsson
+      - Jacob Egeris
+      - Ruben Alegre Guerro
+      - Kristian Lønstad Onsrud
+      - Markus Solbakken
+      - Aron Dønnum
+      - Simen Bolkan Nordli
+      - Petter Vaagan Moen
+      - Ivar Sollie Rønning
+    subs:
+      - Abubakar Ibrahim Aliyu
+      - Peder Nersveen
+      - Ole Erik Midtskogen
+      - Johnny Per Buduson
+      - Lars Brotangen
+      - Marco Jørgensen
+    coach: Ole Kevin Knappen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +135,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

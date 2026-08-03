@@ -11,13 +11,105 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: tromsdalen
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 18
+    type: goal
+    team: home
+    player: Torbjørn Agdestein
+    assist: Holmbert Aron Fridjonsson
+  - minute: 43
+    type: substitution
+    team: home
+    player: Sondre Brunstad Fet
+    playerOff: Torbjørn Agdestein
+  - minute: 45
+    type: goal
+    team: home
+    player: Fredrik Carlsen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Tor Martin Mienna
+    playerOff: Vegard Lysvoll
+  - minute: 70
+    type: goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+    assist: Aron Elis Thrándarson
+  - minute: 74
+    type: substitution
+    team: away
+    player: Lars Henrik Andreassen
+    playerOff: Andreas Løvland
+  - minute: 77
+    type: yellow_card
+    team: home
+    player: Sondre Brunstad Fet
+  - minute: 78
+    type: substitution
+    team: away
+    player: Kristoffer Hay
+    playerOff: Steffen Skogvang Pedersen
+  - minute: 82
+    type: substitution
+    team: home
+    player: Daniel Gretarsson
+    playerOff: Sonni Nattestad
+  - minute: 85
+    type: penalty_goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Sonni Nattestad
+      - Oddbjørn Lie
+      - Jørgen Hatlehol
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Erikson Lima
+      - Robert Sandnes
+      - Torbjørn Agdestein
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Sondre Brunstad Fet
+      - Daniel Gretarsson
+      - Anders Waagan
+      - Emil Solnørdal
+      - Jørgen Fylling
+      - Tarjei Aase Omenås
+      - Vemund Hole Vik
+    coach: Lars Bohinen
+  away:
+    formation: 4-4-2
+    starters:
+      - Marius Berntzen
+      - Steffen Skogvang Pedersen
+      - Anders Jenssen
+      - Mehdi Dioury
+      - Jo Nymo Matland
+      - Andreas Løvland
+      - Lars-Gunnar Johnsen
+      - Anders Karlsen
+      - Mathias Dahl Abelsen
+      - Vegard Lysvoll
+      - Mohammed Ahamed Jama
+    subs:
+      - Tor Martin Mienna
+      - Lars Henrik Andreassen
+      - Kristoffer Hay
+      - Adrian Mikkelsen
+    coach: Gaute Helstrup
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +125,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

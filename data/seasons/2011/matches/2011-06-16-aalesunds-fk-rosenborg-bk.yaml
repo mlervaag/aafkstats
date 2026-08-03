@@ -11,13 +11,110 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: rosenborg-bk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 31
+    type: penalty_goal
+    team: away
+    player: Rade Prica
+  - minute: 45
+    type: goal
+    team: away
+    player: Morten Moldskred
+  - minute: 46
+    type: substitution
+    team: home
+    player: Kjell Rune Sellin
+    playerOff: Jonathan Parr
+  - minute: 59
+    type: substitution
+    team: away
+    player: Jonas Svensson
+    playerOff: Markus Henriksen
+  - minute: 65
+    type: substitution
+    team: home
+    player: Edvard Skagestad
+    playerOff: Ville Jalasto
+  - minute: 66
+    type: goal
+    team: away
+    player: Morten Moldskred
+  - minute: 68
+    type: substitution
+    team: home
+    player: Fredrik Carlsen
+    playerOff: Christian Myklebust
+  - minute: 71
+    type: substitution
+    team: away
+    player: Mattias Bjärsmyr
+    playerOff: Morten Moldskred
+  - minute: 77
+    type: goal
+    team: home
+    player: Michael Barrantes
+  - minute: 84
+    type: substitution
+    team: away
+    player: Gjermund Åsen
+    playerOff: Mushaga Bakenga
+  - minute: 84
+    type: yellow_card
+    team: away
+    player: Mattias Bjärsmyr
+lineups:
+  home:
+    formation: 4-2-1-3
+    starters:
+      - Sten Michael Grytebust
+      - Ville Jalasto
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Enar Jääger
+      - Peter Orry Larsen
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Christian Myklebust
+      - Jonathan Parr
+      - Magnus Sylling Olsen
+    subs:
+      - Kjell Rune Sellin
+      - Edvard Skagestad
+      - Fredrik Carlsen
+      - Amund Skiri
+      - Didrik Fløtre
+      - Jonas Sandqvist
+      - Robert Sandnes
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - Daniel Örlund
+      - Mikael Lustig
+      - Jim Larsen
+      - Simen Wangberg
+      - Mikael Dorsin
+      - Per Ciljan Skjelbred
+      - Markus Henriksen
+      - Fredrik Winsnes
+      - Morten Moldskred
+      - Mushaga Bakenga
+      - Rade Prica
+    subs:
+      - Jonas Svensson
+      - Mattias Bjärsmyr
+      - Gjermund Åsen
+      - Erik Bråthen
+      - Fredrik Midtsjø
+      - Trond Olsen
+    coach: Jan Jönsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +130,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

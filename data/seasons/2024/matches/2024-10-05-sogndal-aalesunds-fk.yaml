@@ -11,13 +11,132 @@ competition:
 home:
   clubId: sogndal
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: fosshaugane-campus
 neutralVenue: false
-events: []
+attendance: 1951
+referee: Steinar Hauge
+events:
+  - minute: 11
+    type: substitution
+    team: home
+    player: Jesper Robertsen
+    playerOff: Daniel Arrocha
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Emmanuel Mensah
+  - minute: 48
+    type: goal
+    team: away
+    player: Mads Nielsen
+    assist: Thomas Grøgaard
+  - minute: 68
+    type: yellow_card
+    team: home
+    player: Martin André Sjølstad
+  - minute: 69
+    type: substitution
+    team: away
+    player: David Snær Johannsson
+    playerOff: Marcus Rafferty
+  - minute: 69
+    type: substitution
+    team: away
+    player: Claudio Braga
+    playerOff: Sander Hestetun Kilen
+  - minute: 71
+    type: substitution
+    team: home
+    player: Oskar Borgthorsson
+    playerOff: Kristoffer Haukås Steinset
+  - minute: 82
+    type: substitution
+    team: home
+    player: Kristoffer Paulsen
+    playerOff: Per Egil Flo
+  - minute: 82
+    type: substitution
+    team: home
+    player: Oliver Hintsa
+    playerOff: Erik Flataker
+  - minute: 86
+    type: substitution
+    team: away
+    player: Bjørn Martin Kristensen
+    playerOff: Paul Ngongo Iversen
+  - minute: 90
+    stoppage: 4
+    type: substitution
+    team: away
+    player: Stian Aarønes Holte
+    playerOff: Janus Seehusen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Lars Jendal
+      - Mathias Øren
+      - Daniel Arrocha
+      - Per Egil Flo
+      - Martin André Sjølstad
+      - Kristoffer Haukås Steinset
+      - Martin Høyland
+      - Kasper Skaanes
+      - Felix Eriksson
+      - Erik Flataker
+      - Emmanuel Mensah
+    subs:
+      - Jesper Robertsen
+      - Oskar Borgthorsson
+      - Kristoffer Paulsen
+      - Oliver Hintsa
+      - Emmanuel Olugbe
+      - Daniel Gjerde Sætren
+      - Andreas Kalstad
+      - Joakim Berg Nundal
+      - Yoro Ba
+    coach: Morten Kalvenes
+  away:
+    formation: 3-5-2
+    starters:
+      - Tor Erik Valderhaug Larsen
+      - Vinko Medimorec
+      - Mads Nielsen
+      - John Kitolano
+      - Kristoffer Nessø
+      - Janus Seehusen
+      - Håkon Butli Hammer
+      - Marcus Rafferty
+      - Thomas Grøgaard
+      - Paul Ngongo Iversen
+      - Sander Hestetun Kilen
+    subs:
+      - David Snær Johannsson
+      - Claudio Braga
+      - Bjørn Martin Kristensen
+      - Stian Aarønes Holte
+      - Andreas Gülstorff
+      - Eivind Strømsheim Kolve
+      - Henrik Melland
+      - Noah Solskjær
+      - Sebastian Berntsen
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 54
+    shots: 3
+    shotsOnTarget: 2
+    corners: 7
+  away:
+    possession: 46
+    shots: 16
+    shotsOnTarget: 12
+    corners: 7
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +152,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

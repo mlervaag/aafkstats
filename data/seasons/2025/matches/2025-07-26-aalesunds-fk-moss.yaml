@@ -11,13 +11,150 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: moss
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+referee: Harald Vollstad Sletner
+events:
+  - minute: 10
+    type: yellow_card
+    team: away
+    player: Kristoffer Harrison
+  - minute: 23
+    type: goal
+    team: home
+    player: Mathias Christensen
+    assist: Paul Ngongo Iversen
+  - minute: 30
+    type: yellow_card
+    team: away
+    player: Aleksander van der Spa
+  - minute: 38
+    type: substitution
+    team: home
+    player: Henrik Melland
+    playerOff: Janus Seehusen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Sigurd Grønli
+    playerOff: Håkon Vold Krohg
+  - minute: 50
+    type: yellow_card
+    team: away
+    player: Marius Cassidy
+  - minute: 64
+    type: substitution
+    team: home
+    player: Kristoffer Nessø
+    playerOff: Marius Andresen
+  - minute: 64
+    type: substitution
+    team: home
+    player: Kristian Hemmingsen Lonebu
+    playerOff: Elias Heggland Myrlid
+  - minute: 70
+    type: substitution
+    team: away
+    player: Artan Memedov
+    playerOff: Kristoffer Sørensen
+  - minute: 77
+    type: substitution
+    team: away
+    player: Benarfa
+    playerOff: Blerton Isufi
+  - minute: 82
+    type: goal
+    team: home
+    player: Olafur Gudmundsson
+    assist: Mathias Christensen
+  - minute: 83
+    type: substitution
+    team: away
+    player: Aksel Aasheim Engesvik
+    playerOff: Kristoffer Harrison
+  - minute: 85
+    type: yellow_card
+    team: away
+    player: Artan Memedov
+  - minute: 90
+    type: substitution
+    team: home
+    player: David Snær Johannsson
+    playerOff: Mathias Christensen
+  - minute: 90
+    type: substitution
+    team: home
+    player: Frederik Heiselberg
+    playerOff: Paul Ngongo Iversen
+  - minute: 90
+    stoppage: 4
+    type: yellow_card
+    team: home
+    player: David Snær Johannsson
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - John Kitolano
+      - Aleksander Hammer Kjelsen
+      - Olafur Gudmundsson
+      - Marius Andresen
+      - Janus Seehusen
+      - Håkon Butli Hammer
+      - Mathias Christensen
+      - Jakob Nyland Ørsahl
+      - Elias Heggland Myrlid
+      - Paul Ngongo Iversen
+    subs:
+      - Henrik Melland
+      - Kristoffer Nessø
+      - Kristian Hemmingsen Lonebu
+      - David Snær Johannsson
+      - Frederik Heiselberg
+      - Tor Erik Valderhaug Larsen
+      - Erik Frøysa
+      - Jørgen Bøe
+      - Tellef Brattberg Ytterland
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-1-4-1
+    starters:
+      - Mathias Eriksen
+      - Marius Cassidy
+      - Kristian Strande
+      - Aleksander van der Spa
+      - Joao Barros
+      - Kristoffer Harrison
+      - Kristoffer Sørensen
+      - Patrik Andersen
+      - Håkon Vold Krohg
+      - Thomas Klemetsen Jakobsen
+      - Blerton Isufi
+    subs:
+      - Sigurd Grønli
+      - Artan Memedov
+      - Benarfa
+      - Aksel Aasheim Engesvik
+      - Mathias Skott-Grande
+      - Markus Olsvik Welinder
+    coach: Ole Martin Nesselquist
+stats:
+  home:
+    possession: 48
+    shots: 6
+    shotsOnTarget: 3
+    corners: 9
+  away:
+    possession: 52
+    shots: 3
+    shotsOnTarget: 0
+    corners: 4
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +170,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

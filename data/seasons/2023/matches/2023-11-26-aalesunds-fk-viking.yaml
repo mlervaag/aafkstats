@@ -11,13 +11,152 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: viking
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4630
+referee: Sivert Øksnes Amland
+events:
+  - minute: 2
+    type: goal
+    team: away
+    player: Djibril Diop
+    assist: Zlatko Tripic
+  - minute: 11
+    type: goal
+    team: away
+    player: Samuel Adegbenro
+    assist: Herman Haugen
+  - minute: 56
+    type: goal
+    team: away
+    player: Sander Svendsen
+    assist: Zlatko Tripic
+  - minute: 58
+    type: substitution
+    team: home
+    player: Martin Ramsland
+    playerOff: Amidou Diop
+  - minute: 59
+    type: substitution
+    team: home
+    player: Henrik Melland
+    playerOff: Erlend Segberg
+  - minute: 59
+    type: substitution
+    team: home
+    player: Trace Murray
+    playerOff: John Kitolano
+  - minute: 61
+    type: substitution
+    team: away
+    player: Lars-Jørgen Salvesen
+    playerOff: Samuel Adegbenro
+  - minute: 61
+    type: substitution
+    team: away
+    player: Sondre Auklend
+    playerOff: Sander Svendsen
+  - minute: 61
+    type: yellow_card
+    team: home
+    player: Håkon Butli Hammer
+  - minute: 62
+    type: substitution
+    team: away
+    player: Harald Tangen
+    playerOff: Patrick Yazbek
+  - minute: 68
+    type: substitution
+    team: away
+    player: Joe Bell
+    playerOff: Markus Solbakken
+  - minute: 70
+    type: substitution
+    team: home
+    player: Isaac Atanga
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 78
+    type: substitution
+    team: away
+    player: Sondre Klingen Langås
+    playerOff: Djibril Diop
+  - minute: 88
+    type: goal
+    team: away
+    player: Zlatko Tripic
+lineups:
+  home:
+    formation: 4-5-1
+    starters:
+      - Sten Michael Grytebust
+      - Erik Frøysa
+      - Amidou Diop
+      - Nikolai Hopland
+      - John Kitolano
+      - Bjørn Martin Kristensen
+      - Håkon Butli Hammer
+      - Erlend Segberg
+      - Markus Seehusen Karlsbakk
+      - Kristoffer Ødemarksbakken
+      - Moctar Diop
+    subs:
+      - Martin Ramsland
+      - Henrik Melland
+      - Trace Murray
+      - Isaac Atanga
+      - Michael Lansing
+      - David Fällman
+      - Simen Haram
+      - Moses Ebiye
+      - Sander Hestetun Kilen
+    coach: Christian Johnsen
+  away:
+    formation: 4-1-4-1
+    starters:
+      - Patrik Sigurdur Gunnarsson
+      - Herman Haugen
+      - Djibril Diop
+      - Viljar Vevatne
+      - Jost Urbancic
+      - Markus Solbakken
+      - Sander Svendsen
+      - Patrick Yazbek
+      - Yann-Erik de Lanlay
+      - Zlatko Tripic
+      - Samuel Adegbenro
+    subs:
+      - Sondre Auklend
+      - Lars-Jørgen Salvesen
+      - Harald Tangen
+      - Joe Bell
+      - Sondre Klingen Langås
+      - Arild Østbø
+      - Vetle Auklend
+      - Jone Nygård Berg
+      - Kristoffer Løkberg
+    coach: Bjarte Lunde Aarsheim
+stats:
+  home:
+    possession: 55
+    shots: 16
+    shotsOnTarget: 2
+    corners: 1
+    fouls: 9
+    offsides: 3
+    xg: 1.09
+  away:
+    possession: 45
+    shots: 12
+    shotsOnTarget: 5
+    corners: 9
+    fouls: 9
+    offsides: 2
+    xg: 2.74
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +172,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

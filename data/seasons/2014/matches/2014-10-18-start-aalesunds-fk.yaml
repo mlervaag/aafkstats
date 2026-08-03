@@ -11,13 +11,113 @@ competition:
 home:
   clubId: start
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: sor-arena
 neutralVenue: false
-events: []
+events:
+  - minute: 13
+    type: goal
+    team: away
+    player: Leke James
+    assist: Michael Barrantes
+  - minute: 46
+    type: substitution
+    team: away
+    player: Vebjørn Hoff
+    playerOff: Mikael Dyrestam
+  - minute: 55
+    type: yellow_card
+    team: home
+    player: Zlatko Tripic
+  - minute: 62
+    type: substitution
+    team: home
+    player: Solomon James Owello
+    playerOff: Espen Børufsen
+  - minute: 62
+    type: substitution
+    team: home
+    player: Espen Hoff
+    playerOff: Ernest Asante
+  - minute: 62
+    type: yellow_card
+    team: away
+    player: Henrik Rørvik Bjørdal
+  - minute: 72
+    type: substitution
+    team: away
+    player: Torbjørn Grytten
+    playerOff: Michael Barrantes
+  - minute: 73
+    type: substitution
+    team: home
+    player: Fernando Paniagua
+    playerOff: Kristoffer Ajer
+  - minute: 87
+    type: goal
+    team: home
+    player: Solomon James Owello
+    assist: Zlatko Tripic
+  - minute: 88
+    type: substitution
+    team: away
+    player: Tor Hogne Aarøy
+    playerOff: Henrik Rørvik Bjørdal
+  - minute: 90
+    type: goal
+    team: away
+    player: Peter Orry Larsen
+    assist: Daniel Arnefjord
+lineups:
+  home:
+    formation: 4-5-1
+    starters:
+      - Terje Reinertsen
+      - Amin Nouri
+      - Glenn Andersen
+      - Bismark Acosta
+      - Rolf Daniel Vikstøl
+      - Gudmundur Kristjansson
+      - Kristoffer Ajer
+      - Espen Børufsen
+      - Ernest Asante
+      - Matthias Vilhjalmsson
+      - Zlatko Tripic
+    subs:
+      - Espen Hoff
+      - Solomon James Owello
+      - Fernando Paniagua
+      - Alexander Lind
+      - Pål Vestly Heigre
+      - Robert Sandnes
+      - Seyi Olofinjana
+    coach: Mons Ivar Mjelde
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Oddbjørn Lie
+      - Mikael Dyrestam
+      - Henrik Rørvik Bjørdal
+      - Fredrik Ulvestad
+      - Peter Orry Larsen
+      - Demar Phillips
+      - Michael Barrantes
+      - Leke James
+    subs:
+      - Vebjørn Hoff
+      - Torbjørn Grytten
+      - Tor Hogne Aarøy
+      - Andreas Lie
+      - Mostafa Abdellaoue
+      - Thomas Skog Martinussen
+    coach: Jan Jönsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +133,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

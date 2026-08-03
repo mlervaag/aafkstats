@@ -11,13 +11,115 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: ull-kisa
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 12
+    type: yellow_card
+    team: home
+    player: Peter Orry Larsen
+  - minute: 16
+    type: yellow_card
+    team: away
+    player: Nikolas Walstad
+  - minute: 37
+    type: yellow_card
+    team: away
+    player: Sverre Martin Torp
+  - minute: 43
+    type: goal
+    team: home
+    player: Aron Elis Thrándarson
+    assist: Jørgen Hatlehol
+  - minute: 46
+    type: substitution
+    team: away
+    player: Lars Mogstad Ranger
+    playerOff: Sverre Økland
+  - minute: 70
+    type: substitution
+    team: home
+    player: Ståle Steen Sæthre
+    playerOff: Daniel Gretarsson
+  - minute: 75
+    type: yellow_card
+    team: home
+    player: Izunna Uzochukwu
+  - minute: 76
+    type: substitution
+    team: away
+    player: Ciise Abshir
+    playerOff: Martin Trøen
+  - minute: 79
+    type: substitution
+    team: home
+    player: Sondre Brunstad Fet
+    playerOff: Jernade Meade
+  - minute: 84
+    type: substitution
+    team: away
+    player: Martin Søreide
+    playerOff: Ole Andreas Nesset
+  - minute: 86
+    type: yellow_card
+    team: away
+    player: Espen Garnås
+  - minute: 90
+    type: substitution
+    team: home
+    player: Holmbert Aron Fridjonsson
+    playerOff: Aron Elis Thrándarson
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Jørgen Hatlehol
+      - Peter Orry Larsen
+      - Izunna Uzochukwu
+      - Aron Elis Thrándarson
+      - Jernade Meade
+      - Pape Habib Gueye
+      - Niklas Castro
+    subs:
+      - Ståle Steen Sæthre
+      - Sondre Brunstad Fet
+      - Holmbert Aron Fridjonsson
+      - David Kristjan Olafsson
+      - Erikson Lima
+      - Tarjei Aase Omenås
+      - Torbjørn Agdestein
+    coach: Lars Bohinen
+  away:
+    formation: 4-3-3
+    starters:
+      - Stefan Hagerup
+      - Sverre Martin Torp
+      - Espen Garnås
+      - Morten Sundli
+      - Nikolas Walstad
+      - Sverre Økland
+      - Christian Aas
+      - Eric Kitolano
+      - Magnus Retsius Grødem
+      - Martin Trøen
+      - Ole Andreas Nesset
+    subs:
+      - Lars Mogstad Ranger
+      - Ciise Abshir
+      - Martin Søreide
+      - Christoffer Gjertsen
+      - Henrik Kristiansen
+      - Vegard Kongsro
+    coach: Trond Fredriksen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +135,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

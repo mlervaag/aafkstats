@@ -11,13 +11,121 @@ competition:
 home:
   clubId: hamarkameratene
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: briskeby
 neutralVenue: false
-events: []
+events:
+  - minute: 31
+    type: goal
+    team: home
+    player: Abubakar Ibrahim Aliyu
+  - minute: 36
+    type: yellow_card
+    team: home
+    player: Ruben Alegre Guerro
+  - minute: 44
+    type: goal
+    team: away
+    player: Holmbert Aron Fridjonsson
+    assist: Aron Elis Thrándarson
+  - minute: 60
+    type: goal
+    team: away
+    player: Torbjørn Agdestein
+    assist: Adam Örn Arnarson
+  - minute: 64
+    type: substitution
+    team: away
+    player: Pape Habib Gueye
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 69
+    type: yellow_card
+    team: away
+    player: Jonas Grønner
+  - minute: 71
+    type: red_card
+    team: home
+    player: Markus Solbakken
+  - minute: 75
+    type: substitution
+    team: home
+    player: Peder Nersveen
+    playerOff: Xander Houtkoop
+  - minute: 79
+    type: goal
+    team: away
+    player: Pape Habib Gueye
+    assist: Aron Elis Thrándarson
+  - minute: 80
+    type: substitution
+    team: home
+    player: Truls Jevne Hagen
+    playerOff: Ruben Alegre Guerro
+  - minute: 80
+    type: substitution
+    team: home
+    player: Simen Bolkan Nordli
+    playerOff: Abubakar Ibrahim Aliyu
+  - minute: 83
+    type: substitution
+    team: away
+    player: Erikson Lima
+    playerOff: Sondre Brunstad Fet
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Pape Habib Gueye
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Lukasz Jarosinski
+      - Nicholas Mickelson
+      - Jacob Egeris
+      - Lars Brotangen
+      - Ruben Alegre Guerro
+      - Abubakar Ibrahim Aliyu
+      - Kristian Lønstad Onsrud
+      - Markus Solbakken
+      - Xander Houtkoop
+      - Ole Erik Midtskogen
+      - Ivar Sollie Rønning
+    subs:
+      - Peder Nersveen
+      - Simen Bolkan Nordli
+      - Truls Jevne Hagen
+      - Christian Dahle Borchgrevink
+      - Marco Jørgensen
+      - Sander Eng Strand
+      - Tobias Gran
+    coach: Ole Kevin Knappen
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Jonas Grønner
+      - Oddbjørn Lie
+      - Adam Örn Arnarson
+      - Aron Elis Thrándarson
+      - Nikola Tkalcic
+      - Fredrik Carlsen
+      - Sondre Brunstad Fet
+      - Torbjørn Agdestein
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Pape Habib Gueye
+      - Erikson Lima
+      - Håvard Breivik
+      - Jens Petter Hauge
+      - Jørgen Hatlehol
+      - Ståle Steen Sæthre
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +141,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

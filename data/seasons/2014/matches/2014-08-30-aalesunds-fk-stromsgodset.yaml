@@ -11,13 +11,105 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: stromsgodset
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 6
+    type: yellow_card
+    team: home
+    player: Sakari Mattila
+  - minute: 54
+    type: penalty_goal
+    team: home
+    player: Sakari Mattila
+  - minute: 58
+    type: substitution
+    team: home
+    player: Jo Nymo Matland
+    playerOff: Akeem Latifu
+  - minute: 59
+    type: substitution
+    team: away
+    player: Flamur Kastrati
+    playerOff: Gustav Wikheim
+  - minute: 62
+    type: penalty_goal
+    team: home
+    player: Sakari Mattila
+  - minute: 62
+    type: yellow_card
+    team: away
+    player: Jeb Brovsky
+  - minute: 69
+    type: substitution
+    team: away
+    player: Peter Kovacs
+    playerOff: Jeb Brovsky
+  - minute: 69
+    type: substitution
+    team: away
+    player: Bassel Jradi
+    playerOff: Martin Ødegaard
+  - minute: 79
+    type: substitution
+    team: home
+    player: Mostafa Abdellaoue
+    playerOff: Torbjørn Grytten
+  - minute: 86
+    type: yellow_card
+    team: away
+    player: Bassel Jradi
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Oddbjørn Lie
+      - Demar Phillips
+      - Henrik Rørvik Bjørdal
+      - Peter Orry Larsen
+      - Sakari Mattila
+      - Mehdi Karnass
+      - Torbjørn Grytten
+      - Leke James
+    subs:
+      - Jo Nymo Matland
+      - Mostafa Abdellaoue
+      - Andreas Lie
+      - Thomas Skog Martinussen
+      - Tor Hogne Aarøy
+      - Vebjørn Hoff
+    coach: Jan Jönsson
+  away:
+    formation: 4-3-3
+    starters:
+      - Adam Larsen Kwarasey
+      - Jeb Brovsky
+      - Gustav Valsvik
+      - Jarl André Storbæk
+      - Marius Høibråten
+      - Iver Fossum
+      - Mohammed Abu
+      - Martin Ødegaard
+      - Øyvind Storflor
+      - Marvin Ogunjimi
+      - Gustav Wikheim
+    subs:
+      - Flamur Kastrati
+      - Bassel Jradi
+      - Peter Kovacs
+      - Anders Gundersen
+      - Mathias Berg Gjerstrøm
+      - Mounir Hamoud
+      - Thomas Sørum
+    coach: David Nielsen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +125,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

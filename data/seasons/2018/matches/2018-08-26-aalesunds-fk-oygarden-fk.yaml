@@ -11,13 +11,115 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: oygarden-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 17
+    type: yellow_card
+    team: away
+    player: Oliver Kjærgaard
+  - minute: 37
+    type: substitution
+    team: home
+    player: Jonas Grønner
+    playerOff: Oddbjørn Lie
+  - minute: 46
+    type: substitution
+    team: away
+    player: Erlend Hellevik Larsen
+    playerOff: Oliver Kjærgaard
+  - minute: 46
+    type: yellow_card
+    team: away
+    player: Haris Cirak
+  - minute: 55
+    type: goal
+    team: away
+    player: Daniel Arrocha
+    assist: Peter Sørensen Nergaard
+  - minute: 67
+    type: substitution
+    team: home
+    player: Jens Petter Hauge
+    playerOff: Aron Elis Thrándarson
+  - minute: 70
+    type: substitution
+    team: away
+    player: Bendik Torset
+    playerOff: Sherko Faiqi
+  - minute: 75
+    type: yellow_card
+    team: away
+    player: Alexander Dang
+  - minute: 76
+    type: substitution
+    team: home
+    player: Pape Habib Gueye
+    playerOff: Torbjørn Agdestein
+  - minute: 81
+    type: substitution
+    team: away
+    player: Jone Rugland
+    playerOff: Sondre Liseth
+  - minute: 84
+    type: yellow_card
+    team: away
+    player: Kristoffer Nesse Stephensen
+  - minute: 86
+    type: yellow_card
+    team: home
+    player: Fredrik Carlsen
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Ståle Steen Sæthre
+      - Oddbjørn Lie
+      - Adam Örn Arnarson
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Sondre Brunstad Fet
+      - Nikola Tkalcic
+      - Torbjørn Agdestein
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Jonas Grønner
+      - Jens Petter Hauge
+      - Pape Habib Gueye
+      - Erikson Lima
+      - Jørgen Hatlehol
+      - Markus Seehusen Karlsbakk
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
+  away:
+    formation: 3-5-1-1
+    starters:
+      - Egil Selvik
+      - Bjarte Haugsdal
+      - Daniel Arrocha
+      - Elmin Nurkic
+      - Oliver Kjærgaard
+      - Kristoffer Nesse Stephensen
+      - Haris Cirak
+      - Sherko Faiqi
+      - Peter Sørensen Nergaard
+      - Sondre Liseth
+      - Alexander Dang
+    subs:
+      - Erlend Hellevik Larsen
+      - Bendik Torset
+      - Jone Rugland
+      - Erlend Johansen
+      - Jakob Palander
+      - Morten Bjørlo
+    coach: Steffen Landro
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +135,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

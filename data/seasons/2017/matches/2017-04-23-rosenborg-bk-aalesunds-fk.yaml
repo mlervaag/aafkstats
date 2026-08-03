@@ -11,13 +11,142 @@ competition:
 home:
   clubId: rosenborg-bk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: lerkendal-stadion
 neutralVenue: false
-events: []
+attendance: 16948
+referee: Trond Ivar Doevle
+events:
+  - minute: 17
+    type: substitution
+    team: home
+    player: Alex Gersbach
+    playerOff: Vegar Eggen Hedenstad
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Mikkel Kirkeskov
+  - minute: 61
+    type: substitution
+    team: home
+    player: Mushaga Bakenga
+    playerOff: Milan Jevtovic
+  - minute: 68
+    type: yellow_card
+    team: home
+    player: Birger Meling
+  - minute: 72
+    type: substitution
+    team: home
+    player: Matthias Vilhjalmsson
+    playerOff: Birger Meling
+  - minute: 72
+    type: substitution
+    team: away
+    player: Oddbjørn Lie
+    playerOff: Vebjørn Hoff
+  - minute: 74
+    type: substitution
+    team: away
+    player: Valmir Berisha
+    playerOff: Edwin Gyasi
+  - minute: 84
+    type: yellow_card
+    team: away
+    player: Adam Örn Arnarson
+  - minute: 84
+    type: yellow_card
+    team: away
+    player: Valmir Berisha
+  - minute: 86
+    type: yellow_card
+    team: away
+    player: Kaj Ramsteijn
+  - minute: 88
+    type: yellow_card
+    team: home
+    player: Fredrik Midtsjø
+  - minute: 89
+    type: substitution
+    team: away
+    player: Emil Solnørdal
+    playerOff: Sondre Brunstad Fet
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Mostafa Abdellaoue
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Anders Konradsen
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Emil Solnørdal
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - André Hansen
+      - Vegar Eggen Hedenstad
+      - Tore Reginiussen
+      - Jørgen Skjelvik
+      - Birger Meling
+      - Mike Jensen
+      - Anders Konradsen
+      - Fredrik Midtsjø
+      - Pål André Helland
+      - Nicklas Bendtner
+      - Milan Jevtovic
+    subs:
+      - Alex Gersbach
+      - Mushaga Bakenga
+      - Matthias Vilhjalmsson
+      - Arild Østbø
+      - Jacob Rasmussen
+      - Johan Lædre Bjørdal
+      - Marius Lundemo
+    coach: Kåre Ingebrigtsen
+  away:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Daniel Gretarsson
+      - Kaj Ramsteijn
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Vebjørn Hoff
+      - Fredrik Carlsen
+      - Sondre Brunstad Fet
+      - Lars Veldwijk
+      - Mostafa Abdellaoue
+    subs:
+      - Oddbjørn Lie
+      - Valmir Berisha
+      - Emil Solnørdal
+      - Anders Waagan
+      - Pål Vestly Heigre
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 57
+    shots: 14
+    shotsOnTarget: 3
+    corners: 9
+    fouls: 12
+    offsides: 6
+  away:
+    possession: 43
+    shots: 8
+    shotsOnTarget: 2
+    corners: 6
+    fouls: 13
+    offsides: 0
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +162,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

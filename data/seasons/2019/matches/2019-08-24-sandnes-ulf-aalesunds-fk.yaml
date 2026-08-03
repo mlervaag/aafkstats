@@ -11,13 +11,122 @@ competition:
 home:
   clubId: sandnes-ulf
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: sandnes-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 13
+    type: goal
+    team: away
+    player: Sondre Brunstad Fet
+    assist: Pape Habib Gueye
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Christer Reppesgård Hansen
+  - minute: 53
+    type: goal
+    team: home
+    player: Onyekachi Ugwuadu
+    assist: Ingvald Halgunset
+  - minute: 57
+    type: yellow_card
+    team: home
+    player: Christian Landu Landu
+  - minute: 69
+    type: substitution
+    team: away
+    player: Torbjørn Agdestein
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 70
+    type: substitution
+    team: away
+    player: Ståle Steen Sæthre
+    playerOff: Jørgen Hatlehol
+  - minute: 70
+    type: substitution
+    team: home
+    player: Daniel Edvardsen
+    playerOff: Christer Reppesgård Hansen
+  - minute: 73
+    type: goal
+    team: away
+    player: Torbjørn Agdestein
+    assist: Pape Habib Gueye
+  - minute: 78
+    type: substitution
+    team: away
+    player: David Kristjan Olafsson
+    playerOff: Sondre Brunstad Fet
+  - minute: 83
+    type: substitution
+    team: home
+    player: Matteo Vallotto
+    playerOff: Simon Colina
+  - minute: 90
+    type: substitution
+    team: home
+    player: Kaloyan Kostadinov
+    playerOff: Adrian Berntsen
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Kaj Ramsteijn
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Onyekachi Ugwuadu
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Markus Vassøy Nilsen
+      - Axel Kryger
+      - Christer Reppesgård Hansen
+      - Akinsola Akinyemi
+      - Ari Mohr Jonsson
+      - Adrian Berntsen
+      - Christian Landu Landu
+      - Simon Colina
+      - Ingvald Halgunset
+      - Onyekachi Ugwuadu
+      - Kent Håvard Eriksen
+    subs:
+      - Daniel Edvardsen
+      - Matteo Vallotto
+      - Kaloyan Kostadinov
+      - Bjørnar Holmvik
+      - Johannes Laaksonen
+      - Sander Lønning
+      - Tapio Heikkilä
+    coach: Bengt Sæternes
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Jørgen Hatlehol
+      - Sondre Brunstad Fet
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Erikson Lima
+      - Pape Habib Gueye
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Torbjørn Agdestein
+      - Ståle Steen Sæthre
+      - David Kristjan Olafsson
+      - Isak Dybvik
+      - Kristoffer Hay
+      - Marius Berntzen
+      - Wilmer Azofeifa
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +142,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,131 @@ competition:
 home:
   clubId: molde-fk
   score: 5
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: aker-stadion
 neutralVenue: false
-events: []
+attendance: 9573
+events:
+  - minute: 5
+    type: goal
+    team: home
+    player: Sander Svendsen
+    assist: Per Egil Flo
+  - minute: 10
+    type: goal
+    team: home
+    player: Ola Kamara
+  - minute: 43
+    type: goal
+    team: away
+    player: Michael Barrantes
+    assist: Leke James
+  - minute: 48
+    type: yellow_card
+    team: away
+    player: Sakari Mattila
+  - minute: 62
+    type: goal
+    team: home
+    player: Sander Svendsen
+    assist: Per Egil Flo
+  - minute: 67
+    type: substitution
+    team: home
+    player: Tommy Høiland
+    playerOff: Sander Svendsen
+  - minute: 70
+    type: substitution
+    team: away
+    player: Vebjørn Hoff
+    playerOff: Henrik Rørvik Bjørdal
+  - minute: 75
+    type: goal
+    team: home
+    player: Ola Kamara
+    assist: Tommy Høiland
+  - minute: 80
+    type: substitution
+    team: home
+    player: Ruben Gabrielsen
+    playerOff: Vegard Forren
+  - minute: 81
+    type: goal
+    team: home
+    player: Tommy Høiland
+    assist: Mattias Moström
+  - minute: 83
+    type: substitution
+    team: away
+    player: Mostafa Abdellaoue
+    playerOff: Peter Orry Larsen
+  - minute: 84
+    type: substitution
+    team: home
+    player: Thomas Kind Bendiksen
+    playerOff: Mattias Moström
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Ørjan Håskjold Nyland
+      - Martin Linnes
+      - Vegard Forren
+      - Joona Toivio
+      - Per Egil Flo
+      - Mattias Moström
+      - Etzaz Hussain
+      - Harmeet Singh
+      - Mohamed Elyounoussi
+      - Sander Svendsen
+      - Ola Kamara
+    subs:
+      - Tommy Høiland
+      - Ruben Gabrielsen
+      - Thomas Kind Bendiksen
+      - Daniel Berg Hestad
+      - Ethan Horvath
+      - Knut Olav Rindarøy
+      - Pape Pate Diouf
+    coach: Tor Ole Skullerud
+  away:
+    formation: 3-4-3
+    starters:
+      - Sten Michael Grytebust
+      - Mikael Dyrestam
+      - Edvard Skagestad
+      - Tero Mantyla
+      - Akeem Latifu
+      - Michael Barrantes
+      - Sakari Mattila
+      - Jo Nymo Matland
+      - Henrik Rørvik Bjørdal
+      - Leke James
+      - Peter Orry Larsen
+    subs:
+      - Vebjørn Hoff
+      - Mostafa Abdellaoue
+      - Andreas Lie
+      - Carl Björk
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Thomas Skog Martinussen
+    coach: Harald Aabrekk
+stats:
+  home:
+    possession: 62
+    shots: 21
+    shotsOnTarget: 12
+    corners: 6
+  away:
+    possession: 38
+    shots: 8
+    shotsOnTarget: 4
+    corners: 4
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +151,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

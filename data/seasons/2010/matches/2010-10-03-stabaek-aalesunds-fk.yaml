@@ -1,0 +1,135 @@
+id: 2010-10-03-stabaek-aalesunds-fk
+date: 2010-10-03
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2010
+  stage: regular_season
+  round: 26
+home:
+  clubId: stabaek
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+venueId: fornebu-arena
+neutralVenue: false
+events:
+  - minute: 12
+    type: goal
+    team: home
+    player: Veigar Pall Gunnarsson
+  - minute: 46
+    type: substitution
+    team: away
+    player: Enar Jääger
+    playerOff: Ville Jalasto
+  - minute: 57
+    type: yellow_card
+    team: away
+    player: Magnus Sylling Olsen
+  - minute: 66
+    type: goal
+    team: home
+    player: Vegar Eggen Hedenstad
+  - minute: 69
+    type: substitution
+    team: away
+    player: Tor Hogne Aarøy
+    playerOff: Magnus Sylling Olsen
+  - minute: 77
+    type: substitution
+    team: home
+    player: Jan Halbrendt Tømmernes
+    playerOff: Johan Andersson
+  - minute: 81
+    type: goal
+    team: away
+    player: Alexander Mathisen
+  - minute: 84
+    type: substitution
+    team: away
+    player: Pablo Herrera
+    playerOff: Fredrik Carlsen
+  - minute: 90
+    type: substitution
+    team: home
+    player: Jørgen Hammer
+    playerOff: Veigar Pall Gunnarsson
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Jon Knudsen
+      - Vegar Eggen Hedenstad
+      - Jon Inge Høiland
+      - Morten M. Skjønsberg
+      - Bjarni Olafur Eiriksson
+      - Mix Diskerud
+      - Henning Hauger
+      - Pontus Farnerud
+      - Palmi Rafn Palmason
+      - Johan Andersson
+      - Veigar Pall Gunnarsson
+    subs:
+      - Jan Halbrendt Tømmernes
+      - Jørgen Hammer
+      - Diogo
+      - Iven Austbø
+      - Jørgen Skjelvik
+      - Marius Helle
+      - Tom Stenvoll
+    coach: Jan Jönsson
+  away:
+    formation: 4-3-2-1
+    starters:
+      - Anders Lindegaard
+      - Ville Jalasto
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Jonathan Parr
+      - Magnus Sylling Olsen
+      - Johan Arneng
+      - Fredrik Carlsen
+      - Michael Barrantes
+      - Alexander Mathisen
+      - Demar Phillips
+    subs:
+      - Enar Jääger
+      - Tor Hogne Aarøy
+      - Pablo Herrera
+      - Amund Skiri
+      - Peter Orry Larsen
+      - Sten Michael Grytebust
+    coach: Kjetil Rekdal
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-stabaek/2rxyy1#761989
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "761989"
+manual: []

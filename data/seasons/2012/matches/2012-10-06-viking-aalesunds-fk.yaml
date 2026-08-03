@@ -11,13 +11,102 @@ competition:
 home:
   clubId: viking
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: viking-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 30
+    type: goal
+    team: home
+    player: Veton Berisha
+  - minute: 52
+    type: goal
+    team: away
+    player: Jo Nymo Matland
+  - minute: 62
+    type: substitution
+    team: home
+    player: Vidar Nisja
+    playerOff: Trond Olsen
+  - minute: 73
+    type: substitution
+    team: home
+    player: Patrik Ingelsten
+    playerOff: André Danielsen
+  - minute: 78
+    type: substitution
+    team: away
+    player: Edvard Skagestad
+    playerOff: Leke James
+  - minute: 79
+    type: substitution
+    team: away
+    player: Peter Orry Larsen
+    playerOff: Michael Barrantes
+  - minute: 83
+    type: substitution
+    team: home
+    player: Björn Andersson
+    playerOff: Veton Berisha
+  - minute: 84
+    type: substitution
+    team: away
+    player: Amund Skiri
+    playerOff: Fredrik Ulvestad
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Jo Nymo Matland
+lineups:
+  home:
+    formation: 4-2-1-3
+    starters:
+      - Rune Almenning Jarstein
+      - Håkon Skogseid
+      - Johan Lædre Bjørdal
+      - Christian Landu Landu
+      - Trond Erik Bertelsen
+      - André Danielsen
+      - King Osei Gyan
+      - Makhtar Thioune
+      - Yann-Erik de Lanlay
+      - Trond Olsen
+      - Veton Berisha
+    subs:
+      - Vidar Nisja
+      - Patrik Ingelsten
+      - Björn Andersson
+      - Erik Nevland
+      - Henri Anier
+      - Jon Helge Tveita
+      - Pål Vestly Heigre
+    coach: Kjell Jonevret
+  away:
+    formation: 4-2-1-3
+    starters:
+      - Sten Michael Grytebust
+      - Enar Jääger
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Jo Nymo Matland
+      - Jason Morrison
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Tremaine Stewart
+      - Demar Phillips
+      - Leke James
+    subs:
+      - Edvard Skagestad
+      - Peter Orry Larsen
+      - Amund Skiri
+      - Mathias Rasmussen
+      - Sander Post
+      - Torbjørn Grytten
+    coach: Kjetil Rekdal
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +122,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

@@ -11,13 +11,135 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: rosenborg-bk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 6209
+referee: Marius Lien
+events:
+  - minute: 46
+    type: substitution
+    team: away
+    player: Adrian Pereira
+    playerOff: Kristall Mani Ingason
+  - minute: 47
+    type: goal
+    team: home
+    player: Markus Seehusen Karlsbakk
+    assist: Kristoffer Barmen
+  - minute: 63
+    type: substitution
+    team: home
+    player: Trace Murray
+    playerOff: Isaac Atanga
+  - minute: 63
+    type: substitution
+    team: away
+    player: Sverre Halseth Nypan
+    playerOff: Morten Bjørlo
+  - minute: 71
+    type: yellow_card
+    team: away
+    player: Samuel Rogers
+  - minute: 76
+    type: substitution
+    team: home
+    player: Amidou Diop
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 79
+    type: substitution
+    team: away
+    player: Oscar Aga
+    playerOff: Ole Christian Sæter
+  - minute: 80
+    type: yellow_card
+    team: home
+    player: Amidou Diop
+  - minute: 88
+    type: yellow_card
+    team: home
+    player: Alexander Munksgaard
+  - minute: 89
+    type: substitution
+    team: home
+    player: Moctar Diop
+    playerOff: Bjørn Martin Kristensen
+  - minute: 89
+    type: substitution
+    team: home
+    player: Henrik Melland
+    playerOff: Markus Seehusen Karlsbakk
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Sten Michael Grytebust
+      - Alexander Munksgaard
+      - David Fällman
+      - Alexander Juel Andersen
+      - John Kitolano
+      - Kristoffer Barmen
+      - Erlend Segberg
+      - Markus Seehusen Karlsbakk
+      - Kristoffer Ødemarksbakken
+      - Bjørn Martin Kristensen
+      - Isaac Atanga
+    subs:
+      - Trace Murray
+      - Amidou Diop
+      - Henrik Melland
+      - Moctar Diop
+      - Alexander Stølås
+      - Eivind Strømsheim Kolve
+      - Kasper Lunding
+      - Michael Lansing
+      - Ole Kolskogen
+    coach: Christian Johnsen
+  away:
+    formation: 4-3-3
+    starters:
+      - André Hansen
+      - Erlend Dahl Reitan
+      - Samuel Rogers
+      - Ulrik Yttergård Jenssen
+      - Edvard Tagseth
+      - Olaus Jair Skarsem
+      - Santeri Väänänen
+      - Morten Bjørlo
+      - Carlo Holse
+      - Ole Christian Sæter
+      - Kristall Mani Ingason
+    subs:
+      - Adrian Pereira
+      - Sverre Halseth Nypan
+      - Oscar Aga
+      - Agon Sadiku
+      - Håkon Røsten
+      - Leo Cornic
+      - Per Ciljan Skjelbred
+      - Sander Tangvik
+    coach: Svein Maalen
+stats:
+  home:
+    possession: 42
+    shots: 12
+    shotsOnTarget: 4
+    corners: 4
+    fouls: 6
+    offsides: 1
+    xg: 0.98
+  away:
+    possession: 58
+    shots: 21
+    shotsOnTarget: 4
+    corners: 13
+    fouls: 10
+    offsides: 0
+    xg: 1.6
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +155,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

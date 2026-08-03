@@ -1,0 +1,159 @@
+id: 2017-04-26-herd-aalesunds-fk
+date: 2017-04-26
+dateConfidence: exact
+kickoff: 18:30
+status: played
+competition:
+  id: nm
+  season: 2017
+  stage: regular_season
+  round: 1
+home:
+  clubId: herd
+  score: 2
+  halfTimeScore: 2
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 0
+extraTime:
+  home: 1
+  away: 3
+neutralVenue: false
+events:
+  - minute: 9
+    type: goal
+    team: home
+    player: Christoffer Rekdal
+  - minute: 43
+    type: goal
+    team: home
+    player: Bendik Bigseth Mathiesen
+  - minute: 46
+    type: substitution
+    team: away
+    player: Lars Veldwijk
+    playerOff: Jørgen Hatlehol
+  - minute: 56
+    type: goal
+    team: away
+    player: Mostafa Abdellaoue
+  - minute: 65
+    type: goal
+    team: away
+    player: Sondre Brunstad Fet
+  - minute: 66
+    type: substitution
+    team: home
+    player: Marius Refsnes
+    playerOff: Mathias Sæther
+  - minute: 72
+    type: substitution
+    team: home
+    player: Mohammed Ian Elkington
+    playerOff: Kristian Hjelvik Halvorsen
+  - minute: 78
+    type: substitution
+    team: home
+    player: Daniel Rongved Østrem
+    playerOff: Bendik Bigseth Mathiesen
+  - minute: 78
+    type: substitution
+    team: away
+    player: Daniel Gretarsson
+    playerOff: Adam Örn Arnarson
+  - minute: 86
+    type: substitution
+    team: away
+    player: Tero Mäntylä
+    playerOff: Valmir Berisha
+  - minute: 93
+    type: goal
+    team: away
+    player: Tero Mäntylä
+  - minute: 101
+    type: goal
+    team: away
+    player: Mostafa Abdellaoue
+  - minute: 112
+    type: penalty_goal
+    team: home
+    player: Ingolfur Örn Kristjansson
+  - minute: 120
+    type: goal
+    team: away
+    player: Lars Veldwijk
+lineups:
+  home:
+    formation: 4-5-1
+    starters:
+      - Henrik Skaugseth Hagen
+      - Christian Seehusen Karlsbakk
+      - Mathias Sæther
+      - Patrik Hjelmseth
+      - Audun Kåre Øvrelid
+      - Bendik Bigseth Mathiesen
+      - Christoffer Rekdal
+      - Vegard Bruland
+      - Andreas Rekdal
+      - Kristian Hjelvik Halvorsen
+      - Ingolfur Örn Kristjansson
+    subs:
+      - Marius Refsnes
+      - Mohammed Ian Elkington
+      - Daniel Rongved Østrem
+      - Adrian Blindheim
+      - Eric Solheim
+      - Glen Ørjan Kjersheim Johannessen
+      - Sivert Heggdal Strand
+    coach: ""
+  away:
+    formation: 4-4-2
+    starters:
+      - Pål Vestly Heigre
+      - Adam Örn Arnarson
+      - Kaj Ramsteijn
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Jørgen Hatlehol
+      - Fredrik Carlsen
+      - Vebjørn Hoff
+      - Sondre Brunstad Fet
+      - Valmir Berisha
+      - Mostafa Abdellaoue
+    subs:
+      - Lars Veldwijk
+      - Daniel Gretarsson
+      - Tero Mäntylä
+      - Anders Waagan
+      - Andreas Lie
+      - Emil Solnørdal
+      - Markus Seehusen Karlsbakk
+    coach: Trond Fredriksen
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-herd/74usqja#2485276
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - extraTime
+      - events
+      - lineups
+    note: "Kildestatus: AET"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2485276"
+manual: []

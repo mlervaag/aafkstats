@@ -11,13 +11,122 @@ competition:
 home:
   clubId: sarpsborg-08
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: sarpsborg-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 22
+    type: goal
+    team: home
+    player: Martin Thømt Jensen
+    assist: Joachim Thomassen
+  - minute: 34
+    type: goal
+    team: home
+    player: Claes Kronberg
+    assist: Joachim Thomassen
+  - minute: 35
+    type: substitution
+    team: away
+    player: Torbjørn Grytten
+    playerOff: Mehdi Karnass
+  - minute: 47
+    type: goal
+    team: home
+    player: Claes Kronberg
+    assist: Martin Wiig
+  - minute: 56
+    type: substitution
+    team: away
+    player: Peter Orry Larsen
+    playerOff: Mikael Dyrestam
+  - minute: 62
+    type: goal
+    team: away
+    player: Peter Orry Larsen
+    assist: Fredrik Ulvestad
+  - minute: 65
+    type: substitution
+    team: home
+    player: Kristoffer Tokstad
+    playerOff: Martin Wiig
+  - minute: 67
+    type: yellow_card
+    team: away
+    player: Michael Barrantes
+  - minute: 71
+    type: substitution
+    team: away
+    player: Jo Nymo Matland
+    playerOff: Akeem Latifu
+  - minute: 83
+    type: substitution
+    team: home
+    player: Andreas Nordvik
+    playerOff: Franck Dja Djedje
+  - minute: 88
+    type: substitution
+    team: home
+    player: Olav Øby
+    playerOff: Bojan Zajic
+  - minute: 90
+    type: goal
+    team: away
+    player: Mostafa Abdellaoue
+    assist: Fredrik Ulvestad
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Claes Kronberg
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - DuWayne Kerr
+      - Kjetil Berge
+      - Martin Thømt Jensen
+      - Ole Heieren Hansen
+      - Joachim Thomassen
+      - Steffen Ernemann
+      - Gudmundur Thorarinsson
+      - Claes Kronberg
+      - Bojan Zajic
+      - Franck Dja Djedje
+      - Martin Wiig
+    subs:
+      - Kristoffer Tokstad
+      - Andreas Nordvik
+      - Olav Øby
+      - Brice Wembangomo
+      - Christian Sukke
+      - Sindre Wormdahl
+    coach: Brian Deane
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Mikael Dyrestam
+      - Oddbjørn Lie
+      - Mehdi Karnass
+      - Fredrik Ulvestad
+      - Sakari Mattila
+      - Demar Phillips
+      - Michael Barrantes
+      - Mostafa Abdellaoue
+    subs:
+      - Torbjørn Grytten
+      - Peter Orry Larsen
+      - Jo Nymo Matland
+      - Andreas Lie
+      - Henrik Rørvik Bjørdal
+      - Vebjørn Hoff
+    coach: Jan Jönsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +142,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

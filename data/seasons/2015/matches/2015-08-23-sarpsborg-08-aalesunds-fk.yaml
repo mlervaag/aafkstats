@@ -11,13 +11,130 @@ competition:
 home:
   clubId: sarpsborg-08
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: sarpsborg-stadion
 neutralVenue: false
-events: []
+attendance: 3533
+events:
+  - minute: 10
+    type: goal
+    team: home
+    player: Bojan Zajic
+    assist: Martin Wiig
+  - minute: 20
+    type: goal
+    team: home
+    player: Martin Wiig
+    assist: Patrick Mortensen
+  - minute: 46
+    type: substitution
+    team: home
+    player: Ole Heieren Hansen
+    playerOff: Kjetil Berge
+  - minute: 54
+    type: goal
+    team: home
+    player: Martin Wiig
+    assist: Anders Trondsen
+  - minute: 60
+    type: substitution
+    team: away
+    player: Jo Nymo Matland
+    playerOff: Oddbjørn Lie
+  - minute: 60
+    type: substitution
+    team: away
+    player: Vebjørn Hoff
+    playerOff: Magne Hoseth
+  - minute: 64
+    type: yellow_card
+    team: home
+    player: Ole Heieren Hansen
+  - minute: 65
+    type: penalty_goal
+    team: away
+    player: Leke James
+  - minute: 67
+    type: substitution
+    team: home
+    player: Kristoffer Tokstad
+    playerOff: Anders Trondsen
+  - minute: 68
+    type: substitution
+    team: away
+    player: Aron Elis Thrándarson
+    playerOff: Peter Orry Larsen
+  - minute: 75
+    type: substitution
+    team: home
+    player: Simen Brenne
+    playerOff: Martin Wiig
+  - minute: 82
+    type: yellow_card
+    team: home
+    player: Amin Askar
+lineups:
+  home:
+    formation: 4-1-2-1-2
+    starters:
+      - DuWayne Kerr
+      - Claes Kronberg
+      - Kjetil Berge
+      - Andreas Nordvik
+      - Alexander Groven
+      - Steffen Ernemann
+      - Anders Trondsen
+      - Amin Askar
+      - Bojan Zajic
+      - Patrick Mortensen
+      - Martin Wiig
+    subs:
+      - Ole Heieren Hansen
+      - Kristoffer Tokstad
+      - Simen Brenne
+      - Kamer Qaka
+      - Lasse Heinze
+      - Martin Thømt Jensen
+      - Peter Kovacs
+    coach: Geir Bakke
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Edvard Skagestad
+      - Mikael Dyrestam
+      - Oddbjørn Lie
+      - Bjørn Helge Riise
+      - Magne Hoseth
+      - Peter Orry Larsen
+      - Henrik Rørvik Bjørdal
+      - Mostafa Abdellaoue
+      - Leke James
+    subs:
+      - Jo Nymo Matland
+      - Vebjørn Hoff
+      - Aron Elis Thrándarson
+      - Andreas Lie
+      - Carl Björk
+      - Fredrik Carlsen
+      - Tero Mäntylä
+    coach: Trond Fredriksen
+stats:
+  home:
+    possession: 50
+    shots: 20
+    shotsOnTarget: 9
+    corners: 5
+  away:
+    possession: 50
+    shots: 15
+    shotsOnTarget: 9
+    corners: 3
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +150,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

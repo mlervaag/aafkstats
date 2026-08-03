@@ -11,13 +11,119 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: stabaek
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 6518
+events:
+  - minute: 6
+    type: goal
+    team: home
+    player: Mostafa Abdellaoue
+    assist: Michael Barrantes
+  - minute: 30
+    type: yellow_card
+    team: home
+    player: Peter Orry Larsen
+  - minute: 45
+    type: goal
+    team: away
+    player: Cole Grossman
+    assist: Ernest Asante
+  - minute: 53
+    type: substitution
+    team: home
+    player: Vebjørn Hoff
+    playerOff: Henrik Rørvik Bjørdal
+  - minute: 58
+    type: yellow_card
+    team: away
+    player: Birger Meling
+  - minute: 70
+    type: substitution
+    team: away
+    player: Daniel Granli
+    playerOff: Ville Jalasto
+  - minute: 72
+    type: substitution
+    team: home
+    player: Torbjørn Grytten
+    playerOff: Aron Elis Thrándarson
+  - minute: 77
+    type: substitution
+    team: away
+    player: Cornelius Bencsik
+    playerOff: Giorgi Gorozia
+  - minute: 84
+    type: substitution
+    team: away
+    player: Eirik Haugstad
+    playerOff: Ernest Asante
+  - minute: 86
+    type: substitution
+    team: home
+    player: Jo Nymo Matland
+    playerOff: Michael Barrantes
+lineups:
+  home:
+    formation: 4-1-3-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Edvard Skagestad
+      - Tero Mäntylä
+      - Oddbjørn Lie
+      - Peter Orry Larsen
+      - Henrik Rørvik Bjørdal
+      - Michael Barrantes
+      - Aron Elis Thrándarson
+      - Mostafa Abdellaoue
+      - Leke James
+    subs:
+      - Vebjørn Hoff
+      - Torbjørn Grytten
+      - Jo Nymo Matland
+      - Andreas Lie
+      - Carl Björk
+      - Daniel Gretarsson
+    coach: Trond Fredriksen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Sayouba Mandé
+      - Ville Jalasto
+      - Morten M. Skjønsberg
+      - Nicolai Næss
+      - Birger Meling
+      - Kamal Issah
+      - Cole Grossman
+      - Ernest Asante
+      - Giorgi Gorozia
+      - Luc Kassi
+      - Adama Diomande
+    subs:
+      - Daniel Granli
+      - Cornelius Bencsik
+      - Eirik Haugstad
+      - Emil Ekblom
+      - Gurpreet Singh Sandhu
+      - Jørgen Hammer
+    coach: Bob Bradley
+stats:
+  home:
+    possession: 37
+    shots: 8
+    shotsOnTarget: 2
+    corners: 6
+  away:
+    possession: 63
+    shots: 20
+    shotsOnTarget: 7
+    corners: 11
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +139,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

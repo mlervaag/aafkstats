@@ -11,13 +11,100 @@ competition:
 home:
   clubId: stabaek
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: nadderud-stadion
 neutralVenue: false
-events: []
+attendance: 3212
+events:
+  - minute: 44
+    type: goal
+    team: away
+    player: Peter Orry Larsen
+    assist: Demar Phillips
+  - minute: 46
+    type: substitution
+    team: home
+    player: Stian Sortevik
+    playerOff: Luc-Martin Kassi Aketchi
+  - minute: 46
+    type: substitution
+    team: home
+    player: Emil Dahle
+    playerOff: Franck Boli
+  - minute: 62
+    type: goal
+    team: away
+    player: Leke James
+    assist: Henrik Roervik Bjoerdal
+  - minute: 71
+    type: substitution
+    team: home
+    player: Craig Henderson
+    playerOff: Tomasz Sokolowski
+  - minute: 75
+    type: substitution
+    team: away
+    player: Vebjoern Hoff
+    playerOff: Peter Orry Larsen
+  - minute: 86
+    type: substitution
+    team: away
+    player: Thomas Skog Martinussen
+    playerOff: Henrik Roervik Bjoerdal
+  - minute: 90
+    type: substitution
+    team: away
+    player: Tor Hogne Aaroey
+    playerOff: Demar Phillips
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Sayouba Mande
+      - Daniel Granli
+      - Jon Inge Hoeiland
+      - Nicolai Naess
+      - Timmi Johansen
+      - Tomasz Sokolowski
+      - Enock Kofi Adu
+      - Fredrik Brustad
+      - Michael Stephens
+      - Luc-Martin Kassi Aketchi
+      - Franck Boli
+    subs:
+      - Emil Dahle
+      - Stian Sortevik
+      - Craig Henderson
+      - Borger Thomas
+      - Marco Hjort
+      - Eirik Haugstad
+      - Ville Jalasto
+    coach: Bob Bradley
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Mikael Dyrestam
+      - Daniel Arnefjord
+      - Oddbjoern Lie
+      - Jo Nymo Matland
+      - Demar Phillips
+      - Fredrik Ulvestad
+      - Sakari Mattila
+      - Henrik Roervik Bjoerdal
+      - Leke James
+      - Peter Orry Larsen
+    subs:
+      - Vebjoern Hoff
+      - Thomas Skog Martinussen
+      - Tor Hogne Aaroey
+      - Torbjoern Grytten
+      - Andreas Lie
+    coach: Jan Joensson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +120,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

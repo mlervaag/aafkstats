@@ -1,0 +1,49 @@
+id: 2026-11-29-fredrikstad-aalesunds-fk
+date: 2026-11-29
+dateConfidence: exact
+kickoff: 17:00
+status: scheduled
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 28
+home:
+  clubId: fredrikstad
+  score: null
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: null
+  halfTimeScore: null
+venueId: fredrikstad-stadion
+neutralVenue: false
+events: []
+lineups:
+  home:
+    starters: []
+    subs: []
+  away:
+    starters: []
+    subs: []
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-fredrikstad/2c8m9k#5105061
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - competition.round
+      - venueId
+      - lineups
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5105061"
+manual: []

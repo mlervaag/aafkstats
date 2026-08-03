@@ -11,13 +11,119 @@ competition:
 home:
   clubId: molde-fk
   score: 5
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: aker-stadion
 neutralVenue: false
-events: []
+attendance: 9586
+events:
+  - minute: 15
+    type: goal
+    team: home
+    player: Fredrik Gulbrandsen
+    assist: Harmeet Singh
+  - minute: 22
+    type: goal
+    team: home
+    player: Martin Linnes
+  - minute: 31
+    type: goal
+    team: home
+    player: Martin Linnes
+  - minute: 46
+    type: substitution
+    team: away
+    player: Mehdi Karnass
+    playerOff: Torbjoern Grytten
+  - minute: 46
+    type: substitution
+    team: away
+    player: Jo Nymo Matland
+    playerOff: Akeem Latifu
+  - minute: 55
+    type: yellow_card
+    team: away
+    player: Michael Barrantes
+  - minute: 58
+    type: substitution
+    team: away
+    player: Sakari Mattila
+    playerOff: Henrik Roervik Bjoerdal
+  - minute: 63
+    type: substitution
+    team: home
+    player: Sander Svendsen
+    playerOff: Fredrik Gulbrandsen
+  - minute: 72
+    type: substitution
+    team: home
+    player: Eirik Hestad
+    playerOff: Daniel Berg Hestad
+  - minute: 76
+    type: substitution
+    team: home
+    player: Agnaldo
+    playerOff: Mohamed Elyounoussi
+  - minute: 80
+    type: goal
+    team: home
+    player: Daniel Chima
+    assist: Martin Linnes
+  - minute: 90
+    type: goal
+    team: home
+    player: Daniel Chima
+    assist: Sander Svendsen
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Oerjan Haaskjold Nyland
+      - Martin Linnes
+      - Joona Toivio
+      - Ruben Gabrielsen
+      - Per Egil Flo
+      - Mattias Mostroem
+      - Harmeet Singh
+      - Daniel Berg Hestad
+      - Mohamed Elyounoussi
+      - Daniel Chima
+      - Fredrik Gulbrandsen
+    subs:
+      - Sander Svendsen
+      - Eirik Hestad
+      - Agnaldo
+      - Etzaz Hussain
+      - Seydina Keita
+      - Tommy Hoeiland
+      - Espen Bugge Pettersen
+    coach: Tor Ole Skullerud
+  away:
+    formation: 4-4-2
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Oddbjoern Lie
+      - Demar Phillips
+      - Peter Orry Larsen
+      - Michael Barrantes
+      - Fredrik Ulvestad
+      - Henrik Roervik Bjoerdal
+      - Torbjoern Grytten
+      - Leke James
+    subs:
+      - Jo Nymo Matland
+      - Mehdi Karnass
+      - Sakari Mattila
+      - Thomas Skog Martinussen
+      - Vebjoern Hoff
+      - Andreas Lie
+      - Sondre Brunstad Fet
+    coach: Jan Joensson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +139,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

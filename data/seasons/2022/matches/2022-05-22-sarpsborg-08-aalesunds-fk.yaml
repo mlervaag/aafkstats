@@ -11,13 +11,163 @@ competition:
 home:
   clubId: sarpsborg-08
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: sarpsborg-stadion
 neutralVenue: false
-events: []
+attendance: 4158
+referee: Rohit Saggi
+events:
+  - minute: 13
+    type: goal
+    team: home
+    player: Guillermo Molins
+    assist: Kristian Fardal Opseth
+  - minute: 23
+    type: yellow_card
+    team: away
+    player: Dario Canadjija
+  - minute: 32
+    type: substitution
+    team: away
+    player: Fredrik Haugen
+    playerOff: David Fällman
+  - minute: 34
+    type: goal
+    team: away
+    player: Sigurd Haugen
+  - minute: 38
+    type: yellow_card
+    team: away
+    player: Simen Rafn
+  - minute: 50
+    type: yellow_card
+    team: home
+    player: Anton Skipper
+  - minute: 52
+    type: yellow_card
+    team: home
+    player: Jørgen Horn
+  - minute: 59
+    type: yellow_card
+    team: home
+    player: Serge-Junior Ngouali
+  - minute: 62
+    type: substitution
+    team: home
+    player: Mikkel Maigaard
+    playerOff: Guillermo Molins
+  - minute: 69
+    type: substitution
+    team: away
+    player: Simen Rafn
+    playerOff: Erikson Lima
+  - minute: 69
+    type: substitution
+    team: away
+    player: Kristoffer Ødemarksbakken
+    playerOff: Dario Canadjija
+  - minute: 70
+    type: substitution
+    team: home
+    player: Ole Jørgen Halvorsen
+    playerOff: Anton Skipper
+  - minute: 85
+    type: substitution
+    team: home
+    player: Martin Høyland
+    playerOff: Anton Salétros
+  - minute: 87
+    type: substitution
+    team: away
+    player: Alexander Ammitzbøll
+    playerOff: Simen Bolkan Nordli
+  - minute: 90
+    stoppage: 1
+    type: yellow_card
+    team: home
+    player: Mikkel Maigaard
+  - minute: 90
+    stoppage: 2
+    type: goal
+    team: away
+    player: Sigurd Haugen
+    assist: Simen Rafn
+  - minute: 90
+    stoppage: 3
+    type: yellow_card
+    team: away
+    player: Sigurd Haugen
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Anders Kristiansen
+      - Anton Skipper
+      - Jørgen Horn
+      - Bjørn Inge Utvik
+      - Joachim Soltvedt
+      - Anton Salétros
+      - Serge-Junior Ngouali
+      - Jonathan Lindseth
+      - Guillermo Molins
+      - Tobias Heintz
+      - Kristian Fardal Opseth
+    subs:
+      - Mikkel Maigaard
+      - Ole Jørgen Halvorsen
+      - Martin Høyland
+      - Amadou Camara
+      - Laurent Mendy
+      - Magnar Ødegaard
+      - Rashad Muhammed
+      - Simen Vidtun Nilsen
+      - Steffen Lie Skålevik
+    coach: Stefan Billborn
+  away:
+    formation: 5-3-2
+    starters:
+      - Sten Michael Grytebust
+      - Petar Golubovic
+      - Alexander Juel Andersen
+      - David Fällman
+      - Besim Serbecic
+      - Isak Dybvik
+      - Erikson Lima
+      - Dario Canadjija
+      - Torbjørn Kallevåg
+      - Simen Bolkan Nordli
+      - Sigurd Haugen
+    subs:
+      - Fredrik Haugen
+      - Kristoffer Ødemarksbakken
+      - Simen Rafn
+      - Alexander Ammitzbøll
+      - Jeppe Arctander Moe
+      - Mamadou Diaw
+      - Michael Lansing
+      - Oscar Solnørdal
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 56
+    shots: 20
+    shotsOnTarget: 7
+    corners: 12
+    fouls: 7
+    offsides: 2
+    xg: 1.88
+  away:
+    possession: 44
+    shots: 9
+    shotsOnTarget: 4
+    corners: 6
+    fouls: 8
+    offsides: 2
+    xg: 1.16
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +183,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

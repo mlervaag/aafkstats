@@ -11,13 +11,111 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: sogndal
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 27
+    type: goal
+    team: away
+    player: Ulrik Flo
+  - minute: 51
+    type: substitution
+    team: home
+    player: Lars Fuhre
+    playerOff: Demar Phillips
+  - minute: 51
+    type: goal
+    team: home
+    player: Sander Post
+  - minute: 61
+    type: goal
+    team: away
+    player: Ulrik Flo
+  - minute: 66
+    type: substitution
+    team: away
+    player: Eirik Bakke
+    playerOff: Stéphane Badji
+  - minute: 69
+    type: substitution
+    team: home
+    player: Christian Myklebust
+    playerOff: Kjell Rune Sellin
+  - minute: 79
+    type: substitution
+    team: home
+    player: Edvard Skagestad
+    playerOff: Hugues Wembangomo
+  - minute: 79
+    type: yellow_card
+    team: home
+    player: Daniel Arnefjord
+  - minute: 83
+    type: substitution
+    team: away
+    player: Ørjan Hopen
+    playerOff: Per Egil Flo
+  - minute: 88
+    type: substitution
+    team: away
+    player: Ruben Holsæter
+    playerOff: Tonny Brochmann
+  - minute: 90
+    type: goal
+    team: home
+    player: Daniel Arnefjord
+lineups:
+  home:
+    formation: 4-2-1-3
+    starters:
+      - Sten Michael Grytebust
+      - Jonatan Tollås Nation
+      - Daniel Arnefjord
+      - Ville Jalasto
+      - Hugues Wembangomo
+      - Jason Morrison
+      - Fredrik Ulvestad
+      - Michael Barrantes
+      - Kjell Rune Sellin
+      - Demar Phillips
+      - Sander Post
+    subs:
+      - Lars Fuhre
+      - Christian Myklebust
+      - Edvard Skagestad
+      - Amund Skiri
+      - Fredrik Carlsen
+      - Ole Christian Rørvik
+      - Tremaine Stewart
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-4-2
+    starters:
+      - Kenneth Udjus
+      - Eirik Bergum Skaasheim
+      - Gustav Valsvik
+      - Hannu Patronen
+      - Taijo Teniste
+      - Malick Mane
+      - Henrik Furebotn
+      - Stéphane Badji
+      - Per Egil Flo
+      - Ulrik Flo
+      - Tonny Brochmann
+    subs:
+      - Eirik Bakke
+      - Ørjan Hopen
+      - Ruben Holsæter
+      - Jasmin Mecinovic
+      - Leif Kvamme Lysne
+      - Thomas Ness
+      - Tore Andre Flo
+    coach: Jonas Olsson
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +131,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

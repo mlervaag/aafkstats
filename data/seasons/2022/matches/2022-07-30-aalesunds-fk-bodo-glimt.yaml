@@ -11,13 +11,162 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: bodo-glimt
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4725
+referee: Kai Erik Steen
+events:
+  - minute: 26
+    type: goal
+    team: away
+    player: Victor Okoh Boniface
+    assist: Joel Mvuka
+  - minute: 32
+    type: goal
+    team: home
+    player: Kristoffer Ødemarksbakken
+  - minute: 42
+    type: goal
+    team: away
+    player: Victor Okoh Boniface
+    assist: Joel Mvuka
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Kjetil Knutsen
+  - minute: 49
+    type: yellow_card
+    team: home
+    player: Dario Canadjija
+  - minute: 68
+    type: substitution
+    team: home
+    player: Torbjørn Kallevåg
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 68
+    type: substitution
+    team: home
+    player: Jeppe Arctander Moe
+    playerOff: Simen Rafn
+  - minute: 69
+    type: substitution
+    team: home
+    player: Alexander Ammitzbøll
+    playerOff: Simen Bolkan Nordli
+  - minute: 75
+    type: substitution
+    team: away
+    player: Gilbert Koomson
+    playerOff: Joel Mvuka
+  - minute: 75
+    type: yellow_card
+    team: away
+    player: Brice Wembangomo
+  - minute: 76
+    type: yellow_card
+    team: home
+    player: Petar Golubovic
+  - minute: 86
+    type: yellow_card
+    team: home
+    player: Besim Serbecic
+  - minute: 87
+    type: substitution
+    team: away
+    player: Anders Konradsen
+    playerOff: Hugo Vetlesen
+  - minute: 87
+    type: substitution
+    team: home
+    player: Oscar Solnørdal
+    playerOff: Dario Canadjija
+  - minute: 87
+    type: substitution
+    team: home
+    player: Nikolai Hopland
+    playerOff: Erikson Lima
+  - minute: 90
+    type: substitution
+    team: away
+    player: Sondre Sørli
+    playerOff: Amahl Pellegrino
+  - minute: 90
+    stoppage: 4
+    type: yellow_card
+    team: away
+    player: Elias Hagen
+lineups:
+  home:
+    formation: 5-3-2
+    starters:
+      - Sten Michael Grytebust
+      - Petar Golubovic
+      - Besim Serbecic
+      - David Fällman
+      - Alexander Juel Andersen
+      - Simen Rafn
+      - Erikson Lima
+      - Dario Canadjija
+      - Kristoffer Barmen
+      - Kristoffer Ødemarksbakken
+      - Simen Bolkan Nordli
+    subs:
+      - Jeppe Arctander Moe
+      - Torbjørn Kallevåg
+      - Alexander Ammitzbøll
+      - Nikolai Hopland
+      - Oscar Solnørdal
+      - Henrik Melland
+      - Jørgen Hatlehol
+      - Michael Lansing
+      - Ulrik Valderhaug Syversen
+    coach: Lars Arne Nilsen
+  away:
+    formation: 4-3-3
+    starters:
+      - Nikita Haikin
+      - Alfons Sampsted
+      - Isak Helstad Amundsen
+      - Marius Høibråten
+      - Brice Wembangomo
+      - Hugo Vetlesen
+      - Elias Hagen
+      - Ulrik Saltnes
+      - Joel Mvuka
+      - Victor Okoh Boniface
+      - Amahl Pellegrino
+    subs:
+      - Gilbert Koomson
+      - Anders Konradsen
+      - Sondre Sørli
+      - Ask Tjærandsen-Skau
+      - Fredrik Sjøvold
+      - Lasse Nordås
+      - Marcus Ellingsen Andersen
+      - Sigurd Kvile
+    coach: Kjetil Knutsen
+stats:
+  home:
+    possession: 38
+    shots: 14
+    shotsOnTarget: 1
+    corners: 6
+    fouls: 12
+    offsides: 4
+    xg: 1.04
+  away:
+    possession: 62
+    shots: 19
+    shotsOnTarget: 7
+    corners: 4
+    fouls: 7
+    offsides: 2
+    xg: 2.37
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +182,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

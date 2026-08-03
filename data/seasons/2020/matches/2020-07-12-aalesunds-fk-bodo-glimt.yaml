@@ -11,13 +11,176 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: bodo-glimt
   score: 6
-  halfTimeScore: null
+  halfTimeScore: 3
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 200
+referee: Tore Hansen
+events:
+  - minute: 14
+    type: goal
+    team: away
+    player: Philip Zinckernagel
+    assist: Jens Petter Hauge
+  - minute: 30
+    type: goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+    assist: Parfait Bizoza
+  - minute: 32
+    type: goal
+    team: away
+    player: Sondre Brunstad Fet
+    assist: Kasper Junker
+  - minute: 33
+    type: yellow_card
+    team: home
+    player: Holmbert Aron Fridjonsson
+  - minute: 35
+    type: goal
+    team: away
+    player: Jens Petter Hauge
+  - minute: 40
+    type: yellow_card
+    team: away
+    player: Fredrik André Björkan
+  - minute: 48
+    type: yellow_card
+    team: home
+    player: Daniel Gretarsson
+  - minute: 51
+    type: goal
+    team: away
+    player: Ulrik Saltnes
+    assist: Philip Zinckernagel
+  - minute: 54
+    type: goal
+    team: away
+    player: Philip Zinckernagel
+    assist: Sondre Brunstad Fet
+  - minute: 56
+    type: substitution
+    team: home
+    player: Peter Orry Larsen
+    playerOff: Fredrik Carlsen
+  - minute: 57
+    type: substitution
+    team: home
+    player: Oddbjørn Lie
+    playerOff: Daan Klinkenberg
+  - minute: 58
+    type: substitution
+    team: away
+    player: Sammy Skytte
+    playerOff: Sondre Brunstad Fet
+  - minute: 58
+    type: substitution
+    team: away
+    player: Victor Okoh Boniface
+    playerOff: Kasper Junker
+  - minute: 62
+    type: substitution
+    team: home
+    player: Simen Bolkan Nordli
+    playerOff: Niklas Castro
+  - minute: 62
+    type: substitution
+    team: home
+    player: Ståle Steen Sæthre
+    playerOff: Daniel Gretarsson
+  - minute: 69
+    type: goal
+    team: away
+    player: Victor Okoh Boniface
+    assist: Fredrik André Björkan
+  - minute: 73
+    type: substitution
+    team: away
+    player: Aleksander Foosnæs
+    playerOff: Fredrik André Björkan
+  - minute: 73
+    type: substitution
+    team: away
+    player: Isak Helstad Amundsen
+    playerOff: Marius Lode
+  - minute: 77
+    type: substitution
+    team: away
+    player: Sebastian Tounekti
+    playerOff: Philip Zinckernagel
+  - minute: 77
+    type: substitution
+    team: home
+    player: Markus Seehusen Karlsbakk
+    playerOff: Peter Orry Larsen
+lineups:
+  home:
+    formation: 3-4-3
+    starters:
+      - Gudmund Taksdal Kongshavn
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Daan Klinkenberg
+      - Shaquill Sno
+      - Fredrik Carlsen
+      - Parfait Bizoza
+      - David Kristjan Olafsson
+      - Niklas Castro
+      - Holmbert Aron Fridjonsson
+      - Sigurd Haugen
+    subs:
+      - Peter Orry Larsen
+      - Oddbjørn Lie
+      - Simen Bolkan Nordli
+      - Ståle Steen Sæthre
+      - Markus Seehusen Karlsbakk
+      - Enock Mwimba
+      - Jørgen Hatlehol
+    coach: Lars Bohinen
+  away:
+    formation: 4-3-3
+    starters:
+      - Joshua Smits
+      - Alfons Sampsted
+      - Marius Høibråten
+      - Marius Lode
+      - Fredrik André Björkan
+      - Sondre Brunstad Fet
+      - Patrick Berg
+      - Ulrik Saltnes
+      - Philip Zinckernagel
+      - Kasper Junker
+      - Jens Petter Hauge
+    subs:
+      - Sammy Skytte
+      - Victor Okoh Boniface
+      - Aleksander Foosnæs
+      - Isak Helstad Amundsen
+      - Sebastian Tounekti
+      - Nikita Haikin
+      - Ole Amund Sveen
+    coach: Kjetil Knutsen
+stats:
+  home:
+    possession: 40
+    shots: 10
+    shotsOnTarget: 3
+    corners: 3
+    fouls: 11
+    offsides: 1
+    xg: 1.65
+  away:
+    possession: 60
+    shots: 13
+    shotsOnTarget: 9
+    corners: 2
+    fouls: 15
+    offsides: 3
+    xg: 1.6
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +196,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

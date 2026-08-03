@@ -1,0 +1,139 @@
+id: 2016-05-03-brattvag-aalesunds-fk
+date: 2016-05-03
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: nm
+  season: 2016
+  stage: regular_season
+  round: 3
+home:
+  clubId: brattvag
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+extraTime:
+  home: 1
+  away: 1
+penaltyShootout:
+  home: 5
+  away: 4
+neutralVenue: false
+events:
+  - minute: 27
+    type: substitution
+    team: away
+    player: Marlinho
+    playerOff: Vebjørn Hoff
+  - minute: 38
+    type: substitution
+    team: home
+    player: Vegard Sætre
+    playerOff: Jan Philip Berglund
+  - minute: 77
+    type: substitution
+    team: home
+    player: Eirik Høivik
+    playerOff: Tommy Kanishi
+  - minute: 85
+    type: substitution
+    team: away
+    player: Aron Elis Thrándarson
+    playerOff: Peter Orry Larsen
+  - minute: 88
+    type: substitution
+    team: home
+    player: Thomas Aarsund
+    playerOff: Finn Alvestad
+  - minute: 93
+    type: goal
+    team: home
+    player: Eirik Høivik
+  - minute: 96
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Thomas Skog Martinussen
+  - minute: 116
+    type: goal
+    team: away
+    player: Mostafa Abdellaoue
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Henrik Reite Hansen
+      - Jan Philip Berglund
+      - Prince Mambouana
+      - Frederik Johnsen
+      - Kristoffer Hildrestrand
+      - Robert Kjellman
+      - Robin Palacios
+      - Tommy Kanishi
+      - Finn Alvestad
+      - Lamine Larbi Nekrouf
+      - Håkon Leine
+    subs:
+      - Vegard Sætre
+      - Eirik Høivik
+      - Thomas Aarsund
+      - Didrik Fløtre
+      - Per Espen Thorsen
+      - Simen Tomren
+      - Vegar Skare
+    coach: ""
+  away:
+    formation: 4-4-2
+    starters:
+      - Lars Cramer
+      - Thomas Skog Martinussen
+      - Edvard Skagestad
+      - Oddbjørn Lie
+      - Mikkel Kirkeskov
+      - Vebjørn Hoff
+      - Bjørn Helge Riise
+      - John Arne Riise
+      - Peter Orry Larsen
+      - Mostafa Abdellaoue
+      - Franck Boli
+    subs:
+      - Marlinho
+      - Aron Elis Thrándarson
+      - Sondre Brunstad Fet
+      - Adam Örn Arnarson
+      - Andreas Lie
+      - Edwin Gyasi
+      - Tero Mäntylä
+    coach: Trond Fredriksen
+externalReports: []
+sources:
+  - sourceId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-brattvag/pr57f8#2224262
+    retrievedAt: 2026-08-03
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - extraTime
+      - penaltyShootout
+      - events
+      - lineups
+    note: "Kildestatus: Pen"
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2224262"
+manual: []

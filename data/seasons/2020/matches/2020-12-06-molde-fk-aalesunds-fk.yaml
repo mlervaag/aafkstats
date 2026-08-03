@@ -11,13 +11,145 @@ competition:
 home:
   clubId: molde-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: aker-stadion
 neutralVenue: false
-events: []
+attendance: 600
+referee: Tore Hansen
+events:
+  - minute: 12
+    type: yellow_card
+    team: away
+    player: Sigurd Haugen
+  - minute: 31
+    type: goal
+    team: home
+    player: Magnus Wolff Eikrem
+    assist: Leke James
+  - minute: 45
+    type: substitution
+    team: away
+    player: Enock Mwimba
+    playerOff: Andreas Lie
+  - minute: 65
+    type: substitution
+    team: home
+    player: Tobias Christensen
+    playerOff: Stian Gregersen
+  - minute: 65
+    type: substitution
+    team: home
+    player: Mathis Bolly
+    playerOff: Magnus Wolff Eikrem
+  - minute: 67
+    type: substitution
+    team: away
+    player: Izunna Uzochukwu
+    playerOff: Peter Orry Larsen
+  - minute: 67
+    type: substitution
+    team: away
+    player: Shaquill Sno
+    playerOff: Simen Bolkan Nordli
+  - minute: 69
+    type: yellow_card
+    team: away
+    player: Erikson Lima
+  - minute: 75
+    type: substitution
+    team: home
+    player: Ohi Anthony Omoijuanfo
+    playerOff: Eirik Hestad
+  - minute: 79
+    type: goal
+    team: home
+    player: Leke James
+    assist: Ola Brynhildsen
+  - minute: 83
+    type: substitution
+    team: home
+    player: Erling Knudtzon
+    playerOff: Ola Brynhildsen
+  - minute: 87
+    type: substitution
+    team: away
+    player: Markus Seehusen Karlsbakk
+    playerOff: Niklas Castro
+  - minute: 90
+    type: penalty_goal
+    team: away
+    player: Sigurd Haugen
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Andreas Linde
+      - Marcus Holmgren Pedersen
+      - Sheriff Sinyan
+      - Stian Gregersen
+      - Birk Risa
+      - Etzaz Hussain
+      - Martin Ellingsen
+      - Ola Brynhildsen
+      - Magnus Wolff Eikrem
+      - Eirik Hestad
+      - Leke James
+    subs:
+      - Tobias Christensen
+      - Mathis Bolly
+      - Ohi Anthony Omoijuanfo
+      - Erling Knudtzon
+      - Álex Craninx
+      - Henry Wingo
+      - Fredrik Aursnes
+      - Mattias Moström
+    coach: Erling Moe
+  away:
+    formation: 5-4-1
+    starters:
+      - Andreas Lie
+      - Kasper Jørgensen
+      - Ståle Steen Sæthre
+      - Parfait Bizoza
+      - Daan Klinkenberg
+      - David Kristjan Olafsson
+      - Niklas Castro
+      - Peter Orry Larsen
+      - Erikson Lima
+      - Simen Bolkan Nordli
+      - Sigurd Haugen
+    subs:
+      - Enock Mwimba
+      - Shaquill Sno
+      - Izunna Uzochukwu
+      - Markus Seehusen Karlsbakk
+      - Sigurd Tafjord
+      - Jørgen Hatlehol
+      - Kristoffer Strand Ødven
+      - Mamadou Diaw
+      - Vetle Fiskerstrand
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 56
+    shots: 20
+    shotsOnTarget: 8
+    corners: 7
+    fouls: 11
+    offsides: 1
+    xg: 3.64
+  away:
+    possession: 44
+    shots: 6
+    shotsOnTarget: 1
+    corners: 3
+    fouls: 13
+    offsides: 1
+    xg: 1.39
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +165,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

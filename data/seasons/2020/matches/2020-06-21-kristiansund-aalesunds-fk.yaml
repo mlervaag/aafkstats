@@ -11,13 +11,197 @@ competition:
 home:
   clubId: kristiansund
   score: 7
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: kristiansund-stadion
 neutralVenue: false
-events: []
+attendance: 200
+referee: Kai Erik Steen
+events:
+  - minute: 2
+    type: yellow_card
+    team: away
+    player: David Kristjan Olafsson
+  - minute: 11
+    type: own_goal
+    team: away
+    player: Pål Erik Ulvestad
+  - minute: 15
+    type: yellow_card
+    team: away
+    player: Oddbjørn Lie
+  - minute: 15
+    type: yellow_card
+    team: home
+    player: Flamur Kastrati
+  - minute: 23
+    type: yellow_card
+    team: away
+    player: Jørgen Hatlehol
+  - minute: 24
+    type: goal
+    team: home
+    player: Amahl Pellegrino
+    assist: Christoffer Aasbak
+  - minute: 30
+    type: goal
+    team: home
+    player: Liridon Kalludra
+    assist: Amahl Pellegrino
+  - minute: 35
+    type: goal
+    team: home
+    player: Amahl Pellegrino
+    assist: Sondre Sørli
+  - minute: 37
+    type: goal
+    team: away
+    player: Holmbert Aron Fridjonsson
+    assist: Simen Bolkan Nordli
+  - minute: 46
+    type: substitution
+    team: away
+    player: Shaquill Sno
+    playerOff: Jørgen Hatlehol
+  - minute: 56
+    type: yellow_card
+    team: away
+    player: Ståle Steen Sæthre
+  - minute: 57
+    type: substitution
+    team: home
+    player: Amin Askar
+    playerOff: Flamur Kastrati
+  - minute: 58
+    type: substitution
+    team: away
+    player: Izunna Uzochukwu
+    playerOff: Ståle Steen Sæthre
+  - minute: 62
+    type: substitution
+    team: away
+    player: Peter Orry Larsen
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 63
+    type: goal
+    team: home
+    player: Amin Askar
+  - minute: 65
+    type: goal
+    team: home
+    player: Amahl Pellegrino
+    assist: Serigne Mbaye
+  - minute: 68
+    type: goal
+    team: home
+    player: Sondre Sørli
+    assist: Liridon Kalludra
+  - minute: 69
+    type: yellow_card
+    team: away
+    player: Niklas Castro
+  - minute: 71
+    type: substitution
+    team: away
+    player: Markus Seehusen Karlsbakk
+    playerOff: Simen Bolkan Nordli
+  - minute: 71
+    type: substitution
+    team: away
+    player: Daan Klinkenberg
+    playerOff: Oddbjørn Lie
+  - minute: 72
+    type: substitution
+    team: home
+    player: Olaus Jair Skarsem
+    playerOff: Liridon Kalludra
+  - minute: 72
+    type: substitution
+    team: home
+    player: Bendik Bye
+    playerOff: Amahl Pellegrino
+  - minute: 72
+    type: substitution
+    team: home
+    player: Erlend Sivertsen
+    playerOff: Pål Erik Ulvestad
+  - minute: 80
+    type: substitution
+    team: home
+    player: Faris Moumbagna
+    playerOff: Sondre Sørli
+  - minute: 80
+    type: goal
+    team: home
+    player: Bendik Bye
+    assist: Olaus Jair Skarsem
+lineups:
+  home:
+    formation: 4-2-1-3
+    starters:
+      - Serigne Mbaye
+      - Bent Sørmo
+      - Dan Peter Ulvestad
+      - Christophe Psyché
+      - Christoffer Aasbak
+      - Pål Erik Ulvestad
+      - Andreas Hopmark
+      - Liridon Kalludra
+      - Sondre Sørli
+      - Flamur Kastrati
+      - Amahl Pellegrino
+    subs:
+      - Amin Askar
+      - Bendik Bye
+      - Erlend Sivertsen
+      - Olaus Jair Skarsem
+      - Faris Moumbagna
+      - Aliou Coly
+      - Eirik Holmen Johansen
+    coach: Christian Michelsen
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Jørgen Hatlehol
+      - Niklas Castro
+      - Ståle Steen Sæthre
+      - Simen Bolkan Nordli
+      - David Kristjan Olafsson
+      - Sigurd Haugen
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Shaquill Sno
+      - Izunna Uzochukwu
+      - Peter Orry Larsen
+      - Daan Klinkenberg
+      - Markus Seehusen Karlsbakk
+      - Gudmund Taksdal Kongshavn
+      - Parfait Bizoza
+    coach: Lars Bohinen
+stats:
+  home:
+    possession: 52
+    shots: 27
+    shotsOnTarget: 14
+    corners: 6
+    fouls: 18
+    offsides: 2
+    xg: 3.35
+  away:
+    possession: 48
+    shots: 12
+    shotsOnTarget: 5
+    corners: 2
+    fouls: 14
+    offsides: 0
+    xg: 0.92
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +217,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

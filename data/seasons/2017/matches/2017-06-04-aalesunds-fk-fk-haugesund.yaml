@@ -11,13 +11,125 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: fk-haugesund
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5764
+referee: Kai Erik Steen
+events:
+  - minute: 9
+    type: goal
+    team: away
+    player: Shuaibu Ibrahim
+    assist: Haris Hajradinovic
+  - minute: 35
+    type: yellow_card
+    team: away
+    player: Vegard Skjerve
+  - minute: 37
+    type: substitution
+    team: home
+    player: Marlinho
+    playerOff: Aron Elis Thrándarson
+  - minute: 49
+    type: yellow_card
+    team: home
+    player: Marlinho
+  - minute: 60
+    type: yellow_card
+    team: away
+    player: Shuaibu Ibrahim
+  - minute: 63
+    type: substitution
+    team: away
+    player: Erik Huseklepp
+    playerOff: Shuaibu Ibrahim
+  - minute: 73
+    type: substitution
+    team: home
+    player: Sondre Brunstad Fet
+    playerOff: Mostafa Abdellaoue
+  - minute: 74
+    type: substitution
+    team: away
+    player: Ikenna Ikedi
+    playerOff: Bruno Leite
+  - minute: 84
+    type: substitution
+    team: home
+    player: Oddbjørn Lie
+    playerOff: Vebjørn Hoff
+  - minute: 90
+    type: substitution
+    team: away
+    player: Johnny Per Buduson
+    playerOff: Tor Arne Andreassen
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Andreas Lie
+      - Adam Örn Arnarson
+      - Kaj Ramsteijn
+      - Daniel Gretarsson
+      - Mikkel Kirkeskov
+      - Edwin Gyasi
+      - Vebjørn Hoff
+      - Fredrik Carlsen
+      - Aron Elis Thrándarson
+      - Lars Veldwijk
+      - Mostafa Abdellaoue
+    subs:
+      - Marlinho
+      - Sondre Brunstad Fet
+      - Oddbjørn Lie
+      - Anders Waagan
+      - Jørgen Hatlehol
+      - Pål Vestly Heigre
+      - Valmir Berisha
+    coach: Trond Fredriksen
+  away:
+    formation: 4-4-1-1
+    starters:
+      - Per Kristian Bråtveit
+      - Kristoffer Haraldseid
+      - Fredrik Knudsen
+      - Vegard Skjerve
+      - Alexander Stølås
+      - Sondre Tronstad
+      - Filip Kiss
+      - Bruno Leite
+      - Tor Arne Andreassen
+      - Haris Hajradinovic
+      - Shuaibu Ibrahim
+    subs:
+      - Erik Huseklepp
+      - Ikenna Ikedi
+      - Johnny Per Buduson
+      - Bruno Soares
+      - Helge Sandvik
+      - Robert Kling
+      - Sverre Bjørkkjær
+    coach: Eirik Horneland
+stats:
+  home:
+    possession: 59
+    shots: 14
+    shotsOnTarget: 3
+    corners: 6
+    fouls: 15
+    offsides: 1
+  away:
+    possession: 41
+    shots: 8
+    shotsOnTarget: 2
+    corners: 5
+    fouls: 16
+    offsides: 7
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +145,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

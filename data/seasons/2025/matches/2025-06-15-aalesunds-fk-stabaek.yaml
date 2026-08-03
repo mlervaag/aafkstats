@@ -11,13 +11,157 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: stabaek
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 3721
+referee: Ole-Alexander Ekeli Valen
+events:
+  - minute: 6
+    type: goal
+    team: away
+    player: Jesper Isaksen
+    assist: Oskar Spiten-Nysæter
+  - minute: 13
+    type: goal
+    team: away
+    player: Nicolai Næss
+    assist: Aleksander Andresen
+  - minute: 58
+    type: substitution
+    team: home
+    player: Kristian Hemmingsen Lonebu
+    playerOff: Frederik Heiselberg
+  - minute: 58
+    type: substitution
+    team: home
+    player: Olafur Gudmundsson
+    playerOff: Marius Andresen
+  - minute: 64
+    type: goal
+    team: home
+    player: Henrik Melland
+    assist: David Snær Johannsson
+  - minute: 67
+    type: yellow_card
+    team: home
+    player: David Snær Johannsson
+  - minute: 71
+    type: substitution
+    team: away
+    player: Magnus Lankhof-Dahlby
+    playerOff: Oskar Spiten-Nysæter
+  - minute: 72
+    type: substitution
+    team: away
+    player: Rasmus Eggen Vinge
+    playerOff: Bassekou Diabaté
+  - minute: 76
+    type: substitution
+    team: away
+    player: Kaloyan Kostadinov
+    playerOff: Jesper Isaksen
+  - minute: 81
+    type: goal
+    team: home
+    player: David Snær Johannsson
+    assist: Kristoffer Nessø
+  - minute: 82
+    type: substitution
+    team: home
+    player: Jørgen Bøe
+    playerOff: Simen Haram
+  - minute: 84
+    type: yellow_card
+    team: home
+    player: Håkon Butli Hammer
+  - minute: 86
+    type: yellow_card
+    team: home
+    player: John Kitolano
+  - minute: 87
+    type: yellow_card
+    team: away
+    player: Aleksander Andresen
+  - minute: 88
+    type: substitution
+    team: away
+    player: Mads Nielsen
+    playerOff: Kasper Pedersen
+  - minute: 89
+    type: substitution
+    team: away
+    player: Herman Geelmuyden
+    playerOff: Sebastian Olderheim
+  - minute: 90
+    stoppage: 3
+    type: substitution
+    team: home
+    player: Tellef Brattberg Ytterland
+    playerOff: Henrik Melland
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - John Kitolano
+      - Marius Andresen
+      - David Snær Johannsson
+      - Håkon Butli Hammer
+      - Henrik Melland
+      - Kristoffer Nessø
+      - Frederik Heiselberg
+      - Paul Ngongo Iversen
+    subs:
+      - Olafur Gudmundsson
+      - Kristian Hemmingsen Lonebu
+      - Jørgen Bøe
+      - Tellef Brattberg Ytterland
+      - Tor Erik Valderhaug Larsen
+      - Thomas Gulbrandsen
+      - Magnus Vestre Døving
+      - Sander Senior-Haarvik
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - Sondre Løvseth Rossbach
+      - Fillip Jenssen Riise
+      - Kasper Pedersen
+      - Nicolai Næss
+      - Aleksander Andresen
+      - Jesper Isaksen
+      - Emmanuel Danso
+      - Kristian Lønstad Onsrud
+      - Oskar Spiten-Nysæter
+      - Bassekou Diabaté
+      - Sebastian Olderheim
+    subs:
+      - Magnus Lankhof-Dahlby
+      - Rasmus Eggen Vinge
+      - Kaloyan Kostadinov
+      - Mads Nielsen
+      - Herman Geelmuyden
+      - Leander Gunnerød
+      - Jørgen Skjelvik
+    coach: Jörgen Wålemark
+stats:
+  home:
+    possession: 54
+    shots: 9
+    shotsOnTarget: 5
+    corners: 4
+  away:
+    possession: 46
+    shots: 11
+    shotsOnTarget: 3
+    corners: 4
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +177,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

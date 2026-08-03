@@ -11,13 +11,132 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: start
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 23
+    type: yellow_card
+    team: home
+    player: Peter Orry Larsen
+  - minute: 27
+    type: substitution
+    team: away
+    player: Ernest Asante
+    playerOff: Gudmundur Kristjansson
+  - minute: 38
+    type: goal
+    team: away
+    player: Zlatko Tripic
+    assist: Matthias Vilhjalmsson
+  - minute: 55
+    type: substitution
+    team: away
+    player: Babacar Sarr
+    playerOff: Fernando Paniagua
+  - minute: 57
+    type: yellow_card
+    team: home
+    player: Torbjørn Grytten
+  - minute: 59
+    type: goal
+    team: away
+    player: Ernest Asante
+    assist: Espen Hoff
+  - minute: 61
+    type: substitution
+    team: home
+    player: Tor Hogne Aarøy
+    playerOff: Jo Nymo Matland
+  - minute: 67
+    type: substitution
+    team: home
+    player: Sakari Mattila
+    playerOff: Peter Orry Larsen
+  - minute: 78
+    type: substitution
+    team: home
+    player: Fredrik Carlsen
+    playerOff: Torbjørn Grytten
+  - minute: 80
+    type: substitution
+    team: away
+    player: Robert Sandnes
+    playerOff: Zlatko Tripic
+  - minute: 89
+    type: goal
+    team: home
+    player: Daniel Arnefjord
+    assist: Michael Barrantes
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Ernest Asante
+lineups:
+  home:
+    formation: 4-4-1-1
+    starters:
+      - Sten Michael Grytebust
+      - Akeem Latifu
+      - Daniel Arnefjord
+      - Jonatan Tollås Nation
+      - Jo Nymo Matland
+      - Torbjørn Grytten
+      - Fredrik Ulvestad
+      - Peter Orry Larsen
+      - Demar Phillips
+      - Michael Barrantes
+      - Leke James
+    subs:
+      - Tor Hogne Aarøy
+      - Sakari Mattila
+      - Fredrik Carlsen
+      - Henrik Rørvik Bjørdal
+      - Oddbjørn Lie
+      - Robert Ekroll
+      - Thomas Skog Martinussen
+    coach: Jan Jönsson
+  away:
+    formation: 4-4-2
+    starters:
+      - Håkon Andre Opdal
+      - Glenn Andersen
+      - Bismark Acosta
+      - Markus Berger
+      - Rolf Daniel Vikstøl
+      - Gudmundur Kristjansson
+      - Fernando Paniagua
+      - Solomon James Owello
+      - Zlatko Tripic
+      - Matthias Vilhjalmsson
+      - Espen Hoff
+    subs:
+      - Ernest Asante
+      - Babacar Sarr
+      - Robert Sandnes
+      - Alexander Lind
+      - Amin Nouri
+      - Terje Reinertsen
+    coach: Mons Ivar Mjelde
+stats:
+  home:
+    possession: 50
+    shots: 22
+    shotsOnTarget: 4
+    corners: 9
+    fouls: 8
+    offsides: 0
+  away:
+    possession: 50
+    shots: 17
+    shotsOnTarget: 8
+    corners: 5
+    fouls: 11
+    offsides: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +152,12 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

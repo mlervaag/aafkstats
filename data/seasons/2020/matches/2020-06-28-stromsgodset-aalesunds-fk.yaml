@@ -11,13 +11,147 @@ competition:
 home:
   clubId: stromsgodset
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: marienlyst-stadion
 neutralVenue: false
-events: []
+attendance: 200
+referee: Marius Hansen Groetta
+events:
+  - minute: 30
+    type: goal
+    team: away
+    player: Sigurd Haugen
+    assist: Daan Klinkenberg
+  - minute: 37
+    type: yellow_card
+    team: away
+    player: Ståle Steen Sæthre
+  - minute: 43
+    type: yellow_card
+    team: away
+    player: Shaquill Sno
+  - minute: 45
+    type: substitution
+    team: away
+    player: Oddbjørn Lie
+    playerOff: Daan Klinkenberg
+  - minute: 45
+    type: yellow_card
+    team: away
+    player: Sigurd Haugen
+  - minute: 46
+    type: substitution
+    team: home
+    player: Hermann Stengel
+    playerOff: Ari Leifsson
+  - minute: 53
+    type: yellow_card
+    team: home
+    player: Niklas Gunnarsson
+  - minute: 62
+    type: substitution
+    team: home
+    player: Janis Ikaunieks
+    playerOff: Sondre Fosnæss Hanssen
+  - minute: 69
+    type: substitution
+    team: away
+    player: Izunna Uzochukwu
+    playerOff: Peter Orry Larsen
+  - minute: 77
+    type: substitution
+    team: away
+    player: Jørgen Hatlehol
+    playerOff: Shaquill Sno
+  - minute: 80
+    type: substitution
+    team: home
+    player: Marcus Mølvadgaard
+    playerOff: Kristoffer Tokstad
+  - minute: 88
+    type: yellow_card
+    team: away
+    player: Izunna Uzochukwu
+  - minute: 89
+    type: penalty_goal
+    team: home
+    player: Mikkel Maigaard
+  - minute: 90
+    type: substitution
+    team: home
+    player: Tobias Gulliksen
+    playerOff: Niklas Gunnarsson
+  - minute: 90
+    type: red_card
+    team: home
+    player: Jack Ipalibo
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Viljar Røsholt Myhra
+      - Sondre Fosnæss Hanssen
+      - Niklas Gunnarsson
+      - Ari Leifsson
+      - Nicholas Mickelson
+      - Johan Hove
+      - Jack Ipalibo
+      - Mikkel Maigaard
+      - Kristoffer Tokstad
+      - Lars-Jørgen Salvesen
+      - Moses Mawa
+    subs:
+      - Hermann Stengel
+      - Janis Ikaunieks
+      - Marcus Mølvadgaard
+      - Tobias Gulliksen
+      - Halldor Stenevik
+      - Kreshnik Krasniqi
+      - Morten Sætra
+    coach: Henrik Pedersen
+  away:
+    formation: 3-4-3
+    starters:
+      - Andreas Lie
+      - Jonas Grønner
+      - Daniel Gretarsson
+      - Daan Klinkenberg
+      - Shaquill Sno
+      - Ståle Steen Sæthre
+      - Peter Orry Larsen
+      - David Kristjan Olafsson
+      - Niklas Castro
+      - Sigurd Haugen
+      - Simen Bolkan Nordli
+    subs:
+      - Oddbjørn Lie
+      - Izunna Uzochukwu
+      - Jørgen Hatlehol
+      - Gudmund Taksdal Kongshavn
+      - Holmbert Aron Fridjonsson
+      - Parfait Bizoza
+    coach: Lars Bohinen
+stats:
+  home:
+    possession: 64
+    shots: 8
+    shotsOnTarget: 2
+    corners: 5
+    fouls: 17
+    offsides: 3
+    xg: 1.55
+  away:
+    possession: 36
+    shots: 12
+    shotsOnTarget: 3
+    corners: 4
+    fouls: 14
+    offsides: 1
+    xg: 1.75
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +167,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

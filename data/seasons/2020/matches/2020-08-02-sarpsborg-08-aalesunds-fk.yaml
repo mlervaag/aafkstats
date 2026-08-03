@@ -11,13 +11,149 @@ competition:
 home:
   clubId: sarpsborg-08
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: sarpsborg-stadion
 neutralVenue: false
-events: []
+attendance: 200
+referee: Tom Harald Hagen
+events:
+  - minute: 8
+    type: substitution
+    team: away
+    player: Vetle Fiskerstrand
+    playerOff: Daan Klinkenberg
+  - minute: 48
+    type: goal
+    team: home
+    player: Ismaila Coulibaly
+    assist: Ole Jørgen Halvorsen
+  - minute: 52
+    type: penalty_goal
+    team: home
+    player: Mostafa Abdellaoue
+  - minute: 57
+    type: substitution
+    team: away
+    player: Sigurd Haugen
+    playerOff: Vetle Fiskerstrand
+  - minute: 57
+    type: substitution
+    team: away
+    player: Markus Seehusen Karlsbakk
+    playerOff: Izunna Uzochukwu
+  - minute: 62
+    type: yellow_card
+    team: away
+    player: Parfait Bizoza
+  - minute: 63
+    type: penalty_goal
+    team: home
+    player: Mostafa Abdellaoue
+  - minute: 72
+    type: substitution
+    team: home
+    player: Aboubacar Konté
+    playerOff: Mohamed Ofkir
+  - minute: 80
+    type: substitution
+    team: home
+    player: Sebastian Jarl
+    playerOff: Bjørn Inge Utvik
+  - minute: 80
+    type: substitution
+    team: home
+    player: Alexander Jakobsen
+    playerOff: Mostafa Abdellaoue
+  - minute: 88
+    type: substitution
+    team: away
+    player: Kristoffer Strand Ødven
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 89
+    type: substitution
+    team: home
+    player: Anwar Elyounoussi
+    playerOff: Ole Jørgen Halvorsen
+  - minute: 89
+    type: substitution
+    team: home
+    player: Joachim Soltvedt
+    playerOff: Joachim Thomassen
+  - minute: 90
+    type: goal
+    team: home
+    player: Joachim Soltvedt
+    assist: Jørgen Strand Larsen
+lineups:
+  home:
+    formation: 3-4-3
+    starters:
+      - David Mitov Nilsson
+      - Magnar Ødegaard
+      - Bjørn Inge Utvik
+      - Nicolai Næss
+      - Ole Jørgen Halvorsen
+      - Ismaila Coulibaly
+      - Jonathan Lindseth
+      - Joachim Thomassen
+      - Mostafa Abdellaoue
+      - Jørgen Strand Larsen
+      - Mohamed Ofkir
+    subs:
+      - Aboubacar Konté
+      - Alexander Jakobsen
+      - Sebastian Jarl
+      - Anwar Elyounoussi
+      - Joachim Soltvedt
+      - Alexander Ruud Tveter
+      - Aslak Falch
+      - Sigurd Kvile
+      - Sulayman Bojang
+    coach: Mikael Stahre
+  away:
+    formation: 3-5-2
+    starters:
+      - Gudmund Taksdal Kongshavn
+      - Jonas Grønner
+      - Daan Klinkenberg
+      - Parfait Bizoza
+      - Isak Dybvik
+      - Simen Bolkan Nordli
+      - Peter Orry Larsen
+      - Izunna Uzochukwu
+      - Shaquill Sno
+      - Ståle Steen Sæthre
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Vetle Fiskerstrand
+      - Markus Seehusen Karlsbakk
+      - Sigurd Haugen
+      - Kristoffer Strand Ødven
+      - Andreas Lie
+      - David Kristjan Olafsson
+      - Jørgen Hatlehol
+    coach: Lars Bohinen
+stats:
+  home:
+    possession: 54
+    shots: 29
+    shotsOnTarget: 7
+    corners: 7
+    fouls: 11
+    offsides: 4
+    xg: 5.03
+  away:
+    possession: 46
+    shots: 9
+    shotsOnTarget: 4
+    corners: 8
+    fouls: 7
+    offsides: 0
+    xg: 0.72
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +169,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

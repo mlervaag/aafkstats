@@ -11,13 +11,161 @@ competition:
 home:
   clubId: kristiansund
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: kristiansund-stadion
 neutralVenue: false
-events: []
+attendance: 3741
+referee: Marius Lien
+events:
+  - minute: 28
+    type: yellow_card
+    team: home
+    player: Sander Erik Kartum
+  - minute: 38
+    type: yellow_card
+    team: away
+    player: David Fällman
+  - minute: 39
+    type: goal
+    team: home
+    player: Max Normann Williamsen
+    assist: Sander Erik Kartum
+  - minute: 41
+    type: penalty_goal
+    team: home
+    player: Brynjolfur Andersen Willumsson
+  - minute: 46
+    type: substitution
+    team: away
+    player: Kristoffer Barmen
+    playerOff: Erlend Segberg
+  - minute: 46
+    type: substitution
+    team: away
+    player: Erikson Lima
+    playerOff: Moses Ebiye
+  - minute: 46
+    type: substitution
+    team: away
+    player: Gilbert Koomson
+    playerOff: Kristoffer Ødemarksbakken
+  - minute: 57
+    type: own_goal
+    team: home
+    player: Nikolai Hopland
+  - minute: 69
+    type: substitution
+    team: away
+    player: Bjørn Martin Kristensen
+    playerOff: Simen Bolkan Nordli
+  - minute: 76
+    type: substitution
+    team: away
+    player: Jeppe Arctander Moe
+    playerOff: Besim Serbecic
+  - minute: 80
+    type: substitution
+    team: home
+    player: Aliou Coly
+    playerOff: Max Normann Williamsen
+  - minute: 80
+    type: substitution
+    team: home
+    player: Bendik Bye
+    playerOff: Faris Moumbagna
+  - minute: 83
+    type: goal
+    team: home
+    player: Liridon Kalludra
+    assist: Brynjolfur Andersen Willumsson
+  - minute: 88
+    type: substitution
+    team: home
+    player: David Agbo
+    playerOff: Liridon Kalludra
+  - minute: 88
+    type: substitution
+    team: home
+    player: Pawel Chrupalla
+    playerOff: Snorre Nilsen
+  - minute: 90
+    stoppage: 3
+    type: substitution
+    team: home
+    player: Oskar Siira Sivertsen
+    playerOff: Brynjolfur Andersen Willumsson
+lineups:
+  home:
+    formation: 5-3-2
+    starters:
+      - Sean McDermott
+      - Max Normann Williamsen
+      - Dan Peter Ulvestad
+      - Sebastian Jarl
+      - Snorre Nilsen
+      - Torgil Øwre Gjertsen
+      - Liridon Kalludra
+      - Andreas Hopmark
+      - Sander Erik Kartum
+      - Brynjolfur Andersen Willumsson
+      - Faris Moumbagna
+    subs:
+      - Aliou Coly
+      - Bendik Bye
+      - David Agbo
+      - Pawel Chrupalla
+      - Oskar Siira Sivertsen
+      - Serigne Mbaye
+      - Henrik Gjesdal
+      - Sigurd Kvile
+      - Amin Askar
+    coach: Christian Michelsen
+  away:
+    formation: 5-3-2
+    starters:
+      - Sten Michael Grytebust
+      - Besim Serbecic
+      - David Fällman
+      - Nikolai Hopland
+      - Petar Golubovic
+      - Simen Rafn
+      - Simen Bolkan Nordli
+      - Erlend Segberg
+      - Dario Canadjija
+      - Moses Ebiye
+      - Kristoffer Ødemarksbakken
+    subs:
+      - Erikson Lima
+      - Kristoffer Barmen
+      - Gilbert Koomson
+      - Bjørn Martin Kristensen
+      - Jeppe Arctander Moe
+      - Michael Lansing
+      - Fredrik Haugen
+      - Oscar Solnørdal
+      - Torbjørn Kallevåg
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 47
+    shots: 17
+    shotsOnTarget: 7
+    corners: 3
+    fouls: 15
+    offsides: 1
+    xg: 2.7
+  away:
+    possession: 53
+    shots: 8
+    shotsOnTarget: 2
+    corners: 3
+    fouls: 16
+    offsides: 2
+    xg: 0.55
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +181,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

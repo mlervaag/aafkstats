@@ -11,13 +11,156 @@ competition:
 home:
   clubId: fredrikstad
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: nye-fredrikstad-stadion
 neutralVenue: false
-events: []
+attendance: 6257
+events:
+  - minute: 54
+    type: yellow_card
+    team: home
+    player: Jakob Lindström
+  - minute: 64
+    type: goal
+    team: away
+    player: Sigurd Haugen
+    assist: Niklas Castro
+  - minute: 69
+    type: substitution
+    team: home
+    player: Thomas Drage
+    playerOff: Olav Øby
+  - minute: 70
+    type: goal
+    team: home
+    player: Taofeek Ismaheel
+    assist: Henrik Kjelsrud Johansen
+  - minute: 72
+    type: goal
+    team: home
+    player: Thomas Drage
+    assist: Håvard Åsheim
+  - minute: 75
+    type: substitution
+    team: away
+    player: Kristoffer Ødemarksbakken
+    playerOff: Torbjørn Kallevåg
+  - minute: 75
+    type: substitution
+    team: away
+    player: Kristoffer Barmen
+    playerOff: Erikson Lima
+  - minute: 76
+    type: yellow_card
+    team: home
+    player: Taofeek Ismaheel
+  - minute: 81
+    type: substitution
+    team: home
+    player: Ludvig Begby
+    playerOff: Jakob Lindström
+  - minute: 82
+    type: yellow_card
+    team: away
+    player: Kristoffer Barmen
+  - minute: 82
+    type: yellow_card
+    team: home
+    player: Philip Sandvik Aukland
+  - minute: 83
+    type: substitution
+    team: away
+    player: Mamadou Diaw
+    playerOff: Niklas Castro
+  - minute: 90
+    stoppage: 1
+    type: goal
+    team: away
+    player: Quint Jansen
+    assist: Simen Bolkan Nordli
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: home
+    player: Nicolay Solberg
+    playerOff: Taofeek Ismaheel
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: home
+    player: Maikel
+    playerOff: Thomas Drage
+  - minute: 90
+    stoppage: 6
+    type: substitution
+    team: away
+    player: Muamer Brajanac
+    playerOff: Sigurd Haugen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Håvar Jenssen
+      - Philip Sandvik Aukland
+      - Mads Nielsen
+      - Oscar Jansson
+      - Adnan Hadzic
+      - Håvard Åsheim
+      - Jakob Lindström
+      - Olav Øby
+      - Taofeek Ismaheel
+      - Henrik Kjelsrud Johansen
+      - Riki Alba
+    subs:
+      - Thomas Drage
+      - Ludvig Begby
+      - Maikel
+      - Nicolay Solberg
+      - Aleksander Karstensen
+      - Ayoub Aleesami
+      - Alexander Zoulakis
+      - Stian Stray Molde
+      - Noa Williams
+    coach: Bjørn Johansen
+  away:
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Jørgen Hatlehol
+      - Quint Jansen
+      - Nikolai Hopland
+      - David Kristjan Olafsson
+      - Erlend Segberg
+      - Erikson Lima
+      - Torbjørn Kallevåg
+      - Niklas Castro
+      - Simen Bolkan Nordli
+      - Sigurd Haugen
+    subs:
+      - Kristoffer Barmen
+      - Kristoffer Ødemarksbakken
+      - Mamadou Diaw
+      - Muamer Brajanac
+      - Andreas Lie
+      - Jonas Grønner
+      - Simen Rafn
+      - Isak Dybvik Määttä
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 52
+    shots: 10
+    shotsOnTarget: 7
+    corners: 6
+  away:
+    possession: 48
+    shots: 7
+    shotsOnTarget: 7
+    corners: 2
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +176,13 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

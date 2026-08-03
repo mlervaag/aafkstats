@@ -11,13 +11,161 @@ competition:
 home:
   clubId: molde-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: aker-stadion
 neutralVenue: false
-events: []
+attendance: 6251
+referee: Ola Hobber Nilsen
+events:
+  - minute: 18
+    type: yellow_card
+    team: home
+    player: Eirik Haugan
+  - minute: 19
+    type: yellow_card
+    team: away
+    player: Dario Canadjija
+  - minute: 24
+    type: goal
+    team: home
+    player: Ola Brynhildsen
+  - minute: 62
+    type: yellow_card
+    team: away
+    player: Torbjørn Kallevåg
+  - minute: 66
+    type: substitution
+    team: home
+    player: Kristian Eriksen
+    playerOff: Ola Brynhildsen
+  - minute: 70
+    type: substitution
+    team: away
+    player: Simen Bolkan Nordli
+    playerOff: Torbjørn Kallevåg
+  - minute: 80
+    type: substitution
+    team: away
+    player: John Kitolano
+    playerOff: Moses Ebiye
+  - minute: 80
+    type: substitution
+    team: away
+    player: Kristoffer Ødemarksbakken
+    playerOff: Simen Rafn
+  - minute: 84
+    type: substitution
+    team: home
+    player: Magnus Retsius Grødem
+    playerOff: David Datro Fofana
+  - minute: 84
+    type: substitution
+    team: home
+    player: Magnus Wolff Eikrem
+    playerOff: Emil Breivik
+  - minute: 85
+    type: goal
+    team: home
+    player: Markus André Kaasa
+    assist: Mathias Fjørtoft Løvik
+  - minute: 88
+    type: goal
+    team: home
+    player: Kristian Eriksen
+    assist: Magnus Retsius Grødem
+  - minute: 89
+    type: substitution
+    team: away
+    player: Henrik Melland
+    playerOff: Erlend Segberg
+  - minute: 89
+    type: substitution
+    team: away
+    player: Bjørn Martin Kristensen
+    playerOff: Gilbert Koomson
+  - minute: 90
+    stoppage: 1
+    type: substitution
+    team: home
+    player: Johan Bakke
+    playerOff: Markus André Kaasa
+  - minute: 90
+    stoppage: 1
+    type: substitution
+    team: home
+    player: Niklas Ødegård
+    playerOff: Mathias Fjørtoft Løvik
+lineups:
+  home:
+    formation: 5-3-2
+    starters:
+      - Jacob Karlstrøm
+      - Martin Linnes
+      - Martin Bjørnbak
+      - Eirik Haugan
+      - Birk Risa
+      - Mathias Fjørtoft Løvik
+      - Emil Breivik
+      - Sivert Heggheim Mannsverk
+      - Markus André Kaasa
+      - David Datro Fofana
+      - Ola Brynhildsen
+    subs:
+      - Kristian Eriksen
+      - Magnus Retsius Grødem
+      - Magnus Wolff Eikrem
+      - Johan Bakke
+      - Niklas Ødegård
+      - Anders Rønne Børset
+      - Etzaz Hussain
+      - Mathis Bolly
+      - Oliver Petersen
+    coach: Erling Moe
+  away:
+    formation: 3-4-3
+    starters:
+      - Sten Michael Grytebust
+      - David Fällman
+      - Besim Serbecic
+      - Nikolai Hopland
+      - Petar Golubovic
+      - Erlend Segberg
+      - Dario Canadjija
+      - Simen Rafn
+      - Gilbert Koomson
+      - Moses Ebiye
+      - Torbjørn Kallevåg
+    subs:
+      - Simen Bolkan Nordli
+      - John Kitolano
+      - Kristoffer Ødemarksbakken
+      - Bjørn Martin Kristensen
+      - Henrik Melland
+      - Jeppe Arctander Moe
+      - Michael Lansing
+      - Ulrik Valderhaug Syversen
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 55
+    shots: 19
+    shotsOnTarget: 12
+    corners: 5
+    fouls: 11
+    offsides: 0
+    xg: 3.32
+  away:
+    possession: 45
+    shots: 7
+    shotsOnTarget: 2
+    corners: 3
+    fouls: 9
+    offsides: 1
+    xg: 0.7
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +181,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

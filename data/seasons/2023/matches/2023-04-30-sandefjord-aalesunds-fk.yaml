@@ -11,13 +11,163 @@ competition:
 home:
   clubId: sandefjord
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: release-arena
 neutralVenue: false
-events: []
+attendance: 3086
+referee: Ajdin Medic
+events:
+  - minute: 6
+    type: goal
+    team: home
+    player: Danilo Al-Saed
+    assist: Frederic Bikoro
+  - minute: 43
+    type: goal
+    team: home
+    player: Vetle Walle Egeli
+  - minute: 46
+    type: substitution
+    team: away
+    player: Bjørn Martin Kristensen
+    playerOff: Amidou Diop
+  - minute: 47
+    type: yellow_card
+    team: away
+    player: Alexander Munksgaard
+  - minute: 59
+    type: substitution
+    team: away
+    player: Ole Kolskogen
+    playerOff: Alexander Juel Andersen
+  - minute: 59
+    type: substitution
+    team: away
+    player: Erlend Segberg
+    playerOff: Jeppe Arctander Moe
+  - minute: 60
+    type: goal
+    team: home
+    player: Jesper Taaje
+    assist: Vetle Walle Egeli
+  - minute: 62
+    type: yellow_card
+    team: away
+    player: Erlend Segberg
+  - minute: 71
+    type: substitution
+    team: away
+    player: Trace Murray
+    playerOff: John Kitolano
+  - minute: 77
+    type: substitution
+    team: home
+    player: Gilbert Koomson
+    playerOff: Jakob Maslø Dunsby
+  - minute: 78
+    type: substitution
+    team: home
+    player: Youseff Chaib
+    playerOff: Danilo Al-Saed
+  - minute: 78
+    type: substitution
+    team: away
+    player: Kasper Lunding
+    playerOff: Kristoffer Barmen
+  - minute: 90
+    type: substitution
+    team: home
+    player: Aleksander Damnjanovic Nilsson
+    playerOff: Filip Loftesnes-Bjune
+  - minute: 90
+    type: substitution
+    team: home
+    player: Franklin Daddys Boy Nyenetue
+    playerOff: Alexander Ruud Tveter
+  - minute: 90
+    type: substitution
+    team: home
+    player: Sander Risan
+    playerOff: Frederic Bikoro
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Franklin Daddys Boy Nyenetue
+  - minute: 90
+    type: goal
+    team: home
+    player: Youseff Chaib
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Hugo Keto
+      - Filip Loftesnes-Bjune
+      - Jesper Taaje
+      - Sander Moen Foss
+      - Vetle Walle Egeli
+      - Keanin Ayer
+      - Filip Ottosson
+      - Frederic Bikoro
+      - Jakob Maslø Dunsby
+      - Alexander Ruud Tveter
+      - Danilo Al-Saed
+    subs:
+      - Gilbert Koomson
+      - Youseff Chaib
+      - Aleksander Damnjanovic Nilsson
+      - Franklin Daddys Boy Nyenetue
+      - Sander Risan
+      - Ian Smeulers
+      - Lars Markmanrud
+      - Mats Viken
+      - Wally Njie
+    coach: Andreas Tegström
+  away:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Alexander Juel Andersen
+      - David Fällman
+      - Jeppe Arctander Moe
+      - Alexander Munksgaard
+      - Amidou Diop
+      - Kristoffer Barmen
+      - Nikolai Hopland
+      - John Kitolano
+      - Markus Seehusen Karlsbakk
+      - Moses Ebiye
+    subs:
+      - Bjørn Martin Kristensen
+      - Erlend Segberg
+      - Ole Kolskogen
+      - Trace Murray
+      - Kasper Lunding
+      - Isaac Atanga
+      - Kristoffer Ødemarksbakken
+      - Michael Lansing
+    coach: Lars Arne Nilsen
+stats:
+  home:
+    possession: 52
+    shots: 14
+    shotsOnTarget: 7
+    corners: 11
+    fouls: 13
+    offsides: 4
+    xg: 2.13
+  away:
+    possession: 48
+    shots: 9
+    shotsOnTarget: 1
+    corners: 4
+    fouls: 9
+    offsides: 3
+    xg: 1.27
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +183,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

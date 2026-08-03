@@ -11,13 +11,115 @@ competition:
 home:
   clubId: sandnes-ulf
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
+venueId: sandnes-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 33
+    type: yellow_card
+    team: home
+    player: Axel Kryger
+  - minute: 49
+    type: goal
+    team: home
+    player: Niels Vorthoren
+  - minute: 59
+    type: substitution
+    team: away
+    player: Robert Sandnes
+    playerOff: Jørgen Hatlehol
+  - minute: 61
+    type: substitution
+    team: away
+    player: Pape Habib Gueye
+    playerOff: Torbjørn Agdestein
+  - minute: 66
+    type: substitution
+    team: home
+    player: Onyekachi Ugwuadu
+    playerOff: Vegard Østraat Erlien
+  - minute: 66
+    type: goal
+    team: away
+    player: Kaj Ramsteijn
+    assist: Fredrik Carlsen
+  - minute: 73
+    type: goal
+    team: away
+    player: Sonni Nattestad
+    assist: Pape Habib Gueye
+  - minute: 74
+    type: substitution
+    team: home
+    player: Erixon Danso
+    playerOff: Vegard Aasen
+  - minute: 75
+    type: substitution
+    team: away
+    player: Sondre Brunstad Fet
+    playerOff: Erikson Lima
+  - minute: 90
+    type: substitution
+    team: home
+    player: Deniss Korneiciks
+    playerOff: Herman Kleppa
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Adam Örn Arnarson
+  - minute: 90
+    type: red_card
+    team: home
+    player: Arnold Origi Otieno
+lineups:
+  home:
+    formation: 4-1-4-1
+    starters:
+      - Arnold Origi Otieno
+      - Herman Kleppa
+      - Jasmin Bogdanovic
+      - Akinsola Akinyemi
+      - Daniel Edvardsen
+      - Axel Kryger
+      - Vegard Aasen
+      - Vegard Østraat Erlien
+      - Andreas Dybevik
+      - Kristian Brix
+      - Niels Vorthoren
+    subs:
+      - Onyekachi Ugwuadu
+      - Erixon Danso
+      - Deniss Korneiciks
+      - Jo Stålesen
+      - Sjur Lothe
+      - Tapio Heikkilä
+    coach: Bengt Sæternes
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Sonni Nattestad
+      - Oddbjørn Lie
+      - Kaj Ramsteijn
+      - Adam Örn Arnarson
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Erikson Lima
+      - Jørgen Hatlehol
+      - Torbjørn Agdestein
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Robert Sandnes
+      - Pape Habib Gueye
+      - Sondre Brunstad Fet
+      - Emil Solnørdal
+      - Håvard Breivik
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +135,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []

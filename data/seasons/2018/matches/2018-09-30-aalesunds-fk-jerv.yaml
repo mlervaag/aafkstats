@@ -11,13 +11,105 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: jerv
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
+venueId: color-line-stadion
 neutralVenue: false
-events: []
+events:
+  - minute: 8
+    type: goal
+    team: away
+    player: Martin Hoel Andersen
+  - minute: 58
+    type: substitution
+    team: away
+    player: Ulrik Berglann
+    playerOff: Luke Ferreira
+  - minute: 65
+    type: substitution
+    team: home
+    player: Ståle Steen Sæthre
+    playerOff: Erikson Lima
+  - minute: 70
+    type: substitution
+    team: home
+    player: Pape Habib Gueye
+    playerOff: Torbjørn Agdestein
+  - minute: 71
+    type: substitution
+    team: away
+    player: Peter Reinhardsen
+    playerOff: Thomas Zernichow
+  - minute: 79
+    type: substitution
+    team: home
+    player: Nikola Tkalcic
+    playerOff: Adam Örn Arnarson
+  - minute: 80
+    type: goal
+    team: home
+    player: Pape Habib Gueye
+  - minute: 81
+    type: yellow_card
+    team: away
+    player: Sean Okoli
+  - minute: 84
+    type: substitution
+    team: away
+    player: Aram Khalili
+    playerOff: Martin Hoel Andersen
+  - minute: 87
+    type: yellow_card
+    team: home
+    player: Sondre Brunstad Fet
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Jonas Grønner
+      - Oddbjørn Lie
+      - Adam Örn Arnarson
+      - Aron Elis Thrándarson
+      - Daniel Gretarsson
+      - Erikson Lima
+      - Sondre Brunstad Fet
+      - Torbjørn Agdestein
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Ståle Steen Sæthre
+      - Pape Habib Gueye
+      - Nikola Tkalcic
+      - Håvard Breivik
+      - Jens Petter Hauge
+      - Jørgen Hatlehol
+      - Tarjei Aase Omenås
+    coach: Lars Bohinen
+  away:
+    formation: 4-3-3
+    starters:
+      - Øystein Øvretveit
+      - Brice Wembangomo
+      - Espen Knudsen
+      - Glenn Andersen
+      - Kristoffer Toennessen
+      - Thomas Zernichow
+      - Mathias Wichmann
+      - Andreas Hagen
+      - Martin Hoel Andersen
+      - Sean Okoli
+      - Luke Ferreira
+    subs:
+      - Ulrik Berglann
+      - Peter Reinhardsen
+      - Aram Khalili
+      - Marc Nordqvist
+      - Vegard Somdal
+    coach: Arne Sandstø
 externalReports: []
 sources:
   - sourceId: fotmob
@@ -33,6 +125,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
     note: "Kildestatus: FT"
 confidence: probable
 conflicts: []
