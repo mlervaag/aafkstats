@@ -2,6 +2,7 @@
 
 import { useDeferredValue, useEffect, useRef, useState } from "react";
 import { InterludeRotator } from "@/components/Interlude";
+import { ThinkingLine } from "@/components/ThinkingLine";
 import { interludes } from "@/lib/interludes";
 
 interface ExecutedQuery {
@@ -213,10 +214,7 @@ export function AskBox({ trivia = [] }: { trivia?: string[] }) {
         <div className="answer" aria-live="polite" aria-busy={state === "loading"}>
           {answer === "" ? (
             <>
-              <p className="thinking">
-                <span className="dot" aria-hidden="true" />
-                {activeTool ? `Slår opp i arkivet (${activeTool}) …` : "Tolker spørsmålet …"}
-              </p>
+              <ThinkingLine activeTool={activeTool} />
               <InterludeRotator items={interludes} trivia={trivia} />
             </>
           ) : <Answer text={answer} />}
