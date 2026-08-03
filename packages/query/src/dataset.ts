@@ -60,6 +60,7 @@ export const views: ViewDoc[] = [
       { name: "goal_difference", type: "integer", description: "aafk_score minus opponent_score. Negativ ved tap." },
       { name: "result", type: "text", description: "'S' seier, 'U' uavgjort, 'T' tap. NULL når kampen ikke er spilt." },
       { name: "after_extra_time", type: "integer (0/1)", description: "Sant når kampen gikk til ekstraomganger. Målene derfra er allerede med i aafk_score." },
+      { name: "note", type: "text", description: "Forbehold om denne kampen. Eldre kilder oppgir ofte bare sluttresultatet, ikke stillingen etter ordinær tid. Står det noe her, skal det tas med i svaret." },
       { name: "decided_on_penalties", type: "integer (0/1)", description: "Sant når kampen gikk til straffesparkkonkurranse." },
       { name: "won_on_penalties", type: "integer (0/1)", description: "Ved straffekonkurranse: vant AaFK den? Ellers NULL." },
       { name: "venue", type: "text", description: "Stadionnavn slik det var på kampdatoen." },
