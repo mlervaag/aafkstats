@@ -1,0 +1,14 @@
+{
+  // Løsningsfil for `tsc --build`. Har ingen egne filer — den finnes bare for å
+  // gi byggerekkefølgen mellom arbeidspakkene.
+  //
+  // apps/web står ikke her: Next har sitt eget oppsett (jsx, bundler-oppslag,
+  // noEmit) og er ikke et composite-prosjekt. Den typesjekkes for seg i
+  // `pnpm typecheck`.
+  "files": [],
+  "references": [
+    { "path": "packages/schema" },
+    { "path": "packages/db" },
+    { "path": "packages/query" }
+  ]
+}

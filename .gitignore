@@ -1,0 +1,25 @@
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Next.js
+.next/
+out/
+.vercel/
+
+# Innhøstingscache — rå kildedata, aldri committet
+.cache/
+
+# Miljø
+.env
+.env.local
+.env*.local
+!.env.example
+
+# Diverse
+.DS_Store
+*.log
+coverage/
+
+# Bygd arkivfil — genereres fra data/, binærfil gir ubrukelige differ
+apps/web/.data/

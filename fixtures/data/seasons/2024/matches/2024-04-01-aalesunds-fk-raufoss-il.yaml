@@ -1,0 +1,27 @@
+id: 2024-04-01-aalesunds-fk-raufoss-il
+date: 2024-04-01
+kickoff: "18:00"
+status: played
+competition: { id: eliteserien, season: 2024, stage: regular_season, round: 3 }
+home: { clubId: aalesunds-fk, score: 2, halfTimeScore: 0 }
+away: { clubId: raufoss-il, score: 1, halfTimeScore: 1 }
+venueId: color-line-stadion
+attendance: 7412
+referee: Konstruert Dommer
+events:
+  - { minute: 34, type: goal, team: away, player: Fixture Spiller A }
+  - { minute: 58, type: goal, team: home, player: Fixture Spiller B, assist: Fixture Spiller C }
+  - { minute: 77, type: goal, team: home, player: Fixture Spiller B }
+  - { minute: 81, type: yellow_card, team: away, player: Fixture Spiller D }
+stats:
+  home: { possession: 58, shots: 14, shotsOnTarget: 6, corners: 7, xg: 1.8 }
+  away: { possession: 42, shots: 8, shotsOnTarget: 3, corners: 3, xg: 0.9 }
+report:
+  summary: Konstruert fixture-kamp. Snuoperasjon etter pause.
+  body: |
+    Dette er fixture-data og beskriver ingen ekte kamp. Teksten finnes for å teste
+    fritekstsøk og at referat rendres riktig på kampsiden.
+sources:
+  - { sourceId: fotmob, retrievedAt: 2026-08-02, fields: [home.score, away.score, events, stats] }
+confidence: confirmed
+tags: [fixture]

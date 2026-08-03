@@ -1,0 +1,15 @@
+id: 1998-08-16-aalesunds-fk-sk-brann
+date: 1998-08-16
+status: played
+competition: { id: forstedivisjon, season: 1998, stage: regular_season, round: 18 }
+home: { clubId: aalesunds-fk, score: 1, halfTimeScore: 1 }
+away: { clubId: sk-brann, score: 7, halfTimeScore: 2 }
+venueId: kramyra-stadion
+attendance: 4210
+sources:
+  - { sourceId: rsssf, retrievedAt: 2026-08-02, fields: [home.score, away.score] }
+confidence: probable
+tags: [fixture]
+note: >
+  Konstruert fixture. Eldste av to hjemmetap med seks måls margin — finnes for å bevise
+  at «sist» faktisk sorterer på dato og ikke bare finner det første treffet.

@@ -1,0 +1,15 @@
+id: 2005-10-02-molde-fk-aalesunds-fk
+date: 2005-10-02
+status: played
+competition: { id: eliteserien, season: 2005, stage: regular_season, round: 24 }
+home: { clubId: molde-fk, score: 7, halfTimeScore: 4 }
+away: { clubId: aalesunds-fk, score: 0, halfTimeScore: 0 }
+venueId: aker-stadion
+attendance: 9530
+sources:
+  - { sourceId: wikipedia, retrievedAt: 2026-08-02, fields: [home.score, away.score] }
+confidence: confirmed
+tags: [fixture]
+note: >
+  Konstruert fixture. Nyere og større tap enn 2005-09-18, men PÅ BORTEBANE — felle for
+  et svar som ignorerer is_home.

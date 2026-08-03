@@ -1,0 +1,14 @@
+id: 2005-09-18-aalesunds-fk-rosenborg-bk
+date: 2005-09-18
+status: played
+competition: { id: eliteserien, season: 2005, stage: regular_season, round: 22 }
+home: { clubId: aalesunds-fk, score: 0, halfTimeScore: 0 }
+away: { clubId: rosenborg-bk, score: 6, halfTimeScore: 3 }
+venueId: color-line-stadion
+attendance: 10241
+sources:
+  - { sourceId: wikipedia, retrievedAt: 2026-08-02, fields: [home.score, away.score] }
+confidence: confirmed
+tags: [fixture]
+note: >
+  Konstruert fixture. FASIT for testspørsmålet «når tapte vi sist med 6 mål på hjemmebane?».

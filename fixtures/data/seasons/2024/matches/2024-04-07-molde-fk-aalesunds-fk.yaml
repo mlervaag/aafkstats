@@ -1,0 +1,12 @@
+id: 2024-04-07-molde-fk-aalesunds-fk
+date: 2024-04-07
+status: played
+competition: { id: eliteserien, season: 2024, stage: regular_season, round: 4 }
+home: { clubId: molde-fk, score: 2, halfTimeScore: 1 }
+away: { clubId: aalesunds-fk, score: 0, halfTimeScore: 0 }
+venueId: aker-stadion
+attendance: 10118
+sources:
+  - { sourceId: fotmob, retrievedAt: 2026-08-02, fields: [home.score, away.score] }
+confidence: confirmed
+tags: [fixture]

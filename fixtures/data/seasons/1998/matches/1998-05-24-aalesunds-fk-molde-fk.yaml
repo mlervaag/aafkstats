@@ -1,0 +1,21 @@
+id: 1998-05-24-aalesunds-fk-molde-fk
+date: 1998-05-24
+dateConfidence: exact
+status: played
+competition: { id: forstedivisjon, season: 1998, stage: regular_season, round: 9 }
+home: { clubId: aalesunds-fk, score: 3, halfTimeScore: 1 }
+away: { clubId: molde-fk, score: 1, halfTimeScore: 1 }
+venueId: kramyra-stadion
+sources:
+  - { sourceId: rsssf, retrievedAt: 2026-08-02, fields: [home.score] }
+  - { sourceId: nasjonalbiblioteket, retrievedAt: 2026-08-02, fields: [away.score] }
+confidence: disputed
+conflicts:
+  - field: away.score
+    values:
+      - { value: 1, sourceId: rsssf }
+      - { value: 2, sourceId: nasjonalbiblioteket, note: Sunnmørsposten oppgir 3–2 }
+    resolved: false
+    note: Kildene er uenige om sluttresultatet. Trenger en tredje kilde.
+tags: [fixture]
+note: Konstruert fixture som tester at konflikt og «disputed» vises riktig.

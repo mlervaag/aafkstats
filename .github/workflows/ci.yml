@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    # Ingen databasetjeneste. Arkivet er en SQLite-fil som bygges fra data/ på
+    # millisekunder, og testene bygger sin egen fixture-fil i beforeAll. Dermed
+    # kjører alt likt her og lokalt — ingen tester som «hoppes over uten database».
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # Arkivet må validere før noe annet. Feiler dette, er dataene ødelagte og
+      # resten av jobben sier ingenting nyttig.
+      - name: Valider arkivet
+        run: pnpm validate
+
+      - name: Valider fixture-arkivet
+        run: AAFK_DATA_DIR=fixtures/data pnpm validate
+
+      - name: Typesjekk
+        run: pnpm typecheck
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Kjør tester
+        run: pnpm test
+
+      # Bygger med fixture-data, ikke data/. Da rendres sidene med kamper i seg —
+      # med et tomt data/ ville byggesteget vært grønt uten å ha vist noe.
+      - name: Bygg nettstedet
+        run: AAFK_DATA_DIR=fixtures/data pnpm build
