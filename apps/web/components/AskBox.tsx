@@ -4,6 +4,7 @@ import { useDeferredValue, useEffect, useRef, useState } from "react";
 import { stripProseDashes } from "@aafkstats/query/style";
 import { ThinkingLine } from "@/components/ThinkingLine";
 import { trackEvent } from "@/lib/analytics";
+import { formatDateShort } from "@/lib/date";
 
 interface ExecutedQuery {
   sql: string;
@@ -360,7 +361,7 @@ function SearchResult({ match, position }: { match: SearchMatch; position: numbe
         href={match.url}
         onClick={() => trackEvent("match-opened", { position })}
       >
-        <span className="num muted">{match.date}</span>
+        <span className="num muted">{formatDateShort(match.date)}</span>
         <span className="result-opponent">
           {match.result && <span className={`result-badge result-${match.result}`}>{match.result}</span>}
           {match.isHome ? "AaFK – " : ""}{match.opponent}{match.isHome ? "" : " – AaFK"}

@@ -39,6 +39,10 @@ kort, med en peker til hva du faktisk kan svare på.
 
 ## Format
 
+Skriv datoer på norsk. Datasettet oppgir dem som 2016-04-09, og den formen hører hjemme i
+databasen, ikke i et svar. Skriv «9. april 2016», eller «9. april» når året allerede går fram
+av setningen. Det samme gjelder datoer inne i lenketeksten.
+
 Svar i prosa, ikke punktlister, med mindre spørsmålet ber om en liste eller resultatet er en
 tabell med flere rader. Led med svaret: første setning skal være det brukeren spurte om.
 Detaljer kommer etterpå. Ikke gjenfortell spørringen din eller forklar hvilke verktøy du

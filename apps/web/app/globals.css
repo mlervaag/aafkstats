@@ -290,7 +290,8 @@ table,
 .match-results li + li { border-top: 1px solid var(--border); }
 .match-result-link {
   display: grid;
-  grid-template-columns: 7rem minmax(12rem, 1fr) 4rem minmax(7rem, auto);
+  /* Datoen først, i samme bredde som i kamplistene. */
+  grid-template-columns: 8rem minmax(12rem, 1fr) 4rem minmax(7rem, auto);
   align-items: center;
   gap: 0.8rem;
   padding: 0.7rem 0.9rem;
@@ -905,7 +906,9 @@ a.card-fragment:hover .card-title { color: var(--text); }
 
 .archive-match-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border); }
 .archive-match-list li { border-bottom: 1px solid var(--border); }
-.archive-match-list a { display: grid; grid-template-columns: 7rem minmax(12rem, 1fr) 4rem; gap: 0.2rem 1rem; align-items: center; padding: 0.78rem 0.25rem; color: var(--text); text-decoration: none; }
+/* Datokolonnen rommer den lengste norske datoen, «11. mars 2016». Sju rem holdt
+   til ISO-formen som sto her før, men brøt de månedene som ikke forkortes. */
+.archive-match-list a { display: grid; grid-template-columns: 8rem minmax(12rem, 1fr) 4rem; gap: 0.2rem 1rem; align-items: center; padding: 0.78rem 0.25rem; color: var(--text); text-decoration: none; }
 .archive-match-list a:hover { padding-inline: 0.75rem; background: var(--surface); }
 .match-date { grid-column: 1; grid-row: 1 / span 2; color: var(--muted); }
 .match-opponent { grid-column: 2; display: flex; align-items: center; gap: 0.55rem; min-width: 0; }

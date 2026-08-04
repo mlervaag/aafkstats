@@ -1,4 +1,5 @@
 import type { ArchiveMatch } from "@/lib/archive";
+import { formatDateShort } from "@/lib/date";
 import { readableScore } from "@/lib/score";
 
 export function MatchList({ matches }: { matches: ArchiveMatch[] }) {
@@ -10,7 +11,7 @@ export function MatchList({ matches }: { matches: ArchiveMatch[] }) {
         return (
           <li key={match.matchId} className={upcoming ? "is-upcoming" : undefined}>
             <a href={match.url}>
-              <span className="match-date num">{match.date}</span>
+              <span className="match-date num">{formatDateShort(match.date)}</span>
               <span className="match-opponent">
                 {/* Merket bærer resultatet for spilte kamper. En kamp som ikke er
                     spilt får ikke et tomt merke i stedet — da ville raden sett ut

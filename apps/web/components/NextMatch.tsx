@@ -1,10 +1,5 @@
 import type { ArchiveMatch } from "@/lib/archive";
-
-const WEEKDAYS = ["søndag", "mandag", "tirsdag", "onsdag", "torsdag", "fredag", "lørdag"];
-const MONTHS = [
-  "januar", "februar", "mars", "april", "mai", "juni",
-  "juli", "august", "september", "oktober", "november", "desember",
-];
+import { formatWeekdayDate } from "@/lib/date";
 
 /**
  * Neste kamp på terminlista.
@@ -13,14 +8,11 @@ const MONTHS = [
  * noe sted. For den som følger klubben er dette det ene spørsmålet som stilles
  * oftest mellom kampene, og svaret lå der hele tiden.
  *
- * Datoen skrives ut fordi «2026-08-09» ikke er slik noen sier det. Kampdatoene
- * ellers i arkivet står på ISO-form med vilje — de skal kunne sammenlignes og
- * sorteres av øyet — men denne ene skal leses.
+ * Ukedagen står bare her. Ellers på siden er datoen nok, men en kamp som kommer
+ * planlegges etter hvilken dag i uka den er.
  */
 export function NextMatch({ match }: { match: ArchiveMatch | undefined }) {
   if (!match) return null;
-  const [year, month, day] = match.date.split("-").map(Number);
-  const date = new Date(Date.UTC(year!, month! - 1, day!));
 
   return (
     <a className="next-match" href={match.url}>
@@ -29,7 +21,7 @@ export function NextMatch({ match }: { match: ArchiveMatch | undefined }) {
         {match.isHome ? "AaFK – " : ""}{match.opponent}{match.isHome ? "" : " – AaFK"}
       </strong>
       <span className="next-match-when">
-        {WEEKDAYS[date.getUTCDay()]} {day}. {MONTHS[month! - 1]}
+        {formatWeekdayDate(match.date)}
         {match.kickoff ? ` kl. ${match.kickoff}` : ""}
       </span>
       <span className="next-match-where muted small">
