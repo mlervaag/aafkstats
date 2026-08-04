@@ -15,8 +15,8 @@ export default function ContributePage() {
         <p className="eyebrow">Åpent arkiv</p>
         <h1>Har du en rettelse eller kilde?</h1>
         <p className="lede">
-          Bidragsskjemaet er ikke bygget ennå. I MVP-en bruker vi GitHub, slik at alle
-          endringer kan kontrolleres før de blir del av arkivet.
+          Bidragsskjemaet er ikke bygget ennå. Foreløpig går rettelser via GitHub, slik at
+          alle endringer kan kontrolleres før de blir del av arkivet.
         </p>
       </header>
 

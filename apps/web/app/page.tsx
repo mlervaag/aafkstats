@@ -61,13 +61,14 @@ export default function Home() {
           notisen lå som en boks inni en tekst som allerede sa det samme. */}
       <section className="scope-note">
         <div>
-          <p className="eyebrow">Dette er en MVP</p>
+          <p className="eyebrow">Offentlig beta</p>
           <h2>God bredde, ulik detaljgrad</h2>
         </div>
         <div className="prose">
           <p>
-            Dato, motstander og sluttresultat finnes for hver kamp i arkivet;
-            detaljgraden varierer. Kildene er dokumentert, men datasettet er ikke en
+            Dato, motstander og sluttresultat finnes for hver spilte kamp; kampene som
+            står igjen på terminlista har ingen resultat ennå og telles ikke med.
+            Detaljgraden varierer, og kildene er dokumentert. Datasettet er ikke en
             offisiell AaFK-publikasjon. <a href="/om">Les om omfang og forbehold.</a>
           </p>
           <CoverageNote heading={false} />

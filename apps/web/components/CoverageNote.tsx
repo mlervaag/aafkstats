@@ -1,5 +1,6 @@
 import { open } from "@aafkstats/db";
 import { coverageFacts, readCoverage } from "@aafkstats/query/coverage";
+import type { DatasetCoverage } from "@aafkstats/query/coverage";
 import { loadCoverage } from "@/lib/archive";
 import type { ArchiveCoverage } from "@/lib/archive";
 
@@ -131,5 +132,32 @@ export function PromptCoverage() {
         <li key={fact}>{fact}</li>
       ))}
     </ul>
+  );
+}
+
+/**
+ * Forskjellen på et representert år og en komplett sesong.
+ *
+ * «85 sesonger» har hele tiden betydd 85 år med minst én registrert kamp, og en
+ * leser som ser tallet på forsiden har ingen grunn til å lese det slik. Setningen
+ * her sier begge tallene ved siden av hverandre, regnet ut av arkivet selv.
+ */
+export function SeasonDepth() {
+  const db = open();
+  let c: DatasetCoverage;
+  try {
+    c = readCoverage(db);
+  } finally {
+    db.close();
+  }
+
+  return (
+    <p className="prose">
+      {c.years} år er representert med minst én kamp. Det er ikke det samme som{" "}
+      {c.years} komplette sesonger: av de {c.leagueSeasons} serieårene arkivet har,
+      er {c.completeLeagueSeasons} merket komplette, altså runde 1 til siste runde uten
+      hull. Resten har kamper, men ikke hele rekka. Cupdekning kan ikke måles på samme
+      måte, for en cupsesong slutter når laget ryker ut.
+    </p>
   );
 }
