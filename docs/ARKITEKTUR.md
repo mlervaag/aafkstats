@@ -1,0 +1,306 @@
+# Arkitektur
+
+Hvordan AaFK-arkivet henger sammen, og hvorfor delene er som de er. Dokumentet er skrevet
+for den som skal endre noe: hver avgjørelse står med alternativet som ble valgt bort.
+
+- [Helhetsbildet](#helhetsbildet)
+- [Lag for lag](#lag-for-lag)
+- [Byggesteget](#byggesteget)
+- [Datasettet som kontrakt](#datasettet-som-kontrakt)
+- [Spørrefunksjonen og grensene rundt den](#spørrefunksjonen-og-grensene-rundt-den)
+- [Innhøstingen](#innhøstingen)
+- [Nettstedet](#nettstedet)
+- [Testing og CI](#testing-og-ci)
+- [Utrulling](#utrulling)
+- [Ting som er bevisst utelatt](#ting-som-er-bevisst-utelatt)
+
+## Helhetsbildet
+
+```mermaid
+flowchart TB
+  subgraph kilder["Kilder"]
+    F["FotMob<br/>2010→"]
+    R["RSSSF<br/>←2009"]
+    B["Bidrag<br/>pull request"]
+  end
+
+  subgraph sannhet["Sannheten"]
+    Y["<b>data/</b><br/>YAML i git<br/>én fil per kamp"]
+  end
+
+  subgraph derivat["Derivat"]
+    S[("<b>aafkstats.sqlite</b><br/>skrivebeskyttet<br/>core_* + views")]
+  end
+
+  subgraph lesere["Lesere"]
+    W["Nettsted<br/>Next.js"]
+    C["Spørrefunksjon<br/>Claude + SQL"]
+    A["REST · MCP<br/><i>planlagt</i>"]
+  end
+
+  F -- "ingest, --write" --> Y
+  R -- "ingest, --write" --> Y
+  B --> Y
+  Y -- "db:build" --> S
+  S --> W
+  S --> C
+  S -.-> A
+```
+
+To setninger bærer resten:
+
+**Git er sannheten.** Arkivfilen kan når som helst slettes og bygges opp igjen fra
+YAML-filene. Ingen opplysning finnes bare i databasen. Det er dét som gjør arkivet fritt: alt
+kan klones, forkes og rettes, og hver rettelse har en historikk med begrunnelse.
+
+**Databasen er et byggetidsderivat.** Den bygges ved hver utrulling, legges ved i
+funksjonsbunten, og åpnes skrivebeskyttet. Den er aldri en cache som kan bli utdatert, fordi
+dataene bare endrer seg gjennom en merge — og hver merge utløser en ny utrulling.
+
+### Hvorfor ikke en databasetjeneste
+
+Det opprinnelige utkastet var Neon Postgres. Det ble byttet ut, og bytteforholdet er verdt å
+kjenne:
+
+| | SQLite ved bygging | Postgres som tjeneste |
+|---|---|---|
+| Ferskhet | Per definisjon fersk: bygges av samme commit som koden | Fersk, men krever migrasjoner i takt med koden |
+| Drift | Ingenting å drifte | Tjeneste, backup, tilkoblingsgrenser, kaldstart |
+| Tester | Bygger sin egen fil i `beforeAll`, kjører likt overalt | Krever tjeneste, eller tester som «hoppes over» |
+| Skrivetilstand | Finnes ikke | Naturlig sted for tellere og bruksmåling |
+| Kostnad | Null | Løpende |
+
+Den eneste reelle kostnaden er at skrivetilstand må bo et annet sted. Det gjelder to ting:
+rate-limiting og bruksmåling. Begge hører hjemme foran applikasjonen uansett — Vercel Firewall
+teller på kanten, og kostnadstaket ligger i Anthropic Console. Se
+[`apps/web/lib/rate-limit.ts`](../apps/web/lib/rate-limit.ts) for hvordan det henger sammen,
+og hva reservelaget i minnet faktisk er verdt.
+
+Hele arkivet — 1 040 kamper — bygges på rundt 60 ms til en fil på 2,6 MB.
+
+## Lag for lag
+
+| Pakke | Ansvar | Avhenger av |
+|---|---|---|
+| [`@aafkstats/schema`](../packages/schema/README.md) | Datamodellen som Zod-skjema, lasting og validering av arkivet, avledning til AaFK-perspektiv | — |
+| [`@aafkstats/db`](../packages/db/README.md) | SQLite-skjemaet, byggesteget, og guardrailen rundt SQL utenfra | `schema` |
+| [`@aafkstats/ingest`](../packages/ingest/README.md) | Kildeadaptere, cache, normalisering, rettighetsport og reconcile til YAML | `schema` |
+| [`@aafkstats/query`](../packages/query/README.md) | Datasettdokumentasjonen, verktøydefinisjonene og systemprompten | `db`, `schema` |
+| [`@aafkstats/web`](../apps/web/README.md) | Portalen, `/api/chat`, `/api/search`, `/data` | alle |
+
+Retningen er enveis: `schema` vet ingenting om databasen, `db` vet ingenting om chatten, og
+`ingest` vet ingenting om nettstedet. Den eneste veien data går inn i arkivet er YAML-filer,
+og den eneste veien de kommer ut er de dokumenterte viewene.
+
+## Byggesteget
+
+[`packages/db/src/build.ts`](../packages/db/src/build.ts) gjør fire ting, i denne rekkefølgen:
+
+1. **Laster og validerer.** `loadArchive()` leser hver YAML-fil mot Zod-skjemaet og samler
+   feil i stedet for å kaste, slik at én ødelagt fil ikke skjuler de andre.
+   `crossValidate()` legger til kontrollene som først er mulige når hele arkivet er lest:
+   referanseintegritet, duplikate ID-er, og kamper som ser ut til å være lagt inn to ganger
+   under ulike slugs.
+2. **Bygger fra bunnen.** Filen skrives på nytt hver gang, aldri oppdateres inkrementelt.
+   Resultatet avhenger da bare av innholdet i `data/`: to bygg av samme commit gir samme fil,
+   og en slettet YAML-fil forsvinner faktisk.
+3. **Løser opp det som kan løses én gang.** Tre ting regnes ut her i stedet for per spørring:
+   - **AaFK-perspektivet** (`toAafkPerspective()` i `packages/schema`) — `is_home`,
+     `opponent`, `aafk_score`, `goal_difference`, `result`.
+   - **Tidsavhengige navn** (`nameAt()`) — konkurransens, motstanderens og stadionets navn
+     slik de var på kampdatoen.
+   - **Fullstendighet** — `completeness` og `missing_fields`, så det er søkbart hvor arkivet
+     er tynt.
+
+   I Postgres-utkastet var navneoppslaget en SQL-funksjon som kjørte per rad per spørring.
+   Navnet for en gitt kampdato kan aldri endre seg, så oppslaget hører hjemme i byggesteget.
+   Enklere, og raskere.
+4. **`ANALYZE` og `VACUUM`.** Filen pakkes tett, og spørreplanleggeren får statistikk.
+
+Avledningen ligger i `packages/schema`, ikke i SQL, fordi den samme funksjonen brukes av
+testene og av visningslaget. Én implementasjon kan ikke bli uenig med seg selv.
+
+## Datasettet som kontrakt
+
+SQLite har ingen schemas, så skillet mellom internt og publisert uttrykkes med navn:
+
+- **`core_*`** er interne tabeller. Rådata, alle kolonner, ingen garantier.
+- **Viewene uten prefiks** — `matches`, `seasons`, `opponents`, `match_events`, `sources` og
+  FTS-tabellen `reports` — er den offentlige kontrakten.
+
+Spørrefunksjonen ser bare viewene. Et senere REST-API og en MCP-server skal bruke den samme
+kontrakten. Legger du til en kolonne i `core_matches` uten å eksponere den i et view, har du
+lagt til rådata; legger du den til i et view, har du utvidet kontrakten, og da skal den også
+dokumenteres i [`packages/query/src/dataset.ts`](../packages/query/src/dataset.ts).
+
+### `matches`-viewet
+
+Den viktigste avgjørelsen i hele datasettet. I stedet for hjemme/borte-kolonner der man må
+vite hvilken side AaFK spilte på, er hver kamp flatet ut til «oss» og «motstander»:
+
+```sql
+SELECT date, opponent, aafk_score, opponent_score, url
+FROM matches
+WHERE is_home = 1 AND result = 'T' AND goal_difference <= -6
+ORDER BY date DESC LIMIT 1;
+```
+
+Uten `is_home`/`opponent`/`aafk_score` måtte enhver spørring begynt med et `CASE` over
+hjemmelag og bortelag. Det er nettopp den typen resonnement en språkmodell bommer på i
+kanttilfellene, og som et menneske skriver feil i en travel time.
+
+Invarianten som gjør det mulig — nøyaktig én av sidene i en kamp er `aalesunds-fk` —
+håndheves av skjemaet, ikke av konvensjon.
+
+### Én sannhet, to lesere
+
+[`packages/query/src/dataset.ts`](../packages/query/src/dataset.ts) er dokumentasjonen av
+datasettet. Den rendres for mennesker på [`/data`](https://aafkstats.vercel.app/data), og
+den er samtidig andre halvdel av chattens systemprompt. Det finnes altså ingen skjult
+beskrivelse modellen har og brukeren ikke har.
+
+`packages/query/test/dataset.test.ts` åpner den faktiske arkivfilen og sammenligner: alle
+dokumenterte views må finnes, alle dokumenterte kolonner må finnes, og hver eksempelspørring
+må kjøre. Dokumentasjon som ikke stemmer er verre enn ingen dokumentasjon, særlig når en
+modell handler på den.
+
+## Spørrefunksjonen og grensene rundt den
+
+Chatten kan skrive og kjøre egne SELECT-spørringer. Det er dét som gjør at den kan svare på
+spørsmål ingen har laget et ferdig oppslag for. Fem lag holder det trygt:
+
+| Lag | Håndheves av | Hva det stopper |
+|---|---|---|
+| Filen åpnes med `readOnly` | **SQLite** | All skriving, uansett hvor den kommer fra |
+| Egen prosess, `SIGKILL` ved timeout | **operativsystemet** | Spørringer som ikke lar seg avbryte |
+| Én setning, kun SELECT/WITH, ingen `core_*` eller `sqlite_*` | koden | Setningsstabling, tilgang til rådata |
+| Radtak på 200 | koden | Svar som sprenger kontekstvinduet |
+| Logging av hver spørring | koden | Ingenting — det er observasjon |
+
+**Bare de to første er sikkerhet.** De tre siste finnes for å gi modellen forståelige
+feilmeldinger, og for å holde svarene korte. Hele opplegget skal være trygt selv om
+tekstanalysen skulle ha et hull.
+
+### Hvorfor en egen prosess
+
+SQLite har ingen `statement_timeout`. En spørring som blokkerer i motoren lar seg ikke
+avbryte fra JavaScript: `DatabaseSync`-kallet er synkront og holder tråden så lenge det tar.
+En `Worker` hjelper ikke, for `terminate()` venter på at det pågående kallet returnerer.
+
+Derfor kjører hver spørring i en egen Node-prosess som avlives utenfra med `SIGKILL`. Det
+koster rundt 45 ms per spørring, og det er den eneste måten grensen faktisk holder. Se
+[`packages/db/src/safe-sql.ts`](../packages/db/src/safe-sql.ts).
+
+### Hvorfor tekstanalysen ikke er sikkerhet
+
+`stripLiterals()` fjerner strenger, siterte identifikatorer og kommentarer før den leter
+etter semikolon og nøkkelord, slik at `WHERE note = 'a;b'` ikke avvises som flere setninger.
+Den er skrevet for å være presis, men den er ikke en parser. Det er greit, fordi den ikke er
+det som beskytter filen — den er det som gir modellen en forståelig feilmelding i stedet for
+en tom timeout.
+
+[`packages/db/test/safe-sql.integration.test.ts`](../packages/db/test/safe-sql.integration.test.ts)
+prøver å bryte hvert lag mot en ekte arkivfil, inkludert direkte skriveforsøk utenom koden.
+
+### Prompt injection
+
+Kampreferat og notater i datasettet er tekst skrevet av bidragsytere. Systemprompten sier
+uttrykkelig at slikt innhold er data å referere til, aldri instruksjoner. Skulle et forsøk
+komme gjennom, er det fortsatt lagene over som avgjør hva som faktisk kan skje: en modell som
+lar seg overtale kan i verste fall skrive en rar SELECT.
+
+## Innhøstingen
+
+Regelen er at **en adapter ikke er en crawler**. Hver kjøring navngir kilde, konkurranse og
+sesong eksplisitt. Det finnes ingen kommando som oppdager alle sesonger og starter en full
+backfill.
+
+Flyten er den samme for begge kildene:
+
+```mermaid
+flowchart LR
+  P{"Rettighetsport<br/>data/sources/*.yaml"}
+  H["Hent<br/>+ cache i .cache/"]
+  N["Normaliser<br/>adapter"]
+  RC["Reconcile<br/>mot arkivet"]
+  D["Rapport<br/>tørrkjøring"]
+  Y["Skriv YAML<br/>--write"]
+
+  P -- "mayFetch" --> H --> N --> RC --> D
+  RC -- "mayPublish" --> Y
+```
+
+Rettighetsporten ([`packages/ingest/src/policy.ts`](../packages/ingest/src/policy.ts)) er to
+spørsmål, ikke ett:
+
+- `automatedAccess` — kan vi hente? Kontrolleres før nettverkskallet.
+- `publicRedistribution` — kan vi publisere videre? Kontrolleres før `--write`.
+
+`unknown` regnes aldri som et ja, og det finnes ikke noe flagg som slår av porten. Tørrkjøring
+er alltid tillatt: å undersøke hva en kilde inneholder er nettopp det man må gjøre for å kunne
+be om tillatelse til å bruke den.
+
+`reconcile()` lager en deterministisk skriveplan. Tvetydige treff blir issues og skrives ikke.
+En kamp en annen kilde allerede eier, oppdateres ikke stille — enten stopper kjøringen, eller
+kampen hoppes over og telles med `--skip-existing`. Hver kamp har nøyaktig én kilde; et
+observasjonslag som kan slå sammen flere kilder per felt er ikke bygget ennå, og en stille
+sammenslåing ville skjult hvem som mente hva.
+
+## Nettstedet
+
+Next.js 15 med App Router. Sidene rendres på serveren ved forespørsel
+(`dynamic = "force-dynamic"`) og leser arkivfilen direkte gjennom `@aafkstats/db`. Det er
+billig — filen er lokal, skrivebeskyttet og allerede varm — og det holder sidene fri for et
+byggetidsledd som må holdes i takt med dataene. Skulle trafikken kreve det, er
+forhåndsgenerering av kamp- og sesongsider det åpenbare neste steget, siden innholdet er låst
+mellom to utrullinger.
+
+To ruter gjør noe mer enn å lese:
+
+- **`/api/search`** — direktesøk mens brukeren skriver. Ren SQL mot arkivfilen, ingen modell
+  involvert. Se [`apps/web/lib/search.ts`](../apps/web/lib/search.ts).
+- **`/api/chat`** — spørrefunksjonen. Streamer SSE, kjører verktøyløkka mot Claude, og
+  logger hver spørring til Vercel Logs uten IP.
+
+Arkivfilen leses av serverkoden ved kjøring, og må derfor spores inn i funksjonsbunten. Det
+er `outputFileTracingIncludes` i [`next.config.mjs`](../apps/web/next.config.mjs) — sammen med
+to andre bundler-tilpasninger som er kommentert der de står, fordi `node:sqlite` fortsatt er
+eksperimentell i Node 22 og ikke oppfører seg som en vanlig innebygd modul.
+
+## Testing og CI
+
+171 tester, ingen tjeneste. Testene som trenger en database bygger sin egen arkivfil fra
+`fixtures/data` i `beforeAll` — det tar millisekunder, og gjør at alt kjører likt lokalt og i
+CI. Det finnes ingen tester som «hoppes over uten database».
+
+[`fixtures/data`](../fixtures/README.md) er et konstruert arkiv, ikke et utdrag av det ekte.
+Resultatene der er laget for å gi deterministiske svar, blant annet ett hjemmetap med seks
+måls margin — testspørsmålet portalen skal klare. Ekte kamper ville endret seg når arkivet
+vokser, og da måler testene noe annet enn de gjorde i går.
+
+CI kjører, i rekkefølge: valider arkivet, valider fixture-arkivet, typesjekk, lint, tester, og
+til slutt et fullt bygg av nettstedet med fixture-data. Byggesteget bruker fixtures med vilje —
+med et tomt `data/` ville det vært grønt uten å ha rendret en eneste kamp.
+
+## Utrulling
+
+Vercel, med bygg per merge til `main`. Byggekommandoen bygger arkivfilen først og deretter
+nettstedet, så en utrulling alltid inneholder data fra nøyaktig den commiten.
+
+Miljøvariabler står i [`.env.example`](../.env.example). Bare `ANTHROPIC_API_KEY` er påkrevd
+for full funksjonalitet; uten den svarer `/api/chat` med 503, og resten av nettstedet virker
+som normalt.
+
+## Ting som er bevisst utelatt
+
+- **Ingen ORM.** Skjemaet er én SQL-fil med kommentarer, lettere å lese enn en modellfil, og
+  spørringene er få og håndskrevne.
+- **Ingen migrasjoner.** Databasen bygges fra bunnen hver gang. En migrasjon er noe man
+  trenger når tilstanden ikke kan gjenskapes.
+- **Ingen brukerkontoer.** Arkivet er offentlig, og bidrag går gjennom pull request.
+- **Ingen skrivende API.** Den eneste veien inn i arkivet er en PR-diff et menneske har sett.
+- **Ingen egen loggtjeneste.** Strukturert JSON til stdout dekker behovet: hva som spørres om,
+  hvilken SQL modellen skrev, og hva det kostet.
+
+Det som gjenstår å bygge, i rekkefølge, står i
+[Plan fra pilot til arkiv](PLAN_FRA_PILOT_TIL_ARKIV.md).
