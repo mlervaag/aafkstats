@@ -1,0 +1,22 @@
+sourceId: rsssf
+externalId: 1998 First 16/8 Aalesund - Brann
+matchId: 1998-08-16-aalesunds-fk-sk-brann
+retrievedAt: 2026-08-02
+adapter: rsssf@1
+payloadHash: sha256:7dfa31bca84a74b6d7d0d70fd51b1537c0ea68d5861b155fbd84404077e2cf00
+raw:
+  date: 16/8
+  home: Aalesund
+  away: Brann
+  homeScore: 1
+  awayScore: 7
+  attendance: 4210
+normalized:
+  date: 1998-08-16
+  home.clubId: aalesunds-fk
+  away.clubId: sk-brann
+  home.score: 1
+  away.score: 7
+  attendance: 4210
+fields: [home.score, away.score, attendance]
+warnings: []

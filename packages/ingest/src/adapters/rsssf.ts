@@ -6,6 +6,12 @@ import type { FetchResult, SourceMatch } from "../types.js";
 const BASE = "http://www.rsssf.no";
 
 /**
+ * Adapterversjon, ført i hver observasjon. Se `FOTMOB_ADAPTER` for regelen om
+ * når tallet skal opp.
+ */
+export const RSSSF_ADAPTER = "rsssf@1";
+
+/**
  * RSSSF Norway — det norske fotballarkivet til RSSSF.
  *
  * Dette er kilden som rekker lenger tilbake enn noen annen vi har funnet: rene

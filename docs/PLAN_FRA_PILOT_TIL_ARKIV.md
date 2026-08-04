@@ -140,11 +140,21 @@ go/no-go-beslutning og helst skriftlig tillatelse.
 
 ## Fase B — Gjør reconcile klar for flere kilder
 
-**Status: dette er nå det viktigste som gjenstår.** Kilde nummer to (RSSSF) er sluppet til,
-og den kolliderte med den første med en gang: sesongen 2010 finnes hos begge. Det ble løst
-med en oppdeling per kamp (`--skip-existing`) — de overlappende kampene står i fred, de nye
-skrives, og hver kamp har fortsatt nøyaktig én kilde. Det er en holdbar nødløsning, ikke et
-observasjonslag.
+**Status: første versjon er bygget.** Kilde nummer to (RSSSF) er sluppet til, og den
+kolliderte med den første med en gang: sesongen 2010 finnes hos begge. Det ble løst med en
+oppdeling per kamp (`--skip-existing`) — de overlappende kampene står i fred, de nye skrives,
+og hver kamp har fortsatt nøyaktig én kilde.
+
+Fra og med `data/observations/` skrives i tillegg det kilden faktisk sa, ved siden av det
+arkivet gjorde det til. Reconcile skriver én observasjon per kamp adapteren så, også for de
+kampene den hoppet over. Formen står i `docs/DATAMODELL.md`, skjemaet i
+`packages/schema/src/observation.ts`.
+
+Det som gjenstår er valget: `chosen`, `reason` og valg av kilde per felt. Så lenge hver kamp
+har nøyaktig én kilde er det ingenting å velge mellom, og en valgmekanisme uten noe å velge
+mellom er en gjetning på hvordan det neste problemet ser ut. Den skrives når den første kampen
+faktisk har to kilder — og da med observasjonene som grunnlag, ikke med adapterkoden som kilde
+til hva kilden sa.
 
 Grensen merkes så snart to kilder er uenige om *samme felt* i *samme kamp*:
 
@@ -156,27 +166,33 @@ Grensen merkes så snart to kilder er uenige om *samme felt* i *samme kamp*:
 I dag ville den ene importen enten stoppet eller overskrevet den andre. Begge deler taper
 informasjon.
 
-### Foreslått form
+### Formen som ble bygget
 
-Én rad per observasjon, ikke per kamp:
+Planen her var én rad per felt. Det ble i stedet én fil per kilde per kamp, med `raw` og
+`normalized` som to oppslag:
 
-```
-sourceId          rsssf
-externalMatchId   1998-first-1998-04-19-hamarkameratene-aalesunds
-retrievedAt       2026-08-03
-adapterVersion    rsssf@2
-payloadHash       sha256:…
-fieldPath         home.score
-rawValue          "3"
-normalizedValue   3
-chosen            true
-reason            høyest kildeprioritet blant tre observasjoner
-manualLock        false
+```yaml
+sourceId: rsssf
+externalId: 1998-first-19-4-brann-aafk
+matchId: 1998-04-19-brann-aalesunds-fk
+retrievedAt: 2026-08-03
+adapter: rsssf@1
+payloadHash: sha256:…
+raw: { home: Brann, homeScore: 3 }
+normalized: { home.clubId: sk-brann, home.score: 3 }
 ```
 
-Da kan samme kamp bygges av RSSSF, NIFS, avis og klubbarkiv uten at én import sletter en
-annens arbeid, og `conflicts[]` kan utledes i stedet for å måtte skrives for hånd.
-`payloadHash` gjør det mulig å se at en kilde har endret seg siden sist uten å hente på nytt.
+Samme opplysning, men én fil per kilde per kamp i stedet for femten. Det teller: én rad per
+felt hadde gitt rundt tjue filer eller tjue rader per kamp per kilde, og diffen i en
+innhøstings-PR ville vært uleselig for den som skal godkjenne den.
+
+`chosen`, `reason` og `manualLock` er utelatt med vilje. De hører til valget mellom kilder, og
+det valget står ikke ennå — se statusen over.
+
+Med dette kan samme kamp bygges av RSSSF, NIFS, avis og klubbarkiv uten at én import sletter
+en annens arbeid, og `conflicts[]` utledes med `findConflicts` i stedet for å måtte skrives
+for hånd. `payloadHash` gjør det mulig å se at en kilde har endret seg siden sist uten å
+sammenligne felt for felt.
 
 ### Akseptanse
 
@@ -197,15 +213,15 @@ Dagens reconcile er med vilje konservativt: det lager nye kamper og kan oppdater
 som allerede har samme eksterne kamp-ID. Før en kilde nummer to slippes til, trenger vi et
 ordentlig observasjonslag.
 
-Planlagt minimum:
+Planlagt minimum, med hva som står igjen:
 
-1. Lagre snapshot-metadata: kilde, ekstern kamp-ID, hentetid, payload-hash og adapterversjon.
-2. Representere hver observasjon som feltsti, rå verdi, normalisert verdi og kilde.
-3. Treff først på `(sourceId, externalMatchId)`, deretter kandidat på lag, konkurranse og dato.
+1. ~~Lagre snapshot-metadata: kilde, ekstern kamp-ID, hentetid, payload-hash og adapterversjon.~~ Gjort.
+2. ~~Representere hver observasjon som feltsti, rå verdi, normalisert verdi og kilde.~~ Gjort, som to oppslag per observasjon i stedet for én rad per feltsti.
+3. ~~Treff først på `(sourceId, externalMatchId)`, deretter kandidat på lag, konkurranse og dato.~~ Gjort i reconcile.
 4. La hjemme/borte og resultat bekrefte identitet, ikke skape identiteten alene.
-5. La manuelle låser vinne uten unntak.
+5. ~~La manuelle låser vinne uten unntak.~~ Gjort; `manual` kopieres over ved hver kjøring.
 6. Velge kilde per felt, ikke én global vinner for hele kampen.
-7. Skrive reelle uenigheter til `conflicts[]`; tvetydige kampkoblinger skal aldri auto-merges.
+7. Skrive reelle uenigheter til `conflicts[]`; tvetydige kampkoblinger skal aldri auto-merges. `findConflicts` regner dem ut; det som mangler er å la dem påvirke hva som skrives.
 
 Modellen har også kjente langsiktige gap: eksterne ID-er mangler på arena og konkurranse,
 hendelser mangler stabile kilde-ID-er, og score etter 90/120 minutter bør få en tydeligere

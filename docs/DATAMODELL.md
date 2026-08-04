@@ -22,6 +22,8 @@ data/
 ├── venues/         <stadion-id>.yaml        Stadion og baner
 ├── competitions/   <konkurranse-id>.yaml    Serie, cup, europa, trening
 ├── sources/        <kilde-id>.yaml          Kildekatalog med rettighetsstatus
+├── observations/
+│   └── rsssf/      <ekstern-id>.yaml        Hva kilden sa, før normalisering
 └── seasons/
     └── 2019/
         ├── season.yaml                      Sesongmeta
@@ -215,6 +217,46 @@ Ut over feltyper sjekker `pnpm validate` dette, og feiler med filnavn og feltsti
 5. `confidence: disputed` krever minst én oppføring i `conflicts`.
 6. Alle `clubId`, `venueId`, `competition.id` og `sourceId` finnes.
 7. Ingen duplikate ID-er, og ingen to kamper med samme dato og samme motstander.
+
+### Observasjon
+
+Kampfila viser resultatet av normaliseringen. Den sier at motstanderen er `fk-haugesund`, men
+ikke at RSSSF skrev «Haugesund» og FotMob «FK Haugesund». Da Haugesund-dubletten skulle rettes,
+måtte den forskjellen rekonstrueres ved å lese adapterkoden og gjette hva kilden hadde stått
+med.
+
+En observasjon er det uendrede: kildens egne strenger ved siden av det arkivet gjorde dem til.
+
+```yaml
+sourceId: rsssf
+externalId: 1998-first-19-4-brann-aafk
+matchId: 1998-04-19-brann-aalesunds-fk     # null når kampen ikke lot seg plassere
+retrievedAt: 2026-08-04
+adapter: rsssf@1                           # opp når tolkningen endres, ikke ved rene omskrivinger
+payloadHash: sha256:…                      # av råverdiene, med nøklene sortert
+raw:                                       # kildens begreper
+  home: Brann
+  homeScore: 3
+normalized:                                # feltstier i kampskjemaet
+  home.clubId: sk-brann
+  home.score: 3
+fields: [date, home.score, away.score]
+warnings: []
+```
+
+| Regel | Hvorfor |
+|---|---|
+| Stien er `observations/<sourceId>/<vasket externalId>.yaml`, og valideringen krever den | Neste kjøring finner forrige observasjon uten å lete, og samme kilde kan ikke ende opp som to filer om samme kamp |
+| Et felt kilden ikke nevnte utelates, og settes ikke til `null` | «Oppga ikke tilskuertall» og «påstår at tallet ikke finnes» er ikke det samme |
+| `matchId` settes også når kampen ble hoppet over fordi en annen kilde eide den | At kilde nummer to sa noe er en opplysning, ikke støy |
+| `conflicts[]` utledes av observasjonene med `findConflicts`, ikke skrives for hånd | Svaret kan ikke bli gammelt |
+
+De 1039 kampene som lå i arkivet da laget kom til får ingen observasjon. Råverdiene deres
+finnes ikke lenger, og å rekonstruere dem ville vært å finne på hva kilden sa. Observasjoner
+skrives fra og med neste innhøsting.
+
+Dette er ikke et fullt råpayload-arkiv. Feltene adapteren leste lagres, ikke hele JSON-svaret
+eller HTML-sida. Å speile kildene i sin helhet er et rettighetsspørsmål vi ikke har svart på.
 
 ## Sesong
 

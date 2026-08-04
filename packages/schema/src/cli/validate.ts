@@ -24,6 +24,9 @@ const counts = [
   `${archive.venues.length} stadion`,
   `${archive.competitions.length} konkurranser`,
   `${archive.sources.length} kilder`,
+  // Vises bare når laget er tatt i bruk. Å skrive «0 observasjoner» for hvert
+  // kall ville lest som en mangel, ikke som at ingen kilde er høstet inn ennå.
+  ...(archive.observations.length > 0 ? [`${archive.observations.length} observasjoner`] : []),
 ].join(" · ");
 
 if (issues.length === 0) {
