@@ -85,7 +85,7 @@ export default function ContributePage() {
         </div>
 
         <div className="prompt-list">
-          {contributionPrompts.map((p) => (
+          {contributionPrompts().map((p) => (
             <div key={p.id}>
               <p className="prose prompt-intro">{p.description}</p>
               <PromptCard title={p.title} purpose={p.purpose} prompt={p.prompt} />
