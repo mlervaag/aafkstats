@@ -57,7 +57,7 @@ export const RSSSF_CLUB_ALIASES: Record<string, string> = {
 };
 
 /** Navnet AaFK står oppført med hos RSSSF. */
-const AAFK_SOURCE_NAME = "Aalesund";
+export const AAFK_SOURCE_NAME = "Aalesund";
 
 /**
  * Sidene vi høster fra rutinemessig. Discovery finner flere — Hoved, Landsdel,
@@ -116,9 +116,9 @@ export interface ParsedPage {
 }
 
 /** Én resultatlinje: lagene, sifrene og alt som står etter dem. */
-const MATCH_LINE = /^\s*(?:(\d{1,2})\/(\d{1,2}):)?\s*(.+?)\s+-\s+(.+?)\s+(\d+)-(\d+)\s*(.*)$/;
+export const MATCH_LINE = /^\s*(?:(\d{1,2})\/(\d{1,2}):)?\s*(.+?)\s+-\s+(.+?)\s+(\d+)-(\d+)\s*(.*)$/;
 const DATE_ONLY = /^\s*(\d{1,2})\/(\d{1,2}):\s*$/;
-const ROUND_HEADING = /^\s*Round\s+(\d+)/i;
+export const ROUND_HEADING = /^\s*Round\s+(\d+)/i;
 const STAGE_HEADINGS: [RegExp, SourceMatch["stage"]][] = [
   [/^\s*Final\b/i, "final"],
   [/^\s*Semi-?finals?\b/i, "semi_final"],
@@ -344,7 +344,7 @@ export function alias(name: string): string {
   return RSSSF_CLUB_ALIASES[name] ?? name;
 }
 
-function cleanTeam(raw: string): string {
+export function cleanTeam(raw: string): string {
   return raw
     .replace(/\(\*+\)/g, "")
     .replace(/^\d{1,2}\/\d{1,2}:\s*/, "")
