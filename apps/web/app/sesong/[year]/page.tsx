@@ -9,17 +9,28 @@ import {
   loadNeighbourSeasons,
   loadSeason,
   loadSeasonCoaches,
+  loadSeasonYears,
   loadSquad,
   loadStandings,
 } from "@/lib/archive";
+import { pageMetadata, seasonDescription, seasonTitle } from "@/lib/metadata";
 
-export const dynamic = "force-dynamic";
+export function generateStaticParams(): { year: string }[] {
+  return loadSeasonYears().map((entry) => ({ year: String(entry.year) }));
+}
 
 type Props = { params: Promise<{ year: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { year } = await params;
-  return { title: `Sesongen ${year}`, description: `Kamper og statistikk for AaFKs ${year}-sesong.` };
+  const data = loadSeason(Number(year));
+  const lead = data?.summaries[0];
+  if (!lead) return { title: `Sesongen ${year}` };
+  return pageMetadata(
+    seasonTitle({ ...lead, year: lead.season }),
+    seasonDescription({ ...lead, year: lead.season }),
+    `/sesong/${year}`,
+  );
 }
 
 export default async function SeasonPage({ params }: Props) {

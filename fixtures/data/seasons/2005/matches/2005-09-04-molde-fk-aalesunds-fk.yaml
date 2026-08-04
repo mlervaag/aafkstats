@@ -1,0 +1,12 @@
+id: 2005-09-04-molde-fk-aalesunds-fk
+date: 2005-09-04
+# Avlyst kamp. Ble aldri spilt.
+status: cancelled
+competition: { id: eliteserien, season: 2005, stage: regular_season, round: 20 }
+home: { clubId: molde-fk }
+away: { clubId: aalesunds-fk }
+venueId: aker-stadion
+sources:
+  - { sourceId: rsssf, retrievedAt: 2026-08-02, fields: [date] }
+confidence: probable
+tags: [fixture]

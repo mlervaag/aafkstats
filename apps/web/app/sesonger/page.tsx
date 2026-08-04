@@ -7,7 +7,6 @@ export const metadata: Metadata = {
   title: "Sesonger",
   description: "AaFKs sesonger med resultater, målforskjell og alle kamper.",
 };
-export const dynamic = "force-dynamic";
 
 export default function SeasonsPage() {
   const years = loadSeasonYears();

@@ -1,0 +1,13 @@
+id: 2005-08-14-aalesunds-fk-raufoss-il
+date: 2005-08-14
+# Avbrutt kamp. Har ingen sluttstilling, og skal ikke telle i statistikken.
+status: abandoned
+competition: { id: eliteserien, season: 2005, stage: regular_season, round: 18 }
+home: { clubId: aalesunds-fk }
+away: { clubId: raufoss-il }
+venueId: kramyra-stadion
+sources:
+  - { sourceId: rsssf, retrievedAt: 2026-08-02, fields: [date] }
+confidence: probable
+note: Avbrutt etter 63 minutter på grunn av uvær.
+tags: [fixture]

@@ -1,8 +1,22 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { cache } from "react";
 import { one, open } from "@aafkstats/db";
 import { formatDate, formatDateShort } from "@/lib/date";
+import { loadMatchIndex } from "@/lib/archive";
+import { matchDescription, matchTitle, pageMetadata } from "@/lib/metadata";
+import { hasBeenPlayed, statusNote } from "@/lib/status";
 
-export const dynamic = "force-dynamic";
+/**
+ * Alle kampsidene forhåndsgenereres.
+ *
+ * Dataene endrer seg bare ved utrulling, så en side som bygges per forespørsel
+ * gjør det samme arbeidet om og om igjen for et svar som ikke kan bli et annet.
+ * Nye kampfiler kommer med automatisk: lista under leses fra arkivet ved bygging.
+ */
+export function generateStaticParams(): { id: string }[] {
+  return loadMatchIndex().map((match) => ({ id: match.matchId }));
+}
 
 interface EventRow {
   minute: number;
@@ -109,6 +123,8 @@ function loadMatch(id: string): MatchDetail | undefined {
   }
 }
 
+const getMatch = cache(loadMatch);
+
 interface Neighbour {
   id: string;
   match_date: string;
@@ -155,9 +171,38 @@ const eventNames: Record<string, string> = {
   var_decision: "VAR",
 };
 
+/**
+ * Metadata per kamp.
+ *
+ * Alle kampsidene delte tittelen «AaFK-arkivet» og prosjektbeskrivelsen fra
+ * rotoppsettet. Delte noen en kamp, fikk mottakeren ingenting om kampen, og en
+ * søkemotor så tusen identiske sider.
+ *
+ * Kampen slås opp én gang per forespørsel: `cache` gjør at `generateMetadata` og
+ * selve siden deler resultatet i stedet for å åpne databasen to ganger.
+ */
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const match = getMatch(id);
+  if (!match) return { title: "Kamp" };
+
+  const meta = {
+    homeName: match.home_name,
+    awayName: match.away_name,
+    homeScore: match.home_score === null ? null : match.home_score + (match.home_et_score ?? 0),
+    awayScore: match.away_score === null ? null : match.away_score + (match.away_et_score ?? 0),
+    date: match.match_date,
+    status: match.status,
+    competition: match.competition_name,
+    venue: match.venue_name,
+    attendance: match.attendance,
+  };
+  return pageMetadata(matchTitle(meta), matchDescription(meta), `/kamp/${id}`);
+}
+
 export default async function MatchPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const match = loadMatch(id);
+  const match = getMatch(id);
   if (!match) notFound();
   const { previous, next } = loadNeighbours(match);
 
@@ -179,6 +224,8 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
   const stageLabel = match.stage && match.stage !== "regular_season"
     ? stageNames[match.stage] ?? null
     : null;
+  const played = hasBeenPlayed(match.status);
+  const status = statusNote(match.status);
 
   return (
     <article className="match-page">
@@ -196,9 +243,18 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
         </p>
         <div className="scoreboard">
           <h1>{match.home_name}</h1>
-          <strong className="scoreline">{score}</strong>
+          {/* Avsparket står der resultatet ellers ville stått. En tankestrek her
+              leses som et tall vi mangler. */}
+          <strong className={played ? "scoreline" : "scoreline scoreline-upcoming"}>
+            {played ? score : match.kickoff ?? "mot"}
+          </strong>
           <h1>{match.away_name}</h1>
         </div>
+        {status && (
+          <p className={`match-status match-status-${match.status}`}>
+            <strong>{status.label}.</strong> {status.note}
+          </p>
+        )}
         {(afterExtraTime || shootout) && (
           <p className="small muted">
             {shootout
@@ -227,6 +283,10 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
         {match.referee && <><dt>Dommer</dt><dd>{match.referee}</dd></>}
       </dl>
 
+      {/* Hendelser, oppstilling og statistikk finnes ikke før kampen er spilt.
+          «Ingen hendelser registrert» under en kamp som er tre uker unna er ikke
+          en opplysning, det er en tom seksjon som ser ut som et hull. */}
+      {played && (
       <section>
         <h2>Kamphendelser</h2>
         {events.length === 0 ? <p className="muted">Ingen hendelser registrert.</p> : (
@@ -246,8 +306,9 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
           </ol>
         )}
       </section>
+      )}
 
-      {(lineups.home || lineups.away) && (
+      {played && (lineups.home || lineups.away) && (
         <section>
           <h2>Lagoppstillinger</h2>
           <div className="two-column">
@@ -257,7 +318,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
         </section>
       )}
 
-      {(stats.home || stats.away) && (
+      {played && (stats.home || stats.away) && (
         <section>
           <h2>Statistikk</h2>
           <StatsTable homeName={match.home_name} awayName={match.away_name} home={stats.home} away={stats.away} />
@@ -280,7 +341,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
         {/* Sikkerheten sto som en rad i faktalista, over tilskuertallet, og sa
             «Foreløpig» på nesten hver eneste kamp. Den hører til kildene: det er
             der den betyr noe, og der en leser leter etter den. */}
-        <p className="small muted">{confidenceNote(match.confidence)}</p>
+        <p className="small muted">{confidenceNote(match.confidence, played)}</p>
       </section>
 
       <nav className="match-nav" aria-label="Andre kamper i samme turnering">
@@ -296,16 +357,25 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
   );
 }
 
-function confidenceNote(confidence: string): string {
+function confidenceNote(confidence: string, played: boolean): string {
+  // En kamp på terminlista er ikke usikker fordi den mangler resultat. Den er
+  // ikke spilt, og «hentet fra én kilde» hører ikke hjemme under en dato som
+  // klubben selv har publisert.
+  if (!played) {
+    return confidence === "confirmed"
+      ? "Dato og motstander er hentet fra terminlista. Resultatet kommer når kampen er spilt."
+      : "Dato og motstander er foreløpige, og kan bli endret.";
+  }
   switch (confidence) {
     case "confirmed":
       return "Opplysningene er bekreftet mot kilden over.";
     case "disputed":
-      return "Kildene er uenige om denne kampen. Se konfliktene i datasettet.";
+      return "Kildene er uenige om denne kampen.";
     default:
       return "Opplysningene er foreløpige, og hentet fra én kilde.";
   }
 }
+
 
 function LineupBlock({ name, lineup }: { name: string; lineup?: Lineup }) {
   if (!lineup) return <div><h3>{name}</h3><p className="muted">Ikke registrert.</p></div>;

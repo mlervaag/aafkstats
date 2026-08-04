@@ -2,18 +2,24 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import { MatchList } from "@/components/MatchList";
-import { loadOpponent } from "@/lib/archive";
+import { loadOpponent, loadOpponents } from "@/lib/archive";
+import { opponentDescription, opponentTitle, pageMetadata } from "@/lib/metadata";
 
-export const dynamic = "force-dynamic";
+export function generateStaticParams(): { id: string }[] {
+  return loadOpponents().map((opponent) => ({ id: opponent.id }));
+}
 type Props = { params: Promise<{ id: string }> };
 const getOpponent = cache(loadOpponent);
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const data = getOpponent(id);
-  return data
-    ? { title: `AaFK mot ${data.summary.opponent}`, description: `Alle registrerte kamper mellom AaFK og ${data.summary.opponent}.` }
-    : { title: "Motstander" };
+  if (!data) return { title: "Motstander" };
+  return pageMetadata(
+    opponentTitle(data.summary),
+    opponentDescription(data.summary),
+    `/motstander/${id}`,
+  );
 }
 
 export default async function OpponentPage({ params }: Props) {

@@ -4,7 +4,16 @@ import { MatchList } from "@/components/MatchList";
 import { NextMatch } from "@/components/NextMatch";
 import { loadNextMatch, loadOverview } from "@/lib/archive";
 
-export const dynamic = "force-dynamic";
+/**
+ * Bygges på nytt hver time i stedet for ved hver forespørsel.
+ *
+ * Arkivet endrer seg bare ved utrulling, så alt på siden kunne vært statisk med
+ * ett unntak: «neste kamp» avhenger av dagens dato, og en side bygget i mars
+ * ville lovet en kamp som var spilt for lengst. En time er kort nok til at
+ * kampen forsvinner fra forsiden samme dag den spilles, og lenge nok til at
+ * siden serveres fra kanten nesten alltid.
+ */
+export const revalidate = 3600;
 
 export default function Home() {
   const { recent, totals } = loadOverview();

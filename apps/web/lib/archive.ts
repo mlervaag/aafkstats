@@ -458,6 +458,38 @@ export function loadNeighbourSeasons(year: number): { previous: number | null; n
   }
 }
 
+/**
+ * Alle kamp-URL-er, med datoen for siste kildeinnhenting.
+ *
+ * Brukes av sitemap og av `generateStaticParams`. Sitemap hadde ingen kampsider
+ * i det hele tatt, og det er de eneste sidene som er verdt å finne i et søk:
+ * over tusen sider som ingen søkemotor visste fantes.
+ */
+export interface MatchIndexEntry {
+  matchId: string;
+  date: string;
+  status: string;
+  /** Siste gang en kilde ble hentet. NULL for kamper uten kildehenvisning. */
+  lastRetrievedAt: string | null;
+}
+
+export function loadMatchIndex(): MatchIndexEntry[] {
+  const db = open();
+  try {
+    return all<{ match_id: string; date: string; status: string; last_retrieved_at: string | null }>(
+      db,
+      `SELECT match_id, date, status, last_retrieved_at FROM matches ORDER BY date DESC`,
+    ).map((row) => ({
+      matchId: row.match_id,
+      date: row.date,
+      status: row.status,
+      lastRetrievedAt: row.last_retrieved_at,
+    }));
+  } finally {
+    db.close();
+  }
+}
+
 export function loadOpponents(): OpponentSummary[] {
   const db = open();
   try {

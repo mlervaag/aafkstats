@@ -74,6 +74,7 @@ export const views: ViewDoc[] = [
       { name: "confidence", type: "text", description: "'confirmed', 'probable' eller 'disputed'." },
       { name: "has_conflicts", type: "integer (0/1)", description: "Sant når en uenighet mellom kilder er ført inn på kampen. Uenigheten løses ikke automatisk, og høyeste kildeprioritet vinner ikke av seg selv: begge verdiene ligger som observasjoner til noen tar en avgjørelse." },
       { name: "completeness", type: "real", description: "0–1: hvor mye av kampen som er dokumentert." },
+      { name: "last_retrieved_at", type: "text (YYYY-MM-DD)", description: "Siste gang en kilde ble hentet for kampen. NULL for kamper uten kildehenvisning." },
       { name: "tags", type: "text (JSON-liste)", description: "Frie stikkord, f.eks. 'derby'." },
       { name: "url", type: "text", description: "Lenke til kampsiden. Bruk denne som kildehenvisning i svar." },
     ],

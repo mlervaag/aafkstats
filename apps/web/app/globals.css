@@ -487,6 +487,28 @@ th { font-weight: 600; }
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
 }
+/* En kamp som ikke er spilt har ingen resultat å rope ut. Klokkeslettet står i
+   samme posisjon, men dempet og mindre: det er en opplysning, ikke et poeng. */
+.scoreline-upcoming {
+  font-size: clamp(1.1rem, 3vw, 1.7rem);
+  color: var(--muted);
+  letter-spacing: 0;
+}
+
+/* Statuslinja under resultatet. Fire tilstander som ser like ut i dataene og
+   betyr helt ulike ting for den som leser: ikke spilt, utsatt, avlyst, avbrutt.
+   Ordet bærer forskjellen, fargen understreker den. */
+.match-status {
+  max-width: var(--measure);
+  margin: 0.9rem auto 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+.match-status strong { color: var(--text); }
+.match-status-scheduled strong { color: var(--accent); }
+.match-status-cancelled strong,
+.match-status-abandoned strong { color: var(--loss); }
+
 /* Kampfakta under resultatet. Radene skilles med hårstrek slik at etikett og
    verdi henger sammen parvis — uten den flyter dt og dd fra hverandre så snart
    én verdi er lengre enn de andre. */

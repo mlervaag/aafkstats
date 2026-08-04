@@ -43,12 +43,12 @@ describe("parseSearchQuery", () => {
   });
 
   it("finner alle kamper i et år uten AI", () => {
-    expect(searchMatches("2024")).toHaveLength(6);
+    expect(searchMatches("2024")).toHaveLength(7);
   });
 
   it("kombinerer år og motstander", () => {
     const matches = searchMatches("2024 Molde");
-    expect(matches).toHaveLength(2);
+    expect(matches).toHaveLength(3);
     expect(matches.every((match) => match.date.startsWith("2024") && match.opponent === "Molde FK")).toBe(true);
   });
 });

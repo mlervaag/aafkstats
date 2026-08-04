@@ -331,6 +331,11 @@ SELECT
   m.confidence,
   CASE WHEN json_array_length(m.conflicts) > 0 THEN 1 ELSE 0 END AS has_conflicts,
   m.completeness,
+  -- Siste gang en kilde ble hentet for denne kampen. Brukes til lastModified i
+  -- sitemap, så søkemotorer får vite når opplysningen sist ble kontrollert i
+  -- stedet for å anta at hele arkivet er like gammelt som byggetidspunktet.
+  (SELECT max(json_extract(sv.value, '$.retrievedAt')) FROM json_each(m.sources) sv)
+                      AS last_retrieved_at,
   m.note,
   m.tags,
   '/kamp/' || m.id    AS url
