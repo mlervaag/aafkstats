@@ -238,12 +238,39 @@ export const season = z
     competitionId: slug,
     finalPosition: z.number().int().positive().nullable().default(null),
     teamsInLeague: z.number().int().positive().optional(),
+    /**
+     * Hvor mange kamper AaFK faktisk spilte i konkurransen det året.
+     *
+     * Grunnen til at feltet finnes: uten et forventet omfang kan «komplett» bare
+     * bety «runde 1 til N uten hull», og det er sant også når den virkelige
+     * sesongen hadde flere runder enn N. En sesong der arkivet har runde 1 til 5
+     * av 22 ser da helt hel ut.
+     *
+     * Førstevalget er ikke dette feltet, men sluttabellen: står AaFK der med 26
+     * spilte kamper, er 26 tallet, og det er kildeført. Feltet her er for de
+     * årene ingen tabell finnes, eller der serieformatet var uvanlig nok til at
+     * tabellen ikke svarer. Settes det, må `note` si hvor tallet kommer fra.
+     */
+    expectedMatches: z.number().int().positive().optional(),
+    /** Antall serierunder, når det er kjent og ikke er lik antall kamper. */
+    expectedRounds: z.number().int().positive().optional(),
     headCoach: z.string().optional(),
     promoted: z.boolean().default(false),
     relegated: z.boolean().default(false),
     note: z.string().optional(),
   })
-  .strict();
+  .strict()
+  .superRefine((value, ctx) => {
+    // Et forventet omfang uten kilde er en påstand vi ikke kan etterprøve, og
+    // «komplett» hviler på det tallet. Da må det stå hvor det kommer fra.
+    if ((value.expectedMatches || value.expectedRounds) && !value.note) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["note"],
+        message: "expectedMatches og expectedRounds krever en note som sier hvor tallet kommer fra",
+      });
+    }
+  });
 
 export type Season = z.infer<typeof season>;
 

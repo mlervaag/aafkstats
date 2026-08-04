@@ -62,13 +62,32 @@ export interface SeasonSummary {
   /** Forbehold om sesongen, f.eks. at den er ufullstendig i arkivet. */
   note: string | null;
   /**
-   * Hvor godt sesongen er dekket, utledet av rundenumrene i byggesteget.
+   * Hvor godt sesongen er dekket, regnet ut i byggesteget.
    *
    * «85 sesonger» betyr 85 år med minst én registrert kamp. Uten dette feltet er
    * det umulig for en leser å se forskjell på en komplett serie og tre løsrevne
    * kamper fra 1951.
+   *
+   * 'unverified' er sesonger med sammenhengende runder der ingen vet hvor mange
+   * det skulle vært. De så komplette ut før, og var det ikke nødvendigvis.
    */
-  coverage: "complete" | "partial" | "isolated" | "not_applicable";
+  coverage: "complete" | "in_progress" | "partial" | "unverified" | "isolated" | "not_applicable";
+  /**
+   * Hva merket hviler på.
+   *
+   * 'rounds_and_standings' er sterkest: sluttabellen sier hvor mange kamper AaFK
+   * spilte, og arkivet har like mange. De to tallene er hentet fra hver sin
+   * parsing av kilden, så de bekrefter hverandre.
+   */
+  coverageEvidence:
+    | "rounds_and_standings"
+    | "rounds_and_declared_count"
+    | "rounds_only"
+    | "isolated_matches_only"
+    | "season_in_progress"
+    | "not_applicable";
+  /** Hvor mange kamper sesongen skulle hatt, når noen vet det. */
+  expectedMatches: number | null;
   /** Høyeste serierunde. For en komplett sesong: antall runder. */
   lastRound: number | null;
   /**
@@ -97,7 +116,9 @@ interface SeasonRow {
   goals_against: number;
   goal_difference: number;
   note: string | null;
-  coverage: "complete" | "partial" | "isolated" | "not_applicable";
+  coverage: SeasonSummary["coverage"];
+  coverage_evidence: SeasonSummary["coverageEvidence"];
+  expected_matches: number | null;
   last_round: number | null;
   scheduled: number;
   url: string;
@@ -222,6 +243,8 @@ function mapSeason(row: SeasonRow): SeasonSummary {
     goalDifference: row.goal_difference,
     note: row.note,
     coverage: row.coverage,
+    coverageEvidence: row.coverage_evidence,
+    expectedMatches: row.expected_matches,
     lastRound: row.last_round,
     scheduled: row.scheduled,
     url: row.url,

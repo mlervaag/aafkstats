@@ -135,8 +135,8 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
     const insertSeason = db.prepare(
       `INSERT INTO core_seasons
          (year, competition_id, competition_name, final_position, teams_in_league,
-          head_coach, promoted, relegated, note)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          expected_matches, expected_rounds, head_coach, promoted, relegated, note)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     );
     for (const s of archive.seasons) {
       // Midt i sesongen som referansedato — et navnebytte skjer mellom sesonger,
@@ -147,6 +147,7 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
         : s.competitionId;
       insertSeason.run(
         s.year, s.competitionId, competitionName, s.finalPosition, s.teamsInLeague ?? null,
+        s.expectedMatches ?? null, s.expectedRounds ?? null,
         s.headCoach ?? null, bool(s.promoted), bool(s.relegated), s.note ?? null,
       );
     }

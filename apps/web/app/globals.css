@@ -1226,9 +1226,12 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
   color: var(--muted);
 }
 
-/* Bare den komplette får farge. De to andre er tilstander, ikke problemer —
-   et arkiv som mangler 1951 har ikke gjort noe galt. */
+/* Bare den komplette får farge. De andre er tilstander, ikke problemer —
+   et arkiv som mangler 1951 har ikke gjort noe galt. Fargen står aldri alene:
+   hvert merke sier i klartekst hva det er, og title-teksten sier hva merket
+   hviler på. */
 .coverage-complete { color: var(--win); }
+.coverage-in_progress { color: var(--accent); }
 
 .section-heading-title {
   display: flex;

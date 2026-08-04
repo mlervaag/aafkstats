@@ -83,6 +83,10 @@ CREATE TABLE core_seasons (
   competition_name TEXT NOT NULL,
   final_position   INTEGER,
   teams_in_league  INTEGER,
+  -- Forventet omfang, oppgitt for hånd. Brukes bare når sluttabellen ikke svarer;
+  -- se coverage_evidence i seasons-viewet.
+  expected_matches INTEGER,
+  expected_rounds  INTEGER,
   head_coach       TEXT,
   promoted         INTEGER NOT NULL DEFAULT 0,
   relegated        INTEGER NOT NULL DEFAULT 0,
@@ -381,29 +385,74 @@ SELECT
   CAST(round(avg(CASE WHEN m.is_home = 1 THEN m.attendance END)) AS INTEGER)
                                                             AS avg_home_attendance,
 
-  -- Hvor godt sesongen er dekket, utledet av kampene selv.
+  -- Forventet antall seriekamper, og hvor tallet kommer fra.
+  --
+  -- Sluttabellen er førstevalget: står AaFK der med 26 spilte kamper, er 26
+  -- fasiten, og den er kildeført. Finnes ingen tabell, kan sesongfila oppgi
+  -- tallet for hånd, og da krever skjemaet en note som sier hvor det kommer fra.
+  -- Finnes ingen av delene, vet vi ikke omfanget, og da kan ingen sesong kalles
+  -- komplett.
+  coalesce(
+    (SELECT t.played FROM core_standings t
+      WHERE t.competition_id = m.competition_id AND t.season = m.season
+        AND t.club_id = 'aalesunds-fk'),
+    s.expected_matches
+  )                                                         AS expected_matches,
+
+  -- Hvor godt sesongen er dekket, utledet av kampene og det forventede omfanget.
   --
   -- «85 sesonger» har hele tiden betydd 85 år med minst én registrert kamp. Det
   -- er noe annet enn 85 komplette sesonger, og forskjellen var usynlig for den
-  -- som leste forsiden. Denne kolonnen gjør den synlig, og den regnes ut ved
-  -- bygging slik at den ikke kan bli utdatert.
+  -- som leste forsiden.
   --
-  -- Serien nummererer rundene sine, og det er nok til å svare. Har vi runde 1 til
-  -- N uten hull, og N kamper, er sesongen komplett så langt kilden rekker.
-  -- Mangler det runder, er den delvis. Uten rundenummer i det hele tatt vet vi
-  -- ingenting utover at kampene finnes, og da sier vi det.
+  -- Den forrige utgaven svarte «komplett» på runde 1 til N uten hull. Det er
+  -- sant også når den virkelige sesongen hadde 22 runder og arkivet har fem: da
+  -- er runde 1 til 5 sammenhengende, og merket lyver. Nå kreves begge deler,
+  -- sammenhengende runder OG et kjent forventet omfang som stemmer.
   --
-  -- Cup og treningskamper har ingen slik struktur — en cupsesong slutter når
-  -- laget ryker ut — så de svarer «ikke relevant» framfor å gjette.
+  -- Cup og treningskamper har ingen slik struktur, en cupsesong slutter når
+  -- laget ryker ut, så de svarer «ikke relevant» framfor å gjette.
   CASE
     WHEN c.type <> 'league' THEN 'not_applicable'
+    WHEN (SELECT count(*) FROM core_matches u
+           WHERE u.season = m.season AND u.competition_id = m.competition_id
+             AND u.status = 'scheduled') > 0 THEN 'in_progress'
     WHEN count(m."round") = 0 THEN 'isolated'
     WHEN count(m."round") < count(m.id) THEN 'partial'
-    WHEN min(m."round") = 1
-     AND max(m."round") = count(m.id)
-     AND count(DISTINCT m."round") = count(m.id) THEN 'complete'
+    WHEN min(m."round") <> 1
+      OR count(DISTINCT m."round") <> count(m.id)
+      OR max(m."round") <> count(m.id) THEN 'partial'
+    -- Sammenhengende runder, men ingen vet hvor mange det skulle vært.
+    WHEN coalesce(
+           (SELECT t.played FROM core_standings t
+             WHERE t.competition_id = m.competition_id AND t.season = m.season
+               AND t.club_id = 'aalesunds-fk'),
+           s.expected_matches
+         ) IS NULL THEN 'unverified'
+    WHEN count(m.id) = coalesce(
+           (SELECT t.played FROM core_standings t
+             WHERE t.competition_id = m.competition_id AND t.season = m.season
+               AND t.club_id = 'aalesunds-fk'),
+           s.expected_matches
+         ) THEN 'complete'
     ELSE 'partial'
   END                                                       AS coverage,
+
+  -- Hva merket over hviler på. Uten dette er «komplett» en påstand uten grunnlag,
+  -- og en leser har ingen måte å vurdere hvor mye den er verdt.
+  CASE
+    WHEN c.type <> 'league' THEN 'not_applicable'
+    WHEN (SELECT count(*) FROM core_matches u
+           WHERE u.season = m.season AND u.competition_id = m.competition_id
+             AND u.status = 'scheduled') > 0 THEN 'season_in_progress'
+    WHEN count(m."round") = 0 THEN 'isolated_matches_only'
+    WHEN (SELECT count(*) FROM core_standings t
+           WHERE t.competition_id = m.competition_id AND t.season = m.season
+             AND t.club_id = 'aalesunds-fk') > 0 THEN 'rounds_and_standings'
+    WHEN s.expected_matches IS NOT NULL THEN 'rounds_and_declared_count'
+    ELSE 'rounds_only'
+  END                                                       AS coverage_evidence,
+
   -- Høyeste runde vi har. For en komplett sesong er dette antall serierunder.
   max(m."round")                                  AS last_round,
 

@@ -104,10 +104,9 @@ export function CoverageTag({ season }: { season: SeasonSummary }) {
   }
   if (season.coverage === "not_applicable") return null;
 
-  const text = coverageText(season);
   return (
     <span className={`coverage-tag coverage-${season.coverage}`} title={coverageExplanation(season)}>
-      {text}
+      {coverageText(season)}
     </span>
   );
 }
@@ -117,18 +116,41 @@ function coverageText(season: SeasonSummary): string {
     case "complete":
       return `Komplett · ${season.lastRound} runder`;
     case "partial":
-      return `Delvis · ${season.played} av ${season.lastRound ?? "?"} runder`;
+      return season.expectedMatches
+        ? `Delvis · ${season.played} av ${season.expectedMatches} kamper`
+        : `Delvis · ${season.played} av ${season.lastRound ?? "?"} runder`;
+    case "unverified":
+      // Merket sier hva vi har og hva vi ikke vet, ikke «komplett». Sesongen kan
+      // være hel, men ingen kilde i arkivet sier hvor mange runder den hadde.
+      return `${season.played} runder · omfang ukjent`;
+    case "in_progress":
+      return `Pågår · ${season.played} kamper spilt`;
     default:
       return `${season.played} kjente ${season.played === 1 ? "kamp" : "kamper"}`;
   }
 }
 
+/**
+ * Grunnlaget for merket, i klartekst.
+ *
+ * «Komplett» uten grunnlag er en påstand leseren ikke kan vurdere. Her står det
+ * hva den hviler på: sluttabellen, et tall oppgitt for hånd, eller bare
+ * rundenumrene.
+ */
 function coverageExplanation(season: SeasonSummary): string {
   switch (season.coverage) {
     case "complete":
-      return "Arkivet har runde 1 til siste runde uten hull.";
+      return season.coverageEvidence === "rounds_and_standings"
+        ? `Sluttabellen sier at AaFK spilte ${season.expectedMatches} kamper, og arkivet har like mange, med hver runde fra første til siste.`
+        : `Arkivet har hver runde fra første til siste, ${season.expectedMatches} kamper, som er det omfanget sesongfila oppgir.`;
     case "partial":
-      return "Det mangler runder i denne sesongen, eller den pågår fortsatt.";
+      return season.expectedMatches
+        ? `Sesongen hadde ${season.expectedMatches} kamper. Arkivet har ${season.played}.`
+        : "Det mangler runder i denne sesongen.";
+    case "unverified":
+      return "Rundene henger sammen, men ingen kilde i arkivet sier hvor mange runder sesongen hadde. Da kan den ikke kalles komplett.";
+    case "in_progress":
+      return "Sesongen pågår. Resten står på terminlista.";
     default:
       return "Kampene mangler rundenummer, så arkivet vet bare at de ble spilt.";
   }
@@ -148,14 +170,19 @@ export function CoverageSummary({ seasons }: { seasons: SeasonSummary[] }) {
   );
   const complete = leagues.filter((season) => season.coverage === "complete").length;
   const fragments = leagues.filter((season) => season.coverage === "isolated").length;
+  const unverified = leagues.filter((season) => season.coverage === "unverified").length;
   if (leagues.length === 0) return null;
 
   return (
     <p className="small muted coverage-summary">
-      {complete} av {leagues.length} seriesesonger ligger inne komplett, med hver runde fra
-      første til siste.
+      {complete} av {leagues.length} seriesesonger ligger inne komplett. Det betyr hver runde
+      fra første til siste, og like mange kamper som sluttabellen sier at AaFK spilte.
+      {unverified > 0 && (
+        <> {unverified} {unverified === 1 ? "sesong har" : "sesonger har"} sammenhengende runder
+        uten at noen kilde sier hvor mange det skulle vært.</>
+      )}
       {fragments > 0 && (
-        <> {fragments} {fragments === 1 ? "år har" : "år har"} bare enkeltkamper vi kjenner til.</>
+        <> {fragments} år har bare enkeltkamper vi kjenner til.</>
       )}{" "}
       Cupen telles ikke her: den slutter når laget ryker ut, så det finnes ingen komplett
       cupsesong å måle mot.
