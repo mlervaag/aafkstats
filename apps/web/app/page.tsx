@@ -39,7 +39,9 @@ export default function Home() {
         <div className="hero-side">
           <dl className="hero-stats">
             <div><dt>Kamper</dt><dd>{totals.matches}</dd></div>
-            <div><dt>Sesonger</dt><dd>{totals.seasons}</dd></div>
+            {/* «Sesonger» leses som hele sesonger, og tallet er noe annet: år
+                med minst én registrert kamp. Ordet er byttet, ikke tallet. */}
+            <div><dt>År</dt><dd>{totals.seasons}</dd></div>
             <div><dt>Motstandere</dt><dd>{totals.opponents}</dd></div>
           </dl>
           <NextMatch match={next} />
@@ -51,7 +53,9 @@ export default function Home() {
       <section className="home-grid content-section">
         <div>
           <div className="section-heading">
-            <div><p className="eyebrow">Sist registrert</p><h2>Siste kamper</h2></div>
+            {/* Lista sorterer på kampdato, ikke på når raden kom inn i arkivet.
+                «Sist registrert» lovet det motsatte. */}
+            <div><p className="eyebrow">Siste resultater</p><h2>Siste kamper</h2></div>
             <a href="/sesonger">Alle sesonger →</a>
           </div>
           <MatchList matches={recent} />

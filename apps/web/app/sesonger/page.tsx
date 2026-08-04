@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CoverageStrip, CoverageSummary, CoverageTag } from "@/components/Coverage";
+import { CompetitionSpread, CoverageStrip, CoverageSummary, CoverageTag } from "@/components/Coverage";
 import { loadSeasonYears } from "@/lib/archive";
 import type { SeasonSummary, SeasonYear } from "@/lib/archive";
 
@@ -42,12 +42,7 @@ export default function SeasonsPage() {
         </section>
       ))}
 
-      <p className="notice prose">
-        Cupen er godt dekket helt tilbake til 1917. Seriedekningen er mer oppstykket før
-        1990, med hele sesonger enkelte år og bare spredte kamper i andre.
-        Europacupkampene mangler, og treningskamper finnes bare for inneværende sesong.
-        Se <a href="/om">kilder og forbehold</a>.
-      </p>
+      <CompetitionSpread />
     </>
   );
 }
