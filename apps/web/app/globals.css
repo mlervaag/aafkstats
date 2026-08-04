@@ -509,6 +509,26 @@ th { font-weight: 600; }
 .match-status-cancelled strong,
 .match-status-abandoned strong { color: var(--loss); }
 
+/* Uenighet mellom kilder. Verdiene stilles opp ved siden av hverandre framfor at
+   én velges bort: for et historisk arkiv er selve uenigheten en opplysning. */
+.conflict { margin-top: 1.25rem; }
+.conflict-field { font-size: 0.95rem; margin: 0 0 0.4rem; }
+.conflict-values {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+.conflict-values li {
+  padding: 0.35rem 0.6rem;
+  border-left: 2px solid var(--border);
+}
+/* Verdien arkivet bruker markeres med strek og ord, ikke bare farge. */
+.conflict-values .is-chosen { border-left-color: var(--accent); }
+.conflict-chosen { font-size: 0.78rem; color: var(--accent); }
+.conflict-note { display: block; }
+
 /* Kampfakta under resultatet. Radene skilles med hårstrek slik at etikett og
    verdi henger sammen parvis — uten den flyter dt og dd fra hverandre så snart
    én verdi er lengre enn de andre. */

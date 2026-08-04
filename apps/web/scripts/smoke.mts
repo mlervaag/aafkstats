@@ -57,7 +57,7 @@ const checks: Check[] = [
   },
   {
     page: "kamp/1998-08-16-aalesunds-fk-sk-brann",
-    must: ["16. august 1998", "Kilder"],
+    must: ["16. august 1998", "Kilder", "Kildene er uenige", "arkivet bruker denne"],
     mustNot: ["Kampen er ikke spilt"],
   },
   {

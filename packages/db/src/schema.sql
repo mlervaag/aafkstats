@@ -652,6 +652,41 @@ SELECT
   '/kamp/' || m.id                        AS url
 FROM core_matches m, json_each(m.events) e;
 
+-- Én rad per verdi i en uenighet mellom kilder.
+--
+-- Den offentlige modellen hadde bare `has_conflicts`, et null eller ett. Det er
+-- nok til å si «kildene er uenige» og ingenting mer, så både leseren og
+-- spørrefunksjonen måtte enten tie eller dikte. Her står hva uenigheten gjelder,
+-- hvilke verdier som finnes, hvor de kommer fra, og hva arkivet bruker.
+--
+-- Formen er én rad per verdi framfor én rad per konflikt, fordi det er den
+-- formen en spørring kan filtrere og sammenligne på. To kilder som er uenige om
+-- ett felt gir to rader med samme field og ulik value.
+CREATE VIEW match_conflicts AS
+SELECT
+  m.id                                              AS match_id,
+  m.match_date                                      AS date,
+  m.season,
+  m.opponent_name                                   AS opponent,
+  json_extract(c.value, '$.field')                  AS field,
+  json_extract(v.value, '$.sourceId')               AS source_id,
+  json_extract(v.value, '$.value')                  AS value,
+  json_extract(v.value, '$.note')                   AS value_note,
+  -- Verdien arkivet faktisk bruker. Null i alle kolonnene under betyr at ingen
+  -- har tatt stilling, og det er en ærlig tilstand, ikke et hull.
+  CASE WHEN json_extract(c.value, '$.chosen') IS NOT NULL
+        AND json_extract(c.value, '$.chosen') = json_extract(v.value, '$.value')
+       THEN 1 ELSE 0 END                            AS is_chosen,
+  coalesce(json_extract(c.value, '$.decision'), 'unresolved') AS decision,
+  json_extract(c.value, '$.decidedAt')              AS decided_at,
+  json_extract(c.value, '$.reason')                 AS reason,
+  CASE WHEN json_extract(c.value, '$.locked') THEN 1 ELSE 0 END AS locked,
+  json_extract(c.value, '$.note')                   AS conflict_note,
+  '/kamp/' || m.id                                  AS url
+FROM core_matches m,
+     json_each(m.conflicts) c,
+     json_each(json_extract(c.value, '$.values')) v;
+
 -- Kildekatalogen, så svar kan forklare hvor dataene kommer fra.
 CREATE VIEW sources AS
 SELECT

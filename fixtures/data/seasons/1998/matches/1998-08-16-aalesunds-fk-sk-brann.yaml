@@ -8,7 +8,23 @@ venueId: kramyra-stadion
 attendance: 4210
 sources:
   - { sourceId: rsssf, retrievedAt: 2026-08-02, fields: [home.score, away.score] }
+  - { sourceId: nasjonalbiblioteket, retrievedAt: 2026-08-02, fields: [attendance] }
 confidence: probable
+manual: [attendance]
+conflicts:
+  # En løst konflikt. Finnes for å vise at beslutningen har navn, dato og
+  # begrunnelse — en «løst» konflikt uten det er skjult, ikke løst.
+  - field: attendance
+    values:
+      - { value: 4210, sourceId: nasjonalbiblioteket, note: Sunnmørsposten dagen etter }
+      - { value: 4000, sourceId: rsssf }
+    resolved: true
+    chosen: 4210
+    chosenSourceId: nasjonalbiblioteket
+    decision: independent_source
+    decidedAt: 2026-08-03
+    reason: Avisreferatet dagen etter oppgir et eksakt tall; RSSSF har et avrundet.
+    locked: true
 tags: [fixture]
 note: >
   Konstruert fixture. Eldste av to hjemmetap med seks måls margin — finnes for å bevise

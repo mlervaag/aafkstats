@@ -76,6 +76,7 @@ interface MatchDetail {
   lineups: string | null;
   stats: string | null;
   sources: string;
+  conflicts: string;
   confidence: string;
   stage: string | null;
   home_et_score: number | null;
@@ -111,7 +112,7 @@ function loadMatch(id: string): MatchDetail | undefined {
               m.home_ht_score, m.away_ht_score, m.home_et_score, m.away_et_score,
               m.home_pens, m.away_pens,
               m.venue_name, m.attendance, m.referee, m.note,
-              m.events, m.lineups, m.stats, m.sources, m.confidence
+              m.events, m.lineups, m.stats, m.sources, m.conflicts, m.confidence
        FROM core_matches m
        JOIN core_clubs h ON h.id = m.home_club_id
        JOIN core_clubs a ON a.id = m.away_club_id
@@ -124,6 +125,25 @@ function loadMatch(id: string): MatchDetail | undefined {
 }
 
 const getMatch = cache(loadMatch);
+
+interface ConflictValue {
+  value: string | number | null;
+  sourceId: string;
+  note?: string;
+}
+
+interface ConflictRow {
+  field: string;
+  values: ConflictValue[];
+  resolved: boolean;
+  chosen?: string | number | null;
+  chosenSourceId?: string;
+  decision: string;
+  decidedAt?: string;
+  reason?: string;
+  locked: boolean;
+  note?: string;
+}
 
 interface Neighbour {
   id: string;
@@ -210,6 +230,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
   const lineups = json<{ home?: Lineup; away?: Lineup }>(match.lineups, {});
   const stats = json<{ home?: TeamStats; away?: TeamStats }>(match.stats, {});
   const sources = json<SourceRef[]>(match.sources, []);
+  const conflicts = json<ConflictRow[]>(match.conflicts, []);
   // Overskriftsresultatet er sluttresultatet. home_score er stillingen etter
   // ordinær tid, så ekstraomgangsmålene må legges til — ellers står en cupkamp
   // som endte 2-1 på overtid oppført som 1-1.
@@ -325,6 +346,40 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
         </section>
       )}
 
+      {conflicts.length > 0 && (
+        <section>
+          <h2>Kildene er uenige</h2>
+          {/* Sto tidligere bare som et flagg i datasettet, og kampsiden viste
+              ingenting. For et historisk arkiv er «Sunnmørsposten skriver 3–2,
+              RSSSF skriver 3–1» en opplysning i seg selv, og den som leser skal
+              kunne se hva uenigheten gjelder framfor å måtte stole på at vi
+              valgte riktig. */}
+          {conflicts.map((conflict) => (
+            <div key={conflict.field} className="conflict">
+              <h3 className="conflict-field"><code>{conflict.field}</code></h3>
+              <ul className="conflict-values">
+                {conflict.values.map((entry) => {
+                  const chosen = conflict.resolved && entry.value === conflict.chosen;
+                  return (
+                    <li key={`${entry.sourceId}-${String(entry.value)}`} className={chosen ? "is-chosen" : undefined}>
+                      <strong className="num">{entry.value === null ? "ingen verdi" : String(entry.value)}</strong>
+                      <span className="muted"> · {entry.sourceId}</span>
+                      {chosen && <span className="conflict-chosen"> arkivet bruker denne</span>}
+                      {entry.note && <span className="small muted conflict-note">{entry.note}</span>}
+                    </li>
+                  );
+                })}
+              </ul>
+              <p className="small muted">
+                {conflict.resolved
+                  ? <>{decisionText(conflict.decision)}{conflict.decidedAt ? `, ${formatDate(conflict.decidedAt)}` : ""}. {conflict.reason}{conflict.locked ? " Verdien er låst mot ny innhøsting." : ""}</>
+                  : <>Ingen har tatt stilling ennå. Begge verdiene står, og arkivet velger ikke etter kildeprioritet av seg selv.{conflict.note ? ` ${conflict.note}` : ""}</>}
+              </p>
+            </div>
+          ))}
+        </section>
+      )}
+
       <section>
         <h2>Kilder</h2>
         {sources.length === 0 ? <p className="muted">Ingen kilde registrert.</p> : (
@@ -357,6 +412,20 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
   );
 }
 
+/** Hva slags avgjørelse som ble tatt. Grunnlaget hører til begrunnelsen. */
+function decisionText(decision: string): string {
+  switch (decision) {
+    case "manual":
+      return "Avgjort for hånd";
+    case "source_priority":
+      return "Avgjort etter kildeprioritet";
+    case "independent_source":
+      return "Avgjort mot en uavhengig kilde";
+    default:
+      return "Avgjort";
+  }
+}
+
 function confidenceNote(confidence: string, played: boolean): string {
   // En kamp på terminlista er ikke usikker fordi den mangler resultat. Den er
   // ikke spilt, og «hentet fra én kilde» hører ikke hjemme under en dato som
@@ -370,7 +439,7 @@ function confidenceNote(confidence: string, played: boolean): string {
     case "confirmed":
       return "Opplysningene er bekreftet mot kilden over.";
     case "disputed":
-      return "Kildene er uenige om denne kampen.";
+      return "Kildene er uenige om denne kampen. Se hva uenigheten gjelder over.";
     default:
       return "Opplysningene er foreløpige, og hentet fra én kilde.";
   }

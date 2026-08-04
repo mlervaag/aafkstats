@@ -88,8 +88,30 @@ export const sourceRef = z
 export type SourceRef = z.infer<typeof sourceRef>;
 
 /**
+ * Hvordan en uenighet ble avgjort.
+ *
+ * `unresolved` er den vanlige tilstanden, og en helt ærlig en: begge verdiene
+ * står, ingen har tatt stilling. De tre andre sier hva som faktisk skjedde.
+ * `source_priority` er med fordi valget kan tas på det grunnlaget, men det skjer
+ * ikke automatisk, og når det skjer skal det stå at det var grunnlaget.
+ */
+export const decisionKind = z.enum([
+  "unresolved",
+  "manual",
+  "source_priority",
+  "independent_source",
+]);
+
+export type DecisionKind = z.infer<typeof decisionKind>;
+
+/**
  * En kjent uenighet mellom kilder. Bevares i stedet for å skjules — for et historisk
  * arkiv er «Sunnmørsposten skriver 3–1, RSSSF skriver 3–2» en opplysning i seg selv.
+ *
+ * Beslutningsfeltene finnes fordi en løst konflikt uten begrunnelse ikke er
+ * løst, den er bare skjult. Står det at arkivet bruker 3–1, skal det også stå
+ * hvorfor, hvem som bestemte og når. Uten det kan ingen etterprøve valget, og
+ * neste innhøsting har ingen måte å vite at det er tatt.
  */
 export const conflict = z
   .object({
@@ -106,8 +128,70 @@ export const conflict = z
       )
       .min(2, "en konflikt trenger minst to motstridende verdier"),
     resolved: z.boolean().default(false),
+    /** Verdien arkivet bruker. Må være én av verdiene over. */
+    chosen: z.union([z.string(), z.number(), z.null()]).optional(),
+    /** Kilden den valgte verdien kom fra. */
+    chosenSourceId: slug.optional(),
+    decision: decisionKind.default("unresolved"),
+    decidedAt: isoDate.optional(),
+    /** Hvorfor. En løst konflikt uten begrunnelse er ikke etterprøvbar. */
+    reason: z.string().optional(),
+    /**
+     * Lås mot innhøsting.
+     *
+     * En kontrollert verdi skal ikke overskrives av neste kjøring bare fordi en
+     * kilde ble hentet på nytt. Feltet føres samtidig i `manual` på kampen, som
+     * er det reconcile faktisk leser; låsen her er begrunnelsen for at det står
+     * der.
+     */
+    locked: z.boolean().default(false),
     note: z.string().optional(),
   })
-  .strict();
+  .strict()
+  .superRefine((value, ctx) => {
+    const resolved = value.decision !== "unresolved";
+
+    if (resolved && value.chosen === undefined) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["chosen"],
+        message: "en avgjort konflikt må si hvilken verdi arkivet bruker",
+      });
+    }
+
+    if (resolved && !value.reason) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["reason"],
+        message: "en avgjort konflikt må si hvorfor. Uten begrunnelse er den skjult, ikke løst",
+      });
+    }
+
+    if (resolved && !value.decidedAt) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["decidedAt"],
+        message: "en avgjort konflikt må ha en dato",
+      });
+    }
+
+    // Å velge en verdi ingen kilde har oppgitt er ikke å løse uenigheten, det er
+    // å legge til en tredje påstand.
+    if (value.chosen !== undefined && !value.values.some((entry) => entry.value === value.chosen)) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["chosen"],
+        message: "den valgte verdien må være én av verdiene kildene faktisk oppgir",
+      });
+    }
+
+    if (value.resolved !== resolved) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["resolved"],
+        message: "resolved må stemme med decision: «unresolved» betyr ikke løst",
+      });
+    }
+  });
 
 export type Conflict = z.infer<typeof conflict>;
