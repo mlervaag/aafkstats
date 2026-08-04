@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { standings, standingsPath } from "../src/standings.js";
+import { person } from "../src/person.js";
 
 const row = (position: number, name: string, over: Record<string, unknown> = {}) => ({
   position, name, clubId: null,
@@ -73,5 +74,46 @@ describe("tabellskjemaet", () => {
 describe("standingsPath", () => {
   it("legger tabellen under konkurransen sin", () => {
     expect(standingsPath("eliteserien", 2023)).toBe("standings/eliteserien/2023.yaml");
+  });
+});
+
+describe("personskjemaet", () => {
+  const base = { id: "kjetil-rekdal", name: "Kjetil Rekdal" };
+
+  it("godtar en person med bare navn", () => {
+    const parsed = person.parse(base);
+    expect(parsed.names).toEqual([]);
+    expect(parsed.squadNumbers).toEqual([]);
+  });
+
+  it("avviser to draktnummer for samme sesong", () => {
+    const result = person.safeParse({
+      ...base,
+      squadNumbers: [{ season: 2024, number: 7 }, { season: 2024, number: 9 }],
+    });
+    expect(result.success).toBe(false);
+    expect(result.error!.issues[0]!.message).toContain("to draktnummer");
+  });
+
+  it("avviser en trenerperiode som slutter før den begynner", () => {
+    const result = person.safeParse({ ...base, coachSpells: [{ fromSeason: 2012, toSeason: 2008 }] });
+    expect(result.success).toBe(false);
+    expect(result.error!.issues[0]!.message).toContain("slutter");
+  });
+
+  it("lar en trenerperiode stå åpen", () => {
+    // Kilden skriver «2024–» for den som fortsatt har jobben.
+    expect(person.parse({ ...base, coachSpells: [{ fromSeason: 2024, toSeason: null }] })
+      .coachSpells[0]!.toSeason).toBeNull();
+  });
+
+  it("krever at Wikidata-ID-en ser ut som en Wikidata-ID", () => {
+    expect(person.safeParse({ ...base, wikidata: "Q1796755" }).success).toBe(true);
+    expect(person.safeParse({ ...base, wikidata: "1796755" }).success).toBe(false);
+    expect(person.safeParse({ ...base, wikidata: "Q0" }).success).toBe(false);
+  });
+
+  it("avviser en posisjon som ikke finnes", () => {
+    expect(person.safeParse({ ...base, position: "sweeper" }).success).toBe(false);
   });
 });

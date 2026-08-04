@@ -5,6 +5,7 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
 import {
   loadCoverage,
+  loadDeclaredCoaches,
   loadNeighbourSeasons,
   loadNextMatch,
   loadOverview,
@@ -183,5 +184,38 @@ describe("stall og trener", () => {
   it("kaller ingen ny når vi ikke har fjoråret å sammenligne med", () => {
     // 2023 finnes ikke i fixturen, så alle i 2024 ville sett nye ut.
     expect(loadSquad(2024).every((p) => !p.isNew)).toBe(true);
+  });
+});
+
+/**
+ * Personregisteret svarer på hvem noen er; oppstillingene på når de spilte.
+ *
+ * Fixturen har to personfiler. Den ene har en skrivemåte i `names` som er den
+ * kampen brukte, slik at oppslaget testes hele veien.
+ */
+describe("personregisteret", () => {
+  it("finner personen selv når kampen brukte en annen skrivemåte", () => {
+    // Kampen i 2024 har «Tor Hogne Aaroey»; fila heter «Tor Hogne Aarøy».
+    const player = loadSquad(2024).find((p) => p.name.includes("Hogne"))!;
+    expect(player).toMatchObject({ number: 9, position: "angrep", nationality: "Norge" });
+    expect(player.wikidata).toBe("Q167167");
+  });
+
+  it("lar spillere uten personfil stå med tomme felt", () => {
+    // De fleste som har spilt har ingen fil, og det er en normal tilstand.
+    const player = loadSquad(2024).find((p) => p.name === "Fixture Spiller B")!;
+    expect(player).toMatchObject({ number: null, position: null, wikidata: null });
+    expect(player.appearances).toBeGreaterThan(0);
+  });
+
+  it("holder oppgitte trenerperioder atskilt fra de utledede", () => {
+    // Den utledede har eksakte datoer fra kampene; den oppgitte bare årstall.
+    const declared = loadDeclaredCoaches(2014);
+    expect(declared).toEqual([{ name: "Jan Jönsson", fromSeason: 2013, toSeason: 2014 }]);
+    expect(loadSeasonCoaches(2014)).toEqual([]);
+  });
+
+  it("gir ingen oppgitt periode for et år ingen kilde dekker", () => {
+    expect(loadDeclaredCoaches(1998)).toEqual([]);
   });
 });

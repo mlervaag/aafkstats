@@ -17,6 +17,7 @@ const archive: Archive = {
   matches: [],
   observations: [],
   standings: [],
+  people: [],
   issues: [],
 };
 

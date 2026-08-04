@@ -1288,3 +1288,13 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
+.squad-table .col-number { width: 2.5rem; text-align: right; }
+/* Merkelapp på en opplysning som er oppgitt av en kilde, ikke utledet av
+   kampene. Forskjellen er verdt å se: den ene har datoer, den andre årstall. */
+.coach-declared {
+  padding: 0.05rem 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.72rem;
+  white-space: nowrap;
+}

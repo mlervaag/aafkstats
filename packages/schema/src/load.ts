@@ -6,12 +6,14 @@ import { parse as parseYaml } from "yaml";
 import { z } from "zod";
 import { club, competition, season, source, venue } from "./entities.js";
 import { match } from "./match.js";
-import { canonicalClubKey } from "./identity.js";
+import { canonicalClubKey, personKey } from "./identity.js";
 import { observation, observationPath } from "./observation.js";
+import { person } from "./person.js";
 import { standings, standingsPath } from "./standings.js";
 import type { Club, Competition, Season, Source, Venue } from "./entities.js";
 import type { Match } from "./match.js";
 import type { Observation } from "./observation.js";
+import type { Person } from "./person.js";
 import type { Standings } from "./standings.js";
 
 /** Rota på monorepoet, utledet fra hvor denne filen ligger. */
@@ -53,6 +55,11 @@ export interface Archive {
   observations: (Observation & { file: string })[];
   /** Sluttabeller per konkurranse og sesong. Tom for år ingen kilde har tabell for. */
   standings: (Standings & { file: string })[];
+  /**
+   * Personer det er noe å si om. De fleste som har spilt finnes bare som et navn
+   * i en oppstilling, og har ingen fil her.
+   */
+  people: Person[];
   issues: LoadIssue[];
 }
 
@@ -112,6 +119,7 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
   };
 
   const clubs = await readAll("clubs", club);
+  const people = await readAll("people", person);
   const venues = await readAll("venues", venue);
   const competitions = await readAll("competitions", competition);
   const sources = await readAll("sources", source);
@@ -214,7 +222,7 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
     }
   }
 
-  return { clubs, venues, competitions, sources, seasons, matches, observations, standings: tables, issues };
+  return { clubs, venues, competitions, sources, seasons, matches, observations, standings: tables, people, issues };
 }
 
 /**
@@ -354,6 +362,44 @@ export function crossValidate(archive: Archive): LoadIssue[] {
       }
     }
     for (const s of t.sources) {
+      if (!sourceIds.has(s.sourceId)) {
+        at("sources", `ukjent kilde «${s.sourceId}» — mangler data/sources/${s.sourceId}.yaml`);
+      }
+    }
+  }
+
+  // Personfiler finnes bare for dem det er noe å si om, så det er lite å slå opp.
+  // Det som må stemme, er at ingen to filer beskriver samme person: to filer for
+  // samme mann gir to rader i stallen uten at noe feiler.
+  const seenPeople = new Set<string>();
+  const seenPersonNames = new Map<string, string>();
+  // Wikidata-ID-en er den eneste identiteten her som ikke er en gjetning. Deler
+  // to filer den, er de samme person, og det er ingenting å vurdere.
+  const seenWikidata = new Map<string, string>();
+  for (const p of archive.people) {
+    const file = `people/${p.id}.yaml`;
+    const at = (path: string, message: string) => issues.push({ file, path, message });
+    if (seenPeople.has(p.id)) at("id", `duplikat person-ID «${p.id}»`);
+    seenPeople.add(p.id);
+
+    for (const written of [p.name, ...p.names]) {
+      const key = personKey(written);
+      const owner = seenPersonNames.get(key);
+      if (owner !== undefined && owner !== p.id) {
+        at("names", `skrivemåten «${written}» er også ført på «${owner}»`);
+      }
+      seenPersonNames.set(key, p.id);
+    }
+
+    if (p.wikidata !== undefined) {
+      const owner = seenWikidata.get(p.wikidata);
+      if (owner !== undefined) {
+        at("wikidata", `${p.wikidata} står også på «${owner}» — det er samme person, slå filene sammen`);
+      }
+      seenWikidata.set(p.wikidata, p.id);
+    }
+
+    for (const s of p.sources) {
       if (!sourceIds.has(s.sourceId)) {
         at("sources", `ukjent kilde «${s.sourceId}» — mangler data/sources/${s.sourceId}.yaml`);
       }

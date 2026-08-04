@@ -539,6 +539,11 @@ export function loadStandings(competitionId: string, season: number): {
 export interface SquadPlayer {
   personKey: string;
   name: string;
+  /** Fra personregisteret. Null når personen ikke har en fil der. */
+  number: number | null;
+  position: string | null;
+  nationality: string | null;
+  wikidata: string | null;
   appearances: number;
   starts: number;
   goals: number;
@@ -574,9 +579,12 @@ export function loadSquad(season: number): SquadPlayer[] {
     const rows = all<{
       person_key: string; name: string; appearances: number; starts: number;
       goals: number; first_match: string; last_match: string;
+      number: number | null; position: string | null;
+      nationality: string | null; wikidata: string | null;
     }>(
       db,
-      `SELECT person_key, name, appearances, starts, goals, first_match, last_match
+      `SELECT person_key, name, appearances, starts, goals, first_match, last_match,
+              number, position, nationality, wikidata
          FROM squad WHERE season = ? ORDER BY appearances DESC, name COLLATE NOCASE`,
       season,
     );
@@ -600,10 +608,36 @@ export function loadSquad(season: number): SquadPlayer[] {
       appearances: row.appearances,
       starts: row.starts,
       goals: row.goals,
+      number: row.number,
+      position: row.position,
+      nationality: row.nationality,
+      wikidata: row.wikidata,
       firstMatch: row.first_match,
       lastMatch: row.last_match,
       isNew: knowPrevious && !before.has(row.person_key),
     }));
+  } finally {
+    db.close();
+  }
+}
+
+/**
+ * Trenerperioder oppgitt av en kilde, for årene kampdataene ikke rekker.
+ *
+ * Holdt atskilt fra de utledede med vilje. Disse har bare årstall og mangler
+ * vikarene; de utledede har eksakte datoer og har med hver eneste en, men bare
+ * fra 2010.
+ */
+export function loadDeclaredCoaches(season: number): { name: string; fromSeason: number; toSeason: number | null }[] {
+  const db = open();
+  try {
+    return all<{ name: string; from_season: number; to_season: number | null }>(
+      db,
+      `SELECT name, from_season, to_season FROM declared_coach_spells
+        WHERE from_season <= ? AND (to_season IS NULL OR to_season >= ?)
+        ORDER BY from_season`,
+      season, season,
+    ).map((row) => ({ name: row.name, fromSeason: row.from_season, toSeason: row.to_season }));
   } finally {
     db.close();
   }

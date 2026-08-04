@@ -120,13 +120,27 @@ for (const match of archive.matches) {
     nameCounts.set(person, (nameCounts.get(person) ?? 0) + 1);
   }
 }
+// Personer som allerede er ført som hver sin fil er avgjort. «Mathias
+// Kristensen» og «Mathias Christensen» sto her til Wikipedia viste at de har
+// hvert sitt draktnummer og hver sin nasjonalitet; nå er de to poster, og da er
+// det ingenting igjen å vurdere.
+const declaredPerson = new Map<string, string>();
+for (const entry of archive.people) {
+  for (const written of [entry.name, ...entry.names]) declaredPerson.set(personKey(written), entry.id);
+}
+const settled = (a: string, b: string) => {
+  const first = declaredPerson.get(a);
+  const second = declaredPerson.get(b);
+  return first !== undefined && second !== undefined && first !== second;
+};
+
 const personKeys = [...new Set([...nameCounts.keys()].map(personKey))].sort();
 const nearPeople: [string, string][] = [];
 for (let i = 0; i < personKeys.length; i++) {
   for (let j = i + 1; j < personKeys.length; j++) {
     const a = personKeys[i]!;
     const b = personKeys[j]!;
-    if (closeEnough(a, b, 2)) nearPeople.push([a, b]);
+    if (closeEnough(a, b, 2) && !settled(a, b)) nearPeople.push([a, b]);
   }
 }
 

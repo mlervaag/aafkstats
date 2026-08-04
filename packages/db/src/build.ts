@@ -101,6 +101,33 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
       );
     }
 
+    const insertPerson = db.prepare(
+      `INSERT INTO core_people (id, person_key, name, nationality, position, wikidata, note)
+       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+    );
+    const insertPersonName = db.prepare(
+      `INSERT OR IGNORE INTO core_person_names (person_id, person_key, name) VALUES (?, ?, ?)`,
+    );
+    const insertSquadNumber = db.prepare(
+      `INSERT INTO core_squad_numbers (person_id, season, number) VALUES (?, ?, ?)`,
+    );
+    const insertDeclaredSpell = db.prepare(
+      `INSERT INTO core_declared_coach_spells (person_id, from_season, to_season) VALUES (?, ?, ?)`,
+    );
+    for (const p of archive.people) {
+      insertPerson.run(
+        p.id, personKey(p.name), p.name, p.nationality ?? null,
+        p.position ?? null, p.wikidata ?? null, p.note ?? null,
+      );
+      for (const written of [p.name, ...p.names]) {
+        insertPersonName.run(p.id, personKey(written), written);
+      }
+      for (const entry of p.squadNumbers) insertSquadNumber.run(p.id, entry.season, entry.number);
+      for (const spell of p.coachSpells) {
+        insertDeclaredSpell.run(p.id, spell.fromSeason, spell.toSeason);
+      }
+    }
+
     const insertSeason = db.prepare(
       `INSERT INTO core_seasons
          (year, competition_id, competition_name, final_position, teams_in_league,

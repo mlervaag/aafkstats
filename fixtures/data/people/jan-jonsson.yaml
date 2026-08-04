@@ -1,0 +1,15 @@
+# Trener med en oppgitt periode fra før kampdataene rekker. Periodene arkivet
+# utleder av kampene ligger i coach_spells; denne i declared_coach_spells.
+id: jan-jonsson
+name: Jan Jönsson
+names:
+  - Jan Joensson
+coachSpells:
+  - fromSeason: 2013
+    toSeason: 2014
+squadNumbers: []
+sources:
+  - sourceId: wikipedia
+    url: https://no.wikipedia.org/wiki/Aalesunds_Fotballklubb
+    retrievedAt: 2026-08-04
+    fields: [coachSpells]

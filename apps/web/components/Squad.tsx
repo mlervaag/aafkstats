@@ -18,7 +18,32 @@ function day(iso: string): string {
  * sted. Perioden er utledet av kampene, ikke av ansettelsesdatoer vi ikke har,
  * så et trenerbytte midt i sesongen kommer fram av seg selv: 2023 har tre.
  */
-export function SeasonCoaches({ coaches, season }: { coaches: CoachSpell[]; season: number }) {
+export function SeasonCoaches({
+  coaches,
+  declared,
+  season,
+}: {
+  coaches: CoachSpell[];
+  declared: { name: string; fromSeason: number; toSeason: number | null }[];
+  season: number;
+}) {
+  // Faller tilbake på det kilden oppgir når kampene ikke rekker. Den er grovere
+  // — bare årstall, og uten vikarene — så den brukes bare når det ikke finnes
+  // noe utledet for året.
+  if (coaches.length === 0 && declared.length > 0) {
+    return (
+      <p className="season-coach small muted">
+        {declared.length === 1 ? "Trener" : "Trenere"}:{" "}
+        {declared.map((spell, index) => (
+          <span key={spell.name}>
+            {index > 0 && ", "}
+            <strong>{spell.name}</strong>
+          </span>
+        ))}{" "}
+        <span className="coach-declared">oppgitt, ikke utledet av kampene</span>
+      </p>
+    );
+  }
   if (coaches.length === 0) return null;
 
   const inSeason = (spell: CoachSpell) => {
@@ -59,6 +84,7 @@ export function SeasonCoaches({ coaches, season }: { coaches: CoachSpell[]; seas
 export function SquadList({ players }: { players: SquadPlayer[] }) {
   if (players.length === 0) return null;
   const newcomers = players.filter((player) => player.isNew).length;
+  const withRegister = players.filter((player) => player.number !== null || player.position !== null).length;
 
   return (
     <section className="content-section">
@@ -74,7 +100,9 @@ export function SquadList({ players }: { players: SquadPlayer[] }) {
         <table className="squad-table">
           <thead>
             <tr>
+              <th scope="col" className="num col-number">#</th>
               <th scope="col">Spiller</th>
+              <th scope="col">Posisjon</th>
               <th scope="col" className="num">Kamper</th>
               <th scope="col" className="num">Fra start</th>
               <th scope="col" className="num">Mål</th>
@@ -83,10 +111,15 @@ export function SquadList({ players }: { players: SquadPlayer[] }) {
           <tbody>
             {players.map((player) => (
               <tr key={player.personKey}>
+                {/* Draktnummer og posisjon kommer fra personregisteret, som
+                    dekker en del av stallen. Tom celle er riktig svar for dem
+                    som ikke står der. */}
+                <td className="num col-number muted">{player.number ?? ""}</td>
                 <th scope="row">
                   {player.name}
                   {player.isNew && <span className="squad-new"> ny</span>}
                 </th>
+                <td className="muted small">{player.position ?? ""}</td>
                 <td className="num">{player.appearances}</td>
                 <td className="num">{player.starts}</td>
                 {/* Null mål er en opplysning for en spiss og ingen for en
@@ -99,10 +132,13 @@ export function SquadList({ players }: { players: SquadPlayer[] }) {
       </div>
 
       <p className="small muted prose">
-        Utledet av lagoppstillingene, som arkivet har fra 2010. «Kamper» er
-        oppsatte tropper, ikke spilletid: benken teller med, fordi kilden ikke
-        skiller mellom en som satt der og en som kom inn. «Ny» betyr at spilleren
-        ikke var med i fjor, ikke at han ble hentet.
+        Kamper og mål er utledet av lagoppstillingene, som arkivet har fra 2010.
+        «Kamper» er oppsatte tropper, ikke spilletid: benken teller med, fordi
+        kilden ikke skiller mellom en som satt der og en som kom inn. «Ny» betyr
+        at spilleren ikke var med i fjor, ikke at han ble hentet.
+        {withRegister > 0 && (
+          <> Draktnummer og posisjon står for {withRegister} av dem, fra Wikipedias stallmal.</>
+        )}
       </p>
     </section>
   );
