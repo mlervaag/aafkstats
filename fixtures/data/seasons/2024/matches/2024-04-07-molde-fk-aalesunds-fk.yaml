@@ -6,6 +6,19 @@ home: { clubId: molde-fk, score: 2, halfTimeScore: 1 }
 away: { clubId: aalesunds-fk, score: 0, halfTimeScore: 0 }
 venueId: aker-stadion
 attendance: 10118
+lineups:
+  home:
+    starters: [Moldespiller En, Moldespiller To]
+    subs: []
+    coach: Moldes Trener
+  away:
+    formation: 4-4-2
+    starters:
+      - Fixture Spiller B
+      - Tor Hogne Aaroey
+    subs:
+      - Fixture Spiller C
+    coach: Jan Joensson
 sources:
   - { sourceId: fotmob, retrievedAt: 2026-08-02, fields: [home.score, away.score] }
 confidence: confirmed

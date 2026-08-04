@@ -13,6 +13,7 @@ noe her som ikke stemmer med skjemaet, er skjemaet riktig.
 - [Stadion](#stadion)
 - [Konkurranse](#konkurranse)
 - [Kilde](#kilde)
+- [Stall og trener](#stall-og-trener)
 - [Fra YAML til database](#fra-yaml-til-database)
 
 ## Katalogstruktur
@@ -416,6 +417,32 @@ satt. Innhøstings-CLI-ene leser statusen før nettverkskallet: tørrkjøring kr
 `accepted_risk` er ikke det samme som `granted`. Den betyr at vilkårene er lest, at bruken
 ikke er uttrykkelig tillatt, og at prosjekteier likevel har besluttet å gå videre. Statusen
 krever `permissionNote` — en avkrysning uten begrunnelse er ikke en beslutning.
+
+## Stall og trener
+
+Ingen egne filer. Stallen og trenerhistorikken utledes av `lineups` på kampene ved
+bygging, i viewene `squad` og `coach_spells`. Oppstillingen ligger allerede på kampen, og en
+egen fil per opptreden ville vært samme opplysning to steder.
+
+**Personidentitet.** Kilden veksler mellom skrivemåter fra kamp til kamp: 2014-sesongen har
+både «Jan Jönsson» og «Jan Joensson» som hovedtrener, og de er én mann. `personKey()` i
+skjemapakka gjør dem til samme person ved å behandle en bokstav med ring, strek eller tødler
+som den samme bokstaven som den utskrevne formen. Målt på hele arkivet blir 238 navnestrenger
+til 227 personer, og alle elleve sammenslåingene er samme navn i to skrivemåter.
+
+Bare mekanisk translitterasjon slås sammen. «Mathias Kristensen» og «Mathias Christensen»
+står som to, fordi det kan være samme mann feilstavet og det kan være to menn.
+`pnpm data:duplicates` rapporterer paret slik at et menneske kan avgjøre.
+
+Navnet som vises er den skrevne formen når begge finnes: «Määttä», ikke «Maeaettae».
+
+**Tre ting tallene ikke sier.** `appearances` teller oppsatte tropper, ikke spilletid, fordi
+kilden ikke skiller mellom en som satt på benken og en som kom inn. «Ny» betyr at spilleren
+ikke var med sesongen før, ikke at han ble hentet: en som var skadet hele fjoråret ser like
+ny ut. Og trenerperiodene starter på første kamp, ikke på dagen avtalen ble skrevet.
+
+Oppstillingene finnes fra 2010. Eldre sesonger har tom stall, og det er en manglende kilde
+og ikke et lag uten spillere.
 
 ## Fra YAML til database
 

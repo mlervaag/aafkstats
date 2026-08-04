@@ -9,6 +9,8 @@ import {
   loadNextMatch,
   loadOverview,
   loadSeason,
+  loadSeasonCoaches,
+  loadSquad,
   loadStandings,
 } from "../lib/archive.js";
 
@@ -127,5 +129,59 @@ describe("sluttabellen", () => {
     // Siste punkt skal stemme med tabellraden. Det er hele kontrakten kurven
     // slipper gjennom innhøstingen på.
     expect(progression.at(-1)).toMatchObject({ position: 3, points: 8, played: 6 });
+  });
+});
+
+/**
+ * Stallen og trenerhistorikken utledes av lagoppstillingene ved bygging.
+ *
+ * Fixturen har to kamper med oppstilling, og skrivemåtene i dem er ekte: kilden
+ * veksler mellom «Jönsson» og «Joensson» og mellom «Aarøy» og «Aaroey» fra kamp
+ * til kamp. Testene her holder på at det blir én person av hver.
+ */
+describe("stall og trener", () => {
+  it("gjør to skrivemåter av samme navn til én spiller", () => {
+    const squad = loadSquad(2024);
+    const aaroy = squad.filter((p) => p.name.toLowerCase().includes("hogne"));
+    expect(aaroy).toHaveLength(1);
+    expect(aaroy[0]).toMatchObject({ name: "Tor Hogne Aarøy", appearances: 2, starts: 2 });
+  });
+
+  it("teller benken som en kamp, men ikke som en start", () => {
+    const squad = loadSquad(2024);
+    const c = squad.find((p) => p.name === "Fixture Spiller C")!;
+    expect(c).toMatchObject({ appearances: 2, starts: 1 });
+  });
+
+  it("holder motstanderens spillere utenfor stallen", () => {
+    // Oppstillingene deres er registrert, men de er ikke vår stall. Uten
+    // filteret ville en sesong hatt dobbelt så mange spillere som den hadde.
+    const names = loadSquad(2024).map((p) => p.name);
+    expect(names).not.toContain("Moldespiller En");
+    expect(names).not.toContain("Fixture Spiller A");
+  });
+
+  it("teller mål fra hendelsene", () => {
+    const squad = loadSquad(2024);
+    expect(squad.find((p) => p.name === "Fixture Spiller B")!.goals).toBe(2);
+    expect(squad.find((p) => p.name === "Fixture Spiller C")!.goals).toBe(0);
+  });
+
+  it("gjør to skrivemåter av trenernavnet til én periode", () => {
+    const coaches = loadSeasonCoaches(2024);
+    expect(coaches).toHaveLength(1);
+    expect(coaches[0]).toMatchObject({ name: "Jan Jönsson", matches: 2 });
+  });
+
+  it("gir ingen stall for sesonger uten lagoppstilling", () => {
+    // 1998 har kamper, men ingen oppstillinger. Tom stall er riktig svar: det
+    // er en manglende kilde, ikke et lag uten spillere.
+    expect(loadSquad(1998)).toEqual([]);
+    expect(loadSeasonCoaches(1998)).toEqual([]);
+  });
+
+  it("kaller ingen ny når vi ikke har fjoråret å sammenligne med", () => {
+    // 2023 finnes ikke i fixturen, så alle i 2024 ville sett nye ut.
+    expect(loadSquad(2024).every((p) => !p.isNew)).toBe(true);
   });
 });

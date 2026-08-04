@@ -11,7 +11,7 @@
  * og lar det være med det.
  */
 
-import { canonicalClubKey, clubKey } from "../identity.js";
+import { canonicalClubKey, clubKey, personKey } from "../identity.js";
 import { dataDir, loadArchive } from "../load.js";
 import type { Club } from "../entities.js";
 
@@ -98,6 +98,42 @@ if (near.length > 0) {
   found += near.length;
   console.log(`${YELLOW}Nesten like navn${RESET} ${DIM}(kan være samme klubb — vurder manuelt)${RESET}`);
   for (const [a, b] of near) console.log(`  ${label(a)}  vs  ${label(b)}`);
+  console.log("");
+}
+
+/**
+ * Personnavn som ligner på hverandre.
+ *
+ * `personKey` slår sammen ren translitterasjon — «Jönsson» og «Joensson» er
+ * samme mann. Alt annet lar den stå, og det er her de havner: «Mathias
+ * Kristensen» og «Mathias Christensen» kan være én mann feilstavet eller to
+ * menn, og bare et menneske kan avgjøre det.
+ *
+ * Navnene finnes bare inne i lagoppstillingene, så de plukkes ut derfra.
+ */
+const nameCounts = new Map<string, number>();
+for (const match of archive.matches) {
+  const side = match.home.clubId === AAFK ? match.lineups?.home : match.lineups?.away;
+  if (!side) continue;
+  for (const person of [...(side.starters ?? []), ...(side.subs ?? []), side.coach ?? ""]) {
+    if (person === "") continue;
+    nameCounts.set(person, (nameCounts.get(person) ?? 0) + 1);
+  }
+}
+const personKeys = [...new Set([...nameCounts.keys()].map(personKey))].sort();
+const nearPeople: [string, string][] = [];
+for (let i = 0; i < personKeys.length; i++) {
+  for (let j = i + 1; j < personKeys.length; j++) {
+    const a = personKeys[i]!;
+    const b = personKeys[j]!;
+    if (closeEnough(a, b, 2)) nearPeople.push([a, b]);
+  }
+}
+
+if (nearPeople.length > 0) {
+  found += nearPeople.length;
+  console.log(`${YELLOW}Nesten like personnavn${RESET} ${DIM}(kan være samme person — vurder manuelt)${RESET}`);
+  for (const [a, b] of nearPeople) console.log(`  ${a}  vs  ${b}`);
   console.log("");
 }
 
