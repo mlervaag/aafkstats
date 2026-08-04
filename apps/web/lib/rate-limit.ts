@@ -7,8 +7,9 @@
  *
  *   1. Vercel Firewall (Pro) teller forespørsler per IP ute på kanten, før koden
  *      vår kjører. Ingen lagring å drifte.
- *   2. Utgiftstaket i Anthropic Console er det harde kostnadsgulvet. Det er den
- *      eneste grensen som virker uansett hva som skjer i lagene over.
+ *   2. Utgiftstaket hos modelleverandøren er det harde kostnadsgulvet — Anthropic
+ *      Console eller OpenAI-plattformen, avhengig av hvilken nøkkel som er i bruk.
+ *      Det er den eneste grensen som virker uansett hva som skjer i lagene over.
  *
  * Uten Firewall (lokalt, eller på Hobby) faller vi tilbake til en teller i minnet.
  * Den er en fartsdump, ikke en mur: hver serverless-instans har sin egen, så en
@@ -102,7 +103,7 @@ function checkInMemory(ip: string): RateLimitVerdict {
     }
     // Er vi fortsatt over taket, kastes de eldste til vi er under. Det gir en
     // avsender som fyller kartet en vei ut av sitt eget vindu, men kostnaden er
-    // avgrenset — og det harde kostnadsgulvet ligger i Anthropic Console.
+    // avgrenset — og det harde kostnadsgulvet ligger hos modelleverandøren.
     for (const key of recent.keys()) {
       if (recent.size <= MAX_TRACKED) break;
       recent.delete(key);
@@ -133,6 +134,9 @@ export function logQuestion(entry: {
   inputTokens: number;
   outputTokens: number;
   error?: string | null;
+  /** Hvem som svarte. Tokentallene betyr ikke det samme hos de to, og prisen heller ikke. */
+  provider?: string;
+  model?: string;
 }): void {
   console.log(
     JSON.stringify({
@@ -149,6 +153,8 @@ export function logQuestion(entry: {
         feil: q.error,
       })),
       varighetMs: entry.durationMs,
+      leverandør: entry.provider,
+      modell: entry.model,
       tokens: { inn: entry.inputTokens, ut: entry.outputTokens },
       feil: entry.error ?? undefined,
     }),

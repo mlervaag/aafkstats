@@ -422,7 +422,8 @@ function scrubPaths(message: string): string {
  * Miljøet child-prosessen får.
  *
  * Bevisst nesten tomt. Prosessen skal åpne én fil og kjøre én SELECT, og trenger
- * ingenting av det foreldreprosessen bærer — minst av alt ANTHROPIC_API_KEY.
+ * ingenting av det foreldreprosessen bærer — minst av alt API-nøklene
+ * (ANTHROPIC_API_KEY, OPENAI_API_KEY).
  * NODE_OPTIONS er utelatt med vilje: den kan inneholde --require, og da ville
  * fremmed kode kjørt inne i det som skal være det innerste, minst privilegerte
  * laget.
