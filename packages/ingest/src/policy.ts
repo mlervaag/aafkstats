@@ -43,7 +43,8 @@ export function assertMayFetch(archive: Archive, sourceId: string): void {
 
   throw new SourcePolicyError(
     `Automatisert henting fra «${source.name}» er ikke avklart ` +
-      `(automatedAccess: ${source.automatedAccess}, permissionStatus: ${source.permissionStatus}).\n` +
+      `(automatedAccess: ${source.automatedAccess}, permissionStatus: ${source.permissionStatus}, ` +
+      `ingestDecision: ${source.ingestDecision}).\n` +
       (source.permissionNote ? `\n${source.permissionNote.trim()}\n` : "") +
       `\nOppdater data/sources/${source.id}.yaml når status endrer seg.`,
   );
@@ -64,10 +65,13 @@ export function assertMayPublish(archive: Archive, sourceId: string): void {
     `Kan ikke skrive data fra «${source.name}» til arkivet.\n\n` +
       `Arkivet er offentlig, og offentlig gjenbruk fra denne kilden er ikke avklart:\n` +
       `  publicRedistribution: ${source.publicRedistribution}\n` +
-      `  permissionStatus:     ${source.permissionStatus}\n` +
+      `  permissionStatus:     ${source.permissionStatus}   (hva motparten har sagt)\n` +
+      `  ingestDecision:       ${source.ingestDecision}   (hva vi har bestemt)\n` +
       (source.permissionNote ? `\n${source.permissionNote.trim()}\n` : "") +
       `\nTørrkjøring virker fortsatt — det er lov å undersøke hva kilden inneholder.\n` +
       `Når tillatelse foreligger, sett permissionStatus: granted i ` +
-      `data/sources/${source.id}.yaml og noter hvem som ga den.`,
+      `data/sources/${source.id}.yaml og noter hvem som ga den.\n` +
+      `Skal det gås videre uten tillatelse, er det ingestDecision: accepted_risk — ` +
+      `med riskAcceptedAt og riskAcceptedBy, så beslutningen har et navn og en dato.`,
   );
 }

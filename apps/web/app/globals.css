@@ -1301,3 +1301,6 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
   font-size: 0.72rem;
   white-space: nowrap;
 }
+/* Hvem som tok risikobeslutningen, og når. En avkrysning uten navn er ikke en
+   beslutning. */
+.rights-who { display: block; margin-top: 0.2rem; }

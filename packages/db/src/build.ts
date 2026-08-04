@@ -89,14 +89,18 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
     const insertSource = db.prepare(
       `INSERT INTO core_sources (id, name, url, priority, license,
          automated_access, public_redistribution, attribution_required,
-         permission_status, terms_checked_at, robots_checked_at, permission_note, note)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+         permission_status, ingest_decision, permission_requested_at,
+         risk_accepted_at, risk_accepted_by,
+         terms_checked_at, robots_checked_at, permission_note, note)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     );
     for (const s of archive.sources) {
       insertSource.run(
         s.id, s.name, s.url ?? null, s.priority, s.license ?? null,
         s.automatedAccess, s.publicRedistribution, bool(s.attributionRequired),
-        s.permissionStatus, s.termsCheckedAt ?? null, s.robotsCheckedAt ?? null,
+        s.permissionStatus, s.ingestDecision,
+        s.permissionRequestedAt ?? null, s.riskAcceptedAt ?? null, s.riskAcceptedBy ?? null,
+        s.termsCheckedAt ?? null, s.robotsCheckedAt ?? null,
         s.permissionNote ?? null, s.note ?? null,
       );
     }

@@ -47,41 +47,79 @@ describe("rettighetsporten", () => {
     expect(() => assertMayPublish(a, "kilde")).not.toThrow();
   });
 
-  // En bevisst beslutning er noe annet enn en tillatelse, men den er en beslutning
-  // og skal virke. Skillet ligger i at statusen sier hva den er.
+  /**
+   * En risikobeslutning er noe annet enn en tillatelse, men den er en beslutning
+   * og skal virke. Skillet er at den nå ligger i et eget felt, og at feltet sier
+   * hvem som bestemte og når.
+   */
+  const risk = {
+    ingestDecision: "accepted_risk",
+    riskAcceptedAt: "2026-08-03",
+    riskAcceptedBy: "mlervaag",
+    permissionNote: "Prosjekteier besluttet dette 2026-08-03.",
+  };
+
   it("åpner ved registrert risikobeslutning", () => {
-    const a = archive({
-      ...base,
-      publicRedistribution: "permission_required",
-      permissionStatus: "accepted_risk",
-      permissionNote: "Prosjekteier besluttet dette 2026-08-03.",
-    });
+    const a = archive({ ...base, publicRedistribution: "permission_required", ...risk });
     expect(() => assertMayPublish(a, "kilde")).not.toThrow();
   });
 
-  it("krever begrunnelse for en risikobeslutning", () => {
-    expect(() =>
-      sourceSchema.parse({ ...base, permissionStatus: "accepted_risk" }),
-    ).toThrow(/permissionNote/);
+  /**
+   * Kombinasjonen issuen ba om: forespurt hos motparten, videreført av oss.
+   * Den lot seg ikke uttrykke før, fordi ett felt bar begge deler.
+   */
+  it("lar en kilde være både forespurt og videreført på akseptert risiko", () => {
+    const a = archive({
+      ...base,
+      publicRedistribution: "permission_required",
+      permissionStatus: "requested",
+      permissionRequestedAt: "2026-08-03",
+      ...risk,
+    });
+    const parsed = a.sources[0]!;
+    expect(parsed.permissionStatus).toBe("requested");
+    expect(parsed.ingestDecision).toBe("accepted_risk");
+    expect(() => assertMayPublish(a, "kilde")).not.toThrow();
+  });
+
+  it("krever navn og dato på en risikobeslutning", () => {
+    expect(() => sourceSchema.parse({ ...base, ingestDecision: "accepted_risk" }))
+      .toThrow(/riskAcceptedAt/);
+    expect(() => sourceSchema.parse({
+      ...base, ingestDecision: "accepted_risk",
+      riskAcceptedAt: "2026-08-03", riskAcceptedBy: "mlervaag",
+    })).toThrow(/permissionNote/);
+  });
+
+  it("krever dato når en forespørsel er sendt", () => {
+    expect(() => sourceSchema.parse({ ...base, permissionStatus: "requested" }))
+      .toThrow(/permissionRequestedAt/);
+  });
+
+  it("nekter å gå videre når motparten har sagt nei", () => {
+    // Et avslag er et svar, ikke en avveining. Skjemaet avviser kombinasjonen
+    // før den rekker å bli en gate-beslutning.
+    expect(() => sourceSchema.parse({
+      ...base, permissionStatus: "denied", ...risk,
+    })).toThrow(/blocked/);
   });
 
   it("stenger uansett når publisering er uttrykkelig nektet", () => {
+    const a = archive({ ...base, publicRedistribution: "denied", ...risk });
+    expect(() => assertMayPublish(a, "kilde")).toThrow();
+  });
+
+  it("stenger når vi selv har blokkert kilden", () => {
     const a = archive({
-      ...base,
-      publicRedistribution: "denied",
-      permissionStatus: "accepted_risk",
-      permissionNote: "Noen har krysset av likevel.",
+      ...base, automatedAccess: "allowed", publicRedistribution: "allowed",
+      ingestDecision: "blocked",
     });
+    expect(() => assertMayFetch(a, "kilde")).toThrow();
     expect(() => assertMayPublish(a, "kilde")).toThrow();
   });
 
   it("stenger henting når kilden er blokkert", () => {
-    const a = archive({
-      ...base,
-      automatedAccess: "blocked",
-      permissionStatus: "accepted_risk",
-      permissionNote: "Noen har krysset av likevel.",
-    });
+    const a = archive({ ...base, automatedAccess: "blocked", ...risk });
     expect(() => assertMayFetch(a, "kilde")).toThrow();
   });
 

@@ -15,6 +15,9 @@ interface SourceRow {
   automated_access: string;
   public_redistribution: string;
   permission_status: string;
+  ingest_decision: string;
+  risk_accepted_at: string | null;
+  risk_accepted_by: string | null;
   attribution_required: number;
   permission_note: string | null;
 }
@@ -33,19 +36,34 @@ const REDISTRIBUTION: Record<string, string> = {
   unknown: "Uavklart",
 };
 
+/** Hva motparten har sagt. */
 const PERMISSION: Record<string, string> = {
   not_needed: "Ikke nødvendig",
   pending: "Ikke søkt",
   requested: "Forespurt",
   granted: "Gitt",
-  accepted_risk: "Bevisst valg uten tillatelse",
   denied: "Avslått",
+};
+
+/**
+ * Hva vi har bestemt.
+ *
+ * Sto tidligere som en tillatelsesstatus, og da kunne ikke en kilde være både
+ * forespurt og videreført. Verre: «bevisst valg uten tillatelse» så ut som noe
+ * motparten hadde sagt, når det var vårt eget.
+ */
+const DECISION: Record<string, string> = {
+  blocked: "Ikke høstet",
+  pending: "Ikke bestemt",
+  allowed: "Høstet",
+  accepted_risk: "Høstet på akseptert risiko",
 };
 
 /** Grønn når noe er avklart, gul når det er tatt et valg, rød når det er uavklart. */
 function tone(status: string): string {
-  if (status === "granted" || status === "not_needed") return "ok";
+  if (status === "granted" || status === "not_needed" || status === "allowed") return "ok";
   if (status === "accepted_risk" || status === "requested") return "note";
+  if (status === "denied" || status === "blocked") return "open";
   return "open";
 }
 
@@ -56,7 +74,8 @@ export function SourceRights() {
     rows = all<SourceRow>(
       db,
       `SELECT source_id, name, url, automated_access, public_redistribution,
-              permission_status, attribution_required, permission_note
+              permission_status, ingest_decision, risk_accepted_at, risk_accepted_by,
+              attribution_required, permission_note
        FROM sources ORDER BY name`,
     );
   } finally {
@@ -67,8 +86,9 @@ export function SourceRights() {
     <div className="table-scroll">
       <table className="rights-table">
         <caption className="small muted">
-          Henting og publisering er to forskjellige spørsmål. At en opplysning er et
-          faktum uten opphavsrett sier ingenting om vilkårene til samlingen den kom fra.
+          Fire spørsmål, ikke ett. Om noe kan hentes og om det kan publiseres er to ting,
+          og hva motparten har svart er noe annet enn hva vi har bestemt. At en opplysning
+          er et faktum uten opphavsrett sier ingenting om vilkårene til samlingen den kom fra.
         </caption>
         <thead>
           <tr>
@@ -76,6 +96,7 @@ export function SourceRights() {
             <th scope="col">Kan hentes</th>
             <th scope="col">Kan publiseres</th>
             <th scope="col">Tillatelse</th>
+            <th scope="col">Vår beslutning</th>
           </tr>
         </thead>
         <tbody>
@@ -96,6 +117,17 @@ export function SourceRights() {
                 <span className={`rights-status rights-${tone(row.permission_status)}`}>
                   {PERMISSION[row.permission_status] ?? row.permission_status}
                 </span>
+              </td>
+              <td>
+                <span className={`rights-status rights-${tone(row.ingest_decision)}`}>
+                  {DECISION[row.ingest_decision] ?? row.ingest_decision}
+                </span>
+                {/* En risikobeslutning uten navn og dato er ikke etterprøvbar. */}
+                {row.risk_accepted_at && (
+                  <span className="muted small rights-who">
+                    {row.risk_accepted_by} · {row.risk_accepted_at}
+                  </span>
+                )}
               </td>
             </tr>
           ))}

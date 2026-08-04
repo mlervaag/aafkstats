@@ -61,7 +61,13 @@ CREATE TABLE core_sources (
   automated_access       TEXT NOT NULL DEFAULT 'unknown',
   public_redistribution  TEXT NOT NULL DEFAULT 'unknown',
   attribution_required   INTEGER NOT NULL DEFAULT 0,
+  -- Hva motparten har sagt. Vår egen beslutning ligger i ingest_decision, og de
+  -- to er ulike spørsmål: RSSSF er forespurt uten svar, og videreført likevel.
   permission_status      TEXT NOT NULL DEFAULT 'pending',
+  ingest_decision        TEXT NOT NULL DEFAULT 'pending',
+  permission_requested_at TEXT,
+  risk_accepted_at       TEXT,
+  risk_accepted_by       TEXT,
   terms_checked_at       TEXT,
   robots_checked_at      TEXT,
   permission_note        TEXT,
@@ -567,7 +573,9 @@ CREATE VIEW sources AS
 SELECT
   id AS source_id, name, url, priority, license,
   automated_access, public_redistribution, attribution_required,
-  permission_status, terms_checked_at, robots_checked_at, permission_note,
+  permission_status, ingest_decision, permission_requested_at,
+  risk_accepted_at, risk_accepted_by,
+  terms_checked_at, robots_checked_at, permission_note,
   note
 FROM core_sources;
 
