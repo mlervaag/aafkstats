@@ -1,0 +1,87 @@
+name: Ny kilde eller flere kampdetaljer
+description: Målscorere, lagoppstilling, tilskuertall eller dokumentasjon på en kamp som allerede står riktig
+title: "Kilde: "
+labels: ["data"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Kampen finnes og stemmer, men er tynn. De fleste kampene før 2011 har bare dato,
+        motstander og resultat — alt annet er noen som har sittet med en avis.
+
+        Står noe *galt*, hører det hjemme i [Feil i arkivet](?template=datafeil.yml).
+        Mangler kampen helt, hører den hjemme i [Manglende kamp](?template=manglende-kamp.yml).
+
+  - type: input
+    id: kamp
+    attributes:
+      label: Hvilken kamp
+      description: Dato og motstander, eller lenken til kampsiden.
+      placeholder: 19.06.2019 mot Molde — /kamp/2019-06-19-aalesunds-fk-molde-fk
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: hva
+    attributes:
+      label: Hva har du?
+      description: Kryss av det du sitter med. Delvis er bedre enn ingenting — halve laget er halve laget.
+      options:
+        - label: Målscorere eller andre hendelser
+        - label: Lagoppstilling
+        - label: Tilskuertall
+        - label: Dommer eller bane
+        - label: Halvtidsresultat
+        - label: Avisreferat eller annen ekstern omtale
+        - label: Annet
+
+  - type: textarea
+    id: opplysninger
+    attributes:
+      label: Opplysningene
+      description: >
+        Skriv det du har, i den formen du har det. Minutter hvis du kjenner dem, ellers bare
+        navnene. Er du usikker på ett av punktene, skriv det — usikkerhet er en opplysning.
+      placeholder: |
+        Tilskuertall: 4 017
+        Mål: Fridjonsson 14 og 17, Brunstad Fet 55, Thrandarson 58
+        Dommer: usikker, avisen skriver bare «Trøndelag krets»
+    validations:
+      required: true
+
+  - type: textarea
+    id: kilde
+    attributes:
+      label: Hvor vet du det fra?
+      description: >
+        Lenke, avis med utgiver og dato, kampprogram, bok, eget arkiv. Har du flere kilder på
+        ulike deler, si hvilken som dekker hva — hver opplysning i arkivet bærer sin egen kilde.
+      placeholder: |
+        Sunnmørsposten 20.06.2019 s. 34 — tilskuertall og målscorere
+        Kampprogrammet — lagoppstillingen
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kildestatus
+    attributes:
+      label: Er kilden ny for arkivet?
+      description: >
+        Arkivet kjenner rsssf, fotmob, nasjonalbiblioteket, aafk-no, wikipedia og contribution.
+        En ny kilde må legges inn med rettighetsstatus før den kan brukes, og det er en egen jobb.
+      options:
+        - Kilden er en av dem arkivet kjenner fra før
+        - Kilden er ny
+        - Vet ikke
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: bekreft
+    attributes:
+      label: Før du sender
+      options:
+        - label: >
+            Tekst jeg har skrevet inn her er min egen. Avistekst har jeg lenket til, ikke
+            limt inn — heller ikke omskrevet setning for setning.
+          required: true

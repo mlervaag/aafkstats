@@ -10,6 +10,12 @@ body:
         dataene ligger i git. Kan du rette det selv, er det én YAML-fil å endre og én pull
         request å sende; se [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md).
 
+        To ting hører hjemme et annet sted: skal du *legge til* noe på en kamp som ellers
+        står riktig, bruk [Ny kilde eller flere kampdetaljer](?template=ny-kilde.yml). Gjelder
+        det en klubb som finnes to ganger, har byttet navn eller er feil motstander, bruk
+        [Klubbidentitet eller historisk navn](?template=klubbidentitet.yml) — den rettelsen
+        treffer alle kampene på én gang.
+
   - type: input
     id: kamp
     attributes:

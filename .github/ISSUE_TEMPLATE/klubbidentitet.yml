@@ -1,0 +1,87 @@
+name: Klubbidentitet eller historisk navn
+description: Dublett, sammenslåing, navneperiode eller kamper ført på feil klubb
+title: "Klubb: "
+labels: ["data"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Dette er ikke en vanlig kampkorreksjon. Retter du én kamp, står de andre igjen med
+        samme feil — rettelsen ligger i `data/clubs/`, og treffer alle kampene på én gang.
+
+        Feilen har en historie i dette arkivet: RSSSF skriver kortnavn, FotMob skriver
+        offisielt navn, og norske klubbnavn setter forkortelsen enten foran eller bak. Da ble
+        «FK Haugesund» og «Haugesund» to klubber, mens «Kristiansund BK» og «Kristiansund»
+        var én. Haugesund fikk en dobbeltregistrert seriekamp ut av det, Sykkylven fikk
+        innbyrdes statistikk delt i to. Odd er den motsatte fellen: Odd, Odd Grenland og Odds
+        Ballklubb er samme klubb med tre navneperioder, ikke tre klubber.
+
+        Ser du noe som ligner, er dette stedet.
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Hva gjelder det?
+      options:
+        - To oppføringer er samme klubb (dublett)
+        - Klubben har byttet navn — en navneperiode mangler eller er feil
+        - Kamper er ført på feil klubb
+        - To klubber er slått sammen til én i virkeligheten
+        - Én klubb er delt, eller et lag er skilt ut
+        - Annet
+    validations:
+      required: true
+
+  - type: input
+    id: klubber
+    attributes:
+      label: Hvilke klubber
+      description: >
+        ID-en er filnavnet i `data/clubs/`, og står i kamp-ID-en. Kjenner du den ikke, holder
+        navnet slik det vises på nettstedet.
+      placeholder: fk-haugesund og haugesund, eller «FK Haugesund» og «Haugesund»
+    validations:
+      required: true
+
+  - type: textarea
+    id: hva
+    attributes:
+      label: Hva er galt, og hva skal det være?
+      description: Si hvilken oppføring som bør bli stående, hvis du har en mening om det.
+      placeholder: |
+        Begge er Skiens-klubben Odd. Odds Ballklubb er den riktige, og Odd Grenland bør
+        bli en navneperiode under den, ikke en egen klubb.
+    validations:
+      required: true
+
+  - type: textarea
+    id: navneperioder
+    attributes:
+      label: Navneperioder
+      description: >
+        Bare hvis navnet har endret seg. Fra og til, så nøyaktig du klarer — arkivet viser
+        navnet som gjaldt den dagen kampen ble spilt. Kjenner du bare året, skriv året.
+      placeholder: |
+        Odd                 → 1993
+        Odd Grenland        1994–2012
+        Odds Ballklubb      2013 →
+
+  - type: textarea
+    id: kamper
+    attributes:
+      label: Hvilke kamper er berørt
+      description: >
+        Valgfritt, men nyttig. Kjenner du én kamp som er ført dobbelt eller på feil motstander,
+        er den ofte nok til å finne resten.
+      placeholder: |
+        2010-04-14 og 2010-09-26 ser ut til å være samme kamp, ført på hver sin Haugesund-ID.
+
+  - type: textarea
+    id: kilde
+    attributes:
+      label: Hvor vet du det fra?
+      description: >
+        Klubbens egne sider, vedtak om navneendring, årbok, avis med dato, Wikipedia med lenke.
+        Ved sammenslåinger er årstallet det viktigste — det avgjør hvor skillet går.
+    validations:
+      required: true
