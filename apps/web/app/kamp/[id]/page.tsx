@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { one, open } from "@aafkstats/db";
+import { formatDate, formatDateShort } from "@/lib/date";
 
 export const dynamic = "force-dynamic";
 
@@ -190,7 +191,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
       </p>
       <header className="match-header">
         <p className="small muted num">
-          {match.match_date}{match.kickoff ? ` kl. ${match.kickoff}` : ""} · {match.competition_name}
+          {formatDate(match.match_date)}{match.kickoff ? ` kl. ${match.kickoff}` : ""} · {match.competition_name}
           {stageLabel ? ` · ${stageLabel}` : match.round ? ` · Runde ${match.round}` : ""}
         </p>
         <div className="scoreboard">
@@ -270,7 +271,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
             {sources.map((source) => (
               <li key={`${source.sourceId}-${source.url ?? ""}`}>
                 {source.url ? <a href={source.url} rel="noreferrer">{source.sourceId}</a> : source.sourceId}
-                {source.retrievedAt ? ` · hentet ${source.retrievedAt}` : ""}
+                {source.retrievedAt ? ` · hentet ${formatDate(source.retrievedAt)}` : ""}
                 <span className="muted"> · {source.fields.length} dokumenterte felt</span>
               </li>
             ))}
@@ -284,11 +285,11 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
 
       <nav className="match-nav" aria-label="Andre kamper i samme turnering">
         {previous
-          ? <a href={`/kamp/${previous.id}`}>← {previous.opponent_name}<span className="small muted"> {previous.match_date}</span></a>
+          ? <a href={`/kamp/${previous.id}`}>← {previous.opponent_name}<span className="small muted"> {formatDateShort(previous.match_date)}</span></a>
           : <span />}
         <a href={`/sesong/${match.season}`}>Hele {match.season}</a>
         {next
-          ? <a href={`/kamp/${next.id}`}>{next.opponent_name} →<span className="small muted"> {next.match_date}</span></a>
+          ? <a href={`/kamp/${next.id}`}>{next.opponent_name} →<span className="small muted"> {formatDateShort(next.match_date)}</span></a>
           : <span />}
       </nav>
     </article>

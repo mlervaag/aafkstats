@@ -1,15 +1,5 @@
 import type { CoachSpell, SquadPlayer } from "@/lib/archive";
-
-const MONTHS = [
-  "januar", "februar", "mars", "april", "mai", "juni",
-  "juli", "august", "september", "oktober", "november", "desember",
-];
-
-/** «3. mai». En dato i en setning skal leses, ikke tydes. */
-function day(iso: string): string {
-  const [, month, date] = iso.split("-").map(Number);
-  return `${date}. ${MONTHS[month! - 1]}`;
-}
+import { formatDayMonth } from "@/lib/date";
 
 /**
  * Trenerne som hadde laget i løpet av sesongen.
@@ -27,8 +17,8 @@ export function SeasonCoaches({ coaches, season }: { coaches: CoachSpell[]; seas
     const startsHere = spell.fromSeason === season;
     const endsHere = spell.toSeason === season;
     if (startsHere && endsHere) return `${spell.matches} kamper`;
-    if (startsHere) return `fra ${day(spell.fromDate)}`;
-    if (endsHere) return `til ${day(spell.toDate)}`;
+    if (startsHere) return `fra ${formatDayMonth(spell.fromDate)}`;
+    if (endsHere) return `til ${formatDayMonth(spell.toDate)}`;
     return "hele sesongen";
   };
 
