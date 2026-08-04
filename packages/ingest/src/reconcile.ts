@@ -4,7 +4,11 @@ import { stringify } from "yaml";
 import { match as matchSchema } from "@aafkstats/schema";
 import type { Club, Match, Season, Venue } from "@aafkstats/schema";
 import type { Archive } from "@aafkstats/schema/load";
-import { matchId, slugify } from "./ids.js";
+import { clubKey, clubNameForms, matchId, slugify } from "./ids.js";
+
+// Re-eksportert fordi adaptere importerer clubKey herfra. Definisjonen ligger i
+// @aafkstats/schema, slik at valideringen bruker nøyaktig samme regel.
+export { clubKey } from "./ids.js";
 import type { SourceMatch } from "./types.js";
 
 export interface ReconcileOptions {
@@ -76,11 +80,9 @@ export function reconcile(
     const byAlias = clubByExternalId().get(externalId);
     if (byAlias) return byAlias;
     const base = slugify(name);
-    const nameMatches = clubs.filter((club) => {
-      const candidates = [club.id, club.name, club.shortName, ...club.names.map((entry) => entry.name)]
-        .filter((candidate): candidate is string => candidate !== undefined);
-      return candidates.some((candidate) => clubKey(candidate) === clubKey(name));
-    });
+    const nameMatches = clubs.filter((club) =>
+      clubNameForms(club).some((candidate) => clubKey(candidate) === clubKey(name)),
+    );
     const existing = clubs.find((club) => club.id === base) ?? (nameMatches.length === 1 ? nameMatches[0] : undefined);
     if (existing && existing.aliases[options.sourceId] === undefined) {
       existing.aliases[options.sourceId] = externalId;
@@ -229,18 +231,6 @@ export function reconcile(
     },
     skipped,
   };
-}
-
-/**
- * Normaliserer et klubbnavn til nøkkelen navnematchingen bruker.
- *
- * Eksportert fordi kilder uten egne klubb-ID-er må lage sine egne, og de må lages
- * på nøyaktig denne formen. Gjør de ikke det, gir «Kristiansund» og
- * «Kristiansund BK» hver sin ID for samme klubb, og den andre kolliderer med
- * aliaset den første la igjen.
- */
-export function clubKey(value: string): string {
-  return slugify(value).replace(/-(fotballklubb|fotball|fk|il|bk|sk)$/, "");
 }
 
 function mergeExisting(existingWithFile: Match & { file: string }, fresh: Match): Match {

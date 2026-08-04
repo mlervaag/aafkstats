@@ -201,6 +201,22 @@ export function loadOverview(): { recent: ArchiveMatch[]; totals: ArchiveTotals 
   }
 }
 
+/**
+ * Konkurranse-ID-ene som faktisk finnes i arkivet.
+ *
+ * Brukes av bidragspromptene, som tidligere hadde lista skrevet av for hånd og
+ * derfor manglet «tredjedivisjon» fra det øyeblikket RSSSF-innhøstingen la den
+ * inn. En bidragsyter som fulgte prompten fikk laget en fil valideringen avviste.
+ */
+export function loadCompetitionIds(): string[] {
+  const db = open();
+  try {
+    return all<{ id: string }>(db, `SELECT id FROM core_competitions ORDER BY id`).map((row) => row.id);
+  } finally {
+    db.close();
+  }
+}
+
 export function loadCoverage(): ArchiveCoverage {
   const db = open();
   try {

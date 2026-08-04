@@ -1,26 +1,29 @@
-id: 2002-10-06-aalesunds-fk-haugesund
-date: 2002-10-06
+id: 1985-05-30-fk-sykkylven-aalesunds-fk
+date: 1985-05-30
 dateConfidence: exact
 status: played
 competition:
-  id: forstedivisjon
-  season: 2002
+  id: nm
+  season: 1985
   stage: regular_season
-  round: 28
+  round: 1
 home:
-  clubId: aalesunds-fk
-  score: 7
+  clubId: fk-sykkylven
+  score: 1
   halfTimeScore: null
 away:
-  clubId: haugesund
-  score: 0
+  clubId: aalesunds-fk
+  score: 1
   halfTimeScore: null
+extraTime:
+  home: 0
+  away: 0
 neutralVenue: false
 events: []
 externalReports: []
 sources:
   - sourceId: rsssf
-    url: http://www.rsssf.no/2002/First.html
+    url: http://www.rsssf.no/1985/Cup.html
     retrievedAt: 2026-08-03
     fields:
       - date
@@ -31,9 +34,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - extraTime
 confidence: probable
 conflicts: []
 tags: []
 aliases:
-  rsssf: 2002-first-2002-10-06-aalesunds-fk-haugesund
+  rsssf: 1985-cup-1985-05-30-sykkylven-aalesunds-fk
 manual: []
+note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.

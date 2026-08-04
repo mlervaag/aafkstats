@@ -1,18 +1,18 @@
-id: 2006-04-17-aalesunds-fk-haugesund
-date: 2006-04-17
+id: 2006-08-06-fk-haugesund-aalesunds-fk
+date: 2006-08-06
 dateConfidence: exact
 status: played
 competition:
   id: forstedivisjon
   season: 2006
   stage: regular_season
-  round: 2
+  round: 17
 home:
-  clubId: aalesunds-fk
-  score: 2
+  clubId: fk-haugesund
+  score: 0
   halfTimeScore: null
 away:
-  clubId: haugesund
+  clubId: aalesunds-fk
   score: 1
   halfTimeScore: null
 neutralVenue: false
@@ -35,5 +35,5 @@ confidence: probable
 conflicts: []
 tags: []
 aliases:
-  rsssf: 2006-first-2006-04-17-aalesunds-fk-haugesund
+  rsssf: 2006-first-2006-08-06-haugesund-aalesunds-fk
 manual: []

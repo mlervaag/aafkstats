@@ -6,6 +6,7 @@ import { parse as parseYaml } from "yaml";
 import { z } from "zod";
 import { club, competition, season, source, venue } from "./entities.js";
 import { match } from "./match.js";
+import { canonicalClubKey } from "./identity.js";
 import type { Club, Competition, Season, Source, Venue } from "./entities.js";
 import type { Match } from "./match.js";
 
@@ -187,9 +188,36 @@ export function crossValidate(archive: Archive): LoadIssue[] {
   duplicates(archive.competitions, "competitions");
   duplicates(archive.sources, "sources");
 
+  // Klubber som normaliserer til samme identitet er nesten alltid samme klubb
+  // ført to ganger, fordi én kilde skriver «FK Haugesund» og en annen «Haugesund».
+  // Dette rapporteres, ikke slås sammen: en sammenslåing for mye gir gale tall
+  // uten at noe feiler, mens en dublett som står er synlig og rettbar.
+  const clubsByIdentity = new Map<string, Club[]>();
+  for (const club of archive.clubs) {
+    const key = canonicalClubKey(club);
+    clubsByIdentity.set(key, [...(clubsByIdentity.get(key) ?? []), club]);
+  }
+  for (const [key, group] of clubsByIdentity) {
+    if (group.length < 2) continue;
+    const names = group.map((club) => `${club.id} («${club.name}»)`).join(", ");
+    for (const club of group) {
+      issues.push({
+        file: `clubs/${club.id}.yaml`,
+        path: "name",
+        message: `samme klubbidentitet «${key}» som ${names} — slå dem sammen, og la kortformen bli et kildealias`,
+      });
+    }
+  }
+
+  // Klubb-ID → kanonisk identitet, slik at kamper ført på hver sin ID for samme
+  // klubb gir samme nøkkel under.
+  const identityOf = new Map(archive.clubs.map((club) => [club.id, canonicalClubKey(club)]));
+
   const seenMatchIds = new Set<string>();
   // Samme dato + samme motstander betyr nesten alltid at kampen er lagt inn to ganger,
-  // typisk fordi to kilder brukte ulik navnerekkefølge i slugen.
+  // typisk fordi to kilder brukte ulik navnerekkefølge i slugen — eller ulik
+  // skrivemåte av klubbnavnet, som er grunnen til at nøkkelen bruker kanonisk
+  // identitet og ikke klubb-ID.
   const seenFixtures = new Map<string, string>();
 
   for (const m of archive.matches) {
@@ -198,7 +226,8 @@ export function crossValidate(archive: Archive): LoadIssue[] {
     if (seenMatchIds.has(m.id)) at("id", `duplikat kamp-ID «${m.id}»`);
     seenMatchIds.add(m.id);
 
-    const fixtureKey = `${m.date}|${[m.home.clubId, m.away.clubId].sort().join("|")}`;
+    const sides = [m.home.clubId, m.away.clubId].map((id) => identityOf.get(id) ?? id);
+    const fixtureKey = `${m.date}|${sides.sort().join("|")}`;
     const existing = seenFixtures.get(fixtureKey);
     if (existing !== undefined && existing !== m.file) {
       at("date", `samme dato og motstander som ${existing} — er dette samme kamp?`);

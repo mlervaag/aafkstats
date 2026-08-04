@@ -1,26 +1,26 @@
-id: 1985-06-05-aalesunds-fk-sykkylven
-date: 1985-06-05
+id: 2004-04-12-aalesunds-fk-fk-haugesund
+date: 2004-04-12
 dateConfidence: exact
 status: played
 competition:
-  id: nm
-  season: 1985
+  id: forstedivisjon
+  season: 2004
   stage: regular_season
   round: 1
 home:
   clubId: aalesunds-fk
-  score: 2
+  score: 3
   halfTimeScore: null
 away:
-  clubId: sykkylven
-  score: 1
+  clubId: fk-haugesund
+  score: 2
   halfTimeScore: null
 neutralVenue: false
 events: []
 externalReports: []
 sources:
   - sourceId: rsssf
-    url: http://www.rsssf.no/1985/Cup.html
+    url: http://www.rsssf.no/2004/First.html
     retrievedAt: 2026-08-03
     fields:
       - date
@@ -35,5 +35,5 @@ confidence: probable
 conflicts: []
 tags: []
 aliases:
-  rsssf: 1985-cup-1985-06-05-aalesunds-fk-sykkylven
+  rsssf: 2004-first-2004-04-12-aalesunds-fk-haugesund
 manual: []

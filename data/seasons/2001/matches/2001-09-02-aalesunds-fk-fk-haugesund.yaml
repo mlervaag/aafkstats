@@ -1,26 +1,26 @@
-id: 2002-06-19-haugesund-aalesunds-fk
-date: 2002-06-19
+id: 2001-09-02-aalesunds-fk-fk-haugesund
+date: 2001-09-02
 dateConfidence: exact
 status: played
 competition:
   id: forstedivisjon
-  season: 2002
+  season: 2001
   stage: regular_season
-  round: 13
+  round: 22
 home:
-  clubId: haugesund
-  score: 1
+  clubId: aalesunds-fk
+  score: 7
   halfTimeScore: null
 away:
-  clubId: aalesunds-fk
-  score: 3
+  clubId: fk-haugesund
+  score: 0
   halfTimeScore: null
 neutralVenue: false
 events: []
 externalReports: []
 sources:
   - sourceId: rsssf
-    url: http://www.rsssf.no/2002/First.html
+    url: http://www.rsssf.no/2001/First.html
     retrievedAt: 2026-08-03
     fields:
       - date
@@ -35,5 +35,5 @@ confidence: probable
 conflicts: []
 tags: []
 aliases:
-  rsssf: 2002-first-2002-06-19-haugesund-aalesunds-fk
+  rsssf: 2001-first-2001-09-02-aalesunds-fk-haugesund
 manual: []

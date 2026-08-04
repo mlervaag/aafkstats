@@ -51,7 +51,7 @@ export default function SeasonsPage() {
       </div>
 
       <p className="notice prose">
-        Serie og cup er hentet inn. Europacupkampene mangler, og treningskamper finnes bare
+        Cupen er godt dekket helt tilbake til 1917. Seriedekningen er mer oppstykket før 1990, med hele sesonger enkelte år og bare spredte kamper i andre. Europacupkampene mangler, og treningskamper finnes bare
         for inneværende sesong. Se <a href="/om">kilder og forbehold</a>.
       </p>
     </>

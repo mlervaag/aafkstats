@@ -11,7 +11,22 @@
  * høflige ønsker — en modell som blir bedt om å «prøve å ikke gjette» gjetter.
  */
 
+import { matchStatus } from "@aafkstats/schema";
+import { loadCompetitionIds } from "@/lib/archive";
+
 const REPO = "https://github.com/mlervaag/aafkstats";
+
+/**
+ * Konkurranser og statuser hentes fra skjemaet og datakatalogen, ikke skrevet av.
+ *
+ * Begge lister sto tidligere som tekst her, og begge ble gale: `tredjedivisjon`
+ * kom inn med RSSSF-innhøstingen uten å bli lagt til, og `postponed` har vært i
+ * `matchStatus` hele tiden uten å stå her. En bidragsyter som fulgte prompten
+ * fikk da laget en fil valideringen avviste — den verst tenkelige feilen for en
+ * side som skal senke terskelen.
+ */
+const COMPETITION_IDS = loadCompetitionIds().join(", ");
+const MATCH_STATUSES = matchStatus.options.join(" | ");
 
 const FORMAT = `Datamodellen, kort:
 
@@ -22,8 +37,8 @@ const FORMAT = `Datamodellen, kort:
 - Påkrevd: id, date, status, competition.id, competition.season, home.clubId, away.clubId
 - Alt annet er valgfritt. En kamp fra 1930 med bare dato og motstander er velkommen
   med confidence: probable — det er bedre enn at den mangler.
-- competition.id er en av: eliteserien, forstedivisjon, nm, treningskamp
-- status: played | scheduled | abandoned | awarded | cancelled
+- competition.id er en av: ${COMPETITION_IDS}
+- status: ${MATCH_STATUSES}
 - confidence: confirmed (to uavhengige kilder) | probable (én kilde) | disputed (kilder er uenige)
 
 Viktig om resultat: home.score og away.score er stillingen etter ORDINÆR TID.
@@ -68,7 +83,8 @@ export const contributionPrompts: ContributionPrompt[] = [
     title: "Legg til en kamp som mangler",
     purpose: "Vanligst",
     description:
-      "For eldre kamper arkivet ikke har ennå. Arkivet er tynt før 2011, så dette er der det monner mest.",
+      "For eldre kamper arkivet ikke har ennå. Kampryggraden rekker tilbake til 1917, "
+      + "men detaljene — mål, oppstillinger, tilskuertall — begynner først rundt 2010.",
     prompt: `Du skal hjelpe meg å legge til en AaFK-kamp i det åpne arkivet ${REPO}.
 
 Kampen det gjelder: [BESKRIV KAMPEN — dato eller omtrentlig dato, motstander, og hva du vet]

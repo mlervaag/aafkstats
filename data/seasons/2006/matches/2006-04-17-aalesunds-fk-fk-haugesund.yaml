@@ -1,29 +1,26 @@
-id: 1985-05-30-sykkylven-aalesunds-fk
-date: 1985-05-30
+id: 2006-04-17-aalesunds-fk-fk-haugesund
+date: 2006-04-17
 dateConfidence: exact
 status: played
 competition:
-  id: nm
-  season: 1985
+  id: forstedivisjon
+  season: 2006
   stage: regular_season
-  round: 1
+  round: 2
 home:
-  clubId: sykkylven
-  score: 1
+  clubId: aalesunds-fk
+  score: 2
   halfTimeScore: null
 away:
-  clubId: aalesunds-fk
+  clubId: fk-haugesund
   score: 1
   halfTimeScore: null
-extraTime:
-  home: 0
-  away: 0
 neutralVenue: false
 events: []
 externalReports: []
 sources:
   - sourceId: rsssf
-    url: http://www.rsssf.no/1985/Cup.html
+    url: http://www.rsssf.no/2006/First.html
     retrievedAt: 2026-08-03
     fields:
       - date
@@ -34,11 +31,9 @@ sources:
       - home.score
       - away.score
       - competition.round
-      - extraTime
 confidence: probable
 conflicts: []
 tags: []
 aliases:
-  rsssf: 1985-cup-1985-05-30-sykkylven-aalesunds-fk
+  rsssf: 2006-first-2006-04-17-aalesunds-fk-haugesund
 manual: []
-note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.
