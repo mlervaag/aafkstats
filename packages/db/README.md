@@ -52,27 +52,48 @@ AAFK_DATA_DIR=fixtures/data pnpm db:build    # bygger fra fixtures
 
 ## Guardrailen
 
-`runSafeSql()` er inngangen for SQL vi ikke har skrevet selv. Fem lag, i synkende alvor:
+`runSafeSql()` er inngangen for SQL vi ikke har skrevet selv. Seks lag, i synkende alvor:
 
 | Lag | Håndheves av |
 |---|---|
 | Filen åpnes med `readOnly` | **SQLite** |
 | Egen Node-prosess, `SIGKILL` ved timeout (3 s) | **operativsystemet** |
-| Én setning, kun SELECT/WITH, ingen `core_*` eller `sqlite_*` | koden |
-| Radtak på 200 | koden |
+| Prosessen får et miljø uten hemmeligheter, og 256 MB haugtak | **operativsystemet** |
+| Én setning, kun SELECT/WITH, ingen `core_*`, `sqlite_*` eller `pragma_*` | koden |
+| Radtak på 200, og 256 kB uansett hvor mange rader | koden |
 | Varighet, radtall og feil rapporteres tilbake | koden |
 
-**Bare de to første er sikkerhet.** De tre siste finnes for å gi modellen forståelige
-feilmeldinger — opplegget skal være trygt selv om tekstanalysen har et hull.
+**De tre første er sikkerhet**, og de holder uansett hva tekstanalysen skulle overse.
+
+**Navnekontrollen er unntaket.** Den *er* grensen mot `core_`-tabellene, for SQLite har
+ingen roller og kan ikke gi leserett på viewene alene. Derfor leses spørringen i to utgaver:
+
+- `stripLiterals()` blanker ut strenger, siterte identifikatorer og kommentarer. Mot den
+  sjekkes setningsdeling og nøkkelord, slik at `WHERE note = 'a;b'` ikke avvises som flere
+  setninger og `SELECT "drop"` ikke leses som en DROP.
+- `revealIdentifiers()` pakker i stedet ut de siterte identifikatorene. Mot den sjekkes
+  navnene, for SQLite godtar `"core_matches"`, `[core_matches]` og `` `core_matches` `` som
+  samme tabell. Blankes de, gjemmer et par anførselstegn navnet for filteret.
+
+Begge bevarer posisjonene, så feilmeldingene peker fortsatt på riktig sted.
+
+Navnefiltrene dekker navnerom, ikke lister: `sqlite_(?!version)\w+` i stedet for de kjente
+systemtabellene, og `pragma\w*` fordi PRAGMA også finnes som tabellverdifunksjon —
+`pragma_database_list` røper hvor arkivfilen ligger på disk.
 
 Hvorfor en egen prosess: SQLite har ingen `statement_timeout`, og `DatabaseSync` er synkron.
 En spørring som blokkerer i motoren holder tråden, og `Worker.terminate()` venter på at
 kallet returnerer. Prosessen er den eneste tingen som faktisk kan drepes. Kostnaden er rundt
 45 ms per spørring.
 
-`stripLiterals()` blanker ut strenger, siterte identifikatorer og kommentarer før mønstrene
-letes fram, slik at `WHERE note = 'a;b'` ikke avvises som flere setninger. Posisjonene
-bevares, så feilmeldingene peker fortsatt på riktig sted.
+Prosessen får bare `PATH` — ikke `ANTHROPIC_API_KEY`, og med vilje heller ikke
+`NODE_OPTIONS`, som kan bære en `--require` og dermed kjøre fremmed kode i det innerste
+laget. Feilmeldinger går gjennom `scrubPaths()` før de sendes videre, siden de havner både i
+modellens kontekst og på skjermen.
+
+Byte-taket finnes fordi radtaket ikke sier noe om størrelse: én celle kan være vilkårlig stor
+(`SELECT hex(zeroblob(…))` holder), og resultatet går rett inn i modellens kontekst. Det er
+like mye en kostnadsgrense som en minnegrense.
 
 ## Verdt å vite
 

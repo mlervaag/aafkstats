@@ -6,6 +6,8 @@ export interface SafeSqlOptions {
   maxRows?: number;
   /** Maks kjøretid i millisekunder før prosessen drepes. */
   timeoutMs?: number;
+  /** Maks størrelse på resultatet i JSON-byte. Rader utover kuttes. */
+  maxBytes?: number;
   /** Sti til arkivfilen. Utledes fra archivePath() når den ikke oppgis. */
   dbPath?: string;
 }
@@ -27,6 +29,18 @@ export class UnsafeSqlError extends Error {
 
 const DEFAULT_MAX_ROWS = 200;
 const DEFAULT_TIMEOUT_MS = 3000;
+/**
+ * Tak på hvor stort et resultat får bli, målt i JSON-byte.
+ *
+ * 200 rader kan være 200 byte eller 200 megabyte. Resultatet sendes videre til
+ * modellen, så et manglende tak er både en minnegrense og en kostnadsgrense som
+ * mangler. En kvart megabyte er langt mer enn et statistikksvar trenger.
+ */
+const DEFAULT_MAX_BYTES = 256 * 1024;
+/** Tak på haugen i child-prosessen. */
+const MAX_HEAP_MB = 256;
+/** Siste skanse hvis byte-budsjettet i child-prosessen skulle svikte. */
+const MAX_BUFFER_BYTES = 4 * 1024 * 1024;
 
 /**
  * Fjerner strenger, siterte identifikatorer og kommentarer, og erstatter dem med
@@ -133,23 +147,150 @@ export function stripLiterals(sql: string): string {
 }
 
 /**
- * Konstruksjoner som avvises med en forklarende melding.
+ * Som stripLiterals, men siterte identifikatorer beholdes med innholdet synlig.
+ *
+ * Finnes fordi de to kontrollene trenger hver sin utgave av spørringen.
+ * Setningsdeling og nøkkelord skal lese `"rar;kolonne"` som ett navn — der er
+ * blanking riktig. Navnekontrollen skal derimot se *inn* i navnet, for SQLite lar
+ * enhver identifikator siteres: `FROM "core_matches"` og `FROM [core_matches]` og
+ * `FROM \`core_matches\`` treffer alle samme tabell som den usiterte varianten.
+ * Blankes de, ser filteret ingenting og slipper spørringen gjennom.
+ *
+ * Selve sitattegnene erstattes med mellomrom slik at lengden — og dermed
+ * posisjonene i feilmeldinger — er den samme som i inndata.
+ */
+export function revealIdentifiers(sql: string): string {
+  let out = "";
+  let i = 0;
+
+  const blank = (n: number) => " ".repeat(n);
+
+  /** Leser en sitert identifikator og gjengir innholdet uten sitattegn. */
+  const readQuoted = (open: string, close: string, escapedByDoubling: boolean): boolean => {
+    if (sql[i] !== open) return false;
+    let j = i + 1;
+    let inner = "";
+    while (j < sql.length) {
+      if (escapedByDoubling && sql[j] === close && sql[j + 1] === close) {
+        inner += close;
+        j += 2;
+      } else if (sql[j] === close) {
+        j++;
+        break;
+      } else {
+        inner += sql[j];
+        j++;
+      }
+    }
+    // Ett mellomrom for hvert sitattegn som falt bort, så lengden holder seg.
+    out += " " + inner + blank(j - i - 1 - inner.length);
+    i = j;
+    return true;
+  };
+
+  while (i < sql.length) {
+    const ch = sql[i]!;
+    const next = sql[i + 1];
+
+    if (ch === "-" && next === "-") {
+      const end = sql.indexOf("\n", i);
+      const stop = end === -1 ? sql.length : end;
+      out += blank(stop - i);
+      i = stop;
+      continue;
+    }
+
+    if (ch === "/" && next === "*") {
+      let depth = 1;
+      let j = i + 2;
+      while (j < sql.length && depth > 0) {
+        if (sql[j] === "/" && sql[j + 1] === "*") {
+          depth++;
+          j += 2;
+        } else if (sql[j] === "*" && sql[j + 1] === "/") {
+          depth--;
+          j += 2;
+        } else {
+          j++;
+        }
+      }
+      out += blank(j - i);
+      i = j;
+      continue;
+    }
+
+    // Tekststrenger er data og skal fortsatt nøytraliseres — en motstander som
+    // skriver 'core_matches' som streng har ikke rørt en tabell.
+    if (ch === "'") {
+      let j = i + 1;
+      while (j < sql.length) {
+        if (sql[j] === "'" && sql[j + 1] === "'") j += 2;
+        else if (sql[j] === "'") {
+          j++;
+          break;
+        } else j++;
+      }
+      out += blank(j - i);
+      i = j;
+      continue;
+    }
+
+    if (ch === "$") {
+      const tagMatch = /^\$[A-Za-z_][A-Za-z0-9_]*\$|^\$\$/.exec(sql.slice(i));
+      if (tagMatch) {
+        const tag = tagMatch[0];
+        const close = sql.indexOf(tag, i + tag.length);
+        const stop = close === -1 ? sql.length : close + tag.length;
+        out += blank(stop - i);
+        i = stop;
+        continue;
+      }
+    }
+
+    // De tre sitatformene SQLite godtar for identifikatorer.
+    if (readQuoted('"', '"', true)) continue;
+    if (readQuoted("`", "`", true)) continue;
+    if (readQuoted("[", "]", false)) continue;
+
+    out += ch;
+    i++;
+  }
+
+  return out;
+}
+
+/**
+ * Nøkkelord som bare virker usiterte, og derfor kan sjekkes mot stripLiterals.
+ *
+ * `SELECT "drop"` er en kolonne, ikke en DROP. Å lete etter dem i den utgaven der
+ * identifikatorene er pakket ut ville gitt falske avvisninger uten å stoppe noe.
  *
  * SQLite stopper skriving uansett fordi filen åpnes med readOnly — poenget her er
  * ikke sikkerhet, men at modellen får vite *hvorfor* og kan formulere om, i stedet
  * for å møte en rå motorfeil den ikke klarer å tolke.
- *
- * Unntaket er core_-tabellene: der er avvisningen den eneste grensen vi har.
- * SQLite har ingen roller, så vi kan ikke gi leserett på viewene alene. Det er en
- * reell svekkelse mot Postgres-utkastet — men datasettet er offentlig i sin helhet,
- * så det som står på spill er en stabil kontrakt, ikke en hemmelighet.
  */
-const FORBIDDEN: { pattern: RegExp; reason: string }[] = [
+const FORBIDDEN_SYNTAX: { pattern: RegExp; reason: string }[] = [
   { pattern: /\b(insert|update|delete|replace|upsert)\b/i, reason: "datasettet er skrivebeskyttet" },
   { pattern: /\b(drop|create|alter|reindex|vacuum)\b/i, reason: "skjemaendringer er ikke tillatt" },
   { pattern: /\battach\b/i, reason: "ATTACH er ikke tillatt" },
   { pattern: /\bdetach\b/i, reason: "DETACH er ikke tillatt" },
-  { pattern: /\bpragma\b/i, reason: "PRAGMA er ikke tillatt" },
+];
+
+/**
+ * Navn som ikke skal nås, uansett hvordan de skrives.
+ *
+ * Sjekkes mot revealIdentifiers, ikke stripLiterals: alt her er identifikatorer
+ * eller funksjonsnavn, og de kan siteres. Dette er laget der avvisningen faktisk
+ * *er* grensen, ikke bare en vennlig feilmelding — SQLite har ingen roller, så vi
+ * kan ikke gi leserett på viewene alene. Datasettet er offentlig i sin helhet, så
+ * det som står på spill er en stabil kontrakt og ikke en hemmelighet, men grensen
+ * skal holde det den lover.
+ */
+const FORBIDDEN_NAMES: { pattern: RegExp; reason: string }[] = [
+  // PRAGMA finnes også som tabellverdifunksjon: pragma_database_list røper hvor
+  // arkivfilen ligger på disk, pragma_table_info hele skjemaet. `\bpragma\b` bommer
+  // på begge, for understrek er et ordtegn.
+  { pattern: /\bpragma\w*/i, reason: "PRAGMA er ikke tillatt" },
   { pattern: /\bload_extension\b/i, reason: "utvidelser er ikke tillatt" },
   { pattern: /\b(readfile|writefile|edit|fsdir)\s*\(/i, reason: "filtilgang er ikke tillatt" },
   {
@@ -157,7 +298,10 @@ const FORBIDDEN: { pattern: RegExp; reason: string }[] = [
     reason: "de interne core_-tabellene er ikke en del av datasettet — bruk viewene, se datasettdokumentasjonen",
   },
   {
-    pattern: /\bsqlite_(master|schema|temp_master|sequence|stat\d)\b/i,
+    // Hele sqlite_-navnerommet, ikke en liste over de kjente. sqlite_dbpage leser
+    // rå sider ut av filen og sto ikke i lista; det skal ikke være mulig å finne
+    // det neste navnet som mangler. sqlite_version() er ufarlig og får stå.
+    pattern: /\bsqlite_(?!version\b)\w+/i,
     reason: "SQLites systemtabeller er ikke tilgjengelige — se datasettdokumentasjonen for hvilke tabeller som finnes",
   },
 ];
@@ -194,8 +338,17 @@ export function validateReadOnlySql(input: string): ValidatedSql {
     );
   }
 
-  for (const { pattern, reason } of FORBIDDEN) {
+  for (const { pattern, reason } of FORBIDDEN_SYNTAX) {
     if (pattern.test(withoutTrailing)) {
+      throw new UnsafeSqlError(`Avvist: ${reason}.`);
+    }
+  }
+
+  // Navnekontrollen leser spørringen med identifikatorene pakket ut, slik at
+  // sitering ikke gjemmer et navn for filteret.
+  const revealed = revealIdentifiers(raw);
+  for (const { pattern, reason } of FORBIDDEN_NAMES) {
+    if (pattern.test(revealed)) {
       throw new UnsafeSqlError(`Avvist: ${reason}.`);
     }
   }
@@ -221,14 +374,27 @@ export function validateReadOnlySql(input: string): ValidatedSql {
  */
 const RUNNER_SCRIPT = `
 const { DatabaseSync } = require("node:sqlite");
-const [dbPath, sql, maxRowsRaw] = process.argv.slice(1);
+const [dbPath, sql, maxRowsRaw, maxBytesRaw] = process.argv.slice(1);
 const maxRows = Number(maxRowsRaw);
+const maxBytes = Number(maxBytesRaw);
 try {
   const db = new DatabaseSync(dbPath, { readOnly: true });
   const rows = db.prepare(sql).all();
   db.close();
-  const truncated = rows.length > maxRows;
-  const capped = truncated ? rows.slice(0, maxRows) : rows;
+  let truncated = rows.length > maxRows;
+  const capped = [];
+  let bytes = 0;
+  for (const row of rows.slice(0, maxRows)) {
+    // Radtaket sier ingenting om størrelsen på en rad. Én celle kan være
+    // vilkårlig stor — SELECT hex(zeroblob(...)) er nok — og resultatet går
+    // rett videre inn i modellens kontekst. Budsjettet er derfor i byte.
+    bytes += JSON.stringify(row).length;
+    if (bytes > maxBytes) {
+      truncated = true;
+      break;
+    }
+    capped.push(row);
+  }
   process.stdout.write(JSON.stringify({
     ok: true,
     rows: capped,
@@ -239,6 +405,33 @@ try {
   process.stdout.write(JSON.stringify({ ok: false, error: String(err && err.message || err) }));
 }
 `;
+
+/**
+ * Fjerner absolutte stier fra en feilmelding.
+ *
+ * Meldingene herfra går to steder brukeren ser: inn i modellens kontekst, og ut
+ * til grensesnittet under svaret. SQLite skriver full sti til arkivfilen i flere
+ * av dem, og en spawn-feil tar med hele node-kommandolinja. Ingen av delene sier
+ * noe nyttig om spørringen.
+ */
+function scrubPaths(message: string): string {
+  return message.replace(/(?:[A-Za-z]:)?[\\/][^\s'"]*[\\/]([^\s'"\\/]+)/g, "$1");
+}
+
+/**
+ * Miljøet child-prosessen får.
+ *
+ * Bevisst nesten tomt. Prosessen skal åpne én fil og kjøre én SELECT, og trenger
+ * ingenting av det foreldreprosessen bærer — minst av alt ANTHROPIC_API_KEY.
+ * NODE_OPTIONS er utelatt med vilje: den kan inneholde --require, og da ville
+ * fremmed kode kjørt inne i det som skal være det innerste, minst privilegerte
+ * laget.
+ */
+export function runnerEnv(): Record<string, string> {
+  return process.platform === "win32"
+    ? { PATH: process.env.PATH ?? "", SystemRoot: process.env.SystemRoot ?? "" }
+    : { PATH: process.env.PATH ?? "" };
+}
 
 /**
  * Kjører en modellgenerert spørring med alle guardrails på.
@@ -258,6 +451,7 @@ export async function runSafeSql(
   options: SafeSqlOptions = {},
 ): Promise<SafeSqlResult> {
   const maxRows = options.maxRows ?? DEFAULT_MAX_ROWS;
+  const maxBytes = options.maxBytes ?? DEFAULT_MAX_BYTES;
   const timeoutMs = options.timeoutMs ?? DEFAULT_TIMEOUT_MS;
   const dbPath = options.dbPath ?? archivePath();
 
@@ -267,15 +461,33 @@ export async function runSafeSql(
   const payload = await new Promise<RunnerResponse>((resolve, reject) => {
     const child = execFile(
       process.execPath,
-      ["--no-warnings", "-e", RUNNER_SCRIPT, dbPath, clean, String(maxRows)],
-      { timeout: timeoutMs, killSignal: "SIGKILL", maxBuffer: 16 * 1024 * 1024 },
+      [
+        "--no-warnings",
+        // Et tak på haugen i tillegg til tidsgrensen. Tidsgrensen fanger en treg
+        // spørring, ikke en rask som ber om et enormt resultat.
+        `--max-old-space-size=${MAX_HEAP_MB}`,
+        "-e",
+        RUNNER_SCRIPT,
+        dbPath,
+        clean,
+        String(maxRows),
+        String(maxBytes),
+      ],
+      {
+        timeout: timeoutMs,
+        killSignal: "SIGKILL",
+        maxBuffer: MAX_BUFFER_BYTES,
+        // Cast fordi Nodes ProcessEnv-type krever NODE_ENV. Den skal nettopp
+        // ikke være der: miljøet er bevisst så tomt som prosessen tåler.
+        env: runnerEnv() as NodeJS.ProcessEnv,
+      },
       (err, stdout) => {
         if (err) {
           // execFile setter `killed` når timeouten slo til.
           reject(
             (err as NodeJS.ErrnoException & { killed?: boolean }).killed
               ? new Error(`Spørringen brukte for lang tid og ble avbrutt etter ${timeoutMs} ms.`)
-              : new Error(err.message.split("\n")[0] ?? String(err)),
+              : new Error(scrubPaths(err.message.split("\n")[0] ?? String(err))),
           );
           return;
         }
@@ -289,7 +501,7 @@ export async function runSafeSql(
     child.on("error", reject);
   });
 
-  if (!payload.ok) throw new Error(payload.error);
+  if (!payload.ok) throw new Error(scrubPaths(payload.error));
 
   return {
     columns: payload.columns,

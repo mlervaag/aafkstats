@@ -1,5 +1,58 @@
+/**
+ * Innholdspolicyen.
+ *
+ * Nettstedet henter ingenting utenfra: ingen skript, fonter eller bilder fra
+ * andre verter, og eneste utgående kall er til våre egne API-ruter. Da kan
+ * policyen være så stram som den er her.
+ *
+ * `'unsafe-inline'` på script-src er unntaket, og den er Next sin: rammeverket
+ * legger inn hydreringsdata som innebygde skript uten nonce, og en nonce ville
+ * krevd middleware på hver forespørsel. Policyen stopper derfor ikke innsatt
+ * skript i seg selv — den stopper at et slikt skript får sendt noe ut,
+ * lastet noe inn, eller at siden rammes inn av andre. Det er verdt å ha selv om
+ * det øverste laget mangler.
+ */
+const CSP = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data:",
+  "font-src 'self'",
+  "connect-src 'self'",
+  "form-action 'self'",
+  "base-uri 'self'",
+  "frame-ancestors 'none'",
+  "object-src 'none'",
+  "upgrade-insecure-requests",
+].join("; ");
+
 /** @type {import('next').NextConfig} */
 export default {
+  // Ingen grunn til å fortelle hvert svar hvilket rammeverk som står bak.
+  poweredByHeader: false,
+
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "Content-Security-Policy", value: CSP },
+          // Ingen MIME-gjetting. Et svar som sier JSON skal ikke kunne kjøres som skript.
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          // frame-ancestors dekker det samme for nyere nettlesere; denne er for de eldre.
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          // Arkivet trenger ingen av disse. Da skal de heller ikke kunne spørres om.
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()",
+          },
+          { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains" },
+        ],
+      },
+    ];
+  },
+
   // Arbeidspakkene distribueres som TypeScript-kilde, ikke ferdigbygget.
   transpilePackages: ["@aafkstats/db", "@aafkstats/query", "@aafkstats/schema"],
 

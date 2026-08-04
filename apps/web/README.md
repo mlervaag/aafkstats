@@ -19,13 +19,13 @@ app/
     └── chat/             Spørrefunksjonen. SSE-strøm, verktøyløkke mot Claude
 
 lib/
-├── archive.ts     Oppslagene sidene bruker
-├── search.ts      Parsing og spørring for direktesøket
-├── rate-limit.ts  Rate-limiting og logging
-├── prompts.ts     Ferdige prompts for bidragsytere
-├── thinking.ts    Tenkeord på sunnmørsk
-├── interludes.ts  Kortstoff som vises mens svaret lastes
-└── score.ts       Formatering av resultater
+├── archive.ts       Oppslagene sidene bruker
+├── search.ts        Parsing og spørring for direktesøket
+├── chat-request.ts  Grensene på det klienten sender inn
+├── rate-limit.ts    Rate-limiting og logging
+├── prompts.ts       Ferdige prompts for bidragsytere
+├── thinking.ts      Tenkeord på sunnmørsk
+└── score.ts         Formatering av resultater
 ```
 
 ## Kom i gang
@@ -64,6 +64,14 @@ Modellen kan overstyres med `AAFK_CHAT_MODEL` for å prøve noe annet uten å de
 Vær oppmerksom på at kallet forutsetter adaptiv tenkning og `effort` i `output_config` — en
 eldre modell som ikke støtter begge deler, krever kodeendring.
 
+Grensene på det klienten sender inn ligger i [`lib/chat-request.ts`](lib/chat-request.ts), med
+egne tester: 1 000 tegn per spørsmål, seks meldinger og 12 000 tegn historikk, og en kropp som
+leses med et tak på 64 kB. Uten det siste er de andre grensene rådgivende — da har vi lest og
+parset alt før første kontroll kjører. Ruten avviser også POST fra andre nettsteder: det
+finnes ingen innlogging å misbruke, men `Content-Type: text/plain` gjør en POST til en «simple
+request» uten forhåndssjekk, og da kan en fremmed side sette sine besøkendes nettlesere til å
+tømme API-budsjettet.
+
 ### Rate-limiting
 
 Delt i to, og ingen av delene ligger i datasettet:
@@ -75,16 +83,22 @@ Uten Firewall (lokalt, eller på Hobby) faller vi tilbake til en teller i minnet
 i timen. Den er en fartsdump, ikke en mur: hver instans har sin egen, så en fordelt avsender
 kommer forbi. Det er akseptabelt nettopp fordi utgiftstaket ligger under.
 
+Avsenderen leses fra de plattformsatte hodene først (`x-vercel-forwarded-for`, `x-real-ip`).
+Faller vi ned på `x-forwarded-for`, tas den *siste* oppføringen — den er lagt på av leddet
+nærmest oss, mens den første er den avsenderen selv kunne finne på å sette. Kartet har et
+hardt tak på antall avsendere, så en strøm av nye ikke får det til å vokse i det uendelige.
+
 Hvert spørsmål logges som strukturert JSON til Vercel Logs — spørsmålet, SQL-en modellen
 skrev, tokenforbruk og varighet. **IP-en logges aldri.** Vi trenger ikke vite hvem som spurte
 for å se hva som spørres om.
 
 ## Detaljene som er lette å overse
 
-**Ventetiden er brukt til noe.** Mens svaret lastes viser `Interlude` kortstoff om klubben og
-byen, og `ThinkingLine` bytter ut «Tolker spørsmålet …» med tenkeord på sunnmørsk. Begge
-filene forklarer hvor materialet kommer fra, og hva som bevisst er utelatt — supportersanger
-og moderne lyrikk er opphavsrettsbeskyttet, også når de er lette å finne.
+**Ventetiden er brukt til noe.** Mens svaret lastes bytter `ThinkingLine` ut «Tolker
+spørsmålet …» med tenkeord på sunnmørsk. [`lib/thinking.ts`](lib/thinking.ts) forklarer hvor
+ordene kommer fra, og hvorfor hvert av dem står i den formen kilden ga det — forrige runde
+ble skrevet fra hukommelsen, og seks av formene var gale på en måte en lokal leser ville sett
+med en gang.
 
 **Bidragssiden gir bort formatet.** `/bidra` inneholder ferdige prompts man kan lime inn i sin
 egen modell, slik at den som vet noe om en gammel kamp slipper å lære seg YAML-strukturen,

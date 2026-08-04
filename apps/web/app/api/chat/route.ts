@@ -4,6 +4,12 @@ import { systemPrompt } from "@aafkstats/query/prompt";
 import { tools as toolDefs } from "@aafkstats/query/tools";
 import type { ToolContext } from "@aafkstats/query/tools";
 import { checkRateLimit, logQuestion } from "@/lib/rate-limit";
+import {
+  MAX_QUESTION_CHARS,
+  isCrossSite,
+  readBodyLimited,
+  sanitizeHistory,
+} from "@/lib/chat-request";
 
 export const runtime = "nodejs";
 
@@ -56,20 +62,34 @@ export async function POST(req: Request): Promise<Response> {
     );
   }
 
+  if (isCrossSite(req)) {
+    return Response.json({ error: "Forespørselen kom fra et annet nettsted." }, { status: 403 });
+  }
+
+  const rawBody = await readBodyLimited(req);
+  if (rawBody === null) {
+    return Response.json({ error: "Forespørselen er for stor." }, { status: 413 });
+  }
+
   let body: ChatRequest;
   try {
-    body = (await req.json()) as ChatRequest;
+    body = JSON.parse(rawBody) as ChatRequest;
   } catch {
     return Response.json({ error: "Ugyldig forespørsel." }, { status: 400 });
   }
 
-  const question = (body.question ?? "").trim();
+  const question = typeof body.question === "string" ? body.question.trim() : "";
   if (question === "") {
     return Response.json({ error: "Spørsmålet er tomt." }, { status: 400 });
   }
-  if (question.length > 1000) {
-    return Response.json({ error: "Spørsmålet er for langt (maks 1000 tegn)." }, { status: 400 });
+  if (question.length > MAX_QUESTION_CHARS) {
+    return Response.json(
+      { error: `Spørsmålet er for langt (maks ${MAX_QUESTION_CHARS} tegn).` },
+      { status: 400 },
+    );
   }
+
+  const history = sanitizeHistory(body.history);
 
   const verdict = checkRateLimit(req);
   if (!verdict.allowed) {
@@ -154,13 +174,7 @@ export async function POST(req: Request): Promise<Response> {
               cache_control: { type: "ephemeral" },
             },
           ],
-          messages: [
-            ...(body.history ?? []).slice(-6).map((m) => ({
-              role: m.role,
-              content: m.content,
-            })),
-            { role: "user" as const, content: question },
-          ],
+          messages: [...history, { role: "user" as const, content: question }],
           tools: runnableTools,
           max_iterations: MAX_ITERATIONS,
           stream: true,

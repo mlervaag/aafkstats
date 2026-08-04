@@ -80,6 +80,42 @@ describe("runSafeSql mot ekte arkivfil", () => {
     ).rejects.toThrow(/for lang tid/i);
   }, 15_000);
 
+  it("slipper ikke en sitert core_-tabell gjennom til motoren", async () => {
+    // Beviser grensen der den betyr noe: ikke at validatoren kaster, men at
+    // raden aldri kommer tilbake. Dette svarte tidligere med ekte data.
+    await expect(runSafeSql('SELECT * FROM "core_matches" LIMIT 1', { dbPath })).rejects.toThrow(
+      /core_/,
+    );
+    await expect(runSafeSql('SELECT name FROM "sqlite_master" LIMIT 1', { dbPath })).rejects.toThrow(
+      /systemtabeller/,
+    );
+  });
+
+  it("røper ikke hvor arkivfilen ligger", async () => {
+    // pragma_database_list returnerte full sti til filen på disk, og den stien
+    // gikk videre både inn i modellens kontekst og ut i grensesnittet.
+    await expect(runSafeSql("SELECT * FROM pragma_database_list", { dbPath })).rejects.toThrow(
+      /PRAGMA/,
+    );
+  });
+
+  it("holder feilmeldinger fri for absolutte stier", async () => {
+    await expect(runSafeSql("SELECT finnes_ikke FROM matches", { dbPath })).rejects.toThrow(
+      /no such column/,
+    );
+    await runSafeSql("SELECT finnes_ikke FROM matches", { dbPath }).catch((err: Error) => {
+      expect(err.message).not.toContain("/");
+    });
+  });
+
+  it("kutter et resultat som er stort i byte, ikke bare i rader", async () => {
+    // Radtaket alene er ingen grense: én rad kan være vilkårlig stor, og
+    // resultatet går rett videre inn i modellens kontekst.
+    const r = await runSafeSql("SELECT hex(zeroblob(4000000)) AS stor", { dbPath });
+    expect(r.truncated).toBe(true);
+    expect(JSON.stringify(r.rows).length).toBeLessThan(512 * 1024);
+  }, 15_000);
+
   it("nektes skriving av SQLite selv om kodelaget skulle svikte", async () => {
     // Går utenom validateReadOnlySql med vilje: dette tester motorgrensen alene.
     // runSafeSql validerer, så vi kjører spørringen direkte mot en readOnly-fil.

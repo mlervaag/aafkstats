@@ -167,19 +167,18 @@ modell handler på den.
 ## Spørrefunksjonen og grensene rundt den
 
 Chatten kan skrive og kjøre egne SELECT-spørringer. Det er dét som gjør at den kan svare på
-spørsmål ingen har laget et ferdig oppslag for. Fem lag holder det trygt:
+spørsmål ingen har laget et ferdig oppslag for. Seks lag holder det trygt:
 
 | Lag | Håndheves av | Hva det stopper |
 |---|---|---|
 | Filen åpnes med `readOnly` | **SQLite** | All skriving, uansett hvor den kommer fra |
 | Egen prosess, `SIGKILL` ved timeout | **operativsystemet** | Spørringer som ikke lar seg avbryte |
-| Én setning, kun SELECT/WITH, ingen `core_*` eller `sqlite_*` | koden | Setningsstabling, tilgang til rådata |
-| Radtak på 200 | koden | Svar som sprenger kontekstvinduet |
+| Miljø uten hemmeligheter, tak på haugen | **operativsystemet** | Lekkasje av nøkler, og minnebruk som velter instansen |
+| Én setning, kun SELECT/WITH, ingen `core_*`, `sqlite_*` eller `pragma_*` | koden | Setningsstabling, tilgang til rådata og til skjemaet |
+| Radtak på 200, og 256 kB uansett hvor mange rader | koden | Svar som sprenger kontekstvinduet, og regningen |
 | Logging av hver spørring | koden | Ingenting — det er observasjon |
 
-**Bare de to første er sikkerhet.** De tre siste finnes for å gi modellen forståelige
-feilmeldinger, og for å holde svarene korte. Hele opplegget skal være trygt selv om
-tekstanalysen skulle ha et hull.
+**De tre første er sikkerhet**, og de holder uansett hva lagene over overser.
 
 ### Hvorfor en egen prosess
 
@@ -191,16 +190,51 @@ Derfor kjører hver spørring i en egen Node-prosess som avlives utenfra med `SI
 koster rundt 45 ms per spørring, og det er den eneste måten grensen faktisk holder. Se
 [`packages/db/src/safe-sql.ts`](../packages/db/src/safe-sql.ts).
 
-### Hvorfor tekstanalysen ikke er sikkerhet
+### Tekstanalysen: to utgaver av samme spørring
 
-`stripLiterals()` fjerner strenger, siterte identifikatorer og kommentarer før den leter
-etter semikolon og nøkkelord, slik at `WHERE note = 'a;b'` ikke avvises som flere setninger.
-Den er skrevet for å være presis, men den er ikke en parser. Det er greit, fordi den ikke er
-det som beskytter filen — den er det som gir modellen en forståelig feilmelding i stedet for
-en tom timeout.
+Mesteparten av tekstkontrollen finnes for å gi modellen en forståelig feilmelding i stedet
+for en rå motorfeil. `INSERT` stoppes uansett av `readOnly`; poenget med å avvise den i koden
+er at modellen får vite *hvorfor* og kan formulere om.
+
+**Navnekontrollen er unntaket.** Den er den eneste grensen mot `core_`-tabellene, for SQLite
+har ingen roller og kan ikke gi leserett på viewene alene. Derfor leses spørringen i to
+utgaver:
+
+| Utgave | Brukes til | Hvorfor |
+|---|---|---|
+| `stripLiterals()` — strenger, siterte navn og kommentarer blankes ut | Setningsdeling og nøkkelord | `WHERE note = 'a;b'` er én setning, og `SELECT "drop"` er en kolonne |
+| `revealIdentifiers()` — siterte identifikatorer pakkes ut, strenger blankes fortsatt | Navnene | SQLite godtar `"core_matches"`, `[core_matches]` og `` `core_matches` `` som samme tabell |
+
+Leser kontrollen bare den første utgaven, gjemmer et par anførselstegn navnet for filteret og
+viser det til motoren. Filtrene dekker derfor navnerom og ikke lister: hele `sqlite_`-rommet
+utenom `sqlite_version()`, og `pragma\w*` — PRAGMA finnes også som tabellverdifunksjon, og
+`pragma_database_list` røper hvor arkivfilen ligger på disk.
+
+Byte-taket hører til samme resonnement fra motsatt kant: 200 rader kan være 200 byte eller
+200 megabyte, og resultatet går rett inn i modellens kontekst. Taket er like mye en
+kostnadsgrense som en minnegrense.
 
 [`packages/db/test/safe-sql.integration.test.ts`](../packages/db/test/safe-sql.integration.test.ts)
 prøver å bryte hvert lag mot en ekte arkivfil, inkludert direkte skriveforsøk utenom koden.
+
+### Grensene før spørringen: hva ett kall får koste
+
+SQL-grensene beskytter arkivfilen. Grensene i
+[`apps/web/lib/chat-request.ts`](../apps/web/lib/chat-request.ts) beskytter regningen, og de
+kjører før modellen kalles:
+
+| Grense | Verdi | Hvorfor |
+|---|---|---|
+| Spørsmålets lengde | 1 000 tegn | Ett spørsmål, ikke et dokument |
+| Historikk | 6 meldinger, 4 000 tegn per melding, 12 000 til sammen | Klienten sender den; taket er på inn-tokens |
+| Kroppens størrelse | 64 kB, lest med tak | Uten dette er grensene over rådgivende — alt er lest og parset før første kontroll |
+| Rolle i historikken | bare `user` og `assistant` | Historikken kommer fra klienten, ikke fra oss |
+
+Chatten avviser også POST-kall fra andre nettsteder. Det er ikke CSRF i vanlig forstand — det
+finnes ingen innlogging å misbruke — men `Content-Type: text/plain` gjør en POST til en
+«simple request» uten forhåndssjekk, og da kan en hvilken som helst side sette sine besøkendes
+nettlesere til å tømme API-budsjettet. Kall uten `Origin` slipper gjennom; de stoppes av
+fartsgrensen i stedet.
 
 ### Prompt injection
 
@@ -266,6 +300,11 @@ Arkivfilen leses av serverkoden ved kjøring, og må derfor spores inn i funksjo
 er `outputFileTracingIncludes` i [`next.config.mjs`](../apps/web/next.config.mjs) — sammen med
 to andre bundler-tilpasninger som er kommentert der de står, fordi `node:sqlite` fortsatt er
 eksperimentell i Node 22 og ikke oppfører seg som en vanlig innebygd modul.
+
+Samme fil setter svarhodene: en stram CSP (`default-src 'self'`, ingen eksterne verter i det
+hele tatt), `nosniff`, `frame-ancestors 'none'`, `Referrer-Policy` og HSTS. Nettstedet henter
+ingenting utenfra, så policyen kan være så stram som den er. `'unsafe-inline'` på `script-src`
+er Next sitt hydreringsdata-unntak, og det står forklart der.
 
 ## Testing og CI
 

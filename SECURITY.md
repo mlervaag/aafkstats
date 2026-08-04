@@ -28,13 +28,17 @@ bryter et av disse lagene er verdt en rapport:
   du å endre den gjennom applikasjonen, er det den alvorligste feilen prosjektet kan ha.
 - **Å komme forbi SELECT-begrensningen** — flere setninger, `ATTACH`, `PRAGMA`, `writable_schema`,
   eller andre veier ut av én lesende spørring.
-- **Tilgang til `core_*`- eller `sqlite_*`-objekter** fra spørrefunksjonen. Bare de
-  dokumenterte viewene er offentlig kontrakt.
+- **Tilgang til `core_*`-, `sqlite_*`- eller `pragma_*`-objekter** fra spørrefunksjonen. Bare
+  de dokumenterte viewene er offentlig kontrakt, og navnekontrollen er den eneste grensen mot
+  resten — SQLite har ingen roller. Finner du en skrivemåte den ikke fanger, er det en
+  rapport verdt.
 - **En spørring som ikke lar seg avbryte.** Hver spørring kjøres i en egen prosess som drepes
   med `SIGKILL` ved timeout. Finner du en vei rundt det, blir tjenesten utsatt for å kunne
   holdes nede.
 - **Lekkasje av hemmeligheter** — `ANTHROPIC_API_KEY` eller andre miljøvariabler som når
-  klienten, loggen eller et svar.
+  klienten, loggen eller et svar. Prosessen som kjører SQL får bare `PATH`, med vilje.
+- **Kall som omgår grensene på forespørselen** — spørsmålslengde, historikk, kroppens
+  størrelse eller opphavskontrollen på POST. Det som står på spill der er regningen.
 - **Prompt injection som gir en faktisk konsekvens.** At modellen kan lures til å skrive noe
   rart er ikke i seg selv en sårbarhet; at den kan lures til å gjøre noe lagene over skulle
   ha stoppet, er det.
@@ -50,7 +54,8 @@ Meld gjerne fra hvis du mener vurderingen er feil, men disse er kjent og bevisst
 - **Spørsmål logges.** Spørsmålsteksten, SQL-en modellen skrev og tokenforbruket skrives til
   Vercel Logs. IP-adressen logges aldri. Ikke skriv noe personlig i spørrefeltet.
 - **Radtak og énsetningsregel er ikke sikkerhet.** De finnes for å gi modellen forståelige
-  feilmeldinger. `readOnly` og prosessgrensen er lagene som faktisk holder.
+  feilmeldinger. `readOnly`, prosessgrensen og det tomme miljøet er lagene som faktisk holder.
+  Navnekontrollen er unntaket — den er en reell grense, og hull i den er verdt en rapport.
 - **Feil i dataene er ikke sikkerhetsproblemer.** Gal dato eller manglende kamp meldes som en
   vanlig [issue](https://github.com/mlervaag/aafkstats/issues/new/choose) — se
   [CONTRIBUTING.md](CONTRIBUTING.md).
