@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CoverageSummary, CoverageTag } from "@/components/Coverage";
 import { loadSeasonYears } from "@/lib/archive";
 
 export const metadata: Metadata = {
@@ -18,9 +19,10 @@ export default function SeasonsPage() {
         <p className="eyebrow">Sesong for sesong</p>
         <h1>Sesonger</h1>
         <p className="lede">
-          {years.length} sesonger fra {oldest} til {newest}. Velg et år for alle kamper og
-          sesongtall.
+          {years.length} år er representert, fra {oldest} til {newest}. Velg et år for alle
+          kamper og sesongtall.
         </p>
+        <CoverageSummary seasons={years.map((y) => y.primary)} />
       </header>
 
       <div className="season-grid">
@@ -38,6 +40,7 @@ export default function SeasonsPage() {
               {primary.goalsFor}–{primary.goalsAgainst} mål · {primary.played}{" "}
               {primary.played === 1 ? "kamp" : "kamper"}
             </span>
+            <CoverageTag season={primary} />
             {others.length > 0 && (
               <span className="card-extra muted">
                 + {others.map((o) => `${o.played} i ${o.competition}`).join(", ")}

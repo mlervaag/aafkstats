@@ -1052,3 +1052,41 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
 .answer-reset:hover {
   opacity: 1;
 }
+
+/* Dekningsmerket på sesongkort og sesongsider.
+   Dempet med vilje: det er en presisering av tallene ved siden av, ikke en
+   advarsel. «Komplett» skal ikke rope høyere enn resultatet. */
+.coverage-tag {
+  display: inline-block;
+  /* Merket står inne i en h2 på sesongsiden og ville ellers arvet serifen og
+     halvfeten derfra. Det er en etikett, ikke en del av overskriften. */
+  font-family: var(--font-body);
+  font-weight: 400;
+  /* Kortet er en flex-kolonne, og uten dette strekker merket seg over hele
+     bredden. Et merke som er like bredt som kortet leser som en flate, ikke
+     som en merkelapp. */
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid currentColor;
+  border-radius: var(--radius);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--muted);
+}
+
+/* Bare den komplette får farge. De to andre er tilstander, ikke problemer —
+   et arkiv som mangler 1951 har ikke gjort noe galt. */
+.coverage-complete { color: var(--win); }
+
+.section-heading-title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+.section-heading .coverage-tag { margin-top: 0; align-self: baseline; }
+
+.coverage-summary { max-width: var(--measure); margin-top: 0.9rem; }

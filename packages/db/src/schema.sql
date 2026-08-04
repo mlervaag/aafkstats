@@ -241,6 +241,33 @@ SELECT
   coalesce(sum(m.goal_difference), 0)                       AS goal_difference,
   CAST(round(avg(CASE WHEN m.is_home = 1 THEN m.attendance END)) AS INTEGER)
                                                             AS avg_home_attendance,
+
+  -- Hvor godt sesongen er dekket, utledet av kampene selv.
+  --
+  -- «85 sesonger» har hele tiden betydd 85 år med minst én registrert kamp. Det
+  -- er noe annet enn 85 komplette sesonger, og forskjellen var usynlig for den
+  -- som leste forsiden. Denne kolonnen gjør den synlig, og den regnes ut ved
+  -- bygging slik at den ikke kan bli utdatert.
+  --
+  -- Serien nummererer rundene sine, og det er nok til å svare. Har vi runde 1 til
+  -- N uten hull, og N kamper, er sesongen komplett så langt kilden rekker.
+  -- Mangler det runder, er den delvis. Uten rundenummer i det hele tatt vet vi
+  -- ingenting utover at kampene finnes, og da sier vi det.
+  --
+  -- Cup og treningskamper har ingen slik struktur — en cupsesong slutter når
+  -- laget ryker ut — så de svarer «ikke relevant» framfor å gjette.
+  CASE
+    WHEN c.type <> 'league' THEN 'not_applicable'
+    WHEN count(m."round") = 0 THEN 'isolated'
+    WHEN count(m."round") < count(m.id) THEN 'partial'
+    WHEN min(m."round") = 1
+     AND max(m."round") = count(m.id)
+     AND count(DISTINCT m."round") = count(m.id) THEN 'complete'
+    ELSE 'partial'
+  END                                                       AS coverage,
+  -- Høyeste runde vi har. For en komplett sesong er dette antall serierunder.
+  max(m."round")                                  AS last_round,
+
   '/sesong/' || m.season                                    AS url
 FROM core_matches m
 JOIN core_competitions c ON c.id = m.competition_id
@@ -248,6 +275,10 @@ LEFT JOIN core_seasons s
   ON s.year = m.season
  AND s.competition_id = m.competition_id
 WHERE m.status = 'played'
+  -- Kvalifiseringskamper hører til sesongen, men ikke til serietabellen. Tas de
+  -- med her, blir en komplett sesong «delvis» fordi kampantallet overstiger
+  -- siste runde.
+  AND (c.type <> 'league' OR m.stage = 'regular_season')
 GROUP BY m.season, m.competition_id;
 
 -- Innbyrdes statistikk mot hver motstander, hele arkivet og alle konkurranser.

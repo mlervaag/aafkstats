@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { CoverageTag } from "@/components/Coverage";
 import { MatchList } from "@/components/MatchList";
 import { loadSeason } from "@/lib/archive";
 
@@ -40,7 +41,13 @@ export default async function SeasonPage({ params }: Props) {
         return (
           <section className="content-section" key={summary.competitionId}>
             <h2 className="section-heading">
-              {summary.competition}{" "}
+              {/* Navn og dekning hører sammen til venstre; kamptallet står til
+                  høyre. Uten grupperingen fordeler flexen de tre jevnt utover
+                  og merket havner midt i linja. */}
+              <span className="section-heading-title">
+                {summary.competition}
+                <CoverageTag season={summary} />
+              </span>
               <span className="muted section-count">
                 {summary.played} {summary.played === 1 ? "kamp" : "kamper"}
               </span>

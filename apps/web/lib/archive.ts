@@ -47,6 +47,16 @@ export interface SeasonSummary {
   goalDifference: number;
   /** Forbehold om sesongen, f.eks. at den er ufullstendig i arkivet. */
   note: string | null;
+  /**
+   * Hvor godt sesongen er dekket, utledet av rundenumrene i byggesteget.
+   *
+   * «85 sesonger» betyr 85 år med minst én registrert kamp. Uten dette feltet er
+   * det umulig for en leser å se forskjell på en komplett serie og tre løsrevne
+   * kamper fra 1951.
+   */
+  coverage: "complete" | "partial" | "isolated" | "not_applicable";
+  /** Høyeste serierunde. For en komplett sesong: antall runder. */
+  lastRound: number | null;
   url: string;
 }
 
@@ -65,6 +75,8 @@ interface SeasonRow {
   goals_against: number;
   goal_difference: number;
   note: string | null;
+  coverage: "complete" | "partial" | "isolated" | "not_applicable";
+  last_round: number | null;
   url: string;
 }
 
@@ -163,6 +175,8 @@ function mapSeason(row: SeasonRow): SeasonSummary {
     goalsAgainst: row.goals_against,
     goalDifference: row.goal_difference,
     note: row.note,
+    coverage: row.coverage,
+    lastRound: row.last_round,
     url: row.url,
   };
 }
