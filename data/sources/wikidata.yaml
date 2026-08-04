@@ -1,0 +1,17 @@
+id: wikidata
+name: Wikidata
+url: https://www.wikidata.org
+priority: 45
+license: CC0 1.0
+automatedAccess: allowed
+publicRedistribution: allowed
+attributionRequired: false
+permissionStatus: not_needed
+termsCheckedAt: 2026-08-04
+robotsCheckedAt: 2026-08-04
+permissionNote: >
+  Åpent SPARQL-endepunkt. Dataene er CC0 og smitter ikke, i motsetning til
+  Wikipedia-teksten.
+note: >
+  Brukes bare til person-ID-er. Dataene bak ID-en hentes ikke hit: en peker
+  holder seg oppdatert, en kopi blir gammel uten at noen merker det.

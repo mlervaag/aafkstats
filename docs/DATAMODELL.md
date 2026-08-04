@@ -13,6 +13,7 @@ noe her som ikke stemmer med skjemaet, er skjemaet riktig.
 - [Stadion](#stadion)
 - [Konkurranse](#konkurranse)
 - [Kilde](#kilde)
+- [Person](#person)
 - [Stall og trener](#stall-og-trener)
 - [Fra YAML til database](#fra-yaml-til-database)
 
@@ -26,6 +27,7 @@ data/
 ├── sources/        <kilde-id>.yaml          Kildekatalog med rettighetsstatus
 ├── observations/
 │   └── rsssf/      <ekstern-id>.yaml        Hva kilden sa, før normalisering
+├── people/         <person-id>.yaml         Hvem personen er, ikke når hun spilte
 ├── standings/
 │   └── eliteserien/<år>.yaml                Sluttabell og plasseringskurve
 └── seasons/
@@ -417,6 +419,41 @@ satt. Innhøstings-CLI-ene leser statusen før nettverkskallet: tørrkjøring kr
 `accepted_risk` er ikke det samme som `granted`. Den betyr at vilkårene er lest, at bruken
 ikke er uttrykkelig tillatt, og at prosjekteier likevel har besluttet å gå videre. Statusen
 krever `permissionNote` — en avkrysning uten begrunnelse er ikke en beslutning.
+
+## Person
+
+`data/people/<id>.yaml`
+
+Ikke en liste over alle som har spilt. De fleste finnes bare som et navn i en
+lagoppstilling, og det er nok. En fil lages når det er noe å si: en skrivemåte som må
+knyttes til personen, et draktnummer, en posisjon, eller en trenerperiode fra før
+kampdataene rekker.
+
+```yaml
+id: mathias-kristensen
+name: Mathias Kristensen
+names: [Mathias Kristensen Jr.]   # skrivemåter kildene bruker
+nationality: Danmark              # slik kilden skrev den
+position: midtbane                # keeper | forsvar | midtbane | angrep
+wikidata: Q138807730
+squadNumbers:
+  - { season: 2025, number: 14 }
+coachSpells:                      # bare for år kampdataene ikke rekker
+  - { fromSeason: 2001, toSeason: 2005 }
+```
+
+| Regel | Hvorfor |
+|---|---|
+| To filer kan ikke dele Wikidata-ID | Q-ID-en er den eneste identiteten her som ikke er en gjetning. Deler to filer den, er de samme person |
+| En skrivemåte kan bare stå på én person | Ellers vet ikke oppslaget fra oppstillingen hvem navnet gjelder |
+| Ett draktnummer per sesong | To betyr at innhøstingen har lest to rader som samme mann |
+| Ingen biografi | Fødselsdato og karriere ligger på Wikidata. En peker holder seg oppdatert; en kopi blir gammel uten at noen merker det |
+
+**Hvorfor filene finnes.** `personKey()` slår sammen skrivemåter som er samme bokstav
+skrevet på to måter. Det den ikke kan, er å avgjøre om «Mathias Kristensen» og «Mathias
+Christensen» er samme mann. Wikipedia svarer: begge står i samme stall, med hvert sitt
+draktnummer og hver sin nasjonalitet. Med en fil per person kan arkivet påstå at de er to,
+med kilde, i stedet for bare å la være å gjette.
 
 ## Stall og trener
 

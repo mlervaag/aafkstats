@@ -1,0 +1,33 @@
+id: hakon-butli-hammer
+name: Håkon Butli Hammer
+names:
+  - Håkon Hammer
+nationality: Norge
+position: midtbane
+wikidata: Q109240476
+squadNumbers:
+  - season: 2023
+    number: 8
+  - season: 2024
+    number: 6
+  - season: 2025
+    number: 6
+  - season: 2026
+    number: 6
+coachSpells: []
+sources:
+  - sourceId: wikipedia
+    url: https://no.wikipedia.org/w/index.php?title=Aalesunds%20Fotballklubb&oldid=25869346
+    retrievedAt: 2026-07-22
+    fields:
+      - name
+      - position
+      - nationality
+      - squadNumbers
+    note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+  - sourceId: wikidata
+    url: https://www.wikidata.org/wiki/Q109240476
+    retrievedAt: 2026-08-04
+    fields:
+      - wikidata
+    note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.

@@ -1,0 +1,19 @@
+# Konstruert fixture, men formen er den samme som en innhøstet personfil.
+# «Tor Hogne Aaroey» står i names fordi kilden veksler mellom skrivemåtene, og
+# stalltabellen skal finne personen uansett hvilken av dem kampen brukte.
+id: tor-hogne-aaroy
+name: Tor Hogne Aarøy
+names:
+  - Tor Hogne Aaroey
+nationality: Norge
+position: angrep
+wikidata: Q167167
+squadNumbers:
+  - season: 2024
+    number: 9
+coachSpells: []
+sources:
+  - sourceId: wikipedia
+    url: https://no.wikipedia.org/wiki/Aalesunds_Fotballklubb
+    retrievedAt: 2026-08-04
+    fields: [name, position, nationality, squadNumbers]

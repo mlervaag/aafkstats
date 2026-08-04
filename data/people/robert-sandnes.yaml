@@ -1,0 +1,26 @@
+id: robert-sandnes
+name: Robert Sandnes
+names: []
+nationality: Norge
+position: forsvar
+wikidata: Q11998102
+squadNumbers:
+  - season: 2018
+    number: 20
+coachSpells: []
+sources:
+  - sourceId: wikipedia
+    url: https://no.wikipedia.org/w/index.php?title=Aalesunds%20Fotballklubb&oldid=19069867
+    retrievedAt: 2018-12-31
+    fields:
+      - name
+      - position
+      - nationality
+      - squadNumbers
+    note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+  - sourceId: wikidata
+    url: https://www.wikidata.org/wiki/Q11998102
+    retrievedAt: 2026-08-04
+    fields:
+      - wikidata
+    note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.

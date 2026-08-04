@@ -124,6 +124,46 @@ CREATE TABLE core_standings_progression (
   PRIMARY KEY (competition_id, season, round)
 );
 
+-- Personer det er noe å si om: draktnummer, posisjon, nasjonalitet, Wikidata-ID
+-- eller en trenerperiode fra før kampdataene rekker. De fleste som har spilt har
+-- ingen rad her, og finnes bare som et navn i en oppstilling.
+--
+-- person_key er den samme nøkkelen core_appearances bruker, slik at stallen kan
+-- slås opp mot registeret uten å gjette.
+CREATE TABLE core_people (
+  id           TEXT PRIMARY KEY,
+  person_key   TEXT NOT NULL,
+  name         TEXT NOT NULL,
+  nationality  TEXT,
+  position     TEXT CHECK (position IN ('keeper','forsvar','midtbane','angrep')),
+  wikidata     TEXT,
+  note         TEXT
+);
+
+-- Skrivemåtene en person er kjent under, én rad per form. Brukes til å knytte et
+-- navn fra en oppstilling til registeret når kildene staver det ulikt.
+CREATE TABLE core_person_names (
+  person_id    TEXT NOT NULL REFERENCES core_people(id),
+  person_key   TEXT NOT NULL,
+  name         TEXT NOT NULL,
+  PRIMARY KEY (person_key, person_id)
+);
+
+CREATE TABLE core_squad_numbers (
+  person_id    TEXT NOT NULL REFERENCES core_people(id),
+  season       INTEGER NOT NULL,
+  number       INTEGER NOT NULL,
+  PRIMARY KEY (person_id, season)
+);
+
+-- Trenerperioder oppgitt av en kilde, ikke utledet av kampene. Se coach_spells.
+CREATE TABLE core_declared_coach_spells (
+  person_id    TEXT NOT NULL REFERENCES core_people(id),
+  from_season  INTEGER NOT NULL,
+  to_season    INTEGER,
+  PRIMARY KEY (person_id, from_season)
+);
+
 -- Én rad per spiller per kamp. Utledet av lineups ved bygging, ikke lagret i
 -- data/ — oppstillingen ligger allerede på kampen, og en egen fil per opptreden
 -- ville vært samme opplysning to steder.
@@ -433,6 +473,17 @@ SELECT
   -- Navnet slik det vises. Samme person kan stå med to skrivemåter i kildene, og
   -- min() gir et stabilt svar; byggesteget har allerede valgt den beste.
   min(a.name)                                       AS name,
+  -- Registeret når personen står der. Draktnummer er per sesong; posisjon og
+  -- nasjonalitet gjelder personen.
+  (SELECT n.person_id FROM core_person_names n WHERE n.person_key = a.person_key) AS person_id,
+  (SELECT p.position FROM core_person_names n JOIN core_people p ON p.id = n.person_id
+    WHERE n.person_key = a.person_key)              AS position,
+  (SELECT p.nationality FROM core_person_names n JOIN core_people p ON p.id = n.person_id
+    WHERE n.person_key = a.person_key)              AS nationality,
+  (SELECT p.wikidata FROM core_person_names n JOIN core_people p ON p.id = n.person_id
+    WHERE n.person_key = a.person_key)              AS wikidata,
+  (SELECT s.number FROM core_person_names n JOIN core_squad_numbers s ON s.person_id = n.person_id
+    WHERE n.person_key = a.person_key AND s.season = a.season) AS number,
   count(*)                                          AS appearances,
   sum(CASE WHEN a.role = 'start' THEN 1 ELSE 0 END) AS starts,
   min(m.match_date)                                 AS first_match,
@@ -479,6 +530,20 @@ FROM ordered
 -- fordi en trener kan komme tilbake: Rekdal hadde laget både 2010 og 2024.
 GROUP BY person_key, seq - own_seq
 ORDER BY from_date;
+
+-- Trenerperioder oppgitt av en kilde, for årene kampdataene ikke rekker.
+-- Holdes atskilt fra coach_spells med vilje: der er periodene utledet av hvem som
+-- sto oppført på hver kamp, og de har eksakte datoer og har med vikarene. Disse
+-- har bare årstall, men rekker til 2001.
+CREATE VIEW declared_coach_spells AS
+SELECT
+  d.person_id,
+  p.name,
+  d.from_season,
+  d.to_season
+FROM core_declared_coach_spells d
+JOIN core_people p ON p.id = d.person_id
+ORDER BY d.from_season;
 
 -- Én rad per kamphendelse. team er 'aafk' eller 'opponent', ikke hjemme/borte.
 CREATE VIEW match_events AS

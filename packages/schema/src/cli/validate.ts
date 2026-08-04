@@ -28,6 +28,7 @@ const counts = [
   // kall ville lest som en mangel, ikke som at ingen kilde er høstet inn ennå.
   ...(archive.observations.length > 0 ? [`${archive.observations.length} observasjoner`] : []),
   ...(archive.standings.length > 0 ? [`${archive.standings.length} tabeller`] : []),
+  ...(archive.people.length > 0 ? [`${archive.people.length} personer`] : []),
 ].join(" · ");
 
 if (issues.length === 0) {

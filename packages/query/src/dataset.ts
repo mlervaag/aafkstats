@@ -190,6 +190,7 @@ export const views: ViewDoc[] = [
       "goals teller bare mål i kamper der navnet står i hendelseslista. En kamp uten hendelser gir null mål for alle som spilte den.",
       "person_key slår sammen skrivemåter av samme navn. name er den skrivemåten vi viser.",
       "Bare AaFKs egne spillere. Motstandernes oppstillinger er registrert, men er ikke med her.",
+      "number, position, nationality og wikidata kommer fra personregisteret og dekker en del av stallen, ikke hele. NULL betyr at personen ikke står der, ikke at opplysningen ikke finnes.",
     ],
     columns: [
       { name: "season", type: "integer", description: "Sesongår." },
@@ -198,6 +199,11 @@ export const views: ViewDoc[] = [
       { name: "appearances", type: "integer", description: "Kamper spilleren sto oppført i troppen." },
       { name: "starts", type: "integer", description: "Kamper fra start." },
       { name: "goals", type: "integer", description: "Mål i sesongen, talt fra hendelsene." },
+      { name: "person_id", type: "text", description: "Personen i registeret, når hun eller han står der. NULL ellers." },
+      { name: "number", type: "integer", description: "Draktnummer den sesongen, fra personregisteret. NULL når vi ikke har det." },
+      { name: "position", type: "text", description: "'keeper', 'forsvar', 'midtbane' eller 'angrep', fra personregisteret." },
+      { name: "nationality", type: "text", description: "Nasjonalitet slik kilden skrev den, f.eks. 'Norge'." },
+      { name: "wikidata", type: "text", description: "Wikidata-ID, f.eks. Q1796755. Peker videre; dataene bak hentes ikke hit." },
       { name: "first_match", type: "text (YYYY-MM-DD)", description: "Første kamp i troppen den sesongen." },
       { name: "last_match", type: "text (YYYY-MM-DD)", description: "Siste kamp i troppen den sesongen." },
     ],
@@ -221,6 +227,23 @@ export const views: ViewDoc[] = [
       { name: "from_season", type: "integer", description: "Sesongen perioden startet." },
       { name: "to_season", type: "integer", description: "Sesongen perioden sluttet." },
       { name: "matches", type: "integer", description: "Kamper i perioden." },
+    ],
+  },
+  {
+    name: "declared_coach_spells",
+    summary:
+      "Trenerperioder oppgitt av en kilde, for årene kampdataene ikke rekker. " +
+      "Bruk coach_spells når spørsmålet gjelder 2010 eller senere.",
+    caveats: [
+      "Oppgitt, ikke utledet: bare årstall, og vikarene mangler. Christian Johnsen står som 2023 til 2024; at Marius Boee og Sindre Eid hadde laget imellom, vet bare kampene.",
+      "Rekker til 2001. Eldre trenere finnes ikke i noen kilde vi har.",
+      "Overlapper med coach_spells for 2010 og senere. De to erstatter ikke hverandre; coach_spells er den nøyaktige.",
+    ],
+    columns: [
+      { name: "person_id", type: "text", description: "Personen i registeret." },
+      { name: "name", type: "text", description: "Navnet slik det vises." },
+      { name: "from_season", type: "integer", description: "Første sesong i perioden." },
+      { name: "to_season", type: "integer", description: "Siste sesong. NULL når perioden ikke er avsluttet i kilden." },
     ],
   },
   {

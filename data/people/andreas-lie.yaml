@@ -1,0 +1,34 @@
+id: andreas-lie
+name: Andreas Lie
+names: []
+nationality: Norge
+position: keeper
+wikidata: Q3616169
+squadNumbers:
+  - season: 2016
+    number: 1
+  - season: 2017
+    number: 1
+  - season: 2018
+    number: 1
+  - season: 2019
+    number: 1
+  - season: 2020
+    number: 1
+coachSpells: []
+sources:
+  - sourceId: wikipedia
+    url: https://no.wikipedia.org/w/index.php?title=Aalesunds%20Fotballklubb&oldid=21041395
+    retrievedAt: 2020-12-31
+    fields:
+      - name
+      - position
+      - nationality
+      - squadNumbers
+    note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+  - sourceId: wikidata
+    url: https://www.wikidata.org/wiki/Q3616169
+    retrievedAt: 2026-08-04
+    fields:
+      - wikidata
+    note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.

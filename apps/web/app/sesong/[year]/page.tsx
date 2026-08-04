@@ -4,7 +4,14 @@ import { CoverageTag } from "@/components/Coverage";
 import { MatchList } from "@/components/MatchList";
 import { SeasonCoaches, SquadList } from "@/components/Squad";
 import { ProgressionChart, StandingsTable } from "@/components/Standings";
-import { loadNeighbourSeasons, loadSeason, loadSeasonCoaches, loadSquad, loadStandings } from "@/lib/archive";
+import {
+  loadDeclaredCoaches,
+  loadNeighbourSeasons,
+  loadSeason,
+  loadSeasonCoaches,
+  loadSquad,
+  loadStandings,
+} from "@/lib/archive";
 
 export const dynamic = "force-dynamic";
 
@@ -25,6 +32,7 @@ export default async function SeasonPage({ params }: Props) {
   const lead = summaries[0]!;
   const { previous, next } = loadNeighbourSeasons(year);
   const coaches = loadSeasonCoaches(year);
+  const declaredCoaches = loadDeclaredCoaches(year);
   const squad = loadSquad(year);
 
   return (
@@ -36,7 +44,7 @@ export default async function SeasonPage({ params }: Props) {
           {lead.competitionTier ? ` · nivå ${lead.competitionTier}` : ""}
         </p>
         <h1>Sesongen {year}</h1>
-        <SeasonCoaches coaches={coaches} season={year} />
+        <SeasonCoaches coaches={coaches} declared={declaredCoaches} season={year} />
       </header>
 
       {/* Én seksjon per konkurranse, hver med sine egne tall over sine egne kamper.

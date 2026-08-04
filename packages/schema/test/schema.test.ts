@@ -145,3 +145,29 @@ describe("fixture-arkivet", () => {
     expect(issues.some((i) => i.message.startsWith("duplikat observasjon"))).toBe(true);
   });
 });
+
+describe("personfiler i fixturen", () => {
+  const root = resolve(import.meta.dirname, "../../../fixtures/data");
+
+  it("fanger to filer som deler Wikidata-ID", async () => {
+    // Q-ID-en er den eneste identiteten her som ikke er en gjetning. Deler to
+    // filer den, er de samme person, og det er ingenting å vurdere.
+    const archive = await loadArchive(root);
+    archive.people = [
+      { ...archive.people[0]!, wikidata: "Q1" },
+      { ...archive.people[1]!, wikidata: "Q1" },
+    ];
+    const issues = crossValidate(archive);
+    expect(issues.some((i) => i.message.includes("slå filene sammen"))).toBe(true);
+  });
+
+  it("fanger en skrivemåte som står på to personer", async () => {
+    const archive = await loadArchive(root);
+    archive.people = [
+      { ...archive.people[0]!, names: ["Delt Navn"] },
+      { ...archive.people[1]!, names: ["Delt Navn"] },
+    ];
+    const issues = crossValidate(archive);
+    expect(issues.some((i) => i.message.includes("er også ført på"))).toBe(true);
+  });
+});

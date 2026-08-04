@@ -1,0 +1,33 @@
+id: markus-seehusen-karlsbakk
+name: Markus Seehusen Karlsbakk
+names:
+  - Markus Karlsbakk
+nationality: Norge
+position: midtbane
+wikidata: Q33107087
+squadNumbers:
+  - season: 2019
+    number: 41
+  - season: 2020
+    number: 41
+  - season: 2021
+    number: 21
+  - season: 2023
+    number: 22
+coachSpells: []
+sources:
+  - sourceId: wikipedia
+    url: https://no.wikipedia.org/w/index.php?title=Aalesunds%20Fotballklubb&oldid=24140572
+    retrievedAt: 2023-12-21
+    fields:
+      - name
+      - position
+      - nationality
+      - squadNumbers
+    note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+  - sourceId: wikidata
+    url: https://www.wikidata.org/wiki/Q33107087
+    retrievedAt: 2026-08-04
+    fields:
+      - wikidata
+    note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
