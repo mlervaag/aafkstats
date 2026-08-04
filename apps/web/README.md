@@ -16,17 +16,20 @@ app/
 ├── bidra/                Hvordan bidra, med ferdige prompts
 └── api/
     ├── search/           Direktesøk. Ren SQL, ingen modell
-    └── chat/             Spørrefunksjonen. SSE-strøm, verktøyløkke mot Claude
+    └── chat/             Spørrefunksjonen. SSE-strøm, verktøyløkke mot modellen
 
 lib/
-├── archive.ts       Oppslagene sidene bruker
-├── search.ts        Parsing og spørring for direktesøket
-├── chat-request.ts  Grensene på det klienten sender inn
-├── rate-limit.ts    Rate-limiting og logging
-├── analytics.ts     Hva som telles, og hva som aldri gjør det
-├── prompts.ts       Ferdige prompts for bidragsytere
-├── thinking.ts      Tenkeord på sunnmørsk
-└── score.ts         Formatering av resultater
+├── archive.ts        Oppslagene sidene bruker
+├── search.ts         Parsing og spørring for direktesøket
+├── chat-request.ts   Grensene på det klienten sender inn
+├── chat-model.ts     Hvem som svarer, og på hvilken modell
+├── chat-anthropic.ts Verktøyløkka mot Claude
+├── chat-openai.ts    Verktøyløkka mot GPT
+├── rate-limit.ts     Rate-limiting og logging
+├── analytics.ts      Hva som telles, og hva som aldri gjør det
+├── prompts.ts        Ferdige prompts for bidragsytere
+├── thinking.ts       Tenkeord på sunnmørsk
+└── score.ts          Formatering av resultater
 ```
 
 ## Kom i gang
@@ -36,8 +39,8 @@ AAFK_DATA_DIR=fixtures/data pnpm db:build   # arkivfilen må finnes først
 pnpm dev                                    # http://localhost:3000
 ```
 
-Uten `ANTHROPIC_API_KEY` svarer `/api/chat` med 503, og resten av nettstedet virker som
-normalt. Se [`.env.example`](../../.env.example).
+Uten en API-nøkkel — `ANTHROPIC_API_KEY` eller `OPENAI_API_KEY` — svarer `/api/chat` med 503,
+og resten av nettstedet virker som normalt. Se [`.env.example`](../../.env.example).
 
 ## Hvordan data kommer inn
 
@@ -56,14 +59,42 @@ og `.js`-importer må kunne løses til `.ts` fordi arbeidspakkene distribueres s
 involvert: skriver du «molde 2019» blir årstallet et sesongfilter og resten et navnesøk.
 Treffene vises mens du skriver; Enter sender i stedet spørsmålet til AI-søket.
 
-**`/api/chat`** er spørrefunksjonen. Den kjører verktøyløkka mot Claude (Sonnet 5, maks fem
-runder), streamer svaret som SSE, og viser SQL-en ved siden av svaret. Verktøyene og
-systemprompten kommer fra [`@aafkstats/query`](../../packages/query/README.md); grensene rundt
-SQL-en fra [`@aafkstats/db`](../../packages/db/README.md#guardrailen).
+**`/api/chat`** er spørrefunksjonen. Den kjører verktøyløkka mot modellen (maks fem runder),
+streamer svaret som SSE, og viser SQL-en ved siden av svaret. Verktøyene og systemprompten
+kommer fra [`@aafkstats/query`](../../packages/query/README.md); grensene rundt SQL-en fra
+[`@aafkstats/db`](../../packages/db/README.md#guardrailen).
 
-Modellen kan overstyres med `AAFK_CHAT_MODEL` for å prøve noe annet uten å deploye på nytt.
-Vær oppmerksom på at kallet forutsetter adaptiv tenkning og `effort` i `output_config` — en
-eldre modell som ikke støtter begge deler, krever kodeendring.
+### Hvem som svarer
+
+Arkivet er ikke bundet til én leverandør. Sett den nøkkelen du har:
+
+| Miljøvariabel | Virkning |
+|---|---|
+| `ANTHROPIC_API_KEY` | Claude svarer, på `claude-sonnet-5` |
+| `OPENAI_API_KEY` | GPT svarer, på `gpt-5.6-terra` |
+| `AAFK_CHAT_PROVIDER` | `anthropic` eller `openai`. Avgjør når begge nøklene er satt |
+| `AAFK_CHAT_MODEL` | Annen modell hos den leverandøren som er valgt |
+
+Er begge nøklene satt uten `AAFK_CHAT_PROVIDER`, svarer Claude. Det er et valg og ikke en
+tilfeldighet: systemprompten caches eksplisitt med `cache_control`, og språkreglene i prompten
+er skrevet og prøvd mot Claude. OpenAI-veien er like fullverdig, bare nyere.
+
+Standardmodellene ligger i midtsjiktet hos begge, og det er samme resonnement begge veier:
+oppgaven er å lese et dokumentert skjema, velge et verktøy og skrive én SELECT. Sonnet 5
+framfor Opus 5, og Terra framfor Sol — toppmodellene løser ikke dette bedre, men koster det
+dobbelte. Luna og andre budsjettmodeller sparer nettopp der vi bruker: verktøyvalget og
+SQL-en. [`lib/chat-model.ts`](lib/chat-model.ts) har tallene.
+
+Løkkene er to, én per leverandør ([`lib/chat-anthropic.ts`](lib/chat-anthropic.ts) og
+[`lib/chat-openai.ts`](lib/chat-openai.ts)), fordi API-ene skiller nok til at et felles lag
+imellom hadde blitt en oversettelse med tap. Det som *er* felles — takene, valget av modell og
+innpakkingen av verktøysvar i `<arkivdata>`, som er forsvaret mot prompt injection fra et
+kampreferat — ligger i [`lib/chat-model.ts`](lib/chat-model.ts), så det ikke kan gjelde bare
+hos den ene.
+
+Begge kall forutsetter tenkning og innsatsnivå slik den leverandøren staver det: adaptiv
+tenkning og `effort` i `output_config` hos Anthropic, `reasoning.effort` hos OpenAI. En eldre
+modell som mangler det, krever kodeendring og ikke bare en ny verdi i `AAFK_CHAT_MODEL`.
 
 Grensene på det klienten sender inn ligger i [`lib/chat-request.ts`](lib/chat-request.ts), med
 egne tester: 1 000 tegn per spørsmål, seks meldinger og 12 000 tegn historikk, og en kropp som
@@ -78,7 +109,8 @@ tømme API-budsjettet.
 Delt i to, og ingen av delene ligger i datasettet:
 
 1. **Vercel Firewall** teller per IP ute på kanten, før koden kjører.
-2. **Utgiftstaket i Anthropic Console** er det harde kostnadsgulvet.
+2. **Utgiftstaket hos modelleverandøren** er det harde kostnadsgulvet. Det settes i Anthropic
+   Console eller på OpenAI-plattformen, avhengig av hvilken nøkkel som er i bruk.
 
 Uten Firewall (lokalt, eller på Hobby) faller vi tilbake til en teller i minnet på ti spørsmål
 i timen. Den er en fartsdump, ikke en mur: hver instans har sin egen, så en fordelt avsender
@@ -90,7 +122,7 @@ nærmest oss, mens den første er den avsenderen selv kunne finne på å sette. 
 hardt tak på antall avsendere, så en strøm av nye ikke får det til å vokse i det uendelige.
 
 Hvert spørsmål logges som strukturert JSON til Vercel Logs — spørsmålet, SQL-en modellen
-skrev, tokenforbruk og varighet. **IP-en logges aldri.** Vi trenger ikke vite hvem som spurte
+skrev, hvem som svarte, tokenforbruk og varighet. **IP-en logges aldri.** Vi trenger ikke vite hvem som spurte
 for å se hva som spørres om.
 
 ## Detaljene som er lette å overse

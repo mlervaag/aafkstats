@@ -106,8 +106,9 @@ pnpm dev                                    # http://localhost:3000
 Uten `AAFK_DATA_DIR` bygges arkivet fra de ekte kampene i `data/`. Arkivfilen ligger ikke i
 git: binærfiler gir ubrukelige differ, og den bygges fra kildefilene på et øyeblikk uansett.
 
-For at spørrefunksjonen skal virke må `ANTHROPIC_API_KEY` settes i `.env`. Resten av
-nettstedet fungerer uten.
+For at spørrefunksjonen skal virke må én API-nøkkel settes i `.env`: enten
+`ANTHROPIC_API_KEY` eller `OPENAI_API_KEY`. Er begge satt, brukes Anthropic med mindre
+`AAFK_CHAT_PROVIDER=openai` sier noe annet. Resten av nettstedet fungerer uten nøkkel.
 
 [`fixtures/data`](fixtures/README.md) er et lite konstruert arkiv brukt til utvikling og
 tester. Det ekte arkivet i `data/` fylles av de avgrensede verktøyene i
@@ -205,7 +206,8 @@ en egen Node-prosess som avlives utenfra. Kostnaden er rundt 45 ms per spørring
 den eneste måten grensen faktisk holder.
 
 Rate-limiting og bruksmåling ligger foran applikasjonen — Vercel Firewall og et kostnadstak
-i Anthropic Console — ikke i datasettet. Testene i
+hos den leverandøren nøkkelen hører til (Anthropic Console eller OpenAI-plattformen) — ikke i
+datasettet. Testene i
 [`packages/db/test/`](packages/db/test) prøver å bryte hvert lag, inkludert direkte mot
 arkivfilen utenom koden.
 

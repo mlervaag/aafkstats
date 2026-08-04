@@ -34,7 +34,7 @@ flowchart TB
 
   subgraph lesere["Lesere"]
     W["Nettsted<br/>Next.js"]
-    C["Spørrefunksjon<br/>Claude + SQL"]
+    C["Spørrefunksjon<br/>modell + SQL"]
     A["REST · MCP<br/><i>planlagt</i>"]
   end
 
@@ -72,7 +72,7 @@ kjenne:
 
 Den eneste reelle kostnaden er at skrivetilstand må bo et annet sted. Det gjelder to ting:
 rate-limiting og bruksmåling. Begge hører hjemme foran applikasjonen uansett — Vercel Firewall
-teller på kanten, og kostnadstaket ligger i Anthropic Console. Se
+teller på kanten, og kostnadstaket ligger hos modelleverandøren. Se
 [`apps/web/lib/rate-limit.ts`](../apps/web/lib/rate-limit.ts) for hvordan det henger sammen,
 og hva reservelaget i minnet faktisk er verdt.
 
@@ -293,8 +293,11 @@ To ruter gjør noe mer enn å lese:
 
 - **`/api/search`** — direktesøk mens brukeren skriver. Ren SQL mot arkivfilen, ingen modell
   involvert. Se [`apps/web/lib/search.ts`](../apps/web/lib/search.ts).
-- **`/api/chat`** — spørrefunksjonen. Streamer SSE, kjører verktøyløkka mot Claude, og
-  logger hver spørring til Vercel Logs uten IP.
+- **`/api/chat`** — spørrefunksjonen. Streamer SSE, kjører verktøyløkka mot modellen, og
+  logger hver spørring til Vercel Logs uten IP. Hvilken modell, og hos hvem, avgjøres av
+  hvilken API-nøkkel som er satt — se
+  [`apps/web/lib/chat-model.ts`](../apps/web/lib/chat-model.ts). Verktøydefinisjonene er de
+  samme uansett; det er bare selve kallet som er to.
 
 Arkivfilen leses av serverkoden ved kjøring, og må derfor spores inn i funksjonsbunten. Det
 er `outputFileTracingIncludes` i [`next.config.mjs`](../apps/web/next.config.mjs) — sammen med
@@ -328,9 +331,10 @@ skrive tilbake til repoet.
 Vercel, med bygg per merge til `main`. Byggekommandoen bygger arkivfilen først og deretter
 nettstedet, så en utrulling alltid inneholder data fra nøyaktig den commiten.
 
-Miljøvariabler står i [`.env.example`](../.env.example). Bare `ANTHROPIC_API_KEY` er påkrevd
-for full funksjonalitet; uten den svarer `/api/chat` med 503, og resten av nettstedet virker
-som normalt.
+Miljøvariabler står i [`.env.example`](../.env.example). Bare én API-nøkkel er påkrevd for
+full funksjonalitet — `ANTHROPIC_API_KEY` eller `OPENAI_API_KEY` — og uten begge svarer
+`/api/chat` med 503, mens resten av nettstedet virker som normalt. `AAFK_CHAT_PROVIDER`
+avgjør hvem som svarer når begge er satt, `AAFK_CHAT_MODEL` hvilken modell.
 
 ## Ting som er bevisst utelatt
 
