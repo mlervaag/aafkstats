@@ -18,10 +18,20 @@ kode står lenger ned.
 
 ## Meld fra uten å kode
 
-Opprett en [issue](https://github.com/mlervaag/aafkstats/issues/new/choose). Det finnes
-egne maler for datafeil, manglende kamper og feil i koden. Det viktigste i en datamelding
-er **hva som er galt, hva som er riktig, og hvor du vet det fra** — uten kilde blir det
-stående som en påstand mot en annen påstand.
+Opprett en [issue](https://github.com/mlervaag/aafkstats/issues/new/choose). Det finnes egne
+maler for hver slags melding:
+
+| Mal | Når |
+|---|---|
+| Feil i arkivet | Gal dato, feil resultat, feil målscorer — noe som står, men står galt |
+| Manglende kamp | Kampen finnes ikke i arkivet i det hele tatt |
+| Ny kilde eller flere kampdetaljer | Kampen står riktig, men tynt: målscorere, lagoppstilling, tilskuertall, avisreferanse |
+| Klubbidentitet eller historisk navn | Dublett, sammenslåing, navneperiode, kamp ført på feil klubb |
+| Feil i koden eller på nettstedet | Noe krasjer, ser rart ut eller oppfører seg feil |
+| Forslag eller spørsmål | Alt annet — blanke issues er slått av |
+
+Det viktigste i en datamelding er **hva som er galt, hva som er riktig, og hvor du vet det
+fra** — uten kilde blir det stående som en påstand mot en annen påstand.
 
 ## Rett en kamp
 

@@ -9,11 +9,29 @@ body:
         Gjelder det et sikkerhetsproblem, skal det ikke meldes her — se
         [SECURITY.md](../blob/main/SECURITY.md).
 
+        Er tallet på siden galt, men siden ellers virker som den skal, er det ikke en kodefeil
+        — da hører det hjemme i [Feil i arkivet](?template=datafeil.yml).
+
+  - type: dropdown
+    id: omrade
+    attributes:
+      label: Hvor er feilen?
+      options:
+        - Nettstedet — en side, en tabell, søket
+        - Spørrefunksjonen — svaret fra AI-en
+        - En pnpm-kommando lokalt (validate, db:build, test)
+        - API-et
+        - Vet ikke
+    validations:
+      required: true
+
   - type: textarea
     id: hva
     attributes:
       label: Hva skjer?
-      description: Hva gjorde du, hva forventet du, og hva skjedde i stedet?
+      description: >
+        Hva gjorde du, hva forventet du, og hva skjedde i stedet? Gjelder det spørrefunksjonen,
+        lim inn spørsmålet ditt ordrett og svaret du fikk — formuleringen er halve feilen.
       placeholder: |
         Søkte på «molde 2019» i hovedfeltet. Fikk ingen treff, men kampen finnes.
     validations:
