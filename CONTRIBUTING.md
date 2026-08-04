@@ -28,6 +28,7 @@ maler for hver slags melding:
 | Ny kilde eller flere kampdetaljer | Kampen står riktig, men tynt: målscorere, lagoppstilling, tilskuertall, avisreferanse |
 | Klubbidentitet eller historisk navn | Dublett, sammenslåing, navneperiode, kamp ført på feil klubb |
 | Feil i koden eller på nettstedet | Noe krasjer, ser rart ut eller oppfører seg feil |
+| Forslag eller spørsmål | Alt annet — blanke issues er slått av |
 
 Det viktigste i en datamelding er **hva som er galt, hva som er riktig, og hvor du vet det
 fra** — uten kilde blir det stående som en påstand mot en annen påstand.

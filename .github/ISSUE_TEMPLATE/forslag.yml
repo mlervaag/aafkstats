@@ -1,0 +1,36 @@
+name: Forslag eller spørsmål
+description: Noe arkivet ikke gjør ennå, eller noe du lurer på om hvordan det henger sammen
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Blanke issues er slått av fordi de andre malene sparer en runde med oppklaring. Det
+        skal likevel gå an å foreslå noe, eller bare spørre — det er dette skjemaet.
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Hva er dette?
+      options:
+        - Forslag
+        - Spørsmål
+    validations:
+      required: true
+
+  - type: textarea
+    id: hva
+    attributes:
+      label: Hva gjelder det?
+      placeholder: |
+        Kan tabellsiden vise hvilke kamper som mangler i sesongen, ikke bare de som finnes?
+        Hullene er den mest interessante opplysningen på den siden.
+    validations:
+      required: true
+
+  - type: textarea
+    id: bakgrunn
+    attributes:
+      label: Hva prøvde du å finne ut?
+      description: >
+        Valgfritt, men det avgjør ofte svaret. Et forslag som starter i noe konkret du ikke
+        fikk til, er lettere å vurdere enn ett som starter i en funksjonsliste.

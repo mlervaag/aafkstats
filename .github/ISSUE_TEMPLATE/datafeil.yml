@@ -44,6 +44,22 @@ body:
     validations:
       required: true
 
+  - type: dropdown
+    id: uenighet
+    attributes:
+      label: Er dette en feil, eller en uenighet?
+      description: >
+        Kampsiden viser hvilken kilde tallet i arkivet kommer fra. Sier den kilden fortsatt
+        noe annet enn din, er det ikke nødvendigvis feil — da har arkivet to kilder som ikke
+        er enige, og det er en opplysning i seg selv. Arkivet fører den som `conflicts` i
+        stedet for å velge i stillhet.
+      options:
+        - Arkivet tar rett og slett feil
+        - Kilden min sier noe annet enn arkivets, og begge kan være verdt å føre
+        - Vet ikke
+    validations:
+      required: true
+
   - type: checkboxes
     id: bekreft
     attributes:
