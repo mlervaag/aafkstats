@@ -16,7 +16,10 @@ export default function Home() {
           <p className="lede">
             Finn en kamp mens du skriver, eller still et spørsmål med vanlige ord.
             Arkivet dekker foreløpig serie og cup fra {totals.first?.slice(0, 4) ?? "–"} til{" "}
-            {totals.last?.slice(0, 4) ?? "–"}.
+            {totals.last?.slice(0, 4) ?? "–"}
+            {totals.upcoming > 0
+              ? `, og ${totals.upcoming} kamper til står på terminlista.`
+              : "."}
           </p>
         </div>
         <dl className="hero-stats">

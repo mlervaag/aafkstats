@@ -78,6 +78,12 @@ export function CoverageNote({ heading = true }: { heading?: boolean }) {
         </>
       ) : (
         <>{c.withReport} har kampreferat.</>
+      )}{" "}
+      {c.upcoming > 0 && (
+        <>
+          Tallene gjelder kamper som er spilt. {c.upcoming} kamper til ligger inne fra
+          terminlista og telles ikke med.
+        </>
       )}
     </div>
   );

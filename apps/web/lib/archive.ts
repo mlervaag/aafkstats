@@ -118,7 +118,10 @@ interface OpponentRow {
  * enn et som ikke sier noe — særlig når hele poenget er etterprøvbarhet.
  */
 export interface ArchiveCoverage {
+  /** Kamper med kjent resultat. Se `SPILT`. */
   matches: number;
+  /** Kamper på terminlista som ikke er spilt ennå. Telles aldri med i `matches`. */
+  upcoming: number;
   seasons: number;
   firstSeason: number | null;
   lastSeason: number | null;
@@ -131,12 +134,29 @@ export interface ArchiveCoverage {
 }
 
 export interface ArchiveTotals {
+  /** Kamper med kjent resultat. Se `SPILT`. */
   matches: number;
+  /** Kamper på terminlista som ikke er spilt ennå. */
+  upcoming: number;
   seasons: number;
   opponents: number;
   first: string | null;
+  /** Siste kamp med resultat, ikke siste dato i arkivet. */
   last: string | null;
 }
+
+/**
+ * Kampene som faktisk har funnet sted.
+ *
+ * Terminlista for inneværende sesong ligger i arkivet på lik linje med resten, og
+ * uten dette skillet blir «1039 AaFK-kamper» på forsiden 15 kamper som ikke er
+ * spilt ennå, mens «fra 1917 til 2026» henter siste årstall fra en kamp i
+ * desember. Ingen av delene er galt regnet, men ingen leser overskriften slik.
+ *
+ * `awarded` teller med: en kamp avgjort på grønt bord har et resultat, og den
+ * ligger bak oss.
+ */
+const SPILT = "status IN ('played', 'awarded')";
 
 const matchColumns = `match_id, date, competition, is_home, opponent,
   aafk_score, opponent_score, result, after_extra_time, decided_on_penalties,
@@ -206,10 +226,14 @@ export function loadOverview(): { recent: ArchiveMatch[]; totals: ArchiveTotals 
       db,
       `SELECT count(*) AS matches, count(DISTINCT season) AS seasons,
               count(DISTINCT opponent_club_id) AS opponents,
-              min(date) AS first, max(date) AS last
-       FROM matches`,
+              min(date) AS first, max(date) AS last,
+              (SELECT count(*) FROM matches WHERE status = 'scheduled') AS upcoming
+       FROM matches WHERE ${SPILT}`,
     );
-    return { recent: recent.map(mapMatch), totals: totals ?? { matches: 0, seasons: 0, opponents: 0, first: null, last: null } };
+    return {
+      recent: recent.map(mapMatch),
+      totals: totals ?? { matches: 0, upcoming: 0, seasons: 0, opponents: 0, first: null, last: null },
+    };
   } finally {
     db.close();
   }
@@ -238,20 +262,22 @@ export function loadCoverage(): ArchiveCoverage {
       db,
       `SELECT count(*) AS matches, count(DISTINCT season) AS seasons,
               min(season) AS first, max(season) AS last
-       FROM matches`,
+       FROM matches WHERE ${SPILT}`,
     );
+    const upcoming = one<{ n: number }>(db, `SELECT count(*) AS n FROM matches WHERE status = 'scheduled'`);
     const byCompetition = all<{ competition: string; type: string; matches: number }>(
       db,
       `SELECT competition, competition_type AS type, count(*) AS matches
-       FROM matches GROUP BY competition, competition_type ORDER BY matches DESC`,
+       FROM matches WHERE ${SPILT} GROUP BY competition, competition_type ORDER BY matches DESC`,
     );
     // Hendelser ligger i sitt eget view, én rad per hendelse — derfor DISTINCT.
     const withEvents = one<{ n: number }>(db, `SELECT count(DISTINCT match_id) AS n FROM match_events`);
-    const withAttendance = one<{ n: number }>(db, `SELECT count(*) AS n FROM matches WHERE attendance IS NOT NULL`);
-    const withReport = one<{ n: number }>(db, `SELECT count(*) AS n FROM matches WHERE report_summary IS NOT NULL`);
+    const withAttendance = one<{ n: number }>(db, `SELECT count(*) AS n FROM matches WHERE ${SPILT} AND attendance IS NOT NULL`);
+    const withReport = one<{ n: number }>(db, `SELECT count(*) AS n FROM matches WHERE ${SPILT} AND report_summary IS NOT NULL`);
 
     return {
       matches: base?.matches ?? 0,
+      upcoming: upcoming?.n ?? 0,
       seasons: base?.seasons ?? 0,
       firstSeason: base?.first ?? null,
       lastSeason: base?.last ?? null,
