@@ -19,6 +19,15 @@ export interface ReadableScore {
 }
 
 export function readableScore(match: ArchiveMatch): ReadableScore {
+  // Terminlista står i samme liste som resten. Uten dette skillet ser en kamp som
+  // ikke er spilt ut som en kamp vi mangler resultatet for.
+  if (match.status === "scheduled") {
+    return {
+      score: match.kickoff ?? "–",
+      qualifier: null,
+      label: match.kickoff ? `Ikke spilt, avspark ${match.kickoff}` : "Ikke spilt ennå",
+    };
+  }
   if (match.aafkScore === null || match.opponentScore === null) {
     return { score: "–", qualifier: null, label: "Resultat ikke registrert" };
   }

@@ -268,6 +268,15 @@ SELECT
   -- Høyeste runde vi har. For en komplett sesong er dette antall serierunder.
   max(m."round")                                  AS last_round,
 
+  -- Kamper igjen på terminlista. Egen spørring fordi raden over bare ser spilte
+  -- kamper, og uten dette står inneværende sesong som «delvis» hele året — som
+  -- om noe manglet, ikke som om den pågår.
+  (SELECT count(*)
+     FROM core_matches u
+    WHERE u.season = m.season
+      AND u.competition_id = m.competition_id
+      AND u.status = 'scheduled')                           AS scheduled,
+
   '/sesong/' || m.season                                    AS url
 FROM core_matches m
 JOIN core_competitions c ON c.id = m.competition_id

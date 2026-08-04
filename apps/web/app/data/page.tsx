@@ -1,5 +1,5 @@
 import { exampleQueries, views } from "@aafkstats/query/dataset";
-import { CoverageNote } from "@/components/CoverageNote";
+import { CompetitionTable, CoverageNote } from "@/components/CoverageNote";
 
 export const metadata = { title: "Datasettet" };
 
@@ -24,8 +24,11 @@ export default function DataPage() {
         Det finnes ingen egen, skjult versjon — det du leser her er det modellen vet.
       </p>
       <CoverageNote />
+      <h2 style={{ marginTop: "2rem" }}>Kamper per konkurranse</h2>
+      <CompetitionTable />
       <p className="prose small muted">
-        Se <a href="/om">kilder og forbehold</a> før du gjenbruker data.
+        Serien skifter navn gjennom historien, og kampene ligger under navnet som gjaldt
+        da de ble spilt. Se <a href="/om">kilder og forbehold</a> før du gjenbruker data.
       </p>
 
       <nav aria-label="Tabeller" style={{ margin: "2rem 0" }}>

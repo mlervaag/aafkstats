@@ -82,6 +82,7 @@ export const views: ViewDoc[] = [
       "Tallene dekker kun sesongens hovedkonkurranse. Cup, europa og treningskamper er ikke med. Bruk matches hvis du vil ha alt.",
       "Serieradene teller bare seriekamper. Kvalifiseringskamper etter sesongen ligger i matches, men holdes utenfor her, slik at en komplett sesong ikke ser ufullstendig ut.",
       "En rad betyr at året er representert, ikke at sesongen er komplett. Se coverage.",
+      "Kamper som ikke er spilt teller ikke med i played eller i resultatene. Står scheduled over 0, pågår sesongen.",
     ],
     columns: [
       { name: "season", type: "integer", description: "Sesongår." },
@@ -97,6 +98,7 @@ export const views: ViewDoc[] = [
       { name: "note", type: "text", description: "Forbehold om sesongen, f.eks. at arkivet bare har deler av den. NULL når det ikke er noe å ta forbehold om." },
       { name: "coverage", type: "text", description: "Hvor godt sesongen er dekket, utledet av rundenumrene: 'complete' (runde 1 til N uten hull), 'partial' (runder mangler, eller sesongen pågår), 'isolated' (kamper uten rundenummer, så vi vet bare at de finnes), 'not_applicable' (cup og treningskamper, som ikke har serierunder). Bruk denne når spørsmålet gjelder om et tall er hele sesongen eller bare det arkivet har." },
       { name: "last_round", type: "integer", description: "Høyeste serierunde i sesongen. For en komplett sesong er dette antall runder. NULL for cup og treningskamper." },
+      { name: "scheduled", type: "integer", description: "Kamper som står igjen på terminlista i denne konkurransen. Over 0 betyr at sesongen pågår, ikke at arkivet mangler noe. Disse kampene er ikke med i played, wins, draws, losses eller målene." },
       { name: "played", type: "integer", description: "Antall spilte kamper." },
       { name: "wins", type: "integer", description: "Seire." },
       { name: "draws", type: "integer", description: "Uavgjorte." },

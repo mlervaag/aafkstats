@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CoverageTag } from "@/components/Coverage";
 import { MatchList } from "@/components/MatchList";
-import { loadSeason } from "@/lib/archive";
+import { loadNeighbourSeasons, loadSeason } from "@/lib/archive";
 
 export const dynamic = "force-dynamic";
 
@@ -21,6 +21,7 @@ export default async function SeasonPage({ params }: Props) {
   if (!data) notFound();
   const { summaries, matches } = data;
   const lead = summaries[0]!;
+  const { previous, next } = loadNeighbourSeasons(year);
 
   return (
     <>
@@ -38,6 +39,8 @@ export default async function SeasonPage({ params }: Props) {
           inneholdt alt — så statistikken og lista fortalte hver sin historie. */}
       {summaries.map((summary) => {
         const group = matches.filter((match) => match.competition === summary.competition);
+        const played = group.filter((match) => match.status !== "scheduled");
+        const upcoming = group.filter((match) => match.status === "scheduled");
         return (
           <section className="content-section" key={summary.competitionId}>
             <h2 className="section-heading">
@@ -69,10 +72,48 @@ export default async function SeasonPage({ params }: Props) {
               </div>
             )}
 
-            <MatchList matches={group} />
+            <MatchList matches={played} />
+            {upcoming.length > 0 && (
+              <>
+                {/* Terminlista står for seg. Blandet inn i resultatlista ser en
+                    kamp som ikke er spilt ut som en kamp uten resultat. */}
+                <h3 className="subsection-heading">
+                  Står igjen
+                  <span className="muted small">
+                    {" "}
+                    {upcoming.length} {upcoming.length === 1 ? "kamp" : "kamper"}
+                  </span>
+                </h3>
+                <MatchList matches={upcoming} />
+              </>
+            )}
           </section>
         );
       })}
+
+      {/* Kamper i en konkurranse der ingen er spilt ennå. Sesongsammendraget
+          bygges på spilte kamper, så uten dette ville en terminliste som kom før
+          første kamp forsvunnet helt fra sida. */}
+      {(() => {
+        const covered = new Set(summaries.map((summary) => summary.competition));
+        const orphans = matches.filter((match) => !covered.has(match.competition));
+        if (orphans.length === 0) return null;
+        return (
+          <section className="content-section">
+            <h2 className="section-heading">
+              <span className="section-heading-title">Ikke spilt ennå</span>
+              <span className="muted section-count">{orphans.length} kamper</span>
+            </h2>
+            <MatchList matches={orphans} />
+          </section>
+        );
+      })()}
+
+      <nav className="season-nav" aria-label="Andre sesonger">
+        {previous ? <a href={`/sesong/${previous}`}>← {previous}</a> : <span />}
+        <a href="/sesonger">Alle sesonger</a>
+        {next ? <a href={`/sesong/${next}`}>{next} →</a> : <span />}
+      </nav>
     </>
   );
 }

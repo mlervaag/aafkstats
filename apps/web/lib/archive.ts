@@ -3,9 +3,20 @@ import { all, one, open } from "@aafkstats/db";
 export interface ArchiveMatch {
   matchId: string;
   date: string;
+  /** Klokkeslett når kilden oppgir det. Bare interessant for kamper som ikke er spilt. */
+  kickoff: string | null;
   competition: string;
+  /**
+   * Kampens tilstand.
+   *
+   * Terminlista ligger i arkivet på lik linje med resten, så uten dette feltet
+   * rendres en kamp som ikke er spilt som et tomt resultat, og leseren har ingen
+   * måte å se forskjell på «vi vet ikke» og «den er ikke spilt ennå».
+   */
+  status: string;
   isHome: boolean;
   opponent: string;
+  opponentId: string;
   aafkScore: number | null;
   opponentScore: number | null;
   result: "S" | "U" | "T" | null;
@@ -18,9 +29,12 @@ export interface ArchiveMatch {
 interface MatchRow {
   match_id: string;
   date: string;
+  kickoff: string | null;
   competition: string;
+  status: string;
   is_home: number;
   opponent: string;
+  opponent_club_id: string;
   aafk_score: number | null;
   opponent_score: number | null;
   result: "S" | "U" | "T" | null;
@@ -57,6 +71,14 @@ export interface SeasonSummary {
   coverage: "complete" | "partial" | "isolated" | "not_applicable";
   /** Høyeste serierunde. For en komplett sesong: antall runder. */
   lastRound: number | null;
+  /**
+   * Kamper igjen på terminlista.
+   *
+   * Skiller en sesong som pågår fra en som mangler noe. Uten det står
+   * inneværende år som «delvis» fra januar til desember, som om arkivet hadde
+   * hull der det bare er kamper som ikke er spilt ennå.
+   */
+  scheduled: number;
   url: string;
 }
 
@@ -77,6 +99,7 @@ interface SeasonRow {
   note: string | null;
   coverage: "complete" | "partial" | "isolated" | "not_applicable";
   last_round: number | null;
+  scheduled: number;
   url: string;
 }
 
@@ -158,17 +181,20 @@ export interface ArchiveTotals {
  */
 const SPILT = "status IN ('played', 'awarded')";
 
-const matchColumns = `match_id, date, competition, is_home, opponent,
-  aafk_score, opponent_score, result, after_extra_time, decided_on_penalties,
-  won_on_penalties, url`;
+const matchColumns = `match_id, date, kickoff, competition, status, is_home, opponent,
+  opponent_club_id, aafk_score, opponent_score, result, after_extra_time,
+  decided_on_penalties, won_on_penalties, url`;
 
 function mapMatch(row: MatchRow): ArchiveMatch {
   return {
     matchId: row.match_id,
     date: row.date,
+    kickoff: row.kickoff,
     competition: row.competition,
+    status: row.status,
     isHome: row.is_home === 1,
     opponent: row.opponent,
+    opponentId: row.opponent_club_id,
     aafkScore: row.aafk_score,
     opponentScore: row.opponent_score,
     result: row.result,
@@ -197,6 +223,7 @@ function mapSeason(row: SeasonRow): SeasonSummary {
     note: row.note,
     coverage: row.coverage,
     lastRound: row.last_round,
+    scheduled: row.scheduled,
     url: row.url,
   };
 }
@@ -216,6 +243,34 @@ function mapOpponent(row: OpponentRow): OpponentSummary {
     lastMeeting: row.last_meeting,
     url: row.url,
   };
+}
+
+/**
+ * Neste kamp på terminlista.
+ *
+ * Terminlista har ligget i arkivet hele tiden uten å bli vist noe sted. For et
+ * klubbarkiv er dette den ene opplysningen folk kommer tilbake for mellom
+ * kampene, og den koster ingen nye data å vise.
+ *
+ * Datoen sammenlignes som tekst mot dagens dato, ikke mot et tidspunkt. En kamp
+ * som spilles i kveld skal stå som neste kamp helt til dagen er omme.
+ *
+ * `today` finnes for testene. Et arkiv der svaret avhenger av når spørsmålet
+ * stilles kan ellers ikke testes uten å fryse klokka.
+ */
+export function loadNextMatch(today = new Date().toISOString().slice(0, 10)): ArchiveMatch | undefined {
+  const db = open();
+  try {
+    const row = one<MatchRow>(
+      db,
+      `SELECT ${matchColumns} FROM matches
+        WHERE status = 'scheduled' AND date >= ? ORDER BY date LIMIT 1`,
+      today,
+    );
+    return row ? mapMatch(row) : undefined;
+  } finally {
+    db.close();
+  }
 }
 
 export function loadOverview(): { recent: ArchiveMatch[]; totals: ArchiveTotals } {
@@ -353,6 +408,28 @@ export function loadSeason(
     if (rows.length === 0) return undefined;
     const matches = all<MatchRow>(db, `SELECT ${matchColumns} FROM matches WHERE season = ? ORDER BY date`, year);
     return { summaries: rows.map(mapSeason).sort(seasonRank), matches: matches.map(mapMatch) };
+  } finally {
+    db.close();
+  }
+}
+
+/**
+ * Året før og året etter, blant de årene arkivet faktisk har.
+ *
+ * Ikke `year - 1`: arkivet hopper over år, og en lenke til 1953 som ikke finnes
+ * er verre enn ingen lenke. Sesongsiden var ellers en blindvei — eneste vei
+ * videre var tilbakeknappen.
+ */
+export function loadNeighbourSeasons(year: number): { previous: number | null; next: number | null } {
+  const db = open();
+  try {
+    const previous = one<{ season: number }>(
+      db, "SELECT max(season) AS season FROM seasons WHERE season < ?", year,
+    );
+    const next = one<{ season: number }>(
+      db, "SELECT min(season) AS season FROM seasons WHERE season > ?", year,
+    );
+    return { previous: previous?.season ?? null, next: next?.season ?? null };
   } finally {
     db.close();
   }

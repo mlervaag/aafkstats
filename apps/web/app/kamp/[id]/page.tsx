@@ -39,6 +39,10 @@ interface SourceRef {
 
 interface MatchDetail {
   id: string;
+  season: number;
+  opponent_club_id: string;
+  opponent_name: string;
+  is_home: number;
   match_date: string;
   kickoff: string | null;
   status: string;
@@ -86,7 +90,8 @@ function loadMatch(id: string): MatchDetail | undefined {
   try {
     return one<MatchDetail>(
       db,
-      `SELECT m.id, m.match_date, m.kickoff, m.status, m.competition_name, m.round, m.stage,
+      `SELECT m.id, m.season, m.opponent_club_id, m.opponent_name, m.is_home,
+              m.match_date, m.kickoff, m.status, m.competition_name, m.round, m.stage,
               h.name AS home_name, a.name AS away_name, m.home_score, m.away_score,
               m.home_ht_score, m.away_ht_score, m.home_et_score, m.away_et_score,
               m.home_pens, m.away_pens,
@@ -98,6 +103,35 @@ function loadMatch(id: string): MatchDetail | undefined {
        WHERE m.id = ?`,
       id,
     );
+  } finally {
+    db.close();
+  }
+}
+
+interface Neighbour {
+  id: string;
+  match_date: string;
+  opponent_name: string;
+}
+
+/**
+ * Kampen før og etter, i samme sesong og samme konkurranse.
+ *
+ * Kampsiden var en blindvei: eneste vei videre var tilbakeknappen. Serien leses
+ * som en rekkefølge, og det er den rekkefølgen som skal kunne følges.
+ */
+function loadNeighbours(match: MatchDetail): { previous?: Neighbour; next?: Neighbour } {
+  const db = open();
+  try {
+    const sql = (direction: "<" | ">") =>
+      `SELECT id, match_date, opponent_name FROM core_matches
+        WHERE season = ? AND competition_id = (SELECT competition_id FROM core_matches WHERE id = ?)
+          AND match_date ${direction} ?
+        ORDER BY match_date ${direction === "<" ? "DESC" : "ASC"} LIMIT 1`;
+    return {
+      previous: one<Neighbour>(db, sql("<"), match.season, match.id, match.match_date),
+      next: one<Neighbour>(db, sql(">"), match.season, match.id, match.match_date),
+    };
   } finally {
     db.close();
   }
@@ -124,6 +158,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
   const { id } = await params;
   const match = loadMatch(id);
   if (!match) notFound();
+  const { previous, next } = loadNeighbours(match);
 
   const events = json<EventRow[]>(match.events, []);
   const lineups = json<{ home?: Lineup; away?: Lineup }>(match.lineups, {});
@@ -146,7 +181,13 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
 
   return (
     <article className="match-page">
-      <p className="small muted"><a href="/">Forsiden</a> / Kamp</p>
+      {/* Brødsmulen sa «Forsiden / Kamp» — to ledd som ikke plasserte kampen i
+          noe. Sesongen og motstanderen er de to sammenhengene kampen hører til,
+          og begge har en side å gå til. */}
+      <p className="breadcrumb">
+        <a href="/sesonger">Sesonger</a> / <a href={`/sesong/${match.season}`}>{match.season}</a> /{" "}
+        <a href={`/motstander/${match.opponent_club_id}`}>{match.opponent_name}</a>
+      </p>
       <header className="match-header">
         <p className="small muted num">
           {match.match_date}{match.kickoff ? ` kl. ${match.kickoff}` : ""} · {match.competition_name}
@@ -183,7 +224,6 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
         {match.venue_name && <><dt>Stadion</dt><dd>{match.venue_name}</dd></>}
         {match.attendance !== null && <><dt>Tilskuere</dt><dd className="num">{match.attendance.toLocaleString("nb-NO")}</dd></>}
         {match.referee && <><dt>Dommer</dt><dd>{match.referee}</dd></>}
-        <dt>Sikkerhet</dt><dd>{match.confidence === "confirmed" ? "Bekreftet" : "Foreløpig"}</dd>
       </dl>
 
       <section>
@@ -236,9 +276,34 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
             ))}
           </ul>
         )}
+        {/* Sikkerheten sto som en rad i faktalista, over tilskuertallet, og sa
+            «Foreløpig» på nesten hver eneste kamp. Den hører til kildene: det er
+            der den betyr noe, og der en leser leter etter den. */}
+        <p className="small muted">{confidenceNote(match.confidence)}</p>
       </section>
+
+      <nav className="match-nav" aria-label="Andre kamper i samme turnering">
+        {previous
+          ? <a href={`/kamp/${previous.id}`}>← {previous.opponent_name}<span className="small muted"> {previous.match_date}</span></a>
+          : <span />}
+        <a href={`/sesong/${match.season}`}>Hele {match.season}</a>
+        {next
+          ? <a href={`/kamp/${next.id}`}>{next.opponent_name} →<span className="small muted"> {next.match_date}</span></a>
+          : <span />}
+      </nav>
     </article>
   );
+}
+
+function confidenceNote(confidence: string): string {
+  switch (confidence) {
+    case "confirmed":
+      return "Opplysningene er bekreftet mot kilden over.";
+    case "disputed":
+      return "Kildene er uenige om denne kampen. Se konfliktene i datasettet.";
+    default:
+      return "Opplysningene er foreløpige, og hentet fra én kilde.";
+  }
 }
 
 function LineupBlock({ name, lineup }: { name: string; lineup?: Lineup }) {
