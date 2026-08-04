@@ -5,8 +5,7 @@ status: played
 competition:
   id: eliteserien
   season: 2008
-  stage: regular_season
-  round: 26
+  stage: relegation_playoff
 home:
   clubId: aalesunds-fk
   score: 3
@@ -31,6 +30,9 @@ sources:
       - home.score
       - away.score
       - competition.round
+note: >-
+  Kvalifiseringskamp etter serien, ikke en serierunde. RSSSF lister den under
+  samme sesongtabell, og parseren arvet rundenummeret fra kampen over.
 confidence: probable
 conflicts: []
 tags: []

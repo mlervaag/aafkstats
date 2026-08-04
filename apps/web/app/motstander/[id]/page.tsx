@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const data = getOpponent(id);
   return data
-    ? { title: `AaFK mot ${data.summary.opponent}`, description: `Alle registrerte ligakamper mellom AaFK og ${data.summary.opponent}.` }
+    ? { title: `AaFK mot ${data.summary.opponent}`, description: `Alle registrerte kamper mellom AaFK og ${data.summary.opponent}.` }
     : { title: "Motstander" };
 }
 
@@ -21,13 +21,21 @@ export default async function OpponentPage({ params }: Props) {
   const data = getOpponent(id);
   if (!data) notFound();
   const { summary, matches } = data;
+  const upcoming = matches.filter((match) => match.status === "scheduled");
+  const played = matches.filter((match) => match.status !== "scheduled");
   return (
     <>
       <p className="breadcrumb"><a href="/motstandere">Motstandere</a> / {summary.opponent}</p>
       <header className="page-intro compact">
         <p className="eyebrow">Innbyrdes oppgjør</p>
         <h1>AaFK mot {summary.opponent}</h1>
-        <p className="lede">Registrerte ligakamper fra {summary.firstMeeting.slice(0, 4)} til {summary.lastMeeting?.slice(0, 4) ?? "nå"}.</p>
+        {/* Sto tidligere som «registrerte ligakamper», mens lista også hadde cup
+            og treningskamper i seg. Konkurransen står på hver rad; å ramse dem
+            opp her ville vært å si det samme to ganger. */}
+        <p className="lede">
+          {summary.played} registrerte {summary.played === 1 ? "kamp" : "kamper"} fra{" "}
+          {summary.firstMeeting.slice(0, 4)} til {summary.lastMeeting?.slice(0, 4) ?? "nå"}.
+        </p>
       </header>
       <div className="stat-strip" aria-label="Innbyrdes statistikk">
         <Stat value={summary.played} label="Kamper" />
@@ -36,10 +44,18 @@ export default async function OpponentPage({ params }: Props) {
         <Stat value={summary.losses} label="Tap" />
         <Stat value={`${summary.goalsFor}–${summary.goalsAgainst}`} label="Mål" />
       </div>
-      <section className="content-section"><h2>Alle kamper</h2><MatchList matches={matches} /></section>
+
+      {upcoming.length > 0 && (
+        <section className="content-section">
+          <h2>Står igjen</h2>
+          <MatchList matches={upcoming} />
+        </section>
+      )}
+      <section className="content-section"><h2>Alle kamper</h2><MatchList matches={played} /></section>
     </>
   );
 }
+
 
 function Stat({ value, label }: { value: number | string; label: string }) {
   return <div><strong className="num">{value}</strong><span>{label}</span></div>;

@@ -1,26 +1,26 @@
-id: 2001-09-02-aalesunds-fk-haugesund
-date: 2001-09-02
+id: 2010-04-14-fk-haugesund-aalesunds-fk
+date: 2010-04-14
 dateConfidence: exact
 status: played
 competition:
-  id: forstedivisjon
-  season: 2001
+  id: eliteserien
+  season: 2010
   stage: regular_season
-  round: 22
+  round: 6
 home:
-  clubId: aalesunds-fk
-  score: 7
+  clubId: fk-haugesund
+  score: 2
   halfTimeScore: null
 away:
-  clubId: haugesund
-  score: 0
+  clubId: aalesunds-fk
+  score: 1
   halfTimeScore: null
 neutralVenue: false
 events: []
 externalReports: []
 sources:
   - sourceId: rsssf
-    url: http://www.rsssf.no/2001/First.html
+    url: http://www.rsssf.no/2010/Premier.html
     retrievedAt: 2026-08-03
     fields:
       - date
@@ -35,5 +35,5 @@ confidence: probable
 conflicts: []
 tags: []
 aliases:
-  rsssf: 2001-first-2001-09-02-aalesunds-fk-haugesund
+  rsssf: 2010-premier-2010-04-14-haugesund-aalesunds-fk
 manual: []

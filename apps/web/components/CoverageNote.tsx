@@ -18,12 +18,33 @@ export function coverageSentence(c: ArchiveCoverage): string {
   return `${c.matches} kamper${span}`;
 }
 
-/** «300 seriekamper, 150 førstedivisjonskamper og 44 cupkamper» */
-export function competitionBreakdown(c: ArchiveCoverage): string {
-  const parts = c.byCompetition.map((row) => `${row.matches} i ${row.competition}`);
-  if (parts.length === 0) return "";
-  if (parts.length === 1) return parts[0]!;
-  return `${parts.slice(0, -1).join(", ")} og ${parts.at(-1)}`;
+/**
+ * Kamper per konkurranse, som en liste.
+ *
+ * Sto som en setning med sju ledd i, og da leses den ikke — den hoppes over.
+ * Rader kan skummes, og de kan sammenlignes med øyet.
+ */
+export function CompetitionTable() {
+  const c = loadCoverage();
+  if (c.byCompetition.length === 0) return null;
+  const total = c.byCompetition.reduce((sum, row) => sum + row.matches, 0);
+
+  return (
+    <ul className="breakdown">
+      {c.byCompetition.map((row) => (
+        <li key={row.competition}>
+          <span>{row.competition}</span>
+          {/* Andelen tegnes, ikke skrives. Med sju rader er forholdet mellom dem
+              poenget, og et prosenttall per rad ville vært sju tall å veie mot
+              hverandre i hodet. */}
+          <span className="breakdown-bar" aria-hidden="true">
+            <span style={{ width: `${Math.round((row.matches / total) * 100)}%` }} />
+          </span>
+          <strong className="num">{row.matches}</strong>
+        </li>
+      ))}
+    </ul>
+  );
 }
 
 /**
@@ -55,6 +76,14 @@ export function GapNote() {
   );
 }
 
+/**
+ * Hva arkivet har, og hvor dypt.
+ *
+ * Var én lang setning med sju konkurranser, to andeler og et forbehold i seg.
+ * Den sa alt og ble lest av ingen. Nå er det tre tall og én setning om hullet;
+ * fordelingen per konkurranse hører hjemme på `/data`, der den kan ta plassen
+ * den trenger.
+ */
 export function CoverageNote({ heading = true }: { heading?: boolean }) {
   const c = loadCoverage();
   const detailShare = c.matches === 0 ? 0 : Math.round((c.withEvents / c.matches) * 100);
@@ -62,18 +91,13 @@ export function CoverageNote({ heading = true }: { heading?: boolean }) {
   return (
     <div className="notice prose">
       {heading && <strong>Slik ser arkivet ut nå: </strong>}
-      {coverageSentence(c)} — {competitionBreakdown(c)}.{" "}
-      {c.withEvents > 0 ? (
-        <>
-          {c.withEvents} av dem ({detailShare} %) har hendelser som mål og kort
-          {c.withAttendance > 0 ? `, og ${c.withAttendance} har tilskuertall` : ""}.
-        </>
-      ) : (
-        <>Ingen av dem har hendelsesdata ennå.</>
-      )}{" "}
+      {coverageSentence(c)}.{" "}
+      {c.withEvents > 0
+        ? `${c.withEvents} av dem (${detailShare} %) har hendelser som mål og kort, og ${c.withAttendance} har tilskuertall.`
+        : "Ingen av dem har hendelsesdata ennå."}{" "}
       {c.withReport === 0 ? (
         <>
-          Ingen kamper har kampreferat ennå — det er der{" "}
+          Kampreferat mangler helt — det er der{" "}
           <a href="/bidra">et bidrag monner mest</a>.
         </>
       ) : (

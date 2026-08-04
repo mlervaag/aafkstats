@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { crossValidate, loadArchive, repoRoot } from "@aafkstats/schema/load";
-import { fetchFotmobSeason } from "../adapters/fotmob.js";
+import { fetchFotmobSeason, FOTMOB_ADAPTER } from "../adapters/fotmob.js";
 import { pilotReport } from "../report.js";
 import { assertMayFetch, assertMayPublish } from "../policy.js";
 import { reconcile, writePlan } from "../reconcile.js";
@@ -50,6 +50,7 @@ async function main(): Promise<void> {
     sourceId: "fotmob",
     competitionId: args.competition,
     retrievedAt: args.retrievedAt,
+    adapter: FOTMOB_ADAPTER,
   });
 
   console.log(JSON.stringify({ ...plan.summary, failures: fetched.failures.length, issues: plan.issues.length }, null, 2));

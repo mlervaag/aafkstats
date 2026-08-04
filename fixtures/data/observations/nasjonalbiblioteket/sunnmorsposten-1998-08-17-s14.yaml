@@ -1,0 +1,20 @@
+sourceId: nasjonalbiblioteket
+externalId: sunnmorsposten-1998-08-17-s14
+matchId: 1998-08-16-aalesunds-fk-sk-brann
+retrievedAt: 2026-08-02
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:fdb5239c88f037cefbb615ccb8ae6c27f8da650afabd61c3f9c91eaae6c5784b
+raw:
+  dato: 16. august 1998
+  kamp: Aalesund - Brann 1-7
+  tilskuere: 4 200
+normalized:
+  date: 1998-08-16
+  home.clubId: aalesunds-fk
+  away.clubId: sk-brann
+  home.score: 1
+  away.score: 7
+  attendance: 4200
+fields: [attendance]
+warnings:
+  - Tilskuertallet er trolig avrundet i avisteksten.

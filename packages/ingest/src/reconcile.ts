@@ -1,16 +1,28 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { stringify } from "yaml";
-import { match as matchSchema } from "@aafkstats/schema";
-import type { Club, Match, Season, Venue } from "@aafkstats/schema";
+import { match as matchSchema, observation as observationSchema, observationPath, payloadHash } from "@aafkstats/schema";
+import type { Club, Match, Observation, ObservationValue, Season, Venue } from "@aafkstats/schema";
 import type { Archive } from "@aafkstats/schema/load";
-import { matchId, slugify } from "./ids.js";
+import { clubKey, clubNameForms, matchId, slugify } from "./ids.js";
+
+// Re-eksportert fordi adaptere importerer clubKey herfra. Definisjonen ligger i
+// @aafkstats/schema, slik at valideringen bruker nøyaktig samme regel.
+export { clubKey } from "./ids.js";
 import type { SourceMatch } from "./types.js";
 
 export interface ReconcileOptions {
   sourceId: string;
   competitionId: string;
   retrievedAt: string;
+  /**
+   * Hvilken adapter som leste kilden, med versjon: `rsssf@1`.
+   *
+   * Står i hver observasjon. Uten den er en verdi fra en adapter med en kjent
+   * parsefeil ikke til å skille fra en fra den rettede, og en omkjøring etter
+   * rettelsen kan ikke begrunne hvorfor den endret noe.
+   */
+  adapter?: string;
   /**
    * La kamper en annen kilde allerede eier stå i fred, i stedet for å stoppe
    * kjøringen.
@@ -27,7 +39,7 @@ export interface ReconcileOptions {
 
 export interface PlannedFile {
   relativePath: string;
-  value: Club | Venue | Season | Match;
+  value: Club | Venue | Season | Match | Observation;
   action: "create" | "update";
 }
 
@@ -44,6 +56,7 @@ export interface ReconcilePlan {
     venuesCreated: number;
     seasonsCreated: number;
     matchesSkipped: number;
+    observationsWritten: number;
   };
 }
 
@@ -76,11 +89,9 @@ export function reconcile(
     const byAlias = clubByExternalId().get(externalId);
     if (byAlias) return byAlias;
     const base = slugify(name);
-    const nameMatches = clubs.filter((club) => {
-      const candidates = [club.id, club.name, club.shortName, ...club.names.map((entry) => entry.name)]
-        .filter((candidate): candidate is string => candidate !== undefined);
-      return candidates.some((candidate) => clubKey(candidate) === clubKey(name));
-    });
+    const nameMatches = clubs.filter((club) =>
+      clubNameForms(club).some((candidate) => clubKey(candidate) === clubKey(name)),
+    );
     const existing = clubs.find((club) => club.id === base) ?? (nameMatches.length === 1 ? nameMatches[0] : undefined);
     if (existing && existing.aliases[options.sourceId] === undefined) {
       existing.aliases[options.sourceId] = externalId;
@@ -125,15 +136,94 @@ export function reconcile(
   );
   const existingById = new Map(archive.matches.map((match) => [match.id, match]));
 
+  // Observasjonene samles for seg og legges bakerst, slik at én kilde som ser
+  // en kamp den ikke får plassert likevel setter spor. Uten det ville nettopp de
+  // vanskeligste tilfellene vært de eneste uten dokumentasjon.
+  const observations: PlannedFile[] = [];
+  const existingObservations = new Set(
+    archive.observations.map((entry) => `${entry.sourceId}|${entry.externalId}`),
+  );
+  const observe = (
+    source: SourceMatch,
+    resolved: { matchId: string | null; homeClubId?: string; awayClubId?: string; venueId?: string },
+  ) => {
+    const raw = compact({
+      externalId: source.externalId,
+      date: source.date,
+      kickoff: source.kickoff,
+      status: source.rawStatus ?? source.status,
+      home: source.home.name,
+      homeId: source.home.externalId,
+      away: source.away.name,
+      awayId: source.away.externalId,
+      homeScore: source.homeScore,
+      awayScore: source.awayScore,
+      homeHalfTime: source.homeHalfTime,
+      awayHalfTime: source.awayHalfTime,
+      competition: source.competitionName,
+      competitionId: source.competitionExternalId,
+      season: source.season,
+      round: source.round,
+      stage: source.stage,
+      venue: source.venueName,
+      attendance: source.attendance,
+      referee: source.referee,
+      url: source.url,
+    });
+    const normalized = compact({
+      date: source.date,
+      kickoff: source.kickoff,
+      status: source.status,
+      "home.clubId": resolved.homeClubId,
+      "away.clubId": resolved.awayClubId,
+      "home.score": source.homeScore,
+      "away.score": source.awayScore,
+      "home.halfTimeScore": source.homeHalfTime,
+      "away.halfTimeScore": source.awayHalfTime,
+      "competition.id": options.competitionId,
+      "competition.season": source.season,
+      "competition.round": source.round,
+      "competition.stage": source.stage ?? "regular_season",
+      venueId: resolved.venueId,
+      attendance: source.attendance,
+      "referee.name": source.referee,
+    });
+    const relativePath = observationPath(options.sourceId, source.externalId);
+    observations.push({
+      relativePath,
+      value: observationSchema.parse({
+        sourceId: options.sourceId,
+        externalId: source.externalId,
+        matchId: resolved.matchId,
+        retrievedAt: options.retrievedAt,
+        adapter: options.adapter ?? `${options.sourceId}@1`,
+        payloadHash: payloadHash(raw),
+        raw,
+        normalized,
+        fields: source.fields,
+        warnings: source.warnings ?? [],
+      } satisfies Observation),
+      action: existingObservations.has(`${options.sourceId}|${source.externalId}`) ? "update" : "create",
+    });
+  };
+
   for (const source of sourceMatches) {
     const home = resolveClub(source.home.externalId, source.home.name);
     const away = resolveClub(source.away.externalId, source.away.name);
-    if (!home || !away) continue;
+    if (!home || !away) {
+      observe(source, { matchId: null, homeClubId: home?.id, awayClubId: away?.id });
+      continue;
+    }
     const venue = resolveVenue(source);
     const id = matchId(source.date, home.id, away.id);
+    const resolved = { matchId: id, homeClubId: home.id, awayClubId: away.id, venueId: venue?.id };
     const bySource = existingBySource.get(source.externalId);
     const collision = existingById.get(id);
     if (!bySource && collision) {
+      // Kampen skrives ikke, men observasjonen skrives. Det er hele grunnen til
+      // at laget finnes: at kilde nummer to sa noe om en kamp kilde nummer én
+      // eier, er en opplysning, ikke støy å kaste.
+      observe(source, resolved);
       if (options.skipExisting) {
         skipped.push(id);
         continue;
@@ -141,6 +231,7 @@ export function reconcile(
       issues.push(`${id}: finnes fra før uten ${options.sourceId}-alias; krever manuell reconcile`);
       continue;
     }
+    observe(source, resolved);
 
     // Adapteren så noe den ikke turde tolke. Det løftes til et kontrollpunkt her,
     // slik at kampen stopper skrivingen framfor å bli skrevet på en gjetning.
@@ -214,6 +305,7 @@ export function reconcile(
     }
   }
 
+  files.push(...observations);
   files.sort((a, b) => a.relativePath.localeCompare(b.relativePath));
   return {
     files,
@@ -226,21 +318,23 @@ export function reconcile(
       venuesCreated: newVenues.size,
       seasonsCreated: files.filter((file) => /seasons\/\d+\/season\.yaml$/.test(file.relativePath)).length,
       matchesSkipped: skipped.length,
+      observationsWritten: observations.length,
     },
     skipped,
   };
 }
 
 /**
- * Normaliserer et klubbnavn til nøkkelen navnematchingen bruker.
+ * Dropper feltene kilden ikke hadde.
  *
- * Eksportert fordi kilder uten egne klubb-ID-er må lage sine egne, og de må lages
- * på nøyaktig denne formen. Gjør de ikke det, gir «Kristiansund» og
- * «Kristiansund BK» hver sin ID for samme klubb, og den andre kolliderer med
- * aliaset den første la igjen.
+ * `undefined` og `null` er ikke det samme her: en observasjon uten `attendance`
+ * betyr at kilden ikke sa noe om tilskuertallet, mens `attendance: null` ville
+ * betydd at den påsto at tallet ikke finnes. Bare det første er sant.
  */
-export function clubKey(value: string): string {
-  return slugify(value).replace(/-(fotballklubb|fotball|fk|il|bk|sk)$/, "");
+function compact(values: Record<string, ObservationValue | undefined>): Record<string, ObservationValue> {
+  return Object.fromEntries(
+    Object.entries(values).filter(([, value]) => value !== undefined && value !== null),
+  ) as Record<string, ObservationValue>;
 }
 
 function mergeExisting(existingWithFile: Match & { file: string }, fresh: Match): Match {

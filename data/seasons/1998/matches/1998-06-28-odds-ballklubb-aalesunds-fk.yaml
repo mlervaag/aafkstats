@@ -1,26 +1,26 @@
-id: 2002-06-19-haugesund-aalesunds-fk
-date: 2002-06-19
+id: 1998-06-28-odds-ballklubb-aalesunds-fk
+date: 1998-06-28
 dateConfidence: exact
 status: played
 competition:
   id: forstedivisjon
-  season: 2002
+  season: 1998
   stage: regular_season
   round: 13
 home:
-  clubId: haugesund
-  score: 1
+  clubId: odds-ballklubb
+  score: 5
   halfTimeScore: null
 away:
   clubId: aalesunds-fk
-  score: 3
+  score: 0
   halfTimeScore: null
 neutralVenue: false
 events: []
 externalReports: []
 sources:
   - sourceId: rsssf
-    url: http://www.rsssf.no/2002/First.html
+    url: http://www.rsssf.no/1998/First.html
     retrievedAt: 2026-08-03
     fields:
       - date
@@ -35,5 +35,5 @@ confidence: probable
 conflicts: []
 tags: []
 aliases:
-  rsssf: 2002-first-2002-06-19-haugesund-aalesunds-fk
+  rsssf: 1998-first-1998-06-28-odd-aalesunds-fk
 manual: []

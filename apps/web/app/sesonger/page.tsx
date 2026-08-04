@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { CoverageStrip, CoverageSummary, CoverageTag } from "@/components/Coverage";
 import { loadSeasonYears } from "@/lib/archive";
+import type { SeasonSummary, SeasonYear } from "@/lib/archive";
 
 export const metadata: Metadata = {
   title: "Sesonger",
@@ -18,42 +20,115 @@ export default function SeasonsPage() {
         <p className="eyebrow">Sesong for sesong</p>
         <h1>Sesonger</h1>
         <p className="lede">
-          {years.length} sesonger fra {oldest} til {newest}. Velg et år for alle kamper og
-          sesongtall.
+          {years.length} år er representert, fra {oldest} til {newest}. Velg et år for alle
+          kamper og sesongtall.
         </p>
+        <CoverageSummary seasons={years.map((y) => y.primary)} />
       </header>
 
-      <div className="season-grid">
-        {years.map(({ year, primary, others, totalMatches }) => (
-          <a className="archive-card" href={primary.url} key={year}>
-            {/* Kortet viser serien når den finnes. Et cupexit på én kamp skal ikke
-                se ut som en hel sesong, så øvrige konkurranser står som en egen,
-                dempet linje i stedet for å bli slått sammen med tabelltallene. */}
-            <span className="card-kicker">{primary.competition}</span>
-            <strong className="card-title num">{year}</strong>
-            <span className="record-line num">
-              {primary.wins} S · {primary.draws} U · {primary.losses} T
-            </span>
-            <span className="card-meta num">
-              {primary.goalsFor}–{primary.goalsAgainst} mål · {primary.played}{" "}
-              {primary.played === 1 ? "kamp" : "kamper"}
-            </span>
-            {others.length > 0 && (
-              <span className="card-extra muted">
-                + {others.map((o) => `${o.played} i ${o.competition}`).join(", ")}
-              </span>
-            )}
-            {others.length > 0 && (
-              <span className="sr-only">{totalMatches} kamper totalt dette året</span>
-            )}
-          </a>
-        ))}
-      </div>
+      <CoverageStrip years={years} />
+
+      {/* Delt i tiår. Uten inndelingen er dette 85 kort på rad, og en leser som
+          skal til 1970-tallet må rulle på gefühl. Tiåret er også den enheten folk
+          faktisk husker fotball i. */}
+      {byDecade(years).map(([decade, entries]) => (
+        <section className="decade" key={decade}>
+          <h2 className="decade-heading">
+            <span className="num">{decade}-tallet</span>
+            <span className="muted small">{decadeSummary(entries)}</span>
+          </h2>
+          <div className="season-grid">
+            {entries.map((entry) => <SeasonCard entry={entry} key={entry.year} />)}
+          </div>
+        </section>
+      ))}
 
       <p className="notice prose">
-        Serie og cup er hentet inn. Europacupkampene mangler, og treningskamper finnes bare
-        for inneværende sesong. Se <a href="/om">kilder og forbehold</a>.
+        Cupen er godt dekket helt tilbake til 1917. Seriedekningen er mer oppstykket før
+        1990, med hele sesonger enkelte år og bare spredte kamper i andre.
+        Europacupkampene mangler, og treningskamper finnes bare for inneværende sesong.
+        Se <a href="/om">kilder og forbehold</a>.
       </p>
     </>
   );
+}
+
+/**
+ * Kortet for ett år.
+ *
+ * Et år uten seriesesong får ikke tabelltall. Å vise «0 S · 0 U · 1 T» for et
+ * cupexit gir en enkeltkamp samme vekt som en hel sesong, og det var nettopp den
+ * forskjellen sida ikke klarte å vise.
+ */
+function SeasonCard({ entry }: { entry: SeasonYear }) {
+  const { year, primary, others, totalMatches } = entry;
+  const isLeague = primary.competitionType === "league";
+
+  if (!isLeague) {
+    return (
+      <a className="archive-card card-fragment" href={primary.url}>
+        <strong className="card-title num">{year}</strong>
+        <span className="card-meta">
+          {totalMatches} {totalMatches === 1 ? "kamp" : "kamper"} i{" "}
+          {[primary, ...others].map((s) => s.competition).join(" og ")}
+        </span>
+        <CoverageTag season={primary} />
+      </a>
+    );
+  }
+
+  return (
+    <a className="archive-card" href={primary.url}>
+      <span className="card-kicker">{primary.competition}</span>
+      <strong className="card-title num">{year}</strong>
+      <span className="record-line num">
+        {primary.wins} S · {primary.draws} U · {primary.losses} T
+      </span>
+      <span className="card-meta num">
+        {primary.goalsFor}–{primary.goalsAgainst} mål · {primary.played}{" "}
+        {primary.played === 1 ? "kamp" : "kamper"}
+      </span>
+      <CoverageTag season={primary} />
+      {others.length > 0 && (
+        <span className="card-extra muted">+ {extras(others)}</span>
+      )}
+      {others.length > 0 && (
+        <span className="sr-only">{totalMatches} kamper totalt dette året</span>
+      )}
+    </a>
+  );
+}
+
+/**
+ * «5 i Norgesmesterskapet, 8 treningskamper»
+ *
+ * Konkurransenavnet er et egennavn og bøyes ikke, men «8 i Treningskamp» er ikke
+ * norsk. Treningskamper er den ene konkurransen som heter noe som også er et
+ * vanlig ord, så den får sin egen form.
+ */
+function extras(others: SeasonSummary[]): string {
+  return others
+    .map((o) =>
+      o.competitionType === "friendly"
+        ? `${o.played} ${o.played === 1 ? "treningskamp" : "treningskamper"}`
+        : `${o.played} i ${o.competition}`,
+    )
+    .join(", ");
+}
+
+function byDecade(years: SeasonYear[]): [number, SeasonYear[]][] {
+  const groups = new Map<number, SeasonYear[]>();
+  for (const entry of years) {
+    const decade = Math.floor(entry.year / 10) * 10;
+    groups.set(decade, [...(groups.get(decade) ?? []), entry]);
+  }
+  return [...groups.entries()].sort((a, b) => b[0] - a[0]);
+}
+
+/** «8 år · 4 seriesesonger» — nok til å se om tiåret er tykt eller tynt. */
+function decadeSummary(entries: SeasonYear[]): string {
+  const leagues = entries.filter((e) => e.primary.competitionType === "league").length;
+  const years = `${entries.length} ${entries.length === 1 ? "år" : "år"}`;
+  if (leagues === 0) return `${years} · ingen seriesesong`;
+  return `${years} · ${leagues} ${leagues === 1 ? "seriesesong" : "seriesesonger"}`;
 }

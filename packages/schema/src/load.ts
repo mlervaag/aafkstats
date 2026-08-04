@@ -6,8 +6,11 @@ import { parse as parseYaml } from "yaml";
 import { z } from "zod";
 import { club, competition, season, source, venue } from "./entities.js";
 import { match } from "./match.js";
+import { canonicalClubKey } from "./identity.js";
+import { observation, observationPath } from "./observation.js";
 import type { Club, Competition, Season, Source, Venue } from "./entities.js";
 import type { Match } from "./match.js";
+import type { Observation } from "./observation.js";
 
 /** Rota på monorepoet, utledet fra hvor denne filen ligger. */
 export function repoRoot(): string {
@@ -41,6 +44,11 @@ export interface Archive {
   sources: Source[];
   seasons: (Season & { file: string })[];
   matches: (Match & { file: string })[];
+  /**
+   * Hva hver kilde faktisk sa, før normalisering. Tom for kamper som ble hentet
+   * inn før laget fantes; se `observation.ts`.
+   */
+  observations: (Observation & { file: string })[];
   issues: LoadIssue[];
 }
 
@@ -154,7 +162,31 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
     }
   }
 
-  return { clubs, venues, competitions, sources, seasons, matches, issues };
+  // Observasjonene ligger under én mappe per kilde. Stien er utledet av
+  // sourceId og externalId, og kontrolleres her — ligger fila et annet sted,
+  // finner ikke neste kjøring den igjen, og kilden blir ført to ganger.
+  const observations: (Observation & { file: string })[] = [];
+  const observationsDir = join(root, "observations");
+  if (existsSync(observationsDir)) {
+    const sourceDirs = (await readdir(observationsDir, { withFileTypes: true }))
+      .filter((e) => e.isDirectory())
+      .map((e) => e.name)
+      .sort();
+    for (const dir of sourceDirs) {
+      for (const file of await listYaml(join(observationsDir, dir))) {
+        const parsed = await parseFile(file, observation, root, issues);
+        if (parsed === null) continue;
+        const rel = relative(root, file);
+        const expected = observationPath(parsed.sourceId, parsed.externalId);
+        if (rel !== expected) {
+          issues.push({ file: rel, path: "externalId", message: `fila må hete «${expected}»` });
+        }
+        observations.push({ ...parsed, file: rel });
+      }
+    }
+  }
+
+  return { clubs, venues, competitions, sources, seasons, matches, observations, issues };
 }
 
 /**
@@ -187,9 +219,36 @@ export function crossValidate(archive: Archive): LoadIssue[] {
   duplicates(archive.competitions, "competitions");
   duplicates(archive.sources, "sources");
 
+  // Klubber som normaliserer til samme identitet er nesten alltid samme klubb
+  // ført to ganger, fordi én kilde skriver «FK Haugesund» og en annen «Haugesund».
+  // Dette rapporteres, ikke slås sammen: en sammenslåing for mye gir gale tall
+  // uten at noe feiler, mens en dublett som står er synlig og rettbar.
+  const clubsByIdentity = new Map<string, Club[]>();
+  for (const club of archive.clubs) {
+    const key = canonicalClubKey(club);
+    clubsByIdentity.set(key, [...(clubsByIdentity.get(key) ?? []), club]);
+  }
+  for (const [key, group] of clubsByIdentity) {
+    if (group.length < 2) continue;
+    const names = group.map((club) => `${club.id} («${club.name}»)`).join(", ");
+    for (const club of group) {
+      issues.push({
+        file: `clubs/${club.id}.yaml`,
+        path: "name",
+        message: `samme klubbidentitet «${key}» som ${names} — slå dem sammen, og la kortformen bli et kildealias`,
+      });
+    }
+  }
+
+  // Klubb-ID → kanonisk identitet, slik at kamper ført på hver sin ID for samme
+  // klubb gir samme nøkkel under.
+  const identityOf = new Map(archive.clubs.map((club) => [club.id, canonicalClubKey(club)]));
+
   const seenMatchIds = new Set<string>();
   // Samme dato + samme motstander betyr nesten alltid at kampen er lagt inn to ganger,
-  // typisk fordi to kilder brukte ulik navnerekkefølge i slugen.
+  // typisk fordi to kilder brukte ulik navnerekkefølge i slugen — eller ulik
+  // skrivemåte av klubbnavnet, som er grunnen til at nøkkelen bruker kanonisk
+  // identitet og ikke klubb-ID.
   const seenFixtures = new Map<string, string>();
 
   for (const m of archive.matches) {
@@ -198,7 +257,8 @@ export function crossValidate(archive: Archive): LoadIssue[] {
     if (seenMatchIds.has(m.id)) at("id", `duplikat kamp-ID «${m.id}»`);
     seenMatchIds.add(m.id);
 
-    const fixtureKey = `${m.date}|${[m.home.clubId, m.away.clubId].sort().join("|")}`;
+    const sides = [m.home.clubId, m.away.clubId].map((id) => identityOf.get(id) ?? id);
+    const fixtureKey = `${m.date}|${sides.sort().join("|")}`;
     const existing = seenFixtures.get(fixtureKey);
     if (existing !== undefined && existing !== m.file) {
       at("date", `samme dato og motstander som ${existing} — er dette samme kamp?`);
@@ -225,6 +285,25 @@ export function crossValidate(archive: Archive): LoadIssue[] {
           at("conflicts", `ukjent kilde «${v.sourceId}» i konflikt på feltet «${c.field}»`);
         }
       }
+    }
+  }
+
+  // Observasjonen er verdiløs hvis den ikke kan spores tilbake til en kilde og en
+  // kamp. Den peker på begge deler med ren tekst, så bare et oppslag her fanger
+  // en observasjon som er blitt hengende igjen etter en slettet kamp.
+  const seenObservations = new Set<string>();
+  for (const o of archive.observations) {
+    const at = (path: string, message: string) => issues.push({ file: o.file, path, message });
+    const key = `${o.sourceId}|${o.externalId}`;
+    if (seenObservations.has(key)) {
+      at("externalId", `duplikat observasjon «${key}»`);
+    }
+    seenObservations.add(key);
+    if (!sourceIds.has(o.sourceId)) {
+      at("sourceId", `ukjent kilde «${o.sourceId}» — mangler data/sources/${o.sourceId}.yaml`);
+    }
+    if (o.matchId !== null && !seenMatchIds.has(o.matchId)) {
+      at("matchId", `ukjent kamp «${o.matchId}» — sett matchId til null hvis kampen ikke ble skrevet`);
     }
   }
 

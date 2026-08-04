@@ -11,9 +11,14 @@
  * høflige ønsker — en modell som blir bedt om å «prøve å ikke gjette» gjetter.
  */
 
+import { matchStatus } from "@aafkstats/schema";
+import { loadCompetitionIds } from "@/lib/archive";
+
 const REPO = "https://github.com/mlervaag/aafkstats";
 
-const FORMAT = `Datamodellen, kort:
+const MATCH_STATUSES = matchStatus.options.join(" | ");
+
+const FORMAT = (competitionIds: string) => `Datamodellen, kort:
 
 - Én YAML-fil per kamp: data/seasons/<år>/matches/<id>.yaml
 - id = filnavn = <dato>-<hjemmelag>-<bortelag>, f.eks. 2011-11-06-sk-brann-aalesunds-fk
@@ -22,8 +27,8 @@ const FORMAT = `Datamodellen, kort:
 - Påkrevd: id, date, status, competition.id, competition.season, home.clubId, away.clubId
 - Alt annet er valgfritt. En kamp fra 1930 med bare dato og motstander er velkommen
   med confidence: probable — det er bedre enn at den mangler.
-- competition.id er en av: eliteserien, forstedivisjon, nm, treningskamp
-- status: played | scheduled | abandoned | awarded | cancelled
+- competition.id er en av: ${competitionIds}
+- status: ${MATCH_STATUSES}
 - confidence: confirmed (to uavhengige kilder) | probable (én kilde) | disputed (kilder er uenige)
 
 Viktig om resultat: home.score og away.score er stillingen etter ORDINÆR TID.
@@ -62,18 +67,42 @@ export interface ContributionPrompt {
   prompt: string;
 }
 
-export const contributionPrompts: ContributionPrompt[] = [
+/**
+ * Promptene, med konkurransene og statusene hentet fra skjemaet og databasen.
+ *
+ * Begge lister sto tidligere som tekst i denne filen, og begge ble gale:
+ * `tredjedivisjon` kom inn med RSSSF-innhøstingen uten å bli lagt til, og
+ * `postponed` har vært i `matchStatus` hele tiden uten å stå her. En bidragsyter
+ * som fulgte prompten fikk da laget en fil valideringen avviste — den verst
+ * tenkelige feilen for en side som skal senke terskelen.
+ *
+ * Dette er en funksjon, ikke en konstant. Konstanten leste databasen idet modulen
+ * ble importert, og da må arkivfilen finnes før noe som helst kan importere
+ * filen — også en test som skal bygge sin egen fixture først. Databasen åpnes nå
+ * ved første kall, og svaret holdes.
+ */
+let cached: ContributionPrompt[] | undefined;
+
+export function contributionPrompts(): ContributionPrompt[] {
+  cached ??= buildPrompts(loadCompetitionIds().join(", "));
+  return cached;
+}
+
+function buildPrompts(competitionIds: string): ContributionPrompt[] {
+  const format = FORMAT(competitionIds);
+  return [
   {
     id: "ny-kamp",
     title: "Legg til en kamp som mangler",
     purpose: "Vanligst",
     description:
-      "For eldre kamper arkivet ikke har ennå. Arkivet er tynt før 2011, så dette er der det monner mest.",
+      "For eldre kamper arkivet ikke har ennå. Kampryggraden rekker tilbake til 1917, "
+      + "men detaljene — mål, oppstillinger, tilskuertall — begynner først rundt 2010.",
     prompt: `Du skal hjelpe meg å legge til en AaFK-kamp i det åpne arkivet ${REPO}.
 
 Kampen det gjelder: [BESKRIV KAMPEN — dato eller omtrentlig dato, motstander, og hva du vet]
 
-${FORMAT}
+${format}
 
 ${SOURCE_RULES}
 
@@ -98,7 +127,7 @@ ${PR_FLOW}`,
 
 Kampen: [LIM INN DAGENS YAML-FIL, eller oppgi kamp-ID]
 
-${FORMAT}
+${format}
 
 Hendelser skrives slik, sortert på minutt:
 
@@ -171,4 +200,5 @@ slik at jeg kan kontrollere dem.
 
 ${PR_FLOW}`,
   },
-];
+  ];
+}

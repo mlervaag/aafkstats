@@ -1,26 +1,26 @@
-id: 2001-05-24-haugesund-aalesunds-fk
-date: 2001-05-24
+id: 2004-04-12-aalesunds-fk-fk-haugesund
+date: 2004-04-12
 dateConfidence: exact
 status: played
 competition:
   id: forstedivisjon
-  season: 2001
+  season: 2004
   stage: regular_season
-  round: 7
+  round: 1
 home:
-  clubId: haugesund
-  score: 5
-  halfTimeScore: null
-away:
   clubId: aalesunds-fk
   score: 3
+  halfTimeScore: null
+away:
+  clubId: fk-haugesund
+  score: 2
   halfTimeScore: null
 neutralVenue: false
 events: []
 externalReports: []
 sources:
   - sourceId: rsssf
-    url: http://www.rsssf.no/2001/First.html
+    url: http://www.rsssf.no/2004/First.html
     retrievedAt: 2026-08-03
     fields:
       - date
@@ -35,5 +35,5 @@ confidence: probable
 conflicts: []
 tags: []
 aliases:
-  rsssf: 2001-first-2001-05-24-haugesund-aalesunds-fk
+  rsssf: 2004-first-2004-04-12-aalesunds-fk-haugesund
 manual: []

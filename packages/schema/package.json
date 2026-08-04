@@ -8,7 +8,8 @@
     "./load": "./src/load.ts"
   },
   "scripts": {
-    "validate": "tsx src/cli/validate.ts"
+    "validate": "tsx src/cli/validate.ts",
+    "duplicates": "tsx src/cli/duplicates.ts"
   },
   "dependencies": {
     "yaml": "^2.6.1",

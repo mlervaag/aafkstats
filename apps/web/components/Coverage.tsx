@@ -1,0 +1,164 @@
+import type { SeasonSummary, SeasonYear } from "@/lib/archive";
+
+/** AaFK ble stiftet i 1914. Alt før det er ikke et hull, det er før klubben fantes. */
+const FOUNDED = 1914;
+
+type YearKind = "league" | "fragments" | "missing";
+
+function kindOf(entry: SeasonYear | undefined): YearKind {
+  if (!entry) return "missing";
+  return entry.primary.competitionType === "league" ? "league" : "fragments";
+}
+
+/**
+ * Ett merke per år fra stiftelsen til i dag, farget etter hva arkivet har.
+ *
+ * Sesonglista er 85 kort som ser like ut enten året er en hel serie eller én
+ * cupkamp. Formen på arkivet — hvor det er tykt, hvor det er tynt, hvor det
+ * mangler helt — er den opplysningen en leser trenger først, og den lot seg ikke
+ * lese ut av lista i det hele tatt. Her er hele spennet på fire linjer.
+ */
+export function CoverageStrip({ years }: { years: SeasonYear[] }) {
+  const byYear = new Map(years.map((entry) => [entry.year, entry]));
+  const newest = years[0]?.year ?? FOUNDED;
+  const span = Array.from({ length: newest - FOUNDED + 1 }, (_, i) => FOUNDED + i);
+  // Gruppert i tiår, med samme inndeling som seksjonene under. Uten grupperingen
+  // brytes stripa der bredden tilfeldigvis tar slutt, og da er det ikke mulig å
+  // telle seg fram til hvilket år et merke gjelder.
+  const decades = new Map<number, number[]>();
+  for (const year of span) {
+    const decade = Math.floor(year / 10) * 10;
+    decades.set(decade, [...(decades.get(decade) ?? []), year]);
+  }
+
+  return (
+    <figure className="coverage-strip">
+      <ol aria-label={`Dekning år for år, ${FOUNDED} til ${newest}`}>
+        {[...decades].map(([decade, group]) => (
+          <li className="strip-decade" key={decade}>
+            <ol aria-label={`${decade}-tallet`}>
+              {group.map((year) => {
+                const entry = byYear.get(year);
+                const cell = <span className={`strip-year strip-${kindOf(entry)}`} aria-hidden="true" />;
+                const text = entry ? stripTitle(year, entry) : `${year}: ingen kamper i arkivet`;
+                return (
+                  <li key={year}>
+                    {entry ? (
+                      <a href={entry.primary.url} title={text}>
+                        <span className="sr-only">{text}</span>
+                        {cell}
+                      </a>
+                    ) : (
+                      <span title={text}><span className="sr-only">{text}</span>{cell}</span>
+                    )}
+                  </li>
+                );
+              })}
+            </ol>
+            {/* Hele årstallet, ikke «10». Stripa brytes over flere linjer, og
+                da står 1910-tallet og 2010-tallet med samme merkelapp. */}
+            <span className="strip-decade-label small muted num">{decade}</span>
+          </li>
+        ))}
+      </ol>
+      <figcaption className="strip-legend small muted">
+        <span><i className="strip-year strip-league" /> Sesong i serien</span>
+        <span><i className="strip-year strip-fragments" /> Bare enkeltkamper</span>
+        <span><i className="strip-year strip-missing" /> Ingenting ennå</span>
+        <span className="strip-ends num">{FOUNDED}–{newest}</span>
+      </figcaption>
+    </figure>
+  );
+}
+
+function stripTitle(year: number, entry: SeasonYear): string {
+  const kamper = `${entry.totalMatches} ${entry.totalMatches === 1 ? "kamp" : "kamper"}`;
+  return entry.primary.competitionType === "league"
+    ? `${year}: ${entry.primary.competition}, ${kamper}`
+    : `${year}: ${kamper}, ingen seriesesong`;
+}
+
+/**
+ * Merkelappen som sier hvor mye av en sesong arkivet faktisk har.
+ *
+ * «85 sesonger» har hele tiden betydd 85 år med minst én registrert kamp. For en
+ * leser er det ikke til å skille fra 85 komplette sesonger, og forskjellen er
+ * stor: 2011 er en hel serie, mens 1951 er tre løsrevne kamper.
+ *
+ * Verdien regnes ut i byggesteget fra rundenumrene i kampene, så den kan ikke bli
+ * utdatert slik en håndskrevet setning kan. Se `seasons`-viewet.
+ *
+ * Cup og treningskamper får ingen merkelapp. En cupsesong slutter når laget ryker
+ * ut, så «ufullstendig» ville vært feil ord for en helt normal sesong.
+ */
+export function CoverageTag({ season }: { season: SeasonSummary }) {
+  // En sesong som pågår er ikke ufullstendig, den er ikke ferdig. Merket sier det
+  // rett ut, og gjelder også cupen — der er «vi er fortsatt med» hele poenget.
+  if (season.scheduled > 0) {
+    const total = season.played + season.scheduled;
+    return (
+      <span className="coverage-tag coverage-ongoing" title="Sesongen pågår. Resten står på terminlista.">
+        Pågår · {season.played} av {total} kamper
+      </span>
+    );
+  }
+  if (season.coverage === "not_applicable") return null;
+
+  const text = coverageText(season);
+  return (
+    <span className={`coverage-tag coverage-${season.coverage}`} title={coverageExplanation(season)}>
+      {text}
+    </span>
+  );
+}
+
+function coverageText(season: SeasonSummary): string {
+  switch (season.coverage) {
+    case "complete":
+      return `Komplett · ${season.lastRound} runder`;
+    case "partial":
+      return `Delvis · ${season.played} av ${season.lastRound ?? "?"} runder`;
+    default:
+      return `${season.played} kjente ${season.played === 1 ? "kamp" : "kamper"}`;
+  }
+}
+
+function coverageExplanation(season: SeasonSummary): string {
+  switch (season.coverage) {
+    case "complete":
+      return "Arkivet har runde 1 til siste runde uten hull.";
+    case "partial":
+      return "Det mangler runder i denne sesongen, eller den pågår fortsatt.";
+    default:
+      return "Kampene mangler rundenummer, så arkivet vet bare at de ble spilt.";
+  }
+}
+
+/**
+ * Én setning om hvor mange av årene som faktisk er hele sesonger.
+ *
+ * Står under sesongoversikten, der påstanden «85 sesonger» ellers ville stått
+ * alene og lovet mer enn arkivet har.
+ */
+export function CoverageSummary({ seasons }: { seasons: SeasonSummary[] }) {
+  // Sesonger som pågår holdes utenfor. De kan ikke være komplette ennå, og telt
+  // med ville de trukket ned et tall som skal si noe om hva arkivet mangler.
+  const leagues = seasons.filter(
+    (season) => season.coverage !== "not_applicable" && season.scheduled === 0,
+  );
+  const complete = leagues.filter((season) => season.coverage === "complete").length;
+  const fragments = leagues.filter((season) => season.coverage === "isolated").length;
+  if (leagues.length === 0) return null;
+
+  return (
+    <p className="small muted coverage-summary">
+      {complete} av {leagues.length} seriesesonger ligger inne komplett, med hver runde fra
+      første til siste.
+      {fragments > 0 && (
+        <> {fragments} {fragments === 1 ? "år har" : "år har"} bare enkeltkamper vi kjenner til.</>
+      )}{" "}
+      Cupen telles ikke her: den slutter når laget ryker ut, så det finnes ingen komplett
+      cupsesong å måle mot.
+    </p>
+  );
+}

@@ -1,26 +1,29 @@
-id: 2010-04-14-haugesund-aalesunds-fk
-date: 2010-04-14
+id: 1985-05-30-fk-sykkylven-aalesunds-fk
+date: 1985-05-30
 dateConfidence: exact
 status: played
 competition:
-  id: eliteserien
-  season: 2010
+  id: nm
+  season: 1985
   stage: regular_season
-  round: 6
+  round: 1
 home:
-  clubId: haugesund
-  score: 2
+  clubId: fk-sykkylven
+  score: 1
   halfTimeScore: null
 away:
   clubId: aalesunds-fk
   score: 1
   halfTimeScore: null
+extraTime:
+  home: 0
+  away: 0
 neutralVenue: false
 events: []
 externalReports: []
 sources:
   - sourceId: rsssf
-    url: http://www.rsssf.no/2010/Premier.html
+    url: http://www.rsssf.no/1985/Cup.html
     retrievedAt: 2026-08-03
     fields:
       - date
@@ -31,9 +34,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+      - extraTime
 confidence: probable
 conflicts: []
 tags: []
 aliases:
-  rsssf: 2010-premier-2010-04-14-haugesund-aalesunds-fk
+  rsssf: 1985-cup-1985-05-30-sykkylven-aalesunds-fk
 manual: []
+note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.

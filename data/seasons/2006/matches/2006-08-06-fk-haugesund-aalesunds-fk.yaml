@@ -1,26 +1,26 @@
-id: 1998-06-28-odd-aalesunds-fk
-date: 1998-06-28
+id: 2006-08-06-fk-haugesund-aalesunds-fk
+date: 2006-08-06
 dateConfidence: exact
 status: played
 competition:
   id: forstedivisjon
-  season: 1998
+  season: 2006
   stage: regular_season
-  round: 13
+  round: 17
 home:
-  clubId: odd
-  score: 5
+  clubId: fk-haugesund
+  score: 0
   halfTimeScore: null
 away:
   clubId: aalesunds-fk
-  score: 0
+  score: 1
   halfTimeScore: null
 neutralVenue: false
 events: []
 externalReports: []
 sources:
   - sourceId: rsssf
-    url: http://www.rsssf.no/1998/First.html
+    url: http://www.rsssf.no/2006/First.html
     retrievedAt: 2026-08-03
     fields:
       - date
@@ -35,5 +35,5 @@ confidence: probable
 conflicts: []
 tags: []
 aliases:
-  rsssf: 1998-first-1998-06-28-odd-aalesunds-fk
+  rsssf: 2006-first-2006-08-06-haugesund-aalesunds-fk
 manual: []

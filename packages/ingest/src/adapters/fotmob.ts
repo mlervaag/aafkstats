@@ -9,6 +9,15 @@ import type {
 } from "../types.js";
 
 export const AAFK_FOTMOB_ID = "8404";
+
+/**
+ * Adapterversjon, ført i hver observasjon.
+ *
+ * Tallet skal opp når tolkningen endrer seg — ny feltlesing, rettet parsefeil —
+ * ikke når en kommentar flyttes. Det er dette som gjør at en verdi hentet før en
+ * rettelse kan skilles fra en hentet etter.
+ */
+export const FOTMOB_ADAPTER = "fotmob@1";
 const BASE = "https://www.fotmob.com/api/data";
 
 /**

@@ -1,6 +1,6 @@
 import { crossValidate, loadArchive, repoRoot } from "@aafkstats/schema/load";
 import { resolve } from "node:path";
-import { fetchRsssfSeason } from "../adapters/rsssf.js";
+import { fetchRsssfSeason, RSSSF_ADAPTER } from "../adapters/rsssf.js";
 import type { RsssfDivision } from "../adapters/rsssf.js";
 import { assertMayFetch, assertMayPublish } from "../policy.js";
 import { reconcile, writePlan } from "../reconcile.js";
@@ -63,6 +63,7 @@ async function main(): Promise<void> {
     sourceId: "rsssf",
     competitionId: args.competition,
     retrievedAt: args.retrievedAt,
+    adapter: RSSSF_ADAPTER,
     skipExisting: args.skipExisting,
   });
 

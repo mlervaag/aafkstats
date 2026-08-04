@@ -1,7 +1,14 @@
 id: odds-ballklubb
 name: Odds Ballklubb
-names: []
+names:
+  - { name: Odd, from: null, to: "1993-12-31" }
+  - { name: Odd Grenland, from: "1994-01-01", to: "2012-12-31" }
+  - { name: Odds Ballklubb, from: "2013-01-01", to: null }
 country: NO
 aliases:
   fotmob: "7988"
-  rsssf: odds-ballklubb
+  rsssf: odds
+note: >
+  Samme klubb gjennom hele perioden. Skiensklubben tok navnet Odd Grenland i 1994
+  som del av et samarbeid med Pors, og gikk tilbake til Odds Ballklubb etterpå.
+  RSSSF skriver skiftevis «Odd» og «Odd Grenland», og begge er ført hit.

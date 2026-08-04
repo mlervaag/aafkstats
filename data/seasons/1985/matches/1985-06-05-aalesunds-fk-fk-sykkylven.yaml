@@ -1,26 +1,26 @@
-id: 1998-10-18-aalesunds-fk-odd
-date: 1998-10-18
+id: 1985-06-05-aalesunds-fk-fk-sykkylven
+date: 1985-06-05
 dateConfidence: exact
 status: played
 competition:
-  id: forstedivisjon
-  season: 1998
+  id: nm
+  season: 1985
   stage: regular_season
-  round: 26
+  round: 1
 home:
   clubId: aalesunds-fk
   score: 2
   halfTimeScore: null
 away:
-  clubId: odd
-  score: 0
+  clubId: fk-sykkylven
+  score: 1
   halfTimeScore: null
 neutralVenue: false
 events: []
 externalReports: []
 sources:
   - sourceId: rsssf
-    url: http://www.rsssf.no/1998/First.html
+    url: http://www.rsssf.no/1985/Cup.html
     retrievedAt: 2026-08-03
     fields:
       - date
@@ -35,5 +35,5 @@ confidence: probable
 conflicts: []
 tags: []
 aliases:
-  rsssf: 1998-first-1998-10-18-aalesunds-fk-odd
+  rsssf: 1985-cup-1985-06-05-aalesunds-fk-sykkylven
 manual: []
