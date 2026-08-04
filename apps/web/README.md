@@ -23,6 +23,7 @@ lib/
 ├── search.ts        Parsing og spørring for direktesøket
 ├── chat-request.ts  Grensene på det klienten sender inn
 ├── rate-limit.ts    Rate-limiting og logging
+├── analytics.ts     Hva som telles, og hva som aldri gjør det
 ├── prompts.ts       Ferdige prompts for bidragsytere
 ├── thinking.ts      Tenkeord på sunnmørsk
 └── score.ts         Formatering av resultater
@@ -110,3 +111,9 @@ arkiv som lever av etterprøvbarhet bør ikke gjemme sin egen rettighetssituasjo
 
 **Jugend-linja er ikke pynt uten grunn.** Ålesund brant i 1904 og ble bygget opp igjen i
 jugendstil. Skillelinjene på nettstedet er hentet derfra, i stedet for en skygge.
+
+**Målingen teller aldri spørsmålsteksten.** Tre hendelser dekker det som er verdt å vite:
+at et spørsmål ble stilt, om det fikk svar eller feilet, og om noen åpnet en kamp fra
+direktesøket. Lista over lovlige egenskaper er en type i [`lib/analytics.ts`](lib/analytics.ts),
+ikke en konvensjon, og `Do Not Track` og `Global Privacy Control` respekteres. Et avbrutt
+svar telles verken som «ok» eller «error» — brukeren gikk bare videre.

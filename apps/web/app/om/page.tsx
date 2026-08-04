@@ -30,6 +30,18 @@ export default function AboutPage() {
             </p>
             <SourceRights />
           </section>
+          <section>
+            <h2>Hva som måles</h2>
+            <p>
+              Nettstedet teller sidevisninger og måler hvor raskt sidene laster, uten
+              informasjonskapsler og uten å lagre IP-adressen din. I tillegg telles det at et
+              spørsmål ble stilt, om det fikk svar, og om noen åpnet en kamp fra direktesøket.
+            </p>
+            <p>
+              Selve spørsmålet ditt lagres ikke i statistikken. Sier nettleseren din fra at
+              den ikke vil spores, sendes ingenting i det hele tatt.
+            </p>
+          </section>
           <section><h2>Kilder og sikkerhet</h2><p>Hver kamp peker til kilden og hvilke felt kilden har levert. Dagens testdata kommer i hovedsak fra FotMob og er merket som foreløpige. FotMob er en udokumentert sekundærkilde med uavklarte vilkår for systematisk gjenbruk.</p><p>Arkivet skal etter hvert kryssjekkes mot fotball.no, NIFS, klubbkilder og samtidige kamprapporter. En opplysning blir ikke mer sann av å stå i en database.</p></section>
         </div>
         <aside className="facts-panel"><h2>Kort fortalt</h2><dl><dt>Status</dt><dd>MVP / testarkiv</dd><dt>Tilknytning</dt><dd>Ingen offisiell tilknytning til AaFK</dd><dt>Kode</dt><dd>MIT</dd><dt>Egne tekster</dt><dd>CC BY 4.0</dd><dt>Kildedata</dt><dd>Se kilde og vilkår per opplysning</dd></dl><a className="button-link" href="https://github.com/mlervaag/aafkstats">Se prosjektet på GitHub</a></aside>

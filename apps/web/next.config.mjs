@@ -3,7 +3,9 @@
  *
  * Nettstedet henter ingenting utenfra: ingen skript, fonter eller bilder fra
  * andre verter, og eneste utgående kall er til våre egne API-ruter. Da kan
- * policyen være så stram som den er her.
+ * policyen være så stram som den er her. Eneste mulige unntak er en
+ * Plausible-kompatibel teller, som er av med mindre noen slår den på — se
+ * `externalAnalyticsOrigin()` under.
  *
  * `'unsafe-inline'` på script-src er unntaket, og den er Next sin: rammeverket
  * legger inn hydreringsdata som innebygde skript uten nonce, og en nonce ville
@@ -12,13 +14,38 @@
  * lastet noe inn, eller at siden rammes inn av andre. Det er verdt å ha selv om
  * det øverste laget mangler.
  */
+
+/**
+ * Verten til en eventuell Plausible-kompatibel teller, eller null.
+ *
+ * Vercel Web Analytics og Speed Insights leveres fra vårt eget domene og dekkes
+ * av `'self'`. En teller ved siden av gjør det ikke, og uten et unntak her ville
+ * skriptet blitt blokkert av policyen uten at noe annet sa fra — målingen ville
+ * bare vært stille borte. Unntaket gjelder nøyaktig den verten som er
+ * konfigurert, og finnes ikke når målingen er av (som den er som standard).
+ *
+ * Se `apps/web/lib/analytics.ts` for hva som faktisk sendes.
+ */
+function externalAnalyticsOrigin() {
+  if (!process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN) return null;
+  try {
+    const src = process.env.NEXT_PUBLIC_PLAUSIBLE_SRC ?? "https://plausible.io/js/script.js";
+    return new URL(src).origin;
+  } catch {
+    return null;
+  }
+}
+
+const analyticsOrigin = externalAnalyticsOrigin();
+const extra = analyticsOrigin ? ` ${analyticsOrigin}` : "";
+
 const CSP = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  `script-src 'self' 'unsafe-inline'${extra}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data:",
   "font-src 'self'",
-  "connect-src 'self'",
+  `connect-src 'self'${extra}`,
   "form-action 'self'",
   "base-uri 'self'",
   "frame-ancestors 'none'",

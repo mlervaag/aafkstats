@@ -3,6 +3,7 @@
 import { useDeferredValue, useEffect, useRef, useState } from "react";
 import { stripProseDashes } from "@aafkstats/query/style";
 import { ThinkingLine } from "@/components/ThinkingLine";
+import { trackEvent } from "@/lib/analytics";
 
 interface ExecutedQuery {
   sql: string;
@@ -135,7 +136,7 @@ export function AskBox() {
     inputRef.current?.focus();
   }
 
-  async function ask(q: string) {
+  async function ask(q: string, source: "form" | "suggestion") {
     if (q.trim() === "" || state === "loading") return;
 
     askRef.current?.abort();
@@ -149,6 +150,16 @@ export function AskBox() {
     setError(null);
     setActiveTool(null);
 
+    // Spørsmålet selv telles aldri — bare at det ble stilt, hvor lang tid det
+    // tok og om det gikk bra. Se lib/analytics.ts.
+    trackEvent("ask-submitted", { source });
+    const startedAt = performance.now();
+    const answered = (status: "ok" | "error") =>
+      trackEvent("ask-answered", {
+        status,
+        seconds: Math.round((performance.now() - startedAt) / 100) / 10,
+      });
+
     try {
       const response = await fetch("/api/chat", {
         method: "POST",
@@ -161,6 +172,7 @@ export function AskBox() {
         const data = (await response.json().catch(() => ({}))) as { error?: string };
         setError(data.error ?? "Noe gikk galt. Prøv igjen om litt.");
         setState("error");
+        answered("error");
         return;
       }
 
@@ -168,6 +180,9 @@ export function AskBox() {
       if (!reader) throw new Error("Ingen svarstrøm");
       const decoder = new TextDecoder();
       let buffer = "";
+      // Strømmen kan melde feil og likevel spille ferdig. Utfallet avgjøres
+      // derfor når leseren er tom, ikke i det feilrammen kommer.
+      let failed = false;
 
       for (;;) {
         const { done, value } = await reader.read();
@@ -193,6 +208,7 @@ export function AskBox() {
           } else if (event === "queries") {
             setQueries((data.queries as ExecutedQuery[]) ?? []);
           } else if (event === "error") {
+            failed = true;
             setError(String(data.message ?? "Ukjent feil"));
           } else if (event === "done") {
             setState("done");
@@ -200,11 +216,14 @@ export function AskBox() {
         }
       }
       setState((current) => current === "loading" ? "done" : current);
+      answered(failed ? "error" : "ok");
     } catch (streamError) {
-      // Et avbrudd er brukerens eget valg, ikke en feil å melde fra om.
+      // Et avbrudd er brukerens eget valg, ikke en feil å melde fra om — og
+      // heller ikke noe å telle. Et forlatt svar er verken «ok» eller «error».
       if (streamError instanceof Error && streamError.name === "AbortError") return;
       setError("Mistet forbindelsen. Prøv igjen.");
       setState("error");
+      answered("error");
     }
   }
 
@@ -222,7 +241,7 @@ export function AskBox() {
         direkte treff. Trykk Enter for et AI-svar bygget på arkivdataene.
       </p>
 
-      <form className="ask-form" onSubmit={(event) => { event.preventDefault(); void ask(question); }}>
+      <form className="ask-form" onSubmit={(event) => { event.preventDefault(); void ask(question, "form"); }}>
         <input
           ref={inputRef}
           className="ask-input"
@@ -254,7 +273,9 @@ export function AskBox() {
             <p className="small muted live-empty">Ingen direkte treff. Trykk Enter for å spørre AI.</p>
           ) : (
             <ul className="match-results">
-              {matches.map((match) => <SearchResult key={match.matchId} match={match} />)}
+              {matches.map((match, index) => (
+                <SearchResult key={match.matchId} match={match} position={index + 1} />
+              ))}
             </ul>
           )}
         </div>
@@ -270,7 +291,7 @@ export function AskBox() {
               key={suggestion}
               type="button"
               className="suggestion"
-              onClick={() => { setQuestion(suggestion); void ask(suggestion); }}
+              onClick={() => { setQuestion(suggestion); void ask(suggestion, "suggestion"); }}
             >
               {suggestion}
             </button>
@@ -324,7 +345,7 @@ export function AskBox() {
   );
 }
 
-function SearchResult({ match }: { match: SearchMatch }) {
+function SearchResult({ match, position }: { match: SearchMatch; position: number }) {
   const score = match.aafkScore === null || match.opponentScore === null
     ? "–"
     : match.isHome
@@ -332,7 +353,13 @@ function SearchResult({ match }: { match: SearchMatch }) {
       : `${match.opponentScore}–${match.aafkScore}`;
   return (
     <li>
-      <a className="match-result-link" href={match.url}>
+      {/* Direktesøket måles på det som betyr noe: at et treff ble åpnet.
+          Tastetrykkene i seg selv sier ingenting om at søket traff. */}
+      <a
+        className="match-result-link"
+        href={match.url}
+        onClick={() => trackEvent("match-opened", { position })}
+      >
         <span className="num muted">{match.date}</span>
         <span className="result-opponent">
           {match.result && <span className={`result-badge result-${match.result}`}>{match.result}</span>}
