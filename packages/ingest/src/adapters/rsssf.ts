@@ -43,7 +43,10 @@ export const RSSSF_CLUB_ALIASES: Record<string, string> = {
   // eneste kamp fordi ingen av sidene er AaFK.
   Aalesund: "Aalesunds FK",
   "Lyn Oslo": "Lyn",
+  // RSSSF skriver begge deler, avhengig av årgang: «Odd Grenland» på 1997-sida
+  // og bare «Odd» på 1998-sida. Uten begge blir samme klubb til to.
   "Odd Grenland": "Odds Ballklubb",
+  Odd: "Odds Ballklubb",
   Vålerengen: "Vålerenga",
 };
 

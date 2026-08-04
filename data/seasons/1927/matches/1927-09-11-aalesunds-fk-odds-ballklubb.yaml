@@ -1,26 +1,26 @@
-id: 1998-10-18-aalesunds-fk-odd
-date: 1998-10-18
+id: 1927-09-11-aalesunds-fk-odds-ballklubb
+date: 1927-09-11
 dateConfidence: exact
 status: played
 competition:
-  id: forstedivisjon
-  season: 1998
+  id: nm
+  season: 1927
   stage: regular_season
-  round: 26
+  round: 4
 home:
   clubId: aalesunds-fk
-  score: 2
+  score: 0
   halfTimeScore: null
 away:
-  clubId: odd
-  score: 0
+  clubId: odds-ballklubb
+  score: 1
   halfTimeScore: null
 neutralVenue: false
 events: []
 externalReports: []
 sources:
   - sourceId: rsssf
-    url: http://www.rsssf.no/1998/First.html
+    url: http://www.rsssf.no/1927/Cup.html
     retrievedAt: 2026-08-03
     fields:
       - date
@@ -35,5 +35,5 @@ confidence: probable
 conflicts: []
 tags: []
 aliases:
-  rsssf: 1998-first-1998-10-18-aalesunds-fk-odd
+  rsssf: 1927-cup-1927-09-11-aalesunds-fk-odd
 manual: []
