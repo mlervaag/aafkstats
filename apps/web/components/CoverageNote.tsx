@@ -1,3 +1,5 @@
+import { open } from "@aafkstats/db";
+import { coverageFacts, readCoverage } from "@aafkstats/query/coverage";
 import { loadCoverage } from "@/lib/archive";
 import type { ArchiveCoverage } from "@/lib/archive";
 
@@ -104,5 +106,30 @@ export function CoverageNote({ heading = true }: { heading?: boolean }) {
         <>{c.withReport} har kampreferat.</>
       )}
     </div>
+  );
+}
+
+/**
+ * Dekningspåstandene modellen får, vist for mennesker.
+ *
+ * Nøyaktig de samme setningene, fra nøyaktig den samme funksjonen. Det er hele
+ * poenget: den som lurer på hva spørrefunksjonen tror om arkivet, kan lese det
+ * her og se at det stemmer med tallene lenger oppe på siden.
+ */
+export function PromptCoverage() {
+  const db = open();
+  let facts: string[];
+  try {
+    facts = coverageFacts(readCoverage(db));
+  } finally {
+    db.close();
+  }
+
+  return (
+    <ul className="prose" style={{ paddingLeft: "1.1rem" }}>
+      {facts.map((fact) => (
+        <li key={fact}>{fact}</li>
+      ))}
+    </ul>
   );
 }

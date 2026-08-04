@@ -1,4 +1,4 @@
-import { all, one, open } from "@aafkstats/db";
+import { PLAYED_SQL, all, one, open } from "@aafkstats/db";
 
 export interface ArchiveMatch {
   matchId: string;
@@ -176,10 +176,10 @@ export interface ArchiveTotals {
  * spilt ennå, mens «fra 1917 til 2026» henter siste årstall fra en kamp i
  * desember. Ingen av delene er galt regnet, men ingen leser overskriften slik.
  *
- * `awarded` teller med: en kamp avgjort på grønt bord har et resultat, og den
- * ligger bak oss.
+ * Regelen er den samme som `core_played` i SQL-skjemaet, hentet fra ett sted
+ * slik at nettstedet og aggregatene ikke kan telle forskjellig.
  */
-const SPILT = "status IN ('played', 'awarded')";
+const SPILT = PLAYED_SQL;
 
 const matchColumns = `match_id, date, kickoff, competition, status, is_home, opponent,
   opponent_club_id, aafk_score, opponent_score, result, after_extra_time,
@@ -276,7 +276,7 @@ export function loadNextMatch(today = new Date().toISOString().slice(0, 10)): Ar
 export function loadOverview(): { recent: ArchiveMatch[]; totals: ArchiveTotals } {
   const db = open();
   try {
-    const recent = all<MatchRow>(db, `SELECT ${matchColumns} FROM matches WHERE status = 'played' ORDER BY date DESC LIMIT 5`);
+    const recent = all<MatchRow>(db, `SELECT ${matchColumns} FROM matches WHERE ${SPILT} ORDER BY date DESC LIMIT 5`);
     const totals = one<ArchiveTotals>(
       db,
       `SELECT count(*) AS matches, count(DISTINCT season) AS seasons,

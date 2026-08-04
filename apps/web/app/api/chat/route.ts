@@ -1,5 +1,8 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { betaZodTool } from "@anthropic-ai/sdk/helpers/beta/zod";
+import { open } from "@aafkstats/db";
+import { readCoverage } from "@aafkstats/query/coverage";
+import type { DatasetCoverage } from "@aafkstats/query/coverage";
 import { systemPrompt } from "@aafkstats/query/prompt";
 import { tools as toolDefs } from "@aafkstats/query/tools";
 import type { ToolContext } from "@aafkstats/query/tools";
@@ -43,6 +46,34 @@ const MODEL = process.env.AAFK_CHAT_MODEL ?? "claude-sonnet-5";
 const MAX_TOKENS = 6_000;
 /** Maks antall runder modellen får med verktøy før vi stopper løkken. */
 const MAX_ITERATIONS = 5;
+
+/**
+ * Dekningstallene, lest én gang per prosess.
+ *
+ * Leses ved første forespørsel og ikke ved import: en modul som åpner databasen
+ * mens den lastes, feiler i testene og i ethvert bygg som ikke har arkivfila
+ * ennå. Arkivet kan ikke endre seg mens prosessen lever — det bygges ved
+ * utrulling — så én lesing er nok, og systemprompten forblir identisk mellom
+ * kall slik prompt-cachen krever.
+ */
+let coverage: DatasetCoverage | undefined;
+
+function datasetCoverage(): DatasetCoverage | undefined {
+  if (coverage) return coverage;
+  try {
+    const db = open();
+    try {
+      coverage = readCoverage(db);
+    } finally {
+      db.close();
+    }
+  } catch {
+    // Uten arkivfil svarer vi fortsatt, bare uten dekningstall i prompten.
+    // Modellen slår da opp omfanget selv i stedet for å få det servert.
+    return undefined;
+  }
+  return coverage;
+}
 
 interface ChatRequest {
   question: string;
@@ -168,7 +199,7 @@ export async function POST(req: Request): Promise<Response> {
           system: [
             {
               type: "text",
-              text: systemPrompt(),
+              text: systemPrompt(datasetCoverage()),
               // Systemprompten og verktøydefinisjonene er identiske mellom kall, så
               // hele prefikset caches. Ingenting her endrer seg per forespørsel.
               cache_control: { type: "ephemeral" },

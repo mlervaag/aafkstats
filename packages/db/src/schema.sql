@@ -274,6 +274,20 @@ CREATE INDEX matches_opponent_idx    ON core_matches (opponent_club_id);
 CREATE INDEX matches_competition_idx ON core_matches (competition_id);
 CREATE INDEX matches_result_idx      ON core_matches (result);
 
+-- Kampene som har funnet sted.
+--
+-- Én definisjon av «spilt», delt av alle aggregatene. Regelen sto tidligere tre
+-- steder: `seasons` tok bare 'played', `opponents` talte kamper på én måte og
+-- seire på en annen, og nettstedet hadde sin egen streng. Samme kamp kunne
+-- dermed telles i forsidens totalsum og mangle i sesongsammendraget.
+--
+-- 'awarded' er med fordi en kamp avgjort på grønt bord har et resultat og ligger
+-- bak oss. 'abandoned' er ikke med: en avbrutt kamp har ingen sluttstilling.
+-- Statuslista er den samme som PLAYED_STATUSES i packages/db/src/index.ts, og
+-- en test feiler hvis de to skiller lag.
+CREATE VIEW core_played AS
+SELECT * FROM core_matches WHERE status IN ('played', 'awarded');
+
 -- ── Publisert kontrakt ──────────────────────────────────────────────────────
 
 -- Én rad per kamp, sett fra AaFKs synsvinkel.
@@ -403,35 +417,53 @@ SELECT
       AND u.status = 'scheduled')                           AS scheduled,
 
   '/sesong/' || m.season                                    AS url
-FROM core_matches m
+FROM core_played m
 JOIN core_competitions c ON c.id = m.competition_id
 LEFT JOIN core_seasons s
   ON s.year = m.season
  AND s.competition_id = m.competition_id
-WHERE m.status = 'played'
-  -- Kvalifiseringskamper hører til sesongen, men ikke til serietabellen. Tas de
-  -- med her, blir en komplett sesong «delvis» fordi kampantallet overstiger
-  -- siste runde.
-  AND (c.type <> 'league' OR m.stage = 'regular_season')
+-- Kvalifiseringskamper hører til sesongen, men ikke til serietabellen. Tas de
+-- med her, blir en komplett sesong «delvis» fordi kampantallet overstiger
+-- siste runde.
+WHERE (c.type <> 'league' OR m.stage = 'regular_season')
 GROUP BY m.season, m.competition_id;
 
 -- Innbyrdes statistikk mot hver motstander, hele arkivet og alle konkurranser.
+--
+-- Kampantallet og seierstatistikken kommer fra det samme radsettet, `core_played`.
+-- Tidligere telte `played` bare status 'played' mens seirene telte enhver rad med
+-- et resultat, så en kamp avgjort på grønt bord kunne gi en seier uten en kamp.
+-- `first_meeting` ser med vilje alle kamper: en motstander vi har på terminlista
+-- uten å ha møtt ennå hører hjemme i lista med null spilte kamper.
 CREATE VIEW opponents AS
 SELECT
   c.id                                              AS opponent_club_id,
   c.name                                            AS opponent,
   c.city,
-  sum(CASE WHEN m.status = 'played' THEN 1 ELSE 0 END) AS played,
-  sum(CASE WHEN m.result = 'S' THEN 1 ELSE 0 END)   AS wins,
-  sum(CASE WHEN m.result = 'U' THEN 1 ELSE 0 END)   AS draws,
-  sum(CASE WHEN m.result = 'T' THEN 1 ELSE 0 END)   AS losses,
-  coalesce(sum(m.aafk_score), 0)                    AS goals_for,
-  coalesce(sum(m.opponent_score), 0)                AS goals_against,
+  coalesce(p.played, 0)                             AS played,
+  coalesce(p.wins, 0)                               AS wins,
+  coalesce(p.draws, 0)                              AS draws,
+  coalesce(p.losses, 0)                             AS losses,
+  coalesce(p.goals_for, 0)                          AS goals_for,
+  coalesce(p.goals_against, 0)                      AS goals_against,
   min(m.match_date)                                 AS first_meeting,
-  max(CASE WHEN m.status = 'played' THEN m.match_date END) AS last_meeting,
+  p.last_meeting                                    AS last_meeting,
   '/motstander/' || c.id                            AS url
 FROM core_matches m
 JOIN core_clubs c ON c.id = m.opponent_club_id
+LEFT JOIN (
+  SELECT
+    opponent_club_id,
+    count(*)                                        AS played,
+    sum(CASE WHEN result = 'S' THEN 1 ELSE 0 END)   AS wins,
+    sum(CASE WHEN result = 'U' THEN 1 ELSE 0 END)   AS draws,
+    sum(CASE WHEN result = 'T' THEN 1 ELSE 0 END)   AS losses,
+    coalesce(sum(aafk_score), 0)                    AS goals_for,
+    coalesce(sum(opponent_score), 0)                AS goals_against,
+    max(match_date)                                 AS last_meeting
+  FROM core_played
+  GROUP BY opponent_club_id
+) p ON p.opponent_club_id = c.id
 GROUP BY c.id;
 
 -- Sluttabellen, ett lag per rad. Lagnavnet er kildens eget; club_id er satt for
@@ -495,15 +527,14 @@ SELECT
   min(m.match_date)                                 AS first_match,
   max(m.match_date)                                 AS last_match,
   -- Mål i sesongen, talt fra hendelsene. Bare AaFKs egne mål.
-  (SELECT count(*) FROM core_matches gm, json_each(gm.events) e
+  (SELECT count(*) FROM core_played gm, json_each(gm.events) e
     WHERE gm.season = a.season
       AND json_extract(e.value, '$.player') = a.name
       AND json_extract(e.value, '$.type') IN ('goal','penalty_goal')
       AND (json_extract(e.value, '$.team') = 'home') = (gm.is_home = 1))
                                                     AS goals
 FROM core_appearances a
-JOIN core_matches m ON m.id = a.match_id
-WHERE m.status = 'played'
+JOIN core_played m ON m.id = a.match_id
 GROUP BY a.season, a.person_key;
 
 -- Trenerperioder: én rad per sammenhengende periode en trener hadde laget.
@@ -518,8 +549,7 @@ WITH ordered AS (
     row_number() OVER (ORDER BY c.match_date) AS seq,
     row_number() OVER (PARTITION BY c.person_key ORDER BY c.match_date) AS own_seq
   FROM core_coach_matches c
-  JOIN core_matches m ON m.id = c.match_id
-  WHERE m.status = 'played'
+  JOIN core_played m ON m.id = c.match_id
 )
 SELECT
   person_key,

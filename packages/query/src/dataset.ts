@@ -1,3 +1,6 @@
+import { coverageMarkdown } from "./coverage.js";
+import type { DatasetCoverage } from "./coverage.js";
+
 /**
  * Datasettdokumentasjonen.
  *
@@ -36,7 +39,7 @@ export const views: ViewDoc[] = [
       "Alle kamper i arkivet involverer AaFK. «aafk_score» er alltid vårt lag, uansett om vi spilte hjemme eller borte.",
       "goal_difference er aafk_score minus opponent_score, altså negativ ved tap.",
       "result regnes etter ordinær tid pluss ekstraomgang. En kamp avgjort på straffer har result = 'U'. Bruk won_on_penalties for å se hvem som gikk videre.",
-      "Kamper som ennå ikke er spilt har status 'scheduled' og NULL i alle resultatkolonner. Filtrer på status = 'played' når du regner statistikk.",
+      "Kamper som ennå ikke er spilt har status 'scheduled' og NULL i alle resultatkolonner. Regner du statistikk, filtrer på status IN ('played', 'awarded'). Det er den samme regelen alle aggregatene i datasettet bruker: en kamp avgjort på grønt bord har et resultat og teller med, en avbrutt kamp har ingen sluttstilling og teller ikke.",
       "confidence sier hvor sikre opplysningene er. 'probable' er vanlig for kamper før 1990. Si fra i svaret når en kamp ikke er 'confirmed'.",
       "SQLite har ingen boolsk type: is_home, neutral_venue og has_conflicts er heltall 0 eller 1. Skriv «WHERE is_home = 1», ikke «WHERE is_home IS TRUE».",
     ],
@@ -69,7 +72,7 @@ export const views: ViewDoc[] = [
       { name: "referee", type: "text", description: "Dommer." },
       { name: "report_summary", type: "text", description: "Én til to setningers sammendrag, der det finnes." },
       { name: "confidence", type: "text", description: "'confirmed', 'probable' eller 'disputed'." },
-      { name: "has_conflicts", type: "integer (0/1)", description: "Sant når kilder er uenige om noe i kampen." },
+      { name: "has_conflicts", type: "integer (0/1)", description: "Sant når en uenighet mellom kilder er ført inn på kampen. Uenigheten løses ikke automatisk, og høyeste kildeprioritet vinner ikke av seg selv: begge verdiene ligger som observasjoner til noen tar en avgjørelse." },
       { name: "completeness", type: "real", description: "0–1: hvor mye av kampen som er dokumentert." },
       { name: "tags", type: "text (JSON-liste)", description: "Frie stikkord, f.eks. 'derby'." },
       { name: "url", type: "text", description: "Lenke til kampsiden. Bruk denne som kildehenvisning i svar." },
@@ -83,6 +86,7 @@ export const views: ViewDoc[] = [
       "Serieradene teller bare seriekamper. Kvalifiseringskamper etter sesongen ligger i matches, men holdes utenfor her, slik at en komplett sesong ikke ser ufullstendig ut.",
       "En rad betyr at året er representert, ikke at sesongen er komplett. Se coverage.",
       "Kamper som ikke er spilt teller ikke med i played eller i resultatene. Står scheduled over 0, pågår sesongen.",
+      "played teller kamper med status 'played' eller 'awarded', den samme regelen som i matches og opponents. De tre kan derfor sammenlignes direkte.",
     ],
     columns: [
       { name: "season", type: "integer", description: "Sesongår." },
@@ -113,6 +117,10 @@ export const views: ViewDoc[] = [
   {
     name: "opponents",
     summary: "Innbyrdes statistikk mot hver motstander, over hele arkivet og alle konkurranser.",
+    caveats: [
+      "played, wins, draws og losses regnes over de samme kampene, statusene 'played' og 'awarded'. wins + draws + losses er derfor alltid lik played.",
+      "first_meeting ser også kamper som ikke er spilt. En motstander vi har på terminlista uten å ha møtt står med played = 0 og last_meeting = NULL.",
+    ],
     columns: [
       { name: "opponent_club_id", type: "text", description: "Motstanderens ID." },
       { name: "opponent", type: "text", description: "Motstanderens navn (dagens navn)." },
@@ -295,6 +303,12 @@ export const views: ViewDoc[] = [
   {
     name: "sources",
     summary: "Kildekatalogen: hvor dataene kommer fra og hvor mye vi stoler på hver kilde.",
+    caveats: [
+      "priority er en erklært rangering, ikke en avgjørelsesregel. Ingenting i innhøstingen velger verdi ut fra den.",
+      "Hver innhøsting skriver en observasjon per kilde, med kildens rå verdi og den normaliserte. Er to kilder uenige, står begge observasjonene der; ingen av dem vinner av seg selv.",
+      "En uenighet blir først synlig i matches.has_conflicts når noen har ført den inn som en konflikt. Feltene i matches.manual overskrives aldri av en senere innhøsting.",
+      "Sier du noe om en kamp der kildene er uenige, oppgi begge verdiene og hvilken kilde de kommer fra, framfor å velge en side.",
+    ],
     columns: [
       { name: "source_id", type: "text", description: "Kildens ID." },
       { name: "name", type: "text", description: "Kildens navn." },
@@ -378,10 +392,10 @@ ORDER BY date DESC`,
 /**
  * Datasettet som markdown, til systemprompten.
  *
- * Holdes stabil mellom kall slik at prompt-cachen faktisk treffer — ingen tidsstempler
- * eller annet som endrer seg per forespørsel.
+ * Holdes stabil mellom kall slik at prompt-cachen faktisk treffer. Dekningen endrer
+ * seg bare når arkivet gjør det, altså ved utrulling, så den kan trygt stå her.
  */
-export function datasetPrompt(): string {
+export function datasetPrompt(coverage?: DatasetCoverage): string {
   const lines: string[] = [
     "# Datasett: AaFK-arkivet",
     "",
@@ -389,6 +403,11 @@ export function datasetPrompt(): string {
     "Dette er de eneste tabellene som finnes. Interne tabeller med core_-prefiks er ikke tilgjengelige.",
     "",
   ];
+
+  // Dekningen kommer fra databasen når den er lest, ikke fra prosa her.
+  // Skrevet av hånd blir slike tall gale ved neste innhøsting, og modellen har
+  // ingen måte å oppdage at den blir feilinformert.
+  if (coverage) lines.push(coverageMarkdown(coverage), "");
 
   for (const view of views) {
     lines.push(`## ${view.name}`, "", view.summary, "");
