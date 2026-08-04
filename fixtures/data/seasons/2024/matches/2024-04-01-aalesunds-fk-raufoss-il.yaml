@@ -13,6 +13,25 @@ events:
   - { minute: 58, type: goal, team: home, player: Fixture Spiller B, assist: Fixture Spiller C }
   - { minute: 77, type: goal, team: home, player: Fixture Spiller B }
   - { minute: 81, type: yellow_card, team: away, player: Fixture Spiller D }
+# Oppstillingen er konstruert, men skrivemåtene er ekte: kilden veksler mellom
+# «Jönsson» og «Joensson», og mellom «Aarøy» og «Aaroey», fra kamp til kamp.
+# Byggesteget skal gjøre dem til én person hver.
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Fixture Spiller B
+      - Fixture Spiller C
+      - Tor Hogne Aarøy
+    subs:
+      - Fixture Spiller E
+    coach: Jan Jönsson
+  away:
+    starters:
+      - Fixture Spiller A
+      - Fixture Spiller D
+    subs: []
+    coach: Motstanderens Trener
 stats:
   home: { possession: 58, shots: 14, shotsOnTarget: 6, corners: 7, xg: 1.8 }
   away: { possession: 42, shots: 8, shotsOnTarget: 3, corners: 3, xg: 0.9 }

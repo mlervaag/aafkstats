@@ -535,3 +535,101 @@ export function loadStandings(competitionId: string, season: number): {
     db.close();
   }
 }
+
+export interface SquadPlayer {
+  personKey: string;
+  name: string;
+  appearances: number;
+  starts: number;
+  goals: number;
+  firstMatch: string;
+  lastMatch: string;
+  /** Spilte ikke for klubben sesongen før. Se `loadSquad`. */
+  isNew: boolean;
+}
+
+export interface CoachSpell {
+  name: string;
+  fromDate: string;
+  toDate: string;
+  fromSeason: number;
+  toSeason: number;
+  matches: number;
+}
+
+/**
+ * Stallen for én sesong, med hvem som var ny.
+ *
+ * «Ny» betyr at spilleren ikke var med sesongen før, ikke at han ble kjøpt. En
+ * spiller som var skadet hele fjoråret ser like ny ut som en nysignering, og
+ * arkivet vet ikke forskjellen. Derfor står det «ny i stallen» og ikke «hentet».
+ *
+ * Den motsatte veien er utelatt med vilje. «Sluttet» ville vært en påstand om
+ * hva som skjedde med spilleren, og alt vi vet er at han ikke står i en
+ * oppstilling året etter.
+ */
+export function loadSquad(season: number): SquadPlayer[] {
+  const db = open();
+  try {
+    const rows = all<{
+      person_key: string; name: string; appearances: number; starts: number;
+      goals: number; first_match: string; last_match: string;
+    }>(
+      db,
+      `SELECT person_key, name, appearances, starts, goals, first_match, last_match
+         FROM squad WHERE season = ? ORDER BY appearances DESC, name COLLATE NOCASE`,
+      season,
+    );
+    // Fjoråret hentes bare når vi faktisk har det. Oppstillingene starter i
+    // 2010, og uten denne sjekken ville hele stallen i 2010 stått som ny.
+    const previous = one<{ n: number }>(
+      db, "SELECT count(*) AS n FROM squad WHERE season = ?", season - 1,
+    );
+    const before = new Set(
+      previous && previous.n > 0
+        ? all<{ person_key: string }>(
+            db, "SELECT person_key FROM squad WHERE season = ?", season - 1,
+          ).map((row) => row.person_key)
+        : [],
+    );
+    const knowPrevious = (previous?.n ?? 0) > 0;
+
+    return rows.map((row) => ({
+      personKey: row.person_key,
+      name: row.name,
+      appearances: row.appearances,
+      starts: row.starts,
+      goals: row.goals,
+      firstMatch: row.first_match,
+      lastMatch: row.last_match,
+      isNew: knowPrevious && !before.has(row.person_key),
+    }));
+  } finally {
+    db.close();
+  }
+}
+
+/** Trenerne som hadde laget i løpet av sesongen, i rekkefølge. */
+export function loadSeasonCoaches(season: number): CoachSpell[] {
+  const db = open();
+  try {
+    return all<{
+      name: string; from_date: string; to_date: string;
+      from_season: number; to_season: number; matches: number;
+    }>(
+      db,
+      `SELECT name, from_date, to_date, from_season, to_season, matches
+         FROM coach_spells WHERE from_season <= ? AND to_season >= ? ORDER BY from_date`,
+      season, season,
+    ).map((row) => ({
+      name: row.name,
+      fromDate: row.from_date,
+      toDate: row.to_date,
+      fromSeason: row.from_season,
+      toSeason: row.to_season,
+      matches: row.matches,
+    }));
+  } finally {
+    db.close();
+  }
+}

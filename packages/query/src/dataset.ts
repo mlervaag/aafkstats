@@ -180,6 +180,50 @@ export const views: ViewDoc[] = [
     ],
   },
   {
+    name: "squad",
+    summary:
+      "Stallen per sesong: hvem som var med, hvor mange kamper og hvor mange mål. " +
+      "Bruk denne på spørsmål om spillere, ikke matches.",
+    caveats: [
+      "Utledet av lagoppstillingene, som arkivet har fra 2010. Sesonger før det har ingen rader her, og det er en manglende kilde og ikke en tom stall.",
+      "appearances teller oppsatte tropper, ikke spilletid. Benken er med, fordi kilden ikke skiller mellom en som satt der og en som kom inn. Bruk starts når spørsmålet gjelder hvem som spilte.",
+      "goals teller bare mål i kamper der navnet står i hendelseslista. En kamp uten hendelser gir null mål for alle som spilte den.",
+      "person_key slår sammen skrivemåter av samme navn. name er den skrivemåten vi viser.",
+      "Bare AaFKs egne spillere. Motstandernes oppstillinger er registrert, men er ikke med her.",
+    ],
+    columns: [
+      { name: "season", type: "integer", description: "Sesongår." },
+      { name: "person_key", type: "text", description: "Personens identitet, normalisert. Bruk denne når du grupperer over sesonger." },
+      { name: "name", type: "text", description: "Navnet slik det vises." },
+      { name: "appearances", type: "integer", description: "Kamper spilleren sto oppført i troppen." },
+      { name: "starts", type: "integer", description: "Kamper fra start." },
+      { name: "goals", type: "integer", description: "Mål i sesongen, talt fra hendelsene." },
+      { name: "first_match", type: "text (YYYY-MM-DD)", description: "Første kamp i troppen den sesongen." },
+      { name: "last_match", type: "text (YYYY-MM-DD)", description: "Siste kamp i troppen den sesongen." },
+    ],
+  },
+  {
+    name: "coach_spells",
+    summary:
+      "Én rad per sammenhengende periode en trener hadde laget. Bruk denne på " +
+      "spørsmål om hvem som var trener når, og om trenerbytter.",
+    caveats: [
+      "Utledet av hvem som står oppført på hver kamp, ikke av ansettelsesdatoer. En periode starter på første kamp og slutter på siste, ikke på dagen avtalen ble skrevet.",
+      "Et trenerbytte midt i sesongen gir to rader det året. 2023 gir tre.",
+      "En trener som kommer tilbake får to rader. Kjetil Rekdal har en periode fra 2010 og en fra 2024.",
+      "Bare fra 2010, som er der lagoppstillingene starter.",
+    ],
+    columns: [
+      { name: "person_key", type: "text", description: "Trenerens identitet, normalisert." },
+      { name: "name", type: "text", description: "Navnet slik det vises." },
+      { name: "from_date", type: "text (YYYY-MM-DD)", description: "Første kamp i perioden." },
+      { name: "to_date", type: "text (YYYY-MM-DD)", description: "Siste kamp i perioden." },
+      { name: "from_season", type: "integer", description: "Sesongen perioden startet." },
+      { name: "to_season", type: "integer", description: "Sesongen perioden sluttet." },
+      { name: "matches", type: "integer", description: "Kamper i perioden." },
+    ],
+  },
+  {
     name: "match_events",
     summary: "Én rad per hendelse i en kamp: mål, kort og innbytter.",
     caveats: [

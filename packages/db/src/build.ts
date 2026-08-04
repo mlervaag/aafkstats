@@ -6,6 +6,8 @@ import {
   completeness,
   missingFields,
   nameAt,
+  personKey,
+  preferredPersonName,
   toAafkPerspective,
 } from "@aafkstats/schema";
 import type { Archive } from "@aafkstats/schema/load";
@@ -145,6 +147,11 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
       }
     }
 
+    // Samles under kamploopen og skrives etterpå, når alle navnevariantene er
+    // kjent. Se under COMMIT.
+    const appearances: { matchId: string; season: number; name: string; role: "start" | "bench" }[] = [];
+    const coachMatches: { matchId: string; season: number; date: string; name: string }[] = [];
+
     const insertMatch = db.prepare(
       `INSERT INTO core_matches (
          id, match_date, date_confidence, kickoff, status,
@@ -204,6 +211,26 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
         completeness(m), json(missingFields(m)), m.note ?? null, m.file,
       );
 
+      // Oppstillingen på vår egen side av kampen. Motstanderens elleve er
+      // registrert, men de er ikke vår stall, og å telle dem ville gjort
+      // «spillere i 2011» til 22 i stedet for 11.
+      const ours = p.isHome ? m.lineups?.home : m.lineups?.away;
+      if (ours) {
+        for (const [role, players] of [["start", ours.starters], ["bench", ours.subs]] as const) {
+          for (const player of players ?? []) {
+            appearances.push({ matchId: m.id, season: m.competition.season, name: player, role });
+          }
+        }
+        if (ours.coach) {
+          coachMatches.push({
+            matchId: m.id,
+            season: m.competition.season,
+            date: m.date,
+            name: ours.coach,
+          });
+        }
+      }
+
       if (m.report?.summary || m.report?.body) {
         insertReport.run(
           m.id, m.date, m.competition.season, opponentName, bool(p.isHome),
@@ -211,6 +238,42 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
           m.report.byline ?? "", `/kamp/${m.id}`,
         );
       }
+    }
+
+    // Navnene samles først, slik at hver person kan få én skrivemåte før noe
+    // skrives. Å velge den underveis ville gjort svaret avhengig av hvilken kamp
+    // som ble lest først.
+    const variants = new Map<string, Map<string, number>>();
+    const countName = (name: string) => {
+      const key = personKey(name);
+      const forKey = variants.get(key) ?? new Map<string, number>();
+      forKey.set(name, (forKey.get(name) ?? 0) + 1);
+      variants.set(key, forKey);
+    };
+    for (const a of appearances) countName(a.name);
+    for (const c of coachMatches) countName(c.name);
+
+    const display = new Map<string, string>();
+    for (const [key, forKey] of variants) {
+      display.set(key, preferredPersonName([...forKey].map(([name, count]) => ({ name, count }))));
+    }
+
+    const insertAppearance = db.prepare(
+      `INSERT OR IGNORE INTO core_appearances (match_id, season, person_key, name, role)
+       VALUES (?, ?, ?, ?, ?)`,
+    );
+    for (const a of appearances) {
+      const key = personKey(a.name);
+      insertAppearance.run(a.matchId, a.season, key, display.get(key) ?? a.name, a.role);
+    }
+
+    const insertCoachMatch = db.prepare(
+      `INSERT OR IGNORE INTO core_coach_matches (match_id, season, match_date, person_key, name)
+       VALUES (?, ?, ?, ?, ?)`,
+    );
+    for (const c of coachMatches) {
+      const key = personKey(c.name);
+      insertCoachMatch.run(c.matchId, c.season, c.date, key, display.get(key) ?? c.name);
     }
 
     db.exec("COMMIT");

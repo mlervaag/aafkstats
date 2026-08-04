@@ -117,3 +117,66 @@ export function canonicalClubKey(club: {
 export function matchId(date: string, homeClubId: string, awayClubId: string): string {
   return `${date}-${homeClubId}-${awayClubId}`;
 }
+
+/**
+ * Personidentitet: to skrivemåter av samme navn skal bli samme person.
+ *
+ * ## Feilen dette retter
+ *
+ * FotMob skriver de samme navnene på to måter, avhengig av hvilken kamp de kom
+ * fra. 2014-sesongen har både «Jan Jönsson» og «Jan Joensson» som hovedtrener,
+ * og de er én mann. Uten dette ville trenerhistorikken vist to trenere det året,
+ * og stallen vist «Tor Hogne Aarøy» og «Tor Hogne Aaroey» som to spillere.
+ *
+ * Målt på alle navnene i arkivet: 238 strenger blir 227 personer, og alle elleve
+ * sammenslåingene er samme navn i to skrivemåter.
+ *
+ * ## Hva regelen gjør, og hva den ikke gjør
+ *
+ * Bare mekanisk translitterasjon slås sammen: en bokstav med ring, strek eller
+ * tødler er den samme bokstaven som den utskrevne formen. «ø» og «oe» er samme
+ * lyd skrevet på to måter, og det er kilden selv som veksler mellom dem.
+ *
+ * «Mathias Kristensen» og «Mathias Christensen» slås derfor *ikke* sammen. Det
+ * kan være samme mann feilstavet, og det kan være to menn, og det spørsmålet
+ * skal et menneske svare på, ikke en regel. `pnpm data:duplicates` rapporterer
+ * paret i stedet.
+ *
+ * Forskjellen fra `clubKey` er at klubbnøkkelen stryker ledd (`fk-`, `-bk`),
+ * mens denne bare bytter tegn. Å stryke ledd av et personnavn ville vært å
+ * gjette på hva som er fornavn og hva som er tittel.
+ */
+export function personKey(name: string): string {
+  return name
+    .toLowerCase()
+    // Først bokstavene som har en egen utskrevet form. Rekkefølgen er viktig:
+    // «ø» må bli «o» før «oe» kollapses, ellers blir «Bjørdal» og «Bjoerdal»
+    // fortsatt to.
+    .replaceAll("ø", "o").replaceAll("æ", "a").replaceAll("å", "a")
+    .replaceAll("ö", "o").replaceAll("ä", "a").replaceAll("ü", "u")
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .replace(/oe/g, "o").replace(/ae/g, "a").replace(/ue/g, "u").replace(/aa/g, "a")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+/**
+ * Hvilken skrivemåte som skal vises.
+ *
+ * Den med diakritiske tegn vinner. «Määttä» er navnet, «Maeaettae» er
+ * omskrivingen kilden falt tilbake på, og et arkiv skal vise navnet. Står det
+ * likt, vinner den som forekommer oftest, og deretter alfabetisk, slik at
+ * svaret ikke avhenger av hvilken rekkefølge kampene ble lest i.
+ */
+export function preferredPersonName(variants: { name: string; count: number }[]): string {
+  // Har navnet et tegn utenfor ASCII, er det den skrevne formen og ikke
+  // omskrivingen. Dekker både «ä» og «ø»; sistnevnte er en egen bokstav og faller
+  // ikke ut av en test på diakritiske tegn alene.
+  const written = (name: string) => (/[^\p{ASCII}]/u.test(name) ? 1 : 0);
+  return [...variants].sort((a, b) =>
+    written(b.name) - written(a.name)
+    || b.count - a.count
+    || a.name.localeCompare(b.name, "nb"),
+  )[0]!.name;
+}

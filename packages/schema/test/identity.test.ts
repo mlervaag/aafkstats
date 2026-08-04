@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { canonicalClubKey, clubKey, clubNameForms, slugify } from "../src/identity.js";
+import { canonicalClubKey, clubKey, clubNameForms, personKey, preferredPersonName, slugify } from "../src/identity.js";
 
 /**
  * Klubbidentitet er det ene stedet der en for løs regel og en for streng regel
@@ -83,5 +83,65 @@ describe("slugify", () => {
     expect(slugify("Bodø/Glimt")).toBe("bodo-glimt");
     expect(slugify("Nærbø")).toBe("naerbo");
     expect(slugify("  Rosenborg  ")).toBe("rosenborg");
+  });
+});
+
+describe("personKey", () => {
+  it("slår sammen skrivemåtene kilden veksler mellom", () => {
+    // 2014-sesongen har begge som hovedtrener, og de er én mann. Uten dette
+    // viser trenerhistorikken to trenere det året.
+    expect(personKey("Jan Jönsson")).toBe(personKey("Jan Joensson"));
+    expect(personKey("Tor Hogne Aarøy")).toBe(personKey("Tor Hogne Aaroey"));
+    expect(personKey("Henrik Rørvik Bjørdal")).toBe(personKey("Henrik Roervik Bjoerdal"));
+    expect(personKey("Isak Dybvik Määttä")).toBe(personKey("Isak Dybvik Maeaettae"));
+    expect(personKey("Jonatan Tollås Nation")).toBe(personKey("Jonatan Tollaas Nation"));
+    expect(personKey("Ólafur Gudmundsson")).toBe(personKey("Olafur Gudmundsson"));
+  });
+
+  it("slår ikke sammen navn som bare ligner", () => {
+    // Kan være samme mann feilstavet, og kan være to menn. Det spørsmålet skal
+    // et menneske svare på; data:duplicates rapporterer paret.
+    expect(personKey("Mathias Kristensen")).not.toBe(personKey("Mathias Christensen"));
+    expect(personKey("Lars Nilsen")).not.toBe(personKey("Lars Nielsen"));
+  });
+
+  it("stryker ikke ledd slik klubbnøkkelen gjør", () => {
+    // «Å stryke ledd av et personnavn ville vært å gjette på hva som er fornavn
+    // og hva som er tittel.» IK er en klubbforkortelse, ikke støy i et navn.
+    expect(personKey("Ik Hansen")).not.toBe(personKey("Hansen"));
+  });
+
+  it("er ufølsom for store bokstaver og ekstra mellomrom", () => {
+    expect(personKey("  KJETIL   Rekdal ")).toBe(personKey("Kjetil Rekdal"));
+  });
+});
+
+describe("preferredPersonName", () => {
+  it("velger den skrevne formen framfor omskrivingen", () => {
+    // Selv når omskrivingen er den vanligste. «Määttä» er navnet.
+    expect(preferredPersonName([
+      { name: "Isak Dybvik Maeaettae", count: 9 },
+      { name: "Isak Dybvik Määttä", count: 2 },
+    ])).toBe("Isak Dybvik Määttä");
+  });
+
+  it("velger den norske bokstaven, ikke bare den med aksent", () => {
+    expect(preferredPersonName([
+      { name: "Tor Hogne Aaroey", count: 40 },
+      { name: "Tor Hogne Aarøy", count: 3 },
+    ])).toBe("Tor Hogne Aarøy");
+  });
+
+  it("faller tilbake på hyppighet når begge er skrevet likt", () => {
+    expect(preferredPersonName([
+      { name: "Kjetil Rekdal", count: 2 },
+      { name: "Kjetil A. Rekdal", count: 9 },
+    ])).toBe("Kjetil A. Rekdal");
+  });
+
+  it("gir samme svar uansett rekkefølge inn", () => {
+    // Ellers avhenger navnet på sida av hvilken kamp som ble lest først.
+    const variants = [{ name: "Ola Nordmann", count: 5 }, { name: "Ola Nordman", count: 5 }];
+    expect(preferredPersonName(variants)).toBe(preferredPersonName([...variants].reverse()));
   });
 });

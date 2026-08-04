@@ -1269,3 +1269,22 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
    faller er dramatisk eller udramatisk. */
 .progression-danger { stroke: var(--border); stroke-width: 1; stroke-dasharray: 3 3; }
 .progression figcaption { margin-top: 0.5rem; max-width: var(--measure); }
+
+/* ── Stall og trener ─────────────────────────────────────────────────── */
+.season-coach { margin: 0.35rem 0 0; }
+.season-coach strong { color: var(--text); font-weight: 600; }
+
+.squad-table { font-variant-numeric: tabular-nums; font-size: 0.9rem; }
+.squad-table th[scope="row"] { font-weight: 450; text-align: left; }
+.squad-table td.num, .squad-table th.num { text-align: right; }
+/* «Ny» er en opplysning, ikke en utmerkelse. Den skal kunne skummes forbi. */
+.squad-new {
+  margin-left: 0.4rem;
+  padding: 0.05rem 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--muted);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}

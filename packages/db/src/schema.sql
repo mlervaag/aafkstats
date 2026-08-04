@@ -124,6 +124,32 @@ CREATE TABLE core_standings_progression (
   PRIMARY KEY (competition_id, season, round)
 );
 
+-- Én rad per spiller per kamp. Utledet av lineups ved bygging, ikke lagret i
+-- data/ — oppstillingen ligger allerede på kampen, og en egen fil per opptreden
+-- ville vært samme opplysning to steder.
+--
+-- person_key slår sammen skrivemåter av samme navn; se personKey() i
+-- packages/schema. name er den skrivemåten vi viser.
+CREATE TABLE core_appearances (
+  match_id    TEXT NOT NULL REFERENCES core_matches(id),
+  season      INTEGER NOT NULL,
+  person_key  TEXT NOT NULL,
+  name        TEXT NOT NULL,
+  -- 'start' eller 'bench'. Benken er de som sto oppført, ikke nødvendigvis de
+  -- som kom inn: kilden skiller ikke, og å påstå noe annet ville vært å gjette.
+  role        TEXT NOT NULL CHECK (role IN ('start','bench')),
+  PRIMARY KEY (match_id, person_key)
+);
+
+-- Én rad per trener per kamp. Samme utledning, fra lineups.coach.
+CREATE TABLE core_coach_matches (
+  match_id    TEXT NOT NULL PRIMARY KEY REFERENCES core_matches(id),
+  season      INTEGER NOT NULL,
+  match_date  TEXT NOT NULL,
+  person_key  TEXT NOT NULL,
+  name        TEXT NOT NULL
+);
+
 CREATE TABLE core_matches (
   id               TEXT PRIMARY KEY,
   match_date       TEXT NOT NULL,          -- 'YYYY-MM-DD'. Sorterer riktig som tekst.
@@ -395,6 +421,64 @@ SELECT
   p.played,
   p.goal_difference
 FROM core_standings_progression p;
+
+-- Stallen per sesong: hvem som var med, og hvor mye.
+--
+-- Bygget på oppstillingene, som finnes fra 2010. Eldre sesonger har ingen rader
+-- her, og det er en manglende kilde, ikke en tom stall.
+CREATE VIEW squad AS
+SELECT
+  a.season,
+  a.person_key,
+  -- Navnet slik det vises. Samme person kan stå med to skrivemåter i kildene, og
+  -- min() gir et stabilt svar; byggesteget har allerede valgt den beste.
+  min(a.name)                                       AS name,
+  count(*)                                          AS appearances,
+  sum(CASE WHEN a.role = 'start' THEN 1 ELSE 0 END) AS starts,
+  min(m.match_date)                                 AS first_match,
+  max(m.match_date)                                 AS last_match,
+  -- Mål i sesongen, talt fra hendelsene. Bare AaFKs egne mål.
+  (SELECT count(*) FROM core_matches gm, json_each(gm.events) e
+    WHERE gm.season = a.season
+      AND json_extract(e.value, '$.player') = a.name
+      AND json_extract(e.value, '$.type') IN ('goal','penalty_goal')
+      AND (json_extract(e.value, '$.team') = 'home') = (gm.is_home = 1))
+                                                    AS goals
+FROM core_appearances a
+JOIN core_matches m ON m.id = a.match_id
+WHERE m.status = 'played'
+GROUP BY a.season, a.person_key;
+
+-- Trenerperioder: én rad per sammenhengende periode en trener hadde laget.
+--
+-- Utledet av kampene, ikke av ansettelsesdatoer vi ikke har. En periode brytes
+-- når en annen trener står oppført på neste kamp, så et trenerbytte midt i
+-- sesongen gir to rader det året. 2023 gir tre.
+CREATE VIEW coach_spells AS
+WITH ordered AS (
+  SELECT
+    c.person_key, c.name, c.season, c.match_date,
+    row_number() OVER (ORDER BY c.match_date) AS seq,
+    row_number() OVER (PARTITION BY c.person_key ORDER BY c.match_date) AS own_seq
+  FROM core_coach_matches c
+  JOIN core_matches m ON m.id = c.match_id
+  WHERE m.status = 'played'
+)
+SELECT
+  person_key,
+  min(name)                AS name,
+  min(match_date)          AS from_date,
+  max(match_date)          AS to_date,
+  min(season)              AS from_season,
+  max(season)              AS to_season,
+  count(*)                 AS matches
+FROM ordered
+-- Differansen mellom løpenummeret i hele rekka og løpenummeret innenfor
+-- treneren er konstant så lenge treneren er den samme. Skifter den, er det en
+-- ny periode. Det er den klassiske gaps-and-islands-løsningen, og den er her
+-- fordi en trener kan komme tilbake: Rekdal hadde laget både 2010 og 2024.
+GROUP BY person_key, seq - own_seq
+ORDER BY from_date;
 
 -- Én rad per kamphendelse. team er 'aafk' eller 'opponent', ikke hjemme/borte.
 CREATE VIEW match_events AS

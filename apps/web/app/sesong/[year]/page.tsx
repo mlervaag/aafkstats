@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CoverageTag } from "@/components/Coverage";
 import { MatchList } from "@/components/MatchList";
+import { SeasonCoaches, SquadList } from "@/components/Squad";
 import { ProgressionChart, StandingsTable } from "@/components/Standings";
-import { loadNeighbourSeasons, loadSeason, loadStandings } from "@/lib/archive";
+import { loadNeighbourSeasons, loadSeason, loadSeasonCoaches, loadSquad, loadStandings } from "@/lib/archive";
 
 export const dynamic = "force-dynamic";
 
@@ -23,6 +24,8 @@ export default async function SeasonPage({ params }: Props) {
   const { summaries, matches } = data;
   const lead = summaries[0]!;
   const { previous, next } = loadNeighbourSeasons(year);
+  const coaches = loadSeasonCoaches(year);
+  const squad = loadSquad(year);
 
   return (
     <>
@@ -33,6 +36,7 @@ export default async function SeasonPage({ params }: Props) {
           {lead.competitionTier ? ` · nivå ${lead.competitionTier}` : ""}
         </p>
         <h1>Sesongen {year}</h1>
+        <SeasonCoaches coaches={coaches} season={year} />
       </header>
 
       {/* Én seksjon per konkurranse, hver med sine egne tall over sine egne kamper.
@@ -113,6 +117,8 @@ export default async function SeasonPage({ params }: Props) {
           </section>
         );
       })()}
+
+      <SquadList players={squad} />
 
       <nav className="season-nav" aria-label="Andre sesonger">
         {previous ? <a href={`/sesong/${previous}`}>← {previous}</a> : <span />}
