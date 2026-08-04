@@ -1,0 +1,61 @@
+name: Manglende kamp
+description: En kamp som mangler helt i arkivet
+title: "Manglende kamp: "
+labels: ["data", "manglende kamp"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Arkivet er fullt av hull, særlig før 1990 og i cupen. Vet du om en kamp som mangler,
+        er dette stedet. Bare dato og motstander holder — resten kan fylles inn senere.
+
+  - type: input
+    id: dato
+    attributes:
+      label: Dato
+      description: Kjenner du bare måneden eller året, skriv det du vet.
+      placeholder: 15.06.1930, eller «juni 1930»
+    validations:
+      required: true
+
+  - type: input
+    id: motstander
+    attributes:
+      label: Motstander
+      placeholder: SK Brann
+    validations:
+      required: true
+
+  - type: dropdown
+    id: konkurranse
+    attributes:
+      label: Konkurranse
+      options:
+        - Serie
+        - Cup (NM)
+        - Europacup
+        - Treningskamp
+        - Vet ikke
+    validations:
+      required: true
+
+  - type: input
+    id: resultat
+    attributes:
+      label: Resultat
+      description: AaFK først hvis du husker hvilken vei det gikk. La stå tomt hvis du er usikker.
+      placeholder: 1–3
+
+  - type: textarea
+    id: annet
+    attributes:
+      label: Annet du vet
+      description: Bane, tilskuertall, målscorere, dommer, runde — alt er nyttig.
+
+  - type: textarea
+    id: kilde
+    attributes:
+      label: Hvor vet du det fra?
+      description: Lenke, avis med dato, kampprogram, bok, eget arkiv.
+    validations:
+      required: true

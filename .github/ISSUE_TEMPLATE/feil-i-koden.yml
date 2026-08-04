@@ -1,0 +1,51 @@
+name: Feil i koden eller på nettstedet
+description: Noe krasjer, ser rart ut eller oppfører seg feil
+title: "Feil: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gjelder det et sikkerhetsproblem, skal det ikke meldes her — se
+        [SECURITY.md](../blob/main/SECURITY.md).
+
+  - type: textarea
+    id: hva
+    attributes:
+      label: Hva skjer?
+      description: Hva gjorde du, hva forventet du, og hva skjedde i stedet?
+      placeholder: |
+        Søkte på «molde 2019» i hovedfeltet. Fikk ingen treff, men kampen finnes.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduksjon
+    attributes:
+      label: Slik reproduseres det
+      placeholder: |
+        1. Åpne aafkstats.vercel.app
+        2. Skriv «molde 2019» i søkefeltet
+        3. Ingen treff vises
+    validations:
+      required: true
+
+  - type: input
+    id: hvor
+    attributes:
+      label: Hvor
+      description: URL på nettstedet, eller kommandoen du kjørte lokalt.
+      placeholder: https://aafkstats.vercel.app/sesong/2019
+
+  - type: input
+    id: miljo
+    attributes:
+      label: Nettleser eller Node-versjon
+      placeholder: Safari 18 på iPhone / Node 22.11 på macOS
+
+  - type: textarea
+    id: logg
+    attributes:
+      label: Feilmelding eller logg
+      description: Lim inn hele meldingen hvis du har en. Den formateres automatisk som kode.
+      render: text

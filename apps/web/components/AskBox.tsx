@@ -2,10 +2,8 @@
 
 import { useDeferredValue, useEffect, useRef, useState } from "react";
 import { stripProseDashes } from "@aafkstats/query/style";
-import { InterludeRotator } from "@/components/Interlude";
 import { ThinkingLine } from "@/components/ThinkingLine";
 import { trackEvent } from "@/lib/analytics";
-import { interludes } from "@/lib/interludes";
 
 interface ExecutedQuery {
   sql: string;
@@ -40,8 +38,23 @@ const SUGGESTIONS = [
   "Hvilken sesong hadde vi best målforskjell?",
 ];
 
-/** Portalens hovedinngang: direkte kampsøk mens man skriver, AI-svar ved innsending. */
-export function AskBox({ trivia = [] }: { trivia?: string[] }) {
+/**
+ * Portalens hovedinngang: direkte kampsøk mens man skriver, AI-svar ved innsending.
+ *
+ * ## Én utgang av gangen
+ *
+ * Feltet har to svarmåter, og de deler én plass under skjemaet. Enten står
+ * trefflista der, eller så står AI-svaret der. Aldri begge.
+ *
+ * Det var ikke tilfellet før: etter et AI-svar kom trefflista tilbake, og svaret
+ * havnet nederst — under lista og under forslagsknappene. Det brukeren nettopp
+ * spurte om lå altså lengst ned på siden, bak to ting hen ikke hadde bedt om.
+ *
+ * Regelen som rydder det: finnes det et AI-svar på gang eller ferdig, eier det
+ * plassen. Skriver brukeren videre i feltet, faller svaret bort og trefflista
+ * overtar igjen. Det gir én ting å se på i hver tilstand.
+ */
+export function AskBox() {
   const [question, setQuestion] = useState("");
   const deferredQuestion = useDeferredValue(question);
   const [matches, setMatches] = useState<SearchMatch[]>([]);
@@ -51,7 +64,11 @@ export function AskBox({ trivia = [] }: { trivia?: string[] }) {
   const [activeTool, setActiveTool] = useState<string | null>(null);
   const [state, setState] = useState<"idle" | "loading" | "done" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
+  /** Spørsmålet svaret på skjermen hører til. Tomt når det ikke finnes et svar. */
+  const [askedQuestion, setAskedQuestion] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
+  /** Avbryter svaret som strømmer, når brukeren går videre før det er ferdig. */
+  const askRef = useRef<AbortController | null>(null);
 
   useEffect(() => {
     const query = deferredQuestion.trim();
@@ -85,9 +102,48 @@ export function AskBox({ trivia = [] }: { trivia?: string[] }) {
     };
   }, [deferredQuestion]);
 
+  /**
+   * Rydder svaret bort og stopper strømmen som eventuelt fyller det.
+   *
+   * Avbruddet er ikke pynt. Uten det ville et forlatt svar fortsette å strømme
+   * inn i en tilstand som ikke lenger viser det, og dukke opp igjen ferdig
+   * skrevet noen sekunder etter at brukeren gikk videre — uten spørsmålet sitt,
+   * siden det ble nullstilt.
+   */
+  function clearAnswer() {
+    askRef.current?.abort();
+    askRef.current = null;
+    setAskedQuestion("");
+    setState("idle");
+    setAnswer("");
+    setQueries([]);
+    setError(null);
+    setActiveTool(null);
+  }
+
+  // Skriver brukeren videre etter et svar, er hen på vei et annet sted. Da slipper
+  // svaret plassen med én gang, slik at trefflista kan overta. Uten dette ville de
+  // to stått oppå hverandre igjen i det øyeblikket det ble skrevet ett tegn til.
+  useEffect(() => {
+    // clearAnswer leser bare refs og tilstandssettere, så den er stabil nok til
+    // å stå utenfor avhengighetslista.
+    if (askedQuestion !== "" && question !== askedQuestion) clearAnswer();
+  }, [question, askedQuestion]);
+
+  function reset() {
+    setQuestion("");
+    clearAnswer();
+    inputRef.current?.focus();
+  }
+
   async function ask(q: string, source: "form" | "suggestion") {
     if (q.trim() === "" || state === "loading") return;
 
+    askRef.current?.abort();
+    const controller = new AbortController();
+    askRef.current = controller;
+
+    setAskedQuestion(q);
     setState("loading");
     setAnswer("");
     setQueries([]);
@@ -109,6 +165,7 @@ export function AskBox({ trivia = [] }: { trivia?: string[] }) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: q }),
+        signal: controller.signal,
       });
 
       if (!response.ok) {
@@ -130,6 +187,8 @@ export function AskBox({ trivia = [] }: { trivia?: string[] }) {
       for (;;) {
         const { done, value } = await reader.read();
         if (done) break;
+        // Avbrutt underveis: slutt å skrive inn i en tilstand som er lagt bort.
+        if (controller.signal.aborted) return;
         buffer += decoder.decode(value, { stream: true });
         const frames = buffer.split("\n\n");
         buffer = frames.pop() ?? "";
@@ -158,23 +217,28 @@ export function AskBox({ trivia = [] }: { trivia?: string[] }) {
       }
       setState((current) => current === "loading" ? "done" : current);
       answered(failed ? "error" : "ok");
-    } catch {
+    } catch (streamError) {
+      // Et avbrudd er brukerens eget valg, ikke en feil å melde fra om — og
+      // heller ikke noe å telle. Et forlatt svar er verken «ok» eller «error».
+      if (streamError instanceof Error && streamError.name === "AbortError") return;
       setError("Mistet forbindelsen. Prøv igjen.");
       setState("error");
       answered("error");
     }
   }
 
-  const showSearch = deferredQuestion.trim().length >= 2 && state !== "loading";
+  // Plassen under skjemaet har én eier av gangen. Så snart det finnes et
+  // AI-svar — på vei, ferdig eller feilet — er det svaret som står der.
+  const hasAnswer = askedQuestion !== "";
+  const showSearch = !hasAnswer && deferredQuestion.trim().length >= 2;
 
   return (
     <section className="ask" aria-labelledby="sporre">
       <p className="eyebrow">Smart kampsøk</p>
       <h2 id="sporre">Hva leter du etter?</h2>
       <p className="prose muted">
-        Skriv år og motstander for direkte treff, for eksempel <strong>2024</strong>,{" "}
-        <strong>Sogndal</strong> eller <strong>2013 Tromsø</strong>. Skriv et spørsmål og trykk
-        Enter for et AI-generert svar som bare bruker arkivdataene.
+        Skriv <strong>2024</strong>, <strong>Sogndal</strong> eller <strong>2013 Tromsø</strong> for
+        direkte treff. Trykk Enter for et AI-svar bygget på arkivdataene.
       </p>
 
       <form className="ask-form" onSubmit={(event) => { event.preventDefault(); void ask(question, "form"); }}>
@@ -190,6 +254,7 @@ export function AskBox({ trivia = [] }: { trivia?: string[] }) {
           autoComplete="off"
           enterKeyHint="search"
           onChange={(event) => setQuestion(event.target.value)}
+          onKeyDown={(event) => { if (event.key === "Escape") reset(); }}
         />
         <button className="ask-button" type="submit" disabled={state === "loading"}>
           {state === "loading" ? "Svarer …" : "Spør AI"}
@@ -216,28 +281,42 @@ export function AskBox({ trivia = [] }: { trivia?: string[] }) {
         </div>
       )}
 
-      <div className="suggestions" aria-label="Forslag til spørsmål">
-        {SUGGESTIONS.map((suggestion) => (
-          <button
-            key={suggestion}
-            type="button"
-            className="suggestion"
-            onClick={() => { setQuestion(suggestion); void ask(suggestion, "suggestion"); }}
-          >
-            {suggestion}
+      {/* Forslagene er en igangsetter. Når det står et svar på skjermen har
+          brukeren kommet i gang, og da er de bare fire knapper som skyver
+          svaret nedover. */}
+      {!hasAnswer && (
+        <div className="suggestions" aria-label="Forslag til spørsmål">
+          {SUGGESTIONS.map((suggestion) => (
+            <button
+              key={suggestion}
+              type="button"
+              className="suggestion"
+              onClick={() => { setQuestion(suggestion); void ask(suggestion, "suggestion"); }}
+            >
+              {suggestion}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {hasAnswer && (
+        // Spørsmålet gjentas over svaret. Feltet står rett over, men teksten der
+        // kan være redigert bort eller rullet ut av syne, og et svar uten
+        // spørsmålet sitt er vanskelig å lese to minutter senere.
+        <div className="answer-head">
+          <p className="small muted">Du spurte: «{askedQuestion}»</p>
+          <button type="button" className="answer-reset" onClick={reset}>
+            Nytt spørsmål
           </button>
-        ))}
-      </div>
+        </div>
+      )}
 
       {error && <div className="answer notice notice-error" role="alert">{error}</div>}
 
       {(state === "loading" || answer !== "") && !error && (
         <div className="answer" aria-live="polite" aria-busy={state === "loading"}>
           {answer === "" ? (
-            <>
-              <ThinkingLine activeTool={activeTool} />
-              <InterludeRotator items={interludes} trivia={trivia} />
-            </>
+            <ThinkingLine activeTool={activeTool} />
           ) : (
             // Siste sikring mot tankestrek. Systemprompten ber modellen la være,
             // og dette fanger resten. Den kjøres på hele svaret ved hver

@@ -1,0 +1,47 @@
+name: Feil i arkivet
+description: Gal dato, feil resultat, feil målscorer eller annet som ikke stemmer
+title: "Datafeil: "
+labels: ["data"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Takk for at du melder fra. Feil i arkivet er ikke pinlige — de er grunnen til at
+        dataene ligger i git. Kan du rette det selv, er det én YAML-fil å endre og én pull
+        request å sende; se [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md).
+
+  - type: input
+    id: kamp
+    attributes:
+      label: Hvilken kamp
+      description: Dato og motstander, eller lenken til kampsiden.
+      placeholder: 19.06.2019 mot Molde — /kamp/2019-06-19-aalesunds-fk-molde-fk
+    validations:
+      required: true
+
+  - type: textarea
+    id: feil
+    attributes:
+      label: Hva står det nå, og hva skal det stå?
+      placeholder: |
+        Arkivet sier 2–1. Riktig resultat er 2–2; utligningen kom på overtid.
+    validations:
+      required: true
+
+  - type: textarea
+    id: kilde
+    attributes:
+      label: Hvor vet du det fra?
+      description: >
+        Lenke, avis med dato, kampprogram, eget arkiv — hva som helst som gjør det mulig å
+        etterprøve. Uten kilde blir rettelsen stående som påstand mot påstand.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: bekreft
+    attributes:
+      label: Før du sender
+      options:
+        - label: Jeg har sjekket at feilen fortsatt finnes på aafkstats.vercel.app
+          required: false
