@@ -5,7 +5,7 @@ import { assertMayFetch, assertMayPublish, SourcePolicyError } from "../src/poli
 
 const archive = (...sources: unknown[]): Archive =>
   ({
-    clubs: [], venues: [], competitions: [], seasons: [], matches: [], observations: [], issues: [],
+    clubs: [], venues: [], competitions: [], seasons: [], matches: [], observations: [], standings: [], issues: [],
     sources: sources.map((s) => sourceSchema.parse(s)),
   }) as unknown as Archive;
 

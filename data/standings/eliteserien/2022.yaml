@@ -1,0 +1,194 @@
+competitionId: eliteserien
+season: 2022
+table:
+  - position: 1
+    name: Molde
+    clubId: molde-fk
+    played: 30
+    wins: 25
+    draws: 3
+    losses: 2
+    goalsFor: 71
+    goalsAgainst: 25
+    points: 78
+    outcome: none
+    note: Champions League
+  - position: 2
+    name: Bodø/Glimt
+    clubId: bodo-glimt
+    played: 30
+    wins: 18
+    draws: 6
+    losses: 6
+    goalsFor: 86
+    goalsAgainst: 41
+    points: 60
+    outcome: none
+    note: Europa Conference League
+  - position: 3
+    name: Rosenborg
+    clubId: rosenborg-bk
+    played: 30
+    wins: 16
+    draws: 8
+    losses: 6
+    goalsFor: 69
+    goalsAgainst: 44
+    points: 56
+    outcome: none
+    note: Europa Conference League
+  - position: 4
+    name: Lillestrøm
+    clubId: lillestrom
+    played: 30
+    wins: 16
+    draws: 5
+    losses: 9
+    goalsFor: 49
+    goalsAgainst: 34
+    points: 53
+    outcome: none
+  - position: 5
+    name: Odd
+    clubId: odds-ballklubb
+    played: 30
+    wins: 13
+    draws: 6
+    losses: 11
+    goalsFor: 43
+    goalsAgainst: 45
+    points: 45
+    outcome: none
+  - position: 6
+    name: Vålerenga
+    clubId: valerenga
+    played: 30
+    wins: 13
+    draws: 5
+    losses: 12
+    goalsFor: 52
+    goalsAgainst: 49
+    points: 44
+    outcome: none
+  - position: 7
+    name: Tromsø
+    clubId: tromso
+    played: 30
+    wins: 10
+    draws: 13
+    losses: 7
+    goalsFor: 46
+    goalsAgainst: 49
+    points: 43
+    outcome: none
+  - position: 8
+    name: Sarpsborg 08
+    clubId: sarpsborg-08
+    played: 30
+    wins: 12
+    draws: 5
+    losses: 13
+    goalsFor: 57
+    goalsAgainst: 54
+    points: 41
+    outcome: none
+  - position: 9
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 30
+    wins: 10
+    draws: 9
+    losses: 11
+    goalsFor: 32
+    goalsAgainst: 45
+    points: 39
+    outcome: none
+  - position: 10
+    name: Haugesund
+    clubId: fk-haugesund
+    played: 30
+    wins: 10
+    draws: 8
+    losses: 12
+    goalsFor: 42
+    goalsAgainst: 46
+    points: 38
+    outcome: none
+  - position: 11
+    name: Viking
+    clubId: viking
+    played: 30
+    wins: 9
+    draws: 8
+    losses: 13
+    goalsFor: 48
+    goalsAgainst: 54
+    points: 35
+    outcome: none
+  - position: 12
+    name: Strømsgodset
+    clubId: stromsgodset
+    played: 30
+    wins: 9
+    draws: 6
+    losses: 15
+    goalsFor: 44
+    goalsAgainst: 55
+    points: 33
+    outcome: none
+  - position: 13
+    name: HamKam
+    clubId: null
+    played: 30
+    wins: 6
+    draws: 13
+    losses: 11
+    goalsFor: 33
+    goalsAgainst: 43
+    points: 31
+    outcome: none
+  - position: 14
+    name: Sandefjord Fotball
+    clubId: sandefjord
+    played: 30
+    wins: 6
+    draws: 6
+    losses: 18
+    goalsFor: 42
+    goalsAgainst: 68
+    points: 24
+    outcome: playoff
+    note: Play-off
+  - position: 15
+    name: Kristiansund BK
+    clubId: kristiansund
+    played: 30
+    wins: 5
+    draws: 8
+    losses: 17
+    goalsFor: 37
+    goalsAgainst: 60
+    points: 23
+    outcome: relegated
+    note: Relegated
+  - position: 16
+    name: Jerv
+    clubId: jerv
+    played: 30
+    wins: 5
+    draws: 5
+    losses: 20
+    goalsFor: 30
+    goalsAgainst: 69
+    points: 20
+    outcome: relegated
+    note: Relegated
+progression: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2022/Premier.html
+    retrievedAt: 2026-08-04
+    fields:
+      - table
+    note: Lest med rsssf@1. Tabellen er hentet; kurven er regnet ut av rundene på samme side.
+note: "Plasseringskurven er utelatt: lag i resultatene som ikke står i tabellen: stromsgodet."

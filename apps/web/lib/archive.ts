@@ -455,3 +455,83 @@ export function loadOpponent(id: string): { summary: OpponentSummary; matches: A
     db.close();
   }
 }
+
+export interface StandingsRow {
+  position: number;
+  team: string;
+  clubId: string | null;
+  played: number;
+  wins: number;
+  draws: number;
+  losses: number;
+  goalsFor: number;
+  goalsAgainst: number;
+  goalDifference: number;
+  points: number;
+  outcome: string;
+  note: string | null;
+  url: string | null;
+}
+
+export interface ProgressionPoint {
+  round: number;
+  position: number;
+  points: number;
+  played: number;
+  goalDifference: number;
+}
+
+/**
+ * Sluttabellen og plasseringskurven for én sesong.
+ *
+ * De to har ulik status og holdes derfor fra hverandre: tabellen er hentet fra
+ * kilden, kurven er regnet ut av oss. Mangler kurven, er det fordi utregningen
+ * ikke lot seg forene med tabellen — se `standings.ts` i skjemapakka.
+ */
+export function loadStandings(competitionId: string, season: number): {
+  table: StandingsRow[];
+  progression: ProgressionPoint[];
+} {
+  const db = open();
+  try {
+    const table = all<{
+      position: number; team: string; club_id: string | null;
+      played: number; wins: number; draws: number; losses: number;
+      goals_for: number; goals_against: number; goal_difference: number;
+      points: number; outcome: string; note: string | null; url: string | null;
+    }>(
+      db,
+      `SELECT position, team, club_id, played, wins, draws, losses, goals_for,
+              goals_against, goal_difference, points, outcome, note, url
+         FROM standings WHERE competition_id = ? AND season = ? ORDER BY position`,
+      competitionId, season,
+    );
+    const progression = all<ProgressionPoint>(
+      db,
+      `SELECT round, position, points, played, goal_difference AS goalDifference
+         FROM standings_progression WHERE competition_id = ? AND season = ? ORDER BY round`,
+      competitionId, season,
+    );
+    return {
+      table: table.map((row) => ({
+        position: row.position,
+        team: row.team,
+        clubId: row.club_id,
+        played: row.played,
+        wins: row.wins,
+        draws: row.draws,
+        losses: row.losses,
+        goalsFor: row.goals_for,
+        goalsAgainst: row.goals_against,
+        goalDifference: row.goal_difference,
+        points: row.points,
+        outcome: row.outcome,
+        note: row.note,
+        url: row.url,
+      })),
+      progression,
+    };
+  } finally {
+    db.close();
+  }
+}

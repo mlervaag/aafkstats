@@ -1,0 +1,196 @@
+competitionId: forstedivisjon
+season: 2001
+table:
+  - position: 1
+    name: Vålerenga
+    clubId: valerenga
+    played: 30
+    wins: 19
+    draws: 8
+    losses: 3
+    goalsFor: 71
+    goalsAgainst: 29
+    points: 62
+    outcome: promoted
+    note: Promoted*
+  - position: 2
+    name: Start
+    clubId: start
+    played: 30
+    wins: 18
+    draws: 8
+    losses: 4
+    goalsFor: 59
+    goalsAgainst: 33
+    points: 62
+    outcome: promoted
+    note: Promoted
+  - position: 3
+    name: Hamarkameratene
+    clubId: hamarkameratene
+    played: 30
+    wins: 18
+    draws: 6
+    losses: 6
+    goalsFor: 59
+    goalsAgainst: 38
+    points: 60
+    outcome: playoff
+    note: Play-off
+  - position: 4
+    name: Haugesund
+    clubId: fk-haugesund
+    played: 30
+    wins: 17
+    draws: 5
+    losses: 8
+    goalsFor: 76
+    goalsAgainst: 44
+    points: 56
+    outcome: none
+  - position: 5
+    name: Raufoss
+    clubId: raufoss-il
+    played: 30
+    wins: 15
+    draws: 5
+    losses: 10
+    goalsFor: 61
+    goalsAgainst: 43
+    points: 50
+    outcome: none
+  - position: 6
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 30
+    wins: 13
+    draws: 8
+    losses: 9
+    goalsFor: 65
+    goalsAgainst: 51
+    points: 47
+    outcome: none
+  - position: 7
+    name: Sandefjord Fot.
+    clubId: null
+    played: 30
+    wins: 13
+    draws: 5
+    losses: 12
+    goalsFor: 59
+    goalsAgainst: 54
+    points: 44
+    outcome: none
+  - position: 8
+    name: Skeid
+    clubId: skeid
+    played: 30
+    wins: 12
+    draws: 5
+    losses: 13
+    goalsFor: 50
+    goalsAgainst: 41
+    points: 41
+    outcome: none
+  - position: 9
+    name: L/F Hønefoss
+    clubId: l-f-honefoss
+    played: 30
+    wins: 10
+    draws: 10
+    losses: 10
+    goalsFor: 45
+    goalsAgainst: 54
+    points: 40
+    outcome: none
+    note: (#)
+  - position: 10
+    name: Tromsdalen
+    clubId: tromsdalen
+    played: 30
+    wins: 10
+    draws: 9
+    losses: 11
+    goalsFor: 40
+    goalsAgainst: 56
+    points: 39
+    outcome: none
+  - position: 11
+    name: Hødd
+    clubId: hodd
+    played: 30
+    wins: 9
+    draws: 8
+    losses: 13
+    goalsFor: 50
+    goalsAgainst: 51
+    points: 35
+    outcome: none
+  - position: 12
+    name: Ørn-Horten
+    clubId: orn-horten
+    played: 30
+    wins: 10
+    draws: 4
+    losses: 16
+    goalsFor: 41
+    goalsAgainst: 72
+    points: 34
+    outcome: none
+  - position: 13
+    name: Mandalskam.
+    clubId: null
+    played: 30
+    wins: 9
+    draws: 5
+    losses: 16
+    goalsFor: 49
+    goalsAgainst: 62
+    points: 32
+    outcome: relegated
+    note: Relegated
+  - position: 14
+    name: Kongsvinger
+    clubId: kongsvinger
+    played: 30
+    wins: 8
+    draws: 5
+    losses: 17
+    goalsFor: 33
+    goalsAgainst: 57
+    points: 29
+    outcome: relegated
+    note: Relegated
+  - position: 15
+    name: Kjelsås
+    clubId: kjelsas
+    played: 30
+    wins: 6
+    draws: 6
+    losses: 18
+    goalsFor: 26
+    goalsAgainst: 50
+    points: 24
+    outcome: relegated
+    note: Relegated
+  - position: 16
+    name: Byåsen
+    clubId: byasen
+    played: 30
+    wins: 3
+    draws: 3
+    losses: 24
+    goalsFor: 29
+    goalsAgainst: 78
+    points: 12
+    outcome: relegated
+    note: Relegated
+progression: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2001/First.html
+    retrievedAt: 2026-08-04
+    fields:
+      - table
+    note: Lest med rsssf@1. Tabellen er hentet; kurven er regnet ut av rundene på samme side.
+note: "Plasseringskurven er utelatt: lag i resultatene som ikke står i tabellen: sandefjord, mandalskameratene; lag i tabellen uten kamper: sandefjord-fot, mandalskam."

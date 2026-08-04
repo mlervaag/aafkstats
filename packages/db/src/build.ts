@@ -118,6 +118,33 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
       );
     }
 
+    const insertStanding = db.prepare(
+      `INSERT INTO core_standings
+         (competition_id, season, position, team, club_id, played, wins, draws,
+          losses, goals_for, goals_against, points, outcome, note)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    );
+    const insertProgression = db.prepare(
+      `INSERT INTO core_standings_progression
+         (competition_id, season, round, position, points, played, goal_difference)
+       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+    );
+    for (const table of archive.standings) {
+      for (const row of table.table) {
+        insertStanding.run(
+          table.competitionId, table.season, row.position, row.name, row.clubId,
+          row.played, row.wins, row.draws, row.losses, row.goalsFor, row.goalsAgainst,
+          row.points, row.outcome, row.note ?? null,
+        );
+      }
+      for (const point of table.progression) {
+        insertProgression.run(
+          table.competitionId, table.season, point.round, point.position,
+          point.points, point.played, point.goalDifference,
+        );
+      }
+    }
+
     const insertMatch = db.prepare(
       `INSERT INTO core_matches (
          id, match_date, date_confidence, kickoff, status,

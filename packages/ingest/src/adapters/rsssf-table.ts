@@ -1,6 +1,6 @@
 import { clubKey } from "@aafkstats/schema";
 import type { StandingsRow } from "@aafkstats/schema";
-import { cleanTeam, MATCH_LINE, ROUND_HEADING } from "./rsssf.js";
+import { cleanTeam, MATCH_LINE, ROUND_HEADING, RSSSF_CLUB_ALIASES } from "./rsssf.js";
 
 /**
  * Sluttabellen nederst på en RSSSF-sesongside.
@@ -49,8 +49,10 @@ export function parseTableRow(line: string): RawTableRow | undefined {
     const wins = Number(rawWins);
     const draws = Number(rawDraws);
     const losses = Number(rawLosses);
-    // Poengtrekk noteres med stjerne og en fotnote lenger nede på sida.
-    const points = Number(rawPoints!.replace(/\*+$/, ""));
+    // Fotnotemerket bak poengsummen kastes. RSSSF bruker både `*` og `#`, og
+    // 2019-sida har begge på samme tabell. Ett umerket tegn er nok til at raden
+    // forkastes og tabellen deles i to uten at noe ser galt ut.
+    const points = Number(rawPoints!.replace(/[^\d]+$/, ""));
     if (![played, wins, draws, losses, points].every(Number.isInteger)) continue;
     if (wins + draws + losses !== played) continue;
 
@@ -141,6 +143,18 @@ export function readOutcome(status: string): StandingsRow["outcome"] {
   if (/promoted/.test(text)) return "promoted";
   if (/^play-?off/.test(text)) return "playoff";
   return "none";
+}
+
+/**
+ * Kildens lagnavn til én nøkkel.
+ *
+ * Aliaskartet først, så kanonisk identitet. Begge trengs: sida for 1998 skriver
+ * «Odd Grenland» i tabellen og «Odd» i resultatlinjene, og de to normaliserer
+ * ikke likt av seg selv — det er nettopp derfor kartet finnes. Sida for 2022
+ * skriver «Kristiansund BK» og «Kristiansund», som identiteten klarer alene.
+ */
+function key(name: string): string {
+  return clubKey(RSSSF_CLUB_ALIASES[name] ?? name);
 }
 
 /** Overskrifter som betyr at serierundene er over for denne omgangen. */
@@ -242,12 +256,12 @@ export function computeProgression(
   // dem to lag i tabellen vi regner ut, og alle under dem får feil plassering.
   const totals = new Map<string, { points: number; played: number; gf: number; ga: number }>();
   const of = (team: string) => {
-    const key = clubKey(team);
-    let row = totals.get(key);
-    if (!row) totals.set(key, (row = { points: 0, played: 0, gf: 0, ga: 0 }));
+    const id = key(team);
+    let row = totals.get(id);
+    if (!row) totals.set(id, (row = { points: 0, played: 0, gf: 0, ga: 0 }));
     return row;
   };
-  const own = clubKey(clubName);
+  const own = key(clubName);
 
   const rounds = [...new Set(results.map((result) => result.round))].sort((a, b) => a - b);
   const progression = [];
@@ -338,8 +352,8 @@ export function divisionClubsMatch(
   results: DivisionResult[],
   table: RawTableRow[],
 ): { ok: true } | { ok: false; reason: string } {
-  const inResults = new Set(results.flatMap((r) => [clubKey(r.home), clubKey(r.away)]));
-  const inTable = new Set(table.map((row) => clubKey(row.name)));
+  const inResults = new Set(results.flatMap((r) => [key(r.home), key(r.away)]));
+  const inTable = new Set(table.map((row) => key(row.name)));
   const extra = [...inResults].filter((key) => !inTable.has(key));
   const missing = [...inTable].filter((key) => !inResults.has(key));
   if (extra.length === 0 && missing.length === 0) return { ok: true };

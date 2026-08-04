@@ -8,9 +8,11 @@ import { club, competition, season, source, venue } from "./entities.js";
 import { match } from "./match.js";
 import { canonicalClubKey } from "./identity.js";
 import { observation, observationPath } from "./observation.js";
+import { standings, standingsPath } from "./standings.js";
 import type { Club, Competition, Season, Source, Venue } from "./entities.js";
 import type { Match } from "./match.js";
 import type { Observation } from "./observation.js";
+import type { Standings } from "./standings.js";
 
 /** Rota på monorepoet, utledet fra hvor denne filen ligger. */
 export function repoRoot(): string {
@@ -49,6 +51,8 @@ export interface Archive {
    * inn før laget fantes; se `observation.ts`.
    */
   observations: (Observation & { file: string })[];
+  /** Sluttabeller per konkurranse og sesong. Tom for år ingen kilde har tabell for. */
+  standings: (Standings & { file: string })[];
   issues: LoadIssue[];
 }
 
@@ -186,7 +190,31 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
     }
   }
 
-  return { clubs, venues, competitions, sources, seasons, matches, observations, issues };
+  // Tabellene ligger under én mappe per konkurranse, som kampene ligger under én
+  // mappe per sesong. Stien kontrolleres av samme grunn som for observasjoner:
+  // en fil på feil sted blir aldri funnet igjen.
+  const tables: (Standings & { file: string })[] = [];
+  const standingsDir = join(root, "standings");
+  if (existsSync(standingsDir)) {
+    const competitionDirs = (await readdir(standingsDir, { withFileTypes: true }))
+      .filter((e) => e.isDirectory())
+      .map((e) => e.name)
+      .sort();
+    for (const dir of competitionDirs) {
+      for (const file of await listYaml(join(standingsDir, dir))) {
+        const parsed = await parseFile(file, standings, root, issues);
+        if (parsed === null) continue;
+        const rel = relative(root, file);
+        const expected = standingsPath(parsed.competitionId, parsed.season);
+        if (rel !== expected) {
+          issues.push({ file: rel, path: "season", message: `fila må hete «${expected}»` });
+        }
+        tables.push({ ...parsed, file: rel });
+      }
+    }
+  }
+
+  return { clubs, venues, competitions, sources, seasons, matches, observations, standings: tables, issues };
 }
 
 /**
@@ -304,6 +332,31 @@ export function crossValidate(archive: Archive): LoadIssue[] {
     }
     if (o.matchId !== null && !seenMatchIds.has(o.matchId)) {
       at("matchId", `ukjent kamp «${o.matchId}» — sett matchId til null hvis kampen ikke ble skrevet`);
+    }
+  }
+
+  // Tabellen bærer kildens egne lagnavn, ikke klubb-ID-er, så det er lite å slå
+  // opp — men det som slås opp må stemme. En tabell for en konkurranse som ikke
+  // finnes vises aldri, og en clubId som ikke finnes gir en død lenke i tabellen.
+  const seenTables = new Set<string>();
+  for (const t of archive.standings) {
+    const at = (path: string, message: string) => issues.push({ file: t.file, path, message });
+    const key = `${t.competitionId}|${t.season}`;
+    if (seenTables.has(key)) at("season", `to tabeller for ${t.competitionId} ${t.season}`);
+    seenTables.add(key);
+
+    if (!competitionIds.has(t.competitionId)) {
+      at("competitionId", `ukjent konkurranse «${t.competitionId}»`);
+    }
+    for (const row of t.table) {
+      if (row.clubId !== null && !clubIds.has(row.clubId)) {
+        at("table", `ukjent klubb «${row.clubId}» på plass ${row.position} — la den stå som null hvis klubben ikke er i arkivet`);
+      }
+    }
+    for (const s of t.sources) {
+      if (!sourceIds.has(s.sourceId)) {
+        at("sources", `ukjent kilde «${s.sourceId}» — mangler data/sources/${s.sourceId}.yaml`);
+      }
     }
   }
 

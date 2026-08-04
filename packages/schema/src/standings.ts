@@ -31,8 +31,22 @@ import { seasonYear, slug, sourceRef } from "./primitives.js";
 export const standingsRow = z
   .object({
     position: z.number().int().min(1),
-    /** Klubben i arkivet. Alle lag i divisjonen får en klubbfil, ikke bare AaFKs motstandere. */
-    clubId: slug,
+    /**
+     * Klubbens navn slik kilden skrev det.
+     *
+     * Dette er identiteten i en tabell. En divisjon har seksten lag, og AaFK har
+     * aldri møtt alle — å kreve en klubbfil per rad ville betydd rundt 40 nye
+     * klubber uten en eneste kamp i arkivet, bare for å kunne trykke en tabell.
+     */
+    name: z.string().min(1),
+    /**
+     * Klubben i arkivet, når den allerede finnes der.
+     *
+     * Settes ved innhøsting for de lagene vi kjenner, slik at raden kan lenkes.
+     * Null for resten, og det er en normal tilstand — ikke et hull som skal
+     * fylles.
+     */
+    clubId: slug.nullable().default(null),
     played: z.number().int().min(0),
     wins: z.number().int().min(0),
     draws: z.number().int().min(0),
@@ -100,16 +114,30 @@ export const standings = z
       }
     }
 
-    const clubs = new Set<string>();
+    // Samme lag to ganger betyr at parseren har lest en rad dobbelt, eller at to
+    // skrivemåter av samme navn er blitt to lag. Begge deler gir en tabell som
+    // ser helt normal ut og er feil.
+    const names = new Set<string>();
+    const ids = new Set<string>();
     for (const row of value.table) {
-      if (clubs.has(row.clubId)) {
+      if (names.has(row.name)) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
           path: ["table"],
-          message: `klubben «${row.clubId}» står to ganger i tabellen`,
+          message: `laget «${row.name}» står to ganger i tabellen`,
         });
       }
-      clubs.add(row.clubId);
+      names.add(row.name);
+      if (row.clubId !== null) {
+        if (ids.has(row.clubId)) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: ["table"],
+            message: `klubben «${row.clubId}» er knyttet til to rader i tabellen`,
+          });
+        }
+        ids.add(row.clubId);
+      }
     }
 
     for (const point of value.progression) {

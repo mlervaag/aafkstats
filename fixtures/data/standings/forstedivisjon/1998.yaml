@@ -1,0 +1,75 @@
+# Konstruert fixture. Tallene er ikke ekte, men formen er den samme som en
+# innhøstet tabell: kildens egne lagnavn, clubId bare der klubben finnes i
+# arkivet, og en kurve som lander på nøyaktig samme rad som tabellen.
+competitionId: forstedivisjon
+season: 1998
+table:
+  - position: 1
+    name: Molde
+    clubId: molde-fk
+    played: 6
+    wins: 4
+    draws: 1
+    losses: 1
+    goalsFor: 12
+    goalsAgainst: 6
+    points: 13
+    outcome: promoted
+  - position: 2
+    name: Brann
+    clubId: sk-brann
+    played: 6
+    wins: 3
+    draws: 2
+    losses: 1
+    goalsFor: 9
+    goalsAgainst: 6
+    points: 11
+    outcome: none
+    note: Europa League
+  - position: 3
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 6
+    wins: 2
+    draws: 2
+    losses: 2
+    goalsFor: 8
+    goalsAgainst: 8
+    points: 8
+    outcome: none
+  - position: 4
+    name: Rosenborg
+    clubId: rosenborg-bk
+    played: 6
+    wins: 1
+    draws: 2
+    losses: 3
+    goalsFor: 5
+    goalsAgainst: 9
+    points: 5
+    outcome: none
+  # Uten clubId, som lagene AaFK aldri har møtt. Det er en normal tilstand.
+  - position: 5
+    name: Eik-Tønsberg
+    clubId: null
+    played: 6
+    wins: 1
+    draws: 1
+    losses: 4
+    goalsFor: 4
+    goalsAgainst: 9
+    points: 4
+    outcome: relegated
+progression:
+  - { round: 1, position: 2, points: 3, played: 1, goalDifference: 1 }
+  - { round: 2, position: 4, points: 3, played: 2, goalDifference: -1 }
+  - { round: 3, position: 3, points: 6, played: 3, goalDifference: 1 }
+  - { round: 4, position: 3, points: 7, played: 4, goalDifference: 0 }
+  - { round: 5, position: 3, points: 8, played: 5, goalDifference: 1 }
+  - { round: 6, position: 3, points: 8, played: 6, goalDifference: 0 }
+sources:
+  - sourceId: rsssf
+    url: https://www.rsssf.no/1998/First.html
+    retrievedAt: 2026-08-04
+    fields: [table, progression]

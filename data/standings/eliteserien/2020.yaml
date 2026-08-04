@@ -1,0 +1,195 @@
+competitionId: eliteserien
+season: 2020
+table:
+  - position: 1
+    name: Bodø/Glimt
+    clubId: bodo-glimt
+    played: 30
+    wins: 26
+    draws: 3
+    losses: 1
+    goalsFor: 103
+    goalsAgainst: 32
+    points: 81
+    outcome: none
+    note: Champions League
+  - position: 2
+    name: Molde
+    clubId: molde-fk
+    played: 30
+    wins: 20
+    draws: 2
+    losses: 8
+    goalsFor: 77
+    goalsAgainst: 36
+    points: 62
+    outcome: none
+    note: Europa Conference League
+  - position: 3
+    name: Vålerenga
+    clubId: valerenga
+    played: 30
+    wins: 15
+    draws: 10
+    losses: 5
+    goalsFor: 51
+    goalsAgainst: 33
+    points: 55
+    outcome: none
+    note: Europa Conference League
+  - position: 4
+    name: Rosenborg
+    clubId: rosenborg-bk
+    played: 30
+    wins: 15
+    draws: 7
+    losses: 8
+    goalsFor: 50
+    goalsAgainst: 35
+    points: 52
+    outcome: none
+    note: Europa Conference League
+  - position: 5
+    name: Kristiansund BK
+    clubId: kristiansund
+    played: 30
+    wins: 12
+    draws: 12
+    losses: 6
+    goalsFor: 57
+    goalsAgainst: 45
+    points: 48
+    outcome: none
+  - position: 6
+    name: Viking
+    clubId: viking
+    played: 30
+    wins: 12
+    draws: 8
+    losses: 10
+    goalsFor: 54
+    goalsAgainst: 52
+    points: 44
+    outcome: none
+  - position: 7
+    name: Odd
+    clubId: odds-ballklubb
+    played: 30
+    wins: 13
+    draws: 4
+    losses: 13
+    goalsFor: 52
+    goalsAgainst: 51
+    points: 43
+    outcome: none
+  - position: 8
+    name: Stabæk
+    clubId: stabaek
+    played: 30
+    wins: 9
+    draws: 12
+    losses: 9
+    goalsFor: 41
+    goalsAgainst: 45
+    points: 39
+    outcome: none
+  - position: 9
+    name: Haugesund
+    clubId: fk-haugesund
+    played: 30
+    wins: 11
+    draws: 6
+    losses: 13
+    goalsFor: 39
+    goalsAgainst: 51
+    points: 39
+    outcome: none
+  - position: 10
+    name: Brann
+    clubId: sk-brann
+    played: 30
+    wins: 9
+    draws: 9
+    losses: 12
+    goalsFor: 40
+    goalsAgainst: 49
+    points: 36
+    outcome: none
+  - position: 11
+    name: Sandefjord Fotb.
+    clubId: null
+    played: 30
+    wins: 9
+    draws: 8
+    losses: 13
+    goalsFor: 31
+    goalsAgainst: 43
+    points: 35
+    outcome: none
+  - position: 12
+    name: Sarpsborg 08
+    clubId: sarpsborg-08
+    played: 30
+    wins: 8
+    draws: 8
+    losses: 14
+    goalsFor: 33
+    goalsAgainst: 43
+    points: 32
+    outcome: none
+  - position: 13
+    name: Strømsgodset
+    clubId: stromsgodset
+    played: 30
+    wins: 7
+    draws: 10
+    losses: 13
+    goalsFor: 41
+    goalsAgainst: 57
+    points: 31
+    outcome: none
+  - position: 14
+    name: Mjøndalen
+    clubId: mjondalen
+    played: 30
+    wins: 8
+    draws: 3
+    losses: 19
+    goalsFor: 26
+    goalsAgainst: 45
+    points: 27
+    outcome: playoff
+    note: Play-off
+  - position: 15
+    name: Start
+    clubId: start
+    played: 30
+    wins: 6
+    draws: 9
+    losses: 15
+    goalsFor: 33
+    goalsAgainst: 56
+    points: 27
+    outcome: relegated
+    note: Relegated
+  - position: 16
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 30
+    wins: 2
+    draws: 5
+    losses: 23
+    goalsFor: 30
+    goalsAgainst: 85
+    points: 11
+    outcome: relegated
+    note: Relegated
+progression: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2020/Premier.html
+    retrievedAt: 2026-08-04
+    fields:
+      - table
+    note: Lest med rsssf@1. Tabellen er hentet; kurven er regnet ut av rundene på samme side.
+note: "Plasseringskurven er utelatt: lag i resultatene som ikke står i tabellen: sandefjord; lag i tabellen uten kamper: sandefjord-fotb."

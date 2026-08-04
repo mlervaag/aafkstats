@@ -10,6 +10,7 @@
   "scripts": {
     "fotmob": "tsx src/cli/fotmob.ts",
     "rsssf": "tsx src/cli/rsssf.ts",
+    "rsssf-standings": "tsx src/cli/rsssf-standings.ts",
     "rsssf-discover": "tsx src/cli/rsssf-discover.ts"
   },
   "dependencies": {

@@ -90,8 +90,8 @@ export const views: ViewDoc[] = [
       { name: "competition", type: "text", description: "Konkurransens navn det året." },
       { name: "competition_type", type: "text", description: "Konkurransetype." },
       { name: "competition_tier", type: "integer", description: "Nivå, 1 er øverst." },
-      { name: "final_position", type: "integer", description: "Sluttplassering." },
-      { name: "teams_in_league", type: "integer", description: "Antall lag i divisjonen." },
+      { name: "final_position", type: "integer", description: "Sluttplassering, hentet fra standings når vi har tabellen for året." },
+      { name: "teams_in_league", type: "integer", description: "Antall lag i divisjonen, talt i standings når vi har tabellen for året." },
       { name: "head_coach", type: "text", description: "Hovedtrener." },
       { name: "promoted", type: "integer (0/1)", description: "Rykket opp." },
       { name: "relegated", type: "integer (0/1)", description: "Rykket ned." },
@@ -126,6 +126,57 @@ export const views: ViewDoc[] = [
       { name: "first_meeting", type: "text (YYYY-MM-DD)", description: "Første møte." },
       { name: "last_meeting", type: "text (YYYY-MM-DD)", description: "Siste spilte møte." },
       { name: "url", type: "text", description: "Lenke til motstandersiden." },
+    ],
+  },
+  {
+    name: "standings",
+    summary:
+      "Sluttabellen for en seriesesong, ett lag per rad. Bruk denne når spørsmålet gjelder " +
+      "hvor AaFK endte, hvem som vant divisjonen, eller hvor mange poeng det skilte.",
+    caveats: [
+      "Bare seriesesonger, og bare de årene kilden har tabell for. Cupen har ingen tabell.",
+      "team er kildens eget lagnavn. club_id er satt for lagene arkivet kjenner fra før og NULL for resten, siden AaFK ikke har møtt alle lagene i hver divisjon. Filtrer på club_id = 'aalesunds-fk' for å finne vår egen rad.",
+      "points er tallet tabellen viser, ikke wins*3+draws. Poengtrekk finnes, og to poeng for seier gjaldt til 1987.",
+      "Tabellen dekker bare seriekampene. Cupkamper samme år ligger i matches og er ikke med her.",
+    ],
+    columns: [
+      { name: "competition_id", type: "text", description: "Konkurransens ID." },
+      { name: "competition", type: "text", description: "Konkurransens navn." },
+      { name: "season", type: "integer", description: "Sesongår." },
+      { name: "position", type: "integer", description: "Plassering, 1 er øverst." },
+      { name: "team", type: "text", description: "Lagets navn slik kilden skrev det." },
+      { name: "club_id", type: "text", description: "Klubben i arkivet, når den finnes der. NULL ellers." },
+      { name: "played", type: "integer", description: "Spilte kamper." },
+      { name: "wins", type: "integer", description: "Seire." },
+      { name: "draws", type: "integer", description: "Uavgjorte." },
+      { name: "losses", type: "integer", description: "Tap." },
+      { name: "goals_for", type: "integer", description: "Scorede mål." },
+      { name: "goals_against", type: "integer", description: "Innslupne mål." },
+      { name: "goal_difference", type: "integer", description: "Målforskjell." },
+      { name: "points", type: "integer", description: "Poeng slik tabellen viser dem." },
+      { name: "outcome", type: "text", description: "'promoted', 'relegated', 'promotion_playoff', 'relegation_playoff', 'playoff' eller 'none'." },
+      { name: "note", type: "text", description: "Kildens egen merknad bak poengsummen, f.eks. en europacupplass." },
+      { name: "url", type: "text", description: "Lenke til motstandersiden når klubben finnes i arkivet." },
+    ],
+  },
+  {
+    name: "standings_progression",
+    summary:
+      "Hvor AaFK lå i tabellen etter hver serierunde. Bruk denne når spørsmålet gjelder " +
+      "utviklingen gjennom en sesong, ikke hvor den endte.",
+    caveats: [
+      "Utregnet ved innhøsting av kildens fulle runderekke, ikke lagret som kamper. Kampene til de andre lagene ligger ikke i arkivet.",
+      "Bare sesonger der utregningen lander på nøyaktig samme rad som tabellen kilden trykte. Gjør den ikke det, er raden utelatt framfor å vises feil.",
+      "Bare AaFK. De andre lagenes vei gjennom sesongen finnes ikke her.",
+    ],
+    columns: [
+      { name: "competition_id", type: "text", description: "Konkurransens ID." },
+      { name: "season", type: "integer", description: "Sesongår." },
+      { name: "round", type: "integer", description: "Serierunde." },
+      { name: "position", type: "integer", description: "Plassering etter denne runden." },
+      { name: "points", type: "integer", description: "Poeng etter denne runden." },
+      { name: "played", type: "integer", description: "Spilte kamper etter denne runden. Lavere enn round når en kamp er utsatt." },
+      { name: "goal_difference", type: "integer", description: "Målforskjell etter denne runden." },
     ],
   },
   {

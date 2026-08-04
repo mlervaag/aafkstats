@@ -1,0 +1,304 @@
+competitionId: eliteserien
+season: 2003
+table:
+  - position: 1
+    name: Rosenborg
+    clubId: rosenborg-bk
+    played: 26
+    wins: 19
+    draws: 4
+    losses: 3
+    goalsFor: 68
+    goalsAgainst: 28
+    points: 61
+    outcome: none
+    note: Champions League
+  - position: 2
+    name: Bodø/Glimt
+    clubId: bodo-glimt
+    played: 26
+    wins: 14
+    draws: 5
+    losses: 7
+    goalsFor: 45
+    goalsAgainst: 30
+    points: 47
+    outcome: none
+    note: UEFA Cup (cup loser)
+  - position: 3
+    name: Stabæk
+    clubId: stabaek
+    played: 26
+    wins: 11
+    draws: 9
+    losses: 6
+    goalsFor: 51
+    goalsAgainst: 35
+    points: 42
+    outcome: none
+    note: UEFA Cup
+  - position: 4
+    name: Odd Grenland
+    clubId: odds-ballklubb
+    played: 26
+    wins: 11
+    draws: 5
+    losses: 10
+    goalsFor: 46
+    goalsAgainst: 43
+    points: 38
+    outcome: none
+    note: UEFA Cup
+  - position: 5
+    name: Viking
+    clubId: viking
+    played: 26
+    wins: 9
+    draws: 10
+    losses: 7
+    goalsFor: 46
+    goalsAgainst: 34
+    points: 37
+    outcome: none
+  - position: 6
+    name: Brann
+    clubId: sk-brann
+    played: 26
+    wins: 10
+    draws: 7
+    losses: 9
+    goalsFor: 45
+    goalsAgainst: 47
+    points: 37
+    outcome: none
+  - position: 7
+    name: Lillestrøm
+    clubId: lillestrom
+    played: 26
+    wins: 10
+    draws: 7
+    losses: 9
+    goalsFor: 33
+    goalsAgainst: 35
+    points: 37
+    outcome: none
+  - position: 8
+    name: Sogndal
+    clubId: sogndal
+    played: 26
+    wins: 9
+    draws: 8
+    losses: 9
+    goalsFor: 43
+    goalsAgainst: 46
+    points: 35
+    outcome: none
+  - position: 9
+    name: Molde
+    clubId: molde-fk
+    played: 26
+    wins: 9
+    draws: 4
+    losses: 13
+    goalsFor: 32
+    goalsAgainst: 41
+    points: 31
+    outcome: none
+  - position: 10
+    name: Lyn
+    clubId: lyn
+    played: 26
+    wins: 8
+    draws: 6
+    losses: 12
+    goalsFor: 34
+    goalsAgainst: 45
+    points: 30
+    outcome: none
+    note: (*)
+  - position: 11
+    name: Tromsø
+    clubId: tromso
+    played: 26
+    wins: 8
+    draws: 5
+    losses: 13
+    goalsFor: 30
+    goalsAgainst: 52
+    points: 29
+    outcome: none
+  - position: 12
+    name: Vålerenga
+    clubId: valerenga
+    played: 26
+    wins: 6
+    draws: 10
+    losses: 10
+    goalsFor: 30
+    goalsAgainst: 33
+    points: 28
+    outcome: playoff
+    note: Play-off
+  - position: 13
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 26
+    wins: 7
+    draws: 7
+    losses: 12
+    goalsFor: 30
+    goalsAgainst: 43
+    points: 28
+    outcome: relegated
+    note: Relegated
+  - position: 14
+    name: Bryne
+    clubId: bryne
+    played: 26
+    wins: 7
+    draws: 1
+    losses: 18
+    goalsFor: 35
+    goalsAgainst: 56
+    points: 22
+    outcome: relegated
+    note: Relegated
+progression:
+  - round: 1
+    position: 9
+    points: 0
+    played: 1
+    goalDifference: -1
+  - round: 2
+    position: 13
+    points: 0
+    played: 2
+    goalDifference: -3
+  - round: 3
+    position: 12
+    points: 1
+    played: 3
+    goalDifference: -3
+  - round: 4
+    position: 14
+    points: 1
+    played: 4
+    goalDifference: -4
+  - round: 5
+    position: 14
+    points: 1
+    played: 5
+    goalDifference: -5
+  - round: 6
+    position: 14
+    points: 2
+    played: 6
+    goalDifference: -5
+  - round: 7
+    position: 14
+    points: 3
+    played: 7
+    goalDifference: -5
+  - round: 8
+    position: 14
+    points: 4
+    played: 8
+    goalDifference: -5
+  - round: 9
+    position: 13
+    points: 5
+    played: 9
+    goalDifference: -5
+  - round: 10
+    position: 13
+    points: 5
+    played: 10
+    goalDifference: -7
+  - round: 11
+    position: 12
+    points: 8
+    played: 11
+    goalDifference: -6
+  - round: 12
+    position: 12
+    points: 9
+    played: 12
+    goalDifference: -6
+  - round: 13
+    position: 14
+    points: 9
+    played: 13
+    goalDifference: -8
+  - round: 14
+    position: 13
+    points: 12
+    played: 14
+    goalDifference: -7
+  - round: 15
+    position: 13
+    points: 12
+    played: 15
+    goalDifference: -9
+  - round: 16
+    position: 14
+    points: 12
+    played: 16
+    goalDifference: -12
+  - round: 17
+    position: 14
+    points: 12
+    played: 17
+    goalDifference: -14
+  - round: 18
+    position: 14
+    points: 15
+    played: 18
+    goalDifference: -12
+  - round: 19
+    position: 14
+    points: 15
+    played: 19
+    goalDifference: -16
+  - round: 20
+    position: 13
+    points: 18
+    played: 20
+    goalDifference: -13
+  - round: 21
+    position: 14
+    points: 18
+    played: 21
+    goalDifference: -16
+  - round: 22
+    position: 14
+    points: 21
+    played: 22
+    goalDifference: -15
+  - round: 23
+    position: 13
+    points: 24
+    played: 23
+    goalDifference: -13
+  - round: 24
+    position: 13
+    points: 25
+    played: 24
+    goalDifference: -13
+  - round: 25
+    position: 13
+    points: 25
+    played: 25
+    goalDifference: -15
+  - round: 26
+    position: 13
+    points: 28
+    played: 26
+    goalDifference: -13
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2003/Premier.html
+    retrievedAt: 2026-08-04
+    fields:
+      - table
+      - progression
+    note: Lest med rsssf@1. Tabellen er hentet; kurven er regnet ut av rundene på samme side.
