@@ -308,7 +308,7 @@ er Next sitt hydreringsdata-unntak, og det står forklart der.
 
 ## Testing og CI
 
-171 tester, ingen tjeneste. Testene som trenger en database bygger sin egen arkivfil fra
+204 tester, ingen tjeneste. Testene som trenger en database bygger sin egen arkivfil fra
 `fixtures/data` i `beforeAll` — det tar millisekunder, og gjør at alt kjører likt lokalt og i
 CI. Det finnes ingen tester som «hoppes over uten database».
 
@@ -319,7 +319,9 @@ vokser, og da måler testene noe annet enn de gjorde i går.
 
 CI kjører, i rekkefølge: valider arkivet, valider fixture-arkivet, typesjekk, lint, tester, og
 til slutt et fullt bygg av nettstedet med fixture-data. Byggesteget bruker fixtures med vilje —
-med et tomt `data/` ville det vært grønt uten å ha rendret en eneste kamp.
+med et tomt `data/` ville det vært grønt uten å ha rendret en eneste kamp. Jobben kjører med
+`permissions: contents: read`, så et kompromittert ledd i pnpm-treet ikke har et token som kan
+skrive tilbake til repoet.
 
 ## Utrulling
 
