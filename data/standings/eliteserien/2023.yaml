@@ -1,0 +1,345 @@
+competitionId: eliteserien
+season: 2023
+table:
+  - position: 1
+    name: Bodø/Glimt
+    clubId: bodo-glimt
+    played: 30
+    wins: 22
+    draws: 4
+    losses: 4
+    goalsFor: 78
+    goalsAgainst: 38
+    points: 70
+    outcome: none
+    note: Champions League
+  - position: 2
+    name: Brann
+    clubId: sk-brann
+    played: 30
+    wins: 19
+    draws: 4
+    losses: 7
+    goalsFor: 55
+    goalsAgainst: 35
+    points: 61
+    outcome: none
+    note: Conference League
+  - position: 3
+    name: Tromsø
+    clubId: tromso
+    played: 30
+    wins: 19
+    draws: 4
+    losses: 7
+    goalsFor: 48
+    goalsAgainst: 33
+    points: 61
+    outcome: none
+    note: Conference League
+  - position: 4
+    name: Viking
+    clubId: viking
+    played: 30
+    wins: 18
+    draws: 4
+    losses: 8
+    goalsFor: 61
+    goalsAgainst: 48
+    points: 58
+    outcome: none
+  - position: 5
+    name: Molde
+    clubId: molde-fk
+    played: 30
+    wins: 15
+    draws: 6
+    losses: 9
+    goalsFor: 65
+    goalsAgainst: 39
+    points: 51
+    outcome: none
+    note: Europa League (cup winner)
+  - position: 6
+    name: Lillestrøm
+    clubId: lillestrom
+    played: 30
+    wins: 13
+    draws: 4
+    losses: 13
+    goalsFor: 49
+    goalsAgainst: 49
+    points: 43
+    outcome: none
+  - position: 7
+    name: Strømsgodset
+    clubId: stromsgodset
+    played: 30
+    wins: 13
+    draws: 3
+    losses: 14
+    goalsFor: 37
+    goalsAgainst: 35
+    points: 42
+    outcome: none
+  - position: 8
+    name: Sarpsborg 08
+    clubId: sarpsborg-08
+    played: 30
+    wins: 12
+    draws: 5
+    losses: 13
+    goalsFor: 55
+    goalsAgainst: 52
+    points: 41
+    outcome: none
+  - position: 9
+    name: Rosenborg
+    clubId: rosenborg-bk
+    played: 30
+    wins: 11
+    draws: 6
+    losses: 13
+    goalsFor: 46
+    goalsAgainst: 50
+    points: 39
+    outcome: none
+  - position: 10
+    name: Odd
+    clubId: odds-ballklubb
+    played: 30
+    wins: 10
+    draws: 8
+    losses: 12
+    goalsFor: 42
+    goalsAgainst: 44
+    points: 38
+    outcome: none
+  - position: 11
+    name: HamKam
+    clubId: null
+    played: 30
+    wins: 10
+    draws: 4
+    losses: 16
+    goalsFor: 39
+    goalsAgainst: 59
+    points: 34
+    outcome: none
+  - position: 12
+    name: Haugesund
+    clubId: fk-haugesund
+    played: 30
+    wins: 9
+    draws: 6
+    losses: 15
+    goalsFor: 34
+    goalsAgainst: 40
+    points: 33
+    outcome: none
+  - position: 13
+    name: Sandefjord Fotball
+    clubId: sandefjord
+    played: 30
+    wins: 8
+    draws: 7
+    losses: 15
+    goalsFor: 47
+    goalsAgainst: 55
+    points: 31
+    outcome: none
+  - position: 14
+    name: Vålerenga
+    clubId: valerenga
+    played: 30
+    wins: 7
+    draws: 8
+    losses: 15
+    goalsFor: 39
+    goalsAgainst: 50
+    points: 29
+    outcome: playoff
+    note: Play-off
+  - position: 15
+    name: Stabæk
+    clubId: stabaek
+    played: 30
+    wins: 7
+    draws: 8
+    losses: 15
+    goalsFor: 30
+    goalsAgainst: 48
+    points: 29
+    outcome: relegated
+    note: Relegated
+  - position: 16
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 30
+    wins: 5
+    draws: 3
+    losses: 22
+    goalsFor: 23
+    goalsAgainst: 73
+    points: 18
+    outcome: relegated
+    note: Relegated
+progression:
+  - round: 1
+    position: 11
+    points: 0
+    played: 1
+    goalDifference: -1
+  - round: 2
+    position: 16
+    points: 0
+    played: 2
+    goalDifference: -2
+  - round: 3
+    position: 16
+    points: 0
+    played: 3
+    goalDifference: -5
+  - round: 4
+    position: 16
+    points: 0
+    played: 4
+    goalDifference: -9
+  - round: 5
+    position: 16
+    points: 1
+    played: 5
+    goalDifference: -9
+  - round: 6
+    position: 16
+    points: 1
+    played: 6
+    goalDifference: -10
+  - round: 7
+    position: 16
+    points: 4
+    played: 7
+    goalDifference: -8
+  - round: 8
+    position: 16
+    points: 4
+    played: 8
+    goalDifference: -10
+  - round: 9
+    position: 16
+    points: 4
+    played: 9
+    goalDifference: -12
+  - round: 10
+    position: 16
+    points: 4
+    played: 10
+    goalDifference: -13
+  - round: 11
+    position: 16
+    points: 4
+    played: 11
+    goalDifference: -17
+  - round: 12
+    position: 15
+    points: 7
+    played: 12
+    goalDifference: -16
+  - round: 13
+    position: 16
+    points: 7
+    played: 13
+    goalDifference: -17
+  - round: 14
+    position: 16
+    points: 7
+    played: 14
+    goalDifference: -20
+  - round: 15
+    position: 16
+    points: 7
+    played: 15
+    goalDifference: -22
+  - round: 16
+    position: 16
+    points: 10
+    played: 16
+    goalDifference: -21
+  - round: 17
+    position: 16
+    points: 10
+    played: 17
+    goalDifference: -24
+  - round: 18
+    position: 16
+    points: 10
+    played: 18
+    goalDifference: -26
+  - round: 19
+    position: 16
+    points: 10
+    played: 19
+    goalDifference: -30
+  - round: 20
+    position: 16
+    points: 10
+    played: 20
+    goalDifference: -34
+  - round: 21
+    position: 16
+    points: 11
+    played: 21
+    goalDifference: -34
+  - round: 22
+    position: 16
+    points: 11
+    played: 22
+    goalDifference: -36
+  - round: 23
+    position: 16
+    points: 12
+    played: 23
+    goalDifference: -36
+  - round: 24
+    position: 16
+    points: 15
+    played: 24
+    goalDifference: -35
+  - round: 25
+    position: 16
+    points: 18
+    played: 25
+    goalDifference: -34
+  - round: 26
+    position: 16
+    points: 18
+    played: 26
+    goalDifference: -39
+  - round: 27
+    position: 16
+    points: 18
+    played: 27
+    goalDifference: -42
+  - round: 28
+    position: 16
+    points: 18
+    played: 28
+    goalDifference: -43
+  - round: 29
+    position: 16
+    points: 18
+    played: 29
+    goalDifference: -47
+  - round: 30
+    position: 16
+    points: 18
+    played: 30
+    goalDifference: -50
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2023/Premier.html
+    retrievedAt: 2026-08-04
+    fields:
+      - table
+      - progression
+    note: Lest med rsssf@1. Tabellen er hentet; kurven er regnet ut av rundene på samme side.

@@ -7,6 +7,7 @@ noe her som ikke stemmer med skjemaet, er skjemaet riktig.
 - [Katalogstruktur](#katalogstruktur)
 - [Fellesregler](#fellesregler)
 - [Kamp](#kamp)
+- [Sluttabell](#sluttabell)
 - [Sesong](#sesong)
 - [Klubb](#klubb)
 - [Stadion](#stadion)
@@ -24,6 +25,8 @@ data/
 ├── sources/        <kilde-id>.yaml          Kildekatalog med rettighetsstatus
 ├── observations/
 │   └── rsssf/      <ekstern-id>.yaml        Hva kilden sa, før normalisering
+├── standings/
+│   └── eliteserien/<år>.yaml                Sluttabell og plasseringskurve
 └── seasons/
     └── 2019/
         ├── season.yaml                      Sesongmeta
@@ -257,6 +260,52 @@ skrives fra og med neste innhøsting.
 
 Dette er ikke et fullt råpayload-arkiv. Feltene adapteren leste lagres, ikke hele JSON-svaret
 eller HTML-sida. Å speile kildene i sin helhet er et rettighetsspørsmål vi ikke har svart på.
+
+### Sluttabell
+
+Tabellen har ligget nederst på hver RSSSF-sesongside hele tiden. Kampparseren leste
+resultatlinjene og kastet resten, så arkivet hadde 32 seriesesonger uten å vite hvor laget
+endte i en eneste av dem.
+
+```yaml
+competitionId: forstedivisjon
+season: 1998
+table:
+  - position: 1
+    name: Odd Grenland          # kildens eget lagnavn
+    clubId: odds-ballklubb      # null når klubben ikke finnes i arkivet
+    played: 26
+    wins: 16
+    draws: 7
+    losses: 3
+    goalsFor: 55
+    goalsAgainst: 18
+    points: 55
+    outcome: promoted           # promoted | relegated | promotion_playoff |
+                                # relegation_playoff | playoff | none
+    note: Champions League      # kildens merknad når den sier mer enn outcome
+progression:                    # AaFKs plass etter hver runde, utregnet
+  - { round: 1, position: 12, points: 0, played: 1, goalDifference: -3 }
+sources:
+  - { sourceId: rsssf, url: …, retrievedAt: 2026-08-04, fields: [table, progression] }
+```
+
+| Regel | Hvorfor |
+|---|---|
+| Lagnavnet er kildens eget, og `clubId` er valgfri | En divisjon har seksten lag, og AaFK har ikke møtt alle. Å kreve en klubbfil per rad hadde betydd rundt 40 klubber uten en eneste kamp i arkivet |
+| `points` er tallet tabellen viser, ikke `wins * 3 + draws` | Poengtrekk finnes, og to poeng for seier gjaldt til 1987 |
+| Plasseringene må være 1 til N uten hull | Et hull betyr at parseren har mistet en rad, og en tabell som mangler et lag ser helt normal ut |
+| `progression` er utregnet, ikke hentet | En tabell etter runde 12 krever hver kamp i divisjonen. De lagres ikke; se under |
+
+**Hvorfor kurven ikke er kamper.** En tabell underveis kan ikke regnes ut av AaFKs kamper
+alene. Å lagre hele divisjonen ville gjort arkivet til noe annet: rundt 200 kamper per
+sesong for lag prosjektet ikke handler om, mot dagens 26. Vi lagrer derfor det utregnede,
+og lar `sources[]` peke på sida tallene kom fra.
+
+**To kontroller står som port.** Kurven skrives bare når den lander på nøyaktig samme
+plass, poengsum, kampantall og målforskjell som tabellen kilden trykte, og når lagene i
+runderekka er de samme som i tabellen. Holder ikke begge, står tabellen alene og
+`note` sier hvorfor. Tabellen er hentet; kurven er vår, og bare den kan være gal.
 
 ## Sesong
 

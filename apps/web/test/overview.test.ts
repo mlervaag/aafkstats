@@ -9,6 +9,7 @@ import {
   loadNextMatch,
   loadOverview,
   loadSeason,
+  loadStandings,
 } from "../lib/archive.js";
 
 const previousDbPath = process.env.AAFK_DB_PATH;
@@ -91,5 +92,40 @@ describe("naboårene", () => {
   it("gir null i hver ende", () => {
     expect(loadNeighbourSeasons(1998).previous).toBeNull();
     expect(loadNeighbourSeasons(2024).next).toBeNull();
+  });
+});
+
+describe("sluttabellen", () => {
+  it("leser tabellen med kildens lagnavn", () => {
+    const { table } = loadStandings("forstedivisjon", 1998);
+    expect(table).toHaveLength(5);
+    expect(table[0]).toMatchObject({ position: 1, team: "Molde", clubId: "molde-fk", points: 13 });
+    // Laget uten klubbfil skal stå der med navn og uten lenke.
+    expect(table.at(-1)).toMatchObject({ team: "Eik-Tønsberg", clubId: null, url: null });
+  });
+
+  it("regner ut målforskjellen i viewet", () => {
+    const { table } = loadStandings("forstedivisjon", 1998);
+    expect(table[0]!.goalDifference).toBe(6);
+    expect(table.at(-1)!.goalDifference).toBe(-5);
+  });
+
+  it("gir sesongen sin sluttplass fra tabellen", () => {
+    // core_seasons har feltet, men ingen har fylt det for en eneste sesong.
+    // Fixturens season.yaml sier 8. plass; tabellen sier 3., og tabellen vinner.
+    const summary = loadSeason(1998)!.summaries.find((s) => s.competitionId === "forstedivisjon")!;
+    expect(summary.finalPosition).toBe(3);
+  });
+
+  it("gir ingen tabell for en sesong vi ikke har hentet", () => {
+    expect(loadStandings("eliteserien", 2024).table).toEqual([]);
+  });
+
+  it("leser kurven i rundenes rekkefølge", () => {
+    const { progression } = loadStandings("forstedivisjon", 1998);
+    expect(progression.map((p) => p.round)).toEqual([1, 2, 3, 4, 5, 6]);
+    // Siste punkt skal stemme med tabellraden. Det er hele kontrakten kurven
+    // slipper gjennom innhøstingen på.
+    expect(progression.at(-1)).toMatchObject({ position: 3, points: 8, played: 6 });
   });
 });

@@ -83,6 +83,47 @@ CREATE TABLE core_seasons (
   note             TEXT
 );
 
+-- Sluttabellen for én konkurranse i én sesong, og AaFKs vei gjennom den.
+--
+-- Lagene bærer kildens eget navn. En divisjon har seksten lag og AaFK har aldri
+-- møtt alle, så en klubbrad per lag ville betydd rundt 40 klubber i arkivet uten
+-- en eneste kamp. `club_id` settes for dem vi kjenner fra før, og er NULL for
+-- resten — en normal tilstand, ikke et hull.
+CREATE TABLE core_standings (
+  competition_id   TEXT NOT NULL REFERENCES core_competitions(id),
+  season           INTEGER NOT NULL,
+  position         INTEGER NOT NULL,
+  team             TEXT NOT NULL,
+  club_id          TEXT REFERENCES core_clubs(id),
+  played           INTEGER NOT NULL,
+  wins             INTEGER NOT NULL,
+  draws            INTEGER NOT NULL,
+  losses           INTEGER NOT NULL,
+  goals_for        INTEGER NOT NULL,
+  goals_against    INTEGER NOT NULL,
+  -- Poeng slik tabellen viser dem. Regnes ikke ut: poengtrekk finnes, og to
+  -- poeng for seier gjaldt til 1987.
+  points           INTEGER NOT NULL,
+  outcome          TEXT NOT NULL DEFAULT 'none'
+                     CHECK (outcome IN ('promoted','relegated','promotion_playoff',
+                                        'relegation_playoff','playoff','none')),
+  note             TEXT,
+  PRIMARY KEY (competition_id, season, position)
+);
+
+-- AaFKs plassering etter hver runde, regnet ut ved innhøsting av kildens fulle
+-- runderekke. Kampene bak utregningen lagres ikke; se packages/schema/src/standings.ts.
+CREATE TABLE core_standings_progression (
+  competition_id   TEXT NOT NULL REFERENCES core_competitions(id),
+  season           INTEGER NOT NULL,
+  round            INTEGER NOT NULL,
+  position         INTEGER NOT NULL,
+  points           INTEGER NOT NULL,
+  played           INTEGER NOT NULL,
+  goal_difference  INTEGER NOT NULL,
+  PRIMARY KEY (competition_id, season, round)
+);
+
 CREATE TABLE core_matches (
   id               TEXT PRIMARY KEY,
   match_date       TEXT NOT NULL,          -- 'YYYY-MM-DD'. Sorterer riktig som tekst.
@@ -226,8 +267,20 @@ SELECT
   m.competition_name                                        AS competition,
   c.type                                                    AS competition_type,
   c.tier                                                    AS competition_tier,
-  s.final_position,
-  s.teams_in_league,
+  -- Sluttplassen kommer fra tabellen når vi har den, ellers fra sesongposten.
+  -- core_seasons har feltet, men ingen har fylt det for en eneste sesong; tabellen
+  -- vet svaret, og den vet det for alle lagene, ikke bare vårt.
+  coalesce(
+    (SELECT t.position FROM core_standings t
+      WHERE t.competition_id = m.competition_id AND t.season = m.season
+        AND t.club_id = 'aalesunds-fk'),
+    s.final_position
+  )                                                         AS final_position,
+  coalesce(
+    (SELECT count(*) FROM core_standings t
+      WHERE t.competition_id = m.competition_id AND t.season = m.season),
+    s.teams_in_league
+  )                                                         AS teams_in_league,
   s.head_coach,
   coalesce(s.promoted, 0)                                   AS promoted,
   coalesce(s.relegated, 0)                                  AS relegated,
@@ -308,6 +361,40 @@ SELECT
 FROM core_matches m
 JOIN core_clubs c ON c.id = m.opponent_club_id
 GROUP BY c.id;
+
+-- Sluttabellen, ett lag per rad. Lagnavnet er kildens eget; club_id er satt for
+-- de lagene arkivet kjenner fra før, og NULL for resten.
+CREATE VIEW standings AS
+SELECT
+  t.competition_id,
+  cm.name                                           AS competition,
+  t.season,
+  t.position,
+  t.team,
+  t.club_id,
+  t.played, t.wins, t.draws, t.losses,
+  t.goals_for, t.goals_against,
+  t.goals_for - t.goals_against                     AS goal_difference,
+  t.points,
+  t.outcome,
+  t.note,
+  CASE WHEN t.club_id IS NULL THEN NULL
+       ELSE '/motstander/' || t.club_id END          AS url
+FROM core_standings t
+JOIN core_competitions cm ON cm.id = t.competition_id;
+
+-- AaFKs plassering etter hver runde. Utregnet ved innhøsting, ikke lagret som
+-- kamper — se packages/schema/src/standings.ts for hvorfor.
+CREATE VIEW standings_progression AS
+SELECT
+  p.competition_id,
+  p.season,
+  p.round,
+  p.position,
+  p.points,
+  p.played,
+  p.goal_difference
+FROM core_standings_progression p;
 
 -- Én rad per kamphendelse. team er 'aafk' eller 'opponent', ikke hjemme/borte.
 CREATE VIEW match_events AS

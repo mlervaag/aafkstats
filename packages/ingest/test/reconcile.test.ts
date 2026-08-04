@@ -16,6 +16,7 @@ const archive: Archive = {
   seasons: [],
   matches: [],
   observations: [],
+  standings: [],
   issues: [],
 };
 

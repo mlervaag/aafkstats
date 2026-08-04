@@ -18,6 +18,7 @@
     "data:duplicates": "pnpm --filter @aafkstats/schema run duplicates",
     "ingest:fotmob": "pnpm --filter @aafkstats/ingest run fotmob",
     "ingest:rsssf": "pnpm --filter @aafkstats/ingest run rsssf",
+    "ingest:rsssf-standings": "pnpm --filter @aafkstats/ingest run rsssf-standings",
     "ingest:rsssf-discover": "pnpm --filter @aafkstats/ingest run rsssf-discover",
     "db:build": "pnpm --filter @aafkstats/db run build-archive",
     "typecheck": "tsc --build --force && tsc -p apps/web/tsconfig.json --noEmit",

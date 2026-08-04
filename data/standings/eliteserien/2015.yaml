@@ -1,0 +1,195 @@
+competitionId: eliteserien
+season: 2015
+table:
+  - position: 1
+    name: Rosenborg
+    clubId: rosenborg-bk
+    played: 30
+    wins: 21
+    draws: 6
+    losses: 3
+    goalsFor: 73
+    goalsAgainst: 27
+    points: 69
+    outcome: none
+    note: Champions League
+  - position: 2
+    name: Strømsgodset
+    clubId: stromsgodset
+    played: 30
+    wins: 17
+    draws: 6
+    losses: 7
+    goalsFor: 67
+    goalsAgainst: 44
+    points: 57
+    outcome: none
+    note: Europa League
+  - position: 3
+    name: Stabæk
+    clubId: stabaek
+    played: 30
+    wins: 17
+    draws: 5
+    losses: 8
+    goalsFor: 54
+    goalsAgainst: 43
+    points: 56
+    outcome: none
+    note: Europa League
+  - position: 4
+    name: Odd
+    clubId: odds-ballklubb
+    played: 30
+    wins: 15
+    draws: 10
+    losses: 5
+    goalsFor: 61
+    goalsAgainst: 41
+    points: 55
+    outcome: none
+    note: Europa League
+  - position: 5
+    name: Viking
+    clubId: viking
+    played: 30
+    wins: 17
+    draws: 2
+    losses: 11
+    goalsFor: 53
+    goalsAgainst: 39
+    points: 53
+    outcome: none
+  - position: 6
+    name: Molde
+    clubId: molde-fk
+    played: 30
+    wins: 15
+    draws: 7
+    losses: 8
+    goalsFor: 62
+    goalsAgainst: 31
+    points: 52
+    outcome: none
+  - position: 7
+    name: Vålerenga
+    clubId: valerenga
+    played: 30
+    wins: 14
+    draws: 7
+    losses: 9
+    goalsFor: 49
+    goalsAgainst: 41
+    points: 49
+    outcome: none
+  - position: 8
+    name: Lillestrøm
+    clubId: lillestrom
+    played: 30
+    wins: 12
+    draws: 9
+    losses: 9
+    goalsFor: 45
+    goalsAgainst: 43
+    points: 44
+    outcome: none
+  - position: 9
+    name: Bodø/Glimt
+    clubId: bodo-glimt
+    played: 30
+    wins: 12
+    draws: 4
+    losses: 14
+    goalsFor: 53
+    goalsAgainst: 56
+    points: 40
+    outcome: none
+  - position: 10
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 30
+    wins: 11
+    draws: 5
+    losses: 14
+    goalsFor: 42
+    goalsAgainst: 57
+    points: 38
+    outcome: none
+  - position: 11
+    name: Sarpsborg 08
+    clubId: sarpsborg-08
+    played: 30
+    wins: 8
+    draws: 10
+    losses: 12
+    goalsFor: 37
+    goalsAgainst: 49
+    points: 34
+    outcome: none
+  - position: 12
+    name: Haugesund
+    clubId: fk-haugesund
+    played: 30
+    wins: 8
+    draws: 7
+    losses: 15
+    goalsFor: 33
+    goalsAgainst: 52
+    points: 31
+    outcome: none
+  - position: 13
+    name: Tromsø
+    clubId: tromso
+    played: 30
+    wins: 7
+    draws: 8
+    losses: 15
+    goalsFor: 36
+    goalsAgainst: 50
+    points: 29
+    outcome: none
+  - position: 14
+    name: Start
+    clubId: start
+    played: 30
+    wins: 5
+    draws: 7
+    losses: 18
+    goalsFor: 35
+    goalsAgainst: 64
+    points: 22
+    outcome: playoff
+    note: Play-off
+  - position: 15
+    name: Mjøndalen
+    clubId: mjondalen
+    played: 30
+    wins: 4
+    draws: 9
+    losses: 17
+    goalsFor: 38
+    goalsAgainst: 69
+    points: 21
+    outcome: relegated
+    note: Relegated
+  - position: 16
+    name: Sandefjord Fotball
+    clubId: sandefjord
+    played: 30
+    wins: 4
+    draws: 4
+    losses: 22
+    goalsFor: 36
+    goalsAgainst: 68
+    points: 16
+    outcome: relegated
+    note: Relegated
+progression: []
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2015/Premier.html
+    retrievedAt: 2026-08-04
+    fields:
+      - table
+    note: Lest med rsssf@1. Tabellen er hentet; kurven er regnet ut av rundene på samme side.
+note: "Plasseringskurven er utelatt: utregnet slutt avviker fra tabellen: kamper 29 mot 30, poeng 37 mot 38."

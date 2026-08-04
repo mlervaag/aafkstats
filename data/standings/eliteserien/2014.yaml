@@ -1,0 +1,345 @@
+competitionId: eliteserien
+season: 2014
+table:
+  - position: 1
+    name: Molde
+    clubId: molde-fk
+    played: 30
+    wins: 22
+    draws: 5
+    losses: 3
+    goalsFor: 62
+    goalsAgainst: 24
+    points: 71
+    outcome: none
+    note: Champions League
+  - position: 2
+    name: Rosenborg
+    clubId: rosenborg-bk
+    played: 30
+    wins: 18
+    draws: 6
+    losses: 6
+    goalsFor: 64
+    goalsAgainst: 43
+    points: 60
+    outcome: none
+    note: Europa League
+  - position: 3
+    name: Odd
+    clubId: odds-ballklubb
+    played: 30
+    wins: 17
+    draws: 7
+    losses: 6
+    goalsFor: 52
+    goalsAgainst: 32
+    points: 58
+    outcome: none
+    note: Europa League
+  - position: 4
+    name: Strømsgodset
+    clubId: stromsgodset
+    played: 30
+    wins: 15
+    draws: 5
+    losses: 10
+    goalsFor: 48
+    goalsAgainst: 42
+    points: 50
+    outcome: none
+    note: Europa League
+  - position: 5
+    name: Lillestrøm
+    clubId: lillestrom
+    played: 30
+    wins: 13
+    draws: 7
+    losses: 10
+    goalsFor: 49
+    goalsAgainst: 35
+    points: 46
+    outcome: none
+  - position: 6
+    name: Vålerenga
+    clubId: valerenga
+    played: 30
+    wins: 11
+    draws: 9
+    losses: 10
+    goalsFor: 59
+    goalsAgainst: 53
+    points: 42
+    outcome: none
+  - position: 7
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 30
+    wins: 11
+    draws: 8
+    losses: 11
+    goalsFor: 40
+    goalsAgainst: 39
+    points: 41
+    outcome: none
+  - position: 8
+    name: Sarpsborg 08
+    clubId: sarpsborg-08
+    played: 30
+    wins: 10
+    draws: 10
+    losses: 10
+    goalsFor: 41
+    goalsAgainst: 48
+    points: 40
+    outcome: none
+  - position: 9
+    name: Stabæk
+    clubId: stabaek
+    played: 30
+    wins: 11
+    draws: 6
+    losses: 13
+    goalsFor: 44
+    goalsAgainst: 52
+    points: 39
+    outcome: none
+  - position: 10
+    name: Viking
+    clubId: viking
+    played: 30
+    wins: 8
+    draws: 12
+    losses: 10
+    goalsFor: 42
+    goalsAgainst: 42
+    points: 36
+    outcome: none
+  - position: 11
+    name: Haugesund
+    clubId: fk-haugesund
+    played: 30
+    wins: 10
+    draws: 6
+    losses: 14
+    goalsFor: 43
+    goalsAgainst: 49
+    points: 36
+    outcome: none
+  - position: 12
+    name: Start
+    clubId: start
+    played: 30
+    wins: 10
+    draws: 5
+    losses: 15
+    goalsFor: 47
+    goalsAgainst: 60
+    points: 35
+    outcome: none
+  - position: 13
+    name: Bodø/Glimt
+    clubId: bodo-glimt
+    played: 30
+    wins: 10
+    draws: 5
+    losses: 15
+    goalsFor: 45
+    goalsAgainst: 60
+    points: 35
+    outcome: none
+  - position: 14
+    name: Brann
+    clubId: sk-brann
+    played: 30
+    wins: 8
+    draws: 5
+    losses: 17
+    goalsFor: 41
+    goalsAgainst: 54
+    points: 29
+    outcome: playoff
+    note: Play-off
+  - position: 15
+    name: Sogndal
+    clubId: sogndal
+    played: 30
+    wins: 6
+    draws: 6
+    losses: 18
+    goalsFor: 31
+    goalsAgainst: 49
+    points: 24
+    outcome: relegated
+    note: Relegated
+  - position: 16
+    name: Sandnes Ulf
+    clubId: sandnes-ulf
+    played: 30
+    wins: 4
+    draws: 10
+    losses: 16
+    goalsFor: 27
+    goalsAgainst: 53
+    points: 22
+    outcome: relegated
+    note: Relegated
+progression:
+  - round: 1
+    position: 7
+    points: 1
+    played: 1
+    goalDifference: 0
+  - round: 2
+    position: 10
+    points: 2
+    played: 2
+    goalDifference: 0
+  - round: 3
+    position: 13
+    points: 2
+    played: 3
+    goalDifference: -2
+  - round: 4
+    position: 13
+    points: 2
+    played: 4
+    goalDifference: -3
+  - round: 5
+    position: 14
+    points: 3
+    played: 5
+    goalDifference: -3
+  - round: 6
+    position: 16
+    points: 3
+    played: 6
+    goalDifference: -4
+  - round: 7
+    position: 11
+    points: 6
+    played: 7
+    goalDifference: -3
+  - round: 8
+    position: 14
+    points: 6
+    played: 8
+    goalDifference: -4
+  - round: 9
+    position: 14
+    points: 7
+    played: 9
+    goalDifference: -4
+  - round: 10
+    position: 14
+    points: 7
+    played: 10
+    goalDifference: -5
+  - round: 11
+    position: 13
+    points: 8
+    played: 11
+    goalDifference: -5
+  - round: 12
+    position: 14
+    points: 8
+    played: 12
+    goalDifference: -8
+  - round: 13
+    position: 13
+    points: 11
+    played: 13
+    goalDifference: -5
+  - round: 14
+    position: 13
+    points: 14
+    played: 14
+    goalDifference: -3
+  - round: 15
+    position: 13
+    points: 14
+    played: 15
+    goalDifference: -4
+  - round: 16
+    position: 14
+    points: 14
+    played: 16
+    goalDifference: -5
+  - round: 17
+    position: 14
+    points: 15
+    played: 17
+    goalDifference: -5
+  - round: 18
+    position: 13
+    points: 18
+    played: 18
+    goalDifference: -4
+  - round: 19
+    position: 14
+    points: 18
+    played: 19
+    goalDifference: -5
+  - round: 20
+    position: 13
+    points: 21
+    played: 20
+    goalDifference: -2
+  - round: 21
+    position: 13
+    points: 21
+    played: 21
+    goalDifference: -7
+  - round: 22
+    position: 12
+    points: 24
+    played: 22
+    goalDifference: -5
+  - round: 23
+    position: 11
+    points: 25
+    played: 23
+    goalDifference: -5
+  - round: 24
+    position: 10
+    points: 28
+    played: 24
+    goalDifference: -2
+  - round: 25
+    position: 11
+    points: 28
+    played: 25
+    goalDifference: -5
+  - round: 26
+    position: 11
+    points: 29
+    played: 26
+    goalDifference: -5
+  - round: 27
+    position: 11
+    points: 32
+    played: 27
+    goalDifference: -4
+  - round: 28
+    position: 9
+    points: 35
+    played: 28
+    goalDifference: -3
+  - round: 29
+    position: 7
+    points: 38
+    played: 29
+    goalDifference: 0
+  - round: 30
+    position: 7
+    points: 41
+    played: 30
+    goalDifference: 1
+sources:
+  - sourceId: rsssf
+    url: http://www.rsssf.no/2014/Premier.html
+    retrievedAt: 2026-08-04
+    fields:
+      - table
+      - progression
+    note: Lest med rsssf@1. Tabellen er hentet; kurven er regnet ut av rundene på samme side.

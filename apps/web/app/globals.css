@@ -1237,3 +1237,35 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
 .section-heading .coverage-tag { margin-top: 0; align-self: baseline; }
 
 .coverage-summary { max-width: var(--measure); margin-top: 0.9rem; }
+
+/* ── Sluttabell ──────────────────────────────────────────────────────── */
+.season-standings { margin-top: 1.75rem; }
+.standings-table { font-variant-numeric: tabular-nums; font-size: 0.9rem; }
+.standings-table th[scope="row"] { font-weight: 450; text-align: left; white-space: nowrap; }
+.standings-table .col-pos { width: 2.5rem; text-align: right; color: var(--muted); }
+.standings-table td.num, .standings-table th.num { text-align: right; }
+/* Vår egen rad skal kunne finnes uten å lese seg gjennom seksten navn. */
+.standings-table .is-aafk { background: var(--surface-2); }
+.standings-table .is-aafk th[scope="row"] { font-weight: 650; }
+.outcome { font-size: 0.72rem; color: var(--muted); white-space: nowrap; }
+.outcome-promoted { color: var(--win); }
+.outcome-relegated { color: var(--loss); }
+
+/* ── Plassering gjennom sesongen ─────────────────────────────────────── */
+/* Diskré med vilje: ingen akser, ingen rutenett. Formen er poenget, og de
+   eksakte tallene står i tabellen rett under. */
+.progression { margin: 0 0 1rem; }
+.progression svg {
+  display: block;
+  width: 100%;
+  /* 16 plasseringer skal kunne skilles fra hverandre. På 4,5rem ble det fire
+     piksler per plass, og en sesong fra 11. til 16. så ut som en rett strek. */
+  height: 7rem;
+  overflow: visible;
+}
+.progression-line { fill: none; stroke: var(--accent); stroke-width: 1.75; stroke-linejoin: round; }
+.progression-end { fill: var(--accent); }
+/* Nedrykksstreken. Uten en referanse er det ikke mulig å se om en kurve som
+   faller er dramatisk eller udramatisk. */
+.progression-danger { stroke: var(--border); stroke-width: 1; stroke-dasharray: 3 3; }
+.progression figcaption { margin-top: 0.5rem; max-width: var(--measure); }

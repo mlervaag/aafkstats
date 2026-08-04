@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CoverageTag } from "@/components/Coverage";
 import { MatchList } from "@/components/MatchList";
-import { loadNeighbourSeasons, loadSeason } from "@/lib/archive";
+import { ProgressionChart, StandingsTable } from "@/components/Standings";
+import { loadNeighbourSeasons, loadSeason, loadStandings } from "@/lib/archive";
 
 export const dynamic = "force-dynamic";
 
@@ -72,6 +73,10 @@ export default async function SeasonPage({ params }: Props) {
               </div>
             )}
 
+            {/* Tabellen står over kamplista. Den svarer på det folk kommer for
+                først — hvor det endte — og lista svarer på hvordan. */}
+            <SeasonStandings competitionId={summary.competitionId} season={year} />
+
             <MatchList matches={played} />
             {upcoming.length > 0 && (
               <>
@@ -115,6 +120,25 @@ export default async function SeasonPage({ params }: Props) {
         {next ? <a href={`/sesong/${next}`}>{next} →</a> : <span />}
       </nav>
     </>
+  );
+}
+
+/**
+ * Sluttabellen for én konkurranse, med kurven over.
+ *
+ * Renders ingenting når vi ikke har tabellen for året. 27 av 32 seriesesonger
+ * har den; cupen har ingen, og den inneværende sesongen har ingen ennå.
+ */
+function SeasonStandings({ competitionId, season }: { competitionId: string; season: number }) {
+  const { table, progression } = loadStandings(competitionId, season);
+  if (table.length === 0) return null;
+
+  return (
+    <section className="season-standings">
+      <h3 className="subsection-heading">Tabell</h3>
+      <ProgressionChart points={progression} teams={table.length} season={season} />
+      <StandingsTable rows={table} season={season} />
+    </section>
   );
 }
 
