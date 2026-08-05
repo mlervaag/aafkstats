@@ -53,6 +53,7 @@ export default function Home() {
           <a href="/sesonger"><strong>Sesonger</strong><span>Resultater og alle kamper, år for år</span></a>
           <a href="/motstandere"><strong>Motstandere</strong><span>Innbyrdes statistikk gjennom historien</span></a>
           <a href="/data"><strong>Datasettet</strong><span>Se feltene og SQL-en bak AI-svarene</span></a>
+          <a href="/bidra"><strong>Bidra</strong><span>Del minner og faktasjekk hendelser</span></a>
         </aside>
       </section>
 

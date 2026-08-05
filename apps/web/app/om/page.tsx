@@ -17,6 +17,11 @@ export default function AboutPage() {
               sluttresultat. Detaljgraden varierer: hendelser, lagoppstillinger, tilskuertall og
               statistikk finnes bare der kilden hadde dem.
             </p>
+            <p>
+              Besøkende kan bidra med minner, rettelser eller fakta via knapper på hver
+              kamp- og sesongside. Disse bidragene går gjennom en redaksjonell innboks før 
+              de havner i arkivet.
+            </p>
             <CoverageNote />
             <GapNote />
           </section>
