@@ -49,13 +49,13 @@ leser fra.
 
 | | |
 |---|---|
-| **1 040 kamper** | 829 seriekamper · 203 cupkamper · 8 treningskamper |
+| **1 244 kamper** | 1 033 seriekamper · 188 cupkamper · 8 treningskamper (15 på terminlista) |
 | **85 sesonger** | 1917–2026. Cupen tilbake til 1917, serien til 1951 |
-| **128 klubber · 84 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
+| **155 klubber · 84 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
 | **523 kamper med hendelser** | Mål, kort og bytter. 527 med lagoppstilling, 305 med tilskuertall |
-| **6 kilder** | Hver med rettighetsstatus som data, ikke som prosa |
+| **8 kilder** | Hver med rettighetsstatus som data, ikke som prosa |
 
-<sub>Tall per 3. august 2026. <code>pnpm validate</code> skriver ut de gjeldende.</sub>
+<sub>Tall per 5. august 2026. <code>pnpm validate</code> skriver ut de gjeldende.</sub>
 
 ## Slik henger det sammen
 
@@ -231,12 +231,13 @@ hvis dokumentasjonen ikke stemmer med databasen.
 
 ## Kilder og rettigheter
 
-To kilder er i bruk, og de dekker hver sin del av historien:
+Tre kilder er i bruk for kampdata, og de utfyller hverandre gjennom historien:
 
 | Kilde | Periode | Gir |
 |---|---|---|
 | [FotMob](docs/data/FOTMOB_DEKNINGSTAK.md) | 2010→ | Kampfakta, hendelser, lagoppstillinger, statistikk, tilskuertall |
-| [RSSSF Norway](docs/data/RSSSF_DEKNING.md) | ←2009 | Dato, lag, resultat og runde. Ingen detaljer |
+| NFF Fotballdata (fotball.no) | 1982–2000 | Runde, dato, motstander, resultat og tabeller for utvalgte sesonger |
+| [RSSSF Norway](docs/data/RSSSF_DEKNING.md) | ←2010 | Dato, lag, resultat og runde for eldste sesonger |
 
 Begge dokumentene sier hvor kilden slutter og hvorfor — det er lettere å lese enn å
 gjenoppdage. Hvilke kilder som kan brukes, og hvordan, er kartlagt i
