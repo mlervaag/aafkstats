@@ -23,10 +23,10 @@ export default function ContributePage() {
       <div className="contribute-grid">
         <section className="archive-card">
           <span className="card-kicker">Raskest</span>
-          <h2>Meld inn en feil</h2>
+          <h2>Del minner, eller meld en feil</h2>
           <p>
-            Oppgi kampdato, hva som er feil, riktig verdi og hvor opplysningen kan
-            kontrolleres.
+            Bruk malene på GitHub til å legge inn en observasjon, tipse om en kilde eller
+            melde inn noe som bør rettes.
           </p>
           <a
             className="button-link"
