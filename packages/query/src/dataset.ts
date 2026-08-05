@@ -388,11 +388,11 @@ WHERE decided_on_penalties = 1 AND won_on_penalties = 1
 ORDER BY date DESC`,
   },
   {
-    question: "Er det lagt inn noen bidrag eller minner om kamper mot Lyn i 2007?",
+    question: "Er det lagt inn noen bidrag eller minner om kamper mot Brann i 1998?",
     sql: `SELECT c.text, c.contributor, c.verification
 FROM contributions c
 JOIN matches m ON c.target_id = m.match_id
-WHERE c.scope = 'match' AND m.opponent = 'Lyn' AND m.season = 2007`,
+WHERE c.scope = 'match' AND m.opponent = 'SK Brann' AND m.season = 1998`,
   },
 ];
 
