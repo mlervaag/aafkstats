@@ -12,8 +12,7 @@
 |---|---|
 | [Kildekart og innhentingsstrategi](research/KILDEKART_OG_INNHENTINGSSTRATEGI.md) | Hvilke kilder som finnes, hvilke som er røde, og hvorfor |
 | [FotMob: dekningstak](data/FOTMOB_DEKNINGSTAK.md) | Hvor den moderne kilden slutter |
-| [FotMob: pilot 2025](data/FOTMOB_PILOT_2025.md) | Hva et detaljoppslag faktisk gir |
-| [FotMob: testdata 2011–2025](data/FOTMOB_TESTDATA_2011_2025.md) | Hva innhøstingen av 15 sesonger ga |
+
 | [RSSSF: dekning](data/RSSSF_DEKNING.md) | Hvordan hullet under FotMob ble fylt |
 | [RSSSF: dekningskart](data/RSSSF_DEKNINGSKART.md) | Hvilke sesonger og divisjoner kilden har |
 
