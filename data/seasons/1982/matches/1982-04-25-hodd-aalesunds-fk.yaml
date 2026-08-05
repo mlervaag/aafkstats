@@ -1,0 +1,41 @@
+id: 1982-04-25-hodd-aalesunds-fk
+date: 1982-04-25
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1982
+  stage: regular_season
+  round: 1
+home:
+  clubId: hodd
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83035&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99002.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99002"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
