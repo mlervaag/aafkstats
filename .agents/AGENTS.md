@@ -28,7 +28,11 @@ If you add a field to the data model, it must be updated in **four** places:
 
 ## 4. Documentation and Governance Drift
 - Keep `README.md`, `docs/ARKITEKTUR.md`, and `docs/DATAMODELL.md` up-to-date with any architecture or data changes. 
-- If you update stats, check the `README.md` and `packages/db/README.md` to ensure numbers match the reality of the database.
+- If you import new data (e.g. adding matches, seasons, or sources), you MUST update the statistics and facts in:
+  - `README.md` (e.g., "Arkivet i tall" section: number of matches, seasons, clubs, venues, sources)
+  - `packages/db/README.md` (database stats)
+  - `apps/web/app/om/page.tsx` (if data sources or legal permission statuses change)
+- If you update the data model or change how data is structured, you MUST ensure that `docs/DATAMODELL.md` exactly matches the new schema changes.
 - Read `docs/ARKITEKTUR.md` before making any structural changes or adding dependencies.
 
 ## 5. Coding Standards and Language
