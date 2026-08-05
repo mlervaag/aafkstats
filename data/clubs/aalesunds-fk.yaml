@@ -1,5 +1,17 @@
 id: aalesunds-fk
 name: Aalesunds FK
-names: []
+shortName: AaFK
+names:
+  - name: Aalesunds Fotballklub
+    from: null
+    to: 1927-12-31
+  - name: Aalesunds FK
+    from: 1928-01-01
+    to: null
 country: NO
-aliases: {}
+city: Ålesund
+founded: 1914
+aliases:
+  fotmob: 8404
+  wikidata: Q214992
+  rsssf: aalesunds
