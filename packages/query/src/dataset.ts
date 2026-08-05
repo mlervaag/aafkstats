@@ -310,6 +310,25 @@ export const views: ViewDoc[] = [
       { name: "note", type: "text", description: "Forbehold og dekningsområde." },
     ],
   },
+  {
+    name: "contributions",
+    summary: "Brukerinnsendte bidrag, observasjoner og minner hentet fra innboksen.",
+    caveats: [
+      "Bare godkjente bidrag som har gått gjennom redaksjonell kontroll ligger her.",
+      "Bidrag knyttes til enten en kamp (target_id = match_id) eller en sesong (target_id = årstall). Sjekk scope ('match' eller 'season') for å se hva target_id peker på.",
+    ],
+    columns: [
+      { name: "id", type: "text", description: "Unik ID for bidraget." },
+      { name: "scope", type: "text", description: "'match' eller 'season'." },
+      { name: "target_id", type: "text", description: "Kamp-ID eller sesongår." },
+      { name: "category", type: "text", description: "Kategori, f.eks. 'memory', 'context', 'trivia', 'event_detail'." },
+      { name: "text", type: "text", description: "Selve innholdet." },
+      { name: "contributor", type: "text", description: "Forfatterens navn." },
+      { name: "submitted_at", type: "text (YYYY-MM-DD)", description: "Innsendingsdato." },
+      { name: "verification", type: "text", description: "Grad av bekreftelse: 'unverified', 'corroborated' eller 'verified'." },
+      { name: "source_url", type: "text", description: "Eventuell kildelenke for påstanden." },
+    ],
+  },
 ];
 
 /** Eksempelspørringer som vises på /data og gis til modellen som mønster. */

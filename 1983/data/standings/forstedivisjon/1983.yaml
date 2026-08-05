@@ -1,0 +1,150 @@
+competitionId: forstedivisjon
+season: 1983
+table:
+- position: 1
+  name: Molde
+  clubId: molde-fk
+  played: 22
+  wins: 17
+  draws: 4
+  losses: 1
+  goalsFor: 60
+  goalsAgainst: 18
+  points: 38
+  outcome: promoted
+- position: 2
+  name: Strindheim IL
+  clubId: strindheim
+  played: 22
+  wins: 13
+  draws: 7
+  losses: 2
+  goalsFor: 35
+  goalsAgainst: 21
+  points: 33
+  outcome: none
+- position: 3
+  name: Steinkjer
+  clubId: steinkjer
+  played: 22
+  wins: 11
+  draws: 6
+  losses: 5
+  goalsFor: 50
+  goalsAgainst: 24
+  points: 28
+  outcome: none
+- position: 4
+  name: Strømsgodset IF
+  clubId: stromsgodset
+  played: 22
+  wins: 9
+  draws: 9
+  losses: 4
+  goalsFor: 35
+  goalsAgainst: 23
+  points: 27
+  outcome: none
+- position: 5
+  name: Lyn, SFK
+  clubId: lyn
+  played: 22
+  wins: 9
+  draws: 6
+  losses: 7
+  goalsFor: 28
+  goalsAgainst: 29
+  points: 24
+  outcome: none
+- position: 6
+  name: Tromsø IL
+  clubId: tromso
+  played: 22
+  wins: 5
+  draws: 11
+  losses: 6
+  goalsFor: 19
+  goalsAgainst: 24
+  points: 21
+  outcome: none
+- position: 7
+  name: Mjølner Narvik
+  clubId: mjolner-narvik
+  played: 22
+  wins: 8
+  draws: 5
+  losses: 9
+  goalsFor: 24
+  goalsAgainst: 30
+  points: 21
+  outcome: none
+- position: 8
+  name: Hødd (Gjennopprettet)
+  clubId: hodd
+  played: 22
+  wins: 8
+  draws: 2
+  losses: 12
+  goalsFor: 32
+  goalsAgainst: 46
+  points: 18
+  outcome: none
+- position: 9
+  name: Mo IL
+  clubId: mo-il
+  played: 22
+  wins: 6
+  draws: 5
+  losses: 11
+  goalsFor: 22
+  goalsAgainst: 24
+  points: 17
+  outcome: none
+- position: 10
+  name: Stjørdals-Blink
+  clubId: stjordals-blink
+  played: 22
+  wins: 6
+  draws: 5
+  losses: 11
+  goalsFor: 24
+  goalsAgainst: 39
+  points: 17
+  outcome: relegated
+- position: 11
+  name: Aalesunds FK
+  clubId: aalesunds-fk
+  played: 22
+  wins: 4
+  draws: 3
+  losses: 15
+  goalsFor: 23
+  goalsAgainst: 46
+  points: 11
+  outcome: relegated
+- position: 12
+  name: Bodø/Glimt, FK
+  clubId: bodo-glimt
+  played: 22
+  wins: 2
+  draws: 5
+  losses: 15
+  goalsFor: 13
+  goalsAgainst: 41
+  points: 9
+  outcome: relegated
+progression: []
+sources:
+- sourceId: fotball-no
+  url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83034&underside=tabellen
+  retrievedAt: '2026-08-05'
+  fields:
+  - table
+  note: Sluttabellen er hentet fra NFF Fotballdata.
+- sourceId: rsssf
+  url: https://www.rsssf.no/1983/Second.html
+  retrievedAt: '2026-08-05'
+  fields:
+  - table.outcome
+  note: Opp- og nedrykksutfall er kontrollert mot RSSSF Norway.
+note: AaFKs 22 seriekamper summerer til 4 seire, 3 uavgjorte, 15 tap og 23-46 i mål, som stemmer med sluttabellen.

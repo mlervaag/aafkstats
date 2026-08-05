@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import { one, open } from "@aafkstats/db";
 import { formatDate, formatDateShort } from "@/lib/date";
 import { ContributionButton } from "@/components/ContributionButton";
+import { Contributions } from "@/components/Contributions";
+import { loadContributions } from "@/lib/archive";
 
 export const dynamic = "force-dynamic";
 
@@ -161,6 +163,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
   const match = loadMatch(id);
   if (!match) notFound();
   const { previous, next } = loadNeighbours(match);
+  const contributions = loadContributions(match.id, "match");
 
   const events = json<EventRow[]>(match.events, []);
   const lineups = json<{ home?: Lineup; away?: Lineup }>(match.lineups, {});
@@ -272,6 +275,8 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
           <StatsTable homeName={match.home_name} awayName={match.away_name} home={stats.home} away={stats.away} />
         </section>
       )}
+
+      <Contributions contributions={contributions} />
 
       <section>
         <h2>Kilder</h2>

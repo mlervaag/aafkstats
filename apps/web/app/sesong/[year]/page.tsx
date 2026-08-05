@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { CoverageTag } from "@/components/Coverage";
 import { MatchList } from "@/components/MatchList";
 import { ContributionButton } from "@/components/ContributionButton";
+import { Contributions } from "@/components/Contributions";
 import { SeasonCoaches, SquadList } from "@/components/Squad";
 import { ProgressionChart, StandingsTable } from "@/components/Standings";
 import {
@@ -12,6 +13,7 @@ import {
   loadSeasonCoaches,
   loadSquad,
   loadStandings,
+  loadContributions,
 } from "@/lib/archive";
 
 export const dynamic = "force-dynamic";
@@ -35,6 +37,7 @@ export default async function SeasonPage({ params }: Props) {
   const coaches = loadSeasonCoaches(year);
   const declaredCoaches = loadDeclaredCoaches(year);
   const squad = loadSquad(year);
+  const contributions = loadContributions(year.toString(), "season");
 
   return (
     <>
@@ -134,6 +137,8 @@ export default async function SeasonPage({ params }: Props) {
           </section>
         );
       })()}
+
+      <Contributions contributions={contributions} />
 
       <SquadList players={squad} />
 

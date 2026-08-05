@@ -15,6 +15,8 @@ import type { Match } from "./match.js";
 import type { Observation } from "./observation.js";
 import type { Person } from "./person.js";
 import type { Standings } from "./standings.js";
+import { contribution } from "./contribution.js";
+import type { Contribution } from "./contribution.js";
 
 /** Rota på monorepoet, utledet fra hvor denne filen ligger. */
 export function repoRoot(): string {
@@ -60,6 +62,7 @@ export interface Archive {
    * i en oppstilling, og har ingen fil her.
    */
   people: Person[];
+  contributions: (Contribution & { file: string })[];
   issues: LoadIssue[];
 }
 
@@ -222,7 +225,12 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
     }
   }
 
-  return { clubs, venues, competitions, sources, seasons, matches, observations, standings: tables, people, issues };
+  const contributions = (await readAll("contributions", contribution)) as (Contribution & { file: string })[];
+  for (const c of contributions) {
+    c.file = relative(root, join(root, "contributions", `${c.id}.yaml`)).replace(/\\/g, "/");
+  }
+
+  return { clubs, venues, competitions, sources, seasons, matches, observations, standings: tables, people, contributions, issues };
 }
 
 /**
@@ -254,6 +262,7 @@ export function crossValidate(archive: Archive): LoadIssue[] {
   duplicates(archive.venues, "venues");
   duplicates(archive.competitions, "competitions");
   duplicates(archive.sources, "sources");
+  duplicates(archive.contributions, "contributions");
 
   // Klubber som normaliserer til samme identitet er nesten alltid samme klubb
   // ført to ganger, fordi én kilde skriver «FK Haugesund» og en annen «Haugesund».
