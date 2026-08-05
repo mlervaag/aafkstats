@@ -30,7 +30,7 @@ export default function ContributePage() {
           </p>
           <a
             className="button-link"
-            href="https://github.com/mlervaag/aafkstats/issues/new?title=Rettelse%3A%20"
+            href="https://github.com/mlervaag/aafkstats/issues/new/choose"
           >
             Opprett GitHub-sak
           </a>
