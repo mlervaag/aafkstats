@@ -1,0 +1,41 @@
+id: 1993-06-12-fana-aalesunds-fk
+date: 1993-06-12
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1993
+  stage: regular_season
+  round: 7
+home:
+  clubId: fana
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83060&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99042.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99042"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
