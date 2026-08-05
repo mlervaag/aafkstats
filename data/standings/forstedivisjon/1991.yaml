@@ -1,0 +1,142 @@
+competitionId: forstedivisjon
+season: 1991
+table:
+  - position: 1
+    name: Mjøndalen
+    clubId: mjondalen
+    played: 22
+    wins: 17
+    draws: 2
+    losses: 3
+    goalsFor: 55
+    goalsAgainst: 19
+    points: 53
+    outcome: none
+  - position: 2
+    name: Bryne
+    clubId: bryne
+    played: 22
+    wins: 14
+    draws: 3
+    losses: 5
+    goalsFor: 31
+    goalsAgainst: 16
+    points: 45
+    outcome: none
+  - position: 3
+    name: Vålerenga
+    clubId: valerenga
+    played: 22
+    wins: 13
+    draws: 1
+    losses: 8
+    goalsFor: 31
+    goalsAgainst: 26
+    points: 40
+    outcome: none
+  - position: 4
+    name: Hødd
+    clubId: hodd
+    played: 22
+    wins: 9
+    draws: 6
+    losses: 7
+    goalsFor: 41
+    goalsAgainst: 31
+    points: 33
+    outcome: none
+  - position: 5
+    name: Aalesunds FK
+    clubId: aalesunds-fk
+    played: 22
+    wins: 9
+    draws: 6
+    losses: 7
+    goalsFor: 31
+    goalsAgainst: 24
+    points: 33
+    outcome: none
+  - position: 6
+    name: Fana
+    clubId: fana
+    played: 22
+    wins: 8
+    draws: 8
+    losses: 6
+    goalsFor: 32
+    goalsAgainst: 37
+    points: 32
+    outcome: none
+  - position: 7
+    name: Strømmen IF - MEN 1
+    clubId: strommen
+    played: 22
+    wins: 9
+    draws: 3
+    losses: 10
+    goalsFor: 33
+    goalsAgainst: 31
+    points: 30
+    outcome: none
+  - position: 8
+    name: Djerv 1919
+    clubId: djerv-1919
+    played: 22
+    wins: 8
+    draws: 3
+    losses: 11
+    goalsFor: 39
+    goalsAgainst: 37
+    points: 27
+    outcome: none
+  - position: 9
+    name: Haugar
+    clubId: haugar
+    played: 22
+    wins: 6
+    draws: 7
+    losses: 9
+    goalsFor: 34
+    goalsAgainst: 40
+    points: 25
+    outcome: none
+  - position: 10
+    name: KFK
+    clubId: kfk
+    played: 22
+    wins: 7
+    draws: 4
+    losses: 11
+    goalsFor: 19
+    goalsAgainst: 35
+    points: 25
+    outcome: none
+  - position: 11
+    name: Frigg
+    clubId: frigg
+    played: 22
+    wins: 4
+    draws: 6
+    losses: 12
+    goalsFor: 21
+    goalsAgainst: 37
+    points: 18
+    outcome: none
+  - position: 12
+    name: Surnadal
+    clubId: surnadal
+    played: 22
+    wins: 2
+    draws: 3
+    losses: 17
+    goalsFor: 20
+    goalsAgainst: 54
+    points: 9
+    outcome: none
+progression: []
+sources:
+  - sourceId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83058&underside=tabellen
+    retrievedAt: 2026-08-05
+    fields:
+      - table
