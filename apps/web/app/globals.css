@@ -11,7 +11,7 @@
  * 1 px linjer og små bakgrunnsskift — aldri `box-shadow`. Slagskygge lager et
  * kortstokk-preg der alt konkurrerer om å ligge øverst, og et arkiv skal ligge flatt.
  *
- * **Nesten rette hjørner.** Radiusskalaen er 3 og 4 px, og den gjelder alt. Store
+ * **Nesten rette hjørner.** Radiusskalaen er 4 og 6 px. Store
  * radier og pilleformer gjør flater til bobler; her skal de være ark.
  *
  * **Versaler er for etiketter.** Sperrede versaler brukes kun der teksten faktisk
@@ -46,9 +46,9 @@
   --draw: #8a7c68;
   --loss: #b3341f;
 
-  /* Hele radiusskalaen. To verdier, begge nesten rette. */
-  --radius: 3px;
-  --radius-lg: 4px;
+  /* Hele radiusskalaen. To verdier, begge relativt stramme. */
+  --radius: 4px;
+  --radius-lg: 6px;
   --measure: 68ch;
 
   --font-display: ui-serif, Georgia, "Times New Roman", serif;
@@ -140,10 +140,10 @@ p {
 /* Redaksjonell skala, ikke landingsside-skala. En overskrift skal lede lesingen,
    ikke fylle skjermen. */
 h1 {
-  font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+  font-size: clamp(2.1rem, 4vw, 2.8rem);
 }
 h2 {
-  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
 }
 
 a {
@@ -188,15 +188,16 @@ table,
 .masthead-inner {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1.5rem;
-  padding: 0.9rem 1.25rem;
-  max-width: 72rem;
+  padding: 1.25rem 1.5rem;
+  max-width: 76rem;
   margin: 0 auto;
 }
 .wordmark {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 1.15rem;
+  font-size: 1.35rem;
   color: var(--text);
   text-decoration: none;
   white-space: nowrap;
@@ -230,8 +231,8 @@ table,
 .ask-input {
   flex: 1;
   font: inherit;
-  font-size: 1.05rem;
-  padding: 0.85rem 1rem;
+  font-size: 1.15rem;
+  padding: 1rem 1.2rem;
   color: var(--text);
   background: var(--surface);
   border: 1px solid var(--border);
@@ -446,7 +447,7 @@ table {
 }
 th, td {
   text-align: left;
-  padding: 0.55rem 0.75rem;
+  padding: 0.7rem 0.9rem;
   border-bottom: 1px solid var(--border);
   white-space: nowrap;
 }
@@ -617,7 +618,7 @@ footer {
 }
 .masthead nav .nav-cta:hover { color: var(--accent); }
 
-main.wrap { padding-top: clamp(2rem, 5vw, 4rem); }
+main.wrap { padding-top: clamp(2.5rem, 6vw, 4.5rem); }
 
 /* Kicker over overskriften. En kort aksentstrek foran teksten i stedet for
    sperrede oransje versaler: samme funksjon, men den skriker ikke, og oransje
@@ -643,9 +644,10 @@ main.wrap { padding-top: clamp(2rem, 5vw, 4rem); }
 .lede {
   max-width: 44rem;
   margin: 0;
-  color: var(--muted);
-  font-size: clamp(1.05rem, 2vw, 1.22rem);
-  line-height: 1.55;
+  color: var(--text);
+  opacity: 0.85;
+  font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+  line-height: 1.6;
 }
 .breadcrumb {
   margin: 0 0 1.5rem;
@@ -741,12 +743,12 @@ a.next-match:hover { border-color: var(--accent); background: var(--surface-2); 
 .explore-panel > a:first-of-type { border-top: 0; }
 .explore-panel > a span { color: var(--muted); font-size: 0.875rem; }
 .explore-panel > a:hover strong { color: var(--accent); }
-.scope-note { display: grid; grid-template-columns: minmax(15rem, 0.75fr) minmax(0, 1.25fr); gap: 2rem; margin-top: clamp(3rem, 8vw, 6rem); padding: clamp(1.5rem, 4vw, 2.5rem); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+.scope-note { display: grid; grid-template-columns: minmax(15rem, 0.75fr) minmax(0, 1.25fr); gap: 2rem; margin-top: clamp(3.5rem, 9vw, 7rem); padding: clamp(2rem, 5vw, 3.5rem); border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); }
 /* Teksten og dekningsnotisen står i samme spalte som ett innhold. Tidligere var
    notisen et eget rutenettbarn som måtte plasseres i kolonne 2 for hånd, og som
    dermed lå som en boks i en boks. */
-.scope-note > .prose > p { max-width: var(--measure); margin: 0; }
-.scope-note .notice { margin-top: 1.1rem; }
+.scope-note > .prose > p { max-width: var(--measure); margin: 0; font-size: 1.05rem; }
+.scope-note .notice { margin-top: 1.5rem; }
 
 .page-intro { max-width: 52rem; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
 .page-intro h1 { font-size: clamp(2rem, 4.2vw, 3.1rem); letter-spacing: -0.02em; }

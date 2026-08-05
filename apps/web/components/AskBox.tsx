@@ -239,7 +239,7 @@ export function AskBox() {
       <h2 id="sporre">Hva leter du etter?</h2>
       <p className="prose muted">
         Skriv <strong>2024</strong>, <strong>Sogndal</strong> eller <strong>2013 Tromsø</strong> for
-        direkte treff. Trykk Enter for et AI-svar bygget på arkivdataene.
+        direkte treff. Trykk Enter for å få et utfyllende svar fra arkivet.
       </p>
 
       <form className="ask-form" onSubmit={(event) => { event.preventDefault(); void ask(question, "form"); }}>
@@ -258,7 +258,7 @@ export function AskBox() {
           onKeyDown={(event) => { if (event.key === "Escape") reset(); }}
         />
         <button className="ask-button" type="submit" disabled={state === "loading"}>
-          {state === "loading" ? "Svarer …" : "Spør AI"}
+          {state === "loading" ? "Svarer …" : "Spør arkivet"}
         </button>
       </form>
 
@@ -271,7 +271,7 @@ export function AskBox() {
             </span>
           </div>
           {searchState === "done" && matches.length === 0 ? (
-            <p className="small muted live-empty">Ingen direkte treff. Trykk Enter for å spørre AI.</p>
+            <p className="small muted live-empty">Ingen direkte treff. Trykk Enter for å spørre arkivet.</p>
           ) : (
             <ul className="match-results">
               {matches.map((match, index) => (
@@ -348,10 +348,10 @@ export function AskBox() {
 
 function SearchResult({ match, position }: { match: SearchMatch; position: number }) {
   const score = match.aafkScore === null || match.opponentScore === null
-    ? "–"
+    ? "-"
     : match.isHome
-      ? `${match.aafkScore}–${match.opponentScore}`
-      : `${match.opponentScore}–${match.aafkScore}`;
+      ? `${match.aafkScore}-${match.opponentScore}`
+      : `${match.opponentScore}-${match.aafkScore}`;
   return (
     <li>
       {/* Direktesøket måles på det som betyr noe: at et treff ble åpnet.
@@ -364,7 +364,7 @@ function SearchResult({ match, position }: { match: SearchMatch; position: numbe
         <span className="num muted">{formatDateShort(match.date)}</span>
         <span className="result-opponent">
           {match.result && <span className={`result-badge result-${match.result}`}>{match.result}</span>}
-          {match.isHome ? "AaFK – " : ""}{match.opponent}{match.isHome ? "" : " – AaFK"}
+          {match.isHome ? "AaFK - " : ""}{match.opponent}{match.isHome ? "" : " - AaFK"}
         </span>
         <strong className="score">{score}</strong>
         <span className="small muted">{match.competition}</span>
