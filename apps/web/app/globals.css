@@ -1355,3 +1355,57 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
 @media (max-width: 42rem) {
   .contribution-dialog { margin: auto 0 0; border-radius: var(--radius-lg) var(--radius-lg) 0 0; border-bottom: none; }
 }
+
+/* ── Bidrag & Observasjoner ───────────────────────────────────────────── */
+.contributions-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.contributions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.contribution-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+.contribution-text {
+  margin: 0 0 1rem 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-style: italic;
+  color: var(--text);
+  border-left: 3px solid var(--border);
+  padding-left: 1rem;
+}
+.contribution-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  align-items: baseline;
+}
+.contribution-author {
+  font-weight: 500;
+  color: var(--text);
+}
+.contribution-verification {
+  color: var(--muted);
+}
+.contribution-verification[data-status="verified"],
+.contribution-verification[data-status="corroborated"] {
+  color: #10b981; /* Grønn for bekreftet */
+}
+.contribution-source {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.contribution-source:hover {
+  color: var(--text);
+}

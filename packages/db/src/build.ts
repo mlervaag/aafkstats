@@ -101,6 +101,17 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
       );
     }
 
+    const insertContribution = db.prepare(
+      `INSERT INTO core_contributions (id, scope, target_id, category, text, contributor, submitted_at, verification, source_url)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
+    );
+    for (const c of archive.contributions) {
+      insertContribution.run(
+        c.id, c.scope, c.targetId, c.category, c.text,
+        c.contributor ?? null, c.submittedAt, c.verification, c.sourceUrl ?? null
+      );
+    }
+
     const insertPerson = db.prepare(
       `INSERT INTO core_people (id, person_key, name, nationality, position, wikidata, note)
        VALUES (?, ?, ?, ?, ?, ?, ?)`,

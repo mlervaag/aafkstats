@@ -589,3 +589,30 @@ CREATE VIRTUAL TABLE reports USING fts5(
   url      UNINDEXED,
   tokenize = 'unicode61 remove_diacritics 0'
 );
+
+-- Bidrag/observasjoner innsendt av brukere via innboksen
+CREATE TABLE core_contributions (
+  id           TEXT PRIMARY KEY,
+  scope        TEXT NOT NULL CHECK (scope IN ('match', 'season')),
+  target_id    TEXT NOT NULL,
+  category     TEXT NOT NULL CHECK (category IN ('memory', 'context', 'trivia', 'event_detail')),
+  text         TEXT NOT NULL,
+  contributor  TEXT,
+  submitted_at TEXT NOT NULL,
+  verification TEXT NOT NULL CHECK (verification IN ('unverified', 'corroborated', 'verified')),
+  source_url   TEXT
+);
+
+CREATE VIEW contributions AS
+SELECT
+  id,
+  scope,
+  target_id,
+  category,
+  text,
+  contributor,
+  submitted_at,
+  verification,
+  source_url
+FROM core_contributions
+ORDER BY submitted_at DESC;
