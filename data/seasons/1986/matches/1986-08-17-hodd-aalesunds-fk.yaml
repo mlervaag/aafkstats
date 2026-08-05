@@ -1,0 +1,41 @@
+id: 1986-08-17-hodd-aalesunds-fk
+date: 1986-08-17
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1986
+  stage: regular_season
+  round: 14
+home:
+  clubId: hodd
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83043&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99084.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99084"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

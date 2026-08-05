@@ -1,0 +1,142 @@
+competitionId: forstedivisjon
+season: 1989
+table:
+  - position: 1
+    name: Fyllingen
+    clubId: fyllingen
+    played: 22
+    wins: 13
+    draws: 4
+    losses: 5
+    goalsFor: 43
+    goalsAgainst: 20
+    points: 43
+    outcome: none
+  - position: 2
+    name: Djerv 1919
+    clubId: djerv-1919
+    played: 22
+    wins: 12
+    draws: 5
+    losses: 5
+    goalsFor: 42
+    goalsAgainst: 25
+    points: 41
+    outcome: none
+  - position: 3
+    name: Bryne
+    clubId: bryne
+    played: 22
+    wins: 11
+    draws: 7
+    losses: 4
+    goalsFor: 42
+    goalsAgainst: 21
+    points: 40
+    outcome: none
+  - position: 4
+    name: Namsos
+    clubId: namsos
+    played: 22
+    wins: 10
+    draws: 5
+    losses: 7
+    goalsFor: 32
+    goalsAgainst: 22
+    points: 35
+    outcome: none
+  - position: 5
+    name: Fredrikstad FK
+    clubId: fredrikstad
+    played: 22
+    wins: 8
+    draws: 8
+    losses: 6
+    goalsFor: 26
+    goalsAgainst: 25
+    points: 32
+    outcome: none
+  - position: 6
+    name: Stord
+    clubId: stord
+    played: 22
+    wins: 9
+    draws: 4
+    losses: 9
+    goalsFor: 32
+    goalsAgainst: 37
+    points: 31
+    outcome: none
+  - position: 7
+    name: Aalesunds FK
+    clubId: aalesunds-fk
+    played: 22
+    wins: 8
+    draws: 5
+    losses: 9
+    goalsFor: 40
+    goalsAgainst: 42
+    points: 29
+    outcome: none
+  - position: 8
+    name: Strindheim IL
+    clubId: strindheim
+    played: 22
+    wins: 6
+    draws: 7
+    losses: 9
+    goalsFor: 28
+    goalsAgainst: 37
+    points: 25
+    outcome: none
+  - position: 9
+    name: Råde IL
+    clubId: rade-il
+    played: 22
+    wins: 6
+    draws: 6
+    losses: 10
+    goalsFor: 30
+    goalsAgainst: 34
+    points: 24
+    outcome: none
+  - position: 10
+    name: Vard Haugesund
+    clubId: vard-haugesund
+    played: 22
+    wins: 5
+    draws: 8
+    losses: 9
+    goalsFor: 28
+    goalsAgainst: 38
+    points: 23
+    outcome: none
+  - position: 11
+    name: Vidar
+    clubId: vidar
+    played: 22
+    wins: 5
+    draws: 7
+    losses: 10
+    goalsFor: 23
+    goalsAgainst: 34
+    points: 22
+    outcome: none
+  - position: 12
+    name: Clausenengen
+    clubId: clausenengen
+    played: 22
+    wins: 5
+    draws: 2
+    losses: 15
+    goalsFor: 18
+    goalsAgainst: 49
+    points: 17
+    outcome: none
+progression: []
+sources:
+  - sourceId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83052&underside=tabellen
+    retrievedAt: 2026-08-05
+    fields:
+      - table

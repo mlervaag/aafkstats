@@ -1,0 +1,41 @@
+id: 1987-05-23-aalesunds-fk-namsos
+date: 1987-05-23
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1987
+  stage: regular_season
+  round: 5
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: namsos
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83042&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99029.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99029"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
