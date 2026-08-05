@@ -1,0 +1,41 @@
+id: 1995-07-23-drobak-frogn-aalesunds-fk
+date: 1995-07-23
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1995
+  stage: regular_season
+  round: 12
+home:
+  clubId: drobak-frogn
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83064&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99069.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99069"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

@@ -1,0 +1,142 @@
+competitionId: forstedivisjon
+season: 1995
+table:
+  - position: 1
+    name: Moss FK
+    clubId: moss
+    played: 22
+    wins: 13
+    draws: 7
+    losses: 2
+    goalsFor: 40
+    goalsAgainst: 22
+    points: 46
+    outcome: none
+  - position: 2
+    name: Sogndal
+    clubId: sogndal
+    played: 22
+    wins: 13
+    draws: 5
+    losses: 4
+    goalsFor: 42
+    goalsAgainst: 21
+    points: 44
+    outcome: none
+  - position: 3
+    name: Drøbak/Frogn IL
+    clubId: drobak-frogn
+    played: 22
+    wins: 13
+    draws: 4
+    losses: 5
+    goalsFor: 60
+    goalsAgainst: 35
+    points: 43
+    outcome: none
+  - position: 4
+    name: fk-haugesund
+    clubId: fk-haugesund
+    played: 22
+    wins: 12
+    draws: 2
+    losses: 8
+    goalsFor: 41
+    goalsAgainst: 33
+    points: 38
+    outcome: none
+  - position: 5
+    name: Åsane
+    clubId: asane
+    played: 22
+    wins: 10
+    draws: 4
+    losses: 8
+    goalsFor: 38
+    goalsAgainst: 31
+    points: 34
+    outcome: none
+  - position: 6
+    name: Aalesunds FK
+    clubId: aalesunds-fk
+    played: 22
+    wins: 8
+    draws: 8
+    losses: 6
+    goalsFor: 43
+    goalsAgainst: 33
+    points: 32
+    outcome: none
+  - position: 7
+    name: Bryne
+    clubId: bryne
+    played: 22
+    wins: 7
+    draws: 9
+    losses: 6
+    goalsFor: 28
+    goalsAgainst: 31
+    points: 30
+    outcome: none
+  - position: 8
+    name: Fana
+    clubId: fana
+    played: 22
+    wins: 8
+    draws: 4
+    losses: 10
+    goalsFor: 31
+    goalsAgainst: 42
+    points: 28
+    outcome: none
+  - position: 9
+    name: Fyllingen
+    clubId: fyllingen
+    played: 22
+    wins: 4
+    draws: 8
+    losses: 10
+    goalsFor: 33
+    goalsAgainst: 45
+    points: 20
+    outcome: none
+  - position: 10
+    name: Åndalsnes
+    clubId: andalsnes
+    played: 22
+    wins: 4
+    draws: 6
+    losses: 12
+    goalsFor: 22
+    goalsAgainst: 38
+    points: 18
+    outcome: none
+  - position: 11
+    name: Sarpsborg FK
+    clubId: sarpsborg
+    played: 22
+    wins: 3
+    draws: 8
+    losses: 11
+    goalsFor: 17
+    goalsAgainst: 38
+    points: 17
+    outcome: none
+  - position: 12
+    name: Vard Haugesund
+    clubId: vard-haugesund
+    played: 22
+    wins: 4
+    draws: 1
+    losses: 17
+    goalsFor: 17
+    goalsAgainst: 43
+    points: 13
+    outcome: none
+progression: []
+sources:
+  - sourceId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83064&underside=tabellen
+    retrievedAt: 2026-08-05
+    fields:
+      - table
