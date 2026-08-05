@@ -481,6 +481,37 @@ ny ut. Og trenerperiodene starter på første kamp, ikke på dagen avtalen ble s
 Oppstillingene finnes fra 2010. Eldre sesonger har tom stall, og det er en manglende kilde
 og ikke et lag uten spillere.
 
+## Brukerbidrag (Contributions)
+
+`data/contributions/<id>.yaml`
+
+Bidrag som har kommet inn fra brukere, gått gjennom redaksjonell kontroll og blitt plassert i arkivet.
+
+```yaml
+id: gh-1
+scope: match
+targetId: 2007-05-13-lyn-aalesunds-fk
+category: event_detail
+text: >
+  Fritest om noe som skjedde.
+contributor: ML
+submittedAt: 2026-08-05
+verification: corroborated
+sourceUrl: https://...
+```
+
+| Felt | Merknad |
+|---|---|
+| `id` | Unik ID for bidraget. Hvis det kom via en GitHub issue, gjerne `gh-<nummer>`. |
+| `scope` | `match` eller `season`. Hva bidraget gjelder. |
+| `targetId` | Kampens ID eller sesongår (f.eks. `2024` for season scope). |
+| `category` | `memory`, `context`, `trivia` eller `event_detail`. |
+| `text` | Selve bidraget. Kan være et direkte sitat. |
+| `contributor` | Navn på innsender, eller `null` for anonym. |
+| `verification` | `unverified`, `corroborated` eller `verified`. Hvor sikker opplysningen er. |
+
+Når databasen bygges, opprettes `core_contributions` og et åpent view kalt `contributions`.
+
 ## Fra YAML til database
 
 Byggesteget regner ut noen felt som ikke finnes i YAML-en. De er avledet, aldri redigert:

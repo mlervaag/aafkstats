@@ -49,13 +49,14 @@ leser fra.
 
 | | |
 |---|---|
-| **1 244 kamper** | 1 048 seriekamper · 188 cupkamper · 8 treningskamper (15 på terminlista) |
+| **1 332 kamper** | Kamper registrert totalt i arkivet |
 | **85 sesonger** | 1917–2026. Cupen tilbake til 1917, serien til 1951 |
-| **155 klubber · 84 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
-| **523 kamper med hendelser** | Mål, kort og bytter. 527 med lagoppstilling, 305 med tilskuertall |
+| **159 klubber · 84 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
+| **139 personer** | Registrerte trenere og spillere med detaljer eller avvikende kildenavn |
 | **8 kilder** | Hver med rettighetsstatus som data, ikke som prosa |
+| **Brukerbidrag** | Innsendte observasjoner og minner hentet fra redaksjonell innboks |
 
-<sub>Tall per 5. august 2026. <code>pnpm validate</code> skriver ut de gjeldende.</sub>
+<sub>Tallene oppdateres kontinuerlig. <code>pnpm validate</code> skriver ut de gjeldende.</sub>
 
 ## Slik henger det sammen
 
