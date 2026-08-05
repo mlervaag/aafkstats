@@ -61,12 +61,7 @@ Piloten er gjennomført mot 1. divisjon 2025:
 - FotMob-ID og kildehenvisning på hver kamp;
 - ingen livekommentar, artikkeltekst, bilder, odds, momentum eller skuddkart.
 
-Se [dekningsrapporten](data/FOTMOB_PILOT_2025.md).
 
-For å teste portal og søk med et mer realistisk volum er ligasesongene 2011–2025
-også høstet som et avgrenset testdatasett. Det gir 450 kamper, men utvider ikke
-rettighetsvurderingen eller påstanden om detaljdekning. Se
-[testrapporten for 2011–2025](data/FOTMOB_TESTDATA_2011_2025.md).
 
 ### Implementert flyt
 
