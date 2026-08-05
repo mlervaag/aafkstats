@@ -78,7 +78,7 @@ async function parseFile<T extends z.ZodTypeAny>(
   root: string,
   issues: LoadIssue[],
 ): Promise<z.infer<T> | null> {
-  const rel = relative(root, file);
+  const rel = relative(root, file).replace(/\\/g, "/");
   let raw: unknown;
   try {
     // 'core' holder oss på YAML 1.2, der datoer forblir strenger. Uten dette blir
@@ -141,19 +141,19 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
         if (parsed !== null) {
           if (String(parsed.year) !== dir) {
             issues.push({
-              file: relative(root, seasonPath),
+              file: relative(root, seasonPath).replace(/\\/g, "/"),
               path: "year",
               message: `år ${parsed.year} stemmer ikke med mappenavnet «${dir}»`,
             });
           }
-          seasons.push({ ...parsed, file: relative(root, seasonPath) });
+          seasons.push({ ...parsed, file: relative(root, seasonPath).replace(/\\/g, "/") });
         }
       }
 
       for (const file of await listYaml(join(seasonsDir, dir, "matches"))) {
         const parsed = await parseFile(file, match, root, issues);
         if (parsed === null) continue;
-        const rel = relative(root, file);
+        const rel = relative(root, file).replace(/\\/g, "/");
         const expectedName = `${parsed.id}.yaml`;
         if (basename(file) !== expectedName) {
           issues.push({
@@ -188,7 +188,7 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
       for (const file of await listYaml(join(observationsDir, dir))) {
         const parsed = await parseFile(file, observation, root, issues);
         if (parsed === null) continue;
-        const rel = relative(root, file);
+        const rel = relative(root, file).replace(/\\/g, "/");
         const expected = observationPath(parsed.sourceId, parsed.externalId);
         if (rel !== expected) {
           issues.push({ file: rel, path: "externalId", message: `fila må hete «${expected}»` });
@@ -212,7 +212,7 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
       for (const file of await listYaml(join(standingsDir, dir))) {
         const parsed = await parseFile(file, standings, root, issues);
         if (parsed === null) continue;
-        const rel = relative(root, file);
+        const rel = relative(root, file).replace(/\\/g, "/");
         const expected = standingsPath(parsed.competitionId, parsed.season);
         if (rel !== expected) {
           issues.push({ file: rel, path: "season", message: `fila må hete «${expected}»` });
