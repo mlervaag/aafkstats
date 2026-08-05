@@ -1,0 +1,41 @@
+id: 1987-09-05-aalesunds-fk-strommen
+date: 1987-09-05
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1987
+  stage: regular_season
+  round: 17
+home:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: strommen
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83042&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99100.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99100"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

@@ -1,0 +1,142 @@
+competitionId: forstedivisjon
+season: 1986
+table:
+  - position: 1
+    name: Brann, SK
+    clubId: sk-brann
+    played: 22
+    wins: 15
+    draws: 5
+    losses: 2
+    goalsFor: 46
+    goalsAgainst: 13
+    points: 35
+    outcome: none
+  - position: 2
+    name: Vidar
+    clubId: vidar
+    played: 22
+    wins: 13
+    draws: 4
+    losses: 5
+    goalsFor: 47
+    goalsAgainst: 29
+    points: 30
+    outcome: none
+  - position: 3
+    name: Aalesunds FK
+    clubId: aalesunds-fk
+    played: 22
+    wins: 10
+    draws: 6
+    losses: 6
+    goalsFor: 43
+    goalsAgainst: 25
+    points: 26
+    outcome: none
+  - position: 4
+    name: Mjølner Narvik
+    clubId: mjolner
+    played: 22
+    wins: 11
+    draws: 3
+    losses: 8
+    goalsFor: 34
+    goalsAgainst: 32
+    points: 25
+    outcome: none
+  - position: 5
+    name: Namsos
+    clubId: namsos
+    played: 22
+    wins: 10
+    draws: 4
+    losses: 8
+    goalsFor: 26
+    goalsAgainst: 26
+    points: 24
+    outcome: none
+  - position: 6
+    name: Djerv 1919
+    clubId: djerv-1919
+    played: 22
+    wins: 9
+    draws: 4
+    losses: 9
+    goalsFor: 31
+    goalsAgainst: 27
+    points: 22
+    outcome: none
+  - position: 7
+    name: Vard Haugesund
+    clubId: vard-haugesund
+    played: 22
+    wins: 7
+    draws: 6
+    losses: 9
+    goalsFor: 29
+    goalsAgainst: 31
+    points: 20
+    outcome: none
+  - position: 8
+    name: Hødd (Gjennopprettet)
+    clubId: hodd
+    played: 22
+    wins: 8
+    draws: 4
+    losses: 10
+    goalsFor: 25
+    goalsAgainst: 30
+    points: 20
+    outcome: none
+  - position: 9
+    name: Sunndal
+    clubId: sunndal
+    played: 22
+    wins: 7
+    draws: 5
+    losses: 10
+    goalsFor: 31
+    goalsAgainst: 37
+    points: 19
+    outcome: none
+  - position: 10
+    name: Steinkjer
+    clubId: steinkjer
+    played: 22
+    wins: 5
+    draws: 8
+    losses: 9
+    goalsFor: 25
+    goalsAgainst: 43
+    points: 18
+    outcome: none
+  - position: 11
+    name: Grand Bodø
+    clubId: grand-bodo
+    played: 22
+    wins: 5
+    draws: 5
+    losses: 12
+    goalsFor: 22
+    goalsAgainst: 40
+    points: 15
+    outcome: none
+  - position: 12
+    name: Mo IL
+    clubId: mo-il
+    played: 22
+    wins: 2
+    draws: 6
+    losses: 14
+    goalsFor: 22
+    goalsAgainst: 48
+    points: 10
+    outcome: none
+progression: []
+sources:
+  - sourceId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83043&underside=tabellen
+    retrievedAt: 2026-08-05
+    fields:
+      - table

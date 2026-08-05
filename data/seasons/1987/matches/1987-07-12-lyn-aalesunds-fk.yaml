@@ -1,0 +1,41 @@
+id: 1987-07-12-lyn-aalesunds-fk
+date: 1987-07-12
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1987
+  stage: regular_season
+  round: 11
+home:
+  clubId: lyn
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83042&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99065.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99065"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

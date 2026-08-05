@@ -1,0 +1,41 @@
+id: 1986-05-16-aalesunds-fk-vidar
+date: 1986-05-16
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1986
+  stage: regular_season
+  round: 5
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: vidar
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83043&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99026.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99026"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

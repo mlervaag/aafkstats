@@ -1,0 +1,41 @@
+id: 1986-05-03-mjolner-aalesunds-fk
+date: 1986-05-03
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1986
+  stage: regular_season
+  round: 2
+home:
+  clubId: mjolner
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83043&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99007.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99007"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
