@@ -15,7 +15,7 @@ src/
 
 **Arkivfilen bygges fra bunnen, aldri inkrementelt.** Resultatet avhenger da bare av
 innholdet i `data/`: to bygg av samme commit gir samme fil, og en slettet YAML-fil forsvinner
-faktisk. 1 040 kamper tar rundt 60 ms og gir en fil på 2,6 MB.
+faktisk. 1 244 kamper tar rundt 130 ms og gir en fil på 4,4 MB.
 
 **Skillet mellom rådata og publisert datasett ligger i navnet.** SQLite har ingen schemas, så
 tabellene heter `core_*` og er interne, mens viewene uten prefiks er den offentlige

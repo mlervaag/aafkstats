@@ -42,7 +42,19 @@ export default function AboutPage() {
               den ikke vil spores, sendes ingenting i det hele tatt.
             </p>
           </section>
-          <section><h2>Kilder og sikkerhet</h2><p>Hver kamp peker til kilden og hvilke felt kilden har levert. Dagens testdata kommer i hovedsak fra FotMob og er merket som foreløpige. FotMob er en udokumentert sekundærkilde med uavklarte vilkår for systematisk gjenbruk.</p><p>Arkivet skal etter hvert kryssjekkes mot fotball.no, NIFS, klubbkilder og samtidige kamprapporter. En opplysning blir ikke mer sann av å stå i en database.</p></section>
+          <section>
+            <h2>Kilder og sikkerhet</h2>
+            <p>
+              Hver kamp peker til kilden og hvilke felt kilden har levert. Dataene i arkivet
+              er hentet fra RSSSF (eldre sesonger), NFF Fotballdata / fotball.no (utvalgte
+              sesonger og tabeller) og FotMob (nyere sesonger med hendelser og kampfakta).
+            </p>
+            <p>
+              Arkivet suppleres og kryssjekkes fortløpende mot NIFS, klubbkilder,
+              Nasjonalbiblioteket og samtidige kamprapporter. En opplysning blir ikke mer sann
+              av å stå i en database.
+            </p>
+          </section>
         </div>
         <aside className="facts-panel"><h2>Kort fortalt</h2><dl><dt>Status</dt><dd>MVP / testarkiv</dd><dt>Tilknytning</dt><dd>Ingen offisiell tilknytning til AaFK</dd><dt>Kode</dt><dd>MIT</dd><dt>Egne tekster</dt><dd>CC BY 4.0</dd><dt>Kildedata</dt><dd>Se kilde og vilkår per opplysning</dd></dl><a className="button-link" href="https://github.com/mlervaag/aafkstats">Se prosjektet på GitHub</a></aside>
       </div>

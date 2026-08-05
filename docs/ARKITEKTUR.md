@@ -20,7 +20,8 @@ for den som skal endre noe: hver avgjørelse står med alternativet som ble valg
 flowchart TB
   subgraph kilder["Kilder"]
     F["FotMob<br/>2010→"]
-    R["RSSSF<br/>←2009"]
+    N["NFF Fotballdata<br/>1982–2000"]
+    R["RSSSF<br/>←2010"]
     B["Bidrag<br/>pull request"]
   end
 
