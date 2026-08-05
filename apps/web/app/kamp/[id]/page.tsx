@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { one, open } from "@aafkstats/db";
 import { formatDate, formatDateShort } from "@/lib/date";
+import { ContributionButton } from "@/components/ContributionButton";
 
 export const dynamic = "force-dynamic";
 
@@ -219,6 +220,14 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
         {/* Forbehold som hører til kampen selv. Typisk fra eldre kilder som bare
             oppgir sluttresultatet. Lagres det uten å vises, er det like borte. */}
         {match.note && <p className="small muted match-note">{match.note}</p>}
+        <div style={{ marginTop: "1.5rem" }}>
+          <ContributionButton 
+            scope="match" 
+            targetId={match.id} 
+            title={`${match.home_name} mot ${match.away_name} ${formatDateShort(match.match_date)}`}
+            label="Bidra om kampen"
+          />
+        </div>
       </header>
 
       <dl className="facts">
