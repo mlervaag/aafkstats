@@ -6,11 +6,9 @@ automatedAccess: blocked
 publicRedistribution: permission_required
 attributionRequired: true
 permissionStatus: pending
-termsCheckedAt: '2026-08-05'
-robotsCheckedAt: '2026-08-05'
-permissionNote: NFF oppgir i bunnteksten at gjenbruk av innhold bare er tillatt etter avtale, og at automatiserte
-  roboter og spiders ikke er tillatt. Denne importpakken er derfor laget fra de to konkret oppgitte sidene.
-  Videre automatisert innhenting bør først avklares med NFF.
-note: Offisiell kilde for terminliste, kampnummer, resultater og sluttabell. Banefelt og klokkeslett er
-  utelatt fra 1983-importen fordi siden viser flere åpenbart forskjøvede baner og gjennomgående klokkeslett
-  00:00.
+termsCheckedAt: 2026-08-05
+robotsCheckedAt: 2026-08-05
+permissionNote: NFF oppgir at gjenbruk krever avtale og at automatiserte roboter/spiders ikke er
+  tillatt. Automatisert innhenting må avklares før ordinær bruk.
+note: Offisiell kilde for terminliste, kampnummer, resultater og sluttabell. Bane og
+  00:00-klokkeslett bør kontrolleres før de importeres.
