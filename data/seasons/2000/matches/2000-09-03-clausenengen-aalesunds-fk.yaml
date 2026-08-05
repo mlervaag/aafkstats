@@ -1,0 +1,41 @@
+id: 2000-09-03-clausenengen-aalesunds-fk
+date: 2000-09-03
+dateConfidence: exact
+status: played
+competition:
+  id: tredjedivisjon
+  season: 2000
+  stage: regular_season
+  round: 19
+home:
+  clubId: clausenengen
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=119411&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 23120206113.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "23120206113"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

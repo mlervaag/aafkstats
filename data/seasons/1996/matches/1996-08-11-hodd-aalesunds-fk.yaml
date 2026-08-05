@@ -1,0 +1,41 @@
+id: 1996-08-11-hodd-aalesunds-fk
+date: 1996-08-11
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1996
+  stage: regular_season
+  round: 15
+home:
+  clubId: hodd
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83065&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99088.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99088"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

@@ -1,0 +1,41 @@
+id: 1999-08-01-ranheim-aalesunds-fk
+date: 1999-08-01
+dateConfidence: exact
+status: played
+competition:
+  id: tredjedivisjon
+  season: 1999
+  stage: regular_season
+  round: 14
+home:
+  clubId: ranheim
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+sources:
+  - sourceId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=113181&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 15120206084.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "15120206084"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
