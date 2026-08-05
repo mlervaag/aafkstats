@@ -49,7 +49,7 @@ leser fra.
 
 | | |
 |---|---|
-| **1 244 kamper** | 1 033 seriekamper · 188 cupkamper · 8 treningskamper (15 på terminlista) |
+| **1 244 kamper** | 1 048 seriekamper · 188 cupkamper · 8 treningskamper (15 på terminlista) |
 | **85 sesonger** | 1917–2026. Cupen tilbake til 1917, serien til 1951 |
 | **155 klubber · 84 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
 | **523 kamper med hendelser** | Mål, kort og bytter. 527 med lagoppstilling, 305 med tilskuertall |
@@ -379,7 +379,7 @@ Kode under [MIT](LICENSE). Egne tekster og arkivets eget redaksjonelle innhold u
 ## Status
 
 Grunnmuren står: datamodell, database, guardrails, portal og datasettdokumentasjon.
-Arkivet dekker 1 040 kamper fra 1917 til i dag, med detaljer (hendelser, lagoppstillinger,
+Arkivet dekker 1 244 kamper fra 1917 til i dag, med detaljer (hendelser, lagoppstillinger,
 statistikk) fra 2010 og framover. Hovedfeltet gir direkte kamptreff mens brukeren skriver år
 og motstander; Enter sender i stedet teksten til AI-søket.
 

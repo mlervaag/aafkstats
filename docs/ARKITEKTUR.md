@@ -77,7 +77,7 @@ teller på kanten, og kostnadstaket ligger hos modelleverandøren. Se
 [`apps/web/lib/rate-limit.ts`](../apps/web/lib/rate-limit.ts) for hvordan det henger sammen,
 og hva reservelaget i minnet faktisk er verdt.
 
-Hele arkivet — 1 040 kamper — bygges på rundt 60 ms til en fil på 2,6 MB.
+Hele arkivet — 1 244 kamper — bygges på rundt 130 ms til en fil på 4,4 MB.
 
 ## Lag for lag
 
