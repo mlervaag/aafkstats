@@ -12,9 +12,8 @@ export const metadata: Metadata = {
     description: "Kamphistorikken til AaFK — søkbar, kildeført og åpen.",
     type: "website",
     locale: "nb_NO",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "AaFK-arkivet – uoffisielt historisk arkiv" }],
   },
-  twitter: { card: "summary_large_image", images: ["/og.png"] },
+  twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#f7f2e9" };
