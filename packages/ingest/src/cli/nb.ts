@@ -63,9 +63,13 @@ async function run() {
       
       const isRelevant = 
         pubLower.includes("aalesunds fotballklubb") || 
+        pubLower.includes("aalesund fotballklubb") || 
+        pubLower.includes("aalesunds fotballklub") || 
         pubLower.includes("aalesunds fk") || 
         pubLower.includes("aafk") || 
         titleLower.includes("aalesunds fotballklubb") || 
+        titleLower.includes("aalesund fotballklubb") || 
+        titleLower.includes("aalesunds fotballklub") || 
         titleLower.includes("aalesunds fk") || 
         titleLower.includes("aafk") ||
         titleLower.includes("aalesund fk");
