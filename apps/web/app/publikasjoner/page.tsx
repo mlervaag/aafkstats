@@ -35,19 +35,48 @@ export default function ArkivetPage() {
         </p>
       </header>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "2rem", marginTop: "2rem" }}>
+      <style>{`
+        .publications-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+          gap: 1rem;
+          margin-top: 2rem;
+        }
+        @media (min-width: 640px) {
+          .publications-grid {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+          }
+        }
+        .pub-card {
+          display: flex;
+          flex-direction: column;
+          text-decoration: none;
+          color: inherit;
+          background: #fff;
+          padding: 1rem;
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          transition: transform 0.2s ease;
+        }
+        .pub-card:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+      `}</style>
+
+      <div className="publications-grid">
         {publications.map((pub) => (
           <a
             key={pub.id}
             href={pub.access_url || "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className="card"
-            style={{ display: "flex", flexDirection: "column", textDecoration: "none", color: "inherit", background: "#fff", padding: "1rem", borderRadius: "8px", boxShadow: "0 2px 4px rgba(0,0,0,0.1)", transition: "transform 0.2s ease" }}
+            className="pub-card"
           >
             {pub.cover_url ? (
               <div style={{ width: "100%", aspectRatio: "2/3", overflow: "hidden", marginBottom: "1rem", borderRadius: "4px", backgroundColor: "#f0f0f0", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <img src={pub.cover_url} alt={`Forside for ${pub.title}`} style={{ width: "100%", height: "100%", objectFit: "cover" }} referrerPolicy="no-referrer" />
+                <img src={`/api/nb-image?url=${encodeURIComponent(pub.cover_url)}`} alt={`Forside for ${pub.title}`} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
             ) : (
               <div style={{ width: "100%", aspectRatio: "2/3", overflow: "hidden", marginBottom: "1rem", borderRadius: "4px", backgroundColor: "#eaeaea", display: "flex", alignItems: "center", justifyContent: "center" }}>
