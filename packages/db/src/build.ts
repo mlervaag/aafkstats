@@ -124,8 +124,8 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
     }
 
     const insertPerson = db.prepare(
-      `INSERT INTO core_people (id, person_key, name, nationality, position, wikidata, note)
-       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO core_people (id, person_key, name, nationality, position, wikidata, sources, note)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
     );
     const insertPersonName = db.prepare(
       `INSERT OR IGNORE INTO core_person_names (person_id, person_key, name) VALUES (?, ?, ?)`,
@@ -139,7 +139,7 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
     for (const p of archive.people) {
       insertPerson.run(
         p.id, personKey(p.name), p.name, p.nationality ?? null,
-        p.position ?? null, p.wikidata ?? null, p.note ?? null,
+        p.position ?? null, p.wikidata ?? null, json(p.sources ?? []), p.note ?? null,
       );
       for (const written of [p.name, ...p.names]) {
         insertPersonName.run(p.id, personKey(written), written);
@@ -172,8 +172,8 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
     const insertStanding = db.prepare(
       `INSERT INTO core_standings
          (competition_id, season, position, team, club_id, played, wins, draws,
-          losses, goals_for, goals_against, points, outcome, note)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          losses, goals_for, goals_against, points, outcome, sources, note)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     );
     const insertProgression = db.prepare(
       `INSERT INTO core_standings_progression
@@ -185,7 +185,7 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
         insertStanding.run(
           table.competitionId, table.season, row.position, row.name, row.clubId,
           row.played, row.wins, row.draws, row.losses, row.goalsFor, row.goalsAgainst,
-          row.points, row.outcome, row.note ?? null,
+          row.points, row.outcome, json(row.sources ?? []), row.note ?? null,
         );
       }
       for (const point of table.progression) {
@@ -212,9 +212,9 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
          result, after_extra_time, decided_on_pens, won_on_pens,
          competition_name, opponent_name, venue_name,
          events, lineups, stats, report_summary, report_body, report_byline,
-         external_reports, providers, confidence, conflicts, tags, aliases,
+         external_reports, providers, sources, confidence, conflicts, tags, aliases,
          completeness, missing_fields, note, source_file
-       ) VALUES (${Array.from({ length: 53 }, () => "?").join(", ")})`,
+       ) VALUES (${Array.from({ length: 54 }, () => "?").join(", ")})`,
     );
 
     const insertReport = db.prepare(
@@ -255,9 +255,10 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
         competitionName, opponentName, venueName,
         json(m.events), m.lineups ? json(m.lineups) : null, m.stats ? json(m.stats) : null,
         m.report?.summary ?? null, m.report?.body ?? null, m.report?.byline ?? null,
-        json(m.externalReports), json(m.providers), m.confidence, json(m.conflicts),
-        json(m.tags), json(m.aliases),
-        completeness(m), json(missingFields(m)), m.note ?? null, m.file,
+        json(m.externalReports ?? []), json(m.providers ?? []), json(m.sources ?? []), m.confidence, json(m.conflicts ?? []),
+        json(m.tags ?? []), json(m.aliases ?? {}),
+        completeness(m), json(missingFields(m)),
+        m.note ?? null, m.file,
       );
 
       // Oppstillingen på vår egen side av kampen. Motstanderens elleve er

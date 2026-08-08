@@ -34,11 +34,22 @@ interface TeamStats {
   xg?: number;
 }
 
-interface SourceRef {
-  sourceId: string;
+interface ProviderRef {
+  providerId: string;
   url?: string;
   retrievedAt?: string;
   fields: string[];
+}
+
+interface SourceRef {
+  sourceId: string;
+  page?: number;
+  note?: string;
+}
+
+interface SourceDetailInfo {
+  id: string;
+  title: string;
 }
 
 interface MatchDetail {
@@ -64,6 +75,7 @@ interface MatchDetail {
   events: string;
   lineups: string | null;
   stats: string | null;
+  providers: string;
   sources: string;
   confidence: string;
   stage: string | null;
@@ -100,7 +112,7 @@ function loadMatch(id: string): MatchDetail | undefined {
               m.home_ht_score, m.away_ht_score, m.home_et_score, m.away_et_score,
               m.home_pens, m.away_pens,
               m.venue_name, m.attendance, m.referee, m.note,
-              m.events, m.lineups, m.stats, m.sources, m.confidence
+              m.events, m.lineups, m.stats, m.providers, m.sources, m.confidence
        FROM core_matches m
        JOIN core_clubs h ON h.id = m.home_club_id
        JOIN core_clubs a ON a.id = m.away_club_id
@@ -168,7 +180,21 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
   const events = json<EventRow[]>(match.events, []);
   const lineups = json<{ home?: Lineup; away?: Lineup }>(match.lineups, {});
   const stats = json<{ home?: TeamStats; away?: TeamStats }>(match.stats, {});
+  const providers = json<ProviderRef[]>(match.providers, []);
   const sources = json<SourceRef[]>(match.sources, []);
+
+  // Fetch full title for sources
+  const db = open();
+  const sourceInfos = new Map<string, string>();
+  if (sources.length > 0) {
+    const sourceIds = sources.map(s => s.sourceId);
+    const placeholders = sourceIds.map(() => '?').join(',');
+    const rows = db.prepare(`SELECT id, title FROM core_sources WHERE id IN (${placeholders})`).all(...sourceIds) as SourceDetailInfo[];
+    for (const r of rows) {
+      sourceInfos.set(r.id, r.title);
+    }
+  }
+  db.close();
   // Overskriftsresultatet er sluttresultatet. home_score er stillingen etter
   // ordinær tid, så ekstraomgangsmålene må legges til — ellers står en cupkamp
   // som endte 2-1 på overtid oppført som 1-1.
@@ -280,13 +306,20 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
 
       <section>
         <h2>Kilder</h2>
-        {sources.length === 0 ? <p className="muted">Ingen kilde registrert.</p> : (
+        {providers.length === 0 && sources.length === 0 ? <p className="muted">Ingen kilde registrert.</p> : (
           <ul>
-            {sources.map((source) => (
-              <li key={`${source.sourceId}-${source.url ?? ""}`}>
-                {source.url ? <a href={source.url} rel="noreferrer">{source.sourceId}</a> : source.sourceId}
-                {source.retrievedAt ? ` · hentet ${formatDate(source.retrievedAt)}` : ""}
-                <span className="muted"> · {source.fields.length} dokumenterte felt</span>
+            {sources.map((source, i) => (
+              <li key={`source-${source.sourceId}-${i}`}>
+                <a href={`/kilder/${source.sourceId}`}>{sourceInfos.get(source.sourceId) || source.sourceId}</a>
+                {source.page && <span className="muted"> · Side {source.page}</span>}
+                {source.note && <span className="muted"> · {source.note}</span>}
+              </li>
+            ))}
+            {providers.map((p, i) => (
+              <li key={`provider-${p.providerId}-${i}`}>
+                {p.url ? <a href={p.url} rel="noreferrer">{p.providerId}</a> : p.providerId}
+                {p.retrievedAt ? ` · hentet ${formatDate(p.retrievedAt)}` : ""}
+                <span className="muted"> · {p.fields.length} dokumenterte felt</span>
               </li>
             ))}
           </ul>

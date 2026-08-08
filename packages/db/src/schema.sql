@@ -107,6 +107,7 @@ CREATE TABLE core_standings (
   outcome          TEXT NOT NULL DEFAULT 'none'
                      CHECK (outcome IN ('promoted','relegated','promotion_playoff',
                                         'relegation_playoff','playoff','none')),
+  sources          TEXT NOT NULL DEFAULT '[]',
   note             TEXT,
   PRIMARY KEY (competition_id, season, position)
 );
@@ -137,6 +138,7 @@ CREATE TABLE core_people (
   nationality  TEXT,
   position     TEXT CHECK (position IN ('keeper','forsvar','midtbane','angrep')),
   wikidata     TEXT,
+  sources      TEXT NOT NULL DEFAULT '[]',
   note         TEXT
 );
 
@@ -258,6 +260,7 @@ CREATE TABLE core_matches (
   aliases          TEXT NOT NULL DEFAULT '{}',
   completeness     REAL NOT NULL DEFAULT 0,
   missing_fields   TEXT NOT NULL DEFAULT '[]',
+  sources          TEXT NOT NULL DEFAULT '[]',
   note             TEXT,
   source_file      TEXT NOT NULL
 );
@@ -307,6 +310,7 @@ SELECT
   m.confidence,
   CASE WHEN json_array_length(m.conflicts) > 0 THEN 1 ELSE 0 END AS has_conflicts,
   m.completeness,
+  m.sources,
   m.note,
   m.tags,
   '/kamp/' || m.id    AS url
@@ -444,6 +448,7 @@ SELECT
   t.points,
   t.outcome,
   t.note,
+  t.sources,
   CASE WHEN t.club_id IS NULL THEN NULL
        ELSE '/motstander/' || t.club_id END          AS url
 FROM core_standings t
