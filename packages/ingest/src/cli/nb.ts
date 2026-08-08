@@ -58,6 +58,23 @@ async function run() {
       if (Array.isArray(publisher)) publisher = publisher[0];
       if (typeof publisher !== 'string') publisher = null;
 
+      const pubLower = (publisher || "").toLowerCase();
+      const titleLower = (title || "").toLowerCase();
+      
+      const isRelevant = 
+        pubLower.includes("aalesunds fotballklubb") || 
+        pubLower.includes("aalesunds fk") || 
+        pubLower.includes("aafk") || 
+        titleLower.includes("aalesunds fotballklubb") || 
+        titleLower.includes("aalesunds fk") || 
+        titleLower.includes("aafk") ||
+        titleLower.includes("aalesund fk");
+
+      if (!isRelevant) {
+        console.log(`[Forkastet] Ikke relevant: "${title}" (Utgiver: ${publisher || 'Ingen'})`);
+        continue;
+      }
+
       const pub = {
         id,
         title,
