@@ -1,10 +1,23 @@
 import { z } from "zod";
 
+export const sourceTypeEnum = z.enum([
+  "book",
+  "anniversary_book",
+  "member_magazine",
+  "annual_report",
+  "match_program",
+  "supporter_publication",
+  "local_history_book",
+  "newspaper_supplement",
+  "series",
+  "other",
+]);
+
 export const source = z.object({
   id: z.string(),
   parentSourceId: z.string().optional(),
   title: z.string(),
-  sourceType: z.enum(["bok", "jubileumsskrift", "medlemsblad", "årsberetning", "kampprogram", "supporterpublikasjon", "lokalhistorisk bok", "avisbilag", "annet"]),
+  sourceType: sourceTypeEnum,
   issue: z.string().optional(),
   volume: z.string().optional(),
   publisher: z.string().optional(),

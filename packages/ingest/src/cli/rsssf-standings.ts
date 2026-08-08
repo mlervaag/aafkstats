@@ -136,6 +136,7 @@ export async function run(args: Args): Promise<void> {
       fields: ["table", ...(progression.length > 0 ? ["progression"] : [])],
       note: `Lest med ${RSSSF_ADAPTER}. Tabellen er hentet; kurven er regnet ut av rundene på samme side.`,
     }],
+    sources: [],
     note: notes.length > 0 ? notes.join(" ") : undefined,
   } satisfies Standings);
 

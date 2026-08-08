@@ -340,7 +340,7 @@ export const views: ViewDoc[] = [
       { name: "id", type: "text", description: "Unik ID for publikasjonen." },
       { name: "parent_source_id", type: "text", description: "ID for kildens serie (f.eks. aafk-medlemsblad)." },
       { name: "title", type: "text", description: "Tittel." },
-      { name: "source_type", type: "text", description: "'bok', 'jubileumsskrift', 'medlemsblad', 'årsberetning', 'kampprogram', 'supporterpublikasjon', 'lokalhistorisk bok', 'avisbilag' eller 'annet'." },
+      { name: "source_type", type: "text", description: "'book', 'anniversary_book', 'member_magazine', 'annual_report', 'match_program', 'supporter_publication', 'local_history_book', 'newspaper_supplement', 'series' eller 'other'." },
       { name: "issue", type: "text", description: "Utgave." },
       { name: "volume", type: "text", description: "Årgang/Volum." },
       { name: "publisher", type: "text", description: "Utgiver, f.eks. Aalesunds fotballklubb." },

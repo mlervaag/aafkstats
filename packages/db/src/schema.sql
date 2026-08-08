@@ -605,9 +605,9 @@ CREATE TABLE core_contributions (
 
 CREATE TABLE core_sources (
   id            TEXT PRIMARY KEY,
-  parent_source_id TEXT,
+  parent_source_id TEXT REFERENCES core_sources(id) ON DELETE SET NULL,
   title         TEXT NOT NULL,
-  source_type   TEXT NOT NULL CHECK (source_type IN ('bok','jubileumsskrift','medlemsblad','årsberetning','kampprogram','supporterpublikasjon','lokalhistorisk bok','avisbilag','annet')),
+  source_type   TEXT NOT NULL CHECK (source_type IN ('book','anniversary_book','member_magazine','annual_report','match_program','supporter_publication','local_history_book','newspaper_supplement','series','other')),
   issue         TEXT,
   volume        TEXT,
   publisher     TEXT,

@@ -88,6 +88,20 @@ export const providerRef = z
 export type ProviderRef = z.infer<typeof providerRef>;
 
 /**
+ * Kildehenvisning til et faktisk historisk dokument (en 'source').
+ */
+export const sourceRef = z
+  .object({
+    sourceId: slug,
+    page: z.string().optional(),
+    fields: z.array(z.string().min(1)).default([]),
+    note: z.string().optional(),
+  })
+  .strict();
+
+export type SourceRef = z.infer<typeof sourceRef>;
+
+/**
  * En kjent uenighet mellom kilder. Bevares i stedet for å skjules — for et historisk
  * arkiv er «Sunnmørsposten skriver 3–1, RSSSF skriver 3–2» en opplysning i seg selv.
  */

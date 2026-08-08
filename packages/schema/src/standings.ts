@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { seasonYear, slug, providerRef } from "./primitives.js";
+import { seasonYear, slug, providerRef, sourceRef } from "./primitives.js";
 
 /**
  * Tabellen ved sesongslutt, og veien dit.
@@ -96,6 +96,7 @@ export const standings = z
      */
     progression: z.array(progressionPoint).default([]),
     providers: z.array(providerRef).default([]),
+    sources: z.array(sourceRef).default([]),
     note: z.string().optional(),
   })
   .strict()

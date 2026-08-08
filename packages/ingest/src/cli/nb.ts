@@ -31,20 +31,20 @@ async function run() {
     for (const item of data._embedded?.items || []) {
       const metadata = item.metadata;
       
-      let sourceType = "annet";
+      let sourceType = "other";
       const mediaType = metadata.mediaTypes?.[0];
-      if (mediaType === "bok") sourceType = "bok";
-      else if (mediaType === "tidsskrift") sourceType = "medlemsblad";
+      if (mediaType === "bok") sourceType = "book";
+      else if (mediaType === "tidsskrift") sourceType = "member_magazine";
       else if (mediaType === "avis") continue; // Skipper aviser
       
       const title = metadata.title;
       const titleLower = (title || "").toLowerCase();
       
-      if (titleLower.includes("årsmelding") || titleLower.includes("årsberetning")) sourceType = "årsberetning";
-      else if (titleLower.includes("jubileum") || titleLower.includes("gjennem") || (titleLower.includes("år") && !titleLower.includes("årsmelding") && !titleLower.includes("årsberetning"))) sourceType = "jubileumsskrift";
-      else if (titleLower.includes("kampprogram") || titleLower.includes("aktivitetsuka")) sourceType = "kampprogram";
-      else if (titleLower.includes("supporter")) sourceType = "supporterpublikasjon";
-      else if (sourceType === "bok" && titleLower.includes("historie")) sourceType = "lokalhistorisk bok";
+      if (titleLower.includes("årsmelding") || titleLower.includes("årsberetning")) sourceType = "annual_report";
+      else if (titleLower.includes("jubileum") || titleLower.includes("gjennem") || (titleLower.includes("år") && !titleLower.includes("årsmelding") && !titleLower.includes("årsberetning"))) sourceType = "anniversary_book";
+      else if (titleLower.includes("kampprogram") || titleLower.includes("aktivitetsuka")) sourceType = "match_program";
+      else if (titleLower.includes("supporter")) sourceType = "supporter_publication";
+      else if (sourceType === "book" && titleLower.includes("historie")) sourceType = "local_history_book";
       
       const urn = metadata.identifiers?.urn;
       if (!urn) continue;
