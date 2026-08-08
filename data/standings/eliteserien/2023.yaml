@@ -335,8 +335,8 @@ progression:
     points: 18
     played: 30
     goalDifference: -50
-sources:
-  - sourceId: rsssf
+providers:
+  - providerId: rsssf
     url: http://www.rsssf.no/2023/Premier.html
     retrievedAt: 2026-08-04
     fields:

@@ -87,7 +87,7 @@ const COMPLETENESS_FIELDS: { key: string; has: (m: Match) => boolean; weight: nu
   { key: "events", has: (m) => m.events.length > 0, weight: 2 },
   { key: "lineups", has: (m) => m.lineups !== undefined, weight: 2 },
   { key: "report", has: (m) => m.report?.body !== undefined, weight: 2 },
-  { key: "sources", has: (m) => m.sources.length > 0, weight: 2 },
+  { key: "providers", has: (m) => m.providers.length > 0, weight: 2 },
 ];
 
 const COMPLETENESS_TOTAL = COMPLETENESS_FIELDS.reduce((sum, f) => sum + f.weight, 0);

@@ -134,8 +134,8 @@ table:
     points: 10
     outcome: none
 progression: []
-sources:
-  - sourceId: fotball-no
+providers:
+  - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83043&underside=tabellen
     retrievedAt: 2026-08-05
     fields:

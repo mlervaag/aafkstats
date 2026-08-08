@@ -31,11 +31,20 @@ async function run() {
     for (const item of data._embedded?.items || []) {
       const metadata = item.metadata;
       
-      let type = "other";
+      let sourceType = "annet";
       const mediaType = metadata.mediaTypes?.[0];
-      if (mediaType === "bok") type = "book";
-      else if (mediaType === "tidsskrift") type = "magazine";
+      if (mediaType === "bok") sourceType = "bok";
+      else if (mediaType === "tidsskrift") sourceType = "medlemsblad";
       else if (mediaType === "avis") continue; // Skipper aviser
+      
+      const title = metadata.title;
+      const titleLower = (title || "").toLowerCase();
+      
+      if (titleLower.includes("årsmelding") || titleLower.includes("årsberetning")) sourceType = "årsberetning";
+      else if (titleLower.includes("jubileum") || titleLower.includes("gjennem") || (titleLower.includes("år") && !titleLower.includes("årsmelding") && !titleLower.includes("årsberetning"))) sourceType = "jubileumsskrift";
+      else if (titleLower.includes("kampprogram") || titleLower.includes("aktivitetsuka")) sourceType = "kampprogram";
+      else if (titleLower.includes("supporter")) sourceType = "supporterpublikasjon";
+      else if (sourceType === "bok" && titleLower.includes("historie")) sourceType = "lokalhistorisk bok";
       
       const urn = metadata.identifiers?.urn;
       if (!urn) continue;
@@ -47,7 +56,6 @@ async function run() {
         if (match) year = parseInt(match[1], 10);
       }
       
-      const title = metadata.title;
       // Slugs for ID
       let idTitle = title.toLowerCase().replace(/[^a-z0-9æøå]+/g, "-").replace(/(^-|-$)/g, "");
       idTitle = idTitle.replace(/æ/g, "ae").replace(/ø/g, "o").replace(/å/g, "a");
@@ -59,14 +67,17 @@ async function run() {
       if (typeof publisher !== 'string') publisher = null;
 
       const pubLower = (publisher || "").toLowerCase();
-      const titleLower = (title || "").toLowerCase();
       
       const whitelistedTitles = [
         "vi er 75 år",
         "aalesund : fra blåbær til betong",
         "opp fra myra",
         "cupminner",
-        "cup-minner"
+        "cup-minner",
+        "årsmelding",
+        "årsberetning",
+        "aktivitetsuka",
+        "supporterserien"
       ];
 
       const isRelevant = 
@@ -88,17 +99,30 @@ async function run() {
         continue;
       }
 
+      
+      let parentSourceId = undefined;
+      let issue = undefined;
+      let volume = undefined;
+      
+      if (sourceType === "medlemsblad" && titleLower.includes("medlemsblad for aalesunds fotballklubb")) {
+        parentSourceId = "aafk-medlemsblad";
+        const nrMatch = titleLower.match(/nr\.?\s*(\d+)/);
+        if (nrMatch) issue = nrMatch[1];
+        const volMatch = titleLower.match(/vol\.?\s*(\d+)/);
+        if (volMatch) volume = volMatch[1];
+      }
+
       const pub = {
         id,
         title,
-        type,
+        sourceType,
         publisher,
         year,
         coverUrl: item._links?.thumbnail_large?.href || null,
         accessUrl: `https://www.nb.no/items/${urn}`,
-        sources: [
+        providers: [
           {
-            sourceId: "nasjonalbiblioteket",
+            providerId: "nasjonalbiblioteket",
             url: `https://www.nb.no/items/${urn}`
           }
         ]
@@ -111,7 +135,7 @@ async function run() {
         }
       });
       
-      publications.push(pub);
+      publications.push(pub as any);
     }
     
     fetched += data._embedded?.items?.length || 0;
@@ -121,7 +145,7 @@ async function run() {
   console.log(`Fant ${publications.length} publikasjoner (ekskludert aviser).`);
 
   if (args.values.write) {
-    const outDir = join(repoRoot(), "data", "publications");
+    const outDir = join(repoRoot(), "data", "sources");
     if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true });
     
     for (const pub of publications) {
@@ -135,7 +159,7 @@ async function run() {
     }
   } else {
     console.log("Kjørt uten --write. Funnet data:");
-    console.log(publications.map(p => `- ${p.year}: ${p.title} (${p.type})`).join("\n"));
+    console.log(publications.map(p => `- ${p.year}: ${p.title} (${p.sourceType})`).join("\n"));
   }
 }
 

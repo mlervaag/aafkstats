@@ -8,7 +8,7 @@ import {
   isoDate,
   seasonYear,
   slug,
-  sourceRef,
+  providerRef,
   timeOfDay,
 } from "./primitives.js";
 
@@ -176,7 +176,7 @@ export const match = z
       .optional(),
     report: report.optional(),
     externalReports: z.array(externalReport).default([]),
-    sources: z.array(sourceRef).default([]),
+    providers: z.array(providerRef).default([]),
     confidence: confidence.default("probable"),
     conflicts: z.array(conflict).default([]),
     tags: z.array(slug).default([]),

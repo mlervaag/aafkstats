@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { seasonYear, slug, sourceRef } from "./primitives.js";
+import { seasonYear, slug, providerRef } from "./primitives.js";
 
 /**
  * En person i arkivet: spiller, trener, eller begge.
@@ -77,7 +77,7 @@ export const person = z
     wikidata: z.string().regex(/^Q[1-9]\d*$/, "må være en Wikidata-ID, f.eks. Q1796755").optional(),
     squadNumbers: z.array(squadNumber).default([]),
     coachSpells: z.array(declaredCoachSpell).default([]),
-    sources: z.array(sourceRef).default([]),
+    providers: z.array(providerRef).default([]),
     note: z.string().optional(),
   })
   .strict()

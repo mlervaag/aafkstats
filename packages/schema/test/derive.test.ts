@@ -146,7 +146,7 @@ describe("completeness", () => {
       events: [{ minute: 10, type: "goal", team: "home", player: "A" }],
       lineups: { home: { formation: "4-3-3", starters: ["A"], subs: [] } },
       report: { body: "Tekst" },
-      sources: [{ sourceId: "fotmob", fields: ["home.score"] }],
+      providers: [{ providerId: "fotmob", fields: ["home.score"] }],
     });
     expect(completeness(full)).toBe(1);
     expect(missingFields(full)).toEqual([]);

@@ -292,15 +292,15 @@ export const views: ViewDoc[] = [
     ],
   },
   {
-    name: "sources",
+    name: "providers",
     summary: "Kildekatalogen: hvor dataene kommer fra og hvor mye vi stoler på hver kilde.",
     columns: [
-      { name: "source_id", type: "text", description: "Kildens ID." },
+      { name: "provider_id", type: "text", description: "Kildens ID." },
       { name: "name", type: "text", description: "Kildens navn." },
       { name: "url", type: "text", description: "Kildens nettadresse." },
       { name: "priority", type: "integer", description: "Høyere tall vinner når kilder er uenige." },
       { name: "license", type: "text", description: "Lisens, der den er kjent." },
-            { name: "automated_access", type: "text", description: "Om kilden kan hentes automatisk: allowed, permission_required, blocked eller unknown." },
+      { name: "automated_access", type: "text", description: "Om kilden kan hentes automatisk: allowed, permission_required, blocked eller unknown." },
       { name: "public_redistribution", type: "text", description: "Om data derfra kan publiseres videre: allowed, permission_required, denied eller unknown. Et annet spørsmål enn om den kan hentes." },
       { name: "attribution_required", type: "integer (0/1)", description: "Om kilden krever kreditering." },
       { name: "permission_status", type: "text", description: "not_needed, pending, requested, granted, accepted_risk eller denied. «accepted_risk» betyr at prosjekteier har valgt å gå videre uten tillatelse, ikke at tillatelse finnes." },
@@ -330,16 +330,19 @@ export const views: ViewDoc[] = [
     ],
   },
   {
-    name: "publications",
-    summary: "Historisk materiale og publikasjoner fra Nasjonalbiblioteket og AaFK Historiske arkiv.",
+    name: "sources",
+    summary: "Historisk materiale og kilder fra Nasjonalbiblioteket og AaFK Historiske arkiv.",
     caveats: [
-      "Inneholder bøker, medlemsblader og andre dokumenter.",
+      "Inneholder bøker, medlemsblader, årsmeldinger og andre dokumenter.",
       "Selve innholdet er ikke lagret her, men kan leses via access_url.",
     ],
     columns: [
       { name: "id", type: "text", description: "Unik ID for publikasjonen." },
+      { name: "parent_source_id", type: "text", description: "ID for kildens serie (f.eks. aafk-medlemsblad)." },
       { name: "title", type: "text", description: "Tittel." },
-      { name: "type", type: "text", description: "'book', 'magazine', 'article' eller 'other'." },
+      { name: "source_type", type: "text", description: "'bok', 'jubileumsskrift', 'medlemsblad', 'årsberetning', 'kampprogram', 'supporterpublikasjon', 'lokalhistorisk bok', 'avisbilag' eller 'annet'." },
+      { name: "issue", type: "text", description: "Utgave." },
+      { name: "volume", type: "text", description: "Årgang/Volum." },
       { name: "publisher", type: "text", description: "Utgiver, f.eks. Aalesunds fotballklubb." },
       { name: "year", type: "integer", description: "Utgivelsesår." },
       { name: "cover_url", type: "text", description: "Lenke til forsidebilde." },
@@ -415,8 +418,8 @@ WHERE c.scope = 'match' AND m.opponent = 'SK Brann' AND m.season = 1998`,
   {
     question: "Hvilke medlemsblader har vi fra 1970-tallet?",
     sql: `SELECT title, year, access_url
-FROM publications
-WHERE type = 'magazine' AND year BETWEEN 1970 AND 1979
+FROM sources
+WHERE source_type = 'medlemsblad' AND year BETWEEN 1970 AND 1979
 ORDER BY year ASC`,
   },
 ];

@@ -6,8 +6,8 @@ home: { clubId: aalesunds-fk, score: 1, halfTimeScore: 1 }
 away: { clubId: sk-brann, score: 7, halfTimeScore: 2 }
 venueId: kramyra-stadion
 attendance: 4210
-sources:
-  - { sourceId: rsssf, retrievedAt: 2026-08-02, fields: [home.score, away.score] }
+providers:
+  - { providerId: rsssf, retrievedAt: 2026-08-02, fields: [home.score, away.score] }
 confidence: probable
 tags: [fixture]
 note: >

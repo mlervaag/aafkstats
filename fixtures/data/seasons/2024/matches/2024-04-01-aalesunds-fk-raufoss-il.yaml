@@ -40,7 +40,7 @@ report:
   body: |
     Dette er fixture-data og beskriver ingen ekte kamp. Teksten finnes for å teste
     fritekstsøk og at referat rendres riktig på kampsiden.
-sources:
-  - { sourceId: fotmob, retrievedAt: 2026-08-02, fields: [home.score, away.score, events, stats] }
+providers:
+  - { providerId: fotmob, retrievedAt: 2026-08-02, fields: [home.score, away.score, events, stats] }
 confidence: confirmed
 tags: [fixture]

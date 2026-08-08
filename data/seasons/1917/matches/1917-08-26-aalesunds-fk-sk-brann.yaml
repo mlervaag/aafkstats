@@ -18,8 +18,8 @@ away:
 neutralVenue: false
 events: []
 externalReports: []
-sources:
-  - sourceId: rsssf
+providers:
+  - providerId: rsssf
     url: http://www.rsssf.no/1917/Cup.html
     retrievedAt: 2026-08-03
     fields:

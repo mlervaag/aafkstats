@@ -129,8 +129,8 @@ export async function run(args: Args): Promise<void> {
     season: args.season,
     table,
     progression,
-    sources: [{
-      sourceId: "rsssf",
+    providers: [{
+      providerId: "rsssf",
       url,
       retrievedAt: args.retrievedAt,
       fields: ["table", ...(progression.length > 0 ? ["progression"] : [])],

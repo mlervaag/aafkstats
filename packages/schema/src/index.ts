@@ -7,4 +7,4 @@ export * from "./observation.js";
 export * from "./person.js";
 export * from "./standings.js";
 export * from "./contribution.js";
-export * from "./publication.js";
+export * from "./source.js";

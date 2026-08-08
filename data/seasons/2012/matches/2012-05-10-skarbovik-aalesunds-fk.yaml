@@ -23,8 +23,8 @@ events:
     team: away
     player: Demar Phillips
 externalReports: []
-sources:
-  - sourceId: fotmob
+providers:
+  - providerId: fotmob
     url: https://www.fotmob.com/matches/skarbovik-vs-aalesund/1ugcqy#1200395
     retrievedAt: 2026-08-03
     fields:

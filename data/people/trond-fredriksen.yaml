@@ -6,14 +6,14 @@ squadNumbers: []
 coachSpells:
   - fromSeason: 2015
     toSeason: 2017
-sources:
-  - sourceId: wikipedia
+providers:
+  - providerId: wikipedia
     url: https://no.wikipedia.org/w/index.php?title=Aalesunds%20Fotballklubb&oldid=25869346
     retrievedAt: 2026-07-22
     fields:
       - coachSpells
     note: Årstall fra trenertabellen. Merknadskolonnen er prosa og er ikke gjengitt.
-  - sourceId: wikidata
+  - providerId: wikidata
     url: https://www.wikidata.org/wiki/Q3999679
     retrievedAt: 2026-08-04
     fields:

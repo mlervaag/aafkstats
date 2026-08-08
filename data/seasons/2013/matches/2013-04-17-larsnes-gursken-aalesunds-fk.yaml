@@ -19,8 +19,8 @@ away:
 neutralVenue: false
 events: []
 externalReports: []
-sources:
-  - sourceId: fotmob
+providers:
+  - providerId: fotmob
     url: https://www.fotmob.com/matches/aalesund-vs-larsnesgursken/ew3j9gq#1435826
     retrievedAt: 2026-08-03
     fields:
