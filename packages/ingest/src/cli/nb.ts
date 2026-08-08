@@ -112,10 +112,13 @@ async function run() {
         if (volMatch) volume = volMatch[1];
       }
 
-      const pub = {
+      const pub: Record<string, unknown> = {
         id,
+        parentSourceId,
         title,
         sourceType,
+        issue,
+        volume,
         publisher,
         year,
         coverUrl: item._links?.thumbnail_large?.href || null,
