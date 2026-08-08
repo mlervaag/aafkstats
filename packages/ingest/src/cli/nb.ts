@@ -61,6 +61,11 @@ async function run() {
       const pubLower = (publisher || "").toLowerCase();
       const titleLower = (title || "").toLowerCase();
       
+      const whitelistedTitles = [
+        "vi er 75 år",
+        "aalesund : fra blåbær til betong"
+      ];
+
       const isRelevant = 
         pubLower.includes("aalesunds fotballklubb") || 
         pubLower.includes("aalesund fotballklubb") || 
@@ -72,7 +77,8 @@ async function run() {
         titleLower.includes("aalesunds fotballklub") || 
         titleLower.includes("aalesunds fk") || 
         titleLower.includes("aafk") ||
-        titleLower.includes("aalesund fk");
+        titleLower.includes("aalesund fk") ||
+        whitelistedTitles.some(t => titleLower.includes(t));
 
       if (!isRelevant) {
         console.log(`[Forkastet] Ikke relevant: "${title}" (Utgiver: ${publisher || 'Ingen'})`);

@@ -88,7 +88,7 @@ export default function ArkivetPage() {
                 {pub.type === "book" ? "Bok" : pub.type === "magazine" ? "Medlemsblad" : pub.type === "article" ? "Artikkel" : "Publikasjon"} 
                 {pub.year ? ` · ${pub.year}` : ""}
               </div>
-              <h2 style={{ fontSize: "1.1rem", margin: "0 0 0.5rem 0", lineHeight: 1.3 }}>{pub.title}</h2>
+              <h2 style={{ fontSize: "1.1rem", margin: "0 0 0.5rem 0", lineHeight: 1.3, color: "#111", fontWeight: 700 }}>{pub.title}</h2>
               {pub.publisher && <div style={{ fontSize: "0.9rem", color: "#666" }}>Utgiver: {pub.publisher}</div>}
             </div>
             <div style={{ marginTop: "1rem", paddingTop: "1rem", borderTop: "1px solid #eee", fontSize: "0.9rem", fontWeight: "bold", color: "#0047b3" }}>
