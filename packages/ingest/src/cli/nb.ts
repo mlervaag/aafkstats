@@ -3,6 +3,7 @@ import { join } from "node:path";
 import { writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { stringify } from "yaml";
 import { repoRoot } from "@aafkstats/schema/load";
+import type { Source } from "@aafkstats/schema";
 
 const args = parseArgs({
   options: {
@@ -20,12 +21,12 @@ async function run() {
   let page = 0;
   let total = 0;
   let fetched = 0;
-  const publications = [];
+  const publications: Partial<Source>[] = [];
 
   do {
     const res = await fetch(`https://api.nb.no/catalog/v1/items?q=${encodeURIComponent(q)}&page=${page}&size=${size}`);
     if (!res.ok) throw new Error(`NB API error: ${res.statusText}`);
-    const data = await res.json() as any;
+    const data = await res.json() as { page: { totalElements: number }, _embedded?: { items: any[] } };
     total = data.page.totalElements;
 
     for (const item of data._embedded?.items || []) {
@@ -104,7 +105,7 @@ async function run() {
       let issue = undefined;
       let volume = undefined;
       
-      if (sourceType === "medlemsblad" && titleLower.includes("medlemsblad for aalesunds fotballklubb")) {
+      if (sourceType === "member_magazine" && titleLower.includes("medlemsblad for aalesunds fotballklubb")) {
         parentSourceId = "aafk-medlemsblad";
         const nrMatch = titleLower.match(/nr\.?\s*(\d+)/);
         if (nrMatch) issue = nrMatch[1];
@@ -133,12 +134,12 @@ async function run() {
       
       // Fjern null-verdier (YAML foretrekker at de utelates framfor at de er 'null')
       Object.keys(pub).forEach(k => {
-        if ((pub as any)[k] === null) {
-          delete (pub as any)[k];
+        if (pub[k as keyof typeof pub] === null) {
+          delete pub[k as keyof typeof pub];
         }
       });
       
-      publications.push(pub as any);
+      publications.push(pub);
     }
     
     fetched += data._embedded?.items?.length || 0;

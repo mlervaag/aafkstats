@@ -419,7 +419,7 @@ WHERE c.scope = 'match' AND m.opponent = 'SK Brann' AND m.season = 1998`,
     question: "Hvilke medlemsblader har vi fra 1970-tallet?",
     sql: `SELECT title, year, access_url
 FROM sources
-WHERE source_type = 'medlemsblad' AND year BETWEEN 1970 AND 1979
+WHERE source_type = 'member_magazine' AND year BETWEEN 1970 AND 1979
 ORDER BY year ASC`,
   },
 ];

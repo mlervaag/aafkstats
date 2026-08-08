@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { one, all, open } from "@aafkstats/db";
-import { SourceTypeBadge } from "@/components/sources/SourceTypeBadge";
+import { SourceTypeBadge, SOURCE_TYPE_LABELS } from "@/components/sources/SourceTypeBadge";
 import { SourceCard } from "@/components/sources/SourceCard";
 
 export const dynamic = "force-dynamic";
@@ -66,7 +66,7 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
             <h2 style={{ fontSize: "1.2rem", marginBottom: "1rem", borderBottom: "1px solid #ddd", paddingBottom: "0.5rem" }}>Fakta om kilden</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "0.5rem 1rem", margin: 0 }}>
               <dt style={{ fontWeight: "bold", color: "#555" }}>Kildetype</dt>
-              <dd style={{ margin: 0 }}>{source.source_type}</dd>
+              <dd style={{ margin: 0 }}>{SOURCE_TYPE_LABELS[source.source_type] || source.source_type}</dd>
               
               {source.publisher && (
                 <>
