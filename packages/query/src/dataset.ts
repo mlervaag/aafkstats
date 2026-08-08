@@ -329,6 +329,24 @@ export const views: ViewDoc[] = [
       { name: "source_url", type: "text", description: "Eventuell kildelenke for påstanden." },
     ],
   },
+  {
+    name: "publications",
+    summary: "Historisk materiale og publikasjoner fra Nasjonalbiblioteket og AaFK Historiske arkiv.",
+    caveats: [
+      "Inneholder bøker, medlemsblader og andre dokumenter.",
+      "Selve innholdet er ikke lagret her, men kan leses via access_url.",
+    ],
+    columns: [
+      { name: "id", type: "text", description: "Unik ID for publikasjonen." },
+      { name: "title", type: "text", description: "Tittel." },
+      { name: "type", type: "text", description: "'book', 'magazine', 'article' eller 'other'." },
+      { name: "publisher", type: "text", description: "Utgiver, f.eks. Aalesunds fotballklubb." },
+      { name: "year", type: "integer", description: "Utgivelsesår." },
+      { name: "cover_url", type: "text", description: "Lenke til forsidebilde." },
+      { name: "access_url", type: "text", description: "Lenke for å lese publikasjonen hos kilden." },
+      { name: "url", type: "text", description: "Lenke til visningssiden på vårt nettsted." },
+    ],
+  },
 ];
 
 /** Eksempelspørringer som vises på /data og gis til modellen som mønster. */
@@ -393,6 +411,13 @@ ORDER BY date DESC`,
 FROM contributions c
 JOIN matches m ON c.target_id = m.match_id
 WHERE c.scope = 'match' AND m.opponent = 'SK Brann' AND m.season = 1998`,
+  },
+  {
+    question: "Hvilke medlemsblader har vi fra 1970-tallet?",
+    sql: `SELECT title, year, access_url
+FROM publications
+WHERE type = 'magazine' AND year BETWEEN 1970 AND 1979
+ORDER BY year ASC`,
   },
 ];
 

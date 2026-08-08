@@ -17,6 +17,8 @@ import type { Person } from "./person.js";
 import type { Standings } from "./standings.js";
 import { contribution } from "./contribution.js";
 import type { Contribution } from "./contribution.js";
+import { publication } from "./publication.js";
+import type { Publication } from "./publication.js";
 
 /** Rota på monorepoet, utledet fra hvor denne filen ligger. */
 export function repoRoot(): string {
@@ -63,6 +65,7 @@ export interface Archive {
    */
   people: Person[];
   contributions: (Contribution & { file: string })[];
+  publications: (Publication & { file: string })[];
   issues: LoadIssue[];
 }
 
@@ -230,7 +233,12 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
     c.file = relative(root, join(root, "contributions", `${c.id}.yaml`)).replace(/\\/g, "/");
   }
 
-  return { clubs, venues, competitions, sources, seasons, matches, observations, standings: tables, people, contributions, issues };
+  const publications = (await readAll("publications", publication)) as (Publication & { file: string })[];
+  for (const p of publications) {
+    p.file = relative(root, join(root, "publications", `${p.id}.yaml`)).replace(/\\/g, "/");
+  }
+
+  return { clubs, venues, competitions, sources, seasons, matches, observations, standings: tables, people, contributions, publications, issues };
 }
 
 /**
@@ -263,6 +271,7 @@ export function crossValidate(archive: Archive): LoadIssue[] {
   duplicates(archive.competitions, "competitions");
   duplicates(archive.sources, "sources");
   duplicates(archive.contributions, "contributions");
+  duplicates(archive.publications, "publications");
 
   // Klubber som normaliserer til samme identitet er nesten alltid samme klubb
   // ført to ganger, fordi én kilde skriver «FK Haugesund» og en annen «Haugesund».
@@ -422,6 +431,16 @@ export function crossValidate(archive: Archive): LoadIssue[] {
         path: "competitionId",
         message: `ukjent konkurranse «${s.competitionId}»`,
       });
+    }
+  }
+
+  for (const p of archive.publications) {
+    if (p.sources) {
+      for (const s of p.sources) {
+        if (!sourceIds.has(s.sourceId)) {
+          issues.push({ file: p.file, path: "sources", message: `ukjent kilde «${s.sourceId}» — mangler data/sources/${s.sourceId}.yaml` });
+        }
+      }
     }
   }
 

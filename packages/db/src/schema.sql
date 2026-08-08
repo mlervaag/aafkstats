@@ -603,6 +603,17 @@ CREATE TABLE core_contributions (
   source_url   TEXT
 );
 
+CREATE TABLE core_publications (
+  id            TEXT PRIMARY KEY,
+  title         TEXT NOT NULL,
+  type          TEXT NOT NULL CHECK (type IN ('book','magazine','article','other')),
+  publisher     TEXT,
+  year          INTEGER,
+  cover_url     TEXT,
+  access_url    TEXT,
+  sources       TEXT NOT NULL DEFAULT '[]'
+);
+
 CREATE VIEW contributions AS
 SELECT
   id,
@@ -616,3 +627,16 @@ SELECT
   source_url
 FROM core_contributions
 ORDER BY submitted_at DESC;
+
+CREATE VIEW publications AS
+SELECT
+  id,
+  title,
+  type,
+  publisher,
+  year,
+  cover_url,
+  access_url,
+  '/publikasjoner/' || id AS url
+FROM core_publications
+ORDER BY coalesce(year, 0) DESC, title ASC;
