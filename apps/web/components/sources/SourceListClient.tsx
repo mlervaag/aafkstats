@@ -128,8 +128,8 @@ export function SourceListClient({ sources }: SourceListClientProps) {
           <h2 style={{ fontSize: "1.5rem", marginTop: "3rem", marginBottom: "1rem" }}>Bøker og enkeltutgivelser</h2>
           <div style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-            gap: "2rem",
+            gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))",
+            gap: "1.5rem",
             marginTop: "2rem"
           }}>
             {singles.map((pub) => (

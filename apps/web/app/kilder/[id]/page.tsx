@@ -125,8 +125,8 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
           </h2>
           <div style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-            gap: "2rem"
+            gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))",
+            gap: "1.5rem"
           }}>
             {children.map((child) => (
               <SourceCard
