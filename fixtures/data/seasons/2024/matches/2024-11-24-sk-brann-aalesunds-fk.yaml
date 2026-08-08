@@ -6,7 +6,7 @@ competition: { id: eliteserien, season: 2024, stage: regular_season, round: 30 }
 home: { clubId: sk-brann }
 away: { clubId: aalesunds-fk }
 venueId: brann-stadion
-sources:
-  - { sourceId: aafk-no, retrievedAt: 2026-08-02, fields: [date, kickoff] }
+providers:
+  - { providerId: aafk-no, retrievedAt: 2026-08-02, fields: [date, kickoff] }
 confidence: confirmed
 tags: [fixture]

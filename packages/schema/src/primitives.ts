@@ -75,11 +75,25 @@ export type HistoricalName = z.infer<typeof historicalName>;
  * (`home.score`, `events`). Det er dette som gjør det mulig å si hvor hver enkelt
  * opplysning kommer fra, ikke bare hvilke kilder som er brukt på kampen som helhet.
  */
+export const providerRef = z
+  .object({
+    providerId: slug,
+    url: httpUrl.optional(),
+    retrievedAt: isoDate.optional(),
+    fields: z.array(z.string().min(1)).default([]),
+    note: z.string().optional(),
+  })
+  .strict();
+
+export type ProviderRef = z.infer<typeof providerRef>;
+
+/**
+ * Kildehenvisning til et faktisk historisk dokument (en 'source').
+ */
 export const sourceRef = z
   .object({
     sourceId: slug,
-    url: httpUrl.optional(),
-    retrievedAt: isoDate.optional(),
+    page: z.string().optional(),
     fields: z.array(z.string().min(1)).default([]),
     note: z.string().optional(),
   })
@@ -99,7 +113,7 @@ export const conflict = z
         z
           .object({
             value: z.union([z.string(), z.number(), z.null()]),
-            sourceId: slug,
+            providerId: slug,
             note: z.string().optional(),
           })
           .strict(),

@@ -134,14 +134,14 @@ table:
   points: 9
   outcome: relegated
 progression: []
-sources:
-- sourceId: fotball-no
+providers:
+- providerId: fotball-no
   url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83034&underside=tabellen
   retrievedAt: '2026-08-05'
   fields:
   - table
   note: Sluttabellen er hentet fra NFF Fotballdata.
-- sourceId: rsssf
+- providerId: rsssf
   url: https://www.rsssf.no/1983/Second.html
   retrievedAt: '2026-08-05'
   fields:

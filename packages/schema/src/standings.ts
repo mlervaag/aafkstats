@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { seasonYear, slug, sourceRef } from "./primitives.js";
+import { seasonYear, slug, providerRef, sourceRef } from "./primitives.js";
 
 /**
  * Tabellen ved sesongslutt, og veien dit.
@@ -18,7 +18,7 @@ import { seasonYear, slug, sourceRef } from "./primitives.js";
  * prosjektet ikke handler om, mot dagens ~26.
  *
  * Vi lagrer derfor det utregnede: hvor laget lå etter hver runde. Tallene regnes
- * ut ved innhøsting fra kildens fulle runderekke, og `sources[]` peker på sida de
+ * ut ved innhøsting fra kildens fulle runderekke, og `providers[]` peker på sida de
  * kom fra. Utregningen kan ikke etterprøves mot arkivet — kampene bak den ligger
  * ikke her — men den kan etterprøves mot kilden, og det er den samme kilden
  * sluttabellen kom fra.
@@ -95,6 +95,7 @@ export const standings = z
      * runderekka, eller når sesongen ikke er ferdig.
      */
     progression: z.array(progressionPoint).default([]),
+    providers: z.array(providerRef).default([]),
     sources: z.array(sourceRef).default([]),
     note: z.string().optional(),
   })

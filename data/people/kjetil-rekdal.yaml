@@ -7,8 +7,8 @@ coachSpells:
     toSeason: 2012
   - fromSeason: 2024
     toSeason: null
-sources:
-  - sourceId: wikipedia
+providers:
+  - providerId: wikipedia
     url: https://no.wikipedia.org/w/index.php?title=Aalesunds%20Fotballklubb&oldid=25869346
     retrievedAt: 2026-07-22
     fields:

@@ -12,7 +12,7 @@ const archive: Archive = {
   clubs: [{ id: "aalesunds-fk", name: "Aalesunds FK", shortName: "AaFK", names: [], country: "NO", aliases: { fotmob: 8404 } }],
   venues: [],
   competitions: [{ id: "forstedivisjon", name: "1. divisjon", names: [], type: "league", tier: 2, country: "NO" }],
-  sources: [{ id: "fotmob", name: "FotMob", priority: 50 }],
+  providers: [{ id: "fotmob", name: "FotMob", priority: 50 }],
   seasons: [],
   matches: [],
   observations: [],
@@ -40,8 +40,8 @@ const source: SourceMatch = {
 
 describe("reconcile", () => {
   it("lager en deterministisk plan med kilde-ID-er og proveniens", () => {
-    const first = reconcile(archive, [source], { sourceId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03" });
-    const second = reconcile(archive, [source], { sourceId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03" });
+    const first = reconcile(archive, [source], { providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03" });
+    const second = reconcile(archive, [source], { providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03" });
     expect(first).toEqual(second);
     expect(first.issues).toEqual([]);
     expect(first.summary).toEqual({ matchesCreated: 1, matchesSkipped: 0, matchesUpdated: 0, clubsCreated: 1, clubsUpdated: 0, venuesCreated: 1, seasonsCreated: 1, observationsWritten: 1 });
@@ -49,7 +49,7 @@ describe("reconcile", () => {
     expect(match).toMatchObject({
       id: "2024-04-01-aalesunds-fk-stabaek",
       aliases: { fotmob: "4385655" },
-      sources: [{ sourceId: "fotmob", retrievedAt: "2026-08-03", fields: ["date", "home.score", "away.score"] }],
+      providers: [{ providerId: "fotmob", retrievedAt: "2026-08-03", fields: ["date", "home.score", "away.score"] }],
     });
   });
 
@@ -67,7 +67,7 @@ describe("reconcile", () => {
       venueName: undefined,
     };
     const plan = reconcile(withRaufoss, [raufoss], {
-      sourceId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03",
+      providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03",
     });
     expect(plan.summary.clubsCreated).toBe(0);
     expect(plan.summary.clubsUpdated).toBe(1);
@@ -77,7 +77,7 @@ describe("reconcile", () => {
   it("bevarer manuelt låste felt ved ny innhøsting", () => {
     const withoutVenue = { ...source, venueName: undefined };
     const initial = reconcile(archive, [withoutVenue], {
-      sourceId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03",
+      providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03",
     });
     const created = initial.files.find((file) => file.relativePath.includes("/matches/"))?.value as Match;
     const existing: Match & { file: string } = {
@@ -94,7 +94,7 @@ describe("reconcile", () => {
       matches: [existing],
     };
     const update = reconcile(withExisting, [{ ...withoutVenue, attendance: 3944 }], {
-      sourceId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03",
+      providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03",
     });
     const updated = update.files.find((file) => file.relativePath.includes("/matches/"))?.value as Match;
     expect(updated.attendance).toBe(999);
@@ -109,14 +109,14 @@ describe("reconcile", () => {
       fields: [...source.fields, "events"],
     };
     const initial = reconcile(archive, [detailedSource], {
-      sourceId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-02",
+      providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-02",
     });
     const created = initial.files.find((file) => file.relativePath.includes("/matches/"))?.value as Match;
     const existing: Match & { file: string } = {
       ...created,
-      sources: [
-        ...created.sources,
-        { sourceId: "fotball-no", retrievedAt: "2026-08-01", fields: ["date"] },
+      providers: [
+        ...created.providers,
+        { providerId: "fotball-no", retrievedAt: "2026-08-01", fields: ["date"] },
       ],
       file: `seasons/2024/matches/${created.id}.yaml`,
     };
@@ -129,14 +129,14 @@ describe("reconcile", () => {
     };
 
     const update = reconcile(withExisting, [{ ...source, venueName: undefined }], {
-      sourceId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03",
+      providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03",
     });
     const updated = update.files.find((file) => file.relativePath.includes("/matches/"))?.value as Match;
 
     expect(updated.events).toEqual(detailedSource.events);
-    expect(updated.sources).toEqual([
-      expect.objectContaining({ sourceId: "fotmob", retrievedAt: "2026-08-03", fields: expect.arrayContaining(["events"]) }),
-      { sourceId: "fotball-no", retrievedAt: "2026-08-01", fields: ["date"] },
+    expect(updated.providers).toEqual([
+      expect.objectContaining({ providerId: "fotmob", retrievedAt: "2026-08-03", fields: expect.arrayContaining(["events"]) }),
+      { providerId: "fotball-no", retrievedAt: "2026-08-01", fields: ["date"] },
     ]);
   });
 });
@@ -155,7 +155,7 @@ describe("observasjoner fra reconcile", () => {
 
   it("tar vare på kildens eget klubbnavn ved siden av klubb-ID-en", () => {
     const plan = reconcile(archive, [source], {
-      sourceId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03", adapter: "fotmob@1",
+      providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03", adapter: "fotmob@1",
     });
     const [entry] = observationsIn(plan);
     expect(entry).toBeDefined();
@@ -169,7 +169,7 @@ describe("observasjoner fra reconcile", () => {
 
   it("legger fila der skjemaet sier den skal ligge", () => {
     const plan = reconcile(archive, [source], {
-      sourceId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03",
+      providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03",
     });
     expect(plan.files.map((file) => file.relativePath)).toContain("observations/fotmob/4385655.yaml");
   });
@@ -178,7 +178,7 @@ describe("observasjoner fra reconcile", () => {
     // Forskjellen mellom «kilden oppga ikke tilskuertall» og «kilden sa at det
     // ikke finnes» er hele grunnen til at laget er verdt å ha.
     const plan = reconcile(archive, [source], {
-      sourceId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03",
+      providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03",
     });
     const [entry] = observationsIn(plan);
     expect(entry!.raw).not.toHaveProperty("attendance");
@@ -187,7 +187,7 @@ describe("observasjoner fra reconcile", () => {
 
   it("skriver observasjonen også for en kamp en annen kilde eier", () => {
     const initial = reconcile(archive, [source], {
-      sourceId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03",
+      providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03",
     });
     const created = initial.files.find((file) => file.relativePath.includes("/matches/"))!.value as Match;
     const stabaek = initial.files.find((file) => file.relativePath === "clubs/stabaek.yaml")!.value;
@@ -197,12 +197,12 @@ describe("observasjoner fra reconcile", () => {
         { ...archive.clubs[0]!, aliases: { fotmob: 8404, rsssf: "8404" } },
         stabaek as Archive["clubs"][number],
       ],
-      sources: [...archive.sources, { id: "rsssf", name: "RSSSF Norway", priority: 40 }],
+      providers: [...archive.providers, { id: "rsssf", name: "RSSSF Norway", priority: 40 }],
       matches: [{ ...created, file: `seasons/2024/matches/${created.id}.yaml` }],
     };
 
     const plan = reconcile(withExisting, [{ ...source, externalId: "1998-first" }], {
-      sourceId: "rsssf", competitionId: "forstedivisjon", retrievedAt: "2026-08-04", skipExisting: true,
+      providerId: "rsssf", competitionId: "forstedivisjon", retrievedAt: "2026-08-04", skipExisting: true,
     });
 
     expect(plan.skipped).toEqual(["2024-04-01-aalesunds-fk-stabaek"]);
@@ -210,13 +210,13 @@ describe("observasjoner fra reconcile", () => {
     const [entry] = observationsIn(plan);
     // Kampen skrives ikke, men det RSSSF sa om den skal ikke gå tapt — og den
     // skal peke på kampen den gjelder, ikke bli hengende uten adresse.
-    expect(entry!.sourceId).toBe("rsssf");
+    expect(entry!.providerId).toBe("rsssf");
     expect(entry!.matchId).toBe("2024-04-01-aalesunds-fk-stabaek");
   });
 
   it("oppdaterer en observasjon som finnes fra før i stedet for å lage en ny", () => {
     const existing = reconcile(archive, [source], {
-      sourceId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03",
+      providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03",
     });
     const previous = observationsIn(existing)[0]!;
     const withObservation: Archive = {
@@ -224,7 +224,7 @@ describe("observasjoner fra reconcile", () => {
       observations: [{ ...previous, file: "observations/fotmob/4385655.yaml" }],
     };
     const plan = reconcile(withObservation, [source], {
-      sourceId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-05",
+      providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-05",
     });
     const file = plan.files.find((f) => f.relativePath === "observations/fotmob/4385655.yaml");
     expect(file!.action).toBe("update");
@@ -253,7 +253,7 @@ describe("observasjoner fra reconcile", () => {
         round: 9,
         fields: ["home.score", "away.score"],
       }], {
-        sourceId: "rsssf",
+        providerId: "rsssf",
         competitionId: "forstedivisjon",
         retrievedAt: "2026-08-04",
         adapter: "rsssf@1",
@@ -268,7 +268,7 @@ describe("observasjoner fra reconcile", () => {
       const after = await loadArchive(dir);
       expect([...after.issues, ...crossValidate(after)]).toEqual([]);
 
-      const written = after.observations.find((entry) => entry.sourceId === "rsssf"
+      const written = after.observations.find((entry) => entry.providerId === "rsssf"
         && entry.externalId === "1998 First 24/5 Aalesund - Molde");
       expect(written).toBeDefined();
       expect(written!.raw.home).toBe("Aalesunds");
@@ -282,14 +282,14 @@ describe("observasjoner fra reconcile", () => {
   it("gir samme hash når kilden ikke har endret seg", () => {
     // Uten dette kan ikke neste kjøring se hvilke kamper som er verdt å se på.
     const first = reconcile(archive, [source], {
-      sourceId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03",
+      providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03",
     });
     const later = reconcile(archive, [source], {
-      sourceId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2027-01-01",
+      providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2027-01-01",
     });
     expect(observationsIn(first)[0]!.payloadHash).toBe(observationsIn(later)[0]!.payloadHash);
     const changed = reconcile(archive, [{ ...source, homeScore: 4 }], {
-      sourceId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03",
+      providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03",
     });
     expect(observationsIn(changed)[0]!.payloadHash).not.toBe(observationsIn(first)[0]!.payloadHash);
   });

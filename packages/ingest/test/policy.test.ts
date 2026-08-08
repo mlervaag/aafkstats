@@ -1,12 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { source as sourceSchema } from "@aafkstats/schema";
+import { provider as providerSchema } from "@aafkstats/schema";
 import type { Archive } from "@aafkstats/schema/load";
 import { assertMayFetch, assertMayPublish, SourcePolicyError } from "../src/policy.js";
 
-const archive = (...sources: unknown[]): Archive =>
+const archive = (...providers: unknown[]): Archive =>
   ({
     clubs: [], venues: [], competitions: [], seasons: [], matches: [], observations: [], standings: [], people: [], issues: [],
-    sources: sources.map((s) => sourceSchema.parse(s)),
+    providers: providers.map((s) => providerSchema.parse(s)),
   }) as unknown as Archive;
 
 const base = { id: "kilde", name: "En kilde", priority: 50 };
@@ -61,7 +61,7 @@ describe("rettighetsporten", () => {
 
   it("krever begrunnelse for en risikobeslutning", () => {
     expect(() =>
-      sourceSchema.parse({ ...base, permissionStatus: "accepted_risk" }),
+      providerSchema.parse({ ...base, permissionStatus: "accepted_risk" }),
     ).toThrow(/permissionNote/);
   });
 
@@ -104,7 +104,7 @@ describe("rettighetsporten", () => {
     } catch (error) {
       const message = (error as Error).message;
       expect(message).toMatch(/lars@rsssf\.no/);
-      expect(message).toMatch(/data\/sources\/rsssf\.yaml/);
+      expect(message).toMatch(/data\/providers\/rsssf\.yaml/);
       // Tørrkjøring skal fortsatt være mulig, og meldingen skal si det.
       expect(message).toMatch(/Tørrkjøring virker fortsatt/);
     }

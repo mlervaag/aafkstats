@@ -8,8 +8,8 @@ extraTime: { home: 0, away: 0 }
 penaltyShootout: { home: 5, away: 4 }
 venueId: color-line-stadion
 attendance: 8233
-sources:
-  - { sourceId: fotmob, retrievedAt: 2026-08-02, fields: [home.score, away.score, penaltyShootout] }
+providers:
+  - { providerId: fotmob, retrievedAt: 2026-08-02, fields: [home.score, away.score, penaltyShootout] }
 confidence: confirmed
 tags: [fixture, cupkamp]
 note: Fixture som tester at straffekonkurranse gir resultat U, men wonOnPenalties true.

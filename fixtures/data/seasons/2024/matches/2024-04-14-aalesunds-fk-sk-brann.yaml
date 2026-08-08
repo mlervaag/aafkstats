@@ -6,7 +6,7 @@ home: { clubId: aalesunds-fk, score: 1, halfTimeScore: 1 }
 away: { clubId: sk-brann, score: 1, halfTimeScore: 0 }
 venueId: color-line-stadion
 attendance: 9004
-sources:
-  - { sourceId: fotmob, retrievedAt: 2026-08-02, fields: [home.score, away.score] }
+providers:
+  - { providerId: fotmob, retrievedAt: 2026-08-02, fields: [home.score, away.score] }
 confidence: confirmed
 tags: [fixture]

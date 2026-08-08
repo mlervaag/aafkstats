@@ -101,10 +101,10 @@ export async function run(args: { write: boolean; refresh: boolean }): Promise<v
       names: personKey(hit.label) === personKey(p.name) || p.names.some((n) => personKey(n) === personKey(hit!.label))
         ? p.names
         : [...p.names, hit.label],
-      sources: [
-        ...p.sources.filter((s) => s.sourceId !== "wikidata"),
+      providers: [
+        ...p.providers.filter((s) => s.providerId !== "wikidata"),
         {
-          sourceId: "wikidata",
+          providerId: "wikidata",
           url: `https://www.wikidata.org/wiki/${hit.qid}`,
           retrievedAt: new Date().toISOString().slice(0, 10),
           fields: ["wikidata"],

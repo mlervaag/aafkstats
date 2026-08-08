@@ -135,8 +135,8 @@ stats:
     fouls: 7
     offsides: 2
 externalReports: []
-sources:
-  - sourceId: fotmob
+providers:
+  - providerId: fotmob
     url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#2427109
     retrievedAt: 2026-08-03
     fields:

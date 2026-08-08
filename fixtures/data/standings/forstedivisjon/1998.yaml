@@ -68,8 +68,8 @@ progression:
   - { round: 4, position: 3, points: 7, played: 4, goalDifference: 0 }
   - { round: 5, position: 3, points: 8, played: 5, goalDifference: 1 }
   - { round: 6, position: 3, points: 8, played: 6, goalDifference: 0 }
-sources:
-  - sourceId: rsssf
+providers:
+  - providerId: rsssf
     url: https://www.rsssf.no/1998/First.html
     retrievedAt: 2026-08-04
     fields: [table, progression]

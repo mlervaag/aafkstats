@@ -294,8 +294,8 @@ progression:
     points: 30
     played: 26
     goalDifference: -16
-sources:
-  - sourceId: rsssf
+providers:
+  - providerId: rsssf
     url: http://www.rsssf.no/2007/Premier.html
     retrievedAt: 2026-08-04
     fields:

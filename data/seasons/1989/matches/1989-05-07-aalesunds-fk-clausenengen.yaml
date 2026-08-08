@@ -18,8 +18,8 @@ away:
 neutralVenue: false
 events: []
 externalReports: []
-sources:
-  - sourceId: fotball-no
+providers:
+  - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83052&underside=kamper
     retrievedAt: 2026-08-05
     fields:

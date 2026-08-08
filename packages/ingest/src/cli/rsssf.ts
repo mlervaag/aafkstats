@@ -60,7 +60,7 @@ async function main(): Promise<void> {
   });
 
   const plan = reconcile(before, fetched.matches, {
-    sourceId: "rsssf",
+    providerId: "rsssf",
     competitionId: args.competition,
     retrievedAt: args.retrievedAt,
     adapter: RSSSF_ADAPTER,

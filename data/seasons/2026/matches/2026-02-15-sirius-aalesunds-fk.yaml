@@ -18,8 +18,8 @@ away:
 neutralVenue: false
 events: []
 externalReports: []
-sources:
-  - sourceId: fotmob
+providers:
+  - providerId: fotmob
     url: https://www.fotmob.com/matches/sirius-vs-aalesund/1vv7tv#5126279
     retrievedAt: 2026-08-03
     fields:

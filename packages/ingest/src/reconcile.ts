@@ -12,7 +12,7 @@ export { clubKey } from "./ids.js";
 import type { SourceMatch } from "./types.js";
 
 export interface ReconcileOptions {
-  sourceId: string;
+  providerId: string;
   competitionId: string;
   retrievedAt: string;
   /**
@@ -80,9 +80,9 @@ export function reconcile(
   const newVenues = new Set<string>();
 
   const clubByExternalId = () => new Map(
-    clubs.flatMap((club) => club.aliases[options.sourceId] === undefined
+    clubs.flatMap((club) => club.aliases[options.providerId] === undefined
       ? []
-      : [[String(club.aliases[options.sourceId]), club] as const]),
+      : [[String(club.aliases[options.providerId]), club] as const]),
   );
 
   const resolveClub = (externalId: string, name: string): Club | undefined => {
@@ -93,8 +93,8 @@ export function reconcile(
       clubNameForms(club).some((candidate) => clubKey(candidate) === clubKey(name)),
     );
     const existing = clubs.find((club) => club.id === base) ?? (nameMatches.length === 1 ? nameMatches[0] : undefined);
-    if (existing && existing.aliases[options.sourceId] === undefined) {
-      existing.aliases[options.sourceId] = externalId;
+    if (existing && existing.aliases[options.providerId] === undefined) {
+      existing.aliases[options.providerId] = externalId;
       changedClubs.add(existing.id);
       return existing;
     }
@@ -105,7 +105,7 @@ export function reconcile(
     let id = base;
     let suffix = 2;
     while (clubs.some((club) => club.id === id)) id = `${base}-${suffix++}`;
-    const club: Club = { id, name, names: [], country: "NO", aliases: { [options.sourceId]: externalId } };
+    const club: Club = { id, name, names: [], country: "NO", aliases: { [options.providerId]: externalId } };
     clubs.push(club);
     newClubs.add(id);
     return club;
@@ -130,9 +130,9 @@ export function reconcile(
   };
 
   const existingBySource = new Map(
-    archive.matches.flatMap((match) => match.aliases[options.sourceId] === undefined
+    archive.matches.flatMap((match) => match.aliases[options.providerId] === undefined
       ? []
-      : [[String(match.aliases[options.sourceId]), match] as const]),
+      : [[String(match.aliases[options.providerId]), match] as const]),
   );
   const existingById = new Map(archive.matches.map((match) => [match.id, match]));
 
@@ -141,7 +141,7 @@ export function reconcile(
   // vanskeligste tilfellene vært de eneste uten dokumentasjon.
   const observations: PlannedFile[] = [];
   const existingObservations = new Set(
-    archive.observations.map((entry) => `${entry.sourceId}|${entry.externalId}`),
+    archive.observations.map((entry) => `${entry.providerId}|${entry.externalId}`),
   );
   const observe = (
     source: SourceMatch,
@@ -188,22 +188,22 @@ export function reconcile(
       attendance: source.attendance,
       "referee.name": source.referee,
     });
-    const relativePath = observationPath(options.sourceId, source.externalId);
+    const relativePath = observationPath(options.providerId, source.externalId);
     observations.push({
       relativePath,
       value: observationSchema.parse({
-        sourceId: options.sourceId,
+        providerId: options.providerId,
         externalId: source.externalId,
         matchId: resolved.matchId,
         retrievedAt: options.retrievedAt,
-        adapter: options.adapter ?? `${options.sourceId}@1`,
+        adapter: options.adapter ?? `${options.providerId}@1`,
         payloadHash: payloadHash(raw),
         raw,
         normalized,
         fields: source.fields,
         warnings: source.warnings ?? [],
       } satisfies Observation),
-      action: existingObservations.has(`${options.sourceId}|${source.externalId}`) ? "update" : "create",
+      action: existingObservations.has(`${options.providerId}|${source.externalId}`) ? "update" : "create",
     });
   };
 
@@ -228,7 +228,7 @@ export function reconcile(
         skipped.push(id);
         continue;
       }
-      issues.push(`${id}: finnes fra før uten ${options.sourceId}-alias; krever manuell reconcile`);
+      issues.push(`${id}: finnes fra før uten ${options.providerId}-alias; krever manuell reconcile`);
       continue;
     }
     observe(source, resolved);
@@ -268,8 +268,8 @@ export function reconcile(
       events: source.events ?? [],
       lineups: source.lineups,
       stats: source.stats,
-      sources: [{
-        sourceId: options.sourceId,
+      providers: [{
+        providerId: options.providerId,
         url: source.url,
         retrievedAt: options.retrievedAt,
         fields: source.fields,
@@ -277,7 +277,7 @@ export function reconcile(
       }],
       confidence: "probable",
       note: source.note,
-      aliases: { [options.sourceId]: source.externalId },
+      aliases: { [options.providerId]: source.externalId },
     });
 
     const value = bySource ? mergeExisting(bySource, fresh) : fresh;
@@ -339,23 +339,23 @@ function compact(values: Record<string, ObservationValue | undefined>): Record<s
 
 function mergeExisting(existingWithFile: Match & { file: string }, fresh: Match): Match {
   const { file: _file, ...existing } = existingWithFile;
-  const freshSource = fresh.sources[0];
-  const existingSource = freshSource
-    ? existing.sources.find((source) => source.sourceId === freshSource.sourceId)
+  const freshProvider = fresh.providers[0];
+  const existingSource = freshProvider
+    ? existing.providers.find((source) => source.providerId === freshProvider.providerId)
     : undefined;
-  const freshFields = new Set(freshSource?.fields ?? []);
+  const freshFields = new Set(freshProvider?.fields ?? []);
   const preservedFields = (existingSource?.fields ?? []).filter((field) => !freshFields.has(field));
-  const mergedSource = freshSource
-    ? { ...freshSource, fields: [...new Set([...freshSource.fields, ...preservedFields])] }
+  const mergedProvider = freshProvider
+    ? { ...freshProvider, fields: [...new Set([...freshProvider.fields, ...preservedFields])] }
     : undefined;
-  const sources = mergedSource
-    ? existing.sources.some((source) => source.sourceId === mergedSource.sourceId)
-      ? existing.sources.map((source) => source.sourceId === mergedSource.sourceId ? mergedSource : source)
-      : [...existing.sources, mergedSource]
-    : existing.sources;
+  const providers = mergedProvider
+    ? existing.providers.some((source) => source.providerId === mergedProvider.providerId)
+      ? existing.providers.map((source) => source.providerId === mergedProvider.providerId ? mergedProvider : source)
+      : [...existing.providers, mergedProvider]
+    : existing.providers;
   const merged: Match = {
     ...fresh,
-    sources,
+    providers,
     report: existing.report,
     externalReports: existing.externalReports,
     conflicts: existing.conflicts,

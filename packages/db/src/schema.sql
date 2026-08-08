@@ -50,7 +50,7 @@ CREATE TABLE core_competitions (
   note       TEXT
 );
 
-CREATE TABLE core_sources (
+CREATE TABLE core_providers (
   id        TEXT PRIMARY KEY,
   name      TEXT NOT NULL,
   url       TEXT,
@@ -250,7 +250,7 @@ CREATE TABLE core_matches (
   report_body      TEXT,
   report_byline    TEXT,
   external_reports TEXT NOT NULL DEFAULT '[]',
-  sources          TEXT NOT NULL DEFAULT '[]',
+  providers        TEXT NOT NULL DEFAULT '[]',
   confidence       TEXT NOT NULL DEFAULT 'probable'
                      CHECK (confidence IN ('confirmed','probable','disputed')),
   conflicts        TEXT NOT NULL DEFAULT '[]',
@@ -563,13 +563,13 @@ SELECT
 FROM core_matches m, json_each(m.events) e;
 
 -- Kildekatalogen, så svar kan forklare hvor dataene kommer fra.
-CREATE VIEW sources AS
+CREATE VIEW providers AS
 SELECT
-  id AS source_id, name, url, priority, license,
+  id AS provider_id, name, url, priority, license,
   automated_access, public_redistribution, attribution_required,
   permission_status, terms_checked_at, robots_checked_at, permission_note,
   note
-FROM core_sources;
+FROM core_providers;
 
 -- Referat, som en FTS5-tabell.
 --
@@ -603,15 +603,18 @@ CREATE TABLE core_contributions (
   source_url   TEXT
 );
 
-CREATE TABLE core_publications (
+CREATE TABLE core_sources (
   id            TEXT PRIMARY KEY,
+  parent_source_id TEXT REFERENCES core_sources(id) ON DELETE SET NULL,
   title         TEXT NOT NULL,
-  type          TEXT NOT NULL CHECK (type IN ('book','magazine','article','other')),
+  source_type   TEXT NOT NULL CHECK (source_type IN ('book','anniversary_book','member_magazine','annual_report','match_program','supporter_publication','local_history_book','newspaper_supplement','series','other')),
+  issue         TEXT,
+  volume        TEXT,
   publisher     TEXT,
   year          INTEGER,
   cover_url     TEXT,
   access_url    TEXT,
-  sources       TEXT NOT NULL DEFAULT '[]'
+  providers     TEXT NOT NULL DEFAULT '[]'
 );
 
 CREATE VIEW contributions AS
@@ -628,15 +631,18 @@ SELECT
 FROM core_contributions
 ORDER BY submitted_at DESC;
 
-CREATE VIEW publications AS
+CREATE VIEW sources AS
 SELECT
   id,
+  parent_source_id,
   title,
-  type,
+  source_type,
+  issue,
+  volume,
   publisher,
   year,
   cover_url,
   access_url,
-  '/publikasjoner/' || id AS url
-FROM core_publications
+  '/kilder/' || id AS url
+FROM core_sources
 ORDER BY coalesce(year, 0) DESC, title ASC;

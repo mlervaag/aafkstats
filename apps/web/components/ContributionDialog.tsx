@@ -76,9 +76,9 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
       }
 
       setStatus("success");
-    } catch (err: any) {
+    } catch (err: unknown) {
       setStatus("error");
-      setErrorMsg(err.message);
+      setErrorMsg(err instanceof Error ? err.message : String(err));
     }
   };
 

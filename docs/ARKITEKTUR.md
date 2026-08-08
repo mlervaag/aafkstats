@@ -18,7 +18,7 @@ for den som skal endre noe: hver avgjørelse står med alternativet som ble valg
 
 ```mermaid
 flowchart TB
-  subgraph kilder["Kilder"]
+  subgraph providers["Opprinnelse (Providers)"]
     F["FotMob<br/>2010→"]
     N["NFF Fotballdata<br/>1982–2000"]
     R["RSSSF<br/>←2010"]
@@ -128,6 +128,14 @@ SQLite har ingen schemas, så skillet mellom internt og publisert uttrykkes med 
 - **`core_*`** er interne tabeller. Rådata, alle kolonner, ingen garantier.
 - **Viewene uten prefiks** — `matches`, `seasons`, `opponents`, `match_events`, `sources` og
   FTS-tabellen `reports` — er den offentlige kontrakten.
+
+### Proveniens: Providers vs Sources
+
+Arkivet skiller strengt mellom hvor data kommer fra digitalt (Provider) og hvilket historisk dokument det opprinnelig stammer fra (Source).
+
+- **Provider**: Dataleverandøren (f.eks. Fotball.no, Wikipedia, RSSSF, eller AaFK Historisk Arkiv). Spores med `providerId` i YAML og eksponeres som `providers`-array i viewene.
+- **Source**: Det faktiske historiske dokumentet (f.eks. "AaFK 50 år", "AaFK Medlemsblad nr. 4 1958"). Lagres i `core_sources` (tidligere publikasjoner) og eksponeres i `sources`-viewet.
+- **SourceRef**: Koblingen mellom et spesifikt datapunkt (som en match) og en `source`, med mulighet for å peke på nøyaktig sidetall eller felt (`sourceRef`).
 
 Spørrefunksjonen ser bare viewene. Et senere REST-API og en MCP-server skal bruke den samme
 kontrakten. Legger du til en kolonne i `core_matches` uten å eksponere den i et view, har du
