@@ -73,7 +73,7 @@ async function listYaml(dir: string): Promise<string[]> {
   if (!existsSync(dir)) return [];
   const entries = await readdir(dir, { withFileTypes: true });
   return entries
-    .filter((e) => e.isFile() && (e.name.endsWith(".yaml") || e.name.endsWith(".yml")))
+    .filter((e) => (e.isFile() || e.isSymbolicLink()) && (e.name.endsWith(".yaml") || e.name.endsWith(".yml")))
     .map((e) => join(dir, e.name))
     .sort();
 }
@@ -85,6 +85,7 @@ async function parseFile<T extends z.ZodTypeAny>(
   issues: LoadIssue[],
 ): Promise<z.infer<T> | null> {
   const rel = relative(root, file).replace(/\\/g, "/");
+  if (file.includes("nasjonalbiblioteket")) console.log("parsing", file);
   let raw: unknown;
   try {
     // 'core' holder oss på YAML 1.2, der datoer forblir strenger. Uten dette blir
@@ -97,11 +98,13 @@ async function parseFile<T extends z.ZodTypeAny>(
 
   const parsed = schema.safeParse(raw);
   if (!parsed.success) {
+    if (file.includes("nasjonalbiblioteket")) console.log("parse error", parsed.error.issues);
     for (const issue of parsed.error.issues) {
       issues.push({ file: rel, path: issue.path.join("."), message: issue.message });
     }
     return null;
   }
+  if (file.includes("nasjonalbiblioteket")) console.log("parsed successfully", parsed.data);
   return parsed.data;
 }
 
@@ -115,7 +118,10 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
   const issues: LoadIssue[] = [];
 
   const readAll = async <T extends z.ZodTypeAny>(dir: string, schema: T) => {
-    const files = await listYaml(join(root, dir));
+    const fullDir = join(root, dir);
+    console.log(`readAll(${dir}) from ${fullDir}`);
+    const files = await listYaml(fullDir);
+    console.log(`readAll(${dir}) found ${files.length} files`);
     const out: z.infer<T>[] = [];
     for (const file of files) {
       const parsed = await parseFile(file, schema, root, issues);
@@ -129,6 +135,7 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
   const venues = await readAll("venues", venue);
   const competitions = await readAll("competitions", competition);
   const providers = await readAll("providers", provider);
+  console.log("PROVIDERS COUNT", providers.length);
 
   const seasons: (Season & { file: string })[] = [];
   const matches: (Match & { file: string })[] = [];

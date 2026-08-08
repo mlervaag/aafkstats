@@ -71,8 +71,9 @@ export const views: ViewDoc[] = [
       { name: "confidence", type: "text", description: "'confirmed', 'probable' eller 'disputed'." },
       { name: "has_conflicts", type: "integer (0/1)", description: "Sant når kilder er uenige om noe i kampen." },
       { name: "completeness", type: "real", description: "0–1: hvor mye av kampen som er dokumentert." },
-      { name: "tags", type: "text (JSON-liste)", description: "Frie stikkord, f.eks. 'derby'." },
-      { name: "url", type: "text", description: "Lenke til kampsiden. Bruk denne som kildehenvisning i svar." },
+      { name: "tags", type: "JSON", description: "Array av merkelapper, f.eks. ['cupfinalen']" },
+      { name: "sources", type: "JSON", description: "Array av kildereferanser som dokumenterer denne kampen." },
+      { name: "url", type: "TEXT", description: "Lokal URL til kampsiden på aafkstats." },
     ],
   },
   {
@@ -115,6 +116,7 @@ export const views: ViewDoc[] = [
     summary: "Innbyrdes statistikk mot hver motstander, over hele arkivet og alle konkurranser.",
     columns: [
       { name: "opponent_club_id", type: "text", description: "Motstanderens ID." },
+
       { name: "opponent", type: "text", description: "Motstanderens navn (dagens navn)." },
       { name: "city", type: "text", description: "Motstanderens by." },
       { name: "played", type: "integer", description: "Antall spilte kamper mot laget." },
@@ -155,6 +157,7 @@ export const views: ViewDoc[] = [
       { name: "goal_difference", type: "integer", description: "Målforskjell." },
       { name: "points", type: "integer", description: "Poeng slik tabellen viser dem." },
       { name: "outcome", type: "text", description: "'promoted', 'relegated', 'promotion_playoff', 'relegation_playoff', 'playoff' eller 'none'." },
+      { name: "sources", type: "JSON", description: "Array av kildereferanser som dokumenterer plasseringen." },
       { name: "note", type: "text", description: "Kildens egen merknad bak poengsummen, f.eks. en europacupplass." },
       { name: "url", type: "text", description: "Lenke til motstandersiden når klubben finnes i arkivet." },
     ],
