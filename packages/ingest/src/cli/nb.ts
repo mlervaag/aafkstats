@@ -63,7 +63,10 @@ async function run() {
       
       const whitelistedTitles = [
         "vi er 75 år",
-        "aalesund : fra blåbær til betong"
+        "aalesund : fra blåbær til betong",
+        "opp fra myra",
+        "cupminner",
+        "cup-minner"
       ];
 
       const isRelevant = 
