@@ -1,0 +1,41 @@
+.card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-top: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.inner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.content {
+  flex: 1;
+}
+
+.title {
+  font-size: 1.2rem;
+  margin: 0 0 0.25rem 0;
+}
+
+.meta {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.linkText {
+  font-weight: bold;
+  color: #0047b3;
+}
