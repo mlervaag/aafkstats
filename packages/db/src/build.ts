@@ -112,6 +112,17 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
       );
     }
 
+    const insertPublication = db.prepare(
+      `INSERT INTO core_publications (id, title, type, publisher, year, cover_url, access_url, sources)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
+    );
+    for (const p of archive.publications) {
+      insertPublication.run(
+        p.id, p.title, p.type, p.publisher ?? null, p.year ?? null,
+        p.coverUrl ?? null, p.accessUrl ?? null, json(p.sources ?? [])
+      );
+    }
+
     const insertPerson = db.prepare(
       `INSERT INTO core_people (id, person_key, name, nationality, position, wikidata, note)
        VALUES (?, ?, ?, ?, ?, ?, ?)`,
