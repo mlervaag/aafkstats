@@ -12,6 +12,7 @@ import {
 import { trackEvent } from "@/lib/analytics";
 import { absolutizeAnswerLinks, shareableAnswerText } from "@/lib/chat-answer";
 import { formatDateShort } from "@/lib/date";
+import { readableScore } from "@/lib/score";
 
 interface ExecutedQuery {
   sql: string;
@@ -23,12 +24,17 @@ interface ExecutedQuery {
 interface SearchMatch {
   matchId: string;
   date: string;
+  kickoff: string | null;
   competition: string;
+  status: string;
   isHome: boolean;
   opponent: string;
   aafkScore: number | null;
   opponentScore: number | null;
   result: "S" | "U" | "T" | null;
+  afterExtraTime: boolean;
+  decidedOnPenalties: boolean;
+  wonOnPenalties: boolean | null;
   url: string;
 }
 
@@ -433,12 +439,17 @@ export function AskBox() {
   );
 }
 
+/**
+ * Én treffrad.
+ *
+ * Leser resultatet med den samme funksjonen som kamplistene ellers på nettstedet.
+ * Den hadde sin egen versjon før, og den skrev bindestrek der resten av arkivet
+ * skriver tankestrek, viste «-» både for en kamp uten kjent resultat og en kamp
+ * som ikke er spilt, og lot en cupkamp avgjort på straffer se uavgjort ut.
+ */
 function SearchResult({ match, position }: { match: SearchMatch; position: number }) {
-  const score = match.aafkScore === null || match.opponentScore === null
-    ? "-"
-    : match.isHome
-      ? `${match.aafkScore}-${match.opponentScore}`
-      : `${match.opponentScore}-${match.aafkScore}`;
+  const { score, qualifier, label } = readableScore(match);
+  const upcoming = match.status === "scheduled";
   return (
     <li>
       <a
@@ -448,11 +459,20 @@ function SearchResult({ match, position }: { match: SearchMatch; position: numbe
       >
         <span className="num muted">{formatDateShort(match.date)}</span>
         <span className="result-opponent">
-          {match.result && <span className={`result-badge result-${match.result}`}>{match.result}</span>}
-          {match.isHome ? "AaFK - " : ""}{match.opponent}{match.isHome ? "" : " - AaFK"}
+          {match.result
+            ? <span className={`result-badge result-${match.result}`}>{match.result}</span>
+            : upcoming
+              ? <span className="result-badge result-upcoming" aria-hidden="true">·</span>
+              : null}
+          {match.isHome ? "AaFK – " : ""}{match.opponent}{match.isHome ? "" : " – AaFK"}
         </span>
-        <strong className="score">{score}</strong>
-        <span className="small muted">{match.competition}</span>
+        <strong className="score" title={label}>
+          {score}
+          {qualifier && <span className="score-qualifier"> {qualifier}</span>}
+        </strong>
+        <span className="small muted">
+          {upcoming ? "Ikke spilt · " : ""}{match.competition}
+        </span>
       </a>
     </li>
   );

@@ -1,6 +1,25 @@
 import type { ArchiveMatch } from "@/lib/archive";
 
 /**
+ * Feltene et resultat faktisk leses ut av.
+ *
+ * Direktesøket har sin egen radtype og trenger nøyaktig den samme lesningen.
+ * Da den ikke kunne bruke funksjonen her, fikk den sin egen — og den mistet
+ * både straffesparkkonkurransen, ekstraomgangene og skillet mot terminlista.
+ */
+export type ScorableMatch = Pick<
+  ArchiveMatch,
+  | "status"
+  | "kickoff"
+  | "isHome"
+  | "aafkScore"
+  | "opponentScore"
+  | "afterExtraTime"
+  | "decidedOnPenalties"
+  | "wonOnPenalties"
+>;
+
+/**
  * Hvordan et resultat skal leses.
  *
  * Sifferet alene forteller ikke hele historien i cupen. Målene fra ekstraomganger
@@ -18,7 +37,7 @@ export interface ReadableScore {
   label: string;
 }
 
-export function readableScore(match: ArchiveMatch): ReadableScore {
+export function readableScore(match: ScorableMatch): ReadableScore {
   // Terminlista står i samme liste som resten. Uten dette skillet ser en kamp som
   // ikke er spilt ut som en kamp vi mangler resultatet for.
   if (match.status === "scheduled") {

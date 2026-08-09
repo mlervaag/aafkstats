@@ -802,6 +802,9 @@ main.wrap { padding-top: clamp(2.5rem, 6vw, 4.5rem); }
    kampen er den som endrer seg, og den står derfor for seg selv. */
 .hero-side { display: flex; flex-direction: column; gap: 1rem; }
 .hero-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+/* Skiller «Kamper» i ruta over fra de spilte kampene dekningsnotisen lenger nede
+   teller. To ulike tall om det samme leses ellers som en feil. */
+.hero-stats-note { margin: -0.65rem 0 0; }
 
 .next-match {
   display: flex;
@@ -1022,9 +1025,20 @@ a.card-fragment:hover .card-title { color: var(--text); }
 .result-upcoming { background: none; border: 1px dashed var(--border); color: var(--muted); }
 
 .opponent-list { border-top: 1px solid var(--border); }
-.opponent-list > a { display: grid; grid-template-columns: minmax(12rem, 1fr) auto 6rem; align-items: center; gap: 1.5rem; padding: 0.9rem 0.25rem; color: var(--text); border-bottom: 1px solid var(--border); text-decoration: none; }
+.opponent-list > a { display: grid; grid-template-columns: minmax(12rem, 1fr) auto 5rem 6rem; align-items: center; gap: 1.5rem; padding: 0.9rem 0.25rem; color: var(--text); border-bottom: 1px solid var(--border); text-decoration: none; }
 .opponent-list > a:hover { padding-inline: 0.75rem; background: var(--surface); }
 .opponent-list small { display: block; color: var(--muted); }
+.opponent-goals { justify-self: end; }
+
+/* Søk og sortering over lista. 165 rader i alfabetisk rekkefølge er en bok, ikke
+   en side, og uten disse to er rulling den eneste veien inn. */
+.opponent-controls { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-bottom: 1rem; }
+.opponent-search { flex: 1 1 16rem; padding: 0.65rem 0.85rem; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); font: inherit; }
+.opponent-search:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.opponent-sorts { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.opponent-sorts button { padding: 0.55rem 0.8rem; color: var(--muted); background: transparent; border: 1px solid var(--border); border-radius: var(--radius); font: inherit; font-size: 0.85rem; cursor: pointer; }
+.opponent-sorts button:hover { color: var(--text); border-color: var(--text); }
+.opponent-sorts button.is-active { color: var(--on-accent); background: var(--accent); border-color: var(--accent); }
 
 /* Antall kolonner følger antall tall. «Plass» finnes bare for serier, så en fast
    femkolonners rute etterlot en tom celle på hver cupsesong. */
@@ -1171,7 +1185,9 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
   .stat-strip > div:last-child { border-bottom: 0; }
   .opponent-list > a { grid-template-columns: minmax(0, 1fr) auto; gap: 0.2rem 0.75rem; }
   .opponent-list .record-line { grid-column: 1; font-size: 0.82rem; }
-  .opponent-list > a > .muted { grid-column: 2; grid-row: 1 / span 2; }
+  /* Målene får plass ved siden av seier–uavgjort–tap, kampantallet står til høyre. */
+  .opponent-goals { grid-column: 1; grid-row: 3; justify-self: start; font-size: 0.82rem; }
+  .opponent-list > a > .muted:last-child { grid-column: 2; grid-row: 1 / span 3; align-self: center; }
   .archive-match-list a { grid-template-columns: minmax(0, 1fr) auto; }
   .match-date { grid-column: 1; grid-row: 1; font-size: 0.8rem; }
   .match-opponent { grid-column: 1; grid-row: 2; }
@@ -1272,6 +1288,10 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
      til statuskolonnene lengst til høyre — de som er hele poenget med tabellen. */
   max-width: 20rem;
 }
+
+/* Ligger utenfor den rullende ruta, så den følger spaltebredden og ikke tabellen. */
+.rights-intro { margin-bottom: 0.75rem; max-width: var(--measure); }
+.rights-section > .prose-stack { margin-bottom: 1.5rem; }
 
 .rights-note {
   display: block;
