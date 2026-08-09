@@ -296,7 +296,7 @@ export function AskBox() {
           type="search"
           value={question}
           maxLength={1000}
-          placeholder="Søk på år eller motstander, eller still et spørsmål …"
+          placeholder="Søk eller spør arkivet …"
           aria-label="Søk i eller spør arkivet"
           aria-controls="direkte-treff"
           autoComplete="off"
