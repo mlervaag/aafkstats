@@ -13,6 +13,8 @@ export function SourceCover({ title, coverUrl }: SourceCoverProps) {
           src={`/api/nb-image?url=${encodeURIComponent(coverUrl)}`} 
           alt={`Forside for ${title}`}
           className={styles.image}
+          loading="lazy"
+          decoding="async"
         />
       </div>
     );

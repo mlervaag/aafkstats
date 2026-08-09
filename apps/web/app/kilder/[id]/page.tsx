@@ -1,10 +1,11 @@
 import { notFound } from "next/navigation";
 import { SourceTypeBadge, SOURCE_TYPE_LABELS } from "@/components/sources/SourceTypeBadge";
 import { SourceCard } from "@/components/sources/SourceCard";
+import { SourceCover } from "@/components/sources/SourceCover";
 import { getSourceById, getSourceChildren, getParentSource, getSourceUsages } from "@/lib/sources";
+import { formatDateShort } from "@/lib/date";
 import Link from "next/link";
-import { Metadata } from "next";
-import { MatchRow } from "@/components/MatchRow";
+import type { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
 
@@ -12,9 +13,9 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const { id } = await params;
   const source = getSourceById(id);
   if (!source) return { title: "Kilde ikke funnet" };
-  
+
   return {
-    title: `${source.title} - AaFK-arkivet`,
+    title: source.title,
     description: `Fakta og historiske kamper dokumentert av ${source.title}.`,
   };
 }
@@ -48,16 +49,10 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
       </header>
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: "2rem", alignItems: "flex-start" }}>
-        {source.cover_url && (
-          <div style={{ flex: "0 0 300px", borderRadius: "8px", overflow: "hidden", boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}>
-            <img 
-              src={`/api/nb-image?url=${encodeURIComponent(source.cover_url)}`} 
-              alt={`Forside for ${source.title}`} 
-              style={{ width: "100%", height: "auto", display: "block" }} 
-            />
-          </div>
-        )}
-        
+        <div style={{ flex: "0 0 300px", width: "min(100%, 300px)" }}>
+          <SourceCover title={source.title} coverUrl={source.cover_url} />
+        </div>
+
         <div style={{ flex: "1 1 400px" }}>
           <div style={{ background: "#f8f9fa", padding: "1.5rem", borderRadius: "8px", border: "1px solid #eaeaea", color: "#444" }}>
             <h2 style={{ fontSize: "1.2rem", marginBottom: "1rem", borderBottom: "1px solid #ddd", paddingBottom: "0.5rem" }}>Fakta om kilden</h2>
@@ -148,21 +143,32 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
           <h2 style={{ fontSize: "1.8rem", marginBottom: "1.5rem", borderBottom: "2px solid #eee", paddingBottom: "0.5rem" }}>
             Dokumenterte kamper ({usages.length})
           </h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-            {usages.map(m => (
-              <MatchRow
-                key={m.id}
-                id={m.id}
-                date={m.date}
-                opponent={m.opponent}
-                competition={m.competition}
-                isHome={m.is_home === 1}
-                aafkScore={m.aafk_score}
-                opponentScore={m.opponent_score}
-                note={m.note || (m.page ? `Side ${m.page}` : null)}
-              />
-            ))}
-          </div>
+          <ol className="archive-match-list">
+              {usages.map((match) => {
+                const score = match.aafk_score === null || match.opponent_score === null
+                  ? "–"
+                  : match.is_home === 1
+                    ? `${match.aafk_score}–${match.opponent_score}`
+                    : `${match.opponent_score}–${match.aafk_score}`;
+                return (
+                  <li key={`${match.id}-${match.source_id}`}>
+                    <Link href={`/kamp/${match.id}`}>
+                      <span className="match-date num">{formatDateShort(match.date)}</span>
+                      <span className="match-opponent">
+                        {match.is_home === 1 ? `AaFK – ${match.opponent}` : `${match.opponent} – AaFK`}
+                      </span>
+                      <strong className="match-score score">{score}</strong>
+                      <span className="match-meta muted">
+                        {match.competition}
+                        {source.source_type === "series" ? ` · ${match.source_title}` : ""}
+                        {match.page ? ` · Side ${match.page}` : ""}
+                        {match.note ? ` · ${match.note}` : ""}
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
+          </ol>
         </section>
       )}
     </article>

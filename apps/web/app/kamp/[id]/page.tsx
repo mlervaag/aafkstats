@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { one, open } from "@aafkstats/db";
+import { all, one, open } from "@aafkstats/db";
 import Link from "next/link";
 import { formatDate, formatDateShort } from "@/lib/date";
 import { ContributionButton } from "@/components/ContributionButton";
@@ -184,28 +184,36 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
   const providers = json<ProviderRef[]>(match.providers, []);
   const sources = json<SourceRef[]>(match.sources, []);
 
-  // Fetch full title for sources
   const db = open();
   const sourceInfos = new Map<string, string>();
-  if (sources.length > 0) {
-    const sourceIds = sources.map(s => s.sourceId);
-    const placeholders = sourceIds.map(() => '?').join(',');
-    const rows = db.prepare(`SELECT id, title FROM core_sources WHERE id IN (${placeholders})`).all(...sourceIds) as SourceDetailInfo[];
-    for (const r of rows) {
-      sourceInfos.set(r.id, r.title);
-    }
-  }
-  
   const providerInfos = new Map<string, string>();
-  if (providers.length > 0) {
-    const providerIds = providers.map(p => p.providerId);
-    const placeholders = providerIds.map(() => '?').join(',');
-    const rows = db.prepare(`SELECT id, name FROM core_providers WHERE id IN (${placeholders})`).all(...providerIds) as {id: string, name: string}[];
-    for (const r of rows) {
-      providerInfos.set(r.id, r.name);
+  try {
+    const sourceIds = [...new Set(sources.map((source) => source.sourceId))];
+    if (sourceIds.length > 0) {
+      const placeholders = sourceIds.map(() => "?").join(",");
+      for (const row of all<SourceDetailInfo>(
+        db,
+        `SELECT id, title FROM core_sources WHERE id IN (${placeholders})`,
+        ...sourceIds,
+      )) {
+        sourceInfos.set(row.id, row.title);
+      }
     }
+
+    const providerIds = [...new Set(providers.map((provider) => provider.providerId))];
+    if (providerIds.length > 0) {
+      const placeholders = providerIds.map(() => "?").join(",");
+      for (const row of all<{ id: string; name: string }>(
+        db,
+        `SELECT id, name FROM core_providers WHERE id IN (${placeholders})`,
+        ...providerIds,
+      )) {
+        providerInfos.set(row.id, row.name);
+      }
+    }
+  } finally {
+    db.close();
   }
-  db.close();
   // Overskriftsresultatet er sluttresultatet. home_score er stillingen etter
   // ordinær tid, så ekstraomgangsmålene må legges til — ellers står en cupkamp
   // som endte 2-1 på overtid oppført som 1-1.

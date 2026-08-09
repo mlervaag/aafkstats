@@ -262,7 +262,8 @@ export function crossValidate(archive: Archive): LoadIssue[] {
   const clubIds = ids(archive.clubs);
   const venueIds = ids(archive.venues);
   const competitionIds = ids(archive.competitions);
-  const sourceIds = ids(archive.providers);
+  const providerIds = ids(archive.providers);
+  const sourceIds = ids(archive.sources);
 
   const duplicates = <T extends { id: string }>(xs: T[], kind: string) => {
     const seen = new Set<string>();
@@ -336,13 +337,18 @@ export function crossValidate(archive: Archive): LoadIssue[] {
       at("competition.id", `ukjent konkurranse «${m.competition.id}»`);
     }
     for (const s of m.providers) {
-      if (!sourceIds.has(s.providerId)) {
+      if (!providerIds.has(s.providerId)) {
         at("providers", `ukjent kilde «${s.providerId}» — mangler data/providers/${s.providerId}.yaml`);
+      }
+    }
+    for (const s of m.sources) {
+      if (!sourceIds.has(s.sourceId)) {
+        at("sources", `ukjent historisk kilde «${s.sourceId}» — mangler data/sources/${s.sourceId}.yaml`);
       }
     }
     for (const c of m.conflicts) {
       for (const v of c.values) {
-        if (!sourceIds.has(v.providerId)) {
+        if (!providerIds.has(v.providerId)) {
           at("conflicts", `ukjent kilde «${v.providerId}» i konflikt på feltet «${c.field}»`);
         }
       }
@@ -360,7 +366,7 @@ export function crossValidate(archive: Archive): LoadIssue[] {
       at("externalId", `duplikat observasjon «${key}»`);
     }
     seenObservations.add(key);
-    if (!sourceIds.has(o.providerId)) {
+    if (!providerIds.has(o.providerId)) {
       at("providerId", `ukjent kilde «${o.providerId}» — mangler data/providers/${o.providerId}.yaml`);
     }
     if (o.matchId !== null && !seenMatchIds.has(o.matchId)) {
@@ -387,8 +393,13 @@ export function crossValidate(archive: Archive): LoadIssue[] {
       }
     }
     for (const s of t.providers) {
-      if (!sourceIds.has(s.providerId)) {
+      if (!providerIds.has(s.providerId)) {
         at("providers", `ukjent kilde «${s.providerId}» — mangler data/providers/${s.providerId}.yaml`);
+      }
+    }
+    for (const s of t.sources) {
+      if (!sourceIds.has(s.sourceId)) {
+        at("sources", `ukjent historisk kilde «${s.sourceId}» — mangler data/sources/${s.sourceId}.yaml`);
       }
     }
   }
@@ -425,8 +436,13 @@ export function crossValidate(archive: Archive): LoadIssue[] {
     }
 
     for (const s of p.providers) {
-      if (!sourceIds.has(s.providerId)) {
+      if (!providerIds.has(s.providerId)) {
         at("providers", `ukjent kilde «${s.providerId}» — mangler data/providers/${s.providerId}.yaml`);
+      }
+    }
+    for (const s of p.sources) {
+      if (!sourceIds.has(s.sourceId)) {
+        at("sources", `ukjent historisk kilde «${s.sourceId}» — mangler data/sources/${s.sourceId}.yaml`);
       }
     }
   }
@@ -441,13 +457,23 @@ export function crossValidate(archive: Archive): LoadIssue[] {
     }
   }
 
-  for (const p of archive.sources) {
-    if (p.providers) {
-      for (const s of p.providers) {
-        if (!sourceIds.has(s.providerId)) {
-          issues.push({ file: p.file, path: "providers", message: `ukjent kilde «${s.providerId}» — mangler data/providers/${s.providerId}.yaml` });
-        }
+  const sourceById = new Map(archive.sources.map((entry) => [entry.id, entry]));
+  for (const source of archive.sources) {
+    for (const provider of source.providers) {
+      if (!providerIds.has(provider.providerId)) {
+        issues.push({ file: source.file, path: "providers", message: `ukjent kilde «${provider.providerId}» — mangler data/providers/${provider.providerId}.yaml` });
       }
+    }
+    if (source.parentSourceId !== undefined) {
+      const parent = sourceById.get(source.parentSourceId);
+      if (!parent) {
+        issues.push({ file: source.file, path: "parentSourceId", message: `ukjent kildeserie «${source.parentSourceId}»` });
+      } else if (parent.sourceType !== "series") {
+        issues.push({ file: source.file, path: "parentSourceId", message: `foreldrekilden «${parent.id}» må ha sourceType «series»` });
+      }
+    }
+    if (source.sourceType === "series" && source.parentSourceId !== undefined) {
+      issues.push({ file: source.file, path: "parentSourceId", message: "en kildeserie kan ikke selv være del av en annen serie" });
     }
   }
 

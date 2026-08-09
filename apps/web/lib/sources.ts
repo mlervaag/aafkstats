@@ -1,4 +1,10 @@
-import { db } from "./db";
+import { all, one, open } from "@aafkstats/db";
+import { cache } from "react";
+
+interface SourceProvider {
+  providerId: string;
+  url?: string;
+}
 
 export interface Source {
   id: string;
@@ -11,11 +17,17 @@ export interface Source {
   year: number | null;
   cover_url: string | null;
   access_url: string | null;
-  providers: { providerId: string; url?: string }[];
+  providers: SourceProvider[];
+}
+
+interface SourceRow extends Omit<Source, "providers"> {
+  providers: string;
 }
 
 export interface SourceUsage {
   id: string;
+  source_id: string;
+  source_title: string;
   date: string;
   opponent: string;
   competition: string;
@@ -26,71 +38,116 @@ export interface SourceUsage {
   note: string | null;
 }
 
-export function getSources(): Source[] {
-  return db
-    .prepare(
-      `SELECT *
-       FROM core_sources
-       ORDER BY coalesce(year, 0) DESC, title ASC`,
-    )
-    .all() as any;
-}
+const sourceColumns = `id, parent_source_id, title, source_type, issue, volume,
+  publisher, year, cover_url, access_url, providers`;
 
-export function getSourceById(id: string): Source | undefined {
-  const row = db
-    .prepare(
-      `SELECT *
-       FROM core_sources
-       WHERE id = ?`,
-    )
-    .get(id) as any;
-
-  if (row && typeof row.providers === 'string') {
-    try {
-      row.providers = JSON.parse(row.providers);
-    } catch {
-      row.providers = [];
-    }
+function parseProviders(value: string): SourceProvider[] {
+  try {
+    const parsed: unknown = JSON.parse(value);
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter((entry): entry is SourceProvider => {
+      if (typeof entry !== "object" || entry === null) return false;
+      const provider = entry as Record<string, unknown>;
+      return typeof provider.providerId === "string" &&
+        (provider.url === undefined || typeof provider.url === "string");
+    });
+  } catch {
+    return [];
   }
-  return row;
 }
+
+function mapSource(row: SourceRow): Source {
+  return { ...row, providers: parseProviders(row.providers) };
+}
+
+export function getSources(): Source[] {
+  const db = open();
+  try {
+    return all<SourceRow>(
+      db,
+      `SELECT ${sourceColumns}
+       FROM core_sources
+       ORDER BY coalesce(year, 0) DESC, title COLLATE NOCASE`,
+    ).map(mapSource);
+  } finally {
+    db.close();
+  }
+}
+
+export const getSourceById = cache(function getSourceById(id: string): Source | undefined {
+  const db = open();
+  try {
+    const row = one<SourceRow>(
+      db,
+      `SELECT ${sourceColumns} FROM core_sources WHERE id = ?`,
+      id,
+    );
+    return row ? mapSource(row) : undefined;
+  } finally {
+    db.close();
+  }
+});
 
 export function getSourceChildren(parentId: string): Source[] {
-  return db
-    .prepare(
-      `SELECT *
+  const db = open();
+  try {
+    return all<SourceRow>(
+      db,
+      `SELECT ${sourceColumns}
        FROM core_sources
        WHERE parent_source_id = ?
-       ORDER BY coalesce(year, 0) DESC, issue DESC`,
-    )
-    .all() as any;
+       ORDER BY coalesce(year, 0) DESC, CAST(issue AS INTEGER) DESC, issue DESC`,
+      parentId,
+    ).map(mapSource);
+  } finally {
+    db.close();
+  }
 }
 
 export function getParentSource(parentId: string): Pick<Source, "id" | "title"> | undefined {
-  return db
-    .prepare(`SELECT id, title FROM core_sources WHERE id = ?`)
-    .get(parentId) as any;
+  const db = open();
+  try {
+    return one<Pick<Source, "id" | "title">>(
+      db,
+      "SELECT id, title FROM core_sources WHERE id = ?",
+      parentId,
+    );
+  } finally {
+    db.close();
+  }
 }
 
 export function getSourceUsages(sourceId: string): SourceUsage[] {
-  return db
-    .prepare(
+  const db = open();
+  try {
+    return all<SourceUsage>(
+      db,
       `SELECT
          m.id,
-         m.match_date as date,
-         c.name as opponent,
-         comp.name as competition,
-         m.home_club_id = 'aalesunds-fk' as is_home,
-         CASE WHEN m.home_club_id = 'aalesunds-fk' THEN m.home_score ELSE m.away_score END as aafk_score,
-         CASE WHEN m.home_club_id = 'aalesunds-fk' THEN m.away_score ELSE m.home_score END as opponent_score,
-         json_extract(s.value, '$.page') as page,
-         json_extract(s.value, '$.note') as note
+         source.id AS source_id,
+         source.title AS source_title,
+         m.match_date AS date,
+         c.name AS opponent,
+         comp.name AS competition,
+         m.home_club_id = 'aalesunds-fk' AS is_home,
+         CASE WHEN m.home_club_id = 'aalesunds-fk' THEN m.home_score ELSE m.away_score END AS aafk_score,
+         CASE WHEN m.home_club_id = 'aalesunds-fk' THEN m.away_score ELSE m.home_score END AS opponent_score,
+         json_extract(ref.value, '$.page') AS page,
+         json_extract(ref.value, '$.note') AS note
        FROM core_matches m
-       JOIN json_each(m.sources) s
-       LEFT JOIN core_clubs c ON c.id = (CASE WHEN m.home_club_id = 'aalesunds-fk' THEN m.away_club_id ELSE m.home_club_id END)
+       JOIN json_each(m.sources) ref
+       JOIN core_sources source ON source.id = json_extract(ref.value, '$.sourceId')
+       LEFT JOIN core_clubs c ON c.id = CASE
+         WHEN m.home_club_id = 'aalesunds-fk' THEN m.away_club_id
+         ELSE m.home_club_id
+       END
        LEFT JOIN core_competitions comp ON comp.id = m.competition_id
-       WHERE json_extract(s.value, '$.sourceId') = ?
+       WHERE source.id = ? OR source.parent_source_id = ?
        ORDER BY m.match_date DESC`,
-    )
-    .all(sourceId) as any;
+      sourceId,
+      sourceId,
+    );
+  } finally {
+    db.close();
+  }
 }

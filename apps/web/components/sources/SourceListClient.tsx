@@ -24,60 +24,56 @@ export function SourceListClient({ sources }: SourceListClientProps) {
   const [search, setSearch] = useState("");
   const [filterType, setFilterType] = useState<string>("all");
 
-  const filteredSources = useMemo(() => {
-    return sources.filter((s) => {
-      if (filterType !== "all" && s.source_type !== filterType && s.source_type !== "series") {
-        return false;
-      }
-      if (search.trim() !== "") {
-        const q = search.toLowerCase();
-        if (!s.title.toLowerCase().includes(q) && !(s.publisher || "").toLowerCase().includes(q)) {
-          return false;
+  const { seriesEntries, singles } = useMemo(() => {
+    const query = search.trim().toLocaleLowerCase("nb-NO");
+    const matchesQuery = (source: HistoricalSourceData) => query === "" ||
+      source.title.toLocaleLowerCase("nb-NO").includes(query) ||
+      (source.publisher ?? "").toLocaleLowerCase("nb-NO").includes(query);
+    const matchesType = (source: HistoricalSourceData) =>
+      filterType === "all" || source.source_type === filterType;
+
+    const parents = new Map(
+      sources
+        .filter((source) => source.source_type === "series" && !source.parent_source_id)
+        .map((source) => [source.id, source]),
+    );
+    const grouped = new Map<string, HistoricalSourceData[]>();
+    const ungrouped: HistoricalSourceData[] = [];
+
+    for (const source of sources) {
+      if (source.source_type === "series") continue;
+      if (source.parent_source_id) {
+        const parent = parents.get(source.parent_source_id);
+        const parentMatches = parent ? matchesQuery(parent) : false;
+        if (matchesType(source) && (parentMatches || matchesQuery(source))) {
+          grouped.set(source.parent_source_id, [
+            ...(grouped.get(source.parent_source_id) ?? []),
+            source,
+          ]);
         }
+      } else if (matchesType(source) && matchesQuery(source)) {
+        ungrouped.push(source);
       }
-      return true;
-    });
+    }
+
+    return {
+      seriesEntries: [...grouped.entries()].map(([id, items]) => ({
+        id,
+        title: parents.get(id)?.title ?? id,
+        items,
+      })),
+      singles: ungrouped,
+    };
   }, [sources, search, filterType]);
-
-  const series = new Map<string, HistoricalSourceData[]>();
-  const singles: HistoricalSourceData[] = [];
-
-  for (const source of filteredSources) {
-    if (source.parent_source_id) {
-      const group = series.get(source.parent_source_id) || [];
-      group.push(source);
-      series.set(source.parent_source_id, group);
-    } else if (source.source_type !== "series") {
-      singles.push(source);
-    }
-  }
-
-  // If a series matched the search query itself, but none of its children matched,
-  // we still want to display it. We can fetch its children from the unfiltered 'sources' list.
-  for (const source of filteredSources) {
-    if (source.source_type === "series" && !source.parent_source_id) {
-      if (!series.has(source.id)) {
-        const allChildren = sources.filter(s => s.parent_source_id === source.id);
-        if (allChildren.length > 0) {
-          series.set(source.id, allChildren);
-        }
-      }
-    }
-  }
-
-  const seriesEntries = Array.from(series.entries());
-
-  const getSeriesTitle = (parentId: string) => {
-    const parent = sources.find(s => s.id === parentId);
-    return parent ? parent.title : parentId;
-  };
 
   const types = Array.from(new Set(sources.map(s => s.source_type))).filter(t => t !== "series").sort();
 
   return (
     <div>
       <div style={{ display: "flex", gap: "1rem", marginBottom: "2rem", flexWrap: "wrap" }}>
+        <label className="sr-only" htmlFor="source-search">Søk i kilder</label>
         <input
+          id="source-search"
           type="text"
           placeholder="Søk i kilder..."
           value={search}
@@ -90,7 +86,9 @@ export function SourceListClient({ sources }: SourceListClientProps) {
             maxWidth: "400px"
           }}
         />
+        <label className="sr-only" htmlFor="source-type">Filtrer på kildetype</label>
         <select
+          id="source-type"
           value={filterType}
           onChange={(e) => setFilterType(e.target.value)}
           style={{
@@ -109,14 +107,14 @@ export function SourceListClient({ sources }: SourceListClientProps) {
       {seriesEntries.length > 0 && (
         <div style={{ marginTop: "2rem" }}>
           <h2 style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>Serier og faste utgivelser</h2>
-          {seriesEntries.map(([parentId, items]) => (
-            <SourceSeriesCard 
-              key={parentId}
-              id={parentId}
-              title={getSeriesTitle(parentId)}
-              sourceType={items[0].source_type}
-              minYear={Math.min(...items.map(i => i.year || 9999))}
-              maxYear={Math.max(...items.map(i => i.year || 0))}
+          {seriesEntries.map(({ id, title, items }) => (
+            <SourceSeriesCard
+              key={id}
+              id={id}
+              title={title}
+              sourceType="series"
+              minYear={Math.min(...items.map((item) => item.year ?? 9999))}
+              maxYear={Math.max(...items.map((item) => item.year ?? 0))}
               count={items.length}
             />
           ))}
