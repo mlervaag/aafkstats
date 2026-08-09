@@ -185,6 +185,14 @@ export const conflict = z
       });
     }
 
+    if (resolved && !value.chosenProviderId) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["chosenProviderId"],
+        message: "en avgjort konflikt må si hvilken kilde den valgte verdien kom fra",
+      });
+    }
+
     if (resolved && !value.reason) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
@@ -208,6 +216,21 @@ export const conflict = z
         code: z.ZodIssueCode.custom,
         path: ["chosen"],
         message: "den valgte verdien må være én av verdiene kildene faktisk oppgir",
+      });
+    }
+
+
+    if (
+      value.chosen !== undefined &&
+      value.chosenProviderId !== undefined &&
+      !value.values.some(
+        (entry) => entry.providerId === value.chosenProviderId && entry.value === value.chosen,
+      )
+    ) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["chosenProviderId"],
+        message: "den valgte kilden må være kilden som oppga den valgte verdien",
       });
     }
 

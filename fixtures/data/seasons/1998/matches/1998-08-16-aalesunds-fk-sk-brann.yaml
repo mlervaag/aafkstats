@@ -25,6 +25,18 @@ conflicts:
     decidedAt: 2026-08-03
     reason: Avisreferatet dagen etter oppgir et eksakt tall; RSSSF har et avrundet.
     locked: true
+  # Fravær av en opplysning kan også være den valgte verdien. Denne fixturen
+  # hindrer at JSON-null forveksles med et manglende beslutningsfelt i SQL-viewet.
+  - field: referee
+    values:
+      - { value: null, providerId: rsssf }
+      - { value: "Ola Nordmann", providerId: nasjonalbiblioteket }
+    resolved: true
+    chosen: null
+    chosenProviderId: rsssf
+    decision: manual
+    decidedAt: 2026-08-03
+    reason: RSSSF-registreringen er kontrollert og oppgir ingen dommer.
 tags: [fixture]
 note: >
   Konstruert fixture. Eldste av to hjemmetap med seks måls margin — finnes for å bevise

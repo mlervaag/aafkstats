@@ -2,6 +2,7 @@ import { statSync } from "node:fs";
 import type { MetadataRoute } from "next";
 import { archivePath } from "@aafkstats/db";
 import { loadMatchIndex, loadOpponents, loadSeasonYears } from "@/lib/archive";
+import { getSources } from "@/lib/sources";
 
 const base = "https://aafkstats.vercel.app";
 
@@ -30,7 +31,7 @@ function builtAt(): Date {
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const built = builtAt();
-  const staticPages = ["", "/sesonger", "/motstandere", "/data", "/om", "/bidra", "/api-docs"];
+  const staticPages = ["", "/sesonger", "/motstandere", "/kilder", "/data", "/om", "/bidra", "/api-docs"];
 
   return [
     ...staticPages.map((path) => ({
@@ -51,6 +52,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: built,
       changeFrequency: "monthly" as const,
       priority: 0.5,
+    })),
+    ...getSources().map((source) => ({
+      url: `${base}/kilder/${source.id}`,
+      lastModified: built,
+      changeFrequency: "yearly" as const,
+      priority: 0.4,
     })),
     // Kommende kamper er med. De har en egen side med dato og avspark, og det er
     // nettopp den opplysningen folk leter etter i dagene før en kamp.

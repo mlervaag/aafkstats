@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { httpUrl, slug } from "./primitives.js";
 
 export const sourceTypeEnum = z.enum([
   "book",
@@ -14,22 +15,22 @@ export const sourceTypeEnum = z.enum([
 ]);
 
 export const source = z.object({
-  id: z.string(),
-  parentSourceId: z.string().optional(),
-  title: z.string(),
+  id: slug,
+  parentSourceId: slug.optional(),
+  title: z.string().min(1),
   sourceType: sourceTypeEnum,
-  issue: z.string().optional(),
-  volume: z.string().optional(),
-  publisher: z.string().optional(),
-  year: z.number().int().optional(),
-  coverUrl: z.string().url().optional(),
-  accessUrl: z.string().url().optional(),
+  issue: z.string().min(1).optional(),
+  volume: z.string().min(1).optional(),
+  publisher: z.string().min(1).optional(),
+  year: z.number().int().min(1800).max(2100).optional(),
+  coverUrl: httpUrl.optional(),
+  accessUrl: httpUrl.optional(),
   providers: z.array(
     z.object({
-      providerId: z.string(),
-      url: z.string().url().optional(),
+      providerId: slug,
+      url: httpUrl.optional(),
     }).strict()
-  ).optional(),
+  ).default([]),
 }).strict();
 
 export type Source = z.infer<typeof source>;

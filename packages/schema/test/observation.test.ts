@@ -118,6 +118,7 @@ describe("konflikt knyttet til observasjon", () => {
       ],
       resolved: true,
       chosen: 4210,
+      chosenProviderId: "nasjonalbiblioteket",
       decision: "independent_source",
       decidedAt: "2026-08-03",
       reason: "Avisreferatet oppgir et eksakt tall.",
@@ -166,9 +167,28 @@ describe("konflikt knyttet til observasjon", () => {
         ],
         resolved: true,
         chosen: 3,
+        chosenProviderId: "rsssf",
         decision: "manual",
         decidedAt: "2026-08-03",
         reason: "En tredje kilde sier 3.",
+      }),
+    ).toThrow();
+  });
+
+  it("krever at valgt kilde faktisk oppga den valgte verdien", () => {
+    expect(() =>
+      conflict.parse({
+        field: "attendance",
+        values: [
+          { value: 4210, providerId: "nasjonalbiblioteket" },
+          { value: 4000, providerId: "rsssf" },
+        ],
+        resolved: true,
+        chosen: 4210,
+        chosenProviderId: "rsssf",
+        decision: "manual",
+        decidedAt: "2026-08-03",
+        reason: "Kontrollert manuelt.",
       }),
     ).toThrow();
   });

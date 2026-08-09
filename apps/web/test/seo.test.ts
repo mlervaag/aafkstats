@@ -5,6 +5,7 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
 import sitemap from "../app/sitemap.js";
 import { loadMatchIndex, loadSeasonYears } from "../lib/archive.js";
+import { getSources } from "../lib/sources.js";
 import {
   matchDescription,
   matchTitle,
@@ -49,6 +50,14 @@ describe("sitemap", () => {
     const urls = new Set(sitemap().map((entry) => entry.url));
     for (const match of loadMatchIndex()) {
       expect(urls.has(`https://aafkstats.vercel.app/kamp/${match.matchId}`)).toBe(true);
+    }
+  });
+
+  it("har kildearkivet og alle kildedetaljsidene", () => {
+    const urls = new Set(sitemap().map((entry) => entry.url));
+    expect(urls.has("https://aafkstats.vercel.app/kilder")).toBe(true);
+    for (const source of getSources()) {
+      expect(urls.has(`https://aafkstats.vercel.app/kilder/${source.id}`)).toBe(true);
     }
   });
 

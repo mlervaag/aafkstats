@@ -76,6 +76,7 @@ export const views: ViewDoc[] = [
       { name: "completeness", type: "real", description: "0–1: hvor mye av kampen som er dokumentert." },
       { name: "last_retrieved_at", type: "text (YYYY-MM-DD)", description: "Siste gang en kilde ble hentet for kampen. NULL for kamper uten kildehenvisning." },
       { name: "tags", type: "text (JSON-liste)", description: "Frie stikkord, f.eks. 'derby'." },
+      { name: "sources", type: "text (JSON-liste)", description: "Historiske publikasjoner som dokumenterer kampen, med sourceId og eventuelt side eller notat." },
       { name: "url", type: "text", description: "Lenke til kampsiden. Bruk denne som kildehenvisning i svar." },
     ],
   },
@@ -126,6 +127,7 @@ export const views: ViewDoc[] = [
     ],
     columns: [
       { name: "opponent_club_id", type: "text", description: "Motstanderens ID." },
+
       { name: "opponent", type: "text", description: "Motstanderens navn (dagens navn)." },
       { name: "city", type: "text", description: "Motstanderens by." },
       { name: "played", type: "integer", description: "Antall spilte kamper mot laget." },
@@ -166,6 +168,7 @@ export const views: ViewDoc[] = [
       { name: "goal_difference", type: "integer", description: "Målforskjell." },
       { name: "points", type: "integer", description: "Poeng slik tabellen viser dem." },
       { name: "outcome", type: "text", description: "'promoted', 'relegated', 'promotion_playoff', 'relegation_playoff', 'playoff' eller 'none'." },
+      { name: "sources", type: "JSON", description: "Array av kildereferanser som dokumenterer plasseringen." },
       { name: "note", type: "text", description: "Kildens egen merknad bak poengsummen, f.eks. en europacupplass." },
       { name: "url", type: "text", description: "Lenke til motstandersiden når klubben finnes i arkivet." },
     ],

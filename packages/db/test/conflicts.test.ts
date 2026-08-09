@@ -65,6 +65,14 @@ describe("match_conflicts", () => {
     expect(chosen[0]).toMatchObject({ value: 4210, provider_id: "nasjonalbiblioteket" });
   });
 
+  it("kan velge en eksplisitt nullverdi fra én bestemt kilde", () => {
+    const resolved = rows.filter((row) => row.field === "referee");
+    expect(resolved).toHaveLength(2);
+    const chosen = resolved.filter((row) => row.is_chosen === 1);
+    expect(chosen).toHaveLength(1);
+    expect(chosen[0]).toMatchObject({ value: null, provider_id: "rsssf" });
+  });
+
   it("krever begrunnelse, dato og beslutningstype på en avgjort konflikt", () => {
     // En «løst» konflikt uten begrunnelse er skjult, ikke løst. Skjemaet avviser
     // den; testen her holder på at feltene faktisk kommer helt ut i viewet.

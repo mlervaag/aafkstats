@@ -573,11 +573,12 @@ th { font-weight: 600; }
   .masthead nav {
     width: 100%;
     flex-wrap: nowrap;
-    /* Fem lenker på 390 px lå akkurat over kanten, så «Bidra» sto avkuttet. Feltet
-       kan fortsatt scrolle, men det skal ikke trenge å gjøre det på en vanlig
-       telefon. */
-    gap: 0.8rem;
-    font-size: 0.875rem;
+    /* Alle seks lenkene skal være synlige uten at leseren må oppdage en skjult
+       horisontal rulling. På de aller smaleste skjermene er rulling fortsatt en
+       sikkerhetsventil. */
+    justify-content: space-between;
+    gap: clamp(0.35rem, 1.8vw, 0.65rem);
+    font-size: clamp(0.72rem, 3.2vw, 0.8rem);
     padding-bottom: 0.25rem;
     overflow-x: auto;
     overscroll-behavior-inline: contain;

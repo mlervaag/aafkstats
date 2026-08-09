@@ -3,6 +3,7 @@ import { match } from "../src/match.js";
 import { club } from "../src/entities.js";
 import { crossValidate, loadArchive } from "../src/load.js";
 import { findConflicts } from "../src/observation.js";
+import { source } from "../src/source.js";
 import { resolve } from "node:path";
 import { contribution } from "../src/contribution.js";
 
@@ -97,6 +98,18 @@ describe("klubbskjema", () => {
   });
 });
 
+describe("kildeskjema", () => {
+  it("krever slug-ID og HTTP(S)-lenker", () => {
+    expect(source.safeParse({ id: "AaFK-blad", title: "AaFK-blad", sourceType: "book" }).success).toBe(false);
+    expect(source.safeParse({
+      id: "aafk-blad",
+      title: "AaFK-blad",
+      sourceType: "book",
+      accessUrl: "file:///hemmelig",
+    }).success).toBe(false);
+  });
+});
+
 describe("fixture-arkivet", () => {
   const root = resolve(import.meta.dirname, "../../../fixtures/data");
 
@@ -113,6 +126,26 @@ describe("fixture-arkivet", () => {
     archive.clubs = archive.clubs.filter((c) => c.id !== "molde-fk");
     const issues = crossValidate(archive);
     expect(issues.some((i) => i.message.includes("ukjent klubb «molde-fk»"))).toBe(true);
+  });
+
+  it("skiller mellom dataleverandører og historiske kilder", async () => {
+    const archive = await loadArchive(root);
+    archive.matches[0] = {
+      ...archive.matches[0]!,
+      sources: [{ sourceId: "finnes-ikke", fields: [] }],
+    };
+    const issues = crossValidate(archive);
+    expect(issues.some((issue) => issue.message.includes("ukjent historisk kilde «finnes-ikke»"))).toBe(true);
+    expect(issues.some((issue) => issue.path === "providers")).toBe(false);
+  });
+
+  it("krever at en utgivelse peker på en eksisterende serie", async () => {
+    const archive = await loadArchive(root);
+    const child = archive.sources.find((entry) => entry.id === "medlemsblad-1970-1")!;
+    expect(child.parentSourceId).toBe("aafk-medlemsblad");
+    archive.sources = archive.sources.filter((entry) => entry.id !== "aafk-medlemsblad");
+    const issues = crossValidate(archive);
+    expect(issues.some((issue) => issue.message.includes("ukjent kildeserie «aafk-medlemsblad»"))).toBe(true);
   });
 
   it("leser observasjonene, og finner uenigheten mellom de to kildene", async () => {
