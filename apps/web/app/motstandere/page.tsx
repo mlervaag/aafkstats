@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OpponentList } from "@/components/OpponentList";
 import { loadOpponents } from "@/lib/archive";
 
 export const metadata: Metadata = {
@@ -8,22 +9,22 @@ export const metadata: Metadata = {
 
 export default function OpponentsPage() {
   const opponents = loadOpponents();
+  const played = opponents.reduce((sum, o) => sum + o.played, 0);
+
   return (
     <>
       <header className="page-intro">
         <p className="eyebrow">{opponents.length} lag</p>
         <h1>Motstandere</h1>
-        <p className="lede">Innbyrdes statistikk i de ligakampene som foreløpig finnes i arkivet.</p>
+        {/* Sto som «i de ligakampene som foreløpig finnes i arkivet». Viewet
+            teller alt: cup, europacup og treningskamper også — APOEL Nicosia sto
+            i lista og hadde aldri spilt en seriekamp mot AaFK. */}
+        <p className="lede">
+          Innbyrdes statistikk fra alle {played} kampene i arkivet, uansett konkurranse.
+          Målene er sett fra AaFKs side.
+        </p>
       </header>
-      <div className="opponent-list">
-        {opponents.map((opponent) => (
-          <a href={opponent.url} key={opponent.id}>
-            <span><strong>{opponent.opponent}</strong>{opponent.city && <small>{opponent.city}</small>}</span>
-            <span className="record-line num">{opponent.wins} S · {opponent.draws} U · {opponent.losses} T</span>
-            <span className="num muted">{opponent.played} kamper</span>
-          </a>
-        ))}
-      </div>
+      <OpponentList opponents={opponents} />
     </>
   );
 }

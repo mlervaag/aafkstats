@@ -14,11 +14,16 @@ export const metadata = { title: "Datasettet" };
 export default function DataPage() {
   return (
     <>
-      <h1>Datasettet</h1>
-      <p className="prose">
-        Alt i arkivet ligger som YAML-filer på GitHub. Ved hver utrulling bygges de om til
-        en skrivebeskyttet SQLite-fil. Nettstedet og spørrefunksjonen leser tabellene under.
-      </p>
+      {/* Samme innledning som resten av nettstedet. Sto som en naken h1 med to
+          avsnitt under, og var den ene siden uten stikkord og ingress. */}
+      <header className="page-intro">
+        <p className="eyebrow">Åpne data</p>
+        <h1>Datasettet</h1>
+        <p className="lede">
+          Alt i arkivet ligger som YAML-filer på GitHub. Ved hver utrulling bygges de om til
+          en skrivebeskyttet SQLite-fil. Nettstedet og spørrefunksjonen leser tabellene under.
+        </p>
+      </header>
       <p className="prose">
         Beskrivelsen under er den samme teksten spørrefunksjonen får i systemprompten sin.
         Det finnes ingen egen, skjult versjon — det du leser her er det modellen vet.

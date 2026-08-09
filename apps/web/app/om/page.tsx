@@ -37,23 +37,6 @@ export default function AboutPage() {
           </section>
           <section><h2>Hvordan søket virker</h2><p>Direktesøket finner år og motstandere uten AI. Når du skriver et spørsmål og sender det inn, lager en språkmodell en skrivebeskyttet SQL-spørring mot arkivet. Spørringen vises under svaret slik at resultatet kan etterprøves. Dekningstallene over ligger også i systemprompten, så modellen vet hva arkivet mangler.</p></section>
           <section>
-            <h2>Rettigheter per kilde</h2>
-            <p>
-              Arkivet fører selv oversikt over hva som er avklart og hva som ikke er det.
-              Innhøstingen leser den samme statusen og stopper der en kilde er blokkert
-              eller har sagt nei.
-            </p>
-            <p>
-              Der vilkårene er uavklarte er det derimot ikke automatikk. Da må noen ta et
-              valg, og valget føres som «høstet på akseptert risiko»: prosjekteieren har
-              lest vilkårene, ser at bruken ikke er uttrykkelig tillatt, og går videre
-              likevel. Beslutningen krever navn, dato og en begrunnelse, ellers avviser
-              skjemaet den. Den er vår, ikke motpartens, og står derfor i en egen kolonne
-              enn det motparten faktisk har svart.
-            </p>
-            <SourceRights />
-          </section>
-          <section>
             <h2>Hva som måles</h2>
             <p>
               Nettstedet teller sidevisninger og måler hvor raskt sidene laster, uten
@@ -85,6 +68,29 @@ export default function AboutPage() {
         </div>
         <aside className="facts-panel"><h2>Kort fortalt</h2><dl><dt>Status</dt><dd>Offentlig beta, under oppbygging</dd><dt>Tilknytning</dt><dd>Ingen offisiell tilknytning til AaFK</dd><dt>Kode</dt><dd>MIT</dd><dt>Egne tekster</dt><dd>CC BY 4.0</dd><dt>Kildedata</dt><dd>Se kilde og vilkår per opplysning</dd></dl><a className="button-link" href="https://github.com/mlervaag/aafkstats">Se prosjektet på GitHub</a></aside>
       </div>
+
+      {/* Femkolonnerstabellen sto i tekstspalten og måtte rulles sidelengs for å
+          vise de to kolonnene som er hele poenget. Her har den hele bredden,
+          og faktaruta ved siden av teksten står fortsatt der den skal. */}
+      <section className="content-section rights-section">
+        <h2>Rettigheter per kilde</h2>
+        <div className="prose-stack">
+          <p>
+            Arkivet fører selv oversikt over hva som er avklart og hva som ikke er det.
+            Innhøstingen leser den samme statusen og stopper der en kilde er blokkert
+            eller har sagt nei.
+          </p>
+          <p>
+            Der vilkårene er uavklarte er det derimot ikke automatikk. Da må noen ta et
+            valg, og valget føres som «høstet på akseptert risiko»: prosjekteieren har
+            lest vilkårene, ser at bruken ikke er uttrykkelig tillatt, og går videre
+            likevel. Beslutningen krever navn, dato og en begrunnelse, ellers avviser
+            skjemaet den. Den er vår, ikke motpartens, og står derfor i en egen kolonne
+            enn det motparten faktisk har svart.
+          </p>
+        </div>
+        <SourceRights />
+      </section>
     </article>
   );
 }

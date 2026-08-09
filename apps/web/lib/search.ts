@@ -1,26 +1,44 @@
 import { all, open } from "@aafkstats/db";
 
+/**
+ * Én rad i direktesøket.
+ *
+ * Feltene om status og avgjørelsesmåte er med fordi resultatlista ellers taper
+ * nettopp det arkivet er nøye på ellers: en kamp som ikke er spilt så lik ut som
+ * en kamp uten kjent resultat, og «3–3» i cupen sto uten at det var straffene
+ * som avgjorde. Formatteringen deles nå med `readableScore`.
+ */
 export interface SearchMatch {
   matchId: string;
   date: string;
+  kickoff: string | null;
   competition: string;
+  status: string;
   isHome: boolean;
   opponent: string;
   aafkScore: number | null;
   opponentScore: number | null;
   result: "S" | "U" | "T" | null;
+  afterExtraTime: boolean;
+  decidedOnPenalties: boolean;
+  wonOnPenalties: boolean | null;
   url: string;
 }
 
 interface MatchRow {
   match_id: string;
   date: string;
+  kickoff: string | null;
   competition: string;
+  status: string;
   is_home: number;
   opponent: string;
   aafk_score: number | null;
   opponent_score: number | null;
   result: "S" | "U" | "T" | null;
+  after_extra_time: number;
+  decided_on_penalties: number;
+  won_on_penalties: number | null;
   url: string;
 }
 
@@ -74,8 +92,9 @@ export function searchMatches(query: string, limit = 200): SearchMatch[] {
   try {
     const rows = all<MatchRow>(
       db,
-      `SELECT match_id, date, competition, is_home, opponent,
-              aafk_score, opponent_score, result, url
+      `SELECT match_id, date, kickoff, competition, status, is_home, opponent,
+              aafk_score, opponent_score, result,
+              after_extra_time, decided_on_penalties, won_on_penalties, url
        FROM matches
        WHERE ${where.join(" AND ")}
        ORDER BY date DESC
@@ -85,12 +104,17 @@ export function searchMatches(query: string, limit = 200): SearchMatch[] {
     return rows.map((row) => ({
       matchId: row.match_id,
       date: row.date,
+      kickoff: row.kickoff,
       competition: row.competition,
+      status: row.status,
       isHome: row.is_home === 1,
       opponent: row.opponent,
       aafkScore: row.aafk_score,
       opponentScore: row.opponent_score,
       result: row.result,
+      afterExtraTime: row.after_extra_time === 1,
+      decidedOnPenalties: row.decided_on_penalties === 1,
+      wonOnPenalties: row.won_on_penalties === null ? null : row.won_on_penalties === 1,
       url: row.url,
     }));
   } finally {

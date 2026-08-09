@@ -227,12 +227,26 @@ export function CoverageSummary({ seasons }: { seasons: SeasonSummary[] }) {
  * innhøsting uten at noen merker det. «Godt dekket» var dessuten ikke
  * etterprøvbart: ingen vet hvor mange cupkamper AaFK har spilt.
  */
-const TYPE_LABELS: Record<string, string> = {
+export const TYPE_LABELS: Record<string, string> = {
   league: "Serien",
   national_cup: "Cupen",
   european: "Europacup",
   friendly: "Treningskamper",
   playoff: "Kvalifisering",
+};
+
+/**
+ * Konkurransetypene i småbokstav, til bruk midt i en setning.
+ *
+ * `TYPE_LABELS` står som første ord i en punktliste og er derfor store
+ * bokstaver. «Arkivet dekker Serien og Cupen» er ikke norsk.
+ */
+export const TYPE_WORDS: Record<string, string> = {
+  league: "serie",
+  national_cup: "cup",
+  european: "europacup",
+  friendly: "treningskamper",
+  playoff: "kvalifisering",
 };
 
 export function CompetitionSpread() {

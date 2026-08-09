@@ -29,10 +29,15 @@ export default function ArkivetPage() {
 
   return (
     <>
-      <header className="page-header">
+      {/* Kildesidene kom til senere og hadde sine egne klassenavn for det samme.
+          Nå er innledningen den samme som på sesonger, motstandere og datasettet. */}
+      <header className="page-intro">
+        <p className="eyebrow">{sources.length} registrerte kilder</p>
         <h1>Historisk kildearkiv</h1>
-        <p className="lead">
+        <p className="lede">
           Bøker, medlemsblad, jubileumsskrift, årsmeldinger og andre kilder til AaFKs historie.
+          Dette er dokumentene om klubben, ikke datakildene bak kamptallene — de står{" "}
+          <a href="/om">på om-siden</a>.
         </p>
       </header>
 
