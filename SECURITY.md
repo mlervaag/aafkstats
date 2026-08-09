@@ -51,8 +51,8 @@ Meld gjerne fra hvis du mener vurderingen er feil, men disse er kjent og bevisst
   telleren per instans, og en fordelt avsender kommer forbi. Det harde kostnadstaket ligger
   hos modelleverandøren (Anthropic Console eller OpenAI-plattformen), ikke i koden. Se
   [`apps/web/lib/rate-limit.ts`](apps/web/lib/rate-limit.ts).
-- **Spørsmål logges.** Spørsmålsteksten, SQL-en modellen skrev og tokenforbruket skrives til
-  Vercel Logs. IP-adressen logges aldri. Ikke skriv noe personlig i spørrefeltet.
+- **Metadata om spørsmål logges.** Vercel Logs mottar lengde, modell, tokenforbruk,
+  varighet og SQL-form. Selve spørsmålet, IP-adressen og strengliteraler i SQL logges ikke.
 - **Radtak og énsetningsregel er ikke sikkerhet.** De finnes for å gi modellen forståelige
   feilmeldinger. `readOnly`, prosessgrensen og det tomme miljøet er lagene som faktisk holder.
   Navnekontrollen er unntaket — den er en reell grense, og hull i den er verdt en rapport.

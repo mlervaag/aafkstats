@@ -132,9 +132,9 @@ Faller vi ned på `x-forwarded-for`, tas den *siste* oppføringen — den er lag
 nærmest oss, mens den første er den avsenderen selv kunne finne på å sette. Kartet har et
 hardt tak på antall avsendere, så en strøm av nye ikke får det til å vokse i det uendelige.
 
-Hvert spørsmål logges som strukturert JSON til Vercel Logs — spørsmålet, SQL-en modellen
-skrev, hvem som svarte, tokenforbruk og varighet. **IP-en logges aldri.** Vi trenger ikke vite hvem som spurte
-for å se hva som spørres om.
+Hvert spørsmål gir strukturert metadata i Vercel Logs: lengde, SQL-form, leverandør,
+modell, tokenforbruk og varighet. **Spørsmålstekst og IP-adresse logges aldri.** SQL-strenger
+erstattes med `?`, siden de kan inneholde ord fra spørsmålet.
 
 ## Detaljene som er lette å overse
 

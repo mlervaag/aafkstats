@@ -67,6 +67,14 @@ describe("bidragsruten", () => {
     expect(fetchSpy).not.toHaveBeenCalled();
   });
 
+  it("avviser en text/plain-kropp selv om den inneholder gyldig JSON", async () => {
+    const res = await POST(
+      request(JSON.stringify(gyldig), { "content-type": "text/plain", "x-real-ip": "10.0.0.13" }),
+    );
+    expect(res.status).toBe(415);
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
   it("slipper gjennom forespørsler fra vårt eget nettsted", async () => {
     const res = await POST(request(gyldig, { origin: "http://arkivet.test", "x-real-ip": "10.0.0.3" }));
     expect(res.status).toBe(200);
@@ -150,6 +158,13 @@ describe("bidragsruten", () => {
   it("sier fra når innboksen ikke er satt opp, uten å prøve å skrive", async () => {
     delete process.env.GITHUB_INBOX_TOKEN;
     const res = await POST(request(gyldig, { "x-real-ip": "10.0.0.9" }));
+    expect(res.status).toBe(500);
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it("avviser en ugyldig konfigurert GitHub-destinasjon", async () => {
+    process.env.GITHUB_INBOX_REPO = "eier/innboks/issues?per_page=100";
+    const res = await POST(request(gyldig, { "x-real-ip": "10.0.0.14" }));
     expect(res.status).toBe(500);
     expect(fetchSpy).not.toHaveBeenCalled();
   });

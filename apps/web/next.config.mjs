@@ -42,6 +42,10 @@ const extra = analyticsOrigin ? ` ${analyticsOrigin}` : "";
 const CSP = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${extra}`,
+  // Next trenger foreløpig innebygde <script>-elementer, men ikke onload= og
+  // andre skripthandlere i HTML-attributter. Skill dem, så en framtidig
+  // HTML-injeksjon ikke automatisk blir kjørbar kode.
+  "script-src-attr 'none'",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data:",
   "font-src 'self'",

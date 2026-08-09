@@ -138,12 +138,16 @@ export function checkRateLimit(req: Request, bucket: RateLimitBucket = "chat"): 
 /**
  * Logger et spørsmål til stdout, som havner i Vercel Logs.
  *
- * Erstatter chat_usage-tabellen fra Postgres-utkastet. Det vi trengte den til —
- * å se hva som spørres om, hvilken SQL modellen skrev, og hva det kostet — får vi
- * like godt fra strukturert logg, uten en database å vedlikeholde.
+ * Erstatter chat_usage-tabellen fra Postgres-utkastet. Loggen viser volum,
+ * modell, tokenbruk, kjøretid og SQL-form uten å lagre brukerens fritekst.
  *
- * IP-en logges aldri. Vi trenger ikke vite hvem som spurte for å se hva som spørres om.
+ * IP-en logges aldri. Strengliteraler i SQL kan stamme fra spørsmålet og
+ * redigeres derfor bort før logging.
  */
+export function redactSqlLiterals(sql: string): string {
+  return sql.replace(/'(?:''|[^'])*'/g, "'?'");
+}
+
 export function logQuestion(entry: {
   question: string;
   answerLength: number;
@@ -159,13 +163,16 @@ export function logQuestion(entry: {
   console.log(
     JSON.stringify({
       hendelse: "chat",
-      spørsmål: entry.question,
+      // Spørsmålet kan inneholde navn, kontaktopplysninger eller annet en
+      // bruker ikke forventer skal bli liggende i driftsloggene. Lengden er nok
+      // til kapasitets- og misbruksanalyse; selve friteksten lagres ikke.
+      spørsmålLengde: entry.question.length,
       // Et svar på null tegn uten feil er signaturen til feilmodusen vi frykter
       // mest: modellen skrev verktøykallet som tekst i stedet for et tool_use-blokk,
       // og løkka gikk rundt uten å produsere noe. Uten dette tallet er den usynlig.
       svarLengde: entry.answerLength,
       spørringer: entry.queries.map((q) => ({
-        sql: q.sql,
+        sql: redactSqlLiterals(q.sql),
         ms: q.durationMs,
         rader: q.rowCount,
         feil: q.error,

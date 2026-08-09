@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { checkRateLimit, clientIp } from "../lib/rate-limit";
+import { checkRateLimit, clientIp, redactSqlLiterals } from "../lib/rate-limit";
 
 const req = (headers: Record<string, string>) =>
   new Request("https://aafkstats.test/api/chat", { method: "POST", headers });
@@ -24,6 +24,14 @@ describe("clientIp", () => {
 
   it("faller tilbake når ingenting finnes", () => {
     expect(clientIp(req({}))).toBe("ukjent");
+  });
+});
+
+describe("loggredigering", () => {
+  it("fjerner tekstverdier som kan stamme fra brukerens spørsmål", () => {
+    expect(
+      redactSqlLiterals("SELECT * FROM matches WHERE opponent = 'O''Brien' AND season = 2024"),
+    ).toBe("SELECT * FROM matches WHERE opponent = '?' AND season = 2024");
   });
 });
 

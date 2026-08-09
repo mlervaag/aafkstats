@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { checkRateLimit } from "@/lib/rate-limit";
-import { isCrossSite, readBodyLimited } from "@/lib/chat-request";
+import { isCrossSite, isJsonRequest, readBodyLimited } from "@/lib/chat-request";
 
 /**
  * Bidragsskjemaet skriver rett inn i en GitHub-innboks.
@@ -117,6 +117,10 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Forespørselen kom utenfra." }, { status: 403 });
     }
 
+    if (!isJsonRequest(req)) {
+      return NextResponse.json({ error: "Forespørselen må være JSON." }, { status: 415 });
+    }
+
     const limit = checkRateLimit(req, "bidrag");
     if (!limit.allowed) {
       return NextResponse.json(
@@ -149,6 +153,10 @@ export async function POST(req: Request) {
 
     if (!token || !repo) {
       console.error("Mangler GITHUB_INBOX_TOKEN eller GITHUB_INBOX_REPO");
+      return NextResponse.json({ error: "Systemfeil: Kunne ikke koble til innboks." }, { status: 500 });
+    }
+    if (!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(repo)) {
+      console.error("GITHUB_INBOX_REPO har ugyldig format");
       return NextResponse.json({ error: "Systemfeil: Kunne ikke koble til innboks." }, { status: 500 });
     }
 
