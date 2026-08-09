@@ -299,7 +299,8 @@ Next.js 15 med App Router. Sidene leser arkivfilen direkte gjennom `@aafkstats/d
 innholdet er låst mellom to utrullinger — så hver side med et innhold som ikke kan endre seg
 forhåndsgenereres. Kamp-, sesong-, motstander- og kildesidene har hver sin
 `generateStaticParams()`, som leser ID-lista fra arkivet: nye kamper og nye kilder kommer med
-av seg selv ved neste bygg. Til sammen 1688 sider, bygget på under et minutt.
+av seg selv ved neste bygg. Det er drøyt 1 600 sider i dag, bygget på under et minutt — og
+tallet står med vilje omtrentlig her, siden hver innhøsting flytter det.
 
 Bare rutene under `/api` rendres ved forespørsel, og det er de eneste som må: de gjør noe
 annet enn å lese arkivet.

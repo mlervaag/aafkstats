@@ -27,7 +27,8 @@ export interface ViewDoc {
   columns: ColumnDoc[];
 }
 
-export const DATASET_VERSION = "1";
+// Hevet fra 1 da `matches.missing_fields` ble en del av den publiserte kontrakten.
+export const DATASET_VERSION = "2";
 
 export const views: ViewDoc[] = [
   {
