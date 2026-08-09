@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "pnpm --filter @aafkstats/db run build-archive && next build",
-    "start": "next start"
+    "start": "next start",
+    "smoke": "tsx scripts/smoke.mts"
   },
   "dependencies": {
     "@aafkstats/db": "workspace:*",
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "tsx": "^4.19.2"
   }
 }

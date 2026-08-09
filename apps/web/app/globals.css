@@ -488,6 +488,48 @@ th { font-weight: 600; }
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
 }
+/* En kamp som ikke er spilt har ingen resultat å rope ut. Klokkeslettet står i
+   samme posisjon, men dempet og mindre: det er en opplysning, ikke et poeng. */
+.scoreline-upcoming {
+  font-size: clamp(1.1rem, 3vw, 1.7rem);
+  color: var(--muted);
+  letter-spacing: 0;
+}
+
+/* Statuslinja under resultatet. Fire tilstander som ser like ut i dataene og
+   betyr helt ulike ting for den som leser: ikke spilt, utsatt, avlyst, avbrutt.
+   Ordet bærer forskjellen, fargen understreker den. */
+.match-status {
+  max-width: var(--measure);
+  margin: 0.9rem auto 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+.match-status strong { color: var(--text); }
+.match-status-scheduled strong { color: var(--accent); }
+.match-status-cancelled strong,
+.match-status-abandoned strong { color: var(--loss); }
+
+/* Uenighet mellom kilder. Verdiene stilles opp ved siden av hverandre framfor at
+   én velges bort: for et historisk arkiv er selve uenigheten en opplysning. */
+.conflict { margin-top: 1.25rem; }
+.conflict-field { font-size: 0.95rem; margin: 0 0 0.4rem; }
+.conflict-values {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+.conflict-values li {
+  padding: 0.35rem 0.6rem;
+  border-left: 2px solid var(--border);
+}
+/* Verdien arkivet bruker markeres med strek og ord, ikke bare farge. */
+.conflict-values .is-chosen { border-left-color: var(--accent); }
+.conflict-chosen { font-size: 0.78rem; color: var(--accent); }
+.conflict-note { display: block; }
+
 /* Kampfakta under resultatet. Radene skilles med hårstrek slik at etikett og
    verdi henger sammen parvis — uten den flyter dt og dd fra hverandre så snart
    én verdi er lengre enn de andre. */
@@ -1229,9 +1271,12 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
   color: var(--muted);
 }
 
-/* Bare den komplette får farge. De to andre er tilstander, ikke problemer —
-   et arkiv som mangler 1951 har ikke gjort noe galt. */
+/* Bare den komplette får farge. De andre er tilstander, ikke problemer —
+   et arkiv som mangler 1951 har ikke gjort noe galt. Fargen står aldri alene:
+   hvert merke sier i klartekst hva det er, og title-teksten sier hva merket
+   hviler på. */
 .coverage-complete { color: var(--win); }
+.coverage-in_progress { color: var(--accent); }
 
 .section-heading-title {
   display: flex;
@@ -1304,6 +1349,9 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
   font-size: 0.72rem;
   white-space: nowrap;
 }
+/* Hvem som tok risikobeslutningen, og når. En avkrysning uten navn er ikke en
+   beslutning. */
+.rights-who { display: block; margin-top: 0.2rem; }
 
 /* ── Bidragsskjema (MVP) ──────────────────────────────────────────────── */
 .contribution-trigger {

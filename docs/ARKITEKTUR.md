@@ -262,7 +262,7 @@ Flyten er den samme for begge kildene:
 
 ```mermaid
 flowchart LR
-  P{"Rettighetsport<br/>data/sources/*.yaml"}
+  P{"Rettighetsport<br/>data/providers/*.yaml"}
   H["Hent<br/>+ cache i .cache/"]
   N["Normaliser<br/>adapter"]
   RC["Reconcile<br/>mot arkivet"]

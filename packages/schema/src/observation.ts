@@ -35,6 +35,23 @@ export type ObservationValue = z.infer<typeof scalar>;
  * rettighetsspørsmål vi ikke har svart på, og et lagringsspørsmål vi ikke
  * trenger å stille for å løse problemet over.
  *
+ * ## Når en adapter endres
+ *
+ * `adapter` bærer navn og versjon, og en observasjon skrevet av en gammel
+ * versjon blir stående. Den slettes ikke og skrives ikke om: den er beviset på
+ * hva vi trodde kilden sa den gangen, og det er nettopp den opplysningen som
+ * trengs for å forstå hvorfor en kampfil ser ut som den gjør.
+ *
+ * En rettet adapter skriver en ny observasjon ved siden av. Er `payloadHash`
+ * lik, leste den samme verdier og ingenting mer skal skje. Er den ulik, har
+ * enten kilden eller parsingen endret seg, og differansen mellom de to
+ * observasjonene er den ferdige listen over hva som må vurderes på nytt.
+ *
+ * Er en konflikt allerede avgjort på en verdi fra den gamle observasjonen,
+ * peker `payloadHash` på konfliktverdien tilbake til den. Da er valget
+ * etterprøvbart mot det grunnlaget det faktisk ble tatt på, og en verdi merket
+ * `locked` blir stående til et menneske ser på den igjen.
+ *
  * ## Ingen tilbakefylling
  *
  * De 1039 kampene som allerede ligger i arkivet får ingen observasjon.

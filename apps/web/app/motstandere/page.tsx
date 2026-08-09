@@ -5,7 +5,6 @@ export const metadata: Metadata = {
   title: "Motstandere",
   description: "Innbyrdes statistikk mot alle AaFKs motstandere gjennom arkivet.",
 };
-export const dynamic = "force-dynamic";
 
 export default function OpponentsPage() {
   const opponents = loadOpponents();

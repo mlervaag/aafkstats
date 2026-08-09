@@ -48,6 +48,11 @@ jobs:
       - name: Rapporter mistenkelige dubletter
         run: pnpm data:duplicates
 
+      # Rapporterer, feller ikke bygget. Et stort siffer kan være et ekte
+      # storspill eller en feil hos kilden, og bare et menneske kan avgjøre.
+      - name: Rapporter tvilsomme resultater
+        run: pnpm data:uncertain
+
       - name: Typesjekk
         run: pnpm typecheck
 
@@ -61,3 +66,9 @@ jobs:
       # med et tomt data/ ville byggesteget vært grønt uten å ha vist noe.
       - name: Bygg nettstedet
         run: AAFK_DATA_DIR=fixtures/data pnpm build
+
+      # Leser HTML-en bygget faktisk produserte. Fanger det enhetstestene ikke
+      # ser: en side som kaster under prerendering, en tom seksjon på en kamp
+      # som ikke er spilt, eller en tittel som falt tilbake til prosjektnavnet.
+      - name: Røyketest av de ferdige sidene
+        run: pnpm smoke

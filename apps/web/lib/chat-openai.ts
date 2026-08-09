@@ -20,6 +20,7 @@
 import OpenAI from "openai";
 import { z } from "zod/v4";
 import { systemPrompt } from "@aafkstats/query/prompt";
+import { datasetCoverage } from "@/lib/chat-coverage";
 import { tools as toolDefs, toolsByName } from "@aafkstats/query/tools";
 import type { ToolContext } from "@aafkstats/query/tools";
 import {
@@ -72,7 +73,7 @@ export async function runOpenAI(setup: ChatSetup, run: ChatRun): Promise<ChatRes
   for (let round = 0; round < MAX_ITERATIONS; round++) {
     const stream = await client.responses.create({
       model: setup.model,
-      instructions: systemPrompt(),
+      instructions: systemPrompt(datasetCoverage()),
       input,
       tools: openaiTools,
       // Tenkning på «medium», som hos Anthropic og av samme grunn: et spørsmål som

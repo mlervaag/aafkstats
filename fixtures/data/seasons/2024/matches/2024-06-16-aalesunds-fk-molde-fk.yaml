@@ -1,0 +1,13 @@
+id: 2024-06-16-aalesunds-fk-molde-fk
+date: 2024-06-16
+kickoff: "18:00"
+# Utsatt kamp. Står på terminlista uten at ny dato er satt.
+status: postponed
+competition: { id: eliteserien, season: 2024, stage: regular_season, round: 12 }
+home: { clubId: aalesunds-fk }
+away: { clubId: molde-fk }
+venueId: color-line-stadion
+providers:
+  - { providerId: aafk-no, retrievedAt: 2026-08-02, fields: [date] }
+confidence: confirmed
+tags: [fixture]

@@ -11,7 +11,7 @@
 
 <!--
   Kun for dataendringer: hvor kommer den nye opplysningen fra? Lenke, avis med dato,
-  kampprogram eller lignende. Er kilden ny, skal den ligge i data/sources/ med
+  kampprogram eller lignende. Er kilden ny, skal den ligge i data/providers/ med
   rettighetsstatus.
 -->
 

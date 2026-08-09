@@ -5,6 +5,7 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
+    "./coverage": "./src/coverage.ts",
     "./dataset": "./src/dataset.ts",
     "./tools": "./src/tools.ts",
     "./prompt": "./src/prompt.ts",

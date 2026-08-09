@@ -9,6 +9,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { betaZodTool } from "@anthropic-ai/sdk/helpers/beta/zod";
 import { systemPrompt } from "@aafkstats/query/prompt";
+import { datasetCoverage } from "@/lib/chat-coverage";
 import { tools as toolDefs } from "@aafkstats/query/tools";
 import {
   MAX_ITERATIONS,
@@ -54,7 +55,7 @@ export async function runAnthropic(setup: ChatSetup, run: ChatRun): Promise<Chat
     system: [
       {
         type: "text",
-        text: systemPrompt(),
+        text: systemPrompt(datasetCoverage()),
         // Systemprompten og verktøydefinisjonene er identiske mellom kall, så
         // hele prefikset caches. Ingenting her endrer seg per forespørsel.
         cache_control: { type: "ephemeral" },

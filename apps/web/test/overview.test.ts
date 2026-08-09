@@ -8,9 +8,11 @@ import {
   loadDeclaredCoaches,
   loadNeighbourSeasons,
   loadNextMatch,
+  loadOpponents,
   loadOverview,
   loadSeason,
   loadSeasonCoaches,
+  loadSeasons,
   loadSquad,
   loadStandings,
 } from "../lib/archive.js";
@@ -33,12 +35,12 @@ afterAll(() => {
  * arkivet på lik linje med resten, så uten et skille teller overskriften kamper
  * som ikke er spilt, og «til 2026» henter årstallet fra en kamp i desember.
  *
- * Fixturen har elleve kamper, og én av dem står oppført som `scheduled`.
+ * Fixturen har tolv kamper: én står som `scheduled`, én som `awarded`.
  */
 describe("forsidetallene", () => {
   it("teller bare kamper som har funnet sted", () => {
     const { totals } = loadOverview();
-    expect(totals.matches).toBe(10);
+    expect(totals.matches).toBe(11);
     expect(totals.upcoming).toBe(1);
   });
 
@@ -59,6 +61,42 @@ describe("forsidetallene", () => {
     const coverage = loadCoverage();
     const sum = coverage.byCompetition.reduce((total, row) => total + row.matches, 0);
     expect(sum).toBe(coverage.matches);
+  });
+});
+
+/**
+ * Én definisjon av «spilt», brukt likt overalt.
+ *
+ * Regelen sto tre steder med tre litt ulike svar: `seasons` tok bare status
+ * 'played', `opponents` talte kamper på én måte og seire på en annen, og
+ * nettstedet hadde sin egen streng. Kampen på grønt bord i fixturen er nettopp
+ * den som avslørte forskjellen, og testene her holder de tre på samme tall.
+ */
+describe("spilt betyr det samme overalt", () => {
+  it("teller kampen på grønt bord med i forsidens totalsum", () => {
+    expect(loadOverview().totals.matches).toBe(11);
+  });
+
+  it("teller den med i sesongsammendraget", () => {
+    // 1998 har fire kamper i fixturen: tre i serien, hvorav én på grønt bord.
+    const serien = loadSeason(1998)!.summaries.find((s) => s.competitionId === "forstedivisjon")!;
+    expect(serien.played).toBe(3);
+    expect(serien.wins).toBe(2);
+  });
+
+  it("teller den med i motstanderstatistikken", () => {
+    const rbk = loadOpponents().find((o) => o.id === "rosenborg-bk")!;
+    // Seirene kan ikke overstige antall kamper. De kunne før: kampantallet så
+    // bare etter 'played', mens seiersteljingen tok enhver rad med et resultat.
+    expect(rbk.wins + rbk.draws + rbk.losses).toBe(rbk.played);
+    expect(rbk.lastMeeting).not.toBeNull();
+  });
+
+  it("gir samme sum i sesongene som på forsiden", () => {
+    const fromSeasons = loadSeasons().reduce((sum, s) => sum + s.played, 0);
+    // Sesongsummen holder kvalifiseringskamper utenfor serietabellen, så den kan
+    // være lavere. Den kan aldri være høyere: da telles noe to ganger.
+    expect(fromSeasons).toBeLessThanOrEqual(loadOverview().totals.matches);
   });
 });
 

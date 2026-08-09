@@ -1,4 +1,4 @@
-import { all, one, open } from "@aafkstats/db";
+import { PLAYED_SQL, all, one, open } from "@aafkstats/db";
 
 export interface ArchiveMatch {
   matchId: string;
@@ -62,13 +62,32 @@ export interface SeasonSummary {
   /** Forbehold om sesongen, f.eks. at den er ufullstendig i arkivet. */
   note: string | null;
   /**
-   * Hvor godt sesongen er dekket, utledet av rundenumrene i byggesteget.
+   * Hvor godt sesongen er dekket, regnet ut i byggesteget.
    *
    * «85 sesonger» betyr 85 år med minst én registrert kamp. Uten dette feltet er
    * det umulig for en leser å se forskjell på en komplett serie og tre løsrevne
    * kamper fra 1951.
+   *
+   * 'unverified' er sesonger med sammenhengende runder der ingen vet hvor mange
+   * det skulle vært. De så komplette ut før, og var det ikke nødvendigvis.
    */
-  coverage: "complete" | "partial" | "isolated" | "not_applicable";
+  coverage: "complete" | "in_progress" | "partial" | "unverified" | "isolated" | "not_applicable";
+  /**
+   * Hva merket hviler på.
+   *
+   * 'rounds_and_standings' er sterkest: sluttabellen sier hvor mange kamper AaFK
+   * spilte, og arkivet har like mange. De to tallene er hentet fra hver sin
+   * parsing av kilden, så de bekrefter hverandre.
+   */
+  coverageEvidence:
+    | "rounds_and_standings"
+    | "rounds_and_declared_count"
+    | "rounds_only"
+    | "isolated_matches_only"
+    | "season_in_progress"
+    | "not_applicable";
+  /** Hvor mange kamper sesongen skulle hatt, når noen vet det. */
+  expectedMatches: number | null;
   /** Høyeste serierunde. For en komplett sesong: antall runder. */
   lastRound: number | null;
   /**
@@ -97,7 +116,9 @@ interface SeasonRow {
   goals_against: number;
   goal_difference: number;
   note: string | null;
-  coverage: "complete" | "partial" | "isolated" | "not_applicable";
+  coverage: SeasonSummary["coverage"];
+  coverage_evidence: SeasonSummary["coverageEvidence"];
+  expected_matches: number | null;
   last_round: number | null;
   scheduled: number;
   url: string;
@@ -176,10 +197,10 @@ export interface ArchiveTotals {
  * spilt ennå, mens «fra 1917 til 2026» henter siste årstall fra en kamp i
  * desember. Ingen av delene er galt regnet, men ingen leser overskriften slik.
  *
- * `awarded` teller med: en kamp avgjort på grønt bord har et resultat, og den
- * ligger bak oss.
+ * Regelen er den samme som `core_played` i SQL-skjemaet, hentet fra ett sted
+ * slik at nettstedet og aggregatene ikke kan telle forskjellig.
  */
-const SPILT = "status IN ('played', 'awarded')";
+const SPILT = PLAYED_SQL;
 
 const matchColumns = `match_id, date, kickoff, competition, status, is_home, opponent,
   opponent_club_id, aafk_score, opponent_score, result, after_extra_time,
@@ -222,6 +243,8 @@ function mapSeason(row: SeasonRow): SeasonSummary {
     goalDifference: row.goal_difference,
     note: row.note,
     coverage: row.coverage,
+    coverageEvidence: row.coverage_evidence,
+    expectedMatches: row.expected_matches,
     lastRound: row.last_round,
     scheduled: row.scheduled,
     url: row.url,
@@ -276,7 +299,7 @@ export function loadNextMatch(today = new Date().toISOString().slice(0, 10)): Ar
 export function loadOverview(): { recent: ArchiveMatch[]; totals: ArchiveTotals } {
   const db = open();
   try {
-    const recent = all<MatchRow>(db, `SELECT ${matchColumns} FROM matches WHERE status = 'played' ORDER BY date DESC LIMIT 5`);
+    const recent = all<MatchRow>(db, `SELECT ${matchColumns} FROM matches WHERE ${SPILT} ORDER BY date DESC LIMIT 5`);
     const totals = one<ArchiveTotals>(
       db,
       `SELECT count(*) AS matches, count(DISTINCT season) AS seasons,
@@ -430,6 +453,38 @@ export function loadNeighbourSeasons(year: number): { previous: number | null; n
       db, "SELECT min(season) AS season FROM seasons WHERE season > ?", year,
     );
     return { previous: previous?.season ?? null, next: next?.season ?? null };
+  } finally {
+    db.close();
+  }
+}
+
+/**
+ * Alle kamp-URL-er, med datoen for siste kildeinnhenting.
+ *
+ * Brukes av sitemap og av `generateStaticParams`. Sitemap hadde ingen kampsider
+ * i det hele tatt, og det er de eneste sidene som er verdt å finne i et søk:
+ * over tusen sider som ingen søkemotor visste fantes.
+ */
+export interface MatchIndexEntry {
+  matchId: string;
+  date: string;
+  status: string;
+  /** Siste gang en kilde ble hentet. NULL for kamper uten kildehenvisning. */
+  lastRetrievedAt: string | null;
+}
+
+export function loadMatchIndex(): MatchIndexEntry[] {
+  const db = open();
+  try {
+    return all<{ match_id: string; date: string; status: string; last_retrieved_at: string | null }>(
+      db,
+      `SELECT match_id, date, status, last_retrieved_at FROM matches ORDER BY date DESC`,
+    ).map((row) => ({
+      matchId: row.match_id,
+      date: row.date,
+      status: row.status,
+      lastRetrievedAt: row.last_retrieved_at,
+    }));
   } finally {
     db.close();
   }

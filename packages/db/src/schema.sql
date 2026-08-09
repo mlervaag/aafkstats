@@ -61,7 +61,13 @@ CREATE TABLE core_providers (
   automated_access       TEXT NOT NULL DEFAULT 'unknown',
   public_redistribution  TEXT NOT NULL DEFAULT 'unknown',
   attribution_required   INTEGER NOT NULL DEFAULT 0,
+  -- Hva motparten har sagt. Vår egen beslutning ligger i ingest_decision, og de
+  -- to er ulike spørsmål: RSSSF er forespurt uten svar, og videreført likevel.
   permission_status      TEXT NOT NULL DEFAULT 'pending',
+  ingest_decision        TEXT NOT NULL DEFAULT 'pending',
+  permission_requested_at TEXT,
+  risk_accepted_at       TEXT,
+  risk_accepted_by       TEXT,
   terms_checked_at       TEXT,
   robots_checked_at      TEXT,
   permission_note        TEXT,
@@ -77,6 +83,10 @@ CREATE TABLE core_seasons (
   competition_name TEXT NOT NULL,
   final_position   INTEGER,
   teams_in_league  INTEGER,
+  -- Forventet omfang, oppgitt for hånd. Brukes bare når sluttabellen ikke svarer;
+  -- se coverage_evidence i seasons-viewet.
+  expected_matches INTEGER,
+  expected_rounds  INTEGER,
   head_coach       TEXT,
   promoted         INTEGER NOT NULL DEFAULT 0,
   relegated        INTEGER NOT NULL DEFAULT 0,
@@ -271,6 +281,20 @@ CREATE INDEX matches_opponent_idx    ON core_matches (opponent_club_id);
 CREATE INDEX matches_competition_idx ON core_matches (competition_id);
 CREATE INDEX matches_result_idx      ON core_matches (result);
 
+-- Kampene som har funnet sted.
+--
+-- Én definisjon av «spilt», delt av alle aggregatene. Regelen sto tidligere tre
+-- steder: `seasons` tok bare 'played', `opponents` talte kamper på én måte og
+-- seire på en annen, og nettstedet hadde sin egen streng. Samme kamp kunne
+-- dermed telles i forsidens totalsum og mangle i sesongsammendraget.
+--
+-- 'awarded' er med fordi en kamp avgjort på grønt bord har et resultat og ligger
+-- bak oss. 'abandoned' er ikke med: en avbrutt kamp har ingen sluttstilling.
+-- Statuslista er den samme som PLAYED_STATUSES i packages/db/src/index.ts, og
+-- en test feiler hvis de to skiller lag.
+CREATE VIEW core_played AS
+SELECT * FROM core_matches WHERE status IN ('played', 'awarded');
+
 -- ── Publisert kontrakt ──────────────────────────────────────────────────────
 
 -- Én rad per kamp, sett fra AaFKs synsvinkel.
@@ -310,6 +334,11 @@ SELECT
   m.confidence,
   CASE WHEN json_array_length(m.conflicts) > 0 THEN 1 ELSE 0 END AS has_conflicts,
   m.completeness,
+  -- Siste gang en kilde ble hentet for denne kampen. Brukes til lastModified i
+  -- sitemap, så søkemotorer får vite når opplysningen sist ble kontrollert i
+  -- stedet for å anta at hele arkivet er like gammelt som byggetidspunktet.
+  (SELECT max(json_extract(pv.value, '$.retrievedAt')) FROM json_each(m.providers) pv)
+                      AS last_retrieved_at,
   m.sources,
   m.note,
   m.tags,
@@ -365,29 +394,74 @@ SELECT
   CAST(round(avg(CASE WHEN m.is_home = 1 THEN m.attendance END)) AS INTEGER)
                                                             AS avg_home_attendance,
 
-  -- Hvor godt sesongen er dekket, utledet av kampene selv.
+  -- Forventet antall seriekamper, og hvor tallet kommer fra.
+  --
+  -- Sluttabellen er førstevalget: står AaFK der med 26 spilte kamper, er 26
+  -- fasiten, og den er kildeført. Finnes ingen tabell, kan sesongfila oppgi
+  -- tallet for hånd, og da krever skjemaet en note som sier hvor det kommer fra.
+  -- Finnes ingen av delene, vet vi ikke omfanget, og da kan ingen sesong kalles
+  -- komplett.
+  coalesce(
+    (SELECT t.played FROM core_standings t
+      WHERE t.competition_id = m.competition_id AND t.season = m.season
+        AND t.club_id = 'aalesunds-fk'),
+    s.expected_matches
+  )                                                         AS expected_matches,
+
+  -- Hvor godt sesongen er dekket, utledet av kampene og det forventede omfanget.
   --
   -- «85 sesonger» har hele tiden betydd 85 år med minst én registrert kamp. Det
   -- er noe annet enn 85 komplette sesonger, og forskjellen var usynlig for den
-  -- som leste forsiden. Denne kolonnen gjør den synlig, og den regnes ut ved
-  -- bygging slik at den ikke kan bli utdatert.
+  -- som leste forsiden.
   --
-  -- Serien nummererer rundene sine, og det er nok til å svare. Har vi runde 1 til
-  -- N uten hull, og N kamper, er sesongen komplett så langt kilden rekker.
-  -- Mangler det runder, er den delvis. Uten rundenummer i det hele tatt vet vi
-  -- ingenting utover at kampene finnes, og da sier vi det.
+  -- Den forrige utgaven svarte «komplett» på runde 1 til N uten hull. Det er
+  -- sant også når den virkelige sesongen hadde 22 runder og arkivet har fem: da
+  -- er runde 1 til 5 sammenhengende, og merket lyver. Nå kreves begge deler,
+  -- sammenhengende runder OG et kjent forventet omfang som stemmer.
   --
-  -- Cup og treningskamper har ingen slik struktur — en cupsesong slutter når
-  -- laget ryker ut — så de svarer «ikke relevant» framfor å gjette.
+  -- Cup og treningskamper har ingen slik struktur, en cupsesong slutter når
+  -- laget ryker ut, så de svarer «ikke relevant» framfor å gjette.
   CASE
     WHEN c.type <> 'league' THEN 'not_applicable'
+    WHEN (SELECT count(*) FROM core_matches u
+           WHERE u.season = m.season AND u.competition_id = m.competition_id
+             AND u.status = 'scheduled') > 0 THEN 'in_progress'
     WHEN count(m."round") = 0 THEN 'isolated'
     WHEN count(m."round") < count(m.id) THEN 'partial'
-    WHEN min(m."round") = 1
-     AND max(m."round") = count(m.id)
-     AND count(DISTINCT m."round") = count(m.id) THEN 'complete'
+    WHEN min(m."round") <> 1
+      OR count(DISTINCT m."round") <> count(m.id)
+      OR max(m."round") <> count(m.id) THEN 'partial'
+    -- Sammenhengende runder, men ingen vet hvor mange det skulle vært.
+    WHEN coalesce(
+           (SELECT t.played FROM core_standings t
+             WHERE t.competition_id = m.competition_id AND t.season = m.season
+               AND t.club_id = 'aalesunds-fk'),
+           s.expected_matches
+         ) IS NULL THEN 'unverified'
+    WHEN count(m.id) = coalesce(
+           (SELECT t.played FROM core_standings t
+             WHERE t.competition_id = m.competition_id AND t.season = m.season
+               AND t.club_id = 'aalesunds-fk'),
+           s.expected_matches
+         ) THEN 'complete'
     ELSE 'partial'
   END                                                       AS coverage,
+
+  -- Hva merket over hviler på. Uten dette er «komplett» en påstand uten grunnlag,
+  -- og en leser har ingen måte å vurdere hvor mye den er verdt.
+  CASE
+    WHEN c.type <> 'league' THEN 'not_applicable'
+    WHEN (SELECT count(*) FROM core_matches u
+           WHERE u.season = m.season AND u.competition_id = m.competition_id
+             AND u.status = 'scheduled') > 0 THEN 'season_in_progress'
+    WHEN count(m."round") = 0 THEN 'isolated_matches_only'
+    WHEN (SELECT count(*) FROM core_standings t
+           WHERE t.competition_id = m.competition_id AND t.season = m.season
+             AND t.club_id = 'aalesunds-fk') > 0 THEN 'rounds_and_standings'
+    WHEN s.expected_matches IS NOT NULL THEN 'rounds_and_declared_count'
+    ELSE 'rounds_only'
+  END                                                       AS coverage_evidence,
+
   -- Høyeste runde vi har. For en komplett sesong er dette antall serierunder.
   max(m."round")                                  AS last_round,
 
@@ -401,35 +475,53 @@ SELECT
       AND u.status = 'scheduled')                           AS scheduled,
 
   '/sesong/' || m.season                                    AS url
-FROM core_matches m
+FROM core_played m
 JOIN core_competitions c ON c.id = m.competition_id
 LEFT JOIN core_seasons s
   ON s.year = m.season
  AND s.competition_id = m.competition_id
-WHERE m.status = 'played'
-  -- Kvalifiseringskamper hører til sesongen, men ikke til serietabellen. Tas de
-  -- med her, blir en komplett sesong «delvis» fordi kampantallet overstiger
-  -- siste runde.
-  AND (c.type <> 'league' OR m.stage = 'regular_season')
+-- Kvalifiseringskamper hører til sesongen, men ikke til serietabellen. Tas de
+-- med her, blir en komplett sesong «delvis» fordi kampantallet overstiger
+-- siste runde.
+WHERE (c.type <> 'league' OR m.stage = 'regular_season')
 GROUP BY m.season, m.competition_id;
 
 -- Innbyrdes statistikk mot hver motstander, hele arkivet og alle konkurranser.
+--
+-- Kampantallet og seierstatistikken kommer fra det samme radsettet, `core_played`.
+-- Tidligere telte `played` bare status 'played' mens seirene telte enhver rad med
+-- et resultat, så en kamp avgjort på grønt bord kunne gi en seier uten en kamp.
+-- `first_meeting` ser med vilje alle kamper: en motstander vi har på terminlista
+-- uten å ha møtt ennå hører hjemme i lista med null spilte kamper.
 CREATE VIEW opponents AS
 SELECT
   c.id                                              AS opponent_club_id,
   c.name                                            AS opponent,
   c.city,
-  sum(CASE WHEN m.status = 'played' THEN 1 ELSE 0 END) AS played,
-  sum(CASE WHEN m.result = 'S' THEN 1 ELSE 0 END)   AS wins,
-  sum(CASE WHEN m.result = 'U' THEN 1 ELSE 0 END)   AS draws,
-  sum(CASE WHEN m.result = 'T' THEN 1 ELSE 0 END)   AS losses,
-  coalesce(sum(m.aafk_score), 0)                    AS goals_for,
-  coalesce(sum(m.opponent_score), 0)                AS goals_against,
+  coalesce(p.played, 0)                             AS played,
+  coalesce(p.wins, 0)                               AS wins,
+  coalesce(p.draws, 0)                              AS draws,
+  coalesce(p.losses, 0)                             AS losses,
+  coalesce(p.goals_for, 0)                          AS goals_for,
+  coalesce(p.goals_against, 0)                      AS goals_against,
   min(m.match_date)                                 AS first_meeting,
-  max(CASE WHEN m.status = 'played' THEN m.match_date END) AS last_meeting,
+  p.last_meeting                                    AS last_meeting,
   '/motstander/' || c.id                            AS url
 FROM core_matches m
 JOIN core_clubs c ON c.id = m.opponent_club_id
+LEFT JOIN (
+  SELECT
+    opponent_club_id,
+    count(*)                                        AS played,
+    sum(CASE WHEN result = 'S' THEN 1 ELSE 0 END)   AS wins,
+    sum(CASE WHEN result = 'U' THEN 1 ELSE 0 END)   AS draws,
+    sum(CASE WHEN result = 'T' THEN 1 ELSE 0 END)   AS losses,
+    coalesce(sum(aafk_score), 0)                    AS goals_for,
+    coalesce(sum(opponent_score), 0)                AS goals_against,
+    max(match_date)                                 AS last_meeting
+  FROM core_played
+  GROUP BY opponent_club_id
+) p ON p.opponent_club_id = c.id
 GROUP BY c.id;
 
 -- Sluttabellen, ett lag per rad. Lagnavnet er kildens eget; club_id er satt for
@@ -494,15 +586,14 @@ SELECT
   min(m.match_date)                                 AS first_match,
   max(m.match_date)                                 AS last_match,
   -- Mål i sesongen, talt fra hendelsene. Bare AaFKs egne mål.
-  (SELECT count(*) FROM core_matches gm, json_each(gm.events) e
+  (SELECT count(*) FROM core_played gm, json_each(gm.events) e
     WHERE gm.season = a.season
       AND json_extract(e.value, '$.player') = a.name
       AND json_extract(e.value, '$.type') IN ('goal','penalty_goal')
       AND (json_extract(e.value, '$.team') = 'home') = (gm.is_home = 1))
                                                     AS goals
 FROM core_appearances a
-JOIN core_matches m ON m.id = a.match_id
-WHERE m.status = 'played'
+JOIN core_played m ON m.id = a.match_id
 GROUP BY a.season, a.person_key;
 
 -- Trenerperioder: én rad per sammenhengende periode en trener hadde laget.
@@ -517,8 +608,7 @@ WITH ordered AS (
     row_number() OVER (ORDER BY c.match_date) AS seq,
     row_number() OVER (PARTITION BY c.person_key ORDER BY c.match_date) AS own_seq
   FROM core_coach_matches c
-  JOIN core_matches m ON m.id = c.match_id
-  WHERE m.status = 'played'
+  JOIN core_played m ON m.id = c.match_id
 )
 SELECT
   person_key,
@@ -567,12 +657,56 @@ SELECT
   '/kamp/' || m.id                        AS url
 FROM core_matches m, json_each(m.events) e;
 
+-- Én rad per verdi i en uenighet mellom kilder.
+--
+-- Den offentlige modellen hadde bare `has_conflicts`, et null eller ett. Det er
+-- nok til å si «kildene er uenige» og ingenting mer, så både leseren og
+-- spørrefunksjonen måtte enten tie eller dikte. Her står hva uenigheten gjelder,
+-- hvilke verdier som finnes, hvor de kommer fra, og hva arkivet bruker.
+--
+-- Formen er én rad per verdi framfor én rad per konflikt, fordi det er den
+-- formen en spørring kan filtrere og sammenligne på. To kilder som er uenige om
+-- ett felt gir to rader med samme field og ulik value.
+CREATE VIEW match_conflicts AS
+SELECT
+  m.id                                              AS match_id,
+  m.match_date                                      AS date,
+  m.season,
+  m.opponent_name                                   AS opponent,
+  json_extract(c.value, '$.field')                  AS field,
+  json_extract(v.value, '$.providerId')             AS provider_id,
+  json_extract(v.value, '$.value')                  AS value,
+  json_extract(v.value, '$.note')                   AS value_note,
+  -- Verdien arkivet faktisk bruker. Null i alle kolonnene under betyr at ingen
+  -- har tatt stilling, og det er en ærlig tilstand, ikke et hull.
+  CASE WHEN json_type(c.value, '$.chosen') IS NOT NULL
+        AND json_extract(c.value, '$.chosenProviderId') = json_extract(v.value, '$.providerId')
+        AND (
+          json_extract(c.value, '$.chosen') = json_extract(v.value, '$.value')
+          OR (
+            json_type(c.value, '$.chosen') = 'null'
+            AND json_type(v.value, '$.value') = 'null'
+          )
+        )
+       THEN 1 ELSE 0 END                            AS is_chosen,
+  coalesce(json_extract(c.value, '$.decision'), 'unresolved') AS decision,
+  json_extract(c.value, '$.decidedAt')              AS decided_at,
+  json_extract(c.value, '$.reason')                 AS reason,
+  CASE WHEN json_extract(c.value, '$.locked') THEN 1 ELSE 0 END AS locked,
+  json_extract(c.value, '$.note')                   AS conflict_note,
+  '/kamp/' || m.id                                  AS url
+FROM core_matches m,
+     json_each(m.conflicts) c,
+     json_each(json_extract(c.value, '$.values')) v;
+
 -- Kildekatalogen, så svar kan forklare hvor dataene kommer fra.
 CREATE VIEW providers AS
 SELECT
   id AS provider_id, name, url, priority, license,
   automated_access, public_redistribution, attribution_required,
-  permission_status, terms_checked_at, robots_checked_at, permission_note,
+  permission_status, ingest_decision, permission_requested_at,
+  risk_accepted_at, risk_accepted_by,
+  terms_checked_at, robots_checked_at, permission_note,
   note
 FROM core_providers;
 

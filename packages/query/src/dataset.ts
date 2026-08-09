@@ -1,3 +1,6 @@
+import { coverageMarkdown } from "./coverage.js";
+import type { DatasetCoverage } from "./coverage.js";
+
 /**
  * Datasettdokumentasjonen.
  *
@@ -36,7 +39,7 @@ export const views: ViewDoc[] = [
       "Alle kamper i arkivet involverer AaFK. «aafk_score» er alltid vårt lag, uansett om vi spilte hjemme eller borte.",
       "goal_difference er aafk_score minus opponent_score, altså negativ ved tap.",
       "result regnes etter ordinær tid pluss ekstraomgang. En kamp avgjort på straffer har result = 'U'. Bruk won_on_penalties for å se hvem som gikk videre.",
-      "Kamper som ennå ikke er spilt har status 'scheduled' og NULL i alle resultatkolonner. Filtrer på status = 'played' når du regner statistikk.",
+      "Kamper som ennå ikke er spilt har status 'scheduled' og NULL i alle resultatkolonner. Regner du statistikk, filtrer på status IN ('played', 'awarded'). Det er den samme regelen alle aggregatene i datasettet bruker: en kamp avgjort på grønt bord har et resultat og teller med, en avbrutt kamp har ingen sluttstilling og teller ikke.",
       "confidence sier hvor sikre opplysningene er. 'probable' er vanlig for kamper før 1990. Si fra i svaret når en kamp ikke er 'confirmed'.",
       "SQLite har ingen boolsk type: is_home, neutral_venue og has_conflicts er heltall 0 eller 1. Skriv «WHERE is_home = 1», ikke «WHERE is_home IS TRUE».",
     ],
@@ -69,21 +72,23 @@ export const views: ViewDoc[] = [
       { name: "referee", type: "text", description: "Dommer." },
       { name: "report_summary", type: "text", description: "Én til to setningers sammendrag, der det finnes." },
       { name: "confidence", type: "text", description: "'confirmed', 'probable' eller 'disputed'." },
-      { name: "has_conflicts", type: "integer (0/1)", description: "Sant når kilder er uenige om noe i kampen." },
+      { name: "has_conflicts", type: "integer (0/1)", description: "Sant når en uenighet mellom kilder er ført inn på kampen. Slå opp match_conflicts for å se hva den gjelder. Uenigheten løses ikke automatisk, og høyeste kildeprioritet vinner ikke av seg selv." },
       { name: "completeness", type: "real", description: "0–1: hvor mye av kampen som er dokumentert." },
-      { name: "tags", type: "JSON", description: "Array av merkelapper, f.eks. ['cupfinalen']" },
-      { name: "sources", type: "JSON", description: "Array av kildereferanser som dokumenterer denne kampen." },
-      { name: "url", type: "TEXT", description: "Lokal URL til kampsiden på aafkstats." },
+      { name: "last_retrieved_at", type: "text (YYYY-MM-DD)", description: "Siste gang en kilde ble hentet for kampen. NULL for kamper uten kildehenvisning." },
+      { name: "tags", type: "text (JSON-liste)", description: "Frie stikkord, f.eks. 'derby'." },
+      { name: "sources", type: "text (JSON-liste)", description: "Historiske publikasjoner som dokumenterer kampen, med sourceId og eventuelt side eller notat." },
+      { name: "url", type: "text", description: "Lenke til kampsiden. Bruk denne som kildehenvisning i svar." },
     ],
   },
   {
     name: "seasons",
     summary: "Ett sammendrag per sesong OG konkurranse: plassering, målforskjell og resultatfordeling. Et år med både serie og cup gir to rader, så filtrer på competition_id eller competition_type når du vil ha bare den ene.",
     caveats: [
-      "Tallene dekker kun sesongens hovedkonkurranse. Cup, europa og treningskamper er ikke med. Bruk matches hvis du vil ha alt.",
+      "Én rad per sesong OG konkurranse. Et år med serie, cup og treningskamper gir tre rader, og tallene i hver rad gjelder bare den konkurransen. Summer aldri over rader uten å filtrere først.",
       "Serieradene teller bare seriekamper. Kvalifiseringskamper etter sesongen ligger i matches, men holdes utenfor her, slik at en komplett sesong ikke ser ufullstendig ut.",
-      "En rad betyr at året er representert, ikke at sesongen er komplett. Se coverage.",
+      "En rad betyr at året er representert, ikke at sesongen er komplett. Se coverage, og coverage_evidence for hva merket hviler på. 'complete' krever både sammenhengende runder og et kjent forventet omfang som stemmer; sammenhengende runder alene gir 'unverified'.",
       "Kamper som ikke er spilt teller ikke med i played eller i resultatene. Står scheduled over 0, pågår sesongen.",
+      "played teller kamper med status 'played' eller 'awarded', den samme regelen som i matches og opponents. De tre kan derfor sammenlignes direkte.",
     ],
     columns: [
       { name: "season", type: "integer", description: "Sesongår." },
@@ -97,7 +102,9 @@ export const views: ViewDoc[] = [
       { name: "promoted", type: "integer (0/1)", description: "Rykket opp." },
       { name: "relegated", type: "integer (0/1)", description: "Rykket ned." },
       { name: "note", type: "text", description: "Forbehold om sesongen, f.eks. at arkivet bare har deler av den. NULL når det ikke er noe å ta forbehold om." },
-      { name: "coverage", type: "text", description: "Hvor godt sesongen er dekket, utledet av rundenumrene: 'complete' (runde 1 til N uten hull), 'partial' (runder mangler, eller sesongen pågår), 'isolated' (kamper uten rundenummer, så vi vet bare at de finnes), 'not_applicable' (cup og treningskamper, som ikke har serierunder). Bruk denne når spørsmålet gjelder om et tall er hele sesongen eller bare det arkivet har." },
+      { name: "coverage", type: "text", description: "Hvor godt sesongen er dekket: 'complete' (hver runde fra første til siste, og like mange kamper som det kjente omfanget), 'in_progress' (sesongen pågår, det står kamper igjen på terminlista), 'partial' (runder mangler, eller kampantallet stemmer ikke med omfanget), 'unverified' (rundene henger sammen, men ingen kilde sier hvor mange det skulle vært), 'isolated' (kamper uten rundenummer), 'not_applicable' (cup og treningskamper, som ikke har serierunder). Bruk denne når spørsmålet gjelder om et tall er hele sesongen eller bare det arkivet har." },
+      { name: "coverage_evidence", type: "text", description: "Hva merket hviler på: 'rounds_and_standings' (sluttabellen sier hvor mange kamper AaFK spilte, og arkivet har like mange), 'rounds_and_declared_count' (omfanget er oppgitt for hånd i sesongfila), 'rounds_only' (bare rundenumre, omfanget er ukjent), 'isolated_matches_only', 'season_in_progress', 'not_applicable'." },
+      { name: "expected_matches", type: "integer", description: "Hvor mange kamper AaFK skulle spilt i konkurransen det året. Hentet fra sluttabellen når vi har den, ellers fra sesongfila. NULL betyr at ingen vet, og da kan sesongen ikke være 'complete'." },
       { name: "last_round", type: "integer", description: "Høyeste serierunde i sesongen. For en komplett sesong er dette antall runder. NULL for cup og treningskamper." },
       { name: "scheduled", type: "integer", description: "Kamper som står igjen på terminlista i denne konkurransen. Over 0 betyr at sesongen pågår, ikke at arkivet mangler noe. Disse kampene er ikke med i played, wins, draws, losses eller målene." },
       { name: "played", type: "integer", description: "Antall spilte kamper." },
@@ -114,6 +121,10 @@ export const views: ViewDoc[] = [
   {
     name: "opponents",
     summary: "Innbyrdes statistikk mot hver motstander, over hele arkivet og alle konkurranser.",
+    caveats: [
+      "played, wins, draws og losses regnes over de samme kampene, statusene 'played' og 'awarded'. wins + draws + losses er derfor alltid lik played.",
+      "first_meeting ser også kamper som ikke er spilt. En motstander vi har på terminlista uten å ha møtt står med played = 0 og last_meeting = NULL.",
+    ],
     columns: [
       { name: "opponent_club_id", type: "text", description: "Motstanderens ID." },
 
@@ -253,7 +264,8 @@ export const views: ViewDoc[] = [
     name: "match_events",
     summary: "Én rad per hendelse i en kamp: mål, kort og innbytter.",
     caveats: [
-      "Dekningen er svært ujevn. I testdatasettet har bare fem kamper fra 2025 hendelser. Fravær av mål her betyr ikke at det ikke ble scoret. Sjekk aafk_score i matches.",
+      "Dekningen er ujevn og følger kilden, ikke kalenderen: kamper hentet fra FotMob har hendelser, kamper hentet fra RSSSF har bare resultatet. Fravær av mål her betyr ikke at det ikke ble scoret. Sjekk aafk_score i matches.",
+      "Antallet kamper med hendelser står i dekningsavsnittet nederst, regnet ut av databasen ved hver bygging.",
       "team er 'aafk' eller 'opponent', ikke hjemme/borte.",
     ],
     columns: [
@@ -279,7 +291,7 @@ export const views: ViewDoc[] = [
       "Alle referat er skrevet for dette arkivet, aldri kopiert fra avis eller klubbside.",
       "Fritekstsøk: WHERE reports MATCH 'ordet'. Flere ord: MATCH 'ord1 ord2' (OG), MATCH 'ord1 OR ord2'. Prefiks: MATCH 'snuoper*'.",
       "Bare summary og body er søkbare. De andre kolonnene leses ut som vanlig, men treffer ikke på MATCH.",
-      "Dekningen er tynn, og de fleste kamper har ennå ikke referat. Tomt søkeresultat betyr som regel at referatet mangler, ikke at kampen ikke finnes.",
+      "Arkivet har foreløpig ingen egne kampreferat. Et tomt søkeresultat betyr derfor ikke at kampen mangler, det betyr at ingen har skrevet referatet ennå. Si det slik, ikke som om kampen ikke finnes.",
     ],
     columns: [
       { name: "match_id", type: "text", description: "Kampens ID." },
@@ -295,18 +307,57 @@ export const views: ViewDoc[] = [
     ],
   },
   {
+    name: "match_conflicts",
+    summary:
+      "Én rad per verdi i en uenighet mellom kilder. Bruk denne når has_conflicts er 1, " +
+      "eller når confidence er 'disputed', for å si hva uenigheten faktisk gjelder.",
+    caveats: [
+      "To kilder som er uenige om ett felt gir to rader med samme match_id og field, og ulik value.",
+      "decision = 'unresolved' betyr at ingen har tatt stilling. Da er is_chosen 0 på alle radene, og svaret skal oppgi begge verdiene med hver sin kilde framfor å velge en.",
+      "Er konflikten avgjort, står begrunnelsen i reason og datoen i decided_at. Gjenfortell begrunnelsen framfor å finne på en.",
+      "Ingenting her avgjøres av kildeprioritet automatisk. Et valg er tatt av et menneske, og da står det hvorfor.",
+    ],
+    columns: [
+      { name: "match_id", type: "text", description: "Kampen uenigheten gjelder." },
+      { name: "date", type: "text (YYYY-MM-DD)", description: "Kampdato." },
+      { name: "season", type: "integer", description: "Sesongår." },
+      { name: "opponent", type: "text", description: "Motstanderens navn den datoen." },
+      { name: "field", type: "text", description: "Feltet kildene er uenige om, med punktnotasjon: 'away.score', 'attendance'." },
+      { name: "provider_id", type: "text", description: "Kilden som oppgir denne verdien." },
+      { name: "value", type: "text eller integer", description: "Verdien kilden oppgir." },
+      { name: "value_note", type: "text", description: "Kildens eget forbehold om verdien." },
+      { name: "is_chosen", type: "integer (0/1)", description: "Sant for verdien arkivet bruker. Alle rader er 0 når konflikten ikke er avgjort." },
+      { name: "decision", type: "text", description: "'unresolved', 'manual', 'source_priority' eller 'independent_source'." },
+      { name: "decided_at", type: "text (YYYY-MM-DD)", description: "Når valget ble tatt. NULL når det ikke er tatt." },
+      { name: "reason", type: "text", description: "Hvorfor valget falt slik. NULL når konflikten står åpen." },
+      { name: "locked", type: "integer (0/1)", description: "Sant når verdien er låst mot å bli overskrevet av en senere innhøsting." },
+      { name: "conflict_note", type: "text", description: "Notat om uenigheten som helhet." },
+      { name: "url", type: "text", description: "Lenke til kampsiden." },
+    ],
+  },
+  {
     name: "providers",
     summary: "Kildekatalogen: hvor dataene kommer fra og hvor mye vi stoler på hver kilde.",
+    caveats: [
+      "priority er en erklært rangering, ikke en avgjørelsesregel. Ingenting i innhøstingen velger verdi ut fra den.",
+      "Hver innhøsting skriver en observasjon per kilde, med kildens rå verdi og den normaliserte. Er to kilder uenige, står begge observasjonene der; ingen av dem vinner av seg selv.",
+      "En uenighet blir først synlig i matches.has_conflicts når noen har ført den inn som en konflikt. Feltene i matches.manual overskrives aldri av en senere innhøsting.",
+      "Sier du noe om en kamp der kildene er uenige, oppgi begge verdiene og hvilken kilde de kommer fra, framfor å velge en side.",
+    ],
     columns: [
       { name: "provider_id", type: "text", description: "Kildens ID." },
       { name: "name", type: "text", description: "Kildens navn." },
       { name: "url", type: "text", description: "Kildens nettadresse." },
-      { name: "priority", type: "integer", description: "Høyere tall vinner når kilder er uenige." },
+      { name: "priority", type: "integer", description: "Kildens rangering. Den avgjør IKKE automatisk hvem som vinner en konflikt; se conflicts i matches og caveats over." },
       { name: "license", type: "text", description: "Lisens, der den er kjent." },
       { name: "automated_access", type: "text", description: "Om kilden kan hentes automatisk: allowed, permission_required, blocked eller unknown." },
       { name: "public_redistribution", type: "text", description: "Om data derfra kan publiseres videre: allowed, permission_required, denied eller unknown. Et annet spørsmål enn om den kan hentes." },
       { name: "attribution_required", type: "integer (0/1)", description: "Om kilden krever kreditering." },
-      { name: "permission_status", type: "text", description: "not_needed, pending, requested, granted, accepted_risk eller denied. «accepted_risk» betyr at prosjekteier har valgt å gå videre uten tillatelse, ikke at tillatelse finnes." },
+      { name: "permission_status", type: "text", description: "Hva motparten har svart: not_needed, pending, requested, granted eller denied. Sier ingenting om hva vi har bestemt." },
+      { name: "ingest_decision", type: "text", description: "Hva vi har bestemt: blocked, pending, allowed eller accepted_risk. «accepted_risk» betyr at prosjekteier har valgt å gå videre uten tillatelse, ikke at tillatelse finnes." },
+      { name: "permission_requested_at", type: "text (YYYY-MM-DD)", description: "Når forespørselen ble sendt." },
+      { name: "risk_accepted_at", type: "text (YYYY-MM-DD)", description: "Når risikoen ble akseptert." },
+      { name: "risk_accepted_by", type: "text", description: "Hvem som aksepterte den." },
       { name: "terms_checked_at", type: "text (YYYY-MM-DD)", description: "Når vilkårene sist ble lest av et menneske." },
       { name: "robots_checked_at", type: "text (YYYY-MM-DD)", description: "Når robots.txt sist ble kontrollert." },
       { name: "permission_note", type: "text", description: "Hva som er avklart, hvem som er spurt, og hva som gjenstår." },
@@ -430,10 +481,10 @@ ORDER BY year ASC`,
 /**
  * Datasettet som markdown, til systemprompten.
  *
- * Holdes stabil mellom kall slik at prompt-cachen faktisk treffer — ingen tidsstempler
- * eller annet som endrer seg per forespørsel.
+ * Holdes stabil mellom kall slik at prompt-cachen faktisk treffer. Dekningen endrer
+ * seg bare når arkivet gjør det, altså ved utrulling, så den kan trygt stå her.
  */
-export function datasetPrompt(): string {
+export function datasetPrompt(coverage?: DatasetCoverage): string {
   const lines: string[] = [
     "# Datasett: AaFK-arkivet",
     "",
@@ -441,6 +492,11 @@ export function datasetPrompt(): string {
     "Dette er de eneste tabellene som finnes. Interne tabeller med core_-prefiks er ikke tilgjengelige.",
     "",
   ];
+
+  // Dekningen kommer fra databasen når den er lest, ikke fra prosa her.
+  // Skrevet av hånd blir slike tall gale ved neste innhøsting, og modellen har
+  // ingen måte å oppdage at den blir feilinformert.
+  if (coverage) lines.push(coverageMarkdown(coverage), "");
 
   for (const view of views) {
     lines.push(`## ${view.name}`, "", view.summary, "");

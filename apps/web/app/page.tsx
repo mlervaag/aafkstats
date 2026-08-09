@@ -4,7 +4,16 @@ import { MatchList } from "@/components/MatchList";
 import { NextMatch } from "@/components/NextMatch";
 import { loadNextMatch, loadOverview } from "@/lib/archive";
 
-export const dynamic = "force-dynamic";
+/**
+ * Bygges på nytt hver time i stedet for ved hver forespørsel.
+ *
+ * Arkivet endrer seg bare ved utrulling, så alt på siden kunne vært statisk med
+ * ett unntak: «neste kamp» avhenger av dagens dato, og en side bygget i mars
+ * ville lovet en kamp som var spilt for lengst. En time er kort nok til at
+ * kampen forsvinner fra forsiden samme dag den spilles, og lenge nok til at
+ * siden serveres fra kanten nesten alltid.
+ */
+export const revalidate = 3600;
 
 export default function Home() {
   const { recent, totals } = loadOverview();
@@ -30,7 +39,9 @@ export default function Home() {
         <div className="hero-side">
           <dl className="hero-stats">
             <div><dt>Kamper</dt><dd>{totals.matches}</dd></div>
-            <div><dt>Sesonger</dt><dd>{totals.seasons}</dd></div>
+            {/* «Sesonger» leses som hele sesonger, og tallet er noe annet: år
+                med minst én registrert kamp. Ordet er byttet, ikke tallet. */}
+            <div><dt>År</dt><dd>{totals.seasons}</dd></div>
             <div><dt>Motstandere</dt><dd>{totals.opponents}</dd></div>
           </dl>
           <NextMatch match={next} />
@@ -42,7 +53,9 @@ export default function Home() {
       <section className="home-grid content-section">
         <div>
           <div className="section-heading">
-            <div><p className="eyebrow">Sist registrert</p><h2>Siste kamper</h2></div>
+            {/* Lista sorterer på kampdato, ikke på når raden kom inn i arkivet.
+                «Sist registrert» lovet det motsatte. */}
+            <div><p className="eyebrow">Siste resultater</p><h2>Siste kamper</h2></div>
             <a href="/sesonger">Alle sesonger →</a>
           </div>
           <MatchList matches={recent} />
@@ -62,13 +75,14 @@ export default function Home() {
           notisen lå som en boks inni en tekst som allerede sa det samme. */}
       <section className="scope-note">
         <div>
-          <p className="eyebrow">Dette er en MVP</p>
+          <p className="eyebrow">Offentlig beta</p>
           <h2>God bredde, ulik detaljgrad</h2>
         </div>
         <div className="prose">
           <p>
-            Dato, motstander og sluttresultat finnes for hver kamp i arkivet;
-            detaljgraden varierer. Kildene er dokumentert, men datasettet er ikke en
+            Dato, motstander og sluttresultat finnes for hver spilte kamp; kampene som
+            står igjen på terminlista har ingen resultat ennå og telles ikke med.
+            Detaljgraden varierer, og kildene er dokumentert. Datasettet er ikke en
             offisiell AaFK-publikasjon. <a href="/om">Les om omfang og forbehold.</a>
           </p>
           <CoverageNote heading={false} />

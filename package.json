@@ -16,18 +16,21 @@
   "scripts": {
     "validate": "pnpm --filter @aafkstats/schema run validate",
     "data:duplicates": "pnpm --filter @aafkstats/schema run duplicates",
+    "data:uncertain": "pnpm --filter @aafkstats/schema run uncertain",
     "ingest:fotmob": "pnpm --filter @aafkstats/ingest run fotmob",
     "ingest:rsssf": "pnpm --filter @aafkstats/ingest run rsssf",
     "ingest:rsssf-standings": "pnpm --filter @aafkstats/ingest run rsssf-standings",
     "ingest:wikipedia-people": "pnpm --filter @aafkstats/ingest run wikipedia-people",
     "ingest:wikidata-people": "pnpm --filter @aafkstats/ingest run wikidata-people",
     "ingest:rsssf-discover": "pnpm --filter @aafkstats/ingest run rsssf-discover",
+    "ingest:nff": "pnpm --filter @aafkstats/ingest run nff",
     "db:build": "pnpm --filter @aafkstats/db run build-archive",
     "typecheck": "tsc --build --force && tsc -p apps/web/tsconfig.json --noEmit",
     "test": "vitest run",
     "lint": "eslint .",
     "dev": "pnpm --filter @aafkstats/web run dev",
-    "build": "pnpm --filter @aafkstats/web run build"
+    "build": "pnpm --filter @aafkstats/web run build",
+    "smoke": "pnpm --filter @aafkstats/web run smoke"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

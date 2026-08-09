@@ -9,7 +9,8 @@
   },
   "scripts": {
     "validate": "tsx src/cli/validate.ts",
-    "duplicates": "tsx src/cli/duplicates.ts"
+    "duplicates": "tsx src/cli/duplicates.ts",
+    "uncertain": "tsx src/cli/uncertain.ts"
   },
   "dependencies": {
     "yaml": "^2.6.1",

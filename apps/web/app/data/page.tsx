@@ -1,5 +1,5 @@
 import { exampleQueries, views } from "@aafkstats/query/dataset";
-import { CompetitionTable, CoverageNote } from "@/components/CoverageNote";
+import { CompetitionTable, CoverageNote, PromptCoverage } from "@/components/CoverageNote";
 
 export const metadata = { title: "Datasettet" };
 
@@ -24,6 +24,14 @@ export default function DataPage() {
         Det finnes ingen egen, skjult versjon — det du leser her er det modellen vet.
       </p>
       <CoverageNote />
+
+      <h2 style={{ marginTop: "2rem" }}>Dekning, slik spørrefunksjonen får den</h2>
+      <p className="prose">
+        Disse setningene ligger i systemprompten, regnet ut av databasen ved hver bygging.
+        De kan derfor ikke bli utdaterte uten at dataene faktisk endrer seg.
+      </p>
+      <PromptCoverage />
+
       <h2 style={{ marginTop: "2rem" }}>Kamper per konkurranse</h2>
       <CompetitionTable />
       <p className="prose small muted">

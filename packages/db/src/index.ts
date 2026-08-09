@@ -94,6 +94,24 @@ export function openForBuild(path: string): Db {
   return new DatabaseSync(path);
 }
 
+/**
+ * Statusene som betyr at kampen har funnet sted.
+ *
+ * `awarded` er med: en kamp avgjort på grønt bord har et resultat, og den ligger
+ * bak oss. `abandoned` er ikke med, for en avbrutt kamp har ingen sluttstilling
+ * å telle. Resten er kamper som ikke er spilt.
+ *
+ * Regelen sto tre steder med tre litt ulike svar: `seasons`-viewet tok bare
+ * 'played', `opponents` talte spilte kamper på én måte og seire på en annen, og
+ * nettstedet hadde sin egen streng. Samme kamp kunne dermed telles i forsidens
+ * totalsum og mangle i sesongsammendraget. Nå står regelen her, og SQL-en leser
+ * den fra `core_played`.
+ */
+export const PLAYED_STATUSES = ["played", "awarded"] as const;
+
+/** Samme regel som `PLAYED_STATUSES`, til bruk i en WHERE-setning. */
+export const PLAYED_SQL = `status IN (${PLAYED_STATUSES.map((s) => `'${s}'`).join(", ")})`;
+
 /** Kjører en spørring vi selv har skrevet og returnerer radene. */
 export function all<T = Record<string, unknown>>(
   db: Db,

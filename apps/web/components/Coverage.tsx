@@ -1,3 +1,4 @@
+import { PLAYED_SQL, all, open } from "@aafkstats/db";
 import type { SeasonSummary, SeasonYear } from "@/lib/archive";
 
 /** AaFK ble stiftet i 1914. Alt før det er ikke et hull, det er før klubben fantes. */
@@ -71,11 +72,37 @@ export function CoverageStrip({ years }: { years: SeasonYear[] }) {
   );
 }
 
+/**
+ * Teksten bak hvert merke i stripa.
+ *
+ * Stripa har tre farger, ikke seks. Den skal svare på ett spørsmål — hvor er
+ * arkivet tykt, hvor er det tynt, hvor mangler det helt — og seks farger på 113
+ * merker à åtte piksler gjør den til et mønster ingen kan lese. Detaljene ligger
+ * i teksten her, som både skjermlesere og et musepek får, og i merkelappen på
+ * hvert sesongkort under.
+ */
 function stripTitle(year: number, entry: SeasonYear): string {
   const kamper = `${entry.totalMatches} ${entry.totalMatches === 1 ? "kamp" : "kamper"}`;
-  return entry.primary.competitionType === "league"
-    ? `${year}: ${entry.primary.competition}, ${kamper}`
-    : `${year}: ${kamper}, ingen seriesesong`;
+  if (entry.primary.competitionType !== "league") {
+    return `${year}: ${kamper}, ingen seriesesong`;
+  }
+  return `${year}: ${entry.primary.competition}, ${kamper}, ${coverageWord(entry.primary)}`;
+}
+
+/** Dekningen som ett ord, til stripa. Merkelappen på kortet sier det samme lengre. */
+function coverageWord(season: SeasonSummary): string {
+  switch (season.coverage) {
+    case "complete":
+      return "komplett sesong";
+    case "in_progress":
+      return "sesongen pågår";
+    case "partial":
+      return "delvis sesong";
+    case "unverified":
+      return "sammenhengende runder, ukjent omfang";
+    default:
+      return "løsrevne kamper";
+  }
 }
 
 /**
@@ -104,10 +131,9 @@ export function CoverageTag({ season }: { season: SeasonSummary }) {
   }
   if (season.coverage === "not_applicable") return null;
 
-  const text = coverageText(season);
   return (
     <span className={`coverage-tag coverage-${season.coverage}`} title={coverageExplanation(season)}>
-      {text}
+      {coverageText(season)}
     </span>
   );
 }
@@ -117,18 +143,41 @@ function coverageText(season: SeasonSummary): string {
     case "complete":
       return `Komplett · ${season.lastRound} runder`;
     case "partial":
-      return `Delvis · ${season.played} av ${season.lastRound ?? "?"} runder`;
+      return season.expectedMatches
+        ? `Delvis · ${season.played} av ${season.expectedMatches} kamper`
+        : `Delvis · ${season.played} av ${season.lastRound ?? "?"} runder`;
+    case "unverified":
+      // Merket sier hva vi har og hva vi ikke vet, ikke «komplett». Sesongen kan
+      // være hel, men ingen kilde i arkivet sier hvor mange runder den hadde.
+      return `${season.played} runder · omfang ukjent`;
+    case "in_progress":
+      return `Pågår · ${season.played} kamper spilt`;
     default:
       return `${season.played} kjente ${season.played === 1 ? "kamp" : "kamper"}`;
   }
 }
 
+/**
+ * Grunnlaget for merket, i klartekst.
+ *
+ * «Komplett» uten grunnlag er en påstand leseren ikke kan vurdere. Her står det
+ * hva den hviler på: sluttabellen, et tall oppgitt for hånd, eller bare
+ * rundenumrene.
+ */
 function coverageExplanation(season: SeasonSummary): string {
   switch (season.coverage) {
     case "complete":
-      return "Arkivet har runde 1 til siste runde uten hull.";
+      return season.coverageEvidence === "rounds_and_standings"
+        ? `Sluttabellen sier at AaFK spilte ${season.expectedMatches} kamper, og arkivet har like mange, med hver runde fra første til siste.`
+        : `Arkivet har hver runde fra første til siste, ${season.expectedMatches} kamper, som er det omfanget sesongfila oppgir.`;
     case "partial":
-      return "Det mangler runder i denne sesongen, eller den pågår fortsatt.";
+      return season.expectedMatches
+        ? `Sesongen hadde ${season.expectedMatches} kamper. Arkivet har ${season.played}.`
+        : "Det mangler runder i denne sesongen.";
+    case "unverified":
+      return "Rundene henger sammen, men ingen kilde i arkivet sier hvor mange runder sesongen hadde. Da kan den ikke kalles komplett.";
+    case "in_progress":
+      return "Sesongen pågår. Resten står på terminlista.";
     default:
       return "Kampene mangler rundenummer, så arkivet vet bare at de ble spilt.";
   }
@@ -148,17 +197,78 @@ export function CoverageSummary({ seasons }: { seasons: SeasonSummary[] }) {
   );
   const complete = leagues.filter((season) => season.coverage === "complete").length;
   const fragments = leagues.filter((season) => season.coverage === "isolated").length;
+  const unverified = leagues.filter((season) => season.coverage === "unverified").length;
   if (leagues.length === 0) return null;
 
   return (
     <p className="small muted coverage-summary">
-      {complete} av {leagues.length} seriesesonger ligger inne komplett, med hver runde fra
-      første til siste.
+      {complete} av {leagues.length} seriesesonger ligger inne komplett. Det betyr hver runde
+      fra første til siste, og like mange kamper som sluttabellen sier at AaFK spilte.
+      {unverified > 0 && (
+        <> {unverified} {unverified === 1 ? "sesong har" : "sesonger har"} sammenhengende runder
+        uten at noen kilde sier hvor mange det skulle vært.</>
+      )}
       {fragments > 0 && (
-        <> {fragments} {fragments === 1 ? "år har" : "år har"} bare enkeltkamper vi kjenner til.</>
+        <> {fragments} år har bare enkeltkamper vi kjenner til.</>
       )}{" "}
       Cupen telles ikke her: den slutter når laget ryker ut, så det finnes ingen komplett
       cupsesong å måle mot.
+    </p>
+  );
+}
+
+/**
+ * Hva arkivet dekker per konkurransetype, regnet ut av arkivet.
+ *
+ * Sto som en fast setning: «Cupen er godt dekket helt tilbake til 1917 …
+ * Europacupkampene mangler, og treningskamper finnes bare for inneværende
+ * sesong.» Hvert ledd var en påstand om et tall, og den blir gal av neste
+ * innhøsting uten at noen merker det. «Godt dekket» var dessuten ikke
+ * etterprøvbart: ingen vet hvor mange cupkamper AaFK har spilt.
+ */
+const TYPE_LABELS: Record<string, string> = {
+  league: "Serien",
+  national_cup: "Cupen",
+  european: "Europacup",
+  friendly: "Treningskamper",
+  playoff: "Kvalifisering",
+};
+
+export function CompetitionSpread() {
+  const db = open();
+  let rows: { type: string; matches: number; first: number; last: number }[];
+  try {
+    rows = all<{ type: string; matches: number; first: number; last: number }>(
+      db,
+      `SELECT competition_type AS type, count(*) AS matches,
+              min(season) AS first, max(season) AS last
+       FROM matches WHERE ${PLAYED_SQL}
+       GROUP BY competition_type ORDER BY matches DESC`,
+    );
+  } finally {
+    db.close();
+  }
+
+  const present = new Set(rows.map((row) => row.type));
+  const missing = Object.keys(TYPE_LABELS).filter((type) => !present.has(type));
+
+  return (
+    <p className="notice prose">
+      {rows.map((row, index) => (
+        <span key={row.type}>
+          {index > 0 ? " " : ""}
+          {TYPE_LABELS[row.type] ?? row.type}: {row.matches} kamper
+          {row.first === row.last ? ` fra ${row.first}` : ` fra ${row.first} til ${row.last}`}.
+        </span>
+      ))}
+      {missing.length > 0 && (
+        <>
+          {" "}
+          {missing.map((type) => TYPE_LABELS[type]).join(" og ")} mangler helt.
+        </>
+      )}{" "}
+      Et årstall her sier når den første og siste kampen ble spilt, ikke at årene mellom
+      er hele. Se <a href="/om">kilder og forbehold</a>.
     </p>
   );
 }

@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { isoDate } from "./primitives.js";
+import { httpUrl, isoDate } from "./primitives.js";
 
 export const contribution = z
   .object({
@@ -19,8 +19,13 @@ export const contribution = z
     submittedAt: isoDate,
     /** Hvorvidt bidraget er bekreftet av kilder, delvis bekreftet, eller ubekreftet */
     verification: z.enum(["unverified", "corroborated", "verified"]),
-    /** Valgfri lenke til en kilde som bekrefter bidraget */
-    sourceUrl: z.string().url().nullable().default(null),
+    /**
+     * Valgfri lenke til en kilde som bekrefter bidraget.
+     *
+     * `httpUrl` og ikke `z.string().url()`: den siste godtar hvilken som helst
+     * ordning, også `javascript:`, og lenka rendres som den står på kampsiden.
+     */
+    sourceUrl: httpUrl.nullable().default(null),
   })
   .strict();
 

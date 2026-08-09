@@ -100,21 +100,36 @@ export const publicRedistribution = z.enum(["allowed", "permission_required", "d
 /**
  * Hvor langt en forespørsel om tillatelse har kommet.
  *
- * `accepted_risk` er ikke det samme som `granted`. Den betyr at prosjekteieren har
- * lest vilkårene, forstått at bruken ikke er uttrykkelig tillatt, og likevel
- * bestemt seg for å gå videre. Den skilles ut nettopp for at forskjellen skal
- * være synlig: et arkiv som fører «tillatelse gitt» der ingen tillatelse finnes,
- * er verre enn ett som sier hva det faktisk vet. Krever permissionNote som sier
- * hvem som bestemte og når.
+ * Dette er utelukkende hva *motparten* har sagt. Vår egen beslutning om å høste
+ * inn ligger i `ingestDecision`, og det er et annet spørsmål.
+ *
+ * Skillet var borte tidligere: `accepted_risk` sto som en tillatelsesstatus, og
+ * da kunne ikke RSSSF være både forespurt og videreført. Verre: den så ut som en
+ * status motparten hadde gitt oss, når den var vår egen. Et arkiv som fører
+ * «tillatelse gitt» der ingen tillatelse finnes, er verre enn ett som sier hva
+ * det faktisk vet.
  */
 export const permissionStatus = z.enum([
   "not_needed",
   "pending",
   "requested",
   "granted",
-  "accepted_risk",
   "denied",
 ]);
+
+/**
+ * Vår egen beslutning om å høste inn fra kilden.
+ *
+ * `accepted_risk` betyr at prosjekteieren har lest vilkårene, forstått at bruken
+ * ikke er uttrykkelig tillatt, og likevel bestemt seg for å gå videre. Den er en
+ * beslutning, ikke en tillatelse, og krever `riskAcceptedAt` og en note som sier
+ * hvem som bestemte.
+ *
+ * Kombinasjonen `permissionStatus: requested` med `ingestDecision: accepted_risk`
+ * er den ærlige beskrivelsen av RSSSF: vi har spurt, vi har ikke fått svar, og vi
+ * går videre med åpne øyne.
+ */
+export const ingestDecision = z.enum(["blocked", "pending", "allowed", "accepted_risk"]);
 
 export const provider = z
   .object({
@@ -136,6 +151,12 @@ export const provider = z
     publicRedistribution: publicRedistribution.default("unknown"),
     attributionRequired: z.boolean().default(false),
     permissionStatus: permissionStatus.default("pending"),
+    ingestDecision: ingestDecision.default("pending"),
+    /** Når forespørselen om tillatelse ble sendt. */
+    permissionRequestedAt: isoDate.optional(),
+    /** Når risikoen ble akseptert, og av hvem. Begge kreves ved accepted_risk. */
+    riskAcceptedAt: isoDate.optional(),
+    riskAcceptedBy: z.string().min(1).optional(),
     /** Når vilkårene sist ble lest av et menneske. */
     termsCheckedAt: isoDate.optional(),
     /** Når robots.txt sist ble kontrollert. */
@@ -149,13 +170,40 @@ export const provider = z
   .strict()
   .describe("System for datainnhøsting (FotMob, RSSSF, NB, etc)")
   .superRefine((value, ctx) => {
-    // En bevisst risikobeslutning uten begrunnelse er ikke etterprøvbar, og da er
-    // den heller ikke en beslutning — bare en avkrysning.
-    if (value.permissionStatus === "accepted_risk" && !value.permissionNote) {
+    // En bevisst risikobeslutning uten spor er ikke etterprøvbar, og da er den
+    // heller ikke en beslutning, bare en avkrysning.
+    if (value.ingestDecision === "accepted_risk") {
+      if (!value.riskAcceptedAt || !value.riskAcceptedBy) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["riskAcceptedAt"],
+          message: "ingestDecision «accepted_risk» krever riskAcceptedAt og riskAcceptedBy",
+        });
+      }
+      if (!value.permissionNote) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["permissionNote"],
+          message: "ingestDecision «accepted_risk» krever permissionNote som forklarer avveiningen",
+        });
+      }
+    }
+
+    // Å påstå at vi går videre når motparten har sagt nei er ikke en avveining,
+    // det er å overse et svar.
+    if (value.permissionStatus === "denied" && value.ingestDecision !== "blocked") {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
-        path: ["permissionNote"],
-        message: "permissionStatus «accepted_risk» krever permissionNote som sier hvem som bestemte og når",
+        path: ["ingestDecision"],
+        message: "permissionStatus «denied» krever ingestDecision «blocked»",
+      });
+    }
+
+    if (value.permissionStatus === "requested" && !value.permissionRequestedAt) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["permissionRequestedAt"],
+        message: "permissionStatus «requested» krever permissionRequestedAt",
       });
     }
   });
@@ -166,16 +214,20 @@ export const provider = z
  * Brukes som port i innhøstingen. Den er bevisst streng: `unknown` er ikke et ja.
  */
 export function mayPublish(value: Provider): boolean {
+  // Beslutningen vår er porten, ikke tillatelsesstatusen. En kilde vi har sagt
+  // nei til skal ikke slippe gjennom fordi vilkårene tilfeldigvis er åpne.
+  if (value.ingestDecision === "blocked") return false;
   if (value.publicRedistribution === "allowed") return true;
   if (value.publicRedistribution === "denied") return false;
-  return value.permissionStatus === "granted" || value.permissionStatus === "accepted_risk";
+  return value.permissionStatus === "granted" || value.ingestDecision === "accepted_risk";
 }
 
 /** Om arkivet har lov til å hente automatisk fra kilden. */
 export function mayFetch(value: Provider): boolean {
+  if (value.ingestDecision === "blocked") return false;
   if (value.automatedAccess === "allowed") return true;
   if (value.automatedAccess === "blocked") return false;
-  return value.permissionStatus === "granted" || value.permissionStatus === "accepted_risk";
+  return value.permissionStatus === "granted" || value.ingestDecision === "accepted_risk";
 }
 
 export type Provider = z.infer<typeof provider>;
@@ -187,12 +239,39 @@ export const season = z
     competitionId: slug,
     finalPosition: z.number().int().positive().nullable().default(null),
     teamsInLeague: z.number().int().positive().optional(),
+    /**
+     * Hvor mange kamper AaFK faktisk spilte i konkurransen det året.
+     *
+     * Grunnen til at feltet finnes: uten et forventet omfang kan «komplett» bare
+     * bety «runde 1 til N uten hull», og det er sant også når den virkelige
+     * sesongen hadde flere runder enn N. En sesong der arkivet har runde 1 til 5
+     * av 22 ser da helt hel ut.
+     *
+     * Førstevalget er ikke dette feltet, men sluttabellen: står AaFK der med 26
+     * spilte kamper, er 26 tallet, og det er kildeført. Feltet her er for de
+     * årene ingen tabell finnes, eller der serieformatet var uvanlig nok til at
+     * tabellen ikke svarer. Settes det, må `note` si hvor tallet kommer fra.
+     */
+    expectedMatches: z.number().int().positive().optional(),
+    /** Antall serierunder, når det er kjent og ikke er lik antall kamper. */
+    expectedRounds: z.number().int().positive().optional(),
     headCoach: z.string().optional(),
     promoted: z.boolean().default(false),
     relegated: z.boolean().default(false),
     note: z.string().optional(),
   })
-  .strict();
+  .strict()
+  .superRefine((value, ctx) => {
+    // Et forventet omfang uten kilde er en påstand vi ikke kan etterprøve, og
+    // «komplett» hviler på det tallet. Da må det stå hvor det kommer fra.
+    if ((value.expectedMatches || value.expectedRounds) && !value.note) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["note"],
+        message: "expectedMatches og expectedRounds krever en note som sier hvor tallet kommer fra",
+      });
+    }
+  });
 
 export type Season = z.infer<typeof season>;
 
