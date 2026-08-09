@@ -4,6 +4,7 @@ import { club } from "../src/entities.js";
 import { crossValidate, loadArchive } from "../src/load.js";
 import { findConflicts } from "../src/observation.js";
 import { resolve } from "node:path";
+import { contribution } from "../src/contribution.js";
 
 const base = {
   id: "2024-04-01-aalesunds-fk-molde-fk",
@@ -169,5 +170,37 @@ describe("personfiler i fixturen", () => {
     ];
     const issues = crossValidate(archive);
     expect(issues.some((i) => i.message.includes("er også ført på"))).toBe(true);
+  });
+});
+
+/**
+ * Bidrag rendres på kampsiden, og kildelenka går rett inn i en href.
+ *
+ * `z.string().url()` godtar hvilken som helst ordning, også `javascript:`.
+ * Filene er skrevet av mennesker og gjennomgått i en PR, men et skjema som
+ * slipper gjennom en kjørbar lenke er en fallgruve som venter på en dårlig dag.
+ */
+describe("bidrag", () => {
+  const base = {
+    id: "gh-1",
+    scope: "match" as const,
+    targetId: "1998-08-16-aalesunds-fk-sk-brann",
+    text: "Jeg var der.",
+    submittedAt: "2026-08-06",
+    verification: "unverified" as const,
+    category: "memory" as const,
+  };
+
+  it("godtar en http-lenke som kilde", () => {
+    expect(contribution.parse({ ...base, sourceUrl: "https://example.test/artikkel" }).sourceUrl)
+      .toBe("https://example.test/artikkel");
+  });
+
+  it("avviser en lenke som kan kjøre kode", () => {
+    expect(() => contribution.parse({ ...base, sourceUrl: "javascript:alert(1)" })).toThrow();
+  });
+
+  it("lar kilden være tom", () => {
+    expect(contribution.parse(base).sourceUrl).toBeNull();
   });
 });
