@@ -1,0 +1,41 @@
+id: 1987-08-15-hodd-aalesunds-fk
+date: 1987-08-15
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1987
+  stage: regular_season
+  round: 14
+home:
+  clubId: hodd
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 5
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83042&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99083.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99083"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

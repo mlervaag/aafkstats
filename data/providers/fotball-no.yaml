@@ -1,0 +1,23 @@
+id: fotball-no
+name: NFF Fotballdata
+url: https://www.fotball.no/fotballdata/
+priority: 80
+automatedAccess: blocked
+publicRedistribution: permission_required
+attributionRequired: true
+permissionStatus: pending
+ingestDecision: accepted_risk
+riskAcceptedAt: 2026-08-05
+riskAcceptedBy: mlervaag
+termsCheckedAt: 2026-08-05
+robotsCheckedAt: 2026-08-05
+permissionNote: >
+  NFF oppgir at gjenbruk krever avtale og at automatiserte roboter/spiders ikke er
+  tillatt. Prosjekteier besluttet 2026-08-05 å hente offentlige kampfakta og tabeller
+  herfra for utvalgte sesonger som et avgrenset uttrekk for et ikke-kommersielt
+  supporterarkiv: bare fakta, aldri artikkeltekst, med kildehenvisning og lenke
+  tilbake til kilden fra hver kamp.
+note: >
+  Offisiell kilde for terminliste, kampnummer, resultater og sluttabell. Bane og
+  00:00-klokkeslett bør kontrolleres før de importeres.
+

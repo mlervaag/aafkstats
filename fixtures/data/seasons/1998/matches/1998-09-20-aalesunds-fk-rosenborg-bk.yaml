@@ -7,8 +7,8 @@ competition: { id: forstedivisjon, season: 1998, stage: regular_season, round: 2
 home: { clubId: aalesunds-fk, score: 3 }
 away: { clubId: rosenborg-bk, score: 0 }
 venueId: kramyra-stadion
-sources:
-  - { sourceId: rsssf, retrievedAt: 2026-08-02, fields: [home.score, away.score] }
+providers:
+  - { providerId: rsssf, retrievedAt: 2026-08-02, fields: [home.score, away.score] }
 confidence: confirmed
 note: Tildelt 3-0 etter at motstanderen stilte med ikke-spilleberettiget spiller.
 tags: [fixture]

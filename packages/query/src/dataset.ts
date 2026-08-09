@@ -320,7 +320,7 @@ export const views: ViewDoc[] = [
       { name: "season", type: "integer", description: "Sesongår." },
       { name: "opponent", type: "text", description: "Motstanderens navn den datoen." },
       { name: "field", type: "text", description: "Feltet kildene er uenige om, med punktnotasjon: 'away.score', 'attendance'." },
-      { name: "source_id", type: "text", description: "Kilden som oppgir denne verdien." },
+      { name: "provider_id", type: "text", description: "Kilden som oppgir denne verdien." },
       { name: "value", type: "text eller integer", description: "Verdien kilden oppgir." },
       { name: "value_note", type: "text", description: "Kildens eget forbehold om verdien." },
       { name: "is_chosen", type: "integer (0/1)", description: "Sant for verdien arkivet bruker. Alle rader er 0 når konflikten ikke er avgjort." },
@@ -333,7 +333,7 @@ export const views: ViewDoc[] = [
     ],
   },
   {
-    name: "sources",
+    name: "providers",
     summary: "Kildekatalogen: hvor dataene kommer fra og hvor mye vi stoler på hver kilde.",
     caveats: [
       "priority er en erklært rangering, ikke en avgjørelsesregel. Ingenting i innhøstingen velger verdi ut fra den.",
@@ -342,12 +342,12 @@ export const views: ViewDoc[] = [
       "Sier du noe om en kamp der kildene er uenige, oppgi begge verdiene og hvilken kilde de kommer fra, framfor å velge en side.",
     ],
     columns: [
-      { name: "source_id", type: "text", description: "Kildens ID." },
+      { name: "provider_id", type: "text", description: "Kildens ID." },
       { name: "name", type: "text", description: "Kildens navn." },
       { name: "url", type: "text", description: "Kildens nettadresse." },
       { name: "priority", type: "integer", description: "Kildens rangering. Den avgjør IKKE automatisk hvem som vinner en konflikt; se conflicts i matches og caveats over." },
       { name: "license", type: "text", description: "Lisens, der den er kjent." },
-            { name: "automated_access", type: "text", description: "Om kilden kan hentes automatisk: allowed, permission_required, blocked eller unknown." },
+      { name: "automated_access", type: "text", description: "Om kilden kan hentes automatisk: allowed, permission_required, blocked eller unknown." },
       { name: "public_redistribution", type: "text", description: "Om data derfra kan publiseres videre: allowed, permission_required, denied eller unknown. Et annet spørsmål enn om den kan hentes." },
       { name: "attribution_required", type: "integer (0/1)", description: "Om kilden krever kreditering." },
       { name: "permission_status", type: "text", description: "Hva motparten har svart: not_needed, pending, requested, granted eller denied. Sier ingenting om hva vi har bestemt." },
@@ -359,6 +359,46 @@ export const views: ViewDoc[] = [
       { name: "robots_checked_at", type: "text (YYYY-MM-DD)", description: "Når robots.txt sist ble kontrollert." },
       { name: "permission_note", type: "text", description: "Hva som er avklart, hvem som er spurt, og hva som gjenstår." },
       { name: "note", type: "text", description: "Forbehold og dekningsområde." },
+    ],
+  },
+  {
+    name: "contributions",
+    summary: "Brukerinnsendte bidrag, observasjoner og minner hentet fra innboksen.",
+    caveats: [
+      "Bare godkjente bidrag som har gått gjennom redaksjonell kontroll ligger her.",
+      "Bidrag knyttes til enten en kamp (target_id = match_id) eller en sesong (target_id = årstall). Sjekk scope ('match' eller 'season') for å se hva target_id peker på.",
+    ],
+    columns: [
+      { name: "id", type: "text", description: "Unik ID for bidraget." },
+      { name: "scope", type: "text", description: "'match' eller 'season'." },
+      { name: "target_id", type: "text", description: "Kamp-ID eller sesongår." },
+      { name: "category", type: "text", description: "Kategori, f.eks. 'memory', 'context', 'trivia', 'event_detail'." },
+      { name: "text", type: "text", description: "Selve innholdet." },
+      { name: "contributor", type: "text", description: "Forfatterens navn." },
+      { name: "submitted_at", type: "text (YYYY-MM-DD)", description: "Innsendingsdato." },
+      { name: "verification", type: "text", description: "Grad av bekreftelse: 'unverified', 'corroborated' eller 'verified'." },
+      { name: "source_url", type: "text", description: "Eventuell kildelenke for påstanden." },
+    ],
+  },
+  {
+    name: "sources",
+    summary: "Historisk materiale og kilder fra Nasjonalbiblioteket og AaFK Historiske arkiv.",
+    caveats: [
+      "Inneholder bøker, medlemsblader, årsmeldinger og andre dokumenter.",
+      "Selve innholdet er ikke lagret her, men kan leses via access_url.",
+    ],
+    columns: [
+      { name: "id", type: "text", description: "Unik ID for publikasjonen." },
+      { name: "parent_source_id", type: "text", description: "ID for kildens serie (f.eks. aafk-medlemsblad)." },
+      { name: "title", type: "text", description: "Tittel." },
+      { name: "source_type", type: "text", description: "'book', 'anniversary_book', 'member_magazine', 'annual_report', 'match_program', 'supporter_publication', 'local_history_book', 'newspaper_supplement', 'series' eller 'other'." },
+      { name: "issue", type: "text", description: "Utgave." },
+      { name: "volume", type: "text", description: "Årgang/Volum." },
+      { name: "publisher", type: "text", description: "Utgiver, f.eks. Aalesunds fotballklubb." },
+      { name: "year", type: "integer", description: "Utgivelsesår." },
+      { name: "cover_url", type: "text", description: "Lenke til forsidebilde." },
+      { name: "access_url", type: "text", description: "Lenke for å lese publikasjonen hos kilden." },
+      { name: "url", type: "text", description: "Lenke til visningssiden på vårt nettsted." },
     ],
   },
 ];
@@ -418,6 +458,20 @@ GROUP BY tiar ORDER BY tiar`,
 FROM matches
 WHERE decided_on_penalties = 1 AND won_on_penalties = 1
 ORDER BY date DESC`,
+  },
+  {
+    question: "Er det lagt inn noen bidrag eller minner om kamper mot Brann i 1998?",
+    sql: `SELECT c.text, c.contributor, c.verification
+FROM contributions c
+JOIN matches m ON c.target_id = m.match_id
+WHERE c.scope = 'match' AND m.opponent = 'SK Brann' AND m.season = 1998`,
+  },
+  {
+    question: "Hvilke medlemsblader har vi fra 1970-tallet?",
+    sql: `SELECT title, year, access_url
+FROM sources
+WHERE source_type = 'member_magazine' AND year BETWEEN 1970 AND 1979
+ORDER BY year ASC`,
   },
 ];
 

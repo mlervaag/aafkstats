@@ -1,0 +1,41 @@
+id: 1986-06-22-mo-il-aalesunds-fk
+date: 1986-06-22
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1986
+  stage: regular_season
+  round: 10
+home:
+  clubId: mo-il
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83043&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99059.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99059"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

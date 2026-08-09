@@ -1,0 +1,41 @@
+id: 1991-05-12-aalesunds-fk-fana
+date: 1991-05-12
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1991
+  stage: regular_season
+  round: 3
+home:
+  clubId: aalesunds-fk
+  score: 6
+  halfTimeScore: null
+away:
+  clubId: fana
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83058&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99015.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99015"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

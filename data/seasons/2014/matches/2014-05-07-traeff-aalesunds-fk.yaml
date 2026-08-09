@@ -19,8 +19,8 @@ away:
 neutralVenue: false
 events: []
 externalReports: []
-sources:
-  - sourceId: fotmob
+providers:
+  - providerId: fotmob
     url: https://www.fotmob.com/matches/traeff-vs-aalesund/1qrfrs#1696858
     retrievedAt: 2026-08-03
     fields:

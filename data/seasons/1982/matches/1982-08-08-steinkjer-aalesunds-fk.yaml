@@ -1,0 +1,41 @@
+id: 1982-08-08-steinkjer-aalesunds-fk
+date: 1982-08-08
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1982
+  stage: regular_season
+  round: 13
+home:
+  clubId: steinkjer
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83035&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99078.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99078"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

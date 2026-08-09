@@ -1,12 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { source as sourceSchema } from "@aafkstats/schema";
+import { provider as providerSchema } from "@aafkstats/schema";
 import type { Archive } from "@aafkstats/schema/load";
 import { assertMayFetch, assertMayPublish, SourcePolicyError } from "../src/policy.js";
 
-const archive = (...sources: unknown[]): Archive =>
+const archive = (...providers: unknown[]): Archive =>
   ({
     clubs: [], venues: [], competitions: [], seasons: [], matches: [], observations: [], standings: [], people: [], issues: [],
-    sources: sources.map((s) => sourceSchema.parse(s)),
+    providers: providers.map((s) => providerSchema.parse(s)),
   }) as unknown as Archive;
 
 const base = { id: "kilde", name: "En kilde", priority: 50 };
@@ -76,30 +76,30 @@ describe("rettighetsporten", () => {
       permissionRequestedAt: "2026-08-03",
       ...risk,
     });
-    const parsed = a.sources[0]!;
+    const parsed = a.providers[0]!;
     expect(parsed.permissionStatus).toBe("requested");
     expect(parsed.ingestDecision).toBe("accepted_risk");
     expect(() => assertMayPublish(a, "kilde")).not.toThrow();
   });
 
   it("krever navn og dato på en risikobeslutning", () => {
-    expect(() => sourceSchema.parse({ ...base, ingestDecision: "accepted_risk" }))
+    expect(() => providerSchema.parse({ ...base, ingestDecision: "accepted_risk" }))
       .toThrow(/riskAcceptedAt/);
-    expect(() => sourceSchema.parse({
+    expect(() => providerSchema.parse({
       ...base, ingestDecision: "accepted_risk",
       riskAcceptedAt: "2026-08-03", riskAcceptedBy: "mlervaag",
     })).toThrow(/permissionNote/);
   });
 
   it("krever dato når en forespørsel er sendt", () => {
-    expect(() => sourceSchema.parse({ ...base, permissionStatus: "requested" }))
+    expect(() => providerSchema.parse({ ...base, permissionStatus: "requested" }))
       .toThrow(/permissionRequestedAt/);
   });
 
   it("nekter å gå videre når motparten har sagt nei", () => {
     // Et avslag er et svar, ikke en avveining. Skjemaet avviser kombinasjonen
     // før den rekker å bli en gate-beslutning.
-    expect(() => sourceSchema.parse({
+    expect(() => providerSchema.parse({
       ...base, permissionStatus: "denied", ...risk,
     })).toThrow(/blocked/);
   });
@@ -142,7 +142,7 @@ describe("rettighetsporten", () => {
     } catch (error) {
       const message = (error as Error).message;
       expect(message).toMatch(/lars@rsssf\.no/);
-      expect(message).toMatch(/data\/sources\/rsssf\.yaml/);
+      expect(message).toMatch(/data\/providers\/rsssf\.yaml/);
       // Tørrkjøring skal fortsatt være mulig, og meldingen skal si det.
       expect(message).toMatch(/Tørrkjøring virker fortsatt/);
     }

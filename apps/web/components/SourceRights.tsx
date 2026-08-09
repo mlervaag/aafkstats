@@ -9,7 +9,7 @@ import { all, open } from "@aafkstats/db";
  */
 
 interface SourceRow {
-  source_id: string;
+  provider_id: string;
   name: string;
   url: string | null;
   automated_access: string;
@@ -73,10 +73,10 @@ export function SourceRights() {
   try {
     rows = all<SourceRow>(
       db,
-      `SELECT source_id, name, url, automated_access, public_redistribution,
+      `SELECT provider_id, name, url, automated_access, public_redistribution,
               permission_status, ingest_decision, risk_accepted_at, risk_accepted_by,
               attribution_required, permission_note
-       FROM sources ORDER BY name`,
+       FROM providers ORDER BY name`,
     );
   } finally {
     db.close();
@@ -101,7 +101,7 @@ export function SourceRights() {
         </thead>
         <tbody>
           {rows.map((row) => (
-            <tr key={row.source_id}>
+            <tr key={row.provider_id}>
               <th scope="row">
                 {row.url ? <a href={row.url}>{row.name}</a> : row.name}
                 {row.attribution_required === 1 && (

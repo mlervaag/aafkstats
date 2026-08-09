@@ -1,10 +1,3 @@
-import Anthropic from "@anthropic-ai/sdk";
-import { betaZodTool } from "@anthropic-ai/sdk/helpers/beta/zod";
-import { open } from "@aafkstats/db";
-import { readCoverage } from "@aafkstats/query/coverage";
-import type { DatasetCoverage } from "@aafkstats/query/coverage";
-import { systemPrompt } from "@aafkstats/query/prompt";
-import { tools as toolDefs } from "@aafkstats/query/tools";
 import type { ToolContext } from "@aafkstats/query/tools";
 import { checkRateLimit, logQuestion } from "@/lib/rate-limit";
 import {
@@ -13,6 +6,9 @@ import {
   readBodyLimited,
   sanitizeHistory,
 } from "@/lib/chat-request";
+import { resolveChatSetup } from "@/lib/chat-model";
+import { runAnthropic } from "@/lib/chat-anthropic";
+import { runOpenAI } from "@/lib/chat-openai";
 
 export const runtime = "nodejs";
 
@@ -22,58 +18,6 @@ export const runtime = "nodejs";
  * midt i, er det dette som skal opp (eller effort som skal ned).
  */
 export const maxDuration = 60;
-
-/**
- * Sonnet 5, ikke Opus 5.
- *
- * Arbeidet her er avgrenset: les et dokumentert skjema, velg et verktøy, skriv
- * én SELECT mot seks views. Det er ikke det Opus er til for, og prislappen er
- * dobbel: 5/25 dollar per million tokens mot Sonnet 5s 3/15 (2/10 i
- * introduksjonspris ut august 2026). For et gratis supporterarkiv er det
- * forskjellen som betyr noe.
- *
- * Overgangen krevde ingen andre endringer. Sonnet 5 tar samme forespørsel som
- * Opus 5: adaptiv tenkning, effort i output_config, ingen temperature. Haiku
- * 4.5 ville derimot brutt begge — den avviser effort og kjenner ikke adaptiv
- * tenkning, bare det utgåtte budget_tokens. Den er ikke et alternativ her uten
- * å skrive om kallet.
- *
- * Kan overstyres med AAFK_CHAT_MODEL for å prøve en annen modell uten å
- * deploye på nytt.
- */
-const MODEL = process.env.AAFK_CHAT_MODEL ?? "claude-sonnet-5";
-// Et statistikksvar skal være kort. Dette er også et hardt tak på kostnaden per kall.
-const MAX_TOKENS = 6_000;
-/** Maks antall runder modellen får med verktøy før vi stopper løkken. */
-const MAX_ITERATIONS = 5;
-
-/**
- * Dekningstallene, lest én gang per prosess.
- *
- * Leses ved første forespørsel og ikke ved import: en modul som åpner databasen
- * mens den lastes, feiler i testene og i ethvert bygg som ikke har arkivfila
- * ennå. Arkivet kan ikke endre seg mens prosessen lever — det bygges ved
- * utrulling — så én lesing er nok, og systemprompten forblir identisk mellom
- * kall slik prompt-cachen krever.
- */
-let coverage: DatasetCoverage | undefined;
-
-function datasetCoverage(): DatasetCoverage | undefined {
-  if (coverage) return coverage;
-  try {
-    const db = open();
-    try {
-      coverage = readCoverage(db);
-    } finally {
-      db.close();
-    }
-  } catch {
-    // Uten arkivfil svarer vi fortsatt, bare uten dekningstall i prompten.
-    // Modellen slår da opp omfanget selv i stedet for å få det servert.
-    return undefined;
-  }
-  return coverage;
-}
 
 interface ChatRequest {
   question: string;
@@ -86,12 +30,13 @@ function sse(event: string, data: unknown): string {
 }
 
 export async function POST(req: Request): Promise<Response> {
-  if (!process.env.ANTHROPIC_API_KEY) {
-    return Response.json(
-      { error: "Spørrefunksjonen er ikke satt opp: ANTHROPIC_API_KEY mangler." },
-      { status: 503 },
-    );
+  // Hvilken leverandør og modell som gjelder, avgjøres av miljøet. Se
+  // lib/chat-model.ts for rekkefølgen når begge nøklene er satt.
+  const resolved = resolveChatSetup();
+  if (!resolved.ok) {
+    return Response.json({ error: resolved.error }, { status: 503 });
   }
+  const setup = resolved.setup;
 
   if (isCrossSite(req)) {
     return Response.json({ error: "Forespørselen kom fra et annet nettsted." }, { status: 403 });
@@ -144,93 +89,33 @@ export async function POST(req: Request): Promise<Response> {
     onQuery: (info) => executedQueries.push(info),
   };
 
-  const client = new Anthropic();
-
-  const runnableTools = toolDefs.map((def) =>
-    betaZodTool({
-      name: def.name,
-      description: def.description,
-      inputSchema: def.inputSchema,
-      run: async (input) => {
-        const result = await def.run(input, ctx);
-        // Verktøysvaret pakkes i en tydelig avgrenser. Systemprompten slår fast at
-        // alt innenfor er data fra arkivet, aldri instruksjoner — det er forsvaret
-        // mot at en bidragsyter legger en beskjed til modellen i et kampreferat.
-        return [
-          {
-            type: "text" as const,
-            text:
-              `<arkivdata verktoy="${def.name}">\n` +
-              JSON.stringify(result.content) +
-              `\n</arkivdata>`,
-          },
-        ];
-      },
-    }),
-  );
-
   const encoder = new TextEncoder();
   const started = Date.now();
 
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
-      const send = (event: string, data: unknown) =>
-        controller.enqueue(encoder.encode(sse(event, data)));
-
-      let answer = "";
+      let answerLength = 0;
       let inputTokens = 0;
       let outputTokens = 0;
       let failure: string | null = null;
 
+      // Svarlengden telles her, der teksten faktisk går ut, og ikke inne i løkka.
+      // Da står tallet også når kallet kaster midtveis, og det er nettopp da det
+      // er verdt noe: et svar på null tegn er signaturen på at løkka gikk rundt
+      // uten å produsere noe.
+      const send = (event: string, data: unknown) => {
+        if (event === "text") answerLength += String((data as { text: string }).text).length;
+        controller.enqueue(encoder.encode(sse(event, data)));
+      };
+
       try {
-        const runner = client.beta.messages.toolRunner({
-          model: MODEL,
-          max_tokens: MAX_TOKENS,
-          // Adaptiv tenkning står PÅ med vilje. Slås den av, kan modellen skrive
-          // verktøykall som vanlig tekst i stedet for en tool_use-blokk. Kallet
-          // kjører aldri, uten feilmelding. Kostnaden styres med effort i stedet,
-          // som er trygt.
-          thinking: { type: "adaptive" },
-          // Hevet fra «low» sammen med modellbyttet. Sonnet 5 respekterer effort
-          // strengt i nedre ende, og et spørsmål som må oversettes til SQL over
-          // seks views er ikke et oppslag. «medium» på Sonnet 5 ligger omtrent
-          // der Sonnet 4.6 lå på «high», og koster fortsatt en brøkdel av Opus.
-          output_config: { effort: "medium" },
-          system: [
-            {
-              type: "text",
-              text: systemPrompt(datasetCoverage()),
-              // Systemprompten og verktøydefinisjonene er identiske mellom kall, så
-              // hele prefikset caches. Ingenting her endrer seg per forespørsel.
-              cache_control: { type: "ephemeral" },
-            },
-          ],
-          messages: [...history, { role: "user" as const, content: question }],
-          tools: runnableTools,
-          max_iterations: MAX_ITERATIONS,
-          stream: true,
-        });
+        const run = { question, history, ctx, send };
+        const result =
+          setup.provider === "openai" ? await runOpenAI(setup, run) : await runAnthropic(setup, run);
 
-        for await (const messageStream of runner) {
-          for await (const event of messageStream) {
-            if (event.type === "content_block_start" && event.content_block.type === "tool_use") {
-              send("tool", { name: event.content_block.name });
-            }
-            if (event.type === "content_block_delta" && event.delta.type === "text_delta") {
-              answer += event.delta.text;
-              send("text", { text: event.delta.text });
-            }
-          }
-
-          const message = await messageStream.finalMessage();
-          inputTokens += message.usage.input_tokens ?? 0;
-          outputTokens += message.usage.output_tokens ?? 0;
-
-          if (message.stop_reason === "refusal") {
-            failure = "Modellen avslo å svare på dette spørsmålet.";
-            send("error", { message: failure });
-          }
-        }
+        inputTokens = result.inputTokens;
+        outputTokens = result.outputTokens;
+        failure = result.failure;
 
         // Spørringene sendes til slutt, så grensesnittet kan vise dem under svaret.
         send("queries", { queries: executedQueries });
@@ -244,12 +129,14 @@ export async function POST(req: Request): Promise<Response> {
         try {
           logQuestion({
             question,
-            answerLength: answer.length,
+            answerLength,
             queries: executedQueries,
             durationMs: Date.now() - started,
             inputTokens,
             outputTokens,
             error: failure,
+            provider: setup.provider,
+            model: setup.model,
           });
         } catch {
           // Logging skal aldri velte et svar som ellers gikk bra.

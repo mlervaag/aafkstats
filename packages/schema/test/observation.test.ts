@@ -4,7 +4,7 @@ import { findConflicts, observation, observationPath, payloadHash } from "../src
 import type { Observation } from "../src/observation.js";
 
 const base = {
-  sourceId: "rsssf",
+  providerId: "rsssf",
   externalId: "1998-first-1998-04-19",
   matchId: "1998-04-19-hamarkameratene-aalesunds-fk",
   retrievedAt: "2026-08-04",
@@ -72,13 +72,13 @@ describe("observationPath", () => {
 describe("findConflicts", () => {
   it("finner feltet to kilder er uenige om, og bare det", () => {
     const conflicts = findConflicts([
-      entry({ sourceId: "rsssf", normalized: { "home.score": 3, attendance: 4500 } }),
-      entry({ sourceId: "fotmob", normalized: { "home.score": 2, attendance: 4500 } }),
+      entry({ providerId: "rsssf", normalized: { "home.score": 3, attendance: 4500 } }),
+      entry({ providerId: "fotmob", normalized: { "home.score": 2, attendance: 4500 } }),
     ]);
     expect(conflicts).toEqual([
       {
         field: "home.score",
-        values: [{ sourceId: "rsssf", value: 3 }, { sourceId: "fotmob", value: 2 }],
+        values: [{ providerId: "rsssf", value: 3 }, { providerId: "fotmob", value: 2 }],
       },
     ]);
   });
@@ -87,8 +87,8 @@ describe("findConflicts", () => {
     // Én kilde uten tilskuertall motsier ikke den som har det. Uten dette ville
     // konfliktlisten fylles av kamper der ingen er uenige om noe.
     const conflicts = findConflicts([
-      entry({ sourceId: "rsssf", normalized: { attendance: null } }),
-      entry({ sourceId: "fotmob", normalized: { attendance: 4500 } }),
+      entry({ providerId: "rsssf", normalized: { attendance: null } }),
+      entry({ providerId: "fotmob", normalized: { attendance: 4500 } }),
     ]);
     expect(conflicts).toEqual([]);
   });
@@ -113,8 +113,8 @@ describe("konflikt knyttet til observasjon", () => {
     const parsed = conflict.parse({
       field: "attendance",
       values: [
-        { value: 4210, sourceId: "nasjonalbiblioteket", payloadHash: hash },
-        { value: 4000, sourceId: "rsssf" },
+        { value: 4210, providerId: "nasjonalbiblioteket", payloadHash: hash },
+        { value: 4000, providerId: "rsssf" },
       ],
       resolved: true,
       chosen: 4210,
@@ -133,8 +133,8 @@ describe("konflikt knyttet til observasjon", () => {
       conflict.parse({
         field: "attendance",
         values: [
-          { value: 1, sourceId: "rsssf", payloadHash: "kanskje" },
-          { value: 2, sourceId: "fotmob" },
+          { value: 1, providerId: "rsssf", payloadHash: "kanskje" },
+          { value: 2, providerId: "fotmob" },
         ],
       }),
     ).toThrow();
@@ -146,8 +146,8 @@ describe("konflikt knyttet til observasjon", () => {
       conflict.parse({
         field: "attendance",
         values: [
-          { value: 1, sourceId: "rsssf" },
-          { value: 2, sourceId: "fotmob" },
+          { value: 1, providerId: "rsssf" },
+          { value: 2, providerId: "fotmob" },
         ],
         resolved: true,
         chosen: 1,
@@ -161,8 +161,8 @@ describe("konflikt knyttet til observasjon", () => {
       conflict.parse({
         field: "attendance",
         values: [
-          { value: 1, sourceId: "rsssf" },
-          { value: 2, sourceId: "fotmob" },
+          { value: 1, providerId: "rsssf" },
+          { value: 2, providerId: "fotmob" },
         ],
         resolved: true,
         chosen: 3,

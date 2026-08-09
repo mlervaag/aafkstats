@@ -15,7 +15,7 @@ src/
 
 **Arkivfilen bygges fra bunnen, aldri inkrementelt.** Resultatet avhenger da bare av
 innholdet i `data/`: to bygg av samme commit gir samme fil, og en slettet YAML-fil forsvinner
-faktisk. 1 040 kamper tar rundt 60 ms og gir en fil på 2,6 MB.
+faktisk. 1 244 kamper tar rundt 130 ms og gir en fil på 4,4 MB.
 
 **Skillet mellom rådata og publisert datasett ligger i navnet.** SQLite har ingen schemas, så
 tabellene heter `core_*` og er interne, mens viewene uten prefiks er den offentlige
@@ -86,7 +86,7 @@ En spørring som blokkerer i motoren holder tråden, og `Worker.terminate()` ven
 kallet returnerer. Prosessen er den eneste tingen som faktisk kan drepes. Kostnaden er rundt
 45 ms per spørring.
 
-Prosessen får bare `PATH` — ikke `ANTHROPIC_API_KEY`, og med vilje heller ikke
+Prosessen får bare `PATH` — ikke `ANTHROPIC_API_KEY` eller `OPENAI_API_KEY`, og med vilje heller ikke
 `NODE_OPTIONS`, som kan bære en `--require` og dermed kjøre fremmed kode i det innerste
 laget. Feilmeldinger går gjennom `scrubPaths()` før de sendes videre, siden de havner både i
 modellens kontekst og på skjermen.

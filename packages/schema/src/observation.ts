@@ -61,9 +61,9 @@ export type ObservationValue = z.infer<typeof scalar>;
  */
 export const observation = z
   .object({
-    /** Kilden, som i data/sources/. */
-    sourceId: slug,
-    /** Kildens egen ID for kampen. Sammen med sourceId er dette nøkkelen. */
+    /** Kilden, som i data/providers/. */
+    providerId: slug,
+    /** Kildens egen ID for kampen. Sammen med providerId er dette nøkkelen. */
     externalId: z.string().min(1),
     /**
      * Kampen i arkivet observasjonen hører til.
@@ -101,7 +101,7 @@ export const observation = z
     raw: z.record(scalar),
     /** Det råverdiene ble til. Nøklene er feltstier i kampskjemaet. */
     normalized: z.record(scalar),
-    /** Feltene observasjonen dekker, med samme navn som i `sources[].fields`. */
+    /** Feltene observasjonen dekker, med samme navn som i `providers[].fields`. */
     fields: z.array(z.string()).default([]),
     /** Det adapteren så, men ikke turde tolke. */
     warnings: z.array(z.string()).default([]),
@@ -115,18 +115,18 @@ export type Observation = z.infer<typeof observation>;
  * FotMob bruker tall, RSSSF en hel setning — så den vaskes til noe som tåler å
  * være et filnavn.
  *
- * Stien er en funksjon av `sourceId` og `externalId` alene, og valideringen
+ * Stien er en funksjon av `providerId` og `externalId` alene, og valideringen
  * krever at fila faktisk ligger der. Da kan en ny kjøring finne igjen forrige
  * observasjon uten å lete, og to kjøringer av samme kilde kan ikke ende opp som
  * to filer om samme kamp.
  */
-export function observationPath(sourceId: string, externalId: string): string {
+export function observationPath(providerId: string, externalId: string): string {
   const safe = externalId
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
     .slice(0, 120);
-  return `observations/${sourceId}/${safe || "uten-id"}.yaml`;
+  return `observations/${providerId}/${safe || "uten-id"}.yaml`;
 }
 
 /**
@@ -152,16 +152,16 @@ export function payloadHash(raw: Record<string, ObservationValue>): string {
  */
 export function findConflicts(observations: Observation[]): {
   field: string;
-  values: { sourceId: string; value: ObservationValue }[];
+  values: { providerId: string; value: ObservationValue }[];
 }[] {
-  const byField = new Map<string, { sourceId: string; value: ObservationValue }[]>();
+  const byField = new Map<string, { providerId: string; value: ObservationValue }[]>();
   for (const entry of observations) {
     for (const [field, value] of Object.entries(entry.normalized)) {
       // Taushet er ikke uenighet. En kilde som ikke oppgir tilskuertall motsier
       // ikke den som gjør det, og å telle det som konflikt ville gjort listen
       // full av kamper der ingen er uenige om noe.
       if (value === null) continue;
-      byField.set(field, [...(byField.get(field) ?? []), { sourceId: entry.sourceId, value }]);
+      byField.set(field, [...(byField.get(field) ?? []), { providerId: entry.providerId, value }]);
     }
   }
 

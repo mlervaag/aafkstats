@@ -6,7 +6,7 @@ competition: { id: eliteserien, season: 2005, stage: regular_season, round: 20 }
 home: { clubId: molde-fk }
 away: { clubId: aalesunds-fk }
 venueId: aker-stadion
-sources:
-  - { sourceId: rsssf, retrievedAt: 2026-08-02, fields: [date] }
+providers:
+  - { providerId: rsssf, retrievedAt: 2026-08-02, fields: [date] }
 confidence: probable
 tags: [fixture]

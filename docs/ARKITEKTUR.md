@@ -18,9 +18,10 @@ for den som skal endre noe: hver avgjørelse står med alternativet som ble valg
 
 ```mermaid
 flowchart TB
-  subgraph kilder["Kilder"]
+  subgraph providers["Opprinnelse (Providers)"]
     F["FotMob<br/>2010→"]
-    R["RSSSF<br/>←2009"]
+    N["NFF Fotballdata<br/>1982–2000"]
+    R["RSSSF<br/>←2010"]
     B["Bidrag<br/>pull request"]
   end
 
@@ -34,7 +35,7 @@ flowchart TB
 
   subgraph lesere["Lesere"]
     W["Nettsted<br/>Next.js"]
-    C["Spørrefunksjon<br/>Claude + SQL"]
+    C["Spørrefunksjon<br/>modell + SQL"]
     A["REST · MCP<br/><i>planlagt</i>"]
   end
 
@@ -72,11 +73,11 @@ kjenne:
 
 Den eneste reelle kostnaden er at skrivetilstand må bo et annet sted. Det gjelder to ting:
 rate-limiting og bruksmåling. Begge hører hjemme foran applikasjonen uansett — Vercel Firewall
-teller på kanten, og kostnadstaket ligger i Anthropic Console. Se
+teller på kanten, og kostnadstaket ligger hos modelleverandøren. Se
 [`apps/web/lib/rate-limit.ts`](../apps/web/lib/rate-limit.ts) for hvordan det henger sammen,
 og hva reservelaget i minnet faktisk er verdt.
 
-Hele arkivet — 1 040 kamper — bygges på rundt 60 ms til en fil på 2,6 MB.
+Hele arkivet — 1 244 kamper — bygges på rundt 130 ms til en fil på 4,4 MB.
 
 ## Lag for lag
 
@@ -127,6 +128,14 @@ SQLite har ingen schemas, så skillet mellom internt og publisert uttrykkes med 
 - **`core_*`** er interne tabeller. Rådata, alle kolonner, ingen garantier.
 - **Viewene uten prefiks** — `matches`, `seasons`, `opponents`, `match_events`, `sources` og
   FTS-tabellen `reports` — er den offentlige kontrakten.
+
+### Proveniens: Providers vs Sources
+
+Arkivet skiller strengt mellom hvor data kommer fra digitalt (Provider) og hvilket historisk dokument det opprinnelig stammer fra (Source).
+
+- **Provider**: Dataleverandøren (f.eks. Fotball.no, Wikipedia, RSSSF, eller AaFK Historisk Arkiv). Spores med `providerId` i YAML og eksponeres som `providers`-array i viewene.
+- **Source**: Det faktiske historiske dokumentet (f.eks. "AaFK 50 år", "AaFK Medlemsblad nr. 4 1958"). Lagres i `core_sources` (tidligere publikasjoner) og eksponeres i `sources`-viewet.
+- **SourceRef**: Koblingen mellom et spesifikt datapunkt (som en match) og en `source`, med mulighet for å peke på nøyaktig sidetall eller felt (`sourceRef`).
 
 Spørrefunksjonen ser bare viewene. Et senere REST-API og en MCP-server skal bruke den samme
 kontrakten. Legger du til en kolonne i `core_matches` uten å eksponere den i et view, har du
@@ -293,8 +302,11 @@ To ruter gjør noe mer enn å lese:
 
 - **`/api/search`** — direktesøk mens brukeren skriver. Ren SQL mot arkivfilen, ingen modell
   involvert. Se [`apps/web/lib/search.ts`](../apps/web/lib/search.ts).
-- **`/api/chat`** — spørrefunksjonen. Streamer SSE, kjører verktøyløkka mot Claude, og
-  logger hver spørring til Vercel Logs uten IP.
+- **`/api/chat`** — spørrefunksjonen. Streamer SSE, kjører verktøyløkka mot modellen, og
+  logger hver spørring til Vercel Logs uten IP. Hvilken modell, og hos hvem, avgjøres av
+  hvilken API-nøkkel som er satt — se
+  [`apps/web/lib/chat-model.ts`](../apps/web/lib/chat-model.ts). Verktøydefinisjonene er de
+  samme uansett; det er bare selve kallet som er to.
 
 Arkivfilen leses av serverkoden ved kjøring, og må derfor spores inn i funksjonsbunten. Det
 er `outputFileTracingIncludes` i [`next.config.mjs`](../apps/web/next.config.mjs) — sammen med
@@ -328,9 +340,10 @@ skrive tilbake til repoet.
 Vercel, med bygg per merge til `main`. Byggekommandoen bygger arkivfilen først og deretter
 nettstedet, så en utrulling alltid inneholder data fra nøyaktig den commiten.
 
-Miljøvariabler står i [`.env.example`](../.env.example). Bare `ANTHROPIC_API_KEY` er påkrevd
-for full funksjonalitet; uten den svarer `/api/chat` med 503, og resten av nettstedet virker
-som normalt.
+Miljøvariabler står i [`.env.example`](../.env.example). Bare én API-nøkkel er påkrevd for
+full funksjonalitet — `ANTHROPIC_API_KEY` eller `OPENAI_API_KEY` — og uten begge svarer
+`/api/chat` med 503, mens resten av nettstedet virker som normalt. `AAFK_CHAT_PROVIDER`
+avgjør hvem som svarer når begge er satt, `AAFK_CHAT_MODEL` hvilken modell.
 
 ## Ting som er bevisst utelatt
 

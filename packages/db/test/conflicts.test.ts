@@ -8,7 +8,7 @@ import { all, open } from "../src/index.js";
 interface ConflictRow {
   match_id: string;
   field: string;
-  source_id: string;
+  provider_id: string;
   value: string | number | null;
   is_chosen: number;
   decision: string;
@@ -33,8 +33,8 @@ describe("match_conflicts", () => {
     const db = open(dbPath);
     rows = all<ConflictRow>(
       db,
-      `SELECT match_id, field, source_id, value, is_chosen, decision, decided_at, reason, locked
-       FROM match_conflicts ORDER BY match_id, field, source_id`,
+      `SELECT match_id, field, provider_id, value, is_chosen, decision, decided_at, reason, locked
+       FROM match_conflicts ORDER BY match_id, field, provider_id`,
     );
     db.close();
   }, 30_000);
@@ -43,7 +43,7 @@ describe("match_conflicts", () => {
     const open_ = rows.filter((row) => row.field === "away.score");
     expect(open_).toHaveLength(2);
     expect(new Set(open_.map((row) => row.value))).toEqual(new Set([1, 2]));
-    expect(new Set(open_.map((row) => row.source_id))).toEqual(
+    expect(new Set(open_.map((row) => row.provider_id))).toEqual(
       new Set(["nasjonalbiblioteket", "rsssf"]),
     );
   });
@@ -62,7 +62,7 @@ describe("match_conflicts", () => {
     expect(resolved).toHaveLength(2);
     const chosen = resolved.filter((row) => row.is_chosen === 1);
     expect(chosen).toHaveLength(1);
-    expect(chosen[0]).toMatchObject({ value: 4210, source_id: "nasjonalbiblioteket" });
+    expect(chosen[0]).toMatchObject({ value: 4210, provider_id: "nasjonalbiblioteket" });
   });
 
   it("krever begrunnelse, dato og beslutningstype på en avgjort konflikt", () => {

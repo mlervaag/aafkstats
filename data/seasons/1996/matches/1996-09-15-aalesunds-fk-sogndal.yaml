@@ -1,0 +1,41 @@
+id: 1996-09-15-aalesunds-fk-sogndal
+date: 1996-09-15
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1996
+  stage: regular_season
+  round: 20
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: sogndal
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83065&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99119.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99119"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

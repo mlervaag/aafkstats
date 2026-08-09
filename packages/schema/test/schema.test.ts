@@ -119,12 +119,12 @@ describe("fixture-arkivet", () => {
     const about = archive.observations.filter(
       (entry) => entry.matchId === "1998-08-16-aalesunds-fk-sk-brann",
     );
-    expect(about.map((entry) => entry.sourceId).sort()).toEqual(["nasjonalbiblioteket", "rsssf"]);
+    expect(about.map((entry) => entry.providerId).sort()).toEqual(["nasjonalbiblioteket", "rsssf"]);
     // RSSSF har 4210, avisen 4200. Begge er enige om resultatet. Konflikten skal
     // altså gjelde tilskuertallet og ingenting annet.
     expect(findConflicts(about).map((conflict) => conflict.field)).toEqual(["attendance"]);
     // Og råverdien skal fortsatt være avisens egen: «4 200», ikke tallet 4200.
-    const avis = about.find((entry) => entry.sourceId === "nasjonalbiblioteket")!;
+    const avis = about.find((entry) => entry.providerId === "nasjonalbiblioteket")!;
     expect(avis.raw.tilskuere).toBe("4 200");
   });
 

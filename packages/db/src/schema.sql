@@ -50,7 +50,7 @@ CREATE TABLE core_competitions (
   note       TEXT
 );
 
-CREATE TABLE core_sources (
+CREATE TABLE core_providers (
   id        TEXT PRIMARY KEY,
   name      TEXT NOT NULL,
   url       TEXT,
@@ -260,7 +260,7 @@ CREATE TABLE core_matches (
   report_body      TEXT,
   report_byline    TEXT,
   external_reports TEXT NOT NULL DEFAULT '[]',
-  sources          TEXT NOT NULL DEFAULT '[]',
+  providers        TEXT NOT NULL DEFAULT '[]',
   confidence       TEXT NOT NULL DEFAULT 'probable'
                      CHECK (confidence IN ('confirmed','probable','disputed')),
   conflicts        TEXT NOT NULL DEFAULT '[]',
@@ -334,7 +334,7 @@ SELECT
   -- Siste gang en kilde ble hentet for denne kampen. Brukes til lastModified i
   -- sitemap, så søkemotorer får vite når opplysningen sist ble kontrollert i
   -- stedet for å anta at hele arkivet er like gammelt som byggetidspunktet.
-  (SELECT max(json_extract(sv.value, '$.retrievedAt')) FROM json_each(m.sources) sv)
+  (SELECT max(json_extract(pv.value, '$.retrievedAt')) FROM json_each(m.providers) pv)
                       AS last_retrieved_at,
   m.note,
   m.tags,
@@ -669,7 +669,7 @@ SELECT
   m.season,
   m.opponent_name                                   AS opponent,
   json_extract(c.value, '$.field')                  AS field,
-  json_extract(v.value, '$.sourceId')               AS source_id,
+  json_extract(v.value, '$.providerId')             AS provider_id,
   json_extract(v.value, '$.value')                  AS value,
   json_extract(v.value, '$.note')                   AS value_note,
   -- Verdien arkivet faktisk bruker. Null i alle kolonnene under betyr at ingen
@@ -688,15 +688,15 @@ FROM core_matches m,
      json_each(json_extract(c.value, '$.values')) v;
 
 -- Kildekatalogen, så svar kan forklare hvor dataene kommer fra.
-CREATE VIEW sources AS
+CREATE VIEW providers AS
 SELECT
-  id AS source_id, name, url, priority, license,
+  id AS provider_id, name, url, priority, license,
   automated_access, public_redistribution, attribution_required,
   permission_status, ingest_decision, permission_requested_at,
   risk_accepted_at, risk_accepted_by,
   terms_checked_at, robots_checked_at, permission_note,
   note
-FROM core_sources;
+FROM core_providers;
 
 -- Referat, som en FTS5-tabell.
 --
@@ -716,3 +716,60 @@ CREATE VIRTUAL TABLE reports USING fts5(
   url      UNINDEXED,
   tokenize = 'unicode61 remove_diacritics 0'
 );
+
+-- Bidrag/observasjoner innsendt av brukere via innboksen
+CREATE TABLE core_contributions (
+  id           TEXT PRIMARY KEY,
+  scope        TEXT NOT NULL CHECK (scope IN ('match', 'season')),
+  target_id    TEXT NOT NULL,
+  category     TEXT NOT NULL CHECK (category IN ('memory', 'context', 'trivia', 'event_detail')),
+  text         TEXT NOT NULL,
+  contributor  TEXT,
+  submitted_at TEXT NOT NULL,
+  verification TEXT NOT NULL CHECK (verification IN ('unverified', 'corroborated', 'verified')),
+  source_url   TEXT
+);
+
+CREATE TABLE core_sources (
+  id            TEXT PRIMARY KEY,
+  parent_source_id TEXT REFERENCES core_sources(id) ON DELETE SET NULL,
+  title         TEXT NOT NULL,
+  source_type   TEXT NOT NULL CHECK (source_type IN ('book','anniversary_book','member_magazine','annual_report','match_program','supporter_publication','local_history_book','newspaper_supplement','series','other')),
+  issue         TEXT,
+  volume        TEXT,
+  publisher     TEXT,
+  year          INTEGER,
+  cover_url     TEXT,
+  access_url    TEXT,
+  providers     TEXT NOT NULL DEFAULT '[]'
+);
+
+CREATE VIEW contributions AS
+SELECT
+  id,
+  scope,
+  target_id,
+  category,
+  text,
+  contributor,
+  submitted_at,
+  verification,
+  source_url
+FROM core_contributions
+ORDER BY submitted_at DESC;
+
+CREATE VIEW sources AS
+SELECT
+  id,
+  parent_source_id,
+  title,
+  source_type,
+  issue,
+  volume,
+  publisher,
+  year,
+  cover_url,
+  access_url,
+  '/kilder/' || id AS url
+FROM core_sources
+ORDER BY coalesce(year, 0) DESC, title ASC;

@@ -1,0 +1,41 @@
+id: 1982-08-15-aalesunds-fk-mo-il
+date: 1982-08-15
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1982
+  stage: regular_season
+  round: 14
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: mo-il
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83035&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99081.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99081"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

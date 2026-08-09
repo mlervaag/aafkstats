@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CoverageTag } from "@/components/Coverage";
 import { MatchList } from "@/components/MatchList";
+import { ContributionButton } from "@/components/ContributionButton";
+import { Contributions } from "@/components/Contributions";
 import { SeasonCoaches, SquadList } from "@/components/Squad";
 import { ProgressionChart, StandingsTable } from "@/components/Standings";
 import {
@@ -12,6 +14,7 @@ import {
   loadSeasonYears,
   loadSquad,
   loadStandings,
+  loadContributions,
 } from "@/lib/archive";
 import { pageMetadata, seasonDescription, seasonTitle } from "@/lib/metadata";
 
@@ -45,6 +48,7 @@ export default async function SeasonPage({ params }: Props) {
   const coaches = loadSeasonCoaches(year);
   const declaredCoaches = loadDeclaredCoaches(year);
   const squad = loadSquad(year);
+  const contributions = loadContributions(year.toString(), "season");
 
   return (
     <>
@@ -56,6 +60,14 @@ export default async function SeasonPage({ params }: Props) {
         </p>
         <h1>Sesongen {year}</h1>
         <SeasonCoaches coaches={coaches} declared={declaredCoaches} season={year} />
+        <div style={{ marginTop: "1rem" }}>
+          <ContributionButton 
+            scope="season" 
+            targetId={year.toString()} 
+            title={`Sesongen ${year}`} 
+            label={`Bidra til ${year}-sesongen`} 
+          />
+        </div>
       </header>
 
       {/* Én seksjon per konkurranse, hver med sine egne tall over sine egne kamper.
@@ -136,6 +148,8 @@ export default async function SeasonPage({ params }: Props) {
           </section>
         );
       })()}
+
+      <Contributions contributions={contributions} />
 
       <SquadList players={squad} />
 

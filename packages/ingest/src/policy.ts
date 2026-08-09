@@ -1,6 +1,6 @@
 import { mayFetch, mayPublish } from "@aafkstats/schema";
 import type { Archive } from "@aafkstats/schema/load";
-import type { Source } from "@aafkstats/schema";
+import type { Provider } from "@aafkstats/schema";
 
 /**
  * Porten mellom «kan hentes» og «kan publiseres».
@@ -10,7 +10,7 @@ import type { Source } from "@aafkstats/schema";
  * hentet fra, og heller ikke om vilkårene kilden selv har satt. En adapter som
  * virker teknisk utmerket er ikke et argument for å publisere.
  *
- * Derfor er statusen data i `data/sources/*.yaml` og ikke prosa i et notat: den
+ * Derfor er statusen data i `data/providers/*.yaml` og ikke prosa i et notat: den
  * kan leses av en maskin, og skrivesteget kan nekte. `unknown` regnes aldri som
  * et ja — det er hele forskjellen mellom å ha vurdert noe og å ikke ha gjort det.
  *
@@ -25,28 +25,28 @@ export class SourcePolicyError extends Error {
   }
 }
 
-function findSource(archive: Archive, sourceId: string): Source {
-  const source = archive.sources.find((entry) => entry.id === sourceId);
-  if (!source) {
+function findSource(archive: Archive, providerId: string): Provider {
+  const provider = archive.providers.find((entry) => entry.id === providerId);
+  if (!provider) {
     throw new SourcePolicyError(
-      `Kilden «${sourceId}» finnes ikke i data/sources/. ` +
+      `Kilden «${providerId}» finnes ikke i data/providers/. ` +
         "Legg den inn med rettighetsstatus før du høster fra den.",
     );
   }
-  return source;
+  return provider;
 }
 
 /** Kaster hvis kilden ikke kan hentes automatisk. Kalles før nettverkskall. */
-export function assertMayFetch(archive: Archive, sourceId: string): void {
-  const source = findSource(archive, sourceId);
-  if (mayFetch(source)) return;
+export function assertMayFetch(archive: Archive, providerId: string): void {
+  const provider = findSource(archive, providerId);
+  if (mayFetch(provider)) return;
 
   throw new SourcePolicyError(
-    `Automatisert henting fra «${source.name}» er ikke avklart ` +
-      `(automatedAccess: ${source.automatedAccess}, permissionStatus: ${source.permissionStatus}, ` +
-      `ingestDecision: ${source.ingestDecision}).\n` +
-      (source.permissionNote ? `\n${source.permissionNote.trim()}\n` : "") +
-      `\nOppdater data/sources/${source.id}.yaml når status endrer seg.`,
+    `Automatisert henting fra «${provider.name}» er ikke avklart ` +
+      `(automatedAccess: ${provider.automatedAccess}, permissionStatus: ${provider.permissionStatus}, ` +
+      `ingestDecision: ${provider.ingestDecision}).\n` +
+      (provider.permissionNote ? `\n${provider.permissionNote.trim()}\n` : "") +
+      `\nOppdater data/providers/${provider.id}.yaml når status endrer seg.`,
   );
 }
 
@@ -57,20 +57,20 @@ export function assertMayFetch(archive: Archive, sourceId: string): void {
  * åpenbart — å be om tillatelse, ikke å lete etter en flagg som slår av porten.
  * Det finnes ingen slik flagg med vilje.
  */
-export function assertMayPublish(archive: Archive, sourceId: string): void {
-  const source = findSource(archive, sourceId);
-  if (mayPublish(source)) return;
+export function assertMayPublish(archive: Archive, providerId: string): void {
+  const provider = findSource(archive, providerId);
+  if (mayPublish(provider)) return;
 
   throw new SourcePolicyError(
-    `Kan ikke skrive data fra «${source.name}» til arkivet.\n\n` +
+    `Kan ikke skrive data fra «${provider.name}» til arkivet.\n\n` +
       `Arkivet er offentlig, og offentlig gjenbruk fra denne kilden er ikke avklart:\n` +
-      `  publicRedistribution: ${source.publicRedistribution}\n` +
-      `  permissionStatus:     ${source.permissionStatus}   (hva motparten har sagt)\n` +
-      `  ingestDecision:       ${source.ingestDecision}   (hva vi har bestemt)\n` +
-      (source.permissionNote ? `\n${source.permissionNote.trim()}\n` : "") +
+      `  publicRedistribution: ${provider.publicRedistribution}\n` +
+      `  permissionStatus:     ${provider.permissionStatus}   (hva motparten har sagt)\n` +
+      `  ingestDecision:       ${provider.ingestDecision}   (hva vi har bestemt)\n` +
+      (provider.permissionNote ? `\n${provider.permissionNote.trim()}\n` : "") +
       `\nTørrkjøring virker fortsatt — det er lov å undersøke hva kilden inneholder.\n` +
       `Når tillatelse foreligger, sett permissionStatus: granted i ` +
-      `data/sources/${source.id}.yaml og noter hvem som ga den.\n` +
+      `data/providers/${provider.id}.yaml og noter hvem som ga den.\n` +
       `Skal det gås videre uten tillatelse, er det ingestDecision: accepted_risk — ` +
       `med riskAcceptedAt og riskAcceptedBy, så beslutningen har et navn og en dato.`,
   );

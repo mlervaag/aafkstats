@@ -25,9 +25,9 @@ export default function Home() {
           <p className="eyebrow">Uoffisielt historisk arkiv</p>
           <h1>{totals.matches} AaFK-kamper.<br />Ett sted å lete.</h1>
           <p className="lede">
-            Finn en kamp mens du skriver, eller still et spørsmål med vanlige ord.
-            Arkivet dekker foreløpig serie og cup fra {totals.first?.slice(0, 4) ?? "–"} til{" "}
-            {totals.last?.slice(0, 4) ?? "–"}
+            Søk opp kamper direkte, eller still spørsmål i fritekst.
+            Arkivet dekker foreløpig serie og cup fra {totals.first?.slice(0, 4) ?? "-"} til{" "}
+            {totals.last?.slice(0, 4) ?? "-"}
             {totals.upcoming > 0
               ? `, og ${totals.upcoming} kamper til står på terminlista.`
               : "."}
@@ -65,7 +65,8 @@ export default function Home() {
           <h2>Gå rett i arkivet</h2>
           <a href="/sesonger"><strong>Sesonger</strong><span>Resultater og alle kamper, år for år</span></a>
           <a href="/motstandere"><strong>Motstandere</strong><span>Innbyrdes statistikk gjennom historien</span></a>
-          <a href="/data"><strong>Datasettet</strong><span>Se feltene og SQL-en bak AI-svarene</span></a>
+          <a href="/data"><strong>Datasettet</strong><span>Se datamodellen og koden som driver arkivet</span></a>
+          <a href="/bidra"><strong>Bidra</strong><span>Del minner og faktasjekk hendelser</span></a>
         </aside>
       </section>
 

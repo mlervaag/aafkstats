@@ -1,0 +1,41 @@
+id: 2000-05-06-dahle-aalesunds-fk
+date: 2000-05-06
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 2000
+  stage: regular_season
+  round: 3
+home:
+  clubId: dahle
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=119411&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 23120206015.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "23120206015"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

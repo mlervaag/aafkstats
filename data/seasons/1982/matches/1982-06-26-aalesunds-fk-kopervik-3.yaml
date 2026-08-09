@@ -1,0 +1,41 @@
+id: 1982-06-26-aalesunds-fk-kopervik-3
+date: 1982-06-26
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1982
+  stage: regular_season
+  round: 11
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: kopervik-3
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83035&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99063.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99063"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

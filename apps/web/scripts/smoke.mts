@@ -34,7 +34,7 @@ interface Check {
 const checks: Check[] = [
   {
     page: "index",
-    must: ["AaFK-arkivet", "Spør AI", "kamper"],
+    must: ["AaFK-arkivet", "Spør arkivet", "kamper"],
   },
   {
     page: "data",

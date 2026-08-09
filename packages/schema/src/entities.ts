@@ -131,7 +131,7 @@ export const permissionStatus = z.enum([
  */
 export const ingestDecision = z.enum(["blocked", "pending", "allowed", "accepted_risk"]);
 
-export const source = z
+export const provider = z
   .object({
     id: slug,
     name: z.string().min(1),
@@ -168,6 +168,7 @@ export const source = z
     note: z.string().optional(),
   })
   .strict()
+  .describe("System for datainnhøsting (FotMob, RSSSF, NB, etc)")
   .superRefine((value, ctx) => {
     // En bevisst risikobeslutning uten spor er ikke etterprøvbar, og da er den
     // heller ikke en beslutning, bare en avkrysning.
@@ -212,7 +213,7 @@ export const source = z
  *
  * Brukes som port i innhøstingen. Den er bevisst streng: `unknown` er ikke et ja.
  */
-export function mayPublish(value: Source): boolean {
+export function mayPublish(value: Provider): boolean {
   // Beslutningen vår er porten, ikke tillatelsesstatusen. En kilde vi har sagt
   // nei til skal ikke slippe gjennom fordi vilkårene tilfeldigvis er åpne.
   if (value.ingestDecision === "blocked") return false;
@@ -222,14 +223,14 @@ export function mayPublish(value: Source): boolean {
 }
 
 /** Om arkivet har lov til å hente automatisk fra kilden. */
-export function mayFetch(value: Source): boolean {
+export function mayFetch(value: Provider): boolean {
   if (value.ingestDecision === "blocked") return false;
   if (value.automatedAccess === "allowed") return true;
   if (value.automatedAccess === "blocked") return false;
   return value.permissionStatus === "granted" || value.ingestDecision === "accepted_risk";
 }
 
-export type Source = z.infer<typeof source>;
+export type Provider = z.infer<typeof provider>;
 
 /** Sesongmeta: hvilken divisjon AaFK spilte i, hvordan det gikk, og hvem som ledet laget. */
 export const season = z

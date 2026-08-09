@@ -68,8 +68,8 @@ export function GapNote() {
     <p className="prose">
       {gap > 0 ? (
         <>
-          Arkivet mangler fortsatt årene fra {FOUNDED} til {c.firstSeason - 1} — {gap} sesonger,
-          fra klubben ble stiftet og fram til der dekningen begynner.{" "}
+          Arkivet mangler fortsatt årene fra {FOUNDED} til {c.firstSeason - 1} - {gap} sesonger,
+          fordi protokollene som kreves for å hente dem ut mangler eller ligger innelåst.{" "}
         </>
       ) : null}
       Europacupkampene mangler helt
@@ -99,10 +99,10 @@ export function CoverageNote({ heading = true }: { heading?: boolean }) {
         ? `${c.withEvents} av dem (${detailShare} %) har hendelser som mål og kort, og ${c.withAttendance} har tilskuertall.`
         : "Ingen av dem har hendelsesdata ennå."}{" "}
       {c.withReport === 0 ? (
-        <>
-          Kampreferat mangler helt — det er der{" "}
-          <a href="/bidra">et bidrag monner mest</a>.
-        </>
+        <p>
+          Kampreferat mangler helt - det er der{" "}
+          <a href="/bidra">brukerinnsendte minner og observasjoner</a> kommer inn.
+        </p>
       ) : (
         <>{c.withReport} har kampreferat.</>
       )}

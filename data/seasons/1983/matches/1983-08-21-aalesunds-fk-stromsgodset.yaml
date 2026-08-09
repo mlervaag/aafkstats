@@ -1,0 +1,42 @@
+id: 1983-08-21-aalesunds-fk-stromsgodset
+date: '1983-08-21'
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1983
+  stage: regular_season
+  round: 15
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: stromsgodset
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+- providerId: fotball-no
+  url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83034&underside=kamper
+  retrievedAt: '2026-08-05'
+  fields:
+  - date
+  - status
+  - competition
+  - competition.round
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  note: NFF kampnummer 99088.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: '99088'
+manual: []
+note: Bane og klokkeslett er bevisst utelatt. NFF-siden viser gjennomgående 00:00 og flere banefelt som
+  åpenbart tilhører andre kamper.

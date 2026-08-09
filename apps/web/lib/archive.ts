@@ -722,3 +722,44 @@ export function loadSeasonCoaches(season: number): CoachSpell[] {
     db.close();
   }
 }
+
+export interface ArchiveContribution {
+  id: string;
+  scope: "match" | "season";
+  targetId: string;
+  category: "memory" | "context" | "trivia" | "event_detail";
+  text: string;
+  contributor: string | null;
+  submittedAt: string;
+  verification: "unverified" | "corroborated" | "verified";
+  sourceUrl: string | null;
+}
+
+/** Henter bidrag for en kamp eller sesong. */
+export function loadContributions(targetId: string, scope: "match" | "season"): ArchiveContribution[] {
+  const db = open();
+  try {
+    return all<{
+      id: string; scope: string; target_id: string; category: string;
+      text: string; contributor: string | null; submitted_at: string;
+      verification: string; source_url: string | null;
+    }>(
+      db,
+      `SELECT id, scope, target_id, category, text, contributor, submitted_at, verification, source_url
+         FROM contributions WHERE target_id = ? AND scope = ? ORDER BY submitted_at DESC`,
+      targetId, scope,
+    ).map((row) => ({
+      id: row.id,
+      scope: row.scope as "match" | "season",
+      targetId: row.target_id,
+      category: row.category as ArchiveContribution["category"],
+      text: row.text,
+      contributor: row.contributor,
+      submittedAt: row.submitted_at,
+      verification: row.verification as ArchiveContribution["verification"],
+      sourceUrl: row.source_url,
+    }));
+  } finally {
+    db.close();
+  }
+}

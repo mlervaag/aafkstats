@@ -7,7 +7,7 @@ competition: { id: eliteserien, season: 2024, stage: regular_season, round: 12 }
 home: { clubId: aalesunds-fk }
 away: { clubId: molde-fk }
 venueId: color-line-stadion
-sources:
-  - { sourceId: aafk-no, retrievedAt: 2026-08-02, fields: [date] }
+providers:
+  - { providerId: aafk-no, retrievedAt: 2026-08-02, fields: [date] }
 confidence: confirmed
 tags: [fixture]

@@ -1,0 +1,41 @@
+id: 1986-08-30-vidar-aalesunds-fk
+date: 1986-08-30
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1986
+  stage: regular_season
+  round: 16
+home:
+  clubId: vidar
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83043&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99092.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99092"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

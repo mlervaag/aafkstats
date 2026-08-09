@@ -11,8 +11,10 @@ src/
 └── style.ts     Mekanisk sperre mot tankestrek i svarene
 ```
 
-Pakken snakker ikke med Anthropic selv. Den beskriver hva modellen skal ha; kallet gjøres i
-[`apps/web/app/api/chat/route.ts`](../../apps/web/app/api/chat/route.ts).
+Pakken snakker ikke med noen modelleverandør selv. Den beskriver hva modellen skal ha; kallet
+gjøres i [`apps/web/lib/chat-anthropic.ts`](../../apps/web/lib/chat-anthropic.ts) eller
+[`apps/web/lib/chat-openai.ts`](../../apps/web/lib/chat-openai.ts), avhengig av hvilken nøkkel
+som er satt.
 
 ## Én sannhet, to lesere
 
@@ -45,8 +47,10 @@ Alle seks kjører gjennom den samme guardrailen i
 endre, ett sted å teste.
 
 Definisjonene er **rene data**: navn, beskrivelse, Zod-skjema og handler, ikke bundet til noe
-SDK. Chatten pakker dem i `betaZodTool`; en senere MCP-server kan registrere de samme
-definisjonene uten en ny implementasjon.
+SDK. Anthropic-veien pakker dem i `betaZodTool`, OpenAI-veien i JSON Schema fra det samme
+Zod-skjemaet, og en senere MCP-server kan registrere dem uten en ny implementasjon. Det er
+nettopp derfor de er data: to leverandører kom til uten at en eneste verktøydefinisjon ble
+skrevet om.
 
 ```ts
 import { tools } from "@aafkstats/query/tools";

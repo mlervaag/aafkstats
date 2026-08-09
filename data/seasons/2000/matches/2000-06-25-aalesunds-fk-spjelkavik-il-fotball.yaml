@@ -1,0 +1,41 @@
+id: 2000-06-25-aalesunds-fk-spjelkavik-il-fotball
+date: 2000-06-25
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 2000
+  stage: regular_season
+  round: 11
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: spjelkavik-il-fotball
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=119411&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 23120206062.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "23120206062"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

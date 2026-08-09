@@ -1,0 +1,142 @@
+competitionId: forstedivisjon
+season: 1996
+table:
+  - position: 1
+    name: fk-haugesund
+    clubId: fk-haugesund
+    played: 22
+    wins: 14
+    draws: 5
+    losses: 3
+    goalsFor: 44
+    goalsAgainst: 21
+    points: 47
+    outcome: none
+  - position: 2
+    name: Sogndal
+    clubId: sogndal
+    played: 22
+    wins: 13
+    draws: 3
+    losses: 6
+    goalsFor: 49
+    goalsAgainst: 24
+    points: 42
+    outcome: none
+  - position: 3
+    name: Bryne
+    clubId: bryne
+    played: 22
+    wins: 10
+    draws: 5
+    losses: 7
+    goalsFor: 44
+    goalsAgainst: 51
+    points: 35
+    outcome: none
+  - position: 4
+    name: Aalesunds FK
+    clubId: aalesunds-fk
+    played: 22
+    wins: 9
+    draws: 6
+    losses: 7
+    goalsFor: 42
+    goalsAgainst: 23
+    points: 33
+    outcome: none
+  - position: 5
+    name: Hødd
+    clubId: hodd
+    played: 22
+    wins: 10
+    draws: 2
+    losses: 10
+    goalsFor: 37
+    goalsAgainst: 38
+    points: 32
+    outcome: none
+  - position: 6
+    name: Byåsen Toppfotb.
+    clubId: byasen-toppfotb
+    played: 22
+    wins: 9
+    draws: 5
+    losses: 8
+    goalsFor: 34
+    goalsAgainst: 37
+    points: 32
+    outcome: none
+  - position: 7
+    name: Fana
+    clubId: fana
+    played: 22
+    wins: 8
+    draws: 7
+    losses: 7
+    goalsFor: 33
+    goalsAgainst: 31
+    points: 31
+    outcome: none
+  - position: 8
+    name: Strindheim IL
+    clubId: strindheim
+    played: 22
+    wins: 9
+    draws: 4
+    losses: 9
+    goalsFor: 36
+    goalsAgainst: 35
+    points: 31
+    outcome: none
+  - position: 9
+    name: Nardo FK
+    clubId: nardo-fk
+    played: 22
+    wins: 8
+    draws: 4
+    losses: 10
+    goalsFor: 32
+    goalsAgainst: 36
+    points: 28
+    outcome: none
+  - position: 10
+    name: Vidar
+    clubId: vidar
+    played: 22
+    wins: 6
+    draws: 5
+    losses: 11
+    goalsFor: 36
+    goalsAgainst: 42
+    points: 23
+    outcome: none
+  - position: 11
+    name: Åsane
+    clubId: asane
+    played: 22
+    wins: 5
+    draws: 5
+    losses: 12
+    goalsFor: 33
+    goalsAgainst: 50
+    points: 20
+    outcome: none
+  - position: 12
+    name: Fyllingen
+    clubId: fyllingen
+    played: 22
+    wins: 3
+    draws: 5
+    losses: 14
+    goalsFor: 28
+    goalsAgainst: 60
+    points: 14
+    outcome: none
+progression: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83065&underside=tabellen
+    retrievedAt: 2026-08-05
+    fields:
+      - table

@@ -19,7 +19,7 @@ lineups:
     subs:
       - Fixture Spiller C
     coach: Jan Joensson
-sources:
-  - { sourceId: fotmob, retrievedAt: 2026-08-02, fields: [home.score, away.score] }
+providers:
+  - { providerId: fotmob, retrievedAt: 2026-08-02, fields: [home.score, away.score] }
 confidence: confirmed
 tags: [fixture]

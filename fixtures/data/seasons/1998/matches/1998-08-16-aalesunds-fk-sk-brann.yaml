@@ -6,9 +6,9 @@ home: { clubId: aalesunds-fk, score: 1, halfTimeScore: 1 }
 away: { clubId: sk-brann, score: 7, halfTimeScore: 2 }
 venueId: kramyra-stadion
 attendance: 4210
-sources:
-  - { sourceId: rsssf, retrievedAt: 2026-08-02, fields: [home.score, away.score] }
-  - { sourceId: nasjonalbiblioteket, retrievedAt: 2026-08-02, fields: [attendance] }
+providers:
+  - { providerId: rsssf, retrievedAt: 2026-08-02, fields: [home.score, away.score] }
+  - { providerId: nasjonalbiblioteket, retrievedAt: 2026-08-02, fields: [attendance] }
 confidence: probable
 manual: [attendance]
 conflicts:
@@ -16,11 +16,11 @@ conflicts:
   # begrunnelse — en «løst» konflikt uten det er skjult, ikke løst.
   - field: attendance
     values:
-      - { value: 4210, sourceId: nasjonalbiblioteket, note: Sunnmørsposten dagen etter }
-      - { value: 4000, sourceId: rsssf }
+      - { value: 4210, providerId: nasjonalbiblioteket, note: Sunnmørsposten dagen etter }
+      - { value: 4000, providerId: rsssf }
     resolved: true
     chosen: 4210
-    chosenSourceId: nasjonalbiblioteket
+    chosenProviderId: nasjonalbiblioteket
     decision: independent_source
     decidedAt: 2026-08-03
     reason: Avisreferatet dagen etter oppgir et eksakt tall; RSSSF har et avrundet.

@@ -3,7 +3,9 @@ import { notFound } from "next/navigation";
 import { cache } from "react";
 import { one, open } from "@aafkstats/db";
 import { formatDate, formatDateShort } from "@/lib/date";
-import { loadMatchIndex } from "@/lib/archive";
+import { ContributionButton } from "@/components/ContributionButton";
+import { Contributions } from "@/components/Contributions";
+import { loadContributions, loadMatchIndex } from "@/lib/archive";
 import { matchDescription, matchTitle, pageMetadata } from "@/lib/metadata";
 import { hasBeenPlayed, statusNote } from "@/lib/status";
 
@@ -46,7 +48,7 @@ interface TeamStats {
 }
 
 interface SourceRef {
-  sourceId: string;
+  providerId: string;
   url?: string;
   retrievedAt?: string;
   fields: string[];
@@ -75,7 +77,7 @@ interface MatchDetail {
   events: string;
   lineups: string | null;
   stats: string | null;
-  sources: string;
+  providers: string;
   conflicts: string;
   confidence: string;
   stage: string | null;
@@ -112,7 +114,7 @@ function loadMatch(id: string): MatchDetail | undefined {
               m.home_ht_score, m.away_ht_score, m.home_et_score, m.away_et_score,
               m.home_pens, m.away_pens,
               m.venue_name, m.attendance, m.referee, m.note,
-              m.events, m.lineups, m.stats, m.sources, m.conflicts, m.confidence
+              m.events, m.lineups, m.stats, m.providers, m.conflicts, m.confidence
        FROM core_matches m
        JOIN core_clubs h ON h.id = m.home_club_id
        JOIN core_clubs a ON a.id = m.away_club_id
@@ -128,7 +130,7 @@ const getMatch = cache(loadMatch);
 
 interface ConflictValue {
   value: string | number | null;
-  sourceId: string;
+  providerId: string;
   note?: string;
 }
 
@@ -137,7 +139,7 @@ interface ConflictRow {
   values: ConflictValue[];
   resolved: boolean;
   chosen?: string | number | null;
-  chosenSourceId?: string;
+  chosenProviderId?: string;
   decision: string;
   decidedAt?: string;
   reason?: string;
@@ -225,11 +227,12 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
   const match = getMatch(id);
   if (!match) notFound();
   const { previous, next } = loadNeighbours(match);
+  const contributions = loadContributions(match.id, "match");
 
   const events = json<EventRow[]>(match.events, []);
   const lineups = json<{ home?: Lineup; away?: Lineup }>(match.lineups, {});
   const stats = json<{ home?: TeamStats; away?: TeamStats }>(match.stats, {});
-  const sources = json<SourceRef[]>(match.sources, []);
+  const sources = json<SourceRef[]>(match.providers, []);
   const conflicts = json<ConflictRow[]>(match.conflicts, []);
   // Overskriftsresultatet er sluttresultatet. home_score er stillingen etter
   // ordinær tid, så ekstraomgangsmålene må legges til — ellers står en cupkamp
@@ -296,6 +299,14 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
         {/* Forbehold som hører til kampen selv. Typisk fra eldre kilder som bare
             oppgir sluttresultatet. Lagres det uten å vises, er det like borte. */}
         {match.note && <p className="small muted match-note">{match.note}</p>}
+        <div style={{ marginTop: "1.5rem" }}>
+          <ContributionButton 
+            scope="match" 
+            targetId={match.id} 
+            title={`${match.home_name} mot ${match.away_name} ${formatDateShort(match.match_date)}`}
+            label="Bidra om kampen"
+          />
+        </div>
       </header>
 
       <dl className="facts">
@@ -361,9 +372,9 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
                 {conflict.values.map((entry) => {
                   const chosen = conflict.resolved && entry.value === conflict.chosen;
                   return (
-                    <li key={`${entry.sourceId}-${String(entry.value)}`} className={chosen ? "is-chosen" : undefined}>
+                    <li key={`${entry.providerId}-${String(entry.value)}`} className={chosen ? "is-chosen" : undefined}>
                       <strong className="num">{entry.value === null ? "ingen verdi" : String(entry.value)}</strong>
-                      <span className="muted"> · {entry.sourceId}</span>
+                      <span className="muted"> · {entry.providerId}</span>
                       {chosen && <span className="conflict-chosen"> arkivet bruker denne</span>}
                       {entry.note && <span className="small muted conflict-note">{entry.note}</span>}
                     </li>
@@ -380,13 +391,15 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
         </section>
       )}
 
+      <Contributions contributions={contributions} />
+
       <section>
         <h2>Kilder</h2>
         {sources.length === 0 ? <p className="muted">Ingen kilde registrert.</p> : (
           <ul>
             {sources.map((source) => (
-              <li key={`${source.sourceId}-${source.url ?? ""}`}>
-                {source.url ? <a href={source.url} rel="noreferrer">{source.sourceId}</a> : source.sourceId}
+              <li key={`${source.providerId}-${source.url ?? ""}`}>
+                {source.url ? <a href={source.url} rel="noreferrer">{source.providerId}</a> : source.providerId}
                 {source.retrievedAt ? ` · hentet ${formatDate(source.retrievedAt)}` : ""}
                 <span className="muted"> · {source.fields.length} dokumenterte felt</span>
               </li>

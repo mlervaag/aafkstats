@@ -1,0 +1,41 @@
+id: 1989-05-28-aalesunds-fk-djerv-1919
+date: 1989-05-28
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1989
+  stage: regular_season
+  round: 5
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: djerv-1919
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83052&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99026.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99026"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

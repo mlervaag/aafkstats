@@ -4,17 +4,21 @@ import { basename, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parse as parseYaml } from "yaml";
 import { z } from "zod";
-import { club, competition, season, source, venue } from "./entities.js";
+import { club, competition, season, provider, venue } from "./entities.js";
 import { match } from "./match.js";
 import { canonicalClubKey, personKey } from "./identity.js";
 import { observation, observationPath } from "./observation.js";
 import { person } from "./person.js";
 import { standings, standingsPath } from "./standings.js";
-import type { Club, Competition, Season, Source, Venue } from "./entities.js";
+import type { Club, Competition, Season, Provider, Venue } from "./entities.js";
 import type { Match } from "./match.js";
 import type { Observation } from "./observation.js";
 import type { Person } from "./person.js";
 import type { Standings } from "./standings.js";
+import { contribution } from "./contribution.js";
+import type { Contribution } from "./contribution.js";
+import { source as historicalSource } from "./source.js";
+import type { Source as HistoricalSource } from "./source.js";
 
 /** Rota på monorepoet, utledet fra hvor denne filen ligger. */
 export function repoRoot(): string {
@@ -45,7 +49,7 @@ export interface Archive {
   clubs: Club[];
   venues: Venue[];
   competitions: Competition[];
-  sources: Source[];
+  providers: Provider[];
   seasons: (Season & { file: string })[];
   matches: (Match & { file: string })[];
   /**
@@ -60,6 +64,8 @@ export interface Archive {
    * i en oppstilling, og har ingen fil her.
    */
   people: Person[];
+  contributions: (Contribution & { file: string })[];
+  sources: (HistoricalSource & { file: string })[];
   issues: LoadIssue[];
 }
 
@@ -78,7 +84,7 @@ async function parseFile<T extends z.ZodTypeAny>(
   root: string,
   issues: LoadIssue[],
 ): Promise<z.infer<T> | null> {
-  const rel = relative(root, file);
+  const rel = relative(root, file).replace(/\\/g, "/");
   let raw: unknown;
   try {
     // 'core' holder oss på YAML 1.2, der datoer forblir strenger. Uten dette blir
@@ -122,7 +128,7 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
   const people = await readAll("people", person);
   const venues = await readAll("venues", venue);
   const competitions = await readAll("competitions", competition);
-  const sources = await readAll("sources", source);
+  const providers = await readAll("providers", provider);
 
   const seasons: (Season & { file: string })[] = [];
   const matches: (Match & { file: string })[] = [];
@@ -141,19 +147,19 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
         if (parsed !== null) {
           if (String(parsed.year) !== dir) {
             issues.push({
-              file: relative(root, seasonPath),
+              file: relative(root, seasonPath).replace(/\\/g, "/"),
               path: "year",
               message: `år ${parsed.year} stemmer ikke med mappenavnet «${dir}»`,
             });
           }
-          seasons.push({ ...parsed, file: relative(root, seasonPath) });
+          seasons.push({ ...parsed, file: relative(root, seasonPath).replace(/\\/g, "/") });
         }
       }
 
       for (const file of await listYaml(join(seasonsDir, dir, "matches"))) {
         const parsed = await parseFile(file, match, root, issues);
         if (parsed === null) continue;
-        const rel = relative(root, file);
+        const rel = relative(root, file).replace(/\\/g, "/");
         const expectedName = `${parsed.id}.yaml`;
         if (basename(file) !== expectedName) {
           issues.push({
@@ -175,7 +181,7 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
   }
 
   // Observasjonene ligger under én mappe per kilde. Stien er utledet av
-  // sourceId og externalId, og kontrolleres her — ligger fila et annet sted,
+  // providerId og externalId, og kontrolleres her — ligger fila et annet sted,
   // finner ikke neste kjøring den igjen, og kilden blir ført to ganger.
   const observations: (Observation & { file: string })[] = [];
   const observationsDir = join(root, "observations");
@@ -188,8 +194,8 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
       for (const file of await listYaml(join(observationsDir, dir))) {
         const parsed = await parseFile(file, observation, root, issues);
         if (parsed === null) continue;
-        const rel = relative(root, file);
-        const expected = observationPath(parsed.sourceId, parsed.externalId);
+        const rel = relative(root, file).replace(/\\/g, "/");
+        const expected = observationPath(parsed.providerId, parsed.externalId);
         if (rel !== expected) {
           issues.push({ file: rel, path: "externalId", message: `fila må hete «${expected}»` });
         }
@@ -212,7 +218,7 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
       for (const file of await listYaml(join(standingsDir, dir))) {
         const parsed = await parseFile(file, standings, root, issues);
         if (parsed === null) continue;
-        const rel = relative(root, file);
+        const rel = relative(root, file).replace(/\\/g, "/");
         const expected = standingsPath(parsed.competitionId, parsed.season);
         if (rel !== expected) {
           issues.push({ file: rel, path: "season", message: `fila må hete «${expected}»` });
@@ -222,7 +228,17 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
     }
   }
 
-  return { clubs, venues, competitions, sources, seasons, matches, observations, standings: tables, people, issues };
+  const contributions = (await readAll("contributions", contribution)) as (Contribution & { file: string })[];
+  for (const c of contributions) {
+    c.file = relative(root, join(root, "contributions", `${c.id}.yaml`)).replace(/\\/g, "/");
+  }
+
+  const sources = (await readAll("sources", historicalSource)) as (HistoricalSource & { file: string })[];
+  for (const p of sources) {
+    p.file = relative(root, join(root, "sources", `${p.id}.yaml`)).replace(/\\/g, "/");
+  }
+
+  return { clubs, venues, competitions, providers, seasons, matches, observations, standings: tables, people, contributions, sources, issues };
 }
 
 /**
@@ -239,7 +255,7 @@ export function crossValidate(archive: Archive): LoadIssue[] {
   const clubIds = ids(archive.clubs);
   const venueIds = ids(archive.venues);
   const competitionIds = ids(archive.competitions);
-  const sourceIds = ids(archive.sources);
+  const sourceIds = ids(archive.providers);
 
   const duplicates = <T extends { id: string }>(xs: T[], kind: string) => {
     const seen = new Set<string>();
@@ -253,6 +269,8 @@ export function crossValidate(archive: Archive): LoadIssue[] {
   duplicates(archive.clubs, "clubs");
   duplicates(archive.venues, "venues");
   duplicates(archive.competitions, "competitions");
+  duplicates(archive.providers, "providers");
+  duplicates(archive.contributions, "contributions");
   duplicates(archive.sources, "sources");
 
   // Klubber som normaliserer til samme identitet er nesten alltid samme klubb
@@ -310,15 +328,15 @@ export function crossValidate(archive: Archive): LoadIssue[] {
     if (!competitionIds.has(m.competition.id)) {
       at("competition.id", `ukjent konkurranse «${m.competition.id}»`);
     }
-    for (const s of m.sources) {
-      if (!sourceIds.has(s.sourceId)) {
-        at("sources", `ukjent kilde «${s.sourceId}» — mangler data/sources/${s.sourceId}.yaml`);
+    for (const s of m.providers) {
+      if (!sourceIds.has(s.providerId)) {
+        at("providers", `ukjent kilde «${s.providerId}» — mangler data/providers/${s.providerId}.yaml`);
       }
     }
     for (const c of m.conflicts) {
       for (const v of c.values) {
-        if (!sourceIds.has(v.sourceId)) {
-          at("conflicts", `ukjent kilde «${v.sourceId}» i konflikt på feltet «${c.field}»`);
+        if (!sourceIds.has(v.providerId)) {
+          at("conflicts", `ukjent kilde «${v.providerId}» i konflikt på feltet «${c.field}»`);
         }
       }
     }
@@ -330,13 +348,13 @@ export function crossValidate(archive: Archive): LoadIssue[] {
   const seenObservations = new Set<string>();
   for (const o of archive.observations) {
     const at = (path: string, message: string) => issues.push({ file: o.file, path, message });
-    const key = `${o.sourceId}|${o.externalId}`;
+    const key = `${o.providerId}|${o.externalId}`;
     if (seenObservations.has(key)) {
       at("externalId", `duplikat observasjon «${key}»`);
     }
     seenObservations.add(key);
-    if (!sourceIds.has(o.sourceId)) {
-      at("sourceId", `ukjent kilde «${o.sourceId}» — mangler data/sources/${o.sourceId}.yaml`);
+    if (!sourceIds.has(o.providerId)) {
+      at("providerId", `ukjent kilde «${o.providerId}» — mangler data/providers/${o.providerId}.yaml`);
     }
     if (o.matchId !== null && !seenMatchIds.has(o.matchId)) {
       at("matchId", `ukjent kamp «${o.matchId}» — sett matchId til null hvis kampen ikke ble skrevet`);
@@ -361,9 +379,9 @@ export function crossValidate(archive: Archive): LoadIssue[] {
         at("table", `ukjent klubb «${row.clubId}» på plass ${row.position} — la den stå som null hvis klubben ikke er i arkivet`);
       }
     }
-    for (const s of t.sources) {
-      if (!sourceIds.has(s.sourceId)) {
-        at("sources", `ukjent kilde «${s.sourceId}» — mangler data/sources/${s.sourceId}.yaml`);
+    for (const s of t.providers) {
+      if (!sourceIds.has(s.providerId)) {
+        at("providers", `ukjent kilde «${s.providerId}» — mangler data/providers/${s.providerId}.yaml`);
       }
     }
   }
@@ -399,9 +417,9 @@ export function crossValidate(archive: Archive): LoadIssue[] {
       seenWikidata.set(p.wikidata, p.id);
     }
 
-    for (const s of p.sources) {
-      if (!sourceIds.has(s.sourceId)) {
-        at("sources", `ukjent kilde «${s.sourceId}» — mangler data/sources/${s.sourceId}.yaml`);
+    for (const s of p.providers) {
+      if (!sourceIds.has(s.providerId)) {
+        at("providers", `ukjent kilde «${s.providerId}» — mangler data/providers/${s.providerId}.yaml`);
       }
     }
   }
@@ -413,6 +431,16 @@ export function crossValidate(archive: Archive): LoadIssue[] {
         path: "competitionId",
         message: `ukjent konkurranse «${s.competitionId}»`,
       });
+    }
+  }
+
+  for (const p of archive.sources) {
+    if (p.providers) {
+      for (const s of p.providers) {
+        if (!sourceIds.has(s.providerId)) {
+          issues.push({ file: p.file, path: "providers", message: `ukjent kilde «${s.providerId}» — mangler data/providers/${s.providerId}.yaml` });
+        }
+      }
     }
   }
 

@@ -1,0 +1,142 @@
+competitionId: forstedivisjon
+season: 1992
+table:
+  - position: 1
+    name: Fyllingen
+    clubId: fyllingen
+    played: 22
+    wins: 16
+    draws: 3
+    losses: 3
+    goalsFor: 54
+    goalsAgainst: 20
+    points: 51
+    outcome: none
+  - position: 2
+    name: Strømmen IF - MEN 1
+    clubId: strommen
+    played: 22
+    wins: 13
+    draws: 4
+    losses: 5
+    goalsFor: 52
+    goalsAgainst: 20
+    points: 43
+    outcome: none
+  - position: 3
+    name: Fana
+    clubId: fana
+    played: 22
+    wins: 12
+    draws: 4
+    losses: 6
+    goalsFor: 41
+    goalsAgainst: 30
+    points: 40
+    outcome: none
+  - position: 4
+    name: Bryne
+    clubId: bryne
+    played: 22
+    wins: 12
+    draws: 3
+    losses: 7
+    goalsFor: 47
+    goalsAgainst: 32
+    points: 39
+    outcome: none
+  - position: 5
+    name: Strindheim IL
+    clubId: strindheim
+    played: 22
+    wins: 9
+    draws: 4
+    losses: 9
+    goalsFor: 34
+    goalsAgainst: 28
+    points: 31
+    outcome: none
+  - position: 6
+    name: Djerv 1919
+    clubId: djerv-1919
+    played: 22
+    wins: 8
+    draws: 5
+    losses: 9
+    goalsFor: 47
+    goalsAgainst: 40
+    points: 29
+    outcome: none
+  - position: 7
+    name: Hødd
+    clubId: hodd
+    played: 22
+    wins: 8
+    draws: 4
+    losses: 10
+    goalsFor: 52
+    goalsAgainst: 46
+    points: 28
+    outcome: none
+  - position: 8
+    name: Vard Haugesund
+    clubId: vard-haugesund
+    played: 22
+    wins: 7
+    draws: 6
+    losses: 9
+    goalsFor: 21
+    goalsAgainst: 32
+    points: 27
+    outcome: none
+  - position: 9
+    name: Aalesunds FK
+    clubId: aalesunds-fk
+    played: 22
+    wins: 6
+    draws: 8
+    losses: 8
+    goalsFor: 31
+    goalsAgainst: 28
+    points: 26
+    outcome: none
+  - position: 10
+    name: Os
+    clubId: os
+    played: 22
+    wins: 7
+    draws: 5
+    losses: 10
+    goalsFor: 27
+    goalsAgainst: 37
+    points: 26
+    outcome: none
+  - position: 11
+    name: Stjørdals-Blink
+    clubId: stjordals-blink
+    played: 22
+    wins: 5
+    draws: 6
+    losses: 11
+    goalsFor: 34
+    goalsAgainst: 56
+    points: 21
+    outcome: none
+  - position: 12
+    name: Haugar
+    clubId: haugar
+    played: 22
+    wins: 3
+    draws: 0
+    losses: 19
+    goalsFor: 26
+    goalsAgainst: 97
+    points: 9
+    outcome: none
+progression: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83061&underside=tabellen
+    retrievedAt: 2026-08-05
+    fields:
+      - table

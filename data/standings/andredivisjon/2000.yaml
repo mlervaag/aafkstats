@@ -1,0 +1,142 @@
+competitionId: andredivisjon
+season: 2000
+table:
+  - position: 1
+    name: Aalesunds FK
+    clubId: aalesunds-fk
+    played: 22
+    wins: 18
+    draws: 2
+    losses: 2
+    goalsFor: 81
+    goalsAgainst: 16
+    points: 56
+    outcome: none
+  - position: 2
+    name: Skarbøvik IL- Fotball
+    clubId: skarbovik-il-fotball
+    played: 22
+    wins: 17
+    draws: 3
+    losses: 2
+    goalsFor: 65
+    goalsAgainst: 21
+    points: 54
+    outcome: none
+  - position: 3
+    name: Clausenengen
+    clubId: clausenengen
+    played: 22
+    wins: 14
+    draws: 4
+    losses: 4
+    goalsFor: 79
+    goalsAgainst: 37
+    points: 46
+    outcome: none
+  - position: 4
+    name: Molde 2
+    clubId: molde-2
+    played: 22
+    wins: 12
+    draws: 4
+    losses: 6
+    goalsFor: 57
+    goalsAgainst: 43
+    points: 40
+    outcome: none
+  - position: 5
+    name: Spjelkavik IL - Fotball
+    clubId: spjelkavik-il-fotball
+    played: 22
+    wins: 12
+    draws: 0
+    losses: 10
+    goalsFor: 38
+    goalsAgainst: 46
+    points: 36
+    outcome: none
+  - position: 6
+    name: Rosenborg 2
+    clubId: rosenborg-2
+    played: 22
+    wins: 11
+    draws: 1
+    losses: 10
+    goalsFor: 46
+    goalsAgainst: 40
+    points: 34
+    outcome: none
+  - position: 7
+    name: Træff
+    clubId: traeff
+    played: 22
+    wins: 9
+    draws: 4
+    losses: 9
+    goalsFor: 49
+    goalsAgainst: 35
+    points: 31
+    outcome: none
+  - position: 8
+    name: Stranda IL - Fotball
+    clubId: stranda-il-fotball
+    played: 22
+    wins: 6
+    draws: 5
+    losses: 11
+    goalsFor: 29
+    goalsAgainst: 44
+    points: 23
+    outcome: none
+  - position: 9
+    name: Orkla FK
+    clubId: orkla-fk
+    played: 22
+    wins: 5
+    draws: 5
+    losses: 12
+    goalsFor: 30
+    goalsAgainst: 62
+    points: 20
+    outcome: none
+  - position: 10
+    name: Dahle
+    clubId: dahle
+    played: 22
+    wins: 4
+    draws: 3
+    losses: 15
+    goalsFor: 28
+    goalsAgainst: 70
+    points: 15
+    outcome: none
+  - position: 11
+    name: Tiller IL
+    clubId: tiller-il
+    played: 22
+    wins: 4
+    draws: 3
+    losses: 15
+    goalsFor: 39
+    goalsAgainst: 82
+    points: 15
+    outcome: none
+  - position: 12
+    name: Sunndal
+    clubId: sunndal
+    played: 22
+    wins: 2
+    draws: 2
+    losses: 18
+    goalsFor: 25
+    goalsAgainst: 70
+    points: 8
+    outcome: none
+progression: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=119411&underside=tabellen
+    retrievedAt: 2026-08-05
+    fields:
+      - table

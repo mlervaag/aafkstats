@@ -35,7 +35,7 @@ bryter et av disse lagene er verdt en rapport:
 - **En spørring som ikke lar seg avbryte.** Hver spørring kjøres i en egen prosess som drepes
   med `SIGKILL` ved timeout. Finner du en vei rundt det, blir tjenesten utsatt for å kunne
   holdes nede.
-- **Lekkasje av hemmeligheter** — `ANTHROPIC_API_KEY` eller andre miljøvariabler som når
+- **Lekkasje av hemmeligheter** — `ANTHROPIC_API_KEY`, `OPENAI_API_KEY` eller andre miljøvariabler som når
   klienten, loggen eller et svar. Prosessen som kjører SQL får bare `PATH`, med vilje.
 - **Kall som omgår grensene på forespørselen** — spørsmålslengde, historikk, kroppens
   størrelse eller opphavskontrollen på POST. Det som står på spill der er regningen.
@@ -49,7 +49,7 @@ Meld gjerne fra hvis du mener vurderingen er feil, men disse er kjent og bevisst
 
 - **Rate-limiting i minnet er en fartsdump, ikke en mur.** Uten Vercel Firewall foran er
   telleren per instans, og en fordelt avsender kommer forbi. Det harde kostnadstaket ligger
-  i Anthropic Console, ikke i koden. Se
+  hos modelleverandøren (Anthropic Console eller OpenAI-plattformen), ikke i koden. Se
   [`apps/web/lib/rate-limit.ts`](apps/web/lib/rate-limit.ts).
 - **Spørsmål logges.** Spørsmålsteksten, SQL-en modellen skrev og tokenforbruket skrives til
   Vercel Logs. IP-adressen logges aldri. Ikke skriv noe personlig i spørrefeltet.

@@ -1,0 +1,41 @@
+id: 1991-09-22-surnadal-aalesunds-fk
+date: 1991-09-22
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1991
+  stage: regular_season
+  round: 20
+home:
+  clubId: surnadal
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83058&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99120.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99120"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

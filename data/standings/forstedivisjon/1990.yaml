@@ -1,0 +1,142 @@
+competitionId: forstedivisjon
+season: 1990
+table:
+  - position: 1
+    name: Sogndal
+    clubId: sogndal
+    played: 22
+    wins: 15
+    draws: 3
+    losses: 4
+    goalsFor: 42
+    goalsAgainst: 23
+    points: 48
+    outcome: none
+  - position: 2
+    name: Bryne
+    clubId: bryne
+    played: 22
+    wins: 14
+    draws: 2
+    losses: 6
+    goalsFor: 34
+    goalsAgainst: 20
+    points: 44
+    outcome: none
+  - position: 3
+    name: Ham-Kam 3
+    clubId: hamkam
+    played: 22
+    wins: 13
+    draws: 4
+    losses: 5
+    goalsFor: 53
+    goalsAgainst: 28
+    points: 43
+    outcome: none
+  - position: 4
+    name: Strømmen IF - MEN 1
+    clubId: strommen
+    played: 22
+    wins: 12
+    draws: 5
+    losses: 5
+    goalsFor: 40
+    goalsAgainst: 13
+    points: 41
+    outcome: none
+  - position: 5
+    name: Aalesunds FK
+    clubId: aalesunds-fk
+    played: 22
+    wins: 11
+    draws: 4
+    losses: 7
+    goalsFor: 40
+    goalsAgainst: 31
+    points: 37
+    outcome: none
+  - position: 6
+    name: Djerv 1919
+    clubId: djerv-1919
+    played: 22
+    wins: 9
+    draws: 5
+    losses: 8
+    goalsFor: 23
+    goalsAgainst: 22
+    points: 32
+    outcome: none
+  - position: 7
+    name: Hødd
+    clubId: hodd
+    played: 22
+    wins: 5
+    draws: 8
+    losses: 9
+    goalsFor: 27
+    goalsAgainst: 34
+    points: 23
+    outcome: none
+  - position: 8
+    name: KFK
+    clubId: kfk
+    played: 22
+    wins: 5
+    draws: 7
+    losses: 10
+    goalsFor: 22
+    goalsAgainst: 37
+    points: 22
+    outcome: none
+  - position: 9
+    name: Frigg
+    clubId: frigg
+    played: 22
+    wins: 5
+    draws: 5
+    losses: 12
+    goalsFor: 23
+    goalsAgainst: 43
+    points: 20
+    outcome: none
+  - position: 10
+    name: Os
+    clubId: os
+    played: 22
+    wins: 4
+    draws: 7
+    losses: 11
+    goalsFor: 18
+    goalsAgainst: 35
+    points: 19
+    outcome: none
+  - position: 11
+    name: Stord
+    clubId: stord
+    played: 22
+    wins: 4
+    draws: 6
+    losses: 12
+    goalsFor: 22
+    goalsAgainst: 38
+    points: 18
+    outcome: none
+  - position: 12
+    name: Faaberg
+    clubId: faaberg
+    played: 22
+    wins: 3
+    draws: 8
+    losses: 11
+    goalsFor: 16
+    goalsAgainst: 36
+    points: 17
+    outcome: none
+progression: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83051&underside=tabellen
+    retrievedAt: 2026-08-05
+    fields:
+      - table

@@ -80,17 +80,25 @@ describe("runnerEnv", () => {
     // hele miljøet, bærer det innerste og minst privilegerte laget også
     // API-nøkkelen — og NODE_OPTIONS kan inneholde --require, som ville kjørt
     // fremmed kode nettopp der.
-    const before = { key: process.env.ANTHROPIC_API_KEY, opts: process.env.NODE_OPTIONS };
+    const before = {
+      key: process.env.ANTHROPIC_API_KEY,
+      openaiKey: process.env.OPENAI_API_KEY,
+      opts: process.env.NODE_OPTIONS,
+    };
     process.env.ANTHROPIC_API_KEY = "sk-ant-skal-ikke-arves";
+    process.env.OPENAI_API_KEY = "sk-skal-ikke-arves";
     process.env.NODE_OPTIONS = "--require /tmp/ondsinnet.js";
     try {
       const env = runnerEnv();
       expect(env.ANTHROPIC_API_KEY).toBeUndefined();
+      expect(env.OPENAI_API_KEY).toBeUndefined();
       expect(env.NODE_OPTIONS).toBeUndefined();
       expect(Object.keys(env)).toContain("PATH");
     } finally {
       if (before.key === undefined) delete process.env.ANTHROPIC_API_KEY;
       else process.env.ANTHROPIC_API_KEY = before.key;
+      if (before.openaiKey === undefined) delete process.env.OPENAI_API_KEY;
+      else process.env.OPENAI_API_KEY = before.openaiKey;
       if (before.opts === undefined) delete process.env.NODE_OPTIONS;
       else process.env.NODE_OPTIONS = before.opts;
     }

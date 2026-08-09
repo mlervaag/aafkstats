@@ -1,0 +1,41 @@
+id: 1999-05-30-aalesunds-fk-nardo-fk
+date: 1999-05-30
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 1999
+  stage: regular_season
+  round: 7
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: nardo-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=113181&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 15120206042.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "15120206042"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

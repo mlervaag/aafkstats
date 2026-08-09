@@ -3,7 +3,7 @@ date: 1967-10-08
 dateConfidence: exact
 status: played
 competition:
-  id: tredjedivisjon
+  id: andredivisjon
   season: 1967
   stage: regular_season
 home:
@@ -17,8 +17,8 @@ away:
 neutralVenue: false
 events: []
 externalReports: []
-sources:
-  - sourceId: rsssf
+providers:
+  - providerId: rsssf
     url: http://www.rsssf.no/1967/Third.html
     retrievedAt: 2026-08-03
     fields:

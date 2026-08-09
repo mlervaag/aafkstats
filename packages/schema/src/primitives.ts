@@ -75,11 +75,25 @@ export type HistoricalName = z.infer<typeof historicalName>;
  * (`home.score`, `events`). Det er dette som gjør det mulig å si hvor hver enkelt
  * opplysning kommer fra, ikke bare hvilke kilder som er brukt på kampen som helhet.
  */
+export const providerRef = z
+  .object({
+    providerId: slug,
+    url: httpUrl.optional(),
+    retrievedAt: isoDate.optional(),
+    fields: z.array(z.string().min(1)).default([]),
+    note: z.string().optional(),
+  })
+  .strict();
+
+export type ProviderRef = z.infer<typeof providerRef>;
+
+/**
+ * Kildehenvisning til et faktisk historisk dokument (en 'source').
+ */
 export const sourceRef = z
   .object({
     sourceId: slug,
-    url: httpUrl.optional(),
-    retrievedAt: isoDate.optional(),
+    page: z.string().optional(),
     fields: z.array(z.string().min(1)).default([]),
     note: z.string().optional(),
   })
@@ -121,7 +135,7 @@ export const conflict = z
         z
           .object({
             value: z.union([z.string(), z.number(), z.null()]),
-            sourceId: slug,
+            providerId: slug,
             /**
              * Observasjonen verdien kom fra, som `payloadHash`.
              *
@@ -143,7 +157,7 @@ export const conflict = z
     /** Verdien arkivet bruker. Må være én av verdiene over. */
     chosen: z.union([z.string(), z.number(), z.null()]).optional(),
     /** Kilden den valgte verdien kom fra. */
-    chosenSourceId: slug.optional(),
+    chosenProviderId: slug.optional(),
     decision: decisionKind.default("unresolved"),
     decidedAt: isoDate.optional(),
     /** Hvorfor. En løst konflikt uten begrunnelse er ikke etterprøvbar. */

@@ -35,6 +35,7 @@ function merge(existing: Person | undefined, fresh: WikipediaPlayer, season: num
     names: [],
     squadNumbers: [],
     coachSpells: [],
+    providers: [],
     sources: [],
   };
 
@@ -53,10 +54,10 @@ function merge(existing: Person | undefined, fresh: WikipediaPlayer, season: num
         { season, number: fresh.number },
       ].sort((a, b) => a.season - b.season);
 
-  const sources = [
-    ...base.sources.filter((s) => s.sourceId !== "wikipedia"),
+  const providers = [
+    ...base.providers.filter((s) => s.providerId !== "wikipedia"),
     {
-      sourceId: "wikipedia",
+      providerId: "wikipedia",
       url,
       retrievedAt,
       fields: ["name", "position", "nationality", "squadNumbers"],
@@ -72,7 +73,7 @@ function merge(existing: Person | undefined, fresh: WikipediaPlayer, season: num
     position: base.position ?? fresh.position,
     nationality: base.nationality ?? fresh.nationality,
     squadNumbers,
-    sources,
+    providers,
   } satisfies Person);
 }
 
@@ -176,9 +177,9 @@ async function runCoaches(root: string, archive: Awaited<ReturnType<typeof loadA
     const id = existing?.id ?? slugify(spell.name);
     const current = touched.get(id) ?? existing ?? {
       id, name: spell.name, names: [],
-      squadNumbers: [], coachSpells: [], sources: [],
+      squadNumbers: [], coachSpells: [], providers: [], sources: [],
     };
-    const wikipedia = current.sources.find((s) => s.sourceId === "wikipedia");
+    const wikipedia = current.providers.find((s) => s.providerId === "wikipedia");
 
     touched.set(id, personSchema.parse({
       ...current,
@@ -186,10 +187,10 @@ async function runCoaches(root: string, archive: Awaited<ReturnType<typeof loadA
         ...current.coachSpells.filter((s) => s.fromSeason !== spell.fromSeason),
         { fromSeason: spell.fromSeason, toSeason: spell.toSeason },
       ].sort((a, b) => a.fromSeason - b.fromSeason),
-      sources: [
-        ...current.sources.filter((s) => s.sourceId !== "wikipedia"),
+      providers: [
+        ...current.providers.filter((s) => s.providerId !== "wikipedia"),
         {
-          sourceId: "wikipedia", url, retrievedAt: table.timestamp,
+          providerId: "wikipedia", url, retrievedAt: table.timestamp,
           fields: [...new Set([...(wikipedia?.fields ?? []), "coachSpells"])],
           note: "Årstall fra trenertabellen. Merknadskolonnen er prosa og er ikke gjengitt.",
         },

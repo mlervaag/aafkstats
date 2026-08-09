@@ -47,7 +47,7 @@ async function main(): Promise<void> {
     onProgress: (line) => console.log(`  ${line}`),
   });
   const plan = reconcile(before, fetched.matches, {
-    sourceId: "fotmob",
+    providerId: "fotmob",
     competitionId: args.competition,
     retrievedAt: args.retrievedAt,
     adapter: FOTMOB_ADAPTER,

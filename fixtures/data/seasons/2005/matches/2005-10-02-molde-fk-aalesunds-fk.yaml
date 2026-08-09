@@ -6,8 +6,8 @@ home: { clubId: molde-fk, score: 7, halfTimeScore: 4 }
 away: { clubId: aalesunds-fk, score: 0, halfTimeScore: 0 }
 venueId: aker-stadion
 attendance: 9530
-sources:
-  - { sourceId: wikipedia, retrievedAt: 2026-08-02, fields: [home.score, away.score] }
+providers:
+  - { providerId: wikipedia, retrievedAt: 2026-08-02, fields: [home.score, away.score] }
 confidence: confirmed
 tags: [fixture]
 note: >

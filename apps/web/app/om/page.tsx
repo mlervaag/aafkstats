@@ -18,6 +18,11 @@ export default function AboutPage() {
               har dato og motstander, men ingen resultatfelt, og er merket slik at de ikke
               telles med i statistikken.
             </p>
+            <p>
+              Besøkende kan bidra med minner, rettelser eller fakta via knapper på hver
+              kamp- og sesongside. Disse bidragene går gjennom en redaksjonell innboks før 
+              de havner i arkivet.
+            </p>
             <CoverageNote />
             <SeasonDepth />
             <GapNote />
@@ -63,17 +68,18 @@ export default function AboutPage() {
           <section>
             <h2>Kilder og sikkerhet</h2>
             <p>
-              Hver kamp peker til kilden og hvilke felt kilden har levert. To kilder bærer
-              arkivet i dag. FotMob dekker kampene fra rundt 2010 og er den eneste som gir
-              hendelser og lagoppstillinger; den er en udokumentert sekundærkilde med
-              uavklarte vilkår for systematisk gjenbruk. RSSSF dekker sesongene bakover og
-              gir resultater og sluttabeller, men ikke detaljer fra kampene. Spillere og
-              trenere er hentet fra Wikipedia og Wikidata.
+              Hver kamp peker til kilden og hvilke felt kilden har levert. Dataene er
+              hentet fra RSSSF (eldre sesonger), NFF Fotballdata og fotball.no (utvalgte
+              sesonger og tabeller) og FotMob (nyere sesonger med hendelser og kampfakta).
+              FotMob er den eneste som gir hendelser og lagoppstillinger, og den er en
+              udokumentert sekundærkilde med uavklarte vilkår for systematisk gjenbruk.
+              Spillere og trenere er hentet fra Wikipedia og Wikidata.
             </p>
             <p>
-              Ingen av kampene er kryssjekket mot en uavhengig kilde ennå. Planen er
-              fotball.no, NIFS, klubbkilder og samtidige kamprapporter fra
-              Nasjonalbiblioteket. En opplysning blir ikke mer sann av å stå i en database.
+              Arkivet suppleres og kryssjekkes fortløpende mot NIFS, klubbkilder,
+              Nasjonalbiblioteket og samtidige kamprapporter. Der to kilder er uenige, står
+              begge verdiene på kampsiden framfor at den ene stille vinner. En opplysning
+              blir ikke mer sann av å stå i en database.
             </p>
           </section>
         </div>

@@ -1,0 +1,41 @@
+id: 1982-09-19-sunndal-aalesunds-fk
+date: 1982-09-19
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1982
+  stage: regular_season
+  round: 19
+home:
+  clubId: sunndal
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83035&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99113.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99113"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

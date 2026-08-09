@@ -86,22 +86,44 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
       );
     }
 
-    const insertSource = db.prepare(
-      `INSERT INTO core_sources (id, name, url, priority, license,
+    const insertProvider = db.prepare(
+      `INSERT INTO core_providers (id, name, url, priority, license,
          automated_access, public_redistribution, attribution_required,
          permission_status, ingest_decision, permission_requested_at,
          risk_accepted_at, risk_accepted_by,
          terms_checked_at, robots_checked_at, permission_note, note)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     );
-    for (const s of archive.sources) {
-      insertSource.run(
+    for (const s of archive.providers) {
+      insertProvider.run(
         s.id, s.name, s.url ?? null, s.priority, s.license ?? null,
         s.automatedAccess, s.publicRedistribution, bool(s.attributionRequired),
         s.permissionStatus, s.ingestDecision,
         s.permissionRequestedAt ?? null, s.riskAcceptedAt ?? null, s.riskAcceptedBy ?? null,
         s.termsCheckedAt ?? null, s.robotsCheckedAt ?? null,
         s.permissionNote ?? null, s.note ?? null,
+      );
+    }
+
+    const insertContribution = db.prepare(
+      `INSERT INTO core_contributions (id, scope, target_id, category, text, contributor, submitted_at, verification, source_url)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
+    );
+    for (const c of archive.contributions) {
+      insertContribution.run(
+        c.id, c.scope, c.targetId, c.category, c.text,
+        c.contributor ?? null, c.submittedAt, c.verification, c.sourceUrl ?? null
+      );
+    }
+
+    const insertSource = db.prepare(
+      `INSERT INTO core_sources (id, parent_source_id, title, source_type, issue, volume, publisher, year, cover_url, access_url, providers)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+    );
+    for (const p of archive.sources) {
+      insertSource.run(
+        p.id, p.parentSourceId ?? null, p.title, p.sourceType, p.issue ?? null, p.volume ?? null, p.publisher ?? null, p.year ?? null,
+        p.coverUrl ?? null, p.accessUrl ?? null, json(p.providers ?? [])
       );
     }
 
@@ -195,7 +217,7 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
          result, after_extra_time, decided_on_pens, won_on_pens,
          competition_name, opponent_name, venue_name,
          events, lineups, stats, report_summary, report_body, report_byline,
-         external_reports, sources, confidence, conflicts, tags, aliases,
+         external_reports, providers, confidence, conflicts, tags, aliases,
          completeness, missing_fields, note, source_file
        ) VALUES (${Array.from({ length: 53 }, () => "?").join(", ")})`,
     );
@@ -238,7 +260,7 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
         competitionName, opponentName, venueName,
         json(m.events), m.lineups ? json(m.lineups) : null, m.stats ? json(m.stats) : null,
         m.report?.summary ?? null, m.report?.body ?? null, m.report?.byline ?? null,
-        json(m.externalReports), json(m.sources), m.confidence, json(m.conflicts),
+        json(m.externalReports), json(m.providers), m.confidence, json(m.conflicts),
         json(m.tags), json(m.aliases),
         completeness(m), json(missingFields(m)), m.note ?? null, m.file,
       );

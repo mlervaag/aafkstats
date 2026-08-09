@@ -1,0 +1,41 @@
+id: 1990-04-29-os-aalesunds-fk
+date: 1990-04-29
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1990
+  stage: regular_season
+  round: 1
+home:
+  clubId: os
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83051&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99003.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "99003"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

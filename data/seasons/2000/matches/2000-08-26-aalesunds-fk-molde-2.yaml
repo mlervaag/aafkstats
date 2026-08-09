@@ -1,0 +1,41 @@
+id: 2000-08-26-aalesunds-fk-molde-2
+date: 2000-08-26
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 2000
+  stage: regular_season
+  round: 18
+home:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: molde-2
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=119411&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 23120206106.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "23120206106"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

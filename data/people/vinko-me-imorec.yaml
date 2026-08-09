@@ -8,8 +8,8 @@ squadNumbers:
   - season: 2024
     number: 3
 coachSpells: []
-sources:
-  - sourceId: wikipedia
+providers:
+  - providerId: wikipedia
     url: https://no.wikipedia.org/w/index.php?title=Aalesunds%20Fotballklubb&oldid=24808062
     retrievedAt: 2024-11-20
     fields:
@@ -18,7 +18,7 @@ sources:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
-  - sourceId: wikidata
+  - providerId: wikidata
     url: https://www.wikidata.org/wiki/Q26705183
     retrievedAt: 2026-08-04
     fields:

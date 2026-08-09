@@ -1,0 +1,41 @@
+id: 1999-09-19-aalesunds-fk-volda-ti-fotball
+date: 1999-09-19
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 1999
+  stage: regular_season
+  round: 21
+home:
+  clubId: aalesunds-fk
+  score: 6
+  halfTimeScore: null
+away:
+  clubId: volda-ti-fotball
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=113181&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 15120206126.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases:
+  fotball-no: "15120206126"
+manual: []
+note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

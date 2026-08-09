@@ -12,9 +12,8 @@ export const metadata: Metadata = {
     description: "Kamphistorikken til AaFK — søkbar, kildeført og åpen.",
     type: "website",
     locale: "nb_NO",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "AaFK-arkivet – uoffisielt historisk arkiv" }],
   },
-  twitter: { card: "summary_large_image", images: ["/og.png"] },
+  twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#f7f2e9" };
@@ -31,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <nav aria-label="Hovedmeny">
               <a href="/sesonger">Sesonger</a>
               <a href="/motstandere">Motstandere</a>
+              <a href="/publikasjoner">Publikasjoner</a>
               <a href="/data">Datasettet</a>
               <a href="/om">Om</a>
               <a className="nav-cta" href="/bidra">Bidra</a>
@@ -44,7 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer>
           <div className="wrap footer-grid">
             <div><a className="wordmark footer-wordmark" href="/"><JugendMark />AaFK<span>-arkivet</span></a><p>Et uoffisielt, åpent prosjekt uten tilknytning til Aalesunds Fotballklubb eller datakildene.</p></div>
-            <div><strong>Arkivet</strong><a href="/sesonger">Sesonger</a><a href="/motstandere">Motstandere</a><a href="/data">Datasettet</a></div>
+            <div><strong>Arkivet</strong><a href="/sesonger">Sesonger</a><a href="/motstandere">Motstandere</a><a href="/arkivet">Publikasjoner</a><a href="/data">Datasettet</a></div>
             <div><strong>Prosjektet</strong><a href="/om">Om og kilder</a><a href="/bidra">Bidra</a><a href="https://github.com/mlervaag/aafkstats">GitHub</a></div>
           </div>
           <div className="wrap footer-legal">Kode under MIT. Egne tekster under CC BY 4.0. Tredjepartskilder har egne vilkår.</div>

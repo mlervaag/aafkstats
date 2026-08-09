@@ -1,0 +1,142 @@
+competitionId: forstedivisjon
+season: 1985
+table:
+  - position: 1
+    name: Strømmen IF - MEN 1
+    clubId: strommen
+    played: 22
+    wins: 19
+    draws: 2
+    losses: 1
+    goalsFor: 54
+    goalsAgainst: 14
+    points: 40
+    outcome: none
+  - position: 2
+    name: Tromsø IL
+    clubId: tromso
+    played: 22
+    wins: 15
+    draws: 3
+    losses: 4
+    goalsFor: 45
+    goalsAgainst: 20
+    points: 33
+    outcome: none
+  - position: 3
+    name: Hødd (Gjennopprettet)
+    clubId: hodd
+    played: 22
+    wins: 12
+    draws: 7
+    losses: 3
+    goalsFor: 57
+    goalsAgainst: 23
+    points: 31
+    outcome: none
+  - position: 4
+    name: Steinkjer
+    clubId: steinkjer
+    played: 22
+    wins: 11
+    draws: 7
+    losses: 4
+    goalsFor: 45
+    goalsAgainst: 32
+    points: 29
+    outcome: none
+  - position: 5
+    name: Sunndal
+    clubId: sunndal
+    played: 22
+    wins: 9
+    draws: 6
+    losses: 7
+    goalsFor: 34
+    goalsAgainst: 29
+    points: 24
+    outcome: none
+  - position: 6
+    name: Mjølner Narvik
+    clubId: mjolner
+    played: 22
+    wins: 9
+    draws: 5
+    losses: 8
+    goalsFor: 32
+    goalsAgainst: 26
+    points: 23
+    outcome: none
+  - position: 7
+    name: Aalesunds FK
+    clubId: aalesunds-fk
+    played: 22
+    wins: 7
+    draws: 4
+    losses: 11
+    goalsFor: 22
+    goalsAgainst: 41
+    points: 18
+    outcome: none
+  - position: 8
+    name: Bærum
+    clubId: baerum
+    played: 22
+    wins: 7
+    draws: 2
+    losses: 13
+    goalsFor: 33
+    goalsAgainst: 42
+    points: 16
+    outcome: none
+  - position: 9
+    name: Grand Bodø
+    clubId: grand-bodo
+    played: 22
+    wins: 5
+    draws: 4
+    losses: 13
+    goalsFor: 22
+    goalsAgainst: 42
+    points: 14
+    outcome: none
+  - position: 10
+    name: Alvdal
+    clubId: alvdal
+    played: 22
+    wins: 3
+    draws: 8
+    losses: 11
+    goalsFor: 21
+    goalsAgainst: 42
+    points: 14
+    outcome: none
+  - position: 11
+    name: Strindheim IL
+    clubId: strindheim
+    played: 22
+    wins: 5
+    draws: 3
+    losses: 14
+    goalsFor: 27
+    goalsAgainst: 44
+    points: 13
+    outcome: none
+  - position: 12
+    name: Harstad
+    clubId: harstad
+    played: 22
+    wins: 3
+    draws: 3
+    losses: 16
+    goalsFor: 20
+    goalsAgainst: 57
+    points: 9
+    outcome: none
+progression: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83032&underside=tabellen
+    retrievedAt: 2026-08-05
+    fields:
+      - table

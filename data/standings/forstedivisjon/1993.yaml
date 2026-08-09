@@ -1,0 +1,142 @@
+competitionId: forstedivisjon
+season: 1993
+table:
+  - position: 1
+    name: Sogndal
+    clubId: sogndal
+    played: 22
+    wins: 14
+    draws: 5
+    losses: 3
+    goalsFor: 51
+    goalsAgainst: 24
+    points: 47
+    outcome: none
+  - position: 2
+    name: Bryne
+    clubId: bryne
+    played: 22
+    wins: 12
+    draws: 7
+    losses: 3
+    goalsFor: 52
+    goalsAgainst: 25
+    points: 43
+    outcome: none
+  - position: 3
+    name: Moss FK
+    clubId: moss
+    played: 22
+    wins: 13
+    draws: 2
+    losses: 7
+    goalsFor: 53
+    goalsAgainst: 33
+    points: 41
+    outcome: none
+  - position: 4
+    name: Drøbak/Frogn IL
+    clubId: drobak-frogn
+    played: 22
+    wins: 13
+    draws: 2
+    losses: 7
+    goalsFor: 46
+    goalsAgainst: 29
+    points: 41
+    outcome: none
+  - position: 5
+    name: Bærum
+    clubId: baerum
+    played: 22
+    wins: 10
+    draws: 4
+    losses: 8
+    goalsFor: 40
+    goalsAgainst: 41
+    points: 34
+    outcome: none
+  - position: 6
+    name: Fana
+    clubId: fana
+    played: 22
+    wins: 7
+    draws: 7
+    losses: 8
+    goalsFor: 34
+    goalsAgainst: 36
+    points: 28
+    outcome: none
+  - position: 7
+    name: Hødd
+    clubId: hodd
+    played: 22
+    wins: 8
+    draws: 4
+    losses: 10
+    goalsFor: 38
+    goalsAgainst: 52
+    points: 28
+    outcome: none
+  - position: 8
+    name: Åsane
+    clubId: asane
+    played: 22
+    wins: 7
+    draws: 4
+    losses: 11
+    goalsFor: 36
+    goalsAgainst: 49
+    points: 25
+    outcome: none
+  - position: 9
+    name: Vard Haugesund
+    clubId: vard-haugesund
+    played: 22
+    wins: 5
+    draws: 7
+    losses: 10
+    goalsFor: 29
+    goalsAgainst: 34
+    points: 22
+    outcome: none
+  - position: 10
+    name: Djerv 1919
+    clubId: djerv-1919
+    played: 22
+    wins: 5
+    draws: 7
+    losses: 10
+    goalsFor: 30
+    goalsAgainst: 39
+    points: 22
+    outcome: none
+  - position: 11
+    name: Ski
+    clubId: ski
+    played: 22
+    wins: 6
+    draws: 3
+    losses: 13
+    goalsFor: 18
+    goalsAgainst: 35
+    points: 21
+    outcome: none
+  - position: 12
+    name: Aalesunds FK
+    clubId: aalesunds-fk
+    played: 22
+    wins: 4
+    draws: 4
+    losses: 14
+    goalsFor: 28
+    goalsAgainst: 58
+    points: 16
+    outcome: none
+progression: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83060&underside=tabellen
+    retrievedAt: 2026-08-05
+    fields:
+      - table

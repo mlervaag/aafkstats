@@ -3,7 +3,7 @@ date: 1978-10-15
 dateConfidence: exact
 status: played
 competition:
-  id: tredjedivisjon
+  id: andredivisjon
   season: 1978
   stage: regular_season
 home:
@@ -17,8 +17,8 @@ away:
 neutralVenue: false
 events: []
 externalReports: []
-sources:
-  - sourceId: rsssf
+providers:
+  - providerId: rsssf
     url: http://www.rsssf.no/1978/Third.html
     retrievedAt: 2026-08-03
     fields:
