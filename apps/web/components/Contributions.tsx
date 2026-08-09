@@ -18,7 +18,7 @@ export function Contributions({ contributions }: ContributionsProps) {
             </blockquote>
             <div className="contribution-meta">
               <span className="contribution-author">
-                - {c.contributor || "Anonym bidragsyter"}
+                — {c.contributor || "Anonym bidragsyter"}
               </span>
               <span className="contribution-verification" data-status={c.verification}>
                 {c.verification === "verified" && "Bekreftet kilde"}

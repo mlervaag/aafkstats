@@ -102,6 +102,24 @@ describe("bidragsruten", () => {
     expect(res.status).toBe(400);
   });
 
+  it("sier hvilket felt som er problemet når et menneske har fylt det ut", async () => {
+    // «Ugyldig data sendt inn.» på en valgfri kilde er ubrukelig for den som
+    // skrev «Sunnmørsposten 12.5.1998» og ikke får vite at feltet vil ha en lenke.
+    const res = await POST(
+      request({ ...gyldig, source: "Sunnmørsposten 12.5.1998" }, { "x-real-ip": "10.0.0.10" }),
+    );
+    expect(res.status).toBe(400);
+    expect((await res.json()).error).toContain("http");
+  });
+
+  it("røper ikke hvilke felt vår egen klient fyller ut", async () => {
+    // `scope` settes av knappen, ikke av brukeren. Er den gal, er det vår feil,
+    // og avsenderen skal ikke få en omvisning i valideringen vår.
+    const res = await POST(request({ ...gyldig, scope: "tull" }, { "x-real-ip": "10.0.0.11" }));
+    expect(res.status).toBe(400);
+    expect((await res.json()).error).toBe("Ugyldig data sendt inn.");
+  });
+
   it("siterer bidragsyterens tekst i stedet for å slippe den løs i markdown", async () => {
     // Saken leses av et menneske og av en agent som vurderer bidrag. Tekst som
     // ser ut som en instruksjon skal være synlig som sitert innhold.

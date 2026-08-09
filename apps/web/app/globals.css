@@ -1058,6 +1058,17 @@ a.card-fragment:hover .card-title { color: var(--text); }
 .button-link.secondary:hover { border-color: var(--text); }
 .contribute-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .contribute-grid .button-link { align-self: flex-start; margin-top: auto; }
+
+/* Oppfordringen under kildelista. Sto tidligere med hardkodede farger rett i
+   komponenten, og ble derfor lys grå med blå knapp også i mørkt tema. */
+.source-tip {
+  margin-top: 3rem; padding: 1.75rem;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+}
+.source-tip h2 { margin: 0 0 0.5rem; font-size: 1.3rem; }
+.source-tip p { max-width: var(--measure); margin: 0 0 1.25rem; }
+.source-tip .button-link { margin-bottom: 1rem; }
+.source-tip p:last-child { margin: 0; }
 .empty-state { max-width: 38rem; margin: 8vh auto; padding: 3rem; text-align: center; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }
 /* Kickeren er en flex-linje med aksentstrek foran. Her står den midtstilt. */
 .empty-state .eyebrow { justify-content: center; }
@@ -1490,15 +1501,21 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
 .close-button:hover { color: var(--text); }
 
 .contribution-form .form-group { margin-top: 1.2rem; }
-.contribution-form label { display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.4rem; }
+/* Radiogruppa er et fieldset. Nettleserens egen ramme og innrykk hører til et
+   annet årtusen, og legend skal se ut som de andre feltetikettene. */
+.contribution-form fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+.contribution-form label,
+.contribution-form legend { display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.4rem; padding: 0; }
 .contribution-form .req { color: var(--accent); }
+/* Hjelpeteksten hører til feltet over og skal ikke se ut som en ny etikett. */
+.contribution-form .form-help { margin: 0.4rem 0 0; font-weight: 400; }
 
-.contribution-form input[type="text"], .contribution-form textarea {
+.contribution-form input[type="text"], .contribution-form input[type="url"], .contribution-form textarea {
   width: 100%; font: inherit; font-size: 0.925rem; padding: 0.6rem;
   border: 1px solid var(--border); border-radius: var(--radius);
   background: var(--bg); color: var(--text);
 }
-.contribution-form input[type="text"]:focus, .contribution-form textarea:focus {
+.contribution-form input[type="text"]:focus, .contribution-form input[type="url"]:focus, .contribution-form textarea:focus {
   outline: 2px solid var(--accent); outline-offset: -1px; border-color: transparent;
 }
 

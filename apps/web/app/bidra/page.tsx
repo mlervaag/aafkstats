@@ -15,38 +15,57 @@ export default function ContributePage() {
         <p className="eyebrow">Åpent arkiv</p>
         <h1>Har du en rettelse eller kilde?</h1>
         <p className="lede">
-          Bidragsskjemaet er ikke bygget ennå. Foreløpig går rettelser via GitHub, slik at
-          alle endringer kan kontrolleres før de blir del av arkivet.
+          Bidrag legges inn der de hører hjemme: på kampen eller sesongen de gjelder. Hver
+          kampside har en knapp som åpner skjemaet med kampen allerede valgt, så du slipper
+          å forklare hvilken kamp du mener.
         </p>
       </header>
 
       <div className="contribute-grid">
         <section className="archive-card">
           <span className="card-kicker">Raskest</span>
-          <h2>Del minner, eller meld en feil</h2>
+          <h2>Bidra fra kampsiden</h2>
           <p>
-            Bruk malene på GitHub til å legge inn en observasjon, tipse om en kilde eller
-            melde inn noe som bør rettes.
+            Finn kampen eller sesongen, og bruk «Bidra om kampen». Du kan dele et minne,
+            melde en feil i kampfakta eller legge til en kilde — uten konto, uten innlogging.
+          </p>
+          <a className="button-link" href="/sesonger">
+            Finn kampen
+          </a>
+        </section>
+        <section className="archive-card">
+          <span className="card-kicker">For utviklere</span>
+          <h2>GitHub-sak eller pull request</h2>
+          <p>
+            Gjelder det noe større — en kamp som mangler helt, en ny datakilde eller koden —
+            er malene på GitHub bedre egnet. Dataene ligger som lesbare YAML-filer.
           </p>
           <a
-            className="button-link"
+            className="button-link secondary"
             href="https://github.com/mlervaag/aafkstats/issues/new/choose"
           >
             Opprett GitHub-sak
           </a>
         </section>
-        <section className="archive-card">
-          <span className="card-kicker">For utviklere</span>
-          <h2>Send en pull request</h2>
-          <p>
-            Dataene ligger som lesbare YAML-filer. Validering og tester kjører automatisk
-            på alle forslag.
-          </p>
-          <a className="button-link secondary" href="https://github.com/mlervaag/aafkstats">
-            Åpne repoet
-          </a>
-        </section>
       </div>
+
+      <section className="content-section prose-stack">
+        <h2>Hva som skjer etterpå</h2>
+        <p>
+          Et bidrag går ikke rett i arkivet. Det havner i en innboks og blir liggende til
+          noen har vurdert det — og den vurderingen er den samme uansett om den gjøres for
+          hånd eller av en agent: finnes kampen, motsier innspillet noe som allerede er
+          registrert med kilde, holder en oppgitt lenke, og var spilleren du nevner faktisk i
+          klubben det året.
+        </p>
+        <p>
+          Holder det, blir bidraget en fil i arkivet og dukker opp på kampsiden under
+          «Observasjoner og minner», merket med hvor sikkert det er. Uten kilde står det som
+          <em> ubekreftet</em> — det er ingen dom over minnet ditt, bare en opplysning til
+          neste leser. Et bidrag endrer aldri selve kampfakta; mener du at et resultat er
+          feil, blir det en egen sak.
+        </p>
+      </section>
 
       <section className="content-section prose-stack">
         <h2>Et godt bidrag inneholder</h2>

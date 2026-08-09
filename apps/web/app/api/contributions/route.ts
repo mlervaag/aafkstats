@@ -91,6 +91,30 @@ function oneLine(raw: string, max = 100): string {
   return raw.replace(/\s+/g, " ").trim().slice(0, max);
 }
 
+/**
+ * Hva avsenderen får vite når skjemaet avviser noe.
+ *
+ * Ruten svarte tidligere «Ugyldig data sendt inn.» på alt. For de feltene vår
+ * egen klient fyller ut er det greit — er `scope` ugyldig, er det vår feil og
+ * ikke noe brukeren kan rette. Men to av feltene skrives av et menneske, og der
+ * er et rundt avslag ubrukelig: teksten var for lang, eller kilden var ikke en
+ * lenke, og skjemaet sa ikke hvilken av delene det var.
+ *
+ * Bare felt med en melding her får en spesifikk begrunnelse. Resten faller
+ * tilbake til den runde, så et validerings­detaljnivå vi ikke har vurdert aldri
+ * lekker ut i et svar.
+ */
+const REJECTION: Record<string, string> = {
+  text: "Teksten mangler, eller den er lengre enn 2000 tegn.",
+  source: "Kilden må være en lenke som starter med http:// eller https://.",
+  contributor: "Navnefeltet er for langt.",
+};
+
+function rejectionReason(error: z.ZodError): string {
+  const field = error.issues[0]?.path[0];
+  return (typeof field === "string" ? REJECTION[field] : undefined) ?? "Ugyldig data sendt inn.";
+}
+
 export async function POST(req: Request) {
   try {
     // Endepunktet har ingen innlogging, så dette er ikke CSRF i vanlig forstand.
@@ -122,7 +146,7 @@ export async function POST(req: Request) {
 
     const result = contributionSchema.safeParse(body);
     if (!result.success) {
-      return NextResponse.json({ error: "Ugyldig data sendt inn." }, { status: 400 });
+      return NextResponse.json({ error: rejectionReason(result.error) }, { status: 400 });
     }
 
     const data = result.data;
