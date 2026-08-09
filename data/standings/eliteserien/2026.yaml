@@ -48,12 +48,12 @@ table:
   - position: 5
     name: Molde
     clubId: molde-fk
-    played: 15
+    played: 16
     wins: 7
     draws: 3
-    losses: 5
-    goalsFor: 28
-    goalsAgainst: 22
+    losses: 6
+    goalsFor: 29
+    goalsAgainst: 24
     points: 24
     outcome: none
   - position: 6
@@ -145,6 +145,17 @@ table:
     points: 15
     outcome: none
   - position: 14
+    name: Kristiansund
+    clubId: kristiansund
+    played: 16
+    wins: 4
+    draws: 3
+    losses: 9
+    goalsFor: 15
+    goalsAgainst: 26
+    points: 15
+    outcome: none
+  - position: 15
     name: Aalesund
     clubId: aalesunds-fk
     played: 16
@@ -154,17 +165,6 @@ table:
     goalsFor: 22
     goalsAgainst: 36
     points: 14
-    outcome: none
-  - position: 15
-    name: Kristiansund
-    clubId: kristiansund
-    played: 15
-    wins: 3
-    draws: 3
-    losses: 9
-    goalsFor: 13
-    goalsAgainst: 25
-    points: 12
     outcome: none
   - position: 16
     name: Start
@@ -254,12 +254,12 @@ progression:
     played: 15
     goalDifference: -14
   - round: 17
-    position: 14
+    position: 15
     points: 14
     played: 16
     goalDifference: -14
   - round: 18
-    position: 14
+    position: 15
     points: 14
     played: 16
     goalDifference: -14
@@ -272,4 +272,4 @@ providers:
       - progression
     note: Lest med fotmob-table@1. Tabellen er hentet; kurven er regnet ut av divisjonens runder i samme svar.
 sources: []
-note: "Tabellen er hentet mens sesongen pågår: 128 av 240 kamper i divisjonen er spilt. Ingen rad har utfall ennå."
+note: "Tabellen er hentet mens sesongen pågår: 129 av 240 kamper i divisjonen er spilt. Ingen rad har utfall ennå."
