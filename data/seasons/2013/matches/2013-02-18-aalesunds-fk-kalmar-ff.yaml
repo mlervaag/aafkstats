@@ -1,0 +1,56 @@
+id: 2013-02-18-aalesunds-fk-kalmar-ff
+date: 2013-02-18
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: treningskamp
+  season: 2013
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: kalmar-ff
+  score: 1
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 12
+    type: goal
+    team: home
+    player: Demar Phillips
+  - minute: 76
+    type: goal
+    team: home
+    player: Tremaine Stewart
+  - minute: 86
+    type: goal
+    team: away
+    player: Tobias Eriksson
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-kalmar-ff/2rnrls#1388637
+    retrievedAt: 2026-08-09
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1388637"
+manual: []

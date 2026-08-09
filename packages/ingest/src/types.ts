@@ -3,6 +3,7 @@ import type { Match, MatchEvent } from "@aafkstats/schema";
 export interface SourceTeam {
   externalId: string;
   name: string;
+  country?: string;
 }
 
 export interface SourceLineup {
@@ -45,6 +46,9 @@ export interface SourceMatch {
   venueName?: string;
   venueCity?: string;
   venueCapacity?: number;
+  venueCountry?: string;
+  /** Kilden viste et spillested, men det er kjent som en upålitelig standardverdi. */
+  venueReliable?: boolean;
   attendance?: number;
   referee?: string;
   events?: MatchEvent[];

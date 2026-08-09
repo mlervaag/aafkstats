@@ -1,0 +1,51 @@
+providerId: fotmob
+externalId: "1161481"
+matchId: 2012-01-30-aalesunds-fk-shakhtar-donetsk
+retrievedAt: 2026-08-09
+adapter: fotmob@3
+payloadHash: sha256:3f85ce690a6cb1270c9e1d73a0ec89bd3f76a5375f197a6e15b41a078ca11e7f
+raw:
+  externalId: "1161481"
+  date: 2012-01-30
+  kickoff: 19:00
+  status: Pen
+  home: Aalesund
+  homeId: "8404"
+  away: Shakhtar Donetsk
+  awayId: "9728"
+  homeScore: 2
+  awayScore: 2
+  homeHalfTime: 1
+  awayHalfTime: 1
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2012
+  venue: Color Line Stadion
+  url: https://www.fotmob.com/matches/aalesund-vs-shakhtar-donetsk/2pvqk2#1161481
+normalized:
+  date: 2012-01-30
+  kickoff: 19:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: shakhtar-donetsk
+  home.score: 2
+  away.score: 2
+  home.halfTimeScore: 1
+  away.halfTimeScore: 1
+  competition.id: treningskamp
+  competition.season: 2012
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - penaltyShootout
+  - events
+warnings: []

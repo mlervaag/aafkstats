@@ -1,0 +1,74 @@
+id: 2011-08-25-az-alkmaar-aalesunds-fk
+date: 2011-08-25
+dateConfidence: exact
+kickoff: 20:45
+status: played
+competition:
+  id: europa-liga
+  season: 2011
+  stage: qualifying
+home:
+  clubId: az-alkmaar
+  score: 6
+  halfTimeScore: 2
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+venueId: az-stadion
+neutralVenue: false
+events:
+  - minute: 7
+    type: goal
+    team: home
+    player: Pontus Wernbloom
+  - minute: 25
+    type: goal
+    team: home
+    player: Jozy Altidore
+  - minute: 54
+    type: goal
+    team: home
+    player: Maarten Martens
+  - minute: 59
+    type: goal
+    team: home
+    player: Jozy Altidore
+  - minute: 62
+    type: red_card
+    team: away
+    player: Demar Phillips
+  - minute: 68
+    type: goal
+    team: home
+    player: Brett Holman
+  - minute: 90
+    type: penalty_goal
+    team: home
+    player: Niklas Moisander
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-az-alkmaar/2vd3xd#1090147
+    retrievedAt: 2026-08-09
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1090147"
+manual: []

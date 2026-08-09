@@ -17,8 +17,111 @@ export const AAFK_FOTMOB_ID = "8404";
  * ikke når en kommentar flyttes. Det er dette som gjør at en verdi hentet før en
  * rettelse kan skilles fra en hentet etter.
  */
-export const FOTMOB_ADAPTER = "fotmob@2";
+export const FOTMOB_ADAPTER = "fotmob@3";
 const BASE = "https://www.fotmob.com/api/data";
+const TEAM_COUNTRIES: Record<string, string> = {
+  "8014": "SE", "8222": "HU", "8621": "CY", "9728": "UA", "9892": "SE",
+  "9927": "GB", "10029": "AL", "10202": "DK", "10229": "NL", "10265": "PL",
+  "80597": "GB",
+};
+
+export interface TeamHistoryFetchOptions {
+  from: string;
+  to: string;
+  maxPages?: number;
+  matchIds?: string[];
+  withDetails?: boolean;
+  refresh?: boolean;
+  onProgress?: (message: string) => void;
+}
+
+/**
+ * Leser den eksplisitt avgrensede klubbhistorikken FotMob selv bruker på
+ * kampsiden. Dette er discovery, ikke en skjult «hent alt»-modus: både fra- og
+ * tildato er obligatoriske, antall sider har et hardt tak, og detaljoppslag kan
+ * begrenses til en eksplisitt liste med kamp-ID-er.
+ */
+export async function fetchFotmobTeamHistory(options: TeamHistoryFetchOptions): Promise<FetchResult> {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(options.from) || !/^\d{4}-\d{2}-\d{2}$/.test(options.to) || options.from > options.to) {
+    throw new Error("FotMob-historikk krever gyldig --from og --to");
+  }
+  const maxPages = options.maxPages ?? 40;
+  if (!Number.isInteger(maxPages) || maxPages < 1 || maxPages > 40) {
+    throw new Error("maxPages må være 1–40");
+  }
+
+  let requests = 0;
+  const request = <T>(url: string) => fetchJson<T>(url, {
+    refresh: options.refresh,
+    onNetworkRequest: () => { requests += 1; },
+  });
+  const exclusiveEnd = Math.floor(new Date(`${options.to}T23:59:59Z`).getTime() / 1000) + 1;
+  const initialCursor = `/prod/db/api/team/${AAFK_FOTMOB_ID}/fixture-by-date?beforetimestamp=${exclusiveEnd}`;
+  let url: string | undefined = `${BASE}/pageableFixtures?teamId=${AAFK_FOTMOB_ID}&cursor=${encodeURIComponent(initialCursor)}`;
+  const rawMatches = new Map<string, RawTeamFixture>();
+  const failures: FetchResult["failures"] = [];
+
+  for (let page = 1; page <= maxPages && url; page++) {
+    options.onProgress?.(`historikkside ${page}/${maxPages}`);
+    let payload: RawPageableFixtures;
+    try {
+      payload = await request<RawPageableFixtures>(url);
+    } catch (error) {
+      failures.push({ scope: "season", externalId: AAFK_FOTMOB_ID, message: message(error) });
+      break;
+    }
+    const pageMatches = payload.matches ?? [];
+    for (const raw of pageMatches) {
+      if (raw.id !== undefined && isAafkMatch(raw)) rawMatches.set(String(raw.id), raw);
+    }
+    const dates = pageMatches.flatMap((raw) => raw.status?.utcTime ? [raw.status.utcTime.slice(0, 10)] : []);
+    if (dates.length === 0 || dates.some((date) => date <= options.from) || !payload.previous) break;
+    url = new URL(payload.previous, "https://www.fotmob.com").href;
+    if (page === maxPages) {
+      failures.push({ scope: "season", externalId: AAFK_FOTMOB_ID, message: `historikken traff sidetaket ${maxPages}` });
+    }
+  }
+
+  const wanted = options.matchIds ? new Set(options.matchIds) : undefined;
+  const matches = [...rawMatches.values()]
+    .filter((raw) => {
+      const date = raw.status?.utcTime?.slice(0, 10) ?? "";
+      return date >= options.from && date <= options.to && (!wanted || wanted.has(String(raw.id)));
+    })
+    .flatMap((raw) => {
+      const leagueId = String(raw.tournament?.leagueId ?? "unknown");
+      const year = Number(raw.status?.utcTime?.slice(0, 4));
+      const normalized = normalizeLeagueMatch(raw, leagueId, year, raw.tournament?.name);
+      return normalized ? [normalized] : [];
+    });
+
+  if (wanted) {
+    for (const id of wanted) {
+      if (!matches.some((match) => match.externalId === id)) {
+        failures.push({ scope: "match", externalId: id, message: "kamp-ID-en finnes ikke i det avgrensede historikkvinduet" });
+      }
+    }
+  }
+
+  if (options.withDetails) {
+    for (const [index, match] of matches.entries()) {
+      options.onProgress?.(`detaljer ${index + 1}/${matches.length}: ${match.externalId}`);
+      try {
+        const detail = await request<RawMatchDetails>(`${BASE}/matchDetails?matchId=${match.externalId}`);
+        enrichFromDetails(match, detail);
+        if (match.competitionExternalId === "489" && match.venueName) {
+          match.venueReliable = false;
+          match.fields = match.fields.filter((field) => field !== "venueId");
+          match.note = "FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.";
+        }
+      } catch (error) {
+        failures.push({ scope: "match", externalId: match.externalId, message: message(error) });
+      }
+    }
+  }
+  matches.sort((a, b) => a.date.localeCompare(b.date) || a.externalId.localeCompare(b.externalId));
+  return { matches, failures, requests };
+}
 
 /**
  * Henter én eksplisitt turneringssesong. Adapteren kan ikke oppdage eller starte en
@@ -131,13 +234,14 @@ export function normalizeLeagueMatch(
     kickoff: local.kickoff,
     status: normalizeStatus(raw.status),
     rawStatus: raw.status?.reason?.short,
-    home: { externalId: homeId, name: raw.home.name },
-    away: { externalId: awayId, name: raw.away.name },
+    home: { externalId: homeId, name: raw.home.name, country: TEAM_COUNTRIES[homeId] ?? (homeId === AAFK_FOTMOB_ID ? "NO" : undefined) },
+    away: { externalId: awayId, name: raw.away.name, country: TEAM_COUNTRIES[awayId] ?? (awayId === AAFK_FOTMOB_ID ? "NO" : undefined) },
     homeScore,
     awayScore,
     competitionExternalId: leagueId,
     competitionName: raw.tournament?.name ?? leagueName ?? String(leagueId),
     season,
+    venueReliable: leagueId === "489" ? false : undefined,
     url: raw.pageUrl ? `https://www.fotmob.com${raw.pageUrl}` : undefined,
     fields,
   };
@@ -148,6 +252,9 @@ export function normalizeLeagueMatch(
   }
   if (stage) {
     match.stage = stage;
+    fields.push("competition.stage");
+  } else if (/qualif/i.test(match.competitionName)) {
+    match.stage = "qualifying";
     fields.push("competition.stage");
   }
   return match;
@@ -197,6 +304,11 @@ export function readRound(value: unknown): { round?: number; stage?: SourceMatch
 }
 
 export function enrichFromDetails(match: SourceMatch, detail: RawMatchDetails): void {
+  const detailRound = readRound(detail.general?.matchRound);
+  if (detailRound.round !== undefined && match.round === undefined) {
+    match.round = detailRound.round;
+    match.fields.push("competition.round");
+  }
   const facts = detail.content?.matchFacts;
   const info = facts?.infoBox;
   add(match, "attendance", toInt(info?.Attendance));
@@ -210,6 +322,7 @@ export function enrichFromDetails(match: SourceMatch, detail: RawMatchDetails): 
       match.venueCapacity = toInt(stadium.capacity);
     }
     match.fields.push("venueId");
+    match.venueCountry ??= match.home.country;
   }
 
   const referee = info?.Referee;
@@ -260,7 +373,7 @@ export function readEvents(detail: RawMatchDetails): MatchEvent[] {
     const clock = parseMinute(raw.time, raw.overloadTime);
     if (!clock) continue;
     const base = { ...clock, team: raw.isHome ? "home" as const : "away" as const };
-    const player = raw.player?.name ?? raw.nameStr;
+    const player = cleanName(raw.player?.name ?? raw.nameStr);
 
     if (raw.type === "Goal") {
       events.push({
@@ -284,6 +397,11 @@ export function readEvents(detail: RawMatchDetails): MatchEvent[] {
     }
   }
   return events.sort((a, b) => a.minute - b.minute || (a.stoppage ?? 0) - (b.stoppage ?? 0));
+}
+
+function cleanName(value: string | undefined): string | undefined {
+  const name = value?.trim();
+  return !name || /^<?tbd>?$/i.test(name) || name === "–" || name === "-" ? undefined : name;
 }
 
 /**
@@ -373,7 +491,18 @@ export function readShootout(match: SourceMatch, detail: RawMatchDetails): void 
   }
 
   const shots = events.filter((event) => event.isPenaltyShootoutEvent);
-  if (shots.length === 0) return;
+  if (shots.length === 0) {
+    const penalties = detail.header?.status?.reason?.penalties;
+    if (Array.isArray(penalties) && penalties.length === 2) {
+      const home = toInt(penalties[0]);
+      const away = toInt(penalties[1]);
+      if (home !== undefined && away !== undefined) {
+        match.penaltyShootout = { home, away };
+        match.fields.push("penaltyShootout");
+      }
+    }
+    return;
+  }
 
   let home = 0;
   let away = 0;
@@ -497,11 +626,15 @@ function readLineups(detail: RawMatchDetails): { home?: SourceLineup; away?: Sou
   const raw = detail.content?.lineup;
   const team = (value: RawLineupTeam | undefined): SourceLineup | undefined => {
     if (!value) return undefined;
+    const starters = (value.starters ?? []).flatMap((player) => cleanName(player.name) ? [cleanName(player.name)!] : []);
+    const subs = (value.subs ?? []).flatMap((player) => cleanName(player.name) ? [cleanName(player.name)!] : []);
+    const coach = cleanName(value.coach?.name);
+    if (!value.formation && starters.length === 0 && subs.length === 0 && !coach) return undefined;
     return {
       formation: value.formation,
-      starters: (value.starters ?? []).flatMap((player) => player.name ? [player.name] : []),
-      subs: (value.subs ?? []).flatMap((player) => player.name ? [player.name] : []),
-      coach: value.coach?.name,
+      starters,
+      subs,
+      coach,
     };
   };
   const home = team(raw?.homeTeam);
@@ -553,7 +686,7 @@ export interface RawLeagueMatch {
   id?: string | number;
   round?: string | number;
   pageUrl?: string;
-  tournament?: { name?: string };
+  tournament?: { name?: string; stage?: string; leagueId?: string | number };
   home?: { id?: string | number; name?: string };
   away?: { id?: string | number; name?: string };
   status?: RawStatus;
@@ -567,6 +700,8 @@ interface RawStatus {
   reason?: { short?: string; long?: string };
 }
 export interface RawMatchDetails {
+  general?: { matchRound?: string | number | null };
+  header?: { status?: { reason?: { penalties?: unknown[] } } };
   content?: {
     matchFacts?: {
       infoBox?: {
@@ -580,6 +715,8 @@ export interface RawMatchDetails {
     lineup?: { homeTeam?: RawLineupTeam; awayTeam?: RawLineupTeam };
   };
 }
+export type RawTeamFixture = RawLeagueMatch;
+interface RawPageableFixtures { matches?: RawTeamFixture[]; previous?: string }
 interface RawEvent {
   type?: string;
   time?: number | string;

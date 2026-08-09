@@ -78,6 +78,12 @@ describe("FotMob-adapter", () => {
     expect(readStats(sparse)).toBeUndefined();
   });
 
+  it("leser strafferesultatet fra status når enkelthendelsene mangler", () => {
+    const match = normalizeLeagueMatch(fixture<RawLeagueMatch>("fotmob-league-match.json"), "489", 2012)!;
+    readShootout(match, { header: { status: { reason: { penalties: [3, 5] } } } });
+    expect(match.penaltyShootout).toEqual({ home: 3, away: 5 });
+  });
+
   it("rapporterer feltene som ble funnet og ukjente statistikkrader", () => {
     const detail: RawMatchDetails = {
       content: { stats: { Periods: { All: { stats: [{

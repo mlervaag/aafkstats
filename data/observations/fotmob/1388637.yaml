@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "1388637"
+matchId: 2013-02-18-aalesunds-fk-kalmar-ff
+retrievedAt: 2026-08-09
+adapter: fotmob@3
+payloadHash: sha256:4c1b0d07c7fa57691279c1b995de6aa8858ff76e4e66feb9dc8b9ded3e6a5e20
+raw:
+  externalId: "1388637"
+  date: 2013-02-18
+  kickoff: 19:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Kalmar FF
+  awayId: "9892"
+  homeScore: 2
+  awayScore: 1
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2013
+  url: https://www.fotmob.com/matches/aalesund-vs-kalmar-ff/2rnrls#1388637
+normalized:
+  date: 2013-02-18
+  kickoff: 19:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: kalmar-ff
+  home.score: 2
+  away.score: 1
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2013
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

@@ -1,0 +1,58 @@
+id: 2011-08-18-aalesunds-fk-az-alkmaar
+date: 2011-08-18
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: europa-liga
+  season: 2011
+  stage: qualifying
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: az-alkmaar
+  score: 1
+  halfTimeScore: 1
+venueId: color-line-stadion
+neutralVenue: false
+events:
+  - minute: 14
+    type: penalty_goal
+    team: home
+    player: Michael Barrantes
+  - minute: 31
+    type: goal
+    team: away
+    player: Maarten Martens
+  - minute: 74
+    type: goal
+    team: home
+    player: Michael Barrantes
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-az-alkmaar/2vd3xd#1090108
+    retrievedAt: 2026-08-09
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1090108"
+manual: []

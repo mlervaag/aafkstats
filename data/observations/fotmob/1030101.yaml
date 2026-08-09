@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "1030101"
+matchId: 2011-07-21-aalesunds-fk-ferencvaros
+retrievedAt: 2026-08-09
+adapter: fotmob@3
+payloadHash: sha256:fc38779b84014028d377ee577f312eb5e1bae9129d8bdae5e921f38d2bcc433f
+raw:
+  externalId: "1030101"
+  date: 2011-07-21
+  kickoff: 19:00
+  status: AET
+  home: Aalesund
+  homeId: "8404"
+  away: Ferencvaros
+  awayId: "8222"
+  homeScore: 2
+  awayScore: 1
+  homeHalfTime: 0
+  awayHalfTime: 1
+  competition: Europa League Qualification
+  competitionId: "10613"
+  season: 2011
+  round: 2
+  venue: Color Line Stadion
+  url: https://www.fotmob.com/matches/ferencvaros-vs-aalesund/2aapwv#1030101
+normalized:
+  date: 2011-07-21
+  kickoff: 19:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: ferencvaros
+  home.score: 2
+  away.score: 1
+  home.halfTimeScore: 0
+  away.halfTimeScore: 1
+  competition.id: europa-liga
+  competition.season: 2011
+  competition.round: 2
+  competition.stage: qualifying
+  venueId: color-line-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - extraTime
+  - events
+warnings: []

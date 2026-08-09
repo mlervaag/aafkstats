@@ -1,0 +1,56 @@
+id: 2011-08-04-elfsborg-aalesunds-fk
+date: 2011-08-04
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: europa-liga
+  season: 2011
+  stage: qualifying
+  round: 3
+home:
+  clubId: elfsborg
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+venueId: boras-arena
+neutralVenue: false
+events:
+  - minute: 49
+    type: penalty_goal
+    team: away
+    player: Fredrik Ulvestad
+  - minute: 65
+    type: goal
+    team: home
+    player: Martin Ericsson
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/elfsborg-vs-aalesund/28925j#1064492
+    retrievedAt: 2026-08-09
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1064492"
+manual: []

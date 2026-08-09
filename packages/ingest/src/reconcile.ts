@@ -105,14 +105,17 @@ export function reconcile(
     let id = base;
     let suffix = 2;
     while (clubs.some((club) => club.id === id)) id = `${base}-${suffix++}`;
-    const club: Club = { id, name, names: [], country: "NO", aliases: { [options.providerId]: externalId } };
+    const sourceTeam = sourceMatches
+      .flatMap((match) => [match.home, match.away])
+      .find((team) => team.externalId === externalId);
+    const club: Club = { id, name, names: [], country: sourceTeam?.country ?? "NO", aliases: { [options.providerId]: externalId } };
     clubs.push(club);
     newClubs.add(id);
     return club;
   };
 
   const resolveVenue = (source: SourceMatch): Venue | undefined => {
-    if (!source.venueName) return undefined;
+    if (!source.venueName || source.venueReliable === false) return undefined;
     const slug = slugify(source.venueName);
     const existing = venues.find((venue) => venue.id === slug || venue.name.toLowerCase() === source.venueName?.toLowerCase());
     if (existing) return existing;
@@ -121,7 +124,7 @@ export function reconcile(
       name: source.venueName,
       names: [],
       city: source.venueCity,
-      country: "NO",
+      country: source.venueCountry ?? "NO",
       capacity: source.venueCapacity,
     };
     venues.push(venue);

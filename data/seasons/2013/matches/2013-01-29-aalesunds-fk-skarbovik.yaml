@@ -1,0 +1,70 @@
+id: 2013-01-29-aalesunds-fk-skarbovik
+date: 2013-01-29
+dateConfidence: exact
+kickoff: 19:30
+status: played
+competition:
+  id: treningskamp
+  season: 2013
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 7
+  halfTimeScore: 2
+away:
+  clubId: skarbovik
+  score: 0
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 25
+    type: penalty_goal
+    team: home
+    player: Leke James
+  - minute: 36
+    type: goal
+    team: home
+    player: Michael Barrantes
+  - minute: 55
+    type: goal
+    team: home
+    player: Michael Barrantes
+  - minute: 70
+    type: goal
+    team: home
+    player: Jo Nymo Matland
+  - minute: 77
+    type: goal
+    team: home
+  - minute: 85
+    type: goal
+    team: home
+    player: Michael Barrantes
+  - minute: 89
+    type: goal
+    team: home
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/skarbovik-vs-aalesund/1ugcqy#1403778
+    retrievedAt: 2026-08-09
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1403778"
+manual: []

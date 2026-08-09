@@ -9,6 +9,7 @@
   },
   "scripts": {
     "fotmob": "tsx src/cli/fotmob.ts",
+    "fotmob-gap": "tsx src/cli/fotmob-gap.ts",
     "rsssf": "tsx src/cli/rsssf.ts",
     "rsssf-standings": "tsx src/cli/rsssf-standings.ts",
     "wikipedia-people": "tsx src/cli/wikipedia-people.ts",
