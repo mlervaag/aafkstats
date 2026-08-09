@@ -77,10 +77,11 @@ export default function Home() {
         </div>
         <div className="prose">
           <p>
-            Dato, motstander og sluttresultat finnes for hver spilte kamp; kampene som
-            står igjen på terminlista har ingen resultat ennå og telles ikke med.
-            Detaljgraden varierer, og kildene er dokumentert. Datasettet er ikke en
-            offisiell AaFK-publikasjon. <a href="/om">Les om omfang og forbehold.</a>
+            Dato, motstander og sluttresultat finnes for hver spilte kamp. Kampene på
+            terminlista inngår i arkivtotalen, men holdes utenfor resultatstatistikken
+            til de er spilt. Detaljgraden varierer, og kildene er dokumentert.
+            Datasettet er ikke en offisiell AaFK-publikasjon.{" "}
+            <a href="/om">Les om omfang og forbehold.</a>
           </p>
           <CoverageNote heading={false} />
         </div>
