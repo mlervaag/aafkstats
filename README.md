@@ -388,9 +388,12 @@ gir direkte kamptreff mens brukeren skriver år og motstander; Enter sender i st
 til AI-søket.
 
 Alle 14 europakvalifiseringskampene er registrert. Gjenstår blant annet kontroll av flere
-historiske treningskamper, rettighetsavklart innhøsting, REST-API, MCP-server, et automatisk
-bidragsskjema og agentrutinene. Rekkefølgen står i
-[planen](docs/PLAN_FRA_PILOT_TIL_ARKIV.md).
+historiske treningskamper, rettighetsavklart innhøsting, REST-API og MCP-server. Rekkefølgen
+står i [planen](docs/PLAN_FRA_PILOT_TIL_ARKIV.md).
+
+Bidrag fra nettstedet går til en egen innboks og triageres daglig etter
+[innboksrutinen](.agents/INNBOKSRUTINE.md). Rutinen kontrollerer bidraget mot arkivet og
+lager pull request — den merger aldri selv.
 
 <div align="center">
 <sub>Et supporterprosjekt. Ikke tilknyttet Aalesunds Fotballklubb.</sub>
