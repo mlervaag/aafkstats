@@ -70,6 +70,11 @@ sender et konkret nytt spørsmål med høyst tre tidligere runder, mens Nei avsl
 Verktøyene og systemprompten kommer fra [`@aafkstats/query`](../../packages/query/README.md);
 grensene rundt SQL-en fra [`@aafkstats/db`](../../packages/db/README.md#guardrailen).
 
+**`/api/contributions`** tar bare imot minner og observasjoner fra kamp- og sesongsidene.
+De kan sendes uten konto og blir saker i en separat GitHub-innboks. Datafeil, manglende
+kamper, kampdetaljer og kildetips går ikke gjennom denne ruten; brukergrensesnittet sender
+dem til hver sin issue-mal i hovedrepoet, der riktig kontekst og kontrollspørsmål følger med.
+
 ### Hvem som svarer
 
 Arkivet er ikke bundet til én leverandør. Sett den nøkkelen du har:

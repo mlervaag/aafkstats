@@ -54,20 +54,13 @@ const sourceUrl = z
 const contributionSchema = z.object({
   scope: z.enum(["match", "season"]),
   targetId,
-  kind: z.enum(["observation", "error", "source"]),
   pageUrl,
   text: z.string().min(1, "Tekstfeltet kan ikke være tomt.").max(2000, "Teksten er for lang."),
   source: sourceUrl,
   contributor: z.string().max(100).optional(),
-});
+}).strict();
 
 export const runtime = "nodejs";
-
-const typeLabels: Record<string, string> = {
-  observation: "Observasjon",
-  error: "Feil",
-  source: "Kilde/Fakta",
-};
 
 /**
  * Tekst fra en fremmed, gjort ufarlig i markdown.
@@ -159,15 +152,14 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Systemfeil: Kunne ikke koble til innboks." }, { status: 500 });
     }
 
-    const typeLabel = typeLabels[data.kind] ?? data.kind;
     const scopeLabel = data.scope === "match" ? "Kamp" : "Sesong";
-    const title = `${typeLabel}: ${scopeLabel} ${data.targetId}`;
+    const title = `Observasjon: ${scopeLabel} ${data.targetId}`;
 
     const contributor = data.contributor?.trim() ? oneLine(data.contributor) : "Anonym";
     const source = data.source?.trim() ? oneLine(data.source, 300) : "";
 
     const issueBody = [
-      `**Type:** ${typeLabel}`,
+      "**Type:** Observasjon",
       `**Kontekst:** ${scopeLabel} \`${data.targetId}\``,
       `**Side:** ${data.pageUrl ?? "Ukjent"}`,
       "",
@@ -195,7 +187,7 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         title,
         body: issueBody,
-        labels: ["bidrag", data.kind, data.scope],
+        labels: ["bidrag", "observation", data.scope],
       }),
     });
 

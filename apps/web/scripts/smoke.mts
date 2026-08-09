@@ -51,7 +51,7 @@ const checks: Check[] = [
     page: "sesong/1998",
     // «Dette mangler for 1998» er dekningsgraden gjort handlingsorientert: den skal
     // stå der med en Bidra-knapp, ikke bare som et merke som sier «Delvis».
-    must: ["1998", "Sluttabell", "Dette mangler for", "seriekamper", "Kan du hjelpe?"],
+    must: ["1998", "Sluttabell", "Dette mangler for", "seriekamper", "Del et sesongminne"],
   },
   {
     page: "motstander/sk-brann",

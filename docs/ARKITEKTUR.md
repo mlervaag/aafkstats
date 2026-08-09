@@ -311,7 +311,7 @@ tallet står med vilje omtrentlig her, siden hver innhøsting flytter det.
 Bare rutene under `/api` rendres ved forespørsel, og det er de eneste som må: de gjør noe
 annet enn å lese arkivet.
 
-To ruter gjør noe mer enn å lese:
+Tre ruter gjør noe mer enn å lese:
 
 - **`/api/search`** — direktesøk mens brukeren skriver. Ren SQL mot arkivfilen, ingen modell
   involvert. Se [`apps/web/lib/search.ts`](../apps/web/lib/search.ts).
@@ -322,6 +322,9 @@ To ruter gjør noe mer enn å lese:
   samme uansett; det er bare selve kallet som er to. En kort samtale lever bare i
   nettleserkomponenten. Modellen kan registrere ett strukturert oppfølgingsforslag, som ruta
   sender som en egen SSE-hendelse først etter et vellykket hovedsvar.
+- **`/api/contributions`** — tar imot minner og observasjoner uten innlogging og oppretter
+  en sak i en separat GitHub-innboks. Den skriver aldri i arkivet. Datafeil, manglende
+  kamper og kildetips går til egne issue-maler i hovedrepoet i stedet.
 
 Arkivfilen leses av serverkoden ved kjøring, og må derfor spores inn i funksjonsbunten. Det
 er `outputFileTracingIncludes` i [`next.config.mjs`](../apps/web/next.config.mjs) — sammen med
@@ -367,7 +370,8 @@ avgjør hvem som svarer når begge er satt, `AAFK_CHAT_MODEL` hvilken modell.
 - **Ingen migrasjoner.** Databasen bygges fra bunnen hver gang. En migrasjon er noe man
   trenger når tilstanden ikke kan gjenskapes.
 - **Ingen brukerkontoer.** Arkivet er offentlig, og bidrag går gjennom pull request.
-- **Ingen skrivende API.** Den eneste veien inn i arkivet er en PR-diff et menneske har sett.
+- **Ingen API som skriver i arkivet.** Minneskjemaet oppretter bare en innboks-sak. Den
+  eneste veien inn i selve arkivet er en PR-diff et menneske har sett.
 - **Ingen egen loggtjeneste.** Strukturert JSON til stdout dekker behovet: hva som spørres om,
   hvilken SQL modellen skrev, og hva det kostet.
 

@@ -22,7 +22,6 @@ function request(body: unknown, headers: Record<string, string> = {}): Request {
 const gyldig = {
   scope: "match",
   targetId: "1998-08-16-aalesunds-fk-sk-brann",
-  kind: "observation",
   pageUrl: "/kamp/1998-08-16-aalesunds-fk-sk-brann",
   text: "Jeg var på kampen. Det regnet hele andre omgang.",
   source: "https://example.test/artikkel",
@@ -118,6 +117,14 @@ describe("bidragsruten", () => {
     const res = await POST(request({ ...gyldig, scope: "tull" }, { "x-real-ip": "10.0.0.11" }));
     expect(res.status).toBe(400);
     expect((await res.json()).error).toBe("Ugyldig data sendt inn.");
+  });
+
+  it("avviser gamle skjema som prøver å sende datafeil til minneinnboksen", async () => {
+    const res = await POST(
+      request({ ...gyldig, kind: "error" }, { "x-real-ip": "10.0.0.12" }),
+    );
+    expect(res.status).toBe(400);
+    expect(fetchSpy).not.toHaveBeenCalled();
   });
 
   it("siterer bidragsyterens tekst i stedet for å slippe den løs i markdown", async () => {
