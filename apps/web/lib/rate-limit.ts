@@ -26,6 +26,15 @@ export interface RateLimitVerdict {
 }
 
 const QUESTIONS_PER_HOUR = 10;
+/**
+ * Bidrag har sin egen kvote.
+ *
+ * Telleren var felles: ett innsendt bidrag brukte opp ett spørsmål, og ti
+ * rettelser låste chatten en time. De to koster ikke det samme og skal ikke dele
+ * budsjett — et spørsmål koster penger hos modelleverandøren, et bidrag koster
+ * en sak i en innboks.
+ */
+const CONTRIBUTIONS_PER_HOUR = 5;
 const WINDOW_MS = 60 * 60 * 1000;
 /**
  * Tak på antall avsendere vi holder styr på samtidig.
@@ -38,7 +47,15 @@ const WINDOW_MS = 60 * 60 * 1000;
  */
 const MAX_TRACKED = 5000;
 
-/** Teller per IP i denne instansens minne. Se forbeholdet i filkommentaren. */
+/** Hva som telles. Hver kvote har sitt eget vindu per avsender. */
+export type RateLimitBucket = "chat" | "bidrag";
+
+const LIMITS: Record<RateLimitBucket, number> = {
+  chat: QUESTIONS_PER_HOUR,
+  bidrag: CONTRIBUTIONS_PER_HOUR,
+};
+
+/** Teller per avsender og kvote i denne instansens minne. Se forbeholdet over. */
 const recent = new Map<string, number[]>();
 
 /**
@@ -76,11 +93,12 @@ function tooManyMessage(): string {
  * vår kjører har den allerede sluppet gjennom kant-laget. Denne funksjonen er
  * derfor bare reservelaget.
  */
-function checkInMemory(ip: string): RateLimitVerdict {
+function checkInMemory(ip: string, bucket: RateLimitBucket): RateLimitVerdict {
   const now = Date.now();
-  const hits = (recent.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
+  const key = `${bucket}:${ip}`;
+  const hits = (recent.get(key) ?? []).filter((t) => now - t < WINDOW_MS);
 
-  if (hits.length >= QUESTIONS_PER_HOUR) {
+  if (hits.length >= LIMITS[bucket]) {
     const oldest = hits[0]!;
     return {
       allowed: false,
@@ -93,28 +111,28 @@ function checkInMemory(ip: string): RateLimitVerdict {
   hits.push(now);
   // Sett på nytt slik at nøkkelen flyttes bakerst i innsettingsrekkefølgen. Map
   // bevarer den, og det er dét utkastingen under bruker til å finne de eldste.
-  recent.delete(ip);
-  recent.set(ip, hits);
+  recent.delete(key);
+  recent.set(key, hits);
 
   if (recent.size > MAX_TRACKED) {
     // Først de som uansett er utløpt.
-    for (const [key, times] of recent) {
-      if (times.every((t) => now - t >= WINDOW_MS)) recent.delete(key);
+    for (const [tracked, times] of recent) {
+      if (times.every((t) => now - t >= WINDOW_MS)) recent.delete(tracked);
     }
     // Er vi fortsatt over taket, kastes de eldste til vi er under. Det gir en
     // avsender som fyller kartet en vei ut av sitt eget vindu, men kostnaden er
     // avgrenset — og det harde kostnadsgulvet ligger hos modelleverandøren.
-    for (const key of recent.keys()) {
+    for (const tracked of recent.keys()) {
       if (recent.size <= MAX_TRACKED) break;
-      recent.delete(key);
+      recent.delete(tracked);
     }
   }
 
   return { allowed: true, enforcedBy: "in-memory" };
 }
 
-export function checkRateLimit(req: Request): RateLimitVerdict {
-  return checkInMemory(clientIp(req));
+export function checkRateLimit(req: Request, bucket: RateLimitBucket = "chat"): RateLimitVerdict {
+  return checkInMemory(clientIp(req), bucket);
 }
 
 /**

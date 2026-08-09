@@ -378,6 +378,13 @@ export function crossValidate(archive: Archive): LoadIssue[] {
       if (row.clubId !== null && !clubIds.has(row.clubId)) {
         at("table", `ukjent klubb «${row.clubId}» på plass ${row.position} — la den stå som null hvis klubben ikke er i arkivet`);
       }
+      // `name` skal være kildens eget lagnavn, det som vises i tabellen. Står en
+      // klubb-ID der, har innhøstingen skrevet vår egen nøkkel tilbake i stedet
+      // for navnet, og sesongsiden viser «fk-haugesund» som om det var et lagnavn.
+      // Det skjedde i 1995 og 1996, og gikk gjennom alle kontrollene vi hadde.
+      if (clubIds.has(row.name)) {
+        at("table", `lagnavnet på plass ${row.position} er klubb-ID-en «${row.name}» — skriv kildens eget navn`);
+      }
     }
     for (const s of t.providers) {
       if (!sourceIds.has(s.providerId)) {

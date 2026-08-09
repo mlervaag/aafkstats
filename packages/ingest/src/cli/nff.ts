@@ -6,18 +6,18 @@
  *   Read HTML files saved manually from the browser.
  *
  * Network mode:
- *   Requires both --fetch and --acknowledge-nff-terms because NFF's footer says
- *   automated robots/spiders are not allowed and reuse requires agreement.
+ *   --fetch går gjennom kildepolicyen i data/providers/fotball-no.yaml. NFF
+ *   oppgir at roboter og spiders ikke er tillatt, så porten er stengt, og
+ *   skriptet sier fra om det framfor å hente. Lagre sidene fra nettleseren.
  *
  * Examples:
- *   pnpm --filter @aafkstats/ingest exec tsx nff-to-aafkstats.ts \
+ *   pnpm ingest:nff -- \
  *     --fiks-id 83034 --season 1983 --competition forstedivisjon \
  *     --matches-html saved-pages/83034-kamper.html \\
  *     --standings-html saved-pages/83034-tabellen.html --output generated/83034 \
  *     --promoted-positions 1 --relegated-positions 10,11,12
  *
- *   pnpm --filter @aafkstats/ingest exec tsx nff-to-aafkstats.ts \
- *     --manifest fiksids.json --output generated/nff
+ *   pnpm ingest:nff -- --manifest fiksids.json --output generated/nff
  */
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";
@@ -25,6 +25,8 @@ import { existsSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { parseArgs } from "node:util";
 import { stringify } from "yaml";
+import { loadArchive, repoRoot } from "@aafkstats/schema/load";
+import { assertMayFetch } from "../policy.js";
 
 type TournamentSpec = {
   fiksId: number;
@@ -65,6 +67,7 @@ const RETRIEVED_AT = new Date().toISOString().slice(0, 10);
 
 const KNOWN_CLUB_IDS: Record<string, string> = {
   "Aalesunds FK": "aalesunds-fk",
+  "Aalesunds": "aalesunds-fk",
   "Aalesund": "aalesunds-fk",
   "Molde": "molde-fk",
   "Molde FK": "molde-fk",
@@ -81,10 +84,16 @@ const KNOWN_CLUB_IDS: Record<string, string> = {
   "Bodø/Glimt, FK": "bodo-glimt",
   "Bodø/Glimt": "bodo-glimt",
   "Steinkjer": "steinkjer",
-  "Mjølner Narvik": "mjolner-narvik",
+  "Mjølner Narvik": "mjolner",
   "Mo IL": "mo-il",
   "Stjørdals-Blink": "stjordals-blink",
   "Stjørdals Blink": "stjordals-blink",
+  "Brann, SK": "sk-brann",
+  "Fredrikstad FK": "fredrikstad",
+  "Strømmen IF - MEN 1": "strommen",
+  "Drøbak/Frogn IL": "drobak-frogn",
+  "Moss FK": "moss",
+  "Ham-Kam 3": "hamkam",
 };
 
 const { values } = parseArgs({
@@ -98,8 +107,7 @@ const { values } = parseArgs({
     manifest: { type: "string" },
     output: { type: "string", default: "generated/nff-import" },
     fetch: { type: "boolean", default: false },
-    "acknowledge-nff-terms": { type: "boolean", default: false },
-    "team-names": { type: "string", default: "Aalesunds FK,Aalesund" },
+    "team-names": { type: "string", default: "Aalesunds FK,Aalesund,Aalesunds" },
     "promoted-positions": { type: "string" },
     "relegated-positions": { type: "string" },
     overwrite: { type: "boolean", default: false },
@@ -154,35 +162,40 @@ function normalizeText(value: string): string {
     .replace(/&aelig;|&#230;/gi, "æ")
     .replace(/&AElig;|&#198;/gi, "Æ")
     .replace(/&#(\d+);/g, (_, n: string) => String.fromCodePoint(Number(n)))
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, n: string) => String.fromCodePoint(parseInt(n, 16)))
     .replace(/\s+/g, " ")
     .trim();
 }
 
-function extractTableRows(html: string): string[][] {
+function extractTables(html: string): string[][][] {
   const tables = [...html.matchAll(/<table\b[^>]*>([\s\S]*?)<\/table>/gi)];
-  const rows: string[][] = [];
+  const result: string[][][] = [];
 
   for (const table of tables) {
+    const rows: string[][] = [];
     for (const rowMatch of table[1]!.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)) {
       const cells = [...rowMatch[1]!.matchAll(/<(?:th|td)\b[^>]*>([\s\S]*?)<\/(?:th|td)>/gi)]
         .map((cell) => normalizeText(cell[1]!));
       if (cells.length > 0) rows.push(cells);
     }
+    if (rows.length > 0) result.push(rows);
   }
-  return rows;
+  return result;
 }
 
 function headerKey(value: string): string {
   return value.toLowerCase().replace(/[.\s_-]+/g, "");
 }
 
-function findHeader(rows: string[][], required: string[]): { index: number; columns: Map<string, number> } {
-  for (const [index, row] of rows.entries()) {
-    const keys = row.map(headerKey);
-    if (required.every((wanted) => keys.some((key) => key.includes(wanted)))) {
-      const columns = new Map<string, number>();
-      for (const [column, key] of keys.entries()) columns.set(key, column);
-      return { index, columns };
+function findTableWithHeader(tables: string[][][], required: string[]): { tableIndex: number; rowIndex: number; columns: Map<string, number> } {
+  for (const [tableIndex, table] of tables.entries()) {
+    for (const [rowIndex, row] of table.entries()) {
+      const keys = row.map(headerKey);
+      if (required.every((wanted) => keys.some((key) => key.includes(wanted)))) {
+        const columns = new Map<string, number>();
+        for (const [column, key] of keys.entries()) columns.set(key, column);
+        return { tableIndex, rowIndex, columns };
+      }
     }
   }
   throw new Error(`Fant ikke tabelloverskrift med feltene: ${required.join(", ")}`);
@@ -215,12 +228,13 @@ function parseGoals(value: string): [number, number] {
   return [Number(found[1]), Number(found[2])];
 }
 
-function parseMatches(rows: string[][], teamNames: string[]): MatchRow[] {
-  const { index } = findHeader(rows, ["runde", "dato", "hjemmelag", "resultat", "bortelag"]);
-  const header = rows[index]!;
+function parseMatches(tables: string[][][], teamNames: string[]): MatchRow[] {
+  const { tableIndex, rowIndex } = findTableWithHeader(tables, ["runde", "dato", "hjemmelag", "resultat", "bortelag"]);
+  const tableRows = tables[tableIndex]!;
+  const header = tableRows[rowIndex]!;
   const result: MatchRow[] = [];
 
-  for (const row of rows.slice(index + 1)) {
+  for (const row of tableRows.slice(rowIndex + 1)) {
     const home = column(row, header, ["hjemmelag"]);
     const away = column(row, header, ["bortelag"]);
     if (!home || !away || !teamNames.some((name) => home === name || away === name)) continue;
@@ -248,13 +262,15 @@ function parseMatches(rows: string[][], teamNames: string[]): MatchRow[] {
   return result;
 }
 
-function parseStandings(rows: string[][]): StandingRow[] {
-  const { index } = findHeader(rows, ["plass", "lag", "kamper", "vunnet", "uavgjort", "tap", "mål", "poeng"]);
-  const header = rows[index]!;
+function parseStandings(tables: string[][][]): StandingRow[] {
+  const { tableIndex, rowIndex } = findTableWithHeader(tables, ["plass", "lag", "kamper", "vunnet", "uavgjort", "tap", "mål", "poeng"]);
+  const tableRows = tables[tableIndex]!;
+  const header = tableRows[rowIndex]!;
   const result: StandingRow[] = [];
 
-  for (const row of rows.slice(index + 1)) {
-    const positionValue = column(row, header, ["plass"]);
+  for (const row of tableRows.slice(rowIndex + 1)) {
+    const rawPosition = column(row, header, ["plass"]);
+    const positionValue = rawPosition.replace(/\D/g, "");
     const name = column(row, header, ["lag"]);
     if (!/^\d+$/.test(positionValue) || !name) continue;
 
@@ -326,7 +342,7 @@ async function fetchPage(url: string): Promise<string> {
   return response.text();
 }
 
-async function getHtmlPair(spec: TournamentSpec): Promise<{
+async function getHtmlPair(spec: TournamentSpec, archiveRoot: string): Promise<{
   matchesHtml: string;
   standingsHtml: string;
 }> {
@@ -349,11 +365,17 @@ async function getHtmlPair(spec: TournamentSpec): Promise<{
       `fiksId ${spec.fiksId} mangler HTML. Lagre begge NFF-sidene lokalt, eller bruk --fetch.`,
     );
   }
-  if (!values["acknowledge-nff-terms"]) {
-    throw new Error(
-      "--fetch krever --acknowledge-nff-terms. NFF oppgir at roboter/spiders ikke er tillatt.",
-    );
-  }
+
+  // Porten er kildekatalogen, ikke et flagg på kommandolinja.
+  //
+  // Skriptet hadde sin egen `--acknowledge-nff-terms`, der den som kjørte
+  // bekreftet vilkårene selv. Det er nøyaktig det policy-laget finnes for å
+  // hindre: statusen står maskinlesbart i data/providers/fotball-no.yaml, og
+  // den sier at automatisert henting ikke er tillatt. En bekreftelse skrevet
+  // inn i et kall er ikke en avklaring, den er en omgåelse av vår egen
+  // beslutning. Lagre sidene fra nettleseren i stedet.
+  const archive = await loadArchive(archiveRoot);
+  assertMayFetch(archive, SOURCE_ID);
 
   const base = `https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=${spec.fiksId}`;
   const matchesHtml = await fetchPage(`${base}&underside=kamper`);
@@ -363,7 +385,10 @@ async function getHtmlPair(spec: TournamentSpec): Promise<{
 }
 
 async function writeSourceFile(root: string, overwrite: boolean): Promise<void> {
-  const path = join(root, "data/sources/fotball-no.yaml");
+  // data/sources/ er publikasjoner: bøker, medlemsblad og aviser. Innhøstings-
+  // kildene ligger i data/providers/. Skrev denne til den gamle stien, havnet
+  // provider-fila blant publikasjonene og valideringen avviste den.
+  const path = join(root, "data/providers/fotball-no.yaml");
   if (existsSync(path) && !overwrite) return;
   await writeYaml(path, {
     id: SOURCE_ID,
@@ -385,13 +410,13 @@ async function writeSourceFile(root: string, overwrite: boolean): Promise<void> 
   }, overwrite);
 }
 
-async function generate(spec: TournamentSpec, root: string, overwrite: boolean): Promise<void> {
-  const pages = await getHtmlPair(spec);
-  const matchRows = extractTableRows(pages.matchesHtml);
-  const standingRows = extractTableRows(pages.standingsHtml);
+async function generate(spec: TournamentSpec, root: string, overwrite: boolean, archiveRoot: string): Promise<void> {
+  const pages = await getHtmlPair(spec, archiveRoot);
+  const matchTables = extractTables(pages.matchesHtml);
+  const standingTables = extractTables(pages.standingsHtml);
   const teamNames = spec.teamNames?.length ? spec.teamNames : ["Aalesunds FK", "Aalesund"];
-  const matches = parseMatches(matchRows, teamNames);
-  const table = parseStandings(standingRows);
+  const matches = parseMatches(matchTables, teamNames);
+  const table = parseStandings(standingTables);
 
   const aafkRow = table.find((row) => clubId(row.name) === "aalesunds-fk");
   if (!aafkRow) throw new Error(`fiksId ${spec.fiksId}: fant ikke AaFK i sluttabellen.`);
@@ -530,13 +555,17 @@ async function generate(spec: TournamentSpec, root: string, overwrite: boolean):
 async function main(): Promise<void> {
   const specs = await loadSpecs();
   const root = resolve(values.output!);
+  // Kildekatalogen leses fra det ekte arkivet, ikke fra utskriftstreet.
+  // Porten skal svare på hva vi har bestemt om fotball.no, og den beslutningen
+  // står i data/, uansett hvor importtreet skrives.
+  const archiveRoot = resolve(process.env.AAFK_DATA_DIR ?? join(repoRoot(), "data"));
   await mkdir(root, { recursive: true });
 
   for (const spec of specs) {
     if (!Number.isInteger(spec.fiksId) || !Number.isInteger(spec.season)) {
       throw new Error(`Ugyldig manifestoppføring: ${JSON.stringify(spec)}`);
     }
-    await generate(spec, root, values.overwrite!);
+    await generate(spec, root, values.overwrite!, archiveRoot);
   }
 
   console.log(`Importtre skrevet til ${root}`);

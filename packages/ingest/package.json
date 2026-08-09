@@ -13,7 +13,8 @@
     "rsssf-standings": "tsx src/cli/rsssf-standings.ts",
     "wikipedia-people": "tsx src/cli/wikipedia-people.ts",
     "wikidata-people": "tsx src/cli/wikidata-people.ts",
-    "rsssf-discover": "tsx src/cli/rsssf-discover.ts"
+    "rsssf-discover": "tsx src/cli/rsssf-discover.ts",
+    "nff": "tsx src/cli/nff.ts"
   },
   "dependencies": {
     "@aafkstats/schema": "workspace:*",

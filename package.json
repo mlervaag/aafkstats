@@ -22,6 +22,7 @@
     "ingest:wikipedia-people": "pnpm --filter @aafkstats/ingest run wikipedia-people",
     "ingest:wikidata-people": "pnpm --filter @aafkstats/ingest run wikidata-people",
     "ingest:rsssf-discover": "pnpm --filter @aafkstats/ingest run rsssf-discover",
+    "ingest:nff": "pnpm --filter @aafkstats/ingest run nff",
     "db:build": "pnpm --filter @aafkstats/db run build-archive",
     "typecheck": "tsc --build --force && tsc -p apps/web/tsconfig.json --noEmit",
     "test": "vitest run",
