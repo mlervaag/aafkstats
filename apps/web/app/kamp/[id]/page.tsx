@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
-import { one, open } from "@aafkstats/db";
+import { all, one, open } from "@aafkstats/db";
+import Link from "next/link";
 import { formatDate, formatDateShort } from "@/lib/date";
 import { ContributionButton } from "@/components/ContributionButton";
 import { Contributions } from "@/components/Contributions";
@@ -34,11 +35,22 @@ interface TeamStats {
   xg?: number;
 }
 
-interface SourceRef {
-  sourceId: string;
+interface ProviderRef {
+  providerId: string;
   url?: string;
   retrievedAt?: string;
   fields: string[];
+}
+
+interface SourceRef {
+  sourceId: string;
+  page?: string;
+  note?: string;
+}
+
+interface SourceDetailInfo {
+  id: string;
+  title: string;
 }
 
 interface MatchDetail {
@@ -64,6 +76,7 @@ interface MatchDetail {
   events: string;
   lineups: string | null;
   stats: string | null;
+  providers: string;
   sources: string;
   confidence: string;
   stage: string | null;
@@ -100,7 +113,7 @@ function loadMatch(id: string): MatchDetail | undefined {
               m.home_ht_score, m.away_ht_score, m.home_et_score, m.away_et_score,
               m.home_pens, m.away_pens,
               m.venue_name, m.attendance, m.referee, m.note,
-              m.events, m.lineups, m.stats, m.sources, m.confidence
+              m.events, m.lineups, m.stats, m.providers, m.sources, m.confidence
        FROM core_matches m
        JOIN core_clubs h ON h.id = m.home_club_id
        JOIN core_clubs a ON a.id = m.away_club_id
@@ -168,7 +181,39 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
   const events = json<EventRow[]>(match.events, []);
   const lineups = json<{ home?: Lineup; away?: Lineup }>(match.lineups, {});
   const stats = json<{ home?: TeamStats; away?: TeamStats }>(match.stats, {});
+  const providers = json<ProviderRef[]>(match.providers, []);
   const sources = json<SourceRef[]>(match.sources, []);
+
+  const db = open();
+  const sourceInfos = new Map<string, string>();
+  const providerInfos = new Map<string, string>();
+  try {
+    const sourceIds = [...new Set(sources.map((source) => source.sourceId))];
+    if (sourceIds.length > 0) {
+      const placeholders = sourceIds.map(() => "?").join(",");
+      for (const row of all<SourceDetailInfo>(
+        db,
+        `SELECT id, title FROM core_sources WHERE id IN (${placeholders})`,
+        ...sourceIds,
+      )) {
+        sourceInfos.set(row.id, row.title);
+      }
+    }
+
+    const providerIds = [...new Set(providers.map((provider) => provider.providerId))];
+    if (providerIds.length > 0) {
+      const placeholders = providerIds.map(() => "?").join(",");
+      for (const row of all<{ id: string; name: string }>(
+        db,
+        `SELECT id, name FROM core_providers WHERE id IN (${placeholders})`,
+        ...providerIds,
+      )) {
+        providerInfos.set(row.id, row.name);
+      }
+    }
+  } finally {
+    db.close();
+  }
   // Overskriftsresultatet er sluttresultatet. home_score er stillingen etter
   // ordinær tid, så ekstraomgangsmålene må legges til — ellers står en cupkamp
   // som endte 2-1 på overtid oppført som 1-1.
@@ -280,16 +325,38 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
 
       <section>
         <h2>Kilder</h2>
-        {sources.length === 0 ? <p className="muted">Ingen kilde registrert.</p> : (
-          <ul>
-            {sources.map((source) => (
-              <li key={`${source.sourceId}-${source.url ?? ""}`}>
-                {source.url ? <a href={source.url} rel="noreferrer">{source.sourceId}</a> : source.sourceId}
-                {source.retrievedAt ? ` · hentet ${formatDate(source.retrievedAt)}` : ""}
-                <span className="muted"> · {source.fields.length} dokumenterte felt</span>
-              </li>
-            ))}
-          </ul>
+        {providers.length === 0 && sources.length === 0 ? <p className="muted">Ingen kilde registrert.</p> : (
+          <>
+            {sources.length > 0 && (
+              <>
+                <h3 style={{ fontSize: "1.1rem", margin: "1rem 0 0.5rem 0" }}>Historiske kilder</h3>
+                <ul>
+                  {sources.map((source, i) => (
+                    <li key={`source-${source.sourceId}-${i}`}>
+                      <Link href={`/kilder/${source.sourceId}`}>{sourceInfos.get(source.sourceId) || source.sourceId}</Link>
+                      {source.page && <span className="muted"> · Side {source.page}</span>}
+                      {source.note && <span className="muted"> · {source.note}</span>}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+            
+            {providers.length > 0 && (
+              <>
+                <h3 style={{ fontSize: "1.1rem", margin: "1rem 0 0.5rem 0" }}>Datakilder</h3>
+                <ul>
+                  {providers.map((p, i) => (
+                    <li key={`provider-${p.providerId}-${i}`}>
+                      {p.url ? <a href={p.url} rel="noreferrer">{providerInfos.get(p.providerId) || p.providerId}</a> : (providerInfos.get(p.providerId) || p.providerId)}
+                      {p.retrievedAt ? ` · hentet ${formatDate(p.retrievedAt)}` : ""}
+                      <span className="muted"> · {p.fields.length} dokumenterte felt</span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </>
         )}
         {/* Sikkerheten sto som en rad i faktalista, over tilskuertallet, og sa
             «Foreløpig» på nesten hver eneste kamp. Den hører til kildene: det er

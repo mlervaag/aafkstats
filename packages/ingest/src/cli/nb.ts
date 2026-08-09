@@ -15,6 +15,25 @@ const args = parseArgs({
 const q = args.values.query || '"Aalesunds fotballklubb"';
 const size = 50;
 
+interface NbItem {
+  id: string;
+  metadata: {
+    title?: string;
+    mediaTypes?: string[];
+    identifiers?: { urn?: string };
+    originInfo?: {
+      issued?: string;
+      publisher?: string | string[];
+    };
+  };
+  _links?: { thumbnail_large?: { href?: string } };
+}
+
+interface NbResponse {
+  page: { totalElements: number };
+  _embedded?: { items: NbItem[] };
+}
+
 async function run() {
   console.log(`Søker Nasjonalbiblioteket etter: ${q}`);
   
@@ -26,7 +45,7 @@ async function run() {
   do {
     const res = await fetch(`https://api.nb.no/catalog/v1/items?q=${encodeURIComponent(q)}&page=${page}&size=${size}`);
     if (!res.ok) throw new Error(`NB API error: ${res.statusText}`);
-    const data = await res.json() as { page: { totalElements: number }, _embedded?: { items: any[] } };
+    const data = await res.json() as NbResponse;
     total = data.page.totalElements;
 
     for (const item of data._embedded?.items || []) {
@@ -38,7 +57,8 @@ async function run() {
       else if (mediaType === "tidsskrift") sourceType = "member_magazine";
       else if (mediaType === "avis") continue; // Skipper aviser
       
-      const title = metadata.title;
+      const title = metadata.title?.trim();
+      if (!title) continue;
       const titleLower = (title || "").toLowerCase();
       
       if (titleLower.includes("årsmelding") || titleLower.includes("årsberetning")) sourceType = "annual_report";
@@ -54,7 +74,7 @@ async function run() {
       let year = null;
       if (yearStr) {
         const match = yearStr.match(/^(\d{4})/);
-        if (match) year = parseInt(match[1], 10);
+        if (match?.[1]) year = parseInt(match[1], 10);
       }
       
       // Slugs for ID
@@ -63,11 +83,14 @@ async function run() {
       if (idTitle.length > 30) idTitle = idTitle.substring(0, 30).replace(/-$/, "");
       const id = `${idTitle}-${year || "ukjent"}-${item.id.substring(0, 4)}`;
 
-      let publisher = metadata.originInfo?.publisher;
-      if (Array.isArray(publisher)) publisher = publisher[0];
-      if (typeof publisher !== 'string') publisher = null;
+      const publisherValue = metadata.originInfo?.publisher;
+      const publisher = Array.isArray(publisherValue)
+        ? publisherValue.find((value) => typeof value === "string")
+        : typeof publisherValue === "string"
+          ? publisherValue
+          : undefined;
 
-      const pubLower = (publisher || "").toLowerCase();
+      const pubLower = (publisher ?? "").toLowerCase();
       
       const whitelistedTitles = [
         "vi er 75 år",
