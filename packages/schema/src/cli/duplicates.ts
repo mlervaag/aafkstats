@@ -71,6 +71,38 @@ for (let i = 0; i < archive.clubs.length; i++) {
   }
 }
 
+/**
+ * Klubber der den ene nøkkelen er den andre pluss et ledd til.
+ *
+ * Levenshtein fanger stavefeil, ikke påhengte ord. NFF Fotballdata skriver
+ * «Volda TI - Fotball» der RSSSF skriver «Volda», og de to nøklene ligger fire
+ * tegn fra hverandre — langt utenfor taket. Fire klubber lå dobbelt i arkivet i
+ * nettopp den formen uten at rapporten sa et ord.
+ *
+ * Leddgrensa er med vilje: uten den ville «Brann» og «Brandbu» vært et par.
+ * «Vard Haugesund» og «Haugesund» blir fortsatt ikke det, siden det er den
+ * *første* nøkkelen som må være hel — der er «vard» påhenget, ikke «haugesund».
+ *
+ * Et påheng som bare er et tall er aldri samme post: «Molde 2» er andrelaget og
+ * «Sarpsborg 08» er stiftelsesåret i navnet. Uten unntaket sto rapporten med tre
+ * funn som aldri kan lukkes, og en rapport som alltid er gul blir ikke lest.
+ */
+const NUMERIC_TAIL = /^\d+$/;
+const extended: [Club, Club][] = [];
+for (let i = 0; i < archive.clubs.length; i++) {
+  for (let j = 0; j < archive.clubs.length; j++) {
+    if (i === j) continue;
+    const a = archive.clubs[i]!;
+    const b = archive.clubs[j]!;
+    const ka = canonicalClubKey(a);
+    const kb = canonicalClubKey(b);
+    if (ka === kb || !kb.startsWith(`${ka}-`)) continue;
+    if (NUMERIC_TAIL.test(kb.slice(ka.length + 1))) continue;
+    if (near.some(([x, y]) => (x === a && y === b) || (x === b && y === a))) continue;
+    extended.push([a, b]);
+  }
+}
+
 // ── Kamper på samme dato der motstanderen normaliserer likt, men klubb-ID-ene
 //    er ulike. Dette er formen Haugesund-dubletten hadde.
 const AAFK = "aalesunds-fk";
@@ -98,6 +130,13 @@ if (near.length > 0) {
   found += near.length;
   console.log(`${YELLOW}Nesten like navn${RESET} ${DIM}(kan være samme klubb — vurder manuelt)${RESET}`);
   for (const [a, b] of near) console.log(`  ${label(a)}  vs  ${label(b)}`);
+  console.log("");
+}
+
+if (extended.length > 0) {
+  found += extended.length;
+  console.log(`${YELLOW}Samme navn med et ledd til${RESET} ${DIM}(kildens lange form? — vurder manuelt)${RESET}`);
+  for (const [a, b] of extended) console.log(`  ${label(a)}  ⊂  ${label(b)}`);
   console.log("");
 }
 

@@ -1,26 +1,26 @@
-id: 2000-05-16-aalesunds-fk-skarbovik-il-fotball
-date: 2000-05-16
+id: 1996-06-29-byasen-aalesunds-fk
+date: 1996-06-29
 dateConfidence: exact
 status: played
 competition:
-  id: andredivisjon
-  season: 2000
+  id: forstedivisjon
+  season: 1996
   stage: regular_season
-  round: 4
+  round: 10
 home:
-  clubId: aalesunds-fk
-  score: 0
+  clubId: byasen
+  score: 1
   halfTimeScore: null
 away:
-  clubId: skarbovik-il-fotball
-  score: 0
+  clubId: aalesunds-fk
+  score: 4
   halfTimeScore: null
 neutralVenue: false
 events: []
 externalReports: []
 providers:
   - providerId: fotball-no
-    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=119411&underside=kamper
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83065&underside=kamper
     retrievedAt: 2026-08-05
     fields:
       - date
@@ -31,11 +31,11 @@ providers:
       - away.clubId
       - home.score
       - away.score
-    note: NFF kampnummer 23120206021.
+    note: NFF kampnummer 99060.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases:
-  fotball-no: "23120206021"
+  fotball-no: "99060"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

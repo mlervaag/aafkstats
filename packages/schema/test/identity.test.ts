@@ -32,6 +32,24 @@ describe("clubKey", () => {
     expect(clubKey("Bkilen")).toBe("bkilen");
   });
 
+  it("stryker flere ledd i samme ende", () => {
+    // Dette var feilen: ett strøk per ende holdt så lenge navnene hadde ett
+    // ledd. NFF Fotballdata skriver dem med to, og «Spjelkavik IL - Fotball»
+    // stoppet på «spjelkavik-il». Fire klubber lå dobbelt i arkivet fordi
+    // valideringen aldri så at de var samme identitet.
+    expect(clubKey("Spjelkavik IL - Fotball")).toBe(clubKey("Spjelkavik"));
+    expect(clubKey("Skarbøvik IL- Fotball")).toBe(clubKey("Skarbøvik"));
+    expect(clubKey("Stranda IL - Fotball")).toBe(clubKey("Stranda"));
+    expect(clubKey("Ørsta IL - Fotball")).toBe(clubKey("Ørsta"));
+  });
+
+  it("tømmer ikke et navn som bare består av støyledd", () => {
+    // En tom nøkkel ville gjort alle slike klubber til samme identitet.
+    expect(clubKey("IL")).toBe("il");
+    expect(clubKey("FK")).toBe("fk");
+    expect(clubKey("IL Fotball")).not.toBe("");
+  });
+
   it("slår ikke sammen klubber som bare deler et navneledd", () => {
     expect(clubKey("Vard Haugesund")).not.toBe(clubKey("Haugesund"));
     expect(clubKey("Odd")).not.toBe(clubKey("Hødd"));

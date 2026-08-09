@@ -89,7 +89,9 @@ const TYPE_NAMES: Record<string, string> = {
   national_cup: "cup",
   european: "europacup",
   friendly: "treningskamp",
-  playoff: "kvalifisering",
+  // Seriesystemets opp- og nedrykkskvalifisering. Europacupkvalifiseringen er
+  // en `european`-konkurranse og teller ikke her.
+  playoff: "opp- og nedrykkskvalifisering",
 };
 
 /**

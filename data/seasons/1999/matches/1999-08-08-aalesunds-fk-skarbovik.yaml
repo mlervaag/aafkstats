@@ -1,18 +1,18 @@
-id: 1990-06-10-aalesunds-fk-hamkam
-date: 1990-06-10
+id: 1999-08-08-aalesunds-fk-skarbovik
+date: 1999-08-08
 dateConfidence: exact
 status: played
 competition:
-  id: forstedivisjon
-  season: 1990
+  id: andredivisjon
+  season: 1999
   stage: regular_season
-  round: 8
+  round: 15
 home:
   clubId: aalesunds-fk
-  score: 3
+  score: 4
   halfTimeScore: null
 away:
-  clubId: hamkam
+  clubId: skarbovik
   score: 2
   halfTimeScore: null
 neutralVenue: false
@@ -20,7 +20,7 @@ events: []
 externalReports: []
 providers:
   - providerId: fotball-no
-    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83051&underside=kamper
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=113181&underside=kamper
     retrievedAt: 2026-08-05
     fields:
       - date
@@ -31,11 +31,11 @@ providers:
       - away.clubId
       - home.score
       - away.score
-    note: NFF kampnummer 99048.
+    note: NFF kampnummer 15120206090.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases:
-  fotball-no: "99048"
+  fotball-no: "15120206090"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

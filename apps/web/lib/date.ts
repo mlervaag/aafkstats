@@ -96,3 +96,24 @@ export function formatWeekdayDate(iso: string): string {
   const weekday = WEEKDAYS[new Date(Date.UTC(parts.year, parts.month - 1, parts.day)).getUTCDay()];
   return `${weekday} ${parts.day}. ${MONTHS[parts.month - 1]}`;
 }
+
+/**
+ * Dato og klokkeslett i Ålesund akkurat nå, som «2026-08-09» og «17:42».
+ *
+ * Serveren står i UTC, og forskjellen er ikke akademisk: en kamp med avspark
+ * 17:00 er i gang klokka 17:42 norsk tid, men først 15:42 etter serverens klokke.
+ * Alle klokkeslett i arkivet er lokale, så sammenligningen må være det også.
+ */
+export function nowInOslo(now = new Date()): { date: string; time: string } {
+  const parts = new Intl.DateTimeFormat("sv-SE", {
+    timeZone: "Europe/Oslo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).format(now);
+  const [date, time] = parts.split(" ");
+  return { date: date ?? "", time: (time ?? "").slice(0, 5) };
+}

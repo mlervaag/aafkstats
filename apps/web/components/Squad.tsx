@@ -93,7 +93,11 @@ export function SquadList({ players }: { players: SquadPlayer[] }) {
               <th scope="col" className="num col-number">#</th>
               <th scope="col">Spiller</th>
               <th scope="col">Posisjon</th>
-              <th scope="col" className="num">Kamper</th>
+              {/* «Kamper» leses som spilte kamper, og tallet er noe annet: ganger
+                  spilleren sto i den oppsatte troppen, benken medregnet.
+                  Forklaringen under tabellen sto der allerede, men da har
+                  leseren rukket å lære feil tall først. */}
+              <th scope="col" className="num">I kamptropp</th>
               <th scope="col" className="num">Fra start</th>
               <th scope="col" className="num">Mål</th>
             </tr>
@@ -122,9 +126,10 @@ export function SquadList({ players }: { players: SquadPlayer[] }) {
       </div>
 
       <p className="small muted prose">
-        Kamper og mål er utledet av lagoppstillingene, som arkivet har fra 2010.
-        «Kamper» er oppsatte tropper, ikke spilletid: benken teller med, fordi
-        kilden ikke skiller mellom en som satt der og en som kom inn. «Ny» betyr
+        «I kamptropp», «fra start» og mål er utledet av lagoppstillingene, som
+        arkivet har fra 2010. Å stå i troppen er ikke det samme som å ha spilt:
+        benken teller med, fordi kilden ikke skiller mellom en som satt der og
+        en som kom inn. «Ny» betyr
         at spilleren ikke var med i fjor, ikke at han ble hentet.
         {withRegister > 0 && (
           <> Draktnummer og posisjon står for {withRegister} av dem, fra Wikipedias stallmal.</>

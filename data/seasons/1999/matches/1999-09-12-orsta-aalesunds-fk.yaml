@@ -1,19 +1,19 @@
-id: 1999-07-07-volda-ti-fotball-aalesunds-fk
-date: 1999-07-07
+id: 1999-09-12-orsta-aalesunds-fk
+date: 1999-09-12
 dateConfidence: exact
 status: played
 competition:
   id: andredivisjon
   season: 1999
   stage: regular_season
-  round: 10
+  round: 20
 home:
-  clubId: volda-ti-fotball
-  score: 0
+  clubId: orsta
+  score: 1
   halfTimeScore: null
 away:
   clubId: aalesunds-fk
-  score: 2
+  score: 8
   halfTimeScore: null
 neutralVenue: false
 events: []
@@ -31,11 +31,11 @@ providers:
       - away.clubId
       - home.score
       - away.score
-    note: NFF kampnummer 15120206060.
+    note: NFF kampnummer 15120206120.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases:
-  fotball-no: "15120206060"
+  fotball-no: "15120206120"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

@@ -1,26 +1,26 @@
-id: 1990-09-09-hamkam-aalesunds-fk
-date: 1990-09-09
+id: 2000-06-25-aalesunds-fk-spjelkavik
+date: 2000-06-25
 dateConfidence: exact
 status: played
 competition:
-  id: forstedivisjon
-  season: 1990
+  id: andredivisjon
+  season: 2000
   stage: regular_season
-  round: 19
+  round: 11
 home:
-  clubId: hamkam
-  score: 4
+  clubId: aalesunds-fk
+  score: 2
   halfTimeScore: null
 away:
-  clubId: aalesunds-fk
-  score: 1
+  clubId: spjelkavik
+  score: 0
   halfTimeScore: null
 neutralVenue: false
 events: []
 externalReports: []
 providers:
   - providerId: fotball-no
-    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83051&underside=kamper
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=119411&underside=kamper
     retrievedAt: 2026-08-05
     fields:
       - date
@@ -31,11 +31,11 @@ providers:
       - away.clubId
       - home.score
       - away.score
-    note: NFF kampnummer 99114.
+    note: NFF kampnummer 23120206062.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases:
-  fotball-no: "99114"
+  fotball-no: "23120206062"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
