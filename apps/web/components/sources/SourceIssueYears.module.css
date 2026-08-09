@@ -46,6 +46,31 @@
   color: var(--muted);
 }
 
+/*
+ * Hullet mellom to årganger.
+ *
+ * En stille linje, ikke en varselboks. At arkivet mangler noe er en opplysning
+ * på linje med de andre i lista, og et fremhevet felt ville gjort de 22 tomme
+ * årene til sidens viktigste innhold.
+ */
+.gap {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.gapCount {
+  flex-shrink: 0;
+  font-style: normal;
+  font-variant-numeric: tabular-nums;
+}
+
 .issues {
   list-style: none;
   display: flex;

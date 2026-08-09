@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import type { Source } from "@/lib/sources";
 import styles from "./SourceIssueYears.module.css";
@@ -27,10 +28,29 @@ export function SourceIssueYears({ issues }: { issues: Source[] }) {
 
   return (
     <ol className={styles.years}>
-      {years.map((group) => {
+      {years.map((group, index) => {
         const heading = group.year === null ? "Uten år" : String(group.year);
+        const gap = gapBefore(years[index - 1] ?? null, group);
         return (
-          <li className={styles.year} key={heading}>
+          <Fragment key={heading}>
+            {gap && (
+              /*
+               * Lista rendrer bare år som har utgaver, og hoppet dermed rett fra
+               * 2003 til 1980 uten å si at det ligger 22 år imellom. Den rimelige
+               * slutningen for en leser er at bladet ble lagt ned og gjenopplivet.
+               *
+               * Formuleringen sier hva arkivet mangler, ikke hva bladet gjorde.
+               * Vi vet ikke om det sluttet å komme ut i 1981 eller om årgangene
+               * bare ikke er digitalisert, og da skal teksten ikke velge.
+               */
+              <li className={styles.gap}>
+                Arkivet har ingen utgaver {gap.from === gap.to ? `fra ${gap.from}` : `fra ${gap.from} til ${gap.to}`}
+                <span className={styles.gapCount}>
+                  {gap.count === 1 ? "1 år" : `${gap.count} år`}
+                </span>
+              </li>
+            )}
+          <li className={styles.year}>
             <h3 className={styles.yearLabel}>
               {heading}
               {group.volume && <span className={styles.volume}>Årgang {group.volume}</span>}
@@ -49,8 +69,32 @@ export function SourceIssueYears({ issues }: { issues: Source[] }) {
               ))}
             </ul>
           </li>
+          </Fragment>
         );
       })}
     </ol>
   );
+}
+
+type YearGroup = { year: number | null; volume: string | null; items: Source[] };
+
+/**
+ * Årene mellom to grupper som ikke har en eneste utgave.
+ *
+ * Rekkefølgen på lista kommer fra spørringen og er nyest først, men den kan snus
+ * uten at dette skal slutte å virke — derfor regnes avstanden begge veier.
+ * Gruppa «Uten år» har ingen plass på tidslinja og avbryter tellingen.
+ */
+function gapBefore(
+  previous: YearGroup | null,
+  current: YearGroup,
+): { from: number; to: number; count: number } | null {
+  if (!previous || previous.year === null || current.year === null) return null;
+
+  const high = Math.max(previous.year, current.year);
+  const low = Math.min(previous.year, current.year);
+  const count = high - low - 1;
+  if (count < 1) return null;
+
+  return { from: low + 1, to: high - 1, count };
 }
