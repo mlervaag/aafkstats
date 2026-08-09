@@ -1,0 +1,41 @@
+/*
+ * Søk og filter over kildelista.
+ *
+ * Feltene hadde bare ramme og avstand satt, og arvet ellers nettleserens egne
+ * farger. I mørkt tema ga det to hvite kontroller med svart tekst rett over en
+ * mørk liste. De følger nå skjemafeltene ellers på nettstedet.
+ */
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.search,
+.filter {
+  font: inherit;
+  padding: 0.5rem 1rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.search {
+  flex-grow: 1;
+  max-width: 400px;
+}
+
+.search:focus,
+.filter:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.empty {
+  margin-top: 2rem;
+  font-style: italic;
+  color: var(--muted);
+}

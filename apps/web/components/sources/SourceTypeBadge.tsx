@@ -1,3 +1,5 @@
+import styles from "./SourceTypeBadge.module.css";
+
 export const SOURCE_TYPES: Record<string, { singular: string; plural: string }> = {
   book: { singular: "Bok", plural: "Bøker" },
   anniversary_book: { singular: "Jubileumsskrift", plural: "Jubileumsskrift" },
@@ -18,7 +20,7 @@ export const SOURCE_TYPE_LABELS: Record<string, string> = Object.fromEntries(
 export function SourceTypeBadge({ type, year }: { type: string, year?: number | null }) {
   const label = SOURCE_TYPE_LABELS[type] || type;
   return (
-    <div style={{ textTransform: "uppercase", fontSize: "0.8rem", letterSpacing: "1px", color: "#666", marginBottom: "0.25rem" }}>
+    <div className={styles.badge}>
       {label}{year ? ` · ${year}` : ""}
     </div>
   );
