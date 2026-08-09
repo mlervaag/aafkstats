@@ -2,8 +2,8 @@ providerId: fotmob
 externalId: "5105061"
 matchId: 2026-11-29-fredrikstad-aalesunds-fk
 retrievedAt: 2026-08-09
-adapter: fotmob@2
-payloadHash: sha256:73d4de8652f2d67b5f317176e9c060ad0a282d6aff0ce282542bfd7fde83e19e
+adapter: fotmob@3
+payloadHash: sha256:64d12c4276b3c44e1767336e778dcee263bf535910c407b56bed652c21529ebb
 raw:
   externalId: "5105061"
   date: 2026-11-29
@@ -17,7 +17,6 @@ raw:
   competitionId: "59"
   season: 2026
   round: 28
-  venue: Fredrikstad Stadion
   url: https://www.fotmob.com/matches/aalesund-vs-fredrikstad/2c8m9k#5105061
 normalized:
   date: 2026-11-29
@@ -29,7 +28,6 @@ normalized:
   competition.season: 2026
   competition.round: 28
   competition.stage: regular_season
-  venueId: fredrikstad-stadion
 fields:
   - date
   - kickoff
@@ -38,6 +36,4 @@ fields:
   - home.clubId
   - away.clubId
   - competition.round
-  - venueId
-  - lineups
 warnings: []
