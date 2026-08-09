@@ -5,6 +5,7 @@
 | [Arkitektur](ARKITEKTUR.md) | Hvordan delene henger sammen, og hvorfor de er slik |
 | [Datamodell](DATAMODELL.md) | Hvert felt i YAML-filene, med regler og eksempler |
 | [Plan fra pilot til arkiv](PLAN_FRA_PILOT_TIL_ARKIV.md) | Hva som bygges, i hvilken rekkefølge |
+| [Merkevarepakke](brand/README.md) | Logoer, appikoner, farger og bruk |
 
 ## Kilder
 

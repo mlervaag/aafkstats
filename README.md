@@ -1,5 +1,7 @@
 <div align="center">
 
+![AaFK-arkivet](docs/brand/assets/readme-banner-1280x320.png)
+
 # AaFK-arkivet
 
 **Fritt og åpent arkiv over Aalesunds Fotballklubbs kamphistorikk —
@@ -302,6 +304,7 @@ kjenne til:
 | [**Arkitektur**](docs/ARKITEKTUR.md) | Hvordan delene henger sammen, og hvorfor de er slik |
 | [**Datamodell**](docs/DATAMODELL.md) | Hvert felt i YAML-filene, med regler og eksempler |
 | [**Bidra**](CONTRIBUTING.md) | Hvordan du retter en kamp eller sender kode |
+| [Merkevarepakke](docs/brand/README.md) | Logoer, appikoner, farger og bruk |
 | [Kildekart](docs/research/KILDEKART_OG_INNHENTINGSSTRATEGI.md) | Hvilke kilder som finnes, og hvilke som er røde |
 | [Plan fra pilot til arkiv](docs/PLAN_FRA_PILOT_TIL_ARKIV.md) | Hva som bygges, i hvilken rekkefølge |
 | [FotMob-dekningstak](docs/data/FOTMOB_DEKNINGSTAK.md) | Hvor den moderne kilden slutter |
