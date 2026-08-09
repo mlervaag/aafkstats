@@ -49,7 +49,9 @@ const checks: Check[] = [
   },
   {
     page: "sesong/1998",
-    must: ["1998", "Sluttabell"],
+    // «Dette mangler for 1998» er dekningsgraden gjort handlingsorientert: den skal
+    // stå der med en Bidra-knapp, ikke bare som et merke som sier «Delvis».
+    must: ["1998", "Sluttabell", "Dette mangler for", "seriekamper", "Kan du hjelpe?"],
   },
   {
     page: "motstander/sk-brann",
@@ -57,8 +59,37 @@ const checks: Check[] = [
   },
   {
     page: "kamp/1998-08-16-aalesunds-fk-sk-brann",
-    must: ["16. august 1998", "Kilder", "Kildene er uenige", "arkivet bruker denne"],
+    must: [
+      "16. august 1998", "Kilder", "Kildene er uenige", "arkivet bruker denne",
+      // Den diskrete merknaden øverst, med lenke til seksjonen lenger nede.
+      "er uenige om tilskuertallet",
+    ],
     mustNot: ["Kampen er ikke spilt"],
+  },
+  // Kildesidene var «force-dynamic» og fantes ikke som forhåndsgenerert HTML i det
+  // hele tatt. At denne filen finnes er halve testen.
+  {
+    page: "kilder",
+    must: ["Historisk kildearkiv", "AaFK Medlemsblad", "Serier og faste utgivelser"],
+  },
+  {
+    page: "kilder/aafk-90-ar-1914-2004",
+    must: [
+      "Aalesunds fotballklubb 90 år",
+      // Bibliografien: URN, forfatter og beskrivelse.
+      "URN:NBN:no-nb_digibok_2011071108003", "Konstruert Forfatter", "Jubileumsbok",
+      // Provenance-språket, og at bruken faktisk summeres opp.
+      "Kamper der kilden er brukt",
+      "Side 142",
+      // Providernavnet skal komme fra core_providers, ikke fra en streng i JSX-en.
+      "Les hos Nasjonalbiblioteket",
+    ],
+    mustNot: ["Dokumenterte kamper"],
+  },
+  {
+    page: "kilder/aafk-medlemsblad",
+    // Årsgruppering: to årganger, hver med sitt utgavenummer.
+    must: ["AaFK Medlemsblad", "Utgivelser (", "1970", "1971", "Årgang"],
   },
   {
     page: "kamp/2024-11-24-sk-brann-aalesunds-fk",

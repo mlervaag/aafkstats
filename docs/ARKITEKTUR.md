@@ -77,7 +77,8 @@ teller på kanten, og kostnadstaket ligger hos modelleverandøren. Se
 [`apps/web/lib/rate-limit.ts`](../apps/web/lib/rate-limit.ts) for hvordan det henger sammen,
 og hva reservelaget i minnet faktisk er verdt.
 
-Hele arkivet — 1 244 kamper — bygges på rundt 130 ms til en fil på 4,4 MB.
+Hele arkivet — 1 332 kamper — bygges lokalt til én liten SQLite-fil. Byggetid og filstørrelse
+varierer med maskin og SQLite-versjon og oppgis derfor ikke som faste arkivfakta.
 
 ## Lag for lag
 
@@ -135,7 +136,11 @@ Arkivet skiller strengt mellom hvor data kommer fra digitalt (Provider) og hvilk
 
 - **Provider**: Dataleverandøren (f.eks. Fotball.no, Wikipedia, RSSSF, eller AaFK Historisk Arkiv). Spores med `providerId` i YAML og eksponeres som `providers`-array i viewene.
 - **Source**: Det faktiske historiske dokumentet (f.eks. "AaFK 50 år", "AaFK Medlemsblad nr. 4 1958"). Lagres i `core_sources` (tidligere publikasjoner) og eksponeres i `sources`-viewet. Gjentakende utgivelser samles under en kilde med `sourceType: series`; hver utgave peker eksplisitt på serien med `parentSourceId`, og valideringen krever at denne forelderen finnes og faktisk er en serie.
-- **SourceRef**: Koblingen mellom et spesifikt datapunkt (som en match) og en `source`, med mulighet for å peke på nøyaktig sidetall eller felt (`sourceRef`).
+- **SourceRef**: Koblingen mellom et spesifikt datapunkt (som en match) og en `source`, med mulighet for å peke på nøyaktig sidetall eller felt (`sourceRef`). Fordi en kilde som regel er brukt til ett felt og ikke til hele kampen, sier kildesiden «Kamper der kilden er brukt» — ikke «dokumenterte kamper», som ville lovet mer enn referansen dekker.
+
+Bibliografien på en `source` — `urn`, `author` og `description` — er valgfri. `urn` er den stabile identifikatoren, som regel Nasjonalbibliotekets; `accessUrl` er bare en adresse, og adresser endrer seg. Feltene er dokumentert i [`docs/DATAMODELL.md`](DATAMODELL.md#historisk-kilde).
+
+Visningsnavnet på en leverandør leses fra `core_providers.name`, aldri fra en streng i UI-koden. Ellers får kildesiden og kampsiden hver sitt navn på samme leverandør.
 
 Spørrefunksjonen ser bare viewene. Et senere REST-API og en MCP-server skal bruke den samme
 kontrakten. Legger du til en kolonne i `core_matches` uten å eksponere den i et view, har du
@@ -296,12 +301,15 @@ sammenslåing ville skjult hvem som mente hva.
 
 ## Nettstedet
 
-Next.js 15 med App Router. Sidene rendres på serveren ved forespørsel
-(`dynamic = "force-dynamic"`) og leser arkivfilen direkte gjennom `@aafkstats/db`. Det er
-billig — filen er lokal, skrivebeskyttet og allerede varm — og det holder sidene fri for et
-byggetidsledd som må holdes i takt med dataene. Skulle trafikken kreve det, er
-forhåndsgenerering av kamp- og sesongsider det åpenbare neste steget, siden innholdet er låst
-mellom to utrullinger.
+Next.js 15 med App Router. Sidene leser arkivfilen direkte gjennom `@aafkstats/db`, og
+innholdet er låst mellom to utrullinger — så hver side med et innhold som ikke kan endre seg
+forhåndsgenereres. Kamp-, sesong-, motstander- og kildesidene har hver sin
+`generateStaticParams()`, som leser ID-lista fra arkivet: nye kamper og nye kilder kommer med
+av seg selv ved neste bygg. Det er drøyt 1 600 sider i dag, bygget på under et minutt — og
+tallet står med vilje omtrentlig her, siden hver innhøsting flytter det.
+
+Bare rutene under `/api` rendres ved forespørsel, og det er de eneste som må: de gjør noe
+annet enn å lese arkivet.
 
 To ruter gjør noe mer enn å lese:
 

@@ -20,7 +20,7 @@ europakampene, må komme et annet sted fra.
 | Europacup | alle år | ❌ finnes ikke | Se «Europakampene» |
 
 Status per 9. august 2026: **555 kamper, 17 sesonger, 2010–2026**, hvorav 523 har
-hendelsesdata. Av alle 1332 kampene i arkivet har 276 de fire grunnfeltene
+hendelsesdata. Av alle 1 332 kampene i arkivet har 276 de fire grunnfeltene
 ballbesittelse, skudd, skudd på mål og cornere. 138 har fouls og offsider, og 105 har xG.
 
 Statistikkdekningen følger ikke kampdekningen. FotMobs kampdetaljer for 2018 og 2019

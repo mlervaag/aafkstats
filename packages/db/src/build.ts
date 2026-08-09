@@ -117,8 +117,9 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
     }
 
     const insertSource = db.prepare(
-      `INSERT INTO core_sources (id, parent_source_id, title, source_type, issue, volume, publisher, year, cover_url, access_url, providers)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+      `INSERT INTO core_sources (id, parent_source_id, title, source_type, issue, volume, publisher, year,
+         urn, author, description, cover_url, access_url, providers)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
     );
     // Foreldreseriene må finnes før utgavene når SQLite håndhever fremmednøkkelen.
     // Filnavnrekkefølge er ikke en kontrakt og kan ikke brukes som innsettingsrekkefølge.
@@ -128,6 +129,7 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
     for (const p of orderedSources) {
       insertSource.run(
         p.id, p.parentSourceId ?? null, p.title, p.sourceType, p.issue ?? null, p.volume ?? null, p.publisher ?? null, p.year ?? null,
+        p.urn ?? null, p.author ?? null, p.description ?? null,
         p.coverUrl ?? null, p.accessUrl ?? null, json(p.providers ?? [])
       );
     }
