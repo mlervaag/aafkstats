@@ -230,6 +230,25 @@ export const match = z
       }
     }
 
+    for (const sideName of ["home", "away"] as const) {
+      const stats = value.stats?.[sideName];
+      if (stats?.shots !== undefined && stats.shotsOnTarget !== undefined && stats.shotsOnTarget > stats.shots) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["stats", sideName, "shotsOnTarget"],
+          message: "skudd på mål kan ikke være høyere enn totalt antall skudd",
+        });
+      }
+    }
+    const totalCorners = (value.stats?.home?.corners ?? 0) + (value.stats?.away?.corners ?? 0);
+    if (totalCorners > 30) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["stats"],
+        message: `urimelig høyt antall cornere (${totalCorners}); kontroller kilden`,
+      });
+    }
+
     // Straffesparkkonkurranse uten uavgjort etter ordinær tid og eventuell ekstraomgang.
     if (value.penaltyShootout && value.home.score !== null && value.away.score !== null) {
       const homeTotal = value.home.score + (value.extraTime?.home ?? 0);

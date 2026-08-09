@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "2948685"
+matchId: 2019-10-06-aalesunds-fk-raufoss-il
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:233efb250b2da4bbc5d395573453226990df1e1bfa8e7437a921fdd39e032190
+raw:
+  externalId: "2948685"
+  date: 2019-10-06
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Raufoss
+  awayId: "9812"
+  homeScore: 3
+  awayScore: 1
+  homeHalfTime: 2
+  awayHalfTime: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2019
+  round: 26
+  venue: Color Line Stadion
+  url: https://www.fotmob.com/matches/aalesund-vs-raufoss/2qsglk#2948685
+normalized:
+  date: 2019-10-06
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: raufoss-il
+  home.score: 3
+  away.score: 1
+  home.halfTimeScore: 2
+  away.halfTimeScore: 0
+  competition.id: forstedivisjon
+  competition.season: 2019
+  competition.round: 26
+  competition.stage: regular_season
+  venueId: color-line-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

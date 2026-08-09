@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "4695630"
+matchId: 2025-07-22-egersund-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:99806197605765201663863499b856bde61a031116a3c8257d49122fe38278e3
+raw:
+  externalId: "4695630"
+  date: 2025-07-22
+  kickoff: 18:00
+  status: FT
+  home: Egersund
+  homeId: "4722"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 2
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2025
+  round: 6
+  url: https://www.fotmob.com/matches/egersund-vs-aalesund/1faq6h#4695630
+normalized:
+  date: 2025-07-22
+  kickoff: 18:00
+  status: played
+  home.clubId: egersund
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 2
+  competition.id: forstedivisjon
+  competition.season: 2025
+  competition.round: 6
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

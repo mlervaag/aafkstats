@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "4695604"
+matchId: 2025-04-05-sogndal-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:6efbee26b55acf5282f67bd5cf038d345d13a55bd22b3402ccd5f8803b94c61e
+raw:
+  externalId: "4695604"
+  date: 2025-04-05
+  kickoff: 16:00
+  status: FT
+  home: Sogndal
+  homeId: "8616"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 3
+  awayScore: 4
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2025
+  round: 2
+  url: https://www.fotmob.com/matches/aalesund-vs-sogndal/2e8smm#4695604
+normalized:
+  date: 2025-04-05
+  kickoff: 16:00
+  status: played
+  home.clubId: sogndal
+  away.clubId: aalesunds-fk
+  home.score: 3
+  away.score: 4
+  competition.id: forstedivisjon
+  competition.season: 2025
+  competition.round: 2
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

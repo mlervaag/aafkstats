@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2948294"
+matchId: 2019-06-02-aalesunds-fk-ull-kisa
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:c4d87ecd8e4ffa0aab72b1ce380d03bbf155311222d569bd8324a64e7ea28dbb
+raw:
+  externalId: "2948294"
+  date: 2019-06-02
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Ull/Kisa
+  awayId: "10232"
+  homeScore: 1
+  awayScore: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2019
+  round: 10
+  url: https://www.fotmob.com/matches/aalesund-vs-ullkisa/2veb2a#2948294
+normalized:
+  date: 2019-06-02
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: ull-kisa
+  home.score: 1
+  away.score: 0
+  competition.id: forstedivisjon
+  competition.season: 2019
+  competition.round: 10
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

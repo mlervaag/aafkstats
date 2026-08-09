@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "4385646"
+matchId: 2024-04-06-start-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:8a091dacc5aacccda297baaf371e626754b5979455d7ba620d68d35d20cd3fc9
+raw:
+  externalId: "4385646"
+  date: 2024-04-06
+  kickoff: 16:00
+  status: FT
+  home: Start
+  homeId: "9919"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 3
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2024
+  round: 2
+  url: https://www.fotmob.com/matches/aalesund-vs-start/2ryd31#4385646
+normalized:
+  date: 2024-04-06
+  kickoff: 16:00
+  status: played
+  home.clubId: start
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 3
+  competition.id: forstedivisjon
+  competition.season: 2024
+  competition.round: 2
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

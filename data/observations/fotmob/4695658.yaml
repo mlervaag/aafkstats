@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "4695658"
+matchId: 2025-05-31-ranheim-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:6d6c2f7e4954da50771ba10f06db77a8d930f7d74209155afbd2fffdcddfbbe8
+raw:
+  externalId: "4695658"
+  date: 2025-05-31
+  kickoff: 16:00
+  status: FT
+  home: Ranheim
+  homeId: "6563"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 1
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2025
+  round: 9
+  url: https://www.fotmob.com/matches/ranheim-vs-aalesund/1up0ag#4695658
+normalized:
+  date: 2025-05-31
+  kickoff: 16:00
+  status: played
+  home.clubId: ranheim
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 1
+  competition.id: forstedivisjon
+  competition.season: 2025
+  competition.round: 9
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

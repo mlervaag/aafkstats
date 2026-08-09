@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2685075"
+matchId: 2018-05-16-aalesunds-fk-strommen
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:5eedd035c87ed1b96618d0d7f338fd6413d0363b0bc496bcaa8f3fcb20dab662
+raw:
+  externalId: "2685075"
+  date: 2018-05-16
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Strømmen
+  awayId: "4249"
+  homeScore: 2
+  awayScore: 2
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2018
+  round: 8
+  url: https://www.fotmob.com/matches/strommen-vs-aalesund/1bo1q7#2685075
+normalized:
+  date: 2018-05-16
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: strommen
+  home.score: 2
+  away.score: 2
+  competition.id: forstedivisjon
+  competition.season: 2018
+  competition.round: 8
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

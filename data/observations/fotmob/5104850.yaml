@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "5104850"
+matchId: 2026-03-21-start-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:2b60d24c4bc571282fd70fa6573d625256de4084aad75e8aaddd272d03086127
+raw:
+  externalId: "5104850"
+  date: 2026-03-21
+  kickoff: 16:00
+  status: FT
+  home: Start
+  homeId: "9919"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 1
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2026
+  round: 2
+  url: https://www.fotmob.com/matches/aalesund-vs-start/2ryd31#5104850
+normalized:
+  date: 2026-03-21
+  kickoff: 16:00
+  status: played
+  home.clubId: start
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 1
+  competition.id: eliteserien
+  competition.season: 2026
+  competition.round: 2
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

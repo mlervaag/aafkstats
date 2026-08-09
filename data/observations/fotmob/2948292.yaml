@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2948292"
+matchId: 2019-05-26-jerv-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:10111a6e112bb12dc170780ffd5a088280b30244f00ac16e810b3d11e0e94243
+raw:
+  externalId: "2948292"
+  date: 2019-05-26
+  kickoff: 18:00
+  status: FT
+  home: Jerv
+  homeId: "2303"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 0
+  awayScore: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2019
+  round: 9
+  url: https://www.fotmob.com/matches/jerv-vs-aalesund/y4uya#2948292
+normalized:
+  date: 2019-05-26
+  kickoff: 18:00
+  status: played
+  home.clubId: jerv
+  away.clubId: aalesunds-fk
+  home.score: 0
+  away.score: 0
+  competition.id: forstedivisjon
+  competition.season: 2019
+  competition.round: 9
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

@@ -1,0 +1,63 @@
+providerId: fotmob
+externalId: "2147595"
+matchId: 2016-10-02-aalesunds-fk-odds-ballklubb
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:e1ed01fabccde699e21537e8d956d6f3830fbb5f4bc340bc9d51506c56d334db
+raw:
+  externalId: "2147595"
+  date: 2016-10-02
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Odds Ballklubb
+  awayId: "7988"
+  homeScore: 1
+  awayScore: 0
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2016
+  round: 26
+  venue: Color Line Stadion
+  attendance: 5832
+  referee: Kai Erik Steen
+  url: https://www.fotmob.com/matches/odds-ballklubb-vs-aalesund/27zx14#2147595
+normalized:
+  date: 2016-10-02
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: odds-ballklubb
+  home.score: 1
+  away.score: 0
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: eliteserien
+  competition.season: 2016
+  competition.round: 26
+  competition.stage: regular_season
+  venueId: color-line-stadion
+  attendance: 5832
+  referee.name: Kai Erik Steen
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

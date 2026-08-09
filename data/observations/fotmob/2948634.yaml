@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2948634"
+matchId: 2019-08-24-sandnes-ulf-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:d37ffcfe2a718ad505b730694c0e5936f1ebcc33b73a06ef995b92ccac1761e2
+raw:
+  externalId: "2948634"
+  date: 2019-08-24
+  kickoff: 15:30
+  status: FT
+  home: Sandnes Ulf
+  homeId: "8133"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 2
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2019
+  round: 20
+  url: https://www.fotmob.com/matches/sandnes-ulf-vs-aalesund/29f36h#2948634
+normalized:
+  date: 2019-08-24
+  kickoff: 15:30
+  status: played
+  home.clubId: sandnes-ulf
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 2
+  competition.id: forstedivisjon
+  competition.season: 2019
+  competition.round: 20
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

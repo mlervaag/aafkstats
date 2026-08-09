@@ -1,0 +1,43 @@
+providerId: fotmob
+externalId: "5105016"
+matchId: 2026-09-19-molde-fk-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:8e14fa1cbc5ad7c8a66a4a18201fb2b8da0516e1f9a0713291b36f0ae8425032
+raw:
+  externalId: "5105016"
+  date: 2026-09-19
+  kickoff: 18:00
+  status: scheduled
+  home: Molde
+  homeId: "9917"
+  away: Aalesund
+  awayId: "8404"
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2026
+  round: 22
+  venue: Aker Stadion
+  url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#5105016
+normalized:
+  date: 2026-09-19
+  kickoff: 18:00
+  status: scheduled
+  home.clubId: molde-fk
+  away.clubId: aalesunds-fk
+  competition.id: eliteserien
+  competition.season: 2026
+  competition.round: 22
+  competition.stage: regular_season
+  venueId: aker-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - competition.round
+  - venueId
+  - lineups
+warnings: []

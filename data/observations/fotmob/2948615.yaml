@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2948615"
+matchId: 2019-08-17-sogndal-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:3a98bd5be84aac26f6f04923fff8ec086c240c4c308b35a56975616e08d9e9fb
+raw:
+  externalId: "2948615"
+  date: 2019-08-17
+  kickoff: 15:30
+  status: FT
+  home: Sogndal
+  homeId: "8616"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 3
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2019
+  round: 18
+  url: https://www.fotmob.com/matches/aalesund-vs-sogndal/2e8smm#2948615
+normalized:
+  date: 2019-08-17
+  kickoff: 15:30
+  status: played
+  home.clubId: sogndal
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 3
+  competition.id: forstedivisjon
+  competition.season: 2019
+  competition.round: 18
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

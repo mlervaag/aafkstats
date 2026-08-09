@@ -1,0 +1,60 @@
+providerId: fotmob
+externalId: "1879385"
+matchId: 2015-10-17-stabaek-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:f3dd88f906079039e5ef461dcc990335d1c9c95e36cb7a0c132df154e49d9141
+raw:
+  externalId: "1879385"
+  date: 2015-10-17
+  kickoff: 18:00
+  status: FT
+  home: Stabæk
+  homeId: "9918"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 4
+  homeHalfTime: 0
+  awayHalfTime: 1
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2015
+  round: 27
+  venue: Nadderud Stadion
+  attendance: 3852
+  url: https://www.fotmob.com/matches/aalesund-vs-stabaek/2rxyy1#1879385
+normalized:
+  date: 2015-10-17
+  kickoff: 18:00
+  status: played
+  home.clubId: stabaek
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 4
+  home.halfTimeScore: 0
+  away.halfTimeScore: 1
+  competition.id: eliteserien
+  competition.season: 2015
+  competition.round: 27
+  competition.stage: regular_season
+  venueId: nadderud-stadion
+  attendance: 3852
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2948221"
+matchId: 2019-03-30-start-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:e27393f36697b6cb4c7d5414420495e803fd3872ceec60c81622783f2d5842e8
+raw:
+  externalId: "2948221"
+  date: 2019-03-30
+  kickoff: 15:30
+  status: FT
+  home: Start
+  homeId: "9919"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 0
+  awayScore: 1
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2019
+  round: 1
+  url: https://www.fotmob.com/matches/aalesund-vs-start/2ryd31#2948221
+normalized:
+  date: 2019-03-30
+  kickoff: 15:30
+  status: played
+  home.clubId: start
+  away.clubId: aalesunds-fk
+  home.score: 0
+  away.score: 1
+  competition.id: forstedivisjon
+  competition.season: 2019
+  competition.round: 1
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

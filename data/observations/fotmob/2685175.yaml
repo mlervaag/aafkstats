@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2685175"
+matchId: 2018-08-19-tromsdalen-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:5e02ed8068a68903ed7743966c60aa09c121ef0604983389ff39df62e7fc3d45
+raw:
+  externalId: "2685175"
+  date: 2018-08-19
+  kickoff: 18:00
+  status: FT
+  home: Tromsdalen
+  homeId: "8617"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 2
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2018
+  round: 20
+  url: https://www.fotmob.com/matches/aalesund-vs-tromsdalen/2e95rg#2685175
+normalized:
+  date: 2018-08-19
+  kickoff: 18:00
+  status: played
+  home.clubId: tromsdalen
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 2
+  competition.id: forstedivisjon
+  competition.season: 2018
+  competition.round: 20
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

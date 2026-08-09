@@ -1,0 +1,60 @@
+providerId: fotmob
+externalId: "1879499"
+matchId: 2015-10-04-aalesunds-fk-sandefjord
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:d28c0c7fdb1097331d53fdc668a5c58fcd333d76c6da40f0368eb4e6ce6d7ca7
+raw:
+  externalId: "1879499"
+  date: 2015-10-04
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Sandefjord
+  awayId: "8609"
+  homeScore: 2
+  awayScore: 1
+  homeHalfTime: 0
+  awayHalfTime: 1
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2015
+  round: 26
+  venue: Color Line Stadion
+  attendance: 7463
+  url: https://www.fotmob.com/matches/aalesund-vs-sandefjord/2e68pk#1879499
+normalized:
+  date: 2015-10-04
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: sandefjord
+  home.score: 2
+  away.score: 1
+  home.halfTimeScore: 0
+  away.halfTimeScore: 1
+  competition.id: eliteserien
+  competition.season: 2015
+  competition.round: 26
+  competition.stage: regular_season
+  venueId: color-line-stadion
+  attendance: 7463
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

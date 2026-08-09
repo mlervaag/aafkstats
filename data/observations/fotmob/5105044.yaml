@@ -1,0 +1,43 @@
+providerId: fotmob
+externalId: "5105044"
+matchId: 2026-11-08-lillestrom-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:fd90251152afd285d51da53495854c166c632d474ab164b465045d13e4448d36
+raw:
+  externalId: "5105044"
+  date: 2026-11-08
+  kickoff: 17:00
+  status: scheduled
+  home: Lillestrøm
+  homeId: "8476"
+  away: Aalesund
+  awayId: "8404"
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2026
+  round: 26
+  venue: Aaraasen Stadion
+  url: https://www.fotmob.com/matches/aalesund-vs-lillestrom/2ctxg4#5105044
+normalized:
+  date: 2026-11-08
+  kickoff: 17:00
+  status: scheduled
+  home.clubId: lillestrom
+  away.clubId: aalesunds-fk
+  competition.id: eliteserien
+  competition.season: 2026
+  competition.round: 26
+  competition.stage: regular_season
+  venueId: aaraasen-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - competition.round
+  - venueId
+  - lineups
+warnings: []

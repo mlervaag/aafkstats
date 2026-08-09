@@ -173,20 +173,20 @@ stats:
     corners: 9
     fouls: 14
     offsides: 1
-    xg: 2.62
+    xg: 2.98
   away:
     possession: 47
-    shots: 12
-    shotsOnTarget: 7
+    shots: 11
+    shotsOnTarget: 5
     corners: 4
     fouls: 14
     offsides: 1
-    xg: 1.95
+    xg: 2.77
 externalReports: []
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/aalesund-vs-tromso/2e5vky#5104967
-    retrievedAt: 2026-08-03
+    retrievedAt: 2026-08-09
     fields:
       - date
       - kickoff
@@ -206,6 +206,7 @@ providers:
       - stats
       - lineups
     note: "Kildestatus: FT"
+sources: []
 confidence: probable
 conflicts: []
 tags: []

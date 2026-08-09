@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2685059"
+matchId: 2018-05-06-aalesunds-fk-mjondalen
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:429bf2a6369c78e2c7f3cc770b365c28fa15a3e0069871b70365f7968862cdf1
+raw:
+  externalId: "2685059"
+  date: 2018-05-06
+  kickoff: 15:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Mjøndalen
+  awayId: "6541"
+  homeScore: 2
+  awayScore: 1
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2018
+  round: 6
+  url: https://www.fotmob.com/matches/mjondalen-vs-aalesund/1uhyed#2685059
+normalized:
+  date: 2018-05-06
+  kickoff: 15:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: mjondalen
+  home.score: 2
+  away.score: 1
+  competition.id: forstedivisjon
+  competition.season: 2018
+  competition.round: 6
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

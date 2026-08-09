@@ -1,0 +1,63 @@
+providerId: fotmob
+externalId: "2147587"
+matchId: 2016-10-15-aalesunds-fk-bodo-glimt
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:051f43a6a6e160a57964b99cee411e884b1c10b234c8aadf822f7aef55b56d18
+raw:
+  externalId: "2147587"
+  date: 2016-10-15
+  kickoff: 15:30
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Bodø/Glimt
+  awayId: "8402"
+  homeScore: 1
+  awayScore: 0
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2016
+  round: 27
+  venue: Color Line Stadion
+  attendance: 6007
+  referee: Svein-Erik Edvartsen
+  url: https://www.fotmob.com/matches/bodoglimt-vs-aalesund/2c37nd#2147587
+normalized:
+  date: 2016-10-15
+  kickoff: 15:30
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: bodo-glimt
+  home.score: 1
+  away.score: 0
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: eliteserien
+  competition.season: 2016
+  competition.round: 27
+  competition.stage: regular_season
+  venueId: color-line-stadion
+  attendance: 6007
+  referee.name: Svein-Erik Edvartsen
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

@@ -19,7 +19,10 @@ lineups:
     subs:
       - Fixture Spiller C
     coach: Jan Joensson
+stats:
+  home: { possession: 61, shots: 16, shotsOnTarget: 8, corners: 6, fouls: 9, offsides: 2, xg: 2.1 }
+  away: { possession: 39, shots: 7, shotsOnTarget: 2, corners: 3, fouls: 12, offsides: 1, xg: 0.7 }
 providers:
-  - { providerId: fotmob, retrievedAt: 2026-08-02, fields: [home.score, away.score] }
+  - { providerId: fotmob, retrievedAt: 2026-08-02, fields: [home.score, away.score, stats] }
 confidence: confirmed
 tags: [fixture]

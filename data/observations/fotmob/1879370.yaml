@@ -1,0 +1,60 @@
+providerId: fotmob
+externalId: "1879370"
+matchId: 2015-09-13-lillestrom-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:14078713e1525f2dd7150bcd1c9303470fb04063591e2572f97fe73d38fb2b0f
+raw:
+  externalId: "1879370"
+  date: 2015-09-13
+  kickoff: 18:00
+  status: FT
+  home: Lillestrøm
+  homeId: "8476"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 3
+  awayScore: 1
+  homeHalfTime: 2
+  awayHalfTime: 0
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2015
+  round: 23
+  venue: Aaraasen
+  attendance: 5353
+  url: https://www.fotmob.com/matches/aalesund-vs-lillestrom/2ctxg4#1879370
+normalized:
+  date: 2015-09-13
+  kickoff: 18:00
+  status: played
+  home.clubId: lillestrom
+  away.clubId: aalesunds-fk
+  home.score: 3
+  away.score: 1
+  home.halfTimeScore: 2
+  away.halfTimeScore: 0
+  competition.id: eliteserien
+  competition.season: 2015
+  competition.round: 23
+  competition.stage: regular_season
+  venueId: aaraasen
+  attendance: 5353
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

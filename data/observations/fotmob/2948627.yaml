@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2948627"
+matchId: 2019-08-28-aalesunds-fk-hamarkameratene
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:cc169e7c5be5c99a18425ad635b250b75eb4f490d82c0582c1b1b992b15bb1a0
+raw:
+  externalId: "2948627"
+  date: 2019-08-28
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Hamarkameratene
+  awayId: "8448"
+  homeScore: 5
+  awayScore: 2
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2019
+  round: 19
+  url: https://www.fotmob.com/matches/aalesund-vs-hamarkameratene/2cjt0y#2948627
+normalized:
+  date: 2019-08-28
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: hamarkameratene
+  home.score: 5
+  away.score: 2
+  competition.id: forstedivisjon
+  competition.season: 2019
+  competition.round: 19
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

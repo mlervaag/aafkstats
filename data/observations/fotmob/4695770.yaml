@@ -1,0 +1,63 @@
+providerId: fotmob
+externalId: "4695770"
+matchId: 2025-09-20-aalesunds-fk-skeid
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:183ad14a627c32507ccf2907e711350fa2eb471f804fde4ef3818f5bad63ec35
+raw:
+  externalId: "4695770"
+  date: 2025-09-20
+  kickoff: 16:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Skeid
+  awayId: "8421"
+  homeScore: 3
+  awayScore: 0
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2025
+  round: 23
+  venue: Color Line Stadion
+  attendance: 3632
+  referee: Abdulhadi Al Fahad
+  url: https://www.fotmob.com/matches/aalesund-vs-skeid/2ca26y#4695770
+normalized:
+  date: 2025-09-20
+  kickoff: 16:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: skeid
+  home.score: 3
+  away.score: 0
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: forstedivisjon
+  competition.season: 2025
+  competition.round: 23
+  competition.stage: regular_season
+  venueId: color-line-stadion
+  attendance: 3632
+  referee.name: Abdulhadi Al Fahad
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

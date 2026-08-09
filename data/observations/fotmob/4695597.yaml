@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "4695597"
+matchId: 2025-03-31-aalesunds-fk-lillestrom
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:23bf14085835df08aad9a3398a4cd12615958c1b46018da4140dfc38c4413ba7
+raw:
+  externalId: "4695597"
+  date: 2025-03-31
+  kickoff: 19:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Lillestrøm
+  awayId: "8476"
+  homeScore: 2
+  awayScore: 2
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2025
+  round: 1
+  url: https://www.fotmob.com/matches/aalesund-vs-lillestrom/2ctxg4#4695597
+normalized:
+  date: 2025-03-31
+  kickoff: 19:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: lillestrom
+  home.score: 2
+  away.score: 2
+  competition.id: forstedivisjon
+  competition.season: 2025
+  competition.round: 1
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

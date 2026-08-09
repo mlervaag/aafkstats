@@ -1,0 +1,63 @@
+providerId: fotmob
+externalId: "4695802"
+matchId: 2025-10-22-aalesunds-fk-lyn
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:ff8ae4ac8a6f206d01db9b24c405bd95ff2baac1a10bdc2b790ade29ff5ab024
+raw:
+  externalId: "4695802"
+  date: 2025-10-22
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Lyn
+  awayId: "10224"
+  homeScore: 2
+  awayScore: 1
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2025
+  round: 27
+  venue: Color Line Stadion
+  attendance: 4010
+  referee: Ole-Alexander Ekeli Valen
+  url: https://www.fotmob.com/matches/aalesund-vs-lyn/2vb41q#4695802
+normalized:
+  date: 2025-10-22
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: lyn
+  home.score: 2
+  away.score: 1
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: forstedivisjon
+  competition.season: 2025
+  competition.round: 27
+  competition.stage: regular_season
+  venueId: color-line-stadion
+  attendance: 4010
+  referee.name: Ole-Alexander Ekeli Valen
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

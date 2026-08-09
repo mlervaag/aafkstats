@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2147736"
+matchId: 2016-04-24-aalesunds-fk-tromso
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:6d01b916d6559c6d083c1f3265cb9ad4dadbb2a13d94e52dad10f2c66403a224
+raw:
+  externalId: "2147736"
+  date: 2016-04-24
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Tromsø
+  awayId: "8608"
+  homeScore: 6
+  awayScore: 0
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2016
+  round: 7
+  url: https://www.fotmob.com/matches/aalesund-vs-tromso/2e5vky#2147736
+normalized:
+  date: 2016-04-24
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: tromso
+  home.score: 6
+  away.score: 0
+  competition.id: eliteserien
+  competition.season: 2016
+  competition.round: 7
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

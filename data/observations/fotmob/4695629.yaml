@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "4695629"
+matchId: 2025-05-03-aalesunds-fk-raufoss-il
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:29c32cc06f2b1a2c59acff772956644bbeb7a36ea5fc35a7027896df6c4ce1b0
+raw:
+  externalId: "4695629"
+  date: 2025-05-03
+  kickoff: 16:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Raufoss
+  awayId: "9812"
+  homeScore: 3
+  awayScore: 1
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2025
+  round: 5
+  url: https://www.fotmob.com/matches/aalesund-vs-raufoss/2qsglk#4695629
+normalized:
+  date: 2025-05-03
+  kickoff: 16:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: raufoss-il
+  home.score: 3
+  away.score: 1
+  competition.id: forstedivisjon
+  competition.season: 2025
+  competition.round: 5
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

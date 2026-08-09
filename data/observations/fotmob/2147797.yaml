@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2147797"
+matchId: 2016-07-04-stromsgodset-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:7f07bc8f6ee3565076e0776eb62718670fb5d0b6b2554b6b7d15832976ddb5a8
+raw:
+  externalId: "2147797"
+  date: 2016-07-04
+  kickoff: 19:00
+  status: FT
+  home: Strømsgodset
+  homeId: "8180"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 4
+  awayScore: 2
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2016
+  round: 14
+  url: https://www.fotmob.com/matches/stromsgodset-vs-aalesund/29vrrs#2147797
+normalized:
+  date: 2016-07-04
+  kickoff: 19:00
+  status: played
+  home.clubId: stromsgodset
+  away.clubId: aalesunds-fk
+  home.score: 4
+  away.score: 2
+  competition.id: eliteserien
+  competition.season: 2016
+  competition.round: 14
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

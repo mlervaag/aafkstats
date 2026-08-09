@@ -1,0 +1,63 @@
+providerId: fotmob
+externalId: "2147571"
+matchId: 2016-10-30-aalesunds-fk-fk-haugesund
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:361ba3ba946c170bba5f18cd7fcb60c57a60e5af6a4f85e980c8ab380358dfe1
+raw:
+  externalId: "2147571"
+  date: 2016-10-30
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: FK Haugesund
+  awayId: "8512"
+  homeScore: 3
+  awayScore: 3
+  homeHalfTime: 1
+  awayHalfTime: 2
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2016
+  round: 29
+  venue: Color Line Stadion
+  attendance: 7095
+  referee: Martin Lundby
+  url: https://www.fotmob.com/matches/aalesund-vs-fk-haugesund/2d6yvm#2147571
+normalized:
+  date: 2016-10-30
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: fk-haugesund
+  home.score: 3
+  away.score: 3
+  home.halfTimeScore: 1
+  away.halfTimeScore: 2
+  competition.id: eliteserien
+  competition.season: 2016
+  competition.round: 29
+  competition.stage: regular_season
+  venueId: color-line-stadion
+  attendance: 7095
+  referee.name: Martin Lundby
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2685035"
+matchId: 2018-04-15-aalesunds-fk-floro
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:6abe077d8a5e361e98c61ddcbdad4c0150c02ec00ce822b1fba9323523a0ecf0
+raw:
+  externalId: "2685035"
+  date: 2018-04-15
+  kickoff: 15:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Florø
+  awayId: "4319"
+  homeScore: 4
+  awayScore: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2018
+  round: 3
+  url: https://www.fotmob.com/matches/floro-vs-aalesund/1c732a#2685035
+normalized:
+  date: 2018-04-15
+  kickoff: 15:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: floro
+  home.score: 4
+  away.score: 0
+  competition.id: forstedivisjon
+  competition.season: 2018
+  competition.round: 3
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

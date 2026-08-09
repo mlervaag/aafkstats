@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "5104874"
+matchId: 2026-04-18-bodo-glimt-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:b70d9b7641a697f6b3fe20b3b9af68f6b492ca5fb4c4aaf53e28b8b923e36682
+raw:
+  externalId: "5104874"
+  date: 2026-04-18
+  kickoff: 14:00
+  status: FT
+  home: Bodø/Glimt
+  homeId: "8402"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 3
+  awayScore: 0
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2026
+  round: 5
+  url: https://www.fotmob.com/matches/bodoglimt-vs-aalesund/2c37nd#5104874
+normalized:
+  date: 2026-04-18
+  kickoff: 14:00
+  status: played
+  home.clubId: bodo-glimt
+  away.clubId: aalesunds-fk
+  home.score: 3
+  away.score: 0
+  competition.id: eliteserien
+  competition.season: 2026
+  competition.round: 5
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

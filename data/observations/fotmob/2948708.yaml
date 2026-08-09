@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "2948708"
+matchId: 2019-11-02-oygarden-fk-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:5feed6b0ac80a8f0c84d307440272739ef1c28f7ad3e83a1876cfce7e9d0a376
+raw:
+  externalId: "2948708"
+  date: 2019-11-02
+  kickoff: 16:00
+  status: FT
+  home: Øygarden FK
+  homeId: "1706"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 0
+  awayScore: 1
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2019
+  round: 29
+  venue: Aagotnes Stadion
+  url: https://www.fotmob.com/matches/oygarden-fk-vs-aalesund/ufo2d#2948708
+normalized:
+  date: 2019-11-02
+  kickoff: 16:00
+  status: played
+  home.clubId: oygarden-fk
+  away.clubId: aalesunds-fk
+  home.score: 0
+  away.score: 1
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: forstedivisjon
+  competition.season: 2019
+  competition.round: 29
+  competition.stage: regular_season
+  venueId: aagotnes-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "1879452"
+matchId: 2015-06-27-start-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:202e4da85adc1195f2c26c41ce839b559200102f90996efa2404c5b4e43c0745
+raw:
+  externalId: "1879452"
+  date: 2015-06-27
+  kickoff: 15:30
+  status: FT
+  home: Start
+  homeId: "9919"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 3
+  awayScore: 1
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2015
+  round: 14
+  url: https://www.fotmob.com/matches/aalesund-vs-start/2ryd31#1879452
+normalized:
+  date: 2015-06-27
+  kickoff: 15:30
+  status: played
+  home.clubId: start
+  away.clubId: aalesunds-fk
+  home.score: 3
+  away.score: 1
+  competition.id: eliteserien
+  competition.season: 2015
+  competition.round: 14
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

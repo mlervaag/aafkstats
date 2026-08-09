@@ -1,0 +1,63 @@
+providerId: fotmob
+externalId: "4385829"
+matchId: 2024-09-21-kongsvinger-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:2649519088f34cc2e41d21c85afd8ea835200e6a26fb764d4dd5d42289984195
+raw:
+  externalId: "4385829"
+  date: 2024-09-21
+  kickoff: 15:00
+  status: FT
+  home: Kongsvinger
+  homeId: "8179"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 5
+  homeHalfTime: 0
+  awayHalfTime: 4
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2024
+  round: 23
+  venue: Gjemselund Stadion
+  attendance: 1289
+  referee: Anders Bodding
+  url: https://www.fotmob.com/matches/kongsvinger-vs-aalesund/29vez4#4385829
+normalized:
+  date: 2024-09-21
+  kickoff: 15:00
+  status: played
+  home.clubId: kongsvinger
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 5
+  home.halfTimeScore: 0
+  away.halfTimeScore: 4
+  competition.id: forstedivisjon
+  competition.season: 2024
+  competition.round: 23
+  competition.stage: regular_season
+  venueId: gjemselund-stadion
+  attendance: 1289
+  referee.name: Anders Bodding
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2948270"
+matchId: 2019-05-12-strommen-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:78b312925105c08241bd5b3c1400d4dcea955d8b8eac371cfc6b7a2b41098160
+raw:
+  externalId: "2948270"
+  date: 2019-05-12
+  kickoff: 15:00
+  status: FT
+  home: Strømmen
+  homeId: "4249"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 2
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2019
+  round: 7
+  url: https://www.fotmob.com/matches/strommen-vs-aalesund/1bo1q7#2948270
+normalized:
+  date: 2019-05-12
+  kickoff: 15:00
+  status: played
+  home.clubId: strommen
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 2
+  competition.id: forstedivisjon
+  competition.season: 2019
+  competition.round: 7
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

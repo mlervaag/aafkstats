@@ -1,0 +1,63 @@
+providerId: fotmob
+externalId: "2147611"
+matchId: 2016-09-18-aalesunds-fk-stromsgodset
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:860e4aae23a8c519f6b06032fe2858bc65a05b8ec5b8c54f91615595722d9167
+raw:
+  externalId: "2147611"
+  date: 2016-09-18
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Strømsgodset
+  awayId: "8180"
+  homeScore: 4
+  awayScore: 2
+  homeHalfTime: 1
+  awayHalfTime: 1
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2016
+  round: 24
+  venue: Color Line Stadion
+  attendance: 5634
+  referee: Dag Vidar Hafsaas
+  url: https://www.fotmob.com/matches/stromsgodset-vs-aalesund/29vrrs#2147611
+normalized:
+  date: 2016-09-18
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: stromsgodset
+  home.score: 4
+  away.score: 2
+  home.halfTimeScore: 1
+  away.halfTimeScore: 1
+  competition.id: eliteserien
+  competition.season: 2016
+  competition.round: 24
+  competition.stage: regular_season
+  venueId: color-line-stadion
+  attendance: 5634
+  referee.name: Dag Vidar Hafsaas
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

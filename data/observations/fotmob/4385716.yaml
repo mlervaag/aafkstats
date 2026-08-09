@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "4385716"
+matchId: 2024-05-04-mjondalen-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:0c0475a54b2f51a1117f00bcdea6a486428eeb8c673fed3f65ae87a4fa68ae5b
+raw:
+  externalId: "4385716"
+  date: 2024-05-04
+  kickoff: 16:00
+  status: FT
+  home: Mjøndalen
+  homeId: "6541"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 1
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2024
+  round: 6
+  url: https://www.fotmob.com/matches/mjondalen-vs-aalesund/1uhyed#4385716
+normalized:
+  date: 2024-05-04
+  kickoff: 16:00
+  status: played
+  home.clubId: mjondalen
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 1
+  competition.id: forstedivisjon
+  competition.season: 2024
+  competition.round: 6
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "1879436"
+matchId: 2015-05-25-aalesunds-fk-viking
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:d16e38c4dfef0f4cff0eb135f06dd57329d2767367c01ac27752bebe27b79892
+raw:
+  externalId: "1879436"
+  date: 2015-05-25
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Viking
+  awayId: "8478"
+  homeScore: 0
+  awayScore: 4
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2015
+  round: 10
+  url: https://www.fotmob.com/matches/aalesund-vs-viking/2cuni1#1879436
+normalized:
+  date: 2015-05-25
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: viking
+  home.score: 0
+  away.score: 4
+  competition.id: eliteserien
+  competition.season: 2015
+  competition.round: 10
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

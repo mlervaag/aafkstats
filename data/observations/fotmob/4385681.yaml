@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "4385681"
+matchId: 2024-04-15-aalesunds-fk-lyn
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:4329f2db9974e6bc733cb95c1a88fda3dd67231d7ac8e69cae736ed7060218c9
+raw:
+  externalId: "4385681"
+  date: 2024-04-15
+  kickoff: 19:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Lyn
+  awayId: "10224"
+  homeScore: 0
+  awayScore: 3
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2024
+  round: 3
+  url: https://www.fotmob.com/matches/aalesund-vs-lyn/2vb41q#4385681
+normalized:
+  date: 2024-04-15
+  kickoff: 19:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: lyn
+  home.score: 0
+  away.score: 3
+  competition.id: forstedivisjon
+  competition.season: 2024
+  competition.round: 3
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

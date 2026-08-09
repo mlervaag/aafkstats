@@ -1,0 +1,63 @@
+providerId: fotmob
+externalId: "2147567"
+matchId: 2016-11-06-sogndal-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:2aa03d2df3fd03b1f761addb1d3203e2da4e134f70626cbd92b6d42a3369995b
+raw:
+  externalId: "2147567"
+  date: 2016-11-06
+  kickoff: 18:00
+  status: FT
+  home: Sogndal
+  homeId: "8616"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 4
+  homeHalfTime: 2
+  awayHalfTime: 3
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2016
+  round: 30
+  venue: Fosshaugane Stadion
+  attendance: 2864
+  referee: Tom Harald Hagen
+  url: https://www.fotmob.com/matches/aalesund-vs-sogndal/2e8smm#2147567
+normalized:
+  date: 2016-11-06
+  kickoff: 18:00
+  status: played
+  home.clubId: sogndal
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 4
+  home.halfTimeScore: 2
+  away.halfTimeScore: 3
+  competition.id: eliteserien
+  competition.season: 2016
+  competition.round: 30
+  competition.stage: regular_season
+  venueId: fosshaugane-stadion
+  attendance: 2864
+  referee.name: Tom Harald Hagen
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

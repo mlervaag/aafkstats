@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "1879282"
+matchId: 2015-04-06-rosenborg-bk-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:23d65535eca6f91625fcdcce3cb6d3f94060fbdc78a2ffab69311ca9013c042a
+raw:
+  externalId: "1879282"
+  date: 2015-04-06
+  kickoff: 18:00
+  status: FT
+  home: Rosenborg
+  homeId: "8422"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 5
+  awayScore: 0
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2015
+  round: 1
+  url: https://www.fotmob.com/matches/aalesund-vs-rosenborg/2caf6d#1879282
+normalized:
+  date: 2015-04-06
+  kickoff: 18:00
+  status: played
+  home.clubId: rosenborg-bk
+  away.clubId: aalesunds-fk
+  home.score: 5
+  away.score: 0
+  competition.id: eliteserien
+  competition.season: 2015
+  competition.round: 1
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

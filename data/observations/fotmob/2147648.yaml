@@ -1,0 +1,63 @@
+providerId: fotmob
+externalId: "2147648"
+matchId: 2016-08-26-aalesunds-fk-sarpsborg-08
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:de9fd3e67a3e4d8ea01979a85a3811196f132afcc04a3f7911e5614607241018
+raw:
+  externalId: "2147648"
+  date: 2016-08-26
+  kickoff: 19:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Sarpsborg 08
+  awayId: "8509"
+  homeScore: 2
+  awayScore: 2
+  homeHalfTime: 1
+  awayHalfTime: 2
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2016
+  round: 22
+  venue: Color Line Stadion
+  attendance: 5231
+  referee: Espen Eskaas
+  url: https://www.fotmob.com/matches/aalesund-vs-sarpsborg-08/2d5vpy#2147648
+normalized:
+  date: 2016-08-26
+  kickoff: 19:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: sarpsborg-08
+  home.score: 2
+  away.score: 2
+  home.halfTimeScore: 1
+  away.halfTimeScore: 2
+  competition.id: eliteserien
+  competition.season: 2016
+  competition.round: 22
+  competition.stage: regular_season
+  venueId: color-line-stadion
+  attendance: 5231
+  referee.name: Espen Eskaas
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

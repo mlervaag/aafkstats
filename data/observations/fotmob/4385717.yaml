@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "4385717"
+matchId: 2024-05-11-aalesunds-fk-valerenga
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:7e53d78ffa5add2f6156d5e58aebbc4835032441c373be37dbf433954a912b74
+raw:
+  externalId: "4385717"
+  date: 2024-05-11
+  kickoff: 16:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Vålerenga
+  awayId: "8007"
+  homeScore: 0
+  awayScore: 2
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2024
+  round: 7
+  url: https://www.fotmob.com/matches/valerenga-vs-aalesund/286lhq#4385717
+normalized:
+  date: 2024-05-11
+  kickoff: 16:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: valerenga
+  home.score: 0
+  away.score: 2
+  competition.id: forstedivisjon
+  competition.season: 2024
+  competition.round: 7
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

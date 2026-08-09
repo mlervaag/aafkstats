@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "1879316"
+matchId: 2015-05-16-stromsgodset-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:ec1f1f88bf1da795f871287c64df88eef0332d410c75dc2322055e26435e54c4
+raw:
+  externalId: "1879316"
+  date: 2015-05-16
+  kickoff: 18:00
+  status: FT
+  home: Strømsgodset
+  homeId: "8180"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 3
+  awayScore: 1
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2015
+  round: 9
+  url: https://www.fotmob.com/matches/stromsgodset-vs-aalesund/29vrrs#1879316
+normalized:
+  date: 2015-05-16
+  kickoff: 18:00
+  status: played
+  home.clubId: stromsgodset
+  away.clubId: aalesunds-fk
+  home.score: 3
+  away.score: 1
+  competition.id: eliteserien
+  competition.season: 2015
+  competition.round: 9
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2948229"
+matchId: 2019-04-06-aalesunds-fk-kongsvinger
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:417655cb0f9aa853e044b9d8f3a848be037bd0bd263c5eb2c8a828b8f47abd23
+raw:
+  externalId: "2948229"
+  date: 2019-04-06
+  kickoff: 15:30
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Kongsvinger
+  awayId: "8179"
+  homeScore: 1
+  awayScore: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2019
+  round: 2
+  url: https://www.fotmob.com/matches/kongsvinger-vs-aalesund/29vez4#2948229
+normalized:
+  date: 2019-04-06
+  kickoff: 15:30
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: kongsvinger
+  home.score: 1
+  away.score: 0
+  competition.id: forstedivisjon
+  competition.season: 2019
+  competition.round: 2
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

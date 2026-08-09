@@ -50,6 +50,12 @@ export interface SourceMatch {
   events?: MatchEvent[];
   lineups?: { home?: SourceLineup; away?: SourceLineup };
   stats?: { home?: SourceTeamStats; away?: SourceTeamStats };
+  /** Diagnostikk fra statistikkadapteren; brukes i høsterapporten, ikke i arkivfilen. */
+  statsReport?: {
+    foundFields: (keyof SourceTeamStats)[];
+    unknownTitles: string[];
+    rejectedReason?: string;
+  };
   url?: string;
   fields: string[];
   /** Forbehold som hører til kampen selv, ikke til kilden. */

@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2147709"
+matchId: 2016-04-10-rosenborg-bk-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:ba84b7ec38f7fa62bc5671a4a6f8d51dfa965a438ce752445cfaa85ee7ca4148
+raw:
+  externalId: "2147709"
+  date: 2016-04-10
+  kickoff: 18:00
+  status: FT
+  home: Rosenborg
+  homeId: "8422"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 0
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2016
+  round: 4
+  url: https://www.fotmob.com/matches/aalesund-vs-rosenborg/2caf6d#2147709
+normalized:
+  date: 2016-04-10
+  kickoff: 18:00
+  status: played
+  home.clubId: rosenborg-bk
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 0
+  competition.id: eliteserien
+  competition.season: 2016
+  competition.round: 4
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

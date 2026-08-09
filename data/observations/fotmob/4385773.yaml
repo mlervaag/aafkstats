@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "4385773"
+matchId: 2024-08-03-raufoss-il-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:4b83b5d689eaf02bc9469374fd9b4ba0e5478da511fede89914ff4a4283450e4
+raw:
+  externalId: "4385773"
+  date: 2024-08-03
+  kickoff: 16:00
+  status: FT
+  home: Raufoss
+  homeId: "9812"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 0
+  awayScore: 2
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2024
+  round: 17
+  url: https://www.fotmob.com/matches/aalesund-vs-raufoss/2qsglk#4385773
+normalized:
+  date: 2024-08-03
+  kickoff: 16:00
+  status: played
+  home.clubId: raufoss-il
+  away.clubId: aalesunds-fk
+  home.score: 0
+  away.score: 2
+  competition.id: forstedivisjon
+  competition.season: 2024
+  competition.round: 17
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

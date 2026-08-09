@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "2948651"
+matchId: 2019-09-14-kongsvinger-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:079e5f9583a2ca2603c30cdd3495ebd3856114ab61a7d157aa616311f276d7e6
+raw:
+  externalId: "2948651"
+  date: 2019-09-14
+  kickoff: 15:30
+  status: FT
+  home: Kongsvinger
+  homeId: "8179"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 1
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2019
+  round: 22
+  venue: Gjemselund Stadion
+  url: https://www.fotmob.com/matches/kongsvinger-vs-aalesund/29vez4#2948651
+normalized:
+  date: 2019-09-14
+  kickoff: 15:30
+  status: played
+  home.clubId: kongsvinger
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 1
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: forstedivisjon
+  competition.season: 2019
+  competition.round: 22
+  competition.stage: regular_season
+  venueId: gjemselund-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

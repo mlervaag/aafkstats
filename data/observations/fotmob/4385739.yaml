@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "4385739"
+matchId: 2024-08-14-sandnes-ulf-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:619a7fa8f79d20d3e65b8cc28fc0f1607bbea43f791206bcd1d56db36a710e12
+raw:
+  externalId: "4385739"
+  date: 2024-08-14
+  kickoff: 19:00
+  status: FT
+  home: Sandnes Ulf
+  homeId: "8133"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 0
+  awayScore: 2
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2024
+  round: 15
+  url: https://www.fotmob.com/matches/sandnes-ulf-vs-aalesund/29f36h#4385739
+normalized:
+  date: 2024-08-14
+  kickoff: 19:00
+  status: played
+  home.clubId: sandnes-ulf
+  away.clubId: aalesunds-fk
+  home.score: 0
+  away.score: 2
+  competition.id: forstedivisjon
+  competition.season: 2024
+  competition.round: 15
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

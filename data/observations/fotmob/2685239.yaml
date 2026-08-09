@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "2685239"
+matchId: 2018-10-28-sogndal-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:82eb7a8a67fb7396f9b5390808dd4ecabb9c479ab88482f2f788d944b7ba4e49
+raw:
+  externalId: "2685239"
+  date: 2018-10-28
+  kickoff: 18:00
+  status: FT
+  home: Sogndal
+  homeId: "8616"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 0
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2018
+  round: 28
+  venue: Fosshaugane Stadion
+  url: https://www.fotmob.com/matches/aalesund-vs-sogndal/2e8smm#2685239
+normalized:
+  date: 2018-10-28
+  kickoff: 18:00
+  status: played
+  home.clubId: sogndal
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 0
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: forstedivisjon
+  competition.season: 2018
+  competition.round: 28
+  competition.stage: regular_season
+  venueId: fosshaugane-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

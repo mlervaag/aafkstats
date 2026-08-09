@@ -1,0 +1,60 @@
+providerId: fotmob
+externalId: "1879489"
+matchId: 2015-09-20-aalesunds-fk-odds-ballklubb
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:2937fcbd0e88047b21fb788a270178549a1ff2d00975d42d96b81d7035479bfe
+raw:
+  externalId: "1879489"
+  date: 2015-09-20
+  kickoff: 15:30
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Odds Ballklubb
+  awayId: "7988"
+  homeScore: 1
+  awayScore: 3
+  homeHalfTime: 1
+  awayHalfTime: 1
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2015
+  round: 24
+  venue: Color Line Stadion
+  attendance: 6140
+  url: https://www.fotmob.com/matches/odds-ballklubb-vs-aalesund/27zx14#1879489
+normalized:
+  date: 2015-09-20
+  kickoff: 15:30
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: odds-ballklubb
+  home.score: 1
+  away.score: 3
+  home.halfTimeScore: 1
+  away.halfTimeScore: 1
+  competition.id: eliteserien
+  competition.season: 2015
+  competition.round: 24
+  competition.stage: regular_season
+  venueId: color-line-stadion
+  attendance: 6140
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "4695645"
+matchId: 2025-05-16-aalesunds-fk-hodd
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:8367cf49224a211ccf55baf7c43d7426cc2163e88354f2a40405f6fb8a52a2f6
+raw:
+  externalId: "4695645"
+  date: 2025-05-16
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Hødd
+  awayId: "7937"
+  homeScore: 2
+  awayScore: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2025
+  round: 7
+  url: https://www.fotmob.com/matches/hodd-vs-aalesund/27i0yj#4695645
+normalized:
+  date: 2025-05-16
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: hodd
+  home.score: 2
+  away.score: 0
+  competition.id: forstedivisjon
+  competition.season: 2025
+  competition.round: 7
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

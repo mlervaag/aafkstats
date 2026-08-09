@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2147689"
+matchId: 2016-03-19-fk-haugesund-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:31c5b7df95759c11996e3a052143b642d7b526d499fcd078f5be4acb653da308
+raw:
+  externalId: "2147689"
+  date: 2016-03-19
+  kickoff: 15:30
+  status: FT
+  home: FK Haugesund
+  homeId: "8512"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 3
+  awayScore: 0
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2016
+  round: 2
+  url: https://www.fotmob.com/matches/aalesund-vs-fk-haugesund/2d6yvm#2147689
+normalized:
+  date: 2016-03-19
+  kickoff: 15:30
+  status: played
+  home.clubId: fk-haugesund
+  away.clubId: aalesunds-fk
+  home.score: 3
+  away.score: 0
+  competition.id: eliteserien
+  competition.season: 2016
+  competition.round: 2
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2148075"
+matchId: 2016-04-17-aalesunds-fk-viking
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:8c1e61c261f064ea628f3673e21d28aa080ce4d9ebbd627f353e52b96fcc233e
+raw:
+  externalId: "2148075"
+  date: 2016-04-17
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Viking
+  awayId: "8478"
+  homeScore: 1
+  awayScore: 2
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2016
+  round: 5
+  url: https://www.fotmob.com/matches/aalesund-vs-viking/2cuni1#2148075
+normalized:
+  date: 2016-04-17
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: viking
+  home.score: 1
+  away.score: 2
+  competition.id: eliteserien
+  competition.season: 2016
+  competition.round: 5
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

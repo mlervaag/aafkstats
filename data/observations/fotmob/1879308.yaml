@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "1879308"
+matchId: 2015-05-10-sandefjord-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:363f65144427290b9a8dcbc84181b2a1adcba28ae9f45b9281d65c664bc4baa0
+raw:
+  externalId: "1879308"
+  date: 2015-05-10
+  kickoff: 15:30
+  status: FT
+  home: Sandefjord
+  homeId: "8609"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 3
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2015
+  round: 7
+  url: https://www.fotmob.com/matches/aalesund-vs-sandefjord/2e68pk#1879308
+normalized:
+  date: 2015-05-10
+  kickoff: 15:30
+  status: played
+  home.clubId: sandefjord
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 3
+  competition.id: eliteserien
+  competition.season: 2015
+  competition.round: 7
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []
