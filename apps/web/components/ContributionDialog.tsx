@@ -48,9 +48,28 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
     return () => { document.body.style.overflow = ""; };
   }, [isOpen, status]);
 
+  /**
+   * Ruten godtar bare http(s) i kildefeltet, eller ingenting.
+   *
+   * Uten kontrollen her får den som skriver «Sunnmørsposten 12.5.1998» et rundt
+   * avslag fra tjeneren uten å få vite hvilket felt som er problemet. Feltet er
+   * dessuten valgfritt, så avslaget kommer for noe brukeren ikke måtte fylle ut.
+   */
+  const sourceLooksWrong = source.trim() !== "" && !/^https?:\/\/\S+$/i.test(source.trim());
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!text.trim()) return;
+
+    if (sourceLooksWrong) {
+      setStatus("error");
+      setErrorMsg(
+        "Kildefeltet tar bare en lenke som starter med http:// eller https://. " +
+          "Har du en kilde uten lenke — et programblad eller et avisutklipp — kan du " +
+          "beskrive den i tekstfeltet over i stedet.",
+      );
+      return;
+    }
 
     setStatus("loading");
     setErrorMsg("");
@@ -88,6 +107,7 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
     <dialog 
       ref={dialogRef} 
       className="contribution-dialog"
+      aria-labelledby="contribution-title"
       onCancel={onClose}
       onClick={(e) => {
         if (e.target === dialogRef.current) onClose();
@@ -95,7 +115,7 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
     >
       <div className="contribution-content">
         <div className="contribution-header">
-          <h2>Bidra til arkivet</h2>
+          <h2 id="contribution-title">Bidra til arkivet</h2>
           <button type="button" className="close-button" onClick={onClose} aria-label="Lukk">×</button>
         </div>
 
@@ -114,8 +134,11 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
               Gjelder: <strong>{title}</strong>
             </p>
 
-            <div className="form-group">
-              <label>Hva gjelder det?</label>
+            {/* Fieldset og legend, ikke en løs label: en label uten `htmlFor` er
+                ikke knyttet til noe, og en skjermleser leste derfor tre
+                radioknapper uten å si hva de var et svar på. */}
+            <fieldset className="form-group">
+              <legend>Hva gjelder det?</legend>
               <div className="radio-group">
                 <label className="radio-label">
                   <input type="radio" name="kind" value="observation" checked={kind === "observation"} onChange={(e) => setKind(e.target.value)} />
@@ -130,7 +153,7 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
                   {isSeason ? "Legg til manglende kamp eller kilde" : "Legg til fakta eller kilde"}
                 </label>
               </div>
-            </div>
+            </fieldset>
 
             <div className="form-group">
               <label htmlFor="text-field">
@@ -148,15 +171,21 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
             </div>
 
             <div className="form-group">
-              <label htmlFor="source-field">Kilde eller lenke (valgfritt)</label>
+              <label htmlFor="source-field">Lenke til kilde (valgfritt)</label>
               <input
                 id="source-field"
-                type="text"
+                type="url"
+                inputMode="url"
                 value={source}
                 onChange={(e) => setSource(e.target.value)}
-                placeholder="Avisartikkel, programblad e.l."
+                placeholder="https://..."
+                aria-describedby="source-help"
                 disabled={status === "loading"}
               />
+              <p id="source-help" className="small muted form-help">
+                Bare nettadresser. Har du en kilde uten lenke — et programblad, et
+                avisutklipp — beskriv den i feltet over.
+              </p>
             </div>
 
             <div className="form-group">
@@ -170,8 +199,11 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
               />
             </div>
 
+            {/* `role="alert"` fordi meldingen dukker opp etter at brukeren har
+                trykket send. Uten den er avslaget usynlig for en skjermleser, og
+                skjemaet ser ut til å ikke ha gjort noenting. */}
             {status === "error" && (
-              <div className="notice notice-error">{errorMsg}</div>
+              <div className="notice notice-error" role="alert">{errorMsg}</div>
             )}
 
             <div className="form-actions">
