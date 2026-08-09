@@ -2,8 +2,8 @@ providerId: fotmob
 externalId: "5105066"
 matchId: 2026-12-06-aalesunds-fk-bodo-glimt
 retrievedAt: 2026-08-09
-adapter: fotmob@2
-payloadHash: sha256:bfbdffca65016fd88e4ee8232d9af1330d0344ceaf56b54dbbd33678ecebbd35
+adapter: fotmob@3
+payloadHash: sha256:67952d3f6f2eaeca26c47dbee1f3362561324e5f68078e2e260377f4130fe18a
 raw:
   externalId: "5105066"
   date: 2026-12-06
@@ -17,7 +17,6 @@ raw:
   competitionId: "59"
   season: 2026
   round: 29
-  venue: Color Line Stadion
   url: https://www.fotmob.com/matches/bodoglimt-vs-aalesund/2c37nd#5105066
 normalized:
   date: 2026-12-06
@@ -29,7 +28,6 @@ normalized:
   competition.season: 2026
   competition.round: 29
   competition.stage: regular_season
-  venueId: color-line-stadion
 fields:
   - date
   - kickoff
@@ -38,6 +36,4 @@ fields:
   - home.clubId
   - away.clubId
   - competition.round
-  - venueId
-  - lineups
 warnings: []

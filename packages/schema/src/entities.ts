@@ -71,6 +71,15 @@ export const competition = z
     tier: z.number().int().min(1).max(10).optional(),
     organizer: z.string().optional(),
     country: z.string().length(2).nullable().default("NO"),
+    /**
+     * Konkurransens ID hos hver kilde.
+     *
+     * Samme rolle som `aliases` på klubber og kamper. Uten den måtte enhver
+     * innhøster få kildens divisjons-ID oppgitt for hånd, og en rutine som skal
+     * kunne kjøres uten argumenter har ingen måte å finne den på. At Eliteserien
+     * er 59 hos FotMob er en opplysning om konkurransen, ikke om kjøringen.
+     */
+    aliases: z.record(z.union([z.string(), z.number()])).default({}),
     note: z.string().optional(),
   })
   .strict();
