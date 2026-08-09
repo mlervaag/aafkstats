@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { conflict } from "../src/primitives.js";
 import { findConflicts, observation, observationPath, payloadHash } from "../src/observation.js";
 import type { Observation } from "../src/observation.js";
 
@@ -94,5 +95,81 @@ describe("findConflicts", () => {
 
   it("sier ingenting når bare én kilde har uttalt seg", () => {
     expect(findConflicts([entry({ normalized: { "home.score": 3 } })])).toEqual([]);
+  });
+});
+
+/**
+ * Beslutningslaget ligger på konflikten, ikke ved siden av observasjonene.
+ *
+ * Å bygge en egen beslutningsstruktur på observasjonene ville gitt to steder som
+ * begge sier hvilken verdi arkivet bruker, og de kan bli uenige. Konflikten er
+ * stedet: den peker på kildene, og hver verdi kan peke tilbake på observasjonen
+ * den kom fra.
+ */
+describe("konflikt knyttet til observasjon", () => {
+  const hash = `sha256:${"a".repeat(64)}`;
+
+  it("lar en konfliktverdi peke på observasjonen den kom fra", () => {
+    const parsed = conflict.parse({
+      field: "attendance",
+      values: [
+        { value: 4210, sourceId: "nasjonalbiblioteket", payloadHash: hash },
+        { value: 4000, sourceId: "rsssf" },
+      ],
+      resolved: true,
+      chosen: 4210,
+      decision: "independent_source",
+      decidedAt: "2026-08-03",
+      reason: "Avisreferatet oppgir et eksakt tall.",
+    });
+    expect(parsed.values[0]!.payloadHash).toBe(hash);
+    // Den er valgfri: eldre konflikter har ingen observasjon å peke på, og en
+    // oppdiktet hash ville vært verre enn ingen.
+    expect(parsed.values[1]!.payloadHash).toBeUndefined();
+  });
+
+  it("avviser en hash som ikke er en hash", () => {
+    expect(() =>
+      conflict.parse({
+        field: "attendance",
+        values: [
+          { value: 1, sourceId: "rsssf", payloadHash: "kanskje" },
+          { value: 2, sourceId: "fotmob" },
+        ],
+      }),
+    ).toThrow();
+  });
+
+  it("nekter å kalle en konflikt løst uten begrunnelse og dato", () => {
+    // En «løst» konflikt uten spor er skjult, ikke løst.
+    expect(() =>
+      conflict.parse({
+        field: "attendance",
+        values: [
+          { value: 1, sourceId: "rsssf" },
+          { value: 2, sourceId: "fotmob" },
+        ],
+        resolved: true,
+        chosen: 1,
+        decision: "manual",
+      }),
+    ).toThrow();
+  });
+
+  it("nekter å velge en verdi ingen kilde har oppgitt", () => {
+    expect(() =>
+      conflict.parse({
+        field: "attendance",
+        values: [
+          { value: 1, sourceId: "rsssf" },
+          { value: 2, sourceId: "fotmob" },
+        ],
+        resolved: true,
+        chosen: 3,
+        decision: "manual",
+        decidedAt: "2026-08-03",
+        reason: "En tredje kilde sier 3.",
+      }),
+    ).toThrow();
   });
 });

@@ -122,6 +122,18 @@ export const conflict = z
           .object({
             value: z.union([z.string(), z.number(), z.null()]),
             sourceId: slug,
+            /**
+             * Observasjonen verdien kom fra, som `payloadHash`.
+             *
+             * Knytter beslutningen til akkurat det kilden sa den gangen. Uten
+             * den er en avgjørelse fra i fjor ikke til å skille fra en tatt på
+             * en verdi kilden senere har endret, og en rettet adapter gir ingen
+             * grunn til å se på valget igjen. Valgfri, fordi observasjoner
+             * skrives fra og med innhøstingen som innførte dem: eldre konflikter
+             * har ingen å peke på, og en oppdiktet hash ville vært verre enn
+             * ingen.
+             */
+            payloadHash: z.string().regex(/^sha256:[0-9a-f]{64}$/).optional(),
             note: z.string().optional(),
           })
           .strict(),
