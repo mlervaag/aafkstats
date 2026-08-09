@@ -22,7 +22,11 @@ import { z } from "zod/v4";
 import { systemPrompt } from "@aafkstats/query/prompt";
 import { datasetCoverage } from "@/lib/chat-coverage";
 import { tools as toolDefs, toolsByName } from "@aafkstats/query/tools";
-import type { ToolContext } from "@aafkstats/query/tools";
+import {
+  FOLLOW_UP_TOOL_NAME,
+  followUpJsonSchema,
+  parseFollowUp,
+} from "@/lib/chat-followup";
 import {
   MAX_ITERATIONS,
   MAX_TOKENS,
@@ -48,6 +52,15 @@ const openaiTools: OpenAI.Responses.Tool[] = toolDefs.map((def) => ({
   parameters: jsonSchema(def.inputSchema),
   strict: false,
 }));
+
+openaiTools.push({
+  type: "function",
+  name: FOLLOW_UP_TOOL_NAME,
+  description:
+    "Registrer ett konkret og vesentlig ja/nei-forslag til neste arkivoppslag. Brukes sjelden og gjør ikke databaseoppslag.",
+  parameters: followUpJsonSchema,
+  strict: true,
+});
 
 /** Zod-skjemaet som JSON Schema, i den formen OpenAI godtar. */
 function jsonSchema(schema: z.ZodType): Record<string, unknown> {
@@ -93,7 +106,7 @@ export async function runOpenAI(setup: ChatSetup, run: ChatRun): Promise<ChatRes
 
     for await (const event of stream) {
       if (event.type === "response.output_item.added" && event.item.type === "function_call") {
-        run.send("tool", { name: event.item.name });
+        if (event.item.name !== FOLLOW_UP_TOOL_NAME) run.send("tool", { name: event.item.name });
       } else if (event.type === "response.output_text.delta") {
         run.send("text", { text: event.delta });
       } else if (event.type === "response.completed" || event.type === "response.incomplete") {
@@ -130,7 +143,7 @@ export async function runOpenAI(setup: ChatSetup, run: ChatRun): Promise<ChatRes
       input.push({
         type: "function_call_output",
         call_id: call.call_id,
-        output: await runTool(call.name, call.arguments, run.ctx),
+        output: await runTool(call.name, call.arguments, run),
       });
     }
   }
@@ -145,7 +158,18 @@ export async function runOpenAI(setup: ChatSetup, run: ChatRun): Promise<ChatRes
  * noe modellen kan rette opp i neste runde, og feilmeldingen er skrevet for å
  * leses av den. Kaster vi i stedet, mister brukeren hele svaret.
  */
-async function runTool(name: string, args: string, ctx: ToolContext): Promise<string> {
+async function runTool(name: string, args: string, run: ChatRun): Promise<string> {
+  if (name === FOLLOW_UP_TOOL_NAME) {
+    try {
+      const followUp = parseFollowUp(JSON.parse(args));
+      if (!followUp) return JSON.stringify({ error: "Ugyldig oppfølgingsforslag." });
+      const accepted = run.suggestFollowUp(followUp);
+      return JSON.stringify({ accepted, message: accepted ? "Forslaget er registrert." : "Et forslag er allerede registrert." });
+    } catch {
+      return JSON.stringify({ error: "Ugyldig JSON i oppfølgingsforslaget." });
+    }
+  }
+
   const def = toolsByName.get(name);
   if (!def) return JSON.stringify({ error: `Ukjent verktøy: ${name}` });
 
@@ -153,7 +177,7 @@ async function runTool(name: string, args: string, ctx: ToolContext): Promise<st
     // Zod her gjør to ting: validerer det modellen skrev, og fyller inn
     // standardverdiene (som limit) som skjemaet lover og handleren regner med.
     const parsed = def.inputSchema.parse(JSON.parse(args));
-    const result = await def.run(parsed, ctx);
+    const result = await def.run(parsed, run.ctx);
     return wrapToolResult(name, result.content);
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);

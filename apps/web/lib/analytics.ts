@@ -30,11 +30,19 @@ import { track } from "@vercel/analytics";
  */
 interface EventProperties {
   /** Noen sendte inn et spørsmål til AI-en. */
-  "ask-submitted": { source: "form" | "suggestion" };
+  "ask-submitted": { source: "form" | "suggestion" | "followup" };
   /** Spørsmålet er ferdig besvart — eller feilet. Sier om funksjonen holder. */
   "ask-answered": { status: "ok" | "error"; seconds: number };
   /** Noen klikket seg inn på en kamp fra direktesøket. Målet på om søket traff. */
   "match-opened": { position: number };
+  /** Modellen foreslo ett konkret neste arkivoppslag. */
+  "followup-shown": Record<string, never>;
+  /** Brukeren fortsatte med forslaget. */
+  "followup-yes": Record<string, never>;
+  /** Brukeren avsluttet forslaget lokalt. */
+  "followup-no": Record<string, never>;
+  /** Synlig svartekst ble kopiert. */
+  "answer-copied": Record<string, never>;
 }
 
 /** Sant når nettleseren ikke har bedt om å slippe sporing. */

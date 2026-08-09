@@ -22,6 +22,7 @@ lib/
 ├── archive.ts        Oppslagene sidene bruker
 ├── search.ts         Parsing og spørring for direktesøket
 ├── chat-request.ts   Grensene på det klienten sender inn
+├── chat-followup.ts  Felles kontrakt for historikk og strukturert oppfølging
 ├── chat-model.ts     Hvem som svarer, og på hvilken modell
 ├── chat-anthropic.ts Verktøyløkka mot Claude
 ├── chat-openai.ts    Verktøyløkka mot GPT
@@ -60,9 +61,12 @@ involvert: skriver du «molde 2019» blir årstallet et sesongfilter og resten e
 Treffene vises mens du skriver; Enter sender i stedet spørsmålet til AI-søket.
 
 **`/api/chat`** er spørrefunksjonen. Den kjører verktøyløkka mot modellen (maks fem runder),
-streamer svaret som SSE, og viser SQL-en ved siden av svaret. Verktøyene og systemprompten
-kommer fra [`@aafkstats/query`](../../packages/query/README.md); grensene rundt SQL-en fra
-[`@aafkstats/db`](../../packages/db/README.md#guardrailen).
+streamer svaret som SSE, og viser SQL-en ved siden av svaret. Et ferdig svar kan kopieres.
+Når modellen finner ett vesentlig neste steg, registrerer den det med
+`suggest_follow_up`; ruta sender da en egen `followup`-hendelse etter hovedsvaret. Ja-knappen
+sender et konkret nytt spørsmål med høyst tre tidligere runder, mens Nei avslutter lokalt.
+Verktøyene og systemprompten kommer fra [`@aafkstats/query`](../../packages/query/README.md);
+grensene rundt SQL-en fra [`@aafkstats/db`](../../packages/db/README.md#guardrailen).
 
 ### Hvem som svarer
 
@@ -89,8 +93,8 @@ Løkkene er to, én per leverandør ([`lib/chat-anthropic.ts`](lib/chat-anthropi
 [`lib/chat-openai.ts`](lib/chat-openai.ts)), fordi API-ene skiller nok til at et felles lag
 imellom hadde blitt en oversettelse med tap. Det som *er* felles — takene, valget av modell og
 innpakkingen av verktøysvar i `<arkivdata>`, som er forsvaret mot prompt injection fra et
-kampreferat — ligger i [`lib/chat-model.ts`](lib/chat-model.ts), så det ikke kan gjelde bare
-hos den ene.
+kampreferat, og kontrakten for strukturert oppfølging — ligger i felles kode, så det ikke kan
+gjelde bare hos den ene.
 
 Begge kall forutsetter tenkning og innsatsnivå slik den leverandøren staver det: adaptiv
 tenkning og `effort` i `output_config` hos Anthropic, `reasoning.effort` hos OpenAI. En eldre

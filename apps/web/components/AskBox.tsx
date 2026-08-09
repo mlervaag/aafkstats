@@ -3,6 +3,12 @@
 import { useDeferredValue, useEffect, useRef, useState } from "react";
 import { stripProseDashes } from "@aafkstats/query/style";
 import { ThinkingLine } from "@/components/ThinkingLine";
+import {
+  historyFromTurns,
+  parseFollowUp,
+  type ConversationTurn,
+  type FollowUp,
+} from "@/lib/chat-followup";
 import { trackEvent } from "@/lib/analytics";
 import { formatDateShort } from "@/lib/date";
 
@@ -25,13 +31,6 @@ interface SearchMatch {
   url: string;
 }
 
-/**
- * Forslagene skal vise bredden i arkivet, ikke bare at det virker.
- *
- * Ett spørsmål per type: tidsdybde, innbyrdes statistikk, en enkelt sesong, og
- * noe fra cupen. De to første viser at arkivet nå rekker tilbake til 1980-tallet
- * — det gjorde det ikke da forslagene ble skrevet.
- */
 const SUGGESTIONS = [
   "Hva er den eldste kampen i arkivet?",
   "Hvilken motstander har vi tapt flest ganger mot?",
@@ -39,39 +38,37 @@ const SUGGESTIONS = [
   "Hvilken sesong hadde vi best målforskjell?",
 ];
 
+type AskSource = "form" | "suggestion" | "followup";
+
 /**
- * Portalens hovedinngang: direkte kampsøk mens man skriver, AI-svar ved innsending.
+ * Direkte kampsøk og en avgrenset arkivsamtale.
  *
- * ## Én utgang av gangen
- *
- * Feltet har to svarmåter, og de deler én plass under skjemaet. Enten står
- * trefflista der, eller så står AI-svaret der. Aldri begge.
- *
- * Det var ikke tilfellet før: etter et AI-svar kom trefflista tilbake, og svaret
- * havnet nederst — under lista og under forslagsknappene. Det brukeren nettopp
- * spurte om lå altså lengst ned på siden, bak to ting hen ikke hadde bedt om.
- *
- * Regelen som rydder det: finnes det et AI-svar på gang eller ferdig, eier det
- * plassen. Skriver brukeren videre i feltet, faller svaret bort og trefflista
- * overtar igjen. Det gir én ting å se på i hver tilstand.
+ * Hovedfeltet starter en samtale. Etter første svar eier resultatflaten
+ * interaksjonen: brukeren kan ta én strukturert oppfølging eller starte på nytt.
+ * Det hindrer at et tilfeldig tastetrykk sletter et svar som fortsatt er kontekst.
  */
 export function AskBox() {
   const [question, setQuestion] = useState("");
   const deferredQuestion = useDeferredValue(question);
   const [matches, setMatches] = useState<SearchMatch[]>([]);
   const [searchState, setSearchState] = useState<"idle" | "loading" | "done">("idle");
-  const [answer, setAnswer] = useState("");
-  const [queries, setQueries] = useState<ExecutedQuery[]>([]);
+  const [turns, setTurns] = useState<ConversationTurn[]>([]);
   const [activeTool, setActiveTool] = useState<string | null>(null);
-  const [state, setState] = useState<"idle" | "loading" | "done" | "error">("idle");
-  const [error, setError] = useState<string | null>(null);
-  /** Spørsmålet svaret på skjermen hører til. Tomt når det ikke finnes et svar. */
-  const [askedQuestion, setAskedQuestion] = useState("");
+  const [copiedTurnId, setCopiedTurnId] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  /** Avbryter svaret som strømmer, når brukeren går videre før det er ferdig. */
   const askRef = useRef<AbortController | null>(null);
+  const turnSequence = useRef(0);
+
+  const hasConversation = turns.length > 0;
+  const isLoading = turns.some((turn) => turn.state === "loading");
 
   useEffect(() => {
+    if (hasConversation) {
+      setMatches([]);
+      setSearchState("idle");
+      return;
+    }
+
     const query = deferredQuestion.trim();
     if (query.length < 2) {
       setMatches([]);
@@ -101,58 +98,43 @@ export function AskBox() {
       clearTimeout(timer);
       controller.abort();
     };
-  }, [deferredQuestion]);
+  }, [deferredQuestion, hasConversation]);
 
-  /**
-   * Rydder svaret bort og stopper strømmen som eventuelt fyller det.
-   *
-   * Avbruddet er ikke pynt. Uten det ville et forlatt svar fortsette å strømme
-   * inn i en tilstand som ikke lenger viser det, og dukke opp igjen ferdig
-   * skrevet noen sekunder etter at brukeren gikk videre — uten spørsmålet sitt,
-   * siden det ble nullstilt.
-   */
-  function clearAnswer() {
-    askRef.current?.abort();
-    askRef.current = null;
-    setAskedQuestion("");
-    setState("idle");
-    setAnswer("");
-    setQueries([]);
-    setError(null);
-    setActiveTool(null);
+  function updateTurn(id: string, change: (turn: ConversationTurn) => ConversationTurn) {
+    setTurns((current) => current.map((turn) => turn.id === id ? change(turn) : turn));
   }
-
-  // Skriver brukeren videre etter et svar, er hen på vei et annet sted. Da slipper
-  // svaret plassen med én gang, slik at trefflista kan overta. Uten dette ville de
-  // to stått oppå hverandre igjen i det øyeblikket det ble skrevet ett tegn til.
-  useEffect(() => {
-    // clearAnswer leser bare refs og tilstandssettere, så den er stabil nok til
-    // å stå utenfor avhengighetslista.
-    if (askedQuestion !== "" && question !== askedQuestion) clearAnswer();
-  }, [question, askedQuestion]);
 
   function reset() {
+    askRef.current?.abort();
+    askRef.current = null;
     setQuestion("");
-    clearAnswer();
-    inputRef.current?.focus();
+    setTurns([]);
+    setActiveTool(null);
+    setCopiedTurnId(null);
+    requestAnimationFrame(() => inputRef.current?.focus());
   }
 
-  async function ask(q: string, source: "form" | "suggestion") {
-    if (q.trim() === "" || state === "loading") return;
+  async function ask(q: string, source: AskSource, previousTurns: ConversationTurn[] = []) {
+    const trimmed = q.trim();
+    if (trimmed === "" || isLoading) return;
 
     askRef.current?.abort();
     const controller = new AbortController();
     askRef.current = controller;
-
-    setAskedQuestion(q);
-    setState("loading");
-    setAnswer("");
-    setQueries([]);
-    setError(null);
+    const id = `turn-${++turnSequence.current}`;
+    const turn: ConversationTurn = {
+      id,
+      question: trimmed,
+      answer: "",
+      queries: [],
+      followUp: null,
+      state: "loading",
+    };
+    const baseTurns = source === "followup" ? previousTurns : [];
+    setTurns([...baseTurns, turn]);
     setActiveTool(null);
+    setCopiedTurnId(null);
 
-    // Spørsmålet selv telles aldri — bare at det ble stilt, hvor lang tid det
-    // tok og om det gikk bra. Se lib/analytics.ts.
     trackEvent("ask-submitted", { source });
     const startedAt = performance.now();
     const answered = (status: "ok" | "error") =>
@@ -165,14 +147,17 @@ export function AskBox() {
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: q }),
+        body: JSON.stringify({ question: trimmed, history: historyFromTurns(baseTurns) }),
         signal: controller.signal,
       });
 
       if (!response.ok) {
         const data = (await response.json().catch(() => ({}))) as { error?: string };
-        setError(data.error ?? "Noe gikk galt. Prøv igjen om litt.");
-        setState("error");
+        updateTurn(id, (current) => ({
+          ...current,
+          state: "error",
+          error: data.error ?? "Noe gikk galt. Prøv igjen om litt.",
+        }));
         answered("error");
         return;
       }
@@ -181,14 +166,12 @@ export function AskBox() {
       if (!reader) throw new Error("Ingen svarstrøm");
       const decoder = new TextDecoder();
       let buffer = "";
-      // Strømmen kan melde feil og likevel spille ferdig. Utfallet avgjøres
-      // derfor når leseren er tom, ikke i det feilrammen kommer.
       let failed = false;
+      let completed = false;
 
       for (;;) {
         const { done, value } = await reader.read();
         if (done) break;
-        // Avbrutt underveis: slutt å skrive inn i en tilstand som er lagt bort.
         if (controller.signal.aborted) return;
         buffer += decoder.decode(value, { stream: true });
         const frames = buffer.split("\n\n");
@@ -203,35 +186,96 @@ export function AskBox() {
 
           if (event === "text") {
             setActiveTool(null);
-            setAnswer((previous) => previous + String(data.text ?? ""));
+            updateTurn(id, (current) => ({
+              ...current,
+              answer: current.answer + String(data.text ?? ""),
+            }));
           } else if (event === "tool") {
             setActiveTool(String(data.name ?? ""));
           } else if (event === "queries") {
-            setQueries((data.queries as ExecutedQuery[]) ?? []);
+            updateTurn(id, (current) => ({
+              ...current,
+              queries: (data.queries as ExecutedQuery[]) ?? [],
+            }));
+          } else if (event === "followup") {
+            const followUp = parseFollowUp(data);
+            if (followUp) {
+              updateTurn(id, (current) => ({ ...current, followUp }));
+              trackEvent("followup-shown", {});
+            }
           } else if (event === "error") {
             failed = true;
-            setError(String(data.message ?? "Ukjent feil"));
+            updateTurn(id, (current) => ({
+              ...current,
+              state: "error",
+              followUp: null,
+              error: String(data.message ?? "Ukjent feil"),
+            }));
           } else if (event === "done") {
-            setState("done");
+            completed = true;
+            setActiveTool(null);
+            updateTurn(id, (current) => ({
+              ...current,
+              state: failed ? "error" : "done",
+              followUp: failed ? null : current.followUp,
+            }));
           }
         }
       }
-      setState((current) => current === "loading" ? "done" : current);
+
+      if (!completed) {
+        updateTurn(id, (current) => ({
+          ...current,
+          state: failed ? "error" : "done",
+          followUp: failed ? null : current.followUp,
+        }));
+      }
       answered(failed ? "error" : "ok");
     } catch (streamError) {
-      // Et avbrudd er brukerens eget valg, ikke en feil å melde fra om — og
-      // heller ikke noe å telle. Et forlatt svar er verken «ok» eller «error».
       if (streamError instanceof Error && streamError.name === "AbortError") return;
-      setError("Mistet forbindelsen. Prøv igjen.");
-      setState("error");
+      updateTurn(id, (current) => ({
+        ...current,
+        state: "error",
+        followUp: null,
+        error: "Mistet forbindelsen. Prøv igjen.",
+      }));
       answered("error");
+    } finally {
+      if (askRef.current === controller) askRef.current = null;
     }
   }
 
-  // Plassen under skjemaet har én eier av gangen. Så snart det finnes et
-  // AI-svar — på vei, ferdig eller feilet — er det svaret som står der.
-  const hasAnswer = askedQuestion !== "";
-  const showSearch = !hasAnswer && deferredQuestion.trim().length >= 2;
+  function acceptFollowUp(turnId: string, followUp: FollowUp) {
+    if (isLoading) return;
+    trackEvent("followup-yes", {});
+    const previousTurns = turns.map((turn) =>
+      turn.id === turnId ? { ...turn, followUp: null } : turn,
+    );
+    void ask(followUp.yesPrompt, "followup", previousTurns);
+  }
+
+  function declineFollowUp(turnId: string) {
+    trackEvent("followup-no", {});
+    setTurns((current) => current.map((turn) =>
+      turn.id === turnId ? { ...turn, followUp: null } : turn,
+    ));
+  }
+
+  async function copyAnswer(turn: ConversationTurn) {
+    const visible = stripProseDashes(turn.answer, false);
+    try {
+      await navigator.clipboard.writeText(visible);
+      setCopiedTurnId(turn.id);
+      trackEvent("answer-copied", {});
+      window.setTimeout(() => {
+        setCopiedTurnId((current) => current === turn.id ? null : current);
+      }, 1800);
+    } catch {
+      setCopiedTurnId(null);
+    }
+  }
+
+  const showSearch = !hasConversation && deferredQuestion.trim().length >= 2;
 
   return (
     <section className="ask" aria-labelledby="sporre">
@@ -242,7 +286,10 @@ export function AskBox() {
         direkte treff. Trykk Enter for å få et utfyllende svar fra arkivet.
       </p>
 
-      <form className="ask-form" onSubmit={(event) => { event.preventDefault(); void ask(question, "form"); }}>
+      <form className="ask-form" onSubmit={(event) => {
+        event.preventDefault();
+        void ask(question, "form");
+      }}>
         <input
           ref={inputRef}
           className="ask-input"
@@ -254,11 +301,12 @@ export function AskBox() {
           aria-controls="direkte-treff"
           autoComplete="off"
           enterKeyHint="search"
+          disabled={hasConversation}
           onChange={(event) => setQuestion(event.target.value)}
           onKeyDown={(event) => { if (event.key === "Escape") reset(); }}
         />
-        <button className="ask-button" type="submit" disabled={state === "loading"}>
-          {state === "loading" ? "Svarer …" : "Spør arkivet"}
+        <button className="ask-button" type="submit" disabled={isLoading || hasConversation}>
+          {isLoading ? "Svarer …" : "Spør arkivet"}
         </button>
       </form>
 
@@ -282,17 +330,17 @@ export function AskBox() {
         </div>
       )}
 
-      {/* Forslagene er en igangsetter. Når det står et svar på skjermen har
-          brukeren kommet i gang, og da er de bare fire knapper som skyver
-          svaret nedover. */}
-      {!hasAnswer && (
+      {!hasConversation && (
         <div className="suggestions" aria-label="Forslag til spørsmål">
           {SUGGESTIONS.map((suggestion) => (
             <button
               key={suggestion}
               type="button"
               className="suggestion"
-              onClick={() => { setQuestion(suggestion); void ask(suggestion, "suggestion"); }}
+              onClick={() => {
+                setQuestion(suggestion);
+                void ask(suggestion, "suggestion");
+              }}
             >
               {suggestion}
             </button>
@@ -300,48 +348,86 @@ export function AskBox() {
         </div>
       )}
 
-      {hasAnswer && (
-        // Spørsmålet gjentas over svaret. Feltet står rett over, men teksten der
-        // kan være redigert bort eller rullet ut av syne, og et svar uten
-        // spørsmålet sitt er vanskelig å lese to minutter senere.
+      {hasConversation && (
         <div className="answer-head">
-          <p className="small muted">Du spurte: «{askedQuestion}»</p>
+          <p className="small muted">Aktiv arkivsamtale</p>
           <button type="button" className="answer-reset" onClick={reset}>
             Nytt spørsmål
           </button>
         </div>
       )}
 
-      {error && <div className="answer notice notice-error" role="alert">{error}</div>}
+      <div className="conversation">
+        {turns.map((turn, index) => {
+          const visibleAnswer = stripProseDashes(turn.answer, turn.state === "loading");
+          const isActive = index === turns.length - 1;
+          return (
+            <article className="conversation-turn" key={turn.id}>
+              <p className="conversation-question small muted">
+                {index === 0 ? "Du spurte" : "Oppfølging"}: «{turn.question}»
+              </p>
+              <div
+                className="answer"
+                aria-live={isActive ? "polite" : undefined}
+                aria-busy={turn.state === "loading"}
+              >
+                {turn.answer === "" && turn.state === "loading" ? (
+                  <ThinkingLine activeTool={isActive ? activeTool : null} />
+                ) : (
+                  <Answer text={visibleAnswer} />
+                )}
 
-      {(state === "loading" || answer !== "") && !error && (
-        <div className="answer" aria-live="polite" aria-busy={state === "loading"}>
-          {answer === "" ? (
-            <ThinkingLine activeTool={activeTool} />
-          ) : (
-            // Siste sikring mot tankestrek. Systemprompten ber modellen la være,
-            // og dette fanger resten. Den kjøres på hele svaret ved hver
-            // opptegning, ikke per delta, så den aldri ser en halv setning.
-            // Mens svaret strømmer holdes de siste tegnene urørt: «2–» kan bli
-            // «2–1», og en forhastet erstatning ville blinket på skjermen.
-            <Answer text={stripProseDashes(answer, state === "loading")} />
-          )}
+                {turn.error && (
+                  <p className="notice notice-error" role="alert">{turn.error}</p>
+                )}
 
-          {queries.length > 0 && (
-            <details className="queries">
-              <summary>Vis spørringen{queries.length > 1 ? `e (${queries.length})` : ""} som ble kjørt</summary>
-              {queries.map((query, index) => (
-                <div key={`${query.sql}-${index}`}>
-                  <pre>{query.sql}</pre>
-                  <p className="small muted">
-                    {query.error ? `Feilet: ${query.error}` : `${query.rowCount} rader · ${query.durationMs} ms`}
-                  </p>
+                {turn.state === "done" && turn.answer !== "" && (
+                  <div className="answer-actions">
+                    <button type="button" onClick={() => void copyAnswer(turn)}>
+                      {copiedTurnId === turn.id ? "Kopiert" : "Kopier svar"}
+                    </button>
+                  </div>
+                )}
+
+                {turn.queries.length > 0 && (
+                  <details className="queries">
+                    <summary>
+                      Vis spørringen{turn.queries.length > 1 ? `e (${turn.queries.length})` : ""} som ble kjørt
+                    </summary>
+                    {turn.queries.map((query, queryIndex) => (
+                      <div key={`${query.sql}-${queryIndex}`}>
+                        <pre>{query.sql}</pre>
+                        <p className="small muted">
+                          {query.error
+                            ? `Feilet: ${query.error}`
+                            : `${query.rowCount} rader · ${query.durationMs} ms`}
+                        </p>
+                      </div>
+                    ))}
+                  </details>
+                )}
+              </div>
+
+              {turn.state === "done" && turn.followUp && (
+                <div className="answer-followup" aria-label="Forslag til oppfølging">
+                  <p>{turn.followUp.question}</p>
+                  <div className="answer-followup-actions">
+                    <button
+                      type="button"
+                      onClick={() => acceptFollowUp(turn.id, turn.followUp!)}
+                    >
+                      {turn.followUp.yesLabel}
+                    </button>
+                    <button type="button" onClick={() => declineFollowUp(turn.id)}>
+                      Nei
+                    </button>
+                  </div>
                 </div>
-              ))}
-            </details>
-          )}
-        </div>
-      )}
+              )}
+            </article>
+          );
+        })}
+      </div>
     </section>
   );
 }
@@ -354,8 +440,6 @@ function SearchResult({ match, position }: { match: SearchMatch; position: numbe
       : `${match.opponentScore}-${match.aafkScore}`;
   return (
     <li>
-      {/* Direktesøket måles på det som betyr noe: at et treff ble åpnet.
-          Tastetrykkene i seg selv sier ingenting om at søket traff. */}
       <a
         className="match-result-link"
         href={match.url}

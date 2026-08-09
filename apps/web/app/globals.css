@@ -243,6 +243,11 @@ table,
   outline-offset: 1px;
   border-color: transparent;
 }
+.ask-input:disabled {
+  color: var(--muted);
+  background: var(--surface-2);
+  cursor: default;
+}
 .ask-button {
   font: inherit;
   font-weight: 600;
@@ -355,6 +360,58 @@ table,
 .answer-content ul,
 .answer-content ol { max-width: var(--measure); padding-left: 1.4rem; }
 .answer-content li + li { margin-top: 0.35rem; }
+
+.conversation-turn + .conversation-turn { margin-top: 2rem; }
+.conversation-question { margin: 1.25rem 0 0.4rem; }
+.conversation-question + .answer { margin-top: 0; }
+
+.answer-actions {
+  display: flex;
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--border);
+}
+.answer-actions button {
+  padding: 0;
+  font: inherit;
+  font-size: 0.875rem;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  cursor: pointer;
+}
+.answer-actions button:hover { color: var(--text); }
+
+.answer-followup {
+  margin-top: 0.75rem;
+  padding: 1rem 1.1rem;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.answer-followup p { margin: 0; max-width: var(--measure); }
+.answer-followup-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.85rem; }
+.answer-followup-actions button {
+  padding: 0.55rem 0.85rem;
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.answer-followup-actions button:first-child {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.answer-followup-actions button:focus-visible,
+.answer-actions button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
 
 .thinking {
   color: var(--muted);
