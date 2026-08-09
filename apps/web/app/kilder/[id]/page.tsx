@@ -15,6 +15,7 @@ import { sourceDescription } from "@/lib/metadata";
 import { formatDateShort } from "@/lib/date";
 import Link from "next/link";
 import type { Metadata } from "next";
+import styles from "./SourceDetail.module.css";
 
 /**
  * Alle kildesidene forhåndsgenereres.
@@ -73,53 +74,55 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
   return (
     <article>
       {parent && (
-        <div style={{ marginBottom: "1rem", fontSize: "0.9rem" }}>
-          <Link href={`/kilder/${parent.id}`} style={{ color: "#0047b3", textDecoration: "none" }}>
-            &larr; Tilbake til {parent.title}
-          </Link>
-        </div>
+        <Link href={`/kilder/${parent.id}`} className={styles.backLink}>
+          &larr; Tilbake til {parent.title}
+        </Link>
       )}
 
-      <header className="page-header" style={{ marginBottom: "2rem" }}>
+      <header className={`page-header ${styles.header}`}>
         <SourceTypeBadge type={source.source_type} year={source.year} />
-        <h1 style={{ fontSize: "2.5rem", marginBottom: "0.5rem" }}>{source.title}</h1>
-        {source.issue && <div style={{ fontSize: "1.2rem", color: "#666" }}>Utgave: {source.issue}{source.volume ? `, Årgang: ${source.volume}` : ""}</div>}
+        <h1>{source.title}</h1>
+        {source.issue && (
+          <div className={styles.headerIssue}>
+            Utgave: {source.issue}{source.volume ? `, Årgang: ${source.volume}` : ""}
+          </div>
+        )}
       </header>
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "2rem", alignItems: "flex-start" }}>
-        <div style={{ flex: "0 0 300px", width: "min(100%, 300px)" }}>
+      <div className={styles.layout}>
+        <div className={styles.coverColumn}>
           <SourceCover title={source.title} coverUrl={source.cover_url} />
         </div>
 
-        <div style={{ flex: "1 1 400px" }}>
+        <div>
           {source.description && (
-            <p className="lead" style={{ marginTop: 0 }}>{source.description}</p>
+            <p className={`lead ${styles.lead}`}>{source.description}</p>
           )}
 
-          <div style={{ background: "#f8f9fa", padding: "1.5rem", borderRadius: "8px", border: "1px solid #eaeaea", color: "#444" }}>
-            <h2 style={{ fontSize: "1.2rem", marginBottom: "1rem", borderBottom: "1px solid #ddd", paddingBottom: "0.5rem" }}>Fakta om kilden</h2>
-            <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "0.5rem 1rem", margin: 0 }}>
-              <dt style={{ fontWeight: "bold", color: "#666" }}>Kildetype</dt>
-              <dd style={{ margin: 0 }}>{SOURCE_TYPE_LABELS[source.source_type] || source.source_type}</dd>
+          <div className={styles.facts}>
+            <h2>Fakta om kilden</h2>
+            <dl className={styles.factList}>
+              <dt>Kildetype</dt>
+              <dd>{SOURCE_TYPE_LABELS[source.source_type] || source.source_type}</dd>
 
               {source.author && (
                 <>
-                  <dt style={{ fontWeight: "bold", color: "#666" }}>Forfatter</dt>
-                  <dd style={{ margin: 0 }}>{source.author}</dd>
+                  <dt>Forfatter</dt>
+                  <dd>{source.author}</dd>
                 </>
               )}
 
               {source.publisher && (
                 <>
-                  <dt style={{ fontWeight: "bold", color: "#666" }}>Utgiver</dt>
-                  <dd style={{ margin: 0 }}>{source.publisher}</dd>
+                  <dt>Utgiver</dt>
+                  <dd>{source.publisher}</dd>
                 </>
               )}
 
               {source.year && (
                 <>
-                  <dt style={{ fontWeight: "bold", color: "#666" }}>År</dt>
-                  <dd style={{ margin: 0 }}>{source.year}</dd>
+                  <dt>År</dt>
+                  <dd>{source.year}</dd>
                 </>
               )}
 
@@ -127,19 +130,19 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
                 <>
                   {/* Adressen over kan endre seg. URN-en er det som fortsatt
                       identifiserer dokumentet når den gjør det. */}
-                  <dt style={{ fontWeight: "bold", color: "#666" }}>URN</dt>
-                  <dd style={{ margin: 0, wordBreak: "break-all" }}><code>{source.urn}</code></dd>
+                  <dt>URN</dt>
+                  <dd className={styles.urn}><code>{source.urn}</code></dd>
                 </>
               )}
 
               {source.providers && source.providers.length > 0 && (
                 <>
-                  <dt style={{ fontWeight: "bold", color: "#666" }}>Digitalisert hos</dt>
-                  <dd style={{ margin: 0 }}>
+                  <dt>Digitalisert hos</dt>
+                  <dd>
                     {source.providers.map((p, i) => (
                       <span key={p.providerId}>
                         {p.url ? (
-                          <a href={p.url} target="_blank" rel="noopener noreferrer" style={{ color: "#0047b3" }}>
+                          <a href={p.url} target="_blank" rel="noopener noreferrer" className={styles.providerLink}>
                             {providerName(p.providerId)}
                           </a>
                         ) : (
@@ -155,12 +158,12 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
           </div>
 
           {source.access_url && (
-            <div style={{ marginTop: "2rem" }}>
+            <div className={styles.access}>
               <a
                 href={source.access_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ display: "inline-block", background: "#0047b3", color: "white", padding: "0.75rem 1.5rem", borderRadius: "4px", textDecoration: "none", fontWeight: "bold" }}
+                className="button-link"
               >
                 {source.providers?.[0]
                   ? `Les hos ${providerName(source.providers[0].providerId)} →`
@@ -172,18 +175,12 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
       </div>
 
       {children.length > 0 && (
-        <section style={{ marginTop: "4rem" }}>
-          <h2 style={{ fontSize: "1.8rem", marginBottom: "1.5rem", borderBottom: "2px solid #eee", paddingBottom: "0.5rem" }}>
-            Utgivelser ({children.length})
-          </h2>
+        <section className={styles.section}>
+          <h2>Utgivelser ({children.length})</h2>
           {isPeriodical ? (
             <SourceIssueYears issues={children} />
           ) : (
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))",
-              gap: "1.5rem"
-            }}>
+            <div className={styles.cardGrid}>
               {children.map((child) => (
                 <SourceCard
                   key={child.id}
@@ -201,13 +198,11 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
       )}
 
       {usages.length > 0 && (
-        <section style={{ marginTop: "4rem" }}>
+        <section className={styles.section}>
           {/* «Dokumenterte kamper» leses som om kilden dekker hele kampen. Som
               regel er den brukt til ett felt — et tilskuertall, en dato — og
               overskriften skal si nettopp det. Side og notat står på hver bruk. */}
-          <h2 style={{ fontSize: "1.8rem", marginBottom: "1.5rem", borderBottom: "2px solid #eee", paddingBottom: "0.5rem" }}>
-            Kamper der kilden er brukt ({usages.length})
-          </h2>
+          <h2>Kamper der kilden er brukt ({usages.length})</h2>
           <ol className="archive-match-list">
               {usages.map((match) => {
                 const score = match.aafk_score === null || match.opponent_score === null

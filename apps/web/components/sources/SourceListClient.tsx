@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { SourceCard } from "./SourceCard";
 import { SourceSeriesCard } from "./SourceSeriesCard";
 import { SOURCE_TYPES } from "./SourceTypeBadge";
+import styles from "./SourceListClient.module.css";
 
 export interface HistoricalSourceData {
   id: string;
@@ -87,7 +88,7 @@ function SearchableSourceList({ sources }: SourceListClientProps) {
 
   return (
     <div>
-      <div style={{ display: "flex", gap: "1rem", marginBottom: "2rem", flexWrap: "wrap" }}>
+      <div className={styles.controls}>
         <label className="sr-only" htmlFor="source-search">Søk i kilder</label>
         <input
           id="source-search"
@@ -95,24 +96,14 @@ function SearchableSourceList({ sources }: SourceListClientProps) {
           placeholder="Søk på tittel, år eller utgave…"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          style={{
-            padding: "0.5rem 1rem",
-            borderRadius: "4px",
-            border: "1px solid #ccc",
-            flexGrow: 1,
-            maxWidth: "400px"
-          }}
+          className={styles.search}
         />
         <label className="sr-only" htmlFor="source-type">Filtrer på kildetype</label>
         <select
           id="source-type"
           value={filterType}
           onChange={(e) => setFilterType(e.target.value)}
-          style={{
-            padding: "0.5rem 1rem",
-            borderRadius: "4px",
-            border: "1px solid #ccc",
-          }}
+          className={styles.filter}
         >
           <option value="all">Alle kildetyper</option>
           {types.map(t => (
@@ -216,7 +207,7 @@ function SourceList({
       )}
 
       {seriesEntries.length === 0 && singles.length === 0 && (
-        <p style={{ marginTop: "2rem", fontStyle: "italic", color: "#666" }}>
+        <p className={styles.empty}>
           Fant ingen kilder som samsvarer med søket ditt.
         </p>
       )}

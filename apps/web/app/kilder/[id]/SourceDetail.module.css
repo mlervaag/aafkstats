@@ -1,0 +1,84 @@
+/*
+ * Kildesiden.
+ *
+ * Siden var stilt med drøyt tretti inline-stiler og hardkodede farger — #f8f9fa
+ * på faktaboksen, #444 på teksten i den, #666 på hver `dt`. I mørkt tema sto
+ * boksen igjen som en lys flate midt på en mørk side. Alt går nå gjennom de samme
+ * variablene som resten av nettstedet.
+ */
+
+.backLink {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+.backLink:hover { text-decoration: underline; }
+
+.header { margin-bottom: 2rem; }
+.header h1 {
+  margin: 0.4rem 0 0.5rem;
+  font-size: clamp(1.9rem, 5vw, 2.5rem);
+}
+.headerIssue { font-size: 1.1rem; color: var(--muted); }
+
+/*
+ * Omslaget sto som en fast 300px-spalte, altså 450px høyt ved forholdet 2:3, ved
+ * siden av en faktaliste på fire linjer. Resultatet var et halvtomt felt under
+ * fakta på hver eneste kildeside. Smalere omslag lukker gapet uten å gjøre bildet
+ * for lite til å se hva det er.
+ */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 44rem) {
+  .layout { grid-template-columns: 1fr; }
+  .coverColumn { max-width: 12rem; }
+}
+
+.lead { margin-top: 0; }
+
+.facts {
+  padding: 1.35rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.facts h2 {
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  font-size: 1.2rem;
+  border-bottom: 1px solid var(--border);
+}
+.factList {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.5rem 1rem;
+  margin: 0;
+}
+.factList dt { font-weight: 600; color: var(--muted); }
+.factList dd { margin: 0; }
+.urn { word-break: break-all; }
+
+.providerLink { color: var(--accent); }
+
+.access { margin-top: 2rem; }
+
+.section { margin-top: 4rem; }
+.section h2 {
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 1.8rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1.5rem;
+}

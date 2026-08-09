@@ -1,65 +1,71 @@
+/*
+ * Ett kort i kilderutenettet.
+ *
+ * Var hardkodet hvitt med nesten svart tittel, og altså uleselig i mørkt tema.
+ * Rammen erstatter slagskyggen, slik at kortet ser likt ut som .archive-card
+ * ellers på nettstedet.
+ */
+
 .card {
   display: flex;
   flex-direction: column;
-  text-decoration: none;
-  color: inherit;
-  background: #fff;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
   height: 100%;
+  padding: 1rem;
+  color: inherit;
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
 }
+
+/* Ingen løfting ved hover — se SourceSeriesCard.module.css. */
 .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  border-color: var(--accent);
+  background: var(--surface-2);
 }
-.coverWrapper {
-  width: 100%;
-  aspect-ratio: 2/3;
-  overflow: hidden;
-  margin-bottom: 1rem;
-  border-radius: 4px;
-  background-color: #f0f0f0;
+
+.coverWrapper,
+.placeholderCover {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background-color: var(--surface-2);
 }
+
 .coverImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.placeholderCover {
-  width: 100%;
-  aspect-ratio: 2/3;
-  overflow: hidden;
-  margin-bottom: 1rem;
-  border-radius: 4px;
-  background-color: #eaeaea;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 .placeholderText {
-  color: #888;
-  font-size: 0.9rem;
   padding: 1rem;
   text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
 }
+
 .info {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
+
 .title {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
   font-size: 1.1rem;
-  margin: 0 0 0.5rem 0;
-  line-height: 1.3;
-  color: #111;
   font-weight: 700;
+  line-height: 1.3;
+  color: var(--text);
 }
+
 .publisher {
   font-size: 0.9rem;
-  color: #666;
+  color: var(--muted);
 }

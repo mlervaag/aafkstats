@@ -1,41 +1,56 @@
+/*
+ * Inngangen til en serie, fra kildelista.
+ *
+ * Kortet var hardkodet hvitt med `color: inherit` på tittelen. I mørkt tema ble
+ * flaten stående hvit mens teksten arvet den lyse kremfargen fra temaet — altså
+ * krem på hvitt, og tittelen forsvant helt. Alt her går nå gjennom de samme
+ * variablene som resten av nettstedet, så flaten og teksten snur samtidig.
+ */
+
 .card {
-  text-decoration: none;
-  color: inherit;
   display: block;
+  color: inherit;
+  text-decoration: none;
 }
 
 .inner {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: #fff;
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  gap: 1rem;
   margin-top: 1rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 1.15rem 1.4rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
 }
 
-.inner:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+/* Kortet løftes ikke ved hover. Det er en lenke i en liste, og et løft lover en
+   interaksjon den ikke har — samme begrunnelse som for .archive-card. */
+.card:hover .inner {
+  border-color: var(--accent);
+  background: var(--surface-2);
 }
 
 .content {
   flex: 1;
+  min-width: 0;
 }
 
 .title {
+  margin: 0.35rem 0 0.25rem;
+  font-family: var(--font-display);
   font-size: 1.2rem;
-  margin: 0 0 0.25rem 0;
+  color: var(--text);
 }
 
 .meta {
   font-size: 0.9rem;
-  color: #666;
+  color: var(--muted);
 }
 
 .linkText {
-  font-weight: bold;
-  color: #0047b3;
+  flex-shrink: 0;
+  font-weight: 600;
+  color: var(--accent);
 }

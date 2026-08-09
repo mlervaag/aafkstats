@@ -1,10 +1,14 @@
 /*
  * Utgavene i en serie, gruppert etter år.
  *
- * AaFK Medlemsblad har 87 utgaver, og de sto som 87 like kort i ett rutenett med
+ * AaFK Medlemsblad har 86 utgaver, og de sto som 86 like kort i ett rutenett med
  * hvert sitt omslag. Et periodikum navigeres år → nummer, ikke ved å lete etter en
- * bestemt gråtoneforside blant 87 andre — og 87 omslag gjennom bildeproxyen er
+ * bestemt gråtoneforside blant 86 andre — og 86 omslag gjennom bildeproxyen er
  * dessuten det tyngste nettstedet laster.
+ *
+ * Fargene var hardkodet for lyst tema. Årstallet sto som #111 og var dermed
+ * usynlig mot mørk bakgrunn: lista så ut til å mangle årstall helt, og bare den
+ * lysere årgangsteksten under røpet at raden hørte til et år.
  */
 
 .years {
@@ -15,28 +19,31 @@
 
 .year {
   display: grid;
-  grid-template-columns: 5rem 1fr;
+  grid-template-columns: 6rem 1fr;
   gap: 1rem;
   align-items: baseline;
-  padding: 0.75rem 0;
-  border-top: 1px solid #eaeaea;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--border);
 }
 
 .yearLabel {
+  margin: 0;
+  font-family: var(--font-display);
   font-size: 1.4rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
-  color: #111;
-  margin: 0;
+  color: var(--text);
 }
 
 .volume {
   display: block;
+  margin-top: 0.15rem;
+  font-family: var(--font-body);
   font-size: 0.75rem;
   font-weight: 400;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #666;
+  color: var(--muted);
 }
 
 .issues {
@@ -53,10 +60,10 @@
   min-width: 2.75rem;
   padding: 0.4rem 0.7rem;
   text-align: center;
-  border: 1px solid #d5d9e0;
-  border-radius: 4px;
-  background: #fff;
-  color: #0047b3;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
   font-weight: 600;
   font-variant-numeric: tabular-nums;
   text-decoration: none;
@@ -64,14 +71,15 @@
 }
 
 .issue:hover {
-  border-color: #0047b3;
-  background: #f2f6fd;
+  border-color: var(--accent);
+  background: var(--surface-2);
+  color: var(--accent);
 }
 
 /* Tastaturfokus må være synlig for seg. Uten dette er hover det eneste som
    markerer hvor man er, og da finnes markeringen bare for den som bruker mus. */
 .issue:focus-visible {
-  outline: 2px solid #0047b3;
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
