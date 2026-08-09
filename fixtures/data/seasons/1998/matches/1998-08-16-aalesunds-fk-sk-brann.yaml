@@ -9,6 +9,10 @@ attendance: 4210
 providers:
   - { providerId: rsssf, retrievedAt: 2026-08-02, fields: [home.score, away.score] }
   - { providerId: nasjonalbiblioteket, retrievedAt: 2026-08-02, fields: [attendance] }
+# En historisk kilde brukt til ett felt. Finnes for at kildesidene skal ha en faktisk
+# bruk å vise, og for at ordlyden «Kamper der kilden er brukt» skal bli røyketestet.
+sources:
+  - { sourceId: aafk-90-ar-1914-2004, page: "142", fields: [attendance], note: Kort omtale av kampen }
 confidence: probable
 manual: [attendance]
 conflicts:

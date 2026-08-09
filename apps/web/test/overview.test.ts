@@ -12,6 +12,7 @@ import {
   loadOverview,
   loadSeason,
   loadSeasonCoaches,
+  loadSeasonGaps,
   loadSeasons,
   loadSquad,
   loadStandings,
@@ -255,5 +256,38 @@ describe("personregisteret", () => {
 
   it("gir ingen oppgitt periode for et år ingen kilde dekker", () => {
     expect(loadDeclaredCoaches(1998)).toEqual([]);
+  });
+});
+
+/**
+ * «Delvis · 3 av 6 kamper» er sant, men ikke noe å gjøre noe med. Tallene her er de
+ * som gjør dekningsgraden handlingsorientert, og de må komme fra det samme
+ * grunnlaget som completeness — ikke fra en ny definisjon utenfor databasen.
+ */
+describe("hull i en sesong", () => {
+  it("teller bare spilte kamper", () => {
+    // Fixturens 2024 har fem spilte kamper, én utsatt og én på terminlista. Bare de
+    // spilte teller: en kamp som ikke er spilt mangler ikke resultat, den har ikke
+    // fått et ennå — og en utsatt kamp blir aldri spilt i den formen den står.
+    const gaps = loadSeasonGaps(2024);
+    const played = loadSeason(2024)!.matches.filter(
+      (match) => match.status === "played" || match.status === "awarded",
+    );
+    expect(gaps.played).toBe(played.length);
+    expect(gaps.gaps.some((gap) => gap.field === "score")).toBe(false);
+  });
+
+  it("navngir feltene som mangler, med antall kamper", () => {
+    const gaps = loadSeasonGaps(1998);
+    const lineups = gaps.gaps.find((gap) => gap.field === "lineups");
+    expect(lineups?.matches).toBe(gaps.played);
+    for (const gap of gaps.gaps) expect(gap.matches).toBeLessThanOrEqual(gaps.played);
+  });
+
+  it("teller kamper som mangler helt bare når en kilde sier omfanget", () => {
+    // 1998 har en sluttabell som sier at AaFK spilte flere seriekamper enn arkivet
+    // har. Uten et slikt tall skal differansen være 0, ikke en gjetning.
+    expect(loadSeasonGaps(1998).missingMatches).toBeGreaterThan(0);
+    expect(loadSeasonGaps(2005).missingMatches).toBe(0);
   });
 });

@@ -2,14 +2,15 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CoverageTag } from "@/components/Coverage";
 import { MatchList } from "@/components/MatchList";
-import { ContributionButton } from "@/components/ContributionButton";
 import { Contributions } from "@/components/Contributions";
+import { SeasonGaps } from "@/components/SeasonGaps";
 import { SeasonCoaches, SquadList } from "@/components/Squad";
 import { ProgressionChart, StandingsTable } from "@/components/Standings";
 import {
   loadDeclaredCoaches,
   loadNeighbourSeasons,
   loadSeason,
+  loadSeasonGaps,
   loadSeasonCoaches,
   loadSeasonYears,
   loadSquad,
@@ -47,6 +48,7 @@ export default async function SeasonPage({ params }: Props) {
   const { previous, next } = loadNeighbourSeasons(year);
   const coaches = loadSeasonCoaches(year);
   const declaredCoaches = loadDeclaredCoaches(year);
+  const gaps = loadSeasonGaps(year);
   const squad = loadSquad(year);
   const contributions = loadContributions(year.toString(), "season");
 
@@ -60,13 +62,10 @@ export default async function SeasonPage({ params }: Props) {
         </p>
         <h1>Sesongen {year}</h1>
         <SeasonCoaches coaches={coaches} declared={declaredCoaches} season={year} />
+        {/* «Bidra til 1977-sesongen» sto her som en knapp uten kontekst. Nå står det
+            hva som faktisk mangler først, og knappen er svaret på den setningen. */}
         <div style={{ marginTop: "1rem" }}>
-          <ContributionButton 
-            scope="season" 
-            targetId={year.toString()} 
-            title={`Sesongen ${year}`} 
-            label={`Bidra til ${year}-sesongen`} 
-          />
+          <SeasonGaps year={year} gaps={gaps} />
         </div>
       </header>
 

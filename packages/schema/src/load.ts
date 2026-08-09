@@ -85,7 +85,6 @@ async function parseFile<T extends z.ZodTypeAny>(
   issues: LoadIssue[],
 ): Promise<z.infer<T> | null> {
   const rel = relative(root, file).replace(/\\/g, "/");
-  if (file.includes("nasjonalbiblioteket")) console.log("parsing", file);
   let raw: unknown;
   try {
     // 'core' holder oss på YAML 1.2, der datoer forblir strenger. Uten dette blir
@@ -98,13 +97,11 @@ async function parseFile<T extends z.ZodTypeAny>(
 
   const parsed = schema.safeParse(raw);
   if (!parsed.success) {
-    if (file.includes("nasjonalbiblioteket")) console.log("parse error", parsed.error.issues);
     for (const issue of parsed.error.issues) {
       issues.push({ file: rel, path: issue.path.join("."), message: issue.message });
     }
     return null;
   }
-  if (file.includes("nasjonalbiblioteket")) console.log("parsed successfully", parsed.data);
   return parsed.data;
 }
 
@@ -118,10 +115,7 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
   const issues: LoadIssue[] = [];
 
   const readAll = async <T extends z.ZodTypeAny>(dir: string, schema: T) => {
-    const fullDir = join(root, dir);
-    console.log(`readAll(${dir}) from ${fullDir}`);
-    const files = await listYaml(fullDir);
-    console.log(`readAll(${dir}) found ${files.length} files`);
+    const files = await listYaml(join(root, dir));
     const out: z.infer<T>[] = [];
     for (const file of files) {
       const parsed = await parseFile(file, schema, root, issues);
@@ -135,7 +129,6 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
   const venues = await readAll("venues", venue);
   const competitions = await readAll("competitions", competition);
   const providers = await readAll("providers", provider);
-  console.log("PROVIDERS COUNT", providers.length);
 
   const seasons: (Season & { file: string })[] = [];
   const matches: (Match & { file: string })[] = [];
