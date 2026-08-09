@@ -1,19 +1,19 @@
-id: 2000-07-16-aalesunds-fk-stranda-il-fotball
-date: 2000-07-16
+id: 2000-09-24-spjelkavik-aalesunds-fk
+date: 2000-09-24
 dateConfidence: exact
 status: played
 competition:
   id: andredivisjon
   season: 2000
   stage: regular_season
-  round: 12
+  round: 22
 home:
-  clubId: aalesunds-fk
-  score: 3
+  clubId: spjelkavik
+  score: 0
   halfTimeScore: null
 away:
-  clubId: stranda-il-fotball
-  score: 0
+  clubId: aalesunds-fk
+  score: 2
   halfTimeScore: null
 neutralVenue: false
 events: []
@@ -31,11 +31,11 @@ providers:
       - away.clubId
       - home.score
       - away.score
-    note: NFF kampnummer 23120206070.
+    note: NFF kampnummer 23120206128.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases:
-  fotball-no: "23120206070"
+  fotball-no: "23120206128"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

@@ -1,26 +1,26 @@
-id: 2000-09-24-spjelkavik-il-fotball-aalesunds-fk
-date: 2000-09-24
+id: 1990-09-09-hamarkameratene-aalesunds-fk
+date: 1990-09-09
 dateConfidence: exact
 status: played
 competition:
-  id: andredivisjon
-  season: 2000
+  id: forstedivisjon
+  season: 1990
   stage: regular_season
-  round: 22
+  round: 19
 home:
-  clubId: spjelkavik-il-fotball
-  score: 0
+  clubId: hamarkameratene
+  score: 4
   halfTimeScore: null
 away:
   clubId: aalesunds-fk
-  score: 2
+  score: 1
   halfTimeScore: null
 neutralVenue: false
 events: []
 externalReports: []
 providers:
   - providerId: fotball-no
-    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=119411&underside=kamper
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83051&underside=kamper
     retrievedAt: 2026-08-05
     fields:
       - date
@@ -31,11 +31,11 @@ providers:
       - away.clubId
       - home.score
       - away.score
-    note: NFF kampnummer 23120206128.
+    note: NFF kampnummer 99114.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases:
-  fotball-no: "23120206128"
+  fotball-no: "99114"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

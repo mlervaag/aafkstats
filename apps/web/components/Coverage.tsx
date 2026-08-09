@@ -232,7 +232,10 @@ export const TYPE_LABELS: Record<string, string> = {
   national_cup: "Cupen",
   european: "Europacup",
   friendly: "Treningskamper",
-  playoff: "Kvalifisering",
+  // «Kvalifisering» alene er tvetydig: arkivet har også åtte kamper i UEFA
+  // Europa League-kvalifiseringen, og de ligger under `european`. Dette er
+  // opp- og nedrykkskvalifiseringen i seriesystemet.
+  playoff: "Opp- og nedrykkskvalifisering",
 };
 
 /**
@@ -246,7 +249,7 @@ export const TYPE_WORDS: Record<string, string> = {
   national_cup: "cup",
   european: "europacup",
   friendly: "treningskamper",
-  playoff: "kvalifisering",
+  playoff: "opp- og nedrykkskvalifisering",
 };
 
 export function CompetitionSpread() {

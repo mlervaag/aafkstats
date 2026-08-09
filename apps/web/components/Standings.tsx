@@ -42,11 +42,16 @@ export function StandingsTable({ rows, season }: { rows: StandingsRow[]; season:
           </tr>
         </thead>
         <tbody>
-          {rows.map((row) => (
-            <tr key={row.position} className={row.clubId === "aalesunds-fk" ? "is-aafk" : undefined}>
+          {rows.map((row) => {
+            const isAafk = row.clubId === "aalesunds-fk";
+            return (
+            <tr key={row.position} className={isAafk ? "is-aafk" : undefined}>
               <td className="num col-pos">{row.position}</td>
               <th scope="row">
-                {row.url ? <a href={row.url}>{row.team}</a> : row.team}
+                {/* Egen klubb lenkes ikke. Lenka går til «AaFK mot …», og AaFK
+                    er ikke sin egen motstander — raden er allerede markert som
+                    oss, så en lenke derfra lover noe som ikke finnes. */}
+                {row.url && !isAafk ? <a href={row.url}>{row.team}</a> : row.team}
                 {OUTCOMES[row.outcome] && (
                   <span className={`outcome outcome-${row.outcome}`}> {OUTCOMES[row.outcome]}</span>
                 )}
@@ -61,7 +66,8 @@ export function StandingsTable({ rows, season }: { rows: StandingsRow[]; season:
               <td className="num">{row.goalDifference > 0 ? "+" : ""}{row.goalDifference}</td>
               <td className="num"><strong>{row.points}</strong></td>
             </tr>
-          ))}
+            );
+          })}
         </tbody>
       </table>
     </div>
