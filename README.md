@@ -132,6 +132,7 @@ rettighetsvurdering.
 | `pnpm ingest:fotmob -- --league ID --season ÅR --competition ID` | Tørrkjører én eksplisitt FotMob-sesong |
 | `pnpm ingest:rsssf -- --season ÅR --division SIDE --competition ID` | Tørrkjører én eksplisitt RSSSF-sesong |
 | `pnpm ingest:rsssf-discover -- --from ÅR --to ÅR` | Kartlegger hva RSSSF har. Skriver aldri data |
+| `pnpm ingest:fotmob-standings -- --league ID --season ÅR --competition ID` | Tørrkjører tabellen og plasseringskurven for én sesong. Den eneste som kan hente en sesong som pågår |
 
 Innhøstingen tørrkjører alltid som standard. `--write` er et eget valg, og det krever at
 kilden er avklart for publisering — se [Kilder og rettigheter](#kilder-og-rettigheter).
