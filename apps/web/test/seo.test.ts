@@ -5,7 +5,7 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
 import sitemap from "../app/sitemap.js";
 import { loadMatchIndex, loadSeasonYears } from "../lib/archive.js";
-import { getSources } from "../lib/sources.js";
+import { getProviderNames, getSourceChildren, getSourceIds, getSources } from "../lib/sources.js";
 import {
   matchDescription,
   matchTitle,
@@ -13,6 +13,7 @@ import {
   opponentTitle,
   pageMetadata,
   seasonDescription,
+  sourceDescription,
 } from "../lib/metadata.js";
 
 const previousDbPath = process.env.AAFK_DB_PATH;
@@ -193,5 +194,77 @@ describe("sesong- og motstandermetadata", () => {
       firstMeeting: "2026-09-01",
       lastMeeting: null,
     })).toBe("AaFK mot Kongsvinger");
+  });
+});
+
+/**
+ * Alle 99 kildesidene delte «Fakta og historiske kamper dokumentert av …», også de
+ * som ikke er brukt på en eneste kamp. Beskrivelsen skal være sann uten dekning, og
+ * bare nevne dekning der den finnes.
+ */
+describe("kildemetadata", () => {
+  const base = {
+    title: "Cupminner",
+    description: null,
+    year: 2009,
+    publisher: "Sunnmørsposten",
+    issues: 0,
+    usages: 0,
+  };
+
+  it("bruker en generell grunnbeskrivelse når kilden ikke har sin egen", () => {
+    const text = sourceDescription(base);
+    expect(text).toContain("Historisk kilde om Aalesunds Fotballklubb: Cupminner");
+    expect(text).toContain("Utgitt av Sunnmørsposten, 2009");
+  });
+
+  it("lover ikke dekning kilden ikke har", () => {
+    expect(sourceDescription(base)).not.toMatch(/kamp/);
+  });
+
+  it("tar med bruk og utgaver der de finnes", () => {
+    const text = sourceDescription({ ...base, issues: 86, usages: 1 });
+    expect(text).toContain("86 utgaver i arkivet");
+    expect(text).toContain("Brukt på 1 kamp i arkivet");
+    expect(text).not.toContain("1 kamper");
+  });
+
+  it("lar kildens egen beskrivelse gå foran den generelle", () => {
+    const text = sourceDescription({ ...base, description: "Klubbens eget medlemsblad." });
+    expect(text.startsWith("Klubbens eget medlemsblad.")).toBe(true);
+    expect(text).not.toContain("Historisk kilde om");
+  });
+});
+
+/**
+ * Kildesidene forhåndsgenereres. Uten en fullstendig ID-liste blir en kilde som
+ * ligger i arkivet stående uten side, og feilen ville bare vist seg i produksjon.
+ */
+describe("kildesidene som statiske sider", () => {
+  it("har en ID per kilde i arkivet", () => {
+    const ids = getSourceIds();
+    expect(new Set(ids)).toEqual(new Set(getSources().map((source) => source.id)));
+    expect(ids.length).toBe(new Set(ids).size);
+  });
+});
+
+/**
+ * Utgavene i en serie sorteres år for år, nyeste år først, men nummer 1 før nummer 2
+ * innenfor året. Baklengs nummerering er ikke slik noen leser et blad.
+ */
+describe("utgaver i en serie", () => {
+  it("sorterer nyeste årgang først og utgavene stigende innenfor året", () => {
+    const issues = getSourceChildren("aafk-medlemsblad");
+    expect(issues.map((issue) => `${issue.year}/${issue.issue}`)).toEqual(["1971/2", "1970/1"]);
+  });
+});
+
+/**
+ * Kildesiden hadde «Nasjonalbiblioteket» skrevet inn i JSX-en. Navnet står i
+ * providerfila, og det er det ene stedet det skal stå.
+ */
+describe("providernavn", () => {
+  it("leser visningsnavnet fra core_providers", () => {
+    expect(getProviderNames().get("nasjonalbiblioteket")).toBe("Nasjonalbiblioteket");
   });
 });

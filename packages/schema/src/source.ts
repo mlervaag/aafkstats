@@ -23,6 +23,16 @@ export const source = z.object({
   volume: z.string().min(1).optional(),
   publisher: z.string().min(1).optional(),
   year: z.number().int().min(1800).max(2100).optional(),
+  // Bibliografiske opplysninger. Alle er valgfrie: de fleste kildene i arkivet er
+  // katalogført av Nasjonalbiblioteket uten forfatter, og et påkrevd felt hadde
+  // bare invitert til å finne på en verdi.
+  //
+  // `urn` er den stabile identifikatoren. `accessUrl` peker i dag på nb.no, men en
+  // adresse er en adresse — URN-en er det som fortsatt identifiserer dokumentet når
+  // adressen endrer seg, og det er den en annen katalog kan slå opp på.
+  urn: z.string().min(1).optional(),
+  author: z.string().min(1).optional(),
+  description: z.string().min(1).optional(),
   coverUrl: httpUrl.optional(),
   accessUrl: httpUrl.optional(),
   providers: z.array(

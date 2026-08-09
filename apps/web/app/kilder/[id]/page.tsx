@@ -2,35 +2,73 @@ import { notFound } from "next/navigation";
 import { SourceTypeBadge, SOURCE_TYPE_LABELS } from "@/components/sources/SourceTypeBadge";
 import { SourceCard } from "@/components/sources/SourceCard";
 import { SourceCover } from "@/components/sources/SourceCover";
-import { getSourceById, getSourceChildren, getParentSource, getSourceUsages } from "@/lib/sources";
+import { SourceIssueYears } from "@/components/sources/SourceIssueYears";
+import {
+  getProviderNames,
+  getSourceById,
+  getSourceChildren,
+  getSourceIds,
+  getParentSource,
+  getSourceUsages,
+} from "@/lib/sources";
+import { sourceDescription } from "@/lib/metadata";
 import { formatDateShort } from "@/lib/date";
 import Link from "next/link";
 import type { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
+/**
+ * Alle kildesidene forhåndsgenereres.
+ *
+ * Kildene ligger i det samme bygde SQLite-arkivet som kampene og sesongene, og de
+ * sidene har vært forhåndsgenerert hele tiden. Kildesidene sto igjen som
+ * `force-dynamic` og gjorde det samme oppslaget på nytt for hver forespørsel, for
+ * et svar som ikke kan bli et annet før neste utrulling.
+ *
+ * Forsidebildene hentes fortsatt gjennom `/api/nb-image` ved kjøring. Den ruten er
+ * en API-rute og berøres ikke av at siden rundt er statisk.
+ */
+export function generateStaticParams(): { id: string }[] {
+  return getSourceIds().map((id) => ({ id }));
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
   const source = getSourceById(id);
   if (!source) return { title: "Kilde ikke funnet" };
 
+  const children = source.source_type === "series" ? getSourceChildren(id) : [];
   return {
     title: source.title,
-    description: `Fakta og historiske kamper dokumentert av ${source.title}.`,
+    description: sourceDescription({
+      title: source.title,
+      description: source.description,
+      year: source.year,
+      publisher: source.publisher,
+      issues: children.length,
+      usages: getSourceUsages(id).length,
+    }),
   };
 }
 
 export default async function SourceDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  
+
   const source = getSourceById(id);
   if (!source) {
     return notFound();
   }
-  
+
   const children = source.source_type === 'series' ? getSourceChildren(id) : [];
   const parent = source.parent_source_id ? getParentSource(source.parent_source_id) : null;
   const usages = getSourceUsages(id);
+  // Visningsnavnet på en leverandør står i providerfila. Kildesiden hadde
+  // «Nasjonalbiblioteket» hardkodet, og alle andre leverandører sto med sin ID.
+  const providerNames = getProviderNames();
+  const providerName = (providerId: string) => providerNames.get(providerId) ?? providerId;
+  // Utgavene i en serie er nesten alltid periodika, og da er år → nummer den
+  // rekkefølgen leseren tenker i. Serier av noe annet får rutenettet som før.
+  const isPeriodical = children.length > 0 &&
+    children.every((child) => child.source_type === "member_magazine" || child.source_type === "annual_report");
 
   return (
     <article>
@@ -54,23 +92,43 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
         </div>
 
         <div style={{ flex: "1 1 400px" }}>
+          {source.description && (
+            <p className="lead" style={{ marginTop: 0 }}>{source.description}</p>
+          )}
+
           <div style={{ background: "#f8f9fa", padding: "1.5rem", borderRadius: "8px", border: "1px solid #eaeaea", color: "#444" }}>
             <h2 style={{ fontSize: "1.2rem", marginBottom: "1rem", borderBottom: "1px solid #ddd", paddingBottom: "0.5rem" }}>Fakta om kilden</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "0.5rem 1rem", margin: 0 }}>
               <dt style={{ fontWeight: "bold", color: "#666" }}>Kildetype</dt>
               <dd style={{ margin: 0 }}>{SOURCE_TYPE_LABELS[source.source_type] || source.source_type}</dd>
-              
+
+              {source.author && (
+                <>
+                  <dt style={{ fontWeight: "bold", color: "#666" }}>Forfatter</dt>
+                  <dd style={{ margin: 0 }}>{source.author}</dd>
+                </>
+              )}
+
               {source.publisher && (
                 <>
                   <dt style={{ fontWeight: "bold", color: "#666" }}>Utgiver</dt>
                   <dd style={{ margin: 0 }}>{source.publisher}</dd>
                 </>
               )}
-              
+
               {source.year && (
                 <>
                   <dt style={{ fontWeight: "bold", color: "#666" }}>År</dt>
                   <dd style={{ margin: 0 }}>{source.year}</dd>
+                </>
+              )}
+
+              {source.urn && (
+                <>
+                  {/* Adressen over kan endre seg. URN-en er det som fortsatt
+                      identifiserer dokumentet når den gjør det. */}
+                  <dt style={{ fontWeight: "bold", color: "#666" }}>URN</dt>
+                  <dd style={{ margin: 0, wordBreak: "break-all" }}><code>{source.urn}</code></dd>
                 </>
               )}
 
@@ -82,10 +140,10 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
                       <span key={p.providerId}>
                         {p.url ? (
                           <a href={p.url} target="_blank" rel="noopener noreferrer" style={{ color: "#0047b3" }}>
-                            {p.providerId === "nasjonalbiblioteket" ? "Nasjonalbiblioteket" : p.providerId}
+                            {providerName(p.providerId)}
                           </a>
                         ) : (
-                          p.providerId === "nasjonalbiblioteket" ? "Nasjonalbiblioteket" : p.providerId
+                          providerName(p.providerId)
                         )}
                         {i < source.providers.length - 1 ? ", " : ""}
                       </span>
@@ -98,14 +156,14 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
 
           {source.access_url && (
             <div style={{ marginTop: "2rem" }}>
-              <a 
-                href={source.access_url} 
-                target="_blank" 
+              <a
+                href={source.access_url}
+                target="_blank"
                 rel="noopener noreferrer"
                 style={{ display: "inline-block", background: "#0047b3", color: "white", padding: "0.75rem 1.5rem", borderRadius: "4px", textDecoration: "none", fontWeight: "bold" }}
               >
-                {source.providers?.some(p => p.providerId === 'nasjonalbiblioteket') 
-                  ? "Les hos Nasjonalbiblioteket →" 
+                {source.providers?.[0]
+                  ? `Les hos ${providerName(source.providers[0].providerId)} →`
                   : "Åpne originalkilden →"}
               </a>
             </div>
@@ -118,30 +176,37 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
           <h2 style={{ fontSize: "1.8rem", marginBottom: "1.5rem", borderBottom: "2px solid #eee", paddingBottom: "0.5rem" }}>
             Utgivelser ({children.length})
           </h2>
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))",
-            gap: "1.5rem"
-          }}>
-            {children.map((child) => (
-              <SourceCard
-                key={child.id}
-                id={child.id}
-                title={child.title}
-                sourceType={child.source_type}
-                year={child.year}
-                publisher={child.publisher}
-                coverUrl={child.cover_url}
-              />
-            ))}
-          </div>
+          {isPeriodical ? (
+            <SourceIssueYears issues={children} />
+          ) : (
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))",
+              gap: "1.5rem"
+            }}>
+              {children.map((child) => (
+                <SourceCard
+                  key={child.id}
+                  id={child.id}
+                  title={child.title}
+                  sourceType={child.source_type}
+                  year={child.year}
+                  publisher={child.publisher}
+                  coverUrl={child.cover_url}
+                />
+              ))}
+            </div>
+          )}
         </section>
       )}
 
       {usages.length > 0 && (
         <section style={{ marginTop: "4rem" }}>
+          {/* «Dokumenterte kamper» leses som om kilden dekker hele kampen. Som
+              regel er den brukt til ett felt — et tilskuertall, en dato — og
+              overskriften skal si nettopp det. Side og notat står på hver bruk. */}
           <h2 style={{ fontSize: "1.8rem", marginBottom: "1.5rem", borderBottom: "2px solid #eee", paddingBottom: "0.5rem" }}>
-            Dokumenterte kamper ({usages.length})
+            Kamper der kilden er brukt ({usages.length})
           </h2>
           <ol className="archive-match-list">
               {usages.map((match) => {

@@ -13,6 +13,7 @@ noe her som ikke stemmer med skjemaet, er skjemaet riktig.
 - [Stadion](#stadion)
 - [Konkurranse](#konkurranse)
 - [Kilde](#kilde)
+- [Historisk kilde](#historisk-kilde)
 - [Person](#person)
 - [Stall og trener](#stall-og-trener)
 - [Fra YAML til database](#fra-yaml-til-database)
@@ -425,6 +426,52 @@ satt. Innhøstings-CLI-ene leser statusen før nettverkskallet: tørrkjøring kr
 `accepted_risk` er ikke det samme som `granted`. Den betyr at vilkårene er lest, at bruken
 ikke er uttrykkelig tillatt, og at prosjekteier likevel har besluttet å gå videre. Statusen
 krever `permissionNote` — en avkrysning uten begrunnelse er ikke en beslutning.
+
+## Historisk kilde
+
+`data/sources/<id>.yaml`
+
+En *provider* er stedet opplysningen kom fra, som RSSSF eller Nasjonalbiblioteket. En
+*historisk kilde* er selve dokumentet: boka, medlemsbladet, jubileumsskriftet. Kampene
+peker på begge, og de svarer på hvert sitt spørsmål — hvem hentet vi det fra, og hva står
+det i.
+
+```yaml
+id: cupminner-2009-30c4
+title: Cupminner
+sourceType: book                       # se enumen under
+parentSourceId: aafk-medlemsblad       # bare på en utgave i en serie
+issue: "4"                             # utgavenummer, som tekst («3-4», «Jul»)
+volume: "25"                           # årgang
+publisher: Sunnmørsposten
+year: 2009
+urn: URN:NBN:no-nb_digibok_2014062605010
+author: Ola Nordmann                   # forfatter eller redaktør
+description: >
+  Kort om hva kilden inneholder.
+coverUrl: https://…
+accessUrl: https://www.nb.no/items/URN:NBN:no-nb_digibok_2014062605010
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/URN:NBN:no-nb_digibok_2014062605010
+```
+
+`sourceType` er `book`, `anniversary_book`, `member_magazine`, `annual_report`,
+`match_program`, `supporter_publication`, `local_history_book`, `newspaper_supplement`,
+`series` eller `other`.
+
+**Serier.** Et periodikum ligger som én kilde med `sourceType: series`, og hver utgave
+peker på den med `parentSourceId`. Valideringen krever at forelderen finnes og faktisk er
+en serie. Seriesiden grupperer utgavene etter år, så `year` og `issue` er det som gjør en
+serie navigerbar — uten dem står 86 utgaver som én uleselig liste.
+
+**Bibliografien er valgfri.** `urn`, `author` og `description` er alle valgfrie, fordi de
+fleste katalogpostene ikke har dem. Et påkrevd felt ville bare invitert til å fylle inn en
+gjetning.
+
+`urn` er den stabile identifikatoren, som regel Nasjonalbibliotekets. `accessUrl` peker på
+en adresse, og en adresse kan endre seg; URN-en identifiserer dokumentet uansett, og er det
+en annen katalog kan slå opp på.
 
 ## Person
 
