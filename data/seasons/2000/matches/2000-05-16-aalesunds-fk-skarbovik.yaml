@@ -1,18 +1,18 @@
-id: 1999-06-13-aalesunds-fk-orsta-il-fotball
-date: 1999-06-13
+id: 2000-05-16-aalesunds-fk-skarbovik
+date: 2000-05-16
 dateConfidence: exact
 status: played
 competition:
   id: andredivisjon
-  season: 1999
+  season: 2000
   stage: regular_season
-  round: 9
+  round: 4
 home:
   clubId: aalesunds-fk
-  score: 2
+  score: 0
   halfTimeScore: null
 away:
-  clubId: orsta-il-fotball
+  clubId: skarbovik
   score: 0
   halfTimeScore: null
 neutralVenue: false
@@ -20,7 +20,7 @@ events: []
 externalReports: []
 providers:
   - providerId: fotball-no
-    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=113181&underside=kamper
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=119411&underside=kamper
     retrievedAt: 2026-08-05
     fields:
       - date
@@ -31,11 +31,11 @@ providers:
       - away.clubId
       - home.score
       - away.score
-    note: NFF kampnummer 15120206054.
+    note: NFF kampnummer 23120206021.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases:
-  fotball-no: "15120206054"
+  fotball-no: "23120206021"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
