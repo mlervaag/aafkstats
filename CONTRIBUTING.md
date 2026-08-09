@@ -208,6 +208,29 @@ Legger du til et felt i datamodellen, hører det som regel hjemme fire steder: s
 Glemmer du det siste, feiler testen som sammenligner dokumentasjonen med den faktiske
 databasen — det er meningen.
 
+## Holde sesongen à jour
+
+```sh
+pnpm etter-kamp                                  # tørrkjøring: hva mangler, og hva ville skjedd
+pnpm etter-kamp -- --retrieved-at ÅÅÅÅ-MM-DD --write
+```
+
+Rutinen gjør to ting. Den henter kampfakta for våre egne kamper som står på
+terminlista med passert dato, og den henter tabellen for hver seriesesong som ikke er
+ferdigspilt. Det andre skjer uansett om vi har spilt: tabellen flytter seg hver gang to
+andre lag møtes.
+
+Den kan derfor kjøres på et fast skjema. Har ingenting endret seg, skrives ingenting — en
+ny hentedato alene teller ikke som en endring. Er en kamp ikke ferdigspilt hos kilden,
+hopper rutinen over den og sier fra.
+
+Etterpå: `pnpm db:build && pnpm validate`, og commit YAML-diffen. Arkivfilen bygges av CI
+og skal ikke committes.
+
+Kadensen hører ikke hjemme i repoet. Prosjektets begrunnelse for å hente fra FotMob er et
+avgrenset uttrekk, ikke regelmessig høsting — se `permissionNote` i
+`data/providers/fotmob.yaml`. Skal rutinen kjøres jevnlig, styr det utenfra.
+
 ## Nye datakilder og adaptere
 
 Les [kildekartet](docs/research/KILDEKART_OG_INNHENTINGSSTRATEGI.md) før du skriver noe.

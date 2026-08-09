@@ -177,9 +177,15 @@ export async function fetchFotmobSeason(options: SeasonFetchOptions): Promise<Fe
     // Detaljvinduet er [offset, offset + limit). Uten offset ville hver kjøring
     // hentet de samme første kampene om igjen, og en sesong kunne aldri bli
     // ferdig detaljert med et tak på ti per kjøring.
+    //
+    // En eksplisitt datoliste går foran vinduet. Den som vet hvilken kamp som er
+    // ny, vet det som en dato — ikke som en indeks i kildens liste.
     const from = options.detailsOffset ?? 0;
     const to = from + (options.detailsLimit ?? candidates.length);
-    if (options.withDetails && index >= from && index < to) {
+    const wanted = options.detailsDates
+      ? options.detailsDates.includes(normalized.date)
+      : index >= from && index < to;
+    if (options.withDetails && wanted) {
       options.onProgress?.(`detaljer ${index + 1}/${candidates.length}: ${normalized.date}`);
       try {
         const detail = await request<RawMatchDetails>(`${BASE}/matchDetails?matchId=${normalized.externalId}`);

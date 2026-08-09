@@ -11,6 +11,7 @@
     "validate": "pnpm --filter @aafkstats/schema run validate",
     "data:duplicates": "pnpm --filter @aafkstats/schema run duplicates",
     "data:uncertain": "pnpm --filter @aafkstats/schema run uncertain",
+    "etter-kamp": "pnpm --filter @aafkstats/ingest run etter-kamp",
     "ingest:fotmob": "pnpm --filter @aafkstats/ingest run fotmob",
     "ingest:fotmob-gap": "pnpm --filter @aafkstats/ingest run fotmob-gap",
     "ingest:fotmob-standings": "pnpm --filter @aafkstats/ingest run fotmob-standings",
