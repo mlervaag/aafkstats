@@ -32,10 +32,15 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99110.
-confidence: confirmed
+confidence: probable
 conflicts: []
 tags: []
 aliases:
   fotball-no: "99110"
 manual: []
-note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+note: >
+  Bane og klokkeslett er utelatt. Resultatet er tvilsomt: 14-0 borte mot et Bryne
+  som endte på tredjeplass i samme divisjon er ikke troverdig. Tallet står slik
+  fotball.no oppgir det, og NFFs egen tabell er regnet ut av det samme tallet, så
+  de to bekrefter ikke hverandre. Trenger en uavhengig kilde, for eksempel
+  Sunnmørsposten 9. september 1996.

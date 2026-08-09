@@ -48,6 +48,11 @@ jobs:
       - name: Rapporter mistenkelige dubletter
         run: pnpm data:duplicates
 
+      # Rapporterer, feller ikke bygget. Et stort siffer kan være et ekte
+      # storspill eller en feil hos kilden, og bare et menneske kan avgjøre.
+      - name: Rapporter tvilsomme resultater
+        run: pnpm data:uncertain
+
       - name: Typesjekk
         run: pnpm typecheck
 
