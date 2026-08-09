@@ -391,9 +391,9 @@ Alle 14 europakvalifiseringskampene er registrert. Gjenstår blant annet kontrol
 historiske treningskamper, rettighetsavklart innhøsting, REST-API og MCP-server. Rekkefølgen
 står i [planen](docs/PLAN_FRA_PILOT_TIL_ARKIV.md).
 
-Bidrag fra nettstedet går til en egen innboks og triageres daglig etter
-[innboksrutinen](.agents/INNBOKSRUTINE.md). Rutinen kontrollerer bidraget mot arkivet og
-lager pull request — den merger aldri selv.
+Bidrag fra skjemaet på nettstedet går til en egen innboks og vurderes mot arkivet før de
+tas inn. Hva som kontrolleres, og hvordan feltene settes, står i
+[bidragsvurderingen](.agents/BIDRAGSVURDERING.md).
 
 <div align="center">
 <sub>Et supporterprosjekt. Ikke tilknyttet Aalesunds Fotballklubb.</sub>
