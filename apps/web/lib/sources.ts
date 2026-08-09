@@ -22,7 +22,7 @@ export interface SourceUsage {
   is_home: number;
   aafk_score: number | null;
   opponent_score: number | null;
-  page: number | null;
+  page: string | null;
   note: string | null;
 }
 

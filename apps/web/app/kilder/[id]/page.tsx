@@ -81,7 +81,7 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
 
               {source.providers && source.providers.length > 0 && (
                 <>
-                  <dt style={{ fontWeight: "bold", color: "#666" }}>Kilde</dt>
+                  <dt style={{ fontWeight: "bold", color: "#666" }}>Digitalisert hos</dt>
                   <dd style={{ margin: 0 }}>
                     {source.providers.map((p, i) => (
                       <span key={p.providerId}>

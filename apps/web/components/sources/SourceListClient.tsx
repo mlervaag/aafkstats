@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { SourceCard } from "./SourceCard";
 import { SourceSeriesCard } from "./SourceSeriesCard";
+import { SOURCE_TYPES } from "./SourceTypeBadge";
 
 export interface HistoricalSourceData {
   id: string;
@@ -51,12 +52,20 @@ export function SourceListClient({ sources }: SourceListClientProps) {
     }
   }
 
-  // Filter out series that became empty due to child filtering
-  // Except if the series itself matched the search query and filterType is all.
-  const seriesEntries = Array.from(series.entries()).filter(([parentId, items]) => {
-    if (items.length > 0) return true;
-    return false; // Actually, if children were filtered out, don't show the series
-  });
+  // If a series matched the search query itself, but none of its children matched,
+  // we still want to display it. We can fetch its children from the unfiltered 'sources' list.
+  for (const source of filteredSources) {
+    if (source.source_type === "series" && !source.parent_source_id) {
+      if (!series.has(source.id)) {
+        const allChildren = sources.filter(s => s.parent_source_id === source.id);
+        if (allChildren.length > 0) {
+          series.set(source.id, allChildren);
+        }
+      }
+    }
+  }
+
+  const seriesEntries = Array.from(series.entries());
 
   const getSeriesTitle = (parentId: string) => {
     const parent = sources.find(s => s.id === parentId);
@@ -64,15 +73,6 @@ export function SourceListClient({ sources }: SourceListClientProps) {
   };
 
   const types = Array.from(new Set(sources.map(s => s.source_type))).filter(t => t !== "series").sort();
-  
-  const typeLabels: Record<string, string> = {
-    book: "Bøker",
-    anniversary_book: "Jubileumsbøker",
-    member_magazine: "Medlemsblad",
-    match_program: "Kampprogram",
-    supporter_magazine: "Supporterblad",
-    document: "Dokumenter",
-  };
 
   return (
     <div>
@@ -101,7 +101,7 @@ export function SourceListClient({ sources }: SourceListClientProps) {
         >
           <option value="all">Alle kildetyper</option>
           {types.map(t => (
-            <option key={t} value={t}>{typeLabels[t] || t}</option>
+            <option key={t} value={t}>{SOURCE_TYPES[t]?.plural || t}</option>
           ))}
         </select>
       </div>
