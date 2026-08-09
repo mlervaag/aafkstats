@@ -9,6 +9,7 @@ import {
 import { resolveChatSetup } from "@/lib/chat-model";
 import { runAnthropic } from "@/lib/chat-anthropic";
 import { runOpenAI } from "@/lib/chat-openai";
+import { completedFollowUp, createFollowUpCollector } from "@/lib/chat-followup";
 
 export const runtime = "nodejs";
 
@@ -98,6 +99,7 @@ export async function POST(req: Request): Promise<Response> {
       let inputTokens = 0;
       let outputTokens = 0;
       let failure: string | null = null;
+      const followUp = createFollowUpCollector();
 
       // Svarlengden telles her, der teksten faktisk går ut, og ikke inne i løkka.
       // Da står tallet også når kallet kaster midtveis, og det er nettopp da det
@@ -109,7 +111,13 @@ export async function POST(req: Request): Promise<Response> {
       };
 
       try {
-        const run = { question, history, ctx, send };
+        const run = {
+          question,
+          history,
+          ctx,
+          send,
+          suggestFollowUp: followUp.suggest,
+        };
         const result =
           setup.provider === "openai" ? await runOpenAI(setup, run) : await runAnthropic(setup, run);
 
@@ -119,6 +127,11 @@ export async function POST(req: Request): Promise<Response> {
 
         // Spørringene sendes til slutt, så grensesnittet kan vise dem under svaret.
         send("queries", { queries: executedQueries });
+        // Oppfølgingen er metadata og sendes bare etter et fullført hovedsvar.
+        const suggestion = completedFollowUp(followUp.get(), answerLength, failure);
+        if (suggestion !== null) {
+          send("followup", suggestion);
+        }
         send("done", { durationMs: Date.now() - started });
       } catch (err) {
         failure = err instanceof Error ? err.message : String(err);

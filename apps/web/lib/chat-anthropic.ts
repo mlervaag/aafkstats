@@ -8,9 +8,17 @@
 
 import Anthropic from "@anthropic-ai/sdk";
 import { betaZodTool } from "@anthropic-ai/sdk/helpers/beta/zod";
+import { z } from "zod/v4";
 import { systemPrompt } from "@aafkstats/query/prompt";
 import { datasetCoverage } from "@/lib/chat-coverage";
 import { tools as toolDefs } from "@aafkstats/query/tools";
+import {
+  FOLLOW_UP_TOOL_NAME,
+  MAX_FOLLOW_UP_LABEL_CHARS,
+  MAX_FOLLOW_UP_PROMPT_CHARS,
+  MAX_FOLLOW_UP_QUESTION_CHARS,
+  parseFollowUp,
+} from "@/lib/chat-followup";
 import {
   MAX_ITERATIONS,
   MAX_TOKENS,
@@ -34,6 +42,26 @@ export async function runAnthropic(setup: ChatSetup, run: ChatRun): Promise<Chat
       },
     }),
   );
+
+  const followUpTool = betaZodTool({
+    name: FOLLOW_UP_TOOL_NAME,
+    description:
+      "Registrer ett konkret og vesentlig ja/nei-forslag til neste arkivoppslag. Brukes sjelden og gjør ikke databaseoppslag.",
+    inputSchema: z.object({
+      question: z.string().trim().min(1).max(MAX_FOLLOW_UP_QUESTION_CHARS),
+      yesLabel: z.string().trim().min(1).max(MAX_FOLLOW_UP_LABEL_CHARS),
+      yesPrompt: z.string().trim().min(1).max(MAX_FOLLOW_UP_PROMPT_CHARS),
+    }),
+    run: async (input) => {
+      const followUp = parseFollowUp(input);
+      const accepted = followUp ? run.suggestFollowUp(followUp) : false;
+      return [{
+        type: "text" as const,
+        text: JSON.stringify({ accepted, message: accepted ? "Forslaget er registrert." : "Forslaget ble ikke registrert." }),
+      }];
+    },
+  });
+  const allRunnableTools = [...runnableTools, followUpTool];
 
   let inputTokens = 0;
   let outputTokens = 0;
@@ -62,7 +90,7 @@ export async function runAnthropic(setup: ChatSetup, run: ChatRun): Promise<Chat
       },
     ],
     messages: [...run.history, { role: "user" as const, content: run.question }],
-    tools: runnableTools,
+    tools: allRunnableTools,
     max_iterations: MAX_ITERATIONS,
     stream: true,
   });
@@ -70,7 +98,9 @@ export async function runAnthropic(setup: ChatSetup, run: ChatRun): Promise<Chat
   for await (const messageStream of runner) {
     for await (const event of messageStream) {
       if (event.type === "content_block_start" && event.content_block.type === "tool_use") {
-        run.send("tool", { name: event.content_block.name });
+        if (event.content_block.name !== FOLLOW_UP_TOOL_NAME) {
+          run.send("tool", { name: event.content_block.name });
+        }
       }
       if (event.type === "content_block_delta" && event.delta.type === "text_delta") {
         run.send("text", { text: event.delta.text });

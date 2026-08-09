@@ -319,7 +319,9 @@ To ruter gjør noe mer enn å lese:
   logger hver spørring til Vercel Logs uten IP. Hvilken modell, og hos hvem, avgjøres av
   hvilken API-nøkkel som er satt — se
   [`apps/web/lib/chat-model.ts`](../apps/web/lib/chat-model.ts). Verktøydefinisjonene er de
-  samme uansett; det er bare selve kallet som er to.
+  samme uansett; det er bare selve kallet som er to. En kort samtale lever bare i
+  nettleserkomponenten. Modellen kan registrere ett strukturert oppfølgingsforslag, som ruta
+  sender som en egen SSE-hendelse først etter et vellykket hovedsvar.
 
 Arkivfilen leses av serverkoden ved kjøring, og må derfor spores inn i funksjonsbunten. Det
 er `outputFileTracingIncludes` i [`next.config.mjs`](../apps/web/next.config.mjs) — sammen med

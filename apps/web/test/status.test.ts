@@ -3,7 +3,7 @@ import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
-import { loadMatchIndex, loadNextMatch, loadOverview, loadSeason } from "../lib/archive.js";
+import { loadCoverage, loadMatchIndex, loadNextMatch, loadSeason } from "../lib/archive.js";
 import { matchDescription, matchTitle } from "../lib/metadata.js";
 import { hasBeenPlayed, statusNote } from "../lib/status.js";
 
@@ -64,8 +64,7 @@ describe("kampstatus", () => {
   it("holder avlyste og avbrutte kamper utenfor statistikken", () => {
     // De ligger i arkivet fordi de fant sted på terminlista, men de har ingen
     // sluttstilling. Telles de med, blir en sesong lengre enn den var.
-    const { totals } = loadOverview();
-    expect(totals.matches).toBe(11);
+    expect(loadCoverage().matches).toBe(11);
     const serien = loadSeason(2005)!.summaries.find((s) => s.competitionId === "eliteserien")!;
     expect(serien.played).toBe(2);
   });

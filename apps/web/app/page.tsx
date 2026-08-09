@@ -27,10 +27,7 @@ export default function Home() {
           <p className="lede">
             Søk opp kamper direkte, eller still spørsmål i fritekst.
             Arkivet dekker foreløpig serie og cup fra {totals.first?.slice(0, 4) ?? "-"} til{" "}
-            {totals.last?.slice(0, 4) ?? "-"}
-            {totals.upcoming > 0
-              ? `, og ${totals.upcoming} kamper til står på terminlista.`
-              : "."}
+            {totals.last?.slice(0, 4) ?? "-"}.
           </p>
         </div>
         {/* Tallene har vært fire stykker der det fjerde bare gjentok årstallet fra

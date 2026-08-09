@@ -32,16 +32,15 @@ afterAll(() => {
 });
 
 /**
- * Forsiden sier «N AaFK-kamper». Terminlista for inneværende sesong ligger i
- * arkivet på lik linje med resten, så uten et skille teller overskriften kamper
- * som ikke er spilt, og «til 2026» henter årstallet fra en kamp i desember.
+ * Forsiden sier «N AaFK-kamper» og bruker samme total som dokumentasjonen:
+ * alle registrerte kamper. Datospennet bruker fortsatt bare spilte kamper.
  *
- * Fixturen har tolv kamper: én står som `scheduled`, én som `awarded`.
+ * Fixturen har femten registrerte kamper, hvorav elleve har et resultat.
  */
 describe("forsidetallene", () => {
-  it("teller bare kamper som har funnet sted", () => {
+  it("teller alle registrerte kamper i overskriften", () => {
     const { totals } = loadOverview();
-    expect(totals.matches).toBe(11);
+    expect(totals.matches).toBe(15);
     expect(totals.upcoming).toBe(1);
   });
 
@@ -51,10 +50,9 @@ describe("forsidetallene", () => {
     expect(totals.last).toBe("2024-05-02");
   });
 
-  it("holder dekningsnotisen på samme tall som forsiden", () => {
-    // De to sto tidligere på hver sin spørring. Da kan de si ulike ting om det
-    // samme arkivet på samme side, og en leser har ingen måte å se hvem som lyver.
-    expect(loadCoverage().matches).toBe(loadOverview().totals.matches);
+  it("skiller registrerte kamper fra spilte kamper eksplisitt", () => {
+    expect(loadCoverage().matches).toBe(11);
+    expect(loadOverview().totals.matches).toBe(15);
     expect(loadCoverage().upcoming).toBe(loadOverview().totals.upcoming);
   });
 
@@ -74,8 +72,8 @@ describe("forsidetallene", () => {
  * den som avslørte forskjellen, og testene her holder de tre på samme tall.
  */
 describe("spilt betyr det samme overalt", () => {
-  it("teller kampen på grønt bord med i forsidens totalsum", () => {
-    expect(loadOverview().totals.matches).toBe(11);
+  it("teller kampen på grønt bord med blant spilte kamper", () => {
+    expect(loadCoverage().matches).toBe(11);
   });
 
   it("teller den med i sesongsammendraget", () => {
@@ -97,7 +95,7 @@ describe("spilt betyr det samme overalt", () => {
     const fromSeasons = loadSeasons().reduce((sum, s) => sum + s.played, 0);
     // Sesongsummen holder kvalifiseringskamper utenfor serietabellen, så den kan
     // være lavere. Den kan aldri være høyere: da telles noe to ganger.
-    expect(fromSeasons).toBeLessThanOrEqual(loadOverview().totals.matches);
+    expect(fromSeasons).toBeLessThanOrEqual(loadCoverage().matches);
   });
 });
 

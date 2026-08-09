@@ -335,10 +335,12 @@ ingen IP-adresse, så det trengs ikke samtykkebanner — men de må skrus på i 
 | Sidevisninger og referanser | Finner folk fram, og hvorfra? |
 | Speed Insights (Core Web Vitals) | Hvor raskt laster sidene hos ekte brukere |
 | `ask-submitted` / `ask-answered` | Blir spørrefunksjonen brukt, og gir den svar eller feiler den? |
+| `followup-shown` / `followup-yes` / `followup-no` | Er de sjeldne oppfølgingsforslagene nyttige? |
+| `answer-copied` | Kopierer brukerne arkivsvarene? |
 | `match-opened` | Traff direktesøket, målt på at noen faktisk åpnet et treff |
 
 **Spørsmålsteksten telles aldri.** Den er det mest personlige på hele nettstedet, og
-hendelsene bærer bare grovkornede egenskaper — «forslag» eller «skjema», status og sekunder.
+hendelsene bærer bare grovkornede egenskaper — skjema, forslag eller oppfølging, status og sekunder.
 Listen over lovlige egenskaper står som en type i `apps/web/lib/analytics.ts`, så det ikke
 kan skje ved et uhell senere. Nettleserens `Do Not Track` og `Global Privacy Control`
 respekteres: sier de nei, sendes ingenting.

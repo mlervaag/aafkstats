@@ -15,6 +15,7 @@
 
 import type { ToolContext } from "@aafkstats/query/tools";
 import type { HistoryTurn } from "@/lib/chat-request";
+import type { FollowUp } from "@/lib/chat-followup";
 
 export type ChatProvider = "anthropic" | "openai";
 
@@ -143,6 +144,8 @@ export interface ChatRun {
   history: HistoryTurn[];
   ctx: ToolContext;
   send: SendEvent;
+  /** Beholder bare det første gyldige forslaget i én modellkjøring. */
+  suggestFollowUp: (followUp: FollowUp) => boolean;
 }
 
 export interface ChatResult {
