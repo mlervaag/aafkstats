@@ -10,6 +10,7 @@ import {
   type FollowUp,
 } from "@/lib/chat-followup";
 import { trackEvent } from "@/lib/analytics";
+import { absolutizeAnswerLinks, shareableAnswerText } from "@/lib/chat-answer";
 import { formatDateShort } from "@/lib/date";
 
 interface ExecutedQuery {
@@ -262,7 +263,7 @@ export function AskBox() {
   }
 
   async function copyAnswer(turn: ConversationTurn) {
-    const visible = stripProseDashes(turn.answer, false);
+    const visible = stripProseDashes(shareableAnswerText(turn.answer), false);
     try {
       await navigator.clipboard.writeText(visible);
       setCopiedTurnId(turn.id);
@@ -458,7 +459,7 @@ function SearchResult({ match, position }: { match: SearchMatch; position: numbe
 }
 
 function Answer({ text }: { text: string }) {
-  const lines = text.split("\n");
+  const lines = absolutizeAnswerLinks(text).split("\n");
   const blocks: React.ReactNode[] = [];
   let index = 0;
 
@@ -502,14 +503,14 @@ function Answer({ text }: { text: string }) {
 }
 
 function inline(text: string, keyPrefix: string): React.ReactNode[] {
-  const pattern = /(\*\*[^*]+\*\*|\[[^\]]+\]\(\/[^)\s]*\))/g;
+  const pattern = /(\*\*[^*]+\*\*|\[[^\]]+\]\((?:\/[^)\s]*|https?:\/\/[^)\s]+)\))/g;
   const parts: React.ReactNode[] = [];
   let last = 0;
   for (const match of text.matchAll(pattern)) {
     const start = match.index;
     if (start > last) parts.push(text.slice(last, start));
     const token = match[0];
-    const link = /^\[([^\]]+)\]\((\/[^)\s]*)\)$/.exec(token);
+    const link = /^\[([^\]]+)\]\((\/[^)\s]*|https?:\/\/[^)\s]+)\)$/.exec(token);
     parts.push(link
       ? <a key={`${keyPrefix}-${start}`} href={link[2]}>{link[1]}</a>
       : <strong key={`${keyPrefix}-${start}`}>{token.slice(2, -2)}</strong>);
