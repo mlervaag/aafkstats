@@ -22,7 +22,7 @@ export function SourceCover({ title, coverUrl }: SourceCoverProps) {
     <div className={styles.cover}>
       <div className={styles.placeholder}>
         <div className={styles.placeholderTitle}>{title}</div>
-        <div className={styles.placeholderBrand}>AaFK Kildebakgrunn</div>
+        <div className={styles.placeholderBrand}>AaFK ARKIV</div>
       </div>
     </div>
   );

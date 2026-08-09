@@ -185,7 +185,7 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
         insertStanding.run(
           table.competitionId, table.season, row.position, row.name, row.clubId,
           row.played, row.wins, row.draws, row.losses, row.goalsFor, row.goalsAgainst,
-          row.points, row.outcome, json(row.sources ?? []), row.note ?? null,
+          row.points, row.outcome, json(table.sources ?? []), row.note ?? null,
         );
       }
       for (const point of table.progression) {

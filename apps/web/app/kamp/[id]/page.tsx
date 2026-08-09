@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { one, open } from "@aafkstats/db";
+import Link from "next/link";
 import { formatDate, formatDateShort } from "@/lib/date";
 import { ContributionButton } from "@/components/ContributionButton";
 import { Contributions } from "@/components/Contributions";
@@ -43,7 +44,7 @@ interface ProviderRef {
 
 interface SourceRef {
   sourceId: string;
-  page?: number;
+  page?: string;
   note?: string;
 }
 
@@ -194,6 +195,16 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
       sourceInfos.set(r.id, r.title);
     }
   }
+  
+  const providerInfos = new Map<string, string>();
+  if (providers.length > 0) {
+    const providerIds = providers.map(p => p.providerId);
+    const placeholders = providerIds.map(() => '?').join(',');
+    const rows = db.prepare(`SELECT id, name FROM core_providers WHERE id IN (${placeholders})`).all(...providerIds) as {id: string, name: string}[];
+    for (const r of rows) {
+      providerInfos.set(r.id, r.name);
+    }
+  }
   db.close();
   // Overskriftsresultatet er sluttresultatet. home_score er stillingen etter
   // ordinær tid, så ekstraomgangsmålene må legges til — ellers står en cupkamp
@@ -307,22 +318,37 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
       <section>
         <h2>Kilder</h2>
         {providers.length === 0 && sources.length === 0 ? <p className="muted">Ingen kilde registrert.</p> : (
-          <ul>
-            {sources.map((source, i) => (
-              <li key={`source-${source.sourceId}-${i}`}>
-                <a href={`/kilder/${source.sourceId}`}>{sourceInfos.get(source.sourceId) || source.sourceId}</a>
-                {source.page && <span className="muted"> · Side {source.page}</span>}
-                {source.note && <span className="muted"> · {source.note}</span>}
-              </li>
-            ))}
-            {providers.map((p, i) => (
-              <li key={`provider-${p.providerId}-${i}`}>
-                {p.url ? <a href={p.url} rel="noreferrer">{p.providerId}</a> : p.providerId}
-                {p.retrievedAt ? ` · hentet ${formatDate(p.retrievedAt)}` : ""}
-                <span className="muted"> · {p.fields.length} dokumenterte felt</span>
-              </li>
-            ))}
-          </ul>
+          <>
+            {sources.length > 0 && (
+              <>
+                <h3 style={{ fontSize: "1.1rem", margin: "1rem 0 0.5rem 0" }}>Historiske kilder</h3>
+                <ul>
+                  {sources.map((source, i) => (
+                    <li key={`source-${source.sourceId}-${i}`}>
+                      <Link href={`/kilder/${source.sourceId}`}>{sourceInfos.get(source.sourceId) || source.sourceId}</Link>
+                      {source.page && <span className="muted"> · Side {source.page}</span>}
+                      {source.note && <span className="muted"> · {source.note}</span>}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+            
+            {providers.length > 0 && (
+              <>
+                <h3 style={{ fontSize: "1.1rem", margin: "1rem 0 0.5rem 0" }}>Datakilder</h3>
+                <ul>
+                  {providers.map((p, i) => (
+                    <li key={`provider-${p.providerId}-${i}`}>
+                      {p.url ? <a href={p.url} rel="noreferrer">{providerInfos.get(p.providerId) || p.providerId}</a> : (providerInfos.get(p.providerId) || p.providerId)}
+                      {p.retrievedAt ? ` · hentet ${formatDate(p.retrievedAt)}` : ""}
+                      <span className="muted"> · {p.fields.length} dokumenterte felt</span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </>
         )}
         {/* Sikkerheten sto som en rad i faktalista, over tilskuertallet, og sa
             «Foreløpig» på nesten hver eneste kamp. Den hører til kildene: det er
