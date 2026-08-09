@@ -62,6 +62,8 @@ Treffene vises mens du skriver; Enter sender i stedet spørsmålet til AI-søket
 
 **`/api/chat`** er spørrefunksjonen. Den kjører verktøyløkka mot modellen (maks fem runder),
 streamer svaret som SSE, og viser SQL-en ved siden av svaret. Et ferdig svar kan kopieres.
+Ved kopiering skrives kampreferanser som lenketekst etterfulgt av hele nettadressen, slik at
+meldingsapper og sosiale medier kan gjøre lenken klikkbar uten støtte for Markdown.
 Når modellen finner ett vesentlig neste steg, registrerer den det med
 `suggest_follow_up`; ruta sender da en egen `followup`-hendelse etter hovedsvaret. Ja-knappen
 sender et konkret nytt spørsmål med høyst tre tidligere runder, mens Nei avslutter lokalt.

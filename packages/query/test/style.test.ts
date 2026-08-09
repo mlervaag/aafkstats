@@ -117,4 +117,18 @@ describe("systemPrompt", () => {
     const withoutRanges = systemPrompt().replace(/\d[.\s]{0,2}[–—][.\s]{0,2}\d/g, "");
     expect(withoutRanges).not.toMatch(/[–—]/);
   });
+
+  it("krever komplette og delbare kamplenker", () => {
+    const prompt = systemPrompt();
+    expect(prompt).toContain("https://aafkstats.vercel.app/kamp/");
+    expect(prompt).toContain("Ikke skriv relative lenker");
+    expect(prompt).not.toContain("](/kamp/");
+  });
+
+  it("forbyr statusmeldinger og ventende delsvar", () => {
+    const prompt = systemPrompt();
+    expect(prompt).toContain("Gjør alle nødvendige verktøykall før du skriver svartekst");
+    expect(prompt).toContain("Jeg søker etter dem nå");
+    expect(prompt).toContain("Det finnes ingen jobb som fortsetter etter at meldingen er sendt");
+  });
 });
