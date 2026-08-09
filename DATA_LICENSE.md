@@ -1,6 +1,6 @@
 # Lisens og kildevilkår for data
 
-Arkivets egne tekster, redaksjonelle sammendrag og egen dokumentasjon er lisensiert
+Arkivets egne tekster, redaksjonelle sammendrag, dokumentasjon og grafikk er lisensiert
 under [Creative Commons Navngivelse 4.0](https://creativecommons.org/licenses/by/4.0/deed.no).
 Koden er lisensiert separat under MIT.
 
