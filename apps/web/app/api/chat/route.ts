@@ -3,6 +3,7 @@ import { checkRateLimit, logQuestion } from "@/lib/rate-limit";
 import {
   MAX_QUESTION_CHARS,
   isCrossSite,
+  isJsonRequest,
   readBodyLimited,
   sanitizeHistory,
 } from "@/lib/chat-request";
@@ -31,16 +32,12 @@ function sse(event: string, data: unknown): string {
 }
 
 export async function POST(req: Request): Promise<Response> {
-  // Hvilken leverandør og modell som gjelder, avgjøres av miljøet. Se
-  // lib/chat-model.ts for rekkefølgen når begge nøklene er satt.
-  const resolved = resolveChatSetup();
-  if (!resolved.ok) {
-    return Response.json({ error: resolved.error }, { status: 503 });
-  }
-  const setup = resolved.setup;
-
   if (isCrossSite(req)) {
     return Response.json({ error: "Forespørselen kom fra et annet nettsted." }, { status: 403 });
+  }
+
+  if (!isJsonRequest(req)) {
+    return Response.json({ error: "Forespørselen må være JSON." }, { status: 415 });
   }
 
   const rawBody = await readBodyLimited(req);
@@ -48,12 +45,17 @@ export async function POST(req: Request): Promise<Response> {
     return Response.json({ error: "Forespørselen er for stor." }, { status: 413 });
   }
 
-  let body: ChatRequest;
+  let parsed: unknown;
   try {
-    body = JSON.parse(rawBody) as ChatRequest;
+    parsed = JSON.parse(rawBody) as unknown;
   } catch {
     return Response.json({ error: "Ugyldig forespørsel." }, { status: 400 });
   }
+
+  if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+    return Response.json({ error: "Ugyldig forespørsel." }, { status: 400 });
+  }
+  const body = parsed as ChatRequest;
 
   const question = typeof body.question === "string" ? body.question.trim() : "";
   if (question === "") {
@@ -67,6 +69,14 @@ export async function POST(req: Request): Promise<Response> {
   }
 
   const history = sanitizeHistory(body.history);
+
+  // Ikke røp eller bruk tid på tjenestekonfigurasjonen før forespørselen er
+  // kontrollert. Leverandør og modell avgjøres av miljøet; se chat-model.ts.
+  const resolved = resolveChatSetup();
+  if (!resolved.ok) {
+    return Response.json({ error: resolved.error }, { status: 503 });
+  }
+  const setup = resolved.setup;
 
   const verdict = checkRateLimit(req);
   if (!verdict.allowed) {

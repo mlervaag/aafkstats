@@ -25,6 +25,18 @@ export const MAX_HISTORY_TOTAL_CHARS = 12_000;
  */
 export const MAX_BODY_BYTES = 64 * 1024;
 
+/**
+ * POST-rutene tar bare JSON.
+ *
+ * `text/plain` er en såkalt enkel cross-origin-forespørsel og kan sendes av en
+ * fremmed nettside uten CORS-preflight. Origin-kontrollen under er hovedvernet;
+ * innholdstypekravet fjerner den enkle transportveien i tillegg.
+ */
+export function isJsonRequest(req: Request): boolean {
+  const contentType = req.headers.get("content-type")?.split(";", 1)[0]?.trim().toLowerCase();
+  return contentType === "application/json";
+}
+
 /** Leser kroppen med et hardt tak, uten å bufre mer enn taket tillater. */
 export async function readBodyLimited(req: Request, maxBytes = MAX_BODY_BYTES): Promise<string | null> {
   const declared = Number(req.headers.get("content-length") ?? "");
@@ -106,9 +118,11 @@ export function sanitizeHistory(raw: unknown): HistoryTurn[] {
 export function isCrossSite(req: Request): boolean {
   const origin = req.headers.get("origin");
   if (!origin) return false;
-  const host = req.headers.get("host");
   try {
-    return new URL(origin).host !== host;
+    // Sammenlign hele origin (protokoll + vert + port) med adressen Next faktisk
+    // mottok. `Host` alene kan være overskrevet av en proxy eller avsender, og
+    // ville dessuten godtatt http-origin mot en https-side.
+    return new URL(origin).origin !== new URL(req.url).origin;
   } catch {
     return true;
   }

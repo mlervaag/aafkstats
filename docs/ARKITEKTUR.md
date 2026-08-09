@@ -372,8 +372,8 @@ avgjør hvem som svarer når begge er satt, `AAFK_CHAT_MODEL` hvilken modell.
 - **Ingen brukerkontoer.** Arkivet er offentlig, og bidrag går gjennom pull request.
 - **Ingen API som skriver i arkivet.** Minneskjemaet oppretter bare en innboks-sak. Den
   eneste veien inn i selve arkivet er en PR-diff et menneske har sett.
-- **Ingen egen loggtjeneste.** Strukturert JSON til stdout dekker behovet: hva som spørres om,
-  hvilken SQL modellen skrev, og hva det kostet.
+- **Ingen egen loggtjeneste.** Strukturert JSON til stdout dekker volum, SQL-form, modell,
+  tokenbruk og kjøretid. Spørsmålstekst, IP-adresse og SQL-strenger logges ikke.
 
 Det som gjenstår å bygge, i rekkefølge, står i
 [Plan fra pilot til arkiv](PLAN_FRA_PILOT_TIL_ARKIV.md).

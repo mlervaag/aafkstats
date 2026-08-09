@@ -1,24 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { ALLOWED_NB_IMAGE_TYPES, parseNbImageUrl, readImageLimited } from "@/lib/nb-image";
 
 const MAX_IMAGE_BYTES = 10 * 1024 * 1024;
-
-function parseNbImageUrl(value: string): URL | null {
-  try {
-    const url = new URL(value);
-    if (
-      url.protocol !== "https:" ||
-      url.hostname !== "www.nb.no" ||
-      url.username !== "" ||
-      url.password !== "" ||
-      !url.pathname.startsWith("/services/image/")
-    ) {
-      return null;
-    }
-    return url;
-  } catch {
-    return null;
-  }
-}
 
 export async function GET(req: NextRequest) {
   const url = req.nextUrl.searchParams.get("url");
@@ -47,7 +30,9 @@ export async function GET(req: NextRequest) {
     }
 
     const contentType = response.headers.get("content-type")?.split(";", 1)[0]?.trim();
-    if (!contentType?.startsWith("image/")) {
+    // SVG og andre aktive dokumentformater skal aldri serveres fra vår origin.
+    // Ruten er en rasterproxy, ikke en generell filproxy.
+    if (!contentType || !ALLOWED_NB_IMAGE_TYPES.has(contentType)) {
       return new NextResponse("Ugyldig bildesvar", { status: 502 });
     }
     const declaredLength = Number(response.headers.get("content-length"));
@@ -55,16 +40,19 @@ export async function GET(req: NextRequest) {
       return new NextResponse("Bildet er for stort", { status: 413 });
     }
 
-    const arrayBuffer = await response.arrayBuffer();
-    if (arrayBuffer.byteLength > MAX_IMAGE_BYTES) {
+    const image = await readImageLimited(response.body, MAX_IMAGE_BYTES);
+    if (image === null) {
       return new NextResponse("Bildet er for stort", { status: 413 });
     }
 
-    return new NextResponse(arrayBuffer, {
+    return new NextResponse(image, {
       status: 200,
       headers: {
         "Content-Type": contentType,
         "Cache-Control": "public, max-age=86400, s-maxage=604800, stale-while-revalidate=2592000",
+        // Hvis en nettleser navigerer direkte til proxy-URL-en, skal innholdet
+        // fortsatt behandles som en inert fil uten skript- eller nettverkstilgang.
+        "Content-Security-Policy": "default-src 'none'; sandbox",
         "X-Content-Type-Options": "nosniff",
       },
     });

@@ -7,12 +7,6 @@
   "engines": {
     "node": ">=22"
   },
-  "pnpm": {
-    "overrides": {
-      "postcss": "^8.5.18",
-      "sharp": "^0.35.0"
-    }
-  },
   "scripts": {
     "validate": "pnpm --filter @aafkstats/schema run validate",
     "data:duplicates": "pnpm --filter @aafkstats/schema run duplicates",

@@ -4,6 +4,7 @@ import {
   MAX_HISTORY_TURNS,
   MAX_HISTORY_TURN_CHARS,
   isCrossSite,
+  isJsonRequest,
   readBodyLimited,
   sanitizeHistory,
 } from "../lib/chat-request";
@@ -96,7 +97,7 @@ describe("isCrossSite", () => {
 
   it("slipper gjennom kall fra vårt eget nettsted", () => {
     expect(
-      isCrossSite(withHeaders({ origin: "https://aafkstats.test", host: "aafkstats.test" })),
+      isCrossSite(withHeaders({ origin: "https://aafkstats.test" })),
     ).toBe(false);
   });
 
@@ -107,11 +108,34 @@ describe("isCrossSite", () => {
 
   it("avviser kall fra et annet nettsted", () => {
     expect(
-      isCrossSite(withHeaders({ origin: "https://ondsinnet.example", host: "aafkstats.test" })),
+      isCrossSite(withHeaders({ origin: "https://ondsinnet.example" })),
     ).toBe(true);
   });
 
   it("avviser en Origin som ikke lar seg tolke", () => {
     expect(isCrossSite(withHeaders({ origin: "tull", host: "aafkstats.test" }))).toBe(true);
+  });
+
+  it("avviser samme vert over en annen protokoll", () => {
+    expect(isCrossSite(withHeaders({ origin: "http://aafkstats.test" }))).toBe(true);
+  });
+
+  it("lar ikke et forfalsket Host-hode overstyre forespørselens origin", () => {
+    expect(
+      isCrossSite(withHeaders({ origin: "https://ondsinnet.example", host: "ondsinnet.example" })),
+    ).toBe(true);
+  });
+});
+
+describe("isJsonRequest", () => {
+  const withHeaders = (headers: Record<string, string>) =>
+    new Request("https://aafkstats.test/api/chat", { method: "POST", headers });
+
+  it("godtar JSON med valgfri charset", () => {
+    expect(isJsonRequest(withHeaders({ "content-type": "application/json; charset=utf-8" }))).toBe(true);
+  });
+
+  it("avviser en enkel cross-origin text/plain-kropp", () => {
+    expect(isJsonRequest(withHeaders({ "content-type": "text/plain" }))).toBe(false);
   });
 });
