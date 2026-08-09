@@ -15,12 +15,13 @@ src/
 
 **Arkivfilen bygges fra bunnen, aldri inkrementelt.** Resultatet avhenger da bare av
 innholdet i `data/`: to bygg av samme commit gir samme fil, og en slettet YAML-fil forsvinner
-faktisk. 1 244 kamper tar rundt 130 ms og gir en fil på 4,4 MB.
+faktisk. 1 332 kamper tar rundt 230 ms og gir en fil på 4,6 MB.
 
 **Skillet mellom rådata og publisert datasett ligger i navnet.** SQLite har ingen schemas, så
 tabellene heter `core_*` og er interne, mens viewene uten prefiks er den offentlige
-kontrakten: `matches`, `seasons`, `opponents`, `match_events`, `sources` og FTS-tabellen
-`reports`. Spørrefunksjonen ser bare viewene.
+kontrakten: `matches`, `seasons`, `opponents`, `standings`, `squad`, `match_events`,
+`match_conflicts`, `providers`, `sources`, `contributions` og FTS-tabellen `reports`.
+Spørrefunksjonen ser bare viewene.
 
 **Alt som kan løses én gang, løses ved bygging.** AaFK-perspektivet, tidsavhengige navn og
 fullstendighet regnes ut her i stedet for per spørring. Navnet for en gitt kampdato kan aldri

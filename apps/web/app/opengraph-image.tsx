@@ -53,7 +53,10 @@ export default function Image() {
             </span>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <span style={{ fontSize: "24px", color: "#6b6259", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "8px" }}>Sesonger</span>
+            {/* «Sesonger» leses som hele sesonger. Tallet er år med minst én
+                registrert kamp, og delingsbildet er den mest kopierte flaten
+                nettstedet har. */}
+            <span style={{ fontSize: "24px", color: "#6b6259", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "8px" }}>År</span>
             <span style={{ fontSize: "80px", fontWeight: 600, color: "#16130f", lineHeight: 1 }}>
               {totals.seasons}
             </span>

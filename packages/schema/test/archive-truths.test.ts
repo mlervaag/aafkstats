@@ -90,3 +90,52 @@ describe("arkivet", () => {
     expect(wrong).toEqual([]);
   });
 });
+
+/**
+ * Tallene i README skal stemme med arkivet.
+ *
+ * Agentreglene sier at den som importerer data «MUST update the statistics» i
+ * README. Det er en prosessregel mot et mekanisk problem, og den holdt ikke:
+ * kamptallet i `packages/db/README.md` sto på 1 244 lenge etter at arkivet hadde
+ * passert 1 300. Et menneske eller en agent glemmer; en test gjør det ikke.
+ */
+describe("tallene i README", () => {
+  let archive: Archive;
+  let readme: string;
+
+  beforeAll(async () => {
+    const root = resolve(import.meta.dirname, "../../..");
+    archive = await loadArchive(resolve(root, "data"));
+    const { readFile } = await import("node:fs/promises");
+    readme = await readFile(resolve(root, "README.md"), "utf8");
+  }, 30_000);
+
+  /** Tallet i «Arkivet i tall» med denne merkelappen, uten tusenskille. */
+  function stated(label: RegExp): number | null {
+    const row = new RegExp(`\\*\\*([\\d\\u00a0 ]+)\\s*${label.source}`, "u").exec(readme);
+    return row ? Number(row[1]!.replace(/\s|\u00a0/gu, "")) : null;
+  }
+
+  const forventet: [string, RegExp, () => number][] = [
+    ["kamper", /kamper\*\*/, () => archive.matches.length],
+    ["år", /år\*\*/, () => new Set(archive.matches.map((m) => m.competition.season)).size],
+    ["klubber", /klubber/, () => archive.clubs.length],
+    ["personer", /personer\*\*/, () => archive.people.length],
+    ["kilder", /kilder\*\*/, () => archive.providers.length],
+  ];
+
+  for (const [navn, label, faktisk] of forventet) {
+    it(`oppgir riktig antall ${navn}`, () => {
+      const oppgitt = stated(label);
+      expect(oppgitt, `fant ingen rad for «${navn}» i README`).not.toBeNull();
+      expect(oppgitt).toBe(faktisk());
+    });
+  }
+
+  it("oppgir riktig antall stadion", () => {
+    // Står på samme rad som klubbene, etter en midtstilt prikk.
+    const match = /(\d+)\s+stadion/.exec(readme);
+    expect(match, "fant ingen stadiontall i README").not.toBeNull();
+    expect(Number(match![1])).toBe(archive.venues.length);
+  });
+});

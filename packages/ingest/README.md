@@ -25,7 +25,7 @@ kilde:
    eksplisitt. Det finnes ingen kommando som oppdager alle sesonger og starter en full
    backfill, og det skal ikke lages en.
 2. **Tørrkjøring er standard.** `--write` er et eget valg, og skriver YAML.
-3. **Rettighetsstatus er data.** Kilden må ligge i `data/sources/` med `automatedAccess` og
+3. **Rettighetsstatus er data.** Kilden må ligge i `data/providers/` med `automatedAccess` og
    `publicRedistribution` satt. Porten står før nettverkskallet, og `unknown` er aldri et ja.
 4. **Cache alt.** `.cache/ingest/` er git-ignorert. En parsefeil skal kunne rettes uten en ny
    runde mot kilden.

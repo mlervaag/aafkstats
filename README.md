@@ -50,7 +50,7 @@ leser fra.
 | | |
 |---|---|
 | **1 332 kamper** | Kamper registrert totalt i arkivet |
-| **85 sesonger** | 1917–2026. Cupen tilbake til 1917, serien til 1951 |
+| **85 år** | 1917–2026, år med minst én registrert kamp. Cupen tilbake til 1917, serien til 1951 |
 | **159 klubber · 84 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
 | **139 personer** | Registrerte trenere og spillere med detaljer eller avvikende kildenavn |
 | **8 kilder** | Hver med rettighetsstatus som data, ikke som prosa |
@@ -249,7 +249,7 @@ gjenoppdage. Hvilke kilder som kan brukes, og hvordan, er kartlagt i
 
 At et sluttresultat er et faktum uten opphavsrett sier ingenting om to andre ting:
 databasevernet på samlingen det ble hentet fra, og vilkårene kilden selv har satt. De to
-spørsmålene holdes derfor i hvert sitt felt i `data/sources/*.yaml`:
+spørsmålene holdes derfor i hvert sitt felt i `data/providers/*.yaml`:
 
 ```yaml
 automatedAccess: allowed                    # kan vi hente?
@@ -372,7 +372,7 @@ neste steget, men det er ikke lagt inn nå.
 
 Kode under [MIT](LICENSE). Egne tekster og arkivets eget redaksjonelle innhold under
 [CC BY 4.0](DATA_LICENSE.md). Tredjepartskilder har egne vilkår — se
-[`DATA_LICENSE.md`](DATA_LICENSE.md) og [`data/sources/`](data/sources).
+[`DATA_LICENSE.md`](DATA_LICENSE.md) og [`data/providers/`](data/providers).
 
 > **Referat skrives alltid for dette arkivet — aldri kopiert fra avis eller klubbside.**
 > Fakta er frie, tekst er det ikke.

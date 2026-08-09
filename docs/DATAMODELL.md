@@ -255,11 +255,17 @@ warnings: []
 | Stien er `observations/<sourceId>/<vasket externalId>.yaml`, og valideringen krever den | Neste kjøring finner forrige observasjon uten å lete, og samme kilde kan ikke ende opp som to filer om samme kamp |
 | Et felt kilden ikke nevnte utelates, og settes ikke til `null` | «Oppga ikke tilskuertall» og «påstår at tallet ikke finnes» er ikke det samme |
 | `matchId` settes også når kampen ble hoppet over fordi en annen kilde eide den | At kilde nummer to sa noe er en opplysning, ikke støy |
-| `conflicts[]` utledes av observasjonene med `findConflicts`, ikke skrives for hånd | Svaret kan ikke bli gammelt |
+| `findConflicts` kan utlede uenigheter av observasjonene | Sammenligningen er skrevet én gang, ikke per adapter |
 
-De 1039 kampene som lå i arkivet da laget kom til får ingen observasjon. Råverdiene deres
-finnes ikke lenger, og å rekonstruere dem ville vært å finne på hva kilden sa. Observasjoner
-skrives fra og med neste innhøsting.
+Kampene som allerede lå i arkivet da observasjonslaget kom til får ingen observasjon.
+Råverdiene deres finnes ikke lenger, og å rekonstruere dem ville vært å finne på hva kilden
+sa. Observasjoner skrives fra og med innhøstingen som innførte dem.
+
+`findConflicts` er skrevet og testet, men ingen innhøsting kaller den ennå: `reconcile`
+lar `conflicts[]` stå som den er og skriver ingen nye. Konfliktene i arkivet er derfor ført
+inn for hånd. Det er en ærlig tilstand så lenge det står her, og neste steg er å la
+innhøstingen foreslå konflikter uten å røre dem noen allerede har avgjort — se
+beslutningsfeltene på `conflict` i `packages/schema/src/primitives.ts`.
 
 Dette er ikke et fullt råpayload-arkiv. Feltene adapteren leste lagres, ikke hele JSON-svaret
 eller HTML-sida. Å speile kildene i sin helhet er et rettighetsspørsmål vi ikke har svart på.
@@ -393,7 +399,7 @@ kategori, er det en kodeendring, ikke en dataendring — og det er meningen.
 
 ## Kilde
 
-`data/sources/<id>.yaml`
+`data/providers/<id>.yaml`
 
 ```yaml
 id: rsssf

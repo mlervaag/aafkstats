@@ -44,4 +44,6 @@ If you add a field to the data model, it must be updated in **four** places:
 ## 6. Ingesting Data (Scraping)
 - An adapter is NOT a crawler. Never build tools that automatically backfill or scrape everything at once. 
 - You MUST dry-run by default. Use `--write` only when you explicitly want to save YAML files.
-- Legal permission is data: Check `data/sources/*.yaml`. Never set status to `allowed` without proof.
+- Legal permission is data: Check `data/providers/*.yaml` (harvesting systems; `data/sources/` is publications).
+  `permissionStatus` is only what the counterparty said. Our own decision is `ingestDecision`.
+  Never set either to `allowed`/`granted` without proof, and `accepted_risk` requires a date and a name.
