@@ -27,6 +27,7 @@ export interface ViewDoc {
   columns: ColumnDoc[];
 }
 
+// Hevet fra 1 da `matches.missing_fields` ble en del av den publiserte kontrakten.
 export const DATASET_VERSION = "2";
 
 export const views: ViewDoc[] = [
@@ -41,7 +42,7 @@ export const views: ViewDoc[] = [
       "result regnes etter ordinær tid pluss ekstraomgang. En kamp avgjort på straffer har result = 'U'. Bruk won_on_penalties for å se hvem som gikk videre.",
       "Kamper som ennå ikke er spilt har status 'scheduled' og NULL i alle resultatkolonner. Regner du statistikk, filtrer på status IN ('played', 'awarded'). Det er den samme regelen alle aggregatene i datasettet bruker: en kamp avgjort på grønt bord har et resultat og teller med, en avbrutt kamp har ingen sluttstilling og teller ikke.",
       "confidence sier hvor sikre opplysningene er. 'probable' er vanlig for kamper før 1990. Si fra i svaret når en kamp ikke er 'confirmed'.",
-      "Kampstatistikken kommer fra FotMob og finnes bare for deler av 2014–2026. Per 9. august 2026 har 276 av 1332 kamper ballbesittelse, skudd, skudd på mål og cornere; 138 har fouls og offsider; 105 har xG. NULL betyr at kilden ikke leverte feltet, ikke null hendelser.",
+      "Kampstatistikken kommer fra FotMob og finnes bare for deler av 2014–2026. Per 9. august 2026 har 276 av 1 351 kamper ballbesittelse, skudd, skudd på mål og cornere; 138 har fouls og offsider; 105 har xG. NULL betyr at kilden ikke leverte feltet, ikke null hendelser.",
       "Dekningen varierer med kildens historiske payload: 2018 og 2019 leverer ingen av de sju feltene, 2021 leverer fire felt for 17 kamper, og 2024/2025 leverer vanligvis bare de fire grunnfeltene. Én 2024-kamp er holdt utenfor fordi FotMob oppgir 32 cornere.",
       "xG kan ikke sammenlignes ukritisk mellom sesonger: FotMob dokumenterer ikke modellversjonen i kampresponsen, og modellen kan ha endret seg. Arkivet lagrer kildens tall, ikke en egen beregning.",
       "SQLite har ingen boolsk type: is_home, neutral_venue og has_conflicts er heltall 0 eller 1. Skriv «WHERE is_home = 1», ikke «WHERE is_home IS TRUE».",
@@ -92,6 +93,7 @@ export const views: ViewDoc[] = [
       { name: "confidence", type: "text", description: "'confirmed', 'probable' eller 'disputed'." },
       { name: "has_conflicts", type: "integer (0/1)", description: "Sant når en uenighet mellom kilder er ført inn på kampen. Slå opp match_conflicts for å se hva den gjelder. Uenigheten løses ikke automatisk, og høyeste kildeprioritet vinner ikke av seg selv." },
       { name: "completeness", type: "real", description: "0–1: hvor mye av kampen som er dokumentert." },
+      { name: "missing_fields", type: "text (JSON-liste)", description: "Feltene completeness savner, som 'score', 'attendance', 'lineups', 'events', 'report', 'referee', 'venue' eller 'providers'. Tom liste betyr at kampen er fullt dokumentert. Bruk json_each for å telle: en kamp uten 'lineups' her har ingen registrert lagoppstilling." },
       { name: "last_retrieved_at", type: "text (YYYY-MM-DD)", description: "Siste gang en kilde ble hentet for kampen. NULL for kamper uten kildehenvisning." },
       { name: "tags", type: "text (JSON-liste)", description: "Frie stikkord, f.eks. 'derby'." },
       { name: "sources", type: "text (JSON-liste)", description: "Historiske publikasjoner som dokumenterer kampen, med sourceId og eventuelt side eller notat." },
@@ -445,6 +447,9 @@ export const views: ViewDoc[] = [
       { name: "volume", type: "text", description: "Årgang/Volum." },
       { name: "publisher", type: "text", description: "Utgiver, f.eks. Aalesunds fotballklubb." },
       { name: "year", type: "integer", description: "Utgivelsesår." },
+      { name: "urn", type: "text", description: "Stabil bibliografisk identifikator, som regel Nasjonalbibliotekets URN. NULL når ingen er kjent." },
+      { name: "author", type: "text", description: "Forfatter eller redaktør. NULL når katalogposten ikke oppgir noen." },
+      { name: "description", type: "text", description: "Kort beskrivelse av hva kilden inneholder. NULL når ingen er skrevet." },
       { name: "cover_url", type: "text", description: "Lenke til forsidebilde." },
       { name: "access_url", type: "text", description: "Lenke for å lese publikasjonen hos kilden." },
       { name: "url", type: "text", description: "Lenke til visningssiden på vårt nettsted." },

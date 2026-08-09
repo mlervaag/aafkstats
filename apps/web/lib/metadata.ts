@@ -107,6 +107,40 @@ export function opponentDescription(o: OpponentMetaInput): string {
   return `${o.played} kamper mot ${o.opponent}${span}: ${o.wins} seire, ${o.draws} uavgjorte og ${o.losses} tap.`;
 }
 
+export interface SourceMetaInput {
+  title: string;
+  /** Kildens egen beskrivelse, når noen har skrevet en. */
+  description: string | null;
+  year: number | null;
+  publisher: string | null;
+  /** Antall utgaver, for en serie. */
+  issues: number;
+  /** Antall kamper kilden er brukt på. */
+  usages: number;
+}
+
+/**
+ * Beskrivelsen av en kilde, til søkemotorer og delingskort.
+ *
+ * Sto som «Fakta og historiske kamper dokumentert av [tittel]» på alle 99 sidene,
+ * også de 80 kildene som ikke er brukt på en eneste kamp ennå. Det lovet mer enn
+ * arkivet hadde. Grunnteksten er derfor generell og sann uansett, og suppleres med
+ * dekning bare der det finnes dekning å oppgi.
+ */
+export function sourceDescription(s: SourceMetaInput): string {
+  const base = s.description
+    ? s.description.trim()
+    : `Historisk kilde om Aalesunds Fotballklubb: ${s.title}.`;
+
+  const facts: string[] = [];
+  if (s.publisher) facts.push(s.year ? `Utgitt av ${s.publisher}, ${s.year}` : `Utgitt av ${s.publisher}`);
+  else if (s.year) facts.push(`Utgitt ${s.year}`);
+  if (s.issues > 0) facts.push(`${s.issues} ${s.issues === 1 ? "utgave" : "utgaver"} i arkivet`);
+  if (s.usages > 0) facts.push(`Brukt på ${s.usages} ${s.usages === 1 ? "kamp" : "kamper"} i arkivet`);
+
+  return facts.length > 0 ? `${base} ${facts.join(". ")}.` : base;
+}
+
 /**
  * Metadata-objektet Next forventer, med kanonisk adresse og delingskort.
  *

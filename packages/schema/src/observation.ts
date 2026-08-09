@@ -54,8 +54,8 @@ export type ObservationValue = z.infer<typeof scalar>;
  *
  * ## Ingen tilbakefylling
  *
- * De 1039 kampene som allerede ligger i arkivet får ingen observasjon.
- * Råverdiene deres finnes ikke lenger — de ble normalisert bort ved
+ * Kampene som lå i arkivet før observasjonsformatet ble innført, får ingen
+ * syntetisk observasjon. Råverdiene deres finnes ikke lenger — de ble normalisert bort ved
  * innhøstingen, og å rekonstruere dem ville vært å finne på hva kilden sa.
  * Observasjoner skrives fra og med neste innhøsting.
  */

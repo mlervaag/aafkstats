@@ -357,6 +357,10 @@ SELECT
   m.confidence,
   CASE WHEN json_array_length(m.conflicts) > 0 THEN 1 ELSE 0 END AS has_conflicts,
   m.completeness,
+  -- Hvilke felt som mangler, med samme navn som completeness regner på. Lå bare i
+  -- basetabellen, så «hva mangler vi?» kunne ikke besvares uten å regne det ut på
+  -- nytt utenfor databasen — og da med en annen definisjon enn completeness sin.
+  m.missing_fields,
   -- Siste gang en kilde ble hentet for denne kampen. Brukes til lastModified i
   -- sitemap, så søkemotorer får vite når opplysningen sist ble kontrollert i
   -- stedet for å anta at hele arkivet er like gammelt som byggetidspunktet.
@@ -792,6 +796,10 @@ CREATE TABLE core_sources (
   volume        TEXT,
   publisher     TEXT,
   year          INTEGER,
+  -- Bibliografien. Valgfri, fordi katalogpostene sjelden har alt.
+  urn           TEXT,
+  author        TEXT,
+  description   TEXT,
   cover_url     TEXT,
   access_url    TEXT,
   providers     TEXT NOT NULL DEFAULT '[]'
@@ -821,6 +829,9 @@ SELECT
   volume,
   publisher,
   year,
+  urn,
+  author,
+  description,
   cover_url,
   access_url,
   '/kilder/' || id AS url

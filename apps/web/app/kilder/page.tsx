@@ -8,11 +8,12 @@ export const metadata: Metadata = {
   description: "Bøker, medlemsblad, jubileumsskrift, årsmeldinger og andre kilder til AaFKs historie.",
 };
 
-export const dynamic = "force-dynamic";
-
 export default function ArkivetPage() {
   // Klientkomponenten trenger bare feltene den filtrerer og viser. Providerlisten
   // og utgavedetaljene blir igjen på serveren og sendes først på detaljsiden.
+  //
+  // År, utgave og årgang er med fordi søket er arkivorientert: «1972» skal finne
+  // utgavene fra 1972, ikke bare de kildene som har årstallet i tittelen.
   const sources: HistoricalSourceData[] = getSources().map((source) => ({
     id: source.id,
     parent_source_id: source.parent_source_id,
@@ -20,6 +21,8 @@ export default function ArkivetPage() {
     source_type: source.source_type,
     publisher: source.publisher,
     year: source.year,
+    issue: source.issue,
+    volume: source.volume,
     cover_url: source.cover_url,
     access_url: source.access_url,
   }));

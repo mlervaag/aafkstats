@@ -68,7 +68,7 @@ flowchart LR
   Q["Spørrefunksjon"]
   P["Pull request"]
 
-  Y -- "pnpm db:build · 62 ms" --> S
+  Y -- "pnpm db:build" --> S
   S --> W
   S --> Q
   W -. "rettelse" .-> P
@@ -380,12 +380,14 @@ Kode under [MIT](LICENSE). Egne tekster og arkivets eget redaksjonelle innhold u
 ## Status
 
 Grunnmuren står: datamodell, database, guardrails, portal og datasettdokumentasjon.
-Arkivet dekker 1 244 kamper fra 1917 til i dag, med detaljer (hendelser, lagoppstillinger,
-statistikk) fra 2010 og framover. Hovedfeltet gir direkte kamptreff mens brukeren skriver år
-og motstander; Enter sender i stedet teksten til AI-søket.
+Arkivet dekker 1 351 kamper fra 1917 til i dag. FotMob gir kampdetaljer og hendelser for
+deler av perioden fra 2010, mens kampstatistikk finnes for deler av 2014–2026. Hovedfeltet
+gir direkte kamptreff mens brukeren skriver år og motstander; Enter sender i stedet teksten
+til AI-søket.
 
-Gjenstår blant annet europacupkamper, rettighetsavklart innhøsting, REST-API, MCP-server, et
-automatisk bidragsskjema og agentrutinene. Rekkefølgen står i
+Alle 14 europakvalifiseringskampene er registrert. Gjenstår blant annet kontroll av flere
+historiske treningskamper, rettighetsavklart innhøsting, REST-API, MCP-server, et automatisk
+bidragsskjema og agentrutinene. Rekkefølgen står i
 [planen](docs/PLAN_FRA_PILOT_TIL_ARKIV.md).
 
 <div align="center">

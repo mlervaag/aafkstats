@@ -344,6 +344,15 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
         {/* Forbehold som hører til kampen selv. Typisk fra eldre kilder som bare
             oppgir sluttresultatet. Lagres det uten å vises, er det like borte. */}
         {match.note && <p className="small muted match-note">{match.note}</p>}
+        {/* En diskret merknad, ikke en advarsel. At Sunnmørsposten og RSSSF oppgir
+            forskjellig tilskuertall er en opplysning om kildene, ikke en feil i
+            arkivet — men den som leser tallet lenger nede bør vite at det finnes en
+            uenighet bak, uten å måtte lete etter seksjonen selv. */}
+        {conflicts.length > 0 && (
+          <p className="small muted">
+            <a href="#kildekonflikter">{conflictSummary(conflicts)}</a>
+          </p>
+        )}
         <div style={{ marginTop: "1.5rem" }}>
           <ContributionButton 
             scope="match" 
@@ -403,7 +412,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
       )}
 
       {conflicts.length > 0 && (
-        <section>
+        <section id="kildekonflikter">
           <h2>Kildene er uenige</h2>
           {/* Sto tidligere bare som et flagg i datasettet, og kampsiden viste
               ingenting. For et historisk arkiv er «Sunnmørsposten skriver 3–2,
@@ -492,6 +501,46 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
       </nav>
     </article>
   );
+}
+
+/**
+ * Feltnavnene i en konflikt, slik en leser sier dem.
+ *
+ * Seksjonen under viser feltet som `<code>attendance</code>`, og det er riktig der:
+ * det er kolonnenavnet, og siden handler om etterprøvbarhet. I en setning øverst på
+ * sida hører navnet hjemme på norsk.
+ */
+const CONFLICT_FIELD_NAMES: Record<string, string> = {
+  attendance: "tilskuertallet",
+  referee: "dommeren",
+  "home.score": "resultatet",
+  "away.score": "resultatet",
+  date: "datoen",
+  venueId: "stadion",
+};
+
+/**
+ * Én setning om at kildene er uenige, med hva uenigheten gjelder.
+ *
+ * Antallet er antall kilder som har oppgitt en verdi for feltet, ikke antall
+ * konflikter: «2 kilder er uenige om tilskuertallet» er den opplysningen som betyr
+ * noe. Gjelder uenigheten flere felt, nevnes feltene framfor et tall som ville
+ * summert kilder på tvers av dem.
+ */
+function conflictSummary(conflicts: ConflictRow[]): string {
+  const names = [
+    ...new Set(conflicts.map((conflict) => CONFLICT_FIELD_NAMES[conflict.field] ?? conflict.field)),
+  ];
+  if (names.length === 1) {
+    const providers = new Set(
+      conflicts
+        .filter((conflict) => (CONFLICT_FIELD_NAMES[conflict.field] ?? conflict.field) === names[0])
+        .flatMap((conflict) => conflict.values.map((value) => value.providerId)),
+    );
+    return `${providers.size} kilder er uenige om ${names[0]}`;
+  }
+  const last = names.at(-1);
+  return `Kildene er uenige om ${names.slice(0, -1).join(", ")} og ${last}`;
 }
 
 /** Hva slags avgjørelse som ble tatt. Grunnlaget hører til begrunnelsen. */

@@ -193,9 +193,9 @@ export interface ArchiveTotals {
  * Kampene som faktisk har funnet sted.
  *
  * Terminlista for inneværende sesong ligger i arkivet på lik linje med resten, og
- * uten dette skillet blir «1039 AaFK-kamper» på forsiden 15 kamper som ikke er
- * spilt ennå, mens «fra 1917 til 2026» henter siste årstall fra en kamp i
- * desember. Ingen av delene er galt regnet, men ingen leser overskriften slik.
+ * uten dette skillet teller forsiden også framtidige AaFK-kamper, mens
+ * «fra 1917 til 2026» kan hente siste årstall fra en kamp i desember. Ingen av
+ * delene er galt regnet, men ingen leser overskriften slik.
  *
  * Regelen er den samme som `core_played` i SQL-skjemaet, hentet fra ett sted
  * slik at nettstedet og aggregatene ikke kan telle forskjellig.
@@ -431,6 +431,69 @@ export function loadSeason(
     if (rows.length === 0) return undefined;
     const matches = all<MatchRow>(db, `SELECT ${matchColumns} FROM matches WHERE season = ? ORDER BY date`, year);
     return { summaries: rows.map(mapSeason).sort(seasonRank), matches: matches.map(mapMatch) };
+  } finally {
+    db.close();
+  }
+}
+
+/** Ett hull i en sesong: hvilket felt som mangler, og på hvor mange kamper. */
+export interface SeasonGap {
+  field: string;
+  matches: number;
+}
+
+export interface SeasonGaps {
+  /** Spilte kamper året har. Nevneren i «2 av 26». */
+  played: number;
+  /** Kamper arkivet mangler helt, når sluttabellen eller sesongfila sier omfanget. */
+  missingMatches: number;
+  /** Feltene som mangler oftest, flest kamper først. */
+  gaps: SeasonGap[];
+}
+
+/**
+ * Hva som konkret mangler i én sesong.
+ *
+ * Dekningsmerket sier «delvis» eller «komplett», og det er sant, men det er ikke
+ * handlingsrettet: en leser som sitter på et gammelt programblad har ingen måte å
+ * se om nettopp det arkivet mangler er noe hen kan fylle. Tallene her kommer fra
+ * `missing_fields`, den samme lista `completeness` regner på, så «mangler
+ * lagoppstilling for 18 kamper» betyr nøyaktig det samme her som der.
+ *
+ * Kamper som ikke er spilt holdes utenfor. En kamp på terminlista mangler ikke
+ * resultat, den har ikke fått et ennå.
+ */
+export function loadSeasonGaps(year: number): SeasonGaps {
+  const db = open();
+  try {
+    const played = one<{ n: number }>(
+      db,
+      `SELECT count(*) AS n FROM matches WHERE season = ? AND ${SPILT}`,
+      year,
+    )?.n ?? 0;
+
+    const gaps = all<SeasonGap>(
+      db,
+      `SELECT field.value AS field, count(*) AS matches
+         FROM matches m
+         JOIN json_each(m.missing_fields) field
+        WHERE m.season = ? AND m.${SPILT}
+        GROUP BY field.value
+        ORDER BY matches DESC, field`,
+      year,
+    );
+
+    // Hele kamper som mangler, ikke bare felt i dem. Bare der noen kilde faktisk
+    // sier hvor mange kamper sesongen hadde — ellers er «mangler 4 kamper» gjetting.
+    const missingMatches = all<{ expected: number | null; played: number }>(
+      db,
+      `SELECT expected_matches AS expected, played
+         FROM seasons
+        WHERE season = ? AND competition_type = 'league' AND scheduled = 0`,
+      year,
+    ).reduce((sum, row) => sum + Math.max(0, (row.expected ?? row.played) - row.played), 0);
+
+    return { played, missingMatches, gaps };
   } finally {
     db.close();
   }
