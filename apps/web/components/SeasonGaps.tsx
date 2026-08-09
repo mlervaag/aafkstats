@@ -1,5 +1,6 @@
 import { ContributionButton } from "@/components/ContributionButton";
 import type { SeasonGaps as SeasonGapsData } from "@/lib/archive";
+import { contributionIssueUrl } from "@/lib/contribution-links";
 
 /**
  * Feltnavnene fra `missing_fields`, slik en leser sier dem.
@@ -35,8 +36,8 @@ const MIN_FOR_SHARE = 5;
  *
  * Dekningsmerket sier «Delvis · 24 av 26 kamper». Det er sant, men det er ikke
  * noe å gjøre noe med. Setningen her sier hvilke opplysninger som mangler og på
- * hvor mange kamper, og knapp nummer to er bidragsskjemaet med sesongen allerede
- * valgt — så avstanden fra «her er et hull» til «her er det jeg vet» er ett klikk.
+ * hvor mange kamper. Et sesongminne går til minneskjemaet, mens kampdata går til
+ * riktig GitHub-mal. Dermed havner ikke en rettelse i innboksen for minner.
  *
  * Den sier bare det databasen kan stå inne for. Ingen andel, ingen «nesten
  * komplett» der grunnlaget mangler, og ingenting om felt som mangler overalt.
@@ -45,9 +46,22 @@ export function SeasonGaps({ year, gaps }: { year: number; gaps: SeasonGapsData 
   const contribute = (label: string) => (
     <ContributionButton scope="season" targetId={String(year)} title={`Sesongen ${year}`} label={label} />
   );
+  const dataLinks = (includeMissingMatch: boolean) => (
+    <div className="season-contribution-actions">
+      {contribute("Del et sesongminne")}
+      {includeMissingMatch && (
+        <a href={contributionIssueUrl("manglende-kamp", `Sesongen ${year}`)}>
+          Meld manglende kamp
+        </a>
+      )}
+      <a href={contributionIssueUrl("ny-kilde", `Sesongen ${year}`)}>
+        Legg til kampdetaljer
+      </a>
+    </div>
+  );
 
   // Et år som bare har kamper på terminlista mangler ingenting ennå.
-  if (gaps.played === 0) return contribute(`Bidra til ${year}-sesongen`);
+  if (gaps.played === 0) return dataLinks(false);
 
   const named = gaps.gaps.filter((gap) => FIELD_NAMES[gap.field] !== undefined);
 
@@ -68,7 +82,7 @@ export function SeasonGaps({ year, gaps }: { year: number; gaps: SeasonGapsData 
           Alt arkivet pleier å registrere er på plass for {year}, på{" "}
           {gaps.played === 1 ? "den ene kampen året har" : `hver av de ${gaps.played} kampene`}.
         </p>
-        {contribute(`Bidra til ${year}-sesongen`)}
+        {contribute("Del et sesongminne")}
       </div>
     );
   }
@@ -109,7 +123,7 @@ export function SeasonGaps({ year, gaps }: { year: number; gaps: SeasonGapsData 
         Sitter du på et programblad, et avisutklipp eller et minne som fyller noe av dette,
         hjelper det.
       </p>
-      {contribute("Kan du hjelpe?")}
+      {dataLinks(gaps.missingMatches > 0)}
     </div>
   );
 }

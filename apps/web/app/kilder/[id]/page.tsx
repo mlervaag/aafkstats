@@ -3,6 +3,7 @@ import { SourceTypeBadge, SOURCE_TYPE_LABELS } from "@/components/sources/Source
 import { SourceCard } from "@/components/sources/SourceCard";
 import { SourceCover } from "@/components/sources/SourceCover";
 import { SourceIssueYears } from "@/components/sources/SourceIssueYears";
+import { ContributionCallToAction } from "@/components/ContributionCallToAction";
 import {
   getProviderNames,
   getSourceById,
@@ -236,6 +237,8 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
           </ol>
         </section>
       )}
+
+      <ContributionCallToAction sourceTitle={source.title} />
     </article>
   );
 }

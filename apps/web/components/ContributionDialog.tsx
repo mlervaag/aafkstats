@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { contributionIssueUrl } from "@/lib/contribution-links";
 
 export type ContributionScope = "match" | "season";
 
@@ -14,8 +15,7 @@ export interface ContributionDialogProps {
 
 export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: ContributionDialogProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  
-  const [kind, setKind] = useState("observation");
+
   const [text, setText] = useState("");
   const [source, setSource] = useState("");
   const [contributor, setContributor] = useState("");
@@ -33,43 +33,14 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
     } else {
       if (dialog.open) dialog.close();
       document.body.style.overflow = "";
-      // Reset state when closing successfully
-      if (status === "success") {
-        setTimeout(() => {
-          setStatus("idle");
-          setText("");
-          setSource("");
-          setContributor("");
-          setKind("observation");
-        }, 300);
-      }
     }
 
     return () => { document.body.style.overflow = ""; };
-  }, [isOpen, status]);
-
-  /**
-   * Ruten godtar bare http(s) i kildefeltet, eller ingenting.
-   *
-   * Uten kontrollen her får den som skriver «Sunnmørsposten 12.5.1998» et rundt
-   * avslag fra tjeneren uten å få vite hvilket felt som er problemet. Feltet er
-   * dessuten valgfritt, så avslaget kommer for noe brukeren ikke måtte fylle ut.
-   */
-  const sourceLooksWrong = source.trim() !== "" && !/^https?:\/\/\S+$/i.test(source.trim());
+  }, [isOpen]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!text.trim()) return;
-
-    if (sourceLooksWrong) {
-      setStatus("error");
-      setErrorMsg(
-        "Kildefeltet tar bare en lenke som starter med http:// eller https://. " +
-          "Har du en kilde uten lenke — et programblad eller et avisutklipp — kan du " +
-          "beskrive den i tekstfeltet over i stedet.",
-      );
-      return;
-    }
 
     setStatus("loading");
     setErrorMsg("");
@@ -81,7 +52,6 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
         body: JSON.stringify({
           scope,
           targetId,
-          kind,
           pageUrl: window.location.pathname,
           text,
           source,
@@ -101,7 +71,16 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
     }
   };
 
-  const isSeason = scope === "season";
+  const otherRoutes = scope === "match"
+    ? [
+        { label: "Meld en feil", href: contributionIssueUrl("datafeil", title) },
+        { label: "Legg til kilde eller kampdetaljer", href: contributionIssueUrl("ny-kilde", title) },
+      ]
+    : [
+        { label: "Meld en kamp som mangler", href: contributionIssueUrl("manglende-kamp", title) },
+        { label: "Meld en feil", href: contributionIssueUrl("datafeil", title) },
+        { label: "Legg til kilde eller kampdetaljer", href: contributionIssueUrl("ny-kilde", title) },
+      ];
 
   return (
     <dialog 
@@ -115,7 +94,7 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
     >
       <div className="contribution-content">
         <div className="contribution-header">
-          <h2 id="contribution-title">Bidra til arkivet</h2>
+          <h2 id="contribution-title">Del et minne</h2>
           <button type="button" className="close-button" onClick={onClose} aria-label="Lukk">×</button>
         </div>
 
@@ -134,30 +113,23 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
               Gjelder: <strong>{title}</strong>
             </p>
 
-            {/* Fieldset og legend, ikke en løs label: en label uten `htmlFor` er
-                ikke knyttet til noe, og en skjermleser leste derfor tre
-                radioknapper uten å si hva de var et svar på. */}
-            <fieldset className="form-group">
-              <legend>Hva gjelder det?</legend>
-              <div className="radio-group">
-                <label className="radio-label">
-                  <input type="radio" name="kind" value="observation" checked={kind === "observation"} onChange={(e) => setKind(e.target.value)} />
-                  Del et minne eller observasjon
-                </label>
-                <label className="radio-label">
-                  <input type="radio" name="kind" value="error" checked={kind === "error"} onChange={(e) => setKind(e.target.value)} />
-                  {isSeason ? "Rett sesonginformasjon" : "Meld en feil i kampfakta"}
-                </label>
-                <label className="radio-label">
-                  <input type="radio" name="kind" value="source" checked={kind === "source"} onChange={(e) => setKind(e.target.value)} />
-                  {isSeason ? "Legg til manglende kamp eller kilde" : "Legg til fakta eller kilde"}
-                </label>
+            <p className="contribution-explainer">
+              Skriv det du husker. Du trenger ikke kilde eller GitHub-konto.
+            </p>
+
+            <nav className="contribution-route-links" aria-label="Andre typer bidrag">
+              <strong>Vil du rette eller legge til fakta?</strong>
+              <div>
+                {otherRoutes.map((route) => (
+                  <a key={route.label} href={route.href}>{route.label}</a>
+                ))}
               </div>
-            </fieldset>
+              <span className="small muted">Disse åpner et kort GitHub-skjema og krever konto.</span>
+            </nav>
 
             <div className="form-group">
               <label htmlFor="text-field">
-                {kind === "observation" ? "Hva husker eller vet du?" : "Hva vil du melde inn?"} <span className="req">*</span>
+                Hva husker du? <span className="req">*</span>
               </label>
               <textarea
                 id="text-field"
@@ -165,7 +137,8 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
                 rows={4}
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                placeholder={kind === "observation" ? "F.eks: «Dette var kampen der...»" : ""}
+                placeholder="For eksempel: «Dette var kampen der ...»"
+                maxLength={2000}
                 disabled={status === "loading"}
               />
             </div>
@@ -181,6 +154,7 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
                 placeholder="https://..."
                 aria-describedby="source-help"
                 disabled={status === "loading"}
+                maxLength={300}
               />
               <p id="source-help" className="small muted form-help">
                 Bare nettadresser. Har du en kilde uten lenke — et programblad, et
@@ -196,6 +170,7 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
                 value={contributor}
                 onChange={(e) => setContributor(e.target.value)}
                 disabled={status === "loading"}
+                maxLength={100}
               />
             </div>
 

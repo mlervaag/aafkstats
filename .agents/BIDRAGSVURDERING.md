@@ -1,9 +1,13 @@
 # Vurdering av brukerbidrag
 
-Bidragsskjemaet (`apps/web/app/api/contributions/route.ts`) tar imot tekst fra besøkende og
+Minneskjemaet (`apps/web/app/api/contributions/route.ts`) tar imot tekst fra besøkende og
 oppretter en sak i en GitHub-innboks — hvilken, står i `GITHUB_INBOX_REPO`. Et bidrag går
 aldri rett i arkivet. Det blir liggende i innboksen til noen har vurdert det, og havner så i
 `data/contributions/<id>.yaml`.
+
+Skjemaet tar bare imot minner og observasjoner. Feil, manglende kamper, kampdetaljer og nye
+kilder går til hver sin issue-mal i hovedrepoet. De skal ikke vurderes etter denne rutinen,
+fordi de endrer kamp- eller kildedata og ikke blir filer i `data/contributions/`.
 
 Dette dokumentet er den vurderingen. Det sier hva som skal kontrolleres og hvordan feltene
 settes — ikke når jobben kjøres eller hvem som kjører den. Kjører du arkivet selv, er dette

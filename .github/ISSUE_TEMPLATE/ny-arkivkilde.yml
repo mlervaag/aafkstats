@@ -1,0 +1,49 @@
+name: Ny eller feil kilde i kildearkivet
+description: Bok, medlemsblad, avisarkiv eller rettelse til en kilde som allerede står der
+title: "Arkivkilde: "
+labels: ["data"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Takk for tipset. Du trenger ikke kjenne alle detaljene. Et navn og hvor vi kan finne
+        kilden er nok til at vi kan undersøke resten.
+
+        Gjelder tipset opplysninger om én bestemt kamp, bruk heller
+        [Ny kilde eller flere kampdetaljer](?template=ny-kilde.yml).
+
+  - type: input
+    id: kilde
+    attributes:
+      label: Hvilken kilde gjelder det?
+      description: Tittel, utgiver og omtrent årstall, eller navnet slik det står i arkivet.
+      placeholder: AaFK medlemsblad, nummer 3 fra 1972
+    validations:
+      required: true
+
+  - type: textarea
+    id: hvor
+    attributes:
+      label: Hvor kan den finnes?
+      description: Lenke, bibliotek, privat samling eller personen som har materialet.
+      placeholder: Nasjonalbiblioteket, https://..., eller «jeg har bladet selv»
+    validations:
+      required: true
+
+  - type: textarea
+    id: hva
+    attributes:
+      label: Hva bør vi vite?
+      description: Hva kilden dekker, eller hva som er feil i dagens kildeoppføring.
+      placeholder: Inneholder kampreferat og lagoppstillinger fra vårsesongen 1972.
+
+  - type: dropdown
+    id: rettigheter
+    attributes:
+      label: Vet du hvem som har rettighetene?
+      options:
+        - Ja, jeg beskriver det over
+        - Nei
+        - Usikker
+    validations:
+      required: true

@@ -391,8 +391,9 @@ Alle 14 europakvalifiseringskampene er registrert. Gjenstår blant annet kontrol
 historiske treningskamper, rettighetsavklart innhøsting, REST-API og MCP-server. Rekkefølgen
 står i [planen](docs/PLAN_FRA_PILOT_TIL_ARKIV.md).
 
-Bidrag fra skjemaet på nettstedet går til en egen innboks og vurderes mot arkivet før de
-tas inn. Hva som kontrolleres, og hvordan feltene settes, står i
+Minner fra skjemaet på nettstedet går til en egen innboks og vurderes mot arkivet før de
+tas inn. Datafeil, manglende kamper og kildetips går til egne GitHub-maler. Hva som
+kontrolleres i minneinnboksen, og hvordan feltene settes, står i
 [bidragsvurderingen](.agents/BIDRAGSVURDERING.md).
 
 <div align="center">
