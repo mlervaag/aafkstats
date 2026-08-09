@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "3517410"
+matchId: 2021-07-02-aalesunds-fk-asane
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:71acf830317f6e1992153402e6b1cf7d059bc109cf6523b001399572d628dbbe
+raw:
+  externalId: "3517410"
+  date: 2021-07-02
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Åsane
+  awayId: "10021"
+  homeScore: 2
+  awayScore: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2021
+  round: 9
+  url: https://www.fotmob.com/matches/aalesund-vs-asane/2t2i21#3517410
+normalized:
+  date: 2021-07-02
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: asane
+  home.score: 2
+  away.score: 0
+  competition.id: forstedivisjon
+  competition.season: 2021
+  competition.round: 9
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "4385761"
+matchId: 2024-06-16-levanger-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:d89c73f63bad592231d665dc78b96d2e69fe98e71b13385152390a950eb14520
+raw:
+  externalId: "4385761"
+  date: 2024-06-16
+  kickoff: 15:00
+  status: FT
+  home: Levanger
+  homeId: "6561"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 4
+  awayScore: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2024
+  round: 13
+  url: https://www.fotmob.com/matches/levanger-vs-aalesund/1uod6z#4385761
+normalized:
+  date: 2024-06-16
+  kickoff: 15:00
+  status: played
+  home.clubId: levanger
+  away.clubId: aalesunds-fk
+  home.score: 4
+  away.score: 0
+  competition.id: forstedivisjon
+  competition.season: 2024
+  competition.round: 13
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

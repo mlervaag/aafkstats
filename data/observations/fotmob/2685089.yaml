@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2685089"
+matchId: 2018-05-22-viking-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:113410fad8bbd45fa723e5362a04c0b6f68347d89a3ecfeae823d5c02ad8531d
+raw:
+  externalId: "2685089"
+  date: 2018-05-22
+  kickoff: 19:00
+  status: FT
+  home: Viking
+  homeId: "8478"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 0
+  awayScore: 2
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2018
+  round: 9
+  url: https://www.fotmob.com/matches/aalesund-vs-viking/2cuni1#2685089
+normalized:
+  date: 2018-05-22
+  kickoff: 19:00
+  status: played
+  home.clubId: viking
+  away.clubId: aalesunds-fk
+  home.score: 0
+  away.score: 2
+  competition.id: forstedivisjon
+  competition.season: 2018
+  competition.round: 9
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

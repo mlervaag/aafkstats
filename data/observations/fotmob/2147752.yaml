@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2147752"
+matchId: 2016-05-08-aalesunds-fk-sogndal
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:d702db71bd5cd7c15c00dcfb155d0f097b0619b7c534dbef2c7f705362f7e6f7
+raw:
+  externalId: "2147752"
+  date: 2016-05-08
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Sogndal
+  awayId: "8616"
+  homeScore: 1
+  awayScore: 4
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2016
+  round: 9
+  url: https://www.fotmob.com/matches/aalesund-vs-sogndal/2e8smm#2147752
+normalized:
+  date: 2016-05-08
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: sogndal
+  home.score: 1
+  away.score: 4
+  competition.id: eliteserien
+  competition.season: 2016
+  competition.round: 9
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

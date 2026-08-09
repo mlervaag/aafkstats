@@ -77,7 +77,8 @@ teller på kanten, og kostnadstaket ligger hos modelleverandøren. Se
 [`apps/web/lib/rate-limit.ts`](../apps/web/lib/rate-limit.ts) for hvordan det henger sammen,
 og hva reservelaget i minnet faktisk er verdt.
 
-Hele arkivet — 1 244 kamper — bygges på rundt 130 ms til en fil på 4,4 MB.
+Hele arkivet — 1 332 kamper — bygges lokalt til én liten SQLite-fil. Byggetid og filstørrelse
+varierer med maskin og SQLite-versjon og oppgis derfor ikke som faste arkivfakta.
 
 ## Lag for lag
 
@@ -126,7 +127,7 @@ testene og av visningslaget. Én implementasjon kan ikke bli uenig med seg selv.
 SQLite har ingen schemas, så skillet mellom internt og publisert uttrykkes med navn:
 
 - **`core_*`** er interne tabeller. Rådata, alle kolonner, ingen garantier.
-- **Viewene uten prefiks** — `matches`, `seasons`, `opponents`, `match_events`, `sources` og
+- **Viewene uten prefiks** — `matches`, `match_stats`, `seasons`, `opponents`, `match_events`, `sources` og
   FTS-tabellen `reports` — er den offentlige kontrakten.
 
 ### Proveniens: Providers vs Sources
@@ -161,6 +162,11 @@ ORDER BY date DESC LIMIT 1;
 Uten `is_home`/`opponent`/`aafk_score` måtte enhver spørring begynt med et `CASE` over
 hjemmelag og bortelag. Det er nettopp den typen resonnement en språkmodell bommer på i
 kanttilfellene, og som et menneske skriver feil i en travel time.
+
+Kampstatistikken følger samme regel: `aafk_xg`, `aafk_shots` og de øvrige
+`aafk_*`-kolonnene betyr alltid AaFKs tall. `match_stats` gir i tillegg to rader per kamp,
+én for hver side, når en analyse passer bedre i langt format. Avledede mål som
+xG-differanse lagres ikke; de regnes ut i spørringen.
 
 Invarianten som gjør det mulig — nøyaktig én av sidene i en kamp er `aalesunds-fk` —
 håndheves av skjemaet, ikke av konvensjon.

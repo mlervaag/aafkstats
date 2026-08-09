@@ -330,6 +330,29 @@ SELECT
   m.neutral_venue,
   m.attendance,
   m.referee,
+  CASE WHEN
+    json_extract(m.stats, '$.home.possession') IS NOT NULL OR json_extract(m.stats, '$.away.possession') IS NOT NULL OR
+    json_extract(m.stats, '$.home.shots') IS NOT NULL OR json_extract(m.stats, '$.away.shots') IS NOT NULL OR
+    json_extract(m.stats, '$.home.shotsOnTarget') IS NOT NULL OR json_extract(m.stats, '$.away.shotsOnTarget') IS NOT NULL OR
+    json_extract(m.stats, '$.home.corners') IS NOT NULL OR json_extract(m.stats, '$.away.corners') IS NOT NULL OR
+    json_extract(m.stats, '$.home.fouls') IS NOT NULL OR json_extract(m.stats, '$.away.fouls') IS NOT NULL OR
+    json_extract(m.stats, '$.home.offsides') IS NOT NULL OR json_extract(m.stats, '$.away.offsides') IS NOT NULL OR
+    json_extract(m.stats, '$.home.xg') IS NOT NULL OR json_extract(m.stats, '$.away.xg') IS NOT NULL
+  THEN 1 ELSE 0 END AS has_stats,
+  json_extract(m.stats, CASE WHEN m.is_home = 1 THEN '$.home.possession' ELSE '$.away.possession' END) AS aafk_possession,
+  json_extract(m.stats, CASE WHEN m.is_home = 1 THEN '$.away.possession' ELSE '$.home.possession' END) AS opponent_possession,
+  json_extract(m.stats, CASE WHEN m.is_home = 1 THEN '$.home.shots' ELSE '$.away.shots' END) AS aafk_shots,
+  json_extract(m.stats, CASE WHEN m.is_home = 1 THEN '$.away.shots' ELSE '$.home.shots' END) AS opponent_shots,
+  json_extract(m.stats, CASE WHEN m.is_home = 1 THEN '$.home.shotsOnTarget' ELSE '$.away.shotsOnTarget' END) AS aafk_shots_on_target,
+  json_extract(m.stats, CASE WHEN m.is_home = 1 THEN '$.away.shotsOnTarget' ELSE '$.home.shotsOnTarget' END) AS opponent_shots_on_target,
+  json_extract(m.stats, CASE WHEN m.is_home = 1 THEN '$.home.corners' ELSE '$.away.corners' END) AS aafk_corners,
+  json_extract(m.stats, CASE WHEN m.is_home = 1 THEN '$.away.corners' ELSE '$.home.corners' END) AS opponent_corners,
+  json_extract(m.stats, CASE WHEN m.is_home = 1 THEN '$.home.fouls' ELSE '$.away.fouls' END) AS aafk_fouls,
+  json_extract(m.stats, CASE WHEN m.is_home = 1 THEN '$.away.fouls' ELSE '$.home.fouls' END) AS opponent_fouls,
+  json_extract(m.stats, CASE WHEN m.is_home = 1 THEN '$.home.offsides' ELSE '$.away.offsides' END) AS aafk_offsides,
+  json_extract(m.stats, CASE WHEN m.is_home = 1 THEN '$.away.offsides' ELSE '$.home.offsides' END) AS opponent_offsides,
+  json_extract(m.stats, CASE WHEN m.is_home = 1 THEN '$.home.xg' ELSE '$.away.xg' END) AS aafk_xg,
+  json_extract(m.stats, CASE WHEN m.is_home = 1 THEN '$.away.xg' ELSE '$.home.xg' END) AS opponent_xg,
   m.report_summary,
   m.confidence,
   CASE WHEN json_array_length(m.conflicts) > 0 THEN 1 ELSE 0 END AS has_conflicts,
@@ -349,6 +372,24 @@ SELECT
   '/kamp/' || m.id    AS url
 FROM core_matches m
 JOIN core_competitions c ON c.id = m.competition_id;
+
+-- To rader per kamp med statistikk: én for AaFK og én for motstanderen. Dette
+-- formatet passer best til summering og sammenligning mellom lag/sider.
+CREATE VIEW match_stats AS
+SELECT
+  match_id, date, season, competition, competition_type, is_home,
+  'aafk' AS side, 'Aalesunds FK' AS team, opponent,
+  aafk_possession AS possession, aafk_shots AS shots,
+  aafk_shots_on_target AS shots_on_target, aafk_corners AS corners,
+  aafk_fouls AS fouls, aafk_offsides AS offsides, aafk_xg AS xg, url
+FROM matches WHERE has_stats = 1
+UNION ALL
+SELECT
+  match_id, date, season, competition, competition_type, is_home,
+  'opponent' AS side, opponent AS team, 'Aalesunds FK' AS opponent,
+  opponent_possession, opponent_shots, opponent_shots_on_target,
+  opponent_corners, opponent_fouls, opponent_offsides, opponent_xg, url
+FROM matches WHERE has_stats = 1;
 
 -- Ett sammendrag per sesong OG konkurranse.
 --

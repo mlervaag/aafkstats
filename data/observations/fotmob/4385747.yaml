@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "4385747"
+matchId: 2024-06-09-aalesunds-fk-kongsvinger
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:2f3ea5471ecacaa468d3c67b9697202bab52ec82d7a6cee9513b7814c498ff7f
+raw:
+  externalId: "4385747"
+  date: 2024-06-09
+  kickoff: 17:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Kongsvinger
+  awayId: "8179"
+  homeScore: 4
+  awayScore: 4
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2024
+  round: 12
+  url: https://www.fotmob.com/matches/kongsvinger-vs-aalesund/29vez4#4385747
+normalized:
+  date: 2024-06-09
+  kickoff: 17:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: kongsvinger
+  home.score: 4
+  away.score: 4
+  competition.id: forstedivisjon
+  competition.season: 2024
+  competition.round: 12
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

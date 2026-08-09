@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "4695652"
+matchId: 2025-05-24-aalesunds-fk-start
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:70b9576ca08fb61abb3c147a6fdc23e189f5116996bc121dfc52b464bf0391cd
+raw:
+  externalId: "4695652"
+  date: 2025-05-24
+  kickoff: 16:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Start
+  awayId: "9919"
+  homeScore: 1
+  awayScore: 1
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2025
+  round: 8
+  url: https://www.fotmob.com/matches/aalesund-vs-start/2ryd31#4695652
+normalized:
+  date: 2025-05-24
+  kickoff: 16:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: start
+  home.score: 1
+  away.score: 1
+  competition.id: forstedivisjon
+  competition.season: 2025
+  competition.round: 8
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

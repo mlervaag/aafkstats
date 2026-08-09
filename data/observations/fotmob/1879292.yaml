@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "1879292"
+matchId: 2015-04-19-molde-fk-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:fce3ebcb5d2c0b1908b9de813ea7582de5645fd4d14782fa36ec3f44837871a5
+raw:
+  externalId: "1879292"
+  date: 2015-04-19
+  kickoff: 18:00
+  status: FT
+  home: Molde
+  homeId: "9917"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 5
+  awayScore: 1
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2015
+  round: 3
+  url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#1879292
+normalized:
+  date: 2015-04-19
+  kickoff: 18:00
+  status: played
+  home.clubId: molde-fk
+  away.clubId: aalesunds-fk
+  home.score: 5
+  away.score: 1
+  competition.id: eliteserien
+  competition.season: 2015
+  competition.round: 3
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

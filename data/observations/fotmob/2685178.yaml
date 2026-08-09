@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2685178"
+matchId: 2018-08-26-aalesunds-fk-oygarden-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:8ec44cca1d6b5cb368045e346d0d72bdf34ee311a2f1677969b041d9cf9044c4
+raw:
+  externalId: "2685178"
+  date: 2018-08-26
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Øygarden FK
+  awayId: "1706"
+  homeScore: 0
+  awayScore: 1
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2018
+  round: 21
+  url: https://www.fotmob.com/matches/oygarden-fk-vs-aalesund/ufo2d#2685178
+normalized:
+  date: 2018-08-26
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: oygarden-fk
+  home.score: 0
+  away.score: 1
+  competition.id: forstedivisjon
+  competition.season: 2018
+  competition.round: 21
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

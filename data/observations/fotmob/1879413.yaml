@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "1879413"
+matchId: 2015-05-03-aalesunds-fk-bodo-glimt
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:a5c924d0c05428b6ae88dc59ac4ef3991fd65e8c2604cbcb3e14121db365f93c
+raw:
+  externalId: "1879413"
+  date: 2015-05-03
+  kickoff: 15:30
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Bodø/Glimt
+  awayId: "8402"
+  homeScore: 2
+  awayScore: 0
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2015
+  round: 6
+  url: https://www.fotmob.com/matches/bodoglimt-vs-aalesund/2c37nd#1879413
+normalized:
+  date: 2015-05-03
+  kickoff: 15:30
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: bodo-glimt
+  home.score: 2
+  away.score: 0
+  competition.id: eliteserien
+  competition.season: 2015
+  competition.round: 6
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

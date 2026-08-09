@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "4385804"
+matchId: 2024-08-10-aalesunds-fk-moss
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:3bfba8ca9aeb00fe75a636e3881c87b61d2e4f57c126cdcdd8132a27a21cb74e
+raw:
+  externalId: "4385804"
+  date: 2024-08-10
+  kickoff: 16:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Moss
+  awayId: "8405"
+  homeScore: 1
+  awayScore: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2024
+  round: 18
+  url: https://www.fotmob.com/matches/aalesund-vs-moss/2c4ak2#4385804
+normalized:
+  date: 2024-08-10
+  kickoff: 16:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: moss
+  home.score: 1
+  away.score: 0
+  competition.id: forstedivisjon
+  competition.season: 2024
+  competition.round: 18
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

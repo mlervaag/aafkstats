@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2948248"
+matchId: 2019-04-22-aalesunds-fk-skeid
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:7230224ebef9be783708e29497000c69531ada8286ddfc0affeebe40c11eaaec
+raw:
+  externalId: "2948248"
+  date: 2019-04-22
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Skeid
+  awayId: "8421"
+  homeScore: 4
+  awayScore: 2
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2019
+  round: 4
+  url: https://www.fotmob.com/matches/aalesund-vs-skeid/2ca26y#2948248
+normalized:
+  date: 2019-04-22
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: skeid
+  home.score: 4
+  away.score: 2
+  competition.id: forstedivisjon
+  competition.season: 2019
+  competition.round: 4
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

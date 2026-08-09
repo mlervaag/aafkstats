@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2685090"
+matchId: 2018-05-27-aalesunds-fk-hamarkameratene
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:44f0e9143b69632d6bcf96f713ffac3c0b624f625ab9bb7d595f0976a086cf6d
+raw:
+  externalId: "2685090"
+  date: 2018-05-27
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Hamarkameratene
+  awayId: "8448"
+  homeScore: 1
+  awayScore: 2
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2018
+  round: 10
+  url: https://www.fotmob.com/matches/aalesund-vs-hamarkameratene/2cjt0y#2685090
+normalized:
+  date: 2018-05-27
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: hamarkameratene
+  home.score: 1
+  away.score: 2
+  competition.id: forstedivisjon
+  competition.season: 2018
+  competition.round: 10
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

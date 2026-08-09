@@ -30,7 +30,7 @@ externalReports: []
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/aalesund-vs-fredrikstad/2c8m9k#5105061
-    retrievedAt: 2026-08-03
+    retrievedAt: 2026-08-09
     fields:
       - date
       - kickoff
@@ -41,6 +41,7 @@ providers:
       - competition.round
       - venueId
       - lineups
+sources: []
 confidence: probable
 conflicts: []
 tags: []

@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2685107"
+matchId: 2018-06-10-aalesunds-fk-ull-kisa
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:5707e68caa857addc394dde6f21141d34c0cbd954bf057e0695da990372ce120
+raw:
+  externalId: "2685107"
+  date: 2018-06-10
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Ull/Kisa
+  awayId: "10232"
+  homeScore: 3
+  awayScore: 2
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2018
+  round: 12
+  url: https://www.fotmob.com/matches/aalesund-vs-ullkisa/2veb2a#2685107
+normalized:
+  date: 2018-06-10
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: ull-kisa
+  home.score: 3
+  away.score: 2
+  competition.id: forstedivisjon
+  competition.season: 2018
+  competition.round: 12
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

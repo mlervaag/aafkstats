@@ -1,0 +1,63 @@
+providerId: fotmob
+externalId: "4385789"
+matchId: 2024-09-01-lyn-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:fb620865a7d57ee8d32846d3041484be4d197a1f359a43bc35691a760158826f
+raw:
+  externalId: "4385789"
+  date: 2024-09-01
+  kickoff: 19:00
+  status: FT
+  home: Lyn
+  homeId: "10224"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 0
+  awayScore: 0
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2024
+  round: 21
+  venue: Bislett Stadion
+  attendance: 2229
+  referee: Mohammad Hafezi
+  url: https://www.fotmob.com/matches/aalesund-vs-lyn/2vb41q#4385789
+normalized:
+  date: 2024-09-01
+  kickoff: 19:00
+  status: played
+  home.clubId: lyn
+  away.clubId: aalesunds-fk
+  home.score: 0
+  away.score: 0
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: forstedivisjon
+  competition.season: 2024
+  competition.round: 21
+  competition.stage: regular_season
+  venueId: bislett-stadion
+  attendance: 2229
+  referee.name: Mohammad Hafezi
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "1879439"
+matchId: 2015-06-07-aalesunds-fk-fk-haugesund
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:e124f6926e3294d1fe9138ccca5f875bd8eea15d0ad168e165b2ef4a5ae9b98e
+raw:
+  externalId: "1879439"
+  date: 2015-06-07
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: FK Haugesund
+  awayId: "8512"
+  homeScore: 2
+  awayScore: 1
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2015
+  round: 12
+  url: https://www.fotmob.com/matches/aalesund-vs-fk-haugesund/2d6yvm#1879439
+normalized:
+  date: 2015-06-07
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: fk-haugesund
+  home.score: 2
+  away.score: 1
+  competition.id: eliteserien
+  competition.season: 2015
+  competition.round: 12
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

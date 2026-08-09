@@ -12,15 +12,22 @@ europakampene, må komme et annet sted fra.
 
 | Kamptype | Periode | Status | Merknad |
 |---|---|---|---|
-| Serie (Eliteserien / 1. divisjon) | 2011–2026 | ✅ hentet | Komplette sesonger med detaljer |
+| Serie (Eliteserien / 1. divisjon) | 2011–2026 | ✅ hentet | Kampdetaljer er hentet, men statistikkfeltene varierer med sesong |
 | Serie | 2010 | ✅ hentet, delvis | Bare runde 15–30. 16 av 30 kamper, merket i sesongfilen |
 | Norgesmesterskapet | 2011–2025 | ✅ hentet | 51 kamper, inkludert 2021/2022 og 2022/2023 |
 | Treningskamper | inneværende sesong | ✅ hentet | 8 kamper. Kun nåtid — se under |
 | Serie og cup | før 2010 | ❌ finnes ikke | Se «Det stille tilbakefallet» |
 | Europacup | alle år | ❌ finnes ikke | Se «Europakampene» |
 
-Status per 3. august 2026: **555 kamper, 17 sesonger, 2010–2026**, hvorav 523 har
-hendelsesdata.
+Status per 9. august 2026: **555 kamper, 17 sesonger, 2010–2026**, hvorav 523 har
+hendelsesdata. Av alle 1 332 kampene i arkivet har 276 de fire grunnfeltene
+ballbesittelse, skudd, skudd på mål og cornere. 138 har fouls og offsider, og 105 har xG.
+
+Statistikkdekningen følger ikke kampdekningen. FotMobs kampdetaljer for 2018 og 2019
+leverer ingen av de sju feltene. I 2021 har 17 kamper de fire grunnfeltene. I 2024 og
+2025 leverer kilden vanligvis de samme fire feltene, men ikke fouls, offsider eller xG.
+Kampen AaFK–Stabæk 1. april 2024 er holdt utenfor statistikkutvalget fordi den nåværende
+responsen oppgir 32 cornere. Dette er kontrollert mot en ny respons, ikke en gammel cache.
 
 ## Det stille tilbakefallet
 

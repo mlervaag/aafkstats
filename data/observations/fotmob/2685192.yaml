@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "2685192"
+matchId: 2018-09-02-ull-kisa-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:1ed8a21ca6243a650c85c3a24e169630986033562abec8fdbe06ba48426eb97b
+raw:
+  externalId: "2685192"
+  date: 2018-09-02
+  kickoff: 15:00
+  status: FT
+  home: Ull/Kisa
+  homeId: "10232"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 3
+  awayScore: 0
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2018
+  round: 22
+  venue: Jessheim Stadion
+  url: https://www.fotmob.com/matches/aalesund-vs-ullkisa/2veb2a#2685192
+normalized:
+  date: 2018-09-02
+  kickoff: 15:00
+  status: played
+  home.clubId: ull-kisa
+  away.clubId: aalesunds-fk
+  home.score: 3
+  away.score: 0
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: forstedivisjon
+  competition.season: 2018
+  competition.round: 22
+  competition.stage: regular_season
+  venueId: jessheim-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

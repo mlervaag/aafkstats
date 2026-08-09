@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "4385795"
+matchId: 2024-08-20-asane-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:83c3728f54563bbb6bdfb6d769c0d5e61b536cca06ff448683d85aa8f565c191
+raw:
+  externalId: "4385795"
+  date: 2024-08-20
+  kickoff: 19:00
+  status: FT
+  home: Åsane
+  homeId: "10021"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2024
+  round: 19
+  url: https://www.fotmob.com/matches/aalesund-vs-asane/2t2i21#4385795
+normalized:
+  date: 2024-08-20
+  kickoff: 19:00
+  status: played
+  home.clubId: asane
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 0
+  competition.id: forstedivisjon
+  competition.season: 2024
+  competition.round: 19
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

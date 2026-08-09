@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "1879336"
+matchId: 2015-07-05-aalesunds-fk-mjondalen
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:eb5db31f3dd0511f275a9af21892f423dd8bbd512b13d96ca7ac4cb3ee45cae9
+raw:
+  externalId: "1879336"
+  date: 2015-07-05
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Mjøndalen
+  awayId: "6541"
+  homeScore: 4
+  awayScore: 2
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2015
+  round: 15
+  url: https://www.fotmob.com/matches/mjondalen-vs-aalesund/1uhyed#1879336
+normalized:
+  date: 2015-07-05
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: mjondalen
+  home.score: 4
+  away.score: 2
+  competition.id: eliteserien
+  competition.season: 2015
+  competition.round: 15
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

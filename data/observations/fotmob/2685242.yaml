@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "2685242"
+matchId: 2018-11-04-aalesunds-fk-levanger
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:2847f36476597cbe9a33526213f0872b5011cf17aedef9b99a5b17740bca2dfa
+raw:
+  externalId: "2685242"
+  date: 2018-11-04
+  kickoff: 12:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Levanger
+  awayId: "6561"
+  homeScore: 4
+  awayScore: 0
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2018
+  round: 29
+  venue: Color Line Stadion
+  url: https://www.fotmob.com/matches/levanger-vs-aalesund/1uod6z#2685242
+normalized:
+  date: 2018-11-04
+  kickoff: 12:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: levanger
+  home.score: 4
+  away.score: 0
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: forstedivisjon
+  competition.season: 2018
+  competition.round: 29
+  competition.stage: regular_season
+  venueId: color-line-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

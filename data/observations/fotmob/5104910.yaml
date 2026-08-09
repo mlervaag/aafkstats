@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "5104910"
+matchId: 2026-05-16-rosenborg-bk-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:3c463e644ede58707f143a0018d3cd629591fafc68e1daf5e9120ea45312904c
+raw:
+  externalId: "5104910"
+  date: 2026-05-16
+  kickoff: 16:00
+  status: FT
+  home: Rosenborg
+  homeId: "8422"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 3
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2026
+  round: 9
+  url: https://www.fotmob.com/matches/aalesund-vs-rosenborg/2caf6d#5104910
+normalized:
+  date: 2026-05-16
+  kickoff: 16:00
+  status: played
+  home.clubId: rosenborg-bk
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 3
+  competition.id: eliteserien
+  competition.season: 2026
+  competition.round: 9
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

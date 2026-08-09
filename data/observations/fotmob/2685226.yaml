@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "2685226"
+matchId: 2018-10-23-aalesunds-fk-viking
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:72c0b282a18f3804f5d5a61f1d1d9e6635c7a9b24ecfd036ab1ddc89673e616f
+raw:
+  externalId: "2685226"
+  date: 2018-10-23
+  kickoff: 19:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Viking
+  awayId: "8478"
+  homeScore: 1
+  awayScore: 3
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2018
+  round: 27
+  venue: Color Line Stadion
+  url: https://www.fotmob.com/matches/aalesund-vs-viking/2cuni1#2685226
+normalized:
+  date: 2018-10-23
+  kickoff: 19:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: viking
+  home.score: 1
+  away.score: 3
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: forstedivisjon
+  competition.season: 2018
+  competition.round: 27
+  competition.stage: regular_season
+  venueId: color-line-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

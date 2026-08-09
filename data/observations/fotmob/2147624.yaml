@@ -1,0 +1,63 @@
+providerId: fotmob
+externalId: "2147624"
+matchId: 2016-09-09-start-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:f8e4762ee3c0fa9a6dd55883231f77b803ba270c968dafeccc687e14246b5e47
+raw:
+  externalId: "2147624"
+  date: 2016-09-09
+  kickoff: 19:00
+  status: FT
+  home: Start
+  homeId: "9919"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 4
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2016
+  round: 23
+  venue: Soer Arena
+  attendance: 3401
+  referee: Tommy Skjerven
+  url: https://www.fotmob.com/matches/aalesund-vs-start/2ryd31#2147624
+normalized:
+  date: 2016-09-09
+  kickoff: 19:00
+  status: played
+  home.clubId: start
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 4
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: eliteserien
+  competition.season: 2016
+  competition.round: 23
+  competition.stage: regular_season
+  venueId: soer-arena
+  attendance: 3401
+  referee.name: Tommy Skjerven
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

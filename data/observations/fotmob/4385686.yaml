@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "4385686"
+matchId: 2024-05-22-bryne-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:1b6297f5ad3985e67892b10d2d710a5693dd28dd76a3a089fd2d2ed229a68fcc
+raw:
+  externalId: "4385686"
+  date: 2024-05-22
+  kickoff: 19:00
+  status: FT
+  home: Bryne
+  homeId: "8531"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2024
+  round: 9
+  url: https://www.fotmob.com/matches/aalesund-vs-bryne/2ddv1b#4385686
+normalized:
+  date: 2024-05-22
+  kickoff: 19:00
+  status: played
+  home.clubId: bryne
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 0
+  competition.id: forstedivisjon
+  competition.season: 2024
+  competition.round: 9
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

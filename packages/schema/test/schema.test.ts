@@ -68,6 +68,21 @@ describe("kampskjema", () => {
     expect(r.success).toBe(false);
   });
 
+  it("avviser flere skudd på mål enn skudd", () => {
+    const r = match.safeParse({
+      ...base,
+      stats: { home: { shots: 4, shotsOnTarget: 5 }, away: { shots: 3, shotsOnTarget: 1 } },
+    });
+    expect(r.success).toBe(false);
+    if (!r.success) expect(r.error.issues.some((issue) => issue.message.includes("skudd på mål"))).toBe(true);
+  });
+
+  it("avviser et urimelig høyt samlet antall cornere", () => {
+    const r = match.safeParse({ ...base, stats: { home: { corners: 18 }, away: { corners: 14 } } });
+    expect(r.success).toBe(false);
+    if (!r.success) expect(r.error.issues.some((issue) => issue.message.includes("cornere"))).toBe(true);
+  });
+
   it("godtar en kamp der bare året er kjent", () => {
     const r = match.safeParse({
       ...base,

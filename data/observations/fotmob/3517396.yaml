@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "3517396"
+matchId: 2021-07-05-sandnes-ulf-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:39f0783dab6f582bfef0114a68072fe16d0a2bbd79e743f318509d574a5436f7
+raw:
+  externalId: "3517396"
+  date: 2021-07-05
+  kickoff: 20:00
+  status: FT
+  home: Sandnes Ulf
+  homeId: "8133"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 0
+  awayScore: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2021
+  round: 10
+  url: https://www.fotmob.com/matches/sandnes-ulf-vs-aalesund/29f36h#3517396
+normalized:
+  date: 2021-07-05
+  kickoff: 20:00
+  status: played
+  home.clubId: sandnes-ulf
+  away.clubId: aalesunds-fk
+  home.score: 0
+  away.score: 0
+  competition.id: forstedivisjon
+  competition.season: 2021
+  competition.round: 10
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

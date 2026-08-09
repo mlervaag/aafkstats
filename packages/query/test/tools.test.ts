@@ -61,6 +61,35 @@ describe("verktøy mot ekte arkivfil", () => {
     expect(c.match!.rows).toHaveLength(1);
     expect(c.events!.rows.length).toBeGreaterThan(0);
     expect(c.report!.rows).toHaveLength(1);
+    expect(c.match!.rows[0]).toMatchObject({
+      has_stats: 1,
+      aafk_xg: 1.8,
+      opponent_xg: 0.9,
+      aafk_shots_on_target: 6,
+    });
+  });
+
+  it("search_matches filtrerer på xG og statistikkdekning", async () => {
+    const r = await call("search_matches", { hasStats: true, minXg: 1.5, maxXg: 2, limit: 10 });
+    const rows = (r.content as { rows: Record<string, unknown>[] }).rows;
+    expect(rows).toHaveLength(1);
+    expect(rows[0]).toMatchObject({
+      match_id: "2024-04-01-aalesunds-fk-raufoss-il",
+      has_stats: 1,
+      aafk_xg: 1.8,
+    });
+  });
+
+  it("snur statistikken til AaFK-perspektiv i en bortekamp", async () => {
+    const r = await call("get_match", { matchId: "2024-04-07-molde-fk-aalesunds-fk" });
+    const c = r.content as Record<string, { rows: Record<string, unknown>[] }>;
+    expect(c.match!.rows[0]).toMatchObject({
+      is_home: 0,
+      aafk_xg: 0.7,
+      opponent_xg: 2.1,
+      aafk_shots: 7,
+      opponent_shots: 16,
+    });
   });
 
   it("search_reports finner tekst i referat", async () => {
@@ -76,6 +105,15 @@ describe("verktøy mot ekte arkivfil", () => {
     expect(r.isError).toBeFalsy();
     const rows = (r.content as { rows: Record<string, unknown>[] }).rows;
     expect(Number(rows[0]!.n)).toBeGreaterThan(0);
+  });
+
+  it("run_sql kan spørre direkte etter xG", async () => {
+    const r = await call("run_sql", {
+      sql: "SELECT match_id, aafk_xg, opponent_xg FROM matches WHERE aafk_xg IS NOT NULL",
+    });
+    expect(r.isError).toBeFalsy();
+    const rows = (r.content as { rows: Record<string, unknown>[] }).rows;
+    expect(rows[0]).toMatchObject({ aafk_xg: 1.8, opponent_xg: 0.9 });
   });
 
   // Meldingene skal si hva som er galt, ikke bare at det gikk galt — ellers kan

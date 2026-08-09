@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2147858"
+matchId: 2016-07-22-sk-brann-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:5451fa6d40e1275a325d3e3e62e539b2b22b5e4305fe606e43d6b0e992bb3c70
+raw:
+  externalId: "2147858"
+  date: 2016-07-22
+  kickoff: 19:00
+  status: FT
+  home: Brann
+  homeId: "8468"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 6
+  awayScore: 0
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2016
+  round: 17
+  url: https://www.fotmob.com/matches/aalesund-vs-brann/2cr19k#2147858
+normalized:
+  date: 2016-07-22
+  kickoff: 19:00
+  status: played
+  home.clubId: sk-brann
+  away.clubId: aalesunds-fk
+  home.score: 6
+  away.score: 0
+  competition.id: eliteserien
+  competition.season: 2016
+  competition.round: 17
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

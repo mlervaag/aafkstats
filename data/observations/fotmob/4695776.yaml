@@ -1,0 +1,63 @@
+providerId: fotmob
+externalId: "4695776"
+matchId: 2025-09-29-odds-ballklubb-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:19e40fe2b371ae599959d9786e3bc67a802acd8f4c0956741f3d938ad427a858
+raw:
+  externalId: "4695776"
+  date: 2025-09-29
+  kickoff: 19:00
+  status: FT
+  home: Odds Ballklubb
+  homeId: "7988"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 0
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2025
+  round: 24
+  venue: Skagerak Arena
+  attendance: 2958
+  referee: Mohammad Hafezi
+  url: https://www.fotmob.com/matches/odds-ballklubb-vs-aalesund/27zx14#4695776
+normalized:
+  date: 2025-09-29
+  kickoff: 19:00
+  status: played
+  home.clubId: odds-ballklubb
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 0
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: forstedivisjon
+  competition.season: 2025
+  competition.round: 24
+  competition.stage: regular_season
+  venueId: skagerak-arena
+  attendance: 2958
+  referee.name: Mohammad Hafezi
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

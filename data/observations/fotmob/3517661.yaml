@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "3517661"
+matchId: 2021-09-11-bryne-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:58b864e972ffe8be37697cf05a1c818e42f60e8c3fa48ffb30cdef874c693d1c
+raw:
+  externalId: "3517661"
+  date: 2021-09-11
+  kickoff: 15:00
+  status: FT
+  home: Bryne
+  homeId: "8531"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 3
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2021
+  round: 17
+  url: https://www.fotmob.com/matches/aalesund-vs-bryne/2ddv1b#3517661
+normalized:
+  date: 2021-09-11
+  kickoff: 15:00
+  status: played
+  home.clubId: bryne
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 3
+  competition.id: forstedivisjon
+  competition.season: 2021
+  competition.round: 17
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

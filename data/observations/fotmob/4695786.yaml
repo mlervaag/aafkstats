@@ -1,0 +1,63 @@
+providerId: fotmob
+externalId: "4695786"
+matchId: 2025-10-04-aalesunds-fk-sogndal
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:c17de1dd9f4b8ad0955625df1bc6395e377bc70194b49ebcc2bab7ece70f3449
+raw:
+  externalId: "4695786"
+  date: 2025-10-04
+  kickoff: 16:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Sogndal
+  awayId: "8616"
+  homeScore: 2
+  awayScore: 0
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2025
+  round: 25
+  venue: Color Line Stadion
+  attendance: 3965
+  referee: Steinar Hauge
+  url: https://www.fotmob.com/matches/aalesund-vs-sogndal/2e8smm#4695786
+normalized:
+  date: 2025-10-04
+  kickoff: 16:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: sogndal
+  home.score: 2
+  away.score: 0
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: forstedivisjon
+  competition.season: 2025
+  competition.round: 25
+  competition.stage: regular_season
+  venueId: color-line-stadion
+  attendance: 3965
+  referee.name: Steinar Hauge
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

@@ -1,0 +1,60 @@
+providerId: fotmob
+externalId: "1879358"
+matchId: 2015-08-23-sarpsborg-08-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:3aef64847ce9f2d4d0726d6be5e238629d5a26b2dee93b7b8b524b981428833d
+raw:
+  externalId: "1879358"
+  date: 2015-08-23
+  kickoff: 18:00
+  status: FT
+  home: Sarpsborg 08
+  homeId: "8509"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 3
+  awayScore: 1
+  homeHalfTime: 2
+  awayHalfTime: 0
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2015
+  round: 21
+  venue: Sarpsborg Stadion
+  attendance: 3533
+  url: https://www.fotmob.com/matches/aalesund-vs-sarpsborg-08/2d5vpy#1879358
+normalized:
+  date: 2015-08-23
+  kickoff: 18:00
+  status: played
+  home.clubId: sarpsborg-08
+  away.clubId: aalesunds-fk
+  home.score: 3
+  away.score: 1
+  home.halfTimeScore: 2
+  away.halfTimeScore: 0
+  competition.id: eliteserien
+  competition.season: 2015
+  competition.round: 21
+  competition.stage: regular_season
+  venueId: sarpsborg-stadion
+  attendance: 3533
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

@@ -1,0 +1,43 @@
+providerId: fotmob
+externalId: "5105074"
+matchId: 2026-12-13-sk-brann-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:0a87cf56b3d9216904d7196d3afce505bec4444b5238ef5f65dc0a66f1fe5d0f
+raw:
+  externalId: "5105074"
+  date: 2026-12-13
+  kickoff: 17:00
+  status: scheduled
+  home: Brann
+  homeId: "8468"
+  away: Aalesund
+  awayId: "8404"
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2026
+  round: 30
+  venue: Brann Stadion
+  url: https://www.fotmob.com/matches/aalesund-vs-brann/2cr19k#5105074
+normalized:
+  date: 2026-12-13
+  kickoff: 17:00
+  status: scheduled
+  home.clubId: sk-brann
+  away.clubId: aalesunds-fk
+  competition.id: eliteserien
+  competition.season: 2026
+  competition.round: 30
+  competition.stage: regular_season
+  venueId: brann-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - competition.round
+  - venueId
+  - lineups
+warnings: []

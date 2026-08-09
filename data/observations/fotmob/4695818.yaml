@@ -1,0 +1,63 @@
+providerId: fotmob
+externalId: "4695818"
+matchId: 2025-11-01-aalesunds-fk-asane
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:9e39d4ce07644dbca7eb7aea3942ab9a880521857b764ca19ac88f23745b8a9c
+raw:
+  externalId: "4695818"
+  date: 2025-11-01
+  kickoff: 16:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Åsane
+  awayId: "10021"
+  homeScore: 3
+  awayScore: 0
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2025
+  round: 29
+  venue: Color Line Stadion
+  attendance: 3780
+  referee: Jørgen Haugen
+  url: https://www.fotmob.com/matches/aalesund-vs-asane/2t2i21#4695818
+normalized:
+  date: 2025-11-01
+  kickoff: 16:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: asane
+  home.score: 3
+  away.score: 0
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: forstedivisjon
+  competition.season: 2025
+  competition.round: 29
+  competition.stage: regular_season
+  venueId: color-line-stadion
+  attendance: 3780
+  referee.name: Jørgen Haugen
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

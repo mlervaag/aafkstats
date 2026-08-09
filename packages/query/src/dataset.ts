@@ -42,6 +42,9 @@ export const views: ViewDoc[] = [
       "result regnes etter ordinær tid pluss ekstraomgang. En kamp avgjort på straffer har result = 'U'. Bruk won_on_penalties for å se hvem som gikk videre.",
       "Kamper som ennå ikke er spilt har status 'scheduled' og NULL i alle resultatkolonner. Regner du statistikk, filtrer på status IN ('played', 'awarded'). Det er den samme regelen alle aggregatene i datasettet bruker: en kamp avgjort på grønt bord har et resultat og teller med, en avbrutt kamp har ingen sluttstilling og teller ikke.",
       "confidence sier hvor sikre opplysningene er. 'probable' er vanlig for kamper før 1990. Si fra i svaret når en kamp ikke er 'confirmed'.",
+      "Kampstatistikken kommer fra FotMob og finnes bare for deler av 2014–2026. Per 9. august 2026 har 276 av 1 332 kamper ballbesittelse, skudd, skudd på mål og cornere; 138 har fouls og offsider; 105 har xG. NULL betyr at kilden ikke leverte feltet, ikke null hendelser.",
+      "Dekningen varierer med kildens historiske payload: 2018 og 2019 leverer ingen av de sju feltene, 2021 leverer fire felt for 17 kamper, og 2024/2025 leverer vanligvis bare de fire grunnfeltene. Én 2024-kamp er holdt utenfor fordi FotMob oppgir 32 cornere.",
+      "xG kan ikke sammenlignes ukritisk mellom sesonger: FotMob dokumenterer ikke modellversjonen i kampresponsen, og modellen kan ha endret seg. Arkivet lagrer kildens tall, ikke en egen beregning.",
       "SQLite har ingen boolsk type: is_home, neutral_venue og has_conflicts er heltall 0 eller 1. Skriv «WHERE is_home = 1», ikke «WHERE is_home IS TRUE».",
     ],
     columns: [
@@ -71,6 +74,21 @@ export const views: ViewDoc[] = [
       { name: "neutral_venue", type: "integer (0/1)", description: "Sant når kampen ble spilt på nøytral bane." },
       { name: "attendance", type: "integer", description: "Tilskuertall. Ofte NULL for eldre kamper." },
       { name: "referee", type: "text", description: "Dommer." },
+      { name: "has_stats", type: "integer (0/1)", description: "Sant når kampen har minst ett lagstatistikkfelt." },
+      { name: "aafk_possession", type: "real", description: "AaFKs ballbesittelse i prosent, uansett hjemme/borte." },
+      { name: "opponent_possession", type: "real", description: "Motstanderens ballbesittelse i prosent." },
+      { name: "aafk_shots", type: "integer", description: "AaFKs totale skudd." },
+      { name: "opponent_shots", type: "integer", description: "Motstanderens totale skudd." },
+      { name: "aafk_shots_on_target", type: "integer", description: "AaFKs skudd på mål." },
+      { name: "opponent_shots_on_target", type: "integer", description: "Motstanderens skudd på mål." },
+      { name: "aafk_corners", type: "integer", description: "AaFKs cornere." },
+      { name: "opponent_corners", type: "integer", description: "Motstanderens cornere." },
+      { name: "aafk_fouls", type: "integer", description: "AaFKs registrerte fouls/frispark mot." },
+      { name: "opponent_fouls", type: "integer", description: "Motstanderens registrerte fouls/frispark mot." },
+      { name: "aafk_offsides", type: "integer", description: "AaFKs offsider." },
+      { name: "opponent_offsides", type: "integer", description: "Motstanderens offsider." },
+      { name: "aafk_xg", type: "real", description: "FotMobs forventede mål (xG) for AaFK. NULL når kilden ikke leverte xG." },
+      { name: "opponent_xg", type: "real", description: "FotMobs forventede mål (xG) for motstanderen." },
       { name: "report_summary", type: "text", description: "Én til to setningers sammendrag, der det finnes." },
       { name: "confidence", type: "text", description: "'confirmed', 'probable' eller 'disputed'." },
       { name: "has_conflicts", type: "integer (0/1)", description: "Sant når en uenighet mellom kilder er ført inn på kampen. Slå opp match_conflicts for å se hva den gjelder. Uenigheten løses ikke automatisk, og høyeste kildeprioritet vinner ikke av seg selv." },
@@ -80,6 +98,34 @@ export const views: ViewDoc[] = [
       { name: "tags", type: "text (JSON-liste)", description: "Frie stikkord, f.eks. 'derby'." },
       { name: "sources", type: "text (JSON-liste)", description: "Historiske publikasjoner som dokumenterer kampen, med sourceId og eventuelt side eller notat." },
       { name: "url", type: "text", description: "Lenke til kampsiden. Bruk denne som kildehenvisning i svar." },
+    ],
+  },
+  {
+    name: "match_stats",
+    summary: "To rader per kamp med statistikk: én for AaFK og én for motstanderen. Bruk denne ved summering eller sammenligning mellom sider.",
+    caveats: [
+      "Viewet inneholder kamper med minst ett statistikkfelt. Hvert enkelt felt kan fortsatt være NULL.",
+      "side er 'aafk' eller 'opponent'. is_home beskriver om AaFK var hjemmelag, også på motstanderraden.",
+      "xG er FotMobs publiserte tall. Ingen xG-differanse lagres; regn ut xg minus motstanderens xg i spørringen når det trengs.",
+    ],
+    columns: [
+      { name: "match_id", type: "text", description: "Kampens ID." },
+      { name: "date", type: "text (YYYY-MM-DD)", description: "Kampdato." },
+      { name: "season", type: "integer", description: "Sesongår." },
+      { name: "competition", type: "text", description: "Konkurransens navn." },
+      { name: "competition_type", type: "text", description: "Konkurransetype." },
+      { name: "is_home", type: "integer (0/1)", description: "Sant når AaFK var hjemmelag." },
+      { name: "side", type: "text", description: "'aafk' eller 'opponent'." },
+      { name: "team", type: "text", description: "Laget statistikken gjelder." },
+      { name: "opponent", type: "text", description: "Motparten på denne raden." },
+      { name: "possession", type: "real", description: "Ballbesittelse i prosent." },
+      { name: "shots", type: "integer", description: "Totale skudd." },
+      { name: "shots_on_target", type: "integer", description: "Skudd på mål." },
+      { name: "corners", type: "integer", description: "Cornere." },
+      { name: "fouls", type: "integer", description: "Registrerte fouls/frispark mot." },
+      { name: "offsides", type: "integer", description: "Offsider." },
+      { name: "xg", type: "real", description: "FotMobs forventede mål; NULL når feltet mangler." },
+      { name: "url", type: "text", description: "Lenke til kampsiden." },
     ],
   },
   {
@@ -413,6 +459,14 @@ export const views: ViewDoc[] = [
 
 /** Eksempelspørringer som vises på /data og gis til modellen som mønster. */
 export const exampleQueries: { question: string; sql: string }[] = [
+  {
+    question: "Hvilke kamper har xG-data, og hva var forskjellen?",
+    sql: `SELECT date, opponent, aafk_xg, opponent_xg,
+       aafk_xg - opponent_xg AS xg_difference, url
+FROM matches
+WHERE aafk_xg IS NOT NULL AND opponent_xg IS NOT NULL
+ORDER BY date DESC`,
+  },
   {
     question: "Når tapte vi sist med 6 mål på hjemmebane?",
     sql: `SELECT date, opponent, aafk_score, opponent_score, competition, url

@@ -18,21 +18,46 @@ away:
   halfTimeScore: null
 venueId: briskeby-arena
 neutralVenue: false
+referee: Ola Hobber Nilsen
 events: []
 lineups:
   home:
-    formation: ""
-    starters: []
+    formation: 5-3-2
+    starters:
+      - Marcus Sandberg
+      - Martin Gjone
+      - Halvor Rødølen Opsahl
+      - Ethan Amundsen-Day
+      - Patrick Metcalfe
+      - Anton Ekeroth
+      - Aksel Baran Potur
+      - Luc Mares
+      - Markus Johnsgård
+      - David Benjamin
+      - Blerton Isufi
     subs: []
+    coach: Thomas Myhre
   away:
-    formation: ""
-    starters: []
+    formation: 3-5-2
+    starters:
+      - Luca Podlech
+      - Simen Haram
+      - Emil Engqvist
+      - Ólafur Gudmundsson
+      - Marius Andresen
+      - Håkon Butli Hammer
+      - Elias Hagen
+      - Henrik Melland
+      - Uba Charles
+      - Kristian Hemmingsen Lonebu
+      - Endre Osenbroch
     subs: []
+    coach: Kjetil Rekdal
 externalReports: []
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/aalesund-vs-hamarkameratene/2cjt0y#5104974
-    retrievedAt: 2026-08-03
+    retrievedAt: 2026-08-09
     fields:
       - date
       - kickoff
@@ -42,7 +67,9 @@ providers:
       - away.clubId
       - competition.round
       - venueId
+      - referee
       - lineups
+sources: []
 confidence: probable
 conflicts: []
 tags: []

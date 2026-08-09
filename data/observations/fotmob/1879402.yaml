@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "1879402"
+matchId: 2015-04-12-aalesunds-fk-lillestrom
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:79e7810d071cea269cee35bafb30dea534acffd0c0d744f02b59cb52bbaed14c
+raw:
+  externalId: "1879402"
+  date: 2015-04-12
+  kickoff: 15:30
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Lillestrøm
+  awayId: "8476"
+  homeScore: 1
+  awayScore: 1
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2015
+  round: 2
+  url: https://www.fotmob.com/matches/aalesund-vs-lillestrom/2ctxg4#1879402
+normalized:
+  date: 2015-04-12
+  kickoff: 15:30
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: lillestrom
+  home.score: 1
+  away.score: 1
+  competition.id: eliteserien
+  competition.season: 2015
+  competition.round: 2
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

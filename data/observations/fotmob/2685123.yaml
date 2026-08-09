@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2685123"
+matchId: 2018-06-24-aalesunds-fk-notodden
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:7aa6ff7bd1303b3e5591cfd964f519a427b3fd0dc2deb36aba85e27763f1a529
+raw:
+  externalId: "2685123"
+  date: 2018-06-24
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Notodden
+  awayId: "9929"
+  homeScore: 3
+  awayScore: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2018
+  round: 14
+  url: https://www.fotmob.com/matches/aalesund-vs-notodden/2s2aik#2685123
+normalized:
+  date: 2018-06-24
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: notodden
+  home.score: 3
+  away.score: 0
+  competition.id: forstedivisjon
+  competition.season: 2018
+  competition.round: 14
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

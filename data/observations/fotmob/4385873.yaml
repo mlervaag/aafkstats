@@ -1,0 +1,63 @@
+providerId: fotmob
+externalId: "4385873"
+matchId: 2024-10-26-ranheim-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:7e82df50a937b75f63977deab7b36acdfcbe2b0da5df9356682d41395eb2da01
+raw:
+  externalId: "4385873"
+  date: 2024-10-26
+  kickoff: 16:00
+  status: FT
+  home: Ranheim
+  homeId: "6563"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 0
+  awayScore: 1
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2024
+  round: 28
+  venue: EXTRA Arena
+  attendance: 1172
+  referee: Mischa Huru Kellerhals
+  url: https://www.fotmob.com/matches/ranheim-vs-aalesund/1up0ag#4385873
+normalized:
+  date: 2024-10-26
+  kickoff: 16:00
+  status: played
+  home.clubId: ranheim
+  away.clubId: aalesunds-fk
+  home.score: 0
+  away.score: 1
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: forstedivisjon
+  competition.season: 2024
+  competition.round: 28
+  competition.stage: regular_season
+  venueId: extra-arena
+  attendance: 1172
+  referee.name: Mischa Huru Kellerhals
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "4385769"
+matchId: 2024-07-27-aalesunds-fk-egersund
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:af5a574f14b4cff4058568f7a5b0eadd9bea31961c15c89cb385598d30e9ec6a
+raw:
+  externalId: "4385769"
+  date: 2024-07-27
+  kickoff: 16:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Egersund
+  awayId: "4722"
+  homeScore: 2
+  awayScore: 3
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2024
+  round: 16
+  url: https://www.fotmob.com/matches/egersund-vs-aalesund/1faq6h#4385769
+normalized:
+  date: 2024-07-27
+  kickoff: 16:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: egersund
+  home.score: 2
+  away.score: 3
+  competition.id: forstedivisjon
+  competition.season: 2024
+  competition.round: 16
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

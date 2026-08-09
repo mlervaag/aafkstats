@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2147746"
+matchId: 2016-04-30-molde-fk-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:3284fb2afbec6c4819b10205c47e5b61c94e8ca2a082b82524b0273ffd1b01f9
+raw:
+  externalId: "2147746"
+  date: 2016-04-30
+  kickoff: 18:00
+  status: FT
+  home: Molde
+  homeId: "9917"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 0
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2016
+  round: 8
+  url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#2147746
+normalized:
+  date: 2016-04-30
+  kickoff: 18:00
+  status: played
+  home.clubId: molde-fk
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 0
+  competition.id: eliteserien
+  competition.season: 2016
+  competition.round: 8
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

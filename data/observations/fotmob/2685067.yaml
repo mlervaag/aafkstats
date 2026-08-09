@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2685067"
+matchId: 2018-05-13-asane-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:6962abe456292371c1e105d4a9057c242e12de82151c2b749efe1b2e78cef947
+raw:
+  externalId: "2685067"
+  date: 2018-05-13
+  kickoff: 18:00
+  status: FT
+  home: Åsane
+  homeId: "10021"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 3
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2018
+  round: 7
+  url: https://www.fotmob.com/matches/aalesund-vs-asane/2t2i21#2685067
+normalized:
+  date: 2018-05-13
+  kickoff: 18:00
+  status: played
+  home.clubId: asane
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 3
+  competition.id: forstedivisjon
+  competition.season: 2018
+  competition.round: 7
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

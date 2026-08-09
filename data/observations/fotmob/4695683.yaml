@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "4695683"
+matchId: 2025-06-21-aalesunds-fk-odds-ballklubb
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:c075c197347fe6b833c100b607192d3a21c914c5b1d5678989ffa5aa7a81dd4a
+raw:
+  externalId: "4695683"
+  date: 2025-06-21
+  kickoff: 16:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Odds Ballklubb
+  awayId: "7988"
+  homeScore: 1
+  awayScore: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2025
+  round: 12
+  url: https://www.fotmob.com/matches/odds-ballklubb-vs-aalesund/27zx14#4695683
+normalized:
+  date: 2025-06-21
+  kickoff: 16:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: odds-ballklubb
+  home.score: 1
+  away.score: 0
+  competition.id: forstedivisjon
+  competition.season: 2025
+  competition.round: 12
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

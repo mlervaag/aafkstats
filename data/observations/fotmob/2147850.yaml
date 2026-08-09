@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2147850"
+matchId: 2016-07-31-aalesunds-fk-lillestrom
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:ce744d45d276d58ab4c0ad102913b7a0c4675e265577540bcf8d105a43a3a2fa
+raw:
+  externalId: "2147850"
+  date: 2016-07-31
+  kickoff: 15:30
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Lillestrøm
+  awayId: "8476"
+  homeScore: 2
+  awayScore: 0
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2016
+  round: 18
+  url: https://www.fotmob.com/matches/aalesund-vs-lillestrom/2ctxg4#2147850
+normalized:
+  date: 2016-07-31
+  kickoff: 15:30
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: lillestrom
+  home.score: 2
+  away.score: 0
+  competition.id: eliteserien
+  competition.season: 2016
+  competition.round: 18
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

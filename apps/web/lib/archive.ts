@@ -193,9 +193,9 @@ export interface ArchiveTotals {
  * Kampene som faktisk har funnet sted.
  *
  * Terminlista for inneværende sesong ligger i arkivet på lik linje med resten, og
- * uten dette skillet blir «1039 AaFK-kamper» på forsiden 15 kamper som ikke er
- * spilt ennå, mens «fra 1917 til 2026» henter siste årstall fra en kamp i
- * desember. Ingen av delene er galt regnet, men ingen leser overskriften slik.
+ * uten dette skillet teller forsiden også framtidige AaFK-kamper, mens
+ * «fra 1917 til 2026» kan hente siste årstall fra en kamp i desember. Ingen av
+ * delene er galt regnet, men ingen leser overskriften slik.
  *
  * Regelen er den samme som `core_played` i SQL-skjemaet, hentet fra ett sted
  * slik at nettstedet og aggregatene ikke kan telle forskjellig.

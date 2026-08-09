@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "1879300"
+matchId: 2015-04-30-valerenga-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:286289fab76e322fe7665a83093a06410b1edf2ba9a7ccc7bab83a25b5509e79
+raw:
+  externalId: "1879300"
+  date: 2015-04-30
+  kickoff: 18:00
+  status: FT
+  home: Vålerenga
+  homeId: "8007"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 2
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2015
+  round: 5
+  url: https://www.fotmob.com/matches/valerenga-vs-aalesund/286lhq#1879300
+normalized:
+  date: 2015-04-30
+  kickoff: 18:00
+  status: played
+  home.clubId: valerenga
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 2
+  competition.id: eliteserien
+  competition.season: 2015
+  competition.round: 5
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

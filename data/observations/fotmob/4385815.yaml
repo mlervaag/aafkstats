@@ -1,0 +1,63 @@
+providerId: fotmob
+externalId: "4385815"
+matchId: 2024-09-24-valerenga-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:66b6e860f685c2364211f97aed666bff2c6c5b32528f3343c264a9bb728c29cc
+raw:
+  externalId: "4385815"
+  date: 2024-09-24
+  kickoff: 19:00
+  status: FT
+  home: Vålerenga
+  homeId: "8007"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 4
+  awayScore: 1
+  homeHalfTime: 2
+  awayHalfTime: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2024
+  round: 24
+  venue: Intility Arena
+  attendance: 7407
+  referee: Ali Al Hatam
+  url: https://www.fotmob.com/matches/valerenga-vs-aalesund/286lhq#4385815
+normalized:
+  date: 2024-09-24
+  kickoff: 19:00
+  status: played
+  home.clubId: valerenga
+  away.clubId: aalesunds-fk
+  home.score: 4
+  away.score: 1
+  home.halfTimeScore: 2
+  away.halfTimeScore: 0
+  competition.id: forstedivisjon
+  competition.season: 2024
+  competition.round: 24
+  competition.stage: regular_season
+  venueId: intility-arena
+  attendance: 7407
+  referee.name: Ali Al Hatam
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

@@ -1,0 +1,63 @@
+providerId: fotmob
+externalId: "4385854"
+matchId: 2024-11-09-stabaek-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:7c1353bd069705179f8a366be9a957a74f9e6f38b9b7a4793ae413f1431e82fd
+raw:
+  externalId: "4385854"
+  date: 2024-11-09
+  kickoff: 16:00
+  status: FT
+  home: Stabæk
+  homeId: "9918"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 4
+  homeHalfTime: 0
+  awayHalfTime: 2
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2024
+  round: 30
+  venue: Nadderud Stadion
+  attendance: 2614
+  referee: Ajdin Medic
+  url: https://www.fotmob.com/matches/aalesund-vs-stabaek/2rxyy1#4385854
+normalized:
+  date: 2024-11-09
+  kickoff: 16:00
+  status: played
+  home.clubId: stabaek
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 4
+  home.halfTimeScore: 0
+  away.halfTimeScore: 2
+  competition.id: forstedivisjon
+  competition.season: 2024
+  competition.round: 30
+  competition.stage: regular_season
+  venueId: nadderud-stadion
+  attendance: 2614
+  referee.name: Ajdin Medic
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

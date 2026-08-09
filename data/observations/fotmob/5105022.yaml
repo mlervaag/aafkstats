@@ -1,0 +1,43 @@
+providerId: fotmob
+externalId: "5105022"
+matchId: 2026-10-11-aalesunds-fk-sarpsborg-08
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:91d49ef37bab004fdd5a9da47ade1a53356ecfc3d32f31408d55f5c69c93c1bd
+raw:
+  externalId: "5105022"
+  date: 2026-10-11
+  kickoff: 17:00
+  status: scheduled
+  home: Aalesund
+  homeId: "8404"
+  away: Sarpsborg 08
+  awayId: "8509"
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2026
+  round: 23
+  venue: Color Line Stadion
+  url: https://www.fotmob.com/matches/aalesund-vs-sarpsborg-08/2d5vpy#5105022
+normalized:
+  date: 2026-10-11
+  kickoff: 17:00
+  status: scheduled
+  home.clubId: aalesunds-fk
+  away.clubId: sarpsborg-08
+  competition.id: eliteserien
+  competition.season: 2026
+  competition.round: 23
+  competition.stage: regular_season
+  venueId: color-line-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - competition.round
+  - venueId
+  - lineups
+warnings: []

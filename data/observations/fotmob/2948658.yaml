@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "2948658"
+matchId: 2019-09-18-aalesunds-fk-kfum
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:dff646442fbd01c8cbc9424fe67f986d252ccee9adf207fdd1d8f93df4f8818e
+raw:
+  externalId: "2948658"
+  date: 2019-09-18
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: KFUM
+  awayId: "2305"
+  homeScore: 2
+  awayScore: 1
+  homeHalfTime: 1
+  awayHalfTime: 1
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2019
+  round: 23
+  venue: Color Line Stadion
+  url: https://www.fotmob.com/matches/kfum-vs-aalesund/y5bh7#2948658
+normalized:
+  date: 2019-09-18
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: kfum
+  home.score: 2
+  away.score: 1
+  home.halfTimeScore: 1
+  away.halfTimeScore: 1
+  competition.id: forstedivisjon
+  competition.season: 2019
+  competition.round: 23
+  competition.stage: regular_season
+  venueId: color-line-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

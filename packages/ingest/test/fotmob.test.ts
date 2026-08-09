@@ -9,6 +9,7 @@ import {
   readRound,
   readShootout,
   readStats,
+  readStatsReport,
   splitExtraTime,
 } from "../src/adapters/fotmob.js";
 import type { RawLeagueMatch, RawMatchDetails } from "../src/adapters/fotmob.js";
@@ -75,6 +76,38 @@ describe("FotMob-adapter", () => {
       },
     };
     expect(readStats(sparse)).toBeUndefined();
+  });
+
+  it("rapporterer feltene som ble funnet og ukjente statistikkrader", () => {
+    const detail: RawMatchDetails = {
+      content: { stats: { Periods: { All: { stats: [{
+        title: "Top stats",
+        stats: [
+          { key: "total_shots", title: "Total shots", stats: [9, 7] },
+          { key: "mystery", title: "Dangerous attacks", stats: [4, 2] },
+        ],
+      }] } } } },
+    };
+    expect(readStatsReport(detail)).toEqual({
+      stats: { home: { shots: 9 }, away: { shots: 7 } },
+      foundFields: ["shots"],
+      unknownTitles: ["Dangerous attacks"],
+    });
+  });
+
+  it("skriver ikke statistikk med et urimelig cornertall", () => {
+    const detail: RawMatchDetails = {
+      content: { stats: { Periods: { All: { stats: [{
+        title: "Top stats",
+        stats: [
+          { title: "Corners", stats: [18, 14] },
+          { title: "Total shots", stats: [19, 7] },
+        ],
+      }] } } } },
+    };
+    const report = readStatsReport(detail);
+    expect(report.stats).toBeUndefined();
+    expect(report.rejectedReason).toMatch(/cornertall \(32\)/);
   });
 });
 

@@ -1,4 +1,4 @@
-import type { FetchResult, SourceMatch } from "./types.js";
+import type { FetchResult, SourceMatch, SourceTeamStats } from "./types.js";
 import type { ReconcilePlan } from "./reconcile.js";
 
 export interface PilotReportOptions {
@@ -16,6 +16,27 @@ export function pilotReport(result: FetchResult, plan: ReconcilePlan, options: P
   const withLineups = coverage("lineups");
   const withStats = coverage("stats");
   const withAttendance = coverage("attendance");
+  const statFields: { key: keyof SourceTeamStats; label: string }[] = [
+    { key: "possession", label: "Ballbesittelse" },
+    { key: "shots", label: "Skudd" },
+    { key: "shotsOnTarget", label: "Skudd på mål" },
+    { key: "corners", label: "Cornere" },
+    { key: "fouls", label: "Frispark/fouls" },
+    { key: "offsides", label: "Offside" },
+    { key: "xg", label: "xG" },
+  ];
+  const statCoverage = statFields.map(({ key, label }) => ({
+    label,
+    count: result.matches.filter((match) => match.statsReport?.foundFields.includes(key) ?? false).length,
+  }));
+  const perMatch = result.matches
+    .filter((match) => match.statsReport)
+    .map((match) => {
+      const found = match.statsReport!.foundFields.join(", ") || "ingen";
+      const unknown = match.statsReport!.unknownTitles.join(", ") || "–";
+      return `| ${match.date} | ${match.home.name}–${match.away.name} | ${found} | ${unknown} |`;
+    })
+    .join("\n");
   const field = (count: number) => `${count}/${result.matches.length} (${percent(count, result.matches.length)} %)`;
 
   return `# FotMob-pilot ${options.season}
@@ -43,6 +64,13 @@ bilder, odds, momentum eller skuddkart, og den lager ikke kampreferat.
 | Hendelser | ${field(withEvents)} |
 | Lagoppstillinger | ${field(withLineups)} |
 | Lagstatistikk | ${field(withStats)} |
+${statCoverage.map((entry) => `| ${entry.label} | ${field(entry.count)} |`).join("\n")}
+
+## Statistikk per kamp
+
+| Dato | Kamp | Felt funnet | Ukjente titler |
+|---|---|---|---|
+${perMatch || "| – | Ingen kampdetaljer lest | – | – |"}
 
 ## Planlagt arkivendring
 

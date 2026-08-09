@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "4695691"
+matchId: 2025-06-28-skeid-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:d279460333d70b08e818add5b8ad379a313db4c1fc58043a9a6e2e3be0f47dc7
+raw:
+  externalId: "4695691"
+  date: 2025-06-28
+  kickoff: 16:00
+  status: FT
+  home: Skeid
+  homeId: "8421"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 1
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2025
+  round: 13
+  url: https://www.fotmob.com/matches/aalesund-vs-skeid/2ca26y#4695691
+normalized:
+  date: 2025-06-28
+  kickoff: 16:00
+  status: played
+  home.clubId: skeid
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 1
+  competition.id: forstedivisjon
+  competition.season: 2025
+  competition.round: 13
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

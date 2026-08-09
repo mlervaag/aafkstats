@@ -1,0 +1,63 @@
+providerId: fotmob
+externalId: "2147586"
+matchId: 2016-10-21-viking-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:77ffa4b468667565266ed76cf21d53b098d2d0c480e2b7b1d87d3601820063a8
+raw:
+  externalId: "2147586"
+  date: 2016-10-21
+  kickoff: 19:00
+  status: FT
+  home: Viking
+  homeId: "8478"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 3
+  homeHalfTime: 1
+  awayHalfTime: 1
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2016
+  round: 28
+  venue: Viking Stadion
+  attendance: 7069
+  referee: Kai Erik Steen
+  url: https://www.fotmob.com/matches/aalesund-vs-viking/2cuni1#2147586
+normalized:
+  date: 2016-10-21
+  kickoff: 19:00
+  status: played
+  home.clubId: viking
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 3
+  home.halfTimeScore: 1
+  away.halfTimeScore: 1
+  competition.id: eliteserien
+  competition.season: 2016
+  competition.round: 28
+  competition.stage: regular_season
+  venueId: viking-stadion
+  attendance: 7069
+  referee.name: Kai Erik Steen
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

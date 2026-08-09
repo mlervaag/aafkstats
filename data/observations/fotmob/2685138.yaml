@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2685138"
+matchId: 2018-07-22-aalesunds-fk-sandnes-ulf
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:43a4e4d3f36a1b366ce026f043a6e4d27b3e1a85e421ff35a4fde89b5bc27066
+raw:
+  externalId: "2685138"
+  date: 2018-07-22
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Sandnes Ulf
+  awayId: "8133"
+  homeScore: 4
+  awayScore: 0
+  competition: 1. Divisjon
+  competitionId: "203"
+  season: 2018
+  round: 16
+  url: https://www.fotmob.com/matches/sandnes-ulf-vs-aalesund/29f36h#2685138
+normalized:
+  date: 2018-07-22
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: sandnes-ulf
+  home.score: 4
+  away.score: 0
+  competition.id: forstedivisjon
+  competition.season: 2018
+  competition.round: 16
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

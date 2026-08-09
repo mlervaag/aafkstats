@@ -84,6 +84,9 @@ const searchMatches = defineTool({
     result: z.enum(["S", "U", "T"]).optional().describe("S seier, U uavgjort, T tap"),
     minGoalDifference: z.number().int().optional().describe("Minste målforskjell (negativ ved tap)"),
     maxGoalDifference: z.number().int().optional().describe("Største målforskjell"),
+    minXg: z.number().min(0).optional().describe("Minste xG for AaFK; kamper uten xG utelates"),
+    maxXg: z.number().min(0).optional().describe("Største xG for AaFK; kamper uten xG utelates"),
+    hasStats: z.boolean().optional().describe("Filtrer på om kampen har minst ett statistikkfelt"),
     limit: z.number().int().min(1).max(100).default(20),
   }),
   async run(input, ctx) {
@@ -100,11 +103,18 @@ const searchMatches = defineTool({
     if (input.result) where.push(`result = ${lit(input.result)}`);
     if (input.minGoalDifference !== undefined) where.push(`goal_difference >= ${input.minGoalDifference}`);
     if (input.maxGoalDifference !== undefined) where.push(`goal_difference <= ${input.maxGoalDifference}`);
+    if (input.minXg !== undefined) where.push(`aafk_xg >= ${input.minXg}`);
+    if (input.maxXg !== undefined) where.push(`aafk_xg <= ${input.maxXg}`);
+    if (input.hasStats !== undefined) where.push(`has_stats = ${input.hasStats ? 1 : 0}`);
 
     return query(
       ctx,
       `SELECT match_id, date, season, competition, is_home, opponent,
               aafk_score, opponent_score, goal_difference, result, venue, attendance,
+              has_stats, aafk_possession, opponent_possession,
+              aafk_shots, opponent_shots, aafk_shots_on_target, opponent_shots_on_target,
+              aafk_corners, opponent_corners, aafk_fouls, opponent_fouls,
+              aafk_offsides, opponent_offsides, aafk_xg, opponent_xg,
               confidence, url
        FROM matches
        WHERE ${where.join(" AND ")}
@@ -124,7 +134,18 @@ const getMatch = defineTool({
     const id = lit(input.matchId);
     const match = await query(
       ctx,
-      `SELECT * FROM matches WHERE match_id = ${id}`,
+      `SELECT match_id, date, season, date_confidence, kickoff, status,
+              competition, competition_type, competition_tier, stage, round,
+              is_home, opponent, opponent_club_id, aafk_score, opponent_score,
+              goal_difference, result, after_extra_time, decided_on_penalties,
+              won_on_penalties, venue, neutral_venue, attendance, referee,
+              has_stats, aafk_possession, opponent_possession,
+              aafk_shots, opponent_shots, aafk_shots_on_target, opponent_shots_on_target,
+              aafk_corners, opponent_corners, aafk_fouls, opponent_fouls,
+              aafk_offsides, opponent_offsides, aafk_xg, opponent_xg,
+              report_summary, confidence, has_conflicts, completeness,
+              last_retrieved_at, sources, note, tags, url
+       FROM matches WHERE match_id = ${id}`,
     );
     const events = await query(
       ctx,

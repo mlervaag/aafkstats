@@ -1,0 +1,45 @@
+providerId: fotmob
+externalId: "2147678"
+matchId: 2016-03-11-aalesunds-fk-stabaek
+retrievedAt: 2026-08-09
+adapter: fotmob@2
+payloadHash: sha256:66079069b377b151e7ee1ec221333800fb9b0ab38a07736a47957ff65feeaeac
+raw:
+  externalId: "2147678"
+  date: 2016-03-11
+  kickoff: 19:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Stabæk
+  awayId: "9918"
+  homeScore: 1
+  awayScore: 0
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2016
+  round: 1
+  url: https://www.fotmob.com/matches/aalesund-vs-stabaek/2rxyy1#2147678
+normalized:
+  date: 2016-03-11
+  kickoff: 19:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: stabaek
+  home.score: 1
+  away.score: 0
+  competition.id: eliteserien
+  competition.season: 2016
+  competition.round: 1
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+warnings: []

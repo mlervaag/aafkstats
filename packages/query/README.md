@@ -32,8 +32,8 @@ Legger du til en kolonne i `packages/db/src/schema.sql`, skal den også inn her.
 
 | Verktøy | Til hva |
 |---|---|
-| `search_matches` | Kamper filtrert på sesong, motstander, konkurranse, resultat, hjemme/borte |
-| `get_match` | Alt om én kamp, inkludert hendelser og referat |
+| `search_matches` | Kamper filtrert på sesong, motstander, konkurranse, resultat, hjemme/borte, statistikkdekning og AaFKs xG |
+| `get_match` | Alt om én kamp, inkludert kampstatistikk, hendelser og referat |
 | `get_season_summary` | Plassering, resultatfordeling og målforskjell for én sesong |
 | `head_to_head` | Innbyrdes statistikk mot én motstander gjennom hele historien |
 | `search_reports` | Fritekstsøk i kampreferatene (FTS5) |

@@ -17,7 +17,7 @@ export const AAFK_FOTMOB_ID = "8404";
  * ikke når en kommentar flyttes. Det er dette som gjør at en verdi hentet før en
  * rettelse kan skilles fra en hentet etter.
  */
-export const FOTMOB_ADAPTER = "fotmob@1";
+export const FOTMOB_ADAPTER = "fotmob@2";
 const BASE = "https://www.fotmob.com/api/data";
 
 /**
@@ -81,6 +81,13 @@ export async function fetchFotmobSeason(options: SeasonFetchOptions): Promise<Fe
       try {
         const detail = await request<RawMatchDetails>(`${BASE}/matchDetails?matchId=${normalized.externalId}`);
         enrichFromDetails(normalized, detail);
+        const report = normalized.statsReport;
+        if (report) {
+          const found = report.foundFields.length > 0 ? report.foundFields.join(", ") : "ingen";
+          const unknown = report.unknownTitles.length > 0 ? `; ukjente titler: ${report.unknownTitles.join(", ")}` : "";
+          const rejected = report.rejectedReason ? `; avvist: ${report.rejectedReason}` : "";
+          options.onProgress?.(`statistikk ${normalized.externalId}: ${found} (${report.foundFields.length}/7)${unknown}${rejected}`);
+        }
       } catch (error) {
         failures.push({ scope: "match", externalId: normalized.externalId, message: message(error) });
       }
@@ -226,9 +233,10 @@ export function enrichFromDetails(match: SourceMatch, detail: RawMatchDetails): 
     match.events = events;
     match.fields.push("events");
   }
-  const stats = readStats(detail);
-  if (stats) {
-    match.stats = stats;
+  const statsReport = readStatsReport(detail);
+  match.statsReport = statsReport;
+  if (statsReport.stats) {
+    match.stats = statsReport.stats;
     match.fields.push("stats");
   }
   const lineups = readLineups(detail);
@@ -417,7 +425,14 @@ export function parseMinute(value: unknown, overload: unknown): { minute: number
   return stoppage && stoppage > 0 ? { minute, stoppage } : { minute };
 }
 
-export function readStats(detail: RawMatchDetails): { home?: SourceTeamStats; away?: SourceTeamStats } | undefined {
+export interface StatsReadReport {
+  stats?: { home?: SourceTeamStats; away?: SourceTeamStats };
+  foundFields: (keyof SourceTeamStats)[];
+  unknownTitles: string[];
+  rejectedReason?: string;
+}
+
+export function readStatsReport(detail: RawMatchDetails): StatsReadReport {
   const rows: RawStatItem[] = [];
   const visit = (value: unknown): void => {
     if (Array.isArray(value)) {
@@ -426,7 +441,7 @@ export function readStats(detail: RawMatchDetails): { home?: SourceTeamStats; aw
       const record = value as Record<string, unknown>;
       if (typeof record.title === "string" && Array.isArray(record.stats) && record.stats.length === 2 &&
           record.stats.every((item) => typeof item !== "object")) {
-        rows.push({ title: record.title, stats: record.stats });
+        rows.push({ title: record.title, key: typeof record.key === "string" ? record.key : undefined, stats: record.stats });
       } else {
         for (const child of Object.values(record)) visit(child);
       }
@@ -437,23 +452,45 @@ export function readStats(detail: RawMatchDetails): { home?: SourceTeamStats; aw
   const home: SourceTeamStats = {};
   const away: SourceTeamStats = {};
   let any = false;
-  const pick = (titles: RegExp, key: keyof SourceTeamStats, float = false) => {
-    const row = rows.find((candidate) => titles.test(candidate.title));
+  const foundFields: (keyof SourceTeamStats)[] = [];
+  const pick = (titles: RegExp, keys: RegExp, key: keyof SourceTeamStats, float = false) => {
+    const row = rows.find((candidate) => keys.test(candidate.key ?? "") || titles.test(candidate.title));
     if (!row) return;
     const parse = float ? toFloat : toInt;
     const homeValue = parse(row.stats[0]);
     const awayValue = parse(row.stats[1]);
     if (homeValue !== undefined) { home[key] = homeValue; any = true; }
     if (awayValue !== undefined) { away[key] = awayValue; any = true; }
+    if (homeValue !== undefined || awayValue !== undefined) foundFields.push(key);
   };
-  pick(/^Ball possession$/i, "possession");
-  pick(/^Total shots$/i, "shots");
-  pick(/^Shots on target$/i, "shotsOnTarget");
-  pick(/^Corners$/i, "corners");
-  pick(/^Fouls committed$|^Fouls$/i, "fouls");
-  pick(/^Offsides$/i, "offsides");
-  pick(/^Expected goals/i, "xg", true);
-  return any ? { home, away } : undefined;
+  pick(/^Ball possession$/i, /^BallPossesion$/i, "possession");
+  pick(/^Total shots$/i, /^total_shots$/i, "shots");
+  pick(/^Shots on target$/i, /^ShotsOnTarget$/i, "shotsOnTarget");
+  pick(/^Corners$/i, /^corners$/i, "corners");
+  pick(/^Fouls committed$|^Fouls$/i, /^fouls$/i, "fouls");
+  pick(/^Offsides$/i, /^offsides$/i, "offsides");
+  pick(/^Expected goals/i, /^expected_goals|^xg$/i, "xg", true);
+  const known = (row: RawStatItem) =>
+    /^Ball possession$|^Total shots$|^Shots on target$|^Corners$|^Fouls committed$|^Fouls$|^Offsides$|^Expected goals/i.test(row.title)
+    || /^BallPossesion$|^total_shots$|^ShotsOnTarget$|^corners$|^fouls$|^offsides$|^expected_goals|^xg$/i.test(row.key ?? "");
+  const totalCorners = (home.corners ?? 0) + (away.corners ?? 0);
+  const invalidShots = home.shots !== undefined && home.shotsOnTarget !== undefined && home.shotsOnTarget > home.shots
+    || away.shots !== undefined && away.shotsOnTarget !== undefined && away.shotsOnTarget > away.shots;
+  const rejectedReason = invalidShots
+    ? "FotMob oppgir flere skudd på mål enn totale skudd; statistikken er ikke skrevet"
+    : totalCorners > 30
+      ? `FotMob oppgir et urimelig høyt samlet cornertall (${totalCorners}); statistikken er ikke skrevet`
+      : undefined;
+  return {
+    stats: any && !rejectedReason ? { home, away } : undefined,
+    foundFields,
+    unknownTitles: [...new Set(rows.filter((row) => !known(row)).map((row) => row.title))].sort(),
+    ...(rejectedReason ? { rejectedReason } : {}),
+  };
+}
+
+export function readStats(detail: RawMatchDetails): { home?: SourceTeamStats; away?: SourceTeamStats } | undefined {
+  return readStatsReport(detail).stats;
 }
 
 function readLineups(detail: RawMatchDetails): { home?: SourceLineup; away?: SourceLineup } | undefined {
@@ -565,7 +602,7 @@ interface RawEvent {
   awayScore?: number;
   halfStrShort?: string;
 }
-interface RawStatItem { title: string; stats: unknown[] }
+interface RawStatItem { title: string; key?: string; stats: unknown[] }
 interface RawLineupTeam {
   formation?: string;
   starters?: { name?: string }[];
