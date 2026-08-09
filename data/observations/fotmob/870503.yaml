@@ -1,0 +1,55 @@
+providerId: fotmob
+externalId: "870503"
+matchId: 2010-07-29-aalesunds-fk-motherwell
+retrievedAt: 2026-08-09
+adapter: fotmob@3
+payloadHash: sha256:4f7f34d3cb6c18522d2e5aa0bb7565a172be698202118d32faecde3a2cd7d472
+raw:
+  externalId: "870503"
+  date: 2010-07-29
+  kickoff: 19:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Motherwell
+  awayId: "9927"
+  homeScore: 1
+  awayScore: 1
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: Europa League Qualification
+  competitionId: "10613"
+  season: 2010
+  round: 3
+  venue: Color Line Stadion
+  url: https://www.fotmob.com/matches/aalesund-vs-motherwell/2s1i81#870503
+normalized:
+  date: 2010-07-29
+  kickoff: 19:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: motherwell
+  home.score: 1
+  away.score: 1
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: europa-liga
+  competition.season: 2010
+  competition.round: 3
+  competition.stage: qualifying
+  venueId: color-line-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

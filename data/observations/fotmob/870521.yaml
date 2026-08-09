@@ -1,0 +1,55 @@
+providerId: fotmob
+externalId: "870521"
+matchId: 2010-08-05-motherwell-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@3
+payloadHash: sha256:4fe197a7944f0eab221b1bc78b1b428dbfe1afa896635636e5bfefd2c001e4e1
+raw:
+  externalId: "870521"
+  date: 2010-08-05
+  kickoff: 20:45
+  status: FT
+  home: Motherwell
+  homeId: "9927"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 3
+  awayScore: 0
+  homeHalfTime: 2
+  awayHalfTime: 0
+  competition: Europa League Qualification
+  competitionId: "10613"
+  season: 2010
+  round: 3
+  venue: Fir Park
+  url: https://www.fotmob.com/matches/aalesund-vs-motherwell/2s1i81#870521
+normalized:
+  date: 2010-08-05
+  kickoff: 20:45
+  status: played
+  home.clubId: motherwell
+  away.clubId: aalesunds-fk
+  home.score: 3
+  away.score: 0
+  home.halfTimeScore: 2
+  away.halfTimeScore: 0
+  competition.id: europa-liga
+  competition.season: 2010
+  competition.round: 3
+  competition.stage: qualifying
+  venueId: fir-park
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

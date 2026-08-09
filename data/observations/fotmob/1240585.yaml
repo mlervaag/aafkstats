@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "1240585"
+matchId: 2012-07-19-kf-tirana-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@3
+payloadHash: sha256:fdfa170a23962cf8df8c2852bf58623ee1a79d6c5816afefae62085062a87e5f
+raw:
+  externalId: "1240585"
+  date: 2012-07-19
+  kickoff: 19:00
+  status: FT
+  home: KF Tirana
+  homeId: "10029"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 1
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Europa League Qualification
+  competitionId: "10613"
+  season: 2012
+  round: 2
+  venue: Stadiumi Selman Stërmasi
+  url: https://www.fotmob.com/matches/aalesund-vs-kf-tirana/2t5nth#1240585
+normalized:
+  date: 2012-07-19
+  kickoff: 19:00
+  status: played
+  home.clubId: kf-tirana
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 1
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: europa-liga
+  competition.season: 2012
+  competition.round: 2
+  competition.stage: qualifying
+  venueId: stadiumi-selman-stermasi
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

@@ -18,6 +18,7 @@
     "data:duplicates": "pnpm --filter @aafkstats/schema run duplicates",
     "data:uncertain": "pnpm --filter @aafkstats/schema run uncertain",
     "ingest:fotmob": "pnpm --filter @aafkstats/ingest run fotmob",
+    "ingest:fotmob-gap": "pnpm --filter @aafkstats/ingest run fotmob-gap",
     "ingest:rsssf": "pnpm --filter @aafkstats/ingest run rsssf",
     "ingest:rsssf-standings": "pnpm --filter @aafkstats/ingest run rsssf-standings",
     "ingest:wikipedia-people": "pnpm --filter @aafkstats/ingest run wikipedia-people",

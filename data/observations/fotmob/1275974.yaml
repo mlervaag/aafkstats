@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "1275974"
+matchId: 2012-08-02-apoel-nicosia-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@3
+payloadHash: sha256:c4a2ecfc87daf867a36b408fd86914ba28ec0d8d1fad0fd108f4df957beaf872
+raw:
+  externalId: "1275974"
+  date: 2012-08-02
+  kickoff: 19:00
+  status: FT
+  home: APOEL Nicosia
+  homeId: "8621"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 1
+  homeHalfTime: 1
+  awayHalfTime: 1
+  competition: Europa League Qualification
+  competitionId: "10613"
+  season: 2012
+  round: 3
+  venue: Neo GSP Stadium
+  url: https://www.fotmob.com/matches/aalesund-vs-apoel-nicosia/2eamb2#1275974
+normalized:
+  date: 2012-08-02
+  kickoff: 19:00
+  status: played
+  home.clubId: apoel-nicosia
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 1
+  home.halfTimeScore: 1
+  away.halfTimeScore: 1
+  competition.id: europa-liga
+  competition.season: 2012
+  competition.round: 3
+  competition.stage: qualifying
+  venueId: neo-gsp-stadium
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

@@ -1,0 +1,55 @@
+providerId: fotmob
+externalId: "1064492"
+matchId: 2011-08-04-elfsborg-aalesunds-fk
+retrievedAt: 2026-08-09
+adapter: fotmob@3
+payloadHash: sha256:8a01026e9d3cffdb57563975656cf25fbfb32c68b2c3d1f0aad50abcc42d4d42
+raw:
+  externalId: "1064492"
+  date: 2011-08-04
+  kickoff: 18:00
+  status: FT
+  home: Elfsborg
+  homeId: "8014"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 1
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: Europa League Qualification
+  competitionId: "10613"
+  season: 2011
+  round: 3
+  venue: Borås Arena
+  url: https://www.fotmob.com/matches/elfsborg-vs-aalesund/28925j#1064492
+normalized:
+  date: 2011-08-04
+  kickoff: 18:00
+  status: played
+  home.clubId: elfsborg
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 1
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: europa-liga
+  competition.season: 2011
+  competition.round: 3
+  competition.stage: qualifying
+  venueId: boras-arena
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

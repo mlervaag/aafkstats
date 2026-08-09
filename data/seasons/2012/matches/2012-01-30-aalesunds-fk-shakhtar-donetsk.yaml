@@ -1,0 +1,65 @@
+id: 2012-01-30-aalesunds-fk-shakhtar-donetsk
+date: 2012-01-30
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: treningskamp
+  season: 2012
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: shakhtar-donetsk
+  score: 2
+  halfTimeScore: 1
+penaltyShootout:
+  home: 3
+  away: 5
+neutralVenue: false
+events:
+  - minute: 7
+    type: goal
+    team: away
+    player: Fernandinho
+  - minute: 39
+    type: goal
+    team: home
+    player: Christian Myklebust
+  - minute: 50
+    type: goal
+    team: home
+    player: Daniel Arnefjord
+  - minute: 66
+    type: goal
+    team: away
+    player: Yevhen Seleznyov
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-shakhtar-donetsk/2pvqk2#1161481
+    retrievedAt: 2026-08-09
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - penaltyShootout
+      - events
+    note: "Kildestatus: Pen"
+sources: []
+confidence: probable
+note: FotMob viser Color Line Stadion som standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1161481"
+manual: []

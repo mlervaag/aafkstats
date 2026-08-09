@@ -1,0 +1,64 @@
+id: 2012-02-02-aalesunds-fk-kalmar-ff
+date: 2012-02-02
+dateConfidence: exact
+kickoff: 13:00
+status: played
+competition:
+  id: treningskamp
+  season: 2012
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 1
+away:
+  clubId: kalmar-ff
+  score: 2
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 21
+    type: goal
+    team: away
+  - minute: 40
+    type: goal
+    team: home
+    player: Michael Barrantes
+  - minute: 65
+    type: penalty_goal
+    team: home
+    player: Fredrik Ulvestad
+  - minute: 67
+    type: goal
+    team: away
+    player: Erik Israelsson
+  - minute: 87
+    type: goal
+    team: home
+    player: Jason Morrison
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-kalmar-ff/2rnrls#1162111
+    retrievedAt: 2026-08-09
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+note: FotMob viser Color Line Stadion som standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1162111"
+manual: []

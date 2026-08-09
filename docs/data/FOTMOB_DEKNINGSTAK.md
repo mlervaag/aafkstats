@@ -1,26 +1,27 @@
 # Hva FotMob faktisk kan levere
 
-Kartlagt 3. august 2026 ved å spørre endepunktene direkte. Dette dokumentet svarer på ett
+Kartlagt 3. august og korrigert 9. august 2026 ved å spørre endepunktene direkte. Dette dokumentet svarer på ett
 spørsmål: *hvor går grensen for hva arkivet kan hente fra FotMob?* Svaret avgjør hvilke
 deler av AaFKs historie som må komme fra en annen kilde, og det er verdt å ha skrevet ned
 før noen bruker en dag på å lete etter data som ikke finnes.
 
 ## Kort svar
 
-FotMob er en moderne kilde. Gulvet er **2010**, og 2010 er halvt. Alt før det, og alle
-europakampene, må komme et annet sted fra.
+FotMob er en moderne kilde. Den paginerte klubbhistorikken går tilbake til **4. juli 2010**.
+Den inneholder serie, cup, europakvalifisering og historiske treningskamper i én tidslinje.
+Det gamle ligasesong-endepunktet viste bare deler av dette bildet.
 
 | Kamptype | Periode | Status | Merknad |
 |---|---|---|---|
 | Serie (Eliteserien / 1. divisjon) | 2011–2026 | ✅ hentet | Kampdetaljer er hentet, men statistikkfeltene varierer med sesong |
 | Serie | 2010 | ✅ hentet, delvis | Bare runde 15–30. 16 av 30 kamper, merket i sesongfilen |
 | Norgesmesterskapet | 2011–2025 | ✅ hentet | 51 kamper, inkludert 2021/2022 og 2022/2023 |
-| Treningskamper | inneværende sesong | ✅ hentet | 8 kamper. Kun nåtid — se under |
+| Treningskamper | 2011–2026 | 🟡 delvis hentet | Historikk finnes fra 27. januar 2011; sikre kandidater importeres eksplisitt |
 | Serie og cup | før 2010 | ❌ finnes ikke | Se «Det stille tilbakefallet» |
-| Europacup | alle år | ❌ finnes ikke | Se «Europakampene» |
+| Europacup | 2010–2012 | ✅ hentet | Alle 14 kvalifiseringskampene er importert og kontrollert mot UEFAs kampantall |
 
-Status per 9. august 2026: **555 kamper, 17 sesonger, 2010–2026**, hvorav 523 har
-hendelsesdata. Av alle 1 332 kampene i arkivet har 276 de fire grunnfeltene
+Status per 9. august 2026: **574 kamper, 17 sesonger, 2010–2026**, hvorav 542 har
+hendelsesdata. Av alle 1 351 kampene i arkivet har 276 de fire grunnfeltene
 ballbesittelse, skudd, skudd på mål og cornere. 138 har fouls og offsider, og 105 har xG.
 
 Statistikkdekningen følger ikke kampdekningen. FotMobs kampdetaljer for 2018 og 2019
@@ -55,9 +56,9 @@ faller kilden tilbake til inneværende sesong.
 til kilden som den er, mens kampene arkiveres under det første årstallet — det er den
 utgaven av turneringen de tilhører. NM 2021/2022 og 2022/2023 er hentet.
 
-Treningskampene har samme problem uten samme løsning: turnering 489 svarer alltid med
-inneværende sesong uansett hva man ber om. Derfor kan bare årets treningskamper hentes, og
-eldre må komme fra en annen kilde.
+Treningskampturneringen har samme tilbakefall når den spørres som ligasesong. Løsningen er
+ikke å stole på det svaret, men å bruke klubbens avgrensede, paginerte kamphistorikk.
+Discovery-kommandoen krever fra-/tildato og har sidetak; den importerer aldri automatisk.
 
 ## Europakampene
 
@@ -70,23 +71,29 @@ leagues?id=73&season=2010/2011  →  205 kamper, AaFK 0, runder: 1–6, 1/16…f
 leagues?id=73&season=2012/2013  →  205 kamper, AaFK 0, runder: 1–6, 1/16…final
 ```
 
-Kvalifiseringsrundene finnes ikke som egen turnering i `allLeagues` heller. Konklusjonen er
-at **FotMob ikke kan levere AaFKs europakamper i det hele tatt** — ikke at vi ikke har lett
-godt nok.
+Denne konklusjonen var feil fordi undersøkelsen bare fulgte ligaendepunktet. Klubbhistorikken
+klassifiserer kampene med stabil turnerings-ID **10613** (`Europa League Qualification`) og
+har alle oppgjørene mot Motherwell, Neath Athletic, Ferencváros, Elfsborg, AZ Alkmaar,
+KF Tirana og APOEL.
 
-[Kildekartet](../research/KILDEKART_OG_INNHENTINGSSTRATEGI.md) oppgir 14 AaFK-kamper i
-europacupsammenheng, og peker på UEFA som den offisielle og detaljerte kilden. Det er dit
-neste forsøk bør gå. Antallet er lite nok til at manuell registrering med kildehenvisning
-er fullt forsvarlig.
+[UEFAs klubbhistorikk](https://www.uefa.com/uefaeuropaleague/history/clubs/82819--aalesund/)
+oppgir samme total: 2 kamper i 2010/11, 8 i 2011/12 og 4 i 2012/13. De 14 kampene er nå
+importert med FotMob-ID, URL, hentedato og rå observasjon. UEFA brukes som uavhengig kontroll,
+mens FotMob er feltkilden.
 
 ## Hva som gjenstår å hente herfra
 
-Alt som lot seg hente innenfor taket, er hentet. Det som står igjen er løpende arbeid:
+Discovery-rapporten i [`artifacts/fotmob-gap.md`](../../artifacts/fotmob-gap.md) viser både
+det som finnes, det som mangler og tvetydige treff. Etter denne innhøstingen gjenstår 19
+historiske treningskampkandidater fra 2011–2013. De er bevisst ikke masseimportert før en
+uavhengig kilde har bekreftet dem.
+
+Det løpende arbeidet er:
 
 1. **Inneværende sesong** må hentes på nytt etter hvert som den spilles. Per i dag er 15 av
    30 kamper i 2026 ferdigspilt.
 2. **NM 2026** når cupen kommer i gang.
-3. **Nye treningskamper** gjennom sesongen.
+3. **Nye treningskamper** gjennom sesongen og kontroll av de 19 historiske kandidatene.
 
 Dette er den eneste delen av innhøstingen som bør gjentas jevnlig. Resten er historikk og
 endrer seg ikke.
@@ -99,7 +106,7 @@ Hullet er siden fylt et godt stykke av **RSSSF Norway**, som har rene tekstsider
 til 1902 — se [RSSSF-dekningen](RSSSF_DEKNING.md). FotMob er dermed ikke lenger arkivets
 eneste kilde, og er det den bør være: den moderne, detaljrike kilden fra 2010 og framover.
 
-For de eldste sesongene og for europakampene står rekkefølgen i
+For de eldste sesongene og de gjenstående treningskampene står rekkefølgen i
 [planen](../PLAN_FRA_PILOT_TIL_ARKIV.md) fortsatt ved lag: NIFS/NTB, NFF, klubbens eget
 historiske arkiv og avisarkivene.
 

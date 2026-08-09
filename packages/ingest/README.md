@@ -65,12 +65,22 @@ pnpm ingest:rsssf -- --season 1998 --division First --competition forstedivisjon
 # Én FotMob-sesong, med detaljoppslag på de fem første kampene.
 pnpm ingest:fotmob -- --league 203 --season 2025 --competition forstedivisjon \
   --with-details --details-limit 5 --limit 30
+
+# Kartlegg hele den tilgjengelige AaFK-historikken i et avgrenset vindu.
+# Skriver rapporter, men aldri kampdata uten eksplisitt --write og kamp-ID-er.
+pnpm ingest:fotmob-gap -- --from 1902-01-01 --to 2013-12-31 \
+  --report-json artifacts/fotmob-gap.json --report-md artifacts/fotmob-gap.md
+
+# Importer bare ferdig kontrollerte kamp-ID-er.
+pnpm ingest:fotmob-gap -- --from 2010-01-01 --to 2012-12-31 \
+  --match-ids 870503,870521 --class europe --competition europa-liga \
+  --retrieved-at 2026-08-09 --write
 ```
 
 | Flagg | Gjelder | Betydning |
 |---|---|---|
-| `--write` | rsssf, fotmob | Skriver YAML. Krever `--retrieved-at` |
-| `--retrieved-at ÅÅÅÅ-MM-DD` | rsssf, fotmob | Hentedato i `sources[]`. Påkrevd ved `--write` for reproduserbare differ |
+| `--write` | rsssf, fotmob, fotmob-gap | Skriver YAML. Krever `--retrieved-at` |
+| `--retrieved-at ÅÅÅÅ-MM-DD` | rsssf, fotmob, fotmob-gap | Hentedato i `sources[]`. Påkrevd ved `--write` for reproduserbare differ |
 | `--limit N` | rsssf, fotmob | Tak på antall kamper i kjøringen |
 | `--refresh` | alle | Hopper over cachen |
 | `--skip-existing` | rsssf | Lar kamper en annen kilde eier stå i fred |
@@ -78,6 +88,9 @@ pnpm ingest:fotmob -- --league 203 --season 2025 --competition forstedivisjon \
 | `--details-limit N`, `--details-offset N` | fotmob | Avgrenser detaljoppslagene |
 | `--allow-partial` | fotmob | Godtar en ufullstendig høsting. Kun etter manuell kontroll |
 | `--report FIL` | fotmob, rsssf-discover | Skriver kjøringsrapporten til fil |
+| `--from`, `--to`, `--max-pages` | fotmob-gap | Obligatorisk tidsvindu og hardt sidetak for klubbhistorikken |
+| `--report-json`, `--report-md` | fotmob-gap | Maskinlesbar og menneskelesbar gap-rapport |
+| `--match-ids`, `--class`, `--competition` | fotmob-gap | Eksplisitt, kontrollert import; alle tre kreves ved `--write` |
 
 Alle kjøringer laster og validerer arkivet først. Er det allerede feil i `data/`, stopper
 kommandoen — å høste inn i et ødelagt arkiv gjør bare feilsøkingen vanskeligere.
@@ -87,6 +100,7 @@ kommandoen — å høste inn i et ødelagt arkiv gjør bare feilsøkingen vanske
 | Adapter | Kilde | Periode | Gir |
 |---|---|---|---|
 | `fotmob` | FotMob | 2010→ | Kampfakta, hendelser, lagoppstillinger, statistikk, tilskuertall |
+| `fotmob-gap` | FotMob | 2010→ | Paginert klubbdiscovery, tolerant arkivtreff og eksplisitt gap-import |
 | `rsssf` | RSSSF Norway | ←2009 | Dato, lag, resultat, runde |
 | `rsssf-discover` | RSSSF Norway | 1902→ | Kartlegging: hvilke sider finnes, og hva de inneholder |
 

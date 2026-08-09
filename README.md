@@ -49,9 +49,9 @@ leser fra.
 
 | | |
 |---|---|
-| **1 332 kamper** | Kamper registrert totalt i arkivet |
+| **1 351 kamper** | Kamper registrert totalt i arkivet |
 | **85 år** | 1917–2026, år med minst én registrert kamp. Cupen tilbake til 1917, serien til 1951 |
-| **159 klubber · 84 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
+| **169 klubber · 90 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
 | **139 personer** | Registrerte trenere og spillere med detaljer eller avvikende kildenavn |
 | **8 kilder** | Hver med rettighetsstatus som data, ikke som prosa |
 | **Brukerbidrag** | Innsendte observasjoner og minner hentet fra redaksjonell innboks |
@@ -380,13 +380,14 @@ Kode under [MIT](LICENSE). Egne tekster og arkivets eget redaksjonelle innhold u
 ## Status
 
 Grunnmuren står: datamodell, database, guardrails, portal og datasettdokumentasjon.
-Arkivet dekker 1 332 kamper fra 1917 til i dag. FotMob gir kampdetaljer og hendelser for
+Arkivet dekker 1 351 kamper fra 1917 til i dag. FotMob gir kampdetaljer og hendelser for
 deler av perioden fra 2010, mens kampstatistikk finnes for deler av 2014–2026. Hovedfeltet
 gir direkte kamptreff mens brukeren skriver år og motstander; Enter sender i stedet teksten
 til AI-søket.
 
-Gjenstår blant annet europacupkamper, rettighetsavklart innhøsting, REST-API, MCP-server, et
-automatisk bidragsskjema og agentrutinene. Rekkefølgen står i
+Alle 14 europakvalifiseringskampene er registrert. Gjenstår blant annet kontroll av flere
+historiske treningskamper, rettighetsavklart innhøsting, REST-API, MCP-server, et automatisk
+bidragsskjema og agentrutinene. Rekkefølgen står i
 [planen](docs/PLAN_FRA_PILOT_TIL_ARKIV.md).
 
 <div align="center">

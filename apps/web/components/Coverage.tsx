@@ -222,7 +222,8 @@ export function CoverageSummary({ seasons }: { seasons: SeasonSummary[] }) {
  *
  * Sto som en fast setning: «Cupen er godt dekket helt tilbake til 1917 …
  * Europacupkampene mangler, og treningskamper finnes bare for inneværende
- * sesong.» Hvert ledd var en påstand om et tall, og den blir gal av neste
+ * sesong.» Det var sant da kommentaren ble skrevet, men ikke etter FotMob-gapimporten.
+ * Hvert ledd var en påstand om et tall, og den blir gal av neste
  * innhøsting uten at noen merker det. «Godt dekket» var dessuten ikke
  * etterprøvbart: ingen vet hvor mange cupkamper AaFK har spilt.
  */

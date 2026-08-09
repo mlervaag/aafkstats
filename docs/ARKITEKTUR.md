@@ -77,7 +77,7 @@ teller på kanten, og kostnadstaket ligger hos modelleverandøren. Se
 [`apps/web/lib/rate-limit.ts`](../apps/web/lib/rate-limit.ts) for hvordan det henger sammen,
 og hva reservelaget i minnet faktisk er verdt.
 
-Hele arkivet — 1 332 kamper — bygges lokalt til én liten SQLite-fil. Byggetid og filstørrelse
+Hele arkivet — 1 351 kamper — bygges lokalt til én liten SQLite-fil. Byggetid og filstørrelse
 varierer med maskin og SQLite-versjon og oppgis derfor ikke som faste arkivfakta.
 
 ## Lag for lag

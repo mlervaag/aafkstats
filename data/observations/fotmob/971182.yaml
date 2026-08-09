@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "971182"
+matchId: 2011-01-27-aalesunds-fk-wisla-krakow
+retrievedAt: 2026-08-09
+adapter: fotmob@3
+payloadHash: sha256:76b96df04ddea2d3aae0a576c375450599505730bb2ec8dd30a42edaede3fc29
+raw:
+  externalId: "971182"
+  date: 2011-01-27
+  kickoff: 13:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Wisła Kraków
+  awayId: "10265"
+  homeScore: 2
+  awayScore: 0
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2011
+  url: https://www.fotmob.com/matches/aalesund-vs-wisa-krakow/2vri0v#971182
+normalized:
+  date: 2011-01-27
+  kickoff: 13:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: wisla-krakow
+  home.score: 2
+  away.score: 0
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2011
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []
