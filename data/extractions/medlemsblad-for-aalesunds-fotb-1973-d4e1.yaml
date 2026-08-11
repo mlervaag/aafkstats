@@ -744,7 +744,7 @@ candidates:
       - ola-hodder
     matchIds: []
 resolvedRoles:
-  - id: rolle-0c1e476cf6f5ab94
+  - id: rolle-2cca6620e54ec1c6
     page: "3"
     column: 0
     personName: Reidar Fosse
@@ -753,83 +753,92 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-8ac9fcdaf320fc02
+  - id: rolle-3fabc2f85a989f4d
     page: "8"
     column: 1
     personName: Harald Aarøe
     category: administration
     title: Sekretær
+    body: Banekomitéen
     from: "1973"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-06b90f91e696a94e
+  - id: rolle-4a641cca1a3ebf53
     page: "8"
     column: 1
     personName: Inger Kristorfersen
     category: board
     title: Nestformann
+    body: Banekomitéen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-65841de0fd0772c0
+  - id: rolle-7ae208b88ae4b8d9
     page: "8"
     column: 1
     personName: Jan With
     personId: jan-with
     category: board
     title: Formann
+    body: Banekomitéen
     from: "1973"
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-b54c4e80c1e5a8ae
+  - id: rolle-74687568206410ad
     page: "8"
     column: 1
     personName: Karsten Vadseth
     personId: karsten-vadseth
     category: sporting_staff
     title: Oppmann
+    body: Banekomitéen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-5c97782b2a8ffa38
+  - id: rolle-876f582b27bb42c3
     page: "8"
     column: 1
     personName: Lillian Hansen
     personId: lillian-hansen
     category: board
     title: Formann
+    body: Banekomitéen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-8c95825446bc9459
+  - id: rolle-60a4d8704637a84f
     page: "8"
     column: 1
     personName: Reidar F'osse
     category: sporting_staff
     title: Oppmann
+    body: Banekomitéen
     from: "1973"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-63cfc46cb9388a30
+  - id: rolle-907f3b24b39c8dc7
     page: "8"
     column: 1
     personName: Svein Viddal
     category: board
     title: Nestformann
+    body: Banekomitéen
     from: "1973"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-5b6d4f4fde5c2a6d
+  - id: rolle-6e1963b92457d8d6
     page: "8"
     column: 1
     personName: Terje Dragsund
     category: administration
     title: Kasserer
+    body: Banekomitéen
     from: "1973"
     to: null
     confidence: medium
     rule: role_then_name
+resolvedLineups: []

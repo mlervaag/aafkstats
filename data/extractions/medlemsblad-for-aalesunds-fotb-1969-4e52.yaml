@@ -175,17 +175,18 @@ candidates:
       - knut-gaaseide
     matchIds: []
 resolvedRoles:
-  - id: rolle-6027f80e9aa56b20
+  - id: rolle-880f3cc3e111639e
     page: "2"
     column: 0
     personName: Hans J. Henriksen
     personId: hans-j-henriksen
     category: board
     title: Formann
+    body: Hyttekomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-23454a6c58a2b527
+  - id: rolle-bbeb3dc286ff827e
     page: "3"
     column: 0
     personName: ARE Knut Osnes
@@ -194,3 +195,4 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
+resolvedLineups: []

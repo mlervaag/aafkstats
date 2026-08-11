@@ -564,16 +564,7 @@ candidates:
       - hans-j-henriksen
     matchIds: []
 resolvedRoles:
-  - id: rolle-895aede34d51206f
-    page: "8"
-    column: 0
-    personName: Nedregård. Så
-    category: sporting_staff
-    title: Oppmann
-    to: null
-    confidence: low
-    rule: name_then_role
-  - id: rolle-5e3fe4227881a08b
+  - id: rolle-9f212b13bbd8bda9
     page: "9"
     column: 1
     personName: Arnfinn Gjøsund
@@ -582,7 +573,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-b093516d00b2c55d
+  - id: rolle-043aaee25310f418
     page: "9"
     column: 1
     personName: Herbert Fiksdal. Juniorutvalg
@@ -591,7 +582,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-632b5cfee4ea98fc
+  - id: rolle-5d0ecd4e65f7159f
     page: "9"
     column: 1
     personName: O. M. Ringdal
@@ -600,7 +591,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-7f6a7856718d51f8
+  - id: rolle-953cf2c41c2c8600
     page: "9"
     column: 1
     personName: Ola Hodder
@@ -610,7 +601,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-bf3c58fa02aae8b9
+  - id: rolle-b5a9bcfb9d901678
     page: "9"
     column: 1
     personName: Paul Urke
@@ -620,7 +611,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-caf9c6c61cf69599
+  - id: rolle-990c1aff4f6b4ced
     page: "9"
     column: 1
     personName: Petter Birkevold. B-utvalgsmedlem
@@ -629,7 +620,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-69e8499f7a20329c
+  - id: rolle-289ae2126c222dd1
     page: "9"
     column: 1
     personName: Reidar Fosse
@@ -638,7 +629,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-999168e93068a206
+  - id: rolle-7a3c95cb52044cc5
     page: "11"
     column: 1
     personName: Johan Frøysa
@@ -647,7 +638,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-f1d107226aa27df7
+  - id: rolle-61253b60fc17b5d7
     page: "11"
     column: 1
     personName: Trygve Olsen
@@ -656,7 +647,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-98619e716fe2ebb6
+  - id: rolle-dd3433996f67fdb0
     page: "11"
     column: 1
     personName: Ø. Hågensen
@@ -665,7 +656,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-5fff59298c075870
+  - id: rolle-fd5e9ef45f272132
     page: "14"
     column: 0
     personName: Hans Økonomien
@@ -674,3 +665,4 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups: []

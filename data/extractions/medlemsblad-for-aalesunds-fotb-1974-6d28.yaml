@@ -1421,7 +1421,7 @@ candidates:
       - petter-birkevold
     matchIds: []
 resolvedRoles:
-  - id: rolle-7c604a439e144c49
+  - id: rolle-55afc06a25c9fdf5
     page: "4"
     column: 2
     personName: Jan Jan With
@@ -1430,7 +1430,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-cde512ecad016778
+  - id: rolle-8ddbfba7dba1373c
     page: "9"
     column: 1
     personName: Karsten Moldværsmyr
@@ -1439,7 +1439,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-0d979383241fc804
+  - id: rolle-720bb0f10ec62dda
     page: "9"
     column: 1
     personName: Karsten Moldværsmyr
@@ -1449,7 +1449,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-012a2d9e5315f53f
+  - id: rolle-80d8295ab226ba8c
     page: "16"
     column: 0
     personName: Arnfinn Gjerde
@@ -1458,22 +1458,41 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-1327e73e099df90e
+  - id: rolle-89a7867941aae756
     page: "20"
     column: 0
     personName: Bjørn Olsen
     category: sporting_staff
     title: Oppmann
+    body: Idrettsutvalget
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-28ef1cc6c77f8568
+  - id: rolle-9c93572393d29e1f
     page: "20"
     column: 0
     personName: Petter Birkevold
     personId: petter-birkevold
     category: board
     title: Formann
+    body: Idrettsutvalget
     to: null
     confidence: medium
     rule: role_then_name
+resolvedLineups:
+  - id: oppstilling-05545bc0364bdda8
+    page: "13"
+    column: 0
+    names:
+      - Jarle Kleive
+      - Svein Viddal
+      - Nils Skuggen
+      - Steinar Nedregård
+      - Per Skotte
+      - Harry Hestad
+      - Helge Skuseth
+      - Svein Rødland
+      - Arnulf Klausen
+      - Kjetil Hasund
+    personIds: []
+    confidence: medium

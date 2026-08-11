@@ -505,7 +505,7 @@ candidates:
       - knut-gaaseide
     matchIds: []
 resolvedRoles:
-  - id: rolle-eca49a45abb19be6
+  - id: rolle-e4e2993613cb88b7
     page: "2"
     column: 0
     personName: Jan With
@@ -515,7 +515,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-1dc97b1d0172e65a
+  - id: rolle-0f070febb48d4802
     page: "2"
     column: 0
     personName: Jar- Bøen
@@ -524,7 +524,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a0cda5dd90685b9c
+  - id: rolle-ce283a6eaca5a31e
     page: "2"
     column: 0
     personName: Petter Birkevold
@@ -534,7 +534,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-f9e02c2d824ab26a
+  - id: rolle-995dd69a7ae915b9
     page: "2"
     column: 0
     personName: Petter Birkevold. Varamenn
@@ -543,7 +543,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a053774c905bd7e3
+  - id: rolle-5403acfc4fc1eb78
     page: "2"
     column: 0
     personName: Sigge Ingebrigt-
@@ -552,7 +552,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-14bc9f7b278b1e39
+  - id: rolle-1eebc706bf2e890d
     page: "5"
     column: 0
     personName: Petter Bir-
@@ -561,12 +561,14 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-6f902e08e83f6665
+  - id: rolle-900c8aefaa6a7688
     page: "13"
     column: 1
     personName: Odd Arne Engvik
     category: board
     title: Styremedlem
+    body: Dommerkomiteen
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups: []

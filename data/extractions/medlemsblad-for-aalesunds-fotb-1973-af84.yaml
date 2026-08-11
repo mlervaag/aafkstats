@@ -343,16 +343,17 @@ candidates:
       - ola-hodder
     matchIds: []
 resolvedRoles:
-  - id: rolle-6cab61e8c23c6701
+  - id: rolle-d559a8baf9d44b26
     page: "6"
     column: 0
     personName: Oddvar Aarø
     category: coach
     title: Trener
+    body: Banekomitéen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-3a803f5682228297
+  - id: rolle-ef89cb4c170e4692
     page: "8"
     column: 0
     personName: Arnfinn Gjerde
@@ -361,7 +362,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-be6a2531f70b2454
+  - id: rolle-162e8d61fe3d9f9d
     page: "8"
     column: 0
     personName: Reidar Fosse
@@ -370,3 +371,4 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups: []

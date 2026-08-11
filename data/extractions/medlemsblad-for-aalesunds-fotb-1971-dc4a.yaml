@@ -706,70 +706,77 @@ candidates:
       - ola-hodder
     matchIds: []
 resolvedRoles:
-  - id: rolle-eb6898b3ba920537
+  - id: rolle-be5a7a5af874b56b
     page: "3"
     column: 0
     personName: Gerd Sørgård Lausund
     category: administration
     title: Sekretær
+    body: Hyttekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-bbb898b3a7ccb83b
+  - id: rolle-00f4195ad152201f
     page: "3"
     column: 0
     personName: Irma Ingebrigtsen
     category: board
     title: Formann
+    body: Hyttekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-9673ac2c811318db
+  - id: rolle-2ca440bca9a80226
     page: "3"
     column: 0
     personName: Knut Osnes
     category: coach
     title: Trener
+    body: Hyttekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-1df3cbc70ba959e0
+  - id: rolle-cb3a1fbf04bedf8e
     page: "3"
     column: 0
     personName: Lisse Pettersen
     category: administration
     title: Kasserer
+    body: Hyttekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-30c2836ac14066b7
+  - id: rolle-8597bb49258d4b01
     page: "3"
     column: 0
     personName: Marit Paulfor
     category: administration
     title: Sekretær
+    body: Hyttekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-993d2ce6ca47f215
+  - id: rolle-b3277c79ed0916e1
     page: "3"
     column: 0
     personName: Marit Puck Helland
     category: board
     title: Nestformann
+    body: Hyttekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-77cf3b010472991a
+  - id: rolle-3b9b35ae3747efb0
     page: "3"
     column: 0
     personName: Mary Vegsund
     category: administration
     title: Kasserer
+    body: Hyttekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-6d5432226f734c3c
+  - id: rolle-69aba04f3c446d3a
     page: "7"
     column: 0
     personName: Lisse Pedersen. Harald Lillebø
@@ -778,7 +785,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a5a84ff0cd40aed8
+  - id: rolle-880f1429978101b9
     page: "7"
     column: 0
     personName: Marit Paulsen
@@ -787,7 +794,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-70408992260c47f5
+  - id: rolle-1627f469c6d04194
     page: "7"
     column: 0
     personName: Petter Birkevold
@@ -797,7 +804,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-fb9ee74c9f50caf5
+  - id: rolle-4531b0a031235422
     page: "8"
     column: 1
     personName: Knut Osnes
@@ -806,7 +813,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-983319266e265cb9
+  - id: rolle-212fb4e24a6de9fe
     page: "10"
     column: 1
     personName: Erik Fladmark
@@ -816,7 +823,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-89c9d5b481b08221
+  - id: rolle-25e2336f1e8ee829
     page: "10"
     column: 1
     personName: Inger Kristoffersen
@@ -825,7 +832,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a373e0e2e80b19eb
+  - id: rolle-72ac495e2eb4d5be
     page: "10"
     column: 1
     personName: Jarle Kristoffersen
@@ -836,7 +843,7 @@ resolvedRoles:
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-c8ae732241e4a725
+  - id: rolle-48c72ef69b81e1c0
     page: "10"
     column: 1
     personName: Ola Hodder
@@ -847,7 +854,7 @@ resolvedRoles:
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-615e50d45c567d23
+  - id: rolle-a82052a1f377e59d
     page: "10"
     column: 1
     personName: Terje Dragsund
@@ -857,3 +864,4 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+resolvedLineups: []
