@@ -14,6 +14,9 @@
 .section { padding-top: 1.4rem; border-top: 1px solid var(--border); }
 .section + .section { margin-top: 2rem; }
 .section h2 { margin-top: 0; }
+.dataGap { margin-bottom: 2rem; padding: 1.1rem 1.2rem; background: var(--surface-2); border-left: 3px solid var(--accent); }
+.dataGap h2 { margin: 0 0 0.4rem; font-size: 1.05rem; }
+.dataGap p { margin: 0; max-width: 62ch; color: var(--muted); }
 .timeline { margin: 0; padding: 0; list-style: none; }
 .timeline > li { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
 .timeline time { color: var(--accent); font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700; }

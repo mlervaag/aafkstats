@@ -128,7 +128,7 @@ export default function Home() {
           notisen lå som en boks inni en tekst som allerede sa det samme. */}
       <section className="scope-note">
         <div>
-          <p className="eyebrow">Offentlig beta</p>
+          <p className="eyebrow">Arkivstatus</p>
           <h2>God bredde, ulik detaljgrad</h2>
         </div>
         <div className="prose">

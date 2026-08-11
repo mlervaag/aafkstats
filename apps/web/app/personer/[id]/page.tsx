@@ -95,6 +95,12 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
   const contributions = loadContributions(id, "person");
   const initials = person.name.split(/\s+/).slice(0, 2).map((part) => part[0]).join("");
   const played = person.appearances > 0;
+  const missingMatchLinks = person.position !== null && !played;
+  const squadSpan = seasons.length > 0
+    ? ` i stallister fra ${seasons.at(-1)!.season} til ${seasons[0]!.season}`
+    : "";
+  const noLinkedContent = roles.length === 0 && seasons.length === 0 &&
+    person.mentions.length === 0 && person.conflicts.length === 0;
 
   return (
     <article>
@@ -134,6 +140,26 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
 
       <div className={styles.detailGrid}>
         <div>
+          {missingMatchLinks ? (
+            <section className={styles.dataGap}>
+              <h2>Kampkoblinger mangler</h2>
+              <p>
+                Arkivet har registrert {person.name} som spiller{squadSpan}, men har
+                foreløpig ikke koblet kamptropper og lagoppstillinger til denne
+                personoppføringen. Derfor vises ikke kampantall eller starter ennå.
+              </p>
+            </section>
+          ) : noLinkedContent ? (
+            <section className={styles.dataGap}>
+              <h2>Ingen koblede oppføringer ennå</h2>
+              <p>
+                Personen er registrert i arkivet, men ingen kamper, roller eller historiske
+                publikasjoner er koblet til oppføringen ennå. Det er et dokumentert hull i
+                arkivet, ikke en påstand om personens tilknytning til klubben.
+              </p>
+            </section>
+          ) : null}
+
           {person.conflicts.length > 0 ? (
             <Conflicts conflicts={person.conflicts} titles={sourceTitles} personName={person.name} />
           ) : null}
@@ -170,13 +196,16 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
         </div>
 
         <aside className={styles.asideCard}>
-          <h2>Registrert i arkivet</h2>
+          <h2>Dette vet arkivet</h2>
           <dl>
             {played ? (
               <>
                 <div><dt>Kamptropper</dt><dd>{person.appearances}</dd></div>
                 <div><dt>Starter</dt><dd>{person.starts}</dd></div>
               </>
+            ) : null}
+            {seasons.length > 0 ? (
+              <div><dt>Stallister</dt><dd>{seasons.length} {seasons.length === 1 ? "sesong" : "sesonger"}</dd></div>
             ) : null}
             {person.role_count > 0 ? <div><dt>Kildeførte roller</dt><dd>{person.role_count}</dd></div> : null}
             {person.mentions.length > 0 ? (

@@ -44,7 +44,7 @@ const checks: Check[] = [
   },
   {
     page: "om",
-    must: ["Offentlig beta", "terminlista", "akseptert risiko"],
+    must: ["Aktivt, åpent supporterarkiv", "terminlista", "akseptert risiko"],
     mustNot: ["MVP"],
   },
   {
@@ -63,7 +63,7 @@ const checks: Check[] = [
   },
   {
     page: "personer/jan-jonsson",
-    must: ["Jan Jönsson", "Registrert i arkivet", "Roller og verv"],
+    must: ["Jan Jönsson", "Dette vet arkivet", "Roller og verv"],
   },
   {
     page: "hjemmebaner",

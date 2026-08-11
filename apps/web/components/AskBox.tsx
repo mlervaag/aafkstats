@@ -1,7 +1,8 @@
 "use client";
 
-import { useDeferredValue, useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { stripProseDashes } from "@aafkstats/query/style";
+import { DirectResults, firstDirectUrl, useDirectSearch } from "@/components/DirectSearch";
 import { ThinkingLine } from "@/components/ThinkingLine";
 import {
   historyFromTurns,
@@ -11,39 +12,12 @@ import {
 } from "@/lib/chat-followup";
 import { trackEvent } from "@/lib/analytics";
 import { absolutizeAnswerLinks, shareableAnswerText } from "@/lib/chat-answer";
-import { formatDateShort } from "@/lib/date";
-import { readableScore } from "@/lib/score";
 
 interface ExecutedQuery {
   sql: string;
   durationMs: number;
   rowCount: number;
   error?: string;
-}
-
-interface SearchMatch {
-  matchId: string;
-  date: string;
-  kickoff: string | null;
-  competition: string;
-  status: string;
-  isHome: boolean;
-  opponent: string;
-  aafkScore: number | null;
-  opponentScore: number | null;
-  result: "S" | "U" | "T" | null;
-  afterExtraTime: boolean;
-  decidedOnPenalties: boolean;
-  wonOnPenalties: boolean | null;
-  url: string;
-}
-
-interface SearchPerson {
-  personId: string;
-  name: string;
-  description: string;
-  period: string | null;
-  url: string;
 }
 
 const SUGGESTIONS = [
@@ -56,7 +30,7 @@ const SUGGESTIONS = [
 type AskSource = "form" | "suggestion" | "followup";
 
 /**
- * Direkte person- og kampsøk, og en avgrenset arkivsamtale.
+ * Direkte person-, kilde- og kampsøk, og en avgrenset arkivsamtale.
  *
  * Hovedfeltet starter en samtale. Etter første svar eier resultatflaten
  * interaksjonen: brukeren kan ta én strukturert oppfølging eller starte på nytt.
@@ -64,10 +38,6 @@ type AskSource = "form" | "suggestion" | "followup";
  */
 export function AskBox() {
   const [question, setQuestion] = useState("");
-  const deferredQuestion = useDeferredValue(question);
-  const [matches, setMatches] = useState<SearchMatch[]>([]);
-  const [people, setPeople] = useState<SearchPerson[]>([]);
-  const [searchState, setSearchState] = useState<"idle" | "loading" | "done">("idle");
   const [turns, setTurns] = useState<ConversationTurn[]>([]);
   const [activeTool, setActiveTool] = useState<string | null>(null);
   const [copiedTurnId, setCopiedTurnId] = useState<string | null>(null);
@@ -77,48 +47,11 @@ export function AskBox() {
 
   const hasConversation = turns.length > 0;
   const isLoading = turns.some((turn) => turn.state === "loading");
-
-  useEffect(() => {
-    if (hasConversation) {
-      setMatches([]);
-      setPeople([]);
-      setSearchState("idle");
-      return;
-    }
-
-    const query = deferredQuestion.trim();
-    if (query.length < 2) {
-      setMatches([]);
-      setPeople([]);
-      setSearchState("idle");
-      return;
-    }
-
-    const controller = new AbortController();
-    const timer = setTimeout(async () => {
-      setSearchState("loading");
-      try {
-        const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`, {
-          signal: controller.signal,
-        });
-        if (!response.ok) throw new Error("Søket feilet");
-        const data = (await response.json()) as { matches?: SearchMatch[]; people?: SearchPerson[] };
-        setMatches(data.matches ?? []);
-        setPeople(data.people ?? []);
-        setSearchState("done");
-      } catch (fetchError) {
-        if (fetchError instanceof Error && fetchError.name === "AbortError") return;
-        setMatches([]);
-        setPeople([]);
-        setSearchState("done");
-      }
-    }, 180);
-
-    return () => {
-      clearTimeout(timer);
-      controller.abort();
-    };
-  }, [deferredQuestion, hasConversation]);
+  const {
+    data: directResults,
+    state: searchState,
+    show: showSearch,
+  } = useDirectSearch(question, hasConversation);
 
   function updateTurn(id: string, change: (turn: ConversationTurn) => ConversationTurn) {
     setTurns((current) => current.map((turn) => turn.id === id ? change(turn) : turn));
@@ -295,21 +228,20 @@ export function AskBox() {
     }
   }
 
-  const showSearch = !hasConversation && deferredQuestion.trim().length >= 2;
-
   return (
     <section className="ask" aria-labelledby="sporre">
       <p className="eyebrow">Smart arkivsøk</p>
       <h2 id="sporre">Hva leter du etter?</h2>
       <p className="prose muted">
         Skriv <strong>Haller</strong>, <strong>formann 1961</strong> eller <strong>2013 Tromsø</strong> for
-        direkte treff på personer og kamper. Trykk Enter for å la en språkmodell søke i
-        arkivet og gi et utfyllende svar.
+        direkte treff på personer, kilder og kamper. Trykk Enter for å åpne det første
+        treffet, eller velg «Spør arkivet» for et svar fra språkmodellen.
       </p>
 
       <form className="ask-form" onSubmit={(event) => {
         event.preventDefault();
-        void ask(question, "form");
+        const url = firstDirectUrl(directResults);
+        if (url) window.location.assign(url);
       }}>
         <input
           ref={inputRef}
@@ -317,43 +249,39 @@ export function AskBox() {
           type="search"
           value={question}
           maxLength={1000}
-          placeholder="Søk eller spør arkivet …"
-          aria-label="Søk i eller spør arkivet"
+          placeholder="Søk i arkivet …"
+          aria-label="Søk i arkivet"
           aria-controls="direkte-treff"
           autoComplete="off"
           enterKeyHint="search"
           disabled={hasConversation}
           onChange={(event) => setQuestion(event.target.value)}
-          onKeyDown={(event) => { if (event.key === "Escape") reset(); }}
+          onKeyDown={(event) => {
+            if (event.key === "Escape") reset();
+            if (event.key === "Enter" && !event.nativeEvent.isComposing) {
+              event.preventDefault();
+              const url = firstDirectUrl(directResults);
+              if (url) window.location.assign(url);
+            }
+          }}
         />
-        <button className="ask-button" type="submit" disabled={isLoading || hasConversation}>
+        <button
+          className="ask-button"
+          type="button"
+          disabled={isLoading || hasConversation || question.trim() === ""}
+          onClick={() => void ask(question, "form")}
+        >
           {isLoading ? "Svarer …" : "Spør arkivet"}
         </button>
       </form>
 
       {showSearch && (
-        <div id="direkte-treff" className="live-results" aria-live="polite">
-          <div className="live-results-heading">
-            <strong>Direkte treff</strong>
-            <span className="small muted">
-              {searchState === "loading"
-                ? "Søker …"
-                : `${people.length} ${people.length === 1 ? "person" : "personer"} · ${matches.length} ${matches.length === 1 ? "kamp" : "kamper"}`}
-            </span>
-          </div>
-          {searchState === "done" && matches.length === 0 && people.length === 0 ? (
-            <p className="small muted live-empty">Ingen direkte treff. Trykk Enter for å spørre arkivet.</p>
-          ) : (
-            <ul className="match-results">
-              {people.map((person, index) => (
-                <PersonSearchResult key={person.personId} person={person} position={index + 1} />
-              ))}
-              {matches.map((match, index) => (
-                <SearchResult key={match.matchId} match={match} position={index + 1} />
-              ))}
-            </ul>
-          )}
-        </div>
+        <DirectResults
+          id="direkte-treff"
+          data={directResults}
+          state={searchState}
+          emptyText="Ingen direkte treff. Du kan justere søket eller spørre arkivet."
+        />
       )}
 
       {!hasConversation && (
@@ -455,62 +383,6 @@ export function AskBox() {
         })}
       </div>
     </section>
-  );
-}
-
-function PersonSearchResult({ person, position }: { person: SearchPerson; position: number }) {
-  return (
-    <li>
-      <a
-        className="person-result-link"
-        href={person.url}
-        onClick={() => trackEvent("person-opened", { position })}
-      >
-        <span className="result-kind">Person</span>
-        <strong>{person.name}</strong>
-        <span className="small muted">{person.description}</span>
-        {person.period ? <span className="num muted">{person.period}</span> : null}
-      </a>
-    </li>
-  );
-}
-
-/**
- * Én treffrad.
- *
- * Leser resultatet med den samme funksjonen som kamplistene ellers på nettstedet.
- * Den hadde sin egen versjon før, og den skrev bindestrek der resten av arkivet
- * skriver tankestrek, viste «-» både for en kamp uten kjent resultat og en kamp
- * som ikke er spilt, og lot en cupkamp avgjort på straffer se uavgjort ut.
- */
-function SearchResult({ match, position }: { match: SearchMatch; position: number }) {
-  const { score, qualifier, label } = readableScore(match);
-  const upcoming = match.status === "scheduled";
-  return (
-    <li>
-      <a
-        className="match-result-link"
-        href={match.url}
-        onClick={() => trackEvent("match-opened", { position })}
-      >
-        <span className="num muted">{formatDateShort(match.date)}</span>
-        <span className="result-opponent">
-          {match.result
-            ? <span className={`result-badge result-${match.result}`}>{match.result}</span>
-            : upcoming
-              ? <span className="result-badge result-upcoming" aria-hidden="true">·</span>
-              : null}
-          {match.isHome ? "AaFK – " : ""}{match.opponent}{match.isHome ? "" : " – AaFK"}
-        </span>
-        <strong className="score" title={label}>
-          {score}
-          {qualifier && <span className="score-qualifier"> {qualifier}</span>}
-        </strong>
-        <span className="small muted">
-          {upcoming ? "Ikke spilt · " : ""}{match.competition}
-        </span>
-      </a>
-    </li>
   );
 }
 
