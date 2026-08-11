@@ -36,11 +36,17 @@ describe("person- og organisasjonsarkivet", () => {
     expect(people.some((person) => person.role_categories.includes("board"))).toBe(true);
   });
 
-  it("viser at Georg Haller var både formann og æresmedlem", () => {
+  it("viser Georg Hallers stifter-, spiller-, anleggs-, formanns- og hedersroller", () => {
     const person = getPersonById("georg-haller");
     const roles = getPersonRoles("georg-haller");
-    expect(person?.role_count).toBe(2);
-    expect(roles.map((role) => role.title)).toEqual(["Formann", "Æresmedlem"]);
+    expect(person?.role_count).toBeGreaterThanOrEqual(5);
+    expect(roles.map((role) => role.title)).toEqual(expect.arrayContaining([
+      "Stifter og første formann",
+      "Formann i banekomiteen",
+      "Spiller",
+      "Formann",
+      "Æresmedlem",
+    ]));
     expect(roles.every((role) => role.sources.length > 0)).toBe(true);
   });
 

@@ -1,0 +1,5 @@
+id: ole-jangaard
+name: Ole Jangaard
+roles:
+  - { id: spiller-1915, category: player, title: Spiller, body: A-laget, from: "1915", to: "1915", sources: [{ sourceId: aafk-historie-pa-egen-grunn, fields: [title, from, to] }] }
+  - { id: gullmerkeinnehaver-1924, category: honorary, title: Gullmerkeinnehaver, from: "1924", to: null, sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }] }

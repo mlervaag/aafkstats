@@ -1,0 +1,16 @@
+id: arne-aambakk
+name: Arne Aambakk
+roles:
+  - id: formann-1999-2006
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1999"
+    to: "2006"
+    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]
+  - id: gullmerkeinnehaver-2005
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "2005"
+    to: null
+    sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }]

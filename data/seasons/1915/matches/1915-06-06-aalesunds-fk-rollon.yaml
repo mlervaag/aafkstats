@@ -1,0 +1,16 @@
+id: 1915-06-06-aalesunds-fk-rollon
+date: 1915-06-06
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1915
+  stage: friendly
+home: { clubId: aalesunds-fk, score: 2, halfTimeScore: null }
+away: { clubId: rollon, score: 2, halfTimeScore: null }
+venueId: norvebana
+sources:
+  - sourceId: aafk-historie-norvebana
+    fields: [date, home.clubId, away.clubId, home.score, away.score, venueId]
+confidence: confirmed
+note: Kilden omtaler kampen som den neste kampen på Nørvebana etter åpningsoppgjøret mot Lyn.

@@ -1,0 +1,10 @@
+id: torill-hole-standal
+name: Torill Hole Standal
+roles:
+  - id: formann-2007-2011
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "2007"
+    to: "2011"
+    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]

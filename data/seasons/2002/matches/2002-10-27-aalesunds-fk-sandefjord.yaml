@@ -16,6 +16,7 @@ away:
   score: 1
   halfTimeScore: null
 neutralVenue: false
+venueId: kramyra-stadion
 events: []
 externalReports: []
 providers:
@@ -32,6 +33,8 @@ providers:
       - away.score
       - competition.round
 sources:
+  - sourceId: aafk-historie-kramyra-stadion
+    fields: [venueId, home.score, away.score]
   - sourceId: opp-fra-myra-fotballtriumfen-i-2002-6192
     page: "95"
     fields:

@@ -1,0 +1,30 @@
+id: harald-johansen
+name: Harald Johansen
+names: ['Harald "Bror" Johansen']
+roles:
+  - id: formann-1980
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1980"
+    to: "1980"
+    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]
+  - id: formann-1993-1996
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1993"
+    to: "1996"
+    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]
+  - id: gullmerkeinnehaver-1996
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1996"
+    to: null
+    sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }]
+  - id: aeresmedlem-2008
+    category: honorary
+    title: Æresmedlem
+    from: "2008"
+    to: null
+    sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }]

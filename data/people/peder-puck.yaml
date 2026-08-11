@@ -1,6 +1,7 @@
 id: peder-puck
 name: Peder Puck
 roles:
+  - { id: varaformann-1946, category: board, title: Varaformann, body: Hovedstyret, from: "1946", to: "1946", sources: [{ sourceId: aafk-historie-kramyra-stadion, fields: [title, from, to] }] }
   - id: formann-1938-1939
     category: board
     title: Formann
@@ -21,5 +22,8 @@ roles:
       - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
         page: "5"
         fields: [title, from, to]
-    note: Kilden beskriver perioden 1938–1945 samlet; 1938–1939 er også bekreftet av 25-årsskriftets årsliste.
-
+      - sourceId: aafk-historie-ledere
+        fields: [title]
+    note: Kildene fra 1939 og 1950 beskriver perioden 1938–1945; AaFKs nyere nettliste skriver 1938–1941 og 1945–1946. Periodene er ikke slått sammen, fordi nettlisten samtidig fører Sigurd Nørve fra 1946.
+  - { id: gullmerkeinnehaver-1948, category: honorary, title: Gullmerkeinnehaver, from: "1948", to: null, sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }] }
+  - { id: aeresmedlem-1957, category: honorary, title: Æresmedlem, from: "1957", to: null, sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }] }

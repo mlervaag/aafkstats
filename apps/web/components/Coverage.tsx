@@ -108,7 +108,7 @@ function coverageWord(season: SeasonSummary): string {
 /**
  * Merkelappen som sier hvor mye av en sesong arkivet faktisk har.
  *
- * «85 sesonger» har hele tiden betydd 85 år med minst én registrert kamp. For en
+ * «87 sesonger» betyr her 87 år med minst én registrert kamp. For en
  * leser er det ikke til å skille fra 85 komplette sesonger, og forskjellen er
  * stor: 2011 er en hel serie, mens 1951 er tre løsrevne kamper.
  *

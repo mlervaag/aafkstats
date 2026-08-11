@@ -1,0 +1,10 @@
+id: ola-hodder
+name: Ola Hodder
+roles:
+  - id: formann-1970-1971
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1970"
+    to: "1971"
+    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]

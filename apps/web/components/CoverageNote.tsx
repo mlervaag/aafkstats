@@ -156,7 +156,7 @@ export function PromptCoverage() {
 /**
  * Forskjellen på et representert år og en komplett sesong.
  *
- * «85 sesonger» har hele tiden betydd 85 år med minst én registrert kamp, og en
+ * «87 sesonger» betyr her 87 år med minst én registrert kamp, og en
  * leser som ser tallet på forsiden har ingen grunn til å lese det slik. Setningen
  * her sier begge tallene ved siden av hverandre, regnet ut av arkivet selv.
  */

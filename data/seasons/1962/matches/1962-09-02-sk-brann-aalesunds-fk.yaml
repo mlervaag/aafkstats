@@ -19,6 +19,7 @@ extraTime:
   home: 0
   away: 0
 neutralVenue: false
+venueId: brann-stadion
 events: []
 externalReports: []
 providers:
@@ -35,6 +36,10 @@ providers:
       - away.score
       - competition.round
       - extraTime
+sources:
+  - sourceId: aafk-historie-aksla-stadion
+    fields: [venueId, extraTime]
+    note: Artikkelen identifiserer 0–0-kampen etter ekstraomganger som bortekampen på Brann Stadion.
 confidence: probable
 conflicts: []
 tags: []

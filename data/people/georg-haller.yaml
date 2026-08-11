@@ -1,6 +1,15 @@
 id: georg-haller
 name: Georg Haller
 roles:
+  - id: stifter-1914
+    category: founder
+    title: Stifter og første formann
+    body: Konstituerende generalforsamling
+    from: "1914-06-25"
+    to: "1914-06-25"
+    sources: [{ sourceId: aafk-historie-stiftelsen, fields: [title, from, to] }]
+  - { id: banekomiteformann-1914-1915, category: project, title: Formann i banekomiteen, body: Nørvebana, from: "1914", to: "1915", sources: [{ sourceId: aafk-historie-norvebana, fields: [title, from, to] }] }
+  - { id: spiller-1915, category: player, title: Spiller, body: A-laget, from: "1915", to: "1915", sources: [{ sourceId: aafk-historie-pa-egen-grunn, fields: [title, from, to] }] }
   - id: formann-1914-1915
     category: board
     title: Formann
@@ -23,5 +32,6 @@ roles:
       - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
         page: "19"
         fields: [title, from]
+      - sourceId: aafk-historie-utmerkelser
+        fields: [title]
     note: Kildene omtaler ham som klubbens første æresmedlem.
-

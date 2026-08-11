@@ -3,6 +3,84 @@ name: Kråmyra stadion
 city: Ålesund
 country: NO
 capacity: 10500
-opened: 1948
+opened: 1955
 closed: 2005
+surface: grass
+surfaceHistory:
+  - surface: grass
+    from: "1955"
+    to: "2004-10-24"
+    sources: [{ sourceId: aafk-historie-kramyra-stadion, fields: [surface, from, to] }]
+homePeriods:
+  - clubId: aalesunds-fk
+    from: 1977
+    to: 2004
+    sources:
+      - sourceId: aafk-historie-hjemmebaner
+        fields: [from, to]
+      - sourceId: aafk-historie-kramyra-stadion
+        fields: [from, to]
+attendanceRecords:
+  - attendance: 11000
+    approximate: true
+    opponent: Molde
+    year: 2003
+    sources:
+      - sourceId: aafk-historie-hjemmebaner
+        fields: [attendance, approximate, opponent, year]
+      - sourceId: aafk-historie-kramyra-stadion
+        fields: [attendance, approximate, opponent, year]
+events:
+  - id: anleggsarbeid-1946
+    date: "1946"
+    kind: construction_start
+    title: Arbeidet med å anlegge Kråmyra startet
+    sources: [{ sourceId: aafk-historie-kramyra-stadion }]
+  - id: forste-mineskudd-1950
+    date: 1950-06-01
+    kind: construction_start
+    title: Første mineskudd i anleggsarbeidet
+    sources: [{ sourceId: aafk-historie-kramyra-stadion }]
+  - id: treningsbane-1955
+    date: "1955"
+    kind: opening
+    title: Kråmyra tatt i bruk som treningsbane
+    sources: [{ sourceId: aafk-historie-kramyra-stadion }]
+  - id: gjenapning-og-klubbhus-1961
+    date: "1961"
+    kind: clubhouse
+    title: Treningsbanen gjenåpnet og klubbhuset sto ferdig
+    sources: [{ sourceId: aafk-historie-kramyra-stadion }]
+  - id: utvidet-bane-1975
+    date: "1975"
+    kind: renovation
+    title: Utvidet bane tatt i bruk til trening
+    sources: [{ sourceId: aafk-historie-kramyra-stadion }]
+  - id: hjemmebaneapning-1977
+    date: "1977"
+    kind: opening
+    title: Første hjemmekamp mot Kristiansund FK
+    sources: [{ sourceId: aafk-historie-kramyra-stadion }]
+  - id: klubbhusbrann-1977
+    date: 1977-04
+    kind: clubhouse
+    title: Klubbhuset brant ned
+    sources: [{ sourceId: aafk-historie-kramyra-stadion }]
+  - id: treningsbane-1980
+    date: "1980"
+    kind: opening
+    title: Treningsbane med flomlys åpnet vest for klubbhuset
+    sources: [{ sourceId: aafk-historie-kramyra-stadion }]
+  - id: siste-kamp-2004
+    date: 2004-10-24
+    kind: match
+    title: Siste kamp på Kråmyra mot Kongsvinger
+    attendance: 4789
+    score: { homeTeam: AaFK, awayTeam: Kongsvinger, home: 3, away: 1 }
+    sources: [{ sourceId: aafk-historie-kramyra-stadion }]
+sources:
+  - sourceId: aafk-historie-hjemmebaner
+    fields: [surface]
+  - sourceId: aafk-historie-kramyra-stadion
+    fields: [opened, closed, surface]
 note: AaFKs hjemmebane fram til Color Line Stadion sto ferdig i 2005.

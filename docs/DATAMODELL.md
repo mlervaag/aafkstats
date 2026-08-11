@@ -355,14 +355,19 @@ names:
 country: NO
 city: Ålesund
 founded: 1914
+foundedDate: 1914-06-25
 aliases:
   fotmob: 8404
   wikidata: Q214992
   rsssf: aalesunds
+sources:
+  - sourceId: aafk-historie-stiftelsen
+    fields: [founded, foundedDate]
 ```
 
 `country` er tobokstavs landkode, standard `NO`. `founded` kan gå tilbake til 1800 — flere
-motstandere er eldre enn AaFK.
+motstandere er eldre enn AaFK. `foundedDate` brukes når hele datoen er kjent. Klubbfakta kan
+ha `sources`, slik at stiftelsesdatoen ikke bare står som en løs verdi.
 
 ## Stadion
 
@@ -376,10 +381,43 @@ names:
 city: Ålesund
 capacity: 10778
 opened: 2005
+openedDate: 2005-04-16
+surface: artificial_turf
+surfaceHistory:
+  - surface: artificial_turf
+    from: "2005"
+    to: null
+    sources: [{ sourceId: aafk-historie-color-line-stadion, fields: [surface, from] }]
+homePeriods:
+  - clubId: aalesunds-fk
+    from: 2005
+    to: null
+    sources: [{ sourceId: aafk-historie-hjemmebaner, fields: [from, to] }]
+attendanceRecords:
+  - attendance: 10903
+    opponent: HamKam
+    year: 2005
+    sources: [{ sourceId: aafk-historie-hjemmebaner, fields: [attendance, opponent, year] }]
+events:
+  - id: apningskamp-2005
+    date: 2005-04-16
+    kind: opening
+    title: Åpningskamp mot Odd
+    attendance: 10615
+    score: { homeTeam: AaFK, awayTeam: Odd, home: 2, away: 1 }
+    sources: [{ sourceId: aafk-historie-color-line-stadion }]
 ```
 
+`surface` er et kort sammendragsfelt: `gravel`, `grass` eller `artificial_turf`.
+`surfaceHistory` brukes når dekket har endret seg og bevarer periode og kilde. `homePeriods` beskriver når en klubb
+brukte banen som hjemmebane; det er noe annet enn stadionets åpnings- og stengningsår.
+`attendanceRecords` bevarer motstander, eventuelt år og kontekst. Sett `approximate: true`
+når kilden bruker «ca.». Alle perioder og rekorder må ha minst én historisk kilde.
+`events` er tidfestede milepæler med en kort faktatittel. Åpnings- og andre kamper kan
+beholde resultat, tilskuertall og navngitte deltakere også når kampen ikke passer i den
+vanlige kampmodellen, for eksempel et sammensatt Aalesund/Rollon-lag.
 `closed` settes bare når banen faktisk er lagt ned. Valgfrie felt utelates — de skal ikke
-skrives som `null`.
+skrives som `null`, med unntak av åpen slutt i `homePeriods.to`.
 
 ## Konkurranse
 
@@ -511,7 +549,7 @@ coachSpells:                      # bare for år kampdataene ikke rekker
   - { fromSeason: 2001, toSeason: 2005 }
 roles:                            # verv og tilknytninger som kilden uttrykkelig oppgir
   - id: formann-1914-1915
-    category: board               # player | coach | sporting_staff | board | administration | honorary
+    category: board               # player | coach | sporting_staff | board | administration | honorary | founder | project
     title: Formann
     body: Hovedstyret
     from: "1914"                  # år eller eksakt dato

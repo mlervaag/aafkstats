@@ -11,7 +11,11 @@ names:
 country: NO
 city: Ålesund
 founded: 1914
+foundedDate: 1914-06-25
 aliases:
   fotmob: 8404
   wikidata: Q214992
   rsssf: aalesunds
+sources:
+  - sourceId: aafk-historie-stiftelsen
+    fields: [founded, foundedDate]

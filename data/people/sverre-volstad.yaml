@@ -21,4 +21,4 @@ roles:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "26"
         fields: [title, from, to]
-
+  - { id: gullmerkeinnehaver-1934, category: honorary, title: Gullmerkeinnehaver, from: "1934", to: null, sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }] }

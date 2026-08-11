@@ -16,6 +16,8 @@ away:
   score: 2
   halfTimeScore: null
 neutralVenue: false
+venueId: aksla-stadion
+attendance: 11000
 events: []
 externalReports: []
 providers:
@@ -31,6 +33,9 @@ providers:
       - home.score
       - away.score
       - competition.round
+sources:
+  - sourceId: aafk-historie-aksla-stadion
+    fields: [venueId, attendance, home.score, away.score]
 confidence: probable
 conflicts: []
 tags: []

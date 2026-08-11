@@ -16,6 +16,8 @@ away:
   score: 1
   halfTimeScore: null
 neutralVenue: false
+venueId: color-line-stadion
+attendance: 10903
 events: []
 externalReports: []
 providers:
@@ -31,6 +33,9 @@ providers:
       - home.score
       - away.score
       - competition.round
+sources:
+  - sourceId: aafk-historie-color-line-stadion
+    fields: [venueId, attendance]
 confidence: probable
 conflicts: []
 tags: []

@@ -43,6 +43,8 @@ export const personRoleCategory = z.enum([
   "board",
   "administration",
   "honorary",
+  "founder",
+  "project",
 ]);
 
 /** År eller eksakt dato. Mange eldre kilder sier bare hvilket styreår vervet gjaldt. */

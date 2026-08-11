@@ -21,7 +21,7 @@ Det gamle ligasesong-endepunktet viste bare deler av dette bildet.
 | Europacup | 2010–2012 | ✅ hentet | Alle 14 kvalifiseringskampene er importert og kontrollert mot UEFAs kampantall |
 
 Status per 9. august 2026: **574 kamper, 17 sesonger, 2010–2026**, hvorav 542 har
-hendelsesdata. Av alle 1 351 kampene i arkivet har 276 de fire grunnfeltene
+hendelsesdata. Av alle 1 353 kampene i arkivet har 276 de fire grunnfeltene
 ballbesittelse, skudd, skudd på mål og cornere. 138 har fouls og offsider, og 105 har xG.
 
 Statistikkdekningen følger ikke kampdekningen. FotMobs kampdetaljer for 2018 og 2019

@@ -1,0 +1,16 @@
+id: 1920-06-13-aalesunds-fk-rollon
+date: 1920-06-13
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1920
+  stage: friendly
+home: { clubId: aalesunds-fk, score: 3, halfTimeScore: null }
+away: { clubId: rollon, score: 1, halfTimeScore: null }
+venueId: norvebana
+sources:
+  - sourceId: aafk-historie-norvebana
+    fields: [date, home.clubId, away.clubId, home.score, away.score, venueId]
+confidence: confirmed
+note: Resultatet og datoen står i bildeteksten på AaFKs historiske side om Nørvebana.
