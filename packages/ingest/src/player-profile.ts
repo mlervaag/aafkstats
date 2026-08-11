@@ -1,4 +1,6 @@
-import { AAFK_CLUB_ID, isLongerNameForm, person as personSchema, personKey, slugify } from "@aafkstats/schema";
+import {
+  AAFK_CLUB_ID, isLongerNameForm, person as personSchema, personKey, preferredPersonName, slugify,
+} from "@aafkstats/schema";
 import type { Person, PlayingPosition } from "@aafkstats/schema";
 import type { Archive } from "@aafkstats/schema/load";
 
@@ -57,9 +59,24 @@ export function resolvePlayerTarget(archive: Archive, query: string): PlayerTarg
     throw new Error(`fant ikke «${query}» som person eller i en AaFK-lagoppstilling`);
   }
   const name = mostCompleteName(lineupForms);
-  const id = slugify(personKey(name));
+  // Identitetsnøkkelen kollapser dobbeltvokaler for sammenligning, men skal
+  // ikke bestemme adressen: «Jääger» skal få `jaager`, ikke `jager`.
+  const id = slugify(name);
   const collision = archive.people.find((candidate) => candidate.id === id);
   if (collision) throw new Error(`«${name}» ville fått ID-en til ${collision.name}; avklar identiteten manuelt`);
+
+  // En lengre eller kortere navneform kan ha en helt annen slug. Uten denne
+  // sperren ville «Daniel Gretarsson» blitt en ny fil ved siden av
+  // `daniel-leo-gretarsson`, selv om arkivet allerede kjenner personen.
+  const related = archive.people.find((candidate) =>
+    [candidate.name, ...candidate.names].some((form) =>
+      isLongerNameForm(form, name) || isLongerNameForm(name, form)));
+  if (related) {
+    throw new Error(
+      `«${name}» ser ut som en navneform av ${related.id} «${related.name}». `
+      + `Før «${name}» inn i names[] der framfor å opprette en ny fil.`,
+    );
+  }
   return { id, name, lineupForms };
 }
 
@@ -160,8 +177,8 @@ function aafkLineupNames(archive: Archive): string[] {
 }
 
 function mostCompleteName(forms: string[]): string {
-  return [...forms].sort((a, b) => {
-    const words = personKey(b).split(" ").length - personKey(a).split(" ").length;
-    return words || b.length - a.length || a.localeCompare(b, "nb-NO");
-  })[0]!;
+  const words = (form: string) => personKey(form).split(" ").length;
+  const most = Math.max(...forms.map(words));
+  const fullest = forms.filter((form) => words(form) === most);
+  return preferredPersonName(fullest.map((name) => ({ name, count: 1 })));
 }

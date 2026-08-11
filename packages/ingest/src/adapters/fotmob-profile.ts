@@ -57,8 +57,8 @@ interface RawProfile {
       senior?: {
         teamEntries?: {
           teamId?: string | number;
-          startDate?: string | null;
-          endDate?: string | null;
+          startDate?: unknown;
+          endDate?: unknown;
           appearances?: string | number | null;
           goals?: string | number | null;
         }[];
@@ -122,8 +122,8 @@ export function parseFotmobPlayerProfile(raw: RawProfile, id: string): FotmobPla
   const aafkCareer = (raw.careerHistory?.careerItems?.senior?.teamEntries ?? [])
     .filter((entry) => String(entry.teamId ?? "") === AAFK_FOTMOB_ID)
     .map((entry) => ({
-      ...(entry.startDate ? { from: entry.startDate.slice(0, 10) } : {}),
-      ...(entry.endDate ? { to: entry.endDate.slice(0, 10) } : {}),
+      ...dateField("from", entry.startDate),
+      ...dateField("to", entry.endDate),
       ...numberField("appearances", entry.appearances),
       ...numberField("goals", entry.goals),
     }));
@@ -158,6 +158,20 @@ function numberField<K extends "appearances" | "goals">(
   if (value === null || value === undefined || value === "") return {};
   const parsed = Number(value);
   return Number.isInteger(parsed) && parsed >= 0 ? { [key]: parsed } as Record<K, number> : {};
+}
+
+function dateField<K extends "from" | "to">(key: K, value: unknown): Partial<Record<K, string>> {
+  // ISO-strengen beskriver en kalenderdato, ikke et tidspunkt som skal flyttes
+  // til UTC. `new Date("2010-04-01T00:00:00")` blir 31. mars i norsk tidssone.
+  if (typeof value === "string" && /^\d{4}-\d{2}-\d{2}/.test(value)) {
+    return { [key]: value.slice(0, 10) } as Record<K, string>;
+  }
+  if (value && typeof value === "object" && "utcTime" in value && typeof value.utcTime === "string") {
+    return dateField(key, value.utcTime);
+  }
+  const date = typeof value === "number" && Number.isFinite(value) ? new Date(value) : undefined;
+  if (!date || Number.isNaN(date.getTime())) return {};
+  return { [key]: date.toISOString().slice(0, 10) } as Record<K, string>;
 }
 
 /** Alpha-3-kodene FotMob bruker, skrevet slik personregisteret allerede skriver landene. */

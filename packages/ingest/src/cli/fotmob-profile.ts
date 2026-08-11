@@ -109,4 +109,9 @@ if (afterIssues.length > 0) {
 console.log(`${plan.create ? "Opprettet" : "Oppdaterte"} ${personPath(plan.person.id)}.`);
 }
 
-await run(player);
+try {
+  await run(player);
+} catch (error) {
+  console.error(error instanceof Error ? error.message : String(error));
+  process.exitCode = 1;
+}

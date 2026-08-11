@@ -56,6 +56,15 @@ describe("FotMob-spillerprofil", () => {
     ]);
   });
 
+  it("leser datoene i både ISO- og eldre millisekundformat", () => {
+    const raw = structuredClone(profileFixture);
+    raw.careerHistory.careerItems.senior.teamEntries[0].startDate = "";
+    raw.careerHistory.careerItems.senior.teamEntries[0].endDate = 1_389_139_200_000;
+    expect(parseFotmobPlayerProfile(raw, "180283").aafkCareer[0]).toMatchObject({
+      to: "2014-01-08",
+    });
+  });
+
   it("lager personfil først etter at FotMob-profilen viser en AaFK-periode", () => {
     const target = resolvePlayerTarget(archiveWithPlayer("Fredrik Ulvestad"), "Fredrik Ulvestad");
     const profile = parseFotmobPlayerProfile(profileFixture, "180283");
