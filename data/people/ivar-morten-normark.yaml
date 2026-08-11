@@ -5,7 +5,7 @@ squadNumbers: []
 coachSpells:
   - fromSeason: 2001
     toSeason: 2005
-roles: []
+roles: [ { id: trener-2001, category: coach, title: Trener, from: "2001", to: null, sources: [ { sourceId: tango-siden-1914-2013-806b, page: "351", fields: [ title, from ], note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: year_row)." } ], note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden. }, { id: trener-2003, category: coach, title: Trener, from: "2003", to: null, sources: [ { sourceId: tango-siden-1914-2013-806b, page: "351", fields: [ title, from ], note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: year_row)." } ], note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden. }, { id: trener-2004, category: coach, title: Trener, from: "2004", to: null, sources: [ { sourceId: tango-siden-1914-2013-806b, page: "351", fields: [ title, from ], note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: year_row)." } ], note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden. }, { id: trener-2005, category: coach, title: Trener, from: "2005", to: null, sources: [ { sourceId: tango-siden-1914-2013-806b, page: "351", fields: [ title, from ], note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: year_row)." } ], note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden. } ]
 providers:
   - providerId: wikipedia
     url: https://no.wikipedia.org/w/index.php?title=Aalesunds%20Fotballklubb&oldid=25869346

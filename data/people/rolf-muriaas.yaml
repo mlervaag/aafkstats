@@ -13,6 +13,18 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_year)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+        page: "6"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - { id: stifter-1914, category: founder, title: Stifter, body: Konstituerende generalforsamling, from: "1914-06-25", to: "1914-06-25", sources: [ { sourceId: aafk-historie-stiftelsen, fields: [ title, from, to ] } ] }
 sources:

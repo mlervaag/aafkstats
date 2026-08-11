@@ -18,6 +18,36 @@ roles:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
         fields: [ title, from, to ]
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-80-ar-1914-1994-1994-5e91
+        page: "7"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year)."
+      - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
+        page: "81"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 4 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+        page: "6"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
 sources:
   - sourceId: aalesunds-fk-quiz-2008-fd43
     page: "6"
@@ -67,3 +97,15 @@ sources:
     page: "7"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+conflicts:
+  - field: oppmann.1916
+    values:
+      - value: Olaf Ingebrigtsen
+        providerId: nasjonalbiblioteket
+        note: vi-er-80-ar-1914-1994-1994-5e91 s. 7
+      - value: Harald Hagen
+        providerId: nasjonalbiblioteket
+    resolved: false
+    decision: unresolved
+    locked: false
+    note: Kildene oppgir ulike navn for dette vervet. Ingen av dem er valgt.

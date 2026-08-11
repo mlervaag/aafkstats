@@ -18,6 +18,7 @@ function person(overrides: Partial<Person> = {}): Person {
     roles: [],
     providers: [],
     sources: [],
+    conflicts: [],
     ...overrides,
   } as Person;
 }
@@ -295,5 +296,42 @@ describe("roller som ville motsagt arkivet", () => {
       finding({ from: "1948", body: "Juniorgruppa" }),
     ], root);
     expect(report.added).toBe(1);
+  });
+});
+
+describe("uenighet mellom kilder", () => {
+  /**
+   * Klubbens egne sider og bøkene oppgir ulike navn for samme verv. At de er
+   * uenige er en opplysning i seg selv, og den bevares i stedet for at maskinen
+   * velger i stillhet — `unresolved` er en ærlig tilstand, og et bidrag utenfra
+   * kan avgjøre den.
+   */
+  it("fører uenigheten på personen i stedet for å forkaste den i stillhet", async () => {
+    const sittende = person({
+      id: "kari-nordmann", name: "Kari Nordmann",
+      roles: [{ id: "formann-1948", category: "board", title: "Formann", from: "1948", to: null,
+        sources: [{ sourceId: "aafk-historie-ledere", fields: [] }] }],
+    });
+    const report = await applyResolvedRoles(archiveWith([person(), sittende]), [finding({ from: "1948" })], root);
+    expect(report).toMatchObject({ added: 0, conflicting: 1 });
+
+    const written = await readPerson("ola-nordmann");
+    expect(written.conflicts).toHaveLength(1);
+    expect(written.conflicts[0]).toMatchObject({ field: "formann.1948", resolved: false, decision: "unresolved" });
+    expect(written.conflicts[0]!.values.map((value) => value.value)).toEqual(["Ola Nordmann", "Kari Nordmann"]);
+  });
+
+  it("fører den samme uenigheten bare én gang", async () => {
+    const sittende = person({
+      id: "kari-nordmann", name: "Kari Nordmann",
+      roles: [{ id: "formann-1948", category: "board", title: "Formann", from: "1948", to: null,
+        sources: [{ sourceId: "aafk-historie-ledere", fields: [] }] }],
+    });
+    const report = await applyResolvedRoles(archiveWith([person(), sittende]), [
+      finding({ id: "rolle-1", from: "1948" }),
+      finding({ id: "rolle-2", from: "1948", page: "44" }),
+    ], root);
+    expect(report.conflicting).toBe(2);
+    expect((await readPerson("ola-nordmann")).conflicts).toHaveLength(1);
   });
 });

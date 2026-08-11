@@ -1,7 +1,7 @@
 id: konrad-korsnes
 name: Konrad Korsnes
 roles:
-  - { id: gullmerkeinnehaver-1935, category: honorary, title: Gullmerkeinnehaver, from: "1935", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
+  - { id: gullmerkeinnehaver-1935, category: honorary, title: Gullmerkeinnehaver, from: "1935", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] }, { sourceId: tango-siden-1914-2013-806b, page: "350", fields: [ title, from ], note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year)." } ] }
   - id: oppmann-1938
     category: sporting_staff
     title: Oppmann
@@ -14,6 +14,24 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_year)."
+      - sourceId: vi-er-80-ar-1914-1994-1994-5e91
+        page: "7"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+        page: "6"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
@@ -128,3 +146,15 @@ sources:
     page: "7"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+conflicts:
+  - field: formann.1938
+    values:
+      - value: Konrad Korsnes
+        providerId: nasjonalbiblioteket
+        note: aalesunds-fotballklubb-1914-50-1964-3815 s. 81
+      - value: Peder Puck
+        providerId: nasjonalbiblioteket
+    resolved: false
+    decision: unresolved
+    locked: false
+    note: Kildene oppgir ulike navn for dette vervet. Ingen av dem er valgt.

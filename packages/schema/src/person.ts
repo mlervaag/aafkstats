@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { seasonYear, slug, providerRef, sourceRef } from "./primitives.js";
+import { conflict, seasonYear, slug, providerRef, sourceRef } from "./primitives.js";
 
 /**
  * En person i arkivet: spiller, trener, eller begge.
@@ -116,6 +116,20 @@ export const person = z
     roles: z.array(personRole).default([]),
     providers: z.array(providerRef).default([]),
     sources: z.array(sourceRef).default([]),
+    /**
+     * Kilder som er uenige om et verv.
+     *
+     * Klubbens egne sider og jubileumsbøkene oppgir ulike navn for samme år, og
+     * medlemsbladenes kolofoner sier iblant noe tredje. Uenigheten er en
+     * opplysning i seg selv — at to kilder skriver forskjellig er nettopp det
+     * en leser trenger å vite — og den bevares i stedet for at maskinen velger
+     * i stillhet.
+     *
+     * `field` er vervet og året, som «formann.1968». Verdiene er navnene
+     * kildene oppgir. Ingen løses automatisk: `unresolved` er en ærlig
+     * tilstand, og et bidrag utenfra kan avgjøre den med `manual`.
+     */
+    conflicts: z.array(conflict).default([]),
     note: z.string().optional(),
   })
   .strict()

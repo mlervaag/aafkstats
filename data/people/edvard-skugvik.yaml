@@ -50,3 +50,26 @@ sources:
     page: "7"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+conflicts:
+  - field: formann.1920
+    values:
+      - value: Edvard Skugvik
+        providerId: nasjonalbiblioteket
+        note: aalesunds-fotballklubb-1914-50-1964-3815 s. 81
+      - value: Rasmus Eck Olsen
+        providerId: nasjonalbiblioteket
+    resolved: false
+    decision: unresolved
+    locked: false
+    note: Kildene oppgir ulike navn for dette vervet. Ingen av dem er valgt.
+  - field: oppmann.1920
+    values:
+      - value: Edvard Skugvik
+        providerId: nasjonalbiblioteket
+        note: vi-er-80-ar-1914-1994-1994-5e91 s. 7
+      - value: Rasmus Eck Olsen
+        providerId: nasjonalbiblioteket
+    resolved: false
+    decision: unresolved
+    locked: false
+    note: Kildene oppgir ulike navn for dette vervet. Ingen av dem er valgt.
