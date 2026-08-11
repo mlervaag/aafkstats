@@ -3,6 +3,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPersonById, getPersonIds, getPersonRoles, getPersonSeasons, getSourceTitles, mergeRoleSpells } from "@/lib/people";
 import type { PersonConflict, PersonMention, PersonRole, PersonSummary } from "@/lib/people";
+import {
+  getDerivedPlayerById,
+  getDerivedPlayerNameForms,
+  getDerivedPlayerSeasons,
+  getDerivedPlayers,
+} from "@/lib/derived-players";
+import type { DerivedPlayer } from "@/lib/derived-players";
 import { loadContributions } from "@/lib/archive";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd, personJsonLd } from "@/lib/jsonld";
@@ -74,20 +81,39 @@ function personDescription(person: PersonSummary): string {
 }
 
 export function generateStaticParams(): { id: string }[] {
-  return getPersonIds().map((id) => ({ id }));
+  // Begge slag: de med personfil, og de arkivet bare kjenner fra
+  // lagoppstillingene. Uten den andre halvparten hadde klubbens toppscorer
+  // gjennom 2010-tallet ingen adresse i det hele tatt.
+  return [...getPersonIds(), ...getDerivedPlayers().map((player) => player.id)].map((id) => ({ id }));
+}
+
+/** Beskrivelsen av en spiller arkivet bare kjenner fra lagoppstillingene. */
+function derivedDescription(player: DerivedPlayer): string {
+  const span = player.firstSeason === player.lastSeason
+    ? ` i ${player.firstSeason}`
+    : ` ${player.firstSeason}–${player.lastSeason}`;
+  const goals = player.goals > 0 ? `, ${player.goals} mål` : "";
+  return `${player.name}: ${player.appearances} ${player.appearances === 1 ? "kamp" : "kamper"} for AaFK${span}${goals}. `
+    + "Utledet av lagoppstillingene i AaFK-arkivet.";
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
   const person = getPersonById(id);
-  if (!person) return { title: "Person ikke funnet" };
-  return pageMetadata(person.name, personDescription(person), `/personer/${id}`);
+  if (person) return pageMetadata(person.name, personDescription(person), `/personer/${id}`);
+  const derived = getDerivedPlayerById(id);
+  if (derived) return pageMetadata(derived.name, derivedDescription(derived), `/personer/${id}`);
+  return { title: "Person ikke funnet" };
 }
 
 export default async function PersonPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const person = getPersonById(id);
-  if (!person) notFound();
+  if (!person) {
+    const derived = getDerivedPlayerById(id);
+    if (derived) return <DerivedPlayerPage player={derived} />;
+    notFound();
+  }
 
   const roles = mergeRoleSpells(getPersonRoles(id)).reverse();
   const seasons = getPersonSeasons(id);
@@ -328,5 +354,133 @@ function Mentions({ mentions, titles }: { mentions: PersonMention[]; titles: Map
           ))}
       </ul>
     </section>
+  );
+}
+
+/**
+ * En spiller arkivet bare kjenner fra lagoppstillingene.
+ *
+ * Sida sier bare det oppstillingene viser: sesonger, kamper, starter og mål.
+ * Ingen nasjonalitet, posisjon eller draktnummer — de kommer fra personfila, og
+ * finnes den ikke, vet arkivet det ikke. En utledet side som gjettet på
+ * nasjonalitet ville vært en påstand uten kilde, og det er hele grunnen til at
+ * dette laget kan finnes uten å svekke resten av arkivet.
+ *
+ * Den er ikke en fattigere utgave av en personside. Den er en annen slags
+ * oppføring, på samme måte som et kildedokumentert resultat er noe annet enn en
+ * kanonisk kamp, og den sier tydelig hva den er.
+ */
+function DerivedPlayerPage({ player }: { player: DerivedPlayer }) {
+  const seasons = getDerivedPlayerSeasons(player.personKey);
+  const nameForms = getDerivedPlayerNameForms(player.personKey);
+  const initials = player.name.split(/\s+/).slice(0, 2).map((part) => part[0]).join("");
+
+  return (
+    <article>
+      <JsonLd
+        data={[
+          personJsonLd({
+            id: player.id,
+            name: player.name,
+            nationality: null,
+            description: derivedDescription(player),
+            wikidata: null,
+            roles: [],
+            played: true,
+          }),
+          breadcrumbJsonLd([
+            { name: "Personer", path: "/personer" },
+            { name: player.name, path: `/personer/${player.id}` },
+          ]),
+        ]}
+      />
+      <Link href="/personer" className={styles.backLink}>← Tilbake til personer</Link>
+      <header className={`page-header ${styles.detailHeader}`}>
+        <div className={styles.detailMonogram} aria-hidden="true">{initials}</div>
+        <div>
+          <p className="eyebrow">Spiller i AaFK-arkivet</p>
+          <h1>{player.name}</h1>
+          <div className={styles.detailMeta}>
+            <span>Kamper {player.firstSeason}–{player.lastSeason}</span>
+            {player.goals > 0 ? <span>{player.goals} mål</span> : null}
+          </div>
+        </div>
+      </header>
+
+      <div className={styles.detailGrid}>
+        <div>
+          <section className={styles.dataGap}>
+            <h2>Utledet av lagoppstillingene</h2>
+            <p>
+              Arkivet har ingen egen personfil for {player.name}. Alt på denne sida er
+              regnet ut fra lagoppstillingene i kampene, og derfor står det ingenting her
+              om posisjon, nasjonalitet eller draktnummer. En personfil ville lagt til
+              nettopp det, med kilde.
+            </p>
+            {nameForms.length > 1 && (
+              <p className="small muted">
+                Kildene skriver navnet på {nameForms.length} måter: {nameForms.join(", ")}.
+              </p>
+            )}
+            <p>
+              <a
+                className="button-link"
+                href={contributionIssueUrl("manglende-person", player.name)}
+              >
+                Legg til en personfil
+              </a>
+            </p>
+          </section>
+
+          <section className={styles.section}>
+            <h2>Sesong for sesong</h2>
+            <div className="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Sesong</th>
+                    <th scope="col" className="num">Kamper</th>
+                    <th scope="col" className="num">Fra start</th>
+                    <th scope="col" className="num">Mål</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {seasons.map((season) => (
+                    <tr key={season.season}>
+                      <td><Link href={`/sesong/${season.season}`}>{season.season}</Link></td>
+                      <td className="num">{season.appearances}</td>
+                      <td className="num">{season.starts}</td>
+                      <td className="num">{season.goals > 0 ? season.goals : "–"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th scope="row">Totalt</th>
+                    <td className="num">{player.appearances}</td>
+                    <td className="num">{player.starts}</td>
+                    <td className="num">{player.goals > 0 ? player.goals : "–"}</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <aside className={styles.asideCard}>
+          <h2>Dette vet arkivet</h2>
+          <dl>
+            <div><dt>Kamptropper</dt><dd>{player.appearances}</dd></div>
+            <div><dt>Fra start</dt><dd>{player.starts}</dd></div>
+            <div><dt>Mål</dt><dd>{player.goals}</dd></div>
+            <div><dt>Sesonger</dt><dd>{seasons.length}</dd></div>
+          </dl>
+          <p className="small muted">
+            Tallene er talt fra lagoppstillinger og hendelser, ikke fra en kilde som
+            oppgir dem samlet. Lagoppstillinger finnes fra 2010.
+          </p>
+        </aside>
+      </div>
+    </article>
   );
 }
