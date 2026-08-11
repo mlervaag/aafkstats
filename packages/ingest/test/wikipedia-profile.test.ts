@@ -24,6 +24,17 @@ describe("Wikipedia-spillerprofil", () => {
     expect(parseProfileInfobox(html)).toEqual({ rawPosition: "Defender / Midfielder" });
   });
 
+  it("lar ikke nestede script-elementer bli til ny HTML under tekstuttrekket", () => {
+    const html = [
+      "<table><tr><th>Position</th><td>",
+      "<script><script>alert(1)</script></script>",
+      "<style><style>.skjult{}</style></style>",
+      "<b>Midfielder</b><sup><sup>[1]</sup></sup>",
+      "</td></tr></table>",
+    ].join("");
+    expect(parseProfileInfobox(html)).toEqual({ position: "midtbane", rawPosition: "Midfielder" });
+  });
+
   it("lager en personfil for et eksakt navn som allerede finnes i AaFK-oppstillinger", () => {
     const archive = archiveWithLineups("Fredrik Ulvestad", "Motspiller");
     const target = resolvePlayerTarget(archive, "Fredrik Ulvestad");

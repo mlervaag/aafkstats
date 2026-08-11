@@ -131,12 +131,47 @@ function mapPosition(value: string): PlayingPosition | undefined {
 }
 
 function plainText(value: string): string {
-  return decodeEntities(
-    value
-      .replace(/<(script|style|sup)\b[^>]*>[\s\S]*?<\/\1>/gi, "")
-      .replace(/<br\s*\/?>/gi, " / ")
-      .replace(/<[^>]+>/g, " "),
-  ).replace(/\s*\/\s*\/\s*/g, " / ").replace(/\s+/g, " ").trim();
+  return decodeEntities(readHtmlText(value))
+    .replace(/\s*\/\s*\/\s*/g, " / ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/**
+ * Leser tekstnoder i ett pass i stedet for å «rense» HTML med flere regex-er.
+ *
+ * Flere erstatninger kan lage en ny farlig tegnfølge når den første fjerner et
+ * indre element. Her kopieres aldri taggtegn til resultatet, så en tag kan ikke
+ * dukke opp igjen etter at nabotekst er satt sammen. Innhold i script, style og
+ * fotnoter utelates; linjeskift i infoboksen beholdes som skilletegn.
+ */
+function readHtmlText(value: string): string {
+  let output = "";
+  let hiddenDepth = 0;
+
+  for (let index = 0; index < value.length;) {
+    if (value[index] !== "<") {
+      if (hiddenDepth === 0) output += value[index];
+      index += 1;
+      continue;
+    }
+
+    const end = value.indexOf(">", index + 1);
+    if (end === -1) break;
+    const tag = value.slice(index + 1, end).trim();
+    const closing = tag.startsWith("/");
+    const name = /^\/?\s*([a-z0-9-]+)/i.exec(tag)?.[1]?.toLowerCase();
+    const hidden = name === "script" || name === "style" || name === "sup";
+
+    if (hidden) {
+      hiddenDepth = closing ? Math.max(0, hiddenDepth - 1) : hiddenDepth + 1;
+    } else if (name === "br" && hiddenDepth === 0) {
+      output += " / ";
+    }
+    index = end + 1;
+  }
+
+  return output;
 }
 
 function decodeEntities(value: string): string {
