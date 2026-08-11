@@ -187,11 +187,14 @@ Kjøringen er ikke ferdig når den er grønn. Se over dette før PR:
    en heuristikk. På side 76 gir den 1964 fordi setningen
    nevner «neste årsmøte i 1964» — riktig for det styret, men kontroller den på
    noen roller før du stoler på den i mengde.
-3. **Kjør kontrollene i `scripts/`-avsnittet under.** Tre ganger har feil blitt
-   funnet av en kontroll mot data som alt var skrevet — speilvendte siffer,
-   anakronismer, «A A A A» i en oppstilling — og ingen av dem av resolveren
-   eller testene. Kontrollene er billige og fanger klassen av feil som overlever
-   enhetstester.
+3. **`pnpm data:contradictions`.** Tre ganger har feil blitt funnet av en
+   kontroll mot data som alt var skrevet — speilvendte siffer, anakronismer,
+   «A A A A» i en oppstilling — og ingen av dem av resolveren eller testene.
+   Feilene oppstår først i møtet med arkivet, så de kan ikke ses av en
+   enhetstest. Kommandoen rapporterer, den feller ikke bygget.
+
+   Ett funn er kjent og riktig: Georg Haller står med både «Formann» og
+   «Formann i banekomiteen» for 1914. Han var begge deler.
 4. **Kampkoblinger.** Skal være færre enn før. Blir de flere, er
    rekkefølgekravet i `matchCandidates` gått tapt.
 4. **Sidetallet i de to søkbare bøkene.** Fulltekstsøket oppgir skann-nummeret,
