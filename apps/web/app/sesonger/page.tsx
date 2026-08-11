@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
+import { JsonLd } from "@/components/JsonLd";
+import { collectionJsonLd } from "@/lib/jsonld";
 import { CompetitionSpread, CoverageStrip, CoverageSummary, CoverageTag } from "@/components/Coverage";
 import { loadSeasonYears } from "@/lib/archive";
 import type { SeasonSummary, SeasonYear } from "@/lib/archive";
 
-export const metadata: Metadata = {
-  title: "Sesonger",
-  description: "AaFKs sesonger med resultater, målforskjell og alle kamper.",
-};
+export const metadata: Metadata = pageMetadata(
+  "Sesonger",
+  "AaFKs sesonger med resultater, målforskjell og alle kamper.",
+  "/sesonger",
+  "website",
+);
 
 export default function SeasonsPage() {
   const years = loadSeasonYears();
@@ -15,6 +20,14 @@ export default function SeasonsPage() {
 
   return (
     <>
+      <JsonLd
+        data={collectionJsonLd({
+          name: "Sesonger",
+          description: "AaFKs sesonger med resultater, målforskjell og alle kamper.",
+          path: "/sesonger",
+          size: years.length,
+        })}
+      />
       <header className="page-intro">
         <p className="eyebrow">Sesong for sesong</p>
         <h1>Sesonger</h1>

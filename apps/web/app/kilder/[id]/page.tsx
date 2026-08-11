@@ -15,10 +15,12 @@ import {
   getSourceSeasonUsages,
   getSourceResultUsages,
 } from "@/lib/sources";
-import { sourceDescription } from "@/lib/metadata";
+import { pageMetadata, sourceDescription } from "@/lib/metadata";
 import { formatDateShort } from "@/lib/date";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
 import styles from "./SourceDetail.module.css";
 
 /**
@@ -42,9 +44,9 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   if (!source) return { title: "Kilde ikke funnet" };
 
   const children = source.source_type === "series" ? getSourceChildren(id) : [];
-  return {
-    title: source.title,
-    description: sourceDescription({
+  return pageMetadata(
+    source.title,
+    sourceDescription({
       title: source.title,
       description: source.description,
       year: source.year,
@@ -52,7 +54,8 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
       issues: children.length,
       usages: getSourceUsages(id).length,
     }),
-  };
+    `/kilder/${id}`,
+  );
 }
 
 export default async function SourceDetailPage({ params }: { params: Promise<{ id: string }> }) {
@@ -80,6 +83,13 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
 
   return (
     <article>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Kilder", path: "/kilder" },
+          ...(parent ? [{ name: parent.title, path: `/kilder/${parent.id}` }] : []),
+          { name: source.title, path: `/kilder/${id}` },
+        ])}
+      />
       {parent && (
         <Link href={`/kilder/${parent.id}`} className={styles.backLink}>
           &larr; Tilbake til {parent.title}

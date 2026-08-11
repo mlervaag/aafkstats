@@ -18,6 +18,8 @@ import {
   loadContributions,
 } from "@/lib/archive";
 import type { SourceResult } from "@/lib/archive";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
 import { pageMetadata, seasonDescription, seasonTitle } from "@/lib/metadata";
 
 export function generateStaticParams(): { year: string }[] {
@@ -55,6 +57,12 @@ export default async function SeasonPage({ params }: Props) {
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Sesonger", path: "/sesonger" },
+          { name: String(year), path: `/sesong/${year}` },
+        ])}
+      />
       <p className="breadcrumb"><a href="/sesonger">Sesonger</a> / {year}</p>
       <header className="page-intro compact">
         <p className="eyebrow">

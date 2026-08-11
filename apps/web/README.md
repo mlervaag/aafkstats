@@ -1,7 +1,7 @@
 # @aafkstats/web
 
 Portalen. Next.js 15 med App Router, servert fra Vercel på
-[aafkstats.vercel.app](https://aafkstats.vercel.app).
+[aafkarkivet.no](https://aafkarkivet.no).
 
 ```
 app/

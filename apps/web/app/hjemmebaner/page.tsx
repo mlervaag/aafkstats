@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { ArchiveTabs } from "@/components/ArchiveTabs";
 import { SourceChips } from "@/components/SourceChips";
 import { getSourceTitles } from "@/lib/people";
@@ -7,10 +8,12 @@ import { contributionIssueUrl } from "@/lib/contribution-links";
 import type { HomeVenue, VenueEvent } from "@/lib/venues";
 import styles from "./HomeVenues.module.css";
 
-export const metadata: Metadata = {
-  title: "Hjemmebaner",
-  description: "Banene Aalesunds Fotballklubb har spilt hjemmekampene sine på, med perioder, dekke, publikumsrekorder og milepæler.",
-};
+export const metadata: Metadata = pageMetadata(
+  "Hjemmebaner",
+  "Banene Aalesunds Fotballklubb har spilt hjemmekampene sine på, med perioder, dekke, publikumsrekorder og milepæler.",
+  "/hjemmebaner",
+  "website",
+);
 
 const SURFACE_LABELS: Record<string, string> = {
   gravel: "Grus",

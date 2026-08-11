@@ -148,12 +148,22 @@ export function sourceDescription(s: SourceMetaInput): string {
  * bildegenerator, og et generelt bilde med riktig tittel og beskrivelse er
  * allerede hele forskjellen for den som deler en lenke.
  */
-export function pageMetadata(title: string, description: string, path: string) {
+export function pageMetadata(
+  title: string,
+  description: string,
+  path: string,
+  /**
+   * `article` for en enkeltside om én kamp, én person eller én kilde; `website`
+   * for registrene og de faste sidene. Et register over 700 personer er ikke en
+   * artikkel, og et delingskort som sier det, sier feil.
+   */
+  type: "article" | "website" = "article",
+) {
   return {
     title,
     description,
     alternates: { canonical: path },
-    openGraph: { title, description, url: path, type: "article" as const, locale: "nb_NO" },
+    openGraph: { title, description, url: path, type, locale: "nb_NO", siteName: "AaFK-arkivet" },
     twitter: { card: "summary_large_image" as const, title, description },
   };
 }

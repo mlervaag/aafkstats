@@ -4,6 +4,33 @@ import { CoverageNote } from "@/components/CoverageNote";
 import { MatchList } from "@/components/MatchList";
 import { NextMatch } from "@/components/NextMatch";
 import { loadCoverage, loadNextMatch, loadOverview } from "@/lib/archive";
+import type { Metadata } from "next";
+
+/**
+ * Forsidas egen metadata.
+ *
+ * Tittelen er `absolute` fordi malen i rotoppsettet ellers ville gjort den til
+ * «AaFK-arkivet · AaFK-arkivet». Og den sier hva arkivet er, ikke bare hva det
+ * heter: den som søker etter klubben, søker ikke etter ordet «arkivet».
+ *
+ * Kanonisk adresse settes her og ikke i rotoppsettet — der ville hver side som
+ * ikke overstyrte den, sagt at den er et duplikat av forsida.
+ */
+export const metadata: Metadata = {
+  title: { absolute: "AaFK-arkivet – Aalesunds Fotballklubbs kamphistorie" },
+  description:
+    "Alle AaFKs kamper, sesonger, spillere og ledere samlet ett sted. Uoffisielt, kildeført og åpent arkiv du kan søke i og stille spørsmål til.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "AaFK-arkivet – Aalesunds Fotballklubbs kamphistorie",
+    description:
+      "Alle AaFKs kamper, sesonger, spillere og ledere samlet ett sted. Uoffisielt, kildeført og åpent.",
+    url: "/",
+    type: "website",
+    locale: "nb_NO",
+    siteName: "AaFK-arkivet",
+  },
+};
 
 /**
  * Konkurransetypene arkivet faktisk har, som en oppramsing.

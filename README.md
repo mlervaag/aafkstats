@@ -14,8 +14,8 @@ bygget som en portal der spørsmålet er hovedinngangen.**
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6.svg?logo=typescript&logoColor=white)](tsconfig.base.json)
 [![Next.js](https://img.shields.io/badge/Next.js-15-000000.svg?logo=nextdotjs&logoColor=white)](apps/web)
 
-[**aafkstats.vercel.app**](https://aafkstats.vercel.app) ·
-[Datasettet](https://aafkstats.vercel.app/data) ·
+[**aafkarkivet.no**](https://aafkarkivet.no) ·
+[Datasettet](https://aafkarkivet.no/data) ·
 [Arkitektur](docs/ARKITEKTUR.md) ·
 [Datamodell](docs/DATAMODELL.md) ·
 [Bidra](CONTRIBUTING.md)
@@ -233,7 +233,7 @@ forstand, for det finnes ingen innlogging å misbruke — det er regningen som s
 kan en hvilken som helst side sette sine besøkendes nettlesere til å tømme API-budsjettet.
 Kall uten `Origin` slipper gjennom, for de stoppes av fartsgrensen i stedet.
 
-Datasettdokumentasjonen på [`/data`](https://aafkstats.vercel.app/data) er **samme kilde**
+Datasettdokumentasjonen på [`/data`](https://aafkarkivet.no/data) er **samme kilde**
 som chattens systemprompt ([`packages/query/src/dataset.ts`](packages/query/src/dataset.ts)).
 Det finnes ingen skjult beskrivelse modellen har og brukeren ikke har, og en test feiler
 hvis dokumentasjonen ikke stemmer med databasen.
@@ -277,7 +277,7 @@ supporterarkiv over offentlige kampfakta. Statusen krever begrunnelse, håndheve
 skjemaet. Poenget med å skille den fra `granted` er at arkivet skal si hva det vet framfor
 å pynte på det.
 
-Statusen vises offentlig på [`/om`](https://aafkstats.vercel.app/om). Et arkiv som lever av
+Statusen vises offentlig på [`/om`](https://aafkarkivet.no/om). Et arkiv som lever av
 etterprøvbarhet bør ikke gjemme sin egen rettighetssituasjon.
 
 ## Oppbygging
@@ -361,7 +361,7 @@ Vercel tar vare på de siste 30 dagene på Hobby-planen. Et arkiv er interessant
 sesonger, ikke uker, så koden støtter en Plausible-kompatibel teller ved siden av:
 
 ```sh
-NEXT_PUBLIC_PLAUSIBLE_DOMAIN=aafkstats.vercel.app   # tomt = av
+NEXT_PUBLIC_PLAUSIBLE_DOMAIN=aafkarkivet.no   # tomt = av
 NEXT_PUBLIC_PLAUSIBLE_SRC=https://plausible.io/js/script.js
 ```
 

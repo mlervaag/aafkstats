@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPersonById, getPersonIds, getPersonRoles, getPersonSeasons, getSourceTitles, mergeRoleSpells } from "@/lib/people";
-import type { PersonConflict, PersonMention, PersonRole } from "@/lib/people";
+import type { PersonConflict, PersonMention, PersonRole, PersonSummary } from "@/lib/people";
 import { loadContributions } from "@/lib/archive";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbJsonLd, personJsonLd } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/metadata";
 import { contributionIssueUrl } from "@/lib/contribution-links";
 import { ContributionButton } from "@/components/ContributionButton";
 import { Contributions } from "@/components/Contributions";
@@ -43,6 +46,33 @@ function when(from: string, to: string | null): string {
   return `${day(from)} – ${day(to)}`;
 }
 
+/**
+ * Beskrivelsen av en person, til søkemotorer og delingskort.
+ *
+ * Sto som «Roller og registrert kamphistorikk for X» på alle sidene, også de
+ * hundrevis som bare har ett styreverv og ingen kamper. Den lovet kamphistorikk
+ * arkivet ikke har, og gjorde alle personsidene like å se på utenfra. Her sier
+ * teksten hva arkivet faktisk vet om nettopp denne personen.
+ */
+function personDescription(person: PersonSummary): string {
+  const facts: string[] = [];
+  if (person.appearances > 0) {
+    const span = person.first_season && person.last_season && person.first_season !== person.last_season
+      ? ` ${person.first_season}–${person.last_season}`
+      : person.first_season ? ` i ${person.first_season}` : "";
+    facts.push(`${person.appearances} ${person.appearances === 1 ? "kamp" : "kamper"} for AaFK${span}`);
+  }
+  if (person.role_count > 0) {
+    const span = person.first_role_year && person.last_role_year && person.first_role_year !== person.last_role_year
+      ? ` ${person.first_role_year}–${person.last_role_year}`
+      : person.first_role_year ? ` fra ${person.first_role_year}` : "";
+    facts.push(`${person.role_count} ${person.role_count === 1 ? "verv" : "verv"} i klubben${span}`);
+  }
+
+  if (facts.length === 0) return `${person.name} i AaFK-arkivet: kildeført oversikt over det arkivet har registrert.`;
+  return `${person.name}: ${facts.join(", ")}. Kildeført i AaFK-arkivet.`;
+}
+
 export function generateStaticParams(): { id: string }[] {
   return getPersonIds().map((id) => ({ id }));
 }
@@ -50,10 +80,8 @@ export function generateStaticParams(): { id: string }[] {
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
   const person = getPersonById(id);
-  return person ? {
-    title: person.name,
-    description: `Roller og registrert kamphistorikk for ${person.name} i AaFK-arkivet.`,
-  } : { title: "Person ikke funnet" };
+  if (!person) return { title: "Person ikke funnet" };
+  return pageMetadata(person.name, personDescription(person), `/personer/${id}`);
 }
 
 export default async function PersonPage({ params }: { params: Promise<{ id: string }> }) {
@@ -70,6 +98,25 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
 
   return (
     <article>
+      <JsonLd
+        data={[
+          personJsonLd({
+            id,
+            name: person.name,
+            nationality: person.nationality,
+            description: personDescription(person),
+            wikidata: person.wikidata,
+            // De viste rolletitlene, uten gjentakelser. Ti år i styret er ett verv
+            // å beskrive utad, ikke ti.
+            roles: [...new Set(roles.map((role) => role.title))],
+            played,
+          }),
+          breadcrumbJsonLd([
+            { name: "Personer", path: "/personer" },
+            { name: person.name, path: `/personer/${id}` },
+          ]),
+        ]}
+      />
       <Link href="/personer" className={styles.backLink}>← Tilbake til personer</Link>
       <header className={`page-header ${styles.detailHeader}`}>
         <div className={styles.detailMonogram} aria-hidden="true">{initials}</div>

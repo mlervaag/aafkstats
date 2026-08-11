@@ -4,6 +4,7 @@ import { join, resolve } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
 import sitemap from "../app/sitemap.js";
+import { SITE_ORIGIN } from "../lib/site.js";
 import { loadMatchIndex, loadSeasonYears } from "../lib/archive.js";
 import { getProviderNames, getSourceChildren, getSourceIds, getSources } from "../lib/sources.js";
 import {
@@ -50,21 +51,21 @@ describe("sitemap", () => {
   it("har alle kampsidene, også de som ikke er spilt", () => {
     const urls = new Set(sitemap().map((entry) => entry.url));
     for (const match of loadMatchIndex()) {
-      expect(urls.has(`https://aafkstats.vercel.app/kamp/${match.matchId}`)).toBe(true);
+      expect(urls.has(`${SITE_ORIGIN}/kamp/${match.matchId}`)).toBe(true);
     }
   });
 
   it("har kildearkivet og alle kildedetaljsidene", () => {
     const urls = new Set(sitemap().map((entry) => entry.url));
-    expect(urls.has("https://aafkstats.vercel.app/kilder")).toBe(true);
+    expect(urls.has(`${SITE_ORIGIN}/kilder`)).toBe(true);
     for (const source of getSources()) {
-      expect(urls.has(`https://aafkstats.vercel.app/kilder/${source.id}`)).toBe(true);
+      expect(urls.has(`${SITE_ORIGIN}/kilder/${source.id}`)).toBe(true);
     }
   });
 
   it("finner en kjent kamp", () => {
     const urls = sitemap().map((entry) => entry.url);
-    expect(urls).toContain("https://aafkstats.vercel.app/kamp/1998-08-16-aalesunds-fk-sk-brann");
+    expect(urls).toContain(`${SITE_ORIGIN}/kamp/1998-08-16-aalesunds-fk-sk-brann`);
   });
 
   it("gir hver oppføring en dato", () => {

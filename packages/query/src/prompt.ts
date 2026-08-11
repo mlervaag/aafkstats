@@ -2,6 +2,18 @@ import { datasetPrompt } from "./dataset.js";
 import type { DatasetCoverage } from "./coverage.js";
 
 /**
+ * Adressen lenkene i svarene skal peke på.
+ *
+ * Sto skrevet inn i regelteksten under. Da arkivet flyttet domene, fortsatte
+ * modellen å lenke til det gamle — og et svar som kopieres til en meldingsapp er
+ * nettopp der en død lenke gjør mest skade. Samme miljøvariabel som nettstedet
+ * bruker, slik at en fork får sine egne lenker og ikke sender leserne hit.
+ *
+ * Leses én gang ved modullasting: systemprompten er statisk og prompt-caches.
+ */
+const ARCHIVE_ORIGIN = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/+$/, "") || "https://aafkarkivet.no";
+
+/**
  * Systemprompten til chatten.
  *
  * Bygges av to deler: reglene under, og datasettdokumentasjonen fra dataset.ts — den
@@ -23,7 +35,7 @@ dem. run_sql er for alt annet: aggregeringer, uvanlige kombinasjoner, «hvor man
 har vi …». Ikke vær redd for run_sql; det er derfor det finnes.
 
 Lenk til kilden. Hver kamp du nevner skal ha med url-feltet fra datasettet som en
-markdown-lenke med hele nettadressen, på formen [1. april 2024 mot Raufoss](https://aafkstats.vercel.app/kamp/2024-04-01-aalesunds-fk-raufoss-il).
+markdown-lenke med hele nettadressen, på formen [1. april 2024 mot Raufoss](${ARCHIVE_ORIGIN}/kamp/2024-04-01-aalesunds-fk-raufoss-il).
 Ikke skriv relative lenker som begynner med /kamp/. Leseren skal kunne åpne lenken på
 nettstedet og etter at svaret er kopiert til en annen tjeneste.
 

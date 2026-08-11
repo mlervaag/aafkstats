@@ -1,7 +1,17 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { exampleQueries, views } from "@aafkstats/query/dataset";
 import { CompetitionTable, DatasetHighlights } from "@/components/CoverageNote";
+import { JsonLd } from "@/components/JsonLd";
+import { loadCoverage } from "@/lib/archive";
+import { datasetJsonLd } from "@/lib/jsonld";
 
-export const metadata = { title: "Datasettet" };
+export const metadata: Metadata = pageMetadata(
+  "Datasettet",
+  "Det åpne datasettet bak AaFK-arkivet: tabeller, felter, eksempelspørringer og lisens. Fritt å laste ned, spørre og bygge videre på.",
+  "/data",
+  "website",
+);
 
 /**
  * Dokumentasjon av det publiserte datasettet.
@@ -11,8 +21,19 @@ export const metadata = { title: "Datasettet" };
  * nedlasting og spørring.
  */
 export default function DataPage() {
+  const coverage = loadCoverage();
   return (
     <>
+      {/* Datasettet som `Dataset`. Google Dataset Search indekserer denne typen,
+          og det er den ene inngangen til arkivet som ikke går via et søk på
+          «AaFK». */}
+      <JsonLd
+        data={datasetJsonLd({
+          firstSeason: coverage.firstSeason,
+          lastSeason: coverage.lastSeason,
+          matches: coverage.matches,
+        })}
+      />
       {/* Samme innledning som resten av nettstedet. Sto som en naken h1 med to
           avsnitt under, og var den ene siden uten stikkord og ingress. */}
       <header className="page-intro">

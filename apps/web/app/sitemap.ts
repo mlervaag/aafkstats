@@ -4,8 +4,9 @@ import { archivePath } from "@aafkstats/db";
 import { loadMatchIndex, loadOpponents, loadSeasonYears } from "@/lib/archive";
 import { getSources } from "@/lib/sources";
 import { getPeople } from "@/lib/people";
+import { SITE_ORIGIN } from "@/lib/site";
 
-const base = "https://aafkstats.vercel.app";
+const base = SITE_ORIGIN;
 
 /**
  * Når arkivet sist ble bygget.

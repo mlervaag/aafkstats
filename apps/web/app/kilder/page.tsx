@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
+import { JsonLd } from "@/components/JsonLd";
+import { collectionJsonLd } from "@/lib/jsonld";
 import { SourceListClient, type HistoricalSourceData } from "@/components/sources/SourceListClient";
 import { ContributionCallToAction } from "@/components/ContributionCallToAction";
 import { getSources } from "@/lib/sources";
 
-export const metadata: Metadata = {
-  title: "Historisk kildearkiv",
-  description: "Bøker, medlemsblad, jubileumsskrift, årsmeldinger og andre kilder til AaFKs historie.",
-};
+export const metadata: Metadata = pageMetadata(
+  "Historisk kildearkiv",
+  "Bøker, medlemsblad, jubileumsskrift, årsmeldinger og andre kilder til AaFKs historie.",
+  "/kilder",
+  "website",
+);
 
 export default function ArkivetPage() {
   // Klientkomponenten trenger bare feltene den filtrerer og viser. Providerlisten
@@ -29,6 +34,14 @@ export default function ArkivetPage() {
 
   return (
     <>
+      <JsonLd
+        data={collectionJsonLd({
+          name: "Historisk kildearkiv om Aalesunds Fotballklubb",
+          description: "Bøker, medlemsblad, jubileumsskrift, årsmeldinger og andre kilder til AaFKs historie.",
+          path: "/kilder",
+          size: sources.length,
+        })}
+      />
       {/* Kildesidene kom til senere og hadde sine egne klassenavn for det samme.
           Nå er innledningen den samme som på sesonger, motstandere og datasettet. */}
       <header className="page-intro">

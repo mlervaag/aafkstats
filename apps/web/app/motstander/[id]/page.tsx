@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { cache } from "react";
 import { MatchList } from "@/components/MatchList";
 import { loadOpponent, loadOpponents } from "@/lib/archive";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
 import { opponentDescription, opponentTitle, pageMetadata } from "@/lib/metadata";
 
 export function generateStaticParams(): { id: string }[] {
@@ -31,6 +33,12 @@ export default async function OpponentPage({ params }: Props) {
   const played = matches.filter((match) => match.status !== "scheduled");
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Motstandere", path: "/motstandere" },
+          { name: summary.opponent, path: `/motstander/${id}` },
+        ])}
+      />
       <p className="breadcrumb"><a href="/motstandere">Motstandere</a> / {summary.opponent}</p>
       <header className="page-intro compact">
         <p className="eyebrow">Innbyrdes oppgjør</p>

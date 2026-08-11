@@ -1,17 +1,26 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@/components/Analytics";
+import { JsonLd } from "@/components/JsonLd";
 import { JugendMark, JugendRule } from "@/components/Jugend";
+import { organizationJsonLd, websiteJsonLd } from "@/lib/jsonld";
+import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://aafkstats.vercel.app"),
-  title: { default: "AaFK-arkivet", template: "%s · AaFK-arkivet" },
+  metadataBase: new URL(SITE_ORIGIN),
+  title: { default: SITE_NAME, template: `%s · ${SITE_NAME}` },
   description: "Et uoffisielt, søkbart arkiv over Aalesunds Fotballklubbs kamper, personer, organisasjon og historiske kilder.",
+  applicationName: SITE_NAME,
+  // Ingen `alternates.canonical` her. Sider som ikke setter sin egen, arver den
+  // fra rotoppsettet, og en kanonisk «/» på hver side ville sagt til søkemotoren
+  // at hele arkivet er duplikater av forsiden. Kanonisk adresse settes per side.
   openGraph: {
-    title: "AaFK-arkivet",
+    title: SITE_NAME,
     description: "AaFKs kamper, personer og organisasjon — søkbart, kildeført og åpent.",
     type: "website",
     locale: "nb_NO",
+    siteName: SITE_NAME,
+    url: "/",
   },
   twitter: { card: "summary_large_image" },
 };
@@ -29,6 +38,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="nb">
       <body>
+        {/* Nettstedet og prosjektet bak, én gang, på hver side. Sidespesifikke
+            strukturerte data legges på av sidene selv. */}
+        <JsonLd data={[websiteJsonLd(), organizationJsonLd()]} />
         <a className="skip-link" href="#innhold">Hopp til innhold</a>
         <div className="prototype-bar">Uoffisielt supporterprosjekt · under oppbygging</div>
         <header className="masthead">
