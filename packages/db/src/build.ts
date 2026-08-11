@@ -182,8 +182,8 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
     }
 
     const insertPerson = db.prepare(
-      `INSERT INTO core_people (id, person_key, name, nationality, position, wikidata, sources, note)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO core_people (id, person_key, name, nationality, position, wikidata, sources, conflicts, note)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     );
     const insertPersonName = db.prepare(
       `INSERT OR IGNORE INTO core_person_names (person_id, person_key, name) VALUES (?, ?, ?)`,
@@ -202,7 +202,7 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
     for (const p of archive.people) {
       insertPerson.run(
         p.id, personKey(p.name), p.name, p.nationality ?? null,
-        p.position ?? null, p.wikidata ?? null, json(p.sources ?? []), p.note ?? null,
+        p.position ?? null, p.wikidata ?? null, json(p.sources ?? []), json(p.conflicts ?? []), p.note ?? null,
       );
       for (const written of [p.name, ...p.names]) {
         insertPersonName.run(p.id, personKey(written), written);
