@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getPersonById, getPersonIds, getPersonRoles, getPersonSeasons, getSourceTitles } from "@/lib/people";
+import { getPersonById, getPersonIds, getPersonRoles, getPersonSeasons, getSourceTitles, mergeRoleSpells } from "@/lib/people";
 import type { PersonConflict, PersonMention, PersonRole } from "@/lib/people";
 import { SourceChips, collapseSources, pageList } from "@/components/SourceChips";
 import styles from "../People.module.css";
@@ -57,7 +57,7 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
   const person = getPersonById(id);
   if (!person) notFound();
 
-  const roles = [...getPersonRoles(id)].reverse();
+  const roles = mergeRoleSpells(getPersonRoles(id)).reverse();
   const seasons = getPersonSeasons(id);
   const sourceTitles = getSourceTitles();
   const initials = person.name.split(/\s+/).slice(0, 2).map((part) => part[0]).join("");

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getPersonRoles, getSourceTitles, type PersonRole } from "@/lib/people";
+import { getPersonRoles, getSourceTitles, mergeRoleSpells, type PersonRole } from "@/lib/people";
 import { ArchiveTabs } from "@/components/ArchiveTabs";
 import { SectionIndex } from "@/components/SectionIndex";
 import { SourceChips } from "@/components/SourceChips";
@@ -46,7 +46,10 @@ function RoleList({ roles, sourceTitles, showTitle = true }: {
 }
 
 export default function OrganizationPage() {
-  const roles = getPersonRoles();
+  const registered = getPersonRoles();
+  // Sammenslåingen gjelder visningen. Kildedekninga teller fortsatt registrerte
+  // roller, ikke rader på skjermen — det er arkivets størrelse, ikke sidas.
+  const roles = mergeRoleSpells(registered);
   const sourceTitles = getSourceTitles();
   const chairs = roles.filter((role) => role.category === "board" && role.title === "Formann");
   const administration = roles.filter((role) => ["administration", "sporting_staff", "project"].includes(role.category));
@@ -70,7 +73,7 @@ export default function OrganizationPage() {
         <div className={styles.coverage}>
           <span>Kildedekning</span>
           <strong>{firstYear}–{lastYear}</strong>
-          <p>{roles.length} kildeførte roller · {new Set(roles.map((role) => role.person_id)).size} personer</p>
+          <p>{registered.length} kildeførte roller · {new Set(registered.map((role) => role.person_id)).size} personer</p>
         </div>
       </header>
 
