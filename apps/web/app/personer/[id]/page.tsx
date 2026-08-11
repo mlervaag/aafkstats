@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPersonById, getPersonIds, getPersonRoles, getPersonSeasons, getSourceTitles } from "@/lib/people";
-import type { PersonConflict, PersonMention, PersonRole, PersonRoleSource } from "@/lib/people";
+import type { PersonConflict, PersonMention, PersonRole } from "@/lib/people";
+import { SourceChips, collapseSources, pageList } from "@/components/SourceChips";
 import styles from "../People.module.css";
 
 const POSITION_LABELS: Record<string, string> = { keeper: "Keeper", forsvar: "Forsvar", midtbane: "Midtbane", angrep: "Angrep" };
@@ -36,46 +37,6 @@ function when(from: string, to: string | null): string {
   if (to === null || to === from) return day(from);
   if (from.length === 4 && to.length === 4) return `${from}–${to}`;
   return `${day(from)} – ${day(to)}`;
-}
-
-/**
- * Kildene til én rolle, uten dublett — målt på det leseren ser.
- *
- * Samme publikasjon og side kan komme inn to ganger, én gang fra en håndlesning
- * og én fra en maskinell. Verre: arkivet har to kilde-ID-er med identisk tittel,
- * som `medlemsblad-…-1974-6d28` og `…-1974-ab1b`, fordi samme utgave er
- * registrert to ganger hos Nasjonalbiblioteket. To brikker med nøyaktig samme
- * tekst ser ut som en feil uansett hvor ærlig forskjellen er, så de slås sammen
- * på etiketten og ikke på ID-en.
- */
-function distinctSources(sources: PersonRoleSource[], titles: Map<string, string>): CitedSource[] {
-  const seen = new Map<string, CitedSource>();
-  for (const source of sources) {
-    const title = titles.get(source.sourceId) ?? source.sourceId;
-    const current = seen.get(title);
-    if (!current) {
-      seen.set(title, { sourceId: source.sourceId, title, pages: source.page ? [source.page] : [] });
-      continue;
-    }
-    // Samme publikasjon sitert pa flere sider blir en lenke med sidetallene
-    // etter hverandre. Tre brikker med identisk tittel og hvert sitt sidetall
-    // fyller en halv skjerm og sier ikke mer enn en med tre tall.
-    if (source.page && !current.pages.includes(source.page)) current.pages.push(source.page);
-  }
-  return [...seen.values()];
-}
-
-/** En publikasjon som belegger noe, med sidene den er sitert pa. */
-interface CitedSource {
-  sourceId: string;
-  title: string;
-  pages: string[];
-}
-
-function pages(source: CitedSource): string {
-  if (source.pages.length === 0) return "";
-  const sorted = [...source.pages].sort((a, b) => (Number(a) || 0) - (Number(b) || 0));
-  return `, s. ${sorted.join(", ")}`;
 }
 
 export function generateStaticParams(): { id: string }[] {
@@ -187,15 +148,7 @@ function Role({ role, titles }: { role: PersonRole; titles: Map<string, string> 
         <h3>{role.title}</h3>
         {role.body ? <p className={styles.roleBody}>{role.body}</p> : null}
         {role.note ? <p className="small muted">{role.note}</p> : null}
-        <ul className={styles.sources}>
-          {distinctSources(role.sources, titles).map((source) => (
-            <li key={source.title}>
-              <Link href={`/kilder/${source.sourceId}`}>
-                {source.title}<span className="num">{pages(source)}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <SourceChips refs={role.sources} titles={titles} />
       </div>
     </li>
   );
@@ -260,7 +213,7 @@ function Conflicts({ conflicts, titles }: { conflicts: PersonConflict[]; titles:
  * registeret. For flere av de eldre er dette hele sporet arkivet har etter dem.
  */
 function Mentions({ mentions, titles }: { mentions: PersonMention[]; titles: Map<string, string> }) {
-  const shown = distinctSources(mentions, titles);
+  const shown = collapseSources(mentions, titles);
   return (
     <section className={styles.section}>
       <h2>Omtalt i</h2>
@@ -274,7 +227,7 @@ function Mentions({ mentions, titles }: { mentions: PersonMention[]; titles: Map
           .map((mention) => (
             <li key={mention.title}>
               <Link href={`/kilder/${mention.sourceId}`}>
-                {mention.title}<span className="num">{pages(mention)}</span>
+                {mention.title}<span className="num">{pageList(mention)}</span>
               </Link>
             </li>
           ))}

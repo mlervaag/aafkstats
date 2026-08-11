@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getPersonRoles, getSourceTitles, type PersonRole } from "@/lib/people";
+import { ArchiveTabs } from "@/components/ArchiveTabs";
+import { SourceChips } from "@/components/SourceChips";
 import styles from "./Organization.module.css";
 
 export const metadata: Metadata = {
@@ -12,7 +14,18 @@ function range(role: PersonRole): string {
   return role.to_date && role.to_date !== role.from_date ? `${role.from_date}–${role.to_date}` : role.from_date;
 }
 
-function RoleList({ roles, sourceTitles }: { roles: PersonRole[]; sourceTitles: Map<string, string> }) {
+/**
+ * En liste med verv.
+ *
+ * `showTitle` er av i seksjoner der tittelen alt står i overskriften: under
+ * «Formenn» sto «Formann · Hovedstyret» på hver eneste rad, 41 ganger, uten å
+ * skille en rad fra en annen.
+ */
+function RoleList({ roles, sourceTitles, showTitle = true }: {
+  roles: PersonRole[];
+  sourceTitles: Map<string, string>;
+  showTitle?: boolean;
+}) {
   return (
     <ol className={styles.roleList}>
       {roles.map((role) => (
@@ -20,14 +33,10 @@ function RoleList({ roles, sourceTitles }: { roles: PersonRole[]; sourceTitles: 
           <time>{range(role)}</time>
           <div>
             <h3><Link href={`/personer/${role.person_id}`}>{role.name}</Link></h3>
-            <p>{role.title}{role.body ? ` · ${role.body}` : ""}</p>
-            <div className={styles.sourceLinks}>
-              {role.sources.map((source) => (
-                <Link key={`${role.role_id}-${source.sourceId}-${source.page ?? ""}`} href={`/kilder/${source.sourceId}`}>
-                  {sourceTitles.get(source.sourceId) ?? "Kilde"}{source.page ? `, s. ${source.page}` : ""}
-                </Link>
-              ))}
-            </div>
+            {showTitle || role.body ? (
+              <p>{[showTitle ? role.title : null, role.body].filter(Boolean).join(" · ")}</p>
+            ) : null}
+            <SourceChips refs={role.sources} titles={sourceTitles} />
           </div>
         </li>
       ))}
@@ -64,10 +73,7 @@ export default function OrganizationPage() {
         </div>
       </header>
 
-      <nav className={styles.contextNav} aria-label="Person- og organisasjonsarkiv">
-        <a href="/personer">← Personer</a>
-        <span aria-current="page">Organisasjon</span>
-      </nav>
+      <ArchiveTabs current="/organisasjon" />
 
       <section className={styles.introGrid}>
         <div>
@@ -82,7 +88,7 @@ export default function OrganizationPage() {
       </section>
 
       <section className={styles.timelineSection}>
-        <RoleList roles={chairs} sourceTitles={sourceTitles} />
+        <RoleList roles={chairs} sourceTitles={sourceTitles} showTitle={false} />
       </section>
 
       {founders.length > 0 ? (

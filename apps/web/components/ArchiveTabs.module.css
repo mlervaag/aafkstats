@@ -1,0 +1,27 @@
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.4rem;
+  margin: 1.4rem 0 2.5rem;
+  padding: 0.3rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.tabs a, .tabs span {
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+.tabs a { color: var(--muted); }
+.tabs a:hover { color: var(--accent); background: var(--surface); }
+.tabs span { color: var(--on-accent); background: var(--accent); }
+
+/* Tre faner må stå på én rad også på 390 piksler: en fanerad som brekker
+   mister det som gjør den til en fanerad. */
+@media (max-width: 460px) {
+  .tabs a, .tabs span { padding: 0.5rem 0.3rem; font-size: 0.82rem; }
+}

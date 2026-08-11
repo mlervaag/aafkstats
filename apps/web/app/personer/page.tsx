@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArchiveTabs } from "@/components/ArchiveTabs";
 import { PeopleDirectory } from "@/components/people/PeopleDirectory";
 import { getPeople, getPersonRoles } from "@/lib/people";
 import styles from "./People.module.css";
@@ -32,10 +33,7 @@ export default function PeoplePage() {
         </dl>
       </header>
 
-      <nav className={styles.contextNav} aria-label="Person- og organisasjonsarkiv">
-        <span aria-current="page">Personer</span>
-        <a href="/organisasjon">Organisasjon og styrer →</a>
-      </nav>
+      <ArchiveTabs current="/personer" />
 
       <PeopleDirectory people={people} />
     </article>

@@ -4,9 +4,6 @@
 .coverage span { color: var(--muted); font-size: 0.7rem; font-weight: 750; letter-spacing: 0.06em; text-transform: uppercase; }
 .coverage strong { display: block; margin-top: 0.2rem; font-family: var(--font-display); font-size: 2rem; font-variant-numeric: tabular-nums; }
 .coverage p { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.82rem; }
-.contextNav { display: flex; gap: 0.75rem; margin: 1.2rem 0 2.5rem; font-size: 0.9rem; }
-.contextNav span, .contextNav a { padding: 0.45rem 0.65rem; border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; }
-.contextNav span { color: var(--on-accent); background: var(--accent); border-color: var(--accent); }
 .introGrid { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: end; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
 .introGrid h2 { margin: 0.1rem 0 0; }.introGrid p:last-child { margin-bottom: 0; color: var(--muted); }
 .legend { display: flex; flex-wrap: wrap; gap: 1rem; color: var(--muted); font-size: 0.78rem; }
@@ -14,16 +11,15 @@
 .legend i { display: block; width: 1.4rem; height: 3px; }.confirmed { background: var(--accent); }.gap { background: var(--border); }
 .timelineSection { margin-top: 0.5rem; }
 .roleList { margin: 0; padding: 0; list-style: none; }
-.roleList li { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 1rem; position: relative; padding: 1rem 0 1rem 1.2rem; border-bottom: 1px solid var(--border); }
-.roleList li::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 3px; background: var(--accent-soft); }
-.roleList time { color: var(--accent); font-family: var(--font-mono); font-size: 0.82rem; font-weight: 750; }
-.roleList h3 { margin: 0; font-size: 1rem; }.roleList h3 a { text-decoration: none; }
-.roleList p { margin: 0.25rem 0 0; color: var(--muted); font-size: 0.84rem; }
-.sourceLinks { margin-top: 0.45rem; }.sourceLinks a { font-size: 0.75rem; }
+.roleList > li { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 1rem; position: relative; padding: 1rem 0 1rem 1.2rem; border-bottom: 1px solid var(--border); }
+.roleList > li::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 3px; background: var(--accent-soft); }
+.roleList > li > time { color: var(--accent); font-family: var(--font-mono); font-size: 0.82rem; font-weight: 750; }
+.roleList > li h3 { margin: 0; font-size: 1rem; }.roleList > li h3 a { text-decoration: none; }
+.roleList > li > div > p { margin: 0.25rem 0 0; color: var(--muted); font-size: 0.84rem; }
 .columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; margin-top: 3.5rem; }
 .columns > section { padding-top: 1.2rem; border-top: 1px solid var(--border); }
 .columns h2 { margin-top: 0.1rem; }
-.columns .roleList li { grid-template-columns: 6.5rem minmax(0, 1fr); }
+.columns .roleList > li { grid-template-columns: 6.5rem minmax(0, 1fr); }
 .sportSection { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
 .sportSection h2 { margin: 0.1rem 0 0; }
 .sectionLead { color: var(--muted); }
@@ -35,5 +31,5 @@
   .introGrid { grid-template-columns: 1fr; }
 }
 @media (max-width: 500px) {
-  .roleList li, .columns .roleList li { grid-template-columns: 1fr; gap: 0.3rem; }
+  .roleList > li, .columns .roleList > li { grid-template-columns: minmax(0, 1fr); gap: 0.3rem; }
 }

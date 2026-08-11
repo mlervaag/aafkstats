@@ -1,0 +1,42 @@
+.header { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(15rem, 0.7fr); gap: 2rem; align-items: end; }
+.lead { max-width: 62ch; }
+.coverage { padding: 0.9rem 1.1rem; background: var(--surface-2); border-left: 3px solid var(--accent); }
+.coverage span { display: block; color: var(--muted); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.coverage strong { display: block; margin: 0.25rem 0; color: var(--accent); font-family: var(--font-display); font-size: 1.8rem; font-variant-numeric: tabular-nums; }
+.coverage p { margin: 0; color: var(--muted); font-size: 0.85rem; }
+
+/*
+ * Ett kort per bane. Fire baner på hundre år er lite nok til at alle kan stå
+ * åpne — en trekkspillmeny ville skjult tre firedeler av innholdet for å spare
+ * skroll leseren ikke har bedt om å slippe.
+ */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(28rem, 100%), 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.card { padding: 1.3rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+.card > header { padding-bottom: 0.9rem; border-bottom: 1px solid var(--border); }
+.card h2 { margin: 0.2rem 0 0; font-size: 1.35rem; }
+.card > header p:last-child { margin: 0.2rem 0 0; }
+
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)); gap: 0.8rem; margin: 1rem 0 0; }
+.facts dt { color: var(--muted); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; }
+.facts dd { margin: 0.15rem 0 0; font-weight: 700; }
+
+.record { margin-top: 1.1rem; padding: 0.85rem 1rem; background: var(--accent-soft); border-radius: var(--radius); }
+.record :global(.eyebrow) { margin: 0; }
+.recordNumber { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: baseline; margin: 0.3rem 0 0; }
+.recordNumber strong { color: var(--accent); font-family: var(--font-display); font-size: 1.5rem; }
+
+.events { margin-top: 1.3rem; }
+.events h3 { margin: 0 0 0.6rem; font-size: 0.95rem; }
+.events ol { margin: 0; padding: 0; list-style: none; }
+.events ol > li { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 0.9rem; padding: 0.8rem 0; border-top: 1px solid var(--border); }
+.events time { color: var(--accent); font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; }
+.eventKind { margin: 0; color: var(--muted); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.eventTitle { margin: 0.15rem 0 0; font-weight: 600; }
+.events p { margin: 0.2rem 0 0; }
+
+@media (max-width: 800px) {
+  .header { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .events ol > li { grid-template-columns: minmax(0, 1fr); gap: 0.25rem; }
+}
