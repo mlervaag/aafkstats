@@ -189,8 +189,8 @@ export function DatasetHighlights() {
           har komplett dekning fra første til siste runde.
         </li>
         <li>
-          Kampene har ulik detaljgrad: {c.withEvents} har hendelser som mål og kort, {c.withLineups}{" "}
-          har lagoppstilling og {c.withAttendance} har tilskuertall.
+          Detaljgraden varierer fra kamp til kamp: {c.withEvents} har hendelser som mål og
+          kort, {c.withLineups} har lagoppstilling og {c.withAttendance} har tilskuertall.
         </li>
         <li>
           <strong>{c.people} personer</strong> er registrert med {c.personRoles} kontrollerte
@@ -198,8 +198,8 @@ export function DatasetHighlights() {
         </li>
       </ul>
       <p className="prose small muted">
-        Dekningen følger kildene. At en detalj mangler, betyr derfor ikke nødvendigvis at
-        den ikke fantes eller skjedde.
+        Dekningen følger kildene. At en opplysning mangler her, betyr derfor ikke at den
+        ikke finnes, bare at ingen kilde vi har, oppgir den.
       </p>
     </>
   );

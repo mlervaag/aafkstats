@@ -19,8 +19,9 @@ export default function DataPage() {
         <p className="eyebrow">Åpne data</p>
         <h1>Datasettet</h1>
         <p className="lede">
-          Et åpent og etterprøvbart arkiv over AaFKs kamper, sesonger og personer. Dataene
-          kan utforskes her eller lastes ned for videre bruk.
+          Et åpent og etterprøvbart arkiv over AaFKs kamper, sesonger og personer. Alt ligger
+          som YAML-filer på GitHub, og bygges om til en skrivebeskyttet SQLite-fil ved hver
+          utrulling. Dataene kan utforskes her eller lastes ned og brukes videre.
         </p>
       </header>
       <h2 style={{ marginTop: "2rem" }}>Hva arkivet inneholder</h2>
