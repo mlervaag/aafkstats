@@ -18,15 +18,12 @@ export default function AboutPage() {
               har dato og motstander, men ingen resultatfelt, og er merket slik at de ikke
               telles med i statistikken.
             </p>
-            {/* Sto som «disse bidragene går gjennom en redaksjonell innboks».
-                Det gjelder minnene. En datarettelse går en annen vei, og hele
-                poenget med den veien er at endringen er synlig i git etterpå. */}
             <p>
-              Besøkende kan bidra fra knapper på hver kamp- og sesongside, og de to slagene
+              Besøkende kan bidra fra knapper på kamp-, sesong- og personsider, og de to slagene
               bidrag går hver sin vei. Et minne eller en observasjon kan sendes uten konto
               og havner i en redaksjonell innboks, der det vurderes og merkes med hvor
               sikkert det er før det vises. En faktarettelse blir en GitHub-sak med riktig
-              mal, og endrer kampen eller kilden med et synlig spor i historikken.
+              mal, og endrer kampen, personen, rollen eller kilden med et synlig spor i historikken.
               Ingen av delene publiseres automatisk. <a href="/bidra">Slik bidrar du.</a>
             </p>
             <CoverageNote />

@@ -3,6 +3,7 @@ import { ArchiveTabs } from "@/components/ArchiveTabs";
 import { SourceChips } from "@/components/SourceChips";
 import { getSourceTitles } from "@/lib/people";
 import { getHomeVenues } from "@/lib/venues";
+import { contributionIssueUrl } from "@/lib/contribution-links";
 import type { HomeVenue, VenueEvent } from "@/lib/venues";
 import styles from "./HomeVenues.module.css";
 
@@ -74,6 +75,19 @@ export default function HomeVenuesPage() {
       <div className={styles.grid}>
         {venues.map((venue) => <VenueCard key={venue.id} venue={venue} titles={titles} />)}
       </div>
+
+      <section className="content-section prose-stack">
+        <h2>Vet du mer om banene?</h2>
+        <p>
+          Meld fra om feil eller manglende perioder, dekker, kapasitetstall og milepæler.
+          Oppgi gjerne hvor opplysningen kan kontrolleres.
+        </p>
+        <p>
+          <a className="button-link" href={contributionIssueUrl("datafeil", "Hjemmebaner")}>
+            Meld feil eller manglende opplysninger
+          </a>
+        </p>
+      </section>
     </article>
   );
 }

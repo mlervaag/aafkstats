@@ -3,6 +3,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPersonById, getPersonIds, getPersonRoles, getPersonSeasons, getSourceTitles } from "@/lib/people";
 import type { PersonConflict, PersonMention, PersonRole } from "@/lib/people";
+import { loadContributions } from "@/lib/archive";
+import { contributionIssueUrl } from "@/lib/contribution-links";
+import { ContributionButton } from "@/components/ContributionButton";
+import { Contributions } from "@/components/Contributions";
 import { SourceChips, collapseSources, pageList } from "@/components/SourceChips";
 import styles from "../People.module.css";
 
@@ -60,6 +64,7 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
   const roles = [...getPersonRoles(id)].reverse();
   const seasons = getPersonSeasons(id);
   const sourceTitles = getSourceTitles();
+  const contributions = loadContributions(id, "person");
   const initials = person.name.split(/\s+/).slice(0, 2).map((part) => part[0]).join("");
   const played = person.appearances > 0;
 
@@ -82,7 +87,9 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
 
       <div className={styles.detailGrid}>
         <div>
-          {person.conflicts.length > 0 ? <Conflicts conflicts={person.conflicts} titles={sourceTitles} /> : null}
+          {person.conflicts.length > 0 ? (
+            <Conflicts conflicts={person.conflicts} titles={sourceTitles} personName={person.name} />
+          ) : null}
 
           {roles.length > 0 ? (
             <section className={styles.section}>
@@ -134,8 +141,16 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
           </dl>
           {person.wikidata ? <p className="small"><a href={`https://www.wikidata.org/wiki/${person.wikidata}`}>Åpne Wikidata →</a></p> : null}
           {person.note ? <p className="small muted">{person.note}</p> : null}
+          <ContributionButton
+            scope="person"
+            targetId={id}
+            title={person.name}
+            label="Bidra om personen"
+          />
         </aside>
       </div>
+
+      <Contributions contributions={contributions} />
     </article>
   );
 }
@@ -160,7 +175,11 @@ function Role({ role, titles }: { role: PersonRole; titles: Map<string, string> 
  * Står øverst med vilje. En leser som ser «Formann 1968» lenger nede skal vite
  * at en annen kilde sier noe annet før hen tar tallet med seg videre.
  */
-function Conflicts({ conflicts, titles }: { conflicts: PersonConflict[]; titles: Map<string, string> }) {
+function Conflicts({ conflicts, titles, personName }: {
+  conflicts: PersonConflict[];
+  titles: Map<string, string>;
+  personName: string;
+}) {
   /**
    * Merknaden bærer kilde-ID-en fra innhøstingen, som er en intern nøkkel.
    * Leseren skal se publikasjonen den peker på.
@@ -176,7 +195,7 @@ function Conflicts({ conflicts, titles }: { conflicts: PersonConflict[]; titles:
       <h2>Kildene er uenige</h2>
       <p className="small muted">
         Arkivet velger ikke mellom dem. Vet du hvilken som stemmer, kan du{" "}
-        <Link href="/bidra">sende inn en rettelse</Link>.
+        <a href={contributionIssueUrl("datafeil", personName)}>sende inn en rettelse med kilde</a>.
       </p>
       <ul className={styles.conflictList}>
         {conflicts.map((conflict) => {

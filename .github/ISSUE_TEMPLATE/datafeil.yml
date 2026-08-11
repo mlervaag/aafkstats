@@ -1,5 +1,5 @@
 name: Feil i arkivet
-description: Gal dato, feil resultat, feil målscorer eller annet som ikke stemmer
+description: Feil kampdata, person, rolle, hjemmebane, kilde eller annen arkivopplysning
 title: "Datafeil: "
 labels: ["data"]
 body:
@@ -17,11 +17,11 @@ body:
         treffer alle kampene på én gang.
 
   - type: input
-    id: kamp
+    id: sted
     attributes:
-      label: Hvilken kamp
-      description: Dato og motstander, eller lenken til kampsiden.
-      placeholder: 19.06.2019 mot Molde — /kamp/2019-06-19-aalesunds-fk-molde-fk
+      label: Hva i arkivet gjelder feilen?
+      description: Navn, dato eller tittel, og gjerne lenken til siden.
+      placeholder: Georg Haller — /personer/georg-haller
     validations:
       required: true
 
@@ -30,7 +30,7 @@ body:
     attributes:
       label: Hva står det nå, og hva skal det stå?
       placeholder: |
-        Arkivet sier 2–1. Riktig resultat er 2–2; utligningen kom på overtid.
+        Arkivet sier at personen var formann i 1919. Kilden oppgir 1915.
     validations:
       required: true
 
@@ -49,7 +49,7 @@ body:
     attributes:
       label: Er dette en feil, eller en uenighet?
       description: >
-        Kampsiden viser hvilken kilde tallet i arkivet kommer fra. Sier den kilden fortsatt
+        Arkivsiden viser hvilken kilde opplysningen kommer fra. Sier den kilden fortsatt
         noe annet enn din, er det ikke nødvendigvis feil — da har arkivet to kilder som ikke
         er enige, og det er en opplysning i seg selv. Arkivet fører den som `conflicts` i
         stedet for å velge i stillhet.
@@ -65,5 +65,5 @@ body:
     attributes:
       label: Før du sender
       options:
-        - label: Jeg har sjekket at feilen fortsatt finnes på aafkstats.vercel.app
+        - label: Jeg har sjekket at feilen fortsatt finnes i arkivet
           required: false

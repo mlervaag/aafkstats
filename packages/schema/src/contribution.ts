@@ -5,9 +5,9 @@ export const contribution = z
   .object({
     /** Unik ID for bidraget, for eksempel fra et GitHub-saksnummer (gh-1) */
     id: z.string().min(1),
-    /** Om bidraget gjelder en spesifikk kamp eller en hel sesong */
-    scope: z.enum(["match", "season"]),
-    /** Kamp-ID (eks 2009-10-25-aalesunds-fk-lyn) eller årstall (eks 2009) */
+    /** Om bidraget gjelder en spesifikk kamp, en hel sesong eller en person */
+    scope: z.enum(["match", "season", "person"]),
+    /** Kamp-ID, årstall eller person-ID */
     targetId: z.string().min(1),
     /** Kategorisering av bidraget */
     category: z.enum(["memory", "context", "trivia", "event_detail"]),

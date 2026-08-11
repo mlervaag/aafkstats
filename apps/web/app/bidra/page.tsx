@@ -6,7 +6,7 @@ import { contributionPrompts } from "@/lib/prompts";
 
 export const metadata: Metadata = {
   title: "Bidra",
-  description: "Meld inn feil, kilder og manglende AaFK-kamper — for hånd eller med AI-hjelp.",
+  description: "Meld inn minner, feil og kilder om AaFKs kamper, personer, roller og historie.",
 };
 
 export default function ContributePage() {
@@ -16,7 +16,7 @@ export default function ContributePage() {
         <p className="eyebrow">Åpent arkiv</p>
         <h1>Hva vil du bidra med?</h1>
         <p className="lede">
-          Velg det som passer. Minner kan sendes uten konto. Rettelser og nye data bruker
+          Velg det som passer. Minner og observasjoner kan sendes uten konto. Rettelser og nye data bruker
           korte GitHub-skjema, slik at vi får opplysningene som trengs første gang.
         </p>
       </header>
@@ -26,12 +26,13 @@ export default function ContributePage() {
           <span className="card-kicker">Raskest</span>
           <h2>Del et minne</h2>
           <p>
-            Finn kampen eller sesongen og trykk «Bidra». Skjemaet kjenner allerede stedet
+            Finn kampen, sesongen eller personen og trykk «Bidra». Skjemaet kjenner allerede stedet
             og kan sendes uten innlogging.
           </p>
-          <a className="button-link" href="/sesonger">
-            Finn kampen
-          </a>
+          <nav className="contribution-template-links" aria-label="Finn siden du vil bidra på">
+            <a href="/sesonger">Finn kamp eller sesong</a>
+            <a href="/personer">Finn person</a>
+          </nav>
         </section>
         <section className="archive-card">
           <span className="card-kicker">Rett sted med én gang</span>
@@ -57,7 +58,7 @@ export default function ContributePage() {
         </p>
         <p>
           Et godkjent minne vises under «Observasjoner og minner», merket med hvor sikkert
-          det er. En datarettelse endrer i stedet den aktuelle kampen eller kilden, med et
+          det er. En datarettelse endrer i stedet den aktuelle kampen, personen, rollen eller kilden, med et
           synlig spor i git.
         </p>
       </section>
@@ -65,14 +66,14 @@ export default function ContributePage() {
       <section className="content-section prose-stack">
         <h2>Et godt bidrag inneholder</h2>
         <ul>
-          <li>kampdato og motstander</li>
-          <li>feltet som skal legges til eller rettes</li>
+          <li>hvilken kamp, person, rolle eller annen del av arkivet det gjelder</li>
+          <li>opplysningen som skal legges til eller rettes</li>
           <li>lenke til en etterprøvbar kilde</li>
           <li>en kort forklaring hvis kildene er uenige</li>
         </ul>
         <div className="notice">
-          <strong>Ikke kopier kampreferat.</strong> Send lenken til originalen.
-          Opphavsrettsbeskyttet tekst skal ikke inn i arkivet.
+          <strong>Hent fakta, ikke brødtekst.</strong> Ikke kopier artikler, boktekst eller
+          kampreferat. Send lenken eller den bibliografiske referansen til originalen.
         </div>
       </section>
 
@@ -83,13 +84,13 @@ export default function ContributePage() {
           <div className="prose-stack">
             <p>
               Du trenger ikke kunne YAML for å bidra. Kopier en av promptene under inn i
-              modellen du bruker til vanlig, fyll inn det du vet om kampen, og la den skrive
+              modellen du bruker til vanlig, fyll inn det du vet om kampen eller personen, og la den skrive
               filen. Da holder det at <em>du</em> har kildene og kontrollerer resultatet.
             </p>
             <p>
               Promptene forteller modellen hvordan arkivet er bygget opp, og — viktigere — hva
               den <strong>ikke</strong> skal gjøre: gjette på fakta den ikke finner, og kopiere
-              eller omskrive referattekst fra en avis. Begge deler skjer lett om man ikke ber
+              eller omskrive tekst fra en bok eller avis. Begge deler skjer lett om man ikke ber
               om noe annet.
             </p>
             <div className="notice">
@@ -115,7 +116,7 @@ export default function ContributePage() {
         <h2>Hva som mangler mest</h2>
         <GapNote />
         <p>
-          Se <a href="/sesonger">sesongoversikten</a> for hva som allerede ligger inne.
+          Se <a href="/sesonger">sesongoversikten</a> og <a href="/personer">personregisteret</a> for hva som allerede ligger inne.
         </p>
       </section>
     </>

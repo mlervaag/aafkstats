@@ -931,7 +931,7 @@ CREATE VIRTUAL TABLE reports USING fts5(
 -- Bidrag/observasjoner innsendt av brukere via innboksen
 CREATE TABLE core_contributions (
   id           TEXT PRIMARY KEY,
-  scope        TEXT NOT NULL CHECK (scope IN ('match', 'season')),
+  scope        TEXT NOT NULL CHECK (scope IN ('match', 'season', 'person')),
   target_id    TEXT NOT NULL,
   category     TEXT NOT NULL CHECK (category IN ('memory', 'context', 'trivia', 'event_detail')),
   text         TEXT NOT NULL,

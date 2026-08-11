@@ -551,11 +551,11 @@ export const views: ViewDoc[] = [
     summary: "Brukerinnsendte bidrag, observasjoner og minner hentet fra innboksen.",
     caveats: [
       "Bare godkjente bidrag som har gått gjennom redaksjonell kontroll ligger her.",
-      "Bidrag knyttes til enten en kamp (target_id = match_id) eller en sesong (target_id = årstall). Sjekk scope ('match' eller 'season') for å se hva target_id peker på.",
+      "Bidrag knyttes til en kamp (target_id = match_id), sesong (target_id = årstall) eller person (target_id = person_id). Sjekk scope ('match', 'season' eller 'person') for å se hva target_id peker på.",
     ],
     columns: [
       { name: "id", type: "text", description: "Unik ID for bidraget." },
-      { name: "scope", type: "text", description: "'match' eller 'season'." },
+      { name: "scope", type: "text", description: "'match', 'season' eller 'person'." },
       { name: "target_id", type: "text", description: "Kamp-ID eller sesongår." },
       { name: "category", type: "text", description: "Kategori, f.eks. 'memory', 'context', 'trivia', 'event_detail'." },
       { name: "text", type: "text", description: "Selve innholdet." },

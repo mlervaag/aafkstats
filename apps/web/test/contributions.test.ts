@@ -58,6 +58,21 @@ describe("bidragsruten", () => {
     expect(sentIssue().title).toContain("1998-08-16");
   });
 
+  it("tar imot et personbidrag med tydelig kontekst", async () => {
+    const res = await POST(request({
+      ...gyldig,
+      scope: "person",
+      targetId: "georg-haller",
+      pageUrl: "/personer/georg-haller",
+      text: "Jeg husker ham som lagleder på denne tiden.",
+    }, { "x-real-ip": "10.0.0.15" }));
+
+    expect(res.status).toBe(200);
+    expect(sentIssue().title).toBe("Observasjon: Person georg-haller");
+    expect(sentIssue().body).toContain("**Kontekst:** Person `georg-haller`");
+    expect(sentIssue().labels).toContain("person");
+  });
+
   it("avviser en forespørsel fra et annet nettsted", async () => {
     // Uten dette kan en hvilken som helst side få de besøkendes nettlesere til å
     // fylle innboksen. Ruten har ingen innlogging, så det er innboksen som står

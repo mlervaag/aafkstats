@@ -11,12 +11,13 @@
  * høflige ønsker — en modell som blir bedt om å «prøve å ikke gjette» gjetter.
  */
 
-import { matchStatus } from "@aafkstats/schema";
-import { loadCompetitionIds } from "@/lib/archive";
+import { matchStatus, personRoleCategory } from "@aafkstats/schema";
+import { loadCompetitionIds, loadCoverage } from "@/lib/archive";
 
 const REPO = "https://github.com/mlervaag/aafkstats";
 
 const MATCH_STATUSES = matchStatus.options.join(" | ");
+const PERSON_ROLE_CATEGORIES = personRoleCategory.options.join(" | ");
 
 const FORMAT = (competitionIds: string) => `Datamodellen, kort:
 
@@ -38,8 +39,9 @@ ikke 4 og 3.`;
 
 const SOURCE_RULES = `Kildekrav — dette er ufravikelig:
 
-- Hver opplysning skal kunne etterprøves. Legg inn sources[] med sourceId, url og
-  retrievedAt (dagens dato), og list i fields[] hvilke felt kilden faktisk dekker.
+- Hver opplysning skal kunne etterprøves. Nettkilder legges i providers[] med providerId,
+  url, retrievedAt (dagens dato) og fields[]. Registrerte historiske dokumenter legges i
+  sources[] med sourceId, eventuelt page, og fields[]. fields[] sier hvilke felt kilden dekker.
 - Finner du ikke en opplysning, LA FELTET STÅ TOMT. Ikke gjett, ikke rund av, ikke
   regn deg fram til et tilskuertall. Et hull er greit; en oppdiktet verdi er ikke.
 - Er du usikker, sett confidence: probable og skriv hvorfor i PR-beskrivelsen.
@@ -84,11 +86,11 @@ export interface ContributionPrompt {
 let cached: ContributionPrompt[] | undefined;
 
 export function contributionPrompts(): ContributionPrompt[] {
-  cached ??= buildPrompts(loadCompetitionIds().join(", "));
+  cached ??= buildPrompts(loadCompetitionIds().join(", "), loadCoverage().firstSeason);
   return cached;
 }
 
-function buildPrompts(competitionIds: string): ContributionPrompt[] {
+function buildPrompts(competitionIds: string, firstSeason: number | null): ContributionPrompt[] {
   const format = FORMAT(competitionIds);
   return [
   {
@@ -96,7 +98,7 @@ function buildPrompts(competitionIds: string): ContributionPrompt[] {
     title: "Legg til en kamp som mangler",
     purpose: "Vanligst",
     description:
-      "For eldre kamper arkivet ikke har ennå. Kampryggraden rekker tilbake til 1917, "
+      `For eldre kamper arkivet ikke har ennå. Kampryggraden rekker tilbake til ${firstSeason ?? "første registrerte sesong"}, `
       + "men detaljene — mål, oppstillinger, tilskuertall — begynner først rundt 2010.",
     prompt: `Du skal hjelpe meg å legge til en AaFK-kamp i det åpne arkivet ${REPO}.
 
@@ -114,6 +116,44 @@ Slik vil jeg at du jobber:
    klubben har byttet navn.
 3. Skriv den ferdige YAML-filen, klar til å lime inn.
 4. List opp hva du IKKE fant, slik at jeg vet hva som mangler.
+
+${PR_FLOW}`,
+  },
+  {
+    id: "personrolle",
+    title: "Legg til eller rett en personrolle",
+    purpose: "Personer og organisasjon",
+    description:
+      "For spillere, trenere, styremedlemmer, ansatte, stiftere og hedersmedlemmer som mangler en rolle eller har feil periode.",
+    prompt: `Jeg vil legge til eller rette en personrolle i det åpne AaFK-arkivet ${REPO}.
+
+Personen og rollen: [NAVN, TITTEL ELLER VERV, ORGANISASJONSDEL OG ÅR/PERIODE]
+Kilden min: [LENKE, PUBLIKASJON, ÅR OG SIDETALL]
+
+Personer ligger i data/people/<id>.yaml. Sjekk først om personen allerede finnes, også
+under names[]. Opprett bare en ny fil når det faktisk er en ny person. id er en stabil slug
+av navnet. Behold alle eksisterende felt og roller.
+
+En rolle under roles: skal ha:
+
+- id: en kort slug som er unik i personfila
+- category: én av ${PERSON_ROLE_CATEGORIES}
+- title: tittelen slik kilden oppgir den
+- body: organisasjonsdelen, for eksempel Hovedstyret eller A-laget, når kilden sier det
+- from: år (YYYY) eller eksakt dato (YYYY-MM-DD)
+- to: siste år/dato, samme verdi som from for ett kjent år, eller null når slutten er ukjent
+- sources[]: minst én oppføring med sourceId, eventuelt page, og fields[] som sier hvilke
+  rollefelt kilden dekker
+
+Sjekk at sourceId finnes i data/sources/. Finnes kilden ikke, lag først en kildefil etter
+modellen i docs/DATAMODELL.md. Ikke gjør brødtekst fra kilden om til biografi. Hent bare
+etterprøvbare fakta om personens AaFK-tilknytning.
+
+Finner du ikke årstall, tittel eller organisasjonsdel, skal du ikke gjette. Sier kildene
+ulike personer eller perioder for samme verv, skal du ikke velge i stillhet: behold begge
+kildepåstandene som en uavklart konflikt og forklar uenigheten i pull requesten.
+
+Gi meg den komplette personfila og eventuelle nye kildefiler, og list hva du endret.
 
 ${PR_FLOW}`,
   },

@@ -345,7 +345,7 @@ Tre ruter gjør noe mer enn å lese:
   samme uansett; det er bare selve kallet som er to. En kort samtale lever bare i
   nettleserkomponenten. Modellen kan registrere ett strukturert oppfølgingsforslag, som ruta
   sender som en egen SSE-hendelse først etter et vellykket hovedsvar.
-- **`/api/contributions`** — tar imot minner og observasjoner uten innlogging og oppretter
+- **`/api/contributions`** — tar imot minner og observasjoner om kamper, sesonger og personer uten innlogging og oppretter
   en sak i en separat GitHub-innboks. Den skriver aldri i arkivet. Datafeil, manglende
   kamper og kildetips går til egne issue-maler i hovedrepoet i stedet.
 

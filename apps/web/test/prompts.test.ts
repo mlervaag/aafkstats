@@ -2,7 +2,7 @@ import { mkdtempSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { matchStatus } from "@aafkstats/schema";
+import { matchStatus, personRoleCategory } from "@aafkstats/schema";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
 import { loadCompetitionIds } from "../lib/archive.js";
 import { contributionPrompts } from "../lib/prompts.js";
@@ -59,15 +59,28 @@ describe("bidragspromptene", () => {
     // en bidragsyter som tror alt før 2011 mangler leter feil sted.
     const all = contributionPrompts().map((p) => `${p.description} ${p.prompt}`).join("\n");
     expect(all).not.toMatch(/tynt før 2011/);
+    expect(all).not.toContain("tilbake til 1917");
+    expect(all).toContain("tilbake til 1998");
   });
 
   it("krever kildeføring i promptene som lager datafiler", () => {
-    // De to som produserer YAML må be om sources[]. Uten det kommer bidrag inn
-    // uten opphav, og hele etterprøvbarheten faller.
-    for (const id of ["ny-kamp", "detaljer"]) {
+    // Promptene som produserer YAML må skille nettkilder i providers[] fra
+    // registrerte arkivdokumenter i sources[]. Uten det validerer ikke filene.
+    for (const id of ["ny-kamp", "detaljer", "personrolle"]) {
       const prompt = contributionPrompts().find((p) => p.id === id);
       expect(prompt, `prompten «${id}» finnes ikke lenger`).toBeDefined();
       expect(prompt!.prompt, `«${id}» mangler kravet om sources[]`).toMatch(/sources\[\]/);
+      if (id !== "personrolle") {
+        expect(prompt!.prompt, `«${id}» mangler riktig format for nettkilder`).toMatch(/providers\[\]/);
+      }
+    }
+  });
+
+  it("lister hver gyldige personrollekategori", () => {
+    const prompt = contributionPrompts().find((p) => p.id === "personrolle");
+    expect(prompt).toBeDefined();
+    for (const category of personRoleCategory.options) {
+      expect(prompt!.prompt, `rollekategorien «${category}» mangler`).toContain(category);
     }
   });
 

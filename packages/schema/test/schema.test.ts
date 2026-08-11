@@ -301,4 +301,10 @@ describe("bidrag", () => {
   it("lar kilden være tom", () => {
     expect(contribution.parse(base).sourceUrl).toBeNull();
   });
+
+  it("kan knytte et bidrag til en person", () => {
+    const parsed = contribution.parse({ ...base, scope: "person", targetId: "georg-haller" });
+    expect(parsed.scope).toBe("person");
+    expect(parsed.targetId).toBe("georg-haller");
+  });
 });
