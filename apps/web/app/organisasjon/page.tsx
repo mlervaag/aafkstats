@@ -106,7 +106,8 @@ export default function OrganizationPage() {
           <h1>Organisasjon</h1>
           <p className={styles.lead}>
             En tidslinje over ledelse, administrasjon og heder. Oversikten viser bare verv
-            som er funnet i en navngitt kilde – tomme år betyr ukjent, ikke at vervet sto tomt.
+            som er funnet i en navngitt kilde, så tomme år betyr at vervet er ukjent for oss,
+            ikke at det sto tomt.
           </p>
         </div>
         <div className={styles.coverage}>

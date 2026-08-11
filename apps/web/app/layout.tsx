@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Et uoffisielt, søkbart arkiv over Aalesunds Fotballklubbs kamper, personer, organisasjon og historiske kilder.",
   openGraph: {
     title: "AaFK-arkivet",
-    description: "AaFKs kamper, personer og organisasjon — søkbart, kildeført og åpent.",
+    description: "AaFKs kamper, personer og organisasjon: søkbart, kildeført og åpent.",
     type: "website",
     locale: "nb_NO",
   },

@@ -43,8 +43,8 @@ export default function Home() {
               treningskamper. Setningen leses av hver besøkende og var det siste
               stedet dekningen fortsatt ble påstått for hånd. */}
           <p className="lede">
-            Søk opp kamper og personer direkte, eller still spørsmål i fritekst.
-            Kampregisteret dekker foreløpig {coveredCompetitions()} fra{" "}
+            Søk etter kamper og personer, eller still et spørsmål med dine egne ord.
+            Arkivet dekker foreløpig {coveredCompetitions()} fra{" "}
             {totals.first?.slice(0, 4) ?? "-"} til {totals.last?.slice(0, 4) ?? "-"}.
           </p>
         </div>
@@ -91,8 +91,8 @@ export default function Home() {
           <a href="/personer"><strong>Personer</strong><span>Spillere, trenere, ledere og æresmedlemmer</span></a>
           <a href="/organisasjon"><strong>Organisasjon</strong><span>Styrer og verv, kildeført over tid</span></a>
           <a href="/hjemmebaner"><strong>Hjemmebaner</strong><span>Nørvebana, Aksla, Kråmyra og Color Line</span></a>
-          <a href="/data"><strong>Datasettet</strong><span>Se datamodellen og koden som driver arkivet</span></a>
-          <a href="/bidra"><strong>Bidra</strong><span>Del minner, rett fakta og tips om kilder</span></a>
+          <a href="/data"><strong>Datasettet</strong><span>Utforsk åpne data, tabeller og felt</span></a>
+          <a href="/bidra"><strong>Bidra</strong><span>Del minner, rett feil og tips oss om kilder</span></a>
         </aside>
       </section>
 
@@ -106,10 +106,10 @@ export default function Home() {
         </div>
         <div className="prose">
           <p>
-            Dato, motstander og sluttresultat finnes for hver spilte kamp. Kampene på
-            terminlista inngår i arkivtotalen, men holdes utenfor resultatstatistikken
-            til de er spilt. Detaljgraden varierer, og kildene er dokumentert.
-            Datasettet er ikke en offisiell AaFK-publikasjon.{" "}
+            Alle spilte kamper har dato, motstander og sluttresultat. Hvor mye mer vi har,
+            varierer fra kamp til kamp, og kilden står alltid oppgitt. Kamper som ikke er
+            spilt ennå, teller med i totalen, men holdes utenfor resultatstatistikken.
+            Arkivet er ikke en offisiell AaFK-publikasjon.{" "}
             <a href="/om">Les om omfang og forbehold.</a>
           </p>
           <CoverageNote heading={false} />

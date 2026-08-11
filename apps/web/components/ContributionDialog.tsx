@@ -168,8 +168,8 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
                 maxLength={300}
               />
               <p id="source-help" className="small muted form-help">
-                Bare nettadresser. Har du en kilde uten lenke — et programblad, et
-                avisutklipp — beskriv den i feltet over.
+                Bare nettadresser. Har du en kilde uten lenke, for eksempel et programblad
+                eller et avisutklipp, kan du beskrive den i feltet over.
               </p>
             </div>
 
