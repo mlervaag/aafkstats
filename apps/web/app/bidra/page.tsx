@@ -16,8 +16,9 @@ export default function ContributePage() {
         <p className="eyebrow">Åpent arkiv</p>
         <h1>Hva vil du bidra med?</h1>
         <p className="lede">
-          Velg det som passer. Minner og observasjoner kan sendes uten konto. Rettelser og nye data bruker
-          korte GitHub-skjema, slik at vi får opplysningene som trengs første gang.
+          Velg det som passer. Minner og observasjoner kan du sende inn uten konto. Rettelser
+          og nye data går gjennom korte skjema på GitHub, slik at vi får med alt vi trenger
+          med én gang.
         </p>
       </header>
 
@@ -26,8 +27,8 @@ export default function ContributePage() {
           <span className="card-kicker">Raskest</span>
           <h2>Del et minne</h2>
           <p>
-            Finn kampen, sesongen eller personen og trykk «Bidra». Skjemaet kjenner allerede stedet
-            og kan sendes uten innlogging.
+            Finn kampen, sesongen eller personen det gjelder, og trykk «Bidra». Skjemaet vet
+            allerede hvor du er, og du trenger ikke logge inn.
           </p>
           <nav className="contribution-template-links" aria-label="Finn siden du vil bidra på">
             <a href="/sesonger">Finn kamp eller sesong</a>
@@ -38,8 +39,8 @@ export default function ContributePage() {
           <span className="card-kicker">Rett sted med én gang</span>
           <h2>Rett eller legg til data</h2>
           <p>
-            Velg et ferdig skjema. GitHub-konto kreves, men du slipper å kjenne arkivets
-            filformat eller vite hvor rettelsen hører hjemme.
+            Velg et ferdig skjema. Du trenger en GitHub-konto, men du slipper å kunne
+            arkivets filformat eller vite hvor rettelsen hører hjemme.
           </p>
           <nav className="contribution-template-links" aria-label="GitHub-skjema for bidrag">
             <a href={contributionIssueUrl("datafeil")}>Meld en feil</a>
@@ -53,13 +54,13 @@ export default function ContributePage() {
       <section className="content-section prose-stack">
         <h2>Hva som skjer etterpå</h2>
         <p>
-          Ingenting går rett i arkivet. Minner havner i en egen innboks. Feil og nye data
-          blir GitHub-saker med riktig mal. Begge deler blir kontrollert før noe publiseres.
+          Ingenting går rett inn i arkivet. Minner havner i en egen innboks, mens feil og
+          nye data blir saker på GitHub. Begge deler blir kontrollert før noe publiseres.
         </p>
         <p>
           Et godkjent minne vises under «Observasjoner og minner», merket med hvor sikkert
-          det er. En datarettelse endrer i stedet den aktuelle kampen, personen, rollen eller kilden, med et
-          synlig spor i git.
+          det er. En datarettelse endrer i stedet selve kampen, personen, rollen eller
+          kilden, og endringen får et synlig spor i historikken.
         </p>
       </section>
 
@@ -72,8 +73,9 @@ export default function ContributePage() {
           <li>en kort forklaring hvis kildene er uenige</li>
         </ul>
         <div className="notice">
-          <strong>Hent fakta, ikke brødtekst.</strong> Ikke kopier artikler, boktekst eller
-          kampreferat. Send lenken eller den bibliografiske referansen til originalen.
+          <strong>Send fakta, ikke brødtekst.</strong> Ikke kopier artikler, boktekst eller
+          kampreferat inn i bidraget. Send heller lenken eller kildehenvisningen til
+          originalen.
         </div>
       </section>
 
@@ -83,21 +85,22 @@ export default function ContributePage() {
           <h2 className="sr-only">Bruk AI-en du allerede har</h2>
           <div className="prose-stack">
             <p>
-              Du trenger ikke kunne YAML for å bidra. Kopier en av promptene under inn i
-              modellen du bruker til vanlig, fyll inn det du vet om kampen eller personen, og la den skrive
-              filen. Da holder det at <em>du</em> har kildene og kontrollerer resultatet.
+              Du trenger ikke kunne YAML for å bidra. Kopier en av promptene under inn i den
+              modellen du bruker til vanlig, fyll inn det du vet om kampen eller personen, og
+              la modellen skrive filen. Da holder det at <em>du</em> har kildene og
+              kontrollerer resultatet.
             </p>
             <p>
-              Promptene forteller modellen hvordan arkivet er bygget opp, og — viktigere — hva
-              den <strong>ikke</strong> skal gjøre: gjette på fakta den ikke finner, og kopiere
-              eller omskrive tekst fra en bok eller avis. Begge deler skjer lett om man ikke ber
-              om noe annet.
+              Promptene forteller modellen hvordan arkivet er bygget opp, og, enda viktigere,
+              hva den <strong>ikke</strong> skal gjøre: gjette på fakta den ikke finner, eller
+              kopiere og omskrive tekst fra en bok eller en avis. Begge deler skjer lett om
+              man ikke ber om noe annet.
             </p>
             <div className="notice">
               <strong>Les alltid gjennom før du sender.</strong> En språkmodell kan finne på
               et tilskuertall eller en målscorer som ser helt rimelig ut. Vi kontrollerer alle
-              bidrag, men det er langt lettere for oss om du har sjekket fakta mot kilden din
-              først.
+              bidrag, men jobben blir langt enklere om du har sjekket opplysningene mot kilden
+              din først.
             </div>
           </div>
 

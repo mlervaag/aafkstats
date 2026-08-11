@@ -36,7 +36,7 @@ export default function ArkivetPage() {
         <h1>Historisk kildearkiv</h1>
         <p className="lede">
           Bøker, medlemsblad, jubileumsskrift, årsmeldinger og andre kilder til AaFKs historie.
-          Dette er dokumentene om klubben, ikke datakildene bak kamptallene — de står{" "}
+          Dette er dokumentene om klubben, ikke datakildene bak kamptallene. De står{" "}
           <a href="/om">på om-siden</a>.
         </p>
       </header>

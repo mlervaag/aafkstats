@@ -75,8 +75,8 @@ export function GapNote() {
     <p className="prose">
       {gap > 0 ? (
         <>
-          Arkivet mangler fortsatt årene fra {FOUNDED} til {c.firstSeason - 1} – {gap} sesonger,
-          fordi protokollene som kreves for å hente dem ut mangler eller ligger innelåst.{" "}
+          Arkivet mangler fortsatt de {gap} årene fra {FOUNDED} til {c.firstSeason - 1}, fordi
+          protokollene som skal til for å hente dem ut enten mangler eller ikke er tilgjengelige.{" "}
         </>
       ) : null}
       {missing.length > 0 && (
@@ -118,8 +118,8 @@ export function CoverageNote({ heading = true }: { heading?: boolean }) {
         : "Ingen av dem har hendelsesdata ennå."}{" "}
       {c.withReport === 0 ? (
         <>
-          Kampreferat mangler helt – det er der{" "}
-          <a href="/bidra">brukerinnsendte minner og observasjoner</a> kommer inn.
+          Kampreferat mangler helt, og det er nettopp der{" "}
+          <a href="/bidra">minner og observasjoner fra leserne</a> gjør størst nytte.
         </>
       ) : (
         <>{c.withReport} har kampreferat.</>
@@ -171,12 +171,12 @@ export function SeasonDepth() {
 
   return (
     <p className="prose">
-      {c.years} år er representert med minst én kamp. Det er ikke det samme som{" "}
-      {c.years} komplette sesonger: av de {c.finishedLeagueSeasons} avsluttede serieårene
-      arkivet har, er {c.completeLeagueSeasons} merket komplette, altså runde 1 til siste
-      runde uten hull. Resten har kamper, men ikke hele rekka. En sesong som pågår telles
-      ikke med — den kan ikke være komplett ennå. Cupdekning kan ikke måles på samme måte,
-      for en cupsesong slutter når laget ryker ut.
+      {c.years} år har minst én registrert kamp. Det betyr ikke at alle disse sesongene er
+      komplette. Av de {c.finishedLeagueSeasons} avsluttede serieårene arkivet har, er{" "}
+      {c.completeLeagueSeasons} merket som komplette, altså med alle runder fra den første
+      til den siste uten hull. Resten har kamper, men ikke hele rekka. En sesong som fortsatt
+      pågår, holdes utenfor, siden den ikke kan være komplett ennå. Cupen kan ikke måles på
+      samme måte, for der slutter sesongen når laget ryker ut.
     </p>
   );
 }

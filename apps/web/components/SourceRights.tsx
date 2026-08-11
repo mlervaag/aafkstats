@@ -88,9 +88,10 @@ export function SourceRights() {
           derfor like bred som tabellen — altså bredere enn spalten, og avkuttet
           midt i en setning for enhver som ikke rullet sidelengs. */}
       <p className="small muted rights-intro" id="rettigheter-forklaring">
-        Fire spørsmål, ikke ett. Om noe kan hentes og om det kan publiseres er to ting,
-        og hva motparten har svart er noe annet enn hva vi har bestemt. At en opplysning
-        er et faktum uten opphavsrett sier ingenting om vilkårene til samlingen den kom fra.
+        Tabellen svarer på fire spørsmål, ikke ett. Om noe kan hentes, og om det kan
+        publiseres videre, er to forskjellige ting. Og hva motparten har svart, er noe annet
+        enn hva vi har bestemt. At en enkelt opplysning er et faktum uten opphavsrett, sier
+        heller ingenting om vilkårene for samlingen den kom fra.
       </p>
       <div className="table-scroll">
         <table className="rights-table" aria-describedby="rettigheter-forklaring">
