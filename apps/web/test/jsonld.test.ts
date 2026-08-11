@@ -164,11 +164,14 @@ describe("nettstedet og registrene", () => {
  * Kanonisk adresse skal peke på den adressen som svarer 200, ikke på en som
  * omdirigerer dit.
  *
- * Første forsøk satte apex, `https://aafkarkivet.no`. Den svarer 308 videre til
- * `www`, og resultatet var at hver eneste side sa «jeg er apex» mens apex sa «nei,
- * gå til www» — og at sitemapet listet nesten to tusen adresser som alle
- * omdirigerte. Testen sier ikke hvilken variant som er riktig; den holder på at
- * valget er tatt ett sted og at det stedet ikke er tomt.
+ * Første forsøk satte den varianten som omdirigerte i stedet for den som svarte.
+ * Resultatet var at hver eneste side sa «jeg er her» mens adressen svarte «nei,
+ * gå dit», og at sitemapet listet nesten to tusen slike.
+ *
+ * Testen sier med vilje ikke om det skal være med eller uten `www`. Det er en
+ * driftsavgjørelse som kan snus i Vercel, og en test som låste den, ville vært
+ * feil dagen den ble snudd. Den holder på det som faktisk gikk galt: at valget
+ * er tatt ett sted, og at alt annet bygger på det stedet.
  */
 describe("adressen arkivet oppgir som sin egen", () => {
   it("er en absolutt https-adresse uten sti eller avsluttende skråstrek", () => {

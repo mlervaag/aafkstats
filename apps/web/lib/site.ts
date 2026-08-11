@@ -15,18 +15,20 @@
  */
 
 /**
- * `www`, ikke apex, og det er ikke en smakssak.
+ * Uten `www`, fordi det er apex som svarer 200.
  *
- * `aafkarkivet.no` svarer 308 videre til `www.aafkarkivet.no`, som er den som
- * faktisk serverer arkivet. Sto apex her, ville hver kanonisk adresse pekt på en
- * adresse som omdirigerer, og sitemapet listet nesten to tusen slike. Da sier
- * sida «jeg er apex» mens apex svarer «nei, gå til www» — to signaler som
- * motsier hverandre, og Search Console fører dem opp som «Side med omdirigering».
+ * `www.aafkarkivet.no` omdirigerer hit, ikke omvendt. Hvilken av de to som er
+ * den ekte er en driftsavgjørelse og ikke en SEO-avgjørelse — søkemotorene
+ * rangerer dem likt — men koden må vite hvilken det ble. Sto den som
+ * omdirigerer her, ville hver kanonisk adresse pekt på en videresending, og
+ * sitemapet listet nesten to tusen av dem: sida sier «jeg er her», adressen
+ * svarer «nei, gå dit». Search Console fører det opp som «Side med
+ * omdirigering».
  *
- * Snus det om i Vercel, slik at apex serverer og www omdirigerer, er det denne
- * ene linja som skal endres.
+ * Snus det om i Vercel igjen, er det denne ene linja som skal endres — og
+ * `NEXT_PUBLIC_SITE_URL` finnes for å slippe å vente på en utrulling.
  */
-const FALLBACK_ORIGIN = "https://www.aafkarkivet.no";
+const FALLBACK_ORIGIN = "https://aafkarkivet.no";
 
 /** Tåler både «example.com» og «https://example.com/» og gir origin uten skråstrek. */
 function toOrigin(value: string | undefined): string | null {
@@ -40,7 +42,7 @@ function toOrigin(value: string | undefined): string | null {
   }
 }
 
-/** Origin uten avsluttende skråstrek, f.eks. `https://www.aafkarkivet.no`. */
+/** Origin uten avsluttende skråstrek, f.eks. `https://aafkarkivet.no`. */
 export const SITE_ORIGIN = toOrigin(process.env.NEXT_PUBLIC_SITE_URL) ?? FALLBACK_ORIGIN;
 
 /** Absolutt adresse til en sti i arkivet. `path` skal begynne med skråstrek. */

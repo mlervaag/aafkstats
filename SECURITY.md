@@ -63,5 +63,5 @@ Meld gjerne fra hvis du mener vurderingen er feil, men disse er kjent og bevisst
 ## Hva som støttes
 
 Bare `main` og den til enhver tid utrullede versjonen på
-[aafkarkivet.no](https://www.aafkarkivet.no). Det finnes ingen utgivelser å
+[aafkarkivet.no](https://aafkarkivet.no). Det finnes ingen utgivelser å
 tilbakeporte rettelser til.

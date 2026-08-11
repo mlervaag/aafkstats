@@ -197,7 +197,7 @@ håndheves av skjemaet, ikke av konvensjon.
 ### Én sannhet, to lesere
 
 [`packages/query/src/dataset.ts`](../packages/query/src/dataset.ts) er dokumentasjonen av
-datasettet. Den rendres for mennesker på [`/data`](https://www.aafkarkivet.no/data), og
+datasettet. Den rendres for mennesker på [`/data`](https://aafkarkivet.no/data), og
 den er samtidig andre halvdel av chattens systemprompt. Det finnes altså ingen skjult
 beskrivelse modellen har og brukeren ikke har.
 

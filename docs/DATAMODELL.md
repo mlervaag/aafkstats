@@ -674,5 +674,5 @@ Byggesteget regner ut noen felt som ikke finnes i YAML-en. De er avledet, aldri 
 | `has_conflicts` | Om `conflicts` er tom |
 
 Kolonnereferansen for det ferdige datasettet — alle views, alle kolonner, med forbehold —
-står på [`/data`](https://www.aafkarkivet.no/data) og i
+står på [`/data`](https://aafkarkivet.no/data) og i
 [`packages/query/src/dataset.ts`](../packages/query/src/dataset.ts).
