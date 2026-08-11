@@ -38,7 +38,7 @@ const checks: Check[] = [
   },
   {
     page: "data",
-    must: ["<code>matches</code>", "Dekning, slik spørrefunksjonen får den", "spilte kamper"],
+    must: ["<code>matches</code>", "Hva arkivet inneholder", "spilte kamper"],
     // Dette er påstanden som sto igjen fra det gamle testdatasettet.
     mustNot: ["fem kamper fra 2025"],
   },
