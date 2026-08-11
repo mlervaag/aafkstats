@@ -159,3 +159,33 @@ describe("nettstedet og registrene", () => {
     ).not.toHaveProperty("mainEntity");
   });
 });
+
+/**
+ * Kanonisk adresse skal peke på den adressen som svarer 200, ikke på en som
+ * omdirigerer dit.
+ *
+ * Første forsøk satte den varianten som omdirigerte i stedet for den som svarte.
+ * Resultatet var at hver eneste side sa «jeg er her» mens adressen svarte «nei,
+ * gå dit», og at sitemapet listet nesten to tusen slike.
+ *
+ * Testen sier med vilje ikke om det skal være med eller uten `www`. Det er en
+ * driftsavgjørelse som kan snus i Vercel, og en test som låste den, ville vært
+ * feil dagen den ble snudd. Den holder på det som faktisk gikk galt: at valget
+ * er tatt ett sted, og at alt annet bygger på det stedet.
+ */
+describe("adressen arkivet oppgir som sin egen", () => {
+  it("er en absolutt https-adresse uten sti eller avsluttende skråstrek", () => {
+    expect(SITE_ORIGIN).toMatch(/^https:\/\/[^/]+$/);
+  });
+
+  it("brukes av hver absolutte adresse i strukturerte data", () => {
+    for (const url of [
+      websiteJsonLd().url,
+      organizationJsonLd().url,
+      datasetJsonLd({ firstSeason: 1914, lastSeason: 2026, matches: 1 }).url,
+      matchJsonLd(played).url,
+    ]) {
+      expect(String(url).startsWith(SITE_ORIGIN)).toBe(true);
+    }
+  });
+});

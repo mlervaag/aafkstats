@@ -14,6 +14,20 @@
  * hit. Standardverdien er dette arkivets domene, men den er bare en standard.
  */
 
+/**
+ * Uten `www`, fordi det er apex som svarer 200.
+ *
+ * `www.aafkarkivet.no` omdirigerer hit, ikke omvendt. Hvilken av de to som er
+ * den ekte er en driftsavgjørelse og ikke en SEO-avgjørelse — søkemotorene
+ * rangerer dem likt — men koden må vite hvilken det ble. Sto den som
+ * omdirigerer her, ville hver kanonisk adresse pekt på en videresending, og
+ * sitemapet listet nesten to tusen av dem: sida sier «jeg er her», adressen
+ * svarer «nei, gå dit». Search Console fører det opp som «Side med
+ * omdirigering».
+ *
+ * Snus det om i Vercel igjen, er det denne ene linja som skal endres — og
+ * `NEXT_PUBLIC_SITE_URL` finnes for å slippe å vente på en utrulling.
+ */
 const FALLBACK_ORIGIN = "https://aafkarkivet.no";
 
 /** Tåler både «example.com» og «https://example.com/» og gir origin uten skråstrek. */
