@@ -3,6 +3,7 @@ const NEW_ISSUE_URL = "https://github.com/mlervaag/aafkstats/issues/new";
 export const CONTRIBUTION_TEMPLATES = [
   "datafeil",
   "manglende-kamp",
+  "manglende-person",
   "ny-kilde",
   "ny-arkivkilde",
 ] as const;
@@ -12,6 +13,7 @@ export type ContributionTemplate = typeof CONTRIBUTION_TEMPLATES[number];
 const TITLE_PREFIX: Record<ContributionTemplate, string> = {
   datafeil: "Datafeil",
   "manglende-kamp": "Manglende kamp",
+  "manglende-person": "Manglende person",
   "ny-kilde": "Kilde",
   "ny-arkivkilde": "Arkivkilde",
 };
