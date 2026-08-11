@@ -1,0 +1,4665 @@
+sourceId: tango-siden-1914-2013-806b
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 369
+pagesProcessed: 369
+pagesFailed: []
+contentHash: sha256:fd9506fcc2eddb580aa0330529e84f6ff241816d7a1b5e6cd685dccd95412940
+candidates:
+  - id: match-result-cd8154c556a09ea2
+    kind: match_result
+    page: "15"
+    confidence: high
+    keywords: []
+    names: []
+    years:
+      - 2008
+    scores:
+      - 4-1
+    personIds: []
+    matchIds:
+      - 2008-11-08-sogndal-aalesunds-fk
+  - id: lineup-or-squad-58de75bc66ae3b8c
+    kind: lineup_or_squad
+    page: "18"
+    confidence: medium
+    keywords:
+      - lagoppstillingen
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-62bd4cccbe29c92c
+    kind: person_mention
+    page: "19"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: person-mention-66790e90a6cdb9f1
+    kind: person_mention
+    page: "19"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years:
+      - 2003
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: person-role-56c637508d39b62b
+    kind: person_role
+    page: "19"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Ivar Morten Normark
+      - AaFK-trener Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: person-role-49a50bb25c69c04a
+    kind: person_role
+    page: "20"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - AaFK-formann Arne Aambakk
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-885ec86977959e67
+    kind: organization
+    page: "26"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-02db1d7811c1b3c5
+    kind: match_result
+    page: "29"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-2
+    personIds: []
+    matchIds: []
+  - id: match-result-b66e0f00bfed576c
+    kind: match_result
+    page: "30"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 30-40
+    personIds: []
+    matchIds: []
+  - id: organization-4972885630dcaf93
+    kind: organization
+    page: "30"
+    confidence: medium
+    keywords:
+      - leder
+      - daglig leder
+    names: []
+    years:
+      - 1980
+      - 1994
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-230bc009b00ece93
+    kind: organization
+    page: "31"
+    confidence: medium
+    keywords:
+      - styreleder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-bd8d30edb8760ddd
+    kind: organization
+    page: "31"
+    confidence: medium
+    keywords:
+      - styreleder
+    names: []
+    years:
+      - 2008
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-e6e7c57c3093f29d
+    kind: organization
+    page: "31"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-4dfff6f64cf860ea
+    kind: person_mention
+    page: "31"
+    confidence: high
+    keywords: []
+    names:
+      - Nils Jangaard
+    years:
+      - 1931
+    scores: []
+    personIds:
+      - nils-jangaard
+    matchIds: []
+  - id: person-mention-da507a2603e5a39c
+    kind: person_mention
+    page: "31"
+    confidence: high
+    keywords: []
+    names:
+      - Nils Jangaard
+    years: []
+    scores: []
+    personIds:
+      - nils-jangaard
+    matchIds: []
+  - id: lineup-or-squad-46d60d8dc5f74505
+    kind: lineup_or_squad
+    page: "32"
+    confidence: medium
+    keywords:
+      - troppen
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-3db52c3f0891aca2
+    kind: organization
+    page: "32"
+    confidence: medium
+    keywords:
+      - styreleder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-516bf1d2b664964e
+    kind: person_mention
+    page: "32"
+    confidence: high
+    keywords: []
+    names:
+      - Peter Orry Larsen
+    years: []
+    scores: []
+    personIds:
+      - peter-orry-larsen
+    matchIds: []
+  - id: person-mention-b5933276d722875b
+    kind: person_mention
+    page: "33"
+    confidence: high
+    keywords: []
+    names:
+      - Peter Orry Larsen
+    years: []
+    scores: []
+    personIds:
+      - peter-orry-larsen
+    matchIds: []
+  - id: organization-e0a2d8ae4501999c
+    kind: organization
+    page: "37"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-d02d5b7355d08b3f
+    kind: match_result
+    page: "38"
+    confidence: high
+    keywords: []
+    names: []
+    years:
+      - 2005
+    scores:
+      - 5-4
+    personIds: []
+    matchIds:
+      - 2005-10-15-start-aalesunds-fk
+  - id: person-mention-b1afbc4c502bff7c
+    kind: person_mention
+    page: "46"
+    confidence: high
+    keywords: []
+    names:
+      - Nils Jangaard
+    years:
+      - 1914
+    scores: []
+    personIds:
+      - nils-jangaard
+    matchIds: []
+  - id: person-mention-a060c0224214e410
+    kind: person_mention
+    page: "52"
+    confidence: medium
+    keywords: []
+    names:
+      - Rasmus Eck Olsen
+      - Sverre Volstad
+    years: []
+    scores: []
+    personIds:
+      - rasmus-eck-olsen
+      - sverre-volstad
+    matchIds: []
+  - id: person-mention-d13f11d3443c52c4
+    kind: person_mention
+    page: "52"
+    confidence: high
+    keywords: []
+    names:
+      - Nils Jangaard
+    years:
+      - 1919
+    scores: []
+    personIds:
+      - nils-jangaard
+    matchIds: []
+  - id: person-role-ea50085eba82130c
+    kind: person_role
+    page: "52"
+    confidence: high
+    keywords:
+      - formann
+      - oppmann
+    names:
+      - Nils Jangaard
+      - Edvard Skudvig
+    years:
+      - 1919
+    scores: []
+    personIds:
+      - nils-jangaard
+    matchIds: []
+  - id: organization-c476711927d819b4
+    kind: organization
+    page: "55"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-f6dd675cbc2e3b7e
+    kind: match_result
+    page: "59"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 4-2
+    personIds: []
+    matchIds: []
+  - id: match-result-bda9549576d7166e
+    kind: match_result
+    page: "60"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 0-14
+    personIds: []
+    matchIds: []
+  - id: organization-6c9847513f791b9f
+    kind: organization
+    page: "61"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-385d23eb670a1b39
+    kind: person_mention
+    page: "62"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-role-a7c03aa626bdbc16
+    kind: person_role
+    page: "62"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: match-result-8ce4dc8a051880c5
+    kind: match_result
+    page: "63"
+    confidence: medium
+    keywords: []
+    names:
+      - Skeid. Aalesund
+    years: []
+    scores:
+      - 2-1
+    personIds: []
+    matchIds: []
+  - id: match-result-aed784cbd7ecad6d
+    kind: match_result
+    page: "63"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-1
+    personIds: []
+    matchIds: []
+  - id: person-role-beb0cb00d54768d4
+    kind: person_role
+    page: "63"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Sheffield United
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-bf6f644458b92b29
+    kind: person_role
+    page: "65"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - AaFK Wembley
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-2736ceb0e109ef08
+    kind: person_role
+    page: "67"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Per Anker Eriksen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-f45eabe0deaa4583
+    kind: organization
+    page: "68"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-24ed556df36ae5f7
+    kind: organization
+    page: "71"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-b43ae9a8817927aa
+    kind: organization
+    page: "71"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-aaedc26f90a2325b
+    kind: organization
+    page: "71"
+    confidence: medium
+    keywords:
+      - leder
+      - trener
+      - daglig leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: season-fact-1503fd866bfaa39b
+    kind: season_fact
+    page: "71"
+    confidence: medium
+    keywords:
+      - tabellen
+    names: []
+    years:
+      - 1986
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-1b6586c182e70c3f
+    kind: person_role
+    page: "72"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Olsen. Men
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-2c8bf3b5cc4b0a38
+    kind: organization
+    page: "82"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-48bbe4948d88ec39
+    kind: match_result
+    page: "84"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 5-0
+    personIds: []
+    matchIds: []
+  - id: match-result-bfcd3df74a180d09
+    kind: match_result
+    page: "84"
+    confidence: medium
+    keywords: []
+    names:
+      - Kråmyra. AaFK
+    years: []
+    scores:
+      - 4-2
+    personIds: []
+    matchIds: []
+  - id: person-mention-df873b987084632b
+    kind: person_mention
+    page: "84"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years:
+      - 1968
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: organization-8bd4c3ed61ccb0a5
+    kind: organization
+    page: "86"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-a0b563afe6fc6749
+    kind: match_result
+    page: "88"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-3
+    personIds: []
+    matchIds: []
+  - id: organization-0ed9a1026f81ea71
+    kind: organization
+    page: "107"
+    confidence: medium
+    keywords:
+      - leder
+      - sportslig leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-211ea4fa2e7b1374
+    kind: organization
+    page: "107"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-6fed5741db916803
+    kind: person_role
+    page: "107"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - AaFK-formann Harald
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-8428702dddb1bd35
+    kind: person_role
+    page: "107"
+    confidence: medium
+    keywords:
+      - leder
+      - daglig leder
+    names:
+      - Arild Nørve
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-3305f86a84dfefe4
+    kind: organization
+    page: "108"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-068415c279b150d1
+    kind: person_role
+    page: "108"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Paul Urke
+    years:
+      - 1960
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-fe43e14d4ff7e911
+    kind: organization
+    page: "109"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years:
+      - 1993
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-87964a18642b1e01
+    kind: person_role
+    page: "110"
+    confidence: medium
+    keywords:
+      - kasserer
+    names:
+      - Torill Hole Standal
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-1618b9ee885a9125
+    kind: organization
+    page: "111"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-f6500c12de0656fc
+    kind: person_role
+    page: "112"
+    confidence: medium
+    keywords:
+      - leder
+      - daglig leder
+    names:
+      - Henrik Hoff
+    years:
+      - 1994
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-3bb5bae3d4c41365
+    kind: person_mention
+    page: "114"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Helge Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-helge-riise
+    matchIds: []
+  - id: person-role-92e7342d2e1129ea
+    kind: person_role
+    page: "114"
+    confidence: medium
+    keywords:
+      - leder
+      - daglig leder
+    names:
+      - Henrik Hoff
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-d11c4b794ef203a9
+    kind: person_role
+    page: "114"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Henrik Hoff
+      - Arnstein Johansen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: lineup-or-squad-4cc0d57d8576e578
+    kind: lineup_or_squad
+    page: "115"
+    confidence: medium
+    keywords:
+      - stallen
+    names:
+      - Liverpool-stallen. Han
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-9ce55457588044d4
+    kind: organization
+    page: "117"
+    confidence: medium
+    keywords:
+      - styreleder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-c3ceef90facff4ff
+    kind: organization
+    page: "117"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-1ba991ea625e8882
+    kind: person_role
+    page: "117"
+    confidence: medium
+    keywords:
+      - leder
+      - sportslig leder
+    names:
+      - Petter Hagen
+    years:
+      - 1999
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-2310de74d28a6889
+    kind: person_role
+    page: "117"
+    confidence: medium
+    keywords:
+      - formann
+      - leder
+      - daglig leder
+    names:
+      - AaFK-formann Arne Aambakk
+      - Henrik Hoff
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-8622944477ffa18d
+    kind: person_role
+    page: "117"
+    confidence: medium
+    keywords:
+      - leder
+    names:
+      - Sunnmøre Fotballkrets
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-3dabcda68d206f5c
+    kind: organization
+    page: "118"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-659f96c5ad16670f
+    kind: person_role
+    page: "118"
+    confidence: medium
+    keywords:
+      - leder
+      - sportslig leder
+    names:
+      - Aambakk. Sportslig
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-8eed552430697233
+    kind: person_role
+    page: "118"
+    confidence: medium
+    keywords:
+      - leder
+      - sportslig leder
+    names:
+      - Reidar Våg
+    years:
+      - 1999
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-249c2ae65eed511d
+    kind: match_result
+    page: "119"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 5-0
+    personIds: []
+    matchIds: []
+  - id: match-result-98c871f28823ea32
+    kind: match_result
+    page: "119"
+    confidence: medium
+    keywords: []
+    names:
+      - AaFK. Til
+    years: []
+    scores:
+      - 0-0
+    personIds: []
+    matchIds: []
+  - id: organization-1083e2297a03e14a
+    kind: organization
+    page: "119"
+    confidence: medium
+    keywords:
+      - styreleder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-796ee1ab1cd486fb
+    kind: person_mention
+    page: "119"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: person-mention-ea3b42ce318cd1a6
+    kind: person_mention
+    page: "119"
+    confidence: high
+    keywords: []
+    names:
+      - Trond Fredriksen
+    years: []
+    scores: []
+    personIds:
+      - trond-fredriksen
+    matchIds: []
+  - id: person-role-99d9b420a6372581
+    kind: person_role
+    page: "119"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Anne Aambakk
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: lineup-or-squad-9a169a726bc27b37
+    kind: lineup_or_squad
+    page: "120"
+    confidence: medium
+    keywords:
+      - spillerstall
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-240b69a2376ac508
+    kind: person_mention
+    page: "120"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: person-role-2dc2d85e9e1537eb
+    kind: person_role
+    page: "120"
+    confidence: medium
+    keywords:
+      - leder
+      - sportslig leder
+    names:
+      - Reidar Vågnes
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: lineup-or-squad-76ecbb3d68fb9a71
+    kind: lineup_or_squad
+    page: "121"
+    confidence: medium
+    keywords:
+      - spillerstall
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-73f43b2a8665beff
+    kind: person_mention
+    page: "121"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years:
+      - 2000
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: person-role-f7dfc11211ed5f5b
+    kind: person_role
+    page: "121"
+    confidence: high
+    keywords:
+      - trener
+    names:
+      - Ivar Morten Normark
+      - Da Ivar Morten Normark
+    years:
+      - 2000
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: organization-80f7a998ec3a6e6f
+    kind: organization
+    page: "123"
+    confidence: medium
+    keywords:
+      - kasserer
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-98504b78919292a2
+    kind: organization
+    page: "123"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-1cdcfec2c33a7ac8
+    kind: person_role
+    page: "123"
+    confidence: medium
+    keywords:
+      - styreleder
+    names:
+      - Arne Aambakk
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-75aac1e5f8472593
+    kind: organization
+    page: "124"
+    confidence: medium
+    keywords:
+      - styreleder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-eee36d8535390452
+    kind: person_mention
+    page: "124"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years:
+      - 2008
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-role-704c0c3214741eec
+    kind: person_role
+    page: "124"
+    confidence: medium
+    keywords:
+      - leder
+    names:
+      - Kjell Tennfjord
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-043a65de56145a6b
+    kind: organization
+    page: "125"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-12b86305ef260fe3
+    kind: organization
+    page: "125"
+    confidence: medium
+    keywords:
+      - leder
+      - sportslig leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-8d550bc2efa48951
+    kind: organization
+    page: "125"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-51b65ec1dc819e38
+    kind: person_mention
+    page: "125"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-role-0757f013912d2121
+    kind: person_role
+    page: "125"
+    confidence: medium
+    keywords:
+      - leder
+    names:
+      - Kjell Tennfjord
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-7ebd33178ab2e495
+    kind: person_role
+    page: "125"
+    confidence: medium
+    keywords:
+      - leder
+      - sportslig leder
+    names:
+      - Reidar Vågnes
+    years:
+      - 2003
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-5496775d38e2429a
+    kind: organization
+    page: "126"
+    confidence: medium
+    keywords:
+      - leder
+      - daglig leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-77afc92ba6099cf7
+    kind: person_mention
+    page: "131"
+    confidence: high
+    keywords: []
+    names:
+      - Nils Jangaard
+    years: []
+    scores: []
+    personIds:
+      - nils-jangaard
+    matchIds: []
+  - id: match-result-12661787e6146745
+    kind: match_result
+    page: "132"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-0
+    personIds: []
+    matchIds: []
+  - id: organization-5c6a9d1136833ea0
+    kind: organization
+    page: "132"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: season-fact-c22bcb0a18dc62c4
+    kind: season_fact
+    page: "136"
+    confidence: medium
+    keywords:
+      - nedrykk
+    names: []
+    years:
+      - 1963
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: season-fact-eb54cbff137367b3
+    kind: season_fact
+    page: "138"
+    confidence: medium
+    keywords:
+      - opprykk
+    names: []
+    years:
+      - 1978
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-2f1f7ad6c58bb910
+    kind: organization
+    page: "140"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-6faad75241530e07
+    kind: match_result
+    page: "141"
+    confidence: medium
+    keywords: []
+    names:
+      - Morten Kristiansen
+    years: []
+    scores:
+      - 1-1
+    personIds: []
+    matchIds: []
+  - id: person-mention-02531ab7152a20d0
+    kind: person_mention
+    page: "141"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: person-role-b27acf39b8cddc10
+    kind: person_role
+    page: "141"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Thomas Nordahl
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-4a0d7d313c5a224f
+    kind: match_result
+    page: "142"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-0
+    personIds: []
+    matchIds: []
+  - id: organization-5e9e053fef791780
+    kind: organization
+    page: "142"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-031e06f088434134
+    kind: person_role
+    page: "143"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Bård Wiggen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-7e2649589b576aa6
+    kind: organization
+    page: "144"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-80c169fb3e26ec32
+    kind: person_role
+    page: "145"
+    confidence: medium
+    keywords:
+      - leder
+      - daglig leder
+    names:
+      - Henrik Hoff
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-ed299a0f4f7ee524
+    kind: person_mention
+    page: "146"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years:
+      - 2003
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: person-role-228015d37b57b9c5
+    kind: person_role
+    page: "146"
+    confidence: high
+    keywords:
+      - trener
+    names:
+      - Ivar Morten Normark
+    years:
+      - 2003
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: organization-1df0da7e5d39f8ec
+    kind: organization
+    page: "147"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-c680c2b2d9f747e2
+    kind: person_mention
+    page: "147"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: season-fact-35f5c048956c77f7
+    kind: season_fact
+    page: "147"
+    confidence: medium
+    keywords:
+      - tabellen
+    names: []
+    years:
+      - 1983
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: season-fact-4053260034e216d2
+    kind: season_fact
+    page: "147"
+    confidence: medium
+    keywords:
+      - opprykk
+    names: []
+    years:
+      - 2009
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-31b30d60ff536aa7
+    kind: match_result
+    page: "149"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-2
+    personIds: []
+    matchIds: []
+  - id: match-result-351bc5c1de4b90da
+    kind: match_result
+    page: "149"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-2
+    personIds: []
+    matchIds: []
+  - id: match-result-785021634253204a
+    kind: match_result
+    page: "149"
+    confidence: medium
+    keywords: []
+    names:
+      - AaFK. Moldenserne
+    years: []
+    scores:
+      - 2-0
+    personIds: []
+    matchIds: []
+  - id: person-mention-58c1922c865efdf9
+    kind: person_mention
+    page: "149"
+    confidence: high
+    keywords: []
+    names:
+      - Trond Fredriksen
+    years: []
+    scores: []
+    personIds:
+      - trond-fredriksen
+    matchIds: []
+  - id: person-role-818ba961c4677e4c
+    kind: person_role
+    page: "149"
+    confidence: medium
+    keywords:
+      - leder
+      - daglig leder
+    names:
+      - Henrik Hoff. Da Gjerde
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-3e1f343562e14754
+    kind: match_result
+    page: "150"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-0
+    personIds: []
+    matchIds: []
+  - id: match-result-a43cc47e76f3af32
+    kind: match_result
+    page: "150"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-1
+      - 1-0
+    personIds: []
+    matchIds: []
+  - id: person-mention-57b626188c0f5e30
+    kind: person_mention
+    page: "150"
+    confidence: high
+    keywords: []
+    names:
+      - Trond Fredriksen
+    years: []
+    scores: []
+    personIds:
+      - trond-fredriksen
+    matchIds: []
+  - id: person-mention-9604e0fc6b8210f6
+    kind: person_mention
+    page: "150"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: person-role-b76756833bad76dd
+    kind: person_role
+    page: "150"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: season-fact-21e208e5e989c04f
+    kind: season_fact
+    page: "150"
+    confidence: medium
+    keywords:
+      - nedrykk
+    names: []
+    years:
+      - 1999
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-587035c3de8e66ce
+    kind: person_role
+    page: "151"
+    confidence: medium
+    keywords:
+      - styreleder
+    names:
+      - Torill Hole Standal. Det
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-5686513a282b5410
+    kind: organization
+    page: "152"
+    confidence: medium
+    keywords:
+      - styreleder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-fff70ed2844dd731
+    kind: person_mention
+    page: "152"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-role-7d36e8f0ae5e5e29
+    kind: person_role
+    page: "152"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Kjetil Rekdal
+      - Kjetil Rekdal. Han
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-mention-2311228a245a7968
+    kind: person_mention
+    page: "153"
+    confidence: high
+    keywords: []
+    names:
+      - Trond Fredriksen
+    years: []
+    scores: []
+    personIds:
+      - trond-fredriksen
+    matchIds: []
+  - id: person-mention-b2fa285295deaa29
+    kind: person_mention
+    page: "153"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: match-result-f1d29ad47d4137e2
+    kind: match_result
+    page: "157"
+    confidence: medium
+    keywords: []
+    names:
+      - Nørvebana. AaFK-spillerne
+    years: []
+    scores:
+      - 1-0
+    personIds: []
+    matchIds: []
+  - id: season-fact-540cd9f9f58736ce
+    kind: season_fact
+    page: "157"
+    confidence: medium
+    keywords:
+      - seriemester
+    names: []
+    years:
+      - 1928
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-fc9d6422a9c60c24
+    kind: person_role
+    page: "158"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-c0b630278a557c1b
+    kind: match_result
+    page: "159"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 5-0
+    personIds: []
+    matchIds: []
+  - id: person-mention-dca8c3d60ee37aa1
+    kind: person_mention
+    page: "159"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-role-804b33c8885a1896
+    kind: person_role
+    page: "159"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-role-cfddcc9a7ecc513f
+    kind: person_role
+    page: "159"
+    confidence: medium
+    keywords:
+      - leder
+      - daglig leder
+    names:
+      - Henrik Hoff
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-af10a1cdda7c89e9
+    kind: person_mention
+    page: "160"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-role-953588dbb9ab5c26
+    kind: person_role
+    page: "160"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-mention-a031d3136c4b0d08
+    kind: person_mention
+    page: "161"
+    confidence: high
+    keywords: []
+    names:
+      - Sten Grytebust
+    years: []
+    scores: []
+    personIds:
+      - sten-grytebust
+    matchIds: []
+  - id: organization-5d6223bb4428441d
+    kind: organization
+    page: "162"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-8e2ae7ea1359a683
+    kind: match_result
+    page: "163"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-0
+    personIds: []
+    matchIds: []
+  - id: person-mention-68cc5847a4dcfde6
+    kind: person_mention
+    page: "166"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: organization-57405e2ae553b9ac
+    kind: organization
+    page: "171"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years:
+      - 2013
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-82ad5d9c50609b78
+    kind: organization
+    page: "171"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-9507a71d7243a907
+    kind: match_result
+    page: "172"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 17-18
+    personIds: []
+    matchIds: []
+  - id: organization-2d5cd487d51b26b7
+    kind: organization
+    page: "174"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-dabc30b77ddc5be0
+    kind: organization
+    page: "175"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years:
+      - 1920
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-20eb8882c6bf06d4
+    kind: organization
+    page: "176"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years:
+      - 1950
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-bd9766b1a17c9033
+    kind: person_mention
+    page: "176"
+    confidence: high
+    keywords: []
+    names:
+      - Emil Sandø
+    years: []
+    scores: []
+    personIds:
+      - emil-sando
+    matchIds: []
+  - id: person-mention-ce60355b694217d9
+    kind: person_mention
+    page: "181"
+    confidence: high
+    keywords: []
+    names:
+      - Sverre Volstad
+    years:
+      - 1929
+      - 1936
+    scores: []
+    personIds:
+      - sverre-volstad
+    matchIds: []
+  - id: organization-a8bbceadb94934ca
+    kind: organization
+    page: "182"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-8445fee04ea27eb0
+    kind: organization
+    page: "183"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-bdf591b9cef5805d
+    kind: organization
+    page: "183"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years:
+      - 1968
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-729d62fbd37e47b1
+    kind: person_role
+    page: "183"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Thomas Nordahl
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-2bc60d7f7afa3dc2
+    kind: match_result
+    page: "184"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-0
+    personIds: []
+    matchIds: []
+  - id: organization-3c314a73f1a8e819
+    kind: organization
+    page: "184"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years:
+      - 1986
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-a6f07b7c630e8245
+    kind: organization
+    page: "185"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-2fb7a06bc386bc43
+    kind: person_role
+    page: "185"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Paul Urke
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-79754f22c0d08a53
+    kind: person_role
+    page: "185"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Karsten Vadseth
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-2a360b6a4be36387
+    kind: person_role
+    page: "186"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Torbjørn Eggen
+    years:
+      - 1993
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-67c8ba3550c7317a
+    kind: match_result
+    page: "187"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 6-1
+    personIds: []
+    matchIds: []
+  - id: organization-1aa643f8195935ec
+    kind: organization
+    page: "187"
+    confidence: medium
+    keywords:
+      - formann
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-da0573233cfa5519
+    kind: organization
+    page: "187"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-e2dc7f7483cfe5e7
+    kind: person_mention
+    page: "187"
+    confidence: high
+    keywords: []
+    names:
+      - Per Joar Hansen
+    years: []
+    scores: []
+    personIds:
+      - per-joar-hansen
+    matchIds: []
+  - id: person-mention-f68dd58f49c295d6
+    kind: person_mention
+    page: "187"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: person-role-88cd7831d4d6f823
+    kind: person_role
+    page: "187"
+    confidence: medium
+    keywords:
+      - leder
+      - sportslig leder
+    names:
+      - Jan Erik Sørnes
+      - Reidar Vågnes
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: lineup-or-squad-bc76825542d4a260
+    kind: lineup_or_squad
+    page: "189"
+    confidence: medium
+    keywords:
+      - stallen
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-1504a46085684e35
+    kind: match_result
+    page: "189"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 0-7
+    personIds: []
+    matchIds: []
+  - id: match-result-63b3a8eee2c2ae0e
+    kind: match_result
+    page: "189"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-0
+    personIds: []
+    matchIds: []
+  - id: person-mention-5b704343c1a3693d
+    kind: person_mention
+    page: "189"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-role-cbd3192b33775e05
+    kind: person_role
+    page: "189"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Vålerenga-trener Martin
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-6a6a76136fc4d6d6
+    kind: person_mention
+    page: "190"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: match-result-1166775b1185c755
+    kind: match_result
+    page: "191"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-2
+    personIds: []
+    matchIds: []
+  - id: match-result-1b5500aa5be38db8
+    kind: match_result
+    page: "191"
+    confidence: medium
+    keywords: []
+    names:
+      - AaFK. Målscorere
+    years: []
+    scores:
+      - 2-1
+    personIds: []
+    matchIds: []
+  - id: organization-bc4688079f24c674
+    kind: organization
+    page: "191"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-39658723fdcfe9a5
+    kind: person_mention
+    page: "191"
+    confidence: high
+    keywords: []
+    names:
+      - Sten Grytebust
+    years: []
+    scores: []
+    personIds:
+      - sten-grytebust
+    matchIds: []
+  - id: person-mention-a297dc161c43e217
+    kind: person_mention
+    page: "191"
+    confidence: high
+    keywords: []
+    names:
+      - Fredrik Carlsen
+    years: []
+    scores: []
+    personIds:
+      - fredrik-carlsen
+    matchIds: []
+  - id: person-mention-a839dfa13c11e461
+    kind: person_mention
+    page: "191"
+    confidence: high
+    keywords: []
+    names:
+      - Peter Orry Larsen
+    years: []
+    scores: []
+    personIds:
+      - peter-orry-larsen
+    matchIds: []
+  - id: person-mention-c27e730d8f80e3eb
+    kind: person_mention
+    page: "191"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-role-fd69d671a8cf487a
+    kind: person_role
+    page: "191"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Ifølge Rekdal
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-0b424ac5d3d4927d
+    kind: match_result
+    page: "192"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years:
+      - 2009
+    scores:
+      - 1-0
+    personIds: []
+    matchIds:
+      - 2009-05-25-aalesunds-fk-stabaek
+  - id: person-mention-4bc1fdbf67e5898d
+    kind: person_mention
+    page: "192"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years:
+      - 2009
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-role-64c00fad8174b168
+    kind: person_role
+    page: "192"
+    confidence: medium
+    keywords:
+      - styreleder
+    names:
+      - Torill Hole Standal
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-d1aaab77828f7824
+    kind: organization
+    page: "193"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-18b44e867b80521e
+    kind: person_mention
+    page: "193"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-role-85d6714cb4873ef7
+    kind: person_role
+    page: "193"
+    confidence: medium
+    keywords:
+      - styreleder
+    names:
+      - Bjarne Haagensen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-2ba2863ee91f891f
+    kind: organization
+    page: "198"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-1ea5310c7e45fc9f
+    kind: person_mention
+    page: "198"
+    confidence: high
+    keywords: []
+    names:
+      - Trond Fredriksen
+    years: []
+    scores: []
+    personIds:
+      - trond-fredriksen
+    matchIds: []
+  - id: person-mention-cee94876ea68307c
+    kind: person_mention
+    page: "198"
+    confidence: high
+    keywords: []
+    names:
+      - Nils Jangaard
+    years: []
+    scores: []
+    personIds:
+      - nils-jangaard
+    matchIds: []
+  - id: person-mention-02c08cfc322b0c6d
+    kind: person_mention
+    page: "200"
+    confidence: high
+    keywords: []
+    names:
+      - Sten Grytebust
+    years: []
+    scores: []
+    personIds:
+      - sten-grytebust
+    matchIds: []
+  - id: match-result-98dac5a48dfc21c3
+    kind: match_result
+    page: "202"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-1
+    personIds: []
+    matchIds: []
+  - id: person-mention-465e6353ed8db907
+    kind: person_mention
+    page: "202"
+    confidence: high
+    keywords: []
+    names:
+      - Trond Fredriksen
+    years: []
+    scores: []
+    personIds:
+      - trond-fredriksen
+    matchIds: []
+  - id: person-role-701cc688ea2e30c7
+    kind: person_role
+    page: "202"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - AaFK-trener Karsten Molværsmyr
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: lineup-or-squad-f3a23431911b527a
+    kind: lineup_or_squad
+    page: "204"
+    confidence: medium
+    keywords:
+      - lagoppstillingen
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-3a5ed41d47d65baa
+    kind: organization
+    page: "204"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-7c32cda418ce08db
+    kind: organization
+    page: "204"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years:
+      - 1976
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-45755a5db2597b30
+    kind: person_role
+    page: "204"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Crystal Palace-trener
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-cc81b230e8f53d60
+    kind: person_mention
+    page: "206"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: match-result-ca22f8c75d7209a3
+    kind: match_result
+    page: "207"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 4-1
+    personIds: []
+    matchIds: []
+  - id: match-result-adb664daac69d466
+    kind: match_result
+    page: "208"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-1
+    personIds: []
+    matchIds: []
+  - id: lineup-or-squad-4472d024495f3433
+    kind: lineup_or_squad
+    page: "209"
+    confidence: medium
+    keywords:
+      - stallen
+    names:
+      - Men Zayed
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-192fc19242eb2782
+    kind: organization
+    page: "209"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-6f57bf930ed33cc2
+    kind: person_mention
+    page: "209"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: person-role-ec062292d19ef96e
+    kind: person_role
+    page: "210"
+    confidence: medium
+    keywords:
+      - leder
+      - daglig leder
+    names:
+      - Henrik Hoff
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-ef58af2a6860b060
+    kind: person_mention
+    page: "211"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-role-ce59b000cbff38a4
+    kind: person_role
+    page: "211"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-role-fda9c438f8d97bc5
+    kind: person_role
+    page: "211"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Henrik Hoff
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-f3e2e5c27de67304
+    kind: organization
+    page: "213"
+    confidence: medium
+    keywords:
+      - styreleder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-6e5d8a7565b52169
+    kind: organization
+    page: "214"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years:
+      - 2009
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-0cb3c8c8002e4a1c
+    kind: person_mention
+    page: "214"
+    confidence: medium
+    keywords: []
+    names:
+      - Harald Aabrekk
+      - Trond Fredriksen
+    years: []
+    scores: []
+    personIds:
+      - harald-aabrekk
+      - trond-fredriksen
+    matchIds: []
+  - id: person-mention-ce93960bd2eeb70d
+    kind: person_mention
+    page: "214"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: match-result-4c17fc747854b12c
+    kind: match_result
+    page: "215"
+    confidence: high
+    keywords: []
+    names:
+      - Michael Barrantes
+      - Jo Nymo Mailand
+    years:
+      - 2012
+    scores:
+      - 3-1
+    personIds: []
+    matchIds:
+      - 2012-10-21-aalesunds-fk-valerenga
+  - id: person-mention-21b1ed67fdb6dbdc
+    kind: person_mention
+    page: "215"
+    confidence: high
+    keywords: []
+    names:
+      - Peter Orry Larsen
+    years: []
+    scores: []
+    personIds:
+      - peter-orry-larsen
+    matchIds: []
+  - id: person-mention-f3ca5a88b4c354c3
+    kind: person_mention
+    page: "217"
+    confidence: high
+    keywords: []
+    names:
+      - Harald Aabrekk
+    years: []
+    scores: []
+    personIds:
+      - harald-aabrekk
+    matchIds: []
+  - id: person-role-71e6a20701587496
+    kind: person_role
+    page: "217"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Harald Aabrekk
+    years: []
+    scores: []
+    personIds:
+      - harald-aabrekk
+    matchIds: []
+  - id: person-mention-aefe9a4e1b83ea56
+    kind: person_mention
+    page: "218"
+    confidence: high
+    keywords: []
+    names:
+      - Harald Aabrekk
+    years: []
+    scores: []
+    personIds:
+      - harald-aabrekk
+    matchIds: []
+  - id: person-role-68a61ba7604e00d6
+    kind: person_role
+    page: "221"
+    confidence: medium
+    keywords:
+      - styreleder
+    names:
+      - AS-styreleder Bjarne Haagensen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-5ae1538a4843bddb
+    kind: match_result
+    page: "222"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-1
+    personIds: []
+    matchIds: []
+  - id: match-result-9228f0b7280a669d
+    kind: match_result
+    page: "222"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-1
+    personIds: []
+    matchIds: []
+  - id: person-mention-9c749c87dc118db1
+    kind: person_mention
+    page: "222"
+    confidence: high
+    keywords: []
+    names:
+      - Trond Fredriksen
+    years: []
+    scores: []
+    personIds:
+      - trond-fredriksen
+    matchIds: []
+  - id: person-mention-fc87a796b4e5e4e5
+    kind: person_mention
+    page: "223"
+    confidence: high
+    keywords: []
+    names:
+      - Per Joar Hansen
+    years: []
+    scores: []
+    personIds:
+      - per-joar-hansen
+    matchIds: []
+  - id: person-role-f9cf739e76a4d06f
+    kind: person_role
+    page: "223"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Per Joar Hansen
+    years: []
+    scores: []
+    personIds:
+      - per-joar-hansen
+    matchIds: []
+  - id: person-mention-1f56122a0a8e4e69
+    kind: person_mention
+    page: "225"
+    confidence: high
+    keywords: []
+    names:
+      - Trond Fredriksen
+    years: []
+    scores: []
+    personIds:
+      - trond-fredriksen
+    matchIds: []
+  - id: person-mention-9780c8fc849f330b
+    kind: person_mention
+    page: "225"
+    confidence: high
+    keywords: []
+    names:
+      - Oddbjørn Lie
+    years: []
+    scores: []
+    personIds:
+      - oddbjorn-lie
+    matchIds: []
+  - id: match-result-6b9a60d43d303671
+    kind: match_result
+    page: "233"
+    confidence: high
+    keywords: []
+    names:
+      - Olav Kalv
+    years:
+      - 1946
+    scores:
+      - 2-3
+    personIds: []
+    matchIds:
+      - 1946-08-25-aalesunds-fk-freidig
+  - id: match-result-cd144f78fb051c2f
+    kind: match_result
+    page: "234"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-1
+    personIds: []
+    matchIds: []
+  - id: organization-d062330e32b6e43a
+    kind: organization
+    page: "235"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-6e46476da7b06e0d
+    kind: person_mention
+    page: "236"
+    confidence: high
+    keywords: []
+    names:
+      - Emil Sandø
+    years: []
+    scores: []
+    personIds:
+      - emil-sando
+    matchIds: []
+  - id: match-result-a0732b9056e13fa0
+    kind: match_result
+    page: "239"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 7-0
+    personIds: []
+    matchIds: []
+  - id: match-result-c767fbcaba43ba3c
+    kind: match_result
+    page: "239"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-0
+    personIds: []
+    matchIds: []
+  - id: person-role-deaca4ce018193b1
+    kind: person_role
+    page: "244"
+    confidence: medium
+    keywords:
+      - styreleder
+    names:
+      - Jon Ketil Gjørtz
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-8217aeda5eb26557
+    kind: match_result
+    page: "245"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-1
+    personIds: []
+    matchIds: []
+  - id: person-role-6020768ed3a9b10f
+    kind: person_role
+    page: "252"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - AaFK-trener Ivar
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-40ac9624dae55fc8
+    kind: person_mention
+    page: "253"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: person-role-11200d3f5946cfd8
+    kind: person_role
+    page: "253"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Ivar Morten Normark
+      - AaFK-trener Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: person-role-6d255050b2a10907
+    kind: person_role
+    page: "257"
+    confidence: medium
+    keywords:
+      - direktør
+    names:
+      - Irene Mjelde
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-4aea85a9b3c49abd
+    kind: person_role
+    page: "259"
+    confidence: medium
+    keywords:
+      - leder
+      - daglig leder
+    names:
+      - Ante Giskeødegård
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-241aece6e13ff0b2
+    kind: person_mention
+    page: "260"
+    confidence: high
+    keywords: []
+    names:
+      - Per Joar Hansen
+    years: []
+    scores: []
+    personIds:
+      - per-joar-hansen
+    matchIds: []
+  - id: person-role-d9e7dc6a320ac886
+    kind: person_role
+    page: "260"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Etter AaFKs
+    years:
+      - 2013
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-c5a77d99c8ee79f3
+    kind: organization
+    page: "265"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-e8337941272736f9
+    kind: organization
+    page: "265"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-5eb985aabed8844d
+    kind: organization
+    page: "266"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: lineup-or-squad-876750d25138a75a
+    kind: lineup_or_squad
+    page: "267"
+    confidence: medium
+    keywords:
+      - stallen
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-4b3d1b9f96336939
+    kind: organization
+    page: "268"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-79ecdd69d22e91c3
+    kind: person_mention
+    page: "268"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-mention-d7012e0c9a9555e3
+    kind: person_mention
+    page: "270"
+    confidence: high
+    keywords: []
+    names:
+      - Per Joar Hansen
+    years: []
+    scores: []
+    personIds:
+      - per-joar-hansen
+    matchIds: []
+  - id: person-role-6a7b5fefb6d2dcf1
+    kind: person_role
+    page: "270"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Per Joar Hansen
+      - Per Joar Hansen. Klubben
+    years: []
+    scores: []
+    personIds:
+      - per-joar-hansen
+    matchIds: []
+  - id: organization-29bdd10d7044f9a4
+    kind: organization
+    page: "271"
+    confidence: medium
+    keywords:
+      - styreleder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-325982bd3858c4de
+    kind: organization
+    page: "271"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-c50455f12ee18c0d
+    kind: organization
+    page: "271"
+    confidence: medium
+    keywords:
+      - styreleder
+    names: []
+    years:
+      - 2008
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-1876b6ab00128d8f
+    kind: person_role
+    page: "271"
+    confidence: medium
+    keywords:
+      - styreleder
+    names:
+      - Hole Standal
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-91377c7420aa2ee0
+    kind: person_role
+    page: "271"
+    confidence: medium
+    keywords:
+      - styreleder
+    names:
+      - Kjell Tennfjord
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-50b92fe6c6cdfb69
+    kind: organization
+    page: "272"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-6f29504347adeddf
+    kind: organization
+    page: "272"
+    confidence: medium
+    keywords:
+      - kasserer
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-c7494a86aa94577b
+    kind: organization
+    page: "272"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-85dab4c308ddbb84
+    kind: person_role
+    page: "272"
+    confidence: medium
+    keywords:
+      - kasserer
+    names:
+      - Emil Mogstad
+    years:
+      - 1914
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-ce9852d484cd7214
+    kind: person_role
+    page: "273"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Rolf Annaniassen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: season-fact-8b810853755a7a4e
+    kind: season_fact
+    page: "275"
+    confidence: medium
+    keywords:
+      - opprykk
+    names: []
+    years:
+      - 2002
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-544c4464bb335a15
+    kind: person_role
+    page: "276"
+    confidence: medium
+    keywords:
+      - direktør
+    names:
+      - Olav Arne Fiskerstrand
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-47f8ef613fe7fa07
+    kind: person_role
+    page: "277"
+    confidence: medium
+    keywords:
+      - styreleder
+    names:
+      - Torill Hole Standal. Hun
+    years:
+      - 2003
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-723f94fb803db34f
+    kind: person_role
+    page: "277"
+    confidence: medium
+    keywords:
+      - styreleder
+    names:
+      - DE VANSKELIGE SAKENE
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-bc09d31b2fa82754
+    kind: person_role
+    page: "277"
+    confidence: medium
+    keywords:
+      - direktør
+    names:
+      - Olav Arne Fiskerstrand
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-b5fb6637b754d811
+    kind: organization
+    page: "278"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-4093f1d0b8fe2229
+    kind: person_mention
+    page: "278"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: person-mention-c9fc6531057a5d5a
+    kind: person_mention
+    page: "278"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years:
+      - 2005
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: person-role-65157577a05e783b
+    kind: person_role
+    page: "278"
+    confidence: high
+    keywords:
+      - trener
+    names:
+      - Ivar Morten Normark
+    years:
+      - 2005
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: match-result-517f1b831cf55b43
+    kind: match_result
+    page: "280"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-1
+    personIds: []
+    matchIds: []
+  - id: organization-e6445d5ebbe2e551
+    kind: organization
+    page: "281"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-de9c54b3db974cc3
+    kind: person_role
+    page: "281"
+    confidence: medium
+    keywords:
+      - styreleder
+    names:
+      - Kjell Tennfjord
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-b3cc923dfda5cbca
+    kind: organization
+    page: "284"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-0cf606fb228f1892
+    kind: organization
+    page: "287"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years:
+      - 1950
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-012c5d0fbf2dd2be
+    kind: person_role
+    page: "287"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Per Anker Eriksen
+    years:
+      - 1950
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-45f6ca48937e782e
+    kind: organization
+    page: "288"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-c2fb3d111b3d59b0
+    kind: organization
+    page: "288"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years:
+      - 1960
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-7b7b38affa77dea9
+    kind: person_mention
+    page: "288"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: organization-5e7f7042e36f78b9
+    kind: organization
+    page: "289"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-1e54ac27274359e9
+    kind: person_role
+    page: "291"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Oddvar Aara
+      - Asbjørn Rutgerson
+    years:
+      - 1966
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-80dc1586279fb7c1
+    kind: organization
+    page: "292"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years:
+      - 1960
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-dd9e1c90ff2af8d6
+    kind: person_role
+    page: "293"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Kjell Berentzen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-ecbb9cfaa6a9ecf1
+    kind: person_mention
+    page: "294"
+    confidence: high
+    keywords: []
+    names:
+      - Peter Orry Larsen
+    years: []
+    scores: []
+    personIds:
+      - peter-orry-larsen
+    matchIds: []
+  - id: person-role-b9ff5b4f4d6131a5
+    kind: person_role
+    page: "295"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Kjetil Rekdals
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-2b5de9aaee7afa2f
+    kind: organization
+    page: "299"
+    confidence: medium
+    keywords:
+      - æresmedlem
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: lineup-or-squad-bf2fc9ae5434ba76
+    kind: lineup_or_squad
+    page: "300"
+    confidence: medium
+    keywords:
+      - lagoppstillingen
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-4a765e585b8891f3
+    kind: person_mention
+    page: "300"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: organization-577167b500068d0b
+    kind: organization
+    page: "302"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-c3e0856661312112
+    kind: organization
+    page: "302"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-ad6e90af355823ab
+    kind: organization
+    page: "304"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-8aef1e99c99fd769
+    kind: person_role
+    page: "304"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Oddvar Aar
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-91e2d058783ee55e
+    kind: match_result
+    page: "305"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 10-12
+    personIds: []
+    matchIds: []
+  - id: organization-cacfce14f12386dc
+    kind: organization
+    page: "307"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-e5189e0d572c1aa6
+    kind: organization
+    page: "307"
+    confidence: medium
+    keywords:
+      - oppmann
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-7cc4db12d64edca4
+    kind: organization
+    page: "308"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: lineup-or-squad-f7dd04a7f40916c0
+    kind: lineup_or_squad
+    page: "310"
+    confidence: medium
+    keywords:
+      - stallen
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-17d2149d8b771fd5
+    kind: person_role
+    page: "311"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Odd Arne Engvik
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-3107ae2ac830c76e
+    kind: person_role
+    page: "311"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Terje Halvorsen
+      - Somboon Keedklang
+      - Rolf Erik Hovland
+      - Tor Ola Pracy
+      - Bjarte Skuseth
+      - Olav Grønningsæter
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-ae22186c3428118b
+    kind: match_result
+    page: "312"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-0
+    personIds: []
+    matchIds: []
+  - id: match-result-c02088332cad92ee
+    kind: match_result
+    page: "312"
+    confidence: high
+    keywords: []
+    names:
+      - Bare AaFK
+    years: []
+    scores:
+      - 3-1
+    personIds: []
+    matchIds:
+      - 2013-09-13-aalesunds-fk-molde-fk
+  - id: organization-37469b6bc44aab8b
+    kind: organization
+    page: "315"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-1a02aa4af3850ab6
+    kind: person_role
+    page: "315"
+    confidence: medium
+    keywords:
+      - leder
+    names:
+      - Jan Erich Rønneberg
+    years:
+      - 2013
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-76c4fcf1598e7b1c
+    kind: organization
+    page: "316"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-154313c84dc90348
+    kind: person_mention
+    page: "316"
+    confidence: high
+    keywords: []
+    names:
+      - Peter Orry Larsen
+    years: []
+    scores: []
+    personIds:
+      - peter-orry-larsen
+    matchIds: []
+  - id: person-mention-977ad3470850b5c2
+    kind: person_mention
+    page: "316"
+    confidence: high
+    keywords: []
+    names:
+      - Sten Grytebust
+    years: []
+    scores: []
+    personIds:
+      - sten-grytebust
+    matchIds: []
+  - id: person-mention-9f888fa79e46aaf4
+    kind: person_mention
+    page: "316"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-role-148ccec8d511ffef
+    kind: person_role
+    page: "316"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Erling Ytterland
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-11ec9a3a5520304a
+    kind: person_mention
+    page: "317"
+    confidence: medium
+    keywords: []
+    names:
+      - Andreas Lie
+      - Peter Orry Larsen
+      - Sten Grytebust
+    years: []
+    scores: []
+    personIds:
+      - andreas-lie
+      - peter-orry-larsen
+      - sten-grytebust
+    matchIds: []
+  - id: organization-1681f68386698dfb
+    kind: organization
+    page: "318"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-2ca2eba089434d59
+    kind: organization
+    page: "318"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years:
+      - 2013
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-ebd23f217dd9c612
+    kind: match_result
+    page: "323"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-1
+    personIds: []
+    matchIds: []
+  - id: person-mention-37a84cc5aaa208d9
+    kind: person_mention
+    page: "324"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-role-c21f2d644f27407e
+    kind: person_role
+    page: "324"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-role-d95855b8afc4f1a0
+    kind: person_role
+    page: "324"
+    confidence: medium
+    keywords:
+      - leder
+    names:
+      - Nils Magne Strand
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-f92298fcc77adc5d
+    kind: organization
+    page: "326"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-524c3a1bc02fe588
+    kind: person_role
+    page: "326"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Kent Bergersen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: lineup-or-squad-e4de53c039e47acf
+    kind: lineup_or_squad
+    page: "327"
+    confidence: medium
+    keywords:
+      - lagoppstillingen
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-e7d8bf505f89b96d
+    kind: person_mention
+    page: "327"
+    confidence: medium
+    keywords: []
+    names:
+      - Edvard Skagestad
+      - Fredrik Carlsen
+    years: []
+    scores: []
+    personIds:
+      - edvard-skagestad
+      - fredrik-carlsen
+    matchIds: []
+  - id: person-role-a70d6d9c33e943dd
+    kind: person_role
+    page: "327"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Jan Jbnssons
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-0de08b1658d240c0
+    kind: person_role
+    page: "329"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Jan Jbnsson
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-b99eb45e910cc4c4
+    kind: match_result
+    page: "332"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-0
+    personIds: []
+    matchIds: []
+  - id: organization-16e3baa044c6867a
+    kind: organization
+    page: "333"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-8867ce9521afcac6
+    kind: person_role
+    page: "333"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Viking. Stavanger-Laget
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-120847958ce40421
+    kind: organization
+    page: "334"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-bb6fc53fcda67f3f
+    kind: organization
+    page: "334"
+    confidence: medium
+    keywords:
+      - styreleder
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-4e81e1dd607c724d
+    kind: person_role
+    page: "334"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Kjetil Rekdals
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-ae600e136ee64692
+    kind: person_role
+    page: "334"
+    confidence: medium
+    keywords:
+      - leder
+    names:
+      - Fotball AS
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-64c9ab4f3f7df604
+    kind: person_role
+    page: "335"
+    confidence: medium
+    keywords:
+      - leder
+    names:
+      - Sunnmøre Fotballkrets
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-07392869b9a84ec0
+    kind: organization
+    page: "338"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years:
+      - 1973
+      - 1981
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-a784f5de5e261482
+    kind: organization
+    page: "338"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-b6e2f3460d72e966
+    kind: organization
+    page: "338"
+    confidence: medium
+    keywords:
+      - styreleder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-b368fdad72e4ba6a
+    kind: person_role
+    page: "338"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Arne Aambakk
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-bb0ca3b51944faf8
+    kind: match_result
+    page: "340"
+    confidence: medium
+    keywords: []
+    names:
+      - Michael Barrantes
+      - Didrik Fløtre
+      - Solomon Okoronkwo
+    years:
+      - 2011
+    scores:
+      - 2-1
+    personIds: []
+    matchIds: []
+  - id: person-mention-0a0f7579570afc30
+    kind: person_mention
+    page: "340"
+    confidence: high
+    keywords: []
+    names:
+      - Oddbjørn Lie
+    years: []
+    scores: []
+    personIds:
+      - oddbjorn-lie
+    matchIds: []
+  - id: person-mention-33d3a1adb0367bd3
+    kind: person_mention
+    page: "340"
+    confidence: high
+    keywords: []
+    names:
+      - Andreas Lie
+    years: []
+    scores: []
+    personIds:
+      - andreas-lie
+    matchIds: []
+  - id: person-role-869d6014a7506574
+    kind: person_role
+    page: "340"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Paul Urke
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-c6491bd7e8031b80
+    kind: person_role
+    page: "340"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-daeb7723495c85a7
+    kind: organization
+    page: "341"
+    confidence: medium
+    keywords:
+      - leder
+      - daglig leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-09da047958659b8c
+    kind: person_role
+    page: "341"
+    confidence: medium
+    keywords:
+      - leder
+    names:
+      - André Nevstad
+      - AaFK. Han
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-54165621aab1ab1f
+    kind: organization
+    page: "342"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-a28322af221231bc
+    kind: organization
+    page: "342"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years:
+      - 2013
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-551986a4e5c66f3b
+    kind: person_role
+    page: "342"
+    confidence: medium
+    keywords:
+      - leder
+    names:
+      - Molde-leder Olav
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-9d5f903db776a66b
+    kind: person_role
+    page: "342"
+    confidence: medium
+    keywords:
+      - leder
+    names:
+      - AaFK-leder Arne
+    years:
+      - 2002
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-137cb407b4bc698c
+    kind: person_role
+    page: "343"
+    confidence: medium
+    keywords:
+      - leder
+    names:
+      - Espen Silseth
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-97533a4e4e45415e
+    kind: match_result
+    page: "347"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-2
+    personIds: []
+    matchIds: []
+  - id: match-result-9cb442642bbb9361
+    kind: match_result
+    page: "347"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-3
+    personIds: []
+    matchIds: []
+  - id: match-result-d7e1c19811512e00
+    kind: match_result
+    page: "347"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-1
+    personIds: []
+    matchIds: []
+  - id: person-mention-0a92d12e3f1d514b
+    kind: person_mention
+    page: "348"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years:
+      - 1945
+      - 1946
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-mention-55a7b6f3d6fe9ec6
+    kind: person_mention
+    page: "348"
+    confidence: high
+    keywords: []
+    names:
+      - Nils Jangaard
+    years:
+      - 1917
+    scores: []
+    personIds:
+      - nils-jangaard
+    matchIds: []
+  - id: person-mention-67b96dab49245ee6
+    kind: person_mention
+    page: "348"
+    confidence: high
+    keywords: []
+    names:
+      - Sverre Mogstad
+    years:
+      - 1925
+      - 1926
+    scores: []
+    personIds:
+      - sverre-mogstad
+    matchIds: []
+  - id: person-mention-7b2cb305e45091a2
+    kind: person_mention
+    page: "348"
+    confidence: high
+    keywords: []
+    names:
+      - Knut Gaaseide
+    years:
+      - 1937
+    scores: []
+    personIds:
+      - knut-gaaseide
+    matchIds: []
+  - id: person-mention-a26a422c92595072
+    kind: person_mention
+    page: "348"
+    confidence: high
+    keywords: []
+    names:
+      - Nils Jangaard
+    years:
+      - 1919
+    scores: []
+    personIds:
+      - nils-jangaard
+    matchIds: []
+  - id: person-mention-bb423d83d4817690
+    kind: person_mention
+    page: "348"
+    confidence: high
+    keywords: []
+    names:
+      - Trond Fredriksen
+    years: []
+    scores: []
+    personIds:
+      - trond-fredriksen
+    matchIds: []
+  - id: person-mention-c1cc8a12becbfcb8
+    kind: person_mention
+    page: "348"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years:
+      - 1938
+      - 1941
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-mention-e2fcbaf1dc90ef13
+    kind: person_mention
+    page: "348"
+    confidence: high
+    keywords: []
+    names:
+      - Sverre Volstad
+    years:
+      - 1930
+      - 1936
+    scores: []
+    personIds:
+      - sverre-volstad
+    matchIds: []
+  - id: person-mention-ea458d03d012ef46
+    kind: person_mention
+    page: "348"
+    confidence: high
+    keywords: []
+    names:
+      - Nils Jangaard
+    years:
+      - 1929
+    scores: []
+    personIds:
+      - nils-jangaard
+    matchIds: []
+  - id: person-role-02b265c7456d73c6
+    kind: person_role
+    page: "348"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Trond Fredriksen
+    years: []
+    scores: []
+    personIds:
+      - trond-fredriksen
+    matchIds: []
+  - id: person-role-10fed4f23fea3f97
+    kind: person_role
+    page: "348"
+    confidence: medium
+    keywords:
+      - sekretær
+    names:
+      - Merete L. Opdahl
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-480d32ec39103b38
+    kind: person_role
+    page: "348"
+    confidence: medium
+    keywords:
+      - styreleder
+    names:
+      - Bjarne Haagensen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-57ed77db8db700fc
+    kind: person_role
+    page: "348"
+    confidence: medium
+    keywords:
+      - sekretær
+    names:
+      - Ann Katrin Aarønes
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-68f9fd5f9cc23c8e
+    kind: person_role
+    page: "348"
+    confidence: medium
+    keywords:
+      - leder
+    names:
+      - Jan Erich Rønneberg
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-9cc7228a08831a4a
+    kind: person_role
+    page: "348"
+    confidence: medium
+    keywords:
+      - leder
+    names:
+      - Helge Amdam
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-9da7beff6c466b8b
+    kind: person_role
+    page: "348"
+    confidence: medium
+    keywords:
+      - sekretær
+    names:
+      - Lillian Hansen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-bceb9b7abc3c6cda
+    kind: person_role
+    page: "348"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Erling Ytterland
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-d682f33c79cf1b6c
+    kind: person_role
+    page: "348"
+    confidence: medium
+    keywords:
+      - leder
+    names:
+      - Jan Erik Sørnes
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-da90a17a8de59778
+    kind: person_role
+    page: "348"
+    confidence: medium
+    keywords:
+      - direktør
+    names:
+      - Henrik Hoff
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-ee782d1afb0f4cb0
+    kind: person_role
+    page: "348"
+    confidence: medium
+    keywords:
+      - styreleder
+    names:
+      - Kjell Tennfjord
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-f10c41b378e38b39
+    kind: person_role
+    page: "348"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Jan Jbnsson
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-027ede9acc9b87c4
+    kind: person_mention
+    page: "349"
+    confidence: medium
+    keywords: []
+    names:
+      - Peter Orry Larsen
+      - Sten Grytebust
+    years: []
+    scores: []
+    personIds:
+      - peter-orry-larsen
+      - sten-grytebust
+    matchIds: []
+  - id: person-mention-778dab43cface98e
+    kind: person_mention
+    page: "349"
+    confidence: high
+    keywords: []
+    names:
+      - Edvard Skagestad
+    years: []
+    scores: []
+    personIds:
+      - edvard-skagestad
+    matchIds: []
+  - id: person-mention-7e38abe94a40973a
+    kind: person_mention
+    page: "349"
+    confidence: high
+    keywords: []
+    names:
+      - Sten Grytebust
+    years: []
+    scores: []
+    personIds:
+      - sten-grytebust
+    matchIds: []
+  - id: person-mention-88481eac061c56d2
+    kind: person_mention
+    page: "349"
+    confidence: medium
+    keywords: []
+    names:
+      - Thomas Skog Martinussen
+      - Vebjørn Hoff
+    years: []
+    scores: []
+    personIds:
+      - thomas-skog-martinussen
+      - vebjorn-hoff
+    matchIds: []
+  - id: person-mention-8b0c4ebf5263d960
+    kind: person_mention
+    page: "349"
+    confidence: high
+    keywords: []
+    names:
+      - Fredrik Carlsen
+    years: []
+    scores: []
+    personIds:
+      - fredrik-carlsen
+    matchIds: []
+  - id: person-mention-ab2d171f48f82972
+    kind: person_mention
+    page: "349"
+    confidence: medium
+    keywords: []
+    names:
+      - Andreas Lie
+      - Oddbjørn Lie
+    years: []
+    scores: []
+    personIds:
+      - andreas-lie
+      - oddbjorn-lie
+    matchIds: []
+  - id: person-mention-af944e5d3bf56dbe
+    kind: person_mention
+    page: "349"
+    confidence: high
+    keywords: []
+    names:
+      - Joakim Barstad
+    years: []
+    scores: []
+    personIds:
+      - joakim-barstad
+    matchIds: []
+  - id: organization-105745284cff8c4e
+    kind: organization
+    page: "350"
+    confidence: medium
+    keywords:
+      - æresmedlemmer
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-07ae00297a036b5e
+    kind: person_mention
+    page: "350"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years:
+      - 2001
+      - 1948
+      - 1987
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-mention-78ff6526277a22a5
+    kind: person_mention
+    page: "350"
+    confidence: medium
+    keywords: []
+    names:
+      - Peder Puck
+      - Rasmus Eck Olsen
+    years:
+      - 1957
+      - 1924
+    scores: []
+    personIds:
+      - peder-puck
+      - rasmus-eck-olsen
+    matchIds: []
+  - id: person-mention-b9807253a2beb562
+    kind: person_mention
+    page: "350"
+    confidence: high
+    keywords: []
+    names:
+      - Sverre Volstad
+    years:
+      - 1987
+      - 1934
+    scores: []
+    personIds:
+      - sverre-volstad
+    matchIds: []
+  - id: person-mention-40f4607af2c29979
+    kind: person_mention
+    page: "351"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: person-mention-7b61e8e2e2febe7f
+    kind: person_mention
+    page: "351"
+    confidence: high
+    keywords: []
+    names:
+      - Per Joar Hansen
+    years: []
+    scores: []
+    personIds:
+      - per-joar-hansen
+    matchIds: []
+  - id: person-mention-f2dd22d38d9fb8e7
+    kind: person_mention
+    page: "351"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-mention-7443ce3358a7b195
+    kind: person_mention
+    page: "353"
+    confidence: high
+    keywords: []
+    names:
+      - Trond Fredriksen
+    years: []
+    scores: []
+    personIds:
+      - trond-fredriksen
+    matchIds: []
+  - id: person-mention-7a5656bf06976327
+    kind: person_mention
+    page: "353"
+    confidence: high
+    keywords: []
+    names:
+      - Sten Grytebust
+    years: []
+    scores: []
+    personIds:
+      - sten-grytebust
+    matchIds: []
+  - id: person-mention-acccca0e3ad3cf2b
+    kind: person_mention
+    page: "353"
+    confidence: high
+    keywords: []
+    names:
+      - Edvard Skagestad
+    years: []
+    scores: []
+    personIds:
+      - edvard-skagestad
+    matchIds: []
+  - id: person-mention-cda59f4043bcad1e
+    kind: person_mention
+    page: "353"
+    confidence: high
+    keywords: []
+    names:
+      - Fredrik Carlsen
+    years: []
+    scores: []
+    personIds:
+      - fredrik-carlsen
+    matchIds: []
+  - id: person-mention-fb7ab71321690df3
+    kind: person_mention
+    page: "353"
+    confidence: high
+    keywords: []
+    names:
+      - Peter Orry Larsen
+    years: []
+    scores: []
+    personIds:
+      - peter-orry-larsen
+    matchIds: []

@@ -1,0 +1,526 @@
+sourceId: medlemsblad-for-aalesunds-fotb-1950-22ea
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 32
+pagesProcessed: 32
+pagesFailed: []
+contentHash: sha256:3d56b2cfdc4f70f3b1c593ea9e88b16cfdaeb101068db727d5526f06e5c86a85
+candidates:
+  - id: organization-092b7ac875338a66
+    kind: organization
+    page: "3"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-a88e490c419d61d7
+    kind: organization
+    page: "4"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-558ee03438b611bc
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-mention-0d382f0d3aaa65dd
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Rasmus Eck Olsen
+    years: []
+    scores: []
+    personIds:
+      - rasmus-eck-olsen
+    matchIds: []
+  - id: organization-9864cec44761ae6e
+    kind: organization
+    page: "12"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-32222ed55a825f67
+    kind: match_result
+    page: "15"
+    confidence: medium
+    keywords: []
+    names:
+      - Aalesund. Glasset
+    years: []
+    scores:
+      - 1-0
+    personIds: []
+    matchIds: []
+  - id: match-result-56ec680405850d4d
+    kind: match_result
+    page: "15"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-0
+    personIds: []
+    matchIds: []
+  - id: person-mention-e38c789300901c4c
+    kind: person_mention
+    page: "15"
+    confidence: high
+    keywords: []
+    names:
+      - Rasmus Eck Olsen
+    years: []
+    scores: []
+    personIds:
+      - rasmus-eck-olsen
+    matchIds: []
+  - id: organization-df074b2e4895bde6
+    kind: organization
+    page: "16"
+    confidence: medium
+    keywords:
+      - kasserer
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-f2f969e0b6ece8a1
+    kind: person_mention
+    page: "16"
+    confidence: high
+    keywords: []
+    names:
+      - Sverre Volstad
+    years: []
+    scores: []
+    personIds:
+      - sverre-volstad
+    matchIds: []
+  - id: person-mention-81a4fb7b068e41f1
+    kind: person_mention
+    page: "17"
+    confidence: high
+    keywords: []
+    names:
+      - Knut Gaaseide
+    years: []
+    scores: []
+    personIds:
+      - knut-gaaseide
+    matchIds: []
+  - id: organization-61d1e07cb89e433f
+    kind: organization
+    page: "18"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-a3a9bad98ece69f3
+    kind: organization
+    page: "19"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-dd2510d9d1de4a89
+    kind: person_mention
+    page: "19"
+    confidence: high
+    keywords: []
+    names:
+      - Emil Sandø
+    years: []
+    scores: []
+    personIds:
+      - emil-sando
+    matchIds: []
+  - id: organization-4d921e9307ec7d39
+    kind: organization
+    page: "21"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-cbd946e331a2ad94
+    kind: organization
+    page: "22"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-11014a377ca595d4
+    kind: organization
+    page: "23"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-5bec8b7d102d79eb
+    kind: organization
+    page: "24"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-a2aec076251c885d
+    kind: organization
+    page: "24"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-ccfadfd8abd7b73c
+    kind: organization
+    page: "24"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-4736b2e1d5da237a
+    kind: organization
+    page: "26"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-47808da57c4e4e5e
+    kind: organization
+    page: "26"
+    confidence: medium
+    keywords:
+      - æresmedlem
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-a70daf81cc6ad2f8
+    kind: person_mention
+    page: "28"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-mention-d6323c2b0ddfdf70
+    kind: person_mention
+    page: "28"
+    confidence: high
+    keywords: []
+    names:
+      - Sverre Volstad
+    years: []
+    scores: []
+    personIds:
+      - sverre-volstad
+    matchIds: []
+  - id: person-role-6702e8013e81b583
+    kind: person_role
+    page: "28"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Per Anker Eriksen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: season-fact-1da1f11b055d2ec2
+    kind: season_fact
+    page: "28"
+    confidence: medium
+    keywords:
+      - poeng
+    names: []
+    years:
+      - 1950
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-6dc3a9efe4cacdd4
+    kind: person_mention
+    page: "29"
+    confidence: high
+    keywords: []
+    names:
+      - Rasmus Eck Olsen
+    years: []
+    scores: []
+    personIds:
+      - rasmus-eck-olsen
+    matchIds: []
+  - id: organization-3bc44a1f1234ae2a
+    kind: organization
+    page: "30"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-6965a7c7bc88bb6e
+    kind: person_mention
+    page: "30"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-mention-6b02bae32ac9f9a2
+    kind: person_mention
+    page: "30"
+    confidence: high
+    keywords: []
+    names:
+      - Rasmus Eck Olsen
+    years: []
+    scores: []
+    personIds:
+      - rasmus-eck-olsen
+    matchIds: []
+  - id: organization-00253e9d333ff89d
+    kind: organization
+    page: "31"
+    confidence: medium
+    keywords:
+      - kasserer
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-2ab5bfc1497dfdfd
+    kind: organization
+    page: "31"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-9c16940441fa8756
+    kind: organization
+    page: "31"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-b7bbb0902569303e
+    kind: organization
+    page: "31"
+    confidence: medium
+    keywords:
+      - formann
+      - nestformann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-1625320932417c07
+    kind: person_mention
+    page: "31"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-mention-a0852496f76c497e
+    kind: person_mention
+    page: "31"
+    confidence: high
+    keywords: []
+    names:
+      - Rasmus Eck Olsen
+    years: []
+    scores: []
+    personIds:
+      - rasmus-eck-olsen
+    matchIds: []
+  - id: person-mention-cb8f673005edd20b
+    kind: person_mention
+    page: "31"
+    confidence: high
+    keywords: []
+    names:
+      - Emil Sandø
+    years: []
+    scores: []
+    personIds:
+      - emil-sando
+    matchIds: []
+  - id: person-role-040d02b9c40237cc
+    kind: person_role
+    page: "31"
+    confidence: medium
+    keywords:
+      - sekretær
+    names:
+      - Arne Vestad
+      - Karsten Eriksen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-0ef7f6ee458ddecd
+    kind: person_role
+    page: "31"
+    confidence: medium
+    keywords:
+      - kasserer
+      - oppmann
+    names:
+      - Bjørn Aasen
+      - Øivind
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-3db90901c796e02e
+    kind: person_role
+    page: "31"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Emil Sandø
+      - Emil Sand
+      - Sigurd Nørve
+    years: []
+    scores: []
+    personIds:
+      - emil-sando
+    matchIds: []
+  - id: person-role-4d1df96eef13dc81
+    kind: person_role
+    page: "31"
+    confidence: medium
+    keywords:
+      - nestformann
+      - sekretær
+    names:
+      - Anitra Olsen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-6a091ce5d4ec9c1c
+    kind: person_role
+    page: "31"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Alfhild Ringdal
+      - Mary Vegsund
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-d37aacb68977bddf
+    kind: organization
+    page: "32"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-e4127ed9434d4083
+    kind: person_mention
+    page: "32"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []

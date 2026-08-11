@@ -35,6 +35,13 @@ providers:
       - away.score
       - competition.round
       - extraTime
+sources:
+  - sourceId: aalesunds-fk-quiz-2008-fd43
+    page: "43"
+    fields:
+      - home.score
+      - away.score
+    note: Entydig maskinelt treff på år, motstander og resultat; bør redaksjonelt etterkontrolleres.
 confidence: probable
 conflicts: []
 tags: []

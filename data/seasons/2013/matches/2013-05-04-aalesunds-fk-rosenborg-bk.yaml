@@ -142,6 +142,13 @@ providers:
       - events
       - lineups
     note: "Kildestatus: FT"
+sources:
+  - sourceId: aalesund-fra-blabaer-til-beton-2013-91b5
+    page: "10"
+    fields:
+      - home.score
+      - away.score
+    note: Entydig maskinelt treff på år, motstander og resultat; bør redaksjonelt etterkontrolleres.
 confidence: probable
 conflicts: []
 tags: []

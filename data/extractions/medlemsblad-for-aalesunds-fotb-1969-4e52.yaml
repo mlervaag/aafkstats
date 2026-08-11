@@ -1,0 +1,103 @@
+sourceId: medlemsblad-for-aalesunds-fotb-1969-4e52
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 8
+pagesProcessed: 8
+pagesFailed: []
+contentHash: sha256:acf19545e3652bd4bbc090fa6eb026be996c3726b197afa25306c2fde9b108f5
+candidates:
+  - id: organization-c5ecc37897b4f089
+    kind: organization
+    page: "2"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-65f4c79c67a5242c
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-role-ec2110b359ffc8a4
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Hans J. Henriksen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-94a4684212707fd3
+    kind: organization
+    page: "3"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-e2af4699fc61ee16
+    kind: organization
+    page: "3"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-ebcec64c6888b596
+    kind: person_role
+    page: "3"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Knut Osnes
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-530e43e6745bacb1
+    kind: person_role
+    page: "6"
+    confidence: medium
+    keywords:
+      - leder
+    names:
+      - A.F.K. Det
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-a2748d5e82f92b1e
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Knut Gaaseide
+    years: []
+    scores: []
+    personIds:
+      - knut-gaaseide
+    matchIds: []

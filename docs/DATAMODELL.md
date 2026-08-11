@@ -473,6 +473,22 @@ gjetning.
 en adresse, og en adresse kan endre seg; URN-en identifiserer dokumentet uansett, og er det
 en annen katalog kan slå opp på.
 
+## Faktakandidater fra publikasjoner
+
+`data/extractions/<sourceId>.yaml` er arbeidskøen mellom OCR og kanoniske fakta.
+Hver fil dokumenterer OCR-tilgang, behandlet sidetall, innholdshash og korte
+faktatokens med sidetall. `kind` skiller personomtale, personrolle, kampresultat,
+lag/stall, organisasjon og sesongfakta. `personIds` og `matchIds` brukes bare når
+treffet kan knyttes til en eksisterende arkividentitet.
+
+Kandidater er ikke ferdige fakta. De må kontrolleres mot siden før nye personer,
+roller, oppstillinger eller sesongfelt skrives til de ordinære modellene. Et strengt,
+entydig treff på år, AaFK, motstander og resultat kan automatisk legge til en
+`sourceRef` på en eksisterende kamp, men endrer aldri selve resultatet.
+
+Rå ALTO og OCR-prosa er ikke del av modellen. Cachen ligger under
+`.cache/nb-extract/`, og er ignorert av Git.
+
 ## Person
 
 `data/people/<id>.yaml`

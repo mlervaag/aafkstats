@@ -1,0 +1,69 @@
+sourceId: medlemsblad-for-aalesunds-fotb-2003-9649
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 4
+pagesProcessed: 4
+pagesFailed: []
+contentHash: sha256:0d82ea4aeb197349bf8c6ca2ee4b1d08376269f2875c5a0333a821bf98fb1e8d
+candidates:
+  - id: lineup-or-squad-24fca8538a3026ce
+    kind: lineup_or_squad
+    page: "3"
+    confidence: medium
+    keywords:
+      - stallen
+    names:
+      - A-stallen. Skal
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: lineup-or-squad-7462a8246c02f3ea
+    kind: lineup_or_squad
+    page: "3"
+    confidence: medium
+    keywords:
+      - stallen
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-dc9396315254756e
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Trond Fredriksen
+    years: []
+    scores: []
+    personIds:
+      - trond-fredriksen
+    matchIds: []
+  - id: person-mention-d4b2ff9a3cabd1cb
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: person-role-adb654045617b580
+    kind: person_role
+    page: "4"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Ivar Morten
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []

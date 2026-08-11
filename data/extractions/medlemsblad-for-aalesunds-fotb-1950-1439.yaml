@@ -1,0 +1,149 @@
+sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 8
+pagesProcessed: 8
+pagesFailed: []
+contentHash: sha256:3e54a292c48aa7996fea0afc4eb883ba21030940015950fb35f0bfc202483b63
+candidates:
+  - id: organization-a6148bd2bc7c170c
+    kind: organization
+    page: "2"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-e5469306eed29b8e
+    kind: organization
+    page: "2"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-91cb2bf2ad5d774e
+    kind: organization
+    page: "3"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-eec333e3dbf378eb
+    kind: organization
+    page: "5"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-917b2a9eff895818
+    kind: organization
+    page: "6"
+    confidence: medium
+    keywords:
+      - sekretær
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-685a7322b49651de
+    kind: organization
+    page: "7"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-87f0bc12c48dfd03
+    kind: organization
+    page: "7"
+    confidence: medium
+    keywords:
+      - æresmedlem
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-8c59e482b41ce6a2
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Emil Sandø
+    years: []
+    scores: []
+    personIds:
+      - emil-sando
+    matchIds: []
+  - id: person-mention-e55fc5c5bb5f2bd9
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Georg Haller
+    years: []
+    scores: []
+    personIds:
+      - georg-haller
+    matchIds: []
+  - id: person-role-0c06bfbb02a151b2
+    kind: person_role
+    page: "7"
+    confidence: medium
+    keywords:
+      - nestformann
+    names:
+      - Odd Østensen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-79c5e8b61c4e1aac
+    kind: person_role
+    page: "7"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Emil Sandø
+      - Emil Sand
+    years: []
+    scores: []
+    personIds:
+      - emil-sando
+    matchIds: []
+  - id: person-mention-fa98a17747d4ce5a
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []

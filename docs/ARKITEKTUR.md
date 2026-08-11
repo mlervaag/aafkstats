@@ -146,6 +146,13 @@ og organisasjonsverv på samme identitet, mens `/organisasjon` kan gruppere de s
 rollene som styrer og tidslinjer uten å kopiere data. Sesonger og kamper peker direkte
 på historiske publikasjoner med `sourceRef`; kildesiden viser koblingen tilbake.
 
+Masseuttrekket fra NB ligger i et eget kandidatlag. `data/extractions/` valideres av
+`publicationExtraction`, bygges til `core_publication_extractions` og
+`core_fact_candidates`, og eksponeres som `publication_extractions` og
+`fact_candidates`. Rå ALTO ligger bare i ignorert cache. Kandidatlaget kan derfor
+søkes og prioriteres uten at OCR-prosa blir en del av arkivet eller at usikre treff
+blir framstilt som kanoniske fakta. Se [`NB_MASSEUTTREKK.md`](NB_MASSEUTTREKK.md).
+
 Visningsnavnet på en leverandør leses fra `core_providers.name`, aldri fra en streng i UI-koden. Ellers får kildesiden og kampsiden hver sitt navn på samme leverandør.
 
 Spørrefunksjonen ser bare viewene. Et senere REST-API og en MCP-server skal bruke den samme

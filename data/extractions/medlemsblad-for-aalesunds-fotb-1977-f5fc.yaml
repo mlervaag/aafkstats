@@ -1,0 +1,135 @@
+sourceId: medlemsblad-for-aalesunds-fotb-1977-f5fc
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 12
+pagesProcessed: 12
+pagesFailed: []
+contentHash: sha256:74ffc8a6f017a650b12323ef39c1ee7c13c43fc7052b82bfdd83ef411c449215
+candidates:
+  - id: match-result-b6dac811711be217
+    kind: match_result
+    page: "2"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-0
+    personIds: []
+    matchIds: []
+  - id: organization-89e9dcc3074f2843
+    kind: organization
+    page: "4"
+    confidence: medium
+    keywords:
+      - nestformann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-1c0f5526e217279c
+    kind: organization
+    page: "5"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-f84bcb6ab18278fd
+    kind: organization
+    page: "8"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-a04f9795ee12beb1
+    kind: person_role
+    page: "8"
+    confidence: medium
+    keywords:
+      - sekretær
+    names:
+      - Sigrun Hansen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-d34b07c8f5262f45
+    kind: person_role
+    page: "8"
+    confidence: medium
+    keywords:
+      - nestformann
+    names:
+      - Randi Lilleb
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-f5c23f794dcde348
+    kind: person_role
+    page: "8"
+    confidence: medium
+    keywords:
+      - kasserer
+    names:
+      - Karen Rovde
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-1ad68252aad8101c
+    kind: organization
+    page: "11"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-4c2466ac5c0bc789
+    kind: organization
+    page: "11"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-5b5c88643414f3a6
+    kind: organization
+    page: "11"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years:
+      - 1927
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-67e6160f0129faf3
+    kind: organization
+    page: "11"
+    confidence: medium
+    keywords:
+      - nestformann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []

@@ -8,3 +8,4 @@ export * from "./person.js";
 export * from "./standings.js";
 export * from "./contribution.js";
 export * from "./source.js";
+export * from "./extraction.js";

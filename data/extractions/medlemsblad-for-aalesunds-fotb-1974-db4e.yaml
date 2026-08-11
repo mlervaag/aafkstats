@@ -1,0 +1,354 @@
+sourceId: medlemsblad-for-aalesunds-fotb-1974-db4e
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 8
+pagesProcessed: 8
+pagesFailed: []
+contentHash: sha256:6ecdab272aa3eac8eef1d442fdc481d1e277e6406fef163cd0258edfada61605
+candidates:
+  - id: organization-413c83ca46218916
+    kind: organization
+    page: "1"
+    confidence: medium
+    keywords:
+      - æresmedlem
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-a5e263e9bc986138
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Emil Sandø
+    years: []
+    scores: []
+    personIds:
+      - emil-sando
+    matchIds: []
+  - id: person-mention-b7d167150268c666
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Sverre Volstad
+    years: []
+    scores: []
+    personIds:
+      - sverre-volstad
+    matchIds: []
+  - id: person-mention-da86ac88a8b7696b
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Nils Jangaard
+    years: []
+    scores: []
+    personIds:
+      - nils-jangaard
+    matchIds: []
+  - id: person-mention-fb24a054175a64e4
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-role-53819329686111df
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - sekretær
+    names:
+      - Per Svein Bjørkedal
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-55f23bddc323a6a8
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Magne Bjørge
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-b929791768cd25db
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - nestformann
+    names:
+      - Karsten Nedregård. With
+      - Terje Dragsund
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-c034d0b1ace3d889
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Hans J. Henriksen
+      - Laurits Gi
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-07194aec1fff61e0
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 4-1
+    personIds: []
+    matchIds: []
+  - id: person-role-cc8f20036fbe7e63
+    kind: person_role
+    page: "4"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Petter Birkevold
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-f6a19586c748c9de
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Knut Gaaseide
+    years: []
+    scores: []
+    personIds:
+      - knut-gaaseide
+    matchIds: []
+  - id: match-result-10742d8e93806282
+    kind: match_result
+    page: "7"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-1
+    personIds: []
+    matchIds: []
+  - id: match-result-1a2d2387df563173
+    kind: match_result
+    page: "7"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-2
+    personIds: []
+    matchIds: []
+  - id: match-result-230de94835e51b7c
+    kind: match_result
+    page: "7"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-0
+    personIds: []
+    matchIds: []
+  - id: match-result-312e91ad9c1f2aad
+    kind: match_result
+    page: "7"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-5
+    personIds: []
+    matchIds: []
+  - id: match-result-3d11df612710aa74
+    kind: match_result
+    page: "7"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-2
+    personIds: []
+    matchIds: []
+  - id: match-result-41da10e29ec17569
+    kind: match_result
+    page: "7"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 4-0
+    personIds: []
+    matchIds: []
+  - id: match-result-428f3b202bc0ccd5
+    kind: match_result
+    page: "7"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 4-1
+    personIds: []
+    matchIds: []
+  - id: match-result-493db4777a23c8ab
+    kind: match_result
+    page: "7"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-2
+    personIds: []
+    matchIds: []
+  - id: match-result-50565235c38df4f6
+    kind: match_result
+    page: "7"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-4
+    personIds: []
+    matchIds: []
+  - id: match-result-7962176f6cd9be77
+    kind: match_result
+    page: "7"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-1
+    personIds: []
+    matchIds: []
+  - id: match-result-8109a2e74c7b3f23
+    kind: match_result
+    page: "7"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 5-4
+    personIds: []
+    matchIds: []
+  - id: match-result-8bd2e0947dae31a0
+    kind: match_result
+    page: "7"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-0
+    personIds: []
+    matchIds: []
+  - id: match-result-8ea9df0d8470fc63
+    kind: match_result
+    page: "7"
+    confidence: medium
+    keywords: []
+    names:
+      - Eidsvold Turn
+    years: []
+    scores:
+      - 0-1
+    personIds: []
+    matchIds: []
+  - id: match-result-a65df76030bdd286
+    kind: match_result
+    page: "7"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 6-0
+    personIds: []
+    matchIds: []
+  - id: match-result-b5bdd4afe2d0c00d
+    kind: match_result
+    page: "7"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 0-0
+    personIds: []
+    matchIds: []
+  - id: match-result-de79518b35bac672
+    kind: match_result
+    page: "7"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 0-1
+    personIds: []
+    matchIds: []
+  - id: match-result-e25e43e4081d054e
+    kind: match_result
+    page: "7"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 9-1
+    personIds: []
+    matchIds: []
+  - id: person-mention-25c778d61f2a114a
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Knut Gaaseide
+    years: []
+    scores: []
+    personIds:
+      - knut-gaaseide
+    matchIds: []

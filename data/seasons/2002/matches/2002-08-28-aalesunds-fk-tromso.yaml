@@ -34,6 +34,19 @@ providers:
       - away.score
       - competition.stage
       - extraTime
+sources:
+  - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+    page: "15"
+    fields:
+      - home.score
+      - away.score
+    note: Entydig maskinelt treff på år, motstander og resultat; bør redaksjonelt etterkontrolleres.
+  - sourceId: opp-fra-myra-fotballtriumfen-i-2002-6192
+    page: "96"
+    fields:
+      - home.score
+      - away.score
+    note: Entydig maskinelt treff på år, motstander og resultat; bør redaksjonelt etterkontrolleres.
 confidence: probable
 conflicts: []
 tags: []
