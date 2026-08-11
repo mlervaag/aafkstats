@@ -40,8 +40,9 @@ export default function DataPage() {
         <p className="eyebrow">Åpne data</p>
         <h1>Datasettet</h1>
         <p className="lede">
-          Et åpent og etterprøvbart arkiv over AaFKs kamper, sesonger og personer. Dataene
-          kan utforskes her eller lastes ned for videre bruk.
+          Et åpent og etterprøvbart arkiv over AaFKs kamper, sesonger og personer. Alt ligger
+          som YAML-filer på GitHub, og bygges om til en skrivebeskyttet SQLite-fil ved hver
+          utrulling. Dataene kan utforskes her eller lastes ned og brukes videre.
         </p>
       </header>
       <h2 style={{ marginTop: "2rem" }}>Hva arkivet inneholder</h2>
@@ -50,8 +51,8 @@ export default function DataPage() {
       <h2 style={{ marginTop: "2rem" }}>Kamper per konkurranse</h2>
       <CompetitionTable />
       <p className="prose small muted">
-        Serien skifter navn gjennom historien, og kampene ligger under navnet som gjaldt
-        da de ble spilt. Se <a href="/om">kilder og forbehold</a> før du gjenbruker data.
+        Serien har skiftet navn flere ganger, og hver kamp ligger under navnet som gjaldt
+        da den ble spilt. Les <a href="/om">kilder og forbehold</a> før du gjenbruker data.
       </p>
 
       <nav aria-label="Tabeller" style={{ margin: "2rem 0" }}>
@@ -61,7 +62,7 @@ export default function DataPage() {
               <a href={`#${v.name.replace(".", "-")}`}>
                 <code>{v.name}</code>
               </a>{" "}
-              — <span className="muted">{v.summary.split(".")[0]}.</span>
+              <span className="muted">· {v.summary.split(".")[0]}.</span>
             </li>
           ))}
         </ul>
@@ -113,8 +114,8 @@ export default function DataPage() {
       <section style={{ marginTop: "3rem" }}>
         <h2>Eksempelspørringer</h2>
         <p className="prose">
-          Disse kjøres som en del av testene, så de virker alltid mot datasettet slik det
-          er nå.
+          Disse spørringene kjøres som en del av testene, så de virker alltid mot datasettet
+          slik det ser ut nå.
         </p>
         {exampleQueries.map((ex) => (
           <div key={ex.question} style={{ marginTop: "1.5rem" }}>
@@ -132,29 +133,29 @@ export default function DataPage() {
         <h2>Slik er spørrefunksjonen begrenset</h2>
         <div className="prose">
           <p>
-            Spørrefunksjonen kan kjøre egne SELECT-spørringer mot tabellene over. Det er
-            dét som gjør at den kan svare på spørsmål ingen har laget et ferdig oppslag
+            Spørrefunksjonen kan skrive SELECT-spørringer mot tabellene over. Det
+            er dét som gjør at den kan svare på spørsmål ingen har laget et ferdig oppslag
             for. Grensene er:
           </p>
           <ul>
             <li>
-              Arkivfilen åpnes skrivebeskyttet. Et forsøk på å endre noe avvises av SQLite
-              selv, ikke av koden vår.
+              Arkivfilen åpnes skrivebeskyttet. Et forsøk på å endre noe blir avvist av
+              SQLite selv, ikke av koden vår.
             </li>
             <li>
-              Spørringen kjører i en egen prosess som avlives ved timeout, og den ser bare
-              tabellene dokumentert på denne siden — ikke rådataene bak dem.
+              Spørringen kjører i en egen prosess som stoppes ved tidsavbrudd, og den ser
+              bare tabellene som er dokumentert på denne siden, ikke rådataene bak dem.
             </li>
-            <li>Én setning per spørring, og bare SELECT.</li>
+            <li>Én SQL-setning per spørring, og bare SELECT.</li>
             <li>Maks 200 rader og 3 sekunders kjøretid.</li>
             <li>
-              Hver spørring som kjøres vises under svaret, så du kan etterprøve hva svaret
+              Hver spørring som kjøres, vises under svaret, så du kan etterprøve hva svaret
               bygger på.
             </li>
           </ul>
           <p>
-            Referattekst i arkivet er skrevet av bidragsytere. Spørrefunksjonen behandler
-            slikt innhold som data, aldri som instruksjoner til seg selv.
+            Referatene i arkivet er skrevet av bidragsytere. Spørrefunksjonen behandler alltid
+            slik tekst som data, aldri som instruksjoner til seg selv.
           </p>
         </div>
       </section>

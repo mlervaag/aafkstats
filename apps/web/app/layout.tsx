@@ -16,7 +16,8 @@ export const metadata: Metadata = {
   // at hele arkivet er duplikater av forsiden. Kanonisk adresse settes per side.
   openGraph: {
     title: SITE_NAME,
-    description: "AaFKs kamper, personer og organisasjon — søkbart, kildeført og åpent.",
+    // Kolon og ikke tankestrek: språkvasken i #99 gikk gjennom hele nettstedet.
+    description: "AaFKs kamper, personer og organisasjon: søkbart, kildeført og åpent.",
     type: "website",
     locale: "nb_NO",
     siteName: SITE_NAME,

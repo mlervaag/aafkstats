@@ -19,32 +19,43 @@ export default function AboutPage() {
           <section>
             <h2>Hva som finnes nå</h2>
             <p>
-              Arkivet inneholder to slags kamper. De som er spilt har dato, motstander,
-              hjemme eller borte, konkurranse og sluttresultat. De som står på terminlista
-              har dato og motstander, men ingen resultatfelt, og er merket slik at de ikke
-              telles med i statistikken.
+              Arkivet inneholder to slags kamper. Spilte kamper har dato, motstander, hjemme
+              eller borte, konkurranse og sluttresultat. Kamper som fortsatt står på
+              terminlista, har dato og motstander, men ingen resultatfelt, og de er merket
+              slik at de holdes utenfor statistikken.
             </p>
             <p>
-              Besøkende kan bidra fra knapper på kamp-, sesong- og personsider, og de to slagene
-              bidrag går hver sin vei. Et minne eller en observasjon kan sendes uten konto
-              og havner i en redaksjonell innboks, der det vurderes og merkes med hvor
-              sikkert det er før det vises. En faktarettelse blir en GitHub-sak med riktig
-              mal, og endrer kampen, personen, rollen eller kilden med et synlig spor i historikken.
-              Ingen av delene publiseres automatisk. <a href="/bidra">Slik bidrar du.</a>
+              På kamp-, sesong- og personsidene finner du en knapp for å bidra, og de to
+              typene bidrag går hver sin vei. Et minne eller en observasjon kan sendes inn
+              uten konto. Det havner i en redaksjonell innboks, og blir vurdert og merket
+              med hvor sikkert det er før det vises. En faktarettelse blir en sak på GitHub.
+              Når den er godkjent, rettes kampen, personen, rollen eller kilden, og endringen
+              får et synlig spor i historikken. Ingenting publiseres automatisk.{" "}
+              <a href="/bidra">Slik bidrar du.</a>
             </p>
             <CoverageNote />
             <SeasonDepth />
             <GapNote />
             <p>
-              Tre forskjellige spørsmål om dekning blandes lett. Hvor mange kamper arkivet
-              har er ett. Hvor mange av dem som har hendelser, lagoppstilling og
-              tilskuertall er et annet, og der følger dekningen kilden: kampene hentet fra
-              FotMob har detaljer, de eldre har som regel bare resultatet. Om en sesong er
-              hel er et tredje, og det svares på med rundenumrene. Tallene over holder de
-              tre fra hverandre.
+              Tallene over svarer på tre spørsmål som lett blandes sammen. Det første er hvor
+              mange kamper arkivet har. Det andre er hvor mange av dem som også har hendelser,
+              lagoppstilling og tilskuertall, og der følger dekningen kilden: kamper hentet
+              fra FotMob har detaljer, mens de eldre som regel bare har resultatet. Det tredje
+              er om en seriesesong er komplett, altså om rundenumrene går fra første til siste
+              runde uten hull.
             </p>
           </section>
-          <section><h2>Hvordan søket virker</h2><p>Direktesøket finner personer, roller, år og motstandere uten AI. Når du skriver et spørsmål og sender det inn, bruker en språkmodell skrivebeskyttede søkeverktøy mot arkivet. Spørringene vises under svaret slik at resultatet kan etterprøves. Dekningstallene over ligger også i systemprompten, så modellen vet hva arkivet mangler.</p></section>
+          <section>
+            <h2>Hvordan søket virker</h2>
+            <p>
+              Søkefeltet gjør to ting. Mens du skriver, leter det direkte i arkivet etter
+              personer, roller, år og motstandere, helt uten AI. Sender du inn et spørsmål
+              formulert med egne ord, svarer en språkmodell ved å søke i arkivet med
+              skrivebeskyttet tilgang. Spørringene den kjørte, står under svaret, slik at
+              du kan etterprøve det. Modellen får også dekningstallene over, så den vet hva
+              arkivet mangler.
+            </p>
+          </section>
           <section>
             <h2>Hva som måles</h2>
             <p>
@@ -58,21 +69,21 @@ export default function AboutPage() {
             </p>
           </section>
           <section>
-            <h2>Kilder og sikkerhet</h2>
+            <h2>Kilder og kryssjekk</h2>
             <p>
-              Hver kamp peker til kilden og hvilke felt kilden har levert. Dataene er
-              hentet fra RSSSF (eldre sesonger), NFF Fotballdata og fotball.no (utvalgte
-              sesonger og tabeller) og FotMob (nyere sesonger med hendelser og kampfakta, og
-              tabellen for sesongen som pågår).
-              FotMob er den eneste som gir hendelser og lagoppstillinger, og den er en
-              udokumentert sekundærkilde med uavklarte vilkår for systematisk gjenbruk.
-              Spillere og trenere er hentet fra Wikipedia og Wikidata.
+              Hver kamp viser hvilken kilde den bygger på, og hvilke felt kilden har levert.
+              Dataene kommer fra RSSSF (eldre sesonger), NFF Fotballdata og fotball.no
+              (utvalgte sesonger og tabeller) og FotMob (nyere sesonger med hendelser og
+              kampfakta, og tabellen for sesongen som pågår). FotMob er den eneste som gir
+              hendelser og lagoppstillinger, men det er en udokumentert sekundærkilde, og
+              vilkårene for systematisk gjenbruk er uavklarte. Spillere og trenere er hentet
+              fra Wikipedia og Wikidata.
             </p>
             <p>
               Arkivet suppleres og kryssjekkes fortløpende mot NIFS, klubbkilder,
-              Nasjonalbiblioteket og samtidige kamprapporter. Der to kilder er uenige, står
-              begge verdiene på kampsiden framfor at den ene stille vinner. En opplysning
-              blir ikke mer sann av å stå i en database.
+              Nasjonalbiblioteket og samtidige kamprapporter. Er to kilder uenige, står
+              begge verdiene på kampsiden i stedet for at den ene stille får vinne. En
+              opplysning blir ikke mer sann av å stå i en database.
             </p>
           </section>
         </div>
@@ -87,16 +98,16 @@ export default function AboutPage() {
         <div className="prose-stack">
           <p>
             Arkivet fører selv oversikt over hva som er avklart og hva som ikke er det.
-            Innhøstingen leser den samme statusen og stopper der en kilde er blokkert
+            Innhøstingen leser den samme statusen, og stopper der en kilde er blokkert
             eller har sagt nei.
           </p>
           <p>
-            Der vilkårene er uavklarte er det derimot ikke automatikk. Da må noen ta et
-            valg, og valget føres som «høstet på akseptert risiko»: prosjekteieren har
-            lest vilkårene, ser at bruken ikke er uttrykkelig tillatt, og går videre
-            likevel. Beslutningen krever navn, dato og en begrunnelse, ellers avviser
-            skjemaet den. Den er vår, ikke motpartens, og står derfor i en egen kolonne
-            enn det motparten faktisk har svart.
+            Der vilkårene er uavklarte, skjer ingenting automatisk. Da må noen ta et valg,
+            og valget føres som «høstet på akseptert risiko»: prosjekteieren har lest
+            vilkårene, ser at bruken ikke er uttrykkelig tillatt, og går videre likevel.
+            Beslutningen krever navn, dato og en begrunnelse, ellers avviser skjemaet den.
+            Beslutningen er vår egen og ikke motpartens, og den står derfor i en egen
+            kolonne, atskilt fra det motparten faktisk har svart.
           </p>
         </div>
         <SourceRights />

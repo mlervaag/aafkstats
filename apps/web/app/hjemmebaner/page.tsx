@@ -62,8 +62,8 @@ export default function HomeVenuesPage() {
           <h1>Hjemmebaner</h1>
           <p className={styles.lead}>
             Banene klubben har spilt hjemmekampene sine på, med periodene de var hjemmebane,
-            hva de var lagt med, og hva som skjedde på dem. Alt med kilde — det arkivet ikke
-            har belegg for, står ikke her.
+            hvilket dekke de hadde, og hva som har skjedd der. Alt er kildeført, og det
+            arkivet ikke har belegg for, står ikke her.
           </p>
         </div>
         <div className={styles.coverage}>
