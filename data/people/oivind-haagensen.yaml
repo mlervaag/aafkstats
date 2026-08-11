@@ -1,4 +1,17 @@
 id: oivind-haagensen
 name: Øivind Haagensen
 roles:
-  - { id: gullmerkeinnehaver-1964, category: honorary, title: Gullmerkeinnehaver, from: "1964", to: null, sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }] }
+  - id: oppmann-1940
+    category: sporting_staff
+    title: Oppmann
+    from: "1940"
+    to: null
+    sources:
+      - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
+        page: "12"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_role)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+  - { id: gullmerkeinnehaver-1964, category: honorary, title: Gullmerkeinnehaver, from: "1964", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }

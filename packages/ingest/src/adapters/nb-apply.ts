@@ -1,6 +1,7 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import { dirname, resolve } from "node:path";
-import { stringify } from "yaml";
+import { isMap, isSeq, parseDocument, stringify } from "yaml";
 import { person as personSchema, personPath } from "@aafkstats/schema";
 import type { Person, ResolvedRole } from "@aafkstats/schema";
 import type { Archive } from "@aafkstats/schema/load";
@@ -75,7 +76,7 @@ export async function applyResolvedRoles(archive: Archive, findings: RoleFinding
       from: role.from,
       to: role.to,
       sources: [sourceRef(sourceId, role)],
-      note: "Lest maskinelt fra publikasjonen, spaltevis. Bør etterkontrolleres mot siden.",
+      note: "Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.",
     }].sort((a, b) => a.from.localeCompare(b.from) || a.title.localeCompare(b.title, "nb"));
     report.added += 1;
     touched.add(person.id);
@@ -83,21 +84,80 @@ export async function applyResolvedRoles(archive: Archive, findings: RoleFinding
 
   for (const id of touched) {
     const person = byId.get(id)!;
-    const parsed = personSchema.parse(person) satisfies Person;
-    const file = resolve(root, personPath(parsed.id));
+    // Kontroller mot skjemaet før noe skrives. Skrivingen selv går gjennom
+    // dokumentet på disk, ikke gjennom dette objektet.
+    personSchema.parse(person) satisfies Person;
+    const file = resolve(root, personPath(person.id));
     await mkdir(dirname(file), { recursive: true });
-    await writeFile(file, stringify(parsed, { lineWidth: 0, defaultStringType: "PLAIN" }), "utf8");
+    await writeFile(file, await rewrite(file, person), "utf8");
   }
 
   return report;
 }
 
+/**
+ * Skriver personfila med formateringen den alt har.
+ *
+ * En full omskriving ville vært enklere, men personfilene er skrevet av flere
+ * verktøy med hver sin stil — aafk.no-høstingen bruker kompakt flytstil, de
+ * eldre bruker blokkstil — og en omskriving blåser opp hele fila. Da drukner de
+ * to nye rollene i tre hundre linjer omformatering, og diffen er den eneste
+ * kontrollen et datarepo har.
+ *
+ * Derfor: rør bare `roles`, og bare de nodene som faktisk er endret.
+ */
+async function rewrite(file: string, person: Person): Promise<string> {
+  if (!existsSync(file)) return stringify(person, { lineWidth: 0, defaultStringType: "PLAIN" });
+
+  const doc = parseDocument(await readFile(file, "utf8"));
+  const roles = doc.get("roles");
+  if (!isSeq(roles)) return stringify(person, { lineWidth: 0, defaultStringType: "PLAIN" });
+
+  const byRoleId = new Map<string, unknown>();
+  for (const item of roles.items) {
+    if (isMap(item)) byRoleId.set(String(item.get("id")), item);
+  }
+
+  for (const role of person.roles) {
+    const node = byRoleId.get(role.id);
+    if (node === undefined) {
+      // Sett den inn kronologisk. Rollene i disse filene står etter årstall, og
+      // en ny rolle på slutten ville brutt den rekkefølgen uten å gjøre diffen
+      // det minste mindre.
+      const at = roles.items.findIndex((item) => isMap(item) && String(item.get("from")) > role.from);
+      const created = doc.createNode(role);
+      if (at === -1) roles.add(created);
+      else roles.items.splice(at, 0, created);
+      continue;
+    }
+    if (!isMap(node)) continue;
+    // Rollen fantes fra før; det eneste som kan ha endret seg er kildelista.
+    const sources = node.get("sources");
+    if (isSeq(sources) && sources.items.length < role.sources.length) {
+      for (const source of role.sources.slice(sources.items.length)) sources.add(doc.createNode(source));
+    }
+  }
+
+  // Rollene som ikke er rørt beholder stilen sin, men flytsamlinger blir
+  // re-formatert av serialisereren uansett innstilling: originalen har
+  // «{ id: … }» med luft og «[title, from]» uten, og de to følger samme flagg.
+  // Linjene blir like i innhold, ikke i tegnsetting.
+  return doc.toString({ lineWidth: 0, defaultStringType: "PLAIN" });
+}
+
 function sourceRef(sourceId: string, role: ResolvedRole): { sourceId: string; page: string; fields: string[]; note: string } {
+  // Spaltenummeret finnes bare når rollen kom fra en ALTO-side. De to bøkene
+  // uten ALTO leses gjennom fulltekstsøket, der det ikke er noen spalte å vise
+  // til — og et notat som sier «spalte 1» om en tekst som aldri ble lest
+  // spaltevis, er en påstand kilden ikke dekker.
+  const where = role.column === undefined
+    ? "fulltekstsøkets kontekst"
+    : `spalte ${role.column + 1} på siden`;
   return {
     sourceId,
     page: role.page,
-    fields: ["title", "from"],
-    note: `Lest fra spalte ${(role.column ?? 0) + 1} på siden (regel: ${role.rule}).`,
+    fields: role.to === null ? ["title", "from"] : ["title", "from", "to"],
+    note: `Lest maskinelt fra ${where} (regel: ${role.rule}).`,
   };
 }
 

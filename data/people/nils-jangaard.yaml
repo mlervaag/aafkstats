@@ -1,7 +1,7 @@
 id: nils-jangaard
 name: Nils Jangaard
 roles:
-  - { id: banekomite-1914-1915, category: project, title: Medlem av banekomiteen, body: Nørvebana, from: "1914", to: "1915", sources: [{ sourceId: aafk-historie-norvebana, fields: [title, from, to] }] }
+  - { id: banekomite-1914-1915, category: project, title: Medlem av banekomiteen, body: Nørvebana, from: "1914", to: "1915", sources: [ { sourceId: aafk-historie-norvebana, fields: [ title, from, to ] } ] }
   - id: sekretaer-1915
     category: administration
     title: Sekretær
@@ -11,7 +11,7 @@ roles:
     sources:
       - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
         page: "4"
-        fields: [title, from, to]
+        fields: [ title, from, to ]
   - id: formann-1917
     category: board
     title: Formann
@@ -21,7 +21,7 @@ roles:
     sources:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
-        fields: [title, from, to]
+        fields: [ title, from, to ]
   - id: formann-1919
     category: board
     title: Formann
@@ -31,7 +31,26 @@ roles:
     sources:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
-        fields: [title, from, to]
+        fields: [ title, from, to ]
+      - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
+        page: "4"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_role)."
+  - id: sekretaer-1919
+    category: administration
+    title: Sekretær
+    from: "1919"
+    to: null
+    sources:
+      - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
+        page: "4"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_role)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: formann-1929
     category: board
     title: Formann
@@ -41,8 +60,8 @@ roles:
     sources:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
-        fields: [title, from, to]
+        fields: [ title, from, to ]
       - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
         page: "4"
-        fields: [title, from, to]
-  - { id: gullmerkeinnehaver-1919, category: honorary, title: Gullmerkeinnehaver, from: "1919", to: null, sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }] }
+        fields: [ title, from, to ]
+  - { id: gullmerkeinnehaver-1919, category: honorary, title: Gullmerkeinnehaver, from: "1919", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }

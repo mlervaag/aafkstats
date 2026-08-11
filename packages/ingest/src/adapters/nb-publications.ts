@@ -5,6 +5,7 @@ import { dirname, join } from "node:path";
 import { parse, stringify } from "yaml";
 import type { Archive } from "@aafkstats/schema/load";
 import type { FactCandidate, Match, PublicationExtraction, Source } from "@aafkstats/schema";
+import type { SearchHit } from "./nb-search.js";
 
 export const NB_PUBLICATIONS_ADAPTER = "nb-publications@1";
 
@@ -16,6 +17,7 @@ interface CatalogItem {
 }
 
 interface IiifCanvas {
+  "@id"?: string;
   label?: string;
   "@seeAlso"?: { "@id"?: string } | Array<{ "@id"?: string }>;
 }
@@ -68,6 +70,59 @@ export async function publicationAltoPages(
   });
 }
 
+/**
+ * Fulltekstsøk i en publikasjon, med trykt sidetall og konteksten rundt treffet.
+ *
+ * Brukes av de to bøkene uten ALTO. Cachen ligger på samme sted som første
+ * gjennomgang la den, `search/<ord>.json`, så de tjue ordene den allerede har
+ * spurt om koster ingenting å bruke om igjen.
+ */
+export async function searchPublication(
+  source: Source,
+  terms: string[],
+  options: NbExtractionOptions,
+): Promise<SearchHit[]> {
+  if (!source.urn) throw new Error(`${source.id}: mangler URN`);
+  const catalog = await cachedJson<{ _embedded?: { items?: CatalogItem[] } }>(
+    `https://api.nb.no/catalog/v1/items?q=${encodeURIComponent(`urn:"${source.urn}"`)}&size=1`,
+    join(options.cacheDir, source.id, "catalog.json"),
+    options,
+  );
+  const manifestUrl = catalog._embedded?.items?.[0]?._links?.presentation?.href;
+  if (!manifestUrl) return [];
+
+  const manifest = await cachedJson<IiifManifest>(manifestUrl, join(options.cacheDir, source.id, "manifest.json"), options);
+  const searchUrl = manifest.service?.["@id"];
+  if (!searchUrl) return [];
+  const printed = printedPages(manifest.sequences?.flatMap((sequence) => sequence.canvases ?? []) ?? []);
+
+  const hits: SearchHit[] = [];
+  await pool(terms, Math.min(2, options.concurrency ?? 2), async (term) => {
+    let response: IiifSearchResponse;
+    try {
+      response = await cachedJson<IiifSearchResponse>(
+        `${searchUrl}?q=${encodeURIComponent(term)}`,
+        join(options.cacheDir, source.id, "search", `${safeFile(term)}.json`),
+        options,
+      );
+    } catch (error) {
+      options.onProgress?.(`${source.id} søk «${term}»: ${String(error)}`);
+      return;
+    }
+    for (const hit of response.hits ?? []) {
+      const scan = pageFromAnnotations(hit.annotations);
+      if (!scan) continue;
+      hits.push({
+        page: printed.get(scan) ?? scan,
+        before: hit.before ?? "",
+        match: hit.match ?? term,
+        after: hit.after ?? "",
+      });
+    }
+  });
+  return hits;
+}
+
 /** ALTO-en for én side, fra cachen når den finnes. */
 export async function readAltoPage(
   page: { altoUrl: string; cacheFile: string },
@@ -101,7 +156,7 @@ export async function extractNbPublication(
   }));
   const altoPages = pages.filter((page): page is { page: string; altoUrl: string } => Boolean(page.altoUrl));
   if (altoPages.length === 0) {
-    return extractSearchOnly(archive, source, manifest.service?.["@id"], canvases.length || item.metadata?.pageCount || 0, options);
+    return extractSearchOnly(archive, source, manifest.service?.["@id"], canvases.length || item.metadata?.pageCount || 0, options, printedPages(canvases));
   }
 
   const failures: string[] = [];
@@ -142,12 +197,34 @@ const SEARCH_ONLY_TERMS = [
   "Aalesund", "Aalesunds", "AaFK",
 ] as const;
 
+/**
+ * Skann-nummeret i en URN mot det trykte sidetallet på omslaget av det skannet.
+ *
+ * De to henger ikke sammen: skanningen tar med permer og forsatsblad, så URN
+ * `_0022` er trykt side 18 i jubileumsskriftet fra 1939. Uten denne
+ * oversettelsen skriver fulltekstsøket skann-nummeret i `page`, og en
+ * henvisning til «side 22» peker fire sider bort fra det den skal vise.
+ *
+ * Piloten leste sidene selv og siterte de trykte tallene — formannsrekka står
+ * på trykt side 18 — så det er den tellingen arkivet allerede bruker.
+ */
+function printedPages(canvases: IiifCanvas[]): Map<string, string> {
+  const byScan = new Map<string, string>();
+  for (const [index, canvas] of canvases.entries()) {
+    const scan = /_(\d+)$/.exec(canvas["@id"] ?? "")?.[1];
+    const label = canvas.label && canvas.label !== "-" ? canvas.label : String(index + 1);
+    if (scan) byScan.set(String(Number(scan)), label);
+  }
+  return byScan;
+}
+
 async function extractSearchOnly(
   archive: Archive,
   source: Source,
   searchUrl: string | undefined,
   pagesExpected: number,
   options: NbExtractionOptions,
+  printed: Map<string, string> = new Map(),
 ): Promise<PublicationExtraction> {
   if (!searchUrl) return emptyExtraction(source.id, options.retrievedAt, pagesExpected, "unavailable");
   const linesByPage = new Map<string, string[]>();
@@ -160,8 +237,9 @@ async function extractSearchOnly(
     );
     digest.update(JSON.stringify(response));
     for (const hit of response.hits ?? []) {
-      const page = pageFromAnnotations(hit.annotations);
-      if (!page) continue;
+      const scan = pageFromAnnotations(hit.annotations);
+      if (!scan) continue;
+      const page = printed.get(scan) ?? scan;
       const line = `${hit.before ?? ""} ${hit.match ?? term} ${hit.after ?? ""}`.replace(/\s+/g, " ").trim();
       if (!line) continue;
       const lines = linesByPage.get(page) ?? [];

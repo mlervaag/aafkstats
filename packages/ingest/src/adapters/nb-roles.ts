@@ -116,6 +116,7 @@ export function resolveRoles(lines: string[], text: string, options: ResolveRole
   for (const role of yearRows(lines, options)) found.push(role);
   for (const role of roleThenName(text, options)) found.push(role);
   for (const role of nameThenRole(text, options)) found.push(role);
+  for (const role of nameThenYear(text, options)) found.push(role);
 
   // Samme verv kan treffes av to regler. Behold det sterkeste treffet per
   // person, tittel og år — ellers teller den samme opplysningen dobbelt.
@@ -180,12 +181,69 @@ function* yearRows(lines: string[], options: ResolveRolesOptions): Generator<Res
 const IRREGULAR_PLURALS: Record<string, string[]> = {
   formann: ["formenn", "formennene"],
   nestformann: ["nestformenn", "nestformennene"],
-  oppmann: ["oppmenn", "oppmennene"],
+  // «Opmenn» er skrivematen i 1939-boka, for rettskrivingsreformen.
+  oppmann: ["oppmenn", "oppmennene", "opmenn", "opmennene", "opmann"],
 };
 
+function headingForms(term: string): string[] {
+  return [`${term}(?:ene|er|ne)?`, ...(IRREGULAR_PLURALS[term] ?? [])];
+}
+
 function headingPattern(term: string): RegExp {
-  const forms = [`${term}(?:ene|er|ne)?`, ...(IRREGULAR_PLURALS[term] ?? [])];
-  return new RegExp(`\\b(?:${forms.join("|")})\\b`, "iu");
+  return new RegExp(`\\b(?:${headingForms(term).join("|")})\\b`, "iu");
+}
+
+/**
+ * «Formenn: Sverre Mogstad 1925 og 1926 Rolf Mittet 1927 Georg Haller 1914 og 1915 …»
+ *
+ * Formannsrekka i jubileumsskriftet fra 1939 star ikke som tabell, men som
+ * lopende tekst etter en overskrift i flertall. Det er nettopp den lista
+ * piloten i #73 leste for hand pa trykt side 18, og den baerer bade navnet og
+ * arstallene — «1914 og 1915» blir `from` 1914 og `to` 1915, slik piloten
+ * forte den.
+ *
+ * Rekkevidden er begrenset til et stykke etter overskriften. Uten det ville
+ * hvert navn lenger nede pa siden blitt formann.
+ */
+function* nameThenYear(text: string, options: ResolveRolesOptions): Generator<ResolvedRole> {
+  const entry = new RegExp(`(${NAME})\\s+(\\d{4}(?:\\s*(?:og|,|–|—|-)\\s*\\d{4})*)`, "gu");
+
+  for (const term of ROLE_TERMS) {
+    const heading = new RegExp(`\\b(?:${headingForms(term.term).join("|")})\\s*:`, "giu");
+    for (const start of text.matchAll(heading)) {
+      const from = (start.index ?? 0) + start[0].length;
+      for (const hit of text.slice(from, nextHeading(text, from)).matchAll(entry)) {
+        const name = cleanName(hit[1] ?? "");
+        if (!name) continue;
+        const years = [...(hit[2] ?? "").matchAll(/\d{4}/g)].map((year) => year[0]);
+        const first = years[0];
+        if (!first) continue;
+        if (options.publicationYear && Number(first) > options.publicationYear) continue;
+        yield build(term, name, { from: first, to: years.length > 1 ? years.at(-1)! : null }, "name_then_year", options);
+      }
+    }
+  }
+}
+
+/** Hvor langt etter en overskrift en rekke leses når ingen ny overskrift følger. */
+const LIST_REACH = 400;
+
+/**
+ * Der en rekke slutter: ved neste rolleoverskrift, ellers etter `LIST_REACH`.
+ *
+ * Side 18 i 1939-boka har «Formenn:» og «Opmenn:» rett etter hverandre. Uten
+ * denne grensen rakk den første overskriften ned i den andre rekka, og hvert
+ * navn fikk begge vervene.
+ */
+function nextHeading(text: string, from: number): number {
+  let end = from + LIST_REACH;
+  for (const term of ROLE_TERMS) {
+    const heading = new RegExp(`\\b(?:${headingForms(term.term).join("|")})\\s*:`, "giu");
+    heading.lastIndex = from;
+    const hit = heading.exec(text);
+    if (hit && hit.index > from && hit.index < end) end = hit.index;
+  }
+  return end;
 }
 
 function build(

@@ -1,4 +1,17 @@
 id: konrad-korsnes
 name: Konrad Korsnes
 roles:
-  - { id: gullmerkeinnehaver-1935, category: honorary, title: Gullmerkeinnehaver, from: "1935", to: null, sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }] }
+  - { id: gullmerkeinnehaver-1935, category: honorary, title: Gullmerkeinnehaver, from: "1935", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
+  - id: oppmann-1938
+    category: sporting_staff
+    title: Oppmann
+    from: "1938"
+    to: null
+    sources:
+      - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+        page: "18"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_year)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.

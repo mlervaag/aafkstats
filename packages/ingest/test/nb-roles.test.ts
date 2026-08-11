@@ -108,3 +108,37 @@ describe("resolveRoles", () => {
     expect(resolve(text)[0]?.id).toBe(resolve(text)[0]?.id);
   });
 });
+
+describe("rekker i løpende tekst", () => {
+  /**
+   * Formannsrekka i jubileumsskriftet fra 1939 står slik, på trykt side 18.
+   * «1914 og 1915» er én periode, ikke to verv — piloten førte den som
+   * from 1914, to 1915, og maskinen skal lese den likt.
+   */
+  it("leser «Formenn: Navn år og år Navn år»", () => {
+    const text = "det har i årenes løp vært følgende: Formenn: Ola Nordmann 1925 og 1926 Kari Nordmann 1927";
+    const roles = resolve(text);
+    expect(roles.map((role) => [role.personName, role.title, role.from, role.to, role.rule])).toEqual([
+      ["Kari Nordmann", "Formann", "1927", null, "name_then_year"],
+      ["Ola Nordmann", "Formann", "1925", "1926", "name_then_year"],
+    ]);
+  });
+
+  it("kjenner igjen skrivemåten «Opmenn» fra før rettskrivingsreformen", () => {
+    const [role] = resolve("Opmenn: Ola Nordmann 1931");
+    expect(role).toMatchObject({ title: "Oppmann", from: "1931" });
+  });
+
+  it("stopper ved neste overskrift", () => {
+    const roles = resolve("Formenn: Ola Nordmann 1925 Opmenn: Kari Nordmann 1931");
+    expect(roles.map((role) => [role.personName, role.title])).toEqual([
+      ["Kari Nordmann", "Oppmann"],
+      ["Ola Nordmann", "Formann"],
+    ]);
+  });
+
+  it("tar ikke med navn som står langt etter rekka", () => {
+    const roles = resolve(`Formenn: Ola Nordmann 1925${" fyll ".repeat(90)}Kari Nordmann 1931`);
+    expect(roles.map((role) => role.personName)).toEqual(["Ola Nordmann"]);
+  });
+});

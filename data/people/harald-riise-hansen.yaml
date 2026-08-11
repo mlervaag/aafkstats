@@ -1,6 +1,19 @@
 id: harald-riise-hansen
 name: Harald Riise-Hansen
 roles:
+  - id: oppmann-1917
+    category: sporting_staff
+    title: Oppmann
+    from: "1917"
+    to: null
+    sources:
+      - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+        page: "18"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_year)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: formann-1918
     category: board
     title: Formann
@@ -10,5 +23,4 @@ roles:
     sources:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
-        fields: [title, from, to]
-
+        fields: [ title, from, to ]

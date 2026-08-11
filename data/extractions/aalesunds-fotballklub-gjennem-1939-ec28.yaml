@@ -6,11 +6,11 @@ ocrAccess: search_only
 pagesExpected: 119
 pagesProcessed: 0
 pagesFailed: []
-contentHash: sha256:12b11aefa04b7b3605c39055c69e4a2e860f0a7d7459474fa51568bfc573097a
+contentHash: sha256:9903c30910b68dc2521a5bad00e8b389e2c3f2fa0f393af2fde27ce00bf317dd
 candidates:
-  - id: person-mention-eac63a26b6813c97
+  - id: person-mention-a71c77389eb709a4
     kind: person_mention
-    page: "7"
+    page: "3"
     confidence: high
     keywords: []
     names:
@@ -22,9 +22,9 @@ candidates:
     personIds:
       - georg-haller
     matchIds: []
-  - id: person-role-f56ee6389bb61025
+  - id: person-role-9d01d000aad6ad08
     kind: person_role
-    page: "7"
+    page: "3"
     confidence: high
     keywords:
       - æresmedlem
@@ -41,9 +41,9 @@ candidates:
     personIds:
       - georg-haller
     matchIds: []
-  - id: person-mention-8afabf46a6b48b16
+  - id: person-mention-803e8efae76ec09f
     kind: person_mention
-    page: "8"
+    page: "4"
     confidence: high
     keywords: []
     names:
@@ -55,9 +55,9 @@ candidates:
     personIds:
       - georg-haller
     matchIds: []
-  - id: person-role-cda419189029b385
+  - id: person-role-02ee80f0211b03c6
     kind: person_role
-    page: "8"
+    page: "4"
     confidence: high
     keywords:
       - æresmedlem
@@ -73,9 +73,9 @@ candidates:
     personIds:
       - georg-haller
     matchIds: []
-  - id: organization-7bd227d60a55c3e2
+  - id: organization-ffe3b70532b3efa3
     kind: organization
-    page: "9"
+    page: "5"
     confidence: medium
     keywords:
       - formann
@@ -85,9 +85,9 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-mention-b4dc80b3f5fc39ff
+  - id: person-mention-976c1a874b421198
     kind: person_mention
-    page: "9"
+    page: "5"
     confidence: high
     keywords: []
     names:
@@ -97,9 +97,9 @@ candidates:
     personIds:
       - georg-haller
     matchIds: []
-  - id: person-mention-eedb9d34052a876f
+  - id: person-mention-a92a1ca80eb344df
     kind: person_mention
-    page: "9"
+    page: "5"
     confidence: high
     keywords: []
     names:
@@ -110,36 +110,9 @@ candidates:
     personIds:
       - georg-haller
     matchIds: []
-  - id: person-role-277258b6780eef00
+  - id: person-role-06ed41c3886ecb21
     kind: person_role
-    page: "9"
-    confidence: medium
-    keywords:
-      - formann
-      - æresmedlem
-    names:
-      - Aalesunds Mercantile Forening
-    years: []
-    scores: []
-    personIds: []
-    matchIds: []
-  - id: person-role-30912b98e6d2db64
-    kind: person_role
-    page: "9"
-    confidence: medium
-    keywords:
-      - formann
-    names:
-      - Georg Haller
-      - Aalesunds Fotballklub
-    years: []
-    scores: []
-    personIds:
-      - georg-haller
-    matchIds: []
-  - id: person-role-5b8eb52c862ca7f5
-    kind: person_role
-    page: "9"
+    page: "5"
     confidence: high
     keywords:
       - æresmedlem
@@ -154,9 +127,9 @@ candidates:
     personIds:
       - georg-haller
     matchIds: []
-  - id: person-role-6a63f630e05ab2e3
+  - id: person-role-156d50bd0378bf57
     kind: person_role
-    page: "9"
+    page: "5"
     confidence: medium
     keywords:
       - æresmedlem
@@ -167,9 +140,36 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: organization-5ec99f6be1fbb765
+  - id: person-role-92b4fe7f97cd587c
+    kind: person_role
+    page: "5"
+    confidence: medium
+    keywords:
+      - formann
+      - æresmedlem
+    names:
+      - Aalesunds Mercantile Forening
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-dce023116aea0cda
+    kind: person_role
+    page: "5"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Georg Haller
+      - Aalesunds Fotballklub
+    years: []
+    scores: []
+    personIds:
+      - georg-haller
+    matchIds: []
+  - id: organization-e309a2cea82a9db6
     kind: organization
-    page: "10"
+    page: "6"
     confidence: medium
     keywords:
       - leder
@@ -178,9 +178,9 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-mention-afe2447041720672
+  - id: person-mention-4fa08b7709e2e8e0
     kind: person_mention
-    page: "10"
+    page: "6"
     confidence: high
     keywords: []
     names:
@@ -190,9 +190,9 @@ candidates:
     personIds:
       - georg-haller
     matchIds: []
-  - id: person-role-50909750ef8832b5
+  - id: person-role-830078a28af0664f
     kind: person_role
-    page: "10"
+    page: "6"
     confidence: medium
     keywords:
       - formann
@@ -204,9 +204,9 @@ candidates:
     personIds:
       - georg-haller
     matchIds: []
-  - id: person-mention-0fb04afc06528d86
+  - id: person-mention-2a7ebfacd9fa749b
     kind: person_mention
-    page: "11"
+    page: "7"
     confidence: medium
     keywords: []
     names:
@@ -218,9 +218,22 @@ candidates:
       - georg-haller
       - nils-jangaard
     matchIds: []
-  - id: person-role-7092440066f61778
+  - id: person-role-5387d549a8432a92
     kind: person_role
-    page: "11"
+    page: "7"
+    confidence: medium
+    keywords:
+      - æresmedlem
+    names:
+      - Aalesunds Fotballklub
+    years:
+      - 1915
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-e7b08e6483fe608e
+    kind: person_role
+    page: "7"
     confidence: medium
     keywords:
       - formann
@@ -235,22 +248,9 @@ candidates:
       - georg-haller
       - nils-jangaard
     matchIds: []
-  - id: person-role-b56bbefc83149846
-    kind: person_role
-    page: "11"
-    confidence: medium
-    keywords:
-      - æresmedlem
-    names:
-      - Aalesunds Fotballklub
-    years:
-      - 1915
-    scores: []
-    personIds: []
-    matchIds: []
-  - id: person-mention-a764d3ca15e1d767
+  - id: person-mention-0df9295448b565c3
     kind: person_mention
-    page: "18"
+    page: "14"
     confidence: high
     keywords: []
     names:
@@ -260,9 +260,9 @@ candidates:
     personIds:
       - georg-haller
     matchIds: []
-  - id: person-role-5adb1421129eb5be
+  - id: person-role-b3b2ae1a59a9dbed
     kind: person_role
-    page: "18"
+    page: "14"
     confidence: medium
     keywords:
       - formann
@@ -273,9 +273,9 @@ candidates:
     personIds:
       - georg-haller
     matchIds: []
-  - id: person-mention-6098b71d064427f5
+  - id: person-mention-fa253b54ea541ca4
     kind: person_mention
-    page: "22"
+    page: "18"
     confidence: medium
     keywords: []
     names:
@@ -290,9 +290,9 @@ candidates:
       - emil-sando
       - rasmus-eck-olsen
     matchIds: []
-  - id: person-role-631deff0d3434f85
+  - id: person-role-b98fc5fa9f1dff6a
     kind: person_role
-    page: "22"
+    page: "18"
     confidence: medium
     keywords:
       - kasserer
@@ -312,9 +312,9 @@ candidates:
       - emil-sando
       - rasmus-eck-olsen
     matchIds: []
-  - id: organization-a079707f945a0fc5
+  - id: organization-6a54bbfb892806c4
     kind: organization
-    page: "23"
+    page: "19"
     confidence: medium
     keywords:
       - æresmedlem
@@ -323,23 +323,21 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-mention-1acb6df5e0070046
+  - id: person-mention-16ab011e73789260
     kind: person_mention
-    page: "25"
+    page: "21"
     confidence: high
     keywords: []
     names:
       - Nils Jangaard
-    years:
-      - 1919
-      - 1929
+    years: []
     scores: []
     personIds:
       - nils-jangaard
     matchIds: []
-  - id: person-mention-a1a105880c87e328
+  - id: person-mention-b34cdd477f359874
     kind: person_mention
-    page: "25"
+    page: "21"
     confidence: high
     keywords: []
     names:
@@ -352,21 +350,23 @@ candidates:
     personIds:
       - nils-jangaard
     matchIds: []
-  - id: person-mention-e794c7016d5943d0
+  - id: person-mention-dd5814139a23d8d0
     kind: person_mention
-    page: "25"
+    page: "21"
     confidence: high
     keywords: []
     names:
       - Nils Jangaard
-    years: []
+    years:
+      - 1919
+      - 1929
     scores: []
     personIds:
       - nils-jangaard
     matchIds: []
-  - id: person-role-3cbf765667f49431
+  - id: person-role-331c792cc9d63648
     kind: person_role
-    page: "25"
+    page: "21"
     confidence: high
     keywords:
       - formann
@@ -381,9 +381,9 @@ candidates:
     personIds:
       - nils-jangaard
     matchIds: []
-  - id: person-role-4d3e873ba695c47a
+  - id: person-role-660ab28315449c4b
     kind: person_role
-    page: "25"
+    page: "21"
     confidence: medium
     keywords:
       - formann
@@ -394,9 +394,9 @@ candidates:
     personIds:
       - nils-jangaard
     matchIds: []
-  - id: person-role-9a51aae16ccf5c77
+  - id: person-role-9d1137a671609621
     kind: person_role
-    page: "25"
+    page: "21"
     confidence: high
     keywords:
       - formann
@@ -411,9 +411,9 @@ candidates:
     personIds:
       - nils-jangaard
     matchIds: []
-  - id: organization-abd5d2c2c6ff8afa
+  - id: organization-f01ea44e3b9d7bf9
     kind: organization
-    page: "26"
+    page: "22"
     confidence: medium
     keywords:
       - formann
@@ -427,9 +427,9 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-mention-9cd640425f9a0085
+  - id: person-mention-89ed3fe50ab1dea2
     kind: person_mention
-    page: "26"
+    page: "22"
     confidence: high
     keywords: []
     names:
@@ -441,9 +441,9 @@ candidates:
     personIds:
       - rasmus-eck-olsen
     matchIds: []
-  - id: person-mention-ce3bf11e7d3acc55
+  - id: person-mention-aa1e5924b53eab15
     kind: person_mention
-    page: "26"
+    page: "22"
     confidence: high
     keywords: []
     names:
@@ -453,9 +453,9 @@ candidates:
     personIds:
       - rasmus-eck-olsen
     matchIds: []
-  - id: person-role-a0710cd1fa18b1a5
+  - id: person-role-0ac78d55d9da4eba
     kind: person_role
-    page: "26"
+    page: "22"
     confidence: high
     keywords:
       - formann
@@ -470,10 +470,23 @@ candidates:
     personIds:
       - rasmus-eck-olsen
     matchIds: []
-  - id: person-role-ab52d45ac87a76e5
+  - id: person-mention-518e9499e6486f81
+    kind: person_mention
+    page: "23"
+    confidence: high
+    keywords: []
+    names:
+      - Ole Jangaard
+    years:
+      - 1925
+    scores: []
+    personIds:
+      - ole-jangaard
+    matchIds: []
+  - id: person-role-46abb0030cdd5767
     kind: person_role
-    page: "27"
-    confidence: medium
+    page: "23"
+    confidence: high
     keywords:
       - formann
     names:
@@ -483,11 +496,12 @@ candidates:
     years:
       - 1925
     scores: []
-    personIds: []
+    personIds:
+      - ole-jangaard
     matchIds: []
-  - id: person-mention-80c27423fcddd08b
+  - id: person-mention-2d63ee35e1dd2a5a
     kind: person_mention
-    page: "30"
+    page: "26"
     confidence: high
     keywords: []
     names:
@@ -499,9 +513,9 @@ candidates:
     personIds:
       - sverre-volstad
     matchIds: []
-  - id: person-mention-9ac2c89646e40239
+  - id: person-mention-7c6c2680e53b0f9e
     kind: person_mention
-    page: "30"
+    page: "26"
     confidence: high
     keywords: []
     names:
@@ -511,9 +525,9 @@ candidates:
     personIds:
       - sverre-volstad
     matchIds: []
-  - id: person-mention-f0f28b9d561d0053
+  - id: person-mention-cb2ae079dd8e57f6
     kind: person_mention
-    page: "30"
+    page: "26"
     confidence: high
     keywords: []
     names:
@@ -525,41 +539,9 @@ candidates:
     personIds:
       - sverre-volstad
     matchIds: []
-  - id: person-role-16bd63fa0a854d19
+  - id: person-role-4e7eab6a200b8a23
     kind: person_role
-    page: "30"
-    confidence: high
-    keywords:
-      - formann
-    names:
-      - Sverre Volstad
-      - Sunnmøre Fotballkrets
-    years:
-      - 1936
-      - 1937
-    scores: []
-    personIds:
-      - sverre-volstad
-    matchIds: []
-  - id: person-role-4e9811fa2d15d5ac
-    kind: person_role
-    page: "30"
-    confidence: high
-    keywords:
-      - formann
-      - kasserer
-    names:
-      - Sverre Volstad
-    years:
-      - 1927
-      - 1928
-    scores: []
-    personIds:
-      - sverre-volstad
-    matchIds: []
-  - id: person-role-a1641ed313365031
-    kind: person_role
-    page: "30"
+    page: "26"
     confidence: medium
     keywords:
       - sekretær
@@ -572,9 +554,41 @@ candidates:
     personIds:
       - sverre-volstad
     matchIds: []
-  - id: person-mention-c3f2f4abe354f99f
+  - id: person-role-65d3547aaa40f242
+    kind: person_role
+    page: "26"
+    confidence: high
+    keywords:
+      - formann
+    names:
+      - Sverre Volstad
+      - Sunnmøre Fotballkrets
+    years:
+      - 1936
+      - 1937
+    scores: []
+    personIds:
+      - sverre-volstad
+    matchIds: []
+  - id: person-role-fe54d80ccca50dd9
+    kind: person_role
+    page: "26"
+    confidence: high
+    keywords:
+      - formann
+      - kasserer
+    names:
+      - Sverre Volstad
+    years:
+      - 1927
+      - 1928
+    scores: []
+    personIds:
+      - sverre-volstad
+    matchIds: []
+  - id: person-mention-fe5bfc047915a11d
     kind: person_mention
-    page: "31"
+    page: "27"
     confidence: high
     keywords: []
     names:
@@ -584,9 +598,9 @@ candidates:
     personIds:
       - sverre-volstad
     matchIds: []
-  - id: person-role-0ec36e3b6ee94d95
+  - id: person-role-90553c2328ffd902
     kind: person_role
-    page: "31"
+    page: "27"
     confidence: medium
     keywords:
       - formann
@@ -597,9 +611,9 @@ candidates:
     personIds:
       - sverre-volstad
     matchIds: []
-  - id: person-mention-9d4022d77a532428
+  - id: person-mention-48a580d243c19b77
     kind: person_mention
-    page: "34"
+    page: "30"
     confidence: high
     keywords: []
     names:
@@ -612,9 +626,9 @@ candidates:
     personIds:
       - sverre-mogstad
     matchIds: []
-  - id: organization-448ccf233333d82b
+  - id: organization-1d207b4966919d90
     kind: organization
-    page: "40"
+    page: "36"
     confidence: medium
     keywords:
       - trener
@@ -623,9 +637,9 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-80126a8fb5283f10
+  - id: person-role-099c850ed5fdb9c2
     kind: person_role
-    page: "42"
+    page: "38"
     confidence: medium
     keywords:
       - trener
@@ -635,9 +649,9 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: organization-ae0da53f4e0a2fff
+  - id: organization-6f14cf6b8edac955
     kind: organization
-    page: "47"
+    page: "43"
     confidence: medium
     keywords:
       - trener
@@ -646,9 +660,34 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: match-result-29379165bc73a9a5
+  - id: person-mention-3824b516dc2734b9
+    kind: person_mention
+    page: "49"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years:
+      - 1926
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
+  - id: person-mention-968b271b9e7cbeef
+    kind: person_mention
+    page: "50"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
+  - id: match-result-6657f8d7f51b382d
     kind: match_result
-    page: "58"
+    page: "54"
     confidence: medium
     keywords: []
     names:
@@ -658,9 +697,9 @@ candidates:
       - 3-2
     personIds: []
     matchIds: []
-  - id: organization-e6114a2f5d8e0f2c
+  - id: organization-0cb83c30e3afbbf9
     kind: organization
-    page: "65"
+    page: "61"
     confidence: medium
     keywords:
       - kasserer
@@ -671,9 +710,9 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: organization-a1b757124ed3f366
+  - id: organization-c3fcc01396528121
     kind: organization
-    page: "66"
+    page: "62"
     confidence: medium
     keywords:
       - kasserer
@@ -682,9 +721,9 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-mention-75232c66d084be50
+  - id: person-mention-4e6c8e4554701808
     kind: person_mention
-    page: "68"
+    page: "64"
     confidence: high
     keywords: []
     names:
@@ -695,37 +734,63 @@ candidates:
     personIds:
       - emil-sando
     matchIds: []
-  - id: person-mention-970587a0073aa9e2
+  - id: person-mention-9807ebb35ead5221
     kind: person_mention
-    page: "69"
+    page: "65"
     confidence: medium
     keywords: []
     names:
       - Nils Jangaard
+      - Ole Jangaard
       - Rasmus Eck Olsen
       - Sverre Volstad
     years: []
     scores: []
     personIds:
       - nils-jangaard
+      - ole-jangaard
       - rasmus-eck-olsen
       - sverre-volstad
     matchIds: []
-  - id: person-mention-ffa6d6ff6ceb5f73
+  - id: person-mention-b75c01b9bc3e4165
     kind: person_mention
-    page: "69"
-    confidence: high
+    page: "65"
+    confidence: medium
     keywords: []
     names:
+      - Ole Jangaard
       - Peder Puck
     years: []
     scores: []
     personIds:
+      - ole-jangaard
       - peder-puck
     matchIds: []
-  - id: person-role-26c6d0f8bc04e77b
+  - id: person-role-27edf8608e659ff1
     kind: person_role
-    page: "69"
+    page: "65"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Nils Jangaard
+      - Ole Jangaard
+      - Rasmus Eck Olsen
+      - Sverre Volstad
+      - Sunnmøre Fotballkrets
+      - R. Eck Olsen
+      - R. Huseby. Men
+    years: []
+    scores: []
+    personIds:
+      - nils-jangaard
+      - ole-jangaard
+      - rasmus-eck-olsen
+      - sverre-volstad
+    matchIds: []
+  - id: person-role-8e1287835b382ce0
+    kind: person_role
+    page: "65"
     confidence: medium
     keywords:
       - formann
@@ -740,23 +805,9 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-51d7a67710c9db73
+  - id: person-role-d6687ccd9ad17190
     kind: person_role
-    page: "69"
-    confidence: medium
-    keywords:
-      - formann
-    names:
-      - Peder Puck
-      - Ole Jangaard
-    years: []
-    scores: []
-    personIds:
-      - peder-puck
-    matchIds: []
-  - id: person-role-6c3d5233a23c88f2
-    kind: person_role
-    page: "69"
+    page: "65"
     confidence: medium
     keywords:
       - formann
@@ -767,30 +818,24 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-bbd34fe39c6a85ce
+  - id: person-role-e751913856591b85
     kind: person_role
-    page: "69"
+    page: "65"
     confidence: medium
     keywords:
       - formann
     names:
-      - Nils Jangaard
-      - Rasmus Eck Olsen
-      - Sverre Volstad
-      - Sunnmøre Fotballkrets
       - Ole Jangaard
-      - R. Eck Olsen
-      - R. Huseby. Men
+      - Peder Puck
     years: []
     scores: []
     personIds:
-      - nils-jangaard
-      - rasmus-eck-olsen
-      - sverre-volstad
+      - ole-jangaard
+      - peder-puck
     matchIds: []
-  - id: person-role-8af7907569585dbe
+  - id: person-role-0c95d7a53c375991
     kind: person_role
-    page: "71"
+    page: "67"
     confidence: medium
     keywords:
       - formann
@@ -802,9 +847,9 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: organization-197c1dd62fc2598b
+  - id: organization-3bc782440ae7e6ee
     kind: organization
-    page: "73"
+    page: "69"
     confidence: medium
     keywords:
       - leder
@@ -813,9 +858,9 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: match-result-194ba9786095a735
+  - id: match-result-34978ce3ac8dc36d
     kind: match_result
-    page: "76"
+    page: "72"
     confidence: medium
     keywords: []
     names:
@@ -826,9 +871,21 @@ candidates:
       - 3-0
     personIds: []
     matchIds: []
-  - id: person-role-6fff8c5e61bf98aa
+  - id: person-mention-7b82e75064067bb1
+    kind: person_mention
+    page: "75"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
+  - id: person-role-3979a15dbd189b12
     kind: person_role
-    page: "86"
+    page: "82"
     confidence: medium
     keywords:
       - sekretær
@@ -838,9 +895,9 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: match-result-27e610e6ae6cdb53
+  - id: match-result-50f4e7c7a9a6afb9
     kind: match_result
-    page: "93"
+    page: "89"
     confidence: medium
     keywords: []
     names:
@@ -852,3 +909,263 @@ candidates:
       - 30-14
     personIds: []
     matchIds: []
+resolvedRoles:
+  - id: rolle-d968f997b89ffcb6
+    page: "5"
+    personName: Georg Haller
+    personId: georg-haller
+    category: board
+    title: Formann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-ec6f2f63a2b1e7d0
+    page: "6"
+    personName: Georg Haller. De
+    category: board
+    title: Formann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-0bfc26f66cccd6f1
+    page: "18"
+    personName: Anders Mogstad
+    personId: anders-mogstad
+    category: sporting_staff
+    title: Oppmann
+    from: "1921"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-939159e6b04f8d4b
+    page: "18"
+    personName: Chrf. Rønneberg
+    category: sporting_staff
+    title: Oppmann
+    from: "1926"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-161a5f1f9cf6f0e0
+    page: "18"
+    personName: Edv. Skudvig
+    category: sporting_staff
+    title: Oppmann
+    from: "1920"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-5d5ac9ed79b0a1f1
+    page: "18"
+    personName: Erling Flem
+    category: sporting_staff
+    title: Oppmann
+    from: "1935"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-0f2c0fff3c8e8508
+    page: "18"
+    personName: Georg Haller
+    personId: georg-haller
+    category: board
+    title: Formann
+    from: "1914"
+    to: "1915"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-058d5d4c55471499
+    page: "18"
+    personName: Harald Hagen
+    personId: harald-hagen
+    category: sporting_staff
+    title: Oppmann
+    from: "1916"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-a8ed7e9a3917a25e
+    page: "18"
+    personName: Harald Riise-Hansen
+    personId: harald-riise-hansen
+    category: board
+    title: Formann
+    from: "1918"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-c38010bba985c1eb
+    page: "18"
+    personName: Harald Riise-Hansen
+    personId: harald-riise-hansen
+    category: sporting_staff
+    title: Oppmann
+    from: "1917"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-2ed519bba0f51744
+    page: "18"
+    personName: Johs. Hollevik
+    category: sporting_staff
+    title: Oppmann
+    from: "1936"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-39f68bb627a9dd9c
+    page: "18"
+    personName: Knut Gaaseide
+    personId: knut-gaaseide
+    category: board
+    title: Formann
+    from: "1937"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-d9938686332c2f61
+    page: "18"
+    personName: Konrad Korsnes
+    personId: konrad-korsnes
+    category: sporting_staff
+    title: Oppmann
+    from: "1938"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-73944fe9694f2e07
+    page: "18"
+    personName: Nils Jangaard
+    personId: nils-jangaard
+    category: board
+    title: Formann
+    from: "1917"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-f974b11548e6231b
+    page: "18"
+    personName: Olaf Ingebrigtsen
+    personId: olaf-ingebrigtsen
+    category: board
+    title: Formann
+    from: "1916"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-45ed544ac98a806b
+    page: "18"
+    personName: Ole Jangaard
+    personId: ole-jangaard
+    category: sporting_staff
+    title: Oppmann
+    from: "1915"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-10945976eb33e334
+    page: "18"
+    personName: Peder Puck
+    personId: peder-puck
+    category: board
+    title: Formann
+    from: "1938"
+    to: "1939"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-07d3702924ec2318
+    page: "18"
+    personName: Peder Puck
+    personId: peder-puck
+    category: sporting_staff
+    title: Oppmann
+    from: "1932"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-4fce58c68342542c
+    page: "18"
+    personName: Per Mogstad
+    personId: per-mogstad
+    category: sporting_staff
+    title: Oppmann
+    from: "1925"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-2c86eefc1e55269c
+    page: "18"
+    personName: R. Eck Olsen
+    personId: rasmus-eck-olsen
+    category: board
+    title: Formann
+    from: "1920"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-a3b455617f15999d
+    page: "18"
+    personName: R. Langva
+    category: sporting_staff
+    title: Oppmann
+    from: "1931"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-669e6e476d7c268f
+    page: "18"
+    personName: Rolf Mittet
+    personId: rolf-mittet
+    category: board
+    title: Formann
+    from: "1927"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-8fb4ccf25d4fcd73
+    page: "18"
+    personName: Rolf Muriaas
+    personId: rolf-muriaas
+    category: sporting_staff
+    title: Oppmann
+    from: "1914"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-479970667c8954dd
+    page: "18"
+    personName: Sverre Mogstad
+    personId: sverre-mogstad
+    category: board
+    title: Formann
+    from: "1925"
+    to: "1926"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-8fab562113d028bc
+    page: "18"
+    personName: Sverre Volstad
+    personId: sverre-volstad
+    category: board
+    title: Formann
+    from: "1930"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-c3f60e2fbad3e94e
+    page: "65"
+    personName: Peder Puck
+    personId: peder-puck
+    category: board
+    title: Formann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-5839ecc42d5e3f73
+    page: "65"
+    personName: R. Huseby. Men
+    category: board
+    title: Formann
+    to: null
+    confidence: low
+    rule: role_then_name

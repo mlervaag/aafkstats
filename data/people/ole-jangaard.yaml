@@ -1,5 +1,18 @@
 id: ole-jangaard
 name: Ole Jangaard
 roles:
-  - { id: spiller-1915, category: player, title: Spiller, body: A-laget, from: "1915", to: "1915", sources: [{ sourceId: aafk-historie-pa-egen-grunn, fields: [title, from, to] }] }
-  - { id: gullmerkeinnehaver-1924, category: honorary, title: Gullmerkeinnehaver, from: "1924", to: null, sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }] }
+  - { id: spiller-1915, category: player, title: Spiller, body: A-laget, from: "1915", to: "1915", sources: [ { sourceId: aafk-historie-pa-egen-grunn, fields: [ title, from, to ] } ] }
+  - id: oppmann-1915
+    category: sporting_staff
+    title: Oppmann
+    from: "1915"
+    to: null
+    sources:
+      - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+        page: "18"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_year)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+  - { id: gullmerkeinnehaver-1924, category: honorary, title: Gullmerkeinnehaver, from: "1924", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }

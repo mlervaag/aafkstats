@@ -33,6 +33,8 @@ export const resolutionRule = z.enum([
   "name_then_role",
   /** «1917 Nils Jangaard» — en rad i en formannsrekke. */
   "year_row",
+  /** «Formenn: Sverre Mogstad 1925 og 1926 Rolf Mittet 1927 …» — en rekke i løpende tekst. */
+  "name_then_year",
 ]);
 
 /**

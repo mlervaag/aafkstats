@@ -7,7 +7,8 @@ import { publicationExtraction } from "@aafkstats/schema";
 import type { PublicationExtraction, ResolvedRole } from "@aafkstats/schema";
 import { crossValidate, loadArchive, dataDir, repoRoot } from "@aafkstats/schema/load";
 import { assertMayFetch } from "../policy.js";
-import { publicationAltoPages, readAltoPage } from "../adapters/nb-publications.js";
+import { publicationAltoPages, readAltoPage, searchPublication } from "../adapters/nb-publications.js";
+import { resolveRolesFromSearch, searchTerms } from "../adapters/nb-search.js";
 import { joinLines, readPageColumns } from "../adapters/nb-pages.js";
 import { knownPeople, resolveRoles } from "../adapters/nb-roles.js";
 import { applyResolvedRoles } from "../adapters/nb-apply.js";
@@ -29,6 +30,7 @@ const args = parseArgs({ allowPositionals: true, options: {
   apply: { type: "boolean" },
   refresh: { type: "boolean" },
   "all-pages": { type: "boolean" },
+  "no-names": { type: "boolean" },
   source: { type: "string" },
   concurrency: { type: "string", default: "3" },
   delay: { type: "string", default: "250" },
@@ -67,10 +69,25 @@ for (const [index, source] of sources.entries()) {
     continue;
   }
   const extraction = publicationExtraction.parse(parse(await readFile(file, "utf8"))) as PublicationExtraction;
+
+  if (extraction.ocrAccess === "search_only") {
+    // De to bøkene uten ALTO leses gjennom fulltekstsøket i stedet. Treffene
+    // kommer med teksten før og etter, som er nok til at rolle og navn står i
+    // samme setning — og det er disse to bøkene personhistorien ligger i.
+    const hits = await searchPublication(source, searchTerms(people, { names: !args.values["no-names"] }), options);
+    const roles = resolveRolesFromSearch(hits, {
+      sourceId: source.id,
+      people,
+      ...(source.year === undefined ? {} : { publicationYear: source.year }),
+    });
+    resolvedBySource.set(source.id, roles);
+    console.log(`[${index + 1}/${sources.length}] ${source.id}: fulltekstsøk · ${hits.length} treff · ${roles.length} roller (${roles.filter((role) => role.confidence === "high").length} sikre)`);
+    if (args.values.write) await writeResolved(file, extraction, roles);
+    continue;
+  }
+
   if (extraction.ocrAccess !== "alto") {
-    // De to bøkene uten ALTO har ingen sider å lese på nytt. Se runbooken:
-    // de må gå gjennom fulltekstsøket, ikke gjennom denne kjøringen.
-    console.log(`[${index + 1}/${sources.length}] ${source.id}: ${extraction.ocrAccess}, ingen ALTO å lese`);
+    console.log(`[${index + 1}/${sources.length}] ${source.id}: ${extraction.ocrAccess}, ingen tekst å lese`);
     continue;
   }
 
@@ -107,11 +124,13 @@ for (const [index, source] of sources.entries()) {
   const high = unique.filter((role) => role.confidence === "high").length;
   console.log(`[${index + 1}/${sources.length}] ${source.id}: ${pages.length} sider · ${unique.length} roller (${high} sikre)`);
 
-  if (args.values.write) {
-    const updated: PublicationExtraction = { ...extraction, resolvedRoles: unique };
-    publicationExtraction.parse(updated);
-    await writeFile(file, stringify(updated, { lineWidth: 0, defaultStringType: "PLAIN" }), "utf8");
-  }
+  if (args.values.write) await writeResolved(file, extraction, unique);
+}
+
+async function writeResolved(file: string, extraction: PublicationExtraction, roles: ResolvedRole[]): Promise<void> {
+  const updated: PublicationExtraction = { ...extraction, resolvedRoles: roles };
+  publicationExtraction.parse(updated);
+  await writeFile(file, stringify(updated, { lineWidth: 0, defaultStringType: "PLAIN" }), "utf8");
 }
 
 const all = [...resolvedBySource].flatMap(([sourceId, roles]) => roles.map((role) => ({ sourceId, role })));
