@@ -216,7 +216,8 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
       `INSERT INTO core_squad_numbers (person_id, season, number) VALUES (?, ?, ?)`,
     );
     const insertDeclaredSpell = db.prepare(
-      `INSERT INTO core_declared_coach_spells (person_id, from_season, to_season) VALUES (?, ?, ?)`,
+      `INSERT INTO core_declared_coach_spells (person_id, from_season, to_season, from_date, to_date)
+       VALUES (?, ?, ?, ?, ?)`,
     );
     const insertPersonRole = db.prepare(
       `INSERT INTO core_person_roles
@@ -233,7 +234,7 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
       }
       for (const entry of p.squadNumbers) insertSquadNumber.run(p.id, entry.season, entry.number);
       for (const spell of p.coachSpells) {
-        insertDeclaredSpell.run(p.id, spell.fromSeason, spell.toSeason);
+        insertDeclaredSpell.run(p.id, spell.fromSeason, spell.toSeason, spell.fromDate ?? null, spell.toDate ?? null);
       }
       for (const role of p.roles) {
         insertPersonRole.run(
