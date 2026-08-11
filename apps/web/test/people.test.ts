@@ -107,6 +107,25 @@ describe("mergeRoleSpells", () => {
     expect(merged).toHaveLength(2);
   });
 
+  it("regner «Trener» og «Hovedtrener» som samme jobb", () => {
+    const merged = mergeRoleSpells([
+      role({ person_id: "kjetil-rekdal", role_id: "oppgitt", category: "coach", title: "Hovedtrener", body: "A-laget", from_date: "2008-09-04", to_date: "2012-11-26" }),
+      role({ person_id: "kjetil-rekdal", role_id: "bok", category: "coach", title: "Trener", body: null, from_date: "2009", sources: [{ sourceId: "tango", page: "351" }] }),
+    ]);
+    expect(merged).toHaveLength(1);
+    expect(merged[0]).toMatchObject({ title: "Hovedtrener", from_date: "2008-09-04", to_date: "2012-11-26" });
+    // Bokas sidetall skal ikke forsvinne i sammenslåingen.
+    expect(merged[0]!.sources.map((source) => source.page)).toEqual(["351"]);
+  });
+
+  it("holder assistenttreneren utenfor hovedtrenerperioden", () => {
+    const merged = mergeRoleSpells([
+      role({ person_id: "x", role_id: "a", category: "coach", title: "Hovedtrener", body: null, from_date: "2008", to_date: "2012" }),
+      role({ person_id: "x", role_id: "b", category: "coach", title: "Assistenttrener", body: null, from_date: "2009" }),
+    ]);
+    expect(merged).toHaveLength(2);
+  });
+
   it("beholder et opphold mellom to perioder", () => {
     const merged = mergeRoleSpells([
       role({ role_id: "a", from_date: "1946", to_date: "1949" }),

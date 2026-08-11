@@ -431,7 +431,7 @@ export const views: ViewDoc[] = [
       "Trenerperioder oppgitt av en kilde, for årene kampdataene ikke rekker. " +
       "Bruk coach_spells når spørsmålet gjelder 2010 eller senere.",
     caveats: [
-      "Oppgitt, ikke utledet: bare årstall, og vikarene mangler. Christian Johnsen står som 2023 til 2024; at Marius Boee og Sindre Eid hadde laget imellom, vet bare kampene.",
+      "Oppgitt, ikke utledet: som regel bare årstall, og vikarene mangler. Christian Johnsen står som 2023 til 2024; at Marius Boee og Sindre Eid hadde laget imellom, vet bare kampene.",
       "Rekker til 2001. Eldre trenere finnes ikke i noen kilde vi har.",
       "Overlapper med coach_spells for 2010 og senere. De to erstatter ikke hverandre; coach_spells er den nøyaktige.",
     ],
@@ -440,6 +440,8 @@ export const views: ViewDoc[] = [
       { name: "name", type: "text", description: "Navnet slik det vises." },
       { name: "from_season", type: "integer", description: "Første sesong i perioden." },
       { name: "to_season", type: "integer", description: "Siste sesong. NULL når perioden ikke er avsluttet i kilden." },
+      { name: "from_date", type: "text", description: "Dagen perioden begynte, der kilden oppgir den. NULL når bare året er kjent." },
+      { name: "to_date", type: "text", description: "Dagen perioden sluttet, der kilden oppgir den. NULL når bare året er kjent." },
     ],
   },
   {

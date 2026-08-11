@@ -185,14 +185,15 @@ for (const person of archive.people) {
 }
 
 /**
- * Samme trenerperiode registrert to ganger, med hvert sitt ord.
+ * En trenerrolle som strekker seg utenfor den oppgitte perioden.
  *
  * Arkivet holder oppgitte trenerperioder i `coachSpells` og verv i `roles`, og
- * kildene bruker ulike ord om samme jobb: aafk.no sier «Hovedtrener 2008-2012»,
- * mens bøkene lister «Trener» år for år. Kjetil Rekdal står dermed med begge,
- * og periodene er ikke engang like — den ene begynner i 2008, den andre i 2009.
- * Hvilket årstall som er riktig kan bare et menneske avgjøre, men at de to
- * beskriver den samme jobben er tydelig nok til å rapportere.
+ * kildene bruker ulike ord om samme jobb: aafk.no og Wikipedia sier
+ * «Hovedtrener», bøkene lister «Trener» år for år. At begge finnes er ikke i
+ * seg selv et problem — visningen slår dem sammen, og bokas sidetall er verdt
+ * å beholde. Det som er verdt et menneskeblikk, er året som stikker ut: en
+ * bok som gir en trener et år den oppgitte perioden ikke dekker, sier enten at
+ * perioden er for kort eller at boka omtaler en annen klubbs trener.
  */
 for (const person of archive.people) {
   for (const spell of person.coachSpells) {
@@ -201,10 +202,14 @@ for (const person of archive.people) {
     // Kjetil Rekdal ga fire like funn av samme grunn.
     const overlapping = person.roles.filter((role) => role.category === "coach"
       && span(role.from, role.to).some((year) => spellYears.includes(year)));
-    if (overlapping.length === 0) continue;
-    const years = [...new Set(overlapping.map((role) => role.from.slice(0, 4)))].sort().join(", ");
+    // Bare årene som stikker utenfor. Ligger rolla helt inni perioden, sier de
+    // to det samme med hvert sitt ord, og det er ingenting å avgjøre.
+    const outside = [...new Set(overlapping
+      .flatMap((role) => span(role.from, role.to))
+      .filter((year) => !spellYears.includes(year)))].sort();
+    if (outside.length === 0) continue;
     const titles = [...new Set(overlapping.map((role) => role.title))].join("/");
-    findings.push(`${YELLOW}dobbel trener${RESET}    ${person.name}: oppgitt periode ${spell.fromSeason}-${spell.toSeason ?? ""} og «${titles}» ${years}`);
+    findings.push(`${YELLOW}trener utenfor${RESET}   ${person.name}: oppgitt periode ${spell.fromSeason}-${spell.toSeason ?? ""}, men «${titles}» også ${outside.join(", ")}`);
   }
 }
 

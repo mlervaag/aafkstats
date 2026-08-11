@@ -88,6 +88,17 @@ export const declaredCoachSpell = z
     fromSeason: seasonYear,
     /** Null når perioden ikke er avsluttet i kilden. */
     toSeason: seasonYear.nullable().default(null),
+    /**
+     * Dagen perioden begynte og sluttet, der kilden oppgir den.
+     *
+     * En trenerjobb begynner sjelden 1. januar: Kjetil Rekdal ble ansatt 4.
+     * september 2008 og fikk oppsigelsen 26. november 2012. Sesongtallene
+     * alene sier «2008-2012», og det er riktig, men det er ikke det kilden
+     * sier. Datoene er valgfrie fordi de eldre periodene bare finnes som
+     * årstall — de fleste kildene oppgir aldri en dag.
+     */
+    fromDate: historicalDate.optional(),
+    toDate: historicalDate.optional(),
     note: z.string().optional(),
   })
   .strict();
@@ -147,6 +158,29 @@ export const person = z
     }
 
     for (const spell of value.coachSpells) {
+      // En dato som ikke hører til sesongen den står under er en skrivefeil, og
+      // den ville ellers vist en periode som begynner et annet år enn den gjør.
+      if (spell.fromDate && Number(spell.fromDate.slice(0, 4)) !== spell.fromSeason) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["coachSpells"],
+          message: `fromDate (${spell.fromDate}) hører ikke til sesongen ${spell.fromSeason}`,
+        });
+      }
+      if (spell.toDate && spell.toSeason !== null && Number(spell.toDate.slice(0, 4)) !== spell.toSeason) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["coachSpells"],
+          message: `toDate (${spell.toDate}) hører ikke til sesongen ${spell.toSeason}`,
+        });
+      }
+      if (spell.toDate && spell.toSeason === null) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["coachSpells"],
+          message: "en periode uten sluttsesong kan ikke ha en sluttdato",
+        });
+      }
       if (spell.toSeason !== null && spell.toSeason < spell.fromSeason) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,

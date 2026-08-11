@@ -175,8 +175,11 @@ export function getPersonRoles(personId?: string): PersonRole[] {
            SELECT d.person_id, p.name,
                   'oppgitt-hovedtrener-' || d.from_season AS role_id,
                   'coach' AS category, 'Hovedtrener' AS title, 'A-laget' AS body,
-                  printf('%04d', d.from_season) AS from_date,
-                  CASE WHEN d.to_season IS NULL THEN NULL ELSE printf('%04d', d.to_season) END AS to_date,
+                  -- Datoen når kilden oppgir den: Rekdal ble ansatt 4. september
+                  -- 2008, ikke ved nyttår.
+                  coalesce(d.from_date, printf('%04d', d.from_season)) AS from_date,
+                  CASE WHEN d.to_season IS NULL THEN NULL
+                       ELSE coalesce(d.to_date, printf('%04d', d.to_season)) END AS to_date,
                   '[]' AS sources,
                   'Oppgitt trenerperiode; eksakte kampdatoer finnes i trenerstatistikken fra 2010.' AS note
              FROM core_declared_coach_spells d
@@ -206,9 +209,23 @@ function year(value: string): number {
  * «1953–1954 Hovedstyret» og «1954» som to verv. En navngitt komité er derimot
  * noe annet enn hovedstyret, og slås aldri sammen med det.
  */
+const CLUB_WIDE = new Set(["hovedstyret", "a-laget"]);
+
 function organ(body: string | null): string {
   const value = (body ?? "").trim().toLowerCase();
-  return value === "hovedstyret" ? "" : value;
+  return CLUB_WIDE.has(value) ? "" : value;
+}
+
+/**
+ * Tittelen, med de synonymene kildene faktisk bruker om hverandre.
+ *
+ * «Trener» og «Hovedtrener» er samme jobb: aafk.no og Wikipedia sier det ene,
+ * bøkene det andre, og Kjetil Rekdal sto derfor med begge deler for de samme
+ * årene. «Assistenttrener» og «Keepertrener» er noe annet og røres ikke.
+ */
+function office(title: string): string {
+  const value = title.trim().toLowerCase();
+  return value === "trener" ? "hovedtrener" : value;
 }
 
 /** Slutten på en periode. Ukjent slutt telles som året den begynte. */
@@ -241,7 +258,7 @@ function endYear(role: PersonRole): number {
 export function mergeRoleSpells(roles: PersonRole[]): PersonRole[] {
   const groups = new Map<string, PersonRole[]>();
   for (const role of roles) {
-    const key = `${role.person_id}|${role.category}|${role.title}|${organ(role.body)}`;
+    const key = `${role.person_id}|${role.category}|${office(role.title)}|${organ(role.body)}`;
     const group = groups.get(key);
     if (group) group.push(role);
     else groups.set(key, [role]);
@@ -286,8 +303,9 @@ function combine(roles: PersonRole[], reach: number): PersonRole {
   const notes = [...new Set(roles.map((role) => role.note).filter((note): note is string => Boolean(note)))];
   return {
     ...first,
-    // «Hovedstyret» framfor tomt: den ene kilden navngir organet, den andre
-    // utelater det, og navnet er den mer opplysende av de to.
+    // Den kilden som sier mest vinner: «Hovedtrener» framfor «Trener», og et
+    // navngitt organ framfor ingen.
+    title: roles.reduce((a, b) => (b.title.length > a.title.length ? b : a)).title,
     body: roles.find((role) => role.body)?.body ?? null,
     // Slutten er den seneste kilden rekker, uansett hvilken rad den kom fra.
     to_date: last.to_date ?? (reach > year(first.from_date) ? String(reach) : null),
