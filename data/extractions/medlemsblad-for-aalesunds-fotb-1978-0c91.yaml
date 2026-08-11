@@ -982,7 +982,7 @@ candidates:
       - finn-tollas
     matchIds: []
 resolvedRoles:
-  - id: rolle-bde1b9a1043c0f5a
+  - id: rolle-f99b6834e5bb53c2
     page: "4"
     column: 0
     personName: Asbjørn Korsnes
@@ -992,7 +992,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-d0b20c8de14593be
+  - id: rolle-16ae0119c300bdcb
     page: "4"
     column: 0
     personName: Asbjørn På
@@ -1001,7 +1001,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-c91b70a6f35e5922
+  - id: rolle-a8bf49d203c21294
     page: "4"
     column: 0
     personName: Kjell Tynes
@@ -1010,7 +1010,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-aea9600a6b146172
+  - id: rolle-8fdcdeb978a2157b
     page: "4"
     column: 0
     personName: Odd A. Pekjent
@@ -1019,7 +1019,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-883a47edafafba27
+  - id: rolle-8f0d3aeccac07457
     page: "4"
     column: 0
     personName: ÅFKs Svein Viddal
@@ -1028,17 +1028,18 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-d36f5e1569e12db0
+  - id: rolle-c94fc0956989989a
     page: "11"
     column: 0
     personName: Einar With
     personId: einar-with
     category: coach
     title: Trener
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-83ed1d1fed00bd2b
+  - id: rolle-4b37fa8831ed9592
     page: "12"
     column: 0
     personName: Einar With
@@ -1048,7 +1049,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-ca6bd8d89fb93a50
+  - id: rolle-6aca3ad2e2e81c4b
     page: "15"
     column: 0
     personName: Tom Høiberg
@@ -1058,3 +1059,27 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+resolvedLineups:
+  - id: oppstilling-6f2cddbebc4a664a
+    page: "10"
+    column: 0
+    season: 1978
+    names:
+      - Svein Drabløs
+      - Sture Fladmark
+      - Frode Standal
+      - Bjørn Riise
+      - Erik Halkjelsvik
+      - Jørgen Ha- Rune Rasmussen
+      - Per Oscar Pederder
+      - Ragnar Brevik
+      - Rune Nilsen
+      - Nils Peter Loe
+      - Steinar Sørnes
+      - Bjørn Eikrem
+      - Bjørn Tore Moltu
+      - Rolf Nilsen
+    personIds:
+      - bjorn-riise
+      - nils-peter-loe
+    confidence: medium

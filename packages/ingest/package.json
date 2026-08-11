@@ -20,6 +20,7 @@
     "etter-kamp": "tsx src/cli/etter-kamp.ts"
     ,"nb-extract": "tsx src/cli/nb-extract.ts"
     ,"nb-resolve": "tsx src/cli/nb-resolve.ts"
+    ,"nb-mentions": "tsx src/cli/nb-mentions.ts"
   },
   "dependencies": {
     "@aafkstats/schema": "workspace:*",

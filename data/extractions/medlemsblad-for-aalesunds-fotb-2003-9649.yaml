@@ -80,12 +80,14 @@ candidates:
     personIds: []
     matchIds: []
 resolvedRoles:
-  - id: rolle-2a7943e0bdcf11d6
+  - id: rolle-b53da99aac0becaf
     page: "4"
     column: 0
     personName: Ivar Morten Ldig
     category: coach
     title: Trener
+    body: Spillergruppen
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups: []

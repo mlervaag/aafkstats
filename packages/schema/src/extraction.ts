@@ -33,6 +33,8 @@ export const resolutionRule = z.enum([
   "name_then_role",
   /** «1917 Nils Jangaard» — en rad i en formannsrekke. */
   "year_row",
+  /** «Formenn: Sverre Mogstad 1925 og 1926 Rolf Mittet 1927 …» — en rekke i løpende tekst. */
+  "name_then_year",
 ]);
 
 /**
@@ -76,6 +78,31 @@ export const resolvedRole = z.object({
 export type ResolvedRole = z.infer<typeof resolvedRole>;
 
 /**
+ * En lagoppstilling lest ut av en side.
+ *
+ * Bærer ingen kamp-ID. Oppstillingen står nesten aldri sammen med opplysningen
+ * om hvilken kamp den gjelder, og å gjette den ut fra nærmeste årstall ville
+ * knyttet elleve navn til feil kamp. En feil oppstilling er verre enn ingen:
+ * den ser like riktig ut som en rett.
+ *
+ * `season` er årstallet som sto nær oppstillingen, når det sto et. Det er en
+ * pekepinn for den som skal finne kampen, ikke en påstand om når laget spilte.
+ */
+export const resolvedLineup = z.object({
+  id: slug,
+  page: z.string().min(1),
+  column: z.number().int().nonnegative().optional(),
+  season: z.number().int().min(1900).max(2100).optional(),
+  /** Navnene slik siden skriver dem, i den rekkefølgen de står. */
+  names: z.array(z.string().min(1)).min(1),
+  /** De av navnene som alt finnes i personregisteret. */
+  personIds: z.array(slug).default([]),
+  confidence: z.enum(["high", "medium", "low"]),
+}).strict();
+
+export type ResolvedLineup = z.infer<typeof resolvedLineup>;
+
+/**
  * Resultatet av én maskinell gjennomgang av én publikasjon.
  *
  * Rå OCR og sammenhengende prosa er uttrykkelig utelatt. Fila inneholder bare
@@ -99,6 +126,10 @@ export const publicationExtraction = z.object({
    * dekningstallene fra den første.
    */
   resolvedRoles: z.array(resolvedRole).default([]),
+  /**
+   * Lagoppstillinger lest på nytt. Ikke koblet til kamper — se `resolvedLineup`.
+   */
+  resolvedLineups: z.array(resolvedLineup).default([]),
 }).strict().superRefine((value, ctx) => {
   if (value.pagesProcessed + value.pagesFailed.length > value.pagesExpected) {
     ctx.addIssue({ code: "custom", path: ["pagesProcessed"], message: "behandlede og feilede sider overstiger forventet sidetall" });

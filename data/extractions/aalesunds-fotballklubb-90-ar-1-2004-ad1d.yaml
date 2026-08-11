@@ -3331,7 +3331,7 @@ candidates:
     personIds: []
     matchIds: []
 resolvedRoles:
-  - id: rolle-04de9bb042eff06b
+  - id: rolle-7ab8c79ca3f4a504
     page: "9"
     column: 1
     personName: Geo Haller. Historien
@@ -3340,7 +3340,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-33357aec91e7fc9c
+  - id: rolle-08757a378360eb69
     page: "23"
     column: 0
     personName: Henrik Hoff
@@ -3349,17 +3349,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-81a3edff054118f5
-    page: "23"
-    column: 0
-    personName: Jon Ketil Gjørtz
-    personId: jon-ketil-gjortz
-    category: board
-    title: Formann
-    to: null
-    confidence: medium
-    rule: name_then_role
-  - id: rolle-371a07dc509f4b6e
+  - id: rolle-932c9e16ba9c9512
     page: "32"
     column: 1
     personName: Ragnhild Røst Skjerve Avdelingen
@@ -3368,7 +3358,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-1aa6c2c70081e3d1
+  - id: rolle-eb47e6480d495cba
     page: "36"
     column: 0
     personName: Knut Torbjørn Eggen
@@ -3378,7 +3368,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-832abf8be915f368
+  - id: rolle-663ee83d34165ebe
     page: "38"
     column: 1
     personName: Geir Hansen
@@ -3388,7 +3378,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-85f10825960e5564
+  - id: rolle-0d0259badedcb6e9
     page: "39"
     column: 1
     personName: Geir Hansen
@@ -3397,7 +3387,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-2c509414b9dbeeaf
+  - id: rolle-3360280ae042f4fc
     page: "40"
     column: 0
     personName: Ivar Morten Normarks
@@ -3406,7 +3396,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-854b7aef01965946
+  - id: rolle-1b0aa29864c7d439
     page: "41"
     column: 0
     personName: AaFK. Banen
@@ -3416,7 +3406,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-13c39857d9f84090
+  - id: rolle-69195a4f37017d32
     page: "41"
     column: 1
     personName: Mons Ivar Mjelde.AaFK
@@ -3425,7 +3415,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-1e63084cc5c68745
+  - id: rolle-7aa253a065cf84b4
     page: "43"
     column: 0
     personName: Petter Birkevold
@@ -3435,7 +3425,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-235e7a179eff0685
+  - id: rolle-507f38723c1925bd
     page: "43"
     column: 0
     personName: Petter Birkevold Anlegg
@@ -3444,7 +3434,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-e10dc78f355c55c5
+  - id: rolle-69e263670520302f
     page: "44"
     column: 0
     personName: Terje Refsnes
@@ -3454,7 +3444,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-d15c78abf8116408
+  - id: rolle-f2ef7216c5c95510
     page: "45"
     column: 0
     personName: Arnstein Johansen
@@ -3465,7 +3455,7 @@ resolvedRoles:
     to: null
     confidence: high
     rule: name_then_role
-  - id: rolle-435e70df5fcfbd3f
+  - id: rolle-4e9904501f9fa6b1
     page: "45"
     column: 0
     personName: Kari Langva
@@ -3475,7 +3465,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-9ae745291e5c754f
+  - id: rolle-7a01d08c45647b2b
     page: "45"
     column: 0
     personName: Knut Torbjørn Eggen
@@ -3484,7 +3474,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-a8a4b1540f0d6277
+  - id: rolle-864e687a4b5ed335
     page: "45"
     column: 1
     personName: AaFK. Geir Hansen
@@ -3493,23 +3483,40 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-b64bdc93110ffb45
+  - id: rolle-ad08658c0bfb1504
     page: "46"
     column: 0
     personName: Ivar Morten Normark
     personId: ivar-morten-normark
     category: coach
     title: Hovedtrener
+    body: Supporterklubben
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-848f739c8d5eb81c
+  - id: rolle-a37f105dea37b0f2
     page: "46"
     column: 1
     personName: Ivar Morten Normark
     personId: ivar-morten-normark
     category: coach
     title: Trener
+    body: Supporterklubben
     to: null
     confidence: medium
     rule: name_then_role
+resolvedLineups:
+  - id: oppstilling-608fd2767e01af1c
+    page: "39"
+    column: 1
+    names:
+      - Frank Mathiesen Herman Ekeberg
+      - Johnny Vattøy
+      - Gjerde Arnt Vidar Fiskerstrand
+      - Erling Ytterland
+      - Trond Fredriksen
+      - Magne Sunde. Joachim Torp
+      - Ola Engvik
+    personIds:
+      - trond-fredriksen
+    confidence: medium

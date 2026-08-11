@@ -1,5 +1,54 @@
 id: hugo-hamre
 name: Hugo Hamre
 roles:
-  - { id: stifter-1914, category: founder, title: Stifter, body: Konstituerende generalforsamling, from: "1914-06-25", to: "1914-06-25", sources: [{ sourceId: aafk-historie-stiftelsen, fields: [title, from, to] }] }
-  - { id: banekomite-1914-1915, category: project, title: Medlem av banekomiteen, body: Nørvebana, from: "1914", to: "1915", sources: [{ sourceId: aafk-historie-norvebana, fields: [title, from, to] }] }
+  - { id: stifter-1914, category: founder, title: Stifter, body: Konstituerende generalforsamling, from: "1914-06-25", to: "1914-06-25", sources: [ { sourceId: aafk-historie-stiftelsen, fields: [ title, from, to ] } ] }
+  - { id: banekomite-1914-1915, category: project, title: Medlem av banekomiteen, body: Nørvebana, from: "1914", to: "1915", sources: [ { sourceId: aafk-historie-norvebana, fields: [ title, from, to ] } ] }
+sources:
+  - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
+    page: "43"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+    page: "9"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+    page: "26"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-22ea
+    page: "26"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-62fa
+    page: "15"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-6bdd
+    page: "15"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: "5"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: "73"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1964-9418
+    page: "38"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-6d28
+    page: "3"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-ab1b
+    page: "3"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: vi-er-75-ar-1989-aff6
+    page: "22"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.

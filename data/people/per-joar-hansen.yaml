@@ -5,6 +5,7 @@ squadNumbers: []
 coachSpells:
   - fromSeason: 2006
     toSeason: 2007
+roles: []
 providers:
   - providerId: wikipedia
     url: https://no.wikipedia.org/w/index.php?title=Aalesunds%20Fotballklubb&oldid=25869346
@@ -12,3 +13,20 @@ providers:
     fields:
       - coachSpells
     note: Årstall fra trenertabellen. Merknadskolonnen er prosa og er ikke gjengitt.
+sources:
+  - sourceId: aalesund-fra-blabaer-til-beton-2013-91b5
+    page: "118"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: aalesunds-fk-quiz-2008-fd43
+    page: "25"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: opp-fra-myra-fotballtriumfen-i-2002-6192
+    page: "40"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: tango-siden-1914-2013-806b
+    page: "187"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.

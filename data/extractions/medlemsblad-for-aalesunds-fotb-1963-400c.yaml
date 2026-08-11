@@ -2170,7 +2170,7 @@ candidates:
       - knut-gaaseide
     matchIds: []
 resolvedRoles:
-  - id: rolle-37aedf5be69d5c98
+  - id: rolle-2a09add20c857945
     page: "10"
     column: 0
     personName: Nils Jangård
@@ -2179,16 +2179,17 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-b7c5959c8e30cfca
+  - id: rolle-26037eb6f7b6605c
     page: "11"
     column: 1
     personName: Frantz Løvmo. De
     category: administration
     title: Kasserer
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-464447f8240e6cf9
+  - id: rolle-b5f5e9faed5accb5
     page: "18"
     column: 1
     personName: Alois Pfeiffer
@@ -2197,18 +2198,147 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-975714b7b3275d69
+  - id: rolle-990a59d6a7f75608
     page: "24"
     column: 2
     personName: Bibbi Henriksen
     category: board
     title: Formann
+    body: Guttegruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-106091d8396247e6
+  - id: rolle-26e42a3706ba40f5
     page: "24"
     column: 2
+    personName: Einar Aas
+    personId: einar-aas
+    category: sporting_staff
+    title: Oppmann
+    body: Guttegruppen
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-233cbe8d263d28e2
+    page: "24"
+    column: 2
+    personName: Finn Tolaas
+    personId: finn-tollas
+    category: board
+    title: Formann
+    body: Guttegruppen
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-1cfb89e6c295b9a2
+    page: "24"
+    column: 2
+    personName: Hans Henriksen
+    category: board
+    title: Formann
+    body: Guttegruppen
+    from: "1962"
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-58c82711a476c575
+    page: "24"
+    column: 2
+    personName: Hans Vadseth
+    category: board
+    title: Formann
+    body: Guttegruppen
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-80e5a44bad5e01d1
+    page: "24"
+    column: 2
+    personName: Julie Løvmo
+    category: administration
+    title: Kasserer
+    body: Guttegruppen
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-2ee88167b4c0bf36
+    page: "24"
+    column: 2
+    personName: Karsten Vadseth
+    personId: karsten-vadseth
+    category: board
+    title: Nestformann
+    body: Guttegruppen
+    from: "1962"
+    to: null
+    confidence: high
+    rule: role_then_name
+  - id: rolle-a54984c2a554ca9d
+    page: "24"
+    column: 2
+    personName: Kjell Melsæther
+    category: board
+    title: Formann
+    body: Guttegruppen
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-62c2ba5b4f752317
+    page: "24"
+    column: 2
+    personName: Lilly Annaniassen
+    category: administration
+    title: Sekretær
+    body: Guttegruppen
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-9702969e68bf3e2d
+    page: "24"
+    column: 2
+    personName: Lollo Stubb
+    category: board
+    title: Nestformann
+    body: Guttegruppen
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-aa18c24aab3b9567
+    page: "24"
+    column: 2
+    personName: Ole Walderhaug
+    category: administration
+    title: Kasserer
+    body: Guttegruppen
+    from: "1962"
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-54482f5e8c68a76c
+    page: "24"
+    column: 2
+    personName: Rolf Annaniassen
+    personId: rolf-annaniassen
+    category: administration
+    title: Sekretær
+    body: Guttegruppen
+    from: "1962"
+    to: null
+    confidence: high
+    rule: role_then_name
+  - id: rolle-893c23a820b0a515
+    page: "48"
+    column: 0
+    personName: Bibbi Henriksen
+    category: board
+    title: Formann
+    body: Guttegruppen
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-17e4643d4d9a510d
+    page: "48"
+    column: 0
     personName: Einar Aas
     personId: einar-aas
     category: sporting_staff
@@ -2216,133 +2346,18 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-327134eedcea78f1
-    page: "24"
-    column: 2
-    personName: Finn Tolaas
-    personId: finn-tollas
-    category: board
-    title: Formann
-    to: null
-    confidence: medium
-    rule: role_then_name
-  - id: rolle-9a972ea34f892c04
-    page: "24"
-    column: 2
-    personName: Hans Henriksen
-    category: board
-    title: Formann
-    from: "1962"
-    to: null
-    confidence: medium
-    rule: role_then_name
-  - id: rolle-d41cdb5f4a2a95ef
-    page: "24"
-    column: 2
-    personName: Hans Vadseth
-    category: board
-    title: Formann
-    to: null
-    confidence: low
-    rule: role_then_name
-  - id: rolle-8c212b6fb5197223
-    page: "24"
-    column: 2
-    personName: Julie Løvmo
-    category: administration
-    title: Kasserer
-    to: null
-    confidence: low
-    rule: role_then_name
-  - id: rolle-76983b2c3c6320d9
-    page: "24"
-    column: 2
-    personName: Karsten Vadseth
-    personId: karsten-vadseth
-    category: board
-    title: Nestformann
-    from: "1962"
-    to: null
-    confidence: high
-    rule: role_then_name
-  - id: rolle-dd7e9983ec589221
-    page: "24"
-    column: 2
-    personName: Kjell Melsæther
-    category: board
-    title: Formann
-    to: null
-    confidence: low
-    rule: role_then_name
-  - id: rolle-b1706274b9e0da4b
-    page: "24"
-    column: 2
-    personName: Lilly Annaniassen
-    category: administration
-    title: Sekretær
-    to: null
-    confidence: low
-    rule: role_then_name
-  - id: rolle-2a2c5a3b29e0cbfa
-    page: "24"
-    column: 2
-    personName: Lollo Stubb
-    category: board
-    title: Nestformann
-    to: null
-    confidence: low
-    rule: role_then_name
-  - id: rolle-adf0259292994939
-    page: "24"
-    column: 2
-    personName: Ole Walderhaug
-    category: administration
-    title: Kasserer
-    from: "1962"
-    to: null
-    confidence: medium
-    rule: role_then_name
-  - id: rolle-ee5c5368025c6632
-    page: "24"
-    column: 2
-    personName: Rolf Annaniassen
-    personId: rolf-annaniassen
-    category: administration
-    title: Sekretær
-    from: "1962"
-    to: null
-    confidence: high
-    rule: role_then_name
-  - id: rolle-674fb7adaca99f8c
-    page: "48"
-    column: 0
-    personName: Bibbi Henriksen
-    category: board
-    title: Formann
-    to: null
-    confidence: low
-    rule: role_then_name
-  - id: rolle-e64e442158d0ce42
-    page: "48"
-    column: 0
-    personName: Einar Aas
-    personId: einar-aas
-    category: sporting_staff
-    title: Oppmann
-    to: null
-    confidence: medium
-    rule: role_then_name
-  - id: rolle-76cf7cd1bc83e494
+  - id: rolle-389b2f0b13946ed9
     page: "48"
     column: 0
     personName: Finn Tolaas
     personId: finn-tollas
     category: board
     title: Formann
+    body: Guttegruppen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-d0fad686a211efe3
+  - id: rolle-ebd3047442e16d62
     page: "48"
     column: 0
     personName: Hans Henriksen
@@ -2352,16 +2367,17 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-91f81d08c572521b
+  - id: rolle-c9c06ec83d7506aa
     page: "48"
     column: 0
     personName: Hans Vadseth
     category: board
     title: Formann
+    body: Guttegruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-54bc505d77203947
+  - id: rolle-b95446c0c24ce34e
     page: "48"
     column: 0
     personName: Julie Løvmo
@@ -2370,7 +2386,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-0d7dcf47e63814b0
+  - id: rolle-2863d7c68ddb00a5
     page: "48"
     column: 0
     personName: Karsten Vadseth
@@ -2379,36 +2395,39 @@ resolvedRoles:
     title: Nestformann
     from: "1962"
     to: null
-    confidence: high
+    confidence: medium
     rule: role_then_name
-  - id: rolle-2c36dffdcc3b73a3
+  - id: rolle-09c9fef59f0497c8
     page: "48"
     column: 0
     personName: Kjell Melsæther
     category: board
     title: Formann
+    body: Guttegruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-4c5480d68890b386
+  - id: rolle-333754e2d2b4cff8
     page: "48"
     column: 0
     personName: Lilly Annaniassen
     category: administration
     title: Sekretær
+    body: Guttegruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-7246f3972cfc4bdf
+  - id: rolle-1eeb16676a3dd194
     page: "48"
     column: 0
     personName: Lollo Stubb
     category: board
     title: Nestformann
+    body: Guttegruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-adec40ab02723c4d
+  - id: rolle-550cf4d25b85cfd4
     page: "48"
     column: 0
     personName: Ole Walderhaug
@@ -2418,7 +2437,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-abe3c9027da59ed3
+  - id: rolle-6979617bcb5b635d
     page: "48"
     column: 0
     personName: Rolf Annaniassen
@@ -2427,9 +2446,9 @@ resolvedRoles:
     title: Sekretær
     from: "1962"
     to: null
-    confidence: high
+    confidence: medium
     rule: role_then_name
-  - id: rolle-9b640456b2c94df2
+  - id: rolle-a742fa5a388a6bd3
     page: "63"
     column: 0
     personName: Arne Olsen. Va-
@@ -2438,7 +2457,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-d7e74f88d9b1bfaa
+  - id: rolle-d0e553c71a512c83
     page: "63"
     column: 0
     personName: Einar Åas
@@ -2448,7 +2467,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-600813d79375ed3f
+  - id: rolle-1071771d397a0dad
     page: "63"
     column: 0
     personName: Ole Inge
@@ -2457,16 +2476,17 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-8faae4428e18ea25
+  - id: rolle-915d881556e72cdd
     page: "64"
     column: 0
     personName: Finn Tol-
     category: board
     title: Formann
+    body: Sportsutvalget
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-346f47846ac11612
+  - id: rolle-477c9dc9cea3f89f
     page: "65"
     column: 0
     personName: ÅFK Av
@@ -2475,7 +2495,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-2a93022b0dac308c
+  - id: rolle-c670b1f56c4d6331
     page: "69"
     column: 1
     personName: A Rn
@@ -2484,16 +2504,17 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-ca01c2e430bc4851
+  - id: rolle-098e0485e2a2f303
     page: "70"
     column: 1
     personName: Einar Helseth
     category: board
     title: Nestformann
+    body: Eldres gruppe
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-e462adb94a388e8f
+  - id: rolle-48a86990266e5509
     page: "70"
     column: 1
     personName: Jorgen Holleforan
@@ -2502,22 +2523,77 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-0f6e024cb7c395f5
+  - id: rolle-4b6e0e4986337887
     page: "70"
     column: 1
     personName: Øivind Haagensen
     personId: oivind-haagensen
     category: board
     title: Formann
+    body: Eldres gruppe
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-6ed66f1590bbd2e1
-    page: "80"
+resolvedLineups:
+  - id: oppstilling-ec42560d6936782a
+    page: "48"
+    column: 1
+    names:
+      - Einar Aas
+      - Asbjorn Hellandsvik
+      - Oddvar Aarø
+      - Mindor Sunde
+      - Kjell Saure
+      - Karsten Vadseth
+      - Karsten Nedregård
+      - Helge Ødegård
+    personIds:
+      - einar-aas
+      - karsten-vadseth
+      - karsten-nedregard
+    confidence: medium
+  - id: oppstilling-2768f69ee234bf8d
+    page: "76"
     column: 0
-    personName: Thorbjørn Aarø
-    category: coach
-    title: Trener
-    to: null
-    confidence: low
-    rule: name_then_role
+    names:
+      - Ola Kleive
+      - Harry Sperre
+      - Dagfinn Fredriksen
+      - Harald Røsand
+      - Erling Myrseth
+      - Robert Larsen
+      - Helge Haagensen
+      - Id.ar Solbakk
+      - Gun'na.r I.ZØSberg
+    personIds: []
+    confidence: medium
+  - id: oppstilling-5469da782ad863f7
+    page: "77"
+    column: 0
+    names:
+      - Jan Ove Rutgerson
+      - Svein Melsæther
+      - Anders Krogen
+      - Arve Opsahl
+      - Harald Olsen
+      - Sverre Øiehaug
+      - Asbjørn Dimmen
+      - Kaspar Ystenes
+      - Roy Nedregård
+    personIds: []
+    confidence: medium
+  - id: oppstilling-c394647be83510f5
+    page: "78"
+    column: 1
+    names:
+      - Nils Petter Loe
+      - Sigurd Tafjord
+      - Jarle Kleive
+      - Einar With
+      - Thorbjørn Årø
+      - Steinar Nedregård
+      - Kjell Iversen
+    personIds:
+      - sigurd-tafjord
+      - einar-with
+    confidence: medium

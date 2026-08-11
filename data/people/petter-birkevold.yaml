@@ -7,10 +7,31 @@ roles:
     body: Hovedstyret
     from: "1997"
     to: "1997"
-    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]
+    sources: [ { sourceId: aafk-historie-ledere, fields: [ title, from, to ] } ]
   - id: gullmerkeinnehaver-2000
     category: honorary
     title: Gullmerkeinnehaver
     from: "2000"
     to: null
-    sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }]
+    sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ]
+sources:
+  - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+    page: "27"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-2004-ff8e
+    page: "4"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: opp-fra-myra-fotballtriumfen-i-2002-6192
+    page: "21"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: tango-siden-1914-2013-806b
+    page: "107"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: vi-er-80-ar-1914-1994-1994-5e91
+    page: "5"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.

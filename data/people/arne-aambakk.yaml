@@ -7,10 +7,51 @@ roles:
     body: Hovedstyret
     from: "1999"
     to: "2006"
-    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]
+    sources: [ { sourceId: aafk-historie-ledere, fields: [ title, from, to ] } ]
   - id: gullmerkeinnehaver-2005
     category: honorary
     title: Gullmerkeinnehaver
     from: "2005"
     to: null
-    sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }]
+    sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ]
+sources:
+  - sourceId: aalesunds-fk-quiz-2008-fd43
+    page: "43"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+    page: "3"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-2003-cb5d
+    page: "2"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-2003-fa59
+    page: "2"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-2004-153a
+    page: "1"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-2004-7929
+    page: "3"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-2004-ff8e
+    page: "2"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: opp-fra-myra-fotballtriumfen-i-2002-6192
+    page: "41"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: tango-siden-1914-2013-806b
+    page: "20"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: vi-er-80-ar-1914-1994-1994-5e91
+    page: "10"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.

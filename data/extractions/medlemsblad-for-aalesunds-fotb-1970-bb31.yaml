@@ -604,7 +604,7 @@ candidates:
       - ola-hodder
     matchIds: []
 resolvedRoles:
-  - id: rolle-ed2bd332507190dc
+  - id: rolle-4ded226fd3702a76
     page: "2"
     column: 0
     personName: E E NeT A
@@ -613,7 +613,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-56245f286bb5617b
+  - id: rolle-c8d21829d7baa1ac
     page: "7"
     column: 0
     personName: Bjørn Olsen Sportsutvalg
@@ -622,7 +622,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-1669f3f75c31ffb9
+  - id: rolle-ea45cab063ff0297
     page: "7"
     column: 0
     personName: Erik Fladmark
@@ -631,7 +631,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-559f31b691f5ec0b
+  - id: rolle-c6fefd7195ed8720
     page: "7"
     column: 0
     personName: Jarle Kristoffersen
@@ -641,7 +641,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-a6ad9288ecabcdf8
+  - id: rolle-c80aa9a07614faf1
     page: "7"
     column: 0
     personName: Ola Hodder
@@ -651,7 +651,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-8386b3eeb669022e
+  - id: rolle-11695f97b1f2ef27
     page: "7"
     column: 0
     personName: Petter Birkevold
@@ -661,7 +661,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-cc51650f74b3e341
+  - id: rolle-e0fc14d668c8bcb2
     page: "7"
     column: 0
     personName: Terje Dragsund
@@ -670,7 +670,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-eb7d39a827001b36
+  - id: rolle-31d5644864db448c
     page: "9"
     column: 0
     personName: Knut Osnes
@@ -679,3 +679,19 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
+resolvedLineups:
+  - id: oppstilling-3db274cd27a2c007
+    page: "11"
+    column: 0
+    names:
+      - Knut Inge Sperre
+      - Karsten Eriksen
+      - Finn Hessen
+      - Tor Steinar Håseth
+      - Terje Knutsen
+      - Leif Løndahl
+      - Svein Saure
+      - Tor Tørlen
+    personIds:
+      - karsten-eriksen
+    confidence: medium

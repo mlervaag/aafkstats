@@ -290,7 +290,7 @@ candidates:
     personIds: []
     matchIds: []
 resolvedRoles:
-  - id: rolle-8e59aac3f04ab9b0
+  - id: rolle-a9e02f30526e91c8
     page: "3"
     column: 1
     personName: Alfhild Ringdal
@@ -299,7 +299,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-37e486a31557e284
+  - id: rolle-5962b56f141c5b8f
     page: "3"
     column: 1
     personName: Anita Olsen
@@ -308,7 +308,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a02c0843ac9a96c4
+  - id: rolle-a500957a7d7521e5
     page: "3"
     column: 1
     personName: Fru Irma Berger Huseby
@@ -318,7 +318,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-db2d2b3f7048b203
+  - id: rolle-0f9a64693bfd07c1
     page: "3"
     column: 1
     personName: Åse Gudmundseth. Vi
@@ -327,7 +327,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-0512a3cd44ee1611
+  - id: rolle-4347238bbdfd2ec8
     page: "12"
     column: 1
     personName: Arne Westad
@@ -337,7 +337,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-21c78c19aacd419d
+  - id: rolle-01a1d9a7ebb8ee37
     page: "12"
     column: 1
     personName: Per Anker Eriksen
@@ -348,3 +348,4 @@ resolvedRoles:
     to: null
     confidence: high
     rule: role_then_name
+resolvedLineups: []

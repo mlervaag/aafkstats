@@ -282,7 +282,7 @@ candidates:
     personIds: []
     matchIds: []
 resolvedRoles:
-  - id: rolle-e0d54087756f34e1
+  - id: rolle-5b32cd6df728dd6c
     page: "4"
     column: 0
     personName: Per Anker Eriksen
@@ -292,7 +292,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-8603791673396a61
+  - id: rolle-2ff7b44e94963855
     page: "12"
     column: 1
     personName: Arne Westad
@@ -302,7 +302,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-c6d3e8b9fbe512d8
+  - id: rolle-ba2e358492e8cbfa
     page: "12"
     column: 1
     personName: Karsten Eriksen
@@ -311,9 +311,9 @@ resolvedRoles:
     title: Sekretær
     from: "1950"
     to: null
-    confidence: high
+    confidence: medium
     rule: role_then_name
-  - id: rolle-71405d49f21c72d8
+  - id: rolle-ebc1013aec122dcb
     page: "12"
     column: 1
     personName: Per Anker Eriksen
@@ -322,5 +322,6 @@ resolvedRoles:
     title: Formann
     from: "1950"
     to: null
-    confidence: high
+    confidence: medium
     rule: role_then_name
+resolvedLineups: []

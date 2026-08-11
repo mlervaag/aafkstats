@@ -53,6 +53,97 @@ export const ROLE_TERMS: RoleTerm[] = [
 ];
 
 /**
+ * Organisasjonsdelen et verv hører til, når siden sier hvilken.
+ *
+ * Side 76 i 50-årsboka lister et styre — formann, nestformann, sekretær,
+ * kasserer — men det er styret i *Eldres gruppe*, ikke klubbens hovedstyre.
+ * Rekka ser identisk ut. Uten `body` havner de fire i personregisteret som om
+ * de ledet AaFK, og ingen validering ville sagt fra.
+ *
+ * Organet står sjelden i samme setning som vervet. Det står i avsnittet over,
+ * som overskrift eller som emnet for stykket, så det må letes bakover.
+ */
+const BODIES = [
+  "hovedstyret",
+  "arbeidsutvalget",
+  "sportsutvalget",
+  "banekomiteen",
+  "eldres gruppe",
+  "juniorgruppa",
+  "juniorgruppen",
+  "damegruppa",
+  "damegruppen",
+  "supporterklubben",
+  "old boys",
+] as const;
+
+/** Organet siden peker på, når den peker på nøyaktig ett. */
+function bodiesOn(page: string | undefined): string[] {
+  if (!page) return [];
+  const lower = page.toLowerCase();
+  const found = new Set<string>();
+  for (const body of BODIES) if (lower.includes(body)) found.add(body);
+  for (const hit of page.matchAll(/\b([\p{L}æøå]+(?:komiteen|komitéen|utvalget|gruppa|gruppen))\b/giu)) {
+    found.add(hit[1]!.toLowerCase());
+  }
+  found.delete("hovedstyret");
+  // «Arbeidsutvalget» treffer både lista og monsteret. Fjern det som er del av
+  // et annet, slik at samme organ ikke telles to ganger.
+  return [...found].filter((body) => ![...found].some((other) => other !== body && other.includes(body)));
+}
+
+/** Hvor langt bakover et organ kan stå og fortsatt gjelde vervet. */
+const BODY_REACH = 400;
+
+/**
+ * Organet som gjelder for et treff, lest bakover fra det.
+ *
+ * Både en fast liste og et generisk mønster: klubbene lager stadig nye utvalg,
+ * og «bygningskomiteen» skal fanges selv om ingen har skrevet den inn her.
+ * Hovedstyret regnes ikke som et eget organ — det er standarden, og å skrive
+ * det på hver rolle sier ingenting.
+ */
+function bodyBefore(text: string, index: number, options: ResolveRolesOptions): BodyHint | undefined {
+  const window = text.slice(Math.max(0, index - BODY_REACH), index);
+
+  const named = [...BODIES]
+    .map((body) => ({ body, at: window.toLowerCase().lastIndexOf(body) }))
+    .filter((hit) => hit.at !== -1)
+    .sort((a, b) => b.at - a.at)[0];
+
+  const generic = [...window.matchAll(/\b([\p{L}æøå]+(?:komiteen|komitéen|utvalget|gruppa|gruppen))\b/giu)].at(-1);
+
+  const onPage = bodiesOn(options.pageContext);
+  const chosen = named && generic
+    ? (named.at >= (generic.index ?? 0) ? named.body : generic[1]!)
+    : named?.body ?? generic?.[1]
+      // Ingen organ i spalten. Da gjelder sidas eget, men bare nar siden peker
+      // pa noyaktig ett — nevner den flere, vet vi ikke hvilket som er dette.
+      ?? (onPage.length === 1 ? onPage[0] : undefined);
+
+  if (!chosen) {
+    // Siden snakker om underorganer, men vi kan ikke si hvilket vervet horer
+    // til. Da er «Formann» uten videre en pastand om at han ledet klubben, og
+    // den kan vi ikke sta inne for. Side 76 i 50-arsboka er et slikt tilfelle:
+    // den nevner bade Eldres gruppe og Arbeidsutvalget.
+    return onPage.length > 1 ? { uncertain: true } : undefined;
+  }
+
+  // OCR-en gir samme organ to skrivemåter — «Banekomiteen» og «Banekomitéen»
+  // sto som 97 og 44 roller hver, som om de var to utvalg.
+  const normalized = chosen.toLowerCase().replaceAll("é", "e");
+  if (normalized === "hovedstyret") return undefined;
+  return { body: normalized.charAt(0).toUpperCase() + normalized.slice(1) };
+}
+
+/** Organet et verv horer til, eller beskjed om at siden gjor det uklart. */
+interface BodyHint {
+  body?: string;
+  /** Siden nevner flere organer, og vervet kan ikke regnes som klubbens. */
+  uncertain?: boolean;
+}
+
+/**
  * Ord som ser ut som navn for en stor forbokstav, men ikke er det.
  *
  * Lista er kort med vilje. Hvert ledd her fjerner treff, og et navn som slipper
@@ -103,6 +194,14 @@ export interface ResolveRolesOptions {
   people: KnownPerson[];
   /** Publikasjonens eget år. Brukes aldri som rollens år — bare til å forkaste umulige årstall. */
   publicationYear?: number;
+  /**
+   * Hele siden i leserekkefølge, når rollene leses spaltevis.
+   *
+   * Organet et verv hører til står ofte i en annen spalte enn vervet selv: på
+   * side 76 i 50-årsboka innledes stykket om Eldres gruppe i venstre spalte,
+   * mens styret deres står i høyre. Leses spalten alene, finnes organet ikke.
+   */
+  pageContext?: string;
 }
 
 /**
@@ -116,6 +215,7 @@ export function resolveRoles(lines: string[], text: string, options: ResolveRole
   for (const role of yearRows(lines, options)) found.push(role);
   for (const role of roleThenName(text, options)) found.push(role);
   for (const role of nameThenRole(text, options)) found.push(role);
+  for (const role of nameThenYear(text, options)) found.push(role);
 
   // Samme verv kan treffes av to regler. Behold det sterkeste treffet per
   // person, tittel og år — ellers teller den samme opplysningen dobbelt.
@@ -135,7 +235,7 @@ function* roleThenName(text: string, options: ResolveRolesOptions): Generator<Re
     for (const hit of text.matchAll(pattern)) {
       const name = cleanName(hit[1] ?? "");
       if (!name) continue;
-      yield build(term, name, nearestYear(text, hit.index ?? 0, options), "role_then_name", options);
+      yield build(term, name, nearestYear(text, hit.index ?? 0, options), "role_then_name", options, bodyBefore(text, hit.index ?? 0, options));
     }
   }
 }
@@ -147,9 +247,29 @@ function* nameThenRole(text: string, options: ResolveRolesOptions): Generator<Re
     for (const hit of text.matchAll(pattern)) {
       const name = cleanName(hit[1] ?? "");
       if (!name) continue;
-      yield build(term, name, nearestYear(text, hit.index ?? 0, options), "name_then_role", options);
+
+      const rest = text.slice((hit.index ?? 0) + hit[0].length);
+      // «Som formann i «Frigg»» og «formann i banekomiteen» er verv i noe annet
+      // enn klubben. Uten denne prøven ble Georg Halles formannsverv i Frigg
+      // og Emil Sandøs verv i banekomiteen til formannsverv i AaFK.
+      if (/^\s*(?:i|for)\s+(?!\d)/u.test(rest)) continue;
+
+      yield build(term, name, followingYear(rest) ?? nearestYear(text, hit.index ?? 0, options), "name_then_role", options, bodyBefore(text, hit.index ?? 0, options));
     }
   }
+}
+
+/**
+ * Årstallet som følger rett etter rolleordet.
+ *
+ * «Nils Jangaard ble valgt til sekretær i 1915, ble formann i 1917» — året står
+ * bak, ikke foran. Leter man bare bakover, tar man årstallet fra setningen før:
+ * her ga «spilte som aktiv fra 1914 til 1919» ham sekretærvervet i 1919, fire år
+ * feil, og det sto som et faktum i arkivet til denne prøven kom på plass.
+ */
+function followingYear(rest: string): { from?: string; to: string | null } | null {
+  const hit = /^\s*(?:i|fra|siden)?\s*(1[89]\d{2}|20\d{2})\b/u.exec(rest);
+  return hit ? { from: hit[1]!, to: null } : null;
 }
 
 /**
@@ -180,12 +300,69 @@ function* yearRows(lines: string[], options: ResolveRolesOptions): Generator<Res
 const IRREGULAR_PLURALS: Record<string, string[]> = {
   formann: ["formenn", "formennene"],
   nestformann: ["nestformenn", "nestformennene"],
-  oppmann: ["oppmenn", "oppmennene"],
+  // «Opmenn» er skrivematen i 1939-boka, for rettskrivingsreformen.
+  oppmann: ["oppmenn", "oppmennene", "opmenn", "opmennene", "opmann"],
 };
 
+function headingForms(term: string): string[] {
+  return [`${term}(?:ene|er|ne)?`, ...(IRREGULAR_PLURALS[term] ?? [])];
+}
+
 function headingPattern(term: string): RegExp {
-  const forms = [`${term}(?:ene|er|ne)?`, ...(IRREGULAR_PLURALS[term] ?? [])];
-  return new RegExp(`\\b(?:${forms.join("|")})\\b`, "iu");
+  return new RegExp(`\\b(?:${headingForms(term).join("|")})\\b`, "iu");
+}
+
+/**
+ * «Formenn: Sverre Mogstad 1925 og 1926 Rolf Mittet 1927 Georg Haller 1914 og 1915 …»
+ *
+ * Formannsrekka i jubileumsskriftet fra 1939 star ikke som tabell, men som
+ * lopende tekst etter en overskrift i flertall. Det er nettopp den lista
+ * piloten i #73 leste for hand pa trykt side 18, og den baerer bade navnet og
+ * arstallene — «1914 og 1915» blir `from` 1914 og `to` 1915, slik piloten
+ * forte den.
+ *
+ * Rekkevidden er begrenset til et stykke etter overskriften. Uten det ville
+ * hvert navn lenger nede pa siden blitt formann.
+ */
+function* nameThenYear(text: string, options: ResolveRolesOptions): Generator<ResolvedRole> {
+  const entry = new RegExp(`(${NAME})\\s+(\\d{4}(?:\\s*(?:og|,|–|—|-)\\s*\\d{4})*)`, "gu");
+
+  for (const term of ROLE_TERMS) {
+    const heading = new RegExp(`\\b(?:${headingForms(term.term).join("|")})\\s*:`, "giu");
+    for (const start of text.matchAll(heading)) {
+      const from = (start.index ?? 0) + start[0].length;
+      for (const hit of text.slice(from, nextHeading(text, from)).matchAll(entry)) {
+        const name = cleanName(hit[1] ?? "");
+        if (!name) continue;
+        const years = [...(hit[2] ?? "").matchAll(/\d{4}/g)].map((year) => year[0]);
+        const first = years[0];
+        if (!first) continue;
+        if (options.publicationYear && Number(first) > options.publicationYear) continue;
+        yield build(term, name, { from: first, to: years.length > 1 ? years.at(-1)! : null }, "name_then_year", options);
+      }
+    }
+  }
+}
+
+/** Hvor langt etter en overskrift en rekke leses når ingen ny overskrift følger. */
+const LIST_REACH = 400;
+
+/**
+ * Der en rekke slutter: ved neste rolleoverskrift, ellers etter `LIST_REACH`.
+ *
+ * Side 18 i 1939-boka har «Formenn:» og «Opmenn:» rett etter hverandre. Uten
+ * denne grensen rakk den første overskriften ned i den andre rekka, og hvert
+ * navn fikk begge vervene.
+ */
+function nextHeading(text: string, from: number): number {
+  let end = from + LIST_REACH;
+  for (const term of ROLE_TERMS) {
+    const heading = new RegExp(`\\b(?:${headingForms(term.term).join("|")})\\s*:`, "giu");
+    heading.lastIndex = from;
+    const hit = heading.exec(text);
+    if (hit && hit.index > from && hit.index < end) end = hit.index;
+  }
+  return end;
 }
 
 function build(
@@ -194,16 +371,20 @@ function build(
   period: { from?: string; to: string | null },
   rule: ResolvedRole["rule"],
   options: ResolveRolesOptions,
+  hint?: BodyHint,
 ): ResolvedRole {
   const known = options.people.find((person) => person.forms.includes(normalize(personName)));
-  const confidence: ResolvedRole["confidence"] = period.from && known
+  const body = hint?.body;
+  const strongest: ResolvedRole["confidence"] = period.from && known
     ? "high"
     : period.from || known
       ? "medium"
       : "low";
+  // Et verv siden ikke plasserer, skal ikke kunne loftes automatisk.
+  const confidence: ResolvedRole["confidence"] = hint?.uncertain && strongest === "high" ? "medium" : strongest;
 
   const id = `rolle-${createHash("sha256")
-    .update(`${options.sourceId}|${options.page}|${term.title}|${normalize(personName)}|${period.from ?? ""}`)
+    .update(`${options.sourceId}|${options.page}|${term.title}|${normalize(personName)}|${period.from ?? ""}|${body ?? ""}`)
     .digest("hex").slice(0, 16)}`;
 
   return {
@@ -214,6 +395,7 @@ function build(
     ...(known ? { personId: known.id } : {}),
     category: term.category,
     title: term.title,
+    ...(body ? { body } : {}),
     ...(period.from ? { from: period.from } : {}),
     to: period.to,
     confidence,

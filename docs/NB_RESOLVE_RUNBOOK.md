@@ -67,6 +67,12 @@ kobles skal nå være **lavere** enn 84 — det er poenget.
 
 ### 3. Andre gjennomgang
 
+De 96 publikasjonene med ALTO leses spaltevis. De to uten ALTO —
+jubileumsskriftet fra 1939 og 35-årsboka fra 1950 — leses gjennom
+fulltekstsøket i stedet, med rolleordene *og* alle navn i personregisteret som
+søkeord. Det skjer automatisk; `--no-names` slår av navnesøkene hvis du bare vil
+ha rolleordene.
+
 ```bash
 # Se hva den finner uten å skrive noe
 pnpm --filter @aafkstats/ingest nb-resolve
@@ -86,6 +92,7 @@ Valg:
 | `--all-pages` | les alle sider, ikke bare arbeidskøen |
 | `--refresh` | hent på nytt fra NB selv om cachen har sida |
 | `--delay <ms>` | pause foran hver nettforespørsel, standard 250 |
+| `--no-names` | søk bare på rolleord i bøkene uten ALTO, ikke på personnavn |
 | `--write` | skriv `resolvedRoles` i uttrekksfilene |
 | `--apply` | krever `--write`; løfter de sikre rollene inn i personfilene |
 
@@ -107,7 +114,36 @@ tidligere kjøring — legges publikasjonen til som **kilde på den rollen**. De
 blir ikke en rolle nummer to. Det er den regelen som gjør at kjøringen kan
 gjentas uten å gro duplikater.
 
-### 5. Kontroll
+### 5. Omtalene
+
+```bash
+pnpm --filter @aafkstats/ingest nb-mentions --write
+```
+
+Fører hver publikasjon som omtaler en person som kilde på personen. OCR-støy
+kan ikke skape et nytt faktum her: en `person_mention` med høy sikkerhet bærer
+en `personId` som alt er slått opp mot registeret, så enten kjente vi navnet fra
+før, eller så ble det ingen kobling.
+
+Men et navnetreff skiller ikke to personer som heter det samme. Arne Hansen
+spilte i 1986; medlemsbladene fra 1961 til 1976 omtaler en annen Arne Hansen.
+Uten en prøve på tid ble alle seksten ført på ham, og en tredjedel av
+koblingene i første forsøk var slike. Derfor forkastes en publikasjon som er
+mer enn fem år eldre enn det tidligste året arkivet kjenner personen fra.
+Prøven er ensidig: en jubileumsbok fra 2013 omtaler selvsagt spillere fra
+1920-tallet, og skal få lov.
+
+Kjøringen rapporterer hvor mange den forkastet. Er det tallet null, er noe galt
+— navnekollisjoner finnes i dette materialet.
+
+Kjøringen leser bare `data/extractions/` — den trenger verken cache eller nett,
+og er uavhengig av resolve.
+
+Omtalene aggregeres til én henvisning per publikasjon, med den første siden
+personen står på. Lauritz Giske er nevnt på 283 sider; én henvisning per side
+ville gjort personfila ulesbar uten å si mer enn at bladene skrev om ham.
+
+### 6. Kontroll
 
 ```bash
 pnpm validate
@@ -128,32 +164,84 @@ Kjøringen er ikke ferdig når den er grønn. Se over dette før PR:
    maskinelt fra publikasjonen, spaltevis». Slå opp sidetallet på nb.no for et
    utvalg og se at tittelen stemmer. Det er her forskyvningen ville dukket opp
    igjen hvis en regel er feil.
-2. **Årstallet.** `from` settes fra nærmeste årstall inntil 160 tegn foran
-   treffet. Det er en heuristikk. På side 76 gir den 1964 fordi setningen
+2. **Årstallet.** For setningsregelen tas året som følger rett etter vervet —
+   «ble valgt til sekretær i 1915» — og bare når ingen følger, letes det inntil
+   160 tegn bakover. Retningen er ikke en detalj: med bare baklengs søk ga
+   «spilte som aktiv fra 1914 til 1919. Nils Jangaard ble valgt til sekretær i
+   1915» ham vervet i 1919, fire år feil. Det bakoverskuende fallet er fortsatt
+   en heuristikk. På side 76 gir den 1964 fordi setningen
    nevner «neste årsmøte i 1964» — riktig for det styret, men kontroller den på
    noen roller før du stoler på den i mengde.
 3. **Kampkoblinger.** Skal være færre enn før. Blir de flere, er
    rekkefølgekravet i `matchCandidates` gått tapt.
+4. **Sidetallet i de to søkbare bøkene.** Fulltekstsøket oppgir skann-nummeret,
+   ikke det trykte sidetallet, og de to spriker med fire i 1939-boka. Kjøringen
+   oversetter gjennom manifestets `label`, men kontroller et par henvisninger
+   mot nb.no: formannsrekka skal ligge på trykt side 18.
+
+## Bøkene uten ALTO
+
+`aalesunds-fotballklub-gjennem-1939-ec28` (119 sider) og
+`aalesunds-fotballklubb-35-ar-e-1950-2e6c` (20 sider) har ingen ALTO i
+IIIF-manifestet. De kan ikke leses side for side, men fulltekstsøket gir treff
+med teksten før og etter, og de vinduene overlapper hverandre når flere søkeord
+treffer i samme avsnitt. Satt sammen på overlappet gjenoppstår avsnittet, og
+formannsrekka på trykt side 18 kan leses hel:
+
+```
+Formenn: Sverre Mogstad 1925 og 1926 Rolf Mittet 1927 Georg Haller 1914 og 1915 …
+```
+
+Det er den lista piloten i #73 leste for hånd. Maskinen gjenskaper elleve av
+vervene piloten førte, og finner sytten til.
+
+To fallgruver er innebygd i behandlingen, og begge er verdt å kjenne igjen hvis
+noe skal endres:
+
+- **Vinduer skal ikke slås sammen per side, bare på faktisk overlapp.** Side 18
+  har «Formenn:» og «Opmenn:» rett etter hverandre. Limes alle vinduene på siden
+  sammen, havner hvert navn innenfor rekkevidde av begge overskriftene, og
+  halvparten av rollene blir dubletter med feil tittel.
+- **En rekke slutter ved neste overskrift.** Ikke etter et fast antall tegn.
+
+## Lagoppstillinger
+
+`nb-resolve` skriver også `resolvedLineups`: navnene i en oppregning etter
+«laget bestod av», «seierslaget bestod av» og lignende, slått opp mot
+registeret.
+
+De **løftes ikke inn**, og det er ikke forsiktighet — det er at de ikke kan.
+En oppstilling må høre til en kamp for å bety noe, og det står nesten aldri på
+samme sted: «Seierslaget bestod fra mål til ytre venstre av: …» sier hvem som
+spilte, men ikke mot hvem eller når. Å gjette kampen ut fra nærmeste årstall
+ville knyttet elleve navn til feil kamp, og en feil oppstilling er verre enn
+ingen, fordi den ser like riktig ut som en rett.
+
+`season` settes når et årstall står nær. Det er en pekepinn for den som skal
+finne kampen, ikke en påstand om når laget spilte.
+
+Dette er samtidig det ene stedet materialet kan gi arkivet noe *nytt*.
+Oppstillinger fra mellomkrigstiden finnes ikke fra noen annen kilde — hverken
+RSSSF eller FotMob rekker dit.
+
+## Verv som ikke er klubbens
+
+Publikasjonene omtaler også verv i andre organisasjoner og i klubbens egne
+underutvalg: «Som formann i «Frigg»», «formann i Sunnmøre Fotballkrets»,
+«formann i banekomiteen». Setningsregelen hopper over et verv der rolleordet
+følges av «i» eller «for» og noe annet enn et årstall, nettopp for at slike ikke
+skal bli formannsverv i AaFK.
+
+Organet står ofte i en annen spalte enn vervet. Side 76 i 50-årsboka innleder
+stykket om *Eldres gruppe* i venstre spalte og lister styret deres i høyre, så
+`body` letes både i spalten og i sidas helhet.
+
+Kan siden ikke tilordne organet — den nevner flere, som side 76 gjør med både
+Eldres gruppe og Arbeidsutvalget — settes ingen `body`, og rollen **senkes fra
+`high` til `medium`**. Da kan den ikke løftes automatisk. Et verv siden ikke
+plasserer, er ikke et verv vi kan si var klubbens.
 
 ## Det denne kjøringen ikke gjør
-
-- **De to bøkene uten ALTO.** `aalesunds-fotballklub-gjennem-1939-ec28` (119
-  sider) og `aalesunds-fotballklubb-35-ar-e-1950-2e6c` (20 sider) har ingen
-  ALTO i IIIF-manifestet, og `nb-resolve` hopper over dem. Det er de to
-  viktigste bøkene for personhistorien — 1939-boka er kilden bak hele piloten i
-  #73 — og de er aldri lest side for side, bare søkt i med 20 faste ord.
-
-  Fulltekstsøket gir mer enn første gjennomgang brukte. Et søk på `formann` mot
-  `contentsearch`-endepunktet returnerer treff med kontekst før og etter, og
-  koordinater på riktig canvas:
-
-  ```
-  «...med Georg Haller som dens første [[formann.]] Georg Haller var straks klar over...»
-  ```
-
-  Det er rolle og navn ferdig koblet. Neste steg for de to bøkene er å søke med
-  personnavnene fra registeret i tillegg til rolleordene, og kjøre `before`/
-  `after` gjennom den samme `resolveRoles` som ALTO-teksten. Ikke bygget ennå.
 
 - **Lagoppstillinger og sesongfakta.** Kandidatlaget har 108 og 74 av dem.
   Resolveren tar bare roller.

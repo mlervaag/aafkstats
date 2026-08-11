@@ -1,5 +1,30 @@
 id: karsten-vadseth
 name: Karsten Vadseth
 roles:
-  - { id: gullmerkeinnehaver-1982, category: honorary, title: Gullmerkeinnehaver, from: "1982", to: null, sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }] }
-  - { id: aeresmedlem-1987, category: honorary, title: Æresmedlem, from: "1987", to: null, sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }] }
+  - { id: gullmerkeinnehaver-1982, category: honorary, title: Gullmerkeinnehaver, from: "1982", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
+  - { id: aeresmedlem-1987, category: honorary, title: Æresmedlem, from: "1987", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
+sources:
+  - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+    page: "27"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1980-bec4
+    page: "1"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: opp-fra-myra-fotballtriumfen-i-2002-6192
+    page: "73"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: tango-siden-1914-2013-806b
+    page: "185"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: vi-er-75-ar-1989-aff6
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: vi-er-80-ar-1914-1994-1994-5e91
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.

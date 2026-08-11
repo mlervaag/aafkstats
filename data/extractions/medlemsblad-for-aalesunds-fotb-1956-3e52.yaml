@@ -2398,7 +2398,7 @@ candidates:
       - lauritz-giske
     matchIds: []
 resolvedRoles:
-  - id: rolle-11f4f36a06e69622
+  - id: rolle-76f9a91b21c1b589
     page: "2"
     column: 0
     personName: Jakob Foss
@@ -2407,16 +2407,17 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-30c5fca67872443d
+  - id: rolle-8ebe6052d9c21f76
     page: "5"
     column: 0
     personName: Børre Strømde
     category: administration
     title: Sekretær
+    body: Friidrettsgruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-02bc3225f03e0432
+  - id: rolle-e59e7477b8db8035
     page: "11"
     column: 1
     personName: Elisabeth Nørve
@@ -2425,86 +2426,104 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-19ef17f1f813956d
+  - id: rolle-731c3e142e15f864
     page: "12"
     column: 1
     personName: Alf Annaniassen
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-7c14ef135cf32d2a
+  - id: rolle-2190776281a4d76e
     page: "12"
     column: 1
     personName: Erling Bjørge
     personId: erling-bjorge
     category: administration
     title: Sekretær
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-2530b032587baf9e
+  - id: rolle-f76dc05db8d787f5
     page: "12"
     column: 1
     personName: Gerd Strømsholm. Nestformam
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-52cf11da48a09e0f
+  - id: rolle-f63bc423eb87cdfa
     page: "12"
     column: 1
     personName: Hans Ole Sødergren
     category: sporting_staff
     title: Oppmann
+    body: Banekomiteen
     from: "1944"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-901fff784a393a01
+  - id: rolle-16c721b1742a990c
     page: "12"
     column: 1
     personName: Harald Sæther
     category: administration
     title: Kasserer
+    body: Banekomiteen
     from: "1944"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-0ac5627d71cf22c6
+  - id: rolle-1e50692b3866cd3a
     page: "12"
     column: 1
     personName: Kjell Berentzen. Tlf
     category: board
     title: Formann
+    body: Banekomiteen
     from: "1955"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-b6d258e2e468ea94
+  - id: rolle-8e3a92dd50da918e
+    page: "12"
+    column: 1
+    personName: Kjell Berentzen. Tlf
+    category: board
+    title: Formann
+    from: "1124"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-cb9879c50c03b27a
     page: "12"
     column: 1
     personName: Lauritz Giske
     personId: lauritz-giske
     category: board
     title: Nestformann
+    body: Banekomiteen
     from: "1955"
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-ea3252eb6750df82
+  - id: rolle-28ed02214e556d09
     page: "12"
     column: 1
     personName: Rolf Kvissel
     category: administration
     title: Sekretær
+    body: Banekomiteen
     from: "1944"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-8dd33ec119abae6d
+  - id: rolle-32742aa23f38d79d
     page: "19"
     column: 0
     personName: Kjell Berent-
@@ -2513,132 +2532,155 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-0a462ce1c3f94f09
+  - id: rolle-a11626451dd37f07
     page: "21"
     column: 0
     personName: Aslaug Haugen Tolaas
     category: sporting_staff
     title: Oppmann
+    body: Sportsutvalget
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-7eb8068a2d3a6843
+  - id: rolle-99dce5438da6dbf0
     page: "21"
     column: 0
     personName: Gerd Strømsholm
     category: board
     title: Formann
+    body: Sportsutvalget
     from: "1956"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-fd58f2937cabdec6
+  - id: rolle-eb99047bd4a37e26
     page: "21"
     column: 0
     personName: Marit Puck Helland
     category: board
     title: Nestformann
+    body: Sportsutvalget
     from: "1946"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-548f8879bbf8235a
+  - id: rolle-616bf81b88d7439a
     page: "21"
     column: 0
     personName: Mary Vegsund
     category: administration
     title: Kasserer
+    body: Sportsutvalget
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-1f22e0f76a27d3b2
+  - id: rolle-0accc8703679f0c0
     page: "28"
     column: 1
     personName: Sverre Lervik
     category: board
     title: Formann
+    body: Damegruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-882289ecd5e603b0
+  - id: rolle-4df1509cf67dfb1e
     page: "28"
     column: 2
     personName: Arvid Sæther
     category: administration
     title: Kasserer
+    body: Damegruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-bd5f8e017960716e
+  - id: rolle-74bae68bbb0b0822
     page: "28"
     column: 2
     personName: Georg Skjølsvik
     category: sporting_staff
     title: Oppmann
+    body: Damegruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-529f58131ce7d2df
+  - id: rolle-24e502487df6b5df
     page: "36"
     column: 2
     personName: Elisabeth Nørve
     category: board
     title: Nestformann
+    body: Arrangementskomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-ca36b09a3055044f
+  - id: rolle-e64ab5f8b5f0a99d
     page: "36"
     column: 2
     personName: Hans Ole Sedergren
     category: sporting_staff
     title: Oppmann
+    body: Arrangementskomiteen
     from: "1944"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-97e057c01955ea29
+  - id: rolle-1a243e620058d7b4
     page: "36"
     column: 2
     personName: Harald Sæther
     category: administration
     title: Kasserer
+    body: Arrangementskomiteen
     from: "1944"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-b58f8c23b1dc0ee6
+  - id: rolle-0cdef1f31b247bf3
     page: "36"
     column: 2
     personName: Kjell Berentzen. TIf
     category: board
     title: Formann
+    body: Arrangementskomiteen
     from: "1955"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-e38ce5c18557dd32
+  - id: rolle-9ceed0763d480549
+    page: "36"
+    column: 2
+    personName: Kjell Berentzen. TIf
+    category: board
+    title: Formann
+    from: "1124"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-55db021c59d241ca
     page: "36"
     column: 2
     personName: Lauritz Giske
     personId: lauritz-giske
     category: board
     title: Nestformann
+    body: Arrangementskomiteen
     from: "1955"
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-cf5079df7eaaa57e
+  - id: rolle-1213c3a500fbf325
     page: "36"
     column: 2
     personName: Rolf Kvissel
     category: administration
     title: Sekretær
+    body: Arrangementskomiteen
     from: "1944"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-d46450c582f43818
+  - id: rolle-ac04a900cb5bbf50
     page: "48"
     column: 1
     personName: Lauritz Giske
@@ -2648,7 +2690,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-d8635d400b8740f1
+  - id: rolle-cd6ee8fc2b8fb485
     page: "48"
     column: 1
     personName: Martin Brusdal
@@ -2657,7 +2699,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-f2553de8cb634489
+  - id: rolle-6e116f0bbb25ef61
     page: "50"
     column: 0
     personName: Josef Skocik
@@ -2666,86 +2708,104 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-fb23a94c2a702999
+  - id: rolle-2cb6071769a94b96
     page: "58"
     column: 0
     personName: Rolf Annaniassen
     personId: rolf-annaniassen
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-602e3e5473b63a32
+  - id: rolle-4f70fb1d89049155
     page: "60"
     column: 2
     personName: Alf Annaniassen
     category: board
     title: Formann
+    body: Old boys
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-ea349569b34bddff
+  - id: rolle-2e349ac81a6b7c0c
     page: "60"
     column: 2
     personName: Elisabeth Nørve
     category: board
     title: Nestformann
+    body: Old boys
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-9d1d978896b18985
+  - id: rolle-75300072af1a1f6a
     page: "60"
     column: 2
     personName: Hans Ole Sødergren
     category: sporting_staff
     title: Oppmann
+    body: Old boys
     from: "1944"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-5f2d23287598e751
+  - id: rolle-36e2d1c4f4af2421
     page: "60"
     column: 2
     personName: Harald Sæther
     category: administration
     title: Kasserer
+    body: Old boys
     from: "1944"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-82b70bbf39613984
+  - id: rolle-df864ccb09e909e6
     page: "60"
     column: 2
     personName: Kjell Berentzen. Tlf
     category: board
     title: Formann
+    body: Old boys
     from: "1955"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-554b4e078a49f1ae
+  - id: rolle-35edebf25adc09d4
+    page: "60"
+    column: 2
+    personName: Kjell Berentzen. Tlf
+    category: board
+    title: Formann
+    from: "1124"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-5c3b29d1b6ec0968
     page: "60"
     column: 2
     personName: Lauritz Giske
     personId: lauritz-giske
     category: board
     title: Nestformann
+    body: Old boys
     from: "1955"
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-68ae7a8819d4d6c0
+  - id: rolle-290952301ca989bf
     page: "60"
     column: 2
     personName: Rolf Kvissel
     category: administration
     title: Sekretær
+    body: Old boys
     from: "1944"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-f3147e43885ffe99
+  - id: rolle-0d6045d028021afc
     page: "64"
     column: 1
     personName: Hans Ole Sødergren. Varamenn
@@ -2754,61 +2814,67 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-8ab3253873f1ba24
+  - id: rolle-944c6832fc607f44
     page: "64"
     column: 1
     personName: Harald Sæther
     category: administration
     title: Kasserer
+    body: Aldersgruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-0ad234cd1f2a143a
+  - id: rolle-98ae6b60e3695248
     page: "64"
     column: 1
     personName: Ole Aasen
     category: administration
     title: Sekretær
+    body: Aldersgruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-2f6cd14042d22d19
+  - id: rolle-ec9e361d3cb6bee2
     page: "67"
     column: 0
     personName: Einar Bjørge
     category: board
     title: Nestformann
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-1ed0d3a5e0fc5d42
+  - id: rolle-7938676287063a67
     page: "67"
     column: 0
     personName: Frantz Lømo
     category: administration
     title: Sekretær
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-395e4cc5c1f9a1f0
+  - id: rolle-74052eb0ec84f49b
     page: "67"
     column: 0
     personName: Helge Lunde
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-5bc0d0eaba713430
+  - id: rolle-fea1e2a8d4d09c4c
     page: "77"
     column: 1
     personName: Kjell Berentzen SSS
     category: board
     title: Formann
+    body: Festkomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-ac2764524c36a86a
+  - id: rolle-32d3ef7995ac8a95
     page: "84"
     column: 0
     personName: Rolf Larssen
@@ -2817,7 +2883,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-79e55ebac78d5239
+  - id: rolle-3e5d3616aa2415cf
     page: "84"
     column: 0
     personName: Øivind FIG N RR
@@ -2826,3 +2892,42 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups:
+  - id: oppstilling-082cb2f154636941
+    page: "40"
+    column: 0
+    names:
+      - Einar Aas
+      - Karsten Vadseth
+      - Oddbjørn Løken
+      - Harry Hauknes
+      - Nils Sundal
+      - Thorbjørn Aarøe
+      - Jan Larsen
+      - Karsten Nedregård
+      - Ørvar Tollås
+      - Einar Breivik
+      - Asbjorn Ystenes
+      - Papirhandel Kortevarer
+    personIds:
+      - einar-aas
+      - karsten-vadseth
+      - karsten-nedregard
+    confidence: medium
+  - id: oppstilling-ed1965b0b847b53f
+    page: "72"
+    column: 0
+    season: 1955
+    names:
+      - Terje Olsen
+      - Gunnar Standal
+      - Jarle Kleive
+      - Terje Nilsen
+      - Svein Walter Rødland
+      - Arnulf Klausen
+      - Einar With
+      - Steinar Nedregård
+      - Rolv Tøsse
+    personIds:
+      - einar-with
+    confidence: medium

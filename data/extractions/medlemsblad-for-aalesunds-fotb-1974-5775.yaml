@@ -660,7 +660,7 @@ candidates:
     personIds: []
     matchIds: []
 resolvedRoles:
-  - id: rolle-0bc1d44322dad738
+  - id: rolle-d24a829cfd302b9a
     page: "2"
     column: 0
     personName: Jan With
@@ -670,7 +670,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-254000294211a0f6
+  - id: rolle-fa3100592ae87a1d
     page: "5"
     column: 0
     personName: Reidar Fosse
@@ -679,7 +679,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-2e859aff20799819
+  - id: rolle-06c7c817321ed2dc
     page: "6"
     column: 0
     personName: Einar With
@@ -690,7 +690,7 @@ resolvedRoles:
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-6f468708b26b02ea
+  - id: rolle-aabdfa3745ce8e73
     page: "6"
     column: 0
     personName: Inger Kristoffersen Medlemsbladets
@@ -699,7 +699,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-15f536ddf6184716
+  - id: rolle-31b8281ac29b6e70
     page: "6"
     column: 0
     personName: Lillian Hansen
@@ -709,7 +709,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-dbedd5dced77e46a
+  - id: rolle-d2afd5ecf51fdc07
     page: "6"
     column: 0
     personName: Magne Bjørge
@@ -719,7 +719,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-b70199da523175ff
+  - id: rolle-8fd070732e931f20
     page: "6"
     column: 0
     personName: Per Stein Bjørkedal
@@ -729,7 +729,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-3f3124c96d75f6df
+  - id: rolle-414211c1408c1abb
     page: "6"
     column: 0
     personName: Reidar Fosse
@@ -739,7 +739,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-02fafd4246c164dd
+  - id: rolle-fdf34154e00942e3
     page: "6"
     column: 0
     personName: Terje Dragsund
@@ -749,16 +749,17 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-191b05ed2b87524a
+  - id: rolle-a1507dbdd5b8ec5d
     page: "10"
     column: 0
     personName: Bjørn Fosse
     category: sporting_staff
     title: Oppmann
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-864f686753c22855
+  - id: rolle-2f13a15d7b568ca9
     page: "11"
     column: 0
     personName: Bodil Fosse
@@ -767,7 +768,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-246e998a6e59c2b6
+  - id: rolle-cafb74985ac55900
     page: "11"
     column: 0
     personName: Reidar Fosse
@@ -776,3 +777,4 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups: []

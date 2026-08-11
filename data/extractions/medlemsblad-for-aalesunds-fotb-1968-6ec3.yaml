@@ -1198,7 +1198,7 @@ candidates:
       - hans-j-henriksen
     matchIds: []
 resolvedRoles:
-  - id: rolle-75f121641aaae551
+  - id: rolle-9f345a08410cb07e
     page: "2"
     column: 0
     personName: Erling Bjørges T
@@ -1207,7 +1207,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-abe029f415bd66d4
+  - id: rolle-78cc5b2c135caeee
     page: "2"
     column: 1
     personName: Karsten Molværsmyr
@@ -1216,7 +1216,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-26c0d3b7c766f26e
+  - id: rolle-2035cbd785616acc
     page: "2"
     column: 1
     personName: Arne Finsnes
@@ -1225,7 +1225,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-53a2d4befd799d2c
+  - id: rolle-5e1dd94a976cf3da
     page: "2"
     column: 1
     personName: Rolf Annaniassens
@@ -1234,7 +1234,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-21a79ce724d4a002
+  - id: rolle-638e3504878a2610
     page: "3"
     column: 0
     personName: Karin Riise Medlemsbladet
@@ -1243,7 +1243,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-4c3dccd2697717f4
+  - id: rolle-f1fdc688e19ad1b6
     page: "4"
     column: 0
     personName: Jarle Kristoffersen
@@ -1253,7 +1253,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-ed697a5dd142237e
+  - id: rolle-c44410ddb35f80ef
     page: "11"
     column: 0
     personName: Kjell Luthentun
@@ -1262,7 +1262,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-335ab535f0e41cc0
+  - id: rolle-3c98ebb6cdfff05c
     page: "15"
     column: 0
     personName: Knut Osnes
@@ -1271,7 +1271,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-965660701827589e
+  - id: rolle-32bf3564c97db76d
     page: "16"
     column: 0
     personName: Halvard Tørlen
@@ -1280,3 +1280,26 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups:
+  - id: oppstilling-abe7285499e50866
+    page: "3"
+    column: 0
+    names:
+      - Sverre Strømsheim
+      - Jan Refsnes
+      - Dagfinn Fredriksen
+      - Robert Larsen
+      - Peder Hatlen
+      - Asbjørn Korsnes
+      - Ole Valderhaug
+      - Olav Volstad
+      - Frode Ramsvik
+      - Idar Solbakk. Gåseide
+      - Einar Gåseide
+      - Helmer Lausund
+      - Olaf Pedersen
+      - Peder Puck
+    personIds:
+      - asbjorn-korsnes
+      - peder-puck
+    confidence: medium

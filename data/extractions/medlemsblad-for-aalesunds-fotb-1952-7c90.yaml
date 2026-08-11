@@ -2229,17 +2229,18 @@ candidates:
       - per-anker-eriksen
     matchIds: []
 resolvedRoles:
-  - id: rolle-4fddf123220d3fee
+  - id: rolle-21612dc3626323dd
     page: "7"
     column: 0
     personName: Emil Sandø
     personId: emil-sando
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-050626b5012e1c23
+  - id: rolle-761067b9b6131a98
     page: "11"
     column: 2
     personName: Tom Whittaker
@@ -2248,7 +2249,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-c9abf53d114fd65c
+  - id: rolle-4f31a673740364d5
     page: "24"
     column: 2
     personName: Alfhild Ringdal
@@ -2257,7 +2258,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-5ccaba719b4527ad
+  - id: rolle-c5b21e190b913e62
     page: "24"
     column: 2
     personName: Emil Sandø
@@ -2267,7 +2268,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-815ecdfb72b54b7b
+  - id: rolle-1b2aa3802792242e
     page: "24"
     column: 2
     personName: Halvard Tørlen
@@ -2277,7 +2278,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-900bdd2a9168ad65
+  - id: rolle-65913140db54a4e8
     page: "24"
     column: 2
     personName: Karsten Eriksen
@@ -2286,9 +2287,9 @@ resolvedRoles:
     title: Nestformann
     from: "1952"
     to: null
-    confidence: high
+    confidence: medium
     rule: role_then_name
-  - id: rolle-1c9dc4fe8bdfba00
+  - id: rolle-65073c40a495ac89
     page: "24"
     column: 2
     personName: Per Anker Eriksen
@@ -2298,7 +2299,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-96e74387983aecc3
+  - id: rolle-e00cdf49cbf50b18
     page: "24"
     column: 2
     personName: Per Anker Eriksen
@@ -2307,9 +2308,9 @@ resolvedRoles:
     title: Formann
     from: "1952"
     to: null
-    confidence: high
+    confidence: medium
     rule: role_then_name
-  - id: rolle-7eb27222d8f30e70
+  - id: rolle-c359e8320fb15075
     page: "24"
     column: 2
     personName: Ragnvald Langva
@@ -2318,7 +2319,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-b6b38af9e0fe4c7c
+  - id: rolle-83383f712e45bd16
     page: "24"
     column: 2
     personName: Å Bernt Sulebust
@@ -2328,17 +2329,18 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-f8ab8a83749a3cef
+  - id: rolle-c9981e396d7c39bb
     page: "29"
     column: 0
     personName: Emil Sandø
     personId: emil-sando
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-7deb8fb17bccccaf
+  - id: rolle-1ccdcf4b46faafe8
     page: "41"
     column: 0
     personName: Rolf Flydal
@@ -2348,7 +2350,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-8c531e53f45d0815
+  - id: rolle-5133649071a38ca1
     page: "41"
     column: 1
     personName: Rolf Flydal
@@ -2358,121 +2360,132 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-23640888b8d14671
+  - id: rolle-dcd573d01453fee4
     page: "53"
     column: 2
     personName: Per Anker Eriksen
     personId: per-anker-eriksen
     category: board
     title: Formann
+    body: Fotballgruppen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-a2898de4e1c692b2
+  - id: rolle-7aa2f676662b7ad9
     page: "60"
     column: 2
     personName: Alfhild Ringdal
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-c2d2c9507a6dd707
+  - id: rolle-55f8252978ea6bbb
     page: "60"
     column: 2
     personName: Bernt Sulebust
     personId: bernt-sulebust
     category: administration
     title: Sekretær
+    body: Banekomiteen
     from: "1952"
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-dfc699d8363ead4c
+  - id: rolle-61647e48ec58309d
     page: "60"
     column: 2
     personName: Halvard Tørlen
     category: administration
     title: Kasserer
+    body: Banekomiteen
     from: "1952"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-c98e6c56d9a64350
+  - id: rolle-0a7f7ec7dc08a8b3
     page: "60"
     column: 2
     personName: Karsten Eriksen
     personId: karsten-eriksen
     category: board
     title: Nestformann
+    body: Banekomiteen
     from: "1952"
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-38b49fc36ee8a1ea
+  - id: rolle-8264ea17962254fa
     page: "60"
     column: 2
     personName: Per Anker Eriksen
     personId: per-anker-eriksen
     category: board
     title: Formann
+    body: Banekomiteen
     from: "1952"
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-ce2c164930450eb4
+  - id: rolle-1d2a997846a04f0d
     page: "60"
     column: 2
     personName: Ragnvald Langva
     category: sporting_staff
     title: Oppmann
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-86cfdddb71effe8e
+  - id: rolle-6504056e14b26f72
     page: "65"
     column: 0
     personName: Emil Sandø
     personId: emil-sando
     category: board
     title: Formann
+    body: Banekomiteen
     from: "1951"
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-5976ec1b8522c3f8
+  - id: rolle-6bca5efde357f7f0
     page: "65"
     column: 0
     personName: Peder Puck
     personId: peder-puck
     category: board
     title: Nestformann
+    body: Banekomiteen
     from: "1951"
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-903e51df32762db7
+  - id: rolle-95c788270c55f9e7
     page: "65"
     column: 0
     personName: Sigurd Nørve
     personId: sigurd-norve
     category: administration
     title: Sekretær
+    body: Banekomiteen
     from: "1951"
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-1770df224c57d7dc
+  - id: rolle-883b380b6fa204c5
     page: "65"
     column: 0
     personName: Trygve Stubb. De
     category: administration
     title: Kasserer
+    body: Banekomiteen
     from: "1951"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-c475af03101309f9
+  - id: rolle-7fdc97860fb4d77f
     page: "69"
     column: 2
     personName: Marie Synnes
@@ -2482,16 +2495,17 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-9b8076b70dbd857a
+  - id: rolle-7e676d248938f240
     page: "85"
     column: 0
     personName: Hans Södergren
     category: sporting_staff
     title: Oppmann
+    body: Juniorgruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-895ea2007338f889
+  - id: rolle-d431c6e4a30b3e2c
     page: "89"
     column: 1
     personName: Bernt Sulebust
@@ -2501,7 +2515,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-56d431daae9eba94
+  - id: rolle-e83b4cbadc02e344
     page: "89"
     column: 1
     personName: Harald Sæther
@@ -2510,7 +2524,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-075bdb37d1d7f3e7
+  - id: rolle-dd6551ff06ce967b
     page: "89"
     column: 1
     personName: Karsten Eriksen
@@ -2520,7 +2534,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-3c0efc3ed1bd44a0
+  - id: rolle-b054039491dee9cf
     page: "89"
     column: 1
     personName: Ragnvald Langva
@@ -2529,13 +2543,15 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-7ac76620bc13b1fd
+  - id: rolle-6d3d1cdb3a7d58c1
     page: "89"
     column: 2
     personName: Rasmus Eck-Olsen
     personId: rasmus-eck-olsen
     category: board
     title: Formann
+    body: Arrangementskomiteen
     to: null
     confidence: medium
     rule: role_then_name
+resolvedLineups: []

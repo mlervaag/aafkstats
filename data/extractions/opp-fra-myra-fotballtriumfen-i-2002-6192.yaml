@@ -2096,7 +2096,7 @@ candidates:
       - ivar-morten-normark
     matchIds: []
 resolvedRoles:
-  - id: rolle-34cb062aa46c4907
+  - id: rolle-0a1ca1dd09a7b6c3
     page: "12"
     column: 0
     personName: Henrik Hoff
@@ -2105,7 +2105,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-ee5636012d9f062d
+  - id: rolle-87b3d56e4bef09aa
     page: "14"
     column: 1
     personName: Ivar Morten Normark
@@ -2115,16 +2115,17 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-ac9ea644472dfbfa
+  - id: rolle-189788133abb8e9c
     page: "21"
     column: 0
     personName: Helge Røsvik
     category: coach
     title: Trener
+    body: Spillergruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a0245da8ebb262aa
+  - id: rolle-efaf5fcfb0c892c4
     page: "29"
     column: 1
     personName: Bård Wiggen. Samtidig
@@ -2133,7 +2134,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-ae20ab40ef12c1ef
+  - id: rolle-3383075ff30abb99
     page: "29"
     column: 1
     personName: Frode Ohr
@@ -2142,7 +2143,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-75c5d884312bfa7b
+  - id: rolle-ee8d9a0ddd733339
     page: "29"
     column: 1
     personName: Jon Ketil Gjørtz
@@ -2152,7 +2153,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-f412ba8e6465db58
+  - id: rolle-01bed2a432eb92cb
     page: "29"
     column: 1
     personName: Monaco. Hoff
@@ -2161,7 +2162,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-db18a9959e9d4d6f
+  - id: rolle-4fbdbc38ee1b7434
     page: "30"
     column: 1
     personName: Arnstein Johansen. I
@@ -2170,7 +2171,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-11bb110c4d3df5c1
+  - id: rolle-fdfae68c2765e589
     page: "30"
     column: 1
     personName: Pierre Üboldi
@@ -2179,7 +2180,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a73ea9cb3fd90063
+  - id: rolle-16ed1670511dd078
     page: "32"
     column: 1
     personName: Terje Refsnes
@@ -2189,7 +2190,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-69e9cc38ed011c4d
+  - id: rolle-86f908595941a165
     page: "33"
     column: 0
     personName: Bård Wggen
@@ -2198,7 +2199,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-f1260ade11a2b3a1
+  - id: rolle-83f219432879e33c
     page: "39"
     column: 0
     personName: Geir Hansen
@@ -2208,7 +2209,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-6e5a4bc78d986c92
+  - id: rolle-e7dd72940e475993
     page: "39"
     column: 0
     personName: Reidar Vågnes
@@ -2217,7 +2218,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-1b9cae30d53b9ccd
+  - id: rolle-d79544da4a614f70
     page: "40"
     column: 1
     personName: Knut Torbjørn Eggen
@@ -2226,17 +2227,18 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-283fac2205270423
+  - id: rolle-5cc1957c8a548dd5
     page: "51"
     column: 0
     personName: Ivar Morten Normark
     personId: ivar-morten-normark
     category: coach
     title: Trener
+    body: Spillergruppen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-66e790b8b9514abc
+  - id: rolle-1aa24fb772c2f607
     page: "85"
     column: 0
     personName: Arne Aambakk
@@ -2246,7 +2248,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-f9d00786e722b83b
+  - id: rolle-b2098706ec32a154
     page: "88"
     column: 1
     personName: Geo Haller
@@ -2256,7 +2258,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-f3d70bb5719ece6d
+  - id: rolle-6cc4ff0861c453e4
     page: "100"
     column: 1
     personName: Gunnar Sørensen Utvalg
@@ -2265,7 +2267,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-0a159ef6cb56a393
+  - id: rolle-3f967bd3e457592a
     page: "107"
     column: 0
     personName: Torbjørn Glomnes
@@ -2274,7 +2276,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-2f8a1acdbbd43849
+  - id: rolle-61fe43ed1ff72b90
     page: "107"
     column: 1
     personName: Reidar Vågnes
@@ -2283,3 +2285,20 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups:
+  - id: oppstilling-706907b6a84ccd73
+    page: "17"
+    column: 1
+    names:
+      - Frank Mathiesen
+      - Herman Ekeberg
+      - Amund Skiri
+      - Johnny Vattøy
+      - Bjørn Erik Melland
+      - Frode Fagermo
+      - Trond Fredriksen
+      - Pål Stadsnes
+      - Tor Hogne Aarøy
+    personIds:
+      - trond-fredriksen
+    confidence: medium

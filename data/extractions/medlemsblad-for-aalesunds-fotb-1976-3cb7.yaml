@@ -934,44 +934,48 @@ candidates:
       - petter-birkevold
     matchIds: []
 resolvedRoles:
-  - id: rolle-94bd27ace495cb05
+  - id: rolle-5406d6c1a79c1cfd
     page: "3"
     column: 0
     personName: Kjell Vestre
     personId: kjell-vestre
     category: board
     title: Formann
+    body: Juniorgruppa
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-3f68ec6d5d2b82a3
+  - id: rolle-305794f818c1c6c9
     page: "3"
     column: 0
     personName: Nils P. Loe
     category: administration
     title: Kasserer
+    body: Juniorgruppa
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-b69f079ccd0beb84
+  - id: rolle-a425f5b754fd5423
     page: "3"
     column: 0
     personName: Svein Solbak
     category: administration
     title: Sekretær
+    body: Juniorgruppa
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-c535b8b0333a097a
+  - id: rolle-12769acf6526e4d3
     page: "3"
     column: 0
     personName: Sverre Rønsen
     category: sporting_staff
     title: Oppmann
+    body: Juniorgruppa
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-8879f3380e00e14d
+  - id: rolle-c143573557ba4f9c
     page: "4"
     column: 0
     personName: Steinar Nedregård. Hans Akslen
@@ -980,12 +984,17 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-0381e19d6a52e1f9
-    page: "15"
+resolvedLineups:
+  - id: oppstilling-1748d027dc0205d8
+    page: "4"
     column: 0
-    personName: Allan Hudson
-    category: coach
-    title: Trener
-    to: null
-    confidence: low
-    rule: name_then_role
+    names:
+      - Torgeir Skauvik
+      - Per Gidske
+      - Bjarte Steinsbu
+      - Jan Refsnes
+      - Nils Grønningsæter
+      - Bjorn Andersen
+      - Petter Loe
+    personIds: []
+    confidence: medium

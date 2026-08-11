@@ -1,7 +1,7 @@
 id: nils-jangaard
 name: Nils Jangaard
 roles:
-  - { id: banekomite-1914-1915, category: project, title: Medlem av banekomiteen, body: Nørvebana, from: "1914", to: "1915", sources: [{ sourceId: aafk-historie-norvebana, fields: [title, from, to] }] }
+  - { id: banekomite-1914-1915, category: project, title: Medlem av banekomiteen, body: Nørvebana, from: "1914", to: "1915", sources: [ { sourceId: aafk-historie-norvebana, fields: [ title, from, to ] } ] }
   - id: sekretaer-1915
     category: administration
     title: Sekretær
@@ -11,7 +11,7 @@ roles:
     sources:
       - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
         page: "4"
-        fields: [title, from, to]
+        fields: [ title, from, to ]
   - id: formann-1917
     category: board
     title: Formann
@@ -21,7 +21,13 @@ roles:
     sources:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
-        fields: [title, from, to]
+        fields: [ title, from, to ]
+      - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
+        page: "4"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_role)."
   - id: formann-1919
     category: board
     title: Formann
@@ -31,7 +37,7 @@ roles:
     sources:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
-        fields: [title, from, to]
+        fields: [ title, from, to ]
   - id: formann-1929
     category: board
     title: Formann
@@ -41,8 +47,97 @@ roles:
     sources:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
-        fields: [title, from, to]
+        fields: [ title, from, to ]
       - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
         page: "4"
-        fields: [title, from, to]
-  - { id: gullmerkeinnehaver-1919, category: honorary, title: Gullmerkeinnehaver, from: "1919", to: null, sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }] }
+        fields: [ title, from, to ]
+  - { id: gullmerkeinnehaver-1919, category: honorary, title: Gullmerkeinnehaver, from: "1919", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
+sources:
+  - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
+    page: "2"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+    page: "27"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: "5"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: "54"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+    page: "24"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: "90"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+    page: "4"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: "11"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: "19"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1964-9418
+    page: "10"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1966-aa8b
+    page: "8"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1967-bebf
+    page: "16"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1968-db10
+    page: "6"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1971-e55d
+    page: "3"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-2d3d
+    page: "2"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-6d28
+    page: "2"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-ab1b
+    page: "2"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-db4e
+    page: "2"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1976-2c84
+    page: "4"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: tango-siden-1914-2013-806b
+    page: "31"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: vi-er-75-ar-1989-aff6
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: vi-er-80-ar-1914-1994-1994-5e91
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.

@@ -3267,45 +3267,49 @@ candidates:
     personIds: []
     matchIds: []
 resolvedRoles:
-  - id: rolle-b7f3294cb5d2335e
+  - id: rolle-8b540de16fc4a402
     page: "2"
     column: 0
     personName: Kjell Berentzen
     personId: kjell-berentzen
     category: board
     title: Formann
+    body: Valgkomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-7d794a87a0296b35
+  - id: rolle-4a39a550cb8debd1
     page: "6"
     column: 0
     personName: Brede Borgen
     category: coach
     title: Trener
+    body: Arrangementskomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-9db735c830f2fe89
+  - id: rolle-5370d5de8f55003f
     page: "10"
     column: 2
     personName: Else Giske
     category: administration
     title: Kasserer
+    body: Amatørkomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-04a9d9347fa40124
+  - id: rolle-570f08b68ad83d32
     page: "14"
     column: 0
     personName: Kjell Begang
     category: board
     title: Formann
+    body: Byggekomiteen
     from: "1956"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-e86a84869d675b95
+  - id: rolle-fc0f8de538e46334
     page: "15"
     column: 1
     personName: Alf Moen. Fotballgode
@@ -3314,7 +3318,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-e10a743cbb8e8790
+  - id: rolle-c54fd9ac8f860d06
     page: "15"
     column: 1
     personName: Einar Rød
@@ -3323,7 +3327,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-95ac17e7c3774561
+  - id: rolle-104efa8dd98ba092
     page: "15"
     column: 1
     personName: Kåre Jordahl
@@ -3332,7 +3336,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-898f4d454f154fc4
+  - id: rolle-b87c52a9209bb44f
     page: "15"
     column: 1
     personName: Leif Bjørshol
@@ -3341,7 +3345,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-8681abfbb57968d5
+  - id: rolle-7e54646a60b2a3d5
     page: "15"
     column: 1
     personName: Ludvik Ytrelid
@@ -3350,7 +3354,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-e46f1ed44a8f3007
+  - id: rolle-ce82c62bbe75de68
     page: "15"
     column: 1
     personName: Olav Torske. Medlemskjente
@@ -3359,7 +3363,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-0b7ad3df7c12600f
+  - id: rolle-1ae20dfa39977286
     page: "17"
     column: 0
     personName: Anita Wold
@@ -3369,7 +3373,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-4c09fa926752802c
+  - id: rolle-71d58b5bd797ec0b
     page: "17"
     column: 0
     personName: Gerd Sørgård Lausund
@@ -3378,7 +3382,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-c04ab4bc8fed2ded
+  - id: rolle-be97d73f578dfa45
     page: "17"
     column: 0
     personName: Irma Ingebrigt- Medlemstallet
@@ -3388,7 +3392,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-ba43630dab9c9796
+  - id: rolle-eea2ec12395e262e
     page: "17"
     column: 0
     personName: Marit Puck Helland
@@ -3398,7 +3402,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-54e2a21420805dd9
+  - id: rolle-d26dbf8be947f857
     page: "17"
     column: 0
     personName: Petra Lausund
@@ -3408,7 +3412,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-5acd69c24b586cd1
+  - id: rolle-688b9f05e963818e
     page: "17"
     column: 0
     personName: Åse Åndahl
@@ -3418,7 +3422,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-f44aee46889e2de9
+  - id: rolle-18eac2849a574494
     page: "17"
     column: 1
     personName: Else Giske. Larsen Telefon
@@ -3428,7 +3432,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-19f0d9bc8ca2c70f
+  - id: rolle-ecb03008771bbc16
     page: "17"
     column: 1
     personName: Hilda Orheim
@@ -3438,7 +3442,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-84a20d22f58cc171
+  - id: rolle-12f9701fdecbb629
     page: "17"
     column: 1
     personName: Lilly Annaniassen
@@ -3448,7 +3452,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-c6372921bc031d1d
+  - id: rolle-e97aabc371e9448f
     page: "17"
     column: 1
     personName: Lollo Stub
@@ -3458,36 +3462,39 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-a71b6ebf8a2b4d3b
+  - id: rolle-3b65c0c511d987e2
     page: "18"
     column: 2
     personName: Rolf Annaniassen
     personId: rolf-annaniassen
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-a9e41a1607d8369a
+  - id: rolle-ed3033db0300ad93
     page: "24"
     column: 0
     personName: Asbjern Ystenes
     category: administration
     title: Kasserer
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-eecb23a0547f1ac9
+  - id: rolle-669abde3c38580b2
     page: "24"
     column: 0
     personName: Bjørn Riise
     personId: bjorn-riise
     category: sporting_staff
     title: Oppmann
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-36484ead54ee58ec
+  - id: rolle-8ca8bff46e7a01d4
     page: "27"
     column: 0
     personName: Kjell Berentzen
@@ -3497,17 +3504,18 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-e22147fd6a267dc5
+  - id: rolle-46bd8b3740c84c0f
     page: "27"
     column: 0
     personName: Rolf Annaniassen
     personId: rolf-annaniassen
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-699ed895817aa31c
+  - id: rolle-b29282f775c97494
     page: "34"
     column: 1
     personName: Tormod Norrmanns
@@ -3516,16 +3524,17 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-8bf14244f2825dd6
+  - id: rolle-9fa0ecf97e2847b8
     page: "36"
     column: 2
     personName: Asbjørn Ystenes
     category: administration
     title: Kasserer
+    body: Festkomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-dc5db9af93988013
+  - id: rolle-4e4a4d31cec759b9
     page: "36"
     column: 2
     personName: Bjørn Riise
@@ -3535,85 +3544,93 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-10a0a3ba79bec445
+  - id: rolle-9c99e96a7291899c
     page: "36"
     column: 2
     personName: Einar Aas
     personId: einar-aas
     category: sporting_staff
     title: Oppmann
+    body: Festkomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-f0fcab84afbabb18
+  - id: rolle-65d6f4ddb577acb8
     page: "36"
     column: 2
     personName: Else Giske
     category: administration
     title: Kasserer
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-7ac49f232ce3473c
+  - id: rolle-c999a88807c28aef
     page: "36"
     column: 2
     personName: Hans Jacob Henriksen
     category: board
     title: Nestformann
+    body: Festkomiteen
     from: "1961"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-236a722c549df64a
+  - id: rolle-926d438bd3cceff0
     page: "36"
     column: 2
     personName: Hilda Orheim
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-3e6f68c4288c7c18
+  - id: rolle-0974c2e32ba62410
     page: "36"
     column: 2
     personName: Jarle Kristoffersen
     personId: jarle-kristoffersen
     category: administration
     title: Sekretær
+    body: Festkomiteen
     from: "1961"
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-eede736a96c3d590
+  - id: rolle-b538cbf58af1459c
     page: "36"
     column: 2
     personName: Kjell Berentzen
     personId: kjell-berentzen
     category: board
     title: Formann
+    body: Festkomiteen
     from: "1961"
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-54c03cf8022fabcc
+  - id: rolle-22b5ec4699226fea
     page: "36"
     column: 2
     personName: Lilly Annaniassen
     category: administration
     title: Sekretær
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-80cafc0e6d2a4c6c
+  - id: rolle-b45b3d1904aaf844
     page: "36"
     column: 2
     personName: Lollo Stub
     category: board
     title: Nestformann
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a621a1f3d309b1a7
+  - id: rolle-f2e3d92d2d5428b0
     page: "36"
     column: 2
     personName: Reidar Fosse
@@ -3622,17 +3639,18 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-b6cd536585a92c2e
+  - id: rolle-6aaa4117b99d01d3
     page: "36"
     column: 2
     personName: Rolf Annaniassen
     personId: rolf-annaniassen
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-a57281d135637c8d
+  - id: rolle-677254ae19e7ee87
     page: "40"
     column: 0
     personName: Magnar Bugge
@@ -3641,7 +3659,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-0e6966239498d6b9
+  - id: rolle-df71d87e57142def
     page: "40"
     column: 0
     personName: Rolf Høgseth
@@ -3651,7 +3669,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-67501b183bc15758
+  - id: rolle-041e3d2437c5c133
     page: "60"
     column: 0
     personName: Karsten Vadseth
@@ -3661,7 +3679,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-496fb28d7f7686b7
+  - id: rolle-7d768f5c7b73417f
     page: "63"
     column: 0
     personName: Einar Aas
@@ -3671,7 +3689,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-5421ac027ec00992
+  - id: rolle-72ab5ae15d52e449
     page: "63"
     column: 1
     personName: Wallentin Rødland. Hyttestyret
@@ -3680,7 +3698,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-eadb7c520f624ba3
+  - id: rolle-a4474e037e1b1eea
     page: "63"
     column: 2
     personName: Jarle Kristoffersen
@@ -3690,7 +3708,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-208ac108fdd81a66
+  - id: rolle-f7bea030b638da52
     page: "68"
     column: 0
     personName: Bjørn Riise
@@ -3700,7 +3718,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-2597e8d0ba5413d4
+  - id: rolle-019b8c98c967f2d1
     page: "81"
     column: 0
     personName: Ar Mn
@@ -3709,3 +3727,47 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
+resolvedLineups:
+  - id: oppstilling-3ca6becbbb5cbb0f
+    page: "52"
+    column: 0
+    names:
+      - Einar Aas
+      - Jostein Thorseth
+      - Thorbjørn Aarø
+      - Harald Johansen
+      - Johan Pedersen
+      - Rolf Sperre
+      - Asbjørn Rutgersen
+      - Arne Finsnes
+      - Kjell Iversen
+    personIds:
+      - einar-aas
+      - harald-johansen
+    confidence: medium
+  - id: oppstilling-491c8c5406f38428
+    page: "68"
+    column: 2
+    names:
+      - Ståle Osvold
+      - Arne Wiland
+      - Egil Ødegård
+      - Idar Solbak
+      - Gunnar Røsberg
+      - Otto Nakken
+      - Rolf Hepsøe
+      - Gunnar Karlsson
+      - Per Ove Åland
+      - Helge Haagensen
+      - Bjørn Colbensen
+      - Arne Blindheim
+      - Arne Havnevik
+      - Jan Refsnes
+      - Kjell Kjerstad
+      - Ola Kleive
+      - Jens Petter Lausund
+      - Helge Nøstdahl
+      - Oddvar Kjølsøy
+      - Leif Oterlei
+    personIds: []
+    confidence: medium

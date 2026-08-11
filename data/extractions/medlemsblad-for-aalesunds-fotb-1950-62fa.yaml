@@ -317,17 +317,18 @@ candidates:
     personIds: []
     matchIds: []
 resolvedRoles:
-  - id: rolle-1f479168545dca98
+  - id: rolle-60468b044e41232e
     page: "8"
     column: 0
     personName: Emil Sandø
     personId: emil-sando
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-417ac0e83a3765ca
+  - id: rolle-53681209302dec08
     page: "16"
     column: 0
     personName: Arne Westad
@@ -336,7 +337,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-d6ba7a391bace76d
+  - id: rolle-5ad6300ea385f801
     page: "16"
     column: 0
     personName: Peder Puck
@@ -346,7 +347,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-ac75784393832e45
+  - id: rolle-7ee4f2c3a109277c
     page: "16"
     column: 0
     personName: Per Anker
@@ -356,7 +357,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-44af388629508508
+  - id: rolle-b2b61898ff932fc9
     page: "16"
     column: 0
     personName: Ragnar Pedersen
@@ -365,3 +366,4 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups: []

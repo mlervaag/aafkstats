@@ -2813,93 +2813,102 @@ candidates:
     personIds: []
     matchIds: []
 resolvedRoles:
-  - id: rolle-0735e9f1f1a5a267
+  - id: rolle-b57477685775c896
     page: "2"
     column: 0
     personName: Hans Henriksen
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-6ed441ed166678cf
+  - id: rolle-fbfcaabba8cb5cc3
     page: "12"
     column: 2
     personName: Elisif Ingebrigtsen
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-c653b2d914d6e959
+  - id: rolle-e44db11adac72342
     page: "12"
     column: 2
     personName: Eric Carlzen
     category: coach
     title: Trener
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a077f261378f2136
+  - id: rolle-b5700496d796d35e
     page: "12"
     column: 2
     personName: Harald Sæther
     category: administration
     title: Kasserer
+    body: Banekomiteen
     from: "1959"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-c2757cbb771a1d11
+  - id: rolle-b7181209382e20dc
     page: "12"
     column: 2
     personName: Kjell Saure
     category: board
     title: Nestformann
+    body: Banekomiteen
     from: "1959"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-3bb829fb6f834ffc
+  - id: rolle-d6ab6636ca06c79d
     page: "12"
     column: 2
     personName: Knut Høyer
     category: administration
     title: Sekretær
+    body: Banekomiteen
     from: "1959"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-f3f46c4cb9f5c107
+  - id: rolle-0d92f3687bfd131f
     page: "12"
     column: 2
     personName: Lollo Stub. Jangaard A
     category: board
     title: Nestformann
+    body: Banekomiteen
     from: "1928"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-c47bb9f72ba3c631
+  - id: rolle-7cbbd71e0d06f384
     page: "12"
     column: 2
     personName: Ole Walderhaug
     category: sporting_staff
     title: Oppmann
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-e9adc4bf7630e103
+  - id: rolle-033774255a95ba33
     page: "12"
     column: 2
     personName: Perry Ystenes
     personId: perry-ystenes
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-c3bed1fb447816dc
+  - id: rolle-05da07e76eb2b3d8
     page: "16"
     column: 0
     personName: Hans Henriksen
@@ -2908,94 +2917,103 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-b80f8ca15b5a5414
+  - id: rolle-d40b6505e6f062cb
     page: "22"
     column: 0
     personName: Hans Henriksen
     category: board
     title: Formann
+    body: Festkomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a778fe0ccde8e127
+  - id: rolle-7a21ad3b86754724
     page: "24"
     column: 2
     personName: Elisif Ingebrigtsen
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-ffcdc56d4e5349f9
+  - id: rolle-fb8a74a7ea088ae4
     page: "24"
     column: 2
     personName: Hans Jacob Henriksen
     category: board
     title: Formann
+    body: Banekomiteen
     from: "1959"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-ea03fe0fc3e6a678
+  - id: rolle-646a771f5c3360c6
     page: "24"
     column: 2
     personName: Harald Sæther
     category: administration
     title: Kasserer
+    body: Banekomiteen
     from: "1959"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-c49bb5f6bb217d02
+  - id: rolle-0447a84ebaaf2df3
     page: "24"
     column: 2
     personName: Kjell Saure
     category: board
     title: Nestformann
+    body: Banekomiteen
     from: "1959"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-f8f49a6f25848441
+  - id: rolle-e1dd248d762aefd6
     page: "24"
     column: 2
     personName: Knut Høyer
     category: administration
     title: Sekretær
+    body: Banekomiteen
     from: "1959"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-4cfd0b8d35f94843
+  - id: rolle-1df33bb4d78911ac
     page: "24"
     column: 2
     personName: Lollo Stub. Mineralvandfabrik Telefon
     category: board
     title: Nestformann
+    body: Banekomiteen
     from: "1928"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-d43502cf7f19c2fb
+  - id: rolle-b41105603e850b5a
     page: "24"
     column: 2
     personName: Ole Walderhaug
     category: sporting_staff
     title: Oppmann
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-e8ee04ec7412884f
+  - id: rolle-e9bff3856b2b503f
     page: "24"
     column: 2
     personName: Perry Ystenes
     personId: perry-ystenes
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-42e91310002e0192
+  - id: rolle-ba76d287a202a2f1
     page: "34"
     column: 2
     personName: Rolf Muriaas
@@ -3005,7 +3023,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-915831629bd099a9
+  - id: rolle-de98298f1e8a2976
     page: "43"
     column: 0
     personName: Sverre Sundgot
@@ -3015,75 +3033,82 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-81044925c1722cf7
+  - id: rolle-f18191f32bf63a5b
     page: "48"
     column: 2
     personName: Elisif Ingebrigtsen
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-cb781f5e9a2c48fb
+  - id: rolle-003cd80175faab62
     page: "48"
     column: 2
     personName: Hans Jacob
     category: board
     title: Formann
+    body: Banekomiteen
     from: "1959"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-9ff6e1aa032af93f
+  - id: rolle-2afb68ff5f0278ca
     page: "48"
     column: 2
     personName: Harald Sæther
     category: administration
     title: Kasserer
+    body: Banekomiteen
     from: "1959"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-2bee64abf4d0c62b
+  - id: rolle-33ab621b8b8f0bfc
     page: "48"
     column: 2
     personName: Kjell Saure
     category: board
     title: Nestformann
+    body: Banekomiteen
     from: "1959"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-b0bdf1fa6910f12f
+  - id: rolle-24f5e0ac6b1d2925
     page: "48"
     column: 2
     personName: Lollo Stub
     category: board
     title: Nestformann
+    body: Banekomiteen
     from: "1928"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-a009f7d650c12235
+  - id: rolle-d09c907b4559eb86
     page: "48"
     column: 2
     personName: Ole Walderhaug
     category: sporting_staff
     title: Oppmann
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-723ac041cb8515a1
+  - id: rolle-bd741e0042891f43
     page: "48"
     column: 2
     personName: Perry Ystenes
     personId: perry-ystenes
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-3c2ab96de6d3dc7e
+  - id: rolle-eb1cd2d1bb06aebe
     page: "50"
     column: 0
     personName: Jan Larsen
@@ -3092,7 +3117,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-599fcb2698497055
+  - id: rolle-41f2d89ed9c2b21a
     page: "50"
     column: 0
     personName: Ole Walderhaug
@@ -3101,17 +3126,18 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-67456c62c25e5188
+  - id: rolle-02e888b59f4f362e
     page: "58"
     column: 0
     personName: Frantz Løvmo
     personId: frantz-lovmo
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-f17d2dd06fea250f
+  - id: rolle-c92ba8846f805b26
     page: "63"
     column: 0
     personName: Hans Henriksen
@@ -3120,7 +3146,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-cbccef00e0716b28
+  - id: rolle-9e5f561e0f97c34f
     page: "63"
     column: 0
     personName: Helge Lunde. Å
@@ -3129,7 +3155,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-61f19712d0974e2e
+  - id: rolle-8cadf4766de3e6c1
     page: "63"
     column: 0
     personName: Jan With
@@ -3139,7 +3165,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-62e24e0cd170fe4a
+  - id: rolle-05c4b2a61d529f03
     page: "66"
     column: 0
     personName: Josef Steiner
@@ -3148,7 +3174,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-d84f46e811de23b0
+  - id: rolle-54f8c9c02e415c52
     page: "67"
     column: 0
     personName: Ole Walderhaug
@@ -3157,43 +3183,47 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-5e872a365e74b1c7
+  - id: rolle-1e964efef76d1837
     page: "70"
     column: 2
     personName: Hans Henriksen
     category: board
     title: Formann
+    body: Guttegruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-9977fa3621d30ace
+  - id: rolle-662ecebc865e6b47
     page: "73"
     column: 1
     personName: Reidar Skarbøvik. Fra
     category: sporting_staff
     title: Oppmann
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-94a55474692a81b5
+  - id: rolle-c93e21a8e83b95ce
     page: "74"
     column: 0
     personName: Asbjørn Hellandsvik
     category: board
     title: Formann
+    body: Old boys
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-c2ed3025303cb465
+  - id: rolle-f54811ee42f18362
     page: "74"
     column: 0
     personName: Hans Henriksen
     category: board
     title: Formann
+    body: Old boys
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-09f495729304c395
+  - id: rolle-29e3f27036edf5f1
     page: "75"
     column: 0
     personName: Jan Larsen
@@ -3202,3 +3232,89 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups:
+  - id: oppstilling-de2a47085c0c8e9a
+    page: "39"
+    column: 0
+    names:
+      - Einar Aas
+      - Karsten Vadseth
+      - Mindor Sunde
+      - Johan Pedersen
+      - Jan Larsen
+      - Kjell Luthentun
+      - Magne Fylling
+    personIds:
+      - einar-aas
+      - karsten-vadseth
+    confidence: medium
+  - id: oppstilling-69144b1bb55573ee
+    page: "41"
+    column: 0
+    names:
+      - Reidar Reidar Skarbøvik
+      - Pinnerud Pinnerud
+      - Leon Brekke
+      - Øivind Jivind Haagensen
+      - Thorvald Pedersen
+      - Finn Finn Tolaas
+      - Karl Løvold
+    personIds: []
+    confidence: medium
+  - id: oppstilling-890cef23059fa6d2
+    page: "48"
+    column: 2
+    season: 1959
+    names:
+      - Kjell Saure
+      - Knut Hoyer
+      - Harald Sæther
+      - Ole Walderhaug
+      - Reidar Skarbøvik
+      - Trygve Olsen
+      - Bjørn Riise
+      - Perry Ystenes
+      - Elisif Ingebrigtsen
+    personIds:
+      - reidar-skarbovik
+      - bjorn-riise
+      - perry-ystenes
+    confidence: medium
+  - id: oppstilling-b8048b00a7f3ca7f
+    page: "63"
+    column: 0
+    names:
+      - Bjørn Riise
+      - Perry Ystenes
+      - Helge Lunde
+      - Frantz Løvmo
+      - Peder Puck
+      - Re- Lausund
+      - Jarle Vadseth
+      - Asbjørn Korsnes
+      - Harald Nord
+      - Asbjørn Ystenes
+    personIds:
+      - bjorn-riise
+      - perry-ystenes
+      - frantz-lovmo
+      - peder-puck
+      - asbjorn-korsnes
+    confidence: medium
+  - id: oppstilling-e4746183e88ab486
+    page: "66"
+    column: 0
+    names:
+      - Kjell Luthentun
+      - Thorbjørn Aarø
+      - Einar Aas
+      - Karsten Vadseth
+      - Jan Larsen
+      - Kjell Iversen
+      - Mindor Sunde
+      - Johan Pedersen
+      - Erling Listhaug
+    personIds:
+      - einar-aas
+      - karsten-vadseth
+    confidence: medium

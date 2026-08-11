@@ -2285,7 +2285,7 @@ candidates:
       - jarle-kristoffersen
     matchIds: []
 resolvedRoles:
-  - id: rolle-5ad33a4c47298bd8
+  - id: rolle-0be7176168062aac
     page: "6"
     column: 1
     personName: Alfhild Ringdal
@@ -2294,7 +2294,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-d80cc6ea6c4c5524
+  - id: rolle-2ba8bce0eef2bb3a
     page: "6"
     column: 1
     personName: Petra Lausund
@@ -2303,7 +2303,17 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-66d0406efef8737f
+  - id: rolle-e1f4f76320770cd4
+    page: "12"
+    column: 1
+    personName: Alfhild Ringdal. Tlf
+    category: board
+    title: Formann
+    from: "1150"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-343e38f6f7166462
     page: "17"
     column: 1
     personName: Fabrikkene Reidar Skarbøvik
@@ -2312,7 +2322,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-e3a9edb4064de983
+  - id: rolle-cbde308de1d001d9
     page: "17"
     column: 1
     personName: Peder Nordstrand
@@ -2321,7 +2331,17 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-7b4c7be1dd23a125
+  - id: rolle-531fa12b47a2cca8
+    page: "24"
+    column: 0
+    personName: Alfhild Ringdal. Tlf
+    category: board
+    title: Formann
+    from: "1150"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-680c9c6605bc432a
     page: "24"
     column: 0
     personName: Anita Olsen-Vold
@@ -2330,7 +2350,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-849d2442124c9d29
+  - id: rolle-af974c5c48ba7763
     page: "24"
     column: 0
     personName: Fritz Hågensen
@@ -2339,7 +2359,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-5fc738a88391d055
+  - id: rolle-40e7566570dd82d2
     page: "24"
     column: 0
     personName: Harald Sether
@@ -2348,7 +2368,17 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-3ccc60640b36bacf
+  - id: rolle-3891974946e81ec2
+    page: "24"
+    column: 0
+    personName: ÅFK TIf
+    category: board
+    title: Nestformann
+    from: "1944"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-165d30b9d0e4e357
     page: "30"
     column: 1
     personName: I Byens
@@ -2357,7 +2387,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-59c155ff6bf883de
+  - id: rolle-ad510bbd006b05ca
     page: "36"
     column: 2
     personName: Alfhild Ringdal. Tlf
@@ -2366,7 +2396,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-28bcba70311ae8ff
+  - id: rolle-12efcc8d3eaaa04a
     page: "36"
     column: 2
     personName: Anita Olsen-Vold
@@ -2375,7 +2405,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-9ba500fbc081014e
+  - id: rolle-8b4e87fa054a9c8c
     page: "36"
     column: 2
     personName: Emil Sandø. TIf
@@ -2384,7 +2414,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-aafac29851a13c0b
+  - id: rolle-5da235a393a000fb
     page: "36"
     column: 2
     personName: Fritz Hågensen
@@ -2394,7 +2424,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-220add9635369280
+  - id: rolle-adf605dd79c067e4
     page: "36"
     column: 2
     personName: Harald Sæther
@@ -2404,7 +2434,17 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-d4e8bb3a5933f066
+  - id: rolle-974b70840bd9e854
+    page: "36"
+    column: 2
+    personName: Kjell Berentzen. Tlf
+    category: board
+    title: Formann
+    from: "1124"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-ee0bfed53527caff
     page: "36"
     column: 2
     personName: Lauritz Giske
@@ -2415,7 +2455,7 @@ resolvedRoles:
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-93ed8b70155b8d06
+  - id: rolle-e8d700f9aa0985b3
     page: "48"
     column: 2
     personName: Alfhild Ringdal. Tlf
@@ -2424,7 +2464,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-083dccf322afe94e
+  - id: rolle-52d6d9c333ca2f1a
     page: "48"
     column: 2
     personName: Emil Sandø. Tlf
@@ -2433,7 +2473,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-88fc1088b479fa10
+  - id: rolle-4dcc36eab08a5bf7
     page: "48"
     column: 2
     personName: Fritz Hågensen
@@ -2443,7 +2483,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-975adb76bd411d87
+  - id: rolle-e70ef3e96d131186
     page: "48"
     column: 2
     personName: Harald Sæther
@@ -2453,7 +2493,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-819a20f6628cb6e2
+  - id: rolle-e83ed77d71ef4369
     page: "48"
     column: 2
     personName: Kjell Berentzen. TIf
@@ -2463,7 +2503,17 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-bdbf3ac1f8eea8d4
+  - id: rolle-800a6396ba777146
+    page: "48"
+    column: 2
+    personName: Kjell Berentzen. TIf
+    category: board
+    title: Formann
+    from: "1124"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-e9f4821fe7deaf58
     page: "48"
     column: 2
     personName: Lauritz Giske
@@ -2474,17 +2524,28 @@ resolvedRoles:
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-3620269b07cbfacf
+  - id: rolle-e7c726ad889d02e0
     page: "60"
     column: 0
     personName: Emil Sandø
     personId: emil-sando
     category: board
     title: Formann
+    body: Valgkomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-968f575c4bb84abc
+  - id: rolle-069f1d0f065b60a3
+    page: "60"
+    column: 0
+    personName: Markvegen Alfhild Ringdal. Tlf
+    category: board
+    title: Formann
+    from: "1150"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-8f1d396d39b2408f
     page: "68"
     column: 0
     personName: Hans Sødergren. Medlemmer
@@ -2493,7 +2554,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-965985dec3b26ec3
+  - id: rolle-d60f094e1aeb7ae5
     page: "68"
     column: 0
     personName: Harald Sæther. Varamenn
@@ -2502,7 +2563,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-40b573bb80540b01
+  - id: rolle-7dfa0c4345502ae3
     page: "68"
     column: 0
     personName: Lauritz Giske
@@ -2512,7 +2573,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-2eafa1f8f57e5789
+  - id: rolle-874003a87d442237
     page: "68"
     column: 0
     personName: Rolf Kvissel
@@ -2521,7 +2582,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-17d6d7016f23fa4d
+  - id: rolle-52ea3091d401a62b
     page: "70"
     column: 1
     personName: Fritz Hågensen
@@ -2530,7 +2591,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-2b11295141a80b14
+  - id: rolle-59e89673002bfd23
     page: "82"
     column: 2
     personName: Emil Sandø
@@ -2540,7 +2601,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-8d5719338aa4b479
+  - id: rolle-b338b9e025bdbf7b
     page: "83"
     column: 1
     personName: Per Hatlemark
@@ -2549,3 +2610,19 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups:
+  - id: oppstilling-6681444c67f49523
+    page: "12"
+    column: 1
+    names:
+      - Jan Larsen
+      - Karsten Meyer
+      - Jarle Kristoffersen
+      - Thorbjørn Aarøe
+      - Arne Finsnes
+      - Øivind Haagensen
+      - Privat Reservelags-serie Finn Tolaas
+    personIds:
+      - jarle-kristoffersen
+      - oivind-haagensen
+    confidence: medium

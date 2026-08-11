@@ -1391,7 +1391,7 @@ candidates:
       - petter-birkevold
     matchIds: []
 resolvedRoles:
-  - id: rolle-f269ae829b947054
+  - id: rolle-5a333546fd8c5970
     page: "3"
     column: 0
     personName: Jan With
@@ -1401,17 +1401,18 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-3ce3f0b62ecb389e
+  - id: rolle-e41dc9a496de818c
     page: "4"
     column: 0
     personName: Jan With
     personId: jan-with
     category: board
     title: Formann
+    body: Festkomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-101999d07fd4bfbb
+  - id: rolle-bbae233d2d3ef916
     page: "8"
     column: 0
     personName: Oddvar Aarge. ÅEis
@@ -1420,22 +1421,41 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-254de03dcc203df2
+  - id: rolle-de13c6a6640ca2be
     page: "20"
     column: 0
     personName: Bjørn Olsen
     category: sporting_staff
     title: Oppmann
+    body: Idrettsutvalget
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-f374fa01d37310cc
+  - id: rolle-136ad38912e293ce
     page: "20"
     column: 0
     personName: Petter Birkevold
     personId: petter-birkevold
     category: board
     title: Formann
+    body: Idrettsutvalget
     to: null
     confidence: medium
     rule: role_then_name
+resolvedLineups:
+  - id: oppstilling-5b2ad76cf9772349
+    page: "20"
+    column: 0
+    names:
+      - Svein Holand
+      - Einar Holand
+      - Jarle Kristoffersen
+      - Jostein Torseth
+      - Karsten Vadseth
+      - Erik Fladmark
+      - Frantz Løvmo
+    personIds:
+      - jarle-kristoffersen
+      - karsten-vadseth
+      - frantz-lovmo
+    confidence: medium

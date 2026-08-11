@@ -6,11 +6,11 @@ ocrAccess: search_only
 pagesExpected: 20
 pagesProcessed: 0
 pagesFailed: []
-contentHash: sha256:ed0c3338d6c83d9c0aee11a594cc4864f2f7b00438a033da8d8f963926273d1c
+contentHash: sha256:b24ae64d83343cd18afc637cf4c8a2ae663f0bd0e98cad2f5035a87990d10d73
 candidates:
-  - id: organization-6849d5a2407749c9
+  - id: organization-0284f4c4889dd569
     kind: organization
-    page: "2"
+    page: "4"
     confidence: medium
     keywords:
       - oppmann
@@ -24,9 +24,26 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-mention-4775b4406c832a55
+  - id: person-mention-080f101045dfd9b7
     kind: person_mention
-    page: "2"
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Nils Jangaard
+    years:
+      - 1914
+      - 1919
+      - 1915
+      - 1917
+      - 1929
+    scores: []
+    personIds:
+      - nils-jangaard
+    matchIds: []
+  - id: person-mention-2e19787c6f5e7e64
+    kind: person_mention
+    page: "4"
     confidence: high
     keywords: []
     names:
@@ -44,9 +61,23 @@ candidates:
     personIds:
       - rasmus-eck-olsen
     matchIds: []
-  - id: person-mention-9091287b555e5625
+  - id: person-mention-6d7cf5dbc2553603
     kind: person_mention
-    page: "2"
+    page: "4"
+    confidence: medium
+    keywords: []
+    names:
+      - Ole Jangaard
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - ole-jangaard
+      - per-mogstad
+    matchIds: []
+  - id: person-mention-cbe80d077ab8084f
+    kind: person_mention
+    page: "4"
     confidence: high
     keywords: []
     names:
@@ -61,92 +92,9 @@ candidates:
     personIds:
       - rasmus-eck-olsen
     matchIds: []
-  - id: person-mention-bf606901cfc09868
-    kind: person_mention
-    page: "2"
-    confidence: high
-    keywords: []
-    names:
-      - Nils Jangaard
-    years:
-      - 1914
-      - 1919
-      - 1915
-      - 1917
-      - 1929
-    scores: []
-    personIds:
-      - nils-jangaard
-    matchIds: []
-  - id: person-mention-e13a44f20430d5f1
-    kind: person_mention
-    page: "2"
-    confidence: medium
-    keywords: []
-    names:
-      - Ole Jangaard
-      - Per Mogstad
-    years: []
-    scores: []
-    personIds:
-      - ole-jangaard
-      - per-mogstad
-    matchIds: []
-  - id: person-role-05b58bb0c20c0de2
+  - id: person-role-12256e07d71d634c
     kind: person_role
-    page: "2"
-    confidence: high
-    keywords:
-      - formann
-    names:
-      - Rasmus Eck Olsen
-    years:
-      - 1915
-      - 1917
-      - 1919
-      - 1929
-      - 1924
-    scores: []
-    personIds:
-      - rasmus-eck-olsen
-    matchIds: []
-  - id: person-role-2e4ed95863f30398
-    kind: person_role
-    page: "2"
-    confidence: high
-    keywords:
-      - formann
-      - sekretær
-    names:
-      - Nils Jangaard
-    years:
-      - 1914
-      - 1919
-      - 1915
-      - 1917
-      - 1929
-    scores: []
-    personIds:
-      - nils-jangaard
-    matchIds: []
-  - id: person-role-b03bacfa55d0405f
-    kind: person_role
-    page: "2"
-    confidence: medium
-    keywords:
-      - oppmann
-    names:
-      - Ole Jangaard
-      - Per Mogstad
-    years: []
-    scores: []
-    personIds:
-      - ole-jangaard
-      - per-mogstad
-    matchIds: []
-  - id: person-role-e1e29534a9a134f3
-    kind: person_role
-    page: "2"
+    page: "4"
     confidence: high
     keywords:
       - formann
@@ -166,9 +114,89 @@ candidates:
     personIds:
       - rasmus-eck-olsen
     matchIds: []
-  - id: organization-1d65de80f520d0d8
+  - id: person-role-4980de7f6962ea11
+    kind: person_role
+    page: "4"
+    confidence: high
+    keywords:
+      - formann
+    names:
+      - Rasmus Eck Olsen
+    years:
+      - 1915
+      - 1917
+      - 1919
+      - 1929
+      - 1924
+    scores: []
+    personIds:
+      - rasmus-eck-olsen
+    matchIds: []
+  - id: person-role-ef5817ee55407cbb
+    kind: person_role
+    page: "4"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Ole Jangaard
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - ole-jangaard
+      - per-mogstad
+    matchIds: []
+  - id: person-role-f74e9ba872048237
+    kind: person_role
+    page: "4"
+    confidence: high
+    keywords:
+      - formann
+      - sekretær
+    names:
+      - Nils Jangaard
+    years:
+      - 1914
+      - 1919
+      - 1915
+      - 1917
+      - 1929
+    scores: []
+    personIds:
+      - nils-jangaard
+    matchIds: []
+  - id: organization-1dd08e136fc83429
     kind: organization
-    page: "3"
+    page: "5"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years:
+      - 1917
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-c2b664381966cb53
+    kind: organization
+    page: "5"
+    confidence: medium
+    keywords:
+      - formann
+      - oppmann
+    names: []
+    years:
+      - 1935
+      - 1936
+      - 1938
+      - 1945
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-c2bd4e36f0bd1abc
+    kind: organization
+    page: "5"
     confidence: medium
     keywords:
       - formann
@@ -186,9 +214,9 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: organization-2450a6cc870896c9
+  - id: organization-e65967415bc4a848
     kind: organization
-    page: "3"
+    page: "5"
     confidence: medium
     keywords:
       - kasserer
@@ -200,64 +228,9 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: organization-6852f4a9530487ae
-    kind: organization
-    page: "3"
-    confidence: medium
-    keywords:
-      - formann
-      - oppmann
-    names: []
-    years:
-      - 1935
-      - 1936
-      - 1938
-      - 1945
-    scores: []
-    personIds: []
-    matchIds: []
-  - id: organization-c906cd9eecf36438
-    kind: organization
-    page: "3"
-    confidence: medium
-    keywords:
-      - oppmann
-    names: []
-    years:
-      - 1917
-    scores: []
-    personIds: []
-    matchIds: []
-  - id: person-mention-4bac8c47a90e28ba
+  - id: person-mention-1a0ed31e728880ac
     kind: person_mention
-    page: "3"
-    confidence: high
-    keywords: []
-    names:
-      - Per Mogstad
-    years: []
-    scores: []
-    personIds:
-      - per-mogstad
-    matchIds: []
-  - id: person-mention-75837e6b6d445878
-    kind: person_mention
-    page: "3"
-    confidence: high
-    keywords: []
-    names:
-      - Per Mogstad
-    years:
-      - 1927
-      - 1925
-      - 1930
-    scores: []
-    personIds:
-      - per-mogstad
-    matchIds: []
-  - id: person-mention-df2b929959cf87c9
-    kind: person_mention
-    page: "3"
+    page: "5"
     confidence: high
     keywords: []
     names:
@@ -272,12 +245,26 @@ candidates:
     personIds:
       - peder-puck
     matchIds: []
-  - id: person-role-4feb1c36b12cfacd
-    kind: person_role
-    page: "3"
-    confidence: medium
-    keywords:
-      - oppmann
+  - id: person-mention-ae16a42171144e9e
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years:
+      - 1927
+      - 1925
+      - 1930
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
+  - id: person-mention-e29e096a04419ca2
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
     names:
       - Per Mogstad
     years: []
@@ -285,9 +272,43 @@ candidates:
     personIds:
       - per-mogstad
     matchIds: []
-  - id: person-role-63c563fa771f050d
+  - id: person-role-1cbc2f12aba96ac5
     kind: person_role
-    page: "3"
+    page: "5"
+    confidence: medium
+    keywords:
+      - leder
+      - oppmann
+    names:
+      - Andreas B. Ringdal
+    years:
+      - 1927
+      - 1925
+      - 1930
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-5faa3ca263c26381
+    kind: person_role
+    page: "5"
+    confidence: high
+    keywords:
+      - leder
+      - oppmann
+    names:
+      - Per Mogstad
+      - Andreas B. Ringdal
+    years:
+      - 1927
+      - 1925
+      - 1930
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
+  - id: person-role-64a38043d328f802
+    kind: person_role
+    page: "5"
     confidence: high
     keywords:
       - oppmann
@@ -304,9 +325,22 @@ candidates:
     personIds:
       - peder-puck
     matchIds: []
-  - id: person-role-8ebada720eab009e
+  - id: person-role-b7019a186e99889d
     kind: person_role
-    page: "3"
+    page: "5"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
+  - id: person-role-b7d7d6b44a71fc33
+    kind: person_role
+    page: "5"
     confidence: medium
     keywords:
       - sekretær
@@ -318,43 +352,9 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-93f7027fbb8de43f
-    kind: person_role
-    page: "3"
-    confidence: high
-    keywords:
-      - leder
-      - oppmann
-    names:
-      - Per Mogstad
-      - Andreas B. Ringdal
-    years:
-      - 1927
-      - 1925
-      - 1930
-    scores: []
-    personIds:
-      - per-mogstad
-    matchIds: []
-  - id: person-role-e4a62b4b6a8fba4e
-    kind: person_role
-    page: "3"
-    confidence: medium
-    keywords:
-      - leder
-      - oppmann
-    names:
-      - Andreas B. Ringdal
-    years:
-      - 1927
-      - 1925
-      - 1930
-    scores: []
-    personIds: []
-    matchIds: []
-  - id: organization-7b8e1d0fbc7fcda6
+  - id: organization-1c01104d76f0d192
     kind: organization
-    page: "4"
+    page: "6"
     confidence: medium
     keywords:
       - formann
@@ -363,9 +363,9 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-mention-e110a38be484f956
+  - id: person-mention-d96cb2a14d56975c
     kind: person_mention
-    page: "4"
+    page: "6"
     confidence: medium
     keywords: []
     names:
@@ -381,9 +381,9 @@ candidates:
       - sigurd-norve
       - sverre-volstad
     matchIds: []
-  - id: person-role-e2cb44bff9c00cc6
+  - id: person-role-9dad93b5844e6024
     kind: person_role
-    page: "4"
+    page: "6"
     confidence: medium
     keywords:
       - oppmann
@@ -401,9 +401,9 @@ candidates:
       - sigurd-norve
       - sverre-volstad
     matchIds: []
-  - id: organization-0c1bbbd03b333484
+  - id: organization-9bb756133fbe0e1e
     kind: organization
-    page: "5"
+    page: "7"
     confidence: medium
     keywords:
       - formann
@@ -412,9 +412,9 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-cd3f076ddf56fbe3
+  - id: person-role-3984e581a4c4dea2
     kind: person_role
-    page: "5"
+    page: "7"
     confidence: medium
     keywords:
       - oppmann
@@ -424,9 +424,9 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-mention-39c47ee1957369e9
+  - id: person-mention-75e4ae42b2b6c159
     kind: person_mention
-    page: "7"
+    page: "9"
     confidence: medium
     keywords: []
     names:
@@ -440,9 +440,9 @@ candidates:
       - oivind-haagensen
       - sigurd-norve
     matchIds: []
-  - id: person-mention-566d7370d9c24013
+  - id: person-mention-fb08002bb3754ccf
     kind: person_mention
-    page: "7"
+    page: "9"
     confidence: high
     keywords: []
     names:
@@ -452,21 +452,9 @@ candidates:
     personIds:
       - sigurd-norve
     matchIds: []
-  - id: person-role-780abbd641ddabdf
+  - id: person-role-07cdcdc06690c5ab
     kind: person_role
-    page: "7"
-    confidence: medium
-    keywords:
-      - formann
-    names:
-      - N. I. Like
-    years: []
-    scores: []
-    personIds: []
-    matchIds: []
-  - id: person-role-ee2591184aed9543
-    kind: person_role
-    page: "7"
+    page: "9"
     confidence: medium
     keywords:
       - formann
@@ -478,9 +466,9 @@ candidates:
     personIds:
       - sigurd-norve
     matchIds: []
-  - id: person-role-f8664c98dc0908e6
+  - id: person-role-161ec07f63fb32ba
     kind: person_role
-    page: "7"
+    page: "9"
     confidence: medium
     keywords:
       - formann
@@ -498,9 +486,21 @@ candidates:
       - oivind-haagensen
       - sigurd-norve
     matchIds: []
-  - id: person-mention-9b2658593327bb39
+  - id: person-role-4a2f4a854b049fe2
+    kind: person_role
+    page: "9"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - N. I. Like
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-07ccd22c7b6dee5d
     kind: person_mention
-    page: "10"
+    page: "12"
     confidence: medium
     keywords: []
     names:
@@ -517,9 +517,9 @@ candidates:
       - finn-tollas
       - oivind-haagensen
     matchIds: []
-  - id: person-role-29b14838bc1b7f91
+  - id: person-role-761e11fa3284dc0e
     kind: person_role
-    page: "10"
+    page: "12"
     confidence: medium
     keywords:
       - oppmann
@@ -538,9 +538,9 @@ candidates:
       - finn-tollas
       - oivind-haagensen
     matchIds: []
-  - id: person-role-d47a9ab1d6875221
+  - id: person-role-d84c2c082e40c376
     kind: person_role
-    page: "10"
+    page: "12"
     confidence: medium
     keywords:
       - trener
@@ -551,4 +551,60 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-resolvedRoles: []
+resolvedRoles:
+  - id: rolle-88bea80c122264db
+    page: "4"
+    personName: Nils Jangaard
+    personId: nils-jangaard
+    category: board
+    title: Formann
+    from: "1917"
+    to: null
+    confidence: high
+    rule: name_then_role
+  - id: rolle-e6c9afc15a8181f6
+    page: "4"
+    personName: Nils Jangaard
+    personId: nils-jangaard
+    category: administration
+    title: Sekretær
+    from: "1915"
+    to: null
+    confidence: high
+    rule: name_then_role
+  - id: rolle-a94238cc45525f2f
+    page: "6"
+    personName: Sverre Volstad. Haagensen
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: low
+    rule: name_then_role
+  - id: rolle-3875fed74773832c
+    page: "9"
+    personName: Karsten Eriksen
+    personId: karsten-eriksen
+    category: board
+    title: Formann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-8df9202367fdb1c5
+    page: "9"
+    personName: Latinskolen. Sigurd Nørve
+    category: board
+    title: Formann
+    to: null
+    confidence: low
+    rule: name_then_role
+  - id: rolle-7d651e5ad2d81749
+    page: "12"
+    personName: Øivind Haagensen
+    personId: oivind-haagensen
+    category: sporting_staff
+    title: Oppmann
+    from: "1945"
+    to: null
+    confidence: high
+    rule: name_then_role
+resolvedLineups: []

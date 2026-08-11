@@ -841,7 +841,7 @@ candidates:
     personIds: []
     matchIds: []
 resolvedRoles:
-  - id: rolle-8ba7488ed4270d19
+  - id: rolle-a794b2f650431eaa
     page: "2"
     column: 0
     personName: Hans Jacob Vestad
@@ -850,7 +850,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-e4eaa76d26a6fccf
+  - id: rolle-ca50f9224fb071cd
     page: "2"
     column: 0
     personName: Jan Width
@@ -859,7 +859,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-5736bf7f1b8a8d70
+  - id: rolle-d948d47000bf3cd5
     page: "6"
     column: 0
     personName: Svein Holand. Trygve Olsen
@@ -868,7 +868,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-7d54a52414f6b444
+  - id: rolle-25e28dfc912f1708
     page: "8"
     column: 0
     personName: Lillian Hansen
@@ -878,7 +878,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-c560d00194fc0dbc
+  - id: rolle-5bb6eb648e8f0a21
     page: "8"
     column: 0
     personName: Magne Bjørge
@@ -888,7 +888,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-ef2635e1052778f0
+  - id: rolle-173cb99ad2021f7e
     page: "8"
     column: 0
     personName: Per Stein Bjørkedal
@@ -898,7 +898,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-782e19c088e7af4f
+  - id: rolle-477edc04bd3318ef
     page: "8"
     column: 0
     personName: Reidar Fosse
@@ -907,3 +907,17 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups:
+  - id: oppstilling-105e2bc666997ac2
+    page: "7"
+    column: 0
+    names:
+      - Trygve Olsen
+      - Ole Walderhaug
+      - Lauritz Gaaseide
+      - Thor Refsnes
+      - Karl Løvold
+      - Johan Refsnes
+      - Finn Tollaas
+    personIds: []
+    confidence: medium
