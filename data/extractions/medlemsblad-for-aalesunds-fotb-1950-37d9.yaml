@@ -30,6 +30,42 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-870d06dcd7021ff4
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+    matchIds: []
+  - id: person-mention-c068df14bfa02b1d
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Konrad Korsnes
+    years: []
+    scores: []
+    personIds:
+      - konrad-korsnes
+    matchIds: []
+  - id: person-mention-82fccad326574a8b
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Konrad Korsnes
+    years: []
+    scores: []
+    personIds:
+      - konrad-korsnes
+    matchIds: []
   - id: organization-694741c1674a580a
     kind: organization
     page: "6"
@@ -53,6 +89,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-5232721ea0659a4f
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
   - id: organization-37c76ce112813f94
     kind: organization
     page: "8"
@@ -67,6 +115,31 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-064caceb33eb1ea0
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years:
+      - 1949
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
+  - id: person-mention-c551d31ce74321e6
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
   - id: match-result-e6014807740042fc
     kind: match_result
     page: "9"
@@ -77,6 +150,32 @@ candidates:
     scores:
       - 2-1
     personIds: []
+    matchIds: []
+  - id: person-mention-77eff354ce478ba5
+    kind: person_mention
+    page: "9"
+    confidence: medium
+    keywords: []
+    names:
+      - Emil Mogstad
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - emil-mogstad
+      - per-mogstad
+    matchIds: []
+  - id: person-mention-63c1fe63e4645f34
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Øivind Haagensen
+    years: []
+    scores: []
+    personIds:
+      - oivind-haagensen
     matchIds: []
   - id: organization-e9307d87859c4b15
     kind: organization
@@ -101,6 +200,54 @@ candidates:
     personIds:
       - peder-puck
     matchIds: []
+  - id: person-mention-f30f20bfd17d03f7
+    kind: person_mention
+    page: "15"
+    confidence: high
+    keywords: []
+    names:
+      - Bernt Sulebust
+    years: []
+    scores: []
+    personIds:
+      - bernt-sulebust
+    matchIds: []
+  - id: person-mention-05616a3b538061ff
+    kind: person_mention
+    page: "16"
+    confidence: high
+    keywords: []
+    names:
+      - Asbjørn Korsnes
+    years: []
+    scores: []
+    personIds:
+      - asbjorn-korsnes
+    matchIds: []
+  - id: person-mention-0a2323b0f44e7a5b
+    kind: person_mention
+    page: "16"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Eriksen
+    years: []
+    scores: []
+    personIds:
+      - karsten-eriksen
+    matchIds: []
+  - id: person-mention-251113b9f5993b6e
+    kind: person_mention
+    page: "16"
+    confidence: high
+    keywords: []
+    names:
+      - Bernt Sulebust
+    years: []
+    scores: []
+    personIds:
+      - bernt-sulebust
+    matchIds: []
   - id: person-mention-5baebe0c747fcfa7
     kind: person_mention
     page: "16"
@@ -112,6 +259,18 @@ candidates:
     scores: []
     personIds:
       - peder-puck
+    matchIds: []
+  - id: person-mention-9c4ebf961075b3e8
+    kind: person_mention
+    page: "16"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
     matchIds: []
   - id: person-role-af900a6e3a8387ff
     kind: person_role
@@ -139,3 +298,23 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+resolvedRoles:
+  - id: rolle-da660d5830b0627b
+    page: "16"
+    column: 0
+    personName: Arne Westad
+    category: administration
+    title: Kasserer
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-94c81a31061e789a
+    page: "16"
+    column: 0
+    personName: Per Anker
+    category: board
+    title: Formann
+    from: "1950"
+    to: null
+    confidence: medium
+    rule: role_then_name

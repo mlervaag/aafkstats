@@ -79,6 +79,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-8a2146c9752fbcf0
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
   - id: organization-2189094b5e34207c
     kind: organization
     page: "8"
@@ -101,17 +113,119 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-mention-59d238e3bd17b570
+  - id: person-mention-57cee796ab224b16
     kind: person_mention
     page: "11"
     confidence: high
     keywords: []
     names:
+      - Johan Keller
+    years: []
+    scores: []
+    personIds:
+      - johan-keller
+    matchIds: []
+  - id: person-mention-5b65aed10513446b
+    kind: person_mention
+    page: "11"
+    confidence: high
+    keywords: []
+    names:
+      - Finn Tollås
+    years: []
+    scores: []
+    personIds:
+      - finn-tollas
+    matchIds: []
+  - id: person-mention-5e65f28a44ebb403
+    kind: person_mention
+    page: "11"
+    confidence: medium
+    keywords: []
+    names:
+      - Johan Keller
+      - Leif Olsen
+    years: []
+    scores: []
+    personIds:
+      - johan-keller
+      - leif-olsen
+    matchIds: []
+  - id: person-mention-85081963deceb98b
+    kind: person_mention
+    page: "11"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
+  - id: person-mention-b418c0ee66a8f18f
+    kind: person_mention
+    page: "11"
+    confidence: medium
+    keywords: []
+    names:
+      - Lars Riise-Hansen
+      - Ole Jangaard
+    years: []
+    scores: []
+    personIds:
+      - lars-riise-hansen
+      - ole-jangaard
+    matchIds: []
+  - id: person-mention-b7fcdedfe9c87f82
+    kind: person_mention
+    page: "11"
+    confidence: high
+    keywords: []
+    names:
+      - Anders Mogstad
+    years: []
+    scores: []
+    personIds:
+      - anders-mogstad
+    matchIds: []
+  - id: person-mention-ea36e74a60ae3048
+    kind: person_mention
+    page: "11"
+    confidence: medium
+    keywords: []
+    names:
+      - Emil Mogstad
       - Nils Jangaard
     years: []
     scores: []
     personIds:
+      - emil-mogstad
       - nils-jangaard
+    matchIds: []
+  - id: person-mention-021aada1577eb5ee
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Bernt Sulebust
+    years: []
+    scores: []
+    personIds:
+      - bernt-sulebust
+    matchIds: []
+  - id: person-mention-1a8a83df1facb8fc
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
     matchIds: []
   - id: person-mention-2480ce855986a3aa
     kind: person_mention
@@ -124,6 +238,42 @@ candidates:
     scores: []
     personIds:
       - peder-puck
+    matchIds: []
+  - id: person-mention-3a2c5574db7fe671
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Eriksen
+    years: []
+    scores: []
+    personIds:
+      - karsten-eriksen
+    matchIds: []
+  - id: person-mention-75dae649ed45c3e4
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Asbjørn Korsnes
+    years: []
+    scores: []
+    personIds:
+      - asbjorn-korsnes
+    matchIds: []
+  - id: person-mention-a39e66c0f9378562
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
     matchIds: []
   - id: person-role-4cfeb06fa7106f8a
     kind: person_role
@@ -151,3 +301,72 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+resolvedRoles:
+  - id: rolle-048b9d0bb7a8533f
+    page: "3"
+    column: 1
+    personName: Alfhild Ringdal
+    category: board
+    title: Formann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-f4795c0ea82cb360
+    page: "3"
+    column: 1
+    personName: Anita Olsen
+    category: administration
+    title: Sekretær
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-cefe9adf4e6694ce
+    page: "3"
+    column: 1
+    personName: Fru Irma Berger Huseby
+    category: board
+    title: Formann
+    from: "1946"
+    to: null
+    confidence: medium
+    rule: name_then_role
+  - id: rolle-628804f5672bc148
+    page: "3"
+    column: 1
+    personName: Äse Gudmundseth. Vi
+    category: administration
+    title: Kasserer
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-3275b50680b782a2
+    page: "12"
+    column: 1
+    personName: Arne Westad
+    category: administration
+    title: Kasserer
+    from: "1950"
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-44850f9f8da5b11e
+    page: "12"
+    column: 1
+    personName: Peder Puck
+    personId: peder-puck
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-15f614ac618bf823
+    page: "12"
+    column: 1
+    personName: Per Anker Eriksen
+    personId: per-anker-eriksen
+    category: board
+    title: Formann
+    from: "1950"
+    to: null
+    confidence: high
+    rule: role_then_name

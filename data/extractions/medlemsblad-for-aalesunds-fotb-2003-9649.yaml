@@ -8,6 +8,18 @@ pagesProcessed: 4
 pagesFailed: []
 contentHash: sha256:0d82ea4aeb197349bf8c6ca2ee4b1d08376269f2875c5a0333a821bf98fb1e8d
 candidates:
+  - id: person-mention-1b207c8305b6d26d
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Per Anker Eriksen
+    years: []
+    scores: []
+    personIds:
+      - per-anker-eriksen
+    matchIds: []
   - id: lineup-or-squad-24fca8538a3026ce
     kind: lineup_or_squad
     page: "3"
@@ -67,3 +79,13 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+resolvedRoles:
+  - id: rolle-2a7943e0bdcf11d6
+    page: "4"
+    column: 0
+    personName: Ivar Morten Ldig
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: role_then_name

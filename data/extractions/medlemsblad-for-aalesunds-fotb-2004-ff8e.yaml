@@ -89,6 +89,18 @@ candidates:
     personIds:
       - oddbjorn-lie
     matchIds: []
+  - id: person-mention-40abc88d4c4f9a26
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Arne Aambakk
+    years: []
+    scores: []
+    personIds:
+      - arne-aambakk
+    matchIds: []
   - id: person-mention-d23b07198fc30a32
     kind: person_mention
     page: "2"
@@ -211,6 +223,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-cb20377497200229
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Petter Birkevold
+    years: []
+    scores: []
+    personIds:
+      - petter-birkevold
+    matchIds: []
   - id: person-mention-f3807442ae385205
     kind: person_mention
     page: "4"
@@ -235,3 +259,14 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+resolvedRoles:
+  - id: rolle-54f699b7b79f1d27
+    page: "2"
+    column: 1
+    personName: Ivar Morten Normark
+    personId: ivar-morten-normark
+    category: coach
+    title: Trener
+    to: null
+    confidence: medium
+    rule: role_then_name

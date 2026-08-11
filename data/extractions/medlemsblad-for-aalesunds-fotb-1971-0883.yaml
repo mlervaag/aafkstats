@@ -64,6 +64,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-8d32b40cf5fc7b55
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
   - id: organization-d148bc4b79d0fc63
     kind: organization
     page: "6"
@@ -73,6 +85,17 @@ candidates:
     names: []
     years: []
     scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-0285b725c3ce0957
+    kind: match_result
+    page: "7"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-2
     personIds: []
     matchIds: []
   - id: match-result-0fe808a09f592100
@@ -141,18 +164,6 @@ candidates:
       - 10-1
     personIds: []
     matchIds: []
-  - id: match-result-8495b25590858373
-    kind: match_result
-    page: "7"
-    confidence: high
-    keywords: []
-    names: []
-    years: []
-    scores:
-      - 1-2
-    personIds: []
-    matchIds:
-      - 1971-08-15-mjolner-aalesunds-fk
   - id: match-result-ac7e4335622aeb47
     kind: match_result
     page: "7"
@@ -241,6 +252,30 @@ candidates:
     scores:
       - 10-0
     personIds: []
+    matchIds: []
+  - id: person-mention-fabdcd16d8bdb76f
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-fcb19d8e260b7270
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
     matchIds: []
   - id: match-result-806fc450a7031cdb
     kind: match_result
@@ -364,6 +399,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-de50dee059023683
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
     matchIds: []
   - id: person-role-6ba988eb23762d5d
     kind: person_role
@@ -577,6 +624,30 @@ candidates:
       - 1-2
     personIds: []
     matchIds: []
+  - id: person-mention-0a4e6a61c98c4676
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Anders Mogstad
+    years: []
+    scores: []
+    personIds:
+      - anders-mogstad
+    matchIds: []
+  - id: person-mention-a69ba91b0db9df72
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
   - id: person-mention-d5eecd0507c5372e
     kind: person_mention
     page: "10"
@@ -601,3 +672,34 @@ candidates:
     personIds:
       - knut-gaaseide
     matchIds: []
+  - id: person-mention-b969715a3b992ea2
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Ola Hodder
+    years: []
+    scores: []
+    personIds:
+      - ola-hodder
+    matchIds: []
+resolvedRoles:
+  - id: rolle-50352557c4693585
+    page: "4"
+    column: 0
+    personName: Knut I
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-a46efdd080df7ab5
+    page: "8"
+    column: 0
+    personName: Arne Pedersen
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: role_then_name

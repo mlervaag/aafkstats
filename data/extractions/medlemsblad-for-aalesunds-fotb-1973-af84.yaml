@@ -8,6 +8,18 @@ pagesProcessed: 12
 pagesFailed: []
 contentHash: sha256:3cea7505c62c108ad00b8f5fc3407eb8d0e0a49336d74ba3e477ea6be7a74c4c
 candidates:
+  - id: person-mention-8b0d21a337ee3983
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
   - id: organization-33dec4b5fddf97fe
     kind: organization
     page: "3"
@@ -18,6 +30,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-96372353b075c7e0
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
     matchIds: []
   - id: person-role-8d234972cf2f4385
     kind: person_role
@@ -30,6 +54,42 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-45ec3a0c3e112a8f
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-a202206cad843495
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
+  - id: person-mention-fa239ed3d75be92b
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
     matchIds: []
   - id: organization-e4bbe74ad72a76a1
     kind: organization
@@ -67,6 +127,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-8051132ad19c0c3f
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Frantz Løvmo
+    years: []
+    scores: []
+    personIds:
+      - frantz-lovmo
+    matchIds: []
   - id: person-role-646b32397a60e565
     kind: person_role
     page: "6"
@@ -101,6 +173,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-410d9c2660969ec4
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Terje Refsnes
+    years: []
+    scores: []
+    personIds:
+      - terje-refsnes
     matchIds: []
   - id: person-role-5c0933460ce2912f
     kind: person_role
@@ -148,6 +232,42 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-2f4a0c5b41a8ee09
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Lillian Hansen
+    years: []
+    scores: []
+    personIds:
+      - lillian-hansen
+    matchIds: []
+  - id: person-mention-4edc8cd2bf56daf8
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
+  - id: person-mention-52a23b0000ca34bb
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Vadseth
+    years: []
+    scores: []
+    personIds:
+      - karsten-vadseth
+    matchIds: []
   - id: person-role-0f921a8b22036775
     kind: person_role
     page: "9"
@@ -161,7 +281,7 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-46e1a16b57085385
+  - id: person-role-5f5dd566dd34c470
     kind: person_role
     page: "9"
     confidence: medium
@@ -171,7 +291,8 @@ candidates:
       - Lillian Hansen
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - lillian-hansen
     matchIds: []
   - id: person-role-bde9431080719ce4
     kind: person_role
@@ -197,3 +318,55 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-16b94e3d4ef9d74c
+    kind: person_mention
+    page: "11"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-503d1def4f30499c
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Ola Hodder
+    years: []
+    scores: []
+    personIds:
+      - ola-hodder
+    matchIds: []
+resolvedRoles:
+  - id: rolle-6cab61e8c23c6701
+    page: "6"
+    column: 0
+    personName: Oddvar Aarø
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-3a803f5682228297
+    page: "8"
+    column: 0
+    personName: Arnfinn Gjerde
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: name_then_role
+  - id: rolle-be6a2531f70b2454
+    page: "8"
+    column: 0
+    personName: Reidar Fosse
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: low
+    rule: role_then_name

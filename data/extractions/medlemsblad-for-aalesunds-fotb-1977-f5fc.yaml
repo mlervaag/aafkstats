@@ -30,6 +30,30 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-0e118537d53880fb
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
+  - id: person-mention-4c77d7281733248a
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Petter Birkevold
+    years: []
+    scores: []
+    personIds:
+      - petter-birkevold
+    matchIds: []
   - id: organization-1c0f5526e217279c
     kind: organization
     page: "5"
@@ -51,6 +75,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-41720acad1a61392
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Lillian Hansen
+    years: []
+    scores: []
+    personIds:
+      - lillian-hansen
     matchIds: []
   - id: person-role-a04f9795ee12beb1
     kind: person_role
@@ -87,6 +123,30 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-57f7cbabc21ea3b4
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-841ee90184f84c72
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
     matchIds: []
   - id: organization-1ad68252aad8101c
     kind: organization
@@ -133,3 +193,68 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-059727308a9b99e0
+    kind: person_mention
+    page: "11"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
+  - id: person-mention-95de6ec12890a583
+    kind: person_mention
+    page: "11"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years:
+      - 1949
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
+  - id: person-mention-a21d4e605b1f35fb
+    kind: person_mention
+    page: "11"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-riise
+    matchIds: []
+resolvedRoles:
+  - id: rolle-378820c7d23ee5da
+    page: "8"
+    column: 0
+    personName: Karen Rovde
+    category: administration
+    title: Kasserer
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-3b9ba46618caae6b
+    page: "8"
+    column: 0
+    personName: Randi Lillebø
+    category: board
+    title: Nestformann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-b73586a0eea31bc3
+    page: "8"
+    column: 0
+    personName: Sigrun Hansen
+    category: administration
+    title: Sekretær
+    to: null
+    confidence: low
+    rule: role_then_name

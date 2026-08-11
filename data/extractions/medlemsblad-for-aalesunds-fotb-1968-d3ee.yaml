@@ -168,6 +168,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-ff4ee95dda7bff2a
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Asbjørn Korsnes
+    years: []
+    scores: []
+    personIds:
+      - asbjorn-korsnes
+    matchIds: []
   - id: organization-497cbe417af68777
     kind: organization
     page: "5"
@@ -234,6 +246,54 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-7853b366aa55147d
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-8439299ab6e0b645
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Harald Johansen
+    years: []
+    scores: []
+    personIds:
+      - harald-johansen
+    matchIds: []
+  - id: person-mention-dea3837ff667f29a
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-fc1bfa614c51d2aa
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
   - id: match-result-bc86cfbb11d76c55
     kind: match_result
     page: "6"
@@ -244,6 +304,18 @@ candidates:
     scores:
       - 3-0
     personIds: []
+    matchIds: []
+  - id: person-mention-f31087ec54724ffa
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Paul Urke
+    years: []
+    scores: []
+    personIds:
+      - paul-urke
     matchIds: []
   - id: match-result-6feb3c68cf3c9e8e
     kind: match_result
@@ -289,6 +361,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-92bf0582cc582555
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
   - id: person-role-0aa3707a5e268957
     kind: person_role
     page: "8"
@@ -313,3 +397,87 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-f130292f24d217d1
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-fab5a242da21338d
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Nedregård
+    years: []
+    scores: []
+    personIds:
+      - karsten-nedregard
+    matchIds: []
+  - id: person-mention-b80ba47165e046c8
+    kind: person_mention
+    page: "10"
+    confidence: medium
+    keywords: []
+    names:
+      - Karsten Nedregård
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - karsten-nedregard
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-bd8c07460b18f3bf
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Asbjørn Korsnes
+    years: []
+    scores: []
+    personIds:
+      - asbjorn-korsnes
+    matchIds: []
+  - id: person-mention-ec14ce552849a97a
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Bernt Sulebust
+    years: []
+    scores: []
+    personIds:
+      - bernt-sulebust
+    matchIds: []
+  - id: person-mention-03b509f746277e2c
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Hans J. Henriksen
+    years: []
+    scores: []
+    personIds:
+      - hans-j-henriksen
+    matchIds: []
+resolvedRoles:
+  - id: rolle-22fe5c3585879c29
+    page: "2"
+    column: 0
+    personName: Mjondalen-historien. AaFK
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: role_then_name

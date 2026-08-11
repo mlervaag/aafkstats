@@ -19,6 +19,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-20e55591d80fb8e0
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Arne Aambakk
+    years: []
+    scores: []
+    personIds:
+      - arne-aambakk
+    matchIds: []
   - id: person-mention-59da2d3185c41963
     kind: person_mention
     page: "4"
@@ -31,3 +43,4 @@ candidates:
     personIds:
       - ivar-morten-normark
     matchIds: []
+resolvedRoles: []

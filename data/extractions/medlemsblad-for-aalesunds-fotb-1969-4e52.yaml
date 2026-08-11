@@ -19,6 +19,54 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-2b7f7744ccad5706
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Hans J. Henriksen
+    years: []
+    scores: []
+    personIds:
+      - hans-j-henriksen
+    matchIds: []
+  - id: person-mention-2fb36fc5780dc092
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Paul Urke
+    years: []
+    scores: []
+    personIds:
+      - paul-urke
+    matchIds: []
+  - id: person-mention-32eaa393e3b4ac59
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-38a60008d4536fa7
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
   - id: person-mention-65f4c79c67a5242c
     kind: person_mention
     page: "2"
@@ -31,7 +79,7 @@ candidates:
     personIds:
       - peder-puck
     matchIds: []
-  - id: person-role-ec2110b359ffc8a4
+  - id: person-role-ba4463c44156c0c9
     kind: person_role
     page: "2"
     confidence: medium
@@ -41,7 +89,8 @@ candidates:
       - Hans J. Henriksen
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - hans-j-henriksen
     matchIds: []
   - id: organization-94a4684212707fd3
     kind: organization
@@ -77,6 +126,30 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-2b61ce4f5d92bb20
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-f7d52ab13245d427
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Bernt Sulebust
+    years: []
+    scores: []
+    personIds:
+      - bernt-sulebust
+    matchIds: []
   - id: person-role-530e43e6745bacb1
     kind: person_role
     page: "6"
@@ -101,3 +174,23 @@ candidates:
     personIds:
       - knut-gaaseide
     matchIds: []
+resolvedRoles:
+  - id: rolle-6027f80e9aa56b20
+    page: "2"
+    column: 0
+    personName: Hans J. Henriksen
+    personId: hans-j-henriksen
+    category: board
+    title: Formann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-23454a6c58a2b527
+    page: "3"
+    column: 0
+    personName: ARE Knut Osnes
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: name_then_role

@@ -19,17 +19,31 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-78f33597293e2672
+  - id: person-mention-c9868c03d6462a91
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+    matchIds: []
+  - id: person-role-92d824ea7a60a3a5
     kind: person_role
     page: "3"
     confidence: medium
     keywords:
       - oppmann
     names:
+      - Einar Aas
       - Jr.oppmann Einar Åas
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - einar-aas
     matchIds: []
   - id: organization-5758ba2f097fed32
     kind: organization
@@ -52,6 +66,54 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-e26a1abfd535d2e6
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Terje Refsnes
+    years: []
+    scores: []
+    personIds:
+      - terje-refsnes
+    matchIds: []
+  - id: person-mention-fe1964e5015f6f50
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Rolf Annaniassen
+    years: []
+    scores: []
+    personIds:
+      - rolf-annaniassen
+    matchIds: []
+  - id: person-mention-0283939dceea3195
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-e55561a1f76c1fa6
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
     matchIds: []
   - id: person-role-8ff35b8c694bbb56
     kind: person_role
@@ -76,3 +138,13 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+resolvedRoles:
+  - id: rolle-c9666791fa8efaa0
+    page: "3"
+    column: 0
+    personName: Einar Åas. I
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: low
+    rule: role_then_name

@@ -19,6 +19,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-9963438399219a6a
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Konrad Korsnes
+    years: []
+    scores: []
+    personIds:
+      - konrad-korsnes
+    matchIds: []
   - id: organization-a88e490c419d61d7
     kind: organization
     page: "4"
@@ -29,6 +41,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-05ebbe437ab278b9
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
     matchIds: []
   - id: person-mention-558ee03438b611bc
     kind: person_mention
@@ -41,6 +65,18 @@ candidates:
     scores: []
     personIds:
       - peder-puck
+    matchIds: []
+  - id: person-mention-e9e257c3a2f66068
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Per Anker Eriksen
+    years: []
+    scores: []
+    personIds:
+      - per-anker-eriksen
     matchIds: []
   - id: person-mention-0d382f0d3aaa65dd
     kind: person_mention
@@ -191,6 +227,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-dcfce10aa2ebb411
+    kind: person_mention
+    page: "22"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
   - id: organization-11014a377ca595d4
     kind: organization
     page: "23"
@@ -235,6 +283,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-1e9cf9527dfef258
+    kind: person_mention
+    page: "25"
+    confidence: high
+    keywords: []
+    names:
+      - Finn Tollås
+    years: []
+    scores: []
+    personIds:
+      - finn-tollas
+    matchIds: []
   - id: organization-4736b2e1d5da237a
     kind: organization
     page: "26"
@@ -256,6 +316,66 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-075634f11e606520
+    kind: person_mention
+    page: "26"
+    confidence: high
+    keywords: []
+    names:
+      - Hugo Hamre
+    years: []
+    scores: []
+    personIds:
+      - hugo-hamre
+    matchIds: []
+  - id: person-mention-284f58e6c310ff5f
+    kind: person_mention
+    page: "26"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-0e9b0a72685c73d2
+    kind: person_mention
+    page: "27"
+    confidence: high
+    keywords: []
+    names:
+      - Bernt Sulebust
+    years: []
+    scores: []
+    personIds:
+      - bernt-sulebust
+    matchIds: []
+  - id: person-mention-76ad4db7e7b7638c
+    kind: person_mention
+    page: "28"
+    confidence: high
+    keywords: []
+    names:
+      - Per Anker Eriksen
+    years: []
+    scores: []
+    personIds:
+      - per-anker-eriksen
+    matchIds: []
+  - id: person-mention-7d671ed494a97e31
+    kind: person_mention
+    page: "28"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
     matchIds: []
   - id: person-mention-a70daf81cc6ad2f8
     kind: person_mention
@@ -281,7 +401,19 @@ candidates:
     personIds:
       - sverre-volstad
     matchIds: []
-  - id: person-role-6702e8013e81b583
+  - id: person-mention-dcab8bd332707553
+    kind: person_mention
+    page: "28"
+    confidence: high
+    keywords: []
+    names:
+      - Finn Tollås
+    years: []
+    scores: []
+    personIds:
+      - finn-tollas
+    matchIds: []
+  - id: person-role-6e215c0659b6f30a
     kind: person_role
     page: "28"
     confidence: medium
@@ -291,7 +423,8 @@ candidates:
       - Per Anker Eriksen
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - per-anker-eriksen
     matchIds: []
   - id: season-fact-1da1f11b055d2ec2
     kind: season_fact
@@ -327,6 +460,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-57334c55d4deedee
+    kind: person_mention
+    page: "30"
+    confidence: high
+    keywords: []
+    names:
+      - Sigurd Nørve
+    years: []
+    scores: []
+    personIds:
+      - sigurd-norve
     matchIds: []
   - id: person-mention-6965a7c7bc88bb6e
     kind: person_mention
@@ -397,6 +542,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-15b82249fdacf83f
+    kind: person_mention
+    page: "31"
+    confidence: high
+    keywords: []
+    names:
+      - Per Anker Eriksen
+    years: []
+    scores: []
+    personIds:
+      - per-anker-eriksen
+    matchIds: []
   - id: person-mention-1625320932417c07
     kind: person_mention
     page: "31"
@@ -408,6 +565,56 @@ candidates:
     scores: []
     personIds:
       - peder-puck
+    matchIds: []
+  - id: person-mention-1c783616dd3c70fb
+    kind: person_mention
+    page: "31"
+    confidence: medium
+    keywords: []
+    names:
+      - Emil Sandø
+      - Sigurd Nørve
+    years: []
+    scores: []
+    personIds:
+      - emil-sando
+      - sigurd-norve
+    matchIds: []
+  - id: person-mention-200fa23e188f73d6
+    kind: person_mention
+    page: "31"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Eriksen
+    years: []
+    scores: []
+    personIds:
+      - karsten-eriksen
+    matchIds: []
+  - id: person-mention-6a321c0cd1292964
+    kind: person_mention
+    page: "31"
+    confidence: high
+    keywords: []
+    names:
+      - Asbjørn Korsnes
+    years: []
+    scores: []
+    personIds:
+      - asbjorn-korsnes
+    matchIds: []
+  - id: person-mention-7c300dfdbb47087f
+    kind: person_mention
+    page: "31"
+    confidence: high
+    keywords: []
+    names:
+      - Bernt Sulebust
+    years: []
+    scores: []
+    personIds:
+      - bernt-sulebust
     matchIds: []
   - id: person-mention-a0852496f76c497e
     kind: person_mention
@@ -421,30 +628,29 @@ candidates:
     personIds:
       - rasmus-eck-olsen
     matchIds: []
-  - id: person-mention-cb8f673005edd20b
+  - id: person-mention-b168d01778f91700
     kind: person_mention
     page: "31"
     confidence: high
     keywords: []
     names:
-      - Emil Sandø
+      - Lauritz Giske
     years: []
     scores: []
     personIds:
-      - emil-sando
+      - lauritz-giske
     matchIds: []
-  - id: person-role-040d02b9c40237cc
-    kind: person_role
+  - id: person-mention-d2acdd6348844907
+    kind: person_mention
     page: "31"
-    confidence: medium
-    keywords:
-      - sekretær
+    confidence: high
+    keywords: []
     names:
-      - Arne Vestad
-      - Karsten Eriksen
+      - Bjørn Riise
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - bjorn-riise
     matchIds: []
   - id: person-role-0ef7f6ee458ddecd
     kind: person_role
@@ -459,21 +665,6 @@ candidates:
     years: []
     scores: []
     personIds: []
-    matchIds: []
-  - id: person-role-3db90901c796e02e
-    kind: person_role
-    page: "31"
-    confidence: medium
-    keywords:
-      - formann
-    names:
-      - Emil Sandø
-      - Emil Sand
-      - Sigurd Nørve
-    years: []
-    scores: []
-    personIds:
-      - emil-sando
     matchIds: []
   - id: person-role-4d1df96eef13dc81
     kind: person_role
@@ -501,6 +692,36 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-role-d0ee018c7ca6b335
+    kind: person_role
+    page: "31"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Emil Sandø
+      - Sigurd Nørve
+      - Emil Sand
+    years: []
+    scores: []
+    personIds:
+      - emil-sando
+      - sigurd-norve
+    matchIds: []
+  - id: person-role-db1e14f16ed5ae1e
+    kind: person_role
+    page: "31"
+    confidence: medium
+    keywords:
+      - sekretær
+    names:
+      - Karsten Eriksen
+      - Arne Vestad
+    years: []
+    scores: []
+    personIds:
+      - karsten-eriksen
+    matchIds: []
   - id: organization-d37aacb68977bddf
     kind: organization
     page: "32"
@@ -511,6 +732,42 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-119c2767d08133c2
+    kind: person_mention
+    page: "32"
+    confidence: high
+    keywords: []
+    names:
+      - Per Anker Eriksen
+    years: []
+    scores: []
+    personIds:
+      - per-anker-eriksen
+    matchIds: []
+  - id: person-mention-25bea4b152d0dca5
+    kind: person_mention
+    page: "32"
+    confidence: high
+    keywords: []
+    names:
+      - Asbjørn Korsnes
+    years: []
+    scores: []
+    personIds:
+      - asbjorn-korsnes
+    matchIds: []
+  - id: person-mention-951eada571230819
+    kind: person_mention
+    page: "32"
+    confidence: high
+    keywords: []
+    names:
+      - Johan Keller
+    years: []
+    scores: []
+    personIds:
+      - johan-keller
     matchIds: []
   - id: person-mention-e4127ed9434d4083
     kind: person_mention
@@ -524,3 +781,111 @@ candidates:
     personIds:
       - peder-puck
     matchIds: []
+  - id: person-mention-fb7d4425a8fd6f7e
+    kind: person_mention
+    page: "32"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-aaf39c0ac2f4748a
+    kind: person_mention
+    page: "32"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Eriksen
+    years: []
+    scores: []
+    personIds:
+      - karsten-eriksen
+    matchIds: []
+resolvedRoles:
+  - id: rolle-d7e1f6dd8effa687
+    page: "25"
+    column: 0
+    personName: Øivind Hågensen
+    category: sporting_staff
+    title: Oppmann
+    from: "1940"
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-2c84be108e6e41ba
+    page: "31"
+    column: 0
+    personName: Anitra Olsen
+    category: board
+    title: Nestformann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-d2fdf7a2f4b67645
+    page: "31"
+    column: 0
+    personName: Arne Vestad
+    category: board
+    title: Nestformann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-e8df85ac05e37025
+    page: "31"
+    column: 0
+    personName: Bjørn Aasen
+    category: administration
+    title: Kasserer
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-4d7921fdb1bae83f
+    page: "31"
+    column: 0
+    personName: God Jul
+    category: administration
+    title: Kasserer
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-37bd607ca3ba4f7e
+    page: "31"
+    column: 0
+    personName: Mary Vegsund
+    category: board
+    title: Formann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-96a3ed40e8f83d1a
+    page: "31"
+    column: 0
+    personName: Sigurd Nørve
+    personId: sigurd-norve
+    category: board
+    title: Formann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-67a0c313f398b53f
+    page: "31"
+    column: 0
+    personName: Øivind Hågensen
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-a1beef3283ecceec
+    page: "31"
+    column: 0
+    personName: Åse Gudmundseth
+    category: administration
+    title: Sekretær
+    to: null
+    confidence: low
+    rule: role_then_name
