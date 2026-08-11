@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getPersonById, getPersonIds, getPersonRoles, getPersonSeasons, getSourceTitles } from "@/lib/people";
+import { getPersonById, getPersonIds, getPersonRoles, getPersonSeasons, getSourceTitles, mergeRoleSpells } from "@/lib/people";
 import type { PersonConflict, PersonMention, PersonRole } from "@/lib/people";
 import { loadContributions } from "@/lib/archive";
 import { contributionIssueUrl } from "@/lib/contribution-links";
@@ -61,7 +61,7 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
   const person = getPersonById(id);
   if (!person) notFound();
 
-  const roles = [...getPersonRoles(id)].reverse();
+  const roles = mergeRoleSpells(getPersonRoles(id)).reverse();
   const seasons = getPersonSeasons(id);
   const sourceTitles = getSourceTitles();
   const contributions = loadContributions(id, "person");

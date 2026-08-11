@@ -192,6 +192,110 @@ export function getPersonRoles(personId?: string): PersonRole[] {
   }
 }
 
+/** Årstallet i en dato som «1948» eller «1948-05-03». */
+function year(value: string): number {
+  return Number(value.slice(0, 4));
+}
+
+/**
+ * Organet et verv hører til, normalisert.
+ *
+ * Et tomt organ og «Hovedstyret» er det samme vervet: begge betyr klubben som
+ * helhet. Kildene skriver det ulikt — jubileumsboka sier «formann», medlemsbladet
+ * «formann i hovedstyret» — og uten denne likheten sto Lauritz Giske med
+ * «1953–1954 Hovedstyret» og «1954» som to verv. En navngitt komité er derimot
+ * noe annet enn hovedstyret, og slås aldri sammen med det.
+ */
+function organ(body: string | null): string {
+  const value = (body ?? "").trim().toLowerCase();
+  return value === "hovedstyret" ? "" : value;
+}
+
+/** Slutten på en periode. Ukjent slutt telles som året den begynte. */
+function endYear(role: PersonRole): number {
+  return year(role.to_date ?? role.from_date);
+}
+
+/**
+ * Slår sammen perioder som er samme verv for samme person.
+ *
+ * ## Hvorfor
+ *
+ * Kildene oppgir det samme vervet på ulikt vis. Én bok gir perioden
+ * «1946–1949», en annen nevner bare året 1948 — og arkivet lagrer begge, som
+ * seg hør og bør. Men i lista sto Sigurd Nørve to ganger på rad, én gang for
+ * 1946–1949 og én gang for 1948, som om han hadde hatt vervet to ganger. Verre
+ * for trenerne, der kildene lister år for år: Kjetil Rekdal fikk fire rader,
+ * 2009, 2010, 2011 og 2012.
+ *
+ * Sammenslåingen skjer i visningen, ikke i dataene. Hver kilde beholder sin
+ * egen registrering; raden viser ytterpunktene og alle kildene bak dem.
+ *
+ * ## Hva som ikke slås sammen
+ *
+ * Nøkkelen er person, tittel **og** organ. Erling Bjørge var formann i
+ * hovedstyret 1967–1968 og formann i redaksjonskomiteen fra 1968 — to verv i
+ * samme år, ikke ett langt. Perioder med et hull i mellom står også hver for
+ * seg: et opphold er en opplysning.
+ */
+export function mergeRoleSpells(roles: PersonRole[]): PersonRole[] {
+  const groups = new Map<string, PersonRole[]>();
+  for (const role of roles) {
+    const key = `${role.person_id}|${role.category}|${role.title}|${organ(role.body)}`;
+    const group = groups.get(key);
+    if (group) group.push(role);
+    else groups.set(key, [role]);
+  }
+
+  const merged: PersonRole[] = [];
+  for (const group of groups.values()) {
+    const sorted = [...group].sort((a, b) => a.from_date.localeCompare(b.from_date));
+    let spell: PersonRole[] = [sorted[0]!];
+    let reach = endYear(sorted[0]!);
+    for (const role of sorted.slice(1)) {
+      // Sammenhengende, ikke bare overlappende: 1938–1939 og 1940–1945 er én
+      // sammenhengende periode delt av to kilder, ikke to verv.
+      if (year(role.from_date) <= reach + 1) {
+        spell.push(role);
+        reach = Math.max(reach, endYear(role));
+        continue;
+      }
+      merged.push(spell.length === 1 ? spell[0]! : combine(spell, reach));
+      spell = [role];
+      reach = endYear(role);
+    }
+    merged.push(spell.length === 1 ? spell[0]! : combine(spell, reach));
+  }
+  return merged.sort((a, b) => a.from_date.localeCompare(b.from_date) || a.name.localeCompare(b.name, "nb"));
+}
+
+/** Én rad av flere perioder: ytterpunktene, alle kildene, alle merknadene. */
+function combine(roles: PersonRole[], reach: number): PersonRole {
+  const first = roles[0]!;
+  const last = roles.reduce((a, b) => (endYear(b) > endYear(a) ? b : a));
+  const sources: PersonRoleSource[] = [];
+  const seen = new Set<string>();
+  for (const role of roles) {
+    for (const source of role.sources) {
+      const key = `${source.sourceId}|${source.page ?? ""}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      sources.push(source);
+    }
+  }
+  const notes = [...new Set(roles.map((role) => role.note).filter((note): note is string => Boolean(note)))];
+  return {
+    ...first,
+    // «Hovedstyret» framfor tomt: den ene kilden navngir organet, den andre
+    // utelater det, og navnet er den mer opplysende av de to.
+    body: roles.find((role) => role.body)?.body ?? null,
+    // Slutten er den seneste kilden rekker, uansett hvilken rad den kom fra.
+    to_date: last.to_date ?? (reach > year(first.from_date) ? String(reach) : null),
+    sources,
+    note: notes.length > 0 ? notes.join(" ") : null,
+  };
+}
+
 export function getPersonSeasons(personId: string): PersonSeason[] {
   const db = open();
   try {
