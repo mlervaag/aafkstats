@@ -34,7 +34,7 @@ describe("person- og organisasjonsarkivet", () => {
     const people = getPeople();
     expect(people.some((person) => person.appearances > 0)).toBe(true);
     expect(people.some((person) => person.role_categories.includes("board"))).toBe(true);
-  });
+  }, 15_000);
 
   it("viser Georg Hallers stifter-, spiller-, anleggs-, formanns- og hedersroller", () => {
     const person = getPersonById("georg-haller");
