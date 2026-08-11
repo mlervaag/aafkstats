@@ -41,6 +41,7 @@ export const ROLE_TERMS: RoleTerm[] = [
   { term: "styremedlem", title: "Styremedlem", category: "board" },
   { term: "varamedlem", title: "Varamedlem", category: "board" },
   { term: "æresmedlem", title: "Æresmedlem", category: "honorary" },
+  { term: "gullmerke", title: "Gullmerkeinnehaver", category: "honorary" },
   { term: "styreleder", title: "Styreleder", category: "board" },
   { term: "hovedtrener", title: "Hovedtrener", category: "coach" },
   { term: "materialforvalter", title: "Materialforvalter", category: "sporting_staff" },
@@ -155,6 +156,9 @@ const NOT_A_NAME = new Set([
   "fotballklubb", "fotballklubben", "medlemsblad", "hvilken", "hvem", "den", "det", "denne",
   "dette", "der", "her", "han", "hun", "som", "ble", "var", "har", "til", "for", "med", "og",
   "gruppe", "gruppen", "komité", "komiteen", "møtet", "årsmøtet", "sesongen", "kretsen",
+  // Selskapsnavn. «Styret i Ålesund Fotball AS 2013» ga «Ålesund Fotball AS»
+  // som styreleder.
+  "as", "fotball", "fotballklubben", "avdeling",
 ]);
 
 const NAME_TOKEN = "[A-ZÆØÅÀ-Þ][\\p{L}'’.-]*";
@@ -167,6 +171,25 @@ const NAME_TOKEN = "[A-ZÆØÅÀ-Þ][\\p{L}'’.-]*";
  * Nordmann» som navnet, og treffet falt ut igjen i navnekontrollen: vervet
  * forsvant uten at noe sa fra.
  */
+/**
+ * Skrivemåter av klubben selv, som prefiks på et rolleord.
+ *
+ * «AaFK-trener» er vår; «RBK-trener» er ikke. Uten dette ble Per Joar Hansen
+ * ført som trener i 2013 fra setningen «ga RBK-trener Per Joar Hansen denne
+ * karakteristikken» — mens arkivets egne kampdata sier at Jan Jönsson ledet
+ * laget det året.
+ */
+const OURS = ["aafk", "afk", "åfk", "aalesund", "aalesunds", "ålesund"];
+
+/** Er rolleordet satt sammen med en annen klubbs navn? */
+function belongsToAnother(text: string, index: number): boolean {
+  const before = text.slice(Math.max(0, index - 40), index);
+  const compound = /([\p{L}.]+)-$/u.exec(before);
+  if (compound) return !OURS.includes(compound[1]!.toLowerCase().replace(/\./g, ""));
+  // Et rolleord midt i et ord er ikke et rolleord.
+  return /\p{L}$/u.test(before);
+}
+
 function anyCase(term: string): string {
   return [...term].map((letter) => {
     const upper = letter.toUpperCase();
@@ -235,6 +258,7 @@ function* roleThenName(text: string, options: ResolveRolesOptions): Generator<Re
     for (const hit of text.matchAll(pattern)) {
       const name = cleanName(hit[1] ?? "");
       if (!name) continue;
+      if (belongsToAnother(text, hit.index ?? 0)) continue;
       yield build(term, name, nearestYear(text, hit.index ?? 0, options), "role_then_name", options, bodyBefore(text, hit.index ?? 0, options));
     }
   }
@@ -247,6 +271,10 @@ function* nameThenRole(text: string, options: ResolveRolesOptions): Generator<Re
     for (const hit of text.matchAll(pattern)) {
       const name = cleanName(hit[1] ?? "");
       if (!name) continue;
+
+      // Rolleordet står bakerst i treffet her, ikke fremst.
+      const roleAt = (hit.index ?? 0) + hit[0].length - term.term.length;
+      if (belongsToAnother(text, roleAt)) continue;
 
       const rest = text.slice((hit.index ?? 0) + hit[0].length);
       // «Som formann i «Frigg»» og «formann i banekomiteen» er verv i noe annet
@@ -282,18 +310,34 @@ function followingYear(rest: string): { from?: string; to: string | null } | nul
 function* yearRows(lines: string[], options: ResolveRolesOptions): Generator<ResolvedRole> {
   // «formann» blir «formenn» og «formennene» i flertall. Uten de formene
   // finner overskriftsprøven ingen formannsrekke å lese radene under.
-  const heading = ROLE_TERMS.find((term) => lines.some((line) => headingPattern(term.term).test(line)));
+  //
+  // Overskriften kan stå i en annen spalte enn radene. Trenerrekka pa side 351
+  // i Tango siden 1914 har «TRENERE 1955-2013» over venstre spalte, mens hoyre
+  // halvdel er satt opp som arstall og navn i hver sin spalte — og de radene
+  // har ingen overskrift over seg i det hele tatt.
+  const heading = ROLE_TERMS.find((term) => {
+    const pattern = headingPattern(term.term);
+    return lines.some((line) => pattern.test(line))
+      || (options.pageContext !== undefined && pattern.test(options.pageContext));
+  });
   if (!heading) return;
 
-  const row = new RegExp(`^(\\d{4})(?:\\s*[-–—]\\s*(\\d{2,4}))?[\\s.:]+(${NAME})$`, "u");
+  // Skilletegnet er valgfritt: prikkene i «1955.......Øivind Haagensen» faller
+  // ofte bort i OCR, og året blir limt til navnet. Et navn må uansett begynne
+  // med stor bokstav, så «19551956» kan ikke slippe gjennom.
+  const row = new RegExp(`^(\\d{4})(?:\\s*[-–—]\\s*(\\d{2,4}))?[\\s.:]*(${NAME}(?:\\s*/\\s*${NAME})*)$`, "u");
   for (const line of lines) {
     const hit = row.exec(line.trim());
     if (!hit) continue;
-    const name = cleanName(hit[3] ?? "");
-    if (!name) continue;
     const from = hit[1]!;
     const to = hit[2] ? (hit[2].length === 2 ? `${from.slice(0, 2)}${hit[2]}` : hit[2]) : null;
-    yield build(heading, name, { from, to }, "year_row", options);
+    // «1961 Torbjørn Aarø/Reidar Steen Jensen» er to trenere samme år, ikke ett
+    // navn. Skråstreken er kildens egen måte å si at de delte vervet.
+    for (const part of (hit[3] ?? "").split("/")) {
+      const name = cleanName(part);
+      if (!name) continue;
+      yield build(heading, name, { from, to }, "year_row", options);
+    }
   }
 }
 
@@ -305,7 +349,10 @@ const IRREGULAR_PLURALS: Record<string, string[]> = {
 };
 
 function headingForms(term: string): string[] {
-  return [`${term}(?:ene|er|ne)?`, ...(IRREGULAR_PLURALS[term] ?? [])];
+  // «TRENERE» er flertall av «trener», «ÆRESMEDLEMMER» av «æresmedlem». Det er
+  // de formene overskrifter bruker, og det er overskriften som sier hva rekka
+  // under er en rekke av.
+  return [`${term}(?:ene|er|ne|e|mer|mene)?`, ...(IRREGULAR_PLURALS[term] ?? [])];
 }
 
 function headingPattern(term: string): RegExp {
@@ -325,10 +372,16 @@ function headingPattern(term: string): RegExp {
  * hvert navn lenger nede pa siden blitt formann.
  */
 function* nameThenYear(text: string, options: ResolveRolesOptions): Generator<ResolvedRole> {
-  const entry = new RegExp(`(${NAME})\\s+(\\d{4}(?:\\s*(?:og|,|–|—|-)\\s*\\d{4})*)`, "gu");
+  // Skilletegnet mellom navn og ar er valgfritt: prikkene i «Geo Haller ......
+  // 1914 - 1915» kollapser i OCR, og navnet blir limt til arstallet. Et navn
+  // kan ikke inneholde siffer, sa det er ingen tvetydighet i a slippe kravet.
+  const entry = new RegExp(`(${NAME})[\\s.]*(\\d{4}(?:\\s*(?:og|,|–|—|-)\\s*\\d{4})*)`, "gu");
 
   for (const term of ROLE_TERMS) {
-    const heading = new RegExp(`\\b(?:${headingForms(term.term).join("|")})\\s*:`, "giu");
+    // Kolon eller ordslutt. «Formenn:» står med kolon i løpende tekst, men
+    // tabelloverskriftene i Tango siden 1914 — «STYRELEDERE», «ÆRESMEDLEMMER»,
+    // «GULLMERKE» — står alene, og rekka følger under uten skilletegn.
+    const heading = new RegExp(`\\b(?:${headingForms(term.term).join("|")})\\s*(?::|\\b)`, "giu");
     for (const start of text.matchAll(heading)) {
       const from = (start.index ?? 0) + start[0].length;
       for (const hit of text.slice(from, nextHeading(text, from)).matchAll(entry)) {
@@ -344,8 +397,15 @@ function* nameThenYear(text: string, options: ResolveRolesOptions): Generator<Re
   }
 }
 
-/** Hvor langt etter en overskrift en rekke leses når ingen ny overskrift følger. */
-const LIST_REACH = 400;
+/**
+ * Hvor langt etter en overskrift en rekke leses når ingen ny overskrift følger.
+ *
+ * Formannsrekka på side 348 i Tango siden 1914 har over førti rader og er godt
+ * over tusen tegn lang. Med 400 stoppet lesningen i 1946, midt i lista. Tallet
+ * er trygt fordi rekka uansett brytes ved neste rolleoverskrift, og fordi hver
+ * rad må være et navn med et årstall inntil seg.
+ */
+const LIST_REACH = 1600;
 
 /**
  * Der en rekke slutter: ved neste rolleoverskrift, ellers etter `LIST_REACH`.

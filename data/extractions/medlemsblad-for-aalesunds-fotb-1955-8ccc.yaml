@@ -2294,6 +2294,16 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-0d1bd99f347a62c3
+    page: "6"
+    column: 1
+    personName: Herreekvipering Telefon
+    category: board
+    title: Formann
+    from: "1726"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-2ba8bce0eef2bb3a
     page: "6"
     column: 1
@@ -2309,6 +2319,16 @@ resolvedRoles:
     personName: Alfhild Ringdal. Tlf
     category: board
     title: Formann
+    from: "1150"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-88bdc4aa2315fe14
+    page: "12"
+    column: 1
+    personName: Alfhild Ringdal. Tlf
+    category: board
+    title: Nestformann
     from: "1150"
     to: null
     confidence: medium
@@ -2337,6 +2357,16 @@ resolvedRoles:
     personName: Alfhild Ringdal. Tlf
     category: board
     title: Formann
+    from: "1150"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-bee103b4d6f83dfa
+    page: "24"
+    column: 0
+    personName: Alfhild Ringdal. Tlf
+    category: board
+    title: Nestformann
     from: "1150"
     to: null
     confidence: medium
@@ -2396,6 +2426,16 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-095693ca94b3ba2a
+    page: "36"
+    column: 2
+    personName: Alfhild Ringdal. Tlf
+    category: board
+    title: Nestformann
+    from: "1150"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-12efcc8d3eaaa04a
     page: "36"
     column: 2
@@ -2464,6 +2504,16 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-1b581b347e079dd5
+    page: "48"
+    column: 2
+    personName: Alfhild Ringdal. Tlf
+    category: board
+    title: Nestformann
+    from: "1150"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-52d6d9c333ca2f1a
     page: "48"
     column: 2
@@ -2545,6 +2595,16 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_year
+  - id: rolle-b98af4349ea57f89
+    page: "60"
+    column: 0
+    personName: Markvegen Alfhild Ringdal. Tlf
+    category: board
+    title: Nestformann
+    from: "1150"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-8f1d396d39b2408f
     page: "68"
     column: 0
@@ -2591,6 +2651,16 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-50c023f6a3ac6050
+    page: "70"
+    column: 1
+    personName: AAA TR SEE SN
+    category: sporting_staff
+    title: Oppmann
+    from: "0000"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-59e89673002bfd23
     page: "82"
     column: 2

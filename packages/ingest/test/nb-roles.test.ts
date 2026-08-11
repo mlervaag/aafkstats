@@ -138,7 +138,9 @@ describe("rekker i løpende tekst", () => {
   });
 
   it("tar ikke med navn som står langt etter rekka", () => {
-    const roles = resolve(`Formenn: Ola Nordmann 1925${" fyll ".repeat(90)}Kari Nordmann 1931`);
+    // Rekkevidden er lang nok til å romme en formannsrekke på over førti rader
+    // — side 348 i Tango siden 1914 — men den er ikke uendelig.
+    const roles = resolve(`Formenn: Ola Nordmann 1925${" fyll ".repeat(400)}Kari Nordmann 1931`);
     expect(roles.map((role) => role.personName)).toEqual(["Ola Nordmann"]);
   });
 });
@@ -227,5 +229,27 @@ describe("hvilket organ vervet hører til", () => {
       sourceId: "s", page: "76", people, publicationYear: 1970, pageContext: side,
     });
     expect(role?.body).toBe("Banekomiteen");
+  });
+});
+
+describe("rolleord satt sammen med en annen klubb", () => {
+  /**
+   * «Etter AaFKs kamp mot Rosenborg i 2013, ga RBK-trener Per Joar Hansen denne
+   * karakteristikken» — Tango siden 1914, side 260. Uten denne prøven ble han
+   * ført som AaFKs trener i 2013, samtidig som arkivets egne kampdata sier at
+   * Jan Jönsson ledet laget i 30 kamper det året.
+   */
+  it("tar ikke en annen klubbs trener", () => {
+    const text = "Etter AaFKs kamp mot Rosenborg i 2013, ga RBK-trener Per Joar Hansen denne karakteristikken.";
+    expect(resolve(text)).toEqual([]);
+  });
+
+  it("tar vår egen når prefikset er klubben selv", () => {
+    const [role] = resolve("I 1966 uttalte AaFK-trener Ola Nordmann seg om saken.");
+    expect(role).toMatchObject({ title: "Trener", personName: "Ola Nordmann" });
+  });
+
+  it("plukker ikke et rolleord som står midt i et annet ord", () => {
+    expect(resolve("Klubben hadde en assistenttrener Ola Nordmann i 1970.")).toEqual([]);
   });
 });

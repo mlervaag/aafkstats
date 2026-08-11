@@ -762,4 +762,14 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-072da7ea3bebc1fa
+    page: "10"
+    column: 0
+    personName: Herds Jubileumsturnering
+    category: board
+    title: Formann
+    from: "1952"
+    to: null
+    confidence: medium
+    rule: name_then_year
 resolvedLineups: []

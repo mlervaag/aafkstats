@@ -7253,16 +7253,6 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-2ff720b6468194e7
-    page: "189"
-    column: 1
-    personName: Martin Andresen
-    category: coach
-    title: Trener
-    from: "2010"
-    to: null
-    confidence: medium
-    rule: role_then_name
   - id: rolle-200b419e75751787
     page: "192"
     column: 0
@@ -7312,16 +7302,6 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-2c6965b67edb5a90
-    page: "213"
-    column: 1
-    personName: Bjarne Haagensen
-    personId: bjarne-haagensen
-    category: board
-    title: Styreleder
-    to: null
-    confidence: medium
-    rule: role_then_name
   - id: rolle-b3854127f7b08bee
     page: "214"
     column: 1
@@ -7332,16 +7312,6 @@ resolvedRoles:
     from: "2009"
     to: null
     confidence: high
-    rule: role_then_name
-  - id: rolle-e5a54c7811530cd6
-    page: "221"
-    column: 0
-    personName: Bjarne Haagensen
-    personId: bjarne-haagensen
-    category: board
-    title: Styreleder
-    to: null
-    confidence: medium
     rule: role_then_name
   - id: rolle-3ef73170e0640cce
     page: "223"
@@ -7412,17 +7382,6 @@ resolvedRoles:
     title: Daglig leder
     to: null
     confidence: low
-    rule: role_then_name
-  - id: rolle-e4cdc225ac8da8d0
-    page: "260"
-    column: 1
-    personName: Per Joar Hansen
-    personId: per-joar-hansen
-    category: coach
-    title: Trener
-    from: "2013"
-    to: null
-    confidence: high
     rule: role_then_name
   - id: rolle-fb21acc5d0f10a53
     page: "266"
@@ -7619,6 +7578,1344 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-db7a40cf096c7363
+    page: "348"
+    column: 2
+    personName: Arne Aambakk
+    personId: arne-aambakk
+    category: board
+    title: Styreleder
+    from: "1999"
+    to: "2006"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-f79d5a149481e6ac
+    page: "348"
+    column: 2
+    personName: Arnstein Johansen
+    personId: arnstein-johansen
+    category: board
+    title: Styreleder
+    from: "1998"
+    to: "1998"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-01bbd7c84d1ff24b
+    page: "348"
+    column: 2
+    personName: Asbjørn Korsnes
+    personId: asbjorn-korsnes
+    category: board
+    title: Styreleder
+    from: "1979"
+    to: "1979"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-bd752e5f886ff84e
+    page: "348"
+    column: 2
+    personName: Bjørn Drabløs
+    personId: bjorn-drablos
+    category: board
+    title: Styreleder
+    from: "1975"
+    to: "1976"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-d994f4b8975d2011
+    page: "348"
+    column: 2
+    personName: Bjørn Drabløs
+    personId: bjorn-drablos
+    category: board
+    title: Styreleder
+    from: "1978"
+    to: "1978"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-6ce4328341bfdd5f
+    page: "348"
+    column: 2
+    personName: Einar With
+    personId: einar-with
+    category: board
+    title: Styreleder
+    from: "1985"
+    to: "1987"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-7581d6b2e2a95ff5
+    page: "348"
+    column: 2
+    personName: Erling Bjørge
+    personId: erling-bjorge
+    category: board
+    title: Styreleder
+    from: "1967"
+    to: "1968"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-cadc0d777fc99e89
+    page: "348"
+    column: 2
+    personName: Geo Haller
+    category: board
+    title: Styreleder
+    from: "1914"
+    to: "1915"
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-523f76d026df2fc3
+    page: "348"
+    column: 2
+    personName: Hans J. Henriksen
+    personId: hans-j-henriksen
+    category: board
+    title: Styreleder
+    from: "1957"
+    to: "1960"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-87e6eb5dd2abb8da
+    page: "348"
+    column: 2
+    personName: Hans J. Henriksen
+    personId: hans-j-henriksen
+    category: board
+    title: Styreleder
+    from: "1962"
+    to: "1964"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-fa5d9ad1cd843ce6
+    page: "348"
+    column: 2
+    personName: Hans J. Henriksen
+    personId: hans-j-henriksen
+    category: board
+    title: Styreleder
+    from: "1969"
+    to: "1969"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-d7b18b8bbf4a86de
+    page: "348"
+    column: 2
+    personName: Harald Johansen
+    personId: harald-johansen
+    category: board
+    title: Styreleder
+    from: "1980"
+    to: "1980"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-31e706ce6a9e9704
+    page: "348"
+    column: 2
+    personName: Harald Johansen
+    personId: harald-johansen
+    category: board
+    title: Styreleder
+    from: "1993"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-45257247f094b9a2
+    page: "348"
+    column: 2
+    personName: Helge Myklebust
+    personId: helge-myklebust
+    category: board
+    title: Styreleder
+    from: "1990"
+    to: "1992"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-223cde2a9321258e
+    page: "348"
+    column: 2
+    personName: Jan With
+    personId: jan-with
+    category: board
+    title: Styreleder
+    from: "1972"
+    to: "1974"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-3f6b2627b68f9e32
+    page: "348"
+    column: 2
+    personName: Kjell Berentzen
+    personId: kjell-berentzen
+    category: board
+    title: Styreleder
+    from: "1955"
+    to: "1956"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-bec7770f68557eb8
+    page: "348"
+    column: 2
+    personName: Kjell Berentzen
+    personId: kjell-berentzen
+    category: board
+    title: Styreleder
+    from: "1961"
+    to: "1961"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-773fdd5432edaf9a
+    page: "348"
+    column: 2
+    personName: Kjell Tennfjord
+    personId: kjell-tennfjord
+    category: board
+    title: Styreleder
+    from: "2011"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-665b90cc78b16f05
+    page: "348"
+    column: 2
+    personName: Kjell Westre
+    category: board
+    title: Styreleder
+    from: "1977"
+    to: "1977"
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-43060751160bf9b7
+    page: "348"
+    column: 2
+    personName: Knut Gaaseide
+    personId: knut-gaaseide
+    category: board
+    title: Styreleder
+    from: "1937"
+    to: "1937"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-401f8acb4ba3582a
+    page: "348"
+    column: 2
+    personName: Lauritz Giske
+    personId: lauritz-giske
+    category: board
+    title: Styreleder
+    from: "1953"
+    to: "1954"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-95a14e30427c6138
+    page: "348"
+    column: 2
+    personName: Nils Jangaard
+    personId: nils-jangaard
+    category: board
+    title: Styreleder
+    from: "1917"
+    to: "1917"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-8ac36e56a0c494d1
+    page: "348"
+    column: 2
+    personName: Nils Jangaard
+    personId: nils-jangaard
+    category: board
+    title: Styreleder
+    from: "1919"
+    to: "1919"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-311ca2d8dece987a
+    page: "348"
+    column: 2
+    personName: Nils Jangaard
+    personId: nils-jangaard
+    category: board
+    title: Styreleder
+    from: "1929"
+    to: "1929"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-60e71d4972e8fac0
+    page: "348"
+    column: 2
+    personName: Ola Hodder
+    personId: ola-hodder
+    category: board
+    title: Styreleder
+    from: "1970"
+    to: "1971"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-183957cc1f2394a7
+    page: "348"
+    column: 2
+    personName: Olaf Ingebrigsten
+    category: board
+    title: Styreleder
+    from: "1916"
+    to: "1916"
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-bdf202c44369cde2
+    page: "348"
+    column: 2
+    personName: Paul Urke
+    personId: paul-urke
+    category: board
+    title: Styreleder
+    from: "1988"
+    to: "1989"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-fd0c6a067be67a05
+    page: "348"
+    column: 2
+    personName: Peder Puck
+    personId: peder-puck
+    category: board
+    title: Styreleder
+    from: "1938"
+    to: "1941"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-cf15ec6561edc13d
+    page: "348"
+    column: 2
+    personName: Peder Puck
+    personId: peder-puck
+    category: board
+    title: Styreleder
+    from: "1945"
+    to: "1946"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-8bf22963aa7c3c31
+    page: "348"
+    column: 2
+    personName: Per Anker Eriksen
+    personId: per-anker-eriksen
+    category: board
+    title: Styreleder
+    from: "1950"
+    to: "1952"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-f1841a610f3a7370
+    page: "348"
+    column: 2
+    personName: Petter Birkevold
+    personId: petter-birkevold
+    category: board
+    title: Styreleder
+    from: "1997"
+    to: "1997"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-72a26c1b84c9951e
+    page: "348"
+    column: 2
+    personName: Rasmus Eck-Olsen
+    personId: rasmus-eck-olsen
+    category: board
+    title: Styreleder
+    from: "1920"
+    to: "1924"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-068fd1167c593acd
+    page: "348"
+    column: 2
+    personName: Rasmus Eck-Olsen
+    personId: rasmus-eck-olsen
+    category: board
+    title: Styreleder
+    from: "1928"
+    to: "1928"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-32137e4dc8a47212
+    page: "348"
+    column: 2
+    personName: Rolf Annaniassen
+    personId: rolf-annaniassen
+    category: board
+    title: Styreleder
+    from: "1965"
+    to: "1966"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-89182e2fe93e9d5c
+    page: "348"
+    column: 2
+    personName: Rolf Mittet
+    personId: rolf-mittet
+    category: board
+    title: Styreleder
+    from: "1927"
+    to: "1927"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-1afc34f6cb6c538d
+    page: "348"
+    column: 2
+    personName: Sigurd Nørve
+    personId: sigurd-norve
+    category: board
+    title: Styreleder
+    from: "1946"
+    to: "1949"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-124782094c9b7aab
+    page: "348"
+    column: 2
+    personName: Sverre Mogstad
+    personId: sverre-mogstad
+    category: board
+    title: Styreleder
+    from: "1925"
+    to: "1926"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-1fe7cfda168f6a1d
+    page: "348"
+    column: 2
+    personName: Sverre Volstad
+    personId: sverre-volstad
+    category: board
+    title: Styreleder
+    from: "1930"
+    to: "1936"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-938d8d2b45f58303
+    page: "348"
+    column: 2
+    personName: Terje Andersen
+    personId: terje-andersen
+    category: board
+    title: Styreleder
+    from: "1981"
+    to: "1982"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-91b71ac619b38164
+    page: "348"
+    column: 2
+    personName: Thori Fladmark
+    category: board
+    title: Styreleder
+    from: "1983"
+    to: "1984"
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-15b65e568509b979
+    page: "348"
+    column: 2
+    personName: Torill Hole Standal
+    personId: torill-hole-standal
+    category: board
+    title: Styreleder
+    from: "2007"
+    to: "2010"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-7770e66cb1e4bee6
+    page: "350"
+    column: 1
+    personName: Andreas Ringdal
+    personId: andreas-ringdal
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1927"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-1b963e39a62e8cb4
+    page: "350"
+    column: 1
+    personName: Asbjørn Korsnes
+    personId: asbjorn-korsnes
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1976"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-6a63757cdd7a1b83
+    page: "350"
+    column: 1
+    personName: Finn Tolaas
+    personId: finn-tollas
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1964"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-01b9f381950a32df
+    page: "350"
+    column: 1
+    personName: Franz Løvmo
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1964"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-234a3639088d3ac3
+    page: "350"
+    column: 1
+    personName: Hans J. Henriksen
+    personId: hans-j-henriksen
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1969"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-03210abf3b077410
+    page: "350"
+    column: 1
+    personName: Karsten Eriksen
+    personId: karsten-eriksen
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1957"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-38e01d58b37ba407
+    page: "350"
+    column: 1
+    personName: Karsten Nedregård
+    personId: karsten-nedregard
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1972"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-13937eaf14562698
+    page: "350"
+    column: 1
+    personName: Konrad Korsnes
+    personId: konrad-korsnes
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1935"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-a1b43b8b8e1a65c0
+    page: "350"
+    column: 1
+    personName: Lauritz Giske
+    personId: lauritz-giske
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1972"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-c96e0e9c6ef7ee26
+    page: "350"
+    column: 1
+    personName: Peder Puck
+    personId: peder-puck
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1948"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-8778e6cdd442f869
+    page: "350"
+    column: 1
+    personName: Per Mogstad
+    personId: per-mogstad
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1927"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-82dfba0a34f3b8ce
+    page: "350"
+    column: 1
+    personName: Rasmus Eck-Olsen
+    personId: rasmus-eck-olsen
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1924"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-de46b1083b414dc8
+    page: "350"
+    column: 1
+    personName: Reidar Skarbøvik
+    personId: reidar-skarbovik
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1959"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-3dc3209bd1014ce6
+    page: "350"
+    column: 1
+    personName: Rolf Annaniassen
+    personId: rolf-annaniassen
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1976"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-5c83e34f00eccd2c
+    page: "350"
+    column: 1
+    personName: Sigurd Nørve
+    personId: sigurd-norve
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1957"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-d2955d312d3a26ef
+    page: "350"
+    column: 1
+    personName: Sverre Volstad
+    personId: sverre-volstad
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1934"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-685e010ab68a0e49
+    page: "350"
+    column: 1
+    personName: Øivind Haagensen
+    personId: oivind-haagensen
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1964"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-72de0ced0bfe24d4
+    page: "351"
+    personName: Arnfinn Espeseth
+    category: coach
+    title: Trener
+    from: "1985"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-a94d5e51737dcda8
+    page: "351"
+    personName: Bård Wiggen
+    category: coach
+    title: Trener
+    from: "1997"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-f1e829b956476827
+    page: "351"
+    personName: Bård Wiggen
+    category: coach
+    title: Trener
+    from: "1998"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-b92504f65c6f5b82
+    page: "351"
+    personName: Bård Wiggen
+    category: coach
+    title: Trener
+    from: "1999"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-0bee2bf0b16d3271
+    page: "351"
+    personName: Egil Olsen
+    category: coach
+    title: Trener
+    from: "1989"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-3f9be9f638e423ed
+    page: "351"
+    personName: Geir Hansen
+    category: coach
+    title: Trener
+    from: "2000"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-a892a28015eec4ba
+    page: "351"
+    personName: Helge Nøstdahl
+    category: coach
+    title: Trener
+    from: "1985"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-5996c84646ab4101
+    page: "351"
+    personName: Helge Røsvik
+    category: coach
+    title: Trener
+    from: "1992"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-19a1a21b4db21789
+    page: "351"
+    personName: Ivar Morten Normark
+    personId: ivar-morten-normark
+    category: coach
+    title: Trener
+    from: "2001"
+    to: null
+    confidence: high
+    rule: year_row
+  - id: rolle-6a69436e5dd82a52
+    page: "351"
+    personName: Ivar Morten Normark
+    personId: ivar-morten-normark
+    category: coach
+    title: Trener
+    from: "2003"
+    to: null
+    confidence: high
+    rule: year_row
+  - id: rolle-4418ea86dd0c6758
+    page: "351"
+    personName: Ivar Morten Normark
+    personId: ivar-morten-normark
+    category: coach
+    title: Trener
+    from: "2004"
+    to: null
+    confidence: high
+    rule: year_row
+  - id: rolle-aa29830ef33e3500
+    page: "351"
+    personName: Ivar Morten Normark
+    personId: ivar-morten-normark
+    category: coach
+    title: Trener
+    from: "2005"
+    to: null
+    confidence: high
+    rule: year_row
+  - id: rolle-93d876b0bf2cfcc2
+    page: "351"
+    personName: Jan Jbnsson
+    category: coach
+    title: Trener
+    from: "2013"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-e74faab32576d339
+    page: "351"
+    personName: Kjetil Rekdal
+    personId: kjetil-rekdal
+    category: coach
+    title: Trener
+    from: "2009"
+    to: null
+    confidence: high
+    rule: year_row
+  - id: rolle-45c4c7fcc6777358
+    page: "351"
+    personName: Kjetil Rekdal
+    personId: kjetil-rekdal
+    category: coach
+    title: Trener
+    from: "2010"
+    to: null
+    confidence: high
+    rule: year_row
+  - id: rolle-d2d9ba7db2047140
+    page: "351"
+    personName: Kjetil Rekdal
+    personId: kjetil-rekdal
+    category: coach
+    title: Trener
+    from: "2011"
+    to: null
+    confidence: high
+    rule: year_row
+  - id: rolle-97c0421c62da46f9
+    page: "351"
+    personName: Kjetil Rekdal
+    personId: kjetil-rekdal
+    category: coach
+    title: Trener
+    from: "2012"
+    to: null
+    confidence: high
+    rule: year_row
+  - id: rolle-2e0eee86a51d59b7
+    page: "351"
+    personName: Knut Thorbjørn Eggen
+    category: coach
+    title: Trener
+    from: "1994"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-cc78eef8d3e72438
+    page: "351"
+    personName: Knut Thorbjørn Eggen
+    category: coach
+    title: Trener
+    from: "1996"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-26ece98a5348cbb3
+    page: "351"
+    personName: Knut Torbjørn Eggen
+    category: coach
+    title: Trener
+    from: "1995"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-e31c707c2c6eafc5
+    page: "351"
+    personName: Per Joar Hansen
+    personId: per-joar-hansen
+    category: coach
+    title: Trener
+    from: "2006"
+    to: null
+    confidence: high
+    rule: year_row
+  - id: rolle-a846f0287eedbad9
+    page: "351"
+    personName: Per Joar Hansen
+    personId: per-joar-hansen
+    category: coach
+    title: Trener
+    from: "2007"
+    to: null
+    confidence: high
+    rule: year_row
+  - id: rolle-ac4b57e55baea5b1
+    page: "351"
+    personName: Stein Gisle Alvestad
+    category: coach
+    title: Trener
+    from: "1990"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-92353336da2f4db9
+    page: "351"
+    personName: Stein Gisle Alvestad
+    category: coach
+    title: Trener
+    from: "1991"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-c4be4346af9633ee
+    page: "351"
+    personName: Thomas Nordahl
+    category: coach
+    title: Trener
+    from: "1986"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-ccc7da629dbfd009
+    page: "351"
+    personName: Thomas Nordahl
+    category: coach
+    title: Trener
+    from: "1987"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-2b89ebef667558d7
+    page: "351"
+    personName: Thomas NordahL
+    category: coach
+    title: Trener
+    from: "1988"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-4e621edc6ecd6e08
+    page: "351"
+    column: 0
+    personName: Alois Pfeiffer
+    category: coach
+    title: Trener
+    from: "1963"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-47fd4b4d03de8788
+    page: "351"
+    column: 0
+    personName: Alois Pfeiffer
+    category: coach
+    title: Trener
+    from: "1964"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-aa86850d4511dbf1
+    page: "351"
+    column: 0
+    personName: Arnfinn Gjerde
+    category: coach
+    title: Trener
+    from: "1972"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-40faf294052932a8
+    page: "351"
+    column: 0
+    personName: Arnfinn Gjerde
+    category: coach
+    title: Trener
+    from: "1973"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-1778c309af3f48e6
+    page: "351"
+    column: 0
+    personName: Arnfinn Gjerde
+    category: coach
+    title: Trener
+    from: "1974"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-dddfad2b47c99bf6
+    page: "351"
+    column: 0
+    personName: Arnfinn Gjerde
+    category: coach
+    title: Trener
+    from: "1975"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-f1eac79691799731
+    page: "351"
+    column: 0
+    personName: Bobby Gould
+    category: coach
+    title: Trener
+    from: "1978"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-b03e1a3736b18803
+    page: "351"
+    column: 0
+    personName: Bobby Gould
+    category: coach
+    title: Trener
+    from: "1979"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-98d3d483005ad40f
+    page: "351"
+    column: 0
+    personName: Einar With
+    personId: einar-with
+    category: coach
+    title: Trener
+    from: "1978"
+    to: null
+    confidence: high
+    rule: year_row
+  - id: rolle-c7fc4f856dce4a04
+    page: "351"
+    column: 0
+    personName: Einar Aas
+    personId: einar-aas
+    category: coach
+    title: Trener
+    from: "1960"
+    to: null
+    confidence: high
+    rule: year_row
+  - id: rolle-ae1b5a35f813bf34
+    page: "351"
+    column: 0
+    personName: Einar Aas
+    personId: einar-aas
+    category: coach
+    title: Trener
+    from: "1961"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-735c8f7c95c50ffc
+    page: "351"
+    column: 0
+    personName: Erik Eriksen
+    category: coach
+    title: Trener
+    from: "1980"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-8c98101e145a2045
+    page: "351"
+    column: 0
+    personName: Erik Eriksen
+    category: coach
+    title: Trener
+    from: "1981"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-912ad22cd32ae323
+    page: "351"
+    column: 0
+    personName: Erik Eriksen
+    category: coach
+    title: Trener
+    from: "1982"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-095a6b3b3a3dba58
+    page: "351"
+    column: 0
+    personName: Finn Tolaas
+    personId: finn-tollas
+    category: coach
+    title: Trener
+    from: "1956"
+    to: null
+    confidence: high
+    rule: year_row
+  - id: rolle-767530c4d74faf44
+    page: "351"
+    column: 0
+    personName: Finn Tolaas
+    personId: finn-tollas
+    category: coach
+    title: Trener
+    from: "1957"
+    to: null
+    confidence: high
+    rule: year_row
+  - id: rolle-c67708a06e0d1bfa
+    page: "351"
+    column: 0
+    personName: Finn Tolaas
+    personId: finn-tollas
+    category: coach
+    title: Trener
+    from: "1958"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-be58eb746a5d8981
+    page: "351"
+    column: 0
+    personName: Frank Sourza
+    category: coach
+    title: Trener
+    from: "1982"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-0690f25e44c20754
+    page: "351"
+    column: 0
+    personName: Frank Sourza
+    category: coach
+    title: Trener
+    from: "1983"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-b7cb252afebb2477
+    page: "351"
+    column: 0
+    personName: Geoff Hudson
+    category: coach
+    title: Trener
+    from: "1977"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-5dfac7e955b4f0ee
+    page: "351"
+    column: 0
+    personName: Geoff Hudson
+    category: coach
+    title: Trener
+    from: "1978"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-7482cb4c03d2c1cb
+    page: "351"
+    column: 0
+    personName: Helge Nøstdahl
+    category: coach
+    title: Trener
+    from: "1984"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-3602c0f788ddc0b4
+    page: "351"
+    column: 0
+    personName: Jan Larsen
+    category: coach
+    title: Trener
+    from: "1958"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-aa31a0af78167092
+    page: "351"
+    column: 0
+    personName: Jan Larsen
+    category: coach
+    title: Trener
+    from: "1959"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-941b8fa629024179
+    page: "351"
+    column: 0
+    personName: Jan Larsen
+    category: coach
+    title: Trener
+    from: "1960"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-963cbf2a6703e337
+    page: "351"
+    column: 0
+    personName: Karsten Molværsmyr
+    category: coach
+    title: Trener
+    from: "1967"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-58492a8324d1381c
+    page: "351"
+    column: 0
+    personName: Karsten Molværsmyr
+    category: coach
+    title: Trener
+    from: "1968"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-e5addf954337786e
+    page: "351"
+    column: 0
+    personName: Karsten Molværsmyr
+    category: coach
+    title: Trener
+    from: "1969"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-4414e115937d7904
+    page: "351"
+    column: 0
+    personName: Karsten Molværsmyr
+    category: coach
+    title: Trener
+    from: "1970"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-691e91abb7bfb622
+    page: "351"
+    column: 0
+    personName: Knut Osnes
+    category: coach
+    title: Trener
+    from: "1970"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-04d42fe2d63ea9c3
+    page: "351"
+    column: 0
+    personName: Knut Osnes
+    category: coach
+    title: Trener
+    from: "1971"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-829e39bb045c7295
+    page: "351"
+    column: 0
+    personName: Knut Osnes
+    category: coach
+    title: Trener
+    from: "1972"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-abea376ef1f00e17
+    page: "351"
+    column: 0
+    personName: Reidar Steen Jensen
+    category: coach
+    title: Trener
+    from: "1961"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-e666232d0919fa8c
+    page: "351"
+    column: 0
+    personName: Reidar Steen Jensen
+    category: coach
+    title: Trener
+    from: "1962"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-f4d8867e822f16b5
+    page: "351"
+    column: 0
+    personName: Reidar Steen Jensen
+    category: coach
+    title: Trener
+    from: "1963"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-154903b9f34fc27f
+    page: "351"
+    column: 0
+    personName: Steinar Nedregård
+    category: coach
+    title: Trener
+    from: "1976"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-67794924adb8b186
+    page: "351"
+    column: 0
+    personName: Steinar Nedregård
+    category: coach
+    title: Trener
+    from: "1977"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-40bd6fb1261605d8
+    page: "351"
+    column: 0
+    personName: Terje Eriksen
+    category: coach
+    title: Trener
+    from: "1984"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-13e16a37b10b73b3
+    page: "351"
+    column: 0
+    personName: Torbjørn Aarø
+    personId: torbjorn-aaro
+    category: coach
+    title: Trener
+    from: "1961"
+    to: null
+    confidence: high
+    rule: year_row
+  - id: rolle-86c96a6e0cb8aca0
+    page: "351"
+    column: 0
+    personName: Torbjørn Aarø
+    personId: torbjorn-aaro
+    category: coach
+    title: Trener
+    from: "1964"
+    to: null
+    confidence: high
+    rule: year_row
+  - id: rolle-45a71c85c8dcb7f0
+    page: "351"
+    column: 0
+    personName: Torbjørn Aarø
+    personId: torbjorn-aaro
+    category: coach
+    title: Trener
+    from: "1965"
+    to: null
+    confidence: high
+    rule: year_row
+  - id: rolle-bdce34c5c38c2be9
+    page: "351"
+    column: 0
+    personName: Torbjørn Aarø
+    personId: torbjorn-aaro
+    category: coach
+    title: Trener
+    from: "1966"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-95080e02e5ceb700
+    page: "351"
+    column: 0
+    personName: Øivind Haagensen
+    personId: oivind-haagensen
+    category: coach
+    title: Trener
+    from: "1955"
+    to: null
+    confidence: high
+    rule: year_row
+  - id: rolle-a54aa789b341d842
+    page: "351"
+    column: 0
+    personName: Øivind Haagensen
+    personId: oivind-haagensen
+    category: coach
+    title: Trener
+    from: "1956"
+    to: null
+    confidence: high
+    rule: name_then_year
 resolvedLineups:
   - id: oppstilling-cc8914dd9f26bd83
     page: "60"

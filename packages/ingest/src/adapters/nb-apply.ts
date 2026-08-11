@@ -36,11 +36,39 @@ import type { Archive } from "@aafkstats/schema/load";
  * Uten denne lista ble Arnstein Johansen stående med begge for 1998, som om
  * han hadde to verv.
  */
+/**
+ * Verv der to samtidige innehavere ikke gir mening.
+ *
+ * Trener er ikke ett av dem. Trenerrekka på side 351 i Tango siden 1914 har to
+ * navn på 1961, 1975, 1984, 1993 og 2008 — bytte midt i sesongen er vanlig.
+ */
+const SINGULAR = new Set(["board", "administration", "sporting_staff"]);
+
 const SAME_OFFICE: Record<string, string> = {
   styreleder: "formann",
   nestleder: "nestformann",
   varaformann: "nestformann",
 };
+
+/** Årene en rolle dekker, fra og med til og med. */
+function span(from: string, to: string | null): string[] {
+  const first = Number(from.slice(0, 4));
+  const last = to ? Number(to.slice(0, 4)) : first;
+  if (!Number.isFinite(first) || !Number.isFinite(last) || last < first || last - first > 40) return [String(first)];
+  return Array.from({ length: last - first + 1 }, (_, step) => String(first + step));
+}
+
+/**
+ * Er vervet klubbens eget, eller et underorgans?
+ *
+ * `body` skiller dem — men «Hovedstyret» er ikke et underorgan, det *er*
+ * klubben. aafk.no-høstingen setter det uttrykkelig på formannsrekka, og en
+ * prøve som bare spør om `body` finnes, leste den som «gjelder ikke klubben».
+ * Da kunne en formann fra et medlemsblad legge seg oppå den uten at noe sa fra.
+ */
+function clubWide(body: string | undefined): boolean {
+  return body === undefined || body.toLowerCase() === "hovedstyret";
+}
 
 function office(title: string): string {
   const key = title.toLowerCase();
@@ -78,8 +106,8 @@ export async function applyResolvedRoles(archive: Archive, findings: RoleFinding
   const heldBy = new Map<string, string>();
   for (const person of archive.people) {
     for (const role of person.roles) {
-      if (role.body) continue;
-      heldBy.set(`${office(role.title)}|${role.from.slice(0, 4)}`, person.id);
+      if (!clubWide(role.body) || !SINGULAR.has(role.category)) continue;
+      for (const year of span(role.from, role.to)) heldBy.set(`${office(role.title)}|${year}`, person.id);
     }
   }
   const byId = new Map(archive.people.map((person) => [person.id, structuredClone(person)]));
@@ -113,7 +141,13 @@ export async function applyResolvedRoles(archive: Archive, findings: RoleFinding
       && candidate.title.toLowerCase() !== role.title.toLowerCase()
       && candidate.title.toLowerCase().startsWith(`${role.title.toLowerCase()} `));
     // To personer kan ikke ha samme klubbverv samme år.
-    const takenBy = role.body ? undefined : heldBy.get(`${office(role.title)}|${year}`);
+    // Hele perioden må være ledig, ikke bare startåret. «Sigurd Nørve
+    // 1946-1949» og «Per Anker Eriksen 1948» har ulike startår og ville begge
+    // sluppet gjennom en prøve på år alene — samtidig som de sier at klubben
+    // hadde to formenn i 1948.
+    const takenBy = !clubWide(role.body) || !SINGULAR.has(role.category)
+      ? undefined
+      : span(role.from, role.to).map((each) => heldBy.get(`${office(role.title)}|${each}`)).find((id) => id !== undefined);
     if (moreSpecific || (takenBy !== undefined && takenBy !== person.id)) {
       report.conflicting += 1;
       continue;
@@ -130,7 +164,9 @@ export async function applyResolvedRoles(archive: Archive, findings: RoleFinding
       note: "Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.",
     }].sort((a, b) => a.from.localeCompare(b.from) || a.title.localeCompare(b.title, "nb"));
     report.added += 1;
-    if (!role.body) heldBy.set(`${office(role.title)}|${year}`, person.id);
+    if (clubWide(role.body) && SINGULAR.has(role.category)) {
+      for (const each of span(role.from, role.to)) heldBy.set(`${office(role.title)}|${each}`, person.id);
+    }
     touched.add(person.id);
   }
 

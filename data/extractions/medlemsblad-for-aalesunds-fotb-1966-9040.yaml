@@ -148,4 +148,14 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-58259bfad284c18a
+    page: "4"
+    column: 0
+    personName: TO ATS Tr RRR
+    category: board
+    title: Formann
+    from: "1010"
+    to: null
+    confidence: medium
+    rule: name_then_year
 resolvedLineups: []

@@ -1322,6 +1322,374 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_role
+  - id: rolle-8c3daaa9ef26c2da
+    page: "7"
+    column: 1
+    personName: Geo Haller
+    category: board
+    title: Formann
+    from: "1914"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-4da577b4d28e55ee
+    page: "7"
+    column: 1
+    personName: Harald Riise Hansen
+    category: board
+    title: Formann
+    from: "1918"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-bfb2dabc3459ff42
+    page: "7"
+    column: 1
+    personName: Harald Riise Hansen
+    category: sporting_staff
+    title: Oppmann
+    from: "1918"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-281a7341b86a4c01
+    page: "7"
+    column: 1
+    personName: Nils Jangaard
+    personId: nils-jangaard
+    category: board
+    title: Formann
+    from: "1917"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-15cdd58599aa9557
+    page: "7"
+    column: 1
+    personName: Nils Jangaard
+    personId: nils-jangaard
+    category: sporting_staff
+    title: Oppmann
+    from: "1917"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-4e8b74aae64a8797
+    page: "7"
+    column: 1
+    personName: Olaf Ingebrigtsen
+    personId: olaf-ingebrigtsen
+    category: board
+    title: Formann
+    from: "1916"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-84119643f34997b1
+    page: "7"
+    column: 1
+    personName: Olaf Ingebrigtsen
+    personId: olaf-ingebrigtsen
+    category: sporting_staff
+    title: Oppmann
+    from: "1916"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-4ed4f7b2e6a2353f
+    page: "7"
+    column: 1
+    personName: Rasmus Eck Olsen
+    personId: rasmus-eck-olsen
+    category: board
+    title: Formann
+    from: "1920"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-261487d57a7c90d6
+    page: "7"
+    column: 1
+    personName: Rasmus Eck Olsen
+    personId: rasmus-eck-olsen
+    category: sporting_staff
+    title: Oppmann
+    from: "1920"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-5cd107ded825ebb5
+    page: "7"
+    column: 2
+    personName: Anders Mogstad
+    personId: anders-mogstad
+    category: sporting_staff
+    title: Oppmann
+    from: "1921"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-938de2aa890868ae
+    page: "7"
+    column: 2
+    personName: Arne Finsnes
+    category: sporting_staff
+    title: Oppmann
+    from: "1969"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-3a8a470cd828501a
+    page: "7"
+    column: 2
+    personName: Christoffer Rønneberg
+    category: sporting_staff
+    title: Oppmann
+    from: "1926"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-b1e991568e463d25
+    page: "7"
+    column: 2
+    personName: Edvard Skudvig
+    personId: edvard-skugvik
+    category: sporting_staff
+    title: Oppmann
+    from: "1920"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-bf4d64a2ae5676d7
+    page: "7"
+    column: 2
+    personName: Einar Aas
+    personId: einar-aas
+    category: sporting_staff
+    title: Oppmann
+    from: "1961"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-aad410f5f4b32dfe
+    page: "7"
+    column: 2
+    personName: Erling Flem
+    category: sporting_staff
+    title: Oppmann
+    from: "1935"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-6b4f0c952dad8d0e
+    page: "7"
+    column: 2
+    personName: Finn Tolaas
+    personId: finn-tollas
+    category: sporting_staff
+    title: Oppmann
+    from: "1946"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-e985ff7d1e3eb316
+    page: "7"
+    column: 2
+    personName: Fritz Haagensen
+    category: sporting_staff
+    title: Oppmann
+    from: "1954"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-c7fc34d2691101f2
+    page: "7"
+    column: 2
+    personName: Hans Ole Sødergren
+    category: sporting_staff
+    title: Oppmann
+    from: "1956"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-5baef8e3b9539fbf
+    page: "7"
+    column: 2
+    personName: Harald Hagen
+    personId: harald-hagen
+    category: sporting_staff
+    title: Oppmann
+    from: "1916"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-f3787225eeb5b541
+    page: "7"
+    column: 2
+    personName: Harald Riise Hansen
+    category: sporting_staff
+    title: Oppmann
+    from: "1917"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-770728707a86f2d2
+    page: "7"
+    column: 2
+    personName: Jarle Kristoffersen
+    personId: jarle-kristoffersen
+    category: sporting_staff
+    title: Oppmann
+    from: "1967"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-9905579997da1e40
+    page: "7"
+    column: 2
+    personName: Johs. Hollevik
+    category: sporting_staff
+    title: Oppmann
+    from: "1936"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-c98c4cd612298e7d
+    page: "7"
+    column: 2
+    personName: Kjell Dybvik
+    category: sporting_staff
+    title: Oppmann
+    from: "1978"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-0f4643349b095b32
+    page: "7"
+    column: 2
+    personName: Konrad Korsnes
+    personId: konrad-korsnes
+    category: sporting_staff
+    title: Oppmann
+    from: "1938"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-fce1e7ee4ddcd45e
+    page: "7"
+    column: 2
+    personName: Magne Bjørge
+    category: sporting_staff
+    title: Oppmann
+    from: "1979"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-aa62681d3f0a06dd
+    page: "7"
+    column: 2
+    personName: Nils Petter Loe
+    category: sporting_staff
+    title: Oppmann
+    from: "1976"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-9f0c94850762fb7f
+    page: "7"
+    column: 2
+    personName: Ole Jangaard
+    personId: ole-jangaard
+    category: sporting_staff
+    title: Oppmann
+    from: "1915"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-80d7a3e6a76248fa
+    page: "7"
+    column: 2
+    personName: Ole M. Ringdal
+    category: sporting_staff
+    title: Oppmann
+    from: "1970"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-c92c598b156fba6c
+    page: "7"
+    column: 2
+    personName: Ole Walderhaug
+    category: sporting_staff
+    title: Oppmann
+    from: "1958"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-e6ef772f41d62ad4
+    page: "7"
+    column: 2
+    personName: Peder Puck
+    personId: peder-puck
+    category: sporting_staff
+    title: Oppmann
+    from: "1932"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-fcee39d0390d059b
+    page: "7"
+    column: 2
+    personName: Per Mogstad
+    personId: per-mogstad
+    category: sporting_staff
+    title: Oppmann
+    from: "1925"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-b64b9ee77fb567be
+    page: "7"
+    column: 2
+    personName: Petter Birkevold
+    personId: petter-birkevold
+    category: sporting_staff
+    title: Oppmann
+    from: "1971"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-49eeaf7c75a4c89b
+    page: "7"
+    column: 2
+    personName: Ragnvald Langva
+    category: sporting_staff
+    title: Oppmann
+    from: "1931"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-f020bb4d5694cf74
+    page: "7"
+    column: 2
+    personName: Reidar Fosse
+    category: sporting_staff
+    title: Oppmann
+    from: "1973"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-25504d33ddda8668
+    page: "7"
+    column: 2
+    personName: Øivind Haagensen
+    personId: oivind-haagensen
+    category: sporting_staff
+    title: Oppmann
+    from: "1940"
+    to: null
+    confidence: high
+    rule: name_then_year
   - id: rolle-32bfc4f0d0d01cbb
     page: "9"
     column: 1

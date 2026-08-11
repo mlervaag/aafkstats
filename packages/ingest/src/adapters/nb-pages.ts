@@ -40,6 +40,8 @@ export interface PageColumn {
   from: number;
   to: number;
   lines: string[];
+  /** Loddrett plassering for hver linje. Brukes til å pare tabellspalter. */
+  positions: number[];
 }
 
 const STRING_TAG = /<String\b([^>]*?)\/?>/g;
@@ -173,18 +175,26 @@ export function readPageColumns(xml: string): PageColumn[] {
       .sort((a, b) => a.y - b.y || a.x - b.x);
 
     const lines: string[] = [];
+    const positions: number[] = [];
     let current: AltoWord[] = [];
+    const flush = () => {
+      const text = joinLine(current);
+      if (text !== "") {
+        lines.push(text);
+        positions.push(current[0]!.y);
+      }
+    };
     for (const word of inColumn) {
       const anchor = current[0];
       if (anchor && Math.abs(word.y - anchor.y) > tolerance) {
-        lines.push(joinLine(current));
+        flush();
         current = [];
       }
       current.push(word);
     }
-    if (current.length > 0) lines.push(joinLine(current));
+    if (current.length > 0) flush();
 
-    return { from: range.from, to: range.to, lines: lines.filter((line) => line !== "") };
+    return { from: range.from, to: range.to, lines, positions };
   }).filter((column) => column.lines.length > 0);
 }
 
@@ -235,4 +245,47 @@ function decodeXml(value: string): string {
     .replace(/&gt;/g, ">")
     .replace(/&amp;/g, "&")
     .replace(/&#(\d+);/g, (_all, code: string) => String.fromCodePoint(Number(code)));
+}
+
+
+/** En linje er «bare et årstall» når den ikke inneholder annet. */
+const BARE_YEAR = /^(1[89]\d{2}|20\d{2})[.\s]*$/;
+
+/**
+ * Tabeller der årstallet og verdien havnet i hver sin spalte.
+ *
+ * Side 351 i Tango siden 1914 har trenerrekka 1955-2013 satt opp i to
+ * kolonner, og prikkene mellom år og navn er brede nok til at spaltefinneren
+ * leser dem som en renne. Da står årene alene i én spalte og navnene alene i
+ * neste, og raden — som er hele opplysningen — finnes ikke lenger.
+ *
+ * Her settes de sammen igjen på loddrett nærhet, ikke på rekkefølge: den ene
+ * spalten kan ha en overskrift den andre ikke har, og da forskyves alt.
+ */
+export function pairedRows(columns: PageColumn[]): string[] {
+  const rows: string[] = [];
+
+  for (const [index, column] of columns.entries()) {
+    const years = column.lines.filter((line) => BARE_YEAR.test(line)).length;
+    if (years < 3 || years < column.lines.length * 0.6) continue;
+
+    const values = columns[index + 1];
+    if (!values) continue;
+
+    for (const [line, position] of column.lines.map((line, at) => [line, column.positions[at]!] as const)) {
+      const year = BARE_YEAR.exec(line)?.[1];
+      if (!year) continue;
+      let best = -1;
+      let distance = Infinity;
+      for (const [at, other] of values.positions.entries()) {
+        const gap = Math.abs(other - position);
+        if (gap < distance) { distance = gap; best = at; }
+      }
+      // Mer enn en linjehøyde unna er ikke samme rad.
+      if (best === -1 || distance > 40) continue;
+      rows.push(`${year} ${values.lines[best]}`);
+    }
+  }
+
+  return rows;
 }

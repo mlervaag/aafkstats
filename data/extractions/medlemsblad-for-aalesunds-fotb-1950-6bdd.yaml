@@ -338,6 +338,46 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
+  - id: rolle-1e8c0eaf5fcafeb9
+    page: "16"
+    column: 0
+    personName: A. Uri Boktrykkeri. Tlf
+    category: board
+    title: Formann
+    from: "1554"
+    to: "1599"
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-51bc808b027c9749
+    page: "16"
+    column: 0
+    personName: A. Uri Boktrykkeri. Tlf
+    category: administration
+    title: Kasserer
+    from: "1554"
+    to: "1599"
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-dd5d67c91b3f826d
+    page: "16"
+    column: 0
+    personName: A. Uri Boktrykkeri. Tlf
+    category: sporting_staff
+    title: Oppmann
+    from: "1554"
+    to: "1599"
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-5420037580c50963
+    page: "16"
+    column: 0
+    personName: A. Uri Boktrykkeri. Tlf
+    category: administration
+    title: Sekretær
+    from: "1554"
+    to: "1599"
+    confidence: medium
+    rule: name_then_year
   - id: rolle-8fb240bedebfead9
     page: "16"
     column: 0

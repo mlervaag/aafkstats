@@ -1269,6 +1269,26 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-b5d4ecb091fc74f1
+    page: "17"
+    column: 0
+    personName: Ottar Berild
+    category: administration
+    title: Daglig leder
+    from: "1932"
+    to: "1951"
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-c6bd6b2cb23495f4
+    page: "17"
+    column: 0
+    personName: Ottar Berild
+    category: sporting_staff
+    title: Oppmann
+    from: "1932"
+    to: "1951"
+    confidence: medium
+    rule: name_then_year
   - id: rolle-60f86bb6f4a5fb81
     page: "17"
     column: 1

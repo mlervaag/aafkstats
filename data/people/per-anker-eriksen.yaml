@@ -1,19 +1,6 @@
 id: per-anker-eriksen
 name: Per Anker Eriksen
 roles:
-  - id: formann-1948
-    category: board
-    title: Formann
-    from: "1948"
-    to: null
-    sources:
-      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
-        page: "63"
-        fields:
-          - title
-          - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_role)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: formann-1950-1952
     category: board
     title: Formann

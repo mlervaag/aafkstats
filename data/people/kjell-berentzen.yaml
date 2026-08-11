@@ -15,19 +15,6 @@ roles:
     from: "1961"
     to: "1961"
     sources: [ { sourceId: aafk-historie-ledere, fields: [ title, from, to ] }, { sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8, page: "36", fields: [ title, from ], note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)." } ]
-  - id: formann-1962
-    category: board
-    title: Formann
-    from: "1962"
-    to: null
-    sources:
-      - sourceId: tango-siden-1914-2013-806b
-        page: "293"
-        fields:
-          - title
-          - from
-        note: "Lest maskinelt fra spalte 2 på siden (regel: role_then_name)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "55"

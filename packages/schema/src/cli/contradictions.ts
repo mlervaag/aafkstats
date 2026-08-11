@@ -32,8 +32,34 @@ const SAME_OFFICE: Record<string, string> = {
   varaformann: "nestformann",
 };
 
+/**
+ * Er vervet klubbens eget, eller et underorgans?
+ *
+ * `body` skiller dem — men «Hovedstyret» er ikke et underorgan, det *er*
+ * klubben. aafk.no-høstingen setter det uttrykkelig på formannsrekka, og en
+ * prøve som bare spør om `body` finnes, leste den som «gjelder ikke klubben».
+ * Da kunne en formann fra et medlemsblad legge seg oppå den uten at noe sa fra.
+ */
+function clubWide(body: string | undefined): boolean {
+  return body === undefined || body.toLowerCase() === "hovedstyret";
+}
+
 function office(title: string): string {
   return SAME_OFFICE[title.toLowerCase()] ?? title.toLowerCase();
+}
+
+/**
+ * Årene en rolle dekker.
+ *
+ * Et verv oppgitt som «1946 - 1949» opptar fire år, ikke ett. Uten det ville
+ * «Sigurd Nørve 1946-1949» og «Per Anker Eriksen 1948» sett ut som to verv i
+ * hvert sitt år, selv om de sier at klubben hadde to formenn i 1948.
+ */
+function span(from: string, to: string | null): string[] {
+  const first = Number(from.slice(0, 4));
+  const last = to ? Number(to.slice(0, 4)) : first;
+  if (!Number.isFinite(first) || !Number.isFinite(last) || last < first || last - first > 40) return [String(first)];
+  return Array.from({ length: last - first + 1 }, (_, step) => String(first + step));
 }
 
 /** Verv der to samtidige innehavere ikke gir mening. */
@@ -51,16 +77,38 @@ const findings: string[] = [];
 const holders = new Map<string, Person[]>();
 for (const person of archive.people) {
   for (const role of person.roles) {
-    if (!SINGULAR.has(role.category) || role.body) continue;
-    const key = `${office(role.title)}|${role.from.slice(0, 4)}`;
-    holders.set(key, [...(holders.get(key) ?? []), person]);
+    if (!SINGULAR.has(role.category) || !clubWide(role.body)) continue;
+    for (const year of span(role.from, role.to)) {
+      const key = `${office(role.title)}|${year}`;
+      holders.set(key, [...(holders.get(key) ?? []), person]);
+    }
   }
 }
+/**
+ * Et delt grenseår er et lederskifte, ikke to ledere.
+ *
+ * Klubbens egen lederliste oppgir perioder med inklusive endepunkter, og to
+ * påfølgende ledere deler året skiftet skjedde: «Torill Hole Standal 2007-2011»
+ * og «Kjell Tennfjord 2011-2015». Uten dette roper rapporten på hvert eneste
+ * skifte, og da slutter noen å lese den.
+ */
+function handover(people: Person[], title: string, year: number): boolean {
+  const spans = people.map((person) => person.roles
+    .filter((role) => office(role.title) === title && SINGULAR.has(role.category) && clubWide(role.body))
+    .map((role) => [Number(role.from.slice(0, 4)), role.to ? Number(role.to.slice(0, 4)) : Number(role.from.slice(0, 4))] as const)
+    .find(([from, to]) => from <= year && year <= to));
+  if (spans.some((found) => found === undefined)) return false;
+  const ends = spans.filter((found) => found![1] === year).length;
+  const starts = spans.filter((found) => found![0] === year).length;
+  return ends >= 1 && starts >= 1 && ends + starts === spans.length;
+}
+
 for (const [key, people] of [...holders].sort()) {
-  const names = [...new Set(people.map((person) => person.name))];
-  if (names.length < 2) continue;
+  const unique = [...new Map(people.map((person) => [person.id, person])).values()];
+  if (unique.length < 2) continue;
   const [title, year] = key.split("|");
-  findings.push(`${YELLOW}to i samme verv${RESET}  ${title} ${year}: ${names.join(", ")}`);
+  if (handover(unique, title!, Number(year))) continue;
+  findings.push(`${YELLOW}to i samme verv${RESET}  ${title} ${year}: ${unique.map((person) => person.name).join(", ")}`);
 }
 
 /**
@@ -102,6 +150,37 @@ for (const person of archive.people) {
     if (year !== undefined && year < earliest - 5) {
       findings.push(`${YELLOW}kilde for gammel${RESET} ${person.name} (fra ${earliest}): ${source.sourceId} (${year})`);
     }
+  }
+}
+
+/**
+ * En trener arkivet vet at noen andre var.
+ *
+ * Kampene oppgir hvem som ledet laget, og fra 2010 er de nær komplette. En
+ * trenerrolle lest ut av en bok, i et år der kampene sier noe annet, er nesten
+ * alltid en annen klubbs trener omtalt i vår bok: «ga RBK-trener Per Joar
+ * Hansen denne karakteristikken» ga ham trenerjobben i 2013, mens Jan Jönsson
+ * ledet laget i tretti kamper samme år.
+ */
+const coachBySeason = new Map<number, Map<string, number>>();
+for (const match of archive.matches) {
+  const ours = match.home.clubId === "aalesunds-fk" ? match.lineups?.home : match.lineups?.away;
+  const coach = ours?.coach;
+  if (!coach) continue;
+  const season = coachBySeason.get(match.competition.season) ?? new Map<string, number>();
+  season.set(coach, (season.get(coach) ?? 0) + 1);
+  coachBySeason.set(match.competition.season, season);
+}
+
+for (const person of archive.people) {
+  for (const role of person.roles) {
+    if (role.category !== "coach") continue;
+    const season = coachBySeason.get(Number(role.from.slice(0, 4)));
+    if (!season || season.size === 0) continue;
+    const [known] = [...season].sort((a, b) => b[1] - a[1]);
+    if (!known || known[0] === person.name) continue;
+    if ([...season.keys()].includes(person.name)) continue;
+    findings.push(`${YELLOW}annen trener${RESET}     ${person.name} oppført som trener ${role.from.slice(0, 4)}, men kampene sier ${known[0]} (${known[1]} kamper)`);
   }
 }
 

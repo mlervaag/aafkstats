@@ -9,7 +9,7 @@ import { crossValidate, loadArchive, dataDir, repoRoot } from "@aafkstats/schema
 import { assertMayFetch } from "../policy.js";
 import { publicationAltoPages, readAltoPage, searchPublication } from "../adapters/nb-publications.js";
 import { resolveRolesFromSearch, searchTerms } from "../adapters/nb-search.js";
-import { joinLines, readPageColumns } from "../adapters/nb-pages.js";
+import { joinLines, pairedRows, readPageColumns } from "../adapters/nb-pages.js";
 import { knownPeople, resolveRoles } from "../adapters/nb-roles.js";
 import { resolveLineups } from "../adapters/nb-lineups.js";
 import { applyResolvedRoles } from "../adapters/nb-apply.js";
@@ -113,6 +113,18 @@ for (const [index, source] of sources.entries()) {
 
     const columns = readPageColumns(xml);
     const pageContext = columns.map((section) => joinLines(section.lines)).join(" ");
+    // Tabeller der årstall og navn havnet i hver sin spalte settes sammen igjen
+    // og leses som rader, ved siden av spaltene selv.
+    const rows = pairedRows(columns);
+    if (rows.length > 0) {
+      resolved.push(...resolveRoles(rows, rows.join(" "), {
+        sourceId: source.id,
+        page: page.page,
+        people,
+        pageContext,
+        ...(source.year === undefined ? {} : { publicationYear: source.year }),
+      }));
+    }
     for (const [column, section] of columns.entries()) {
       resolved.push(...resolveRoles(section.lines, joinLines(section.lines), {
         sourceId: source.id,

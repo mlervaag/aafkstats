@@ -1391,6 +1391,80 @@ candidates:
       - petter-birkevold
     matchIds: []
 resolvedRoles:
+  - id: rolle-f3af62686546d2d9
+    page: "3"
+    column: 0
+    personName: Arne Finsnes
+    category: board
+    title: Formann
+    from: "1969"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-4fc7bd7fa9edbdfa
+    page: "3"
+    column: 0
+    personName: Arne Finsnes
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1969"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-e2b36384019ca6fa
+    page: "3"
+    column: 0
+    personName: Arne Finsnes
+    category: sporting_staff
+    title: Oppmann
+    from: "1969"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-cf40479a580ca5a6
+    page: "3"
+    column: 0
+    personName: Erling Bjørge
+    personId: erling-bjorge
+    category: board
+    title: Formann
+    from: "1967"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-5c6bdc5820504ac8
+    page: "3"
+    column: 0
+    personName: Erling Bjørge
+    personId: erling-bjorge
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1967"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-7e7557311f275d5d
+    page: "3"
+    column: 0
+    personName: Hans J. Henriksen
+    personId: hans-j-henriksen
+    category: board
+    title: Formann
+    from: "1969"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-ba10ccf4df292da3
+    page: "3"
+    column: 0
+    personName: Hans J. Henriksen
+    personId: hans-j-henriksen
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1969"
+    to: null
+    confidence: high
+    rule: name_then_year
   - id: rolle-5a333546fd8c5970
     page: "3"
     column: 0
@@ -1401,6 +1475,196 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_role
+  - id: rolle-baa283fdfaba579b
+    page: "3"
+    column: 0
+    personName: Jan With
+    personId: jan-with
+    category: board
+    title: Formann
+    from: "1972"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-e69ae414517715e6
+    page: "3"
+    column: 0
+    personName: Jan With
+    personId: jan-with
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1972"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-1a481fcdff2f850b
+    page: "3"
+    column: 0
+    personName: Jarle Kristoffersen
+    personId: jarle-kristoffersen
+    category: board
+    title: Formann
+    from: "1967"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-81a8a872aa910a47
+    page: "3"
+    column: 0
+    personName: Jarle Kristoffersen
+    personId: jarle-kristoffersen
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1967"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-348fb7304c5616a6
+    page: "3"
+    column: 0
+    personName: Jarle Kristoffersen
+    personId: jarle-kristoffersen
+    category: sporting_staff
+    title: Oppmann
+    from: "1967"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-7e58e78bdabf976c
+    page: "3"
+    column: 0
+    personName: Ola Hodder
+    personId: ola-hodder
+    category: board
+    title: Formann
+    from: "1970"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-1edb6d22c9877c89
+    page: "3"
+    column: 0
+    personName: Ola Hodder
+    personId: ola-hodder
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1970"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-5b569019cd6e34bf
+    page: "3"
+    column: 0
+    personName: Olav Bigseth
+    category: sporting_staff
+    title: Oppmann
+    from: "1966"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-714c33f89ab298c6
+    page: "3"
+    column: 0
+    personName: Ole Marius Ringdal
+    category: board
+    title: Formann
+    from: "1970"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-eede37b898aeaafb
+    page: "3"
+    column: 0
+    personName: Ole Marius Ringdal
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1970"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-979b8475bcd747c6
+    page: "3"
+    column: 0
+    personName: Ole Marius Ringdal
+    category: sporting_staff
+    title: Oppmann
+    from: "1970"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-c576ea856fb80bac
+    page: "3"
+    column: 0
+    personName: Petter Birkevold
+    personId: petter-birkevold
+    category: board
+    title: Formann
+    from: "1971"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-288f0eebf6000de6
+    page: "3"
+    column: 0
+    personName: Petter Birkevold
+    personId: petter-birkevold
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1971"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-2e507f617dd58693
+    page: "3"
+    column: 0
+    personName: Petter Birkevold
+    personId: petter-birkevold
+    category: sporting_staff
+    title: Oppmann
+    from: "1971"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-9e5e5662f0dd5c37
+    page: "3"
+    column: 0
+    personName: Reidar F'osse
+    category: board
+    title: Formann
+    from: "1973"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-a96ae98424ff4849
+    page: "3"
+    column: 0
+    personName: Reidar F'osse
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1973"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-6c0c89e939c81a00
+    page: "3"
+    column: 0
+    personName: Reidar F'osse
+    category: sporting_staff
+    title: Oppmann
+    from: "1973"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-bc4c6201a8644b92
+    page: "3"
+    column: 0
+    personName: Rolf Annaniasen
+    category: board
+    title: Formann
+    from: "1965"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-e41dc9a496de818c
     page: "4"
     column: 0
@@ -1412,22 +1676,73 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+  - id: rolle-c00719d17bf94192
+    page: "6"
+    column: 1
+    personName: Finn Kvello
+    category: coach
+    title: Trener
+    from: "1966"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-d2a69b7b49e31ea2
+    page: "6"
+    column: 1
+    personName: Harald Nord
+    category: coach
+    title: Trener
+    from: "1950"
+    to: "1964"
+    confidence: medium
+    rule: year_row
+  - id: rolle-85c57a51096ed54a
+    page: "6"
+    column: 1
+    personName: Harald Nord
+    category: coach
+    title: Trener
+    from: "1971"
+    to: "1974"
+    confidence: medium
+    rule: year_row
+  - id: rolle-624c25cf9b10d44e
+    page: "6"
+    column: 1
+    personName: Helge Stavik
+    category: coach
+    title: Trener
+    from: "1965"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-3f622a69bddec59a
+    page: "6"
+    column: 1
+    personName: Jan Larsen
+    category: coach
+    title: Trener
+    from: "1968"
+    to: null
+    confidence: medium
+    rule: year_row
+  - id: rolle-ca6f3d763c7ddfa6
+    page: "6"
+    column: 1
+    personName: Paul Urke
+    personId: paul-urke
+    category: coach
+    title: Trener
+    from: "1976"
+    to: null
+    confidence: high
+    rule: year_row
   - id: rolle-bbae233d2d3ef916
     page: "8"
     column: 0
     personName: Oddvar Aarge. ÅEis
     category: coach
     title: Trener
-    to: null
-    confidence: low
-    rule: role_then_name
-  - id: rolle-de13c6a6640ca2be
-    page: "20"
-    column: 0
-    personName: Bjørn Olsen
-    category: sporting_staff
-    title: Oppmann
-    body: Idrettsutvalget
     to: null
     confidence: low
     rule: role_then_name

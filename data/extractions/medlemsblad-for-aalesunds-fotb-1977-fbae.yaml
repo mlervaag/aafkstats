@@ -701,4 +701,48 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-b06f99bb12f4a1d7
+    page: "13"
+    column: 0
+    personName: Einar With
+    personId: einar-with
+    category: board
+    title: Formann
+    from: "1949"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-5b534d7213ace54d
+    page: "13"
+    column: 0
+    personName: Einar With
+    personId: einar-with
+    category: board
+    title: Nestformann
+    from: "1949"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-42e496b3bc3dabd9
+    page: "13"
+    column: 0
+    personName: Einar With
+    personId: einar-with
+    category: sporting_staff
+    title: Oppmann
+    from: "1949"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-341fb2214bb4ee35
+    page: "13"
+    column: 0
+    personName: Einar With
+    personId: einar-with
+    category: coach
+    title: Trener
+    from: "1949"
+    to: null
+    confidence: high
+    rule: name_then_year
 resolvedLineups: []

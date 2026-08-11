@@ -171,6 +171,11 @@ Tre ting stoppes fordi de ville gjort arkivet selvmotsigende. Alle telles som
 3. **Samme verv med to navn.** «Styreleder» og «Formann» er ett verv. Uten det
    sto Arnstein Johansen med begge for 1998.
 
+Og i resolveren, ett hakk tidligere: et rolleord satt sammen med en annen
+klubbs navn er ikke vårt. «ga RBK-trener Per Joar Hansen denne
+karakteristikken» ga ham trenerjobben i AaFK i 2013, mens klubbens egne
+kampdata sier at Jan Jönsson ledet laget i tretti kamper det året.
+
 ## Hva som skal etterkontrolleres
 
 Kjøringen er ikke ferdig når den er grønn. Se over dette før PR:

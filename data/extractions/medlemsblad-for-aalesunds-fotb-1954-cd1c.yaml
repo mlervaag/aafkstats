@@ -4150,6 +4150,46 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+  - id: rolle-dc402703eb289f04
+    page: "7"
+    column: 0
+    personName: John I
+    category: board
+    title: Formann
+    from: "1928"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-0134948fb616eea7
+    page: "7"
+    column: 0
+    personName: John I
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1928"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-958175f2b3c38559
+    page: "7"
+    column: 0
+    personName: John I
+    category: administration
+    title: Kasserer
+    from: "1928"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-60c04d7777ed82cc
+    page: "7"
+    column: 0
+    personName: John I
+    category: board
+    title: Nestformann
+    from: "1928"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-601aca027d3bef47
     page: "7"
     column: 0
@@ -4313,6 +4353,16 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-12f8c93d825e492e
+    page: "56"
+    column: 2
+    personName: Alfhild Ringdal. Tlf
+    category: board
+    title: Nestformann
+    from: "1150"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-9de2723c1c9b81a6
     page: "56"
     column: 2
@@ -4394,6 +4444,16 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-de16e3f2291449e0
+    page: "68"
+    column: 2
+    personName: Alfhild Ringdal. Tlf
+    category: board
+    title: Nestformann
+    from: "1150"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-b0f67ba0c0c1c628
     page: "68"
     column: 2
@@ -4492,6 +4552,295 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+  - id: rolle-e6ae1c1dc8778195
+    page: "73"
+    column: 0
+    personName: H S S
+    category: board
+    title: Formann
+    from: "1922"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-7c38cb68ebd659dd
+    page: "74"
+    column: 0
+    personName: Anders Mogstad
+    personId: anders-mogstad
+    category: sporting_staff
+    title: Oppmann
+    from: "1921"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-264765aaaecdcd9e
+    page: "74"
+    column: 0
+    personName: Christoffer Rønneberg
+    category: sporting_staff
+    title: Oppmann
+    from: "1926"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-fd52898ed0f5ab7f
+    page: "74"
+    column: 0
+    personName: Edvard Skudvig
+    personId: edvard-skugvik
+    category: sporting_staff
+    title: Oppmann
+    from: "1920"
+    to: "1920"
+    confidence: high
+    rule: name_then_year
+  - id: rolle-7bf109fbb1a77274
+    page: "74"
+    column: 0
+    personName: Erling Flem
+    category: sporting_staff
+    title: Oppmann
+    from: "1935"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-fbfe2fa130fd08c3
+    page: "74"
+    column: 0
+    personName: Georg Haller
+    personId: georg-haller
+    category: board
+    title: Formann
+    from: "1914"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-39e9f812b0edbf54
+    page: "74"
+    column: 0
+    personName: Harald Hagen
+    personId: harald-hagen
+    category: sporting_staff
+    title: Oppmann
+    from: "1916"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-1f380a22c92365ca
+    page: "74"
+    column: 0
+    personName: Harald Riise Hansen
+    category: board
+    title: Formann
+    from: "1918"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-262d76fdfe1f8ebf
+    page: "74"
+    column: 0
+    personName: Harald Riise Hansen
+    category: sporting_staff
+    title: Oppmann
+    from: "1917"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-1135aa7d9f3fabc0
+    page: "74"
+    column: 0
+    personName: Johs. Hollevik
+    category: sporting_staff
+    title: Oppmann
+    from: "1936"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-4be023b8d5d2b395
+    page: "74"
+    column: 0
+    personName: Konrad Korsnes
+    personId: konrad-korsnes
+    category: sporting_staff
+    title: Oppmann
+    from: "1938"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-be931f700bb5becd
+    page: "74"
+    column: 0
+    personName: Lauritz Giske
+    personId: lauritz-giske
+    category: board
+    title: Formann
+    from: "1953"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-590ddd3677ca74c5
+    page: "74"
+    column: 0
+    personName: Nils Jangaard
+    personId: nils-jangaard
+    category: board
+    title: Formann
+    from: "1917"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-4c13c89059a450a6
+    page: "74"
+    column: 0
+    personName: Olaf Ingebrigtsen
+    personId: olaf-ingebrigtsen
+    category: board
+    title: Formann
+    from: "1916"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-0511c163752cb6e8
+    page: "74"
+    column: 0
+    personName: Ole Jangaard
+    personId: ole-jangaard
+    category: sporting_staff
+    title: Oppmann
+    from: "1915"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-cdcef284dfea29fd
+    page: "74"
+    column: 0
+    personName: Peder Puck
+    personId: peder-puck
+    category: board
+    title: Formann
+    from: "1938"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-cea7e41585dcbbf6
+    page: "74"
+    column: 0
+    personName: Peder Puck
+    personId: peder-puck
+    category: sporting_staff
+    title: Oppmann
+    from: "1932"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-0ee55938cb955b04
+    page: "74"
+    column: 0
+    personName: Per Anker Eriksen
+    personId: per-anker-eriksen
+    category: board
+    title: Formann
+    from: "1950"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-0d7890c8fc8bdda7
+    page: "74"
+    column: 0
+    personName: Per Mogstad
+    personId: per-mogstad
+    category: sporting_staff
+    title: Oppmann
+    from: "1925"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-a05a9db9b3b6ec5a
+    page: "74"
+    column: 0
+    personName: Ragnvald Langva
+    category: sporting_staff
+    title: Oppmann
+    from: "1931"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-2eaa45c93c3b3d34
+    page: "74"
+    column: 0
+    personName: Rolf Mittet
+    personId: rolf-mittet
+    category: board
+    title: Formann
+    from: "1927"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-3d8c286c15b95f42
+    page: "74"
+    column: 0
+    personName: Rolf Muriaas
+    personId: rolf-muriaas
+    category: sporting_staff
+    title: Oppmann
+    from: "1914"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-fb7532ca6df277c6
+    page: "74"
+    column: 0
+    personName: Sigurd Nørve
+    personId: sigurd-norve
+    category: board
+    title: Formann
+    from: "1946"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-b0de1f76f43c3c62
+    page: "74"
+    column: 0
+    personName: Skjont Rasmus Eck-Olsen
+    category: board
+    title: Formann
+    from: "1920"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-5a6b06d4c64e2388
+    page: "74"
+    column: 0
+    personName: Sverre Mogstad
+    personId: sverre-mogstad
+    category: board
+    title: Formann
+    from: "1925"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-361a82b90bd76162
+    page: "74"
+    column: 0
+    personName: Sverre Volstad
+    personId: sverre-volstad
+    category: board
+    title: Formann
+    from: "1930"
+    to: null
+    confidence: high
+    rule: name_then_year
+  - id: rolle-9cb33e8970fb3152
+    page: "74"
+    column: 0
+    personName: Øivind Haagensen
+    personId: oivind-haagensen
+    category: sporting_staff
+    title: Oppmann
+    from: "1940"
+    to: null
+    confidence: high
+    rule: name_then_year
   - id: rolle-a0f3159b92175604
     page: "75"
     column: 0

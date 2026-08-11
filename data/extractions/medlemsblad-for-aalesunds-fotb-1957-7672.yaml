@@ -3252,6 +3252,46 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+  - id: rolle-08c2498727b11071
+    page: "56"
+    column: 0
+    personName: H. N. N. Telefon
+    category: coach
+    title: Trener
+    from: "1341"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-da271af1b0cec265
+    page: "64"
+    column: 1
+    personName: L DI
+    category: administration
+    title: Kasserer
+    from: "1117"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-010e4482823d1324
+    page: "64"
+    column: 1
+    personName: L DI
+    category: board
+    title: Nestformann
+    from: "1117"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-79883241104ee43b
+    page: "64"
+    column: 1
+    personName: L DI
+    category: administration
+    title: Sekretær
+    from: "1117"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-e280f7f9fa3ecdbc
     page: "67"
     column: 0
@@ -3297,6 +3337,16 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-78bb6b5f334b2e15
+    page: "70"
+    column: 0
+    personName: Lan- Dankert Schlyder Telefon
+    category: coach
+    title: Trener
+    from: "1768"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-4ac7bc591bead469
     page: "71"
     column: 0
@@ -3350,6 +3400,36 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+  - id: rolle-32e9ad328c5434da
+    page: "81"
+    column: 0
+    personName: I. Giortz Sönner Etablert
+    category: administration
+    title: Kasserer
+    from: "1899"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-a749b0026565ab10
+    page: "81"
+    column: 0
+    personName: I. Giortz Sönner Etablert
+    category: board
+    title: Nestformann
+    from: "1899"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-c8878e20aedaa098
+    page: "81"
+    column: 0
+    personName: I. Giortz Sönner Etablert
+    category: sporting_staff
+    title: Oppmann
+    from: "1899"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-e397aa6d68e9e439
     page: "89"
     column: 0
