@@ -19,6 +19,7 @@
     "ingest:rsssf": "pnpm --filter @aafkstats/ingest run rsssf",
     "ingest:rsssf-standings": "pnpm --filter @aafkstats/ingest run rsssf-standings",
     "ingest:wikipedia-people": "pnpm --filter @aafkstats/ingest run wikipedia-people",
+    "ingest:wikipedia-profile": "pnpm --filter @aafkstats/ingest run wikipedia-profile",
     "ingest:wikidata-people": "pnpm --filter @aafkstats/ingest run wikidata-people",
     "ingest:rsssf-discover": "pnpm --filter @aafkstats/ingest run rsssf-discover",
     "ingest:nff": "pnpm --filter @aafkstats/ingest run nff",
