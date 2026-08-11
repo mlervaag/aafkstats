@@ -185,6 +185,30 @@ for (const person of archive.people) {
 }
 
 /**
+ * Samme trenerperiode registrert to ganger, med hvert sitt ord.
+ *
+ * Arkivet holder oppgitte trenerperioder i `coachSpells` og verv i `roles`, og
+ * kildene bruker ulike ord om samme jobb: aafk.no sier «Hovedtrener 2008-2012»,
+ * mens bøkene lister «Trener» år for år. Kjetil Rekdal står dermed med begge,
+ * og periodene er ikke engang like — den ene begynner i 2008, den andre i 2009.
+ * Hvilket årstall som er riktig kan bare et menneske avgjøre, men at de to
+ * beskriver den samme jobben er tydelig nok til å rapportere.
+ */
+for (const person of archive.people) {
+  for (const spell of person.coachSpells) {
+    const spellYears = span(String(spell.fromSeason), spell.toSeason === null ? null : String(spell.toSeason));
+    // Én linje per periode, ikke per rad: bøkene lister trenerne år for år, og
+    // Kjetil Rekdal ga fire like funn av samme grunn.
+    const overlapping = person.roles.filter((role) => role.category === "coach"
+      && span(role.from, role.to).some((year) => spellYears.includes(year)));
+    if (overlapping.length === 0) continue;
+    const years = [...new Set(overlapping.map((role) => role.from.slice(0, 4)))].sort().join(", ");
+    const titles = [...new Set(overlapping.map((role) => role.title))].join("/");
+    findings.push(`${YELLOW}dobbel trener${RESET}    ${person.name}: oppgitt periode ${spell.fromSeason}-${spell.toSeason ?? ""} og «${titles}» ${years}`);
+  }
+}
+
+/**
  * Navn som ikke er navn.
  *
  * Løse enkeltbokstaver uten punktum og hele ord i versaler er OCR-rester som
