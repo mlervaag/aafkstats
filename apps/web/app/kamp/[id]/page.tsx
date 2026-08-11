@@ -7,7 +7,10 @@ import { formatDate, formatDateShort } from "@/lib/date";
 import { ContributionButton } from "@/components/ContributionButton";
 import { Contributions } from "@/components/Contributions";
 import { loadContributions, loadMatchIndex } from "@/lib/archive";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbJsonLd, matchJsonLd } from "@/lib/jsonld";
 import { matchDescription, matchTitle, pageMetadata } from "@/lib/metadata";
+import type { MatchMetaInput } from "@/lib/metadata";
 import { hasBeenPlayed, statusNote } from "@/lib/status";
 
 /**
@@ -207,6 +210,27 @@ const eventNames: Record<string, string> = {
 };
 
 /**
+ * Feltene tittel, beskrivelse og strukturerte data er enige om.
+ *
+ * Sto to steder: én gang i `generateMetadata` og én gang i JSON-LD-en. To kopier
+ * av «legg ekstraomgangsmålene til sluttresultatet» er én kopi som før eller
+ * siden får rettet regelen alene.
+ */
+function matchMetaInput(match: MatchDetail): MatchMetaInput {
+  return {
+    homeName: match.home_name,
+    awayName: match.away_name,
+    homeScore: match.home_score === null ? null : match.home_score + (match.home_et_score ?? 0),
+    awayScore: match.away_score === null ? null : match.away_score + (match.away_et_score ?? 0),
+    date: match.match_date,
+    status: match.status,
+    competition: match.competition_name,
+    venue: match.venue_name,
+    attendance: match.attendance,
+  };
+}
+
+/**
  * Metadata per kamp.
  *
  * Alle kampsidene delte tittelen «AaFK-arkivet» og prosjektbeskrivelsen fra
@@ -221,17 +245,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const match = getMatch(id);
   if (!match) return { title: "Kamp" };
 
-  const meta = {
-    homeName: match.home_name,
-    awayName: match.away_name,
-    homeScore: match.home_score === null ? null : match.home_score + (match.home_et_score ?? 0),
-    awayScore: match.away_score === null ? null : match.away_score + (match.away_et_score ?? 0),
-    date: match.match_date,
-    status: match.status,
-    competition: match.competition_name,
-    venue: match.venue_name,
-    attendance: match.attendance,
-  };
+  const meta = matchMetaInput(match);
   return pageMetadata(matchTitle(meta), matchDescription(meta), `/kamp/${id}`);
 }
 
@@ -295,9 +309,35 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
     : null;
   const played = hasBeenPlayed(match.status);
   const status = statusNote(match.status);
+  const metaInput = matchMetaInput(match);
 
   return (
     <article className="match-page">
+      {/* Kampen som `SportsEvent`, og brødsmulen under som `BreadcrumbList`.
+          Begge beskriver nøyaktig det som står på siden: de samme lagene, den
+          samme datoen og de samme tre leddene i stien. */}
+      <JsonLd
+        data={[
+          matchJsonLd({
+            id,
+            homeName: match.home_name,
+            awayName: match.away_name,
+            date: match.match_date,
+            kickoff: match.kickoff,
+            status: match.status,
+            competition: match.competition_name,
+            venue: match.venue_name,
+            attendance: match.attendance,
+            name: matchTitle(metaInput),
+            description: matchDescription(metaInput),
+          }),
+          breadcrumbJsonLd([
+            { name: "Sesonger", path: "/sesonger" },
+            { name: String(match.season), path: `/sesong/${match.season}` },
+            { name: match.opponent_name, path: `/motstander/${match.opponent_club_id}` },
+          ]),
+        ]}
+      />
       {/* Brødsmulen sa «Forsiden / Kamp» — to ledd som ikke plasserte kampen i
           noe. Sesongen og motstanderen er de to sammenhengene kampen hører til,
           og begge har en side å gå til. */}

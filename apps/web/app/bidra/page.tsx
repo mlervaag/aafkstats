@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { PromptCard } from "@/components/PromptCard";
 import { GapNote } from "@/components/CoverageNote";
 import { contributionIssueUrl } from "@/lib/contribution-links";
 import { contributionPrompts } from "@/lib/prompts";
 
-export const metadata: Metadata = {
-  title: "Bidra",
-  description: "Meld inn minner, feil og kilder om AaFKs kamper, personer, roller og historie.",
-};
+export const metadata: Metadata = pageMetadata(
+  "Bidra",
+  "Meld inn minner, feil og kilder om AaFKs kamper, personer, roller og historie.",
+  "/bidra",
+  "website",
+);
 
 export default function ContributePage() {
   return (

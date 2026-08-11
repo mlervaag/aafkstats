@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { getPersonRoles, getSourceTitles, mergeRoleSpells, type PersonRole } from "@/lib/people";
 import { ArchiveTabs } from "@/components/ArchiveTabs";
@@ -7,10 +8,12 @@ import { SourceChips } from "@/components/SourceChips";
 import { contributionIssueUrl } from "@/lib/contribution-links";
 import styles from "./Organization.module.css";
 
-export const metadata: Metadata = {
-  title: "Organisasjon",
-  description: "Kildeført oversikt over styrer, ledere, administrasjon og hedersroller i Aalesunds Fotballklubb.",
-};
+export const metadata: Metadata = pageMetadata(
+  "Organisasjon",
+  "Kildeført oversikt over styrer, ledere, administrasjon og hedersroller i Aalesunds Fotballklubb.",
+  "/organisasjon",
+  "website",
+);
 
 /**
  * Er tittelen klubbens øverste verv?

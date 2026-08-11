@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
+import { JsonLd } from "@/components/JsonLd";
+import { collectionJsonLd } from "@/lib/jsonld";
 import { OpponentList } from "@/components/OpponentList";
 import { loadOpponents } from "@/lib/archive";
 
-export const metadata: Metadata = {
-  title: "Motstandere",
-  description: "Innbyrdes statistikk mot alle AaFKs motstandere gjennom arkivet.",
-};
+export const metadata: Metadata = pageMetadata(
+  "Motstandere",
+  "Innbyrdes statistikk mot alle AaFKs motstandere gjennom arkivet.",
+  "/motstandere",
+  "website",
+);
 
 export default function OpponentsPage() {
   const opponents = loadOpponents();
@@ -13,6 +18,14 @@ export default function OpponentsPage() {
 
   return (
     <>
+      <JsonLd
+        data={collectionJsonLd({
+          name: "Motstandere",
+          description: "Innbyrdes statistikk mot alle AaFKs motstandere gjennom arkivet.",
+          path: "/motstandere",
+          size: opponents.length,
+        })}
+      />
       <header className="page-intro">
         <p className="eyebrow">{opponents.length} lag</p>
         <h1>Motstandere</h1>

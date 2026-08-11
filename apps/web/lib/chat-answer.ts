@@ -1,4 +1,6 @@
-export const ARCHIVE_ORIGIN = "https://aafkstats.vercel.app";
+import { SITE_ORIGIN } from "@/lib/site";
+
+export const ARCHIVE_ORIGIN = SITE_ORIGIN;
 
 const RELATIVE_MARKDOWN_LINK = /(\[[^\]]+\]\()\/(?!\/)([^)\s]+)(\))/g;
 const ABSOLUTE_MARKDOWN_LINK = /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g;

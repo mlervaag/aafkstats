@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { CoverageNote, GapNote, SeasonDepth } from "@/components/CoverageNote";
 import { SourceRights } from "@/components/SourceRights";
 
-export const metadata: Metadata = { title: "Om arkivet", description: "Omfang, kilder og forbehold for AaFK-arkivet." };
+export const metadata: Metadata = pageMetadata(
+  "Om arkivet",
+  "Omfang, kilder og forbehold for AaFK-arkivet: hva som er dekket, hvor opplysningene kommer fra, og hvilke lisenser som gjelder.",
+  "/om",
+  "website",
+);
 
 export default function AboutPage() {
   return (

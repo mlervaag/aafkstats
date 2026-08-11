@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
+import { JsonLd } from "@/components/JsonLd";
+import { collectionJsonLd } from "@/lib/jsonld";
 import { ArchiveTabs } from "@/components/ArchiveTabs";
 import { PeopleDirectory } from "@/components/people/PeopleDirectory";
 import { getPeople, getPersonRoles } from "@/lib/people";
 import styles from "./People.module.css";
 
-export const metadata: Metadata = {
-  title: "Personer",
-  description: "Søk i spillere, trenere, ledere, styremedlemmer og æresmedlemmer i AaFK-arkivet.",
-};
+export const metadata: Metadata = pageMetadata(
+  "Personer",
+  "Søk i spillere, trenere, ledere, styremedlemmer og æresmedlemmer i AaFK-arkivet.",
+  "/personer",
+  "website",
+);
 
 export default function PeoplePage() {
   const people = getPeople();
@@ -17,6 +22,14 @@ export default function PeoplePage() {
 
   return (
     <article>
+      <JsonLd
+        data={collectionJsonLd({
+          name: "Personer i AaFK-arkivet",
+          description: "Søk i spillere, trenere, ledere, styremedlemmer og æresmedlemmer i AaFK-arkivet.",
+          path: "/personer",
+          size: people.length,
+        })}
+      />
       <header className={`page-header ${styles.header}`}>
         <div>
           <p className="eyebrow">Menneskene i arkivet</p>
