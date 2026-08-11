@@ -84,15 +84,26 @@ pnpm ingest:wikipedia-profile -- \
 # etter at identitet, fakta og eventuelle KONTROLL-linjer er vurdert.
 pnpm ingest:wikipedia-profile -- \
   --player michael-barrantes --title "Michael Barrantes" --lang en --write
+
+# Oppdag FotMob-kandidater for én spiller. Denne modusen skriver aldri.
+pnpm ingest:fotmob-profile -- --player "Fredrik Ulvestad" --discover
+
+# Verifiser én valgt profil. Skriving krever i tillegg eksplisitt hentedato.
+pnpm ingest:fotmob-profile -- \
+  --player "Fredrik Ulvestad" --fotmob-id 180283
+pnpm ingest:fotmob-profile -- \
+  --player "Fredrik Ulvestad" --fotmob-id 180283 \
+  --retrieved-at 2026-08-12 --write
 ```
 
 | Flagg | Gjelder | Betydning |
 |---|---|---|
-| `--write` | rsssf, fotmob, fotmob-gap | Skriver YAML. Krever `--retrieved-at` |
-| `--retrieved-at ÅÅÅÅ-MM-DD` | rsssf, fotmob, fotmob-gap | Hentedato i `sources[]`. Påkrevd ved `--write` for reproduserbare differ |
+| `--write` | rsssf, fotmob, fotmob-gap, fotmob-profile | Skriver YAML. Krever `--retrieved-at` |
+| `--retrieved-at ÅÅÅÅ-MM-DD` | rsssf, fotmob, fotmob-gap, fotmob-profile | Hentedato i kildehenvisningen. Påkrevd ved `--write` for reproduserbare differ |
 | `--limit N` | rsssf, fotmob | Tak på antall kamper i kjøringen |
 | `--refresh` | alle | Hopper over cachen |
 | `--player`, `--title`, `--lang` | wikipedia-profile | Én kjent arkivspiller og én eksakt profilside. Ingen personsøk eller massejobb |
+| `--player`, `--discover`, `--fotmob-id` | fotmob-profile | Søker etter eller verifiserer én kjent arkivspiller. `--write` krever valgt ID |
 | `--skip-existing` | rsssf | Lar kamper en annen kilde eier stå i fred |
 | `--with-details` | fotmob | Henter hendelser, lagoppstilling og statistikk |
 | `--details-limit N`, `--details-offset N` | fotmob | Avgrenser detaljoppslagene |
@@ -111,6 +122,7 @@ kommandoen — å høste inn i et ødelagt arkiv gjør bare feilsøkingen vanske
 |---|---|---|---|
 | `fotmob` | FotMob | 2010→ | Kampfakta, hendelser, lagoppstillinger, statistikk, tilskuertall |
 | `fotmob-gap` | FotMob | 2010→ | Paginert klubbdiscovery, tolerant arkivtreff og eksplisitt gap-import |
+| `fotmob-profile` | FotMob | Én spiller per kjøring | Kandidater, navnekontroll, AaFK-periode, hovedposisjon og land |
 | `rsssf` | RSSSF Norway | ←2009 | Dato, lag, resultat, runde |
 | `rsssf-discover` | RSSSF Norway | 1902→ | Kartlegging: hvilke sider finnes, og hva de inneholder |
 | `wikipedia-profile` | Wikipedia | Én spiller per kjøring | Manglende personfil, posisjon, nasjonalitet og Wikidata-peker fra infoboks/sideegenskaper |
@@ -139,6 +151,15 @@ AaFK-lagoppstilling, og en eksakt Wikipedia-tittel. Den leser bare navngitte
 infoboksrader og sidens Wikidata-peker. Brødtekst, fødselsdato, klubbhistorikk og
 dagens draktnummer kopieres ikke. Eksisterende fakta overskrives aldri; motstrid
 blir en `KONTROLL` som stopper `--write`.
+
+**FotMob-profiler bruker to separate beslutninger.** `--discover` søker bare på
+navnet som allerede finnes i arkivet og viser kandidat-ID-er; den skriver aldri.
+En ny kjøring med `--fotmob-id` henter valgt profil og krever at FotMobs
+karrierehistorikk faktisk inneholder Aalesund (`teamId 8404`) før profilen kan
+knyttes til personen. Bare navn, hovedposisjon og land kan føres. Fødselsdato,
+markedsverdi, karrierestatistikk og løpende klubbdata kopieres ikke. FotMob har
+uavklart offentlig gjenbruk og brukes under den eksplisitte risikovurderingen i
+`data/providers/fotmob.yaml`; derfor er hver kjøring avgrenset til én spiller.
 
 **Datoarv er den vanligste feilkilden i RSSSF-parseren.** Datoen står på den første kampen i
 en gruppe og gjelder nedover til neste dato. Leses det feil, får en hel runde samme dato — og

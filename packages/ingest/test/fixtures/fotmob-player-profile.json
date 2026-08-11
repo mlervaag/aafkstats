@@ -1,0 +1,38 @@
+{
+  "id": 180283,
+  "name": "Fredrik Ulvestad",
+  "positionDescription": {
+    "primaryPosition": { "label": "Defensive Midfielder", "key": "centerdefensivemidfielder" }
+  },
+  "playerInformation": [
+    {
+      "translationKey": "country_sentencecase",
+      "countryCode": "NOR",
+      "value": { "fallback": "Norway" }
+    }
+  ],
+  "careerHistory": {
+    "careerItems": {
+      "senior": {
+        "teamEntries": [
+          {
+            "teamId": 8404,
+            "team": "Aalesund",
+            "startDate": "2010-04-01T00:00:00",
+            "endDate": "2015-01-01T00:00:00",
+            "appearances": "124",
+            "goals": "18"
+          },
+          {
+            "teamId": 8023,
+            "team": "Pogoń Szczecin",
+            "startDate": "2023-08-21T00:00:00",
+            "endDate": null,
+            "appearances": "107",
+            "goals": "18"
+          }
+        ]
+      }
+    }
+  }
+}

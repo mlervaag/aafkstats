@@ -15,6 +15,7 @@
     "etter-kamp": "pnpm --filter @aafkstats/ingest run etter-kamp",
     "ingest:fotmob": "pnpm --filter @aafkstats/ingest run fotmob",
     "ingest:fotmob-gap": "pnpm --filter @aafkstats/ingest run fotmob-gap",
+    "ingest:fotmob-profile": "pnpm --filter @aafkstats/ingest run fotmob-profile",
     "ingest:fotmob-standings": "pnpm --filter @aafkstats/ingest run fotmob-standings",
     "ingest:rsssf": "pnpm --filter @aafkstats/ingest run rsssf",
     "ingest:rsssf-standings": "pnpm --filter @aafkstats/ingest run rsssf-standings",
