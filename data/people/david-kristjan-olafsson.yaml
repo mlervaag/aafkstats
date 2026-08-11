@@ -1,10 +1,16 @@
 id: david-kristjan-olafsson
 name: Davíd Kristján Ólafsson
-names: []
+names:
+  - Davíð Kristján Ólafsson
+  - David Kristjan Olafsson
 nationality: Island
 position: forsvar
 squadNumbers:
   - season: 2019
+    number: 18
+  - season: 2020
+    number: 18
+  - season: 2021
     number: 18
 coachSpells: []
 providers:
@@ -17,3 +23,19 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+  - providerId: wikipedia
+    url: https://no.wikipedia.org/w/index.php?title=Aalesunds%20Fotballklubb&oldid=22127285
+    retrievedAt: 2021-12-31
+    fields:
+      - name
+      - nationality
+      - position
+      - squadNumbers
+    note: >-
+      Stallmalen to år senere. Den skriver «Davíð» der 2019-versjonen skriver
+      «Davíd», og det var den forskjellen som ga arkivet to filer for samme mann.
+note: >-
+  Sto som to personer, `david-kristjan-olafsson` for 2019 og
+  `davi-kristjan-olafsson` for 2020-2021, fordi «ð» falt ut av
+  personidentiteten og de to skrivemåtene aldri møttes. Filene er slått sammen;
+  begge skrivemåtene står i names[].

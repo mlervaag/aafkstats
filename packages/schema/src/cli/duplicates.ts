@@ -184,6 +184,63 @@ for (let i = 0; i < personKeys.length; i++) {
 }
 
 /**
+ * Personfiler som er stavet nesten som et navn i lagoppstillingene.
+ *
+ * ## Blindsonen dette lukker
+ *
+ * Rapporten over sammenligner oppstillingsnavn mot oppstillingsnavn. En
+ * personfil som er stavet annerledes enn kilden, ble derfor aldri sammenlignet
+ * med noe som helst: navnet står jo bare i fila, og fila er ikke en
+ * lagoppstilling.
+ *
+ * Mostafa Abdellaoue står 236 ganger i oppstillingene. Personfila het «Mustafa
+ * Abdellaoue». Én bokstav, godt innenfor taket på to, og likevel sa ingenting
+ * fra på noen av de tre reglene: `personKey` bytter bare tegn som er samme
+ * bokstav skrevet ulikt, `isLongerNameForm` ser etter et ord til, og
+ * naboavstanden over så aldri paret. Resultatet var en tom spillerside ved
+ * siden av 108 kamper og 44 mål som lå og ventet.
+ *
+ * ## Hvorfor bare de ukoblede
+ *
+ * Et oppstillingsnavn som allerede peker på en personfil er avgjort. Det som
+ * står igjen, er navn arkivet ikke har klart å plassere, og det er nettopp der
+ * en nesten-treffer er interessant.
+ */
+const declaredForms = new Map<string, { id: string; written: string }[]>();
+for (const entry of archive.people) {
+  for (const written of [entry.name, ...entry.names]) {
+    const key = personKey(written);
+    declaredForms.set(key, [...(declaredForms.get(key) ?? []), { id: entry.id, written }]);
+  }
+}
+
+const misspelled: { form: string; count: number; candidates: string[] }[] = [];
+for (const [written, count] of nameCounts) {
+  const key = personKey(written);
+  if (declaredPerson.has(key)) continue;
+  const candidates = new Set<string>();
+  for (const [declaredKey, entries] of declaredForms) {
+    if (declaredKey === key || !closeEnough(declaredKey, key, 2)) continue;
+    for (const entry of entries) candidates.add(`${entry.id} ${DIM}«${entry.written}»${RESET}`);
+  }
+  if (candidates.size > 0) misspelled.push({ form: written, count, candidates: [...candidates] });
+}
+
+if (misspelled.length > 0) {
+  found += misspelled.length;
+  console.log(
+    `${YELLOW}Personfila er stavet nesten som kilden${RESET} `
+    + `${DIM}(samme person? — før kildens form inn i names[] hvis den er det)${RESET}`,
+  );
+  for (const { form, count, candidates } of misspelled.sort((a, b) => a.form.localeCompare(b.form, "nb"))) {
+    const matches = count === 1 ? "1 kamp" : `${count} kamper`;
+    console.log(`  ${DIM}«${RESET}${form}${DIM}»${RESET} ${DIM}(${matches})${RESET}`);
+    for (const candidate of candidates) console.log(`    ≈ ${candidate}`);
+  }
+  console.log("");
+}
+
+/**
  * Navneformer fra kildene som ingen personfil fanger opp.
  *
  * ## Feilen dette retter
