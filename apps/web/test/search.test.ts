@@ -3,7 +3,7 @@ import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
-import { parseSearchQuery, searchMatches } from "../lib/search.js";
+import { parseSearchQuery, searchMatches, searchPeople } from "../lib/search.js";
 
 const previousDbPath = process.env.AAFK_DB_PATH;
 
@@ -50,5 +50,20 @@ describe("parseSearchQuery", () => {
     const matches = searchMatches("2024 Molde");
     expect(matches).toHaveLength(3);
     expect(matches.every((match) => match.date.startsWith("2024") && match.opponent === "Molde FK")).toBe(true);
+  });
+
+  it("finner personer uten AI og tåler manglende diakritiske tegn", () => {
+    const people = searchPeople("Jan Jonsson");
+    expect(people).toHaveLength(1);
+    expect(people[0]).toMatchObject({
+      personId: "jan-jonsson",
+      name: "Jan Jönsson",
+      url: "/personer/jan-jonsson",
+    });
+  });
+
+  it("finner personer etter rolle og år", () => {
+    const people = searchPeople("trener 2013");
+    expect(people.some((person) => person.personId === "jan-jonsson")).toBe(true);
   });
 });

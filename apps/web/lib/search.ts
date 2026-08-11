@@ -25,6 +25,30 @@ export interface SearchMatch {
   url: string;
 }
 
+export interface SearchPerson {
+  personId: string;
+  name: string;
+  description: string;
+  period: string | null;
+  url: string;
+}
+
+interface PersonSearchRow {
+  person_id: string;
+  name: string;
+  nationality: string | null;
+  position: string | null;
+  first_season: number | null;
+  last_season: number | null;
+  appearances: number;
+  category: string | null;
+  title: string | null;
+  body: string | null;
+  from_date: string | null;
+  to_date: string | null;
+  url: string;
+}
+
 interface MatchRow {
   match_id: string;
   date: string;
@@ -120,6 +144,118 @@ export function searchMatches(query: string, limit = 200): SearchMatch[] {
   } finally {
     db.close();
   }
+}
+
+/**
+ * Persondelen av direktesøket.
+ *
+ * Registeret er lite, så radene filtreres i JavaScript. Det gir samme robuste
+ * søk etter «Jonsson» som etter «Jönsson», uten en egen normalisert indeks eller
+ * brukerdata interpolert i SQL. Roller brukes som søkeord, men kandidaten vises
+ * bare én gang selv om personen har flere verv.
+ */
+export function searchPeople(query: string, limit = 12): SearchPerson[] {
+  const parsed = parseSearchQuery(query);
+  if (parsed.years.length === 0 && parsed.terms.length === 0) return [];
+
+  const db = open();
+  try {
+    const rows = all<PersonSearchRow>(
+      db,
+      `SELECT p.id AS person_id, p.name, p.nationality, p.position,
+              p.first_season, p.last_season, p.appearances,
+              r.category, r.title, r.body, r.from_date, r.to_date, p.url
+         FROM people p
+         LEFT JOIN (
+           SELECT person_id, category, title, body, from_date, to_date
+             FROM person_roles
+           UNION ALL
+           SELECT person_id, 'coach', 'Hovedtrener', 'A-laget',
+                  printf('%04d', from_season),
+                  CASE WHEN to_season IS NULL THEN NULL ELSE printf('%04d', to_season) END
+             FROM declared_coach_spells
+         ) r ON r.person_id = p.id
+        ORDER BY p.name COLLATE NOCASE, r.from_date`,
+    );
+
+    const grouped = new Map<string, PersonSearchRow[]>();
+    for (const row of rows) {
+      const current = grouped.get(row.person_id) ?? [];
+      current.push(row);
+      grouped.set(row.person_id, current);
+    }
+
+    const results: SearchPerson[] = [];
+    for (const personRows of grouped.values()) {
+      const first = personRows[0]!;
+      const matchingRoles = personRows.filter((row) => {
+        const haystack = searchable([row.title, row.body, row.category].filter(Boolean).join(" "));
+        return parsed.terms.length === 0 || parsed.terms.every((term) => haystack.includes(searchable(term)));
+      });
+      const personHaystack = searchable(
+        [first.name, first.nationality, first.position].filter(Boolean).join(" "),
+      );
+      const termsMatch = parsed.terms.every((term) => {
+        const needle = searchable(term);
+        return personHaystack.includes(needle) || personRows.some((row) =>
+          searchable([row.title, row.body, row.category].filter(Boolean).join(" ")).includes(needle),
+        );
+      });
+      if (!termsMatch) continue;
+
+      const yearsMatch = parsed.years.length === 0 || parsed.years.some((year) =>
+        personRows.some((row) => roleCoversYear(row, year)) ||
+          (first.first_season !== null && first.last_season !== null &&
+            year >= first.first_season && year <= first.last_season),
+      );
+      if (!yearsMatch) continue;
+
+      const role = matchingRoles.find((row) => row.title !== null) ??
+        personRows.find((row) => row.title !== null);
+      const description = role?.title
+        ? [role.title, role.body].filter(Boolean).join(" · ")
+        : first.appearances > 0
+          ? `${first.appearances} registrerte kamptropper`
+          : [first.position, first.nationality].filter(Boolean).join(" · ") || "Person i AaFK-arkivet";
+      const from = role?.from_date?.slice(0, 4) ?? first.first_season?.toString() ?? null;
+      const to = role?.to_date?.slice(0, 4) ?? first.last_season?.toString() ?? from;
+
+      results.push({
+        personId: first.person_id,
+        name: first.name,
+        description,
+        period: from === null ? null : to && to !== from ? `${from}–${to}` : from,
+        url: first.url,
+      });
+    }
+
+    return results
+      .sort((a, b) => rankPerson(a, parsed.terms) - rankPerson(b, parsed.terms) ||
+        a.name.localeCompare(b.name, "nb"))
+      .slice(0, Math.min(Math.max(limit, 1), 50));
+  } finally {
+    db.close();
+  }
+}
+
+function roleCoversYear(row: PersonSearchRow, year: number): boolean {
+  if (!row.from_date) return false;
+  const from = Number(row.from_date.slice(0, 4));
+  const to = Number((row.to_date ?? row.from_date).slice(0, 4));
+  return year >= from && year <= to;
+}
+
+function rankPerson(person: SearchPerson, terms: string[]): number {
+  const name = searchable(person.name);
+  const joined = searchable(terms.join(" "));
+  if (name === joined) return 0;
+  if (name.startsWith(joined)) return 1;
+  if (name.includes(joined)) return 2;
+  return 3;
+}
+
+function searchable(value: string): string {
+  return value.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLocaleLowerCase("nb");
 }
 
 function escapeLike(value: string): string {

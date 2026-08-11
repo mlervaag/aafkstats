@@ -765,6 +765,36 @@ FROM core_person_roles r
 JOIN core_people p ON p.id = r.person_id
 ORDER BY r.from_date, p.name;
 
+-- Én rad per verdi i en uenighet om en personrolle. Formen speiler
+-- match_conflicts, slik at AI-søket kan forklare uenigheten uten å velge side.
+CREATE VIEW person_conflicts AS
+SELECT
+  p.id                                               AS person_id,
+  p.name,
+  json_extract(c.value, '$.field')                   AS field,
+  json_extract(v.value, '$.providerId')              AS provider_id,
+  json_extract(v.value, '$.value')                   AS value,
+  json_extract(v.value, '$.note')                    AS value_note,
+  CASE WHEN json_type(c.value, '$.chosen') IS NOT NULL
+        AND json_extract(c.value, '$.chosenProviderId') = json_extract(v.value, '$.providerId')
+        AND (
+          json_extract(c.value, '$.chosen') = json_extract(v.value, '$.value')
+          OR (
+            json_type(c.value, '$.chosen') = 'null'
+            AND json_type(v.value, '$.value') = 'null'
+          )
+        )
+       THEN 1 ELSE 0 END                             AS is_chosen,
+  coalesce(json_extract(c.value, '$.decision'), 'unresolved') AS decision,
+  json_extract(c.value, '$.decidedAt')               AS decided_at,
+  json_extract(c.value, '$.reason')                  AS reason,
+  CASE WHEN json_extract(c.value, '$.locked') THEN 1 ELSE 0 END AS locked,
+  json_extract(c.value, '$.note')                    AS conflict_note,
+  '/personer/' || p.id                               AS url
+FROM core_people p,
+     json_each(p.conflicts) c,
+     json_each(json_extract(c.value, '$.values')) v;
+
 -- Personregisteret som offentlig kontrakt. Det samler identitet, kampavledet
 -- aktivitet og eksplisitte organisasjonsroller uten å gjøre personfila til en
 -- biografi eller kopiere kildetekst.
@@ -778,6 +808,7 @@ SELECT
   p.sources,
   p.conflicts,
   p.note,
+  CASE WHEN json_array_length(p.conflicts) > 0 THEN 1 ELSE 0 END AS has_conflicts,
   (SELECT min(a.season) FROM core_appearances a
     WHERE a.person_key IN (SELECT n.person_key FROM core_person_names n WHERE n.person_id = p.id)) AS first_season,
   (SELECT max(a.season) FROM core_appearances a
@@ -981,6 +1012,48 @@ CREATE TABLE core_fact_candidates (
 
 CREATE INDEX idx_fact_candidates_kind_confidence ON core_fact_candidates(kind, confidence);
 
+-- Andre gjennomgang av kandidatene. Disse radene er mer presise enn
+-- core_fact_candidates, men fortsatt maskinelt løste funn og ikke kanoniske
+-- personroller eller kampoppstillinger.
+CREATE TABLE core_resolved_roles (
+  source_id   TEXT NOT NULL REFERENCES core_publication_extractions(source_id) ON DELETE CASCADE,
+  id          TEXT NOT NULL,
+  page        TEXT NOT NULL,
+  column_no   INTEGER,
+  person_name TEXT NOT NULL,
+  person_id   TEXT,
+  category    TEXT NOT NULL CHECK (category IN
+                ('player','coach','sporting_staff','board','administration','honorary','founder','project')),
+  title       TEXT NOT NULL,
+  body        TEXT,
+  from_date   TEXT,
+  to_date     TEXT,
+  confidence  TEXT NOT NULL CHECK (confidence IN ('high','medium','low')),
+  rule        TEXT NOT NULL CHECK (rule IN ('role_then_name','name_then_role','year_row','name_then_year')),
+  PRIMARY KEY (source_id, id)
+);
+
+CREATE INDEX idx_resolved_roles_person_dates
+ON core_resolved_roles(person_id, from_date, to_date);
+
+CREATE INDEX idx_resolved_roles_title_confidence
+ON core_resolved_roles(title, confidence);
+
+CREATE TABLE core_resolved_lineups (
+  source_id  TEXT NOT NULL REFERENCES core_publication_extractions(source_id) ON DELETE CASCADE,
+  id         TEXT NOT NULL,
+  page       TEXT NOT NULL,
+  column_no  INTEGER,
+  season     INTEGER,
+  names      TEXT NOT NULL,
+  person_ids TEXT NOT NULL DEFAULT '[]',
+  confidence TEXT NOT NULL CHECK (confidence IN ('high','medium','low')),
+  PRIMARY KEY (source_id, id)
+);
+
+CREATE INDEX idx_resolved_lineups_season_confidence
+ON core_resolved_lineups(season, confidence);
+
 CREATE VIEW contributions AS
 SELECT
   id,
@@ -1021,20 +1094,39 @@ FROM core_publication_extractions
 ORDER BY source_id;
 
 CREATE VIEW source_results AS
-SELECT source_id, id, season, source_order, page, opponent, opponent_club_id,
-       aafk_score, opponent_score,
+SELECT r.source_id, s.title AS source_title, r.id, r.season, r.source_order, r.page,
+       r.opponent, r.opponent_club_id, r.aafk_score, r.opponent_score,
        CASE
-         WHEN status = 'walkover' THEN NULL
-         WHEN aafk_score > opponent_score THEN 'S'
-         WHEN aafk_score = opponent_score THEN 'U'
+         WHEN r.status = 'walkover' THEN NULL
+         WHEN r.aafk_score > r.opponent_score THEN 'S'
+         WHEN r.aafk_score = r.opponent_score THEN 'U'
          ELSE 'T'
        END AS result,
-       competition_id, status, replay, after_extra_time, round, match_id, note
-FROM core_source_results
-ORDER BY season DESC, source_order;
+       r.competition_id, r.status, r.replay, r.after_extra_time, r.round,
+       r.match_id, r.note, s.access_url AS source_url, '/kilder/' || s.id AS url
+FROM core_source_results r
+JOIN core_sources s ON s.id = r.source_id
+ORDER BY r.season DESC, r.source_order;
 
 CREATE VIEW fact_candidates AS
 SELECT source_id, id, kind, page, confidence, keywords, names, years, scores,
        person_ids, match_ids
 FROM core_fact_candidates
 ORDER BY source_id, CAST(page AS INTEGER), kind, id;
+
+CREATE VIEW resolved_roles AS
+SELECT r.source_id, s.title AS source_title, r.id, r.page, r.column_no,
+       r.person_name, r.person_id, r.category, r.title, r.body,
+       r.from_date, r.to_date, r.confidence, r.rule,
+       s.access_url AS source_url, '/kilder/' || s.id AS url
+FROM core_resolved_roles r
+JOIN core_sources s ON s.id = r.source_id
+ORDER BY r.source_id, CAST(r.page AS INTEGER), r.person_name, r.id;
+
+CREATE VIEW resolved_lineups AS
+SELECT l.source_id, s.title AS source_title, l.id, l.page, l.column_no,
+       l.season, l.names, l.person_ids, l.confidence,
+       s.access_url AS source_url, '/kilder/' || s.id AS url
+FROM core_resolved_lineups l
+JOIN core_sources s ON s.id = l.source_id
+ORDER BY l.source_id, CAST(l.page AS INTEGER), l.id;

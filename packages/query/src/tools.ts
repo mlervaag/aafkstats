@@ -204,6 +204,140 @@ const searchReports = defineTool({
   },
 });
 
+const searchPeople = defineTool({
+  name: "search_people",
+  description:
+    "Søk i personregisteret og kontrollerte roller eller verv. Bruk dette for spillere, " +
+    "trenere, styreledere, ansatte, æresmedlemmer og andre personer i AaFK-organisasjonen.",
+  inputSchema: z.object({
+    q: z.string().optional().describe("Navn, tittel eller organisasjonsdel, delvis treff holder"),
+    category: z
+      .enum(["player", "coach", "sporting_staff", "board", "administration", "honorary", "founder", "project"])
+      .optional(),
+    year: z.number().int().min(1914).max(2100).optional().describe("År personen hadde rollen"),
+    limit: z.number().int().min(1).max(100).default(20),
+  }),
+  async run(input, ctx) {
+    const where: string[] = [];
+    if (input.q) {
+      const needle = lit(`%${input.q.toLowerCase()}%`);
+      where.push(`(lower(p.name) LIKE ${needle} OR lower(coalesce(r.title, '')) LIKE ${needle} OR lower(coalesce(r.body, '')) LIKE ${needle})`);
+    }
+    if (input.category) where.push(`r.category = ${lit(input.category)}`);
+    if (input.year !== undefined) {
+      const year = lit(String(input.year));
+      where.push(
+        `substr(r.from_date, 1, 4) <= ${year} AND ` +
+          `substr(coalesce(r.to_date, r.from_date), 1, 4) >= ${year}`,
+      );
+    }
+    return query(
+      ctx,
+      `SELECT p.id AS person_id, p.name, p.position, p.nationality, p.has_conflicts,
+              r.category, r.title, r.body, r.from_date, r.to_date, p.url
+       FROM people p
+       LEFT JOIN person_roles r ON r.person_id = p.id
+       ${where.length > 0 ? `WHERE ${where.join(" AND ")}` : ""}
+       ORDER BY coalesce(r.from_date, '9999'), p.name
+       LIMIT ${input.limit}`,
+    );
+  },
+});
+
+const searchHistoricalResults = defineTool({
+  name: "search_historical_results",
+  description:
+    "Søk i resultatlister fra historiske publikasjoner når kampdato, hjemme eller borte " +
+    "eller full kampkobling mangler.",
+  inputSchema: z.object({
+    season: z.number().int().min(1914).max(2100).optional(),
+    opponent: z.string().optional().describe("Motstander, delvis treff holder"),
+    limit: z.number().int().min(1).max(100).default(20),
+  }),
+  async run(input, ctx) {
+    const where: string[] = [];
+    if (input.season !== undefined) where.push(`season = ${input.season}`);
+    if (input.opponent) where.push(`lower(coalesce(opponent, '')) LIKE ${lit(`%${input.opponent.toLowerCase()}%`)}`);
+    return query(
+      ctx,
+      `SELECT source_id, source_title, season, source_order, page, opponent,
+              aafk_score, opponent_score, result, competition_id, status,
+              replay, after_extra_time, round, match_id, note, source_url, url
+       FROM source_results
+       ${where.length > 0 ? `WHERE ${where.join(" AND ")}` : ""}
+       ORDER BY season DESC, source_order
+       LIMIT ${input.limit}`,
+    );
+  },
+});
+
+const searchResolvedRoles = defineTool({
+  name: "search_resolved_roles",
+  description:
+    "Søk i maskinelt løste rollekandidater som ennå ikke nødvendigvis er kontrollert. " +
+    "Returnerer sikkerhet, publikasjon og side som alltid må oppgis i svaret.",
+  inputSchema: z.object({
+    q: z.string().optional().describe("Personnavn, tittel eller organisasjonsdel"),
+    year: z.number().int().min(1914).max(2100).optional(),
+    confidence: z.enum(["high", "medium", "low"]).optional(),
+    limit: z.number().int().min(1).max(100).default(20),
+  }),
+  async run(input, ctx) {
+    const where: string[] = [];
+    if (input.q) {
+      const needle = lit(`%${input.q.toLowerCase()}%`);
+      where.push(`(lower(person_name) LIKE ${needle} OR lower(title) LIKE ${needle} OR lower(coalesce(body, '')) LIKE ${needle})`);
+    }
+    if (input.year !== undefined) {
+      const year = lit(String(input.year));
+      where.push(
+        `substr(from_date, 1, 4) <= ${year} AND ` +
+          `substr(coalesce(to_date, from_date), 1, 4) >= ${year}`,
+      );
+    }
+    if (input.confidence) where.push(`confidence = ${lit(input.confidence)}`);
+    return query(
+      ctx,
+      `SELECT source_id, source_title, page, person_name, person_id, category,
+              title, body, from_date, to_date, confidence, rule, source_url, url
+       FROM resolved_roles
+       ${where.length > 0 ? `WHERE ${where.join(" AND ")}` : ""}
+       ORDER BY CASE confidence WHEN 'high' THEN 1 WHEN 'medium' THEN 2 ELSE 3 END,
+                from_date, person_name
+       LIMIT ${input.limit}`,
+    );
+  },
+});
+
+const searchResolvedLineups = defineTool({
+  name: "search_resolved_lineups",
+  description:
+    "Søk i maskinelt løste lag- og spillerlister uten sikker kampkobling. Resultatet " +
+    "må omtales som kandidat og med sikkerhet, publikasjon og side.",
+  inputSchema: z.object({
+    name: z.string().optional().describe("Spillernavn, delvis treff holder"),
+    season: z.number().int().min(1900).max(2100).optional(),
+    confidence: z.enum(["high", "medium", "low"]).optional(),
+    limit: z.number().int().min(1).max(50).default(10),
+  }),
+  async run(input, ctx) {
+    const where: string[] = [];
+    if (input.name) where.push(`lower(names) LIKE ${lit(`%${input.name.toLowerCase()}%`)}`);
+    if (input.season !== undefined) where.push(`season = ${input.season}`);
+    if (input.confidence) where.push(`confidence = ${lit(input.confidence)}`);
+    return query(
+      ctx,
+      `SELECT source_id, source_title, page, season, names, person_ids,
+              confidence, source_url, url
+       FROM resolved_lineups
+       ${where.length > 0 ? `WHERE ${where.join(" AND ")}` : ""}
+       ORDER BY CASE confidence WHEN 'high' THEN 1 WHEN 'medium' THEN 2 ELSE 3 END,
+                season, source_id, CAST(page AS INTEGER)
+       LIMIT ${input.limit}`,
+    );
+  },
+});
+
 const runSql = defineTool({
   name: "run_sql",
   description:
@@ -247,6 +381,10 @@ export const tools: ToolDef[] = [
   getSeasonSummary,
   headToHead,
   searchReports,
+  searchPeople,
+  searchHistoricalResults,
+  searchResolvedRoles,
+  searchResolvedLineups,
   runSql,
 ];
 

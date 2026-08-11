@@ -38,6 +38,14 @@ interface SearchMatch {
   url: string;
 }
 
+interface SearchPerson {
+  personId: string;
+  name: string;
+  description: string;
+  period: string | null;
+  url: string;
+}
+
 const SUGGESTIONS = [
   "Hva er den eldste kampen i arkivet?",
   "Hvilken motstander har vi tapt flest ganger mot?",
@@ -48,7 +56,7 @@ const SUGGESTIONS = [
 type AskSource = "form" | "suggestion" | "followup";
 
 /**
- * Direkte kampsøk og en avgrenset arkivsamtale.
+ * Direkte person- og kampsøk, og en avgrenset arkivsamtale.
  *
  * Hovedfeltet starter en samtale. Etter første svar eier resultatflaten
  * interaksjonen: brukeren kan ta én strukturert oppfølging eller starte på nytt.
@@ -58,6 +66,7 @@ export function AskBox() {
   const [question, setQuestion] = useState("");
   const deferredQuestion = useDeferredValue(question);
   const [matches, setMatches] = useState<SearchMatch[]>([]);
+  const [people, setPeople] = useState<SearchPerson[]>([]);
   const [searchState, setSearchState] = useState<"idle" | "loading" | "done">("idle");
   const [turns, setTurns] = useState<ConversationTurn[]>([]);
   const [activeTool, setActiveTool] = useState<string | null>(null);
@@ -72,6 +81,7 @@ export function AskBox() {
   useEffect(() => {
     if (hasConversation) {
       setMatches([]);
+      setPeople([]);
       setSearchState("idle");
       return;
     }
@@ -79,6 +89,7 @@ export function AskBox() {
     const query = deferredQuestion.trim();
     if (query.length < 2) {
       setMatches([]);
+      setPeople([]);
       setSearchState("idle");
       return;
     }
@@ -91,12 +102,14 @@ export function AskBox() {
           signal: controller.signal,
         });
         if (!response.ok) throw new Error("Søket feilet");
-        const data = (await response.json()) as { matches?: SearchMatch[] };
+        const data = (await response.json()) as { matches?: SearchMatch[]; people?: SearchPerson[] };
         setMatches(data.matches ?? []);
+        setPeople(data.people ?? []);
         setSearchState("done");
       } catch (fetchError) {
         if (fetchError instanceof Error && fetchError.name === "AbortError") return;
         setMatches([]);
+        setPeople([]);
         setSearchState("done");
       }
     }, 180);
@@ -286,11 +299,11 @@ export function AskBox() {
 
   return (
     <section className="ask" aria-labelledby="sporre">
-      <p className="eyebrow">Smart kampsøk</p>
+      <p className="eyebrow">Smart arkivsøk</p>
       <h2 id="sporre">Hva leter du etter?</h2>
       <p className="prose muted">
-        Skriv <strong>2024</strong>, <strong>Sogndal</strong> eller <strong>2013 Tromsø</strong> for
-        direkte treff. Trykk Enter for å få et utfyllende svar fra arkivet.
+        Skriv <strong>Haller</strong>, <strong>formann 1961</strong> eller <strong>2013 Tromsø</strong> for
+        direkte treff på personer og kamper. Trykk Enter for å få et utfyllende svar fra arkivet.
       </p>
 
       <form className="ask-form" onSubmit={(event) => {
@@ -320,15 +333,20 @@ export function AskBox() {
       {showSearch && (
         <div id="direkte-treff" className="live-results" aria-live="polite">
           <div className="live-results-heading">
-            <strong>Direkte kamptreff</strong>
+            <strong>Direkte treff</strong>
             <span className="small muted">
-              {searchState === "loading" ? "Søker …" : `${matches.length} ${matches.length === 1 ? "kamp" : "kamper"}`}
+              {searchState === "loading"
+                ? "Søker …"
+                : `${people.length} ${people.length === 1 ? "person" : "personer"} · ${matches.length} ${matches.length === 1 ? "kamp" : "kamper"}`}
             </span>
           </div>
-          {searchState === "done" && matches.length === 0 ? (
+          {searchState === "done" && matches.length === 0 && people.length === 0 ? (
             <p className="small muted live-empty">Ingen direkte treff. Trykk Enter for å spørre arkivet.</p>
           ) : (
             <ul className="match-results">
+              {people.map((person, index) => (
+                <PersonSearchResult key={person.personId} person={person} position={index + 1} />
+              ))}
               {matches.map((match, index) => (
                 <SearchResult key={match.matchId} match={match} position={index + 1} />
               ))}
@@ -436,6 +454,23 @@ export function AskBox() {
         })}
       </div>
     </section>
+  );
+}
+
+function PersonSearchResult({ person, position }: { person: SearchPerson; position: number }) {
+  return (
+    <li>
+      <a
+        className="person-result-link"
+        href={person.url}
+        onClick={() => trackEvent("person-opened", { position })}
+      >
+        <span className="result-kind">Person</span>
+        <strong>{person.name}</strong>
+        <span className="small muted">{person.description}</span>
+        {person.period ? <span className="num muted">{person.period}</span> : null}
+      </a>
+    </li>
   );
 }
 

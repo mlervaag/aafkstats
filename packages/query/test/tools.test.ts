@@ -152,3 +152,59 @@ describe("verktøy mot ekte arkivfil", () => {
     expect(queries.length).toBeGreaterThan(before);
   });
 });
+
+describe("verktøy mot det historiske kandidatlaget", () => {
+  let ctx: ToolContext;
+
+  beforeAll(async () => {
+    const dbPath = join(mkdtempSync(join(tmpdir(), "aafk-history-tools-")), "arkiv.sqlite");
+    await loadValidateAndBuild(resolve(import.meta.dirname, "../../../data"), dbPath);
+    ctx = { dbPath };
+  }, 30_000);
+
+  const call = async (name: string, input: unknown) => {
+    const tool = toolsByName.get(name)!;
+    return tool.run(tool.inputSchema.parse(input), ctx);
+  };
+
+  const rows = (result: Awaited<ReturnType<typeof call>>): Record<string, unknown>[] =>
+    (result.content as { rows: Record<string, unknown>[] }).rows;
+
+  it("søker i kontrollerte personroller", async () => {
+    const result = rows(await call("search_people", { q: "formann", year: 1961 }));
+    expect(result.length).toBeGreaterThan(0);
+    expect(result[0]).toHaveProperty("person_id");
+    expect(result[0]).toHaveProperty("url");
+  });
+
+  it("søker i kildedokumenterte resultater uten full kampkobling", async () => {
+    const result = rows(await call("search_historical_results", { season: 1915 }));
+    expect(result.length).toBeGreaterThan(0);
+    expect(result[0]).toMatchObject({ season: 1915 });
+    expect(result[0]).toHaveProperty("source_title");
+  });
+
+  it("bevarer kilde, side og sikkerhet for rollekandidater", async () => {
+    const result = rows(await call("search_resolved_roles", { q: "formann", limit: 5 }));
+    expect(result.length).toBeGreaterThan(0);
+    expect(result[0]).toHaveProperty("source_title");
+    expect(result[0]).toHaveProperty("page");
+    expect(["high", "medium", "low"]).toContain(result[0]!.confidence);
+  });
+
+  it("bevarer kilde, side og sikkerhet for lagkandidater", async () => {
+    const result = rows(await call("search_resolved_lineups", { limit: 5 }));
+    expect(result.length).toBeGreaterThan(0);
+    expect(result[0]).toHaveProperty("source_title");
+    expect(result[0]).toHaveProperty("page");
+    expect(result[0]).toHaveProperty("confidence");
+  });
+
+  it("gjør personkonfliktene tilgjengelige for fri SQL", async () => {
+    const result = rows(await call("run_sql", {
+      sql: "SELECT person_id, field, value, decision FROM person_conflicts LIMIT 10",
+    }));
+    expect(result.length).toBeGreaterThan(0);
+    expect(result[0]).toMatchObject({ decision: "unresolved" });
+  });
+});

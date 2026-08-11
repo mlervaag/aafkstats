@@ -37,12 +37,16 @@ Legger du til en kolonne i `packages/db/src/schema.sql`, skal den også inn her.
 | `get_season_summary` | Plassering, resultatfordeling og målforskjell for én sesong |
 | `head_to_head` | Innbyrdes statistikk mot én motstander gjennom hele historien |
 | `search_reports` | Fritekstsøk i kampreferatene (FTS5) |
+| `search_people` | Personer og kontrollerte roller eller verv |
+| `search_historical_results` | Kildedokumenterte resultater som mangler full kampkobling |
+| `search_resolved_roles` | Maskinelt løste rollekandidater med kilde, side og sikkerhet |
+| `search_resolved_lineups` | Maskinelt løste lag- og spillerlister med kilde, side og sikkerhet |
 | `run_sql` | Fri SELECT mot de dokumenterte viewene |
 
 De strukturerte verktøyene er raskest når spørsmålet passer dem. `run_sql` er for alt annet:
 aggregeringer, uvanlige kombinasjoner, «hvor mange ganger har vi …». Det er derfor det finnes.
 
-Alle seks kjører gjennom den samme guardrailen i
+Alle verktøyene kjører gjennom den samme guardrailen i
 [`@aafkstats/db/sql`](../db/README.md#guardrailen) — også de vi har skrevet selv. Ett sted å
 endre, ett sted å teste.
 
