@@ -21,9 +21,14 @@ miljøavhengige og behandles ikke som arkivfakta.
 **Skillet mellom rådata og publisert datasett ligger i navnet.** SQLite har ingen schemas, så
 tabellene heter `core_*` og er interne, mens viewene uten prefiks er den offentlige
 kontrakten: `matches`, `venues`, `seasons`, `opponents`, `standings`, `squad`, `match_events`,
-`match_conflicts`, `people`, `person_roles`, `providers`, `sources`, `contributions`,
-`publication_extractions`, `fact_candidates` og FTS-tabellen `reports`.
+`match_conflicts`, `people`, `person_roles`, `person_conflicts`, `providers`, `sources`,
+`contributions`, `publication_extractions`, `fact_candidates`, `source_results`,
+`resolved_roles`, `resolved_lineups` og FTS-tabellen `reports`.
 Spørrefunksjonen ser bare viewene.
+
+`resolved_roles` og `resolved_lineups` er et eksplisitt kandidatlag. Radene har kilde,
+side og sikkerhetsnivå, men er ikke kanoniske personroller eller kampoppstillinger før de
+er kontrollert og flyttet til de ordinære arkivfilene.
 
 **Alt som kan løses én gang, løses ved bygging.** AaFK-perspektivet, tidsavhengige navn og
 fullstendighet regnes ut her i stedet for per spørring. Navnet for en gitt kampdato kan aldri

@@ -166,6 +166,17 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
          (source_id, id, kind, page, confidence, keywords, names, years, scores, person_ids, match_ids)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     );
+    const insertResolvedRole = db.prepare(
+      `INSERT INTO core_resolved_roles
+         (source_id, id, page, column_no, person_name, person_id, category, title,
+          body, from_date, to_date, confidence, rule)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    );
+    const insertResolvedLineup = db.prepare(
+      `INSERT INTO core_resolved_lineups
+         (source_id, id, page, column_no, season, names, person_ids, confidence)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+    );
     for (const extraction of archive.extractions) {
       insertExtraction.run(
         extraction.sourceId, extraction.providerId, extraction.adapter, extraction.retrievedAt,
@@ -179,11 +190,24 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
           json(candidate.personIds), json(candidate.matchIds),
         );
       }
+      for (const role of extraction.resolvedRoles) {
+        insertResolvedRole.run(
+          extraction.sourceId, role.id, role.page, role.column ?? null,
+          role.personName, role.personId ?? null, role.category, role.title,
+          role.body ?? null, role.from ?? null, role.to, role.confidence, role.rule,
+        );
+      }
+      for (const lineup of extraction.resolvedLineups) {
+        insertResolvedLineup.run(
+          extraction.sourceId, lineup.id, lineup.page, lineup.column ?? null,
+          lineup.season ?? null, json(lineup.names), json(lineup.personIds), lineup.confidence,
+        );
+      }
     }
 
     const insertPerson = db.prepare(
-      `INSERT INTO core_people (id, person_key, name, nationality, position, wikidata, sources, note)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO core_people (id, person_key, name, nationality, position, wikidata, sources, conflicts, note)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     );
     const insertPersonName = db.prepare(
       `INSERT OR IGNORE INTO core_person_names (person_id, person_key, name) VALUES (?, ?, ?)`,
@@ -202,7 +226,7 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
     for (const p of archive.people) {
       insertPerson.run(
         p.id, personKey(p.name), p.name, p.nationality ?? null,
-        p.position ?? null, p.wikidata ?? null, json(p.sources ?? []), p.note ?? null,
+        p.position ?? null, p.wikidata ?? null, json(p.sources ?? []), json(p.conflicts), p.note ?? null,
       );
       for (const written of [p.name, ...p.names]) {
         insertPersonName.run(p.id, personKey(written), written);

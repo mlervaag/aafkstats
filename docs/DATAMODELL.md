@@ -15,6 +15,17 @@ Bygget eksponerer radene i `source_results`. De vises på sesongsidene, men hold
 utenfor `matches`, `seasons` og alle statistiske summer til dato og hjemme/borte er
 avklart. `matchId` er den framtidige koblingen til en komplett kampfil.
 
+## Maskinelt løste kandidater
+
+`data/extractions/*.yaml` inneholder også `resolvedRoles` og `resolvedLineups` fra den
+andre maskinelle gjennomgangen av publikasjonene. Databasen eksponerer dem som
+`resolved_roles` og `resolved_lineups`, med publikasjon, side og sikkerhetsnivå.
+
+Dette er et søkbart kandidatlag, ikke kanoniske fakta. En rolle blir først kontrollert
+arkivdata når den er ført i personfilens `roles`. En spillerliste blir først en
+kampoppstilling når den er knyttet til en bestemt kamp. Kandidatene skal derfor alltid
+vises med kilde og sikkerhet, og må ikke inngå i statistiske summer.
+
 - [Katalogstruktur](#katalogstruktur)
 - [Fellesregler](#fellesregler)
 - [Kamp](#kamp)
