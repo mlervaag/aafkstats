@@ -38,9 +38,6 @@ interface PersonSearchRow {
   name: string;
   nationality: string | null;
   position: string | null;
-  first_season: number | null;
-  last_season: number | null;
-  appearances: number;
   category: string | null;
   title: string | null;
   body: string | null;
@@ -163,17 +160,19 @@ export function searchPeople(query: string, limit = 12): SearchPerson[] {
     const rows = all<PersonSearchRow>(
       db,
       `SELECT p.id AS person_id, p.name, p.nationality, p.position,
-              p.first_season, p.last_season, p.appearances,
               r.category, r.title, r.body, r.from_date, r.to_date, p.url
-         FROM people p
+         FROM (
+           SELECT id, name, nationality, position, '/personer/' || id AS url
+             FROM core_people
+         ) p
          LEFT JOIN (
            SELECT person_id, category, title, body, from_date, to_date
-             FROM person_roles
+             FROM core_person_roles
            UNION ALL
            SELECT person_id, 'coach', 'Hovedtrener', 'A-laget',
                   printf('%04d', from_season),
                   CASE WHEN to_season IS NULL THEN NULL ELSE printf('%04d', to_season) END
-             FROM declared_coach_spells
+             FROM core_declared_coach_spells
          ) r ON r.person_id = p.id
         ORDER BY p.name COLLATE NOCASE, r.from_date`,
     );
@@ -204,9 +203,7 @@ export function searchPeople(query: string, limit = 12): SearchPerson[] {
       if (!termsMatch) continue;
 
       const yearsMatch = parsed.years.length === 0 || parsed.years.some((year) =>
-        personRows.some((row) => roleCoversYear(row, year)) ||
-          (first.first_season !== null && first.last_season !== null &&
-            year >= first.first_season && year <= first.last_season),
+        personRows.some((row) => roleCoversYear(row, year)),
       );
       if (!yearsMatch) continue;
 
@@ -214,11 +211,9 @@ export function searchPeople(query: string, limit = 12): SearchPerson[] {
         personRows.find((row) => row.title !== null);
       const description = role?.title
         ? [role.title, role.body].filter(Boolean).join(" · ")
-        : first.appearances > 0
-          ? `${first.appearances} registrerte kamptropper`
-          : [first.position, first.nationality].filter(Boolean).join(" · ") || "Person i AaFK-arkivet";
-      const from = role?.from_date?.slice(0, 4) ?? first.first_season?.toString() ?? null;
-      const to = role?.to_date?.slice(0, 4) ?? first.last_season?.toString() ?? from;
+        : [first.position, first.nationality].filter(Boolean).join(" · ") || "Person i AaFK-arkivet";
+      const from = role?.from_date?.slice(0, 4) ?? null;
+      const to = role?.to_date?.slice(0, 4) ?? from;
 
       results.push({
         personId: first.person_id,

@@ -1,16 +1,18 @@
 import { mkdtempSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
+import { performance } from "node:perf_hooks";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
 import { parseSearchQuery, searchMatches, searchPeople } from "../lib/search.js";
 
 const previousDbPath = process.env.AAFK_DB_PATH;
+let fixtureDbPath: string;
 
 beforeAll(async () => {
-  const dbPath = join(mkdtempSync(join(tmpdir(), "aafk-search-")), "archive.sqlite");
-  await loadValidateAndBuild(resolve(import.meta.dirname, "../../../fixtures/data"), dbPath);
-  process.env.AAFK_DB_PATH = dbPath;
+  fixtureDbPath = join(mkdtempSync(join(tmpdir(), "aafk-search-")), "archive.sqlite");
+  await loadValidateAndBuild(resolve(import.meta.dirname, "../../../fixtures/data"), fixtureDbPath);
+  process.env.AAFK_DB_PATH = fixtureDbPath;
 });
 
 afterAll(() => {
@@ -66,4 +68,22 @@ describe("parseSearchQuery", () => {
     const people = searchPeople("trener 2013");
     expect(people.some((person) => person.personId === "jan-jonsson")).toBe(true);
   });
+
+  it("søker i hele personregisteret på under ett sekund", async () => {
+    // Det offentlige people-viewet beregner kampaktivitet med flere korrelerte
+    // underoppslag per person. Brukt i direktesøket tok det over fire sekunder
+    // på dagens arkiv, selv om trefflisten bare trenger navn, rolle og periode.
+    const fullDbPath = join(mkdtempSync(join(tmpdir(), "aafk-search-full-")), "archive.sqlite");
+    await loadValidateAndBuild(resolve(import.meta.dirname, "../../../data"), fullDbPath);
+    process.env.AAFK_DB_PATH = fullDbPath;
+    try {
+      const started = performance.now();
+      const people = searchPeople("formann 1961");
+      const durationMs = performance.now() - started;
+      expect(people.length).toBeGreaterThan(0);
+      expect(durationMs).toBeLessThan(1_000);
+    } finally {
+      process.env.AAFK_DB_PATH = fixtureDbPath;
+    }
+  }, 30_000);
 });
