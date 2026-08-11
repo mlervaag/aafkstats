@@ -160,6 +160,8 @@ CREATE TABLE core_people (
   position     TEXT CHECK (position IN ('keeper','forsvar','midtbane','angrep')),
   wikidata     TEXT,
   sources      TEXT NOT NULL DEFAULT '[]',
+  -- Kilder som er uenige om et verv. At de er uenige er en opplysning i seg
+  -- selv, og den skal kunne vises — ikke bare ligge i YAML-en.
   conflicts    TEXT NOT NULL DEFAULT '[]',
   note         TEXT
 );
@@ -804,6 +806,7 @@ SELECT
   p.position,
   p.wikidata,
   p.sources,
+  p.conflicts,
   p.note,
   CASE WHEN json_array_length(p.conflicts) > 0 THEN 1 ELSE 0 END AS has_conflicts,
   (SELECT min(a.season) FROM core_appearances a

@@ -5,9 +5,6 @@
 .summary div:last-child { border-right: 0; }
 .summary dt { color: var(--muted); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
 .summary dd { margin: 0.22rem 0 0; color: var(--accent); font-family: var(--font-display); font-size: 1.55rem; font-weight: 750; font-variant-numeric: tabular-nums; }
-.contextNav { display: flex; gap: 0.75rem; align-items: center; margin-top: 1.2rem; font-size: 0.9rem; }
-.contextNav span, .contextNav a { padding: 0.45rem 0.65rem; border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; }
-.contextNav span { color: var(--on-accent); background: var(--accent); border-color: var(--accent); }
 .backLink { display: inline-block; margin-bottom: 1rem; font-size: 0.88rem; text-decoration: none; }
 
 .detailHeader { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.2rem; align-items: center; }
@@ -18,16 +15,35 @@
 .section + .section { margin-top: 2rem; }
 .section h2 { margin-top: 0; }
 .timeline { margin: 0; padding: 0; list-style: none; }
-.timeline li { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+.timeline > li { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
 .timeline time { color: var(--accent); font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700; }
 .timeline h3 { margin: 0; font-size: 1rem; }
 .timeline p { margin: 0.3rem 0 0; color: var(--muted); font-size: 0.86rem; }
-.sources { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.55rem; }
-.sources a { font-size: 0.78rem; }
+/*
+ * Kildene under en rolle sto som lenker etter hverandre uten skille, så to
+ * lange publikasjonstitler leste som én. Nå har hver sin ramme.
+ */
+.roleBody { font-weight: 600; }
+
+/* Uenighet mellom kilder står øverst, og skal se ut som noe å stoppe ved. */
+.conflicts { padding: 1.1rem 1.2rem; background: var(--surface-2); border: 1px solid var(--accent); border-radius: var(--radius-lg); }
+.conflicts h2 { font-size: 1.05rem; }
+.conflictList { margin: 0.9rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.8rem; }
+.conflictList > li { padding-top: 0.8rem; border-top: 1px solid var(--border); }
+.conflictList > li:first-child { padding-top: 0; border-top: 0; }
+.conflictField { display: flex; gap: 0.6rem; align-items: baseline; margin: 0; }
+.conflictOffice { font-family: var(--font-display); font-weight: 750; }
+.conflictField .num { color: var(--accent); font-family: var(--font-mono); font-size: 0.85rem; }
+.conflictList ul { display: grid; gap: 0.3rem; margin: 0.45rem 0 0; padding: 0; list-style: none; }
+.conflictList ul li { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: baseline; }
+
+.mentionList { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.9rem 0 0; padding: 0; list-style: none; }
+.mentionList a { display: inline-block; padding: 0.2rem 0.5rem; border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.78rem; text-decoration: none; }
+.mentionList a:hover { border-color: var(--accent); }
 .seasonTable { width: 100%; border-collapse: collapse; font-size: 0.88rem; font-variant-numeric: tabular-nums; }
 .seasonTable th, .seasonTable td { padding: 0.55rem; text-align: right; border-bottom: 1px solid var(--border); }
 .seasonTable th:first-child, .seasonTable td:first-child { text-align: left; }
-.asideCard { padding: 1rem; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+.asideCard { align-self: start; padding: 1rem; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-lg); }
 .asideCard h2 { margin-top: 0; font-size: 1rem; }
 .asideCard dl { margin: 0; }
 .asideCard div { display: flex; justify-content: space-between; gap: 1rem; padding: 0.55rem 0; border-bottom: 1px solid var(--border); }
@@ -41,5 +57,5 @@
   .summary { grid-template-columns: 1fr; }
   .summary div { display: flex; justify-content: space-between; align-items: baseline; border-right: 0; border-bottom: 1px solid var(--border); }
   .summary div:last-child { border-bottom: 0; }
-  .timeline li { grid-template-columns: 1fr; gap: 0.3rem; }
+  .timeline > li { grid-template-columns: minmax(0, 1fr); gap: 0.3rem; }
 }

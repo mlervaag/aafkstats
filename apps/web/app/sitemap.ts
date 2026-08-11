@@ -32,7 +32,7 @@ function builtAt(): Date {
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const built = builtAt();
-  const staticPages = ["", "/sesonger", "/motstandere", "/personer", "/organisasjon", "/kilder", "/data", "/om", "/bidra", "/api-docs"];
+  const staticPages = ["", "/sesonger", "/motstandere", "/personer", "/organisasjon", "/hjemmebaner", "/kilder", "/data", "/om", "/bidra", "/api-docs"];
 
   return [
     ...staticPages.map((path) => ({

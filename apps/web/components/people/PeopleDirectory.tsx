@@ -44,6 +44,37 @@ function belongsTo(person: PersonSummary, filter: FilterId): boolean {
   return person.role_categories.some((role) => ["board", "administration", "sporting_staff", "founder", "project"].includes(role));
 }
 
+/**
+ * Etternavnet, for sortering.
+ *
+ * Registeret sto sortert på fornavn, så «Adam Örn Arnarson» kom først og
+ * «Georg Haller» lå under G. Den som leter i et personregister leter på
+ * etternavn — og for de eldre er etternavnet det eneste kildene er enige om.
+ */
+function surname(name: string): string {
+  const parts = name.trim().split(/\s+/);
+  // Ikke gjennom `searchable`: den folder bort diakritiske tegn, og da havner
+  // «Åkeby» mellom «Agdestein» og «Amdam». Å er en egen bokstav sist i
+  // alfabetet, og en norsk leser ser det med én gang.
+  return [parts.at(-1) ?? name, ...parts.slice(0, -1)].join(" ");
+}
+
+/** Hvor mange kort som vises før «vis flere». */
+const PAGE = 60;
+
+/**
+ * Én linje om hva arkivet faktisk har på personen.
+ *
+ * «0 kildeførte roller» sto på hvert kort for en spiller uten registrerte
+ * kamper — et tall som bare forteller at feltet var tomt. Da er det bedre å si
+ * hva som mangler.
+ */
+function summary(person: PersonSummary): string {
+  if (person.appearances > 0) return `${person.appearances} registrerte kamptropper · ${person.starts} starter`;
+  if (person.role_count > 0) return `${person.role_count} ${person.role_count === 1 ? "kildeført rolle" : "kildeførte roller"}`;
+  return "Registrert i stallen, uten kamper i arkivet";
+}
+
 function period(person: PersonSummary): string | null {
   const from = person.first_season ?? (person.first_role_year ? Number(person.first_role_year) : null);
   const to = person.last_season ?? (person.last_role_year ? Number(person.last_role_year) : null);
@@ -54,7 +85,10 @@ function period(person: PersonSummary): string | null {
 export function PeopleDirectory({ people }: { people: PersonSummary[] }) {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<FilterId>("all");
+  const [limit, setLimit] = useState(PAGE);
   const deferredQuery = useDeferredValue(query);
+
+  const reset = (): void => setLimit(PAGE);
 
   const counts = useMemo(() => new Map(
     FILTERS.map((entry) => [entry.id, people.filter((person) => belongsTo(person, entry.id)).length]),
@@ -62,13 +96,17 @@ export function PeopleDirectory({ people }: { people: PersonSummary[] }) {
 
   const visible = useMemo(() => {
     const needle = searchable(deferredQuery.trim());
-    return people.filter((person) => {
-      if (!belongsTo(person, filter)) return false;
-      if (!needle) return true;
-      const labels = person.role_categories.map((role) => ROLE_LABELS[role] ?? role);
-      return searchable([person.name, person.nationality, person.position, ...labels].filter(Boolean).join(" ")).includes(needle);
-    });
+    return people
+      .filter((person) => {
+        if (!belongsTo(person, filter)) return false;
+        if (!needle) return true;
+        const labels = person.role_categories.map((role) => ROLE_LABELS[role] ?? role);
+        return searchable([person.name, person.nationality, person.position, ...labels].filter(Boolean).join(" ")).includes(needle);
+      })
+      .sort((a, b) => surname(a.name).localeCompare(surname(b.name), "nb"));
   }, [deferredQuery, filter, people]);
+
+  const shown = visible.slice(0, limit);
 
   return (
     <div className={styles.directory}>
@@ -78,7 +116,7 @@ export function PeopleDirectory({ people }: { people: PersonSummary[] }) {
           <input
             type="search"
             value={query}
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={(event) => { setQuery(event.target.value); reset(); }}
             placeholder="For eksempel Haller, trener eller Danmark"
           />
         </label>
@@ -88,7 +126,7 @@ export function PeopleDirectory({ people }: { people: PersonSummary[] }) {
               key={entry.id}
               type="button"
               aria-pressed={filter === entry.id}
-              onClick={() => setFilter(entry.id)}
+              onClick={() => { setFilter(entry.id); reset(); }}
             >
               {entry.label}<span>{counts.get(entry.id) ?? 0}</span>
             </button>
@@ -97,12 +135,14 @@ export function PeopleDirectory({ people }: { people: PersonSummary[] }) {
       </div>
 
       <p className={styles.resultCount} aria-live="polite">
-        {visible.length} {visible.length === 1 ? "person" : "personer"}
+        {shown.length < visible.length
+          ? `Viser ${shown.length} av ${visible.length} personer`
+          : `${visible.length} ${visible.length === 1 ? "person" : "personer"}`}
       </p>
 
       {visible.length > 0 ? (
         <ol className={styles.grid}>
-          {visible.map((person) => {
+          {shown.map((person) => {
             const labels = new Set(person.role_categories.map((role) => ROLE_LABELS[role] ?? role));
             if (person.appearances > 0 || person.position) labels.add(POSITION_LABELS[person.position ?? ""] ?? "Spiller");
             return (
@@ -119,11 +159,7 @@ export function PeopleDirectory({ people }: { people: PersonSummary[] }) {
                     <div className={styles.tags}>
                       {[...labels].slice(0, 3).map((label) => <span key={label}>{label}</span>)}
                     </div>
-                    {person.appearances > 0 ? (
-                      <p>{person.appearances} registrerte kamptropper · {person.starts} starter</p>
-                    ) : (
-                      <p>{person.role_count} {person.role_count === 1 ? "kildeført rolle" : "kildeførte roller"}</p>
-                    )}
+                    <p>{summary(person)}</p>
                   </div>
                   <span className={styles.arrow} aria-hidden="true">→</span>
                 </Link>
@@ -137,6 +173,12 @@ export function PeopleDirectory({ people }: { people: PersonSummary[] }) {
           <p>Prøv et annet navn eller fjern et filter.</p>
         </div>
       )}
+
+      {shown.length < visible.length ? (
+        <button type="button" className={styles.more} onClick={() => setLimit((current) => current + PAGE)}>
+          Vis {Math.min(PAGE, visible.length - shown.length)} til
+        </button>
+      ) : null}
     </div>
   );
 }

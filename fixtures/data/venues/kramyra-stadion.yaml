@@ -6,3 +6,26 @@ capacity: 10500
 opened: 1948
 closed: 2005
 note: AaFKs hjemmebane fram til Color Line Stadion sto ferdig i 2005.
+surface: grass
+surfaceHistory:
+  - surface: grass
+    from: "1955"
+    to: "2004-10-24"
+    sources: [{ sourceId: aafk-90-ar-1914-2004, fields: [surface, from, to] }]
+homePeriods:
+  - clubId: aalesunds-fk
+    from: 1977
+    to: 2004
+    sources: [{ sourceId: aafk-90-ar-1914-2004, fields: [from, to] }]
+attendanceRecords:
+  - attendance: 11000
+    approximate: true
+    opponent: Molde
+    year: 2003
+    sources: [{ sourceId: aafk-90-ar-1914-2004, fields: [attendance, approximate, opponent, year] }]
+events:
+  - id: forste-hjemmekamp-1977
+    date: "1977"
+    kind: opening
+    title: Første hjemmekamp mot Kristiansund FK
+    sources: [{ sourceId: aafk-90-ar-1914-2004 }]

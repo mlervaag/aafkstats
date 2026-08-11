@@ -1,0 +1,30 @@
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.55rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+/*
+ * `nowrap` + ellipse: tittelen er alt forkortet i `shortTitle`, så brikken
+ * står på én linje. `min-width: 0` lar en brikke som er bredere enn skjermen
+ * krympe i stedet for å presse siden ut i vannrett skroll — på 390 piksler
+ * gjorde de lengste titlene nettopp det.
+ */
+.chips li { display: inline-flex; min-width: 0; max-width: 100%; }
+.chips a {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.chips a:hover { border-color: var(--accent); }

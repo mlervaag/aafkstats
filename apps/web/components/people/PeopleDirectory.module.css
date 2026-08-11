@@ -80,3 +80,24 @@
   .controls { grid-template-columns: 1fr; }
   .grid { grid-template-columns: 1fr; }
 }
+
+/*
+ * Registeret rendret alle 226 kortene, og sida ble 17 000 piksler høy. Nå vises
+ * seksti om gangen — nok til å bla i, lite nok til at søket er raskere enn å
+ * skrolle.
+ */
+.more {
+  display: block;
+  width: 100%;
+  margin-top: 1.2rem;
+  padding: 0.7rem 1rem;
+  color: var(--accent);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.more:hover { border-color: var(--accent); }

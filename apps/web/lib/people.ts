@@ -36,9 +36,33 @@ export interface PersonRole {
   note: string | null;
 }
 
+/** En publikasjon som omtaler personen. */
+export interface PersonMention {
+  sourceId: string;
+  page?: string;
+  note?: string;
+}
+
+/**
+ * Kilder som er uenige om et verv.
+ *
+ * At de er uenige er en opplysning i seg selv. Ingen avgjøres maskinelt, og
+ * leseren skal se begge navnene — ikke det ene arkivet tilfeldigvis skrev først.
+ */
+export interface PersonConflict {
+  field: string;
+  values: { value: string | number | null; providerId: string; note?: string }[];
+  resolved: boolean;
+  chosen?: string | number | null;
+  decision: string;
+  reason?: string;
+}
+
 export interface PersonDetail extends PersonSummary {
   wikidata: string | null;
   note: string | null;
+  mentions: PersonMention[];
+  conflicts: PersonConflict[];
 }
 
 export interface PersonSeason {
@@ -48,6 +72,16 @@ export interface PersonSeason {
   appearances: number;
   starts: number;
   goals: number;
+}
+
+/** JSON-kolonner fra databasen. En ødelagt kolonne skal ikke felle en side. */
+function parseJson<T>(value: string | null, fallback: T): T {
+  if (!value) return fallback;
+  try {
+    return JSON.parse(value) as T;
+  } catch {
+    return fallback;
+  }
 }
 
 function parseStringArray(value: string | null): string[] {
@@ -103,15 +137,26 @@ export function getPersonIds(): string[] {
 export const getPersonById = cache(function getPersonById(id: string): PersonDetail | undefined {
   const db = open();
   try {
-    const row = one<PersonSummaryRow & { wikidata: string | null; note: string | null }>(
+    const row = one<PersonSummaryRow & {
+      wikidata: string | null;
+      note: string | null;
+      sources: string;
+      conflicts: string;
+    }>(
       db,
-      `SELECT id, name, nationality, position, wikidata, note,
+      `SELECT id, name, nationality, position, wikidata, note, sources, conflicts,
               first_season, last_season, appearances, starts, role_count,
               first_role_year, last_role_year, role_categories
          FROM people WHERE id = ?`,
       id,
     );
-    return row ? { ...row, role_categories: parseStringArray(row.role_categories) } : undefined;
+    if (!row) return undefined;
+    return {
+      ...row,
+      role_categories: parseStringArray(row.role_categories),
+      mentions: parseJson<PersonMention[]>(row.sources, []),
+      conflicts: parseJson<PersonConflict[]>(row.conflicts, []),
+    };
   } finally {
     db.close();
   }

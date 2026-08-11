@@ -59,11 +59,17 @@ const checks: Check[] = [
   },
   {
     page: "personer",
-    must: ["Menneskene i arkivet", "Søk etter navn, rolle eller nasjonalitet", "Organisasjon og styrer"],
+    must: ["Menneskene i arkivet", "Søk etter navn, rolle eller nasjonalitet", "Hjemmebaner"],
   },
   {
     page: "personer/jan-jonsson",
     must: ["Jan Jönsson", "Registrert i arkivet", "Roller og verv"],
+  },
+  {
+    page: "hjemmebaner",
+    // Sida finnes bare fordi banedataene lå ubrukt i arkivet: perioder,
+    // dekkehistorikk, publikumsrekord og milepæler uten noe sted å stå.
+    must: ["Der klubben har spilt", "Kråmyra stadion", "Publikumsrekord", "Milepæler", "1977"],
   },
   {
     page: "organisasjon",
