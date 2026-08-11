@@ -1,6 +1,33 @@
-import { describe, expect, it } from "vitest";
+import { mkdtempSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join, resolve } from "node:path";
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { loadValidateAndBuild } from "@aafkstats/db/build";
 import { getPeople, getPersonById, getPersonRoles } from "../lib/people.js";
 import { getSourceRoleUsages, getSourceSeasonUsages, getSourceUsages } from "../lib/sources.js";
+
+const previousDbPath = process.env.AAFK_DB_PATH;
+
+/**
+ * Kjører mot `data/`, ikke mot fixturen, på samme premiss som
+ * packages/schema/test/archive-truths.test.ts: påstandene her handler om
+ * virkelige personer og en virkelig publikasjon fra 1939. En fixture ville
+ * bestått uansett hva som skjer med de filene som faktisk blir publisert.
+ *
+ * De øvrige testene her bygger fixture-arkivet i beforeAll. Uten et slikt steg
+ * finnes det ingen arkivfil å åpne, og testen feiler før den rekker å si noe om
+ * dataene — slik den gjorde i CI etter #73.
+ */
+beforeAll(async () => {
+  const dbPath = join(mkdtempSync(join(tmpdir(), "aafk-people-")), "archive.sqlite");
+  await loadValidateAndBuild(resolve(import.meta.dirname, "../../../data"), dbPath);
+  process.env.AAFK_DB_PATH = dbPath;
+}, 30_000);
+
+afterAll(() => {
+  if (previousDbPath === undefined) delete process.env.AAFK_DB_PATH;
+  else process.env.AAFK_DB_PATH = previousDbPath;
+});
 
 describe("person- og organisasjonsarkivet", () => {
   it("samler kampfolk og historiske ledere i samme register", () => {
