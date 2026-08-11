@@ -11,7 +11,7 @@
  * og lar det være med det.
  */
 
-import { canonicalClubKey, clubKey, personKey } from "../identity.js";
+import { canonicalClubKey, clubKey, isLongerNameForm, personKey } from "../identity.js";
 import { dataDir, loadArchive } from "../load.js";
 import type { Club } from "../entities.js";
 
@@ -181,6 +181,62 @@ for (let i = 0; i < personKeys.length; i++) {
     const b = personKeys[j]!;
     if (closeEnough(a, b, 2) && !settled(a, b)) nearPeople.push([a, b]);
   }
+}
+
+/**
+ * Navneformer fra kildene som ingen personfil fanger opp.
+ *
+ * ## Feilen dette retter
+ *
+ * `personKey` bytter tegn, og rapporten over finner stavefeil på inntil to
+ * tegn. Ingen av delene ser et mellomnavn. FotMob skriver «Sten Michael
+ * Grytebust» i lagoppstillingene, personfila heter «Sten Grytebust», og de to
+ * ligger åtte tegn fra hverandre — langt utenfor taket. Resultatet var at
+ * personsida til klubbens keeper viste null kamper mens arkivet hadde 284 av
+ * dem, og ingenting sa fra.
+ *
+ * Formen er den samme som klubbrapporten over: kildens lange form mot arkivets
+ * korte. Der het den «Volda TI - Fotball» mot «Volda»; her heter den
+ * mellomnavn.
+ *
+ * Selve regelen er `isLongerNameForm` i identity.ts, ved siden av `personKey`
+ * og `clubKey`. Den hører hjemme der de andre identitetsreglene bor, og der kan
+ * den testes.
+ *
+ * ## Hva rapporten *ikke* gjør
+ *
+ * Den kobler ingenting. Et treff her betyr at et menneske bør se på paret og,
+ * hvis det stemmer, føre kildens form inn i `names[]` på personfila. Da fanger
+ * `core_person_names` den ved neste bygging, og rånavnet fra kilden blir
+ * stående i lagoppstillingen der det hører hjemme.
+ *
+ * Treffer én form flere personer, står alle kandidatene. Det er nettopp da
+ * maskinen ikke skal velge.
+ */
+const unlinked = new Map<string, { count: number; candidates: string[] }>();
+for (const [written, count] of nameCounts) {
+  if (declaredPerson.has(personKey(written))) continue;
+  const candidates: string[] = [];
+  for (const entry of archive.people) {
+    for (const declared of [entry.name, ...entry.names]) {
+      if (isLongerNameForm(declared, written)) candidates.push(`${entry.id} ${DIM}«${declared}»${RESET}`);
+    }
+  }
+  if (candidates.length > 0) unlinked.set(written, { count, candidates: [...new Set(candidates)] });
+}
+
+if (unlinked.size > 0) {
+  found += unlinked.size;
+  console.log(
+    `${YELLOW}Kildens navneform mangler i personfila${RESET} `
+    + `${DIM}(samme person? — før den inn i names[] hvis den er det)${RESET}`,
+  );
+  for (const [written, { count, candidates }] of [...unlinked].sort()) {
+    const matches = count === 1 ? "1 kamp" : `${count} kamper`;
+    console.log(`  ${DIM}«${RESET}${written}${DIM}»${RESET} ${DIM}(${matches})${RESET}`);
+    for (const candidate of candidates) console.log(`    ⊂ ${candidate}`);
+  }
+  console.log("");
 }
 
 if (nearPeople.length > 0) {
