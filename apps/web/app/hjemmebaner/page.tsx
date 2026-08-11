@@ -57,9 +57,9 @@ export default function HomeVenuesPage() {
           <p className="eyebrow">Der klubben har spilt</p>
           <h1>Hjemmebaner</h1>
           <p className={styles.lead}>
-            Fire baner gjennom klubbens historie, med periodene de var hjemmebane, hva de var
-            lagt med, og hva som skjedde på dem. Alt med kilde — det arkivet ikke har belegg
-            for, står ikke her.
+            Banene klubben har spilt hjemmekampene sine på, med periodene de var hjemmebane,
+            hva de var lagt med, og hva som skjedde på dem. Alt med kilde — det arkivet ikke
+            har belegg for, står ikke her.
           </p>
         </div>
         <div className={styles.coverage}>

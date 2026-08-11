@@ -6,3 +6,9 @@ capacity: 10778
 opened: 2005
 names:
   - { name: Color Line Stadion, from: "2005-01-01", to: null }
+surface: artificial_turf
+homePeriods:
+  - clubId: aalesunds-fk
+    from: 2005
+    to: null
+    sources: [{ sourceId: aafk-90-ar-1914-2004, fields: [from, to] }]
