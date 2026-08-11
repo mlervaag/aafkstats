@@ -1,6 +1,20 @@
 id: rolf-annaniassen
 name: Rolf Annaniassen
 roles:
+  - id: sekretaer-1962
+    category: administration
+    title: Sekretær
+    body: Guttegruppen
+    from: "1962"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1963-400c
+        page: "24"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: formann-1965-1966
     category: board
     title: Formann

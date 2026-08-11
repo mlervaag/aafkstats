@@ -8,6 +8,25 @@ roles:
     from: "1972"
     to: "1974"
     sources: [ { sourceId: aafk-historie-ledere, fields: [ title, from, to ] } ]
+  - id: formann-1973
+    category: board
+    title: Formann
+    from: "1973"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1973-0d5e
+        page: "9"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 2 på siden (regel: role_then_name)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1973-d4e1
+        page: "8"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 2 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: gullmerkeinnehaver-1978
     category: honorary
     title: Gullmerkeinnehaver
@@ -20,6 +39,19 @@ roles:
     from: "1981"
     to: null
     sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ]
+  - id: formann-2013
+    category: board
+    title: Formann
+    from: "2013"
+    to: null
+    sources:
+      - sourceId: tango-siden-1914-2013-806b
+        page: "158"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "27"

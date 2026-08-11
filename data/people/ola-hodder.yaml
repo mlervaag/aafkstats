@@ -8,6 +8,25 @@ roles:
     from: "1970"
     to: "1971"
     sources: [ { sourceId: aafk-historie-ledere, fields: [ title, from, to ] } ]
+  - id: formann-1971
+    category: board
+    title: Formann
+    from: "1971"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1971-dc4a
+        page: "10"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 2 på siden (regel: role_then_name)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1971-e55d
+        page: "5"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "27"

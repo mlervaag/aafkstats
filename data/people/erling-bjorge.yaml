@@ -8,6 +8,20 @@ roles:
     from: "1967"
     to: "1968"
     sources: [ { sourceId: aafk-historie-ledere, fields: [ title, from, to ] } ]
+  - id: formann-1968
+    category: board
+    title: Formann
+    body: Redaksjonskomiteen
+    from: "1968"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1968-db10
+        page: "5"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 2 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "27"

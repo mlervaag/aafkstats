@@ -156,6 +156,21 @@ AAFK_DATA_DIR=fixtures/data pnpm build && pnpm smoke
 `--apply` kjører selv `loadArchive` + `crossValidate` etterpå og feiler hvis den
 har skrevet noe arkivet ikke godtar.
 
+## Vaktene i `--apply`
+
+Tre ting stoppes fordi de ville gjort arkivet selvmotsigende. Alle telles som
+`selvmotsigende` i rapporten, ingen forsvinner stille:
+
+1. **To personer i samme klubbverv samme år.** Kjøringen fant to formenn i 1948
+   og to i 1968. Begge kan ikke stemme, og maskinen kan ikke avgjøre hvem — så
+   ingen av dem skrives. Gjelder bare verv uten `body`: to gruppeformenn samme
+   år er helt normalt.
+2. **Et mindre presist verv oppå et mer presist.** «Formann» ved siden av
+   «Formann i banekomiteen» samme år er nesten alltid den samme opplysningen,
+   lest uten leddet som forklarer den.
+3. **Samme verv med to navn.** «Styreleder» og «Formann» er ett verv. Uten det
+   sto Arnstein Johansen med begge for 1998.
+
 ## Hva som skal etterkontrolleres
 
 Kjøringen er ikke ferdig når den er grønn. Se over dette før PR:
@@ -172,7 +187,15 @@ Kjøringen er ikke ferdig når den er grønn. Se over dette før PR:
    en heuristikk. På side 76 gir den 1964 fordi setningen
    nevner «neste årsmøte i 1964» — riktig for det styret, men kontroller den på
    noen roller før du stoler på den i mengde.
-3. **Kampkoblinger.** Skal være færre enn før. Blir de flere, er
+3. **`pnpm data:contradictions`.** Tre ganger har feil blitt funnet av en
+   kontroll mot data som alt var skrevet — speilvendte siffer, anakronismer,
+   «A A A A» i en oppstilling — og ingen av dem av resolveren eller testene.
+   Feilene oppstår først i møtet med arkivet, så de kan ikke ses av en
+   enhetstest. Kommandoen rapporterer, den feller ikke bygget.
+
+   Ett funn er kjent og riktig: Georg Haller står med både «Formann» og
+   «Formann i banekomiteen» for 1914. Han var begge deler.
+4. **Kampkoblinger.** Skal være færre enn før. Blir de flere, er
    rekkefølgekravet i `matchCandidates` gått tapt.
 4. **Sidetallet i de to søkbare bøkene.** Fulltekstsøket oppgir skann-nummeret,
    ikke det trykte sidetallet, og de to spriker med fire i 1939-boka. Kjøringen

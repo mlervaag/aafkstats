@@ -7,7 +7,64 @@ roles:
     body: Hovedstyret
     from: "1953"
     to: "1954"
-    sources: [ { sourceId: aafk-historie-ledere, fields: [ title, from, to ] } ]
+    sources: [ { sourceId: aafk-historie-ledere, fields: [ title, from, to ] }, { sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d, page: "60", fields: [ title, from ], note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)." } ]
+  - id: formann-1954
+    category: board
+    title: Formann
+    from: "1954"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "56"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "68"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+  - id: nestformann-1955
+    category: board
+    title: Nestformann
+    body: Arrangementskomiteen
+    from: "1955"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+        page: "36"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+        page: "60"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+        page: "12"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 2 på siden (regel: role_then_name)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
+        page: "48"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
+        page: "36"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: gullmerkeinnehaver-1972
     category: honorary
     title: Gullmerkeinnehaver

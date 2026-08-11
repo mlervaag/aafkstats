@@ -1,13 +1,65 @@
 id: per-anker-eriksen
 name: Per Anker Eriksen
 roles:
+  - id: formann-1948
+    category: board
+    title: Formann
+    from: "1948"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+        page: "63"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_role)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: formann-1950-1952
     category: board
     title: Formann
     body: Hovedstyret
     from: "1950"
     to: "1952"
-    sources: [ { sourceId: aafk-historie-ledere, fields: [ title, from, to ] } ]
+    sources: [ { sourceId: aafk-historie-ledere, fields: [ title, from, to ] }, { sourceId: medlemsblad-for-aalesunds-fotb-1950-1573, page: "12", fields: [ title, from ], note: "Lest maskinelt fra spalte 2 på siden (regel: role_then_name)." }, { sourceId: medlemsblad-for-aalesunds-fotb-1950-ea61, page: "12", fields: [ title, from ], note: "Lest maskinelt fra spalte 2 på siden (regel: role_then_name)." } ]
+  - id: formann-1951
+    category: board
+    title: Formann
+    from: "1951"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+        page: "48"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+        page: "82"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+        page: "60"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+  - id: formann-1952
+    category: board
+    title: Formann
+    body: Banekomiteen
+    from: "1952"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1952-7c90
+        page: "60"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: gullmerkeinnehaver-1984
     category: honorary
     title: Gullmerkeinnehaver

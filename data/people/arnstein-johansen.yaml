@@ -7,7 +7,7 @@ roles:
     body: Hovedstyret
     from: "1998"
     to: "1998"
-    sources: [ { sourceId: aafk-historie-ledere, fields: [ title, from, to ] } ]
+    sources: [ { sourceId: aafk-historie-ledere, fields: [ title, from, to ] }, { sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d, page: "45", fields: [ title, from ], note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_role)." } ]
 sources:
   - sourceId: aalesunds-fk-quiz-2008-fd43
     page: "44"

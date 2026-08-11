@@ -1,6 +1,59 @@
 id: bernt-sulebust
 name: Bernt Sulebust
 roles:
+  - id: sekretaer-1944
+    category: administration
+    title: Sekretær
+    from: "1944"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+        page: "60"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "56"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "68"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+  - id: sekretaer-1951
+    category: administration
+    title: Sekretær
+    body: Old boys
+    from: "1951"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+        page: "82"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+  - id: sekretaer-1952
+    category: administration
+    title: Sekretær
+    body: Banekomiteen
+    from: "1952"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1952-7c90
+        page: "60"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - { id: gullmerkeinnehaver-2008, category: honorary, title: Gullmerkeinnehaver, from: "2008", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
 sources:
   - sourceId: tango-siden-1914-2013-806b

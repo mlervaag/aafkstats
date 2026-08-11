@@ -1,6 +1,19 @@
 id: einar-aas
 name: Einar Aas
 roles:
+  - id: trener-1966
+    category: coach
+    title: Trener
+    from: "1966"
+    to: null
+    sources:
+      - sourceId: tango-siden-1914-2013-806b
+        page: "340"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - { id: gullmerkeinnehaver-2002, category: honorary, title: Gullmerkeinnehaver, from: "2002", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
   - { id: aeresmedlem-2013, category: honorary, title: Æresmedlem, from: "2013", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
 sources:

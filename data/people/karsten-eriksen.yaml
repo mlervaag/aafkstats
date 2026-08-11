@@ -1,6 +1,78 @@
 id: karsten-eriksen
 name: Karsten Eriksen
 roles:
+  - id: nestformann-1944
+    category: board
+    title: Nestformann
+    from: "1944"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "56"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "68"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+        page: "60"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+  - id: nestformann-1951
+    category: board
+    title: Nestformann
+    body: Old boys
+    from: "1951"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+        page: "82"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+  - id: sekretaer-1951
+    category: administration
+    title: Sekretær
+    from: "1951"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+        page: "48"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+        page: "60"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+  - id: nestformann-1952
+    category: board
+    title: Nestformann
+    body: Banekomiteen
+    from: "1952"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1952-7c90
+        page: "60"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - { id: gullmerkeinnehaver-1957, category: honorary, title: Gullmerkeinnehaver, from: "1957", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815

@@ -2,6 +2,25 @@ id: harald-johansen
 name: Harald Johansen
 names: [ 'Harald "Bror" Johansen' ]
 roles:
+  - id: sekretaer-1968
+    category: administration
+    title: Sekretær
+    from: "1968"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1968-c2b6
+        page: "5"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 2 på siden (regel: role_then_name)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1968-db10
+        page: "5"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 2 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: formann-1980
     category: board
     title: Formann

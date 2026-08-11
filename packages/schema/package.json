@@ -10,6 +10,7 @@
   "scripts": {
     "validate": "tsx src/cli/validate.ts",
     "duplicates": "tsx src/cli/duplicates.ts",
+    "contradictions": "tsx src/cli/contradictions.ts",
     "uncertain": "tsx src/cli/uncertain.ts"
   },
   "dependencies": {
