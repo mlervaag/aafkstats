@@ -167,6 +167,25 @@ const NAME_TOKEN = "[A-ZÆØÅÀ-Þ][\\p{L}'’.-]*";
  * Nordmann» som navnet, og treffet falt ut igjen i navnekontrollen: vervet
  * forsvant uten at noe sa fra.
  */
+/**
+ * Skrivemåter av klubben selv, som prefiks på et rolleord.
+ *
+ * «AaFK-trener» er vår; «RBK-trener» er ikke. Uten dette ble Per Joar Hansen
+ * ført som trener i 2013 fra setningen «ga RBK-trener Per Joar Hansen denne
+ * karakteristikken» — mens arkivets egne kampdata sier at Jan Jönsson ledet
+ * laget det året.
+ */
+const OURS = ["aafk", "afk", "åfk", "aalesund", "aalesunds", "ålesund"];
+
+/** Er rolleordet satt sammen med en annen klubbs navn? */
+function belongsToAnother(text: string, index: number): boolean {
+  const before = text.slice(Math.max(0, index - 40), index);
+  const compound = /([\p{L}.]+)-$/u.exec(before);
+  if (compound) return !OURS.includes(compound[1]!.toLowerCase().replace(/\./g, ""));
+  // Et rolleord midt i et ord er ikke et rolleord.
+  return /\p{L}$/u.test(before);
+}
+
 function anyCase(term: string): string {
   return [...term].map((letter) => {
     const upper = letter.toUpperCase();
@@ -235,6 +254,7 @@ function* roleThenName(text: string, options: ResolveRolesOptions): Generator<Re
     for (const hit of text.matchAll(pattern)) {
       const name = cleanName(hit[1] ?? "");
       if (!name) continue;
+      if (belongsToAnother(text, hit.index ?? 0)) continue;
       yield build(term, name, nearestYear(text, hit.index ?? 0, options), "role_then_name", options, bodyBefore(text, hit.index ?? 0, options));
     }
   }
@@ -247,6 +267,10 @@ function* nameThenRole(text: string, options: ResolveRolesOptions): Generator<Re
     for (const hit of text.matchAll(pattern)) {
       const name = cleanName(hit[1] ?? "");
       if (!name) continue;
+
+      // Rolleordet står bakerst i treffet her, ikke fremst.
+      const roleAt = (hit.index ?? 0) + hit[0].length - term.term.length;
+      if (belongsToAnother(text, roleAt)) continue;
 
       const rest = text.slice((hit.index ?? 0) + hit[0].length);
       // «Som formann i «Frigg»» og «formann i banekomiteen» er verv i noe annet
