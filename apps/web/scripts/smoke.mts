@@ -80,7 +80,8 @@ const checks: Check[] = [
     must: [
       "Hva mangler i AaFK-arkivet?", "Historiske resultater å identifisere",
       "Finn datoen bak et resultat", "Avklar historiske verv",
-      "Knytt lagoppstillinger til riktig kamp",
+      "Knytt lagoppstillinger til riktig kamp", "Fixture Spiller A",
+      "Om publikasjonen", "Jeg kjenner igjen kampen",
     ],
   },
   {

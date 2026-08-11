@@ -69,8 +69,7 @@
 .fieldGrid dd { margin: 0; font-variant-numeric: tabular-nums; font-weight: 700; }
 
 .yearList,
-.personList,
-.sourceList {
+.personList {
   list-style: none;
   margin: 1rem 0 0;
   padding: 0;
@@ -83,8 +82,7 @@
 }
 
 .yearList a,
-.personList a,
-.sourceList a {
+.personList a {
   color: var(--text);
   text-decoration: none;
 }
@@ -103,8 +101,7 @@
 .yearList a:focus-visible { border-color: var(--accent); }
 .yearList span { color: var(--muted); font-variant-numeric: tabular-nums; }
 
-.personList li,
-.sourceList li {
+.personList li {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 1rem;
@@ -112,11 +109,31 @@
   border-bottom: 1px solid var(--border);
 }
 
-.personList a:hover,
-.sourceList a:hover { color: var(--accent); }
-.personList span,
-.sourceList span { color: var(--muted); font-size: 0.875rem; }
-.sourceList span { font-variant-numeric: tabular-nums; }
+.personList a:hover { color: var(--accent); }
+.personList span { color: var(--muted); font-size: 0.875rem; }
+
+.candidateSources { margin-top: 1rem; border-top: 1px solid var(--border); }
+.candidateSource { border-bottom: 1px solid var(--border); }
+.candidateSource summary {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+.candidateSource summary::-webkit-details-marker { display: none; }
+.candidateSource summary::before { content: "+"; color: var(--accent); font-weight: 700; }
+.candidateSource[open] summary::before { content: "–"; }
+.candidateSource summary span { color: var(--muted); font-size: 0.875rem; font-variant-numeric: tabular-nums; }
+.candidateSource[open] summary { color: var(--accent); }
+.sourceActions { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0 0 1rem; font-size: 0.875rem; }
+.candidateList { margin: 0; padding: 0; list-style: none; }
+.candidateList li { padding: 1rem; background: var(--surface); border: 1px solid var(--border); }
+.candidateList li + li { margin-top: 0.75rem; }
+.candidateMeta { display: flex; flex-wrap: wrap; gap: 0.35rem 1rem; color: var(--muted); font-size: 0.78rem; }
+.candidateList p { margin: 0.65rem 0; line-height: 1.7; }
+.candidateAction { font-size: 0.875rem; font-weight: 650; }
 
 .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; }
 .method { margin-top: 1rem; color: var(--muted); font-size: 0.875rem; }
@@ -132,6 +149,8 @@
   .summary { grid-template-columns: 1fr; }
   .fieldGrid { grid-template-columns: 1fr; }
   .yearList { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .personList li,
-  .sourceList li { grid-template-columns: 1fr; gap: 0.15rem; }
+  .personList li { grid-template-columns: 1fr; gap: 0.15rem; }
+  .candidateSource summary { grid-template-columns: auto minmax(0, 1fr); gap: 0.15rem 0.65rem; }
+  .candidateSource summary span { grid-column: 2; }
+  .candidateList li { padding: 0.85rem; }
 }

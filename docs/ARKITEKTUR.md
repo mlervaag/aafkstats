@@ -363,7 +363,7 @@ er Next sitt hydreringsdata-unntak, og det står forklart der.
 
 ## Testing og CI
 
-204 tester, ingen tjeneste. Testene som trenger en database bygger sin egen arkivfil fra
+Flere hundre tester, ingen tjeneste. Testene som trenger en database bygger sin egen arkivfil fra
 `fixtures/data` i `beforeAll` — det tar millisekunder, og gjør at alt kjører likt lokalt og i
 CI. Det finnes ingen tester som «hoppes over uten database».
 

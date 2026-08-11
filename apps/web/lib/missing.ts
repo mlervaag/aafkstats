@@ -22,7 +22,16 @@ export interface LineupReviewSource {
   sourceId: string;
   title: string;
   url: string;
-  candidates: number;
+  sourceUrl: string | null;
+  candidates: LineupReviewCandidate[];
+}
+
+export interface LineupReviewCandidate {
+  id: string;
+  page: string;
+  season: number | null;
+  names: string[];
+  personIds: string[];
 }
 
 export interface MissingOverview {
@@ -49,6 +58,29 @@ interface PersonConflictRow {
   name: string;
   url: string;
   field: string;
+}
+
+interface LineupReviewRow {
+  source_id: string;
+  source_title: string;
+  url: string;
+  source_url: string | null;
+  id: string;
+  page: string;
+  season: number | null;
+  names: string;
+  person_ids: string;
+}
+
+function parseStringArray(value: string): string[] {
+  try {
+    const parsed: unknown = JSON.parse(value);
+    return Array.isArray(parsed)
+      ? parsed.filter((entry): entry is string => typeof entry === "string")
+      : [];
+  } catch {
+    return [];
+  }
 }
 
 /**
@@ -108,23 +140,34 @@ export function loadMissingOverview(): MissingOverview {
       peopleById.set(row.person_id, person);
     }
 
-    const lineupSources = all<{
-      source_id: string;
-      source_title: string;
-      url: string;
-      candidates: number;
-    }>(
+    const lineupRows = all<LineupReviewRow>(
       db,
-      `SELECT source_id, source_title, url, count(*) AS candidates
+      `SELECT source_id, source_title, url, source_url, id, page, season,
+              names, person_ids
          FROM resolved_lineups
-        GROUP BY source_id, source_title, url
-        ORDER BY candidates DESC, source_title COLLATE NOCASE`,
-    ).map((row) => ({
-      sourceId: row.source_id,
-      title: row.source_title,
-      url: row.url,
-      candidates: row.candidates,
-    }));
+        ORDER BY source_title COLLATE NOCASE, CAST(page AS INTEGER), id`,
+    );
+    const lineupSourcesById = new Map<string, LineupReviewSource>();
+    for (const row of lineupRows) {
+      const source = lineupSourcesById.get(row.source_id) ?? {
+        sourceId: row.source_id,
+        title: row.source_title,
+        url: row.url,
+        sourceUrl: row.source_url,
+        candidates: [],
+      };
+      source.candidates.push({
+        id: row.id,
+        page: row.page,
+        season: row.season,
+        names: parseStringArray(row.names),
+        personIds: parseStringArray(row.person_ids),
+      });
+      lineupSourcesById.set(row.source_id, source);
+    }
+    const lineupSources = [...lineupSourcesById.values()].sort((a, b) =>
+      b.candidates.length - a.candidates.length || a.title.localeCompare(b.title, "nb"),
+    );
 
     return {
       playedMatches,
@@ -139,7 +182,7 @@ export function loadMissingOverview(): MissingOverview {
         items: [...peopleById.values()],
       },
       lineupReview: {
-        candidates: lineupSources.reduce((sum, row) => sum + row.candidates, 0),
+        candidates: lineupRows.length,
         sources: lineupSources.length,
         items: lineupSources,
       },
