@@ -120,10 +120,21 @@ gjentas uten å gro duplikater.
 pnpm --filter @aafkstats/ingest nb-mentions --write
 ```
 
-Fører hver publikasjon som omtaler en person som kilde på personen. Dette er
-den ene kandidattypen der OCR-støy ikke kan skape et nytt faktum: en
-`person_mention` med høy sikkerhet bærer en `personId` som alt er slått opp mot
-registeret. Enten kjente vi navnet fra før, eller så ble det ingen kobling.
+Fører hver publikasjon som omtaler en person som kilde på personen. OCR-støy
+kan ikke skape et nytt faktum her: en `person_mention` med høy sikkerhet bærer
+en `personId` som alt er slått opp mot registeret, så enten kjente vi navnet fra
+før, eller så ble det ingen kobling.
+
+Men et navnetreff skiller ikke to personer som heter det samme. Arne Hansen
+spilte i 1986; medlemsbladene fra 1961 til 1976 omtaler en annen Arne Hansen.
+Uten en prøve på tid ble alle seksten ført på ham, og en tredjedel av
+koblingene i første forsøk var slike. Derfor forkastes en publikasjon som er
+mer enn fem år eldre enn det tidligste året arkivet kjenner personen fra.
+Prøven er ensidig: en jubileumsbok fra 2013 omtaler selvsagt spillere fra
+1920-tallet, og skal få lov.
+
+Kjøringen rapporterer hvor mange den forkastet. Er det tallet null, er noe galt
+— navnekollisjoner finnes i dette materialet.
 
 Kjøringen leser bare `data/extractions/` — den trenger verken cache eller nett,
 og er uavhengig av resolve.

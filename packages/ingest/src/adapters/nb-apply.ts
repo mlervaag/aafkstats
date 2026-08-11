@@ -202,16 +202,24 @@ function bySourceOrder(findings: RoleFinding[]): RoleFinding[] {
 /**
  * Publikasjonene som omtaler en person, ført som kilder på personen.
  *
- * ## Hvorfor dette er trygt når rollene ikke er det
+ * ## Hva som kan gå galt, og hva som ikke kan
  *
  * En `person_mention` med høy sikkerhet er et navn OCR-en fant og som
- * `candidatesForPage` alt har slått opp mot personregisteret — den bærer en
- * `personId`, ikke en gjetning. Det er den ene kandidattypen der OCR-støy ikke
- * kan skape et nytt faktum: enten kjente vi navnet fra før, eller så ble det
- * ikke en kobling.
+ * `candidatesForPage` alt har slått opp mot personregisteret. OCR-støy kan
+ * derfor ikke skape et nytt faktum her: enten kjente vi navnet fra før, eller
+ * så ble det ingen kobling.
  *
- * Den sier heller ingenting om hva personen gjorde. Den sier at publikasjonen
- * omtaler ham, og det er nettopp det en kildehenvisning på personen betyr.
+ * Men et navnetreff skiller ikke to personer som heter det samme. Arne Hansen
+ * spilte i 1986; medlemsbladene fra 1961 til 1976 omtaler en annen Arne Hansen,
+ * og uten en prøve på tid ble alle seksten ført på ham. En tredjedel av
+ * koblingene i første forsøk var slike.
+ *
+ * Derfor kreves det at publikasjonen ikke er eldre enn personen selv. Prøven er
+ * ensidig med vilje: en jubileumsbok fra 2013 omtaler selvsagt spillere fra
+ * 1920-tallet, og skal få lov. Det motsatte er umulig.
+ *
+ * Omtalen sier heller ingenting om hva personen gjorde. Den sier at
+ * publikasjonen omtaler ham, og det er nettopp det en kildehenvisning betyr.
  *
  * ## Én henvisning per publikasjon
  *
@@ -223,13 +231,33 @@ export interface MentionFinding {
   personId: string;
   sourceId: string;
   page: string;
+  /** Publikasjonens utgivelsesår, når kilden oppgir det. */
+  sourceYear?: number;
+}
+
+/**
+ * Hvor mange år før en person er kjent i arkivet en publikasjon kan omtale ham.
+ *
+ * Et medlemsblad skriver om juniorlaget før noen står i A-stallen, så det må
+ * være litt slark. Seksten år, som mellom de to Arne Hansen-ene, er ikke slark.
+ */
+const LEAD_YEARS = 5;
+
+/** Det tidligste året arkivet vet om personen. */
+function earliestYear(person: Person): number | undefined {
+  const years = [
+    ...person.squadNumbers.map((entry) => entry.season),
+    ...person.coachSpells.map((spell) => spell.fromSeason),
+    ...person.roles.map((role) => Number(role.from.slice(0, 4))),
+  ].filter((year) => Number.isFinite(year));
+  return years.length > 0 ? Math.min(...years) : undefined;
 }
 
 export async function applyPersonMentions(
   archive: Archive,
   mentions: MentionFinding[],
   root: string,
-): Promise<{ added: number; people: number }> {
+): Promise<{ added: number; people: number; anachronistic: number }> {
   const first = new Map<string, MentionFinding>();
   for (const mention of mentions) {
     const key = `${mention.personId}|${mention.sourceId}`;
@@ -240,10 +268,18 @@ export async function applyPersonMentions(
   const byId = new Map(archive.people.map((person) => [person.id, structuredClone(person)]));
   const touched = new Set<string>();
   let added = 0;
+  let anachronistic = 0;
 
   for (const mention of [...first.values()].sort((a, b) => a.personId.localeCompare(b.personId) || a.sourceId.localeCompare(b.sourceId))) {
     const person = byId.get(mention.personId);
     if (!person) continue;
+
+    const earliest = earliestYear(person);
+    if (mention.sourceYear !== undefined && earliest !== undefined && mention.sourceYear < earliest - LEAD_YEARS) {
+      anachronistic += 1;
+      continue;
+    }
+
     // En publikasjon som alt er ført på personen — fra en rolle eller en
     // tidligere kjøring — skal ikke få en henvisning til.
     if (person.sources.some((source) => source.sourceId === mention.sourceId)) continue;
@@ -269,5 +305,5 @@ export async function applyPersonMentions(
     await writeFile(file, await rewrite(file, person), "utf8");
   }
 
-  return { added, people: touched.size };
+  return { added, people: touched.size, anachronistic };
 }

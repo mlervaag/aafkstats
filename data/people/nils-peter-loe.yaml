@@ -1,29 +1,4 @@
 id: nils-peter-loe
 name: Nils Peter Loe
 roles:
-  - { id: gullmerkeinnehaver-2019, category: honorary, title: Gullmerkeinnehaver, from: "2019", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
-sources:
-  - sourceId: medlemsblad-for-aalesunds-fotb-1968-db10
-    page: "7"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1976-3cb7
-    page: "12"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1977-fbae
-    page: "15"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1978-0c91
-    page: "10"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1978-91f1
-    page: "10"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1979-9b1b
-    page: "22"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - { id: gullmerkeinnehaver-2019, category: honorary, title: Gullmerkeinnehaver, from: "2019", to: null, sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }] }

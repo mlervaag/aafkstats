@@ -33,7 +33,13 @@ for (const file of (await readdir(dir)).filter((name) => name.endsWith(".yaml"))
     // Flere personer på samme linje betyr at OCR-en ikke skilte dem. Da er det
     // ikke sikkert hvem siden faktisk omtaler.
     if (candidate.personIds.length !== 1) continue;
-    mentions.push({ personId: candidate.personIds[0]!, sourceId: extraction.sourceId, page: candidate.page });
+    const year = archive.sources.find((source) => source.id === extraction.sourceId)?.year;
+    mentions.push({
+      personId: candidate.personIds[0]!,
+      sourceId: extraction.sourceId,
+      page: candidate.page,
+      ...(year === undefined ? {} : { sourceYear: year }),
+    });
   }
 }
 
@@ -48,7 +54,7 @@ if (!args.values.write) {
   console.log("Tørrkjøring. Ingen filer skrevet.");
 } else {
   const report = await applyPersonMentions(archive, mentions, root);
-  console.log(`Skrev ${report.added} kildehenvisninger på ${report.people} personer.`);
+  console.log(`Skrev ${report.added} kildehenvisninger på ${report.people} personer. ${report.anachronistic} forkastet som eldre enn personen.`);
 
   const after = await loadArchive(root);
   const issues = [...after.issues, ...crossValidate(after)];
