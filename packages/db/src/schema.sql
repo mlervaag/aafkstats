@@ -891,6 +891,35 @@ CREATE TABLE core_sources (
   providers     TEXT NOT NULL DEFAULT '[]'
 );
 
+CREATE TABLE core_publication_extractions (
+  source_id       TEXT PRIMARY KEY REFERENCES core_sources(id) ON DELETE CASCADE,
+  provider_id     TEXT NOT NULL REFERENCES core_providers(id),
+  adapter         TEXT NOT NULL,
+  retrieved_at    TEXT NOT NULL,
+  ocr_access      TEXT NOT NULL CHECK (ocr_access IN ('alto','search_only','unavailable')),
+  pages_expected  INTEGER NOT NULL,
+  pages_processed INTEGER NOT NULL,
+  pages_failed    TEXT NOT NULL DEFAULT '[]',
+  content_hash    TEXT
+);
+
+CREATE TABLE core_fact_candidates (
+  source_id  TEXT NOT NULL REFERENCES core_publication_extractions(source_id) ON DELETE CASCADE,
+  id         TEXT NOT NULL,
+  kind       TEXT NOT NULL CHECK (kind IN ('person_mention','person_role','match_result','lineup_or_squad','organization','season_fact')),
+  page       TEXT NOT NULL,
+  confidence TEXT NOT NULL CHECK (confidence IN ('high','medium','low')),
+  keywords   TEXT NOT NULL DEFAULT '[]',
+  names      TEXT NOT NULL DEFAULT '[]',
+  years      TEXT NOT NULL DEFAULT '[]',
+  scores     TEXT NOT NULL DEFAULT '[]',
+  person_ids TEXT NOT NULL DEFAULT '[]',
+  match_ids  TEXT NOT NULL DEFAULT '[]',
+  PRIMARY KEY (source_id, id)
+);
+
+CREATE INDEX idx_fact_candidates_kind_confidence ON core_fact_candidates(kind, confidence);
+
 CREATE VIEW contributions AS
 SELECT
   id,
@@ -923,3 +952,15 @@ SELECT
   '/kilder/' || id AS url
 FROM core_sources
 ORDER BY coalesce(year, 0) DESC, title ASC;
+
+CREATE VIEW publication_extractions AS
+SELECT source_id, provider_id, adapter, retrieved_at, ocr_access,
+       pages_expected, pages_processed, pages_failed, content_hash
+FROM core_publication_extractions
+ORDER BY source_id;
+
+CREATE VIEW fact_candidates AS
+SELECT source_id, id, kind, page, confidence, keywords, names, years, scores,
+       person_ids, match_ids
+FROM core_fact_candidates
+ORDER BY source_id, CAST(page AS INTEGER), kind, id;

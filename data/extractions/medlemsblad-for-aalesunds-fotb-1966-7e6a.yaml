@@ -1,0 +1,100 @@
+sourceId: medlemsblad-for-aalesunds-fotb-1966-7e6a
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 12
+pagesProcessed: 12
+pagesFailed: []
+contentHash: sha256:f7710f9fbbd1d709455513d0c6f70d54746568f3a1d1e5339ec16749c6780616
+candidates:
+  - id: lineup-or-squad-3517d2e9b2df9fb8
+    kind: lineup_or_squad
+    page: "2"
+    confidence: medium
+    keywords:
+      - lagoppstilling
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-264344c0bee4c410
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Slutter Oddvar Aarøe
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-56c6918d582df022
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Oddvar Aarøe
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-1c814a96f1bd9a98
+    kind: organization
+    page: "4"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-2bc1f0d9e7fa450c
+    kind: organization
+    page: "5"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: lineup-or-squad-36301068206e5b9b
+    kind: lineup_or_squad
+    page: "7"
+    confidence: medium
+    keywords:
+      - troppen
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-39760a3210adea71
+    kind: organization
+    page: "7"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-26820bf485359502
+    kind: organization
+    page: "8"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []

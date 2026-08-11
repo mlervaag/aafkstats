@@ -1,0 +1,347 @@
+sourceId: cupminner-2009-30c4
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 32
+pagesProcessed: 32
+pagesFailed: []
+contentHash: sha256:e5b05742f197a32af1df9fc1c614d996d123618b0fb46bd2aef1e462b3dd29e5
+candidates:
+  - id: person-mention-6c4449acdb84d8e6
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-role-c8a84d49d57547d1
+    kind: person_role
+    page: "7"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Kjetil Rekdal
+      - REKA PÅ SCENA. AaFK-trener
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: lineup-or-squad-a2f5ea789018f6bc
+    kind: lineup_or_squad
+    page: "8"
+    confidence: medium
+    keywords:
+      - stallen
+    names:
+      - PARODIEN. AaFK-stallen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-143b403d993bf172
+    kind: organization
+    page: "8"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-61637ff3227a0708
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: person-mention-d2a9ca08ff999ad1
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-mention-93bf3823f57df003
+    kind: person_mention
+    page: "10"
+    confidence: medium
+    keywords: []
+    names:
+      - Fredrik Carlsen
+      - Trond Fredriksen
+    years: []
+    scores: []
+    personIds:
+      - fredrik-carlsen
+      - trond-fredriksen
+    matchIds: []
+  - id: match-result-a247ed041fd9480c
+    kind: match_result
+    page: "12"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-0
+    personIds: []
+    matchIds: []
+  - id: organization-ccc13bf1de61229f
+    kind: organization
+    page: "12"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-1bb6c9237848d836
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Fredrik Carlsen
+    years: []
+    scores: []
+    personIds:
+      - fredrik-carlsen
+    matchIds: []
+  - id: match-result-ab4f2e40135f3bf1
+    kind: match_result
+    page: "13"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-1
+    personIds: []
+    matchIds:
+      - 2009-08-22-molde-fk-aalesunds-fk
+  - id: person-mention-78b7b5f3e8147f7c
+    kind: person_mention
+    page: "13"
+    confidence: high
+    keywords: []
+    names:
+      - Trond Fredriksen
+    years: []
+    scores: []
+    personIds:
+      - trond-fredriksen
+    matchIds: []
+  - id: match-result-c174ddf7fad45b95
+    kind: match_result
+    page: "14"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-2
+    personIds: []
+    matchIds: []
+  - id: organization-8063d347c15a11f7
+    kind: organization
+    page: "14"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-8277552a9b3e7cc7
+    kind: person_mention
+    page: "14"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: match-result-68def59633e6c312
+    kind: match_result
+    page: "16"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 7-6
+    personIds: []
+    matchIds: []
+  - id: match-result-d6bff7b70b91df2c
+    kind: match_result
+    page: "16"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-2
+    personIds: []
+    matchIds: []
+  - id: person-mention-17875d618784ee90
+    kind: person_mention
+    page: "16"
+    confidence: high
+    keywords: []
+    names:
+      - Trond Fredriksen
+    years: []
+    scores: []
+    personIds:
+      - trond-fredriksen
+    matchIds: []
+  - id: person-mention-e1b5785c9a923ab0
+    kind: person_mention
+    page: "16"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-role-02c01e52f934b1bb
+    kind: person_role
+    page: "16"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Kjetil Rekdal
+      - Kjetil Rekdal. Det
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-mention-d238cd6c3cd70150
+    kind: person_mention
+    page: "20"
+    confidence: high
+    keywords: []
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-role-af83cee8842ac170
+    kind: person_role
+    page: "20"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Kjetil Rekdal
+    years: []
+    scores: []
+    personIds:
+      - kjetil-rekdal
+    matchIds: []
+  - id: person-mention-5cab067dfd60118c
+    kind: person_mention
+    page: "21"
+    confidence: high
+    keywords: []
+    names:
+      - Andreas Lie
+    years: []
+    scores: []
+    personIds:
+      - andreas-lie
+    matchIds: []
+  - id: person-role-b3e381400a3c325a
+    kind: person_role
+    page: "21"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Kjell Jonevret
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-ce57daa8372d0b87
+    kind: person_mention
+    page: "22"
+    confidence: high
+    keywords: []
+    names:
+      - Trond Fredriksen
+    years: []
+    scores: []
+    personIds:
+      - trond-fredriksen
+    matchIds: []
+  - id: person-role-95181dcd864cf71b
+    kind: person_role
+    page: "22"
+    confidence: medium
+    keywords:
+      - styreleder
+    names:
+      - TUNG TID. Ektemannen
+      - AaFK-styreleder Toril Hole Standal
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-93e3e56cf14f6fd4
+    kind: person_mention
+    page: "23"
+    confidence: high
+    keywords: []
+    names:
+      - Peter Orry Larsen
+    years: []
+    scores: []
+    personIds:
+      - peter-orry-larsen
+    matchIds: []
+  - id: person-mention-e6d52944893fa282
+    kind: person_mention
+    page: "24"
+    confidence: high
+    keywords: []
+    names:
+      - Trond Fredriksen
+    years: []
+    scores: []
+    personIds:
+      - trond-fredriksen
+    matchIds: []

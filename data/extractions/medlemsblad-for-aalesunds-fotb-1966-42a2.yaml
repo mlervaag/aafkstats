@@ -1,0 +1,200 @@
+sourceId: medlemsblad-for-aalesunds-fotb-1966-42a2
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 22
+pagesProcessed: 22
+pagesFailed: []
+contentHash: sha256:0dc2905bff3e37dfd11e85665225eca09e9e5fabb079216246ba81470bb48ad4
+candidates:
+  - id: organization-68de1971d7376e42
+    kind: organization
+    page: "2"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-57bec67b5133260e
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - kasserer
+    names:
+      - Kjell Luthentun
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-9c586c3514d4c172
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - sekretær
+    names:
+      - Ole Marius Ringdal
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-ade3e5ab12086d57
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - FIRE FORSLAG Formann
+      - Erling Bjørge
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-ceed565080b4e036
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-f5d2806c950ba520
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - nestformann
+    names:
+      - Rolf Kvissel
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-4fd6f020c1fce29c
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Sigurd Tafjord
+    years: []
+    scores: []
+    personIds:
+      - sigurd-tafjord
+    matchIds: []
+  - id: person-mention-e0c19c081f07db96
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-role-7fadc2bd4af81204
+    kind: person_role
+    page: "7"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Oddvar Aarøe
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-101c1cf925e70cb2
+    kind: organization
+    page: "8"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-95da8d3baf6550fd
+    kind: organization
+    page: "13"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-22b870e468037593
+    kind: person_role
+    page: "15"
+    confidence: medium
+    keywords:
+      - nestformann
+    names:
+      - Lollo Stubb
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-3e665fcede5d4fa8
+    kind: person_role
+    page: "15"
+    confidence: medium
+    keywords:
+      - sekretær
+    names:
+      - Anita Pedersen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-730f1a00be8ff48f
+    kind: person_role
+    page: "15"
+    confidence: medium
+    keywords:
+      - kasserer
+    names:
+      - Julie Løvmo
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-82a3e3f4e6bf53e4
+    kind: person_role
+    page: "15"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Bibbi Henriksen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-cd5b9e4cb366463e
+    kind: person_mention
+    page: "20"
+    confidence: high
+    keywords: []
+    names:
+      - Knut Gaaseide
+    years: []
+    scores: []
+    personIds:
+      - knut-gaaseide
+    matchIds: []

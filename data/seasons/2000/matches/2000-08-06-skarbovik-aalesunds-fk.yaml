@@ -32,6 +32,13 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 23120206087.
+sources:
+  - sourceId: aalesunds-fk-quiz-2008-fd43
+    page: "27"
+    fields:
+      - home.score
+      - away.score
+    note: Entydig maskinelt treff på år, motstander og resultat; bør redaksjonelt etterkontrolleres.
 confidence: confirmed
 conflicts: []
 tags: []

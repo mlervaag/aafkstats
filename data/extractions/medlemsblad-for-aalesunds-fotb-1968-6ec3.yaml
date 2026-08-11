@@ -1,0 +1,665 @@
+sourceId: medlemsblad-for-aalesunds-fotb-1968-6ec3
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 20
+pagesProcessed: 20
+pagesFailed: []
+contentHash: sha256:d88315b287f5f66f263f21b0f820f4c58db7a78bfe1d6ccfbc6db1cf5804ad2e
+candidates:
+  - id: organization-14b1210c30731009
+    kind: organization
+    page: "2"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-5ab134dd8d62bbd4
+    kind: organization
+    page: "2"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-b09b68944be35c85
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-role-0e90e0f7a3c37438
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Karsten Molværsmyr
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-30dd1f787c75587b
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Arne Finsnes
+      - Karsten Molværsmyr
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-3729d5eb79eedbe0
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - nestformann
+    names:
+      - Asbjørn Kringstad
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-73260a9cd841899a
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Erling Bjør
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-8cc1709882eb65c9
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - kasserer
+    names:
+      - Kjell Luthentun
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-98b1313ac9192817
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Arne Finsnes
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-9cfc3ab59f8779cd
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - sekretær
+    names:
+      - Sverre Strømsheim
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-def6815da0f405f0
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Hans J. Henriksen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-69cc11eaa72cc3f3
+    kind: organization
+    page: "3"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-d6dc8c95c33c353f
+    kind: organization
+    page: "3"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-32f87414ff9afb57
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-role-515fdf067955c5f0
+    kind: person_role
+    page: "3"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Karin Riise
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-a8cee9280dc8242c
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-0
+    personIds: []
+    matchIds: []
+  - id: person-role-aceefa3fd9ad1f23
+    kind: person_role
+    page: "4"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-31ddc07f98d4659d
+    kind: match_result
+    page: "5"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 27-15
+    personIds: []
+    matchIds: []
+  - id: organization-a8de03d13a7479cf
+    kind: organization
+    page: "5"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-3d4491b1535aad36
+    kind: match_result
+    page: "8"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 7-0
+    personIds: []
+    matchIds: []
+  - id: match-result-ed3258b76119ffbd
+    kind: match_result
+    page: "8"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 10-0
+    personIds: []
+    matchIds: []
+  - id: organization-3f89e05220d4e3f8
+    kind: organization
+    page: "8"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-0ed674c448d7bac0
+    kind: match_result
+    page: "10"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 0-1
+      - 2-3
+    personIds: []
+    matchIds: []
+  - id: match-result-11546b8ae84f05a0
+    kind: match_result
+    page: "10"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-3
+    personIds: []
+    matchIds: []
+  - id: match-result-4c7bf2e06f4d022c
+    kind: match_result
+    page: "10"
+    confidence: medium
+    keywords: []
+    names:
+      - AaFK- Herd
+    years: []
+    scores:
+      - 15-1
+    personIds: []
+    matchIds: []
+  - id: match-result-5e553226489ebd37
+    kind: match_result
+    page: "10"
+    confidence: medium
+    keywords: []
+    names:
+      - Per Stuen
+    years: []
+    scores:
+      - 0-0
+    personIds: []
+    matchIds: []
+  - id: match-result-757aae84b3003b3e
+    kind: match_result
+    page: "10"
+    confidence: medium
+    keywords: []
+    names:
+      - Einar Salen
+    years: []
+    scores:
+      - 4-3
+    personIds: []
+    matchIds: []
+  - id: match-result-820ec0bee6d54375
+    kind: match_result
+    page: "10"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 5-1
+    personIds: []
+    matchIds: []
+  - id: match-result-969e78a12a2c496b
+    kind: match_result
+    page: "10"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 5-0
+    personIds: []
+    matchIds: []
+  - id: match-result-9c6814f823d84812
+    kind: match_result
+    page: "10"
+    confidence: medium
+    keywords: []
+    names:
+      - Kjell Bakke
+    years: []
+    scores:
+      - 2-1
+    personIds: []
+    matchIds: []
+  - id: match-result-9dc91b65fac36035
+    kind: match_result
+    page: "10"
+    confidence: medium
+    keywords: []
+    names:
+      - Jan Arne Farstad
+    years: []
+    scores:
+      - 3-0
+    personIds: []
+    matchIds: []
+  - id: match-result-a04eb093fd2c0e2f
+    kind: match_result
+    page: "10"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-2
+    personIds: []
+    matchIds: []
+  - id: match-result-f68bae52e261103c
+    kind: match_result
+    page: "10"
+    confidence: medium
+    keywords: []
+    names:
+      - Rolf Heps
+    years: []
+    scores:
+      - 2-2
+    personIds: []
+    matchIds: []
+  - id: match-result-f75e3cdcbe239b9c
+    kind: match_result
+    page: "10"
+    confidence: medium
+    keywords: []
+    names:
+      - Idar Solbakk
+    years: []
+    scores:
+      - 3-0
+    personIds: []
+    matchIds: []
+  - id: match-result-fc8a57d5a4e77728
+    kind: match_result
+    page: "10"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 10-1
+    personIds: []
+    matchIds: []
+  - id: person-role-076ab46155299541
+    kind: person_role
+    page: "10"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - F'osse
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-02ac218b5d625e09
+    kind: match_result
+    page: "11"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-0
+    personIds: []
+    matchIds: []
+  - id: match-result-2a1c4a0ec6b82b69
+    kind: match_result
+    page: "11"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-1
+    personIds: []
+    matchIds: []
+  - id: match-result-2aafa21179fb3777
+    kind: match_result
+    page: "11"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-1
+    personIds: []
+    matchIds: []
+  - id: match-result-57f6dbdfc85e5505
+    kind: match_result
+    page: "11"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 5-1
+    personIds: []
+    matchIds: []
+  - id: match-result-710dab49edfd7f1b
+    kind: match_result
+    page: "11"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 4-1
+    personIds: []
+    matchIds: []
+  - id: match-result-f0627e8dce136d21
+    kind: match_result
+    page: "11"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-3
+    personIds: []
+    matchIds: []
+  - id: organization-68e5c9c1efbe751b
+    kind: organization
+    page: "11"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-8f1ce019a23711a3
+    kind: organization
+    page: "11"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-fda82e0685fc8179
+    kind: organization
+    page: "11"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-0c78573238858ac4
+    kind: person_role
+    page: "11"
+    confidence: medium
+    keywords:
+      - kasserer
+    names:
+      - Kjell Luthen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: lineup-or-squad-c70f66784658eaf7
+    kind: lineup_or_squad
+    page: "12"
+    confidence: medium
+    keywords:
+      - troppen
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-17d9e63c4d7a7f41
+    kind: match_result
+    page: "13"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-1
+    personIds: []
+    matchIds: []
+  - id: match-result-3531a0399f327679
+    kind: match_result
+    page: "13"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 0-3
+    personIds: []
+    matchIds: []
+  - id: organization-24ee71e82824f4fa
+    kind: organization
+    page: "13"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-210ab1eec15a5783
+    kind: organization
+    page: "15"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-e8b1e63ac0fff02a
+    kind: organization
+    page: "15"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-2723ddc4e9719bb7
+    kind: person_role
+    page: "15"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Knut Osnes
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-7a601fbff75f9498
+    kind: organization
+    page: "16"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-881c22a4ec5f79c0
+    kind: person_role
+    page: "16"
+    confidence: medium
+    keywords:
+      - leder
+      - trener
+    names:
+      - Finn Tolaas
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-fc4e8af8afb2b65c
+    kind: person_role
+    page: "16"
+    confidence: medium
+    keywords:
+      - kasserer
+    names:
+      - Halvard Tørlen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-17b18fae78f31273
+    kind: person_role
+    page: "17"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Eriksen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []

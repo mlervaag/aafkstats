@@ -39,6 +39,13 @@ providers:
       - competition.round
       - extraTime
       - penaltyShootout
+sources:
+  - sourceId: opp-fra-myra-fotballtriumfen-i-2002-6192
+    page: "96"
+    fields:
+      - home.score
+      - away.score
+    note: Entydig maskinelt treff på år, motstander og resultat; bør redaksjonelt etterkontrolleres.
 confidence: probable
 conflicts: []
 tags: []

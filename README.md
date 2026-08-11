@@ -56,6 +56,7 @@ leser fra.
 | **161 klubber · 90 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
 | **150 personer** | Registrerte spillere, trenere, ledere og andre personer med kildeførte detaljer eller avvikende navn |
 | **8 kilder** | Hver med rettighetsstatus som data, ikke som prosa |
+| **98 publikasjoner analysert** | 3 211 ALTO-sider, 139 søkbare sider og 4 814 faktakandidater uten lagret OCR-prosa |
 | **Brukerbidrag** | Innsendte observasjoner og minner hentet fra redaksjonell innboks |
 
 <sub>Tallene oppdateres kontinuerlig. <code>pnpm validate</code> skriver ut de gjeldende.</sub>
@@ -124,6 +125,7 @@ rettighetsvurdering.
 |---|---|
 | `pnpm validate` | Validerer hele arkivet: skjema, referanser, duplikater |
 | `pnpm db:build` | Bygger arkivfilen fra `data/`. Respekterer `AAFK_DATA_DIR` |
+| `pnpm --filter @aafkstats/ingest nb-extract --write --apply` | Gjenopptakbart NB-uttrekk; lagrer kandidater og kobler bare entydige kampresultater |
 | `pnpm dev` | Starter nettstedet på port 3000 |
 | `pnpm test` | Kjører testene. Ingen tjeneste kreves — de bygger sitt eget arkiv |
 | `pnpm typecheck` | Typesjekker pakkene og nettstedet |

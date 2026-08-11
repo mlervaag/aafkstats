@@ -29,6 +29,7 @@ const counts = [
   ...(archive.observations.length > 0 ? [`${archive.observations.length} observasjoner`] : []),
   ...(archive.standings.length > 0 ? [`${archive.standings.length} tabeller`] : []),
   ...(archive.people.length > 0 ? [`${archive.people.length} personer`] : []),
+  ...(archive.extractions.length > 0 ? [`${archive.extractions.length} publikasjoner analysert`] : []),
 ].join(" · ");
 
 if (issues.length === 0) {

@@ -505,6 +505,46 @@ export const views: ViewDoc[] = [
       { name: "url", type: "text", description: "Lenke til visningssiden på vårt nettsted." },
     ],
   },
+  {
+    name: "publication_extractions",
+    summary: "Dekning og proveniens for maskinell analyse av historiske publikasjoner.",
+    caveats: [
+      "Rå OCR og sammenhengende prosa lagres ikke i databasen.",
+      "search_only betyr at publikasjonen kan fulltekstsøkes hos NB, men ikke har sidevis ALTO tilgjengelig for denne pipelinen.",
+    ],
+    columns: [
+      { name: "source_id", type: "text", description: "Publikasjonen i sources." },
+      { name: "provider_id", type: "text", description: "Dataleverandøren." },
+      { name: "adapter", type: "text", description: "Adapter og versjon." },
+      { name: "retrieved_at", type: "text (YYYY-MM-DD)", description: "Dato for kjøringen." },
+      { name: "ocr_access", type: "text", description: "alto, search_only eller unavailable." },
+      { name: "pages_expected", type: "integer", description: "Antall sider i manifestet." },
+      { name: "pages_processed", type: "integer", description: "Antall ALTO-sider som ble analysert." },
+      { name: "pages_failed", type: "JSON", description: "Sidelabeler som ikke kunne behandles." },
+      { name: "content_hash", type: "text", description: "SHA-256 av analysert ALTO-innhold, uten at innholdet lagres." },
+    ],
+  },
+  {
+    name: "fact_candidates",
+    summary: "Strukturerte faktakandidater med sidehenvisning, klare for redaksjonell kontroll.",
+    caveats: [
+      "En kandidat er ikke kanonisk fakta før den er kontrollert og flyttet til person-, sesong- eller kampmodellen.",
+      "Feltene inneholder korte faktatokens og ID-er, aldri OCR-prosa.",
+    ],
+    columns: [
+      { name: "source_id", type: "text", description: "Publikasjonen kandidaten kommer fra." },
+      { name: "id", type: "text", description: "Deterministisk kandidat-ID." },
+      { name: "kind", type: "text", description: "person_mention, person_role, match_result, lineup_or_squad, organization eller season_fact." },
+      { name: "page", type: "text", description: "Sidelabel i publikasjonen." },
+      { name: "confidence", type: "text", description: "high, medium eller low for det maskinelle treffet." },
+      { name: "keywords", type: "JSON", description: "Faktabærende nøkkelord som utløste treffet." },
+      { name: "names", type: "JSON", description: "Mulige person- eller organisasjonsnavn." },
+      { name: "years", type: "JSON", description: "Eksplisitte årstall på samme tekstlinje." },
+      { name: "scores", type: "JSON", description: "Resultattokens på samme tekstlinje." },
+      { name: "person_ids", type: "JSON", description: "Entydige treff mot eksisterende personer." },
+      { name: "match_ids", type: "JSON", description: "Entydige eller mulige treff mot eksisterende kamper." },
+    ],
+  },
 ];
 
 /** Eksempelspørringer som vises på /data og gis til modellen som mønster. */

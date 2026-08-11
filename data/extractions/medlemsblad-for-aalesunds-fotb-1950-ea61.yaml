@@ -1,0 +1,153 @@
+sourceId: medlemsblad-for-aalesunds-fotb-1950-ea61
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 12
+pagesProcessed: 12
+pagesFailed: []
+contentHash: sha256:a5f2dde267d12c34b504ce6067918518ee5c8bc1a4bbd43398c0715bf886d591
+candidates:
+  - id: person-mention-154cbe4330bacfaa
+    kind: person_mention
+    page: "1"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-role-08ce2f0e90e42812
+    kind: person_role
+    page: "3"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Alfhild Ringdal
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-6b5d428aa7102c98
+    kind: person_role
+    page: "3"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Mary Vegsund
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-8cab73cee7df457f
+    kind: person_role
+    page: "3"
+    confidence: medium
+    keywords:
+      - sekretær
+      - kasserer
+    names:
+      - Anita Olsen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-babe9c0873f091a8
+    kind: organization
+    page: "6"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-de621670945e69ab
+    kind: organization
+    page: "7"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-2189094b5e34207c
+    kind: organization
+    page: "8"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-54a59d132246c1cd
+    kind: organization
+    page: "10"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-59d238e3bd17b570
+    kind: person_mention
+    page: "11"
+    confidence: high
+    keywords: []
+    names:
+      - Nils Jangaard
+    years: []
+    scores: []
+    personIds:
+      - nils-jangaard
+    matchIds: []
+  - id: person-mention-2480ce855986a3aa
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-role-4cfeb06fa7106f8a
+    kind: person_role
+    page: "12"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Aa. F. K.s
+      - Per Anker
+    years:
+      - 1950
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-c645bf00a813de43
+    kind: person_role
+    page: "12"
+    confidence: medium
+    keywords:
+      - kasserer
+    names:
+      - Arne Westad
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []

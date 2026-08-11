@@ -1,0 +1,275 @@
+sourceId: medlemsblad-for-aalesunds-fotb-1970-bb31
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 16
+pagesProcessed: 16
+pagesFailed: []
+contentHash: sha256:5aa45e51d83f6bec44d8be8426bbeb00347f8fcc68e61de797b24daae4534f0d
+candidates:
+  - id: organization-85f3d871376603a4
+    kind: organization
+    page: "2"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-ce80b9a31e80602a
+    kind: organization
+    page: "4"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-5540e104b187ed6a
+    kind: person_role
+    page: "4"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Ole Marius Ringdal
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-95042fc137f0d816
+    kind: organization
+    page: "6"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-36ebb1114dfaa275
+    kind: person_role
+    page: "6"
+    confidence: medium
+    keywords:
+      - nestformann
+    names:
+      - Paul Urke
+      - Rolf An
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-9f3f29b6c64bad1e
+    kind: person_role
+    page: "6"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Knut Osnes. Guttelaget
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-cc966023319283ba
+    kind: person_role
+    page: "6"
+    confidence: medium
+    keywords:
+      - sekretær
+    names:
+      - Reidar Fosse
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-d92b35d16410edc9
+    kind: organization
+    page: "7"
+    confidence: medium
+    keywords:
+      - oppmann
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-5f0637f93aebc7be
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Sigurd Tafjord
+    years: []
+    scores: []
+    personIds:
+      - sigurd-tafjord
+    matchIds: []
+  - id: person-role-82764fc176ceab45
+    kind: person_role
+    page: "7"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Ola Hodder
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-9cd5705331d18630
+    kind: person_role
+    page: "7"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Terje Dragsund
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-b668528cb9a40c59
+    kind: person_role
+    page: "7"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Bjørn Olsen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-ff0b9148027a4f1e
+    kind: person_role
+    page: "8"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Olav Rebbestad
+      - Svein Holand
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-0337674af1fb8910
+    kind: person_role
+    page: "9"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Knut Osnes
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-bae7ce5aa45037f6
+    kind: person_role
+    page: "9"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Torbjørn Østrem
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-f8212a1783eacf89
+    kind: organization
+    page: "11"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-229351ee3a7c402d
+    kind: person_role
+    page: "11"
+    confidence: medium
+    keywords:
+      - leder
+      - trener
+    names:
+      - Jan Listhaug
+      - Per Ola Ny
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-f0bbfbd273d92953
+    kind: person_role
+    page: "11"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Knut Osnes
+      - Ole Marius
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-5a23e6b9f4bda9a3
+    kind: person_role
+    page: "12"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - JUNIORLAGETS OPPMANN
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-66d8fbefd7d156d2
+    kind: person_mention
+    page: "13"
+    confidence: high
+    keywords: []
+    names:
+      - Sverre Mogstad
+    years: []
+    scores: []
+    personIds:
+      - sverre-mogstad
+    matchIds: []
+  - id: season-fact-b307baff8c38e683
+    kind: season_fact
+    page: "13"
+    confidence: medium
+    keywords:
+      - poeng
+    names: []
+    years:
+      - 1954
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: season-fact-e791ed8ecbaf5540
+    kind: season_fact
+    page: "13"
+    confidence: medium
+    keywords:
+      - tabellen
+    names: []
+    years:
+      - 1954
+    scores: []
+    personIds: []
+    matchIds: []

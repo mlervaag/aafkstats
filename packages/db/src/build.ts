@@ -134,6 +134,31 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
       );
     }
 
+    const insertExtraction = db.prepare(
+      `INSERT INTO core_publication_extractions
+         (source_id, provider_id, adapter, retrieved_at, ocr_access, pages_expected, pages_processed, pages_failed, content_hash)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    );
+    const insertCandidate = db.prepare(
+      `INSERT INTO core_fact_candidates
+         (source_id, id, kind, page, confidence, keywords, names, years, scores, person_ids, match_ids)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    );
+    for (const extraction of archive.extractions) {
+      insertExtraction.run(
+        extraction.sourceId, extraction.providerId, extraction.adapter, extraction.retrievedAt,
+        extraction.ocrAccess, extraction.pagesExpected, extraction.pagesProcessed,
+        json(extraction.pagesFailed), extraction.contentHash ?? null,
+      );
+      for (const candidate of extraction.candidates) {
+        insertCandidate.run(
+          extraction.sourceId, candidate.id, candidate.kind, candidate.page, candidate.confidence,
+          json(candidate.keywords), json(candidate.names), json(candidate.years), json(candidate.scores),
+          json(candidate.personIds), json(candidate.matchIds),
+        );
+      }
+    }
+
     const insertPerson = db.prepare(
       `INSERT INTO core_people (id, person_key, name, nationality, position, wikidata, sources, note)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,

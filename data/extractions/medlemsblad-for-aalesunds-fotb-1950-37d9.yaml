@@ -1,0 +1,141 @@
+sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 16
+pagesProcessed: 16
+pagesFailed: []
+contentHash: sha256:00617eac86266d8c5b46719d9cd4a723ef4aa619534b75885e8e07ca03d0a99d
+candidates:
+  - id: organization-98addc5f41b0b72d
+    kind: organization
+    page: "1"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-e83d07ef8d2eabba
+    kind: organization
+    page: "4"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-694741c1674a580a
+    kind: organization
+    page: "6"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-dec02af0ab71cddb
+    kind: organization
+    page: "6"
+    confidence: medium
+    keywords:
+      - formann
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-37c76ce112813f94
+    kind: organization
+    page: "8"
+    confidence: medium
+    keywords:
+      - nestformann
+      - oppmann
+    names: []
+    years:
+      - 1927
+      - 1925
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-e6014807740042fc
+    kind: match_result
+    page: "9"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-1
+    personIds: []
+    matchIds: []
+  - id: organization-e9307d87859c4b15
+    kind: organization
+    page: "13"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-ff5e1ee22cd7d7ef
+    kind: person_mention
+    page: "13"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-mention-5baebe0c747fcfa7
+    kind: person_mention
+    page: "16"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-role-af900a6e3a8387ff
+    kind: person_role
+    page: "16"
+    confidence: medium
+    keywords:
+      - kasserer
+    names:
+      - Arne Westad
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-baf58461f028db25
+    kind: person_role
+    page: "16"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Aa. F. K.s
+      - Per Anker
+    years:
+      - 1950
+    scores: []
+    personIds: []
+    matchIds: []

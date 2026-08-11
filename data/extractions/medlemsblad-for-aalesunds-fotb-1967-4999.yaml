@@ -1,0 +1,66 @@
+sourceId: medlemsblad-for-aalesunds-fotb-1967-4999
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 12
+pagesProcessed: 12
+pagesFailed: []
+contentHash: sha256:ca3c0049e7b2daf5ef5d96ab540c0cf22e7ff74c94ca02ed9749747b34add6a2
+candidates:
+  - id: organization-038db7ca4a5e1ddd
+    kind: organization
+    page: "2"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-d939a15c76aa1b44
+    kind: organization
+    page: "4"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-d6345ce0c078bc24
+    kind: organization
+    page: "8"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-aac14af92f31e7bd
+    kind: organization
+    page: "10"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-62e42af0eba37162
+    kind: person_mention
+    page: "11"
+    confidence: high
+    keywords: []
+    names:
+      - Knut Gaaseide
+    years: []
+    scores: []
+    personIds:
+      - knut-gaaseide
+    matchIds: []

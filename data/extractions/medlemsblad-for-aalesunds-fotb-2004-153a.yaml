@@ -1,0 +1,469 @@
+sourceId: medlemsblad-for-aalesunds-fotb-2004-153a
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 4
+pagesProcessed: 4
+pagesFailed: []
+contentHash: sha256:671b980d6b502f23393d30d694c0278ef92982255993b2e1582f2990b112a714
+candidates:
+  - id: organization-cd5b94a0642bde66
+    kind: organization
+    page: "1"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-351fe110f362c00c
+    kind: person_role
+    page: "1"
+    confidence: medium
+    keywords:
+      - leder
+    names:
+      - AaFKs Leder Arne Aambakk
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: lineup-or-squad-251ca056f0bafaa9
+    kind: lineup_or_squad
+    page: "3"
+    confidence: medium
+    keywords:
+      - troppen
+      - stallen
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-03c8ed1d33855cf7
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 7-2
+    personIds: []
+    matchIds: []
+  - id: match-result-1cb99f4bf9877c97
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names:
+      - AaFK-Kristiansund BK
+    years: []
+    scores:
+      - 1-0
+    personIds: []
+    matchIds: []
+  - id: match-result-245ca78e19cf55e0
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-2
+    personIds: []
+    matchIds:
+      - 2004-08-22-mandalskameratene-aalesunds-fk
+  - id: match-result-2be0d309cc36cb99
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-0
+    personIds: []
+    matchIds:
+      - 2004-04-25-aalesunds-fk-stromsgodset
+  - id: match-result-3d7c13e643f857c0
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-0
+    personIds: []
+    matchIds: []
+  - id: match-result-4e3f8bcabde71617
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 4-1
+    personIds: []
+    matchIds:
+      - 2004-06-16-start-aalesunds-fk
+  - id: match-result-57efd7ce79ee3598
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 0-1
+    personIds: []
+    matchIds: []
+  - id: match-result-61d1753226dfbacb
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-2
+    personIds: []
+    matchIds: []
+  - id: match-result-638b3476188463ad
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names:
+      - Café Opera-AaFK
+    years: []
+    scores:
+      - 2-2
+    personIds: []
+    matchIds: []
+  - id: match-result-6cf784cc328d29ab
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-0
+    personIds: []
+    matchIds: []
+  - id: match-result-6d89e9e832adb120
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-4
+    personIds: []
+    matchIds:
+      - 2004-08-11-stromsgodset-aalesunds-fk
+  - id: match-result-7275999bd80333fd
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - AaFK-Vard Haugesund
+    years: []
+    scores:
+      - 4-0
+    personIds: []
+    matchIds:
+      - 2004-05-31-aalesunds-fk-vard-haugesund
+  - id: match-result-769061220f177cee
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 4-2
+    personIds: []
+    matchIds: []
+  - id: match-result-783fec3f40759051
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-1
+    personIds: []
+    matchIds:
+      - 2004-05-16-hodd-aalesunds-fk
+  - id: match-result-7ca0bc2236bf885a
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 0-1
+    personIds: []
+    matchIds:
+      - 2004-05-23-raufoss-il-aalesunds-fk
+      - 2004-09-12-aalesunds-fk-raufoss-il
+  - id: match-result-83b1ca3c877bd0d2
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 5-2
+    personIds: []
+    matchIds:
+      - 2004-05-09-aalesunds-fk-mandalskameratene
+  - id: match-result-8a0f83ed549867e4
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 5-1
+    personIds: []
+    matchIds: []
+  - id: match-result-a13e8b0771cc3750
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 0-2
+    personIds: []
+    matchIds: []
+  - id: match-result-a28b77992363c783
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 6-1
+    personIds: []
+    matchIds: []
+  - id: match-result-a330938cd3a23067
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 4-1
+    personIds: []
+    matchIds: []
+  - id: match-result-a867bd00ae132c63
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-5
+    personIds: []
+    matchIds: []
+  - id: match-result-b09a51a9953bf376
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-0
+    personIds: []
+    matchIds: []
+  - id: match-result-b1ffc8f346a2d4a5
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-0
+    personIds: []
+    matchIds:
+      - 2004-06-06-sandefjord-aalesunds-fk
+  - id: match-result-b7cc97470839c9a7
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - AaFK-Pors Grenland
+    years: []
+    scores:
+      - 6-0
+    personIds: []
+    matchIds:
+      - 2004-08-08-aalesunds-fk-pors-grenland
+  - id: match-result-cf5120c7e9499db7
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 0-1
+    personIds: []
+    matchIds:
+      - 2004-06-27-kongsvinger-aalesunds-fk
+  - id: match-result-db99c6c8a40bd768
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 6-0
+    personIds: []
+    matchIds:
+      - 2004-05-20-aalesunds-fk-tromsdalen
+  - id: match-result-e039cbb1388db6da
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-4
+    personIds: []
+    matchIds: []
+  - id: match-result-e784d0bea2c4db48
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-0
+    personIds: []
+    matchIds:
+      - 2004-06-13-aalesunds-fk-bryne
+  - id: match-result-f5851ee072469760
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-2
+    personIds: []
+    matchIds:
+      - 2004-06-20-aalesunds-fk-honefoss
+  - id: match-result-f60a03b418579c51
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names:
+      - Bodø Glimt-AaFK
+    years: []
+    scores:
+      - 3-2
+    personIds: []
+    matchIds: []
+  - id: match-result-f694f8d3eb9565ac
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 4-1
+    personIds: []
+    matchIds:
+      - 2004-04-18-skeid-aalesunds-fk
+  - id: match-result-f78b8e88f4a42ec4
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Pors Grenland-AaFK
+    years: []
+    scores:
+      - 1-2
+    personIds: []
+    matchIds:
+      - 2004-05-02-pors-grenland-aalesunds-fk
+  - id: match-result-fcc5fd984fe63da4
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-0
+    personIds: []
+    matchIds:
+      - 2004-07-18-aalesunds-fk-skeid
+  - id: person-mention-1d5c87d90dbd25dc
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Georg Haller
+    years: []
+    scores: []
+    personIds:
+      - georg-haller
+    matchIds: []
+  - id: person-mention-9da0812460ecc60f
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Olaf Ingebrigtsen
+    years: []
+    scores: []
+    personIds:
+      - olaf-ingebrigtsen
+    matchIds: []
+  - id: person-role-defee2d6c7edaa88
+    kind: person_role
+    page: "4"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Olaf Ingebrigtsen
+    years: []
+    scores: []
+    personIds:
+      - olaf-ingebrigtsen
+    matchIds: []

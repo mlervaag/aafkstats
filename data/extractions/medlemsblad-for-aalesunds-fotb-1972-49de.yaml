@@ -1,0 +1,217 @@
+sourceId: medlemsblad-for-aalesunds-fotb-1972-49de
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 12
+pagesProcessed: 12
+pagesFailed: []
+contentHash: sha256:e8a184b7ca0f29d8b62f2c5b5986bcb070c00bffe057d019813f5b80021d534e
+candidates:
+  - id: match-result-9fa9b7857e9d13a1
+    kind: match_result
+    page: "1"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 15-16
+    personIds: []
+    matchIds: []
+  - id: match-result-1f4cf6d719e542d5
+    kind: match_result
+    page: "3"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-0
+    personIds: []
+    matchIds: []
+  - id: organization-47feab94c6791163
+    kind: organization
+    page: "4"
+    confidence: medium
+    keywords:
+      - kasserer
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-e7b095695b192110
+    kind: organization
+    page: "5"
+    confidence: medium
+    keywords:
+      - æresmedlem
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-604235a68ae69a5c
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-role-26c370aaa1eb6794
+    kind: person_role
+    page: "6"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Terje Olsen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-4e6c62ebe763243c
+    kind: person_role
+    page: "6"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Oddvar Aarøe
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-288fc79149dbee35
+    kind: organization
+    page: "7"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-3e2ad4149f83c3d4
+    kind: organization
+    page: "7"
+    confidence: medium
+    keywords:
+      - nestformann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-4f392b74e682960c
+    kind: organization
+    page: "7"
+    confidence: medium
+    keywords:
+      - æresmedlem
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-555a9476b3a45670
+    kind: organization
+    page: "7"
+    confidence: medium
+    keywords:
+      - nestformann
+    names: []
+    years:
+      - 1945
+      - 1946
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-6ca42cf0d44115da
+    kind: organization
+    page: "7"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years:
+      - 1938
+      - 1941
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-dbc533839bf1ac59
+    kind: organization
+    page: "7"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-9ac5ddc51cd63658
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: organization-804526397c70d4f0
+    kind: organization
+    page: "8"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-c59c5ce6fe3a0a06
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Knut Gaaseide
+    years: []
+    scores: []
+    personIds:
+      - knut-gaaseide
+    matchIds: []
+  - id: organization-14ce719f41e5fdfe
+    kind: organization
+    page: "10"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-f11847cd3f73c559
+    kind: organization
+    page: "10"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []

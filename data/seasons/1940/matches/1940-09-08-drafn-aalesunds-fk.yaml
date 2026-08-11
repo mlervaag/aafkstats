@@ -34,7 +34,18 @@ providers:
 sources:
   - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
     page: "10"
-    fields: [home.clubId, away.clubId, home.score, away.score, competition.round]
+    fields:
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+  - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+    page: "14"
+    fields:
+      - home.score
+      - away.score
+    note: Entydig maskinelt treff på år, motstander og resultat; bør redaksjonelt etterkontrolleres.
 confidence: probable
 conflicts: []
 tags: []
