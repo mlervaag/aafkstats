@@ -55,7 +55,7 @@ leser fra.
 | **422 kildedokumenterte resultater** | Resultater fra 1915–1939 som mangler full dato eller hjemme/borte og derfor ikke teller i kampstatistikken |
 | **87 år** | 1915–2026, år med minst én registrert kamp. Enkeltkamper tilbake til 1915, cupen til 1917, serien til 1951 |
 | **161 klubber · 92 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
-| **226 personer** | Registrerte spillere, trenere, ledere, stiftere, prosjektpersoner og hederspersoner med kildeførte detaljer eller avvikende navn |
+| **227 personer** | Registrerte spillere, trenere, ledere, stiftere, prosjektpersoner og hederspersoner med kildeførte detaljer eller avvikende navn |
 | **8 kilder** | Hver med rettighetsstatus som data, ikke som prosa |
 | **98 publikasjoner analysert** | 3 211 ALTO-sider, 139 søkbare sider og 4 814 faktakandidater uten lagret OCR-prosa |
 | **11 historiesider gjennomgått** | AaFKs offisielle leder-, utmerkelses-, stiftelses-, arkiv- og hjemmebanefakta er strukturert med lenke tilbake |

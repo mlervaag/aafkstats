@@ -6,6 +6,13 @@ roles:
     title: Formann
     body: Hovedstyret
     from: "2016"
-    to: null
-    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]
-    note: Kildens årsliste har åpen slutt; siden ble sist oppdatert i 2020.
+    to: 2023-02-28
+    sources:
+      - sourceId: aafk-historie-ledere
+        fields: [title, from]
+      - sourceId: aafk-nyhet-styreleder-2023
+        fields: [to]
+        note: >
+          Slutten kommer herfra: årsmøtet 28. februar 2023 valgte Gunnar Haagensen etter
+          ham. Årslista hos klubben har fortsatt åpen slutt.
+    note: Seks år som styreleder og åtte i styret, ifølge klubbens omtale fra årsmøtet.

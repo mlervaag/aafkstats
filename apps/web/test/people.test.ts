@@ -118,6 +118,16 @@ describe("mergeRoleSpells", () => {
     expect(merged[0]!.sources.map((source) => source.page)).toEqual(["351"]);
   });
 
+  it("regner «Formann» og «Styreleder» som samme verv", () => {
+    const merged = mergeRoleSpells([
+      role({ person_id: "peder-puck", role_id: "a", title: "Formann", from_date: "1938", to_date: "1945" }),
+      role({ person_id: "peder-puck", role_id: "b", title: "Styreleder", body: null, from_date: "1945", to_date: "1946" }),
+    ]);
+    expect(merged).toHaveLength(1);
+    // Ordet fra den kilden som dekker mest: sju år mot to.
+    expect(merged[0]).toMatchObject({ title: "Formann", from_date: "1938", to_date: "1946" });
+  });
+
   it("holder assistenttreneren utenfor hovedtrenerperioden", () => {
     const merged = mergeRoleSpells([
       role({ person_id: "x", role_id: "a", category: "coach", title: "Hovedtrener", body: null, from_date: "2008", to_date: "2012" }),
