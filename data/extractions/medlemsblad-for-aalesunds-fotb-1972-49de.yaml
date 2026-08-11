@@ -19,6 +19,18 @@ candidates:
       - 15-16
     personIds: []
     matchIds: []
+  - id: person-mention-1bcb2d4a4c32f2cb
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
   - id: match-result-1f4cf6d719e542d5
     kind: match_result
     page: "3"
@@ -29,6 +41,18 @@ candidates:
     scores:
       - 3-0
     personIds: []
+    matchIds: []
+  - id: person-mention-4e8ee052c856ebf6
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
     matchIds: []
   - id: organization-47feab94c6791163
     kind: organization
@@ -63,6 +87,18 @@ candidates:
     scores: []
     personIds:
       - peder-puck
+    matchIds: []
+  - id: person-mention-9c5d1e1d5f9b69c5
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
     matchIds: []
   - id: person-role-26c370aaa1eb6794
     kind: person_role
@@ -158,6 +194,30 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-3f8e1f09db7fc3e2
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-5832bda0288d8019
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
   - id: person-mention-9ac5ddc51cd63658
     kind: person_mention
     page: "7"
@@ -180,6 +240,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-510b6cec15889b2a
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
     matchIds: []
   - id: person-mention-c59c5ce6fe3a0a06
     kind: person_mention
@@ -215,3 +287,40 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-587b99970717e09b
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-riise
+    matchIds: []
+  - id: person-mention-b661abdc699f2e50
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-bf9b5b36d37f6bfd
+    kind: person_mention
+    page: "11"
+    confidence: high
+    keywords: []
+    names:
+      - Ola Hodder
+    years: []
+    scores: []
+    personIds:
+      - ola-hodder
+    matchIds: []
+resolvedRoles: []

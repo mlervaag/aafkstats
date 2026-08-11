@@ -151,6 +151,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-56f26ebd081d7a1b
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
   - id: organization-c18b5d31c3d6152f
     kind: organization
     page: "4"
@@ -207,6 +219,54 @@ candidates:
       - 33-26
     personIds: []
     matchIds: []
+  - id: person-mention-2ea57bed30a0ff0f
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-59cf983e3c28f73e
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Konrad Korsnes
+    years: []
+    scores: []
+    personIds:
+      - konrad-korsnes
+    matchIds: []
+  - id: person-mention-668a597abe2c7d42
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-8a477cef818473c1
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Øivind Haagensen
+    years: []
+    scores: []
+    personIds:
+      - oivind-haagensen
+    matchIds: []
   - id: organization-458cbded363709c4
     kind: organization
     page: "6"
@@ -217,6 +277,30 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-cb6866cd531a1eee
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-66957034cde5920f
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Hans J. Henriksen
+    years: []
+    scores: []
+    personIds:
+      - hans-j-henriksen
     matchIds: []
   - id: person-mention-8abc9099db5b8013
     kind: person_mention
@@ -230,3 +314,16 @@ candidates:
     personIds:
       - knut-gaaseide
     matchIds: []
+  - id: person-mention-df9bb075afe2c5bf
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Ola Hodder
+    years: []
+    scores: []
+    personIds:
+      - ola-hodder
+    matchIds: []
+resolvedRoles: []

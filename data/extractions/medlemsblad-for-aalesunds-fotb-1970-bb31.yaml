@@ -30,17 +30,43 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-5540e104b187ed6a
+  - id: person-mention-586e9ef7ebd2920b
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Ole-Marius Ringdal
+    years: []
+    scores: []
+    personIds:
+      - ole-marius-ringdal
+    matchIds: []
+  - id: person-mention-c66c91df408172d8
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
+    matchIds: []
+  - id: person-role-996eafa49f7ed4b5
     kind: person_role
     page: "4"
     confidence: medium
     keywords:
       - oppmann
     names:
+      - Ole-Marius Ringdal
       - Ole Marius Ringdal
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - ole-marius-ringdal
     matchIds: []
   - id: organization-95042fc137f0d816
     kind: organization
@@ -53,18 +79,53 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-36ebb1114dfaa275
-    kind: person_role
+  - id: person-mention-2291dd083b1d4997
+    kind: person_mention
     page: "6"
-    confidence: medium
-    keywords:
-      - nestformann
+    confidence: high
+    keywords: []
     names:
-      - Paul Urke
-      - Rolf An
+      - Ola Hodder
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - ola-hodder
+    matchIds: []
+  - id: person-mention-4635b052ea40a599
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Paul Urke
+    years: []
+    scores: []
+    personIds:
+      - paul-urke
+    matchIds: []
+  - id: person-mention-7bc65e17f4f4f25a
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Ole-Marius Ringdal
+    years: []
+    scores: []
+    personIds:
+      - ole-marius-ringdal
+    matchIds: []
+  - id: person-mention-cadc1e00f40a141b
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Petter Birkevold
+    years: []
+    scores: []
+    personIds:
+      - petter-birkevold
     matchIds: []
   - id: person-role-9f3f29b6c64bad1e
     kind: person_role
@@ -77,6 +138,20 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-role-bdc73b5425497e60
+    kind: person_role
+    page: "6"
+    confidence: medium
+    keywords:
+      - nestformann
+    names:
+      - Paul Urke
+      - Rolf An
+    years: []
+    scores: []
+    personIds:
+      - paul-urke
     matchIds: []
   - id: person-role-cc966023319283ba
     kind: person_role
@@ -102,6 +177,66 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-0d95b471de91dcef
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Paul Urke
+    years: []
+    scores: []
+    personIds:
+      - paul-urke
+    matchIds: []
+  - id: person-mention-131de022fd3f6ba6
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Vadseth
+    years: []
+    scores: []
+    personIds:
+      - karsten-vadseth
+    matchIds: []
+  - id: person-mention-27578f0af49689d8
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Petter Birkevold
+    years: []
+    scores: []
+    personIds:
+      - petter-birkevold
+    matchIds: []
+  - id: person-mention-37d51fa1efbabf22
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-559d8c6f8323ab03
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Ola Hodder
+    years: []
+    scores: []
+    personIds:
+      - ola-hodder
+    matchIds: []
   - id: person-mention-5f0637f93aebc7be
     kind: person_mention
     page: "7"
@@ -114,17 +249,53 @@ candidates:
     personIds:
       - sigurd-tafjord
     matchIds: []
-  - id: person-role-82764fc176ceab45
-    kind: person_role
+  - id: person-mention-810eb88f1307ff46
+    kind: person_mention
     page: "7"
-    confidence: medium
-    keywords:
-      - formann
+    confidence: high
+    keywords: []
     names:
-      - Ola Hodder
+      - Arne Hansen
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - arne-hansen
+    matchIds: []
+  - id: person-mention-91d88a7337cb0b7a
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-a5f1a59a34fa0473
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Rolf Annaniassen
+    years: []
+    scores: []
+    personIds:
+      - rolf-annaniassen
+    matchIds: []
+  - id: person-mention-bf42cd97ae7c27cd
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
     matchIds: []
   - id: person-role-9cd5705331d18630
     kind: person_role
@@ -150,6 +321,55 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-role-d3864e697b504bee
+    kind: person_role
+    page: "7"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Ola Hodder
+    years: []
+    scores: []
+    personIds:
+      - ola-hodder
+    matchIds: []
+  - id: person-mention-5e533af2acb8b676
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Paul Urke
+    years: []
+    scores: []
+    personIds:
+      - paul-urke
+    matchIds: []
+  - id: person-mention-c84ba3eebabd788a
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Terje Refsnes
+    years: []
+    scores: []
+    personIds:
+      - terje-refsnes
+    matchIds: []
+  - id: person-mention-f0944a329305abf9
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Petter Birkevold
+    years: []
+    scores: []
+    personIds:
+      - petter-birkevold
+    matchIds: []
   - id: person-role-ff0b9148027a4f1e
     kind: person_role
     page: "8"
@@ -162,6 +382,42 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-51c8b57049fa6741
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-79d2ea3b043ac8bd
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Paul Urke
+    years: []
+    scores: []
+    personIds:
+      - paul-urke
+    matchIds: []
+  - id: person-mention-d78af52d4988d78a
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
     matchIds: []
   - id: person-role-0337674af1fb8910
     kind: person_role
@@ -197,6 +453,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-80f21293e648b328
+    kind: person_mention
+    page: "11"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Eriksen
+    years: []
+    scores: []
+    personIds:
+      - karsten-eriksen
     matchIds: []
   - id: person-role-229351ee3a7c402d
     kind: person_role
@@ -237,17 +505,67 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-mention-66d8fbefd7d156d2
+  - id: person-mention-1989b2dbd790a345
     kind: person_mention
     page: "13"
     confidence: high
     keywords: []
     names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-b88a6b3e4a4ae245
+    kind: person_mention
+    page: "13"
+    confidence: medium
+    keywords: []
+    names:
+      - Sigurd Nørve
       - Sverre Mogstad
     years: []
     scores: []
     personIds:
+      - sigurd-norve
       - sverre-mogstad
+    matchIds: []
+  - id: person-mention-ba7a451c5d59127b
+    kind: person_mention
+    page: "13"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Vadseth
+    years: []
+    scores: []
+    personIds:
+      - karsten-vadseth
+    matchIds: []
+  - id: person-mention-bc825fd7dab262f4
+    kind: person_mention
+    page: "13"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Eriksen
+    years: []
+    scores: []
+    personIds:
+      - karsten-eriksen
+    matchIds: []
+  - id: person-mention-bcf567550c9058a9
+    kind: person_mention
+    page: "13"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
     matchIds: []
   - id: season-fact-b307baff8c38e683
     kind: season_fact
@@ -273,3 +591,91 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-312bd72298338de7
+    kind: person_mention
+    page: "15"
+    confidence: high
+    keywords: []
+    names:
+      - Ola Hodder
+    years: []
+    scores: []
+    personIds:
+      - ola-hodder
+    matchIds: []
+resolvedRoles:
+  - id: rolle-ed2bd332507190dc
+    page: "2"
+    column: 0
+    personName: E E NeT A
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-56245f286bb5617b
+    page: "7"
+    column: 0
+    personName: Bjørn Olsen Sportsutvalg
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-1669f3f75c31ffb9
+    page: "7"
+    column: 0
+    personName: Erik Fladmark
+    category: administration
+    title: Sekretær
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-559f31b691f5ec0b
+    page: "7"
+    column: 0
+    personName: Jarle Kristoffersen
+    personId: jarle-kristoffersen
+    category: board
+    title: Nestformann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-a6ad9288ecabcdf8
+    page: "7"
+    column: 0
+    personName: Ola Hodder
+    personId: ola-hodder
+    category: board
+    title: Formann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-8386b3eeb669022e
+    page: "7"
+    column: 0
+    personName: Petter Birkevold
+    personId: petter-birkevold
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-cc51650f74b3e341
+    page: "7"
+    column: 0
+    personName: Terje Dragsund
+    category: administration
+    title: Kasserer
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-eb7d39a827001b36
+    page: "9"
+    column: 0
+    personName: Knut Osnes
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: name_then_role

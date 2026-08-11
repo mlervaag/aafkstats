@@ -30,6 +30,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-930e865690a0a319
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Torill Hole Standal
+    years: []
+    scores: []
+    personIds:
+      - torill-hole-standal
+    matchIds: []
   - id: person-role-d7167bcadcdde6e9
     kind: person_role
     page: "3"
@@ -102,6 +114,18 @@ candidates:
     personIds:
       - emil-sando
       - peder-puck
+    matchIds: []
+  - id: person-mention-842941bb1dd8541e
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Per Anker Eriksen
+    years: []
+    scores: []
+    personIds:
+      - per-anker-eriksen
     matchIds: []
   - id: person-mention-8982537630a3f52f
     kind: person_mention
@@ -262,10 +286,10 @@ candidates:
       - 0-0
     personIds: []
     matchIds: []
-  - id: match-result-d823faea88aab4f2
+  - id: match-result-450042b0fbf7f82d
     kind: match_result
     page: "16"
-    confidence: high
+    confidence: medium
     keywords: []
     names: []
     years: []
@@ -273,8 +297,7 @@ candidates:
       - 2-1
       - 1-1
     personIds: []
-    matchIds:
-      - 2008-07-09-hodd-aalesunds-fk
+    matchIds: []
   - id: match-result-3dff833ee6affe77
     kind: match_result
     page: "17"
@@ -512,18 +535,17 @@ candidates:
       - 7-0
     personIds: []
     matchIds: []
-  - id: match-result-f30330b58594f4b9
+  - id: match-result-df7ad05a15050cd2
     kind: match_result
     page: "43"
-    confidence: high
+    confidence: medium
     keywords: []
     names: []
     years: []
     scores:
       - 5-4
     personIds: []
-    matchIds:
-      - 2008-06-04-asane-aalesunds-fk
+    matchIds: []
   - id: organization-8d704cf61af769d0
     kind: organization
     page: "43"
@@ -547,7 +569,19 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-9dd3bea8110bd043
+  - id: person-mention-405998b7be05c330
+    kind: person_mention
+    page: "43"
+    confidence: high
+    keywords: []
+    names:
+      - Arne Aambakk
+    years: []
+    scores: []
+    personIds:
+      - arne-aambakk
+    matchIds: []
+  - id: person-role-8c5b27d8554f6629
     kind: person_role
     page: "43"
     confidence: medium
@@ -557,7 +591,20 @@ candidates:
       - Arne Aambakk
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - arne-aambakk
+    matchIds: []
+  - id: person-mention-12963539bbf6cf3b
+    kind: person_mention
+    page: "44"
+    confidence: high
+    keywords: []
+    names:
+      - Arnstein Johansen
+    years: []
+    scores: []
+    personIds:
+      - arnstein-johansen
     matchIds: []
   - id: person-mention-b8c65dc513fb8741
     kind: person_mention
@@ -594,6 +641,18 @@ candidates:
     scores: []
     personIds:
       - trond-fredriksen
+    matchIds: []
+  - id: person-mention-8f7fe94d4a61580e
+    kind: person_mention
+    page: "50"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
     matchIds: []
   - id: organization-356408f40350d9a8
     kind: organization
@@ -957,3 +1016,33 @@ candidates:
     personIds:
       - trond-fredriksen
     matchIds: []
+resolvedRoles:
+  - id: rolle-dfeadaba40545f42
+    page: "13"
+    column: 0
+    personName: Mjølner. Hva
+    category: coach
+    title: Trener
+    from: "1988"
+    to: null
+    confidence: medium
+    rule: name_then_role
+  - id: rolle-75ad2a7b29939019
+    page: "67"
+    column: 0
+    personName: Color Line Stadion
+    category: administration
+    title: Daglig leder
+    from: "2008"
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-ca89abedbc221db4
+    page: "107"
+    column: 0
+    personName: Vidar Davidsen
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: role_then_name

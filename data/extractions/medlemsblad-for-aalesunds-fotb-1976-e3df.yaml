@@ -8,6 +8,18 @@ pagesProcessed: 8
 pagesFailed: []
 contentHash: sha256:d5ac28efbb4a24bcc0cb2fda004de0ebd49bc5b6d2ce4dbce8f846c1f768e56d
 candidates:
+  - id: person-mention-d858e549bb4d64dc
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
   - id: match-result-22dcfc5e4d443c05
     kind: match_result
     page: "3"
@@ -110,6 +122,30 @@ candidates:
       - 1-1
     personIds: []
     matchIds: []
+  - id: person-mention-35f8701c0a2fba1b
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-75ddb40db181c7b2
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
   - id: organization-f33e2174145fcdc4
     kind: organization
     page: "6"
@@ -177,6 +213,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-d429cb6273620327
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Petter Birkevold
+    years: []
+    scores: []
+    personIds:
+      - petter-birkevold
     matchIds: []
   - id: match-result-1c7109c2679bc42d
     kind: match_result
@@ -258,3 +306,13 @@ candidates:
       - 83-0
     personIds: []
     matchIds: []
+resolvedRoles:
+  - id: rolle-a4d09746d96d2da9
+    page: "4"
+    column: 0
+    personName: Nils Petter
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: low
+    rule: role_then_name

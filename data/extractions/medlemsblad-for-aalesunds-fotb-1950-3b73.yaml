@@ -54,6 +54,18 @@ candidates:
     personIds:
       - rasmus-eck-olsen
     matchIds: []
+  - id: person-mention-9e3275808a83c149
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Kjell Berentzen
+    years: []
+    scores: []
+    personIds:
+      - kjell-berentzen
+    matchIds: []
   - id: match-result-276af4f1a1c80547
     kind: match_result
     page: "4"
@@ -65,7 +77,19 @@ candidates:
       - 5-0
     personIds: []
     matchIds: []
-  - id: person-role-926ec095c99cf12c
+  - id: person-mention-4cdd75c0eb4cae61
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Per Anker Eriksen
+    years: []
+    scores: []
+    personIds:
+      - per-anker-eriksen
+    matchIds: []
+  - id: person-role-aa9a4a5b18981a70
     kind: person_role
     page: "4"
     confidence: medium
@@ -75,7 +99,8 @@ candidates:
       - Per Anker Eriksen
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - per-anker-eriksen
     matchIds: []
   - id: organization-e09ee5d434ec59b4
     kind: organization
@@ -87,6 +112,30 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-6b05f71a460f1b92
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Finn Tollås
+    years: []
+    scores: []
+    personIds:
+      - finn-tollas
+    matchIds: []
+  - id: person-mention-52ecf2293554052d
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Finn Tollås
+    years: []
+    scores: []
+    personIds:
+      - finn-tollas
     matchIds: []
   - id: match-result-70792337b9f579f7
     kind: match_result
@@ -122,6 +171,42 @@ candidates:
       - 0-1
     personIds: []
     matchIds: []
+  - id: person-mention-466a2e8c8b3fee5a
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-571b504e62b4b94f
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Bernt Sulebust
+    years: []
+    scores: []
+    personIds:
+      - bernt-sulebust
+    matchIds: []
+  - id: person-mention-9dc197710b6c39e0
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Eriksen
+    years: []
+    scores: []
+    personIds:
+      - karsten-eriksen
+    matchIds: []
   - id: person-mention-a4868ac9a0149d32
     kind: person_mention
     page: "12"
@@ -133,6 +218,30 @@ candidates:
     scores: []
     personIds:
       - peder-puck
+    matchIds: []
+  - id: person-mention-c8e0444a663ab794
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-dc7021c7a8780b62
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
     matchIds: []
   - id: person-role-3ac9bc26f608d431
     kind: person_role
@@ -160,3 +269,45 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+resolvedRoles:
+  - id: rolle-f50a7729205b9755
+    page: "4"
+    column: 0
+    personName: Per Anker Eriksen
+    personId: per-anker-eriksen
+    category: board
+    title: Formann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-8a90deb83678c3cf
+    page: "12"
+    column: 1
+    personName: Arne Westad
+    category: administration
+    title: Kasserer
+    from: "1950"
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-55de3ece01a550ca
+    page: "12"
+    column: 1
+    personName: Peder Puck
+    personId: peder-puck
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-8bfe99856ac662d0
+    page: "12"
+    column: 1
+    personName: Per Anker Eriksen
+    personId: per-anker-eriksen
+    category: board
+    title: Formann
+    from: "1950"
+    to: null
+    confidence: high
+    rule: role_then_name

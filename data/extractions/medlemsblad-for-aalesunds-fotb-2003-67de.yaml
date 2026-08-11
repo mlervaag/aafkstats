@@ -67,7 +67,31 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-c8748d7f22160296
+  - id: person-mention-a2ea48abb7931057
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-eb69328e8b8e222c
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Jon Ketil Gjørtz
+    years: []
+    scores: []
+    personIds:
+      - jon-ketil-gjortz
+    matchIds: []
+  - id: person-role-21e24561a1a95278
     kind: person_role
     page: "2"
     confidence: medium
@@ -77,7 +101,8 @@ candidates:
       - Jarle Kristoffersen
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - jarle-kristoffersen
     matchIds: []
   - id: person-role-f47e43e7f98a6f2c
     kind: person_role
@@ -209,18 +234,6 @@ candidates:
       - 2-2
     personIds: []
     matchIds: []
-  - id: match-result-272424800cbec276
-    kind: match_result
-    page: "4"
-    confidence: high
-    keywords: []
-    names: []
-    years: []
-    scores:
-      - 1-2
-    personIds: []
-    matchIds:
-      - 2003-09-28-aalesunds-fk-lillestrom
   - id: match-result-33b477fcc0b15e01
     kind: match_result
     page: "4"
@@ -302,19 +315,6 @@ candidates:
       - 0-2
     personIds: []
     matchIds: []
-  - id: match-result-70c3d1ed7bb480da
-    kind: match_result
-    page: "4"
-    confidence: high
-    keywords: []
-    names:
-      - Rosenborg. Og
-    years: []
-    scores:
-      - 0-1
-    personIds: []
-    matchIds:
-      - 2003-05-04-rosenborg-bk-aalesunds-fk
   - id: match-result-7c6cba3f1d6d90ac
     kind: match_result
     page: "4"
@@ -481,6 +481,18 @@ candidates:
       - 1-1
     personIds: []
     matchIds: []
+  - id: match-result-dab93649a15df1cc
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names:
+      - Rosenborg. Og
+    years: []
+    scores:
+      - 0-1
+    personIds: []
+    matchIds: []
   - id: match-result-dddd913b6eb5eaac
     kind: match_result
     page: "4"
@@ -542,3 +554,42 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+resolvedRoles:
+  - id: rolle-ae431018943e5934
+    page: "1"
+    column: 0
+    personName: Ivar Morten Normark
+    personId: ivar-morten-normark
+    category: coach
+    title: Trener
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-e60c0834b9eaeab8
+    page: "2"
+    column: 0
+    personName: Bror Johansen
+    category: board
+    title: Nestformann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-e789c2f086f9786f
+    page: "3"
+    column: 0
+    personName: Ivar Morten Normark
+    personId: ivar-morten-normark
+    category: coach
+    title: Trener
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-241700fe176edc44
+    page: "4"
+    column: 0
+    personName: Henrik Hoff
+    category: administration
+    title: Daglig leder
+    to: null
+    confidence: low
+    rule: role_then_name

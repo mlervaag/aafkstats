@@ -19,17 +19,45 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-351fe110f362c00c
+  - id: person-mention-1e91752e6d61a51e
+    kind: person_mention
+    page: "1"
+    confidence: high
+    keywords: []
+    names:
+      - Arne Aambakk
+    years: []
+    scores: []
+    personIds:
+      - arne-aambakk
+    matchIds: []
+  - id: person-mention-f8f703088124f9ea
+    kind: person_mention
+    page: "1"
+    confidence: medium
+    keywords: []
+    names:
+      - Harald Johansen
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - harald-johansen
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-role-b9fec5b2aa46908a
     kind: person_role
     page: "1"
     confidence: medium
     keywords:
       - leder
     names:
+      - Arne Aambakk
       - AaFKs Leder Arne Aambakk
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - arne-aambakk
     matchIds: []
   - id: lineup-or-squad-251ca056f0bafaa9
     kind: lineup_or_squad
@@ -54,6 +82,18 @@ candidates:
       - 7-2
     personIds: []
     matchIds: []
+  - id: match-result-0423f216df47de8e
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 0-1
+    personIds: []
+    matchIds:
+      - 2004-05-23-raufoss-il-aalesunds-fk
   - id: match-result-1cb99f4bf9877c97
     kind: match_result
     page: "4"
@@ -206,19 +246,6 @@ candidates:
     personIds: []
     matchIds:
       - 2004-05-16-hodd-aalesunds-fk
-  - id: match-result-7ca0bc2236bf885a
-    kind: match_result
-    page: "4"
-    confidence: medium
-    keywords: []
-    names: []
-    years: []
-    scores:
-      - 0-1
-    personIds: []
-    matchIds:
-      - 2004-05-23-raufoss-il-aalesunds-fk
-      - 2004-09-12-aalesunds-fk-raufoss-il
   - id: match-result-83b1ca3c877bd0d2
     kind: match_result
     page: "4"
@@ -430,6 +457,22 @@ candidates:
     personIds: []
     matchIds:
       - 2004-07-18-aalesunds-fk-skeid
+  - id: person-mention-1c1b84e23abdbdac
+    kind: person_mention
+    page: "4"
+    confidence: medium
+    keywords: []
+    names:
+      - Leif Olsen
+      - Ove Hamre
+      - Rolf Muriaas
+    years: []
+    scores: []
+    personIds:
+      - leif-olsen
+      - ove-hamre
+      - rolf-muriaas
+    matchIds: []
   - id: person-mention-1d5c87d90dbd25dc
     kind: person_mention
     page: "4"
@@ -442,6 +485,46 @@ candidates:
     personIds:
       - georg-haller
     matchIds: []
+  - id: person-mention-65d18d56ad5b98ea
+    kind: person_mention
+    page: "4"
+    confidence: medium
+    keywords: []
+    names:
+      - Harald Johansen
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - harald-johansen
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-89742b5dd7ad32ea
+    kind: person_mention
+    page: "4"
+    confidence: medium
+    keywords: []
+    names:
+      - Arne Torvig
+      - Hugo Hamre
+    years: []
+    scores: []
+    personIds:
+      - arne-torvig
+      - hugo-hamre
+    matchIds: []
+  - id: person-mention-9625798b9d773e89
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Arne Aambakk
+    years: []
+    scores: []
+    personIds:
+      - arne-aambakk
+    matchIds: []
   - id: person-mention-9da0812460ecc60f
     kind: person_mention
     page: "4"
@@ -453,6 +536,36 @@ candidates:
     scores: []
     personIds:
       - olaf-ingebrigtsen
+    matchIds: []
+  - id: person-mention-cba43cd8a525777c
+    kind: person_mention
+    page: "4"
+    confidence: medium
+    keywords: []
+    names:
+      - Alf Mogstad
+      - Anders Todal
+    years: []
+    scores: []
+    personIds:
+      - alf-mogstad
+      - anders-todal
+    matchIds: []
+  - id: person-mention-d6aae2df25df4d2a
+    kind: person_mention
+    page: "4"
+    confidence: medium
+    keywords: []
+    names:
+      - Edvard Skugvik
+      - Harald Hagen
+      - Lars Riise-Hansen
+    years: []
+    scores: []
+    personIds:
+      - edvard-skugvik
+      - harald-hagen
+      - lars-riise-hansen
     matchIds: []
   - id: person-role-defee2d6c7edaa88
     kind: person_role
@@ -467,3 +580,4 @@ candidates:
     personIds:
       - olaf-ingebrigtsen
     matchIds: []
+resolvedRoles: []

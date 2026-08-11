@@ -8,6 +8,30 @@ pagesProcessed: 8
 pagesFailed: []
 contentHash: sha256:c71ebeffea3b25f99325fac9080735c3de6d3046b66962c105c8aaaea227dfd4
 candidates:
+  - id: person-mention-85aa72f72a47d59b
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-cb0e4b6a9865d800
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
   - id: organization-62fbb64dc23d4a71
     kind: organization
     page: "3"
@@ -30,6 +54,18 @@ candidates:
     scores: []
     personIds:
       - nils-jangaard
+    matchIds: []
+  - id: person-mention-3075574f8c84c459
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Leif Olsen
+    years: []
+    scores: []
+    personIds:
+      - leif-olsen
     matchIds: []
   - id: match-result-639894efa2afb46d
     kind: match_result
@@ -141,7 +177,67 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-377e0f47df1b066a
+  - id: person-mention-1717e5835dbc9f72
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Ola Hodder
+    years: []
+    scores: []
+    personIds:
+      - ola-hodder
+    matchIds: []
+  - id: person-mention-1e8b18aa759b4a1d
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-445d8bd372845ee8
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Petter Birkevold
+    years: []
+    scores: []
+    personIds:
+      - petter-birkevold
+    matchIds: []
+  - id: person-mention-8fc4537da7f33305
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Vadseth
+    years: []
+    scores: []
+    personIds:
+      - karsten-vadseth
+    matchIds: []
+  - id: person-mention-fbd5184f0684402f
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Lillian Hansen
+    years: []
+    scores: []
+    personIds:
+      - lillian-hansen
+    matchIds: []
+  - id: person-role-8d4984a4fc7a44da
     kind: person_role
     page: "5"
     confidence: medium
@@ -151,9 +247,10 @@ candidates:
       - Lillian Hansen
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - lillian-hansen
     matchIds: []
-  - id: person-role-8e4c2a2f109d543a
+  - id: person-role-a3ff9326c35b6eda
     kind: person_role
     page: "5"
     confidence: medium
@@ -163,7 +260,8 @@ candidates:
       - Ola Hodder
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - ola-hodder
     matchIds: []
   - id: match-result-1aaf11919b94cf7f
     kind: match_result
@@ -256,3 +354,110 @@ candidates:
       - 2-0
     personIds: []
     matchIds: []
+  - id: person-mention-c6ae6b6b0439a4bd
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-74b248886c2fd39c
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Ola Hodder
+    years: []
+    scores: []
+    personIds:
+      - ola-hodder
+    matchIds: []
+resolvedRoles:
+  - id: rolle-5d6335bd98f9ad3a
+    page: "5"
+    column: 0
+    personName: Erik Fladmark
+    category: administration
+    title: Sekretær
+    from: "1971"
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-e6a9458f40278a62
+    page: "5"
+    column: 0
+    personName: Inger Kristoffersen
+    category: board
+    title: Nestformann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-6407fa76928c503e
+    page: "5"
+    column: 0
+    personName: Jarle Kristoffersen
+    personId: jarle-kristoffersen
+    category: board
+    title: Nestformann
+    from: "1971"
+    to: null
+    confidence: high
+    rule: role_then_name
+  - id: rolle-1768f985627250d5
+    page: "5"
+    column: 0
+    personName: Lillian Hansen
+    personId: lillian-hansen
+    category: board
+    title: Formann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-3c06f9f5f5e74933
+    page: "5"
+    column: 0
+    personName: Ola Hodder
+    personId: ola-hodder
+    category: board
+    title: Formann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-8e2be48fc0248e88
+    page: "5"
+    column: 0
+    personName: Ola Hodder
+    personId: ola-hodder
+    category: board
+    title: Formann
+    from: "1971"
+    to: null
+    confidence: high
+    rule: role_then_name
+  - id: rolle-704859131133ab96
+    page: "5"
+    column: 0
+    personName: Petter Birkevold
+    personId: petter-birkevold
+    category: sporting_staff
+    title: Oppmann
+    from: "1971"
+    to: null
+    confidence: high
+    rule: role_then_name
+  - id: rolle-f251a61834d19999
+    page: "5"
+    column: 0
+    personName: Terje Dragsund
+    category: administration
+    title: Kasserer
+    from: "1971"
+    to: null
+    confidence: medium
+    rule: role_then_name

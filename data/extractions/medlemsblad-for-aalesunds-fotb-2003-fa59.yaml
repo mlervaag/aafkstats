@@ -43,6 +43,18 @@ candidates:
     personIds:
       - ivar-morten-normark
     matchIds: []
+  - id: person-mention-ce3007036a0f6ea7
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Arne Aambakk
+    years: []
+    scores: []
+    personIds:
+      - arne-aambakk
+    matchIds: []
   - id: person-role-8b1aafb9ec97200a
     kind: person_role
     page: "2"
@@ -106,3 +118,41 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+resolvedRoles:
+  - id: rolle-7d864c2af5c2f9f8
+    page: "2"
+    column: 1
+    personName: Ivar Morten Normark
+    personId: ivar-morten-normark
+    category: coach
+    title: Trener
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-754f030eafc089b7
+    page: "2"
+    column: 1
+    personName: Reidar Vågnes
+    category: sporting_staff
+    title: Sportslig leder
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-e10f5e1fda40759f
+    page: "3"
+    column: 0
+    personName: Reidar Vågnes
+    category: sporting_staff
+    title: Sportslig leder
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-eedcaf9a0a49555c
+    page: "4"
+    column: 0
+    personName: Erling Ytterland
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: role_then_name

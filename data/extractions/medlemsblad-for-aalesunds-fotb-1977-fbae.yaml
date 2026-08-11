@@ -8,33 +8,105 @@ pagesProcessed: 16
 pagesFailed: []
 contentHash: sha256:78d3e2f759467b52e82f426e7b294565812d9cbb99fd62baea50e34acf6ea4e4
 candidates:
-  - id: person-role-64fe7e77edc1e712
+  - id: person-mention-4825bee32d2b23d0
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-76b5ee8144c281fc
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
+  - id: person-mention-7917e557ffd8fc1c
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-riise
+    matchIds: []
+  - id: person-mention-7ad1e9946254ff1d
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Drabløs
+    years: []
+    scores: []
+    personIds:
+      - bjorn-drablos
+    matchIds: []
+  - id: person-mention-ac3a8139f0a067e9
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Kjell Vestre
+    years: []
+    scores: []
+    personIds:
+      - kjell-vestre
+    matchIds: []
+  - id: person-mention-caa2362dcd2be2d1
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Finn Tollås
+    years: []
+    scores: []
+    personIds:
+      - finn-tollas
+    matchIds: []
+  - id: person-mention-d8aab30f8902721e
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
+  - id: person-role-10dbbcf9652a2200
     kind: person_role
     page: "2"
     confidence: medium
     keywords:
       - formann
     names:
+      - Jan With
       - Anleggskomite. Jan With
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - jan-with
     matchIds: []
-  - id: person-role-8ff2f9e4de2279ca
-    kind: person_role
-    page: "2"
-    confidence: medium
-    keywords:
-      - formann
-      - oppmann
-    names:
-      - Bjørn Drabløs
-      - Kjell Dypvik
-    years: []
-    scores: []
-    personIds: []
-    matchIds: []
-  - id: person-role-c4aad43b96d50d1f
+  - id: person-role-ac5ec5dea322210e
     kind: person_role
     page: "2"
     confidence: medium
@@ -46,7 +118,23 @@ candidates:
       - Kjell Dybvik
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - bjorn-drablos
+    matchIds: []
+  - id: person-role-e5760b2894d4f184
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - formann
+      - oppmann
+    names:
+      - Bjørn Drabløs
+      - Kjell Dypvik
+    years: []
+    scores: []
+    personIds:
+      - bjorn-drablos
     matchIds: []
   - id: person-role-be2c3bed2a86360d
     kind: person_role
@@ -109,6 +197,54 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-95c6cd060f71c48a
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-b9c821dedbd938a4
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
+    matchIds: []
+  - id: person-mention-d960daa610d2ee33
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-edadb6b0c0748ba9
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Drabløs
+    years: []
+    scores: []
+    personIds:
+      - bjorn-drablos
+    matchIds: []
   - id: organization-07494084ca81a48a
     kind: organization
     page: "10"
@@ -119,6 +255,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-13ab668a34334a7e
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
     matchIds: []
   - id: match-result-059b55cbf4ef81ad
     kind: match_result
@@ -252,6 +400,42 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-339c248d28acdbb0
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Ole-Marius Ringdal
+    years: []
+    scores: []
+    personIds:
+      - ole-marius-ringdal
+    matchIds: []
+  - id: person-mention-9fb45be4981eaacc
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
+  - id: person-mention-da84be8f5ccf43a8
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-riise
+    matchIds: []
   - id: person-mention-fddd037063f10c59
     kind: person_mention
     page: "12"
@@ -346,6 +530,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-7219cbc487cb1137
+    kind: person_mention
+    page: "13"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
+    matchIds: []
   - id: person-mention-e13ccf1c00a750e4
     kind: person_mention
     page: "13"
@@ -368,6 +564,30 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-badec15c1c71369c
+    kind: person_mention
+    page: "14"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Drabløs
+    years: []
+    scores: []
+    personIds:
+      - bjorn-drablos
+    matchIds: []
+  - id: person-mention-f3ffbfe4040eaf0d
+    kind: person_mention
+    page: "14"
+    confidence: high
+    keywords: []
+    names:
+      - Terje Refsnes
+    years: []
+    scores: []
+    personIds:
+      - terje-refsnes
     matchIds: []
   - id: person-role-da196b98f63d8d01
     kind: person_role
@@ -403,7 +623,43 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-f94c56cf329a0723
+  - id: person-mention-2c444528f3de1e29
+    kind: person_mention
+    page: "15"
+    confidence: high
+    keywords: []
+    names:
+      - Nils Peter Loe
+    years: []
+    scores: []
+    personIds:
+      - nils-peter-loe
+    matchIds: []
+  - id: person-mention-c062e7e47ff65ec4
+    kind: person_mention
+    page: "15"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Drabløs
+    years: []
+    scores: []
+    personIds:
+      - bjorn-drablos
+    matchIds: []
+  - id: person-mention-d5da8947a861565a
+    kind: person_mention
+    page: "15"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
+    matchIds: []
+  - id: person-role-5e317ae52c19be1f
     kind: person_role
     page: "15"
     confidence: medium
@@ -413,5 +669,35 @@ candidates:
       - Bjørn Drabløs
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - bjorn-drablos
     matchIds: []
+resolvedRoles:
+  - id: rolle-6ff5443c7bd4c908
+    page: "2"
+    column: 0
+    personName: Bjørn Drabløs
+    personId: bjorn-drablos
+    category: board
+    title: Formann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-0c443118a97121df
+    page: "2"
+    column: 0
+    personName: Kjell Dybvik
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-b89f0b1bba21b707
+    page: "2"
+    column: 0
+    personName: Kjell Dypvik
+    category: board
+    title: Formann
+    to: null
+    confidence: low
+    rule: role_then_name

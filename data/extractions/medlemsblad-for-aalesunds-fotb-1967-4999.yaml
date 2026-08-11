@@ -30,6 +30,42 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-2f66b8f98fa5801d
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-32838a00d27c8165
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Paul Urke
+    years: []
+    scores: []
+    personIds:
+      - paul-urke
+    matchIds: []
+  - id: person-mention-6a82d042daa851af
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
   - id: organization-d6345ce0c078bc24
     kind: organization
     page: "8"
@@ -41,6 +77,54 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-dc354c04df2a0245
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-36a01efe6a3e85c6
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-377846031541327e
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
+  - id: person-mention-bf036fe6ff234c24
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Bernt Sulebust
+    years: []
+    scores: []
+    personIds:
+      - bernt-sulebust
+    matchIds: []
   - id: organization-aac14af92f31e7bd
     kind: organization
     page: "10"
@@ -51,6 +135,30 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-de41eff9046d23b1
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-e7e2caa3cd72369e
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Erling Bjørge
+    years: []
+    scores: []
+    personIds:
+      - erling-bjorge
     matchIds: []
   - id: person-mention-62e42af0eba37162
     kind: person_mention
@@ -64,3 +172,16 @@ candidates:
     personIds:
       - knut-gaaseide
     matchIds: []
+  - id: person-mention-055acdf9296f65a7
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Hans J. Henriksen
+    years: []
+    scores: []
+    personIds:
+      - hans-j-henriksen
+    matchIds: []
+resolvedRoles: []

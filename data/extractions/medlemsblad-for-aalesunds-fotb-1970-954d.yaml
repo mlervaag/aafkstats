@@ -8,6 +8,18 @@ pagesProcessed: 8
 pagesFailed: []
 contentHash: sha256:dd49470c6884164eb6ad18527a331940d6ab7f8642ddbe81949c69ab6bf99da2
 candidates:
+  - id: person-mention-46fb8f309efd00b6
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
   - id: match-result-3607e761dce2fe64
     kind: match_result
     page: "3"
@@ -77,6 +89,30 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-4a8edce3e6751234
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-77945362e9da1129
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
   - id: organization-00ea3867baf338d0
     kind: organization
     page: "5"
@@ -87,6 +123,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-6234cc1308c47727
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Ola Hodder
+    years: []
+    scores: []
+    personIds:
+      - ola-hodder
     matchIds: []
   - id: match-result-472dca5872a14c98
     kind: match_result
@@ -121,3 +169,40 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-aefad1bbbf34e6f1
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-75183d1a0f240ae5
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Ola Hodder
+    years: []
+    scores: []
+    personIds:
+      - ola-hodder
+    matchIds: []
+  - id: person-mention-d6275430f3d678b9
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Hans J. Henriksen
+    years: []
+    scores: []
+    personIds:
+      - hans-j-henriksen
+    matchIds: []
+resolvedRoles: []

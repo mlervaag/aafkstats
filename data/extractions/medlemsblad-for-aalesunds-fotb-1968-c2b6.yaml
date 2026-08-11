@@ -132,6 +132,42 @@ candidates:
       - 4-1
     personIds: []
     matchIds: []
+  - id: person-mention-2f7921de620bd6e7
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Ole-Marius Ringdal
+    years: []
+    scores: []
+    personIds:
+      - ole-marius-ringdal
+    matchIds: []
+  - id: person-mention-84d5e16b250a8965
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+    matchIds: []
+  - id: person-mention-1f5fa40a3c1ab3c7
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Kjell Berentzen
+    years: []
+    scores: []
+    personIds:
+      - kjell-berentzen
+    matchIds: []
   - id: organization-0889797ab41c67c2
     kind: organization
     page: "5"
@@ -198,6 +234,54 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-39db8a945ce5b8be
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Harald Johansen
+    years: []
+    scores: []
+    personIds:
+      - harald-johansen
+    matchIds: []
+  - id: person-mention-6fb39ef1e0adb210
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Erling Bjørge
+    years: []
+    scores: []
+    personIds:
+      - erling-bjorge
+    matchIds: []
+  - id: person-mention-c3968861d382a14a
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-f5f3faab24bb0067
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
   - id: organization-1eae9307619be448
     kind: organization
     page: "8"
@@ -242,6 +326,18 @@ candidates:
       - 5-1
     personIds: []
     matchIds: []
+  - id: person-mention-577700ab61b83a72
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Bernt Sulebust
+    years: []
+    scores: []
+    personIds:
+      - bernt-sulebust
+    matchIds: []
   - id: match-result-ac6b05ed27f397bc
     kind: match_result
     page: "10"
@@ -252,6 +348,30 @@ candidates:
     scores:
       - 2-0
     personIds: []
+    matchIds: []
+  - id: person-mention-16dbdfccbe7a635c
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-f1f5d28ba089d739
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
     matchIds: []
   - id: person-mention-ee9d7363a24cb090
     kind: person_mention
@@ -265,3 +385,64 @@ candidates:
     personIds:
       - knut-gaaseide
     matchIds: []
+resolvedRoles:
+  - id: rolle-84e6aee9fd6335b7
+    page: "2"
+    column: 0
+    personName: Kristoffersen Thorsen
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-04f989cdfc1c972f
+    page: "5"
+    column: 1
+    personName: Erling Bjørge
+    personId: erling-bjorge
+    category: board
+    title: Formann
+    from: "1968"
+    to: null
+    confidence: high
+    rule: role_then_name
+  - id: rolle-e2f6726aa8854840
+    page: "5"
+    column: 1
+    personName: Harald Johansen
+    personId: harald-johansen
+    category: administration
+    title: Sekretær
+    from: "1968"
+    to: null
+    confidence: high
+    rule: role_then_name
+  - id: rolle-ba4f64ba1e88c190
+    page: "5"
+    column: 1
+    personName: Jarle Kristoffersen
+    personId: jarle-kristoffersen
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-bcae019ee72d1cdf
+    page: "5"
+    column: 1
+    personName: Kjell Luthentun
+    category: administration
+    title: Kasserer
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-c5850b5b3c29fd12
+    page: "5"
+    column: 1
+    personName: Rolf Kvissel
+    category: board
+    title: Nestformann
+    from: "1968"
+    to: null
+    confidence: medium
+    rule: role_then_name

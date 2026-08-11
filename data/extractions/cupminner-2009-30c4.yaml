@@ -6,7 +6,7 @@ ocrAccess: alto
 pagesExpected: 32
 pagesProcessed: 32
 pagesFailed: []
-contentHash: sha256:e5b05742f197a32af1df9fc1c614d996d123618b0fb46bd2aef1e462b3dd29e5
+contentHash: sha256:7154c624bcacbfdccae0f2bf10de15657dc1721ad8fb2eadd48a90d84656d730
 candidates:
   - id: person-mention-6c4449acdb84d8e6
     kind: person_mention
@@ -345,3 +345,51 @@ candidates:
     personIds:
       - trond-fredriksen
     matchIds: []
+resolvedRoles:
+  - id: rolle-a84b2d23c35da2c5
+    page: "7"
+    column: 0
+    personName: Kjetil Rekdal
+    personId: kjetil-rekdal
+    category: coach
+    title: Trener
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-d0d77d0684ae4e88
+    page: "8"
+    column: 0
+    personName: Ivar Morten Normark
+    personId: ivar-morten-normark
+    category: coach
+    title: Trener
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-5144ae022af1ab14
+    page: "20"
+    column: 1
+    personName: Kjetil Rekdal. Jonathan Parr
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-f5011177424f1b11
+    page: "21"
+    column: 0
+    personName: Kjell Jonevret
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-5036588dd8fb41e1
+    page: "22"
+    column: 1
+    personName: Toril Hole Standal
+    category: board
+    title: Styreleder
+    to: null
+    confidence: low
+    rule: role_then_name
