@@ -287,6 +287,15 @@ candidates:
     personIds: []
     matchIds: []
 resolvedRoles:
+  - id: rolle-82701e5aeb99021b
+    page: "1"
+    column: 0
+    personName: Reidar Vågnes
+    category: coach
+    title: Hovedtrener
+    to: null
+    confidence: low
+    rule: role_then_name
   - id: rolle-8681e26f32a926a2
     page: "2"
     column: 0
