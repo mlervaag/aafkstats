@@ -49,8 +49,8 @@ interface SearchPerson {
 const SUGGESTIONS = [
   "Hva er den eldste kampen i arkivet?",
   "Hvilken motstander har vi tapt flest ganger mot?",
-  "Hvordan har vi gjort det i cupen gjennom årene?",
-  "Hvilken sesong hadde vi best målforskjell?",
+  "Hvem var formann i 1961?",
+  "Hvilke trenere er registrert på 1960-tallet?",
 ];
 
 type AskSource = "form" | "suggestion" | "followup";
