@@ -95,8 +95,11 @@ for (const person of archive.people) {
 function handover(people: Person[], title: string, year: number): boolean {
   const spans = people.map((person) => person.roles
     .filter((role) => office(role.title) === title && SINGULAR.has(role.category) && clubWide(role.body))
-    .map((role) => [Number(role.from.slice(0, 4)), role.to ? Number(role.to.slice(0, 4)) : Number(role.from.slice(0, 4))] as const)
-    .find(([from, to]) => from <= year && year <= to));
+    // `to: null` betyr at kilden ikke oppgir noen slutt. Perioden dekker året
+    // den begynte, men den *slutter* ikke der — og en periode som fortsatt
+    // løper er den ene av de to i et skifte, ikke begge.
+    .map((role) => [Number(role.from.slice(0, 4)), role.to ? Number(role.to.slice(0, 4)) : null] as const)
+    .find(([from, to]) => from <= year && year <= (to ?? from)));
   if (spans.some((found) => found === undefined)) return false;
   const ends = spans.filter((found) => found![1] === year).length;
   const starts = spans.filter((found) => found![0] === year).length;

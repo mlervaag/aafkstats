@@ -12,6 +12,19 @@ export const metadata: Metadata = {
   description: "Kildeført oversikt over styrer, ledere, administrasjon og hedersroller i Aalesunds Fotballklubb.",
 };
 
+/**
+ * Er tittelen klubbens øverste verv?
+ *
+ * Ordet har skiftet: kildene fra 1914 og framover sier «Formann», klubbens egne
+ * sider i dag sier «Styreleder», og bøkene bruker begge om hverandre — Asbjørn
+ * Korsnes står som styreleder i 1979 og Peder Puck like ens. Lista het «Formenn»
+ * og spurte etter det ene ordet, så de tre falt ut av klubbens egen lederrekke.
+ */
+function isChair(title: string): boolean {
+  const value = title.toLowerCase();
+  return value === "formann" || value === "styreleder";
+}
+
 const MONTHS = ["januar", "februar", "mars", "april", "mai", "juni", "juli", "august", "september", "oktober", "november", "desember"];
 
 /**
@@ -35,7 +48,10 @@ function day(value: string): string {
 /** Den eksakte perioden, når kilden oppgir en dag og ikke bare et år. */
 function exact(role: PersonRole): string | undefined {
   if (role.from_date.length === 4 && (role.to_date ?? "").length <= 4) return undefined;
-  return role.to_date ? `${day(role.from_date)} – ${day(role.to_date)}` : day(role.from_date);
+  // Stiftelsesdagen er én dag, ikke en periode: «25. juni 1914», ikke
+  // «25. juni 1914 – 25. juni 1914».
+  if (!role.to_date || role.to_date === role.from_date) return day(role.from_date);
+  return `${day(role.from_date)} – ${day(role.to_date)}`;
 }
 
 /**
@@ -74,7 +90,7 @@ export default function OrganizationPage() {
   // roller, ikke rader på skjermen — det er arkivets størrelse, ikke sidas.
   const roles = mergeRoleSpells(registered);
   const sourceTitles = getSourceTitles();
-  const chairs = roles.filter((role) => role.category === "board" && role.title === "Formann");
+  const chairs = roles.filter((role) => role.category === "board" && isChair(role.title));
   const administration = roles.filter((role) => ["administration", "sporting_staff", "project"].includes(role.category));
   const sporting = roles.filter((role) => ["coach", "sporting_staff"].includes(role.category));
   const honorary = roles.filter((role) => role.category === "honorary");
