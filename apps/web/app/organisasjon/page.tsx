@@ -4,6 +4,7 @@ import { getPersonRoles, getSourceTitles, type PersonRole } from "@/lib/people";
 import { ArchiveTabs } from "@/components/ArchiveTabs";
 import { SectionIndex } from "@/components/SectionIndex";
 import { SourceChips } from "@/components/SourceChips";
+import { contributionIssueUrl } from "@/lib/contribution-links";
 import styles from "./Organization.module.css";
 
 export const metadata: Metadata = {
@@ -139,6 +140,9 @@ export default function OrganizationPage() {
           Roller og årstall lagres som fakta med kilde, mens den opprinnelige brødteksten
           blir hos utgiveren. Uenige perioder beholdes som kildeavvik.
         </p>
+        <a className="button-link" href={contributionIssueUrl("datafeil", "Organisasjon")}>
+          Meld feil eller manglende verv
+        </a>
       </aside>
     </article>
   );

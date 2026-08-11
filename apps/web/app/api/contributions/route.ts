@@ -21,7 +21,7 @@ import { isCrossSite, isJsonRequest, readBodyLimited } from "@/lib/chat-request"
 const MAX_BODY_BYTES = 16 * 1024;
 
 /**
- * Kamp- og sesong-ID-er har en kjent form. Fritekst her ender som tittel på en
+ * Kamp-, sesong- og person-ID-er har en kjent form. Fritekst her ender som tittel på en
  * sak i innboksen, og en ID på 100 vilkårlige tegn er ikke en ID.
  */
 const targetId = z
@@ -52,7 +52,7 @@ const sourceUrl = z
   .optional();
 
 const contributionSchema = z.object({
-  scope: z.enum(["match", "season"]),
+  scope: z.enum(["match", "season", "person"]),
   targetId,
   pageUrl,
   text: z.string().min(1, "Tekstfeltet kan ikke være tomt.").max(2000, "Teksten er for lang."),
@@ -160,7 +160,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Systemfeil: Kunne ikke koble til innboks." }, { status: 500 });
     }
 
-    const scopeLabel = data.scope === "match" ? "Kamp" : "Sesong";
+    const scopeLabel = { match: "Kamp", season: "Sesong", person: "Person" }[data.scope];
     const title = `Observasjon: ${scopeLabel} ${data.targetId}`;
 
     const contributor = data.contributor?.trim() ? oneLine(data.contributor) : "Anonym";

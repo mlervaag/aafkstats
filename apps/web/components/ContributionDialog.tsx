@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { contributionIssueUrl } from "@/lib/contribution-links";
 
-export type ContributionScope = "match" | "season";
+export type ContributionScope = "match" | "season" | "person";
 
 export interface ContributionDialogProps {
   isOpen: boolean;
@@ -71,16 +71,22 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
     }
   };
 
-  const otherRoutes = scope === "match"
+  const otherRoutes = scope === "season"
     ? [
+        { label: "Meld en kamp som mangler", href: contributionIssueUrl("manglende-kamp", title) },
+        { label: "Meld en feil", href: contributionIssueUrl("datafeil", title) },
+        { label: "Tips om en kilde", href: contributionIssueUrl("ny-arkivkilde", title) },
+      ]
+    : scope === "match" ? [
         { label: "Meld en feil", href: contributionIssueUrl("datafeil", title) },
         { label: "Legg til kilde eller kampdetaljer", href: contributionIssueUrl("ny-kilde", title) },
       ]
     : [
-        { label: "Meld en kamp som mangler", href: contributionIssueUrl("manglende-kamp", title) },
         { label: "Meld en feil", href: contributionIssueUrl("datafeil", title) },
-        { label: "Legg til kilde eller kampdetaljer", href: contributionIssueUrl("ny-kilde", title) },
+        { label: "Tips om en kilde", href: contributionIssueUrl("ny-arkivkilde", title) },
       ];
+
+  const isPerson = scope === "person";
 
   return (
     <dialog 
@@ -94,7 +100,7 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
     >
       <div className="contribution-content">
         <div className="contribution-header">
-          <h2 id="contribution-title">Del et minne</h2>
+          <h2 id="contribution-title">{isPerson ? "Bidra om en person" : "Del et minne"}</h2>
           <button type="button" className="close-button" onClick={onClose} aria-label="Lukk">×</button>
         </div>
 
@@ -114,7 +120,9 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
             </p>
 
             <p className="contribution-explainer">
-              Skriv det du husker. Du trenger ikke kilde eller GitHub-konto.
+              {isPerson
+                ? "Del et minne eller en observasjon om personens tilknytning til AaFK. Du trenger ikke kilde eller GitHub-konto."
+                : "Skriv det du husker. Du trenger ikke kilde eller GitHub-konto."}
             </p>
 
             <nav className="contribution-route-links" aria-label="Andre typer bidrag">
@@ -129,7 +137,7 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
 
             <div className="form-group">
               <label htmlFor="text-field">
-                Hva husker du? <span className="req">*</span>
+                Hva vil du fortelle? <span className="req">*</span>
               </label>
               <textarea
                 id="text-field"
@@ -137,7 +145,9 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
                 rows={4}
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                placeholder="For eksempel: «Dette var kampen der ...»"
+                placeholder={isPerson
+                  ? "For eksempel: «Han var lagleder for juniorlaget dette året …»"
+                  : "For eksempel: «Dette var kampen der …»"}
                 maxLength={2000}
                 disabled={status === "loading"}
               />
@@ -161,6 +171,13 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
                 avisutklipp — beskriv den i feltet over.
               </p>
             </div>
+
+            {isPerson ? (
+              <p className="small muted form-help">
+                Ikke send private kontaktopplysninger eller sensitive personopplysninger.
+                Hold innspillet til personens rolle, arbeid eller historie i AaFK.
+              </p>
+            ) : null}
 
             <div className="form-group">
               <label htmlFor="name-field">Navn eller alias (valgfritt)</label>

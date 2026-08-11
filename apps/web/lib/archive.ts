@@ -839,7 +839,7 @@ export function loadSeasonCoaches(season: number): CoachSpell[] {
 
 export interface ArchiveContribution {
   id: string;
-  scope: "match" | "season";
+  scope: "match" | "season" | "person";
   targetId: string;
   category: "memory" | "context" | "trivia" | "event_detail";
   text: string;
@@ -849,8 +849,8 @@ export interface ArchiveContribution {
   sourceUrl: string | null;
 }
 
-/** Henter bidrag for en kamp eller sesong. */
-export function loadContributions(targetId: string, scope: "match" | "season"): ArchiveContribution[] {
+/** Henter bidrag for en kamp, sesong eller person. */
+export function loadContributions(targetId: string, scope: ArchiveContribution["scope"]): ArchiveContribution[] {
   const db = open();
   try {
     return all<{
@@ -864,7 +864,7 @@ export function loadContributions(targetId: string, scope: "match" | "season"): 
       targetId, scope,
     ).map((row) => ({
       id: row.id,
-      scope: row.scope as "match" | "season",
+      scope: row.scope as ArchiveContribution["scope"],
       targetId: row.target_id,
       category: row.category as ArchiveContribution["category"],
       text: row.text,

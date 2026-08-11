@@ -70,7 +70,7 @@ sender et konkret nytt spørsmål med høyst tre tidligere runder, mens Nei avsl
 Verktøyene og systemprompten kommer fra [`@aafkstats/query`](../../packages/query/README.md);
 grensene rundt SQL-en fra [`@aafkstats/db`](../../packages/db/README.md#guardrailen).
 
-**`/api/contributions`** tar bare imot minner og observasjoner fra kamp- og sesongsidene.
+**`/api/contributions`** tar bare imot minner og observasjoner fra kamp-, sesong- og personsidene.
 De kan sendes uten konto og blir saker i en separat GitHub-innboks. Datafeil, manglende
 kamper, kampdetaljer og kildetips går ikke gjennom denne ruten; brukergrensesnittet sender
 dem til hver sin issue-mal i hovedrepoet, der riktig kontekst og kontrollspørsmål følger med.
@@ -145,8 +145,8 @@ ble skrevet fra hukommelsen, og seks av formene var gale på en måte en lokal l
 med en gang.
 
 **Bidragssiden gir bort formatet.** `/bidra` inneholder ferdige prompts man kan lime inn i sin
-egen modell, slik at den som vet noe om en gammel kamp slipper å lære seg YAML-strukturen,
-slug-reglene og PR-flyten først. Modellen gjør formatet, mennesket står for kildene.
+egen modell, slik at den som vet noe om en gammel kamp eller personrolle slipper å lære seg
+YAML-strukturen, slug-reglene og PR-flyten først. Modellen gjør formatet, mennesket står for kildene.
 
 **Rettighetsstatusen vises offentlig.** `/om` rendrer `sources`-viewet med
 `automatedAccess`, `publicRedistribution` og `permissionStatus` slik de står i dataene. Et

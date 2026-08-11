@@ -652,8 +652,8 @@ sourceUrl: https://...
 | Felt | Merknad |
 |---|---|
 | `id` | Unik ID for bidraget. Hvis det kom via en GitHub issue, gjerne `gh-<nummer>`. |
-| `scope` | `match` eller `season`. Hva bidraget gjelder. |
-| `targetId` | Kampens ID eller sesongår (f.eks. `2024` for season scope). |
+| `scope` | `match`, `season` eller `person`. Hva bidraget gjelder. |
+| `targetId` | Kamp-ID, sesongår (f.eks. `2024`) eller person-ID. |
 | `category` | `memory`, `context`, `trivia` eller `event_detail`. |
 | `text` | Selve bidraget. Kan være et direkte sitat. |
 | `contributor` | Navn på innsender, eller `null` for anonym. |
