@@ -6,7 +6,7 @@ ocrAccess: search_only
 pagesExpected: 119
 pagesProcessed: 0
 pagesFailed: []
-contentHash: sha256:12b11aefa04b7b3605c39055c69e4a2e860f0a7d7459474fa51568bfc573097a
+contentHash: sha256:9903c30910b68dc2521a5bad00e8b389e2c3f2fa0f393af2fde27ce00bf317dd
 candidates:
   - id: person-mention-eac63a26b6813c97
     kind: person_mention
@@ -470,10 +470,23 @@ candidates:
     personIds:
       - rasmus-eck-olsen
     matchIds: []
-  - id: person-role-ab52d45ac87a76e5
+  - id: person-mention-3a96c97fb993ad4a
+    kind: person_mention
+    page: "27"
+    confidence: high
+    keywords: []
+    names:
+      - Ole Jangaard
+    years:
+      - 1925
+    scores: []
+    personIds:
+      - ole-jangaard
+    matchIds: []
+  - id: person-role-d4be2ccd52467b1d
     kind: person_role
     page: "27"
-    confidence: medium
+    confidence: high
     keywords:
       - formann
     names:
@@ -483,7 +496,8 @@ candidates:
     years:
       - 1925
     scores: []
-    personIds: []
+    personIds:
+      - ole-jangaard
     matchIds: []
   - id: person-mention-80c27423fcddd08b
     kind: person_mention
@@ -646,6 +660,31 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-640bfc50af7ff5ea
+    kind: person_mention
+    page: "53"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years:
+      - 1926
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
+  - id: person-mention-02766cd10e799f9d
+    kind: person_mention
+    page: "54"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
   - id: match-result-29379165bc73a9a5
     kind: match_result
     page: "58"
@@ -695,33 +734,37 @@ candidates:
     personIds:
       - emil-sando
     matchIds: []
-  - id: person-mention-970587a0073aa9e2
+  - id: person-mention-7ca60275639077d1
+    kind: person_mention
+    page: "69"
+    confidence: medium
+    keywords: []
+    names:
+      - Ole Jangaard
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - ole-jangaard
+      - peder-puck
+    matchIds: []
+  - id: person-mention-b4e3eb5c4e79edc8
     kind: person_mention
     page: "69"
     confidence: medium
     keywords: []
     names:
       - Nils Jangaard
+      - Ole Jangaard
       - Rasmus Eck Olsen
       - Sverre Volstad
     years: []
     scores: []
     personIds:
       - nils-jangaard
+      - ole-jangaard
       - rasmus-eck-olsen
       - sverre-volstad
-    matchIds: []
-  - id: person-mention-ffa6d6ff6ceb5f73
-    kind: person_mention
-    page: "69"
-    confidence: high
-    keywords: []
-    names:
-      - Peder Puck
-    years: []
-    scores: []
-    personIds:
-      - peder-puck
     matchIds: []
   - id: person-role-26c6d0f8bc04e77b
     kind: person_role
@@ -740,20 +783,6 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-51d7a67710c9db73
-    kind: person_role
-    page: "69"
-    confidence: medium
-    keywords:
-      - formann
-    names:
-      - Peder Puck
-      - Ole Jangaard
-    years: []
-    scores: []
-    personIds:
-      - peder-puck
-    matchIds: []
   - id: person-role-6c3d5233a23c88f2
     kind: person_role
     page: "69"
@@ -767,7 +796,7 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-bbd34fe39c6a85ce
+  - id: person-role-c64f9bcb7f8a3680
     kind: person_role
     page: "69"
     confidence: medium
@@ -775,18 +804,34 @@ candidates:
       - formann
     names:
       - Nils Jangaard
+      - Ole Jangaard
       - Rasmus Eck Olsen
       - Sverre Volstad
       - Sunnmøre Fotballkrets
-      - Ole Jangaard
       - R. Eck Olsen
       - R. Huseby. Men
     years: []
     scores: []
     personIds:
       - nils-jangaard
+      - ole-jangaard
       - rasmus-eck-olsen
       - sverre-volstad
+    matchIds: []
+  - id: person-role-caa6a25226481346
+    kind: person_role
+    page: "69"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Ole Jangaard
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - ole-jangaard
+      - peder-puck
     matchIds: []
   - id: person-role-8af7907569585dbe
     kind: person_role
@@ -826,6 +871,18 @@ candidates:
       - 3-0
     personIds: []
     matchIds: []
+  - id: person-mention-00a2bfe149bc368e
+    kind: person_mention
+    page: "79"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
   - id: person-role-6fff8c5e61bf98aa
     kind: person_role
     page: "86"
@@ -852,3 +909,4 @@ candidates:
       - 30-14
     personIds: []
     matchIds: []
+resolvedRoles: []

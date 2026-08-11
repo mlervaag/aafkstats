@@ -41,6 +41,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-f8e5dea84581dfd7
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+    matchIds: []
   - id: organization-2ce392062f1ce137
     kind: organization
     page: "6"
@@ -51,6 +63,54 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-b518b8ea3c814d0d
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Finn Tollås
+    years: []
+    scores: []
+    personIds:
+      - finn-tollas
+    matchIds: []
+  - id: person-mention-211805a5e533e2b0
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-6986cbb49c10db95
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-f9eeb5977df89843
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Paul Urke
+    years: []
+    scores: []
+    personIds:
+      - paul-urke
     matchIds: []
   - id: organization-c51a7138e0e71c4b
     kind: organization
@@ -63,3 +123,37 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-a00f32dd8e0b0d2e
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
+  - id: person-mention-69af019943751ebf
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Hans J. Henriksen
+    years: []
+    scores: []
+    personIds:
+      - hans-j-henriksen
+    matchIds: []
+resolvedRoles:
+  - id: rolle-089ed32285a7fb36
+    page: "6"
+    column: 0
+    personName: Hans J. Jeg
+    category: board
+    title: Formann
+    to: null
+    confidence: low
+    rule: role_then_name

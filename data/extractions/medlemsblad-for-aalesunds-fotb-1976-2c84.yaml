@@ -8,6 +8,18 @@ pagesProcessed: 8
 pagesFailed: []
 contentHash: sha256:2a441d264b4a70f739e2aa0a5ac2adcc4e5131402f6f877d6278ad8a4413832a
 candidates:
+  - id: person-mention-f86f67cdbfb4c21d
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
   - id: person-role-23e397280950d55e
     kind: person_role
     page: "2"
@@ -179,7 +191,68 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-5d27fdfd908b9435
+  - id: person-mention-70bf5fa83e147fb2
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-915bb837b72c855a
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Drabløs
+    years: []
+    scores: []
+    personIds:
+      - bjorn-drablos
+    matchIds: []
+  - id: person-mention-bbe9955a6945466d
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-eb8df4dfea22f85f
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Lillian Hansen
+    years: []
+    scores: []
+    personIds:
+      - lillian-hansen
+    matchIds: []
+  - id: person-role-811f43a5697be097
+    kind: person_role
+    page: "5"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Bjørn Drabløs
+    years: []
+    scores: []
+    personIds:
+      - bjorn-drablos
+    matchIds: []
+  - id: person-role-839d8428a7204706
     kind: person_role
     page: "5"
     confidence: medium
@@ -190,19 +263,8 @@ candidates:
       - Jan Larsen
     years: []
     scores: []
-    personIds: []
-    matchIds: []
-  - id: person-role-765be2db08a4d299
-    kind: person_role
-    page: "5"
-    confidence: medium
-    keywords:
-      - formann
-    names:
-      - Bjørn Drabløs
-    years: []
-    scores: []
-    personIds: []
+    personIds:
+      - lillian-hansen
     matchIds: []
   - id: organization-6fa5b54abf378c2f
     kind: organization
@@ -214,6 +276,30 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-2414a3b48b5793c9
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Drabløs
+    years: []
+    scores: []
+    personIds:
+      - bjorn-drablos
+    matchIds: []
+  - id: person-mention-9b63f94d0c030538
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Terje Refsnes
+    years: []
+    scores: []
+    personIds:
+      - terje-refsnes
     matchIds: []
   - id: person-role-5d92a927b25a0ed1
     kind: person_role
@@ -239,6 +325,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-14e18e66f132ebd1
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Petter Birkevold
+    years: []
+    scores: []
+    personIds:
+      - petter-birkevold
+    matchIds: []
   - id: organization-55983351ae4d606d
     kind: organization
     page: "8"
@@ -260,6 +358,30 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-271a166ab8896653
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-4507500abf4e3588
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Lillian Hansen
+    years: []
+    scores: []
+    personIds:
+      - lillian-hansen
     matchIds: []
   - id: person-role-399c4f5f4644ad4b
     kind: person_role
@@ -298,3 +420,60 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+resolvedRoles:
+  - id: rolle-1bd14d3cc9dffd60
+    page: "3"
+    column: 0
+    personName: Bjorn Eidskrem
+    category: board
+    title: Nestformann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-688f38c7ef32dad1
+    page: "4"
+    column: 0
+    personName: PRI N R
+    category: administration
+    title: Sekretær
+    from: "1915"
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-3e7847cafd039888
+    page: "5"
+    column: 0
+    personName: Bjørn Drabløs
+    personId: bjorn-drablos
+    category: board
+    title: Formann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-b173c01c48d22bef
+    page: "8"
+    column: 0
+    personName: Berit Ringi Klubbhusets
+    category: administration
+    title: Sekretær
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-7ea0446da47161d2
+    page: "8"
+    column: 0
+    personName: Dorti Lyshagen
+    category: administration
+    title: Kasserer
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-686487444c1caaae
+    page: "8"
+    column: 0
+    personName: Ole E
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: low
+    rule: role_then_name

@@ -6,7 +6,7 @@ ocrAccess: search_only
 pagesExpected: 20
 pagesProcessed: 0
 pagesFailed: []
-contentHash: sha256:87d4427cab7de2bcd986cef1ca95c5eaf72b50df294a45ab4a8022a5a9bbbfb2
+contentHash: sha256:ed0c3338d6c83d9c0aee11a594cc4864f2f7b00438a033da8d8f963926273d1c
 candidates:
   - id: organization-6849d5a2407749c9
     kind: organization
@@ -78,6 +78,20 @@ candidates:
     personIds:
       - nils-jangaard
     matchIds: []
+  - id: person-mention-e13a44f20430d5f1
+    kind: person_mention
+    page: "2"
+    confidence: medium
+    keywords: []
+    names:
+      - Ole Jangaard
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - ole-jangaard
+      - per-mogstad
+    matchIds: []
   - id: person-role-05b58bb0c20c0de2
     kind: person_role
     page: "2"
@@ -115,7 +129,7 @@ candidates:
     personIds:
       - nils-jangaard
     matchIds: []
-  - id: person-role-68283c77e7ac771a
+  - id: person-role-b03bacfa55d0405f
     kind: person_role
     page: "2"
     confidence: medium
@@ -126,7 +140,9 @@ candidates:
       - Per Mogstad
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - ole-jangaard
+      - per-mogstad
     matchIds: []
   - id: person-role-e1e29534a9a134f3
     kind: person_role
@@ -212,6 +228,33 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-4bac8c47a90e28ba
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
+  - id: person-mention-75837e6b6d445878
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years:
+      - 1927
+      - 1925
+      - 1930
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
   - id: person-mention-df2b929959cf87c9
     kind: person_mention
     page: "3"
@@ -229,24 +272,7 @@ candidates:
     personIds:
       - peder-puck
     matchIds: []
-  - id: person-role-2774fe7f3b87e18e
-    kind: person_role
-    page: "3"
-    confidence: medium
-    keywords:
-      - leder
-      - oppmann
-    names:
-      - Andreas B. Ringdal
-      - Per Mogstad
-    years:
-      - 1927
-      - 1925
-      - 1930
-    scores: []
-    personIds: []
-    matchIds: []
-  - id: person-role-2cd8c841e83dc2a4
+  - id: person-role-4feb1c36b12cfacd
     kind: person_role
     page: "3"
     confidence: medium
@@ -256,7 +282,8 @@ candidates:
       - Per Mogstad
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - per-mogstad
     matchIds: []
   - id: person-role-63c563fa771f050d
     kind: person_role
@@ -291,6 +318,24 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-role-93f7027fbb8de43f
+    kind: person_role
+    page: "3"
+    confidence: high
+    keywords:
+      - leder
+      - oppmann
+    names:
+      - Per Mogstad
+      - Andreas B. Ringdal
+    years:
+      - 1927
+      - 1925
+      - 1930
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
   - id: person-role-e4a62b4b6a8fba4e
     kind: person_role
     page: "3"
@@ -318,36 +363,42 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-mention-e6d3cec5a8a8324e
+  - id: person-mention-e110a38be484f956
     kind: person_mention
     page: "4"
     confidence: medium
     keywords: []
     names:
+      - Karsten Eriksen
       - Peder Puck
+      - Sigurd Nørve
       - Sverre Volstad
     years: []
     scores: []
     personIds:
+      - karsten-eriksen
       - peder-puck
+      - sigurd-norve
       - sverre-volstad
     matchIds: []
-  - id: person-role-bdc24ce0cca53692
+  - id: person-role-e2cb44bff9c00cc6
     kind: person_role
     page: "4"
     confidence: medium
     keywords:
       - oppmann
     names:
-      - Peder Puck
-      - Sverre Volstad
-      - Sigurd Nørve
       - Karsten Eriksen
+      - Peder Puck
+      - Sigurd Nørve
+      - Sverre Volstad
       - Sverre Volstad. Haagensen
     years: []
     scores: []
     personIds:
+      - karsten-eriksen
       - peder-puck
+      - sigurd-norve
       - sverre-volstad
     matchIds: []
   - id: organization-0c1bbbd03b333484
@@ -373,6 +424,34 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-39c47ee1957369e9
+    kind: person_mention
+    page: "7"
+    confidence: medium
+    keywords: []
+    names:
+      - Karsten Eriksen
+      - Øivind Haagensen
+      - Sigurd Nørve
+    years: []
+    scores: []
+    personIds:
+      - karsten-eriksen
+      - oivind-haagensen
+      - sigurd-norve
+    matchIds: []
+  - id: person-mention-566d7370d9c24013
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Sigurd Nørve
+    years: []
+    scores: []
+    personIds:
+      - sigurd-norve
+    matchIds: []
   - id: person-role-780abbd641ddabdf
     kind: person_role
     page: "7"
@@ -385,41 +464,68 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-b8f8c747e9a42719
+  - id: person-role-ee2591184aed9543
     kind: person_role
     page: "7"
     confidence: medium
     keywords:
       - formann
     names:
+      - Sigurd Nørve
       - Latinskolen. Sigurd Nørve
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - sigurd-norve
     matchIds: []
-  - id: person-role-c73d7ff13427d0e5
+  - id: person-role-f8664c98dc0908e6
     kind: person_role
     page: "7"
     confidence: medium
     keywords:
       - formann
     names:
-      - Louis Vegsund
-      - Sigurd Nørve
       - Karsten Eriksen
+      - Øivind Haagensen
+      - Sigurd Nørve
+      - Louis Vegsund
       - Arne Westad
       - ALE SUND
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - karsten-eriksen
+      - oivind-haagensen
+      - sigurd-norve
     matchIds: []
-  - id: person-role-32f20dd404a30b52
+  - id: person-mention-9b2658593327bb39
+    kind: person_mention
+    page: "10"
+    confidence: medium
+    keywords: []
+    names:
+      - Finn Tollås
+      - Øivind Haagensen
+    years:
+      - 1945
+      - 1949
+      - 1946
+      - 1948
+      - 1947
+    scores: []
+    personIds:
+      - finn-tollas
+      - oivind-haagensen
+    matchIds: []
+  - id: person-role-29b14838bc1b7f91
     kind: person_role
     page: "10"
     confidence: medium
     keywords:
       - oppmann
     names:
+      - Finn Tollås
+      - Øivind Haagensen
       - Finn Tolaas
     years:
       - 1945
@@ -428,7 +534,9 @@ candidates:
       - 1948
       - 1947
     scores: []
-    personIds: []
+    personIds:
+      - finn-tollas
+      - oivind-haagensen
     matchIds: []
   - id: person-role-d47a9ab1d6875221
     kind: person_role
@@ -443,3 +551,4 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+resolvedRoles: []

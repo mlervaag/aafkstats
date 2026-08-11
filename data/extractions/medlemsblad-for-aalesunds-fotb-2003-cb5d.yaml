@@ -65,6 +65,18 @@ candidates:
     personIds:
       - ivar-morten-normark
     matchIds: []
+  - id: person-mention-b72d5612f1c60dd2
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Arne Aambakk
+    years: []
+    scores: []
+    personIds:
+      - arne-aambakk
+    matchIds: []
   - id: person-role-37cc105bebe555c9
     kind: person_role
     page: "2"
@@ -274,3 +286,68 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+resolvedRoles:
+  - id: rolle-970118a34b95ce41
+    page: "2"
+    column: 0
+    personName: Reidar Vågnes
+    category: sporting_staff
+    title: Sportslig leder
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-9571cc409097e8fd
+    page: "2"
+    column: 1
+    personName: Ivar Morten
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-c156a773ae4f92d7
+    page: "3"
+    column: 0
+    personName: Ivar Morten Normark. Men
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-3d45f9f2c47af0f1
+    page: "4"
+    column: 0
+    personName: Ivar Morten Normark I
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-5266ca5c5b5c71b7
+    page: "4"
+    column: 0
+    personName: Ivar Morten Normark. Up
+    category: coach
+    title: Trener
+    from: "2003"
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-618c5ab4e72aaa6a
+    page: "4"
+    column: 0
+    personName: Reidar Vågnes
+    category: sporting_staff
+    title: Sportslig leder
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-da269304ad3c13d1
+    page: "4"
+    column: 0
+    personName: Spjelkavik IL
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: role_then_name

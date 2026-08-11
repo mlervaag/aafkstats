@@ -19,6 +19,94 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-1b38302fcaccd704
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Erling Bjørge
+    years: []
+    scores: []
+    personIds:
+      - erling-bjorge
+    matchIds: []
+  - id: person-mention-57666f4798521a5c
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Petter Birkevold
+    years: []
+    scores: []
+    personIds:
+      - petter-birkevold
+    matchIds: []
+  - id: person-mention-95c66951390afed2
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Ole-Marius Ringdal
+    years: []
+    scores: []
+    personIds:
+      - ole-marius-ringdal
+    matchIds: []
+  - id: person-mention-ce9171824706f242
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-cfd37d743ddf3a6e
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Rolf Annaniassen
+    years: []
+    scores: []
+    personIds:
+      - rolf-annaniassen
+    matchIds: []
+  - id: person-mention-d3adf1d0c4fc192f
+    kind: person_mention
+    page: "2"
+    confidence: medium
+    keywords: []
+    names:
+      - Erling Bjørge
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - erling-bjorge
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-role-5197901392e7a6af
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Erling Bjørge
+      - FIRE FORSLAG Formann
+    years: []
+    scores: []
+    personIds:
+      - erling-bjorge
+    matchIds: []
   - id: person-role-57bec67b5133260e
     kind: person_role
     page: "2"
@@ -31,32 +119,21 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-9c586c3514d4c172
+  - id: person-role-a7a8b37aacd96e48
     kind: person_role
     page: "2"
     confidence: medium
     keywords:
       - sekretær
     names:
+      - Ole-Marius Ringdal
       - Ole Marius Ringdal
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - ole-marius-ringdal
     matchIds: []
-  - id: person-role-ade3e5ab12086d57
-    kind: person_role
-    page: "2"
-    confidence: medium
-    keywords:
-      - formann
-    names:
-      - FIRE FORSLAG Formann
-      - Erling Bjørge
-    years: []
-    scores: []
-    personIds: []
-    matchIds: []
-  - id: person-role-ceed565080b4e036
+  - id: person-role-b4e104a17ceb6f9e
     kind: person_role
     page: "2"
     confidence: medium
@@ -66,7 +143,8 @@ candidates:
       - Jarle Kristoffersen
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - jarle-kristoffersen
     matchIds: []
   - id: person-role-f5d2806c950ba520
     kind: person_role
@@ -80,6 +158,30 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-21d83c8b66ddaf2e
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-4e2baaa670047d04
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Asbjørn Korsnes
+    years: []
+    scores: []
+    personIds:
+      - asbjorn-korsnes
+    matchIds: []
   - id: person-mention-4fd6f020c1fce29c
     kind: person_mention
     page: "3"
@@ -91,6 +193,128 @@ candidates:
     scores: []
     personIds:
       - sigurd-tafjord
+    matchIds: []
+  - id: person-mention-6df58855b6c0a938
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Drabløs
+    years: []
+    scores: []
+    personIds:
+      - bjorn-drablos
+    matchIds: []
+  - id: person-mention-706f87a1bdf3584e
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-9df1fd412c6af212
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Paul Urke
+    years: []
+    scores: []
+    personIds:
+      - paul-urke
+    matchIds: []
+  - id: person-mention-9fdaef7c12122178
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Finn Tollås
+    years: []
+    scores: []
+    personIds:
+      - finn-tollas
+    matchIds: []
+  - id: person-mention-e342f3ddc0d7dcb5
+    kind: person_mention
+    page: "3"
+    confidence: medium
+    keywords: []
+    names:
+      - Einar Aas
+      - Paul Urke
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+      - paul-urke
+    matchIds: []
+  - id: person-mention-f392b5fa0a68a90f
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Vadseth
+    years: []
+    scores: []
+    personIds:
+      - karsten-vadseth
+    matchIds: []
+  - id: person-mention-f91eadbd9b006602
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-0100b4fc0d252d62
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Terje Refsnes
+    years: []
+    scores: []
+    personIds:
+      - terje-refsnes
+    matchIds: []
+  - id: person-mention-a120a0dbf7391ea7
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Terje Refsnes
+    years: []
+    scores: []
+    personIds:
+      - terje-refsnes
+    matchIds: []
+  - id: person-mention-dc6a5999b6decc87
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Terje Refsnes
+    years: []
+    scores: []
+    personIds:
+      - terje-refsnes
     matchIds: []
   - id: person-mention-e0c19c081f07db96
     kind: person_mention
@@ -127,6 +351,90 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-74f914d44172107f
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-7f4e73ecb6a4b129
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Paul Urke
+    years: []
+    scores: []
+    personIds:
+      - paul-urke
+    matchIds: []
+  - id: person-mention-0b0430be80a74d63
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Terje Refsnes
+    years: []
+    scores: []
+    personIds:
+      - terje-refsnes
+    matchIds: []
+  - id: person-mention-1b47e84622af2fba
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Drabløs
+    years: []
+    scores: []
+    personIds:
+      - bjorn-drablos
+    matchIds: []
+  - id: person-mention-c6c7baacf564463c
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-riise
+    matchIds: []
+  - id: person-mention-6d0f137b95207d15
+    kind: person_mention
+    page: "11"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-9bca612498612cb8
+    kind: person_mention
+    page: "11"
+    confidence: high
+    keywords: []
+    names:
+      - Paul Urke
+    years: []
+    scores: []
+    personIds:
+      - paul-urke
+    matchIds: []
   - id: organization-95da8d3baf6550fd
     kind: organization
     page: "13"
@@ -137,6 +445,30 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-df4aa3d58a4c11fd
+    kind: person_mention
+    page: "14"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-ed33431da30150ca
+    kind: person_mention
+    page: "15"
+    confidence: high
+    keywords: []
+    names:
+      - Terje Refsnes
+    years: []
+    scores: []
+    personIds:
+      - terje-refsnes
     matchIds: []
   - id: person-role-22b870e468037593
     kind: person_role
@@ -186,6 +518,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-d9e712bd44e4efd0
+    kind: person_mention
+    page: "16"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Drabløs
+    years: []
+    scores: []
+    personIds:
+      - bjorn-drablos
+    matchIds: []
   - id: person-mention-cd5b9e4cb366463e
     kind: person_mention
     page: "20"
@@ -198,3 +542,94 @@ candidates:
     personIds:
       - knut-gaaseide
     matchIds: []
+resolvedRoles:
+  - id: rolle-61cc623806119870
+    page: "2"
+    column: 0
+    personName: Erling Bjørge. L
+    category: board
+    title: Formann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-01e3294c60361925
+    page: "2"
+    column: 0
+    personName: Jarle Kristoffersen Skal
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-17904f18443b8435
+    page: "2"
+    column: 0
+    personName: Kjell Luthentun
+    category: administration
+    title: Kasserer
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-3203e8594399d8c8
+    page: "2"
+    column: 0
+    personName: Ole Marius Ringdal
+    category: administration
+    title: Sekretær
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-188f6396a6f380d3
+    page: "2"
+    column: 0
+    personName: Rolf Kvissel
+    category: board
+    title: Nestformann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-4930dd9bb1d14c8f
+    page: "7"
+    column: 1
+    personName: Oddvar Aarøe. Havnevik
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-7efe578e5d63771a
+    page: "15"
+    column: 0
+    personName: Anita Pedersen. Så
+    category: administration
+    title: Sekretær
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-95a3cc3877d30813
+    page: "15"
+    column: 0
+    personName: Bibbi Henriksen. Et
+    category: board
+    title: Formann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-52470796824208b0
+    page: "15"
+    column: 0
+    personName: Julie Løvmo
+    category: administration
+    title: Kasserer
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-e22c5ea65e9b5271
+    page: "15"
+    column: 0
+    personName: Lollo Stubb
+    category: board
+    title: Nestformann
+    to: null
+    confidence: low
+    rule: role_then_name

@@ -19,6 +19,67 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-9e39b06f55474aa1
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Vadseth
+    years: []
+    scores: []
+    personIds:
+      - karsten-vadseth
+    matchIds: []
+  - id: person-mention-a81293e4eafb3271
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
+  - id: person-mention-b5fda204a2801d74
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-fb9d1992a052e9bb
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Harald Johansen
+    years: []
+    scores: []
+    personIds:
+      - harald-johansen
+    matchIds: []
+  - id: person-role-59416bc742fdbb67
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
   - id: person-role-872c1e855515bb28
     kind: person_role
     page: "2"
@@ -27,18 +88,6 @@ candidates:
       - kasserer
     names:
       - Magne Bjerge
-    years: []
-    scores: []
-    personIds: []
-    matchIds: []
-  - id: person-role-abdeb83476ab30fc
-    kind: person_role
-    page: "2"
-    confidence: medium
-    keywords:
-      - formann
-    names:
-      - Jan With
     years: []
     scores: []
     personIds: []
@@ -124,6 +173,30 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-4bd21a7f98fbb32a
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-d031d46dc22e3ea0
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
   - id: lineup-or-squad-43edc90e248e010c
     kind: lineup_or_squad
     page: "9"
@@ -149,6 +222,18 @@ candidates:
       - 1-0
     personIds: []
     matchIds: []
+  - id: person-mention-fa88ecbdf9e41f7c
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Torbjørn Aarø
+    years: []
+    scores: []
+    personIds:
+      - torbjorn-aaro
+    matchIds: []
   - id: person-mention-86e81d33ff5637b1
     kind: person_mention
     page: "10"
@@ -160,6 +245,31 @@ candidates:
     scores: []
     personIds:
       - harald-riise-hansen
+    matchIds: []
+  - id: person-mention-b875b46ee13059ff
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Leif Olsen
+    years:
+      - 1914
+    scores: []
+    personIds:
+      - leif-olsen
+    matchIds: []
+  - id: person-mention-dd5cb55f1f11a7ae
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Leif Olsen
+    years: []
+    scores: []
+    personIds:
+      - leif-olsen
     matchIds: []
   - id: person-role-dfd53df62616738e
     kind: person_role
@@ -195,6 +305,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-e2e3c0a0e12bab95
+    kind: person_mention
+    page: "11"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
   - id: organization-9d119cedb505a638
     kind: organization
     page: "12"
@@ -205,6 +327,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-98e2b37f8af64e2c
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Terje Refsnes
+    years: []
+    scores: []
+    personIds:
+      - terje-refsnes
     matchIds: []
   - id: person-mention-d56ddaa5f735914e
     kind: person_mention
@@ -218,3 +352,41 @@ candidates:
     personIds:
       - knut-gaaseide
     matchIds: []
+resolvedRoles:
+  - id: rolle-da479ea4724bab0c
+    page: "2"
+    column: 0
+    personName: Herbert Fiksdal
+    category: sporting_staff
+    title: Materialforvalter
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-340f473ab5c29cbc
+    page: "2"
+    column: 0
+    personName: Jan With
+    personId: jan-with
+    category: board
+    title: Formann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-0e7485f813816938
+    page: "2"
+    column: 0
+    personName: Magne Bjerge
+    category: administration
+    title: Kasserer
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-8871248a069ccd31
+    page: "7"
+    column: 0
+    personName: Oddvar Aarø
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: role_then_name

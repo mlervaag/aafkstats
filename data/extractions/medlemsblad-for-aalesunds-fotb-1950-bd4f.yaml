@@ -8,6 +8,18 @@ pagesProcessed: 8
 pagesFailed: []
 contentHash: sha256:48aeee733adebe77cd0c23bcc020465fc557ca3a9086e5db61aa8b41ad7fa77b
 candidates:
+  - id: person-mention-0bd075d83b59c17c
+    kind: person_mention
+    page: "1"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
   - id: organization-239da9e9236c879c
     kind: organization
     page: "2"
@@ -29,6 +41,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-883062f6dbca9ba4
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Per Anker Eriksen
+    years: []
+    scores: []
+    personIds:
+      - per-anker-eriksen
     matchIds: []
   - id: organization-c6a30bf8e68a0c0f
     kind: organization
@@ -52,6 +76,30 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-793057d40a6eccf6
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Sigurd Nørve
+    years: []
+    scores: []
+    personIds:
+      - sigurd-norve
+    matchIds: []
+  - id: person-mention-e3427249644b2165
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
   - id: organization-7e165097de188bc3
     kind: organization
     page: "6"
@@ -62,6 +110,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-b1d532af627bea15
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
     matchIds: []
   - id: organization-6c0add1f5a5e03ab
     kind: organization
@@ -135,6 +195,30 @@ candidates:
     personIds:
       - emil-sando
     matchIds: []
+  - id: person-mention-0f0d7adca55de808
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-0f24690a48d92c58
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Bernt Sulebust
+    years: []
+    scores: []
+    personIds:
+      - bernt-sulebust
+    matchIds: []
   - id: person-mention-a10e699cee9cc8e2
     kind: person_mention
     page: "8"
@@ -147,3 +231,25 @@ candidates:
     personIds:
       - peder-puck
     matchIds: []
+  - id: person-mention-db0de1c4ceefa550
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Per Anker Eriksen
+    years: []
+    scores: []
+    personIds:
+      - per-anker-eriksen
+    matchIds: []
+resolvedRoles:
+  - id: rolle-2b7c8fde617eea3d
+    page: "7"
+    column: 0
+    personName: Sigurd BREn
+    category: board
+    title: Formann
+    to: null
+    confidence: low
+    rule: role_then_name

@@ -30,6 +30,42 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-065a7478df54bc62
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-25ce5b111029dd21
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-82981ba3aa46e195
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Perry Ystenes
+    years: []
+    scores: []
+    personIds:
+      - perry-ystenes
+    matchIds: []
   - id: season-fact-b7182e08ac5fa688
     kind: season_fact
     page: "8"
@@ -68,6 +104,54 @@ candidates:
       - 2-1
     personIds: []
     matchIds: []
+  - id: person-mention-641c7884b1e1c9d6
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-f6a90e698e1e2767
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-883aa9ccddad515b
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Ola Hodder
+    years: []
+    scores: []
+    personIds:
+      - ola-hodder
+    matchIds: []
+  - id: person-mention-992fb23de7aaec3c
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Hans J. Henriksen
+    years: []
+    scores: []
+    personIds:
+      - hans-j-henriksen
+    matchIds: []
   - id: person-mention-b8cdfb56321655fb
     kind: person_mention
     page: "12"
@@ -80,3 +164,4 @@ candidates:
     personIds:
       - knut-gaaseide
     matchIds: []
+resolvedRoles: []

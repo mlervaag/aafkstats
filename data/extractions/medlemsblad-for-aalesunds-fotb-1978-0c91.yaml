@@ -30,6 +30,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-7e0f7b0a12070a03
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
+    matchIds: []
   - id: person-role-48a32ff9b2763e75
     kind: person_role
     page: "2"
@@ -54,7 +66,19 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-c9693b953ef00a25
+  - id: person-mention-64bb3d893d815258
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
+    matchIds: []
+  - id: person-role-7b7f1ef50759f338
     kind: person_role
     page: "3"
     confidence: medium
@@ -65,7 +89,8 @@ candidates:
       - Walter Hovdan
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - einar-with
     matchIds: []
   - id: person-role-dcf40fbd251ae802
     kind: person_role
@@ -104,6 +129,119 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-01ececbd78df1a75
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Asbjørn Korsnes
+    years: []
+    scores: []
+    personIds:
+      - asbjorn-korsnes
+    matchIds: []
+  - id: person-mention-0952be6df9459821
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-riise
+    matchIds: []
+  - id: person-mention-62907cc74fccd603
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Petter Birkevold
+    years: []
+    scores: []
+    personIds:
+      - petter-birkevold
+    matchIds: []
+  - id: person-mention-b300255718743a44
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
+  - id: person-mention-c70ea6ebe8c54e2f
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Finn Tollås
+    years: []
+    scores: []
+    personIds:
+      - finn-tollas
+    matchIds: []
+  - id: person-mention-ecce4498b07deab4
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Drabløs
+    years: []
+    scores: []
+    personIds:
+      - bjorn-drablos
+    matchIds: []
+  - id: person-mention-ff54dd25ce0c93e2
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Harald Johansen
+    years: []
+    scores: []
+    personIds:
+      - harald-johansen
+    matchIds: []
+  - id: person-role-20fd37b16131cbb5
+    kind: person_role
+    page: "4"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Finn Tollås
+      - Finn Tolaas
+      - Odd A. Pe
+    years: []
+    scores: []
+    personIds:
+      - finn-tollas
+    matchIds: []
+  - id: person-role-245cbcd851b5425f
+    kind: person_role
+    page: "4"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Asbjørn Korsnes
+      - Andersen. Einar Holand. Materialfor
+    years: []
+    scores: []
+    personIds:
+      - asbjorn-korsnes
+    matchIds: []
   - id: person-role-98a95bce8dac8efc
     kind: person_role
     page: "4"
@@ -124,32 +262,6 @@ candidates:
       - oppmann
     names:
       - Per Ola Skytterholm
-    years: []
-    scores: []
-    personIds: []
-    matchIds: []
-  - id: person-role-a783d44a87989bcb
-    kind: person_role
-    page: "4"
-    confidence: medium
-    keywords:
-      - trener
-    names:
-      - Finn Tolaas
-      - Odd A. Pe
-    years: []
-    scores: []
-    personIds: []
-    matchIds: []
-  - id: person-role-c7ce7bdd424db6ab
-    kind: person_role
-    page: "4"
-    confidence: medium
-    keywords:
-      - formann
-    names:
-      - Asbjørn Korsnes
-      - Andersen. Einar Holand. Materialfor
     years: []
     scores: []
     personIds: []
@@ -216,7 +328,103 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-3b6c50c627c27528
+  - id: person-mention-5866df9bae98c5e2
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Finn Tollås
+    years: []
+    scores: []
+    personIds:
+      - finn-tollas
+    matchIds: []
+  - id: person-mention-788096d83a73b841
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-riise
+    matchIds: []
+  - id: person-mention-2b3b3ce0f695a329
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Harald Johansen
+    years: []
+    scores: []
+    personIds:
+      - harald-johansen
+    matchIds: []
+  - id: person-mention-5abc3a4f059472d8
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Petter Birkevold
+    years: []
+    scores: []
+    personIds:
+      - petter-birkevold
+    matchIds: []
+  - id: person-mention-7e492f95aae50388
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Finn Tollås
+    years: []
+    scores: []
+    personIds:
+      - finn-tollas
+    matchIds: []
+  - id: person-mention-98eab8aaf1294f09
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
+    matchIds: []
+  - id: person-mention-d8581544659a0f40
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+    matchIds: []
+  - id: person-mention-e6d6164002f64d54
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
+  - id: person-role-5a5b74929034c771
     kind: person_role
     page: "6"
     confidence: medium
@@ -226,7 +434,20 @@ candidates:
       - Einar Aas
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - einar-aas
+    matchIds: []
+  - id: person-mention-fd810500ad3080aa
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
     matchIds: []
   - id: organization-77c3314aede671ea
     kind: organization
@@ -285,6 +506,42 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-c9fa7c5d6fbcb58f
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-c33e5b06cb823a30
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Nils Peter Loe
+    years: []
+    scores: []
+    personIds:
+      - nils-peter-loe
+    matchIds: []
+  - id: person-mention-f20198b0faf46400
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-riise
+    matchIds: []
   - id: person-role-7690f368ffb5783f
     kind: person_role
     page: "10"
@@ -308,19 +565,31 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-2c3f40ef6d512f7a
-    kind: person_role
+  - id: person-mention-0921a7d1ce2766a8
+    kind: person_mention
     page: "11"
-    confidence: medium
-    keywords:
-      - formann
+    confidence: high
+    keywords: []
     names:
-      - MED FORMANN JAN WITH
+      - Einar With
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - einar-with
     matchIds: []
-  - id: person-role-d6fea7526a6e81f0
+  - id: person-mention-42ab887553246b6b
+    kind: person_mention
+    page: "11"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
+  - id: person-role-04a27f8fb5b3ad19
     kind: person_role
     page: "11"
     confidence: medium
@@ -330,7 +599,22 @@ candidates:
       - Einar With
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - einar-with
+    matchIds: []
+  - id: person-role-103196c0ff2c596f
+    kind: person_role
+    page: "11"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Jan With
+      - MED FORMANN JAN WITH
+    years: []
+    scores: []
+    personIds:
+      - jan-with
     matchIds: []
   - id: organization-220102ac2f3cdf1b
     kind: organization
@@ -343,6 +627,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-d8f1dd7700b7a5aa
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
+    matchIds: []
   - id: organization-d2a888330b4cbafa
     kind: organization
     page: "13"
@@ -353,6 +649,114 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-20a267f35bf8b5e8
+    kind: person_mention
+    page: "13"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
+    matchIds: []
+  - id: person-mention-352bed15af4a72f0
+    kind: person_mention
+    page: "13"
+    confidence: high
+    keywords: []
+    names:
+      - Terje Andersen
+    years: []
+    scores: []
+    personIds:
+      - terje-andersen
+    matchIds: []
+  - id: person-mention-44b0d84751352f51
+    kind: person_mention
+    page: "13"
+    confidence: high
+    keywords: []
+    names:
+      - Rolf Annaniassen
+    years: []
+    scores: []
+    personIds:
+      - rolf-annaniassen
+    matchIds: []
+  - id: person-mention-510871109264a037
+    kind: person_mention
+    page: "13"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
+  - id: person-mention-9d407402e1a21684
+    kind: person_mention
+    page: "13"
+    confidence: high
+    keywords: []
+    names:
+      - Arne Hansen
+    years: []
+    scores: []
+    personIds:
+      - arne-hansen
+    matchIds: []
+  - id: person-mention-cdfbfa709a032065
+    kind: person_mention
+    page: "13"
+    confidence: high
+    keywords: []
+    names:
+      - Harald Johansen
+    years: []
+    scores: []
+    personIds:
+      - harald-johansen
+    matchIds: []
+  - id: person-mention-d83615be2506caeb
+    kind: person_mention
+    page: "13"
+    confidence: high
+    keywords: []
+    names:
+      - Asbjørn Korsnes
+    years: []
+    scores: []
+    personIds:
+      - asbjorn-korsnes
+    matchIds: []
+  - id: person-mention-db7667e68cd01268
+    kind: person_mention
+    page: "13"
+    confidence: high
+    keywords: []
+    names:
+      - Petter Birkevold
+    years: []
+    scores: []
+    personIds:
+      - petter-birkevold
+    matchIds: []
+  - id: person-mention-e764739bf6b0bf1e
+    kind: person_mention
+    page: "13"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Drabløs
+    years: []
+    scores: []
+    personIds:
+      - bjorn-drablos
     matchIds: []
   - id: organization-4a6159f824163aaf
     kind: organization
@@ -376,6 +780,42 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-42aa7579e2089c73
+    kind: person_mention
+    page: "14"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
+    matchIds: []
+  - id: person-mention-6654444e81f46c61
+    kind: person_mention
+    page: "14"
+    confidence: high
+    keywords: []
+    names:
+      - Petter Birkevold
+    years: []
+    scores: []
+    personIds:
+      - petter-birkevold
+    matchIds: []
+  - id: person-mention-dd4a0d21df5da571
+    kind: person_mention
+    page: "14"
+    confidence: high
+    keywords: []
+    names:
+      - Torbjørn Aarø
+    years: []
+    scores: []
+    personIds:
+      - torbjorn-aaro
+    matchIds: []
   - id: organization-c3804959f209117e
     kind: organization
     page: "15"
@@ -386,6 +826,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-cedf57a45235b737
+    kind: person_mention
+    page: "15"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
     matchIds: []
   - id: organization-bd29cf309959d285
     kind: organization
@@ -467,6 +919,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-41e2912756196c17
+    kind: person_mention
+    page: "19"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
+    matchIds: []
   - id: season-fact-12f68afd1373e33c
     kind: season_fact
     page: "19"
@@ -479,15 +943,118 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-dff9882913765eb9
+  - id: person-mention-0fe5b1e35e6932d0
+    kind: person_mention
+    page: "20"
+    confidence: high
+    keywords: []
+    names:
+      - Finn Tollås
+    years: []
+    scores: []
+    personIds:
+      - finn-tollas
+    matchIds: []
+  - id: person-role-134f73dd1565178e
     kind: person_role
     page: "20"
     confidence: medium
     keywords:
       - trener
     names:
+      - Finn Tollås
       - Finn Tolaas
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - finn-tollas
     matchIds: []
+  - id: person-mention-be84aa6dba173152
+    kind: person_mention
+    page: "21"
+    confidence: high
+    keywords: []
+    names:
+      - Finn Tollås
+    years: []
+    scores: []
+    personIds:
+      - finn-tollas
+    matchIds: []
+resolvedRoles:
+  - id: rolle-bde1b9a1043c0f5a
+    page: "4"
+    column: 0
+    personName: Asbjørn Korsnes
+    personId: asbjorn-korsnes
+    category: board
+    title: Formann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-d0b20c8de14593be
+    page: "4"
+    column: 0
+    personName: Asbjørn På
+    category: board
+    title: Formann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-c91b70a6f35e5922
+    page: "4"
+    column: 0
+    personName: Kjell Tynes
+    category: board
+    title: Nestformann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-aea9600a6b146172
+    page: "4"
+    column: 0
+    personName: Odd A. Pekjent
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-883a47edafafba27
+    page: "4"
+    column: 0
+    personName: ÅFKs Svein Viddal
+    category: board
+    title: Formann
+    to: null
+    confidence: low
+    rule: name_then_role
+  - id: rolle-d36f5e1569e12db0
+    page: "11"
+    column: 0
+    personName: Einar With
+    personId: einar-with
+    category: coach
+    title: Trener
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-83ed1d1fed00bd2b
+    page: "12"
+    column: 0
+    personName: Einar With
+    personId: einar-with
+    category: coach
+    title: Trener
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-ca6bd8d89fb93a50
+    page: "15"
+    column: 0
+    personName: Tom Høiberg
+    category: sporting_staff
+    title: Oppmann
+    from: "1978"
+    to: null
+    confidence: medium
+    rule: role_then_name

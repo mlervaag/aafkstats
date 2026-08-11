@@ -19,6 +19,42 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-353458772473129b
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-78609d2704d1430b
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-dddf9ff1678856c6
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-riise
+    matchIds: []
   - id: lineup-or-squad-dd01361e2ddc1ad1
     kind: lineup_or_squad
     page: "3"
@@ -29,6 +65,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-c3dd6cb77d831e53
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Konrad Korsnes
+    years: []
+    scores: []
+    personIds:
+      - konrad-korsnes
     matchIds: []
   - id: organization-36f962a6832af8c2
     kind: organization
@@ -41,6 +89,114 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-2fb239b530a16bc6
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-bb9e14bb08fb4181
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Øivind Haagensen
+    years: []
+    scores: []
+    personIds:
+      - oivind-haagensen
+    matchIds: []
+  - id: person-mention-16472dc0ad6c6e54
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Vadseth
+    years: []
+    scores: []
+    personIds:
+      - karsten-vadseth
+    matchIds: []
+  - id: person-mention-1e7b78cd23c6d60f
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Asbjørn Korsnes
+    years: []
+    scores: []
+    personIds:
+      - asbjorn-korsnes
+    matchIds: []
+  - id: person-mention-40967ac2b712a968
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-riise
+    matchIds: []
+  - id: person-mention-4a51f7fe87104b04
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Rolf Annaniassen
+    years: []
+    scores: []
+    personIds:
+      - rolf-annaniassen
+    matchIds: []
+  - id: person-mention-7d664252f879bdcd
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
+  - id: person-mention-91a6a0d569018aea
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-9257b8163e534db4
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Tryggestad
+    years: []
+    scores: []
+    personIds:
+      - reidar-tryggestad
+    matchIds: []
   - id: person-mention-9b11ec7933dd4e53
     kind: person_mention
     page: "6"
@@ -52,6 +208,102 @@ candidates:
     scores: []
     personIds:
       - sigurd-tafjord
+    matchIds: []
+  - id: person-mention-b4186d11cfc9142d
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Konrad Korsnes
+    years: []
+    scores: []
+    personIds:
+      - konrad-korsnes
+    matchIds: []
+  - id: person-mention-bc44d1ab1e09b2d4
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Øivind Haagensen
+    years: []
+    scores: []
+    personIds:
+      - oivind-haagensen
+    matchIds: []
+  - id: person-mention-c1b31e0f290e1124
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+    matchIds: []
+  - id: person-mention-e119b53f1fd68e57
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Nedregård
+    years: []
+    scores: []
+    personIds:
+      - karsten-nedregard
+    matchIds: []
+  - id: person-mention-ea85fc15adf66bcb
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Finn Tollås
+    years: []
+    scores: []
+    personIds:
+      - finn-tollas
+    matchIds: []
+  - id: person-mention-eba57219914cd542
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Per Anker Eriksen
+    years: []
+    scores: []
+    personIds:
+      - per-anker-eriksen
+    matchIds: []
+  - id: person-mention-ed6f101e8c3f63d0
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Bernt Sulebust
+    years: []
+    scores: []
+    personIds:
+      - bernt-sulebust
+    matchIds: []
+  - id: person-mention-f91a6f43bc8d921b
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
     matchIds: []
   - id: organization-871cc2b6369f651d
     kind: organization
@@ -75,6 +327,54 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-1a3ce4db4a497468
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-5e209b967187a1b1
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
+  - id: person-mention-8dfbf08a86e18530
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-9147084d8373792e
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Kjell Berentzen
+    years: []
+    scores: []
+    personIds:
+      - kjell-berentzen
+    matchIds: []
   - id: organization-90fb0fc3057504db
     kind: organization
     page: "8"
@@ -97,6 +397,30 @@ candidates:
     scores: []
     personIds:
       - sigurd-tafjord
+    matchIds: []
+  - id: person-mention-ffc7ab9f446c2722
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+    matchIds: []
+  - id: person-mention-393ab31817a62c48
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
     matchIds: []
   - id: person-role-2d9df3db9182f6b7
     kind: person_role
@@ -136,6 +460,30 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-11f354491ff9269f
+    kind: person_mention
+    page: "11"
+    confidence: high
+    keywords: []
+    names:
+      - Ole Jangaard
+    years: []
+    scores: []
+    personIds:
+      - ole-jangaard
+    matchIds: []
+  - id: person-mention-c7ce5b60cb395a17
+    kind: person_mention
+    page: "11"
+    confidence: high
+    keywords: []
+    names:
+      - Asbjørn Korsnes
+    years: []
+    scores: []
+    personIds:
+      - asbjorn-korsnes
+    matchIds: []
   - id: person-mention-df34722d8559d6ae
     kind: person_mention
     page: "11"
@@ -147,6 +495,18 @@ candidates:
     scores: []
     personIds:
       - nils-jangaard
+    matchIds: []
+  - id: person-mention-e0bf834be5bb7ac8
+    kind: person_mention
+    page: "11"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
     matchIds: []
   - id: organization-3fefc16b1651e910
     kind: organization
@@ -214,6 +574,114 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-567d6d86b6da6222
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-riise
+    matchIds: []
+  - id: person-mention-5dc41254045dc022
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-82ca0f6a90be1aa2
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
+  - id: person-mention-98c5675ab64b25c5
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-b4c3b5328c5c4295
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Perry Ystenes
+    years: []
+    scores: []
+    personIds:
+      - perry-ystenes
+    matchIds: []
+  - id: person-mention-e9b54a5cbe03ca5b
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-f0df2846a871b5fc
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Rolf Annaniassen
+    years: []
+    scores: []
+    personIds:
+      - rolf-annaniassen
+    matchIds: []
+  - id: person-mention-031f4036988362cd
+    kind: person_mention
+    page: "14"
+    confidence: high
+    keywords: []
+    names:
+      - Harald Johansen
+    years: []
+    scores: []
+    personIds:
+      - harald-johansen
+    matchIds: []
+  - id: person-mention-77a641ba1b0d97b3
+    kind: person_mention
+    page: "14"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+    matchIds: []
   - id: person-mention-95fb711a470fc1da
     kind: person_mention
     page: "14"
@@ -237,7 +705,31 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-abdbd105c70526aa
+  - id: person-mention-911ac0b690a67c6e
+    kind: person_mention
+    page: "16"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+    matchIds: []
+  - id: person-mention-81d838bab2e52189
+    kind: person_mention
+    page: "17"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-role-d6243f31ad04bb37
     kind: person_role
     page: "17"
     confidence: medium
@@ -247,7 +739,8 @@ candidates:
       - Reidar Skarbøvik
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - reidar-skarbovik
     matchIds: []
   - id: organization-8de75f2abcf7290d
     kind: organization
@@ -259,6 +752,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-dcde199145cc870e
+    kind: person_mention
+    page: "19"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Vadseth
+    years: []
+    scores: []
+    personIds:
+      - karsten-vadseth
     matchIds: []
   - id: organization-0016b735528f4ad6
     kind: organization
@@ -303,6 +808,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-cadb7aec2b018cb0
+    kind: person_mention
+    page: "23"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
     matchIds: []
   - id: organization-08039000f8e3e386
     kind: organization
@@ -359,16 +876,150 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: organization-03a2f02e8aedca76
-    kind: organization
+  - id: person-mention-035f9e2e92eb117a
+    kind: person_mention
+    page: "24"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-0de2b71ccb74d4f9
+    kind: person_mention
+    page: "24"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
+  - id: person-mention-0f283e9c74e167ea
+    kind: person_mention
+    page: "24"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-11024d245e228653
+    kind: person_mention
+    page: "24"
+    confidence: high
+    keywords: []
+    names:
+      - Kjell Berentzen
+    years: []
+    scores: []
+    personIds:
+      - kjell-berentzen
+    matchIds: []
+  - id: person-mention-1d75adf89842d853
+    kind: person_mention
+    page: "24"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+    matchIds: []
+  - id: person-mention-37ed9f0b0ead0e52
+    kind: person_mention
+    page: "24"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-riise
+    matchIds: []
+  - id: person-mention-6a8f6c39bcb62e79
+    kind: person_mention
+    page: "24"
+    confidence: high
+    keywords: []
+    names:
+      - Rolf Annaniassen
+    years: []
+    scores: []
+    personIds:
+      - rolf-annaniassen
+    matchIds: []
+  - id: person-mention-c14d5608791e059d
+    kind: person_mention
+    page: "24"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-da70032ca57064a3
+    kind: person_mention
+    page: "24"
+    confidence: high
+    keywords: []
+    names:
+      - Perry Ystenes
+    years: []
+    scores: []
+    personIds:
+      - perry-ystenes
+    matchIds: []
+  - id: person-mention-5e8745d9a0611080
+    kind: person_mention
+    page: "29"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
+    matchIds: []
+  - id: person-mention-9bc5817b4c973f78
+    kind: person_mention
+    page: "29"
+    confidence: high
+    keywords: []
+    names:
+      - Øivind Haagensen
+    years: []
+    scores: []
+    personIds:
+      - oivind-haagensen
+    matchIds: []
+  - id: person-role-b064a0919c26a438
+    kind: person_role
     page: "29"
     confidence: medium
     keywords:
       - leder
-    names: []
+    names:
+      - Øivind Haagensen
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - oivind-haagensen
     matchIds: []
   - id: lineup-or-squad-7a30e80ccd0a0d31
     kind: lineup_or_squad
@@ -392,6 +1043,18 @@ candidates:
     scores: []
     personIds:
       - peder-puck
+    matchIds: []
+  - id: person-mention-b17c46891e4327c6
+    kind: person_mention
+    page: "35"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
     matchIds: []
   - id: organization-3d739a5b6182acdb
     kind: organization
@@ -448,6 +1111,30 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-23df205ed6281d7d
+    kind: person_mention
+    page: "36"
+    confidence: high
+    keywords: []
+    names:
+      - Kjell Berentzen
+    years: []
+    scores: []
+    personIds:
+      - kjell-berentzen
+    matchIds: []
+  - id: person-mention-3987383b320d1326
+    kind: person_mention
+    page: "36"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
   - id: person-mention-6051eef22497cae6
     kind: person_mention
     page: "36"
@@ -459,6 +1146,138 @@ candidates:
     scores: []
     personIds:
       - sigurd-tafjord
+    matchIds: []
+  - id: person-mention-816a7c877d1b5e30
+    kind: person_mention
+    page: "36"
+    confidence: high
+    keywords: []
+    names:
+      - Rolf Annaniassen
+    years: []
+    scores: []
+    personIds:
+      - rolf-annaniassen
+    matchIds: []
+  - id: person-mention-8dd0c76c0400db8c
+    kind: person_mention
+    page: "36"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-riise
+    matchIds: []
+  - id: person-mention-9fb76b68c42a8ed2
+    kind: person_mention
+    page: "36"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
+  - id: person-mention-a38c31943a232ca6
+    kind: person_mention
+    page: "36"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
+    matchIds: []
+  - id: person-mention-c3912c3b43082309
+    kind: person_mention
+    page: "36"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-c84c0a99e20fd67d
+    kind: person_mention
+    page: "36"
+    confidence: high
+    keywords: []
+    names:
+      - Perry Ystenes
+    years: []
+    scores: []
+    personIds:
+      - perry-ystenes
+    matchIds: []
+  - id: person-mention-df94cd83b846effb
+    kind: person_mention
+    page: "36"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-041c8e5e826b1a7f
+    kind: person_mention
+    page: "39"
+    confidence: high
+    keywords: []
+    names:
+      - Harald Johansen
+    years: []
+    scores: []
+    personIds:
+      - harald-johansen
+    matchIds: []
+  - id: person-mention-6ae0f999c31e422c
+    kind: person_mention
+    page: "39"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-c308d53765792b3c
+    kind: person_mention
+    page: "39"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-de4ac078193a5d52
+    kind: person_mention
+    page: "39"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
     matchIds: []
   - id: person-mention-ee5346831100c718
     kind: person_mention
@@ -472,6 +1291,18 @@ candidates:
     personIds:
       - rasmus-eck-olsen
     matchIds: []
+  - id: person-mention-79a4222a6fbff072
+    kind: person_mention
+    page: "42"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
   - id: organization-c3978bcecfa4bb62
     kind: organization
     page: "43"
@@ -483,6 +1314,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-14cc343f1373f75c
+    kind: person_mention
+    page: "43"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
   - id: organization-964d1ec1da9f1ae8
     kind: organization
     page: "44"
@@ -493,6 +1336,68 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-1927a9cbb4b40e93
+    kind: person_mention
+    page: "44"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-f41cb5e1ec33be89
+    kind: person_mention
+    page: "44"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-riise
+    matchIds: []
+  - id: person-mention-f604db9d6be44191
+    kind: person_mention
+    page: "45"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
+    matchIds: []
+  - id: person-mention-2c662cd8989df2c5
+    kind: person_mention
+    page: "46"
+    confidence: medium
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+      - Karsten Vadseth
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+      - karsten-vadseth
+    matchIds: []
+  - id: person-mention-5a5c866942034db3
+    kind: person_mention
+    page: "46"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
     matchIds: []
   - id: organization-1a260385d7bf4818
     kind: organization
@@ -549,6 +1454,102 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-0e45b24cc083a719
+    kind: person_mention
+    page: "48"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
+  - id: person-mention-2322ab45555cb88a
+    kind: person_mention
+    page: "48"
+    confidence: high
+    keywords: []
+    names:
+      - Kjell Berentzen
+    years: []
+    scores: []
+    personIds:
+      - kjell-berentzen
+    matchIds: []
+  - id: person-mention-515739e14db76581
+    kind: person_mention
+    page: "48"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-5dbf0919c48ee4f0
+    kind: person_mention
+    page: "48"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-8d5c90c711f005ce
+    kind: person_mention
+    page: "48"
+    confidence: high
+    keywords: []
+    names:
+      - Rolf Annaniassen
+    years: []
+    scores: []
+    personIds:
+      - rolf-annaniassen
+    matchIds: []
+  - id: person-mention-a06821938f38808c
+    kind: person_mention
+    page: "48"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-d339b4ef1e66837c
+    kind: person_mention
+    page: "48"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-riise
+    matchIds: []
+  - id: person-mention-ef78ad7494ad3357
+    kind: person_mention
+    page: "48"
+    confidence: high
+    keywords: []
+    names:
+      - Perry Ystenes
+    years: []
+    scores: []
+    personIds:
+      - perry-ystenes
+    matchIds: []
   - id: person-mention-631663fc8351a901
     kind: person_mention
     page: "50"
@@ -594,6 +1595,30 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-28b44d00726f1138
+    kind: person_mention
+    page: "51"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-dbf52154d3ac7122
+    kind: person_mention
+    page: "51"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Vadseth
+    years: []
+    scores: []
+    personIds:
+      - karsten-vadseth
+    matchIds: []
   - id: organization-10d6b89fa260b1ff
     kind: organization
     page: "54"
@@ -638,6 +1663,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-a98aab4ea5e8d0b3
+    kind: person_mention
+    page: "54"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
   - id: person-role-8f234a684e888795
     kind: person_role
     page: "54"
@@ -661,6 +1698,42 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-9d4b9f6c9a532610
+    kind: person_mention
+    page: "55"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-d27e2ae5401f38ea
+    kind: person_mention
+    page: "55"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-d4a225c6e471fb86
+    kind: person_mention
+    page: "55"
+    confidence: high
+    keywords: []
+    names:
+      - Kjell Berentzen
+    years: []
+    scores: []
+    personIds:
+      - kjell-berentzen
     matchIds: []
   - id: organization-129e0cb2eac9075e
     kind: organization
@@ -686,6 +1759,55 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-7b268b5238745085
+    kind: person_mention
+    page: "56"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-e049778c3588cdc9
+    kind: person_mention
+    page: "56"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years:
+      - 1949
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
+  - id: person-mention-f67b55b93c872f0a
+    kind: person_mention
+    page: "56"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
+    matchIds: []
+  - id: person-mention-fba866b5ab37d6b6
+    kind: person_mention
+    page: "56"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
   - id: organization-9444fddfd77bfa92
     kind: organization
     page: "57"
@@ -696,6 +1818,114 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-444a9f4e88f4bdfc
+    kind: person_mention
+    page: "57"
+    confidence: high
+    keywords: []
+    names:
+      - Johan Keller
+    years: []
+    scores: []
+    personIds:
+      - johan-keller
+    matchIds: []
+  - id: person-mention-da79320fdbf207c1
+    kind: person_mention
+    page: "57"
+    confidence: high
+    keywords: []
+    names:
+      - Ole Jangaard
+    years: []
+    scores: []
+    personIds:
+      - ole-jangaard
+    matchIds: []
+  - id: person-mention-03f1336c3a16c2e7
+    kind: person_mention
+    page: "58"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+    matchIds: []
+  - id: person-mention-0573d6c6f88930b3
+    kind: person_mention
+    page: "58"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Nedregård
+    years: []
+    scores: []
+    personIds:
+      - karsten-nedregard
+    matchIds: []
+  - id: person-mention-09af4cdb931e529b
+    kind: person_mention
+    page: "58"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-35a340bea0e7d90d
+    kind: person_mention
+    page: "58"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-58ca40e957779082
+    kind: person_mention
+    page: "58"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
+  - id: person-mention-d0bfa6824bc8e4f8
+    kind: person_mention
+    page: "58"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-riise
+    matchIds: []
+  - id: person-mention-1a57e5110b1fe21a
+    kind: person_mention
+    page: "59"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
     matchIds: []
   - id: organization-69c8e698f14f8dc8
     kind: organization
@@ -763,7 +1993,127 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-f9943c2e649c8b0a
+  - id: person-mention-298e47290e529f50
+    kind: person_mention
+    page: "60"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
+  - id: person-mention-2c36094df0e4a9cd
+    kind: person_mention
+    page: "60"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-353c12f566b65538
+    kind: person_mention
+    page: "60"
+    confidence: high
+    keywords: []
+    names:
+      - Harald Johansen
+    years: []
+    scores: []
+    personIds:
+      - harald-johansen
+    matchIds: []
+  - id: person-mention-4f102b1d934fa9cf
+    kind: person_mention
+    page: "60"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+    matchIds: []
+  - id: person-mention-5274c877b21f2bcb
+    kind: person_mention
+    page: "60"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-riise
+    matchIds: []
+  - id: person-mention-74b5754129212a83
+    kind: person_mention
+    page: "60"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-954c68e58aae949d
+    kind: person_mention
+    page: "60"
+    confidence: high
+    keywords: []
+    names:
+      - Kjell Berentzen
+    years: []
+    scores: []
+    personIds:
+      - kjell-berentzen
+    matchIds: []
+  - id: person-mention-c3ecb6f9aca87120
+    kind: person_mention
+    page: "60"
+    confidence: high
+    keywords: []
+    names:
+      - Petter Birkevold
+    years: []
+    scores: []
+    personIds:
+      - petter-birkevold
+    matchIds: []
+  - id: person-mention-c8915f3ea8eddc01
+    kind: person_mention
+    page: "60"
+    confidence: high
+    keywords: []
+    names:
+      - Rolf Annaniassen
+    years: []
+    scores: []
+    personIds:
+      - rolf-annaniassen
+    matchIds: []
+  - id: person-mention-ef694faae3776822
+    kind: person_mention
+    page: "60"
+    confidence: high
+    keywords: []
+    names:
+      - Perry Ystenes
+    years: []
+    scores: []
+    personIds:
+      - perry-ystenes
+    matchIds: []
+  - id: person-role-14384d061cb0b1ab
     kind: person_role
     page: "60"
     confidence: medium
@@ -773,7 +2123,8 @@ candidates:
       - Perry Ystenes
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - perry-ystenes
     matchIds: []
   - id: organization-580ecd34fc7afb21
     kind: organization
@@ -830,6 +2181,30 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-48ded510713d93b5
+    kind: person_mention
+    page: "62"
+    confidence: high
+    keywords: []
+    names:
+      - Kjell Berentzen
+    years: []
+    scores: []
+    personIds:
+      - kjell-berentzen
+    matchIds: []
+  - id: person-mention-647fbe244e3a601c
+    kind: person_mention
+    page: "62"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+    matchIds: []
   - id: person-mention-6fd7dc8550a820a5
     kind: person_mention
     page: "62"
@@ -844,19 +2219,57 @@ candidates:
       - emil-sando
       - peder-puck
     matchIds: []
-  - id: person-role-69b2bb3649678c62
+  - id: person-mention-87a5a76f53ddd604
+    kind: person_mention
+    page: "62"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-a1fd34a71c8df5ec
+    kind: person_mention
+    page: "62"
+    confidence: high
+    keywords: []
+    names:
+      - Rolf Annaniassen
+    years: []
+    scores: []
+    personIds:
+      - rolf-annaniassen
+    matchIds: []
+  - id: person-mention-cd21b480b20ecc1b
+    kind: person_mention
+    page: "62"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
+  - id: person-role-4bac3b4a33f1b04f
     kind: person_role
     page: "62"
     confidence: medium
     keywords:
       - oppmann
     names:
+      - Einar Aas
       - Einar Åas
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - einar-aas
     matchIds: []
-  - id: person-role-837271176f2bd15c
+  - id: person-role-becb6aae47a3be08
     kind: person_role
     page: "62"
     confidence: medium
@@ -867,7 +2280,8 @@ candidates:
       - Hans Henriksen
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - kjell-berentzen
     matchIds: []
   - id: organization-4107588bef334487
     kind: organization
@@ -926,6 +2340,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-1564cc933a4769f3
+    kind: person_mention
+    page: "63"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Nedregård
+    years: []
+    scores: []
+    personIds:
+      - karsten-nedregard
+    matchIds: []
   - id: person-mention-2a496617c4beb0a2
     kind: person_mention
     page: "63"
@@ -937,6 +2363,18 @@ candidates:
     scores: []
     personIds:
       - peder-puck
+    matchIds: []
+  - id: person-mention-366fddfaa6c8c03e
+    kind: person_mention
+    page: "63"
+    confidence: high
+    keywords: []
+    names:
+      - Kjell Berentzen
+    years: []
+    scores: []
+    personIds:
+      - kjell-berentzen
     matchIds: []
   - id: person-mention-3bba1fc723f9e028
     kind: person_mention
@@ -952,6 +2390,140 @@ candidates:
       - emil-sando
       - peder-puck
     matchIds: []
+  - id: person-mention-593d5fdf086c98c3
+    kind: person_mention
+    page: "63"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-609d8690475f763b
+    kind: person_mention
+    page: "63"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+    matchIds: []
+  - id: person-mention-6878914cb7946086
+    kind: person_mention
+    page: "63"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Eriksen
+    years: []
+    scores: []
+    personIds:
+      - karsten-eriksen
+    matchIds: []
+  - id: person-mention-820d8a6dcb10c3b7
+    kind: person_mention
+    page: "63"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
+  - id: person-mention-b93c64c6e60e0ff5
+    kind: person_mention
+    page: "63"
+    confidence: high
+    keywords: []
+    names:
+      - Rolf Annaniassen
+    years: []
+    scores: []
+    personIds:
+      - rolf-annaniassen
+    matchIds: []
+  - id: person-mention-d140231d1944d60f
+    kind: person_mention
+    page: "63"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
+  - id: person-mention-d6fe4d96bcffdb64
+    kind: person_mention
+    page: "63"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-riise
+    matchIds: []
+  - id: person-mention-e11186d2b1d1355d
+    kind: person_mention
+    page: "63"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-eb2db4bee56444d0
+    kind: person_mention
+    page: "63"
+    confidence: high
+    keywords: []
+    names:
+      - Bernt Sulebust
+    years: []
+    scores: []
+    personIds:
+      - bernt-sulebust
+    matchIds: []
+  - id: person-mention-fd2b769c0ab8f36f
+    kind: person_mention
+    page: "63"
+    confidence: high
+    keywords: []
+    names:
+      - Perry Ystenes
+    years: []
+    scores: []
+    personIds:
+      - perry-ystenes
+    matchIds: []
+  - id: person-role-249732ce96f5c50d
+    kind: person_role
+    page: "63"
+    confidence: medium
+    keywords:
+      - kasserer
+    names:
+      - Jarle Kristoffersen
+      - Asbjørn Yste
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
   - id: person-role-2d01e919ec78090a
     kind: person_role
     page: "63"
@@ -965,7 +2537,7 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-90c1a30aad959ced
+  - id: person-role-8b7d6b2bfe98bb4c
     kind: person_role
     page: "63"
     confidence: medium
@@ -975,20 +2547,8 @@ candidates:
       - Kjell Berentzen
     years: []
     scores: []
-    personIds: []
-    matchIds: []
-  - id: person-role-9af258322ad007aa
-    kind: person_role
-    page: "63"
-    confidence: medium
-    keywords:
-      - kasserer
-    names:
-      - Jarle Kristoffersen
-      - Asbjørn Yste
-    years: []
-    scores: []
-    personIds: []
+    personIds:
+      - kjell-berentzen
     matchIds: []
   - id: person-role-9c17681293b5620f
     kind: person_role
@@ -1002,7 +2562,7 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-da8c114760679395
+  - id: person-role-ba820d4ba6874560
     kind: person_role
     page: "63"
     confidence: medium
@@ -1012,9 +2572,10 @@ candidates:
       - Bjørn Riise
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - bjorn-riise
     matchIds: []
-  - id: person-role-f5c4c39eaecf26a5
+  - id: person-role-ef70ed3a8c4e7b6d
     kind: person_role
     page: "63"
     confidence: medium
@@ -1024,7 +2585,8 @@ candidates:
       - Einar Aas
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - einar-aas
     matchIds: []
   - id: person-role-f651514e1c0d4edd
     kind: person_role
@@ -1071,17 +2633,153 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-mention-39a8210c111dd22d
+  - id: person-mention-c8ed49358611a882
+    kind: person_mention
+    page: "65"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Drabløs
+    years: []
+    scores: []
+    personIds:
+      - bjorn-drablos
+    matchIds: []
+  - id: person-mention-d497bad251c3f6cb
+    kind: person_mention
+    page: "65"
+    confidence: high
+    keywords: []
+    names:
+      - Petter Birkevold
+    years: []
+    scores: []
+    personIds:
+      - petter-birkevold
+    matchIds: []
+  - id: person-mention-d86a6434ef389e3d
+    kind: person_mention
+    page: "65"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-riise
+    matchIds: []
+  - id: person-mention-ce1ab1ebe7e0add5
+    kind: person_mention
+    page: "66"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-d1ad5c16026a1778
+    kind: person_mention
+    page: "66"
+    confidence: high
+    keywords: []
+    names:
+      - Terje Refsnes
+    years: []
+    scores: []
+    personIds:
+      - terje-refsnes
+    matchIds: []
+  - id: person-mention-12e24144c93f86a3
     kind: person_mention
     page: "68"
     confidence: high
     keywords: []
     names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+    matchIds: []
+  - id: person-mention-60b712d94a500639
+    kind: person_mention
+    page: "68"
+    confidence: high
+    keywords: []
+    names:
+      - Anders Mogstad
+    years: []
+    scores: []
+    personIds:
+      - anders-mogstad
+    matchIds: []
+  - id: person-mention-759fca80b54f7a2a
+    kind: person_mention
+    page: "68"
+    confidence: medium
+    keywords: []
+    names:
+      - Leif Olsen
       - Nils Jangaard
     years: []
     scores: []
     personIds:
+      - leif-olsen
       - nils-jangaard
+    matchIds: []
+  - id: person-mention-837617eaabf0d9cd
+    kind: person_mention
+    page: "68"
+    confidence: medium
+    keywords: []
+    names:
+      - Einar Aas
+      - Karsten Vadseth
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+      - karsten-vadseth
+    matchIds: []
+  - id: person-mention-90e6a1702f3d4cf1
+    kind: person_mention
+    page: "68"
+    confidence: high
+    keywords: []
+    names:
+      - Ole Jangaard
+    years: []
+    scores: []
+    personIds:
+      - ole-jangaard
+    matchIds: []
+  - id: person-mention-bd96889709e46e86
+    kind: person_mention
+    page: "68"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
+    matchIds: []
+  - id: person-mention-f45c633845acb3ea
+    kind: person_mention
+    page: "68"
+    confidence: high
+    keywords: []
+    names:
+      - Edvard Skugvik
+    years: []
+    scores: []
+    personIds:
+      - edvard-skugvik
     matchIds: []
   - id: organization-7cf07af468783ce4
     kind: organization
@@ -1105,6 +2803,42 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-3d304490dd390324
+    kind: person_mention
+    page: "69"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-56253d78d6e5505f
+    kind: person_mention
+    page: "69"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-riise
+    matchIds: []
+  - id: person-mention-bb79a38ec55ff391
+    kind: person_mention
+    page: "69"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+    matchIds: []
   - id: person-role-52cead833c9032dc
     kind: person_role
     page: "69"
@@ -1118,7 +2852,7 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-8b547cbdec2ef336
+  - id: person-role-dec110e6986101f4
     kind: person_role
     page: "69"
     confidence: medium
@@ -1128,7 +2862,8 @@ candidates:
       - Einar Aas
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - einar-aas
     matchIds: []
   - id: organization-7cdbbc8b7028572a
     kind: organization
@@ -1141,6 +2876,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-17d46f0dab4da152
+    kind: person_mention
+    page: "71"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
   - id: organization-80b53917c7f3ade0
     kind: organization
     page: "72"
@@ -1152,6 +2899,54 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-641ad6cd72a8bfa2
+    kind: person_mention
+    page: "72"
+    confidence: high
+    keywords: []
+    names:
+      - Bjørn Riise
+    years: []
+    scores: []
+    personIds:
+      - bjorn-riise
+    matchIds: []
+  - id: person-mention-a8f2886ea299c48d
+    kind: person_mention
+    page: "72"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-bcbb6e1ce7903480
+    kind: person_mention
+    page: "72"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-da1bdf8a26a4c688
+    kind: person_mention
+    page: "72"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
+    matchIds: []
   - id: organization-3ce9b6e00f1a7218
     kind: organization
     page: "73"
@@ -1162,6 +2957,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-0ce4d2a8d2e9a685
+    kind: person_mention
+    page: "73"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
     matchIds: []
   - id: person-mention-44fa5acad4609d53
     kind: person_mention
@@ -1175,6 +2982,42 @@ candidates:
     personIds:
       - sigurd-tafjord
     matchIds: []
+  - id: person-mention-f5ff8a9c797ac5bc
+    kind: person_mention
+    page: "73"
+    confidence: high
+    keywords: []
+    names:
+      - Kjell Berentzen
+    years: []
+    scores: []
+    personIds:
+      - kjell-berentzen
+    matchIds: []
+  - id: person-mention-972de19593b52315
+    kind: person_mention
+    page: "74"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+    matchIds: []
+  - id: person-mention-05111d6f8f811d55
+    kind: person_mention
+    page: "75"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+    matchIds: []
   - id: person-mention-1421325c32b8add6
     kind: person_mention
     page: "75"
@@ -1186,6 +3029,90 @@ candidates:
     scores: []
     personIds:
       - sigurd-tafjord
+    matchIds: []
+  - id: person-mention-29d5ec40d5206ecc
+    kind: person_mention
+    page: "75"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Vadseth
+    years: []
+    scores: []
+    personIds:
+      - karsten-vadseth
+    matchIds: []
+  - id: person-mention-80fe86c3a44ba8ad
+    kind: person_mention
+    page: "75"
+    confidence: high
+    keywords: []
+    names:
+      - Harald Johansen
+    years: []
+    scores: []
+    personIds:
+      - harald-johansen
+    matchIds: []
+  - id: person-mention-060ea092d4422836
+    kind: person_mention
+    page: "76"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Nedregård
+    years: []
+    scores: []
+    personIds:
+      - karsten-nedregard
+    matchIds: []
+  - id: person-mention-34af200e31d32095
+    kind: person_mention
+    page: "76"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-f32ffc023b644553
+    kind: person_mention
+    page: "76"
+    confidence: high
+    keywords: []
+    names:
+      - Finn Tollås
+    years: []
+    scores: []
+    personIds:
+      - finn-tollas
+    matchIds: []
+  - id: person-mention-135027fb75e7ef94
+    kind: person_mention
+    page: "78"
+    confidence: high
+    keywords: []
+    names:
+      - Per Anker Eriksen
+    years: []
+    scores: []
+    personIds:
+      - per-anker-eriksen
+    matchIds: []
+  - id: person-mention-87be8818f5356553
+    kind: person_mention
+    page: "78"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
     matchIds: []
   - id: person-role-ba30edc478e5991c
     kind: person_role
@@ -1199,17 +3126,43 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-mention-2d2f9f6d3e12fa63
+  - id: person-mention-3e6fd3a16328cb78
     kind: person_mention
     page: "79"
     confidence: high
     keywords: []
     names:
+      - Perry Ystenes
+    years: []
+    scores: []
+    personIds:
+      - perry-ystenes
+    matchIds: []
+  - id: person-mention-60b0eaf72b9374e7
+    kind: person_mention
+    page: "79"
+    confidence: medium
+    keywords: []
+    names:
+      - Frantz Løvmo
       - Peder Puck
     years: []
     scores: []
     personIds:
+      - frantz-lovmo
       - peder-puck
+    matchIds: []
+  - id: person-mention-f66b9941ea4cf08a
+    kind: person_mention
+    page: "79"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
     matchIds: []
   - id: organization-3f978c1887b21471
     kind: organization
@@ -1217,17 +3170,6 @@ candidates:
     confidence: medium
     keywords:
       - formann
-    names: []
-    years: []
-    scores: []
-    personIds: []
-    matchIds: []
-  - id: organization-0face53330276ffc
-    kind: organization
-    page: "81"
-    confidence: medium
-    keywords:
-      - nestformann
     names: []
     years: []
     scores: []
@@ -1266,6 +3208,80 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-307fb262c2d66831
+    kind: person_mention
+    page: "81"
+    confidence: high
+    keywords: []
+    names:
+      - Rolf Annaniassen
+    years: []
+    scores: []
+    personIds:
+      - rolf-annaniassen
+    matchIds: []
+  - id: person-mention-429cb7e8ce12d48b
+    kind: person_mention
+    page: "81"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+    matchIds: []
+  - id: person-mention-479fe8c43a2f6d50
+    kind: person_mention
+    page: "81"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-7cef2e52b12b6dbb
+    kind: person_mention
+    page: "81"
+    confidence: high
+    keywords: []
+    names:
+      - Øivind Haagensen
+    years: []
+    scores: []
+    personIds:
+      - oivind-haagensen
+    matchIds: []
+  - id: person-mention-835f28ba5d230866
+    kind: person_mention
+    page: "81"
+    confidence: high
+    keywords: []
+    names:
+      - Erling Bjørge
+    years: []
+    scores: []
+    personIds:
+      - erling-bjorge
+    matchIds: []
+  - id: person-mention-da1f5e071d9b6506
+    kind: person_mention
+    page: "81"
+    confidence: medium
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+      - Rolf Annaniassen
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+      - rolf-annaniassen
+    matchIds: []
   - id: person-mention-ea67f2424ff1f212
     kind: person_mention
     page: "81"
@@ -1289,6 +3305,19 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-role-93212d06215ae437
+    kind: person_role
+    page: "81"
+    confidence: medium
+    keywords:
+      - nestformann
+    names:
+      - Øivind Haagensen
+    years: []
+    scores: []
+    personIds:
+      - oivind-haagensen
     matchIds: []
   - id: person-role-b357629cc5447e4b
     kind: person_role
@@ -1326,3 +3355,429 @@ candidates:
     personIds:
       - knut-gaaseide
     matchIds: []
+resolvedRoles:
+  - id: rolle-da6c6440822de6ee
+    page: "12"
+    column: 1
+    personName: Hans Jacob Henriksen
+    category: board
+    title: Formann
+    from: "1959"
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-e3b5c0fb4b89fbec
+    page: "12"
+    column: 1
+    personName: Jan With
+    personId: jan-with
+    category: administration
+    title: Kasserer
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-7631b94307cda573
+    page: "12"
+    column: 1
+    personName: Lollo Stub
+    category: board
+    title: Nestformann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-0967afbb8776b998
+    page: "17"
+    column: 0
+    personName: Reidar Skarbøvik
+    personId: reidar-skarbovik
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-6d9c5df7f6a1c465
+    page: "24"
+    column: 0
+    personName: Elisif Ingebrigtsen
+    category: board
+    title: Formann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-119e426872882d7b
+    page: "24"
+    column: 0
+    personName: Harald Nord. A-lags
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-c1cad3a62b31a27a
+    page: "24"
+    column: 0
+    personName: Reservelags-resultater. Perry Ystenes
+    category: board
+    title: Formann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-e06c320a0531c50f
+    page: "36"
+    column: 0
+    personName: Else Giske
+    category: administration
+    title: Kasserer
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-906dd108debab1f8
+    page: "36"
+    column: 0
+    personName: Harald Nord
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-2b23245f7e6b8b11
+    page: "36"
+    column: 0
+    personName: Ivar Østensen
+    category: administration
+    title: Kasserer
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-9dceb04c387b8efb
+    page: "36"
+    column: 0
+    personName: L Perry Ystenes
+    category: board
+    title: Formann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-ded14c2a17ed12ff
+    page: "43"
+    column: 1
+    personName: Ole Rørvik
+    category: administration
+    title: Kasserer
+    to: null
+    confidence: low
+    rule: name_then_role
+  - id: rolle-d029ade5e33b37ee
+    page: "48"
+    column: 2
+    personName: Elisif Ingebrigtsen
+    category: board
+    title: Formann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-2bfc75a9a424f447
+    page: "48"
+    column: 2
+    personName: Else Giske
+    category: administration
+    title: Kasserer
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-f683e4f512bd3315
+    page: "48"
+    column: 2
+    personName: Hans Jacob Henriksen
+    category: board
+    title: Formann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-2f16ca3fee48ea0a
+    page: "48"
+    column: 2
+    personName: Jan With
+    personId: jan-with
+    category: administration
+    title: Kasserer
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-ae9e269ceba7345e
+    page: "48"
+    column: 2
+    personName: Jarle Kristoffersen
+    personId: jarle-kristoffersen
+    category: administration
+    title: Sekretær
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-926c36a57d272004
+    page: "48"
+    column: 2
+    personName: Lollo Stub
+    category: board
+    title: Nestformann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-f552bdfbc3be5da3
+    page: "48"
+    column: 2
+    personName: Ole Walderhaug
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-b79485953aa1f02d
+    page: "48"
+    column: 2
+    personName: Perry Ystenes
+    personId: perry-ystenes
+    category: board
+    title: Formann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-fa485df4c7864c02
+    page: "48"
+    column: 2
+    personName: Rolf Annaniassen
+    personId: rolf-annaniassen
+    category: board
+    title: Nestformann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-f4d727c54cd556bb
+    page: "54"
+    column: 1
+    personName: Bergseth Jeg
+    category: board
+    title: Formann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-1140b7f61ac7a846
+    page: "60"
+    column: 2
+    personName: Elisif Ingebrigtsen
+    category: board
+    title: Formann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-5aa2d1ee3af8219d
+    page: "60"
+    column: 2
+    personName: Else Giske
+    category: administration
+    title: Kasserer
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-23d3769569071b18
+    page: "60"
+    column: 2
+    personName: Hans Jacob Henriksen
+    category: board
+    title: Formann
+    from: "1960"
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-c7da37f241bfe4ed
+    page: "60"
+    column: 2
+    personName: Jan With
+    personId: jan-with
+    category: administration
+    title: Kasserer
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-4d87c8e195be554f
+    page: "60"
+    column: 2
+    personName: Jarle Kristoffersen
+    personId: jarle-kristoffersen
+    category: administration
+    title: Sekretær
+    from: "1960"
+    to: null
+    confidence: high
+    rule: role_then_name
+  - id: rolle-c6ed61306b1254eb
+    page: "60"
+    column: 2
+    personName: Lollo Stub
+    category: board
+    title: Nestformann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-e85cc9a20c7a304b
+    page: "60"
+    column: 2
+    personName: Ole Walderhaug
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-f86b58d39fda32a1
+    page: "60"
+    column: 2
+    personName: Perry Ystenes
+    personId: perry-ystenes
+    category: board
+    title: Formann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-e0b142c57aeaa8a8
+    page: "62"
+    column: 1
+    personName: Ved Fotballkretssens
+    category: administration
+    title: Sekretær
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-4abed6c74393cac4
+    page: "62"
+    column: 2
+    personName: Rolf Annaniassen
+    personId: rolf-annaniassen
+    category: board
+    title: Formann
+    to: null
+    confidence: medium
+    rule: name_then_role
+  - id: rolle-d5196ebdebb4149d
+    page: "63"
+    column: 1
+    personName: Asbjørn Ystenes
+    category: administration
+    title: Kasserer
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-1cd32c18b11ac578
+    page: "63"
+    column: 1
+    personName: Bjørn Riise
+    personId: bjorn-riise
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-7e872c0ef706c484
+    page: "63"
+    column: 1
+    personName: Einar Aas
+    personId: einar-aas
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-7f375471df45efa4
+    page: "63"
+    column: 1
+    personName: Hans Henriksen
+    category: board
+    title: Nestformann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-d9bfc946dae3c9c5
+    page: "63"
+    column: 1
+    personName: Jarle Kristoffersen
+    personId: jarle-kristoffersen
+    category: administration
+    title: Sekretær
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-48ef6ad40c241dd6
+    page: "63"
+    column: 1
+    personName: Kjell Berentzen
+    personId: kjell-berentzen
+    category: board
+    title: Formann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-b482021372e6b79d
+    page: "63"
+    column: 1
+    personName: Reidar Skarbøvik
+    personId: reidar-skarbovik
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-454fd86b0fe038ef
+    page: "63"
+    column: 1
+    personName: Walentin Rødland
+    category: sporting_staff
+    title: Materialforvalter
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-0a4da2db1e9f4a32
+    page: "63"
+    column: 2
+    personName: Jan Larsen
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-519ef0f4157901d2
+    page: "69"
+    column: 1
+    personName: Einar Aas
+    personId: einar-aas
+    category: coach
+    title: Trener
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-2a08fe2ab69709f1
+    page: "78"
+    column: 0
+    personName: Hans Henriksen
+    category: board
+    title: Formann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-b409b9b80807a919
+    page: "81"
+    column: 0
+    personName: Hans J. Vestad
+    category: board
+    title: Nestformann
+    to: null
+    confidence: low
+    rule: name_then_role
+  - id: rolle-c42aefdb86ef8186
+    page: "81"
+    column: 1
+    personName: Øivind Haagensen
+    personId: oivind-haagensen
+    category: board
+    title: Nestformann
+    to: null
+    confidence: medium
+    rule: role_then_name

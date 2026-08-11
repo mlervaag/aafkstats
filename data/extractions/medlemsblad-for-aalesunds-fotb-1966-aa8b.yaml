@@ -54,6 +54,42 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-64509f430e7350aa
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Paul Urke
+    years: []
+    scores: []
+    personIds:
+      - paul-urke
+    matchIds: []
+  - id: person-mention-6edad30a45833fa6
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Kjell Berentzen
+    years: []
+    scores: []
+    personIds:
+      - kjell-berentzen
+    matchIds: []
+  - id: person-mention-721a5c836477a06e
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+    matchIds: []
   - id: organization-df1b397e8a317670
     kind: organization
     page: "4"
@@ -64,6 +100,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-cdefc38dd141fc7a
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Harald Hagen
+    years: []
+    scores: []
+    personIds:
+      - harald-hagen
     matchIds: []
   - id: person-mention-f1e4c97268b1783b
     kind: person_mention
@@ -76,6 +124,18 @@ candidates:
     scores: []
     personIds:
       - peder-puck
+    matchIds: []
+  - id: person-mention-d9d17a04082e54a2
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
     matchIds: []
   - id: organization-44dfcd92ca49da07
     kind: organization
@@ -159,6 +219,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-5a7ee7c112a2f8b6
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Finn Tollås
+    years: []
+    scores: []
+    personIds:
+      - finn-tollas
+    matchIds: []
   - id: person-role-24e8d540cd60c20d
     kind: person_role
     page: "9"
@@ -194,6 +266,30 @@ candidates:
     personIds:
       - rasmus-eck-olsen
     matchIds: []
+  - id: person-mention-b7372e336a038761
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
+    matchIds: []
+  - id: person-mention-ef50db39aebbfc97
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Paul Urke
+    years: []
+    scores: []
+    personIds:
+      - paul-urke
+    matchIds: []
   - id: season-fact-2f155ab303bcdf52
     kind: season_fact
     page: "10"
@@ -206,3 +302,41 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+resolvedRoles:
+  - id: rolle-f44e521910e870ac
+    page: "2"
+    column: 0
+    personName: Oddvar Aarø
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-d48ac432fb6da6dc
+    page: "2"
+    column: 0
+    personName: Olaf Bigset
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-05c3fc099b405763
+    page: "10"
+    column: 1
+    personName: Annaniassen. Mange
+    category: board
+    title: Formann
+    from: "1966"
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-eac9f70bfbe1da86
+    page: "10"
+    column: 1
+    personName: Olaf Bigset
+    category: administration
+    title: Direktør
+    to: null
+    confidence: low
+    rule: role_then_name

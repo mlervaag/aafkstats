@@ -8,6 +8,18 @@ pagesProcessed: 8
 pagesFailed: []
 contentHash: sha256:616f143950a6b4c20c7fc333fdffb6d1dafe47da8de76ce8bfa0783597db23f2
 candidates:
+  - id: person-mention-d1e8ec220b5f7d9f
+    kind: person_mention
+    page: "1"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
   - id: match-result-040a0d50560fdc2d
     kind: match_result
     page: "2"
@@ -86,6 +98,18 @@ candidates:
       - 2-3
     personIds: []
     matchIds: []
+  - id: person-mention-63152e471f02a219
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
   - id: organization-96720761d2244fdd
     kind: organization
     page: "3"
@@ -107,6 +131,42 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-84b660e137b1c879
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-a8e7b7c587df85b2
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-e97f5a02601fe219
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
     matchIds: []
   - id: match-result-8e9206e73b14d592
     kind: match_result
@@ -130,3 +190,4 @@ candidates:
       - 2-2
     personIds: []
     matchIds: []
+resolvedRoles: []

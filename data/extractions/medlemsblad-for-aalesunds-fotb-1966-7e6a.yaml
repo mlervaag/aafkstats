@@ -19,6 +19,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-72b4da7f0ff14808
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Paul Urke
+    years: []
+    scores: []
+    personIds:
+      - paul-urke
+    matchIds: []
   - id: person-role-264344c0bee4c410
     kind: person_role
     page: "2"
@@ -65,6 +77,30 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-5cf3ca2218713852
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Einar Aas
+    years: []
+    scores: []
+    personIds:
+      - einar-aas
+    matchIds: []
+  - id: person-mention-6f53a8b08dd6b693
+    kind: person_mention
+    page: "6"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
   - id: lineup-or-squad-36301068206e5b9b
     kind: lineup_or_squad
     page: "7"
@@ -87,6 +123,30 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-18625453a7916ad2
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Einar With
+    years: []
+    scores: []
+    personIds:
+      - einar-with
+    matchIds: []
+  - id: person-mention-4aeb3e7965816b2e
+    kind: person_mention
+    page: "7"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
   - id: organization-26820bf485359502
     kind: organization
     page: "8"
@@ -98,3 +158,37 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-93d4168c4de51037
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-c37a12b1192aa103
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
+    matchIds: []
+resolvedRoles:
+  - id: rolle-601169b984033907
+    page: "2"
+    column: 0
+    personName: Oddvar Aarøe
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: role_then_name

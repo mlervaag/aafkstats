@@ -134,6 +134,18 @@ candidates:
     personIds:
       - emil-sando
     matchIds: []
+  - id: person-mention-ae84d07f50de0cb4
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Johan Keller
+    years: []
+    scores: []
+    personIds:
+      - johan-keller
+    matchIds: []
   - id: person-mention-ca7fb7b29b6717b7
     kind: person_mention
     page: "12"
@@ -145,6 +157,18 @@ candidates:
     scores: []
     personIds:
       - sverre-mogstad
+    matchIds: []
+  - id: person-mention-ddd36a4e82b7f7f9
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds:
+      - per-mogstad
     matchIds: []
   - id: person-role-609dd401418847f4
     kind: person_role
@@ -172,6 +196,18 @@ candidates:
     personIds:
       - emil-sando
     matchIds: []
+  - id: person-mention-1eaf22bcfaf85a4e
+    kind: person_mention
+    page: "15"
+    confidence: high
+    keywords: []
+    names:
+      - Hugo Hamre
+    years: []
+    scores: []
+    personIds:
+      - hugo-hamre
+    matchIds: []
   - id: match-result-5eead300830c0021
     kind: match_result
     page: "16"
@@ -194,6 +230,18 @@ candidates:
       - 0-3
     personIds: []
     matchIds: []
+  - id: person-mention-22141cfcd8285ad2
+    kind: person_mention
+    page: "16"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Eriksen
+    years: []
+    scores: []
+    personIds:
+      - karsten-eriksen
+    matchIds: []
   - id: person-mention-26dddd3f14f69f2a
     kind: person_mention
     page: "16"
@@ -205,6 +253,30 @@ candidates:
     scores: []
     personIds:
       - peder-puck
+    matchIds: []
+  - id: person-mention-a80a0784adbd58fe
+    kind: person_mention
+    page: "16"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
+  - id: person-mention-c6e57fe7c9094165
+    kind: person_mention
+    page: "16"
+    confidence: high
+    keywords: []
+    names:
+      - Bernt Sulebust
+    years: []
+    scores: []
+    personIds:
+      - bernt-sulebust
     matchIds: []
   - id: person-role-1297ab4c1b8315ce
     kind: person_role
@@ -244,3 +316,61 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+resolvedRoles:
+  - id: rolle-43f9c8d13aa59e40
+    page: "8"
+    column: 0
+    personName: Emil Sandø
+    personId: emil-sando
+    category: board
+    title: Formann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-03e6ee9e6f9a01ae
+    page: "12"
+    column: 0
+    personName: Eck Olsen
+    category: board
+    title: Formann
+    to: null
+    confidence: low
+    rule: name_then_role
+  - id: rolle-bcda48cb22b708b2
+    page: "16"
+    column: 0
+    personName: Arne Westad
+    category: administration
+    title: Kasserer
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-ab1ef5b58adffe1d
+    page: "16"
+    column: 0
+    personName: Peder Puck
+    personId: peder-puck
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-ef92b02acd355613
+    page: "16"
+    column: 0
+    personName: Per Anker
+    category: board
+    title: Formann
+    from: "1950"
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-780d30a7db23c61a
+    page: "16"
+    column: 0
+    personName: Ragnar Pedersen
+    category: coach
+    title: Trener
+    to: null
+    confidence: low
+    rule: role_then_name

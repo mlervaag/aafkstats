@@ -19,17 +19,79 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-mention-c43a78793ca05010
+  - id: person-mention-33d64b90d4800dc4
+    kind: person_mention
+    page: "2"
+    confidence: medium
+    keywords: []
+    names:
+      - Jarle Kristoffersen
+      - Sigurd Tafjord
+    years: []
+    scores: []
+    personIds:
+      - jarle-kristoffersen
+      - sigurd-tafjord
+    matchIds: []
+  - id: person-mention-90340dcaf959de23
     kind: person_mention
     page: "2"
     confidence: high
     keywords: []
     names:
-      - Sigurd Tafjord
+      - Petter Birkevold
     years: []
     scores: []
     personIds:
-      - sigurd-tafjord
+      - petter-birkevold
+    matchIds: []
+  - id: person-mention-99fa8ab6f31f4df1
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Jan With
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
+  - id: person-mention-b026c8aacb146bed
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Vadseth
+    years: []
+    scores: []
+    personIds:
+      - karsten-vadseth
+    matchIds: []
+  - id: person-mention-b7451f5ca25565e7
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Ole-Marius Ringdal
+    years: []
+    scores: []
+    personIds:
+      - ole-marius-ringdal
+    matchIds: []
+  - id: person-mention-c33d7ced6f83ff9a
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
     matchIds: []
   - id: person-role-13da4bbb0940d0e5
     kind: person_role
@@ -43,19 +105,52 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-36ef2704332173b4
+  - id: person-role-14660bb3597f1485
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - leder
+    names:
+      - Jan With
+      - Kjell Luthentun
+    years: []
+    scores: []
+    personIds:
+      - jan-with
+    matchIds: []
+  - id: person-role-25aef18fc1fb1421
     kind: person_role
     page: "2"
     confidence: medium
     keywords:
       - formann
+      - nestformann
+      - trener
     names:
       - Jan With
+      - Jar- Bøen
+      - Trygve Olsen
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - jan-with
     matchIds: []
-  - id: person-role-4934961f7141e1f1
+  - id: person-role-3cbaecb22bb9395f
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Petter Birkevold
+      - Petter Birkevold. Va
+    years: []
+    scores: []
+    personIds:
+      - petter-birkevold
+    matchIds: []
+  - id: person-role-6565585ba1d71513
     kind: person_role
     page: "2"
     confidence: medium
@@ -66,33 +161,24 @@ candidates:
       - Asbjorn Ar
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - petter-birkevold
     matchIds: []
-  - id: person-role-4ff7c2a8e1db320e
+  - id: person-role-6910008b8a654dee
     kind: person_role
     page: "2"
     confidence: medium
     keywords:
       - sekretær
     names:
+      - Ole-Marius Ringdal
       - Terje Dragsund
       - Ole Marius Ringdal
       - Svein Rør- Det
     years: []
     scores: []
-    personIds: []
-    matchIds: []
-  - id: person-role-59d83e2e6a1d371d
-    kind: person_role
-    page: "2"
-    confidence: medium
-    keywords:
-      - oppmann
-    names:
-      - Petter Birkevold. Va
-    years: []
-    scores: []
-    personIds: []
+    personIds:
+      - ole-marius-ringdal
     matchIds: []
   - id: person-role-81ab8886fb0b8ef2
     kind: person_role
@@ -107,34 +193,18 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
-  - id: person-role-8ae67c03a23bb57a
-    kind: person_role
-    page: "2"
-    confidence: medium
-    keywords:
-      - leder
-    names:
-      - Kjell Luthentun
-      - Jan With
-    years: []
-    scores: []
-    personIds: []
-    matchIds: []
-  - id: person-role-8b5bc80a946080d3
+  - id: person-role-e127762ed9b44a27
     kind: person_role
     page: "2"
     confidence: medium
     keywords:
       - formann
-      - nestformann
-      - trener
     names:
       - Jan With
-      - Jar- Bøen
-      - Trygve Olsen
     years: []
     scores: []
-    personIds: []
+    personIds:
+      - jan-with
     matchIds: []
   - id: match-result-80aa1536fadf4ea3
     kind: match_result
@@ -205,6 +275,43 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-0b41ac984bbfbd7a
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Finn Tollås
+    years: []
+    scores: []
+    personIds:
+      - finn-tollas
+    matchIds: []
+  - id: person-mention-123217012647f3f0
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-2d5d492ec9e5b2b4
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Bernt Sulebust
+    years:
+      - 1948
+    scores: []
+    personIds:
+      - bernt-sulebust
+    matchIds: []
   - id: organization-050d14ba476e9865
     kind: organization
     page: "9"
@@ -268,6 +375,30 @@ candidates:
     personIds:
       - rasmus-eck-olsen
     matchIds: []
+  - id: person-mention-b92671387d6597b8
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Reidar Skarbøvik
+    years: []
+    scores: []
+    personIds:
+      - reidar-skarbovik
+    matchIds: []
+  - id: person-mention-e60f7a931a834273
+    kind: person_mention
+    page: "9"
+    confidence: high
+    keywords: []
+    names:
+      - Lauritz Giske
+    years: []
+    scores: []
+    personIds:
+      - lauritz-giske
+    matchIds: []
   - id: organization-ae94c593d50d1b0a
     kind: organization
     page: "11"
@@ -278,6 +409,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-ed05c4bfdebbf554
+    kind: person_mention
+    page: "11"
+    confidence: high
+    keywords: []
+    names:
+      - Petter Birkevold
+    years: []
+    scores: []
+    personIds:
+      - petter-birkevold
     matchIds: []
   - id: person-role-f9c5b16b434dcb59
     kind: person_role
@@ -302,6 +445,30 @@ candidates:
     scores: []
     personIds: []
     matchIds: []
+  - id: person-mention-37e60c49b656f777
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Erling Bjørge
+    years: []
+    scores: []
+    personIds:
+      - erling-bjorge
+    matchIds: []
+  - id: person-mention-8bfbe43fbd72f547
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Karsten Vadseth
+    years: []
+    scores: []
+    personIds:
+      - karsten-vadseth
+    matchIds: []
   - id: organization-0442fbe224635dd6
     kind: organization
     page: "13"
@@ -312,6 +479,18 @@ candidates:
     years: []
     scores: []
     personIds: []
+    matchIds: []
+  - id: person-mention-12ff7f872c9992ae
+    kind: person_mention
+    page: "15"
+    confidence: high
+    keywords: []
+    names:
+      - Ola Hodder
+    years: []
+    scores: []
+    personIds:
+      - ola-hodder
     matchIds: []
   - id: person-mention-63674ac4ec2f6dda
     kind: person_mention
@@ -325,3 +504,69 @@ candidates:
     personIds:
       - knut-gaaseide
     matchIds: []
+resolvedRoles:
+  - id: rolle-eca49a45abb19be6
+    page: "2"
+    column: 0
+    personName: Jan With
+    personId: jan-with
+    category: board
+    title: Formann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-1dc97b1d0172e65a
+    page: "2"
+    column: 0
+    personName: Jar- Bøen
+    category: board
+    title: Nestformann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-a0cda5dd90685b9c
+    page: "2"
+    column: 0
+    personName: Petter Birkevold
+    personId: petter-birkevold
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: medium
+    rule: role_then_name
+  - id: rolle-f9e02c2d824ab26a
+    page: "2"
+    column: 0
+    personName: Petter Birkevold. Varamenn
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-a053774c905bd7e3
+    page: "2"
+    column: 0
+    personName: Sigge Ingebrigt-
+    category: sporting_staff
+    title: Materialforvalter
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-14bc9f7b278b1e39
+    page: "5"
+    column: 0
+    personName: Petter Bir-
+    category: sporting_staff
+    title: Oppmann
+    to: null
+    confidence: low
+    rule: role_then_name
+  - id: rolle-6f902e08e83f6665
+    page: "13"
+    column: 1
+    personName: Odd Arne Engvik
+    category: board
+    title: Styremedlem
+    to: null
+    confidence: low
+    rule: role_then_name
