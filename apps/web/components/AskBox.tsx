@@ -303,7 +303,8 @@ export function AskBox() {
       <h2 id="sporre">Hva leter du etter?</h2>
       <p className="prose muted">
         Skriv <strong>Haller</strong>, <strong>formann 1961</strong> eller <strong>2013 Tromsø</strong> for
-        direkte treff på personer og kamper. Trykk Enter for å få et utfyllende svar fra arkivet.
+        direkte treff på personer og kamper. Trykk Enter for å la en språkmodell søke i
+        arkivet og gi et utfyllende svar.
       </p>
 
       <form className="ask-form" onSubmit={(event) => {

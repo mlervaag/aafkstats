@@ -73,8 +73,8 @@ export default function ContributePage() {
           <li>en kort forklaring hvis kildene er uenige</li>
         </ul>
         <div className="notice">
-          <strong>Send fakta, ikke brødtekst.</strong> Ikke kopier artikler, boktekst eller
-          kampreferat inn i bidraget. Send heller lenken eller kildehenvisningen til
+          <strong>Send opplysninger, ikke hele tekster.</strong> Ikke kopier artikler, boktekst
+          eller kampreferat inn i bidraget. Send heller lenken eller kildehenvisningen til
           originalen.
         </div>
       </section>

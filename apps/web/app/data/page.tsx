@@ -112,7 +112,7 @@ export default function DataPage() {
         <h2>Slik er spørrefunksjonen begrenset</h2>
         <div className="prose">
           <p>
-            Spørrefunksjonen kan skrive sine egne SELECT-spørringer mot tabellene over. Det
+            Spørrefunksjonen kan skrive SELECT-spørringer mot tabellene over. Det
             er dét som gjør at den kan svare på spørsmål ingen har laget et ferdig oppslag
             for. Grensene er:
           </p>
@@ -125,7 +125,7 @@ export default function DataPage() {
               Spørringen kjører i en egen prosess som stoppes ved tidsavbrudd, og den ser
               bare tabellene som er dokumentert på denne siden, ikke rådataene bak dem.
             </li>
-            <li>Én setning per spørring, og bare SELECT.</li>
+            <li>Én SQL-setning per spørring, og bare SELECT.</li>
             <li>Maks 200 rader og 3 sekunders kjøretid.</li>
             <li>
               Hver spørring som kjøres, vises under svaret, så du kan etterprøve hva svaret

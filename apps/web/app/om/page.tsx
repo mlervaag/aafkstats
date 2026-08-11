@@ -13,18 +13,18 @@ export default function AboutPage() {
           <section>
             <h2>Hva som finnes nå</h2>
             <p>
-              Arkivet inneholder to slags kamper. De spilte har dato, motstander, hjemme eller
-              borte, konkurranse og sluttresultat. De som fortsatt står på terminlista, har
-              dato og motstander, men ingen resultatfelt, og de er merket slik at de holdes
-              utenfor statistikken.
+              Arkivet inneholder to slags kamper. Spilte kamper har dato, motstander, hjemme
+              eller borte, konkurranse og sluttresultat. Kamper som fortsatt står på
+              terminlista, har dato og motstander, men ingen resultatfelt, og de er merket
+              slik at de holdes utenfor statistikken.
             </p>
             <p>
               På kamp-, sesong- og personsidene finner du en knapp for å bidra, og de to
               typene bidrag går hver sin vei. Et minne eller en observasjon kan sendes inn
               uten konto. Det havner i en redaksjonell innboks, og blir vurdert og merket
-              med hvor sikkert det er før det vises. En faktarettelse blir en sak på GitHub,
-              og retter kampen, personen, rollen eller kilden med et synlig spor i
-              historikken. Ingenting publiseres automatisk.{" "}
+              med hvor sikkert det er før det vises. En faktarettelse blir en sak på GitHub.
+              Når den er godkjent, rettes kampen, personen, rollen eller kilden, og endringen
+              får et synlig spor i historikken. Ingenting publiseres automatisk.{" "}
               <a href="/bidra">Slik bidrar du.</a>
             </p>
             <CoverageNote />
@@ -35,7 +35,8 @@ export default function AboutPage() {
               mange kamper arkivet har. Det andre er hvor mange av dem som også har hendelser,
               lagoppstilling og tilskuertall, og der følger dekningen kilden: kamper hentet
               fra FotMob har detaljer, mens de eldre som regel bare har resultatet. Det tredje
-              er om en sesong er hel, og det svarer rundenumrene på.
+              er om en seriesesong er komplett, altså om rundenumrene går fra første til siste
+              runde uten hull.
             </p>
           </section>
           <section>

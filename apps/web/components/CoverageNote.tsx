@@ -64,6 +64,10 @@ export function GapNote() {
   const c = loadCoverage();
   if (!c.firstSeason) return null;
   const gap = c.firstSeason - FOUNDED;
+  const gapLabel = gap === 1
+    ? `året ${FOUNDED}`
+    : `de ${gap} årene fra ${FOUNDED} til ${c.firstSeason - 1}`;
+  const gapPronoun = gap === 1 ? "det" : "dem";
 
   // Sto som «Europacupkampene mangler helt» mens arkivet hadde fjorten av dem.
   // En håndskrevet påstand om hva som mangler blir gal i samme øyeblikk som
@@ -75,8 +79,8 @@ export function GapNote() {
     <p className="prose">
       {gap > 0 ? (
         <>
-          Arkivet mangler fortsatt de {gap} årene fra {FOUNDED} til {c.firstSeason - 1}, fordi
-          protokollene som skal til for å hente dem ut enten mangler eller ikke er tilgjengelige.{" "}
+          Arkivet mangler fortsatt {gapLabel}, fordi protokollene som skal til for å
+          dokumentere {gapPronoun}, enten mangler eller ikke er tilgjengelige.{" "}
         </>
       ) : null}
       {missing.length > 0 && (
