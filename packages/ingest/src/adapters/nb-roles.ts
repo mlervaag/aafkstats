@@ -159,7 +159,18 @@ const NOT_A_NAME = new Set([
   // Selskapsnavn. «Styret i Ålesund Fotball AS 2013» ga «Ålesund Fotball AS»
   // som styreleder.
   "as", "fotball", "fotballklubben", "avdeling",
+  // Fra annonser og kolofoner. «S Telefon 1117» så ut som et navn med et årstall.
+  "telefon", "telefonnr", "adresse", "postboks", "konto", "bankgiro",
 ]);
+
+/**
+ * Et årstall klubben kan ha eksistert i.
+ *
+ * Fire siffer er ikke nok. Et telefonnummer i en annonse ga «S Telefon» et
+ * trenerverv i år 1117, og hverken radregelen eller rekkeregelen hadde noe å
+ * stoppe det med — bare setningsregelen sjekket årstallet.
+ */
+const YEAR = "(?:18\\d{2}|19\\d{2}|20\\d{2})";
 
 const NAME_TOKEN = "[A-ZÆØÅÀ-Þ][\\p{L}'’.-]*";
 
@@ -325,11 +336,12 @@ function* yearRows(lines: string[], options: ResolveRolesOptions): Generator<Res
   // Skilletegnet er valgfritt: prikkene i «1955.......Øivind Haagensen» faller
   // ofte bort i OCR, og året blir limt til navnet. Et navn må uansett begynne
   // med stor bokstav, så «19551956» kan ikke slippe gjennom.
-  const row = new RegExp(`^(\\d{4})(?:\\s*[-–—]\\s*(\\d{2,4}))?[\\s.:]*(${NAME}(?:\\s*/\\s*${NAME})*)$`, "u");
+  const row = new RegExp(`^(${YEAR})(?:\\s*[-–—]\\s*(\\d{2,4}))?[\\s.:]*(${NAME}(?:\\s*/\\s*${NAME})*)$`, "u");
   for (const line of lines) {
     const hit = row.exec(line.trim());
     if (!hit) continue;
     const from = hit[1]!;
+    if (options.publicationYear && Number(from) > options.publicationYear) continue;
     const to = hit[2] ? (hit[2].length === 2 ? `${from.slice(0, 2)}${hit[2]}` : hit[2]) : null;
     // «1961 Torbjørn Aarø/Reidar Steen Jensen» er to trenere samme år, ikke ett
     // navn. Skråstreken er kildens egen måte å si at de delte vervet.
@@ -375,7 +387,7 @@ function* nameThenYear(text: string, options: ResolveRolesOptions): Generator<Re
   // Skilletegnet mellom navn og ar er valgfritt: prikkene i «Geo Haller ......
   // 1914 - 1915» kollapser i OCR, og navnet blir limt til arstallet. Et navn
   // kan ikke inneholde siffer, sa det er ingen tvetydighet i a slippe kravet.
-  const entry = new RegExp(`(${NAME})[\\s.]*(\\d{4}(?:\\s*(?:og|,|–|—|-)\\s*\\d{4})*)`, "gu");
+  const entry = new RegExp(`(${NAME})[\\s.]*(${YEAR}(?:\\s*(?:og|,|–|—|-)\\s*${YEAR})*)`, "gu");
 
   for (const term of ROLE_TERMS) {
     // Kolon eller ordslutt. «Formenn:» står med kolon i løpende tekst, men
@@ -487,6 +499,9 @@ function cleanName(raw: string): string | null {
   if (ROLE_TERMS.some((term) => normalize(name).includes(term.term))) return null;
   // Versaler er overskrift eller bildetekst, ikke et navn i løpende tekst.
   if (tokens.some((token) => token.length > 3 && token === token.toUpperCase())) return null;
+  // «S» alene er en OCR-rest eller en overskriftsbokstav, ikke et fornavn.
+  // «R.» er en initial, og den skal stå.
+  if (tokens.some((token) => token.length < 2 && !token.endsWith("."))) return null;
   if (tokens.some((token) => token.length > 2 && !/^[A-ZÆØÅÀ-Þ]/u.test(token) && !/^(van|von|de|da|di|le|la)$/i.test(token))) return null;
   return name;
 }
