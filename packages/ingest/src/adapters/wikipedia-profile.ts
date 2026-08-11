@@ -124,7 +124,10 @@ function mapPosition(value: string): PlayingPosition | undefined {
   const normalized = normalizeLabel(value);
   const matches = new Set<PlayingPosition>();
   if (/\b(keeper|goalkeeper|målvakt)\b/.test(normalized)) matches.add("keeper");
-  if (/\b(forsvar|forsvarsspiller|defender|centre-back|center-back|full-back)\b/.test(normalized)) matches.add("forsvar");
+  // «Midtstopper» og «Left wing back» er utvetydige forsvarsord som lista ikke
+  // hadde. De ble stående som «tvetydig eller ukjent» og falt ut av to av de
+  // åtte første profilene, uten at noe var galt med dem.
+  if (/\b(forsvar|forsvarsspiller|forsvarer|midtstopper|stopper|back|defender|centre-back|center-back|full-back)\b/.test(normalized)) matches.add("forsvar");
   if (/\b(midtbanespiller|midtbane|midfielder)\b/.test(normalized)) matches.add("midtbane");
   if (/\b(angriper|angrep|spiss|forward|striker|winger)\b/.test(normalized)) matches.add("angrep");
   return matches.size === 1 ? [...matches][0] : undefined;

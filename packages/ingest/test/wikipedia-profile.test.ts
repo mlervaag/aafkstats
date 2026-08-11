@@ -66,6 +66,38 @@ describe("Wikipedia-spillerprofil", () => {
     expect(() => resolvePlayerTarget(archive, "Tilfeldig Person")).toThrow("fant ikke");
   });
 
+  /**
+   * Den dyreste feilen kommandoen kan gjøre er å opprette en person arkivet
+   * allerede har. ID-krasjet fanger ikke det: «Daniel Gretarsson» ville fått
+   * `daniel-gretarsson`, mens fila heter `daniel-leo-gretarsson`, og de to
+   * ligner ikke på hverandre i det hele tatt. Han står med 140 kamper.
+   */
+  it("nekter å lage en ny fil når navnet er en form av en person som finnes", () => {
+    const archive = archiveWithLineups("Daniel Gretarsson", "Motspiller", {
+      id: "daniel-leo-gretarsson",
+      name: "Daníel Leó Grétarsson",
+      names: [],
+      nationality: "Island",
+      position: "forsvar",
+      squadNumbers: [], coachSpells: [], roles: [], providers: [], sources: [], conflicts: [],
+    });
+    expect(() => resolvePlayerTarget(archive, "Daniel Gretarsson"))
+      .toThrow("navneform av daniel-leo-gretarsson");
+  });
+
+  it("stopper også når kilden har den lengste formen", () => {
+    // Samme feil speilvendt: fila er kort, oppstillingen lang.
+    const archive = archiveWithLineups("Sten Michael Grytebust", "Motspiller", {
+      id: "sten-grytebust",
+      name: "Sten Grytebust",
+      names: [],
+      position: "keeper",
+      squadNumbers: [], coachSpells: [], roles: [], providers: [], sources: [], conflicts: [],
+    });
+    expect(() => resolvePlayerTarget(archive, "Sten Michael Grytebust"))
+      .toThrow("navneform av sten-grytebust");
+  });
+
   it("bevarer eksisterende fakta og rapporterer motstrid", () => {
     const archive = archiveWithLineups("Daníel Leó Grétarsson", "Motspiller", {
       id: "daniel-leo-gretarsson",
