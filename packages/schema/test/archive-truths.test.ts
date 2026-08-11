@@ -148,4 +148,12 @@ describe("tallene i README", () => {
     expect(match, "fant ingen stadiontall i README").not.toBeNull();
     expect(Number(match![1])).toBe(archive.venues.length);
   });
+
+  it("oppgir riktig antall kildedokumenterte resultater", () => {
+    const faktisk = archive.sourceResults.reduce(
+      (sum, collection) => sum + collection.seasons.reduce((seasonSum, season) => seasonSum + season.results.length, 0),
+      0,
+    );
+    expect(stated(/kildedokumenterte resultater/)).toBe(faktisk);
+  });
 });

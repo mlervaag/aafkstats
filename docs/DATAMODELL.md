@@ -4,6 +4,17 @@ Feltreferanse for YAML-filene i [`data/`](../data). Skjemaet som håndhever alt 
 [`packages/schema`](../packages/schema/README.md), og `pnpm validate` er fasiten — står det
 noe her som ikke stemmer med skjemaet, er skjemaet riktig.
 
+## Kildedokumenterte resultater
+
+`data/source-results/<kilde>.yaml` bevarer resultatlister som oppgir år, motstander og
+sluttresultat, men ikke nok til en kanonisk kampfil. Resultatet lagres alltid som
+`[AaFK, motstander]`; hjemme/borte skal ikke gjettes. Bare uttrykkelig navngitte
+konkurranser settes, og en walkover får ingen oppdiktet målscore.
+
+Bygget eksponerer radene i `source_results`. De vises på sesongsidene, men holdes
+utenfor `matches`, `seasons` og alle statistiske summer til dato og hjemme/borte er
+avklart. `matchId` er den framtidige koblingen til en komplett kampfil.
+
 - [Katalogstruktur](#katalogstruktur)
 - [Fellesregler](#fellesregler)
 - [Kamp](#kamp)

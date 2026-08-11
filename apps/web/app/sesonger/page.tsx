@@ -19,10 +19,10 @@ export default function SeasonsPage() {
         <p className="eyebrow">Sesong for sesong</p>
         <h1>Sesonger</h1>
         <p className="lede">
-          {years.length} år er representert, fra {oldest} til {newest}. Velg et år for alle
-          kamper og sesongtall.
+          {years.length} år er representert, fra {oldest} til {newest}. Velg et år for
+          kampdata, sesongtall og kildedokumenterte resultater.
         </p>
-        <CoverageSummary seasons={years.map((y) => y.primary)} />
+        <CoverageSummary seasons={years.flatMap((y) => y.primary ? [y.primary] : [])} />
       </header>
 
       <CoverageStrip years={years} />
@@ -56,6 +56,16 @@ export default function SeasonsPage() {
  */
 function SeasonCard({ entry }: { entry: SeasonYear }) {
   const { year, primary, others, totalMatches } = entry;
+  if (!primary) {
+    return (
+      <a className="archive-card card-fragment" href={`/sesong/${year}`}>
+        <span className="card-kicker">Historisk resultatliste</span>
+        <strong className="card-title num">{year}</strong>
+        <span className="card-meta">{entry.documentedResults} kildedokumenterte resultater</span>
+        <span className="coverage-tag coverage-isolated">Dato og hjemme/borte mangler</span>
+      </a>
+    );
+  }
   const isLeague = primary.competitionType === "league";
 
   if (!isLeague) {
@@ -85,6 +95,9 @@ function SeasonCard({ entry }: { entry: SeasonYear }) {
       <CoverageTag season={primary} />
       {others.length > 0 && (
         <span className="card-extra muted">+ {extras(others)}</span>
+      )}
+      {entry.documentedResults > 0 && (
+        <span className="card-extra muted">Historisk liste · {entry.documentedResults} resultater</span>
       )}
       {others.length > 0 && (
         <span className="sr-only">{totalMatches} kamper totalt dette året</span>
@@ -121,7 +134,7 @@ function byDecade(years: SeasonYear[]): [number, SeasonYear[]][] {
 
 /** «8 år · 4 seriesesonger» — nok til å se om tiåret er tykt eller tynt. */
 function decadeSummary(entries: SeasonYear[]): string {
-  const leagues = entries.filter((e) => e.primary.competitionType === "league").length;
+  const leagues = entries.filter((e) => e.primary?.competitionType === "league").length;
   const years = `${entries.length} ${entries.length === 1 ? "år" : "år"}`;
   if (leagues === 0) return `${years} · ingen seriesesong`;
   return `${years} · ${leagues} ${leagues === 1 ? "seriesesong" : "seriesesonger"}`;

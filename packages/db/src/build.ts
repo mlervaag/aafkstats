@@ -9,6 +9,7 @@ import {
   personKey,
   preferredPersonName,
   toAafkPerspective,
+  flattenSourceResults,
 } from "@aafkstats/schema";
 import type { Archive } from "@aafkstats/schema/load";
 import { openForBuild } from "./index.js";
@@ -21,6 +22,7 @@ export interface BuildResult {
   matches: number;
   seasons: number;
   clubs: number;
+  sourceResults: number;
   bytes: number;
   durationMs: number;
 }
@@ -134,6 +136,24 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
         p.urn ?? null, p.author ?? null, p.description ?? null,
         p.coverUrl ?? null, p.accessUrl ?? null, json(p.providers ?? [])
       );
+    }
+
+    const insertSourceResult = db.prepare(
+      `INSERT INTO core_source_results
+         (source_id, id, season, source_order, page, opponent, opponent_club_id,
+          aafk_score, opponent_score, competition_id, status, replay,
+          after_extra_time, round, match_id, note)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    );
+    for (const collection of archive.sourceResults) {
+      for (const result of flattenSourceResults(collection)) {
+        insertSourceResult.run(
+          result.sourceId, result.id, result.season, result.order, result.page,
+          result.opponent, result.opponentClubId, result.aafkGoals, result.opponentGoals,
+          result.competitionId, result.status, bool(result.replay), bool(result.extraTime),
+          result.round, result.matchId, result.note ?? null,
+        );
+      }
     }
 
     const insertExtraction = db.prepare(
@@ -393,6 +413,7 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
     matches: archive.matches.length,
     seasons: archive.seasons.length,
     clubs: archive.clubs.length,
+    sourceResults: archive.sourceResults.reduce((sum, collection) => sum + collection.seasons.reduce((seasonSum, season) => seasonSum + season.results.length, 0), 0),
     bytes: statSync(outPath).size,
     durationMs: Date.now() - started,
   };

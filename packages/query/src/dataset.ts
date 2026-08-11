@@ -28,9 +28,37 @@ export interface ViewDoc {
 }
 
 // Hevet fra 1 da `matches.missing_fields` ble en del av den publiserte kontrakten.
-export const DATASET_VERSION = "2";
+export const DATASET_VERSION = "3";
 
 export const views: ViewDoc[] = [
+  {
+    name: "source_results",
+    summary: "Resultater dokumentert i historiske kilder, men uten nok opplysninger til å være kanoniske kamper.",
+    caveats: [
+      "aafk_score og opponent_score står alltid fra AaFKs perspektiv. Hjemme/borte og kampdato er ukjent.",
+      "Radene teller ikke i matches, seasons eller kampstatistikken. Bruk match_id når en rad senere er koblet til en komplett kamp.",
+      "competition_id er bare satt når kilden uttrykkelig navngir konkurransen. NULL betyr ukjent.",
+    ],
+    columns: [
+      { name: "source_id", type: "text", description: "Historisk kilde." },
+      { name: "id", type: "text", description: "Stabil ID innen kilden." },
+      { name: "season", type: "integer", description: "Året resultatet står under i kilden." },
+      { name: "source_order", type: "integer", description: "Rekkefølgen i resultatlista." },
+      { name: "page", type: "integer", description: "Trykt sidetall." },
+      { name: "opponent", type: "text", description: "Kildens motstandernavn. Kan være NULL ved walkover." },
+      { name: "opponent_club_id", type: "text", description: "Kjent klubb når avklart." },
+      { name: "aafk_score", type: "integer", description: "AaFKs mål. NULL ved walkover." },
+      { name: "opponent_score", type: "integer", description: "Motstanderens mål. NULL ved walkover." },
+      { name: "result", type: "text", description: "S, U eller T fra AaFK-perspektivet. NULL ved walkover." },
+      { name: "competition_id", type: "text", description: "Konkurranse når kilden sier den uttrykkelig." },
+      { name: "status", type: "text", description: "played eller walkover." },
+      { name: "replay", type: "integer (0/1)", description: "Omkamp." },
+      { name: "after_extra_time", type: "integer (0/1)", description: "Resultat etter ekstraomganger." },
+      { name: "round", type: "integer", description: "Runde når oppgitt." },
+      { name: "match_id", type: "text", description: "Kanonisk kamp når koblet. Ellers NULL." },
+      { name: "note", type: "text", description: "Kort merknad eller forbehold." },
+    ],
+  },
   {
     name: "venues",
     summary: "Stadioner og baner med historiske navn, AaFKs hjemmebaneperioder, dekke og kildeførte publikumsrekorder.",
