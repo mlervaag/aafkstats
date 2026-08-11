@@ -493,6 +493,15 @@ squadNumbers:
   - { season: 2025, number: 14 }
 coachSpells:                      # bare for år kampdataene ikke rekker
   - { fromSeason: 2001, toSeason: 2005 }
+roles:                            # verv og tilknytninger som kilden uttrykkelig oppgir
+  - id: formann-1914-1915
+    category: board               # player | coach | sporting_staff | board | administration | honorary
+    title: Formann
+    body: Hovedstyret
+    from: "1914"                  # år eller eksakt dato
+    to: "1915"                    # null når slutt ikke er oppgitt
+    sources:
+      - { sourceId: aalesunds-fotballklub-gjennem-1939-ec28, page: "18", fields: [title, from, to] }
 ```
 
 | Regel | Hvorfor |
@@ -501,6 +510,17 @@ coachSpells:                      # bare for år kampdataene ikke rekker
 | En skrivemåte kan bare stå på én person | Ellers vet ikke oppslaget fra oppstillingen hvem navnet gjelder |
 | Ett draktnummer per sesong | To betyr at innhøstingen har lest to rader som samme mann |
 | Ingen biografi | Fødselsdato og karriere ligger på Wikidata. En peker holder seg oppdatert; en kopi blir gammel uten at noen merker det |
+| Alle roller har kilde og side | Organisasjonshistorikk uten proveniens blir raskt en navneliste ingen kan kontrollere |
+
+### Roller og organisasjon
+
+`roles` er relasjonen mellom en person og AaFK-organisasjonen. Den dekker styreverv,
+administrasjon, sportslig apparat, trenerroller og heder. `category` er den stabile,
+søkbare klassifiseringen; `title` og `body` beholder kildens historiske betegnelse.
+Samme person kan derfor være spiller, formann og senere æresmedlem uten tre personfiler.
+
+Organisasjonssiden utledes av disse rollene. Et manglende år betyr «ikke kartlagt», aldri
+at vervet sto tomt. Roller skal ikke opprettes uten minst én `sourceId` og sidehenvisning.
 
 **Hvorfor filene finnes.** `personKey()` slår sammen skrivemåter som er samme bokstav
 skrevet på to måter. Det den ikke kan, er å avgjøre om «Mathias Kristensen» og «Mathias

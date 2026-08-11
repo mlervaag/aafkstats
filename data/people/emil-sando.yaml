@@ -1,0 +1,14 @@
+id: emil-sando
+name: Emil Sandø
+roles:
+  - id: kasserer-1918-1923
+    category: administration
+    title: Kasserer
+    body: Hovedstyret
+    from: "1918"
+    to: "1923"
+    sources:
+      - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+        page: "18"
+        fields: [title, from, to]
+

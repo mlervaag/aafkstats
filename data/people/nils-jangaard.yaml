@@ -1,0 +1,47 @@
+id: nils-jangaard
+name: Nils Jangaard
+roles:
+  - id: sekretaer-1915
+    category: administration
+    title: Sekretær
+    body: Hovedstyret
+    from: "1915"
+    to: "1915"
+    sources:
+      - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
+        page: "4"
+        fields: [title, from, to]
+  - id: formann-1917
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1917"
+    to: "1917"
+    sources:
+      - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+        page: "18"
+        fields: [title, from, to]
+  - id: formann-1919
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1919"
+    to: "1919"
+    sources:
+      - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+        page: "18"
+        fields: [title, from, to]
+  - id: formann-1929
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1929"
+    to: "1929"
+    sources:
+      - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+        page: "18"
+        fields: [title, from, to]
+      - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
+        page: "4"
+        fields: [title, from, to]
+

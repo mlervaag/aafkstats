@@ -302,7 +302,7 @@ export function reconcile(
     if (!archive.seasons.some((entry) => entry.year === season)) {
       files.push({
         relativePath: `seasons/${season}/season.yaml`,
-        value: { year: season, competitionId: options.competitionId, finalPosition: null, promoted: false, relegated: false },
+        value: { year: season, competitionId: options.competitionId, finalPosition: null, sources: [], promoted: false, relegated: false },
         action: "create",
       });
     }

@@ -6,6 +6,7 @@ import { findConflicts } from "../src/observation.js";
 import { source } from "../src/source.js";
 import { resolve } from "node:path";
 import { contribution } from "../src/contribution.js";
+import { person } from "../src/person.js";
 
 const base = {
   id: "2024-04-01-aalesunds-fk-molde-fk",
@@ -218,6 +219,34 @@ describe("personfiler i fixturen", () => {
     ];
     const issues = crossValidate(archive);
     expect(issues.some((i) => i.message.includes("er også ført på"))).toBe(true);
+  });
+});
+
+describe("personroller", () => {
+  const basePerson = {
+    id: "georg-haller",
+    name: "Georg Haller",
+    roles: [{
+      id: "formann-1914",
+      category: "board" as const,
+      title: "Formann",
+      body: "Hovedstyret",
+      from: "1914",
+      to: "1914",
+      sources: [{ sourceId: "jubileumsbok", page: "18", fields: ["title", "from", "to"] }],
+    }],
+  };
+
+  it("godtar en årsfestet rolle med kilde og side", () => {
+    expect(person.safeParse(basePerson).success).toBe(true);
+  });
+
+  it("avviser en rolle uten historisk kilde", () => {
+    expect(person.safeParse({ ...basePerson, roles: [{ ...basePerson.roles[0], sources: [] }] }).success).toBe(false);
+  });
+
+  it("avviser en rolle som slutter før den begynner", () => {
+    expect(person.safeParse({ ...basePerson, roles: [{ ...basePerson.roles[0], from: "1920", to: "1919" }] }).success).toBe(false);
   });
 });
 

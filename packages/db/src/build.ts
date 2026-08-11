@@ -147,6 +147,11 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
     const insertDeclaredSpell = db.prepare(
       `INSERT INTO core_declared_coach_spells (person_id, from_season, to_season) VALUES (?, ?, ?)`,
     );
+    const insertPersonRole = db.prepare(
+      `INSERT INTO core_person_roles
+         (person_id, role_id, category, title, body, from_date, to_date, sources, note)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    );
     for (const p of archive.people) {
       insertPerson.run(
         p.id, personKey(p.name), p.name, p.nationality ?? null,
@@ -159,13 +164,19 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
       for (const spell of p.coachSpells) {
         insertDeclaredSpell.run(p.id, spell.fromSeason, spell.toSeason);
       }
+      for (const role of p.roles) {
+        insertPersonRole.run(
+          p.id, role.id, role.category, role.title, role.body ?? null,
+          role.from, role.to, json(role.sources), role.note ?? null,
+        );
+      }
     }
 
     const insertSeason = db.prepare(
       `INSERT INTO core_seasons
          (year, competition_id, competition_name, final_position, teams_in_league,
-          expected_matches, expected_rounds, head_coach, promoted, relegated, note)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          expected_matches, expected_rounds, head_coach, promoted, relegated, sources, note)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     );
     for (const s of archive.seasons) {
       // Midt i sesongen som referansedato — et navnebytte skjer mellom sesonger,
@@ -177,7 +188,7 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
       insertSeason.run(
         s.year, s.competitionId, competitionName, s.finalPosition, s.teamsInLeague ?? null,
         s.expectedMatches ?? null, s.expectedRounds ?? null,
-        s.headCoach ?? null, bool(s.promoted), bool(s.relegated), s.note ?? null,
+        s.headCoach ?? null, bool(s.promoted), bool(s.relegated), json(s.sources), s.note ?? null,
       );
     }
 

@@ -140,6 +140,12 @@ Arkivet skiller strengt mellom hvor data kommer fra digitalt (Provider) og hvilk
 
 Bibliografien på en `source` — `urn`, `author` og `description` — er valgfri. `urn` er den stabile identifikatoren, som regel Nasjonalbibliotekets; `accessUrl` er bare en adresse, og adresser endrer seg. Feltene er dokumentert i [`docs/DATAMODELL.md`](DATAMODELL.md#historisk-kilde).
 
+Personroller er egne, kildeførte relasjoner i personfila og bygges til
+`core_person_roles`, `person_roles` og `people`. Det lar `/personer` samle kampaktivitet
+og organisasjonsverv på samme identitet, mens `/organisasjon` kan gruppere de samme
+rollene som styrer og tidslinjer uten å kopiere data. Sesonger og kamper peker direkte
+på historiske publikasjoner med `sourceRef`; kildesiden viser koblingen tilbake.
+
 Visningsnavnet på en leverandør leses fra `core_providers.name`, aldri fra en streng i UI-koden. Ellers får kildesiden og kampsiden hver sitt navn på samme leverandør.
 
 Spørrefunksjonen ser bare viewene. Et senere REST-API og en MCP-server skal bruke den samme

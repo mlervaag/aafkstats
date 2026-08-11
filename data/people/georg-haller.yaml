@@ -1,0 +1,27 @@
+id: georg-haller
+name: Georg Haller
+roles:
+  - id: formann-1914-1915
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1914"
+    to: "1915"
+    sources:
+      - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+        page: "18"
+        fields: [title, from, to]
+  - id: aeresmedlem-1915
+    category: honorary
+    title: Æresmedlem
+    from: "1915-12-11"
+    to: null
+    sources:
+      - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+        page: "7"
+        fields: [title, from]
+      - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
+        page: "19"
+        fields: [title, from]
+    note: Kildene omtaler ham som klubbens første æresmedlem.
+

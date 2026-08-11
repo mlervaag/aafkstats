@@ -32,6 +32,40 @@ export const playingPosition = z.enum(["keeper", "forsvar", "midtbane", "angrep"
 
 export type PlayingPosition = z.infer<typeof playingPosition>;
 
+/**
+ * En person kan ha flere slags tilknytning til klubben gjennom livet. Kategorien
+ * er stabil og søkbar; `title` beholder den historiske betegnelsen kilden bruker.
+ */
+export const personRoleCategory = z.enum([
+  "player",
+  "coach",
+  "sporting_staff",
+  "board",
+  "administration",
+  "honorary",
+]);
+
+/** År eller eksakt dato. Mange eldre kilder sier bare hvilket styreår vervet gjaldt. */
+const historicalDate = z.string().regex(/^\d{4}(?:-\d{2}-\d{2})?$/, "må være ÅÅÅÅ eller ÅÅÅÅ-MM-DD");
+
+export const personRole = z
+  .object({
+    /** Stabil innenfor personfila; gjør rollen adresserbar uten å gjette fra tittelen. */
+    id: slug,
+    category: personRoleCategory,
+    title: z.string().min(1),
+    /** Organisasjonsdelen rollen hører til, for eksempel Hovedstyret eller A-laget. */
+    body: z.string().min(1).optional(),
+    from: historicalDate,
+    /** Null betyr at kilden ikke oppgir noen slutt eller at rollen fortsatt løper. */
+    to: historicalDate.nullable().default(null),
+    sources: z.array(sourceRef).min(1, "en rolle må ha minst én historisk kilde"),
+    note: z.string().optional(),
+  })
+  .strict();
+
+export type PersonRole = z.infer<typeof personRole>;
+
 /** Draktnummeret personen hadde en gitt sesong. Nummer flytter seg mellom år. */
 export const squadNumber = z
   .object({
@@ -77,6 +111,7 @@ export const person = z
     wikidata: z.string().regex(/^Q[1-9]\d*$/, "må være en Wikidata-ID, f.eks. Q1796755").optional(),
     squadNumbers: z.array(squadNumber).default([]),
     coachSpells: z.array(declaredCoachSpell).default([]),
+    roles: z.array(personRole).default([]),
     providers: z.array(providerRef).default([]),
     sources: z.array(sourceRef).default([]),
     note: z.string().optional(),
@@ -101,6 +136,25 @@ export const person = z
           code: z.ZodIssueCode.custom,
           path: ["coachSpells"],
           message: `perioden slutter (${spell.toSeason}) før den begynner (${spell.fromSeason})`,
+        });
+      }
+    }
+
+    const roleIds = new Set<string>();
+    for (const role of value.roles) {
+      if (roleIds.has(role.id)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["roles"],
+          message: `to roller har ID-en «${role.id}»`,
+        });
+      }
+      roleIds.add(role.id);
+      if (role.to !== null && role.to < role.from) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["roles", role.id, "to"],
+          message: `rollen slutter (${role.to}) før den begynner (${role.from})`,
         });
       }
     }

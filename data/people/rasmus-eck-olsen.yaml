@@ -1,0 +1,26 @@
+id: rasmus-eck-olsen
+name: Rasmus Eck Olsen
+names: [R. Eck Olsen]
+roles:
+  - id: formann-1920-1924
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1920"
+    to: "1924"
+    sources:
+      - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+        page: "18"
+        fields: [title, from, to]
+    note: Årslisten fra 1939 oppgir 1920–1924. Beretningen fra 1950 bruker formuleringen «fra 1920 til 1925».
+  - id: formann-1928
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1928"
+    to: "1928"
+    sources:
+      - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+        page: "18"
+        fields: [title, from, to]
+

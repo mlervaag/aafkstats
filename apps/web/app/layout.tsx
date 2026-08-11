@@ -6,10 +6,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://aafkstats.vercel.app"),
   title: { default: "AaFK-arkivet", template: "%s · AaFK-arkivet" },
-  description: "Et uoffisielt, søkbart arkiv over Aalesunds Fotballklubbs kamphistorikk.",
+  description: "Et uoffisielt, søkbart arkiv over Aalesunds Fotballklubbs kamper, personer, organisasjon og historiske kilder.",
   openGraph: {
     title: "AaFK-arkivet",
-    description: "Kamphistorikken til AaFK — søkbar, kildeført og åpen.",
+    description: "AaFKs kamper, personer og organisasjon — søkbart, kildeført og åpent.",
     type: "website",
     locale: "nb_NO",
   },
@@ -37,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <nav aria-label="Hovedmeny">
               <a href="/sesonger">Sesonger</a>
               <a href="/motstandere">Motstandere</a>
+              <a href="/personer">Personer</a>
               <a href="/kilder">Kilder</a>
               <a href="/data">Datasettet</a>
               <a href="/om">Om</a>
@@ -51,7 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer>
           <div className="wrap footer-grid">
             <div><a className="wordmark footer-wordmark" href="/"><JugendMark />AaFK<span>-arkivet</span></a><p>Et uoffisielt, åpent prosjekt uten tilknytning til Aalesunds Fotballklubb eller datakildene.</p></div>
-            <div><strong>Arkivet</strong><a href="/sesonger">Sesonger</a><a href="/motstandere">Motstandere</a><a href="/kilder">Kilder</a><a href="/data">Datasettet</a></div>
+            <div><strong>Arkivet</strong><a href="/sesonger">Sesonger</a><a href="/motstandere">Motstandere</a><a href="/personer">Personer</a><a href="/organisasjon">Organisasjon</a><a href="/kilder">Kilder</a><a href="/data">Datasettet</a></div>
             <div><strong>Prosjektet</strong><a href="/om">Om og kilder</a><a href="/bidra">Bidra</a><a href="https://github.com/mlervaag/aafkstats">GitHub</a></div>
           </div>
           <div className="wrap footer-legal">Kode under MIT. Egne tekster under CC BY 4.0. Tredjepartskilder har egne vilkår.</div>

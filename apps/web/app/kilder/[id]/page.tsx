@@ -11,6 +11,8 @@ import {
   getSourceIds,
   getParentSource,
   getSourceUsages,
+  getSourceRoleUsages,
+  getSourceSeasonUsages,
 } from "@/lib/sources";
 import { sourceDescription } from "@/lib/metadata";
 import { formatDateShort } from "@/lib/date";
@@ -63,6 +65,8 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
   const children = source.source_type === 'series' ? getSourceChildren(id) : [];
   const parent = source.parent_source_id ? getParentSource(source.parent_source_id) : null;
   const usages = getSourceUsages(id);
+  const roleUsages = getSourceRoleUsages(id);
+  const seasonUsages = getSourceSeasonUsages(id);
   // Visningsnavnet på en leverandør står i providerfila. Kildesiden hadde
   // «Nasjonalbiblioteket» hardkodet, og alle andre leverandører sto med sin ID.
   const providerNames = getProviderNames();
@@ -229,6 +233,40 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
                   </li>
                 );
               })}
+          </ol>
+        </section>
+      )}
+
+      {seasonUsages.length > 0 && (
+        <section className={styles.section}>
+          <h2>Sesonger der kilden er brukt ({seasonUsages.length})</h2>
+          <ol className="archive-match-list">
+            {seasonUsages.map((season) => (
+              <li key={`${season.season}-${season.competition}`}>
+                <Link href={`/sesong/${season.season}`}>
+                  <span className="match-date num">{season.season}</span>
+                  <span className="match-opponent">{season.competition}</span>
+                  <span className="match-meta muted">{season.page ? `Side ${season.page}` : "Sesongkilde"}{season.note ? ` · ${season.note}` : ""}</span>
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+
+      {roleUsages.length > 0 && (
+        <section className={styles.section}>
+          <h2>Personroller dokumentert av kilden ({roleUsages.length})</h2>
+          <ol className="archive-match-list">
+            {roleUsages.map((role) => (
+              <li key={`${role.person_id}-${role.title}-${role.from_date}`}>
+                <Link href={`/personer/${role.person_id}`}>
+                  <span className="match-date num">{role.from_date}{role.to_date && role.to_date !== role.from_date ? `–${role.to_date}` : ""}</span>
+                  <span className="match-opponent">{role.name}</span>
+                  <span className="match-meta muted">{role.title}{role.page ? ` · Side ${role.page}` : ""}</span>
+                </Link>
+              </li>
+            ))}
           </ol>
         </section>
       )}

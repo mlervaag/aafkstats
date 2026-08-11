@@ -1,0 +1,24 @@
+id: sverre-volstad
+name: Sverre Volstad
+roles:
+  - id: formann-1930-1936
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1930"
+    to: "1936"
+    sources:
+      - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+        page: "18"
+        fields: [title, from, to]
+  - id: viseformann-1937
+    category: board
+    title: Viseformann
+    body: Hovedstyret
+    from: "1937"
+    to: "1937"
+    sources:
+      - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+        page: "26"
+        fields: [title, from, to]
+

@@ -3,6 +3,7 @@ import type { MetadataRoute } from "next";
 import { archivePath } from "@aafkstats/db";
 import { loadMatchIndex, loadOpponents, loadSeasonYears } from "@/lib/archive";
 import { getSources } from "@/lib/sources";
+import { getPeople } from "@/lib/people";
 
 const base = "https://aafkstats.vercel.app";
 
@@ -31,7 +32,7 @@ function builtAt(): Date {
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const built = builtAt();
-  const staticPages = ["", "/sesonger", "/motstandere", "/kilder", "/data", "/om", "/bidra", "/api-docs"];
+  const staticPages = ["", "/sesonger", "/motstandere", "/personer", "/organisasjon", "/kilder", "/data", "/om", "/bidra", "/api-docs"];
 
   return [
     ...staticPages.map((path) => ({
@@ -55,6 +56,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...getSources().map((source) => ({
       url: `${base}/kilder/${source.id}`,
+      lastModified: built,
+      changeFrequency: "yearly" as const,
+      priority: 0.4,
+    })),
+    ...getPeople().map((person) => ({
+      url: `${base}/personer/${person.id}`,
       lastModified: built,
       changeFrequency: "yearly" as const,
       priority: 0.4,

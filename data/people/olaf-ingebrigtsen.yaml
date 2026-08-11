@@ -1,0 +1,14 @@
+id: olaf-ingebrigtsen
+name: Olaf Ingebrigtsen
+roles:
+  - id: formann-1916
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1916"
+    to: "1916"
+    sources:
+      - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+        page: "18"
+        fields: [title, from, to]
+

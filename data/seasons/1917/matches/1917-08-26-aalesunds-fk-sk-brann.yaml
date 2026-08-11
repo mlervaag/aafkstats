@@ -31,6 +31,11 @@ providers:
       - home.score
       - away.score
       - competition.round
+sources:
+  - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+    page: "34"
+    fields: [away.clubId, competition.round]
+    note: Jubileumsskriftet omtaler Brann som motstander i andre runde.
 confidence: probable
 conflicts: []
 tags: []

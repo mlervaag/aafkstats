@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { foundingYear, historicalName, httpUrl, isoDate, seasonYear, slug } from "./primitives.js";
+import { foundingYear, historicalName, httpUrl, isoDate, seasonYear, slug, sourceRef } from "./primitives.js";
 
 /** AaFKs egen klubb-ID. Brukt overalt der arkivet må vite «hvilken side er oss». */
 export const AAFK_CLUB_ID = "aalesunds-fk";
@@ -256,6 +256,8 @@ export const season = z
     /** Antall serierunder, når det er kjent og ikke er lik antall kamper. */
     expectedRounds: z.number().int().positive().optional(),
     headCoach: z.string().optional(),
+    /** Publikasjoner som dokumenterer sesongen som helhet, ikke bare én kamp. */
+    sources: z.array(sourceRef).default([]),
     promoted: z.boolean().default(false),
     relegated: z.boolean().default(false),
     note: z.string().optional(),
