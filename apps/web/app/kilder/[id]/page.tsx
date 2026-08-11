@@ -13,6 +13,7 @@ import {
   getSourceUsages,
   getSourceRoleUsages,
   getSourceSeasonUsages,
+  getSourceResultUsages,
 } from "@/lib/sources";
 import { sourceDescription } from "@/lib/metadata";
 import { formatDateShort } from "@/lib/date";
@@ -67,6 +68,7 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
   const usages = getSourceUsages(id);
   const roleUsages = getSourceRoleUsages(id);
   const seasonUsages = getSourceSeasonUsages(id);
+  const resultUsages = getSourceResultUsages(id);
   // Visningsnavnet på en leverandør står i providerfila. Kildesiden hadde
   // «Nasjonalbiblioteket» hardkodet, og alle andre leverandører sto med sin ID.
   const providerNames = getProviderNames();
@@ -234,6 +236,21 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
                 );
               })}
           </ol>
+        </section>
+      )}
+
+      {resultUsages.length > 0 && (
+        <section className={styles.section}>
+          <h2>Kildedokumenterte resultater ({resultUsages.reduce((sum, row) => sum + row.results, 0)})</h2>
+          <p className="prose muted">Resultatlistene mangler full kampdato og hjemme/borte, og holdes derfor adskilt fra den offisielle kampstatistikken.</p>
+          <div className={styles.cardGrid}>
+            {resultUsages.map((row) => (
+              <Link className="archive-card card-fragment" href={`/sesong/${row.season}`} key={row.season}>
+                <strong className="card-title num">{row.season}</strong>
+                <span className="card-meta">{row.results} resultater · side {row.first_page}{row.last_page !== row.first_page ? `–${row.last_page}` : ""}</span>
+              </Link>
+            ))}
+          </div>
         </section>
       )}
 

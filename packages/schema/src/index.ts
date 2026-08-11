@@ -9,3 +9,4 @@ export * from "./standings.js";
 export * from "./contribution.js";
 export * from "./source.js";
 export * from "./extraction.js";
+export * from "./source-result.js";

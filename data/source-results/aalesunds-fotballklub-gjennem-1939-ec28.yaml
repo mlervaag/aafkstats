@@ -1,0 +1,501 @@
+sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+scorePerspective: aafk
+seasons:
+  - year: 1915
+    page: 83
+    results:
+      - { no: 1, opponent: "Rollon", score: [2, 2] }
+      - { no: 2, opponent: "Nordlandet", score: [5, 1] }
+      - { no: 3, opponent: "International", score: [2, 2] }
+      - { no: 4, opponent: "K. F. K.", score: [3, 0] }
+      - { no: 5, opponent: "Ynglingefor. Sportsklubb", score: [2, 2] }
+      - { no: 6, opponent: "Ynglingefor. Sportsklubb", score: [2, 3], replay: true }
+  - year: 1916
+    page: 83
+    results:
+      - { no: 1, opponent: "International", score: [3, 2] }
+      - { no: 2, opponent: "Rollon", score: [7, 1] }
+      - { no: 3, opponent: "Frigg", score: [0, 8] }
+      - { no: 4, opponent: "Rollon", score: [3, 4] }
+  - year: 1917
+    page: 83
+    results:
+      - { no: 1, opponent: "Rapp", score: [2, 2] }
+      - { no: 2, opponent: "K. F. K.", score: [0, 1] }
+      - { no: 3, opponent: "K. F. K.", score: [2, 1] }
+      - { no: 4, opponent: "Rollon", score: [4, 2] }
+      - { no: 5, opponent: "Rollon", score: [5, 2] }
+      - { no: 6, opponent: "K. F. K.", score: [4, 2] }
+      - { no: 7, opponent: "Kadetter «Fridtjof»", score: [3, 0] }
+      - { no: 8, opponent: "Brått", score: [1, 4] }
+      - { no: 9, opponent: "Rollon", score: [1, 0], competitionId: nm }
+      - { no: 10, opponent: "Brann", score: [0, 14], competitionId: nm }
+  - year: 1918
+    page: 83
+    results:
+      - { no: 1, opponent: "Molde", score: [1, 2] }
+      - { no: 2, opponent: "Rollon", score: [1, 2] }
+      - { no: 3, opponent: "City of Stockholm", score: [8, 2] }
+      - { no: 4, opponent: "Rollon", score: [2, 0] }
+      - { no: 5, opponent: "Brått", score: [6, 3] }
+      - { no: 6, opponent: "K. F. K.", score: [1, 3] }
+      - { no: 7, opponent: "Brått", score: [1, 3] }
+      - { no: 8, opponent: "Rollon", score: [0, 3] }
+      - { no: 9, opponent: "K. F. K.", score: [4, 3], competitionId: nm, extraTime: true, note: "10 omganger" }
+      - { no: 10, opponent: "Sverre", score: [1, 5], competitionId: nm }
+  - year: 1919
+    page: 83
+    results:
+      - { no: 1, opponent: "Rollon", score: [4, 2] }
+      - { no: 2, opponent: "Rollon", score: [0, 1] }
+      - { no: 3, opponent: "Brage", score: [1, 2] }
+      - { no: 4, opponent: "Rollon", score: [2, 1] }
+      - { no: 5, opponent: "Rollon", score: [4, 1] }
+      - { no: 6, opponent: "Molde", score: [3, 1] }
+      - { no: 7, opponent: "Brått", score: [0, 2] }
+      - { no: 8, opponent: "K. F. K.", score: [2, 6] }
+      - { no: 9, opponent: "K. F. K.", score: [4, 2] }
+      - { no: 10, opponent: "Brått", score: [4, 3] }
+      - { no: 11, opponent: "Fremad", score: [3, 2], competitionId: nm, extraTime: true }
+      - { no: 12, opponent: "Brått", score: [3, 2], competitionId: nm }
+      - { no: 13, opponent: "Sverre", score: [2, 3], competitionId: nm, extraTime: true, note: "6 omganger" }
+  - year: 1920
+    page: 83
+    results:
+      - { no: 1, opponent: "Rollon", score: [5, 1] }
+      - { no: 2, opponent: "Frigg", score: [3, 5] }
+      - { no: 3, opponent: "Brått", score: [3, 1] }
+      - { no: 4, opponent: "Rollon", score: [3, 1] }
+      - { no: 5, opponent: "Freidig", score: [2, 3] }
+      - { no: 6, opponent: "Trygg", score: [1, 0] }
+      - { no: 7, opponent: "Trygg", score: [2, 1] }
+      - { no: 8, opponent: "Trygg", score: [4, 3], page: 84 }
+      - { no: 9, opponent: "Brått", score: [4, 1], page: 84 }
+      - { no: 10, opponent: "Rollon", score: [3, 0], page: 84 }
+      - { no: 11, opponent: "Frem", score: [3, 2], page: 84 }
+      - { no: 12, opponent: "Rollon", score: [2, 1], page: 84 }
+      - { no: 13, opponent: "Rollon", score: [4, 1], competitionId: nm, page: 84 }
+      - { no: 14, opponent: "Brått", score: null, competitionId: nm, status: walkover, page: 84 }
+      - { no: 15, opponent: "Brage", score: [1, 2], competitionId: nm, page: 84 }
+  - year: 1921
+    page: 84
+    results:
+      - { no: 1, opponent: "Rollon", score: [4, 2] }
+      - { no: 2, opponent: "Glimt", score: [8, 1] }
+      - { no: 3, opponent: "Rollon", score: [3, 2] }
+      - { no: 4, opponent: "Rollon", score: [2, 1] }
+      - { no: 5, opponent: "Rollon", score: [2, 1] }
+      - { no: 6, opponent: "Rapp", score: [2, 3] }
+      - { no: 7, opponent: "Rapp", score: [2, 2] }
+      - { no: 8, opponent: "Rollon", score: [3, 2] }
+      - { no: 9, opponent: "Djerv", score: [6, 2] }
+      - { no: 10, opponent: "Djerv", score: [4, 1] }
+      - { no: 11, opponent: "Brått", score: [4, 0] }
+      - { no: 12, opponent: "Rollon", score: [3, 0], competitionId: nm }
+      - { no: 13, opponent: "Rapp", score: [5, 2], competitionId: nm }
+      - { no: 14, opponent: "Lyn, Gjøvik", score: [2, 5], competitionId: nm }
+  - year: 1922
+    page: 84
+    results:
+      - { no: 1, opponent: "Smart", score: [3, 0] }
+      - { no: 2, opponent: "Rollon", score: [3, 0] }
+      - { no: 3, opponent: "Rollon", score: [1, 2] }
+      - { no: 4, opponent: "Hødd", score: [8, 2] }
+      - { no: 5, opponent: "Fremad", score: [1, 1] }
+      - { no: 6, opponent: "Fremad", score: [4, 1] }
+      - { no: 7, opponent: "Smart", score: [1, 0] }
+      - { no: 8, opponent: "Rollon", score: [2, 0] }
+      - { no: 9, opponent: "Vidar, Stvgr.", score: [3, 2] }
+      - { no: 10, opponent: "Smart", score: [2, 1] }
+      - { no: 11, opponent: "Smart", score: [4, 0] }
+      - { no: 12, opponent: "K. F. K.", score: [2, 4] }
+      - { no: 13, opponent: "Rollon", score: [5, 0] }
+      - { no: 14, opponent: "Molde", score: [6, 0], competitionId: nm }
+      - { no: 15, opponent: "Smart", score: [5, 2], competitionId: nm }
+      - { no: 16, opponent: "Rollon", score: [5, 1], competitionId: nm }
+      - { no: 17, opponent: "Drafn", score: [0, 3], competitionId: nm }
+  - year: 1923
+    page: 84
+    results:
+      - { no: 1, opponent: "Hødd", score: [2, 1] }
+      - { no: 2, opponent: "Smart", score: [4, 1] }
+      - { no: 3, opponent: "Rollon", score: [10, 0] }
+      - { no: 4, opponent: "Hødd", score: [3, 2] }
+      - { no: 5, opponent: "Rollon", score: [0, 0] }
+      - { no: 6, opponent: "Smart", score: [2, 0] }
+      - { no: 7, opponent: "Brått", score: [3, 5] }
+      - { no: 8, opponent: "K. F. K.", score: [4, 2] }
+      - { no: 9, opponent: "Brått", score: [5, 1] }
+      - { no: 10, opponent: "Molde", score: [7, 0] }
+      - { no: 11, opponent: "Hødd", score: [7, 3] }
+      - { no: 12, opponent: "Åndalsnes", score: [11, 0] }
+      - { no: 13, opponent: "Hødd", score: [8, 0], competitionId: nm }
+      - { no: 14, opponent: "K. F. K.", score: [4, 2], competitionId: nm }
+      - { no: 15, opponent: "Brann", score: [1, 4], competitionId: nm }
+  - year: 1924
+    page: 84
+    results:
+      - { no: 1, opponent: "Langevåg", score: [14, 0] }
+      - { no: 2, opponent: "Hødd", score: [7, 1] }
+      - { no: 3, opponent: "Rollon", score: null, status: walkover }
+      - { no: 4, opponent: "Rollon", score: [7, 5] }
+      - { no: 5, opponent: "Hødd", score: [4, 1] }
+      - { no: 6, opponent: "Hødd", score: [4, 0] }
+      - { no: 7, opponent: "Brage", score: [5, 0] }
+      - { no: 8, opponent: "Brage", score: [4, 2] }
+      - { no: 9, opponent: "K. F. K.", score: [3, 2] }
+      - { no: 10, opponent: "S. I. F.", score: [0, 1] }
+      - { no: 11, opponent: "Molde", score: [8, 0] }
+      - { no: 12, opponent: "Fagerborg", score: [1, 2] }
+      - { no: 13, opponent: "Fagerborg", score: [2, 1] }
+      - { no: 14, opponent: "Rollon", score: [7, 1] }
+      - { no: 15, opponent: "Djerv", score: [3, 2], competitionId: nm }
+      - { no: 16, opponent: "Brått", score: [4, 3], competitionId: nm }
+      - { no: 17, opponent: "Falk", score: [1, 0], competitionId: nm }
+      - { no: 18, opponent: "Lyn, Gjøvik", score: [2, 3], competitionId: nm, extraTime: true }
+  - year: 1925
+    page: 84
+    results:
+      - { no: 1, opponent: "Rollon", score: [1, 2] }
+      - { no: 2, opponent: "Hødd", score: [3, 0] }
+      - { no: 3, opponent: "Rollon", score: [4, 2] }
+      - { no: 4, opponent: "Hødd", score: [6, 0] }
+      - { no: 5, opponent: "Rollon", score: [4, 0], page: 85 }
+      - { no: 6, opponent: "Hødd", score: [8, 2], page: 85 }
+      - { no: 7, opponent: "Djerv", score: [3, 1], page: 85 }
+      - { no: 8, opponent: "Hødd", score: [4, 0], page: 85 }
+      - { no: 9, opponent: "Molde", score: [5, 2], page: 85 }
+      - { no: 10, opponent: "Gjøa, Oslo", score: [3, 1], page: 85 }
+      - { no: 11, opponent: "Gjøa, Oslo", score: [4, 0], page: 85 }
+      - { no: 12, opponent: "Eimsbüttel, Hamburg", score: [1, 3], page: 85 }
+      - { no: 13, opponent: "Djerv", score: [2, 3], page: 85 }
+      - { no: 14, opponent: "Ørn", score: [2, 2], page: 85 }
+      - { no: 15, opponent: "Ørn", score: [0, 3], page: 85 }
+      - { no: 16, opponent: "Mjøndalen", score: [5, 0], page: 85 }
+      - { no: 17, opponent: "Drammens Ballklub", score: [0, 2], page: 85 }
+      - { no: 18, opponent: null, score: null, competitionId: nm, status: walkover, round: 1, page: 85 }
+      - { no: 19, opponent: "Molde", score: [5, 1], competitionId: nm, page: 85 }
+      - { no: 20, opponent: "K. F. K.", score: [5, 0], competitionId: nm, page: 85 }
+      - { no: 21, opponent: "Viking, Stvgr.", score: [1, 2], competitionId: nm, extraTime: true, page: 85 }
+  - year: 1926
+    page: 85
+    results:
+      - { no: 1, opponent: "Hødd", score: [4, 2] }
+      - { no: 2, opponent: "Rollon", score: [1, 3] }
+      - { no: 3, opponent: "Hødd", score: [2, 1] }
+      - { no: 4, opponent: "Rollon", score: [4, 3] }
+      - { no: 5, opponent: "Rollon", score: [3, 4] }
+      - { no: 6, opponent: "Hødd", score: [4, 2] }
+      - { no: 7, opponent: "Rollon", score: [4, 1] }
+      - { no: 8, opponent: "Rollon", score: [4, 0] }
+      - { no: 9, opponent: "Kvik, Tr.hj.", score: [1, 0] }
+      - { no: 10, opponent: "Kvik, Tr.hj.", score: [2, 2] }
+      - { no: 11, opponent: "Molde", score: [2, 0] }
+      - { no: 12, opponent: "Molde", score: [3, 0] }
+      - { no: 13, opponent: "Brått", score: [5, 0] }
+      - { no: 14, opponent: "Molde", score: [2, 1] }
+      - { no: 15, opponent: "Hødd", score: [5, 1], competitionId: nm }
+      - { no: 16, opponent: "Ready", score: [4, 0], competitionId: nm }
+      - { no: 17, opponent: "Ørn", score: [0, 5], competitionId: nm }
+  - year: 1927
+    page: 85
+    results:
+      - { no: 1, opponent: "Rollon", score: [2, 1] }
+      - { no: 2, opponent: "Hødd", score: [2, 1] }
+      - { no: 3, opponent: "Rollon", score: [3, 0] }
+      - { no: 4, opponent: "Hødd", score: [5, 0] }
+      - { no: 5, opponent: "Brått", score: [2, 0] }
+      - { no: 6, opponent: "K. F. K.", score: [4, 2] }
+      - { no: 7, opponent: "Molde", score: [2, 2] }
+      - { no: 8, opponent: "K. F. K.", score: [2, 1] }
+      - { no: 9, opponent: "Brått", score: [10, 1] }
+      - { no: 10, opponent: "Molde", score: [8, 4] }
+      - { no: 11, opponent: "Rollon", score: [4, 3] }
+      - { no: 12, opponent: "Vålerengen", score: [1, 1] }
+      - { no: 13, opponent: "Falk, Horten", score: [1, 2] }
+      - { no: 14, opponent: "Drammens Ballklub", score: [6, 0] }
+      - { no: 15, opponent: "Brann", score: [0, 3], note: "Førstelaget" }
+      - { no: 16, opponent: "K. F. K.", score: [4, 0], competitionId: nm }
+      - { no: 17, opponent: "Hardy", score: [8, 1], competitionId: nm }
+      - { no: 18, opponent: "Rollon", score: [2, 1], competitionId: nm }
+      - { no: 19, opponent: "Odd, Skien", score: [0, 1], competitionId: nm }
+  - year: 1928
+    page: 85
+    results:
+      - { no: 1, opponent: "Rollon", score: [3, 2] }
+      - { no: 2, opponent: "Rollon", score: [4, 2] }
+      - { no: 3, opponent: "Brått", score: [2, 0] }
+      - { no: 4, opponent: "K. F. K.", score: [9, 0] }
+      - { no: 5, opponent: "K. F. K.", score: [2, 3] }
+      - { no: 6, opponent: "Brått", score: [5, 1] }
+      - { no: 7, opponent: "Rollon", score: [3, 3] }
+      - { no: 8, opponent: "Rollon", score: [2, 4] }
+      - { no: 9, opponent: "Frigg", score: [2, 1] }
+      - { no: 10, opponent: "Victoria Ziskov", score: [1, 2] }
+      - { no: 11, opponent: "Victoria Ziskov", score: [1, 1] }
+      - { no: 12, opponent: "Aberdeenshire", score: [0, 1] }
+      - { no: 13, opponent: "Drammens Ballklub", score: [3, 1] }
+      - { no: 14, opponent: "Odd, Skien", score: [0, 1] }
+      - { no: 15, opponent: "Frigg", score: [0, 1] }
+      - { no: 16, opponent: "Sarpsborg", score: [3, 6] }
+      - { no: 17, opponent: "Charlottenburg, Berlin", score: [5, 0] }
+      - { no: 18, opponent: "Brått", score: [10, 0], competitionId: nm }
+      - { no: 19, opponent: null, score: null, competitionId: nm, status: walkover, round: 2 }
+      - { no: 20, opponent: "National", score: [2, 1], competitionId: nm }
+      - { no: 21, opponent: "Brann", score: [0, 4], competitionId: nm }
+  - year: 1929
+    page: 86
+    results:
+      - { no: 1, opponent: "Rollon", score: [2, 1] }
+      - { no: 2, opponent: "Brått", score: [6, 1] }
+      - { no: 3, opponent: "Brått", score: [4, 3] }
+      - { no: 4, opponent: "K. F. K.", score: [4, 2] }
+      - { no: 5, opponent: "Molde", score: [6, 2] }
+      - { no: 6, opponent: "Rollon", score: [4, 2] }
+      - { no: 7, opponent: "K. F. K.", score: [2, 1] }
+      - { no: 8, opponent: "Molde", score: [5, 1] }
+      - { no: 9, opponent: "Rollon", score: [6, 2] }
+      - { no: 10, opponent: "Rollon", score: [1, 0] }
+      - { no: 11, opponent: "Brage", score: [3, 4] }
+      - { no: 12, opponent: "S. I. F.", score: [0, 4] }
+      - { no: 13, opponent: "Prostejov", score: [2, 4] }
+      - { no: 14, opponent: "Sarpsborg", score: [2, 0] }
+      - { no: 15, opponent: "Langevåg", score: [11, 0] }
+      - { no: 16, opponent: "Rollon", score: [1, 4] }
+      - { no: 17, opponent: "K. F. K.", score: [1, 7] }
+      - { no: 18, opponent: "Langevåg", score: [5, 1] }
+      - { no: 19, opponent: "Langevåg", score: [7, 0], competitionId: nm }
+      - { no: 20, opponent: "Djerv", score: [8, 1], competitionId: nm }
+      - { no: 21, opponent: "Strømsgodset", score: [3, 2], competitionId: nm }
+      - { no: 22, opponent: "Kvik", score: [2, 3], competitionId: nm, extraTime: true }
+  - year: 1930
+    page: 86
+    results:
+      - { no: 1, opponent: "Rollon", score: [3, 5] }
+      - { no: 2, opponent: "Rollon", score: [1, 5] }
+      - { no: 3, opponent: "Rollon", score: [2, 2] }
+      - { no: 4, opponent: "Brage", score: [0, 2] }
+      - { no: 5, opponent: "Trondh. bylag", score: [3, 3] }
+      - { no: 6, opponent: "Moss", score: [3, 4] }
+      - { no: 7, opponent: "Sleipner", score: [2, 4] }
+      - { no: 8, opponent: "Falk", score: [3, 3] }
+      - { no: 9, opponent: "K. F. K.", score: [1, 1] }
+      - { no: 10, opponent: "Molde", score: [9, 0] }
+      - { no: 11, opponent: "Brått", score: [4, 2] }
+      - { no: 12, opponent: "Molde", score: [6, 4] }
+      - { no: 13, opponent: "Rollon", score: [5, 2] }
+      - { no: 14, opponent: "Rollon", score: [3, 2] }
+      - { no: 15, opponent: "K. F. K.", score: [4, 1], competitionId: nm }
+      - { no: 16, opponent: "Skeid", score: [7, 0], competitionId: nm }
+      - { no: 17, opponent: "Selbak", score: [6, 3], competitionId: nm }
+      - { no: 18, opponent: "Ørn", score: [2, 6], competitionId: nm }
+  - year: 1931
+    page: 86
+    results:
+      - { no: 1, opponent: "Rollon", score: [2, 1] }
+      - { no: 2, opponent: "Rollon", score: [3, 3] }
+      - { no: 3, opponent: "Brått", score: [5, 0] }
+      - { no: 4, opponent: "K. F. K.", score: [1, 5] }
+      - { no: 5, opponent: "Molde", score: [12, 0] }
+      - { no: 6, opponent: "K. F. K.", score: [4, 4] }
+      - { no: 7, opponent: "Brått", score: [4, 0] }
+      - { no: 8, opponent: "Molde", score: [10, 0] }
+      - { no: 9, opponent: "Rollon", score: [2, 1] }
+      - { no: 10, opponent: "Brått", score: [9, 1] }
+      - { no: 11, opponent: "K. F. K.", score: [1, 2] }
+      - { no: 12, opponent: "Östersund", score: [12, 1] }
+      - { no: 13, opponent: "Berchem-Sport", score: [7, 3] }
+      - { no: 14, opponent: "Ny-Solheim", score: [4, 1] }
+      - { no: 15, opponent: "Hardy", score: [1, 7] }
+      - { no: 16, opponent: "Brooklyn-Gjøa", score: [4, 0] }
+      - { no: 17, opponent: "Ny-Solheim", score: [3, 0], competitionId: nm }
+      - { no: 18, opponent: "Lyn, Gjøvik", score: [2, 3], competitionId: nm }
+  - year: 1932
+    page: 86
+    results:
+      - { no: 1, opponent: "Rollon", score: [3, 3] }
+      - { no: 2, opponent: "Brått", score: [2, 0] }
+      - { no: 3, opponent: "K. F. K.", score: [2, 3] }
+      - { no: 4, opponent: "Rollon", score: [5, 0] }
+      - { no: 5, opponent: "Brått", score: [4, 4] }
+      - { no: 6, opponent: "K. F. K.", score: [4, 2] }
+      - { no: 7, opponent: "Hamar I. L.", score: [4, 1] }
+      - { no: 8, opponent: "Freidig", score: [3, 3] }
+      - { no: 9, opponent: "Moss", score: [2, 3] }
+      - { no: 10, opponent: "Moss", score: [1, 2] }
+      - { no: 11, opponent: "Fredrikstad", score: [1, 2] }
+      - { no: 12, opponent: "Rollon", score: [2, 3] }
+      - { no: 13, opponent: "Langevåg", score: [7, 2], competitionId: nm }
+      - { no: 14, opponent: "Brått", score: [2, 1], competitionId: nm }
+      - { no: 15, opponent: "Larvik Turn", score: [5, 2], competitionId: nm }
+      - { no: 16, opponent: "Fredrikstad", score: [1, 9], competitionId: nm }
+  - year: 1933
+    page: 86
+    results:
+      - { no: 1, opponent: "Rollon", score: [5, 0] }
+      - { no: 2, opponent: "K. F. K.", score: [5, 0] }
+      - { no: 3, opponent: "Brått", score: [3, 1] }
+      - { no: 4, opponent: "Rollon", score: [1, 2] }
+      - { no: 5, opponent: "Brått", score: [5, 0], page: 87 }
+      - { no: 6, opponent: "K. F. K.", score: [2, 1], page: 87 }
+      - { no: 7, opponent: "Rollon", score: [0, 0], page: 87 }
+      - { no: 8, opponent: "Rollon", score: [3, 3], page: 87 }
+      - { no: 9, opponent: "Rollon", score: [1, 3], page: 87 }
+      - { no: 10, opponent: "Lyn, Gjøvik", score: [1, 1], page: 87 }
+      - { no: 11, opponent: "Eid", score: [5, 1], page: 87 }
+      - { no: 12, opponent: "Sarpsborg", score: [4, 2], page: 87 }
+      - { no: 13, opponent: "Kvik, Halden", score: [2, 5], page: 87 }
+      - { no: 14, opponent: "Moss", score: [3, 1], page: 87 }
+      - { no: 15, opponent: "Brann", score: [2, 1], page: 87 }
+      - { no: 16, opponent: "Rollon", score: [2, 1], page: 87 }
+      - { no: 17, opponent: "Brått", score: [7, 1], competitionId: nm, page: 87 }
+      - { no: 18, opponent: "Nydalen", score: [4, 2], competitionId: nm, page: 87 }
+      - { no: 19, opponent: "Fremad", score: [0, 2], competitionId: nm, page: 87 }
+  - year: 1934
+    page: 87
+    results:
+      - { no: 1, opponent: "Rollon", score: [2, 2] }
+      - { no: 2, opponent: "C. F. K.", score: [1, 2] }
+      - { no: 3, opponent: "Guard", score: [4, 3] }
+      - { no: 4, opponent: "C. F. K.", score: [2, 0] }
+      - { no: 5, opponent: "K. F. K.", score: [3, 1] }
+      - { no: 6, opponent: "Guard", score: [4, 1] }
+      - { no: 7, opponent: "Brått", score: [2, 3] }
+      - { no: 8, opponent: "K. F. K.", score: [3, 1] }
+      - { no: 9, opponent: "Brått", score: [1, 1] }
+      - { no: 10, opponent: "Rollon", score: [3, 2] }
+      - { no: 11, opponent: "Molde", score: [4, 0] }
+      - { no: 12, opponent: "Molde", score: [3, 1] }
+      - { no: 13, opponent: "Kvik, Halden", score: [2, 5] }
+      - { no: 14, opponent: "Brage", score: [1, 1] }
+      - { no: 15, opponent: "Nydalen", score: [1, 3] }
+      - { no: 16, opponent: "Rollon", score: [2, 1] }
+      - { no: 17, opponent: "C. F. K.", score: [5, 2], competitionId: nm }
+      - { no: 18, opponent: "Brått", score: [5, 0], competitionId: nm }
+      - { no: 19, opponent: "Sarpsborg", score: [1, 4], competitionId: nm }
+  - year: 1935
+    page: 87
+    results:
+      - { no: 1, opponent: "Rollon", score: [5, 0] }
+      - { no: 2, opponent: "C. F. K.", score: [4, 1] }
+      - { no: 3, opponent: "C. F. K.", score: [2, 3] }
+      - { no: 4, opponent: "Guard", score: [2, 1] }
+      - { no: 5, opponent: "K. F. K.", score: [2, 1] }
+      - { no: 6, opponent: "K. F. K.", score: [1, 1] }
+      - { no: 7, opponent: "Rollon", score: [1, 1] }
+      - { no: 8, opponent: "Guard", score: [4, 1] }
+      - { no: 9, opponent: "Molde", score: [7, 0] }
+      - { no: 10, opponent: "Molde", score: [8, 1] }
+      - { no: 11, opponent: "Guard", score: [4, 2] }
+      - { no: 12, opponent: "Rollon", score: [2, 1] }
+      - { no: 13, opponent: "Rollon", score: [2, 0] }
+      - { no: 14, opponent: "Hamar", score: [1, 2] }
+      - { no: 15, opponent: "Lyn, Gjøvik", score: [2, 2] }
+      - { no: 16, opponent: "Xerxes", score: [4, 4] }
+      - { no: 17, opponent: "Hødd", score: [2, 4] }
+      - { no: 18, opponent: "Fremad", score: [4, 1] }
+      - { no: 19, opponent: "Snogg", score: [1, 4] }
+      - { no: 20, opponent: "Snogg", score: [3, 2] }
+      - { no: 21, opponent: "Sarpsborg", score: [4, 3] }
+      - { no: 22, opponent: "Veblungsnes", score: [6, 3] }
+      - { no: 23, opponent: "Marinegaster", score: [4, 1] }
+      - { no: 24, opponent: "Guard", score: [3, 1], competitionId: nm }
+      - { no: 25, opponent: "Brage", score: [5, 3], competitionId: nm }
+      - { no: 26, opponent: "Lyn, Gjøvik", score: [5, 1], competitionId: nm }
+      - { no: 27, opponent: "Lisleby", score: [4, 5], competitionId: nm }
+  - year: 1936
+    page: 87
+    results:
+      - { no: 1, opponent: "Guard", score: [3, 1] }
+      - { no: 2, opponent: "Brått", score: [4, 0] }
+      - { no: 3, opponent: "Rollon", score: [5, 1] }
+      - { no: 4, opponent: "C. F. K.", score: [6, 0] }
+      - { no: 5, opponent: "K. F. K.", score: [1, 1] }
+      - { no: 6, opponent: "Rollon", score: [0, 3] }
+      - { no: 7, opponent: "K. F. K.", score: [3, 1] }
+      - { no: 8, opponent: "Guard", score: [8, 1] }
+      - { no: 9, opponent: "Molde", score: [6, 2] }
+      - { no: 10, opponent: "Molde", score: [2, 2] }
+      - { no: 11, opponent: "Brått", score: [1, 2] }
+      - { no: 12, opponent: "C. F. K.", score: [1, 1] }
+      - { no: 13, opponent: "Hardy", score: [0, 2] }
+      - { no: 14, opponent: "Hardy", score: [6, 2] }
+      - { no: 15, opponent: "Veblungsnes", score: [3, 5] }
+      - { no: 16, opponent: "Rollon", score: [1, 0] }
+      - { no: 17, opponent: "Ørsta", score: [2, 1] }
+      - { no: 18, opponent: "Guard", score: [6, 2] }
+      - { no: 19, opponent: "Sandane", score: [12, 2], competitionId: nm }
+      - { no: 20, opponent: "Hamar", score: [4, 2], competitionId: nm }
+      - { no: 21, opponent: "Torp", score: [3, 2], competitionId: nm, page: 88 }
+      - { no: 22, opponent: "Mjøndalen", score: [0, 1], competitionId: nm, page: 88 }
+  - year: 1937
+    page: 88
+    results:
+      - { no: 1, opponent: "Hødd", score: [2, 1] }
+      - { no: 2, opponent: "Rollon", score: [0, 2] }
+      - { no: 3, opponent: "Rollon", score: [0, 3] }
+      - { no: 4, opponent: "C. F. K.", score: [1, 3] }
+      - { no: 5, opponent: "Brått", score: [1, 1] }
+      - { no: 6, opponent: "Veblungsnes", score: [1, 4] }
+      - { no: 7, opponent: "K. F. K.", score: [5, 1] }
+      - { no: 8, opponent: "Rollon", score: [3, 1] }
+      - { no: 9, opponent: "K. F. K.", score: [0, 2] }
+      - { no: 10, opponent: "Vågstranda", score: [4, 0] }
+      - { no: 11, opponent: "Rosenborg", score: [1, 1] }
+      - { no: 12, opponent: "Fremad", score: [2, 0] }
+      - { no: 13, opponent: "Fremad", score: [2, 2] }
+      - { no: 14, opponent: "Roald", score: [2, 2] }
+      - { no: 15, opponent: "Hødd", score: [5, 6] }
+      - { no: 16, opponent: "Hødd", score: [2, 1], competitionId: nm }
+      - { no: 17, opponent: "Brått", score: [4, 0], competitionId: nm }
+      - { no: 18, opponent: "Fredrikstad", score: [0, 8], competitionId: nm }
+  - year: 1938
+    page: 88
+    results:
+      - { no: 1, opponent: "Rollon", score: [1, 0] }
+      - { no: 2, opponent: "K. F. K.", score: [1, 8] }
+      - { no: 3, opponent: "N. F. K.", score: [4, 2] }
+      - { no: 4, opponent: "C. F. K.", score: [1, 2] }
+      - { no: 5, opponent: "Brått", score: [4, 1] }
+      - { no: 6, opponent: "C. F. K.", score: [2, 0] }
+      - { no: 7, opponent: "Rollon", score: [2, 1] }
+      - { no: 8, opponent: "Veblungsnes", score: [6, 0] }
+      - { no: 9, opponent: "K. F. K.", score: [2, 3] }
+      - { no: 10, opponent: "Brått", score: [0, 3] }
+      - { no: 11, opponent: "Paul Jacobi", score: [4, 7] }
+      - { no: 12, opponent: "Paul Jacobi", score: [3, 3] }
+      - { no: 13, opponent: "Rollon", score: [2, 1] }
+      - { no: 14, opponent: "Smart A. I. F.", score: [7, 2] }
+      - { no: 15, opponent: "Træff", score: [3, 1] }
+      - { no: 16, opponent: "Victoria Ziskov", score: [2, 3] }
+      - { no: 17, opponent: "Sykkylven", score: [8, 2] }
+      - { no: 18, opponent: "Hødd", score: [3, 2] }
+      - { no: 19, opponent: "Veblungsnes", score: [1, 2], competitionId: nm }
+  - year: 1939
+    page: 88
+    results:
+      - { no: 1, opponent: "Brått", score: [5, 0] }
+      - { no: 2, opponent: "C. F. K.", score: [2, 3] }
+      - { no: 3, opponent: "Rollon", score: [2, 2] }
+      - { no: 4, opponent: "N. F. K.", score: [4, 1] }
+      - { no: 5, opponent: "K. F. K.", score: [1, 1] }
+      - { no: 6, opponent: "Rollon", score: [3, 2] }
+      - { no: 7, opponent: "Brått", score: [4, 1] }
+      - { no: 8, opponent: "Molde", score: [3, 1] }
+      - { no: 9, opponent: "K. F. K.", score: [1, 5] }
+      - { no: 10, opponent: "C. F. K.", score: [5, 1] }
+      - { no: 11, opponent: "Molde", score: [3, 1] }
+      - { no: 12, opponent: "Rollon", score: [0, 0] }
+      - { no: 13, opponent: "Molde", score: [2, 2] }
+      - { no: 14, opponent: "Rollon", score: [3, 1] }
+      - { no: 15, opponent: "Rollon", score: [1, 2] }
+      - { no: 16, opponent: "Molde", score: [3, 3] }
+      - { no: 17, opponent: "Pardubice", score: [0, 4] }
+      - { no: 18, opponent: "Pardubice", score: [3, 3] }
+      - { no: 19, opponent: "Brann", score: [2, 2] }
+      - { no: 20, opponent: "Spjelkavik", score: [5, 1] }
+      - { no: 21, opponent: "Sykkylven", score: [6, 2] }
+      - { no: 22, opponent: "Roald", score: [3, 2] }
+      - { no: 23, opponent: "N. F. K.", score: [8, 0], competitionId: nm }
+      - { no: 24, opponent: "Lyn, Gjøvik", score: [0, 3], competitionId: nm }
+

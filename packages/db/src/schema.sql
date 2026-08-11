@@ -936,6 +936,30 @@ CREATE TABLE core_publication_extractions (
   content_hash    TEXT
 );
 
+-- Resultater en historisk kilde dokumenterer uten nok opplysninger til å bli
+-- kanoniske kamper. De holdes utenfor all kamp- og sesongstatistikk.
+CREATE TABLE core_source_results (
+  source_id       TEXT NOT NULL REFERENCES core_sources(id) ON DELETE CASCADE,
+  id              TEXT NOT NULL,
+  season          INTEGER NOT NULL,
+  source_order    INTEGER NOT NULL,
+  page            INTEGER NOT NULL,
+  opponent        TEXT,
+  opponent_club_id TEXT REFERENCES core_clubs(id),
+  aafk_score      INTEGER,
+  opponent_score  INTEGER,
+  competition_id  TEXT REFERENCES core_competitions(id),
+  status          TEXT NOT NULL CHECK (status IN ('played','walkover')),
+  replay          INTEGER NOT NULL CHECK (replay IN (0,1)),
+  after_extra_time INTEGER NOT NULL CHECK (after_extra_time IN (0,1)),
+  round           INTEGER,
+  match_id        TEXT REFERENCES core_matches(id),
+  note            TEXT,
+  PRIMARY KEY (source_id, id)
+);
+
+CREATE INDEX source_results_season_idx ON core_source_results(season, source_order);
+
 CREATE TABLE core_fact_candidates (
   source_id  TEXT NOT NULL REFERENCES core_publication_extractions(source_id) ON DELETE CASCADE,
   id         TEXT NOT NULL,
@@ -991,6 +1015,19 @@ SELECT source_id, provider_id, adapter, retrieved_at, ocr_access,
        pages_expected, pages_processed, pages_failed, content_hash
 FROM core_publication_extractions
 ORDER BY source_id;
+
+CREATE VIEW source_results AS
+SELECT source_id, id, season, source_order, page, opponent, opponent_club_id,
+       aafk_score, opponent_score,
+       CASE
+         WHEN status = 'walkover' THEN NULL
+         WHEN aafk_score > opponent_score THEN 'S'
+         WHEN aafk_score = opponent_score THEN 'U'
+         ELSE 'T'
+       END AS result,
+       competition_id, status, replay, after_extra_time, round, match_id, note
+FROM core_source_results
+ORDER BY season DESC, source_order;
 
 CREATE VIEW fact_candidates AS
 SELECT source_id, id, kind, page, confidence, keywords, names, years, scores,
