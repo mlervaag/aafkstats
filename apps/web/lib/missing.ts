@@ -1,4 +1,6 @@
 import { PLAYED_SQL, all, one, open } from "@aafkstats/db";
+import { getDerivedPlayers, getPlayersWithoutMatches } from "./derived-players.js";
+import type { DerivedPlayer, PlayerWithoutMatches } from "./derived-players.js";
 
 export interface MissingField {
   field: string;
@@ -69,6 +71,24 @@ export interface MissingOverview {
     candidates: number;
     sources: number;
     items: LineupReviewSource[];
+  };
+  /**
+   * Identitetsjobben, begge veier.
+   *
+   * `playersWithoutFile` er spillere arkivet kjenner godt fra kampene, men som
+   * ingen har skrevet en personfil for. Sida deres finnes, og den er utledet;
+   * en fil ville lagt til nasjonalitet, posisjon og Wikidata med kilde.
+   *
+   * `filesWithoutMatches` er det motsatte: en fil ført som spiller, uten at én
+   * eneste kamp er koblet til den. Som regel fordi kilden skriver navnet
+   * annerledes enn fila, og da løses det med `names[]`.
+   *
+   * De to hører sammen, og et par av dem er ofte samme person sett fra hver sin
+   * side. Derfor står de ved siden av hverandre framfor hver for seg.
+   */
+  identity: {
+    playersWithoutFile: DerivedPlayer[];
+    filesWithoutMatches: PlayerWithoutMatches[];
   };
 }
 
@@ -217,6 +237,10 @@ export function loadMissingOverview(): MissingOverview {
         candidates: lineupRows.length,
         sources: lineupSources.length,
         items: lineupSources,
+      },
+      identity: {
+        playersWithoutFile: getDerivedPlayers(),
+        filesWithoutMatches: getPlayersWithoutMatches(),
       },
     };
   } finally {

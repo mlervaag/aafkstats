@@ -243,6 +243,75 @@ export default function MissingPage() {
         )}
       </section>
 
+      {/* Identitetsjobben, begge veier. Den ene halvparten er spillere arkivet
+          vet mye om uten å ha en fil, den andre er filer uten kamper koblet
+          til. Et par av dem er ofte samme person sett fra hver sin side, og
+          derfor står de sammen. */}
+      <section className={styles.section} id="identitet">
+        <div className={styles.sectionHeader}>
+          <div>
+            <p className="eyebrow">Personer og kamper</p>
+            <h2>Knytt spillere til riktig identitet</h2>
+          </div>
+          <p>
+            En personfil legger til det lagoppstillingene ikke kan vite: posisjon,
+            nasjonalitet, draktnummer og Wikidata, med kilde. Spillerne under har
+            allerede en side, men den er utledet av kampene alene.
+          </p>
+        </div>
+
+        {missing.identity.playersWithoutFile.length === 0 ? (
+          <Done>Alle spillere med registrerte kamper har en personfil.</Done>
+        ) : (
+          <>
+            <p className={styles.method}>
+              {missing.identity.playersWithoutFile.length} spillere uten personfil. De med
+              flest kamper står først.
+            </p>
+            <ul className={styles.personList}>
+              {missing.identity.playersWithoutFile.slice(0, 20).map((player) => (
+                <li key={player.id}>
+                  <a href={`/personer/${player.id}`}><strong>{player.name}</strong></a>
+                  <span>
+                    {player.appearances} kamper
+                    {player.goals > 0 ? ` · ${player.goals} mål` : ""}
+                    {" · "}{player.firstSeason}–{player.lastSeason}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <div className={styles.actions}>
+              <a className="button-link" href={contributionIssueUrl("manglende-person")}>Legg til en personfil</a>
+              <a className="button-link secondary" href="/personer">Se personregisteret</a>
+            </div>
+          </>
+        )}
+
+        {missing.identity.filesWithoutMatches.length > 0 && (
+          <>
+            <p className={styles.method}>
+              Den motsatte jobben: {missing.identity.filesWithoutMatches.length} personfiler er
+              ført som spillere uten at én eneste kamp er koblet til dem. Som regel fordi
+              kilden skriver navnet annerledes enn fila. Spilte de før 2010, som er der
+              lagoppstillingene starter, er det ingen feil.
+            </p>
+            <ul className={styles.personList}>
+              {missing.identity.filesWithoutMatches.map((person) => (
+                <li key={person.id}>
+                  <a href={person.url}><strong>{person.name}</strong></a>
+                  <span>
+                    {person.position ?? "spiller"}
+                    {person.squadSeasons.length > 0
+                      ? ` · draktnummer ${person.squadSeasons[0]}–${person.squadSeasons.at(-1)}`
+                      : ""}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+      </section>
+
       <section className={styles.section} id="kildekontroll">
         <div className={styles.sectionHeader}>
           <div>

@@ -65,6 +65,17 @@ const checks: Check[] = [
     page: "personer/jan-jonsson",
     must: ["Jan Jönsson", "Dette vet arkivet", "Roller og verv"],
   },
+  // En spiller arkivet bare kjenner fra lagoppstillingene. Sida finnes uten at
+  // noen har skrevet en personfil, og den skal si tydelig at den er utledet.
+  {
+    page: "personer/fixture-spiller-b",
+    must: [
+      "Spiller i AaFK-arkivet", "Utledet av lagoppstillingene",
+      "Sesong for sesong", "Legg til en personfil",
+    ],
+    // En utledet side har ingen kilde for noe av dette, og skal ikke påstå det.
+    mustNot: ["Roller og verv", "Omtalt i"],
+  },
   {
     page: "hjemmebaner",
     // Sida finnes bare fordi banedataene lå ubrukt i arkivet: perioder,
@@ -86,6 +97,9 @@ const checks: Check[] = [
       // som ikke kan kalles hele, og begge formene skal vises: med kjent
       // omfang («3 av 6») og uten («2 kamper registrert»).
       "Gjør en sesong hel", "Runder mangler", "3 av 6 kamper", "2 kamper registrert",
+      // Identitetsjobben, begge veier: spillere uten personfil, og filer ført
+      // som spillere uten at en eneste kamp er koblet til dem.
+      "Knytt spillere til riktig identitet", "spillere uten personfil",
     ],
   },
   {
