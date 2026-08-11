@@ -1,4 +1,4 @@
-import { mkdtempSync } from "node:fs";
+import { mkdtempSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
@@ -82,6 +82,49 @@ describe("sitemap", () => {
   it("bruker kampens egen kildedato der den finnes", () => {
     const entry = sitemap().find((row) => row.url.endsWith("/kamp/1998-08-16-aalesunds-fk-sk-brann"))!;
     expect(new Date(entry.lastModified!).toISOString().slice(0, 10)).toBe("2026-08-02");
+  });
+});
+
+/**
+ * Sitemapet skal bare inneholde adresser som svarer med innhold.
+ *
+ * `/api-docs` sto der og er ikke en side: den er en `redirect()` til `/data`,
+ * igjen fra den gangen dokumentasjonen lå der. En søkemotor som fulgte
+ * sitemapet, fikk en videresending i stedet for innhold, og Search Console
+ * fører slike opp som «Side med omdirigering».
+ *
+ * Testen leter etter alle sider som bare omdirigerer i stedet for å nevne
+ * `/api-docs` ved navn. Neste gang en side blir til en videresending, er det den
+ * nye som skal fanges, og en test som bare kjente den gamle ville tiet.
+ */
+describe("sitemapet og videresendingene", () => {
+  /** Rutene under app/ som er en ren `redirect()` og ikke har noe innhold. */
+  function redirectOnlyRoutes(appDir: string, base = ""): string[] {
+    const found: string[] = [];
+    for (const entry of readdirSync(appDir, { withFileTypes: true })) {
+      if (!entry.isDirectory()) continue;
+      // Dynamiske segmenter og rutegrupper er ikke faste adresser.
+      if (entry.name.startsWith("[") || entry.name.startsWith("(") || entry.name === "api") continue;
+      const dir = join(appDir, entry.name);
+      const page = join(dir, "page.tsx");
+      try {
+        if (statSync(page).isFile()) {
+          const source = readFileSync(page, "utf8");
+          if (/\bredirect\(/.test(source) && !/<[A-Za-z]/.test(source)) found.push(`${base}/${entry.name}`);
+        }
+      } catch { /* ingen page.tsx her */ }
+      found.push(...redirectOnlyRoutes(dir, `${base}/${entry.name}`));
+    }
+    return found;
+  }
+
+  it("tar ikke med sider som bare videresender", () => {
+    const paths = new Set(sitemap().map((entry) => new URL(entry.url).pathname.replace(/\/$/, "")));
+    const redirects = redirectOnlyRoutes(resolve(import.meta.dirname, "../app"));
+    // Fanger bare noe hvis en slik side finnes; er det ingen, er testen sann og stille.
+    for (const route of redirects) {
+      expect(paths.has(route), `${route} videresender og skal ikke stå i sitemapet`).toBe(false);
+    }
   });
 });
 
