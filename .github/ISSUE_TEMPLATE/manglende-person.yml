@@ -14,6 +14,10 @@ body:
         Står personen der allerede, men med feil årstall eller feil verv, hører det hjemme i
         [Feil i arkivet](?template=datafeil.yml).
 
+        Har du et minne om noen framfor en opplysning som kan kildeføres, trenger du verken
+        konto eller skjema: bruk «Bidra»-knappen på personens side på
+        https://aafkstats.vercel.app/personer.
+
   - type: input
     id: navn
     attributes:

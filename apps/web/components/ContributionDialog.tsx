@@ -79,7 +79,7 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
       ]
     : scope === "match" ? [
         { label: "Meld en feil", href: contributionIssueUrl("datafeil", title) },
-        { label: "Legg til kilde eller kampdetaljer", href: contributionIssueUrl("ny-kilde", title) },
+        { label: "Legg til kampdetaljer", href: contributionIssueUrl("ny-kilde", title) },
       ]
     : [
         { label: "Meld en feil", href: contributionIssueUrl("datafeil", title) },

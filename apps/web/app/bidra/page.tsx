@@ -46,6 +46,7 @@ export default function ContributePage() {
             <a href={contributionIssueUrl("manglende-kamp")}>Meld en kamp som mangler</a>
             <a href={contributionIssueUrl("manglende-person")}>Meld en person som mangler</a>
             <a href={contributionIssueUrl("ny-kilde")}>Legg til kampdetaljer</a>
+            <a href={contributionIssueUrl("klubbidentitet")}>Meld feil klubb eller navn</a>
             <a href={contributionIssueUrl("ny-arkivkilde")}>Tips om en kilde</a>
           </nav>
         </section>
@@ -140,6 +141,23 @@ export default function ContributePage() {
           </div>
         </div>
       </details>
+
+      {/* Nettstedet hadde ingen vei til «feil-i-koden» eller «forslag». De to
+          malene fantes bare for den som allerede sto i GitHubs malvelger, og en
+          leser som fant en ødelagt side hadde ingen annen knapp enn «Meld en
+          feil», som handler om arkivet og ikke om koden. */}
+      <section className="content-section prose-stack">
+        <h2>Noe annet enn data</h2>
+        <p>
+          Er en side ødelagt, gir søket feil treff eller svarer spørrefunksjonen noe rart,
+          er det ikke en feil i arkivet, men i koden. Har du en idé, eller lurer du bare på
+          hvordan noe henger sammen, er det også plass til det.
+        </p>
+        <nav className="contribution-template-links" aria-label="GitHub-skjema for kode og forslag">
+          <a href={contributionIssueUrl("feil-i-koden")}>Meld en feil på nettstedet</a>
+          <a href={contributionIssueUrl("forslag")}>Foreslå noe, eller spør</a>
+        </nav>
+      </section>
 
       <section className="content-section prose-stack">
         <h2>Hva som mangler mest</h2>

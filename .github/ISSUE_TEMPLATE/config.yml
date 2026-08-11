@@ -2,6 +2,11 @@
 # og peker på sikkerhetspolicyen. En egen contact_link hit ville stått som en dublett.
 blank_issues_enabled: false
 contact_links:
+  # Den letteste veien inn var usynlig herfra: et minne krever verken GitHub-konto
+  # eller skjema, men den som allerede står i malvelgeren fikk aldri vite det.
+  - name: Del et minne uten GitHub-konto
+    url: https://aafkstats.vercel.app/bidra
+    about: Minner og observasjoner sendes direkte fra kamp-, sesong- og personsidene.
   - name: Slik bidrar du
     url: https://github.com/mlervaag/aafkstats/blob/main/CONTRIBUTING.md
     about: Retting av data, nye kamper, kode og adaptere.

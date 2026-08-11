@@ -10,11 +10,15 @@ body:
         dataene ligger i git. Kan du rette det selv, er det én YAML-fil å endre og én pull
         request å sende; se [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md).
 
-        To ting hører hjemme et annet sted: skal du *legge til* noe på en kamp som ellers
-        står riktig, bruk [Ny kilde eller flere kampdetaljer](?template=ny-kilde.yml). Gjelder
-        det en klubb som finnes to ganger, har byttet navn eller er feil motstander, bruk
-        [Klubbidentitet eller historisk navn](?template=klubbidentitet.yml) — den rettelsen
-        treffer alle kampene på én gang.
+        Dette skjemaet er for noe som står *galt*. Fire ting hører hjemme et annet sted:
+
+        - Skal du *legge til* noe på en kamp som ellers stemmer:
+          [Ny kilde eller flere kampdetaljer](?template=ny-kilde.yml)
+        - Mangler kampen helt: [Manglende kamp](?template=manglende-kamp.yml)
+        - Mangler personen helt: [Person som mangler](?template=manglende-person.yml)
+        - Gjelder det en klubb som finnes to ganger, har byttet navn eller er feil
+          motstander: [Klubbidentitet eller historisk navn](?template=klubbidentitet.yml).
+          Den rettelsen treffer alle kampene på én gang.
 
   - type: input
     id: sted

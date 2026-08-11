@@ -67,8 +67,9 @@ body:
     attributes:
       label: Er kilden ny for arkivet?
       description: >
-        Arkivet kjenner rsssf, fotmob, nasjonalbiblioteket, aafk-no, wikipedia og contribution.
-        En ny kilde må legges inn med rettighetsstatus før den kan brukes, og det er en egen jobb.
+        Kildene arkivet allerede bruker, står i rettighetstabellen på
+        https://aafkstats.vercel.app/om. En ny kilde må legges inn der med rettighetsstatus
+        før den kan brukes, og det er en egen jobb. Er du usikker, si det heller enn å gjette.
       options:
         - Kilden er en av dem arkivet kjenner fra før
         - Kilden er ny
