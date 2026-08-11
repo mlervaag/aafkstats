@@ -276,7 +276,15 @@ for (const [written, count] of nameCounts) {
   const candidates: string[] = [];
   for (const entry of archive.people) {
     for (const declared of [entry.name, ...entry.names]) {
-      if (isLongerNameForm(declared, written)) candidates.push(`${entry.id} ${DIM}«${declared}»${RESET}`);
+      // Begge veier. Regelen er retningsbestemt med vilje, men hvilken av de to
+      // formene som er den lengste er tilfeldig: FotMob skriver «Sten Michael
+      // Grytebust» der fila sier «Sten Grytebust», og «Daniel Gretarsson» der
+      // fila sier «Daníel Leó Grétarsson». Da rapporten bare spurte én vei, sto
+      // elleve spillere med 593 kamper usett — den største av dem var den
+      // aller største utledede spilleren i arkivet.
+      if (isLongerNameForm(declared, written) || isLongerNameForm(written, declared)) {
+        candidates.push(`${entry.id} ${DIM}«${declared}»${RESET}`);
+      }
     }
   }
   if (candidates.length > 0) unlinked.set(written, { count, candidates: [...new Set(candidates)] });
@@ -291,7 +299,7 @@ if (unlinked.size > 0) {
   for (const [written, { count, candidates }] of [...unlinked].sort()) {
     const matches = count === 1 ? "1 kamp" : `${count} kamper`;
     console.log(`  ${DIM}«${RESET}${written}${DIM}»${RESET} ${DIM}(${matches})${RESET}`);
-    for (const candidate of candidates) console.log(`    ⊂ ${candidate}`);
+    for (const candidate of candidates) console.log(`    ≡ ${candidate}`);
   }
   console.log("");
 }
