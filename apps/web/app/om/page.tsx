@@ -41,7 +41,7 @@ export default function AboutPage() {
               tre fra hverandre.
             </p>
           </section>
-          <section><h2>Hvordan søket virker</h2><p>Direktesøket finner år og motstandere uten AI. Når du skriver et spørsmål og sender det inn, lager en språkmodell en skrivebeskyttet SQL-spørring mot arkivet. Spørringen vises under svaret slik at resultatet kan etterprøves. Dekningstallene over ligger også i systemprompten, så modellen vet hva arkivet mangler.</p></section>
+          <section><h2>Hvordan søket virker</h2><p>Direktesøket finner personer, roller, år og motstandere uten AI. Når du skriver et spørsmål og sender det inn, bruker en språkmodell skrivebeskyttede søkeverktøy mot arkivet. Spørringene vises under svaret slik at resultatet kan etterprøves. Dekningstallene over ligger også i systemprompten, så modellen vet hva arkivet mangler.</p></section>
           <section>
             <h2>Hva som måles</h2>
             <p>

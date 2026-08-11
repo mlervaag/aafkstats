@@ -28,7 +28,7 @@ export interface ViewDoc {
 }
 
 // Hevet fra 1 da `matches.missing_fields` ble en del av den publiserte kontrakten.
-export const DATASET_VERSION = "3";
+export const DATASET_VERSION = "4";
 
 export const views: ViewDoc[] = [
   {
@@ -41,6 +41,7 @@ export const views: ViewDoc[] = [
     ],
     columns: [
       { name: "source_id", type: "text", description: "Historisk kilde." },
+      { name: "source_title", type: "text", description: "Lesbar tittel på den historiske kilden." },
       { name: "id", type: "text", description: "Stabil ID innen kilden." },
       { name: "season", type: "integer", description: "Året resultatet står under i kilden." },
       { name: "source_order", type: "integer", description: "Rekkefølgen i resultatlista." },
@@ -57,6 +58,8 @@ export const views: ViewDoc[] = [
       { name: "round", type: "integer", description: "Runde når oppgitt." },
       { name: "match_id", type: "text", description: "Kanonisk kamp når koblet. Ellers NULL." },
       { name: "note", type: "text", description: "Kort merknad eller forbehold." },
+      { name: "source_url", type: "text", description: "Direktelenke til publikasjonen hos kilden." },
+      { name: "url", type: "text", description: "Lenke til kildesiden i arkivet." },
     ],
   },
   {
@@ -342,6 +345,7 @@ export const views: ViewDoc[] = [
       { name: "wikidata", type: "text", description: "Wikidata-ID der den finnes." },
       { name: "sources", type: "JSON", description: "Kilder til personidentiteten og generelle personopplysninger." },
       { name: "note", type: "text", description: "Redaksjonelt forbehold." },
+      { name: "has_conflicts", type: "integer (0/1)", description: "Sant når kilder er uenige om en rolle. Slå opp person_conflicts." },
       { name: "first_season", type: "integer", description: "Første sesong med registrert kamptropp." },
       { name: "last_season", type: "integer", description: "Siste sesong med registrert kamptropp." },
       { name: "appearances", type: "integer", description: "Antall registrerte kamptropper." },
@@ -372,6 +376,30 @@ export const views: ViewDoc[] = [
       { name: "to_date", type: "text", description: "Slutt som ÅÅÅÅ eller ÅÅÅÅ-MM-DD. NULL når ukjent eller løpende." },
       { name: "sources", type: "JSON", description: "Publikasjon, side og dokumenterte felt." },
       { name: "note", type: "text", description: "Forbehold eller kildekonflikt." },
+      { name: "url", type: "text", description: "Lenke til personsiden." },
+    ],
+  },
+  {
+    name: "person_conflicts",
+    summary: "Én rad per kildeverdi i en uenighet om en personrolle eller et verv.",
+    caveats: [
+      "decision = 'unresolved' betyr at arkivet ikke har valgt mellom kildene. Oppgi begge navnene og kildene.",
+      "field kombinerer normalt rolle og år, for eksempel formann.1968.",
+      "Kildeprioritet avgjør aldri en konflikt automatisk.",
+    ],
+    columns: [
+      { name: "person_id", type: "text", description: "Personen konfliktoppføringen er lagret på." },
+      { name: "name", type: "text", description: "Navnet slik arkivet viser det." },
+      { name: "field", type: "text", description: "Vervet og året uenigheten gjelder." },
+      { name: "provider_id", type: "text", description: "Kilden som oppgir denne verdien." },
+      { name: "value", type: "text", description: "Personnavnet kilden oppgir." },
+      { name: "value_note", type: "text", description: "Kildens eller innhøstingens merknad til verdien." },
+      { name: "is_chosen", type: "integer (0/1)", description: "Sant når et menneske har valgt denne verdien." },
+      { name: "decision", type: "text", description: "unresolved, manual, source_priority eller independent_source." },
+      { name: "decided_at", type: "text (YYYY-MM-DD)", description: "Dato for avgjørelsen, eller NULL." },
+      { name: "reason", type: "text", description: "Begrunnelse når konflikten er avgjort." },
+      { name: "locked", type: "integer (0/1)", description: "Sant når avgjørelsen er låst mot ny innhøsting." },
+      { name: "conflict_note", type: "text", description: "Merknad om uenigheten som helhet." },
       { name: "url", type: "text", description: "Lenke til personsiden." },
     ],
   },
@@ -598,6 +626,55 @@ export const views: ViewDoc[] = [
       { name: "scores", type: "JSON", description: "Resultattokens på samme tekstlinje." },
       { name: "person_ids", type: "JSON", description: "Entydige treff mot eksisterende personer." },
       { name: "match_ids", type: "JSON", description: "Entydige eller mulige treff mot eksisterende kamper." },
+    ],
+  },
+  {
+    name: "resolved_roles",
+    summary: "Maskinelt løste personroller med tittel, periode, side og kilde.",
+    caveats: [
+      "Dette er kandidater, ikke kanoniske fakta. Bruk person_roles for kontrollerte roller.",
+      "Oppgi alltid confidence og kilde når et svar bygger på resolved_roles.",
+      "from_date kan være NULL når siden ikke oppgir år. Ikke utled et år fra publikasjonens utgivelsesår.",
+    ],
+    columns: [
+      { name: "source_id", type: "text", description: "Publikasjonen rollen kommer fra." },
+      { name: "source_title", type: "text", description: "Lesbar tittel på publikasjonen." },
+      { name: "id", type: "text", description: "Deterministisk resolver-ID." },
+      { name: "page", type: "text", description: "Sidelabel i publikasjonen." },
+      { name: "column_no", type: "integer", description: "Nullbasert spaltenummer når kjent." },
+      { name: "person_name", type: "text", description: "Navnet slik publikasjonen skriver det." },
+      { name: "person_id", type: "text", description: "Kjent person i registeret når navnet er avstemt." },
+      { name: "category", type: "text", description: "Rolleklasse, som board, coach eller honorary." },
+      { name: "title", type: "text", description: "Historisk tittel eller verv." },
+      { name: "body", type: "text", description: "Organisasjonsdel når siden oppgir den." },
+      { name: "from_date", type: "text", description: "Startår eller dato når oppgitt." },
+      { name: "to_date", type: "text", description: "Sluttår eller dato når oppgitt." },
+      { name: "confidence", type: "text", description: "high, medium eller low for resolverens treff." },
+      { name: "rule", type: "text", description: "Regelen som løste navn, rolle og år." },
+      { name: "source_url", type: "text", description: "Direktelenke til publikasjonen hos kilden." },
+      { name: "url", type: "text", description: "Lenke til kildesiden i arkivet." },
+    ],
+  },
+  {
+    name: "resolved_lineups",
+    summary: "Maskinelt løste lag- og spillerlister med rekkefølge, side og kilde.",
+    caveats: [
+      "Dette er kandidater uten kamp-ID. De kan være lagoppstillinger, tropper eller spillerrekker.",
+      "season er et nærliggende årstall, ikke en bekreftet kampkobling.",
+      "Oppgi alltid confidence og kilde, og kall ikke listen en kampoppstilling uten annen dokumentasjon.",
+    ],
+    columns: [
+      { name: "source_id", type: "text", description: "Publikasjonen listen kommer fra." },
+      { name: "source_title", type: "text", description: "Lesbar tittel på publikasjonen." },
+      { name: "id", type: "text", description: "Deterministisk resolver-ID." },
+      { name: "page", type: "text", description: "Sidelabel i publikasjonen." },
+      { name: "column_no", type: "integer", description: "Nullbasert spaltenummer når kjent." },
+      { name: "season", type: "integer", description: "Nærliggende årstall når siden oppgir et." },
+      { name: "names", type: "JSON", description: "Navnene i kildens rekkefølge." },
+      { name: "person_ids", type: "JSON", description: "Navn som er avstemt mot personregisteret." },
+      { name: "confidence", type: "text", description: "high, medium eller low for resolverens treff." },
+      { name: "source_url", type: "text", description: "Direktelenke til publikasjonen hos kilden." },
+      { name: "url", type: "text", description: "Lenke til kildesiden i arkivet." },
     ],
   },
 ];

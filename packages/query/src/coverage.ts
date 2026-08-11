@@ -29,6 +29,12 @@ export interface DatasetCoverage {
   withLineups: number;
   /** Egne kampreferat. Null er et helt vanlig tall her. */
   withReport: number;
+  people: number;
+  personRoles: number;
+  personConflicts: number;
+  sourceResults: number;
+  resolvedRoles: number;
+  resolvedLineups: number;
   /** Seriesesonger merket komplette, og hvor mange serieår arkivet har totalt. */
   completeLeagueSeasons: number;
   leagueSeasons: number;
@@ -68,6 +74,12 @@ export function readCoverage(db: Db): DatasetCoverage {
     // ikke chattens sti. Oppstillingene finnes ikke i noe publisert view per kamp.
     withLineups: n(`SELECT count(DISTINCT match_id) AS n FROM core_appearances`),
     withReport: n(`SELECT count(*) AS n FROM matches WHERE ${PLAYED_SQL} AND report_summary IS NOT NULL`),
+    people: n(`SELECT count(*) AS n FROM people`),
+    personRoles: n(`SELECT count(*) AS n FROM person_roles`),
+    personConflicts: n(`SELECT count(DISTINCT person_id || ':' || field) AS n FROM person_conflicts`),
+    sourceResults: n(`SELECT count(*) AS n FROM source_results`),
+    resolvedRoles: n(`SELECT count(*) AS n FROM resolved_roles`),
+    resolvedLineups: n(`SELECT count(*) AS n FROM resolved_lineups`),
     completeLeagueSeasons: n(
       `SELECT count(*) AS n FROM seasons WHERE competition_type = 'league' AND coverage = 'complete'`,
     ),
@@ -122,6 +134,10 @@ export function coverageFacts(c: DatasetCoverage): string[] {
     `${c.withEvents} kamper (${share(c.withEvents)}) har hendelser som mål og kort. Dekningen følger kilden, ikke kalenderen.`,
     `${c.withLineups} kamper har lagoppstilling.`,
     `${c.withAttendance} kamper har tilskuertall.`,
+    `${c.people} personer og ${c.personRoles} kontrollerte roller eller verv finnes i personregisteret.`,
+    `${c.personConflicts} uenigheter om personroller er registrert.`,
+    `${c.sourceResults} kampresultater fra historiske kilder finnes uten full kampkobling.`,
+    `${c.resolvedRoles} maskinelt løste rollekandidater og ${c.resolvedLineups} maskinelt løste lag- eller spillerlister er søkbare med kilde og sikkerhet.`,
     c.withReport === 0
       ? "Arkivet har ingen egne kampreferat. Et tomt treff i reports betyr at referatet ikke er skrevet, ikke at kampen mangler."
       : `${c.withReport} kamper har eget kampreferat.`,

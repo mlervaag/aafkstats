@@ -35,6 +35,8 @@ interface EventProperties {
   "ask-answered": { status: "ok" | "error"; seconds: number };
   /** Noen klikket seg inn på en kamp fra direktesøket. Målet på om søket traff. */
   "match-opened": { position: number };
+  /** Noen åpnet en person fra direktesøket. Friteksten lagres fortsatt aldri. */
+  "person-opened": { position: number };
   /** Modellen foreslo ett konkret neste arkivoppslag. */
   "followup-shown": Record<string, never>;
   /** Brukeren fortsatte med forslaget. */

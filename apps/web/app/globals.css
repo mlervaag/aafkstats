@@ -322,6 +322,28 @@ table,
 }
 .match-result-link:hover,
 .match-result-link:focus-visible { background: var(--accent-soft); }
+.person-result-link {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(10rem, 1fr) minmax(10rem, 1fr) auto;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.7rem 0.9rem;
+  color: var(--text);
+  text-decoration: none;
+}
+.person-result-link:hover,
+.person-result-link:focus-visible { background: var(--accent-soft); }
+.result-kind {
+  width: max-content;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.15rem 0.45rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
 .result-opponent {
   display: flex;
   align-items: center;
@@ -681,6 +703,12 @@ th { font-weight: 600; }
   .result-opponent { grid-column: 1; grid-row: 2; }
   .match-result-link > .score { grid-column: 2; grid-row: 1 / span 2; font-size: 1.1rem; }
   .match-result-link > .small { grid-column: 1 / -1; grid-row: 3; }
+  .person-result-link {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 0.25rem 0.6rem;
+    padding: 0.75rem;
+  }
+  .person-result-link > .small { grid-column: 2 / -1; }
   .answer { padding: 1rem; }
   .queries pre { font-size: 0.75rem; }
   table { min-width: 38rem; }
