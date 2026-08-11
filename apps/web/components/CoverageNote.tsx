@@ -154,6 +154,58 @@ export function PromptCoverage() {
 }
 
 /**
+ * De viktigste dekningsmålene for en leser som vil forstå datasettet.
+ *
+ * Systemprompten trenger alle de tekniske dekningsfaktaene. På datasiden er
+ * det mer nyttig å vise omfang, dybde og hvor mye som er kontrollert, uten å
+ * blande inn resolverstatus og interne tabellnavn.
+ */
+export function DatasetHighlights() {
+  const db = open();
+  let c: DatasetCoverage;
+  try {
+    c = readCoverage(db);
+  } finally {
+    db.close();
+  }
+
+  const span =
+    c.firstSeason && c.lastSeason
+      ? c.firstSeason === c.lastSeason
+        ? `i ${c.firstSeason}`
+        : `fra ${c.firstSeason} til ${c.lastSeason}`
+      : "i arkivet";
+
+  return (
+    <>
+      <ul className="prose" style={{ paddingLeft: "1.1rem" }}>
+        <li>
+          <strong>{c.played} spilte kamper</strong> {span}, fordelt på {c.years} år.
+        </li>
+        <li>
+          <strong>
+            {c.completeLeagueSeasons} av {c.finishedLeagueSeasons} avsluttede seriesesonger
+          </strong>{" "}
+          har komplett dekning fra første til siste runde.
+        </li>
+        <li>
+          Kampene har ulik detaljgrad: {c.withEvents} har hendelser som mål og kort, {c.withLineups}{" "}
+          har lagoppstilling og {c.withAttendance} har tilskuertall.
+        </li>
+        <li>
+          <strong>{c.people} personer</strong> er registrert med {c.personRoles} kontrollerte
+          roller eller verv.
+        </li>
+      </ul>
+      <p className="prose small muted">
+        Dekningen følger kildene. At en detalj mangler, betyr derfor ikke nødvendigvis at
+        den ikke fantes eller skjedde.
+      </p>
+    </>
+  );
+}
+
+/**
  * Forskjellen på et representert år og en komplett sesong.
  *
  * «87 sesonger» betyr her 87 år med minst én registrert kamp, og en

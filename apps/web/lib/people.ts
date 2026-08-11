@@ -221,11 +221,20 @@ function organ(body: string | null): string {
  *
  * «Trener» og «Hovedtrener» er samme jobb: aafk.no og Wikipedia sier det ene,
  * bøkene det andre, og Kjetil Rekdal sto derfor med begge deler for de samme
- * årene. «Assistenttrener» og «Keepertrener» er noe annet og røres ikke.
+ * årene. Det samme gjelder «Formann» og «Styreleder» — ordet skiftet et sted på
+ * veien, og Peder Puck sto med begge for perioder som møtes i 1945.
+ * «Assistenttrener» og «Keepertrener» er noe annet og røres ikke.
  */
+const SAME_OFFICE: Record<string, string> = {
+  trener: "hovedtrener",
+  styreleder: "formann",
+  nestleder: "nestformann",
+  varaformann: "nestformann",
+};
+
 function office(title: string): string {
   const value = title.trim().toLowerCase();
-  return value === "trener" ? "hovedtrener" : value;
+  return SAME_OFFICE[value] ?? value;
 }
 
 /** Slutten på en periode. Ukjent slutt telles som året den begynte. */
@@ -303,9 +312,11 @@ function combine(roles: PersonRole[], reach: number): PersonRole {
   const notes = [...new Set(roles.map((role) => role.note).filter((note): note is string => Boolean(note)))];
   return {
     ...first,
-    // Den kilden som sier mest vinner: «Hovedtrener» framfor «Trener», og et
-    // navngitt organ framfor ingen.
-    title: roles.reduce((a, b) => (b.title.length > a.title.length ? b : a)).title,
+    // Ordet fra den kilden som dekker mest: den oppgitte perioden 2008-2012 sier
+    // «Hovedtrener», bøkenes enkeltår sier «Trener», og da er det den lange
+    // perioden som har navngitt jobben. Samme regel gir «Formann» framfor
+    // «Styreleder» der en lang formannsperiode møter et enkeltår.
+    title: roles.reduce((a, b) => (endYear(b) - year(b.from_date) > endYear(a) - year(a.from_date) ? b : a)).title,
     body: roles.find((role) => role.body)?.body ?? null,
     // Slutten er den seneste kilden rekker, uansett hvilken rad den kom fra.
     to_date: last.to_date ?? (reach > year(first.from_date) ? String(reach) : null),

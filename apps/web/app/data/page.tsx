@@ -1,15 +1,14 @@
 import { exampleQueries, views } from "@aafkstats/query/dataset";
-import { CompetitionTable, CoverageNote, PromptCoverage } from "@/components/CoverageNote";
+import { CompetitionTable, DatasetHighlights } from "@/components/CoverageNote";
 
 export const metadata = { title: "Datasettet" };
 
 /**
  * Dokumentasjon av det publiserte datasettet.
  *
- * Denne siden og chattens systemprompt bygges av nøyaktig samme kilde
- * (packages/query/src/dataset.ts). Det er et bevisst valg: du kan lese her hva
- * spørrefunksjonen faktisk vet om datasettet — det finnes ingen skjult beskrivelse
- * modellen har og du ikke har.
+ * Tallene i oppsummeringen regnes ut fra databasen ved bygging. Den mer
+ * detaljerte dokumentasjonen under beskriver tabellene som er tilgjengelige for
+ * nedlasting og spørring.
  */
 export default function DataPage() {
   return (
@@ -20,24 +19,12 @@ export default function DataPage() {
         <p className="eyebrow">Åpne data</p>
         <h1>Datasettet</h1>
         <p className="lede">
-          Alt i arkivet ligger som YAML-filer på GitHub. Ved hver utrulling bygges filene om
-          til en skrivebeskyttet SQLite-fil, og det er den nettstedet og spørrefunksjonen
-          leser fra. Tabellene i fila er beskrevet lenger nede på siden.
+          Et åpent og etterprøvbart arkiv over AaFKs kamper, sesonger og personer. Dataene
+          kan utforskes her eller lastes ned for videre bruk.
         </p>
       </header>
-      <p className="prose">
-        Beskrivelsen under er nøyaktig den samme teksten som spørrefunksjonen får i
-        systemprompten sin. Det finnes ingen egen, skjult versjon: det du leser her, er alt
-        modellen vet om datasettet.
-      </p>
-      <CoverageNote />
-
-      <h2 style={{ marginTop: "2rem" }}>Dekning, slik spørrefunksjonen får den</h2>
-      <p className="prose">
-        Disse setningene ligger i systemprompten, og de regnes ut fra databasen hver gang
-        nettstedet bygges. De kan derfor ikke bli utdaterte uten at dataene faktisk endrer seg.
-      </p>
-      <PromptCoverage />
+      <h2 style={{ marginTop: "2rem" }}>Hva arkivet inneholder</h2>
+      <DatasetHighlights />
 
       <h2 style={{ marginTop: "2rem" }}>Kamper per konkurranse</h2>
       <CompetitionTable />
