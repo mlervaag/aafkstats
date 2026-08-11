@@ -28,6 +28,25 @@ import type { Archive } from "@aafkstats/schema/load";
  * verv, skal det bli én rolle med to kilder — ikke to roller.
  */
 
+/**
+ * Titler som er samme verv med to navn.
+ *
+ * «Formann» ble til «styreleder» da klubben moderniserte språket, og
+ * jubileumsboka bruker det nye ordet om en mann aafk.no fører med det gamle.
+ * Uten denne lista ble Arnstein Johansen stående med begge for 1998, som om
+ * han hadde to verv.
+ */
+const SAME_OFFICE: Record<string, string> = {
+  styreleder: "formann",
+  nestleder: "nestformann",
+  varaformann: "nestformann",
+};
+
+function office(title: string): string {
+  const key = title.toLowerCase();
+  return SAME_OFFICE[key] ?? key;
+}
+
 export interface ApplyReport {
   /** Nye roller lagt på en person som fantes fra før. */
   added: number;
@@ -35,6 +54,15 @@ export interface ApplyReport {
   corroborated: number;
   /** Resolusjoner som ikke var sikre nok, eller som mangler person eller år. */
   skipped: number;
+  /**
+   * Roller som ville skapt en selvmotsigelse i arkivet.
+   *
+   * To formenn samme år kan ikke begge stemme, og en «Formann» ved siden av en
+   * «Formann i banekomiteen» samme år er nesten sikkert den samme opplysningen
+   * lest uten leddet som forklarer den. Ingen av delene kan maskinen avgjøre,
+   * så de holdes utenfor og telles her.
+   */
+  conflicting: number;
 }
 
 /** En resolusjon sammen med publikasjonen den ble lest i. */
@@ -44,7 +72,16 @@ export interface RoleFinding {
 }
 
 export async function applyResolvedRoles(archive: Archive, findings: RoleFinding[], root: string): Promise<ApplyReport> {
-  const report: ApplyReport = { added: 0, corroborated: 0, skipped: 0 };
+  const report: ApplyReport = { added: 0, corroborated: 0, skipped: 0, conflicting: 0 };
+
+  /** Hvem som allerede innehar et klubbverv et gitt år. */
+  const heldBy = new Map<string, string>();
+  for (const person of archive.people) {
+    for (const role of person.roles) {
+      if (role.body) continue;
+      heldBy.set(`${office(role.title)}|${role.from.slice(0, 4)}`, person.id);
+    }
+  }
   const byId = new Map(archive.people.map((person) => [person.id, structuredClone(person)]));
   const touched = new Set<string>();
 
@@ -57,7 +94,7 @@ export async function applyResolvedRoles(archive: Archive, findings: RoleFinding
 
     const existing = person.roles.find((candidate) =>
       candidate.category === role.category
-      && candidate.title.toLowerCase() === role.title.toLowerCase()
+      && office(candidate.title) === office(role.title)
       && candidate.from === role.from);
 
     if (existing) {
@@ -65,6 +102,20 @@ export async function applyResolvedRoles(archive: Archive, findings: RoleFinding
       existing.sources = [...existing.sources, sourceRef(sourceId, role)];
       report.corroborated += 1;
       touched.add(person.id);
+      continue;
+    }
+
+    // Et mer presist verv samme år er den samme opplysningen, lest med leddet
+    // som forklarer den. «Formann i banekomiteen» slår «Formann».
+    const year = role.from.slice(0, 4);
+    const moreSpecific = person.roles.some((candidate) =>
+      candidate.from.slice(0, 4) === year
+      && candidate.title.toLowerCase() !== role.title.toLowerCase()
+      && candidate.title.toLowerCase().startsWith(`${role.title.toLowerCase()} `));
+    // To personer kan ikke ha samme klubbverv samme år.
+    const takenBy = role.body ? undefined : heldBy.get(`${office(role.title)}|${year}`);
+    if (moreSpecific || (takenBy !== undefined && takenBy !== person.id)) {
+      report.conflicting += 1;
       continue;
     }
 
@@ -79,6 +130,7 @@ export async function applyResolvedRoles(archive: Archive, findings: RoleFinding
       note: "Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.",
     }].sort((a, b) => a.from.localeCompare(b.from) || a.title.localeCompare(b.title, "nb"));
     report.added += 1;
+    if (!role.body) heldBy.set(`${office(role.title)}|${year}`, person.id);
     touched.add(person.id);
   }
 

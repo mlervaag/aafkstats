@@ -247,3 +247,53 @@ describe("omtaler som ikke kan stemme", () => {
     expect(report.added).toBe(1);
   });
 });
+
+describe("roller som ville motsagt arkivet", () => {
+  it("gir ikke to personer samme klubbverv samme år", async () => {
+    // To formenn i 1948 kan ikke begge stemme, og maskinen kan ikke avgjøre
+    // hvem. Da skal ingen av dem skrives.
+    const sittende = person({
+      id: "kari-nordmann", name: "Kari Nordmann",
+      roles: [{ id: "formann-1948", category: "board", title: "Formann", from: "1948", to: null,
+        sources: [{ sourceId: "en-annen", fields: [] }] }],
+    });
+    const report = await applyResolvedRoles(archiveWith([person(), sittende]), [
+      finding({ from: "1948" }),
+    ], root);
+    expect(report).toMatchObject({ added: 0, conflicting: 1 });
+  });
+
+  it("regner styreleder og formann som samme verv", async () => {
+    const sittende = person({
+      roles: [{ id: "formann-1998", category: "board", title: "Formann", from: "1998", to: null,
+        sources: [{ sourceId: "en-annen", fields: [] }] }],
+    });
+    const report = await applyResolvedRoles(archiveWith([sittende]), [
+      finding({ title: "Styreleder", from: "1998" }),
+    ], root);
+    expect(report).toMatchObject({ added: 0, corroborated: 1 });
+  });
+
+  it("legger ikke et mindre presist verv oppå et mer presist samme år", async () => {
+    // «Formann» ved siden av «Formann i banekomiteen» er nesten alltid den
+    // samme opplysningen, lest uten leddet som forklarer den.
+    const sittende = person({
+      roles: [{ id: "bane-1951", category: "project", title: "Formann i banekomiteen", from: "1951", to: null,
+        sources: [{ sourceId: "en-annen", fields: [] }] }],
+    });
+    const report = await applyResolvedRoles(archiveWith([sittende]), [finding({ from: "1951" })], root);
+    expect(report).toMatchObject({ added: 0, conflicting: 1 });
+  });
+
+  it("lar to personer ha samme verv samme år i hvert sitt organ", async () => {
+    const sittende = person({
+      id: "kari-nordmann", name: "Kari Nordmann",
+      roles: [{ id: "formann-1948", category: "board", title: "Formann", from: "1948", to: null,
+        sources: [{ sourceId: "en-annen", fields: [] }] }],
+    });
+    const report = await applyResolvedRoles(archiveWith([person(), sittende]), [
+      finding({ from: "1948", body: "Juniorgruppa" }),
+    ], root);
+    expect(report.added).toBe(1);
+  });
+});

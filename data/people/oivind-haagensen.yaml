@@ -14,6 +14,20 @@ roles:
           - from
         note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_role)."
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+  - id: oppmann-1951
+    category: sporting_staff
+    title: Oppmann
+    body: Sportsutvalget
+    from: "1951"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+        page: "51"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_role)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - { id: gullmerkeinnehaver-1964, category: honorary, title: Gullmerkeinnehaver, from: "1964", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815

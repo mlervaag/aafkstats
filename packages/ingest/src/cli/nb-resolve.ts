@@ -175,6 +175,7 @@ if (!args.values.write) {
     nyeRoller: report.added,
     kilderPåEksisterendeRoller: report.corroborated,
     hoppetOver: report.skipped,
+    selvmotsigende: report.conflicting,
   }, null, 2));
 
   const after = await loadArchive(root);

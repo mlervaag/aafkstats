@@ -39,6 +39,20 @@ roles:
         fields: [ title ]
     note: Kildene fra 1939 og 1950 beskriver perioden 1938–1945; AaFKs nyere nettliste skriver 1938–1941 og 1945–1946. Periodene er ikke slått sammen, fordi nettlisten samtidig fører Sigurd Nørve fra 1946.
   - { id: gullmerkeinnehaver-1948, category: honorary, title: Gullmerkeinnehaver, from: "1948", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
+  - id: nestformann-1951
+    category: board
+    title: Nestformann
+    body: Banekomiteen
+    from: "1951"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1952-7c90
+        page: "65"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - { id: aeresmedlem-1957, category: honorary, title: Æresmedlem, from: "1957", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815

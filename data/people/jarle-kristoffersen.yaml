@@ -1,6 +1,53 @@
 id: jarle-kristoffersen
 name: Jarle Kristoffersen
 roles:
+  - id: sekretaer-1960
+    category: administration
+    title: Sekretær
+    body: Banekomiteen
+    from: "1960"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+        page: "60"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+  - id: sekretaer-1961
+    category: administration
+    title: Sekretær
+    body: Festkomiteen
+    from: "1961"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+        page: "36"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+  - id: nestformann-1971
+    category: board
+    title: Nestformann
+    from: "1971"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1971-dc4a
+        page: "10"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 2 på siden (regel: role_then_name)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1971-e55d
+        page: "5"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - { id: gullmerkeinnehaver-1982, category: honorary, title: Gullmerkeinnehaver, from: "1982", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
   - { id: aeresmedlem-2005, category: honorary, title: Æresmedlem, from: "2005", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
 sources:

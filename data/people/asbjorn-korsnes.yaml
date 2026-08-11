@@ -1,6 +1,38 @@
 id: asbjorn-korsnes
 name: Asbjørn Korsnes
 roles:
+  - id: nestformann-1957
+    category: board
+    title: Nestformann
+    body: Dommerkomiteen
+    from: "1957"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+        page: "12"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+        page: "48"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+        page: "12"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+        page: "24"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - { id: gullmerkeinnehaver-1976, category: honorary, title: Gullmerkeinnehaver, from: "1976", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d

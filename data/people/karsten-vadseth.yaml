@@ -1,6 +1,20 @@
 id: karsten-vadseth
 name: Karsten Vadseth
 roles:
+  - id: nestformann-1962
+    category: board
+    title: Nestformann
+    body: Guttegruppen
+    from: "1962"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1963-400c
+        page: "24"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - { id: gullmerkeinnehaver-1982, category: honorary, title: Gullmerkeinnehaver, from: "1982", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
   - { id: aeresmedlem-1987, category: honorary, title: Æresmedlem, from: "1987", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
 sources:

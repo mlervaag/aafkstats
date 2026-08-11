@@ -15,13 +15,26 @@ roles:
     from: "1962"
     to: "1964"
     sources: [ { sourceId: aafk-historie-ledere, fields: [ title, from, to ] } ]
+  - id: formann-1968
+    category: board
+    title: Formann
+    from: "1968"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1969-da4a
+        page: "3"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: formann-1969
     category: board
     title: Formann
     body: Hovedstyret
     from: "1969"
     to: "1969"
-    sources: [ { sourceId: aafk-historie-ledere, fields: [ title, from, to ] } ]
+    sources: [ { sourceId: aafk-historie-ledere, fields: [ title, from, to ] }, { sourceId: medlemsblad-for-aalesunds-fotb-1969-8d82, page: "5", fields: [ title, from ], note: "Lest maskinelt fra spalte 2 på siden (regel: role_then_name)." } ]
   - id: gullmerkeinnehaver-1969
     category: honorary
     title: Gullmerkeinnehaver

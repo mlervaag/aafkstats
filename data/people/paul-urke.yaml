@@ -1,6 +1,20 @@
 id: paul-urke
 name: Paul Urke
 roles:
+  - id: formann-1980
+    category: board
+    title: Formann
+    body: Valgkomiteen
+    from: "1980"
+    to: null
+    sources:
+      - sourceId: tango-siden-1914-2013-806b
+        page: "108"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 2 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: formann-1988-1989
     category: board
     title: Formann

@@ -1,6 +1,19 @@
 id: petter-birkevold
 name: Petter Birkevold
 roles:
+  - id: oppmann-1971
+    category: sporting_staff
+    title: Oppmann
+    from: "1971"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1971-e55d
+        page: "5"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: formann-1997
     category: board
     title: Formann

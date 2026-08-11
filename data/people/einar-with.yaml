@@ -1,6 +1,25 @@
 id: einar-with
 name: Einar With
 roles:
+  - id: formann-1974
+    category: board
+    title: Formann
+    from: "1974"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1974-5775
+        page: "6"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: role_then_name)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1974-4178
+        page: "6"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: role_then_name)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: formann-1985-1987
     category: board
     title: Formann
