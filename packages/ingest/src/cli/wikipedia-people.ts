@@ -38,6 +38,7 @@ function merge(existing: Person | undefined, fresh: WikipediaPlayer, season: num
     roles: [],
     providers: [],
     sources: [],
+    conflicts: [],
   };
 
   // Skrivemåten kilden brukte tas vare på når den ikke er den vi viser og ikke
@@ -178,7 +179,7 @@ async function runCoaches(root: string, archive: Awaited<ReturnType<typeof loadA
     const id = existing?.id ?? slugify(spell.name);
     const current = touched.get(id) ?? existing ?? {
       id, name: spell.name, names: [],
-      squadNumbers: [], coachSpells: [], roles: [], providers: [], sources: [],
+      squadNumbers: [], coachSpells: [], roles: [], providers: [], sources: [], conflicts: [],
     };
     const wikipedia = current.providers.find((s) => s.providerId === "wikipedia");
 

@@ -20,6 +20,24 @@ roles:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
         fields: [ title, from, to ]
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+        page: "6"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
+        page: "81"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 4 på siden (regel: name_then_year)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
   - id: aeresmedlem-1915
     category: honorary
     title: Æresmedlem

@@ -1,6 +1,58 @@
 id: torbjorn-aaro
 name: Torbjørn Aarø
 roles:
+  - id: trener-1961
+    category: coach
+    title: Trener
+    from: "1961"
+    to: null
+    sources:
+      - sourceId: tango-siden-1914-2013-806b
+        page: "351"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: year_row)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+  - id: trener-1964
+    category: coach
+    title: Trener
+    from: "1964"
+    to: null
+    sources:
+      - sourceId: tango-siden-1914-2013-806b
+        page: "351"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: year_row)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+  - id: trener-1965
+    category: coach
+    title: Trener
+    from: "1965"
+    to: null
+    sources:
+      - sourceId: tango-siden-1914-2013-806b
+        page: "351"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: year_row)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+  - id: trener-1966
+    category: coach
+    title: Trener
+    from: "1966"
+    to: null
+    sources:
+      - sourceId: tango-siden-1914-2013-806b
+        page: "351"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - { id: gullmerkeinnehaver-1987, category: honorary, title: Gullmerkeinnehaver, from: "1987", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d

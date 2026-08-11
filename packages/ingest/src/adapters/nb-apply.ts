@@ -150,6 +150,17 @@ export async function applyResolvedRoles(archive: Archive, findings: RoleFinding
       : span(role.from, role.to).map((each) => heldBy.get(`${office(role.title)}|${each}`)).find((id) => id !== undefined);
     if (moreSpecific || (takenBy !== undefined && takenBy !== person.id)) {
       report.conflicting += 1;
+      // Uenigheten er en opplysning, ikke en feil å skjule. Den føres på
+      // personen kilden peker på, med begge navnene, og lar seg avgjøre av et
+      // bidrag utenfra. `unresolved` er en ærlig tilstand.
+      if (takenBy !== undefined && takenBy !== person.id) {
+        const rival = byId.get(takenBy);
+        recordConflict(person, `${office(role.title)}.${year}`, [
+          { value: person.name, providerId: "nasjonalbiblioteket", note: `${sourceId} s. ${role.page}` },
+          { value: rival?.name ?? takenBy, providerId: providerOf(rival, office(role.title), year) },
+        ]);
+        touched.add(person.id);
+      }
       continue;
     }
 
@@ -226,6 +237,17 @@ async function rewrite(file: string, person: Person): Promise<string> {
     }
   }
 
+  if (person.conflicts.length > 0) {
+    const existing = doc.get("conflicts");
+    if (!isSeq(existing)) doc.set("conflicts", doc.createNode(person.conflicts));
+    else {
+      const present = new Set(existing.items.map((item) => (isMap(item) ? String(item.get("field")) : "")));
+      for (const entry of person.conflicts) {
+        if (!present.has(entry.field)) existing.add(doc.createNode(entry));
+      }
+    }
+  }
+
   // Rollene som ikke er rørt beholder stilen sin, men flytsamlinger blir
   // re-formatert av serialisereren uansett innstilling: originalen har
   // «{ id: … }» med luft og «[title, from]» uten, og de to følger samme flagg.
@@ -242,6 +264,38 @@ async function rewrite(file: string, person: Person): Promise<string> {
   }
 
   return doc.toString({ lineWidth: 0, defaultStringType: "PLAIN" });
+}
+
+/**
+ * Fører en uenighet på personen, uten å avgjøre den.
+ *
+ * Samme uenighet kan treffes av flere sider i samme bok. Den skrives én gang
+ * per felt, ellers vokser fila med den samme opplysningen om igjen.
+ */
+function recordConflict(
+  person: Person,
+  field: string,
+  values: Array<{ value: string; providerId: string; note?: string }>,
+): void {
+  if (person.conflicts.some((existing) => existing.field === field)) return;
+  person.conflicts = [...person.conflicts, {
+    field,
+    values,
+    resolved: false,
+    decision: "unresolved" as const,
+    locked: false,
+    note: "Kildene oppgir ulike navn for dette vervet. Ingen av dem er valgt.",
+  }].sort((a, b) => a.field.localeCompare(b.field));
+}
+
+/** Hvilken kilde en persons verv i et gitt år kommer fra. */
+function providerOf(person: Person | undefined, title: string, year: string): string {
+  const role = person?.roles.find((candidate) =>
+    candidate.title.toLowerCase().startsWith(title)
+    && Number(candidate.from.slice(0, 4)) <= Number(year)
+    && Number((candidate.to ?? candidate.from).slice(0, 4)) >= Number(year));
+  const source = role?.sources[0]?.sourceId ?? "";
+  return source.startsWith("aafk-historie") ? "aafk-no" : "nasjonalbiblioteket";
 }
 
 function sourceRef(sourceId: string, role: ResolvedRole): { sourceId: string; page: string; fields: string[]; note: string } {

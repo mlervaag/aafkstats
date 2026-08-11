@@ -159,7 +159,10 @@ har skrevet noe arkivet ikke godtar.
 ## Vaktene i `--apply`
 
 Tre ting stoppes fordi de ville gjort arkivet selvmotsigende. Alle telles som
-`selvmotsigende` i rapporten, ingen forsvinner stille:
+`selvmotsigende` i rapporten, ingen forsvinner stille — og der to kilder peker
+på hver sin person for samme verv, føres uenigheten som en `conflict` på
+personen, med `decision: unresolved`. At kildene er uenige er en opplysning i
+seg selv, og et bidrag utenfra kan avgjøre den.
 
 1. **To personer i samme klubbverv samme år.** Kjøringen fant to formenn i 1948
    og to i 1968. Begge kan ikke stemme, og maskinen kan ikke avgjøre hvem — så
