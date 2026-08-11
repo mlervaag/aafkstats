@@ -13,3 +13,18 @@ providers:
     url: https://no.wikipedia.org/wiki/Aalesunds_Fotballklubb
     retrievedAt: 2026-08-04
     fields: [coachSpells]
+conflicts:
+  # Kontrollert fixture for den offentlige arbeidskøen. Begge verdiene skal
+  # vises på personsiden; ingen av dem skal velges av byggesteget.
+  - field: trener.2013
+    values:
+      - value: Jan Jönsson
+        providerId: wikipedia
+        note: Fixture-kilden oppgir Jönsson.
+      - value: Kjetil Rekdal
+        providerId: aafk-no
+        note: Den andre fixture-kilden oppgir Rekdal.
+    resolved: false
+    decision: unresolved
+    locked: false
+    note: Konstruert konflikt for regresjonstest.

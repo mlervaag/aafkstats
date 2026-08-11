@@ -31,6 +31,11 @@ function conflictLabel(field: string): string {
   return year ? `${title}, ${year}` : title;
 }
 
+function candidateContext(title: string, page: string, season: number | null): string {
+  const year = season === null ? "ukjent år" : String(season);
+  return `Lagoppstilling i ${title}, side ${page} (${year})`;
+}
+
 export default function MissingPage() {
   const missing = loadMissingOverview();
 
@@ -159,21 +164,48 @@ export default function MissingPage() {
           <p>
             {missing.lineupReview.candidates} mulige lagoppstillinger fra {missing.lineupReview.sources} historiske
             publikasjoner er lest ut maskinelt, men kan ikke kobles sikkert til en kamp.
-            De er kandidater, ikke publiserte lagoppstillinger. Kildesiden er startpunktet
-            for kontroll mot originalen.
+            De er kandidater, ikke publiserte lagoppstillinger. Åpne en publikasjon for å
+            se side, mulig år og navnene som kan gjøre kampen gjenkjennelig.
           </p>
         </div>
-        <ul className={styles.sourceList}>
+        <div className={styles.candidateSources}>
           {missing.lineupReview.items.map((source) => (
-            <li key={source.sourceId}>
-              <a href={source.url}><strong>{source.title}</strong></a>
-              <span>{source.candidates} kandidater</span>
-            </li>
+            <details className={styles.candidateSource} key={source.sourceId}>
+              <summary>
+                <strong>{source.title}</strong>
+                <span>{source.candidates.length} kandidater</span>
+              </summary>
+              <div className={styles.sourceActions}>
+                <a href={source.url}>Om publikasjonen</a>
+                {source.sourceUrl && <a href={source.sourceUrl}>Åpne originalen</a>}
+              </div>
+              <ol className={styles.candidateList}>
+                {source.candidates.map((candidate) => (
+                  <li key={candidate.id}>
+                    <div className={styles.candidateMeta}>
+                      <span>Side {candidate.page}</span>
+                      <span>{candidate.season === null ? "År ukjent" : `Mulig år: ${candidate.season}`}</span>
+                      <span>{candidate.personIds.length} av {candidate.names.length} navn koblet til personer</span>
+                    </div>
+                    <p>{candidate.names.join(" · ")}</p>
+                    <a
+                      className={styles.candidateAction}
+                      href={contributionIssueUrl(
+                        "manglende-kamp",
+                        candidateContext(source.title, candidate.page, candidate.season),
+                      )}
+                    >
+                      Jeg kjenner igjen kampen
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </details>
           ))}
-        </ul>
+        </div>
         <p className={styles.method}>
-          Denne delen er først og fremst for redaksjonell gjennomgang. Har du tilgang til
-          en bedre eller mer presis kilde, kan du i stedet tipse arkivet direkte.
+          Årstallet er bare en pekepinn fra teksten rundt oppstillingen. Et bidrag bør
+          derfor si hvilken kamp det gjelder og vise til en kilde som bekrefter koblingen.
         </p>
         <div className={styles.actions}>
           <a className="button-link" href={contributionIssueUrl("ny-arkivkilde", "Lagoppstilling")}>Tips om en kilde</a>

@@ -33,10 +33,42 @@ describe("den offentlige arbeidskøen", () => {
     }
   });
 
-  it("holder tomme kandidatlag som tomme i stedet for å dikte oppgaver", () => {
+  it("grupperer historiske resultater og lenker dem til riktig sesong", () => {
     const missing = loadMissingOverview();
-    expect(missing.historicalResults).toEqual({ total: 0, seasons: [] });
-    expect(missing.unresolvedPeople).toEqual({ people: 0, conflicts: 0, items: [] });
-    expect(missing.lineupReview).toEqual({ candidates: 0, sources: 0, items: [] });
+    expect(missing.historicalResults).toEqual({
+      total: 1,
+      seasons: [{ season: 1914, results: 1 }],
+    });
+  });
+
+  it("samler en uavklart personkonflikt uten å velge kilde", () => {
+    const conflicts = loadMissingOverview().unresolvedPeople;
+    expect(conflicts.people).toBe(1);
+    expect(conflicts.conflicts).toBe(1);
+    expect(conflicts.items).toEqual([{
+      id: "jan-jonsson",
+      name: "Jan Jönsson",
+      url: "/personer/jan-jonsson",
+      conflicts: 1,
+      fields: ["trener.2013"],
+    }]);
+  });
+
+  it("beholder detaljene som trengs for å kjenne igjen en lagoppstillingskandidat", () => {
+    const review = loadMissingOverview().lineupReview;
+    expect(review.candidates).toBe(1);
+    expect(review.sources).toBe(1);
+    expect(review.items[0]).toMatchObject({
+      sourceId: "aafk-90-ar-1914-2004",
+      url: "/kilder/aafk-90-ar-1914-2004",
+      sourceUrl: "https://www.nb.no/items/URN:NBN:no-nb_digibok_2011071108003",
+    });
+    expect(review.items[0]?.candidates).toEqual([{
+      id: "oppstilling-fixture-1914",
+      page: "42",
+      season: 1914,
+      names: ["Fixture Spiller A", "Tor Hogne Aaroey"],
+      personIds: ["tor-hogne-aaroy"],
+    }]);
   });
 });
