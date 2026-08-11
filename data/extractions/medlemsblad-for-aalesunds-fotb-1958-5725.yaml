@@ -2479,4 +2479,63 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-resolvedLineups: []
+resolvedLineups:
+  - id: oppstilling-e5ecd6be9ec3b263
+    page: "64"
+    column: 0
+    names:
+      - Perry Ystenes
+      - Helge Lunde
+      - Frantz Løvmo
+      - Peder Puck
+      - Helmer Lausund
+      - Jarle Vadseth
+      - Harald Nord
+      - Ivar Østensen
+      - Jan Larsen
+      - Lillen Sellereite
+      - Ole Reitebø
+      - Jørgen Hoel
+      - Ragnvald Langva
+      - Karsten HEriksen
+      - Ole Ringdal
+      - Asbjørn Korsnes
+    personIds:
+      - perry-ystenes
+      - frantz-lovmo
+      - peder-puck
+      - asbjorn-korsnes
+    confidence: medium
+  - id: oppstilling-434cfefa067aa9d9
+    page: "83"
+    column: 1
+    names:
+      - Hinar Aas
+      - Thorbjørn Aarø
+      - Mindor Sunde
+      - Erling Listhaug
+      - Svein Holand
+      - Jostein Thorseth
+      - Jacob Sætre
+      - Kjell Luthentun
+      - Per Inge Furseth
+      - Rekruttlaget. Oppmannen
+      - Reidar Skarbøvik
+    personIds:
+      - reidar-skarbovik
+    confidence: medium
+  - id: oppstilling-a306dfa805f0cee5
+    page: "83"
+    column: 1
+    names:
+      - Erling Listhaug
+      - Svein Holand
+      - Jostein Thorseth
+      - Jacob Sætre
+      - Kjell Luthentun
+      - Per Inge Furseth
+      - Rekruttlaget. Oppmannen
+      - Reidar Skarbøvik
+    personIds:
+      - reidar-skarbovik
+    confidence: medium

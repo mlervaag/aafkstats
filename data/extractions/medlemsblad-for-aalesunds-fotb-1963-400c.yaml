@@ -2179,13 +2179,13 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-fdbd85c0b24f56c6
+  - id: rolle-26037eb6f7b6605c
     page: "11"
     column: 1
     personName: Frantz Løvmo. De
     category: administration
     title: Kasserer
-    body: Banekomitéen
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
@@ -2551,4 +2551,49 @@ resolvedLineups:
       - einar-aas
       - karsten-vadseth
       - karsten-nedregard
+    confidence: medium
+  - id: oppstilling-2768f69ee234bf8d
+    page: "76"
+    column: 0
+    names:
+      - Ola Kleive
+      - Harry Sperre
+      - Dagfinn Fredriksen
+      - Harald Røsand
+      - Erling Myrseth
+      - Robert Larsen
+      - Helge Haagensen
+      - Id.ar Solbakk
+      - Gun'na.r I.ZØSberg
+    personIds: []
+    confidence: medium
+  - id: oppstilling-5469da782ad863f7
+    page: "77"
+    column: 0
+    names:
+      - Jan Ove Rutgerson
+      - Svein Melsæther
+      - Anders Krogen
+      - Arve Opsahl
+      - Harald Olsen
+      - Sverre Øiehaug
+      - Asbjørn Dimmen
+      - Kaspar Ystenes
+      - Roy Nedregård
+    personIds: []
+    confidence: medium
+  - id: oppstilling-c394647be83510f5
+    page: "78"
+    column: 1
+    names:
+      - Nils Petter Loe
+      - Sigurd Tafjord
+      - Jarle Kleive
+      - Einar With
+      - Thorbjørn Årø
+      - Steinar Nedregård
+      - Kjell Iversen
+    personIds:
+      - sigurd-tafjord
+      - einar-with
     confidence: medium

@@ -2524,14 +2524,14 @@ resolvedRoles:
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-af008d1e1a4c127b
+  - id: rolle-e7c726ad889d02e0
     page: "60"
     column: 0
     personName: Emil Sandø
     personId: emil-sando
     category: board
     title: Formann
-    body: Valgkomitéen
+    body: Valgkomiteen
     to: null
     confidence: medium
     rule: role_then_name
@@ -2610,4 +2610,19 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-resolvedLineups: []
+resolvedLineups:
+  - id: oppstilling-6681444c67f49523
+    page: "12"
+    column: 1
+    names:
+      - Jan Larsen
+      - Karsten Meyer
+      - Jarle Kristoffersen
+      - Thorbjørn Aarøe
+      - Arne Finsnes
+      - Øivind Haagensen
+      - Privat Reservelags-serie Finn Tolaas
+    personIds:
+      - jarle-kristoffersen
+      - oivind-haagensen
+    confidence: medium

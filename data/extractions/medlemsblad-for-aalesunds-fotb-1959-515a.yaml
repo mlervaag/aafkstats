@@ -3232,4 +3232,89 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-resolvedLineups: []
+resolvedLineups:
+  - id: oppstilling-de2a47085c0c8e9a
+    page: "39"
+    column: 0
+    names:
+      - Einar Aas
+      - Karsten Vadseth
+      - Mindor Sunde
+      - Johan Pedersen
+      - Jan Larsen
+      - Kjell Luthentun
+      - Magne Fylling
+    personIds:
+      - einar-aas
+      - karsten-vadseth
+    confidence: medium
+  - id: oppstilling-69144b1bb55573ee
+    page: "41"
+    column: 0
+    names:
+      - Reidar Reidar Skarbøvik
+      - Pinnerud Pinnerud
+      - Leon Brekke
+      - Øivind Jivind Haagensen
+      - Thorvald Pedersen
+      - Finn Finn Tolaas
+      - Karl Løvold
+    personIds: []
+    confidence: medium
+  - id: oppstilling-890cef23059fa6d2
+    page: "48"
+    column: 2
+    season: 1959
+    names:
+      - Kjell Saure
+      - Knut Hoyer
+      - Harald Sæther
+      - Ole Walderhaug
+      - Reidar Skarbøvik
+      - Trygve Olsen
+      - Bjørn Riise
+      - Perry Ystenes
+      - Elisif Ingebrigtsen
+    personIds:
+      - reidar-skarbovik
+      - bjorn-riise
+      - perry-ystenes
+    confidence: medium
+  - id: oppstilling-b8048b00a7f3ca7f
+    page: "63"
+    column: 0
+    names:
+      - Bjørn Riise
+      - Perry Ystenes
+      - Helge Lunde
+      - Frantz Løvmo
+      - Peder Puck
+      - Re- Lausund
+      - Jarle Vadseth
+      - Asbjørn Korsnes
+      - Harald Nord
+      - Asbjørn Ystenes
+    personIds:
+      - bjorn-riise
+      - perry-ystenes
+      - frantz-lovmo
+      - peder-puck
+      - asbjorn-korsnes
+    confidence: medium
+  - id: oppstilling-e4746183e88ab486
+    page: "66"
+    column: 0
+    names:
+      - Kjell Luthentun
+      - Thorbjørn Aarø
+      - Einar Aas
+      - Karsten Vadseth
+      - Jan Larsen
+      - Kjell Iversen
+      - Mindor Sunde
+      - Johan Pedersen
+      - Erling Listhaug
+    personIds:
+      - einar-aas
+      - karsten-vadseth
+    confidence: medium

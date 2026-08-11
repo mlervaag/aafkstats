@@ -2604,45 +2604,45 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a9ea8d322a027a7e
+  - id: rolle-24e502487df6b5df
     page: "36"
     column: 2
     personName: Elisabeth Nørve
     category: board
     title: Nestformann
-    body: Arrangementskomitéen
+    body: Arrangementskomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-68e94861eeccf351
+  - id: rolle-e64ab5f8b5f0a99d
     page: "36"
     column: 2
     personName: Hans Ole Sedergren
     category: sporting_staff
     title: Oppmann
-    body: Arrangementskomitéen
+    body: Arrangementskomiteen
     from: "1944"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-a93e0397c71d05a9
+  - id: rolle-1a243e620058d7b4
     page: "36"
     column: 2
     personName: Harald Sæther
     category: administration
     title: Kasserer
-    body: Arrangementskomitéen
+    body: Arrangementskomiteen
     from: "1944"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-f97cb466a3f41823
+  - id: rolle-0cdef1f31b247bf3
     page: "36"
     column: 2
     personName: Kjell Berentzen. TIf
     category: board
     title: Formann
-    body: Arrangementskomitéen
+    body: Arrangementskomiteen
     from: "1955"
     to: null
     confidence: medium
@@ -2657,25 +2657,25 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_year
-  - id: rolle-b2e55b8f103bcb46
+  - id: rolle-55db021c59d241ca
     page: "36"
     column: 2
     personName: Lauritz Giske
     personId: lauritz-giske
     category: board
     title: Nestformann
-    body: Arrangementskomitéen
+    body: Arrangementskomiteen
     from: "1955"
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-50b7bea6933bd2d3
+  - id: rolle-1213c3a500fbf325
     page: "36"
     column: 2
     personName: Rolf Kvissel
     category: administration
     title: Sekretær
-    body: Arrangementskomitéen
+    body: Arrangementskomiteen
     from: "1944"
     to: null
     confidence: medium
@@ -2708,14 +2708,14 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-34901b17d06cf56b
+  - id: rolle-2cb6071769a94b96
     page: "58"
     column: 0
     personName: Rolf Annaniassen
     personId: rolf-annaniassen
     category: board
     title: Formann
-    body: Banekomitéen
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
@@ -2834,43 +2834,43 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-b2c415552eb2f439
+  - id: rolle-ec9e361d3cb6bee2
     page: "67"
     column: 0
     personName: Einar Bjørge
     category: board
     title: Nestformann
-    body: Banekomitéen
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-8bb549728a2800de
+  - id: rolle-7938676287063a67
     page: "67"
     column: 0
     personName: Frantz Lømo
     category: administration
     title: Sekretær
-    body: Banekomitéen
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-79cf1b6dbe837707
+  - id: rolle-74052eb0ec84f49b
     page: "67"
     column: 0
     personName: Helge Lunde
     category: board
     title: Formann
-    body: Banekomitéen
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-db3a18dd9be896e5
+  - id: rolle-fea1e2a8d4d09c4c
     page: "77"
     column: 1
     personName: Kjell Berentzen SSS
     category: board
     title: Formann
-    body: Festkomitéen
+    body: Festkomiteen
     to: null
     confidence: low
     rule: role_then_name
@@ -2892,4 +2892,42 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-resolvedLineups: []
+resolvedLineups:
+  - id: oppstilling-082cb2f154636941
+    page: "40"
+    column: 0
+    names:
+      - Einar Aas
+      - Karsten Vadseth
+      - Oddbjørn Løken
+      - Harry Hauknes
+      - Nils Sundal
+      - Thorbjørn Aarøe
+      - Jan Larsen
+      - Karsten Nedregård
+      - Ørvar Tollås
+      - Einar Breivik
+      - Asbjorn Ystenes
+      - Papirhandel Kortevarer
+    personIds:
+      - einar-aas
+      - karsten-vadseth
+      - karsten-nedregard
+    confidence: medium
+  - id: oppstilling-ed1965b0b847b53f
+    page: "72"
+    column: 0
+    season: 1955
+    names:
+      - Terje Olsen
+      - Gunnar Standal
+      - Jarle Kleive
+      - Terje Nilsen
+      - Svein Walter Rødland
+      - Arnulf Klausen
+      - Einar With
+      - Steinar Nedregård
+      - Rolv Tøsse
+    personIds:
+      - einar-with
+    confidence: medium

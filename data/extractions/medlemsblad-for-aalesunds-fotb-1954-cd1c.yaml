@@ -4159,23 +4159,23 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a92fa16118a7253a
+  - id: rolle-d7c847fe03e56674
     page: "9"
     column: 0
     personName: Alfhild Ring-
     category: board
     title: Nestformann
-    body: Banekomitéen
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-e38c505bcfbd9e0a
+  - id: rolle-0f03d61e0618a456
     page: "9"
     column: 0
     personName: Petra Lausund
     category: administration
     title: Sekretær
-    body: Banekomitéen
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
@@ -4550,14 +4550,14 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-7d4413a1284f7499
+  - id: rolle-993861fab0d52e99
     page: "100"
     column: 0
     personName: Lauritz Giske
     personId: lauritz-giske
     category: board
     title: Formann
-    body: Festkomitéen
+    body: Festkomiteen
     to: null
     confidence: medium
     rule: role_then_name
@@ -4582,4 +4582,57 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-resolvedLineups: []
+resolvedLineups:
+  - id: oppstilling-7d8dd5f4dde4626a
+    page: "68"
+    column: 1
+    names:
+      - Øivind Haagensen
+      - Finn Tolaas
+      - Thor Refsnes
+      - Edvin Løvold
+      - Einar Aas
+      - Thorbjørn Aarøe
+      - Bernt Sulebust
+      - Jan Larsen
+      - Trygve Olsen
+    personIds:
+      - oivind-haagensen
+      - finn-tollas
+      - einar-aas
+      - bernt-sulebust
+    confidence: medium
+  - id: oppstilling-3e57ea355dfe178c
+    page: "76"
+    column: 1
+    season: 1916
+    names:
+      - Ole Jangaard
+      - Hagbart Benneche
+      - Per Mogstad
+      - Emil Mogstad
+      - Ludvig Ramm
+      - Edvin Vike
+      - Otto Lied
+    personIds:
+      - ole-jangaard
+      - per-mogstad
+      - emil-mogstad
+    confidence: medium
+  - id: oppstilling-af57f81e33d1b403
+    page: "84"
+    column: 0
+    names:
+      - Johan Refsnes
+      - Edvin Løvold
+      - Finn Tolaas
+      - Per Tofteberg
+      - Thor Refsnes
+      - Karsten Nedregård
+      - Trygve Olsen
+      - Karl Løvold
+      - Thor Tolaas
+    personIds:
+      - finn-tollas
+      - karsten-nedregard
+    confidence: medium

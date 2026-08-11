@@ -25,21 +25,18 @@ import type { ResolvedLineup } from "@aafkstats/schema";
  * registeret, og resten er en redaksjonell oppgave.
  */
 
-/** Vendingene som varsler en oppstilling. */
-const TRIGGERS = [
-  "laget bestod av",
-  "laget besto av",
-  "laget var",
-  "seierslaget bestod av",
-  "seierslaget besto av",
-  "lagoppstillingen var",
-  "lagoppstilling",
-  "stilte med",
-  "spilte med",
-  "troppen bestod av",
-  "troppen besto av",
-  "mannskapet var",
-];
+/**
+ * Vendingen som varsler en oppstilling.
+ *
+ * Første forsøk krevde faste fraser som «laget bestod av» i ett stykke, og fant
+ * tre oppstillinger i 98 publikasjoner. Bøkene skriver det ikke slik: «Seiers-
+ * laget bestod **fra mål til ytre venstre** av: …». Ordet som varsler og ordet
+ * som innleder rekka står fra hverandre, med et mellomledd som varierer.
+ *
+ * Derfor: et lagord, så inntil åtti tegn hva som helst, så et kolon eller «av»
+ * eller «var». Rekkevidden er kort nok til å holde seg i samme setning.
+ */
+const TRIGGER = /\b(?:[a-zæøå]*laget|lagoppstillingen|lagoppstilling|troppen|spillertroppen|mannskapet|stallen|spillerstallen)\b[^.]{0,80}?(?::|\bav\b|\bvar\b)\s*/giu;
 
 /**
  * Færre enn dette er ikke en oppstilling.
@@ -65,33 +62,29 @@ export interface ResolveLineupsOptions {
 export function resolveLineups(text: string, options: ResolveLineupsOptions): ResolvedLineup[] {
   const found: ResolvedLineup[] = [];
 
-  for (const trigger of TRIGGERS) {
-    const pattern = new RegExp(`\\b${trigger.replace(/\s+/g, "\\s+")}\\b([^.]{0,600})`, "giu");
-    for (const hit of text.matchAll(pattern)) {
-      const names = readNames(hit[1] ?? "");
-      if (names.length < MIN_NAMES) continue;
+  for (const hit of text.matchAll(TRIGGER)) {
+    const from = (hit.index ?? 0) + hit[0].length;
+    const names = readNames(text.slice(from, from + 600));
+    if (names.length < MIN_NAMES) continue;
 
-      const resolved = names.map((name) => ({
-        name,
-        id: options.people.find((person) => person.forms.includes(normalize(name)))?.id,
-      }));
-      const known = resolved.filter((entry) => entry.id !== undefined);
-      const year = yearNear(text, hit.index ?? 0, options.publicationYear);
+    const known = names
+      .map((name) => options.people.find((person) => person.forms.includes(normalize(name)))?.id)
+      .filter((id): id is string => id !== undefined);
+    const year = yearNear(text, hit.index ?? 0, options.publicationYear);
 
-      found.push({
-        id: `oppstilling-${createHash("sha256")
-          .update(`${options.sourceId}|${options.page}|${names.map(normalize).join("|")}`)
-          .digest("hex").slice(0, 16)}`,
-        page: options.page,
-        ...(options.column === undefined ? {} : { column: options.column }),
-        ...(year ? { season: Number(year) } : {}),
-        names,
-        personIds: known.map((entry) => entry.id!),
-        // Elleve navn er et helt lag. Er halvparten kjent fra før, er lesningen
-        // nesten sikkert riktig selv om OCR-en har ødelagt et par av dem.
-        confidence: names.length >= 11 && known.length >= names.length / 2 ? "high" : "medium",
-      });
-    }
+    found.push({
+      id: `oppstilling-${createHash("sha256")
+        .update(`${options.sourceId}|${options.page}|${names.map(normalize).join("|")}`)
+        .digest("hex").slice(0, 16)}`,
+      page: options.page,
+      ...(options.column === undefined ? {} : { column: options.column }),
+      ...(year ? { season: Number(year) } : {}),
+      names,
+      personIds: known,
+      // Elleve navn er et helt lag. Er halvparten kjent fra før, er lesningen
+      // nesten sikkert riktig selv om OCR-en har ødelagt et par av dem.
+      confidence: names.length >= 11 && known.length >= names.length / 2 ? "high" : "medium",
+    });
   }
 
   return [...new Map(found.map((lineup) => [lineup.id, lineup])).values()]
@@ -127,6 +120,9 @@ function isName(value: string): boolean {
   if (tokens.length < 2 || tokens.length > 4) return false;
   if (tokens.some((token) => NOT_A_NAME.has(normalize(token)))) return false;
   if (tokens.some((token) => token.length > 3 && token === token.toUpperCase())) return false;
+  // Enkeltbokstaver er OCR-støy, ikke navn. En rekke endte «… Leif Oterlei,
+  // A A A A» fordi fire løse A-er så ut som to navn til.
+  if (tokens.some((token) => token.replace(/\./g, "").length < 2)) return false;
   return true;
 }
 

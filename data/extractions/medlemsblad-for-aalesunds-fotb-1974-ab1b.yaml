@@ -1442,4 +1442,20 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-resolvedLineups: []
+resolvedLineups:
+  - id: oppstilling-5b2ad76cf9772349
+    page: "20"
+    column: 0
+    names:
+      - Svein Holand
+      - Einar Holand
+      - Jarle Kristoffersen
+      - Jostein Torseth
+      - Karsten Vadseth
+      - Erik Fladmark
+      - Frantz Løvmo
+    personIds:
+      - jarle-kristoffersen
+      - karsten-vadseth
+      - frantz-lovmo
+    confidence: medium

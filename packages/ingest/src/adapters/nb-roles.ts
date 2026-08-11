@@ -129,7 +129,9 @@ function bodyBefore(text: string, index: number, options: ResolveRolesOptions): 
     return onPage.length > 1 ? { uncertain: true } : undefined;
   }
 
-  const normalized = chosen.toLowerCase();
+  // OCR-en gir samme organ to skrivemåter — «Banekomiteen» og «Banekomitéen»
+  // sto som 97 og 44 roller hver, som om de var to utvalg.
+  const normalized = chosen.toLowerCase().replaceAll("é", "e");
   if (normalized === "hovedstyret") return undefined;
   return { body: normalized.charAt(0).toUpperCase() + normalized.slice(1) };
 }

@@ -3172,77 +3172,77 @@ candidates:
       - knut-gaaseide
     matchIds: []
 resolvedRoles:
-  - id: rolle-3477a4d30ba869a6
+  - id: rolle-6c3c4f764859d649
     page: "2"
     column: 0
     personName: Bjørn Riise
     personId: bjorn-riise
     category: sporting_staff
     title: Oppmann
-    body: Hyttekomitéen
+    body: Hyttekomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-20f56749b29bbd78
+  - id: rolle-71430b8646c91c42
     page: "10"
     column: 0
     personName: Frantz Løv-
     category: administration
     title: Sekretær
-    body: Banekomitéen
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-972debc9d25ed52d
+  - id: rolle-d5b612e29326527e
     page: "10"
     column: 0
     personName: Peder Puck
     personId: peder-puck
     category: administration
     title: Kasserer
-    body: Banekomitéen
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-e6de0b2712e51fbe
+  - id: rolle-6ea679ee2cc7ff97
     page: "10"
     column: 1
     personName: Reidar Steen Jensens
     category: coach
     title: Trener
-    body: Banekomitéen
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-c3e032e4439c763e
+  - id: rolle-3aa1174bd9be3251
     page: "11"
     column: 1
     personName: Finn Tolaas
     personId: finn-tollas
     category: administration
     title: Kasserer
-    body: Hyttekomitéen
+    body: Hyttekomiteen
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-b38d7537d7c98ba4
+  - id: rolle-1c1211285f497f7b
     page: "11"
     column: 1
     personName: Finn Tolaas
     personId: finn-tollas
     category: administration
     title: Sekretær
-    body: Hyttekomitéen
+    body: Hyttekomiteen
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-22c434e4cba4e7ce
+  - id: rolle-995d0f1c4fbcd596
     page: "11"
     column: 2
     personName: Da Asbjørn Ystenes
     category: administration
     title: Kasserer
-    body: Hyttekomitéen
+    body: Hyttekomiteen
     to: null
     confidence: low
     rule: name_then_role
@@ -3304,14 +3304,14 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a3110f8a4748956c
+  - id: rolle-7853cbf886427ec5
     page: "24"
     column: 0
     personName: Jan With
     personId: jan-with
     category: board
     title: Formann
-    body: Banekomitéen
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
@@ -3547,4 +3547,74 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-resolvedLineups: []
+resolvedLineups:
+  - id: oppstilling-060a488a739bcd52
+    page: "64"
+    column: 0
+    season: 1951
+    names:
+      - Johan Refsnes
+      - Reidar Skarbøvik
+      - Thor Refsnes
+      - Asbjørn Korsnes
+      - Karsten Nedregård
+      - Bernt Sulebust
+      - Lauritz Gaaseide
+      - Edvin Løvold
+      - Ole Walderhaug
+      - Svein Grimstad
+    personIds:
+      - reidar-skarbovik
+      - asbjorn-korsnes
+      - karsten-nedregard
+      - bernt-sulebust
+    confidence: medium
+  - id: oppstilling-d29c08038aed07a0
+    page: "71"
+    column: 2
+    names:
+      - Oskar Pedersen
+      - Thorbjørn Aarø
+      - Harald Johansen
+      - Johan Pedersen
+      - Svein Rødland
+      - Arnfinn Gjerde
+      - Arne Finsnes
+    personIds:
+      - harald-johansen
+    confidence: medium
+  - id: oppstilling-0e1b5041b8383ac9
+    page: "71"
+    column: 2
+    names:
+      - Bjørn Nilsen
+      - Jarle Kleive
+      - Einar With
+      - Steinar Nedregård
+      - Svein Rødland
+      - Hans Henriksen
+      - Finn Tolaas
+    personIds:
+      - einar-with
+      - finn-tollas
+    confidence: medium
+  - id: oppstilling-f1ceafdd1c8f6158
+    page: "80"
+    column: 0
+    names:
+      - Sverre Osnes
+      - Arne Viland
+      - Jan Refsnes
+      - Jan Petter Lausund
+      - Gunnar Røsberg
+      - Idar Solbak
+      - Einar Sa- Giske
+      - Robert Larsen
+      - Helge Eidsvik
+      - Rolf Hepsø
+      - Dagfinn Fredriksen
+      - Tor Skutvik
+      - Øivind Røst
+      - Otto Nakken
+    personIds: []
+    confidence: medium

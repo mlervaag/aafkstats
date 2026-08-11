@@ -3804,4 +3804,46 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-resolvedLineups: []
+resolvedLineups:
+  - id: oppstilling-598c28577bd511e0
+    page: "45"
+    column: 0
+    names:
+      - Dagfinn Leira
+      - Kåre Bjørkavdg
+      - John Moe
+      - Einar With
+      - Karl Johansen
+      - Einar Magnussen
+      - Kjetil Hasund
+    personIds:
+      - einar-with
+    confidence: medium
+  - id: oppstilling-d0e43ead73d419de
+    page: "60"
+    column: 2
+    names:
+      - Arne Breivik
+      - Sverre Øiehaug
+      - Knut Roald
+      - Terje Olsen
+      - Petter Birkevold
+      - Arnfinn Michalsen
+      - Leif Bugge Aarøe
+      - Bjørn Blø
+      - Arild Bjørge
+      - Harald Bugge Aarøe
+      - Runar Hagen
+      - Ole John Langva
+      - Svein Kårstad
+      - Hans Jacob Henriksen
+      - Rolf Annaniassen
+      - Jarle Kristoffersen
+      - Jan With
+      - Ole Walderhaug
+    personIds:
+      - petter-birkevold
+      - rolf-annaniassen
+      - jarle-kristoffersen
+      - jan-with
+    confidence: medium

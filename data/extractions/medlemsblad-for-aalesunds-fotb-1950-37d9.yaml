@@ -318,4 +318,21 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-resolvedLineups: []
+resolvedLineups:
+  - id: oppstilling-a9b9707d0e9b876d
+    page: "9"
+    column: 0
+    season: 1916
+    names:
+      - Ole Jangård
+      - Per Mogstad
+      - Emil Mogstad
+      - Ludvik Ramm
+      - Thv. Eker
+      - Edv. Vike
+      - Otto Lied
+      - Gutte Ringdal
+    personIds:
+      - per-mogstad
+      - emil-mogstad
+    confidence: medium

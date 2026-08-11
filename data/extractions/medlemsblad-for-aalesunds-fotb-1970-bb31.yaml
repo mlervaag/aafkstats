@@ -679,4 +679,19 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-resolvedLineups: []
+resolvedLineups:
+  - id: oppstilling-3db274cd27a2c007
+    page: "11"
+    column: 0
+    names:
+      - Knut Inge Sperre
+      - Karsten Eriksen
+      - Finn Hessen
+      - Tor Steinar Håseth
+      - Terje Knutsen
+      - Leif Løndahl
+      - Svein Saure
+      - Tor Tørlen
+    personIds:
+      - karsten-eriksen
+    confidence: medium

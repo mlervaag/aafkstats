@@ -1446,4 +1446,19 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-resolvedLineups: []
+resolvedLineups:
+  - id: oppstilling-0e982b60c93bb2b7
+    page: "20"
+    column: 1
+    names:
+      - Petter Birkevold
+      - Jon Kåre Flo
+      - Jarle Kleive
+      - Nils Petter Loe
+      - Vidar Olsen
+      - Frode Ramsvik
+      - Jan Refsnæs
+      - Torgeir Aasen
+    personIds:
+      - petter-birkevold
+    confidence: medium

@@ -5402,14 +5402,14 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-685ce9965d8675ca
+  - id: rolle-dde6f378737ac813
     page: "54"
     column: 0
     personName: Perry Ystenes
     personId: perry-ystenes
     category: board
     title: Formann
-    body: Banekomitéen
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
@@ -5500,18 +5500,18 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-a63a89b24e19a08f
+  - id: rolle-172c29c8011b4d45
     page: "78"
     column: 0
     personName: Hans F. AFK
     category: board
     title: Formann
-    body: Banekomitéen
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
 resolvedLineups:
-  - id: oppstilling-a45ae07e2d541213
+  - id: oppstilling-17cfcacfbf282f81
     page: "13"
     column: 0
     names:
@@ -5525,12 +5525,104 @@ resolvedLineups:
       - Hans Norstrand
       - Johan Keller
       - Eben Lindqvist
+      - Geo Anders Mogstad
+      - Ivar Dahle
+      - Edv. Skudvig
+      - Rollon. Nils Jangaard
+      - Leif Olsen
     personIds:
       - ole-jangaard
       - emil-mogstad
       - johan-keller
+      - leif-olsen
     confidence: medium
-  - id: oppstilling-6a3b656f452c0766
+  - id: oppstilling-6e66cbf73f541e5b
+    page: "14"
+    column: 0
+    names:
+      - Ole Jangaard
+      - Hagbart Benneche
+      - Per Mogstad
+      - Emil Mogstad
+      - Ludvig Ramn
+      - Thv. Eker
+      - Edvin Vike
+      - Otto Lied
+      - Nils Rojahn
+    personIds:
+      - ole-jangaard
+      - per-mogstad
+      - emil-mogstad
+    confidence: medium
+  - id: oppstilling-c7e97cc0766000ba
+    page: "22"
+    column: 1
+    names:
+      - Henry Johansen
+      - Herlof Hansen
+      - Carl Gaaseide
+      - Johs. Hollevik
+      - Konrad Korsnes
+      - Sverre Otterlei
+      - Hans Carlsen
+      - Olaf Skarbøvik
+      - Karl Ingebrigtsen
+      - Nils Løvold
+      - Henry Johannesen
+      - Knut Gaaseide
+      - Otto Wåle
+      - Øivind Haagensen
+      - Rasmus Sulebak
+      - Karl Løvold
+      - Ragnvald Langva
+    personIds:
+      - konrad-korsnes
+      - knut-gaaseide
+      - oivind-haagensen
+    confidence: medium
+  - id: oppstilling-b8b31275b8dee071
+    page: "23"
+    column: 2
+    names:
+      - Reidar Skarbøvik
+      - Kåre Skorgevik
+      - Hans Fjærtoft
+      - Alf Thommasgård
+      - Bjarne Haagensen
+      - Olaf Walderhaug
+      - Knud Paulsen
+      - Olaf Skarbøvik
+      - Kaspar Andersen
+      - Olaf Kalvø
+      - Henry Johannesen
+      - Karl Løvold
+      - Edvin Løvold
+      - Ingolf Relling
+      - Erling Flem
+      - John Haagensen
+    personIds:
+      - reidar-skarbovik
+      - bjarne-haagensen
+    confidence: medium
+  - id: oppstilling-2e64afc45404068f
+    page: "25"
+    column: 0
+    season: 1939
+    names:
+      - Karl Løvold
+      - Reidar Skarbøvik
+      - Kåre Skorgevik
+      - Trygve Olsen
+      - Karsten Nedregård
+      - Elias Roald
+      - Nils Ringdal
+      - Øivind Haagensen
+    personIds:
+      - reidar-skarbovik
+      - karsten-nedregard
+      - oivind-haagensen
+    confidence: medium
+  - id: oppstilling-21048001de7d3cea
     page: "26"
     column: 0
     names:
@@ -5544,10 +5636,212 @@ resolvedLineups:
       - Karsten Nedregård
       - Trygve Olsen
       - Karl Løvold
-      - Thor Tolaas
     personIds:
       - reidar-skarbovik
       - oivind-haagensen
       - finn-tollas
       - karsten-nedregard
+    confidence: medium
+  - id: oppstilling-ef9b66d00b37d467
+    page: "38"
+    column: 2
+    names:
+      - Arnfinn Gjærde
+      - Arne Finsnes
+      - Svein Rødland
+      - Steinar Nedregård
+      - Harald Johansen
+      - Kjell Iversen
+      - Einar With
+      - Johan Pedersen
+      - Oskar Pedersen
+      - Thorbjørn Aaroe
+    personIds:
+      - harald-johansen
+      - einar-with
+    confidence: medium
+  - id: oppstilling-f532940c7dabcf76
+    page: "58"
+    column: 2
+    names:
+      - Konrad Korsnes
+      - Jørgen Hollevik
+      - Johs. Hollevik
+      - Øivind Haagensen
+      - Edvin Løvold
+      - Reidar Skarbøvik
+      - Karsten Nedregård
+      - Trygve Olsen
+      - Lauritz Gaaseide
+      - Thorbjørn Aarø
+      - Einar Aas
+      - Karsten Vadseth
+      - Arne Finsnes
+      - Finn Tolaas
+      - Carl Gaaseide
+      - Karl Løvold
+      - Einar Helseth
+      - Bernt Sulebust
+      - Johan Refsnes
+      - Asbjørn Korsnes
+      - Kjell Iversen
+    personIds:
+      - konrad-korsnes
+      - oivind-haagensen
+      - reidar-skarbovik
+      - karsten-nedregard
+      - einar-aas
+      - karsten-vadseth
+      - finn-tollas
+      - bernt-sulebust
+      - asbjorn-korsnes
+    confidence: medium
+  - id: oppstilling-fec2e8598151b14c
+    page: "63"
+    column: 0
+    names:
+      - Johan Frøysa
+      - Otto Wåle
+      - Leon Brekke
+      - Herlof Hansen
+      - Inge Refsnes
+      - Arne Olsen
+      - Øivind Haagensen
+      - Karl Løvold
+      - Olaf Skarbøvik
+      - Karl Ingebrigtsen
+    personIds:
+      - oivind-haagensen
+    confidence: medium
+  - id: oppstilling-e251ecdd0ab6c82e
+    page: "63"
+    column: 2
+    season: 1934
+    names:
+      - Einar Melsæther
+      - Knut Paulsen
+      - Kåre Skorgevik
+      - Louis Vegsund
+      - Olav Skarbøvik
+      - Ivar Thommasgård
+      - Ivar Dahle
+      - Olger Bjørge
+      - Gustav Skarbøvik
+      - Helge Andersen
+      - Hans Fjørtoft
+    personIds: []
+    confidence: medium
+  - id: oppstilling-68f7c0da5d319331
+    page: "64"
+    column: 0
+    names:
+      - Einar Aas
+      - Sigurd Pettersen
+      - Asbjørn Korsnes
+      - Kjell Saure
+      - Bernt Sulebust
+      - Karsten Meyer
+      - Mindor Sunde
+      - Knut Hjelle
+      - Asbjørn Ystenes
+      - Karsten Vadseth
+      - Asbjørn Hellandsvik
+      - Eivind Hjelle
+      - Arve Mogstad
+      - Gustav Ervik
+      - Thorbjørn Aarø
+      - Arne Riise
+      - Gustav Ringdal
+      - Bjørn Riise
+      - Hans Petter Osvold
+      - Reidar Trygges
+    personIds:
+      - einar-aas
+      - asbjorn-korsnes
+      - bernt-sulebust
+      - karsten-vadseth
+      - bjorn-riise
+    confidence: medium
+  - id: oppstilling-4e541257830f2761
+    page: "64"
+    column: 0
+    season: 1951
+    names:
+      - Reidar With
+      - Eivind Hjelle
+      - Bjørn Huseby
+      - Magne Rødal
+      - Gunvald Thomassen
+      - Per Solbakk
+      - Gunnar Ervik
+      - Karsten Vadseth
+      - Hans Petter Osvold
+    personIds:
+      - karsten-vadseth
+    confidence: medium
+  - id: oppstilling-ada513b80ae20193
+    page: "65"
+    column: 0
+    names:
+      - Kjell Strand
+      - Asbjørn Rutgerson
+      - Sigurd Tafjord
+      - Leif Istad
+      - Sverre Strømsheim
+      - Einar Alnes
+      - Arne Finsnes
+    personIds:
+      - sigurd-tafjord
+    confidence: medium
+  - id: oppstilling-33c9753e5816dc16
+    page: "67"
+    column: 0
+    season: 1957
+    names:
+      - Werner Osvold
+      - Svein Jacobsen
+      - Erling Listhaug
+      - Steinar Andreassen
+      - Kjell Luthentun
+      - Jostein Thorseth
+      - Bjørn Bigseth
+      - Rolf Sperre
+      - Svein Holand
+    personIds: []
+    confidence: medium
+  - id: oppstilling-d8fb7d75453cd7e0
+    page: "70"
+    column: 2
+    season: 1960
+    names:
+      - Arne Breivik
+      - Knut Roald
+      - Sverre Øiehaug
+      - Terje Olsen
+      - Petter Birkevold
+      - Arnfinn Michaelsen
+      - Leif Bugge Aarøe
+      - Bjørn Bloe
+      - Arild Bjørge
+      - Reidar Skarbøvik
+      - Arild Alm
+      - Leif Havnevik
+    personIds:
+      - petter-birkevold
+      - reidar-skarbovik
+    confidence: medium
+  - id: oppstilling-574066cf51ff64bd
+    page: "73"
+    column: 0
+    season: 1962
+    names:
+      - Kjell Løvold
+      - Nils Petter Loe
+      - Bjørn Drabløs
+      - Karl Bigseth
+      - Kjell Dybvik
+      - Bugge Aarøe
+      - Jarle Kleive
+    personIds:
+      - bjorn-drablos
     confidence: medium

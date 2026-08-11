@@ -7619,4 +7619,42 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-resolvedLineups: []
+resolvedLineups:
+  - id: oppstilling-cc8914dd9f26bd83
+    page: "60"
+    column: 0
+    season: 1950
+    names:
+      - Helge Ødegård
+      - Asbjørn Korsnes
+      - Ole Walderhaug
+      - Karsten Nedregård
+      - Edvin Løvold
+      - Reidar Skarbøvik
+      - Johan Refsnes
+      - Lauritz Gaaseide
+      - Bernt Sulebust
+      - Trygve Olsen
+    personIds:
+      - asbjorn-korsnes
+      - karsten-nedregard
+      - reidar-skarbovik
+      - bernt-sulebust
+    confidence: medium
+  - id: oppstilling-2d2cd826d6d9810f
+    page: "348"
+    column: 1
+    names:
+      - Gunnar Sørensen
+      - Per Rolland
+      - Stian Jørgensen
+      - Inge Almaas
+      - Leif Magne Andreassen
+      - Bjørn Rekdal
+      - Gisle Skrede
+      - Arild Myhra
+    personIds:
+      - gunnar-sorensen
+      - per-rolland
+      - arild-myhra
+    confidence: medium

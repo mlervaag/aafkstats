@@ -2607,13 +2607,13 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-ab295dcaed1c154f
+  - id: rolle-d02e79cda34e09ea
     page: "7"
     column: 0
     personName: Liv Eriksen
     category: board
     title: Nestformann
-    body: Banekomitéen
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
@@ -2947,24 +2947,24 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-7acbc9b7307bbb32
+  - id: rolle-e29d2658dc2465a7
     page: "72"
     column: 0
     personName: Karl Slinning
     category: coach
     title: Trener
-    body: Arrangementkomitéen
+    body: Arrangementkomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-598bd274e4038537
+  - id: rolle-45475c9b549b86d4
     page: "72"
     column: 1
     personName: Emil Sandø
     personId: emil-sando
     category: board
     title: Formann
-    body: Arrangementkomitéen
+    body: Arrangementkomiteen
     to: null
     confidence: medium
     rule: role_then_name

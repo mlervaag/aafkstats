@@ -3727,4 +3727,47 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-resolvedLineups: []
+resolvedLineups:
+  - id: oppstilling-3ca6becbbb5cbb0f
+    page: "52"
+    column: 0
+    names:
+      - Einar Aas
+      - Jostein Thorseth
+      - Thorbjørn Aarø
+      - Harald Johansen
+      - Johan Pedersen
+      - Rolf Sperre
+      - Asbjørn Rutgersen
+      - Arne Finsnes
+      - Kjell Iversen
+    personIds:
+      - einar-aas
+      - harald-johansen
+    confidence: medium
+  - id: oppstilling-491c8c5406f38428
+    page: "68"
+    column: 2
+    names:
+      - Ståle Osvold
+      - Arne Wiland
+      - Egil Ødegård
+      - Idar Solbak
+      - Gunnar Røsberg
+      - Otto Nakken
+      - Rolf Hepsøe
+      - Gunnar Karlsson
+      - Per Ove Åland
+      - Helge Haagensen
+      - Bjørn Colbensen
+      - Arne Blindheim
+      - Arne Havnevik
+      - Jan Refsnes
+      - Kjell Kjerstad
+      - Ola Kleive
+      - Jens Petter Lausund
+      - Helge Nøstdahl
+      - Oddvar Kjølsøy
+      - Leif Oterlei
+    personIds: []
+    confidence: medium

@@ -2280,14 +2280,14 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-db88ba69cbe5405a
+  - id: rolle-105e1486081dd2de
     page: "32"
     column: 0
     personName: Lauritz Giske
     personId: lauritz-giske
     category: board
     title: Formann
-    body: Festkomitéen
+    body: Festkomiteen
     to: null
     confidence: medium
     rule: role_then_name
@@ -2312,4 +2312,36 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-resolvedLineups: []
+resolvedLineups:
+  - id: oppstilling-6c13c7ff97afc5f4
+    page: "8"
+    column: 1
+    season: 1916
+    names:
+      - Ole Jangaard
+      - Hagbart Benneche
+      - Per Mogstad
+      - Emil Mogstad
+      - Ludvig Ramm
+      - Edvin Vike
+      - Otto Lied
+    personIds:
+      - ole-jangaard
+      - per-mogstad
+      - emil-mogstad
+    confidence: medium
+  - id: oppstilling-7eaaf028765a29db
+    page: "16"
+    column: 0
+    names:
+      - Johan Refsnes
+      - Edvin Løvold
+      - Per Tofteberg
+      - Thor Refsnes
+      - Karsten Nedregård
+      - Trygve Olsen
+      - Karl Levold
+      - Thor Tolaas
+    personIds:
+      - karsten-nedregard
+    confidence: medium
