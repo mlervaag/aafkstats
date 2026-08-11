@@ -253,3 +253,30 @@ describe("rolleord satt sammen med en annen klubb", () => {
     expect(resolve("Klubben hadde en assistenttrener Ola Nordmann i 1970.")).toEqual([]);
   });
 });
+
+describe("tall og navn som ikke er det de ser ut som", () => {
+  /**
+   * «S Telefon 1117» sto i en annonse i et medlemsblad og ga et trenerverv i år
+   * 1117. Fire siffer er ikke et årstall, og en løs bokstav er ikke et fornavn.
+   * Feilen ble fanget av et menneske som leste kjøringen, ikke av noen regel.
+   */
+  it("tar ikke et telefonnummer som årstall", () => {
+    const text = "Trenere: S Telefon 1117";
+    expect(resolveRoles([text], text, { sourceId: "s", page: "1", people, publicationYear: 2013 })).toEqual([]);
+  });
+
+  it("tar heller ikke telefonnummeret i en tabellrad", () => {
+    const lines = ["Trenere", "1117 S Telefon"];
+    expect(resolveRoles(lines, lines.join(" "), { sourceId: "s", page: "1", people, publicationYear: 2013 })).toEqual([]);
+  });
+
+  it("forkaster en rad med et år yngre enn publikasjonen", () => {
+    const lines = ["Formenn", "1998 Ola Nordmann"];
+    expect(resolveRoles(lines, lines.join(" "), { sourceId: "s", page: "1", people, publicationYear: 1950 })).toEqual([]);
+  });
+
+  it("lar en initial med punktum stå", () => {
+    const [role] = resolve("I 1920 ble formann, R. Eck Olsen, valgt.");
+    expect(role?.personName).toBe("R. Eck Olsen");
+  });
+});
