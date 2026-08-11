@@ -159,3 +159,30 @@ describe("nettstedet og registrene", () => {
     ).not.toHaveProperty("mainEntity");
   });
 });
+
+/**
+ * Kanonisk adresse skal peke på den adressen som svarer 200, ikke på en som
+ * omdirigerer dit.
+ *
+ * Første forsøk satte apex, `https://aafkarkivet.no`. Den svarer 308 videre til
+ * `www`, og resultatet var at hver eneste side sa «jeg er apex» mens apex sa «nei,
+ * gå til www» — og at sitemapet listet nesten to tusen adresser som alle
+ * omdirigerte. Testen sier ikke hvilken variant som er riktig; den holder på at
+ * valget er tatt ett sted og at det stedet ikke er tomt.
+ */
+describe("adressen arkivet oppgir som sin egen", () => {
+  it("er en absolutt https-adresse uten sti eller avsluttende skråstrek", () => {
+    expect(SITE_ORIGIN).toMatch(/^https:\/\/[^/]+$/);
+  });
+
+  it("brukes av hver absolutte adresse i strukturerte data", () => {
+    for (const url of [
+      websiteJsonLd().url,
+      organizationJsonLd().url,
+      datasetJsonLd({ firstSeason: 1914, lastSeason: 2026, matches: 1 }).url,
+      matchJsonLd(played).url,
+    ]) {
+      expect(String(url).startsWith(SITE_ORIGIN)).toBe(true);
+    }
+  });
+});

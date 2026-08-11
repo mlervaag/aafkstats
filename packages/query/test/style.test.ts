@@ -120,7 +120,7 @@ describe("systemPrompt", () => {
 
   it("krever komplette og delbare kamplenker", () => {
     const prompt = systemPrompt();
-    expect(prompt).toContain("https://aafkarkivet.no/kamp/");
+    expect(prompt).toContain("https://www.aafkarkivet.no/kamp/");
     expect(prompt).toContain("Ikke skriv relative lenker");
     expect(prompt).not.toContain("](/kamp/");
   });

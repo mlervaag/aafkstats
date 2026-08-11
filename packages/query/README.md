@@ -18,7 +18,7 @@ som er satt.
 
 ## Én sannhet, to lesere
 
-`dataset.ts` rendres for mennesker på [`/data`](https://aafkarkivet.no/data), og er
+`dataset.ts` rendres for mennesker på [`/data`](https://www.aafkarkivet.no/data), og er
 samtidig andre halvdel av chattens systemprompt. Det finnes altså ingen skjult beskrivelse
 modellen har og brukeren ikke har.
 

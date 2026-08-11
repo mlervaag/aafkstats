@@ -14,7 +14,19 @@
  * hit. Standardverdien er dette arkivets domene, men den er bare en standard.
  */
 
-const FALLBACK_ORIGIN = "https://aafkarkivet.no";
+/**
+ * `www`, ikke apex, og det er ikke en smakssak.
+ *
+ * `aafkarkivet.no` svarer 308 videre til `www.aafkarkivet.no`, som er den som
+ * faktisk serverer arkivet. Sto apex her, ville hver kanonisk adresse pekt på en
+ * adresse som omdirigerer, og sitemapet listet nesten to tusen slike. Da sier
+ * sida «jeg er apex» mens apex svarer «nei, gå til www» — to signaler som
+ * motsier hverandre, og Search Console fører dem opp som «Side med omdirigering».
+ *
+ * Snus det om i Vercel, slik at apex serverer og www omdirigerer, er det denne
+ * ene linja som skal endres.
+ */
+const FALLBACK_ORIGIN = "https://www.aafkarkivet.no";
 
 /** Tåler både «example.com» og «https://example.com/» og gir origin uten skråstrek. */
 function toOrigin(value: string | undefined): string | null {
@@ -28,7 +40,7 @@ function toOrigin(value: string | undefined): string | null {
   }
 }
 
-/** Origin uten avsluttende skråstrek, f.eks. `https://aafkarkivet.no`. */
+/** Origin uten avsluttende skråstrek, f.eks. `https://www.aafkarkivet.no`. */
 export const SITE_ORIGIN = toOrigin(process.env.NEXT_PUBLIC_SITE_URL) ?? FALLBACK_ORIGIN;
 
 /** Absolutt adresse til en sti i arkivet. `path` skal begynne med skråstrek. */

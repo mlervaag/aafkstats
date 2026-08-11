@@ -9,9 +9,11 @@ import type { DatasetCoverage } from "./coverage.js";
  * nettopp der en død lenke gjør mest skade. Samme miljøvariabel som nettstedet
  * bruker, slik at en fork får sine egne lenker og ikke sender leserne hit.
  *
+ * `www` fordi det er den varianten som serverer arkivet; apex omdirigerer dit.
+ *
  * Leses én gang ved modullasting: systemprompten er statisk og prompt-caches.
  */
-const ARCHIVE_ORIGIN = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/+$/, "") || "https://aafkarkivet.no";
+const ARCHIVE_ORIGIN = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/+$/, "") || "https://www.aafkarkivet.no";
 
 /**
  * Systemprompten til chatten.
