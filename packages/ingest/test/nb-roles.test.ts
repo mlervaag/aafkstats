@@ -229,3 +229,25 @@ describe("hvilket organ vervet hører til", () => {
     expect(role?.body).toBe("Banekomiteen");
   });
 });
+
+describe("rolleord satt sammen med en annen klubb", () => {
+  /**
+   * «Etter AaFKs kamp mot Rosenborg i 2013, ga RBK-trener Per Joar Hansen denne
+   * karakteristikken» — Tango siden 1914, side 260. Uten denne prøven ble han
+   * ført som AaFKs trener i 2013, samtidig som arkivets egne kampdata sier at
+   * Jan Jönsson ledet laget i 30 kamper det året.
+   */
+  it("tar ikke en annen klubbs trener", () => {
+    const text = "Etter AaFKs kamp mot Rosenborg i 2013, ga RBK-trener Per Joar Hansen denne karakteristikken.";
+    expect(resolve(text)).toEqual([]);
+  });
+
+  it("tar vår egen når prefikset er klubben selv", () => {
+    const [role] = resolve("I 1966 uttalte AaFK-trener Ola Nordmann seg om saken.");
+    expect(role).toMatchObject({ title: "Trener", personName: "Ola Nordmann" });
+  });
+
+  it("plukker ikke et rolleord som står midt i et annet ord", () => {
+    expect(resolve("Klubben hadde en assistenttrener Ola Nordmann i 1970.")).toEqual([]);
+  });
+});

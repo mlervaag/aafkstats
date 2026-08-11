@@ -913,15 +913,6 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-0e14acc9963c821b
-    page: "5"
-    column: 1
-    personName: Bjørn F PER LL
-    category: sporting_staff
-    title: Oppmann
-    to: null
-    confidence: low
-    rule: role_then_name
   - id: rolle-51dece5d8d6f5674
     page: "8"
     column: 0
@@ -991,15 +982,6 @@ resolvedRoles:
     title: Formann
     to: null
     confidence: medium
-    rule: role_then_name
-  - id: rolle-becaa5856953ccf0
-    page: "10"
-    column: 0
-    personName: Egil Nygård
-    category: board
-    title: Formann
-    to: null
-    confidence: low
     rule: role_then_name
   - id: rolle-904088be228829ec
     page: "10"

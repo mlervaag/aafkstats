@@ -7253,16 +7253,6 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-2ff720b6468194e7
-    page: "189"
-    column: 1
-    personName: Martin Andresen
-    category: coach
-    title: Trener
-    from: "2010"
-    to: null
-    confidence: medium
-    rule: role_then_name
   - id: rolle-200b419e75751787
     page: "192"
     column: 0
@@ -7312,16 +7302,6 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-2c6965b67edb5a90
-    page: "213"
-    column: 1
-    personName: Bjarne Haagensen
-    personId: bjarne-haagensen
-    category: board
-    title: Styreleder
-    to: null
-    confidence: medium
-    rule: role_then_name
   - id: rolle-b3854127f7b08bee
     page: "214"
     column: 1
@@ -7332,16 +7312,6 @@ resolvedRoles:
     from: "2009"
     to: null
     confidence: high
-    rule: role_then_name
-  - id: rolle-e5a54c7811530cd6
-    page: "221"
-    column: 0
-    personName: Bjarne Haagensen
-    personId: bjarne-haagensen
-    category: board
-    title: Styreleder
-    to: null
-    confidence: medium
     rule: role_then_name
   - id: rolle-3ef73170e0640cce
     page: "223"
@@ -7412,17 +7382,6 @@ resolvedRoles:
     title: Daglig leder
     to: null
     confidence: low
-    rule: role_then_name
-  - id: rolle-e4cdc225ac8da8d0
-    page: "260"
-    column: 1
-    personName: Per Joar Hansen
-    personId: per-joar-hansen
-    category: coach
-    title: Trener
-    from: "2013"
-    to: null
-    confidence: high
     rule: role_then_name
   - id: rolle-fb21acc5d0f10a53
     page: "266"

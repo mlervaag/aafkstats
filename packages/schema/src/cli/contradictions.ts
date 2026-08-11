@@ -106,6 +106,37 @@ for (const person of archive.people) {
 }
 
 /**
+ * En trener arkivet vet at noen andre var.
+ *
+ * Kampene oppgir hvem som ledet laget, og fra 2010 er de nær komplette. En
+ * trenerrolle lest ut av en bok, i et år der kampene sier noe annet, er nesten
+ * alltid en annen klubbs trener omtalt i vår bok: «ga RBK-trener Per Joar
+ * Hansen denne karakteristikken» ga ham trenerjobben i 2013, mens Jan Jönsson
+ * ledet laget i tretti kamper samme år.
+ */
+const coachBySeason = new Map<number, Map<string, number>>();
+for (const match of archive.matches) {
+  const ours = match.home.clubId === "aalesunds-fk" ? match.lineups?.home : match.lineups?.away;
+  const coach = ours?.coach;
+  if (!coach) continue;
+  const season = coachBySeason.get(match.competition.season) ?? new Map<string, number>();
+  season.set(coach, (season.get(coach) ?? 0) + 1);
+  coachBySeason.set(match.competition.season, season);
+}
+
+for (const person of archive.people) {
+  for (const role of person.roles) {
+    if (role.category !== "coach") continue;
+    const season = coachBySeason.get(Number(role.from.slice(0, 4)));
+    if (!season || season.size === 0) continue;
+    const [known] = [...season].sort((a, b) => b[1] - a[1]);
+    if (!known || known[0] === person.name) continue;
+    if ([...season.keys()].includes(person.name)) continue;
+    findings.push(`${YELLOW}annen trener${RESET}     ${person.name} oppført som trener ${role.from.slice(0, 4)}, men kampene sier ${known[0]} (${known[1]} kamper)`);
+  }
+}
+
+/**
  * Navn som ikke er navn.
  *
  * Løse enkeltbokstaver uten punktum og hele ord i versaler er OCR-rester som

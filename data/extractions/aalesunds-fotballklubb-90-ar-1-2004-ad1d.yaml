@@ -3406,15 +3406,6 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-69195a4f37017d32
-    page: "41"
-    column: 1
-    personName: Mons Ivar Mjelde.AaFK
-    category: coach
-    title: Trener
-    to: null
-    confidence: low
-    rule: role_then_name
   - id: rolle-7aa253a065cf84b4
     page: "43"
     column: 0
@@ -3465,15 +3456,6 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-7a01d08c45647b2b
-    page: "45"
-    column: 0
-    personName: Knut Torbjørn Eggen
-    category: coach
-    title: Trener
-    to: null
-    confidence: low
-    rule: name_then_role
   - id: rolle-864e687a4b5ed335
     page: "45"
     column: 1
