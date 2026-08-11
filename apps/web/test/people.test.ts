@@ -57,13 +57,16 @@ describe("person- og organisasjonsarkivet", () => {
     expect(getSourceUsages(id).length).toBeGreaterThan(0);
   });
 
-  it("viser kjente draktnummer selv om kampnavnet ikke er personkoblet", () => {
-    expect(getPersonSeasons("sten-grytebust")).toEqual([
-      { season: 2025, number: 1, position: "keeper", appearances: 0, starts: 0, goals: 0 },
-      { season: 2024, number: 1, position: "keeper", appearances: 0, starts: 0, goals: 0 },
-      { season: 2023, number: 1, position: "keeper", appearances: 0, starts: 0, goals: 0 },
-      { season: 2022, number: 1, position: "keeper", appearances: 0, starts: 0, goals: 0 },
-    ]);
+  it("viser kjente draktnummer sammen med koblede kampsesonger", () => {
+    const seasons = getPersonSeasons("sten-grytebust");
+    for (const season of [2025, 2024, 2023, 2022]) {
+      expect(seasons.find((entry) => entry.season === season)).toMatchObject({
+        season,
+        number: 1,
+        position: "keeper",
+      });
+    }
+    expect(seasons.some((season) => season.appearances > 0)).toBe(true);
   });
 });
 
