@@ -33,3 +33,6 @@
 @media (max-width: 500px) {
   .roleList > li, .columns .roleList > li { grid-template-columns: minmax(0, 1fr); gap: 0.3rem; }
 }
+
+/* Hoppelenkene lander på overskrifta, ikke i kanten av den. */
+.introGrid, .sportSection, .columns > section { scroll-margin-top: 1.5rem; }

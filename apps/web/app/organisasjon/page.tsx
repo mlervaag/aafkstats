@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getPersonRoles, getSourceTitles, type PersonRole } from "@/lib/people";
 import { ArchiveTabs } from "@/components/ArchiveTabs";
+import { SectionIndex } from "@/components/SectionIndex";
 import { SourceChips } from "@/components/SourceChips";
 import styles from "./Organization.module.css";
 
@@ -75,7 +76,18 @@ export default function OrganizationPage() {
 
       <ArchiveTabs current="/organisasjon" />
 
-      <section className={styles.introGrid}>
+      <SectionIndex
+        label="Seksjoner på organisasjonssida"
+        sections={[
+          { id: "formenn", label: "Formenn", count: chairs.length },
+          { id: "stifterne", label: "Stifterne", count: founders.length },
+          { id: "administrasjon", label: "Administrasjon", count: administration.length },
+          { id: "heder", label: "Heder", count: honorary.length },
+          { id: "trenere", label: "Trenere", count: sporting.length },
+        ]}
+      />
+
+      <section className={styles.introGrid} id="formenn">
         <div>
           <p className="eyebrow">Historisk ledelse</p>
           <h2>Formenn</h2>
@@ -92,7 +104,7 @@ export default function OrganizationPage() {
       </section>
 
       {founders.length > 0 ? (
-        <section className={styles.sportSection}>
+        <section className={styles.sportSection} id="stifterne">
           <p className="eyebrow">25. juni 1914</p>
           <h2>Stifterne</h2>
           <p className={styles.sectionLead}>Personene som undertegnet protokollen ved klubbens konstituerende generalforsamling.</p>
@@ -101,19 +113,19 @@ export default function OrganizationPage() {
       ) : null}
 
       <div className={styles.columns}>
-        <section>
+        <section id="administrasjon">
           <p className="eyebrow">Driften av klubben</p>
           <h2>Administrasjon, anlegg og øvrige verv</h2>
           {administration.length > 0 ? <RoleList roles={administration} sourceTitles={sourceTitles} /> : <p className="muted">Ingen roller registrert ennå.</p>}
         </section>
-        <section>
+        <section id="heder">
           <p className="eyebrow">Klubbens heder</p>
           <h2>Heder og utmerkelser</h2>
           {honorary.length > 0 ? <RoleList roles={honorary} sourceTitles={sourceTitles} /> : <p className="muted">Ingen roller registrert ennå.</p>}
         </section>
       </div>
 
-      <section className={styles.sportSection}>
+      <section className={styles.sportSection} id="trenere">
         <p className="eyebrow">Sportslig ledelse</p>
         <h2>Trenere og sportslig apparat</h2>
         <p className={styles.sectionLead}>Oppgitte trenerperioder suppleres av kamp-for-kamp-data fra 2010.</p>
