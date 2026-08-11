@@ -76,7 +76,7 @@ export function parseSquadTemplate(wikitext: string): WikipediaPlayer[] {
 
   for (const match of wikitext.matchAll(/\{\{Fs player\s*\|([^}]*)\}\}/gi)) {
     const fields = new Map<string, string>();
-    for (const part of match[1]!.split("|")) {
+    for (const part of splitFields(match[1]!)) {
       const eq = part.indexOf("=");
       if (eq === -1) continue;
       fields.set(part.slice(0, eq).trim().toLowerCase(), part.slice(eq + 1).trim());
@@ -99,6 +99,35 @@ export function parseSquadTemplate(wikitext: string): WikipediaPlayer[] {
   }
 
   return players;
+}
+
+/**
+ * Deler malen i felt på `|`, men ikke på røret inne i en lenke.
+ *
+ * `name=[[Ólafur Guðmundsson (islandsk fotballspiller)|Ólafur Gudmundsson]]`
+ * har et rør midt i verdien. En rett `split("|")` kutter der, og navnefeltet
+ * blir sittende igjen med en halv lenke — det er slik fire personer havnet i
+ * arkivet med «[[» foran navnet og Wikipedias disambiguering bak.
+ */
+function splitFields(body: string): string[] {
+  const parts: string[] = [];
+  let current = "";
+  let depth = 0;
+
+  for (let i = 0; i < body.length; i += 1) {
+    if (body.startsWith("[[", i)) depth += 1;
+    else if (body.startsWith("]]", i) && depth > 0) depth -= 1;
+
+    if (body[i] === "|" && depth === 0) {
+      parts.push(current);
+      current = "";
+      continue;
+    }
+    current += body[i];
+  }
+  parts.push(current);
+
+  return parts;
 }
 
 function readName(raw: string): string {

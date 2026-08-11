@@ -81,6 +81,16 @@ describe("arkivet", () => {
       .toEqual(Array.from({ length: 30 }, (_, i) => i + 1));
   });
 
+  it("har personnavn uten wikimarkup", () => {
+    // Fire personer sto en periode oppført som «[[Mads Nielsen (fotballspiller)»
+    // fordi importen delte stallmalen på røret inne i lenka. Navnet er det
+    // leseren ser først på personsidene, og ingen validering fanget det.
+    const wrong = archive.people
+      .filter((person) => [person.name, ...person.names].some((name) => /[[\]{}|<>]/.test(name)))
+      .map((person) => `people/${person.id}.yaml: ${person.name}`);
+    expect(wrong).toEqual([]);
+  });
+
   it("har filnavn som stemmer med klubb-ID-ene i fila", () => {
     // Etter en klubbsammenslåing er dette det som ryker først: innholdet peker på
     // den nye klubben, mens filnavnet fortsatt bærer den gamle.
