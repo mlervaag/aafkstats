@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import { MatchList } from "@/components/MatchList";
+import { contributionIssueUrl } from "@/lib/contribution-links";
 import { loadOpponent, loadOpponents } from "@/lib/archive";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
@@ -66,6 +67,23 @@ export default async function OpponentPage({ params }: Props) {
         </section>
       )}
       <section className="content-section"><h2>Alle kamper</h2><MatchList matches={played} /></section>
+
+      {/* Klubbidentitetsmalen fantes, men ingen lenke til den. Det er her feilen
+          ses: en klubb som står to steder, en kamp ført på feil motstander, eller
+          et navn fra en periode klubben ikke het det. Rettelsen ligger på klubben
+          og treffer alle kampene, så den hører hjemme her og ikke på kampsida. */}
+      <section className="content-section prose-stack">
+        <h2>Stemmer ikke dette?</h2>
+        <p>
+          Klubbnavn skifter, og kildene skriver dem ulikt. Er samme klubb registrert to
+          ganger, mangler en navneperiode, eller er en kamp ført på feil motstander, retter
+          vi det på klubben framfor på hver enkelt kamp. Da treffer rettelsen alle kampene
+          på én gang.
+        </p>
+        <a className="button-link" href={contributionIssueUrl("klubbidentitet", summary.opponent)}>
+          Meld feil klubb eller historisk navn
+        </a>
+      </section>
     </>
   );
 }

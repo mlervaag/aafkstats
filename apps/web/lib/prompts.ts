@@ -121,10 +121,11 @@ ${PR_FLOW}`,
   },
   {
     id: "personrolle",
-    title: "Legg til eller rett en personrolle",
+    title: "Legg til en person eller en rolle",
     purpose: "Personer og organisasjon",
     description:
-      "For spillere, trenere, styremedlemmer, ansatte, stiftere og hedersmedlemmer som mangler en rolle eller har feil periode.",
+      "For spillere, trenere, styremedlemmer, ansatte, stiftere og hedersmedlemmer som mangler helt "
+      + "i registeret, mangler en rolle eller står med feil periode.",
     prompt: `Jeg vil legge til eller rette en personrolle i det åpne AaFK-arkivet ${REPO}.
 
 Personen og rollen: [NAVN, TITTEL ELLER VERV, ORGANISASJONSDEL OG ÅR/PERIODE]

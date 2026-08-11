@@ -48,7 +48,9 @@ export default function ContributePage() {
           <nav className="contribution-template-links" aria-label="GitHub-skjema for bidrag">
             <a href={contributionIssueUrl("datafeil")}>Meld en feil</a>
             <a href={contributionIssueUrl("manglende-kamp")}>Meld en kamp som mangler</a>
+            <a href={contributionIssueUrl("manglende-person")}>Meld en person som mangler</a>
             <a href={contributionIssueUrl("ny-kilde")}>Legg til kampdetaljer</a>
+            <a href={contributionIssueUrl("klubbidentitet")}>Meld feil klubb eller navn</a>
             <a href={contributionIssueUrl("ny-arkivkilde")}>Tips om en kilde</a>
           </nav>
         </section>
@@ -64,6 +66,34 @@ export default function ContributePage() {
           Et godkjent minne vises under «Observasjoner og minner», merket med hvor sikkert
           det er. En datarettelse endrer i stedet selve kampen, personen, rollen eller
           kilden, og endringen får et synlig spor i historikken.
+        </p>
+      </section>
+
+      {/* Personregisteret hadde ingen vei inn for en person som manglet helt. «Meld
+          en feil» retter en som allerede står der, og minneskjemaet krever en
+          personside å stå på. Den som satt med et navn fra en årsmelding, fant
+          ingen knapp som passet. */}
+      <section className="content-section prose-stack">
+        <h2>Personer i arkivet</h2>
+        <p>
+          Personregisteret er ikke en liste over alle som har spilt for klubben. En person får
+          en egen oppføring når det er noe å si om henne eller ham: et verv, en trenerperiode,
+          en skrivemåte av navnet som må knyttes til riktig person, eller et draktnummer. En
+          spiller som bare står som et navn i en lagoppstilling, er allerede med i statistikken
+          uten å ha en oppføring.
+        </p>
+        <p>
+          Mangler noen helt, bruk{" "}
+          <a href={contributionIssueUrl("manglende-person")}>Person som mangler</a>. Står
+          personen der med feil årstall eller feil verv, bruk{" "}
+          <a href={contributionIssueUrl("datafeil")}>Meld en feil</a>. Har du et minne om en
+          person som allerede har en side, finner du «Bidra»-knappen på siden hennes eller hans.
+        </p>
+        <p>
+          Vi fører bare det som knytter personen til AaFK. Fødselsdato, karriere og
+          klubbhistorikk hører hjemme på Wikipedia og Wikidata, og arkivet lenker dit framfor
+          å kopiere det hit. Historiske titler beholdes slik kilden skriver dem: sto det
+          «Formann», står det «Formann».
         </p>
       </section>
 
@@ -117,6 +147,23 @@ export default function ContributePage() {
           </div>
         </div>
       </details>
+
+      {/* Nettstedet hadde ingen vei til «feil-i-koden» eller «forslag». De to
+          malene fantes bare for den som allerede sto i GitHubs malvelger, og en
+          leser som fant en ødelagt side hadde ingen annen knapp enn «Meld en
+          feil», som handler om arkivet og ikke om koden. */}
+      <section className="content-section prose-stack">
+        <h2>Noe annet enn data</h2>
+        <p>
+          Er en side ødelagt, gir søket feil treff eller svarer spørrefunksjonen noe rart,
+          er det ikke en feil i arkivet, men i koden. Har du en idé, eller lurer du bare på
+          hvordan noe henger sammen, er det også plass til det.
+        </p>
+        <nav className="contribution-template-links" aria-label="GitHub-skjema for kode og forslag">
+          <a href={contributionIssueUrl("feil-i-koden")}>Meld en feil på nettstedet</a>
+          <a href={contributionIssueUrl("forslag")}>Foreslå noe, eller spør</a>
+        </nav>
+      </section>
 
       <section className="content-section prose-stack">
         <h2>Hva som mangler mest</h2>

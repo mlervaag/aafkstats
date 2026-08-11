@@ -3,6 +3,7 @@ import { pageMetadata } from "@/lib/metadata";
 import { JsonLd } from "@/components/JsonLd";
 import { collectionJsonLd } from "@/lib/jsonld";
 import { OpponentList } from "@/components/OpponentList";
+import { contributionIssueUrl } from "@/lib/contribution-links";
 import { loadOpponents } from "@/lib/archive";
 
 export const metadata: Metadata = pageMetadata(
@@ -38,6 +39,21 @@ export default function OpponentsPage() {
         </p>
       </header>
       <OpponentList opponents={opponents} />
+
+      {/* Dubletten ses her, ikke på klubbsida: to rader med nesten samme navn står
+          rett under hverandre i en alfabetisk liste. «FK Haugesund» og «Haugesund»
+          sto slik i månedsvis. */}
+      <section className="content-section prose-stack">
+        <h2>Står en klubb to ganger?</h2>
+        <p>
+          Kildene skriver klubbnavn ulikt, og noen ganger blir samme klubb til to rader i
+          denne lista. Klubber som har byttet navn, skal derimot stå som én rad med flere
+          navneperioder. Ser du noe som ser galt ut, er det verdt å melde fra.
+        </p>
+        <a className="button-link" href={contributionIssueUrl("klubbidentitet")}>
+          Meld dublett eller historisk navn
+        </a>
+      </section>
     </>
   );
 }

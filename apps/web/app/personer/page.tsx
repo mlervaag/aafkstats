@@ -5,6 +5,7 @@ import { collectionJsonLd } from "@/lib/jsonld";
 import { ArchiveTabs } from "@/components/ArchiveTabs";
 import { PeopleDirectory } from "@/components/people/PeopleDirectory";
 import { getPeople, getPersonRoles } from "@/lib/people";
+import { contributionIssueUrl } from "@/lib/contribution-links";
 import styles from "./People.module.css";
 
 export const metadata: Metadata = pageMetadata(
@@ -49,6 +50,21 @@ export default function PeoplePage() {
       <ArchiveTabs current="/personer" />
 
       <PeopleDirectory people={people} />
+
+      {/* Registeret hadde ingen vei inn for en person som manglet helt. Personsidene
+          har «Bidra»-knapp, men den som ikke har en side, har heller ingen knapp. */}
+      <section className="content-section prose-stack">
+        <h2>Mangler noen?</h2>
+        <p>
+          En person får en oppføring her når det er noe å si om henne eller ham: et verv, en
+          trenerperiode, en skrivemåte av navnet som må knyttes til riktig person, eller et
+          draktnummer. En spiller som bare står som et navn i en lagoppstilling, teller
+          allerede med i kampstatistikken uten å ha en oppføring.
+        </p>
+        <a className="button-link" href={contributionIssueUrl("manglende-person")}>
+          Meld en person som mangler
+        </a>
+      </section>
     </article>
   );
 }

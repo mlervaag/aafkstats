@@ -9,6 +9,11 @@ body:
         Arkivet er fullt av hull, særlig før 1990 og i cupen. Vet du om en kamp som mangler,
         er dette stedet. Bare dato og motstander holder — resten kan fylles inn senere.
 
+        Finnes kampen, men med feil dato, motstander eller resultat, hører det hjemme i
+        [Feil i arkivet](?template=datafeil.yml). Finnes den og stemmer, men mangler
+        målscorere eller lagoppstilling, bruk
+        [Ny kilde eller flere kampdetaljer](?template=ny-kilde.yml).
+
   - type: input
     id: dato
     attributes:
@@ -88,5 +93,6 @@ body:
       options:
         - label: >
             Jeg har lett etter kampen på aafkstats.vercel.app. Står den der med feil dato
-            eller feil motstander, hører den hjemme i «Feil i arkivet» i stedet.
+            eller feil motstander, hører den hjemme i
+            [Feil i arkivet](?template=datafeil.yml) i stedet.
           required: false

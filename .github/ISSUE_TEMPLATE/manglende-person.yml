@@ -1,0 +1,103 @@
+name: Person som mangler
+description: En spiller, trener, leder, stifter eller hedersmedlem som ikke står i arkivet
+title: "Manglende person: "
+labels: ["data", "manglende person"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Personregisteret er ikke en liste over alle som har spilt for klubben. En person får
+        en egen oppføring når det er noe å si om henne eller ham: et verv, en trenerperiode,
+        en skrivemåte av navnet som må knyttes til riktig person, eller et draktnummer.
+        Spillere som bare står som et navn i en lagoppstilling, trenger ingen oppføring.
+
+        Står personen der allerede, men med feil årstall eller feil verv, hører det hjemme i
+        [Feil i arkivet](?template=datafeil.yml).
+
+        Har du et minne om noen framfor en opplysning som kan kildeføres, trenger du verken
+        konto eller skjema: bruk «Bidra»-knappen på personens side på
+        https://aafkstats.vercel.app/personer.
+
+  - type: input
+    id: navn
+    attributes:
+      label: Navn
+      description: Skriv navnet slik kilden din skriver det. Vet du om andre skrivemåter, ta dem med.
+      placeholder: Georg Haller
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tilknytning
+    attributes:
+      label: Hva var personens tilknytning til klubben?
+      description: Flere kan gjelde. Er du usikker, velg det du er sikrest på og forklar under.
+      multiple: true
+      options:
+        - Spiller
+        - Trener
+        - Sportslig apparat
+        - Styret
+        - Administrasjon eller ansatt
+        - Stifter
+        - Æresmedlem eller annen heder
+        - Vet ikke
+    validations:
+      required: true
+
+  - type: input
+    id: periode
+    attributes:
+      label: Når
+      description: >
+        År eller periode. Bare året holder, og de fleste eldre kildene oppgir aldri en dag.
+        Vet du ikke når rollen sluttet, skriv bare startåret.
+      placeholder: 1919, eller 1915-1922
+    validations:
+      required: true
+
+  - type: textarea
+    id: rolle
+    attributes:
+      label: Hva vet du om rollen?
+      description: >
+        Tittelen slik kilden oppgir den, og hvilken del av klubben den hørte til. Historiske
+        titler beholdes som de står: sto det «Formann», skal det stå «Formann», ikke
+        «Styreleder».
+      placeholder: |
+        Formann i hovedstyret. Kilden kaller vervet «Formand».
+    validations:
+      required: true
+
+  - type: textarea
+    id: kilde
+    attributes:
+      label: Hvor vet du det fra?
+      description: >
+        Lenke, bok med sidetall, medlemsblad med utgave og år, årsmelding, avis med dato.
+        Hver rolle i arkivet må ha minst én kilde, så et bidrag uten kilde blir liggende.
+    validations:
+      required: true
+
+  - type: input
+    id: wikidata
+    attributes:
+      label: Wikipedia eller Wikidata
+      description: >
+        Har personen en artikkel, lim inn lenken. Arkivet lenker dit framfor å kopiere
+        biografien, så fødselsdato, karriere og klubbhistorikk trenger du ikke fylle inn.
+      placeholder: https://www.wikidata.org/wiki/Q1796755
+
+  - type: checkboxes
+    id: bekreft
+    attributes:
+      label: Før du sender
+      options:
+        - label: >
+            Jeg har lett etter personen i personregisteret på aafkstats.vercel.app, også
+            under andre skrivemåter av navnet.
+          required: false
+        - label: >
+            Jeg har holdt meg til etterprøvbare opplysninger om personens tilknytning til
+            AaFK, og ikke kopiert brødtekst fra en bok eller artikkel.
+          required: false
