@@ -5,10 +5,20 @@ squadNumbers: []
 coachSpells:
   - fromSeason: 2008
     toSeason: 2012
+    fromDate: 2008-09-04
+    toDate: 2012-11-26
   - fromSeason: 2024
     toSeason: null
 roles: [ { id: trener-2009, category: coach, title: Trener, from: "2009", to: null, sources: [ { sourceId: tango-siden-1914-2013-806b, page: "316", fields: [ title, from ], note: "Lest maskinelt fra spalte 2 på siden (regel: role_then_name)." }, { sourceId: tango-siden-1914-2013-806b, page: "214", fields: [ title, from ], note: "Lest maskinelt fra spalte 2 på siden (regel: role_then_name)." }, { sourceId: tango-siden-1914-2013-806b, page: "351", fields: [ title, from ], note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: year_row)." } ], note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden. }, { id: trener-2010, category: coach, title: Trener, from: "2010", to: null, sources: [ { sourceId: tango-siden-1914-2013-806b, page: "351", fields: [ title, from ], note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: year_row)." } ], note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden. }, { id: trener-2011, category: coach, title: Trener, from: "2011", to: null, sources: [ { sourceId: tango-siden-1914-2013-806b, page: "351", fields: [ title, from ], note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: year_row)." } ], note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden. }, { id: trener-2012, category: coach, title: Trener, from: "2012", to: null, sources: [ { sourceId: tango-siden-1914-2013-806b, page: "351", fields: [ title, from ], note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: year_row)." } ], note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden. } ]
 providers:
+  - providerId: wikipedia
+    url: https://no.wikipedia.org/wiki/Kjetil_Rekdal
+    retrievedAt: 2026-08-11
+    fields:
+      - coachSpells
+    note: >
+      Datoene for den første perioden: ansatt 4. september 2008, oppsagt 26. november
+      2012. Artikkelteksten er ikke gjengitt, bare datoene.
   - providerId: wikipedia
     url: https://no.wikipedia.org/w/index.php?title=Aalesunds%20Fotballklubb&oldid=25869346
     retrievedAt: 2026-07-22

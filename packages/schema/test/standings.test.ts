@@ -107,6 +107,31 @@ describe("personskjemaet", () => {
       .coachSpells[0]!.toSeason).toBeNull();
   });
 
+  it("tar imot eksakte datoer på en trenerperiode", () => {
+    const parsed = person.parse({
+      ...base,
+      coachSpells: [{ fromSeason: 2008, toSeason: 2012, fromDate: "2008-09-04", toDate: "2012-11-26" }],
+    });
+    expect(parsed.coachSpells[0]!.fromDate).toBe("2008-09-04");
+  });
+
+  it("avviser en dato som ikke hører til sesongen den står under", () => {
+    const result = person.safeParse({
+      ...base,
+      coachSpells: [{ fromSeason: 2008, toSeason: 2012, fromDate: "2007-09-04" }],
+    });
+    expect(result.success).toBe(false);
+    expect(result.error!.issues[0]!.message).toContain("hører ikke til sesongen");
+  });
+
+  it("avviser en sluttdato på en periode som ikke er avsluttet", () => {
+    const result = person.safeParse({
+      ...base,
+      coachSpells: [{ fromSeason: 2024, toSeason: null, toDate: "2024-11-26" }],
+    });
+    expect(result.success).toBe(false);
+  });
+
   it("krever at Wikidata-ID-en ser ut som en Wikidata-ID", () => {
     expect(person.safeParse({ ...base, wikidata: "Q1796755" }).success).toBe(true);
     expect(person.safeParse({ ...base, wikidata: "1796755" }).success).toBe(false);

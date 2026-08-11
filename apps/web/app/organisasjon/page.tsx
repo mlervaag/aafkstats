@@ -12,8 +12,30 @@ export const metadata: Metadata = {
   description: "Kildeført oversikt over styrer, ledere, administrasjon og hedersroller i Aalesunds Fotballklubb.",
 };
 
+const MONTHS = ["januar", "februar", "mars", "april", "mai", "juni", "juli", "august", "september", "oktober", "november", "desember"];
+
+/**
+ * Perioden i årstall.
+ *
+ * Lista er årstallsordnet og tidsspalta er åtte tegn bred, så «4. september
+ * 2008 – 26. november 2012» hører hjemme på persondetaljsida, ikke her. Den
+ * eksakte datoen ligger i `title` for den som holder musa i ro.
+ */
 function range(role: PersonRole): string {
-  return role.to_date && role.to_date !== role.from_date ? `${role.from_date}–${role.to_date}` : role.from_date;
+  const from = role.from_date.slice(0, 4);
+  const to = role.to_date?.slice(0, 4);
+  return to && to !== from ? `${from}–${to}` : from;
+}
+
+function day(value: string): string {
+  const [year, month, date] = value.split("-");
+  return month && date ? `${Number(date)}. ${MONTHS[Number(month) - 1]} ${year}` : year!;
+}
+
+/** Den eksakte perioden, når kilden oppgir en dag og ikke bare et år. */
+function exact(role: PersonRole): string | undefined {
+  if (role.from_date.length === 4 && (role.to_date ?? "").length <= 4) return undefined;
+  return role.to_date ? `${day(role.from_date)} – ${day(role.to_date)}` : day(role.from_date);
 }
 
 /**
@@ -32,7 +54,7 @@ function RoleList({ roles, sourceTitles, showTitle = true }: {
     <ol className={styles.roleList}>
       {roles.map((role) => (
         <li key={`${role.person_id}-${role.role_id}`}>
-          <time>{range(role)}</time>
+          <time title={exact(role)}>{range(role)}</time>
           <div>
             <h3><Link href={`/personer/${role.person_id}`}>{role.name}</Link></h3>
             {showTitle || role.body ? (

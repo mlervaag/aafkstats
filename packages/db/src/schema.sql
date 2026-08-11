@@ -187,6 +187,10 @@ CREATE TABLE core_declared_coach_spells (
   person_id    TEXT NOT NULL REFERENCES core_people(id),
   from_season  INTEGER NOT NULL,
   to_season    INTEGER,
+  -- Dagen perioden begynte og sluttet, der kilden oppgir den. De fleste eldre
+  -- periodene har bare årstall, og da står disse tomme.
+  from_date    TEXT,
+  to_date      TEXT,
   PRIMARY KEY (person_id, from_season)
 );
 
@@ -740,7 +744,9 @@ SELECT
   d.person_id,
   p.name,
   d.from_season,
-  d.to_season
+  d.to_season,
+  d.from_date,
+  d.to_date
 FROM core_declared_coach_spells d
 JOIN core_people p ON p.id = d.person_id
 ORDER BY d.from_season;
