@@ -552,33 +552,25 @@ candidates:
     personIds: []
     matchIds: []
 resolvedRoles:
-  - id: rolle-1233c88f23dc5e63
+  - id: rolle-c9d53f05f9d31070
     page: "4"
     personName: Nils Jangaard
     personId: nils-jangaard
     category: board
     title: Formann
-    from: "1919"
+    from: "1917"
     to: null
     confidence: high
     rule: name_then_role
-  - id: rolle-272b2d17b8885e76
+  - id: rolle-6d0b10f4b23fef56
     page: "4"
     personName: Nils Jangaard
     personId: nils-jangaard
     category: administration
     title: Sekretær
-    from: "1919"
+    from: "1915"
     to: null
     confidence: high
-    rule: name_then_role
-  - id: rolle-78ae96a8a6134fe5
-    page: "5"
-    personName: Andreas B. Ringdal
-    category: administration
-    title: Sekretær
-    to: null
-    confidence: low
     rule: name_then_role
   - id: rolle-177e3cb4deb752bb
     page: "6"
@@ -605,13 +597,13 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-23c2f9fb0aae43ae
+  - id: rolle-4eca6eeba1dc6b2f
     page: "12"
     personName: Øivind Haagensen
     personId: oivind-haagensen
     category: sporting_staff
     title: Oppmann
-    from: "1940"
+    from: "1945"
     to: null
     confidence: high
     rule: name_then_role

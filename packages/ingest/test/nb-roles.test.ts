@@ -142,3 +142,43 @@ describe("rekker i løpende tekst", () => {
     expect(roles.map((role) => role.personName)).toEqual(["Ola Nordmann"]);
   });
 });
+
+describe("årstall som står etter rolleordet", () => {
+  /**
+   * Setningen står på side 4 i 35-årsboka fra 1950. Leter man bare bakover
+   * etter et årstall, tar «spilte som aktiv fra 1914 til 1919» sekretærvervet,
+   * og Nils Jangaard blir sekretær i 1919 i stedet for 1915 — fire år feil,
+   * skrevet inn i arkivet som et faktum.
+   */
+  it("tar året som følger vervet, ikke det som står foran", () => {
+    const text = "Han spilte som aktiv fra 1914 til 1919. Nils Jangaard ble valgt til sekretær i 1915.";
+    const roles = resolveRoles([text], text, { sourceId: "s", page: "4", people, publicationYear: 1950 });
+    expect(roles.filter((role) => role.title === "Sekretær").map((role) => role.from)).toEqual(["1915"]);
+  });
+
+  it("faller tilbake på året foran når ingen følger", () => {
+    const text = "Årsmøtet i 1962 samlet mange medlemmer. Ola Nordmann ble formann.";
+    const [role] = resolveRoles([text], text, { sourceId: "s", page: "1", people, publicationYear: 1970 });
+    expect(role?.from).toBe("1962");
+  });
+});
+
+describe("verv i noe annet enn klubben", () => {
+  it("tar ikke med et formannsverv i en annen klubb", () => {
+    // «Som formann i «Frigg» visste han hvordan arbeidet skulle legges opp» —
+    // vervet er ekte, men det er ikke AaFKs.
+    const text = "Ola Nordmann var formann i «Frigg» i 1910 før han kom hit.";
+    expect(resolveRoles([text], text, { sourceId: "s", page: "1", people, publicationYear: 1950 })).toEqual([]);
+  });
+
+  it("tar ikke med et verv i en underkomité som om det var klubbens", () => {
+    const text = "Ola Nordmann ble formann i banekomiteen i 1951.";
+    expect(resolveRoles([text], text, { sourceId: "s", page: "1", people, publicationYear: 1960 })).toEqual([]);
+  });
+
+  it("lar «ble formann i 1917» stå — der er «i» et årstall, ikke et organ", () => {
+    const text = "Ola Nordmann ble formann i 1917.";
+    const [role] = resolveRoles([text], text, { sourceId: "s", page: "1", people, publicationYear: 1950 });
+    expect(role).toMatchObject({ title: "Formann", from: "1917" });
+  });
+});

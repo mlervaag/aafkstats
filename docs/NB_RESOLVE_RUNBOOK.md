@@ -135,8 +135,12 @@ Kjøringen er ikke ferdig når den er grønn. Se over dette før PR:
    maskinelt fra publikasjonen, spaltevis». Slå opp sidetallet på nb.no for et
    utvalg og se at tittelen stemmer. Det er her forskyvningen ville dukket opp
    igjen hvis en regel er feil.
-2. **Årstallet.** `from` settes fra nærmeste årstall inntil 160 tegn foran
-   treffet. Det er en heuristikk. På side 76 gir den 1964 fordi setningen
+2. **Årstallet.** For setningsregelen tas året som følger rett etter vervet —
+   «ble valgt til sekretær i 1915» — og bare når ingen følger, letes det inntil
+   160 tegn bakover. Retningen er ikke en detalj: med bare baklengs søk ga
+   «spilte som aktiv fra 1914 til 1919. Nils Jangaard ble valgt til sekretær i
+   1915» ham vervet i 1919, fire år feil. Det bakoverskuende fallet er fortsatt
+   en heuristikk. På side 76 gir den 1964 fordi setningen
    nevner «neste årsmøte i 1964» — riktig for det styret, men kontroller den på
    noen roller før du stoler på den i mengde.
 3. **Kampkoblinger.** Skal være færre enn før. Blir de flere, er
@@ -170,6 +174,20 @@ noe skal endres:
   sammen, havner hvert navn innenfor rekkevidde av begge overskriftene, og
   halvparten av rollene blir dubletter med feil tittel.
 - **En rekke slutter ved neste overskrift.** Ikke etter et fast antall tegn.
+
+## Verv som ikke er klubbens
+
+Publikasjonene omtaler også verv i andre organisasjoner og i klubbens egne
+underutvalg: «Som formann i «Frigg»», «formann i Sunnmøre Fotballkrets»,
+«formann i banekomiteen». Setningsregelen hopper over et verv der rolleordet
+følges av «i» eller «for» og noe annet enn et årstall, nettopp for at slike ikke
+skal bli formannsverv i AaFK.
+
+Én form fanges ikke: når organet står i avsnittet over i stedet for i samme
+setning. Side 76 i 50-årsboka lister styret i *Eldres gruppe*, og lest for seg
+ser rekka ut som klubbens eget styre. Rollene derfra får ingen `body`, og en
+leser vil tro det er hovedstyret. Kontroller `body` på nye styreverv før de
+regnes som klubbens.
 
 ## Det denne kjøringen ikke gjør
 

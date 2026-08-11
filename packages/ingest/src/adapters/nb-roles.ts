@@ -148,9 +148,29 @@ function* nameThenRole(text: string, options: ResolveRolesOptions): Generator<Re
     for (const hit of text.matchAll(pattern)) {
       const name = cleanName(hit[1] ?? "");
       if (!name) continue;
-      yield build(term, name, nearestYear(text, hit.index ?? 0, options), "name_then_role", options);
+
+      const rest = text.slice((hit.index ?? 0) + hit[0].length);
+      // «Som formann i «Frigg»» og «formann i banekomiteen» er verv i noe annet
+      // enn klubben. Uten denne prøven ble Georg Halles formannsverv i Frigg
+      // og Emil Sandøs verv i banekomiteen til formannsverv i AaFK.
+      if (/^\s*(?:i|for)\s+(?!\d)/u.test(rest)) continue;
+
+      yield build(term, name, followingYear(rest) ?? nearestYear(text, hit.index ?? 0, options), "name_then_role", options);
     }
   }
+}
+
+/**
+ * Årstallet som følger rett etter rolleordet.
+ *
+ * «Nils Jangaard ble valgt til sekretær i 1915, ble formann i 1917» — året står
+ * bak, ikke foran. Leter man bare bakover, tar man årstallet fra setningen før:
+ * her ga «spilte som aktiv fra 1914 til 1919» ham sekretærvervet i 1919, fire år
+ * feil, og det sto som et faktum i arkivet til denne prøven kom på plass.
+ */
+function followingYear(rest: string): { from?: string; to: string | null } | null {
+  const hit = /^\s*(?:i|fra|siden)?\s*(1[89]\d{2}|20\d{2})\b/u.exec(rest);
+  return hit ? { from: hit[1]!, to: null } : null;
 }
 
 /**

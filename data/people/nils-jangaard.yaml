@@ -22,6 +22,12 @@ roles:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
         fields: [ title, from, to ]
+      - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
+        page: "4"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_role)."
   - id: formann-1919
     category: board
     title: Formann
@@ -32,25 +38,6 @@ roles:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
         fields: [ title, from, to ]
-      - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
-        page: "4"
-        fields:
-          - title
-          - from
-        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_role)."
-  - id: sekretaer-1919
-    category: administration
-    title: Sekretær
-    from: "1919"
-    to: null
-    sources:
-      - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
-        page: "4"
-        fields:
-          - title
-          - from
-        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_role)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: formann-1929
     category: board
     title: Formann
