@@ -35,14 +35,20 @@ statistikken. Noen av dem burde hatt en fil.
 Klubbidentitet er samme jobb på klubbsiden, og de fem funnene rapporten står med er alle
 vurdert som ekte naboklubber.
 
-### 2. En samlet arbeidskø
+### 2. En samlet arbeidskø — første versjon står
 
 Arkivet vet allerede hva som mangler: kampfelt som ikke er fylt, ufullstendige sesonger,
 kildedokumenterte resultater uten dato, uavklarte personkonflikter, faktakandidater fra
 NB, lagoppstillingskandidater uten kamp og navnevarianter som ikke er løst.
 
-Opplysningen ligger spredt i datasettet og i CLI-rapportene. Den finnes ikke som én flate
-noen kan gå til. Den kan bygges statisk fra samme arkiv, uten adminportal.
+Den offentlige siden [`/mangler`](https://aafkarkivet.no/mangler) samler nå de delene som
+kan forstås og etterprøves uten internverktøy: kampfelt som ikke er fylt,
+kildedokumenterte resultater uten sikker kampidentitet, uavklarte personkonflikter og
+lagoppstillingskandidater som må kontrolleres mot originalen.
+
+Rå OCR-treff og navnelikhet fra CLI-rapportene er bevisst ikke publisert som oppgaver.
+De er forslag til en redaktør, ikke mangler arkivet har slått fast. Neste arbeid her er
+å gjøre identitetsjobbene mer konkrete når de er menneskelig bekreftet.
 
 ### 3. Fortellingslaget
 

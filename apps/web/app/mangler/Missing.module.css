@@ -1,0 +1,137 @@
+.principle {
+  display: grid;
+  grid-template-columns: minmax(13rem, 0.55fr) minmax(0, 1fr);
+  gap: clamp(1.25rem, 4vw, 3rem);
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+  padding: 1.25rem 0;
+  border-block: 3px double var(--border);
+}
+
+.principle h2,
+.principle p { margin: 0; }
+.principle p { max-width: var(--measure); color: var(--muted); }
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0 0 clamp(3rem, 7vw, 5rem);
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+.summary > div {
+  padding: 1.1rem;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.summary dt { color: var(--muted); font-size: 0.78rem; }
+.summary dd {
+  margin: 0.2rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.section { scroll-margin-top: 2rem; }
+.section + .section { margin-top: clamp(3rem, 7vw, 5rem); }
+
+.sectionHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(1.25rem, 4vw, 3rem);
+  align-items: start;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sectionHeader h2,
+.sectionHeader p { margin: 0; }
+.sectionHeader p { max-width: var(--measure); color: var(--muted); }
+
+.fieldGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 1.5rem;
+  margin-top: 1rem;
+}
+
+.fieldGrid > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.fieldGrid dt { color: var(--muted); }
+.fieldGrid dd { margin: 0; font-variant-numeric: tabular-nums; font-weight: 700; }
+
+.yearList,
+.personList,
+.sourceList {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.yearList {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.yearList a,
+.personList a,
+.sourceList a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.yearList a {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.55rem 0.65rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.yearList a:hover,
+.yearList a:focus-visible { border-color: var(--accent); }
+.yearList span { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.personList li,
+.sourceList li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.personList a:hover,
+.sourceList a:hover { color: var(--accent); }
+.personList span,
+.sourceList span { color: var(--muted); font-size: 0.875rem; }
+.sourceList span { font-variant-numeric: tabular-nums; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; }
+.method { margin-top: 1rem; color: var(--muted); font-size: 0.875rem; }
+
+@media (max-width: 50rem) {
+  .principle,
+  .sectionHeader { grid-template-columns: 1fr; gap: 0.65rem; }
+  .fieldGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .yearList { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 34rem) {
+  .summary { grid-template-columns: 1fr; }
+  .fieldGrid { grid-template-columns: 1fr; }
+  .yearList { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .personList li,
+  .sourceList li { grid-template-columns: 1fr; gap: 0.15rem; }
+}
