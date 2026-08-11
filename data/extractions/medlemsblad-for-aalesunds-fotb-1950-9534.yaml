@@ -296,6 +296,36 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-189247291dff6208
+    page: "16"
+    column: 0
+    personName: Boktrykkeri. Tlf
+    category: board
+    title: Formann
+    from: "1554"
+    to: "1599"
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-2f48eeb92c0ab7af
+    page: "16"
+    column: 0
+    personName: Boktrykkeri. Tlf
+    category: administration
+    title: Kasserer
+    from: "1554"
+    to: "1599"
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-daa4100c6cbebfc0
+    page: "16"
+    column: 0
+    personName: Boktrykkeri. Tlf
+    category: sporting_staff
+    title: Oppmann
+    from: "1554"
+    to: "1599"
+    confidence: medium
+    rule: name_then_year
   - id: rolle-4b9d6cef9b996fe8
     page: "16"
     column: 0

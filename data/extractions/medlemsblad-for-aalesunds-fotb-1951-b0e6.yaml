@@ -3323,6 +3323,26 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+  - id: rolle-9684e78139f73722
+    page: "12"
+    column: 0
+    personName: Emil Sandø Arne Westad
+    category: board
+    title: Formann
+    from: "1950"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-41976e0c8c938fb6
+    page: "12"
+    column: 0
+    personName: Emil Sandø Arne Westad
+    category: board
+    title: Nestformann
+    from: "1950"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-070ea511db7c32fd
     page: "12"
     column: 0
@@ -3363,6 +3383,16 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-e68eac18d86bbee5
+    page: "13"
+    column: 1
+    personName: Ready. Våren
+    category: administration
+    title: Sekretær
+    from: "1910"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-11d71f5b494ccca6
     page: "13"
     column: 2

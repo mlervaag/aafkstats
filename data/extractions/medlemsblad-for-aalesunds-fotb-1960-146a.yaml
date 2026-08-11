@@ -3582,6 +3582,16 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-89187d10526d0da4
+    page: "57"
+    column: 1
+    personName: Ivar Østensen
+    category: sporting_staff
+    title: Oppmann
+    from: "1327"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-e343878010b85254
     page: "60"
     column: 2

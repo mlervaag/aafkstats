@@ -138,7 +138,9 @@ describe("rekker i løpende tekst", () => {
   });
 
   it("tar ikke med navn som står langt etter rekka", () => {
-    const roles = resolve(`Formenn: Ola Nordmann 1925${" fyll ".repeat(90)}Kari Nordmann 1931`);
+    // Rekkevidden er lang nok til å romme en formannsrekke på over førti rader
+    // — side 348 i Tango siden 1914 — men den er ikke uendelig.
+    const roles = resolve(`Formenn: Ola Nordmann 1925${" fyll ".repeat(400)}Kari Nordmann 1931`);
     expect(roles.map((role) => role.personName)).toEqual(["Ola Nordmann"]);
   });
 });

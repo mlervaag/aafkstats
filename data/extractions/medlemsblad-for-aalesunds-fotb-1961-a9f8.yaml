@@ -3363,6 +3363,66 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-317742860250f412
+    page: "15"
+    column: 1
+    personName: Oscar Telefon
+    category: board
+    title: Formann
+    from: "1539"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-7bcfbfba8eb08cfe
+    page: "15"
+    column: 1
+    personName: Oscar Telefon
+    category: administration
+    title: Kasserer
+    from: "1539"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-e81632d02fb235d3
+    page: "15"
+    column: 1
+    personName: Oscar Telefon
+    category: board
+    title: Nestformann
+    from: "1539"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-65e5d527afc5dbed
+    page: "15"
+    column: 1
+    personName: Oscar Telefon
+    category: administration
+    title: Sekretær
+    from: "1539"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-7faa2c8bec0a0918
+    page: "15"
+    column: 1
+    personName: Oscar Telefon
+    category: board
+    title: Styremedlem
+    from: "1539"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-8a32952f29dea2ed
+    page: "15"
+    column: 1
+    personName: Oscar Telefon
+    category: coach
+    title: Trener
+    from: "1539"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-1ae20dfa39977286
     page: "17"
     column: 0
@@ -3422,6 +3482,36 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+  - id: rolle-5c95c6ef3aee02b5
+    page: "17"
+    column: 1
+    personName: Alfhild Ringdal
+    category: board
+    title: Formann
+    from: "1951"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-e282da8733087793
+    page: "17"
+    column: 1
+    personName: Anita Wold
+    category: board
+    title: Formann
+    from: "1954"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-233557f9fc49309d
+    page: "17"
+    column: 1
+    personName: Elisif Ingebrigtsen
+    category: board
+    title: Formann
+    from: "1959"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-18eac2849a574494
     page: "17"
     column: 1
@@ -3432,6 +3522,16 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+  - id: rolle-eee97ce89c24daa1
+    page: "17"
+    column: 1
+    personName: Gerd Strømsholm
+    category: board
+    title: Formann
+    from: "1956"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-ecb03008771bbc16
     page: "17"
     column: 1
@@ -3442,6 +3542,16 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+  - id: rolle-bdf97aa12f4a7938
+    page: "17"
+    column: 1
+    personName: Irma Ingebrigtsen
+    category: board
+    title: Formann
+    from: "1946"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-12f9701fdecbb629
     page: "17"
     column: 1
@@ -3462,6 +3572,16 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+  - id: rolle-8398be9f237f3802
+    page: "17"
+    column: 1
+    personName: Mary Vegsund
+    category: board
+    title: Formann
+    from: "1949"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-3b65c0c511d987e2
     page: "18"
     column: 2
@@ -3650,6 +3770,26 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+  - id: rolle-f301f53c63e46bce
+    page: "39"
+    column: 2
+    personName: Bokhandel Bokhandel
+    category: coach
+    title: Trener
+    from: "1162"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-a1442f14f197d138
+    page: "39"
+    column: 2
+    personName: Musikkavd. Musikkavd
+    category: coach
+    title: Trener
+    from: "1163"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-677254ae19e7ee87
     page: "40"
     column: 0
@@ -3669,6 +3809,16 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+  - id: rolle-7d52366a8f4c94c6
+    page: "46"
+    column: 0
+    personName: Telef Telefon
+    category: coach
+    title: Trener
+    from: "1100"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-041e3d2437c5c133
     page: "60"
     column: 0

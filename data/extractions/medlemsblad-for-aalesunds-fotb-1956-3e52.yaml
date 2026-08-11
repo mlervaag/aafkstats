@@ -2407,6 +2407,56 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-9084fd17075aa36b
+    page: "2"
+    column: 0
+    personName: Knut Korsbrekke Grunnlagt
+    category: board
+    title: Formann
+    from: "1867"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-8de642f0f80bcead
+    page: "2"
+    column: 0
+    personName: Knut Korsbrekke Grunnlagt
+    category: administration
+    title: Kasserer
+    from: "1867"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-3433340a442193ce
+    page: "2"
+    column: 0
+    personName: Knut Korsbrekke Grunnlagt
+    category: board
+    title: Nestformann
+    from: "1867"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-643e6a4f72293873
+    page: "2"
+    column: 0
+    personName: Knut Korsbrekke Grunnlagt
+    category: board
+    title: Styremedlem
+    from: "1867"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-e69649b95f301a48
+    page: "2"
+    column: 0
+    personName: Knut Korsbrekke Grunnlagt
+    category: coach
+    title: Trener
+    from: "1867"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-8ebe6052d9c21f76
     page: "5"
     column: 0
@@ -2426,6 +2476,16 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-411c28a9855961e8
+    page: "11"
+    column: 1
+    personName: S Lager
+    category: board
+    title: Formann
+    from: "1862"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-731c3e142e15f864
     page: "12"
     column: 1
@@ -2532,6 +2592,56 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-dbfde7ea36d86744
+    page: "21"
+    column: 0
+    personName: Anita Wold
+    category: board
+    title: Formann
+    from: "1954"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-849328b864371929
+    page: "21"
+    column: 0
+    personName: Anita Wold
+    category: administration
+    title: Kasserer
+    from: "1954"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-058a0bd1c7f32550
+    page: "21"
+    column: 0
+    personName: Anita Wold
+    category: board
+    title: Nestformann
+    from: "1954"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-2fcc1f520680bb7c
+    page: "21"
+    column: 0
+    personName: Anita Wold
+    category: sporting_staff
+    title: Oppmann
+    from: "1954"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-8d11f431b5cf4ce2
+    page: "21"
+    column: 0
+    personName: Anita Wold
+    category: administration
+    title: Sekretær
+    from: "1954"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-a11626451dd37f07
     page: "21"
     column: 0
@@ -2553,6 +2663,76 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+  - id: rolle-a207136eb5b173b1
+    page: "21"
+    column: 0
+    personName: Gerd Strømsholm
+    category: administration
+    title: Kasserer
+    from: "1956"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-8efc5b8b49efac66
+    page: "21"
+    column: 0
+    personName: Gerd Strømsholm
+    category: sporting_staff
+    title: Oppmann
+    from: "1956"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-86a0c77992cc3812
+    page: "21"
+    column: 0
+    personName: Irma Ingebrigtsen
+    category: board
+    title: Formann
+    from: "1946"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-85bd7b0777d378fd
+    page: "21"
+    column: 0
+    personName: Irma Ingebrigtsen
+    category: administration
+    title: Kasserer
+    from: "1946"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-c97b74e565e039e7
+    page: "21"
+    column: 0
+    personName: Irma Ingebrigtsen
+    category: board
+    title: Nestformann
+    from: "1946"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-ba1e6abed8873d28
+    page: "21"
+    column: 0
+    personName: Irma Ingebrigtsen
+    category: sporting_staff
+    title: Oppmann
+    from: "1946"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-93c1884ba75a69b2
+    page: "21"
+    column: 0
+    personName: Irma Ingebrigtsen
+    category: administration
+    title: Sekretær
+    from: "1946"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-eb99047bd4a37e26
     page: "21"
     column: 0
@@ -2564,6 +2744,16 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+  - id: rolle-68aadb09d0eee8a5
+    page: "21"
+    column: 0
+    personName: Mary Vegsund
+    category: board
+    title: Formann
+    from: "1949"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-616bf81b88d7439a
     page: "21"
     column: 0
@@ -2574,6 +2764,56 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-99b923d940692455
+    page: "21"
+    column: 0
+    personName: Mary Vegsund
+    category: administration
+    title: Kasserer
+    from: "1949"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-95bd989ef5257359
+    page: "21"
+    column: 0
+    personName: Mary Vegsund
+    category: board
+    title: Nestformann
+    from: "1949"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-994e2954733fc8e5
+    page: "21"
+    column: 0
+    personName: Mary Vegsund
+    category: sporting_staff
+    title: Oppmann
+    from: "1949"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-6bb8d1c3ce157351
+    page: "21"
+    column: 0
+    personName: Mary Vegsund
+    category: administration
+    title: Sekretær
+    from: "1949"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-c7f04d7d777c2928
+    page: "24"
+    column: 1
+    personName: Nils Jangaard
+    personId: nils-jangaard
+    category: honorary
+    title: Gullmerkeinnehaver
+    to: null
+    confidence: medium
+    rule: name_then_role
   - id: rolle-0accc8703679f0c0
     page: "28"
     column: 1
@@ -2680,6 +2920,16 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+  - id: rolle-525ac29c08fab217
+    page: "46"
+    column: 1
+    personName: Fredrikshavn. Adesund Telsfon
+    category: board
+    title: Nestformann
+    from: "1768"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-ac04a900cb5bbf50
     page: "48"
     column: 1
@@ -2892,6 +3142,36 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-8cf06e1a6ad2e018
+    page: "84"
+    column: 0
+    personName: Ålesund. Olaf Clausen Etabl
+    category: board
+    title: Formann
+    from: "1903"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-4d4294b8a1b99b2b
+    page: "84"
+    column: 0
+    personName: Ålesund. Olaf Clausen Etabl
+    category: sporting_staff
+    title: Oppmann
+    from: "1903"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-176d9902a2743d47
+    page: "84"
+    column: 0
+    personName: Ålesund. Olaf Clausen Etabl
+    category: board
+    title: Styremedlem
+    from: "1903"
+    to: null
+    confidence: medium
+    rule: name_then_year
 resolvedLineups:
   - id: oppstilling-082cb2f154636941
     page: "40"

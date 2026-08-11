@@ -2823,6 +2823,16 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-9cc5799898b242ae
+    page: "7"
+    column: 0
+    personName: Rer R
+    category: board
+    title: Formann
+    from: "1225"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-fbfcaabba8cb5cc3
     page: "12"
     column: 2
@@ -3137,6 +3147,16 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+  - id: rolle-e2e58c3de5ebccc1
+    page: "60"
+    column: 0
+    personName: Johs. Paulsen Telefon
+    category: board
+    title: Formann
+    from: "1535"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-c92ba8846f805b26
     page: "63"
     column: 0

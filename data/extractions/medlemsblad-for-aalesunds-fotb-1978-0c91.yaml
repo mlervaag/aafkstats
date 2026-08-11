@@ -1019,6 +1019,15 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-6051fb82de3316d5
+    page: "4"
+    column: 0
+    personName: Torgeir Skauvik
+    category: honorary
+    title: Gullmerkeinnehaver
+    to: null
+    confidence: low
+    rule: name_then_role
   - id: rolle-8f0d3aeccac07457
     page: "4"
     column: 0

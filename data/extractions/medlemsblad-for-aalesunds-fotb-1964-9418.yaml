@@ -3205,6 +3205,26 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-abc81d74e6344894
+    page: "65"
+    column: 0
+    personName: Johan Pedersen
+    category: administration
+    title: Direktør
+    from: "1915"
+    to: "1917"
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-1c307375821896b5
+    page: "65"
+    column: 0
+    personName: Johan Pedersen
+    category: coach
+    title: Trener
+    from: "1915"
+    to: "1917"
+    confidence: medium
+    rule: name_then_year
   - id: rolle-a182f951a874c043
     page: "65"
     column: 0

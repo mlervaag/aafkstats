@@ -2757,6 +2757,16 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-c338ed2e096510fd
+    page: "32"
+    column: 0
+    personName: Harry Yven. I
+    category: sporting_staff
+    title: Oppmann
+    from: "1950"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-4de52b4ccfb32b38
     page: "32"
     column: 0
@@ -2938,6 +2948,16 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+  - id: rolle-9c77ac335c4e8c9c
+    page: "69"
+    column: 2
+    personName: Bernt Sulebust. Opplag
+    category: board
+    title: Formann
+    from: "1450"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-e29d2658dc2465a7
     page: "72"
     column: 0

@@ -318,6 +318,46 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+  - id: rolle-e0dec29dcca041b1
+    page: "16"
+    column: 0
+    personName: Sats Tlf
+    category: board
+    title: Formann
+    from: "1599"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-270d4b5fbb3ed107
+    page: "16"
+    column: 0
+    personName: Sats Tlf
+    category: administration
+    title: Kasserer
+    from: "1599"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-1518892e628d3912
+    page: "16"
+    column: 0
+    personName: Sats Tlf
+    category: sporting_staff
+    title: Oppmann
+    from: "1599"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-837814ade8f81e84
+    page: "16"
+    column: 0
+    personName: Sats Tlf
+    category: administration
+    title: Sekretær
+    from: "1599"
+    to: null
+    confidence: medium
+    rule: name_then_year
 resolvedLineups:
   - id: oppstilling-a9b9707d0e9b876d
     page: "9"

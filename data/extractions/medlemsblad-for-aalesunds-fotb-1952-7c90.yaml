@@ -2249,6 +2249,16 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+  - id: rolle-9bf90a4c7131cc44
+    page: "13"
+    column: 1
+    personName: SS E E L
+    category: coach
+    title: Trener
+    from: "1111"
+    to: null
+    confidence: medium
+    rule: name_then_year
   - id: rolle-4f31a673740364d5
     page: "24"
     column: 2
