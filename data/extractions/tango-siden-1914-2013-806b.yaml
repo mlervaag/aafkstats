@@ -6905,7 +6905,7 @@ candidates:
       - einar-aas
     matchIds: []
 resolvedRoles:
-  - id: rolle-adc68f3a54455bdb
+  - id: rolle-2bb5c5cfe210a2a6
     page: "19"
     column: 0
     personName: Ivar Morten Normark
@@ -6915,7 +6915,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-7c09afe33fc28529
+  - id: rolle-00656692d67dfe6a
     page: "20"
     column: 0
     personName: Arne Aambakk
@@ -6925,17 +6925,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-94f6d948f93b6162
-    page: "31"
-    column: 0
-    personName: Nils Jangaard
-    personId: nils-jangaard
-    category: board
-    title: Formann
-    to: null
-    confidence: medium
-    rule: name_then_role
-  - id: rolle-aa1aa7a152a6c79e
+  - id: rolle-8ba22923f90f0dee
     page: "52"
     column: 0
     personName: Edvard Skudvig
@@ -6946,7 +6936,7 @@ resolvedRoles:
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-d78544afda04cf3e
+  - id: rolle-d23b7e4ab8d400a9
     page: "52"
     column: 0
     personName: Nils Jangaard. Bak
@@ -6956,7 +6946,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-4758a3a2a9883beb
+  - id: rolle-be65144b5fa50e5a
     page: "63"
     column: 0
     personName: Sheffield United
@@ -6965,18 +6955,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-f0ab1ae30dd7c304
-    page: "65"
-    column: 1
-    personName: Kjell Berentzen
-    personId: kjell-berentzen
-    category: board
-    title: Formann
-    from: "1964"
-    to: null
-    confidence: high
-    rule: name_then_role
-  - id: rolle-cb15d088696915de
+  - id: rolle-30eb4f4da01fa061
     page: "67"
     column: 1
     personName: Peder Puck. På
@@ -6985,7 +6964,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-8c10e588213bd453
+  - id: rolle-9155a84bbbbe28bd
     page: "67"
     column: 1
     personName: Per Anker Eriksen
@@ -6995,7 +6974,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-bf4d04e6a3a7baf4
+  - id: rolle-5e7b985dd635cf5e
     page: "71"
     column: 0
     personName: Svensken Thomas Nordahl
@@ -7004,7 +6983,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-83636d71631d0900
+  - id: rolle-a843764bfcc84499
     page: "107"
     column: 0
     personName: Arild Nørve
@@ -7013,7 +6992,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-6889d0beb1925d4b
+  - id: rolle-f0c1f85f121853ef
     page: "107"
     column: 1
     personName: Petter Birkevold
@@ -7023,18 +7002,19 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-bce648694a609eb9
+  - id: rolle-2e8cc63516e5aaa7
     page: "108"
     column: 1
     personName: Paul Urke
     personId: paul-urke
     category: board
     title: Formann
+    body: Valgkomiteen
     from: "1980"
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-05c7e3736a239253
+  - id: rolle-8ed609842a91df70
     page: "110"
     column: 1
     personName: Torill Hole Standal
@@ -7044,7 +7024,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-4dcd99c5a8b6e589
+  - id: rolle-20bb3ce56a164c40
     page: "114"
     column: 0
     personName: Henrik Hoff
@@ -7053,7 +7033,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-62daf69ff5fddeaa
+  - id: rolle-f58e32888de95713
     page: "114"
     column: 1
     personName: Arnstein Johansen. Forhandlingene
@@ -7062,7 +7042,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-9b3e096d86b96e7e
+  - id: rolle-cefe72dea6204c89
     page: "117"
     column: 1
     personName: Arne Aambakk
@@ -7072,7 +7052,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-913950c1bc0e3a21
+  - id: rolle-3ed0fe81e5158c2c
     page: "117"
     column: 1
     personName: Henrik Hoff
@@ -7081,7 +7061,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-cdaf6ff907b2c4e0
+  - id: rolle-5f5948c8e9319aa6
     page: "117"
     column: 1
     personName: Petter Hagen
@@ -7090,7 +7070,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-270b6baea4438c31
+  - id: rolle-eba7b6cbcea2e023
     page: "118"
     column: 1
     personName: Reidar Vågnes
@@ -7099,7 +7079,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a5a15f1f49732a63
+  - id: rolle-22f6d08db7524830
     page: "119"
     column: 1
     personName: Anne Aambakk
@@ -7108,7 +7088,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-c97029157b97458f
+  - id: rolle-d63955fc77e38532
     page: "120"
     column: 1
     personName: Reidar Vågnes
@@ -7117,7 +7097,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-ac06290e6811ea31
+  - id: rolle-d8d542e7309bc2c3
     page: "141"
     column: 0
     personName: Thomas Nordahl
@@ -7126,7 +7106,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-8dfb3ec834095058
+  - id: rolle-b7197e4977a78509
     page: "142"
     column: 1
     personName: Trønderen Bård Wiggen
@@ -7136,7 +7116,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-4485488223ce7bcd
+  - id: rolle-b259356938f8c9da
     page: "143"
     column: 0
     personName: Bård Wiggen
@@ -7145,7 +7125,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-1195ae175d2268d0
+  - id: rolle-5d6f8bc201c49a7e
     page: "145"
     column: 0
     personName: Henrik Hoff
@@ -7155,7 +7135,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-c795e84fca38a9c5
+  - id: rolle-0f9ae4cc9c7aac0b
     page: "146"
     column: 0
     personName: Ivar Morten Normark
@@ -7165,7 +7145,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-84002d3e6b17e704
+  - id: rolle-945bb1e4f507139a
     page: "149"
     column: 0
     personName: Henrik Hoff. Da Gjerde
@@ -7174,7 +7154,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-e5eab0657e19925f
+  - id: rolle-5c5d3bc7aeb0d893
     page: "150"
     column: 1
     personName: Ivar Morten Normark
@@ -7184,7 +7164,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-39328eeb70237911
+  - id: rolle-440a8ef1f609777b
     page: "158"
     column: 0
     personName: Jan With
@@ -7195,7 +7175,7 @@ resolvedRoles:
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-ee69c1d04688ff27
+  - id: rolle-f81a2d4375a604b0
     page: "159"
     column: 0
     personName: Henrik Hoff
@@ -7205,7 +7185,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-2030814e7f14f35d
+  - id: rolle-674502fec87efec6
     page: "159"
     column: 0
     personName: Kjetil Rekdal
@@ -7215,7 +7195,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-fbbea708d27bb2c2
+  - id: rolle-0436b949645b228e
     page: "160"
     column: 1
     personName: Kjetil Rekdal
@@ -7225,7 +7205,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-3120eb96f59cd5ca
+  - id: rolle-69708c54e5dd2e7c
     page: "182"
     column: 1
     personName: AaFK Reidar Steen Jensen
@@ -7235,7 +7215,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-2db57b68b6a3352e
+  - id: rolle-3ebcb124a3037cf9
     page: "185"
     column: 0
     personName: Paul Urke
@@ -7245,7 +7225,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-8adbe2f0fec5d878
+  - id: rolle-e746df68a99b7e17
     page: "185"
     column: 1
     personName: Karsten Vadseth
@@ -7255,7 +7235,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-d564c79dc1356c00
+  - id: rolle-25630819fc590dc1
     page: "187"
     column: 0
     personName: Reidar Vågnes
@@ -7264,7 +7244,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-4892904bbb8d4c00
+  - id: rolle-a67dbe8996c3977c
     page: "187"
     column: 1
     personName: Arne Aambakk. Valget
@@ -7273,7 +7253,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a7e8ddaf629e0c04
+  - id: rolle-2ff720b6468194e7
     page: "189"
     column: 1
     personName: Martin Andresen
@@ -7283,7 +7263,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-26c58c0db90feff8
+  - id: rolle-200b419e75751787
     page: "192"
     column: 0
     personName: Torill Hole Standal
@@ -7293,7 +7273,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-f85c980ac1a21615
+  - id: rolle-09f9296b7c88943e
     page: "193"
     column: 0
     personName: Kjetil Rekdal
@@ -7303,7 +7283,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-9e0fbe62c0721f51
+  - id: rolle-a6de3f655c5290c9
     page: "202"
     column: 1
     personName: Karsten Molværsmyr
@@ -7313,7 +7293,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-b4cdfb0e60866c92
+  - id: rolle-737fa778753a7f0e
     page: "210"
     column: 1
     personName: Henrik Hoff
@@ -7322,7 +7302,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-ad7dbdef8e3a8765
+  - id: rolle-f279c02dea165d40
     page: "211"
     column: 1
     personName: Kjetil Rekdal
@@ -7332,7 +7312,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-c055384999343f37
+  - id: rolle-2c6965b67edb5a90
     page: "213"
     column: 1
     personName: Bjarne Haagensen
@@ -7342,7 +7322,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-ed6d2e6d995c9642
+  - id: rolle-b3854127f7b08bee
     page: "214"
     column: 1
     personName: Kjetil Rekdal
@@ -7353,7 +7333,7 @@ resolvedRoles:
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-ae8974f0584a3a11
+  - id: rolle-e5a54c7811530cd6
     page: "221"
     column: 0
     personName: Bjarne Haagensen
@@ -7363,17 +7343,18 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-7add63d99bbee339
+  - id: rolle-3ef73170e0640cce
     page: "223"
     column: 0
     personName: Per Joar Hansen
     personId: per-joar-hansen
     category: coach
     title: Trener
+    body: Supporterklubben
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-7947e7b2d1408e22
+  - id: rolle-b3284e761b9b9691
     page: "235"
     column: 1
     personName: Sigurd Nørve
@@ -7384,7 +7365,7 @@ resolvedRoles:
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-7893d1b1ff8ad930
+  - id: rolle-84ac8a66b41f97fb
     page: "244"
     column: 1
     personName: Jon Ketil Gjørtz
@@ -7394,7 +7375,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-5385a2caac2a62f7
+  - id: rolle-79173f9f1b0ff623
     page: "252"
     column: 1
     personName: Ivar Morten Normark
@@ -7404,7 +7385,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-a24d06ae801939d9
+  - id: rolle-c93fce8d21d93451
     page: "253"
     column: 1
     personName: Ivar Morten Normark
@@ -7414,7 +7395,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-e391a611f014fc18
+  - id: rolle-624cdc28d99bef5c
     page: "257"
     column: 0
     personName: Irene Mjelde
@@ -7423,7 +7404,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-f22752f9738aa8b9
+  - id: rolle-43a9012355275dab
     page: "259"
     column: 0
     personName: Ante Giskeødegård
@@ -7432,7 +7413,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-6706b78404eca699
+  - id: rolle-e4cdc225ac8da8d0
     page: "260"
     column: 1
     personName: Per Joar Hansen
@@ -7443,7 +7424,7 @@ resolvedRoles:
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-b09805e6b0daf332
+  - id: rolle-fb21acc5d0f10a53
     page: "266"
     column: 0
     personName: Jan Jonsson
@@ -7453,16 +7434,17 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-b28cbb1c63319b78
+  - id: rolle-e8b0ec1066d8ab4c
     page: "271"
     column: 1
     personName: Hole Standal
     category: board
     title: Styreleder
+    from: "2010"
     to: null
-    confidence: low
+    confidence: medium
     rule: name_then_role
-  - id: rolle-26fc50ff83f0e5f5
+  - id: rolle-b75ec534abf2ae30
     page: "271"
     column: 1
     personName: Kjell Tennfjord. Tennfjord
@@ -7471,7 +7453,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-0ea516c66c96a401
+  - id: rolle-5e165949c9acf6e8
     page: "272"
     column: 0
     personName: Emil Mogstad
@@ -7481,7 +7463,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-e3e126eb1cf10d5d
+  - id: rolle-c9a4c414130b54f5
     page: "273"
     column: 0
     personName: Rolf Annaniassen. Flere
@@ -7490,7 +7472,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-8ce64c579e176576
+  - id: rolle-0e04a470ef8cecde
     page: "276"
     column: 0
     personName: Olav Arne Fiskerstrand
@@ -7499,7 +7481,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-1c795c6ae03cbe1f
+  - id: rolle-e7a3649378e8b2ff
     page: "276"
     column: 0
     personName: Olav Arne Fiskerstrand
@@ -7508,7 +7490,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-eccdba86c7b441b4
+  - id: rolle-958be507a3b6f1af
     page: "277"
     column: 0
     personName: Olav Arne Fiskerstrand
@@ -7518,7 +7500,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-5f3a245078834c51
+  - id: rolle-db157d9805a79cff
     page: "277"
     column: 0
     personName: Olav Arne Fiskerstrand
@@ -7528,7 +7510,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-3f1b5092abfe11f0
+  - id: rolle-919e4cc0d85ecea7
     page: "281"
     column: 0
     personName: Kjell Tennfjord. Når
@@ -7537,7 +7519,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a383dc054d4f3248
+  - id: rolle-3f3b8e38fb1f93ce
     page: "293"
     column: 1
     personName: Kjell Berentzen
@@ -7548,7 +7530,7 @@ resolvedRoles:
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-6f89be1c1f6e0741
+  - id: rolle-abcb18d372f61414
     page: "295"
     column: 0
     personName: Kjetil Rekdals
@@ -7558,7 +7540,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-d24f6b9beeac2e97
+  - id: rolle-3d9e4ae72850ee47
     page: "311"
     column: 0
     personName: Odd Arne Engvik
@@ -7568,7 +7550,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-a2134ca5d925248e
+  - id: rolle-0aa842e3dac1035d
     page: "316"
     column: 0
     personName: Erling Ytterland. Så
@@ -7577,7 +7559,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-e0a8c99f30cdc7cd
+  - id: rolle-7a2fdca05f3d617a
     page: "316"
     column: 1
     personName: Kjetil Rekdal
@@ -7588,7 +7570,7 @@ resolvedRoles:
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-09e4c5bed4ca0553
+  - id: rolle-1d1d4399d4788ef1
     page: "327"
     column: 0
     personName: Jan Jbnssons
@@ -7597,7 +7579,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-24fc829a21fd5056
+  - id: rolle-d5cad2d9d296d489
     page: "329"
     column: 1
     personName: Jan Jbnsson
@@ -7607,16 +7589,17 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-1574bebe6a6b0de2
+  - id: rolle-aaba7cc66f6e494e
     page: "334"
     column: 1
     personName: Kjetil Rekdals
     category: coach
     title: Trener
+    body: Supporterklubben
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-10b5b179afa6aeb4
+  - id: rolle-b89b5e8dea9034ff
     page: "340"
     column: 0
     personName: Einar Aas
@@ -7627,7 +7610,7 @@ resolvedRoles:
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-b5cf74633a34c603
+  - id: rolle-0ca08c897e10c351
     page: "341"
     column: 1
     personName: Tom Beddari
@@ -7636,3 +7619,4 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups: []
