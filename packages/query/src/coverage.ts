@@ -32,6 +32,15 @@ export interface DatasetCoverage {
   /** Seriesesonger merket komplette, og hvor mange serieår arkivet har totalt. */
   completeLeagueSeasons: number;
   leagueSeasons: number;
+  /**
+   * Serieår uten kamper igjen på terminlista.
+   *
+   * Nevneren når noe skal sies om hvor mye som er komplett. En sesong som pågår
+   * kan ikke være komplett ennå, og talt med trekker den ned et tall som skal
+   * si noe om hva arkivet mangler. Sesongoversikten har hele tiden regnet slik;
+   * uten feltet her sa `/om` «41 av 46» der `/sesonger` sa «41 av 45».
+   */
+  finishedLeagueSeasons: number;
   /** Kamper per konkurransetype, flest først. */
   byType: { type: string; matches: number }[];
 }
@@ -63,6 +72,9 @@ export function readCoverage(db: Db): DatasetCoverage {
       `SELECT count(*) AS n FROM seasons WHERE competition_type = 'league' AND coverage = 'complete'`,
     ),
     leagueSeasons: n(`SELECT count(*) AS n FROM seasons WHERE competition_type = 'league'`),
+    finishedLeagueSeasons: n(
+      `SELECT count(*) AS n FROM seasons WHERE competition_type = 'league' AND scheduled = 0`,
+    ),
     byType: all<{ type: string; matches: number }>(
       db,
       `SELECT competition_type AS type, count(*) AS matches
@@ -77,7 +89,9 @@ const TYPE_NAMES: Record<string, string> = {
   national_cup: "cup",
   european: "europacup",
   friendly: "treningskamp",
-  playoff: "kvalifisering",
+  // Seriesystemets opp- og nedrykkskvalifisering. Europacupkvalifiseringen er
+  // en `european`-konkurranse og teller ikke her.
+  playoff: "opp- og nedrykkskvalifisering",
 };
 
 /**
@@ -103,7 +117,7 @@ export function coverageFacts(c: DatasetCoverage): string[] {
   return [
     `${c.played} spilte kamper${span}, fordelt på ${types}.`,
     `${c.scheduled} kamper på terminlista som ikke er spilt ennå.`,
-    `${c.years} år er representert med minst én kamp. Det er noe annet enn ${c.years} komplette sesonger: ${c.completeLeagueSeasons} av ${c.leagueSeasons} serieår er merket «complete» i seasons.coverage.`,
+    `${c.years} år er representert med minst én kamp. Det er noe annet enn ${c.years} komplette sesonger: ${c.completeLeagueSeasons} av ${c.finishedLeagueSeasons} avsluttede serieår er merket «complete» i seasons.coverage. Sesonger som pågår er holdt utenfor; de kan ikke være komplette ennå.`,
     `${c.opponents} motstandere er møtt minst én gang.`,
     `${c.withEvents} kamper (${share(c.withEvents)}) har hendelser som mål og kort. Dekningen følger kilden, ikke kalenderen.`,
     `${c.withLineups} kamper har lagoppstilling.`,

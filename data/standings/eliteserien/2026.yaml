@@ -1,0 +1,275 @@
+competitionId: eliteserien
+season: 2026
+table:
+  - position: 1
+    name: Bodø/Glimt
+    clubId: bodo-glimt
+    played: 17
+    wins: 13
+    draws: 2
+    losses: 2
+    goalsFor: 43
+    goalsAgainst: 12
+    points: 41
+    outcome: none
+  - position: 2
+    name: Viking
+    clubId: viking
+    played: 16
+    wins: 13
+    draws: 1
+    losses: 2
+    goalsFor: 39
+    goalsAgainst: 15
+    points: 40
+    outcome: none
+  - position: 3
+    name: Tromsø
+    clubId: tromso
+    played: 16
+    wins: 10
+    draws: 4
+    losses: 2
+    goalsFor: 32
+    goalsAgainst: 17
+    points: 34
+    outcome: none
+  - position: 4
+    name: Lillestrøm
+    clubId: lillestrom
+    played: 16
+    wins: 8
+    draws: 1
+    losses: 7
+    goalsFor: 22
+    goalsAgainst: 20
+    points: 25
+    outcome: none
+  - position: 5
+    name: Molde
+    clubId: molde-fk
+    played: 16
+    wins: 7
+    draws: 3
+    losses: 6
+    goalsFor: 29
+    goalsAgainst: 24
+    points: 24
+    outcome: none
+  - position: 6
+    name: Brann
+    clubId: sk-brann
+    played: 16
+    wins: 7
+    draws: 1
+    losses: 8
+    goalsFor: 33
+    goalsAgainst: 27
+    points: 22
+    outcome: none
+  - position: 7
+    name: Sarpsborg 08
+    clubId: sarpsborg-08
+    played: 16
+    wins: 6
+    draws: 4
+    losses: 6
+    goalsFor: 19
+    goalsAgainst: 21
+    points: 22
+    outcome: none
+  - position: 8
+    name: Hamarkameratene
+    clubId: hamarkameratene
+    played: 16
+    wins: 6
+    draws: 4
+    losses: 6
+    goalsFor: 24
+    goalsAgainst: 27
+    points: 22
+    outcome: none
+  - position: 9
+    name: Rosenborg
+    clubId: rosenborg-bk
+    played: 16
+    wins: 6
+    draws: 3
+    losses: 7
+    goalsFor: 23
+    goalsAgainst: 21
+    points: 21
+    outcome: none
+  - position: 10
+    name: Vålerenga
+    clubId: valerenga
+    played: 16
+    wins: 6
+    draws: 2
+    losses: 8
+    goalsFor: 23
+    goalsAgainst: 29
+    points: 20
+    outcome: none
+  - position: 11
+    name: Fredrikstad
+    clubId: fredrikstad
+    played: 16
+    wins: 6
+    draws: 2
+    losses: 8
+    goalsFor: 17
+    goalsAgainst: 27
+    points: 20
+    outcome: none
+  - position: 12
+    name: KFUM
+    clubId: kfum
+    played: 16
+    wins: 5
+    draws: 3
+    losses: 8
+    goalsFor: 18
+    goalsAgainst: 26
+    points: 18
+    outcome: none
+  - position: 13
+    name: Sandefjord
+    clubId: sandefjord
+    played: 16
+    wins: 4
+    draws: 3
+    losses: 9
+    goalsFor: 13
+    goalsAgainst: 22
+    points: 15
+    outcome: none
+  - position: 14
+    name: Kristiansund
+    clubId: kristiansund
+    played: 16
+    wins: 4
+    draws: 3
+    losses: 9
+    goalsFor: 15
+    goalsAgainst: 26
+    points: 15
+    outcome: none
+  - position: 15
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 16
+    wins: 2
+    draws: 8
+    losses: 6
+    goalsFor: 22
+    goalsAgainst: 36
+    points: 14
+    outcome: none
+  - position: 16
+    name: Start
+    clubId: start
+    played: 17
+    wins: 2
+    draws: 4
+    losses: 11
+    goalsFor: 16
+    goalsAgainst: 38
+    points: 10
+    outcome: none
+progression:
+  - round: 1
+    position: 13
+    points: 0
+    played: 1
+    goalDifference: -2
+  - round: 2
+    position: 12
+    points: 1
+    played: 2
+    goalDifference: -2
+  - round: 3
+    position: 15
+    points: 1
+    played: 3
+    goalDifference: -3
+  - round: 4
+    position: 15
+    points: 2
+    played: 4
+    goalDifference: -3
+  - round: 5
+    position: 16
+    points: 2
+    played: 5
+    goalDifference: -6
+  - round: 6
+    position: 16
+    points: 3
+    played: 6
+    goalDifference: -6
+  - round: 7
+    position: 16
+    points: 3
+    played: 7
+    goalDifference: -7
+  - round: 8
+    position: 15
+    points: 6
+    played: 8
+    goalDifference: -6
+  - round: 9
+    position: 12
+    points: 9
+    played: 9
+    goalDifference: -5
+  - round: 10
+    position: 14
+    points: 10
+    played: 10
+    goalDifference: -5
+  - round: 11
+    position: 12
+    points: 11
+    played: 11
+    goalDifference: -5
+  - round: 13
+    position: 12
+    points: 12
+    played: 12
+    goalDifference: -5
+  - round: 14
+    position: 14
+    points: 12
+    played: 13
+    goalDifference: -10
+  - round: 15
+    position: 13
+    points: 13
+    played: 14
+    goalDifference: -10
+  - round: 16
+    position: 14
+    points: 13
+    played: 15
+    goalDifference: -14
+  - round: 17
+    position: 15
+    points: 14
+    played: 16
+    goalDifference: -14
+  - round: 18
+    position: 15
+    points: 14
+    played: 16
+    goalDifference: -14
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/leagues/59/table?season=2026
+    retrievedAt: 2026-08-09
+    fields:
+      - table
+      - progression
+    note: Lest med fotmob-table@1. Tabellen er hentet; kurven er regnet ut av divisjonens runder i samme svar.
+sources: []
+note: "Tabellen er hentet mens sesongen pågår: 129 av 240 kamper i divisjonen er spilt. Ingen rad har utfall ennå."

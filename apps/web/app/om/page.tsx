@@ -18,10 +18,16 @@ export default function AboutPage() {
               har dato og motstander, men ingen resultatfelt, og er merket slik at de ikke
               telles med i statistikken.
             </p>
+            {/* Sto som «disse bidragene går gjennom en redaksjonell innboks».
+                Det gjelder minnene. En datarettelse går en annen vei, og hele
+                poenget med den veien er at endringen er synlig i git etterpå. */}
             <p>
-              Besøkende kan bidra med minner, rettelser eller fakta via knapper på hver
-              kamp- og sesongside. Disse bidragene går gjennom en redaksjonell innboks før 
-              de havner i arkivet.
+              Besøkende kan bidra fra knapper på hver kamp- og sesongside, og de to slagene
+              bidrag går hver sin vei. Et minne eller en observasjon kan sendes uten konto
+              og havner i en redaksjonell innboks, der det vurderes og merkes med hvor
+              sikkert det er før det vises. En faktarettelse blir en GitHub-sak med riktig
+              mal, og endrer kampen eller kilden med et synlig spor i historikken.
+              Ingen av delene publiseres automatisk. <a href="/bidra">Slik bidrar du.</a>
             </p>
             <CoverageNote />
             <SeasonDepth />
@@ -36,23 +42,6 @@ export default function AboutPage() {
             </p>
           </section>
           <section><h2>Hvordan søket virker</h2><p>Direktesøket finner år og motstandere uten AI. Når du skriver et spørsmål og sender det inn, lager en språkmodell en skrivebeskyttet SQL-spørring mot arkivet. Spørringen vises under svaret slik at resultatet kan etterprøves. Dekningstallene over ligger også i systemprompten, så modellen vet hva arkivet mangler.</p></section>
-          <section>
-            <h2>Rettigheter per kilde</h2>
-            <p>
-              Arkivet fører selv oversikt over hva som er avklart og hva som ikke er det.
-              Innhøstingen leser den samme statusen og stopper der en kilde er blokkert
-              eller har sagt nei.
-            </p>
-            <p>
-              Der vilkårene er uavklarte er det derimot ikke automatikk. Da må noen ta et
-              valg, og valget føres som «høstet på akseptert risiko»: prosjekteieren har
-              lest vilkårene, ser at bruken ikke er uttrykkelig tillatt, og går videre
-              likevel. Beslutningen krever navn, dato og en begrunnelse, ellers avviser
-              skjemaet den. Den er vår, ikke motpartens, og står derfor i en egen kolonne
-              enn det motparten faktisk har svart.
-            </p>
-            <SourceRights />
-          </section>
           <section>
             <h2>Hva som måles</h2>
             <p>
@@ -70,7 +59,8 @@ export default function AboutPage() {
             <p>
               Hver kamp peker til kilden og hvilke felt kilden har levert. Dataene er
               hentet fra RSSSF (eldre sesonger), NFF Fotballdata og fotball.no (utvalgte
-              sesonger og tabeller) og FotMob (nyere sesonger med hendelser og kampfakta).
+              sesonger og tabeller) og FotMob (nyere sesonger med hendelser og kampfakta, og
+              tabellen for sesongen som pågår).
               FotMob er den eneste som gir hendelser og lagoppstillinger, og den er en
               udokumentert sekundærkilde med uavklarte vilkår for systematisk gjenbruk.
               Spillere og trenere er hentet fra Wikipedia og Wikidata.
@@ -85,6 +75,29 @@ export default function AboutPage() {
         </div>
         <aside className="facts-panel"><h2>Kort fortalt</h2><dl><dt>Status</dt><dd>Offentlig beta, under oppbygging</dd><dt>Tilknytning</dt><dd>Ingen offisiell tilknytning til AaFK</dd><dt>Kode</dt><dd>MIT</dd><dt>Egne tekster</dt><dd>CC BY 4.0</dd><dt>Kildedata</dt><dd>Se kilde og vilkår per opplysning</dd></dl><a className="button-link" href="https://github.com/mlervaag/aafkstats">Se prosjektet på GitHub</a></aside>
       </div>
+
+      {/* Femkolonnerstabellen sto i tekstspalten og måtte rulles sidelengs for å
+          vise de to kolonnene som er hele poenget. Her har den hele bredden,
+          og faktaruta ved siden av teksten står fortsatt der den skal. */}
+      <section className="content-section rights-section">
+        <h2>Rettigheter per kilde</h2>
+        <div className="prose-stack">
+          <p>
+            Arkivet fører selv oversikt over hva som er avklart og hva som ikke er det.
+            Innhøstingen leser den samme statusen og stopper der en kilde er blokkert
+            eller har sagt nei.
+          </p>
+          <p>
+            Der vilkårene er uavklarte er det derimot ikke automatikk. Da må noen ta et
+            valg, og valget føres som «høstet på akseptert risiko»: prosjekteieren har
+            lest vilkårene, ser at bruken ikke er uttrykkelig tillatt, og går videre
+            likevel. Beslutningen krever navn, dato og en begrunnelse, ellers avviser
+            skjemaet den. Den er vår, ikke motpartens, og står derfor i en egen kolonne
+            enn det motparten faktisk har svart.
+          </p>
+        </div>
+        <SourceRights />
+      </section>
     </article>
   );
 }

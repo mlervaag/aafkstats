@@ -1,8 +1,23 @@
 import { AskBox } from "@/components/AskBox";
+import { TYPE_WORDS } from "@/components/Coverage";
 import { CoverageNote } from "@/components/CoverageNote";
 import { MatchList } from "@/components/MatchList";
 import { NextMatch } from "@/components/NextMatch";
-import { loadNextMatch, loadOverview } from "@/lib/archive";
+import { loadCoverage, loadNextMatch, loadOverview } from "@/lib/archive";
+
+/**
+ * Konkurransetypene arkivet faktisk har, som en oppramsing.
+ *
+ * «serie, cup og europacup» framfor en fast setning, slik at ingressen ikke
+ * lover mindre enn arkivet inneholder neste gang en ny type kommer inn.
+ */
+function coveredCompetitions(): string {
+  const types = [...new Set(loadCoverage().byCompetition.map((row) => row.type))]
+    .map((type) => TYPE_WORDS[type] ?? type);
+  if (types.length === 0) return "ingenting ennå";
+  if (types.length === 1) return types[0]!;
+  return `${types.slice(0, -1).join(", ")} og ${types.at(-1)}`;
+}
 
 /**
  * Bygges på nytt hver time i stedet for ved hver forespørsel.
@@ -24,10 +39,13 @@ export default function Home() {
         <div>
           <p className="eyebrow">Uoffisielt historisk arkiv</p>
           <h1>{totals.matches} AaFK-kamper.<br />Ett sted å lete.</h1>
+          {/* «Serie og cup» sto her mens arkivet også hadde europacup og
+              treningskamper. Setningen leses av hver besøkende og var det siste
+              stedet dekningen fortsatt ble påstått for hånd. */}
           <p className="lede">
             Søk opp kamper direkte, eller still spørsmål i fritekst.
-            Arkivet dekker foreløpig serie og cup fra {totals.first?.slice(0, 4) ?? "-"} til{" "}
-            {totals.last?.slice(0, 4) ?? "-"}.
+            Arkivet dekker foreløpig {coveredCompetitions()} fra{" "}
+            {totals.first?.slice(0, 4) ?? "-"} til {totals.last?.slice(0, 4) ?? "-"}.
           </p>
         </div>
         {/* Tallene har vært fire stykker der det fjerde bare gjentok årstallet fra
@@ -41,6 +59,14 @@ export default function Home() {
             <div><dt>År</dt><dd>{totals.seasons}</dd></div>
             <div><dt>Motstandere</dt><dd>{totals.opponents}</dd></div>
           </dl>
+          {/* Overskriften teller alt som er registrert, dekningsnotisen lenger
+              nede teller bare det som er spilt. To tall om det samme uten noe
+              som binder dem sammen leses som en feil. Her står forskjellen. */}
+          {totals.upcoming > 0 && (
+            <p className="small muted hero-stats-note">
+              {totals.matches - totals.upcoming} spilte · {totals.upcoming} på terminlista
+            </p>
+          )}
           <NextMatch match={next} />
         </div>
       </section>

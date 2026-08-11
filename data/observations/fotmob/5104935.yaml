@@ -2,8 +2,8 @@ providerId: fotmob
 externalId: "5104935"
 matchId: 2026-10-25-sarpsborg-08-aalesunds-fk
 retrievedAt: 2026-08-09
-adapter: fotmob@2
-payloadHash: sha256:421f61fe2bcebdcab1461715158adda94a6f18c624b6d82fa5131ce6d6fcf0f9
+adapter: fotmob@3
+payloadHash: sha256:0943daade799881f6a4220d0d6685e457886d9d11d4fb2962ab494f282a4c819
 raw:
   externalId: "5104935"
   date: 2026-10-25
@@ -17,7 +17,6 @@ raw:
   competitionId: "59"
   season: 2026
   round: 12
-  venue: Sarpsborg Stadion
   url: https://www.fotmob.com/matches/aalesund-vs-sarpsborg-08/2d5vpy#5104935
 normalized:
   date: 2026-10-25
@@ -29,7 +28,6 @@ normalized:
   competition.season: 2026
   competition.round: 12
   competition.stage: regular_season
-  venueId: sarpsborg-stadion
 fields:
   - date
   - kickoff
@@ -38,6 +36,4 @@ fields:
   - home.clubId
   - away.clubId
   - competition.round
-  - venueId
-  - lineups
 warnings: []

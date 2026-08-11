@@ -15,7 +15,9 @@
     "wikipedia-people": "tsx src/cli/wikipedia-people.ts",
     "wikidata-people": "tsx src/cli/wikidata-people.ts",
     "rsssf-discover": "tsx src/cli/rsssf-discover.ts",
-    "nff": "tsx src/cli/nff.ts"
+    "nff": "tsx src/cli/nff.ts",
+    "fotmob-standings": "tsx src/cli/fotmob-standings.ts",
+    "etter-kamp": "tsx src/cli/etter-kamp.ts"
   },
   "dependencies": {
     "@aafkstats/schema": "workspace:*",

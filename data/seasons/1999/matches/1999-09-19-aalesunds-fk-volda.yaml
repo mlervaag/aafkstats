@@ -1,26 +1,26 @@
-id: 1996-06-29-byasen-toppfotb-aalesunds-fk
-date: 1996-06-29
+id: 1999-09-19-aalesunds-fk-volda
+date: 1999-09-19
 dateConfidence: exact
 status: played
 competition:
-  id: forstedivisjon
-  season: 1996
+  id: andredivisjon
+  season: 1999
   stage: regular_season
-  round: 10
+  round: 21
 home:
-  clubId: byasen-toppfotb
-  score: 1
+  clubId: aalesunds-fk
+  score: 6
   halfTimeScore: null
 away:
-  clubId: aalesunds-fk
-  score: 4
+  clubId: volda
+  score: 0
   halfTimeScore: null
 neutralVenue: false
 events: []
 externalReports: []
 providers:
   - providerId: fotball-no
-    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83065&underside=kamper
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=113181&underside=kamper
     retrievedAt: 2026-08-05
     fields:
       - date
@@ -31,11 +31,11 @@ providers:
       - away.clubId
       - home.score
       - away.score
-    note: NFF kampnummer 99060.
+    note: NFF kampnummer 15120206126.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases:
-  fotball-no: "99060"
+  fotball-no: "15120206126"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

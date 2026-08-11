@@ -77,9 +77,27 @@ const TRAILING = new RegExp(`-(${CLUB_NOISE})$`);
  * Kilder uten egne klubb-ID-er må lage sine eksterne ID-er på nøyaktig denne
  * formen. Gjør de ikke det, får samme klubb to identiteter så snart en ny kilde
  * staver navnet annerledes.
+ *
+ * ## Hvorfor leddene strykes om igjen til det ikke er flere
+ *
+ * Ett strøk per ende holdt så lenge navnene hadde ett ledd. NFF Fotballdata
+ * skriver dem med to: «Spjelkavik IL - Fotball» ble til `spjelkavik-il`, som
+ * ikke er `spjelkavik`, og klubben fikk en identitet til uten at noe sa fra.
+ * Fire klubber lå dermed dobbelt i arkivet med hver sin innbyrdes statistikk.
+ * Sammenslåingen er den samme som før, bare gjennomført: et ledd som ikke
+ * skiller én klubb fra en annen gjør det heller ikke fordi det står nummer to.
+ *
+ * Sløyfen kan ikke gå evig — hvert strøk gjør strengen kortere — og den stopper
+ * før den spiser opp alt: et navn som *bare* er støyledd («IL», «FK») beholdes
+ * som det er, siden en tom nøkkel ville slått sammen alle slike klubber.
  */
 export function clubKey(value: string): string {
-  return slugify(value).replace(LEADING, "").replace(TRAILING, "");
+  let key = slugify(value);
+  for (;;) {
+    const stripped = key.replace(LEADING, "").replace(TRAILING, "");
+    if (stripped === key || stripped === "") return key;
+    key = stripped;
+  }
 }
 
 /**

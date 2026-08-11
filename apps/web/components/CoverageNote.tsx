@@ -1,6 +1,7 @@
 import { open } from "@aafkstats/db";
 import { coverageFacts, readCoverage } from "@aafkstats/query/coverage";
 import type { DatasetCoverage } from "@aafkstats/query/coverage";
+import { TYPE_WORDS } from "@/components/Coverage";
 import { loadCoverage } from "@/lib/archive";
 import type { ArchiveCoverage } from "@/lib/archive";
 
@@ -64,19 +65,36 @@ export function GapNote() {
   if (!c.firstSeason) return null;
   const gap = c.firstSeason - FOUNDED;
 
+  // Sto som «Europacupkampene mangler helt» mens arkivet hadde fjorten av dem.
+  // En håndskrevet påstand om hva som mangler blir gal i samme øyeblikk som
+  // noen fyller hullet, og da er det siden som lyver, ikke dataene.
+  const present = new Set(c.byCompetition.map((row) => row.type));
+  const missing = Object.keys(TYPE_WORDS).filter((type) => !present.has(type));
+
   return (
     <p className="prose">
       {gap > 0 ? (
         <>
-          Arkivet mangler fortsatt årene fra {FOUNDED} til {c.firstSeason - 1} - {gap} sesonger,
+          Arkivet mangler fortsatt årene fra {FOUNDED} til {c.firstSeason - 1} – {gap} sesonger,
           fordi protokollene som kreves for å hente dem ut mangler eller ligger innelåst.{" "}
         </>
       ) : null}
-      Europacupkampene mangler helt
-      {c.withReport === 0 ? ", og ingen kamper har kampreferat ennå" : ""}.{" "}
+      {missing.length > 0 && (
+        <>
+          {capitalize(missing.map((type) => TYPE_WORDS[type]).join(" og "))} mangler helt
+          {c.withReport === 0 ? ", og ingen kamper har kampreferat ennå" : ""}.{" "}
+        </>
+      )}
+      {missing.length === 0 && c.withReport === 0 && (
+        <>Ingen kamper har kampreferat ennå.{" "}</>
+      )}
       <a href="/bidra">Bidrag</a> monner mest der.
     </p>
   );
+}
+
+function capitalize(text: string): string {
+  return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
 /**
@@ -99,10 +117,10 @@ export function CoverageNote({ heading = true }: { heading?: boolean }) {
         ? `${c.withEvents} av dem (${detailShare} %) har hendelser som mål og kort, og ${c.withAttendance} har tilskuertall.`
         : "Ingen av dem har hendelsesdata ennå."}{" "}
       {c.withReport === 0 ? (
-        <p>
-          Kampreferat mangler helt - det er der{" "}
+        <>
+          Kampreferat mangler helt – det er der{" "}
           <a href="/bidra">brukerinnsendte minner og observasjoner</a> kommer inn.
-        </p>
+        </>
       ) : (
         <>{c.withReport} har kampreferat.</>
       )}
@@ -154,10 +172,11 @@ export function SeasonDepth() {
   return (
     <p className="prose">
       {c.years} år er representert med minst én kamp. Det er ikke det samme som{" "}
-      {c.years} komplette sesonger: av de {c.leagueSeasons} serieårene arkivet har,
-      er {c.completeLeagueSeasons} merket komplette, altså runde 1 til siste runde uten
-      hull. Resten har kamper, men ikke hele rekka. Cupdekning kan ikke måles på samme
-      måte, for en cupsesong slutter når laget ryker ut.
+      {c.years} komplette sesonger: av de {c.finishedLeagueSeasons} avsluttede serieårene
+      arkivet har, er {c.completeLeagueSeasons} merket komplette, altså runde 1 til siste
+      runde uten hull. Resten har kamper, men ikke hele rekka. En sesong som pågår telles
+      ikke med — den kan ikke være komplett ennå. Cupdekning kan ikke måles på samme måte,
+      for en cupsesong slutter når laget ryker ut.
     </p>
   );
 }

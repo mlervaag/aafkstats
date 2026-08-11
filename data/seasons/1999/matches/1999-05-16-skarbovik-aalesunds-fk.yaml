@@ -1,15 +1,15 @@
-id: 2000-08-06-skarbovik-il-fotball-aalesunds-fk
-date: 2000-08-06
+id: 1999-05-16-skarbovik-aalesunds-fk
+date: 1999-05-16
 dateConfidence: exact
 status: played
 competition:
   id: andredivisjon
-  season: 2000
+  season: 1999
   stage: regular_season
-  round: 15
+  round: 4
 home:
-  clubId: skarbovik-il-fotball
-  score: 6
+  clubId: skarbovik
+  score: 0
   halfTimeScore: null
 away:
   clubId: aalesunds-fk
@@ -20,7 +20,7 @@ events: []
 externalReports: []
 providers:
   - providerId: fotball-no
-    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=119411&underside=kamper
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=113181&underside=kamper
     retrievedAt: 2026-08-05
     fields:
       - date
@@ -31,11 +31,11 @@ providers:
       - away.clubId
       - home.score
       - away.score
-    note: NFF kampnummer 23120206087.
+    note: NFF kampnummer 15120206024.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases:
-  fotball-no: "23120206087"
+  fotball-no: "15120206024"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.

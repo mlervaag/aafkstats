@@ -101,6 +101,18 @@ export interface SeasonFetchOptions {
   detailsLimit?: number;
   /** Hvor i kamplista detaljvinduet starter. Lar en sesong detaljeres over flere kjøringer. */
   detailsOffset?: number;
+  /**
+   * Datoene som skal detaljeres, i stedet for et vindu i lista.
+   *
+   * Vinduet `[offset, offset + limit)` er riktig når en hel sesong skal
+   * detaljeres litt om gangen. Det er feil verktøy når man vet nøyaktig hvilken
+   * kamp som er ny: da må indeksen regnes ut av noe utenfor kilden, og det
+   * regnestykket blir galt i samme øyeblikk som arkivet og kilden er uenige om
+   * hvor mange kamper sesongen har hatt.
+   *
+   * Er denne satt, styrer den alene hvilke kamper som får detaljoppslag.
+   */
+  detailsDates?: string[];
   limit?: number;
   refresh?: boolean;
   onProgress?: (message: string) => void;

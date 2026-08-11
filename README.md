@@ -53,7 +53,7 @@ leser fra.
 |---|---|
 | **1 351 kamper** | Kamper registrert totalt i arkivet |
 | **85 år** | 1917–2026, år med minst én registrert kamp. Cupen tilbake til 1917, serien til 1951 |
-| **169 klubber · 90 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
+| **161 klubber · 90 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
 | **150 personer** | Registrerte spillere, trenere, ledere og andre personer med kildeførte detaljer eller avvikende navn |
 | **8 kilder** | Hver med rettighetsstatus som data, ikke som prosa |
 | **Brukerbidrag** | Innsendte observasjoner og minner hentet fra redaksjonell innboks |
@@ -129,9 +129,11 @@ rettighetsvurdering.
 | `pnpm typecheck` | Typesjekker pakkene og nettstedet |
 | `pnpm lint` | ESLint over hele monorepoet |
 | `pnpm build` | Bygger arkivfilen og deretter nettstedet |
+| `pnpm etter-kamp` | Holder sesongen à jour: egne kamper som er spilt, og tabellen for hver seriesesong som pågår |
 | `pnpm ingest:fotmob -- --league ID --season ÅR --competition ID` | Tørrkjører én eksplisitt FotMob-sesong |
 | `pnpm ingest:rsssf -- --season ÅR --division SIDE --competition ID` | Tørrkjører én eksplisitt RSSSF-sesong |
 | `pnpm ingest:rsssf-discover -- --from ÅR --to ÅR` | Kartlegger hva RSSSF har. Skriver aldri data |
+| `pnpm ingest:fotmob-standings -- --league ID --season ÅR --competition ID` | Tørrkjører tabellen og plasseringskurven for én sesong. Den eneste som kan hente en sesong som pågår |
 
 Innhøstingen tørrkjører alltid som standard. `--write` er et eget valg, og det krever at
 kilden er avklart for publisering — se [Kilder og rettigheter](#kilder-og-rettigheter).
