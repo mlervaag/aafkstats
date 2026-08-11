@@ -97,7 +97,7 @@ gang arkivet har to kilder på samme kamp.
 
 Standarden er å **stoppe**. Reconcile nekter å røre en kamp som allerede finnes uten at
 kilden eier den, fordi et ordentlig observasjonslag for flere kilder ikke er bygget ennå
-(se fase B i [planen](../PLAN_FRA_PILOT_TIL_ARKIV.md)). En stille sammenslåing ville skjult
+(se fase B i [den historiske planen](../arkiv/PLAN_FRA_PILOT_TIL_ARKIV.md)). En stille sammenslåing ville skjult
 hvem som mente hva.
 
 For 2010 ville det betydd at 15 kamper ingen har, forble uten. Derfor finnes

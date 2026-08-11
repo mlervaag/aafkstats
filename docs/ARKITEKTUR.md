@@ -399,4 +399,4 @@ avgjør hvem som svarer når begge er satt, `AAFK_CHAT_MODEL` hvilken modell.
   tokenbruk og kjøretid. Spørsmålstekst, IP-adresse og SQL-strenger logges ikke.
 
 Det som gjenstår å bygge, i rekkefølge, står i
-[Plan fra pilot til arkiv](PLAN_FRA_PILOT_TIL_ARKIV.md).
+[Status](STATUS.md).

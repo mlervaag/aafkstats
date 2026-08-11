@@ -1,8 +1,19 @@
 # Plan fra faktapilot til historisk arkiv
 
+> **Historisk dokument.** Denne planen beskrev veien fra pilot til arkiv, og den veien er
+> gått. Statustabellen under er fra den tida da sesong- og motstandersider gjenstod,
+> innhøstingen var 450 ligakamper, og bidrag ikke var startet. Alt det finnes nå.
+>
+> Den står her fordi den forklarer *hvorfor* arkivet ser ut som det gjør: valget av Git og
+> YAML framfor Postgres, skillet mellom fakta og fortelling, og hvorfor en innhøster aldri
+> skriver rett til databasen. De begrunnelsene holder fortsatt.
+>
+> **Hva som gjenstår nå, står i [STATUS.md](../STATUS.md).** Ikke bruk tabellen under til å
+> planlegge noe.
+
 Denne planen beskriver veien fra dagens fungerende grunnmur til et historisk AaFK-arkiv
 med kampfakta, søk og egne kampoppsummeringer. Den erstatter ikke
-[kildekartet](research/KILDEKART_OG_INNHENTINGSSTRATEGI.md); kildekartet svarer på *hvor*
+[kildekartet](../research/KILDEKART_OG_INNHENTINGSSTRATEGI.md); kildekartet svarer på *hvor*
 materialet finnes, mens dette dokumentet svarer på *hva vi bygger og i hvilken rekkefølge*.
 
 ## Status nå

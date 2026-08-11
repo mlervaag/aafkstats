@@ -237,11 +237,16 @@ export function datasetJsonLd(input: DatasetJsonLdInput): JsonLdObject {
       "norsk fotball",
       "idrettshistorie",
     ],
+    // Sto som en SQLite-nedlasting på repo-URL-en. SQLite-fila ligger ikke i
+    // Git — den bygges fra YAML ved utrulling, som README sier uttrykkelig — så
+    // de strukturerte dataene lovet et format på en adresse der det ikke fantes.
+    // YAML-filene er det som faktisk kan lastes ned, og det er dem vi oppgir.
     distribution: [
       {
         "@type": "DataDownload",
-        encodingFormat: "application/vnd.sqlite3",
-        contentUrl: "https://github.com/mlervaag/aafkstats",
+        name: "YAML-kildefilene på GitHub",
+        encodingFormat: "text/yaml",
+        contentUrl: "https://github.com/mlervaag/aafkstats/tree/main/data",
       },
     ],
   });
