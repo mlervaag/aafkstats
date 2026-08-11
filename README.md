@@ -54,7 +54,7 @@ leser fra.
 | **1 351 kamper** | Kamper registrert totalt i arkivet |
 | **85 år** | 1917–2026, år med minst én registrert kamp. Cupen tilbake til 1917, serien til 1951 |
 | **161 klubber · 90 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
-| **139 personer** | Registrerte trenere og spillere med detaljer eller avvikende kildenavn |
+| **150 personer** | Registrerte spillere, trenere, ledere og andre personer med kildeførte detaljer eller avvikende navn |
 | **8 kilder** | Hver med rettighetsstatus som data, ikke som prosa |
 | **Brukerbidrag** | Innsendte observasjoner og minner hentet fra redaksjonell innboks |
 

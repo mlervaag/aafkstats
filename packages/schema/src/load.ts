@@ -445,6 +445,13 @@ export function crossValidate(archive: Archive): LoadIssue[] {
         at("sources", `ukjent historisk kilde «${s.sourceId}» — mangler data/sources/${s.sourceId}.yaml`);
       }
     }
+    for (const role of p.roles) {
+      for (const s of role.sources) {
+        if (!sourceIds.has(s.sourceId)) {
+          at("roles.sources", `ukjent historisk kilde «${s.sourceId}» — mangler data/sources/${s.sourceId}.yaml`);
+        }
+      }
+    }
   }
 
   for (const s of archive.seasons) {
@@ -454,6 +461,15 @@ export function crossValidate(archive: Archive): LoadIssue[] {
         path: "competitionId",
         message: `ukjent konkurranse «${s.competitionId}»`,
       });
+    }
+    for (const source of s.sources) {
+      if (!sourceIds.has(source.sourceId)) {
+        issues.push({
+          file: s.file,
+          path: "sources",
+          message: `ukjent historisk kilde «${source.sourceId}» — mangler data/sources/${source.sourceId}.yaml`,
+        });
+      }
     }
   }
 

@@ -1,0 +1,25 @@
+id: peder-puck
+name: Peder Puck
+roles:
+  - id: formann-1938-1939
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1938"
+    to: "1939"
+    sources:
+      - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+        page: "18"
+        fields: [title, from, to]
+  - id: formann-1940-1945
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1940"
+    to: "1945"
+    sources:
+      - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
+        page: "5"
+        fields: [title, from, to]
+    note: Kilden beskriver perioden 1938–1945 samlet; 1938–1939 er også bekreftet av 25-årsskriftets årsliste.
+

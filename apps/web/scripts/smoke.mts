@@ -58,6 +58,18 @@ const checks: Check[] = [
     must: ["AaFK mot", "Brann"],
   },
   {
+    page: "personer",
+    must: ["Menneskene i arkivet", "Søk etter navn, rolle eller nasjonalitet", "Organisasjon og styrer"],
+  },
+  {
+    page: "personer/jan-jonsson",
+    must: ["Jan Jönsson", "Registrert i arkivet", "Roller og verv"],
+  },
+  {
+    page: "organisasjon",
+    must: ["Klubben utenfor banen", "Formenn", "Trenere og sportslig apparat", "Fra dokument til struktur"],
+  },
+  {
     page: "kamp/1998-08-16-aalesunds-fk-sk-brann",
     must: [
       "16. august 1998", "Kilder", "Kildene er uenige", "arkivet bruker denne",

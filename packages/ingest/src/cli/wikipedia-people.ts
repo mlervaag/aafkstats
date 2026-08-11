@@ -35,6 +35,7 @@ function merge(existing: Person | undefined, fresh: WikipediaPlayer, season: num
     names: [],
     squadNumbers: [],
     coachSpells: [],
+    roles: [],
     providers: [],
     sources: [],
   };
@@ -177,7 +178,7 @@ async function runCoaches(root: string, archive: Awaited<ReturnType<typeof loadA
     const id = existing?.id ?? slugify(spell.name);
     const current = touched.get(id) ?? existing ?? {
       id, name: spell.name, names: [],
-      squadNumbers: [], coachSpells: [], providers: [], sources: [],
+      squadNumbers: [], coachSpells: [], roles: [], providers: [], sources: [],
     };
     const wikipedia = current.providers.find((s) => s.providerId === "wikipedia");
 

@@ -90,6 +90,7 @@ CREATE TABLE core_seasons (
   head_coach       TEXT,
   promoted         INTEGER NOT NULL DEFAULT 0,
   relegated        INTEGER NOT NULL DEFAULT 0,
+  sources          TEXT NOT NULL DEFAULT '[]',
   note             TEXT
 );
 
@@ -175,6 +176,28 @@ CREATE TABLE core_declared_coach_spells (
   to_season    INTEGER,
   PRIMARY KEY (person_id, from_season)
 );
+
+-- Kildeførte roller utenfor den kampavledede spiller- og trenerstatistikken.
+-- Samme person kan være spiller, formann og æresmedlem i ulike perioder.
+CREATE TABLE core_person_roles (
+  person_id    TEXT NOT NULL REFERENCES core_people(id),
+  role_id      TEXT NOT NULL,
+  category     TEXT NOT NULL CHECK (category IN
+                 ('player','coach','sporting_staff','board','administration','honorary')),
+  title        TEXT NOT NULL,
+  body         TEXT,
+  from_date    TEXT NOT NULL,
+  to_date      TEXT,
+  sources      TEXT NOT NULL,
+  note         TEXT,
+  PRIMARY KEY (person_id, role_id)
+);
+
+CREATE INDEX idx_person_roles_category_dates
+ON core_person_roles(category, from_date, to_date);
+
+CREATE INDEX idx_person_roles_body_dates
+ON core_person_roles(body, from_date, to_date);
 
 -- Én rad per spiller per kamp. Utledet av lineups ved bygging, ikke lagret i
 -- data/ — oppstillingen ligger allerede på kampen, og en egen fil per opptreden
@@ -428,6 +451,7 @@ SELECT
   s.head_coach,
   coalesce(s.promoted, 0)                                   AS promoted,
   coalesce(s.relegated, 0)                                  AS relegated,
+  coalesce(s.sources, '[]')                                 AS sources,
   s.note,
   count(m.id)                                               AS played,
   sum(CASE WHEN m.result = 'S' THEN 1 ELSE 0 END)           AS wins,
@@ -684,6 +708,68 @@ SELECT
 FROM core_declared_coach_spells d
 JOIN core_people p ON p.id = d.person_id
 ORDER BY d.from_season;
+
+-- Alle eksplisitt kildeførte roller. Spillerstatistikk fra kampoppstillinger
+-- ligger fortsatt i squad; dette viewet handler om verv og tilknytninger kilder
+-- faktisk navngir med periode.
+CREATE VIEW person_roles AS
+SELECT
+  r.person_id,
+  p.name,
+  r.role_id,
+  r.category,
+  r.title,
+  r.body,
+  r.from_date,
+  r.to_date,
+  r.sources,
+  r.note,
+  '/personer/' || p.id AS url
+FROM core_person_roles r
+JOIN core_people p ON p.id = r.person_id
+ORDER BY r.from_date, p.name;
+
+-- Personregisteret som offentlig kontrakt. Det samler identitet, kampavledet
+-- aktivitet og eksplisitte organisasjonsroller uten å gjøre personfila til en
+-- biografi eller kopiere kildetekst.
+CREATE VIEW people AS
+SELECT
+  p.id,
+  p.name,
+  p.nationality,
+  p.position,
+  p.wikidata,
+  p.sources,
+  p.note,
+  (SELECT min(a.season) FROM core_appearances a
+    WHERE a.person_key IN (SELECT n.person_key FROM core_person_names n WHERE n.person_id = p.id)) AS first_season,
+  (SELECT max(a.season) FROM core_appearances a
+    WHERE a.person_key IN (SELECT n.person_key FROM core_person_names n WHERE n.person_id = p.id)) AS last_season,
+  (SELECT count(*) FROM core_appearances a
+    WHERE a.person_key IN (SELECT n.person_key FROM core_person_names n WHERE n.person_id = p.id)) AS appearances,
+  (SELECT count(*) FROM core_appearances a
+    WHERE a.role = 'start'
+      AND a.person_key IN (SELECT n.person_key FROM core_person_names n WHERE n.person_id = p.id)) AS starts,
+  (SELECT count(*) FROM core_person_roles r WHERE r.person_id = p.id)
+    + (SELECT count(*) FROM core_declared_coach_spells d WHERE d.person_id = p.id) AS role_count,
+  (SELECT min(year) FROM (
+     SELECT substr(r.from_date, 1, 4) AS year FROM core_person_roles r WHERE r.person_id = p.id
+     UNION ALL
+     SELECT printf('%04d', d.from_season) FROM core_declared_coach_spells d WHERE d.person_id = p.id
+   )) AS first_role_year,
+  (SELECT max(year) FROM (
+     SELECT substr(coalesce(r.to_date, r.from_date), 1, 4) AS year FROM core_person_roles r WHERE r.person_id = p.id
+     UNION ALL
+     SELECT printf('%04d', coalesce(d.to_season, d.from_season)) FROM core_declared_coach_spells d WHERE d.person_id = p.id
+   )) AS last_role_year,
+  (SELECT json_group_array(category) FROM (
+     SELECT DISTINCT r.category FROM core_person_roles r WHERE r.person_id = p.id
+     UNION
+     SELECT 'coach' WHERE EXISTS (SELECT 1 FROM core_declared_coach_spells d WHERE d.person_id = p.id)
+   )) AS role_categories,
+  '/personer/' || p.id AS url
+FROM core_people p
+ORDER BY p.name;
 
 -- Én rad per kamphendelse. team er 'aafk' eller 'opponent', ikke hjemme/borte.
 CREATE VIEW match_events AS

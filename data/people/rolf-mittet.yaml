@@ -1,0 +1,14 @@
+id: rolf-mittet
+name: Rolf Mittet
+roles:
+  - id: formann-1927
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1927"
+    to: "1927"
+    sources:
+      - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+        page: "18"
+        fields: [title, from, to]
+

@@ -88,6 +88,8 @@ export default function Home() {
           <h2>Gå rett i arkivet</h2>
           <a href="/sesonger"><strong>Sesonger</strong><span>Resultater og alle kamper, år for år</span></a>
           <a href="/motstandere"><strong>Motstandere</strong><span>Innbyrdes statistikk gjennom historien</span></a>
+          <a href="/personer"><strong>Personer</strong><span>Spillere, trenere, ledere og æresmedlemmer</span></a>
+          <a href="/organisasjon"><strong>Organisasjon</strong><span>Styrer og verv, kildeført over tid</span></a>
           <a href="/data"><strong>Datasettet</strong><span>Se datamodellen og koden som driver arkivet</span></a>
           <a href="/bidra"><strong>Bidra</strong><span>Del minner og faktasjekk hendelser</span></a>
         </aside>

@@ -41,6 +41,22 @@ export interface SourceUsage {
   note: string | null;
 }
 
+export interface SourceRoleUsage {
+  person_id: string;
+  name: string;
+  title: string;
+  from_date: string;
+  to_date: string | null;
+  page: string | null;
+}
+
+export interface SourceSeasonUsage {
+  season: number;
+  competition: string;
+  page: string | null;
+  note: string | null;
+}
+
 const sourceColumns = `id, parent_source_id, title, source_type, issue, volume,
   publisher, year, urn, author, description, cover_url, access_url, providers`;
 
@@ -192,6 +208,48 @@ export function getSourceUsages(sourceId: string): SourceUsage[] {
        LEFT JOIN core_competitions comp ON comp.id = m.competition_id
        WHERE source.id = ? OR source.parent_source_id = ?
        ORDER BY m.match_date DESC`,
+      sourceId,
+      sourceId,
+    );
+  } finally {
+    db.close();
+  }
+}
+
+export function getSourceRoleUsages(sourceId: string): SourceRoleUsage[] {
+  const db = open();
+  try {
+    return all<SourceRoleUsage>(
+      db,
+      `SELECT r.person_id, p.name, r.title, r.from_date, r.to_date,
+              json_extract(ref.value, '$.page') AS page
+         FROM core_person_roles r
+         JOIN core_people p ON p.id = r.person_id
+         JOIN json_each(r.sources) ref
+         JOIN core_sources source ON source.id = json_extract(ref.value, '$.sourceId')
+        WHERE source.id = ? OR source.parent_source_id = ?
+        ORDER BY r.from_date, p.name COLLATE NOCASE`,
+      sourceId,
+      sourceId,
+    );
+  } finally {
+    db.close();
+  }
+}
+
+export function getSourceSeasonUsages(sourceId: string): SourceSeasonUsage[] {
+  const db = open();
+  try {
+    return all<SourceSeasonUsage>(
+      db,
+      `SELECT s.year AS season, s.competition_name AS competition,
+              json_extract(ref.value, '$.page') AS page,
+              json_extract(ref.value, '$.note') AS note
+         FROM core_seasons s
+         JOIN json_each(s.sources) ref
+         JOIN core_sources source ON source.id = json_extract(ref.value, '$.sourceId')
+        WHERE source.id = ? OR source.parent_source_id = ?
+        ORDER BY s.year`,
       sourceId,
       sourceId,
     );

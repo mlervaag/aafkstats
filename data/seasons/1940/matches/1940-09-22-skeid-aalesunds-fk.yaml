@@ -30,6 +30,11 @@ providers:
       - home.score
       - away.score
       - competition.stage
+sources:
+  - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
+    page: "10"
+    fields: [home.clubId, away.clubId, competition.stage]
+    note: Beretningen identifiserer Skeid-kampen som klubbens første femterundekamp.
 confidence: probable
 conflicts: []
 tags: []

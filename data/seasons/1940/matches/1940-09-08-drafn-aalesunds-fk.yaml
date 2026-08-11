@@ -31,6 +31,10 @@ providers:
       - home.score
       - away.score
       - competition.round
+sources:
+  - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
+    page: "10"
+    fields: [home.clubId, away.clubId, home.score, away.score, competition.round]
 confidence: probable
 conflicts: []
 tags: []

@@ -35,6 +35,10 @@ providers:
       - away.score
       - competition.round
       - extraTime
+sources:
+  - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+    page: "44"
+    fields: [home.clubId, away.clubId, home.score, away.score, competition.round]
 confidence: probable
 conflicts: []
 tags: []
