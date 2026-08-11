@@ -172,6 +172,12 @@ export function personKey(name: string): string {
     // fortsatt to.
     .replaceAll("ø", "o").replaceAll("æ", "a").replaceAll("å", "a")
     .replaceAll("ö", "o").replaceAll("ä", "a").replaceAll("ü", "u")
+    // Bokstaver som ikke er en latinsk bokstav med et tegn på, men egne
+    // bokstaver. NFD har ingenting å dekomponere, og uten disse linjene stryker
+    // regelen dem til ingenting: «Þrándarson» ble til `randarson` og
+    // «Međimorec» til `me imorec`. Personfila og lagoppstillingen fikk dermed
+    // hver sin nøkkel selv når de skrev nøyaktig samme navn.
+    .replaceAll("þ", "th").replaceAll("ð", "d").replaceAll("đ", "d")
     .normalize("NFD")
     .replace(/\p{Diacritic}/gu, "")
     .replace(/oe/g, "o").replace(/ae/g, "a").replace(/ue/g, "u").replace(/aa/g, "a")

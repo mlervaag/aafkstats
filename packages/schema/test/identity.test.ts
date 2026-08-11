@@ -116,6 +116,21 @@ describe("personKey", () => {
     expect(personKey("Ólafur Gudmundsson")).toBe(personKey("Olafur Gudmundsson"));
   });
 
+  it("translittererer bokstaver som ikke er en latinsk bokstav med et tegn på", () => {
+    // NFD har ingenting å dekomponere for disse, så uten egne linjer ble de
+    // strøket til ingenting: «Þrándarson» ble `randarson` og «Međimorec» ble
+    // `me imorec`. Personfila og lagoppstillingen fikk hver sin nøkkel selv når
+    // de skrev nøyaktig samme navn, og fem spillere sto med tom side.
+    expect(personKey("Aron Elís Þrándarson")).toBe(personKey("Aron Elis Thrandarson"));
+    expect(personKey("Vinko Međimorec")).toBe(personKey("Vinko Medimorec"));
+    expect(personKey("Davíð Jóhannsson")).toBe(personKey("David Johannsson"));
+    // Og det viktigste: bokstaven forsvinner ikke, slik at to ulike navn ikke
+    // blir like fordi begge mistet et tegn.
+    expect(personKey("Þrándarson")).toBe("thrandarson");
+    expect(personKey("Međimorec")).toBe("medimorec");
+    expect(personKey("Guðmundsson")).toBe("gudmundsson");
+  });
+
   it("slår ikke sammen navn som bare ligner", () => {
     // Kan være samme mann feilstavet, og kan være to menn. Det spørsmålet skal
     // et menneske svare på; data:duplicates rapporterer paret.
