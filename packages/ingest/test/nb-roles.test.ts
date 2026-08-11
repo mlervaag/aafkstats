@@ -182,3 +182,50 @@ describe("verv i noe annet enn klubben", () => {
     expect(role).toMatchObject({ title: "Formann", from: "1917" });
   });
 });
+
+describe("hvilket organ vervet hører til", () => {
+  function medSide(text: string, pageContext = text) {
+    return resolveRoles([text], text, { sourceId: "s", page: "76", people, publicationYear: 1970, pageContext });
+  }
+
+  it("setter organet når siden sier hvilket", () => {
+    const [role] = medSide("Banekomiteen la fram sitt forslag i 1951. Formann, Ola Nordmann, la fram saken.");
+    expect(role).toMatchObject({ title: "Formann", body: "Banekomiteen" });
+  });
+
+  it("skriver ikke hovedstyret på rollen — det er standarden", () => {
+    const [role] = medSide("Hovedstyret møttes i 1951. Formann, Ola Nordmann, åpnet møtet.");
+    expect(role?.body).toBeUndefined();
+  });
+
+  /**
+   * Side 76 i 50-årsboka lister et styre som ser ut som klubbens, men er Eldres
+   * gruppes. Siden nevner både «Eldres gruppe» og «Arbeidsutvalget», så vi kan
+   * ikke si hvilket vervet hører til — og da skal det ikke kunne løftes
+   * automatisk inn som om han ledet klubben.
+   */
+  it("senker sikkerheten når siden nevner flere organer og ingen kan tilordnes", () => {
+    const spalte = "Den fikk følgende sammensetning: Formann, Ola Nordmann, nestformann, Kari Nordmann.";
+    const side = `Møte om dannelse av en Eldres gruppe i klubben. Arbeidsutvalget hadde laget et forslag. Styret skulle fungere til neste årsmøte i 1964. ${spalte}`;
+    const [role] = resolveRoles([spalte], spalte, {
+      sourceId: "s", page: "76", people, publicationYear: 1964, pageContext: side,
+    });
+    expect(role?.confidence).not.toBe("high");
+  });
+
+  it("lar en side uten organer være i fred", () => {
+    const text = "Årsmøtet i 1962 valgte formann, Ola Nordmann.";
+    const [role] = medSide(text);
+    expect(role).toMatchObject({ confidence: "high" });
+    expect(role?.body).toBeUndefined();
+  });
+
+  it("henter organet fra en annen spalte når spalten selv ikke sier det", () => {
+    const spalte = "Årsmøtet i 1951 valgte formann, Ola Nordmann.";
+    const side = `Stykket handler om banekomiteen og arbeidet der. ${spalte}`;
+    const [role] = resolveRoles([spalte], spalte, {
+      sourceId: "s", page: "76", people, publicationYear: 1970, pageContext: side,
+    });
+    expect(role?.body).toBe("Banekomiteen");
+  });
+});

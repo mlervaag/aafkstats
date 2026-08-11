@@ -7,4 +7,13 @@ roles:
     body: Hovedstyret
     from: "2007"
     to: "2011"
-    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]
+    sources: [ { sourceId: aafk-historie-ledere, fields: [ title, from, to ] } ]
+sources:
+  - sourceId: aalesunds-fk-quiz-2008-fd43
+    page: "3"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: tango-siden-1914-2013-806b
+    page: "110"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.

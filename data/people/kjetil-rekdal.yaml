@@ -7,6 +7,7 @@ coachSpells:
     toSeason: 2012
   - fromSeason: 2024
     toSeason: null
+roles: []
 providers:
   - providerId: wikipedia
     url: https://no.wikipedia.org/w/index.php?title=Aalesunds%20Fotballklubb&oldid=25869346
@@ -14,3 +15,20 @@ providers:
     fields:
       - coachSpells
     note: Årstall fra trenertabellen. Merknadskolonnen er prosa og er ikke gjengitt.
+sources:
+  - sourceId: aalesund-fra-blabaer-til-beton-2013-91b5
+    page: "21"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: aalesunds-fk-quiz-2008-fd43
+    page: "101"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: cupminner-2009-30c4
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: tango-siden-1914-2013-806b
+    page: "124"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.

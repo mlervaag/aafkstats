@@ -14,6 +14,7 @@ squadNumbers:
   - season: 2019
     number: 5
 coachSpells: []
+roles: []
 providers:
   - providerId: wikipedia
     url: https://no.wikipedia.org/w/index.php?title=Aalesunds%20Fotballklubb&oldid=20031605
@@ -30,3 +31,24 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+sources:
+  - sourceId: aalesund-fra-blabaer-til-beton-2013-91b5
+    page: "30"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: aalesunds-fk-quiz-2008-fd43
+    page: "58"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-2003-cb5d
+    page: "3"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-2004-ff8e
+    page: "1"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: tango-siden-1914-2013-806b
+    page: "225"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.

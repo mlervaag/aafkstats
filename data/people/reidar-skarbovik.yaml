@@ -1,4 +1,313 @@
 id: reidar-skarbovik
 name: Reidar Skarbøvik
 roles:
-  - { id: gullmerkeinnehaver-1959, category: honorary, title: Gullmerkeinnehaver, from: "1959", to: null, sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }] }
+  - { id: gullmerkeinnehaver-1959, category: honorary, title: Gullmerkeinnehaver, from: "1959", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
+sources:
+  - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
+    page: "12"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+    page: "28"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+    page: "5"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+    page: "12"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-22ea
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+    page: "12"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-bd4f
+    page: "5"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-c479
+    page: "12"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-ea61
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    page: "17"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1952-7c90
+    page: "9"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: "9"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: "6"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: "9"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
+    page: "8"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+    page: "6"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: "4"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+    page: "3"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: "8"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: "2"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: "6"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "4"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1963-400c
+    page: "32"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1964-9418
+    page: "5"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: "22"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1966-42a2
+    page: "3"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1966-7e6a
+    page: "6"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1967-4999
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1967-5456
+    page: "6"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1967-bebf
+    page: "3"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1967-e6ab
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1968-6ec3
+    page: "16"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1968-c2b6
+    page: "10"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1968-d3ee
+    page: "5"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1968-db10
+    page: "4"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1969-3d3a
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1969-4e52
+    page: "2"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1969-8d82
+    page: "5"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1969-da4a
+    page: "5"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1970-3e78
+    page: "5"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1970-954d
+    page: "4"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1970-bb31
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1970-fc1b
+    page: "8"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1971-0883
+    page: "5"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1971-9c80
+    page: "8"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1971-dc4a
+    page: "5"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1971-e55d
+    page: "2"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1972-10d9
+    page: "4"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1972-4638
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1972-49de
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1972-9160
+    page: "5"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1973-0d5e
+    page: "3"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1973-3fac
+    page: "8"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1973-af84
+    page: "4"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1973-d4e1
+    page: "4"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-0de9
+    page: "5"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-2d3d
+    page: "2"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-4178
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-5775
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-6d28
+    page: "6"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-ab1b
+    page: "6"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-db4e
+    page: "2"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1975-5323
+    page: "3"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1975-78b5
+    page: "5"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1975-f9b3
+    page: "9"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1976-2c84
+    page: "5"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1976-3cb7
+    page: "3"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1976-e3df
+    page: "5"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1977-f5fc
+    page: "9"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1977-fbae
+    page: "2"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1978-91f1
+    page: "17"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1979-9b1b
+    page: "12"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1980-bec4
+    page: "9"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: tango-siden-1914-2013-806b
+    page: "199"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: vi-er-75-ar-1989-aff6
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: vi-er-80-ar-1914-1994-1994-5e91
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.

@@ -53,6 +53,95 @@ export const ROLE_TERMS: RoleTerm[] = [
 ];
 
 /**
+ * Organisasjonsdelen et verv hører til, når siden sier hvilken.
+ *
+ * Side 76 i 50-årsboka lister et styre — formann, nestformann, sekretær,
+ * kasserer — men det er styret i *Eldres gruppe*, ikke klubbens hovedstyre.
+ * Rekka ser identisk ut. Uten `body` havner de fire i personregisteret som om
+ * de ledet AaFK, og ingen validering ville sagt fra.
+ *
+ * Organet står sjelden i samme setning som vervet. Det står i avsnittet over,
+ * som overskrift eller som emnet for stykket, så det må letes bakover.
+ */
+const BODIES = [
+  "hovedstyret",
+  "arbeidsutvalget",
+  "sportsutvalget",
+  "banekomiteen",
+  "eldres gruppe",
+  "juniorgruppa",
+  "juniorgruppen",
+  "damegruppa",
+  "damegruppen",
+  "supporterklubben",
+  "old boys",
+] as const;
+
+/** Organet siden peker på, når den peker på nøyaktig ett. */
+function bodiesOn(page: string | undefined): string[] {
+  if (!page) return [];
+  const lower = page.toLowerCase();
+  const found = new Set<string>();
+  for (const body of BODIES) if (lower.includes(body)) found.add(body);
+  for (const hit of page.matchAll(/\b([\p{L}æøå]+(?:komiteen|komitéen|utvalget|gruppa|gruppen))\b/giu)) {
+    found.add(hit[1]!.toLowerCase());
+  }
+  found.delete("hovedstyret");
+  // «Arbeidsutvalget» treffer både lista og monsteret. Fjern det som er del av
+  // et annet, slik at samme organ ikke telles to ganger.
+  return [...found].filter((body) => ![...found].some((other) => other !== body && other.includes(body)));
+}
+
+/** Hvor langt bakover et organ kan stå og fortsatt gjelde vervet. */
+const BODY_REACH = 400;
+
+/**
+ * Organet som gjelder for et treff, lest bakover fra det.
+ *
+ * Både en fast liste og et generisk mønster: klubbene lager stadig nye utvalg,
+ * og «bygningskomiteen» skal fanges selv om ingen har skrevet den inn her.
+ * Hovedstyret regnes ikke som et eget organ — det er standarden, og å skrive
+ * det på hver rolle sier ingenting.
+ */
+function bodyBefore(text: string, index: number, options: ResolveRolesOptions): BodyHint | undefined {
+  const window = text.slice(Math.max(0, index - BODY_REACH), index);
+
+  const named = [...BODIES]
+    .map((body) => ({ body, at: window.toLowerCase().lastIndexOf(body) }))
+    .filter((hit) => hit.at !== -1)
+    .sort((a, b) => b.at - a.at)[0];
+
+  const generic = [...window.matchAll(/\b([\p{L}æøå]+(?:komiteen|komitéen|utvalget|gruppa|gruppen))\b/giu)].at(-1);
+
+  const onPage = bodiesOn(options.pageContext);
+  const chosen = named && generic
+    ? (named.at >= (generic.index ?? 0) ? named.body : generic[1]!)
+    : named?.body ?? generic?.[1]
+      // Ingen organ i spalten. Da gjelder sidas eget, men bare nar siden peker
+      // pa noyaktig ett — nevner den flere, vet vi ikke hvilket som er dette.
+      ?? (onPage.length === 1 ? onPage[0] : undefined);
+
+  if (!chosen) {
+    // Siden snakker om underorganer, men vi kan ikke si hvilket vervet horer
+    // til. Da er «Formann» uten videre en pastand om at han ledet klubben, og
+    // den kan vi ikke sta inne for. Side 76 i 50-arsboka er et slikt tilfelle:
+    // den nevner bade Eldres gruppe og Arbeidsutvalget.
+    return onPage.length > 1 ? { uncertain: true } : undefined;
+  }
+
+  const normalized = chosen.toLowerCase();
+  if (normalized === "hovedstyret") return undefined;
+  return { body: normalized.charAt(0).toUpperCase() + normalized.slice(1) };
+}
+
+/** Organet et verv horer til, eller beskjed om at siden gjor det uklart. */
+interface BodyHint {
+  body?: string;
+  /** Siden nevner flere organer, og vervet kan ikke regnes som klubbens. */
+  uncertain?: boolean;
+}
+
+/**
  * Ord som ser ut som navn for en stor forbokstav, men ikke er det.
  *
  * Lista er kort med vilje. Hvert ledd her fjerner treff, og et navn som slipper
@@ -103,6 +192,14 @@ export interface ResolveRolesOptions {
   people: KnownPerson[];
   /** Publikasjonens eget år. Brukes aldri som rollens år — bare til å forkaste umulige årstall. */
   publicationYear?: number;
+  /**
+   * Hele siden i leserekkefølge, når rollene leses spaltevis.
+   *
+   * Organet et verv hører til står ofte i en annen spalte enn vervet selv: på
+   * side 76 i 50-årsboka innledes stykket om Eldres gruppe i venstre spalte,
+   * mens styret deres står i høyre. Leses spalten alene, finnes organet ikke.
+   */
+  pageContext?: string;
 }
 
 /**
@@ -136,7 +233,7 @@ function* roleThenName(text: string, options: ResolveRolesOptions): Generator<Re
     for (const hit of text.matchAll(pattern)) {
       const name = cleanName(hit[1] ?? "");
       if (!name) continue;
-      yield build(term, name, nearestYear(text, hit.index ?? 0, options), "role_then_name", options);
+      yield build(term, name, nearestYear(text, hit.index ?? 0, options), "role_then_name", options, bodyBefore(text, hit.index ?? 0, options));
     }
   }
 }
@@ -155,7 +252,7 @@ function* nameThenRole(text: string, options: ResolveRolesOptions): Generator<Re
       // og Emil Sandøs verv i banekomiteen til formannsverv i AaFK.
       if (/^\s*(?:i|for)\s+(?!\d)/u.test(rest)) continue;
 
-      yield build(term, name, followingYear(rest) ?? nearestYear(text, hit.index ?? 0, options), "name_then_role", options);
+      yield build(term, name, followingYear(rest) ?? nearestYear(text, hit.index ?? 0, options), "name_then_role", options, bodyBefore(text, hit.index ?? 0, options));
     }
   }
 }
@@ -272,16 +369,20 @@ function build(
   period: { from?: string; to: string | null },
   rule: ResolvedRole["rule"],
   options: ResolveRolesOptions,
+  hint?: BodyHint,
 ): ResolvedRole {
   const known = options.people.find((person) => person.forms.includes(normalize(personName)));
-  const confidence: ResolvedRole["confidence"] = period.from && known
+  const body = hint?.body;
+  const strongest: ResolvedRole["confidence"] = period.from && known
     ? "high"
     : period.from || known
       ? "medium"
       : "low";
+  // Et verv siden ikke plasserer, skal ikke kunne loftes automatisk.
+  const confidence: ResolvedRole["confidence"] = hint?.uncertain && strongest === "high" ? "medium" : strongest;
 
   const id = `rolle-${createHash("sha256")
-    .update(`${options.sourceId}|${options.page}|${term.title}|${normalize(personName)}|${period.from ?? ""}`)
+    .update(`${options.sourceId}|${options.page}|${term.title}|${normalize(personName)}|${period.from ?? ""}|${body ?? ""}`)
     .digest("hex").slice(0, 16)}`;
 
   return {
@@ -292,6 +393,7 @@ function build(
     ...(known ? { personId: known.id } : {}),
     category: term.category,
     title: term.title,
+    ...(body ? { body } : {}),
     ...(period.from ? { from: period.from } : {}),
     to: period.to,
     confidence,

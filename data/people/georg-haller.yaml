@@ -7,9 +7,9 @@ roles:
     body: Konstituerende generalforsamling
     from: "1914-06-25"
     to: "1914-06-25"
-    sources: [{ sourceId: aafk-historie-stiftelsen, fields: [title, from, to] }]
-  - { id: banekomiteformann-1914-1915, category: project, title: Formann i banekomiteen, body: Nørvebana, from: "1914", to: "1915", sources: [{ sourceId: aafk-historie-norvebana, fields: [title, from, to] }] }
-  - { id: spiller-1915, category: player, title: Spiller, body: A-laget, from: "1915", to: "1915", sources: [{ sourceId: aafk-historie-pa-egen-grunn, fields: [title, from, to] }] }
+    sources: [ { sourceId: aafk-historie-stiftelsen, fields: [ title, from, to ] } ]
+  - { id: banekomiteformann-1914-1915, category: project, title: Formann i banekomiteen, body: Nørvebana, from: "1914", to: "1915", sources: [ { sourceId: aafk-historie-norvebana, fields: [ title, from, to ] } ] }
+  - { id: spiller-1915, category: player, title: Spiller, body: A-laget, from: "1915", to: "1915", sources: [ { sourceId: aafk-historie-pa-egen-grunn, fields: [ title, from, to ] } ] }
   - id: formann-1914-1915
     category: board
     title: Formann
@@ -19,7 +19,7 @@ roles:
     sources:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
-        fields: [title, from, to]
+        fields: [ title, from, to ]
   - id: aeresmedlem-1915
     category: honorary
     title: Æresmedlem
@@ -28,10 +28,55 @@ roles:
     sources:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "7"
-        fields: [title, from]
+        fields: [ title, from ]
       - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
         page: "19"
-        fields: [title, from]
+        fields: [ title, from ]
       - sourceId: aafk-historie-utmerkelser
-        fields: [title]
+        fields: [ title ]
     note: Kildene omtaler ham som klubbens første æresmedlem.
+sources:
+  - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
+    page: "80"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+    page: "9"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-bd4f
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    page: "22"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1952-7c90
+    page: "4"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: "6"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: "33"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: "13"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-2004-153a
+    page: "4"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: vi-er-75-ar-1989-aff6
+    page: "6"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.

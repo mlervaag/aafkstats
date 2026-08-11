@@ -7,4 +7,33 @@ roles:
     body: Hovedstyret
     from: "1977"
     to: "1977"
-    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]
+    sources: [ { sourceId: aafk-historie-ledere, fields: [ title, from, to ] } ]
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1972-9160
+    page: "5"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1975-f9b3
+    page: "2"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1976-3cb7
+    page: "3"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1977-fbae
+    page: "2"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1978-91f1
+    page: "4"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1979-9b1b
+    page: "18"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1980-bec4
+    page: "9"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.

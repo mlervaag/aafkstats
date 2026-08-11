@@ -4,13 +4,14 @@ import { join } from "node:path";
 import { readFile, writeFile } from "node:fs/promises";
 import { parse, stringify } from "yaml";
 import { publicationExtraction } from "@aafkstats/schema";
-import type { PublicationExtraction, ResolvedRole } from "@aafkstats/schema";
+import type { PublicationExtraction, ResolvedLineup, ResolvedRole } from "@aafkstats/schema";
 import { crossValidate, loadArchive, dataDir, repoRoot } from "@aafkstats/schema/load";
 import { assertMayFetch } from "../policy.js";
 import { publicationAltoPages, readAltoPage, searchPublication } from "../adapters/nb-publications.js";
 import { resolveRolesFromSearch, searchTerms } from "../adapters/nb-search.js";
 import { joinLines, readPageColumns } from "../adapters/nb-pages.js";
 import { knownPeople, resolveRoles } from "../adapters/nb-roles.js";
+import { resolveLineups } from "../adapters/nb-lineups.js";
 import { applyResolvedRoles } from "../adapters/nb-apply.js";
 
 /**
@@ -61,6 +62,7 @@ if (sources.length > 0) assertMayFetch(archive, "nasjonalbiblioteket");
 let readPages = 0;
 let fromCache = 0;
 const resolvedBySource = new Map<string, ResolvedRole[]>();
+const lineupsBySource = new Map<string, ResolvedLineup[]>();
 
 for (const [index, source] of sources.entries()) {
   const file = join(root, "extractions", `${source.id}.yaml`);
@@ -96,6 +98,7 @@ for (const [index, source] of sources.entries()) {
     .filter((page) => args.values["all-pages"] || wanted.has(page.page));
 
   const resolved: ResolvedRole[] = [];
+  const lineups: ResolvedLineup[] = [];
   for (const page of pages) {
     const cached = existsSync(page.cacheFile);
     let xml: string;
@@ -108,8 +111,18 @@ for (const [index, source] of sources.entries()) {
     readPages += 1;
     if (cached) fromCache += 1;
 
-    for (const [column, section] of readPageColumns(xml).entries()) {
+    const columns = readPageColumns(xml);
+    const pageContext = columns.map((section) => joinLines(section.lines)).join(" ");
+    for (const [column, section] of columns.entries()) {
       resolved.push(...resolveRoles(section.lines, joinLines(section.lines), {
+        sourceId: source.id,
+        page: page.page,
+        column,
+        people,
+        pageContext,
+        ...(source.year === undefined ? {} : { publicationYear: source.year }),
+      }));
+      lineups.push(...resolveLineups(joinLines(section.lines), {
         sourceId: source.id,
         page: page.page,
         column,
@@ -124,11 +137,13 @@ for (const [index, source] of sources.entries()) {
   const high = unique.filter((role) => role.confidence === "high").length;
   console.log(`[${index + 1}/${sources.length}] ${source.id}: ${pages.length} sider · ${unique.length} roller (${high} sikre)`);
 
-  if (args.values.write) await writeResolved(file, extraction, unique);
+  const uniqueLineups = [...new Map(lineups.map((lineup) => [lineup.id, lineup])).values()];
+  if (uniqueLineups.length > 0) lineupsBySource.set(source.id, uniqueLineups);
+  if (args.values.write) await writeResolved(file, extraction, unique, uniqueLineups);
 }
 
-async function writeResolved(file: string, extraction: PublicationExtraction, roles: ResolvedRole[]): Promise<void> {
-  const updated: PublicationExtraction = { ...extraction, resolvedRoles: roles };
+async function writeResolved(file: string, extraction: PublicationExtraction, roles: ResolvedRole[], lineups: ResolvedLineup[] = []): Promise<void> {
+  const updated: PublicationExtraction = { ...extraction, resolvedRoles: roles, resolvedLineups: lineups };
   publicationExtraction.parse(updated);
   await writeFile(file, stringify(updated, { lineWidth: 0, defaultStringType: "PLAIN" }), "utf8");
 }
@@ -146,6 +161,8 @@ console.log(JSON.stringify({
   sikre: byConfidence.high,
   middels: byConfidence.medium,
   svake: byConfidence.low,
+  oppstillinger: [...lineupsBySource.values()].flat().length,
+  oppstillingerSikre: [...lineupsBySource.values()].flat().filter((lineup) => lineup.confidence === "high").length,
   medÅrstall: all.filter(({ role }) => role.from).length,
   motKjentPerson: all.filter(({ role }) => role.personId).length,
 }, null, 2));

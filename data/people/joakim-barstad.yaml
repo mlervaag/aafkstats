@@ -9,6 +9,7 @@ squadNumbers:
   - season: 2017
     number: 37
 coachSpells: []
+roles: []
 providers:
   - providerId: wikipedia
     url: https://no.wikipedia.org/w/index.php?title=Aalesunds%20Fotballklubb&oldid=18102417
@@ -19,3 +20,8 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+sources:
+  - sourceId: tango-siden-1914-2013-806b
+    page: "349"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.

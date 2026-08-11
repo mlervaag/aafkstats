@@ -1,5 +1,26 @@
 id: njal-bele
 name: Njål Bele
 roles:
-  - { id: landskapsarkitekt-1948, category: project, title: Hagearkitekt, body: Kråmyra-prosjektet, from: "1948", to: "1948", sources: [{ sourceId: aafk-historie-kramyra-stadion, fields: [title, from, to] }] }
-  - { id: landskapsarkitekt-1972, category: project, title: Hagearkitekt, body: Utvidelsen av Kråmyra, from: "1972", to: "1972", sources: [{ sourceId: aafk-historie-kramyra-stadion, fields: [title, from, to] }] }
+  - { id: landskapsarkitekt-1948, category: project, title: Hagearkitekt, body: Kråmyra-prosjektet, from: "1948", to: "1948", sources: [ { sourceId: aafk-historie-kramyra-stadion, fields: [ title, from, to ] } ] }
+  - { id: landskapsarkitekt-1972, category: project, title: Hagearkitekt, body: Utvidelsen av Kråmyra, from: "1972", to: "1972", sources: [ { sourceId: aafk-historie-kramyra-stadion, fields: [ title, from, to ] } ] }
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1973-d4e1
+    page: "8"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-0de9
+    page: "2"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-2d3d
+    page: "5"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-db4e
+    page: "5"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: vi-er-75-ar-1989-aff6
+    page: "23"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.

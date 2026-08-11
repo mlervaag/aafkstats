@@ -114,7 +114,25 @@ tidligere kjøring — legges publikasjonen til som **kilde på den rollen**. De
 blir ikke en rolle nummer to. Det er den regelen som gjør at kjøringen kan
 gjentas uten å gro duplikater.
 
-### 5. Kontroll
+### 5. Omtalene
+
+```bash
+pnpm --filter @aafkstats/ingest nb-mentions --write
+```
+
+Fører hver publikasjon som omtaler en person som kilde på personen. Dette er
+den ene kandidattypen der OCR-støy ikke kan skape et nytt faktum: en
+`person_mention` med høy sikkerhet bærer en `personId` som alt er slått opp mot
+registeret. Enten kjente vi navnet fra før, eller så ble det ingen kobling.
+
+Kjøringen leser bare `data/extractions/` — den trenger verken cache eller nett,
+og er uavhengig av resolve.
+
+Omtalene aggregeres til én henvisning per publikasjon, med den første siden
+personen står på. Lauritz Giske er nevnt på 283 sider; én henvisning per side
+ville gjort personfila ulesbar uten å si mer enn at bladene skrev om ham.
+
+### 6. Kontroll
 
 ```bash
 pnpm validate
@@ -175,6 +193,26 @@ noe skal endres:
   halvparten av rollene blir dubletter med feil tittel.
 - **En rekke slutter ved neste overskrift.** Ikke etter et fast antall tegn.
 
+## Lagoppstillinger
+
+`nb-resolve` skriver også `resolvedLineups`: navnene i en oppregning etter
+«laget bestod av», «seierslaget bestod av» og lignende, slått opp mot
+registeret.
+
+De **løftes ikke inn**, og det er ikke forsiktighet — det er at de ikke kan.
+En oppstilling må høre til en kamp for å bety noe, og det står nesten aldri på
+samme sted: «Seierslaget bestod fra mål til ytre venstre av: …» sier hvem som
+spilte, men ikke mot hvem eller når. Å gjette kampen ut fra nærmeste årstall
+ville knyttet elleve navn til feil kamp, og en feil oppstilling er verre enn
+ingen, fordi den ser like riktig ut som en rett.
+
+`season` settes når et årstall står nær. Det er en pekepinn for den som skal
+finne kampen, ikke en påstand om når laget spilte.
+
+Dette er samtidig det ene stedet materialet kan gi arkivet noe *nytt*.
+Oppstillinger fra mellomkrigstiden finnes ikke fra noen annen kilde — hverken
+RSSSF eller FotMob rekker dit.
+
 ## Verv som ikke er klubbens
 
 Publikasjonene omtaler også verv i andre organisasjoner og i klubbens egne
@@ -183,11 +221,14 @@ underutvalg: «Som formann i «Frigg»», «formann i Sunnmøre Fotballkrets»,
 følges av «i» eller «for» og noe annet enn et årstall, nettopp for at slike ikke
 skal bli formannsverv i AaFK.
 
-Én form fanges ikke: når organet står i avsnittet over i stedet for i samme
-setning. Side 76 i 50-årsboka lister styret i *Eldres gruppe*, og lest for seg
-ser rekka ut som klubbens eget styre. Rollene derfra får ingen `body`, og en
-leser vil tro det er hovedstyret. Kontroller `body` på nye styreverv før de
-regnes som klubbens.
+Organet står ofte i en annen spalte enn vervet. Side 76 i 50-årsboka innleder
+stykket om *Eldres gruppe* i venstre spalte og lister styret deres i høyre, så
+`body` letes både i spalten og i sidas helhet.
+
+Kan siden ikke tilordne organet — den nevner flere, som side 76 gjør med både
+Eldres gruppe og Arbeidsutvalget — settes ingen `body`, og rollen **senkes fra
+`high` til `medium`**. Da kan den ikke løftes automatisk. Et verv siden ikke
+plasserer, er ikke et verv vi kan si var klubbens.
 
 ## Det denne kjøringen ikke gjør
 

@@ -187,6 +187,7 @@ export async function extractNbPublication(
     contentHash: `sha256:${digest.digest("hex")}`,
     candidates: uniqueCandidates(candidates),
     resolvedRoles: [],
+    resolvedLineups: [],
   };
 }
 
@@ -260,6 +261,7 @@ async function extractSearchOnly(
     contentHash: `sha256:${digest.digest("hex")}`,
     candidates: uniqueCandidates(candidates),
     resolvedRoles: [],
+    resolvedLineups: [],
   };
 }
 
@@ -270,7 +272,7 @@ function pageFromAnnotations(annotations: string[] | undefined): string | undefi
 }
 
 function emptyExtraction(sourceId: string, retrievedAt: string, pages: number, access: "search_only" | "unavailable"): PublicationExtraction {
-  return { sourceId, providerId: "nasjonalbiblioteket", adapter: NB_PUBLICATIONS_ADAPTER, retrievedAt, ocrAccess: access, pagesExpected: pages, pagesProcessed: 0, pagesFailed: [], candidates: [], resolvedRoles: [] };
+  return { sourceId, providerId: "nasjonalbiblioteket", adapter: NB_PUBLICATIONS_ADAPTER, retrievedAt, ocrAccess: access, pagesExpected: pages, pagesProcessed: 0, pagesFailed: [], candidates: [], resolvedRoles: [], resolvedLineups: [] };
 }
 
 function altoUrl(canvas: IiifCanvas): string | undefined {
@@ -421,12 +423,11 @@ export async function writeExtraction(file: string, extraction: PublicationExtra
   // Andre gjennomgang skriver `resolvedRoles` i den samme fila. En ny første
   // gjennomgang kjenner ikke det laget og ville nullet det ut — så det som
   // ligger der fra før beholdes med mindre denne kjøringen selv har roller.
-  const existing = existsSync(file)
-    ? (parse(await readFile(file, "utf8")) as Partial<PublicationExtraction>).resolvedRoles ?? []
-    : [];
+  const previous = existsSync(file) ? parse(await readFile(file, "utf8")) as Partial<PublicationExtraction> : {};
+  const existing = { roles: previous.resolvedRoles ?? [], lineups: previous.resolvedLineups ?? [] };
   const merged: PublicationExtraction = extraction.resolvedRoles.length > 0
     ? extraction
-    : { ...extraction, resolvedRoles: existing };
+    : { ...extraction, resolvedRoles: existing.roles, resolvedLineups: existing.lineups };
   await writeFile(file, stringify(merged, { lineWidth: 0, defaultStringType: "PLAIN" }), "utf8");
 }
 

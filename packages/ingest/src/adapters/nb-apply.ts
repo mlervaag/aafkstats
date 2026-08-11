@@ -142,6 +142,17 @@ async function rewrite(file: string, person: Person): Promise<string> {
   // re-formatert av serialisereren uansett innstilling: originalen har
   // «{ id: … }» med luft og «[title, from]» uten, og de to følger samme flagg.
   // Linjene blir like i innhold, ikke i tegnsetting.
+  const sources = doc.get("sources");
+  if (person.sources.length > 0) {
+    if (!isSeq(sources)) doc.set("sources", doc.createNode(person.sources));
+    else if (sources.items.length < person.sources.length) {
+      const present = new Set(sources.items.map((item) => (isMap(item) ? String(item.get("sourceId")) : "")));
+      for (const source of person.sources) {
+        if (!present.has(source.sourceId)) sources.add(doc.createNode(source));
+      }
+    }
+  }
+
   return doc.toString({ lineWidth: 0, defaultStringType: "PLAIN" });
 }
 
@@ -186,4 +197,77 @@ function bySourceOrder(findings: RoleFinding[]): RoleFinding[] {
   const weight = { high: 0, medium: 1, low: 2 } as const;
   return [...findings].sort((a, b) =>
     weight[a.role.confidence] - weight[b.role.confidence] || a.role.id.localeCompare(b.role.id));
+}
+
+/**
+ * Publikasjonene som omtaler en person, ført som kilder på personen.
+ *
+ * ## Hvorfor dette er trygt når rollene ikke er det
+ *
+ * En `person_mention` med høy sikkerhet er et navn OCR-en fant og som
+ * `candidatesForPage` alt har slått opp mot personregisteret — den bærer en
+ * `personId`, ikke en gjetning. Det er den ene kandidattypen der OCR-støy ikke
+ * kan skape et nytt faktum: enten kjente vi navnet fra før, eller så ble det
+ * ikke en kobling.
+ *
+ * Den sier heller ingenting om hva personen gjorde. Den sier at publikasjonen
+ * omtaler ham, og det er nettopp det en kildehenvisning på personen betyr.
+ *
+ * ## Én henvisning per publikasjon
+ *
+ * Lauritz Giske er nevnt på 283 sider. Én henvisning per side ville gjort
+ * personfila ulesbar uten å si mer enn at bladene skrev om ham. Derfor
+ * aggregeres de til én per publikasjon, med den første siden han står på.
+ */
+export interface MentionFinding {
+  personId: string;
+  sourceId: string;
+  page: string;
+}
+
+export async function applyPersonMentions(
+  archive: Archive,
+  mentions: MentionFinding[],
+  root: string,
+): Promise<{ added: number; people: number }> {
+  const first = new Map<string, MentionFinding>();
+  for (const mention of mentions) {
+    const key = `${mention.personId}|${mention.sourceId}`;
+    const current = first.get(key);
+    if (!current || Number(mention.page) < Number(current.page)) first.set(key, mention);
+  }
+
+  const byId = new Map(archive.people.map((person) => [person.id, structuredClone(person)]));
+  const touched = new Set<string>();
+  let added = 0;
+
+  for (const mention of [...first.values()].sort((a, b) => a.personId.localeCompare(b.personId) || a.sourceId.localeCompare(b.sourceId))) {
+    const person = byId.get(mention.personId);
+    if (!person) continue;
+    // En publikasjon som alt er ført på personen — fra en rolle eller en
+    // tidligere kjøring — skal ikke få en henvisning til.
+    if (person.sources.some((source) => source.sourceId === mention.sourceId)) continue;
+    if (person.roles.some((role) => role.sources.some((source) => source.sourceId === mention.sourceId))) continue;
+
+    person.sources = [...person.sources, {
+      sourceId: mention.sourceId,
+      page: mention.page,
+      // Tom med vilje: en omtale dekker ingen felt på personen. Den sier at
+      // publikasjonen skriver om ham, ikke hva den påstår.
+      fields: [],
+      note: "Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.",
+    }].sort((a, b) => a.sourceId.localeCompare(b.sourceId));
+    added += 1;
+    touched.add(person.id);
+  }
+
+  for (const id of touched) {
+    const person = byId.get(id)!;
+    personSchema.parse(person) satisfies Person;
+    const file = resolve(root, personPath(person.id));
+    await mkdir(dirname(file), { recursive: true });
+    await writeFile(file, await rewrite(file, person), "utf8");
+  }
+
+  return { added, people: touched.size };
 }

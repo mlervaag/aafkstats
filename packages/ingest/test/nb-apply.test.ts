@@ -5,8 +5,8 @@ import { parse } from "yaml";
 import { beforeEach, describe, expect, it } from "vitest";
 import type { Person, ResolvedRole } from "@aafkstats/schema";
 import type { Archive } from "@aafkstats/schema/load";
-import { applyResolvedRoles } from "../src/adapters/nb-apply.js";
-import type { RoleFinding } from "../src/adapters/nb-apply.js";
+import { applyPersonMentions, applyResolvedRoles } from "../src/adapters/nb-apply.js";
+import type { MentionFinding, RoleFinding } from "../src/adapters/nb-apply.js";
 
 function person(overrides: Partial<Person> = {}): Person {
   return {
@@ -150,5 +150,56 @@ describe("applyResolvedRoles", () => {
     await writeFile(join(root, "people", "kari-nordmann.yaml"), "rørt: nei\n", "utf8");
     await applyResolvedRoles(archiveWith([person(), person({ id: "kari-nordmann", name: "Kari Nordmann" })]), [finding()], root);
     expect(await readFile(join(root, "people", "kari-nordmann.yaml"), "utf8")).toBe("rørt: nei\n");
+  });
+});
+
+describe("applyPersonMentions", () => {
+  function mention(overrides: Partial<MentionFinding> = {}): MentionFinding {
+    return { personId: "ola-nordmann", sourceId: "en-publikasjon", page: "12", ...overrides };
+  }
+
+  it("fører publikasjonen som kilde på personen", async () => {
+    const report = await applyPersonMentions(archiveWith([person()]), [mention()], root);
+    expect(report).toMatchObject({ added: 1, people: 1 });
+
+    const written = await readPerson("ola-nordmann");
+    expect(written.sources).toHaveLength(1);
+    expect(written.sources[0]).toMatchObject({ sourceId: "en-publikasjon", page: "12" });
+  });
+
+  /**
+   * Lauritz Giske er nevnt på 283 sider. Én henvisning per side ville gjort
+   * personfila ulesbar uten å si mer enn at bladene skrev om ham.
+   */
+  it("gir én henvisning per publikasjon, med den første siden", async () => {
+    const report = await applyPersonMentions(archiveWith([person()]), [
+      mention({ page: "40" }),
+      mention({ page: "12" }),
+      mention({ page: "77" }),
+    ], root);
+    expect(report.added).toBe(1);
+    expect((await readPerson("ola-nordmann")).sources[0]?.page).toBe("12");
+  });
+
+  it("dobbeltfører ikke en publikasjon som alt står på personen", async () => {
+    const existing = person({ sources: [{ sourceId: "en-publikasjon", fields: [] }] });
+    const report = await applyPersonMentions(archiveWith([existing]), [mention()], root);
+    expect(report.added).toBe(0);
+  });
+
+  it("dobbeltfører ikke en publikasjon som alt belegger en rolle", async () => {
+    const existing = person({
+      roles: [{
+        id: "formann-1917", category: "board", title: "Formann", from: "1917", to: null,
+        sources: [{ sourceId: "en-publikasjon", page: "18", fields: [] }],
+      }],
+    });
+    const report = await applyPersonMentions(archiveWith([existing]), [mention()], root);
+    expect(report.added).toBe(0);
+  });
+
+  it("rører ikke en person omtalen ikke peker på", async () => {
+    const report = await applyPersonMentions(archiveWith([person()]), [mention({ personId: "ukjent" })], root);
+    expect(report).toMatchObject({ added: 0, people: 0 });
   });
 });
