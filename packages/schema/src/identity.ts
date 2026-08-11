@@ -180,6 +180,46 @@ export function personKey(name: string): string {
 }
 
 /**
+ * Er den ene navneformen den andre pluss et navn til?
+ *
+ * ## Feilen dette fanger
+ *
+ * `personKey` bytter tegn, og dublettrapporten finner stavefeil på inntil to
+ * tegn. Ingen av delene ser et mellomnavn. FotMob skriver «Sten Michael
+ * Grytebust» i lagoppstillingene mens personfila heter «Sten Grytebust», og de
+ * to ligger åtte tegn fra hverandre — langt utenfor ethvert fornuftig tak.
+ * Personsida til klubbens keeper viste derfor null kamper mens arkivet hadde
+ * 284 av dem.
+ *
+ * Formen er den samme som `clubKey` løser for klubber: kildens lange form mot
+ * arkivets korte. Der het den «Volda TI - Fotball» mot «Volda»; her heter den
+ * mellomnavn.
+ *
+ * ## Hvorfor ordmengde og ikke avstand
+ *
+ * Et mellomnavn er ikke en stavefeil, det er et ord til. Alle ordene i den
+ * korte formen må finnes i den lange, og den lange må ha minst ett ord ekstra.
+ * Rekkefølgen betyr ingenting: noen kilder skriver etternavnet først.
+ *
+ * Kravet om minst to ord i den korte formen er det som skiller et forslag fra
+ * støy. Uten det ville hvert eneste fornavn i arkivet blitt en kandidat.
+ *
+ * ## Hva funksjonen ikke avgjør
+ *
+ * Om det faktisk *er* samme person. «Ole Hansen» ⊂ «Ole Hansen Berg» kan være
+ * far og sønn like gjerne som én mann med mellomnavn, og det spørsmålet skal et
+ * menneske svare på. Funksjonen sier bare at paret er verdt å se på;
+ * `pnpm data:duplicates` rapporterer det, og et menneske fører kildens form inn
+ * i `names[]` hvis den hører hjemme der.
+ */
+export function isLongerNameForm(shortName: string, longName: string): boolean {
+  const short = new Set(personKey(shortName).split(" ").filter(Boolean));
+  const long = new Set(personKey(longName).split(" ").filter(Boolean));
+  if (short.size < 2 || short.size >= long.size) return false;
+  return [...short].every((word) => long.has(word));
+}
+
+/**
  * Hvilken skrivemåte som skal vises.
  *
  * Den med diakritiske tegn vinner. «Määttä» er navnet, «Maeaettae» er
