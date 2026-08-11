@@ -19,12 +19,66 @@ export const club = z
     country: z.string().length(2).default("NO"),
     city: z.string().optional(),
     founded: foundingYear.optional(),
+    foundedDate: isoDate.optional(),
     aliases: z.record(z.union([z.string(), z.number()])).default({}),
+    sources: z.array(sourceRef).default([]),
     note: z.string().optional(),
   })
   .strict();
 
 export type Club = z.infer<typeof club>;
+
+export const venueSurface = z.enum(["gravel", "grass", "artificial_turf"]);
+
+const venueHistoricalDate = z
+  .union([z.string(), z.date()])
+  .transform((value) => (value instanceof Date ? value.toISOString().slice(0, 10) : value))
+  .pipe(z.string().regex(/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/, "må være ÅÅÅÅ, ÅÅÅÅ-MM eller ÅÅÅÅ-MM-DD"));
+
+export const venueSurfacePeriod = z.object({
+  surface: venueSurface,
+  from: venueHistoricalDate.optional(),
+  to: venueHistoricalDate.nullable().default(null),
+  sources: z.array(sourceRef).min(1),
+  note: z.string().min(1).optional(),
+}).strict();
+
+export const venueHomePeriod = z.object({
+  clubId: slug,
+  from: foundingYear,
+  to: foundingYear.nullable().default(null),
+  sources: z.array(sourceRef).min(1),
+}).strict();
+
+export const venueAttendanceRecord = z.object({
+  attendance: z.number().int().positive(),
+  approximate: z.boolean().default(false),
+  opponent: z.string().min(1),
+  year: foundingYear.optional(),
+  context: z.string().min(1).optional(),
+  sources: z.array(sourceRef).min(1),
+}).strict();
+
+export const venueEvent = z.object({
+  id: slug,
+  date: venueHistoricalDate,
+  kind: z.enum(["construction_start", "opening", "match", "renovation", "reopening", "ownership_change", "clubhouse", "other"]),
+  title: z.string().min(1),
+  attendance: z.number().int().positive().optional(),
+  approximateAttendance: z.boolean().default(false),
+  score: z.object({
+    homeTeam: z.string().min(1),
+    awayTeam: z.string().min(1),
+    home: z.number().int().nonnegative(),
+    away: z.number().int().nonnegative(),
+  }).strict().optional(),
+  participants: z.array(z.object({
+    name: z.string().min(1),
+    affiliation: z.string().min(1).optional(),
+  }).strict()).default([]),
+  sources: z.array(sourceRef).min(1),
+  note: z.string().min(1).optional(),
+}).strict();
 
 /** Stadion eller bane. Navn er tidsavhengig av samme grunn som for klubber. */
 export const venue = z
@@ -36,10 +90,36 @@ export const venue = z
     country: z.string().length(2).default("NO"),
     capacity: z.number().int().positive().optional(),
     opened: foundingYear.optional(),
+    openedDate: isoDate.optional(),
     closed: foundingYear.optional(),
+    closedDate: isoDate.optional(),
+    surface: venueSurface.optional(),
+    surfaceHistory: z.array(venueSurfacePeriod).default([]),
+    homePeriods: z.array(venueHomePeriod).default([]),
+    attendanceRecords: z.array(venueAttendanceRecord).default([]),
+    events: z.array(venueEvent).default([]),
+    sources: z.array(sourceRef).default([]),
     note: z.string().optional(),
   })
-  .strict();
+  .strict()
+  .superRefine((value, ctx) => {
+    for (const [index, period] of value.homePeriods.entries()) {
+      if (period.to !== null && period.to < period.from) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["homePeriods", index, "to"],
+          message: "hjemmebaneperioden slutter før den begynner",
+        });
+      }
+    }
+    const eventIds = new Set<string>();
+    for (const [index, event] of value.events.entries()) {
+      if (eventIds.has(event.id)) {
+        ctx.addIssue({ code: z.ZodIssueCode.custom, path: ["events", index, "id"], message: "duplikat hendelses-ID" });
+      }
+      eventIds.add(event.id);
+    }
+  });
 
 export type Venue = z.infer<typeof venue>;
 

@@ -1,0 +1,10 @@
+id: arnstein-johansen
+name: Arnstein Johansen
+roles:
+  - id: formann-1998
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1998"
+    to: "1998"
+    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]

@@ -21,8 +21,10 @@ CREATE TABLE core_clubs (
   country     TEXT NOT NULL DEFAULT 'NO',
   city        TEXT,
   founded     INTEGER,
+  founded_date TEXT,
   names       TEXT NOT NULL DEFAULT '[]',   -- JSON
   aliases     TEXT NOT NULL DEFAULT '{}',   -- JSON
+  sources     TEXT NOT NULL DEFAULT '[]',   -- JSON
   note        TEXT
 );
 
@@ -33,8 +35,16 @@ CREATE TABLE core_venues (
   country   TEXT NOT NULL DEFAULT 'NO',
   capacity  INTEGER,
   opened    INTEGER,
+  opened_date TEXT,
   closed    INTEGER,
+  closed_date TEXT,
+  surface   TEXT CHECK (surface IN ('gravel','grass','artificial_turf')),
   names     TEXT NOT NULL DEFAULT '[]',
+  surface_history TEXT NOT NULL DEFAULT '[]',
+  home_periods TEXT NOT NULL DEFAULT '[]',
+  attendance_records TEXT NOT NULL DEFAULT '[]',
+  events    TEXT NOT NULL DEFAULT '[]',
+  sources   TEXT NOT NULL DEFAULT '[]',
   note      TEXT
 );
 
@@ -183,7 +193,7 @@ CREATE TABLE core_person_roles (
   person_id    TEXT NOT NULL REFERENCES core_people(id),
   role_id      TEXT NOT NULL,
   category     TEXT NOT NULL CHECK (category IN
-                 ('player','coach','sporting_staff','board','administration','honorary')),
+                 ('player','coach','sporting_staff','board','administration','honorary','founder','project')),
   title        TEXT NOT NULL,
   body         TEXT,
   from_date    TEXT NOT NULL,
@@ -319,6 +329,29 @@ CREATE VIEW core_played AS
 SELECT * FROM core_matches WHERE status IN ('played', 'awarded');
 
 -- ── Publisert kontrakt ──────────────────────────────────────────────────────
+
+-- Stadionfakta er egne historiske påstander. Hjemmebaneperioder og rekorder
+-- beholdes som JSON fordi én bane kan ha flere perioder og flere kildeførte rekorder.
+CREATE VIEW venues AS
+SELECT
+  id,
+  name,
+  city,
+  country,
+  capacity,
+  opened,
+  opened_date,
+  closed,
+  closed_date,
+  surface,
+  names,
+  surface_history,
+  home_periods,
+  attendance_records,
+  events,
+  sources,
+  note
+FROM core_venues;
 
 -- Én rad per kamp, sett fra AaFKs synsvinkel.
 --
@@ -479,7 +512,7 @@ SELECT
 
   -- Hvor godt sesongen er dekket, utledet av kampene og det forventede omfanget.
   --
-  -- «85 sesonger» har hele tiden betydd 85 år med minst én registrert kamp. Det
+  -- «87 sesonger» betyr her 87 år med minst én registrert kamp. Det
   -- er noe annet enn 85 komplette sesonger, og forskjellen var usynlig for den
   -- som leste forsiden.
   --

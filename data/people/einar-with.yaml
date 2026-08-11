@@ -1,0 +1,10 @@
+id: einar-with
+name: Einar With
+roles:
+  - id: formann-1985-1987
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1985"
+    to: "1987"
+    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]

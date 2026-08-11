@@ -1,0 +1,10 @@
+id: helge-myklebust
+name: Helge Myklebust
+roles:
+  - id: formann-1990-1992
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1990"
+    to: "1992"
+    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]

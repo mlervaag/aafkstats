@@ -64,7 +64,7 @@ export interface SeasonSummary {
   /**
    * Hvor godt sesongen er dekket, regnet ut i byggesteget.
    *
-   * «85 sesonger» betyr 85 år med minst én registrert kamp. Uten dette feltet er
+   * «87 sesonger» betyr 87 år med minst én registrert kamp. Uten dette feltet er
    * det umulig for en leser å se forskjell på en komplett serie og tre løsrevne
    * kamper fra 1951.
    *

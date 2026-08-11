@@ -51,12 +51,13 @@ leser fra.
 
 | | |
 |---|---|
-| **1 351 kamper** | Kamper registrert totalt i arkivet |
-| **85 år** | 1917–2026, år med minst én registrert kamp. Cupen tilbake til 1917, serien til 1951 |
-| **161 klubber · 90 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
-| **150 personer** | Registrerte spillere, trenere, ledere og andre personer med kildeførte detaljer eller avvikende navn |
+| **1 353 kamper** | Kamper registrert totalt i arkivet |
+| **87 år** | 1915–2026, år med minst én registrert kamp. Enkeltkamper tilbake til 1915, cupen til 1917, serien til 1951 |
+| **161 klubber · 92 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
+| **226 personer** | Registrerte spillere, trenere, ledere, stiftere, prosjektpersoner og hederspersoner med kildeførte detaljer eller avvikende navn |
 | **8 kilder** | Hver med rettighetsstatus som data, ikke som prosa |
 | **98 publikasjoner analysert** | 3 211 ALTO-sider, 139 søkbare sider og 4 814 faktakandidater uten lagret OCR-prosa |
+| **11 historiesider gjennomgått** | AaFKs offisielle leder-, utmerkelses-, stiftelses-, arkiv- og hjemmebanefakta er strukturert med lenke tilbake |
 | **Brukerbidrag** | Innsendte observasjoner og minner hentet fra redaksjonell innboks |
 
 <sub>Tallene oppdateres kontinuerlig. <code>pnpm validate</code> skriver ut de gjeldende.</sub>
@@ -389,7 +390,7 @@ Kode under [MIT](LICENSE). Egne tekster og arkivets eget redaksjonelle innhold u
 ## Status
 
 Grunnmuren står: datamodell, database, guardrails, portal og datasettdokumentasjon.
-Arkivet dekker 1 351 kamper fra 1917 til i dag. FotMob gir kampdetaljer og hendelser for
+Arkivet dekker 1 353 kamper fra 1915 til i dag. FotMob gir kampdetaljer og hendelser for
 deler av perioden fra 2010, mens kampstatistikk finnes for deler av 2014–2026. Hovedfeltet
 gir direkte kamptreff mens brukeren skriver år og motstander; Enter sender i stedet teksten
 til AI-søket.

@@ -1,0 +1,16 @@
+id: rolf-annaniassen
+name: Rolf Annaniassen
+roles:
+  - id: formann-1965-1966
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1965"
+    to: "1966"
+    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]
+  - id: gullmerkeinnehaver-1976
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1976"
+    to: null
+    sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }]

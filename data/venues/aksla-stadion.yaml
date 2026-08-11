@@ -1,0 +1,60 @@
+id: aksla-stadion
+name: Aksla Stadion
+city: Ålesund
+country: NO
+opened: 1948
+openedDate: 1948-05-26
+surface: grass
+surfaceHistory:
+  - surface: grass
+    from: "1948"
+    to: null
+    sources: [{ sourceId: aafk-historie-aksla-stadion, fields: [surface, from] }]
+homePeriods:
+  - clubId: aalesunds-fk
+    from: 1948
+    to: 1976
+    sources:
+      - sourceId: aafk-historie-hjemmebaner
+        fields: [from, to]
+      - sourceId: aafk-historie-aksla-stadion
+        fields: [from, to]
+attendanceRecords:
+  - attendance: 12000
+    opponent: Gjøvik-Lyn
+    year: 1962
+    context: Kvalifiseringskamp
+    sources:
+      - sourceId: aafk-historie-hjemmebaner
+        fields: [attendance, opponent, year, context]
+      - sourceId: aafk-historie-aksla-stadion
+        fields: [attendance, opponent, year, context]
+events:
+  - id: byggestart-1935
+    date: 1935-05-31
+    kind: construction_start
+    title: Anleggsarbeidet på Aksla startet med 15 arbeidere
+    sources: [{ sourceId: aafk-historie-aksla-stadion }]
+  - id: offisiell-apning-1948
+    date: 1948-05-26
+    kind: opening
+    title: Offisiell åpning av Aksla Stadion
+    attendance: 2500
+    approximateAttendance: true
+    sources: [{ sourceId: aafk-historie-aksla-stadion }]
+  - id: oppgradering-2013
+    date: 2013-10
+    kind: renovation
+    title: Oppgradering av stadion startet
+    sources: [{ sourceId: aafk-historie-aksla-stadion }]
+  - id: gjenapning-2014
+    date: 2014-09-15
+    kind: reopening
+    title: Stadion gjenåpnet etter oppgradering
+    sources: [{ sourceId: aafk-historie-aksla-stadion }]
+    note: Kilden oppgir kostnaden til 15,3 millioner kroner og forrige oppgradering til 1979.
+sources:
+  - sourceId: aafk-historie-hjemmebaner
+    fields: [surface]
+  - sourceId: aafk-historie-aksla-stadion
+    fields: [opened, openedDate, surface]

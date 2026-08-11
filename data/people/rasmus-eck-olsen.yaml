@@ -1,7 +1,15 @@
 id: rasmus-eck-olsen
 name: Rasmus Eck Olsen
-names: [R. Eck Olsen]
+names: [R. Eck Olsen, Rasmus Eck-Olsen]
 roles:
+  - id: stifter-1914
+    category: founder
+    title: Stifter
+    body: Konstituerende generalforsamling
+    from: "1914-06-25"
+    to: "1914-06-25"
+    sources: [{ sourceId: aafk-historie-stiftelsen, fields: [title, from, to] }]
+  - { id: banekomite-1914-1915, category: project, title: Medlem av banekomiteen, body: Nørvebana, from: "1914", to: "1915", sources: [{ sourceId: aafk-historie-norvebana, fields: [title, from, to] }] }
   - id: formann-1920-1924
     category: board
     title: Formann
@@ -23,4 +31,5 @@ roles:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
         fields: [title, from, to]
-
+  - { id: gullmerkeinnehaver-1924, category: honorary, title: Gullmerkeinnehaver, from: "1924", to: null, sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }] }
+  - { id: aeresmedlem-1971, category: honorary, title: Æresmedlem, from: "1971", to: null, sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }] }

@@ -32,6 +32,33 @@ export const DATASET_VERSION = "2";
 
 export const views: ViewDoc[] = [
   {
+    name: "venues",
+    summary: "Stadioner og baner med historiske navn, AaFKs hjemmebaneperioder, dekke og kildeførte publikumsrekorder.",
+    caveats: [
+      "home_periods, attendance_records og sources er JSON-lister. En åpen slutt i en hjemmebaneperiode betyr at kilden ikke oppgir slutten eller at perioden fortsatte da siden ble oppdatert.",
+      "En publikumsrekord kan være omtrentlig. Bruk approximate-feltet inne i attendance_records før tallet omtales som eksakt.",
+    ],
+    columns: [
+      { name: "id", type: "text", description: "Stabil stadion-ID." },
+      { name: "name", type: "text", description: "Kanonisk navn." },
+      { name: "city", type: "text", description: "By. Kan være NULL." },
+      { name: "country", type: "text", description: "Landkode med to bokstaver." },
+      { name: "capacity", type: "integer", description: "Oppgitt kapasitet. Kan være NULL og er ikke det samme som publikumsrekord." },
+      { name: "opened", type: "integer", description: "Åpningsår når kjent." },
+      { name: "opened_date", type: "text", description: "Eksakt åpningsdato når kjent." },
+      { name: "closed", type: "integer", description: "Stengningsår når kjent." },
+      { name: "closed_date", type: "text", description: "Eksakt stengnings- eller sluttdato når kjent." },
+      { name: "surface", type: "text", description: "'gravel', 'grass' eller 'artificial_turf'." },
+      { name: "names", type: "JSON", description: "Tidsavhengige stadionnavn." },
+      { name: "surface_history", type: "JSON", description: "Tidfestede banedekker med kilde og eventuelt forbehold." },
+      { name: "home_periods", type: "JSON", description: "Klubb, fra-/til-år og kilde for hver hjemmebaneperiode." },
+      { name: "attendance_records", type: "JSON", description: "Tilskuertall, motstander, eventuelt år og kontekst, omtrentlig-flagg og kilder." },
+      { name: "events", type: "JSON", description: "Kildede åpninger, kamper, byggestarter, oppgraderinger og andre milepæler." },
+      { name: "sources", type: "JSON", description: "Kilder som dokumenterer stadionets øvrige felt." },
+      { name: "note", type: "text", description: "Forbehold eller kort redaksjonell merknad." },
+    ],
+  },
+  {
     name: "matches",
     summary:
       "Én rad per kamp i arkivet, sett fra AaFKs synsvinkel. Dette er hovedtabellen. " +
@@ -42,7 +69,7 @@ export const views: ViewDoc[] = [
       "result regnes etter ordinær tid pluss ekstraomgang. En kamp avgjort på straffer har result = 'U'. Bruk won_on_penalties for å se hvem som gikk videre.",
       "Kamper som ennå ikke er spilt har status 'scheduled' og NULL i alle resultatkolonner. Regner du statistikk, filtrer på status IN ('played', 'awarded'). Det er den samme regelen alle aggregatene i datasettet bruker: en kamp avgjort på grønt bord har et resultat og teller med, en avbrutt kamp har ingen sluttstilling og teller ikke.",
       "confidence sier hvor sikre opplysningene er. 'probable' er vanlig for kamper før 1990. Si fra i svaret når en kamp ikke er 'confirmed'.",
-      "Kampstatistikken kommer fra FotMob og finnes bare for deler av 2014–2026. Per 9. august 2026 har 276 av 1 351 kamper ballbesittelse, skudd, skudd på mål og cornere; 138 har fouls og offsider; 105 har xG. NULL betyr at kilden ikke leverte feltet, ikke null hendelser.",
+      "Kampstatistikken kommer fra FotMob og finnes bare for deler av 2014–2026. Per 11. august 2026 har 276 av 1 353 kamper ballbesittelse, skudd, skudd på mål og cornere; 138 har fouls og offsider; 105 har xG. NULL betyr at kilden ikke leverte feltet, ikke null hendelser.",
       "Dekningen varierer med kildens historiske payload: 2018 og 2019 leverer ingen av de sju feltene, 2021 leverer fire felt for 17 kamper, og 2024/2025 leverer vanligvis bare de fire grunnfeltene. Én 2024-kamp er holdt utenfor fordi FotMob oppgir 32 cornere.",
       "xG kan ikke sammenlignes ukritisk mellom sesonger: FotMob dokumenterer ikke modellversjonen i kampresponsen, og modellen kan ha endret seg. Arkivet lagrer kildens tall, ikke en egen beregning.",
       "SQLite har ingen boolsk type: is_home, neutral_venue og has_conflicts er heltall 0 eller 1. Skriv «WHERE is_home = 1», ikke «WHERE is_home IS TRUE».",
@@ -310,7 +337,7 @@ export const views: ViewDoc[] = [
       { name: "person_id", type: "text", description: "Personens stabile ID." },
       { name: "name", type: "text", description: "Navnet slik arkivet viser det." },
       { name: "role_id", type: "text", description: "Rollens stabile ID innenfor personen." },
-      { name: "category", type: "text", description: "'player', 'coach', 'sporting_staff', 'board', 'administration' eller 'honorary'." },
+      { name: "category", type: "text", description: "'player', 'coach', 'sporting_staff', 'board', 'administration', 'honorary', 'founder' eller 'project'." },
       { name: "title", type: "text", description: "Historisk tittel, for eksempel Formann eller Kasserer." },
       { name: "body", type: "text", description: "Organisasjonsdel, for eksempel Hovedstyret." },
       { name: "from_date", type: "text", description: "Start som ÅÅÅÅ eller ÅÅÅÅ-MM-DD." },

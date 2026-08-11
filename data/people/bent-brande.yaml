@@ -1,0 +1,11 @@
+id: bent-brande
+name: Bent Brande
+roles:
+  - id: historisk-arkiv-fra-2011
+    category: administration
+    title: Medlem av arbeidsgruppen for Historisk Arkiv
+    from: "2011"
+    to: null
+    sources: [{ sourceId: aafk-historie-arkivet, fields: [title, from] }]
+    note: Kilden oppgir at arbeidsgruppen ble opprettet i 2011 og trekker særlig fram Bent Brandes arbeid.
+  - { id: gullmerkeinnehaver-2017, category: honorary, title: Gullmerkeinnehaver, from: "2017", to: null, sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }] }

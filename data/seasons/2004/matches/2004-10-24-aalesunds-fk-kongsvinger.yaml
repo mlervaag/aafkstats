@@ -16,6 +16,8 @@ away:
   score: 1
   halfTimeScore: null
 neutralVenue: false
+venueId: kramyra-stadion
+attendance: 4789
 events: []
 externalReports: []
 providers:
@@ -31,6 +33,9 @@ providers:
       - home.score
       - away.score
       - competition.round
+sources:
+  - sourceId: aafk-historie-kramyra-stadion
+    fields: [date, venueId, attendance, home.score, away.score]
 confidence: probable
 conflicts: []
 tags: []

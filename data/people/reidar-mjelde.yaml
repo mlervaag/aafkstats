@@ -1,0 +1,10 @@
+id: reidar-mjelde
+name: Reidar Mjelde
+roles:
+  - id: formann-2015-2016
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "2015"
+    to: "2016"
+    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]

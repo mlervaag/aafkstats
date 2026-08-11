@@ -1,0 +1,10 @@
+id: erling-bjorge
+name: Erling Bjørge
+roles:
+  - id: formann-1967-1968
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1967"
+    to: "1968"
+    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]

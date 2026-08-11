@@ -16,7 +16,17 @@ away:
   score: 1
   halfTimeScore: null
 neutralVenue: false
-events: []
+venueId: color-line-stadion
+attendance: 10615
+events:
+  - minute: 40
+    type: goal
+    team: away
+    player: Olivier Occean
+  - minute: 89
+    type: goal
+    team: home
+    player: Lasse Olsen
 externalReports: []
 providers:
   - providerId: rsssf
@@ -31,6 +41,9 @@ providers:
       - home.score
       - away.score
       - competition.round
+sources:
+  - sourceId: aafk-historie-color-line-stadion
+    fields: [date, venueId, attendance, home.score, away.score, events]
 confidence: probable
 conflicts: []
 tags: []

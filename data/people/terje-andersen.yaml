@@ -1,0 +1,10 @@
+id: terje-andersen
+name: Terje Andersen
+roles:
+  - id: formann-1981-1982
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1981"
+    to: "1982"
+    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]

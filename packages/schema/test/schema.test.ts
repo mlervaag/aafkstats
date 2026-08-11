@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { match } from "../src/match.js";
-import { club } from "../src/entities.js";
+import { club, venue } from "../src/entities.js";
 import { crossValidate, loadArchive } from "../src/load.js";
 import { findConflicts } from "../src/observation.js";
 import { source } from "../src/source.js";
@@ -219,6 +219,27 @@ describe("personfiler i fixturen", () => {
     ];
     const issues = crossValidate(archive);
     expect(issues.some((i) => i.message.includes("er også ført på"))).toBe(true);
+  });
+});
+
+describe("stadionskjema", () => {
+  it("bevarer hjemmebaneperiode, dekke og publikumsrekord med kilde", () => {
+    const result = venue.safeParse({
+      id: "aksla-stadion",
+      name: "Aksla Stadion",
+      surface: "grass",
+      homePeriods: [{ clubId: "aalesunds-fk", from: 1948, to: 1976, sources: [{ sourceId: "aafk-hjemmebaner" }] }],
+      attendanceRecords: [{ attendance: 12000, opponent: "Gjøvik-Lyn", year: 1962, sources: [{ sourceId: "aafk-hjemmebaner" }] }],
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it("avviser en hjemmebaneperiode som går baklengs", () => {
+    expect(venue.safeParse({
+      id: "feil-bane",
+      name: "Feil bane",
+      homePeriods: [{ clubId: "aalesunds-fk", from: 1977, to: 1948, sources: [{ sourceId: "kilde" }] }],
+    }).success).toBe(false);
   });
 });
 

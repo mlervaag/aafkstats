@@ -1,0 +1,17 @@
+id: kjell-berentzen
+name: Kjell Berentzen
+roles:
+  - id: formann-1955-1956
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1955"
+    to: "1956"
+    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]
+  - id: formann-1961
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1961"
+    to: "1961"
+    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]

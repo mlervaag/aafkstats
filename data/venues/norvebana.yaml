@@ -1,0 +1,91 @@
+id: norvebana
+name: Nørvebana
+city: Ålesund
+country: NO
+opened: 1915
+openedDate: 1915-05-23
+surface: gravel
+surfaceHistory:
+  - surface: gravel
+    from: "1915"
+    to: "1948"
+    sources:
+      - sourceId: aafk-historie-norvebana
+        fields: [surface, from, to]
+    note: Kilden beskriver dekket som grus og koks.
+  - surface: artificial_turf
+    from: "2015-11-25"
+    to: null
+    sources:
+      - sourceId: aafk-historie-norvebana
+        fields: [surface, from]
+homePeriods:
+  - clubId: aalesunds-fk
+    from: 1915
+    to: 1948
+    sources:
+      - sourceId: aafk-historie-hjemmebaner
+        fields: [from, to]
+      - sourceId: aafk-historie-norvebana
+        fields: [from, to]
+attendanceRecords:
+  - attendance: 6200
+    opponent: Fredig
+    context: NM 3. runde
+    sources:
+      - sourceId: aafk-historie-hjemmebaner
+        fields: [attendance, opponent, context]
+      - sourceId: aafk-historie-norvebana
+        fields: [attendance, opponent, context]
+events:
+  - id: apningskamp-1915
+    date: 1915-05-23
+    kind: opening
+    title: Åpningskamp mellom Aalesund/Rollon og Lyn
+    attendance: 2000
+    approximateAttendance: true
+    score: { homeTeam: Aalesund/Rollon, awayTeam: Lyn, home: 0, away: 9 }
+    participants:
+      - { name: Lars Riise-Hansen, affiliation: AaFK }
+      - { name: Georg Haller, affiliation: AaFK }
+      - { name: Ole Jangaard, affiliation: AaFK }
+      - { name: Emil Mogstad, affiliation: AaFK }
+      - { name: Johan Keller, affiliation: AaFK }
+      - { name: Anders Mogstad, affiliation: AaFK }
+      - { name: Harald Nilsen, affiliation: Rollon }
+      - { name: Alf Andersen, affiliation: Rollon }
+      - { name: Angel Olsen, affiliation: Rollon }
+      - { name: Hans Nordstrand, affiliation: Rollon }
+      - { name: Eben Lindquist, affiliation: Rollon }
+      - { name: Ivar Dahle, affiliation: Rollon }
+    sources:
+      - sourceId: aafk-historie-norvebana
+      - sourceId: aafk-historie-pa-egen-grunn
+  - id: aafk-rollon-1915
+    date: 1915-06-06
+    kind: match
+    title: AaFKs første kamp mot Rollon på Nørvebana
+    score: { homeTeam: AaFK, awayTeam: Rollon, home: 2, away: 2 }
+    sources: [{ sourceId: aafk-historie-norvebana }]
+  - id: aafk-rollon-1920
+    date: 1920-06-13
+    kind: match
+    title: Kamp mellom AaFK og Rollon
+    score: { homeTeam: AaFK, awayTeam: Rollon, home: 3, away: 1 }
+    sources: [{ sourceId: aafk-historie-norvebana }]
+  - id: kommunal-overtakelse-1936
+    date: 1936-01-01
+    kind: ownership_change
+    title: Ålesund kommune overtok Nørvebana
+    sources: [{ sourceId: aafk-historie-norvebana }]
+  - id: kunstgressapning-2015
+    date: 2015-11-25
+    kind: reopening
+    title: Offisiell åpning etter ombygging til kunstgress
+    participants: [{ name: Trond Fredriksen, affiliation: AaFK }]
+    sources: [{ sourceId: aafk-historie-norvebana }]
+sources:
+  - sourceId: aafk-historie-hjemmebaner
+    fields: [surface]
+  - sourceId: aafk-historie-norvebana
+    fields: [opened, openedDate, surface]

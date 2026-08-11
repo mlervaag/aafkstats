@@ -4,5 +4,57 @@ city: Ålesund
 country: NO
 capacity: 10778
 opened: 2005
+openedDate: 2005-04-16
+surface: artificial_turf
+surfaceHistory:
+  - surface: artificial_turf
+    from: "2005"
+    to: null
+    sources: [{ sourceId: aafk-historie-color-line-stadion, fields: [surface, from] }]
 names:
   - { name: Color Line Stadion, from: "2005-01-01", to: null }
+homePeriods:
+  - clubId: aalesunds-fk
+    from: 2005
+    to: null
+    sources:
+      - sourceId: aafk-historie-hjemmebaner
+        fields: [from, to]
+      - sourceId: aafk-historie-color-line-stadion
+        fields: [from, to]
+attendanceRecords:
+  - attendance: 10903
+    opponent: HamKam
+    year: 2005
+    sources:
+      - sourceId: aafk-historie-hjemmebaner
+        fields: [attendance, opponent, year]
+      - sourceId: aafk-historie-color-line-stadion
+        fields: [attendance, opponent, year]
+events:
+  - id: grunnarbeid-2003
+    date: 2003-04
+    kind: construction_start
+    title: Grunnarbeidet startet
+    sources: [{ sourceId: aafk-historie-color-line-stadion }]
+  - id: byggestart-2004
+    date: 2004-03-15
+    kind: construction_start
+    title: Byggingen av banen og stadionbygningene startet
+    sources: [{ sourceId: aafk-historie-color-line-stadion }]
+  - id: apningskamp-2005
+    date: 2005-04-16
+    kind: opening
+    title: Åpningskamp mot Odd
+    attendance: 10615
+    score: { homeTeam: AaFK, awayTeam: Odd, home: 2, away: 1 }
+    participants:
+      - { name: Olivier Occean, affiliation: Odd }
+      - { name: Lasse Olsen, affiliation: AaFK }
+      - { name: Eirik Hoseth, affiliation: AaFK }
+    sources: [{ sourceId: aafk-historie-color-line-stadion }]
+sources:
+  - sourceId: aafk-historie-hjemmebaner
+    fields: [surface]
+  - sourceId: aafk-historie-color-line-stadion
+    fields: [opened, openedDate, surface]

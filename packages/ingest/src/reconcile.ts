@@ -108,7 +108,14 @@ export function reconcile(
     const sourceTeam = sourceMatches
       .flatMap((match) => [match.home, match.away])
       .find((team) => team.externalId === externalId);
-    const club: Club = { id, name, names: [], country: sourceTeam?.country ?? "NO", aliases: { [options.providerId]: externalId } };
+    const club: Club = {
+      id,
+      name,
+      names: [],
+      country: sourceTeam?.country ?? "NO",
+      aliases: { [options.providerId]: externalId },
+      sources: [],
+    };
     clubs.push(club);
     newClubs.add(id);
     return club;
@@ -126,6 +133,11 @@ export function reconcile(
       city: source.venueCity,
       country: source.venueCountry ?? "NO",
       capacity: source.venueCapacity,
+      surfaceHistory: [],
+      homePeriods: [],
+      attendanceRecords: [],
+      events: [],
+      sources: [],
     };
     venues.push(venue);
     newVenues.add(venue.id);

@@ -39,9 +39,10 @@ export default function OrganizationPage() {
   const roles = getPersonRoles();
   const sourceTitles = getSourceTitles();
   const chairs = roles.filter((role) => role.category === "board" && role.title === "Formann");
-  const administration = roles.filter((role) => ["administration", "sporting_staff"].includes(role.category));
+  const administration = roles.filter((role) => ["administration", "sporting_staff", "project"].includes(role.category));
   const sporting = roles.filter((role) => ["coach", "sporting_staff"].includes(role.category));
   const honorary = roles.filter((role) => role.category === "honorary");
+  const founders = roles.filter((role) => role.category === "founder");
   const firstYear = chairs[0]?.from_date.slice(0, 4) ?? "–";
   const lastYear = chairs.at(-1)?.to_date?.slice(0, 4) ?? chairs.at(-1)?.from_date.slice(0, 4) ?? "–";
 
@@ -57,7 +58,7 @@ export default function OrganizationPage() {
           </p>
         </div>
         <div className={styles.coverage}>
-          <span>Pilotdekning</span>
+          <span>Kildedekning</span>
           <strong>{firstYear}–{lastYear}</strong>
           <p>{roles.length} kildeførte roller · {new Set(roles.map((role) => role.person_id)).size} personer</p>
         </div>
@@ -72,7 +73,7 @@ export default function OrganizationPage() {
         <div>
           <p className="eyebrow">Historisk ledelse</p>
           <h2>Formenn</h2>
-          <p>År for år slik 25-årsskriftet oppgir rekken, supplert av 35-årsberetningen.</p>
+          <p>År for år fra jubileumsskriftene og klubbens offisielle historiske lederliste.</p>
         </div>
         <div className={styles.legend}>
           <span><i className={styles.confirmed} /> Kildeført periode</span>
@@ -84,15 +85,24 @@ export default function OrganizationPage() {
         <RoleList roles={chairs} sourceTitles={sourceTitles} />
       </section>
 
+      {founders.length > 0 ? (
+        <section className={styles.sportSection}>
+          <p className="eyebrow">25. juni 1914</p>
+          <h2>Stifterne</h2>
+          <p className={styles.sectionLead}>Personene som undertegnet protokollen ved klubbens konstituerende generalforsamling.</p>
+          <RoleList roles={founders} sourceTitles={sourceTitles} />
+        </section>
+      ) : null}
+
       <div className={styles.columns}>
         <section>
           <p className="eyebrow">Driften av klubben</p>
-          <h2>Administrasjon og øvrige verv</h2>
+          <h2>Administrasjon, anlegg og øvrige verv</h2>
           {administration.length > 0 ? <RoleList roles={administration} sourceTitles={sourceTitles} /> : <p className="muted">Ingen roller registrert ennå.</p>}
         </section>
         <section>
           <p className="eyebrow">Klubbens heder</p>
-          <h2>Æresmedlemmer</h2>
+          <h2>Heder og utmerkelser</h2>
           {honorary.length > 0 ? <RoleList roles={honorary} sourceTitles={sourceTitles} /> : <p className="muted">Ingen roller registrert ennå.</p>}
         </section>
       </div>
@@ -105,11 +115,11 @@ export default function OrganizationPage() {
       </section>
 
       <aside className={styles.pilotNote}>
-        <div><p className="eyebrow">Slik vokser arkivet</p><h2>Fra dokument til struktur</h2></div>
+        <div><p className="eyebrow">Kildekritisk arkiv</p><h2>Fra dokument til struktur</h2></div>
         <p>
-          Denne første oversikten er hentet fra jubileumsskriftene fra 1939 og 1950.
-          Nye medlemsblader kan fylle inn komplette styrer, sportsutvalg, ansatte og
-          trenerapparat uten at den opprinnelige teksten kopieres.
+          Oversikten kombinerer jubileumsskrifter med AaFKs egne historiske sider.
+          Roller og årstall lagres som fakta med kilde, mens den opprinnelige brødteksten
+          blir hos utgiveren. Uenige perioder beholdes som kildeavvik.
         </p>
       </aside>
     </article>

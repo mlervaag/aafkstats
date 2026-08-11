@@ -1,0 +1,10 @@
+id: kjell-tennfjord
+name: Kjell Tennfjord
+roles:
+  - id: formann-2011-2015
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "2011"
+    to: "2015"
+    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]

@@ -1,0 +1,6 @@
+id: finn-tollas
+name: Finn Tollås
+names: [Finn Tolaas]
+roles:
+  - { id: styremedlem-1950, category: board, title: Styremedlem, body: Hovedstyret, from: "1950", to: "1950", sources: [{ sourceId: aafk-historie-kramyra-stadion, fields: [title, from, to] }] }
+  - { id: gullmerkeinnehaver-1964, category: honorary, title: Gullmerkeinnehaver, from: "1964", to: null, sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }] }

@@ -1,0 +1,17 @@
+id: bjorn-drablos
+name: Bjørn Drabløs
+roles:
+  - id: formann-1975-1976
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1975"
+    to: "1976"
+    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]
+  - id: formann-1978
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1978"
+    to: "1978"
+    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]

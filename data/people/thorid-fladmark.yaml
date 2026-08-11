@@ -1,0 +1,10 @@
+id: thorid-fladmark
+name: Thorid Fladmark
+roles:
+  - id: formann-1983-1984
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1983"
+    to: "1984"
+    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]

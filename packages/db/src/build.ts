@@ -54,24 +54,26 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
   db.exec("BEGIN");
   try {
     const insertClub = db.prepare(
-      `INSERT INTO core_clubs (id, name, short_name, country, city, founded, names, aliases, note)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO core_clubs (id, name, short_name, country, city, founded, founded_date, names, aliases, sources, note)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     );
     for (const c of archive.clubs) {
       insertClub.run(
         c.id, c.name, c.shortName ?? null, c.country, c.city ?? null,
-        c.founded ?? null, json(c.names), json(c.aliases), c.note ?? null,
+        c.founded ?? null, c.foundedDate ?? null, json(c.names), json(c.aliases), json(c.sources), c.note ?? null,
       );
     }
 
     const insertVenue = db.prepare(
-      `INSERT INTO core_venues (id, name, city, country, capacity, opened, closed, names, note)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO core_venues (id, name, city, country, capacity, opened, opened_date, closed, closed_date, surface, names, surface_history, home_periods, attendance_records, events, sources, note)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     );
     for (const v of archive.venues) {
       insertVenue.run(
         v.id, v.name, v.city ?? null, v.country, v.capacity ?? null,
-        v.opened ?? null, v.closed ?? null, json(v.names), v.note ?? null,
+        v.opened ?? null, v.openedDate ?? null, v.closed ?? null, v.closedDate ?? null,
+        v.surface ?? null, json(v.names), json(v.surfaceHistory), json(v.homePeriods),
+        json(v.attendanceRecords), json(v.events), json(v.sources), v.note ?? null,
       );
     }
 

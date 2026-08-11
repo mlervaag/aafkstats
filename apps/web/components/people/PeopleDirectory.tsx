@@ -21,6 +21,8 @@ const ROLE_LABELS: Record<string, string> = {
   board: "Styre",
   administration: "Administrasjon",
   honorary: "Heder",
+  founder: "Stifter",
+  project: "Anlegg og prosjekt",
 };
 
 const POSITION_LABELS: Record<string, string> = {
@@ -39,7 +41,7 @@ function belongsTo(person: PersonSummary, filter: FilterId): boolean {
   if (filter === "player") return person.appearances > 0 || person.position !== null || person.role_categories.includes("player");
   if (filter === "coach") return person.role_categories.includes("coach");
   if (filter === "honorary") return person.role_categories.includes("honorary");
-  return person.role_categories.some((role) => ["board", "administration", "sporting_staff"].includes(role));
+  return person.role_categories.some((role) => ["board", "administration", "sporting_staff", "founder", "project"].includes(role));
 }
 
 function period(person: PersonSummary): string | null {

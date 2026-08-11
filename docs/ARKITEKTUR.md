@@ -77,7 +77,7 @@ teller på kanten, og kostnadstaket ligger hos modelleverandøren. Se
 [`apps/web/lib/rate-limit.ts`](../apps/web/lib/rate-limit.ts) for hvordan det henger sammen,
 og hva reservelaget i minnet faktisk er verdt.
 
-Hele arkivet — 1 351 kamper — bygges lokalt til én liten SQLite-fil. Byggetid og filstørrelse
+Hele arkivet — 1 353 kamper — bygges lokalt til én liten SQLite-fil. Byggetid og filstørrelse
 varierer med maskin og SQLite-versjon og oppgis derfor ikke som faste arkivfakta.
 
 ## Lag for lag
@@ -145,6 +145,11 @@ Personroller er egne, kildeførte relasjoner i personfila og bygges til
 og organisasjonsverv på samme identitet, mens `/organisasjon` kan gruppere de samme
 rollene som styrer og tidslinjer uten å kopiere data. Sesonger og kamper peker direkte
 på historiske publikasjoner med `sourceRef`; kildesiden viser koblingen tilbake.
+
+Stadionfakta følger samme prinsipp. Dekkehistorikk, hjemmebaneperioder, milepæler og publikumsrekorder ligger
+i YAML med `sourceRef`, bygges som JSON til `core_venues` og eksponeres gjennom det
+offentlige `venues`-viewet. Dermed kan en hjemmebaneperiode være åpen selv om banen har et
+annet faktisk åpningsår, og en omtrentlig publikumsrekord mister ikke forbeholdet sitt.
 
 Masseuttrekket fra NB ligger i et eget kandidatlag. `data/extractions/` valideres av
 `publicationExtraction`, bygges til `core_publication_extractions` og

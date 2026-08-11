@@ -16,6 +16,8 @@ away:
   score: 1
   halfTimeScore: null
 neutralVenue: false
+venueId: kramyra-stadion
+attendance: 11000
 events: []
 externalReports: []
 providers:
@@ -31,6 +33,10 @@ providers:
       - home.score
       - away.score
       - competition.round
+sources:
+  - sourceId: aafk-historie-kramyra-stadion
+    fields: [venueId, attendance, home.score, away.score]
+    note: Kilden oppgir tilskuertallet som cirka 11 000.
 confidence: probable
 conflicts: []
 tags: []

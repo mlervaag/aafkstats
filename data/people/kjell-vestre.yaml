@@ -1,0 +1,10 @@
+id: kjell-vestre
+name: Kjell Vestre
+roles:
+  - id: formann-1977
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1977"
+    to: "1977"
+    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]

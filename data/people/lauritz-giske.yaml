@@ -1,0 +1,16 @@
+id: lauritz-giske
+name: Lauritz Giske
+roles:
+  - id: formann-1953-1954
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1953"
+    to: "1954"
+    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]
+  - id: gullmerkeinnehaver-1972
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1972"
+    to: null
+    sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }]

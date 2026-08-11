@@ -1,6 +1,7 @@
 id: nils-jangaard
 name: Nils Jangaard
 roles:
+  - { id: banekomite-1914-1915, category: project, title: Medlem av banekomiteen, body: Nørvebana, from: "1914", to: "1915", sources: [{ sourceId: aafk-historie-norvebana, fields: [title, from, to] }] }
   - id: sekretaer-1915
     category: administration
     title: Sekretær
@@ -44,4 +45,4 @@ roles:
       - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
         page: "4"
         fields: [title, from, to]
-
+  - { id: gullmerkeinnehaver-1919, category: honorary, title: Gullmerkeinnehaver, from: "1919", to: null, sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }] }

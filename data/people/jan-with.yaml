@@ -1,0 +1,22 @@
+id: jan-with
+name: Jan With
+roles:
+  - id: formann-1972-1974
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1972"
+    to: "1974"
+    sources: [{ sourceId: aafk-historie-ledere, fields: [title, from, to] }]
+  - id: gullmerkeinnehaver-1978
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1978"
+    to: null
+    sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }]
+  - id: aeresmedlem-1981
+    category: honorary
+    title: Æresmedlem
+    from: "1981"
+    to: null
+    sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }]

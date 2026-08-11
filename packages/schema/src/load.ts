@@ -282,6 +282,33 @@ export function crossValidate(archive: Archive): LoadIssue[] {
   duplicates(archive.contributions, "contributions");
   duplicates(archive.sources, "sources");
 
+  for (const club of archive.clubs) {
+    for (const ref of club.sources) {
+      if (!sourceIds.has(ref.sourceId)) {
+        issues.push({ file: `clubs/${club.id}.yaml`, path: "sources", message: `ukjent historisk kilde «${ref.sourceId}»` });
+      }
+    }
+  }
+  for (const venue of archive.venues) {
+    const refs = [
+      ...venue.sources,
+      ...venue.surfaceHistory.flatMap((period) => period.sources),
+      ...venue.homePeriods.flatMap((period) => period.sources),
+      ...venue.attendanceRecords.flatMap((record) => record.sources),
+      ...venue.events.flatMap((event) => event.sources),
+    ];
+    for (const ref of refs) {
+      if (!sourceIds.has(ref.sourceId)) {
+        issues.push({ file: `venues/${venue.id}.yaml`, path: "sources", message: `ukjent historisk kilde «${ref.sourceId}»` });
+      }
+    }
+    for (const period of venue.homePeriods) {
+      if (!clubIds.has(period.clubId)) {
+        issues.push({ file: `venues/${venue.id}.yaml`, path: "homePeriods.clubId", message: `ukjent klubb «${period.clubId}»` });
+      }
+    }
+  }
+
   const matchIds = ids(archive.matches);
   const personIds = ids(archive.people);
   for (const extraction of archive.extractions) {

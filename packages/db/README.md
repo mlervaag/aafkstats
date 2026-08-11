@@ -15,13 +15,14 @@ src/
 
 **Arkivfilen bygges fra bunnen, aldri inkrementelt.** Resultatet avhenger da bare av
 innholdet i `data/`: to bygg av samme commit gir samme fil, og en slettet YAML-fil forsvinner
-faktisk. De 1 351 kampene bygges lokalt til én liten SQLite-fil; byggetid og filstørrelse er
+faktisk. De 1 353 kampene bygges lokalt til én liten SQLite-fil; byggetid og filstørrelse er
 miljøavhengige og behandles ikke som arkivfakta.
 
 **Skillet mellom rådata og publisert datasett ligger i navnet.** SQLite har ingen schemas, så
 tabellene heter `core_*` og er interne, mens viewene uten prefiks er den offentlige
-kontrakten: `matches`, `seasons`, `opponents`, `standings`, `squad`, `match_events`,
-`match_conflicts`, `providers`, `sources`, `contributions` og FTS-tabellen `reports`.
+kontrakten: `matches`, `venues`, `seasons`, `opponents`, `standings`, `squad`, `match_events`,
+`match_conflicts`, `people`, `person_roles`, `providers`, `sources`, `contributions`,
+`publication_extractions`, `fact_candidates` og FTS-tabellen `reports`.
 Spørrefunksjonen ser bare viewene.
 
 **Alt som kan løses én gang, løses ved bygging.** AaFK-perspektivet, tidsavhengige navn og

@@ -1,6 +1,13 @@
 id: olaf-ingebrigtsen
 name: Olaf Ingebrigtsen
 roles:
+  - id: stifter-1914
+    category: founder
+    title: Stifter
+    body: Konstituerende generalforsamling
+    from: "1914-06-25"
+    to: "1914-06-25"
+    sources: [{ sourceId: aafk-historie-stiftelsen, fields: [title, from, to] }]
   - id: formann-1916
     category: board
     title: Formann
@@ -11,4 +18,3 @@ roles:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
         fields: [title, from, to]
-
