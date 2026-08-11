@@ -43,8 +43,8 @@ export default function Home() {
               treningskamper. Setningen leses av hver besøkende og var det siste
               stedet dekningen fortsatt ble påstått for hånd. */}
           <p className="lede">
-            Søk opp kamper direkte, eller still spørsmål i fritekst.
-            Arkivet dekker foreløpig {coveredCompetitions()} fra{" "}
+            Søk opp kamper og personer direkte, eller still spørsmål i fritekst.
+            Kampregisteret dekker foreløpig {coveredCompetitions()} fra{" "}
             {totals.first?.slice(0, 4) ?? "-"} til {totals.last?.slice(0, 4) ?? "-"}.
           </p>
         </div>
