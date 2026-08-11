@@ -346,17 +346,18 @@ candidates:
       - trond-fredriksen
     matchIds: []
 resolvedRoles:
-  - id: rolle-a84b2d23c35da2c5
+  - id: rolle-3169b9308598d447
     page: "7"
     column: 0
     personName: Kjetil Rekdal
     personId: kjetil-rekdal
     category: coach
     title: Trener
+    body: Supporterklubben
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-d0d77d0684ae4e88
+  - id: rolle-088c64c3e2aeb921
     page: "8"
     column: 0
     personName: Ivar Morten Normark
@@ -366,7 +367,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-5144ae022af1ab14
+  - id: rolle-cf1e17c291c734a4
     page: "20"
     column: 1
     personName: Kjetil Rekdal. Jonathan Parr
@@ -375,7 +376,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-f5011177424f1b11
+  - id: rolle-77e51d04bc98106c
     page: "21"
     column: 0
     personName: Kjell Jonevret
@@ -384,7 +385,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-5036588dd8fb41e1
+  - id: rolle-1a8a6a84f5b3a88a
     page: "22"
     column: 1
     personName: Toril Hole Standal
@@ -393,3 +394,4 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups: []

@@ -2110,34 +2110,37 @@ candidates:
       - lauritz-giske
     matchIds: []
 resolvedRoles:
-  - id: rolle-3cbe934b155996f8
+  - id: rolle-df0b3fc34b2832fc
     page: "9"
     column: 0
     personName: Astrid Luthentun
     category: administration
     title: Sekretær
+    body: Arrangementskomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-36e3cd091cd6a1f4
+  - id: rolle-b5b9c85abc56bc88
     page: "9"
     column: 0
     personName: Lollo Stub
     category: board
     title: Nestformann
+    body: Arrangementskomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a2de84dccda70767
+  - id: rolle-d19847ee9bb159eb
     page: "9"
     column: 1
     personName: Sam Alsaker Nøstdahl
     category: board
     title: Formann
+    body: Arrangementskomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-78f11e967419254f
+  - id: rolle-004973f87a76fb31
     page: "10"
     column: 2
     personName: Asbjørn Korsnes
@@ -2147,66 +2150,72 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-e095fcfc6dd76e6e
+  - id: rolle-152fb4c022772da7
     page: "12"
     column: 2
     personName: Asbjørn Korsnes
     personId: asbjorn-korsnes
     category: board
     title: Nestformann
+    body: Dommerkomiteen
     from: "1957"
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-dc1a7e21b4e83b37
+  - id: rolle-d89dc84561e37d99
     page: "12"
     column: 2
     personName: Hans Jacob Henriksen
     category: board
     title: Formann
+    body: Dommerkomiteen
     from: "1957"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-82cb9b7c3f5ac81a
+  - id: rolle-29b2a6bb1f529db5
     page: "12"
     column: 2
     personName: Harald Sæther
     category: administration
     title: Kasserer
+    body: Dommerkomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-56f3778f96a7c259
+  - id: rolle-89f17fe855e3be36
     page: "12"
     column: 2
     personName: Ole Walderhaug
     category: sporting_staff
     title: Oppmann
+    body: Dommerkomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a5aa431cf1949ee9
+  - id: rolle-e1e45b1d98d80d17
     page: "12"
     column: 2
     personName: Perry Ystenes
     personId: perry-ystenes
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-f437e7625544abaa
+  - id: rolle-48ec0ab35d2354ff
     page: "12"
     column: 2
     personName: Rolf Kvissel
     category: administration
     title: Sekretær
+    body: Dommerkomiteen
     from: "1957"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-a8442e3d044ee81a
+  - id: rolle-7d9f85b722ebe118
     page: "14"
     column: 0
     personName: Ole Walderhaug
@@ -2215,7 +2224,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-c61916c1ecf53c8e
+  - id: rolle-a4b14e57dbc36d69
     page: "20"
     column: 0
     personName: Rolf Larssen
@@ -2224,7 +2233,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-fb989d1dfec15f7d
+  - id: rolle-b86d42db99282d54
     page: "24"
     column: 1
     personName: A. Korsnes
@@ -2233,7 +2242,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-e700ba45321ab62b
+  - id: rolle-387cedce27a91f74
     page: "24"
     column: 1
     personName: Hans Henriksen
@@ -2242,7 +2251,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-0e93fd20e668b618
+  - id: rolle-ea967888839380ef
     page: "24"
     column: 2
     personName: Asbjørn Korsnes
@@ -2251,9 +2260,9 @@ resolvedRoles:
     title: Nestformann
     from: "1958"
     to: null
-    confidence: high
+    confidence: medium
     rule: role_then_name
-  - id: rolle-44db3f42a91c134a
+  - id: rolle-588fe95cf738cc98
     page: "24"
     column: 2
     personName: Eric Carlzen
@@ -2262,7 +2271,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-6a4bbfb07bba8f01
+  - id: rolle-eb1517c214e5ca3e
     page: "24"
     column: 2
     personName: Hans Jacob Henriksen
@@ -2272,7 +2281,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-425ea3205bd4ce31
+  - id: rolle-61408e082684d227
     page: "24"
     column: 2
     personName: Harald Sæther
@@ -2281,16 +2290,17 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-86e4db1aab9b3bd9
+  - id: rolle-54a4bebde80c8769
     page: "24"
     column: 2
     personName: Lollo Lollo Stub. Stub
     category: board
     title: Nestformann
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-d40d8713ed0213e2
+  - id: rolle-cf540c180ae960ca
     page: "24"
     column: 2
     personName: Ole Walderhaug
@@ -2299,17 +2309,18 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-7c0565c9dccb3172
+  - id: rolle-01a9e37310024951
     page: "24"
     column: 2
     personName: Perry Ystenes
     personId: perry-ystenes
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-599ec1a1202b681e
+  - id: rolle-6e5edd672d4da30b
     page: "24"
     column: 2
     personName: Rolf Kvissel
@@ -2319,7 +2330,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-6b1bc5a589c1ccc2
+  - id: rolle-74d74093a7515ec9
     page: "35"
     column: 1
     personName: Eric Carlzen
@@ -2328,7 +2339,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-22d0cc3b8070d02e
+  - id: rolle-628be2833626e739
     page: "35"
     column: 1
     personName: Ragnar Pedersen
@@ -2337,7 +2348,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-cfd6d371c043d8e0
+  - id: rolle-6e1dc9d4f852f688
     page: "43"
     column: 0
     personName: Eric Carlzen
@@ -2346,7 +2357,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-049215d0194b82eb
+  - id: rolle-366cde08dfbb3fd0
     page: "54"
     column: 0
     personName: Jan Larsen
@@ -2355,7 +2366,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-7cb2ba5929268790
+  - id: rolle-a6b4b560c1b0ff61
     page: "58"
     column: 0
     personName: Trygve Olsen
@@ -2364,16 +2375,17 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-d7e8e0301a5b62c5
+  - id: rolle-4e1517feaaa4e739
     page: "64"
     column: 0
     personName: Bjørn Riise. Banekomite
     category: sporting_staff
     title: Oppmann
+    body: Gutteutvalget
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-946c52793291898b
+  - id: rolle-322ea08efa69fcae
     page: "64"
     column: 0
     personName: Hans Henriksen
@@ -2382,7 +2394,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-b22618e884970ef6
+  - id: rolle-c2a80c8e9b1d52ed
     page: "64"
     column: 0
     personName: Harald Sæther. Varamenn
@@ -2391,7 +2403,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-5debab2596ac0ec6
+  - id: rolle-cf05c20e0a887b50
     page: "64"
     column: 0
     personName: Kjell Saure
@@ -2400,7 +2412,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-278c77cd0155bea8
+  - id: rolle-8d26fea00b182a61
     page: "64"
     column: 0
     personName: Knut Høyer
@@ -2409,7 +2421,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-35080a32df21597f
+  - id: rolle-5436c81a6c336023
     page: "64"
     column: 0
     personName: Ole Walderhaug
@@ -2418,26 +2430,28 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-b8ae6517057a0308
+  - id: rolle-104c4b64847d3bc4
     page: "64"
     column: 0
     personName: Reidar Skarbøvik
     personId: reidar-skarbovik
     category: sporting_staff
     title: Oppmann
+    body: Gutteutvalget
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-b7cba9462af8c8b1
+  - id: rolle-3a3ee6d7923bf826
     page: "64"
     column: 0
     personName: Trygve Olsen
     category: sporting_staff
     title: Oppmann
+    body: Juniorutvalget
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-2de0c9b94139ea23
+  - id: rolle-0db25705dee398bf
     page: "68"
     column: 1
     personName: Hans Henriknen
@@ -2446,7 +2460,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a7c20f95841324ed
+  - id: rolle-d6085d51054f569d
     page: "76"
     column: 0
     personName: I KFK's
@@ -2455,12 +2469,14 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-86b4592006da883d
+  - id: rolle-f9ae4ac6f2c155b3
     page: "83"
     column: 2
     personName: K. B. Sverre Høyer
     category: administration
     title: Kasserer
+    body: Gutteutvalget
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups: []

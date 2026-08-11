@@ -3172,111 +3172,121 @@ candidates:
       - knut-gaaseide
     matchIds: []
 resolvedRoles:
-  - id: rolle-fff8f7187200fc62
+  - id: rolle-3477a4d30ba869a6
     page: "2"
     column: 0
     personName: Bjørn Riise
     personId: bjorn-riise
     category: sporting_staff
     title: Oppmann
+    body: Hyttekomitéen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-c67fd2c9f1a28293
-    page: "5"
-    column: 0
-    personName: Sheffield United
-    category: coach
-    title: Trener
-    from: "1946"
-    to: null
-    confidence: medium
-    rule: name_then_role
-  - id: rolle-39b5c0f9521d8d59
+  - id: rolle-20f56749b29bbd78
     page: "10"
     column: 0
     personName: Frantz Løv-
     category: administration
     title: Sekretær
+    body: Banekomitéen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-0d69b887fe0455b9
+  - id: rolle-972debc9d25ed52d
     page: "10"
     column: 0
     personName: Peder Puck
     personId: peder-puck
     category: administration
     title: Kasserer
+    body: Banekomitéen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-d4ec8066804f247b
+  - id: rolle-e6de0b2712e51fbe
     page: "10"
     column: 1
     personName: Reidar Steen Jensens
     category: coach
     title: Trener
+    body: Banekomitéen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-3dccf1c57ce6bf29
+  - id: rolle-c3e032e4439c763e
     page: "11"
     column: 1
     personName: Finn Tolaas
     personId: finn-tollas
     category: administration
     title: Kasserer
+    body: Hyttekomitéen
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-5f2ebc537b3d7937
+  - id: rolle-b38d7537d7c98ba4
     page: "11"
     column: 1
     personName: Finn Tolaas
     personId: finn-tollas
     category: administration
     title: Sekretær
+    body: Hyttekomitéen
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-2da8205075b0900b
+  - id: rolle-22c434e4cba4e7ce
     page: "11"
     column: 2
     personName: Da Asbjørn Ystenes
     category: administration
     title: Kasserer
+    body: Hyttekomitéen
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-d8835867f6ab9c53
+  - id: rolle-d0fd9b253fc21cb5
     page: "12"
     column: 0
     personName: Gunnar Stakeng
     category: board
     title: Formann
+    body: Guttegruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-b7b5622d9ce234cc
+  - id: rolle-db48a5ef42b8882e
     page: "12"
     column: 0
     personName: Hans Ole Sødergren
     category: administration
     title: Kasserer
+    body: Guttegruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-99fd80154dc15cbe
+  - id: rolle-e94d4e49fab406a0
     page: "12"
     column: 0
     personName: Svein Rødland
     category: board
     title: Formann
+    body: Guttegruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-8856ba8bd52eafca
+  - id: rolle-e6a43b910404dfe9
+    page: "12"
+    column: 0
+    personName: Treningen Telefon
+    category: board
+    title: Formann
+    from: "1357"
+    to: null
+    confidence: medium
+    rule: name_then_year
+  - id: rolle-04f65c8458e4c45f
     page: "22"
     column: 1
     personName: Miguel Munoz
@@ -3285,7 +3295,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-6c41ea38efdc7198
+  - id: rolle-64f56d04cb419a7e
     page: "23"
     column: 1
     personName: Hans Henriksen
@@ -3294,17 +3304,18 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-3b496fdd47dc973c
+  - id: rolle-a3110f8a4748956c
     page: "24"
     column: 0
     personName: Jan With
     personId: jan-with
     category: board
     title: Formann
+    body: Banekomitéen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-6077c5655a27e6b7
+  - id: rolle-5ff92a7cee54c180
     page: "36"
     column: 2
     personName: Einar Aas
@@ -3314,7 +3325,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-6a8ff2c65d0b3def
+  - id: rolle-1011574a9b71966e
     page: "36"
     column: 2
     personName: Hans Jacob Henriksen
@@ -3324,16 +3335,17 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-293e9ee4e7299489
+  - id: rolle-4ed9be5698977a39
     page: "36"
     column: 2
     personName: Hans Vadseth
     category: board
     title: Formann
+    body: Guttegruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-0d2b680e7287ccd8
+  - id: rolle-cddb5c256f8df169
     page: "36"
     column: 2
     personName: Hans Vadseth
@@ -3343,26 +3355,28 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-6086cbd028a7427b
+  - id: rolle-3fdacd7ddbe95ac0
     page: "36"
     column: 2
     personName: Hilda Orheim
     category: board
     title: Formann
+    body: Guttegruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-5bb4802e28dc166b
+  - id: rolle-3ea8b4fdea17b064
     page: "36"
     column: 2
     personName: Jan With
     personId: jan-with
     category: board
     title: Formann
+    body: Guttegruppen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-8b9184b16f01d572
+  - id: rolle-13d85c8f1182957d
     page: "36"
     column: 2
     personName: Julie Løvmo
@@ -3371,43 +3385,47 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-28bef11247f84107
+  - id: rolle-ac79e77412c294ee
     page: "36"
     column: 2
     personName: Kjell Melsether
     category: board
     title: Formann
+    body: Guttegruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-b0bcc88d2c0b6d7e
+  - id: rolle-0802dffed53b0de8
     page: "36"
     column: 2
     personName: Lilly Annaniassen
     category: administration
     title: Sekretær
+    body: Guttegruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-3faaf3d647d0de87
+  - id: rolle-2d3b2b808bbe29d6
     page: "36"
     column: 2
     personName: Lollo Stub
     category: board
     title: Nestformann
+    body: Guttegruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-72520103ae112e3f
+  - id: rolle-2b1829884f1d0d05
     page: "36"
     column: 2
     personName: Olliver Tolaas
     category: board
     title: Formann
+    body: Guttegruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-c0794fd4efdb3d50
+  - id: rolle-d6b9d48a4caf1080
     page: "36"
     column: 2
     personName: Oskar Nøstdahl
@@ -3417,7 +3435,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-917b180597743d83
+  - id: rolle-441431f93d0f2e60
     page: "36"
     column: 2
     personName: Rolf Annaniassen
@@ -3426,9 +3444,9 @@ resolvedRoles:
     title: Sekretær
     from: "1962"
     to: null
-    confidence: high
+    confidence: medium
     rule: role_then_name
-  - id: rolle-e5d939a3bf9d1519
+  - id: rolle-e6a267fb363e3ef0
     page: "37"
     column: 0
     personName: Jack Smith
@@ -3437,7 +3455,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-9a89905d5e5a09fb
+  - id: rolle-4c8cbcff7e4a1199
     page: "37"
     column: 0
     personName: TRD RTTa EDrar Rnr
@@ -3446,7 +3464,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-fd537c7cd5e9162b
+  - id: rolle-e4303b69febbd122
     page: "43"
     column: 0
     personName: Odd Wollan. Meinseth William
@@ -3456,7 +3474,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-bac9a922c5b190f2
+  - id: rolle-b41a4337308372ce
     page: "55"
     column: 0
     personName: Svend-Åge Olsen
@@ -3465,7 +3483,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-be4bbd6dc3d356a1
+  - id: rolle-8e6a9c653574d83d
     page: "60"
     column: 0
     personName: Jan Larsen
@@ -3474,7 +3492,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-70f6cfd4cd536293
+  - id: rolle-ffce5c46093e3d5e
     page: "63"
     column: 0
     personName: Einar Aas. Varamenn
@@ -3483,7 +3501,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-33e5ce0f6d15bdfd
+  - id: rolle-b06b3c951d6dca95
     page: "63"
     column: 0
     personName: Karsten Vadseth
@@ -3493,7 +3511,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-8f8572575367bd96
+  - id: rolle-0e906961d4203b8d
     page: "63"
     column: 0
     personName: Ole Walderhaug
@@ -3502,7 +3520,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-21a29e1a35f7d13c
+  - id: rolle-6e76206b6f9238ea
     page: "65"
     column: 0
     personName: Finn Tolaas. To
@@ -3511,7 +3529,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-6f60919bbd0eac09
+  - id: rolle-c11479f48dfa2ddb
     page: "78"
     column: 2
     personName: Finn Sterri
@@ -3520,7 +3538,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-03458c3cca2b56b5
+  - id: rolle-88607680a0d69924
     page: "78"
     column: 2
     personName: Hans Henriksen
@@ -3529,3 +3547,4 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups: []

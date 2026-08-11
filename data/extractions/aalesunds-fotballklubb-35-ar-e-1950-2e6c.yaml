@@ -552,7 +552,7 @@ candidates:
     personIds: []
     matchIds: []
 resolvedRoles:
-  - id: rolle-c9d53f05f9d31070
+  - id: rolle-88bea80c122264db
     page: "4"
     personName: Nils Jangaard
     personId: nils-jangaard
@@ -562,7 +562,7 @@ resolvedRoles:
     to: null
     confidence: high
     rule: name_then_role
-  - id: rolle-6d0b10f4b23fef56
+  - id: rolle-e6c9afc15a8181f6
     page: "4"
     personName: Nils Jangaard
     personId: nils-jangaard
@@ -572,7 +572,7 @@ resolvedRoles:
     to: null
     confidence: high
     rule: name_then_role
-  - id: rolle-177e3cb4deb752bb
+  - id: rolle-a94238cc45525f2f
     page: "6"
     personName: Sverre Volstad. Haagensen
     category: sporting_staff
@@ -580,7 +580,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-8ae546e4b0090c88
+  - id: rolle-3875fed74773832c
     page: "9"
     personName: Karsten Eriksen
     personId: karsten-eriksen
@@ -589,7 +589,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-28ff571c35539059
+  - id: rolle-8df9202367fdb1c5
     page: "9"
     personName: Latinskolen. Sigurd Nørve
     category: board
@@ -597,7 +597,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-4eca6eeba1dc6b2f
+  - id: rolle-7d651e5ad2d81749
     page: "12"
     personName: Øivind Haagensen
     personId: oivind-haagensen
@@ -607,3 +607,4 @@ resolvedRoles:
     to: null
     confidence: high
     rule: name_then_role
+resolvedLineups: []

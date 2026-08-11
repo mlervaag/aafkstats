@@ -270,7 +270,7 @@ candidates:
     personIds: []
     matchIds: []
 resolvedRoles:
-  - id: rolle-f50a7729205b9755
+  - id: rolle-04a623cbf14771fa
     page: "4"
     column: 0
     personName: Per Anker Eriksen
@@ -280,7 +280,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-8a90deb83678c3cf
+  - id: rolle-7f0311afc1b662b5
     page: "12"
     column: 1
     personName: Arne Westad
@@ -290,7 +290,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-55de3ece01a550ca
+  - id: rolle-b5b1d68017f01bdc
     page: "12"
     column: 1
     personName: Peder Puck
@@ -300,7 +300,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-8bfe99856ac662d0
+  - id: rolle-60c81b37b40b5c60
     page: "12"
     column: 1
     personName: Per Anker Eriksen
@@ -309,5 +309,6 @@ resolvedRoles:
     title: Formann
     from: "1950"
     to: null
-    confidence: high
+    confidence: medium
     rule: role_then_name
+resolvedLineups: []

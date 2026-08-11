@@ -2193,7 +2193,7 @@ candidates:
       - lauritz-giske
     matchIds: []
 resolvedRoles:
-  - id: rolle-3b894f594b444b4a
+  - id: rolle-b6cdcf132ed4671c
     page: "3"
     column: 0
     personName: Geo. Haller
@@ -2202,35 +2202,28 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-ac1bf7ec4d438334
+  - id: rolle-bd3231e07a97324c
     page: "4"
     column: 1
     personName: Fritz Haagentatt
     category: administration
     title: Kasserer
+    body: Sportsutvalget
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-2c658bb66c608cd3
+  - id: rolle-dfe784237e92d93e
     page: "4"
     column: 1
     personName: Karsten Eriksen
     personId: karsten-eriksen
     category: board
     title: Formann
+    body: Sportsutvalget
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-4a2c4968f562b8f2
-    page: "5"
-    column: 0
-    personName: R Å Nnnra
-    category: board
-    title: Formann
-    to: null
-    confidence: low
-    rule: name_then_role
-  - id: rolle-96e29f975dd81dc0
+  - id: rolle-3e21cb66b5200fff
     page: "7"
     column: 0
     personName: Anita Wold
@@ -2239,7 +2232,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-4053602cc95ed93a
+  - id: rolle-252ccf39672d6433
     page: "7"
     column: 0
     personName: Petra Lausund
@@ -2248,7 +2241,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-e3c4443dec4d6a89
+  - id: rolle-4550f3ebe774367a
     page: "7"
     column: 0
     personName: Åse Åndahl
@@ -2257,17 +2250,18 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a5042e77bb96ec40
+  - id: rolle-021b4204e58cf115
     page: "16"
     column: 1
     personName: Jack Smith
     category: coach
     title: Trener
+    body: Old boys
     from: "1947"
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-be93f351fcf5d470
+  - id: rolle-de1932e0d1884ee0
     page: "28"
     column: 1
     personName: Sverre Nordby
@@ -2277,7 +2271,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-06b0141028b683d2
+  - id: rolle-ce17a53af594ae13
     page: "29"
     column: 2
     personName: E E
@@ -2286,32 +2280,36 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-3f11a882dd06cf8d
+  - id: rolle-db88ba69cbe5405a
     page: "32"
     column: 0
     personName: Lauritz Giske
     personId: lauritz-giske
     category: board
     title: Formann
+    body: Festkomitéen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-35f17c9608a0ad4d
+  - id: rolle-c7eb88ededb72b9c
     page: "36"
     column: 1
     personName: Fritz Haagensen
     category: sporting_staff
     title: Oppmann
+    body: Sportsutvalget
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-7a69d6110ea4ac29
+  - id: rolle-576eb0fec7a897b3
     page: "36"
     column: 1
     personName: Lauritz Giske
     personId: lauritz-giske
     category: board
     title: Nestformann
+    body: Sportsutvalget
     to: null
     confidence: medium
     rule: role_then_name
+resolvedLineups: []

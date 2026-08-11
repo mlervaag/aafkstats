@@ -2910,7 +2910,7 @@ candidates:
       - knut-gaaseide
     matchIds: []
 resolvedRoles:
-  - id: rolle-da9e763506dde1cf
+  - id: rolle-6a96b908a4eff1ec
     page: "11"
     column: 1
     personName: Hans Hen-
@@ -2919,16 +2919,17 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-9e2a31b21e483909
+  - id: rolle-0f296eeaf71d8f9f
     page: "12"
     column: 2
     personName: Bibbi Henriksen
     category: board
     title: Formann
+    body: Guttegruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-f4930fd9e2c5b5e4
+  - id: rolle-1f9f664090cf5373
     page: "12"
     column: 2
     personName: Einar Aas
@@ -2938,17 +2939,18 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-689ea1526c60fb2f
+  - id: rolle-37b899debda77736
     page: "12"
     column: 2
     personName: Finn Tolaas
     personId: finn-tollas
     category: board
     title: Formann
+    body: Guttegruppen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-5bd74ce0401fe63c
+  - id: rolle-8ccb7f9aee4d43a7
     page: "12"
     column: 2
     personName: Hans Henriksen
@@ -2958,25 +2960,27 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-9879334777a3f3b4
+  - id: rolle-60ac55cb013c0d24
     page: "12"
     column: 2
     personName: Hans Vadseth
     category: board
     title: Formann
+    body: Guttegruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-21385451d59cca02
+  - id: rolle-5ec2f504ca92f7b2
     page: "12"
     column: 2
     personName: Ivar Østensen
     category: board
     title: Formann
+    body: Guttegruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-8d313074fa790d06
+  - id: rolle-3d4e92ed3dc9f18c
     page: "12"
     column: 2
     personName: Julie Løvmo
@@ -2985,7 +2989,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-ef7848ffa6f0af84
+  - id: rolle-7547b0094ff8f698
     page: "12"
     column: 2
     personName: Karsten Vadseth
@@ -2994,9 +2998,9 @@ resolvedRoles:
     title: Nestformann
     from: "1964"
     to: null
-    confidence: high
+    confidence: medium
     rule: role_then_name
-  - id: rolle-7dbc457d8594f868
+  - id: rolle-1b70667cdd0b7d72
     page: "12"
     column: 2
     personName: Lilly Annaniassen
@@ -3005,7 +3009,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-12c1f6d36d791a56
+  - id: rolle-368306bcd587363a
     page: "12"
     column: 2
     personName: Lollo Stubb
@@ -3014,7 +3018,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-d14bae20ed9d1424
+  - id: rolle-e8786c5f1cd50ccd
     page: "12"
     column: 2
     personName: Ole Ingebrigtsen
@@ -3024,7 +3028,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-044668d247cb95e9
+  - id: rolle-9bbf15078c662bd6
     page: "19"
     column: 0
     personName: Thorbjørn A
@@ -3033,7 +3037,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-4f9395c7f805376a
+  - id: rolle-b14993d08b226fab
     page: "26"
     column: 0
     personName: Hinar A
@@ -3042,7 +3046,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-e522195198090ae0
+  - id: rolle-1b3931809e07a15a
     page: "26"
     column: 0
     personName: Karsten Vadseth
@@ -3052,7 +3056,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-5fdbaa74d3906f5f
+  - id: rolle-ed92b7eedfb2e389
     page: "26"
     column: 0
     personName: Ole Ingebrigtsen
@@ -3061,7 +3065,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-1eb448659dd6f953
+  - id: rolle-893fc81e95af0e27
     page: "26"
     column: 0
     personName: Rolf Annaniassen
@@ -3071,7 +3075,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-d78cea6a6ac9cf26
+  - id: rolle-ef9150037ce8e019
     page: "36"
     column: 1
     personName: Karsten Larsen
@@ -3080,16 +3084,17 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-9caab4f920c3b913
+  - id: rolle-6b02d1d48e40fe25
     page: "50"
     column: 0
     personName: Hans Ole Sødergren
     category: sporting_staff
     title: Oppmann
+    body: Festkomitéen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-dfad187e76f7a19d
+  - id: rolle-a2f92ec292933ffe
     page: "51"
     column: 0
     personName: Rag- Halvorsens
@@ -3098,7 +3103,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-16b0a490c3b4f8d0
+  - id: rolle-469e1a9ed1dc033d
     page: "52"
     column: 0
     personName: Johan Trøen
@@ -3107,17 +3112,18 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-b1e67b2a3fe23253
+  - id: rolle-0890b9195d6f8de0
     page: "53"
     column: 0
     personName: Hans J. Henriksen
     personId: hans-j-henriksen
     category: board
     title: Formann
+    body: Banekomitéen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-e0bac590a96b101b
+  - id: rolle-f4b58bd2a060cefb
     page: "57"
     column: 1
     personName: Oddvar Aarø. Stor
@@ -3126,7 +3132,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-8d167e4da24d2eb9
+  - id: rolle-31a56e119e0c0af4
     page: "57"
     column: 2
     personName: Asbjørn Rutgerson
@@ -3135,7 +3141,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-d17826ecf42ecf29
+  - id: rolle-4e94fcf55797bb83
     page: "57"
     column: 2
     personName: Gunnar Skorgevik. Medlemmer
@@ -3144,7 +3150,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-3821f68e3529c779
+  - id: rolle-cb1bf30ba98caa2d
     page: "57"
     column: 2
     personName: Hans Vadseth Før
@@ -3153,7 +3159,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-bef2435d6055a060
+  - id: rolle-2066dadb48ed7f38
     page: "57"
     column: 2
     personName: Jostein Thorset
@@ -3162,7 +3168,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-0560768c24e74bf3
+  - id: rolle-756e7d75a7a836cd
     page: "57"
     column: 2
     personName: Kjell Melsæther
@@ -3171,7 +3177,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-d9ec2b01dae205d6
+  - id: rolle-5e956d04b1a41e3e
     page: "57"
     column: 2
     personName: Ole Walderhaug. Varamenn
@@ -3180,7 +3186,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a0aec45d5eb8c0f1
+  - id: rolle-982bda11a37c811f
     page: "57"
     column: 2
     personName: Rolf Annaniassen
@@ -3190,7 +3196,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-c5f5cb99fa0f7e9b
+  - id: rolle-bf51948b666ee1e7
     page: "58"
     column: 0
     personName: Hans Ole Sødergren
@@ -3199,7 +3205,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-c9d0bd5e8dec0242
+  - id: rolle-a182f951a874c043
     page: "65"
     column: 0
     personName: Nils R. Skarbøvig
@@ -3208,7 +3214,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-6b05185235753ad4
+  - id: rolle-e259da85c0ae9962
     page: "66"
     column: 1
     personName: Thorbjorn Aarø
@@ -3217,3 +3223,4 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
+resolvedLineups: []

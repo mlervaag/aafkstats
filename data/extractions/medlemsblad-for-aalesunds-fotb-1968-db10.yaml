@@ -615,7 +615,7 @@ candidates:
       - knut-gaaseide
     matchIds: []
 resolvedRoles:
-  - id: rolle-0b8fd8eae508f5fe
+  - id: rolle-9c60ea069c2fc79e
     page: "2"
     column: 0
     personName: Karsten Molværsmyr
@@ -624,7 +624,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-9ebb70e55343974e
+  - id: rolle-175499bb8e9eb603
     page: "2"
     column: 0
     personName: Molværsmyr. Skeid
@@ -633,7 +633,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-3e7bae392a132fdc
+  - id: rolle-cc69a41d938d4d30
     page: "3"
     column: 0
     personName: Herbert Fiksdal
@@ -642,58 +642,63 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-0b90b50b39085dab
+  - id: rolle-509b4a2bee9e5fbe
     page: "5"
     column: 1
     personName: Erling Bjørge
     personId: erling-bjorge
     category: board
     title: Formann
+    body: Redaksjonskomiteen
     from: "1968"
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-0fda0c7232c49df2
+  - id: rolle-f6cf4a0e42543b64
     page: "5"
     column: 1
     personName: Harald Johansen
     personId: harald-johansen
     category: administration
     title: Sekretær
+    body: Redaksjonskomiteen
     from: "1968"
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-11c6f43febcf8162
+  - id: rolle-fbc5bbe72967a740
     page: "5"
     column: 1
     personName: Jarle Kristoffersen
     personId: jarle-kristoffersen
     category: sporting_staff
     title: Oppmann
+    body: Redaksjonskomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-e6d4905dd73620b9
+  - id: rolle-d98a6936ea529f45
     page: "5"
     column: 1
     personName: Kjell Luthentun
     category: administration
     title: Kasserer
+    body: Redaksjonskomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-2db6da7dd972430f
+  - id: rolle-c6a6dd39c64dc866
     page: "5"
     column: 1
     personName: Rolf Kvissel
     category: board
     title: Nestformann
+    body: Redaksjonskomiteen
     from: "1968"
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-db056d6e320e898b
+  - id: rolle-d7b80816103211ce
     page: "8"
     column: 0
     personName: Bibbi Henriksen
@@ -702,7 +707,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-40e53677c05c2c6a
+  - id: rolle-ad80a6e857f044ec
     page: "8"
     column: 0
     personName: Ebba Hamar
@@ -711,7 +716,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-3341cc810f7ef9f5
+  - id: rolle-a7267ec98255a6d2
     page: "8"
     column: 0
     personName: Julie Løvmo
@@ -720,7 +725,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-898d4610eee36c48
+  - id: rolle-ef52902b6b6d9207
     page: "8"
     column: 0
     personName: Karin Riise
@@ -729,7 +734,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-cc41278e44f1af4d
+  - id: rolle-d593b98bd23f9e78
     page: "8"
     column: 0
     personName: Lillian Hansen
@@ -739,7 +744,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-c20c588c0f0d6fb5
+  - id: rolle-0ba93a970df3a650
     page: "8"
     column: 0
     personName: Sølvi Aarø. I
@@ -748,7 +753,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-64d44c2a3ee112cb
+  - id: rolle-2468106f8e6c847f
     page: "10"
     column: 0
     personName: Erling Bjorge
@@ -757,3 +762,4 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups: []

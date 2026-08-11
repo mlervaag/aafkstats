@@ -386,16 +386,17 @@ candidates:
       - knut-gaaseide
     matchIds: []
 resolvedRoles:
-  - id: rolle-84e6aee9fd6335b7
+  - id: rolle-c74ecbdeff070066
     page: "2"
     column: 0
     personName: Kristoffersen Thorsen
     category: sporting_staff
     title: Oppmann
+    body: Fotballutvalget
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-04f989cdfc1c972f
+  - id: rolle-2459785028a75670
     page: "5"
     column: 1
     personName: Erling Bjørge
@@ -406,7 +407,7 @@ resolvedRoles:
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-e2f6726aa8854840
+  - id: rolle-27558975e0f5215e
     page: "5"
     column: 1
     personName: Harald Johansen
@@ -417,7 +418,7 @@ resolvedRoles:
     to: null
     confidence: high
     rule: role_then_name
-  - id: rolle-ba4f64ba1e88c190
+  - id: rolle-ffd69b826ba3c7d3
     page: "5"
     column: 1
     personName: Jarle Kristoffersen
@@ -427,7 +428,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-bcae019ee72d1cdf
+  - id: rolle-a6edc5f42b16e9d5
     page: "5"
     column: 1
     personName: Kjell Luthentun
@@ -436,7 +437,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-c5850b5b3c29fd12
+  - id: rolle-9e23bb66f97dbedc
     page: "5"
     column: 1
     personName: Rolf Kvissel
@@ -446,3 +447,4 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+resolvedLineups: []

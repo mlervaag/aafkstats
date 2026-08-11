@@ -256,22 +256,25 @@ candidates:
       - bernt-sulebust
     matchIds: []
 resolvedRoles:
-  - id: rolle-a3054a85be784913
+  - id: rolle-3d9f13f7a04e8c53
     page: "2"
     column: 0
     personName: Per Anker Eriksen
     personId: per-anker-eriksen
     category: board
     title: Formann
+    body: Sportsutvalget
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-d01def3f9d5a4976
+  - id: rolle-fb8fbbb2dcfe7051
     page: "7"
     column: 0
     personName: Sigurd Å Se
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups: []

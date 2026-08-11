@@ -1017,7 +1017,7 @@ candidates:
       - trond-fredriksen
     matchIds: []
 resolvedRoles:
-  - id: rolle-dfeadaba40545f42
+  - id: rolle-8a13f220d5a287ee
     page: "13"
     column: 0
     personName: Mjølner. Hva
@@ -1027,7 +1027,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-75ad2a7b29939019
+  - id: rolle-3cd5b371b81d8cb1
     page: "67"
     column: 0
     personName: Color Line Stadion
@@ -1037,7 +1037,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-ca89abedbc221db4
+  - id: rolle-8b4b07c866d64ed4
     page: "107"
     column: 0
     personName: Vidar Davidsen
@@ -1046,3 +1046,4 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups: []

@@ -806,7 +806,7 @@ candidates:
       - karsten-eriksen
     matchIds: []
 resolvedRoles:
-  - id: rolle-d7e1f6dd8effa687
+  - id: rolle-0e29f685638677e5
     page: "25"
     column: 0
     personName: Øivind Hågensen
@@ -816,7 +816,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-2c84be108e6e41ba
+  - id: rolle-7a148adbbcbc7350
     page: "31"
     column: 0
     personName: Anitra Olsen
@@ -825,7 +825,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-d2fdf7a2f4b67645
+  - id: rolle-df42e73b99c83354
     page: "31"
     column: 0
     personName: Arne Vestad
@@ -834,7 +834,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-e8df85ac05e37025
+  - id: rolle-7b2728922650d522
     page: "31"
     column: 0
     personName: Bjørn Aasen
@@ -843,7 +843,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-4d7921fdb1bae83f
+  - id: rolle-1daadbcd511d2a06
     page: "31"
     column: 0
     personName: God Jul
@@ -852,7 +852,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-37bd607ca3ba4f7e
+  - id: rolle-086d56ca6c6026dd
     page: "31"
     column: 0
     personName: Mary Vegsund
@@ -861,17 +861,18 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-96a3ed40e8f83d1a
+  - id: rolle-ab26b92badda1f2d
     page: "31"
     column: 0
     personName: Sigurd Nørve
     personId: sigurd-norve
     category: board
     title: Formann
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-67a0c313f398b53f
+  - id: rolle-0a7aeb58d569038b
     page: "31"
     column: 0
     personName: Øivind Hågensen
@@ -880,7 +881,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a1beef3283ecceec
+  - id: rolle-c63ea70efbbd5aee
     page: "31"
     column: 0
     personName: Åse Gudmundseth
@@ -889,3 +890,4 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups: []
