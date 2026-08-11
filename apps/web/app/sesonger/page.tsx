@@ -15,6 +15,7 @@ export const metadata: Metadata = pageMetadata(
 
 export default function SeasonsPage() {
   const years = loadSeasonYears();
+  const decades = byDecade(years);
   const oldest = years.at(-1)?.year;
   const newest = years[0]?.year;
 
@@ -40,11 +41,19 @@ export default function SeasonsPage() {
 
       <CoverageStrip years={years} />
 
+      <nav className="decade-jumps" aria-label="Hopp til tiår">
+        {decades.map(([decade]) => (
+          <a className="num" href={`#tiar-${decade}`} key={decade}>
+            {decade}
+          </a>
+        ))}
+      </nav>
+
       {/* Delt i tiår. Uten inndelingen er dette 85 kort på rad, og en leser som
           skal til 1970-tallet må rulle på gefühl. Tiåret er også den enheten folk
           faktisk husker fotball i. */}
-      {byDecade(years).map(([decade, entries]) => (
-        <section className="decade" key={decade}>
+      {decades.map(([decade, entries]) => (
+        <section className="decade" id={`tiar-${decade}`} key={decade}>
           <h2 className="decade-heading">
             <span className="num">{decade}-tallet</span>
             <span className="muted small">{decadeSummary(entries)}</span>

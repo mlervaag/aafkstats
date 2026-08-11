@@ -33,6 +33,13 @@ export interface SearchPerson {
   url: string;
 }
 
+export interface SearchSource {
+  sourceId: string;
+  title: string;
+  description: string;
+  url: string;
+}
+
 interface PersonSearchRow {
   person_id: string;
   name: string;
@@ -61,6 +68,15 @@ interface MatchRow {
   decided_on_penalties: number;
   won_on_penalties: number | null;
   url: string;
+}
+
+interface SourceSearchRow {
+  id: string;
+  title: string;
+  source_type: string;
+  publisher: string | null;
+  year: number | null;
+  issue: string | null;
 }
 
 export interface ParsedSearch {
@@ -233,6 +249,50 @@ export function searchPeople(query: string, limit = 12): SearchPerson[] {
   }
 }
 
+/** Historiske publikasjoner i det samme direktesøket som kamper og personer. */
+export function searchSources(query: string, limit = 12): SearchSource[] {
+  const parsed = parseSearchQuery(query);
+  if (parsed.years.length === 0 && parsed.terms.length === 0) return [];
+
+  const db = open();
+  try {
+    const rows = all<SourceSearchRow>(
+      db,
+      `SELECT id, title, source_type, publisher, year, issue
+         FROM core_sources
+        ORDER BY coalesce(year, 0) DESC, title COLLATE NOCASE`,
+    );
+    const results = rows.filter((row) => {
+      const text = searchable([
+        row.title,
+        row.publisher,
+        row.issue,
+        row.source_type.replaceAll("_", " "),
+      ].filter(Boolean).join(" "));
+      const termsMatch = parsed.terms.every((term) => text.includes(searchable(term)));
+      const yearsMatch = parsed.years.length === 0 ||
+        (row.year !== null && parsed.years.includes(row.year));
+      return termsMatch && yearsMatch;
+    }).map((row) => ({
+      sourceId: row.id,
+      title: row.title,
+      description: [
+        row.year === null ? null : String(row.year),
+        row.issue ? `nr. ${row.issue}` : null,
+        row.publisher,
+      ].filter(Boolean).join(" · ") || "Historisk kilde",
+      url: `/kilder/${row.id}`,
+    }));
+
+    return results
+      .sort((a, b) => rankTitle(a.title, parsed.terms) - rankTitle(b.title, parsed.terms) ||
+        a.title.localeCompare(b.title, "nb"))
+      .slice(0, Math.min(Math.max(limit, 1), 50));
+  } finally {
+    db.close();
+  }
+}
+
 function roleCoversYear(row: PersonSearchRow, year: number): boolean {
   if (!row.from_date) return false;
   const from = Number(row.from_date.slice(0, 4));
@@ -241,7 +301,11 @@ function roleCoversYear(row: PersonSearchRow, year: number): boolean {
 }
 
 function rankPerson(person: SearchPerson, terms: string[]): number {
-  const name = searchable(person.name);
+  return rankTitle(person.name, terms);
+}
+
+function rankTitle(value: string, terms: string[]): number {
+  const name = searchable(value);
   const joined = searchable(terms.join(" "));
   if (name === joined) return 0;
   if (name.startsWith(joined)) return 1;

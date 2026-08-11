@@ -4,7 +4,7 @@ import { join, resolve } from "node:path";
 import { performance } from "node:perf_hooks";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
-import { parseSearchQuery, searchMatches, searchPeople } from "../lib/search.js";
+import { parseSearchQuery, searchMatches, searchPeople, searchSources } from "../lib/search.js";
 
 const previousDbPath = process.env.AAFK_DB_PATH;
 let fixtureDbPath: string;
@@ -67,6 +67,15 @@ describe("parseSearchQuery", () => {
   it("finner personer etter rolle og år", () => {
     const people = searchPeople("trener 2013");
     expect(people.some((person) => person.personId === "jan-jonsson")).toBe(true);
+  });
+
+  it("finner historiske kilder etter tittel og år", () => {
+    expect(searchSources("medlemsblad 1970")).toEqual([
+      expect.objectContaining({
+        sourceId: "medlemsblad-1970-1",
+        url: "/kilder/medlemsblad-1970-1",
+      }),
+    ]);
   });
 
   it("søker i hele personregisteret på under ett sekund", async () => {

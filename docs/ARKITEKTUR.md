@@ -336,8 +336,10 @@ annet enn å lese arkivet.
 
 Tre ruter gjør noe mer enn å lese:
 
-- **`/api/search`** — direktesøk mens brukeren skriver. Ren SQL mot arkivfilen, ingen modell
-  involvert. Se [`apps/web/lib/search.ts`](../apps/web/lib/search.ts).
+- **`/api/search`** — direktesøk i kamper, personer og historiske kilder mens brukeren
+  skriver. Ren SQL mot arkivfilen, ingen modell involvert. Det samme søket er tilgjengelig
+  globalt fra mastheaden; språkmodellen startes bare med den eksplisitte handlingen
+  «Spør arkivet». Se [`apps/web/lib/search.ts`](../apps/web/lib/search.ts).
 - **`/api/chat`** — spørrefunksjonen. Streamer SSE, kjører verktøyløkka mot modellen, og
   logger hver spørring til Vercel Logs uten IP. Hvilken modell, og hos hvem, avgjøres av
   hvilken API-nøkkel som er satt — se

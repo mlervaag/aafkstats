@@ -87,7 +87,7 @@ export default function AboutPage() {
             </p>
           </section>
         </div>
-        <aside className="facts-panel"><h2>Kort fortalt</h2><dl><dt>Status</dt><dd>Offentlig beta, under oppbygging</dd><dt>Tilknytning</dt><dd>Ingen offisiell tilknytning til AaFK</dd><dt>Kode</dt><dd>MIT</dd><dt>Egne tekster</dt><dd>CC BY 4.0</dd><dt>Kildedata</dt><dd>Se kilde og vilkår per opplysning</dd></dl><a className="button-link" href="https://github.com/mlervaag/aafkstats">Se prosjektet på GitHub</a></aside>
+        <aside className="facts-panel"><h2>Kort fortalt</h2><dl><dt>Status</dt><dd>Aktivt, åpent supporterarkiv</dd><dt>Tilknytning</dt><dd>Ingen offisiell tilknytning til AaFK</dd><dt>Kode</dt><dd>MIT</dd><dt>Egne tekster</dt><dd>CC BY 4.0</dd><dt>Kildedata</dt><dd>Se kilde og vilkår per opplysning</dd></dl><a className="button-link" href="https://github.com/mlervaag/aafkstats">Se prosjektet på GitHub</a></aside>
       </div>
 
       {/* Femkolonnerstabellen sto i tekstspalten og måtte rulles sidelengs for å

@@ -44,7 +44,7 @@ const checks: Check[] = [
   },
   {
     page: "om",
-    must: ["Offentlig beta", "terminlista", "akseptert risiko"],
+    must: ["Arkivstatus", "terminlista", "akseptert risiko"],
     mustNot: ["MVP"],
   },
   {

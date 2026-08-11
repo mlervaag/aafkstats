@@ -330,8 +330,24 @@ export function getPersonSeasons(personId: string): PersonSeason[] {
   try {
     return all<PersonSeason>(
       db,
-      `SELECT season, number, position, appearances, starts, goals
-         FROM squad WHERE person_id = ? ORDER BY season DESC`,
+      `WITH known_seasons AS (
+         SELECT season FROM core_squad_numbers WHERE person_id = ?
+         UNION
+         SELECT season FROM squad WHERE person_id = ?
+       )
+       SELECT k.season, n.number, p.position,
+              coalesce(s.appearances, 0) AS appearances,
+              coalesce(s.starts, 0) AS starts,
+              coalesce(s.goals, 0) AS goals
+         FROM known_seasons k
+         JOIN core_people p ON p.id = ?
+         LEFT JOIN core_squad_numbers n
+           ON n.person_id = p.id AND n.season = k.season
+         LEFT JOIN squad s
+           ON s.person_id = p.id AND s.season = k.season
+        ORDER BY k.season DESC`,
+      personId,
+      personId,
       personId,
     );
   } finally {

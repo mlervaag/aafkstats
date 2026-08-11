@@ -3,7 +3,7 @@ import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
-import { getPeople, getPersonById, getPersonRoles, mergeRoleSpells, type PersonRole } from "../lib/people.js";
+import { getPeople, getPersonById, getPersonRoles, getPersonSeasons, mergeRoleSpells, type PersonRole } from "../lib/people.js";
 import { getSourceRoleUsages, getSourceSeasonUsages, getSourceUsages } from "../lib/sources.js";
 
 const previousDbPath = process.env.AAFK_DB_PATH;
@@ -55,6 +55,15 @@ describe("person- og organisasjonsarkivet", () => {
     expect(getSourceRoleUsages(id).length).toBeGreaterThan(0);
     expect(getSourceSeasonUsages(id).length).toBeGreaterThan(0);
     expect(getSourceUsages(id).length).toBeGreaterThan(0);
+  });
+
+  it("viser kjente draktnummer selv om kampnavnet ikke er personkoblet", () => {
+    expect(getPersonSeasons("sten-grytebust")).toEqual([
+      { season: 2025, number: 1, position: "keeper", appearances: 0, starts: 0, goals: 0 },
+      { season: 2024, number: 1, position: "keeper", appearances: 0, starts: 0, goals: 0 },
+      { season: 2023, number: 1, position: "keeper", appearances: 0, starts: 0, goals: 0 },
+      { season: 2022, number: 1, position: "keeper", appearances: 0, starts: 0, goals: 0 },
+    ]);
   });
 });
 
