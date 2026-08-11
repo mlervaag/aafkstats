@@ -75,6 +75,15 @@ pnpm ingest:fotmob-gap -- --from 1902-01-01 --to 2013-12-31 \
 pnpm ingest:fotmob-gap -- --from 2010-01-01 --to 2012-12-31 \
   --match-ids 870503,870521 --class europe --competition europa-liga \
   --retrieved-at 2026-08-09 --write
+
+# Foreslå en personfil fra én eksakt Wikipedia-profil. Tørrkjøring.
+pnpm ingest:wikipedia-profile -- \
+  --player "Fredrik Ulvestad" --title "Fredrik Ulvestad"
+
+# Engelsk Wikipedia kan velges når norsk side ikke finnes. Bruk --write først
+# etter at identitet, fakta og eventuelle KONTROLL-linjer er vurdert.
+pnpm ingest:wikipedia-profile -- \
+  --player michael-barrantes --title "Michael Barrantes" --lang en --write
 ```
 
 | Flagg | Gjelder | Betydning |
@@ -83,6 +92,7 @@ pnpm ingest:fotmob-gap -- --from 2010-01-01 --to 2012-12-31 \
 | `--retrieved-at ÅÅÅÅ-MM-DD` | rsssf, fotmob, fotmob-gap | Hentedato i `sources[]`. Påkrevd ved `--write` for reproduserbare differ |
 | `--limit N` | rsssf, fotmob | Tak på antall kamper i kjøringen |
 | `--refresh` | alle | Hopper over cachen |
+| `--player`, `--title`, `--lang` | wikipedia-profile | Én kjent arkivspiller og én eksakt profilside. Ingen personsøk eller massejobb |
 | `--skip-existing` | rsssf | Lar kamper en annen kilde eier stå i fred |
 | `--with-details` | fotmob | Henter hendelser, lagoppstilling og statistikk |
 | `--details-limit N`, `--details-offset N` | fotmob | Avgrenser detaljoppslagene |
@@ -103,6 +113,7 @@ kommandoen — å høste inn i et ødelagt arkiv gjør bare feilsøkingen vanske
 | `fotmob-gap` | FotMob | 2010→ | Paginert klubbdiscovery, tolerant arkivtreff og eksplisitt gap-import |
 | `rsssf` | RSSSF Norway | ←2009 | Dato, lag, resultat, runde |
 | `rsssf-discover` | RSSSF Norway | 1902→ | Kartlegging: hvilke sider finnes, og hva de inneholder |
+| `wikipedia-profile` | Wikipedia | Én spiller per kjøring | Manglende personfil, posisjon, nasjonalitet og Wikidata-peker fra infoboks/sideegenskaper |
 
 Dekningen er dokumentert for seg: [FotMob-dekningstaket](../../docs/data/FOTMOB_DEKNINGSTAK.md)
 og [RSSSF-dekningen](../../docs/data/RSSSF_DEKNING.md). Begge sier hvor kilden slutter og
@@ -121,6 +132,13 @@ kamper skjer i `reconcile()`, ett sted, med aliaser som mekanisme.
 **Fartsgrensen er per vert**, 1,1 sekund mellom forespørslene, med retry og 20 sekunders
 tidsgrense. Cachen skrives atomisk gjennom en midlertidig fil, så en avbrutt kjøring ikke
 etterlater halve svar.
+
+**Spillerprofiler fra Wikipedia er en kontrollert berikelse, ikke et biografisøk.**
+Kommandoen krever både en spiller som allerede finnes i personregisteret eller en
+AaFK-lagoppstilling, og en eksakt Wikipedia-tittel. Den leser bare navngitte
+infoboksrader og sidens Wikidata-peker. Brødtekst, fødselsdato, klubbhistorikk og
+dagens draktnummer kopieres ikke. Eksisterende fakta overskrives aldri; motstrid
+blir en `KONTROLL` som stopper `--write`.
 
 **Datoarv er den vanligste feilkilden i RSSSF-parseren.** Datoen står på den første kampen i
 en gruppe og gjelder nedover til neste dato. Leses det feil, får en hel runde samme dato — og
