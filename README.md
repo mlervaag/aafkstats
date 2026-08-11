@@ -53,10 +53,12 @@ leser fra.
 |---|---|
 | **1 353 kamper** | Kamper registrert totalt i arkivet |
 | **422 kildedokumenterte resultater** | Resultater fra 1915–1939 som mangler full dato eller hjemme/borte og derfor ikke teller i kampstatistikken |
-| **87 år** | 1915–2026, år med minst én registrert kamp. Enkeltkamper tilbake til 1915, cupen til 1917, serien til 1951 |
+| **87 år med kanoniske kamper** | 1915–2026, år med minst én registrert kamp. Enkeltkamper tilbake til 1915, cupen til 1917, serien til 1951 |
+| **91 år med historisk kampinformasjon** | De 87 over pluss årene som foreløpig bare har kildedokumenterte resultater. Sesongoversikten viser disse |
 | **161 klubber · 92 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
 | **227 personer** | Registrerte spillere, trenere, ledere, stiftere, prosjektpersoner og hederspersoner med kildeførte detaljer eller avvikende navn |
-| **8 kilder** | Hver med rettighetsstatus som data, ikke som prosa |
+| **8 dataleverandører** | Der data hentes digitalt fra, hver med rettighetsstatus som data og ikke som prosa |
+| **111 historiske kilder** | Bøker, medlemsblad, årsmeldinger og andre dokumenter en enkelt opplysning kan peke på, med sidetall |
 | **98 publikasjoner analysert** | 3 211 ALTO-sider, 139 søkbare sider og 4 814 faktakandidater uten lagret OCR-prosa |
 | **11 historiesider gjennomgått** | AaFKs offisielle leder-, utmerkelses-, stiftelses-, arkiv- og hjemmebanefakta er strukturert med lenke tilbake |
 | **Brukerbidrag** | Innsendte observasjoner og minner hentet fra redaksjonell innboks |
@@ -312,7 +314,7 @@ kjenne til:
 | [**Bidra**](CONTRIBUTING.md) | Hvordan du retter en kamp eller sender kode |
 | [Merkevarepakke](docs/brand/README.md) | Logoer, appikoner, farger og bruk |
 | [Kildekart](docs/research/KILDEKART_OG_INNHENTINGSSTRATEGI.md) | Hvilke kilder som finnes, og hvilke som er røde |
-| [Plan fra pilot til arkiv](docs/PLAN_FRA_PILOT_TIL_ARKIV.md) | Hva som bygges, i hvilken rekkefølge |
+| [Status](docs/STATUS.md) | Hva som står, hva som gjenstår, og hva vi bevisst ikke gjør |
 | [FotMob-dekningstak](docs/data/FOTMOB_DEKNINGSTAK.md) | Hvor den moderne kilden slutter |
 | [RSSSF-dekning](docs/data/RSSSF_DEKNING.md) | Hvordan hullet under den ble fylt |
 | [Sikkerhet](SECURITY.md) | Hvordan du melder fra om et sikkerhetsproblem |
@@ -398,7 +400,7 @@ til AI-søket.
 
 Alle 14 europakvalifiseringskampene er registrert. Gjenstår blant annet kontroll av flere
 historiske treningskamper, rettighetsavklart innhøsting, REST-API og MCP-server. Rekkefølgen
-står i [planen](docs/PLAN_FRA_PILOT_TIL_ARKIV.md).
+står i [statusen](docs/STATUS.md).
 
 Minner fra skjemaet på nettstedet går til en egen innboks og vurderes mot arkivet før de
 tas inn. Datafeil, manglende kamper og kildetips går til egne GitHub-maler. Hva som

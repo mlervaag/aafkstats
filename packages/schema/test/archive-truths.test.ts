@@ -126,12 +126,38 @@ describe("tallene i README", () => {
     return row ? Number(row[1]!.replace(/\s|\u00a0/gu, "")) : null;
   }
 
+  /**
+   * «År» og «kilder» betyr to ting hver, og radene het før det samme.
+   *
+   * 87 år har kanoniske kamper, mens sesongoversikten viser 91 fordi fire år
+   * foreløpig bare har kildedokumenterte resultater. Begge tallene er riktige,
+   * og et arkiv som oppgir dem uten å skille dem ser ut til å motsi seg selv.
+   *
+   * Det samme gjelder «kilder»: åtte dataleverandører er der data hentes
+   * digitalt fra, mens de historiske kildene er dokumentene en enkelt opplysning
+   * peker på. Arkitekturen skiller dem allerede; nå gjør README det også.
+   */
   const forventet: [string, RegExp, () => number][] = [
     ["kamper", /kamper\*\*/, () => archive.matches.length],
-    ["år", /år\*\*/, () => new Set(archive.matches.map((m) => m.competition.season)).size],
+    [
+      "år med kanoniske kamper",
+      /år med kanoniske kamper\*\*/,
+      () => new Set(archive.matches.map((m) => m.competition.season)).size,
+    ],
+    [
+      "år med historisk kampinformasjon",
+      /år med historisk kampinformasjon\*\*/,
+      () => new Set([
+        ...archive.matches.map((m) => m.competition.season),
+        // Kildedokumenterte resultater ligger samlet per kilde, med årene inni.
+        // `sourceResults` er altså én rad per kildefil, ikke én per resultat.
+        ...archive.sourceResults.flatMap((c) => c.seasons.map((s) => s.year)),
+      ]).size,
+    ],
     ["klubber", /klubber/, () => archive.clubs.length],
     ["personer", /personer\*\*/, () => archive.people.length],
-    ["kilder", /kilder\*\*/, () => archive.providers.length],
+    ["dataleverandører", /dataleverandører\*\*/, () => archive.providers.length],
+    ["historiske kilder", /historiske kilder\*\*/, () => archive.sources.length],
   ];
 
   for (const [navn, label, faktisk] of forventet) {
