@@ -1055,6 +1055,12 @@ a.card-fragment:hover .card-title { color: var(--text); }
    til ISO-formen som sto her før, men brøt de månedene som ikke forkortes. */
 .archive-match-list a { display: grid; grid-template-columns: 8rem minmax(12rem, 1fr) 4rem; gap: 0.2rem 1rem; align-items: center; padding: 0.78rem 0.25rem; color: var(--text); text-decoration: none; }
 .archive-match-list a:hover { padding-inline: 0.75rem; background: var(--surface); }
+
+.source-result-list { list-style: none; margin: 1rem 0 0; padding: 0; border-top: 1px solid var(--border); }
+.source-result-list li { display: grid; grid-template-columns: 5.5rem minmax(12rem, 1fr) 4rem; gap: 0.15rem 1rem; align-items: baseline; padding: 0.72rem 0.25rem; border-bottom: 1px solid var(--border); }
+.source-result-context { color: var(--muted); font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; }
+.source-result-score { justify-self: end; font-weight: 700; }
+.source-result-notes { grid-column: 2 / -1; }
 .match-date { grid-column: 1; grid-row: 1 / span 2; color: var(--muted); }
 .match-opponent { grid-column: 2; display: flex; align-items: center; gap: 0.55rem; min-width: 0; }
 .match-score { grid-column: 3; grid-row: 1 / span 2; justify-self: end; font-size: 1.1rem; }
@@ -1193,6 +1199,11 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
   .match-opponent { grid-column: 1; grid-row: 2; }
   .match-score { grid-column: 2; grid-row: 1 / span 2; }
   .match-meta { grid-column: 1 / -1; grid-row: 3; }
+  .source-result-list li { grid-template-columns: minmax(0, 1fr) auto; }
+  .source-result-context { grid-column: 1; grid-row: 1; }
+  .source-result-list strong { grid-column: 1; grid-row: 2; }
+  .source-result-score { grid-column: 2; grid-row: 1 / span 2; }
+  .source-result-notes { grid-column: 1 / -1; grid-row: 3; }
 }
 
 /* Ferdige AI-prompts på bidragssiden.

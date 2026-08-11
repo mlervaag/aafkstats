@@ -17,6 +17,7 @@ import {
   loadStandings,
   loadContributions,
 } from "@/lib/archive";
+import type { SourceResult } from "@/lib/archive";
 import { pageMetadata, seasonDescription, seasonTitle } from "@/lib/metadata";
 
 export function generateStaticParams(): { year: string }[] {
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { year } = await params;
   const data = loadSeason(Number(year));
   const lead = data?.summaries[0];
-  if (!lead) return { title: `Sesongen ${year}` };
+  if (!lead) return pageMetadata(`Sesongen ${year}`, `${data?.sourceResults.length ?? 0} kildedokumenterte AaFK-resultater fra ${year}.`, `/sesong/${year}`);
   return pageMetadata(
     seasonTitle({ ...lead, year: lead.season }),
     seasonDescription({ ...lead, year: lead.season }),
@@ -43,8 +44,8 @@ export default async function SeasonPage({ params }: Props) {
   if (!Number.isInteger(year)) notFound();
   const data = loadSeason(year);
   if (!data) notFound();
-  const { summaries, matches } = data;
-  const lead = summaries[0]!;
+  const { summaries, matches, sourceResults } = data;
+  const lead = summaries[0] ?? null;
   const { previous, next } = loadNeighbourSeasons(year);
   const coaches = loadSeasonCoaches(year);
   const declaredCoaches = loadDeclaredCoaches(year);
@@ -57,16 +58,14 @@ export default async function SeasonPage({ params }: Props) {
       <p className="breadcrumb"><a href="/sesonger">Sesonger</a> / {year}</p>
       <header className="page-intro compact">
         <p className="eyebrow">
-          {lead.competition}
-          {lead.competitionTier ? ` · nivå ${lead.competitionTier}` : ""}
+          {lead ? lead.competition : "Historisk resultatliste"}
+          {lead?.competitionTier ? ` · nivå ${lead.competitionTier}` : ""}
         </p>
         <h1>Sesongen {year}</h1>
         <SeasonCoaches coaches={coaches} declared={declaredCoaches} season={year} />
         {/* «Bidra til 1977-sesongen» sto her som en knapp uten kontekst. Nå står det
             hva som faktisk mangler først, og knappen er svaret på den setningen. */}
-        <div style={{ marginTop: "1rem" }}>
-          <SeasonGaps year={year} gaps={gaps} />
-        </div>
+        {lead && <div style={{ marginTop: "1rem" }}><SeasonGaps year={year} gaps={gaps} /></div>}
       </header>
 
       {/* Én seksjon per konkurranse, hver med sine egne tall over sine egne kamper.
@@ -148,6 +147,8 @@ export default async function SeasonPage({ params }: Props) {
         );
       })()}
 
+      {sourceResults.length > 0 && <SourceResults results={sourceResults} year={year} />}
+
       <Contributions contributions={contributions} />
 
       <SquadList players={squad} />
@@ -182,4 +183,34 @@ function SeasonStandings({ competitionId, season }: { competitionId: string; sea
 
 function Stat({ value, label }: { value: number | string; label: string }) {
   return <div><strong className="num">{value}</strong><span>{label}</span></div>;
+}
+
+function SourceResults({ results, year }: { results: SourceResult[]; year: number }) {
+  return (
+    <section className="content-section source-results">
+      <h2 className="section-heading">
+        <span className="section-heading-title">Kildedokumenterte resultater</span>
+        <span className="muted section-count">{results.length} resultater</span>
+      </h2>
+      <p className="notice prose">
+        25-årsboka dokumenterer motstander og resultat, men ikke dato eller hjemme/borte.
+        Målene vises derfor alltid med AaFK først og teller ikke i den offisielle kampstatistikken ennå.
+        Radene kan kobles til komplette kampfiler etter hvert. <a href={`/kilder/${results[0]!.sourceId}`}>Se kilden</a>.
+      </p>
+      <ol className="source-result-list" aria-label={`Kildedokumenterte resultater fra ${year}`}>
+        {results.map((result) => (
+          <li key={`${result.sourceId}-${result.id}`}>
+            <span className="source-result-context">
+              {result.competitionId === "nm" ? "NM" : "Kamp"}{result.round ? ` · ${result.round}. runde` : ""}
+            </span>
+            <strong>{result.opponent ?? "Motstander ikke oppgitt"}</strong>
+            <span className="source-result-score num">{result.status === "walkover" ? "w.o." : `${result.aafkScore}–${result.opponentScore}`}</span>
+            <span className="source-result-notes muted small">
+              {[result.replay ? "omkamp" : null, result.afterExtraTime ? "ekstraomganger" : null, result.note, `s. ${result.page}`].filter(Boolean).join(" · ")}
+            </span>
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
 }

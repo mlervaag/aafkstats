@@ -57,6 +57,13 @@ export interface SourceSeasonUsage {
   note: string | null;
 }
 
+export interface SourceResultUsage {
+  season: number;
+  results: number;
+  first_page: number;
+  last_page: number;
+}
+
 const sourceColumns = `id, parent_source_id, title, source_type, issue, volume,
   publisher, year, urn, author, description, cover_url, access_url, providers`;
 
@@ -211,6 +218,15 @@ export function getSourceUsages(sourceId: string): SourceUsage[] {
       sourceId,
       sourceId,
     );
+  } finally {
+    db.close();
+  }
+}
+
+export function getSourceResultUsages(sourceId: string): SourceResultUsage[] {
+  const db = open();
+  try {
+    return all<SourceResultUsage>(db, `SELECT season, count(*) AS results, min(page) AS first_page, max(page) AS last_page FROM source_results WHERE source_id = ? GROUP BY season ORDER BY season`, sourceId);
   } finally {
     db.close();
   }

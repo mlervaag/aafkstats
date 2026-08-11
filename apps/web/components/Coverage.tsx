@@ -8,7 +8,7 @@ type YearKind = "league" | "fragments" | "missing";
 
 function kindOf(entry: SeasonYear | undefined): YearKind {
   if (!entry) return "missing";
-  return entry.primary.competitionType === "league" ? "league" : "fragments";
+  return entry.primary?.competitionType === "league" ? "league" : "fragments";
 }
 
 /**
@@ -45,7 +45,7 @@ export function CoverageStrip({ years }: { years: SeasonYear[] }) {
                 return (
                   <li key={year}>
                     {entry ? (
-                      <a href={entry.primary.url} title={text}>
+                      <a href={entry.primary?.url ?? `/sesong/${year}`} title={text}>
                         <span className="sr-only">{text}</span>
                         {cell}
                       </a>
@@ -83,6 +83,7 @@ export function CoverageStrip({ years }: { years: SeasonYear[] }) {
  */
 function stripTitle(year: number, entry: SeasonYear): string {
   const kamper = `${entry.totalMatches} ${entry.totalMatches === 1 ? "kamp" : "kamper"}`;
+  if (!entry.primary) return `${year}: ${entry.documentedResults} kildedokumenterte resultater uten full kampdato`;
   if (entry.primary.competitionType !== "league") {
     return `${year}: ${kamper}, ingen seriesesong`;
   }

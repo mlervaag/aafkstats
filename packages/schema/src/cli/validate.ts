@@ -30,6 +30,7 @@ const counts = [
   ...(archive.standings.length > 0 ? [`${archive.standings.length} tabeller`] : []),
   ...(archive.people.length > 0 ? [`${archive.people.length} personer`] : []),
   ...(archive.extractions.length > 0 ? [`${archive.extractions.length} publikasjoner analysert`] : []),
+  ...(archive.sourceResults.length > 0 ? [`${archive.sourceResults.reduce((sum, collection) => sum + collection.seasons.reduce((seasonSum, season) => seasonSum + season.results.length, 0), 0)} kildedokumenterte resultater`] : []),
 ].join(" · ");
 
 if (issues.length === 0) {

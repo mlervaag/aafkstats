@@ -21,6 +21,8 @@ import { source as historicalSource } from "./source.js";
 import type { Source as HistoricalSource } from "./source.js";
 import { publicationExtraction } from "./extraction.js";
 import type { PublicationExtraction } from "./extraction.js";
+import { flattenSourceResults, sourceResultCollection } from "./source-result.js";
+import type { SourceResultCollection } from "./source-result.js";
 
 /** Rota på monorepoet, utledet fra hvor denne filen ligger. */
 export function repoRoot(): string {
@@ -69,6 +71,7 @@ export interface Archive {
   contributions: (Contribution & { file: string })[];
   sources: (HistoricalSource & { file: string })[];
   extractions: (PublicationExtraction & { file: string })[];
+  sourceResults: (SourceResultCollection & { file: string })[];
   issues: LoadIssue[];
 }
 
@@ -246,7 +249,12 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
     extraction.file = relative(root, join(root, "extractions", `${extraction.sourceId}.yaml`)).replace(/\\/g, "/");
   }
 
-  return { clubs, venues, competitions, providers, seasons, matches, observations, standings: tables, people, contributions, sources, extractions, issues };
+  const sourceResults = (await readAll("source-results", sourceResultCollection)) as (SourceResultCollection & { file: string })[];
+  for (const collection of sourceResults) {
+    collection.file = relative(root, join(root, "source-results", `${collection.sourceId}.yaml`)).replace(/\\/g, "/");
+  }
+
+  return { clubs, venues, competitions, providers, seasons, matches, observations, standings: tables, people, contributions, sources, extractions, sourceResults, issues };
 }
 
 /**
@@ -325,6 +333,20 @@ export function crossValidate(archive: Archive): LoadIssue[] {
       for (const matchId of candidate.matchIds) if (!matchIds.has(matchId)) {
         issues.push({ file: extraction.file, path: `candidates.${index}.matchIds`, message: `ukjent kamp «${matchId}»` });
       }
+    }
+  }
+
+  const seenSourceResultIds = new Set<string>();
+  for (const collection of archive.sourceResults) {
+    const at = (path: string, message: string) => issues.push({ file: collection.file, path, message });
+    if (!sourceIds.has(collection.sourceId)) at("sourceId", `ukjent historisk kilde «${collection.sourceId}»`);
+    for (const [index, result] of flattenSourceResults(collection).entries()) {
+      const key = `${collection.sourceId}|${result.id}`;
+      if (seenSourceResultIds.has(key)) at(`results.${index}.id`, `duplikat kilderesultat «${result.id}»`);
+      seenSourceResultIds.add(key);
+      if (result.opponentClubId !== null && !clubIds.has(result.opponentClubId)) at(`results.${index}.opponentClubId`, `ukjent klubb «${result.opponentClubId}»`);
+      if (result.competitionId !== null && !competitionIds.has(result.competitionId)) at(`results.${index}.competitionId`, `ukjent konkurranse «${result.competitionId}»`);
+      if (result.matchId !== null && !matchIds.has(result.matchId)) at(`results.${index}.matchId`, `ukjent kamp «${result.matchId}»`);
     }
   }
 

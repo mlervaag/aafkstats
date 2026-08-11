@@ -3,6 +3,11 @@
 Hvordan AaFK-arkivet henger sammen, og hvorfor delene er som de er. Dokumentet er skrevet
 for den som skal endre noe: hver avgjørelse står med alternativet som ble valgt bort.
 
+Historiske resultatlister uten dato og hjemme/borte ligger som et eget mellomlag i
+`data/source-results/`. Dette er publiserbar fakta, men ikke kanoniske kamper. Laget
+gjør ufullstendige år synlige og bidragsvennlige uten å forurense kampstatistikken;
+når en rad identifiseres sikkert, kan den kobles til `core_matches` med `matchId`.
+
 - [Helhetsbildet](#helhetsbildet)
 - [Lag for lag](#lag-for-lag)
 - [Byggesteget](#byggesteget)

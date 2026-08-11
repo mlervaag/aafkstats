@@ -15,7 +15,7 @@ try {
   const kb = Math.round(r.bytes / 102.4) / 10;
   console.log(
     `${GREEN}✓${RESET} Bygget arkivet fra ${source}\n` +
-      `  ${DIM}${r.matches} kamper · ${r.seasons} sesonger · ${r.clubs} klubber` +
+      `  ${DIM}${r.matches} kamper · ${r.sourceResults} kildedokumenterte resultater · ${r.seasons} sesonger · ${r.clubs} klubber` +
       ` · ${kb} kB · ${r.durationMs} ms${RESET}\n` +
       `  ${DIM}→ ${r.path}${RESET}`,
   );

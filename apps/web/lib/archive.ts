@@ -44,6 +44,42 @@ interface MatchRow {
   url: string;
 }
 
+export interface SourceResult {
+  id: string;
+  sourceId: string;
+  season: number;
+  page: number;
+  opponent: string | null;
+  aafkScore: number | null;
+  opponentScore: number | null;
+  result: "S" | "U" | "T" | null;
+  competitionId: string | null;
+  status: "played" | "walkover";
+  replay: boolean;
+  afterExtraTime: boolean;
+  round: number | null;
+  matchId: string | null;
+  note: string | null;
+}
+
+interface SourceResultRow {
+  id: string; source_id: string; season: number; page: number;
+  opponent: string | null; aafk_score: number | null; opponent_score: number | null;
+  result: SourceResult["result"]; competition_id: string | null;
+  status: SourceResult["status"]; replay: number; after_extra_time: number;
+  round: number | null; match_id: string | null; note: string | null;
+}
+
+function mapSourceResult(row: SourceResultRow): SourceResult {
+  return {
+    id: row.id, sourceId: row.source_id, season: row.season, page: row.page,
+    opponent: row.opponent, aafkScore: row.aafk_score, opponentScore: row.opponent_score,
+    result: row.result, competitionId: row.competition_id, status: row.status,
+    replay: row.replay === 1, afterExtraTime: row.after_extra_time === 1,
+    round: row.round, matchId: row.match_id, note: row.note,
+  };
+}
+
 export interface SeasonSummary {
   season: number;
   competitionId: string;
@@ -381,10 +417,12 @@ export function loadCoverage(): ArchiveCoverage {
 export interface SeasonYear {
   year: number;
   /** Serien når den finnes, ellers den konkurransen med flest kamper. */
-  primary: SeasonSummary;
+  primary: SeasonSummary | null;
   /** Øvrige konkurranser samme år, flest kamper først. */
   others: SeasonSummary[];
   totalMatches: number;
+  /** Kildedokumenterte resultater som ennå mangler dato eller hjemme/borte. */
+  documentedResults: number;
 }
 
 /** Serien først, deretter etter antall kamper. */
@@ -410,14 +448,25 @@ export function loadSeasonYears(): SeasonYear[] {
     else byYear.set(row.season, [row]);
   }
 
+  const db = open();
+  let documented: { season: number; results: number }[];
+  try {
+    documented = all(db, "SELECT season, count(*) AS results FROM source_results GROUP BY season");
+  } finally {
+    db.close();
+  }
+  for (const row of documented) if (!byYear.has(row.season)) byYear.set(row.season, []);
+  const documentedByYear = new Map(documented.map((row) => [row.season, row.results]));
+
   return [...byYear.entries()]
     .map(([year, rows]) => {
       const sorted = [...rows].sort(seasonRank);
       return {
         year,
-        primary: sorted[0]!,
+        primary: sorted[0] ?? null,
         others: sorted.slice(1),
         totalMatches: rows.reduce((sum, r) => sum + r.played, 0),
+        documentedResults: documentedByYear.get(year) ?? 0,
       };
     })
     .sort((a, b) => b.year - a.year);
@@ -425,13 +474,14 @@ export function loadSeasonYears(): SeasonYear[] {
 
 export function loadSeason(
   year: number,
-): { summaries: SeasonSummary[]; matches: ArchiveMatch[] } | undefined {
+): { summaries: SeasonSummary[]; matches: ArchiveMatch[]; sourceResults: SourceResult[] } | undefined {
   const db = open();
   try {
     const rows = all<SeasonRow>(db, "SELECT * FROM seasons WHERE season = ?", year);
-    if (rows.length === 0) return undefined;
     const matches = all<MatchRow>(db, `SELECT ${matchColumns} FROM matches WHERE season = ? ORDER BY date`, year);
-    return { summaries: rows.map(mapSeason).sort(seasonRank), matches: matches.map(mapMatch) };
+    const sourceResults = all<SourceResultRow>(db, "SELECT * FROM source_results WHERE season = ? ORDER BY source_order", year);
+    if (rows.length === 0 && sourceResults.length === 0) return undefined;
+    return { summaries: rows.map(mapSeason).sort(seasonRank), matches: matches.map(mapMatch), sourceResults: sourceResults.map(mapSourceResult) };
   } finally {
     db.close();
   }
