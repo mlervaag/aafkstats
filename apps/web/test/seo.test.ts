@@ -63,6 +63,10 @@ describe("sitemap", () => {
     }
   });
 
+  it("har den offentlige arbeidskøen", () => {
+    expect(sitemap().map((entry) => entry.url)).toContain(`${SITE_ORIGIN}/mangler`);
+  });
+
   it("finner en kjent kamp", () => {
     const urls = sitemap().map((entry) => entry.url);
     expect(urls).toContain(`${SITE_ORIGIN}/kamp/1998-08-16-aalesunds-fk-sk-brann`);

@@ -118,6 +118,7 @@ export default function Home() {
           <a href="/personer"><strong>Personer</strong><span>Spillere, trenere, ledere og æresmedlemmer</span></a>
           <a href="/organisasjon"><strong>Organisasjon</strong><span>Styrer og verv, kildeført over tid</span></a>
           <a href="/hjemmebaner"><strong>Hjemmebaner</strong><span>Nørvebana, Aksla, Kråmyra og Color Line</span></a>
+          <a href="/mangler"><strong>Hva mangler?</strong><span>Konkrete hull og uenigheter du kan hjelpe med</span></a>
           <a href="/data"><strong>Datasettet</strong><span>Utforsk åpne data, tabeller og felt</span></a>
           <a href="/bidra"><strong>Bidra</strong><span>Del minner, rett feil og tips oss om kilder</span></a>
         </aside>

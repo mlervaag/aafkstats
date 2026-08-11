@@ -169,7 +169,9 @@ export default function ContributePage() {
         <h2>Hva som mangler mest</h2>
         <GapNote />
         <p>
-          Se <a href="/sesonger">sesongoversikten</a> og <a href="/personer">personregisteret</a> for hva som allerede ligger inne.
+          Den samlede <a href="/mangler">arbeidskøen</a> viser historiske resultater
+          som trenger identifisering, kampdetaljer som mangler og kildekonflikter
+          som må avklares. Der kan du finne en konkret oppgave før du sender inn noe.
         </p>
       </section>
     </>

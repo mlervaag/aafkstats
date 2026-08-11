@@ -76,6 +76,14 @@ const checks: Check[] = [
     must: ["Klubben utenfor banen", "Formenn", "Trenere og sportslig apparat", "Fra dokument til struktur"],
   },
   {
+    page: "mangler",
+    must: [
+      "Hva mangler i AaFK-arkivet?", "Historiske resultater å identifisere",
+      "Finn datoen bak et resultat", "Avklar historiske verv",
+      "Knytt lagoppstillinger til riktig kamp",
+    ],
+  },
+  {
     page: "kamp/1998-08-16-aalesunds-fk-sk-brann",
     must: [
       "16. august 1998", "Kilder", "Kildene er uenige", "arkivet bruker denne",
