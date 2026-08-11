@@ -31,13 +31,6 @@ providers:
       - home.score
       - away.score
       - competition.round
-sources:
-  - sourceId: medlemsblad-for-aalesunds-fotb-1975-5323
-    page: "7"
-    fields:
-      - home.score
-      - away.score
-    note: Entydig maskinelt treff på år, motstander og resultat; bør redaksjonelt etterkontrolleres.
 confidence: probable
 conflicts: []
 tags: []

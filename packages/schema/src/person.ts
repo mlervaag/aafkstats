@@ -48,7 +48,7 @@ export const personRoleCategory = z.enum([
 ]);
 
 /** År eller eksakt dato. Mange eldre kilder sier bare hvilket styreår vervet gjaldt. */
-const historicalDate = z.string().regex(/^\d{4}(?:-\d{2}-\d{2})?$/, "må være ÅÅÅÅ eller ÅÅÅÅ-MM-DD");
+export const historicalDate = z.string().regex(/^\d{4}(?:-\d{2}-\d{2})?$/, "må være ÅÅÅÅ eller ÅÅÅÅ-MM-DD");
 
 export const personRole = z
   .object({

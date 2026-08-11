@@ -22,6 +22,18 @@ bidro med 88 kandidater fra målrettede IIIF-søk, uten at søkefragmentene ble 
 
 84 kampfiler fikk nye kildehenvisninger. De automatiske koblingene krever samme år, eksplisitt AaFK-navn, motstandernavn og samme resultat. Koblingen endrer ikke resultatet; den legger bare til publikasjon og sidetall med merknad om redaksjonell etterkontroll.
 
+### Rettelse: ni koblinger var speilvendte
+
+Regelen godtok opprinnelig også det speilvendte sifferet, og stemplet treffet «entydig» likevel. Ni av de 84 kampfilene fikk dermed en kildehenvisning for et resultat kilden skriver motsatt vei — blant dem 2013-09-13 mot Molde, der målhendelsene i samme fil viser 1-3 mens boka har 3-1. Speilvendingen fordelte seg tilfeldig på hjemme- og bortekamper, så den er ikke et perspektiv som kan regnes om.
+
+De ni henvisningene er fjernet, og regelen krever nå samme rekkefølge. Blant de 75 som står igjen er 17 uavgjorte kamper, der en speilvending er usynlig per definisjon.
+
+### Kandidatlaget er ikke fakta, og er heller ikke fullstendig nok til å bli det
+
+Kandidatene er utledet av én OCR-linje om gangen. På en fler-spaltet side løper linja tvers over spaltene, så et rolleord kan få navnet fra nabospalten. Av de 4 814 kandidatene er 1 628 bare et nøkkelord og et sidetall, 655 er et bart siffer uten år eller motstander, og bare 58 av 1 200 personroller har årstallet `personRole.from` krever.
+
+Andre gjennomgang leser de samme sidene på nytt, spaltevis. Se `NB_RESOLVE_RUNBOOK.md`.
+
 ## Hva som lagres
 
 `data/extractions/` inneholder én validert YAML-fil per publikasjon. Den lagrer:

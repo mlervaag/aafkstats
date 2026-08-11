@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { dirname, join } from "node:path";
-import { stringify } from "yaml";
+import { parse, stringify } from "yaml";
 import type { Archive } from "@aafkstats/schema/load";
 import type { FactCandidate, Match, PublicationExtraction, Source } from "@aafkstats/schema";
 
@@ -36,6 +36,44 @@ export interface NbExtractionOptions {
   concurrency?: number;
   delayMs?: number;
   onProgress?: (message: string) => void;
+}
+
+/**
+ * Sidene i en publikasjon som har ALTO, med cache-stien de ligger på.
+ *
+ * Andre gjennomgang leser de samme filene som den første skrev. Cache-stien er
+ * derfor ikke en detalj her, men grensesnittet: har noen alt kjørt uttrekket,
+ * kjører `nb-resolve` uten et eneste nettkall.
+ */
+export async function publicationAltoPages(
+  source: Source,
+  options: NbExtractionOptions,
+): Promise<Array<{ page: string; altoUrl: string; cacheFile: string }>> {
+  if (!source.urn) throw new Error(`${source.id}: mangler URN`);
+  const catalog = await cachedJson<{ _embedded?: { items?: CatalogItem[] } }>(
+    `https://api.nb.no/catalog/v1/items?q=${encodeURIComponent(`urn:"${source.urn}"`)}&size=1`,
+    join(options.cacheDir, source.id, "catalog.json"),
+    options,
+  );
+  const manifestUrl = catalog._embedded?.items?.[0]?._links?.presentation?.href;
+  if (!manifestUrl) return [];
+
+  const manifest = await cachedJson<IiifManifest>(manifestUrl, join(options.cacheDir, source.id, "manifest.json"), options);
+  const canvases = manifest.sequences?.flatMap((sequence) => sequence.canvases ?? []) ?? [];
+  return canvases.flatMap((canvas, index) => {
+    const url = altoUrl(canvas);
+    if (!url) return [];
+    const page = canvas.label || String(index + 1);
+    return [{ page, altoUrl: url, cacheFile: join(options.cacheDir, source.id, "alto", `${safeFile(page)}.xml`) }];
+  });
+}
+
+/** ALTO-en for én side, fra cachen når den finnes. */
+export async function readAltoPage(
+  page: { altoUrl: string; cacheFile: string },
+  options: NbExtractionOptions,
+): Promise<string> {
+  return cachedText(page.altoUrl, page.cacheFile, options);
 }
 
 export async function extractNbPublication(
@@ -93,6 +131,7 @@ export async function extractNbPublication(
     pagesFailed: failures.sort(naturalCompare),
     contentHash: `sha256:${digest.digest("hex")}`,
     candidates: uniqueCandidates(candidates),
+    resolvedRoles: [],
   };
 }
 
@@ -142,6 +181,7 @@ async function extractSearchOnly(
     pagesFailed: [],
     contentHash: `sha256:${digest.digest("hex")}`,
     candidates: uniqueCandidates(candidates),
+    resolvedRoles: [],
   };
 }
 
@@ -152,7 +192,7 @@ function pageFromAnnotations(annotations: string[] | undefined): string | undefi
 }
 
 function emptyExtraction(sourceId: string, retrievedAt: string, pages: number, access: "search_only" | "unavailable"): PublicationExtraction {
-  return { sourceId, providerId: "nasjonalbiblioteket", adapter: NB_PUBLICATIONS_ADAPTER, retrievedAt, ocrAccess: access, pagesExpected: pages, pagesProcessed: 0, pagesFailed: [], candidates: [] };
+  return { sourceId, providerId: "nasjonalbiblioteket", adapter: NB_PUBLICATIONS_ADAPTER, retrievedAt, ocrAccess: access, pagesExpected: pages, pagesProcessed: 0, pagesFailed: [], candidates: [], resolvedRoles: [] };
 }
 
 function altoUrl(canvas: IiifCanvas): string | undefined {
@@ -218,9 +258,13 @@ function matchCandidates(archive: Archive, source: Source, line: string, years: 
     const opponentForms = [opponent.name, opponent.shortName, ...opponent.names.map((entry) => entry.name)]
       .filter((value): value is string => Boolean(value)).map(normalize);
     if (!opponentForms.some((form) => containsPhrase(line, form))) continue;
-    const direct = `${match.home.score}-${match.away.score}`;
-    const reversed = `${match.away.score}-${match.home.score}`;
-    if (!scores.includes(direct) && !scores.includes(reversed)) continue;
+    // Bare samme rekkefølge. Å godta det speilvendte sifferet ga ni kampfiler
+    // en kildehenvisning som påsto «entydig treff på resultat» for et resultat
+    // kilden skriver motsatt vei — blant dem 2013-09-13 mot Molde, der
+    // målhendelsene i samme fil viser 1-3 mens boka har 3-1. Speilvendingen
+    // fordelte seg tilfeldig på hjemme- og bortekamper, så den er ikke et
+    // perspektiv vi kan regne om; den er en kobling vi ikke kan stå inne for.
+    if (!scores.includes(`${match.home.score}-${match.away.score}`)) continue;
     candidates.push(match.id);
   }
   return unique(candidates);
@@ -296,7 +340,16 @@ function naturalCompare(a: string, b: string): number { return a.localeCompare(b
 
 export async function writeExtraction(file: string, extraction: PublicationExtraction): Promise<void> {
   await mkdir(dirname(file), { recursive: true });
-  await writeFile(file, stringify(extraction, { lineWidth: 0, defaultStringType: "PLAIN" }), "utf8");
+  // Andre gjennomgang skriver `resolvedRoles` i den samme fila. En ny første
+  // gjennomgang kjenner ikke det laget og ville nullet det ut — så det som
+  // ligger der fra før beholdes med mindre denne kjøringen selv har roller.
+  const existing = existsSync(file)
+    ? (parse(await readFile(file, "utf8")) as Partial<PublicationExtraction>).resolvedRoles ?? []
+    : [];
+  const merged: PublicationExtraction = extraction.resolvedRoles.length > 0
+    ? extraction
+    : { ...extraction, resolvedRoles: existing };
+  await writeFile(file, stringify(merged, { lineWidth: 0, defaultStringType: "PLAIN" }), "utf8");
 }
 
 export async function applyHighConfidenceMatchSources(archive: Archive, extractions: PublicationExtraction[], dataRoot: string): Promise<number> {
