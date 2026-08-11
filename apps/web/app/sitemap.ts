@@ -33,7 +33,13 @@ function builtAt(): Date {
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const built = builtAt();
-  const staticPages = ["", "/sesonger", "/motstandere", "/klubben", "/personer", "/organisasjon", "/hjemmebaner", "/kilder", "/mangler", "/data", "/om", "/bidra", "/api-docs"];
+  // `/api-docs` er ikke en side. Den er en `redirect()` til `/data`, igjen fra
+  // den gangen dokumentasjonen lå der, og svarer 307. En søkemotor som følger
+  // sitemapet får da en videresending i stedet for innhold, og Search Console
+  // fører den opp som «Side med omdirigering». Selve omdirigeringen skal bli
+  // stående — gamle lenker utenfra skal fortsatt virke — men den hører ikke
+  // hjemme i en liste over adresser vi ber om å få indeksert.
+  const staticPages = ["", "/sesonger", "/motstandere", "/klubben", "/personer", "/organisasjon", "/hjemmebaner", "/kilder", "/mangler", "/data", "/om", "/bidra"];
 
   return [
     ...staticPages.map((path) => ({

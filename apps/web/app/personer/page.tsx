@@ -5,6 +5,7 @@ import { collectionJsonLd } from "@/lib/jsonld";
 import { ArchiveTabs } from "@/components/ArchiveTabs";
 import { PeopleDirectory } from "@/components/people/PeopleDirectory";
 import { getPeople, getPersonRoles } from "@/lib/people";
+import { derivedAsSummaries } from "@/lib/derived-players";
 import { contributionIssueUrl } from "@/lib/contribution-links";
 import styles from "./People.module.css";
 
@@ -16,7 +17,12 @@ export const metadata: Metadata = pageMetadata(
 );
 
 export default function PeoplePage() {
-  const people = getPeople();
+  // Registeret valgte før på «har noen skrevet en personfil», ikke på hva
+  // arkivet vet. Klubbens toppscorer gjennom 2010-tallet sto derfor ikke i
+  // lista i det hele tatt, mens over halvparten av oppføringene var folk uten
+  // en eneste kamp. Begge slag hører hjemme her.
+  const people = [...getPeople(), ...derivedAsSummaries()]
+    .sort((a, b) => a.name.localeCompare(b.name, "nb"));
   const roles = getPersonRoles();
   const players = people.filter((person) => person.appearances > 0 || person.position !== null).length;
   const organization = new Set(roles.filter((role) => role.category !== "player").map((role) => role.person_id)).size;
@@ -36,8 +42,10 @@ export default function PeoplePage() {
           <p className="eyebrow">Menneskene i arkivet</p>
           <h1>Personer</h1>
           <p className="lead">
-            Spillere, trenere og menneskene som har bygget klubben utenfor banen.
-            Hver rolle er knyttet til perioden og publikasjonen som dokumenterer den.
+            Spillere, trenere og menneskene som har bygget klubben utenfor banen. Hver
+            rolle er knyttet til perioden og publikasjonen som dokumenterer den. Spillere
+            arkivet bare kjenner fra lagoppstillingene, står også her, med det
+            kampene viser.
           </p>
         </div>
         <dl className={styles.summary}>

@@ -25,10 +25,31 @@ function fieldLabel(field: string): string {
   return FIELD_LABELS[field] ?? field;
 }
 
+/** «formann.1968» blir «formann, 1968». Feltet er vervet og året, med punktum imellom. */
 function conflictLabel(field: string): string {
   const [role, year] = field.split(".");
-  const title = role === "formann" ? "formann" : role === "oppmann" ? "oppmann" : role;
-  return year ? `${title}, ${year}` : title;
+  return year ? `${role}, ${year}` : field;
+}
+
+const COVERAGE_LABELS: Record<string, string> = {
+  partial: "Runder mangler",
+  unverified: "Omfanget er ukjent",
+  isolated: "Kampene mangler rundenummer",
+};
+
+/**
+ * Køen er tom, og det skal siden si.
+ *
+ * Uten dette rendret hver seksjon ubetinget. En tømt kø ble til «0 verv hos 0
+ * personer har motstridende kildeopplysninger» over en tom liste, med en knapp
+ * som ba om hjelp til ingenting. På en side som finnes for å vise hva som
+ * gjenstår, leses det som en feil framfor som det det er: at jobben er gjort.
+ *
+ * Seksjonen blir stående med overskriften sin. Å la den forsvinne ville gjort
+ * det umulig å se forskjell på «ingenting igjen her» og «denne køen finnes ikke».
+ */
+function Done({ children }: { children: React.ReactNode }) {
+  return <p className="muted">{children}</p>;
 }
 
 function candidateContext(title: string, page: string, season: number | null): string {
@@ -87,20 +108,71 @@ export default function MissingPage() {
             kanonisk kamp. Sesongsiden viser hvert resultat og den konkrete kilden.
           </p>
         </div>
-        <ul className={styles.yearList}>
-          {missing.historicalResults.seasons.map((row) => (
-            <li key={row.season}>
-              <a href={`/sesong/${row.season}`}>
-                <strong>{row.season}</strong>
-                <span>{row.results}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-        <div className={styles.actions}>
-          <a className="button-link" href={contributionIssueUrl("manglende-kamp", "Historisk resultat")}>Hjelp med et resultat</a>
-          <a className="button-link secondary" href="/sesonger">Se alle sesonger</a>
+        {missing.historicalResults.total === 0 ? (
+          <Done>
+            Alle kildedokumenterte resultater er identifisert og knyttet til en kamp.
+          </Done>
+        ) : (
+          <>
+            <ul className={styles.yearList}>
+              {missing.historicalResults.seasons.map((row) => (
+                <li key={row.season}>
+                  <a href={`/sesong/${row.season}`}>
+                    <strong>{row.season}</strong>
+                    <span>{row.results}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className={styles.actions}>
+              <a className="button-link" href={contributionIssueUrl("manglende-kamp", "Historisk resultat")}>Hjelp med et resultat</a>
+              <a className="button-link secondary" href="/sesonger">Se alle sesonger</a>
+            </div>
+          </>
+        )}
+      </section>
+
+      {/* Dekningen har vært et merke på sesongsida, men aldri en oppgave noen
+          kunne se samlet. En sesong uten rundenummer er like konkret et hull som
+          et manglende tilskuertall, og den løses av den samme typen kilde. */}
+      <section className={styles.section} id="sesongdekning">
+        <div className={styles.sectionHeader}>
+          <div>
+            <p className="eyebrow">Sesonger</p>
+            <h2>Gjør en sesong hel</h2>
+          </div>
+          <p>
+            En seriesesong regnes som komplett når rundene går fra første til siste uten
+            hull, og kampantallet stemmer med et kjent omfang. Disse sesongene har kamper,
+            men mangler noe av det som skal til for å si at de er hele.
+          </p>
         </div>
+        {missing.incompleteSeasons.length === 0 ? (
+          <Done>Alle avsluttede seriesesonger arkivet dekker, er komplette.</Done>
+        ) : (
+          <>
+            <ul className={styles.personList}>
+              {missing.incompleteSeasons.map((row) => (
+                <li key={`${row.season}-${row.competition}`}>
+                  <a href={row.url}>
+                    <strong>{row.season} {row.competition}</strong>
+                  </a>
+                  <span>
+                    {COVERAGE_LABELS[row.coverage] ?? row.coverage}
+                    {" · "}
+                    {row.expected === null
+                      ? `${row.played} kamper registrert`
+                      : `${row.played} av ${row.expected} kamper`}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <div className={styles.actions}>
+              <a className="button-link" href={contributionIssueUrl("ny-arkivkilde", "Sesongdekning")}>Tips om en kilde</a>
+              <a className="button-link secondary" href="/sesonger">Se alle sesonger</a>
+            </div>
+          </>
+        )}
       </section>
 
       <section className={styles.section} id="kampdetaljer">
@@ -115,18 +187,24 @@ export default function MissingPage() {
             På hver sesongside står den samme køen avgrenset til det året.
           </p>
         </div>
-        <dl className={styles.fieldGrid}>
-          {missing.matchFields.map((gap) => (
-            <div key={gap.field}>
-              <dt>{fieldLabel(gap.field)}</dt>
-              <dd>{gap.matches}</dd>
+        {missing.matchFields.length === 0 ? (
+          <Done>Hver spilte kamp har alt arkivet pleier å registrere.</Done>
+        ) : (
+          <>
+            <dl className={styles.fieldGrid}>
+              {missing.matchFields.map((gap) => (
+                <div key={gap.field}>
+                  <dt>{fieldLabel(gap.field)}</dt>
+                  <dd>{gap.matches}</dd>
+                </div>
+              ))}
+            </dl>
+            <div className={styles.actions}>
+              <a className="button-link" href={contributionIssueUrl("ny-kilde", "Manglende kampdetaljer")}>Legg til kampdetaljer</a>
+              <a className="button-link secondary" href="/sesonger">Velg en sesong</a>
             </div>
-          ))}
-        </dl>
-        <div className={styles.actions}>
-          <a className="button-link" href={contributionIssueUrl("ny-kilde", "Manglende kampdetaljer")}>Legg til kampdetaljer</a>
-          <a className="button-link secondary" href="/sesonger">Velg en sesong</a>
-        </div>
+          </>
+        )}
       </section>
 
       <section className={styles.section} id="personkonflikter">
@@ -136,23 +214,102 @@ export default function MissingPage() {
             <h2>Avklar historiske verv</h2>
           </div>
           <p>
-            {missing.unresolvedPeople.conflicts} verv hos {missing.unresolvedPeople.people} personer
-            har motstridende kildeopplysninger. Personsidene viser begge versjonene og
-            hvor de kommer fra; arkivet velger ingen av dem automatisk.
+            Der to kilder oppgir ulike navn for samme verv, står begge versjonene på
+            personsida med hver sin kilde. Arkivet velger ingen av dem automatisk, og en
+            uenighet blir stående til et menneske kan avgjøre den med belegg.
           </p>
         </div>
-        <ul className={styles.personList}>
-          {missing.unresolvedPeople.items.map((person) => (
-            <li key={person.id}>
-              <a href={person.url}><strong>{person.name}</strong></a>
-              <span>{person.fields.map(conflictLabel).join(" · ")}</span>
-            </li>
-          ))}
-        </ul>
-        <div className={styles.actions}>
-          <a className="button-link" href={contributionIssueUrl("datafeil", "Uavklart personverv")}>Send en kilde</a>
-          <a className="button-link secondary" href="/organisasjon">Se organisasjonshistorien</a>
+        {missing.unresolvedPeople.people === 0 ? (
+          <Done>Ingen verv står med uavklart uenighet mellom kildene nå.</Done>
+        ) : (
+          <>
+            <p className={styles.method}>
+              {missing.unresolvedPeople.conflicts} verv hos {missing.unresolvedPeople.people}{" "}
+              {missing.unresolvedPeople.people === 1 ? "person" : "personer"} venter på en avklaring.
+            </p>
+            <ul className={styles.personList}>
+              {missing.unresolvedPeople.items.map((person) => (
+                <li key={person.id}>
+                  <a href={person.url}><strong>{person.name}</strong></a>
+                  <span>{person.fields.map(conflictLabel).join(" · ")}</span>
+                </li>
+              ))}
+            </ul>
+            <div className={styles.actions}>
+              <a className="button-link" href={contributionIssueUrl("datafeil", "Uavklart personverv")}>Send en kilde</a>
+              <a className="button-link secondary" href="/organisasjon">Se organisasjonshistorien</a>
+            </div>
+          </>
+        )}
+      </section>
+
+      {/* Identitetsjobben, begge veier. Den ene halvparten er spillere arkivet
+          vet mye om uten å ha en fil, den andre er filer uten kamper koblet
+          til. Et par av dem er ofte samme person sett fra hver sin side, og
+          derfor står de sammen. */}
+      <section className={styles.section} id="identitet">
+        <div className={styles.sectionHeader}>
+          <div>
+            <p className="eyebrow">Personer og kamper</p>
+            <h2>Knytt spillere til riktig identitet</h2>
+          </div>
+          <p>
+            En personfil legger til det lagoppstillingene ikke kan vite: posisjon,
+            nasjonalitet, draktnummer og Wikidata, med kilde. Spillerne under har
+            allerede en side, men den er utledet av kampene alene.
+          </p>
         </div>
+
+        {missing.identity.playersWithoutFile.length === 0 ? (
+          <Done>Alle spillere med registrerte kamper har en personfil.</Done>
+        ) : (
+          <>
+            <p className={styles.method}>
+              {missing.identity.playersWithoutFile.length} spillere uten personfil. De med
+              flest kamper står først.
+            </p>
+            <ul className={styles.personList}>
+              {missing.identity.playersWithoutFile.slice(0, 20).map((player) => (
+                <li key={player.id}>
+                  <a href={`/personer/${player.id}`}><strong>{player.name}</strong></a>
+                  <span>
+                    {player.appearances} kamper
+                    {player.goals > 0 ? ` · ${player.goals} mål` : ""}
+                    {" · "}{player.firstSeason}–{player.lastSeason}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <div className={styles.actions}>
+              <a className="button-link" href={contributionIssueUrl("manglende-person")}>Legg til en personfil</a>
+              <a className="button-link secondary" href="/personer">Se personregisteret</a>
+            </div>
+          </>
+        )}
+
+        {missing.identity.filesWithoutMatches.length > 0 && (
+          <>
+            <p className={styles.method}>
+              Den motsatte jobben: {missing.identity.filesWithoutMatches.length} personfiler er
+              ført som spillere uten at én eneste kamp er koblet til dem. Som regel fordi
+              kilden skriver navnet annerledes enn fila. Spilte de før 2010, som er der
+              lagoppstillingene starter, er det ingen feil.
+            </p>
+            <ul className={styles.personList}>
+              {missing.identity.filesWithoutMatches.map((person) => (
+                <li key={person.id}>
+                  <a href={person.url}><strong>{person.name}</strong></a>
+                  <span>
+                    {person.position ?? "spiller"}
+                    {person.squadSeasons.length > 0
+                      ? ` · draktnummer ${person.squadSeasons[0]}–${person.squadSeasons.at(-1)}`
+                      : ""}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
       </section>
 
       <section className={styles.section} id="kildekontroll">
@@ -162,12 +319,23 @@ export default function MissingPage() {
             <h2>Knytt lagoppstillinger til riktig kamp</h2>
           </div>
           <p>
-            {missing.lineupReview.candidates} mulige lagoppstillinger fra {missing.lineupReview.sources} historiske
-            publikasjoner er lest ut maskinelt, men kan ikke kobles sikkert til en kamp.
-            De er kandidater, ikke publiserte lagoppstillinger. Åpne en publikasjon for å
-            se side, mulig år og navnene som kan gjøre kampen gjenkjennelig.
+            Mulige lagoppstillinger som er lest ut maskinelt fra historiske publikasjoner,
+            men som ikke kan kobles sikkert til en kamp. De er kandidater, ikke publiserte
+            lagoppstillinger. Åpne en publikasjon for å se side, mulig år og navnene som kan
+            gjøre kampen gjenkjennelig.
           </p>
         </div>
+        {missing.lineupReview.candidates === 0 ? (
+          <Done>
+            Ingen lagoppstillingskandidater venter på kontroll. Nye kommer inn når flere
+            publikasjoner analyseres.
+          </Done>
+        ) : (
+        <>
+        <p className={styles.method}>
+          {missing.lineupReview.candidates} kandidater fra {missing.lineupReview.sources}{" "}
+          {missing.lineupReview.sources === 1 ? "publikasjon" : "publikasjoner"}.
+        </p>
         <div className={styles.candidateSources}>
           {missing.lineupReview.items.map((source) => (
             <details className={styles.candidateSource} key={source.sourceId}>
@@ -211,6 +379,8 @@ export default function MissingPage() {
           <a className="button-link" href={contributionIssueUrl("ny-arkivkilde", "Lagoppstilling")}>Tips om en kilde</a>
           <a className="button-link secondary" href="/kilder">Se kildearkivet</a>
         </div>
+        </>
+        )}
       </section>
     </>
   );

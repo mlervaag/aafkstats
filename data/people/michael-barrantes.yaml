@@ -1,0 +1,33 @@
+id: michael-barrantes
+name: Michael Barrantes
+names: []
+nationality: Costa Rica
+position: midtbane
+squadNumbers: []
+coachSpells: []
+providers:
+  - providerId: wikipedia
+    url: https://en.wikipedia.org/wiki/Michael_Barrantes
+    retrievedAt: 2026-08-11
+    fields:
+      - name
+      - position
+      - nationality
+    note: >-
+      Fakta fra infoboksen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+      Draktnummer er ikke ført, fordi ingen kilde vi har oppgir det for
+      2010-2015.
+  - providerId: wikidata
+    url: https://www.wikidata.org/wiki/Q2725258
+    retrievedAt: 2026-08-11
+    fields:
+      - wikidata
+    note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+wikidata: Q2725258
+sources: []
+conflicts: []
+roles: []
+note: >-
+  Kampaktiviteten er utledet av lagoppstillingene, ikke av denne fila. Fila
+  finnes fordi 134 kamper og 48 mål fortjener posisjon, nasjonalitet og en
+  peker videre.
