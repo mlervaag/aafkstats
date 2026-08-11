@@ -107,7 +107,7 @@ til 1902 — se [RSSSF-dekningen](RSSSF_DEKNING.md). FotMob er dermed ikke lenge
 eneste kilde, og er det den bør være: den moderne, detaljrike kilden fra 2010 og framover.
 
 For de eldste sesongene og de gjenstående treningskampene står rekkefølgen i
-[planen](../PLAN_FRA_PILOT_TIL_ARKIV.md) fortsatt ved lag: NIFS/NTB, NFF, klubbens eget
+[den historiske planen](../arkiv/PLAN_FRA_PILOT_TIL_ARKIV.md) fortsatt ved lag: NIFS/NTB, NFF, klubbens eget
 historiske arkiv og avisarkivene.
 
 Inntil da er [bidragssiden](https://github.com/mlervaag/aafkstats) veien inn for eldre

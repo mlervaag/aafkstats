@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { canonicalClubKey, clubKey, clubNameForms, personKey, preferredPersonName, slugify } from "../src/identity.js";
+import { canonicalClubKey, clubKey, clubNameForms, isLongerNameForm, personKey, preferredPersonName, slugify } from "../src/identity.js";
 
 /**
  * Klubbidentitet er det ene stedet der en for løs regel og en for streng regel
@@ -131,6 +131,38 @@ describe("personKey", () => {
 
   it("er ufølsom for store bokstaver og ekstra mellomrom", () => {
     expect(personKey("  KJETIL   Rekdal ")).toBe(personKey("Kjetil Rekdal"));
+  });
+});
+
+describe("isLongerNameForm", () => {
+  it("kjenner igjen kildens form med mellomnavn", () => {
+    // Den som faktisk sto i arkivet: personfila het «Sten Grytebust», FotMob
+    // skrev «Sten Michael Grytebust», og personsida viste null av 284 kamper.
+    expect(isLongerNameForm("Sten Grytebust", "Sten Michael Grytebust")).toBe(true);
+    expect(isLongerNameForm("Tor Erik Larsen", "Tor Erik Valderhaug Larsen")).toBe(true);
+    expect(isLongerNameForm("Paul Ngongo", "Paul Ngongo Iversen")).toBe(true);
+  });
+
+  it("bryr seg ikke om rekkefølgen, siden noen kilder skriver etternavnet først", () => {
+    expect(isLongerNameForm("Sten Grytebust", "Grytebust, Sten Michael")).toBe(true);
+  });
+
+  it("ser gjennom skrivemåten, slik personKey gjør", () => {
+    expect(isLongerNameForm("Tor Hogne Aarøy", "Tor Hogne Berg Aaroey")).toBe(true);
+  });
+
+  it("er ikke sann for to navn som bare deler et ord", () => {
+    expect(isLongerNameForm("Jan Hansen", "Jan Berg Nilsen")).toBe(false);
+    expect(isLongerNameForm("Mathias Kristensen", "Mathias Berg Christensen")).toBe(false);
+  });
+
+  it("krever to ord, ellers ville hvert fornavn blitt en kandidat", () => {
+    expect(isLongerNameForm("Ole", "Ole Hansen Berg")).toBe(false);
+  });
+
+  it("er usann begge veier for samme navn", () => {
+    expect(isLongerNameForm("Kjetil Rekdal", "Kjetil Rekdal")).toBe(false);
+    expect(isLongerNameForm("Sten Michael Grytebust", "Sten Grytebust")).toBe(false);
   });
 });
 
