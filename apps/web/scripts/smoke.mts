@@ -82,6 +82,10 @@ const checks: Check[] = [
       "Finn datoen bak et resultat", "Avklar historiske verv",
       "Knytt lagoppstillinger til riktig kamp", "Fixture Spiller A",
       "Om publikasjonen", "Jeg kjenner igjen kampen",
+      // Sesongdekningen ble en oppgave i seg selv. Fixturen har to sesonger
+      // som ikke kan kalles hele, og begge formene skal vises: med kjent
+      // omfang («3 av 6») og uten («2 kamper registrert»).
+      "Gjør en sesong hel", "Runder mangler", "3 av 6 kamper", "2 kamper registrert",
     ],
   },
   {

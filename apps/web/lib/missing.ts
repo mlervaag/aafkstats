@@ -34,6 +34,24 @@ export interface LineupReviewCandidate {
   personIds: string[];
 }
 
+/**
+ * En seriesesong arkivet ikke kan si er hel.
+ *
+ * `coverage` skiller allerede mellom hvorfor. «partial» betyr at runder mangler
+ * eller at kampantallet ikke stemmer med omfanget, «unverified» at rundene
+ * henger sammen uten at noen kilde sier hvor mange det skulle vært, og
+ * «isolated» at kampene ikke har rundenummer i det hele tatt. Alle tre er noe en
+ * kilde kan løse, og de er derfor forskjellige oppgaver, ikke samme hull.
+ */
+export interface IncompleteSeason {
+  season: number;
+  competition: string;
+  coverage: string;
+  played: number;
+  expected: number | null;
+  url: string;
+}
+
 export interface MissingOverview {
   playedMatches: number;
   matchFields: MissingField[];
@@ -41,6 +59,7 @@ export interface MissingOverview {
     total: number;
     seasons: HistoricalResultSeason[];
   };
+  incompleteSeasons: IncompleteSeason[];
   unresolvedPeople: {
     people: number;
     conflicts: number;
@@ -118,6 +137,18 @@ export function loadMissingOverview(): MissingOverview {
         ORDER BY season`,
     );
 
+    // En sesong som pågår mangler ingenting ennå, og en komplett sesong er
+    // ferdig. Cup og treningskamper har ingen runder å måle mot og står som
+    // «not_applicable». Det som blir igjen er de tre som faktisk er en oppgave.
+    const incompleteSeasons = all<IncompleteSeason>(
+      db,
+      `SELECT season, competition, coverage, played, expected_matches AS expected, url
+         FROM seasons
+        WHERE competition_type = 'league'
+          AND coverage IN ('partial', 'unverified', 'isolated')
+        ORDER BY season`,
+    );
+
     const conflictRows = all<PersonConflictRow>(
       db,
       `SELECT person_id, name, url, field
@@ -176,6 +207,7 @@ export function loadMissingOverview(): MissingOverview {
         total: historicalSeasons.reduce((sum, row) => sum + row.results, 0),
         seasons: historicalSeasons,
       },
+      incompleteSeasons,
       unresolvedPeople: {
         people: peopleById.size,
         conflicts: conflictRows.length,

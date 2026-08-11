@@ -54,6 +54,27 @@ describe("den offentlige arbeidskøen", () => {
     }]);
   });
 
+  /**
+   * En sesong som ikke kan kalles hel er like konkret et hull som et manglende
+   * tilskuertall, og den løses av samme type kilde. Dekningsmerket har vært en
+   * opplysning på sesongsida, men aldri en oppgave noen kunne se samlet.
+   */
+  it("tar med seriesesonger som ikke kan kalles komplette", () => {
+    expect(loadMissingOverview().incompleteSeasons).toEqual([
+      { season: 1998, competition: "1. divisjon", coverage: "partial", played: 3, expected: 6, url: "/sesong/1998" },
+      // Uten kjent omfang kan sesongen ikke uttrykkes som «2 av N». Siden viser
+      // «2 kamper registrert» i stedet for å finne på en nevner.
+      { season: 2005, competition: "Tippeligaen", coverage: "partial", played: 2, expected: null, url: "/sesong/2005" },
+    ]);
+  });
+
+  it("holder sesonger som pågår og cup utenfor køen", () => {
+    // 2024 er «in_progress» og mangler ingenting ennå; en cupsesong har ingen
+    // runder å måle mot. Ingen av dem er en oppgave noen kan løse med en kilde.
+    const seasons = loadMissingOverview().incompleteSeasons.map((row) => row.season);
+    expect(seasons).not.toContain(2024);
+  });
+
   it("beholder detaljene som trengs for å kjenne igjen en lagoppstillingskandidat", () => {
     const review = loadMissingOverview().lineupReview;
     expect(review.candidates).toBe(1);
