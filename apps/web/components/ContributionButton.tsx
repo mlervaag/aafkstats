@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ContributionDialog, ContributionScope } from "./ContributionDialog";
 
 interface Props {
@@ -12,10 +12,17 @@ interface Props {
 
 export function ContributionButton({ scope, targetId, title, label }: Props) {
   const [isOpen, setIsOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
+  const closeDialog = () => {
+    setIsOpen(false);
+    requestAnimationFrame(() => triggerRef.current?.focus());
+  };
 
   return (
     <>
       <button 
+        ref={triggerRef}
         type="button" 
         className="contribution-trigger"
         onClick={() => setIsOpen(true)}
@@ -26,7 +33,7 @@ export function ContributionButton({ scope, targetId, title, label }: Props) {
       {isOpen && (
         <ContributionDialog
           isOpen={isOpen}
-          onClose={() => setIsOpen(false)}
+          onClose={closeDialog}
           scope={scope}
           targetId={targetId}
           title={title}

@@ -115,6 +115,7 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="contribution-form">
+            <div className="contribution-form-body">
             <p className="small muted">
               Gjelder: <strong>{title}</strong>
             </p>
@@ -197,6 +198,8 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
             {status === "error" && (
               <div className="notice notice-error" role="alert">{errorMsg}</div>
             )}
+
+            </div>
 
             <div className="form-actions">
               <button type="submit" className="action-button" disabled={status === "loading" || !text.trim()}>

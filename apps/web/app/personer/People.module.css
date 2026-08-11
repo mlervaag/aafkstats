@@ -46,8 +46,8 @@
 .asideCard { align-self: start; padding: 1rem; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-lg); }
 .asideCard h2 { margin-top: 0; font-size: 1rem; }
 .asideCard dl { margin: 0; }
-.asideCard div { display: flex; justify-content: space-between; gap: 1rem; padding: 0.55rem 0; border-bottom: 1px solid var(--border); }
-.asideCard div:last-child { border-bottom: 0; }
+.asideCard dl > div { display: flex; justify-content: space-between; gap: 1rem; padding: 0.55rem 0; border-bottom: 1px solid var(--border); }
+.asideCard dl > div:last-child { border-bottom: 0; }
 .asideCard dt { color: var(--muted); }.asideCard dd { margin: 0; font-weight: 700; }
 
 @media (max-width: 800px) {
