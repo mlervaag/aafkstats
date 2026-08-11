@@ -260,13 +260,15 @@ candidates:
     personIds: []
     matchIds: []
 resolvedRoles:
-  - id: rolle-54f699b7b79f1d27
+  - id: rolle-f178c53d6be7841e
     page: "2"
     column: 1
     personName: Ivar Morten Normark
     personId: ivar-morten-normark
     category: coach
     title: Trener
+    body: Spillergruppen
     to: null
     confidence: medium
     rule: role_then_name
+resolvedLineups: []

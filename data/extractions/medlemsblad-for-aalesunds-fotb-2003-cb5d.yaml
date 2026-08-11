@@ -287,25 +287,27 @@ candidates:
     personIds: []
     matchIds: []
 resolvedRoles:
-  - id: rolle-970118a34b95ce41
+  - id: rolle-8681e26f32a926a2
     page: "2"
     column: 0
     personName: Reidar Vågnes
     category: sporting_staff
     title: Sportslig leder
+    body: Spillergruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-9571cc409097e8fd
+  - id: rolle-ffdf835f52c66c27
     page: "2"
     column: 1
     personName: Ivar Morten
     category: coach
     title: Trener
+    body: Spillergruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-c156a773ae4f92d7
+  - id: rolle-f398cd753673ccc8
     page: "3"
     column: 0
     personName: Ivar Morten Normark. Men
@@ -314,7 +316,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-3d45f9f2c47af0f1
+  - id: rolle-ec29bdd015e9abe4
     page: "4"
     column: 0
     personName: Ivar Morten Normark I
@@ -323,7 +325,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-5266ca5c5b5c71b7
+  - id: rolle-3701a3af845afd8d
     page: "4"
     column: 0
     personName: Ivar Morten Normark. Up
@@ -333,7 +335,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-618c5ab4e72aaa6a
+  - id: rolle-205256ad60095b6d
     page: "4"
     column: 0
     personName: Reidar Vågnes
@@ -342,7 +344,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-da269304ad3c13d1
+  - id: rolle-7083624d8a31472c
     page: "4"
     column: 0
     personName: Spjelkavik IL
@@ -351,3 +353,4 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups: []

@@ -1117,7 +1117,7 @@ candidates:
       - finn-tollas
     matchIds: []
 resolvedRoles:
-  - id: rolle-2d421a02d65b0e35
+  - id: rolle-03f71627042892f5
     page: "4"
     column: 1
     personName: Asbjørn Korsnes
@@ -1127,16 +1127,17 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-6b156b4f7af971e5
+  - id: rolle-6eebd3035250e637
     page: "4"
     column: 1
     personName: Odd A. Pe- S
     category: coach
     title: Trener
+    body: Gutteutvalget
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-613f68cafac64cf7
+  - id: rolle-88e1ec92c9b1e677
     page: "4"
     column: 1
     personName: Svein Viddal
@@ -1145,17 +1146,18 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-ed6a07a79cb43d8f
+  - id: rolle-3e0c89d06443b7eb
     page: "11"
     column: 0
     personName: Einar With
     personId: einar-with
     category: coach
     title: Trener
+    body: Banekomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-5705ad7defdb14f1
+  - id: rolle-f11e9cebe18f59a2
     page: "12"
     column: 0
     personName: Einar With
@@ -1165,7 +1167,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-f260858118c2c048
+  - id: rolle-3841e1b5b44c12e2
     page: "15"
     column: 0
     personName: Tom Høiberg
@@ -1175,3 +1177,4 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
+resolvedLineups: []

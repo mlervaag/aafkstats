@@ -904,7 +904,7 @@ candidates:
     personIds: []
     matchIds: []
 resolvedRoles:
-  - id: rolle-82f1e56b26b088f4
+  - id: rolle-9a3be7113a7e97c3
     page: "2"
     column: 0
     personName: A R
@@ -913,7 +913,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: name_then_role
-  - id: rolle-faa09d54977033dc
+  - id: rolle-0e14acc9963c821b
     page: "5"
     column: 1
     personName: Bjørn F PER LL
@@ -922,7 +922,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-4a0c1c07638f36d9
+  - id: rolle-51dece5d8d6f5674
     page: "8"
     column: 0
     personName: Finn Tolaas
@@ -932,44 +932,48 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: name_then_role
-  - id: rolle-5e04614dc26ac349
+  - id: rolle-b20561d2b54142b9
     page: "9"
     column: 0
     personName: Gunnar Eriksen
     category: administration
     title: Kasserer
+    body: Gutteutvalget
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-61799941d0555bb2
+  - id: rolle-4943a19d8ad7dd96
     page: "9"
     column: 0
     personName: Harald Johansen
     personId: harald-johansen
     category: board
     title: Formann
+    body: Gutteutvalget
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-7fccaca1de84bc26
+  - id: rolle-a8a65fbb1203ff10
     page: "9"
     column: 0
     personName: Oddmund Muren
     category: board
     title: Formann
+    body: Gutteutvalget
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-e2868a941d487777
+  - id: rolle-6e7e8fcb4b04e4a9
     page: "9"
     column: 0
     personName: Terj Terje
     category: board
     title: Formann
+    body: Gutteutvalget
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-368e43d7ea6cda48
+  - id: rolle-924dd996032203ee
     page: "10"
     column: 0
     personName: Arne Øverberg
@@ -978,7 +982,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-7bcc9b3b92b7e17f
+  - id: rolle-c6b02152d4945a1c
     page: "10"
     column: 0
     personName: Asbjørn Korsnes
@@ -988,7 +992,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-6b039eb5350ddc88
+  - id: rolle-becaa5856953ccf0
     page: "10"
     column: 0
     personName: Egil Nygård
@@ -997,7 +1001,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-e66d78d32682b02f
+  - id: rolle-904088be228829ec
     page: "10"
     column: 0
     personName: Gunnar Eriksen
@@ -1006,7 +1010,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-444f86e417762420
+  - id: rolle-1f6da7581293faf3
     page: "10"
     column: 0
     personName: Kai Wille
@@ -1015,7 +1019,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-ae5d487d49e608f9
+  - id: rolle-de96077554258f90
     page: "10"
     column: 0
     personName: Karsten Vadseth
@@ -1025,7 +1029,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-d8c268e42a7f78ad
+  - id: rolle-4f821bd7db2522be
     page: "10"
     column: 0
     personName: Nils P. Loe
@@ -1034,7 +1038,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-3eb0651357728d3f
+  - id: rolle-5db6d5413a9ef21d
     page: "10"
     column: 1
     personName: PP Oscar Henrii
@@ -1043,7 +1047,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-97feaff574adc67d
+  - id: rolle-3b74123f61ac1780
     page: "10"
     column: 1
     personName: Svein Holand
@@ -1052,21 +1056,24 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-94ee4595a6d5886f
+  - id: rolle-866a1e5cbc90922f
     page: "12"
     column: 0
     personName: Inger Karin- Johannessen
     category: administration
     title: Sekretær
+    body: Damegruppa
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-4a933a1a11afb9b7
+  - id: rolle-b97f1955a7829082
     page: "12"
     column: 0
     personName: Maria D'Auria
     category: coach
     title: Trener
+    body: Damegruppa
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups: []

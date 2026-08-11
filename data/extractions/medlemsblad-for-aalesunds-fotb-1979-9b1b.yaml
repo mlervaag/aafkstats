@@ -1172,7 +1172,7 @@ candidates:
       - kjell-vestre
     matchIds: []
 resolvedRoles:
-  - id: rolle-1e50e0b84ffb1e7b
+  - id: rolle-3e62e485115a4838
     page: "4"
     column: 0
     personName: Anders Fægri
@@ -1181,7 +1181,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-7eefae45172afbd3
+  - id: rolle-c109ac719f1782e8
     page: "4"
     column: 0
     personName: Bjøm Hansen
@@ -1190,7 +1190,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-5373ce369612a8f7
+  - id: rolle-e76f0d3372b55b65
     page: "4"
     column: 0
     personName: Huip Målsetting
@@ -1199,7 +1199,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-419781893c9b22de
+  - id: rolle-c165cce2a8f3d626
     page: "4"
     column: 0
     personName: Svein Willy Mikalsen
@@ -1208,54 +1208,59 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-00cded67da3b8c61
+  - id: rolle-77ab7eade887389b
     page: "5"
     column: 0
     personName: Arne Johansen
     category: coach
     title: Trener
+    body: Arrangementskomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a3303a222e84b460
+  - id: rolle-0a256b2e2279b841
     page: "5"
     column: 0
     personName: Einar With
     personId: einar-with
     category: coach
     title: Trener
+    body: Arrangementskomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-d724ce4a6a46d3d8
+  - id: rolle-5d648f1080fbe426
     page: "5"
     column: 0
     personName: Hellandsjø. Målsetting
     category: coach
     title: Trener
+    body: Arrangementskomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-f8c1f187fe5d2d0d
+  - id: rolle-58f106a56068dcf7
     page: "5"
     column: 0
     personName: Jens Rosenlund
     category: coach
     title: Trener
+    body: Arrangementskomiteen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-c817bab58207acb3
+  - id: rolle-49beb2847a76a912
     page: "6"
     column: 0
     personName: Petter Birkevold
     personId: petter-birkevold
     category: coach
     title: Trener
+    body: Hovedkomiteen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-0d5ed70424fd6659
+  - id: rolle-871a58f8eeeec5d3
     page: "7"
     column: 0
     personName: Ingrid Halstensen
@@ -1264,7 +1269,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-f5c8759769830ef3
+  - id: rolle-60f86bb6f4a5fb81
     page: "17"
     column: 1
     personName: Helge Nøstdal
@@ -1273,7 +1278,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-606ef996d0b5bf07
+  - id: rolle-a5199369386ffc39
     page: "17"
     column: 1
     personName: Kjell Tynes
@@ -1282,7 +1287,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-7ed315c39523a2f3
+  - id: rolle-e6748c0747458414
     page: "17"
     column: 1
     personName: Magne Bjørge. På Sunnmøre
@@ -1291,7 +1296,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-b907e9b36720cc68
+  - id: rolle-c231b82e1274900e
     page: "18"
     column: 0
     personName: Asbjørn Korsnes X
@@ -1301,7 +1306,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-4c34849e6c8e4f90
+  - id: rolle-bf4e1d222b193c04
     page: "18"
     column: 0
     personName: Magne Bjørge Forr.før. Kjell
@@ -1310,7 +1315,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-a90be961ede90dc2
+  - id: rolle-1316d3c4aa7b8170
     page: "18"
     column: 0
     personName: Svein Solbak Åles
@@ -1319,7 +1324,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-9e8c8445e3d2ba4a
+  - id: rolle-3ce4c60f6c32d694
     page: "21"
     column: 0
     personName: Egil Nygård Postb
@@ -1328,30 +1333,34 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-8590cbb2e15d1c54
+  - id: rolle-e2fc5a8167f48e65
     page: "22"
     column: 0
     personName: Finn Tolaas Bergev
     category: coach
     title: Trener
+    body: Miniputtutvalget
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-ba4a34769ab4e812
+  - id: rolle-21a8d84efd362011
     page: "22"
     column: 0
     personName: Kjell Tynes’
     category: board
     title: Nestformann
+    body: Miniputtutvalget
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-21ca6a430bf2e620
+  - id: rolle-d08b37c8c44336fa
     page: "22"
     column: 0
     personName: Olav Moltu Furmyrv
     category: sporting_staff
     title: Oppmann
+    body: Miniputtutvalget
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups: []

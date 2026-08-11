@@ -555,41 +555,46 @@ candidates:
     personIds: []
     matchIds: []
 resolvedRoles:
-  - id: rolle-ae431018943e5934
+  - id: rolle-8da82e4303dd320d
     page: "1"
     column: 0
     personName: Ivar Morten Normark
     personId: ivar-morten-normark
     category: coach
     title: Trener
+    body: Seniorgruppen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-e60c0834b9eaeab8
+  - id: rolle-436f23b024d9e2c7
     page: "2"
     column: 0
     personName: Bror Johansen
     category: board
     title: Nestformann
+    body: Seniorgruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-e789c2f086f9786f
+  - id: rolle-bada90d0e89f1e2a
     page: "3"
     column: 0
     personName: Ivar Morten Normark
     personId: ivar-morten-normark
     category: coach
     title: Trener
+    body: Spillergruppen
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-241700fe176edc44
+  - id: rolle-ef6513a4576510ce
     page: "4"
     column: 0
     personName: Henrik Hoff
     category: administration
     title: Daglig leder
+    body: Talentgruppen
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups: []

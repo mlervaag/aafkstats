@@ -421,16 +421,17 @@ candidates:
     personIds: []
     matchIds: []
 resolvedRoles:
-  - id: rolle-1bd14d3cc9dffd60
+  - id: rolle-4ce0bbb493ffc0f9
     page: "3"
     column: 0
     personName: Bjorn Eidskrem
     category: board
     title: Nestformann
+    body: Juniorgruppen
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-688f38c7ef32dad1
+  - id: rolle-723eb7816e962790
     page: "4"
     column: 0
     personName: PRI N R
@@ -440,7 +441,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-3e7847cafd039888
+  - id: rolle-0a0d3b602e672c7f
     page: "5"
     column: 0
     personName: Bjørn Drabløs
@@ -450,7 +451,7 @@ resolvedRoles:
     to: null
     confidence: medium
     rule: role_then_name
-  - id: rolle-b173c01c48d22bef
+  - id: rolle-49d15f2c9c1476df
     page: "8"
     column: 0
     personName: Berit Ringi Klubbhusets
@@ -459,7 +460,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-7ea0446da47161d2
+  - id: rolle-c42d0c9472814648
     page: "8"
     column: 0
     personName: Dorti Lyshagen
@@ -468,7 +469,7 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
-  - id: rolle-686487444c1caaae
+  - id: rolle-1a8122e2968092f3
     page: "8"
     column: 0
     personName: Ole E
@@ -477,3 +478,4 @@ resolvedRoles:
     to: null
     confidence: low
     rule: role_then_name
+resolvedLineups: []
