@@ -1,0 +1,108 @@
+sourceId: medlemsblad-for-aalesunds-fotb-2003-fa59
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 4
+pagesProcessed: 4
+pagesFailed: []
+contentHash: sha256:1a9c1f0a57cc851ff04d710e65bec471e69c536ce37dc4eb238f4d7b0b094e0d
+candidates:
+  - id: organization-c507164e9360aceb
+    kind: organization
+    page: "1"
+    confidence: medium
+    keywords:
+      - leder
+      - sportslig leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-2400d1ddbeb015af
+    kind: organization
+    page: "2"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-284ec7428ec442d0
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: person-role-8b1aafb9ec97200a
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - leder
+      - sportslig leder
+    names:
+      - Da Medlemsbladet
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-978385f63c27235d
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: person-role-e8a83a377f10db6e
+    kind: person_role
+    page: "3"
+    confidence: medium
+    keywords:
+      - leder
+      - sportslig leder
+    names:
+      - Reidar Vågnes
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: lineup-or-squad-0619b935475f886a
+    kind: lineup_or_squad
+    page: "4"
+    confidence: medium
+    keywords:
+      - stallen
+    names:
+      - A-stallen. De
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-a4d78664dc489ac6
+    kind: person_role
+    page: "4"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Erling Ytterland
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []

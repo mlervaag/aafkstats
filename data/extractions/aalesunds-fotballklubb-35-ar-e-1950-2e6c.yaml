@@ -1,0 +1,445 @@
+sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: search_only
+pagesExpected: 20
+pagesProcessed: 0
+pagesFailed: []
+contentHash: sha256:87d4427cab7de2bcd986cef1ca95c5eaf72b50df294a45ab4a8022a5a9bbbfb2
+candidates:
+  - id: organization-6849d5a2407749c9
+    kind: organization
+    page: "2"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years:
+      - 1919
+      - 1920
+      - 1921
+      - 1923
+      - 1924
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-4775b4406c832a55
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Rasmus Eck Olsen
+    years:
+      - 1917
+      - 1920
+      - 1925
+      - 1926
+      - 1928
+      - 1929
+      - 1931
+      - 1932
+    scores: []
+    personIds:
+      - rasmus-eck-olsen
+    matchIds: []
+  - id: person-mention-9091287b555e5625
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Rasmus Eck Olsen
+    years:
+      - 1915
+      - 1917
+      - 1919
+      - 1929
+      - 1924
+    scores: []
+    personIds:
+      - rasmus-eck-olsen
+    matchIds: []
+  - id: person-mention-bf606901cfc09868
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Nils Jangaard
+    years:
+      - 1914
+      - 1919
+      - 1915
+      - 1917
+      - 1929
+    scores: []
+    personIds:
+      - nils-jangaard
+    matchIds: []
+  - id: person-role-05b58bb0c20c0de2
+    kind: person_role
+    page: "2"
+    confidence: high
+    keywords:
+      - formann
+    names:
+      - Rasmus Eck Olsen
+    years:
+      - 1915
+      - 1917
+      - 1919
+      - 1929
+      - 1924
+    scores: []
+    personIds:
+      - rasmus-eck-olsen
+    matchIds: []
+  - id: person-role-2e4ed95863f30398
+    kind: person_role
+    page: "2"
+    confidence: high
+    keywords:
+      - formann
+      - sekretær
+    names:
+      - Nils Jangaard
+    years:
+      - 1914
+      - 1919
+      - 1915
+      - 1917
+      - 1929
+    scores: []
+    personIds:
+      - nils-jangaard
+    matchIds: []
+  - id: person-role-68283c77e7ac771a
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Ole Jangaard
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-e1e29534a9a134f3
+    kind: person_role
+    page: "2"
+    confidence: high
+    keywords:
+      - formann
+    names:
+      - Rasmus Eck Olsen
+      - R. Eck Olsen
+    years:
+      - 1917
+      - 1920
+      - 1925
+      - 1926
+      - 1928
+      - 1929
+      - 1931
+      - 1932
+    scores: []
+    personIds:
+      - rasmus-eck-olsen
+    matchIds: []
+  - id: organization-1d65de80f520d0d8
+    kind: organization
+    page: "3"
+    confidence: medium
+    keywords:
+      - formann
+      - oppmann
+    names: []
+    years:
+      - 1930
+      - 1931
+      - 1932
+      - 1933
+      - 1935
+      - 1936
+      - 1938
+      - 1945
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-2450a6cc870896c9
+    kind: organization
+    page: "3"
+    confidence: medium
+    keywords:
+      - kasserer
+    names: []
+    years:
+      - 1927
+      - 1928
+      - 1929
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-6852f4a9530487ae
+    kind: organization
+    page: "3"
+    confidence: medium
+    keywords:
+      - formann
+      - oppmann
+    names: []
+    years:
+      - 1935
+      - 1936
+      - 1938
+      - 1945
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-c906cd9eecf36438
+    kind: organization
+    page: "3"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years:
+      - 1917
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-df2b929959cf87c9
+    kind: person_mention
+    page: "3"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years:
+      - 1930
+      - 1937
+      - 1938
+      - 1939
+      - 1948
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-role-2774fe7f3b87e18e
+    kind: person_role
+    page: "3"
+    confidence: medium
+    keywords:
+      - leder
+      - oppmann
+    names:
+      - Andreas B. Ringdal
+      - Per Mogstad
+    years:
+      - 1927
+      - 1925
+      - 1930
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-2cd8c841e83dc2a4
+    kind: person_role
+    page: "3"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Per Mogstad
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-63c563fa771f050d
+    kind: person_role
+    page: "3"
+    confidence: high
+    keywords:
+      - oppmann
+    names:
+      - Peder Puck
+      - Peder Puck. Peder Puck
+    years:
+      - 1930
+      - 1937
+      - 1938
+      - 1939
+      - 1948
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-role-8ebada720eab009e
+    kind: person_role
+    page: "3"
+    confidence: medium
+    keywords:
+      - sekretær
+    names:
+      - Andreas B. Ringdal
+      - Sverre Vblstad
+    years:
+      - 1934
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-e4a62b4b6a8fba4e
+    kind: person_role
+    page: "3"
+    confidence: medium
+    keywords:
+      - leder
+      - oppmann
+    names:
+      - Andreas B. Ringdal
+    years:
+      - 1927
+      - 1925
+      - 1930
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-7b8e1d0fbc7fcda6
+    kind: organization
+    page: "4"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-e6d3cec5a8a8324e
+    kind: person_mention
+    page: "4"
+    confidence: medium
+    keywords: []
+    names:
+      - Peder Puck
+      - Sverre Volstad
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+      - sverre-volstad
+    matchIds: []
+  - id: person-role-bdc24ce0cca53692
+    kind: person_role
+    page: "4"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Peder Puck
+      - Sverre Volstad
+      - Sigurd Nørve
+      - Karsten Eriksen
+      - Sverre Volstad. Haagensen
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+      - sverre-volstad
+    matchIds: []
+  - id: organization-0c1bbbd03b333484
+    kind: organization
+    page: "5"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-cd3f076ddf56fbe3
+    kind: person_role
+    page: "5"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Haagensen. Han
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-780abbd641ddabdf
+    kind: person_role
+    page: "7"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - N. I. Like
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-b8f8c747e9a42719
+    kind: person_role
+    page: "7"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Latinskolen. Sigurd Nørve
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-c73d7ff13427d0e5
+    kind: person_role
+    page: "7"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Louis Vegsund
+      - Sigurd Nørve
+      - Karsten Eriksen
+      - Arne Westad
+      - ALE SUND
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-32f20dd404a30b52
+    kind: person_role
+    page: "10"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Finn Tolaas
+    years:
+      - 1945
+      - 1949
+      - 1946
+      - 1948
+      - 1947
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-d47a9ab1d6875221
+    kind: person_role
+    page: "10"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Sheffield Uniteds
+      - Jack Smith
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []

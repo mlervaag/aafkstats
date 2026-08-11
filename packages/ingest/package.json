@@ -18,6 +18,7 @@
     "nff": "tsx src/cli/nff.ts",
     "fotmob-standings": "tsx src/cli/fotmob-standings.ts",
     "etter-kamp": "tsx src/cli/etter-kamp.ts"
+    ,"nb-extract": "tsx src/cli/nb-extract.ts"
   },
   "dependencies": {
     "@aafkstats/schema": "workspace:*",

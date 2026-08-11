@@ -1,0 +1,208 @@
+sourceId: medlemsblad-for-aalesunds-fotb-1966-aa8b
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 12
+pagesProcessed: 12
+pagesFailed: []
+contentHash: sha256:8c6f9d94f6a4234be09f767dca79876637f8912471fab5758a62140b270f4d46
+candidates:
+  - id: organization-956e78ff44d2212e
+    kind: organization
+    page: "2"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-243dd33ffc60b134
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Olaf Bigset
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-abbb4fd7d799de85
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - leder
+    names:
+      - TEKNISK LEDER
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-034722ef55f51a7c
+    kind: organization
+    page: "3"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-df1b397e8a317670
+    kind: organization
+    page: "4"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-f1e4c97268b1783b
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: organization-44dfcd92ca49da07
+    kind: organization
+    page: "8"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years:
+      - 1919
+      - 1929
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-a127f0a540612dba
+    kind: organization
+    page: "8"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years:
+      - 1917
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-ff43ee8bc5c2a2ee
+    kind: organization
+    page: "8"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-d1d2af30353a278c
+    kind: person_mention
+    page: "8"
+    confidence: high
+    keywords: []
+    names:
+      - Nils Jangaard
+    years: []
+    scores: []
+    personIds:
+      - nils-jangaard
+    matchIds: []
+  - id: organization-2053fc184044d263
+    kind: organization
+    page: "9"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-6297cdade27bece8
+    kind: organization
+    page: "9"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-a03206397365f729
+    kind: organization
+    page: "9"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years:
+      - 1920
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-24e8d540cd60c20d
+    kind: person_role
+    page: "9"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Arne Finsnes
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-b7506df001fe7b26
+    kind: organization
+    page: "10"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-3f2926ea4a36a91c
+    kind: person_mention
+    page: "10"
+    confidence: high
+    keywords: []
+    names:
+      - Rasmus Eck Olsen
+    years: []
+    scores: []
+    personIds:
+      - rasmus-eck-olsen
+    matchIds: []
+  - id: season-fact-2f155ab303bcdf52
+    kind: season_fact
+    page: "10"
+    confidence: medium
+    keywords:
+      - poeng
+    names: []
+    years:
+      - 1966
+    scores: []
+    personIds: []
+    matchIds: []

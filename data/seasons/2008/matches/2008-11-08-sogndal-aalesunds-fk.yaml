@@ -30,12 +30,17 @@ providers:
       - home.score
       - away.score
       - competition.round
-note: >-
-  Kvalifiseringskamp etter serien, ikke en serierunde. RSSSF lister den under
-  samme sesongtabell, og parseren arvet rundenummeret fra kampen over.
+sources:
+  - sourceId: tango-siden-1914-2013-806b
+    page: "15"
+    fields:
+      - home.score
+      - away.score
+    note: Entydig maskinelt treff på år, motstander og resultat; bør redaksjonelt etterkontrolleres.
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 2008-premier-2008-11-08-sogndal-aalesunds-fk
 manual: []
+note: Kvalifiseringskamp etter serien, ikke en serierunde. RSSSF lister den under samme sesongtabell, og parseren arvet rundenummeret fra kampen over.

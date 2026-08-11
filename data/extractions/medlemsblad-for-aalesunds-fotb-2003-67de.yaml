@@ -1,0 +1,544 @@
+sourceId: medlemsblad-for-aalesunds-fotb-2003-67de
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 4
+pagesProcessed: 4
+pagesFailed: []
+contentHash: sha256:cd81ad102296fa192acc0e04524c5ac9a29b61089b2df593ba12163945772b4e
+candidates:
+  - id: organization-133b873e013b8dfc
+    kind: organization
+    page: "1"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-20de273e69f3a032
+    kind: person_mention
+    page: "1"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: person-role-0635c7cc16c060af
+    kind: person_role
+    page: "1"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Ivar Morten Normark
+      - AaFK. Men
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []
+  - id: match-result-0c2ef6f11e711059
+    kind: match_result
+    page: "2"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 20-30
+    personIds: []
+    matchIds: []
+  - id: organization-377e36c1f60cae9b
+    kind: organization
+    page: "2"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-c8748d7f22160296
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-f47e43e7f98a6f2c
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - nestformann
+    names:
+      - Bror Johansen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-e6f47c7f97845e4f
+    kind: organization
+    page: "3"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-0d9712142b68f51a
+    kind: person_role
+    page: "3"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Ivar Morten Norm
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: season-fact-76f4049f95d18dc3
+    kind: season_fact
+    page: "3"
+    confidence: medium
+    keywords:
+      - poeng
+    names: []
+    years:
+      - 2004
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: lineup-or-squad-dc983b8343278a2b
+    kind: lineup_or_squad
+    page: "4"
+    confidence: medium
+    keywords:
+      - stallen
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-02af06a76aa017c9
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - AaFK-Odd Grenland
+    years: []
+    scores:
+      - 2-2
+    personIds: []
+    matchIds:
+      - 2003-05-29-aalesunds-fk-odds-ballklubb
+  - id: match-result-034ea6c113f98eb2
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 4-2
+    personIds: []
+    matchIds:
+      - 2003-06-25-aalesunds-fk-hodd
+  - id: match-result-082569dd574f0ce2
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 0-4
+    personIds: []
+    matchIds:
+      - 2003-05-21-stryn-aalesunds-fk
+  - id: match-result-0d3a155b996893d2
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-1
+    personIds: []
+    matchIds:
+      - 2003-06-01-lillestrom-aalesunds-fk
+  - id: match-result-0e47f9206901d5a6
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-0
+    personIds: []
+    matchIds:
+      - 2003-08-24-aalesunds-fk-lyn
+  - id: match-result-0e4cdbd5d3b4531f
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-2
+    personIds: []
+    matchIds: []
+  - id: match-result-272424800cbec276
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-2
+    personIds: []
+    matchIds:
+      - 2003-09-28-aalesunds-fk-lillestrom
+  - id: match-result-33b477fcc0b15e01
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-0
+    personIds: []
+    matchIds: []
+  - id: match-result-4b80e4647a05ba8f
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 0-2
+    personIds: []
+    matchIds:
+      - 2003-06-15-aalesunds-fk-bodo-glimt
+      - 2003-10-05-bodo-glimt-aalesunds-fk
+  - id: match-result-50e0f69b6bf0a111
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-1
+    personIds: []
+    matchIds:
+      - 2003-05-16-aalesunds-fk-viking
+  - id: match-result-567f808642c200bb
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 4-0
+    personIds: []
+    matchIds: []
+  - id: match-result-5afdefee7e7227aa
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 0-1
+    personIds: []
+    matchIds: []
+  - id: match-result-65fe385cab9b8086
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-3
+    personIds: []
+    matchIds:
+      - 2003-06-22-molde-fk-aalesunds-fk
+  - id: match-result-6ca31e844c03870e
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 0-2
+    personIds: []
+    matchIds: []
+  - id: match-result-70c3d1ed7bb480da
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Rosenborg. Og
+    years: []
+    scores:
+      - 0-1
+    personIds: []
+    matchIds:
+      - 2003-05-04-rosenborg-bk-aalesunds-fk
+  - id: match-result-7c6cba3f1d6d90ac
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 4-0
+    personIds: []
+    matchIds:
+      - 2003-08-31-viking-aalesunds-fk
+  - id: match-result-891bc1a2f1c61d28
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-3
+    personIds: []
+    matchIds:
+      - 2003-04-26-aalesunds-fk-sk-brann
+  - id: match-result-a122f1a75cc468dc
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-0
+    personIds: []
+    matchIds:
+      - 2003-07-20-bryne-aalesunds-fk
+      - 2003-11-01-aalesunds-fk-bryne
+  - id: match-result-a2dfd8f283417df0
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-3
+    personIds: []
+    matchIds:
+      - 2003-04-13-aalesunds-fk-tromso
+  - id: match-result-a3996dbe51a8c7b7
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-4
+    personIds: []
+    matchIds:
+      - 2003-08-07-stabaek-aalesunds-fk
+  - id: match-result-acb05ec3cdaea267
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 0-2
+    personIds: []
+    matchIds:
+      - 2003-08-16-aalesunds-fk-rosenborg-bk
+  - id: match-result-b2336efd3246b227
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 0-1
+    personIds: []
+    matchIds:
+      - 2003-07-27-tromso-aalesunds-fk
+  - id: match-result-b84279b5e53b2427
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 5-0
+    personIds: []
+    matchIds: []
+  - id: match-result-baa1331b11b8904d
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 0-2
+    personIds: []
+    matchIds:
+      - 2003-08-03-aalesunds-fk-valerenga
+  - id: match-result-c9481cce5f31f449
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-1
+    personIds: []
+    matchIds:
+      - 2003-04-21-valerenga-aalesunds-fk
+  - id: match-result-c9888dc985f6c390
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-2
+    personIds: []
+    matchIds: []
+  - id: match-result-c9afacff0fb65314
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-0
+    personIds: []
+    matchIds:
+      - 2003-05-04-rosenborg-bk-aalesunds-fk
+  - id: match-result-d708a270845d35b9
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-1
+    personIds: []
+    matchIds:
+      - 2003-05-25-sogndal-aalesunds-fk
+  - id: match-result-d75de0ab69d061d4
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-1
+    personIds: []
+    matchIds: []
+  - id: match-result-dddd913b6eb5eaac
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-0
+    personIds: []
+    matchIds:
+      - 2003-08-10-sk-brann-aalesunds-fk
+  - id: match-result-ef668904795486ba
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-1
+    personIds: []
+    matchIds:
+      - 2003-05-11-lyn-aalesunds-fk
+  - id: match-result-f12a6e060c844668
+    kind: match_result
+    page: "4"
+    confidence: high
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-1
+    personIds: []
+    matchIds:
+      - 2003-06-29-aalesunds-fk-stabaek
+  - id: match-result-f2e585bae492f486
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-0
+    personIds: []
+    matchIds: []
+  - id: person-role-bd2f037a15c8e2b7
+    kind: person_role
+    page: "4"
+    confidence: medium
+    keywords:
+      - leder
+      - daglig leder
+    names:
+      - Til Sunnmørsposten
+      - Henrik Hoff
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []

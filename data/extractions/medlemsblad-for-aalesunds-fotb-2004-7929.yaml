@@ -1,0 +1,33 @@
+sourceId: medlemsblad-for-aalesunds-fotb-2004-7929
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 4
+pagesProcessed: 4
+pagesFailed: []
+contentHash: sha256:fa2f4cbacdd1d63a5f0f1c13f5a86c6644c1bceffe7f20279d154a5674488f25
+candidates:
+  - id: organization-7894ff5b1ba4b887
+    kind: organization
+    page: "3"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-59da2d3185c41963
+    kind: person_mention
+    page: "4"
+    confidence: high
+    keywords: []
+    names:
+      - Ivar Morten Normark
+    years: []
+    scores: []
+    personIds:
+      - ivar-morten-normark
+    matchIds: []

@@ -1,0 +1,225 @@
+sourceId: medlemsblad-for-aalesunds-fotb-1969-8d82
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 12
+pagesProcessed: 12
+pagesFailed: []
+contentHash: sha256:2aff497664778aaeb742e6d566893064d05a6509fbbfc66af46d9eabb968b023
+candidates:
+  - id: match-result-2db81f96f06b7229
+    kind: match_result
+    page: "2"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 0-3
+    personIds: []
+    matchIds: []
+  - id: match-result-dd1efa90a17d36dc
+    kind: match_result
+    page: "2"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-2
+    personIds: []
+    matchIds: []
+  - id: match-result-e355df26689bae54
+    kind: match_result
+    page: "2"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-0
+    personIds: []
+    matchIds: []
+  - id: match-result-f0e71a328e471ec6
+    kind: match_result
+    page: "2"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-1
+    personIds: []
+    matchIds: []
+  - id: match-result-faf9dc1778f29eb4
+    kind: match_result
+    page: "3"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 1-1
+    personIds: []
+    matchIds: []
+  - id: person-role-75bf701160af7628
+    kind: person_role
+    page: "3"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Arne Finnsnes
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-06874bbebd72229e
+    kind: organization
+    page: "4"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-e55ca118fd29f23b
+    kind: organization
+    page: "4"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-1c3ecb6ee7bbc1c6
+    kind: organization
+    page: "5"
+    confidence: medium
+    keywords:
+      - nestformann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-81269ccdebb79845
+    kind: organization
+    page: "5"
+    confidence: medium
+    keywords:
+      - sekretær
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-97a3df6db54a8607
+    kind: organization
+    page: "5"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-b244ded5240eaf5d
+    kind: organization
+    page: "5"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-c427e0cbdba94832
+    kind: organization
+    page: "5"
+    confidence: medium
+    keywords:
+      - kasserer
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-283daff14a873bb9
+    kind: organization
+    page: "6"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: lineup-or-squad-f74f70704f09d51f
+    kind: lineup_or_squad
+    page: "7"
+    confidence: medium
+    keywords:
+      - stallen
+    names: []
+    years:
+      - 1961
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-51ea262c7ffb5c3e
+    kind: person_role
+    page: "9"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Ragnvald Langva
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-8873598babdf0b70
+    kind: person_role
+    page: "9"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Per Anker Erik
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-fc79d1aa18613cf8
+    kind: person_role
+    page: "9"
+    confidence: medium
+    keywords:
+      - nestformann
+    names:
+      - Karsten Erik
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: season-fact-878fb8d5e281b79c
+    kind: season_fact
+    page: "10"
+    confidence: medium
+    keywords:
+      - poeng
+    names: []
+    years:
+      - 1953
+    scores: []
+    personIds: []
+    matchIds: []

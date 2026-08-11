@@ -1,0 +1,234 @@
+sourceId: medlemsblad-for-aalesunds-fotb-1950-62fa
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 16
+pagesProcessed: 16
+pagesFailed: []
+contentHash: sha256:ea695374776650151fa136999a6d7d404c5ee79d6456127294df48fe1e7bfe50
+candidates:
+  - id: person-mention-3a2fbc49285f8fe2
+    kind: person_mention
+    page: "1"
+    confidence: high
+    keywords: []
+    names:
+      - Emil Sandø
+    years: []
+    scores: []
+    personIds:
+      - emil-sando
+    matchIds: []
+  - id: person-mention-654593cfd1dbd50b
+    kind: person_mention
+    page: "2"
+    confidence: high
+    keywords: []
+    names:
+      - Emil Sandø
+    years: []
+    scores: []
+    personIds:
+      - emil-sando
+    matchIds: []
+  - id: lineup-or-squad-7fb6e44826e9c9be
+    kind: lineup_or_squad
+    page: "4"
+    confidence: medium
+    keywords:
+      - lagoppstillingen
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-6800b7619cf2dd73
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 3-1
+    personIds: []
+    matchIds: []
+  - id: match-result-cf5ce2a7f43925b4
+    kind: match_result
+    page: "4"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 5-2
+    personIds: []
+    matchIds: []
+  - id: person-mention-bdec7a5931390401
+    kind: person_mention
+    page: "5"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: organization-180c7310d472ac4e
+    kind: organization
+    page: "8"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-8a849adb761f1d7b
+    kind: organization
+    page: "12"
+    confidence: medium
+    keywords:
+      - oppmann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-f4aaf2c71e459cc1
+    kind: organization
+    page: "12"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-0de04dbf546a87f2
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Sverre Mogstad
+    years: []
+    scores: []
+    personIds:
+      - sverre-mogstad
+    matchIds: []
+  - id: person-mention-76f0d659bb58ab87
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Emil Sandø
+    years: []
+    scores: []
+    personIds:
+      - emil-sando
+    matchIds: []
+  - id: person-mention-9c8771ee45eaee62
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-role-9d2451d980b3f24a
+    kind: person_role
+    page: "12"
+    confidence: medium
+    keywords:
+      - kasserer
+    names:
+      - Emil Sandø
+      - Emil Sand
+    years: []
+    scores: []
+    personIds:
+      - emil-sando
+    matchIds: []
+  - id: match-result-0f9c610ddadb9070
+    kind: match_result
+    page: "16"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 0-3
+    personIds: []
+    matchIds: []
+  - id: match-result-4eb3762195daf7b3
+    kind: match_result
+    page: "16"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-0
+    personIds: []
+    matchIds: []
+  - id: person-mention-19137601fc96a9a4
+    kind: person_mention
+    page: "16"
+    confidence: high
+    keywords: []
+    names:
+      - Peder Puck
+    years: []
+    scores: []
+    personIds:
+      - peder-puck
+    matchIds: []
+  - id: person-role-1a4359afe4ba34b0
+    kind: person_role
+    page: "16"
+    confidence: medium
+    keywords:
+      - kasserer
+    names:
+      - Arne Westad
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-35a05ec4a800ee62
+    kind: person_role
+    page: "16"
+    confidence: medium
+    keywords:
+      - trener
+    names:
+      - Ragnar Pedersen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-a542795f0d556fb2
+    kind: person_role
+    page: "16"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Aa. F. K.s
+      - Per Anker
+    years:
+      - 1950
+    scores: []
+    personIds: []
+    matchIds: []

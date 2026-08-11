@@ -1,0 +1,82 @@
+sourceId: medlemsblad-for-aalesunds-fotb-1970-fc1b
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 12
+pagesProcessed: 12
+pagesFailed: []
+contentHash: sha256:d5ec595b05e70601e4915bd1c712505ed764fb794488f5a690934c5eb5f04698
+candidates:
+  - id: organization-b12210d3eb4d4869
+    kind: organization
+    page: "3"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-474402d22fe869ca
+    kind: organization
+    page: "6"
+    confidence: medium
+    keywords:
+      - formann
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: season-fact-b7182e08ac5fa688
+    kind: season_fact
+    page: "8"
+    confidence: medium
+    keywords:
+      - tabellen
+    names: []
+    years:
+      - 1968
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: match-result-36a7707f151bc3a1
+    kind: match_result
+    page: "9"
+    confidence: medium
+    keywords: []
+    names:
+      - M. Sunde
+      - S. Grim
+      - Aa.F.K. Første
+    years: []
+    scores:
+      - 2-1
+      - 1-1
+    personIds: []
+    matchIds: []
+  - id: match-result-832d0ed292c72fec
+    kind: match_result
+    page: "9"
+    confidence: medium
+    keywords: []
+    names: []
+    years: []
+    scores:
+      - 2-1
+    personIds: []
+    matchIds: []
+  - id: person-mention-b8cdfb56321655fb
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Knut Gaaseide
+    years: []
+    scores: []
+    personIds:
+      - knut-gaaseide
+    matchIds: []

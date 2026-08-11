@@ -19,6 +19,8 @@ import { contribution } from "./contribution.js";
 import type { Contribution } from "./contribution.js";
 import { source as historicalSource } from "./source.js";
 import type { Source as HistoricalSource } from "./source.js";
+import { publicationExtraction } from "./extraction.js";
+import type { PublicationExtraction } from "./extraction.js";
 
 /** Rota på monorepoet, utledet fra hvor denne filen ligger. */
 export function repoRoot(): string {
@@ -66,6 +68,7 @@ export interface Archive {
   people: Person[];
   contributions: (Contribution & { file: string })[];
   sources: (HistoricalSource & { file: string })[];
+  extractions: (PublicationExtraction & { file: string })[];
   issues: LoadIssue[];
 }
 
@@ -238,7 +241,12 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
     p.file = relative(root, join(root, "sources", `${p.id}.yaml`)).replace(/\\/g, "/");
   }
 
-  return { clubs, venues, competitions, providers, seasons, matches, observations, standings: tables, people, contributions, sources, issues };
+  const extractions = (await readAll("extractions", publicationExtraction)) as (PublicationExtraction & { file: string })[];
+  for (const extraction of extractions) {
+    extraction.file = relative(root, join(root, "extractions", `${extraction.sourceId}.yaml`)).replace(/\\/g, "/");
+  }
+
+  return { clubs, venues, competitions, providers, seasons, matches, observations, standings: tables, people, contributions, sources, extractions, issues };
 }
 
 /**
@@ -273,6 +281,25 @@ export function crossValidate(archive: Archive): LoadIssue[] {
   duplicates(archive.providers, "providers");
   duplicates(archive.contributions, "contributions");
   duplicates(archive.sources, "sources");
+
+  const matchIds = ids(archive.matches);
+  const personIds = ids(archive.people);
+  for (const extraction of archive.extractions) {
+    if (!sourceIds.has(extraction.sourceId)) {
+      issues.push({ file: extraction.file, path: "sourceId", message: `ukjent historisk kilde «${extraction.sourceId}»` });
+    }
+    if (!providerIds.has(extraction.providerId)) {
+      issues.push({ file: extraction.file, path: "providerId", message: `ukjent provider «${extraction.providerId}»` });
+    }
+    for (const [index, candidate] of extraction.candidates.entries()) {
+      for (const personId of candidate.personIds) if (!personIds.has(personId)) {
+        issues.push({ file: extraction.file, path: `candidates.${index}.personIds`, message: `ukjent person «${personId}»` });
+      }
+      for (const matchId of candidate.matchIds) if (!matchIds.has(matchId)) {
+        issues.push({ file: extraction.file, path: `candidates.${index}.matchIds`, message: `ukjent kamp «${matchId}»` });
+      }
+    }
+  }
 
   // Klubber som normaliserer til samme identitet er nesten alltid samme klubb
   // ført to ganger, fordi én kilde skriver «FK Haugesund» og en annen «Haugesund».

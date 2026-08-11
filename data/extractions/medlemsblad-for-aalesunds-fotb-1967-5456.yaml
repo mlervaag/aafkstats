@@ -1,0 +1,126 @@
+sourceId: medlemsblad-for-aalesunds-fotb-1967-5456
+providerId: nasjonalbiblioteket
+adapter: nb-publications@1
+retrievedAt: 2026-08-11
+ocrAccess: alto
+pagesExpected: 12
+pagesProcessed: 12
+pagesFailed: []
+contentHash: sha256:02f0ba6c3349d98c5a898de1d87359a00b68d4d1807ea3e98e899028e91e03da
+candidates:
+  - id: person-role-4258bbf134d4d26a
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - kasserer
+    names:
+      - Kjell Luthentun
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-7a8b14b52b33da5f
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - oppmann
+    names:
+      - Jarle Kristoffersen
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-cec2b12e2687d9a5
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - nestformann
+    names:
+      - Rolf Kvissel
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-e3efc2a8ced367ea
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - sekretær
+    names:
+      - Ole Marius Ringdal
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-role-fe796de0159acd3f
+    kind: person_role
+    page: "2"
+    confidence: medium
+    keywords:
+      - formann
+    names:
+      - Erling Bjørge
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: lineup-or-squad-14eca2a652894773
+    kind: lineup_or_squad
+    page: "4"
+    confidence: medium
+    keywords:
+      - troppen
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-f94c55b162563535
+    kind: organization
+    page: "4"
+    confidence: medium
+    keywords:
+      - leder
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: lineup-or-squad-5131eb639bf9ad1b
+    kind: lineup_or_squad
+    page: "6"
+    confidence: medium
+    keywords:
+      - lagoppstillingen
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: organization-3bf537fb07b77832
+    kind: organization
+    page: "7"
+    confidence: medium
+    keywords:
+      - trener
+    names: []
+    years: []
+    scores: []
+    personIds: []
+    matchIds: []
+  - id: person-mention-e32ae96fa583443c
+    kind: person_mention
+    page: "12"
+    confidence: high
+    keywords: []
+    names:
+      - Knut Gaaseide
+    years: []
+    scores: []
+    personIds:
+      - knut-gaaseide
+    matchIds: []
