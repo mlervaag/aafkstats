@@ -1,0 +1,59 @@
+providerId: fotmob
+externalId: "5266350"
+matchId: 2026-04-22-sk-brann-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@4
+payloadHash: sha256:b694e3fb498871c39ef47de349cfad8bcbb14460dec87846ef3e7db4c3ba2c04
+raw:
+  externalId: "5266350"
+  date: 2026-04-22
+  kickoff: 20:00
+  status: FT
+  home: Brann
+  homeId: "8468"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 1
+  homeHalfTime: 2
+  awayHalfTime: 0
+  competition: Cup
+  competitionId: "206"
+  season: 2025
+  stage: semi_final
+  venue: Brann Stadion
+  attendance: 16188
+  url: https://www.fotmob.com/matches/aalesund-vs-brann/2cr19k#5266350
+normalized:
+  date: 2026-04-22
+  kickoff: 20:00
+  status: played
+  home.clubId: sk-brann
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 1
+  home.halfTimeScore: 2
+  away.halfTimeScore: 0
+  competition.id: nm
+  competition.season: 2025
+  competition.stage: semi_final
+  venueId: brann-stadion
+  attendance: 16188
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.stage
+  - attendance
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

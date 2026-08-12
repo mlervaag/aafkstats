@@ -1,0 +1,52 @@
+id: 2017-02-19-aalesunds-fk-shandong-taishan
+date: 2017-02-19
+dateConfidence: exact
+kickoff: 17:05
+status: played
+competition:
+  id: treningskamp
+  season: 2017
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: shandong-taishan
+  score: 1
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 34
+    type: goal
+    team: away
+    player: Xinghan Wu
+  - minute: 61
+    type: goal
+    team: home
+    player: Oddbjørn Lie
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-shandong-taishan/2ebcl1#2460744
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2460744"
+manual: []

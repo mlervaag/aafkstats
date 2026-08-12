@@ -1,0 +1,52 @@
+providerId: fotmob
+externalId: "1892204"
+matchId: 2015-03-30-aalesunds-fk-molde-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:3d64611acc9ff2bbd78b960cf5d3912d1d356fae58507542edfb5bf0a11c58a2
+raw:
+  externalId: "1892204"
+  date: 2015-03-30
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Molde
+  awayId: "9917"
+  homeScore: 2
+  awayScore: 2
+  homeHalfTime: 0
+  awayHalfTime: 1
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2015
+  round: 1
+  url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#1892204
+normalized:
+  date: 2015-03-30
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: molde-fk
+  home.score: 2
+  away.score: 2
+  home.halfTimeScore: 0
+  away.halfTimeScore: 1
+  competition.id: treningskamp
+  competition.season: 2015
+  competition.round: 1
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

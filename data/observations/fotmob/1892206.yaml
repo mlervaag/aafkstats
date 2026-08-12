@@ -1,0 +1,52 @@
+providerId: fotmob
+externalId: "1892206"
+matchId: 2015-02-06-aalesunds-fk-ranheim
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:962254b77cc1c3604abae7fba61e76e38edd6bec340a4af7a39584c7944007a3
+raw:
+  externalId: "1892206"
+  date: 2015-02-06
+  kickoff: 18:30
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Ranheim
+  awayId: "6563"
+  homeScore: 1
+  awayScore: 3
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2015
+  round: 1
+  url: https://www.fotmob.com/matches/ranheim-vs-aalesund/1up0ag#1892206
+normalized:
+  date: 2015-02-06
+  kickoff: 18:30
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: ranheim
+  home.score: 1
+  away.score: 3
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2015
+  competition.round: 1
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

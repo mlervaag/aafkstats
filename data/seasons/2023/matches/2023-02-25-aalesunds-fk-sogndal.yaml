@@ -1,0 +1,57 @@
+id: 2023-02-25-aalesunds-fk-sogndal
+date: 2023-02-25
+dateConfidence: exact
+kickoff: 13:00
+status: played
+competition:
+  id: treningskamp
+  season: 2023
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 1
+away:
+  clubId: sogndal
+  score: 0
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 41
+    type: penalty_goal
+    team: home
+    player: Moses Ebiye
+  - minute: 88
+    type: goal
+    team: home
+    player: Kristoffer Ødemarksbakken
+  - minute: 90
+    type: goal
+    team: home
+    player: Moses Ebiye
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-sogndal/2e8smm#4115377
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4115377"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

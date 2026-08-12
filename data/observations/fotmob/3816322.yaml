@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "3816322"
+matchId: 2022-02-10-aalesunds-fk-tromso
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:c5cb28a630be5ac6f1b22e5701ec8529e0b655989bb120656595cee05b7ed4dc
+raw:
+  externalId: "3816322"
+  date: 2022-02-10
+  kickoff: 16:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Tromsø
+  awayId: "8608"
+  homeScore: 2
+  awayScore: 1
+  homeHalfTime: 2
+  awayHalfTime: 1
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2022
+  venue: Marbella Football Center - Sur 1 (Stadiu
+  url: https://www.fotmob.com/matches/aalesund-vs-tromso/2e5vky#3816322
+normalized:
+  date: 2022-02-10
+  kickoff: 16:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: tromso
+  home.score: 2
+  away.score: 1
+  home.halfTimeScore: 2
+  away.halfTimeScore: 1
+  competition.id: treningskamp
+  competition.season: 2022
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

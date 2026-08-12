@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "1892203"
+matchId: 2015-03-20-hodd-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:7acc8e90f9775d8a10b84b3a705731be3cc928e096244b58eb6c638198099f47
+raw:
+  externalId: "1892203"
+  date: 2015-03-20
+  kickoff: 19:00
+  status: FT
+  home: Hødd
+  homeId: "7937"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 1
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2015
+  url: https://www.fotmob.com/matches/hodd-vs-aalesund/27i0yj#1892203
+normalized:
+  date: 2015-03-20
+  kickoff: 19:00
+  status: played
+  home.clubId: hodd
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 1
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2015
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

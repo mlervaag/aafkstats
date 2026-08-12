@@ -1,0 +1,59 @@
+providerId: fotmob
+externalId: "2937540"
+matchId: 2018-11-29-aalesunds-fk-sogndal
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:a79c47b83517daa5c62cc0eeb091aecd04318dd4be2a1796e3b66fef5e717744
+raw:
+  externalId: "2937540"
+  date: 2018-11-29
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Sogndal
+  awayId: "8616"
+  homeScore: 3
+  awayScore: 1
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: Eliteserien Qualification
+  competitionId: "60"
+  season: 2018
+  stage: relegation_playoff
+  venue: Color Line Stadion
+  attendance: 3458
+  url: https://www.fotmob.com/matches/aalesund-vs-sogndal/2e8smm#2937540
+normalized:
+  date: 2018-11-29
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: sogndal
+  home.score: 3
+  away.score: 1
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: eliteserien
+  competition.season: 2018
+  competition.stage: relegation_playoff
+  venueId: color-line-stadion
+  attendance: 3458
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.stage
+  - attendance
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

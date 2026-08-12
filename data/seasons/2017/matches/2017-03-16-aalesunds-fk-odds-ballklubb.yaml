@@ -1,0 +1,60 @@
+id: 2017-03-16-aalesunds-fk-odds-ballklubb
+date: 2017-03-16
+dateConfidence: exact
+kickoff: 15:00
+status: played
+competition:
+  id: treningskamp
+  season: 2017
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: odds-ballklubb
+  score: 3
+  halfTimeScore: 2
+neutralVenue: false
+events:
+  - minute: 4
+    type: goal
+    team: away
+    player: Fredrik Nordkvelle
+  - minute: 33
+    type: goal
+    team: away
+    player: Fredrik Semb Berge
+  - minute: 77
+    type: goal
+    team: away
+    player: Oliver Berg
+  - minute: 87
+    type: goal
+    team: home
+    player: Fredrik Carlsen
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/odds-ballklubb-vs-aalesund/27zx14#2474468
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2474468"
+manual: []

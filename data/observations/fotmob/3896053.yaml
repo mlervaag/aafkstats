@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "3896053"
+matchId: 2022-06-13-rosenborg-bk-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:02f62816c1374645efe612e857c0a063c2e216dec21572db12304d9e4fc27d1f
+raw:
+  externalId: "3896053"
+  date: 2022-06-13
+  kickoff: 13:00
+  status: FT
+  home: Rosenborg
+  homeId: "8422"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 0
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2022
+  venue: Lerkendal Stadion
+  url: https://www.fotmob.com/matches/aalesund-vs-rosenborg/2caf6d#3896053
+normalized:
+  date: 2022-06-13
+  kickoff: 13:00
+  status: played
+  home.clubId: rosenborg-bk
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 0
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2022
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

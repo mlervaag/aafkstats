@@ -1,0 +1,165 @@
+id: 2026-04-22-sk-brann-aalesunds-fk
+date: 2026-04-22
+dateConfidence: exact
+kickoff: 20:00
+status: played
+competition:
+  id: nm
+  season: 2025
+  stage: semi_final
+home:
+  clubId: sk-brann
+  score: 2
+  halfTimeScore: 2
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+venueId: brann-stadion
+neutralVenue: false
+attendance: 16188
+events:
+  - minute: 9
+    type: yellow_card
+    team: away
+    player: Ólafur Gudmundsson
+  - minute: 10
+    type: own_goal
+    team: home
+    player: Simen Haram
+  - minute: 39
+    type: goal
+    team: home
+    player: Ulrik Mathisen
+    assist: Joachim Soltvedt
+  - minute: 46
+    type: substitution
+    team: away
+    player: Endre Osenbroch
+    playerOff: Håkon Butli Hammer
+  - minute: 46
+    type: substitution
+    team: away
+    player: Ivan Djantou
+    playerOff: Henrik Melland
+  - minute: 46
+    type: substitution
+    team: home
+    player: Kristian Eriksen
+    playerOff: Niklas Jensen Wassberg
+  - minute: 68
+    type: substitution
+    team: home
+    player: Jón Thorsteinsson
+    playerOff: Markus Haaland
+  - minute: 68
+    type: substitution
+    team: home
+    player: Bård Finne
+    playerOff: Ulrik Mathisen
+  - minute: 72
+    type: substitution
+    team: home
+    player: Simen Vidtun Nilsen
+    playerOff: Mathias Dyngeland
+  - minute: 78
+    type: goal
+    team: away
+    player: Elias Hagen
+  - minute: 85
+    type: substitution
+    team: away
+    player: Elias Heggland Myrlid
+    playerOff: Jakob Nyland Ørsahl
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Mathias Dyngeland
+      - Denzel De Roeve
+      - Fredrik Pallesen Knudsen
+      - Thore Pedersen
+      - Joachim Soltvedt
+      - Niklas Jensen Wassberg
+      - Jacob Lungi Sørensen
+      - Felix Horn Myhre
+      - Ulrik Mathisen
+      - Noah Holm
+      - Markus Haaland
+    subs:
+      - Kristian Eriksen
+      - Bård Finne
+      - Jón Thorsteinsson
+      - Simen Vidtun Nilsen
+      - Cheikh Mbacke Diop
+      - Rasmus Holten
+      - Vetle Dragsnes
+      - Kristall Ingason
+      - Rabbi Matondo
+    coach: Freyr Alexandersson
+  away:
+    formation: 5-4-1
+    starters:
+      - Tor Erik Valderhaug Larsen
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Ólafur Gudmundsson
+      - Uba Charles
+      - Jakob Nyland Ørsahl
+      - Mathias Christensen
+      - Elias Hagen
+      - Håkon Butli Hammer
+      - Henrik Melland
+      - Kristian Hemmingsen Lonebu
+    subs:
+      - Endre Osenbroch
+      - Ivan Djantou
+      - Elias Heggland Myrlid
+      - Kristoffer Klaesson
+      - Philip Sandvik Aukland
+      - Ulrik Valderhaug Syversen
+      - David Snær Johannsson
+      - Kristoffer Nessø
+      - Marius Andresen
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 54
+    shots: 11
+    shotsOnTarget: 5
+    corners: 10
+  away:
+    possession: 46
+    shots: 6
+    shotsOnTarget: 2
+    corners: 7
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-brann/2cr19k#5266350
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.stage
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5266350"
+manual: []

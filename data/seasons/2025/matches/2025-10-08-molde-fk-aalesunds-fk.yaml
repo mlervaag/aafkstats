@@ -1,0 +1,41 @@
+id: 2025-10-08-molde-fk-aalesunds-fk
+date: 2025-10-08
+dateConfidence: exact
+kickoff: 13:00
+status: played
+competition:
+  id: treningskamp
+  season: 2025
+  stage: regular_season
+home:
+  clubId: molde-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#4996965
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4996965"
+manual: []

@@ -1,0 +1,174 @@
+id: 2018-11-29-aalesunds-fk-sogndal
+date: 2018-11-29
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2018
+  stage: relegation_playoff
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 0
+away:
+  clubId: sogndal
+  score: 1
+  halfTimeScore: 0
+venueId: color-line-stadion
+neutralVenue: false
+attendance: 3458
+events:
+  - minute: 47
+    type: yellow_card
+    team: away
+    player: Ulrik Fredriksen
+  - minute: 48
+    type: penalty_goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+  - minute: 50
+    type: goal
+    team: away
+    player: Ulrik Fredriksen
+    assist: Joachim Soltvedt
+  - minute: 52
+    type: yellow_card
+    team: away
+    player: Sigurd Haugen
+  - minute: 55
+    type: goal
+    team: home
+    player: Pape Habib Gueye
+    assist: Erikson Lima
+  - minute: 58
+    type: substitution
+    team: away
+    player: Lars Christian Kjemhus
+    playerOff: Bjørn Helge Riise
+  - minute: 64
+    type: substitution
+    team: away
+    player: Ulrik Flo
+    playerOff: Sixten Jensen
+  - minute: 70
+    type: yellow_card
+    team: home
+    player: Oddbjørn Lie
+  - minute: 72
+    type: substitution
+    team: home
+    player: Torbjørn Agdestein
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 74
+    type: substitution
+    team: home
+    player: Jonas Grønner
+    playerOff: Oddbjørn Lie
+  - minute: 77
+    type: substitution
+    team: away
+    player: Akor Adams
+    playerOff: Tomas Totland
+  - minute: 90
+    type: substitution
+    team: home
+    player: Ståle Steen Sæthre
+    playerOff: Adam Örn Arnarson
+  - minute: 90
+    type: yellow_card
+    team: away
+    player: Per-Magnus Steiring
+  - minute: 90
+    type: goal
+    team: home
+    player: Pape Habib Gueye
+    assist: Andreas Lie
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Adam Örn Arnarson
+      - Sondre Brunstad Fet
+      - Fredrik Carlsen
+      - Erikson Lima
+      - Jørgen Hatlehol
+      - Holmbert Aron Fridjonsson
+      - Pape Habib Gueye
+    subs:
+      - Torbjørn Agdestein
+      - Jonas Grønner
+      - Ståle Steen Sæthre
+      - Fredrik Opdahl
+      - Jens Petter Hauge
+      - Markus Seehusen Karlsbakk
+      - Nikola Tkalcic
+    coach: Andrea Loberto
+  away:
+    formation: 4-4-2
+    starters:
+      - Mathias Dyngeland
+      - Akeem Latifu
+      - Ulrik Fredriksen
+      - Per-Magnus Steiring
+      - Tomas Totland
+      - Eirik Schulze
+      - Eirik Birkelund
+      - Bjørn Helge Riise
+      - Joachim Soltvedt
+      - Sixten Jensen
+      - Sigurd Haugen
+    subs:
+      - Lars Christian Kjemhus
+      - Ulrik Flo
+      - Akor Adams
+      - Kjetil Wæhler
+      - Kristian Rutlin
+      - Nikita Baranov
+      - Stanisa Mandic
+    coach: Eirik Bakke
+stats:
+  home:
+    possession: 62
+    shots: 14
+    shotsOnTarget: 5
+    corners: 1
+  away:
+    possession: 38
+    shots: 6
+    shotsOnTarget: 1
+    corners: 7
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-sogndal/2e8smm#2937540
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.stage
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2937540"
+manual: []

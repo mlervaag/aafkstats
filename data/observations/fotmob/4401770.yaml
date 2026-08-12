@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "4401770"
+matchId: 2024-03-06-aalesunds-fk-bryne
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:109e7740dd5960add32335d6a3bb673941ac7f6af433409254bff4829531fdbd
+raw:
+  externalId: "4401770"
+  date: 2024-03-06
+  kickoff: 16:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Bryne
+  awayId: "8531"
+  homeScore: 1
+  awayScore: 1
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2024
+  url: https://www.fotmob.com/matches/aalesund-vs-bryne/2ddv1b#4401770
+normalized:
+  date: 2024-03-06
+  kickoff: 16:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: bryne
+  home.score: 1
+  away.score: 1
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2024
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

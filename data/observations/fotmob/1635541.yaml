@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "1635541"
+matchId: 2014-03-09-aalesunds-fk-bodo-glimt
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:a3d2c959cba27479d1f47f72e2f30c98714c423f31b1e15e1d2e9d27fb8b71af
+raw:
+  externalId: "1635541"
+  date: 2014-03-09
+  kickoff: 16:15
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Bodø/Glimt
+  awayId: "8402"
+  homeScore: 1
+  awayScore: 2
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2014
+  url: https://www.fotmob.com/matches/bodoglimt-vs-aalesund/2c37nd#1635541
+normalized:
+  date: 2014-03-09
+  kickoff: 16:15
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: bodo-glimt
+  home.score: 1
+  away.score: 2
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2014
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

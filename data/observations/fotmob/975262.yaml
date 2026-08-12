@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "975262"
+matchId: 2011-02-03-karpaty-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:5731399cba27fb02c8497a887f12811d5c9d68152ddb1a830690e3974417a652
+raw:
+  externalId: "975262"
+  date: 2011-02-03
+  kickoff: 18:45
+  status: Pen
+  home: Karpaty
+  homeId: "8691"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 1
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2011
+  url: https://www.fotmob.com/matches/aalesund-vs-karpaty/2f07u7#975262
+normalized:
+  date: 2011-02-03
+  kickoff: 18:45
+  status: played
+  home.clubId: karpaty
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 1
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2011
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - penaltyShootout
+  - events
+warnings: []

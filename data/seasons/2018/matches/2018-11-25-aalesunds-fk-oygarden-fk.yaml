@@ -1,0 +1,150 @@
+id: 2018-11-25-aalesunds-fk-oygarden-fk
+date: 2018-11-25
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: eliteserien
+  season: 2018
+  stage: relegation_playoff
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: oygarden-fk
+  score: 0
+  halfTimeScore: 0
+venueId: color-line-stadion
+neutralVenue: false
+attendance: 3102
+events:
+  - minute: 16
+    type: yellow_card
+    team: home
+    player: Kaj Ramsteijn
+  - minute: 51
+    type: yellow_card
+    team: away
+    player: Sherko Faiqi
+  - minute: 52
+    type: goal
+    team: home
+    player: Pape Habib Gueye
+    assist: Oddbjørn Lie
+  - minute: 65
+    type: substitution
+    team: home
+    player: Erikson Lima
+    playerOff: Aron Elis Thrándarson
+  - minute: 71
+    type: red_card
+    team: away
+    player: Sherko Faiqi
+  - minute: 76
+    type: substitution
+    team: away
+    player: Oliver Kjærgaard
+    playerOff: Erlend Hellevik Larsen
+  - minute: 76
+    type: substitution
+    team: away
+    player: Morten Bjørlo
+    playerOff: Peter Sørensen Nergaard
+  - minute: 87
+    type: substitution
+    team: away
+    player: Jone Rugland
+    playerOff: Haris Cirak
+  - minute: 89
+    type: yellow_card
+    team: home
+    player: Andreas Lie
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Adam Örn Arnarson
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Sondre Brunstad Fet
+      - Jørgen Hatlehol
+      - Holmbert Aron Fridjonsson
+      - Pape Habib Gueye
+    subs:
+      - Erikson Lima
+      - Fredrik Opdahl
+      - Jens Petter Hauge
+      - Jonas Grønner
+      - Nikola Tkalcic
+      - Ståle Steen Sæthre
+      - Torbjørn Agdestein
+    coach: Lars Bohinen
+  away:
+    formation: 3-5-2
+    starters:
+      - Egil Selvik
+      - Bjarte Haugsdal
+      - Daniel Arrocha
+      - Elmin Nurkic
+      - Erlend Hellevik Larsen
+      - Kristoffer Nesse Stephensen
+      - Haris Cirak
+      - Peter Sørensen Nergaard
+      - Sherko Faiqi
+      - Alexander Dang
+      - Sondre Liseth
+    subs:
+      - Morten Bjørlo
+      - Oliver Kjærgaard
+      - Jone Rugland
+      - Bendik Torset
+      - Mads Bjørsvik Songve
+      - Mads Sande
+      - Petter Martinsen
+    coach: Steffen Landro
+stats:
+  home:
+    possession: 52
+    shots: 8
+    shotsOnTarget: 3
+    corners: 3
+  away:
+    possession: 48
+    shots: 13
+    shotsOnTarget: 3
+    corners: 9
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/oygarden-fk-vs-aalesund/ufo2d#2927109
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.stage
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2927109"
+manual: []

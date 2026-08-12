@@ -1,0 +1,68 @@
+id: 2017-03-25-aalesunds-fk-molde-fk
+date: 2017-03-25
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: treningskamp
+  season: 2017
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 5
+  halfTimeScore: 2
+away:
+  clubId: molde-fk
+  score: 1
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 34
+    type: penalty_goal
+    team: home
+    player: Mostafa Abdellaoue
+  - minute: 38
+    type: goal
+    team: home
+    player: Aron Elis Thrándarson
+  - minute: 60
+    type: goal
+    team: home
+    player: Daniel Gretarsson
+  - minute: 64
+    type: penalty_goal
+    team: away
+    player: Etzaz Hussain
+  - minute: 71
+    type: goal
+    team: home
+    player: Valmir Berisha
+  - minute: 75
+    type: goal
+    team: home
+    player: Mostafa Abdellaoue
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#2444393
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2444393"
+manual: []

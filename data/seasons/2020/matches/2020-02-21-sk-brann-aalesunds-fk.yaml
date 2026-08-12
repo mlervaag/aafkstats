@@ -1,0 +1,60 @@
+id: 2020-02-21-sk-brann-aalesunds-fk
+date: 2020-02-21
+dateConfidence: exact
+kickoff: 12:00
+status: played
+competition:
+  id: treningskamp
+  season: 2020
+  stage: regular_season
+home:
+  clubId: sk-brann
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 2
+neutralVenue: false
+events:
+  - minute: 12
+    type: goal
+    team: home
+    player: Daouda Bamba
+  - minute: 21
+    type: goal
+    team: away
+    player: Niklas Castro
+  - minute: 28
+    type: goal
+    team: away
+    player: Niklas Castro
+  - minute: 80
+    type: goal
+    team: away
+    player: Niklas Castro
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-brann/2cr19k#3254310
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3254310"
+manual: []

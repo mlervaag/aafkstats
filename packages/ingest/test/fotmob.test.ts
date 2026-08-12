@@ -63,6 +63,14 @@ describe("FotMob-adapter", () => {
     expect(match.lineups?.home).toMatchObject({ formation: "4-3-3", coach: "Christian Johnsen" });
   });
 
+  it("bruker cupstadium fra detaljene når klubbhistorikken mangler det", () => {
+    const match = normalizeLeagueMatch(fixture<RawLeagueMatch>("fotmob-league-match.json"), "206", 2025)!;
+    enrichFromDetails(match, { general: { matchRound: "1/2" } });
+
+    expect(match.stage).toBe("semi_final");
+    expect(match.fields).toContain("competition.stage");
+  });
+
   it("returnerer ingen statistikk for tomme eller dekorative verdier", () => {
     const sparse: RawMatchDetails = {
       content: {

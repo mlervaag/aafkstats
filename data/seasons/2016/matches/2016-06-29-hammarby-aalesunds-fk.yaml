@@ -1,0 +1,68 @@
+id: 2016-06-29-hammarby-aalesunds-fk
+date: 2016-06-29
+dateConfidence: exact
+kickoff: 13:00
+status: played
+competition:
+  id: treningskamp
+  season: 2016
+  stage: regular_season
+home:
+  clubId: hammarby
+  score: 4
+  halfTimeScore: 2
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 31
+    type: goal
+    team: home
+    player: Arnor Smarason
+  - minute: 35
+    type: goal
+    team: home
+    player: Kennedy Bakircioglu
+  - minute: 57
+    type: red_card
+    team: away
+    player: Edvard Skagestad
+  - minute: 58
+    type: penalty_goal
+    team: home
+    player: Arnor Smarason
+  - minute: 61
+    type: goal
+    team: home
+    player: Erik Israelsson
+  - minute: 73
+    type: goal
+    team: away
+    player: Aron Elis Thrándarson
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/hammarby-vs-aalesund/2ajzqa#2272112
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2272112"
+manual: []

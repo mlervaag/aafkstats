@@ -1,0 +1,52 @@
+providerId: fotmob
+externalId: "1892205"
+matchId: 2015-01-30-aalesunds-fk-floro
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:c071af25e99df96bb39606aa33b18b0a8ccde31979c47aa9c552913dace80ad3
+raw:
+  externalId: "1892205"
+  date: 2015-01-30
+  kickoff: 18:30
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Florø
+  awayId: "4319"
+  homeScore: 4
+  awayScore: 0
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2015
+  round: 1
+  url: https://www.fotmob.com/matches/floro-vs-aalesund/1c732a#1892205
+normalized:
+  date: 2015-01-30
+  kickoff: 18:30
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: floro
+  home.score: 4
+  away.score: 0
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2015
+  competition.round: 1
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

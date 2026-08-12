@@ -1,0 +1,58 @@
+id: 2015-03-13-aalesunds-fk-sk-brann
+date: 2015-03-13
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: treningskamp
+  season: 2015
+  stage: regular_season
+  round: 1
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 2
+away:
+  clubId: sk-brann
+  score: 1
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 9
+    type: goal
+    team: home
+    player: Mikael Dyrestam
+  - minute: 13
+    type: goal
+    team: home
+    player: Leke James
+  - minute: 87
+    type: penalty_goal
+    team: away
+    player: Kristoffer Barmen
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-brann/2cr19k#1892210
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1892210"
+manual: []

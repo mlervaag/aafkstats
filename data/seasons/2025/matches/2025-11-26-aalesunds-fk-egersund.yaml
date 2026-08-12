@@ -1,0 +1,221 @@
+id: 2025-11-26-aalesunds-fk-egersund
+date: 2025-11-26
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2025
+  stage: relegation_playoff
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: egersund
+  score: 1
+  halfTimeScore: 1
+extraTime:
+  home: 2
+  away: 0
+venueId: color-line-stadion
+neutralVenue: false
+attendance: 2458
+events:
+  - minute: 8
+    type: goal
+    team: away
+    player: Oscar Forsmo Kapskarmo
+    assist: Franklin Nyenetue
+  - minute: 29
+    type: substitution
+    team: away
+    player: Sammi Davis
+    playerOff: Nicolas Pignatel Jenssen
+  - minute: 33
+    type: yellow_card
+    team: away
+    player: Chris Sleveland
+  - minute: 46
+    type: yellow_card
+    team: away
+    player: Sammi Davis
+  - minute: 65
+    type: substitution
+    team: away
+    player: Mathias Sauer
+    playerOff: Franklin Nyenetue
+  - minute: 77
+    type: substitution
+    team: home
+    player: David Snær Johannsson
+    playerOff: Kristoffer Nessø
+  - minute: 77
+    type: substitution
+    team: home
+    player: Frederik Heiselberg
+    playerOff: Nikolai Skuseth
+  - minute: 82
+    type: yellow_card
+    team: away
+    player: Andreas Hermansen
+  - minute: 88
+    type: yellow_card
+    team: home
+    player: Mathias Christensen
+  - minute: 88
+    type: yellow_card
+    team: away
+    player: Bjørn Mæland
+  - minute: 90
+    type: substitution
+    team: away
+    player: Paya Pichkah
+    playerOff: Kristian Eggen
+  - minute: 90
+    stoppage: 2
+    type: goal
+    team: home
+    player: Kristian Hemmingsen Lonebu
+  - minute: 90
+    stoppage: 4
+    type: yellow_card
+    team: home
+    player: Jakob Nyland Ørsahl
+  - minute: 93
+    type: goal
+    team: home
+    player: Frederik Heiselberg
+    assist: Mathias Christensen
+  - minute: 96
+    type: substitution
+    team: away
+    player: Martin Håheim Elveseter
+    playerOff: Scott Vatne
+  - minute: 96
+    type: substitution
+    team: away
+    player: Samuel Adegbenro
+    playerOff: Horenus Tadesse
+  - minute: 97
+    type: substitution
+    team: home
+    player: Marius Andresen
+    playerOff: Henrik Melland
+  - minute: 97
+    type: substitution
+    team: home
+    player: Philip Sandvik Aukland
+    playerOff: Kristian Hemmingsen Lonebu
+  - minute: 98
+    type: yellow_card
+    team: home
+    player: Aleksander Hammer Kjelsen
+  - minute: 106
+    type: substitution
+    team: away
+    player: Adrian Rogulj
+    playerOff: Herman Kleppa
+  - minute: 119
+    type: goal
+    team: home
+    player: David Snær Johannsson
+    assist: Mathias Christensen
+  - minute: 120
+    type: substitution
+    team: home
+    player: Elias Heggland Myrlid
+    playerOff: Paul Ngongo Iversen
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Nikolai Skuseth
+      - Kristoffer Nessø
+      - Mathias Christensen
+      - Håkon Butli Hammer
+      - Henrik Melland
+      - Jakob Nyland Ørsahl
+      - Paul Ngongo Iversen
+      - Kristian Hemmingsen Lonebu
+    subs:
+      - David Snær Johannsson
+      - Frederik Heiselberg
+      - Philip Sandvik Aukland
+      - Marius Andresen
+      - Elias Heggland Myrlid
+      - Tor Erik Valderhaug Larsen
+      - Erik Frøysa
+      - Jørgen Bøe
+      - Olafur Gudmundsson
+    coach: Kjetil Rekdal
+  away:
+    formation: 4-3-3
+    starters:
+      - Andreas Hermansen
+      - Herman Kleppa
+      - Nicolas Pignatel Jenssen
+      - Isak Jönsson
+      - Bjørn Mæland
+      - Horenus Tadesse
+      - Scott Vatne
+      - Chris Sleveland
+      - Franklin Nyenetue
+      - Oscar Forsmo Kapskarmo
+      - Kristian Eggen
+    subs:
+      - Sammi Davis
+      - Mathias Sauer
+      - Paya Pichkah
+      - Martin Håheim Elveseter
+      - Samuel Adegbenro
+      - Adrian Rogulj
+      - Sander Lønning
+      - Phillip Hovland
+      - Arni Noa Atlason
+    coach: Endre Eide
+stats:
+  home:
+    possession: 74
+    shots: 17
+    shotsOnTarget: 4
+    corners: 16
+  away:
+    possession: 26
+    shots: 4
+    shotsOnTarget: 2
+    corners: 3
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/egersund-vs-aalesund/1faq6h#5071636
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.stage
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - extraTime
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: AET"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5071636"
+manual: []

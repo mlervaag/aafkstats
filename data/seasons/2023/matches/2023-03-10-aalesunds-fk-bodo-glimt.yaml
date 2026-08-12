@@ -1,0 +1,52 @@
+id: 2023-03-10-aalesunds-fk-bodo-glimt
+date: 2023-03-10
+dateConfidence: exact
+kickoff: 12:00
+status: played
+competition:
+  id: treningskamp
+  season: 2023
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: bodo-glimt
+  score: 1
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 65
+    type: goal
+    team: away
+    player: Albert Grønbæk
+  - minute: 87
+    type: goal
+    team: home
+    player: Bjørn Martin Kristensen
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/bodoglimt-vs-aalesund/2c37nd#4136683
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4136683"
+manual: []

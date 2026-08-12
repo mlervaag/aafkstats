@@ -1,0 +1,52 @@
+id: 2022-03-22-hamarkameratene-aalesunds-fk
+date: 2022-03-22
+dateConfidence: exact
+kickoff: 15:00
+status: played
+competition:
+  id: treningskamp
+  season: 2022
+  stage: regular_season
+home:
+  clubId: hamarkameratene
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 73
+    type: goal
+    team: home
+    player: Paal Alexander Kirkevold
+  - minute: 82
+    type: goal
+    team: away
+    player: Mamadou Diaw
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-hamarkameratene/2cjt0y#3844928
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3844928"
+manual: []

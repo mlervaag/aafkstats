@@ -1,0 +1,36 @@
+providerId: fotmob
+externalId: "3274047"
+matchId: 2020-02-15-aalesunds-fk-kristiansund
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:ef25844cb6190ee16f3dea2ae820d772465366bbf0ed5b51dd0b143caf8ac6e3
+raw:
+  externalId: "3274047"
+  date: 2020-02-15
+  kickoff: 14:00
+  status: Can
+  home: Aalesund
+  homeId: "8404"
+  away: Kristiansund
+  awayId: "8605"
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2020
+  url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#3274047
+normalized:
+  date: 2020-02-15
+  kickoff: 14:00
+  status: cancelled
+  home.clubId: aalesunds-fk
+  away.clubId: kristiansund
+  competition.id: treningskamp
+  competition.season: 2020
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+warnings: []

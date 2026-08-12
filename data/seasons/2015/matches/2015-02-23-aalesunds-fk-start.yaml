@@ -1,0 +1,64 @@
+id: 2015-02-23-aalesunds-fk-start
+date: 2015-02-23
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: treningskamp
+  season: 2015
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: start
+  score: 2
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 19
+    type: goal
+    team: home
+    player: Mostafa Abdellaoue
+  - minute: 45
+    type: red_card
+    team: away
+    player: Gudmundur Kristjansson
+  - minute: 47
+    type: goal
+    team: away
+    player: Robert Sandnes
+  - minute: 56
+    type: goal
+    team: away
+    player: Matthias Vilhjalmsson
+  - minute: 68
+    type: goal
+    team: home
+    player: Henrik Rørvik Bjørdal
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-start/2ryd31#1892208
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1892208"
+manual: []

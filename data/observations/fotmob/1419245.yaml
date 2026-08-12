@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "1419245"
+matchId: 2013-03-01-aalesunds-fk-valerenga
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:55be679a7ca080db25d8f5d9f39e7139afc8b135203a3b439e6812aa4a840aa6
+raw:
+  externalId: "1419245"
+  date: 2013-03-01
+  kickoff: 17:30
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Vålerenga
+  awayId: "8007"
+  homeScore: 1
+  awayScore: 1
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2013
+  url: https://www.fotmob.com/matches/valerenga-vs-aalesund/286lhq#1419245
+normalized:
+  date: 2013-03-01
+  kickoff: 17:30
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: valerenga
+  home.score: 1
+  away.score: 1
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2013
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

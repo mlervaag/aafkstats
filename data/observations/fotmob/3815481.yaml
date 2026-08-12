@@ -1,0 +1,36 @@
+providerId: fotmob
+externalId: "3815481"
+matchId: 2022-03-06-aalesunds-fk-molde-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:9755d6a69cf09f1a51a9ec10a0d2c340ceebe44c9439ec45dd90a1d3f5f4db3e
+raw:
+  externalId: "3815481"
+  date: 2022-03-06
+  kickoff: 15:00
+  status: Can
+  home: Aalesund
+  homeId: "8404"
+  away: Molde
+  awayId: "9917"
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2022
+  url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#3815481
+normalized:
+  date: 2022-03-06
+  kickoff: 15:00
+  status: cancelled
+  home.clubId: aalesunds-fk
+  away.clubId: molde-fk
+  competition.id: treningskamp
+  competition.season: 2022
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+warnings: []

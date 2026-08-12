@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "3254310"
+matchId: 2020-02-21-sk-brann-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:7744e13be8139e9a031923ceebf9b5020ffdbf284fdd096e3ec61f3af96f1228
+raw:
+  externalId: "3254310"
+  date: 2020-02-21
+  kickoff: 12:00
+  status: FT
+  home: Brann
+  homeId: "8468"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 3
+  homeHalfTime: 1
+  awayHalfTime: 2
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2020
+  url: https://www.fotmob.com/matches/aalesund-vs-brann/2cr19k#3254310
+normalized:
+  date: 2020-02-21
+  kickoff: 12:00
+  status: played
+  home.clubId: sk-brann
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 3
+  home.halfTimeScore: 1
+  away.halfTimeScore: 2
+  competition.id: treningskamp
+  competition.season: 2020
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

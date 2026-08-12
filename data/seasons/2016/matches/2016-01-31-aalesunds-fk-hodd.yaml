@@ -1,0 +1,52 @@
+id: 2016-01-31-aalesunds-fk-hodd
+date: 2016-01-31
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: treningskamp
+  season: 2016
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: hodd
+  score: 2
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 11
+    type: goal
+    team: away
+    player: Robin Shroot
+  - minute: 84
+    type: goal
+    team: away
+    player: Öystein Vestvatn
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/hodd-vs-aalesund/27i0yj#2161354
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2161354"
+manual: []

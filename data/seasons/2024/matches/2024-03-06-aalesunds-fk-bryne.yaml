@@ -1,0 +1,53 @@
+id: 2024-03-06-aalesunds-fk-bryne
+date: 2024-03-06
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: treningskamp
+  season: 2024
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: bryne
+  score: 1
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 45
+    stoppage: 1
+    type: goal
+    team: home
+    player: Noah Solskjær
+  - minute: 65
+    type: goal
+    team: away
+    player: Andreas Dybevik
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-bryne/2ddv1b#4401770
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4401770"
+manual: []

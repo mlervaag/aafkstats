@@ -1,0 +1,49 @@
+id: 2012-01-10-brondby-if-aalesunds-fk
+date: 2012-01-10
+dateConfidence: exact
+kickoff: 19:30
+status: played
+competition:
+  id: treningskamp
+  season: 2012
+  stage: regular_season
+home:
+  clubId: brondby-if
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 12
+    type: goal
+    team: home
+    player: Brent McGrath
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-brondby-if/2e14zj#1151422
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1151422"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

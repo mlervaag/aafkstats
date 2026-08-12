@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "1892198"
+matchId: 2015-02-13-aalesunds-fk-kristiansund
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:d21388c3607fa06b2c2e9783be5e47ac45f4a15c25bc8d1c77e9eb441ff80432
+raw:
+  externalId: "1892198"
+  date: 2015-02-13
+  kickoff: 18:30
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Kristiansund
+  awayId: "8605"
+  homeScore: 3
+  awayScore: 1
+  homeHalfTime: 1
+  awayHalfTime: 1
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2015
+  url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#1892198
+normalized:
+  date: 2015-02-13
+  kickoff: 18:30
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: kristiansund
+  home.score: 3
+  away.score: 1
+  home.halfTimeScore: 1
+  away.halfTimeScore: 1
+  competition.id: treningskamp
+  competition.season: 2015
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

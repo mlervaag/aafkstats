@@ -1,0 +1,65 @@
+id: 2012-02-26-aalesunds-fk-kongsvinger
+date: 2012-02-26
+dateConfidence: exact
+kickoff: 18:15
+status: played
+competition:
+  id: treningskamp
+  season: 2012
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 1
+away:
+  clubId: kongsvinger
+  score: 2
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 7
+    type: goal
+    team: home
+    player: Fredrik Carlsen
+  - minute: 43
+    type: goal
+    team: away
+    player: Magnus Myklebust
+  - minute: 55
+    type: goal
+    team: home
+    player: Christian Myklebust
+  - minute: 74
+    type: own_goal
+    team: away
+    player: Daniel Arnefjord
+  - minute: 81
+    type: goal
+    team: home
+    player: Lars Fuhre
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/kongsvinger-vs-aalesund/29vez4#1161535
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1161535"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

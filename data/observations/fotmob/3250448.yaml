@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "3250448"
+matchId: 2020-02-28-molde-fk-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:5077c630c45ee817c5ba381350117d86e8f15503eaf1e50710e0ef61c49c8fdc
+raw:
+  externalId: "3250448"
+  date: 2020-02-28
+  kickoff: 17:00
+  status: FT
+  home: Molde
+  homeId: "9917"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 5
+  awayScore: 2
+  homeHalfTime: 3
+  awayHalfTime: 1
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2020
+  url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#3250448
+normalized:
+  date: 2020-02-28
+  kickoff: 17:00
+  status: played
+  home.clubId: molde-fk
+  away.clubId: aalesunds-fk
+  home.score: 5
+  away.score: 2
+  home.halfTimeScore: 3
+  away.halfTimeScore: 1
+  competition.id: treningskamp
+  competition.season: 2020
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

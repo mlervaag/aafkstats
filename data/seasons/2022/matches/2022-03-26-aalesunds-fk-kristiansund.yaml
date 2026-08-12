@@ -1,0 +1,39 @@
+id: 2022-03-26-aalesunds-fk-kristiansund
+date: 2022-03-26
+dateConfidence: exact
+kickoff: 12:00
+status: cancelled
+competition:
+  id: treningskamp
+  season: 2022
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: null
+  halfTimeScore: null
+away:
+  clubId: kristiansund
+  score: null
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#3798923
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Kildestatus: Can"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3798923"
+manual: []

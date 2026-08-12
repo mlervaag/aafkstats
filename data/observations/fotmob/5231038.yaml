@@ -1,0 +1,58 @@
+providerId: fotmob
+externalId: "5231038"
+matchId: 2026-03-18-viking-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@4
+payloadHash: sha256:458c0ce0fefd59e1c02fb85b1aeab725fc16a077dd908067f6790acfd8c5c5a4
+raw:
+  externalId: "5231038"
+  date: 2026-03-18
+  kickoff: 18:00
+  status: FT
+  home: Viking
+  homeId: "8478"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 2
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Cup
+  competitionId: "206"
+  season: 2025
+  stage: quarter_final
+  venue: Lyse Arena
+  attendance: 7120
+  url: https://www.fotmob.com/matches/aalesund-vs-viking/2cuni1#5231038
+normalized:
+  date: 2026-03-18
+  kickoff: 18:00
+  status: played
+  home.clubId: viking
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 2
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: nm
+  competition.season: 2025
+  competition.stage: quarter_final
+  venueId: lyse-arena
+  attendance: 7120
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.stage
+  - attendance
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

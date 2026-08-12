@@ -1,0 +1,56 @@
+id: 2019-02-21-bodo-glimt-aalesunds-fk
+date: 2019-02-21
+dateConfidence: exact
+kickoff: 14:00
+status: played
+competition:
+  id: treningskamp
+  season: 2019
+  stage: regular_season
+home:
+  clubId: bodo-glimt
+  score: 3
+  halfTimeScore: 2
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 18
+    type: goal
+    team: home
+    player: Frederik André Bjørkan
+  - minute: 38
+    type: goal
+    team: home
+    player: Victor Boniface
+  - minute: 85
+    type: goal
+    team: home
+    player: Tobias Johnsen
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/bodoglimt-vs-aalesund/2c37nd#2946746
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2946746"
+manual: []

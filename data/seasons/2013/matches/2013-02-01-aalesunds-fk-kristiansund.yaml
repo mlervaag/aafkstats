@@ -1,0 +1,41 @@
+id: 2013-02-01-aalesunds-fk-kristiansund
+date: 2013-02-01
+dateConfidence: exact
+kickoff: 12:00
+status: played
+competition:
+  id: treningskamp
+  season: 2013
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: kristiansund
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#1388612
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1388612"
+manual: []

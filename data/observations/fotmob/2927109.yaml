@@ -1,0 +1,59 @@
+providerId: fotmob
+externalId: "2927109"
+matchId: 2018-11-25-aalesunds-fk-oygarden-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:444a5fb13d5f737ebb027a87aad796065b90fc531e865f46da6e0e3d6bdd2263
+raw:
+  externalId: "2927109"
+  date: 2018-11-25
+  kickoff: 16:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Øygarden FK
+  awayId: "1706"
+  homeScore: 1
+  awayScore: 0
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: Eliteserien Qualification
+  competitionId: "60"
+  season: 2018
+  stage: relegation_playoff
+  venue: Color Line Stadion
+  attendance: 3102
+  url: https://www.fotmob.com/matches/oygarden-fk-vs-aalesund/ufo2d#2927109
+normalized:
+  date: 2018-11-25
+  kickoff: 16:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: oygarden-fk
+  home.score: 1
+  away.score: 0
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: eliteserien
+  competition.season: 2018
+  competition.stage: relegation_playoff
+  venueId: color-line-stadion
+  attendance: 3102
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.stage
+  - attendance
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

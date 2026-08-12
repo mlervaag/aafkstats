@@ -1,0 +1,60 @@
+id: 2017-02-16-spartak-aalesunds-fk
+date: 2017-02-16
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: treningskamp
+  season: 2017
+  stage: regular_season
+home:
+  clubId: spartak
+  score: 3
+  halfTimeScore: 2
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 10
+    type: goal
+    team: home
+    player: Luiz Adriano
+  - minute: 38
+    type: goal
+    team: home
+    player: Roman Zobnin
+  - minute: 72
+    type: goal
+    team: away
+    player: Daniel Gretarsson
+  - minute: 82
+    type: goal
+    team: home
+    player: Quincy Promes
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-spartak-moscow/2einiv#2458010
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2458010"
+manual: []

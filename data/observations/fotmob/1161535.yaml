@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "1161535"
+matchId: 2012-02-26-aalesunds-fk-kongsvinger
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:450adca791e7f7ac0f6d62bce4f470dc5aa4bc9dc9b6c7922a8260ed2dc78ec1
+raw:
+  externalId: "1161535"
+  date: 2012-02-26
+  kickoff: 18:15
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Kongsvinger
+  awayId: "8179"
+  homeScore: 3
+  awayScore: 2
+  homeHalfTime: 1
+  awayHalfTime: 1
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2012
+  venue: Color Line Stadion
+  url: https://www.fotmob.com/matches/kongsvinger-vs-aalesund/29vez4#1161535
+normalized:
+  date: 2012-02-26
+  kickoff: 18:15
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: kongsvinger
+  home.score: 3
+  away.score: 2
+  home.halfTimeScore: 1
+  away.halfTimeScore: 1
+  competition.id: treningskamp
+  competition.season: 2012
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

@@ -1,0 +1,60 @@
+id: 2016-01-22-aalesunds-fk-brattvag
+date: 2016-01-22
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: treningskamp
+  season: 2016
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 2
+away:
+  clubId: brattvag
+  score: 1
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 7
+    type: goal
+    team: home
+    player: Edvard Skagestad
+  - minute: 11
+    type: goal
+    team: home
+    player: Mostafa Abdellaoue
+  - minute: 46
+    type: goal
+    team: home
+    player: Vebjørn Hoff
+  - minute: 81
+    type: goal
+    team: away
+    player: Håkon Leine
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-brattvag/pr57f8#2161353
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2161353"
+manual: []

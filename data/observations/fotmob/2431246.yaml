@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "2431246"
+matchId: 2017-01-27-aalesunds-fk-hodd
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:c115b2eae4ac8f0a0943aa66b571c238df4f21b79c303c9bf870f7e47c9112ef
+raw:
+  externalId: "2431246"
+  date: 2017-01-27
+  kickoff: 17:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Hødd
+  awayId: "7937"
+  homeScore: 4
+  awayScore: 0
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2017
+  url: https://www.fotmob.com/matches/hodd-vs-aalesund/27i0yj#2431246
+normalized:
+  date: 2017-01-27
+  kickoff: 17:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: hodd
+  home.score: 4
+  away.score: 0
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2017
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

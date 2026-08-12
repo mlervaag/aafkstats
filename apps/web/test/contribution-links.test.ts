@@ -39,7 +39,7 @@ function archiveHosts(text: string): string[] {
 /** Feltene i en mal som er avkryssingsbokser, og som ikke kan forhåndsutfylles. */
 function checkboxFieldIds(template: string): string[] {
   const yaml = readFileSync(resolve(TEMPLATE_DIR, `${template}.yml`), "utf8");
-  return [...yaml.matchAll(/^\s{2}- type: checkboxes\n\s{4}id:\s*(\S+)\s*$/gm)].map((m) => m[1]!);
+  return [...yaml.matchAll(/^\s{2}- type: checkboxes\r?\n\s{4}id:\s*(\S+)\s*$/gm)].map((m) => m[1]!);
 }
 
 describe("contributionIssueUrl", () => {

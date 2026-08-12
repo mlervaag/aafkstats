@@ -1,0 +1,65 @@
+id: 2012-03-16-molde-fk-aalesunds-fk
+date: 2012-03-16
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: treningskamp
+  season: 2012
+  stage: regular_season
+home:
+  clubId: molde-fk
+  score: 3
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 49
+    type: goal
+    team: away
+    player: Demar Phillips
+  - minute: 52
+    type: goal
+    team: home
+    player: Even Hovland
+  - minute: 82
+    type: goal
+    team: home
+    player: Vegard Forren
+  - minute: 84
+    type: own_goal
+    team: away
+    player: Even Hovland
+  - minute: 89
+    type: goal
+    team: home
+    player: Davy Claude Angan
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#1161569
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1161569"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

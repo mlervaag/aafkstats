@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "3274041"
+matchId: 2020-03-11-aalesunds-fk-ranheim
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:9e9b8357bfb962da581c41a4da7ea823c4a8bb71836713af013d51f800a51081
+raw:
+  externalId: "3274041"
+  date: 2020-03-11
+  kickoff: 15:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Ranheim
+  awayId: "6563"
+  homeScore: 1
+  awayScore: 3
+  homeHalfTime: 0
+  awayHalfTime: 3
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2020
+  url: https://www.fotmob.com/matches/ranheim-vs-aalesund/1up0ag#3274041
+normalized:
+  date: 2020-03-11
+  kickoff: 15:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: ranheim
+  home.score: 1
+  away.score: 3
+  home.halfTimeScore: 0
+  away.halfTimeScore: 3
+  competition.id: treningskamp
+  competition.season: 2020
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

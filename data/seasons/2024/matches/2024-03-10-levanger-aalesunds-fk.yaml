@@ -1,0 +1,53 @@
+id: 2024-03-10-levanger-aalesunds-fk
+date: 2024-03-10
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: treningskamp
+  season: 2024
+  stage: regular_season
+home:
+  clubId: levanger
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 19
+    type: goal
+    team: home
+    player: Jo Sondre Aas
+  - minute: 52
+    type: goal
+    team: home
+    player: Arne Gunnes
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/levanger-vs-aalesund/1uod6z#4401771
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4401771"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

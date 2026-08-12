@@ -1,0 +1,52 @@
+providerId: fotmob
+externalId: "1892209"
+matchId: 2015-03-05-bodo-glimt-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:cec3d3b9519b82e0012e1fbd69f4db40de48dfd9a5ba5892fbcdd277c7c3b0d5
+raw:
+  externalId: "1892209"
+  date: 2015-03-05
+  kickoff: 18:00
+  status: FT
+  home: Bodø/Glimt
+  homeId: "8402"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 1
+  homeHalfTime: 2
+  awayHalfTime: 1
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2015
+  round: 1
+  url: https://www.fotmob.com/matches/bodoglimt-vs-aalesund/2c37nd#1892209
+normalized:
+  date: 2015-03-05
+  kickoff: 18:00
+  status: played
+  home.clubId: bodo-glimt
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 1
+  home.halfTimeScore: 2
+  away.halfTimeScore: 1
+  competition.id: treningskamp
+  competition.season: 2015
+  competition.round: 1
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

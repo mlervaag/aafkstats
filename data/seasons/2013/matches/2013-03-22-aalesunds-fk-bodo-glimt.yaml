@@ -1,0 +1,58 @@
+id: 2013-03-22-aalesunds-fk-bodo-glimt
+date: 2013-03-22
+dateConfidence: exact
+kickoff: 14:00
+status: played
+competition:
+  id: treningskamp
+  season: 2013
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: bodo-glimt
+  score: 2
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 27
+    type: goal
+    team: away
+    player: Jim Johansen
+  - minute: 49
+    type: goal
+    team: away
+    player: Jim Johansen
+lineups:
+  home:
+    starters: []
+    subs: []
+    coach: Jan Jönsson
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/bodoglimt-vs-aalesund/2c37nd#1429237
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1429237"
+manual: []

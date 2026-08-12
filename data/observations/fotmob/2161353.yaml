@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "2161353"
+matchId: 2016-01-22-aalesunds-fk-brattvag
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:4490ed98608c8b571ae90c372876e06710e2e18552a8ff9db6a351c9ffb371e8
+raw:
+  externalId: "2161353"
+  date: 2016-01-22
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Brattvåg
+  awayId: "47403"
+  homeScore: 3
+  awayScore: 1
+  homeHalfTime: 2
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2016
+  url: https://www.fotmob.com/matches/aalesund-vs-brattvag/pr57f8#2161353
+normalized:
+  date: 2016-01-22
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: brattvag
+  home.score: 3
+  away.score: 1
+  home.halfTimeScore: 2
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2016
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

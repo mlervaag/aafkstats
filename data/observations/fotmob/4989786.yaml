@@ -1,0 +1,60 @@
+providerId: fotmob
+externalId: "4989786"
+matchId: 2026-03-09-egersund-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@4
+payloadHash: sha256:8f7a7e46745838a2718ec295752741f0cae62b4be59fe4b09577923b68e90ca4
+raw:
+  externalId: "4989786"
+  date: 2026-03-09
+  kickoff: 19:00
+  status: FT
+  home: Egersund
+  homeId: "4722"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 3
+  homeHalfTime: 1
+  awayHalfTime: 1
+  competition: Cup
+  competitionId: "206"
+  season: 2025
+  round: 4
+  venue: B&G Parken
+  attendance: 807
+  url: https://www.fotmob.com/matches/egersund-vs-aalesund/1faq6h#4989786
+normalized:
+  date: 2026-03-09
+  kickoff: 19:00
+  status: played
+  home.clubId: egersund
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 3
+  home.halfTimeScore: 1
+  away.halfTimeScore: 1
+  competition.id: nm
+  competition.season: 2025
+  competition.round: 4
+  competition.stage: regular_season
+  venueId: b-g-parken
+  attendance: 807
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - attendance
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

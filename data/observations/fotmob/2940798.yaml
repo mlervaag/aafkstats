@@ -1,0 +1,59 @@
+providerId: fotmob
+externalId: "2940798"
+matchId: 2018-12-05-stabaek-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:3047eb818c61c6158396eebfd6481d9d34b958cff91ed3aa3c1326b09a0c7327
+raw:
+  externalId: "2940798"
+  date: 2018-12-05
+  kickoff: 18:00
+  status: FT
+  home: Stabæk
+  homeId: "9918"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 0
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Eliteserien Qualification
+  competitionId: "60"
+  season: 2018
+  stage: relegation_playoff
+  venue: Nadderud Stadion
+  attendance: 3831
+  url: https://www.fotmob.com/matches/aalesund-vs-stabaek/2rxyy1#2940798
+normalized:
+  date: 2018-12-05
+  kickoff: 18:00
+  status: played
+  home.clubId: stabaek
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 0
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: eliteserien
+  competition.season: 2018
+  competition.stage: relegation_playoff
+  venueId: nadderud-stadion
+  attendance: 3831
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.stage
+  - attendance
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

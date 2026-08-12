@@ -1,0 +1,57 @@
+id: 2012-03-07-aalesunds-fk-djurgarden
+date: 2012-03-07
+dateConfidence: exact
+kickoff: 18:40
+status: played
+competition:
+  id: treningskamp
+  season: 2012
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 2
+away:
+  clubId: djurgarden
+  score: 1
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 29
+    type: goal
+    team: home
+    player: Michael Barrantes
+  - minute: 40
+    type: goal
+    team: home
+    player: Jason Morrison
+  - minute: 90
+    type: goal
+    team: away
+    player: Christer Youssef
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-djurgarden/2qok2j#1179638
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1179638"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

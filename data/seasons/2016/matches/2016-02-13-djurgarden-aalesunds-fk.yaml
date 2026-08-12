@@ -1,0 +1,52 @@
+id: 2016-02-13-djurgarden-aalesunds-fk
+date: 2016-02-13
+dateConfidence: exact
+kickoff: 15:30
+status: played
+competition:
+  id: treningskamp
+  season: 2016
+  stage: regular_season
+home:
+  clubId: djurgarden
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 40
+    type: goal
+    team: home
+    player: Kevin Walker
+  - minute: 69
+    type: goal
+    team: home
+    player: Michael Olunga
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-djurgarden/2qok2j#2157001
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2157001"
+manual: []

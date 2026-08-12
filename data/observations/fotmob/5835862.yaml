@@ -1,0 +1,42 @@
+providerId: fotmob
+externalId: "5835862"
+matchId: 2026-08-22-langevag-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:3a55be7cea0e843edf70833c3794f019823bd32e306281d947f2ab7f3bcc76e8
+raw:
+  externalId: "5835862"
+  date: 2026-08-22
+  kickoff: 14:00
+  status: scheduled
+  home: Langevåg
+  homeId: "2307"
+  away: Aalesund
+  awayId: "8404"
+  competition: Cup
+  competitionId: "206"
+  season: 2026
+  round: 1
+  venue: Langevåg kunstgras 1
+  url: https://www.fotmob.com/matches/langevag-vs-aalesund/y5s08#5835862
+normalized:
+  date: 2026-08-22
+  kickoff: 14:00
+  status: scheduled
+  home.clubId: langevag
+  away.clubId: aalesunds-fk
+  competition.id: nm
+  competition.season: 2026
+  competition.round: 1
+  competition.stage: regular_season
+  venueId: langevag-kunstgras-1
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - competition.round
+  - venueId
+warnings: []

@@ -1,0 +1,192 @@
+id: 2026-03-09-egersund-aalesunds-fk
+date: 2026-03-09
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: nm
+  season: 2025
+  stage: regular_season
+  round: 4
+home:
+  clubId: egersund
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 1
+venueId: b-g-parken
+neutralVenue: false
+attendance: 807
+events:
+  - minute: 5
+    type: yellow_card
+    team: away
+    player: Kristoffer Klaesson
+  - minute: 8
+    type: goal
+    team: home
+    player: Oscar Forsmo Kapskarmo
+  - minute: 21
+    type: penalty_goal
+    team: away
+    player: Kristian Hemmingsen Lonebu
+  - minute: 55
+    type: yellow_card
+    team: home
+    player: Isak Jönsson
+  - minute: 64
+    type: substitution
+    team: away
+    player: Ivan Djantou
+    playerOff: Philip Sandvik Aukland
+  - minute: 64
+    type: substitution
+    team: away
+    player: Aleksander Hammer Kjelsen
+    playerOff: Marcus Haagensen Reed
+  - minute: 70
+    type: goal
+    team: home
+    player: Scott Vatne
+  - minute: 71
+    type: substitution
+    team: home
+    player: Martin Håheim Elveseter
+    playerOff: August Ljungberg
+  - minute: 75
+    type: yellow_card
+    team: away
+    player: Jakob Nyland Ørsahl
+  - minute: 79
+    type: substitution
+    team: away
+    player: Elias Heggland Myrlid
+    playerOff: Kristian Hemmingsen Lonebu
+  - minute: 80
+    type: substitution
+    team: away
+    player: Kristoffer Nessø
+    playerOff: Marius Andresen
+  - minute: 80
+    type: substitution
+    team: away
+    player: Endre Osenbroch
+    playerOff: Henrik Melland
+  - minute: 82
+    type: goal
+    team: away
+    player: Elias Heggland Myrlid
+  - minute: 83
+    type: substitution
+    team: home
+    player: Jostein Ekeland
+    playerOff: Scott Vatne
+  - minute: 85
+    type: goal
+    team: away
+    player: Ivan Djantou
+    assist: Elias Heggland Myrlid
+  - minute: 90
+    type: substitution
+    team: home
+    player: Phillip Hovland
+    playerOff: Nicolaj Tornvig
+  - minute: 90
+    stoppage: 2
+    type: yellow_card
+    team: away
+    player: Elias Heggland Myrlid
+lineups:
+  home:
+    formation: 4-2-3-1
+    starters:
+      - Sander Lønning
+      - Kristian Eggen
+      - Isak Jönsson
+      - Bjørn Mæland
+      - Sivert Westerlund
+      - Chris Sleveland
+      - Horenus Tadesse
+      - Nicolaj Tornvig
+      - Scott Vatne
+      - August Ljungberg
+      - Oscar Forsmo Kapskarmo
+    subs:
+      - Martin Håheim Elveseter
+      - Jostein Ekeland
+      - Phillip Hovland
+      - Sem Aleksander Bergene
+      - Herman Kleppa
+      - Sammi Davis
+      - Jan Inge Solemsløkk Lynum
+      - Pawel Chrupalla
+      - Petter Hokstad
+    coach: Endre Eide
+  away:
+    formation: 3-5-2
+    starters:
+      - Kristoffer Klaesson
+      - Philip Sandvik Aukland
+      - Ulrik Valderhaug Syversen
+      - Emil Engqvist
+      - Marius Andresen
+      - Mathias Christensen
+      - Håkon Butli Hammer
+      - Henrik Melland
+      - Jakob Nyland Ørsahl
+      - Kristian Hemmingsen Lonebu
+      - Marcus Haagensen Reed
+    subs:
+      - Aleksander Hammer Kjelsen
+      - Ivan Djantou
+      - Elias Heggland Myrlid
+      - Endre Osenbroch
+      - Kristoffer Nessø
+      - Tor Erik Valderhaug Larsen
+      - Ólafur Gudmundsson
+      - Simen Haram
+      - David Snær Johannsson
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 57
+    shots: 11
+    shotsOnTarget: 5
+    corners: 5
+  away:
+    possession: 43
+    shots: 13
+    shotsOnTarget: 8
+    corners: 6
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/egersund-vs-aalesund/1faq6h#4989786
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4989786"
+manual: []

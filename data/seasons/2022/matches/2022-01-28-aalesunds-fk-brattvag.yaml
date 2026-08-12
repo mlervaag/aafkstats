@@ -1,0 +1,65 @@
+id: 2022-01-28-aalesunds-fk-brattvag
+date: 2022-01-28
+dateConfidence: exact
+kickoff: 12:00
+status: played
+competition:
+  id: treningskamp
+  season: 2022
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: 3
+away:
+  clubId: brattvag
+  score: 1
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 12
+    type: goal
+    team: home
+    player: Sigurd Haugen
+  - minute: 22
+    type: goal
+    team: home
+    player: Isak Dybvik
+  - minute: 42
+    type: goal
+    team: home
+    player: Isak Dybvik
+  - minute: 47
+    type: goal
+    team: home
+    player: Sigurd Haugen
+  - minute: 89
+    type: goal
+    team: away
+    player: Benjamin Sveinsson
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-brattvag/pr57f8#3816320
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3816320"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

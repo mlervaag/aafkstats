@@ -1,0 +1,55 @@
+providerId: fotmob
+externalId: "4930339"
+matchId: 2025-08-27-stjordals-blink-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@4
+payloadHash: sha256:f493e52df5f6d6356b39443e2d93a4c8ac7faabd65e397bf7415ce9a0ddb608e
+raw:
+  externalId: "4930339"
+  date: 2025-08-27
+  kickoff: 18:00
+  status: FT
+  home: Stjørdals Blink
+  homeId: "4393"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 2
+  homeHalfTime: 0
+  awayHalfTime: 1
+  competition: Cup
+  competitionId: "206"
+  season: 2025
+  round: 2
+  venue: TMT Stadion Sandskogan
+  url: https://www.fotmob.com/matches/stjordals-blink-vs-aalesund/1crbo7#4930339
+normalized:
+  date: 2025-08-27
+  kickoff: 18:00
+  status: played
+  home.clubId: stjordals-blink
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 2
+  home.halfTimeScore: 0
+  away.halfTimeScore: 1
+  competition.id: nm
+  competition.season: 2025
+  competition.round: 2
+  competition.stage: regular_season
+  venueId: tmt-stadion-sandskogan
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

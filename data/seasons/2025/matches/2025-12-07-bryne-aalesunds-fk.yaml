@@ -1,0 +1,187 @@
+id: 2025-12-07-bryne-aalesunds-fk
+date: 2025-12-07
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: eliteserien
+  season: 2025
+  stage: relegation_playoff
+home:
+  clubId: bryne
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: 4
+venueId: bryne-stadion
+neutralVenue: false
+attendance: 2739
+referee: Mohammad Aslam
+events:
+  - minute: 12
+    type: goal
+    team: away
+    player: Mathias Christensen
+  - minute: 26
+    type: goal
+    team: away
+    player: Mathias Christensen
+    assist: Henrik Melland
+  - minute: 38
+    type: penalty_goal
+    team: away
+    player: Paul Ngongo Iversen
+  - minute: 39
+    type: yellow_card
+    team: home
+    player: Duarte Moreira
+  - minute: 42
+    type: goal
+    team: away
+    player: Henrik Melland
+    assist: Marius Andresen
+  - minute: 44
+    type: yellow_card
+    team: home
+    player: Heine Åsen Larsen
+  - minute: 47
+    type: yellow_card
+    team: away
+    player: Nikolai Skuseth
+  - minute: 53
+    type: yellow_card
+    team: home
+    player: Alfred Scriven
+  - minute: 56
+    type: substitution
+    team: away
+    player: Philip Sandvik Aukland
+    playerOff: Nikolai Skuseth
+  - minute: 65
+    type: substitution
+    team: home
+    player: Jon Helge Tveita
+    playerOff: Alfred Scriven
+  - minute: 65
+    type: substitution
+    team: home
+    player: Patrick André Wik
+    playerOff: Christian Landu Landu
+  - minute: 73
+    type: substitution
+    team: home
+    player: Kristian Skurve Håland
+    playerOff: Duarte Moreira
+  - minute: 81
+    type: substitution
+    team: away
+    player: David Snær Johannsson
+    playerOff: Henrik Melland
+  - minute: 88
+    type: substitution
+    team: away
+    player: Elias Heggland Myrlid
+    playerOff: Paul Ngongo Iversen
+  - minute: 88
+    type: substitution
+    team: away
+    player: Frederik Heiselberg
+    playerOff: Kristian Hemmingsen Lonebu
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Jan de Boer
+      - Jesper Gregersen
+      - Jacob Haahr
+      - Andreas Skovgaard
+      - Eirik Saunes
+      - Heine Åsen Larsen
+      - Lars Erik Sødal
+      - Christian Landu Landu
+      - Alfred Scriven
+      - Duarte Moreira
+      - Sanel Bojadzic
+    subs:
+      - Patrick André Wik
+      - Jon Helge Tveita
+      - Kristian Skurve Håland
+      - Igor Spiridonov
+      - Dadi Dodou Gaye
+      - Martin Aamot Lye
+      - Rasmus Thellufsen
+      - Jaran Eike Oestrem
+      - Magnus Retsius Grødem
+    coach: Ole Kevin Knappen
+  away:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Nikolai Skuseth
+      - Marius Andresen
+      - Mathias Christensen
+      - Håkon Butli Hammer
+      - Henrik Melland
+      - Kristoffer Nessø
+      - Paul Ngongo Iversen
+      - Kristian Hemmingsen Lonebu
+    subs:
+      - Philip Sandvik Aukland
+      - David Snær Johannsson
+      - Elias Heggland Myrlid
+      - Frederik Heiselberg
+      - Philip Emblem Storaas
+      - Tor Erik Valderhaug Larsen
+      - Jørgen Bøe
+      - Olafur Gudmundsson
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 61
+    shots: 6
+    shotsOnTarget: 0
+    corners: 4
+    fouls: 18
+    offsides: 0
+  away:
+    possession: 39
+    shots: 12
+    shotsOnTarget: 7
+    corners: 4
+    fouls: 13
+    offsides: 2
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-bryne/2ddv1b#5078173
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.stage
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5078173"
+manual: []
