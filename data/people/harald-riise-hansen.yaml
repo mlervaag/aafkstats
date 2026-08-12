@@ -13,7 +13,14 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_year)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: formann-1918
     category: board
     title: Formann
@@ -23,7 +30,10 @@ roles:
     sources:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
-        fields: [ title, from, to ]
+        fields:
+          - title
+          - from
+          - to
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "81"

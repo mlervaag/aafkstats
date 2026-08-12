@@ -1,7 +1,18 @@
 id: harald-hagen
 name: Harald Hagen
 roles:
-  - { id: stifter-1914, category: founder, title: Stifter, body: Konstituerende generalforsamling, from: "1914-06-25", to: "1914-06-25", sources: [ { sourceId: aafk-historie-stiftelsen, fields: [ title, from, to ] } ] }
+  - id: stifter-1914
+    category: founder
+    title: Stifter
+    body: Konstituerende generalforsamling
+    from: 1914-06-25
+    to: 1914-06-25
+    sources:
+      - sourceId: aafk-historie-stiftelsen
+        fields:
+          - title
+          - from
+          - to
   - id: oppmann-1916
     category: sporting_staff
     title: Oppmann
@@ -32,7 +43,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "80"

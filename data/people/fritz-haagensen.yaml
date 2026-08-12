@@ -1,0 +1,15 @@
+id: fritz-haagensen
+name: Fritz Haagensen
+roles:
+  - id: oppmann-1954
+    category: sporting_staff
+    title: Oppmann
+    from: "1954"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."

@@ -1,0 +1,25 @@
+id: erling-flem
+name: Erling Flem
+roles:
+  - id: oppmann-1935
+    category: sporting_staff
+    title: Oppmann
+    from: "1935"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields: &a1
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+  - id: oppmann-1937
+    category: sporting_staff
+    title: Oppmann
+    from: "1937"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields: *a1
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."

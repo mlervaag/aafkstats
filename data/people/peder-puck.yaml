@@ -31,7 +31,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: styreleder-1945
     category: board
     title: Styreleder
@@ -45,8 +46,20 @@ roles:
           - from
           - to
         note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
-  - { id: varaformann-1946, category: board, title: Varaformann, body: Hovedstyret, from: "1946", to: "1946", sources: [ { sourceId: aafk-historie-kramyra-stadion, fields: [ title, from, to ] } ] }
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
+  - id: varaformann-1946
+    category: board
+    title: Varaformann
+    body: Hovedstyret
+    from: "1946"
+    to: "1946"
+    sources:
+      - sourceId: aafk-historie-kramyra-stadion
+        fields:
+          - title
+          - from
+          - to
   - id: formann-1938-1939
     category: board
     title: Formann
@@ -56,7 +69,10 @@ roles:
     sources:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
-        fields: [ title, from, to ]
+        fields:
+          - title
+          - from
+          - to
       - sourceId: vi-er-75-ar-1989-aff6
         page: "8"
         fields:
@@ -97,11 +113,38 @@ roles:
     sources:
       - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
         page: "5"
-        fields: [ title, from, to ]
+        fields:
+          - title
+          - from
+          - to
       - sourceId: aafk-historie-ledere
-        fields: [ title ]
-    note: Kildene fra 1939 og 1950 beskriver perioden 1938–1945; AaFKs nyere nettliste skriver 1938–1941 og 1945–1946. Periodene er ikke slått sammen, fordi nettlisten samtidig fører Sigurd Nørve fra 1946.
-  - { id: gullmerkeinnehaver-1948, category: honorary, title: Gullmerkeinnehaver, from: "1948", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] }, { sourceId: tango-siden-1914-2013-806b, page: "350", fields: [ title, from ], note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year)." } ] }
+        fields:
+          - title
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields: &a2
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+    note: Kildene fra 1939 og 1950 beskriver perioden 1938–1945; AaFKs nyere
+      nettliste skriver 1938–1941 og 1945–1946. Periodene er ikke slått sammen,
+      fordi nettlisten samtidig fører Sigurd Nørve fra 1946.
+  - id: gullmerkeinnehaver-1948
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1948"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
+      - sourceId: tango-siden-1914-2013-806b
+        page: "350"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year)."
   - id: nestformann-1951
     category: board
     title: Nestformann
@@ -115,8 +158,51 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: role_then_name)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
-  - { id: aeresmedlem-1957, category: honorary, title: Æresmedlem, from: "1957", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
+  - id: aeresmedlem-1957
+    category: honorary
+    title: Æresmedlem
+    from: "1957"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
+  - id: formann-1946
+    category: board
+    title: Formann
+    body: Hovedstyret
+    from: "1946"
+    to: "1946"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields: *a2
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+  - id: oppmann-1933
+    category: sporting_staff
+    title: Oppmann
+    from: "1933"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields: &a3
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+  - id: oppmann-1950
+    category: sporting_staff
+    title: Oppmann
+    from: "1950"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields: *a3
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "3"

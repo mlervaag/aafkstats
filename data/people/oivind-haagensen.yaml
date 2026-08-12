@@ -19,7 +19,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: oppmann-1945
     category: sporting_staff
     title: Oppmann
@@ -32,7 +33,14 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_role)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields: &a1
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: oppmann-1951
     category: sporting_staff
     title: Oppmann
@@ -46,7 +54,12 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_role)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields: *a1
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: trener-1955
     category: coach
     title: Trener
@@ -59,7 +72,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: year_row)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: trener-1956
     category: coach
     title: Trener
@@ -72,8 +86,34 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
-  - { id: gullmerkeinnehaver-1964, category: honorary, title: Gullmerkeinnehaver, from: "1964", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] }, { sourceId: tango-siden-1914-2013-806b, page: "350", fields: [ title, from ], note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year)." } ] }
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
+  - id: gullmerkeinnehaver-1964
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1964"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
+      - sourceId: tango-siden-1914-2013-806b
+        page: "350"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year)."
+  - id: oppmann-1949
+    category: sporting_staff
+    title: Oppmann
+    from: "1949"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields: *a1
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "3"
