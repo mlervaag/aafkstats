@@ -50,11 +50,16 @@ export function SeasonGaps({ year, gaps }: { year: number; gaps: SeasonGapsData 
     <div className="season-contribution-actions">
       {contribute("Del et sesongminne")}
       {includeMissingMatch && (
-        <a href={contributionIssueUrl("manglende-kamp", `Sesongen ${year}`)}>
+        <a href={contributionIssueUrl("manglende-kamp", `Sesongen ${year}`, {
+          dato: String(year),
+          annet: `Gjelder sesongen ${year}, /sesong/${year}`,
+        })}>
           Meld manglende kamp
         </a>
       )}
-      <a href={contributionIssueUrl("ny-kilde", `Sesongen ${year}`)}>
+      <a href={contributionIssueUrl("ny-kilde", `Sesongen ${year}`, {
+        kamp: `Sesongen ${year} — /sesong/${year}`,
+      })}>
         Legg til kampdetaljer
       </a>
     </div>

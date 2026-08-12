@@ -125,7 +125,9 @@ export default function MissingPage() {
               ))}
             </ul>
             <div className={styles.actions}>
-              <a className="button-link" href={contributionIssueUrl("manglende-kamp", "Historisk resultat")}>Hjelp med et resultat</a>
+              <a className="button-link" href={contributionIssueUrl("manglende-kamp", "Historisk resultat", {
+                annet: "Funnet via arbeidskøen på /mangler.",
+              })}>Hjelp med et resultat</a>
               <a className="button-link secondary" href="/sesonger">Se alle sesonger</a>
             </div>
           </>
@@ -168,7 +170,9 @@ export default function MissingPage() {
               ))}
             </ul>
             <div className={styles.actions}>
-              <a className="button-link" href={contributionIssueUrl("ny-arkivkilde", "Sesongdekning")}>Tips om en kilde</a>
+              <a className="button-link" href={contributionIssueUrl("ny-arkivkilde", "Sesongdekning", {
+                hva: "Kilden kan dekke sesonger arkivet mangler. Funnet via arbeidskøen på /mangler.",
+              })}>Tips om en kilde</a>
               <a className="button-link secondary" href="/sesonger">Se alle sesonger</a>
             </div>
           </>
@@ -200,7 +204,9 @@ export default function MissingPage() {
               ))}
             </dl>
             <div className={styles.actions}>
-              <a className="button-link" href={contributionIssueUrl("ny-kilde", "Manglende kampdetaljer")}>Legg til kampdetaljer</a>
+              <a className="button-link" href={contributionIssueUrl("ny-kilde", "Manglende kampdetaljer", {
+                kamp: "Se arbeidskøen på /mangler",
+              })}>Legg til kampdetaljer</a>
               <a className="button-link secondary" href="/sesonger">Velg en sesong</a>
             </div>
           </>
@@ -236,7 +242,10 @@ export default function MissingPage() {
               ))}
             </ul>
             <div className={styles.actions}>
-              <a className="button-link" href={contributionIssueUrl("datafeil", "Uavklart personverv")}>Send en kilde</a>
+              <a className="button-link" href={contributionIssueUrl("datafeil", "Uavklart personverv", {
+                sted: "Uavklart personverv — /mangler",
+                feil: "Kildene er uenige om et verv. Se arbeidskøen på /mangler.",
+              })}>Send en kilde</a>
               <a className="button-link secondary" href="/organisasjon">Se organisasjonshistorien</a>
             </div>
           </>
@@ -361,6 +370,11 @@ export default function MissingPage() {
                       href={contributionIssueUrl(
                         "manglende-kamp",
                         candidateContext(source.title, candidate.page, candidate.season),
+                        {
+                          ...(candidate.season === null ? {} : { dato: String(candidate.season) }),
+                          kilde: `${source.title}, side ${candidate.page}`,
+                          annet: `Lagoppstillingskandidat fra arbeidskøen: ${candidate.names.join(" · ")}`,
+                        },
                       )}
                     >
                       Jeg kjenner igjen kampen
@@ -376,7 +390,9 @@ export default function MissingPage() {
           derfor si hvilken kamp det gjelder og vise til en kilde som bekrefter koblingen.
         </p>
         <div className={styles.actions}>
-          <a className="button-link" href={contributionIssueUrl("ny-arkivkilde", "Lagoppstilling")}>Tips om en kilde</a>
+          <a className="button-link" href={contributionIssueUrl("ny-arkivkilde", "Lagoppstilling", {
+            hva: "Kilden kan dekke lagoppstillinger. Funnet via arbeidskøen på /mangler.",
+          })}>Tips om en kilde</a>
           <a className="button-link secondary" href="/kilder">Se kildearkivet</a>
         </div>
         </>

@@ -4,7 +4,7 @@ import { ArchiveTabs } from "@/components/ArchiveTabs";
 import { SourceChips } from "@/components/SourceChips";
 import { getSourceTitles } from "@/lib/people";
 import { getHomeVenues } from "@/lib/venues";
-import { contributionIssueUrl } from "@/lib/contribution-links";
+import { contributionIssueUrl, pageReference } from "@/lib/contribution-links";
 import type { HomeVenue, VenueEvent } from "@/lib/venues";
 import styles from "./HomeVenues.module.css";
 
@@ -82,12 +82,16 @@ export default function HomeVenuesPage() {
       <section className="content-section prose-stack">
         <h2>Vet du mer om banene?</h2>
         <p>
-          Meld fra om feil eller manglende perioder, dekker, kapasitetstall og milepæler.
-          Oppgi gjerne hvor opplysningen kan kontrolleres.
+          Gjelder det én bestemt bane, står det en lenke på banens eget kort over — da
+          følger banenavnet med i skjemaet. Mangler en bane helt, eller gjelder det
+          oversikten som helhet, er det denne veien. Oppgi gjerne hvor opplysningen kan
+          kontrolleres.
         </p>
         <p>
-          <a className="button-link" href={contributionIssueUrl("datafeil", "Hjemmebaner")}>
-            Meld feil eller manglende opplysninger
+          <a className="button-link" href={contributionIssueUrl("datafeil", "Hjemmebaner", {
+            sted: pageReference("Hjemmebaner", "/hjemmebaner"),
+          })}>
+            Meld en bane som mangler
           </a>
         </p>
       </section>
@@ -139,6 +143,18 @@ function VenueCard({ venue, titles }: { venue: HomeVenue; titles: Map<string, st
       ) : null}
 
       {venue.note ? <p className="small muted">{venue.note}</p> : null}
+
+      {/* Rettelsen hører til banen, ikke til sida. Sto det bare én knapp nederst
+          med «Hjemmebaner» som kontekst, måtte den som så at Kråmyra har feil
+          åpningsår, selv skrive hvilken bane det gjaldt — og skjemaet fikk et
+          sidenavn i stedet for et banenavn. */}
+      <p className={styles.venueContribute}>
+        <a href={contributionIssueUrl("datafeil", venue.name, {
+          sted: pageReference(venue.name, "/hjemmebaner"),
+        })}>
+          Meld feil om {venue.name}
+        </a>
+      </p>
     </section>
   );
 }

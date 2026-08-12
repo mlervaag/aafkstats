@@ -185,7 +185,7 @@ export default function OrganizationPage() {
           Roller og årstall lagres som fakta med kilde, mens den opprinnelige brødteksten
           blir hos utgiveren. Uenige perioder beholdes som kildeavvik.
         </p>
-        <a className="button-link" href={contributionIssueUrl("datafeil", "Organisasjon")}>
+        <a className="button-link" href={contributionIssueUrl("datafeil", "Organisasjon", { sted: "Organisasjon — /organisasjon" })}>
           Meld feil eller manglende verv
         </a>
       </aside>

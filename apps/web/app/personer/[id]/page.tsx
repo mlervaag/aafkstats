@@ -14,7 +14,7 @@ import { loadContributions } from "@/lib/archive";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd, personJsonLd } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/metadata";
-import { contributionIssueUrl } from "@/lib/contribution-links";
+import { contributionIssueUrl, pageReference } from "@/lib/contribution-links";
 import { ContributionButton } from "@/components/ContributionButton";
 import { Contributions } from "@/components/Contributions";
 import { SourceChips, collapseSources, pageList } from "@/components/SourceChips";
@@ -187,7 +187,7 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
           ) : null}
 
           {person.conflicts.length > 0 ? (
-            <Conflicts conflicts={person.conflicts} titles={sourceTitles} personName={person.name} />
+            <Conflicts conflicts={person.conflicts} titles={sourceTitles} personName={person.name} personId={id} />
           ) : null}
 
           {roles.length > 0 ? (
@@ -277,10 +277,12 @@ function Role({ role, titles }: { role: PersonRole; titles: Map<string, string> 
  * Står øverst med vilje. En leser som ser «Formann 1968» lenger nede skal vite
  * at en annen kilde sier noe annet før hen tar tallet med seg videre.
  */
-function Conflicts({ conflicts, titles, personName }: {
+function Conflicts({ conflicts, titles, personName, personId }: {
   conflicts: PersonConflict[];
   titles: Map<string, string>;
   personName: string;
+  /** Brukes til å peke rettelsesskjemaet på nøyaktig denne personsida. */
+  personId: string;
 }) {
   /**
    * Merknaden bærer kilde-ID-en fra innhøstingen, som er en intern nøkkel.
@@ -297,7 +299,7 @@ function Conflicts({ conflicts, titles, personName }: {
       <h2>Kildene er uenige</h2>
       <p className="small muted">
         Arkivet velger ikke mellom dem. Vet du hvilken som stemmer, kan du{" "}
-        <a href={contributionIssueUrl("datafeil", personName)}>sende inn en rettelse med kilde</a>.
+        <a href={contributionIssueUrl("datafeil", personName, { sted: pageReference(personName, `/personer/${personId}`) })}>sende inn en rettelse med kilde</a>.
       </p>
       <ul className={styles.conflictList}>
         {conflicts.map((conflict) => {
@@ -425,7 +427,13 @@ function DerivedPlayerPage({ player }: { player: DerivedPlayer }) {
             <p>
               <a
                 className="button-link"
-                href={contributionIssueUrl("manglende-person", player.name)}
+                href={contributionIssueUrl("manglende-person", player.name, {
+                  navn: player.name,
+                  tilknytning: "Spiller",
+                  ...(nameForms.length > 1
+                    ? { rolle: `Kildene skriver navnet på ${nameForms.length} måter: ${nameForms.join(", ")}.` }
+                    : {}),
+                })}
               >
                 Legg til en personfil
               </a>

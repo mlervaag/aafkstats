@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { contributionIssueUrl } from "@/lib/contribution-links";
+import { contributionIssueUrl, pageReference } from "@/lib/contribution-links";
 
 export type ContributionScope = "match" | "season" | "person";
 
@@ -71,19 +71,42 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
     }
   };
 
+  /**
+   * Adressen til siden dialogen står på.
+   *
+   * Bygges av scope og targetId framfor å leses fra `window`, slik at lenkene er
+   * de samme i markup-en som etter hydrering — og slik at de finnes i det hele
+   * tatt hvis dialogen en dag rendres på serveren.
+   */
+  const path = scope === "match" ? `/kamp/${targetId}`
+    : scope === "season" ? `/sesong/${targetId}`
+    : `/personer/${targetId}`;
+  const here = pageReference(title, path);
+
+  /**
+   * Veiene videre for den som vil rette fakta i stedet for å dele et minne.
+   *
+   * Hver av dem åpner malen med det vi allerede vet fylt inn: hvilken side det
+   * gjelder, og adressen dit. Bidragsyteren står på kampsiden i det hun trykker,
+   * og skal ikke måtte skrive av hvilken kamp hun akkurat så på.
+   *
+   * Lista er ikke den samme for alle tre. En kamp som finnes, mangler ikke — den
+   * skal ikke tilby «meld en kamp som mangler». En person som har en side,
+   * mangler heller ikke, men kan ha feil verv eller mangle en kilde til det.
+   */
   const otherRoutes = scope === "season"
     ? [
-        { label: "Meld en kamp som mangler", href: contributionIssueUrl("manglende-kamp", title) },
-        { label: "Meld en feil", href: contributionIssueUrl("datafeil", title) },
-        { label: "Tips om en kilde", href: contributionIssueUrl("ny-arkivkilde", title) },
+        { label: "Meld en kamp som mangler", href: contributionIssueUrl("manglende-kamp", title, { annet: `Gjelder ${title}.` }) },
+        { label: "Meld en feil", href: contributionIssueUrl("datafeil", title, { sted: here }) },
+        { label: "Legg til kampdetaljer", href: contributionIssueUrl("ny-kilde", title, { kamp: here }) },
       ]
     : scope === "match" ? [
-        { label: "Meld en feil", href: contributionIssueUrl("datafeil", title) },
-        { label: "Legg til kampdetaljer", href: contributionIssueUrl("ny-kilde", title) },
+        { label: "Meld en feil", href: contributionIssueUrl("datafeil", title, { sted: here }) },
+        { label: "Legg til kampdetaljer", href: contributionIssueUrl("ny-kilde", title, { kamp: here }) },
       ]
     : [
-        { label: "Meld en feil", href: contributionIssueUrl("datafeil", title) },
-        { label: "Tips om en kilde", href: contributionIssueUrl("ny-arkivkilde", title) },
+        { label: "Meld en feil", href: contributionIssueUrl("datafeil", title, { sted: here }) },
+        { label: "Tips om en kilde", href: contributionIssueUrl("ny-arkivkilde", title, { hva: `Gjelder ${title}, ${path}` }) },
       ];
 
   const isPerson = scope === "person";

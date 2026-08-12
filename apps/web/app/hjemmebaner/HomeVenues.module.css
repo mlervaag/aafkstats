@@ -40,3 +40,9 @@
 @media (max-width: 520px) {
   .events ol > li { grid-template-columns: minmax(0, 1fr); gap: 0.25rem; }
 }
+
+/* Rettelseslenka på hvert banekort. Står nederst, dempet, som en fotnote til
+   kortet — den skal være der når noen ser en feil, ikke konkurrere med
+   publikumsrekorden om oppmerksomheten. */
+.venueContribute { margin: 1.1rem 0 0; font-size: 0.85rem; }
+.venueContribute a { color: var(--muted); }
