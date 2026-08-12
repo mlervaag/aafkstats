@@ -17,6 +17,25 @@ function templateFieldIds(template: string): string[] {
   return [...yaml.matchAll(/^\s{4}id:\s*(\S+)\s*$/gm)].map((match) => match[1]!);
 }
 
+/**
+ * Vertsnavnene i en tekst som ser ut som arkivet selv.
+ *
+ * Første forsøk brukte ett mønster for hele vertsnavnet:
+ * `[a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?:no|app|com)`. Det ser uskyldig ut, men de to
+ * kvantifikatorene dekker de samme tegnene, og et mislykket forsøk må derfor
+ * prøve alle måtene å dele opp teksten på. Tida vokser kvadratisk: en kjede på
+ * 16 000 «x.» tok 1,4 sekunder, fire ganger så lenge som en på 8 000.
+ *
+ * Her er ingenting nøstet. Teksten deles på tegn et vertsnavn ikke kan
+ * inneholde, og hvert ord vurderes for seg — én gjennomgang, uansett lengde.
+ */
+function archiveHosts(text: string): string[] {
+  return text
+    .split(/[^A-Za-z0-9.-]+/)
+    .map((token) => token.replace(/^[.-]+/, "").replace(/[.-]+$/, ""))
+    .filter((token) => token.includes(".") && token.toLowerCase().includes("aafk"));
+}
+
 /** Feltene i en mal som er avkryssingsbokser, og som ikke kan forhåndsutfylles. */
 function checkboxFieldIds(template: string): string[] {
   const yaml = readFileSync(resolve(TEMPLATE_DIR, `${template}.yml`), "utf8");
@@ -111,12 +130,7 @@ describe("malenes lenker til nettstedet", () => {
 
     for (const file of files) {
       const text = readFileSync(resolve(TEMPLATE_DIR, file), "utf8");
-      // Alle vertsnavn som ser ut som arkivet selv, uansett om de står med
-      // protokoll eller bare som «aafkarkivet.no» midt i en setning.
-      for (const [, found] of text.matchAll(/\b([a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?:no|app|com))\b/g)) {
-        if (!/aafk/i.test(found)) continue;
-        // github.com-lenker til repoet er ikke nettstedet.
-        if (found.endsWith("github.com")) continue;
+      for (const found of archiveHosts(text)) {
         expect(found, `${file} peker på ${found}`).toBe(host);
       }
     }
