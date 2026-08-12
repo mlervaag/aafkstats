@@ -31,6 +31,12 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: &a6
+          - title
+          - from
+        note: Lest maskinelt fra tabellen.
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
       siden.
   - id: styreleder-1945
@@ -126,6 +132,12 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: &a3
+          - title
+          - from
+        note: Lest maskinelt fra tabellen.
     note: Kildene fra 1939 og 1950 beskriver perioden 1938–1945; AaFKs nyere
       nettliste skriver 1938–1941 og 1945–1946. Periodene er ikke slått sammen,
       fordi nettlisten samtidig fører Sigurd Nørve fra 1946.
@@ -181,6 +193,10 @@ roles:
         page: "74"
         fields: *a2
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: *a3
+        note: Lest maskinelt fra tabellen.
   - id: oppmann-1933
     category: sporting_staff
     title: Oppmann
@@ -189,10 +205,14 @@ roles:
     sources:
       - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
         page: "74"
-        fields: &a3
+        fields: &a7
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: *a6
+        note: Lest maskinelt fra tabellen.
   - id: oppmann-1950
     category: sporting_staff
     title: Oppmann
@@ -201,8 +221,12 @@ roles:
     sources:
       - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
         page: "74"
-        fields: *a3
+        fields: *a7
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: *a6
+        note: Lest maskinelt fra tabellen.
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "3"

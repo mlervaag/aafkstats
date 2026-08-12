@@ -68,6 +68,12 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields:
+          - title
+          - from
+        note: Lest maskinelt fra tabellen.
   - id: aeresmedlem-1915
     category: honorary
     title: Æresmedlem

@@ -14,9 +14,50 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
-  - { id: gullmerkeinnehaver-1982, category: honorary, title: Gullmerkeinnehaver, from: "1982", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
-  - { id: aeresmedlem-1987, category: honorary, title: Æresmedlem, from: "1987", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
+  - id: gullmerkeinnehaver-1982
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1982"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
+  - id: aeresmedlem-1987
+    category: honorary
+    title: Æresmedlem
+    from: "1987"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
+  - id: fotballformann-1980
+    category: sporting_staff
+    title: Fotballformann
+    from: "1980"
+    to: "1980"
+    sources:
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: &a1
+          - title
+          - from
+        note: Lest maskinelt fra tabellen.
+  - id: fotballformann-1981
+    category: sporting_staff
+    title: Fotballformann
+    from: "1981"
+    to: "1981"
+    sources:
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: *a1
+        note: Lest maskinelt fra tabellen.
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "27"

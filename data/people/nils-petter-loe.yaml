@@ -1,29 +1,23 @@
-id: fritz-haagensen
-name: Fritz Haagensen
+id: nils-petter-loe
+name: Nils Petter Loe
 roles:
-  - id: oppmann-1954
+  - id: oppmann-1976
     category: sporting_staff
     title: Oppmann
-    from: "1954"
-    to: null
+    from: "1976"
+    to: "1976"
     sources:
-      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
-        page: "74"
-        fields:
-          - title
-          - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
       - sourceId: vi-er-75-ar-1989-aff6
         page: "8"
         fields: &a1
           - title
           - from
         note: Lest maskinelt fra tabellen.
-  - id: oppmann-1955
+  - id: oppmann-1977
     category: sporting_staff
     title: Oppmann
-    from: "1955"
-    to: "1955"
+    from: "1977"
+    to: "1977"
     sources:
       - sourceId: vi-er-75-ar-1989-aff6
         page: "8"

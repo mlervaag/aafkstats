@@ -31,6 +31,12 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: &a1
+          - title
+          - from
+        note: Lest maskinelt fra tabellen.
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
       siden.
   - id: gullmerkeinnehaver-1927
@@ -61,6 +67,10 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: *a1
+        note: Lest maskinelt fra tabellen.
 sources:
   - sourceId: aalesunds-fk-quiz-2008-fd43
     page: "50"

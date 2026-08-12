@@ -19,6 +19,12 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: &a2
+          - title
+          - from
+        note: Lest maskinelt fra tabellen.
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
       siden.
   - id: oppmann-1945
@@ -35,10 +41,14 @@ roles:
         note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_role)."
       - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
         page: "74"
-        fields: &a1
+        fields: &a3
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: *a2
+        note: Lest maskinelt fra tabellen.
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
       siden.
   - id: oppmann-1951
@@ -56,8 +66,12 @@ roles:
         note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_role)."
       - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
         page: "74"
-        fields: *a1
+        fields: *a3
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: *a2
+        note: Lest maskinelt fra tabellen.
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
       siden.
   - id: trener-1955
@@ -112,8 +126,12 @@ roles:
     sources:
       - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
         page: "74"
-        fields: *a1
+        fields: *a3
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: *a2
+        note: Lest maskinelt fra tabellen.
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "3"

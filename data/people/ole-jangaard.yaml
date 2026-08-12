@@ -43,6 +43,12 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: &a2
+          - title
+          - from
+        note: Lest maskinelt fra tabellen.
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
       siden.
   - id: gullmerkeinnehaver-1924
@@ -63,10 +69,14 @@ roles:
     sources:
       - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
         page: "74"
-        fields: &a1
+        fields: &a3
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: *a2
+        note: Lest maskinelt fra tabellen.
   - id: oppmann-1919
     category: sporting_staff
     title: Oppmann
@@ -75,8 +85,12 @@ roles:
     sources:
       - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
         page: "74"
-        fields: *a1
+        fields: *a3
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: *a2
+        note: Lest maskinelt fra tabellen.
   - id: oppmann-1923
     category: sporting_staff
     title: Oppmann
@@ -85,8 +99,12 @@ roles:
     sources:
       - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
         page: "74"
-        fields: *a1
+        fields: *a3
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: *a2
+        note: Lest maskinelt fra tabellen.
   - id: oppmann-1924
     category: sporting_staff
     title: Oppmann
@@ -95,8 +113,12 @@ roles:
     sources:
       - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
         page: "74"
-        fields: *a1
+        fields: *a3
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: *a2
+        note: Lest maskinelt fra tabellen.
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "13"
