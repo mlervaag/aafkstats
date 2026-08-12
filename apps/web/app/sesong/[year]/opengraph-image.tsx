@@ -3,7 +3,7 @@ import { loadSeason } from "@/lib/archive";
 import { SOCIAL_IMAGE_SIZE, SocialCard } from "@/lib/social-card";
 
 export const runtime = "nodejs";
-export const alt = "AaFK sesong i AaFK arkivet";
+export const alt = "AaFK sesong i AaFK-arkivet";
 export const size = SOCIAL_IMAGE_SIZE;
 export const contentType = "image/png";
 
@@ -22,7 +22,7 @@ export default async function Image({
       <SocialCard
         eyebrow="Sesong"
         title={`AaFK ${rawYear}`}
-        subtitle="Historiske resultater og kilder i AaFK arkivet."
+        subtitle="Historiske resultater og kilder i AaFK-arkivet."
         footer={`aafkarkivet.no/sesong/${rawYear}`}
       />,
       size,

@@ -177,7 +177,7 @@ export function SocialCard({
               border: `7px solid ${COLORS.orange}`,
             }}
           />
-          <span>AaFK arkivet</span>
+          <span>AaFK-arkivet</span>
         </div>
         <span>{footer}</span>
       </div>

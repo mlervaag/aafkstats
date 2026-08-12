@@ -4,7 +4,7 @@ import { formatDate } from "@/lib/date";
 import { SOCIAL_IMAGE_SIZE, SocialCard } from "@/lib/social-card";
 
 export const runtime = "nodejs";
-export const alt = "Kamp i AaFK arkivet";
+export const alt = "Kamp i AaFK-arkivet";
 export const size = SOCIAL_IMAGE_SIZE;
 export const contentType = "image/png";
 
@@ -62,7 +62,7 @@ export default async function Image({
       <SocialCard
         eyebrow="Kamp"
         title="Kampen finnes ikke"
-        subtitle="Se kampoversikten i AaFK arkivet."
+        subtitle="Se kampoversikten i AaFK-arkivet."
       />,
       size,
     );
@@ -93,7 +93,7 @@ export default async function Image({
 
   return new ImageResponse(
     <SocialCard
-      eyebrow="Kamp i AaFK arkivet"
+      eyebrow="Kamp i AaFK-arkivet"
       title={
         <div
           style={{

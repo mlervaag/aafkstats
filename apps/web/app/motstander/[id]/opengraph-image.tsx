@@ -20,7 +20,7 @@ export default async function Image({
       <SocialCard
         eyebrow="Innbyrdes oppgjør"
         title="AaFK mot ukjent motstander"
-        subtitle="Se kampene i AaFK arkivet."
+        subtitle="Se kampene i AaFK-arkivet."
       />,
       size,
     );
