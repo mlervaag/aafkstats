@@ -56,7 +56,7 @@ leser fra.
 | **87 år med kanoniske kamper** | 1915–2026, år med minst én registrert kamp. Enkeltkamper tilbake til 1915, cupen til 1917, serien til 1951 |
 | **91 år med historisk kampinformasjon** | De 87 over pluss årene som foreløpig bare har kildedokumenterte resultater. Sesongoversikten viser disse |
 | **177 klubber · 97 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
-| **318 personer** | Registrerte spillere, trenere, ledere, stiftere, prosjektpersoner og hederspersoner med kildeførte detaljer eller avvikende navn |
+| **317 personer** | Registrerte spillere, trenere, ledere, stiftere, prosjektpersoner og hederspersoner med kildeførte detaljer eller avvikende navn |
 | **8 dataleverandører** | Der data hentes digitalt fra, hver med rettighetsstatus som data og ikke som prosa |
 | **111 historiske kilder** | Bøker, medlemsblad, årsmeldinger og andre dokumenter en enkelt opplysning kan peke på, med sidetall |
 | **98 publikasjoner analysert** | 3 211 ALTO-sider, 139 søkbare sider og 4 814 faktakandidater uten lagret OCR-prosa |
