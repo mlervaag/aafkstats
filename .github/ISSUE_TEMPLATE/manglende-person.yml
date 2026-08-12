@@ -16,7 +16,7 @@ body:
 
         Har du et minne om noen framfor en opplysning som kan kildeføres, trenger du verken
         konto eller skjema: bruk «Bidra»-knappen på personens side på
-        https://aafkstats.vercel.app/personer.
+        https://aafkarkivet.no/personer.
 
   - type: input
     id: navn
@@ -94,7 +94,7 @@ body:
       label: Før du sender
       options:
         - label: >
-            Jeg har lett etter personen i personregisteret på aafkstats.vercel.app, også
+            Jeg har lett etter personen i personregisteret på aafkarkivet.no, også
             under andre skrivemåter av navnet.
           required: false
         - label: >

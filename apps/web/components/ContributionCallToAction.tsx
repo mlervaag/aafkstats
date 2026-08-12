@@ -1,6 +1,13 @@
 import { contributionIssueUrl } from "@/lib/contribution-links";
 
-export function ContributionCallToAction({ sourceTitle }: { sourceTitle?: string }) {
+/**
+ * Veien inn til kildearkivet, fra oversikten og fra den enkelte kilden.
+ *
+ * `sourceId` finnes bare på detaljsiden, og er det som gjør at skjemaet kan
+ * åpne seg med kilden allerede utfylt. Uten den er dette en generell oppfordring
+ * fra oversikten, og da er det ingenting å fylle ut.
+ */
+export function ContributionCallToAction({ sourceTitle, sourceId }: { sourceTitle?: string; sourceId?: string }) {
   return (
     <section className="source-tip">
       <h2>{sourceTitle ? "Vet du mer om denne kilden?" : "Mangler vi en kilde?"}</h2>
@@ -11,7 +18,9 @@ export function ContributionCallToAction({ sourceTitle }: { sourceTitle?: string
       </p>
       <a
         className="button-link"
-        href={contributionIssueUrl("ny-arkivkilde", sourceTitle)}
+        href={contributionIssueUrl("ny-arkivkilde", sourceTitle, sourceTitle
+          ? { kilde: sourceId ? `${sourceTitle} — /kilder/${sourceId}` : sourceTitle }
+          : undefined)}
       >
         {sourceTitle ? "Rett eller suppler kilden" : "Tips om en kilde"}
       </a>

@@ -298,7 +298,7 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
         </section>
       )}
 
-      <ContributionCallToAction sourceTitle={source.title} />
+      <ContributionCallToAction sourceTitle={source.title} sourceId={source.id} />
     </article>
   );
 }

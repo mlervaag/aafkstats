@@ -42,7 +42,7 @@ body:
     attributes:
       label: Slik reproduseres det
       placeholder: |
-        1. Åpne aafkstats.vercel.app
+        1. Åpne aafkarkivet.no
         2. Skriv «molde 2019» i søkefeltet
         3. Ingen treff vises
     validations:
@@ -53,7 +53,7 @@ body:
     attributes:
       label: Hvor
       description: URL på nettstedet, eller kommandoen du kjørte lokalt.
-      placeholder: https://aafkstats.vercel.app/sesong/2019
+      placeholder: https://aafkarkivet.no/sesong/2019
 
   - type: input
     id: miljo

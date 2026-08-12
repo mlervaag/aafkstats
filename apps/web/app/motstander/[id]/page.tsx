@@ -80,7 +80,7 @@ export default async function OpponentPage({ params }: Props) {
           vi det på klubben framfor på hver enkelt kamp. Da treffer rettelsen alle kampene
           på én gang.
         </p>
-        <a className="button-link" href={contributionIssueUrl("klubbidentitet", summary.opponent)}>
+        <a className="button-link" href={contributionIssueUrl("klubbidentitet", summary.opponent, { klubber: `${summary.opponent} (${id})` })}>
           Meld feil klubb eller historisk navn
         </a>
       </section>

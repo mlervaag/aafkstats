@@ -10,6 +10,13 @@ interface Props {
   label?: string;
 }
 
+/** Etiketten når kallstedet ikke oppgir en. Sto som «Bidra om kampen» for alle tre. */
+const DEFAULT_LABEL: Record<ContributionScope, string> = {
+  match: "Bidra om kampen",
+  season: "Bidra om sesongen",
+  person: "Bidra om personen",
+};
+
 export function ContributionButton({ scope, targetId, title, label }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -27,7 +34,7 @@ export function ContributionButton({ scope, targetId, title, label }: Props) {
         className="contribution-trigger"
         onClick={() => setIsOpen(true)}
       >
-        {label || "Bidra om kampen"}
+        {label ?? DEFAULT_LABEL[scope]}
       </button>
 
       {isOpen && (
