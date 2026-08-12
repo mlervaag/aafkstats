@@ -1,4 +1,5 @@
 import { AskBox } from "@/components/AskBox";
+import { Carousel } from "@/components/Carousel";
 import { TYPE_WORDS } from "@/components/Coverage";
 import { CoverageNote } from "@/components/CoverageNote";
 import { MatchList } from "@/components/MatchList";
@@ -143,6 +144,8 @@ export default function Home() {
           <CoverageNote heading={false} />
         </div>
       </section>
+
+      <Carousel />
     </>
   );
 }
