@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "987426"
+matchId: 2011-02-24-rosenborg-bk-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:05a96e749b1eeb48e880c6aaa13c0f69ca75948a41b6d72489bbf60ba6e37b08
+raw:
+  externalId: "987426"
+  date: 2011-02-24
+  kickoff: 17:00
+  status: FT
+  home: Rosenborg
+  homeId: "8422"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 4
+  awayScore: 2
+  homeHalfTime: 3
+  awayHalfTime: 1
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2011
+  url: https://www.fotmob.com/matches/aalesund-vs-rosenborg/2caf6d#987426
+normalized:
+  date: 2011-02-24
+  kickoff: 17:00
+  status: played
+  home.clubId: rosenborg-bk
+  away.clubId: aalesunds-fk
+  home.score: 4
+  away.score: 2
+  home.halfTimeScore: 3
+  away.halfTimeScore: 1
+  competition.id: treningskamp
+  competition.season: 2011
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

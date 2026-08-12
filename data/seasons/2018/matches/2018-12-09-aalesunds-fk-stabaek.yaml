@@ -1,0 +1,163 @@
+id: 2018-12-09-aalesunds-fk-stabaek
+date: 2018-12-09
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2018
+  stage: relegation_playoff
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: stabaek
+  score: 1
+  halfTimeScore: 0
+venueId: color-line-stadion
+neutralVenue: false
+attendance: 6333
+events:
+  - minute: 21
+    type: yellow_card
+    team: away
+    player: Franck Boli
+  - minute: 30
+    type: goal
+    team: home
+    player: Oddbjørn Lie
+    assist: Sondre Brunstad Fet
+  - minute: 36
+    type: yellow_card
+    team: home
+    player: Holmbert Aron Fridjonsson
+  - minute: 37
+    type: substitution
+    team: home
+    player: Erikson Lima
+    playerOff: Aron Elis Thrándarson
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Erikson Lima
+  - minute: 67
+    type: substitution
+    team: away
+    player: Hugo Vetlesen
+    playerOff: Franck Boli
+  - minute: 71
+    type: own_goal
+    team: away
+    player: Pape Habib Gueye
+  - minute: 76
+    type: substitution
+    team: home
+    player: Torbjørn Agdestein
+    playerOff: Holmbert Aron Fridjonsson
+  - minute: 81
+    type: yellow_card
+    team: away
+    player: Aboubakar Keita
+  - minute: 84
+    type: substitution
+    team: home
+    player: Ståle Steen Sæthre
+    playerOff: Jørgen Hatlehol
+  - minute: 89
+    type: substitution
+    team: away
+    player: John Hou Sæther
+    playerOff: Ola Brynhildsen
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Kaj Ramsteijn
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Adam Örn Arnarson
+      - Aron Elis Thrándarson
+      - Fredrik Carlsen
+      - Sondre Brunstad Fet
+      - Jørgen Hatlehol
+      - Holmbert Aron Fridjonsson
+      - Pape Habib Gueye
+    subs:
+      - Erikson Lima
+      - Torbjørn Agdestein
+      - Ståle Steen Sæthre
+      - Fredrik Opdahl
+      - Jens Petter Hauge
+      - Jonas Grønner
+      - Nikola Tkalcic
+    coach: Lars Bohinen
+  away:
+    formation: 4-4-2
+    starters:
+      - Marcus Sandberg
+      - Andreas Hanche-Olsen
+      - Daniel Granli
+      - Vadim Demidov
+      - Jeppe Arctander Moe
+      - Ola Brynhildsen
+      - Aboubakar Keita
+      - Tobias Borchgrevink Børkeeiet
+      - Moussa Njie
+      - Ohi Anthony Omoijuanfo
+      - Franck Boli
+    subs:
+      - Hugo Vetlesen
+      - John Hou Sæther
+      - Emil Bohinen
+      - Filip Valencic
+      - Ronald Hernández
+      - Simen Lillevik Kjellevold
+      - Steinar Strømnes
+    coach: Henning Berg
+stats:
+  home:
+    possession: 50
+    shots: 11
+    shotsOnTarget: 2
+    corners: 2
+    fouls: 16
+    offsides: 2
+  away:
+    possession: 50
+    shots: 7
+    shotsOnTarget: 2
+    corners: 5
+    fouls: 13
+    offsides: 5
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-stabaek/2rxyy1#2940799
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.stage
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2940799"
+manual: []

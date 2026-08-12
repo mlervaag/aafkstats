@@ -1,0 +1,37 @@
+providerId: fotmob
+externalId: "3816323"
+matchId: 2022-03-01-sogndal-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:6ab9883f922347b961d7f3a2fc6ac6b86bcf64d7d0172258bcbeccfb5140e9e7
+raw:
+  externalId: "3816323"
+  date: 2022-03-01
+  kickoff: 12:30
+  status: Can
+  home: Sogndal
+  homeId: "8616"
+  away: Aalesund
+  awayId: "8404"
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2022
+  venue: Fosshaugane Campus
+  url: https://www.fotmob.com/matches/aalesund-vs-sogndal/2e8smm#3816323
+normalized:
+  date: 2022-03-01
+  kickoff: 12:30
+  status: cancelled
+  home.clubId: sogndal
+  away.clubId: aalesunds-fk
+  competition.id: treningskamp
+  competition.season: 2022
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+warnings: []

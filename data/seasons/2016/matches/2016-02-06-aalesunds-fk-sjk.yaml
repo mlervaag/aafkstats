@@ -1,0 +1,56 @@
+id: 2016-02-06-aalesunds-fk-sjk
+date: 2016-02-06
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: treningskamp
+  season: 2016
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 2
+away:
+  clubId: sjk
+  score: 1
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 17
+    type: goal
+    team: home
+    player: Marlinho
+  - minute: 20
+    type: goal
+    team: away
+    player: Tarmo Kink
+  - minute: 28
+    type: goal
+    team: home
+    player: Peter Orry Larsen
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-sjk/6oklf2h#2161351
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2161351"
+manual: []

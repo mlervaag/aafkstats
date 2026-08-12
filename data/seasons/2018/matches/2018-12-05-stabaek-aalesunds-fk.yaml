@@ -1,0 +1,134 @@
+id: 2018-12-05-stabaek-aalesunds-fk
+date: 2018-12-05
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: eliteserien
+  season: 2018
+  stage: relegation_playoff
+home:
+  clubId: stabaek
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+venueId: nadderud-stadion
+neutralVenue: false
+attendance: 3831
+events:
+  - minute: 7
+    type: yellow_card
+    team: away
+    player: Kaj Ramsteijn
+  - minute: 27
+    type: goal
+    team: home
+    player: Tobias Borchgrevink Børkeeiet
+    assist: Jeppe Arctander Moe
+  - minute: 33
+    type: yellow_card
+    team: away
+    player: Pape Habib Gueye
+  - minute: 74
+    type: yellow_card
+    team: away
+    player: Oddbjørn Lie
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Aboubakar Keita
+lineups:
+  home:
+    formation: 4-4-2
+    starters:
+      - Marcus Sandberg
+      - Andreas Hanche-Olsen
+      - Daniel Granli
+      - Vadim Demidov
+      - Jeppe Arctander Moe
+      - Ola Brynhildsen
+      - Aboubakar Keita
+      - Tobias Borchgrevink Børkeeiet
+      - Moussa Njie
+      - Ohi Anthony Omoijuanfo
+      - Franck Boli
+    subs:
+      - Emil Bohinen
+      - Filip Valencic
+      - Hugo Vetlesen
+      - John Hou Sæther
+      - Ronald Hernández
+      - Simen Lillevik Kjellevold
+      - Steinar Strømnes
+    coach: Henning Berg
+  away:
+    formation: 3-5-2
+    starters:
+      - Andreas Lie
+      - Daniel Gretarsson
+      - Oddbjørn Lie
+      - Kaj Ramsteijn
+      - Adam Örn Arnarson
+      - Erikson Lima
+      - Fredrik Carlsen
+      - Sondre Brunstad Fet
+      - Jørgen Hatlehol
+      - Pape Habib Gueye
+      - Holmbert Aron Fridjonsson
+    subs:
+      - Fredrik Opdahl
+      - Jens Petter Hauge
+      - Jonas Grønner
+      - Markus Seehusen Karlsbakk
+      - Nikola Tkalcic
+      - Ståle Steen Sæthre
+      - Torbjørn Agdestein
+    coach: Lars Bohinen
+stats:
+  home:
+    possession: 62
+    shots: 14
+    shotsOnTarget: 4
+    corners: 5
+    fouls: 17
+    offsides: 1
+  away:
+    possession: 38
+    shots: 5
+    shotsOnTarget: 1
+    corners: 0
+    fouls: 11
+    offsides: 0
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-stabaek/2rxyy1#2940798
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.stage
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2940798"
+manual: []

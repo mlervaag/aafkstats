@@ -1,0 +1,58 @@
+id: 2018-03-23-bodo-glimt-aalesunds-fk
+date: 2018-03-23
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: treningskamp
+  season: 2018
+  stage: regular_season
+  round: 1
+home:
+  clubId: bodo-glimt
+  score: 3
+  halfTimeScore: 2
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 23
+    type: goal
+    team: home
+    player: Kristian Fardal Opseth
+  - minute: 40
+    type: goal
+    team: home
+    player: Ulrik Saltnes
+  - minute: 48
+    type: goal
+    team: home
+    player: Amor Layouni
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/bodoglimt-vs-aalesund/2c37nd#2739554
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2739554"
+manual: []

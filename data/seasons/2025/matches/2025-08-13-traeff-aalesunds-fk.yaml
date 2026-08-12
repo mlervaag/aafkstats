@@ -1,0 +1,68 @@
+id: 2025-08-13-traeff-aalesunds-fk
+date: 2025-08-13
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2025
+  stage: regular_season
+  round: 1
+home:
+  clubId: traeff
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: 2
+venueId: reknesbanen
+neutralVenue: false
+events:
+  - minute: 11
+    type: goal
+    team: home
+    player: Sivert Gussiås
+  - minute: 28
+    type: penalty_goal
+    team: away
+    player: Henrik Melland
+  - minute: 38
+    type: goal
+    team: away
+    player: Aleksander Hammer Kjelsen
+  - minute: 58
+    type: goal
+    team: away
+    player: Jakob Nyland Ørsahl
+  - minute: 88
+    type: goal
+    team: away
+    player: Frederik Heiselberg
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/traeff-vs-aalesund/1qrfrs#4834167
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4834167"
+manual: []

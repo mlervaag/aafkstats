@@ -1,0 +1,188 @@
+id: 2025-09-24-lysekloster-aalesunds-fk
+date: 2025-09-24
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2025
+  stage: regular_season
+  round: 3
+home:
+  clubId: lysekloster
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 1
+venueId: lysekloster-framo-idrettsplass
+neutralVenue: false
+events:
+  - minute: 4
+    type: goal
+    team: home
+    player: David Tufta
+    assist: Edvin Dvergsdal Brattreit
+  - minute: 9
+    type: penalty_goal
+    team: away
+    player: Paul Ngongo Iversen
+  - minute: 18
+    type: yellow_card
+    team: away
+    player: David Snær Johannsson
+  - minute: 31
+    type: yellow_card
+    team: home
+    player: Sverre Haga
+  - minute: 39
+    type: missed_penalty
+    team: away
+    player: Henrik Melland
+  - minute: 39
+    type: yellow_card
+    team: home
+    player: Fredrik Sivertsen Bergslid
+  - minute: 58
+    type: substitution
+    team: home
+    player: Thorstein Horneland Hildal
+    playerOff: Sverre Haga
+  - minute: 58
+    type: substitution
+    team: home
+    player: Sander Marthinussen
+    playerOff: Kristoffer Nesse Stephensen
+  - minute: 58
+    type: substitution
+    team: home
+    player: Jacob Kvarven
+    playerOff: Mads Bådsvik
+  - minute: 64
+    type: substitution
+    team: away
+    player: Kristoffer Nessø
+    playerOff: John Kitolano
+  - minute: 64
+    type: substitution
+    team: away
+    player: Janus Seehusen
+    playerOff: Henrik Melland
+  - minute: 67
+    type: yellow_card
+    team: away
+    player: Marius Andresen
+  - minute: 70
+    type: goal
+    team: away
+    player: Paul Ngongo Iversen
+    assist: Mathias Christensen
+  - minute: 73
+    type: substitution
+    team: away
+    player: Elias Heggland Myrlid
+    playerOff: Frederik Heiselberg
+  - minute: 76
+    type: substitution
+    team: home
+    player: Jacob Jacobsen Bolsø
+    playerOff: David Tufta
+  - minute: 76
+    type: substitution
+    team: home
+    player: Nicholas Marthinussen
+    playerOff: Simon Romarheim Vik
+  - minute: 81
+    type: goal
+    team: away
+    player: David Snær Johannsson
+    assist: Paul Ngongo Iversen
+  - minute: 90
+    stoppage: 1
+    type: yellow_card
+    team: home
+    player: Jacob Jacobsen Bolsø
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: away
+    player: Nikolai Skuseth
+    playerOff: Mathias Christensen
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Fredrik Sivertsen Bergslid
+      - Sverre Haga
+      - Johannes Eftevaag
+      - Sebastian Brudvik
+      - Simon Romarheim Vik
+      - Mads Fosse Aaserud
+      - Kristoffer Nesse Stephensen
+      - Edvin Dvergsdal Brattreit
+      - Mads Bådsvik
+      - Alexander Dang
+      - David Tufta
+    subs:
+      - Sander Marthinussen
+      - Jacob Kvarven
+      - Thorstein Horneland Hildal
+      - Nicholas Marthinussen
+      - Jacob Jacobsen Bolsø
+      - Vitālijs Meļņičenko
+      - Joachim Edvardsen
+      - Jørgen Nordvold Lunde
+      - Oskar Ihlen
+    coach: Tommy Knarvik
+  away:
+    formation: 3-5-2
+    starters:
+      - Tor Erik Valderhaug Larsen
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Ólafur Gudmundsson
+      - Marius Andresen
+      - Mathias Christensen
+      - David Snær Johannsson
+      - Henrik Melland
+      - John Kitolano
+      - Frederik Heiselberg
+      - Paul Ngongo Iversen
+    subs:
+      - Janus Seehusen
+      - Kristoffer Nessø
+      - Elias Heggland Myrlid
+      - Nikolai Skuseth
+      - Sten Michael Grytebust
+      - Jakob Nyland Ørsahl
+      - Kristian Hemmingsen Lonebu
+    coach: Kjetil Rekdal
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-lysekloster/14vpa7gs#4946495
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4946495"
+manual: []

@@ -1,0 +1,56 @@
+id: 2017-02-03-aalesunds-fk-kristiansund
+date: 2017-02-03
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: treningskamp
+  season: 2017
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: kristiansund
+  score: 2
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 63
+    type: goal
+    team: away
+    player: Daouda Bamba
+  - minute: 70
+    type: red_card
+    team: home
+    player: Aron Elis Thrándarson
+  - minute: 80
+    type: goal
+    team: away
+    player: Benjamin Stokke
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#2431247
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2431247"
+manual: []

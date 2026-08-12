@@ -1,0 +1,52 @@
+id: 2015-02-19-aalesunds-fk-tromso
+date: 2015-02-19
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: treningskamp
+  season: 2015
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: tromso
+  score: 0
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 34
+    type: goal
+    team: home
+    player: Michael Barrantes
+  - minute: 82
+    type: goal
+    team: home
+    player: Henrik Rørvik Bjørdal
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-tromso/2e5vky#1892207
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1892207"
+manual: []

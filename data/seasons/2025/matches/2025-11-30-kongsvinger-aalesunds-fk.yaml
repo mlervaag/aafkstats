@@ -1,0 +1,242 @@
+id: 2025-11-30-kongsvinger-aalesunds-fk
+date: 2025-11-30
+dateConfidence: exact
+kickoff: 14:00
+status: played
+competition:
+  id: eliteserien
+  season: 2025
+  stage: relegation_playoff
+home:
+  clubId: kongsvinger
+  score: 4
+  halfTimeScore: 2
+away:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: 3
+extraTime:
+  home: 0
+  away: 1
+venueId: gjemselund-stadion
+neutralVenue: false
+referee: Svein Tore Sinnes
+events:
+  - minute: 22
+    type: goal
+    team: away
+    player: Henrik Melland
+    assist: Jakob Nyland Ørsahl
+  - minute: 25
+    type: goal
+    team: home
+    player: Lucas Ravn-Haren
+  - minute: 28
+    type: goal
+    team: away
+    player: Paul Ngongo Iversen
+    assist: Kristoffer Nessø
+  - minute: 30
+    type: goal
+    team: home
+    player: Rasmus Opdal Christiansen
+  - minute: 37
+    type: goal
+    team: away
+    player: Paul Ngongo Iversen
+    assist: Kristian Hemmingsen Lonebu
+  - minute: 37
+    type: yellow_card
+    team: home
+    player: Daniel Lysgård
+  - minute: 45
+    type: yellow_card
+    team: home
+    player: Andreas Dybevik
+  - minute: 46
+    type: substitution
+    team: home
+    player: Mapenda Mbow
+    playerOff: Daniel Lysgård
+  - minute: 48
+    type: goal
+    team: away
+    player: Kristian Hemmingsen Lonebu
+    assist: Henrik Melland
+  - minute: 54
+    type: substitution
+    team: home
+    player: Joel Nilsson
+    playerOff: Ludvig Langrekken
+  - minute: 55
+    type: goal
+    team: home
+    player: Jesper Grundt
+    assist: Andreas Dybevik
+  - minute: 63
+    type: substitution
+    team: home
+    player: Martin Tangen Vinjor
+    playerOff: Rasmus Opdal Christiansen
+  - minute: 67
+    type: yellow_card
+    team: away
+    player: Nikolai Skuseth
+  - minute: 68
+    type: substitution
+    team: away
+    player: Philip Sandvik Aukland
+    playerOff: Nikolai Skuseth
+  - minute: 68
+    type: substitution
+    team: away
+    player: David Snær Johannsson
+    playerOff: Henrik Melland
+  - minute: 70
+    type: yellow_card
+    team: away
+    player: Paul Ngongo Iversen
+  - minute: 76
+    type: goal
+    team: home
+    player: Martin Tangen Vinjor
+    assist: Andreas Dybevik
+  - minute: 81
+    type: substitution
+    team: home
+    player: Markus Flores
+    playerOff: Jesper Grundt
+  - minute: 86
+    type: substitution
+    team: away
+    player: Elias Heggland Myrlid
+    playerOff: Kristian Hemmingsen Lonebu
+  - minute: 97
+    type: substitution
+    team: home
+    player: Harald Holter
+    playerOff: Fredrik Holmé
+  - minute: 97
+    type: substitution
+    team: home
+    player: Mathias Berg Gjerstrøm
+    playerOff: Noa Williams
+  - minute: 101
+    type: substitution
+    team: away
+    player: Frederik Heiselberg
+    playerOff: Paul Ngongo Iversen
+  - minute: 101
+    type: substitution
+    team: away
+    player: Marius Andresen
+    playerOff: Jakob Nyland Ørsahl
+  - minute: 109
+    type: yellow_card
+    team: away
+    player: Philip Sandvik Aukland
+  - minute: 110
+    type: substitution
+    team: away
+    player: Olafur Gudmundsson
+    playerOff: Kristoffer Nessø
+  - minute: 112
+    type: goal
+    team: away
+    player: Philip Sandvik Aukland
+    assist: Mathias Christensen
+  - minute: 116
+    type: red_card
+    team: home
+    player: Lucas Ravn-Haren
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Aleksey Gorodovoy
+      - Ludvig Langrekken
+      - Fredrik Holmé
+      - Daniel Lysgård
+      - Emil Adrendrup Nielsen
+      - Jesper Grundt
+      - Frederik Juul Christensen
+      - Andreas Dybevik
+      - Lucas Ravn-Haren
+      - Rasmus Opdal Christiansen
+      - Noa Williams
+    subs:
+      - Mapenda Mbow
+      - Joel Nilsson
+      - Martin Tangen Vinjor
+      - Markus Flores
+      - Harald Holter
+      - Mathias Berg Gjerstrøm
+      - Vetle Lysell
+      - August Strömberg
+      - Armand Oeverby
+    coach: Johan Peter Vennberg
+  away:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Nikolai Skuseth
+      - Kristoffer Nessø
+      - Mathias Christensen
+      - Håkon Butli Hammer
+      - Henrik Melland
+      - Jakob Nyland Ørsahl
+      - Paul Ngongo Iversen
+      - Kristian Hemmingsen Lonebu
+    subs:
+      - Philip Sandvik Aukland
+      - David Snær Johannsson
+      - Elias Heggland Myrlid
+      - Marius Andresen
+      - Frederik Heiselberg
+      - Olafur Gudmundsson
+      - Tor Erik Valderhaug Larsen
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 56
+    shots: 17
+    shotsOnTarget: 10
+    corners: 5
+  away:
+    possession: 44
+    shots: 8
+    shotsOnTarget: 6
+    corners: 2
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/kongsvinger-vs-aalesund/29vez4#5076261
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.stage
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - extraTime
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: AET"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5076261"
+manual: []

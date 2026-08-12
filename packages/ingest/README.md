@@ -76,6 +76,17 @@ pnpm ingest:fotmob-gap -- --from 2010-01-01 --to 2012-12-31 \
   --match-ids 870503,870521 --class europe --competition europa-liga \
   --retrieved-at 2026-08-09 --write
 
+# Cup over kalenderår: kampdatoen er i 2026, men arkivsesongen er NM 2025.
+pnpm ingest:fotmob-gap -- --from 2026-01-01 --to 2026-06-30 \
+  --match-ids 4989786,5231038,5266350 --class cup --competition nm \
+  --season 2025 --retrieved-at 2026-08-12 --write
+
+# Eliteseriekvalifisering får stadiet relegation_playoff i arkivet.
+pnpm ingest:fotmob-gap -- --from 2018-11-01 --to 2018-12-31 \
+  --match-ids 2927109,2937540,2940798,2940799 \
+  --class qualification --competition eliteserien \
+  --retrieved-at 2026-08-12 --write
+
 # Foreslå en personfil fra én eksakt Wikipedia-profil. Tørrkjøring.
 pnpm ingest:wikipedia-profile -- \
   --player "Fredrik Ulvestad" --title "Fredrik Ulvestad"
@@ -111,7 +122,8 @@ pnpm ingest:fotmob-profile -- \
 | `--report FIL` | fotmob, rsssf-discover | Skriver kjøringsrapporten til fil |
 | `--from`, `--to`, `--max-pages` | fotmob-gap | Obligatorisk tidsvindu og hardt sidetak for klubbhistorikken |
 | `--report-json`, `--report-md` | fotmob-gap | Maskinlesbar og menneskelesbar gap-rapport |
-| `--match-ids`, `--class`, `--competition` | fotmob-gap | Eksplisitt, kontrollert import; alle tre kreves ved `--write` |
+| `--match-ids`, `--class`, `--competition` | fotmob-gap | Eksplisitt, kontrollert import; alle tre kreves ved `--write`. Klasse kan være `europe`, `friendly`, `cup` eller `qualification` |
+| `--season ÅÅÅÅ` | fotmob-gap | Overstyrer arkivsesongen eksplisitt, for eksempel for NM som fortsetter neste kalenderår |
 
 Alle kjøringer laster og validerer arkivet først. Er det allerede feil i `data/`, stopper
 kommandoen — å høste inn i et ødelagt arkiv gjør bare feilsøkingen vanskeligere.

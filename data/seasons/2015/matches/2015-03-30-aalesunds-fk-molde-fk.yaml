@@ -1,0 +1,62 @@
+id: 2015-03-30-aalesunds-fk-molde-fk
+date: 2015-03-30
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: treningskamp
+  season: 2015
+  stage: regular_season
+  round: 1
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 0
+away:
+  clubId: molde-fk
+  score: 2
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 21
+    type: goal
+    team: away
+    player: Ola Kamara
+  - minute: 57
+    type: goal
+    team: away
+    player: Agnaldo
+  - minute: 64
+    type: goal
+    team: home
+    player: Leke James
+  - minute: 76
+    type: goal
+    team: home
+    player: Leke James
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#1892204
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1892204"
+manual: []

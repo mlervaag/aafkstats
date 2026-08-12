@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "4401771"
+matchId: 2024-03-10-levanger-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:ec842fe173a0323eeb8297aea9ded1173eb0621ff8e236af7b45cbd547ec11e8
+raw:
+  externalId: "4401771"
+  date: 2024-03-10
+  kickoff: 16:00
+  status: FT
+  home: Levanger
+  homeId: "6561"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 0
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2024
+  venue: Hotel Estepona Palace Campo 1
+  url: https://www.fotmob.com/matches/levanger-vs-aalesund/1uod6z#4401771
+normalized:
+  date: 2024-03-10
+  kickoff: 16:00
+  status: played
+  home.clubId: levanger
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 0
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2024
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

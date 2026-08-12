@@ -1,0 +1,164 @@
+id: 2026-03-18-viking-aalesunds-fk
+date: 2026-03-18
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2025
+  stage: quarter_final
+home:
+  clubId: viking
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 0
+venueId: lyse-arena
+neutralVenue: false
+attendance: 7120
+events:
+  - minute: 15
+    type: goal
+    team: home
+    player: Ola Visted
+    assist: Hilmir Mikaelsson
+  - minute: 47
+    type: yellow_card
+    team: home
+    player: Simen Kvia-Egeskog
+  - minute: 48
+    type: yellow_card
+    team: away
+    player: Mathias Christensen
+  - minute: 60
+    type: substitution
+    team: home
+    player: Jakob Segadal Hansen
+    playerOff: Kristoffer Askildsen
+  - minute: 60
+    type: substitution
+    team: home
+    player: Henrik Heggheim
+    playerOff: Sondre Bjørshol
+  - minute: 65
+    type: goal
+    team: away
+    player: Marius Andresen
+    assist: Ulrik Valderhaug Syversen
+  - minute: 72
+    type: substitution
+    team: home
+    player: Peter Christiansen
+    playerOff: Hilmir Mikaelsson
+  - minute: 72
+    type: substitution
+    team: home
+    player: Herman Haugen
+    playerOff: Ola Visted
+  - minute: 72
+    type: substitution
+    team: home
+    player: Zlatko Tripic
+    playerOff: Niklas Fuglestad
+  - minute: 74
+    type: substitution
+    team: away
+    player: Endre Osenbroch
+    playerOff: Henrik Melland
+  - minute: 74
+    type: substitution
+    team: away
+    player: Ivan Djantou
+    playerOff: Kristian Hemmingsen Lonebu
+  - minute: 75
+    type: goal
+    team: away
+    player: Mathias Christensen
+    assist: Simen Haram
+  - minute: 88
+    type: substitution
+    team: away
+    player: Emil Engqvist
+    playerOff: David Snær Johannsson
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Lubomír Belko
+      - Sondre Bjørshol
+      - Anders Bærtelsen
+      - Henrik Falchener
+      - Vetle Auklend
+      - Kristoffer Askildsen
+      - Tobias Moi
+      - Simen Kvia-Egeskog
+      - Niklas Fuglestad
+      - Hilmir Mikaelsson
+      - Ola Visted
+    subs:
+      - Henrik Heggheim
+      - Jakob Segadal Hansen
+      - Herman Haugen
+      - Peter Christiansen
+      - Zlatko Tripic
+      - Arild Østbø
+      - Gianni Stensness
+      - Kristoffer Haugen
+      - Ruben Kristensen Alte
+    coach: Morten Jensen
+  away:
+    formation: 3-5-2
+    starters:
+      - Tor Erik Valderhaug Larsen
+      - Ulrik Valderhaug Syversen
+      - Aleksander Hammer Kjelsen
+      - Simen Haram
+      - Marius Andresen
+      - Mathias Christensen
+      - Håkon Butli Hammer
+      - Henrik Melland
+      - Kristoffer Nessø
+      - Kristian Hemmingsen Lonebu
+      - David Snær Johannsson
+    subs:
+      - Endre Osenbroch
+      - Ivan Djantou
+      - Emil Engqvist
+      - Kristoffer Klaesson
+      - Ólafur Gudmundsson
+      - Philip Sandvik Aukland
+      - Jakob Nyland Ørsahl
+      - Elias Heggland Myrlid
+      - Marcus Haagensen Reed
+    coach: Kjetil Rekdal
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-viking/2cuni1#5231038
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.stage
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5231038"
+manual: []

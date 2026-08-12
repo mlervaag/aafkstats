@@ -1,0 +1,62 @@
+providerId: fotmob
+externalId: "5078174"
+matchId: 2025-12-11-aalesunds-fk-bryne
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:95ddcd6d25dc28ead48bf2ecba5176e4209df66225ae080520c519ea19e2d324
+raw:
+  externalId: "5078174"
+  date: 2025-12-11
+  kickoff: 19:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Bryne
+  awayId: "8531"
+  homeScore: 0
+  awayScore: 1
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: Eliteserien Qualification
+  competitionId: "60"
+  season: 2025
+  stage: relegation_playoff
+  venue: Color Line Stadion
+  attendance: 8067
+  referee: Tore Hansen
+  url: https://www.fotmob.com/matches/aalesund-vs-bryne/2ddv1b#5078174
+normalized:
+  date: 2025-12-11
+  kickoff: 19:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: bryne
+  home.score: 0
+  away.score: 1
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: eliteserien
+  competition.season: 2025
+  competition.stage: relegation_playoff
+  venueId: color-line-stadion
+  attendance: 8067
+  referee.name: Tore Hansen
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.stage
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

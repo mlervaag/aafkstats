@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "3844926"
+matchId: 2022-03-16-sogndal-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:449ed1064d4c3250460da8a6b8283b3d7ae15a5ef2cb16e7e40b8838e277928c
+raw:
+  externalId: "3844926"
+  date: 2022-03-16
+  kickoff: 13:00
+  status: FT
+  home: Sogndal
+  homeId: "8616"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 1
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2022
+  venue: TBC (Norway)
+  url: https://www.fotmob.com/matches/aalesund-vs-sogndal/2e8smm#3844926
+normalized:
+  date: 2022-03-16
+  kickoff: 13:00
+  status: played
+  home.clubId: sogndal
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 1
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2022
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

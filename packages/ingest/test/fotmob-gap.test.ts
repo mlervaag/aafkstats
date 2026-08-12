@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 import type { Archive } from "@aafkstats/schema/load";
-import { buildFotmobGapReport, classifyFotmobCompetition } from "../src/fotmob-gap.js";
+import {
+  assertFotmobGapTarget,
+  buildFotmobGapReport,
+  classifyFotmobCompetition,
+  prepareFotmobGapMatch,
+} from "../src/fotmob-gap.js";
 import type { SourceMatch } from "../src/types.js";
 
 const candidate = (overrides: Partial<SourceMatch> = {}): SourceMatch => ({
@@ -37,6 +42,31 @@ const archive = (date = "2010-07-29", fotmobAlias?: string): Archive => ({
 describe("FotMob-gap", () => {
   it("klassifiserer etter stabil turnerings-ID før visningsnavn", () => {
     expect(classifyFotmobCompetition(candidate())).toBe("europe");
+  });
+
+  it("skiller eliteseriekvalifisering fra ordinær liga", () => {
+    expect(classifyFotmobCompetition(candidate({
+      competitionExternalId: "60",
+      competitionName: "Eliteserien Qualification",
+    }))).toBe("qualification");
+  });
+
+  it("legger på arkivsesong og nedrykkskvalifisering eksplisitt", () => {
+    const prepared = prepareFotmobGapMatch(candidate({
+      date: "2026-03-09",
+      season: 2026,
+      competitionExternalId: "60",
+      competitionName: "Eliteserien Qualification",
+      stage: "qualifying",
+    }), { archiveSeason: 2025, competitionClass: "qualification" });
+
+    expect(prepared).toMatchObject({ season: 2025, stage: "relegation_playoff" });
+    expect(prepared.fields).toContain("competition.stage");
+  });
+
+  it("nekter å skrive en klasse til feil arkivkonkurranse", () => {
+    expect(() => assertFotmobGapTarget("cup", "eliteserien")).toThrow(/skal skrives til nm/);
+    expect(() => assertFotmobGapTarget("qualification", "eliteserien")).not.toThrow();
   });
 
   it("finner en eksisterende kamp uten FotMob-alias som berikbar", () => {

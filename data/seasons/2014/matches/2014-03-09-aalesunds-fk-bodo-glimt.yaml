@@ -1,0 +1,66 @@
+id: 2014-03-09-aalesunds-fk-bodo-glimt
+date: 2014-03-09
+dateConfidence: exact
+kickoff: 16:15
+status: played
+competition:
+  id: treningskamp
+  season: 2014
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: bodo-glimt
+  score: 2
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 53
+    type: goal
+    team: away
+    player: Abdurahim Laajab
+  - minute: 58
+    type: goal
+    team: away
+    player: Pape Alioune Ndiaye
+  - minute: 90
+    type: goal
+    team: home
+    player: Torbjørn Grytten
+lineups:
+  home:
+    starters: []
+    subs: []
+    coach: Jan Jönsson
+  away:
+    starters: []
+    subs: []
+    coach: Jan Halvor Halvorsen
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/bodoglimt-vs-aalesund/2c37nd#1635541
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1635541"
+manual: []

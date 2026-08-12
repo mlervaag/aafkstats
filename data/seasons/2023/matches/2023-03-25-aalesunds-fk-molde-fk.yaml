@@ -1,0 +1,57 @@
+id: 2023-03-25-aalesunds-fk-molde-fk
+date: 2023-03-25
+dateConfidence: exact
+kickoff: 14:00
+status: played
+competition:
+  id: treningskamp
+  season: 2023
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: molde-fk
+  score: 3
+  halfTimeScore: 2
+neutralVenue: false
+events:
+  - minute: 10
+    type: goal
+    team: away
+    player: Magnus Wolff Eikrem
+  - minute: 43
+    type: goal
+    team: away
+    player: Magnus Wolff Eikrem
+  - minute: 75
+    type: goal
+    team: away
+    player: Eric Kitolano
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#4106162
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4106162"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

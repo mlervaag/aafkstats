@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "4140251"
+matchId: 2023-03-17-aalesunds-fk-hamarkameratene
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:cdfc678cf2d41da6c943dcae556cd53921a3c38c4fb90fa01d261373f55676a7
+raw:
+  externalId: "4140251"
+  date: 2023-03-17
+  kickoff: 13:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: HamKam
+  awayId: "8448"
+  homeScore: 3
+  awayScore: 1
+  homeHalfTime: 2
+  awayHalfTime: 1
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2023
+  url: https://www.fotmob.com/matches/aalesund-vs-hamarkameratene/2cjt0y#4140251
+normalized:
+  date: 2023-03-17
+  kickoff: 13:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: hamarkameratene
+  home.score: 3
+  away.score: 1
+  home.halfTimeScore: 2
+  away.halfTimeScore: 1
+  competition.id: treningskamp
+  competition.season: 2023
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

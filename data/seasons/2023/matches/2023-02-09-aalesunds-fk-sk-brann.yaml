@@ -1,0 +1,57 @@
+id: 2023-02-09-aalesunds-fk-sk-brann
+date: 2023-02-09
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: treningskamp
+  season: 2023
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: sk-brann
+  score: 3
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 49
+    type: goal
+    team: away
+    player: Felix Horn Myhre
+  - minute: 59
+    type: goal
+    team: away
+    player: Frederik Børsting
+  - minute: 68
+    type: penalty_goal
+    team: away
+    player: Sivert Heltne Nilsen
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-brann/2cr19k#4093985
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4093985"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

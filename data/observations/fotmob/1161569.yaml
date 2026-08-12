@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "1161569"
+matchId: 2012-03-16-molde-fk-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:31c5060eba64e80d6fb54160b8db6e4464b38149bdc46a304e271507d879435a
+raw:
+  externalId: "1161569"
+  date: 2012-03-16
+  kickoff: 19:00
+  status: FT
+  home: Molde
+  homeId: "9917"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 3
+  awayScore: 2
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2012
+  venue: Aker Stadion
+  url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#1161569
+normalized:
+  date: 2012-03-16
+  kickoff: 19:00
+  status: played
+  home.clubId: molde-fk
+  away.clubId: aalesunds-fk
+  home.score: 3
+  away.score: 2
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2012
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

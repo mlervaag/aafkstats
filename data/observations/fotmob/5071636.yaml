@@ -1,0 +1,60 @@
+providerId: fotmob
+externalId: "5071636"
+matchId: 2025-11-26-aalesunds-fk-egersund
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:11b2e4134be3f339e2a78f866736fb4f18ecdcfa8f1812cd5aa7c37116fd1b1f
+raw:
+  externalId: "5071636"
+  date: 2025-11-26
+  kickoff: 18:00
+  status: AET
+  home: Aalesund
+  homeId: "8404"
+  away: Egersund
+  awayId: "4722"
+  homeScore: 1
+  awayScore: 1
+  homeHalfTime: 0
+  awayHalfTime: 1
+  competition: Eliteserien Qualification
+  competitionId: "60"
+  season: 2025
+  stage: relegation_playoff
+  venue: Color Line Stadion
+  attendance: 2458
+  url: https://www.fotmob.com/matches/egersund-vs-aalesund/1faq6h#5071636
+normalized:
+  date: 2025-11-26
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: egersund
+  home.score: 1
+  away.score: 1
+  home.halfTimeScore: 0
+  away.halfTimeScore: 1
+  competition.id: eliteserien
+  competition.season: 2025
+  competition.stage: relegation_playoff
+  venueId: color-line-stadion
+  attendance: 2458
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.stage
+  - attendance
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - extraTime
+  - events
+  - stats
+  - lineups
+warnings: []

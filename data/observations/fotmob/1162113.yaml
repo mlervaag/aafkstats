@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "1162113"
+matchId: 2012-02-05-anzhi-makhachkala-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:797a7bef9c6f3ddd03e6c9a9c4b2a1924ea6ab5700e9ecb8c410058d56bb5ba8
+raw:
+  externalId: "1162113"
+  date: 2012-02-05
+  kickoff: 13:00
+  status: FT
+  home: Anzhi Makhachkala
+  homeId: "8707"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 3
+  awayScore: 2
+  homeHalfTime: 2
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2012
+  venue: Dynamo Stadium, Makhachkala
+  url: https://www.fotmob.com/matches/aalesund-vs-anzhi-makhachkala/2f6307#1162113
+normalized:
+  date: 2012-02-05
+  kickoff: 13:00
+  status: played
+  home.clubId: anzhi-makhachkala
+  away.clubId: aalesunds-fk
+  home.score: 3
+  away.score: 2
+  home.halfTimeScore: 2
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2012
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

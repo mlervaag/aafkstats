@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "2434252"
+matchId: 2017-03-11-kristiansund-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:39e1cedc1b68701a233d67622814698a40193568307d9e998bba6108d2cd89ca
+raw:
+  externalId: "2434252"
+  date: 2017-03-11
+  kickoff: 16:00
+  status: FT
+  home: Kristiansund
+  homeId: "8605"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 1
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2017
+  url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#2434252
+normalized:
+  date: 2017-03-11
+  kickoff: 16:00
+  status: played
+  home.clubId: kristiansund
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 1
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2017
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

@@ -1,0 +1,52 @@
+id: 2016-03-05-molde-fk-aalesunds-fk
+date: 2016-03-05
+dateConfidence: exact
+kickoff: 14:00
+status: played
+competition:
+  id: treningskamp
+  season: 2016
+  stage: regular_season
+home:
+  clubId: molde-fk
+  score: 2
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 59
+    type: goal
+    team: home
+    player: Fredrik Gulbrandsen
+  - minute: 72
+    type: goal
+    team: home
+    player: Agnaldo Moraes
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#2161356
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2161356"
+manual: []

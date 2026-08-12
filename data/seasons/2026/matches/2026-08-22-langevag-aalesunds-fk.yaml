@@ -1,0 +1,42 @@
+id: 2026-08-22-langevag-aalesunds-fk
+date: 2026-08-22
+dateConfidence: exact
+kickoff: 14:00
+status: scheduled
+competition:
+  id: nm
+  season: 2026
+  stage: regular_season
+  round: 1
+home:
+  clubId: langevag
+  score: null
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: null
+  halfTimeScore: null
+venueId: langevag-kunstgras-1
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/langevag-vs-aalesund/y5s08#5835862
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - competition.round
+      - venueId
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5835862"
+manual: []

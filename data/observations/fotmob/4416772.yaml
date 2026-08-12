@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "4416772"
+matchId: 2024-02-09-rosenborg-bk-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:7fbef0950083fc98aab3b850a94ed50d5505dad889a0a1f11c0733657c0b3bca
+raw:
+  externalId: "4416772"
+  date: 2024-02-09
+  kickoff: 12:00
+  status: FT
+  home: Rosenborg
+  homeId: "8422"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 1
+  homeHalfTime: 0
+  awayHalfTime: 1
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2024
+  venue: Koteng Arena
+  url: https://www.fotmob.com/matches/aalesund-vs-rosenborg/2caf6d#4416772
+normalized:
+  date: 2024-02-09
+  kickoff: 12:00
+  status: played
+  home.clubId: rosenborg-bk
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 1
+  home.halfTimeScore: 0
+  away.halfTimeScore: 1
+  competition.id: treningskamp
+  competition.season: 2024
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

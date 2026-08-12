@@ -1,0 +1,60 @@
+providerId: fotmob
+externalId: "5076261"
+matchId: 2025-11-30-kongsvinger-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:4ac2a01ed2287155e317462a0c840ffb62ab47c3f1811d6d49645d3c29b2f901
+raw:
+  externalId: "5076261"
+  date: 2025-11-30
+  kickoff: 14:00
+  status: AET
+  home: Kongsvinger
+  homeId: "8179"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 4
+  awayScore: 4
+  homeHalfTime: 2
+  awayHalfTime: 3
+  competition: Eliteserien Qualification
+  competitionId: "60"
+  season: 2025
+  stage: relegation_playoff
+  venue: Gjemselund Stadion
+  referee: Svein Tore Sinnes
+  url: https://www.fotmob.com/matches/kongsvinger-vs-aalesund/29vez4#5076261
+normalized:
+  date: 2025-11-30
+  kickoff: 14:00
+  status: played
+  home.clubId: kongsvinger
+  away.clubId: aalesunds-fk
+  home.score: 4
+  away.score: 4
+  home.halfTimeScore: 2
+  away.halfTimeScore: 3
+  competition.id: eliteserien
+  competition.season: 2025
+  competition.stage: relegation_playoff
+  venueId: gjemselund-stadion
+  referee.name: Svein Tore Sinnes
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.stage
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - extraTime
+  - events
+  - stats
+  - lineups
+warnings: []

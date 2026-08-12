@@ -1,0 +1,57 @@
+id: 2024-02-16-aalesunds-fk-kristiansund
+date: 2024-02-16
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: treningskamp
+  season: 2024
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: kristiansund
+  score: 3
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 5
+    type: goal
+    team: home
+  - minute: 47
+    type: goal
+    team: away
+  - minute: 73
+    type: goal
+    team: away
+  - minute: 90
+    type: goal
+    team: away
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#4403152
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4403152"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

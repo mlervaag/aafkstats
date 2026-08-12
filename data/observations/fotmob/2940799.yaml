@@ -1,0 +1,59 @@
+providerId: fotmob
+externalId: "2940799"
+matchId: 2018-12-09-aalesunds-fk-stabaek
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:dadd28ceecae9b1274a70d2c32d23f24fc6d2e55cf2444c4aebb878a924931c3
+raw:
+  externalId: "2940799"
+  date: 2018-12-09
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Stabæk
+  awayId: "9918"
+  homeScore: 1
+  awayScore: 1
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Eliteserien Qualification
+  competitionId: "60"
+  season: 2018
+  stage: relegation_playoff
+  venue: Color Line Stadion
+  attendance: 6333
+  url: https://www.fotmob.com/matches/aalesund-vs-stabaek/2rxyy1#2940799
+normalized:
+  date: 2018-12-09
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: stabaek
+  home.score: 1
+  away.score: 1
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: eliteserien
+  competition.season: 2018
+  competition.stage: relegation_playoff
+  venueId: color-line-stadion
+  attendance: 6333
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.stage
+  - attendance
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

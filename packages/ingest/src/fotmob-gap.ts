@@ -3,12 +3,12 @@ import type { Archive } from "@aafkstats/schema/load";
 import { clubKey, clubNameForms } from "./ids.js";
 import type { SourceMatch } from "./types.js";
 
-export type FotmobCompetitionClass = "league" | "cup" | "europe" | "friendly" | "other";
+export type FotmobCompetitionClass = "league" | "qualification" | "cup" | "europe" | "friendly" | "other";
 export type FotmobGapStatus = "missing" | "existing" | "enrichable" | "uncertain";
 
 const CLASS_BY_TOURNAMENT_ID: Record<string, FotmobCompetitionClass> = {
   "59": "league",
-  "60": "league",
+  "60": "qualification",
   "203": "league",
   "206": "cup",
   "10613": "europe",
@@ -56,7 +56,7 @@ export function buildFotmobGapReport(
   options: { from: string; to: string; generatedAt: string },
 ): FotmobGapReport {
   const entries = candidates.map((candidate) => matchCandidate(archive, candidate));
-  const classes: FotmobCompetitionClass[] = ["league", "cup", "europe", "friendly", "other"];
+  const classes: FotmobCompetitionClass[] = ["league", "qualification", "cup", "europe", "friendly", "other"];
   const statuses: FotmobGapStatus[] = ["missing", "existing", "enrichable", "uncertain"];
   return {
     generatedAt: options.generatedAt,
@@ -69,6 +69,43 @@ export function buildFotmobGapReport(
     summary: Object.fromEntries(statuses.map((status) => [status, entries.filter((entry) => entry.status === status).length])) as Record<FotmobGapStatus, number>,
     entries,
   };
+}
+
+/**
+ * Legger eksplisitt arkivkontekst på kontrollerte gap-kandidater.
+ *
+ * FotMob bruker kalenderåret i klubbhistorikken. Det er ikke alltid sesongen
+ * arkivet skal bruke: NM 2025 fortsatte våren 2026. Kvalifiseringsturneringen
+ * med ID 60 er dessuten nedrykkskvalifisering til Eliteserien, ikke en vanlig
+ * kvalifiseringsrunde i cupformat.
+ */
+export function prepareFotmobGapMatch(
+  match: SourceMatch,
+  options: { archiveSeason?: number; competitionClass: FotmobCompetitionClass },
+): SourceMatch {
+  const prepared = structuredClone(match);
+  if (options.archiveSeason !== undefined) prepared.season = options.archiveSeason;
+  if (options.competitionClass === "qualification") {
+    prepared.stage = "relegation_playoff";
+    if (!prepared.fields.includes("competition.stage")) prepared.fields.push("competition.stage");
+  }
+  return prepared;
+}
+
+/** Hindrer at en kontrollert kampbatch skrives til feil arkivkonkurranse. */
+export function assertFotmobGapTarget(
+  competitionClass: Extract<FotmobCompetitionClass, "europe" | "friendly" | "cup" | "qualification">,
+  competitionId: string,
+): void {
+  const expected: Record<typeof competitionClass, string> = {
+    europe: "europa-liga",
+    friendly: "treningskamp",
+    cup: "nm",
+    qualification: "eliteserien",
+  };
+  if (competitionId !== expected[competitionClass]) {
+    throw new Error(`klassen ${competitionClass} skal skrives til ${expected[competitionClass]}, ikke ${competitionId}`);
+  }
 }
 
 function matchCandidate(archive: Archive, candidate: SourceMatch): FotmobGapEntry {

@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "1161547"
+matchId: 2012-03-04-viking-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:fe555f9d70effd59812ba90ad95a8d26230ad94d5a8221b61d6ae42e5b278c87
+raw:
+  externalId: "1161547"
+  date: 2012-03-04
+  kickoff: 16:30
+  status: FT
+  home: Viking
+  homeId: "8478"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 2
+  homeHalfTime: 1
+  awayHalfTime: 1
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2012
+  venue: Viking Stadion
+  url: https://www.fotmob.com/matches/aalesund-vs-viking/2cuni1#1161547
+normalized:
+  date: 2012-03-04
+  kickoff: 16:30
+  status: played
+  home.clubId: viking
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 2
+  home.halfTimeScore: 1
+  away.halfTimeScore: 1
+  competition.id: treningskamp
+  competition.season: 2012
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

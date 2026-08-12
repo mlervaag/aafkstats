@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "4946495"
+matchId: 2025-09-24-lysekloster-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@4
+payloadHash: sha256:179543089e2ca9f4bcb9742a176800325adc5869d24bef32a9796b20fa1956b4
+raw:
+  externalId: "4946495"
+  date: 2025-09-24
+  kickoff: 18:00
+  status: FT
+  home: Lysekloster
+  homeId: "413468"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 3
+  homeHalfTime: 1
+  awayHalfTime: 1
+  competition: Cup
+  competitionId: "206"
+  season: 2025
+  round: 3
+  venue: Lysekloster Framo Idrettsplass
+  url: https://www.fotmob.com/matches/aalesund-vs-lysekloster/14vpa7gs#4946495
+normalized:
+  date: 2025-09-24
+  kickoff: 18:00
+  status: played
+  home.clubId: lysekloster
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 3
+  home.halfTimeScore: 1
+  away.halfTimeScore: 1
+  competition.id: nm
+  competition.season: 2025
+  competition.round: 3
+  competition.stage: regular_season
+  venueId: lysekloster-framo-idrettsplass
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

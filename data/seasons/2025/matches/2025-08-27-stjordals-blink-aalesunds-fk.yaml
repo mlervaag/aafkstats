@@ -1,0 +1,60 @@
+id: 2025-08-27-stjordals-blink-aalesunds-fk
+date: 2025-08-27
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: nm
+  season: 2025
+  stage: regular_season
+  round: 2
+home:
+  clubId: stjordals-blink
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+venueId: tmt-stadion-sandskogan
+neutralVenue: false
+events:
+  - minute: 42
+    type: goal
+    team: away
+    player: Jakob Nyland Ørsahl
+  - minute: 50
+    type: goal
+    team: home
+    player: Karl Martin Rolstad
+  - minute: 68
+    type: goal
+    team: away
+    player: Frederik Heiselberg
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/stjordals-blink-vs-aalesund/1crbo7#4930339
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4930339"
+manual: []

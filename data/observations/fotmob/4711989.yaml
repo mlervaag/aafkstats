@@ -1,0 +1,43 @@
+providerId: fotmob
+externalId: "4711989"
+matchId: 2025-03-11-lyn-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:6070108acca2ab143bd4e751fa5c3ed0b866f6614d587842bb7a164b87ddeced
+raw:
+  externalId: "4711989"
+  date: 2025-03-11
+  kickoff: 17:00
+  status: FT
+  home: Lyn
+  homeId: "10224"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 4
+  awayScore: 5
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2025
+  venue: Marbella Football Center - Sur 1 (Stadium)
+  url: https://www.fotmob.com/matches/aalesund-vs-lyn/2vb41q#4711989
+normalized:
+  date: 2025-03-11
+  kickoff: 17:00
+  status: played
+  home.clubId: lyn
+  away.clubId: aalesunds-fk
+  home.score: 4
+  away.score: 5
+  competition.id: treningskamp
+  competition.season: 2025
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

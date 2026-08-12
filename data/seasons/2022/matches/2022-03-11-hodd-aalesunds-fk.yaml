@@ -1,0 +1,64 @@
+id: 2022-03-11-hodd-aalesunds-fk
+date: 2022-03-11
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: treningskamp
+  season: 2022
+  stage: regular_season
+home:
+  clubId: hodd
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: 3
+neutralVenue: false
+events:
+  - minute: 9
+    type: goal
+    team: home
+    player: Eirik Saunes
+  - minute: 16
+    type: goal
+    team: away
+    player: Simen Bolkan Nordli
+  - minute: 23
+    type: goal
+    team: away
+    player: Sigurd Haugen
+  - minute: 32
+    type: goal
+    team: away
+    player: Sigurd Haugen
+  - minute: 89
+    type: goal
+    team: away
+    player: Erlend Segberg
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/hodd-vs-aalesund/27i0yj#3842378
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3842378"
+manual: []

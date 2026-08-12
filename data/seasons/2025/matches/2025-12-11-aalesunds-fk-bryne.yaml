@@ -1,0 +1,170 @@
+id: 2025-12-11-aalesunds-fk-bryne
+date: 2025-12-11
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: eliteserien
+  season: 2025
+  stage: relegation_playoff
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: bryne
+  score: 1
+  halfTimeScore: 0
+venueId: color-line-stadion
+neutralVenue: false
+attendance: 8067
+referee: Tore Hansen
+events:
+  - minute: 36
+    type: substitution
+    team: home
+    player: Frederik Heiselberg
+    playerOff: Paul Ngongo Iversen
+  - minute: 46
+    type: substitution
+    team: home
+    player: David Snær Johannsson
+    playerOff: Kristian Hemmingsen Lonebu
+  - minute: 57
+    type: substitution
+    team: away
+    player: Sanel Bojadzic
+    playerOff: Alfred Scriven
+  - minute: 57
+    type: substitution
+    team: away
+    player: Duarte Moreira
+    playerOff: Kristian Skurve Håland
+  - minute: 67
+    type: substitution
+    team: home
+    player: Elias Heggland Myrlid
+    playerOff: Henrik Melland
+  - minute: 74
+    type: substitution
+    team: away
+    player: Magnus Retsius Grødem
+    playerOff: Rasmus Thellufsen
+  - minute: 74
+    type: substitution
+    team: away
+    player: Martin Aamot Lye
+    playerOff: Heine Åsen Larsen
+  - minute: 77
+    type: goal
+    team: away
+    player: Duarte Moreira
+  - minute: 80
+    type: yellow_card
+    team: home
+    player: Elias Heggland Myrlid
+  - minute: 82
+    type: substitution
+    team: home
+    player: Philip Sandvik Aukland
+    playerOff: Nikolai Skuseth
+  - minute: 84
+    type: substitution
+    team: away
+    player: Jaran Eike Oestrem
+    playerOff: Duarte Moreira
+lineups:
+  home:
+    formation: 3-5-2
+    starters:
+      - Sten Michael Grytebust
+      - Simen Haram
+      - Aleksander Hammer Kjelsen
+      - Nikolai Skuseth
+      - Marius Andresen
+      - Mathias Christensen
+      - Håkon Butli Hammer
+      - Henrik Melland
+      - Kristoffer Nessø
+      - Paul Ngongo Iversen
+      - Kristian Hemmingsen Lonebu
+    subs:
+      - Frederik Heiselberg
+      - David Snær Johannsson
+      - Elias Heggland Myrlid
+      - Philip Sandvik Aukland
+      - Tor Erik Valderhaug Larsen
+      - Jørgen Bøe
+      - Olafur Gudmundsson
+      - Jakob Nyland Ørsahl
+      - Marcus Haagensen Reed
+    coach: Kjetil Rekdal
+  away:
+    formation: 5-4-1
+    starters:
+      - Jan de Boer
+      - Jacob Haahr
+      - Patrick André Wik
+      - Andreas Skovgaard
+      - Jesper Gregersen
+      - Eirik Saunes
+      - Heine Åsen Larsen
+      - Lars Erik Sødal
+      - Rasmus Thellufsen
+      - Alfred Scriven
+      - Kristian Skurve Håland
+    subs:
+      - Duarte Moreira
+      - Sanel Bojadzic
+      - Martin Aamot Lye
+      - Magnus Retsius Grødem
+      - Jaran Eike Oestrem
+      - Igor Spiridonov
+      - Christian Landu Landu
+    coach: Ole Kevin Knappen
+stats:
+  home:
+    possession: 33
+    shots: 7
+    shotsOnTarget: 1
+    corners: 1
+    fouls: 9
+    offsides: 1
+  away:
+    possession: 67
+    shots: 8
+    shotsOnTarget: 3
+    corners: 7
+    fouls: 10
+    offsides: 4
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-bryne/2ddv1b#5078174
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.stage
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5078174"
+manual: []

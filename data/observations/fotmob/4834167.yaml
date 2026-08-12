@@ -1,0 +1,55 @@
+providerId: fotmob
+externalId: "4834167"
+matchId: 2025-08-13-traeff-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@4
+payloadHash: sha256:935019dbb3ce168e8da6ec8c3263d2796f93a268eb7ad92c6181598f50a72f27
+raw:
+  externalId: "4834167"
+  date: 2025-08-13
+  kickoff: 18:00
+  status: FT
+  home: Træff
+  homeId: "6115"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 4
+  homeHalfTime: 1
+  awayHalfTime: 2
+  competition: Cup
+  competitionId: "206"
+  season: 2025
+  round: 1
+  venue: Reknesbanen
+  url: https://www.fotmob.com/matches/traeff-vs-aalesund/1qrfrs#4834167
+normalized:
+  date: 2025-08-13
+  kickoff: 18:00
+  status: played
+  home.clubId: traeff
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 4
+  home.halfTimeScore: 1
+  away.halfTimeScore: 2
+  competition.id: nm
+  competition.season: 2025
+  competition.round: 1
+  competition.stage: regular_season
+  venueId: reknesbanen
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

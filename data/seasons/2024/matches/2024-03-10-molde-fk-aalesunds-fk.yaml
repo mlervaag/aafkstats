@@ -1,0 +1,39 @@
+id: 2024-03-10-molde-fk-aalesunds-fk
+date: 2024-03-10
+dateConfidence: exact
+kickoff: 12:00
+status: cancelled
+competition:
+  id: treningskamp
+  season: 2024
+  stage: regular_season
+home:
+  clubId: molde-fk
+  score: null
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: null
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#4403249
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Kildestatus: Can"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4403249"
+manual: []

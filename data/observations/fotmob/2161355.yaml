@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "2161355"
+matchId: 2016-03-01-aalesunds-fk-kristiansund
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:e0770cf5f9115e064612daefa9da858a0b8f9be7b013550f9d99661686b8db5b
+raw:
+  externalId: "2161355"
+  date: 2016-03-01
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Kristiansund
+  awayId: "8605"
+  homeScore: 3
+  awayScore: 3
+  homeHalfTime: 2
+  awayHalfTime: 1
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2016
+  url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#2161355
+normalized:
+  date: 2016-03-01
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: kristiansund
+  home.score: 3
+  away.score: 3
+  home.halfTimeScore: 2
+  away.halfTimeScore: 1
+  competition.id: treningskamp
+  competition.season: 2016
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

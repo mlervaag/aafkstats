@@ -1,0 +1,60 @@
+id: 2016-02-20-aalesunds-fk-koper
+date: 2016-02-20
+dateConfidence: exact
+kickoff: 16:05
+status: played
+competition:
+  id: treningskamp
+  season: 2016
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 2
+away:
+  clubId: koper
+  score: 2
+  halfTimeScore: 2
+neutralVenue: false
+events:
+  - minute: 20
+    type: goal
+    team: away
+    player: Jaka Stromajer
+  - minute: 26
+    type: goal
+    team: away
+    player: Leo Stulac
+  - minute: 34
+    type: goal
+    team: home
+    player: Bjørn Helge Riise
+  - minute: 39
+    type: goal
+    team: home
+    player: Mostafa Abdellaoue
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/koper-vs-aalesund/1ntyf8#2185008
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2185008"
+manual: []

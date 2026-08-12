@@ -1,0 +1,60 @@
+id: 2023-03-17-aalesunds-fk-hamarkameratene
+date: 2023-03-17
+dateConfidence: exact
+kickoff: 13:00
+status: played
+competition:
+  id: treningskamp
+  season: 2023
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 2
+away:
+  clubId: hamarkameratene
+  score: 1
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 6
+    type: goal
+    team: home
+    player: David Fällman
+  - minute: 12
+    type: goal
+    team: away
+    player: Fredrik Sjølstad
+  - minute: 24
+    type: goal
+    team: home
+    player: Markus Seehusen Karlsbakk
+  - minute: 72
+    type: goal
+    team: home
+    player: Alexander Munksgaard
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-hamarkameratene/2cjt0y#4140251
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4140251"
+manual: []

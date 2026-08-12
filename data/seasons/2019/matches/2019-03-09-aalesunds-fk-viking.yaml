@@ -1,0 +1,56 @@
+id: 2019-03-09-aalesunds-fk-viking
+date: 2019-03-09
+dateConfidence: exact
+kickoff: 16:30
+status: played
+competition:
+  id: treningskamp
+  season: 2019
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 2
+away:
+  clubId: viking
+  score: 2
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 15
+    type: penalty_goal
+    team: home
+  - minute: 43
+    type: goal
+    team: home
+  - minute: 78
+    type: goal
+    team: away
+  - minute: 90
+    type: penalty_goal
+    team: away
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-viking/2cuni1#2994951
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2994951"
+manual: []

@@ -17,12 +17,14 @@ export const AAFK_FOTMOB_ID = "8404";
  * ikke når en kommentar flyttes. Det er dette som gjør at en verdi hentet før en
  * rettelse kan skilles fra en hentet etter.
  */
-export const FOTMOB_ADAPTER = "fotmob@3";
+export const FOTMOB_ADAPTER = "fotmob@4";
 const BASE = "https://www.fotmob.com/api/data";
 const TEAM_COUNTRIES: Record<string, string> = {
-  "8014": "SE", "8222": "HU", "8621": "CY", "9728": "UA", "9892": "SE",
-  "9927": "GB", "10029": "AL", "10202": "DK", "10229": "NL", "10265": "PL",
-  "80597": "GB",
+  "2429": "RO", "5772": "SI", "8014": "SE", "8040": "MT", "8222": "HU",
+  "8248": "SE", "8391": "DK", "8595": "DK", "8621": "CY", "8623": "CN",
+  "8643": "RU", "8691": "UA", "8705": "RU", "8707": "RU", "9728": "UA",
+  "9802": "SE", "9892": "SE", "9927": "GB", "10029": "AL", "10202": "DK",
+  "10229": "NL", "10265": "PL", "80597": "GB", "162162": "FI",
 };
 
 export interface TeamHistoryFetchOptions {
@@ -314,6 +316,10 @@ export function enrichFromDetails(match: SourceMatch, detail: RawMatchDetails): 
   if (detailRound.round !== undefined && match.round === undefined) {
     match.round = detailRound.round;
     match.fields.push("competition.round");
+  }
+  if (detailRound.stage !== undefined && match.stage === undefined) {
+    match.stage = detailRound.stage;
+    match.fields.push("competition.stage");
   }
   const facts = detail.content?.matchFacts;
   const info = facts?.infoBox;

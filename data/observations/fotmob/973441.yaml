@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "973441"
+matchId: 2011-01-31-fc-kobenhavn-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:12da9f41c8d32f75cbbf581e00e7b65ed3b4f822fa0917af427e07404d0b8f29
+raw:
+  externalId: "973441"
+  date: 2011-01-31
+  kickoff: 19:00
+  status: Pen
+  home: FC København
+  homeId: "8391"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 1
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2011
+  url: https://www.fotmob.com/matches/fc-kobenhavn-vs-aalesund/2bz91q#973441
+normalized:
+  date: 2011-01-31
+  kickoff: 19:00
+  status: played
+  home.clubId: fc-kobenhavn
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 1
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2011
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - penaltyShootout
+  - events
+warnings: []

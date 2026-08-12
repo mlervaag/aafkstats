@@ -1,0 +1,62 @@
+providerId: fotmob
+externalId: "5078173"
+matchId: 2025-12-07-bryne-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:695e696d9333767b0a6e9f039025211871369299a3379730183ebc2ad9908bff
+raw:
+  externalId: "5078173"
+  date: 2025-12-07
+  kickoff: 17:00
+  status: FT
+  home: Bryne
+  homeId: "8531"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 0
+  awayScore: 4
+  homeHalfTime: 0
+  awayHalfTime: 4
+  competition: Eliteserien Qualification
+  competitionId: "60"
+  season: 2025
+  stage: relegation_playoff
+  venue: Bryne Stadion
+  attendance: 2739
+  referee: Mohammad Aslam
+  url: https://www.fotmob.com/matches/aalesund-vs-bryne/2ddv1b#5078173
+normalized:
+  date: 2025-12-07
+  kickoff: 17:00
+  status: played
+  home.clubId: bryne
+  away.clubId: aalesunds-fk
+  home.score: 0
+  away.score: 4
+  home.halfTimeScore: 0
+  away.halfTimeScore: 4
+  competition.id: eliteserien
+  competition.season: 2025
+  competition.stage: relegation_playoff
+  venueId: bryne-stadion
+  attendance: 2739
+  referee.name: Mohammad Aslam
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.stage
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
+warnings: []

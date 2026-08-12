@@ -1,0 +1,39 @@
+id: 2020-03-20-aalesunds-fk-rosenborg-bk
+date: 2020-03-20
+dateConfidence: exact
+kickoff: 14:00
+status: cancelled
+competition:
+  id: treningskamp
+  season: 2020
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: null
+  halfTimeScore: null
+away:
+  clubId: rosenborg-bk
+  score: null
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-rosenborg/2caf6d#3250459
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Kildestatus: Can"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3250459"
+manual: []

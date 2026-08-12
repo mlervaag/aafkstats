@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "4115377"
+matchId: 2023-02-25-aalesunds-fk-sogndal
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:41b6295a5b4d1dcdab98fb19d9fe6b2a83c08f173e66f1d209aeb97d218a1186
+raw:
+  externalId: "4115377"
+  date: 2023-02-25
+  kickoff: 13:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Sogndal
+  awayId: "8616"
+  homeScore: 3
+  awayScore: 0
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2023
+  venue: Color Line Stadion
+  url: https://www.fotmob.com/matches/aalesund-vs-sogndal/2e8smm#4115377
+normalized:
+  date: 2023-02-25
+  kickoff: 13:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: sogndal
+  home.score: 3
+  away.score: 0
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2023
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

@@ -1,0 +1,61 @@
+id: 2012-03-04-viking-aalesunds-fk
+date: 2012-03-04
+dateConfidence: exact
+kickoff: 16:30
+status: played
+competition:
+  id: treningskamp
+  season: 2012
+  stage: regular_season
+home:
+  clubId: viking
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 15
+    type: goal
+    team: away
+    player: Leke James
+  - minute: 26
+    type: goal
+    team: home
+    player: Yann-Erik de Lanlay
+  - minute: 52
+    type: goal
+    team: home
+    player: Martin Ørnskov
+  - minute: 78
+    type: goal
+    team: away
+    player: Ville Jalasto
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-viking/2cuni1#1161547
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1161547"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

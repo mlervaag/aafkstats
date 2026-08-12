@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "2458010"
+matchId: 2017-02-16-spartak-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:1c9bd7a6636e0c1a40a2f5528700c4e9ab8a82df29d7e65bcdff854070169334
+raw:
+  externalId: "2458010"
+  date: 2017-02-16
+  kickoff: 17:00
+  status: FT
+  home: Spartak
+  homeId: "8643"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 3
+  awayScore: 1
+  homeHalfTime: 2
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2017
+  url: https://www.fotmob.com/matches/aalesund-vs-spartak-moscow/2einiv#2458010
+normalized:
+  date: 2017-02-16
+  kickoff: 17:00
+  status: played
+  home.clubId: spartak
+  away.clubId: aalesunds-fk
+  home.score: 3
+  away.score: 1
+  home.halfTimeScore: 2
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2017
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

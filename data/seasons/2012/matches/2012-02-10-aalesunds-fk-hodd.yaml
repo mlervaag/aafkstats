@@ -1,0 +1,55 @@
+id: 2012-02-10-aalesunds-fk-hodd
+date: 2012-02-10
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: treningskamp
+  season: 2012
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 2
+away:
+  clubId: hodd
+  score: 0
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 26
+    type: goal
+    team: home
+  - minute: 39
+    type: goal
+    team: home
+    player: Christian Myklebust
+  - minute: 68
+    type: goal
+    team: home
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/hodd-vs-aalesund/27i0yj#1161573
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1161573"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

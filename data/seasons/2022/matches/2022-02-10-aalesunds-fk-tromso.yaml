@@ -1,0 +1,57 @@
+id: 2022-02-10-aalesunds-fk-tromso
+date: 2022-02-10
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: treningskamp
+  season: 2022
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 2
+away:
+  clubId: tromso
+  score: 1
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 29
+    type: goal
+    team: home
+    player: Sigurd Haugen
+  - minute: 38
+    type: goal
+    team: away
+    player: Isak Kjelsrud Vik
+  - minute: 40
+    type: goal
+    team: home
+    player: Sigurd Haugen
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-tromso/2e5vky#3816322
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3816322"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

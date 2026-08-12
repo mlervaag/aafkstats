@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "3816321"
+matchId: 2022-02-03-aalesunds-fk-hodd
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:a4d691352b717af488081bbca5ed8705bc2c356c28ac73f6947e0b66f58b8121
+raw:
+  externalId: "3816321"
+  date: 2022-02-03
+  kickoff: 16:30
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Hødd
+  awayId: "7937"
+  homeScore: 4
+  awayScore: 1
+  homeHalfTime: 3
+  awayHalfTime: 1
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2022
+  venue: Color Line Stadion
+  url: https://www.fotmob.com/matches/hodd-vs-aalesund/27i0yj#3816321
+normalized:
+  date: 2022-02-03
+  kickoff: 16:30
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: hodd
+  home.score: 4
+  away.score: 1
+  home.halfTimeScore: 3
+  away.halfTimeScore: 1
+  competition.id: treningskamp
+  competition.season: 2022
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []
