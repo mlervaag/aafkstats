@@ -19,6 +19,19 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: &a1
+          - title
+          - from
+        note: Lest maskinelt fra tabellen.
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: oppmann-1945
     category: sporting_staff
@@ -32,6 +45,23 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_role)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields: &a2
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: *a1
+        note: Lest maskinelt fra tabellen.
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: oppmann-1951
     category: sporting_staff
@@ -46,6 +76,21 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_role)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields: *a2
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: *a1
+        note: Lest maskinelt fra tabellen.
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: trener-1955
     category: coach
@@ -73,7 +118,43 @@ roles:
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
-  - { id: gullmerkeinnehaver-1964, category: honorary, title: Gullmerkeinnehaver, from: "1964", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] }, { sourceId: tango-siden-1914-2013-806b, page: "350", fields: [ title, from ], note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year)." } ] }
+  - id: gullmerkeinnehaver-1964
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1964"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
+      - sourceId: tango-siden-1914-2013-806b
+        page: "350"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year)."
+  - id: oppmann-1949
+    category: sporting_staff
+    title: Oppmann
+    from: "1949"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields: *a2
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: *a1
+        note: Lest maskinelt fra tabellen.
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "3"

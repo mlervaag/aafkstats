@@ -1,7 +1,35 @@
 id: peder-kongshaug
 name: Peder Kongshaug
 roles:
-  - { id: gullmerkeinnehaver-2010, category: honorary, title: Gullmerkeinnehaver, from: "2010", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
+  - id: gullmerkeinnehaver-2010
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "2010"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
+  - id: fotballformann-1984
+    category: sporting_staff
+    title: Fotballformann
+    from: "1984"
+    to: "1984"
+    sources:
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields:
+          - title
+          - from
+        note: Lest maskinelt fra tabellen.
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
 sources:
   - sourceId: aalesund-fra-blabaer-til-beton-2013-91b5
     page: "15"

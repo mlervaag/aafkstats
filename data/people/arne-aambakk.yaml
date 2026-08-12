@@ -7,13 +7,35 @@ roles:
     body: Hovedstyret
     from: "1999"
     to: "2006"
-    sources: [ { sourceId: aafk-historie-ledere, fields: [ title, from, to ] }, { sourceId: tango-siden-1914-2013-806b, page: "348", fields: [ title, from, to ], note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)." } ]
+    sources:
+      - sourceId: aafk-historie-ledere
+        fields:
+          - title
+          - from
+          - to
+      - sourceId: tango-siden-1914-2013-806b
+        page: "348"
+        fields:
+          - title
+          - from
+          - to
+        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)."
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+        note: Lest maskinelt fra tabellen.
   - id: gullmerkeinnehaver-2005
     category: honorary
     title: Gullmerkeinnehaver
     from: "2005"
     to: null
-    sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ]
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
 sources:
   - sourceId: aalesunds-fk-quiz-2008-fd43
     page: "43"

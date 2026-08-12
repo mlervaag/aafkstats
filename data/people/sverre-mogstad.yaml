@@ -10,7 +10,10 @@ roles:
     sources:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
-        fields: [ title, from, to ]
+        fields:
+          - title
+          - from
+          - to
       - sourceId: tango-siden-1914-2013-806b
         page: "348"
         fields:
@@ -42,6 +45,13 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 4 på siden (regel: name_then_year)."
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "81"

@@ -1,0 +1,30 @@
+id: jarle-odegard
+name: Jarle Ødegård
+roles:
+  - id: sportslig-leder-1996
+    category: sporting_staff
+    title: Sportslig leder
+    from: "1996"
+    to: "1996"
+    sources:
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
+  - id: sportslig-leder-1997
+    category: sporting_staff
+    title: Sportslig leder
+    from: "1997"
+    to: "1997"
+    sources:
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
+sources: []

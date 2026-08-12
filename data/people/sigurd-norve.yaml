@@ -8,8 +8,15 @@ roles:
     from: "1946"
     to: "1949"
     sources:
-      - { sourceId: aafk-historie-ledere, fields: [ title, from, to ] }
-      - { sourceId: aafk-historie-kramyra-stadion, fields: [ title, from ] }
+      - sourceId: aafk-historie-ledere
+        fields:
+          - title
+          - from
+          - to
+      - sourceId: aafk-historie-kramyra-stadion
+        fields:
+          - title
+          - from
       - sourceId: tango-siden-1914-2013-806b
         page: "348"
         fields:
@@ -41,6 +48,13 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
   - id: formann-1948
     category: board
     title: Formann
@@ -73,7 +87,17 @@ roles:
     title: Gullmerkeinnehaver
     from: "1957"
     to: null
-    sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] }, { sourceId: tango-siden-1914-2013-806b, page: "350", fields: [ title, from ], note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year)." } ]
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
+      - sourceId: tango-siden-1914-2013-806b
+        page: "350"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year)."
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "46"

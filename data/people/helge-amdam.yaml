@@ -1,7 +1,29 @@
 id: helge-amdam
 name: Helge Amdam
 roles:
-  - { id: gullmerkeinnehaver-2008, category: honorary, title: Gullmerkeinnehaver, from: "2008", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
+  - id: gullmerkeinnehaver-2008
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "2008"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
+  - id: sportslig-leder-1990
+    category: sporting_staff
+    title: Sportslig leder
+    from: "1990"
+    to: "1990"
+    sources:
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "27"

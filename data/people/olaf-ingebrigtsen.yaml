@@ -5,9 +5,14 @@ roles:
     category: founder
     title: Stifter
     body: Konstituerende generalforsamling
-    from: "1914-06-25"
-    to: "1914-06-25"
-    sources: [ { sourceId: aafk-historie-stiftelsen, fields: [ title, from, to ] } ]
+    from: 1914-06-25
+    to: 1914-06-25
+    sources:
+      - sourceId: aafk-historie-stiftelsen
+        fields:
+          - title
+          - from
+          - to
   - id: formann-1916
     category: board
     title: Formann
@@ -17,7 +22,10 @@ roles:
     sources:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
-        fields: [ title, from, to ]
+        fields:
+          - title
+          - from
+          - to
       - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
         page: "74"
         fields:
@@ -48,6 +56,13 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
 sources:
   - sourceId: aalesunds-fk-quiz-2008-fd43
     page: "6"

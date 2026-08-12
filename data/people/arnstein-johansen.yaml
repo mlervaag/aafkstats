@@ -7,7 +7,25 @@ roles:
     body: Hovedstyret
     from: "1998"
     to: "1998"
-    sources: [ { sourceId: aafk-historie-ledere, fields: [ title, from, to ] }, { sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d, page: "45", fields: [ title, from ], note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_role)." }, { sourceId: tango-siden-1914-2013-806b, page: "348", fields: [ title, from, to ], note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)." } ]
+    sources:
+      - sourceId: aafk-historie-ledere
+        fields:
+          - title
+          - from
+          - to
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "45"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_role)."
+      - sourceId: tango-siden-1914-2013-806b
+        page: "348"
+        fields:
+          - title
+          - from
+          - to
+        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)."
 sources:
   - sourceId: aalesunds-fk-quiz-2008-fd43
     page: "44"

@@ -1,7 +1,18 @@
 id: nils-jangaard
 name: Nils Jangaard
 roles:
-  - { id: banekomite-1914-1915, category: project, title: Medlem av banekomiteen, body: Nørvebana, from: "1914", to: "1915", sources: [ { sourceId: aafk-historie-norvebana, fields: [ title, from, to ] } ] }
+  - id: banekomite-1914-1915
+    category: project
+    title: Medlem av banekomiteen
+    body: Nørvebana
+    from: "1914"
+    to: "1915"
+    sources:
+      - sourceId: aafk-historie-norvebana
+        fields:
+          - title
+          - from
+          - to
   - id: sekretaer-1915
     category: administration
     title: Sekretær
@@ -11,7 +22,10 @@ roles:
     sources:
       - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
         page: "4"
-        fields: [ title, from, to ]
+        fields:
+          - title
+          - from
+          - to
   - id: formann-1917
     category: board
     title: Formann
@@ -21,7 +35,10 @@ roles:
     sources:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
-        fields: [ title, from, to ]
+        fields:
+          - title
+          - from
+          - to
       - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
         page: "4"
         fields:
@@ -65,6 +82,13 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
   - id: formann-1919
     category: board
     title: Formann
@@ -74,7 +98,10 @@ roles:
     sources:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
-        fields: [ title, from, to ]
+        fields:
+          - title
+          - from
+          - to
       - sourceId: tango-siden-1914-2013-806b
         page: "348"
         fields:
@@ -82,6 +109,25 @@ roles:
           - from
           - to
         note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields: &a1
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: &a2
+          - title
+          - from
+        note: Lest maskinelt fra tabellen.
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
   - id: formann-1929
     category: board
     title: Formann
@@ -91,10 +137,16 @@ roles:
     sources:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
-        fields: [ title, from, to ]
+        fields:
+          - title
+          - from
+          - to
       - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
         page: "4"
-        fields: [ title, from, to ]
+        fields:
+          - title
+          - from
+          - to
       - sourceId: tango-siden-1914-2013-806b
         page: "348"
         fields:
@@ -102,7 +154,31 @@ roles:
           - from
           - to
         note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)."
-  - { id: gullmerkeinnehaver-1919, category: honorary, title: Gullmerkeinnehaver, from: "1919", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields: *a1
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: *a2
+        note: Lest maskinelt fra tabellen.
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
+  - id: gullmerkeinnehaver-1919
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1919"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "2"

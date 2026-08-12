@@ -10,11 +10,67 @@ roles:
     sources:
       - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
         page: "18"
-        fields: [ title, from, to ]
-  - { id: anleggsleder-kramyra-1950, category: project, title: Leder av dugnadsarbeidet, body: Kråmyra-prosjektet, from: "1950", to: "1950", sources: [ { sourceId: aafk-historie-kramyra-stadion, fields: [ title, from, to ] } ] }
-  - { id: banekomiteformann-1951, category: project, title: Formann i banekomiteen, body: Kråmyra-prosjektet, from: "1951", to: "1951", sources: [ { sourceId: aafk-historie-kramyra-stadion, fields: [ title, from, to ] } ] }
-  - { id: gullmerkeinnehaver-1953, category: honorary, title: Gullmerkeinnehaver, from: "1953", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
-  - { id: aeresmedlem-1957, category: honorary, title: Æresmedlem, from: "1957", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
+        fields:
+          - title
+          - from
+          - to
+  - id: anleggsleder-kramyra-1950
+    category: project
+    title: Leder av dugnadsarbeidet
+    body: Kråmyra-prosjektet
+    from: "1950"
+    to: "1950"
+    sources:
+      - sourceId: aafk-historie-kramyra-stadion
+        fields:
+          - title
+          - from
+          - to
+  - id: banekomiteformann-1951
+    category: project
+    title: Formann i banekomiteen
+    body: Kråmyra-prosjektet
+    from: "1951"
+    to: "1951"
+    sources:
+      - sourceId: aafk-historie-kramyra-stadion
+        fields:
+          - title
+          - from
+          - to
+  - id: gullmerkeinnehaver-1953
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1953"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
+  - id: aeresmedlem-1957
+    category: honorary
+    title: Æresmedlem
+    from: "1957"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
+  - id: eresmedlem-1957
+    category: honorary
+    title: Æresmedlem
+    from: "1957"
+    to: "1957"
+    sources:
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "6"

@@ -1,0 +1,56 @@
+id: reidar-vagnes
+name: Reidar Vågnes
+roles:
+  - id: sportslig-leder-2000
+    category: sporting_staff
+    title: Sportslig leder
+    from: "2000"
+    to: "2000"
+    sources:
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
+  - id: sportslig-leder-2001
+    category: sporting_staff
+    title: Sportslig leder
+    from: "2001"
+    to: "2001"
+    sources:
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
+  - id: sportslig-leder-2002
+    category: sporting_staff
+    title: Sportslig leder
+    from: "2002"
+    to: "2002"
+    sources:
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
+  - id: sportslig-leder-2003
+    category: sporting_staff
+    title: Sportslig leder
+    from: "2003"
+    to: "2003"
+    sources:
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
+sources: []

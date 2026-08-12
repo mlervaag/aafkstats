@@ -1,8 +1,39 @@
 id: lillian-hansen
 name: Lillian Hansen
 roles:
-  - { id: gullmerkeinnehaver-1986, category: honorary, title: Gullmerkeinnehaver, from: "1986", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
-  - { id: aeresmedlem-1994, category: honorary, title: Æresmedlem, from: "1994", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
+  - id: gullmerkeinnehaver-1986
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1986"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
+  - id: aeresmedlem-1994
+    category: honorary
+    title: Æresmedlem
+    from: "1994"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
+  - id: eresmedlem-1994
+    category: honorary
+    title: Æresmedlem
+    from: "1994"
+    to: "1994"
+    sources:
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "27"

@@ -1,6 +1,8 @@
 id: finn-tollas
 name: Finn Tollås
-names: [ Finn Tolaas ]
+names:
+  - Finn Tolaas
+  - Tinn Tolaas
 roles:
   - id: oppmann-1946
     category: sporting_staff
@@ -14,8 +16,38 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields: &a1
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: &a2
+          - title
+          - from
+        note: Lest maskinelt fra tabellen.
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
-  - { id: styremedlem-1950, category: board, title: Styremedlem, body: Hovedstyret, from: "1950", to: "1950", sources: [ { sourceId: aafk-historie-kramyra-stadion, fields: [ title, from, to ] } ] }
+  - id: styremedlem-1950
+    category: board
+    title: Styremedlem
+    body: Hovedstyret
+    from: "1950"
+    to: "1950"
+    sources:
+      - sourceId: aafk-historie-kramyra-stadion
+        fields:
+          - title
+          - from
+          - to
   - id: trener-1956
     category: coach
     title: Trener
@@ -55,7 +87,43 @@ roles:
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
-  - { id: gullmerkeinnehaver-1964, category: honorary, title: Gullmerkeinnehaver, from: "1964", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] }, { sourceId: tango-siden-1914-2013-806b, page: "350", fields: [ title, from ], note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year)." } ] }
+  - id: gullmerkeinnehaver-1964
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1964"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
+      - sourceId: tango-siden-1914-2013-806b
+        page: "350"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year)."
+  - id: oppmann-1948
+    category: sporting_staff
+    title: Oppmann
+    from: "1948"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "74"
+        fields: *a1
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
+        fields: *a2
+        note: Lest maskinelt fra tabellen.
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "11"
@@ -249,3 +317,19 @@ conflicts:
     decision: unresolved
     locked: false
     note: Kildene oppgir ulike navn for dette vervet. Ingen av dem er valgt.
+  - field: oppmann.1947
+    values:
+      - value: Finn Tolaas
+        providerId: nasjonalbiblioteket
+        note: vi-er-75-ar-1989-aff6 s. 8 (skrevet som Tinn Tolaas)
+      - value: Reidar Skarbøvik
+        providerId: nasjonalbiblioteket
+        note: medlemsblad-for-aalesunds-fotb-1954-cd1c s. 74
+    resolved: true
+    chosen: Reidar Skarbøvik
+    chosenProviderId: nasjonalbiblioteket
+    decision: manual
+    decidedAt: "2026-08-12"
+    reason: "Sannsynlig kildefeil i 1989. Hverken 1954- eller 2004-kilden knytter Tolaas til 1947, men 1954-kilden knytter Skarbøvik til året."
+    locked: true
+    note: 1947 er fjernet fra Finn Tollås' ordinære roller.
