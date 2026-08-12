@@ -38,6 +38,13 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
   - id: gullmerkeinnehaver-1967
     category: honorary
     title: Gullmerkeinnehaver
@@ -50,8 +57,7 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
-      siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: formann-1968
     category: board
     title: Formann
@@ -71,8 +77,7 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 2 på siden (regel: role_then_name)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
-      siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "27"

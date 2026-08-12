@@ -1,0 +1,17 @@
+id: sverre-engeskar
+name: Sverre Engeskar
+roles:
+  - id: sportslig-leder-1991
+    category: sporting_staff
+    title: Sportslig leder
+    from: "1991"
+    to: "1991"
+    sources:
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
+sources: []

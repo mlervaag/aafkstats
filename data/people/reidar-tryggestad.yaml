@@ -1,8 +1,39 @@
 id: reidar-tryggestad
 name: Reidar Tryggestad
 roles:
-  - { id: gullmerkeinnehaver-1996, category: honorary, title: Gullmerkeinnehaver, from: "1996", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
-  - { id: aeresmedlem-2001, category: honorary, title: Æresmedlem, from: "2001", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
+  - id: gullmerkeinnehaver-1996
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1996"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
+  - id: aeresmedlem-2001
+    category: honorary
+    title: Æresmedlem
+    from: "2001"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
+  - id: eresmedlem-2001
+    category: honorary
+    title: Æresmedlem
+    from: "2001"
+    to: "2001"
+    sources:
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "4"

@@ -1,4 +1,39 @@
 id: terje-refsnes
 name: Terje Refsnes
 roles:
-  - { id: gullmerkeinnehaver-2017, category: honorary, title: Gullmerkeinnehaver, from: "2017", to: null, sources: [{ sourceId: aafk-historie-utmerkelser, fields: [title, from] }] }
+  - id: gullmerkeinnehaver-2017
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "2017"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
+  - id: sportslig-leder-1995
+    category: sporting_staff
+    title: Sportslig leder
+    from: "1995"
+    to: "1995"
+    sources:
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
+  - id: sportslig-leder-1998
+    category: sporting_staff
+    title: Sportslig leder
+    from: "1998"
+    to: "1998"
+    sources:
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - title
+          - from
+          - to
+        note: Lest maskinelt fra tabellen.
