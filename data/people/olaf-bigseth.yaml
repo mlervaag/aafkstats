@@ -1,17 +1,24 @@
 id: olaf-bigseth
 name: Olaf Bigseth
+names:
+  - Olaf Bigset
 roles:
-  - id: sportslig-leder-1966
+  - id: oppmann-1966
     category: sporting_staff
-    title: Sportslig leder
+    title: Oppmann
     from: "1966"
     to: "1966"
     sources:
-      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
-        page: "27"
+      - sourceId: vi-er-75-ar-1989-aff6
+        page: "8"
         fields:
           - title
           - from
+        note: Kilden oppgir navnet som Olaf Bigset.
+      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+        page: "27"
+        fields:
+          - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Kilden oppgir navnet som Olaf Bigseth under samleoverskriften «Oppmenn/fotballformenn/sportslige ledere».
 sources: []
