@@ -1,0 +1,17 @@
+id: philip-emblem-storaas-samme-som-philip-storas
+status: open
+category: identity
+claim: Philip Emblem Storaas i lagoppstillingen er samme person som Philip Storås.
+question: Er «Philip Emblem Storaas» i lagoppstillingen samme person som Philip Storås?
+context: Den lange navneformen står i én AaFK-kamp i 2025. Personfila heter Philip Storås, men navneformen er ikke koblet.
+whyItMatters: Riktig kobling samler kampaktiviteten på én person og unngår en falsk dublett.
+yesMeaning: En tropp, klubbprofil eller annen kilde knytter begge navneformene til samme spiller.
+noMeaning: En kilde dokumenterer at dette er to forskjellige personer.
+instructions: ["Kontroller kamptroppen og spillerstallen rundt desember 2025.", "Sammenlign mer enn bare navnelikhet."]
+target: { type: person, id: philip-storas, field: identity.philip-emblem-storaas }
+sources:
+  - { providerId: fotmob, role: context, note: Lagoppstillingen i Bryne–AaFK 7. desember 2025 bruker den lange formen. }
+searchHint: Se etter offisiell AaFK-tropp, spillerprofil eller kamprapport som bruker fullt navn.
+estimatedMinutes: 8
+priority: 84
+publishedAt: 2026-08-13

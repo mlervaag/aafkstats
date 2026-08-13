@@ -1,0 +1,18 @@
+id: oivind-haagensen-formann-1940
+status: open
+category: role
+claim: Øivind Haagensen var formann i AaFK i 1940.
+question: Var Øivind Haagensen formann i AaFK i 1940?
+context: En årsrad i 50-årsboka peker på Øivind Haagensen, mens 35-årsberetningen og senere tabeller fører Peder Puck gjennom krigsårene.
+whyItMatters: Den avvikende raden møter en sammenhengende og kildebelagt lederperiode.
+yesMeaning: En kilde identifiserer Øivind Haagensen som klubbformann i 1940.
+noMeaning: En kilde identifiserer Peder Puck eller en annen person som klubbformann i 1940.
+instructions: ["Kontroller om Øivind Haagensen står som oppmann på samme side.", "Se etter hvordan krigsårene er gruppert."]
+target: { type: person, id: oivind-haagensen, field: formann.1940 }
+sources:
+  - { sourceId: aalesunds-fotballklubb-1914-50-1964-3815, page: "81", role: supports, note: Avvikende årsrad. }
+  - { sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c, page: "5", role: contradicts, note: Fører Peder Puck 1940–1945. }
+  - { sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d, page: "27", role: context, note: Senere tabell. }
+estimatedMinutes: 7
+priority: 92
+publishedAt: 2026-08-13

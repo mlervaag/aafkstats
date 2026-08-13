@@ -965,6 +965,35 @@ CREATE TABLE core_sources (
   providers     TEXT NOT NULL DEFAULT '[]'
 );
 
+-- Redaksjonelt kvalifiserte, atomiske JA/NEI-saker. Community-svar ligger i
+-- GitHub-innboksen; denne tabellen er den publiserte og versjonerte oppgaven.
+CREATE TABLE core_verification_cases (
+  id                TEXT PRIMARY KEY,
+  status            TEXT NOT NULL CHECK (status IN ('draft','open','paused','resolved','rejected','superseded')),
+  category          TEXT NOT NULL CHECK (category IN ('role','identity','match','source_reading','club')),
+  claim             TEXT NOT NULL,
+  question          TEXT NOT NULL,
+  context           TEXT NOT NULL,
+  why_it_matters    TEXT NOT NULL,
+  yes_meaning       TEXT NOT NULL,
+  no_meaning        TEXT NOT NULL,
+  instructions      TEXT NOT NULL DEFAULT '[]',
+  target_type       TEXT NOT NULL CHECK (target_type IN ('person','match','season','club','source')),
+  target_id         TEXT NOT NULL,
+  target_field      TEXT NOT NULL,
+  sources           TEXT NOT NULL DEFAULT '[]',
+  search_hint       TEXT,
+  estimated_minutes INTEGER NOT NULL CHECK (estimated_minutes BETWEEN 1 AND 60),
+  priority          INTEGER NOT NULL CHECK (priority BETWEEN 0 AND 100),
+  revision          TEXT NOT NULL,
+  published_at      TEXT,
+  resolution        TEXT,
+  source_file       TEXT NOT NULL
+);
+
+CREATE INDEX idx_verification_cases_queue
+ON core_verification_cases(status, priority DESC, published_at, id);
+
 CREATE TABLE core_publication_extractions (
   source_id       TEXT PRIMARY KEY REFERENCES core_sources(id) ON DELETE CASCADE,
   provider_id     TEXT NOT NULL REFERENCES core_providers(id),
@@ -1092,6 +1121,16 @@ SELECT
   '/kilder/' || id AS url
 FROM core_sources
 ORDER BY coalesce(year, 0) DESC, title ASC;
+
+CREATE VIEW verification_cases AS
+SELECT id, status, category, claim, question, context, why_it_matters,
+       yes_meaning, no_meaning, instructions, target_type, target_id,
+       target_field, sources, search_hint, estimated_minutes, priority,
+       revision, published_at, resolution, source_file,
+       '/mangler/' || id AS url
+FROM core_verification_cases
+ORDER BY CASE status WHEN 'open' THEN 0 ELSE 1 END,
+         priority DESC, published_at, id;
 
 CREATE VIEW publication_extractions AS
 SELECT source_id, provider_id, adapter, retrieved_at, ocr_access,

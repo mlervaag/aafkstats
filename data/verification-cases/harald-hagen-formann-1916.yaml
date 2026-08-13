@@ -1,0 +1,18 @@
+id: harald-hagen-formann-1916
+status: open
+category: role
+claim: Harald Hagen var formann i AaFK i 1916.
+question: Var Harald Hagen formann i AaFK i 1916?
+context: En maskinelt lest årsrad peker på Harald Hagen. Den manuelt kontrollerte 1939-boka fører Olaf Ingebrigtsen.
+whyItMatters: To tidlige klubbroller kan ha blitt byttet mellom formann og oppmann.
+yesMeaning: En kilde identifiserer Harald Hagen som klubbformann i 1916.
+noMeaning: En kilde identifiserer Olaf Ingebrigtsen eller en annen person som klubbformann.
+instructions: ["Kontroller både formanns- og oppmannskolonnen.", "Oppgi nøyaktig side og tabell."]
+target: { type: person, id: harald-hagen, field: formann.1916 }
+sources:
+  - { sourceId: aalesunds-fotballklubb-1914-50-1964-3815, page: "81", role: supports, note: Avvikende årsrad. }
+  - { sourceId: aalesunds-fotballklub-gjennem-1939-ec28, page: "18", role: contradicts, note: Manuelt kontrollert tidlig lederliste. }
+  - { sourceId: tango-siden-1914-2013-806b, page: "348", role: context, note: Senere kontrolltabell. }
+estimatedMinutes: 6
+priority: 90
+publishedAt: 2026-08-13

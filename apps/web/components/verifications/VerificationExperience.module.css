@@ -1,0 +1,235 @@
+.experience {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: end;
+  padding: clamp(2.5rem, 7vw, 5.5rem) 0 1.75rem;
+  border-bottom: 3px double var(--border);
+}
+
+.hero h1 {
+  max-width: 15ch;
+  margin: 0.3rem 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 7vw, 5.4rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 0.96;
+}
+
+.hero p:last-child { max-width: 58ch; margin: 0; color: var(--muted); }
+.progress { min-width: 8.5rem; padding: 1rem 0 0.2rem; text-align: right; }
+.progress span { display: block; font-family: var(--font-display); font-size: 3rem; line-height: 1; }
+.progress small { color: var(--muted); }
+
+.utilityNav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.25rem;
+  padding: 0.8rem 0 1.8rem;
+  font-size: 0.875rem;
+}
+.utilityNav a { color: var(--muted); text-underline-offset: 0.2em; }
+.utilityNav a:hover { color: var(--accent); }
+.reservationNotice { margin: -0.8rem 0 1rem; padding: 0.65rem 0.8rem; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.875rem; }
+
+.caseCard {
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.caseMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  padding: 0.8rem clamp(1.1rem, 4vw, 2.5rem);
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.caseMeta span:first-child { color: var(--accent); font-weight: 700; }
+
+.questionBlock { padding: clamp(1.6rem, 5vw, 3.5rem) clamp(1.1rem, 6vw, 5rem); }
+.claimLabel { margin: 0 0 0.45rem; color: var(--muted); font-size: 0.84rem; }
+.questionBlock h2 {
+  max-width: 22ch;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5.4vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.questionBlock > p:not(.claimLabel) { max-width: 66ch; margin: 1.4rem 0 1rem; color: var(--muted); }
+.questionBlock a, .source a { color: var(--accent); text-underline-offset: 0.2em; }
+
+.helpBox {
+  margin: 0 clamp(1.1rem, 6vw, 5rem) 2rem;
+  padding: 0.9rem 1rem;
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+}
+.helpBox summary { cursor: pointer; font-weight: 700; }
+.helpBox ol { margin-bottom: 0.75rem; padding-left: 1.3rem; }
+.helpBox p { margin: 0.75rem 0 0; }
+
+.sources { padding: 0 clamp(1.1rem, 6vw, 5rem) 2.5rem; }
+.sources h3 { margin: 0 0 0.75rem; font-family: var(--font-display); font-size: 1.35rem; }
+.sourceList { border-top: 1px solid var(--border); }
+.source {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.7fr) minmax(14rem, 1fr) auto;
+  gap: 1rem;
+  align-items: start;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.source > div { display: flex; flex-direction: column; }
+.source span, .source p { color: var(--muted); font-size: 0.875rem; }
+.source p { margin: 0; }
+.source a { white-space: nowrap; font-size: 0.875rem; }
+
+.answerSection, .evidenceForm { padding: clamp(1.4rem, 5vw, 3rem) clamp(1.1rem, 6vw, 5rem); border-top: 1px solid var(--border); }
+.answerSection { background: color-mix(in srgb, var(--surface-2) 56%, var(--surface)); }
+.sectionHeading { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; margin-bottom: 1.25rem; }
+.sectionHeading > div { display: flex; gap: 0.75rem; align-items: center; }
+.sectionHeading div > span { display: grid; place-items: center; width: 1.75rem; height: 1.75rem; border: 1px solid var(--accent); border-radius: 50%; color: var(--accent); font-weight: 800; }
+.sectionHeading h3 { margin: 0; font-family: var(--font-display); font-size: clamp(1.35rem, 3vw, 1.8rem); }
+.sectionHeading p { margin: 0; color: var(--muted); font-size: 0.875rem; }
+
+.answerGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+.answerButton {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+  min-height: 7rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.answerButton:hover, .answerButton:focus-visible { border-color: var(--accent); outline: 2px solid transparent; }
+.answerWord { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); line-height: 1; }
+.selectedYes { border-color: var(--win); background: color-mix(in srgb, var(--win) 9%, var(--surface)); }
+.selectedNo { border-color: var(--loss); background: color-mix(in srgb, var(--loss) 8%, var(--surface)); }
+.selectedYes .answerWord { color: var(--win); }
+.selectedNo .answerWord { color: var(--loss); }
+
+.evidenceForm { scroll-margin-top: 1rem; }
+.evidenceChoices { display: grid; gap: 0.45rem; margin: 0 0 1.25rem; padding: 0; border: 0; }
+.evidenceChoices legend { margin-bottom: 0.45rem; font-weight: 700; }
+.evidenceChoices label { display: flex; gap: 0.65rem; align-items: center; cursor: pointer; }
+.evidenceChoices input { width: 1.1rem; height: 1.1rem; accent-color: var(--accent); }
+.field { display: grid; gap: 0.4rem; margin-top: 1rem; font-weight: 700; }
+.field > span { color: var(--muted); font-size: 0.82rem; font-weight: 400; }
+.field input, .field select, .field textarea {
+  width: 100%;
+  min-height: 2.8rem;
+  padding: 0.7rem 0.8rem;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font: inherit;
+}
+.field textarea { resize: vertical; line-height: 1.5; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); outline: 2px solid color-mix(in srgb, var(--accent) 25%, transparent); outline-offset: 1px; }
+.optionalFields { margin-top: 1.2rem; padding-top: 0.9rem; border-top: 1px solid var(--border); }
+.optionalFields summary { cursor: pointer; color: var(--muted); }
+
+.submitRow { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 1.5rem; }
+.submitRow > a { color: var(--muted); font-size: 0.875rem; }
+.primaryButton, .secondaryButton, .success button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 3rem;
+  padding: 0.72rem 1.15rem;
+  background: var(--accent);
+  color: var(--on-accent);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  font: inherit;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+.primaryButton:disabled { opacity: 0.62; cursor: wait; }
+.secondaryButton { background: transparent; color: var(--accent); }
+.error { margin-top: 1.2rem; padding: 0.8rem 1rem; border-left: 3px solid var(--loss); background: color-mix(in srgb, var(--loss) 8%, var(--surface)); }
+.error a { color: inherit; font-weight: 700; }
+.success { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem; align-items: center; margin-top: 1.25rem; padding: 1rem; border: 1px solid var(--win); background: color-mix(in srgb, var(--win) 8%, var(--surface)); }
+.success div { display: flex; flex-direction: column; }
+.success span { color: var(--muted); font-size: 0.875rem; }
+.success a { color: var(--text); font-size: 0.875rem; }
+
+.caseFooter { display: flex; justify-content: space-between; gap: 1rem; padding: 0.9rem clamp(1.1rem, 4vw, 2.5rem); background: var(--surface-2); border-top: 1px solid var(--border); }
+.caseFooter button { padding: 0.35rem 0; background: none; color: var(--muted); border: 0; font: inherit; text-decoration: underline; text-underline-offset: 0.2em; cursor: pointer; }
+.caseFooter button:hover { color: var(--accent); }
+
+.trust { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.5rem; margin: 1.2rem 0 0; padding: 1rem 0; border-bottom: 1px solid var(--border); color: var(--muted); font-size: 0.875rem; }
+.trust strong { color: var(--text); }
+.trust p { max-width: 65ch; margin: 0; }
+.completeOverview {
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  margin-top: clamp(3rem, 8vw, 6rem);
+  padding: clamp(1.5rem, 4vw, 2.5rem) 0;
+  border-block: 3px double var(--border);
+}
+.completeOverview h2 { margin: 0.35rem 0 0; font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 500; line-height: 1.08; }
+.completeOverview > div:last-child { display: flex; flex-direction: column; align-items: flex-start; gap: 1.1rem; }
+.completeOverview p { max-width: 62ch; margin: 0; color: var(--muted); }
+.empty { max-width: 44rem; margin: 5rem auto; text-align: center; }
+.empty h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 6vw, 4rem); }
+
+@media (max-width: 720px) {
+  .hero { grid-template-columns: 1fr; padding-top: 2.25rem; }
+  .progress { display: none; }
+  .utilityNav { justify-content: flex-start; overflow-x: auto; white-space: nowrap; }
+  .caseMeta { justify-content: space-between; }
+  .caseMeta span:first-child { width: 100%; }
+  .questionBlock h2 { font-size: clamp(2rem, 10vw, 3.2rem); }
+  .source { grid-template-columns: 1fr auto; }
+  .source p { grid-column: 1 / -1; }
+  .answerGrid { grid-template-columns: 1fr; }
+  .answerButton { min-height: 5.8rem; }
+  .sectionHeading { display: block; }
+  .sectionHeading > p { margin: 0.5rem 0 0 2.5rem; }
+  .success { grid-template-columns: 1fr; }
+  .success button { width: 100%; }
+  .trust { grid-template-columns: 1fr; gap: 0.25rem; }
+  .completeOverview { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 430px) {
+  .utilityNav { margin-inline: -0.2rem; }
+  .caseCard { margin-inline: -0.5rem; }
+  .questionBlock, .answerSection, .evidenceForm, .sources { padding-inline: 1rem; }
+  .helpBox { margin-inline: 1rem; }
+  .answerButton { grid-template-columns: 4.2rem minmax(0, 1fr); gap: 0.55rem; padding-inline: 0.9rem; }
+  .caseFooter { flex-direction: column; align-items: flex-start; }
+  .submitRow { align-items: stretch; flex-direction: column; }
+  .primaryButton { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience * { scroll-behavior: auto !important; }
+}

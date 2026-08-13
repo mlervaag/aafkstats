@@ -11,6 +11,7 @@
     "validate": "tsx src/cli/validate.ts",
     "duplicates": "tsx src/cli/duplicates.ts",
     "contradictions": "tsx src/cli/contradictions.ts",
+    "verification-candidates": "tsx src/cli/verification-candidates.ts",
     "uncertain": "tsx src/cli/uncertain.ts"
   },
   "dependencies": {

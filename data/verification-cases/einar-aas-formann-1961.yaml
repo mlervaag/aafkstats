@@ -1,0 +1,18 @@
+id: einar-aas-formann-1961
+status: open
+category: role
+claim: Einar Aas var formann i AaFK i 1961.
+question: Var Einar Aas formann i AaFK i 1961?
+context: En årsrad i 50-årsboka peker på Einar Aas. Klubbens lederhistorikk og flere jubileumsoversikter peker på Kjell Berentzen.
+whyItMatters: En enkelt maskinell avlesning står mot flere sammenhengende lederlister.
+yesMeaning: En kilde identifiserer Einar Aas som klubbformann i 1961.
+noMeaning: En kilde identifiserer Kjell Berentzen eller en annen person som klubbformann i 1961.
+instructions: ["Kontroller samtidig medlemsblad hvis mulig.", "Se om Einar Aas er nevnt under et annet verv."]
+target: { type: person, id: einar-aas, field: formann.1961 }
+sources:
+  - { sourceId: aalesunds-fotballklubb-1914-50-1964-3815, page: "81", role: supports, note: Avvikende årsrad. }
+  - { sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8, page: "36", role: contradicts, note: Samtidig medlemsblad. }
+  - { sourceId: tango-siden-1914-2013-806b, page: "348", role: contradicts, note: Manuelt kontrollert lederoversikt. }
+estimatedMinutes: 7
+priority: 87
+publishedAt: 2026-08-13

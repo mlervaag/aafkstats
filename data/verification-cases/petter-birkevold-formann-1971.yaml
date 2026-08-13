@@ -1,0 +1,18 @@
+id: petter-birkevold-formann-1971
+status: open
+category: role
+claim: Petter Birkevold var formann i AaFK i 1971.
+question: Var Petter Birkevold formann i AaFK i 1971?
+context: Et senere medlemsblad peker på Petter Birkevold, mens lederoversiktene fører Ola Hodder. Samtidige medlemsblad fra 1971 finnes.
+whyItMatters: Saken kan løses presist med en samtidig kilde og er derfor godt egnet for community-kontroll.
+yesMeaning: En samtidig kilde identifiserer Petter Birkevold som klubbformann i 1971.
+noMeaning: En samtidig kilde identifiserer Ola Hodder eller en annen person som klubbformann.
+instructions: ["Kontroller medlemsbladene fra 1971 først.", "Se etter årsmøte, styreoversikt eller signatur med tittel."]
+target: { type: person, id: petter-birkevold, field: formann.1971 }
+sources:
+  - { sourceId: medlemsblad-for-aalesunds-fotb-1974-6d28, page: "3", role: supports, note: Senere oversikt. }
+  - { sourceId: medlemsblad-for-aalesunds-fotb-1971-e55d, page: "5", role: context, note: Samtidig medlemsblad. }
+  - { sourceId: medlemsblad-for-aalesunds-fotb-1971-dc4a, page: "10", role: context, note: Samtidig medlemsblad. }
+estimatedMinutes: 7
+priority: 98
+publishedAt: 2026-08-13

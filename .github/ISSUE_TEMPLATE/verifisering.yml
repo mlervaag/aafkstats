@@ -1,0 +1,73 @@
+name: Manuell verifisering
+description: Svar JA eller NEI på en konkret påstand fra arbeidskøen
+title: "Verifisering: "
+labels: ["verifisering"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Takk! Dette skjemaet er reserveveien fra `/mangler`. Kontroller påstanden
+        manuelt og oppgi nøyaktig hvor svaret kan etterprøves. Ikke lim inn lange
+        avistekster eller hele boksider — publikasjon, dato og side er nok.
+
+  - type: input
+    id: sak
+    attributes:
+      label: Sak
+      description: Saks-ID eller lenken til saken på nettstedet.
+    validations:
+      required: true
+
+  - type: input
+    id: revisjon
+    attributes:
+      label: Revisjon
+      description: Den tekniske revisjonen som var vist da du svarte.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: svar
+    attributes:
+      label: Svar på påstanden
+      options:
+        - JA
+        - NEI
+    validations:
+      required: true
+
+  - type: textarea
+    id: dokumentasjon
+    attributes:
+      label: Kilde
+      description: Lenke, eller publikasjon/avis, dato og side.
+      placeholder: Sunnmørsposten 12.03.1968, side 7
+    validations:
+      required: true
+
+  - type: textarea
+    id: funn
+    attributes:
+      label: Hva fant du?
+      description: Beskriv kort det som avgjør JA eller NEI.
+    validations:
+      required: true
+
+  - type: textarea
+    id: kommentar
+    attributes:
+      label: Eventuell kommentar
+      description: Usikkerhet, alternative navn eller annet arkivredaksjonen bør vite.
+
+  - type: input
+    id: navn
+    attributes:
+      label: Navn eller GitHub-bruker (valgfritt)
+
+  - type: checkboxes
+    id: bekreft
+    attributes:
+      label: Før du sender
+      options:
+        - label: Jeg har kontrollert kilden manuelt og svaret gjengir det jeg faktisk fant.
+          required: true

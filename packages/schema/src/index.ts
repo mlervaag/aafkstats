@@ -10,3 +10,4 @@ export * from "./contribution.js";
 export * from "./source.js";
 export * from "./extraction.js";
 export * from "./source-result.js";
+export * from "./verification-case.js";

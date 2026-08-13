@@ -1,0 +1,18 @@
+id: peder-puck-formann-1932
+status: open
+category: role
+claim: Peder Puck var formann i AaFK i 1932.
+question: Var Peder Puck formann i AaFK i 1932?
+context: 50-årsbokas årsrad peker på Peder Puck. Den nær samtidige 1939-boka fører Sverre Volstad i perioden 1930–1936.
+whyItMatters: En enkelt årsrad kolliderer med en manuelt kontrollert flerårsperiode.
+yesMeaning: En kilde identifiserer Peder Puck som klubbformann i 1932.
+noMeaning: En kilde identifiserer Sverre Volstad eller en annen person som klubbformann i 1932.
+instructions: ["Kontroller om Peder Puck kan ha et annet verv i 1932.", "Se om perioden 1930–1936 har avbrudd."]
+target: { type: person, id: peder-puck, field: formann.1932 }
+sources:
+  - { sourceId: aalesunds-fotballklubb-1914-50-1964-3815, page: "81", role: supports, note: Avvikende årsrad. }
+  - { sourceId: aalesunds-fotballklub-gjennem-1939-ec28, page: "18", role: contradicts, note: Nær samtidig flerårsperiode. }
+  - { sourceId: tango-siden-1914-2013-806b, page: "348", role: context, note: Senere ledertabell. }
+estimatedMinutes: 6
+priority: 93
+publishedAt: 2026-08-13

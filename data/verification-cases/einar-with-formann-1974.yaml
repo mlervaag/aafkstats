@@ -1,0 +1,18 @@
+id: einar-with-formann-1974
+status: open
+category: role
+claim: Einar With var formann i AaFK i 1974.
+question: Var Einar With formann i AaFK i 1974?
+context: Et medlemsbladtreff peker på Einar With. Flere lederoversikter fører Jan With, og likt etternavn gjør feil personkobling mulig.
+whyItMatters: Saken påvirker både lederrekken og identiteten til to personer med samme etternavn.
+yesMeaning: Kilden identifiserer Einar With som klubbformann i 1974.
+noMeaning: Kilden identifiserer Jan With eller en annen person som klubbformann i 1974.
+instructions: ["Kontroller fornavnet, ikke bare etternavnet.", "Se om siden beskriver et valg, et skifte eller et annet verv."]
+target: { type: person, id: einar-with, field: formann.1974 }
+sources:
+  - { sourceId: medlemsblad-for-aalesunds-fotb-1974-5775, page: "6", role: supports, note: Avvikende medlemsbladtreff. }
+  - { sourceId: vi-er-75-ar-1989-aff6, page: "8", role: contradicts, note: Lederoversikt som fører Jan With. }
+  - { sourceId: tango-siden-1914-2013-806b, page: "348", role: contradicts, note: Lederoversikt som fører Jan With. }
+estimatedMinutes: 6
+priority: 94
+publishedAt: 2026-08-13

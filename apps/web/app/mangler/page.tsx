@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { contributionIssueUrl } from "@/lib/contribution-links";
 import { pageMetadata } from "@/lib/metadata";
 import { loadMissingOverview } from "@/lib/missing";
+import { loadVerificationCases } from "@/lib/verifications";
+import { VerificationExperience } from "@/components/verifications/VerificationExperience";
 import styles from "./Missing.module.css";
 
 export const metadata: Metadata = pageMetadata(
-  "Hva mangler?",
-  "En oppdatert arbeidskø over historiske resultater, kampdetaljer og kildekonflikter som AaFK-arkivet trenger hjelp med.",
+  "Hjelp AaFK-arkivet",
+  "Kontroller ett konkret ja-eller-nei-spørsmål i en historisk kilde. Ingen konto kreves, og alle funn vurderes før arkivet endres.",
   "/mangler",
   "website",
 );
@@ -57,7 +59,7 @@ function candidateContext(title: string, page: string, season: number | null): s
   return `Lagoppstilling i ${title}, side ${page} (${year})`;
 }
 
-export default function MissingPage() {
+export function MissingOverviewContent() {
   const missing = loadMissingOverview();
 
   return (
@@ -400,4 +402,8 @@ export default function MissingPage() {
       </section>
     </>
   );
+}
+
+export default function VerificationPage() {
+  return <VerificationExperience cases={loadVerificationCases("open")} />;
 }

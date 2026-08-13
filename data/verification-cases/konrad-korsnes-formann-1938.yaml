@@ -1,0 +1,18 @@
+id: konrad-korsnes-formann-1938
+status: open
+category: role
+claim: Konrad Korsnes var formann i AaFK i 1938.
+question: Var Konrad Korsnes formann i AaFK i 1938?
+context: 50-årsbokas årsrad peker på Konrad Korsnes. Den nær samtidige 1939-boka og senere tabeller peker på Peder Puck.
+whyItMatters: En nær samtidig kilde gir en god mulighet til å avklare et viktig grenseår.
+yesMeaning: En kilde identifiserer Konrad Korsnes som klubbformann i 1938.
+noMeaning: En kilde identifiserer Peder Puck eller en annen person som klubbformann i 1938.
+instructions: ["Kontroller om 1938 er start, slutt eller et enkeltår.", "Skill hovedstyret fra andre styrer."]
+target: { type: person, id: konrad-korsnes, field: formann.1938 }
+sources:
+  - { sourceId: aalesunds-fotballklubb-1914-50-1964-3815, page: "81", role: supports, note: Avvikende årsrad. }
+  - { sourceId: aalesunds-fotballklub-gjennem-1939-ec28, page: "18", role: contradicts, note: Nær samtidig lederliste. }
+  - { sourceId: tango-siden-1914-2013-806b, page: "348", role: context, note: Senere tabell. }
+estimatedMinutes: 6
+priority: 93
+publishedAt: 2026-08-13

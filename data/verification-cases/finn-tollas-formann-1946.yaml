@@ -1,0 +1,18 @@
+id: finn-tollas-formann-1946
+status: open
+category: role
+claim: Finn Tollås var formann i AaFK i 1946.
+question: Var Finn Tollås formann i AaFK i 1946?
+context: 50-årsboka knytter Finn Tollås til året. Andre tabeller peker på Peder Puck, mens lederperioder rundt grenseåret også nevner Sigurd Nørve.
+whyItMatters: PR #121 løste en annen Tollås-konflikt, men denne står fortsatt åpen.
+yesMeaning: En kilde identifiserer Finn Tollås som klubbformann i 1946.
+noMeaning: En kilde identifiserer Peder Puck, Sigurd Nørve eller en annen person som formann.
+instructions: ["Kontroller om 1946 er et skifteår.", "Skill formann fra varaformann og oppmann."]
+target: { type: person, id: finn-tollas, field: formann.1946 }
+sources:
+  - { sourceId: aalesunds-fotballklubb-1914-50-1964-3815, page: "81", role: supports, note: Avvikende årsrad. }
+  - { sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c, page: "74", role: contradicts, note: Fører Peder Puck. }
+  - { sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d, page: "27", role: context, note: Senere ledertabell. }
+estimatedMinutes: 8
+priority: 91
+publishedAt: 2026-08-13

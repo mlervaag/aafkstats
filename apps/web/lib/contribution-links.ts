@@ -17,6 +17,7 @@ export const CONTRIBUTION_TEMPLATES = [
   "klubbidentitet",
   "ny-kilde",
   "ny-arkivkilde",
+  "verifisering",
   "feil-i-koden",
   "forslag",
 ] as const;
@@ -31,6 +32,7 @@ const TITLE_PREFIX: Record<ContributionTemplate, string> = {
   klubbidentitet: "Klubb",
   "ny-kilde": "Kilde",
   "ny-arkivkilde": "Arkivkilde",
+  verifisering: "Verifisering",
   "feil-i-koden": "Feil",
   forslag: "Forslag",
 };
@@ -59,6 +61,7 @@ const TEMPLATE_FIELDS = {
   klubbidentitet: ["type", "klubber", "hva", "navneperioder", "kamper", "kilde"],
   "ny-kilde": ["kamp", "opplysninger", "kilde", "kildestatus"],
   "ny-arkivkilde": ["kilde", "hvor", "hva", "rettigheter"],
+  verifisering: ["sak", "revisjon", "svar", "dokumentasjon", "funn", "kommentar", "navn"],
   "feil-i-koden": ["omrade", "hva", "reproduksjon", "hvor", "miljo", "logg"],
   forslag: ["type", "hva", "bakgrunn"],
 } as const satisfies Record<ContributionTemplate, readonly string[]>;

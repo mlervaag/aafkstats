@@ -89,6 +89,15 @@ const checks: Check[] = [
   {
     page: "mangler",
     must: [
+      "Kan du kontrollere dette?", "Er Tor Hogne Aarøy riktig person i fixture-arkivet?",
+      "Finn dokumentasjonen. Svar JA eller NEI", "Arbeidskø", "Hele mangellista",
+    ],
+  },
+  {
+    // Den brede arbeidsoversikten ble ikke fjernet da /mangler ble en enkel
+    // community-kø. Den har fått en egen, stabil rute og skal fortsatt bygges.
+    page: "mangler/oversikt",
+    must: [
       "Hva mangler i AaFK-arkivet?", "Historiske resultater å identifisere",
       "Finn datoen bak et resultat", "Avklar historiske verv",
       "Knytt lagoppstillinger til riktig kamp", "Fixture Spiller A",
@@ -101,6 +110,15 @@ const checks: Check[] = [
       // som spillere uten at en eneste kamp er koblet til dem.
       "Knytt spillere til riktig identitet", "spillere uten personfil",
     ],
+  },
+  {
+    // Publiserte lenker skal bestå etter at en sak er løst.
+    page: "mangler/fixture-resolved",
+    must: [
+      "Saken er løst", "Fixture-kilden identifiserer personen uttrykkelig.",
+      "Se vurderingen på GitHub", "Se dataendringen",
+    ],
+    mustNot: ["Send til vurdering"],
   },
   {
     page: "kamp/1998-08-16-aalesunds-fk-sk-brann",
