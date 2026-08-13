@@ -1900,6 +1900,11 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
   transition: opacity 700ms ease-in-out;
 }
 
+.carousel-image-contain {
+  /* Bildeteksten ligger helt i venstre kant og er en del av arkivbildet. */
+  object-fit: contain;
+}
+
 .carousel-image-active {
   opacity: 1;
 }
