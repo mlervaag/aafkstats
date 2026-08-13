@@ -24,6 +24,18 @@ interface SourceListClientProps {
   sources: HistoricalSourceData[];
 }
 
+const SOURCE_GROUP_ORDER = [
+  "book",
+  "anniversary_book",
+  "local_history_book",
+  "annual_report",
+  "member_magazine",
+  "match_program",
+  "supporter_publication",
+  "newspaper_supplement",
+  "other",
+];
+
 /**
  * Alt en søkestreng skal kunne treffe på i én kilde.
  *
@@ -89,27 +101,31 @@ function SearchableSourceList({ sources }: SourceListClientProps) {
   return (
     <div>
       <div className={styles.controls}>
-        <label className="sr-only" htmlFor="source-search">Søk i kilder</label>
-        <input
-          id="source-search"
-          type="search"
-          placeholder="Søk på tittel, år eller utgave…"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className={styles.search}
-        />
-        <label className="sr-only" htmlFor="source-type">Filtrer på kildetype</label>
-        <select
-          id="source-type"
-          value={filterType}
-          onChange={(e) => setFilterType(e.target.value)}
-          className={styles.filter}
-        >
-          <option value="all">Alle kildetyper</option>
-          {types.map(t => (
-            <option key={t} value={t}>{SOURCE_TYPES[t]?.plural || t}</option>
-          ))}
-        </select>
+        <div className={styles.controlGroup}>
+          <label htmlFor="source-search">Søk i arkivet</label>
+          <input
+            id="source-search"
+            type="search"
+            placeholder="Tittel, år, utgave eller utgiver"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className={styles.search}
+          />
+        </div>
+        <div className={styles.controlGroup}>
+          <label htmlFor="source-type">Kildetype</label>
+          <select
+            id="source-type"
+            value={filterType}
+            onChange={(e) => setFilterType(e.target.value)}
+            className={styles.filter}
+          >
+            <option value="all">Alle kildetyper</option>
+            {types.map(t => (
+              <option key={t} value={t}>{SOURCE_TYPES[t]?.plural || t}</option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <SourceList sources={sources} search={search} filterType={filterType} />
@@ -163,11 +179,36 @@ function SourceList({
     };
   }, [sources, search, filterType]);
 
+  const singleGroups = useMemo(() => {
+    const groups = new Map<string, HistoricalSourceData[]>();
+    for (const source of singles) {
+      groups.set(source.source_type, [...(groups.get(source.source_type) ?? []), source]);
+    }
+    return [...groups.entries()].sort(([typeA], [typeB]) => {
+      const rankA = SOURCE_GROUP_ORDER.indexOf(typeA);
+      const rankB = SOURCE_GROUP_ORDER.indexOf(typeB);
+      return (rankA === -1 ? 999 : rankA) - (rankB === -1 ? 999 : rankB);
+    });
+  }, [singles]);
+
+  const resultCount = seriesEntries.length + singles.length;
+
   return (
     <>
+      <div className={styles.resultSummary} aria-live="polite">
+        <strong>{resultCount}</strong> treff
+        {(search.trim() || filterType !== "all") && <span> med valgte filtre</span>}
+      </div>
+
       {seriesEntries.length > 0 && (
-        <div style={{ marginTop: "2rem" }}>
-          <h2 style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>Serier og faste utgivelser</h2>
+        <section className={styles.section} aria-labelledby="source-series-heading">
+          <div className={styles.sectionHeading}>
+            <div>
+              <p className={styles.sectionEyebrow}>Samlinger</p>
+              <h2 id="source-series-heading">Serier og faste utgivelser</h2>
+            </div>
+            <span>{seriesEntries.length}</span>
+          </div>
           {seriesEntries.map(({ id, title, items }) => (
             <SourceSeriesCard
               key={id}
@@ -179,31 +220,44 @@ function SourceList({
               count={items.length}
             />
           ))}
-        </div>
+        </section>
       )}
 
       {singles.length > 0 && (
-        <>
-          <h2 style={{ fontSize: "1.5rem", marginTop: "3rem", marginBottom: "1rem" }}>Bøker og enkeltutgivelser</h2>
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))",
-            gap: "1.5rem",
-            marginTop: "2rem"
-          }}>
-            {singles.map((pub) => (
-              <SourceCard
-                key={pub.id}
-                id={pub.id}
-                title={pub.title}
-                sourceType={pub.source_type}
-                year={pub.year}
-                publisher={pub.publisher}
-                coverUrl={pub.cover_url}
-              />
+        <section className={styles.section} aria-labelledby="single-sources-heading">
+          <div className={styles.sectionHeading}>
+            <div>
+              <p className={styles.sectionEyebrow}>Enkeltkilder</p>
+              <h2 id="single-sources-heading">Bøker, dokumenter og artikler</h2>
+            </div>
+            <span>{singles.length}</span>
+          </div>
+
+          <div className={styles.sourceGroups}>
+            {singleGroups.map(([type, items]) => (
+              <section className={styles.sourceGroup} key={type}>
+                <div className={styles.groupHeading}>
+                  <h3>{SOURCE_TYPES[type]?.plural || type}</h3>
+                  <span>{items.length}</span>
+                </div>
+                <div className={styles.sourceGrid}>
+                  {items.map((pub) => (
+                    <SourceCard
+                      key={pub.id}
+                      id={pub.id}
+                      title={pub.title}
+                      sourceType={pub.source_type}
+                      year={pub.year}
+                      publisher={pub.publisher}
+                      coverUrl={pub.cover_url}
+                      titleAs="h4"
+                    />
+                  ))}
+                </div>
+              </section>
             ))}
           </div>
-        </>
+        </section>
       )}
 
       {seriesEntries.length === 0 && singles.length === 0 && (
