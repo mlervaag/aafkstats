@@ -26,6 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     alternates: { canonical: `/mangler/${item.id}` },
     robots: { index: false, follow: true },
     openGraph: { title: item.question, description, type: "article", url: `/mangler/${item.id}` },
+    twitter: { title: item.question, description, card: "summary_large_image" },
   };
 }
 
