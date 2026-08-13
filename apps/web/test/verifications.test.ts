@@ -5,9 +5,11 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
 import VerificationCasePage, { generateStaticParams } from "../app/mangler/[id]/page.js";
+import { GET as getCheckout, POST as postCheckout } from "../app/api/verifications/checkout/route.js";
 import { POST } from "../app/api/verifications/route.js";
 import { restoreVerificationDraft } from "../lib/verification-draft.js";
 import { checkedOutCaseIds, claimVerificationCase, releaseVerificationCase } from "../lib/verification-checkout.js";
+import { resetVerificationSubmissionCache } from "../lib/verification-submissions.js";
 import { loadVerificationCase, loadVerificationCases } from "../lib/verifications.js";
 
 const previousDbPath = process.env.AAFK_DB_PATH;
@@ -28,6 +30,7 @@ afterAll(() => {
 
 afterEach(() => {
   vi.unstubAllGlobals();
+  resetVerificationSubmissionCache();
   delete process.env.GITHUB_INBOX_TOKEN;
   delete process.env.GITHUB_INBOX_REPO;
 });
@@ -171,5 +174,32 @@ describe("myk reservasjon", () => {
     expect(releaseVerificationCase(caseId, second)).toBe(false);
     expect(releaseVerificationCase(caseId, first)).toBe(true);
     expect(checkedOutCaseIds(second)).not.toContain(caseId);
+  });
+
+  it("skjuler saker som allerede venter i GitHub-innboksen", async () => {
+    process.env.GITHUB_INBOX_TOKEN = "test-token";
+    process.env.GITHUB_INBOX_REPO = "mlervaag/aafkstats-inbox";
+    const issueBody = "**Sak:** [fixture-open-high](https://aafkarkivet.no/mangler/fixture-open-high)";
+    const fetchSpy = vi.fn().mockResolvedValue(new Response(JSON.stringify([{ body: issueBody }]), {
+      status: 200,
+      headers: { "content-type": "application/json" },
+    }));
+    vi.stubGlobal("fetch", fetchSpy);
+
+    const owner = "c7347db5-ff53-4eb7-bf86-fd267aa49c84";
+    const listResponse = await getCheckout(new Request(`http://arkivet.test/api/verifications/checkout?owner=${owner}`));
+    expect(await listResponse.json()).toMatchObject({
+      submitted: ["fixture-open-high"],
+      unavailable: expect.arrayContaining(["fixture-open-high"]),
+    });
+
+    const claimResponse = await postCheckout(new Request("http://arkivet.test/api/verifications/checkout", {
+      method: "POST",
+      headers: { "content-type": "application/json", host: "arkivet.test" },
+      body: JSON.stringify({ caseId: "fixture-open-high", owner }),
+    }));
+    expect(claimResponse.status).toBe(409);
+    expect(await claimResponse.json()).toMatchObject({ acquired: false, submitted: true });
+    expect(fetchSpy).toHaveBeenCalledOnce();
   });
 });

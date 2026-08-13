@@ -15,22 +15,38 @@ const LABELS: Record<VerificationCaseView["category"], string> = {
 export function CaseDirectory({ cases }: { cases: VerificationCaseView[] }) {
   const [category, setCategory] = useState<string>("all");
   const [query, setQuery] = useState("");
-  const [checkedOut, setCheckedOut] = useState<string[]>([]);
+  const [unavailable, setUnavailable] = useState<string[]>([]);
+  const [completed, setCompleted] = useState<string[]>([]);
 
   useEffect(() => {
     let active = true;
     async function refresh() {
       try {
-        let owner = sessionStorage.getItem("aafk-verification-checkout-owner");
-        if (!owner) {
-          owner = crypto.randomUUID();
+        setCompleted(JSON.parse(localStorage.getItem("aafk-verifications-completed") ?? "[]") as string[]);
+      } catch {
+        setCompleted([]);
+      }
+
+      let owner = crypto.randomUUID();
+      try {
+        const savedOwner = sessionStorage.getItem("aafk-verification-checkout-owner");
+        if (savedOwner) {
+          owner = savedOwner;
+        } else {
           sessionStorage.setItem("aafk-verification-checkout-owner", owner);
         }
-        const response = await fetch(`/api/verifications/checkout?owner=${encodeURIComponent(owner)}`, { cache: "no-store" });
-        const result = await response.json() as { checkedOut?: string[] };
-        if (active && response.ok) setCheckedOut(result.checkedOut ?? []);
       } catch {
-        // Listen virker fortsatt; reservasjoner er bare en kollisjonsbrems.
+        // En flyktig eier-ID er nok til å lese køen når nettleserlagring er blokkert.
+      }
+
+      try {
+        const response = await fetch(`/api/verifications/checkout?owner=${encodeURIComponent(owner)}`, { cache: "no-store" });
+        const result = await response.json() as { checkedOut?: string[]; submitted?: string[]; unavailable?: string[] };
+        if (active && response.ok) {
+          setUnavailable(result.unavailable ?? [...(result.checkedOut ?? []), ...(result.submitted ?? [])]);
+        }
+      } catch {
+        // Listen virker fortsatt; reservasjoner og innbokssjekk er sikkerhetsnett.
       }
     }
     void refresh();
@@ -40,11 +56,11 @@ export function CaseDirectory({ cases }: { cases: VerificationCaseView[] }) {
 
   const visible = useMemo(() => {
     const normalized = query.trim().toLocaleLowerCase("nb");
-    return cases.filter((item) => !checkedOut.includes(item.id) &&
+    return cases.filter((item) => !unavailable.includes(item.id) && !completed.includes(item.id) &&
       (category === "all" || item.category === category) &&
       (!normalized || `${item.question} ${item.context}`.toLocaleLowerCase("nb").includes(normalized)),
     );
-  }, [cases, category, checkedOut, query]);
+  }, [cases, category, completed, query, unavailable]);
 
   const categories = [...new Set(cases.map((item) => item.category))];
   return (

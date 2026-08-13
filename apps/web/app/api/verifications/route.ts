@@ -4,6 +4,7 @@ import { z } from "zod";
 import { isCrossSite, isJsonRequest, readBodyLimited } from "@/lib/chat-request";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { SITE_ORIGIN } from "@/lib/site";
+import { markVerificationCasePending } from "@/lib/verification-submissions";
 import { loadVerificationCase } from "@/lib/verifications";
 import type { VerificationCaseView } from "@/lib/verifications";
 
@@ -174,6 +175,7 @@ export async function POST(req: Request) {
     }
 
     const created = await response.json() as { html_url?: string };
+    markVerificationCasePending(verificationCase.id);
     console.log(JSON.stringify({ hendelse: "verifisering", sak: verificationCase.id, svar: data.answer }));
     return NextResponse.json({ success: true, issueUrl: created.html_url });
   } catch (error) {

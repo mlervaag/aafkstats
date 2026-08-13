@@ -90,13 +90,16 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
           body: JSON.stringify({ caseId: current!.id, owner: checkoutOwner }),
         });
         if (!active) return;
+        const result = await response.json() as { submitted?: boolean };
         if (response.ok) {
           setReservation("acquired");
           return;
         }
         if (response.status === 409) {
           setReservation("unavailable");
-          setReservationNotice("Den saken ble akkurat tatt av en annen. Vi fant en ny til deg.");
+          setReservationNotice(result.submitted
+            ? "Denne saken er allerede sendt inn til vurdering. Vi fant en ny til deg."
+            : "Den saken ble akkurat tatt av en annen. Vi fant en ny til deg.");
           const nextIndex = orderedCases.findIndex((item, candidateIndex) => candidateIndex !== index && !completed.includes(item.id));
           if (nextIndex >= 0) window.setTimeout(() => setIndex(nextIndex), 350);
           return;

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { isCrossSite, isJsonRequest, readBodyLimited } from "@/lib/chat-request";
 import { checkedOutCaseIds, claimVerificationCase, releaseVerificationCase } from "@/lib/verification-checkout";
+import { pendingVerificationCaseIds } from "@/lib/verification-submissions";
 import { loadVerificationCase } from "@/lib/verifications";
 
 const payload = z.object({
@@ -12,9 +13,14 @@ const payload = z.object({
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export function GET(req: Request) {
+export async function GET(req: Request) {
   const owner = new URL(req.url).searchParams.get("owner") ?? undefined;
-  return NextResponse.json({ checkedOut: checkedOutCaseIds(owner) }, { headers: { "Cache-Control": "no-store" } });
+  const checkedOut = checkedOutCaseIds(owner);
+  const submitted = await pendingVerificationCaseIds();
+  return NextResponse.json(
+    { checkedOut, submitted, unavailable: [...new Set([...checkedOut, ...submitted])] },
+    { headers: { "Cache-Control": "no-store" } },
+  );
 }
 
 async function parsePayload(req: Request) {
@@ -29,6 +35,12 @@ export async function POST(req: Request) {
   if (!data) return NextResponse.json({ error: "Ugyldig reservasjon." }, { status: 400 });
   const item = loadVerificationCase(data.caseId);
   if (!item || item.status !== "open") return NextResponse.json({ error: "Saken er ikke åpen." }, { status: 404 });
+  if ((await pendingVerificationCaseIds()).includes(data.caseId)) {
+    return NextResponse.json({ acquired: false, submitted: true }, {
+      status: 409,
+      headers: { "Cache-Control": "no-store" },
+    });
+  }
   const result = claimVerificationCase(data.caseId, data.owner);
   return NextResponse.json(result, { status: result.acquired ? 200 : 409, headers: { "Cache-Control": "no-store" } });
 }
