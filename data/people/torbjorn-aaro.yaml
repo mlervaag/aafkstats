@@ -12,7 +12,8 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: year_row)."
+        note: "Lest maskinelt fra spalte 1 på siden (regel: year_row). Manuelt
+          verifisert."
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
       siden.
   - id: trener-1964
@@ -41,7 +42,8 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: year_row)."
+        note: "Lest maskinelt fra spalte 1 på siden (regel: year_row). Manuelt
+          verifisert."
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
       siden.
   - id: trener-1966
@@ -55,7 +57,8 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt
+          verifisert."
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
       siden.
   - {

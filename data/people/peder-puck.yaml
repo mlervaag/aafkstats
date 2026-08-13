@@ -12,7 +12,8 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_year)."
+        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_year).
+          Manuelt verifisert."
       - sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
         page: "6"
         fields:
@@ -36,14 +37,14 @@ roles:
         fields: &a3
           - title
           - from
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
       siden.
   - id: styreleder-1945
@@ -58,7 +59,8 @@ roles:
           - title
           - from
           - to
-        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt
+          verifisert."
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
       siden.
   - id: varaformann-1946
@@ -86,12 +88,14 @@ roles:
           - title
           - from
           - to
+        note: Manuelt verifisert.
       - sourceId: vi-er-75-ar-1989-aff6
         page: "8"
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt
+          verifisert."
       - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
         page: "81"
         fields:
@@ -116,14 +120,15 @@ roles:
           - title
           - from
           - to
-        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt
+          verifisert."
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
   - id: formann-1940-1945
     category: board
     title: Formann
@@ -151,14 +156,14 @@ roles:
         fields: &a2
           - title
           - from
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
     note: Kildene fra 1939 og 1950 beskriver perioden 1938–1945; AaFKs nyere
       nettliste skriver 1938–1941 og 1945–1946. Periodene er ikke slått sammen,
       fordi nettlisten samtidig fører Sigurd Nørve fra 1946.
@@ -218,14 +223,14 @@ roles:
       - sourceId: vi-er-75-ar-1989-aff6
         page: "8"
         fields: *a2
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
   - id: oppmann-1933
     category: sporting_staff
     title: Oppmann
@@ -241,14 +246,14 @@ roles:
       - sourceId: vi-er-75-ar-1989-aff6
         page: "8"
         fields: *a3
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
   - id: oppmann-1950
     category: sporting_staff
     title: Oppmann
@@ -262,14 +267,14 @@ roles:
       - sourceId: vi-er-75-ar-1989-aff6
         page: "8"
         fields: *a3
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
   - id: eresmedlem-1957
     category: honorary
     title: Æresmedlem
@@ -282,7 +287,7 @@ roles:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
       - sourceId: tango-siden-1914-2013-806b
         page: "350"
         fields:

@@ -25,7 +25,8 @@ roles:
           - title
           - from
           - to
-        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt
+          verifisert."
       - sourceId: medlemsblad-for-aalesunds-fotb-1974-ab1b
         page: "3"
         fields:
@@ -37,14 +38,15 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt
+          verifisert."
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
   - id: gullmerkeinnehaver-1967
     category: honorary
     title: Gullmerkeinnehaver
@@ -57,7 +59,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: formann-1968
     category: board
     title: Formann
@@ -77,12 +80,14 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 2 på siden (regel: role_then_name)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "27"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+      Manuelt verifisert.
   - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
     page: "63"
     fields: []
@@ -135,10 +140,12 @@ sources:
     page: "348"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+      Manuelt verifisert.
   - sourceId: vi-er-75-ar-1989-aff6
     page: "8"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+      Manuelt verifisert.
   - sourceId: vi-er-80-ar-1914-1994-1994-5e91
     page: "7"
     fields: []

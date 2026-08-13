@@ -29,12 +29,13 @@ roles:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "27"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+      Manuelt verifisert.
   - sourceId: tango-siden-1914-2013-806b
     page: "284"
     fields: []

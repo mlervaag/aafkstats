@@ -53,14 +53,14 @@ roles:
         fields: &a1
           - title
           - from
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
   - id: fotballformann-1981
     category: sporting_staff
     title: Fotballformann
@@ -70,14 +70,14 @@ roles:
       - sourceId: vi-er-75-ar-1989-aff6
         page: "8"
         fields: *a1
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
   - id: eresmedlem-1987
     category: honorary
     title: Æresmedlem
@@ -90,7 +90,7 @@ roles:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
       - sourceId: tango-siden-1914-2013-806b
         page: "350"
         fields:
@@ -102,6 +102,7 @@ sources:
     page: "27"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+      Manuelt verifisert.
   - sourceId: medlemsblad-for-aalesunds-fotb-1980-bec4
     page: "1"
     fields: []

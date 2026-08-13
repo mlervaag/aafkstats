@@ -50,6 +50,7 @@ roles:
           - title
           - from
           - to
+        note: Manuelt verifisert.
       - sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
         page: "6"
         fields:
@@ -73,14 +74,14 @@ roles:
         fields:
           - title
           - from
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
   - id: aeresmedlem-1915
     category: honorary
     title: Æresmedlem
@@ -113,7 +114,7 @@ roles:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
       - sourceId: tango-siden-1914-2013-806b
         page: "350"
         fields:

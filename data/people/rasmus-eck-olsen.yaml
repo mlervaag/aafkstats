@@ -41,12 +41,14 @@ roles:
           - title
           - from
           - to
+        note: Manuelt verifisert.
       - sourceId: vi-er-75-ar-1989-aff6
         page: "8"
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt
+          verifisert."
       - sourceId: vi-er-80-ar-1914-1994-1994-5e91
         page: "7"
         fields:
@@ -65,7 +67,8 @@ roles:
           - title
           - from
           - to
-        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt
+          verifisert."
       - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
         page: "74"
         fields: &a1
@@ -78,7 +81,7 @@ roles:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
     note: Årslisten fra 1939 oppgir 1920–1924. Beretningen fra 1950 bruker
       formuleringen «fra 1920 til 1925».
   - id: oppmann-1920
@@ -108,13 +111,15 @@ roles:
           - title
           - from
           - to
+        note: Manuelt verifisert.
       - sourceId: tango-siden-1914-2013-806b
         page: "348"
         fields:
           - title
           - from
           - to
-        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt
+          verifisert."
       - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
         page: "74"
         fields: *a1
@@ -124,14 +129,14 @@ roles:
         fields:
           - title
           - from
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
   - id: gullmerkeinnehaver-1924
     category: honorary
     title: Gullmerkeinnehaver
@@ -171,7 +176,7 @@ roles:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
       - sourceId: tango-siden-1914-2013-806b
         page: "350"
         fields:
