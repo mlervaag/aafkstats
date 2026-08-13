@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { DirectResults, firstDirectUrl, useDirectSearch } from "@/components/DirectSearch";
+import { DirectResults, openFirstDirectResult, useDirectSearch } from "@/components/DirectSearch";
 
 export function GlobalSearch() {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -20,8 +20,7 @@ export function GlobalSearch() {
   }
 
   function openFirstResult() {
-    const url = firstDirectUrl(data);
-    if (url) window.location.assign(url);
+    openFirstDirectResult(data);
   }
 
   return (

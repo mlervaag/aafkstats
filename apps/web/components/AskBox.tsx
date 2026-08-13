@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { stripProseDashes } from "@aafkstats/query/style";
-import { DirectResults, firstDirectUrl, useDirectSearch } from "@/components/DirectSearch";
+import { DirectResults, openFirstDirectResult, useDirectSearch } from "@/components/DirectSearch";
 import { ThinkingLine } from "@/components/ThinkingLine";
 import {
   historyFromTurns,
@@ -240,8 +240,7 @@ export function AskBox() {
 
       <form className="ask-form" onSubmit={(event) => {
         event.preventDefault();
-        const url = firstDirectUrl(directResults);
-        if (url) window.location.assign(url);
+        openFirstDirectResult(directResults);
       }}>
         <input
           ref={inputRef}
@@ -260,8 +259,7 @@ export function AskBox() {
             if (event.key === "Escape") reset();
             if (event.key === "Enter" && !event.nativeEvent.isComposing) {
               event.preventDefault();
-              const url = firstDirectUrl(directResults);
-              if (url) window.location.assign(url);
+              openFirstDirectResult(directResults);
             }
           }}
         />

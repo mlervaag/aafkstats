@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { isCrossSite, isJsonRequest, readBodyLimited } from "@/lib/chat-request";
+import { createRequestLogger, logUpstreamFailure } from "@/lib/runtime-logging";
 
 /**
  * Bidragsskjemaet skriver rett inn i en GitHub-innboks.
@@ -108,8 +109,7 @@ function rejectionReason(error: z.ZodError): string {
   return (typeof field === "string" ? REJECTION[field] : undefined) ?? "Ugyldig data sendt inn.";
 }
 
-export async function POST(req: Request) {
-  try {
+async function handlePost(req: Request) {
     // Endepunktet har ingen innlogging, så dette er ikke CSRF i vanlig forstand.
     // Det som står på spill er innboksen: uten kontrollen kan en hvilken som
     // helst side få de besøkendes nettlesere til å fylle den.
@@ -152,11 +152,11 @@ export async function POST(req: Request) {
     const repo = process.env.GITHUB_INBOX_REPO;
 
     if (!token || !repo) {
-      console.error("Mangler GITHUB_INBOX_TOKEN eller GITHUB_INBOX_REPO");
+      logUpstreamFailure("/api/contributions", "github_config_missing");
       return NextResponse.json({ error: "Systemfeil: Kunne ikke koble til innboks." }, { status: 500 });
     }
     if (!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(repo)) {
-      console.error("GITHUB_INBOX_REPO har ugyldig format");
+      logUpstreamFailure("/api/contributions", "github_config_invalid");
       return NextResponse.json({ error: "Systemfeil: Kunne ikke koble til innboks." }, { status: 500 });
     }
 
@@ -202,13 +202,19 @@ export async function POST(req: Request) {
     if (!response.ok) {
       // Svaret fra GitHub kan inneholde tokenet i en feilmelding om autentisering.
       // Statuskoden er det vi trenger for å feilsøke, og den lekker ingenting.
-      console.error("GitHub API svarte", response.status);
+      logUpstreamFailure("/api/contributions", "github_request_failed", response.status);
       return NextResponse.json({ error: "Klarte ikke å opprette sak. Prøv igjen senere." }, { status: 502 });
     }
 
     return NextResponse.json({ success: true });
+}
+
+export async function POST(req: Request) {
+  const logger = createRequestLogger(req, "/api/contributions");
+  try {
+    return logger.complete(await handlePost(req));
   } catch (error) {
-    console.error("Feil i bidragsruten:", error);
+    logger.failed(error);
     return NextResponse.json({ error: "En intern feil oppstod." }, { status: 500 });
   }
 }

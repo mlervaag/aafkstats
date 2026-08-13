@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { isCrossSite, isJsonRequest, readBodyLimited } from "@/lib/chat-request";
 import { checkRateLimit } from "@/lib/rate-limit";
+import { createRequestLogger, logUpstreamFailure } from "@/lib/runtime-logging";
 import { SITE_ORIGIN } from "@/lib/site";
 import { markVerificationCasePending, pendingVerificationCaseIds } from "@/lib/verification-submissions";
 import { loadVerificationCase } from "@/lib/verifications";
@@ -66,8 +67,7 @@ function fallbackError(message: string, status: number) {
   return NextResponse.json({ error: message }, { status });
 }
 
-export async function POST(req: Request) {
-  try {
+async function handlePost(req: Request) {
     if (isCrossSite(req)) return fallbackError("Forespørselen kom utenfra.", 403);
     if (!isJsonRequest(req)) return fallbackError("Forespørselen må være JSON.", 415);
 
@@ -105,7 +105,7 @@ export async function POST(req: Request) {
     const token = process.env.GITHUB_INBOX_TOKEN;
     const repo = process.env.GITHUB_INBOX_REPO;
     if (!token || !repo || !/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(repo)) {
-      console.error("Verifiseringsinnboksen mangler gyldig GitHub-oppsett");
+      logUpstreamFailure("/api/verifications", "github_config_invalid");
       return fallbackError("Innsendingen er midlertidig utilgjengelig. Bruk GitHub-lenken i skjemaet.", 503);
     }
 
@@ -125,7 +125,7 @@ export async function POST(req: Request) {
     const searchQuery = encodeURIComponent(`repo:${repo} is:issue in:body "verification-submission:${markerId}"`);
     const existingResponse = await fetch(`https://api.github.com/search/issues?q=${searchQuery}&per_page=1`, { headers });
     if (!existingResponse.ok) {
-      console.error("GitHub API kunne ikke kontrollere duplikat", existingResponse.status, verificationCase.id);
+      logUpstreamFailure("/api/verifications", "github_duplicate_check_failed", existingResponse.status);
       return fallbackError("Klarte ikke å kontrollere om svaret allerede er sendt. Prøv igjen om litt.", 502);
     }
     const existing = await existingResponse.json() as { items?: { html_url?: string }[] };
@@ -173,16 +173,21 @@ export async function POST(req: Request) {
       }),
     });
     if (!response.ok) {
-      console.error("GitHub API avviste verifisering", response.status, verificationCase.id);
+      logUpstreamFailure("/api/verifications", "github_request_failed", response.status);
       return fallbackError("Klarte ikke å sende inn svaret. Prøv igjen, eller bruk GitHub-lenken.", 502);
     }
 
     const created = await response.json() as { html_url?: string };
     markVerificationCasePending(verificationCase.id);
-    console.log(JSON.stringify({ hendelse: "verifisering", sak: verificationCase.id, svar: data.answer }));
     return NextResponse.json({ success: true, issueUrl: created.html_url });
+}
+
+export async function POST(req: Request) {
+  const logger = createRequestLogger(req, "/api/verifications");
+  try {
+    return logger.complete(await handlePost(req));
   } catch (error) {
-    console.error("Feil i verifiseringsruten:", error);
+    logger.failed(error);
     return fallbackError("En intern feil oppstod.", 500);
   }
 }

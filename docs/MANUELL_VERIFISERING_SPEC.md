@@ -1159,33 +1159,36 @@ Minst disse historiene skal testes:
 
 ## 17. Observabilitet
 
-**Videre mål etter pilot:** API-et logger i første leveranse bare utfallet av en opprettet
-verifisering uten bidragsytertekst eller IP. Hendelsene og produktmålingene under skal først
-innføres når de har et konkret analysebehov og et avklart personvernoppsett.
+API-et skriver strukturerte start- og sluttlogger til Vercel Runtime Logs. De inneholder bare
+rute, Vercel request-ID, HTTP-status og varighet. Kjente GitHub-feil får i tillegg en grov
+feiltype og eventuell statuskode fra GitHub.
 
 Logg bare strukturerte metadata:
 
 ```json
 {
-  "hendelse": "verification_submission",
-  "caseId": "jan-with-aeresmedlem-1981",
-  "revision": "sha256:...",
-  "answer": "yes",
-  "evidenceType": "listed_source",
-  "durationMs": 420,
-  "status": "created"
+  "level": "info",
+  "msg": "done",
+  "route": "/api/verifications",
+  "request_id": "arn1::...",
+  "status": 200,
+  "ms": 420
 }
 ```
 
-Ikke logg citation, kommentar, contributor, URL fra brukeren eller IP.
+Ikke logg saks-ID, revisjon, svar, citation, kommentar, contributor, URL fra brukeren eller IP.
+
+Vercel Web Analytics måler den grove brukerflyten med `verification-started`,
+`verification-source-opened`, `verification-skipped` og `verification-submitted`. Hendelsene
+kan ha sakskategori, dokumentasjonstype, status og sekunder, men aldri saks-ID, svartekst,
+kilde-ID eller URL.
 
 Følg med på:
 
-- åpninger per sak;
+- start på en kontroll;
 - kildelenkeklikk;
 - hopp over;
 - startet og fullført innsending;
-- JA/NEI-fordeling som diagnostikk, aldri sannhetsmål;
 - GitHub-feil og rate-limit;
 - tid til redaksjonell triage og avgjørelse;
 - andel svar som gir en gyldig kilde;

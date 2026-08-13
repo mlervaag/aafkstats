@@ -58,8 +58,33 @@ export function useDirectSearch(query: string, disabled = false) {
   return { data, state, show: !disabled && deferredQuery.trim().length >= 2 };
 }
 
-export function firstDirectUrl(data: DirectSearchData): string | null {
-  return data.people[0]?.url ?? data.sources[0]?.url ?? data.matches[0]?.url ?? null;
+export interface DirectResultTarget {
+  kind: "person" | "source" | "match";
+  url: string;
+  position: number;
+}
+
+export function firstDirectResult(data: DirectSearchData): DirectResultTarget | null {
+  if (data.people[0]) return { kind: "person", url: data.people[0].url, position: 1 };
+  if (data.sources[0]) return { kind: "source", url: data.sources[0].url, position: 1 };
+  if (data.matches[0]) return { kind: "match", url: data.matches[0].url, position: 1 };
+  return null;
+}
+
+/**
+ * Åpner første direktetreff med den samme målingen som et museklikk.
+ *
+ * Enter-stien gikk tidligere rett til URL-en og hoppet dermed over Analytics.
+ * Trefftypen og plasseringen er nok til å måle om søket virker; teksten og
+ * identiteten til treffet skal aldri følge med.
+ */
+export function openFirstDirectResult(data: DirectSearchData): void {
+  const target = firstDirectResult(data);
+  if (!target) return;
+  if (target.kind === "person") trackEvent("person-opened", { position: target.position });
+  else if (target.kind === "source") trackEvent("source-opened", { position: target.position });
+  else trackEvent("match-opened", { position: target.position });
+  window.location.assign(target.url);
 }
 
 export function DirectResults({
@@ -93,7 +118,9 @@ export function DirectResults({
           {data.people.map((person, index) => (
             <PersonResult key={person.personId} person={person} position={index + 1} />
           ))}
-          {data.sources.map((source) => <SourceResult key={source.sourceId} source={source} />)}
+          {data.sources.map((source, index) => (
+            <SourceResult key={source.sourceId} source={source} position={index + 1} />
+          ))}
           {data.matches.slice(0, maxMatches).map((match, index) => (
             <MatchResult key={match.matchId} match={match} position={index + 1} />
           ))}
@@ -120,10 +147,14 @@ function PersonResult({ person, position }: { person: SearchPerson; position: nu
   );
 }
 
-function SourceResult({ source }: { source: SearchSource }) {
+function SourceResult({ source, position }: { source: SearchSource; position: number }) {
   return (
     <li>
-      <a className="person-result-link" href={source.url}>
+      <a
+        className="person-result-link"
+        href={source.url}
+        onClick={() => trackEvent("source-opened", { position })}
+      >
         <span className="result-kind">Kilde</span>
         <strong>{source.title}</strong>
         <span className="small muted">{source.description}</span>
