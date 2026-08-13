@@ -43,21 +43,6 @@ roles:
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
       siden.
-  - id: trener-1961
-    category: coach
-    title: Trener
-    from: "1961"
-    to: null
-    sources:
-      - sourceId: tango-siden-1914-2013-806b
-        page: "351"
-        fields:
-          - title
-          - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt
-          verifisert."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
-      siden.
   - id: trener-1966
     category: coach
     title: Trener
