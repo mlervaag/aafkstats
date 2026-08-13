@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { contributionIssueUrl } from "@/lib/contribution-links";
 import {
   EMPTY_VERIFICATION_DRAFT,
@@ -40,6 +40,14 @@ function githubFallback(current: VerificationCaseView, draft: VerificationDraft)
   });
 }
 
+export function availableVerificationCases(
+  cases: VerificationCaseView[],
+  unavailableCaseIds: string[],
+): VerificationCaseView[] {
+  const unavailable = new Set(unavailableCaseIds);
+  return cases.filter((item) => !unavailable.has(item.id));
+}
+
 export function VerificationExperience({ cases, startCaseId }: { cases: VerificationCaseView[]; startCaseId?: string }) {
   const orderedCases = useMemo(() => {
     if (!startCaseId) return cases;
@@ -58,10 +66,16 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
   const [unavailableCaseIds, setUnavailableCaseIds] = useState<string[]>([]);
   const [copied, setCopied] = useState(false);
   const [checkoutOwner, setCheckoutOwner] = useState<string | null>(null);
+  const [availabilityChecked, setAvailabilityChecked] = useState(false);
   const [reservation, setReservation] = useState<"idle" | "checking" | "acquired" | "unavailable">("idle");
   const [reservationNotice, setReservationNotice] = useState<string | null>(null);
 
   const current = orderedCases[index];
+  const availableCases = useMemo(
+    () => availableVerificationCases(orderedCases, unavailableCaseIds),
+    [orderedCases, unavailableCaseIds],
+  );
+  const currentPosition = availableCases.findIndex((item) => item.id === current?.id) + 1;
 
   useEffect(() => {
     let owner = crypto.randomUUID();
@@ -83,6 +97,38 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
       // Lagring er bare en bekvemmelighet. Privat modus skal ikke blokkere arbeidet.
     }
   }, []);
+
+  useEffect(() => {
+    if (!checkoutOwner) return;
+    const owner = checkoutOwner;
+    let active = true;
+
+    async function loadSubmittedCases() {
+      try {
+        const response = await fetch(
+          `/api/verifications/checkout?owner=${encodeURIComponent(owner)}`,
+          { cache: "no-store" },
+        );
+        const result = await response.json() as { submitted?: string[] };
+        if (!active || !response.ok) return;
+
+        const submitted = result.submitted ?? [];
+        const blocked = new Set(submitted);
+        setUnavailableCaseIds((ids) => [...new Set([...ids, ...submitted])]);
+        setIndex((currentIndex) => {
+          const selected = orderedCases[currentIndex];
+          if (!selected || !blocked.has(selected.id)) return currentIndex;
+          return orderedCases.findIndex((item) => !blocked.has(item.id));
+        });
+        setAvailabilityChecked(true);
+      } catch {
+        // Køen virker fortsatt. Uten innbokssjekken viser vi ikke et usikkert totaltall.
+      }
+    }
+
+    void loadSubmittedCases();
+    return () => { active = false; };
+  }, [checkoutOwner, orderedCases]);
 
   useEffect(() => {
     if (!current || !checkoutOwner || reservation !== "acquired") return;
@@ -297,7 +343,9 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
       </header>
 
       <nav className={styles.utilityNav} aria-label="Arbeidskø">
-        <a href="/mangler/saker">Se alle {orderedCases.length} saker</a>
+        <a href="/mangler/saker">
+          {availabilityChecked ? `Se alle ${availableCases.length} saker` : "Se alle saker"}
+        </a>
         <a href="/mangler/oversikt">Hele mangellista</a>
       </nav>
 
@@ -307,7 +355,11 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
         <div className={styles.caseMeta}>
           <span>{CATEGORY_LABELS[current.category]}</span>
           <span>ca. {current.estimatedMinutes} min</span>
-          <span>Sak {index + 1} av {orderedCases.length}</span>
+          <span>
+            {availabilityChecked && currentPosition > 0
+              ? `Sak ${currentPosition} av ${availableCases.length}`
+              : "Sak i arbeidskøen"}
+          </span>
         </div>
 
         <div className={styles.questionBlock}>
