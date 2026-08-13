@@ -1,0 +1,13 @@
+id: oyvind-riise-dalseth
+name: Øyvind Riise Dalseth
+roles:
+  - id: utviklingsleder-2018-2019
+    category: sporting_staff
+    title: Utviklingsleder
+    organizationId: aafk
+    from: "2018-01-08"
+    to: "2019"
+    sources:
+      - { sourceId: aafk-ny-utviklingsleder-dalseth, fields: [title, from] }
+      - { sourceId: aafk-sindre-eid-utviklingsleder, fields: [to] }
+    note: Etterfølgeren ble offentliggjort i desember 2019; eksakt sluttdag er ikke oppgitt.

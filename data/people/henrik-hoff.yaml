@@ -1,0 +1,48 @@
+id: henrik-hoff
+name: Henrik Hoff
+roles:
+  - id: daglig-leder-1994-2008
+    category: administration
+    title: Daglig leder
+    organizationId: aafk
+    body: Administrasjonen
+    from: "1994"
+    to: "2008"
+    sources:
+      - { sourceId: aftenposten-hoff-daglig-leder-1994, fields: [title, from] }
+      - { sourceId: smp-henrik-hoff-retrospektiv, fields: [title, from, to] }
+    note: Tilsatt i mars 1994; kildene oppgir ikke dagen, og datoen er derfor ikke konstruert.
+  - id: klubbdirektor-2008-2017
+    category: administration
+    title: Klubbdirektør
+    organizationId: aafk
+    body: Administrasjonen
+    from: "2008-06-16"
+    to: "2017-05-31"
+    sources:
+      - { sourceId: aafk-omorganisering-2008, fields: [title, from] }
+      - { sourceId: aafk-henrik-hoff-slutter, fields: [title, to] }
+      - { sourceId: aafk-ny-daglig-leder-vik, fields: [to] }
+    note: Ved omorganiseringen fikk rollen hovedvekt på forretnings- og organisasjonsutvikling. Enkelte kilder brukte fortsatt daglig leder eller direktør.
+  - id: daglig-leder-aafk-as-1994-2017
+    category: administration
+    title: Daglig leder
+    organizationId: aafk-as
+    from: "1994"
+    to: "2017"
+    sources:
+      - { sourceId: aafk-henrik-hoff-slutter, fields: [title, from, to] }
+      - { sourceId: smp-henrik-hoff-retrospektiv, fields: [title, from, to] }
+    note: Eksakte selskapsrettslige rollegrenser bør kontrolleres mot Brønnøysundregistrene.
+  - id: styremedlem-2025
+    category: board
+    title: Styremedlem
+    organizationId: aafk
+    body: Hovedstyret
+    from: "2025"
+    to: null
+    sources:
+      - { sourceId: aafk-styre-og-organisasjon-2026, fields: [title, from] }
+      - { sourceId: aafk-arsmote-2025, fields: [title, from] }
+sources:
+  - { sourceId: medlemsblad-for-aalesunds-fotb-2004-ff8e, page: "1", note: Navnet er manuelt koblet fra ekstraksjonens personrolle-kandidat. }

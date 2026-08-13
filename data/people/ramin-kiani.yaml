@@ -1,0 +1,13 @@
+id: ramin-kiani
+name: Ramin Kiani
+roles:
+  - id: trenerutvikler-2025
+    category: sporting_staff
+    title: Trenerutvikler
+    organizationId: aafk
+    body: AaFK Akademiet / SunnmørsAkademiet
+    from: "2025"
+    to: null
+    sources:
+      - { sourceId: aafk-kiani-trenerutvikler, fields: [title, from] }
+      - { sourceId: aafk-ansatte-2026, fields: [title] }

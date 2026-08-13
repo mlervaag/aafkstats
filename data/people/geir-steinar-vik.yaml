@@ -1,0 +1,13 @@
+id: geir-steinar-vik
+name: Geir Steinar Vik
+roles:
+  - id: daglig-leder-klubbdirektor-2017-2022
+    category: administration
+    title: Daglig leder / klubbdirektør
+    organizationId: aafk
+    from: "2017"
+    to: "2022"
+    sources:
+      - { sourceId: aafk-ny-daglig-leder-vik, fields: [title, from] }
+      - { sourceId: aafk-geir-vik-gir-seg, fields: [to] }
+    note: Ansatt 17. mars og startet sommeren 2017. Varslet avgang etter 2021-sesongen og arbeidet inn i starten av 2022. En senere AaFK-sak sier 2018, men samtidige kilder støtter 2017.

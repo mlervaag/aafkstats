@@ -1,0 +1,13 @@
+id: arnfinn-ingjerd
+name: Arnfinn Ingjerd
+roles:
+  - id: sportssjef-2008-2009
+    category: sporting_staff
+    title: Sportssjef
+    organizationId: aafk
+    from: "2008-06-16"
+    to: "2009"
+    sources:
+      - { sourceId: aafk-omorganisering-2008, fields: [title, from] }
+      - { sourceId: aftenposten-ingjerd-slutter, fields: [to] }
+    note: Sluttet sommeren 2009; eksakt siste dag er ikke dokumentert.

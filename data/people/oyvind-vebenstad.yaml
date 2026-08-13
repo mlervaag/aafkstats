@@ -1,0 +1,21 @@
+id: oyvind-vebenstad
+name: Øyvind Vebenstad
+roles:
+  - id: arrangement-sikkerhet-2003-2016
+    category: administration
+    title: Arrangements- og sikkerhetsansvarlig
+    organizationId: color-line-stadion
+    from: "2003"
+    to: "2016"
+    sources:
+      - { sourceId: color-line-stadion-historisk-profil, fields: [title, from, to] }
+      - { sourceId: aafk-vebenstad-oransje-blatt, fields: [title, from, to] }
+    note: Retrospektiv stadionkilde omtaler 14 sesonger fra 2003 til 2016.
+  - id: arrangementsansvarlig-fulltid-2006-2016
+    category: administration
+    title: Arrangementsansvarlig, fulltid
+    organizationId: aafk
+    from: "2006-07-01"
+    to: "2016"
+    sources: [{ sourceId: aafk-vebenstad-oransje-blatt, fields: [title, from, to] }]
+    note: Eksakt siste arbeidsdag er ikke bekreftet.

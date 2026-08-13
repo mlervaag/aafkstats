@@ -1,0 +1,12 @@
+id: gaute-hole-vik
+name: Gaute Hole Vik
+roles:
+  - id: salgs-partneransvarlig-2025
+    category: administration
+    title: Salgs- og partneransvarlig
+    organizationId: aafk
+    from: "2025-05-01"
+    to: null
+    sources:
+      - { sourceId: aafk-gaute-hole-vik, fields: [title, from] }
+      - { sourceId: aafk-ansatte-2026, fields: [title] }

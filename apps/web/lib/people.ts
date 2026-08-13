@@ -29,9 +29,24 @@ export interface PersonRole {
   role_id: string;
   category: string;
   title: string;
+  organization_id: string | null;
+  organization_name: string | null;
   body: string | null;
   from_date: string;
   to_date: string | null;
+  sources: PersonRoleSource[];
+  note: string | null;
+}
+
+export interface OrganizationSnapshotPerson {
+  snapshot_date: string;
+  organization_id: string;
+  organization_name: string;
+  person_id: string;
+  name: string;
+  observed_title: string;
+  category: string;
+  body: string | null;
   sources: PersonRoleSource[];
   note: string | null;
 }
@@ -167,14 +182,15 @@ export function getPersonRoles(personId?: string): PersonRole[] {
   try {
     const rows = all<Omit<PersonRole, "sources"> & { sources: string }>(
       db,
-      `SELECT person_id, name, role_id, category, title, body, from_date, to_date, sources, note
+      `SELECT person_id, name, role_id, category, title, organization_id, organization_name, body, from_date, to_date, sources, note
          FROM (
-           SELECT person_id, name, role_id, category, title, body, from_date, to_date, sources, note
+           SELECT person_id, name, role_id, category, title, organization_id, organization_name, body, from_date, to_date, sources, note
              FROM person_roles
            UNION ALL
            SELECT d.person_id, p.name,
                   'oppgitt-hovedtrener-' || d.from_season AS role_id,
-                  'coach' AS category, 'Hovedtrener' AS title, 'A-laget' AS body,
+                  'coach' AS category, 'Hovedtrener' AS title,
+                  NULL AS organization_id, NULL AS organization_name, 'A-laget' AS body,
                   -- Datoen når kilden oppgir den: Rekdal ble ansatt 4. september
                   -- 2008, ikke ved nyttår.
                   coalesce(d.from_date, printf('%04d', d.from_season)) AS from_date,
@@ -188,6 +204,22 @@ export function getPersonRoles(personId?: string): PersonRole[] {
         ${personId ? "WHERE person_id = ?" : ""}
         ORDER BY from_date, name COLLATE NOCASE`,
       ...(personId ? [personId] : []),
+    );
+    return rows.map((row) => ({ ...row, sources: parseRoleSources(row.sources) }));
+  } finally {
+    db.close();
+  }
+}
+
+export function getOrganizationSnapshots(): OrganizationSnapshotPerson[] {
+  const db = open();
+  try {
+    const rows = all<Omit<OrganizationSnapshotPerson, "sources"> & { sources: string }>(
+      db,
+      `SELECT snapshot_date, organization_id, organization_name, person_id, name,
+              observed_title, category, body, sources, note
+         FROM organization_snapshots
+        ORDER BY snapshot_date, organization_name, name COLLATE NOCASE`,
     );
     return rows.map((row) => ({ ...row, sources: parseRoleSources(row.sources) }));
   } finally {
@@ -267,7 +299,7 @@ function endYear(role: PersonRole): number {
 export function mergeRoleSpells(roles: PersonRole[]): PersonRole[] {
   const groups = new Map<string, PersonRole[]>();
   for (const role of roles) {
-    const key = `${role.person_id}|${role.category}|${office(role.title)}|${organ(role.body)}`;
+    const key = `${role.person_id}|${role.category}|${office(role.title)}|${role.organization_id ?? ""}|${organ(role.body)}`;
     const group = groups.get(key);
     if (group) group.push(role);
     else groups.set(key, [role]);

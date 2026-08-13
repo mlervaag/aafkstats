@@ -1,0 +1,39 @@
+id: tarjei-gjendemsjo-omenas
+name: Tarjei Gjendemsjø Omenås
+roles:
+  - id: salg-partner-2022-2024
+    category: administration
+    title: Salgs- og partneransvarlig
+    organizationId: aafk
+    from: "2022-02-01"
+    to: "2024"
+    sources: [{ sourceId: aafk-omenas-salg-partner, fields: [title, from, to] }]
+    note: Ansettelsen ble kunngjort 29. oktober 2021; kilden oppgir oppstart 1. februar 2022.
+  - id: konstituert-daglig-leder-2024
+    category: administration
+    title: Konstituert daglig leder
+    organizationId: aafk
+    from: "2024-05-01"
+    to: "2024-11-18"
+    sources:
+      - { sourceId: aafk-stokke-avslutter, fields: [title, from] }
+      - { sourceId: aafk-omenas-daglig-leder, fields: [to] }
+  - id: daglig-leder-2024
+    category: administration
+    title: Daglig leder
+    organizationId: aafk
+    from: "2024-11-18"
+    to: null
+    sources:
+      - { sourceId: aafk-omenas-daglig-leder, fields: [title, from] }
+      - { sourceId: aafk-ansatte-2026, fields: [title] }
+  - id: delt-sportslig-lederfunksjon-2024-2025
+    category: sporting_staff
+    title: Sportslig lederfunksjon
+    organizationId: aafk
+    from: "2024"
+    to: "2025"
+    sources:
+      - { sourceId: aafk-veien-videre-2024, fields: [title, from] }
+      - { sourceId: aafk-lie-sportssjef, fields: [to] }
+    note: Lederfunksjonen ble delt med Oddbjørn Lie etter at den ordinære sportssjefstillingen ble avviklet.

@@ -1,0 +1,25 @@
+id: kristin-herje-norve
+name: Kristin Herje Nørve
+roles:
+  - id: arrangementsansvarlig-2017-2020
+    category: administration
+    title: Arrangementsansvarlig
+    organizationId: aafk
+    from: "2017-03-02"
+    to: "2020"
+    sources: [{ sourceId: aafk-norve-arrangementsansvarlig, fields: [title, from, to] }]
+  - id: arrangement-samfunn-2020-2022
+    category: administration
+    title: Arrangements- og samfunnsansvarlig
+    organizationId: aafk
+    from: "2020"
+    to: "2022"
+    sources: [{ sourceId: aafk-samfunn-satsing, fields: [title, from, to] }]
+  - id: samfunnsansvarlig-2022
+    category: administration
+    title: Samfunnsansvarlig
+    organizationId: aafk
+    from: "2022"
+    to: null
+    sources: [{ sourceId: aafk-ansatte-2026, fields: [title, from] }]
+    note: Eksakt dato for overgangen fra kombinasjonsrollen er ikke dokumentert.

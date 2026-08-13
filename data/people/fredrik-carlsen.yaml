@@ -16,7 +16,17 @@ squadNumbers:
   - season: 2020
     number: 8
 coachSpells: []
-roles: []
+roles:
+  - id: sportslig-administrativ-leder-2023
+    category: administration
+    title: Sportslig administrativ leder
+    organizationId: aafk
+    body: SunnmørsAkademiet
+    from: "2023-01-01"
+    to: null
+    sources:
+      - { sourceId: aafk-carlsen-sunnmorsakademiet, fields: [title, from] }
+      - { sourceId: aafk-ansatte-2026, fields: [title] }
 providers:
   - providerId: wikipedia
     url: https://no.wikipedia.org/w/index.php?title=Aalesunds%20Fotballklubb&oldid=21041395

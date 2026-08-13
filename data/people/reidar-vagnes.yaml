@@ -53,4 +53,12 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
+  - id: sportslig-utviklingsleder-2008-2009
+    category: sporting_staff
+    title: Sportslig utviklingsleder
+    organizationId: aafk
+    from: "2008-06-16"
+    to: "2009"
+    sources: [{ sourceId: aafk-omorganisering-2008, fields: [title, from, to] }]
+    note: Operativ rolle med talent- og spillerutvikling; eksakt sluttdato er ikke dokumentert.
 sources: []

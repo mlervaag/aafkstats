@@ -1,0 +1,13 @@
+id: sven-giske
+name: Sven Giske
+roles:
+  - id: arrangementsansvarlig-2022
+    category: administration
+    title: Arrangementsansvarlig
+    organizationId: aafk
+    from: "2022"
+    to: null
+    sources:
+      - { sourceId: aafk-giske-ny-rolle, fields: [title, from] }
+      - { sourceId: aafk-ansatte-2026, fields: [title] }
+    note: Ansettelsen ble kunngjort 26. januar. Kilden oppgir oppstart fra mai 2022, men ingen eksakt dag; dagens tittel er Arrangement- og billettansvarlig.
