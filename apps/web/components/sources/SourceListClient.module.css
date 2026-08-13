@@ -7,25 +7,39 @@
  */
 
 .controls {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(12rem, 0.42fr);
   gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  padding: 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.controlGroup {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.controlGroup label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .search,
 .filter {
+  width: 100%;
   font: inherit;
-  padding: 0.5rem 1rem;
+  min-height: 2.9rem;
+  padding: 0.65rem 0.85rem;
   color: var(--text);
-  background: var(--bg);
+  background: var(--surface-2);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-}
-
-.search {
-  flex-grow: 1;
-  max-width: 400px;
 }
 
 .search:focus,
@@ -34,8 +48,106 @@
   outline-offset: 1px;
 }
 
+.resultSummary {
+  margin: 0 0 2.5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.resultSummary strong {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.section + .section {
+  margin-top: 3.75rem;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sectionHeading h2 {
+  margin: 0.15rem 0 0;
+  font-size: clamp(1.45rem, 3vw, 1.8rem);
+}
+
+.sectionHeading > span {
+  display: grid;
+  place-items: center;
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--muted);
+  background: var(--surface-2);
+  border-radius: 999px;
+}
+
+.sectionEyebrow {
+  margin: 0;
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.sourceGroups {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.sourceGroup {
+  min-width: 0;
+}
+
+.groupHeading {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  margin-bottom: 0.8rem;
+}
+
+.groupHeading h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+.groupHeading span {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.sourceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
 .empty {
   margin-top: 2rem;
   font-style: italic;
   color: var(--muted);
+}
+
+@media (max-width: 780px) {
+  .controls,
+  .sourceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .section + .section {
+    margin-top: 3rem;
+  }
 }
