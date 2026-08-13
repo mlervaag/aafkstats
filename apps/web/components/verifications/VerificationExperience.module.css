@@ -125,6 +125,7 @@
   cursor: pointer;
 }
 .answerButton:hover, .answerButton:focus-visible { border-color: var(--accent); outline: 2px solid transparent; }
+.answerButton:disabled { opacity: 0.65; cursor: wait; }
 .answerWord { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); line-height: 1; }
 .selectedYes { border-color: var(--win); background: color-mix(in srgb, var(--win) 9%, var(--surface)); }
 .selectedNo { border-color: var(--loss); background: color-mix(in srgb, var(--loss) 8%, var(--surface)); }

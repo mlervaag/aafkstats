@@ -1,12 +1,14 @@
 import { mkdtempSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
+import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
 import VerificationCasePage, { generateStaticParams } from "../app/mangler/[id]/page.js";
 import { GET as getCheckout, POST as postCheckout } from "../app/api/verifications/checkout/route.js";
 import { POST } from "../app/api/verifications/route.js";
+import { VerificationHistory } from "../components/verifications/VerificationHistory.js";
 import { restoreVerificationDraft } from "../lib/verification-draft.js";
 import { checkedOutCaseIds, claimVerificationCase, releaseVerificationCase } from "../lib/verification-checkout.js";
 import { resetVerificationSubmissionCache } from "../lib/verification-submissions.js";
@@ -58,6 +60,15 @@ describe("verifiseringskøen", () => {
     expect(html).toContain("Fixture-kilden identifiserer personen uttrykkelig.");
     expect(html).toContain("https://github.com/mlervaag/aafkstats/issues/1");
     expect(html).toContain("https://github.com/mlervaag/aafkstats/pull/1");
+  });
+
+  it("viser avgjorte saker og forklarer arbeidsflyten i historikken", () => {
+    const html = renderToStaticMarkup(React.createElement(VerificationHistory, {
+      cases: loadVerificationCases("all"),
+    }));
+    expect(html).toContain("Se hva andre har kontrollert");
+    expect(html).toContain("Fixture-kilden identifiserer personen uttrykkelig.");
+    expect(html).toContain("Se konklusjon og kilder");
   });
 });
 
@@ -141,6 +152,12 @@ describe("verifiseringsinnsending", () => {
           headers: { "content-type": "application/json" },
         });
       }
+      if (url.includes("/issues?state=open")) {
+        return new Response(JSON.stringify([]), {
+          status: 200,
+          headers: { "content-type": "application/json" },
+        });
+      }
       if (url.endsWith("/issues") && init?.method === "POST") {
         created = true;
         createCalls += 1;
@@ -159,6 +176,32 @@ describe("verifiseringsinnsending", () => {
     expect(second.status).toBe(200);
     expect(await second.json()).toMatchObject({ success: true, issueUrl, duplicate: true });
     expect(createCalls).toBe(1);
+  });
+
+  it("avviser et nytt svar når en annen innsending allerede venter", async () => {
+    process.env.GITHUB_INBOX_TOKEN = "test-token";
+    process.env.GITHUB_INBOX_REPO = "mlervaag/aafkstats-inbox";
+    const item = loadVerificationCase("fixture-open-high")!;
+    const fetchSpy = vi.fn(async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.includes("/search/issues")) {
+        return new Response(JSON.stringify({ items: [] }), { status: 200 });
+      }
+      if (url.includes("/issues?state=open")) {
+        return new Response(JSON.stringify([{
+          body: `**Sak:** [${item.id}](https://aafkarkivet.no/mangler/${item.id})`,
+        }]), { status: 200 });
+      }
+      throw new Error(`Uventet GitHub-kall: ${url}`);
+    });
+    vi.stubGlobal("fetch", fetchSpy);
+
+    const response = await POST(request(submission({
+      clientSubmissionId: "13d7f244-12ae-4d91-b78d-941d5efbca3e",
+    }), "10.20.0.5"));
+    expect(response.status).toBe(409);
+    expect(await response.json()).toMatchObject({ error: expect.stringContaining("venter på vurdering") });
+    expect(fetchSpy).toHaveBeenCalledTimes(2);
   });
 });
 

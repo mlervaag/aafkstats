@@ -4,6 +4,7 @@ import { pageMetadata } from "@/lib/metadata";
 import { loadMissingOverview } from "@/lib/missing";
 import { loadVerificationCases } from "@/lib/verifications";
 import { VerificationExperience } from "@/components/verifications/VerificationExperience";
+import { VerificationHistory } from "@/components/verifications/VerificationHistory";
 import styles from "./Missing.module.css";
 
 export const metadata: Metadata = pageMetadata(
@@ -405,5 +406,11 @@ export function MissingOverviewContent() {
 }
 
 export default function VerificationPage() {
-  return <VerificationExperience cases={loadVerificationCases("open")} />;
+  const cases = loadVerificationCases("all").filter((item) => item.publishedAt !== null);
+  return (
+    <>
+      <VerificationExperience cases={cases.filter((item) => item.status === "open")} />
+      <VerificationHistory cases={cases} />
+    </>
+  );
 }

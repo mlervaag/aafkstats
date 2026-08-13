@@ -55,21 +55,28 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
   const [successUrl, setSuccessUrl] = useState<string | null>(null);
   const [completed, setCompleted] = useState<string[]>([]);
   const [skipped, setSkipped] = useState<string[]>([]);
+  const [unavailableCaseIds, setUnavailableCaseIds] = useState<string[]>([]);
   const [copied, setCopied] = useState(false);
   const [checkoutOwner, setCheckoutOwner] = useState<string | null>(null);
-  const [reservation, setReservation] = useState<"checking" | "acquired" | "unavailable">("checking");
+  const [reservation, setReservation] = useState<"idle" | "checking" | "acquired" | "unavailable">("idle");
   const [reservationNotice, setReservationNotice] = useState<string | null>(null);
 
   const current = orderedCases[index];
 
   useEffect(() => {
+    let owner = crypto.randomUUID();
     try {
-      let owner = sessionStorage.getItem("aafk-verification-checkout-owner");
-      if (!owner) {
-        owner = crypto.randomUUID();
+      const savedOwner = sessionStorage.getItem("aafk-verification-checkout-owner");
+      if (savedOwner) {
+        owner = savedOwner;
+      } else {
         sessionStorage.setItem("aafk-verification-checkout-owner", owner);
       }
-      setCheckoutOwner(owner);
+    } catch {
+      // En flyktig ID er nok når nettleserlagring er blokkert.
+    }
+    setCheckoutOwner(owner);
+    try {
       setCompleted(JSON.parse(localStorage.getItem("aafk-verifications-completed") ?? "[]") as string[]);
       setSkipped(JSON.parse(sessionStorage.getItem("aafk-verifications-skipped") ?? "[]") as string[]);
     } catch {
@@ -78,45 +85,19 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
   }, []);
 
   useEffect(() => {
-    if (!current || !checkoutOwner) return;
-    let active = true;
-    setReservation("checking");
-
-    async function claim() {
-      try {
-        const response = await fetch("/api/verifications/checkout", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ caseId: current!.id, owner: checkoutOwner }),
-        });
-        if (!active) return;
-        const result = await response.json() as { submitted?: boolean };
-        if (response.ok) {
-          setReservation("acquired");
-          return;
-        }
-        if (response.status === 409) {
-          setReservation("unavailable");
-          setReservationNotice(result.submitted
-            ? "Denne saken er allerede sendt inn til vurdering. Vi fant en ny til deg."
-            : "Den saken ble akkurat tatt av en annen. Vi fant en ny til deg.");
-          const nextIndex = orderedCases.findIndex((item, candidateIndex) => candidateIndex !== index && !completed.includes(item.id));
-          if (nextIndex >= 0) window.setTimeout(() => setIndex(nextIndex), 350);
-          return;
-        }
-        setReservation("acquired");
-      } catch {
-        if (active) setReservation("acquired");
-      }
-    }
-
-    void claim();
-    const renew = window.setInterval(claim, 4 * 60 * 1000);
+    if (!current || !checkoutOwner || reservation !== "acquired") return;
+    const caseId = current.id;
+    const renew = window.setInterval(() => {
+      void fetch("/api/verifications/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ caseId, owner: checkoutOwner }),
+      });
+    }, 4 * 60 * 1000);
     return () => {
-      active = false;
       window.clearInterval(renew);
     };
-  }, [checkoutOwner, completed, current, index, orderedCases]);
+  }, [checkoutOwner, current, reservation]);
 
   useEffect(() => {
     if (!current) return;
@@ -124,6 +105,7 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
     setError(null);
     setSuccessUrl(null);
     setShowEvidence(false);
+    setReservation("idle");
     try {
       const saved = sessionStorage.getItem(key);
       const nextDraft = restoreVerificationDraft(saved, current.sources[0]?.key ?? "", current.sources.length > 0);
@@ -159,11 +141,47 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
     );
   }
 
-  function chooseAnswer(answer: VerificationAnswer) {
+  function applyAnswer(answer: VerificationAnswer) {
     setDraft((value) => ({ ...value, answer }));
     setShowEvidence(true);
     setError(null);
     window.setTimeout(() => document.getElementById("dokumentasjon")?.scrollIntoView({ behavior: "smooth", block: "start" }), 40);
+  }
+
+  async function chooseAnswer(answer: VerificationAnswer) {
+    if (!checkoutOwner || reservation === "acquired") return applyAnswer(answer);
+    setReservation("checking");
+    setReservationNotice(null);
+    try {
+      const response = await fetch("/api/verifications/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ caseId: current.id, owner: checkoutOwner }),
+      });
+      const result = await response.json() as { submitted?: boolean };
+      if (response.ok) {
+        setReservation("acquired");
+        return applyAnswer(answer);
+      }
+      if (response.status === 409) {
+        const blocked = [...new Set([...unavailableCaseIds, current.id])];
+        setUnavailableCaseIds(blocked);
+        setReservation("unavailable");
+        setReservationNotice(result.submitted
+          ? "Denne saken er allerede sendt inn til vurdering. Vi fant en ny til deg."
+          : "Den saken arbeides det allerede med. Vi fant en ny til deg.");
+        const unavailable = new Set([...blocked, ...completed, ...skipped]);
+        const nextIndex = orderedCases.findIndex((item) => !unavailable.has(item.id));
+        window.setTimeout(() => setIndex(nextIndex), 500);
+        return;
+      }
+      setReservation("idle");
+      applyAnswer(answer);
+    } catch {
+      // Checkout er bare en kollisjonsbrems. Nettverksfeil skal ikke stoppe bidrag.
+      setReservation("idle");
+      applyAnswer(answer);
+    }
   }
 
   function moveNext(kind: "completed" | "skipped") {
@@ -189,9 +207,9 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
       });
     }
 
-    const unavailable = new Set([...nextCompleted, ...nextSkipped]);
+    const unavailable = new Set([...nextCompleted, ...nextSkipped, ...unavailableCaseIds]);
     const nextIndex = orderedCases.findIndex((item, candidateIndex) => candidateIndex !== index && !unavailable.has(item.id));
-    setIndex(nextIndex >= 0 ? nextIndex : (index + 1) % orderedCases.length);
+    setIndex(nextIndex);
   }
 
   async function shareCase() {
@@ -329,10 +347,10 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
             <p>Ikke svar ut fra hva som virker sannsynlig.</p>
           </div>
           <div className={styles.answerGrid}>
-            <button className={`${styles.answerButton} ${draft.answer === "yes" ? styles.selectedYes : ""}`} type="button" onClick={() => chooseAnswer("yes")} aria-pressed={draft.answer === "yes"}>
+            <button className={`${styles.answerButton} ${draft.answer === "yes" ? styles.selectedYes : ""}`} type="button" onClick={() => void chooseAnswer("yes")} aria-pressed={draft.answer === "yes"} disabled={reservation === "checking"}>
               <span className={styles.answerWord}>JA</span><span>{current.yesMeaning}</span>
             </button>
-            <button className={`${styles.answerButton} ${draft.answer === "no" ? styles.selectedNo : ""}`} type="button" onClick={() => chooseAnswer("no")} aria-pressed={draft.answer === "no"}>
+            <button className={`${styles.answerButton} ${draft.answer === "no" ? styles.selectedNo : ""}`} type="button" onClick={() => void chooseAnswer("no")} aria-pressed={draft.answer === "no"} disabled={reservation === "checking"}>
               <span className={styles.answerWord}>NEI</span><span>{current.noMeaning}</span>
             </button>
           </div>
