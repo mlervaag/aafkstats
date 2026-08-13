@@ -62,7 +62,8 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 4 på siden (regel: name_then_year)."
+          - to
+        note: Manuelt verifisert mot formannslisten.
       - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
         page: "74"
         fields:
