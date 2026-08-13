@@ -8,6 +8,7 @@ import { loadValidateAndBuild } from "@aafkstats/db/build";
 import VerificationCasePage, { generateStaticParams } from "../app/mangler/[id]/page.js";
 import { GET as getCheckout, POST as postCheckout } from "../app/api/verifications/checkout/route.js";
 import { POST } from "../app/api/verifications/route.js";
+import { availableVerificationCases, VerificationExperience } from "../components/verifications/VerificationExperience.js";
 import { VerificationHistory } from "../components/verifications/VerificationHistory.js";
 import { ContributeVerificationCard } from "../components/verifications/ContributeVerificationCard.js";
 import { restoreVerificationDraft } from "../lib/verification-draft.js";
@@ -83,6 +84,20 @@ describe("verifiseringskøen", () => {
     expect(html).toContain("Ingen forkunnskaper eller konto kreves");
     expect(html).toContain('href="/mangler"');
     expect(html).toContain('href="/mangler/saker"');
+  });
+
+  it("lover ikke et totaltall før ventende innsendelser er kontrollert", () => {
+    const html = renderToStaticMarkup(React.createElement(VerificationExperience, {
+      cases: loadVerificationCases("open"),
+    }));
+    expect(html).toContain("Se alle saker");
+    expect(html).toContain("Sak i arbeidskøen");
+    expect(html).not.toContain("Se alle 2 saker");
+  });
+
+  it("trekker ventende innsendelser fra køtellingen", () => {
+    const cases = loadVerificationCases("open");
+    expect(availableVerificationCases(cases, ["fixture-open-high"])).toHaveLength(1);
   });
 });
 
