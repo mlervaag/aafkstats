@@ -1877,40 +1877,48 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
 
 .carousel-container {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   position: relative;
+  isolation: isolate;
   overflow: hidden;
-  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius-lg) * 2);
   background: #181714;
   touch-action: pan-y;
 }
 
-.carousel-image {
-  object-fit: contain;
-  animation: carousel-image-in 240ms ease-out;
+.carousel-images {
+  position: absolute;
+  inset: 0;
 }
 
-@keyframes carousel-image-in {
-  from { opacity: 0.4; }
-  to { opacity: 1; }
+.carousel-image {
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 700ms ease-in-out;
+}
+
+.carousel-image-active {
+  opacity: 1;
 }
 
 .carousel-nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(18, 16, 14, 0.48);
+  backdrop-filter: blur(8px);
   color: white;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
+  width: 2.75rem;
+  height: 2.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  opacity: 0.78;
-  transition: opacity 0.2s, background 0.2s;
+  opacity: 0.68;
+  transition: opacity 180ms ease, background 180ms ease;
   z-index: 10;
 }
 
@@ -1920,7 +1928,7 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
 }
 
 .carousel-nav:hover {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(18, 16, 14, 0.72);
 }
 
 .carousel-nav-left {
@@ -1943,22 +1951,24 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
 .carousel-dots {
   grid-column: 2;
   display: flex;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .carousel-dot {
-  width: 0.625rem;
-  height: 0.625rem;
+  width: 0.45rem;
+  height: 0.45rem;
   padding: 0;
-  border: 1px solid var(--muted);
+  border: 0;
   border-radius: 999px;
-  background: transparent;
+  background: color-mix(in srgb, var(--muted) 50%, transparent);
   cursor: pointer;
+  transition: width 220ms ease, background 220ms ease;
 }
 
 .carousel-dot[aria-current="true"] {
-  border-color: var(--text);
-  background: var(--text);
+  width: 1.35rem;
+  background: var(--accent);
 }
 
 .carousel-pause {
@@ -2002,7 +2012,7 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
 
   .carousel-container {
     aspect-ratio: 4 / 3;
-    border-radius: var(--radius-md);
+    border-radius: calc(var(--radius-lg) * 1.5);
   }
 
   .carousel-nav {
@@ -2027,6 +2037,10 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
 
 @media (prefers-reduced-motion: reduce) {
   .carousel-image {
-    animation: none;
+    transition: none;
+  }
+
+  .carousel-dot {
+    transition: none;
   }
 }

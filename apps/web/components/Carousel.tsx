@@ -132,16 +132,25 @@ export function Carousel() {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <Image
-          key={currentImage.src}
-          className="carousel-image"
-          src={currentImage.src}
-          alt={currentImage.alt}
-          fill
-          priority={currentIndex === 0}
-          quality={82}
-          sizes="(max-width: 760px) calc(100vw - 2rem), 1112px"
-        />
+        <div className="carousel-images" aria-live="polite">
+          {images.map((image, index) => {
+            const isCurrent = index === currentIndex;
+
+            return (
+              <Image
+                key={image.src}
+                className={`carousel-image${isCurrent ? " carousel-image-active" : ""}`}
+                src={image.src}
+                alt={isCurrent ? image.alt : ""}
+                aria-hidden={!isCurrent}
+                fill
+                priority={index === 0}
+                quality={82}
+                sizes="(max-width: 760px) calc(100vw - 2rem), 1112px"
+              />
+            );
+          })}
+        </div>
 
         <button
           type="button"
