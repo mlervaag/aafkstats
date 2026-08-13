@@ -90,7 +90,7 @@ const checks: Check[] = [
     page: "mangler",
     must: [
       "Kan du kontrollere dette?", "Er Tor Hogne Aarøy riktig person i fixture-arkivet?",
-      "Finn dokumentasjonen. Svar JA eller NEI", "Se alle 2 saker", "Hele mangellista",
+      "Finn dokumentasjonen. Svar JA eller NEI", "Arbeidskø", "Hele mangellista",
     ],
   },
   {
