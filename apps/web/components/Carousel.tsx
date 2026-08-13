@@ -8,6 +8,7 @@ type CarouselImage = {
   src: string;
   alt: string;
   credit?: string;
+  fit?: "cover" | "contain";
 };
 
 const images: CarouselImage[] = [
@@ -35,7 +36,8 @@ const images: CarouselImage[] = [
   {
     src: "/images/kraamyra/5kraamyra.jpg",
     alt: "Nær 10 000 tilskuere på Kråmyra under kampen mellom AaFK og Molde i 2003",
-    credit: "Sunnmørsposten"
+    credit: "Sunnmørsposten",
+    fit: "contain"
   }
 ];
 
@@ -139,7 +141,7 @@ export function Carousel() {
             return (
               <Image
                 key={image.src}
-                className={`carousel-image${isCurrent ? " carousel-image-active" : ""}`}
+                className={`carousel-image${image.fit === "contain" ? " carousel-image-contain" : ""}${isCurrent ? " carousel-image-active" : ""}`}
                 src={image.src}
                 alt={isCurrent ? image.alt : ""}
                 aria-hidden={!isCurrent}
