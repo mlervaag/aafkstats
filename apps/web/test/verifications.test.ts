@@ -9,6 +9,7 @@ import VerificationCasePage, { generateStaticParams } from "../app/mangler/[id]/
 import { GET as getCheckout, POST as postCheckout } from "../app/api/verifications/checkout/route.js";
 import { POST } from "../app/api/verifications/route.js";
 import { VerificationHistory } from "../components/verifications/VerificationHistory.js";
+import { ContributeVerificationCard } from "../components/verifications/ContributeVerificationCard.js";
 import { restoreVerificationDraft } from "../lib/verification-draft.js";
 import { checkedOutCaseIds, claimVerificationCase, releaseVerificationCase } from "../lib/verification-checkout.js";
 import { resetVerificationSubmissionCache } from "../lib/verification-submissions.js";
@@ -69,6 +70,19 @@ describe("verifiseringskøen", () => {
     expect(html).toContain("Se hva andre har kontrollert");
     expect(html).toContain("Fixture-kilden identifiserer personen uttrykkelig.");
     expect(html).toContain("Se konklusjon og kilder");
+  });
+
+  it("presenterer kildekontroll som et lavterskel bidrag", () => {
+    const html = renderToStaticMarkup(React.createElement(ContributeVerificationCard, {
+      openCaseIds: ["fixture-open-high", "fixture-open-low"],
+      minimumMinutes: 5,
+      maximumMinutes: 15,
+    }));
+    expect(html).toContain("Enkleste måten å bidra");
+    expect(html).toContain("2 saker trenger hjelp");
+    expect(html).toContain("Ingen forkunnskaper eller konto kreves");
+    expect(html).toContain('href="/mangler"');
+    expect(html).toContain('href="/mangler/saker"');
   });
 });
 
