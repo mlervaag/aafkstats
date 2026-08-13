@@ -1877,7 +1877,9 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
 
 .carousel-container {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  /* Alle arkivbildene er bredere enn 7:5. Rammen fylles dermed i høyden,
+     slik at påtrykt tekst i topp og bunn bevares og bare sidene beskjæres. */
+  aspect-ratio: 7 / 5;
   position: relative;
   isolation: isolate;
   overflow: hidden;
