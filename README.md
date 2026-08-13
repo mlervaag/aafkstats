@@ -348,10 +348,14 @@ ingen IP-adresse, så det trengs ikke samtykkebanner — men de må skrus på i 
 | `ask-submitted` / `ask-answered` | Blir spørrefunksjonen brukt, og gir den svar eller feiler den? |
 | `followup-shown` / `followup-yes` / `followup-no` | Er de sjeldne oppfølgingsforslagene nyttige? |
 | `answer-copied` | Kopierer brukerne arkivsvarene? |
-| `match-opened` | Traff direktesøket, målt på at noen faktisk åpnet et treff |
+| `match-opened` / `person-opened` / `source-opened` | Traff direktesøket, målt på at noen faktisk åpnet et treff |
+| `verification-started` / `verification-source-opened` / `verification-skipped` | Hvor i den manuelle kontrollflyten kommer bidragsyterne? |
+| `verification-submitted` | Blir dokumenterte svar sendt, eller feiler innsendingen? |
+| `contribution-opened` / `contribution-submitted` | Blir skjemaet for minner og observasjoner brukt, og virker innsendingen? |
 
-**Spørsmålsteksten telles aldri.** Den er det mest personlige på hele nettstedet, og
-hendelsene bærer bare grovkornede egenskaper — skjema, forslag eller oppfølging, status og sekunder.
+**Fritekst, URL-er og innholds-ID-er legges aldri i egendefinerte hendelser.** De er det mest
+personlige på nettstedet, og hendelsene bærer bare grovkornede egenskaper — skjema, forslag
+eller oppfølging, status, sekunder, treffplassering, sakskategori og dokumentasjonstype.
 Listen over lovlige egenskaper står som en type i `apps/web/lib/analytics.ts`, så det ikke
 kan skje ved et uhell senere. Nettleserens `Do Not Track` og `Global Privacy Control`
 respekteres: sier de nei, sendes ingenting.
@@ -376,6 +380,10 @@ Innholdspolicyen slipper bare inn den verten som faktisk er konfigurert, og bare
 målingen er skrudd på — `next.config.mjs` leser `NEXT_PUBLIC_PLAUSIBLE_SRC` og legger den
 ene verten til i `script-src` og `connect-src`. Uten det unntaket ville skriptet blitt
 blokkert uten at noe annet sa fra, og målingen ville bare vært stille borte.
+
+Bidrags- og verifiseringsendepunktene skriver strukturerte Vercel Runtime Logs med rute,
+request-ID, HTTP-status og varighet. Oppstrømsfeil tar bare med en grov feiltype og eventuell
+statuskode — aldri bidragstekst, saks-ID, kildelenke eller GitHub-respons.
 
 Feil i produksjon dekkes foreløpig av Vercels egne runtime-logger. Skal det bli behov for
 mer — stakksporing, grupperte feil over tid — er [Sentry](https://sentry.io) det naturlige

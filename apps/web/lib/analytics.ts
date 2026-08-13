@@ -2,14 +2,14 @@
  * Måling av bruk — hva som telles, og hva som aldri gjør det.
  *
  * Arkivet er et åpent prosjekt uten innlogging og uten noe å selge. Det eneste
- * målingen skal svare på er om portalen virker: finner folk fram til kampene,
- * og gir spørrefunksjonen svar eller feiler den? Alt annet er unødvendig å
- * samle inn.
+ * målingen skal svare på er om portalen virker: finner folk fram til innholdet,
+ * gir spørrefunksjonen svar, og kommer frivillige gjennom bidrags- og
+ * verifiseringsløypene? Alt annet er unødvendig å samle inn.
  *
  * Derfor er to ting bestemt her, ikke i komponentene:
  *
- *   1. Ingen fritekst forlater nettleseren. Spørsmålet brukeren skriver er det
- *      mest personlige på hele nettstedet, og det telles bare som en hendelse —
+ *   1. Ingen fritekst, URL eller innholds-ID legges i egendefinerte hendelser.
+ *      Spørsmål, bidrag og kildehenvisninger telles bare som grove hendelser —
  *      aldri med innholdet. Egenskapene under er en lukket liste, så det ikke
  *      kan skje ved et uhell senere.
  *   2. Nettleserens eget signal respekteres. Sier den «ikke spor meg», sendes
@@ -37,6 +37,8 @@ interface EventProperties {
   "match-opened": { position: number };
   /** Noen åpnet en person fra direktesøket. Friteksten lagres fortsatt aldri. */
   "person-opened": { position: number };
+  /** Noen åpnet en historisk kilde fra direktesøket. */
+  "source-opened": { position: number };
   /** Modellen foreslo ett konkret neste arkivoppslag. */
   "followup-shown": Record<string, never>;
   /** Brukeren fortsatte med forslaget. */
@@ -45,6 +47,33 @@ interface EventProperties {
   "followup-no": Record<string, never>;
   /** Synlig svartekst ble kopiert. */
   "answer-copied": Record<string, never>;
+  /** Noen begynte å dokumentere én av de manuelle kontrollsakene. */
+  "verification-started": {
+    category: "role" | "identity" | "match" | "source_reading" | "club";
+  };
+  /** En oppgitt kilde ble åpnet fra kontrollsaken. Ingen kilde-ID eller URL sendes. */
+  "verification-source-opened": {
+    category: "role" | "identity" | "match" | "source_reading" | "club";
+  };
+  /** Kontrollsaken ble hoppet over lokalt. */
+  "verification-skipped": {
+    category: "role" | "identity" | "match" | "source_reading" | "club";
+  };
+  /** Et dokumentert svar ble sendt, eller forsøket feilet. */
+  "verification-submitted": {
+    category: "role" | "identity" | "match" | "source_reading" | "club";
+    evidence: "listed_source" | "new_url" | "bibliographic";
+    status: "ok" | "error";
+    seconds: number;
+  };
+  /** Det innebygde skjemaet for minner og observasjoner ble åpnet. */
+  "contribution-opened": { scope: "match" | "season" | "person" };
+  /** Et bidrag ble sendt, eller forsøket feilet. Innhold og mål-ID sendes aldri. */
+  "contribution-submitted": {
+    scope: "match" | "season" | "person";
+    status: "ok" | "error";
+    has_source: boolean;
+  };
 }
 
 /** Sant når nettleseren ikke har bedt om å slippe sporing. */

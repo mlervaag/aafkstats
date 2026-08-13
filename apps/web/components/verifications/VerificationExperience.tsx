@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { contributionIssueUrl } from "@/lib/contribution-links";
+import { trackEvent } from "@/lib/analytics";
 import {
   EMPTY_VERIFICATION_DRAFT,
   restoreVerificationDraft,
@@ -69,6 +70,7 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
   const [availabilityChecked, setAvailabilityChecked] = useState(false);
   const [reservation, setReservation] = useState<"idle" | "checking" | "acquired" | "unavailable">("idle");
   const [reservationNotice, setReservationNotice] = useState<string | null>(null);
+  const verificationStartedAt = useRef<number | null>(null);
 
   const current = orderedCases[index];
   const availableCases = useMemo(
@@ -148,6 +150,7 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
   useEffect(() => {
     if (!current) return;
     const key = progressKey(current.id, current.revision);
+    verificationStartedAt.current = null;
     setError(null);
     setSuccessUrl(null);
     setShowEvidence(false);
@@ -155,6 +158,7 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
     try {
       const saved = sessionStorage.getItem(key);
       const nextDraft = restoreVerificationDraft(saved, current.sources[0]?.key ?? "", current.sources.length > 0);
+      verificationStartedAt.current = nextDraft.answer ? Date.now() : null;
       setDraft(nextDraft);
       setDraftFor(key);
       setShowEvidence(Boolean(nextDraft.answer));
@@ -188,6 +192,10 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
   }
 
   function applyAnswer(answer: VerificationAnswer) {
+    if (verificationStartedAt.current === null) {
+      verificationStartedAt.current = Date.now();
+      trackEvent("verification-started", { category: current.category });
+    }
     setDraft((value) => ({ ...value, answer }));
     setShowEvidence(true);
     setError(null);
@@ -232,6 +240,9 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
 
   function moveNext(kind: "completed" | "skipped") {
     const id = current.id;
+    if (kind === "skipped" && !successUrl) {
+      trackEvent("verification-skipped", { category: current.category });
+    }
     const nextCompleted = kind === "completed" ? [...new Set([...completed, id])] : completed;
     const nextSkipped = kind === "skipped" ? [...new Set([...skipped, id])] : skipped;
     setCompleted(nextCompleted);
@@ -306,6 +317,12 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
       const result = await response.json() as { error?: string; issueUrl?: string };
       if (!response.ok) throw new Error(result.error ?? "Klarte ikke å sende inn svaret.");
       setSuccessUrl(result.issueUrl ?? "sendt");
+      trackEvent("verification-submitted", {
+        category: current.category,
+        evidence: draft.evidenceKind,
+        status: "ok",
+        seconds: Math.max(0, Math.round((Date.now() - (verificationStartedAt.current ?? Date.now())) / 1000)),
+      });
       if (checkoutOwner) {
         void fetch("/api/verifications/checkout", {
           method: "DELETE",
@@ -321,6 +338,12 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
       }
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "Klarte ikke å sende inn svaret.");
+      trackEvent("verification-submitted", {
+        category: current.category,
+        evidence: draft.evidenceKind,
+        status: "error",
+        seconds: Math.max(0, Math.round((Date.now() - (verificationStartedAt.current ?? Date.now())) / 1000)),
+      });
     } finally {
       setSubmitting(false);
     }
@@ -386,7 +409,16 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
                     <span>{source.page ? `Side ${source.page}` : "Nettkilde"}</span>
                   </div>
                   {source.note && <p>{source.note}</p>}
-                  {source.href && <a href={source.href} target="_blank" rel="noreferrer">Åpne kilde <span aria-hidden="true">↗</span></a>}
+                  {source.href && (
+                    <a
+                      href={source.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={() => trackEvent("verification-source-opened", { category: current.category })}
+                    >
+                      Åpne kilde <span aria-hidden="true">↗</span>
+                    </a>
+                  )}
                 </div>
               ))}
             </div>

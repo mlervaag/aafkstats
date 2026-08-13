@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { ContributionDialog, ContributionScope } from "./ContributionDialog";
+import { trackEvent } from "@/lib/analytics";
 
 interface Props {
   scope: ContributionScope;
@@ -32,7 +33,10 @@ export function ContributionButton({ scope, targetId, title, label }: Props) {
         ref={triggerRef}
         type="button" 
         className="contribution-trigger"
-        onClick={() => setIsOpen(true)}
+        onClick={() => {
+          trackEvent("contribution-opened", { scope });
+          setIsOpen(true);
+        }}
       >
         {label ?? DEFAULT_LABEL[scope]}
       </button>

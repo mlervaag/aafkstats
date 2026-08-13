@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { contributionIssueUrl, pageReference } from "@/lib/contribution-links";
+import { trackEvent } from "@/lib/analytics";
 
 export type ContributionScope = "match" | "season" | "person";
 
@@ -65,9 +66,19 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
       }
 
       setStatus("success");
+      trackEvent("contribution-submitted", {
+        scope,
+        status: "ok",
+        has_source: source.trim() !== "",
+      });
     } catch (err: unknown) {
       setStatus("error");
       setErrorMsg(err instanceof Error ? err.message : String(err));
+      trackEvent("contribution-submitted", {
+        scope,
+        status: "error",
+        has_source: source.trim() !== "",
+      });
     }
   };
 
