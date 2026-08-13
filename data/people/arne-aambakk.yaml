@@ -19,7 +19,8 @@ roles:
           - title
           - from
           - to
-        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt
+          verifisert."
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
@@ -36,6 +37,12 @@ roles:
         fields:
           - title
           - from
+      - sourceId: tango-siden-1914-2013-806b
+        page: "350"
+        fields:
+          - title
+          - from
+        note: Manuelt verifisert.
 sources:
   - sourceId: aalesunds-fk-quiz-2008-fd43
     page: "43"

@@ -16,7 +16,8 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt
+          verifisert."
   - id: oppmann-1938
     category: sporting_staff
     title: Oppmann
@@ -60,7 +61,8 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen.
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: oppmann-1939
     category: sporting_staff
     title: Oppmann
@@ -84,6 +86,20 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen.
+  - id: styremedlem-1939
+    category: board
+    title: Styremedlem
+    body: Hovedstyret
+    from: "1939"
+    to: "1939"
+    sources:
+      - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+        page: "18"
+        fields:
+          - title
+          - from
+          - to
+        note: Manuelt verifisert.
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "2"

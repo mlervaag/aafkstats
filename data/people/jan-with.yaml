@@ -57,7 +57,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: formann-1973
     category: board
     title: Formann
@@ -76,7 +77,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 2 på siden (regel: role_then_name)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: gullmerkeinnehaver-1978
     category: honorary
     title: Gullmerkeinnehaver
@@ -87,16 +89,12 @@ roles:
         fields:
           - title
           - from
-  - id: aeresmedlem-1981
-    category: honorary
-    title: Æresmedlem
-    from: "1981"
-    to: null
-    sources:
-      - sourceId: aafk-historie-utmerkelser
+      - sourceId: tango-siden-1914-2013-806b
+        page: "350"
         fields:
           - title
           - from
+        note: Manuelt verifisert.
   - id: fotballformann-1985
     category: sporting_staff
     title: Fotballformann
@@ -116,19 +114,23 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen.
-  - id: eresmedlem-1982
+  - id: aeresmedlem
     category: honorary
     title: Æresmedlem
-    from: "1982"
-    to: "1982"
+    from: "1981"
+    to: null
     sources:
+      - sourceId: tango-siden-1914-2013-806b
+        page: "350"
+        fields:
+          - title
+          - from
+        note: Manuelt verifisert.
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
           - title
           - from
-          - to
-        note: Lest maskinelt fra tabellen.
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "27"
@@ -255,14 +257,14 @@ sources:
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
 conflicts:
-  - field: formann.2013
+  - field: aeresmedlem.from
     values:
-      - value: Jan With
+      - value: 1981
         providerId: nasjonalbiblioteket
-        note: tango-siden-1914-2013-806b s. 158
-      - value: Kjell Tennfjord
-        providerId: aafk-no
+        note: tango-siden-1914-2013-806b s. 350
+      - value: 1982
+        providerId: nasjonalbiblioteket
+        note: aalesunds-fotballklubb-90-ar-1-2004-ad1d s. 27
     resolved: false
     decision: unresolved
     locked: false
-    note: Kildene oppgir ulike navn for dette vervet. Ingen av dem er valgt.

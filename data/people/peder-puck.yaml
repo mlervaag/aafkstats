@@ -44,7 +44,8 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen.
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: styreleder-1945
     category: board
     title: Styreleder
@@ -58,7 +59,8 @@ roles:
           - from
           - to
         note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: varaformann-1946
     category: board
     title: Varaformann
@@ -157,7 +159,9 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen.
-    note: Kildene fra 1939 og 1950 beskriver perioden 1938–1945; AaFKs nyere nettliste skriver 1938–1941 og 1945–1946. Periodene er ikke slått sammen, fordi nettlisten samtidig fører Sigurd Nørve fra 1946.
+    note: Kildene fra 1939 og 1950 beskriver perioden 1938–1945; AaFKs nyere
+      nettliste skriver 1938–1941 og 1945–1946. Periodene er ikke slått sammen,
+      fordi nettlisten samtidig fører Sigurd Nørve fra 1946.
   - id: gullmerkeinnehaver-1948
     category: honorary
     title: Gullmerkeinnehaver
@@ -173,7 +177,8 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt
+          verifisert."
   - id: nestformann-1951
     category: board
     title: Nestformann
@@ -187,7 +192,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: role_then_name)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: aeresmedlem-1957
     category: honorary
     title: Æresmedlem
@@ -277,6 +283,26 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen.
+      - sourceId: tango-siden-1914-2013-806b
+        page: "350"
+        fields:
+          - title
+          - from
+        note: Manuelt verifisert.
+  - id: styremedlem-1939
+    category: board
+    title: Styremedlem
+    body: Hovedstyret
+    from: "1939"
+    to: "1939"
+    sources:
+      - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+        page: "18"
+        fields:
+          - title
+          - from
+          - to
+        note: Manuelt verifisert.
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "3"

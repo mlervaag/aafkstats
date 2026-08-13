@@ -75,7 +75,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: nestformann-1955
     category: board
     title: Nestformann
@@ -113,7 +114,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: gullmerkeinnehaver-1972
     category: honorary
     title: Gullmerkeinnehaver
@@ -129,7 +131,8 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt
+          verifisert."
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "2"

@@ -21,7 +21,8 @@ roles:
         fields: &a1
           - title
           - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt
+          verifisert."
       - sourceId: vi-er-75-ar-1989-aff6
         page: "8"
         fields: &a2
@@ -34,8 +35,9 @@ roles:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: styremedlem-1950
     category: board
     title: Styremedlem
@@ -59,8 +61,10 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: year_row)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+        note: "Lest maskinelt fra spalte 1 på siden (regel: year_row). Manuelt
+          verifisert."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: trener-1957
     category: coach
     title: Trener
@@ -73,7 +77,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: year_row)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: trener-1958
     category: coach
     title: Trener
@@ -86,7 +91,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: gullmerkeinnehaver-1964
     category: honorary
     title: Gullmerkeinnehaver
@@ -102,7 +108,8 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt
+          verifisert."
   - id: oppmann-1948
     category: sporting_staff
     title: Oppmann
@@ -112,7 +119,8 @@ roles:
       - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
         page: "74"
         fields: *a1
-        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt
+          verifisert."
       - sourceId: vi-er-75-ar-1989-aff6
         page: "8"
         fields: *a2
@@ -123,7 +131,7 @@ roles:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "11"
@@ -330,6 +338,10 @@ conflicts:
     chosenProviderId: nasjonalbiblioteket
     decision: manual
     decidedAt: "2026-08-12"
-    reason: "Sannsynlig kildefeil i 1989. Hverken 1954- eller 2004-kilden knytter Tolaas til 1947, men 1954-kilden knytter Skarbøvik til året."
+    reason: "Sannsynlig kildefeil i 1989. Hverken 1954- eller 2004-kilden knytter
+      Tolaas til 1947, men 1954-kilden knytter Skarbøvik til året."
     locked: true
     note: 1947 er fjernet fra Finn Tollås' ordinære roller.
+coachSpells:
+  - fromSeason: 1956
+    toSeason: 1957

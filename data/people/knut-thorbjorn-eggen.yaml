@@ -1,0 +1,22 @@
+id: knut-thorbjorn-eggen
+name: Knut Thorbjørn Eggen
+roles:
+  [
+    {
+        id: trener-1994-1996,
+        category: coach,
+        title: Trener,
+        from: "1994",
+        to: "1996",
+        sources:
+          [
+            {
+                sourceId: tango-siden-1914-2013-806b,
+                page: "351",
+                fields: [ title, from, to ],
+                note: Manuelt verifisert.
+              }
+          ]
+      }
+  ]
+coachSpells: [ { fromSeason: 1994, toSeason: 1996 } ]

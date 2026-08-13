@@ -32,7 +32,8 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen.
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: oppmann-1945
     category: sporting_staff
     title: Oppmann
@@ -62,7 +63,8 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen.
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: oppmann-1951
     category: sporting_staff
     title: Oppmann
@@ -91,7 +93,8 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen.
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: trener-1955
     category: coach
     title: Trener
@@ -104,7 +107,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: year_row)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: trener-1956
     category: coach
     title: Trener
@@ -117,7 +121,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: gullmerkeinnehaver-1964
     category: honorary
     title: Gullmerkeinnehaver
@@ -133,7 +138,8 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt
+          verifisert."
   - id: oppmann-1949
     category: sporting_staff
     title: Oppmann
@@ -155,6 +161,20 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen.
+  - id: formann-1964-eldres
+    category: board
+    title: Formann
+    body: ÅFKs Eldres gruppe
+    from: "1964"
+    to: "1964"
+    sources:
+      - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
+        page: "76"
+        fields:
+          - title
+          - from
+          - to
+        note: Manuelt verifisert.
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "3"
@@ -284,3 +304,6 @@ conflicts:
     decision: unresolved
     locked: false
     note: Kildene oppgir ulike navn for dette vervet. Ingen av dem er valgt.
+coachSpells:
+  - fromSeason: 1955
+    toSeason: 1955

@@ -1,0 +1,22 @@
+id: terje-eriksen
+name: Terje Eriksen
+roles:
+  [
+    {
+        id: trener-1984,
+        category: coach,
+        title: Trener,
+        from: "1984",
+        to: "1984",
+        sources:
+          [
+            {
+                sourceId: tango-siden-1914-2013-806b,
+                page: "351",
+                fields: [ title, from, to ],
+                note: Manuelt verifisert.
+              }
+          ]
+      }
+  ]
+coachSpells: [ { fromSeason: 1984, toSeason: 1984 } ]

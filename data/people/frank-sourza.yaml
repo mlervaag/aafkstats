@@ -1,0 +1,22 @@
+id: frank-sourza
+name: Frank Sourza
+roles:
+  [
+    {
+        id: trener-1982-1983,
+        category: coach,
+        title: Trener,
+        from: "1982",
+        to: "1983",
+        sources:
+          [
+            {
+                sourceId: tango-siden-1914-2013-806b,
+                page: "351",
+                fields: [ title, from, to ],
+                note: Manuelt verifisert.
+              }
+          ]
+      }
+  ]
+coachSpells: [ { fromSeason: 1982, toSeason: 1983 } ]

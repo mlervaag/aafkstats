@@ -44,7 +44,8 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen.
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: gullmerkeinnehaver-1971
     category: honorary
     title: Gullmerkeinnehaver
@@ -57,7 +58,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: formann-1997
     category: board
     title: Formann
@@ -94,6 +96,12 @@ roles:
         fields:
           - title
           - from
+      - sourceId: tango-siden-1914-2013-806b
+        page: "350"
+        fields:
+          - title
+          - from
+        note: Manuelt verifisert.
   - id: oppmann-1972
     category: sporting_staff
     title: Oppmann
@@ -121,7 +129,8 @@ roles:
         page: "8"
         fields: *a1
         note: Lest maskinelt fra tabellen.
-    note: "Eksplisitt kildekonflikt: 1989-kilden oppgir Petter Birkevold for 1975, mens 2004-kilden ikke gjør det (og oppgir ham for 1977 i stedet)."
+    note: "Eksplisitt kildekonflikt: 1989-kilden oppgir Petter Birkevold for 1975,
+      mens 2004-kilden ikke gjør det (og oppgir ham for 1977 i stedet)."
   - id: sportslig-leder-1977
     category: sporting_staff
     title: Sportslig leder
@@ -135,7 +144,9 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen.
-    note: "Eksplisitt kildekonflikt: 2004-kilden oppgir Petter Birkevold for 1977, men den samme kilden oppgir også Nils Petter Loe for 1977. 1989-kilden nevner ikke Petter for 1977 (men for 1975)."
+    note: "Eksplisitt kildekonflikt: 2004-kilden oppgir Petter Birkevold for 1977,
+      men den samme kilden oppgir også Nils Petter Loe for 1977. 1989-kilden
+      nevner ikke Petter for 1977 (men for 1975)."
   - id: sportslig-leder-1993
     category: sporting_staff
     title: Sportslig leder

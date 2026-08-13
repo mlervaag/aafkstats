@@ -13,7 +13,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: year_row)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: oppmann-1961
     category: sporting_staff
     title: Oppmann
@@ -39,7 +40,8 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen.
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: trener-1961
     category: coach
     title: Trener
@@ -52,7 +54,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: trener-1966
     category: coach
     title: Trener
@@ -65,7 +68,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: role_then_name)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: gullmerkeinnehaver-2002
     category: honorary
     title: Gullmerkeinnehaver
@@ -76,6 +80,12 @@ roles:
         fields:
           - title
           - from
+      - sourceId: tango-siden-1914-2013-806b
+        page: "350"
+        fields:
+          - title
+          - from
+        note: Manuelt verifisert.
   - id: aeresmedlem-2013
     category: honorary
     title: Æresmedlem
@@ -162,3 +172,6 @@ conflicts:
     decision: unresolved
     locked: false
     note: Kildene oppgir ulike navn for dette vervet. Ingen av dem er valgt.
+coachSpells:
+  - fromSeason: 1960
+    toSeason: 1960

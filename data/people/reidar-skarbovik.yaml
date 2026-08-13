@@ -16,7 +16,8 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt
+          verifisert."
   - id: oppmann-1947
     category: sporting_staff
     title: Oppmann
@@ -28,7 +29,8 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt
+          verifisert."
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "12"

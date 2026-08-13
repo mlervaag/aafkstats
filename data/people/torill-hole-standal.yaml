@@ -6,8 +6,18 @@ roles:
     title: Formann
     body: Hovedstyret
     from: "2007"
-    to: "2011"
-    sources: [ { sourceId: aafk-historie-ledere, fields: [ title, from, to ] }, { sourceId: tango-siden-1914-2013-806b, page: "348", fields: [ title, from, to ], note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)." } ]
+    to: "2010"
+    sources:
+      [
+        { sourceId: aafk-historie-ledere, fields: [ title, from, to ] },
+        {
+            sourceId: tango-siden-1914-2013-806b,
+            page: "348",
+            fields: [ title, from, to ],
+            note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt
+              verifisert."
+          }
+      ]
 sources:
   - sourceId: aalesunds-fk-quiz-2008-fd43
     page: "3"

@@ -1,0 +1,22 @@
+id: bard-wiggen
+name: Bård Wiggen
+roles:
+  [
+    {
+        id: trener-1997-1999,
+        category: coach,
+        title: Trener,
+        from: "1997",
+        to: "1999",
+        sources:
+          [
+            {
+                sourceId: tango-siden-1914-2013-806b,
+                page: "351",
+                fields: [ title, from, to ],
+                note: Manuelt verifisert.
+              }
+          ]
+      }
+  ]
+coachSpells: [ { fromSeason: 1997, toSeason: 1999 } ]
