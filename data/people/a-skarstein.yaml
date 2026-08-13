@@ -1,0 +1,22 @@
+id: a-skarstein
+name: A. Skarstein
+roles:
+  [
+    {
+        id: styremedlem-1939,
+        category: board,
+        title: Styremedlem,
+        body: Hovedstyret,
+        from: "1939",
+        to: "1939",
+        sources:
+          [
+            {
+                sourceId: aalesunds-fotballklub-gjennem-1939-ec28,
+                page: "18",
+                fields: [ title, from, to ],
+                note: Manuelt verifisert.
+              }
+          ]
+      }
+  ]

@@ -1,0 +1,22 @@
+id: stein-gisle-alvestad
+name: Stein Gisle Alvestad
+roles:
+  [
+    {
+        id: trener-1990-1991,
+        category: coach,
+        title: Trener,
+        from: "1990",
+        to: "1991",
+        sources:
+          [
+            {
+                sourceId: tango-siden-1914-2013-806b,
+                page: "351",
+                fields: [ title, from, to ],
+                note: Manuelt verifisert.
+              }
+          ]
+      }
+  ]
+coachSpells: [ { fromSeason: 1990, toSeason: 1991 } ]

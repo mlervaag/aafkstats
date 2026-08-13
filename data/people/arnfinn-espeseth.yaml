@@ -1,0 +1,22 @@
+id: arnfinn-espeseth
+name: Arnfinn Espeseth
+roles:
+  [
+    {
+        id: trener-1985,
+        category: coach,
+        title: Trener,
+        from: "1985",
+        to: "1985",
+        sources:
+          [
+            {
+                sourceId: tango-siden-1914-2013-806b,
+                page: "351",
+                fields: [ title, from, to ],
+                note: Manuelt verifisert.
+              }
+          ]
+      }
+  ]
+coachSpells: [ { fromSeason: 1985, toSeason: 1985 } ]

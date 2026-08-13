@@ -1,0 +1,22 @@
+id: knut-osnes
+name: Knut Osnes
+roles:
+  [
+    {
+        id: trener-1970-1971,
+        category: coach,
+        title: Trener,
+        from: "1970",
+        to: "1971",
+        sources:
+          [
+            {
+                sourceId: tango-siden-1914-2013-806b,
+                page: "351",
+                fields: [ title, from, to ],
+                note: Manuelt verifisert.
+              }
+          ]
+      }
+  ]
+coachSpells: [ { fromSeason: 1970, toSeason: 1971 } ]

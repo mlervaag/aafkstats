@@ -21,7 +21,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 2 på siden (regel: role_then_name)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: formann-1980
     category: board
     title: Formann
@@ -39,21 +40,23 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt
+          verifisert."
       - sourceId: tango-siden-1914-2013-806b
         page: "348"
         fields:
           - title
           - from
           - to
-        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt
+          verifisert."
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
   - id: formann-1993-1996
     category: board
     title: Formann
@@ -71,14 +74,15 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt
+          verifisert."
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
   - id: gullmerkeinnehaver-1996
     category: honorary
     title: Gullmerkeinnehaver
@@ -89,6 +93,12 @@ roles:
         fields:
           - title
           - from
+      - sourceId: tango-siden-1914-2013-806b
+        page: "350"
+        fields:
+          - title
+          - from
+        note: Manuelt verifisert.
   - id: aeresmedlem-2008
     category: honorary
     title: Æresmedlem
@@ -99,6 +109,12 @@ roles:
         fields:
           - title
           - from
+      - sourceId: tango-siden-1914-2013-806b
+        page: "350"
+        fields:
+          - title
+          - from
+        note: Manuelt verifisert.
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "2"
@@ -136,6 +152,7 @@ sources:
     page: "8"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+      Manuelt verifisert.
   - sourceId: vi-er-80-ar-1914-1994-1994-5e91
     page: "2"
     fields: []

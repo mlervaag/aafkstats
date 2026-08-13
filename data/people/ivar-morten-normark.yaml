@@ -18,8 +18,10 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: year_row)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: year_row). Manuelt
+          verifisert."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: trener-2003
     category: coach
     title: Trener
@@ -31,8 +33,10 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: year_row)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: year_row). Manuelt
+          verifisert."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: trener-2004
     category: coach
     title: Trener
@@ -44,8 +48,10 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: year_row)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: year_row). Manuelt
+          verifisert."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: trener-2005
     category: coach
     title: Trener
@@ -57,8 +63,10 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: year_row)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: year_row). Manuelt
+          verifisert."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: sportslig-leder-2004
     category: sporting_staff
     title: Sportslig leder
@@ -70,7 +78,7 @@ roles:
         fields:
           - title
           - from
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
 providers:
   - providerId: wikipedia
     url: https://no.wikipedia.org/w/index.php?title=Aalesunds%20Fotballklubb&oldid=25869346

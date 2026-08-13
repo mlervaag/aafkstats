@@ -6,8 +6,18 @@ roles:
     title: Formann
     body: Hovedstyret
     from: "2011"
-    to: "2015"
-    sources: [ { sourceId: aafk-historie-ledere, fields: [ title, from, to ] }, { sourceId: tango-siden-1914-2013-806b, page: "348", fields: [ title, from ], note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)." } ]
+    to: null
+    sources:
+      [
+        { sourceId: aafk-historie-ledere, fields: [ title, from, to ] },
+        {
+            sourceId: tango-siden-1914-2013-806b,
+            page: "348",
+            fields: [ title, from ],
+            note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt
+              verifisert."
+          }
+      ]
 sources:
   - sourceId: aalesund-fra-blabaer-til-beton-2013-91b5
     page: "9"

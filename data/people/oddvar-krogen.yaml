@@ -1,7 +1,23 @@
 id: oddvar-krogen
 name: Oddvar Krogen
 roles:
-  - { id: gullmerkeinnehaver-2011, category: honorary, title: Gullmerkeinnehaver, from: "2011", to: null, sources: [ { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] } ] }
+  - {
+      id: gullmerkeinnehaver-2011,
+      category: honorary,
+      title: Gullmerkeinnehaver,
+      from: "2011",
+      to: null,
+      sources:
+        [
+          { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] },
+          {
+              sourceId: tango-siden-1914-2013-806b,
+              page: "350",
+              fields: [ title, from ],
+              note: Manuelt verifisert.
+            }
+        ]
+    }
 sources:
   - sourceId: tango-siden-1914-2013-806b
     page: "25"

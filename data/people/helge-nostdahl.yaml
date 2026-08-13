@@ -1,0 +1,23 @@
+id: helge-nostdahl
+name: Helge Nøstdahl
+roles:
+  [
+    {
+        id: trener-1983-1985,
+        category: coach,
+        title: Trener,
+        from: "1983",
+        to: "1985",
+        sources:
+          [
+            {
+                sourceId: tango-siden-1914-2013-806b,
+                page: "351",
+                fields: [ title, from, to ],
+                note: Kilden oppgir at han var trener de fire siste kampene i 1983. Manuelt
+                  verifisert.
+              }
+          ]
+      }
+  ]
+coachSpells: [ { fromSeason: 1983, toSeason: 1985 } ]

@@ -14,7 +14,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: sekretaer-1961
     category: administration
     title: Sekretær
@@ -28,7 +29,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: gullmerkeinnehaver-1967
     category: honorary
     title: Gullmerkeinnehaver
@@ -41,7 +43,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: oppmann-1967
     category: sporting_staff
     title: Oppmann
@@ -71,15 +74,16 @@ roles:
         fields: &a1
           - title
           - from
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: nestformann-1971
     category: board
     title: Nestformann
@@ -98,7 +102,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: role_then_name)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: gullmerkeinnehaver-1982
     category: honorary
     title: Gullmerkeinnehaver
@@ -109,6 +114,12 @@ roles:
         fields:
           - title
           - from
+      - sourceId: tango-siden-1914-2013-806b
+        page: "350"
+        fields:
+          - title
+          - from
+        note: Manuelt verifisert.
   - id: aeresmedlem-2005
     category: honorary
     title: Æresmedlem
@@ -119,6 +130,12 @@ roles:
         fields:
           - title
           - from
+      - sourceId: tango-siden-1914-2013-806b
+        page: "350"
+        fields:
+          - title
+          - from
+        note: Manuelt verifisert.
   - id: oppmann-1968
     category: sporting_staff
     title: Oppmann
@@ -128,14 +145,14 @@ roles:
       - sourceId: vi-er-75-ar-1989-aff6
         page: "8"
         fields: *a1
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
   - id: fotballformann-1982
     category: sporting_staff
     title: Fotballformann
@@ -147,14 +164,14 @@ roles:
         fields: &a2
           - title
           - from
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
   - id: fotballformann-1983
     category: sporting_staff
     title: Fotballformann
@@ -164,14 +181,14 @@ roles:
       - sourceId: vi-er-75-ar-1989-aff6
         page: "8"
         fields: *a2
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "2"

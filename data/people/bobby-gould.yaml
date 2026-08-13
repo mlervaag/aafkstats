@@ -1,0 +1,22 @@
+id: bobby-gould
+name: Bobby Gould
+roles:
+  [
+    {
+        id: trener-1978,
+        category: coach,
+        title: Trener,
+        from: "1978",
+        to: "1978",
+        sources:
+          [
+            {
+                sourceId: tango-siden-1914-2013-806b,
+                page: "351",
+                fields: [ title, from, to ],
+                note: Manuelt verifisert.
+              }
+          ]
+      }
+  ]
+coachSpells: [ { fromSeason: 1978, toSeason: 1978 } ]

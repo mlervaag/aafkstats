@@ -1,0 +1,22 @@
+id: arnfinn-gjerde
+name: Arnfinn Gjerde
+roles:
+  [
+    {
+        id: trener-1972-1974,
+        category: coach,
+        title: Trener,
+        from: "1972",
+        to: "1974",
+        sources:
+          [
+            {
+                sourceId: tango-siden-1914-2013-806b,
+                page: "351",
+                fields: [ title, from, to ],
+                note: Manuelt verifisert.
+              }
+          ]
+      }
+  ]
+coachSpells: [ { fromSeason: 1972, toSeason: 1974 } ]

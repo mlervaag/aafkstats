@@ -12,7 +12,8 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_year)."
+        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_year).
+          Manuelt verifisert."
       - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
         page: "74"
         fields:
@@ -30,15 +31,16 @@ roles:
         fields:
           - title
           - from
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: stifter-1914
     category: founder
     title: Stifter
@@ -60,6 +62,7 @@ sources:
     page: "27"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+      Manuelt verifisert.
   - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
     page: "14"
     fields: []

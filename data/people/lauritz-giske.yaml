@@ -25,13 +25,15 @@ roles:
           - title
           - from
           - to
-        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt
+          verifisert."
       - sourceId: vi-er-75-ar-1989-aff6
         page: "8"
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt
+          verifisert."
       - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
         page: "81"
         fields:
@@ -56,7 +58,7 @@ roles:
           - title
           - from
           - to
-        note: Lest maskinelt fra tabellen.
+        note: Lest maskinelt fra tabellen. Manuelt verifisert.
   - id: formann-1954
     category: board
     title: Formann
@@ -75,7 +77,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: nestformann-1955
     category: board
     title: Nestformann
@@ -113,7 +116,8 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: gullmerkeinnehaver-1972
     category: honorary
     title: Gullmerkeinnehaver
@@ -129,7 +133,8 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year)."
+        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt
+          verifisert."
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "2"
@@ -139,6 +144,7 @@ sources:
     page: "27"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+      Manuelt verifisert.
   - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
     page: "28"
     fields: []
@@ -443,6 +449,7 @@ sources:
     page: "348"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+      Manuelt verifisert.
   - sourceId: vi-er-75-ar-1989-aff6
     page: "7"
     fields: []
