@@ -123,11 +123,13 @@ export async function POST(req: Request) {
     // at GitHub tok imot saken. Markøren gjør gjentakelsen idempotent.
     const searchQuery = encodeURIComponent(`repo:${repo} is:issue in:body "verification-submission:${markerId}"`);
     const existingResponse = await fetch(`https://api.github.com/search/issues?q=${searchQuery}&per_page=1`, { headers });
-    if (existingResponse.ok) {
-      const existing = await existingResponse.json() as { items?: { html_url?: string }[] };
-      const issueUrl = existing.items?.[0]?.html_url;
-      if (issueUrl) return NextResponse.json({ success: true, issueUrl, duplicate: true });
+    if (!existingResponse.ok) {
+      console.error("GitHub API kunne ikke kontrollere duplikat", existingResponse.status, verificationCase.id);
+      return fallbackError("Klarte ikke å kontrollere om svaret allerede er sendt. Prøv igjen om litt.", 502);
     }
+    const existing = await existingResponse.json() as { items?: { html_url?: string }[] };
+    const issueUrl = existing.items?.[0]?.html_url;
+    if (issueUrl) return NextResponse.json({ success: true, issueUrl, duplicate: true });
 
     const answerLabel = data.answer === "yes" ? "JA" : "NEI";
     const contributor = data.contributor ? oneLine(data.contributor, 100) : "Anonym";

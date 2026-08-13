@@ -1,0 +1,22 @@
+.outcome { max-width: 66rem; margin: 0 auto; padding: clamp(2.5rem, 8vw, 6rem) 0 2rem; }
+.header { padding-bottom: clamp(2rem, 5vw, 3.5rem); border-bottom: 3px double var(--border); }
+.header h1 { margin: 0.35rem 0 0.8rem; font-family: var(--font-display); font-size: clamp(2.7rem, 7vw, 5.2rem); font-weight: 500; letter-spacing: -0.04em; line-height: 0.98; }
+.header > p:last-child { max-width: 60ch; margin: 0; color: var(--muted); }
+.claim { padding: clamp(1.8rem, 5vw, 3.5rem) 0; border-bottom: 1px solid var(--border); }
+.claim > p:first-child { margin: 0 0 0.4rem; color: var(--muted); font-size: 0.84rem; }
+.claim h2 { max-width: 24ch; margin: 0; font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 500; line-height: 1.06; }
+.claim > p:last-child { max-width: 66ch; margin: 1rem 0 0; color: var(--muted); }
+.resolution { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(1.25rem, 4vw, 2.5rem); align-items: start; margin-top: 2rem; padding: clamp(1.3rem, 4vw, 2.25rem); background: var(--surface); border: 1px solid var(--border); }
+.answer { min-width: 7rem; color: var(--win); font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1; }
+.resolution h2, .sources h2 { margin: 0; font-family: var(--font-display); font-size: 1.65rem; }
+.resolution p { max-width: 65ch; }
+.date { color: var(--muted); font-size: 0.875rem; }
+.links { display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; }
+.links a, .sources a, .footer a { color: var(--accent); text-underline-offset: 0.2em; }
+.sources { padding: clamp(2rem, 5vw, 3.5rem) 0; }
+.sources ul { margin: 1rem 0 0; padding: 0; border-top: 1px solid var(--border); list-style: none; }
+.sources li { display: grid; grid-template-columns: minmax(12rem, 0.8fr) minmax(0, 1fr) auto; gap: 1rem; padding: 0.9rem 0; border-bottom: 1px solid var(--border); }
+.sources li > div { display: flex; flex-direction: column; }
+.sources span, .sources p { margin: 0; color: var(--muted); font-size: 0.875rem; }
+.footer { display: flex; flex-wrap: wrap; gap: 0.8rem 1.5rem; padding-top: 1.2rem; border-top: 3px double var(--border); }
+@media (max-width: 620px) { .resolution { grid-template-columns: 1fr; } .sources li { grid-template-columns: 1fr auto; } .sources p { grid-column: 1 / -1; } }

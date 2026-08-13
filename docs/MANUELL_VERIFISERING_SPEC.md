@@ -1,10 +1,36 @@
 # Spesifikasjon: community-drevet JA/NEI-verifisering under `/mangler`
 
-Status: klar for implementering
+Status: pilot implementert i PR #126; videre mål er eksplisitt merket i dokumentet
 
 Datagrunnlag: `main` ved commit `ae542b9` (PR #122 inkludert)
 
 Sist kontrollert: 2026-08-13
+
+### 0.1 Leveransegrense for PR #126
+
+Denne spesifikasjonen beskriver både den kjørbare førstegangsleveransen og retningen etter
+at community har brukt den. Følgende er **implementert pilot** og er krav til PR #126:
+
+- 25 håndredigerte, validerte og prioriterte YAML-saker med stabile revisjoner;
+- schema, loader, SQLite-tabell/view og web-lesemodell;
+- `/mangler`, `/mangler/saker`, permanente `/mangler/[id]`-lenker og den tidligere
+  oversikten på `/mangler/oversikt`;
+- egne sluttsider for løste, avviste, pausede og erstattede publiserte saker;
+- responsiv JA/NEI-flyt, kildevalg, lokalt utkast og best-effort checkout;
+- anonym, servervalidert innsending til GitHub med egen rate-limit og stabil retry-ID;
+- en konservativ kandidatrapport fra eksplisitte person- og kampkonflikter;
+- fixture-baserte tester som ikke er avhengige av produksjonsdatabasen.
+
+Følgende er **videre mål**, ikke skjulte mergekrav for piloten:
+
+- generatorer for alle usikkerhets-, OCR-, duplikat- og lagoppstillingssignalene;
+- den fullstendige vektede rangeringsformelen og automatisk fingerprint-deduplisering;
+- delt checkout-lagring på tvers av serverless-instanser;
+- produktanalyse for åpning, kildeklikk, frafall og redaksjonell behandling;
+- full nettleser-E2E og automatisk redaksjonell arbeidsflyt fra issue til data-PR.
+
+Der senere avsnitt beskriver mer enn den implementerte listen over, er de målarkitektur.
+Community-svar skal heller ikke i en senere versjon endre arkivfakta uten menneskelig review.
 
 ## 1. Sammendrag
 
@@ -448,6 +474,11 @@ med snapshot-test av pilotkatalogen og redaksjonell review.
 
 ## 8. Kandidatgenerator og smart rangering
 
+**Leveransestatus:** Piloten implementerer kommandoen og en deterministisk, konservativ
+rapport for eksplisitte uløste konflikter på personer og kamper. Punkt 3–7 i listen under,
+den komplette poengformelen og fingerprinting er videre mål når pilotdata viser at dette
+gir presise nok JA/NEI-saker.
+
 ### 8.1 Generatorer
 
 Ny kommando:
@@ -697,18 +728,22 @@ boktekst. UI-et sier:
 
 Byggesteget utvides med:
 
-- `core_verification_cases` for hele saksobjektet og rangeringsfeltene;
-- `core_verification_case_sources` for søkbar kildekobling;
-- view `verification_cases` med target-navn, kilde-URL-er og beregnet score;
-- view `open_verification_cases` filtrert på `status = 'open'`.
+- `core_verification_cases` for hele saksobjektet, status, prioritet, kildereferanser og
+  endelig resolution;
+- view `verification_cases`, sortert slik at åpne saker kan leses i prioritert rekkefølge;
+- kilde- og provideroppslag i web-lesemodellen, som hydrerer referansene med tittel og URL.
+
+Piloten oppretter ikke egne normaliserte source- eller open-view. Kildereferansene ligger
+som validert JSON i saksraden, og åpen status filtreres parameterisert i lesemodellen. Egne
+views kan innføres senere dersom søk eller rapportering faktisk trenger dem.
 
 Svar lagres ikke i SQLite, fordi produksjonsfilen er skrivebeskyttet og GitHub er
 innboksen. Saksstatus og endelig konklusjon kommer inn i SQLite etter en data-PR.
 
-`loadMissingOverview()` splittes:
+Lesemodellen er delt slik:
 
 - dagens brede funksjon beholdes for `/mangler/oversikt`;
-- ny `loadVerificationQueue()` returnerer bare kvalifiserte saker;
+- `loadVerificationCases(status)` returnerer saker for ønsket status eller hele historikken;
 - ny `loadVerificationCase(id)` brukes av enkeltsiden og API-et.
 
 ## 13. Cache, rendering og robusthet
@@ -1063,6 +1098,11 @@ ikke som to separate faktaspørsmål.
 
 ## 16. Tester og akseptansekriterier
 
+Punktene om schema, databygg, kø, API og permanent historikk er automatiserte
+pilotakseptanser. Full nettleser-E2E, alle filtervarianter, golden-output for den framtidige
+generatoren og måling av visuelle treffflater er videre kvalitetsarbeid; de er ikke påstått
+dekket av PR #126.
+
 ### 16.1 Schema og databygg
 
 - Gyldig pilotkatalog parses og bygges til SQLite.
@@ -1119,6 +1159,10 @@ Minst disse historiene skal testes:
 
 ## 17. Observabilitet
 
+**Videre mål etter pilot:** API-et logger i første leveranse bare utfallet av en opprettet
+verifisering uten bidragsytertekst eller IP. Hendelsene og produktmålingene under skal først
+innføres når de har et konkret analysebehov og et avklart personvernoppsett.
+
 Logg bare strukturerte metadata:
 
 ```json
@@ -1151,6 +1195,9 @@ Analytics skal respektere dagens personvernvalg i prosjektet og ikke innføre ny
 fingerprinting.
 
 ## 18. Utrulling
+
+Trinnene er en operativ sjekkliste. Trinn 1–3 er kodeleveransen i PR #126; kontrollene i
+trinn 4 og produksjonsaktiveringen i trinn 5 skjer før lenken deles offentlig.
 
 ### Trinn 1 – fundament
 
@@ -1206,15 +1253,23 @@ dersom anonym moderering faktisk viser seg uholdbar.
 
 ## 20. Definition of done
 
-Systemet er ferdig når:
+### 20.1 PR #126 er ferdig når
 
 - `/mangler` bare presenterer konkrete JA/NEI-saker;
 - den gamle oversikten fortsatt er tilgjengelig;
-- alle 25 pilotsaker er kildekontrollert, validert og publisert;
+- alle 25 pilotsaker er schema- og referansevalidert og publisert (selve påstandene er
+  nettopp det community skal kildekontrollere);
 - anonyme og GitHub-innloggede brukere har fungerende innsending;
 - svar gir GitHub-spor, men aldri automatisk dataendring;
 - løste saker har permanent konklusjon og PR-lenke;
 - generatoren finner nye kandidater uten å publisere dem automatisk;
-- sikkerhets-, tilgjengelighets- og end-to-end-testene er grønne;
-- redaksjonell runbook og driftsmålinger er på plass;
-- løsningen er visuelt kontrollert på faktisk bygget nettsted.
+- fixture-baserte schema-, kø-, historikk-, checkout- og API-testene er grønne;
+- validate, typecheck, lint, test og produksjonsbygg er grønne;
+- løsningen er visuelt kontrollert på mobil og desktop før offentlig deling.
+
+### 20.2 Etter piloten er systemretningen oppfylt når
+
+- faktiske svar viser at flere signalkilder kan generere presise spørsmål;
+- full nettleser-E2E dekker hovedhistoriene i 16.5;
+- nødvendige driftsmålinger og redaksjonell runbook er på plass;
+- delt checkout eller sterkere botvern innføres bare dersom faktisk bruk begrunner det.

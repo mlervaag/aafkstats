@@ -2,33 +2,14 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { contributionIssueUrl } from "@/lib/contribution-links";
+import {
+  EMPTY_VERIFICATION_DRAFT,
+  restoreVerificationDraft,
+  type VerificationAnswer,
+  type VerificationDraft,
+} from "@/lib/verification-draft";
 import type { VerificationCaseView } from "@/lib/verifications";
 import styles from "./VerificationExperience.module.css";
-
-type Answer = "yes" | "no";
-type EvidenceKind = "listed_source" | "new_url" | "bibliographic";
-
-interface Draft {
-  answer: Answer | null;
-  evidenceKind: EvidenceKind;
-  sourceKey: string;
-  url: string;
-  reference: string;
-  finding: string;
-  comment: string;
-  contributor: string;
-}
-
-const EMPTY_DRAFT: Draft = {
-  answer: null,
-  evidenceKind: "listed_source",
-  sourceKey: "",
-  url: "",
-  reference: "",
-  finding: "",
-  comment: "",
-  contributor: "",
-};
 
 const CATEGORY_LABELS: Record<VerificationCaseView["category"], string> = {
   role: "Verv og klubbhistorie",
@@ -42,7 +23,7 @@ function progressKey(id: string, revision: string): string {
   return `aafk-verification-draft:${id}:${revision}`;
 }
 
-function githubFallback(current: VerificationCaseView, draft: Draft): string {
+function githubFallback(current: VerificationCaseView, draft: VerificationDraft): string {
   const documentation = draft.evidenceKind === "new_url"
     ? [draft.url, draft.reference].filter(Boolean).join(" — ")
     : draft.evidenceKind === "listed_source"
@@ -66,7 +47,8 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
     return chosen ? [chosen, ...cases.filter((item) => item.id !== startCaseId)] : cases;
   }, [cases, startCaseId]);
   const [index, setIndex] = useState(0);
-  const [draft, setDraft] = useState<Draft>(EMPTY_DRAFT);
+  const [draft, setDraft] = useState<VerificationDraft>(EMPTY_VERIFICATION_DRAFT);
+  const [draftFor, setDraftFor] = useState<string | null>(null);
   const [showEvidence, setShowEvidence] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -135,31 +117,33 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
 
   useEffect(() => {
     if (!current) return;
+    const key = progressKey(current.id, current.revision);
     setError(null);
     setSuccessUrl(null);
     setShowEvidence(false);
     try {
-      const saved = sessionStorage.getItem(progressKey(current.id, current.revision));
-      const nextDraft = saved ? { ...EMPTY_DRAFT, ...(JSON.parse(saved) as Partial<Draft>) } : {
-        ...EMPTY_DRAFT,
-        sourceKey: current.sources[0]?.key ?? "",
-        evidenceKind: current.sources.length ? "listed_source" as const : "new_url" as const,
-      };
+      const saved = sessionStorage.getItem(key);
+      const nextDraft = restoreVerificationDraft(saved, current.sources[0]?.key ?? "", current.sources.length > 0);
       setDraft(nextDraft);
+      setDraftFor(key);
       setShowEvidence(Boolean(nextDraft.answer));
     } catch {
-      setDraft({ ...EMPTY_DRAFT, sourceKey: current.sources[0]?.key ?? "" });
+      const nextDraft = restoreVerificationDraft(null, current.sources[0]?.key ?? "", current.sources.length > 0);
+      setDraft(nextDraft);
+      setDraftFor(key);
     }
   }, [current]);
 
   useEffect(() => {
-    if (!current || draft === EMPTY_DRAFT) return;
+    if (!current) return;
+    const key = progressKey(current.id, current.revision);
+    if (draftFor !== key) return;
     try {
-      sessionStorage.setItem(progressKey(current.id, current.revision), JSON.stringify(draft));
+      sessionStorage.setItem(key, JSON.stringify(draft));
     } catch {
       // Se kommentaren over: selve innsendingen er ikke avhengig av nettleserlagring.
     }
-  }, [current, draft]);
+  }, [current, draft, draftFor]);
 
   if (!current) {
     return (
@@ -172,7 +156,7 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
     );
   }
 
-  function chooseAnswer(answer: Answer) {
+  function chooseAnswer(answer: VerificationAnswer) {
     setDraft((value) => ({ ...value, answer }));
     setShowEvidence(true);
     setError(null);
@@ -248,7 +232,7 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
           finding: draft.finding,
           comment: draft.comment || undefined,
           contributor: draft.contributor || undefined,
-          clientSubmissionId: crypto.randomUUID(),
+          clientSubmissionId: draft.clientSubmissionId,
           company: "",
         }),
       });

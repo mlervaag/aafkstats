@@ -1,0 +1,22 @@
+id: fixture-resolved
+status: resolved
+category: identity
+claim: Tor Hogne Aarøy er personen som fixture-kilden omtaler.
+question: Er Tor Hogne Aarøy personen som fixture-kilden omtaler?
+context: Denne saken er løst og finnes for å teste permanent historikk.
+whyItMatters: En tidligere delt sakslenke skal ikke bli borte når saken løses.
+yesMeaning: Kilden dokumenterer at det er Tor Hogne Aarøy.
+noMeaning: Kilden dokumenterer at det er en annen person.
+instructions: ["Kontroller navnet i fixture-kilden."]
+target: { type: person, id: tor-hogne-aaroy, field: identity.resolved }
+sources:
+  - { sourceId: aafk-90-ar-1914-2004, page: "12", role: supports, note: "Fixture-kilde for løst sak." }
+estimatedMinutes: 2
+priority: 80
+publishedAt: 2026-08-13
+resolution:
+  answer: yes
+  reason: Fixture-kilden identifiserer personen uttrykkelig.
+  resolvedAt: 2026-08-13
+  issueUrl: https://github.com/mlervaag/aafkstats/issues/1
+  pullRequestUrl: https://github.com/mlervaag/aafkstats/pull/1

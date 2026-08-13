@@ -1,0 +1,16 @@
+id: fixture-open-low
+status: open
+category: source_reading
+claim: Fixture-kilden omtaler Tor Hogne Aarøy på side 11.
+question: Omtaler fixture-kilden Tor Hogne Aarøy på side 11?
+context: Saken finnes for å kontrollere at køen sorteres etter prioritet.
+whyItMatters: Testen må oppdage om prioriteringsrekkefølgen brytes.
+yesMeaning: Side 11 inneholder omtalen.
+noMeaning: Side 11 inneholder ikke omtalen.
+instructions: ["Kontroller side 11 i fixture-kilden."]
+target: { type: source, id: aafk-90-ar-1914-2004, field: page.11 }
+sources:
+  - { sourceId: aafk-90-ar-1914-2004, page: "11", role: context, note: "Fixture-kilde for sorteringstest." }
+estimatedMinutes: 2
+priority: 20
+publishedAt: 2026-08-13

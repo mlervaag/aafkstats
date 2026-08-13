@@ -1,0 +1,16 @@
+id: fixture-open-high
+status: open
+category: identity
+claim: Tor Hogne Aarøy er personen som fixture-arkivet knytter til spillerprofilen.
+question: Er Tor Hogne Aarøy riktig person i fixture-arkivet?
+context: Saken finnes for å teste en åpen, prioritert verifiseringssak uten produksjonsdata.
+whyItMatters: Fixture-saken holder kø- og API-testene selvforsynte.
+yesMeaning: Kilden dokumenterer at personkoblingen er riktig.
+noMeaning: Kilden dokumenterer at personkoblingen er feil.
+instructions: ["Kontroller personnavnet i fixture-kilden."]
+target: { type: person, id: tor-hogne-aaroy, field: identity }
+sources:
+  - { sourceId: aafk-90-ar-1914-2004, page: "10", role: supports, note: "Fixture-kilde for test." }
+estimatedMinutes: 2
+priority: 90
+publishedAt: 2026-08-13

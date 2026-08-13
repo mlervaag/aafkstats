@@ -35,7 +35,7 @@ const QUESTIONS_PER_HOUR = 10;
  * en sak i en innboks.
  */
 const CONTRIBUTIONS_PER_HOUR = 5;
-/** Verifiseringer er smÃ¥, men skal ikke kunne fylle GitHub-innboksen uten grenser. */
+/** Verifiseringer er små, men skal ikke kunne fylle GitHub-innboksen uten grenser. */
 const VERIFICATIONS_PER_HOUR = 20;
 const WINDOW_MS = 60 * 60 * 1000;
 /**
@@ -85,7 +85,7 @@ export function clientIp(req: Request): string {
 
 function tooManyMessage(bucket: RateLimitBucket): string {
   if (bucket !== "chat") {
-    return `Du har sendt inn ${LIMITS[bucket]} svar denne timen. PrÃ¸v igjen om litt.`;
+    return `Du har sendt inn ${LIMITS[bucket]} svar denne timen. Prøv igjen om litt.`;
   }
   return (
     `Du har brukt ${QUESTIONS_PER_HOUR} spørsmål denne timen. ` +
