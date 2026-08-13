@@ -9,7 +9,6 @@ roles:
     to: "2016"
     sources:
       - { sourceId: color-line-stadion-historisk-profil, fields: [title, from, to] }
-      - { sourceId: aafk-vebenstad-oransje-blatt, fields: [title, from, to] }
     note: Retrospektiv stadionkilde omtaler 14 sesonger fra 2003 til 2016.
   - id: arrangementsansvarlig-fulltid-2006-2016
     category: administration
@@ -17,5 +16,5 @@ roles:
     organizationId: aafk
     from: "2006-07-01"
     to: "2016"
-    sources: [{ sourceId: aafk-vebenstad-oransje-blatt, fields: [title, from, to] }]
+    sources: [{ sourceId: bt-vebenstad-slutter-2016, fields: [title, from, to] }]
     note: Eksakt siste arbeidsdag er ikke bekreftet.

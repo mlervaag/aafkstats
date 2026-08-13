@@ -53,12 +53,25 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
-  - id: sportslig-utviklingsleder-2008-2009
+  - id: sportslig-utviklingsleder-2006-2008
     category: sporting_staff
     title: Sportslig utviklingsleder
     organizationId: aafk
-    from: "2008-06-16"
+    from: "2006"
+    to: "2008-12-08"
+    sources:
+      - { sourceId: aafk-omorganisering-2008, fields: [title] }
+      - { sourceId: aftenposten-vaagnes-omplassert-2009, fields: [title, from, to] }
+      - { sourceId: aftenbladet-vaagnes-slutter-2009, fields: [title, to] }
+    note: En samtidig kilde i februar 2009 sier at han ble ansatt for drøyt to år siden; startåret er derfor bare kjent på årsnivå. Stillingen ble kuttet i omorganiseringen 8. desember 2008.
+  - id: spiller-trenerutvikler-2008-2009
+    category: sporting_staff
+    title: Spiller- og trenerutvikler
+    organizationId: aafk
+    from: "2008-12-08"
     to: "2009"
-    sources: [{ sourceId: aafk-omorganisering-2008, fields: [title, from, to] }]
-    note: Operativ rolle med talent- og spillerutvikling; eksakt sluttdato er ikke dokumentert.
+    sources:
+      - { sourceId: aftenposten-vaagnes-omplassert-2009, fields: [title, from] }
+      - { sourceId: aftenbladet-vaagnes-slutter-2009, fields: [title, from, to] }
+    note: Vågnes fikk tilbud om den operative åremålsrollen ved omorganiseringen 8. desember 2008 og varslet avgang i midten av november 2009; eksakt siste dag er ikke dokumentert.
 sources: []

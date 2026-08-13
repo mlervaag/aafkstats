@@ -28,6 +28,8 @@ måned. Perioden 1994–2002 er fortsatt det største reelle kildehullet.
 Overgangsplanen i desember 2016 om Reidar Mjelde som direktørvikar og Elin Bjerke
 som konstituert daglig leder i ÅFAS er bevart som forskningskontekst, ikke som
 utførte rolleperioder. Hoffs engasjement ble senere forlenget til 31. mai 2017.
+Geir Steinar Viks ansettelse omfattet uttrykkelig både AaFK og ÅFAS; dette er derfor
+modellert som to roller med samme lederperiode, men ulik juridisk organisasjon.
 
 ## Sportslig ledelse og akademi
 
@@ -36,6 +38,19 @@ Bjørn Erik Melland, Oddbjørn Lie, Jan Erik Sørnes, Øyvind Riise Dalseth, Sin
 Eid, Torgeir Glomseth Olsen, Sondre Skrede, Ramin Kiani, Fredrik Carlsen og Terje
 Erstad. Rollen etter Mellands skifte sommeren 2024 er bevart som en delt funksjon
 mellom Omenås og Lie fram til Lie ble sportssjef 1. november 2025.
+
+Reidar Vågnes er korrigert etter samtidige presseoppslag: han hadde tittelen sportslig
+utviklingsleder fra omtrent 2006, fikk denne stillingen kuttet 8. desember 2008 og ble
+tilbudt den mer operative rollen spiller- og trenerutvikler fram til avgangen i 2009.
+Starten i 2006 er bare kjent på årsnivå, og siste arbeidsdag i 2009 er ikke dokumentert.
+
+Sindre Eids første tittel er lukket på årsnivå i 2020. Den eksakte overgangen fra
+utviklingsleder til akademileder er ukjent, men den gamle tittelen skal ikke framstå
+som en fortsatt aktiv rolle ved siden av akademileder og toppspillerutvikler.
+
+Tarjei Aase Omenås og Tarjei Gjendemsjø Omenås er samme person. Den eldre spillerposten
+er beholdt som kanonisk ID fordi den allerede er koblet til kamparkivet; nåværende fullt
+navn er hovednavn, mens navnet brukt i spiller- og ansettelseskildene er navnevariant.
 
 ## Administrasjon, marked, arrangement og drift
 

@@ -7,11 +7,12 @@ roles:
     organizationId: aafk
     body: Administrasjonen
     from: "1994"
-    to: "2008"
+    to: "2008-06-16"
     sources:
       - { sourceId: aftenposten-hoff-daglig-leder-1994, fields: [title, from] }
-      - { sourceId: smp-henrik-hoff-retrospektiv, fields: [title, from, to] }
-    note: Tilsatt i mars 1994; kildene oppgir ikke dagen, og datoen er derfor ikke konstruert.
+      - { sourceId: smp-henrik-hoff-retrospektiv, fields: [title, from] }
+      - { sourceId: aafk-omorganisering-2008, fields: [to] }
+    note: Tilsatt i mars 1994; startdagen er ikke dokumentert. Omorganiseringssaken sier at han gikk over til klubbdirektør 16. juni 2008.
   - id: klubbdirektor-2008-2017
     category: administration
     title: Klubbdirektør

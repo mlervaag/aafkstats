@@ -74,6 +74,38 @@ describe("person- og organisasjonsarkivet", () => {
     expect(snapshots.some((entry) => entry.snapshot_date === "2009-09-20" && entry.person_id === "einar-welle" && entry.observed_title === "Arenasjef")).toBe(true);
     expect(getPersonRoles("einar-welle")).toHaveLength(0);
   });
+
+  it("fører Geir Steinar Viks felles lederjobb på både AaFK og ÅFAS", () => {
+    const roles = getPersonRoles("geir-steinar-vik");
+    expect(roles).toEqual(expect.arrayContaining([
+      expect.objectContaining({ organization_id: "aafk", from_date: "2017", to_date: "2022" }),
+      expect.objectContaining({ organization_id: "aafk-as", title: "Daglig leder", from_date: "2017", to_date: "2022" }),
+    ]));
+  });
+
+  it("lar bare Sindre Eids dokumenterte nåværende rolle stå åpen", () => {
+    const roles = getPersonRoles("sindre-eid");
+    expect(roles.filter((role) => role.to_date === null).map((role) => role.title)).toEqual(["Toppspillerutvikler"]);
+    expect(roles.find((role) => role.title === "Utviklingsleder")?.to_date).toBe("2020");
+  });
+
+  it("bevarer Vågnes' rolleendring i 2008 som to ulike titler", () => {
+    const roles = getPersonRoles("reidar-vagnes");
+    expect(roles).toEqual(expect.arrayContaining([
+      expect.objectContaining({ title: "Sportslig utviklingsleder", from_date: "2006", to_date: "2008-12-08" }),
+      expect.objectContaining({ title: "Spiller- og trenerutvikler", from_date: "2008-12-08", to_date: "2009" }),
+    ]));
+  });
+
+  it("samler Omenås' spiller- og lederhistorikk på én person", () => {
+    const person = getPersonById("tarjei-aase-omenas");
+    expect(person).toMatchObject({ name: "Tarjei Gjendemsjø Omenås", appearances: expect.any(Number) });
+    expect(getPersonRoles("tarjei-aase-omenas").map((role) => role.title)).toEqual(expect.arrayContaining([
+      "Salgs- og partneransvarlig",
+      "Daglig leder",
+    ]));
+    expect(getPersonById("tarjei-gjendemsjo-omenas")).toBeUndefined();
+  });
 });
 
 describe("mergeRoleSpells", () => {
