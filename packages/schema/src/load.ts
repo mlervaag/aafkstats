@@ -23,6 +23,8 @@ import { publicationExtraction } from "./extraction.js";
 import type { PublicationExtraction } from "./extraction.js";
 import { flattenSourceResults, sourceResultCollection } from "./source-result.js";
 import type { SourceResultCollection } from "./source-result.js";
+import { verificationCaseInput, verificationRevision } from "./verification-case.js";
+import type { VerificationCase, VerificationCaseInput } from "./verification-case.js";
 
 /** Rota på monorepoet, utledet fra hvor denne filen ligger. */
 export function repoRoot(): string {
@@ -72,6 +74,8 @@ export interface Archive {
   sources: (HistoricalSource & { file: string })[];
   extractions: (PublicationExtraction & { file: string })[];
   sourceResults: (SourceResultCollection & { file: string })[];
+  /** Konkrete JA/NEI-saker som er redaksjonelt klare for community-kontroll. */
+  verificationCases: VerificationCase[];
   issues: LoadIssue[];
 }
 
@@ -254,7 +258,14 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
     collection.file = relative(root, join(root, "source-results", `${collection.sourceId}.yaml`)).replace(/\\/g, "/");
   }
 
-  return { clubs, venues, competitions, providers, seasons, matches, observations, standings: tables, people, contributions, sources, extractions, sourceResults, issues };
+  const caseInputs = (await readAll("verification-cases", verificationCaseInput)) as VerificationCaseInput[];
+  const verificationCases: VerificationCase[] = caseInputs.map((entry) => ({
+    ...entry,
+    revision: verificationRevision(entry),
+    file: `verification-cases/${entry.id}.yaml`,
+  }));
+
+  return { clubs, venues, competitions, providers, seasons, matches, observations, standings: tables, people, contributions, sources, extractions, sourceResults, verificationCases, issues };
 }
 
 /**
@@ -289,6 +300,7 @@ export function crossValidate(archive: Archive): LoadIssue[] {
   duplicates(archive.providers, "providers");
   duplicates(archive.contributions, "contributions");
   duplicates(archive.sources, "sources");
+  duplicates(archive.verificationCases, "verification-cases");
 
   for (const club of archive.clubs) {
     for (const ref of club.sources) {
@@ -319,6 +331,33 @@ export function crossValidate(archive: Archive): LoadIssue[] {
 
   const matchIds = ids(archive.matches);
   const personIds = ids(archive.people);
+
+  const caseFingerprints = new Map<string, string>();
+  for (const item of archive.verificationCases) {
+    const at = (path: string, message: string) => issues.push({ file: item.file, path, message });
+    const targetIds: Record<typeof item.target.type, Set<string>> = {
+      person: personIds,
+      match: matchIds,
+      season: new Set(archive.seasons.map((entry) => String(entry.year))),
+      club: clubIds,
+      source: sourceIds,
+    };
+    if (!targetIds[item.target.type].has(item.target.id)) {
+      at("target.id", `ukjent ${item.target.type} «${item.target.id}»`);
+    }
+    for (const [index, ref] of item.sources.entries()) {
+      if (ref.sourceId && !sourceIds.has(ref.sourceId)) {
+        at(`sources.${index}.sourceId`, `ukjent historisk kilde «${ref.sourceId}»`);
+      }
+      if (ref.providerId && !providerIds.has(ref.providerId)) {
+        at(`sources.${index}.providerId`, `ukjent dataleverandør «${ref.providerId}»`);
+      }
+    }
+    const fingerprint = `${item.target.type}|${item.target.id}|${item.target.field}|${item.claim.toLocaleLowerCase("nb")}`;
+    const existing = caseFingerprints.get(fingerprint);
+    if (existing) at("claim", `samme aktive påstand som ${existing}`);
+    else if (item.status === "open") caseFingerprints.set(fingerprint, item.file);
+  }
   for (const extraction of archive.extractions) {
     if (!sourceIds.has(extraction.sourceId)) {
       issues.push({ file: extraction.file, path: "sourceId", message: `ukjent historisk kilde «${extraction.sourceId}»` });

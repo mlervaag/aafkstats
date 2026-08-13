@@ -1,0 +1,18 @@
+id: edvard-skugvik-oppmann-1920
+status: open
+category: role
+claim: Edvard Skugvik var oppmann i AaFK i 1920.
+question: Var Edvard Skugvik oppmann i AaFK i 1920?
+context: 75- og 90-årsbøkene peker på Edvard Skugvik, mens OCR-avlesningen av 80-årsboka peker på Rasmus Eck Olsen.
+whyItMatters: Oppmannsrollen er ført på to personer samme år og kan være lest fra feil kolonne.
+yesMeaning: Kilden fører Edvard Skugvik som oppmann i 1920.
+noMeaning: Kilden fører Rasmus Eck Olsen eller en annen person som oppmann i 1920.
+instructions: ["Kontroller rad og kolonne i tabellen.", "Oppgi hvilken av de tre oversiktene du faktisk så."]
+target: { type: person, id: edvard-skugvik, field: oppmann.1920 }
+sources:
+  - { sourceId: vi-er-75-ar-1989-aff6, page: "8", role: supports, note: Manuelt kontrollert tabell. }
+  - { sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d, page: "27", role: supports, note: Manuelt kontrollert tabell. }
+  - { sourceId: vi-er-80-ar-1914-1994-1994-5e91, page: "7", role: contradicts, note: Maskinelt lest alternativ. }
+estimatedMinutes: 5
+priority: 88
+publishedAt: 2026-08-13

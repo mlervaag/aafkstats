@@ -39,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // fører den opp som «Side med omdirigering». Selve omdirigeringen skal bli
   // stående — gamle lenker utenfra skal fortsatt virke — men den hører ikke
   // hjemme i en liste over adresser vi ber om å få indeksert.
-  const staticPages = ["", "/sesonger", "/motstandere", "/klubben", "/personer", "/organisasjon", "/hjemmebaner", "/kilder", "/mangler", "/data", "/om", "/bidra"];
+  const staticPages = ["", "/sesonger", "/motstandere", "/klubben", "/personer", "/organisasjon", "/hjemmebaner", "/kilder", "/mangler", "/mangler/saker", "/mangler/oversikt", "/data", "/om", "/bidra"];
 
   return [
     ...staticPages.map((path) => ({

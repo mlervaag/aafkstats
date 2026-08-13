@@ -1,0 +1,18 @@
+id: georg-haller-to-formannsroller-1914
+status: open
+category: role
+claim: Georg Haller hadde to separate formannsroller i 1914, som klubbformann og som formann i banekomiteen.
+question: Var Georg Haller både klubbformann og formann i banekomiteen i 1914?
+context: Arkivet har to roller med ulike organer. Motsigelsesrapporten varsler at en mindre presis tittel noen ganger kan være samme rolle dobbeltført.
+whyItMatters: Saken tester både et konkret historisk dobbeltverv og kvaliteten på arkivets egen kontrollregel.
+yesMeaning: Kildene skiller uttrykkelig mellom hovedstyret og banekomiteen som to samtidige verv.
+noMeaning: En kilde viser at den ene tittelen bare er en upresis gjentakelse av den andre.
+instructions: ["Kontroller hvilket organ hver tittel gjelder.", "Se etter separate valg eller medlemslister."]
+target: { type: person, id: georg-haller, field: roles.formann-vs-banekomiteformann.1914 }
+sources:
+  - { sourceId: aalesunds-fotballklub-gjennem-1939-ec28, page: "18", role: context, note: Fører klubbens formann. }
+  - { sourceId: aafk-historie-stiftelsen, role: supports, note: Omtaler første klubbformann. }
+  - { sourceId: aafk-historie-norvebana, role: supports, note: Omtaler banekomiteen. }
+estimatedMinutes: 8
+priority: 78
+publishedAt: 2026-08-13

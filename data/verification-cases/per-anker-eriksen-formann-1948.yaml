@@ -1,0 +1,18 @@
+id: per-anker-eriksen-formann-1948
+status: open
+category: role
+claim: Per Anker Eriksen var formann i AaFK i 1948.
+question: Var Per Anker Eriksen formann i AaFK i 1948?
+context: OCR fra et medlemsblad og et Tango-oppslag peker på Per Anker Eriksen, mens lederoversiktene fører Sigurd Nørve.
+whyItMatters: Et fortellende treff kan ha blitt tolket som en formannsrad og skapt en feil rolle.
+yesMeaning: En kilde sier uttrykkelig at Per Anker Eriksen var klubbformann i 1948.
+noMeaning: Kilden viser et annet verv, eller at Sigurd Nørve var klubbformann.
+instructions: ["Les teksten rundt navnet på begge sidene.", "Se om tittelen formann gjelder et underorgan."]
+target: { type: person, id: per-anker-eriksen, field: formann.1948 }
+sources:
+  - { sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6, page: "63", role: supports, note: Maskinelt lest treff. }
+  - { sourceId: tango-siden-1914-2013-806b, page: "235", role: supports, note: Maskinelt lest treff. }
+  - { sourceId: tango-siden-1914-2013-806b, page: "348", role: contradicts, note: Lederoversikt som fører Sigurd Nørve. }
+estimatedMinutes: 7
+priority: 95
+publishedAt: 2026-08-13

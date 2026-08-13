@@ -35,6 +35,8 @@ const QUESTIONS_PER_HOUR = 10;
  * en sak i en innboks.
  */
 const CONTRIBUTIONS_PER_HOUR = 5;
+/** Verifiseringer er smÃ¥, men skal ikke kunne fylle GitHub-innboksen uten grenser. */
+const VERIFICATIONS_PER_HOUR = 20;
 const WINDOW_MS = 60 * 60 * 1000;
 /**
  * Tak på antall avsendere vi holder styr på samtidig.
@@ -48,11 +50,12 @@ const WINDOW_MS = 60 * 60 * 1000;
 const MAX_TRACKED = 5000;
 
 /** Hva som telles. Hver kvote har sitt eget vindu per avsender. */
-export type RateLimitBucket = "chat" | "bidrag";
+export type RateLimitBucket = "chat" | "bidrag" | "verifisering";
 
 const LIMITS: Record<RateLimitBucket, number> = {
   chat: QUESTIONS_PER_HOUR,
   bidrag: CONTRIBUTIONS_PER_HOUR,
+  verifisering: VERIFICATIONS_PER_HOUR,
 };
 
 /** Teller per avsender og kvote i denne instansens minne. Se forbeholdet over. */
@@ -80,7 +83,10 @@ export function clientIp(req: Request): string {
   return "ukjent";
 }
 
-function tooManyMessage(): string {
+function tooManyMessage(bucket: RateLimitBucket): string {
+  if (bucket !== "chat") {
+    return `Du har sendt inn ${LIMITS[bucket]} svar denne timen. PrÃ¸v igjen om litt.`;
+  }
   return (
     `Du har brukt ${QUESTIONS_PER_HOUR} spørsmål denne timen. ` +
     "Arkivet er gratis å bruke, og grensen finnes bare for å holde kostnadene nede. " +
@@ -102,7 +108,7 @@ function checkInMemory(ip: string, bucket: RateLimitBucket): RateLimitVerdict {
     const oldest = hits[0]!;
     return {
       allowed: false,
-      message: tooManyMessage(),
+      message: tooManyMessage(bucket),
       retryAfterSeconds: Math.max(60, Math.ceil((oldest + WINDOW_MS - now) / 1000)),
       enforcedBy: "in-memory",
     };

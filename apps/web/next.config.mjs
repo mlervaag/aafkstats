@@ -38,10 +38,13 @@ function externalAnalyticsOrigin() {
 
 const analyticsOrigin = externalAnalyticsOrigin();
 const extra = analyticsOrigin ? ` ${analyticsOrigin}` : "";
+// Webpacks utviklingsserver evaluerer moduler for rask oppdatering. Tillatelsen
+// finnes bare lokalt; produksjonsbygget beholder den strenge policyen under.
+const developmentEval = process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : "";
 
 const CSP = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${extra}`,
+  `script-src 'self' 'unsafe-inline'${developmentEval}${extra}`,
   // Next trenger foreløpig innebygde <script>-elementer, men ikke onload= og
   // andre skripthandlere i HTML-attributter. Skill dem, så en framtidig
   // HTML-injeksjon ikke automatisk blir kjørbar kode.

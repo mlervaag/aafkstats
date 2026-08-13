@@ -1,0 +1,18 @@
+id: jan-with-aeresmedlem-1981
+status: open
+category: role
+claim: Jan With ble æresmedlem i 1981.
+question: Ble Jan With æresmedlem i 1981?
+context: To manuelt kontrollerte jubileumsbøker er eksplisitt uenige. Tango 2013 oppgir 1981, mens 90-årsboka oppgir 1982.
+whyItMatters: Dette er en ekte kildekonflikt, ikke bare et OCR-treff. En samtidig kilde kan løse den.
+yesMeaning: En samtidig eller uavhengig kilde dokumenterer at Jan With ble æresmedlem i 1981.
+noMeaning: En samtidig eller uavhengig kilde dokumenterer at 1981 er feil, for eksempel at utnevnelsen skjedde i 1982.
+instructions: ["Kontroller tabellene på de oppgitte sidene.", "Let helst etter årsmelding, medlemsblad eller avis fra 1981–1982."]
+target: { type: person, id: jan-with, field: aeresmedlem.from }
+sources:
+  - { sourceId: tango-siden-1914-2013-806b, page: "350", role: supports, note: Oppgir 1981. }
+  - { sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d, page: "27", role: contradicts, note: Oppgir 1982. }
+searchHint: Søk etter Jan With sammen med æresmedlem i kilder fra 1981 og 1982, særlig medlemsblad, årsmelding eller Sunnmørsposten.
+estimatedMinutes: 12
+priority: 100
+publishedAt: 2026-08-13

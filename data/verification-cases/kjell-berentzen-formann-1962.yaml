@@ -1,0 +1,18 @@
+id: kjell-berentzen-formann-1962
+status: open
+category: role
+claim: Kjell Berentzen var formann i AaFK i 1962.
+question: Var Kjell Berentzen formann i AaFK i 1962?
+context: Et oppslag i Tango peker på Kjell Berentzen, mens klubbens lederhistorikk fører Hans J. Henriksen.
+whyItMatters: Ett fortellende oppslag må skilles fra de strukturerte ledertabellene.
+yesMeaning: En kilde identifiserer Kjell Berentzen som klubbformann i 1962.
+noMeaning: En kilde identifiserer Hans J. Henriksen eller en annen person som klubbformann.
+instructions: ["Kontroller hva side 293 faktisk sier om rollen.", "Sammenhold med ledertabellen på side 348."]
+target: { type: person, id: kjell-berentzen, field: formann.1962 }
+sources:
+  - { sourceId: tango-siden-1914-2013-806b, page: "293", role: supports, note: Fortellende oppslag. }
+  - { sourceId: tango-siden-1914-2013-806b, page: "348", role: contradicts, note: Strukturert lederoversikt. }
+  - { sourceId: aafk-historie-ledere, role: contradicts, note: Klubbens nettliste. }
+estimatedMinutes: 6
+priority: 86
+publishedAt: 2026-08-13

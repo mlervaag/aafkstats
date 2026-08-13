@@ -1,0 +1,18 @@
+id: per-mogstad-formann-1925
+status: open
+category: role
+claim: Per Mogstad var formann i AaFK i 1925.
+question: Var Per Mogstad formann i AaFK i 1925?
+context: En årsrad peker på Per Mogstad. Den nær samtidige 1939-boka og flere senere tabeller fører Sverre Mogstad.
+whyItMatters: Samme etternavn gjør en OCR- eller identitetsforveksling lett å overse.
+yesMeaning: En kilde identifiserer Per Mogstad som klubbformann i 1925.
+noMeaning: En kilde identifiserer Sverre Mogstad eller en annen person som klubbformann.
+instructions: ["Kontroller fornavnet bokstav for bokstav.", "Se om 1925 inngår i en flerårsperiode."]
+target: { type: person, id: per-mogstad, field: formann.1925 }
+sources:
+  - { sourceId: aalesunds-fotballklubb-1914-50-1964-3815, page: "81", role: supports, note: Avvikende årsrad. }
+  - { sourceId: aalesunds-fotballklub-gjennem-1939-ec28, page: "18", role: contradicts, note: Fører Sverre Mogstad 1925–1926. }
+  - { sourceId: tango-siden-1914-2013-806b, page: "348", role: contradicts, note: Manuelt kontrollert tabell. }
+estimatedMinutes: 5
+priority: 96
+publishedAt: 2026-08-13

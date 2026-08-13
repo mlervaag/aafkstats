@@ -1,0 +1,20 @@
+id: anders-mogstad-formann-1921
+status: open
+category: role
+claim: Anders Mogstad var formann i AaFK i 1921.
+question: Var Anders Mogstad formann i AaFK i 1921?
+context: 50-årsboka knytter Anders Mogstad til året, mens flere lederoversikter fører Rasmus Eck Olsen som formann i perioden 1920–1924.
+whyItMatters: Formannsrekkene er en sentral del av klubbhistorien, og en feil årsrad påvirker både personer og organisasjonsoversikten.
+yesMeaning: En kilde identifiserer Anders Mogstad som klubbformann i 1921.
+noMeaning: En kilde identifiserer Rasmus Eck Olsen eller en annen person som klubbformann i 1921.
+instructions:
+  - Kontroller navn, overskrift og kolonne på de oppgitte sidene.
+  - Se etter om 1921 er et år i en periode eller et annet verv.
+target: { type: person, id: anders-mogstad, field: formann.1921 }
+sources:
+  - { sourceId: aalesunds-fotballklubb-1914-50-1964-3815, page: "81", role: supports, note: 50-årsbokas årsoversikt. }
+  - { sourceId: aalesunds-fotballklub-gjennem-1939-ec28, page: "18", role: contradicts, note: Lederperioden 1920–1924 er manuelt kontrollert. }
+  - { sourceId: tango-siden-1914-2013-806b, page: "348", role: context, note: Senere lederoversikt. }
+estimatedMinutes: 6
+priority: 92
+publishedAt: 2026-08-13

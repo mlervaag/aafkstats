@@ -1,0 +1,18 @@
+id: hans-j-henriksen-formann-1968
+status: open
+category: role
+claim: Hans J. Henriksen var formann i AaFK i 1968.
+question: Var Hans J. Henriksen formann i AaFK i 1968?
+context: Et medlemsblad fra 1969 peker på Hans J. Henriksen, mens lederoversiktene fører Erling Bjørge gjennom 1968.
+whyItMatters: Samtidige medlemsblad kan avklare om 1968 var et skifteår eller en OCR-feil.
+yesMeaning: En samtidig kilde identifiserer Hans J. Henriksen som klubbformann i 1968.
+noMeaning: En samtidig kilde identifiserer Erling Bjørge eller en annen person som klubbformann.
+instructions: ["Kontroller medlemsbladet fra 1968 før senere oppsummeringer.", "Se etter dato for eventuelt årsmøte eller lederskifte."]
+target: { type: person, id: hans-j-henriksen, field: formann.1968 }
+sources:
+  - { sourceId: medlemsblad-for-aalesunds-fotb-1969-da4a, page: "3", role: supports, note: Avvikende treff. }
+  - { sourceId: medlemsblad-for-aalesunds-fotb-1968-db10, page: "5", role: contradicts, note: Samtidig medlemsblad. }
+  - { sourceId: tango-siden-1914-2013-806b, page: "348", role: contradicts, note: Lederoversikt. }
+estimatedMinutes: 7
+priority: 93
+publishedAt: 2026-08-13

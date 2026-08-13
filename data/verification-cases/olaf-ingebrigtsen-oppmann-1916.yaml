@@ -1,0 +1,18 @@
+id: olaf-ingebrigtsen-oppmann-1916
+status: open
+category: role
+claim: Olaf Ingebrigtsen var oppmann i AaFK i 1916.
+question: Var Olaf Ingebrigtsen oppmann i AaFK i 1916?
+context: OCR fra 80-årsboka peker på Olaf Ingebrigtsen, mens 1939-boka fører Harald Hagen som oppmann.
+whyItMatters: Formann og oppmann kan ha blitt byttet mellom to personer i samme årsrad.
+yesMeaning: En kilde fører Olaf Ingebrigtsen som oppmann i 1916.
+noMeaning: En kilde fører Harald Hagen eller en annen person som oppmann i 1916.
+instructions: ["Kontroller både formanns- og oppmannskolonnen.", "Noter den nøyaktige skrivemåten av navnene."]
+target: { type: person, id: olaf-ingebrigtsen, field: oppmann.1916 }
+sources:
+  - { sourceId: vi-er-80-ar-1914-1994-1994-5e91, page: "7", role: supports, note: Avvikende OCR-avlesning. }
+  - { sourceId: aalesunds-fotballklub-gjennem-1939-ec28, page: "18", role: contradicts, note: Manuelt kontrollert liste. }
+  - { sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c, page: "74", role: context, note: Senere kontrolltabell. }
+estimatedMinutes: 6
+priority: 90
+publishedAt: 2026-08-13

@@ -1,0 +1,17 @@
+id: edvard-skugvik-formann-1920
+status: open
+category: role
+claim: Edvard Skugvik var formann i AaFK i 1920.
+question: Var Edvard Skugvik formann i AaFK i 1920?
+context: En maskinelt lest årsrad peker på Edvard Skugvik, mens 1939-boka fører Rasmus Eck Olsen som formann fra 1920.
+whyItMatters: Saken avgjør hvem som skal stå først i en flerårig formannsperiode.
+yesMeaning: En kilde identifiserer Edvard Skugvik som klubbformann i 1920.
+noMeaning: En kilde identifiserer Rasmus Eck Olsen eller en annen person som klubbformann i 1920.
+instructions: ["Kontroller om navn og år står i samme rad og under overskriften for formenn.", "Skill formann fra oppmann og andre verv."]
+target: { type: person, id: edvard-skugvik, field: formann.1920 }
+sources:
+  - { sourceId: aalesunds-fotballklubb-1914-50-1964-3815, page: "81", role: supports, note: Den avvikende årsoversikten. }
+  - { sourceId: aalesunds-fotballklub-gjennem-1939-ec28, page: "18", role: contradicts, note: Lederperioden for Rasmus Eck Olsen. }
+estimatedMinutes: 6
+priority: 92
+publishedAt: 2026-08-13

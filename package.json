@@ -12,6 +12,7 @@
     "data:duplicates": "pnpm --filter @aafkstats/schema run duplicates",
     "data:uncertain": "pnpm --filter @aafkstats/schema run uncertain",
     "data:contradictions": "pnpm --filter @aafkstats/schema run contradictions",
+    "data:verification-candidates": "pnpm --filter @aafkstats/schema run verification-candidates",
     "etter-kamp": "pnpm --filter @aafkstats/ingest run etter-kamp",
     "ingest:fotmob": "pnpm --filter @aafkstats/ingest run fotmob",
     "ingest:fotmob-gap": "pnpm --filter @aafkstats/ingest run fotmob-gap",

@@ -1,0 +1,17 @@
+id: bryne-aafk-resultat-1996-09-08
+status: open
+category: match
+claim: AaFK vant 14–0 borte mot Bryne 8. september 1996.
+question: Vant AaFK 14–0 borte mot Bryne 8. september 1996?
+context: Fotball.no oppgir 0–14, og NFF-tabellen bygger på samme data. Resultatet er svært uvanlig for to lag i samme divisjon og mangler en uavhengig bekreftelse.
+whyItMatters: Et feil resultat påvirker kampen, tabellen, målforskjellen og all motstanderstatistikk.
+yesMeaning: En uavhengig kilde dokumenterer sluttresultatet Bryne 0–14 AaFK.
+noMeaning: En uavhengig kilde dokumenterer et annet sluttresultat.
+instructions: ["Finn en kilde som ikke bare gjengir NFFs samme datasett.", "Oppgi avis, dato og side eller en stabil nettlenke."]
+target: { type: match, id: 1996-09-08-bryne-aalesunds-fk, field: score }
+sources:
+  - { providerId: fotball-no, role: supports, note: "Oppgir 0–14, men er ikke uavhengig av tabellberegningen." }
+searchHint: Se i Sunnmørsposten 9. september 1996, Stavanger Aftenblad, Brynes kamparkiv eller en annen samtidig kampomtale.
+estimatedMinutes: 15
+priority: 100
+publishedAt: 2026-08-13
