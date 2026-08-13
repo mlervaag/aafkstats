@@ -99,6 +99,22 @@ describe("arkivet", () => {
       .map((match) => match.file);
     expect(wrong).toEqual([]);
   });
+
+  it("fører Georg Haller som formann og Ole Jangaard som oppmann i 1915", () => {
+    const georg = archive.people.find((person) => person.id === "georg-haller");
+    const ole = archive.people.find((person) => person.id === "ole-jangaard");
+    const verification = archive.verificationCases.find((item) => item.id === "ole-jangaard-formann-1915");
+    const extraction = archive.extractions.find((item) => item.sourceId === "aalesunds-fotballklubb-1914-50-1964-3815");
+
+    expect(georg?.roles).toEqual(expect.arrayContaining([
+      expect.objectContaining({ title: "Formann", from: "1914", to: "1915" }),
+    ]));
+    expect(ole?.roles.filter((role) => role.from === "1915").map((role) => role.title)).toContain("Oppmann");
+    expect(ole?.roles.some((role) => role.title === "Formann")).toBe(false);
+    expect(ole?.conflicts.some((conflict) => conflict.field === "formann.1915")).toBe(false);
+    expect(extraction?.resolvedRoles.some((role) => role.personId === "ole-jangaard" && role.title === "Formann" && role.from === "1915")).toBe(false);
+    expect(verification).toMatchObject({ status: "resolved", resolution: { answer: "no" } });
+  });
 });
 
 /**

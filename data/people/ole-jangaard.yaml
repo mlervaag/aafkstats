@@ -63,6 +63,12 @@ roles:
           - title
           - from
         note: Manuelt verifisert.
+      - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
+        page: "81"
+        fields:
+          - title
+          - from
+        note: Manuelt verifisert mot oppmannslisten.
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
       siden.
   - id: gullmerkeinnehaver-1924
@@ -110,6 +116,12 @@ roles:
           - title
           - from
         note: Manuelt verifisert.
+      - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
+        page: "81"
+        fields:
+          - title
+          - from
+        note: Manuelt verifisert mot oppmannslisten.
   - id: oppmann-1919
     category: sporting_staff
     title: Oppmann
@@ -137,6 +149,12 @@ roles:
           - title
           - from
         note: Manuelt verifisert.
+      - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
+        page: "81"
+        fields:
+          - title
+          - from
+        note: Manuelt verifisert mot oppmannslisten.
   - id: oppmann-1923
     category: sporting_staff
     title: Oppmann
@@ -164,6 +182,12 @@ roles:
           - title
           - from
         note: Manuelt verifisert.
+      - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
+        page: "81"
+        fields:
+          - title
+          - from
+        note: Manuelt verifisert mot oppmannslisten.
   - id: oppmann-1924
     category: sporting_staff
     title: Oppmann
@@ -191,6 +215,12 @@ roles:
           - title
           - from
         note: Manuelt verifisert.
+      - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
+        page: "81"
+        fields:
+          - title
+          - from
+        note: Manuelt verifisert mot oppmannslisten.
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "13"
@@ -280,15 +310,3 @@ sources:
     page: "4"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-conflicts:
-  - field: formann.1915
-    values:
-      - value: Ole Jangaard
-        providerId: nasjonalbiblioteket
-        note: aalesunds-fotballklubb-1914-50-1964-3815 s. 81
-      - value: Georg Haller
-        providerId: aafk-no
-    resolved: false
-    decision: unresolved
-    locked: false
-    note: Kildene oppgir ulike navn for dette vervet. Ingen av dem er valgt.
