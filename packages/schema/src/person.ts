@@ -56,6 +56,8 @@ export const personRole = z
     id: slug,
     category: personRoleCategory,
     title: z.string().min(1),
+    /** Juridisk eller organisatorisk enhet rollen er knyttet til. */
+    organizationId: slug.optional(),
     /** Organisasjonsdelen rollen hører til, for eksempel Hovedstyret eller A-laget. */
     body: z.string().min(1).optional(),
     from: historicalDate,

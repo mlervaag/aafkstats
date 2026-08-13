@@ -166,6 +166,16 @@ CREATE TABLE core_people (
   note         TEXT
 );
 
+-- Juridiske og organisatoriske enheter må være eksplisitte. «AaFK» og
+-- «Ålesund Fotball AS» kan ha parallelle lederroller uten å være samme organ.
+CREATE TABLE core_organizations (
+  id                   TEXT PRIMARY KEY,
+  name                 TEXT NOT NULL,
+  organization_number  TEXT,
+  kind                 TEXT NOT NULL CHECK (kind IN ('club','company','stadium')),
+  note                 TEXT
+);
+
 -- Skrivemåtene en person er kjent under, én rad per form. Brukes til å knytte et
 -- navn fra en oppstilling til registeret når kildene staver det ulikt.
 CREATE TABLE core_person_names (
@@ -202,6 +212,7 @@ CREATE TABLE core_person_roles (
   category     TEXT NOT NULL CHECK (category IN
                  ('player','coach','sporting_staff','board','administration','honorary','founder','project')),
   title        TEXT NOT NULL,
+  organization_id TEXT REFERENCES core_organizations(id),
   body         TEXT,
   from_date    TEXT NOT NULL,
   to_date      TEXT,
@@ -215,6 +226,21 @@ ON core_person_roles(category, from_date, to_date);
 
 CREATE INDEX idx_person_roles_body_dates
 ON core_person_roles(body, from_date, to_date);
+
+-- Et snapshot sier hvem som er observert i en rolle på én dato. Det må holdes
+-- atskilt fra rolleperioder, fordi observasjonsdatoen ikke er en startdato.
+CREATE TABLE core_organization_snapshot_people (
+  snapshot_date  TEXT NOT NULL,
+  organization_id TEXT NOT NULL REFERENCES core_organizations(id),
+  person_id      TEXT NOT NULL REFERENCES core_people(id),
+  observed_title TEXT NOT NULL,
+  category       TEXT NOT NULL CHECK (category IN
+                   ('player','coach','sporting_staff','board','administration','honorary','founder','project')),
+  body           TEXT,
+  sources        TEXT NOT NULL,
+  note           TEXT,
+  PRIMARY KEY (snapshot_date, organization_id, person_id, observed_title)
+);
 
 -- Én rad per spiller per kamp. Utledet av lineups ved bygging, ikke lagret i
 -- data/ — oppstillingen ligger allerede på kampen, og en egen fil per opptreden
@@ -761,6 +787,8 @@ SELECT
   r.role_id,
   r.category,
   r.title,
+  r.organization_id,
+  o.name AS organization_name,
   r.body,
   r.from_date,
   r.to_date,
@@ -769,7 +797,31 @@ SELECT
   '/personer/' || p.id AS url
 FROM core_person_roles r
 JOIN core_people p ON p.id = r.person_id
+LEFT JOIN core_organizations o ON o.id = r.organization_id
 ORDER BY r.from_date, p.name;
+
+CREATE VIEW organizations AS
+SELECT id, name, organization_number, kind, note
+FROM core_organizations
+ORDER BY name;
+
+CREATE VIEW organization_snapshots AS
+SELECT
+  s.snapshot_date,
+  s.organization_id,
+  o.name AS organization_name,
+  s.person_id,
+  p.name,
+  s.observed_title,
+  s.category,
+  s.body,
+  s.sources,
+  s.note,
+  '/personer/' || p.id AS url
+FROM core_organization_snapshot_people s
+JOIN core_organizations o ON o.id = s.organization_id
+JOIN core_people p ON p.id = s.person_id
+ORDER BY s.snapshot_date, o.name, p.name;
 
 -- Én rad per verdi i en uenighet om en personrolle. Formen speiler
 -- match_conflicts, slik at AI-søket kan forklare uenigheten uten å velge side.

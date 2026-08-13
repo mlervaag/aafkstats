@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
-import { getPersonRoles, getSourceTitles, mergeRoleSpells, type PersonRole } from "@/lib/people";
+import { getOrganizationSnapshots, getPersonRoles, getSourceTitles, mergeRoleSpells, type OrganizationSnapshotPerson, type PersonRole } from "@/lib/people";
 import { ArchiveTabs } from "@/components/ArchiveTabs";
 import { SectionIndex } from "@/components/SectionIndex";
 import { SourceChips } from "@/components/SourceChips";
@@ -77,7 +77,7 @@ function RoleList({ roles, sourceTitles, showTitle = true }: {
           <div>
             <h3><Link href={`/personer/${role.person_id}`}>{role.name}</Link></h3>
             {showTitle || role.body ? (
-              <p>{[showTitle ? role.title : null, role.body].filter(Boolean).join(" · ")}</p>
+              <p>{[showTitle ? role.title : null, role.organization_name, role.body].filter(Boolean).join(" · ")}</p>
             ) : null}
             <SourceChips refs={role.sources} titles={sourceTitles} />
           </div>
@@ -87,8 +87,42 @@ function RoleList({ roles, sourceTitles, showTitle = true }: {
   );
 }
 
+function SnapshotList({ snapshots, sourceTitles }: {
+  snapshots: OrganizationSnapshotPerson[];
+  sourceTitles: Map<string, string>;
+}) {
+  const groups = new Map<string, OrganizationSnapshotPerson[]>();
+  for (const entry of snapshots) {
+    const key = `${entry.snapshot_date}|${entry.organization_name}`;
+    groups.set(key, [...(groups.get(key) ?? []), entry]);
+  }
+  return (
+    <div className={styles.snapshotGrid}>
+      {[...groups.entries()].map(([key, entries]) => {
+        const first = entries[0]!;
+        return (
+          <section className={styles.snapshotCard} key={key}>
+            <p className="eyebrow">Organisasjonsbilde · {day(first.snapshot_date)}</p>
+            <h3>{first.organization_name}</h3>
+            <ol className={styles.snapshotPeople}>
+              {entries.map((entry) => (
+                <li key={`${entry.person_id}-${entry.observed_title}`}>
+                  <Link href={`/personer/${entry.person_id}`}>{entry.name}</Link>
+                  <span>{[entry.observed_title, entry.body].filter(Boolean).join(" · ")}</span>
+                </li>
+              ))}
+            </ol>
+            <SourceChips refs={first.sources} titles={sourceTitles} />
+          </section>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function OrganizationPage() {
   const registered = getPersonRoles();
+  const snapshots = getOrganizationSnapshots();
   // Sammenslåingen gjelder visningen. Kildedekninga teller fortsatt registrerte
   // roller, ikke rader på skjermen — det er arkivets størrelse, ikke sidas.
   const roles = mergeRoleSpells(registered);
@@ -128,6 +162,7 @@ export default function OrganizationPage() {
           { id: "formenn", label: "Formenn", count: chairs.length },
           { id: "stifterne", label: "Stifterne", count: founders.length },
           { id: "administrasjon", label: "Administrasjon", count: administration.length },
+          { id: "organisasjonsbilder", label: "Organisasjonsbilder", count: snapshots.length },
           { id: "heder", label: "Heder", count: honorary.length },
           { id: "trenere", label: "Trenere", count: sporting.length },
         ]}
@@ -170,6 +205,15 @@ export default function OrganizationPage() {
           {honorary.length > 0 ? <RoleList roles={honorary} sourceTitles={sourceTitles} /> : <p className="muted">Ingen roller registrert ennå.</p>}
         </section>
       </div>
+
+      {snapshots.length > 0 ? (
+        <section className={styles.sportSection} id="organisasjonsbilder">
+          <p className="eyebrow">Dokumenterte øyeblikk</p>
+          <h2>Organisasjonsbilder</h2>
+          <p className={styles.sectionLead}>Disse kildene viser hvem som hadde en rolle på én bestemt dato. Datoen er ikke tolket som når arbeidsforholdet startet eller sluttet.</p>
+          <SnapshotList snapshots={snapshots} sourceTitles={sourceTitles} />
+        </section>
+      ) : null}
 
       <section className={styles.sportSection} id="trenere">
         <p className="eyebrow">Sportslig ledelse</p>

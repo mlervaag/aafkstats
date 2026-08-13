@@ -1,0 +1,12 @@
+id: ronny-stokke
+name: Ronny Stokke
+roles:
+  - id: daglig-leder-2022-2024
+    category: administration
+    title: Daglig leder
+    organizationId: aafk
+    from: "2022-02-04"
+    to: "2024-05-01"
+    sources:
+      - { sourceId: aafk-ronny-stokke-tar-over, fields: [title, from] }
+      - { sourceId: aafk-stokke-avslutter, fields: [to] }

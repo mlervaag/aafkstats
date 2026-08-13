@@ -1,0 +1,13 @@
+id: terje-erstad
+name: Terje Erstad
+roles:
+  - id: spillerkoordinator-2024
+    category: sporting_staff
+    title: Spillerkoordinator
+    organizationId: aafk
+    from: "2024-02-08"
+    to: null
+    sources:
+      - { sourceId: aafk-erstad-spillerkoordinator, fields: [title, from] }
+      - { sourceId: aafk-ansatte-2026, fields: [title] }
+    note: Overtok også utstyrsansvaret etter Bjørn Rekdals avgang.

@@ -228,6 +228,16 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
       `INSERT INTO core_people (id, person_key, name, nationality, position, wikidata, sources, conflicts, note)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     );
+    const insertOrganization = db.prepare(
+      `INSERT INTO core_organizations (id, name, organization_number, kind, note)
+       VALUES (?, ?, ?, ?, ?)`,
+    );
+    for (const organization of archive.organizations) {
+      insertOrganization.run(
+        organization.id, organization.name, organization.organizationNumber ?? null,
+        organization.kind, organization.note ?? null,
+      );
+    }
     const insertPersonName = db.prepare(
       `INSERT OR IGNORE INTO core_person_names (person_id, person_key, name) VALUES (?, ?, ?)`,
     );
@@ -240,8 +250,8 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
     );
     const insertPersonRole = db.prepare(
       `INSERT INTO core_person_roles
-         (person_id, role_id, category, title, body, from_date, to_date, sources, note)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+         (person_id, role_id, category, title, organization_id, body, from_date, to_date, sources, note)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     );
     for (const p of archive.people) {
       insertPerson.run(
@@ -257,8 +267,22 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
       }
       for (const role of p.roles) {
         insertPersonRole.run(
-          p.id, role.id, role.category, role.title, role.body ?? null,
+          p.id, role.id, role.category, role.title, role.organizationId ?? null, role.body ?? null,
           role.from, role.to, json(role.sources), role.note ?? null,
+        );
+      }
+    }
+
+    const insertOrganizationSnapshotPerson = db.prepare(
+      `INSERT INTO core_organization_snapshot_people
+         (snapshot_date, organization_id, person_id, observed_title, category, body, sources, note)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+    );
+    for (const snapshot of archive.organizationSnapshots) {
+      for (const observed of snapshot.people) {
+        insertOrganizationSnapshotPerson.run(
+          snapshot.date, snapshot.organizationId, observed.personId, observed.observedTitle,
+          observed.category, observed.body ?? null, json(snapshot.sources), snapshot.note ?? null,
         );
       }
     }

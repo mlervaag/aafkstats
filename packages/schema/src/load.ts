@@ -9,11 +9,13 @@ import { match } from "./match.js";
 import { canonicalClubKey, personKey } from "./identity.js";
 import { observation, observationPath } from "./observation.js";
 import { person } from "./person.js";
+import { organization, organizationSnapshot, organizationSnapshotPath } from "./organization.js";
 import { standings, standingsPath } from "./standings.js";
 import type { Club, Competition, Season, Provider, Venue } from "./entities.js";
 import type { Match } from "./match.js";
 import type { Observation } from "./observation.js";
 import type { Person } from "./person.js";
+import type { Organization, OrganizationSnapshot } from "./organization.js";
 import type { Standings } from "./standings.js";
 import { contribution } from "./contribution.js";
 import type { Contribution } from "./contribution.js";
@@ -70,6 +72,8 @@ export interface Archive {
    * i en oppstilling, og har ingen fil her.
    */
   people: Person[];
+  organizations: Organization[];
+  organizationSnapshots: (OrganizationSnapshot & { file: string })[];
   contributions: (Contribution & { file: string })[];
   sources: (HistoricalSource & { file: string })[];
   extractions: (PublicationExtraction & { file: string })[];
@@ -136,9 +140,16 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
 
   const clubs = await readAll("clubs", club);
   const people = await readAll("people", person);
+  const organizations = await readAll("organizations", organization);
   const venues = await readAll("venues", venue);
   const competitions = await readAll("competitions", competition);
   const providers = await readAll("providers", provider);
+
+  const organizationSnapshots = (await readAll("organization/snapshots", organizationSnapshot)) as
+    (OrganizationSnapshot & { file: string })[];
+  for (const snapshot of organizationSnapshots) {
+    snapshot.file = organizationSnapshotPath(snapshot.date, snapshot.organizationId);
+  }
 
   const seasons: (Season & { file: string })[] = [];
   const matches: (Match & { file: string })[] = [];
@@ -265,7 +276,7 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
     file: `verification-cases/${entry.id}.yaml`,
   }));
 
-  return { clubs, venues, competitions, providers, seasons, matches, observations, standings: tables, people, contributions, sources, extractions, sourceResults, verificationCases, issues };
+  return { clubs, venues, competitions, providers, seasons, matches, observations, standings: tables, people, organizations, organizationSnapshots, contributions, sources, extractions, sourceResults, verificationCases, issues };
 }
 
 /**
@@ -284,6 +295,8 @@ export function crossValidate(archive: Archive): LoadIssue[] {
   const competitionIds = ids(archive.competitions);
   const providerIds = ids(archive.providers);
   const sourceIds = ids(archive.sources);
+  const organizationIds = ids(archive.organizations);
+  const personIds = ids(archive.people);
 
   const duplicates = <T extends { id: string }>(xs: T[], kind: string) => {
     const seen = new Set<string>();
@@ -301,6 +314,24 @@ export function crossValidate(archive: Archive): LoadIssue[] {
   duplicates(archive.contributions, "contributions");
   duplicates(archive.sources, "sources");
   duplicates(archive.verificationCases, "verification-cases");
+  duplicates(archive.organizations, "organizations");
+
+  for (const snapshot of archive.organizationSnapshots) {
+    const file = organizationSnapshotPath(snapshot.date, snapshot.organizationId);
+    if (!organizationIds.has(snapshot.organizationId)) {
+      issues.push({ file, path: "organizationId", message: `ukjent organisasjon «${snapshot.organizationId}»` });
+    }
+    for (const ref of snapshot.sources) {
+      if (!sourceIds.has(ref.sourceId)) {
+        issues.push({ file, path: "sources", message: `ukjent historisk kilde «${ref.sourceId}»` });
+      }
+    }
+    for (const [index, observed] of snapshot.people.entries()) {
+      if (!personIds.has(observed.personId)) {
+        issues.push({ file, path: `people.${index}.personId`, message: `ukjent person «${observed.personId}»` });
+      }
+    }
+  }
 
   for (const club of archive.clubs) {
     for (const ref of club.sources) {
@@ -330,8 +361,6 @@ export function crossValidate(archive: Archive): LoadIssue[] {
   }
 
   const matchIds = ids(archive.matches);
-  const personIds = ids(archive.people);
-
   const caseFingerprints = new Map<string, string>();
   for (const item of archive.verificationCases) {
     const at = (path: string, message: string) => issues.push({ file: item.file, path, message });
@@ -357,6 +386,14 @@ export function crossValidate(archive: Archive): LoadIssue[] {
     const existing = caseFingerprints.get(fingerprint);
     if (existing) at("claim", `samme aktive påstand som ${existing}`);
     else if (item.status === "open") caseFingerprints.set(fingerprint, item.file);
+  }
+
+  for (const person of archive.people) {
+    for (const [index, role] of person.roles.entries()) {
+      if (role.organizationId && !organizationIds.has(role.organizationId)) {
+        issues.push({ file: `people/${person.id}.yaml`, path: `roles.${index}.organizationId`, message: `ukjent organisasjon «${role.organizationId}»` });
+      }
+    }
   }
   for (const extraction of archive.extractions) {
     if (!sourceIds.has(extraction.sourceId)) {

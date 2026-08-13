@@ -1,0 +1,14 @@
+id: torgeir-glomseth-olsen
+name: Torgeir Glomseth Olsen
+roles:
+  - id: sportslig-administrativ-leder-2023
+    category: administration
+    title: Sportslig administrativ leder
+    organizationId: aafk
+    body: AaFK Akademiet
+    from: "2023-03-01"
+    to: null
+    sources:
+      - { sourceId: aafk-glomseth-olsen-akademiet, fields: [title, from] }
+      - { sourceId: aafk-ansatte-2026, fields: [title] }
+    note: Rollen omfatter blant annet reiser, banedagbok, nye spillere, overganger og administrasjon rundt AaFK 2.

@@ -14,7 +14,33 @@ squadNumbers:
   - season: 2019
     number: 5
 coachSpells: []
-roles: []
+roles:
+  - id: speider-2023
+    category: sporting_staff
+    title: Speider
+    organizationId: aafk
+    from: "2023"
+    to: null
+    sources: [{ sourceId: aafk-lie-speider, fields: [title, from] }]
+  - id: delt-sportslig-lederfunksjon-2024-2025
+    category: sporting_staff
+    title: Delt sportslig lederfunksjon
+    organizationId: aafk
+    from: "2024"
+    to: "2025-10-31"
+    sources:
+      - { sourceId: aafk-veien-videre-2024, fields: [title, from] }
+      - { sourceId: aafk-lie-sportssjef, fields: [to] }
+    note: Funksjonen ble delt med Tarjei Gjendemsjø Omenås fra sommeren 2024.
+  - id: sportssjef-2025
+    category: sporting_staff
+    title: Sportssjef
+    organizationId: aafk
+    from: "2025-11-01"
+    to: null
+    sources:
+      - { sourceId: aafk-lie-sportssjef, fields: [title, from] }
+      - { sourceId: aafk-ansatte-2026, fields: [title] }
 providers:
   - providerId: wikipedia
     url: https://no.wikipedia.org/w/index.php?title=Aalesunds%20Fotballklubb&oldid=20031605

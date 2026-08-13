@@ -151,6 +151,13 @@ og organisasjonsverv på samme identitet, mens `/organisasjon` kan gruppere de s
 rollene som styrer og tidslinjer uten å kopiere data. Sesonger og kamper peker direkte
 på historiske publikasjoner med `sourceRef`; kildesiden viser koblingen tilbake.
 
+Organisasjonsenheter og samtidige organisasjonsbilder ligger i
+`data/organizations/` og `data/organization/snapshots/`. De bygges til
+`core_organizations`, `core_organization_snapshot_people`, `organizations` og
+`organization_snapshots`. Snapshotlaget er bevisst atskilt fra personroller: en
+ansattside dokumenterer hvem som var der på kontrolltidspunktet, men kan ikke alene
+etablere når noen begynte eller sluttet.
+
 Stadionfakta følger samme prinsipp. Dekkehistorikk, hjemmebaneperioder, milepæler og publikumsrekorder ligger
 i YAML med `sourceRef`, bygges som JSON til `core_venues` og eksponeres gjennom det
 offentlige `venues`-viewet. Dermed kan en hjemmebaneperiode være åpen selv om banen har et

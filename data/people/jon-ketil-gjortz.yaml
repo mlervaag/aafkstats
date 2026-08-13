@@ -1,6 +1,15 @@
 id: jon-ketil-gjortz
 name: Jon Ketil Gjørtz
 roles:
+  - id: styremedlem-1994-2021
+    category: board
+    title: Styremedlem
+    organizationId: aafk
+    body: Hovedstyret
+    from: "1994"
+    to: "2021"
+    sources: [{ sourceId: aafk-gjortz-historikk, fields: [title, from, to] }]
+    note: Klubbens retrospektive historikk oppgir 27 sammenhengende år i styret og framhever stadionprosjektet.
   - {
       id: gullmerkeinnehaver-1995,
       category: honorary,
@@ -39,6 +48,8 @@ roles:
           - from
         note: Manuelt verifisert.
 sources:
+  - sourceId: aafk-gjortz-historikk
+    fields: []
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "23"
     fields: []

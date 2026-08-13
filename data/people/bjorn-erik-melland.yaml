@@ -1,0 +1,30 @@
+id: bjorn-erik-melland
+name: Bjørn Erik Melland
+roles:
+  - id: medisinsk-rolle-2007-2017
+    category: sporting_staff
+    title: Medisinsk rolle
+    organizationId: aafk
+    body: A-laget
+    from: "2007"
+    to: "2017"
+    sources: [{ sourceId: aafk-melland-medisinsk-koordinator, fields: [title, from, to], note: Retrospektiv kilde. }]
+  - id: sportslig-leder-2017-2024
+    category: sporting_staff
+    title: Sportslig leder / sportssjef
+    organizationId: aafk
+    from: "2017-03-06"
+    to: "2024-06-19"
+    sources:
+      - { sourceId: aafk-melland-sportslig-leder, fields: [title, from] }
+      - { sourceId: aafk-melland-medisinsk-koordinator, fields: [to] }
+    note: Stillingen var nyopprettet.
+  - id: medisinsk-koordinator-2024
+    category: sporting_staff
+    title: Medisinsk koordinator / medisinsk ansvarlig
+    organizationId: aafk
+    from: "2024-06-19"
+    to: null
+    sources:
+      - { sourceId: aafk-melland-medisinsk-koordinator, fields: [title, from] }
+      - { sourceId: aafk-ansatte-2026, fields: [title] }

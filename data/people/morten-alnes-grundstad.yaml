@@ -1,0 +1,11 @@
+id: morten-alnes-grundstad
+name: Morten Alnes Grundstad
+roles:
+  - id: salgs-markedsleder-2019
+    category: administration
+    title: Salgs- og markedsleder
+    organizationId: aafk
+    from: "2019-12-16"
+    to: null
+    sources: [{ sourceId: aafk-grundstad-salg-marked, fields: [title, from] }]
+    note: Sluttdato er ikke funnet. Tarjei Omenås' start er ikke brukt som automatisk slutt fordi rollene ikke nødvendigvis var identiske.

@@ -1,0 +1,13 @@
+id: sondre-skrede
+name: Sondre Skrede
+roles:
+  - id: akademileder-2024
+    category: sporting_staff
+    title: Akademileder
+    organizationId: aafk
+    body: AaFK Akademiet
+    from: "2024-04-03"
+    to: null
+    sources:
+      - { sourceId: aafk-skrede-akademileder, fields: [title, from] }
+      - { sourceId: aafk-ansatte-2026, fields: [title] }

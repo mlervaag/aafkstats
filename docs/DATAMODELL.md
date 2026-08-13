@@ -573,6 +573,7 @@ roles:                            # verv og tilknytninger som kilden uttrykkelig
   - id: formann-1914-1915
     category: board               # player | coach | sporting_staff | board | administration | honorary | founder | project
     title: Formann
+    organizationId: aafk          # juridisk/organisatorisk enhet; valgfri for eldre roller
     body: Hovedstyret
     from: "1914"                  # år eller eksakt dato
     to: "1915"                    # null når slutt ikke er oppgitt
@@ -597,6 +598,29 @@ Samme person kan derfor være spiller, formann og senere æresmedlem uten tre pe
 
 Organisasjonssiden utledes av disse rollene. Et manglende år betyr «ikke kartlagt», aldri
 at vervet sto tomt. Roller skal ikke opprettes uten minst én `sourceId` og sidehenvisning.
+
+### Organisasjoner og snapshots
+
+`data/organizations/<id>.yaml` skiller klubben, driftsselskapet og stadionrelatert
+virksomhet. `organizationId` på en rolle er noe annet enn `body`: førstnevnte sier
+hvilken enhet rollen tilhører, mens `body` beholder avdeling eller organ slik kilden
+skrev det.
+
+`data/organization/snapshots/<dato>-<organizationId>.yaml` lagrer samtidige
+organisasjonsoversikter. En person i et snapshot var dokumentert i rollen på datoen,
+men datoen er verken start- eller sluttdato. Først en ansettelses-, utnevnelses- eller
+avgangskilde kan etablere en eksakt periode i `roles`.
+
+```yaml
+date: "2009-09-20"
+organizationId: aafk
+sources: [{ sourceId: aftenposten-aafk-administrasjon-2009 }]
+people:
+  - personId: einar-welle
+    observedTitle: Arenasjef
+    category: administration
+    body: Stadion
+```
 
 **Hvorfor filene finnes.** `personKey()` slår sammen skrivemåter som er samme bokstav
 skrevet på to måter. Det den ikke kan, er å avgjøre om «Mathias Kristensen» og «Mathias

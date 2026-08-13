@@ -1,0 +1,13 @@
+id: elin-bjerke
+name: Elin Bjerke
+roles:
+  - id: okonomisjef-2013
+    category: administration
+    title: Økonomisjef
+    organizationId: aafk
+    from: "2013"
+    to: null
+    sources:
+      - { sourceId: color-line-stadion-historisk-profil, fields: [title, from] }
+      - { sourceId: aafk-ansatte-2026, fields: [title] }
+note: En overgangsplan i desember 2016 sa at hun skulle bli konstituert daglig leder i Ålesund Fotball AS fra 15. januar 2017. Planen er ikke lagret som utført rolle fordi Henrik Hoffs engasjement senere ble forlenget.
