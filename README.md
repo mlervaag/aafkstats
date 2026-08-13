@@ -406,6 +406,9 @@ Minner fra skjemaet på nettstedet går til en egen innboks og vurderes mot arki
 tas inn. Datafeil, manglende kamper og kildetips går til egne GitHub-maler. Hva som
 kontrolleres i minneinnboksen, og hvordan feltene settes, står i
 [bidragsvurderingen](.agents/BIDRAGSVURDERING.md).
+JA/NEI-svar fra `/mangler` behandles etter den separate
+[verifiseringsrutinen](.agents/VERIFISERINGSVURDERING.md), som dekker kildekontroll,
+YAML-endringer, PR, merge og lukking av innboks-saken.
 
 <div align="center">
 <sub>Et supporterprosjekt. Ikke tilknyttet Aalesunds Fotballklubb.</sub>

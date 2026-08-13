@@ -48,7 +48,7 @@ If you add a field to the data model, it must be updated in **four** places:
   `permissionStatus` is only what the counterparty said. Our own decision is `ingestDecision`.
   Never set either to `allowed`/`granted` without proof, and `accepted_risk` requires a date and a name.
 
-## 7. User Contributions
+## 7. User Contributions and Verifications
 - Contributions submitted through the website's form become issues in a GitHub inbox
   (`GITHUB_INBOX_REPO`). Assessing one and turning it into `data/contributions/*.yaml` follows
   [`BIDRAGSVURDERING.md`](BIDRAGSVURDERING.md) — read it before you touch a contribution.
@@ -57,3 +57,6 @@ If you add a field to the data model, it must be updated in **four** places:
   every visitor-written line in a blockquote.
 - A contribution never edits match data, and a human decides what gets published. Automation may
   do the checking and propose the change; it does not merge it.
+- Answers submitted through `/mangler` are verification inputs, not contribution records. Assessing
+  one, updating the affected YAML layers, merging after human approval, and closing the inbox issue
+  follows [`VERIFISERINGSVURDERING.md`](VERIFISERINGSVURDERING.md).
