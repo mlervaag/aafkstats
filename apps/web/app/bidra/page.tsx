@@ -4,6 +4,8 @@ import { PromptCard } from "@/components/PromptCard";
 import { GapNote } from "@/components/CoverageNote";
 import { contributionIssueUrl } from "@/lib/contribution-links";
 import { contributionPrompts } from "@/lib/prompts";
+import { loadVerificationCases } from "@/lib/verifications";
+import { ContributeVerificationCard } from "@/components/verifications/ContributeVerificationCard";
 
 export const metadata: Metadata = pageMetadata(
   "Bidra",
@@ -13,21 +15,30 @@ export const metadata: Metadata = pageMetadata(
 );
 
 export default function ContributePage() {
+  const verificationCases = loadVerificationCases("open");
+  const estimatedMinutes = verificationCases.map((item) => item.estimatedMinutes);
+
   return (
     <>
       <header className="page-intro">
         <p className="eyebrow">Åpent arkiv</p>
         <h1>Hva vil du bidra med?</h1>
         <p className="lede">
-          Velg det som passer. Minner og observasjoner kan du sende inn uten konto. Rettelser
-          og nye data går gjennom korte skjema på GitHub, slik at vi får med alt vi trenger
-          med én gang.
+          Velg det som passer. Du kan kontrollere en konkret sak eller dele et minne uten
+          konto. Rettelser og nye data går gjennom korte skjema på GitHub, slik at vi får
+          med alt vi trenger med én gang.
         </p>
       </header>
 
+      <ContributeVerificationCard
+        openCaseIds={verificationCases.map((item) => item.id)}
+        minimumMinutes={estimatedMinutes.length ? Math.min(...estimatedMinutes) : 0}
+        maximumMinutes={estimatedMinutes.length ? Math.max(...estimatedMinutes) : 0}
+      />
+
       <div className="contribute-grid">
         <section className="archive-card">
-          <span className="card-kicker">Raskest</span>
+          <span className="card-kicker">Har du noe å fortelle?</span>
           <h2>Del et minne</h2>
           <p>
             Finn kampen, sesongen eller personen det gjelder, og trykk «Bidra». Skjemaet vet

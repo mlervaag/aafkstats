@@ -4,6 +4,7 @@ import { z } from "zod";
 import { isCrossSite, isJsonRequest, readBodyLimited } from "@/lib/chat-request";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { SITE_ORIGIN } from "@/lib/site";
+import { markVerificationCasePending, pendingVerificationCaseIds } from "@/lib/verification-submissions";
 import { loadVerificationCase } from "@/lib/verifications";
 import type { VerificationCaseView } from "@/lib/verifications";
 
@@ -130,6 +131,9 @@ export async function POST(req: Request) {
     const existing = await existingResponse.json() as { items?: { html_url?: string }[] };
     const issueUrl = existing.items?.[0]?.html_url;
     if (issueUrl) return NextResponse.json({ success: true, issueUrl, duplicate: true });
+    if ((await pendingVerificationCaseIds()).includes(verificationCase.id)) {
+      return fallbackError("Denne saken er allerede sendt inn og venter på vurdering.", 409);
+    }
 
     const answerLabel = data.answer === "yes" ? "JA" : "NEI";
     const contributor = data.contributor ? oneLine(data.contributor, 100) : "Anonym";
@@ -174,6 +178,7 @@ export async function POST(req: Request) {
     }
 
     const created = await response.json() as { html_url?: string };
+    markVerificationCasePending(verificationCase.id);
     console.log(JSON.stringify({ hendelse: "verifisering", sak: verificationCase.id, svar: data.answer }));
     return NextResponse.json({ success: true, issueUrl: created.html_url });
   } catch (error) {

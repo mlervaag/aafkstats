@@ -1,13 +1,18 @@
 import { mkdtempSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
+import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
 import VerificationCasePage, { generateStaticParams } from "../app/mangler/[id]/page.js";
+import { GET as getCheckout, POST as postCheckout } from "../app/api/verifications/checkout/route.js";
 import { POST } from "../app/api/verifications/route.js";
+import { VerificationHistory } from "../components/verifications/VerificationHistory.js";
+import { ContributeVerificationCard } from "../components/verifications/ContributeVerificationCard.js";
 import { restoreVerificationDraft } from "../lib/verification-draft.js";
 import { checkedOutCaseIds, claimVerificationCase, releaseVerificationCase } from "../lib/verification-checkout.js";
+import { resetVerificationSubmissionCache } from "../lib/verification-submissions.js";
 import { loadVerificationCase, loadVerificationCases } from "../lib/verifications.js";
 
 const previousDbPath = process.env.AAFK_DB_PATH;
@@ -28,6 +33,7 @@ afterAll(() => {
 
 afterEach(() => {
   vi.unstubAllGlobals();
+  resetVerificationSubmissionCache();
   delete process.env.GITHUB_INBOX_TOKEN;
   delete process.env.GITHUB_INBOX_REPO;
 });
@@ -55,6 +61,28 @@ describe("verifiseringskøen", () => {
     expect(html).toContain("Fixture-kilden identifiserer personen uttrykkelig.");
     expect(html).toContain("https://github.com/mlervaag/aafkstats/issues/1");
     expect(html).toContain("https://github.com/mlervaag/aafkstats/pull/1");
+  });
+
+  it("viser avgjorte saker og forklarer arbeidsflyten i historikken", () => {
+    const html = renderToStaticMarkup(React.createElement(VerificationHistory, {
+      cases: loadVerificationCases("all"),
+    }));
+    expect(html).toContain("Se hva andre har kontrollert");
+    expect(html).toContain("Fixture-kilden identifiserer personen uttrykkelig.");
+    expect(html).toContain("Se konklusjon og kilder");
+  });
+
+  it("presenterer kildekontroll som et lavterskel bidrag", () => {
+    const html = renderToStaticMarkup(React.createElement(ContributeVerificationCard, {
+      openCaseIds: ["fixture-open-high", "fixture-open-low"],
+      minimumMinutes: 5,
+      maximumMinutes: 15,
+    }));
+    expect(html).toContain("Enkleste måten å bidra");
+    expect(html).toContain("2 saker trenger hjelp");
+    expect(html).toContain("Ingen forkunnskaper eller konto kreves");
+    expect(html).toContain('href="/mangler"');
+    expect(html).toContain('href="/mangler/saker"');
   });
 });
 
@@ -138,6 +166,12 @@ describe("verifiseringsinnsending", () => {
           headers: { "content-type": "application/json" },
         });
       }
+      if (url.includes("/issues?state=open")) {
+        return new Response(JSON.stringify([]), {
+          status: 200,
+          headers: { "content-type": "application/json" },
+        });
+      }
       if (url.endsWith("/issues") && init?.method === "POST") {
         created = true;
         createCalls += 1;
@@ -157,6 +191,32 @@ describe("verifiseringsinnsending", () => {
     expect(await second.json()).toMatchObject({ success: true, issueUrl, duplicate: true });
     expect(createCalls).toBe(1);
   });
+
+  it("avviser et nytt svar når en annen innsending allerede venter", async () => {
+    process.env.GITHUB_INBOX_TOKEN = "test-token";
+    process.env.GITHUB_INBOX_REPO = "mlervaag/aafkstats-inbox";
+    const item = loadVerificationCase("fixture-open-high")!;
+    const fetchSpy = vi.fn(async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.includes("/search/issues")) {
+        return new Response(JSON.stringify({ items: [] }), { status: 200 });
+      }
+      if (url.includes("/issues?state=open")) {
+        return new Response(JSON.stringify([{
+          body: `**Sak:** [${item.id}](https://aafkarkivet.no/mangler/${item.id})`,
+        }]), { status: 200 });
+      }
+      throw new Error(`Uventet GitHub-kall: ${url}`);
+    });
+    vi.stubGlobal("fetch", fetchSpy);
+
+    const response = await POST(request(submission({
+      clientSubmissionId: "13d7f244-12ae-4d91-b78d-941d5efbca3e",
+    }), "10.20.0.5"));
+    expect(response.status).toBe(409);
+    expect(await response.json()).toMatchObject({ error: expect.stringContaining("venter på vurdering") });
+    expect(fetchSpy).toHaveBeenCalledTimes(2);
+  });
 });
 
 describe("myk reservasjon", () => {
@@ -171,5 +231,32 @@ describe("myk reservasjon", () => {
     expect(releaseVerificationCase(caseId, second)).toBe(false);
     expect(releaseVerificationCase(caseId, first)).toBe(true);
     expect(checkedOutCaseIds(second)).not.toContain(caseId);
+  });
+
+  it("skjuler saker som allerede venter i GitHub-innboksen", async () => {
+    process.env.GITHUB_INBOX_TOKEN = "test-token";
+    process.env.GITHUB_INBOX_REPO = "mlervaag/aafkstats-inbox";
+    const issueBody = "**Sak:** [fixture-open-high](https://aafkarkivet.no/mangler/fixture-open-high)";
+    const fetchSpy = vi.fn().mockResolvedValue(new Response(JSON.stringify([{ body: issueBody }]), {
+      status: 200,
+      headers: { "content-type": "application/json" },
+    }));
+    vi.stubGlobal("fetch", fetchSpy);
+
+    const owner = "c7347db5-ff53-4eb7-bf86-fd267aa49c84";
+    const listResponse = await getCheckout(new Request(`http://arkivet.test/api/verifications/checkout?owner=${owner}`));
+    expect(await listResponse.json()).toMatchObject({
+      submitted: ["fixture-open-high"],
+      unavailable: expect.arrayContaining(["fixture-open-high"]),
+    });
+
+    const claimResponse = await postCheckout(new Request("http://arkivet.test/api/verifications/checkout", {
+      method: "POST",
+      headers: { "content-type": "application/json", host: "arkivet.test" },
+      body: JSON.stringify({ caseId: "fixture-open-high", owner }),
+    }));
+    expect(claimResponse.status).toBe(409);
+    expect(await claimResponse.json()).toMatchObject({ acquired: false, submitted: true });
+    expect(fetchSpy).toHaveBeenCalledOnce();
   });
 });
