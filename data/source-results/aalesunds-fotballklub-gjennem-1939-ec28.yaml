@@ -41,7 +41,7 @@ seasons:
       - { no: 6, opponent: "K. F. K.", opponentClubId: kfk, score: [1, 3] }
       - { no: 7, opponent: "Brått", score: [1, 3] }
       - { no: 8, opponent: "Rollon", score: [0, 3] }
-      - { no: 9, opponent: "K. F. K.", opponentClubId: kfk, score: [4, 3], competitionId: nm, extraTime: true, note: "10 omganger" }
+      - { no: 9, opponent: "K. F. K.", opponentClubId: kfk, score: [4, 3], competitionId: nm, extraTime: true, resultGroupId: nm-1918-kfk-runde-1, note: "10 omganger" }
       - { no: 10, opponent: "Sverre", score: [1, 5], competitionId: nm }
   - year: 1919
     page: 83

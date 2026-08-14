@@ -51,14 +51,21 @@ export default async function OpponentPage({ params }: Props) {
           {summary.played} registrerte {summary.played === 1 ? "kamp" : "kamper"} fra{" "}
           {summary.firstMeeting.slice(0, 4)} til {summary.lastMeeting?.slice(0, 4) ?? "nå"}.
         </p>
-        {data.club && (data.club.shortName || data.club.nameVariants.length > 0) && (
-          <p className="muted small" style={{ marginTop: "0.25rem" }}>
-            {data.club.shortName && <span>Kortnavn: <strong>{data.club.shortName}</strong>. </span>}
-            {data.club.nameVariants.length > 0 && (
-              <span>Kildene bruker også: {data.club.nameVariants.join(", ")}.</span>
-            )}
-          </p>
-        )}
+        {data.club && (data.club.shortName || data.club.nameVariants.length > 0) && (() => {
+          const displayVariants = data.club.nameVariants.filter(
+            (v) =>
+              v.toLowerCase() !== data.club?.shortName?.toLowerCase()
+              && v.toLowerCase() !== summary.opponent.toLowerCase(),
+          );
+          return (
+            <p className="muted small" style={{ marginTop: "0.25rem" }}>
+              {data.club.shortName && <span>Kortnavn: <strong>{data.club.shortName}</strong>. </span>}
+              {displayVariants.length > 0 && (
+                <span>Kildene bruker også: {displayVariants.join(", ")}.</span>
+              )}
+            </p>
+          );
+        })()}
       </header>
       <div className="stat-strip" aria-label="Innbyrdes statistikk">
         <Stat value={summary.played} label="Kamper" />

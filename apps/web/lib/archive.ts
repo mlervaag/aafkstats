@@ -660,6 +660,16 @@ export function loadOpponents(): OpponentSummary[] {
   }
 }
 
+export function loadOpponentIds(): Set<string> {
+  const db = open();
+  try {
+    const rows = all<{ opponent_club_id: string }>(db, "SELECT opponent_club_id FROM opponents");
+    return new Set(rows.map((r) => r.opponent_club_id));
+  } finally {
+    db.close();
+  }
+}
+
 export interface OpponentClubMeta {
   shortName: string | null;
   nameVariants: string[];

@@ -4,7 +4,7 @@ import { join, resolve } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
 import { canonicalClubKey, clubNameForms } from "@aafkstats/schema";
-import { loadOpponent, loadOpponents, loadStandings, loadSeason } from "../lib/archive.js";
+import { loadOpponent, loadOpponents, loadOpponentIds, loadStandings, loadSeason } from "../lib/archive.js";
 import { searchMatches } from "../lib/search.js";
 import { groupUnlinkedResults } from "../components/UnlinkedResults.js";
 
@@ -155,5 +155,12 @@ describe("KFK og KBK klubbidentitet og historikkskille", () => {
     expect(unlinked).toHaveLength(1);
     expect(unlinked[0]?.opponent).toBe("K. F. K.");
     expect(unlinked[0]?.opponentClubId).toBe("kfk");
+  });
+
+  it("inkluderer både kfk og kristiansund i loadOpponentIds siden begge har kanoniske kamper", () => {
+    const opponentIds = loadOpponentIds();
+    expect(opponentIds.has("kfk")).toBe(true);
+    expect(opponentIds.has("kristiansund")).toBe(true);
+    expect(opponentIds.has("klubb-uten-kamper")).toBe(false);
   });
 });
