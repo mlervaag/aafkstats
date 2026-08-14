@@ -97,6 +97,14 @@ describe("deterministiske arbeidsdata", () => {
     expect(value.indexOf("| 1952 |")).toBeLessThan(value.indexOf("| 2025 |"));
     expect(value).toBe(technicalCoverageReport([analysis(2025), analysis(1952)]));
   });
+
+  it("viser rapportsignalene i committed dekningsrapport", () => {
+    const signalled = analyzePageTexts(
+      report(2002), 10, `sha256:${"c".repeat(64)}`, ["AaFK spiller serie og NM med junior, spillere og dommere."],
+    );
+    expect(technicalCoverageReport([signalled])).toContain("| Signaler | OCR |");
+    expect(technicalCoverageReport([signalled])).toContain("serie, NM, junior, personer, dommere/verv");
+  });
 });
 
 function makePdf(text: string): Uint8Array {

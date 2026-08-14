@@ -86,8 +86,10 @@ målbar gevinst; ingen maskinell klassifisering blir kanonisk fakta uten visuell
 
 ### 3. Faktakandidater
 
-Uttrekket leter etter AaFK-navn som `AaFK`, `Aafk`, `ÅFK`, `Aalesund` og
-`Aalesunds FK`, men trefflisten må kontrolleres manuelt. Kandidater sorteres i:
+Før OCR utvikles kandidatreglene mot rapportene som allerede har tekstlag. Uttrekket
+leter etter sikre AaFK-navn som `AaFK`, `Aafk`, `ÅFK` og `Aalesunds FK`. `Aalesund`
+og `Aalesunds` telles separat som svake treff og kan ikke alene utløse et temasignal.
+Kandidater peker på menneskelige PDF-sidetall og sorteres i:
 
 - A-lag: serie, cup, kvalifisering, treningskamper og sesongmeta;
 - andre lag: reserve, junior, gutt, smågutt og senere aldersklasser;
@@ -97,6 +99,8 @@ Uttrekket leter etter AaFK-navn som `AaFK`, `Aafk`, `ÅFK`, `Aalesund` og
 Bare A-lagskamper med sikker dato og identitet kan bli kanoniske kampfiler. Resultater
 uten dato eller sikker hjemme/borte-plassering legges i `data/source-results/`.
 Andre lagtyper forblir researchdata til datamodellen uttrykkelig støtter dem.
+Råtekst blir i minnet eller ignorert cache. Den committede kandidatrapporten inneholder
+bare sidepekere, treffantall, kategorier og korte nøkkelord.
 
 ### 4. Menneskelig kontroll og normalisering
 

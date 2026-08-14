@@ -15,6 +15,14 @@ export interface AnnualReportSignals {
   officials: boolean;
 }
 
+export type AnnualReportSignalName = keyof AnnualReportSignals;
+
+export interface AnnualReportPdfText {
+  analysis: AnnualReportTechnicalAnalysis;
+  /** Lever bare i minnet eller ignorert arbeidsdata; committede rapporter lagrer aldri teksten. */
+  pageTexts: string[];
+}
+
 export interface AnnualReportTechnicalAnalysis {
   year: number;
   sourceId: string;
@@ -50,17 +58,27 @@ const SIGNAL_PATTERNS: Record<keyof AnnualReportSignals, RegExp> = {
   reserve: /\b(?:reserve|reservelag|res\.\s*lag|andrelag)\b/iu,
   junior: /\b(?:junior|g19)\b/iu,
   youth: /\b(?:gutt|smågutt|g16|g15|g14|g13|lilleputt|miniputt)\b/iu,
-  people: /\b(?:spiller|trener|representasjon|landslag|kretslag)\b/iu,
-  officials: /\b(?:dommer|komit[eé]|styre|kurs|trenerkurs)\b/iu,
+  people: /\b(?:spillere?|trenere?|representasjon|landslag|kretslag)\b/iu,
+  officials: /\b(?:dommere?|komit[eé](?:er)?|styre|kurs|trenerkurs)\b/iu,
 };
 
 export async function analyzeAnnualReportPdf(
   report: AnnualReportLink,
   bytes: Uint8Array,
 ): Promise<AnnualReportTechnicalAnalysis> {
+  return (await readAnnualReportPdfText(report, bytes)).analysis;
+}
+
+export async function readAnnualReportPdfText(
+  report: AnnualReportLink,
+  bytes: Uint8Array,
+): Promise<AnnualReportPdfText> {
   const sha256 = hashPdf(bytes);
   if (!hasPdfSignature(bytes)) {
-    return failedAnnualReportAnalysis(report, "fila mangler PDF-signaturen %PDF-", bytes.length, sha256);
+    return {
+      analysis: failedAnnualReportAnalysis(report, "fila mangler PDF-signaturen %PDF-", bytes.length, sha256),
+      pageTexts: [],
+    };
   }
 
   let loadingTask: ReturnType<typeof getDocument> | undefined;
@@ -82,9 +100,15 @@ export async function analyzeAnnualReportPdf(
         page.cleanup();
       }
     }
-    return analyzePageTexts(report, bytes.length, sha256, pageTexts);
+    return {
+      analysis: analyzePageTexts(report, bytes.length, sha256, pageTexts),
+      pageTexts: pageTexts.map(normalizeText),
+    };
   } catch (error) {
-    return failedAnnualReportAnalysis(report, shortError(error), bytes.length, sha256);
+    return {
+      analysis: failedAnnualReportAnalysis(report, shortError(error), bytes.length, sha256),
+      pageTexts: [],
+    };
   } finally {
     await loadingTask?.destroy();
   }
@@ -198,11 +222,12 @@ export function technicalCoverageReport(analyses: AnnualReportTechnicalAnalysis[
     "",
     "## År for år",
     "",
-    "| År | Sider | MB | Tekstlag | AaFK | Svake | Treff-sider | OCR |",
-    "|---:|---:|---:|---|---:|---:|---|---|",
+    "| År | Sider | MB | Tekstlag | AaFK | Svake | Treff-sider | Signaler | OCR |",
+    "|---:|---:|---:|---|---:|---:|---|---|---|",
     ...reports.map((report) =>
       `| ${report.year} | ${report.pages} | ${formatMb(report.bytes)} | ${report.textLayer} | ` +
-      `${report.strongMentions} | ${report.weakMentions} | ${report.mentionPages.join(", ") || "–"} | ${report.ocrStatus} |`,
+      `${report.strongMentions} | ${report.weakMentions} | ${report.mentionPages.join(", ") || "–"} | ` +
+      `${formatSignalNames(signalNames(report.signals))} | ${report.ocrStatus} |`,
     ),
     "",
     "## Tolkning",
@@ -212,6 +237,29 @@ export function technicalCoverageReport(analyses: AnnualReportTechnicalAnalysis[
     "og kontrolleres visuelt i et senere arbeidsspor.",
     "",
   ].join("\n");
+}
+
+export function signalNames(signals: AnnualReportSignals): AnnualReportSignalName[] {
+  return (Object.keys(signals) as AnnualReportSignalName[]).filter((name) => signals[name]);
+}
+
+export function signalKeywords(text: string, name: AnnualReportSignalName): string[] {
+  const pattern = SIGNAL_PATTERNS[name];
+  const globalPattern = new RegExp(pattern.source, `${pattern.flags}g`);
+  return [...new Set([...text.matchAll(globalPattern)].map((match) => match[0].toLocaleLowerCase("nb-NO")))];
+}
+
+export function formatSignalNames(names: AnnualReportSignalName[]): string {
+  const labels: Record<AnnualReportSignalName, string> = {
+    seniorTable: "serie",
+    cupResults: "NM",
+    reserve: "reserve",
+    junior: "junior",
+    youth: "ungdom",
+    people: "personer",
+    officials: "dommere/verv",
+  };
+  return names.map((name) => labels[name]).join(", ") || "–";
 }
 
 export function failedAnnualReportAnalysis(
