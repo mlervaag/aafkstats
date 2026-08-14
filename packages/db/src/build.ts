@@ -60,8 +60,12 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     );
     for (const c of archive.clubs) {
+      const allVariants = [
+        ...(c.nameVariants ?? []),
+        ...(c.nameVariants ?? []).map((v) => v.toLowerCase()),
+      ];
       insertClub.run(
-        c.id, c.name, c.shortName ?? null, c.identityKey ?? null, json(c.nameVariants ?? []),
+        c.id, c.name, c.shortName ?? null, c.identityKey ?? null, json([...new Set(allVariants)]),
         c.country, c.city ?? null,
         c.founded ?? null, c.foundedDate ?? null, json(c.names), json(c.aliases), json(c.sources), c.note ?? null,
       );

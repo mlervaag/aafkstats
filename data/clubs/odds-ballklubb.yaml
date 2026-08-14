@@ -1,5 +1,9 @@
 id: odds-ballklubb
 name: Odds Ballklubb
+shortName: Odd
+identityKey: odds-ballklubb
+nameVariants:
+  - Odd, Skien
 names:
   - { name: Odd, from: null, to: "1993-12-31" }
   - { name: Odd Grenland, from: "1994-01-01", to: "2012-12-31" }

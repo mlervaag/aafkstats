@@ -97,6 +97,20 @@ export interface PossibleDuplicateSourceResult {
   second: SourceResult;
 }
 
+export interface PossibleCanonicalMatchLink {
+  season: number;
+  sourceResult: SourceResult;
+  candidateMatch: {
+    id: string;
+    file: string;
+    date: string;
+    opponentClubId: string;
+    scoreText: string;
+    competitionId: string;
+    round: number | null;
+  };
+}
+
 /**
  * Finner kildedokumenterte resultater som kan være samme historiske oppgjør.
  *
@@ -151,3 +165,73 @@ export function findPossibleDuplicateSourceResults(
 
   return duplicates;
 }
+
+/**
+ * Finner uavklarte kildedokumenterte resultater som har en sterk kandidatmatch i eksisterende kanoniske kamper.
+ *
+ * Rapporterer kandidater der:
+ * - samme season
+ * - samme opponentClubId
+ * - samme score
+ * - samme competitionId når oppgitt i begge (eller minst én ukjent)
+ * - samme round når oppgitt i begge (eller minst én ukjent)
+ *
+ * Setter aldri matchId automatisk — dette krever manuell kildekontroll.
+ */
+export function findPossibleCanonicalMatchLinks(
+  collections: SourceResultCollection[],
+  matches: Array<{
+    id: string;
+    file: string;
+    date: string;
+    competition: { id: string; season: number; round?: number | null };
+    home: { clubId: string; goals?: number | null };
+    away: { clubId: string; goals?: number | null };
+  }>,
+  aafkClubId = "aalesunds-fk",
+): PossibleCanonicalMatchLink[] {
+  const all = collections.flatMap(flattenSourceResults);
+  const links: PossibleCanonicalMatchLink[] = [];
+
+  for (const res of all) {
+    if (res.matchId !== null) continue;
+    if (!res.opponentClubId) continue;
+
+    for (const match of matches) {
+      if (match.competition.season !== res.season) continue;
+      const isHome = match.home.clubId === aafkClubId;
+      const oppClubId = isHome ? match.away.clubId : match.home.clubId;
+      if (oppClubId !== res.opponentClubId) continue;
+
+      if (res.status === "played") {
+        if (res.aafkGoals === null || res.opponentGoals === null) continue;
+        const matchAafkGoals = isHome ? match.home.goals : match.away.goals;
+        const matchOppGoals = isHome ? match.away.goals : match.home.goals;
+        if (matchAafkGoals !== res.aafkGoals || matchOppGoals !== res.opponentGoals) continue;
+      }
+
+      if (res.competitionId && match.competition.id && res.competitionId !== match.competition.id) continue;
+      if (res.round !== null && match.competition.round !== undefined && match.competition.round !== null && res.round !== match.competition.round) continue;
+
+      const isAafkHome = match.home.clubId === aafkClubId;
+      const scoreText = `${isAafkHome ? match.home.goals : match.away.goals}–${isAafkHome ? match.away.goals : match.home.goals}`;
+
+      links.push({
+        season: res.season,
+        sourceResult: res,
+        candidateMatch: {
+          id: match.id,
+          file: match.file,
+          date: match.date,
+          opponentClubId: oppClubId,
+          scoreText,
+          competitionId: match.competition.id,
+          round: match.competition.round ?? null,
+        },
+      });
+    }
+  }
+
+  return links;
+}
+

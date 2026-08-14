@@ -11,15 +11,24 @@ sluttresultat, men ikke nok til en kanonisk kampfil. Resultatet lagres alltid so
 `[AaFK, motstander]`; hjemme/borte skal ikke gjettes. Bare uttrykkelig navngitte
 konkurranser settes, og en walkover får ingen oppdiktet målscore.
 
-Arkivet opererer med tre nivåer for kampresultater:
+Arkivet opererer med **fire adskilte nivåer** for kildedata og kampidentiteter som aldri skal blandes sammen:
 
-1. **Kildepåstand (`source_results`):** Nøyaktig hva den enkelte historiske kilden oppgir (f.eks. NFF-årbok eller jubileumsskrift). Bevarer kildens sidetall, score, og merknader.
-2. **Resultatgruppe (`resultGroupId`):** En redaksjonelt tildelt ID som samler flere kildepåstander om samme historiske oppgjør før dato og detaljer er fullt avklart. **Settes aldri automatisk** bare på grunnlag av lik motstander eller lik score. Ved motstridende kildeopplysninger synliggjøres uenigheten i brukergrensesnittet.
-3. **Kanonisk kamp (`Match` i `seasons/<år>/matches/`):** Fullstendig avklart kamp med dato, hjemme/borte og verifiserte fakta. Når et kilderesultat (eller en hel resultatgruppe) har fått `matchId`, ekskluderes det automatisk fra listen over uavklarte resultater på sesongsiden.
+1. **Kildetekst (`opponent`):** Nøyaktig hva kilden trykte (f.eks. `"Brått"`, `"K. F. K."`, `"C. F. K."`, `"S.K. Rollon"`). Original skrivemåte skal alltid bevares uendret.
+2. **Identifisert klubb (`opponentClubId`):** Arkivets kanoniske klubb-ID (f.eks. `"braatt"`, `"kfk"`, `"clausenengen"`, `"rollon"`). Gjør at alternative skrivemåter samles under samme motstanderidentitet uten å miste kildens egen tekst.
+3. **Samme uavklarte oppgjør (`resultGroupId`):** En redaksjonelt tildelt ID som samler flere kildepåstander om samme historiske oppgjør før dato og detaljer er fullt avklart (f.eks. `"nm-1919-braatt-runde-2"`).
+4. **Kanonisk kamp (`matchId`):** Sikker kobling til en komplett kampfil i `seasons/<år>/matches/` (f.eks. `"1917-08-26-aalesunds-fk-sk-brann"`). Når et kilderesultat (eller en hel resultatgruppe) har fått `matchId`, ekskluderes det automatisk fra listen over uavklarte resultater på sesongsiden.
+
+### Redaksjonell regel: «Navnelikhet er et kandidatgrunnlag, ikke bevis»
+
+- **Samme normaliserte navn** er ikke bevis for samme klubb (KFK og KBK er regresjonseksempelet).
+- **Samme klubb** er ikke bevis for samme kamp (AaFK møtte ofte samme klubb flere ganger i samme sesong).
+- **Samme score** er ikke bevis for samme kamp.
+
+Verken `opponentClubId`, `resultGroupId` eller `matchId` skal settes automatisk på gjetning. Rapportverktøyene (`pnpm opponents:unresolved` og `pnpm duplicates`) finner og synliggjør kandidater, mens en redaktør alltid utfører kildekontroll før koblingen lagres i YAML.
 
 Bygget eksponerer radene i `source_results`. De vises på sesongsidene under «Resultater uten full kampkobling», men holdes
 utenfor `matches`, `seasons` og alle statistiske summer til dato og hjemme/borte er
-avklart. `matchId` er koblingen til en komplett kampfil.
+avklart.
 
 ## Maskinelt løste kandidater
 

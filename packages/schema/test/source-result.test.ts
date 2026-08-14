@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { findPossibleDuplicateSourceResults, flattenSourceResults, sourceResultCollection } from "../src/source-result.js";
+import { findPossibleCanonicalMatchLinks, findPossibleDuplicateSourceResults, flattenSourceResults, sourceResultCollection } from "../src/source-result.js";
 
 describe("kildedokumenterte resultater", () => {
   it("bevarer AaFK-perspektiv og lager stabile ID-er", () => {
@@ -126,5 +126,77 @@ describe("kildedokumenterte resultater", () => {
       ],
     });
     expect(findPossibleDuplicateSourceResults([sourceAWithGroup, sourceBWithGroup])).toHaveLength(0);
+  });
+
+  it("finner duplikatkandidater på tvers av ulike skrivemåter når opponentClubId er lik", () => {
+    const sourceA = sourceResultCollection.parse({
+      sourceId: "kilde-a",
+      scorePerspective: "aafk",
+      seasons: [
+        {
+          year: 1919,
+          page: 83,
+          results: [
+            { no: 1, opponent: "Brått", opponentClubId: "braatt", score: [4, 1] },
+          ],
+        },
+      ],
+    });
+    const sourceB = sourceResultCollection.parse({
+      sourceId: "kilde-b",
+      scorePerspective: "aafk",
+      seasons: [
+        {
+          year: 1919,
+          page: 100,
+          results: [
+            { no: 1, opponent: "Braatt", opponentClubId: "braatt", score: [4, 1] },
+          ],
+        },
+      ],
+    });
+
+    const duplicates = findPossibleDuplicateSourceResults([sourceA, sourceB]);
+    expect(duplicates).toHaveLength(1);
+    expect(duplicates[0]?.first.opponent).toBe("Brått");
+    expect(duplicates[0]?.second.opponent).toBe("Braatt");
+    expect(duplicates[0]?.opponentClubId).toBe("braatt");
+  });
+
+  it("finner mulige koblinger til kanoniske kamper", () => {
+    const source = sourceResultCollection.parse({
+      sourceId: "kilde-a",
+      scorePerspective: "aafk",
+      seasons: [
+        {
+          year: 1917,
+          page: 83,
+          results: [
+            { no: 1, opponent: "Brann", opponentClubId: "sk-brann", score: [0, 14], competitionId: "nm", matchId: null },
+            { no: 2, opponent: "Rollon", opponentClubId: "rollon", score: [1, 0], matchId: "1917-08-12-aalesunds-fk-rollon" },
+          ],
+        },
+      ],
+    });
+
+    const matches = [
+      {
+        id: "1917-08-26-aalesunds-fk-sk-brann",
+        file: "1917-08-26-aalesunds-fk-sk-brann.yaml",
+        date: "1917-08-26",
+        competition: {
+          id: "nm",
+          season: 1917,
+          round: 2,
+        },
+        home: { clubId: "aalesunds-fk", goals: 0 },
+        away: { clubId: "sk-brann", goals: 14 },
+      },
+    ];
+
+    const links = findPossibleCanonicalMatchLinks([source], matches);
+    expect(links).toHaveLength(1);
+    expect(links[0]?.candidateMatch.id).toBe("1917-08-26-aalesunds-fk-sk-brann");
+    expect(links[0]?.sourceResult.id).toBe("1917-001");
   });
 });
