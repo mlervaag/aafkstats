@@ -1,5 +1,11 @@
 year: 1952
-competitionId: nm
-finalPosition: null
+competitionId: forstedivisjon
+finalPosition: 2
+teamsInLeague: 8
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1952
+    page: "5"
+    fields: [competitionId, finalPosition, teamsInLeague]
 promoted: false
 relegated: false
+note: Sluttabellen gjelder Landsdelsserien 1951/52.

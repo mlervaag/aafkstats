@@ -31,6 +31,29 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: sunnmore-fotballkrets
+    url: https://www.fotball.no/globalassets/krets/sunnmore/om-kretsen/arsrapporter/arsrapport-1954.pdf
+    retrievedAt: 2026-08-14
+    fields:
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+    note: Årsrapporten oppgir ikke kampdato.
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1954
+    page: "11"
+    fields:
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
 confidence: probable
 conflicts: []
 tags: []

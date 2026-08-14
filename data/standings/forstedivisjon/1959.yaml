@@ -1,0 +1,110 @@
+competitionId: forstedivisjon
+season: 1959
+table:
+  - position: 1
+    name: Hødd
+    clubId: hodd
+    played: 14
+    wins: 10
+    draws: 3
+    losses: 1
+    goalsFor: 51
+    goalsAgainst: 16
+    points: 23
+    outcome: promotion_playoff
+  - position: 2
+    name: KFK
+    clubId: kristiansund
+    played: 14
+    wins: 9
+    draws: 2
+    losses: 3
+    goalsFor: 44
+    goalsAgainst: 11
+    points: 20
+    outcome: none
+  - position: 3
+    name: AAFK
+    clubId: aalesunds-fk
+    played: 14
+    wins: 7
+    draws: 5
+    losses: 2
+    goalsFor: 22
+    goalsAgainst: 20
+    points: 19
+    outcome: none
+  - position: 4
+    name: Molde
+    clubId: molde-fk
+    played: 14
+    wins: 6
+    draws: 3
+    losses: 5
+    goalsFor: 33
+    goalsAgainst: 26
+    points: 15
+    outcome: none
+  - position: 5
+    name: CFK
+    clubId: clausenengen
+    played: 14
+    wins: 4
+    draws: 4
+    losses: 6
+    goalsFor: 26
+    goalsAgainst: 29
+    points: 12
+    outcome: none
+    note: SFK oppgir 26–29; RSSSF oppgir 27–39.
+  - position: 6
+    name: Langevåg
+    clubId: langevag
+    played: 14
+    wins: 4
+    draws: 4
+    losses: 6
+    goalsFor: 24
+    goalsAgainst: 33
+    points: 12
+    outcome: none
+  - position: 7
+    name: Volda
+    clubId: volda
+    played: 14
+    wins: 3
+    draws: 2
+    losses: 9
+    goalsFor: 27
+    goalsAgainst: 49
+    points: 8
+    outcome: relegated
+  - position: 8
+    name: Dahle
+    clubId: dahle
+    played: 14
+    wins: 1
+    draws: 1
+    losses: 12
+    goalsFor: 15
+    goalsAgainst: 46
+    points: 3
+    outcome: relegated
+    note: SFK oppgir 15–46; RSSSF oppgir 14–48.
+progression: []
+providers:
+  - providerId: sunnmore-fotballkrets
+    url: https://www.fotball.no/globalassets/krets/sunnmore/om-kretsen/arsrapporter/arsrapport-1959.pdf
+    retrievedAt: 2026-08-14
+    fields: [table]
+  - providerId: rsssf
+    url: https://www.rsssf.no/1959/Landsdel.html
+    retrievedAt: 2026-08-14
+    fields: [table]
+    note: Uavhengig kontrollkilde og kilde til seier–uavgjort–tap.
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1959
+    page: "9"
+    fields: [table]
+note: >
+  Landsdelsserien 1958/59. SFK er fasit for kamper, mål og poeng. RSSSF supplerer seier–uavgjort–tap. SFK og RSSSF avviker på målforskjellen til C.F.K. og Dahle; SFKs trykte tall er beholdt.

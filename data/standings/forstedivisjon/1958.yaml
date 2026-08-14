@@ -1,0 +1,109 @@
+competitionId: forstedivisjon
+season: 1958
+table:
+  - position: 1
+    name: K.F.K.
+    clubId: kristiansund
+    played: 14
+    wins: 11
+    draws: 1
+    losses: 2
+    goalsFor: 44
+    goalsAgainst: 19
+    points: 23
+    outcome: promotion_playoff
+    note: SFK oppgir 44–19; RSSSF oppgir 43–19.
+  - position: 2
+    name: Hødd
+    clubId: hodd
+    played: 14
+    wins: 10
+    draws: 1
+    losses: 3
+    goalsFor: 44
+    goalsAgainst: 21
+    points: 21
+    outcome: none
+  - position: 3
+    name: C.F.K.
+    clubId: clausenengen
+    played: 14
+    wins: 8
+    draws: 1
+    losses: 5
+    goalsFor: 38
+    goalsAgainst: 27
+    points: 17
+    outcome: none
+  - position: 4
+    name: Aa.F.K.
+    clubId: aalesunds-fk
+    played: 14
+    wins: 7
+    draws: 3
+    losses: 4
+    goalsFor: 22
+    goalsAgainst: 16
+    points: 17
+    outcome: none
+  - position: 5
+    name: Langevåg
+    clubId: langevag
+    played: 14
+    wins: 7
+    draws: 0
+    losses: 7
+    goalsFor: 32
+    goalsAgainst: 24
+    points: 14
+    outcome: none
+  - position: 6
+    name: Braatt
+    clubId: null
+    played: 14
+    wins: 6
+    draws: 2
+    losses: 6
+    goalsFor: 25
+    goalsAgainst: 29
+    points: 14
+    outcome: relegated
+  - position: 7
+    name: Spjelkavik
+    clubId: spjelkavik
+    played: 14
+    wins: 2
+    draws: 1
+    losses: 11
+    goalsFor: 17
+    goalsAgainst: 38
+    points: 5
+    outcome: relegated
+  - position: 8
+    name: Rollon
+    clubId: rollon
+    played: 14
+    wins: 0
+    draws: 1
+    losses: 13
+    goalsFor: 9
+    goalsAgainst: 56
+    points: 1
+    outcome: relegated
+progression: []
+providers:
+  - providerId: sunnmore-fotballkrets
+    url: https://www.fotball.no/globalassets/krets/sunnmore/om-kretsen/arsrapporter/arsrapport-1958.pdf
+    retrievedAt: 2026-08-14
+    fields: [table]
+  - providerId: rsssf
+    url: https://www.rsssf.no/1958/Landsdel.html
+    retrievedAt: 2026-08-14
+    fields: [table]
+    note: Uavhengig kontrollkilde og kilde til seier–uavgjort–tap.
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1958
+    page: "9"
+    fields: [table]
+note: >
+  Landsdelsserien 1957/58. SFK er fasit for kamper, mål og poeng. RSSSF supplerer seier–uavgjort–tap. SFK og RSSSF avviker med ett mål for K.F.K.
