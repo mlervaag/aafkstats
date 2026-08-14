@@ -14,16 +14,21 @@ proveniens.
 
 Provider-ID-en er `sunnmore-fotballkrets`. Tillatelsen gjelder kretsens historiske
 materiale og kan ikke overføres til NFF/FIKS eller andre deler av fotball.no.
+`automatedAccess: permission_required` er bevisst konservativt. Provider-porten åpner
+fordi den dokumenterte `permissionStatus` er `granted`, ikke fordi en offentlig indeks
+i seg selv regnes som generell tillatelse til automatisert tilgang.
 
 Innhentingen skal:
 
 - lese bare den offisielle historiesiden som indeks;
+- trimme lenketeksten og samle all whitespace til ett mellomrom før matching;
 - følge lenker der synlig tekst matcher `^Årsrapport\s+(19|20)\d{2}$`;
 - godta bare HTTPS-lenker på `www.fotball.no` som peker til PDF;
 - bruke indeksens faktiske `href`, aldri konstruere en URL fra årstallet;
 - bruke hurtiglager og være idempotent;
 - tørrkjøre som standard og kreve `--write` for YAML-endringer;
-- stoppe med en synlig feil ved manglende år, duplikate år eller duplikate URL-er.
+- stoppe med en synlig feil ved årshull mellom 1952 og høyeste oppdagede år,
+  duplikate år eller duplikate URL-er.
 
 ## Leveranser
 
@@ -44,8 +49,17 @@ CLI-en henter indekssiden én gang og skriver i tørrkjøring et sortert manifes
 
 Ved `--write` kan den opprette én `annual_report`-source per år under `data/sources/`.
 Kilde-ID-en skal være `sunnmore-fotballkrets-arsrapport-{år}` og peke til serien
-`sunnmore-fotballkrets-arsrapporter`. Første akseptansekriterium er nøyaktig 74 unike
-år fra 1952 til 2025.
+`sunnmore-fotballkrets-arsrapporter`. Den kjente, varige baselinen er:
+
+```yaml
+knownBaseline:
+  from: 1952
+  through: 2025
+  count: 74
+```
+
+Discovery kan finne nyere rapporter. Et nytt år skal utvide manifestet, ikke få testen
+til å feile fordi korpuset har vokst.
 
 ### 2. Teknisk kartlegging
 
@@ -100,8 +114,8 @@ fulle tabellen for 3. divisjon Møre. De to udaterte NM-kampene ligger i
 
 ## Prioritering
 
-Første pass kartlegger alle 74 rapportene. Deretter behandles periodene etter hullene
-i AaFK-arkivet, med eldre skannede rapporter først:
+Første pass kartlegger den kjente baselinen og eventuelle nyere rapporter. Deretter
+behandles periodene etter hullene i AaFK-arkivet, med eldre skannede rapporter først:
 
 1. 1952–1959
 2. 1960–1969
@@ -109,7 +123,7 @@ i AaFK-arkivet, med eldre skannede rapporter først:
 4. 1980–1989
 5. 1990–1999
 6. 2000–2009
-7. 2010–2025
+7. 2010–høyeste oppdagede rapportår
 
 Hver periode deles videre slik at én PR normalt dekker ett år eller ett lite,
 sammenhengende årsspenn. En periode er ferdig når alle rapportene har teknisk status,
@@ -120,7 +134,9 @@ utelatelser er forklart.
 
 Discovery-testene skal bevise at:
 
-- alle år 1952–2025 finnes nøyaktig én gang;
+- alle baselineår 1952–2025 finnes;
+- det ikke finnes duplikate år eller URL-er;
+- det ikke finnes årshull mellom 1952 og høyeste oppdagede rapportår;
 - alle URL-er kommer fra den kanoniske indeksen;
 - både `globalassets`- og `contentassets`-lenker håndteres;
 - kjente kontrollår 1952, 1966, 2015, 2016, 2019, 2021, 2024 og 2025 finnes;

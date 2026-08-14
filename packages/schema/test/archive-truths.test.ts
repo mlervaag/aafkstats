@@ -226,11 +226,15 @@ describe("tallene i README", () => {
     expect(Number(match![1])).toBe(archive.venues.length);
   });
 
-  it("oppgir riktig antall kildedokumenterte resultater", () => {
-    const faktisk = archive.sourceResults.reduce(
-      (sum, collection) => sum + collection.seasons.reduce((seasonSum, season) => seasonSum + season.results.length, 0),
-      0,
+  it("skiller alle kildedokumenterte oppføringer fra dem uten kampkobling", () => {
+    const resultater = archive.sourceResults.flatMap((collection) =>
+      collection.seasons.flatMap((season) => season.results)
     );
-    expect(stated(/kildedokumenterte resultater/)).toBe(faktisk);
+    const utenKampkobling = resultater.filter((result) => result.matchId === null).length;
+
+    expect(stated(/kildedokumenterte resultatoppføringer/)).toBe(resultater.length);
+    const match = /\*\*([\d\u00a0 ]+)\s+mangler fortsatt kobling/.exec(readme);
+    expect(match, "fant ikke antallet uten kanonisk kampkobling i README").not.toBeNull();
+    expect(Number(match![1].replace(/\s|\u00a0/gu, ""))).toBe(utenKampkobling);
   });
 });
