@@ -1,0 +1,112 @@
+competitionId: andredivisjon
+season: 1966
+table:
+  - position: 1
+    name: Herd
+    clubId: herd
+    played: 14
+    wins: 11
+    draws: 1
+    losses: 2
+    goalsFor: 38
+    goalsAgainst: 11
+    points: 23
+    outcome: promotion_playoff
+  - position: 2
+    name: Molde
+    clubId: molde-fk
+    played: 14
+    wins: 9
+    draws: 1
+    losses: 4
+    goalsFor: 35
+    goalsAgainst: 18
+    points: 19
+    outcome: none
+  - position: 3
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 14
+    wins: 8
+    draws: 2
+    losses: 4
+    goalsFor: 29
+    goalsAgainst: 23
+    points: 18
+    outcome: none
+  - position: 4
+    name: Velled./Ringen
+    clubId: velledalen-ringen
+    played: 14
+    wins: 6
+    draws: 2
+    losses: 6
+    goalsFor: 24
+    goalsAgainst: 30
+    points: 14
+    outcome: none
+  - position: 5
+    name: Langevåg
+    clubId: langevag
+    played: 14
+    wins: 6
+    draws: 1
+    losses: 7
+    goalsFor: 34
+    goalsAgainst: 27
+    points: 13
+    outcome: none
+  - position: 6
+    name: Clausenengen
+    clubId: clausenengen
+    played: 14
+    wins: 4
+    draws: 3
+    losses: 7
+    goalsFor: 26
+    goalsAgainst: 32
+    points: 11
+    outcome: none
+  - position: 7
+    name: Braatt
+    clubId: null
+    played: 14
+    wins: 2
+    draws: 3
+    losses: 9
+    goalsFor: 13
+    goalsAgainst: 32
+    points: 7
+    outcome: relegated
+  - position: 8
+    name: Åndalsnes
+    clubId: andalsnes
+    played: 14
+    wins: 2
+    draws: 3
+    losses: 9
+    goalsFor: 17
+    goalsAgainst: 43
+    points: 7
+    outcome: relegated
+progression: []
+providers:
+  - providerId: sunnmore-fotballkrets
+    url: https://www.fotball.no/globalassets/krets/sunnmore/om-kretsen/arsrapporter/arsrapport-1966.pdf
+    retrievedAt: 2026-08-14
+    fields:
+      - table
+  - providerId: rsssf
+    url: https://www.rsssf.no/1966/Third.html
+    retrievedAt: 2026-08-14
+    fields:
+      - table
+    note: Uavhengig kontrollkilde.
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1966
+    page: "4"
+    fields:
+      - table
+note: >
+  3. divisjon Møre. Sunnmøre Fotballkrets er primærkilde og RSSSF er
+  uavhengig kontrollkilde.

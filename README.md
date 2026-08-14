@@ -52,13 +52,13 @@ leser fra.
 | | |
 |---|---|
 | **1 473 kamper** | Kamper registrert totalt i arkivet |
-| **422 kildedokumenterte resultater** | Resultater fra 1915–1939 som mangler full dato eller hjemme/borte og derfor ikke teller i kampstatistikken |
+| **425 kildedokumenterte resultatoppføringer** | Resultatobservasjoner bevart direkte fra historiske kilder; selve oppføringene teller ikke som kamper. **424 mangler fortsatt kobling til en kanonisk kamp.** |
 | **87 år med kanoniske kamper** | 1915–2026, år med minst én registrert kamp. Enkeltkamper tilbake til 1915, cupen til 1917, serien til 1951 |
 | **91 år med historisk kampinformasjon** | De 87 over pluss årene som foreløpig bare har kildedokumenterte resultater. Sesongoversikten viser disse |
 | **177 klubber · 97 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
 | **393 personer** | Registrerte spillere, trenere, ledere, stiftere, prosjektpersoner og hederspersoner med kildeførte detaljer eller avvikende navn |
-| **8 dataleverandører** | Der data hentes digitalt fra, hver med rettighetsstatus som data og ikke som prosa |
-| **155 historiske kilder** | Bøker, medlemsblad, årsmeldinger, nyhetssaker og andre dokumenter en enkelt opplysning kan peke på, med sidetall der det finnes |
+| **9 dataleverandører** | Der data hentes digitalt fra, hver med rettighetsstatus som data og ikke som prosa |
+| **157 historiske kilder** | Bøker, medlemsblad, årsmeldinger, nyhetssaker og andre dokumenter en enkelt opplysning kan peke på, med sidetall der det finnes |
 | **98 publikasjoner analysert** | 3 211 ALTO-sider, 139 søkbare sider og 4 814 faktakandidater uten lagret OCR-prosa |
 | **11 historiesider gjennomgått** | AaFKs offisielle leder-, utmerkelses-, stiftelses-, arkiv- og hjemmebanefakta er strukturert med lenke tilbake |
 | **Brukerbidrag** | Innsendte observasjoner og minner hentet fra redaksjonell innboks |
@@ -242,15 +242,16 @@ hvis dokumentasjonen ikke stemmer med databasen.
 
 ## Kilder og rettigheter
 
-Tre kilder er i bruk for kampdata, og de utfyller hverandre gjennom historien:
+Fire kilder er i bruk for kampdata, og de utfyller hverandre gjennom historien:
 
 | Kilde | Periode | Gir |
 |---|---|---|
 | [FotMob](docs/data/FOTMOB_DEKNINGSTAK.md) | 2010→ | Kampfakta, hendelser, lagoppstillinger, statistikk, tilskuertall |
 | NFF Fotballdata (fotball.no) | 1982–2000 | Runde, dato, motstander, resultat og tabeller for utvalgte sesonger |
 | [RSSSF Norway](docs/data/RSSSF_DEKNING.md) | ←2010 | Dato, lag, resultat og runde for eldste sesonger |
+| [Sunnmøre Fotballkrets](docs/research/SFK_ARSRAPPORTER_INNHENTINGSPLAN.md) | 1952–2025 | Årsrapporter med historiske tabeller, cupresultater og kretsfakta |
 
-Begge dokumentene sier hvor kilden slutter og hvorfor — det er lettere å lese enn å
+Dekningsdokumentene sier hvor kildene slutter og hvorfor — det er lettere å lese enn å
 gjenoppdage. Hvilke kilder som kan brukes, og hvordan, er kartlagt i
 [Kildekart og innhentingsstrategi](docs/research/KILDEKART_OG_INNHENTINGSSTRATEGI.md).
 **Les den før du skriver en adapter** — flere av de opplagte kildene er røde.

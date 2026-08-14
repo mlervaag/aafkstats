@@ -307,13 +307,27 @@ https://tv.smp.no/sitemaps/smp-play-sitemap.xml
 
 ### 6.3 Sunnmøre Fotballkrets og NFF-årbøker
 
-Sunnmøre Fotballkrets har historiske årsberetninger og annen kretsdokumentasjon:
+Sunnmøre Fotballkrets er en høyt prioritert offisiell regional primærkilde. Kretsens
+offentlige indeks har 74 sammenhengende årsrapporter fra 1952 til 2025:
 
 - [Kretsens historieside](https://www.fotball.no/kretser/sunnmore/om-kretsen/historie/)
-- [Årsrapport 1973](https://www.fotball.no/globalassets/krets/sunnmore/om-kretsen/arsrapporter/arsrapport-1973.pdf)
-- [Eksempel på eldre skannet rapport fra 1956](https://historikk.com/dokument/femti89.pdf)
+- [Årsrapport 1966](https://www.fotball.no/globalassets/krets/sunnmore/om-kretsen/arsrapporter/arsrapport-1966.pdf)
+- [Operativ innhentingsplan](SFK_ARSRAPPORTER_INNHENTINGSPLAN.md)
 
-Årsberetningene kan dokumentere tabeller, sesongforløp, organisatoriske forhold og hvilke andre trykte kilder som inneholder enkeltresultater. Rapporten fra 1973 peker blant annet på NFFs årbok for individuelle resultater.
+Direkte dialog med kretsens daglige leder 2026-08-12 avklarte bruk av det historiske
+materialet slik prosjektet var beskrevet: fakta normaliseres, kildeføres og krediteres,
+mens dokumenter, bilder og lengre tekst ikke republiseres uten avtale. Tillatelsen gjelder
+Sunnmøre Fotballkrets' historiske materiale, ikke hele NFF/FIKS.
+
+Kretsen har i tillegg ikke-digitaliserte protokoller fra 1927 og senere og gamle
+dommerkort, hovedsakelig fra 1990-årene frem til digitale kamprapporter. Materialet kan
+gjennomgås på kretskontoret på Color Line Stadion. Historiesiden har egne oversikter over
+kretsmestere, og separate Excel-filer med kretslagsspillere fra 1990 og fremover.
+
+Årsrapportene kan dokumentere tabeller, enkeltresultater, sesongforløp, personer,
+dommere, utdanning og organisatoriske forhold. Eldre rapporter er skannede og krever OCR
+og visuell kontroll; nyere rapporter har normalt tekstlag. URL-strukturen varierer, så
+innhentingen må alltid bruke lenkene i den offisielle indeksen og aldri gjette filstier.
 
 Historisk forskning bør også undersøke:
 
