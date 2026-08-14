@@ -8,7 +8,7 @@ import {
   personJsonLd,
   websiteJsonLd,
 } from "../lib/jsonld.js";
-import { SITE_ORIGIN } from "../lib/site.js";
+import { CONTACT_EMAIL, SITE_ORIGIN } from "../lib/site.js";
 
 /**
  * Strukturerte data skal si det samme som siden, og ikke mer.
@@ -141,6 +141,7 @@ describe("nettstedet og registrene", () => {
   it("lar nettstedet peke på prosjektet som utgiver", () => {
     expect(websiteJsonLd().publisher).toEqual({ "@id": `${SITE_ORIGIN}/#organization` });
     expect(organizationJsonLd()["@id"]).toBe(`${SITE_ORIGIN}/#organization`);
+    expect(organizationJsonLd().email).toBe(CONTACT_EMAIL);
   });
 
   it("sier at prosjektet er uoffisielt, slik resten av nettstedet gjør", () => {
