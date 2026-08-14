@@ -1,0 +1,56 @@
+competitionId: romsdalske-kreds
+season: 1918
+table:
+  - position: 1
+    name: Kristiansunds fotballklub
+    clubId: kristiansund
+    played: 3
+    wins: 3
+    draws: 0
+    losses: 0
+    goalsFor: 5
+    goalsAgainst: 2
+    points: 6
+    outcome: none
+    note: Én seier uten kamp.
+  - position: 2
+    name: Braat fotballklub, Kristiansund
+    clubId: braatt
+    played: 3
+    wins: 2
+    draws: 0
+    losses: 1
+    goalsFor: 4
+    goalsAgainst: 4
+    points: 4
+    outcome: none
+    note: Én seier uten kamp.
+  - position: 3
+    name: Aalesunds fotballklub
+    clubId: aalesunds-fk
+    played: 3
+    wins: 1
+    draws: 0
+    losses: 2
+    goalsFor: 3
+    goalsAgainst: 3
+    points: 2
+    outcome: none
+    note: Ett tap uten kamp; måltallene gjelder de spilte kampene.
+  - position: 4
+    name: Rollon fotballklub, Aalesund
+    clubId: rollon
+    played: 3
+    wins: 0
+    draws: 0
+    losses: 3
+    goalsFor: 1
+    goalsAgainst: 4
+    points: 0
+    outcome: none
+    note: Ett tap uten kamp.
+progression: []
+sources:
+  - sourceId: nff-arbok-1918
+    page: "107"
+    fields: [table]

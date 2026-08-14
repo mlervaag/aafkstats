@@ -116,6 +116,64 @@ describe("arkivet", () => {
     });
   });
 
+  it("bevarer den manuelle NFF-runden 1914–1920 uten å blande inn B-laget", () => {
+    const series = archive.sources.find((item) => item.id === "nff-arbok");
+    const issues = ["1914-1915", "1916", "1917", "1918", "1919", "1920"]
+      .map((issue) => archive.sources.find((item) => item.id === `nff-arbok-${issue}`));
+
+    expect(series?.sourceType).toBe("series");
+    expect(issues.every((item) => item?.parentSourceId === series?.id)).toBe(true);
+    expect(issues.every((item) => item?.providers.some((provider) => provider.providerId === "nasjonalbiblioteket"))).toBe(true);
+
+    const season1918 = archive.seasons.find((item) => item.year === 1918);
+    expect(season1918).toMatchObject({ competitionId: "romsdalske-kreds", expectedMatches: 2 });
+
+    const results1920 = archive.sourceResults.find((item) => item.sourceId === "nff-arbok-1920")?.seasons[0]?.results;
+    expect(results1920?.find((item) => item.opponent === "Rollon" && item.score?.[0] === 4)).toMatchObject({
+      competitionId: "nm",
+      round: null,
+      note: "Kvalifiserende runde i årbokas diagram.",
+    });
+    expect(results1920?.find((item) => item.opponent === "Braatt" && item.status === "walkover"))
+      .toMatchObject({ competitionId: "nm", round: 1 });
+
+    const brann1917 = archive.matches.find((item) => item.id === "1917-08-26-aalesunds-fk-sk-brann");
+    expect(brann1917).toMatchObject({ home: { score: 0 }, away: { score: 14 } });
+    expect(brann1917?.sources).toEqual(expect.arrayContaining([
+      expect.objectContaining({ sourceId: "nff-arbok-1917", page: "68–69" }),
+    ]));
+
+    const sverre1919 = archive.matches.find((item) => item.id === "1919-09-07-sverre-aalesunds-fk");
+    expect(sverre1919).toMatchObject({ home: { score: 3 }, away: { score: 2 }, manual: ["away.score"] });
+    expect(sverre1919?.conflicts.find((item) => item.field === "away.score")).toMatchObject({
+      resolved: true,
+      chosen: 2,
+      decision: "independent_source",
+      locked: true,
+    });
+
+    const rollonJune = archive.matches.filter((item) =>
+      item.competition.season === 1920 &&
+      item.home.clubId === "aalesunds-fk" && item.away.clubId === "rollon" &&
+      item.home.score === 3 && item.away.score === 1,
+    );
+    expect(rollonJune).toHaveLength(1);
+    expect(rollonJune[0]).toMatchObject({
+      id: "1920-06-13-aalesunds-fk-rollon",
+      competition: { id: "sondmore-kreds-klasse-a" },
+      referee: "Th. Høgberg",
+    });
+    expect(rollonJune[0]?.conflicts.find((item) => item.field === "date")?.values.map((item) => item.value))
+      .toEqual(["1920-06-13", "1920-06-14"]);
+
+    const result = (id: string) => archive.matches.find((item) => item.id === id);
+    expect(result("1920-05-23-aalesunds-fk-frigg")).toMatchObject({ home: { score: 3 }, away: { score: 5 } });
+    expect(result("1920-06-20-aalesunds-fk-freidig")).toMatchObject({ home: { score: 2 }, away: { score: 3 } });
+
+    const earlyFirstTeam = archive.matches.filter((item) => [1917, 1918, 1919, 1920].includes(item.competition.season));
+    expect(earlyFirstTeam.some((item) => item.home.clubId === "aalesund-2" || item.away.clubId === "aalesund-2")).toBe(false);
+  });
+
   it("har personnavn uten wikimarkup", () => {
     // Fire personer sto en periode oppført som «[[Mads Nielsen (fotballspiller)»
     // fordi importen delte stallmalen på røret inne i lenka. Navnet er det

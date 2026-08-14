@@ -1,5 +1,15 @@
 year: 1918
-competitionId: nm
-finalPosition: null
+competitionId: romsdalske-kreds
+finalPosition: 3
+teamsInLeague: 4
+expectedMatches: 2
+sources:
+  - sourceId: nff-arbok-1918
+    page: "107"
+    fields: [finalPosition, teamsInLeague, expectedMatches]
+    note: Manuelt lest fra Klasse A-tabellen.
 promoted: false
 relegated: false
+note: >
+  Tabellen fører ett av AaFKs to tap som tap uten kamp. Målene 3–3 gjelder
+  derfor bare de spilte kampene. AaFK vant også kampene om Paivas pokal.

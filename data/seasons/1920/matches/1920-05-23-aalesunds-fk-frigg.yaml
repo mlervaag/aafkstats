@@ -1,0 +1,13 @@
+id: 1920-05-23-aalesunds-fk-frigg
+date: 1920-05-23
+status: played
+competition: { id: treningskamp, season: 1920, stage: friendly }
+home: { clubId: aalesunds-fk, score: 3 }
+away: { clubId: frigg, score: 5 }
+sources:
+  - sourceId: nff-arbok-1920
+    page: "99"
+    fields: [date, competition, home.clubId, away.clubId, home.score, away.score]
+    note: Resultatkolonnen «5–3 Friggs favør» er normalisert til AaFK 3–5 Frigg.
+confidence: confirmed
+manual: [date, competition, home.clubId, away.clubId, home.score, away.score]

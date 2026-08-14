@@ -3,14 +3,30 @@ date: 1920-06-13
 dateConfidence: exact
 status: played
 competition:
-  id: treningskamp
+  id: sondmore-kreds-klasse-a
   season: 1920
-  stage: friendly
+  stage: regular_season
 home: { clubId: aalesunds-fk, score: 3, halfTimeScore: null }
 away: { clubId: rollon, score: 1, halfTimeScore: null }
 venueId: norvebana
+referee: Th. Høgberg
 sources:
   - sourceId: aafk-historie-norvebana
     fields: [date, home.clubId, away.clubId, home.score, away.score, venueId]
+  - sourceId: nff-arbok-1920
+    page: "100"
+    fields: [date, competition, home.clubId, away.clubId, home.score, away.score, venueId, referee]
+    note: Årboka daterer kampen 14. juni og fører den i Klasse A.
 confidence: confirmed
-note: Resultatet og datoen står i bildeteksten på AaFKs historiske side om Nørvebana.
+conflicts:
+  - field: date
+    values:
+      - { value: "1920-06-13", providerId: aafk-no, note: AaFKs historieside om Nørvebana. }
+      - { value: "1920-06-14", providerId: nasjonalbiblioteket, note: "NFF-årboka 1920, trykt side 100." }
+    resolved: false
+    decision: unresolved
+    locked: false
+manual: [competition.id, competition.stage, referee]
+note: >
+  Resultat, motstander og arena viser at kildene beskriver samme kamp. Datoen
+  står som en uløst konflikt; filen beholder foreløpig 13. juni.

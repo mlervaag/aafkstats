@@ -1,0 +1,11 @@
+id: 1920-07-11-aalesunds-fk-braatt
+date: 1920-07-11
+status: played
+competition: { id: paivas-pokal, season: 1920, stage: friendly }
+home: { clubId: aalesunds-fk, score: 4 }
+away: { clubId: braatt, score: 1 }
+sources:
+  - { sourceId: nff-arbok-1920, page: "100", fields: [date, competition, home.clubId, away.clubId, home.score, away.score] }
+confidence: confirmed
+tags: [paivas-pokal]
+manual: [date, competition, home.clubId, away.clubId, home.score, away.score]

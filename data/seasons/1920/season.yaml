@@ -1,6 +1,15 @@
 year: 1920
-competitionId: treningskamp
+competitionId: sondmore-kreds-klasse-a
+finalPosition: 1
+teamsInLeague: 2
+expectedMatches: 2
 sources:
+  - sourceId: nff-arbok-1920
+    page: "100"
+    fields: [finalPosition, teamsInLeague, expectedMatches]
+    note: Manuelt lest fra Klasse A-oversikten.
   - sourceId: aafk-historie-norvebana
     fields: [matches]
-note: Bare én kamp er foreløpig dokumentert; dette er ikke en komplett sesong.
+promoted: false
+relegated: false
+note: AaFK vant begge kretskampene mot Rollon og ble kretsmester.

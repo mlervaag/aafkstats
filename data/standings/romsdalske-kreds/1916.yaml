@@ -1,0 +1,13 @@
+competitionId: romsdalske-kreds
+season: 1916
+table:
+  - { position: 1, name: Rollon, clubId: rollon, played: 3, wins: 3, draws: 0, losses: 0, goalsFor: 10, goalsAgainst: 5, points: 6, outcome: none }
+  - { position: 2, name: Aalesunds Fotballklub, clubId: aalesunds-fk, played: 3, wins: 2, draws: 0, losses: 1, goalsFor: 10, goalsAgainst: 8, points: 4, outcome: none }
+  - { position: 3, name: Braatt, clubId: braatt, played: 3, wins: 1, draws: 0, losses: 2, goalsFor: 8, goalsAgainst: 9, points: 2, outcome: none }
+  - { position: 4, name: International, clubId: null, played: 3, wins: 0, draws: 0, losses: 3, goalsFor: 5, goalsAgainst: 11, points: 0, outcome: none }
+progression: []
+sources:
+  - sourceId: nff-arbok-1916
+    page: "39"
+    fields: [table]
+note: Tabellen bruker to poeng for seier og ett for uavgjort.

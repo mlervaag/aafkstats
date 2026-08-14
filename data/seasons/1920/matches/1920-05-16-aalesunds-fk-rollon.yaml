@@ -1,0 +1,10 @@
+id: 1920-05-16-aalesunds-fk-rollon
+date: 1920-05-16
+status: played
+competition: { id: treningskamp, season: 1920, stage: friendly }
+home: { clubId: aalesunds-fk, score: 5 }
+away: { clubId: rollon, score: 1 }
+sources:
+  - { sourceId: nff-arbok-1920, page: "99", fields: [date, competition, home.clubId, away.clubId, home.score, away.score] }
+confidence: confirmed
+manual: [date, competition, home.clubId, away.clubId, home.score, away.score]

@@ -1,9 +1,18 @@
 year: 1917
-competitionId: nm
+competitionId: romsdalske-kreds
 sources:
+  - sourceId: nff-arbok-1917
+    page: "23, 72"
+    fields: [finalPosition, teamsInLeague, expectedMatches]
+    note: Årboka beskriver avdelingsformatet og oppgir AaFK som kretsmester.
   - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
     page: "34"
     fields: [matches]
-finalPosition: null
+finalPosition: 1
+teamsInLeague: 4
+expectedMatches: 3
 promoted: false
 relegated: false
+note: >
+  AaFK vant Aalesund-avdelingen med to seire og slo Kristiansunds
+  Fotballklub 4–1 i kretsfinalen. Datoene er ikke kjent.
