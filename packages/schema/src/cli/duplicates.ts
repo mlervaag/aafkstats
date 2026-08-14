@@ -12,7 +12,7 @@
  */
 
 import { canonicalClubKey, clubKey, isLongerNameForm, personKey } from "../identity.js";
-import { findPossibleDuplicateSourceResults } from "../source-result.js";
+import { findPossibleCanonicalMatchLinks, findPossibleDuplicateSourceResults } from "../source-result.js";
 import { dataDir, loadArchive } from "../load.js";
 import type { Club } from "../entities.js";
 
@@ -337,6 +337,25 @@ if (possibleDuplicateResults.length > 0) {
     console.log(`  ${dup.season} ${dup.opponentClubId} (${dup.scoreText}):`);
     console.log(`    ${a.sourceId} (${aExtra}): «${a.opponent}» ${DIM}(${a.id})${RESET}`);
     console.log(`    ${b.sourceId} (${bExtra}): «${b.opponent}» ${DIM}(${b.id})${RESET}`);
+  }
+  console.log("");
+}
+
+const possibleMatchLinks = findPossibleCanonicalMatchLinks(archive.sourceResults, archive.matches);
+if (possibleMatchLinks.length > 0) {
+  found += possibleMatchLinks.length;
+  console.log(
+    `${YELLOW}Mulig kobling til eksisterende kamp${RESET} `
+    + `${DIM}(kildedokumentert resultat som matcher en kanonisk kamp — vurder matchId manuelt)${RESET}`,
+  );
+  for (const link of possibleMatchLinks) {
+    const res = link.sourceResult;
+    const match = link.candidateMatch;
+    const resExtra = [res.competitionId, res.round ? `${res.round}. runde` : null, `s. ${res.page}`].filter(Boolean).join(", ");
+    const matchExtra = [match.competitionId, match.round ? `${match.round}. runde` : null, match.date].filter(Boolean).join(", ");
+    console.log(`  ${link.season} ${match.opponentClubId} (${match.scoreText}):`);
+    console.log(`    Kilde: ${res.sourceId} (${resExtra}): «${res.opponent}» ${DIM}(${res.id})${RESET}`);
+    console.log(`    Kamp:  ${match.file} (${matchExtra}) ${DIM}(${match.id})${RESET}`);
   }
   console.log("");
 }

@@ -9,7 +9,10 @@
   },
   "scripts": {
     "validate": "pnpm --filter @aafkstats/schema run validate",
+    "duplicates": "pnpm --filter @aafkstats/schema run duplicates",
     "data:duplicates": "pnpm --filter @aafkstats/schema run duplicates",
+    "opponents:unresolved": "pnpm --filter @aafkstats/schema run opponents:unresolved",
+    "data:opponents-unresolved": "pnpm --filter @aafkstats/schema run opponents:unresolved",
     "data:uncertain": "pnpm --filter @aafkstats/schema run uncertain",
     "data:contradictions": "pnpm --filter @aafkstats/schema run contradictions",
     "data:verification-candidates": "pnpm --filter @aafkstats/schema run verification-candidates",
