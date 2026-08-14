@@ -64,6 +64,11 @@ pnpm ingest:rsssf-discover -- --from 1980 --to 2009
 pnpm ingest:sfk-annual-report-analysis -- \
   --report docs/data/SFK_ARSRAPPORTER_DEKNING.md
 
+# Lag sidebaserte temasignaler fra rapportene som har tekstlag. Skriver ikke
+# kanoniske data eller råtekst.
+pnpm ingest:sfk-annual-report-candidates -- \
+  --report docs/data/SFK_ARSRAPPORTER_KANDIDATER.md
+
 # Én divisjon i én sesong. Tørrkjøring.
 pnpm ingest:rsssf -- --season 1998 --division First --competition forstedivisjon
 
@@ -145,6 +150,7 @@ kommandoen — å høste inn i et ødelagt arkiv gjør bare feilsøkingen vanske
 | `rsssf-discover` | RSSSF Norway | 1902→ | Kartlegging: hvilke sider finnes, og hva de inneholder |
 | `sfk-annual-reports` | Sunnmøre Fotballkrets | 1952→ | Discovery og konservativ katalogføring av årsrapportserien |
 | `sfk-annual-report-analysis` | Sunnmøre Fotballkrets | 1952→ | Cachet PDF-måling, tekstlag, AaFK-treff og triagesignaler uten OCR |
+| `sfk-annual-report-candidates` | Sunnmøre Fotballkrets | Rapporter med tekstlag | Sidebaserte faktakandidater uten råtekst eller kanonisering |
 | `wikipedia-profile` | Wikipedia | Én spiller per kjøring | Manglende personfil, posisjon, nasjonalitet og Wikidata-peker fra infoboks/sideegenskaper |
 
 Dekningen er dokumentert for seg: [FotMob-dekningstaket](../../docs/data/FOTMOB_DEKNINGSTAK.md)
