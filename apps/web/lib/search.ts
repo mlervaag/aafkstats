@@ -127,9 +127,23 @@ export function searchMatches(query: string, limit = 200): SearchMatch[] {
     params.push(...parsed.years);
   }
   for (const term of parsed.terms) {
-    where.push("(lower(opponent) LIKE ? ESCAPE '\\' OR lower(opponent_club_id) LIKE ? ESCAPE '\\' OR lower(competition) LIKE ? ESCAPE '\\')");
+    where.push(`(
+      lower(opponent) LIKE ? ESCAPE '\\'
+      OR lower(opponent_club_id) LIKE ? ESCAPE '\\'
+      OR lower(competition) LIKE ? ESCAPE '\\'
+      OR EXISTS (
+        SELECT 1 FROM core_clubs c
+        WHERE c.id = matches.opponent_club_id
+          AND (
+            lower(c.name) LIKE ? ESCAPE '\\'
+            OR lower(coalesce(c.short_name, '')) LIKE ? ESCAPE '\\'
+            OR lower(c.name_variants) LIKE ? ESCAPE '\\'
+            OR lower(c.names) LIKE ? ESCAPE '\\'
+          )
+      )
+    )`);
     const pattern = `%${escapeLike(term)}%`;
-    params.push(pattern, pattern, pattern);
+    params.push(pattern, pattern, pattern, pattern, pattern, pattern, pattern);
   }
   params.push(Math.min(Math.max(limit, 1), 200));
 

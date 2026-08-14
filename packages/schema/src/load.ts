@@ -496,9 +496,19 @@ export function crossValidate(archive: Archive): LoadIssue[] {
   // Dette rapporteres, ikke slås sammen: en sammenslåing for mye gir gale tall
   // uten at noe feiler, mens en dublett som står er synlig og rettbar.
   const clubsByIdentity = new Map<string, Club[]>();
+  const explicitIdentityKeys = new Map<string, Club[]>();
+  const nameVariantOwners = new Map<string, Club[]>();
+
   for (const club of archive.clubs) {
     const key = canonicalClubKey(club);
     clubsByIdentity.set(key, [...(clubsByIdentity.get(key) ?? []), club]);
+    if (club.identityKey) {
+      explicitIdentityKeys.set(club.identityKey, [...(explicitIdentityKeys.get(club.identityKey) ?? []), club]);
+    }
+    for (const variant of club.nameVariants) {
+      const vKey = variant.trim().toLowerCase();
+      nameVariantOwners.set(vKey, [...(nameVariantOwners.get(vKey) ?? []), club]);
+    }
   }
   for (const [key, group] of clubsByIdentity) {
     if (group.length < 2) continue;
@@ -507,7 +517,29 @@ export function crossValidate(archive: Archive): LoadIssue[] {
       issues.push({
         file: `clubs/${club.id}.yaml`,
         path: "name",
-        message: `samme klubbidentitet «${key}» som ${names} — slå dem sammen, og la kortformen bli et kildealias`,
+        message: `samme klubbidentitet «${key}» som ${names} — slå dem sammen, eller angi eksplisitt identityKey dersom det er ulike klubber`,
+      });
+    }
+  }
+  for (const [idKey, group] of explicitIdentityKeys) {
+    if (group.length < 2) continue;
+    const names = group.map((club) => `${club.id} («${club.name}»)`).join(", ");
+    for (const club of group) {
+      issues.push({
+        file: `clubs/${club.id}.yaml`,
+        path: "identityKey",
+        message: `duplikat identityKey «${idKey}» brukt av flere klubber: ${names}`,
+      });
+    }
+  }
+  for (const [vKey, group] of nameVariantOwners) {
+    if (group.length < 2) continue;
+    const names = group.map((club) => `${club.id} («${club.name}»)`).join(", ");
+    for (const club of group) {
+      issues.push({
+        file: `clubs/${club.id}.yaml`,
+        path: "nameVariants",
+        message: `navnevariant «${vKey}» tilhører flere ulike klubber: ${names}`,
       });
     }
   }

@@ -105,11 +105,13 @@ export function UnlinkedResults({
   year,
   titles,
   competitionNames,
+  validOpponentIds,
 }: {
   results: SourceResult[];
   year: number;
   titles: Map<string, string>;
   competitionNames?: Map<string, string>;
+  validOpponentIds?: Set<string>;
 }) {
   const unlinked = groupUnlinkedResults(results);
   if (unlinked.length === 0) return null;
@@ -147,13 +149,23 @@ export function UnlinkedResults({
             </span>
           );
 
+          const opponentName = item.opponent ?? "Motstander ikke oppgitt";
+          const hasProfile = Boolean(
+            item.opponentClubId && (!validOpponentIds || validOpponentIds.has(item.opponentClubId)),
+          );
+          const opponentElement = hasProfile && item.opponentClubId ? (
+            <a href={`/motstander/${item.opponentClubId}`}>{opponentName}</a>
+          ) : (
+            opponentName
+          );
+
           if (item.agreement === "sources_disagree") {
             const disputeLabel = getDisputeLabel(item.claims);
             return (
               <li key={item.key} style={{ display: "grid", gridTemplateColumns: "1fr", gap: "0.5rem" }}>
                 <div style={{ display: "flex", gap: "0.75rem", alignItems: "baseline" }}>
                   {context}
-                  <strong>{item.opponent ?? "Motstander ikke oppgitt"}</strong>
+                  <strong>{opponentElement}</strong>
                 </div>
                 <div className="notice" style={{ margin: "0.25rem 0" }}>
                   <p style={{ margin: "0 0 0.4rem", fontWeight: 600 }}>{disputeLabel}</p>
@@ -199,7 +211,7 @@ export function UnlinkedResults({
           return (
             <li key={item.key}>
               {context}
-              <strong>{item.opponent ?? "Motstander ikke oppgitt"}</strong>
+              <strong>{opponentElement}</strong>
               <span className="source-result-score num">{scoreText}</span>
               <div className="source-result-notes" style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", alignItems: "center" }}>
                 {notes ? <span className="muted small">{notes}</span> : null}

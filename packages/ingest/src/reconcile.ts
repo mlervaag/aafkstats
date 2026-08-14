@@ -86,22 +86,63 @@ export function reconcile(
   );
 
   const resolveClub = (externalId: string, name: string): Club | undefined => {
+    // 1. Provider alias først
     const byAlias = clubByExternalId().get(externalId);
     if (byAlias) return byAlias;
-    const base = slugify(name);
-    const nameMatches = clubs.filter((club) =>
-      clubNameForms(club).some((candidate) => clubKey(candidate) === clubKey(name)),
-    );
-    const existing = clubs.find((club) => club.id === base) ?? (nameMatches.length === 1 ? nameMatches[0] : undefined);
-    if (existing && existing.aliases[options.providerId] === undefined) {
-      existing.aliases[options.providerId] = externalId;
-      changedClubs.add(existing.id);
-      return existing;
+
+    // 2. Eksakt treff mot name, shortName, historiske navn eller nameVariants (case-insensitive)
+    const targetTrimmed = name.trim().toLowerCase();
+    const exactMatches = clubs.filter((club) => {
+      const allForms = [
+        club.name,
+        club.shortName ?? "",
+        ...(club.names ?? []).map((n) => n.name),
+        ...(club.nameVariants ?? []),
+      ].filter(Boolean);
+      return allForms.some((candidate) => candidate.trim().toLowerCase() === targetTrimmed);
+    });
+
+    let matchedClub: Club | undefined;
+
+    if (exactMatches.length === 1) {
+      matchedClub = exactMatches[0];
+    } else if (exactMatches.length > 1) {
+      issues.push(
+        `tvetydig klubbnavn «${name}» (ekstern ID: ${externalId}) matcher flere klubber eksakt: ${exactMatches.map((c) => c.id).join(", ")}`,
+      );
+      return undefined;
+    } else {
+      // 3. Normalisert treff dersom ingen eksakt match
+      const normalizedTarget = clubKey(name);
+      const normalizedMatches = clubs.filter((club) =>
+        clubNameForms(club).some((candidate) => clubKey(candidate) === normalizedTarget),
+      );
+
+      if (normalizedMatches.length === 1) {
+        matchedClub = normalizedMatches[0];
+      } else if (normalizedMatches.length > 1) {
+        issues.push(
+          `tvetydig klubbnavn «${name}» (ekstern ID: ${externalId}) matcher flere klubber ved normalisering: ${normalizedMatches.map((c) => c.id).join(", ")}`,
+        );
+        return undefined;
+      }
     }
-    if (existing) {
-      issues.push(`klubb-ID ${externalId} (${name}) kolliderer med ${existing.id}`);
+
+    if (matchedClub) {
+      if (matchedClub.aliases[options.providerId] === undefined) {
+        matchedClub.aliases[options.providerId] = externalId;
+        changedClubs.add(matchedClub.id);
+        return matchedClub;
+      }
+      if (matchedClub.aliases[options.providerId] === externalId) {
+        return matchedClub;
+      }
+      issues.push(`klubb-ID ${externalId} (${name}) kolliderer med eksisterende alias for ${matchedClub.id}`);
       return undefined;
     }
+
+    // 4. Ingen treff - opprett ny klubb
+    const base = slugify(name);
     let id = base;
     let suffix = 2;
     while (clubs.some((club) => club.id === id)) id = `${base}-${suffix++}`;
@@ -111,6 +152,7 @@ export function reconcile(
     const club: Club = {
       id,
       name,
+      nameVariants: [],
       names: [],
       country: sourceTeam?.country ?? "NO",
       aliases: { [options.providerId]: externalId },

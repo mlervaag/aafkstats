@@ -17,6 +17,7 @@ import {
   loadStandings,
   loadContributions,
   loadCompetitionTitles,
+  loadOpponentIds,
 } from "@/lib/archive";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
@@ -178,6 +179,7 @@ export default async function SeasonPage({ params }: Props) {
         year={year}
         titles={sourceTitles}
         competitionNames={competitionNames}
+        validOpponentIds={loadOpponentIds()}
       />
 
       <SquadList players={squad} />

@@ -660,13 +660,43 @@ export function loadOpponents(): OpponentSummary[] {
   }
 }
 
-export function loadOpponent(id: string): { summary: OpponentSummary; matches: ArchiveMatch[] } | undefined {
+export function loadOpponentIds(): Set<string> {
+  const db = open();
+  try {
+    const rows = all<{ opponent_club_id: string }>(db, "SELECT opponent_club_id FROM opponents");
+    return new Set(rows.map((r) => r.opponent_club_id));
+  } finally {
+    db.close();
+  }
+}
+
+export interface OpponentClubMeta {
+  shortName: string | null;
+  nameVariants: string[];
+  city: string | null;
+  founded: number | null;
+}
+
+export function loadOpponent(id: string): { summary: OpponentSummary; matches: ArchiveMatch[]; club?: OpponentClubMeta } | undefined {
   const db = open();
   try {
     const summary = one<OpponentRow>(db, "SELECT * FROM opponents WHERE opponent_club_id = ?", id);
     if (!summary) return undefined;
     const matches = all<MatchRow>(db, `SELECT ${matchColumns} FROM matches WHERE opponent_club_id = ? ORDER BY date DESC`, id);
-    return { summary: mapOpponent(summary), matches: matches.map(mapMatch) };
+    const clubRow = one<{ short_name: string | null; name_variants: string; city: string | null; founded: number | null }>(
+      db,
+      "SELECT short_name, name_variants, city, founded FROM core_clubs WHERE id = ?",
+      id,
+    );
+    const club: OpponentClubMeta | undefined = clubRow
+      ? {
+          shortName: clubRow.short_name,
+          nameVariants: JSON.parse(clubRow.name_variants || "[]"),
+          city: clubRow.city,
+          founded: clubRow.founded,
+        }
+      : undefined;
+    return { summary: mapOpponent(summary), matches: matches.map(mapMatch), club };
   } finally {
     db.close();
   }

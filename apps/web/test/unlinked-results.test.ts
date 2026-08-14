@@ -237,4 +237,14 @@ describe("uavklarte historiske resultater og resultatgrupper", () => {
     const unlinked = groupUnlinkedResults(season!.sourceResults);
     expect(y1920!.documentedResults).toBe(unlinked.length);
   });
+
+  it("grupperer 1918 NM mot KFK fra NFF-årboka og 25-årsboka til ett felles oppgjør", () => {
+    const season = loadSeason(1918);
+    expect(season).toBeDefined();
+    const unlinked = groupUnlinkedResults(season!.sourceResults);
+    const kfkNm = unlinked.find((u) => u.key === "nm-1918-kfk-runde-1");
+    expect(kfkNm).toBeDefined();
+    expect(kfkNm?.claims).toHaveLength(2);
+    expect(kfkNm?.opponentClubId).toBe("kfk");
+  });
 });

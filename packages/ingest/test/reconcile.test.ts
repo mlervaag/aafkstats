@@ -293,4 +293,84 @@ describe("observasjoner fra reconcile", () => {
     });
     expect(observationsIn(changed)[0]!.payloadHash).not.toBe(observationsIn(first)[0]!.payloadHash);
   });
+
+  it("skiller nøyaktig mellom KFK og KBK og nekter å gjette ved tvetydighet", () => {
+    const withKfkAndKbk: Archive = {
+      ...archive,
+      clubs: [
+        ...archive.clubs,
+        {
+          id: "kfk",
+          name: "Kristiansund Fotballklubb",
+          shortName: "KFK",
+          identityKey: "kristiansund-fk",
+          nameVariants: ["K.F.K.", "K. F. K.", "Kristiansunds Fotballklub"],
+          names: [],
+          country: "NO",
+          aliases: {},
+        },
+        {
+          id: "kristiansund",
+          name: "Kristiansund Ballklubb",
+          shortName: "KBK",
+          identityKey: "kristiansund-bk",
+          nameVariants: ["Kristiansund BK"],
+          names: [],
+          country: "NO",
+          aliases: {},
+        },
+      ],
+    };
+
+    const makeMatch = (extId: string, awayName: string): SourceMatch => ({
+      ...source,
+      externalId: extId,
+      away: { externalId: `ext-${extId}`, name: awayName },
+    });
+
+    // 1. KFK via kortnavn
+    const planKfkShort = reconcile(withKfkAndKbk, [makeMatch("m1", "KFK")], {
+      providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-14",
+    });
+    expect(planKfkShort.issues).toEqual([]);
+    expect(planKfkShort.summary.clubsCreated).toBe(0);
+    expect(planKfkShort.files.some((f) => f.relativePath.endsWith("aalesunds-fk-kfk.yaml"))).toBe(true);
+
+    // 2. KFK via punktumvariant
+    const planKfkDots = reconcile(withKfkAndKbk, [makeMatch("m2", "K.F.K.")], {
+      providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-14",
+    });
+    expect(planKfkDots.issues).toEqual([]);
+    expect(planKfkDots.files.some((f) => f.relativePath.endsWith("aalesunds-fk-kfk.yaml"))).toBe(true);
+
+    // 3. KFK via historisk skrivemåte
+    const planKfkOld = reconcile(withKfkAndKbk, [makeMatch("m3", "Kristiansunds Fotballklub")], {
+      providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-14",
+    });
+    expect(planKfkOld.issues).toEqual([]);
+    expect(planKfkOld.files.some((f) => f.relativePath.endsWith("aalesunds-fk-kfk.yaml"))).toBe(true);
+
+    // 4. KFK via fullt navn
+    const planKfkFull = reconcile(withKfkAndKbk, [makeMatch("m4", "Kristiansund Fotballklubb")], {
+      providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-14",
+    });
+    expect(planKfkFull.issues).toEqual([]);
+    expect(planKfkFull.files.some((f) => f.relativePath.endsWith("aalesunds-fk-kfk.yaml"))).toBe(true);
+
+    // 5. KBK via fullt navn
+    const planKbkFull = reconcile(withKfkAndKbk, [makeMatch("m5", "Kristiansund Ballklubb")], {
+      providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-14",
+    });
+    expect(planKbkFull.issues).toEqual([]);
+    expect(planKbkFull.files.some((f) => f.relativePath.endsWith("aalesunds-fk-kristiansund.yaml"))).toBe(true);
+
+    // 6. Tvetydig «Kristiansund» skal feile med issue og ikke opprette ny klubb eller feilaktig velge KBK
+    const planAmbiguous = reconcile(withKfkAndKbk, [makeMatch("m6", "Kristiansund")], {
+      providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-14",
+    });
+    expect(planAmbiguous.issues.length).toBeGreaterThan(0);
+    expect(planAmbiguous.issues[0]).toContain("tvetydig klubbnavn «Kristiansund»");
+    expect(planAmbiguous.summary.clubsCreated).toBe(0);
+    expect(planAmbiguous.files.some((f) => f.relativePath.includes("/matches/"))).toBe(false);
+  });
 });

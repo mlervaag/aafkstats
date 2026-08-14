@@ -7,7 +7,7 @@ seasons:
       - { no: 1, opponent: "Rollon", score: [2, 2] }
       - { no: 2, opponent: "Nordlandet", score: [5, 1] }
       - { no: 3, opponent: "International", score: [2, 2] }
-      - { no: 4, opponent: "K. F. K.", score: [3, 0] }
+      - { no: 4, opponent: "K. F. K.", opponentClubId: kfk, score: [3, 0] }
       - { no: 5, opponent: "Ynglingefor. Sportsklubb", score: [2, 2] }
       - { no: 6, opponent: "Ynglingefor. Sportsklubb", score: [2, 3], replay: true }
   - year: 1916
@@ -21,11 +21,11 @@ seasons:
     page: 83
     results:
       - { no: 1, opponent: "Rapp", score: [2, 2] }
-      - { no: 2, opponent: "K. F. K.", score: [0, 1] }
-      - { no: 3, opponent: "K. F. K.", score: [2, 1] }
+      - { no: 2, opponent: "K. F. K.", opponentClubId: kfk, score: [0, 1] }
+      - { no: 3, opponent: "K. F. K.", opponentClubId: kfk, score: [2, 1] }
       - { no: 4, opponent: "Rollon", score: [4, 2] }
       - { no: 5, opponent: "Rollon", score: [5, 2] }
-      - { no: 6, opponent: "K. F. K.", score: [4, 2] }
+      - { no: 6, opponent: "K. F. K.", opponentClubId: kfk, score: [4, 2] }
       - { no: 7, opponent: "Kadetter «Fridtjof»", score: [3, 0] }
       - { no: 8, opponent: "Brått", score: [1, 4] }
       - { no: 9, opponent: "Rollon", score: [1, 0], competitionId: nm }
@@ -38,10 +38,10 @@ seasons:
       - { no: 3, opponent: "City of Stockholm", score: [8, 2] }
       - { no: 4, opponent: "Rollon", score: [2, 0] }
       - { no: 5, opponent: "Brått", score: [6, 3] }
-      - { no: 6, opponent: "K. F. K.", score: [1, 3] }
+      - { no: 6, opponent: "K. F. K.", opponentClubId: kfk, score: [1, 3] }
       - { no: 7, opponent: "Brått", score: [1, 3] }
       - { no: 8, opponent: "Rollon", score: [0, 3] }
-      - { no: 9, opponent: "K. F. K.", score: [4, 3], competitionId: nm, extraTime: true, note: "10 omganger" }
+      - { no: 9, opponent: "K. F. K.", opponentClubId: kfk, score: [4, 3], competitionId: nm, extraTime: true, resultGroupId: nm-1918-kfk-runde-1, note: "10 omganger" }
       - { no: 10, opponent: "Sverre", score: [1, 5], competitionId: nm }
   - year: 1919
     page: 83
@@ -53,8 +53,8 @@ seasons:
       - { no: 5, opponent: "Rollon", score: [4, 1] }
       - { no: 6, opponent: "Molde", score: [3, 1] }
       - { no: 7, opponent: "Brått", score: [0, 2] }
-      - { no: 8, opponent: "K. F. K.", score: [2, 6] }
-      - { no: 9, opponent: "K. F. K.", score: [4, 2] }
+      - { no: 8, opponent: "K. F. K.", opponentClubId: kfk, score: [2, 6] }
+      - { no: 9, opponent: "K. F. K.", opponentClubId: kfk, score: [4, 2] }
       - { no: 10, opponent: "Brått", score: [4, 3] }
       - { no: 11, opponent: "Fremad", score: [3, 2], competitionId: nm, extraTime: true }
       - { no: 12, opponent: "Brått", score: [3, 2], competitionId: nm }
@@ -108,7 +108,7 @@ seasons:
       - { no: 9, opponent: "Vidar, Stvgr.", score: [3, 2] }
       - { no: 10, opponent: "Smart", score: [2, 1] }
       - { no: 11, opponent: "Smart", score: [4, 0] }
-      - { no: 12, opponent: "K. F. K.", score: [2, 4] }
+      - { no: 12, opponent: "K. F. K.", opponentClubId: kfk, score: [2, 4] }
       - { no: 13, opponent: "Rollon", score: [5, 0] }
       - { no: 14, opponent: "Molde", score: [6, 0], competitionId: nm }
       - { no: 15, opponent: "Smart", score: [5, 2], competitionId: nm }
@@ -124,13 +124,13 @@ seasons:
       - { no: 5, opponent: "Rollon", score: [0, 0] }
       - { no: 6, opponent: "Smart", score: [2, 0] }
       - { no: 7, opponent: "Brått", score: [3, 5] }
-      - { no: 8, opponent: "K. F. K.", score: [4, 2] }
+      - { no: 8, opponent: "K. F. K.", opponentClubId: kfk, score: [4, 2] }
       - { no: 9, opponent: "Brått", score: [5, 1] }
       - { no: 10, opponent: "Molde", score: [7, 0] }
       - { no: 11, opponent: "Hødd", score: [7, 3] }
       - { no: 12, opponent: "Åndalsnes", score: [11, 0] }
       - { no: 13, opponent: "Hødd", score: [8, 0], competitionId: nm }
-      - { no: 14, opponent: "K. F. K.", score: [4, 2], competitionId: nm }
+      - { no: 14, opponent: "K. F. K.", opponentClubId: kfk, score: [4, 2], competitionId: nm }
       - { no: 15, opponent: "Brann", score: [1, 4], competitionId: nm }
   - year: 1924
     page: 84
@@ -143,7 +143,7 @@ seasons:
       - { no: 6, opponent: "Hødd", score: [4, 0] }
       - { no: 7, opponent: "Brage", score: [5, 0] }
       - { no: 8, opponent: "Brage", score: [4, 2] }
-      - { no: 9, opponent: "K. F. K.", score: [3, 2] }
+      - { no: 9, opponent: "K. F. K.", opponentClubId: kfk, score: [3, 2] }
       - { no: 10, opponent: "S. I. F.", score: [0, 1] }
       - { no: 11, opponent: "Molde", score: [8, 0] }
       - { no: 12, opponent: "Fagerborg", score: [1, 2] }
@@ -175,7 +175,7 @@ seasons:
       - { no: 17, opponent: "Drammens Ballklub", score: [0, 2], page: 85 }
       - { no: 18, opponent: null, score: null, competitionId: nm, status: walkover, round: 1, page: 85 }
       - { no: 19, opponent: "Molde", score: [5, 1], competitionId: nm, page: 85 }
-      - { no: 20, opponent: "K. F. K.", score: [5, 0], competitionId: nm, page: 85 }
+      - { no: 20, opponent: "K. F. K.", opponentClubId: kfk, score: [5, 0], competitionId: nm, matchId: 1925-08-30-aalesunds-fk-kfk, page: 85 }
       - { no: 21, opponent: "Viking, Stvgr.", score: [1, 2], competitionId: nm, extraTime: true, page: 85 }
   - year: 1926
     page: 85
@@ -205,9 +205,9 @@ seasons:
       - { no: 3, opponent: "Rollon", score: [3, 0] }
       - { no: 4, opponent: "Hødd", score: [5, 0] }
       - { no: 5, opponent: "Brått", score: [2, 0] }
-      - { no: 6, opponent: "K. F. K.", score: [4, 2] }
+      - { no: 6, opponent: "K. F. K.", opponentClubId: kfk, score: [4, 2] }
       - { no: 7, opponent: "Molde", score: [2, 2] }
-      - { no: 8, opponent: "K. F. K.", score: [2, 1] }
+      - { no: 8, opponent: "K. F. K.", opponentClubId: kfk, score: [2, 1] }
       - { no: 9, opponent: "Brått", score: [10, 1] }
       - { no: 10, opponent: "Molde", score: [8, 4] }
       - { no: 11, opponent: "Rollon", score: [4, 3] }
@@ -215,7 +215,7 @@ seasons:
       - { no: 13, opponent: "Falk, Horten", score: [1, 2] }
       - { no: 14, opponent: "Drammens Ballklub", score: [6, 0] }
       - { no: 15, opponent: "Brann", score: [0, 3], note: "Førstelaget" }
-      - { no: 16, opponent: "K. F. K.", score: [4, 0], competitionId: nm }
+      - { no: 16, opponent: "K. F. K.", opponentClubId: kfk, score: [4, 0], competitionId: nm }
       - { no: 17, opponent: "Hardy", score: [8, 1], competitionId: nm }
       - { no: 18, opponent: "Rollon", score: [2, 1], competitionId: nm }
       - { no: 19, opponent: "Odd, Skien", score: [0, 1], competitionId: nm }
@@ -225,8 +225,8 @@ seasons:
       - { no: 1, opponent: "Rollon", score: [3, 2] }
       - { no: 2, opponent: "Rollon", score: [4, 2] }
       - { no: 3, opponent: "Brått", score: [2, 0] }
-      - { no: 4, opponent: "K. F. K.", score: [9, 0] }
-      - { no: 5, opponent: "K. F. K.", score: [2, 3] }
+      - { no: 4, opponent: "K. F. K.", opponentClubId: kfk, score: [9, 0] }
+      - { no: 5, opponent: "K. F. K.", opponentClubId: kfk, score: [2, 3] }
       - { no: 6, opponent: "Brått", score: [5, 1] }
       - { no: 7, opponent: "Rollon", score: [3, 3] }
       - { no: 8, opponent: "Rollon", score: [2, 4] }
@@ -249,10 +249,10 @@ seasons:
       - { no: 1, opponent: "Rollon", score: [2, 1] }
       - { no: 2, opponent: "Brått", score: [6, 1] }
       - { no: 3, opponent: "Brått", score: [4, 3] }
-      - { no: 4, opponent: "K. F. K.", score: [4, 2] }
+      - { no: 4, opponent: "K. F. K.", opponentClubId: kfk, score: [4, 2] }
       - { no: 5, opponent: "Molde", score: [6, 2] }
       - { no: 6, opponent: "Rollon", score: [4, 2] }
-      - { no: 7, opponent: "K. F. K.", score: [2, 1] }
+      - { no: 7, opponent: "K. F. K.", opponentClubId: kfk, score: [2, 1] }
       - { no: 8, opponent: "Molde", score: [5, 1] }
       - { no: 9, opponent: "Rollon", score: [6, 2] }
       - { no: 10, opponent: "Rollon", score: [1, 0] }
@@ -262,7 +262,7 @@ seasons:
       - { no: 14, opponent: "Sarpsborg", score: [2, 0] }
       - { no: 15, opponent: "Langevåg", score: [11, 0] }
       - { no: 16, opponent: "Rollon", score: [1, 4] }
-      - { no: 17, opponent: "K. F. K.", score: [1, 7] }
+      - { no: 17, opponent: "K. F. K.", opponentClubId: kfk, score: [1, 7] }
       - { no: 18, opponent: "Langevåg", score: [5, 1] }
       - { no: 19, opponent: "Langevåg", score: [7, 0], competitionId: nm }
       - { no: 20, opponent: "Djerv", score: [8, 1], competitionId: nm }
@@ -279,13 +279,13 @@ seasons:
       - { no: 6, opponent: "Moss", score: [3, 4] }
       - { no: 7, opponent: "Sleipner", score: [2, 4] }
       - { no: 8, opponent: "Falk", score: [3, 3] }
-      - { no: 9, opponent: "K. F. K.", score: [1, 1] }
+      - { no: 9, opponent: "K. F. K.", opponentClubId: kfk, score: [1, 1] }
       - { no: 10, opponent: "Molde", score: [9, 0] }
       - { no: 11, opponent: "Brått", score: [4, 2] }
       - { no: 12, opponent: "Molde", score: [6, 4] }
       - { no: 13, opponent: "Rollon", score: [5, 2] }
       - { no: 14, opponent: "Rollon", score: [3, 2] }
-      - { no: 15, opponent: "K. F. K.", score: [4, 1], competitionId: nm }
+      - { no: 15, opponent: "K. F. K.", opponentClubId: kfk, score: [4, 1], competitionId: nm }
       - { no: 16, opponent: "Skeid", score: [7, 0], competitionId: nm }
       - { no: 17, opponent: "Selbak", score: [6, 3], competitionId: nm }
       - { no: 18, opponent: "Ørn", score: [2, 6], competitionId: nm }
@@ -295,14 +295,14 @@ seasons:
       - { no: 1, opponent: "Rollon", score: [2, 1] }
       - { no: 2, opponent: "Rollon", score: [3, 3] }
       - { no: 3, opponent: "Brått", score: [5, 0] }
-      - { no: 4, opponent: "K. F. K.", score: [1, 5] }
+      - { no: 4, opponent: "K. F. K.", opponentClubId: kfk, score: [1, 5] }
       - { no: 5, opponent: "Molde", score: [12, 0] }
-      - { no: 6, opponent: "K. F. K.", score: [4, 4] }
+      - { no: 6, opponent: "K. F. K.", opponentClubId: kfk, score: [4, 4] }
       - { no: 7, opponent: "Brått", score: [4, 0] }
       - { no: 8, opponent: "Molde", score: [10, 0] }
       - { no: 9, opponent: "Rollon", score: [2, 1] }
       - { no: 10, opponent: "Brått", score: [9, 1] }
-      - { no: 11, opponent: "K. F. K.", score: [1, 2] }
+      - { no: 11, opponent: "K. F. K.", opponentClubId: kfk, score: [1, 2] }
       - { no: 12, opponent: "Östersund", score: [12, 1] }
       - { no: 13, opponent: "Berchem-Sport", score: [7, 3] }
       - { no: 14, opponent: "Ny-Solheim", score: [4, 1] }
@@ -315,10 +315,10 @@ seasons:
     results:
       - { no: 1, opponent: "Rollon", score: [3, 3] }
       - { no: 2, opponent: "Brått", score: [2, 0] }
-      - { no: 3, opponent: "K. F. K.", score: [2, 3] }
+      - { no: 3, opponent: "K. F. K.", opponentClubId: kfk, score: [2, 3] }
       - { no: 4, opponent: "Rollon", score: [5, 0] }
       - { no: 5, opponent: "Brått", score: [4, 4] }
-      - { no: 6, opponent: "K. F. K.", score: [4, 2] }
+      - { no: 6, opponent: "K. F. K.", opponentClubId: kfk, score: [4, 2] }
       - { no: 7, opponent: "Hamar I. L.", score: [4, 1] }
       - { no: 8, opponent: "Freidig", score: [3, 3] }
       - { no: 9, opponent: "Moss", score: [2, 3] }
@@ -333,11 +333,11 @@ seasons:
     page: 86
     results:
       - { no: 1, opponent: "Rollon", score: [5, 0] }
-      - { no: 2, opponent: "K. F. K.", score: [5, 0] }
+      - { no: 2, opponent: "K. F. K.", opponentClubId: kfk, score: [5, 0] }
       - { no: 3, opponent: "Brått", score: [3, 1] }
       - { no: 4, opponent: "Rollon", score: [1, 2] }
       - { no: 5, opponent: "Brått", score: [5, 0], page: 87 }
-      - { no: 6, opponent: "K. F. K.", score: [2, 1], page: 87 }
+      - { no: 6, opponent: "K. F. K.", opponentClubId: kfk, score: [2, 1], page: 87 }
       - { no: 7, opponent: "Rollon", score: [0, 0], page: 87 }
       - { no: 8, opponent: "Rollon", score: [3, 3], page: 87 }
       - { no: 9, opponent: "Rollon", score: [1, 3], page: 87 }
@@ -358,10 +358,10 @@ seasons:
       - { no: 2, opponent: "C. F. K.", score: [1, 2] }
       - { no: 3, opponent: "Guard", score: [4, 3] }
       - { no: 4, opponent: "C. F. K.", score: [2, 0] }
-      - { no: 5, opponent: "K. F. K.", score: [3, 1] }
+      - { no: 5, opponent: "K. F. K.", opponentClubId: kfk, score: [3, 1] }
       - { no: 6, opponent: "Guard", score: [4, 1] }
       - { no: 7, opponent: "Brått", score: [2, 3] }
-      - { no: 8, opponent: "K. F. K.", score: [3, 1] }
+      - { no: 8, opponent: "K. F. K.", opponentClubId: kfk, score: [3, 1] }
       - { no: 9, opponent: "Brått", score: [1, 1] }
       - { no: 10, opponent: "Rollon", score: [3, 2] }
       - { no: 11, opponent: "Molde", score: [4, 0] }
@@ -380,8 +380,8 @@ seasons:
       - { no: 2, opponent: "C. F. K.", score: [4, 1] }
       - { no: 3, opponent: "C. F. K.", score: [2, 3] }
       - { no: 4, opponent: "Guard", score: [2, 1] }
-      - { no: 5, opponent: "K. F. K.", score: [2, 1] }
-      - { no: 6, opponent: "K. F. K.", score: [1, 1] }
+      - { no: 5, opponent: "K. F. K.", opponentClubId: kfk, score: [2, 1] }
+      - { no: 6, opponent: "K. F. K.", opponentClubId: kfk, score: [1, 1] }
       - { no: 7, opponent: "Rollon", score: [1, 1] }
       - { no: 8, opponent: "Guard", score: [4, 1] }
       - { no: 9, opponent: "Molde", score: [7, 0] }
@@ -410,9 +410,9 @@ seasons:
       - { no: 2, opponent: "Brått", score: [4, 0] }
       - { no: 3, opponent: "Rollon", score: [5, 1] }
       - { no: 4, opponent: "C. F. K.", score: [6, 0] }
-      - { no: 5, opponent: "K. F. K.", score: [1, 1] }
+      - { no: 5, opponent: "K. F. K.", opponentClubId: kfk, score: [1, 1] }
       - { no: 6, opponent: "Rollon", score: [0, 3] }
-      - { no: 7, opponent: "K. F. K.", score: [3, 1] }
+      - { no: 7, opponent: "K. F. K.", opponentClubId: kfk, score: [3, 1] }
       - { no: 8, opponent: "Guard", score: [8, 1] }
       - { no: 9, opponent: "Molde", score: [6, 2] }
       - { no: 10, opponent: "Molde", score: [2, 2] }
@@ -437,9 +437,9 @@ seasons:
       - { no: 4, opponent: "C. F. K.", score: [1, 3] }
       - { no: 5, opponent: "Brått", score: [1, 1] }
       - { no: 6, opponent: "Veblungsnes", score: [1, 4] }
-      - { no: 7, opponent: "K. F. K.", score: [5, 1] }
+      - { no: 7, opponent: "K. F. K.", opponentClubId: kfk, score: [5, 1] }
       - { no: 8, opponent: "Rollon", score: [3, 1] }
-      - { no: 9, opponent: "K. F. K.", score: [0, 2] }
+      - { no: 9, opponent: "K. F. K.", opponentClubId: kfk, score: [0, 2] }
       - { no: 10, opponent: "Vågstranda", score: [4, 0] }
       - { no: 11, opponent: "Rosenborg", score: [1, 1] }
       - { no: 12, opponent: "Fremad", score: [2, 0] }
@@ -453,14 +453,14 @@ seasons:
     page: 88
     results:
       - { no: 1, opponent: "Rollon", score: [1, 0] }
-      - { no: 2, opponent: "K. F. K.", score: [1, 8] }
+      - { no: 2, opponent: "K. F. K.", opponentClubId: kfk, score: [1, 8] }
       - { no: 3, opponent: "N. F. K.", score: [4, 2] }
       - { no: 4, opponent: "C. F. K.", score: [1, 2] }
       - { no: 5, opponent: "Brått", score: [4, 1] }
       - { no: 6, opponent: "C. F. K.", score: [2, 0] }
       - { no: 7, opponent: "Rollon", score: [2, 1] }
       - { no: 8, opponent: "Veblungsnes", score: [6, 0] }
-      - { no: 9, opponent: "K. F. K.", score: [2, 3] }
+      - { no: 9, opponent: "K. F. K.", opponentClubId: kfk, score: [2, 3] }
       - { no: 10, opponent: "Brått", score: [0, 3] }
       - { no: 11, opponent: "Paul Jacobi", score: [4, 7] }
       - { no: 12, opponent: "Paul Jacobi", score: [3, 3] }
@@ -478,11 +478,11 @@ seasons:
       - { no: 2, opponent: "C. F. K.", score: [2, 3] }
       - { no: 3, opponent: "Rollon", score: [2, 2] }
       - { no: 4, opponent: "N. F. K.", score: [4, 1] }
-      - { no: 5, opponent: "K. F. K.", score: [1, 1] }
+      - { no: 5, opponent: "K. F. K.", opponentClubId: kfk, score: [1, 1] }
       - { no: 6, opponent: "Rollon", score: [3, 2] }
       - { no: 7, opponent: "Brått", score: [4, 1] }
       - { no: 8, opponent: "Molde", score: [3, 1] }
-      - { no: 9, opponent: "K. F. K.", score: [1, 5] }
+      - { no: 9, opponent: "K. F. K.", opponentClubId: kfk, score: [1, 5] }
       - { no: 10, opponent: "C. F. K.", score: [5, 1] }
       - { no: 11, opponent: "Molde", score: [3, 1] }
       - { no: 12, opponent: "Rollon", score: [0, 0] }

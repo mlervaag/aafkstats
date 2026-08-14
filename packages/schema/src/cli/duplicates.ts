@@ -12,6 +12,7 @@
  */
 
 import { canonicalClubKey, clubKey, isLongerNameForm, personKey } from "../identity.js";
+import { findPossibleDuplicateSourceResults } from "../source-result.js";
 import { dataDir, loadArchive } from "../load.js";
 import type { Club } from "../entities.js";
 
@@ -66,7 +67,7 @@ for (let i = 0; i < archive.clubs.length; i++) {
     const b = archive.clubs[j]!;
     const ka = canonicalClubKey(a);
     const kb = canonicalClubKey(b);
-    if (ka === kb) continue;
+    if (ka === kb || (a.identityKey && b.identityKey)) continue;
     if (closeEnough(ka, kb, 1)) near.push([a, b]);
   }
 }
@@ -96,7 +97,7 @@ for (let i = 0; i < archive.clubs.length; i++) {
     const b = archive.clubs[j]!;
     const ka = canonicalClubKey(a);
     const kb = canonicalClubKey(b);
-    if (ka === kb || !kb.startsWith(`${ka}-`)) continue;
+    if (ka === kb || (a.identityKey && b.identityKey) || !kb.startsWith(`${ka}-`)) continue;
     if (NUMERIC_TAIL.test(kb.slice(ka.length + 1))) continue;
     if (near.some(([x, y]) => (x === a && y === b) || (x === b && y === a))) continue;
     extended.push([a, b]);
@@ -317,6 +318,25 @@ if (sameFixture.length > 0) {
   for (const [key, group] of sameFixture) {
     console.log(`  ${key}`);
     for (const entry of group) console.log(`    ${entry.file} ${DIM}(${entry.opponent})${RESET}`);
+  }
+  console.log("");
+}
+
+const possibleDuplicateResults = findPossibleDuplicateSourceResults(archive.sourceResults);
+if (possibleDuplicateResults.length > 0) {
+  found += possibleDuplicateResults.length;
+  console.log(
+    `${YELLOW}Mulig samme historiske oppgjør${RESET} `
+    + `${DIM}(kildedokumenterte resultater som matcher på sesong, motstanderklubb og score — vurder resultGroupId manuelt)${RESET}`,
+  );
+  for (const dup of possibleDuplicateResults) {
+    const a = dup.first;
+    const b = dup.second;
+    const aExtra = [a.competitionId, a.round ? `${a.round}. runde` : null, `s. ${a.page}`].filter(Boolean).join(", ");
+    const bExtra = [b.competitionId, b.round ? `${b.round}. runde` : null, `s. ${b.page}`].filter(Boolean).join(", ");
+    console.log(`  ${dup.season} ${dup.opponentClubId} (${dup.scoreText}):`);
+    console.log(`    ${a.sourceId} (${aExtra}): «${a.opponent}» ${DIM}(${a.id})${RESET}`);
+    console.log(`    ${b.sourceId} (${bExtra}): «${b.opponent}» ${DIM}(${b.id})${RESET}`);
   }
   console.log("");
 }

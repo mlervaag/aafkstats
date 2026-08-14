@@ -87,6 +87,26 @@ export default {
     ];
   },
 
+  async redirects() {
+    return [
+      {
+        source: "/kamp/1925-08-30-aalesunds-fk-kristiansund",
+        destination: "/kamp/1925-08-30-aalesunds-fk-kfk",
+        permanent: true,
+      },
+      {
+        source: "/kamp/1945-09-02-kristiansund-aalesunds-fk",
+        destination: "/kamp/1945-09-02-kfk-aalesunds-fk",
+        permanent: true,
+      },
+      {
+        source: "/kamp/1993-05-12-aalesunds-fk-kristiansund",
+        destination: "/kamp/1993-05-12-aalesunds-fk-kfk",
+        permanent: true,
+      },
+    ];
+  },
+
   // Arbeidspakkene distribueres som TypeScript-kilde, ikke ferdigbygget.
   transpilePackages: ["@aafkstats/db", "@aafkstats/query", "@aafkstats/schema"],
 
