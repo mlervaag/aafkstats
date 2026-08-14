@@ -166,16 +166,21 @@ export const getPersonById = cache(function getPersonById(id: string): PersonDet
       id,
     );
     if (!row) return undefined;
-    const observationSourceIds = new Set(all<{ source_id: string }>(db, `
-      SELECT DISTINCT json_extract(ref.value, '$.sourceId') AS source_id
+    const observationSourceKeys = new Set(all<{ source_id: string; page: string | null }>(db, `
+      SELECT DISTINCT json_extract(ref.value, '$.sourceId') AS source_id,
+                      json_extract(ref.value, '$.page') AS page
         FROM observation_people op
         JOIN core_historical_observations o ON o.id = op.observation_id
         JOIN json_each(o.sources) ref
-       WHERE op.person_id = ?`, id).map((entry) => entry.source_id));
+       WHERE op.person_id = ?`, id).map((entry) => `${entry.source_id}:${entry.page ?? ""}`));
     return {
       ...row,
       role_categories: parseStringArray(row.role_categories),
-      mentions: parseJson<PersonMention[]>(row.sources, []).filter((mention) => !observationSourceIds.has(mention.sourceId)),
+      mentions: parseJson<PersonMention[]>(row.sources, []).filter(
+        (mention) =>
+          !observationSourceKeys.has(`${mention.sourceId}:${mention.page ?? ""}`) &&
+          !observationSourceKeys.has(`${mention.sourceId}:`),
+      ),
       conflicts: parseJson<PersonConflict[]>(row.conflicts, []),
     };
   } finally {
