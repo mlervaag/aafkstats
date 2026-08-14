@@ -465,7 +465,7 @@ export function loadSeasonYears(): SeasonYear[] {
   try {
     documented = all(
       db,
-      `SELECT season, count(*) AS results
+      `SELECT season, COUNT(DISTINCT COALESCE(result_group_id, source_id || ':' || id)) AS results
          FROM source_results
         WHERE match_id IS NULL
           AND (result_group_id IS NULL OR result_group_id NOT IN (
@@ -519,6 +519,16 @@ export function loadSeason(
     );
     if (rows.length === 0 && sourceResults.length === 0) return undefined;
     return { summaries: rows.map(mapSeason).sort(seasonRank), matches: matches.map(mapMatch), sourceResults: sourceResults.map(mapSourceResult) };
+  } finally {
+    db.close();
+  }
+}
+
+export function loadCompetitionTitles(): Map<string, string> {
+  const db = open();
+  try {
+    const rows = all<{ id: string; name: string }>(db, "SELECT id, name FROM core_competitions");
+    return new Map(rows.map((r) => [r.id, r.name]));
   } finally {
     db.close();
   }

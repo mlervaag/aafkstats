@@ -16,6 +16,7 @@ import {
   loadSquad,
   loadStandings,
   loadContributions,
+  loadCompetitionTitles,
 } from "@/lib/archive";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
@@ -61,6 +62,7 @@ export default async function SeasonPage({ params }: Props) {
   const observations = getSeasonObservations(year);
   const seasonSources = getSeasonSources(year);
   const sourceTitles = getSourceTitles();
+  const competitionNames = loadCompetitionTitles();
 
   return (
     <>
@@ -171,7 +173,12 @@ export default async function SeasonPage({ params }: Props) {
 
       <HistoricalObservations observations={observations} titles={sourceTitles} />
 
-      <UnlinkedResults results={sourceResults} year={year} titles={sourceTitles} />
+      <UnlinkedResults
+        results={sourceResults}
+        year={year}
+        titles={sourceTitles}
+        competitionNames={competitionNames}
+      />
 
       <SquadList players={squad} />
 

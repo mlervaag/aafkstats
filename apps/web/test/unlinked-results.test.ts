@@ -1,6 +1,21 @@
-import { describe, expect, it } from "vitest";
-import { groupUnlinkedResults } from "../components/UnlinkedResults";
-import { loadSeason, loadSeasonYears, seasonRank, type SourceResult, type SeasonSummary } from "../lib/archive";
+import { mkdtempSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join, resolve } from "node:path";
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { loadValidateAndBuild } from "@aafkstats/db/build";
+import { groupUnlinkedResults } from "../components/UnlinkedResults.js";
+import { loadSeason, loadSeasonYears, seasonRank, type SourceResult, type SeasonSummary } from "../lib/archive.js";
+
+const previousDbPath = process.env.AAFK_DB_PATH;
+beforeAll(async () => {
+  const dbPath = join(mkdtempSync(join(tmpdir(), "aafk-unlinked-results-")), "archive.sqlite");
+  await loadValidateAndBuild(resolve(import.meta.dirname, "../../../data"), dbPath);
+  process.env.AAFK_DB_PATH = dbPath;
+}, 30_000);
+afterAll(() => {
+  if (previousDbPath === undefined) delete process.env.AAFK_DB_PATH;
+  else process.env.AAFK_DB_PATH = previousDbPath;
+});
 
 describe("uavklarte historiske resultater og resultatgrupper", () => {
   it("grupperer kildepåstander med samme resultGroupId", () => {
@@ -173,24 +188,21 @@ describe("uavklarte historiske resultater og resultatgrupper", () => {
     expect(unlinked).toHaveLength(0);
   });
 
-  it("laster 1920-sesongen og filtrerer bort koblede kamper", () => {
+  it("laster 1920-sesongen og filtrerer bort koblede kamper fra alle kilder", () => {
     const season = loadSeason(1920);
     expect(season).toBeDefined();
-    // 8 kamper fra nff-arbok-1920 har matchId og skal ikke være i sourceResults
-    const matchedNffResults = season!.sourceResults.filter(
-      (r) => r.sourceId === "nff-arbok-1920" && r.matchId !== null,
-    );
-    expect(matchedNffResults).toHaveLength(0);
+    // Verifiser at ingen rader med matchId returneres i sourceResults
+    expect(season!.sourceResults.every((r) => r.matchId === null)).toBe(true);
 
-    // NM-kampene fra 1920 har resultGroupId
+    // NM-kampene fra 1920 har resultGroupId og grupperes
     const nmGroups = season!.sourceResults.filter((r) => r.resultGroupId?.startsWith("nm-1920-"));
-    expect(nmGroups.length).toBeGreaterThanOrEqual(3);
+    expect(nmGroups.length).toBe(6); // 3 fra NFF + 3 fra 25-årsboka
 
     const unlinked = groupUnlinkedResults(season!.sourceResults);
     const nmUnlinked = unlinked.filter((u) => u.key.startsWith("nm-1920-"));
     expect(nmUnlinked).toHaveLength(3);
     for (const u of nmUnlinked) {
-      expect(u.claims.length).toBeGreaterThanOrEqual(2);
+      expect(u.claims.length).toBe(2);
       expect(u.agreement).toBe("sources_agree");
     }
   });
@@ -216,11 +228,13 @@ describe("uavklarte historiske resultater og resultatgrupper", () => {
     expect(rank).toBeLessThan(0); // paivas kommer foran
   });
 
-  it("teller kun uavklarte resultater i documentedResults i loadSeasonYears", () => {
+  it("teller kun logiske uavklarte resultater i documentedResults i loadSeasonYears", () => {
     const years = loadSeasonYears();
     const y1920 = years.find((y) => y.year === 1920);
     expect(y1920).toBeDefined();
-    // documentedResults skal ikke telle de 8 koblede NFF-kampene
-    expect(y1920!.documentedResults).toBeLessThan(30);
+    // 1920 har nå 3 NM-grupper + 5 uavklarte Trygg/Frem/Rollon rader = 8 logiske uavklarte resultater
+    const season = loadSeason(1920);
+    const unlinked = groupUnlinkedResults(season!.sourceResults);
+    expect(y1920!.documentedResults).toBe(unlinked.length);
   });
 });

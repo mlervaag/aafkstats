@@ -62,18 +62,18 @@ seasons:
   - year: 1920
     page: 83
     results:
-      - { no: 1, opponent: "Rollon", score: [5, 1] }
-      - { no: 2, opponent: "Frigg", score: [3, 5] }
-      - { no: 3, opponent: "Brått", score: [3, 1] }
-      - { no: 4, opponent: "Rollon", score: [3, 1] }
-      - { no: 5, opponent: "Freidig", score: [2, 3] }
+      - { no: 1, opponent: "Rollon", score: [5, 1], matchId: 1920-05-16-aalesunds-fk-rollon }
+      - { no: 2, opponent: "Frigg", score: [3, 5], matchId: 1920-05-23-aalesunds-fk-frigg }
+      - { no: 3, opponent: "Brått", score: [3, 1], matchId: 1920-05-30-aalesunds-fk-braatt }
+      - { no: 4, opponent: "Rollon", score: [3, 1], matchId: 1920-06-13-aalesunds-fk-rollon }
+      - { no: 5, opponent: "Freidig", score: [2, 3], matchId: 1920-06-20-aalesunds-fk-freidig }
       - { no: 6, opponent: "Trygg", score: [1, 0] }
       - { no: 7, opponent: "Trygg", score: [2, 1] }
       - { no: 8, opponent: "Trygg", score: [4, 3], page: 84 }
-      - { no: 9, opponent: "Brått", score: [4, 1], page: 84 }
+      - { no: 9, opponent: "Brått", score: [4, 1], matchId: 1920-07-11-aalesunds-fk-braatt, page: 84 }
       - { no: 10, opponent: "Rollon", score: [3, 0], page: 84 }
       - { no: 11, opponent: "Frem", score: [3, 2], page: 84 }
-      - { no: 12, opponent: "Rollon", score: [2, 1], page: 84 }
+      - { no: 12, opponent: "Rollon", score: [2, 1], matchId: 1920-09-12-aalesunds-fk-rollon, page: 84 }
       - { no: 13, opponent: "Rollon", score: [4, 1], competitionId: nm, resultGroupId: nm-1920-rollon-kvalifisering, page: 84 }
       - { no: 14, opponent: "Brått", score: null, competitionId: nm, status: walkover, resultGroupId: nm-1920-braatt-runde-1, page: 84 }
       - { no: 15, opponent: "Brage", score: [1, 2], competitionId: nm, resultGroupId: nm-1920-brage-runde-2, page: 84 }

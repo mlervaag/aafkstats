@@ -86,14 +86,30 @@ export function groupUnlinkedResults(results: SourceResult[]): UnlinkedHistorica
   return groups;
 }
 
+function getDisputeLabel(claims: SourceResult[]): string {
+  const scores = new Set(claims.map((c) => `${c.aafkScore}–${c.opponentScore}`));
+  const statuses = new Set(claims.map((c) => c.status));
+  const rounds = new Set(claims.map((c) => c.round).filter((r): r is number => r !== null));
+
+  if (scores.size > 1 && rounds.size <= 1) {
+    return "Kildene er uenige om resultatet:";
+  }
+  if (rounds.size > 1 && scores.size <= 1 && statuses.size <= 1) {
+    return "Kildene er uenige om runden:";
+  }
+  return "Kildene er uenige om opplysningene:";
+}
+
 export function UnlinkedResults({
   results,
   year,
   titles,
+  competitionNames,
 }: {
   results: SourceResult[];
   year: number;
   titles: Map<string, string>;
+  competitionNames?: Map<string, string>;
 }) {
   const unlinked = groupUnlinkedResults(results);
   if (unlinked.length === 0) return null;
@@ -117,14 +133,22 @@ export function UnlinkedResults({
             page: String(claim.page),
           }));
 
+          const compName =
+            item.competitionId === "nm"
+              ? "NM"
+              : item.competitionId
+                ? (competitionNames?.get(item.competitionId) ?? item.competitionId)
+                : "Kamp";
+
           const context = (
             <span className="source-result-context">
-              {item.competitionId === "nm" ? "NM" : item.competitionId ? item.competitionId : "Kamp"}
+              {compName}
               {item.round ? ` · ${item.round}. runde` : ""}
             </span>
           );
 
           if (item.agreement === "sources_disagree") {
+            const disputeLabel = getDisputeLabel(item.claims);
             return (
               <li key={item.key} style={{ display: "grid", gridTemplateColumns: "1fr", gap: "0.5rem" }}>
                 <div style={{ display: "flex", gap: "0.75rem", alignItems: "baseline" }}>
@@ -132,12 +156,13 @@ export function UnlinkedResults({
                   <strong>{item.opponent ?? "Motstander ikke oppgitt"}</strong>
                 </div>
                 <div className="notice" style={{ margin: "0.25rem 0" }}>
-                  <p style={{ margin: "0 0 0.4rem", fontWeight: 600 }}>Kildene er uenige om resultatet:</p>
+                  <p style={{ margin: "0 0 0.4rem", fontWeight: 600 }}>{disputeLabel}</p>
                   <ul style={{ margin: 0, paddingLeft: "1.2rem", display: "grid", gap: "0.25rem" }}>
                     {item.claims.map((claim) => {
                       const scoreText = claim.status === "walkover" ? "w.o." : `${claim.aafkScore}–${claim.opponentScore}`;
                       const sourceName = titles.get(claim.sourceId) ?? claim.sourceId;
                       const meta = [
+                        claim.round ? `${claim.round}. runde` : null,
                         claim.replay ? "omkamp" : null,
                         claim.afterExtraTime ? "ekstraomganger" : null,
                         claim.note,
