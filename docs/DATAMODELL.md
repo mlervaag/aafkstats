@@ -36,6 +36,7 @@ vises med kilde og sikkerhet, og må ikke inngå i statistiske summer.
 - [Konkurranse](#konkurranse)
 - [Kilde](#kilde)
 - [Historisk kilde](#historisk-kilde)
+- [Historisk observasjon](#historisk-observasjon)
 - [Person](#person)
 - [Stall og trener](#stall-og-trener)
 - [Fra YAML til database](#fra-yaml-til-database)
@@ -548,6 +549,39 @@ entydig treff på år, AaFK, motstander og resultat kan automatisk legge til en
 
 Rå ALTO og OCR-prosa er ikke del av modellen. Cachen ligger under
 `.cache/nb-extract/`, og er ignorert av Git.
+
+## Historisk observasjon
+
+`data/observations/<id>.yaml` inneholder korte, redaksjonelt kontrollerte fakta eller
+hendelser som er relevante for AaFKs historie. En observasjon har alltid `title`, `text`
+og minst én `sourceRef`. `date` er valgfri og skrives som år, måned eller eksakt dato med
+den presisjonen kilden faktisk gir.
+
+Relasjonene `personIds`, `seasonYears`, `matchIds` og `competitionIds` er alle valgfrie.
+Samme observasjon kan derfor vises på både en person- og en sesongside uten å kopieres.
+Alle oppgitte ID-er og kilder må finnes i arkivet.
+
+```yaml
+id: nils-jangaard-kretsinndeling-1919
+title: Deltok i behandlingen av kretsinndelingen
+text: Nils Jangaard deltok i behandlingen av AaFKs skrivelse om kretsinndelingen.
+date: "1919"
+personIds: [nils-jangaard]
+seasonYears: [1919]
+sources:
+  - sourceId: nff-arbok-1919
+    page: "67-69"
+```
+
+Modellene betyr forskjellige ting:
+
+- **role:** personen hadde et konkret verv, for eksempel Georg Haller som formann i AaFK.
+- **mention:** personen forekommer i en publikasjon, uten at treffet alene etablerer et faktum.
+- **observation:** kilden dokumenterer et konkret faktum eller en hendelse, som NFFs takk til Haller for Romsdalsturneen.
+- **conflict:** to eller flere kilder gir motstridende påstander, for eksempel ulike oppmenn i 1917.
+
+Dette er ikke en generell biografimodell. Teksten skal være en kort kildebasert parafrase,
+ikke lange sitater, OCR eller en fritekstbiografi.
 
 ## Person
 

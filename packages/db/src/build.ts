@@ -289,6 +289,32 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
       );
     }
 
+    const insertHistoricalObservation = db.prepare(
+      `INSERT INTO core_historical_observations (id, title, text, date, note, sources)
+       VALUES (?, ?, ?, ?, ?, ?)`,
+    );
+    const insertObservationPerson = db.prepare(
+      `INSERT INTO observation_people (observation_id, person_id) VALUES (?, ?)`,
+    );
+    const insertObservationSeason = db.prepare(
+      `INSERT INTO observation_seasons (observation_id, season) VALUES (?, ?)`,
+    );
+    const insertObservationMatch = db.prepare(
+      `INSERT INTO observation_matches (observation_id, match_id) VALUES (?, ?)`,
+    );
+    const insertObservationCompetition = db.prepare(
+      `INSERT INTO observation_competitions (observation_id, competition_id) VALUES (?, ?)`,
+    );
+    for (const observation of archive.historicalObservations) {
+      insertHistoricalObservation.run(
+        observation.id, observation.title, observation.text, observation.date ?? null,
+        observation.note ?? null, json(observation.sources),
+      );
+      for (const personId of observation.personIds) insertObservationPerson.run(observation.id, personId);
+      for (const season of observation.seasonYears) insertObservationSeason.run(observation.id, season);
+      for (const competitionId of observation.competitionIds) insertObservationCompetition.run(observation.id, competitionId);
+    }
+
     const insertStanding = db.prepare(
       `INSERT INTO core_standings
          (competition_id, season, position, team, club_id, played, wins, draws,
@@ -408,6 +434,11 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
           m.report.byline ?? "", `/kamp/${m.id}`,
         );
       }
+    }
+
+    // Kamprelasjoner må skrives etter kampene de peker på.
+    for (const observation of archive.historicalObservations) {
+      for (const matchId of observation.matchIds) insertObservationMatch.run(observation.id, matchId);
     }
 
     // Et kilderesultat kan peke på en kanonisk kamp når en annen kilde har

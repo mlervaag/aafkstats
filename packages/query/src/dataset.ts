@@ -627,6 +627,28 @@ export const views: ViewDoc[] = [
     ],
   },
   {
+    name: "historical_observations",
+    summary: "Korte, kildeførte historiske fakta og hendelser med relevans for AaFK.",
+    caveats: [
+      "Samme observasjon kan være knyttet til flere personer, sesonger, kamper og konkurranser uten å være duplisert.",
+      "date har bare den presisjonen kilden gir og kan være NULL.",
+      "sources er JSON med sourceId og eventuelt side; bruk kildesiden for etterprøving.",
+    ],
+    columns: [
+      { name: "id", type: "text", description: "Unik observasjons-ID." },
+      { name: "title", type: "text", description: "Kort overskrift." },
+      { name: "text", type: "text", description: "Kildebasert parafrase av funnet." },
+      { name: "date", type: "text", description: "År, måned eller dato når kilden gir det." },
+      { name: "note", type: "text", description: "Eventuelt redaksjonelt forbehold." },
+      { name: "sources", type: "JSON", description: "Én eller flere kildehenvisninger." },
+      { name: "person_ids", type: "JSON", description: "Kanoniske personer observasjonen gjelder." },
+      { name: "season_years", type: "JSON", description: "Sesonger observasjonen vises på." },
+      { name: "match_ids", type: "JSON", description: "Kanoniske kamper observasjonen gjelder." },
+      { name: "competition_ids", type: "JSON", description: "Konkurranser observasjonen gjelder." },
+      { name: "url", type: "text", description: "Direktelenke til første relevante person- eller sesongvisning." },
+    ],
+  },
+  {
     name: "publication_extractions",
     summary: "Dekning og proveniens for maskinell analyse av historiske publikasjoner.",
     caveats: [

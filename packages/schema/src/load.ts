@@ -14,6 +14,8 @@ import { standings, standingsPath } from "./standings.js";
 import type { Club, Competition, Season, Provider, Venue } from "./entities.js";
 import type { Match } from "./match.js";
 import type { Observation } from "./observation.js";
+import { historicalObservation } from "./historical-observation.js";
+import type { HistoricalObservation } from "./historical-observation.js";
 import type { Person } from "./person.js";
 import type { Organization, OrganizationSnapshot } from "./organization.js";
 import type { Standings } from "./standings.js";
@@ -65,6 +67,8 @@ export interface Archive {
    * inn før laget fantes; se `observation.ts`.
    */
   observations: (Observation & { file: string })[];
+  /** Redaksjonelt kontrollerte, kildeførte historiske fakta og hendelser. */
+  historicalObservations: (HistoricalObservation & { file: string })[];
   /** Sluttabeller per konkurranse og sesong. Tom for år ingen kilde har tabell for. */
   standings: (Standings & { file: string })[];
   /**
@@ -225,6 +229,16 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
     }
   }
 
+  const historicalObservations: (HistoricalObservation & { file: string })[] = [];
+  for (const file of await listYaml(observationsDir)) {
+    const parsed = await parseFile(file, historicalObservation, root, issues);
+    if (parsed === null) continue;
+    const rel = relative(root, file).replace(/\\/g, "/");
+    const expected = `observations/${parsed.id}.yaml`;
+    if (rel !== expected) issues.push({ file: rel, path: "id", message: `fila må hete «${expected}»` });
+    historicalObservations.push({ ...parsed, file: rel });
+  }
+
   // Tabellene ligger under én mappe per konkurranse, som kampene ligger under én
   // mappe per sesong. Stien kontrolleres av samme grunn som for observasjoner:
   // en fil på feil sted blir aldri funnet igjen.
@@ -276,7 +290,7 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
     file: `verification-cases/${entry.id}.yaml`,
   }));
 
-  return { clubs, venues, competitions, providers, seasons, matches, observations, standings: tables, people, organizations, organizationSnapshots, contributions, sources, extractions, sourceResults, verificationCases, issues };
+  return { clubs, venues, competitions, providers, seasons, matches, observations, historicalObservations, standings: tables, people, organizations, organizationSnapshots, contributions, sources, extractions, sourceResults, verificationCases, issues };
 }
 
 /**
@@ -315,6 +329,7 @@ export function crossValidate(archive: Archive): LoadIssue[] {
   duplicates(archive.sources, "sources");
   duplicates(archive.verificationCases, "verification-cases");
   duplicates(archive.organizations, "organizations");
+  duplicates(archive.historicalObservations, "observations");
 
   for (const snapshot of archive.organizationSnapshots) {
     const file = organizationSnapshotPath(snapshot.date, snapshot.organizationId);
@@ -361,6 +376,15 @@ export function crossValidate(archive: Archive): LoadIssue[] {
   }
 
   const matchIds = ids(archive.matches);
+  const seasonYears = new Set(archive.seasons.map((entry) => entry.year));
+  for (const observation of archive.historicalObservations) {
+    const at = (path: string, message: string) => issues.push({ file: observation.file, path, message });
+    for (const ref of observation.sources) if (!sourceIds.has(ref.sourceId)) at("sources", `ukjent historisk kilde «${ref.sourceId}»`);
+    for (const personId of observation.personIds) if (!personIds.has(personId)) at("personIds", `ukjent person «${personId}»`);
+    for (const season of observation.seasonYears) if (!seasonYears.has(season)) at("seasonYears", `ukjent sesong «${season}»`);
+    for (const matchId of observation.matchIds) if (!matchIds.has(matchId)) at("matchIds", `ukjent kamp «${matchId}»`);
+    for (const competitionId of observation.competitionIds) if (!competitionIds.has(competitionId)) at("competitionIds", `ukjent konkurranse «${competitionId}»`);
+  }
   const caseFingerprints = new Map<string, string>();
   for (const item of archive.verificationCases) {
     const at = (path: string, message: string) => issues.push({ file: item.file, path, message });
