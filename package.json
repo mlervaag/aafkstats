@@ -27,6 +27,7 @@
     "ingest:nff": "pnpm --filter @aafkstats/ingest run nff",
     "ingest:nb-extract": "pnpm --filter @aafkstats/ingest run nb-extract",
     "ingest:sfk-annual-reports": "pnpm --filter @aafkstats/ingest run sfk-annual-reports",
+    "ingest:sfk-annual-report-analysis": "pnpm --filter @aafkstats/ingest run sfk-annual-report-analysis",
     "db:build": "pnpm --filter @aafkstats/db run build-archive",
     "typecheck": "tsc --build --force && tsc -p apps/web/tsconfig.json --noEmit",
     "test": "vitest run",

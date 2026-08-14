@@ -15,6 +15,8 @@ export interface FetchJsonOptions {
   onNetworkRequest?: () => void;
 }
 
+export type FetchOptions = FetchJsonOptions;
+
 function cacheDir(): string {
   return resolve(repoRoot(), ".cache/ingest");
 }
@@ -44,7 +46,7 @@ export async function fetchText(url: string, options: FetchJsonOptions = {}): Pr
   lastRequestAt.set(host, Date.now());
   options.onNetworkRequest?.();
 
-  const body = await withRetry(url);
+  const body = await withRetry(url, REQUEST_TIMEOUT_MS, "text/html, application/json;q=0.9, */*;q=0.5", (response) => response.text());
   await mkdir(cacheDir(), { recursive: true });
   const temporary = `${file}.${process.pid}.tmp`;
   await writeFile(temporary, body, "utf8");
@@ -52,17 +54,51 @@ export async function fetchText(url: string, options: FetchJsonOptions = {}): Pr
   return body;
 }
 
-async function withRetry(url: string, attempts = 4): Promise<string> {
+/** Binær henting med samme fartsgrense, retry og atomiske cache som tekst. */
+export async function fetchBytes(url: string, options: FetchOptions = {}): Promise<Uint8Array> {
+  const key = createHash("sha256").update(url).digest("hex").slice(0, 32);
+  const file = join(cacheDir(), `${key}.bin`);
+  if (!options.refresh && existsSync(file)) {
+    return new Uint8Array(await readFile(file));
+  }
+
+  const host = new URL(url).host;
+  const since = Date.now() - (lastRequestAt.get(host) ?? 0);
+  if (since < MIN_INTERVAL_MS) await sleep(MIN_INTERVAL_MS - since);
+  lastRequestAt.set(host, Date.now());
+  options.onNetworkRequest?.();
+
+  // Historiske skann kan være større enn 10 MB. Teksttimeouten er for kort for dem.
+  const bytes = await withRetry(
+    url,
+    60_000,
+    "application/pdf, application/octet-stream;q=0.9, */*;q=0.5",
+    async (response) => new Uint8Array(await response.arrayBuffer()),
+  );
+  await mkdir(cacheDir(), { recursive: true });
+  const temporary = `${file}.${process.pid}.tmp`;
+  await writeFile(temporary, bytes);
+  await rename(temporary, file);
+  return bytes;
+}
+
+async function withRetry<T>(
+  url: string,
+  timeoutMs: number,
+  accept: string,
+  read: (response: Response) => Promise<T>,
+  attempts = 4,
+): Promise<T> {
   let lastError: unknown;
   for (let attempt = 0; attempt < attempts; attempt++) {
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
       const response = await fetch(url, {
-        headers: { "User-Agent": USER_AGENT, accept: "application/json" },
+        headers: { "User-Agent": USER_AGENT, accept },
         signal: controller.signal,
       });
-      if (response.ok) return await response.text();
+      if (response.ok) return await read(response);
       const error = new Error(`${response.status} ${response.statusText} for ${url}`);
       if (response.status >= 400 && response.status < 500) throw error;
       lastError = error;
