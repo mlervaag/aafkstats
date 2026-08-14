@@ -58,7 +58,7 @@ leser fra.
 | **177 klubber · 97 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
 | **393 personer** | Registrerte spillere, trenere, ledere, stiftere, prosjektpersoner og hederspersoner med kildeførte detaljer eller avvikende navn |
 | **9 dataleverandører** | Der data hentes digitalt fra, hver med rettighetsstatus som data og ikke som prosa |
-| **157 historiske kilder** | Bøker, medlemsblad, årsmeldinger, nyhetssaker og andre dokumenter en enkelt opplysning kan peke på, med sidetall der det finnes |
+| **230 historiske kilder** | Bøker, medlemsblad, årsmeldinger, nyhetssaker og andre dokumenter en enkelt opplysning kan peke på, med sidetall der det finnes |
 | **98 publikasjoner analysert** | 3 211 ALTO-sider, 139 søkbare sider og 4 814 faktakandidater uten lagret OCR-prosa |
 | **11 historiesider gjennomgått** | AaFKs offisielle leder-, utmerkelses-, stiftelses-, arkiv- og hjemmebanefakta er strukturert med lenke tilbake |
 | **Brukerbidrag** | Innsendte observasjoner og minner hentet fra redaksjonell innboks |

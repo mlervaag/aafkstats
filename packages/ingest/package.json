@@ -23,6 +23,7 @@
     ,"nb-extract": "tsx src/cli/nb-extract.ts"
     ,"nb-resolve": "tsx src/cli/nb-resolve.ts"
     ,"nb-mentions": "tsx src/cli/nb-mentions.ts"
+    ,"sfk-annual-reports": "tsx src/cli/sfk-annual-reports.ts"
   },
   "dependencies": {
     "@aafkstats/schema": "workspace:*",
