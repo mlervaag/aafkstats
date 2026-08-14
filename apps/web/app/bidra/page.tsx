@@ -4,6 +4,7 @@ import { PromptCard } from "@/components/PromptCard";
 import { GapNote } from "@/components/CoverageNote";
 import { contributionIssueUrl } from "@/lib/contribution-links";
 import { contributionPrompts } from "@/lib/prompts";
+import { CONTACT_EMAIL } from "@/lib/site";
 import { loadVerificationCases } from "@/lib/verifications";
 import { ContributeVerificationCard } from "@/components/verifications/ContributeVerificationCard";
 
@@ -66,6 +67,15 @@ export default function ContributePage() {
           </nav>
         </section>
       </div>
+
+      <section className="content-section prose-stack">
+        <h2>Vil du heller sende e-post?</h2>
+        <p>
+          Har du bilder, dokumenter, et tips som ikke passer i skjemaene, eller vil du
+          kontakte oss direkte? Skriv til{" "}
+          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+        </p>
+      </section>
 
       <section className="content-section prose-stack">
         <h2>Hva som skjer etterpå</h2>

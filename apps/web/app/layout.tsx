@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { GlobalSearch } from "@/components/GlobalSearch";
 import { JugendMark, JugendRule } from "@/components/Jugend";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/jsonld";
-import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
+import { CONTACT_EMAIL, SITE_NAME, SITE_ORIGIN } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -83,7 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div><a className="wordmark footer-wordmark" href="/"><JugendMark />AaFK<span>-arkivet</span></a><p>Et uoffisielt, åpent prosjekt uten tilknytning til Aalesunds Fotballklubb eller datakildene.</p></div>
             <div><strong>Arkivet</strong><a href="/sesonger">Sesonger</a><a href="/motstandere">Motstandere</a>
               <a href="/klubben">Klubben</a><a href="/organisasjon">Organisasjon</a><a href="/hjemmebaner">Hjemmebaner</a><a href="/kilder">Kilder</a><a href="/data">Datasettet</a></div>
-            <div><strong>Prosjektet</strong><a href="/mangler">Hva mangler?</a><a href="/om">Om og kilder</a><a href="/bidra">Bidra</a><a href="https://github.com/mlervaag/aafkstats">GitHub</a></div>
+            <div><strong>Prosjektet</strong><a href="/mangler">Hva mangler?</a><a href="/om">Om og kilder</a><a href="/bidra">Bidra</a><a href={`mailto:${CONTACT_EMAIL}`}>Kontakt oss</a><a href="https://github.com/mlervaag/aafkstats">GitHub</a></div>
           </div>
           <div className="wrap footer-legal">Kode under MIT. Egne tekster under CC BY 4.0. Tredjepartskilder har egne vilkår.</div>
         </footer>

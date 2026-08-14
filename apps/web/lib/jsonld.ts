@@ -1,4 +1,4 @@
-import { SITE_NAME, SITE_ORIGIN, siteUrl } from "@/lib/site";
+import { CONTACT_EMAIL, SITE_NAME, SITE_ORIGIN, siteUrl } from "@/lib/site";
 
 /**
  * Strukturerte data (JSON-LD) for sidene som har noe konkret å beskrive.
@@ -62,6 +62,7 @@ export function organizationJsonLd(): JsonLdObject {
     url: siteUrl(),
     description:
       "Et uoffisielt, åpent dugnadsprosjekt som samler AaFKs kamphistorikk. Uten tilknytning til Aalesunds Fotballklubb.",
+    email: CONTACT_EMAIL,
     sameAs: ["https://github.com/mlervaag/aafkstats"],
   };
 }

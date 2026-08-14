@@ -52,3 +52,6 @@ export function siteUrl(path = "/"): string {
 
 /** Navnet nettstedet omtales med i metadata og strukturerte data. */
 export const SITE_NAME = "AaFK-arkivet";
+
+/** Felles kontaktadresse for arkivet og bidrag som ikke passer i et skjema. */
+export const CONTACT_EMAIL = "post@aafkarkivet.no";
