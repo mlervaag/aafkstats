@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import React, { type ReactNode } from "react";
 
 export const SOCIAL_IMAGE_SIZE = { width: 1200, height: 630 };
 

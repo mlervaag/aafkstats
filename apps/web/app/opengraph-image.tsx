@@ -1,3 +1,4 @@
+import React from "react";
 import { ImageResponse } from "next/og";
 import { loadOverview } from "@/lib/archive";
 import { SOCIAL_IMAGE_SIZE, SocialCard } from "@/lib/social-card";

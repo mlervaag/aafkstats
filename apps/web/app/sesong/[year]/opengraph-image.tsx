@@ -1,3 +1,4 @@
+import React from "react";
 import { ImageResponse } from "next/og";
 import { loadSeason } from "@/lib/archive";
 import { SOCIAL_IMAGE_SIZE, SocialCard } from "@/lib/social-card";
