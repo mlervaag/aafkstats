@@ -70,20 +70,45 @@ describe("canonicalClubKey", () => {
     expect(canonicalClubKey({ id: "fk-haugesund", name: "FK Haugesund" })).toBe("haugesund");
   });
 
+  it("prioriterer eksplisitt identityKey", () => {
+    const kfk = {
+      id: "kfk",
+      name: "Kristiansund Fotballklubb",
+      identityKey: "kristiansund-fk",
+    };
+    const kbk = {
+      id: "kristiansund",
+      name: "Kristiansund Ballklubb",
+      identityKey: "kristiansund-bk",
+    };
+    expect(canonicalClubKey(kfk)).toBe("kristiansund-fk");
+    expect(canonicalClubKey(kbk)).toBe("kristiansund-bk");
+    expect(canonicalClubKey(kfk)).not.toBe(canonicalClubKey(kbk));
+  });
+
   it("faller tilbake til ID-en når navnet er tomt", () => {
     expect(canonicalClubKey({ id: "en-klubb", name: "" })).toBe("en-klubb");
   });
 });
 
 describe("clubNameForms", () => {
-  it("tar med ID, navn, kortnavn og historiske navn", () => {
+  it("tar med ID, navn, kortnavn, historiske navn og navnevarianter", () => {
     const forms = clubNameForms({
-      id: "odds-ballklubb",
-      name: "Odds Ballklubb",
-      shortName: "Odd",
-      names: [{ name: "Odd Grenland" }],
+      id: "kfk",
+      name: "Kristiansund Fotballklubb",
+      shortName: "KFK",
+      names: [{ name: "KFK" }],
+      nameVariants: ["K.F.K.", "K. F. K.", "Kristiansunds Fotballklub"],
     });
-    expect(forms).toEqual(["odds-ballklubb", "Odds Ballklubb", "Odd", "Odd Grenland"]);
+    expect(forms).toEqual([
+      "kfk",
+      "Kristiansund Fotballklubb",
+      "KFK",
+      "KFK",
+      "K.F.K.",
+      "K. F. K.",
+      "Kristiansunds Fotballklub",
+    ]);
   });
 
   it("hopper over felt som ikke er satt", () => {

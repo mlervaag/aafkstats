@@ -66,7 +66,7 @@ for (let i = 0; i < archive.clubs.length; i++) {
     const b = archive.clubs[j]!;
     const ka = canonicalClubKey(a);
     const kb = canonicalClubKey(b);
-    if (ka === kb) continue;
+    if (ka === kb || (a.identityKey && b.identityKey)) continue;
     if (closeEnough(ka, kb, 1)) near.push([a, b]);
   }
 }
@@ -96,7 +96,7 @@ for (let i = 0; i < archive.clubs.length; i++) {
     const b = archive.clubs[j]!;
     const ka = canonicalClubKey(a);
     const kb = canonicalClubKey(b);
-    if (ka === kb || !kb.startsWith(`${ka}-`)) continue;
+    if (ka === kb || (a.identityKey && b.identityKey) || !kb.startsWith(`${ka}-`)) continue;
     if (NUMERIC_TAIL.test(kb.slice(ka.length + 1))) continue;
     if (near.some(([x, y]) => (x === a && y === b) || (x === b && y === a))) continue;
     extended.push([a, b]);

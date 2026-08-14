@@ -378,6 +378,10 @@ låner sesongmeta bare til den raden den faktisk gjelder.
 id: aalesunds-fk
 name: Aalesunds FK
 shortName: AaFK
+identityKey: aalesunds-fk
+nameVariants:
+  - Aa.F.K.
+  - Aalesunds FK
 names:
   - { name: Aalesunds Fotballklub, from: null, to: "1927-12-31" }
   - { name: Aalesunds FK, from: "1928-01-01", to: null }
@@ -392,6 +396,48 @@ aliases:
 sources:
   - sourceId: aafk-historie-stiftelsen
     fields: [founded, foundedDate]
+```
+
+### Klubbnavn og identitetsfelter
+
+| Felt | Type | Betydning |
+|---|---|---|
+| `name` | tekst | **Påkrevd.** Klubbens primære kanoniske navn. |
+| `shortName` | tekst | Kortform, f.eks. `AaFK`, `KFK` eller `KBK`. |
+| `identityKey` | slug | Valgfri eksplisitt identitetsnøkkel. Brukes når mekanisk navnenormalisering (`canonicalClubKey`) ville strippet klubbtypeord og feilaktig slått sammen to ulike klubber. |
+| `nameVariants` | liste av tekst | Uformelle skrivemåter og varianter som forekommer i historiske kilder (f.eks. `K.F.K.`, `K. F. K.`), uten at det representerer formelle navnebytter. Brukes til søk og identitetsgjenkjenning. |
+| `names` | liste av perioder | Formelle, tidsavhengige historiske navn klubben faktisk bar i gitte tidsrom. Slås opp ved bygging for kampdatoen. |
+| `aliases` | nøkkel/verdi | Kun eksterne system- og leverandør-ID-er (f.eks. `fotmob: 8605`, `rsssf: kristiansund`, `wikidata: Q214992`). Brukes aldri til historiske skrivemåter. |
+
+### Eksempel: Kristiansund Fotballklubb (KFK) vs. Kristiansund Ballklubb (KBK)
+
+Kristiansund Fotballklubb (stiftet 1912) og Kristiansund Ballklubb (stiftet 2003) inneholder begge ordet «Kristiansund». En mekanisk normalisering som fjerner `FK` og `BK` ville redusert begge til `kristiansund`. Ved hjelp av `identityKey` modelleres de som to separate identiteter med fullstendig adskilt innbyrdesstatistikk:
+
+```yaml
+# data/clubs/kfk.yaml
+id: kfk
+name: Kristiansund Fotballklubb
+shortName: KFK
+identityKey: kristiansund-fk
+nameVariants:
+  - KFK
+  - K.F.K.
+  - K. F. K.
+  - Kristiansunds Fotballklub
+```
+
+```yaml
+# data/clubs/kristiansund.yaml
+id: kristiansund
+name: Kristiansund Ballklubb
+shortName: KBK
+identityKey: kristiansund-bk
+nameVariants:
+  - Kristiansund BK
+  - KBK
+aliases:
+  fotmob: "8605"
+  rsssf: kristiansund
 ```
 
 `country` er tobokstavs landkode, standard `NO`. `founded` kan gå tilbake til 1800 — flere

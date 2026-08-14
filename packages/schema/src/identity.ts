@@ -109,8 +109,15 @@ export function clubNameForms(club: {
   name: string;
   shortName?: string | undefined;
   names?: { name: string }[] | undefined;
+  nameVariants?: string[] | undefined;
 }): string[] {
-  return [club.id, club.name, club.shortName, ...(club.names ?? []).map((entry) => entry.name)].filter(
+  return [
+    club.id,
+    club.name,
+    club.shortName,
+    ...(club.names ?? []).map((entry) => entry.name),
+    ...(club.nameVariants ?? []),
+  ].filter(
     (value): value is string => value !== undefined && value !== "",
   );
 }
@@ -121,13 +128,19 @@ export function clubNameForms(club: {
  * Brukes til å kjenne igjen at to kamper har samme motstander selv når de er
  * ført på hver sin klubb-ID. Faller tilbake til ID-en når navnene av en eller
  * annen grunn er tomme, slik at funksjonen aldri returnerer tom streng.
+ *
+ * Hvis klubben har en eksplisitt `identityKey`, returneres den direkte for å
+ * hindre at to forskjellige klubber med likelydende stedsnavn (f.eks. KFK og KBK)
+ * slås sammen under mekanisk normalisering.
  */
 export function canonicalClubKey(club: {
   id: string;
   name: string;
   shortName?: string | undefined;
   names?: { name: string }[] | undefined;
+  identityKey?: string | undefined;
 }): string {
+  if (club.identityKey) return club.identityKey;
   return clubKey(club.name) || clubKey(club.id) || club.id;
 }
 

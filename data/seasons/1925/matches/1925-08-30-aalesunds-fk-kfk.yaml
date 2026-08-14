@@ -1,29 +1,26 @@
-id: 1945-09-02-kristiansund-aalesunds-fk
-date: 1945-09-02
+id: 1925-08-30-aalesunds-fk-kfk
+date: 1925-08-30
 dateConfidence: exact
 status: played
 competition:
   id: nm
-  season: 1945
+  season: 1925
   stage: regular_season
   round: 3
 home:
-  clubId: kristiansund
-  score: 2
+  clubId: aalesunds-fk
+  score: 5
   halfTimeScore: null
 away:
-  clubId: aalesunds-fk
-  score: 1
+  clubId: kfk
+  score: 0
   halfTimeScore: null
-extraTime:
-  home: 0
-  away: 0
 neutralVenue: false
 events: []
 externalReports: []
 providers:
   - providerId: rsssf
-    url: http://www.rsssf.no/1945/Cup.html
+    url: http://www.rsssf.no/1925/Cup.html
     retrievedAt: 2026-08-03
     fields:
       - date
@@ -34,11 +31,9 @@ providers:
       - home.score
       - away.score
       - competition.round
-      - extraTime
 confidence: probable
 conflicts: []
 tags: []
 aliases:
-  rsssf: 1945-cup-1945-09-02-kristiansund-aalesunds-fk
+  rsssf: 1925-cup-1925-08-30-aalesunds-fk-kristiansund
 manual: []
-note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.

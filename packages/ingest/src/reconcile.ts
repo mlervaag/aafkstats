@@ -111,6 +111,7 @@ export function reconcile(
     const club: Club = {
       id,
       name,
+      nameVariants: [],
       names: [],
       country: sourceTeam?.country ?? "NO",
       aliases: { [options.providerId]: externalId },

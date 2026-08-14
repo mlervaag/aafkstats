@@ -56,12 +56,13 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
   db.exec("BEGIN");
   try {
     const insertClub = db.prepare(
-      `INSERT INTO core_clubs (id, name, short_name, country, city, founded, founded_date, names, aliases, sources, note)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO core_clubs (id, name, short_name, identity_key, name_variants, country, city, founded, founded_date, names, aliases, sources, note)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     );
     for (const c of archive.clubs) {
       insertClub.run(
-        c.id, c.name, c.shortName ?? null, c.country, c.city ?? null,
+        c.id, c.name, c.shortName ?? null, c.identityKey ?? null, json(c.nameVariants ?? []),
+        c.country, c.city ?? null,
         c.founded ?? null, c.foundedDate ?? null, json(c.names), json(c.aliases), json(c.sources), c.note ?? null,
       );
     }

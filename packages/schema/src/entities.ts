@@ -15,6 +15,8 @@ export const club = z
     id: slug,
     name: z.string().min(1),
     shortName: z.string().min(1).optional(),
+    identityKey: slug.optional(),
+    nameVariants: z.array(z.string().min(1)).default([]),
     names: z.array(historicalName).default([]),
     country: z.string().length(2).default("NO"),
     city: z.string().optional(),

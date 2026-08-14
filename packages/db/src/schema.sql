@@ -18,6 +18,8 @@ CREATE TABLE core_clubs (
   id          TEXT PRIMARY KEY,
   name        TEXT NOT NULL,
   short_name  TEXT,
+  identity_key TEXT,
+  name_variants TEXT NOT NULL DEFAULT '[]', -- JSON
   country     TEXT NOT NULL DEFAULT 'NO',
   city        TEXT,
   founded     INTEGER,

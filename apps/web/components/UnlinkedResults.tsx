@@ -147,13 +147,20 @@ export function UnlinkedResults({
             </span>
           );
 
+          const opponentName = item.opponent ?? "Motstander ikke oppgitt";
+          const opponentElement = item.opponentClubId ? (
+            <a href={`/motstander/${item.opponentClubId}`}>{opponentName}</a>
+          ) : (
+            opponentName
+          );
+
           if (item.agreement === "sources_disagree") {
             const disputeLabel = getDisputeLabel(item.claims);
             return (
               <li key={item.key} style={{ display: "grid", gridTemplateColumns: "1fr", gap: "0.5rem" }}>
                 <div style={{ display: "flex", gap: "0.75rem", alignItems: "baseline" }}>
                   {context}
-                  <strong>{item.opponent ?? "Motstander ikke oppgitt"}</strong>
+                  <strong>{opponentElement}</strong>
                 </div>
                 <div className="notice" style={{ margin: "0.25rem 0" }}>
                   <p style={{ margin: "0 0 0.4rem", fontWeight: 600 }}>{disputeLabel}</p>
@@ -199,7 +206,7 @@ export function UnlinkedResults({
           return (
             <li key={item.key}>
               {context}
-              <strong>{item.opponent ?? "Motstander ikke oppgitt"}</strong>
+              <strong>{opponentElement}</strong>
               <span className="source-result-score num">{scoreText}</span>
               <div className="source-result-notes" style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", alignItems: "center" }}>
                 {notes ? <span className="muted small">{notes}</span> : null}
