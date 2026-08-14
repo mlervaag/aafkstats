@@ -69,6 +69,11 @@ pnpm ingest:sfk-annual-report-analysis -- \
 pnpm ingest:sfk-annual-report-candidates -- \
   --report docs/data/SFK_ARSRAPPORTER_KANDIDATER.md
 
+# OCR-les den avgrensede historiske blokken. Råtekst lagres bare i ignorert
+# sidecache; rapporten inneholder målinger, signaler og sidepekere.
+pnpm ingest:sfk-annual-report-ocr -- \
+  --report docs/data/SFK_ARSRAPPORTER_OCR_1952_1979.md
+
 # Én divisjon i én sesong. Tørrkjøring.
 pnpm ingest:rsssf -- --season 1998 --division First --competition forstedivisjon
 
@@ -129,8 +134,8 @@ pnpm ingest:fotmob-profile -- \
 | `--with-details` | fotmob | Henter hendelser, lagoppstilling og statistikk |
 | `--details-limit N`, `--details-offset N` | fotmob | Avgrenser detaljoppslagene |
 | `--allow-partial` | fotmob | Godtar en ufullstendig høsting. Kun etter manuell kontroll |
-| `--report FIL` | fotmob, rsssf-discover, sfk-annual-report-analysis | Skriver kjøringsrapporten til fil |
-| `--year`, `--from`, `--to` | sfk-annual-report-analysis | Avgrenser den tekniske PDF-kartleggingen |
+| `--report FIL` | fotmob, rsssf-discover, sfk-annual-report-analysis, sfk-annual-report-candidates, sfk-annual-report-ocr | Skriver kjøringsrapporten til fil |
+| `--year`, `--from`, `--to` | sfk-annual-report-analysis, sfk-annual-report-ocr | Avgrenser rapportutvalget; OCR-kommandoen er låst til 1952–1979 |
 | `--from`, `--to`, `--max-pages` | fotmob-gap | Obligatorisk tidsvindu og hardt sidetak for klubbhistorikken |
 | `--report-json`, `--report-md` | fotmob-gap | Maskinlesbar og menneskelesbar gap-rapport |
 | `--match-ids`, `--class`, `--competition` | fotmob-gap | Eksplisitt, kontrollert import; alle tre kreves ved `--write`. Klasse kan være `europe`, `friendly`, `cup` eller `qualification` |
@@ -151,6 +156,7 @@ kommandoen — å høste inn i et ødelagt arkiv gjør bare feilsøkingen vanske
 | `sfk-annual-reports` | Sunnmøre Fotballkrets | 1952→ | Discovery og konservativ katalogføring av årsrapportserien |
 | `sfk-annual-report-analysis` | Sunnmøre Fotballkrets | 1952→ | Cachet PDF-måling, tekstlag, AaFK-treff og triagesignaler uten OCR |
 | `sfk-annual-report-candidates` | Sunnmøre Fotballkrets | Rapporter med tekstlag | Sidebaserte faktakandidater uten råtekst eller kanonisering |
+| `sfk-annual-report-ocr` | Sunnmøre Fotballkrets | 1952–1979 | Gjenopptakbar norsk OCR per side og samme kandidatmodell som for tekstlag |
 | `wikipedia-profile` | Wikipedia | Én spiller per kjøring | Manglende personfil, posisjon, nasjonalitet og Wikidata-peker fra infoboks/sideegenskaper |
 
 Dekningen er dokumentert for seg: [FotMob-dekningstaket](../../docs/data/FOTMOB_DEKNINGSTAK.md)
