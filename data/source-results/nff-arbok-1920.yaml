@@ -4,9 +4,9 @@ seasons:
   - year: 1920
     page: 79
     results:
-      - { no: 1, opponent: Rollon, opponentClubId: rollon, score: [4, 1], competitionId: nm, round: null, note: Kvalifiserende runde i årbokas diagram. }
-      - { no: 2, opponent: Braatt, opponentClubId: braatt, score: null, competitionId: nm, status: walkover, round: 1, note: Braatt trakk seg; ingen kamp ble spilt. }
-      - { no: 3, opponent: Brage, score: [1, 2], competitionId: nm, round: 2 }
+      - { no: 1, opponent: Rollon, opponentClubId: rollon, score: [4, 1], competitionId: nm, round: null, resultGroupId: nm-1920-rollon-kvalifisering, note: Kvalifiserende runde i årbokas diagram. }
+      - { no: 2, opponent: Braatt, opponentClubId: braatt, score: null, competitionId: nm, status: walkover, round: 1, resultGroupId: nm-1920-braatt-runde-1, note: Braatt trakk seg; ingen kamp ble spilt. }
+      - { no: 3, opponent: Brage, score: [1, 2], competitionId: nm, round: 2, resultGroupId: nm-1920-brage-runde-2 }
       - { no: 4, opponent: Rollon, opponentClubId: rollon, score: [5, 1], competitionId: treningskamp, page: 99, matchId: 1920-05-16-aalesunds-fk-rollon }
       - { no: 5, opponent: Frigg, opponentClubId: frigg, score: [3, 5], competitionId: treningskamp, page: 99, matchId: 1920-05-23-aalesunds-fk-frigg, note: Resultatkolonnen er normalisert fra 5–3 i Friggs favør. }
       - { no: 6, opponent: Braatt, opponentClubId: braatt, score: [3, 1], competitionId: paivas-pokal, page: 99, matchId: 1920-05-30-aalesunds-fk-braatt }

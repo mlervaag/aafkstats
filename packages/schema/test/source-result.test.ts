@@ -24,4 +24,28 @@ describe("kildedokumenterte resultater", () => {
     });
     expect(parsed.success).toBe(false);
   });
+
+  it("aksepterer og flater ut valgfri resultGroupId", () => {
+    const collection = sourceResultCollection.parse({
+      sourceId: "nff-arbok-1920",
+      scorePerspective: "aafk",
+      seasons: [
+        {
+          year: 1920,
+          page: 79,
+          results: [
+            {
+              no: 1,
+              opponent: "Rollon",
+              score: [4, 1],
+              competitionId: "nm",
+              resultGroupId: "nm-1920-rollon-kvalifisering",
+            },
+          ],
+        },
+      ],
+    });
+    const flattened = flattenSourceResults(collection);
+    expect(flattened[0]?.resultGroupId).toBe("nm-1920-rollon-kvalifisering");
+  });
 });

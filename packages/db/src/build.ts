@@ -448,8 +448,8 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
       `INSERT INTO core_source_results
          (source_id, id, season, source_order, page, opponent, opponent_club_id,
           aafk_score, opponent_score, competition_id, status, replay,
-          after_extra_time, round, match_id, note)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          after_extra_time, round, result_group_id, match_id, note)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     );
     for (const collection of archive.sourceResults) {
       for (const result of flattenSourceResults(collection)) {
@@ -457,7 +457,7 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
           result.sourceId, result.id, result.season, result.order, result.page,
           result.opponent, result.opponentClubId, result.aafkGoals, result.opponentGoals,
           result.competitionId, result.status, bool(result.replay), bool(result.extraTime),
-          result.round, result.matchId, result.note ?? null,
+          result.round, result.resultGroupId ?? null, result.matchId, result.note ?? null,
         );
       }
     }

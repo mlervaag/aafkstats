@@ -5,8 +5,11 @@ for den som skal endre noe: hver avgjørelse står med alternativet som ble valg
 
 Historiske resultatlister uten dato og hjemme/borte ligger som et eget mellomlag i
 `data/source-results/`. Dette er publiserbar fakta, men ikke kanoniske kamper. Laget
-gjør ufullstendige år synlige og bidragsvennlige uten å forurense kampstatistikken;
-når en rad identifiseres sikkert, kan den kobles til `core_matches` med `matchId`.
+gjør ufullstendige år synlige og bidragsvennlige uten å forurense kampstatistikken.
+Når flere kilder dokumenterer samme uidentifiserte historiske kamp, kan påstandene
+samles redaksjonelt med `resultGroupId` (for eksempel NM-oppgjør omtalt i både NFF-årbøker
+og jubileumsskrifter). Når en kamp eller resultatgruppe identifiseres sikkert, kan den kobles
+til `core_matches` med `matchId`, og forsvinner da automatisk fra uavklarte resultater.
 
 - [Helhetsbildet](#helhetsbildet)
 - [Lag for lag](#lag-for-lag)

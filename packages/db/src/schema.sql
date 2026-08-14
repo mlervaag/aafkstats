@@ -1107,12 +1107,15 @@ CREATE TABLE core_source_results (
   replay          INTEGER NOT NULL CHECK (replay IN (0,1)),
   after_extra_time INTEGER NOT NULL CHECK (after_extra_time IN (0,1)),
   round           INTEGER,
+  result_group_id TEXT,
   match_id        TEXT REFERENCES core_matches(id),
   note            TEXT,
   PRIMARY KEY (source_id, id)
 );
 
 CREATE INDEX source_results_season_idx ON core_source_results(season, source_order);
+CREATE INDEX source_results_result_group_idx ON core_source_results(result_group_id);
+CREATE INDEX source_results_match_idx ON core_source_results(match_id);
 
 CREATE TABLE core_fact_candidates (
   source_id  TEXT NOT NULL REFERENCES core_publication_extractions(source_id) ON DELETE CASCADE,
@@ -1245,7 +1248,7 @@ SELECT r.source_id, s.title AS source_title, r.id, r.season, r.source_order, r.p
          ELSE 'T'
        END AS result,
        r.competition_id, r.status, r.replay, r.after_extra_time, r.round,
-       r.match_id, r.note, s.access_url AS source_url, '/kilder/' || s.id AS url
+       r.result_group_id, r.match_id, r.note, s.access_url AS source_url, '/kilder/' || s.id AS url
 FROM core_source_results r
 JOIN core_sources s ON s.id = r.source_id
 ORDER BY r.season DESC, r.source_order;

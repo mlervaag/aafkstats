@@ -56,6 +56,7 @@ export const views: ViewDoc[] = [
       { name: "replay", type: "integer (0/1)", description: "Omkamp." },
       { name: "after_extra_time", type: "integer (0/1)", description: "Resultat etter ekstraomganger." },
       { name: "round", type: "integer", description: "Runde når oppgitt." },
+      { name: "result_group_id", type: "text", description: "Valgfri ID som samler flere kildepåstander om samme uidentifiserte historiske oppgjør." },
       { name: "match_id", type: "text", description: "Kanonisk kamp når koblet. Ellers NULL." },
       { name: "note", type: "text", description: "Kort merknad eller forbehold." },
       { name: "source_url", type: "text", description: "Direktelenke til publikasjonen hos kilden." },

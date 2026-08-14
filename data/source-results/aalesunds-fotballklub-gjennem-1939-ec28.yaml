@@ -74,9 +74,9 @@ seasons:
       - { no: 10, opponent: "Rollon", score: [3, 0], page: 84 }
       - { no: 11, opponent: "Frem", score: [3, 2], page: 84 }
       - { no: 12, opponent: "Rollon", score: [2, 1], page: 84 }
-      - { no: 13, opponent: "Rollon", score: [4, 1], competitionId: nm, page: 84 }
-      - { no: 14, opponent: "Brått", score: null, competitionId: nm, status: walkover, page: 84 }
-      - { no: 15, opponent: "Brage", score: [1, 2], competitionId: nm, page: 84 }
+      - { no: 13, opponent: "Rollon", score: [4, 1], competitionId: nm, resultGroupId: nm-1920-rollon-kvalifisering, page: 84 }
+      - { no: 14, opponent: "Brått", score: null, competitionId: nm, status: walkover, resultGroupId: nm-1920-braatt-runde-1, page: 84 }
+      - { no: 15, opponent: "Brage", score: [1, 2], competitionId: nm, resultGroupId: nm-1920-brage-runde-2, page: 84 }
   - year: 1921
     page: 84
     results:

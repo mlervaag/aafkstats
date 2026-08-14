@@ -26,7 +26,7 @@ import type { Source as HistoricalSource } from "./source.js";
 import { publicationExtraction } from "./extraction.js";
 import type { PublicationExtraction } from "./extraction.js";
 import { flattenSourceResults, sourceResultCollection } from "./source-result.js";
-import type { SourceResultCollection } from "./source-result.js";
+import type { SourceResult, SourceResultCollection } from "./source-result.js";
 import { verificationCaseInput, verificationRevision } from "./verification-case.js";
 import type { VerificationCase, VerificationCaseInput } from "./verification-case.js";
 
@@ -437,6 +437,7 @@ export function crossValidate(archive: Archive): LoadIssue[] {
   }
 
   const seenSourceResultIds = new Set<string>();
+  const sourceResultsByGroup = new Map<string, { file: string; result: SourceResult }[]>();
   for (const collection of archive.sourceResults) {
     const at = (path: string, message: string) => issues.push({ file: collection.file, path, message });
     if (!sourceIds.has(collection.sourceId)) at("sourceId", `ukjent historisk kilde «${collection.sourceId}»`);
@@ -447,6 +448,46 @@ export function crossValidate(archive: Archive): LoadIssue[] {
       if (result.opponentClubId !== null && !clubIds.has(result.opponentClubId)) at(`results.${index}.opponentClubId`, `ukjent klubb «${result.opponentClubId}»`);
       if (result.competitionId !== null && !competitionIds.has(result.competitionId)) at(`results.${index}.competitionId`, `ukjent konkurranse «${result.competitionId}»`);
       if (result.matchId !== null && !matchIds.has(result.matchId)) at(`results.${index}.matchId`, `ukjent kamp «${result.matchId}»`);
+      if (result.resultGroupId) {
+        const group = sourceResultsByGroup.get(result.resultGroupId) ?? [];
+        group.push({ file: collection.file, result });
+        sourceResultsByGroup.set(result.resultGroupId, group);
+      }
+    }
+  }
+
+  for (const [groupId, group] of sourceResultsByGroup) {
+    const seasons = new Set(group.map((e) => e.result.season));
+    if (seasons.size > 1) {
+      for (const entry of group) {
+        issues.push({
+          file: entry.file,
+          path: "resultGroupId",
+          message: `resultatgruppe «${groupId}» spenner over ulike sesonger (${[...seasons].join(", ")})`,
+        });
+      }
+    }
+
+    const matchIdsInGroup = new Set(group.map((e) => e.result.matchId).filter((id): id is string => id !== null));
+    if (matchIdsInGroup.size > 1) {
+      for (const entry of group) {
+        issues.push({
+          file: entry.file,
+          path: "matchId",
+          message: `resultatgruppe «${groupId}» peker på flere ulike kamper (${[...matchIdsInGroup].join(", ")})`,
+        });
+      }
+    }
+
+    const opponentClubs = new Set(group.map((e) => e.result.opponentClubId).filter((id): id is string => id !== null));
+    if (opponentClubs.size > 1) {
+      for (const entry of group) {
+        issues.push({
+          file: entry.file,
+          path: "opponentClubId",
+          message: `resultatgruppe «${groupId}» har motstridende klubber (${[...opponentClubs].join(", ")})`,
+        });
+      }
     }
   }
 
