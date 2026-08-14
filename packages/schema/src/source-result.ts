@@ -15,6 +15,7 @@ const sourceResultEntry = z
     extraTime: z.boolean().default(false),
     round: z.number().int().min(1).nullable().default(null),
     opponentClubId: slug.nullable().default(null),
+    resultGroupId: slug.optional(),
     matchId: slug.nullable().default(null),
     note: z.string().min(1).optional(),
   })
@@ -60,6 +61,7 @@ export interface SourceResult {
   aafkGoals: number | null; opponentGoals: number | null;
   competitionId: string | null; status: "played" | "walkover";
   replay: boolean; extraTime: boolean; round: number | null;
+  resultGroupId?: string;
   matchId: string | null; note?: string;
 }
 
@@ -77,6 +79,7 @@ export function flattenSourceResults(collection: SourceResultCollection): Source
       competitionId: result.competitionId, status: result.status,
       replay: result.replay, extraTime: result.extraTime, round: result.round,
       matchId: result.matchId,
+      ...(result.resultGroupId === undefined ? {} : { resultGroupId: result.resultGroupId }),
       ...(result.note === undefined ? {} : { note: result.note }),
     };
   }));

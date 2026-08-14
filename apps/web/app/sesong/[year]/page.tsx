@@ -16,13 +16,14 @@ import {
   loadSquad,
   loadStandings,
   loadContributions,
+  loadCompetitionTitles,
 } from "@/lib/archive";
-import type { SourceResult } from "@/lib/archive";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
 import { pageMetadata, seasonDescription, seasonTitle } from "@/lib/metadata";
 import { SourceChips } from "@/components/SourceChips";
 import { HistoricalObservations } from "@/components/HistoricalObservations";
+import { UnlinkedResults } from "@/components/UnlinkedResults";
 import { getSeasonObservations, getSeasonSources } from "@/lib/historical-observations";
 import { getSourceTitles } from "@/lib/people";
 
@@ -61,6 +62,7 @@ export default async function SeasonPage({ params }: Props) {
   const observations = getSeasonObservations(year);
   const seasonSources = getSeasonSources(year);
   const sourceTitles = getSourceTitles();
+  const competitionNames = loadCompetitionTitles();
 
   return (
     <>
@@ -82,15 +84,6 @@ export default async function SeasonPage({ params }: Props) {
             hva som faktisk mangler først, og knappen er svaret på den setningen. */}
         {lead && <div style={{ marginTop: "1rem" }}><SeasonGaps year={year} gaps={gaps} /></div>}
       </header>
-
-      <HistoricalObservations observations={observations} titles={sourceTitles} />
-
-      {seasonSources.length > 0 ? (
-        <section className="content-section">
-          <h2>Kilder til sesongen</h2>
-          <SourceChips refs={seasonSources} titles={sourceTitles} />
-        </section>
-      ) : null}
 
       {/* Én seksjon per konkurranse, hver med sine egne tall over sine egne kamper.
           Tidligere sto ett tallsett øverst som bare gjaldt serien, over en liste som
@@ -149,6 +142,13 @@ export default async function SeasonPage({ params }: Props) {
                 <MatchList matches={upcoming} />
               </>
             )}
+
+            {summary === lead && seasonSources.length > 0 ? (
+              <div style={{ marginTop: "1.25rem" }}>
+                <h3 className="subsection-heading">Kilder til sesongoversikten</h3>
+                <SourceChips refs={seasonSources} titles={sourceTitles} />
+              </div>
+            ) : null}
           </section>
         );
       })}
@@ -171,11 +171,18 @@ export default async function SeasonPage({ params }: Props) {
         );
       })()}
 
-      {sourceResults.length > 0 && <SourceResults results={sourceResults} year={year} />}
+      <HistoricalObservations observations={observations} titles={sourceTitles} />
 
-      <Contributions contributions={contributions} />
+      <UnlinkedResults
+        results={sourceResults}
+        year={year}
+        titles={sourceTitles}
+        competitionNames={competitionNames}
+      />
 
       <SquadList players={squad} />
+
+      <Contributions contributions={contributions} />
 
       <nav className="season-nav" aria-label="Andre sesonger">
         {previous ? <a href={`/sesong/${previous}`}>← {previous}</a> : <span />}
@@ -207,34 +214,4 @@ function SeasonStandings({ competitionId, season }: { competitionId: string; sea
 
 function Stat({ value, label }: { value: number | string; label: string }) {
   return <div><strong className="num">{value}</strong><span>{label}</span></div>;
-}
-
-function SourceResults({ results, year }: { results: SourceResult[]; year: number }) {
-  return (
-    <section className="content-section source-results">
-      <h2 className="section-heading">
-        <span className="section-heading-title">Kildedokumenterte resultater</span>
-        <span className="muted section-count">{results.length} resultater</span>
-      </h2>
-      <p className="notice prose">
-        25-årsboka dokumenterer motstander og resultat, men ikke dato eller hjemme/borte.
-        Målene vises derfor alltid med AaFK først og teller ikke i den offisielle kampstatistikken ennå.
-        Radene kan kobles til komplette kampfiler etter hvert. <a href={`/kilder/${results[0]!.sourceId}`}>Se kilden</a>.
-      </p>
-      <ol className="source-result-list" aria-label={`Kildedokumenterte resultater fra ${year}`}>
-        {results.map((result) => (
-          <li key={`${result.sourceId}-${result.id}`}>
-            <span className="source-result-context">
-              {result.competitionId === "nm" ? "NM" : "Kamp"}{result.round ? ` · ${result.round}. runde` : ""}
-            </span>
-            <strong>{result.opponent ?? "Motstander ikke oppgitt"}</strong>
-            <span className="source-result-score num">{result.status === "walkover" ? "w.o." : `${result.aafkScore}–${result.opponentScore}`}</span>
-            <span className="source-result-notes muted small">
-              {[result.replay ? "omkamp" : null, result.afterExtraTime ? "ekstraomganger" : null, result.note, `s. ${result.page}`].filter(Boolean).join(" · ")}
-            </span>
-          </li>
-        ))}
-      </ol>
-    </section>
-  );
 }

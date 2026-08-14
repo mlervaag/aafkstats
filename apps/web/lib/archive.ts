@@ -50,6 +50,7 @@ export interface SourceResult {
   season: number;
   page: number;
   opponent: string | null;
+  opponentClubId: string | null;
   aafkScore: number | null;
   opponentScore: number | null;
   result: "S" | "U" | "T" | null;
@@ -58,25 +59,27 @@ export interface SourceResult {
   replay: boolean;
   afterExtraTime: boolean;
   round: number | null;
+  resultGroupId: string | null;
   matchId: string | null;
   note: string | null;
 }
 
 interface SourceResultRow {
   id: string; source_id: string; season: number; page: number;
-  opponent: string | null; aafk_score: number | null; opponent_score: number | null;
+  opponent: string | null; opponent_club_id: string | null; aafk_score: number | null; opponent_score: number | null;
   result: SourceResult["result"]; competition_id: string | null;
   status: SourceResult["status"]; replay: number; after_extra_time: number;
-  round: number | null; match_id: string | null; note: string | null;
+  round: number | null; result_group_id: string | null; match_id: string | null; note: string | null;
 }
 
 function mapSourceResult(row: SourceResultRow): SourceResult {
   return {
     id: row.id, sourceId: row.source_id, season: row.season, page: row.page,
-    opponent: row.opponent, aafkScore: row.aafk_score, opponentScore: row.opponent_score,
+    opponent: row.opponent, opponentClubId: row.opponent_club_id,
+    aafkScore: row.aafk_score, opponentScore: row.opponent_score,
     result: row.result, competitionId: row.competition_id, status: row.status,
     replay: row.replay === 1, afterExtraTime: row.after_extra_time === 1,
-    round: row.round, matchId: row.match_id, note: row.note,
+    round: row.round, resultGroupId: row.result_group_id, matchId: row.match_id, note: row.note,
   };
 }
 
@@ -425,10 +428,19 @@ export interface SeasonYear {
   documentedResults: number;
 }
 
-/** Serien først, deretter etter antall kamper. */
-function seasonRank(a: SeasonSummary, b: SeasonSummary): number {
-  const league = (s: SeasonSummary) => (s.competitionType === "league" ? 0 : 1);
-  return league(a) - league(b) || b.played - a.played;
+function competitionPriority(s: SeasonSummary): number {
+  if (s.competitionType === "league") return 0;
+  if (s.competitionType === "national_cup") return 10;
+  if (s.competitionType === "european") return 20;
+  if (s.competitionType === "playoff") return 30;
+  if (s.competitionId === "paivas-pokal") return 40;
+  if (s.competitionType === "friendly") return 50;
+  return 45;
+}
+
+/** Serien først, nasjonal cup, regionale turneringer og historiske pokaler før ordinære privatkamper. */
+export function seasonRank(a: SeasonSummary, b: SeasonSummary): number {
+  return competitionPriority(a) - competitionPriority(b) || b.played - a.played;
 }
 
 export function loadSeasons(): SeasonSummary[] {
@@ -451,7 +463,18 @@ export function loadSeasonYears(): SeasonYear[] {
   const db = open();
   let documented: { season: number; results: number }[];
   try {
-    documented = all(db, "SELECT season, count(*) AS results FROM source_results GROUP BY season");
+    documented = all(
+      db,
+      `SELECT season, COUNT(DISTINCT COALESCE(result_group_id, source_id || ':' || id)) AS results
+         FROM source_results
+        WHERE match_id IS NULL
+          AND (result_group_id IS NULL OR result_group_id NOT IN (
+            SELECT DISTINCT result_group_id
+              FROM source_results
+             WHERE match_id IS NOT NULL AND result_group_id IS NOT NULL
+          ))
+        GROUP BY season`,
+    );
   } finally {
     db.close();
   }
@@ -479,9 +502,33 @@ export function loadSeason(
   try {
     const rows = all<SeasonRow>(db, "SELECT * FROM seasons WHERE season = ?", year);
     const matches = all<MatchRow>(db, `SELECT ${matchColumns} FROM matches WHERE season = ? ORDER BY date`, year);
-    const sourceResults = all<SourceResultRow>(db, "SELECT * FROM source_results WHERE season = ? ORDER BY source_order", year);
+    const sourceResults = all<SourceResultRow>(
+      db,
+      `SELECT *
+         FROM source_results
+        WHERE season = ?
+          AND match_id IS NULL
+          AND (result_group_id IS NULL OR result_group_id NOT IN (
+            SELECT DISTINCT result_group_id
+              FROM source_results
+             WHERE season = ? AND match_id IS NOT NULL AND result_group_id IS NOT NULL
+          ))
+        ORDER BY source_order`,
+      year,
+      year,
+    );
     if (rows.length === 0 && sourceResults.length === 0) return undefined;
     return { summaries: rows.map(mapSeason).sort(seasonRank), matches: matches.map(mapMatch), sourceResults: sourceResults.map(mapSourceResult) };
+  } finally {
+    db.close();
+  }
+}
+
+export function loadCompetitionTitles(): Map<string, string> {
+  const db = open();
+  try {
+    const rows = all<{ id: string; name: string }>(db, "SELECT id, name FROM core_competitions");
+    return new Map(rows.map((r) => [r.id, r.name]));
   } finally {
     db.close();
   }
