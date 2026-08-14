@@ -136,10 +136,21 @@ export function annualReportManifest(reports: AnnualReportLink[]): string {
 }
 
 function normalizeHtmlText(html: string): string {
-  return decodeHtmlEntities(html.replace(/<[^>]*>/gu, ""))
+  return decodeHtmlEntities(stripTags(html))
     .replace(/\u00a0/gu, " ")
     .replace(/\s+/gu, " ")
     .trim();
+}
+
+function stripTags(html: string): string {
+  let text = "";
+  let insideTag = false;
+  for (const character of html) {
+    if (character === "<") insideTag = true;
+    else if (character === ">") insideTag = false;
+    else if (!insideTag) text += character;
+  }
+  return text;
 }
 
 function decodeHtmlEntities(value: string): string {
