@@ -17,7 +17,8 @@ tillitsvalgte og øvrige personfunn er eksplisitt utsatt til egne, senere løp.
 - 44 av 44 kandidatsider er visuelt kontrollert.
 - 12 relevante weak-only-sider (13 handlingspunkter) er kontrollert i tillegg.
 - Åtte hovedseriesesonger og åtte komplette sluttabeller er normalisert.
-- 23 udaterte seniorresultater er registrert i `data/source-results/`.
+- 23 seniorresultater som ikke kan løftes direkte til kanoniske kamper er
+  registrert i `data/source-results/`.
 - To eksisterende NM-kamper er beriket med SFK-proveniens.
 - Ingen kampdato er konstruert fra årsrapportene.
 
@@ -90,9 +91,9 @@ SFK-tabellene trykker ikke seier–uavgjort–tap i 1952–1958. Disse tre kolon
 er derfor supplert fra RSSSF og kontrollert mot antall kamper og poeng.
 
 - 1952: SFK oppgir Clausenengen 26–37; RSSSF oppgir 26–36. SFK-tallet er beholdt.
-- 1954: SFK oppgir Rollon 14 kamper og 9 poeng. RSSSF oppgir 2–4–7, som bare er
-  13 kamper. Raden er avstemt til 2–5–7, den eneste kombinasjonen som både gir
-  14 kamper og 9 poeng med datidens topoengssystem.
+- 1954: Rollons 2–5–7 er en eksplisitt rekonstruksjon basert på kombinasjonen
+  av kildene. SFK oppgir 14 kamper og 9 poeng, mens RSSSF oppgir 2–4–7. Én
+  uavgjort er lagt til i rekonstruksjonen for å forene de to kildeopplysningene.
 - 1958: SFK oppgir K.F.K. 44–19; RSSSF oppgir 43–19. SFK-tallet er beholdt.
 - 1959: SFK oppgir C.F.K. 26–29 og Dahle 15–46; RSSSF oppgir henholdsvis
   27–39 og 14–48. SFKs trykte tall er beholdt.

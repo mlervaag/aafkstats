@@ -67,7 +67,10 @@ table:
     goalsAgainst: 38
     points: 9
     outcome: none
-    note: SFK oppgir 14 kamper og 9 poeng. RSSSF-raden 2–4–7 mangler én kamp; 2–5–7 følger av SFKs totalsummer.
+    note: >
+      Rekonstruksjon basert på begge kildene: SFK oppgir 14 kamper og 9 poeng,
+      mens RSSSF oppgir 2–4–7. I rekonstruksjonen er én uavgjort lagt til, slik
+      at raden blir 2–5–7 og forener de to kildeopplysningene.
   - position: 7
     name: Ørsta I.L.
     clubId: orsta
@@ -106,4 +109,6 @@ sources:
     page: "9"
     fields: [table]
 note: >
-  Landsdelsserien 1953/54. SFK er fasit for kamper, mål og poeng. RSSSF supplerer seier–uavgjort–tap. Rollons ene manglende RSSSF-kamp er mekanisk avstemt mot SFKs 14 kamper og 9 poeng.
+  Landsdelsserien 1953/54. SFK er fasit for kamper, mål og poeng. RSSSF
+  supplerer seier–uavgjort–tap. Rollons 2–5–7 er en eksplisitt rekonstruksjon
+  basert på kombinasjonen av SFKs 14 kamper og 9 poeng med RSSSFs 2–4–7.
