@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { flattenSourceResults, sourceResultCollection } from "../src/source-result.js";
+import { findPossibleDuplicateSourceResults, flattenSourceResults, sourceResultCollection } from "../src/source-result.js";
 
 describe("kildedokumenterte resultater", () => {
   it("bevarer AaFK-perspektiv og lager stabile ID-er", () => {
@@ -47,5 +47,84 @@ describe("kildedokumenterte resultater", () => {
     });
     const flattened = flattenSourceResults(collection);
     expect(flattened[0]?.resultGroupId).toBe("nm-1920-rollon-kvalifisering");
+  });
+
+  it("rapporterer mulige duplikater på sesong, motstanderklubb og score", () => {
+    const sourceA = sourceResultCollection.parse({
+      sourceId: "kilde-a",
+      scorePerspective: "aafk",
+      seasons: [
+        {
+          year: 1918,
+          page: 100,
+          results: [
+            { no: 1, opponent: "Kristiansund", opponentClubId: "kfk", score: [4, 3], competitionId: "nm", round: 1 },
+          ],
+        },
+      ],
+    });
+    const sourceB = sourceResultCollection.parse({
+      sourceId: "kilde-b",
+      scorePerspective: "aafk",
+      seasons: [
+        {
+          year: 1918,
+          page: 83,
+          results: [
+            { no: 1, opponent: "K. F. K.", opponentClubId: "kfk", score: [4, 3], competitionId: "nm" },
+          ],
+        },
+      ],
+    });
+
+    const duplicates = findPossibleDuplicateSourceResults([sourceA, sourceB]);
+    expect(duplicates).toHaveLength(1);
+    expect(duplicates[0]?.season).toBe(1918);
+    expect(duplicates[0]?.opponentClubId).toBe("kfk");
+    expect(duplicates[0]?.scoreText).toBe("4–3");
+
+    // Ignorerer når de allerede har samme resultGroupId
+    const sourceBWithGroup = sourceResultCollection.parse({
+      sourceId: "kilde-b",
+      scorePerspective: "aafk",
+      seasons: [
+        {
+          year: 1918,
+          page: 83,
+          results: [
+            {
+              no: 1,
+              opponent: "K. F. K.",
+              opponentClubId: "kfk",
+              score: [4, 3],
+              competitionId: "nm",
+              resultGroupId: "1918-kfk-nm",
+            },
+          ],
+        },
+      ],
+    });
+    const sourceAWithGroup = sourceResultCollection.parse({
+      sourceId: "kilde-a",
+      scorePerspective: "aafk",
+      seasons: [
+        {
+          year: 1918,
+          page: 100,
+          results: [
+            {
+              no: 1,
+              opponent: "Kristiansund",
+              opponentClubId: "kfk",
+              score: [4, 3],
+              competitionId: "nm",
+              round: 1,
+              resultGroupId: "1918-kfk-nm",
+            },
+          ],
+        },
+      ],
+    });
+    expect(findPossibleDuplicateSourceResults([sourceAWithGroup, sourceBWithGroup])).toHaveLength(0);
   });
 });

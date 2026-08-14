@@ -12,6 +12,7 @@
  */
 
 import { canonicalClubKey, clubKey, isLongerNameForm, personKey } from "../identity.js";
+import { findPossibleDuplicateSourceResults } from "../source-result.js";
 import { dataDir, loadArchive } from "../load.js";
 import type { Club } from "../entities.js";
 
@@ -317,6 +318,25 @@ if (sameFixture.length > 0) {
   for (const [key, group] of sameFixture) {
     console.log(`  ${key}`);
     for (const entry of group) console.log(`    ${entry.file} ${DIM}(${entry.opponent})${RESET}`);
+  }
+  console.log("");
+}
+
+const possibleDuplicateResults = findPossibleDuplicateSourceResults(archive.sourceResults);
+if (possibleDuplicateResults.length > 0) {
+  found += possibleDuplicateResults.length;
+  console.log(
+    `${YELLOW}Mulig samme historiske oppgjør${RESET} `
+    + `${DIM}(kildedokumenterte resultater som matcher på sesong, motstanderklubb og score — vurder resultGroupId manuelt)${RESET}`,
+  );
+  for (const dup of possibleDuplicateResults) {
+    const a = dup.first;
+    const b = dup.second;
+    const aExtra = [a.competitionId, a.round ? `${a.round}. runde` : null, `s. ${a.page}`].filter(Boolean).join(", ");
+    const bExtra = [b.competitionId, b.round ? `${b.round}. runde` : null, `s. ${b.page}`].filter(Boolean).join(", ");
+    console.log(`  ${dup.season} ${dup.opponentClubId} (${dup.scoreText}):`);
+    console.log(`    ${a.sourceId} (${aExtra}): «${a.opponent}» ${DIM}(${a.id})${RESET}`);
+    console.log(`    ${b.sourceId} (${bExtra}): «${b.opponent}» ${DIM}(${b.id})${RESET}`);
   }
   console.log("");
 }

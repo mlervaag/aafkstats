@@ -88,3 +88,66 @@ export function flattenSourceResults(collection: SourceResultCollection): Source
 export function sourceResultPath(sourceId: string): string {
   return `source-results/${sourceId}.yaml`;
 }
+
+export interface PossibleDuplicateSourceResult {
+  season: number;
+  opponentClubId: string;
+  scoreText: string;
+  first: SourceResult;
+  second: SourceResult;
+}
+
+/**
+ * Finner kildedokumenterte resultater som kan være samme historiske oppgjør.
+ *
+ * Rapporterer par der:
+ * - samme season
+ * - samme opponentClubId
+ * - samme score (eller begge er walkover)
+ * - samme competitionId når oppgitt i begge (eller minst én ukjent)
+ * - samme round når oppgitt i begge (eller minst én ukjent)
+ *
+ * Par som allerede deler samme resultGroupId eller samme matchId hoppes over.
+ * Setter aldri resultGroupId automatisk — dette krever manuell vurdering.
+ */
+export function findPossibleDuplicateSourceResults(
+  collections: SourceResultCollection[],
+): PossibleDuplicateSourceResult[] {
+  const all = collections.flatMap(flattenSourceResults);
+  const duplicates: PossibleDuplicateSourceResult[] = [];
+
+  for (let i = 0; i < all.length; i++) {
+    for (let j = i + 1; j < all.length; j++) {
+      const a = all[i]!;
+      const b = all[j]!;
+
+      if (a.season !== b.season) continue;
+      if (!a.opponentClubId || !b.opponentClubId || a.opponentClubId !== b.opponentClubId) continue;
+
+      const scoreMatch =
+        (a.status === "walkover" && b.status === "walkover") ||
+        (a.aafkGoals !== null && b.aafkGoals !== null && a.aafkGoals === b.aafkGoals && a.opponentGoals === b.opponentGoals);
+      if (!scoreMatch) continue;
+
+      if (a.competitionId && b.competitionId && a.competitionId !== b.competitionId) continue;
+      if (a.round !== null && b.round !== null && a.round !== b.round) continue;
+
+      // Allerede gruppert sammen
+      if (a.resultGroupId && b.resultGroupId && a.resultGroupId === b.resultGroupId) continue;
+      // Allerede koblet til samme kanoniske kamp
+      if (a.matchId && b.matchId && a.matchId === b.matchId) continue;
+
+      const scoreText = a.status === "walkover" ? "walkover" : `${a.aafkGoals}–${a.opponentGoals}`;
+
+      duplicates.push({
+        season: a.season,
+        opponentClubId: a.opponentClubId,
+        scoreText,
+        first: a,
+        second: b,
+      });
+    }
+  }
+
+  return duplicates;
+}
