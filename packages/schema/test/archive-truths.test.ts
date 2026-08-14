@@ -125,6 +125,18 @@ describe("arkivet", () => {
     expect(issues.every((item) => item?.parentSourceId === series?.id)).toBe(true);
     expect(issues.every((item) => item?.providers.some((provider) => provider.providerId === "nasjonalbiblioteket"))).toBe(true);
 
+    const season1918 = archive.seasons.find((item) => item.year === 1918);
+    expect(season1918).toMatchObject({ competitionId: "romsdalske-kreds", expectedMatches: 2 });
+
+    const results1920 = archive.sourceResults.find((item) => item.sourceId === "nff-arbok-1920")?.seasons[0]?.results;
+    expect(results1920?.find((item) => item.opponent === "Rollon" && item.score?.[0] === 4)).toMatchObject({
+      competitionId: "nm",
+      round: null,
+      note: "Kvalifiserende runde i årbokas diagram.",
+    });
+    expect(results1920?.find((item) => item.opponent === "Braatt" && item.status === "walkover"))
+      .toMatchObject({ competitionId: "nm", round: 1 });
+
     const brann1917 = archive.matches.find((item) => item.id === "1917-08-26-aalesunds-fk-sk-brann");
     expect(brann1917).toMatchObject({ home: { score: 0 }, away: { score: 14 } });
     expect(brann1917?.sources).toEqual(expect.arrayContaining([
