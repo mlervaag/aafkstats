@@ -1,7 +1,7 @@
 # Innhentingsplan for Sunnmøre Fotballkrets' årsrapporter
 
 Sunnmøre Fotballkrets publiserer én årsrapport for hvert år fra 1952 til 2025 på
-[kretsens historieside](https://www.fotball.no/kretser/sunnmore/om-kretsen/historie/).
+[den canonical årsrapportindeksen](https://www.fotball.no/kretser/sunnmore/om-kretsen/historie/arsrapporter/).
 Serien består av 74 rapporter uten årshull. Den skal behandles som ett avgrenset
 kildekorpus, med 1966-rapporten som kontrollert testgrunnlag.
 
@@ -20,7 +20,7 @@ i seg selv regnes som generell tillatelse til automatisert tilgang.
 
 Innhentingen skal:
 
-- lese bare den offisielle historiesiden som indeks;
+- lese bare den offisielle årsrapportindeksen som indeks;
 - trimme lenketeksten og samle all whitespace til ett mellomrom før matching;
 - følge lenker der synlig tekst matcher `^Årsrapport\s+(19|20)\d{2}$`;
 - godta bare HTTPS-lenker på `www.fotball.no` som peker til PDF;
@@ -70,17 +70,19 @@ manifest uten å gjøre funnene kanoniske:
 |---|---|
 | `year`, `url`, `sha256` | identitet og endringskontroll |
 | `pages` | antall PDF-sider |
-| `textLayer` | om vanlig tekstuttrekk gir brukbar tekst |
-| `ocrStatus` | `not_needed`, `pending`, `complete` eller `failed` |
-| `aafkMentions` | antall søketreff etter normalisering av AaFK-navn |
+| `bytes`, `pages`, `textChars`, `textPages` | råmålinger som kan klassifiseres på nytt |
+| `textLayer` | `usable`, `sparse`, `none` eller `failed` |
+| `ocrStatus` | `not_needed` eller `pending` |
+| `strongMentions`, `weakMentions`, `mentionPages` | sikre og usikre treff, med menneskelige sidetall |
 | `seniorTable`, `cupResults` | om rapporten har mulige A-lagsfakta |
 | `reserve`, `junior`, `youth` | om andre lagtyper er omtalt |
 | `people`, `officials` | om personer, verv, kurs eller dommere er omtalt |
-| `extractionStatus` | `unreviewed`, `candidate`, `reviewed` eller `complete` |
+| `extractionStatus` | `unreviewed` eller `candidate` |
 
-PDF-er med tekstlag kjøres gjennom vanlig PDF-tekstuttrekk. Skannede rapporter OCR-leses
-lokalt. OCR-tekst er arbeidsdata og skal ikke publiseres eller brukes som kanonisk fakta
-uten visuell kontroll mot den aktuelle PDF-siden.
+PDF-er med tekstlag kjøres gjennom vanlig PDF-tekstuttrekk. Skannede rapporter markeres
+`pending`, men OCR-leses ikke i dette trinnet. Manifestet lagrer bare målinger, treffantall,
+sidenumre og triagesignaler, aldri rå PDF-tekst. Dekningskartet avgjør senere hvor OCR gir
+målbar gevinst; ingen maskinell klassifisering blir kanonisk fakta uten visuell kontroll.
 
 ### 3. Faktakandidater
 

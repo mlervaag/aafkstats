@@ -11,7 +11,7 @@ src/
 ├── types.ts        SourceMatch: kildens flate mellomformat
 ├── reconcile.ts    Deterministisk skriveplan mot dagens arkiv
 ├── report.ts       Kjøringsrapport
-├── adapters/       fotmob · rsssf · rsssf-discover
+├── adapters/       fotmob · rsssf · rsssf-discover · sfk-årsrapporter
 └── cli/            En kommando per adapter
 ```
 
@@ -58,6 +58,11 @@ ennå, og en stille sammenslåing ville skjult hvem som mente hva.
 ```sh
 # Kartlegg hva RSSSF har. Skriver aldri data.
 pnpm ingest:rsssf-discover -- --from 1980 --to 2009
+
+# Kartlegg tekstlag og AaFK-treff i SFKs årsrapporter. Skriver bare arbeidsmanifest
+# i ignorert cache og en eksplisitt valgt dekningsrapport.
+pnpm ingest:sfk-annual-report-analysis -- \
+  --report docs/data/SFK_ARSRAPPORTER_DEKNING.md
 
 # Én divisjon i én sesong. Tørrkjøring.
 pnpm ingest:rsssf -- --season 1998 --division First --competition forstedivisjon
@@ -119,7 +124,8 @@ pnpm ingest:fotmob-profile -- \
 | `--with-details` | fotmob | Henter hendelser, lagoppstilling og statistikk |
 | `--details-limit N`, `--details-offset N` | fotmob | Avgrenser detaljoppslagene |
 | `--allow-partial` | fotmob | Godtar en ufullstendig høsting. Kun etter manuell kontroll |
-| `--report FIL` | fotmob, rsssf-discover | Skriver kjøringsrapporten til fil |
+| `--report FIL` | fotmob, rsssf-discover, sfk-annual-report-analysis | Skriver kjøringsrapporten til fil |
+| `--year`, `--from`, `--to` | sfk-annual-report-analysis | Avgrenser den tekniske PDF-kartleggingen |
 | `--from`, `--to`, `--max-pages` | fotmob-gap | Obligatorisk tidsvindu og hardt sidetak for klubbhistorikken |
 | `--report-json`, `--report-md` | fotmob-gap | Maskinlesbar og menneskelesbar gap-rapport |
 | `--match-ids`, `--class`, `--competition` | fotmob-gap | Eksplisitt, kontrollert import; alle tre kreves ved `--write`. Klasse kan være `europe`, `friendly`, `cup` eller `qualification` |
@@ -137,6 +143,8 @@ kommandoen — å høste inn i et ødelagt arkiv gjør bare feilsøkingen vanske
 | `fotmob-profile` | FotMob | Én spiller per kjøring | Kandidater, navnekontroll, AaFK-periode, hovedposisjon og land |
 | `rsssf` | RSSSF Norway | ←2009 | Dato, lag, resultat, runde |
 | `rsssf-discover` | RSSSF Norway | 1902→ | Kartlegging: hvilke sider finnes, og hva de inneholder |
+| `sfk-annual-reports` | Sunnmøre Fotballkrets | 1952→ | Discovery og konservativ katalogføring av årsrapportserien |
+| `sfk-annual-report-analysis` | Sunnmøre Fotballkrets | 1952→ | Cachet PDF-måling, tekstlag, AaFK-treff og triagesignaler uten OCR |
 | `wikipedia-profile` | Wikipedia | Én spiller per kjøring | Manglende personfil, posisjon, nasjonalitet og Wikidata-peker fra infoboks/sideegenskaper |
 
 Dekningen er dokumentert for seg: [FotMob-dekningstaket](../../docs/data/FOTMOB_DEKNINGSTAK.md)
@@ -154,8 +162,8 @@ mellomformat, med kildens egne navn og ID-er. Koblingen mot arkivets klubber, st
 kamper skjer i `reconcile()`, ett sted, med aliaser som mekanisme.
 
 **Fartsgrensen er per vert**, 1,1 sekund mellom forespørslene, med retry og 20 sekunders
-tidsgrense. Cachen skrives atomisk gjennom en midlertidig fil, så en avbrutt kjøring ikke
-etterlater halve svar.
+tidsgrense for tekst. Store PDF-er får 60 sekunder. Tekst og binærdata bruker samme atomiske
+cache, så en avbrutt kjøring ikke etterlater halve svar.
 
 **Spillerprofiler fra Wikipedia er en kontrollert berikelse, ikke et biografisøk.**
 Kommandoen krever både en spiller som allerede finnes i personregisteret eller en

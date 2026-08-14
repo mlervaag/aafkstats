@@ -19,14 +19,16 @@
     "rsssf-discover": "tsx src/cli/rsssf-discover.ts",
     "nff": "tsx src/cli/nff.ts",
     "fotmob-standings": "tsx src/cli/fotmob-standings.ts",
-    "etter-kamp": "tsx src/cli/etter-kamp.ts"
-    ,"nb-extract": "tsx src/cli/nb-extract.ts"
-    ,"nb-resolve": "tsx src/cli/nb-resolve.ts"
-    ,"nb-mentions": "tsx src/cli/nb-mentions.ts"
-    ,"sfk-annual-reports": "tsx src/cli/sfk-annual-reports.ts"
+    "etter-kamp": "tsx src/cli/etter-kamp.ts",
+    "nb-extract": "tsx src/cli/nb-extract.ts",
+    "nb-resolve": "tsx src/cli/nb-resolve.ts",
+    "nb-mentions": "tsx src/cli/nb-mentions.ts",
+    "sfk-annual-reports": "tsx src/cli/sfk-annual-reports.ts",
+    "sfk-annual-report-analysis": "tsx src/cli/sfk-annual-report-analysis.ts"
   },
   "dependencies": {
     "@aafkstats/schema": "workspace:*",
+    "pdfjs-dist": "^6.2.108",
     "yaml": "^2.6.1"
   },
   "devDependencies": {
