@@ -25,11 +25,14 @@
     "nb-mentions": "tsx src/cli/nb-mentions.ts",
     "sfk-annual-reports": "tsx src/cli/sfk-annual-reports.ts",
     "sfk-annual-report-analysis": "tsx src/cli/sfk-annual-report-analysis.ts",
-    "sfk-annual-report-candidates": "tsx src/cli/sfk-annual-report-candidates.ts"
+    "sfk-annual-report-candidates": "tsx src/cli/sfk-annual-report-candidates.ts",
+    "sfk-annual-report-ocr": "tsx src/cli/sfk-annual-report-ocr.ts"
   },
   "dependencies": {
     "@aafkstats/schema": "workspace:*",
+    "@napi-rs/canvas": "^1.0.6",
     "pdfjs-dist": "^6.2.108",
+    "tesseract.js": "^7.0.0",
     "yaml": "^2.6.1"
   },
   "devDependencies": {

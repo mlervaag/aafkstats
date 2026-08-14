@@ -104,6 +104,12 @@ bare sidepekere, treffantall, kategorier og korte nøkkelord.
 
 ### 4. Menneskelig kontroll og normalisering
 
+Før normalisering OCR-leses den avgrensede skannede blokken 1952–1979. Én norsk
+Tesseract-worker gjenbrukes sekvensielt, og hver side lagres atomisk i ignorert cache slik
+at en avbrutt kjøring kan fortsette. Den committede OCR-rapporten inneholder bare dekning,
+confidence, feilsider, temasignaler og sidepekere. Samme kandidatregler som ble utviklet
+mot rapportene med rent tekstlag brukes uten automatisk kanonisering.
+
 For hvert år skal en kontrollør:
 
 1. åpne alle sider med kandidater;
@@ -114,9 +120,10 @@ For hvert år skal en kontrollør:
 6. la uklar identitet være `null` i stedet for å gjette;
 7. kjøre validering og databasebygg før PR.
 
-1966 er fasiten for arbeidsflyten: side 4 inneholder tre senior-NM-resultater og den
-fulle tabellen for 3. divisjon Møre. De to udaterte NM-kampene ligger i
-`source-results`, mens Frigg-kampen kobles til den eksisterende kampfilen.
+1966 er fasiten for arbeidsflyten: OCR skal finne side 4 som kandidat for både serie og NM.
+Siden inneholder tre senior-NM-resultater og den fulle tabellen for 3. divisjon Møre. De to
+udaterte NM-kampene ligger i `source-results`, mens Frigg-kampen kobles til den eksisterende
+kampfilen.
 
 ## Prioritering
 
