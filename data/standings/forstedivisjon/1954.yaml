@@ -1,0 +1,114 @@
+competitionId: forstedivisjon
+season: 1954
+table:
+  - position: 1
+    name: Molde F.K.
+    clubId: molde-fk
+    played: 14
+    wins: 10
+    draws: 3
+    losses: 1
+    goalsFor: 43
+    goalsAgainst: 13
+    points: 23
+    outcome: promotion_playoff
+  - position: 2
+    name: K.F.K.
+    clubId: kristiansund
+    played: 14
+    wins: 9
+    draws: 2
+    losses: 3
+    goalsFor: 44
+    goalsAgainst: 22
+    points: 20
+    outcome: none
+  - position: 3
+    name: Aa. F.K.
+    clubId: aalesunds-fk
+    played: 14
+    wins: 9
+    draws: 2
+    losses: 3
+    goalsFor: 32
+    goalsAgainst: 17
+    points: 20
+    outcome: none
+  - position: 4
+    name: Langevåg IL
+    clubId: langevag
+    played: 14
+    wins: 6
+    draws: 3
+    losses: 5
+    goalsFor: 42
+    goalsAgainst: 26
+    points: 15
+    outcome: none
+  - position: 5
+    name: I.L. Hødd
+    clubId: hodd
+    played: 14
+    wins: 5
+    draws: 3
+    losses: 6
+    goalsFor: 35
+    goalsAgainst: 28
+    points: 13
+    outcome: none
+  - position: 6
+    name: Spkl. Rollon
+    clubId: rollon
+    played: 14
+    wins: 2
+    draws: 5
+    losses: 7
+    goalsFor: 17
+    goalsAgainst: 38
+    points: 9
+    outcome: none
+    note: >
+      Rekonstruksjon basert på begge kildene: SFK oppgir 14 kamper og 9 poeng,
+      mens RSSSF oppgir 2–4–7. I rekonstruksjonen er én uavgjort lagt til, slik
+      at raden blir 2–5–7 og forener de to kildeopplysningene.
+  - position: 7
+    name: Ørsta I.L.
+    clubId: orsta
+    played: 14
+    wins: 1
+    draws: 4
+    losses: 9
+    goalsFor: 14
+    goalsAgainst: 40
+    points: 6
+    outcome: relegated
+  - position: 8
+    name: Halsa I.L.
+    clubId: null
+    played: 14
+    wins: 2
+    draws: 2
+    losses: 10
+    goalsFor: 16
+    goalsAgainst: 60
+    points: 6
+    outcome: relegated
+progression: []
+providers:
+  - providerId: sunnmore-fotballkrets
+    url: https://www.fotball.no/globalassets/krets/sunnmore/om-kretsen/arsrapporter/arsrapport-1954.pdf
+    retrievedAt: 2026-08-14
+    fields: [table]
+  - providerId: rsssf
+    url: https://www.rsssf.no/1954/Landsdel.html
+    retrievedAt: 2026-08-14
+    fields: [table]
+    note: Uavhengig kontrollkilde og kilde til seier–uavgjort–tap.
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1954
+    page: "9"
+    fields: [table]
+note: >
+  Landsdelsserien 1953/54. SFK er fasit for kamper, mål og poeng. RSSSF
+  supplerer seier–uavgjort–tap. Rollons 2–5–7 er en eksplisitt rekonstruksjon
+  basert på kombinasjonen av SFKs 14 kamper og 9 poeng med RSSSFs 2–4–7.
