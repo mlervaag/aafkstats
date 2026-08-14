@@ -13,7 +13,7 @@ home:
   halfTimeScore: null
 away:
   clubId: aalesunds-fk
-  score: 0
+  score: 2
   halfTimeScore: null
 neutralVenue: false
 events: []
@@ -31,9 +31,29 @@ providers:
       - home.score
       - away.score
       - competition.round
-confidence: probable
-conflicts: []
+sources:
+  - sourceId: nff-arbok-1919
+    page: "82–83"
+    fields: [home.clubId, away.clubId, home.score, away.score, competition.round]
+    note: Manuelt lest fra NM-diagrammet.
+  - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+    page: "83"
+    fields: [home.score, away.score]
+confidence: confirmed
+conflicts:
+  - field: away.score
+    values:
+      - { value: 0, providerId: rsssf }
+      - { value: 2, providerId: nasjonalbiblioteket, note: NFF-årboka 1919 og jubileumsskriftet fra 1939 oppgir begge 3–2. }
+    resolved: true
+    chosen: 2
+    chosenProviderId: nasjonalbiblioteket
+    decision: independent_source
+    decidedAt: 2026-08-14
+    reason: To historiske dokumenter er enige om 3–2, mens RSSSF alene oppgir 3–0.
+    locked: true
 tags: []
 aliases:
   rsssf: 1919-cup-1919-09-07-sverre-aalesunds-fk
-manual: []
+manual: [away.score]
+note: Resultatkonflikten er redaksjonelt avgjort til 3–2 i favør av de to historiske kildene.

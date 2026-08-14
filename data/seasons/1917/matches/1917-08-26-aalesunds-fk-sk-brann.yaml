@@ -32,6 +32,10 @@ providers:
       - away.score
       - competition.round
 sources:
+  - sourceId: nff-arbok-1917
+    page: "68–69"
+    fields: [home.clubId, away.clubId, home.score, away.score, competition.round]
+    note: Manuelt lest fra «Norgesmesterskapskampene 1917».
   - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
     page: "34"
     fields: [away.clubId, competition.round]

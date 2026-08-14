@@ -1,0 +1,13 @@
+id: 1920-06-20-aalesunds-fk-freidig
+date: 1920-06-20
+status: played
+competition: { id: treningskamp, season: 1920, stage: friendly }
+home: { clubId: aalesunds-fk, score: 2 }
+away: { clubId: freidig, score: 3 }
+sources:
+  - sourceId: nff-arbok-1920
+    page: "99"
+    fields: [date, competition, home.clubId, away.clubId, home.score, away.score]
+    note: Resultatkolonnen «3–2 Freidigs favør» er normalisert til AaFK 2–3 Freidig.
+confidence: confirmed
+manual: [date, competition, home.clubId, away.clubId, home.score, away.score]

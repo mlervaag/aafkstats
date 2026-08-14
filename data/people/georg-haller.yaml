@@ -123,6 +123,12 @@ roles:
           - from
         note: Manuelt verifisert.
 sources:
+  - sourceId: nff-arbok-1914-1915
+    page: "24"
+    fields: [name]
+    note: >
+      Omtalt som «Geo Haller, Aalesunds fotballklub» og som stifter og formann
+      i Romsdalske kreds. Kilden dokumenterer ikke et formannsverv i AaFK.
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "80"
     fields: []

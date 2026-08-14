@@ -1,0 +1,12 @@
+id: 1920-08-02-rollon-aalesunds-fk
+date: 1920-08-02
+status: played
+competition: { id: sondmore-kreds-klasse-a, season: 1920, stage: regular_season }
+home: { clubId: rollon, score: 1 }
+away: { clubId: aalesunds-fk, score: 4 }
+venueId: norvebana
+referee: Mr. Burges
+sources:
+  - { sourceId: nff-arbok-1920, page: "100", fields: [date, competition, home.clubId, away.clubId, home.score, away.score, venueId, referee] }
+confidence: confirmed
+manual: [date, competition, home.clubId, away.clubId, home.score, away.score, venueId, referee]

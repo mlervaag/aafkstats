@@ -1,0 +1,11 @@
+id: braatt
+name: Braatt
+names:
+  - { name: Braatt fotballklub, from: null, to: null }
+country: NO
+city: Kristiansund
+aliases: {}
+sources:
+  - sourceId: nff-arbok-1918
+    page: "107"
+    fields: [name, city]

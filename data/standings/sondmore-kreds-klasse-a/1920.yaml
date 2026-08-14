@@ -1,0 +1,11 @@
+competitionId: sondmore-kreds-klasse-a
+season: 1920
+table:
+  - { position: 1, name: Aalesunds fotballklub, clubId: aalesunds-fk, played: 2, wins: 2, draws: 0, losses: 0, goalsFor: 7, goalsAgainst: 2, points: 4, outcome: none }
+  - { position: 2, name: Sportskl. Rollon, clubId: rollon, played: 2, wins: 0, draws: 0, losses: 2, goalsFor: 2, goalsAgainst: 7, points: 0, outcome: none }
+progression: []
+sources:
+  - sourceId: nff-arbok-1920
+    page: "100"
+    fields: [table]
+note: AaFK står oppført som nummer én og kretsmester.
