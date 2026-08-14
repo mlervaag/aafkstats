@@ -1,3 +1,4 @@
+import React from "react";
 import { ImageResponse } from "next/og";
 import type { VerificationCaseView } from "@/lib/verifications";
 import { loadVerificationCase } from "@/lib/verifications";
