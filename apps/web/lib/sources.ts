@@ -64,6 +64,14 @@ export interface SourceResultUsage {
   last_page: number;
 }
 
+export interface SourceObservationUsage {
+  id: string;
+  title: string;
+  date: string | null;
+  page: string | null;
+  url: string | null;
+}
+
 const sourceColumns = `id, parent_source_id, title, source_type, issue, volume,
   publisher, year, urn, author, description, cover_url, access_url, providers`;
 
@@ -272,4 +280,17 @@ export function getSourceSeasonUsages(sourceId: string): SourceSeasonUsage[] {
   } finally {
     db.close();
   }
+}
+
+export function getSourceObservationUsages(sourceId: string): SourceObservationUsage[] {
+  const db = open();
+  try {
+    return all<SourceObservationUsage>(db, `
+      SELECT o.id, o.title, o.date, json_extract(ref.value, '$.page') AS page, o.url
+        FROM historical_observations o
+        JOIN json_each(o.sources) ref
+        JOIN core_sources source ON source.id = json_extract(ref.value, '$.sourceId')
+       WHERE source.id = ? OR source.parent_source_id = ?
+       ORDER BY o.date, o.id`, sourceId, sourceId);
+  } finally { db.close(); }
 }

@@ -535,6 +535,23 @@ table,
   .dot { animation: none; opacity: 0.7; }
 }
 
+.historical-observation-list {
+  list-style: none;
+  display: grid;
+  gap: 1.25rem;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.historical-observation-list > li {
+  border-left: 3px solid var(--border);
+  padding-left: 1rem;
+  scroll-margin-top: 6rem;
+}
+
+.historical-observation-list h3,
+.historical-observation-list p { margin: 0.3rem 0; }
+
 /* Vist SQL. Et tillitsgrep: brukeren skal kunne se nøyaktig hva svaret bygger på. */
 .queries {
   margin-top: 1.25rem;

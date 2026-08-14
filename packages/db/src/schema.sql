@@ -104,6 +104,38 @@ CREATE TABLE core_seasons (
   note             TEXT
 );
 
+-- Korte, redaksjonelt kontrollerte historiske fakta. Relasjonene er normalisert
+-- fordi samme hendelse skal kunne vises på flere sider uten å kopieres.
+CREATE TABLE core_historical_observations (
+  id       TEXT PRIMARY KEY,
+  title    TEXT NOT NULL,
+  text     TEXT NOT NULL,
+  date     TEXT,
+  note     TEXT,
+  sources  TEXT NOT NULL
+);
+
+CREATE TABLE observation_people (
+  observation_id TEXT NOT NULL REFERENCES core_historical_observations(id),
+  person_id TEXT NOT NULL REFERENCES core_people(id),
+  PRIMARY KEY (observation_id, person_id)
+);
+CREATE TABLE observation_seasons (
+  observation_id TEXT NOT NULL REFERENCES core_historical_observations(id),
+  season INTEGER NOT NULL,
+  PRIMARY KEY (observation_id, season)
+);
+CREATE TABLE observation_matches (
+  observation_id TEXT NOT NULL REFERENCES core_historical_observations(id),
+  match_id TEXT NOT NULL REFERENCES core_matches(id),
+  PRIMARY KEY (observation_id, match_id)
+);
+CREATE TABLE observation_competitions (
+  observation_id TEXT NOT NULL REFERENCES core_historical_observations(id),
+  competition_id TEXT NOT NULL REFERENCES core_competitions(id),
+  PRIMARY KEY (observation_id, competition_id)
+);
+
 -- Sluttabellen for én konkurranse i én sesong, og AaFKs vei gjennom den.
 --
 -- Lagene bærer kildens eget navn. En divisjon har seksten lag og AaFK har aldri
@@ -1173,6 +1205,19 @@ SELECT
   '/kilder/' || id AS url
 FROM core_sources
 ORDER BY coalesce(year, 0) DESC, title ASC;
+
+CREATE VIEW historical_observations AS
+SELECT o.id, o.title, o.text, o.date, o.note, o.sources,
+       coalesce((SELECT json_group_array(person_id) FROM observation_people WHERE observation_id = o.id), '[]') AS person_ids,
+       coalesce((SELECT json_group_array(season) FROM observation_seasons WHERE observation_id = o.id), '[]') AS season_years,
+       coalesce((SELECT json_group_array(match_id) FROM observation_matches WHERE observation_id = o.id), '[]') AS match_ids,
+       coalesce((SELECT json_group_array(competition_id) FROM observation_competitions WHERE observation_id = o.id), '[]') AS competition_ids,
+       coalesce(
+         (SELECT '/personer/' || person_id || '#observasjon-' || o.id FROM observation_people WHERE observation_id = o.id ORDER BY person_id LIMIT 1),
+         (SELECT '/sesong/' || season || '#observasjon-' || o.id FROM observation_seasons WHERE observation_id = o.id ORDER BY season LIMIT 1)
+       ) AS url
+FROM core_historical_observations o
+ORDER BY coalesce(o.date, '') DESC, o.id;
 
 CREATE VIEW verification_cases AS
 SELECT id, status, category, claim, question, context, why_it_matters,

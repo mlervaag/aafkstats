@@ -1,11 +1,11 @@
-import { searchMatches, searchPeople, searchSources } from "@/lib/search";
+import { searchHistoricalObservations, searchMatches, searchPeople, searchSources } from "@/lib/search";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export function GET(request: Request): Response {
   const query = new URL(request.url).searchParams.get("q")?.trim() ?? "";
-  if (query.length < 2) return Response.json({ matches: [], people: [], sources: [] });
+  if (query.length < 2) return Response.json({ matches: [], people: [], sources: [], observations: [] });
   if (query.length > 100) return Response.json({ error: "Søket er for langt." }, { status: 400 });
 
   try {
@@ -13,6 +13,7 @@ export function GET(request: Request): Response {
       matches: searchMatches(query),
       people: searchPeople(query),
       sources: searchSources(query),
+      observations: searchHistoricalObservations(query),
     });
   } catch (error) {
     console.error("Direktesøket feilet:", error instanceof Error ? error.message : String(error));

@@ -1,7 +1,7 @@
 "use client";
 
 import { useDeferredValue, useEffect, useState } from "react";
-import type { SearchMatch, SearchPerson, SearchSource } from "@/lib/search";
+import type { SearchMatch, SearchObservation, SearchPerson, SearchSource } from "@/lib/search";
 import { trackEvent } from "@/lib/analytics";
 import { formatDateShort } from "@/lib/date";
 import { readableScore } from "@/lib/score";
@@ -10,9 +10,10 @@ export interface DirectSearchData {
   matches: SearchMatch[];
   people: SearchPerson[];
   sources: SearchSource[];
+  observations: SearchObservation[];
 }
 
-const EMPTY_RESULTS: DirectSearchData = { matches: [], people: [], sources: [] };
+const EMPTY_RESULTS: DirectSearchData = { matches: [], people: [], sources: [], observations: [] };
 
 export function useDirectSearch(query: string, disabled = false) {
   const deferredQuery = useDeferredValue(query);
@@ -40,6 +41,7 @@ export function useDirectSearch(query: string, disabled = false) {
           matches: result.matches ?? [],
           people: result.people ?? [],
           sources: result.sources ?? [],
+          observations: result.observations ?? [],
         });
         setState("done");
       } catch (error) {
@@ -59,13 +61,14 @@ export function useDirectSearch(query: string, disabled = false) {
 }
 
 export interface DirectResultTarget {
-  kind: "person" | "source" | "match";
+  kind: "person" | "source" | "match" | "observation";
   url: string;
   position: number;
 }
 
 export function firstDirectResult(data: DirectSearchData): DirectResultTarget | null {
   if (data.people[0]) return { kind: "person", url: data.people[0].url, position: 1 };
+  if (data.observations[0]) return { kind: "observation", url: data.observations[0].url, position: 1 };
   if (data.sources[0]) return { kind: "source", url: data.sources[0].url, position: 1 };
   if (data.matches[0]) return { kind: "match", url: data.matches[0].url, position: 1 };
   return null;
@@ -83,7 +86,7 @@ export function openFirstDirectResult(data: DirectSearchData): void {
   if (!target) return;
   if (target.kind === "person") trackEvent("person-opened", { position: target.position });
   else if (target.kind === "source") trackEvent("source-opened", { position: target.position });
-  else trackEvent("match-opened", { position: target.position });
+  else if (target.kind === "match") trackEvent("match-opened", { position: target.position });
   window.location.assign(target.url);
 }
 
@@ -100,8 +103,8 @@ export function DirectResults({
   emptyText: string;
   maxMatches?: number;
 }) {
-  const total = data.people.length + data.sources.length + data.matches.length;
-  const shownTotal = data.people.length + data.sources.length + Math.min(data.matches.length, maxMatches);
+  const total = data.people.length + data.observations.length + data.sources.length + data.matches.length;
+  const shownTotal = data.people.length + data.observations.length + data.sources.length + Math.min(data.matches.length, maxMatches);
   const resultCount = shownTotal < total ? `${total} treff · viser ${shownTotal}` : `${total} treff`;
   return (
     <div id={id} className="live-results" aria-live="polite">
@@ -118,6 +121,9 @@ export function DirectResults({
           {data.people.map((person, index) => (
             <PersonResult key={person.personId} person={person} position={index + 1} />
           ))}
+          {data.observations.map((observation, index) => (
+            <ObservationResult key={observation.observationId} observation={observation} position={index + 1} />
+          ))}
           {data.sources.map((source, index) => (
             <SourceResult key={source.sourceId} source={source} position={index + 1} />
           ))}
@@ -128,6 +134,15 @@ export function DirectResults({
       )}
     </div>
   );
+}
+
+function ObservationResult({ observation, position: _position }: { observation: SearchObservation; position: number }) {
+  return <li><a className="person-result-link" href={observation.url}>
+    <span className="result-kind">Historisk observasjon</span>
+    <strong>{observation.title}</strong>
+    <span className="small muted">{observation.description}</span>
+    {observation.date ? <span className="num muted">{observation.date}</span> : null}
+  </a></li>;
 }
 
 function PersonResult({ person, position }: { person: SearchPerson; position: number }) {

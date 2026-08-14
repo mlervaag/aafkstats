@@ -40,6 +40,14 @@ export interface SearchSource {
   url: string;
 }
 
+export interface SearchObservation {
+  observationId: string;
+  title: string;
+  description: string;
+  date: string | null;
+  url: string;
+}
+
 interface PersonSearchRow {
   person_id: string;
   name: string;
@@ -291,6 +299,27 @@ export function searchSources(query: string, limit = 12): SearchSource[] {
   } finally {
     db.close();
   }
+}
+
+/** Kanoniske historiske fakta, med direkte lenke til person- eller sesongvisningen. */
+export function searchHistoricalObservations(query: string, limit = 12): SearchObservation[] {
+  const parsed = parseSearchQuery(query);
+  if (parsed.years.length === 0 && parsed.terms.length === 0) return [];
+  const db = open();
+  try {
+    const rows = all<{ id: string; title: string; text: string; date: string | null; url: string | null }>(
+      db, "SELECT id, title, text, date, url FROM historical_observations",
+    );
+    return rows.filter((row) => {
+      const text = searchable(`${row.title} ${row.text}`);
+      const termsMatch = parsed.terms.every((term) => text.includes(searchable(term)));
+      const yearsMatch = parsed.years.length === 0 || (row.date !== null && parsed.years.includes(Number(row.date.slice(0, 4))));
+      return termsMatch && yearsMatch && row.url !== null;
+    }).map((row) => ({
+      observationId: row.id, title: row.title, description: row.text, date: row.date, url: row.url!,
+    })).sort((a, b) => rankTitle(a.title, parsed.terms) - rankTitle(b.title, parsed.terms))
+      .slice(0, Math.min(Math.max(limit, 1), 50));
+  } finally { db.close(); }
 }
 
 function roleCoversYear(row: PersonSearchRow, year: number): boolean {

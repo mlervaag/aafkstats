@@ -355,11 +355,20 @@ export const season = z
   .superRefine((value, ctx) => {
     // Et forventet omfang uten kilde er en påstand vi ikke kan etterprøve, og
     // «komplett» hviler på det tallet. Da må det stå hvor det kommer fra.
-    if ((value.expectedMatches || value.expectedRounds) && !value.note) {
+    const sourcedExpectedMatches = value.sources.some((ref) => ref.fields.includes("expectedMatches"));
+    const sourcedExpectedRounds = value.sources.some((ref) => ref.fields.includes("expectedRounds"));
+    if (value.expectedMatches && !sourcedExpectedMatches && !value.note) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
         path: ["note"],
-        message: "expectedMatches og expectedRounds krever en note som sier hvor tallet kommer fra",
+        message: "expectedMatches krever en eksplisitt kilde eller en note som sier hvor tallet kommer fra",
+      });
+    }
+    if (value.expectedRounds && !sourcedExpectedRounds && !value.note) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["note"],
+        message: "expectedRounds krever en eksplisitt kilde eller en note som sier hvor tallet kommer fra",
       });
     }
   });

@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { firstDirectResult, type DirectSearchData } from "../components/DirectSearch.js";
 
 function results(overrides: Partial<DirectSearchData>): DirectSearchData {
-  return { people: [], sources: [], matches: [], ...overrides };
+  return { people: [], sources: [], matches: [], observations: [], ...overrides };
 }
 
 describe("første direktetreff", () => {

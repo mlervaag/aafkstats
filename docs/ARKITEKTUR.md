@@ -151,6 +151,13 @@ og organisasjonsverv på samme identitet, mens `/organisasjon` kan gruppere de s
 rollene som styrer og tidslinjer uten å kopiere data. Sesonger og kamper peker direkte
 på historiske publikasjoner med `sourceRef`; kildesiden viser koblingen tilbake.
 
+Historiske observasjoner ligger som egne kanoniske YAML-filer direkte i
+`data/observations/`, atskilt fra leverandørenes maskinelle råobservasjoner i
+undermapper. De bygges til `core_historical_observations` og normaliserte
+relasjonstabeller for personer, sesonger, kamper og konkurranser. Dermed kan samme
+kildeførte hendelse vises flere steder uten å kopieres. Det offentlige viewet
+`historical_observations` gjør funnene tilgjengelige for søk og spørringer.
+
 Organisasjonsenheter og samtidige organisasjonsbilder ligger i
 `data/organizations/` og `data/organization/snapshots/`. De bygges til
 `core_organizations`, `core_organization_snapshot_people`, `organizations` og

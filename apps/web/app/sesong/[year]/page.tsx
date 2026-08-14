@@ -21,6 +21,10 @@ import type { SourceResult } from "@/lib/archive";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
 import { pageMetadata, seasonDescription, seasonTitle } from "@/lib/metadata";
+import { SourceChips } from "@/components/SourceChips";
+import { HistoricalObservations } from "@/components/HistoricalObservations";
+import { getSeasonObservations, getSeasonSources } from "@/lib/historical-observations";
+import { getSourceTitles } from "@/lib/people";
 
 export function generateStaticParams(): { year: string }[] {
   return loadSeasonYears().map((entry) => ({ year: String(entry.year) }));
@@ -54,6 +58,9 @@ export default async function SeasonPage({ params }: Props) {
   const gaps = loadSeasonGaps(year);
   const squad = loadSquad(year);
   const contributions = loadContributions(year.toString(), "season");
+  const observations = getSeasonObservations(year);
+  const seasonSources = getSeasonSources(year);
+  const sourceTitles = getSourceTitles();
 
   return (
     <>
@@ -75,6 +82,15 @@ export default async function SeasonPage({ params }: Props) {
             hva som faktisk mangler først, og knappen er svaret på den setningen. */}
         {lead && <div style={{ marginTop: "1rem" }}><SeasonGaps year={year} gaps={gaps} /></div>}
       </header>
+
+      <HistoricalObservations observations={observations} titles={sourceTitles} />
+
+      {seasonSources.length > 0 ? (
+        <section className="content-section">
+          <h2>Kilder til sesongen</h2>
+          <SourceChips refs={seasonSources} titles={sourceTitles} />
+        </section>
+      ) : null}
 
       {/* Én seksjon per konkurranse, hver med sine egne tall over sine egne kamper.
           Tidligere sto ett tallsett øverst som bare gjaldt serien, over en liste som

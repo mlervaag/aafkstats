@@ -14,6 +14,7 @@ import {
   getSourceRoleUsages,
   getSourceSeasonUsages,
   getSourceResultUsages,
+  getSourceObservationUsages,
 } from "@/lib/sources";
 import { pageMetadata, sourceDescription } from "@/lib/metadata";
 import { formatDateShort } from "@/lib/date";
@@ -72,6 +73,7 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
   const roleUsages = getSourceRoleUsages(id);
   const seasonUsages = getSourceSeasonUsages(id);
   const resultUsages = getSourceResultUsages(id);
+  const observationUsages = getSourceObservationUsages(id);
   // Visningsnavnet på en leverandør står i providerfila. Kildesiden hadde
   // «Nasjonalbiblioteket» hardkodet, og alle andre leverandører sto med sin ID.
   const providerNames = getProviderNames();
@@ -274,6 +276,23 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
                   <span className="match-date num">{season.season}</span>
                   <span className="match-opponent">{season.competition}</span>
                   <span className="match-meta muted">{season.page ? `Side ${season.page}` : "Sesongkilde"}{season.note ? ` · ${season.note}` : ""}</span>
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+
+      {observationUsages.length > 0 && (
+        <section className={styles.section}>
+          <h2>Historiske observasjoner dokumentert av kilden ({observationUsages.length})</h2>
+          <ol className="archive-match-list">
+            {observationUsages.map((observation) => (
+              <li key={observation.id}>
+                <Link href={observation.url ?? `/kilder/${id}`}>
+                  <span className="match-date num">{observation.date ?? "Udatert"}</span>
+                  <span className="match-opponent">{observation.title}</span>
+                  <span className="match-meta muted">{observation.page ? `Side ${observation.page}` : "Kildehenvisning"}</span>
                 </Link>
               </li>
             ))}

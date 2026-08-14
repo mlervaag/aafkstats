@@ -19,6 +19,8 @@ import { ContributionButton } from "@/components/ContributionButton";
 import { Contributions } from "@/components/Contributions";
 import { SourceChips, collapseSources, pageList } from "@/components/SourceChips";
 import styles from "../People.module.css";
+import { HistoricalObservations } from "@/components/HistoricalObservations";
+import { getPersonObservations } from "@/lib/historical-observations";
 
 const POSITION_LABELS: Record<string, string> = { keeper: "Keeper", forsvar: "Forsvar", midtbane: "Midtbane", angrep: "Angrep" };
 
@@ -119,6 +121,7 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
   const seasons = getPersonSeasons(id);
   const sourceTitles = getSourceTitles();
   const contributions = loadContributions(id, "person");
+  const observations = getPersonObservations(id);
   const initials = person.name.split(/\s+/).slice(0, 2).map((part) => part[0]).join("");
   const played = person.appearances > 0;
   const missingMatchLinks = person.position !== null && !played;
@@ -126,7 +129,7 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
     ? ` i stallister fra ${seasons.at(-1)!.season} til ${seasons[0]!.season}`
     : "";
   const noLinkedContent = roles.length === 0 && seasons.length === 0 &&
-    person.mentions.length === 0 && person.conflicts.length === 0;
+    person.mentions.length === 0 && person.conflicts.length === 0 && observations.length === 0;
 
   return (
     <article>
@@ -199,6 +202,8 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
             </section>
           ) : null}
 
+          <HistoricalObservations observations={observations} titles={sourceTitles} className={styles.section} />
+
           {seasons.length > 0 ? (
             <section className={styles.section}>
               <h2>Registrerte sesonger</h2>
@@ -234,6 +239,7 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
               <div><dt>Stallister</dt><dd>{seasons.length} {seasons.length === 1 ? "sesong" : "sesonger"}</dd></div>
             ) : null}
             {person.role_count > 0 ? <div><dt>Kildeførte roller</dt><dd>{person.role_count}</dd></div> : null}
+            {observations.length > 0 ? <div><dt>Historiske observasjoner</dt><dd>{observations.length}</dd></div> : null}
             {person.mentions.length > 0 ? (
               <div><dt>Omtalt i</dt><dd>{person.mentions.length} {person.mentions.length === 1 ? "publikasjon" : "publikasjoner"}</dd></div>
             ) : null}
