@@ -73,8 +73,9 @@ export default function AboutPage() {
             <p>
               Hver kamp viser hvilken kilde den bygger på, og hvilke felt kilden har levert.
               Dataene kommer fra RSSSF (eldre sesonger), NFF Fotballdata og fotball.no
-              (utvalgte sesonger og tabeller) og FotMob (nyere sesonger med hendelser og
-              kampfakta, og tabellen for sesongen som pågår). FotMob er den eneste som gir
+              (utvalgte sesonger og tabeller), Sunnmøre Fotballkrets (historiske
+              årsrapporter) og FotMob (nyere sesonger med hendelser og kampfakta, og
+              tabellen for sesongen som pågår). FotMob er den eneste som gir
               hendelser og lagoppstillinger, men det er en udokumentert sekundærkilde, og
               vilkårene for systematisk gjenbruk er uavklarte. Spillere og trenere er hentet
               fra Wikipedia og Wikidata.

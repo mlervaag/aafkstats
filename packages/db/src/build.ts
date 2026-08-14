@@ -157,24 +157,6 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
       );
     }
 
-    const insertSourceResult = db.prepare(
-      `INSERT INTO core_source_results
-         (source_id, id, season, source_order, page, opponent, opponent_club_id,
-          aafk_score, opponent_score, competition_id, status, replay,
-          after_extra_time, round, match_id, note)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    );
-    for (const collection of archive.sourceResults) {
-      for (const result of flattenSourceResults(collection)) {
-        insertSourceResult.run(
-          result.sourceId, result.id, result.season, result.order, result.page,
-          result.opponent, result.opponentClubId, result.aafkGoals, result.opponentGoals,
-          result.competitionId, result.status, bool(result.replay), bool(result.extraTime),
-          result.round, result.matchId, result.note ?? null,
-        );
-      }
-    }
-
     const insertExtraction = db.prepare(
       `INSERT INTO core_publication_extractions
          (source_id, provider_id, adapter, retrieved_at, ocr_access, pages_expected, pages_processed, pages_failed, content_hash)
@@ -424,6 +406,27 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
           m.id, m.date, m.competition.season, opponentName, bool(p.isHome),
           p.result, m.report.summary ?? "", m.report.body ?? "",
           m.report.byline ?? "", `/kamp/${m.id}`,
+        );
+      }
+    }
+
+    // Et kilderesultat kan peke på en kanonisk kamp når en annen kilde har
+    // identifisert den sikkert. Kampene må derfor finnes før fremmednøkkelen
+    // skrives; ellers feiler det første kilderesultatet med `matchId` i byggingen.
+    const insertSourceResult = db.prepare(
+      `INSERT INTO core_source_results
+         (source_id, id, season, source_order, page, opponent, opponent_club_id,
+          aafk_score, opponent_score, competition_id, status, replay,
+          after_extra_time, round, match_id, note)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    );
+    for (const collection of archive.sourceResults) {
+      for (const result of flattenSourceResults(collection)) {
+        insertSourceResult.run(
+          result.sourceId, result.id, result.season, result.order, result.page,
+          result.opponent, result.opponentClubId, result.aafkGoals, result.opponentGoals,
+          result.competitionId, result.status, bool(result.replay), bool(result.extraTime),
+          result.round, result.matchId, result.note ?? null,
         );
       }
     }

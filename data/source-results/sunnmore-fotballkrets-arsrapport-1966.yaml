@@ -1,0 +1,43 @@
+sourceId: sunnmore-fotballkrets-arsrapport-1966
+scorePerspective: aafk
+seasons:
+  - year: 1966
+    page: 4
+    results:
+      - no: 1
+        opponent: Åndalsnes
+        opponentClubId: andalsnes
+        score: [7, 1]
+        competitionId: nm
+        round: 1
+        status: played
+        replay: false
+        extraTime: false
+        matchId: null
+        note: >
+          Årsrapporten dokumenterer resultat og cuprunde, men kampen er ikke
+          løftet til kanonisk kamp fordi eksakt dato ikke er avklart.
+      - no: 2
+        opponent: Eid
+        opponentClubId: eid-il
+        score: [3, 2]
+        competitionId: nm
+        round: 2
+        status: played
+        replay: false
+        extraTime: false
+        matchId: null
+        note: >
+          Årsrapporten dokumenterer resultat og cuprunde, men kampen er ikke
+          løftet til kanonisk kamp fordi eksakt dato ikke er avklart.
+      - no: 3
+        opponent: Frigg
+        opponentClubId: frigg
+        score: [1, 2]
+        competitionId: nm
+        round: 3
+        status: played
+        replay: false
+        extraTime: false
+        matchId: 1966-07-31-frigg-aalesunds-fk
+        note: Kampen finnes allerede som kanonisk kamp med dato fra RSSSF.

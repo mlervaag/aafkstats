@@ -1,6 +1,7 @@
 import { beforeAll, describe, expect, it } from "vitest";
 import { resolve } from "node:path";
 import { canonicalClubKey } from "../src/identity.js";
+import { mayFetch, mayPublish } from "../src/entities.js";
 import { crossValidate, loadArchive } from "../src/load.js";
 import type { Archive } from "../src/load.js";
 
@@ -79,6 +80,40 @@ describe("arkivet", () => {
     expect(league.every((match) => match.status === "played")).toBe(true);
     expect([...new Set(league.map((match) => match.competition.round))].sort((a, b) => Number(a) - Number(b)))
       .toEqual(Array.from({ length: 30 }, (_, i) => i + 1));
+  });
+
+  it("fører årsrapport 1966 med kontrollert sesong, tabell og NM-resultater", () => {
+    const provider = archive.providers.find((item) => item.id === "sunnmore-fotballkrets");
+    const series = archive.sources.find((item) => item.id === "sunnmore-fotballkrets-arsrapporter");
+    const report = archive.sources.find((item) => item.id === "sunnmore-fotballkrets-arsrapport-1966");
+    const season = archive.seasons.find((item) => item.year === 1966);
+    const standing = archive.standings.find(
+      (item) => item.competitionId === "andredivisjon" && item.season === 1966,
+    );
+    const results = archive.sourceResults.find(
+      (item) => item.sourceId === "sunnmore-fotballkrets-arsrapport-1966",
+    )?.seasons[0];
+
+    expect(provider).toBeDefined();
+    expect(mayFetch(provider!)).toBe(true);
+    expect(mayPublish(provider!)).toBe(true);
+    expect(series?.sourceType).toBe("series");
+    expect(report).toMatchObject({ sourceType: "annual_report", parentSourceId: series?.id, year: 1966 });
+    expect(season).toMatchObject({ competitionId: "andredivisjon", finalPosition: 3, teamsInLeague: 8 });
+    expect(standing?.table).toHaveLength(8);
+    expect(standing?.table.find((row) => row.clubId === "aalesunds-fk")).toMatchObject({
+      position: 3, played: 14, wins: 8, draws: 2, losses: 4,
+      goalsFor: 29, goalsAgainst: 23, points: 18,
+    });
+    expect(results).toMatchObject({
+      year: 1966,
+      page: 4,
+      results: [
+        expect.objectContaining({ opponentClubId: "andalsnes", score: [7, 1], matchId: null }),
+        expect.objectContaining({ opponentClubId: "eid-il", score: [3, 2], matchId: null }),
+        expect.objectContaining({ opponentClubId: "frigg", score: [1, 2], matchId: "1966-07-31-frigg-aalesunds-fk" }),
+      ],
+    });
   });
 
   it("har personnavn uten wikimarkup", () => {

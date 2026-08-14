@@ -31,6 +31,26 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: sunnmore-fotballkrets
+    url: https://www.fotball.no/globalassets/krets/sunnmore/om-kretsen/arsrapporter/arsrapport-1966.pdf
+    retrievedAt: 2026-08-14
+    fields:
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1966
+    page: "4"
+    fields:
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
 confidence: probable
 conflicts: []
 tags: []
