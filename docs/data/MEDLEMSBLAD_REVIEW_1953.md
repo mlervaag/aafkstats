@@ -17,19 +17,22 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060183302_001`
 | Kategori | Status | Notat |
 |---|---:|---|
 | Sider visuelt kontrollert | 92/92 | Samtlige 6 hefter kontrollert side for side (100 %) |
-| A-lagsresultater vurdert | 26/26 | 16 seire, 6 uavgjort, 4 tap, mål 78–40 |
+| A-lagskamper oppgitt i sesongfasit | 26 | 16 seire, 6 uavgjort, 4 tap, mål 78–40 (s. 66) |
+| Eksplisitte individuelle resultater funnet | 5 | 1 cupkamp (Ørsta 1–4), 2 Aksla-turnering (1–0, 5–4), 1 privatkamp (Langevåg 3–3), 1 seriekamp (Ørsta 3–1) |
+| Kildedokumenterte oppgjør normalisert | 5 | Opprettet i `data/source-results/medlemsblad-for-aalesunds-fotb-1953-3e9d.yaml` |
 | Fixture-kilder vurdert | 2 | Vårterminliste s. 24, Høstterminliste s. 64–65 |
-| Nye canonical | 0 | Seriekamper bevares i source-results uten konstruert dato |
-| Berikede canonical | 0 | Ingen eksisterende 1953-canonical matches |
+| Nye canonical matches | 0 | Seriekamper bevares i source-results uten konstruert dato |
+| Berikede canonical matches | 0 | Ingen eksisterende 1953-canonical matches |
 | Person candidates vurdert | 24/24 | Alle personfunn eksplisitt disponert |
 | Person roles vurdert | 10/10 | Hovedstyre, oppmenn, trenere, banekomité, dameavdeling |
-| Nye personer | 2 | Harald Nord, Trygve Stub |
-| Berikede personer | 10 | Lauritz Giske, Karsten Eriksen, Bernt Sulebust, Harald Sæther, Ragnvald Langva, Finn Tollås, Emil Sandø, Peder Puck, Sigurd Nørve, Anita Wold |
-| Roller opprettet/beriket | 9 | Formann, nestformann, sekretær, kasserer, oppmann, trener, banekomité |
-| Mentions vurdert | 16 | Trygve Olsen, Karsten Nedregård, Reidar Skarbøvik, Svein Grimstad, Asbjørn Korsnes, Jan Larsen, Mindor Sunde, Svein Holand m.fl. |
-| Honors/milepæler | 5 | Gullmerke Emil Sandø (1953), Spillemerke gull (Nedregård, Olsen, Skarbøvik, Haagensen, Hollevik, Korsnes) |
-| Observations | 0 | Forhistorie Kråmyra dokumentert i Banekomiteens årsberetning |
-| Snapshots | 1 | `1953-aafk.yaml` (s. 12, s. 66 og s. 87) |
+| Nye personer opprettet | 2 | Harald Nord, Trygve Stub |
+| Unike eksisterende personfiler beriket | 10 | Lauritz Giske, Karsten Eriksen, Bernt Sulebust, Harald Sæther, Ragnvald Langva, Finn Tollås, Emil Sandø, Peder Puck, Sigurd Nørve, Anita Wold |
+| Personberikelser for årgangen | 10 | 10 roller/personforekomster beriket for 1953 |
+| Personroller opprettet eller beriket | 9 | Formann, nestformann, sekretær, kasserer, oppmann, trener, banekomité |
+| Mentions vurdert eller knyttet | 16 | Trygve Olsen, Karsten Nedregård, Reidar Skarbøvik, Svein Grimstad, Asbjørn Korsnes, Jan Larsen, Mindor Sunde, Svein Holand m.fl. |
+| Honors og milepæler | 5 | Gullmerke Emil Sandø (1953), Spillemerke gull (Nedregård, Olsen, Skarbøvik, Haagensen, Hollevik, Korsnes) |
+| Historical observations | 0 | Forhistorie Kråmyra dokumentert i Banekomiteens årsberetning |
+| Organisasjonssnapshots | 1 | `1953-aafk.yaml` (s. 12, s. 66 og s. 87) |
 | Konflikter løst | 0 | Ingen motstridende kildedata |
 | Konflikter åpne | 0 | Ingen uløste konflikter |
 | Identity uncertain | 0 | Alle sentrale personer entydig identifisert |

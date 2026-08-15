@@ -17,19 +17,22 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060183329_001`
 | Kategori | Status | Notat |
 |---|---:|---|
 | Sider visuelt kontrollert | 88/88 | Samtlige 6 hefter kontrollert side for side (100 %) |
-| A-lagsresultater vurdert | 28/28 | 7 seire, 9 uavgjort, 12 tap, mål 56–75 |
+| A-lagskamper oppgitt i sesongfasit | 28 | 7 seire, 9 uavgjort, 12 tap, mål 56–75 (s. 82) |
+| Eksplisitte individuelle resultater funnet | 1 | NM 1. runde: Hødd–AaFK 2–1 i Ulsteinvik (s. 82) |
+| Kildedokumenterte oppgjør normalisert | 1 | Opprettet i `data/source-results/medlemsblad-for-aalesunds-fotb-1956-3e52.yaml` |
 | Fixture-kilder vurdert | 2 | Vårterminliste s. 19, Høstterminliste s. 77 |
-| Nye canonical | 0 | Seriekamper bevares i source-results uten konstruert dato |
-| Berikede canonical | 0 | Ingen eksisterende 1956-kamper |
+| Nye canonical matches | 0 | Seriekamper bevares i source-results uten konstruert dato |
+| Berikede canonical matches | 0 | Ingen eksisterende 1956-kamper |
 | Person candidates vurdert | 20/20 | Alle personfunn eksplisitt disponert |
 | Person roles vurdert | 7/7 | Hovedstyre, trenere, banekomité |
-| Nye personer | 0 | Ingen uregistrerte nøkkelpersoner |
-| Berikede personer | 6 | Kjell Berentzen, Lauritz Giske, Rolf Annaniassen, Einar Aas, Harald Nord, Finn Tollås |
-| Roller opprettet/beriket | 5 | Formann, nestformann, banekomité, trener, sesongens spiller |
-| Mentions vurdert | 12 | Torid Fladmark, Kjell Iversen, Erling Listhaug, Arthur Johannesen, Josef Skocik m.fl. |
-| Honors/milepæler | 2 | Årets spiller 1956 til Einar Aas (s. 75), Kretsens spillemerker utdelt (s. 83) |
-| Observations | 0 | Kråmyra drift og banekomité dokumentert (s. 64) |
-| Snapshots | 1 | `1956-aafk.yaml` (s. 16, s. 37 og s. 64) |
+| Nye personer opprettet | 0 | Ingen uregistrerte nøkkelpersoner |
+| Unike eksisterende personfiler beriket | 6 | Kjell Berentzen, Lauritz Giske, Rolf Annaniassen, Einar Aas, Harald Nord, Finn Tollås |
+| Personberikelser for årgangen | 6 | 6 roller/personforekomster beriket for 1956 |
+| Personroller opprettet eller beriket | 5 | Formann, nestformann, banekomité, trener, sesongens spiller |
+| Mentions vurdert eller knyttet | 12 | Torid Fladmark, Kjell Iversen, Erling Listhaug, Arthur Johannesen, Josef Skocik m.fl. |
+| Honors og milepæler | 2 | Årets spiller 1956 til Einar Aas (s. 75), Kretsens spillemerker utdelt (s. 83) |
+| Historical observations | 0 | Kråmyra drift og banekomité dokumentert (s. 64) |
+| Organisasjonssnapshots | 1 | `1956-aafk.yaml` (s. 16, s. 37 og s. 64) |
 | Konflikter løst | 0 | Ingen motstridende kildedata |
 | Konflikter åpne | 0 | Ingen uløste konflikter |
 | Identity uncertain | 0 | Alle sentrale personer entydig identifisert |

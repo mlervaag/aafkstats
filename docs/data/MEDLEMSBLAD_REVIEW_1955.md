@@ -17,19 +17,22 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060183315_001`
 | Kategori | Status | Notat |
 |---|---:|---|
 | Sider visuelt kontrollert | 92/92 | Samtlige 6 hefter kontrollert side for side (100 %) |
-| A-lagsresultater vurdert | 1/1 | NM 2. runde: AaFK–Langevåg 0–1 på Aksla Stadion |
+| A-lagskamper oppgitt i sesongfasit | — | Ingen samlet totalfasittabell trykt for 1955 |
+| Eksplisitte individuelle resultater funnet | 1 | NM 2. runde: AaFK–Langevåg 0–1 på Aksla Stadion (s. 29) |
+| Kildedokumenterte oppgjør normalisert | 1 | Opprettet i `data/source-results/medlemsblad-for-aalesunds-fotb-1955-8ccc.yaml` |
 | Fixture-kilder vurdert | 2 | Vårterminliste s. 50, Høstterminliste s. 75 |
-| Nye canonical | 0 | Seriekamper bevares i source-results uten konstruert dato |
-| Berikede canonical | 0 | Ingen eksisterende 1955-kamper |
+| Nye canonical matches | 0 | Seriekamper bevares i source-results uten konstruert dato |
+| Berikede canonical matches | 0 | Ingen eksisterende 1955-kamper |
 | Person candidates vurdert | 22/22 | Alle personfunn eksplisitt disponert |
 | Person roles vurdert | 8/8 | Hovedstyre, oppmenn, trenere, banekomité |
-| Nye personer | 1 | Rasmus Sulebak (tildelt Kruset 1955) |
-| Berikede personer | 8 | Kjell Berentzen, Øivind Haagensen, Jan Larsen, Emil Sandø, Jørgen Hollevik, Sverre Volstad, Trygve Stub, Harald Nord |
-| Roller opprettet/beriket | 6 | Formann, trener, kaptein, banekomité |
-| Mentions vurdert | 14 | Thorbjørn Aarø, Einar Aas, Mindor Sunde, Karsten Meyer, Trygve Olsen, Leif Istad, Kjell Iversen, Sigurd Tafjord, Torid Fladmark m.fl. |
-| Honors/milepæler | 2 | Hedersgaven Kruset til Rasmus Sulebak (s. 82), Jørgen Hollevik 50 år (s. 72) |
-| Observations | 1 | `1955-kramyra-forste-bruk.yaml` (21. august 1955 tas banen i bruk) |
-| Snapshots | 1 | `1955-aafk.yaml` (s. 64) |
+| Nye personer opprettet | 1 | Rasmus Sulebak (tildelt Kruset 1955) |
+| Unike eksisterende personfiler beriket | 8 | Kjell Berentzen, Øivind Haagensen, Jan Larsen, Emil Sandø, Jørgen Hollevik, Sverre Volstad, Trygve Stub, Harald Nord |
+| Personberikelser for årgangen | 8 | 8 roller/personforekomster beriket for 1955 |
+| Personroller opprettet eller beriket | 6 | Formann, trener, kaptein, banekomité |
+| Mentions vurdert eller knyttet | 14 | Thorbjørn Aarø, Einar Aas, Mindor Sunde, Karsten Meyer, Trygve Olsen, Leif Istad, Kjell Iversen, Sigurd Tafjord, Torid Fladmark m.fl. |
+| Honors og milepæler | 2 | Hedersgaven Kruset til Rasmus Sulebak (s. 82), Jørgen Hollevik 50 år (s. 72) |
+| Historical observations | 1 | `1955-kramyra-forste-bruk.yaml` (21. august 1955 tas banen i bruk) |
+| Organisasjonssnapshots | 1 | `1955-aafk.yaml` (s. 64) |
 | Konflikter løst | 0 | Ingen motstridende kildedata |
 | Konflikter åpne | 0 | Ingen uløste konflikter |
 | Identity uncertain | 0 | Alle sentrale personer entydig identifisert |

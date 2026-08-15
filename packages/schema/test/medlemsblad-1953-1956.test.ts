@@ -27,8 +27,8 @@ describe("Medlemsblad 1953–1956 (PR #156)", () => {
     expect(snap1955?.people.find((p) => p.observedTitle === "Formann" && p.body === "Banekomiteen")?.personId).toBe("emil-sando");
     expect(snap1956?.people.find((p) => p.observedTitle === "Formann" && p.body === "Banekomiteen")?.personId).toBe("rolf-annaniassen");
 
-    // Dameavdelingens formann
-    expect(snap1953?.people.find((p) => p.observedTitle === "Formann" && p.body === "Dameavdelingen")?.personId).toBe("anita-wold");
+    // Dameavdelingens formann (valgt nov 1953 for arbeidsåret 1954)
+    expect(snap1953?.people.find((p) => p.observedTitle === "Formann" && p.body === "Dameavdelingen")?.personId).toBeUndefined();
     expect(snap1954?.people.find((p) => p.observedTitle === "Formann" && p.body === "Dameavdelingen")?.personId).toBe("anita-wold");
   });
 

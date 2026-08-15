@@ -11,11 +11,15 @@ Batchen bygger direkte på metodikken etablert i PR #151–#154 og produksjonssi
 | Metrikk | 1953 | 1954 | 1955 | 1956 | Totalt |
 |---|---:|---:|---:|---:|---:|
 | Sider visuelt kontrollert | 92 | 148 | 92 | 88 | **420** |
-| A-lagsresultater vurdert | 26 | 33 | 1 | 28 | **88** |
-| Kildedokumenterte oppgjør | 5 | 1 | 1 | 1 | **8** |
+| A-lagskamper oppgitt i sesongfasit | 26 | 33 | — | 28 | **87** |
+| Eksplisitte individuelle resultater funnet | 5 | 1 | 1 | 1 | **8** |
+| Kildedokumenterte oppgjør normalisert | 5 | 1 | 1 | 1 | **8** |
+| Historiske retrospektive kampfunn vurdert | — | 10 | — | — | **10** |
 | Fixture-kilder vurdert | 2 | 2 | 2 | 2 | **8** |
 | Nye canonical matches | 0 | 0 | 0 | 0 | **0** |
 | Berikede canonical matches | 0 | 1 | 0 | 0 | **1** |
+| Allerede dokumentert i eldre primærkilder | — | 9 | — | — | **9** |
+| Reprint / duplisert jubileumsstoff | — | 10 | — | — | **10** |
 | Nye personer opprettet | 2 | 1 | 1 | 0 | **4** |
 | Unike eksisterende personfiler beriket | - | - | - | - | **22** |
 | Personberikelser per år | 10 | 10 | 8 | 6 | **34** |
@@ -50,7 +54,7 @@ Perioden 1953–1956 var preget av tøff kamp i Landsdelsserien Møre:
 - **Snapshots:** Fire årlige snapshots er opprettet (`1953-aafk.yaml`, `1954-aafk.yaml`, `1955-aafk.yaml`, `1956-aafk.yaml`) med full kildeproveniens.
 
 ### 4. Dameavdelingen
-- Anita Wold (Anita Olsen-Vold) ble valgt som formann i Dameavdelingen på årsmøtet i november 1953 for arbeidsåret 1954.
+- Anita Wold (Anita Olsen-Vold) ble valgt som formann i Dameavdelingen på årsmøtet 29. november 1953 for arbeidsåret 1954.
 - Dameavdelingen la ned et uvurderlig arbeid for klubben gjennom basarer, tombolaer i Torghallen og økonomiske bidrag øremerket Kråmyra-anlegget.
 
 ### 5. Spillerstammen, karrieretall og hedersbevisninger
@@ -59,7 +63,7 @@ Perioden 1953–1956 var preget av tøff kamp i Landsdelsserien Møre:
   - Trygve Olsen hadde 226 kamper og var klubbens toppscorer i 1953 med 17 mål.
   - Edvin Løvold (220 kamper), Reidar Skarbøvik (203 kamper), Øivind Haagensen (200 kamper), Jørgen Hollevik (200 kamper), Konrad Korsnes (200 kamper) og Lauritz Gaaseide (192 kamper).
 - **Årets spiller:** Målvaktkjempen Einar Aas ble kåret til «Sesongens spiller» i 1956 (og senere i 1957).
-- **Gullmerker:** Emil Sandø ble tildelt gullmerket i 1953 for sin formidable innsats som formann i Banekomiteen. Tidligere gullmerker til Rasmus Eck-Olsen (1924), Andreas B. Ringdal (1927) og Konrad Korsnes (1935) ble dokumentert og verifisert i 40-årsjubileumsheftet i 1954.
+- **Gullmerker:** Emil Sandø ble tildelt gullmerket i 1953 for sin formidable innsats som formann i Banekomiteen. Tidligere gullmerker til Rasmus Eck-Olsen (1924), Andreas Ringdal (1927) og Konrad Korsnes (1935) ble dokumentert og verifisert i 40-årsjubileumsheftet i 1954.
 - **Kruset:** Rasmus Sulebak (91 A-kamper) ble tildelt klubbens hedersgave Kruset i 1955.
 
 ### 6. Kråmyra og anleggsutvikling (forhistorien til 1957/1960)
@@ -69,8 +73,10 @@ Perioden 1953–1956 var preget av tøff kamp i Landsdelsserien Møre:
 - **1955 (Observasjon):** Søndag 21. august 1955 ble banens første byggetrinn fullført, og Kråmyra treningsbane ble tatt i bruk til trening og kamper for første gang (`1955-kramyra-forste-bruk.yaml`).
 - **1956:** Rolf Annaniassen overtok som formann for Banekomiteen foran neste byggetrinn.
 
-### 7. Historiske tilbakeblikk og 40-årsjubileet 1954
-I 1954 feiret klubben 40 år (25. juni 1914–1954). Både det ordinære medlemsbladet og det spesielle jubileumsheftet dokumenterte klubbens sportslige og organisatoriske høydepunkter fra 1914 til 1954, inkludert kretsmesterskap, Paiva-pokalen og cupbragder mot landsdelens og landets fremste lag.
+### 7. Retrospektiv kamp-reconciliation og 40-årsjubileet 1954
+I 1954 feiret klubben 40 år (25. juni 1914–1954). Både det ordinære hefte 6 og det separate 40-årsjubileumsheftet dokumenterte klubbens sportslige høydepunkter fra 1914 til 1954 (delvis som identisk reprint).
+- Samtlige 10 historiske kampreferanser fra 1915–1939 er avstemt mot eksisterende primærkilder (25-årsboken fra 1939 og NFF Årbøker) som `already_documented / duplicate_publication`.
+- NM 3. runde 1954 (Freidig–AaFK 3–1) er beriket som kanonisk kamp.
 
 ---
 
