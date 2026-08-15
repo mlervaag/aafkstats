@@ -1123,7 +1123,7 @@ CREATE INDEX source_results_match_idx ON core_source_results(match_id);
 CREATE TABLE core_fact_candidates (
   source_id  TEXT NOT NULL REFERENCES core_publication_extractions(source_id) ON DELETE CASCADE,
   id         TEXT NOT NULL,
-  kind       TEXT NOT NULL CHECK (kind IN ('person_mention','person_role','match_result','lineup_or_squad','organization','season_fact')),
+  kind       TEXT NOT NULL CHECK (kind IN ('person_mention','person_role','match_result','lineup_or_squad','organization','season_fact','fixture_list')),
   page       TEXT NOT NULL,
   confidence TEXT NOT NULL CHECK (confidence IN ('high','medium','low')),
   keywords   TEXT NOT NULL DEFAULT '[]',

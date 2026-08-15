@@ -3,6 +3,7 @@ name: Thorid Fladmark
 names:
   - Thor Fladmark
   - Thori Fladmark
+  - Torid Fladmark
 roles:
   - id: formann-1983-1984
     category: board
@@ -36,9 +37,22 @@ roles:
           - from
           - to
         note: Kilden oppgir navnet som Thori Fladmark. Manuelt verifisert.
+  - id: juniorstatuett-1957
+    category: honorary
+    title: Klubbens statuett for juniorspillere
+    from: "1957"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+        page: "69"
+        fields:
+          - title
+          - from
+    note: Tildelt hedersstatuetten for beste junior på årsfesten 1957.
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "27"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
       Manuelt verifisert.
+position: angrep

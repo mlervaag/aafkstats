@@ -20,6 +20,20 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
+      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+        page: "66"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+        page: "7"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+        page: "54"
+        fields:
+          - title
   - id: oppmann-1959
     category: sporting_staff
     title: Oppmann
@@ -37,6 +51,11 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
+      - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+        page: "7"
+        fields:
+          - title
+          - from
   - id: oppmann-1960
     category: sporting_staff
     title: Oppmann
@@ -54,6 +73,11 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
+      - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+        page: "7"
+        fields:
+          - title
+          - from
   - id: oppmann-1965
     category: sporting_staff
     title: Oppmann

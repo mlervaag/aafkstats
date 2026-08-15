@@ -1,0 +1,26 @@
+id: knut-hoyer
+name: Knut Høyer
+roles:
+  - id: sekretaer-1959-1960
+    category: administration
+    title: Sekretær
+    body: Hovedstyret
+    from: "1959"
+    to: "1960"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+        page: "64"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+        page: "7"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+        page: "7"
+        fields:
+          - title
+          - to
+    note: Sekretær i Hovedstyret for arbeidsårene 1959 og 1960.

@@ -1,0 +1,60 @@
+id: 1957-07-28-aalesunds-fk-westbahn-linz
+date: 1957-07-28
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1957
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: westbahn-linz
+  score: 1
+  halfTimeScore: 0
+neutralVenue: false
+venueId: aksla-stadion
+attendance: 2500
+lineups:
+  home:
+    starters:
+      - Einar Aas
+      - Karsten Vadseth
+      - Thorbjørn Aarø
+      - Asbjørn Korsnes
+      - Asbjørn Rutgerson
+      - Mindor Sunde
+      - Jarle Kristoffersen
+      - Torid Fladmark
+      - Kjell Iversen
+      - Jan Larsen
+      - Arne Finsnes
+externalReports: []
+providers: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: "38"
+    fields:
+      - date
+      - venueId
+      - attendance
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - lineups.home.starters
+    note: "Kampreferat fra internasjonal privatkamp på Aksla stadion: ÅFK–ESV Westbahn Linz (Østerrike) 0–1 (0–0), 2 500 tilskuere."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: "44"
+    fields:
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: "Sesongstatistikk og kampoversikt for 1957."
+confidence: confirmed
+conflicts: []

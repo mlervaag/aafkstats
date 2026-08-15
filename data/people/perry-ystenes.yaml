@@ -1,23 +1,35 @@
 id: perry-ystenes
 name: Perry Ystenes
 roles:
-  - {
-      id: gullmerkeinnehaver-1984,
-      category: honorary,
-      title: Gullmerkeinnehaver,
-      from: "1984",
-      to: null,
-      sources:
-        [
-          { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] },
-          {
-              sourceId: tango-siden-1914-2013-806b,
-              page: "350",
-              fields: [ title, from ],
-              note: Manuelt verifisert.
-            }
-        ]
-    }
+  - id: gullmerkeinnehaver-1984
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1984"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
+      - sourceId: tango-siden-1914-2013-806b
+        page: "350"
+        fields:
+          - title
+          - from
+        note: Manuelt verifisert.
+  - id: tinnvase-kramyra-1960
+    category: honorary
+    title: Hedret med tinnvase for Kråmyra-anlegget
+    from: "1960"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+        page: "63"
+        fields:
+          - title
+          - from
+    note: Overrakt tinnvase for formidabel 5-års innsats som leder av banekomiteen
+      på Kråmyra.
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "28"

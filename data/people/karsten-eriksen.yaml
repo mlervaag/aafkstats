@@ -77,24 +77,28 @@ roles:
         note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
       siden.
-  - {
-      id: gullmerkeinnehaver-1957,
-      category: honorary,
-      title: Gullmerkeinnehaver,
-      from: "1957",
-      to: null,
-      sources:
-        [
-          { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] },
-          {
-              sourceId: tango-siden-1914-2013-806b,
-              page: "350",
-              fields: [ title, from ],
-              note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt
-                verifisert."
-            }
-        ]
-    }
+  - id: gullmerkeinnehaver-1957
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1957"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
+      - sourceId: tango-siden-1914-2013-806b
+        page: "350"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt
+          verifisert."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+        page: "81"
+        fields:
+          - title
+          - from
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "2"

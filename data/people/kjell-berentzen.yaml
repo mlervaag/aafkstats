@@ -19,13 +19,15 @@ roles:
           - title
           - from
           - to
-        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt verifisert."
+        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt
+          verifisert."
       - sourceId: vi-er-75-ar-1989-aff6
         page: "8"
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt verifisert."
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt
+          verifisert."
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
@@ -33,20 +35,21 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
-  - id: formann-1960-1961
+  - id: formann-1961
     category: board
     title: Formann
     body: Hovedstyret
-    from: "1960"
+    from: "1961"
     to: "1961"
     sources:
       - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
-        page: "7"
+        page: "63"
       - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
         page: "7"
       - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
         page: "59"
-    note: Formann i 1960 og 1961. Ledet klubbhusbyggingen på Kråmyra og takket av på årsmøtet 26. november 1961.
+    note: Valgt på årsmøtet 25. november 1960 for arbeidsåret 1961. Ledet
+      klubbhusbyggingen på Kråmyra og takket av på årsmøtet 26. november 1961.
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "55"
@@ -55,7 +58,8 @@ sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "27"
     fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret. Manuelt verifisert.
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+      Manuelt verifisert.
   - sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
     page: "3"
     fields: []
@@ -155,7 +159,8 @@ sources:
   - sourceId: vi-er-75-ar-1989-aff6
     page: "8"
     fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret. Manuelt verifisert.
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+      Manuelt verifisert.
   - sourceId: vi-er-80-ar-1914-1994-1994-5e91
     page: "7"
     fields: []
@@ -177,6 +182,7 @@ conflicts:
     locked: true
     note: Kildene oppgir ulike navn for dette vervet. Ingen av dem er valgt.
     chosen: Hans J. Henriksen
-    reason: Samtidig medlemsblad 1961 s. 59 og 1962 s. 5, 62 bekrefter at Hans J. Henriksen ble valgt til formann 26. november 1961 og ledet klubben i 1962.
+    reason: Samtidig medlemsblad 1961 s. 59 og 1962 s. 5, 62 bekrefter at Hans J.
+      Henriksen ble valgt til formann 26. november 1961 og ledet klubben i 1962.
     chosenProviderId: aafk-no
     decidedAt: 2026-08-15

@@ -16,8 +16,10 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: year_row). Manuelt verifisert."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+        note: "Lest maskinelt fra spalte 1 på siden (regel: year_row). Manuelt
+          verifisert."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: kaptein-1961-1962
     category: player
     title: Lagkaptein
@@ -39,7 +41,8 @@ roles:
         page: "63"
       - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
         page: "81"
-    note: Tildelt gravert sølvfat etter å ha rundet 300 kamper i 1962 (304 A-kamper ved sesongslutt).
+    note: Tildelt gravert sølvfat etter å ha rundet 300 kamper i 1962 (304 A-kamper
+      ved sesongslutt).
   - id: trener-1964
     category: coach
     title: Trener
@@ -51,8 +54,10 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: year_row). Manuelt verifisert."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+        note: "Lest maskinelt fra spalte 1 på siden (regel: year_row). Manuelt
+          verifisert."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: trener-1965
     category: coach
     title: Trener
@@ -64,8 +69,10 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: year_row). Manuelt verifisert."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+        note: "Lest maskinelt fra spalte 1 på siden (regel: year_row). Manuelt
+          verifisert."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: gullmerkeinnehaver-1987
     category: honorary
     title: Gullmerkeinnehaver
@@ -82,6 +89,41 @@ roles:
           - title
           - from
         note: Manuelt verifisert.
+  - id: seniorstatuett-1957
+    category: honorary
+    title: Klubbens statuett for seniorspillere
+    from: "1957"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+        page: "69"
+        fields:
+          - title
+          - from
+  - id: spillemerke-solv-1957
+    category: honorary
+    title: Spillemerket i sølv (162 A-kamper)
+    from: "1957"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+        page: "71"
+        fields:
+          - title
+          - from
+  - id: spillemerke-gull-1959
+    category: honorary
+    title: Spillemerket i gull (200 A-kamper)
+    from: "1959"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+        page: "64"
+        fields:
+          - title
+          - from
+    note: Tildelt spillemerket i gull på årsmøtet november 1959 etter å ha passert
+      200 A-lagskamper for AaFK.
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
     page: "44"
@@ -103,6 +145,8 @@ sources:
     page: "7"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+    page: "80"
 coachSpells:
   - fromSeason: 1961
     toSeason: 1961

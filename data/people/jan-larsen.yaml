@@ -1,22 +1,40 @@
 id: jan-larsen
 name: Jan Larsen
 roles:
-  [
-    {
-        id: trener-1958-1959,
-        category: coach,
-        title: Trener,
-        from: "1958",
-        to: "1959",
-        sources:
-          [
-            {
-                sourceId: tango-siden-1914-2013-806b,
-                page: "351",
-                fields: [ title, from, to ],
-                note: Manuelt verifisert.
-              }
-          ]
-      }
-  ]
-coachSpells: [ { fromSeason: 1958, toSeason: 1959 } ]
+  - id: trener-1958-1959
+    category: coach
+    title: Trener
+    from: "1958"
+    to: "1959"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+        page: "16"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+        page: "16"
+        fields:
+          - title
+      - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+        page: "60"
+        fields:
+          - title
+          - to
+      - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+        page: "67"
+        fields:
+          - title
+      - sourceId: tango-siden-1914-2013-806b
+        page: "351"
+        fields:
+          - title
+          - from
+          - to
+        note: Manuelt verifisert.
+coachSpells:
+  - fromSeason: 1958
+    toSeason: 1959
+position: angrep
+note: Spilte 145 kamper for AaFK og ledet laget som spillende trener i 1958 og
+  1959 før han flyttet til Bergen.

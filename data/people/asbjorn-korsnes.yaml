@@ -4,34 +4,21 @@ roles:
   - id: nestformann-1957
     category: board
     title: Nestformann
-    body: Dommerkomiteen
+    body: Hovedstyret
     from: "1957"
-    to: null
+    to: "1958"
     sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+        page: "7"
+        fields:
+          - title
+          - from
       - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
-        page: "12"
+        page: "7"
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
-      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
-        page: "48"
-        fields:
-          - title
-          - from
-        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
-      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
-        page: "12"
-        fields:
-          - title
-          - from
-        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
-      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
-        page: "24"
-        fields:
-          - title
-          - from
-        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
+          - to
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
       siden.
   - id: gullmerkeinnehaver-1976
@@ -94,6 +81,18 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
+  - id: spillemerke-solv-150-kamper
+    category: honorary
+    title: Spillemerket i sølv (150 A-kamper)
+    from: "1957"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+        page: "70"
+        fields:
+          - title
+          - from
+    note: Tildelt spillemerket i sølv for 150 kamper på A-laget på årsfesten 1957.
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "27"

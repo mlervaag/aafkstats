@@ -37,6 +37,11 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
+      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+        page: "7"
+        fields:
+          - title
+          - from
   - id: forbundsdommer-1961
     category: honorary
     title: Autorisert forbundsdommer (NFF)

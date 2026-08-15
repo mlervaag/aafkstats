@@ -9,9 +9,22 @@ roles:
     sources:
       - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
         page: "81"
+  - id: brusdal-statuetten-1960
+    category: honorary
+    title: Martin Brusdal-statuetten
+    from: "1960"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+        page: "75"
+        fields:
+          - title
+          - from
+    note: Tildelt Martin Brusdal-statuetten for seniorspillere på årsfesten 1960
+      (spilte 31 av 33 kamper).
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
     page: "77"
   - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
     page: "78"
-position: midtbane
+position: forsvar

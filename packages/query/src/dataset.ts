@@ -679,7 +679,7 @@ export const views: ViewDoc[] = [
     columns: [
       { name: "source_id", type: "text", description: "Publikasjonen kandidaten kommer fra." },
       { name: "id", type: "text", description: "Deterministisk kandidat-ID." },
-      { name: "kind", type: "text", description: "person_mention, person_role, match_result, lineup_or_squad, organization eller season_fact." },
+      { name: "kind", type: "text", description: "person_mention, person_role, match_result, lineup_or_squad, organization, season_fact eller fixture_list." },
       { name: "page", type: "text", description: "Sidelabel i publikasjonen." },
       { name: "confidence", type: "text", description: "high, medium eller low for det maskinelle treffet." },
       { name: "keywords", type: "JSON", description: "Faktabærende nøkkelord som utløste treffet." },
