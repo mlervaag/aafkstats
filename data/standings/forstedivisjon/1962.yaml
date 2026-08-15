@@ -22,7 +22,7 @@ table:
     goalsFor: 65
     goalsAgainst: 31
     points: 30
-    outcome: none
+    outcome: relegated
   - position: 3
     name: Hødd
     clubId: hodd
@@ -33,7 +33,7 @@ table:
     goalsFor: 66
     goalsAgainst: 30
     points: 29
-    outcome: none
+    outcome: relegated
   - position: 4
     name: Molde Fk.
     clubId: molde-fk
@@ -44,7 +44,7 @@ table:
     goalsFor: 42
     goalsAgainst: 51
     points: 19
-    outcome: none
+    outcome: relegated
   - position: 5
     name: KFK
     clubId: kfk
@@ -55,7 +55,7 @@ table:
     goalsFor: 39
     goalsAgainst: 43
     points: 18
-    outcome: none
+    outcome: relegated
   - position: 6
     name: CFK
     clubId: clausenengen
@@ -66,7 +66,7 @@ table:
     goalsFor: 34
     goalsAgainst: 50
     points: 14
-    outcome: none
+    outcome: relegated
   - position: 7
     name: Braatt
     clubId: braatt
@@ -97,11 +97,11 @@ providers:
     fields:
       - table
   - providerId: rsssf
-    url: https://www.rsssf.no
+    url: https://www.rsssf.no/1962/Landsdel.html
     retrievedAt: 2026-08-15
     fields:
       - table
-    note: Kontrollkilde for målstatistikk i 1961/62.
+    note: Kontrollkilde for målstatistikk og nedrykk ved serieomleggingen i 1961/62.
 sources:
   - sourceId: sunnmore-fotballkrets-arsrapport-1962
     page: "8"
@@ -109,4 +109,6 @@ sources:
       - table
 note: >
   Landsdelsserien Møre 1961/62 («Maratonserien», 21 kamper). Sunnmøre Fotballkrets
-  oppgir kamper, seier, uavgjort, tap og poeng; RSSSF supplerer målkolonnen.
+  oppgir kamper, seier, uavgjort, tap og poeng; RSSSF supplerer målkolonnen. Ved den store
+  serieomleggingen etter 1961/62 rykket lag 2–7 ned til nye 3. divisjon, mens Skarbøvik rykket
+  ned to nivåer til 4. divisjon.

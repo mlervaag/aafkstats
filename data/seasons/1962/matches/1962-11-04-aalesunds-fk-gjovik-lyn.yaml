@@ -1,0 +1,50 @@
+id: 1962-11-04-aalesunds-fk-gjovik-lyn
+date: 1962-11-04
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1962
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: gjovik-lyn
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: rsssf
+    url: http://www.rsssf.no/1962/Landsdel.html
+    retrievedAt: 2026-08-15
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+  - providerId: sunnmore-fotballkrets
+    url: https://www.fotball.no/globalassets/krets/sunnmore/om-kretsen/arsrapporter/arsrapport-1962.pdf
+    retrievedAt: 2026-08-15
+    fields: &a1
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  rsssf: 1962-landsdel-1962-11-04-aalesunds-fk-gjovik-lyn
+manual: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1962
+    page: "10"
+    fields: *a1

@@ -19,8 +19,8 @@ egne, senere løp.
 - 11 relevante weak-only-/manuelt oppdagede sider er kontrollert i tillegg.
 - Ni nye/oppdaterte hovedseriesesonger (1960–1965, 1967–1969) og ni komplette sluttabeller er normalisert.
 - 1966 (golden case) er verifisert mot originalrapporten uten duplisering.
-- 38 seniorresultater som ikke kan løftes direkte til nye kanoniske kamper er registrert i `data/source-results/`.
-- 12 eksisterende kanoniske kamper (NM, kvalifisering og opprykk) er beriket med SFK-proveniens.
+- 39 nye seniorresultater (kildepåstander) registrert i `data/source-results/`, hvorav 13 er koblet til kanoniske kamper og 26 gjenstår uten kampkobling.
+- 13 kanoniske kamper (NM, kvalifisering og opprykk, inkludert returoppgjøret mot Gjøvik-Lyn 04.11.1962) er dokumentert og beriket med SFK-proveniens.
 - Ingen usikker kampdato er konstruert eller antatt; eksakte SFK-datoer er registrert strukturert der kilden oppgir dem.
 
 ## Kontrollpunkter
@@ -57,7 +57,7 @@ egne, senere løp.
 | 1962 | sunnmore-fotballkrets-arsrapport-1962 | 6 | kandidat | NM | reviewed | source_result | 1. runde NM: AaFK–Måløy 2–1 uten sikker dato; By/Bygd og kretslag utsatt. |
 | 1962 | sunnmore-fotballkrets-arsrapport-1962 | 7 | kandidat | NM | reviewed | existing_match_enriched | NM-kamper mot Freidig, Nidelv og Brann lagret; tre eksisterende kamper beriket. |
 | 1962 | sunnmore-fotballkrets-arsrapport-1962 | 8 | kandidat | serie, sluttabell | reviewed | standing | Full Landsdelsserietabell 1961/62 (maratonserien); AaFK nr. 1 og landsdelsmester. |
-| 1962 | sunnmore-fotballkrets-arsrapport-1962 | 10 | kandidat | kvalifisering, opprykk | reviewed | existing_match_enriched | Kvalifiseringskamper mot Kvik og Gjøvik-Lyn; eksisterende kamper beriket og returoppgjør lagret. |
+| 1962 | sunnmore-fotballkrets-arsrapport-1962 | 10 | kandidat | kvalifisering, opprykk | reviewed | existing_match_enriched | Kvalifiseringskamper mot Kvik og Gjøvik-Lyn (begge kamper) lagret og beriket. |
 | 1962 | sunnmore-fotballkrets-arsrapport-1962 | 12 | kandidat | dommere, verv | reviewed | person_candidate | Dommerkomite og autorisasjoner; utsatt. |
 | 1963 | sunnmore-fotballkrets-arsrapport-1963 | 3 | kandidat | administrasjon, personer, verv | reviewed | person_candidate | Kretsting, styre og komiteer; utsatt. |
 | 1963 | sunnmore-fotballkrets-arsrapport-1963 | 4 | kandidat | personer, kurs | reviewed | person_candidate | Trenerkurs og instruksjonsarbeid; utsatt. |
@@ -120,3 +120,6 @@ egne, senere løp.
   tap og poeng for «Maratonserien», men har ingen målkolonne for denne tabellen.
 - **1963 (2. divisjon avd. B):** SFKs trykte målsummer har en samlet differanse på 5 mål
   (212 scorede mot 207 innslupne mål fordelt over 8 lag). SFKs eksplisitt trykte tall er beholdt.
+- **1965 (3. divisjon Møre):** SFK trykker på side 4 Åndalsnes 14–34 og N.Gossen 16–50, mens
+  RSSSF oppgir henholdsvis 15–35 og 17–51. SFKs tall er beholdt som primærkilde da SFK-tabellen
+  balanserer internt (234 scorede mot 234 innslupne mål).
