@@ -288,7 +288,13 @@ export function altoLines(xml: string): string[] {
     .join(" ")
     .replace(/\s+/g, " ")
     .trim())
-    .filter(Boolean);
+    .filter((line) => {
+      if (!line) return false;
+      const letters = (line.match(/[a-zA-ZæøåÆØÅ0-9]/g) || []).length;
+      if (letters < 2) return false;
+      if (letters / line.length < 0.35 && line.length > 10) return false;
+      return true;
+    });
 }
 
 export function candidatesForPage(archive: Archive, source: Source, page: string, lines: string[]): FactCandidate[] {
@@ -315,7 +321,7 @@ export function candidatesForPage(archive: Archive, source: Source, page: string
   for (const line of windows) {
     const normalized = normalize(line);
     const years = [...line.matchAll(/\b(19\d{2}|20\d{2})\b/g)].map((match) => Number(match[1])).filter((year) => year >= 1914 && year <= 2100);
-    const scores = [...line.matchAll(/\b(\d{1,2})\s*[-–—:]\s*(\d{1,2})\b/g)].map((match) => `${Number(match[1])}-${Number(match[2])}`);
+    const scores = [...line.matchAll(/\b(\d{1,2})\s*(?:[-–—]|\s:\s)\s*(\d{1,2})\b/g)].map((match) => `${Number(match[1])}-${Number(match[2])}`);
     const people = knownPeople.filter((person) => person.forms.some((form) => containsPhrase(normalized, form)));
     const roles = roleTerms.filter((term) => containsPhrase(normalized, normalize(term)));
     const lineup = lineupTerms.filter((term) => containsPhrase(normalized, normalize(term)));

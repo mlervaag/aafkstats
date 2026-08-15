@@ -34,12 +34,12 @@ providers:
   - providerId: sunnmore-fotballkrets
     url: https://www.fotball.no/globalassets/krets/sunnmore/om-kretsen/arsrapporter/arsrapport-1961.pdf
     retrievedAt: 2026-08-15
-    fields: &a1
+    fields:
       - competition
       - competition.round
       - home.clubId
       - away.clubId
-confidence: probable
+confidence: confirmed
 conflicts: []
 tags: []
 aliases:
@@ -48,4 +48,19 @@ manual: []
 sources:
   - sourceId: sunnmore-fotballkrets-arsrapport-1961
     page: "6"
-    fields: *a1
+    fields:
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: "44"
+    fields:
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: "Medlemsbladet (hefte 5 s. 44) bekrefter 0–1 nederlag i NM 3. runde mot fjorårets norgesmester Rosenborg i Trondheim."

@@ -195,4 +195,53 @@ describe("NB-publikasjonsuttrekk", () => {
     // uniqueCandidates fjerner duplikater fra overappende vinduer
     expect(einarMentions).toHaveLength(1);
   });
+
+  it("klokkeslett og repeterte kolon-sekvenser forårsaker ikke falske match_result-kandidater", () => {
+    const archive = { people: [], matches: [], clubs: [] } as unknown as Archive;
+    const source = {
+      id: "medlemsblad-1961",
+      title: "Medlemsblad 1961",
+      sourceType: "member_magazine",
+      year: 1961,
+      providers: [],
+    } satisfies Source;
+
+    const candidates = candidatesForPage(archive, source, "4", [
+      "Trening i gymnastikksalen hver torsdag fra kl. 17 til 19:00",
+      "Støyblokk: 5:5:5:2:3:5",
+    ]);
+
+    const matchResults = candidates.filter((c) => c.kind === "match_result");
+    expect(matchResults).toHaveLength(0);
+  });
+
+  it("gjenkjenner internasjonal privatkamp mot Canto do Rio på Aksla stadion", () => {
+    const archive = {
+      people: [],
+      matches: [
+        {
+          id: "1961-07-06-aalesunds-fk-canto-do-rio",
+          competition: { season: 1961, id: "treningskamp" },
+          home: { clubId: "aalesunds-fk", score: 0 },
+          away: { clubId: "canto-do-rio", score: 5 },
+        },
+      ] as unknown as Match[],
+      clubs: [{ id: "canto-do-rio", name: "Canto do Rio Football Club", shortName: "Canto do Rio", names: [] }],
+    } as unknown as Archive;
+    const source = {
+      id: "medlemsblad-1961",
+      title: "Medlemsblad 1961",
+      sourceType: "member_magazine",
+      year: 1961,
+      providers: [],
+    } satisfies Source;
+
+    const candidates = candidatesForPage(archive, source, "31", [
+      "Aksla Stadion 6. juli: Canto do Rio mot ÅFK 5–0",
+    ]);
+
+    const matchResult = candidates.find((c) => c.kind === "match_result");
+    expect(matchResult).toBeDefined();
+    expect(matchResult?.scores).toEqual(["5-0"]);
+  });
 });

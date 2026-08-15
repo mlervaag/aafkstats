@@ -1,0 +1,38 @@
+id: 1961-06-22-aalesunds-fk-koge-bk
+date: 1961-06-22
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1961
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: koge-bk
+  score: 4
+  halfTimeScore: null
+neutralVenue: false
+venueId: aksla-stadion
+externalReports: []
+providers: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: "38"
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - venueId
+    note: "Internasjonal privatkamp mot det danske 1. divisjonslaget Køge Boldklub (0–4) på Aksla stadion. Beste spillere for AaFK: Einar Aas, Harald Johansen og Torid Fladmark."
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []

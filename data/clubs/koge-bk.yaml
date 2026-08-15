@@ -1,0 +1,14 @@
+id: koge-bk
+name: Køge Boldklub
+shortName: Køge
+nameVariants:
+  - Køge BK
+  - Køge Boldklub
+country: DK
+city: Køge
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: "38"
+    fields:
+      - name
+      - shortName
