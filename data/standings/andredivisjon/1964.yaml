@@ -1,0 +1,99 @@
+competitionId: andredivisjon
+season: 1964
+table:
+  - position: 1
+    name: Hödd
+    clubId: hodd
+    played: 14
+    wins: 11
+    draws: 3
+    losses: 0
+    goalsFor: 47
+    goalsAgainst: 13
+    points: 25
+    outcome: promotion_playoff
+  - position: 2
+    name: Molde
+    clubId: molde-fk
+    played: 14
+    wins: 7
+    draws: 4
+    losses: 3
+    goalsFor: 28
+    goalsAgainst: 16
+    points: 18
+    outcome: none
+  - position: 3
+    name: ÅFK
+    clubId: aalesunds-fk
+    played: 14
+    wins: 7
+    draws: 4
+    losses: 3
+    goalsFor: 26
+    goalsAgainst: 16
+    points: 18
+    outcome: none
+  - position: 4
+    name: Langevåg
+    clubId: langevag
+    played: 14
+    wins: 6
+    draws: 5
+    losses: 3
+    goalsFor: 27
+    goalsAgainst: 22
+    points: 17
+    outcome: none
+  - position: 5
+    name: Herd
+    clubId: herd
+    played: 14
+    wins: 6
+    draws: 3
+    losses: 5
+    goalsFor: 23
+    goalsAgainst: 22
+    points: 15
+    outcome: none
+  - position: 6
+    name: KFK
+    clubId: kfk
+    played: 14
+    wins: 3
+    draws: 4
+    losses: 7
+    goalsFor: 29
+    goalsAgainst: 30
+    points: 10
+    outcome: none
+  - position: 7
+    name: Åndalsnes
+    clubId: andalsnes
+    played: 14
+    wins: 3
+    draws: 3
+    losses: 8
+    goalsFor: 24
+    goalsAgainst: 43
+    points: 9
+    outcome: none
+  - position: 8
+    name: Braatt
+    clubId: braatt
+    played: 14
+    wins: 0
+    draws: 0
+    losses: 14
+    goalsFor: 13
+    goalsAgainst: 55
+    points: 0
+    outcome: relegated
+progression: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1964
+    page: "6"
+    fields:
+      - table
+note: >
+  3. divisjon Møre 1964. Sunnmøre Fotballkrets er primærkilde. Åndalsnes rykket ikke ned (ble værende i divisjonen i 1965).

@@ -31,9 +31,21 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: sunnmore-fotballkrets
+    url: https://www.fotball.no/globalassets/krets/sunnmore/om-kretsen/arsrapporter/arsrapport-1961.pdf
+    retrievedAt: 2026-08-15
+    fields: &a1
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1961-cup-1961-08-06-rosenborg-aalesunds-fk
 manual: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1961
+    page: "6"
+    fields: *a1

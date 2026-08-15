@@ -1,0 +1,100 @@
+competitionId: andredivisjon
+season: 1967
+table:
+  - position: 1
+    name: ÅFK
+    clubId: aalesunds-fk
+    played: 14
+    wins: 12
+    draws: 2
+    losses: 0
+    goalsFor: 49
+    goalsAgainst: 11
+    points: 26
+    outcome: promotion_playoff
+  - position: 2
+    name: Molde
+    clubId: molde-fk
+    played: 14
+    wins: 9
+    draws: 1
+    losses: 4
+    goalsFor: 38
+    goalsAgainst: 16
+    points: 19
+    outcome: none
+  - position: 3
+    name: Herd
+    clubId: herd
+    played: 14
+    wins: 7
+    draws: 3
+    losses: 4
+    goalsFor: 24
+    goalsAgainst: 14
+    points: 17
+    outcome: none
+  - position: 4
+    name: Langevåg
+    clubId: langevag
+    played: 14
+    wins: 7
+    draws: 2
+    losses: 5
+    goalsFor: 30
+    goalsAgainst: 28
+    points: 16
+    outcome: none
+  - position: 5
+    name: Cl.engen
+    clubId: clausenengen
+    played: 14
+    wins: 5
+    draws: 0
+    losses: 9
+    goalsFor: 19
+    goalsAgainst: 29
+    points: 10
+    outcome: none
+  - position: 6
+    name: VRF
+    clubId: velledalen-ringen
+    played: 14
+    wins: 4
+    draws: 1
+    losses: 9
+    goalsFor: 17
+    goalsAgainst: 34
+    points: 9
+    outcome: none
+  - position: 7
+    name: KFK
+    clubId: kfk
+    played: 14
+    wins: 2
+    draws: 4
+    losses: 8
+    goalsFor: 13
+    goalsAgainst: 39
+    points: 8
+    outcome: relegated
+  - position: 8
+    name: Spjelkavik
+    clubId: spjelkavik
+    played: 14
+    wins: 2
+    draws: 3
+    losses: 9
+    goalsFor: 12
+    goalsAgainst: 31
+    points: 7
+    outcome: relegated
+progression: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1967
+    page: "10"
+    fields:
+      - table
+note: >
+  3. divisjon Møre 1967. Sunnmøre Fotballkrets er primærkilde. AaFK vant avdelingen
+  og rykket opp til 2. divisjon etter kvalifisering mot Falken.

@@ -36,14 +36,31 @@ providers:
       - away.score
       - competition.round
       - extraTime
+  - providerId: sunnmore-fotballkrets
+    url: https://www.fotball.no/globalassets/krets/sunnmore/om-kretsen/arsrapporter/arsrapport-1962.pdf
+    retrievedAt: 2026-08-15
+    fields: &a1
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
 sources:
   - sourceId: aafk-historie-aksla-stadion
-    fields: [venueId, extraTime]
-    note: Artikkelen identifiserer 0–0-kampen etter ekstraomganger som bortekampen på Brann Stadion.
+    fields:
+      - venueId
+      - extraTime
+    note: Artikkelen identifiserer 0–0-kampen etter ekstraomganger som bortekampen
+      på Brann Stadion.
+  - sourceId: sunnmore-fotballkrets-arsrapport-1962
+    page: "7"
+    fields: *a1
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1962-cup-1962-09-02-brann-aalesunds-fk
 manual: []
-note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.
+note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter
+  ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.

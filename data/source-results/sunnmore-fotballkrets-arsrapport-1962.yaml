@@ -1,0 +1,86 @@
+# Senioroppgjør fra Sunnmøre Fotballkrets' årsrapport 1962.
+# Rapportens sider 6–7 dokumenterer senior-NM; side 10 dokumenterer kvalifiseringskamper.
+sourceId: sunnmore-fotballkrets-arsrapport-1962
+scorePerspective: aafk
+seasons:
+  - year: 1962
+    page: 6
+    results:
+      - no: 1
+        opponent: Måløy
+        opponentClubId: null
+        score: [2, 1]
+        competitionId: nm
+        round: 1
+        matchId: null
+        note: Norgesmesterskapet 1962, 1. runde (AAFK / Måløy 2–1). Årsrapporten dokumenterer ikke sikker kampdato.
+      - no: 2
+        page: 7
+        opponent: Freidig
+        opponentClubId: freidig
+        score: [2, 1]
+        competitionId: nm
+        round: 2
+        matchId: null
+        note: Norgesmesterskapet 1962, 2. runde (Freidig / AAFK 1–2). Årsrapporten dokumenterer ikke sikker kampdato.
+      - no: 3
+        page: 7
+        opponent: Nidelv
+        opponentClubId: nidelv
+        score: [1, 0]
+        competitionId: nm
+        round: 3
+        matchId: 1962-08-12-aalesunds-fk-nidelv
+        note: Norgesmesterskapet 1962, 3. runde (AAFK / Nidelv 1–0).
+      - no: 4
+        page: 7
+        opponent: Brann
+        opponentClubId: sk-brann
+        score: [0, 0]
+        competitionId: nm
+        round: 4
+        matchId: 1962-09-02-sk-brann-aalesunds-fk
+        note: Norgesmesterskapet 1962, 4. runde (Brann / AAFK 0–0).
+      - no: 5
+        page: 7
+        opponent: Brann
+        opponentClubId: sk-brann
+        score: [1, 2]
+        competitionId: nm
+        round: 4
+        extraTime: true
+        replay: true
+        matchId: 1962-09-05-aalesunds-fk-sk-brann
+        note: Norgesmesterskapet 1962, 4. runde omkamp (AAFK / Brann 1–2 e.omg.).
+      - no: 6
+        page: 10
+        opponent: Kvik
+        opponentClubId: kvik
+        score: [0, 0]
+        competitionId: forstedivisjon
+        matchId: 1962-10-06-kvik-aalesunds-fk
+        note: Kamp om landsdelsmesterskapet 1962 (KVIK / AAFK 0–0).
+      - no: 7
+        page: 10
+        opponent: Kvik
+        opponentClubId: kvik
+        score: [2, 0]
+        competitionId: forstedivisjon
+        matchId: 1962-10-14-aalesunds-fk-kvik
+        note: Kamp om landsdelsmesterskapet 1962 (AAFK / KVIK 2–0). AaFK ble landsdelsmester.
+      - no: 8
+        page: 10
+        opponent: Gjøvik-Lyn
+        opponentClubId: gjovik-lyn
+        score: [1, 1]
+        competitionId: forstedivisjon
+        matchId: 1962-10-21-gjovik-lyn-aalesunds-fk
+        note: Opprykkskamp til 1. divisjon (eliteserien) 1962 (Gjøvik - LYN / AAFK 1–1).
+      - no: 9
+        page: 10
+        opponent: Gjøvik-Lyn
+        opponentClubId: gjovik-lyn
+        score: [1, 2]
+        competitionId: forstedivisjon
+        matchId: 1962-11-04-aalesunds-fk-gjovik-lyn
+        note: Opprykkskamp til 1. divisjon (eliteserien) 1962 (AAFK / Gjøvik - LYN 1–2).
