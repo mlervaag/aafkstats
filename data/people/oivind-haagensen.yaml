@@ -104,7 +104,35 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: year_row). Manuelt verifisert."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+      - sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
+        page: "64"
+        fields:
+          - title
+          - from
+        note: Trener for A-laget i 1955 (jf. årsmøtet 27.11.1955).
+    note: Trener for A-laget i 1955.
+  - id: spillemerke-gull-1950
+    category: honorary
+    title: Spillemerket i gull
+    from: "1950"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+        page: "74"
+    note: Notert med 200 kamper på A-laget i spillemerkestatistikken.
+  - id: nff-dommerkomite-1953
+    category: administration
+    title: Medlem av NFFs dommerkomité
+    body: NFFs dommerkomité
+    from: "1953"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+        page: "30"
+        fields:
+          - title
+          - from
+    note: Gjenvalgt som medlem i Norges Fotballforbunds dommerkomité.
   - id: gullmerkeinnehaver-1964
     category: honorary
     title: Gullmerkeinnehaver

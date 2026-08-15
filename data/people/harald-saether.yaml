@@ -8,6 +8,17 @@ roles:
     from: "1953"
     to: "1960"
     sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+        page: "66"
+        fields:
+          - title
+          - from
+        note: Valgt på årsmøtet 29.11.1953 som kasserer for 1954.
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "78"
+        fields:
+          - title
+          - from
       - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
         page: "7"
         fields:

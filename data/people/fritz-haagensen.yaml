@@ -26,6 +26,17 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
+      - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+        page: "66"
+        fields:
+          - title
+          - from
+        note: Valgt på årsmøtet 29.11.1953 som oppmann for 1954.
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+        page: "23"
+        fields:
+          - title
+          - from
   - id: oppmann-1955
     category: sporting_staff
     title: Oppmann
@@ -43,3 +54,18 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
+      - sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
+        page: "64"
+        fields:
+          - title
+          - from
+          - to
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: "12"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: "66"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: "74"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
+    page: "64"

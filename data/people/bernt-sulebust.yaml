@@ -1,6 +1,25 @@
 id: bernt-sulebust
 name: Bernt Sulebust
 roles:
+  - id: sekretaer-hovedstyret-1953-1954
+    category: administration
+    title: Sekretær
+    body: Hovedstyret
+    from: "1953"
+    to: "1954"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+        page: "66"
+        fields:
+          - title
+          - from
+          - to
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "78"
+        fields:
+          - title
+          - to
+    note: Sekretær i Hovedstyret 1953 og 1954.
   - id: sekretaer-1944
     category: administration
     title: Sekretær

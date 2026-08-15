@@ -1,5 +1,8 @@
 id: anita-wold
 name: Anita Wold
+names:
+  - Anita Olsen-Vold
+  - Anita Olsen Vold
 roles:
   - id: formann-dameavdelingen-1954
     category: board
@@ -8,11 +11,19 @@ roles:
     from: "1954"
     to: null
     sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+        page: "66"
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "82"
       - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
         page: "9"
       - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
         page: "17"
     note: Formann i Dameavdelingen.
 sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: "66"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: "82"
   - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
     page: "9"

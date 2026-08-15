@@ -54,6 +54,14 @@ sources:
       - home.score
       - away.score
       - competition.round
+  - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: "95"
+    fields:
+      - status
+      - competition
+      - home.score
+      - away.score
+      - competition.round
 confidence: probable
 conflicts: []
 tags: []

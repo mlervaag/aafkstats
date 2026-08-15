@@ -18,6 +18,12 @@ roles:
           - from
         note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt
           verifisert."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+        page: "34"
+        fields:
+          - title
+          - from
+        note: Tildelt klubbens gullmerke i 1935 for sin store spillerinnsats.
   - id: oppmann-1938
     category: sporting_staff
     title: Oppmann

@@ -1,0 +1,41 @@
+# Senioroppgjør fra Medlemsblad for Aalesunds Fotballklubb 1953 (Vol. 4 Nr. 1–6).
+# Totalt 26 kamper spilt i 1953 (16 seire, 6 uavgjort, 4 tap, mål 78–40).
+# Sesongoversikt og kampfasit gjengitt på side 64 og side 66.
+sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+scorePerspective: aafk
+seasons:
+  - year: 1953
+    page: 64
+    results:
+      - no: 1
+        page: 64
+        opponent: Ørsta
+        opponentClubId: orsta
+        score: [1, 4]
+        competitionId: nm
+        round: 1
+        note: "NM 1953 1. runde: ÅFK–Ørsta 1–4 på Aksla Stadion."
+      - no: 2
+        page: 64
+        opponent: Langevåg
+        opponentClubId: langevag
+        score: [1, 0]
+        note: "Aksla ILs jubileumsturnering innledende: ÅFK–Langevåg 1–0."
+      - no: 3
+        page: 64
+        opponent: Aksla
+        opponentClubId: aksla
+        score: [5, 4]
+        note: "Aksla ILs jubileumsturnering finale: ÅFK–Aksla 5–4. ÅFK vinner pokalen."
+      - no: 4
+        page: 66
+        opponent: Langevåg
+        opponentClubId: langevag
+        score: [3, 3]
+        note: "Privatkamp på Aksla stadion: ÅFK–Langevåg 3–3. Mål: Jan Larsen (2), Trygve Olsen (1)."
+      - no: 5
+        page: 83
+        opponent: Ørsta
+        opponentClubId: orsta
+        score: [3, 1]
+        note: "Landsdelsserien: ÅFK–Ørsta 3–1 på Aksla Stadion."
