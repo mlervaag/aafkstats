@@ -16,11 +16,12 @@ egne, senere løp.
 ## Resultat
 
 - 75 av 75 kandidatsider er visuelt kontrollert (totalt 75 kontrollpunkter på kandidatsidene).
-- 12 relevante weak-only-/manuelt oppdagede sider er kontrollert i tillegg.
-- Ti nye/oppdaterte seriesesonger (1970–1979) og ti komplette sluttabeller (åtte i 2. divisjon og to i 3. divisjon Møre) er normalisert.
-- 27 nye seniorresultater (kildepåstander) registrert i `data/source-results/`, hvorav 8 er koblet til eksisterende kanoniske kamper og 19 gjenstår uten kampkobling (på grunn av manglende eksakt kampdato i kilden).
-- 8 eksisterende kanoniske kamper (NM-kamper i 1971, 1975, 1976 og 1977) er beriket med SFK-proveniens.
-- Ingen usikker kampdato er konstruert eller antatt; strukturert dato er kun benyttet der SFK eksplisitt oppgir eksakt dato.
+- 13 relevante weak-only-/manuelt oppdagede sider er kontrollert i tillegg.
+- Ti nye/oppdaterte seriesesonger (1970–1979) og ti komplette sluttabeller (åtte i 2. divisjon og to i 3. divisjon Møre) er normalisert med full feltproveniens og ligastørrelse (`teamsInLeague`).
+- 31 nye seniorresultater (kildepåstander) registrert i `data/source-results/`, hvorav 10 er koblet til eksisterende kanoniske kamper og 21 gjenstår uten kampkobling (på grunn av manglende eksakt kampdato i kilden).
+- 10 eksisterende kanoniske kamper (8 NM-kamper i 1971, 1975, 1976 og 1977 samt 2 opprykkskvalifiseringskamper mot Neset i 1978) er beriket med SFK-proveniens.
+- Ingen nye kanoniske kamper er opprettet uten sikker kampdato; strukturert dato er kun benyttet der kildene eksplisitt oppgir eksakt dato.
+- Totalt i arkivet etter denne runden: 541 kildedokumenterte resultater (494 uten kampkobling) og 1 481 kanoniske kamper.
 
 ## Kontrollpunkter
 
@@ -89,16 +90,17 @@ egne, senere løp.
 | 1977 | sunnmore-fotballkrets-arsrapport-1977 | 3 | kandidat | junior, komite, komiteer | reviewed | person_candidate | Kretstingets valg og komiteer; utsatt. |
 | 1977 | sunnmore-fotballkrets-arsrapport-1977 | 9 | kandidat | divisjon, junior, runde, serie | reviewed | person_candidate | Kretsstyrets årsoppsummering; omtale av Landsdelsserien og NM; utsatt. |
 | 1977 | sunnmore-fotballkrets-arsrapport-1977 | 10 | kandidat | divisjon, serie, spiller, spillere | reviewed | person_candidate | Oversikt over advarsler og utvisninger; utsatt. |
-| 1977 | sunnmore-fotballkrets-arsrapport-1977 | 13 | weak-only | serie, NM, sluttabell | reviewed | standing | Tre senior-NM-kamper (Vard-kamp beriket) og øvre del av tabell 3. divisjon Møre normalisert. |
+| 1977 | sunnmore-fotballkrets-arsrapport-1977 | 13 | weak-only | serie, NM, sluttabell | reviewed | standing | Tre senior-NM-kamper (Vard-kamp beriket) og øvre del av tabell 3. divisjon Møre (Kristiansund opprykkskvalifisering) normalisert. |
 | 1977 | sunnmore-fotballkrets-arsrapport-1977 | 14 | weak-only | serie, sluttabell forts. | reviewed | standing | Nedre del av tabell 3. divisjon Møre 1977 (AaFK nr. 5) normalisert. |
 | 1977 | sunnmore-fotballkrets-arsrapport-1977 | 25 | kandidat | junior, kurs, spillere | reviewed | person_candidate | Trenerkurs og spillersamlinger; utsatt. |
 | 1977 | sunnmore-fotballkrets-arsrapport-1977 | 26 | kandidat | junior, komite, reserve, spillere, trenere | reviewed | person_candidate | Teknisk komites årsmelding; utsatt. |
 | 1977 | sunnmore-fotballkrets-arsrapport-1977 | 27 | kandidat | cup, dommer, junior, kretslag | reviewed | person_candidate | Kretslagskamper og representasjon; utsatt. |
 | 1978 | sunnmore-fotballkrets-arsrapport-1978 | 3 | kandidat | junior, komite, komiteer | reviewed | person_candidate | Kretsens tillitsmenn og styre; utsatt. |
 | 1978 | sunnmore-fotballkrets-arsrapport-1978 | 10 | kandidat | dommer, spiller | reviewed | non_senior | Protestsak Fjørtoft/Emblem i 7. div; ingen AaFK A-lagsdata. |
-| 1978 | sunnmore-fotballkrets-arsrapport-1978 | 12 | weak-only | serie, NM, sluttabell | reviewed | standing | Full tabell 3. divisjon Møre 1978 (AaFK nr. 1 og avdelingsvinner, opprykk) og NM 1. runde mot Kristiansund (0–1) lagret. |
+| 1978 | sunnmore-fotballkrets-arsrapport-1978 | 12 | weak-only | serie, NM, sluttabell | reviewed | standing | Full tabell 3. divisjon Møre 1978 (AaFK nr. 1, opprykkskvalifisering), Valder ikke nedrykk, og NM 1. runde mot Kristiansund (0–1) lagret. |
 | 1978 | sunnmore-fotballkrets-arsrapport-1978 | 16 | kandidat | nm, junior | reviewed | non_senior | Gutteserien avd. C og D; utsatt. |
 | 1978 | sunnmore-fotballkrets-arsrapport-1978 | 18 | kandidat | reservelag, smågutt | reviewed | non_senior | Smågutteserien avd. F og G; utsatt. |
+| 1978 | sunnmore-fotballkrets-arsrapport-1978 | 20 | weak-only | serie, opprykk | reviewed | existing_match_enriched | To opprykkskvalifiseringskamper mot Neset (0–1 borte, 2–0 hjemme) lagret og beriket. |
 | 1978 | sunnmore-fotballkrets-arsrapport-1978 | 29 | kandidat | kurs | reviewed | person_candidate | Teknisk komite og trenerkurs; utsatt. |
 | 1978 | sunnmore-fotballkrets-arsrapport-1978 | 32 | kandidat | junior, komite, spiller, spillere, trener, trenere | reviewed | person_candidate | Gutte- og juniorkomiteens årsmelding; utsatt. |
 | 1978 | sunnmore-fotballkrets-arsrapport-1978 | 33 | kandidat | spiller, spillere | reviewed | person_candidate | Kretslagssamlinger; utsatt. |
@@ -120,5 +122,6 @@ egne, senere løp.
 - **1974 (2. divisjon avd. B):** SFK side 14 trykker Lyn med 31–15 og Aalesund med 17–21. RSSSF bemerker at disse er NFFs offisielle tall (RSSSF oppgir 33–15 og 17–23). SFK følger de offisielle tallene, og tabellen balanserer perfekt (237 scorede mot 237 innslupne mål).
 - **1976 (NM 3. runde Folldal–AaFK):** SFK side 12 dokumenterer resultatet som «2–2 e e.omg. 3–3» (2–2 etter ordinær tid og 3–3 etter ekstraomganger). Den eksisterende kanoniske kampen beholder sin struktur, og kildereferansen er lagret med `extraTime: true`.
 - **1976 (Kvalifisering om å bli stående i 2. divisjon):** SFK side 12 dokumenterer oppgjørene mot Nessegutten (0–1 hjemme, 2–2 borte, tap 2–3 sammenlagt), som førte til at AaFK spilte i 3. divisjon i 1977. Kampene er lagret i `data/source-results/` uten oppdiktet dato da kilden ikke oppgir eksakt dato.
-- **1978 (3. divisjon avd. Møre):** AaFK vant avdelingen (26 poeng, 36–14 i målforskjell) og rykket opp til 2. divisjon etter kvalifisering mot Neset (0–1 borte, 2–0 hjemme).
+- **1977 (3. divisjon avd. Møre):** Kristiansund vant avdelingen (24 poeng) og gikk til opprykkskvalifisering mot Stjørdals/Blink (`outcome: promotion_playoff`).
+- **1978 (3. divisjon avd. Møre):** AaFK vant avdelingen (26 poeng, 36–14 i målforskjell) og gikk til opprykkskvalifisering (`outcome: promotion_playoff`). AaFK rykket opp til 2. divisjon etter kvalifisering mot Neset (0–1 borte, 2–0 hjemme, dokumentert på SFK side 20). Valder rykket ikke ned (`outcome: none`); Herd rykket ned.
 - **1979 (Senior-NM):** SFK-årsrapporten for 1979 inneholder ingen egen senior-NM-resultatliste (kun 2. divisjon sluttabell og lavere kretsklasser).

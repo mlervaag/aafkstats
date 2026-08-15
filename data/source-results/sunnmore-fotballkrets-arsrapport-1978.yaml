@@ -1,5 +1,5 @@
 # Senioroppgjør fra Sunnmøre Fotballkrets' årsrapport 1978.
-# Rapportens side 12 (s. 11) dokumenterer senior-NM.
+# Rapportens side 12 (s. 11) dokumenterer senior-NM; side 20 (s. 19) dokumenterer opprykkskamper.
 sourceId: sunnmore-fotballkrets-arsrapport-1978
 scorePerspective: aafk
 seasons:
@@ -14,3 +14,19 @@ seasons:
         round: 1
         matchId: null
         note: Norgesmesterskapet 1978, 1. runde (Aalesund - Kristiansund 0-1). Årsrapporten dokumenterer ikke sikker kampdato.
+      - no: 2
+        page: 20
+        opponent: Neset
+        opponentClubId: neset
+        score: [0, 1]
+        competitionId: andredivisjon
+        matchId: 1978-10-08-neset-aalesunds-fk
+        note: Opprykkskamper til 2. divisjon (Neset - Aafk 1-0).
+      - no: 3
+        page: 20
+        opponent: Neset
+        opponentClubId: neset
+        score: [2, 0]
+        competitionId: andredivisjon
+        matchId: 1978-10-15-aalesunds-fk-neset
+        note: Opprykkskamper til 2. divisjon (Aafk - Neset 2-0).

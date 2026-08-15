@@ -29,6 +29,13 @@ providers:
       - away.clubId
       - home.score
       - away.score
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1978
+    page: "20"
+    fields:
+      - home.score
+      - away.score
+      - competition
 confidence: probable
 conflicts: []
 tags: []
