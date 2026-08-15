@@ -216,13 +216,39 @@ I henhold til kravene for PR #154 er samtlige funn i 1961-årgangen ferdig norma
 - `1961-georg-haller-dod`: Klubbens stifter Georg Haller død 25. februar 1961 (s. 5).
 - **Utmerkelser:** Johs. «Hanne» Hollevik tildelt gullmerke (s. 71). Rasmus Eck-Olsen og Nils Jangaard hedret ved 65-årsdager (s. 3, 11). Karsten «Kakken» Nedregård (314 kamper) og Øivind Haagensen (200 kamper) hedret (s. 76, 78).
 
-### 5. Organisasjonsbilde og kryssårskontroll 1961 ↔ 1962 (DEL B & I)
+### 5. Terminliste og reconciliation 1961 (DEL I)
+- **Side 17 (Vårterminlisten):** Faksimilen dokumenterer planlagt oppsett for vårens fem seriekamper i Landsdelsserien Møre 1960/61:
+  - Motstandere: Herd, KFK, Langevåg, Braatt, Hødd.
+  - Dokumenterte felt: motstander, hjemme/borte, kamprekkefølge, divisjon/avdeling.
+  - *Viktig metodisk funn:* Terminlisten inneholder **ingen kalenderdatoer**. Arkivet konstruerer derfor ingen datoer for disse kampene ut fra medlemsbladet alene.
+- **Side 36 (Vårens resultater):** Dokumenterer de fem faktiske kampresultatene (ÅFK–Herd 3–2, KFK–ÅFK 3–4, ÅFK–Langevåg 1–7, ÅFK–Braatt 4–0, Hødd–ÅFK 0–1) og sluttabellen.
+- **Høstsesongen 1961:** Årgangen er kontrollert systematisk for høstterminlister, terminprogrammer eller datooppsett for Maratonserien 1961/62. *Konklusjon:* Ingen sikker høstterminliste med kalenderdatoer finnes i 1961-heftene. De 8 høstseriekampene (tap i åpningskampen mot Clausenengen, deretter 7 seire) bevares i reviewloggen og sesongoppsummeringen uten konstruerte datoer eller individuelle scorer.
+
+### 6. Organisasjonsbilde og kryssårskontroll 1961 ↔ 1962 (DEL B)
 - `data/organization/snapshots/1961-aafk.yaml` og `data/organization/snapshots/1962-aafk.yaml` dokumenterer overgangen fra Kjell Berentzen (1961) til Hans Henriksen (1962), Reidar Steen Jensens ansettelse (1962), og kontinuiteten for Einar Aas (oppmann), Bjørn Riise (guttelag) og Hilda Orheim (Dameavdelingen).
+
+---
+
+## Completion-matrise 1961
+
+| Kategori | Status | Merknader / Proveniens |
+|---|---|---|
+| **Sider visuelt kontrollert** | 84 / 84 | Alle hefter 1–6 kontrollert mot faksimiler |
+| **Kampresultater vurdert** | Komplett | 15 oppgjør med score registrert i `source-results`, 9 oppgjør uten score bevart i logg |
+| **Termin-/fixture-kilder vurdert** | Komplett | Side 17 analysert: motstandere + H/B dokumentert, datoer fraværende |
+| **Kanoniske kamper** | 2 nye, 1 beriket | Canto do Rio (06.07) og Køge (22.06) opprettet, Rosenborg NM 3. runde beriket |
+| **Personkandidater & roller vurdert** | Komplett | Alle 283 `person_mention` og 166 `person_role` kandidater vurdert |
+| **Personer opprettet/beriket** | 25 personer | Hovedstyre, Dameavdeling, trenere, oppmenn, veteraner og debutanter |
+| **Verv & organisasjon** | Komplett | `1961-aafk.yaml` snapshot opprettet med streng proveniens (s. 7, 9, 36) |
+| **Historiske observasjoner** | 5 opprettet | 1940 Skeid/Rollon, 1961 Kråmyra innvielse, Georg Haller død, 1961 debutanter |
+| **Kildeomtaler (mentions)** | Normalisert | Personer med viktige omtaler (Jangaard, Eck Olsen m.fl.) har synlige kilder |
+| **Uløste kildekonflikter** | 1 løst | SFK 1961-trykkfeil for Rosenborg 0–1 løst mot medlemsblad s. 44 |
 
 ---
 
 ## Konklusjon
 
-- **1961- og 1962-årgangene er fullført som komplette historiske arkivkilder.**
-- Samtlige kamper, personer, verv, årsmøter, spillerfakta, klubbhistoriske hendelser og kildekonflikter er entydig forankret til `sourceId + page` uten konstruerte data.
+- **Samtlige relevante funn i 1961-årgangen er vurdert og har fått eksplisitt disposition.**
+- Strukturerbare og sikkert identifiserte fakta er normalisert, mens usikre eller ikke-strukturerbare funn er bevart i reviewlogg, kildeomtale eller konfliktmodell.
+- 1961 og 1962 utgjør nå to komplette, generaliserte «golden years» for medlemsbladserien.
 

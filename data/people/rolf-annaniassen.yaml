@@ -14,8 +14,7 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
-      siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: formann-1965-1966
     category: board
     title: Formann
@@ -34,15 +33,13 @@ roles:
           - title
           - from
           - to
-        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt
-          verifisert."
+        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt verifisert."
       - sourceId: vi-er-75-ar-1989-aff6
         page: "8"
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt
-          verifisert."
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt verifisert."
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
@@ -65,8 +62,19 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt
-          verifisert."
+        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt verifisert."
+  - id: sekretaer-hovedstyret-1962
+    category: administration
+    title: Sekretær
+    body: Hovedstyret
+    from: "1962"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+        page: "59"
+      - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+        page: "5"
+    note: Valgt til sekretær i Hovedstyret på årsmøtet 26. november 1961 for sesongen 1962.
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "3"
@@ -75,8 +83,7 @@ sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "27"
     fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-      Manuelt verifisert.
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret. Manuelt verifisert.
   - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
     page: "6"
     fields: []
