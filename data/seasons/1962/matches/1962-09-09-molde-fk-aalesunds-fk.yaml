@@ -1,0 +1,40 @@
+id: 1962-09-09-molde-fk-aalesunds-fk
+date: 1962-09-09
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1962
+  stage: regular_season
+home:
+  clubId: molde-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "48"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Høstterminlisten (s. 48) oppgir Molde mot AaFK 9. september 1962."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "59"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Høstoppsummeringen (s. 59) dokumenterer Molde mot AaFK 1–1."

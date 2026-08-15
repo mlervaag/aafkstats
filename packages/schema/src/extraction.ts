@@ -9,6 +9,7 @@ export const factCandidateKind = z.enum([
   "lineup_or_squad",
   "organization",
   "season_fact",
+  "fixture_list",
 ]);
 
 export const factCandidate = z.object({

@@ -1,0 +1,40 @@
+id: 1962-09-30-kfk-aalesunds-fk
+date: 1962-09-30
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1962
+  stage: regular_season
+home:
+  clubId: kfk
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 5
+  halfTimeScore: null
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "48"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Høstterminlisten (s. 48) oppgir KFK mot AaFK 30. september 1962."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "59"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Høstoppsummeringen (s. 59) dokumenterer KFK mot AaFK 4–5."

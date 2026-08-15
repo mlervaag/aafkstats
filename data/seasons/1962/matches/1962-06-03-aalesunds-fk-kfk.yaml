@@ -1,0 +1,40 @@
+id: 1962-06-03-aalesunds-fk-kfk
+date: 1962-06-03
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1962
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: kfk
+  score: 0
+  halfTimeScore: null
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "27"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Vårterminlisten (s. 27) oppgir AaFK mot KFK 3. juni 1962."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "48"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Våroppsummeringen (s. 48) dokumenterer AaFK mot KFK 3–0."

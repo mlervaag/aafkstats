@@ -208,6 +208,42 @@ describe("arkivet", () => {
     expect(extraction?.resolvedRoles.some((role) => role.personId === "ole-jangaard" && role.title === "Formann" && role.from === "1915")).toBe(false);
     expect(verification).toMatchObject({ status: "resolved", resolution: { answer: "no" } });
   });
+
+  it("har 13 seriekamper i Landsdelsserien 1962 med konsistente datoer og resultater", () => {
+    const landsdelOpponents = new Set(["hodd", "clausenengen", "langevag", "molde-fk", "braatt", "kfk", "skarbovik"]);
+    const matches1962 = archive.matches.filter(
+      (m) =>
+        m.competition.season === 1962 &&
+        m.competition.id === "forstedivisjon" &&
+        (landsdelOpponents.has(m.home.clubId) || landsdelOpponents.has(m.away.clubId)),
+    );
+    expect(matches1962).toHaveLength(13);
+    expect(matches1962.every((m) => m.date && m.dateConfidence === "exact")).toBe(true);
+
+    let aafkWins = 0;
+    let draws = 0;
+    let aafkLosses = 0;
+    let goalsFor = 0;
+    let goalsAgainst = 0;
+
+    for (const match of matches1962) {
+      const isHome = match.home.clubId === "aalesunds-fk";
+      const aafkScore = isHome ? match.home.score! : match.away.score!;
+      const oppScore = isHome ? match.away.score! : match.home.score!;
+
+      goalsFor += aafkScore;
+      goalsAgainst += oppScore;
+      if (aafkScore > oppScore) aafkWins++;
+      else if (aafkScore === oppScore) draws++;
+      else aafkLosses++;
+    }
+
+    expect(aafkWins).toBe(9);
+    expect(draws).toBe(3);
+    expect(aafkLosses).toBe(1);
+    expect(goalsFor).toBe(35);
+    expect(goalsAgainst).toBe(8);
+  });
 });
 
 /**

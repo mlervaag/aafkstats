@@ -1,0 +1,40 @@
+id: 1962-09-23-aalesunds-fk-braatt
+date: 1962-09-23
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1962
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 8
+  halfTimeScore: null
+away:
+  clubId: braatt
+  score: 0
+  halfTimeScore: null
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "48"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Høstterminlisten (s. 48) oppgir AaFK mot Braatt 23. september 1962."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "59"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Høstoppsummeringen (s. 59) dokumenterer AaFK mot Braatt 8–0."

@@ -1,0 +1,40 @@
+id: 1962-07-29-aalesunds-fk-hodd
+date: 1962-07-29
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1962
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: hodd
+  score: 0
+  halfTimeScore: null
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "48"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Høstterminlisten (s. 48) oppgir AaFK mot Hødd 29. juli 1962."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "59"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Høstoppsummeringen (s. 59) dokumenterer AaFK mot Hødd 0–0."
