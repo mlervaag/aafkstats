@@ -2,10 +2,14 @@ year: 1962
 competitionId: forstedivisjon
 finalPosition: 1
 teamsInLeague: 8
+headCoach: Reidar Steen Jensen
 sources:
   - sourceId: sunnmore-fotballkrets-arsrapport-1962
     page: "8"
     fields: [competitionId, finalPosition, teamsInLeague]
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "1"
+    fields: [headCoach]
 promoted: false
 relegated: false
 note: Sluttabellen gjelder Landsdelsserien Møre 1961/62 («Maratonserien»). AaFK vant divisjonen og ble landsdelsmester.

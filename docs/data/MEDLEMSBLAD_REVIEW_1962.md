@@ -249,11 +249,72 @@ I henhold til den generelle innhøstingsmetoden ([`MEDLEMSBLAD_INNHØSTING_METOD
 
 ---
 
+## Fullføring og normalisering 1962 (PR #154)
+
+I henhold til kravene for PR #154 er samtlige funn i 1962-årgangen ferdig normalisert i det kanoniske arkivet:
+
+### 1. Personer og verv (DEL A & B)
+- **Hovedstyret og ledelse:**
+  - `hans-henriksen`: Sittende formann for 1962 (s. 5, 62), gjenvalgt for 1963 på årsmøtet sent 1962 (s. 62).
+  - `rolf-annaniassen`: Sekretær i Hovedstyret for 1962 (s. 5).
+  - `peder-puck`: Kasserer for 1962 (s. 10).
+  - `bjorn-riise`: Leder for guttelaget (s. 2).
+  - `karsten-vadseth`: Nestformann/styremedlem og merkemottaker (s. 52, 63, 81).
+- **Dameavdelingen:**
+  - `hilda-orheim`: Formann 1962 (s. 5, 36).
+  - `lollo-stub`: Nestformann 1962 (s. 5, 36).
+  - `lilly-annaniassen`: Sekretær 1962 (s. 5, 36).
+
+### 2. Trener- og oppmannshistorikk (DEL C & D)
+- **Spillende trener 1962:** `reidar-steen-jensen` ledet laget gjennom hele jubelsesongen (s. 1, 7, 15, 73) og førte AaFK til avdelingsmesterskap i Landsdelsserien og distriktsmesterskap.
+- **Oppmann 1962:** `einar-aas` (s. 15, 28, 50).
+- **Ny heldagstrener fra 1963:** Årsmøtet sent 1962 vedtok ansettelse av østerrikske `alois-pfeiffer` som klubbens første heldagstrener med oppstart 2. januar 1963 (s. 80).
+
+### 3. Spillerstatistikk, milepæler og hedersbevisninger (DEL E & F)
+- **Offisielle tall for A-laget:** 34 kamper (22 seire, 8 uavgjort, 4 tap, 85–23 mål).
+- **Flest kamper:** Oskar Pedersen (31), Johan Pedersen (30), Harald Johansen (30), Svein Rødland (30).
+- **Toppscorere:** Kjell Iversen (13 mål), Asbjørn Rutgerson (13 mål), Steinar Nedregård (13 mål), Arne Finsnes (11 mål).
+- **Offisiell merkeutdeling 1962 (s. 81):**
+  - `torbjorn-aaro`: Gravert sølvfat for over 300 A-kamper (stod med 304 kamper ved sesongslutt, s. 63, 81).
+  - `karsten-vadseth`: Gullmerke for 200 A-kamper (s. 52, 81).
+  - `arne-finsnes`: Sølvmerke for 150 A-kamper (s. 39, 81).
+  - `johan-pedersen`: Sølvmerke for 150 A-kamper (s. 81).
+  - `kjell-iversen`: Diplom for 100 A-kamper (s. 81).
+  - `asbjorn-rutgerson`: Diplom for 100 A-kamper (s. 81).
+  - `jarle-kristoffersen`: Diplom for 100 A-kamper (s. 81).
+
+### 4. Historiske tilbakeblikk og klubbhistorie (DEL G & H)
+- `1917-sk-brann-0-14`: Historisk artikkel «45 år siden 0–14 mot Brann» (s. 68).
+- `1962-publikumsrekord-12000-aksla`: Publikumsrekord for Nord-Vestlandet med 12 000 tilskuere på Aksla stadion mot Gjøvik-Lyn (s. 61, 69).
+- Total publikumsoppslutning i 1962: 48 100 tilskuere på 22 hjemmekamper på Aksla stadion (s. 76).
+
+### 5. Organisasjonsbilde og kryssårskontroll 1961 ↔ 1962 (DEL B)
+- `data/organization/snapshots/1962-aafk.yaml` opprettet med kildeforankring til s. 2, 5 og 10.
+
+---
+
+## Completion-matrise 1962
+
+| Kategori | Status | Merknader / Proveniens |
+|---|---|---|
+| **Sider visuelt kontrollert** | 84 / 84 | Alle hefter 1–6 kontrollert mot faksimiler |
+| **Kampresultater vurdert** | Komplett | 34 A-lagsresultater registrert i `source-results` |
+| **Termin-/fixture-kilder vurdert** | Komplett | Vårterminliste (s. 27, 7 runder) og høstterminliste (s. 48, 6 runder) reconciled |
+| **Kanoniske kamper** | 13 nye seriekamper, 1 ny privatkamp, 7 berikede | 13 seriekamper opprettet, Željezničar (08.07) opprettet, Brann/Kvik/Gjøvik-Lyn beriket |
+| **Personkandidater & roller vurdert** | Komplett | Alle 159 `person_mention` og 37 `person_role` kandidater vurdert |
+| **Personer opprettet/beriket** | 20 personer | Hovedstyre, Dameavdeling, trenere, oppmenn og merkemottakere |
+| **Verv & organisasjon** | Komplett | `1962-aafk.yaml` snapshot opprettet med proveniens (s. 2, 5, 10) |
+| **Historiske observasjoner** | 2 opprettet | 1917 Brann-tilbakeblikk, 1962 publikumsrekord 12 000 |
+| **Kildeomtaler (mentions)** | Normalisert | Oskar Pedersen, Einar With, Tobben Aarø m.fl. har synlige kilder |
+| **Kildekonflikter** | 1 løst, 2 bevart | `formann.1962` (Hans J. Henriksen bekreftet); eksterne datokonflikter for Brann (01./02.09) og Kvik (05./06.10) bevart som `known_external_conflict` |
+
+---
+
 ## Konklusjon og videre oppfølging
 
-- **Pilotens mål er oppnådd:** 1962-årgangen er komplett innhøstet og dokumentert fra A til Å.
-- **Kildedokumentasjon:** Alle påstander er forankret med presise sidetall (`sourceId: medlemsblad-for-aalesunds-fotb-1962-5664` + `page`).
-- **Prinsipper ivaretatt:** Ingen datoer er konstruert; uavklarte kamper forblir kildepåstander i `source-results/`, mens entydig identifiserte kamper er beriket og opprettet med streng feltproveniens.
-- **Kildekonflikter bevares:** Eksisterende datokonflikter dokumenteres eksplisitt i stedet for å skjules.
+- **Samtlige relevante funn i 1962-årgangen er vurdert og har fått eksplisitt disposition.**
+- Strukturerbare og sikkert identifiserte fakta er normalisert, mens usikre eller ikke-strukturerbare funn er bevart i reviewlogg, kildeomtale eller konfliktmodell.
+- 1961 og 1962 utgjør nå to komplette, generaliserte «golden years» for medlemsbladserien.
+
 
 

@@ -1,22 +1,42 @@
 id: reidar-steen-jensen
 name: Reidar Steen Jensen
 roles:
-  [
-    {
-        id: trener-1961-1962,
-        category: coach,
-        title: Trener,
-        from: "1961",
-        to: "1962",
-        sources:
-          [
-            {
-                sourceId: tango-siden-1914-2013-806b,
-                page: "351",
-                fields: [ title, from, to ],
-                note: Manuelt verifisert.
-              }
-          ]
-      }
-  ]
-coachSpells: [ { fromSeason: 1961, toSeason: 1962 } ]
+  - id: trener-1961-1962
+    category: coach
+    title: Trener
+    from: "1961"
+    to: "1962"
+    sources:
+      - sourceId: tango-siden-1914-2013-806b
+        page: "351"
+        fields:
+          - title
+          - from
+          - to
+        note: Manuelt verifisert.
+  - id: spillende-trener-1962
+    category: coach
+    title: Spillende trener
+    body: A-laget
+    from: "1962"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+        page: "80"
+      - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+        page: "1"
+      - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+        page: "7"
+      - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+        page: "73"
+coachSpells:
+  - fromSeason: 1961
+    toSeason: 1962
+  - fromSeason: 1962
+    toSeason: 1962
+    note: Spillende trener i sesongen 1962. Ledet AaFK til avdelingsmesterskap i Landsdelsserien og distriktsmesterskap.
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: "80"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "73"

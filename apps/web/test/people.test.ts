@@ -106,6 +106,35 @@ describe("person- og organisasjonsarkivet", () => {
     ]));
     expect(getPersonById("tarjei-gjendemsjo-omenas")).toBeUndefined();
   });
+
+  it("viser organisasjonsbildene for 1961 og 1962 med styre og sportslig ledelse", () => {
+    const snapshots = getOrganizationSnapshots();
+    expect(snapshots.some((s) => s.snapshot_date === "1961" && s.person_id === "kjell-berentzen" && s.observed_title === "Formann")).toBe(true);
+    expect(snapshots.some((s) => s.snapshot_date === "1961" && s.person_id === "hans-j-henriksen" && s.observed_title === "Nestformann")).toBe(true);
+    expect(snapshots.some((s) => s.snapshot_date === "1961" && s.person_id === "einar-aas" && s.observed_title === "Oppmann")).toBe(true);
+    expect(snapshots.some((s) => s.snapshot_date === "1961" && s.person_id === "hilda-orheim" && s.observed_title === "Formann")).toBe(true);
+
+    expect(snapshots.some((s) => s.snapshot_date === "1962" && s.person_id === "hans-j-henriksen" && s.observed_title === "Formann")).toBe(true);
+    expect(snapshots.some((s) => s.snapshot_date === "1962" && s.person_id === "rolf-annaniassen" && s.observed_title === "Sekretær")).toBe(true);
+    expect(snapshots.some((s) => s.snapshot_date === "1962" && s.person_id === "peder-puck" && s.observed_title === "Kasserer")).toBe(true);
+    expect(snapshots.some((s) => s.snapshot_date === "1962" && s.person_id === "reidar-steen-jensen" && s.observed_title === "Spillende trener")).toBe(true);
+    expect(snapshots.some((s) => s.snapshot_date === "1962" && s.person_id === "einar-aas" && s.observed_title === "Oppmann")).toBe(true);
+  });
+
+  it("bevarer Rolf Annaniassens parallelle sekretærverv i Hovedstyret og Guttegruppen i 1962", () => {
+    const roles = getPersonRoles("rolf-annaniassen");
+    const sec1962 = roles.filter((r) => r.from_date === "1962" && r.title === "Sekretær");
+    expect(sec1962).toHaveLength(2);
+    expect(sec1962.map((r) => r.body)).toEqual(expect.arrayContaining(["Hovedstyret", "Guttegruppen"]));
+  });
+
+  it("viser kildeomtaler på personsiden for personer med medlemsbladreferanser", () => {
+    const jangaard = getPersonById("nils-jangaard");
+    expect(jangaard?.mentions.some((m) => m.sourceId === "medlemsblad-for-aalesunds-fotb-1961-a9f8")).toBe(true);
+
+    const oskar = getPersonById("oskar-pedersen");
+    expect(oskar?.mentions.some((m) => m.sourceId === "medlemsblad-for-aalesunds-fotb-1962-5664")).toBe(true);
+  });
 });
 
 describe("mergeRoleSpells", () => {

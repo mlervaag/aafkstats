@@ -12,8 +12,7 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_year).
-          Manuelt verifisert."
+        note: "Lest maskinelt fra fulltekstsøkets kontekst (regel: name_then_year). Manuelt verifisert."
       - sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
         page: "6"
         fields:
@@ -45,8 +44,7 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
-      siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: styreleder-1945
     category: board
     title: Styreleder
@@ -59,10 +57,8 @@ roles:
           - title
           - from
           - to
-        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt
-          verifisert."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
-      siden.
+        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt verifisert."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: varaformann-1946
     category: board
     title: Varaformann
@@ -94,8 +90,7 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt
-          verifisert."
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt verifisert."
       - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
         page: "81"
         fields:
@@ -120,8 +115,7 @@ roles:
           - title
           - from
           - to
-        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt
-          verifisert."
+        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt verifisert."
       - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
         page: "27"
         fields:
@@ -164,9 +158,7 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
-    note: Kildene fra 1939 og 1950 beskriver perioden 1938–1945; AaFKs nyere
-      nettliste skriver 1938–1941 og 1945–1946. Periodene er ikke slått sammen,
-      fordi nettlisten samtidig fører Sigurd Nørve fra 1946.
+    note: Kildene fra 1939 og 1950 beskriver perioden 1938–1945; AaFKs nyere nettliste skriver 1938–1941 og 1945–1946. Periodene er ikke slått sammen, fordi nettlisten samtidig fører Sigurd Nørve fra 1946.
   - id: gullmerkeinnehaver-1948
     category: honorary
     title: Gullmerkeinnehaver
@@ -182,8 +174,7 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt
-          verifisert."
+        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt verifisert."
   - id: nestformann-1951
     category: board
     title: Nestformann
@@ -197,8 +188,7 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: role_then_name)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
-      siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: aeresmedlem-1957
     category: honorary
     title: Æresmedlem
@@ -308,6 +298,23 @@ roles:
           - from
           - to
         note: Manuelt verifisert.
+  - id: nif-plakett-1961
+    category: honorary
+    title: Norges Idrettsforbunds hedersplakett
+    from: "1961"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+        page: "30"
+  - id: kasserer-1962
+    category: administration
+    title: Kasserer
+    body: Hovedstyret
+    from: "1962"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+        page: "10"
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "3"
@@ -497,6 +504,10 @@ sources:
     page: "7"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: "30"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: "72"
 conflicts:
   - field: formann.1932
     values:
