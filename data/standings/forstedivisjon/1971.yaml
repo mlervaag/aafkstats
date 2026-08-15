@@ -1,0 +1,99 @@
+competitionId: forstedivisjon
+season: 1971
+table:
+  - position: 1
+    name: Skeid
+    clubId: skeid
+    played: 14
+    wins: 10
+    draws: 2
+    losses: 2
+    goalsFor: 26
+    goalsAgainst: 13
+    points: 22
+    outcome: promoted
+  - position: 2
+    name: Raufoss
+    clubId: raufoss-il
+    played: 14
+    wins: 10
+    draws: 0
+    losses: 4
+    goalsFor: 27
+    goalsAgainst: 12
+    points: 20
+    outcome: none
+  - position: 3
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 14
+    wins: 6
+    draws: 3
+    losses: 5
+    goalsFor: 15
+    goalsAgainst: 12
+    points: 15
+    outcome: none
+  - position: 4
+    name: Stabæk
+    clubId: stabaek
+    played: 14
+    wins: 5
+    draws: 4
+    losses: 5
+    goalsFor: 15
+    goalsAgainst: 14
+    points: 14
+    outcome: none
+  - position: 5
+    name: Mjølner
+    clubId: mjolner
+    played: 14
+    wins: 5
+    draws: 4
+    losses: 5
+    goalsFor: 13
+    goalsAgainst: 18
+    points: 14
+    outcome: none
+  - position: 6
+    name: Molde
+    clubId: molde-fk
+    played: 14
+    wins: 4
+    draws: 3
+    losses: 7
+    goalsFor: 16
+    goalsAgainst: 19
+    points: 11
+    outcome: none
+  - position: 7
+    name: Aurskog
+    clubId: null
+    played: 14
+    wins: 3
+    draws: 3
+    losses: 8
+    goalsFor: 12
+    goalsAgainst: 21
+    points: 9
+    outcome: relegated
+  - position: 8
+    name: Eidsvold Turn
+    clubId: null
+    played: 14
+    wins: 2
+    draws: 3
+    losses: 9
+    goalsFor: 10
+    goalsAgainst: 25
+    points: 7
+    outcome: relegated
+progression: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1971
+    page: "15"
+    fields:
+      - table
+note: >
+  2. divisjon avdeling B 1971. Sunnmøre Fotballkrets (side 15, s. 7 i rapporten) er primærkilde.

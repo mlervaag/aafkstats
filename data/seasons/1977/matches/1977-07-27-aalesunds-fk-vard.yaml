@@ -31,6 +31,13 @@ providers:
       - home.score
       - away.score
       - competition.round
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1977
+    page: "13"
+    fields:
+      - home.score
+      - away.score
+      - competition.round
 confidence: probable
 conflicts: []
 tags: []

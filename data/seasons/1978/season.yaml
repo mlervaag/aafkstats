@@ -1,5 +1,11 @@
 year: 1978
 competitionId: andredivisjon
-finalPosition: null
-promoted: false
+finalPosition: 1
+teamsInLeague: 10
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1978
+    page: "12"
+    fields: [competitionId, finalPosition, teamsInLeague]
+promoted: true
 relegated: false
+note: Sluttabellen gjelder 3. divisjon avdeling Møre 1978. AaFK vant avdelingen og rykket opp til 2. divisjon etter kvalifisering mot Neset.

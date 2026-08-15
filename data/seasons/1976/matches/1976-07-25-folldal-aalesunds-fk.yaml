@@ -35,6 +35,14 @@ providers:
       - away.score
       - competition.round
       - extraTime
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1976
+    page: "12"
+    fields:
+      - home.score
+      - away.score
+      - competition.round
+      - extraTime
 confidence: probable
 conflicts: []
 tags: []

@@ -1,0 +1,121 @@
+competitionId: forstedivisjon
+season: 1973
+table:
+  - position: 1
+    name: Molde
+    clubId: molde-fk
+    played: 18
+    wins: 14
+    draws: 3
+    losses: 1
+    goalsFor: 58
+    goalsAgainst: 19
+    points: 31
+    outcome: promoted
+  - position: 2
+    name: Bryne
+    clubId: bryne
+    played: 18
+    wins: 11
+    draws: 3
+    losses: 4
+    goalsFor: 24
+    goalsAgainst: 12
+    points: 25
+    outcome: promotion_playoff
+  - position: 3
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 18
+    wins: 6
+    draws: 9
+    losses: 3
+    goalsFor: 16
+    goalsAgainst: 12
+    points: 21
+    outcome: none
+  - position: 4
+    name: Vard
+    clubId: vard
+    played: 18
+    wins: 6
+    draws: 8
+    losses: 4
+    goalsFor: 29
+    goalsAgainst: 26
+    points: 20
+    outcome: none
+  - position: 5
+    name: Clausenengen
+    clubId: clausenengen
+    played: 18
+    wins: 6
+    draws: 5
+    losses: 7
+    goalsFor: 16
+    goalsAgainst: 21
+    points: 17
+    outcome: none
+  - position: 6
+    name: Hödd
+    clubId: hodd
+    played: 18
+    wins: 6
+    draws: 4
+    losses: 8
+    goalsFor: 32
+    goalsAgainst: 34
+    points: 16
+    outcome: none
+  - position: 7
+    name: Florvåg
+    clubId: null
+    played: 18
+    wins: 5
+    draws: 6
+    losses: 7
+    goalsFor: 32
+    goalsAgainst: 38
+    points: 16
+    outcome: none
+  - position: 8
+    name: Steinkjer
+    clubId: steinkjer
+    played: 18
+    wins: 2
+    draws: 9
+    losses: 7
+    goalsFor: 12
+    goalsAgainst: 29
+    points: 13
+    outcome: none
+  - position: 9
+    name: Skarbövik
+    clubId: skarbovik
+    played: 18
+    wins: 4
+    draws: 4
+    losses: 10
+    goalsFor: 30
+    goalsAgainst: 36
+    points: 12
+    outcome: relegated
+  - position: 10
+    name: Sogndal
+    clubId: sogndal
+    played: 18
+    wins: 2
+    draws: 5
+    losses: 11
+    goalsFor: 15
+    goalsAgainst: 37
+    points: 9
+    outcome: relegated
+progression: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1973
+    page: "16"
+    fields:
+      - table
+note: >
+  2. divisjon avdeling B 1973. Sunnmøre Fotballkrets (side 16, s. 14 i rapporten) er primærkilde.
