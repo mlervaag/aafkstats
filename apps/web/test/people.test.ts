@@ -110,11 +110,11 @@ describe("person- og organisasjonsarkivet", () => {
   it("viser organisasjonsbildene for 1961 og 1962 med styre og sportslig ledelse", () => {
     const snapshots = getOrganizationSnapshots();
     expect(snapshots.some((s) => s.snapshot_date === "1961" && s.person_id === "kjell-berentzen" && s.observed_title === "Formann")).toBe(true);
-    expect(snapshots.some((s) => s.snapshot_date === "1961" && s.person_id === "hans-henriksen" && s.observed_title === "Nestformann")).toBe(true);
+    expect(snapshots.some((s) => s.snapshot_date === "1961" && s.person_id === "hans-j-henriksen" && s.observed_title === "Nestformann")).toBe(true);
     expect(snapshots.some((s) => s.snapshot_date === "1961" && s.person_id === "einar-aas" && s.observed_title === "Oppmann")).toBe(true);
     expect(snapshots.some((s) => s.snapshot_date === "1961" && s.person_id === "hilda-orheim" && s.observed_title === "Formann")).toBe(true);
 
-    expect(snapshots.some((s) => s.snapshot_date === "1962" && s.person_id === "hans-henriksen" && s.observed_title === "Formann")).toBe(true);
+    expect(snapshots.some((s) => s.snapshot_date === "1962" && s.person_id === "hans-j-henriksen" && s.observed_title === "Formann")).toBe(true);
     expect(snapshots.some((s) => s.snapshot_date === "1962" && s.person_id === "rolf-annaniassen" && s.observed_title === "Sekretær")).toBe(true);
     expect(snapshots.some((s) => s.snapshot_date === "1962" && s.person_id === "peder-puck" && s.observed_title === "Kasserer")).toBe(true);
     expect(snapshots.some((s) => s.snapshot_date === "1962" && s.person_id === "reidar-steen-jensen" && s.observed_title === "Spillende trener")).toBe(true);

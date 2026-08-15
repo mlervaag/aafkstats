@@ -306,7 +306,7 @@ I henhold til kravene for PR #154 er samtlige funn i 1962-årgangen ferdig norma
 | **Verv & organisasjon** | Komplett | `1962-aafk.yaml` snapshot opprettet med proveniens (s. 2, 5, 10) |
 | **Historiske observasjoner** | 2 opprettet | 1917 Brann-tilbakeblikk, 1962 publikumsrekord 12 000 |
 | **Kildeomtaler (mentions)** | Normalisert | Oskar Pedersen, Einar With, Tobben Aarø m.fl. har synlige kilder |
-| **Uløste kildekonflikter** | 2 bevart | Datokonflikter for Brann (01./02.09) og Kvik (05./06.10) bevart som `known_external_conflict` |
+| **Kildekonflikter** | 1 løst, 2 bevart | `formann.1962` (Hans J. Henriksen bekreftet); eksterne datokonflikter for Brann (01./02.09) og Kvik (05./06.10) bevart som `known_external_conflict` |
 
 ---
 

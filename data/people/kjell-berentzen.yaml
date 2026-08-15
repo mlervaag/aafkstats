@@ -33,18 +33,20 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
-  - id: formann-1961
+  - id: formann-1960-1961
     category: board
     title: Formann
     body: Hovedstyret
     from: "1960"
     to: "1961"
     sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+        page: "7"
       - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
         page: "7"
       - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
         page: "59"
-    note: Gjenvalgt som formann for 1961. Ledet klubbhusbyggingen på Kråmyra og takket av på årsmøtet 26. november 1961.
+    note: Formann i 1960 og 1961. Ledet klubbhusbyggingen på Kråmyra og takket av på årsmøtet 26. november 1961.
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "55"
@@ -170,7 +172,11 @@ conflicts:
         note: tango-siden-1914-2013-806b s. 293
       - value: Hans J. Henriksen
         providerId: aafk-no
-    resolved: false
-    decision: unresolved
-    locked: false
+    resolved: true
+    decision: manual
+    locked: true
     note: Kildene oppgir ulike navn for dette vervet. Ingen av dem er valgt.
+    chosen: Hans J. Henriksen
+    reason: Samtidig medlemsblad 1961 s. 59 og 1962 s. 5, 62 bekrefter at Hans J. Henriksen ble valgt til formann 26. november 1961 og ledet klubben i 1962.
+    chosenProviderId: aafk-no
+    decidedAt: 2026-08-15

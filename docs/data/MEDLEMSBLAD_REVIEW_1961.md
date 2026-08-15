@@ -242,7 +242,7 @@ I henhold til kravene for PR #154 er samtlige funn i 1961-årgangen ferdig norma
 | **Verv & organisasjon** | Komplett | `1961-aafk.yaml` snapshot opprettet med streng proveniens (s. 7, 9, 36) |
 | **Historiske observasjoner** | 5 opprettet | 1940 Skeid/Rollon, 1961 Kråmyra innvielse, Georg Haller død, 1961 debutanter |
 | **Kildeomtaler (mentions)** | Normalisert | Personer med viktige omtaler (Jangaard, Eck Olsen m.fl.) har synlige kilder |
-| **Uløste kildekonflikter** | 1 løst | SFK 1961-trykkfeil for Rosenborg 0–1 løst mot medlemsblad s. 44 |
+| **Kildekonflikter** | 2 løst, 0 åpne | `formann.1961` (Kjell Berentzen bekreftet) og SFK 1961-trykkfeil for Rosenborg 0–1 løst mot medlemsblad |
 
 ---
 

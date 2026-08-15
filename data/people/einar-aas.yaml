@@ -168,10 +168,14 @@ conflicts:
         note: aalesunds-fotballklubb-1914-50-1964-3815 s. 81
       - value: Kjell Berentzen
         providerId: aafk-no
-    resolved: false
-    decision: unresolved
-    locked: false
+    resolved: true
+    decision: manual
+    locked: true
     note: Kildene oppgir ulike navn for dette vervet. Ingen av dem er valgt.
+    chosen: Kjell Berentzen
+    reason: Samtidig medlemsblad 1961 (s. 7, 12, 59, 60) bekrefter at Kjell Berentzen var formann og Einar Aas var oppmann for A-laget.
+    chosenProviderId: aafk-no
+    decidedAt: 2026-08-15
 coachSpells:
   - fromSeason: 1960
     toSeason: 1960
