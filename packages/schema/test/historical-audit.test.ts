@@ -450,4 +450,46 @@ Referanse: \`medlemsblad-1999-feil\`
     const { resolveGitSha } = await import("../src/historical/git.js");
     await expect(resolveGitSha("does-not-exist-commit-ref")).rejects.toThrow(/Ugyldig git-referanse/);
   });
+
+  describe("Security regression tests (CodeQL / GHAS)", () => {
+    it("avviser git-refs som starter med option-flagg (--upload-pack osv.)", async () => {
+      const { resolveGitSha, validateGitRef } = await import("../src/historical/git.js");
+      expect(() => validateGitRef("--upload-pack=touch /tmp/pwn")).toThrow(/kan ikke starte med «-»/);
+      expect(() => validateGitRef("-v")).toThrow(/kan ikke starte med «-»/);
+      await expect(resolveGitSha("--upload-pack=evil")).rejects.toThrow(/kan ikke starte med «-»/);
+    });
+
+    it("avviser git-refs med linjeskift, NUL eller ugyldige tegn", async () => {
+      const { validateGitRef } = await import("../src/historical/git.js");
+      expect(() => validateGitRef("main\nHEAD")).toThrow(/linjeskift/);
+      expect(() => validateGitRef("main\r\nHEAD")).toThrow(/linjeskift/);
+      expect(() => validateGitRef("main\0HEAD")).toThrow(/linjeskift/);
+      expect(() => validateGitRef("main; rm -rf /")).toThrow(/ugyldige tegn/);
+    });
+
+    it("avviser path traversal og option-lignende filstier", async () => {
+      const { validateRepoRelativePath } = await import("../src/historical/git.js");
+      expect(() => validateRepoRelativePath("../../../etc/passwd")).toThrow(/path traversal/);
+      expect(() => validateRepoRelativePath("data/../../secrets")).toThrow(/path traversal/);
+      expect(() => validateRepoRelativePath("--output=/dev/null")).toThrow(/kan ikke starte med «-»/);
+      expect(() => validateRepoRelativePath("data/people\nmalicious")).toThrow(/linjeskift/);
+    });
+
+    it("evaluerer adversarial lang review-tekst lineært uten polynomial runtime", () => {
+      // Bygg en 50 000 tegns streng med gjentatte uavsluttede tags og tallsekvenser
+      const adversarialText = `
+# Review
+Sider visuelt kontrollert: 100/100
+` + "<div ".repeat(5000) + "\n" + "12345/67890 ".repeat(5000) + "\n" + "TODO ".repeat(100);
+
+      const start = performance.now();
+      const result = markdownV1Parser.parseReview(adversarialText);
+      const durationMs = performance.now() - start;
+
+      // Må fullføre på under 100 ms (lineær tid)
+      expect(durationMs).toBeLessThan(100);
+      expect(result.pagesReviewedClaim?.isFull).toBe(true);
+      expect(result.placeholdersFound).toContain("TODO");
+    });
+  });
 });

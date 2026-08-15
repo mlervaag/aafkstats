@@ -57,8 +57,10 @@ export const APPROVED_DISPOSITIONS = new Set([
 // Ignorer standard HTML-tagger i markdown
 const HTML_TAG_NAMES = new Set(["br", "hr", "p", "div", "span", "details", "summary", "code", "pre", "b", "i", "strong", "em", "table", "tr", "td", "th", "tbody", "thead"]);
 
-// Gjenkjenner typiske template-placeholders som <Antall>, <År>, <sourceId>, <YYYY-MM-DD>, TODO, XXX, [TBD]
-const PLACEHOLDER_REGEX = /<(?!(?:\/?[a-z0-9]+|!--))([^>]+)>|\bTODO\b|\bXXX\b|\[TBD\]|\bTBD\b|\bFIXME\b|<PLACEHOLDER>|<TODO>/i;
+// Gjenkjenner eksplisitte tekst-placeholders
+const LITERAL_PLACEHOLDER_REGEX = /\b(?:TODO|XXX|TBD|FIXME)\b|\[TBD\]|<PLACEHOLDER>|<TODO>/i;
+// Bundet tag-regex med maksimal lengde 50 for å unngå polynomial regex runtime
+const BOUNDED_TAG_REGEX = /<([A-ZÆØÅa-zæøå0-9_ -]{1,50})>/g;
 
 /**
  * Standard Markdown v1 review parser.
@@ -83,19 +85,29 @@ export const markdownV1Parser: ReviewParser = {
       const lineNum = i + 1;
 
       // 1. Check placeholders
-      const placeholderMatch = line.match(PLACEHOLDER_REGEX);
-      if (
-        placeholderMatch &&
-        !line.includes("APPROVED_DISPOSITIONS") &&
-        !line.includes("PLACEHOLDER_REGEX") &&
-        !HTML_TAG_NAMES.has(placeholderMatch[1]?.toLowerCase() ?? "")
-      ) {
-        placeholdersFound.push(placeholderMatch[0]);
-        issues.push({
-          type: "placeholder",
-          message: `Uferdig mal/placeholder funnet: «${placeholderMatch[0]}»`,
-          line: lineNum,
-        });
+      if (!line.includes("APPROVED_DISPOSITIONS") && !line.includes("LITERAL_PLACEHOLDER_REGEX")) {
+        const literalMatch = line.match(LITERAL_PLACEHOLDER_REGEX);
+        if (literalMatch) {
+          placeholdersFound.push(literalMatch[0]);
+          issues.push({
+            type: "placeholder",
+            message: `Uferdig mal/placeholder funnet: «${literalMatch[0]}»`,
+            line: lineNum,
+          });
+        } else {
+          const tagMatches = line.matchAll(BOUNDED_TAG_REGEX);
+          for (const tm of tagMatches) {
+            const tagName = tm[1];
+            if (tagName && !HTML_TAG_NAMES.has(tagName.toLowerCase().trim())) {
+              placeholdersFound.push(tm[0]);
+              issues.push({
+                type: "placeholder",
+                message: `Uferdig mal/placeholder funnet: «${tm[0]}»`,
+                line: lineNum,
+              });
+            }
+          }
+        }
       }
 
       // 2. Check sourceId mentions
@@ -107,7 +119,6 @@ export const markdownV1Parser: ReviewParser = {
             if (options.knownSourceIds.has(potentialId)) {
               sourceIdsFound.add(potentialId);
             } else if (
-              // Ignorer vanlige ord/strenger som ligner regexen ved en tilfeldighet dersom de ikke er kilder
               potentialId.startsWith("aafk-") ||
               potentialId.startsWith("sfk-") ||
               potentialId.startsWith("medlemsblad-") ||
@@ -127,19 +138,29 @@ export const markdownV1Parser: ReviewParser = {
       }
 
       // 3. Check page coverage pattern KUN når linjen eksplisitt gjelder visuell sidekontroll
-      const pageMatch = line.match(/(?:sider\s+visuelt\s+kontrollert|sidekontroll|visuell\s+sidekontroll|visuell\s+kontroll\s+av\s+sider)\s*[:|]\s*(\d+)\s*\/\s*(\d+)/i);
-      if (pageMatch && pageMatch[1] && pageMatch[2] && !pagesReviewedClaim) {
-        const reviewed = Number.parseInt(pageMatch[1], 10);
-        const total = Number.parseInt(pageMatch[2], 10);
-        const isFull = reviewed === total && total > 0;
-        pagesReviewedClaim = { reviewed, total, isFull };
+      const lowerLine = line.toLowerCase();
+      if (
+        (lowerLine.includes("sider visuelt kontrollert") ||
+          lowerLine.includes("visuell sidekontroll") ||
+          lowerLine.includes("sidekontroll")) &&
+        !pagesReviewedClaim
+      ) {
+        const delimIdx = Math.max(line.indexOf(":"), line.indexOf("|"));
+        const textAfter = delimIdx >= 0 ? line.slice(delimIdx + 1) : line;
+        const pageMatch = textAfter.match(/\b(\d{1,6})\s*\/\s*(\d{1,6})\b/);
+        if (pageMatch && pageMatch[1] && pageMatch[2]) {
+          const reviewed = Number.parseInt(pageMatch[1], 10);
+          const total = Number.parseInt(pageMatch[2], 10);
+          const isFull = reviewed === total && total > 0;
+          pagesReviewedClaim = { reviewed, total, isFull };
 
-        if (!isFull) {
-          issues.push({
-            type: "incomplete_coverage",
-            message: `Ufullstendig sidekontroll rapportert (${reviewed}/${total} sider)`,
-            line: lineNum,
-          });
+          if (!isFull) {
+            issues.push({
+              type: "incomplete_coverage",
+              message: `Ufullstendig sidekontroll rapportert (${reviewed}/${total} sider)`,
+              line: lineNum,
+            });
+          }
         }
       }
 

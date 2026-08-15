@@ -8,15 +8,45 @@ import type { z } from "zod";
 
 const execFileAsync = promisify(execFile);
 
+const GIT_REF_REGEX = /^(?:HEAD(?:~\d+)?|[a-zA-Z0-9_./@{}^~-]+)$/;
+const SHA_REGEX = /^[0-9a-f]{40}$/i;
+
 /**
- * Kjører git-kommandoer trygt med argumentarray for å unngå shell-injeksjon.
+ * Validerer at en git-ref er syntaktisk trygg og ikke kan tolkes som en git-option.
  */
-export async function runGit(args: string[], cwd?: string): Promise<string> {
-  const { stdout } = await execFileAsync("git", args, {
-    cwd: cwd ?? process.cwd(),
-    maxBuffer: 64 * 1024 * 1024,
-  });
-  return stdout.trim();
+export function validateGitRef(ref: string): void {
+  if (!ref || typeof ref !== "string") {
+    throw new Error("Ugyldig git-referanse: referansen kan ikke være tom");
+  }
+  if (ref.startsWith("-")) {
+    throw new Error(`Ugyldig git-referanse: «${ref}» kan ikke starte med «-»`);
+  }
+  if (/[\r\n\0\t\s]/.test(ref)) {
+    throw new Error(`Ugyldig git-referanse: «${ref}» inneholder ugyldige tegn eller linjeskift`);
+  }
+  if (!GIT_REF_REGEX.test(ref)) {
+    throw new Error(`Ugyldig git-referanse: «${ref}» inneholder ugyldige tegn`);
+  }
+}
+
+/**
+ * Validerer at en sti er repo-relativ og ikke forsøker path traversal (..) eller option injection.
+ */
+export function validateRepoRelativePath(relativePath: string): string {
+  if (!relativePath || typeof relativePath !== "string") {
+    throw new Error("Ugyldig sti: stien kan ikke være tom");
+  }
+  if (relativePath.startsWith("-")) {
+    throw new Error(`Ugyldig sti: «${relativePath}» kan ikke starte med «-»`);
+  }
+  if (/[\r\n\0]/.test(relativePath)) {
+    throw new Error(`Ugyldig sti: «${relativePath}» inneholder linjeskift eller NUL-tegn`);
+  }
+  const normalized = relativePath.replace(/\\/g, "/").replace(/\/+/g, "/").replace(/^\/|\/$/g, "");
+  if (normalized.split("/").some((part) => part === ".." || part === ".")) {
+    throw new Error(`Ugyldig sti: path traversal («..») er ikke tillatt («${relativePath}»)`);
+  }
+  return normalized;
 }
 
 /**
@@ -27,15 +57,25 @@ export async function getDefaultBaseRevision(cwd?: string): Promise<string> {
   const candidates = ["origin/main", "main", "origin/master", "master"];
   for (const candidate of candidates) {
     try {
-      const base = await runGit(["merge-base", candidate, "HEAD"], cwd);
-      if (base) return base;
+      const { stdout } = await execFileAsync(
+        "git",
+        ["merge-base", "--end-of-options", candidate, "HEAD"],
+        { cwd: cwd ?? process.cwd(), maxBuffer: 64 * 1024 * 1024 },
+      );
+      const base = stdout.trim();
+      if (base && SHA_REGEX.test(base)) return base;
     } catch {
       // Prøv neste kandidat
     }
   }
   try {
-    const headMinusOne = await runGit(["rev-parse", "HEAD~1"], cwd);
-    if (headMinusOne) return headMinusOne;
+    const { stdout } = await execFileAsync(
+      "git",
+      ["rev-parse", "--verify", "--end-of-options", "HEAD~1^{commit}"],
+      { cwd: cwd ?? process.cwd(), maxBuffer: 64 * 1024 * 1024 },
+    );
+    const headMinusOne = stdout.trim();
+    if (headMinusOne && SHA_REGEX.test(headMinusOne)) return headMinusOne;
   } catch {
     // Hvis ingen commits finnes bakover, returner HEAD
   }
@@ -44,18 +84,39 @@ export async function getDefaultBaseRevision(cwd?: string): Promise<string> {
 
 /**
  * Løser opp en git-ref (branch, tag, SHA) til fullcommit-SHA.
- * Kaster feil dersom referansen ikke eksisterer i git.
+ * Kaster feil dersom referansen ikke eksisterer i git eller er ugyldig.
  */
 export async function resolveGitSha(ref: string, cwd?: string): Promise<string> {
   if (ref === "working-tree" || ref === "HEAD" || ref === "") {
     try {
-      return await runGit(["rev-parse", "HEAD"], cwd);
+      const { stdout } = await execFileAsync(
+        "git",
+        ["rev-parse", "--verify", "--end-of-options", "HEAD^{commit}"],
+        { cwd: cwd ?? process.cwd(), maxBuffer: 64 * 1024 * 1024 },
+      );
+      const sha = stdout.trim();
+      if (!SHA_REGEX.test(sha)) {
+        throw new Error(`Ugyldig commit-SHA for HEAD: «${sha}»`);
+      }
+      return sha;
     } catch (err) {
       throw new Error(`Kunne ikke lese git HEAD: ${String(err)}`);
     }
   }
+
+  validateGitRef(ref);
+
   try {
-    return await runGit(["rev-parse", "--verify", `${ref}^{commit}`], cwd);
+    const { stdout } = await execFileAsync(
+      "git",
+      ["rev-parse", "--verify", "--end-of-options", `${ref}^{commit}`],
+      { cwd: cwd ?? process.cwd(), maxBuffer: 64 * 1024 * 1024 },
+    );
+    const sha = stdout.trim();
+    if (!SHA_REGEX.test(sha)) {
+      throw new Error(`Ugyldig SHA mottatt: «${sha}»`);
+    }
+    return sha;
   } catch {
     throw new Error(`Ugyldig git-referanse: «${ref}» (finnes ikke som commit)`);
   }
@@ -69,7 +130,7 @@ export async function listYamlFiles(
   relativeDir: string,
   repoRoot: string,
 ): Promise<string[]> {
-  const normalizedDir = relativeDir.replace(/\\/g, "/").replace(/\/$/, "");
+  const normalizedDir = validateRepoRelativePath(relativeDir);
 
   if (!ref || ref === "working-tree") {
     const fullDir = join(repoRoot, normalizedDir);
@@ -84,8 +145,14 @@ export async function listYamlFiles(
       .sort();
   }
 
+  const sha = await resolveGitSha(ref, repoRoot);
+
   try {
-    const stdout = await runGit(["ls-tree", "-r", "--name-only", ref, `${normalizedDir}/`], repoRoot);
+    const { stdout } = await execFileAsync(
+      "git",
+      ["ls-tree", "-r", "--name-only", "--end-of-options", sha, `${normalizedDir}/`],
+      { cwd: repoRoot, maxBuffer: 64 * 1024 * 1024 },
+    );
     if (!stdout) return [];
     return stdout
       .split("\n")
@@ -107,6 +174,12 @@ export async function readFilesBatchFromGit(
 ): Promise<Map<string, string>> {
   const resultMap = new Map<string, string>();
   if (relativeFilePaths.length === 0) return resultMap;
+
+  const sha = await resolveGitSha(ref, repoRoot);
+
+  for (const filePath of relativeFilePaths) {
+    validateRepoRelativePath(filePath);
+  }
 
   return new Promise((resolve, reject) => {
     const child = spawn("git", ["cat-file", "--batch"], {
@@ -164,7 +237,7 @@ export async function readFilesBatchFromGit(
     });
 
     for (const filePath of relativeFilePaths) {
-      child.stdin.write(`${ref}:${filePath.replace(/\\/g, "/")}\n`);
+      child.stdin.write(`${sha}:${filePath.replace(/\\/g, "/")}\n`);
     }
     child.stdin.end();
   });
