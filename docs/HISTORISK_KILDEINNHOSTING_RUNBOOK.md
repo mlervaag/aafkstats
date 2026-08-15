@@ -326,15 +326,14 @@ seasons:
   - year: 1954
     page: 95
     results:
-      - opponent: Freidig
+      - no: 1
+        page: 95
+        opponent: Freidig
         opponentClubId: freidig
-        homeAway: away
-        score:
-          home: 3
-          away: 1
-        competition: nm
-        round: "3. runde"
+        score: [1, 3]
         date: "1954-08-08"
+        competitionId: nm
+        round: 3
         matchId: 1954-08-08-freidig-aalesunds-fk
 ```
 
@@ -412,8 +411,13 @@ seasons:
   - year: 1938
     page: 106
     results:
-      - opponent: Skeid
-        ...
+      - no: 4
+        page: 106
+        opponent: Skeid
+        opponentClubId: skeid
+        score: [1, 1]
+        competitionId: nm
+        round: 4
 ```
 *(Det finnes ikke noe eget toppnivåfelt `factYear` i source-result-skjemaet).*
 
@@ -429,18 +433,22 @@ Når to publikasjoner inneholder identisk tekst (f.eks. et jubileumshefte og et 
 ## 11. Personhistorikk og roller
 
 ### Personmodellen i gjeldende schema
-Personfiler i `data/people/<slug>.yaml` følger Zod-skjemaet og har følgende struktur:
-- `id`, `name`, `firstName`, `lastName`
+Personfiler i `data/people/<slug>.yaml` følger Zod-skjemaet og har følgende top-level felter:
+- `id`
+- `name`
 - `names`: Liste over navnevarianter og kallenavn (IKKE `aliases`)
-- `roles`: Liste over personroller
-- `sources`: Kildereferanser og omtaler
-- `coachSpells`: Trenerperioder
-- `conflicts`: Kildekonflikter
-- `providers`: Eksterne ID-koblinger
+- `nationality`
+- `position`
 - `wikidata`: Wikidata-identifikator (IKKE `wikidataId`)
-- `position`, `dateOfBirth`, `dateOfDeath`, `note`
+- `squadNumbers`
+- `coachSpells`: Trenerperioder
+- `roles`: Liste over personroller
+- `providers`: Eksterne ID-koblinger
+- `sources`: Kildereferanser og omtaler
+- `conflicts`: Kildekonflikter
+- `note`
 
-*(Det finnes IKKE egne toppnivå-arrays for `honors` eller `milestones`).*
+*(Det finnes IKKE egne toppnivå-arrays for `honors` eller `milestones`, og felter som `firstName`, `lastName`, `dateOfBirth` eller `dateOfDeath` inngår ikke i personmodellen).*
 
 ### Hedersbevisninger lagres som personroller
 Hedersbevisninger normaliseres som personroller med `category: honorary`:
@@ -497,7 +505,7 @@ Når en eksisterende person berikes, **SKAL** følgende bevares intakt:
 - Eksisterende konflikter (`conflicts`, både løste og uløste)
 - Navnevarianter (`names`)
 - Trenerperioder (`coachSpells`)
-- Posisjon, fødsels-/dødsdato og eksterne ID-er (`wikidata` etc.)
+- Posisjon, nasjonalitet og eksterne ID-er (`wikidata` etc.)
 - Notater og metadata
 
 > [!CAUTION]
@@ -511,23 +519,30 @@ Konflikter registreres i `conflicts`-strukturen på personen i henhold til schem
 
 ```yaml
 conflicts:
-  - field: dateOfBirth
+  - field: formann.1962
     values:
-      - value: "1914-05-12"
-        sourceId: aafk-50-ar-1964
-      - value: "1914-05-14"
-        sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+      - value: Kjell Berentzen
+        providerId: nasjonalbiblioteket
+        note: "tango-siden-1914-2013-806b s. 293"
+      - value: Hans J. Henriksen
+        providerId: aafk-no
     resolved: true
-    chosen: "1914-05-12"
-    decision: chosen
+    decision: manual
+    locked: true
+    note: "Kildene oppgir ulike navn for dette vervet."
+    chosen: Hans J. Henriksen
+    reason: "Samtidig medlemsblad 1961 s. 59 og 1962 s. 5, 62 bekrefter at Hans J. Henriksen ble valgt til formann 26. november 1961 og ledet klubben i 1962."
+    chosenProviderId: aafk-no
     decidedAt: "2026-08-15"
-    reason: "Kirkebok og 50-årsbok bekrefter 12. mai."
 ```
 
 Regler:
+- `values[]` bruker `providerId` (og eventuell `note`), ikke `sourceId` (historiske publikasjonskilder knyttes som `sources` på rollen/personen).
+- `decision` kan kun være: `unresolved`, `manual`, `source_priority` eller `independent_source`.
 - `decision: unresolved` brukes når konflikten er uløst (`resolved: false`).
-- En løst konflikt (`resolved: true`) skal ha `chosen`, `decision`, `decidedAt` og `reason`.
+- En løst konflikt (`resolved: true`) krever `chosen`, `chosenProviderId`, `decision`, `decidedAt` og `reason`.
 - **Ingen sletting:** En løst konflikt skal **IKKE** fjernes fra YAML-filen. Kildespriket er verdifull arkivhistorikk.
+
 
 ---
 

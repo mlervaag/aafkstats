@@ -109,7 +109,8 @@ Dokumentasjon av eventuelle kildekonflikter i tråd med schema:
 
 | Felt (`field`) | Kilde A | Kilde B | Status (`resolved`) | Beslutning (`decision`, `chosen`, `reason`) |
 |---|---|---|---|---|
-| `<dateOfBirth / role>` | `<Kilde 1: verdi>` | `<Kilde 2: verdi>` | `<true / false>` | `<chosen: verdi, reason: begrunnelse>` |
+| `<formann.1962 / position / role>` | `<Kilde 1: verdi>` | `<Kilde 2: verdi>` | `<true / false>` | `<chosen: verdi, reason: begrunnelse>` |
+
 
 ---
 
