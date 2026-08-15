@@ -154,9 +154,9 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060283027_001`
 ## Recall-evaluering og adaptervurdering
 
 Før manuell review og adapteroptimalisering for 1961:
-- A-lagsresultater dokumentert i kilden: 23
-- Funnet maskinelt av adapter: 18
-- Kun manuelt funnet: 5 (kamper spredt i løpende prosa eller notiser uten eksplisitt A-lagsord i samme linje, f.eks. Eid IL og Roald-turneringen)
+- Eksplisitte A-lagsresultater med score i kilden: 15
+- Identifiserte oppgjør uten eksplisitt score: 9 (8 høstseriekamper med seier/tap + 1 privatkamp mot Østsiden med seiersmål)
+- Adapterens opprinnelige kandidatgjennomgang identifiserte 18 av kampomtalene som inngikk i den første evalueringen. Dette tallet skal ikke tolkes som recall for eksplisitte scorer, fordi den tidlige evalueringen også inkluderte kampomtaler der kilden bare dokumenterer utfall.
 - Match-result-kandidater totalt: Adapteren flagget mange kandidater på sider med halftone/bildestøy (særlig side 80/81) og tabellrader.
 
 ### Generaliserbarhet og adapterkonklusjon
@@ -178,4 +178,6 @@ Før manuell review og adapteroptimalisering for 1961:
 
 - **1961-innhøstingen er komplett gjennomført.**
 - Metoden etablert i PR #151 (1962) har vist seg fullt generaliserbar for neste årgang.
-- 2 nye kanoniske kamper (`1961-07-06-aalesunds-fk-canto-do-rio` og `1961-06-22-aalesunds-fk-koge-bk`) er opprettet, 1 kanonisk kamp er beriket (`1961-08-06-rosenborg-bk-aalesunds-fk`), og 23 oppgjør er registrert i `data/source-results/medlemsblad-for-aalesunds-fotb-1961-a9f8.yaml`.
+- 2 nye kanoniske kamper (`1961-07-06-aalesunds-fk-canto-do-rio` og `1961-06-22-aalesunds-fk-koge-bk`) er opprettet, 1 kanonisk kamp er beriket (`1961-08-06-rosenborg-bk-aalesunds-fk`).
+- **15 oppgjør med eksplisitt score** er registrert i `data/source-results/medlemsblad-for-aalesunds-fotb-1961-a9f8.yaml`.
+- Ytterligere **9 identifiserte oppgjør uten eksplisitt score** er bevart i reviewloggen uten konstruerte resultater.
