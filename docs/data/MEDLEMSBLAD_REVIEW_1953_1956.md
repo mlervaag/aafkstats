@@ -12,14 +12,14 @@ Batchen bygger direkte på metodikken etablert i PR #151–#154 og produksjonssi
 |---|---:|---:|---:|---:|---:|
 | Sider visuelt kontrollert | 92 | 148 | 92 | 88 | **420** |
 | A-lagskamper oppgitt i sesongfasit | 26 | 33 | — | 28 | **87** |
-| Eksplisitte individuelle resultater funnet | 5 | 1 | 1 | 1 | **8** |
-| Kildedokumenterte oppgjør normalisert | 5 | 1 | 1 | 1 | **8** |
-| Historiske retrospektive kampfunn vurdert | — | 10 | — | — | **10** |
+| Eksplisitte samtidige A-lagsresultater funnet | 5 | 1 | 1 | 1 | **8** |
+| Individuelle retrospektive kildepåstander funnet (1920–1939) | — | 14 | — | — | **14** |
+| Kildedokumenterte oppgjør normalisert i source-results | 5 | 30 | 1 | 1 | **37** |
 | Fixture-kilder vurdert | 2 | 2 | 2 | 2 | **8** |
 | Nye canonical matches | 0 | 0 | 0 | 0 | **0** |
 | Berikede canonical matches | 0 | 1 | 0 | 0 | **1** |
-| Allerede dokumentert i eldre primærkilder | — | 9 | — | — | **9** |
-| Reprint / duplisert jubileumsstoff | — | 10 | — | — | **10** |
+| Allerede dokumentert i eldre primærkilder | — | 14 | — | — | **14** |
+| Reprint / duplisert jubileumsstoff | — | 15 | — | — | **15** |
 | Nye personer opprettet | 2 | 1 | 1 | 0 | **4** |
 | Unike eksisterende personfiler beriket | - | - | - | - | **22** |
 | Personberikelser per år | 10 | 10 | 8 | 6 | **34** |
@@ -75,7 +75,7 @@ Perioden 1953–1956 var preget av tøff kamp i Landsdelsserien Møre:
 
 ### 7. Retrospektiv kamp-reconciliation og 40-årsjubileet 1954
 I 1954 feiret klubben 40 år (25. juni 1914–1954). Både det ordinære hefte 6 og det separate 40-årsjubileumsheftet dokumenterte klubbens sportslige høydepunkter fra 1914 til 1954 (delvis som identisk reprint).
-- Samtlige 10 historiske kampreferanser fra 1915–1939 er avstemt mot eksisterende primærkilder (25-årsboken fra 1939 og NFF Årbøker) som `already_documented / duplicate_publication`.
+- Samtlige 14 individuelle retrospektive kampreferanser (1920–1939) og det samtidige 1954-resultatet er normalisert i `source-results` med korrekt fact year og eksplisitt merknad om reprint.
 - NM 3. runde 1954 (Freidig–AaFK 3–1) er beriket som kanonisk kamp.
 
 ---

@@ -5,7 +5,7 @@ Denne loggen dokumenterer full visuell kontroll og normalisering av **Medlemsbla
 - De trykte faksimilene kontrolleres visuelt som primærkilde.
 - Kildepåstander lagres i `data/source-results/` før eventuell opprettelse av kanoniske kamper.
 - Usikre datoer eller koblinger konstrueres ikke.
-- Source publication year (1954) og fact year (f.eks. 1920, 1933, 1938) holdes strengt fra hverandre ved retrospektive kildevurderinger.
+- Source publication year (1954) og fact year (f.eks. 1920, 1929, 1931, 1933, 1935, 1938, 1939) holdes strengt fra hverandre ved retrospektive kildevurderinger.
 
 Kilder:
 1. Ordinære hefter 1–6 (108 sider): `medlemsblad-for-aalesunds-fotb-1954-cd1c` (URN: `URN:NBN:no-nb_digitidsskrift_2021060183308_001`)
@@ -19,12 +19,12 @@ Kilder:
 |---|---:|---|
 | Sider visuelt kontrollert | 148/148 | 108 ordinære sider + 40 jubileumssider (100 %) |
 | A-lagskamper oppgitt i sesongfasit | 33 | 17 seire, 4 uavgjort, 12 tap, mål 65–57 (s. 95) |
-| Eksplisitte individuelle resultater funnet | 1 | NM 3. runde: Freidig–AaFK 3–1 (08.08.1954) |
-| Kildedokumenterte oppgjør normalisert | 1 | Opprettet i `data/source-results/medlemsblad-for-aalesunds-fotb-1954-cd1c.yaml` |
-| Historiske retrospektive kampfunn vurdert | 10/10 | Alle historiske oppgjør fra 1915–1939 vurdert mot arkivet |
+| Eksplisitte individuelle resultater funnet (samtidig 1954) | 1 | NM 3. runde: Freidig–AaFK 3–1 (08.08.1954) |
+| Individuelle retrospektive kildepåstander funnet (1920–1939) | 14 | 14 konkrete historiske oppgjør med scoreomtale |
+| Kildedokumenterte oppgjør normalisert i source-results | 30 | 15 i `1954-cd1c.yaml` + 15 i `1954-192b.yaml` (14 retrospektive + 1 samtidig per kilde) |
 | Canonical matches beriket | 1 | `1954-08-08-freidig-aalesunds-fk.yaml` beriket med kilde s. 95 |
-| Allerede dokumentert i eldre primærkilder | 9 | Kamper fra 1920–1939 allerede dokumentert i 25-årsboka 1939 og NFF-årbøker |
-| Reprint / duplisert jubileumsstoff | 10 | Tekster og resultatoversikter i hefte 6 er identiske med jubileumsheftet 192b |
+| Allerede dokumentert i eldre primærkilder | 14 | De 14 historiske oppgjørene fra 1920–1939 er allerede registrert fra 25-årsboka 1939 og NFF-årbøker |
+| Reprint / duplisert jubileumsstoff | 15 | Tekster og resultater i hefte 6 (`cd1c`) er identiske reprints av jubileumsheftet (`192b`) |
 | Fixture-kilder vurdert | 2 | Vårterminliste s. 41, Høstterminliste s. 95 |
 | Nye canonical matches | 0 | Seriekamper bevares i source-results uten konstruerte datoer |
 | Person candidates vurdert | 28/28 | Alle personfunn eksplisitt disponert |
@@ -55,20 +55,25 @@ Kilder:
 
 I forbindelse med klubbens 40-årsjubileum publiserte AaFK en omfattende historisk gjennomgang av klubbens kamper fra 1914 til 1954. Artiklene sto på trykk både i det ordinære medlemsbladets hefte nr. 6 (`medlemsblad-for-aalesunds-fotb-1954-cd1c`, side 77–108) og i det separate 40-årsjubileumsheftet (`medlemsblad-for-aalesunds-fotb-1954-192b`, side 1–40).
 
-Dette er delvis et rent opptrykk (reprint), og kildene holdes adskilt med hensyn til kildeår (1954) og faktisk hendelsesår (fact year).
+Dette er delvis et rent opptrykk (reprint), og samtlige 14 individuelle retrospektive kampoppgjør (1920–1939) samt sesongresultatet fra 1954 er normalisert i begge kilders `source-results`-filer med korrekt *fact year* og eksplisitt merknad om reprint.
 
-| Kamp / Historisk hendelse | Faktisk år (fact year) | Kilde 1 (cd1c) | Kilde 2 (192b) | Disposition | Status i arkivet / Handling |
-|---|---:|---|---|---|---|
-| **KM-finale mot Rollon 3–0** | 1920 | s. 84 | s. 2, 40 | already_documented / duplicate_publication | Kanonisk kamp `1920-10-10-aalesunds-fk-sk-rollon.yaml` (3–0). Paiva-pokalen og kretsmesterskapet. |
-| **NM 2. runde: Rapp–AaFK 1–1 e.e.o., omkamp 0–1** | 1929 | s. 85 | s. 2 | already_documented / duplicate_publication | Allerede kildedokumentert i `aalesunds-fotballklub-gjennem-1939-ec28.yaml` for 1929. |
-| **NM 3. runde: Gjøvik-Lyn–AaFK 2–2 e.e.o., omkamp 2–1** | 1933 | s. 86 | s. 3 | already_documented / duplicate_publication | Allerede kildedokumentert i 1939-boka og NFF Årbok for 1933. |
-| **Pinsestevne: AaFK–Vålerengen 1–1** | 1931 | s. 88 | s. 4 | already_documented / duplicate_publication | Privatkamp på Aksla mot Vålerengen. Allerede dokumentert i 1939-boka s. 14. |
-| **Kretskamp: AaFK–Rollon 3–2** | 1933 | s. 90 | s. 6 | already_documented / duplicate_publication | Kretsserieoppgjør 1933. Allerede dokumentert i 1939-boka for 1933. |
-| **Seriekamp: Braatt–AaFK 2–1** | 1935 | s. 91 | s. 7 | already_documented / duplicate_publication | Seriekamp i Kristiansund. Allerede dokumentert i 1939-boka for 1935. |
-| **Serieoppgjør 1939 (3–2-seier)** | 1939 | s. 92 | s. 8 | already_documented / duplicate_publication | Seriesesongen 1939. Allerede dokumentert i 1939-boka. |
-| **Storseire (Glimt 3–0, Lyn 4–1, Sarpsborg 2–1)** | 1921–1938 | s. 93 | s. 9 | already_documented / duplicate_publication | Samleoppstilling over historiske cup- og privatseire. Allerede registrert. |
-| **NM 4. runde: Skeid–AaFK 1–1 e.e.o., omkamp 2–1** | 1938 | s. 106 | s. 22 | already_documented / duplicate_publication | Cupbragden på Bislett 1938. Allerede kildedokumentert i 1939-boka og NFF Årbok. |
-| **NM 3. runde: Freidig–AaFK 3–1** | 1954 | s. 95 | s. 31 | canonical_enriched / duplicate_publication | Beriket `1954-08-08-freidig-aalesunds-fk.yaml` med kilde s. 95. |
+| Kamp / Historisk hendelse | Faktisk år (fact year) | Score | Kilde 1 (cd1c) | Kilde 2 (192b) | Disposition | Status i arkivet / Handling |
+|---|---:|---:|---|---|---|---|
+| **KM-finale mot Rollon (3–0)** | 1920 | 3–0 | s. 84 | s. 2, 40 | already_documented / duplicate_publication | Paiva-pokalen og KM. Normalisert i `source-results` under 1920. |
+| **NM 2. runde: Rapp (1–1 e.e.o.)** | 1929 | 1–1 | s. 85 | s. 2 | already_documented / duplicate_publication | Normalisert i `source-results` under 1929 (`nm` runde 2). |
+| **NM 2. runde omkamp: Rapp (1–0)** | 1929 | 1–0 | s. 85 | s. 2 | already_documented / duplicate_publication | Normalisert i `source-results` under 1929 (`nm` runde 2 replay). |
+| **Pinsestevne: Vålerengen (1–1)** | 1931 | 1–1 | s. 88 | s. 4 | already_documented / duplicate_publication | Privatkamp på Aksla mot VIF. Normalisert i `source-results` under 1931. |
+| **NM 3. runde: Gjøvik-Lyn (2–2 e.e.o.)** | 1933 | 2–2 | s. 86 | s. 3 | already_documented / duplicate_publication | Normalisert i `source-results` under 1933 (`nm` runde 3). |
+| **NM 3. runde omkamp: Gjøvik-Lyn (1–2)** | 1933 | 1–2 | s. 86 | s. 3 | already_documented / duplicate_publication | Normalisert i `source-results` under 1933 (`nm` runde 3 replay). |
+| **Kretskamp: Rollon (3–2)** | 1933 | 3–2 | s. 90 | s. 6 | already_documented / duplicate_publication | Kretsserie 1933. Normalisert i `source-results` under 1933. |
+| **Seriekamp: Braatt (1–2)** | 1935 | 1–2 | s. 91 | s. 7 | already_documented / duplicate_publication | Seriekamp i Kristiansund. Normalisert i `source-results` under 1935. |
+| **Storseier: Glimt (3–0)** | 1938 | 3–0 | s. 93 | s. 9 | already_documented / duplicate_publication | Historisk seier. Normalisert i `source-results` under 1938. |
+| **Storseier: Lyn (4–1)** | 1938 | 4–1 | s. 93 | s. 9 | already_documented / duplicate_publication | Historisk seier. Normalisert i `source-results` under 1938. |
+| **Seier: Sarpsborg (2–1)** | 1938 | 2–1 | s. 93 | s. 9 | already_documented / duplicate_publication | Historisk seier. Normalisert i `source-results` under 1938. |
+| **NM 4. runde: Skeid (1–1 e.e.o.)** | 1938 | 1–1 | s. 106 | s. 22 | already_documented / duplicate_publication | Bislett-bragden. Normalisert i `source-results` under 1938 (`nm` runde 4). |
+| **NM 4. runde omkamp: Skeid (1–2)** | 1938 | 1–2 | s. 106 | s. 22 | already_documented / duplicate_publication | Normalisert i `source-results` under 1938 (`nm` runde 4 replay). |
+| **Seriesesongen 1939 (3–2-seier)** | 1939 | 3–2 | s. 92 | s. 8 | already_documented / duplicate_publication | Seriesesongen 1939. Normalisert i `source-results` under 1939. |
+| **NM 3. runde: Freidig (1–3)** | 1954 | 1–3 | s. 95 | s. 31 | canonical_enriched / duplicate_publication | Beriket `1954-08-08-freidig-aalesunds-fk.yaml` med kilde s. 95. |
 
 ---
 
@@ -208,7 +213,7 @@ Dette er delvis et rent opptrykk (reprint), og kildene holdes adskilt med hensyn
 | 105 | Nr. 6 | Gode klubbkamerater gjennom årene | historical | reviewed | Kameratskap |
 | 106 | Nr. 6 | 4. runde-kampen mot Skeid på Bislett (omkamp) | historical | reviewed | Cupbragd i Oslo |
 | 107 | Nr. 6 | Annonser | ads | reviewed | Byggevarer Høyer |
-| 108 | Nr. 6 | Andreas B. Ringdal / Gullmerket 1927 | honor / player | reviewed | Andreas Ringdal hedret for fremragende spillerinnsats |
+| 108 | Nr. 6 | Andreas Ringdal / Gullmerket 1927 | honor / player | reviewed | Andreas Ringdal hedret for fremragende spillerinnsats |
 
 ---
 

@@ -270,5 +270,31 @@ describe("Medlemsblad 1953–1956 (PR #156)", () => {
       expect(berentzen?.roles?.some((r) => r.id === "formann-1961")).toBe(true);
       expect(berentzen?.roles?.find((r) => r.id === "formann-1961")?.sources.some((s) => s.sourceId === "medlemsblad-for-aalesunds-fotb-1961-a9f8")).toBe(true);
     });
+
+    it("har normalisert retrospektive kilderesultater for 1954 med fact year og reprint-merknader", () => {
+      const cd1c = archive.sourceResults.find((s) => s.sourceId === "medlemsblad-for-aalesunds-fotb-1954-cd1c");
+      const sr192b = archive.sourceResults.find((s) => s.sourceId === "medlemsblad-for-aalesunds-fotb-1954-192b");
+
+      expect(cd1c).toBeDefined();
+      expect(sr192b).toBeDefined();
+
+      // Både cd1c og 192b inneholder 15 resultater over 8 sesonger
+      expect(cd1c?.seasons.length).toBe(8);
+      expect(sr192b?.seasons.length).toBe(8);
+
+      // 1920 Paiva-pokalen
+      const km1920Cd1c = cd1c?.seasons.find((s) => s.year === 1920)?.results[0];
+      const km1920192b = sr192b?.seasons.find((s) => s.year === 1920)?.results[0];
+      expect(km1920Cd1c?.score).toEqual([3, 0]);
+      expect(km1920192b?.score).toEqual([3, 0]);
+      expect(km1920Cd1c?.note).toContain("reprint/duplikat");
+      expect(km1920192b?.note).toContain("reprint/duplikat");
+
+      // 1954 Freidig (med matchId)
+      const freidigCd1c = cd1c?.seasons.find((s) => s.year === 1954)?.results[0];
+      const freidig192b = sr192b?.seasons.find((s) => s.year === 1954)?.results[0];
+      expect(freidigCd1c?.matchId).toBe("1954-08-08-freidig-aalesunds-fk");
+      expect(freidig192b?.matchId).toBe("1954-08-08-freidig-aalesunds-fk");
+    });
   });
 });
