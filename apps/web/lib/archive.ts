@@ -49,6 +49,7 @@ export interface SourceResult {
   sourceId: string;
   season: number;
   page: number;
+  date: string | null;
   opponent: string | null;
   opponentClubId: string | null;
   aafkScore: number | null;
@@ -66,6 +67,7 @@ export interface SourceResult {
 
 interface SourceResultRow {
   id: string; source_id: string; season: number; page: number;
+  date: string | null;
   opponent: string | null; opponent_club_id: string | null; aafk_score: number | null; opponent_score: number | null;
   result: SourceResult["result"]; competition_id: string | null;
   status: SourceResult["status"]; replay: number; after_extra_time: number;
@@ -75,6 +77,7 @@ interface SourceResultRow {
 function mapSourceResult(row: SourceResultRow): SourceResult {
   return {
     id: row.id, sourceId: row.source_id, season: row.season, page: row.page,
+    date: row.date,
     opponent: row.opponent, opponentClubId: row.opponent_club_id,
     aafkScore: row.aafk_score, opponentScore: row.opponent_score,
     result: row.result, competitionId: row.competition_id, status: row.status,

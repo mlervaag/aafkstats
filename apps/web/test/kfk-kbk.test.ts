@@ -136,6 +136,7 @@ describe("KFK og KBK klubbidentitet og historikkskille", () => {
         sourceId: "25-aarsbok",
         season: 1915,
         page: 83,
+        date: null,
         opponent: "K. F. K.",
         opponentClubId: "kfk",
         aafkScore: 3,
