@@ -1,5 +1,5 @@
 import type { Person } from "../person.js";
-import type { SourceResultCollection } from "../source-result.js";
+import type { SourceResultCollection, SourceResult } from "../source-result.js";
 import { flattenSourceResults } from "../source-result.js";
 import type { OrganizationSnapshot } from "../organization.js";
 import type { HistoricalObservation } from "../historical-observation.js";
@@ -145,10 +145,20 @@ export function calculateHarvestMetrics(
   let sourceResultEntriesAdded = 0;
   let sourceResultEntriesLinked = 0;
 
-  const baseResultsMap = new Map<string, { matchId: string | null }>();
+  function sourceResultSemanticKey(r: SourceResult): string {
+    return `${r.sourceId}|${r.season}|${r.date ?? "nodate"}|${r.opponent ?? ""}|${r.opponentClubId ?? ""}|${r.aafkGoals ?? "x"}-${r.opponentGoals ?? "x"}|${r.competitionId ?? ""}|${r.status}`;
+  }
+
+  const baseResultsById = new Map<string, SourceResult>();
+  const baseResultsBySemantic = new Map<string, SourceResult[]>();
+
   for (const [colId, col] of baseSourceResults) {
     for (const r of flattenSourceResults(col)) {
-      baseResultsMap.set(`${colId}|${r.id}`, r);
+      baseResultsById.set(`${colId}|${r.id}`, r);
+      const semKey = sourceResultSemanticKey(r);
+      const list = baseResultsBySemantic.get(semKey) ?? [];
+      list.push(r);
+      baseResultsBySemantic.set(semKey, list);
     }
   }
 
@@ -156,16 +166,35 @@ export function calculateHarvestMetrics(
     if (!baseSourceResults.has(colId)) {
       sourceResultCollectionsAdded += 1;
     }
+    const usedBaseSemanticIndices = new Map<string, number>();
+
     for (const headResult of flattenSourceResults(headCol)) {
-      const key = `${colId}|${headResult.id}`;
-      const baseResult = baseResultsMap.get(key);
-      if (!baseResult) {
+      const idKey = `${colId}|${headResult.id}`;
+      const baseResultById = baseResultsById.get(idKey);
+
+      let matchedBaseResult: SourceResult | undefined = undefined;
+
+      if (baseResultById && sourceResultSemanticKey(baseResultById) === sourceResultSemanticKey(headResult)) {
+        matchedBaseResult = baseResultById;
+      } else {
+        const semKey = sourceResultSemanticKey(headResult);
+        const candidates = baseResultsBySemantic.get(semKey);
+        if (candidates && candidates.length > 0) {
+          const usedIdx = usedBaseSemanticIndices.get(semKey) ?? 0;
+          if (usedIdx < candidates.length) {
+            matchedBaseResult = candidates[usedIdx];
+            usedBaseSemanticIndices.set(semKey, usedIdx + 1);
+          }
+        }
+      }
+
+      if (!matchedBaseResult) {
         sourceResultEntriesAdded += 1;
         if (headResult.matchId !== null) {
           sourceResultEntriesLinked += 1;
         }
       } else {
-        if (baseResult.matchId === null && headResult.matchId !== null) {
+        if (matchedBaseResult.matchId === null && headResult.matchId !== null) {
           sourceResultEntriesLinked += 1;
         }
       }
@@ -181,16 +210,51 @@ export function calculateHarvestMetrics(
     if (!baseMatch) {
       canonicalMatchesCreated += 1;
     } else {
-      // Sjekk om ny kilde eller felt er lagt til
-      const baseSources = new Set(baseMatch.sources?.map((s) => s.sourceId) ?? []);
-      const headSources = new Set(headMatch.sources?.map((s) => s.sourceId) ?? []);
-      const baseProviders = new Set(baseMatch.providers?.map((p) => p.providerId) ?? []);
-      const headProviders = new Set(headMatch.providers?.map((p) => p.providerId) ?? []);
+      let isMatchEnriched = false;
 
-      if (
-        [...headSources].some((s) => !baseSources.has(s)) ||
-        [...headProviders].some((p) => !baseProviders.has(p))
-      ) {
+      // 1. Sjekk nye eller berikede sources
+      const baseSourceMap = new Map((baseMatch.sources ?? []).map((s) => [s.sourceId, s]));
+      for (const headSrc of headMatch.sources ?? []) {
+        const baseSrc = baseSourceMap.get(headSrc.sourceId);
+        if (!baseSrc) {
+          isMatchEnriched = true;
+          break;
+        }
+        const baseFields = new Set(baseSrc.fields ?? []);
+        if ((headSrc.fields ?? []).some((f) => !baseFields.has(f))) {
+          isMatchEnriched = true;
+          break;
+        }
+      }
+
+      // 2. Sjekk nye eller berikede providers
+      if (!isMatchEnriched) {
+        const baseProviderMap = new Map((baseMatch.providers ?? []).map((p) => [p.providerId, p]));
+        for (const headProv of headMatch.providers ?? []) {
+          const baseProv = baseProviderMap.get(headProv.providerId);
+          if (!baseProv) {
+            isMatchEnriched = true;
+            break;
+          }
+          const baseFields = new Set(baseProv.fields ?? []);
+          if ((headProv.fields ?? []).some((f) => !baseFields.has(f))) {
+            isMatchEnriched = true;
+            break;
+          }
+        }
+      }
+
+      // 3. Sjekk hendelser, oppstillinger, tilskuertall osv.
+      if (!isMatchEnriched) {
+        if ((headMatch.events?.length ?? 0) > (baseMatch.events?.length ?? 0)) isMatchEnriched = true;
+        else if (!baseMatch.attendance && headMatch.attendance) isMatchEnriched = true;
+        else if (!baseMatch.referee && headMatch.referee) isMatchEnriched = true;
+        else if (!baseMatch.venueId && headMatch.venueId) isMatchEnriched = true;
+        else if (!baseMatch.lineups && headMatch.lineups) isMatchEnriched = true;
+        else if (!baseMatch.report && headMatch.report) isMatchEnriched = true;
+      }
+
+      if (isMatchEnriched) {
         canonicalMatchesEnriched += 1;
       }
     }

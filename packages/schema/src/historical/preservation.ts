@@ -275,6 +275,35 @@ function compareRole(
           exception: ex,
         });
       }
+
+      // Sjekk note på kildereferansen
+      if (baseSrc.note && !headSrc.note) {
+        const ex = findMatchingException("person", personId, `${srcPath}/note`, "remove", exceptions, usedExceptions);
+        changes.push({
+          entity: "person",
+          id: personId,
+          path: `${srcPath}/note`,
+          changeType: "remove",
+          status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+          message: `Merknad på kildereferanse «${key}» på rollen «${baseRole.id}» har forsvunnet`,
+          baseValue: baseSrc.note,
+          headValue: undefined,
+          exception: ex,
+        });
+      } else if (baseSrc.note && headSrc.note && baseSrc.note !== headSrc.note) {
+        const ex = findMatchingException("person", personId, `${srcPath}/note`, "mutate", exceptions, usedExceptions);
+        changes.push({
+          entity: "person",
+          id: personId,
+          path: `${srcPath}/note`,
+          changeType: "mutate",
+          status: ex ? "APPROVED_EXCEPTION" : "REVIEW_REQUIRED",
+          message: `Merknad på kildereferanse «${key}» på rollen «${baseRole.id}» er endret`,
+          baseValue: baseSrc.note,
+          headValue: headSrc.note,
+          exception: ex,
+        });
+      }
     }
   }
 
@@ -307,6 +336,22 @@ export function comparePerson(
 ): PreservationChangeDetail[] {
   const changes: PreservationChangeDetail[] = [];
   const personId = basePerson.id;
+
+  // 0. Person name
+  if (basePerson.name !== headPerson.name) {
+    const ex = findMatchingException("person", personId, "name", "mutate", exceptions, usedExceptions);
+    changes.push({
+      entity: "person",
+      id: personId,
+      path: "name",
+      changeType: "mutate",
+      status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+      message: `Personnavn er endret fra «${basePerson.name}» til «${headPerson.name}»`,
+      baseValue: basePerson.name,
+      headValue: headPerson.name,
+      exception: ex,
+    });
+  }
 
   // 1. Roles
   const baseRoles = new Map<string, PersonRole>();
@@ -389,6 +434,34 @@ export function comparePerson(
           exception: ex,
         });
       }
+
+      if (baseSrc.note && !headSrc.note) {
+        const ex = findMatchingException("person", personId, `${srcPath}/note`, "remove", exceptions, usedExceptions);
+        changes.push({
+          entity: "person",
+          id: personId,
+          path: `${srcPath}/note`,
+          changeType: "remove",
+          status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+          message: `Merknad på kildereferanse «${key}» på person har forsvunnet`,
+          baseValue: baseSrc.note,
+          headValue: undefined,
+          exception: ex,
+        });
+      } else if (baseSrc.note && headSrc.note && baseSrc.note !== headSrc.note) {
+        const ex = findMatchingException("person", personId, `${srcPath}/note`, "mutate", exceptions, usedExceptions);
+        changes.push({
+          entity: "person",
+          id: personId,
+          path: `${srcPath}/note`,
+          changeType: "mutate",
+          status: ex ? "APPROVED_EXCEPTION" : "REVIEW_REQUIRED",
+          message: `Merknad på kildereferanse «${key}» på person er endret`,
+          baseValue: baseSrc.note,
+          headValue: headSrc.note,
+          exception: ex,
+        });
+      }
     }
   }
 
@@ -430,25 +503,55 @@ export function comparePerson(
         exception: ex,
       });
     } else {
-      // Sjekk at ingen values har forsvunnet (BASE.values ⊆ HEAD.values)
-      const headValueKeys = new Set(headConf.values.map((v) => `${v.providerId}|${v.value}`));
-      const missingValues = baseConf.values.filter((v) => !headValueKeys.has(`${v.providerId}|${v.value}`));
-      if (missingValues.length > 0) {
-        const ex = findMatchingException("person", personId, `${confPath}/values`, "remove", exceptions, usedExceptions);
-        changes.push({
-          entity: "person",
-          id: personId,
-          path: `${confPath}/values`,
-          changeType: "remove",
-          status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
-          message: `Konfliktverdi(er) for «${field}» har forsvunnet (${missingValues.map((v) => `${v.providerId}: ${v.value}`).join(", ")})`,
-          baseValue: baseConf.values,
-          headValue: headConf.values,
-          exception: ex,
-        });
+      // Sjekk at ingen values har forsvunnet (BASE.values ⊆ HEAD.values) og at payloadHash/note bevares
+      for (const baseVal of baseConf.values) {
+        const headVal = headConf.values.find((v) => v.providerId === baseVal.providerId && v.value === baseVal.value);
+        if (!headVal) {
+          const ex = findMatchingException("person", personId, `${confPath}/values`, "remove", exceptions, usedExceptions);
+          changes.push({
+            entity: "person",
+            id: personId,
+            path: `${confPath}/values`,
+            changeType: "remove",
+            status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+            message: `Konfliktverdi for «${field}» (${baseVal.providerId}: ${baseVal.value}) har forsvunnet`,
+            baseValue: baseVal,
+            headValue: undefined,
+            exception: ex,
+          });
+        } else {
+          if (baseVal.payloadHash && baseVal.payloadHash !== headVal.payloadHash) {
+            const ex = findMatchingException("person", personId, `${confPath}/values/payloadHash`, "mutate", exceptions, usedExceptions);
+            changes.push({
+              entity: "person",
+              id: personId,
+              path: `${confPath}/values/payloadHash`,
+              changeType: "mutate",
+              status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+              message: `payloadHash for konfliktverdi «${field}» (${baseVal.providerId}) er endret eller fjernet`,
+              baseValue: baseVal.payloadHash,
+              headValue: headVal.payloadHash,
+              exception: ex,
+            });
+          }
+          if (baseVal.note && !headVal.note) {
+            const ex = findMatchingException("person", personId, `${confPath}/values/note`, "remove", exceptions, usedExceptions);
+            changes.push({
+              entity: "person",
+              id: personId,
+              path: `${confPath}/values/note`,
+              changeType: "remove",
+              status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+              message: `Merknad på konfliktverdi «${field}» (${baseVal.providerId}) har forsvunnet`,
+              baseValue: baseVal.note,
+              headValue: undefined,
+              exception: ex,
+            });
+          }
+        }
       }
 
-      // Sjekk overgang fra unresolved til resolved
+      // Sjekk overgang fra unresolved til resolved eller endring av beslutning
       if (!baseConf.resolved && headConf.resolved) {
         changes.push({
           entity: "person",
@@ -473,19 +576,35 @@ export function comparePerson(
           headValue: headConf,
           exception: ex,
         });
-      } else if (baseConf.resolved && headConf.resolved && baseConf.chosen !== headConf.chosen) {
-        const ex = findMatchingException("person", personId, `${confPath}/chosen`, "mutate", exceptions, usedExceptions);
-        changes.push({
-          entity: "person",
-          id: personId,
-          path: `${confPath}/chosen`,
-          changeType: "mutate",
-          status: ex ? "APPROVED_EXCEPTION" : "REVIEW_REQUIRED",
-          message: `Valgt verdi for løst konflikt «${field}» er endret fra «${baseConf.chosen}» til «${headConf.chosen}»`,
-          baseValue: baseConf.chosen,
-          headValue: headConf.chosen,
-          exception: ex,
-        });
+      } else if (baseConf.resolved && headConf.resolved) {
+        if (baseConf.chosen !== headConf.chosen) {
+          const ex = findMatchingException("person", personId, `${confPath}/chosen`, "mutate", exceptions, usedExceptions);
+          changes.push({
+            entity: "person",
+            id: personId,
+            path: `${confPath}/chosen`,
+            changeType: "mutate",
+            status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+            message: `Valgt verdi for løst konflikt «${field}» er endret fra «${baseConf.chosen}» til «${headConf.chosen}»`,
+            baseValue: baseConf.chosen,
+            headValue: headConf.chosen,
+            exception: ex,
+          });
+        }
+        if (baseConf.reason && !headConf.reason) {
+          const ex = findMatchingException("person", personId, `${confPath}/reason`, "remove", exceptions, usedExceptions);
+          changes.push({
+            entity: "person",
+            id: personId,
+            path: `${confPath}/reason`,
+            changeType: "remove",
+            status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+            message: `Begrunnelse for løst konflikt «${field}» har forsvunnet`,
+            baseValue: baseConf.reason,
+            headValue: undefined,
+            exception: ex,
+          });
+        }
       }
     }
   }
@@ -565,17 +684,159 @@ export function comparePerson(
         exception: ex,
       });
     } else {
-      if (baseSpell.toSeason === null && headSpell.toSeason !== null) {
-        changes.push({
-          entity: "person",
-          id: personId,
-          path: `${spellPath}/toSeason`,
-          changeType: "enrich",
-          status: "SAFE_ENRICHMENT",
-          message: `Trenerperiode fra ${baseSpell.fromSeason} har fått dokumentert sluttsesong ${headSpell.toSeason}`,
-          baseValue: baseSpell.toSeason,
-          headValue: headSpell.toSeason,
-        });
+      // toSeason
+      if (baseSpell.toSeason !== headSpell.toSeason) {
+        if (baseSpell.toSeason === null && headSpell.toSeason !== null) {
+          changes.push({
+            entity: "person",
+            id: personId,
+            path: `${spellPath}/toSeason`,
+            changeType: "enrich",
+            status: "SAFE_ENRICHMENT",
+            message: `Trenerperiode fra ${baseSpell.fromSeason} har fått dokumentert sluttsesong ${headSpell.toSeason}`,
+            baseValue: baseSpell.toSeason,
+            headValue: headSpell.toSeason,
+          });
+        } else if (baseSpell.toSeason !== null && headSpell.toSeason === null) {
+          const ex = findMatchingException("person", personId, `${spellPath}/toSeason`, "remove", exceptions, usedExceptions);
+          changes.push({
+            entity: "person",
+            id: personId,
+            path: `${spellPath}/toSeason`,
+            changeType: "remove",
+            status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+            message: `Sluttsesong for trenerperiode fra ${baseSpell.fromSeason} har forsvunnet`,
+            baseValue: baseSpell.toSeason,
+            headValue: headSpell.toSeason,
+            exception: ex,
+          });
+        } else {
+          const ex = findMatchingException("person", personId, `${spellPath}/toSeason`, "mutate", exceptions, usedExceptions);
+          changes.push({
+            entity: "person",
+            id: personId,
+            path: `${spellPath}/toSeason`,
+            changeType: "mutate",
+            status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+            message: `Sluttsesong for trenerperiode fra ${baseSpell.fromSeason} er endret fra ${baseSpell.toSeason} til ${headSpell.toSeason}`,
+            baseValue: baseSpell.toSeason,
+            headValue: headSpell.toSeason,
+            exception: ex,
+          });
+        }
+      }
+
+      // fromDate
+      if (baseSpell.fromDate !== headSpell.fromDate) {
+        if (!baseSpell.fromDate && headSpell.fromDate) {
+          changes.push({
+            entity: "person",
+            id: personId,
+            path: `${spellPath}/fromDate`,
+            changeType: "enrich",
+            status: "SAFE_ENRICHMENT",
+            message: `Startdato for trenerperiode fra ${baseSpell.fromSeason} er tilført («${headSpell.fromDate}»)`,
+            baseValue: baseSpell.fromDate,
+            headValue: headSpell.fromDate,
+          });
+        } else if (baseSpell.fromDate && !headSpell.fromDate) {
+          const ex = findMatchingException("person", personId, `${spellPath}/fromDate`, "remove", exceptions, usedExceptions);
+          changes.push({
+            entity: "person",
+            id: personId,
+            path: `${spellPath}/fromDate`,
+            changeType: "remove",
+            status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+            message: `Startdato («${baseSpell.fromDate}») for trenerperiode fra ${baseSpell.fromSeason} har forsvunnet`,
+            baseValue: baseSpell.fromDate,
+            headValue: undefined,
+            exception: ex,
+          });
+        } else {
+          const ex = findMatchingException("person", personId, `${spellPath}/fromDate`, "mutate", exceptions, usedExceptions);
+          changes.push({
+            entity: "person",
+            id: personId,
+            path: `${spellPath}/fromDate`,
+            changeType: "mutate",
+            status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+            message: `Startdato for trenerperiode fra ${baseSpell.fromSeason} er endret fra «${baseSpell.fromDate}» til «${headSpell.fromDate}»`,
+            baseValue: baseSpell.fromDate,
+            headValue: headSpell.fromDate,
+            exception: ex,
+          });
+        }
+      }
+
+      // toDate
+      if (baseSpell.toDate !== headSpell.toDate) {
+        if (!baseSpell.toDate && headSpell.toDate) {
+          changes.push({
+            entity: "person",
+            id: personId,
+            path: `${spellPath}/toDate`,
+            changeType: "enrich",
+            status: "SAFE_ENRICHMENT",
+            message: `Sluttdato for trenerperiode fra ${baseSpell.fromSeason} er tilført («${headSpell.toDate}»)`,
+            baseValue: baseSpell.toDate,
+            headValue: headSpell.toDate,
+          });
+        } else if (baseSpell.toDate && !headSpell.toDate) {
+          const ex = findMatchingException("person", personId, `${spellPath}/toDate`, "remove", exceptions, usedExceptions);
+          changes.push({
+            entity: "person",
+            id: personId,
+            path: `${spellPath}/toDate`,
+            changeType: "remove",
+            status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+            message: `Sluttdato («${baseSpell.toDate}») for trenerperiode fra ${baseSpell.fromSeason} har forsvunnet`,
+            baseValue: baseSpell.toDate,
+            headValue: undefined,
+            exception: ex,
+          });
+        } else {
+          const ex = findMatchingException("person", personId, `${spellPath}/toDate`, "mutate", exceptions, usedExceptions);
+          changes.push({
+            entity: "person",
+            id: personId,
+            path: `${spellPath}/toDate`,
+            changeType: "mutate",
+            status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+            message: `Sluttdato for trenerperiode fra ${baseSpell.fromSeason} er endret fra «${baseSpell.toDate}» til «${headSpell.toDate}»`,
+            baseValue: baseSpell.toDate,
+            headValue: headSpell.toDate,
+            exception: ex,
+          });
+        }
+      }
+
+      // note
+      if (baseSpell.note !== headSpell.note) {
+        if (!baseSpell.note && headSpell.note) {
+          changes.push({
+            entity: "person",
+            id: personId,
+            path: `${spellPath}/note`,
+            changeType: "enrich",
+            status: "SAFE_ENRICHMENT",
+            message: `Merknad for trenerperiode fra ${baseSpell.fromSeason} lagt til`,
+            baseValue: baseSpell.note,
+            headValue: headSpell.note,
+          });
+        } else if (baseSpell.note && !headSpell.note) {
+          const ex = findMatchingException("person", personId, `${spellPath}/note`, "remove", exceptions, usedExceptions);
+          changes.push({
+            entity: "person",
+            id: personId,
+            path: `${spellPath}/note`,
+            changeType: "remove",
+            status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+            message: `Merknad for trenerperiode fra ${baseSpell.fromSeason} har forsvunnet`,
+            baseValue: baseSpell.note,
+            headValue: undefined,
+            exception: ex,
+          });
+        }
       }
     }
   }
@@ -668,6 +929,73 @@ export function comparePerson(
         headValue: undefined,
         exception: ex,
       });
+    } else {
+      // fields
+      const baseFields = new Set(baseProv.fields);
+      const headFields = new Set(headProv.fields);
+      const missingFields = [...baseFields].filter((f) => !headFields.has(f));
+      if (missingFields.length > 0) {
+        const ex = findMatchingException("person", personId, `${provPath}/fields`, "remove", exceptions, usedExceptions);
+        changes.push({
+          entity: "person",
+          id: personId,
+          path: `${provPath}/fields`,
+          changeType: "remove",
+          status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+          message: `Kildedekning for felt (${missingFields.join(", ")}) på ProviderRef «${key}» har krympet`,
+          baseValue: baseProv.fields,
+          headValue: headProv.fields,
+          exception: ex,
+        });
+      }
+
+      // url
+      if (baseProv.url && !headProv.url) {
+        const ex = findMatchingException("person", personId, `${provPath}/url`, "remove", exceptions, usedExceptions);
+        changes.push({
+          entity: "person",
+          id: personId,
+          path: `${provPath}/url`,
+          changeType: "remove",
+          status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+          message: `URL på ProviderRef «${key}» har forsvunnet`,
+          baseValue: baseProv.url,
+          headValue: undefined,
+          exception: ex,
+        });
+      }
+
+      // retrievedAt
+      if (baseProv.retrievedAt && !headProv.retrievedAt) {
+        const ex = findMatchingException("person", personId, `${provPath}/retrievedAt`, "remove", exceptions, usedExceptions);
+        changes.push({
+          entity: "person",
+          id: personId,
+          path: `${provPath}/retrievedAt`,
+          changeType: "remove",
+          status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+          message: `retrievedAt på ProviderRef «${key}» har forsvunnet`,
+          baseValue: baseProv.retrievedAt,
+          headValue: undefined,
+          exception: ex,
+        });
+      }
+
+      // note
+      if (baseProv.note && !headProv.note) {
+        const ex = findMatchingException("person", personId, `${provPath}/note`, "remove", exceptions, usedExceptions);
+        changes.push({
+          entity: "person",
+          id: personId,
+          path: `${provPath}/note`,
+          changeType: "remove",
+          status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+          message: `Merknad på ProviderRef «${key}» har forsvunnet`,
+          baseValue: baseProv.note,
+          headValue: undefined,
+          exception: ex,
+        });
+      }
     }
   }
 

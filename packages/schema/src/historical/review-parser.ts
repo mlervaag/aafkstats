@@ -51,9 +51,14 @@ export const APPROVED_DISPOSITIONS = new Set([
   "in_scope",
   "out_of_scope",
   "unavailable",
+  "duplicate_or_reprint",
 ]);
 
-const PLACEHOLDER_REGEX = /<PLACEHOLDER>|<TODO>|\bTODO\b|\bXXX\b|\[TBD\]|\bTBD\b|\bFIXME\b/i;
+// Ignorer standard HTML-tagger i markdown
+const HTML_TAG_NAMES = new Set(["br", "hr", "p", "div", "span", "details", "summary", "code", "pre", "b", "i", "strong", "em", "table", "tr", "td", "th", "tbody", "thead"]);
+
+// Gjenkjenner typiske template-placeholders som <Antall>, <År>, <sourceId>, <YYYY-MM-DD>, TODO, XXX, [TBD]
+const PLACEHOLDER_REGEX = /<(?!(?:\/?[a-z0-9]+|!--))([^>]+)>|\bTODO\b|\bXXX\b|\[TBD\]|\bTBD\b|\bFIXME\b|<PLACEHOLDER>|<TODO>/i;
 
 /**
  * Standard Markdown v1 review parser.
@@ -70,13 +75,21 @@ export const markdownV1Parser: ReviewParser = {
     let uncheckedDodCount = 0;
     let pagesReviewedClaim: { reviewed: number; total: number; isFull: boolean } | undefined;
 
+    let inDispositionTable = false;
+    let dispositionColIndex = -1;
+
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i]!;
       const lineNum = i + 1;
 
       // 1. Check placeholders
       const placeholderMatch = line.match(PLACEHOLDER_REGEX);
-      if (placeholderMatch && !line.includes("APPROVED_DISPOSITIONS") && !line.includes("PLACEHOLDER_REGEX")) {
+      if (
+        placeholderMatch &&
+        !line.includes("APPROVED_DISPOSITIONS") &&
+        !line.includes("PLACEHOLDER_REGEX") &&
+        !HTML_TAG_NAMES.has(placeholderMatch[1]?.toLowerCase() ?? "")
+      ) {
         placeholdersFound.push(placeholderMatch[0]);
         issues.push({
           type: "placeholder",
@@ -89,13 +102,32 @@ export const markdownV1Parser: ReviewParser = {
       const sourceMatches = line.matchAll(/\b([a-z0-9]+-(?:19\d\d|20\d\d)(?:-[a-z0-9]+)*)\b/g);
       for (const m of sourceMatches) {
         const potentialId = m[1];
-        if (potentialId && options?.knownSourceIds?.has(potentialId)) {
-          sourceIdsFound.add(potentialId);
+        if (potentialId) {
+          if (options?.knownSourceIds) {
+            if (options.knownSourceIds.has(potentialId)) {
+              sourceIdsFound.add(potentialId);
+            } else if (
+              // Ignorer vanlige ord/strenger som ligner regexen ved en tilfeldighet dersom de ikke er kilder
+              potentialId.startsWith("aafk-") ||
+              potentialId.startsWith("sfk-") ||
+              potentialId.startsWith("medlemsblad-") ||
+              potentialId.startsWith("sunnmorsposten-") ||
+              potentialId.startsWith("sunnmore-arbeideravis-")
+            ) {
+              issues.push({
+                type: "unknown_source",
+                message: `Ukjent sourceId «${potentialId}» nevnt i reviewet`,
+                line: lineNum,
+              });
+            }
+          } else {
+            sourceIdsFound.add(potentialId);
+          }
         }
       }
 
-      // 3. Check page coverage pattern like "92/92" or "92 / 92" eller "Sider visuelt kontrollert: 92/92"
-      const pageMatch = line.match(/(?:sider\s+visuelt\s+kontrollert|dekning|coverage)?[:\s]*(\d+)\s*\/\s*(\d+)/i);
+      // 3. Check page coverage pattern KUN når linjen eksplisitt gjelder visuell sidekontroll
+      const pageMatch = line.match(/(?:sider\s+visuelt\s+kontrollert|sidekontroll|visuell\s+sidekontroll|visuell\s+kontroll\s+av\s+sider)\s*[:|]\s*(\d+)\s*\/\s*(\d+)/i);
       if (pageMatch && pageMatch[1] && pageMatch[2] && !pagesReviewedClaim) {
         const reviewed = Number.parseInt(pageMatch[1], 10);
         const total = Number.parseInt(pageMatch[2], 10);
@@ -121,22 +153,39 @@ export const markdownV1Parser: ReviewParser = {
         });
       }
 
-      // 5. Check dispositions in table columns
-      if (line.includes("|") && (line.includes("`") || line.includes("_"))) {
-        for (const disp of APPROVED_DISPOSITIONS) {
-          if (line.includes(disp)) {
-            dispositionsFound.add(disp);
+      // 5. Check table headers and dispositions
+      if (line.includes("|")) {
+        const cells = line.split("|").map((c) => c.trim()).filter((_, idx, arr) => idx > 0 && idx < arr.length - 1);
+        const headerMatch = cells.findIndex((c) => /^(?:disposisjon|disposition|handling)$/i.test(c));
+        if (headerMatch !== -1) {
+          inDispositionTable = true;
+          dispositionColIndex = headerMatch;
+        } else if (inDispositionTable && cells.length > dispositionColIndex && dispositionColIndex >= 0) {
+          const dispCell = cells[dispositionColIndex];
+          if (dispCell && !dispCell.startsWith("---") && !dispCell.startsWith("===")) {
+            // Trekk ut backtick-tokens eller snake_case ord
+            const tokenMatch = dispCell.match(/`?([a-z0-9_]+)`?/i);
+            const token = tokenMatch ? tokenMatch[1]?.toLowerCase() : undefined;
+            if (token && token.includes("_")) {
+              if (APPROVED_DISPOSITIONS.has(token)) {
+                dispositionsFound.add(token);
+              } else {
+                issues.push({
+                  type: "invalid_disposition",
+                  message: `Ugyldig disposisjon «${token}» i tabell`,
+                  line: lineNum,
+                });
+              }
+            }
           }
         }
+      } else {
+        inDispositionTable = false;
+        dispositionColIndex = -1;
       }
     }
 
-    // Sjekk at eventuelle oppgitte sourceId-er faktisk finnes i katalogen
-    if (options?.knownSourceIds) {
-      // All sourceIdsFound are already validated against knownSourceIds
-    }
-
-    const passed = issues.filter((i) => i.type === "placeholder" || i.type === "incomplete_coverage").length === 0;
+    const passed = issues.length === 0;
 
     return {
       parserName: "markdown-v1",

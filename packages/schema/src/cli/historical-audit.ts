@@ -108,9 +108,15 @@ export function formatAuditConsole(report: HistoricalAuditReport): string {
   lines.push(`${DIM}----------------------------------------${RESET}`);
   lines.push(pad("Discovered:", inventory.summary.discovered));
   lines.push(pad("In scope:", inventory.summary.inScope));
-  lines.push(pad("Reviewed:", inventory.summary.reviewed, GREEN));
+  lines.push(pad("Reviewed:", inventory.summary.reviewed, inventory.summary.reviewed > 0 ? GREEN : RESET));
   lines.push(pad("Unavailable:", inventory.summary.unavailable));
   lines.push(pad("Reprints:", inventory.summary.reprints));
+  if (inventory.summary.outOfScope > 0) {
+    lines.push(pad("Out of scope:", inventory.summary.outOfScope));
+  }
+  if (inventory.summary.unknownReviewStatus > 0) {
+    lines.push(pad("Unknown review status:", inventory.summary.unknownReviewStatus, YELLOW));
+  }
   lines.push("");
 
   lines.push(`${BOLD}Extraction${RESET}`);
@@ -119,6 +125,16 @@ export function formatAuditConsole(report: HistoricalAuditReport): string {
   lines.push(pad("Manual/no-ALTO:", inventory.summary.manualOrNoAlto));
   lines.push(pad("Failed sources:", inventory.summary.failedSources, inventory.summary.failedSources > 0 ? RED : RESET));
   lines.push("");
+
+  if (inventory.sources.some((s) => s.errors.length > 0)) {
+    lines.push(`${BOLD}${RED}Source Errors:${RESET}`);
+    for (const src of inventory.sources) {
+      for (const err of src.errors) {
+        lines.push(`  ${RED}✗${RESET} [${src.sourceId}] ${err}`);
+      }
+    }
+    lines.push("");
+  }
 
   lines.push(`${BOLD}Harvest diff${RESET}`);
   lines.push(`${DIM}----------------------------------------${RESET}`);
@@ -155,7 +171,7 @@ export function formatAuditConsole(report: HistoricalAuditReport): string {
     }
     if (review.issues.length > 0) {
       for (const issue of review.issues) {
-        lines.push(`  ${issue.type === "placeholder" ? RED : YELLOW}!${RESET} Linje ${issue.line ?? "?"}: ${issue.message}`);
+        lines.push(`  ${issue.type === "placeholder" || issue.type === "unchecked_dod" || issue.type === "invalid_disposition" ? RED : YELLOW}!${RESET} Linje ${issue.line ?? "?"}: ${issue.message}`);
       }
     } else {
       lines.push(`${GREEN}✓${RESET} Review-dokumentet har ingen åpne placeholders eller mangler.`);
@@ -204,16 +220,34 @@ export async function main() {
       yearTo: options.yearTo,
     };
 
-    // 1. Source inventory audit
-    const inventory = auditSourceInventory(sourcesMap, providersMap, extractionsMap, sourceResultsMap, scope);
+    // 1. Review-parser (dersom review-fil er oppgitt)
+    let reviewResult: ReviewValidationResult | undefined;
+    const declaredStatuses = new Map<string, "reviewed" | "duplicate_or_reprint" | "unavailable" | "out_of_scope" | "unknown">();
 
-    // 2. Preservation audit
+    if (options.reviewFile) {
+      const reviewPath = resolve(root, options.reviewFile);
+      if (!existsSync(reviewPath)) {
+        throw new Error(`Review-fil «${options.reviewFile}» finnes ikke`);
+      }
+      const reviewText = await readFile(reviewPath, "utf8");
+      reviewResult = markdownV1Parser.parseReview(reviewText, { knownSourceIds: new Set(sourcesMap.keys()) });
+
+      // Merk funnede kilder i review som reviewed
+      for (const sId of reviewResult.sourceIdsFound) {
+        declaredStatuses.set(sId, "reviewed");
+      }
+    }
+
+    // 2. Source inventory audit
+    const inventory = auditSourceInventory(sourcesMap, providersMap, extractionsMap, sourceResultsMap, scope, declaredStatuses.size > 0 ? declaredStatuses : undefined);
+
+    // 3. Preservation audit
     const { exceptions } = await loadPreservationExceptions(rootDataDir);
     const basePeople = (await loadYamlMap(baseSha, "data/people", person, root)).items;
     const headPeople = (await loadYamlMap(headRef === "working-tree" ? null : headSha, "data/people", person, root)).items;
     const preservationResult = runPreservationAudit(basePeople, headPeople, exceptions, baseSha, headSha);
 
-    // 3. Last øvrige datasett for semantisk harvest diff
+    // 4. Last øvrige datasett for semantisk harvest diff
     const baseSourceResults = (await loadYamlMap(baseSha, "data/source-results", sourceResultCollection, root)).items;
     const headSourceResults = (await loadYamlMap(headRef === "working-tree" ? null : headSha, "data/source-results", sourceResultCollection, root)).items;
 
@@ -242,16 +276,6 @@ export async function main() {
       preservationResult.summary.destructiveChanges,
       preservationResult.summary.approvedExceptions,
     );
-
-    // 4. Review-parser (dersom review-fil er oppgitt eller finnes)
-    let reviewResult: ReviewValidationResult | undefined;
-    if (options.reviewFile) {
-      const reviewPath = resolve(root, options.reviewFile);
-      if (existsSync(reviewPath)) {
-        const reviewText = await readFile(reviewPath, "utf8");
-        reviewResult = markdownV1Parser.parseReview(reviewText, { knownSourceIds: new Set(sourcesMap.keys()) });
-      }
-    }
 
     const passed =
       inventory.allSourcesPassed &&

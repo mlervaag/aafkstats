@@ -44,19 +44,20 @@ export async function getDefaultBaseRevision(cwd?: string): Promise<string> {
 
 /**
  * Løser opp en git-ref (branch, tag, SHA) til fullcommit-SHA.
+ * Kaster feil dersom referansen ikke eksisterer i git.
  */
 export async function resolveGitSha(ref: string, cwd?: string): Promise<string> {
   if (ref === "working-tree" || ref === "HEAD" || ref === "") {
     try {
       return await runGit(["rev-parse", "HEAD"], cwd);
-    } catch {
-      return ref;
+    } catch (err) {
+      throw new Error(`Kunne ikke lese git HEAD: ${String(err)}`);
     }
   }
   try {
-    return await runGit(["rev-parse", ref], cwd);
+    return await runGit(["rev-parse", "--verify", `${ref}^{commit}`], cwd);
   } catch {
-    return ref;
+    throw new Error(`Ugyldig git-referanse: «${ref}» (finnes ikke som commit)`);
   }
 }
 
@@ -91,8 +92,8 @@ export async function listYamlFiles(
       .map((l) => l.trim())
       .filter((l) => l.length > 0 && (l.endsWith(".yaml") || l.endsWith(".yml")))
       .sort();
-  } catch {
-    return [];
+  } catch (err) {
+    throw new Error(`Kunne ikke liste filer for ${ref}:${normalizedDir}: ${String(err)}`);
   }
 }
 

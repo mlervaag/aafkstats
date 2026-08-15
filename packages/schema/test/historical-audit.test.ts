@@ -268,4 +268,186 @@ Sider visuelt kontrollert: 24/24
     expect(result.uncheckedDodCount).toBe(0);
     expect(result.issues.length).toBe(0);
   });
+
+  it("Source Inventory uten review gir reviewStatus unknown og teller ikke som reviewed", () => {
+    const sources = new Map<string, Source>([
+      [
+        "medlemsblad-1953",
+        {
+          id: "medlemsblad-1953",
+          parentSourceId: "aafk-medlemsblad",
+          title: "AaFK Medlemsblad 1953",
+          sourceType: "member_magazine",
+          year: 1953,
+          providers: [{ providerId: "nasjonalbiblioteket" }],
+        },
+      ],
+    ]);
+    const providers = new Map<string, Provider>([
+      ["nasjonalbiblioteket", { id: "nasjonalbiblioteket", name: "Nasjonalbiblioteket", kind: "archive" }],
+    ]);
+    const extractions = new Map<string, PublicationExtraction>([
+      [
+        "medlemsblad-1953",
+        {
+          sourceId: "medlemsblad-1953",
+          providerId: "nasjonalbiblioteket",
+          adapter: "nb",
+          retrievedAt: "2026-08-15",
+          ocrAccess: "alto",
+          pagesExpected: 40,
+          pagesProcessed: 40,
+          pagesFailed: [],
+          candidates: [],
+          resolvedRoles: [],
+          resolvedLineups: [],
+        },
+      ],
+    ]);
+
+    const result = auditSourceInventory(sources, providers, extractions, new Map(), {
+      sourceIds: ["medlemsblad-1953"],
+    });
+
+    expect(result.summary.inScope).toBe(1);
+    expect(result.summary.reviewed).toBe(0);
+    expect(result.summary.unknownReviewStatus).toBe(1);
+    expect(result.sources[0]?.reviewStatus).toBe("unknown");
+  });
+
+  it("Source Inventory feiler ved ukjent eksplisitt sourceId", () => {
+    const providers = new Map<string, Provider>();
+    const result = auditSourceInventory(new Map(), providers, new Map(), new Map(), {
+      sourceIds: ["ikke-eksisterende-kilde-1955"],
+    });
+
+    expect(result.allSourcesPassed).toBe(false);
+    expect(result.sources[0]?.errors.length).toBeGreaterThan(0);
+  });
+
+  it("ALTO med processed < expected teller ikke som altoComplete", () => {
+    const sources = new Map<string, Source>([
+      [
+        "medlemsblad-1953",
+        {
+          id: "medlemsblad-1953",
+          title: "AaFK Medlemsblad 1953",
+          sourceType: "member_magazine",
+          providers: [],
+        },
+      ],
+    ]);
+    const extractions = new Map<string, PublicationExtraction>([
+      [
+        "medlemsblad-1953",
+        {
+          sourceId: "medlemsblad-1953",
+          providerId: "nasjonalbiblioteket",
+          adapter: "nb",
+          retrievedAt: "2026-08-15",
+          ocrAccess: "alto",
+          pagesExpected: 40,
+          pagesProcessed: 30, // processed < expected
+          pagesFailed: [],
+          candidates: [],
+          resolvedRoles: [],
+          resolvedLineups: [],
+        },
+      ],
+    ]);
+
+    const result = auditSourceInventory(sources, new Map(), extractions, new Map(), {});
+    expect(result.summary.altoComplete).toBe(0);
+  });
+
+  it("review-parser forveksler ikke kildeantall '5/5 sources' med sidekontroll", () => {
+    const reviewWithSourcesFirst = `
+# Review
+Sources i scope / reviewed | 5/5
+Sider visuelt kontrollert: 420/420
+`;
+    const result = markdownV1Parser.parseReview(reviewWithSourcesFirst);
+    expect(result.pagesReviewedClaim?.reviewed).toBe(420);
+    expect(result.pagesReviewedClaim?.total).toBe(420);
+    expect(result.pagesReviewedClaim?.isFull).toBe(true);
+  });
+
+  it("review-parser feller ukjent sourceId, ugyldig disposisjon og mal-placeholders", () => {
+    const badReview = `
+# Review
+Sider visuelt kontrollert: 10/10
+
+Total for <År>: <Antall> funn
+
+| Funn | Disposisjon |
+|---|---|
+| Noe | \`ugyldig_disposisjon_verdi\` |
+
+Referanse: \`medlemsblad-1999-feil\`
+`;
+    const result = markdownV1Parser.parseReview(badReview, {
+      knownSourceIds: new Set(["medlemsblad-1953"]),
+    });
+
+    expect(result.passed).toBe(false);
+    const types = result.issues.map((i) => i.type);
+    expect(types).toContain("placeholder");
+    expect(types).toContain("invalid_disposition");
+    expect(types).toContain("unknown_source");
+  });
+
+  it("source-result renummerering (innsetting) teller kun faktisk nye claims", () => {
+    const baseCol: SourceResultCollection = {
+      sourceId: "medlemsblad-1955",
+      scorePerspective: "aafk",
+      seasons: [
+        {
+          year: 1955,
+          page: 10,
+          results: [
+            { no: 1, opponent: "Molde", score: [3, 2], status: "played", replay: false, extraTime: false, round: null, opponentClubId: "molde-fk", matchId: null },
+            { no: 2, opponent: "Kristiansund", score: [1, 1], status: "played", replay: false, extraTime: false, round: null, opponentClubId: "kristiansund-fk", matchId: null },
+          ],
+        },
+      ],
+    };
+
+    // Ny kamp satt inn som #1, så Molde blir #2 og Kristiansund blir #3
+    const headCol: SourceResultCollection = {
+      sourceId: "medlemsblad-1955",
+      scorePerspective: "aafk",
+      seasons: [
+        {
+          year: 1955,
+          page: 10,
+          results: [
+            { no: 1, opponent: "Rollon", score: [2, 0], status: "played", replay: false, extraTime: false, round: null, opponentClubId: "sk-rollon", matchId: null },
+            { no: 2, opponent: "Molde", score: [3, 2], status: "played", replay: false, extraTime: false, round: null, opponentClubId: "molde-fk", matchId: null },
+            { no: 3, opponent: "Kristiansund", score: [1, 1], status: "played", replay: false, extraTime: false, round: null, opponentClubId: "kristiansund-fk", matchId: null },
+          ],
+        },
+      ],
+    };
+
+    const metrics = calculateHarvestMetrics({
+      basePeople: new Map(),
+      headPeople: new Map(),
+      baseSourceResults: new Map([["medlemsblad-1955", baseCol]]),
+      headSourceResults: new Map([["medlemsblad-1955", headCol]]),
+      baseSnapshots: new Map(),
+      headSnapshots: new Map(),
+      baseObservations: new Map(),
+      headObservations: new Map(),
+      baseMatches: new Map(),
+      headMatches: new Map(),
+    });
+
+    // Skal kun telle 1 ny source-result entry (Rollon), ikke 3!
+    expect(metrics.sourceResultEntriesAdded).toBe(1);
+  });
+
+  it("kaster feil dersom git-ref ikke eksisterer", async () => {
+    const { resolveGitSha } = await import("../src/historical/git.js");
+    await expect(resolveGitSha("does-not-exist-commit-ref")).rejects.toThrow(/Ugyldig git-referanse/);
+  });
 });

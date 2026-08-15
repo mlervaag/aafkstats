@@ -336,4 +336,135 @@ describe("Historical Preservation (PR #158)", () => {
     expect(result.summary.staleExceptions.length).toBe(1);
     expect(result.summary.staleExceptions[0]?.id).toBe("karsten-nedregard");
   });
+
+  it("avviser mutering eller endring av person.name uten unntak (FAIL)", () => {
+    const headPerson: Person = JSON.parse(JSON.stringify(baseSamplePerson));
+    headPerson.name = "Feil Navn";
+
+    const result = runPreservationAudit(
+      new Map([["karsten-nedregard", baseSamplePerson]]),
+      new Map([["karsten-nedregard", headPerson]]),
+    );
+
+    expect(result.passed).toBe(false);
+    expect(result.summary.destructiveChanges).toBe(1);
+    expect(result.changes[0]?.path).toBe("name");
+    expect(result.changes[0]?.status).toBe("DESTRUCTIVE_CHANGE");
+  });
+
+  it("avviser tap av fromDate/toDate/note på coachSpells (FAIL)", () => {
+    const baseWithSpellDates: Person = JSON.parse(JSON.stringify(baseSamplePerson));
+    baseWithSpellDates.coachSpells = [
+      {
+        fromSeason: 1952,
+        toSeason: 1954,
+        fromDate: "1952-05-01",
+        toDate: "1954-10-31",
+        note: "Ansatt på ekstraordinært styremøte",
+      },
+    ];
+
+    const headWithoutDates: Person = JSON.parse(JSON.stringify(baseWithSpellDates));
+    headWithoutDates.coachSpells = [
+      {
+        fromSeason: 1952,
+        toSeason: 1954,
+      },
+    ];
+
+    const result = runPreservationAudit(
+      new Map([["karsten-nedregard", baseWithSpellDates]]),
+      new Map([["karsten-nedregard", headWithoutDates]]),
+    );
+
+    expect(result.passed).toBe(false);
+    expect(result.summary.destructiveChanges).toBe(3); // fromDate, toDate, note
+  });
+
+  it("avviser tap av provider fields, url, retrievedAt eller note (FAIL)", () => {
+    const baseWithProv: Person = JSON.parse(JSON.stringify(baseSamplePerson));
+    baseWithProv.providers = [
+      {
+        providerId: "aafk-medlemsblad",
+        fields: ["roles", "names"],
+        url: "https://nb.no/items/123",
+        retrievedAt: "2026-08-15",
+        note: "Digitalisert fra NB",
+      },
+    ];
+
+    const headShrunkProv: Person = JSON.parse(JSON.stringify(baseWithProv));
+    headShrunkProv.providers = [
+      {
+        providerId: "aafk-medlemsblad",
+        fields: ["roles"], // mistet "names"
+      },
+    ];
+
+    const result = runPreservationAudit(
+      new Map([["karsten-nedregard", baseWithProv]]),
+      new Map([["karsten-nedregard", headShrunkProv]]),
+    );
+
+    expect(result.passed).toBe(false);
+    expect(result.summary.destructiveChanges).toBe(4); // fields, url, retrievedAt, note
+  });
+
+  it("avviser tap av merknad på sourceRef (FAIL)", () => {
+    const baseWithNote: Person = JSON.parse(JSON.stringify(baseSamplePerson));
+    baseWithNote.sources[0]!.note = "Spesiell merknad om årsmøte";
+
+    const headWithoutNote: Person = JSON.parse(JSON.stringify(baseWithNote));
+    headWithoutNote.sources[0]!.note = undefined;
+
+    const result = runPreservationAudit(
+      new Map([["karsten-nedregard", baseWithNote]]),
+      new Map([["karsten-nedregard", headWithoutNote]]),
+    );
+
+    expect(result.passed).toBe(false);
+    expect(result.summary.destructiveChanges).toBe(1);
+    expect(result.changes[0]?.path).toBe("sources[medlemsblad-1950:12]/note");
+  });
+
+  it("avviser tap av konflikt-metadata, payloadHash eller reversering av resolved (FAIL)", () => {
+    const baseResolved: Person = JSON.parse(JSON.stringify(baseSamplePerson));
+    baseResolved.conflicts = [
+      {
+        field: "formann.1950",
+        values: [
+          { value: "Karsten Nedregård", providerId: "aafk-medlemsblad", payloadHash: "hash123", note: "Original" },
+        ],
+        resolved: true,
+        decision: "manual",
+        chosen: "Karsten Nedregård",
+        chosenProviderId: "aafk-medlemsblad",
+        decidedAt: "2026-08-15",
+        reason: "Bekreftet i kilde",
+        locked: true,
+      },
+    ];
+
+    // Reversert til uløst og mistet payloadHash/note
+    const headReverted: Person = JSON.parse(JSON.stringify(baseResolved));
+    headReverted.conflicts = [
+      {
+        field: "formann.1950",
+        values: [
+          { value: "Karsten Nedregård", providerId: "aafk-medlemsblad" },
+        ],
+        resolved: false,
+        decision: "unresolved",
+        locked: false,
+      },
+    ];
+
+    const result = runPreservationAudit(
+      new Map([["karsten-nedregard", baseResolved]]),
+      new Map([["karsten-nedregard", headReverted]]),
+    );
+
+    expect(result.passed).toBe(false);
+    expect(result.summary.destructiveChanges).toBeGreaterThanOrEqual(3);
+  });
 });

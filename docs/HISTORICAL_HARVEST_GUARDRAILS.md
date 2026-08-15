@@ -24,31 +24,41 @@ Prinsippet er:
 Kommandoen foretar en **strukturell og semantisk sammenligning** mellom `BASE` (f.eks. target-commit i PR) og `HEAD` (eller lokalt arbeidstre) for alle filer i `data/people/*.yaml`.
 
 Den kontrollerer at følgende elementer **ikke kan forsvinne uten et godkjent unntak**:
-1. **Roller (`roles`):**
+1. **Personnavn (`name`):**
+   - Eksisterende navn kan ikke endres eller forsvinne i stillhet (`DESTRUCTIVE_CHANGE`).
+2. **Roller (`roles`):**
    - Identitet: `role.id`.
    - Gammel `role.id` må fortsatt eksistere.
-   - Gammel `category` og `title` kan ikke muteres uten dokumentert unntak.
-   - `sources` på rollen må bevares, og `fields` kan ikke krympe.
+   - Gammel `category`, `title`, `organizationId`, `body` og `note` kan ikke fjernes eller muteres uten unntak.
+   - `sources` på rollen må bevares: `fields` kan ikke krympe, og `note` kan ikke fjernes.
    - Legitim presisering (f.eks. `to: null` → `to: "1960"`) klassifiseres som `SAFE_ENRICHMENT`.
-2. **Kildereferanser (`sources`):**
+3. **Kildereferanser (`sources`):**
    - Identitet: `sourceId` + `page`.
    - Eksisterende kildepåstander kan ikke fjernes.
    - `fields` på kildereferansen kan ikke krympe (`BASE.fields ⊆ HEAD.fields`).
-3. **Konflikter (`conflicts`):**
+   - `note` på kildereferansen kan ikke fjernes.
+4. **Leverandørkilder (`providers`):**
+   - Identitet: `providerId`.
+   - Eksisterende `ProviderRef` kan ikke fjernes.
+   - `fields` kan ikke krympe, og `url`, `retrievedAt` og `note` kan ikke fjernes.
+5. **Konflikter (`conflicts`):**
    - Identitet: `field`.
    - Eksisterende konflikt kan ikke fjernes.
-   - Ingen kildeverdier i konflikten kan slettes (`BASE.values ⊆ HEAD.values`).
+   - Ingen kildeverdier i konflikten kan slettes (`BASE.values ⊆ HEAD.values`), og `payloadHash` / `note` på verdier kan ikke forsvinne.
    - Overgang fra `unresolved` til `resolved` med korrekte beslutningsfelter (`chosen`, `chosenProviderId`, `decidedAt`, `reason`) er `SAFE_ENRICHMENT`.
-4. **Navnevarianter (`names`):**
+   - Reversering fra `resolved` til `unresolved` eller fjerning av beslutningsbegrunnelse er `DESTRUCTIVE_CHANGE`.
+6. **Navnevarianter (`names`):**
    - Eksisterende navneformer må bestå (`BASE.names ⊆ HEAD.names`).
-5. **Trenerperioder (`coachSpells`):**
-   - Eksisterende perioder kan ikke fjernes; presisering av datoer/sluttår er `SAFE_ENRICHMENT`.
-6. **Draktnummer (`squadNumbers`):**
+7. **Trenerperioder (`coachSpells`):**
+   - Identitet: `fromSeason`.
+   - Alle felter (`fromSeason`, `toSeason`, `fromDate`, `toDate`, `note`) er beskyttet.
+   - Presisering fra null/undefined til dokumentert verdi er `SAFE_ENRICHMENT`. Tap av oppgitt verdi er `DESTRUCTIVE_CHANGE`.
+8. **Draktnummer (`squadNumbers`):**
    - Eksisterende draktnummer per sesong må bevares.
-7. **Skalare metadata:**
+9. **Skalare metadata:**
    - `wikidata`, `position`, `nationality` og `note` kan ikke fjernes i stillhet.
-8. **Personfiler:**
-   - En hel personfil kan aldri slettes uten et godkjent unntak.
+10. **Personfiler:**
+    - En hel personfil kan aldri slettes uten et godkjent unntak.
 
 ### CLI-flagg
 ```sh
@@ -102,10 +112,10 @@ exceptions:
 ## 4. Kommando 2: `pnpm data:historical-audit`
 
 Utfører en samlet historisk batch-audit med fire hovedområder:
-1. **Source Inventory:** Identifiserer alle kilder i det definerte årsscopet (`--parent-source`, `--year-from`, `--year-to` eller `--source`).
-2. **Source preflight & extraction coverage:** Skiller mellom `ALTO` (maskinell lesing), `manual` (ingen ALTO) og `unavailable`. Sjekker for feilede sider.
-3. **Semantisk harvest-diff:** Sammenligner `BASE` og `HEAD` og beregner faktiske batchmetrikker (nye personer, berikede personer, kilderesultater, kanoniske kamper, snapshots, observasjoner, konflikter).
-4. **Review-dokumentvalidering (`markdown-v1`):** Sjekker at review-dokumenter ikke inneholder gjenglemte mal-placeholders (`<PLACEHOLDER>`, `TODO`, `XXX`), at visuell sidekontroll er 100 % fullført, at Definition of Done er avkrysset, og at brukte disposisjoner tilhører godkjent vokabular.
+1. **Source Inventory:** Identifiserer alle kilder i det definerte årsscopet (`--parent-source`, `--year-from`, `--year-to` eller `--source`). Skiller mellom `discovered`, `inScope` og faktisk dokumentert `reviewStatus` (`reviewed`, `duplicate_or_reprint`, `unavailable`, `out_of_scope`, `unknown`). Ukjente kilder flagges som `unknownReviewStatus` og tillates ikke som `reviewed`.
+2. **Source preflight & extraction coverage:** Skiller mellom `ALTO` (maskinell lesing), `manual` (ingen ALTO) og `unavailable`. Validerer at extractionens egen `providerId` finnes i katalogen. For ALTO kreves det at `pagesProcessed === pagesExpected` og `pagesFailed.length === 0` for å regnes som `altoComplete`.
+3. **Semantisk harvest-diff:** Sammenligner `BASE` og `HEAD` med robust semantisk claim-identitet (tåler innsetting/renummerering av resultater) og beregner faktiske batchmetrikker (nye personer, berikede personer, kilderesultater, kanoniske kamper, snapshots, observasjoner, konflikter).
+4. **Review-dokumentvalidering (`markdown-v1`):** Sjekker at review-dokumenter ikke inneholder gjenglemte mal-placeholders (`<Antall>`, `<År>`, `<sourceId>`, `<YYYY-MM-DD>`, `TODO`, `XXX`), at visuell sidekontroll (`Sider visuelt kontrollert: X/X`) er 100 % fullført (forveksler ikke med kildedekning), at Definition of Done er fullstendig avkrysset, og at brukte disposisjoner tilhører godkjent vokabular.
 
 ### CLI-eksempler
 ```sh
