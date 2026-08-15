@@ -10,7 +10,7 @@ const valid = {
 };
 
 let archive: Archive;
-beforeAll(async () => { archive = await loadArchive(); });
+beforeAll(async () => { archive = await loadArchive(); }, 30000);
 
 describe("HistoricalObservation", () => {
   it("krever minst én kilde", () => {

@@ -1,0 +1,50 @@
+id: 1959-07-16-aalesunds-fk-tatran-presov
+date: 1959-07-16
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1959
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: tatran-presov
+  score: 4
+  halfTimeScore: 2
+neutralVenue: false
+venueId: aksla-stadion
+attendance: 2000
+lineups:
+  home:
+    starters:
+      - Einar Aas
+      - Karsten Vadseth
+      - Thorbjørn Aarø
+      - Harald Johansen
+      - Johan Pedersen
+      - Asbjørn Rutgerson
+      - Kjell Luthentun
+      - Kjell Iversen
+      - Arne Finsnes
+      - Svein Holand
+      - Rolf Sperre
+externalReports: []
+providers: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: "60"
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - venueId
+    note: "Internasjonal privatkamp: ÅFK–Tatran Prešov (Tsjekkoslovakia) 1–4 på Aksla stadion."
+confidence: confirmed
+conflicts: []
