@@ -1,0 +1,119 @@
+# Senioroppgjør fra Medlemsblad for Aalesunds Fotballklubb 1961 (Vol. 12 Nr. 1–6).
+# 15 oppgjør med eksplisitt kildedokumentert resultat. 8 høstkamper (7 serieseiere,
+# 1 serietap) og 1 privatkamp dokumenterer kun seier/tap uten score.
+sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+scorePerspective: aafk
+seasons:
+  - year: 1961
+    page: 36
+    results:
+      - no: 1
+        page: 36
+        opponent: Herd
+        opponentClubId: herd
+        score: [3, 2]
+        competitionId: forstedivisjon
+        note: "Landsdelsserien Møre 1960/61 (vår): ÅFK–Herd 3–2."
+      - no: 2
+        page: 36
+        opponent: KFK
+        opponentClubId: kfk
+        score: [4, 3]
+        competitionId: forstedivisjon
+        note: "Landsdelsserien Møre 1960/61 (vår): KFK–ÅFK 3–4 (ÅFK lå under 1–3, snudde til 4–3)."
+      - no: 3
+        page: 36
+        opponent: Langevåg
+        opponentClubId: langevag
+        score: [1, 7]
+        competitionId: forstedivisjon
+        note: "Landsdelsserien Møre 1960/61 (vår): ÅFK–Langevåg 1–7 på Aksla stadion."
+      - no: 4
+        page: 36
+        opponent: Braatt
+        opponentClubId: braatt
+        score: [4, 0]
+        competitionId: forstedivisjon
+        note: "Landsdelsserien Møre 1960/61 (vår): ÅFK–Braatt 4–0."
+      - no: 5
+        page: 36
+        opponent: Hødd
+        opponentClubId: hodd
+        score: [1, 0]
+        competitionId: forstedivisjon
+        note: "Landsdelsserien Møre 1960/61 (vår): Hødd–ÅFK 0–1 på Høddvoll."
+      - no: 6
+        page: 40
+        opponent: V.R.F.
+        opponentClubId: velledalen-ringen
+        score: [2, 1]
+        competitionId: nm
+        round: 1
+        note: "NM 1961 1. runde: VRF–ÅFK 1–2 på Straumgjerde."
+      - no: 7
+        page: 40
+        opponent: Langevåg
+        opponentClubId: langevag
+        score: [2, 1]
+        competitionId: nm
+        round: 2
+        note: "NM 1961 2. runde: ÅFK–Langevåg 2–1 på Aksla stadion (Rutgerson, Finsnes; Fylling str)."
+      - no: 8
+        page: 44
+        opponent: Rosenborg
+        opponentClubId: rosenborg-bk
+        score: [0, 1]
+        competitionId: nm
+        round: 3
+        date: 1961-08-06
+        matchId: 1961-08-06-rosenborg-bk-aalesunds-fk
+        note: "NM 1961 3. runde: Rosenborg–ÅFK 1–0 i Trondheim."
+      - no: 9
+        page: 38
+        opponent: Køge
+        opponentClubId: koge-bk
+        score: [0, 4]
+        date: 1961-06-22
+        matchId: 1961-06-22-aalesunds-fk-koge-bk
+        note: "Internasjonal privatkamp: ÅFK–Køge Boldklub (Danmark) 0–4 på Aksla stadion."
+      - no: 10
+        page: 31
+        opponent: Canto do Rio
+        opponentClubId: canto-do-rio
+        score: [0, 5]
+        date: 1961-07-06
+        matchId: 1961-07-06-aalesunds-fk-canto-do-rio
+        note: "Internasjonal privatkamp: ÅFK (forsterket)–Canto do Rio (Brasil) 0–5 på Aksla stadion, 4 500 tilskuere."
+      - no: 11
+        page: 43
+        opponent: Eid
+        opponentClubId: eid-il
+        score: [3, 4]
+        note: "Privatkamp: Eid IL–ÅFK 4–3 på Nordfjordeid i midten av juni 1961."
+      - no: 12
+        page: 43
+        opponent: Valder
+        opponentClubId: valder
+        score: [1, 1]
+        note: "Roald IL gressbaneåpning på Vigra: ÅFK–Valder 1–1 (ÅFK videre på loddtrekning)."
+      - no: 13
+        page: 43
+        opponent: Langevåg
+        opponentClubId: langevag
+        score: [1, 5]
+        note: "Roald IL gressbaneåpning på Vigra, finale: Langevåg–ÅFK 5–1 (1–1 til pause)."
+      - no: 14
+        page: 43
+        opponent: Brage
+        opponentClubId: brage
+        score: [2, 1]
+        note: "Tippecupen på Aksla stadion: ÅFK–Brage 2–1 (2–0 til pause)."
+      - no: 15
+        page: 32
+        opponent: Valder
+        opponentClubId: valder
+        score: [0, 1]
+        note: "Sunnmørscupen på Vigra: Valder–ÅFK 1–0 (ÅFK stilte reserver da A-laget spilte mot Molde)."
+      # Høstserie og privatkamp mot Østsiden: kilden dokumenterer seier/tap
+      # men ikke eksplisitte resultater. Oppført i reviewloggen som
+      # identifiserte oppgjør uten score. Se MEDLEMSBLAD_REVIEW_1961.md.

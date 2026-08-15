@@ -1,0 +1,63 @@
+id: 1961-07-06-aalesunds-fk-canto-do-rio
+date: 1961-07-06
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1961
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: canto-do-rio
+  score: 5
+  halfTimeScore: 1
+neutralVenue: false
+venueId: aksla-stadion
+attendance: 4500
+lineups:
+  home:
+    starters:
+      - Sverre Andersen
+      - Karsten Vadseth
+      - Thorbjørn Aarø
+      - Harald Johansen
+      - Johan Pedersen
+      - Asbjørn Rutgerson
+      - Bjørn Oddmar Andersen
+      - Arne Finsnes
+      - Magne Fylling
+      - Kjell Iversen
+      - Kjell Luthentun
+    subs:
+      - Thorbjørn Østrem
+externalReports: []
+providers: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: "31"
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - venueId
+      - attendance
+    note: "Internasjonal privatkamp mot det brasilianske profesjonelle laget Canto do Rio Football Club (0–5, pause 0–1) foran ca. 4 500 tilskuere på Aksla stadion."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: "32"
+    fields:
+      - lineups.home
+    note: "Lagoppstilling for forsterket AaFK-lag med gjestespillere Sverre Andersen (Viking), Bjørn Oddmar Andersen (Ørn Horten) og Magne Fylling (Langevåg)."
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
