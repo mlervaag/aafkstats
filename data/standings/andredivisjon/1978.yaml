@@ -1,0 +1,121 @@
+competitionId: andredivisjon
+season: 1978
+table:
+  - position: 1
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 18
+    wins: 11
+    draws: 4
+    losses: 3
+    goalsFor: 36
+    goalsAgainst: 14
+    points: 26
+    outcome: promotion_playoff
+  - position: 2
+    name: Kristiansund
+    clubId: kristiansund
+    played: 18
+    wins: 8
+    draws: 6
+    losses: 4
+    goalsFor: 31
+    goalsAgainst: 17
+    points: 22
+    outcome: none
+  - position: 3
+    name: Sunndal
+    clubId: sunndal
+    played: 18
+    wins: 8
+    draws: 5
+    losses: 5
+    goalsFor: 25
+    goalsAgainst: 14
+    points: 21
+    outcome: none
+  - position: 4
+    name: Bergsöy
+    clubId: bergsoy
+    played: 18
+    wins: 9
+    draws: 3
+    losses: 6
+    goalsFor: 36
+    goalsAgainst: 28
+    points: 21
+    outcome: none
+  - position: 5
+    name: Skarbövik
+    clubId: skarbovik
+    played: 18
+    wins: 9
+    draws: 3
+    losses: 6
+    goalsFor: 21
+    goalsAgainst: 30
+    points: 21
+    outcome: none
+  - position: 6
+    name: Clausenengen
+    clubId: clausenengen
+    played: 18
+    wins: 7
+    draws: 5
+    losses: 6
+    goalsFor: 23
+    goalsAgainst: 19
+    points: 19
+    outcome: none
+  - position: 7
+    name: Örsta
+    clubId: orsta
+    played: 18
+    wins: 6
+    draws: 6
+    losses: 6
+    goalsFor: 26
+    goalsAgainst: 26
+    points: 18
+    outcome: none
+  - position: 8
+    name: Rollon
+    clubId: rollon
+    played: 18
+    wins: 4
+    draws: 5
+    losses: 9
+    goalsFor: 22
+    goalsAgainst: 28
+    points: 13
+    outcome: none
+  - position: 9
+    name: Valder
+    clubId: valder
+    played: 18
+    wins: 2
+    draws: 6
+    losses: 10
+    goalsFor: 22
+    goalsAgainst: 36
+    points: 10
+    outcome: none
+  - position: 10
+    name: Herd
+    clubId: herd
+    played: 18
+    wins: 3
+    draws: 3
+    losses: 12
+    goalsFor: 9
+    goalsAgainst: 39
+    points: 9
+    outcome: relegated
+progression: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1978
+    page: "12"
+    fields:
+      - table
+note: >
+  3. divisjon avdeling Møre 1978. Sunnmøre Fotballkrets (side 12, s. 11 i rapporten) er primærkilde. AaFK vant avdelingen og rykket opp til 2. divisjon etter kvalifiseringsseier mot Neset (0–1 borte, 2–0 hjemme, 2–1 sammenlagt).

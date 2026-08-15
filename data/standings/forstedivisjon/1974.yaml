@@ -1,0 +1,121 @@
+competitionId: forstedivisjon
+season: 1974
+table:
+  - position: 1
+    name: Lilleström
+    clubId: lillestrom
+    played: 18
+    wins: 15
+    draws: 2
+    losses: 1
+    goalsFor: 44
+    goalsAgainst: 8
+    points: 32
+    outcome: promoted
+  - position: 2
+    name: Eidsvold Turn
+    clubId: null
+    played: 18
+    wins: 10
+    draws: 5
+    losses: 3
+    goalsFor: 35
+    goalsAgainst: 19
+    points: 25
+    outcome: promotion_playoff
+  - position: 3
+    name: Lyn
+    clubId: lyn
+    played: 18
+    wins: 7
+    draws: 8
+    losses: 3
+    goalsFor: 31
+    goalsAgainst: 15
+    points: 22
+    outcome: none
+  - position: 4
+    name: Hödd
+    clubId: hodd
+    played: 18
+    wins: 7
+    draws: 5
+    losses: 6
+    goalsFor: 30
+    goalsAgainst: 26
+    points: 19
+    outcome: none
+  - position: 5
+    name: Frigg
+    clubId: frigg
+    played: 18
+    wins: 7
+    draws: 4
+    losses: 7
+    goalsFor: 20
+    goalsAgainst: 23
+    points: 18
+    outcome: none
+  - position: 6
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 18
+    wins: 5
+    draws: 5
+    losses: 8
+    goalsFor: 17
+    goalsAgainst: 21
+    points: 15
+    outcome: none
+  - position: 7
+    name: Moss
+    clubId: moss
+    played: 18
+    wins: 4
+    draws: 7
+    losses: 7
+    goalsFor: 16
+    goalsAgainst: 26
+    points: 15
+    outcome: none
+  - position: 8
+    name: Steinkjer
+    clubId: steinkjer
+    played: 18
+    wins: 1
+    draws: 12
+    losses: 5
+    goalsFor: 17
+    goalsAgainst: 23
+    points: 14
+    outcome: none
+  - position: 9
+    name: Henning
+    clubId: null
+    played: 18
+    wins: 3
+    draws: 4
+    losses: 11
+    goalsFor: 16
+    goalsAgainst: 40
+    points: 10
+    outcome: relegated
+  - position: 10
+    name: Clausenengen
+    clubId: clausenengen
+    played: 18
+    wins: 1
+    draws: 8
+    losses: 9
+    goalsFor: 11
+    goalsAgainst: 36
+    points: 10
+    outcome: relegated
+progression: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1974
+    page: "14"
+    fields:
+      - table
+note: >
+  2. divisjon avdeling B 1974. Sunnmøre Fotballkrets (side 14 i rapporten) er primærkilde.

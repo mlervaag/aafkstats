@@ -1,0 +1,121 @@
+competitionId: andredivisjon
+season: 1977
+table:
+  - position: 1
+    name: Kristiansund
+    clubId: kristiansund
+    played: 18
+    wins: 8
+    draws: 8
+    losses: 2
+    goalsFor: 23
+    goalsAgainst: 17
+    points: 24
+    outcome: promotion_playoff
+  - position: 2
+    name: Örsta
+    clubId: orsta
+    played: 18
+    wins: 9
+    draws: 5
+    losses: 4
+    goalsFor: 19
+    goalsAgainst: 16
+    points: 23
+    outcome: none
+  - position: 3
+    name: Bergsöy
+    clubId: bergsoy
+    played: 18
+    wins: 7
+    draws: 7
+    losses: 4
+    goalsFor: 27
+    goalsAgainst: 12
+    points: 21
+    outcome: none
+  - position: 4
+    name: Skarbövik
+    clubId: skarbovik
+    played: 18
+    wins: 6
+    draws: 9
+    losses: 3
+    goalsFor: 15
+    goalsAgainst: 11
+    points: 21
+    outcome: none
+  - position: 5
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 18
+    wins: 6
+    draws: 6
+    losses: 6
+    goalsFor: 27
+    goalsAgainst: 23
+    points: 18
+    outcome: none
+  - position: 6
+    name: Rollon
+    clubId: rollon
+    played: 18
+    wins: 7
+    draws: 4
+    losses: 7
+    goalsFor: 30
+    goalsAgainst: 29
+    points: 18
+    outcome: none
+  - position: 7
+    name: Clausenengen
+    clubId: clausenengen
+    played: 18
+    wins: 4
+    draws: 7
+    losses: 7
+    goalsFor: 12
+    goalsAgainst: 16
+    points: 15
+    outcome: none
+  - position: 8
+    name: Herd
+    clubId: herd
+    played: 18
+    wins: 3
+    draws: 9
+    losses: 6
+    goalsFor: 20
+    goalsAgainst: 29
+    points: 15
+    outcome: none
+  - position: 9
+    name: Træff
+    clubId: traeff
+    played: 18
+    wins: 5
+    draws: 4
+    losses: 9
+    goalsFor: 15
+    goalsAgainst: 21
+    points: 14
+    outcome: relegated
+  - position: 10
+    name: Bud
+    clubId: null
+    played: 18
+    wins: 3
+    draws: 5
+    losses: 10
+    goalsFor: 25
+    goalsAgainst: 39
+    points: 11
+    outcome: relegated
+progression: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1977
+    page: "13"
+    fields:
+      - table
+note: >
+  3. divisjon avdeling Møre 1977. Sunnmøre Fotballkrets (side 13–14, s. 12–13 i rapporten) er primærkilde.

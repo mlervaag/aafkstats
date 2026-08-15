@@ -32,6 +32,12 @@ providers:
       - away.score
       - competition.round
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1976
+    page: "12"
+    fields:
+      - home.score
+      - away.score
+      - competition.round
   - sourceId: medlemsblad-for-aalesunds-fotb-1976-3cb7
     page: "5"
     fields:

@@ -1,0 +1,121 @@
+competitionId: forstedivisjon
+season: 1972
+table:
+  - position: 1
+    name: Frigg
+    clubId: frigg
+    played: 18
+    wins: 13
+    draws: 3
+    losses: 2
+    goalsFor: 45
+    goalsAgainst: 16
+    points: 29
+    outcome: promoted
+  - position: 2
+    name: Raufoss
+    clubId: raufoss-il
+    played: 18
+    wins: 12
+    draws: 2
+    losses: 4
+    goalsFor: 41
+    goalsAgainst: 15
+    points: 26
+    outcome: promotion_playoff
+  - position: 3
+    name: Steinkjer
+    clubId: steinkjer
+    played: 18
+    wins: 9
+    draws: 6
+    losses: 3
+    goalsFor: 28
+    goalsAgainst: 16
+    points: 24
+    outcome: none
+  - position: 4
+    name: Stabæk
+    clubId: stabaek
+    played: 18
+    wins: 8
+    draws: 5
+    losses: 5
+    goalsFor: 23
+    goalsAgainst: 13
+    points: 21
+    outcome: none
+  - position: 5
+    name: Molde
+    clubId: molde-fk
+    played: 18
+    wins: 9
+    draws: 3
+    losses: 6
+    goalsFor: 29
+    goalsAgainst: 23
+    points: 21
+    outcome: none
+  - position: 6
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 18
+    wins: 7
+    draws: 4
+    losses: 7
+    goalsFor: 16
+    goalsAgainst: 16
+    points: 18
+    outcome: none
+  - position: 7
+    name: Clausenengen
+    clubId: clausenengen
+    played: 18
+    wins: 5
+    draws: 6
+    losses: 7
+    goalsFor: 18
+    goalsAgainst: 27
+    points: 16
+    outcome: none
+  - position: 8
+    name: Vålerengen
+    clubId: valerenga
+    played: 18
+    wins: 5
+    draws: 4
+    losses: 9
+    goalsFor: 15
+    goalsAgainst: 18
+    points: 14
+    outcome: none
+  - position: 9
+    name: Brumunddal
+    clubId: null
+    played: 18
+    wins: 3
+    draws: 4
+    losses: 11
+    goalsFor: 15
+    goalsAgainst: 36
+    points: 10
+    outcome: relegation_playoff
+  - position: 10
+    name: Verdal
+    clubId: null
+    played: 18
+    wins: 0
+    draws: 1
+    losses: 17
+    goalsFor: 6
+    goalsAgainst: 56
+    points: 1
+    outcome: relegated
+progression: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1972
+    page: "14"
+    fields:
+      - table
+note: >
+  2. divisjon avdeling B 1972. Sunnmøre Fotballkrets (side 14, s. 6 i rapporten) er primærkilde.

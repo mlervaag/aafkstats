@@ -1,5 +1,11 @@
 year: 1977
-competitionId: nm
-finalPosition: null
+competitionId: andredivisjon
+finalPosition: 5
+teamsInLeague: 10
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1977
+    page: "13"
+    fields: [competitionId, finalPosition, teamsInLeague]
 promoted: false
 relegated: false
+note: Sluttabellen gjelder 3. divisjon avdeling Møre 1977.

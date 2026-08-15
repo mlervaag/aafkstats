@@ -1,0 +1,143 @@
+competitionId: forstedivisjon
+season: 1979
+table:
+  - position: 1
+    name: Lyn
+    clubId: lyn
+    played: 22
+    wins: 17
+    draws: 4
+    losses: 1
+    goalsFor: 40
+    goalsAgainst: 11
+    points: 38
+    outcome: promoted
+  - position: 2
+    name: Molde
+    clubId: molde-fk
+    played: 22
+    wins: 12
+    draws: 7
+    losses: 3
+    goalsFor: 52
+    goalsAgainst: 22
+    points: 31
+    outcome: promotion_playoff
+  - position: 3
+    name: Strindheim
+    clubId: strindheim
+    played: 22
+    wins: 10
+    draws: 5
+    losses: 7
+    goalsFor: 37
+    goalsAgainst: 31
+    points: 25
+    outcome: none
+  - position: 4
+    name: Frigg
+    clubId: frigg
+    played: 22
+    wins: 10
+    draws: 4
+    losses: 8
+    goalsFor: 36
+    goalsAgainst: 25
+    points: 24
+    outcome: none
+  - position: 5
+    name: Hödd
+    clubId: hodd
+    played: 22
+    wins: 11
+    draws: 2
+    losses: 9
+    goalsFor: 35
+    goalsAgainst: 35
+    points: 24
+    outcome: none
+  - position: 6
+    name: Steinkjer
+    clubId: steinkjer
+    played: 22
+    wins: 7
+    draws: 8
+    losses: 7
+    goalsFor: 30
+    goalsAgainst: 33
+    points: 22
+    outcome: none
+  - position: 7
+    name: Nessegutten
+    clubId: nessegutten
+    played: 22
+    wins: 7
+    draws: 6
+    losses: 9
+    goalsFor: 27
+    goalsAgainst: 32
+    points: 20
+    outcome: none
+  - position: 8
+    name: Mjölner
+    clubId: mjolner
+    played: 22
+    wins: 8
+    draws: 4
+    losses: 10
+    goalsFor: 20
+    goalsAgainst: 32
+    points: 20
+    outcome: none
+  - position: 9
+    name: Mo
+    clubId: mo-il
+    played: 22
+    wins: 7
+    draws: 4
+    losses: 11
+    goalsFor: 28
+    goalsAgainst: 36
+    points: 18
+    outcome: none
+  - position: 10
+    name: Stjördals/Blink
+    clubId: stjordals-blink
+    played: 22
+    wins: 5
+    draws: 5
+    losses: 12
+    goalsFor: 21
+    goalsAgainst: 32
+    points: 15
+    outcome: relegated
+  - position: 11
+    name: Tromsö
+    clubId: tromso
+    played: 22
+    wins: 5
+    draws: 4
+    losses: 13
+    goalsFor: 24
+    goalsAgainst: 52
+    points: 14
+    outcome: relegated
+  - position: 12
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 22
+    wins: 2
+    draws: 9
+    losses: 11
+    goalsFor: 15
+    goalsAgainst: 24
+    points: 13
+    outcome: relegated
+progression: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1979
+    page: "13"
+    fields:
+      - table
+note: >
+  2. divisjon avdeling B 1979. Sunnmøre Fotballkrets (side 13, s. 11 i rapporten) er primærkilde.

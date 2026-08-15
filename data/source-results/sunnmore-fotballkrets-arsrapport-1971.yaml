@@ -1,0 +1,50 @@
+# Senioroppgjør fra Sunnmøre Fotballkrets' årsrapport 1971.
+# Rapportens side 15 (s. 7) dokumenterer senior-NM.
+sourceId: sunnmore-fotballkrets-arsrapport-1971
+scorePerspective: aafk
+seasons:
+  - year: 1971
+    page: 15
+    results:
+      - no: 1
+        opponent: Ørsta
+        opponentClubId: orsta
+        score: [1, 1]
+        competitionId: nm
+        round: 1
+        extraTime: true
+        matchId: null
+        note: Norgesmesterskapet 1971, 1. runde (Ålesund - Ørsta 1-1 e.e.o.). Årsrapporten dokumenterer ikke sikker kampdato.
+      - no: 2
+        opponent: Ørsta
+        opponentClubId: orsta
+        score: [3, 0]
+        competitionId: nm
+        round: 1
+        replay: true
+        matchId: null
+        note: Norgesmesterskapet 1971, 1. runde omkamp (Ørsta - AaFK 0-3). Årsrapporten dokumenterer ikke sikker kampdato.
+      - no: 3
+        opponent: Skarbøvik
+        opponentClubId: skarbovik
+        score: [2, 0]
+        competitionId: nm
+        round: 2
+        matchId: null
+        note: Norgesmesterskapet 1971, 2. runde (Skarbøvik - AaFK 0-2). Årsrapporten dokumenterer ikke sikker kampdato.
+      - no: 4
+        opponent: Bodø/Glimt
+        opponentClubId: bodo-glimt
+        score: [1, 0]
+        competitionId: nm
+        round: 3
+        matchId: 1971-08-01-aalesunds-fk-bodo-glimt
+        note: Norgesmesterskapet 1971, 3. runde (AaFK - Bodø-Glimt 1-0).
+      - no: 5
+        opponent: Mjølner
+        opponentClubId: mjolner
+        score: [1, 2]
+        competitionId: nm
+        round: 4
+        matchId: 1971-08-15-mjolner-aalesunds-fk
+        note: Norgesmesterskapet 1971, 4. runde (Mjølner - AaFK 2-1).

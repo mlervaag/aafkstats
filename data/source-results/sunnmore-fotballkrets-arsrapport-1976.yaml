@@ -1,0 +1,81 @@
+# Senioroppgjør fra Sunnmøre Fotballkrets' årsrapport 1976.
+# Rapportens side 11–12 (s. 9–10) dokumenterer senior-NM og kvalifiseringskamper.
+sourceId: sunnmore-fotballkrets-arsrapport-1976
+scorePerspective: aafk
+seasons:
+  - year: 1976
+    page: 11
+    results:
+      - no: 1
+        opponent: Skarbøvik
+        opponentClubId: skarbovik
+        score: [2, 2]
+        competitionId: nm
+        round: 1
+        extraTime: true
+        matchId: null
+        note: Norgesmesterskapet 1976, 1. runde (Skarbövik - Aalesund 2-2 e.e.omg). Årsrapporten dokumenterer ikke sikker kampdato.
+      - no: 2
+        page: 12
+        opponent: Skarbøvik
+        opponentClubId: skarbovik
+        score: [2, 1]
+        competitionId: nm
+        round: 1
+        replay: true
+        matchId: null
+        note: Norgesmesterskapet 1976, 1. runde omkamp (Aalesund - Skarbövik 2-1). Årsrapporten dokumenterer ikke sikker kampdato.
+      - no: 3
+        page: 12
+        opponent: Sunndal
+        opponentClubId: sunndal
+        score: [2, 0]
+        competitionId: nm
+        round: 2
+        matchId: null
+        note: Norgesmesterskapet 1976, 2. runde (Aalesund - Sunndal 2-0). Årsrapporten dokumenterer ikke sikker kampdato.
+      - no: 4
+        page: 12
+        opponent: Folldal
+        opponentClubId: folldal
+        score: [3, 3]
+        competitionId: nm
+        round: 3
+        extraTime: true
+        matchId: 1976-07-25-folldal-aalesunds-fk
+        note: Norgesmesterskapet 1976, 3. runde (Folldal - Aalesund 2-2 e e.omg. 3-3).
+      - no: 5
+        page: 12
+        opponent: Folldal
+        opponentClubId: folldal
+        score: [1, 0]
+        competitionId: nm
+        round: 3
+        replay: true
+        matchId: 1976-07-29-aalesunds-fk-folldal
+        note: Norgesmesterskapet 1976, 3. runde omkamp (Aalesund - Folldal 1-0).
+      - no: 6
+        page: 12
+        opponent: Brann
+        opponentClubId: sk-brann
+        score: [2, 4]
+        competitionId: nm
+        round: 4
+        matchId: 1976-08-15-aalesunds-fk-sk-brann
+        note: Norgesmesterskapet 1976, 4. runde (Aalesund - Brann 2-4).
+      - no: 7
+        page: 12
+        opponent: Nessegutten
+        opponentClubId: nessegutten
+        score: [0, 1]
+        competitionId: forstedivisjon
+        matchId: null
+        note: Kamper om å bli stående i 2. divisjon (Aalesund - Nessegutten 0-1). Årsrapporten dokumenterer ikke sikker kampdato.
+      - no: 8
+        page: 12
+        opponent: Nessegutten
+        opponentClubId: nessegutten
+        score: [2, 2]
+        competitionId: forstedivisjon
+        matchId: null
+        note: Kamper om å bli stående i 2. divisjon (Nessegutten - Aalesund 2-2). Årsrapporten dokumenterer ikke sikker kampdato.
