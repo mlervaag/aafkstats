@@ -197,13 +197,37 @@ Avvikende henvisninger til «side 28» for terminlisten skyldes forskyvning i en
 
 ---
 
-## Reconciliation som fast sluttsteg ved medlemsbladinnhøsting
+## Reconciliation-gjennomgang for 1962 (Reconciliation Pass)
 
-1962-piloten viser at innhøsting av historiske medlemsblad ikke er fullført ved ren side-for-side-gjennomgang. Etter at alle sider er kontrollert skal det gjennomføres et eget **reconciliation-steg**:
+I henhold til den generelle innhøstingsmetoden ([`MEDLEMSBLAD_INNHØSTING_METODE.md`](MEDLEMSBLAD_INNHØSTING_METODE.md)) er det gjennomført et systematisk **Reconciliation Pass** for 1962-årgangen:
 
-- Sammenhold terminlister, resultatlister, kampreferater, sesongoppsummeringer, tabeller og eksisterende arkivdata.
-- Krysskobling avdekker kamper uten dato, kamper uten resultat, feil hjemme/borte og mulige dubletter.
-- Terminlister identifiseres maskinelt via kandidatklassen `fixture_list` og kontrolleres visuelt før de kobles mot spilte resultater.
+### 1. Terminliste → Resultater
+- Vårterminlisten (s. 27, 7 runder) og høstterminlisten (s. 48, 6 runder) gir 13 planlagte seriekamper.
+- Samtlige 13 kamper gjenfinnes med nøyaktig samme motstander, hjemme/borte og sesonghalvdel i resultatlistene (s. 48 og s. 59).
+- Ingen seriekamper i 1962 bærer preg av utsettelse eller omberamming; datoene er derfor koblet og kanonisert med høy sikkerhet.
+
+### 2. Resultater → Terminliste
+- Samtlige 13 serieresultater som manglet dato i oppsummeringen er nå koblet til terminlistene og tildelt eksakt kalenderdato.
+- Hjemme/borte-fordelingen stemmer 100 % mellom terminlistene og kampreferatene/oppsummeringene.
+
+### 3. Resultater → Tabell og sesongoppsummering
+- 13 seriekamper: 9 seire, 3 uavgjorte, 1 tap, målforhold 35–8, 21 poeng i 1962.
+- Sammen med høstdelen 1961 (8 kamper: 7–0–1, 16–8, 14 poeng) gir dette nøyaktig maratonserietabellen for Landsdelsserien Møre 1961/62: 21 kamper, 16–3–2, 51–16 mål, 35 poeng (AaFK suveren vinner).
+- Total A-lagsstatistikk for hele 1962 over 34 kamper: 22–8–4, 85–23 mål stemmer på millimeteren med klubbens offisielle årsrapport på s. 72 og s. 75.
+
+### 4. Kampreferater og artikler → Resultater
+- Kampreferater og artikler har beriket aksjonspunkter for enkeltkamper:
+  - Aksla stadion og 3 900 tilskuere mot Željezničar Sarajevo (s. 40).
+  - Aksla stadion og 2 200 tilskuere mot Nidelv (s. 75).
+  - Brann stadion (s. 50/53) og Aksla stadion foran 11 000 tilskuere i omkampen (s. 53/75).
+  - Lerkendal stadion (s. 50) og Aksla stadion foran 3 200 tilskuere mot Kvik (s. 50/76).
+  - Gjøvik stadion (s. 70/74) og Aksla stadion foran 12 000 tilskuere (publikumsrekord) mot Gjøvik-Lyn (s. 69/70/74).
+  - Full lagoppstilling foran Gjøvik-Lyn-kampen (s. 74).
+
+### 5. Source-results → Kanonisk arkiv
+- Alle 13 ordinære seriekamper er opprettet som kanoniske kamper i `data/seasons/1962/matches/`.
+- Samtlige 13 serieresultater i `data/source-results/medlemsblad-for-aalesunds-fotb-1962-5664.yaml` peker nå på sine kanoniske kamp-ID-er (`matchId`).
+- Cup-, kvalik- og privatkamper med eksakt dato er opprettet/beriket, mens udaterte privat- og kretskamper forblir kildedokumenterte observasjoner i `source-results`.
 
 ---
 
