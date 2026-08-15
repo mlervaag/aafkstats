@@ -2,7 +2,9 @@
 
 Denne loggen dokumenterer full visuell kontroll, kildekritisk vurdering og normalisering av **<PUBLIKASJONSTITTEL>** (<VOLUM/HEFTE>, <SIDEANTALL> sider). De trykte originalskannene (faksimilene) er kontrollert visuelt side for side som primærkilde i henhold til repoets autoritative standard i [`docs/HISTORISK_KILDEINNHOSTING_RUNBOOK.md`](../HISTORISK_KILDEINNHOSTING_RUNBOOK.md).
 
-## Kilder og metadata
+---
+
+## 1. Kilder og metadata
 
 | Felt | Verdi |
 |---|---|
@@ -18,39 +20,47 @@ Denne loggen dokumenterer full visuell kontroll, kildekritisk vurdering og norma
 
 ---
 
-## Completion-matrise <ÅR>
+## 2. Source inventory (omfang for årgangen)
+
+| sourceId | År | Volum | Hefte | Sider | Extraction | Type | Disposition |
+|---|---:|---|---|---:|---|---|---|
+| `<sourceId-1>` | `<år>` | `<vol>` | `<nr>` | `<X>` | `<complete/no-ALTO>` | `<ordinary/special/reprint>` | `<reviewed/duplicate/out_of_scope/unavailable>` |
+| `<sourceId-2>` | `<år>` | `<vol>` | `<nr>` | `<Y>` | `<complete/no-ALTO>` | `<ordinary/special/reprint>` | `<reviewed/duplicate/out_of_scope/unavailable>` |
+
+---
+
+## 3. Completion-matrise <ÅR>
 
 | Kategori | Status / Antall | Notat & Tolkning |
 |---|---:|---|
+| Sources i scope / reviewed | `<X/Y>` | `<Alle kilder i årsscopet inventarisert og disponert>` |
 | Sider visuelt kontrollert | `<X/X>` | `<100 % visuelt kontrollert mot faksimile>` |
 | A-lagskamper oppgitt i sesongfasit | `<Antall>` | `<f.eks. 28 kamper (14-6-8, mål 56-42) s. XX>` |
 | Eksplisitte samtidige A-lagsresultater | `<Antall>` | `<Antall konkrete samtidige resultater funnet>` |
 | Retrospektive kildepåstander (historiske år) | `<Antall>` | `<Historiske kamper fra tidligere år omtalt>` |
-| Kildedokumenterte oppgjør i source-results | `<Antall>` | `<Totalt antall oppført i data/source-results/>` |
+| Source-result entries | `<Antall>` | `<Totalt antall resultater ført i data/source-results/<sourceId>.yaml>` |
 | Fixture-kilder vurdert | `<Antall>` | `<Terminlister vårsesong s. XX, høstsesong s. YY>` |
 | Nye canonical matches | `<Antall>` | `<Kun ved entydig dato, motstander og bekreftet spilt>` |
-| Berikede canonical matches | `<Antall>` | `<Eksisterende kamper tilført kilde eller data>` |
+| Berikede canonical matches | `<Antall>` | `<Eksisterende kamper tilført kilde eller felt>` |
 | Allerede dokumentert i eldre kilder | `<Antall>` | `<Funn som alt er dekket av eldre primærkilder>` |
 | Reprint / duplisert kildestoff | `<Antall>` | `<Funn som er identisk opptrykk>` |
 | Person candidates vurdert | `<Antall>` | `<Kandidatliste gjennomgått og disponert>` |
-| Person roles vurdert | `<Antall>` | `<Hovedstyre, oppmenn, trenere, komiteer>` |
 | Nye personer opprettet | `<Antall>` | `<Nye personfiler i data/people/>` |
-| Unike eksisterende personfiler beriket | `<Antall>` | `<Eksisterende personer tilført kilde/rolle/honor>` |
-| Personberikelser for årgangen | `<Antall>` | `<Totalt antall personforekomster beriket>` |
-| Personroller opprettet eller beriket | `<Antall>` | `<Roller ført på personfiler>` |
-| Honors og milepæler | `<Antall>` | `<Gullmerker, hedersgaver, spillemerker>` |
-| Mentions vurdert eller knyttet | `<Antall>` | `<Omtaler lagt til som kildereferanse>` |
+| Unike eksisterende personfiler beriket | `<Antall>` | `<Eksisterende personer tilført data>` |
+| Personroller opprettet eller beriket | `<Antall>` | `<Roller ført i personfilenes roles-array>` |
+| Honorary roles & milestones | `<Antall>` | `<Gullmerker, hedersgaver (category: honorary)>` |
+| Mentions vurdert eller knyttet | `<Antall>` | `<Omtaler lagt til som kildereferanse i sources>` |
 | Historical observations | `<Antall>` | `<Bane, anlegg eller klubbhistorisk milepæl>` |
-| Organisasjonssnapshots | `<Antall>` | `<data/organizations/<år>-<klubb>.yaml>` |
+| Organisasjonssnapshots | `<Antall>` | `<data/organization/snapshots/<år>-<klubb>.yaml>` |
 | Konflikter løst | `<Antall>` | `<Konflikter med resolved: true>` |
 | Konflikter åpne | `<Antall>` | `<Konflikter med resolved: false>` |
 | Identity uncertain | `<Antall>` | `<Navnelikhet / uavklart personidentitet>` |
 
 ---
 
-## Terminlister og fixture-reconciliation
+## 4. Terminlister og fixture-reconciliation
 
-Dokumentasjon av terminlister og avstemming mot faktiske resultater i henhold til runbookens kapittel 7:
+Dokumentasjon av terminlister og avstemming mot faktiske resultater etter de 9 sjekkpunktene i runbooken:
 
 - **Vårterminliste (s. `<X>`):** `<Beskrivelse av oppgitte kamper og planlagte datoer>`
 - **Høstterminliste (s. `<Y>`):** `<Beskrivelse av oppgitte kamper og planlagte datoer>`
@@ -64,27 +74,27 @@ Dokumentasjon av terminlister og avstemming mot faktiske resultater i henhold ti
 
 ---
 
-## Retrospektiv kildereconciliation og opptrykk (reprints)
+## 5. Retrospektiv kildereconciliation og opptrykk (reprints)
 
-Dokumentasjon av artikler og notiser som omtaler historiske hendelser fra tidligere år ($factYear \neq sourcePublicationYear$):
+Dokumentasjon av artikler og notiser som omtaler historiske hendelser fra tidligere år ($seasons[].year \neq sourcePublicationYear$):
 
-| Kamp / Historisk hendelse | Faktisk år (factYear) | Score / Utfall | Kilde side | Disposition | Status i arkivet / Handling |
+| Kamp / Historisk hendelse | Faktisk år (`seasons[].year`) | Score / Utfall | Kilde side | Disposition | Status i arkivet / Handling |
 |---|---:|---|---|---|---|
-| `<Kamp / Hendelse>` | `<YYYY>` | `<Score>` | `<s. XX>` | `<disposition>` | `<Normalisert i source-results under YYYY / merknad>` |
+| `<Kamp / Hendelse>` | `<YYYY>` | `<Score>` | `<s. XX>` | `<disposition>` | `<Normalisert i source-results under seasons[].year = YYYY>` |
 
 ---
 
-## Personfunn og eksplisitt disposition
+## 6. Personfunn og eksplisitt disposition
 
-Samtlige personfunn i publikasjonen med formell disposition i henhold til runbookens kapittel 4:
+Samtlige personfunn i publikasjonen med formell disposition i henhold til gjeldende schema:
 
 | Person | Funn / Sidetall | Kategori | Disposition | Handling / Notat |
 |---|---|---|---|---|
-| `<Fullt navn>` | `<Rolle / Omtale s. XX>` | `<board / sporting / player / honor>` | `<person_enriched / role_created>` | `<Beskrivelse av endring i personfil og snapshot>` |
+| `<Fullt navn>` | `<Rolle / Omtale s. XX>` | `<board / sporting / honorary / admin>` | `<person_enriched / role_created>` | `<Beskrivelse av endring i personfil og snapshot>` |
 
 ---
 
-## Kildearitmetikk og sesongsummer
+## 7. Kildearitmetikk og sesongsummer
 
 - **Trykt sesongtotal:** `<f.eks. 28 kamper (12 V, 6 U, 10 T, mål 54–48, 30 poeng)>`
 - **Sum av dokumenterte enkeltkamper:** `<f.eks. 14 kamper (8 V, 2 U, 4 T, mål 32–18)>`
@@ -93,17 +103,17 @@ Samtlige personfunn i publikasjonen med formell disposition i henhold til runboo
 
 ---
 
-## Konflikthåndtering
+## 8. Konflikthåndtering
 
-Dokumentasjon av eventuelle sprik mellom kilder:
+Dokumentasjon av eventuelle kildekonflikter i tråd med schema:
 
-| Felt / Område | Kilde A | Kilde B | Status | Begrunnelse / Valgt verdi |
+| Felt (`field`) | Kilde A | Kilde B | Status (`resolved`) | Beslutning (`decision`, `chosen`, `reason`) |
 |---|---|---|---|---|
-| `<f.eks. Fødselsår>` | `<Kilde 1: YYYY>` | `<Kilde 2: YYYY>` | `<resolved: true / false>` | `<Begrunnelse for konklusjon eller bevart uavklart>` |
+| `<dateOfBirth / role>` | `<Kilde 1: verdi>` | `<Kilde 2: verdi>` | `<true / false>` | `<chosen: verdi, reason: begrunnelse>` |
 
 ---
 
-## Side-for-side kontrollmatrise
+## 9. Side-for-side kontrollmatrise
 
 Komplett logg over samtlige sider i publikasjonen (100 % visuell kontroll):
 
@@ -114,26 +124,31 @@ Komplett logg over samtlige sider i publikasjonen (100 % visuell kontroll):
 
 ---
 
-## Valideringslogg
+## 10. Valideringslogg
 
+### Tekniske krav (Må være 0 feil)
 - [ ] `pnpm validate` passerer (0 feil)
 - [ ] `AAFK_DATA_DIR=fixtures/data pnpm validate` passerer (0 feil)
-- [ ] `pnpm data:duplicates` rapporterer ingen uønskede duplikater
-- [ ] `pnpm data:opponents-unresolved` rapporterer ingen ukjente klubber
-- [ ] `pnpm data:contradictions` er sjekket og vurdert
-- [ ] `pnpm db:build` fullfører uten advarsler
+- [ ] `pnpm db:build` fullfører
 - [ ] `AAFK_DATA_DIR=fixtures/data pnpm db:build` fullfører
 - [ ] `pnpm typecheck && pnpm lint && pnpm test` er 100 % grønn
-- [ ] `pnpm build && pnpm smoke` kjører feilfritt
-- [ ] `git diff data/people/` bekrefter full additivitet (ingen utilsiktede slettinger)
+- [ ] `AAFK_DATA_DIR=fixtures/data pnpm build && pnpm smoke` kjører feilfritt (18/18 sider OK)
+- [ ] `git diff data/people/` bekrefter full additivitet (ingen uforklarlige slettinger)
+
+### Redaksjonelle rapporter (Kjørt og vurdert)
+- [ ] `pnpm data:duplicates` – Ingen uønskede duplikater introdusert
+- [ ] `pnpm data:opponents-unresolved` – Nye motstandere er vurdert
+- [ ] `pnpm data:contradictions` – Rapport er kontrollert og eventuelle nye sprik dokumentert
 
 ---
 
-## Definition of Done (DoD)
+## 11. Definition of Done (DoD)
 
-- [ ] Alle sider er visuelt gjennomgått mot faksimile.
+- [ ] Source inventory er utfylt og alle kilder for året er disponert.
+- [ ] Alle tilgjengelige sider er visuelt gjennomgått mot faksimile.
 - [ ] Alle person- og kampfunn har en gyldig formell disposition.
-- [ ] Kildedata er lagret i `data/source-results/` med feltspesifikk proveniens.
-- [ ] Ingen kanoniske kamper eller datoer er gjettet eller utledet matematisk.
-- [ ] Personhistorikk, verv, hedersbevisninger og observasjoner er oppdatert additivt.
+- [ ] Kildedata er lagret i `data/source-results/<sourceId>.yaml` med korrekt `seasons[].year`.
+- [ ] Ingen kanoniske kamper, datoer eller roller er gjettet eller utledet matematisk.
+- [ ] Personhistorikk, verv, æresbevisninger og observasjoner følger gjeldende schema.
+- [ ] Preservation-regresjonstester er lagt til dersom eksisterende personer er endret vesentlig.
 - [ ] Full valideringsløype er kjørt og grønn.

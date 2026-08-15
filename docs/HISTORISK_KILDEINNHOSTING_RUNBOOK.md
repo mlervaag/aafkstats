@@ -9,11 +9,37 @@ Standarden er kildeagnostisk og gjelder for alle sidebaserte historiske kilder:
 - Årsrapporter og beretninger (f.eks. SFK årsrapporter, AaFK årsberetninger)
 - Andre trykte publikasjoner, hefter og turneringsprogram
 
-Runbooken beskriver ikke én bestemt årgang, men etablerer repoets faste regler for dataintegritet, kildehierarki, feltspesifikk proveniens, additivitet og kvalitetssikring.
+---
+
+## 1. Autoritetsrekkefølge
+
+Ved motstrid mellom dokumenter, schema eller instrukser gjelder følgende autoritetsrekkefølge strengt:
+
+1. **`packages/schema/` og `docs/DATAMODELL.md`**
+   - Autoritativ kilde for:
+     - Gyldige YAML-felter og attributter
+     - Datatyper og valideringsregler
+     - Filstier og katalogstruktur
+     - Zod-skjemaer og databasestruktur
+2. **`docs/HISTORISK_KILDEINNHOSTING_RUNBOOK.md`** (dette dokumentet)
+   - Autoritativ kilde for:
+     - Redaksjonell arbeidsflyt og innhøstingsprosess
+     - Kildekritiske prinsipper og kildehierarki
+     - Proveniens, source-results og kanonisering
+     - Terminliste- og resultat-reconciliation
+     - Additivitetsgaranti og preservation
+     - Completion-metrikker og Definition of Done
+3. **Kildespesifikk profil** (f.eks. [`docs/MEDLEMSBLAD_INNHOSTING.md`](MEDLEMSBLAD_INNHOSTING.md))
+   - Autoritativ kilde for særtrekk, heftegranularitet og spesialregler for den aktuelle kildetypen.
+4. **Oppgaveprompt / brukerinstruks**
+   - Definerer oppgavens omfang (scope), årstall, sourceId-er og ønsket leveranse. Prompten skal normalt ikke repetere eller overstyre runbookens krav.
+
+> [!IMPORTANT]
+> **Schema vinner alltid over tekst:** Dersom runbooken skulle beskrive et felt eller en filsti som avviker fra gjeldende Zod-schema i `packages/schema/`, skal schemaet alltid følges, og runbooken oppdateres.
 
 ---
 
-## 1. Normativt språk
+## 2. Normativt språk
 
 I denne runbooken gjelder følgende nøkkelord strengt:
 - **MUST / SKAL:** Absolutt krav. Brudd er en merge-blocker.
@@ -21,11 +47,9 @@ I denne runbooken gjelder følgende nøkkelord strengt:
 - **SHOULD / BØR:** Sterkt anbefalt standardmetode. Avvik krever eksplisitt begrunnelse i reviewrapporten.
 - **MAY / KAN:** Valgfri forbedring eller utvidelse når kildematerialet gir grunnlag for det.
 
-Dette sikrer at agenter og bidragsytere skiller tydelig mellom **mergekrav**, **anbefalt arbeidsmetode** og **valgfrie utvidelser**.
-
 ---
 
-## 2. Kildehierarki og kildekritikk
+## 3. Kildehierarki og kildekritikk
 
 ### Faksimile er primær representasjon
 
@@ -48,17 +72,33 @@ Faksimile (visuelt kontrollert originaltrykk)
 ```
 
 > [!IMPORTANT]
-> **Samtidighet er ikke ufeilbarlighet:** At en samtidig primærkilde hevder noe, betyr ikke automatisk at påstanden er historisk sannhet. Kildepåstanden skal bevares nøyaktig slik den er trykt i `data/source-results/`, mens kanoniske data fastsettes etter kildekritisk vurdering og eventuell avstemming mot andre kilder.
+> **Samtidighet er ikke ufeilbarlighet:** At en samtidig primærkilde hevder noe, betyr ikke automatisk at påstanden er historisk sannhet. Kildepåstanden skal bevares nøyaktig slik den er trykt i `data/source-results/<sourceId>.yaml`, mens kanoniske data fastsettes etter kildekritisk vurdering og eventuell avstemming mot andre kilder.
 
 ---
 
-## 3. Standard 21-trinns arbeidsflyt
+## 4. Hvorfor disse invariantene finnes (Lessons Ledger)
+
+Disse kjernereglene er etablert direkte på grunnlag av erfaringer og avdekkede feilmodi i tidligere innhøstings-PR-er (#151–#156):
+
+| Læring & Feilmodus | Opphav | Invariant i runbooken |
+|---|---|---|
+| Terminliste er planlagt oppsett, ikke faktisk kampdato | PR #153 | Fixture må reconciles mot separat evidence på spilt kamp før dato kanoniseres |
+| Eksisterende personhistorikk forsvinner ved overskriving | PR #155 | Streng additivitetsgaranti, manuell preservation audit og obligatoriske regresjonstester |
+| Valg sent på året gjelder som regel neste arbeidsår | PR #156 | Valgdato != funksjonsår/snapshot-år. Arbeidsårskontroll er obligatorisk |
+| Retrospektivt jubileumsstoff blir liggende bare i review | PR #156 | Sikre historiske kildepåstander normaliseres i `data/source-results/` under korrekt historisk sesong |
+| Identisk opptrykk (reprint) ser ut som to uavhengige kilder | PR #156 | Reprints merkes eksplisitt med `duplicate_publication` / `reprint` |
+| Sesongtotal og eksplisitte enkeltresultater ble blandet | PR #156 | Én metrikk har én entydig definisjon; sesongtotaler brukes som kontrollsum |
+| Én gjennomgått sourceId er ikke nødvendigvis hele årgangen | Videre analyse | Obligatorisk Source Inventory før review starter |
+
+---
+
+## 5. Standard 21-trinns arbeidsflyt
 
 Innhøsting av en publikasjon eller årgang følger en fast produksjonsløype i 21 steg:
 
 ```mermaid
 flowchart TD
-    S1[1. Source preflight] --> S2[2. Regenerate extraction]
+    S1[1. Source preflight & Inventory] --> S2[2. Regenerate extraction]
     S2 --> S3[3. Full facsimile review]
     S3 --> S4[4. Explicit result pass]
     S4 --> S5[5. Fixture/program pass]
@@ -66,7 +106,7 @@ flowchart TD
     S6 --> S7[7. Table/season-fact pass]
     S7 --> S8[8. Person pass]
     S8 --> S9[9. Role/organization pass]
-    S9 --> S10[10. Honors/milestone pass]
+    S9 --> S10[10. Honorary & milestone pass]
     S10 --> S11[11. Historical retrospective pass]
     S11 --> S12[12. Venue/anlegg/event pass]
     S12 --> S13[13. Cross-source reconciliation]
@@ -80,16 +120,16 @@ flowchart TD
     S20 --> S21[21. Aggregated batch report]
 ```
 
-### Steg 1: Source preflight
+### Steg 1: Source preflight & Source Inventory
 - **Input:** Kildedefinisjoner i `data/sources/*.yaml` og provider-metadata.
-- **Leter etter:** Korrekt `sourceId`, URN/URL, sidetall (`pagesExpected` vs `pagesProcessed`), skannummer vs trykt sidetall, ALTO-tilgjengelighet, opphavsrett og proveniens.
-- **Tillatte sluttilstander:** Kilden er entydig identifisert, validert og registrert i kildekatalogen.
-- **Typiske feil:** Forveksling av skannummer og trykt sidetall; starte innhøsting av feil hefte eller en reprint uten å vite det.
-- **Definition of Done:** Preflight-sjekkliste i reviewrapporten er utfylt uten ubesvarte punkter.
+- **Leter etter:** Samtlige kilder i det definerte årsscopet (`parentSourceId`, `year`, `volume`, `issue`, `title`, `sourceId`, `urn`, extraction status). Sjekk skannummer vs. trykt sidetall, ALTO-tilgang og eventuelle reprints/særnumre.
+- **Tillatte sluttilstander:** Komplett Source Inventory-tabell i reviewrapporten der samtlige identifiserte sourceId-er har en eksplisitt status (`reviewed`, `duplicate/reprint`, `out_of_scope`, `unavailable`).
+- **Typiske feil:** Å reviewe ett hefte og tro at hele årgangen er ferdig; å forveksle skannummer med trykt sidetall.
+- **Definition of Done:** Source Inventory er utfylt og verifisert mot kildekatalogen.
 
 ### Steg 2: Regenerate extraction (arbeidskø)
 - **Input:** Publikasjonens råtekst/ALTO og `nb-extract`-pipeline.
-- **Leter etter:** Genererte maskinelle kandidater for kamper, personer, roller og lagoppstillinger.
+- **Leter etter:** Maskinelle kandidater for kamper, personer, roller og lagoppstillinger.
 - **Tillatte sluttilstander:** `data/extractions/<sourceId>.yaml` er oppdatert som maskinell arbeidskø.
 - **Typiske feil:** Å tro at extraction-filen er et ferdig datasett fremfor en kandidatliste.
 - **Definition of Done:** Uttrekk er kjørt og logget, klar til visuell verifisering.
@@ -104,7 +144,7 @@ flowchart TD
 ### Steg 4: Explicit result pass
 - **Input:** Spaltemeldinger, kampreferater og tabelloppsett.
 - **Leter etter:** Eksplisitt dokumenterte samtidige kampresultater for A-laget (motstander, score, dato, bane, turnering).
-- **Tillatte sluttilstander:** Hvert resultat er registrert som en kildepåstand i `data/source-results/<år>-<sourceId>.yaml`.
+- **Tillatte sluttilstander:** Hvert resultat er registrert som en kildepåstand i `data/source-results/<sourceId>.yaml` under `seasons[].results[]`.
 - **Typiske feil:** Å opprette en kanonisk kampfil direkte før kildepåstanden er sikret; å gjette ukjent dato.
 - **Definition of Done:** Samtlige trykte samtidige resultater er registrert i source-results med trykt sidetall.
 
@@ -118,7 +158,7 @@ flowchart TD
 ### Steg 6: Result ↔ fixture reconciliation
 - **Input:** Dokumenterte resultater (steg 4) og terminlister (steg 5).
 - **Leter etter:** Samsvar mellom planlagt oppsett og faktisk spilt kamp (motstander, hjemme/borte, rekkefølge, sesonghalvdel).
-- **Tillatte sluttilstander:** Entydig kobling mellom planlagt termin og spilt kamp, eller identifisering av flyttet/utsatt kamp.
+- **Tillatte sluttilstander:** Entydig kobling mellom planlagt termin og spilt kamp basert på de 9 sjekkpunktene i kapittel 8.
 - **Typiske feil:** Å overskrive faktisk spilledato med en planlagt dato fra våren; å koble feil kamp ved dobbeltoppgjør.
 - **Definition of Done:** Reconciliation-seksjonen i reviewrapporten dokumenterer koblingen for hver enkelt kamp.
 
@@ -132,28 +172,28 @@ flowchart TD
 ### Steg 8: Person pass
 - **Input:** Løpende tekst, portretter, omtaler og lister.
 - **Leter etter:** Spillere, ledere, tillitsvalgte, æresmedlemmer og andre sentrale klubbpersoner.
-- **Tillatte sluttilstander:** Personene er identifisert mot eksisterende personregister eller vurdert for opprettelse.
+- **Tillatte sluttilstander:** Personene er identifisert mot eksisterende personregister i `data/people/*.yaml` eller vurdert for opprettelse.
 - **Typiske feil:** Å opprette duplikatpersoner ved navnevarianter; å overse ukjente nøkkelpersoner.
 - **Definition of Done:** Alle personfunn har en formell disposisjon (`person_created`, `person_enriched`, `identity_uncertain` etc.).
 
 ### Steg 9: Role/organization pass
 - **Input:** Årsmøtereferater, styrelister, komitélister og treneromtaler.
 - **Leter etter:** Formenn, styremedlemmer, oppmenn, trenere, banekomité, dameavdeling og krets/forbundsverv.
-- **Tillatte sluttilstander:** Roller er registrert i personfiler og/eller i årlige organisasjonssnapshots (`data/organizations/`).
+- **Tillatte sluttilstander:** Roller er registrert i personfilenes `roles`-array og/eller i årlige organisasjonssnapshots (`data/organization/snapshots/<dato/år>-<organizationId>.yaml`).
 - **Typiske feil:** Å forskyve valgår til feil arbeidsår; å modernisere historisk terminologi (f.eks. endre oppmann til trener).
 - **Definition of Done:** Hovedstyre og nøkkelroller er strukturert med kildehenvisning og korrekt funksjonsår.
 
-### Steg 10: Honors/milestone pass
+### Steg 10: Honorary & milestone pass
 - **Input:** Jubileumsartikler, tildelinger, merkeoversikter og hedersomtale.
 - **Leter etter:** Gullmerker, hedersbevisninger (f.eks. Kruset), æresmedlemskap, 100/200-kampers spillemerker, jubileer.
-- **Tillatte sluttilstander:** `honors` og `milestones` er registrert direkte på personfilen med tildelingsår og kilde.
-- **Typiske feil:** Å gjemme hederstildelinger i fritekstkommentarer i stedet for strukturerte felter.
-- **Definition of Done:** Alle dokumenterte utmerkelser er lagt inn i personfilenes `honors`-array.
+- **Tillatte sluttilstander:** Hedersbevisninger lagres som strukturerte personroller med `category: honorary` når dette passer modellen. Øvrige milepæler lagres som roller, observasjoner eller kildeomtaler.
+- **Typiske feil:** Å dikte opp egne `honors`-arrays i YAML som ikke finnes i schema.
+- **Definition of Done:** Alle dokumenterte utmerkelser er lagt inn i tråd med gjeldende schema.
 
 ### Steg 11: Historical retrospective pass
 - **Input:** Jubileumsartikler, historiske tilbakeblikk og memoarer i publikasjonen.
 - **Leter etter:** Dokumentasjon av kamper, personer og hendelser fra tidligere tiår.
-- **Tillatte sluttilstander:** Kildepåstander er ført med sitt faktiske historiske år (`factYear`), aldri publikasjonsåret.
+- **Tillatte sluttilstander:** Kildepåstander er ført i `data/source-results/<sourceId>.yaml` under korrekt historisk `seasons[].year`, aldri publikasjonsåret.
 - **Typiske feil:** Å lagre et cupresultat fra 1933 under 1954 fordi det sto i et 1954-hefte.
 - **Definition of Done:** Retrospektive fakta er reconciliert mot eksisterende historikk for det aktuelle året.
 
@@ -171,19 +211,19 @@ flowchart TD
 - **Typiske feil:** Å slette en kildepåstand fordi en annen kilde hevder noe annet.
 - **Definition of Done:** Forskjeller mellom kilder er eksplisitt notert og håndtert etter konfliktreglene.
 
-### Steg 14: Cross-year reconciliation
+### Steg 14: Cross-year reconciliation (ingen interpolasjon)
 - **Input:** Tilstøtende årganger og publiserte flerårsoversikter.
 - **Leter etter:** Kontinuitet i roller, kamprekker, karrierestatistikk og turneringsforløp (høst/vår-sesonger).
 - **Tillatte sluttilstander:** Overganger mellom sesonghalvdeler og flerårige styreperioder henger logisk sammen.
-- **Typiske feil:** Å registrere hull i en flerårig rolle fordi ett hefte manglet styrelisten.
-- **Definition of Done:** Årsoverganger er avstemt mot forrige og neste batch.
+- **Typiske feil:** Å automatisk fylle hull: Fravær av kilde for ett år er **IKKE** positiv dokumentasjon på kontinuitet. Hvis Hans er formann i 1954 og 1956, men 1955 mangler kilde, skal ikke perioden settes til `1954–1956` uten kildedekning.
+- **Definition of Done:** Årsoverganger er avstemt mot forrige og neste batch uten udokumentert interpolasjon.
 
 ### Steg 15: Conflict handling
 - **Input:** Uenigheter mellom kilder identifisert i steg 13 og 14.
 - **Leter etter:** Forskjeller i fødselsdatoer, resultater, verv og tildelingsår.
-- **Tillatte sluttilstander:** Konflikter er registrert i `conflicts`-blokken på personen eller kampen med `resolved: false` eller `resolved: true` (med begrunnelse).
+- **Tillatte sluttilstander:** Konflikter er registrert i `conflicts`-blokken på personen med gjeldende schema-felter (`field`, `values`, `resolved`, `chosen`, `chosenProviderId`, `decision`, `decidedAt`, `reason`, `locked`, `note`).
 - **Typiske feil:** Å fjerne konfliktblokken for å "rydde opp".
-- **Definition of Done:** Både uløste og løste konflikter er bevart med full proveniens for alle involverte parter.
+- **Definition of Done:** Både uløste (`decision: unresolved`) og løste konflikter er bevart med full proveniens for alle involverte parter.
 
 ### Steg 16: Additive normalization
 - **Input:** Alle nye funn og eksisterende YAML-filer i `data/`.
@@ -194,42 +234,40 @@ flowchart TD
 
 ### Steg 17: Person preservation audit
 - **Input:** `git diff data/people/`.
-- **Leter etter:** Utilsiktet tap av roller, kilder, konflikter, kallenavn, trenerperioder (`coachSpells`) eller metadata.
+- **Leter etter:** Utilsiktet tap av roller, kilder, konflikter, navnevarianter (`names`), trenerperioder (`coachSpells`) eller metadata.
 - **Tillatte sluttilstander:** Null uforklarlige slettinger.
 - **Typiske feil:** Å stole på at en editor eller et script ikke har fjernet eldre blokker.
-- **Definition of Done:** Manuell og automatisert diff-audit bekrefter at all eksisterende historikk består.
+- **Definition of Done:** Manuell diff-audit bekrefter at all eksisterende historikk består.
 
 ### Steg 18: Completion matrix
 - **Input:** Samtlige tall og funn fra batchen.
 - **Leter etter:** Målbare metrikker for alle kategorier i innhøstingen.
-- **Tillatte sluttilstander:** En fullstendig utfylt completion-matrise i reviewrapporten.
+- **Tillatte sluttilstander:** En fullstendig utfylt completion-matrise i reviewrapporten basert på standarddefinisjonene.
 - **Typiske feil:** Å oppgi vage formuleringer ("mange personer funnet") i stedet for eksakte tall.
 - **Definition of Done:** Matrisen er komplett med sammenlignbare tall for alle år i batchen.
 
 ### Steg 19: Regression + preservation tests
 - **Input:** Sentinel-personer og sentrale kamper berørt av batchen.
 - **Leter etter:** Verifisering av at både nye fakta finnes og at eksisterende historikk er uendret.
-- **Tillatte sluttilstander:** Automatiserte regresjonstester i `packages/db` eller `packages/schema` kjører grønt.
-- **Typiske feil:** Å bare teste at ny kode bygger, uten å teste dataintegritet på tvers av lag.
-- **Definition of Done:** Tester kjører og passerer i testsuiten.
+- **Tillatte sluttilstander:** Automatiserte regresjonstester i `packages/schema/test/` kjører grønt.
+- **Krav:** Ved større historiske kildebatcher som endrer eksisterende personfiler **SKAL** det legges til preservation-regresjonstester.
+- **Definition of Done:** Tester dekker nytt funn + eksisterende historikk og passerer i testsuiten.
 
 ### Steg 20: Full validation & build
 - **Input:** Hele arkivet og byggekoden.
 - **Leter etter:** Skjemavalidering, dataintegritet, duplikater, uavklarte motstandere, selvmotsigelser og typefeil.
-- **Tillatte sluttilstander:** Alle sjekker og bygg i repoets valideringsstandard er 100 % grønne.
-- **Typiske feil:** Å glemme å bygge databasen eller overse advarsler fra `data:contradictions`.
-- **Definition of Done:** Valideringsskriptene rapporterer null feil.
+- **Tillatte sluttilstander:** Alle sjekker og bygg i repoets valideringsstandard er kjørt; tekniske feil er 0, og alle rapporter er vurdert redaksjonelt.
+- **Definition of Done:** Valideringsskriptene og bygg fullfører feilfritt.
 
 ### Steg 21: Aggregated batch report
 - **Input:** Enkeltår-reviews og samlet completion-matrise.
 - **Leter etter:** Helhetlig dokumentasjon av periodens sportslige, administrative og anleggsmessige utvikling.
 - **Tillatte sluttilstander:** En samlet rapportfil i `docs/data/` klar for PR-review.
-- **Typiske feil:** Å levere en PR uten samlet oversikt over hva batchen har tilført arkivet.
 - **Definition of Done:** Batchrapporten er ferdigstilt og lenket i PR-beskrivelsen.
 
 ---
 
-## 4. Dispositions-vokabular
+## 6. Dispositions-vokabular
 
 For å sikre sporbarhet og stringens **SKAL** alle relevante funn klassifiseres med en eksplisitt disposisjon.
 
@@ -238,72 +276,74 @@ For å sikre sporbarhet og stringens **SKAL** alle relevante funn klassifiseres 
 
 ### Disposisjoner for kamp og sportslige oppgjør
 
-| Disposisjon | Betydning | Handling i arkivet |
+| Disposisjon | Betydning | Håndtering i arkivet |
 |---|---|---|
-| `source_result_created` | Nytt eksplisitt kampresultat funnet i kilden | Opprettes i `data/source-results/` |
+| `source_result_created` | Nytt eksplisitt kampresultat funnet i kilden | Opprettes i `data/source-results/<sourceId>.yaml` under `seasons[].results[]` |
 | `canonical_created` | Sikker kampidentitet etablert for første gang | Ny kampfil i `data/seasons/<år>/matches/` |
 | `canonical_enriched` | Eksisterende kanonisk kamp tilført nye felt/kilde | Felt og kildehenvisning lagt til i kampfil |
 | `fixture_only` | Bare planlagt terminlisteoppføring funnet | Registrert i kilde/review, ikke som spilt kamp |
-| `outcome_only` | Kamp nevnt med utfall (f.eks. seier), men uten score | Kildepåstand i source-results / notis |
-| `result_without_date` | Konkret score dokumentert, men eksakt dato mangler | Bevares i source-results uten konstruert dato |
-| `date_without_result` | Spilledato dokumentert, men sluttresultat mangler | Bevares som kildeobservasjon / source-result |
+| `outcome_only` | Kamp nevnt med utfall (f.eks. seier), men uten score | Bevares i review/disposition. Ikke opprett ugyldig source-result uten score |
+| `result_without_date` | Konkret score dokumentert, men eksakt dato mangler | Lagres i `data/source-results/<sourceId>.yaml` når motstander og score er sikker |
+| `date_without_result` | Spilledato dokumentert, men sluttresultat mangler | Bevares i review/disposition; opprettes ikke som played source-result |
 | `already_documented` | Kampen er fullverdig dokumentert fra eldre primærkilde | Kildehenvisning legges til dersom relevant |
-| `duplicate_publication` | Identisk opptrykk / reprint fra annen kilde | Merkes som reprint i source-results |
+| `duplicate_publication` | Identisk opptrykk / reprint fra annen kilde | Merkes som reprint i source-results/review |
 | `identity_uncertain` | Usikkerhet om motstander, år eller lag | Dokumenteres i review, ingen kanonisk kobling |
 | `not_a_team` | Kampen gjelder internt oppgjør, oppvisning e.l. | Noteres i review, ikke kanonisk A-kamp |
 | `no_structured_action` | Generell tekst/omtale uten nye strukturerbare fakta | Ingen endring i YAML |
 
 ### Disposisjoner for personer og roller
 
-| Disposisjon | Betydning | Handling i arkivet |
+| Disposisjon | Betydning | Håndtering i arkivet |
 |---|---|---|
 | `person_created` | Ny person med verifisert virke i klubben | Ny fil i `data/people/<slug>.yaml` |
 | `person_enriched` | Eksisterende person tilført nye fakta/kilder | Additiv oppdatering av eksisterende personfil |
 | `role_created` | Nytt styre-, trener- eller komitéverv | Lagt til i personens `roles` og ev. snapshot |
 | `role_enriched` | Eksisterende rolle tilført kilde eller merknad | Kilde lagt til på eksisterende rolle |
-| `honor_created` | Ny hedersbevisning eller spillemerke funnet | Lagt til i personens `honors`-liste |
-| `honor_enriched` | Eksisterende hederstilfelle kildebelagt | Kilde lagt til på eksisterende honor |
-| `milestone_created` | Karrieremilepæl (f.eks. kampantall, jubileum) | Strukturert på person eller i observation |
+| `honor_created` | Ny hedersbevisning eller æresmedlemskap | Lagres som personrolle med `category: honorary` |
+| `honor_enriched` | Eksisterende hederstilfelle kildebelagt | Kilde lagt til på eksisterende æresrolle |
+| `milestone_created` | Karrieremilepæl (f.eks. kampantall, jubileum) | Strukturert som rolle, observasjon eller kildeomtale |
 | `mention_linked` | Omtale av person knyttet som kildereferanse | Lagt til i personens `sources`-liste |
-| `observation_created` | Historisk hendelse der personen var sentral | Opprettet i `data/observations/` |
+| `observation_created` | Historisk hendelse der personen var sentral | Opprettet i `data/observations/<år>-<slug>.yaml` |
 | `already_documented` | Rollen/faktumet er allerede fullt dokumentert | Kildehenvisning berikes ved behov |
 | `identity_uncertain` | Navnelikhet eller uklar personidentitet | Registreres ikke som ny person før avklart |
 | `no_structured_action` | Omtale uten varig historisk/statistisk verdi | Ingen endring i YAML |
 
 ---
 
-## 5. Source-results og kanoniseringsregler
+## 7. Source-results vs. Feltspesifikk proveniens
 
-### Source-result som kildepåstand
-Et kildedokumentert kampresultat **SKAL** først registreres som en kildepåstand i `data/source-results/<år>-<sourceId>.yaml`.
+Det er avgjørende å skille mellom to ulike provenienslag i arkivet:
 
-Et source-result betyr:
-> *"Denne kilden påstår at denne kampen ble spilt med dette resultatet."*
+### 1. Source-results (kildepåstander)
+Filplassering: `data/source-results/<sourceId>.yaml`
 
-Det betyr **IKKE** at arkivet har erklært resultatet som den endelige, kanoniske sannheten.
-
-### Kanonisering krever entydig identitet
-En kanonisk kampfil i `data/seasons/<år>/matches/` representerer arkivets omforente faktagrunnlag.
-
-En kanonisk kamp **SKAL IKKE** opprettes på grunnlag av:
-1. En terminliste (`fixture_list`) alene.
-2. En sesongtotal eller tabellsum alene.
-3. Matematisk utledning fra målforskjell eller poeng.
-4. Usikker retrospektiv omtale uten motstander eller årstall.
-5. Antatt eller gjettet kamprekkefølge.
-
-Ved den minste usikkerhet **SKAL** kildepåstanden bevares trygt i `data/source-results/`, og kanonisering utsettes til uavhengig bekreftelse foreligger.
-
----
-
-## 6. Feltspesifikk proveniens
-
-Arkivet krever full sporbarhet helt ned på feltnivå. 
-
-En kilde **SKAL BARE** tilskrives de feltene den faktisk dokumenterer på den oppgitte siden.
+Dokumenterer hva én enkelt kilde påstår om et oppgjør. Source-results har **IKKE** en `sources[].fields`-struktur. Strukturen følger schemaet:
 
 ```yaml
-# RIKTIG: Hver kilde har sine spesifikke felt
+sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+scorePerspective: aafk
+seasons:
+  - year: 1954
+    page: 95
+    results:
+      - opponent: Freidig
+        opponentClubId: freidig
+        homeAway: away
+        score:
+          home: 3
+          away: 1
+        competition: nm
+        round: "3. runde"
+        date: "1954-08-08"
+        matchId: 1954-08-08-freidig-aalesunds-fk
+```
+
+### 2. Kanoniske kamper (feltspesifikk proveniens)
+Filplassering: `data/seasons/<år>/matches/<matchId>.yaml`
+
+Her registreres arkivets omforente faktagrunnlag, og **HER** brukes feltspesifikk proveniens for å spore hvilken kilde som dokumenterer hvilke felt:
+
+```yaml
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
     page: "95"
@@ -319,35 +359,34 @@ sources:
       - attendance
       - halfTimeScore
       - lineups.away.starters
-    note: "Kampreferat med lagoppstilling og pause 1–0."
-```
-
-```yaml
-# FORBUDT: Å gi én kilde proveniens for felt den ikke omtaler
-sources:
-  - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
-    page: "95"
-    fields:
-      - date
-      - attendance       # FEIL: Siden nevner ikke tilskuertall!
-      - lineups          # FEIL: Siden har ingen lagoppstilling!
 ```
 
 ---
 
-## 7. Terminlister og planlagte datoer
+## 8. Terminlister og fixture-reconciliation
 
 Terminlister dokumenterer hva som var *planlagt* da publikasjonen gikk i trykken.
 
-Følgende regler gjelder strengt:
-1. **Planlagt dato er ikke faktisk dato:** En terminliste gir `plannedDate`. Den beviser ikke alene at kampen fant sted den dagen.
-2. **Actual evidence vinner:** Hvis et kampreferat, en avisrapport eller et styremøtereferat viser at kampen ble spilt en annen dato (f.eks. flyttet pga. baneforhold eller båtruter), er det den **faktiske datoen** som skal stå i det kanoniske datofeltet.
-3. **Bevaring av planlagt opplysning:** Den opprinnelige terminliste-påstanden kan bevares i kildens source-results eller i notater.
-4. **Ingen tvangskobling:** Kampresultater skal aldri presses inn på en terminlistedato dersom kronologien eller andre kilder tilsier at kampen ble utsatt.
+### Kriterier for når terminliste + resultat gir kanonisk kamp
+En terminlistedato kan brukes som sikker kanonisk kampdato når koblingen mellom terminlisten og en separat dokumentert spilt kamp er entydig.
+
+Følgende **9 sjekkpunkter** skal kontrolleres:
+1. **Samme motstander**
+2. **Samme hjemme/borte-fordeling**
+3. **Samme sesonghalvdel** (vår / høst)
+4. **Samme konkurranse**
+5. **Riktig rekkefølge / runde** i terminlisten der dette finnes
+6. **Resultatet er dokumentert separat** som faktisk spilt (i samme årgang eller i annen kilde)
+7. **Ingen annen kamp mot samme motstander kan forveksles** (f.eks. cupomkamp, privatkamp eller dobbeltoppgjør)
+8. **Ingen kilde dokumenterer flytting, omberamming, utsettelse eller avlysning**
+9. **Ingen sterkere kilde motsier datoen** (f.eks. dagsavis med annen spilledato)
+
+> [!IMPORTANT]
+> **Planlagt dato er ikke absolutt sannhet:** Terminlisten alene beviser ikke at kampen ble spilt på datoen. Hvis et kampreferat eller en dagsavis viser at kampen faktisk ble spilt på en annen dato, er det den **faktiske spilledatoen** som vinner det kanoniske datofeltet.
 
 ---
 
-## 8. Sesongsummer og kildearitmetikk
+## 9. Sesongsummer og kildearitmetikk
 
 Sesongstatistikker og tabelloppsummeringer trykt i kildene fungerer som **kontrollsummer (checksums)**.
 
@@ -355,21 +394,28 @@ Sesongstatistikker og tabelloppsummeringer trykt i kildene fungerer som **kontro
 2. **Bevaring av kildens egne regnefeil:** Historiske kilder summerer ofte feil (f.eks. feil i målforskjell eller seire). 
    - Den trykte verdien (`printedValue`) **SKAL** bevares.
    - Den korrigerte verdien (`recomputedValue`) dokumenteres ved siden av.
-   - Det **SKAL** legges inn en eksplisitt merknad (`arithmeticNote`).
+   - Det **SKAL** legges inn en eksplisitt merknad i reviewrapporten.
 3. **Ingen stille korrigering:** En historisk kilde skal aldri "pyntes på" i stillhet.
 
 ---
 
-## 9. Retrospektive fakta og opptrykk (reprints)
+## 10. Retrospektive fakta og opptrykk (reprints)
 
-### Publikasjonsår vs. Faktisk år
-En historisk publikasjon publisert i år $X$ inneholder svært ofte artikler om hendelser i år $Y$.
+### Publikasjonsår vs. Faktisk sesongår
+En historisk publikasjon utgitt i år $X$ inneholder svært ofte artikler om hendelser i år $Y$.
 
-Agenten **SKAL ALLTID** skille:
-- `sourcePublicationYear` (året publikasjonen ble trykt)
-- `factYear` (året hendelsen faktisk fant sted)
+Agenten **SKAL ALLTID** skille mellom publikasjonens utgivelsesår og året det historiske faktumet gjelder. For source-results representeres faktåret av korrekt `seasons[].year`:
 
-*Eksempel:* En artikkel i *AaFK Medlemsblad 1954* som omtaler cupbragden mot Skeid på Bislett i 1938 skal føres som et `source-result` for sesongen **1938** med kildepeker til 1954-publikasjonen.
+*Eksempel:* En artikkel i *AaFK Medlemsblad 1954* (`sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c`) som omtaler cupbragden mot Skeid på Bislett i 1938 skal føres i `data/source-results/medlemsblad-for-aalesunds-fotb-1954-cd1c.yaml` under:
+```yaml
+seasons:
+  - year: 1938
+    page: 106
+    results:
+      - opponent: Skeid
+        ...
+```
+*(Det finnes ikke noe eget toppnivåfelt `factYear` i source-result-skjemaet).*
 
 ### Reprint-regelen
 Når to publikasjoner inneholder identisk tekst (f.eks. et jubileumshefte og et ordinært medlemsbladnummer som trykker samme artikkel):
@@ -380,14 +426,36 @@ Når to publikasjoner inneholder identisk tekst (f.eks. et jubileumshefte og et 
 
 ---
 
-## 10. Personhistorikk og roller
+## 11. Personhistorikk og roller
 
-### Personhistorikk er førsteklasses data
-Viktige personfunn skal ikke bare begraves i en reviewtekst. De skal løftes inn i strukturerte data slik at de blir synlige på personens side på nettstedet:
-- Verv og funksjoner (`roles`)
-- Hedersbevisninger og spillemerker (`honors`)
-- Historiske observasjoner (`data/observations/`)
-- Kildereferanser og omtaler (`sources`)
+### Personmodellen i gjeldende schema
+Personfiler i `data/people/<slug>.yaml` følger Zod-skjemaet og har følgende struktur:
+- `id`, `name`, `firstName`, `lastName`
+- `names`: Liste over navnevarianter og kallenavn (IKKE `aliases`)
+- `roles`: Liste over personroller
+- `sources`: Kildereferanser og omtaler
+- `coachSpells`: Trenerperioder
+- `conflicts`: Kildekonflikter
+- `providers`: Eksterne ID-koblinger
+- `wikidata`: Wikidata-identifikator (IKKE `wikidataId`)
+- `position`, `dateOfBirth`, `dateOfDeath`, `note`
+
+*(Det finnes IKKE egne toppnivå-arrays for `honors` eller `milestones`).*
+
+### Hedersbevisninger lagres som personroller
+Hedersbevisninger normaliseres som personroller med `category: honorary`:
+
+```yaml
+roles:
+  - id: gullmerkeinnehaver-1953
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1953"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+        page: "30"
+```
 
 ### Historisk rolleterminologi
 Historisk ordbruk **SKAL** bevares. Ikke moderniser eller oversett titler anakronistisk:
@@ -396,21 +464,23 @@ Historisk ordbruk **SKAL** bevares. Ikke moderniser eller oversett titler anakro
 - `lagleder` **SKAL IKKE** endres til `oppmann`
 - `fotballformann` **SKAL IKKE** bli `trener`
 
-Organ/komité (`body`) skal alltid spesifiseres når kilden oppgir dette (f.eks. `body: "Banekomiteen"`, `body: "Dameavdelingen"`, `body: "Eldres avdeling"`).
+Organ/komité (`body`) skal alltid spesifiseres når kilden oppgir dette (f.eks. `body: "Banekomiteen"`, `body: "Dameavdelingen"`).
 
 ### Valgår vs. arbeidsår
 Årsmøter i idrettslag avholdes tradisjonelt i november eller desember.
 - En person som blir *"valgt på årsmøtet 29. november 1953"* blir normalt valgt for **arbeidsåret 1954**.
-- `role.from` skal da settes til `1954`, med mindre kilden eksplisitt sier at vedkommende overtok et restverv for 1953.
-- Organisasjonssnapshot for 1953 (`1953-aafk.yaml`) skal ikke inneholde et styre som først tiltrådte for sesongen 1954.
+- `role.from` skal settes til `1954`, med mindre kilden eksplisitt sier at vedkommende overtok et restverv for 1953.
+- Organisasjonssnapshot for 1953 skal ikke inneholde et styre som først tiltrådte for sesongen 1954.
 
 ### Snapshots og personfiler
-- `data/organizations/<år>-<klubb>.yaml` dokumenterer et observert organisasjonsbilde for det gitte året.
-- Et snapshot gir et tidsbilde, men erstatter ikke personfilen. En rolle som skal vises på en personside må også normaliseres i personens `data/people/<slug>.yaml`.
+- Plassering: `data/organization/snapshots/<dato/år>-<organizationId>.yaml` (f.eks. `data/organization/snapshots/1956-aafk.yaml`).
+- Snapshot er point-in-time-evidens for et observert organisasjonsbilde.
+- Snapshot alene skal **IKKE** brukes til å konstruere en lengre rolleperiode (`from/to` må være kildebelagt).
+- En sikker rolle må også normaliseres i personfilen `data/people/<slug>.yaml` for å vises på personens profilside.
 
 ---
 
-## 11. Additivitetsgaranti og slettekontroll
+## 12. Additivitetsgaranti og slettekontroll
 
 Additivitet er et **absolutt mergekrav**.
 
@@ -425,9 +495,9 @@ Når en eksisterende person berikes, **SKAL** følgende bevares intakt:
 - Eksisterende roller (`roles`)
 - Eksisterende kilder (`sources`)
 - Eksisterende konflikter (`conflicts`, både løste og uløste)
-- Navnevarianter og kallenavn (`aliases`, `names`)
+- Navnevarianter (`names`)
 - Trenerperioder (`coachSpells`)
-- Posisjon, fødsels-/dødsdato og eksterne ID-er (`wikidataId` etc.)
+- Posisjon, fødsels-/dødsdato og eksterne ID-er (`wikidata` etc.)
 - Notater og metadata
 
 > [!CAUTION]
@@ -435,50 +505,50 @@ Når en eksisterende person berikes, **SKAL** følgende bevares intakt:
 
 ---
 
-## 12. Håndtering av historiske konflikter
+## 13. Håndtering av historiske konflikter
 
-Når to kilder oppgir motstridende opplysninger (f.eks. ulikt fødselsår, to ulike formenn samme år, ulikt kampresultat):
-1. **Konflikten er et historisk faktum:** Uenigheten skal registreres i `conflicts`-strukturen.
-2. **Bevaring av claims:** Både kilde A og kilde B sine påstander skal dokumenteres i konflikten.
-3. **Løste vs. uløste konflikter:**
-   - `resolved: false`: Uavklart konflikt.
-   - `resolved: true`: Avklart konflikt, med `chosenValue` og grundig `reason`.
-4. **Ingen sletting ved løsning:** Når en konflikt løses, skal **IKKE** konfliktblokken slettes som "opprydding". Dokumentasjonen på at kildene sprikte er verdifull arkivhistorikk.
+Konflikter registreres i `conflicts`-strukturen på personen i henhold til schemaet:
+
+```yaml
+conflicts:
+  - field: dateOfBirth
+    values:
+      - value: "1914-05-12"
+        sourceId: aafk-50-ar-1964
+      - value: "1914-05-14"
+        sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    resolved: true
+    chosen: "1914-05-12"
+    decision: chosen
+    decidedAt: "2026-08-15"
+    reason: "Kirkebok og 50-årsbok bekrefter 12. mai."
+```
+
+Regler:
+- `decision: unresolved` brukes når konflikten er uløst (`resolved: false`).
+- En løst konflikt (`resolved: true`) skal ha `chosen`, `decision`, `decidedAt` og `reason`.
+- **Ingen sletting:** En løst konflikt skal **IKKE** fjernes fra YAML-filen. Kildespriket er verdifull arkivhistorikk.
 
 ---
 
-## 13. Preservation audit og regresjonstester
+## 14. Preservation audit og regresjonstester
 
 ### Preservation audit
-Før en PR erklæres ferdig, **SKAL** agenten kjøre en grundig diff-kontroll:
+Før en PR erklæres ferdig, **SKAL** agenten kjøre en grundig manuell diff-kontroll:
 ```sh
 git diff data/people/
 ```
-Kontroller linje for linje at ingen eksisterende roller, kilder eller konfliktblokker er forsvunnet.
+Kontroller linje for linje at ingen eksisterende roller, kilder, navnevarianter eller konfliktblokker er forsvunnet.
 
 ### Preservation regressionstester
-For hver større kildebatch som berører eksisterende personer eller historiske sesonger, **BØR** det velges ut **sentinel-personer** (vaktpersoner).
+Ved større historiske kildebatcher som endrer eksisterende personfiler **SKAL** det opprettes regresjonstester (f.eks. i `packages/schema/test/`).
 
-En test skal verifisere:
+Testene skal minimum bevise:
 1. **At det nye faktumet finnes.**
-2. **At eldre roller/fakta på samme person fortsatt består uendret.**
-3. **At eventuelle eksisterende konflikter på personen ikke er overskrevet.**
+2. **At eldre roller/historikk på samme person fortsatt består uendret.**
+3. **At eksisterende konflikter og navnevarianter er intakte.**
 
----
-
-## 14. Ikke-A-lag og aldersbestemte klasser
-
-Det må skilles skarpt mellom klubbens ulike lag og avdelinger:
-- Senior A-lag (herrer)
-- Senior B-lag / reservelag / rekrutt
-- Damefotball / Dameavdelingen
-- Juniorlag
-- Guttelag / Småguttelag / Lillegutt
-- Old Boys / Veteranlag
-- Bymannskap / Kretslag / Kombinerte representasjonslag
-
-> [!IMPORTANT]
-> Et resultat i en historisk kilde der "Aalesund" eller "AaFK" inngår, er **IKKE** automatisk en tellende A-lagskamp. Junior- og B-kamper skal aldri føres inn som kanoniske A-lagskamper.
+*(Merk: En automatisert `data:historical-preservation`-sjekk i CI er planlagt for neste PR #158. Inntil da er manuell audit og testfiler obligatoriske).*
 
 ---
 
@@ -487,61 +557,55 @@ Det må skilles skarpt mellom klubbens ulike lag og avdelinger:
 Hver kilde og batch **SKAL** dokumenteres med en standardisert completion-matrise for å sikre sammenlignbarhet og etterrettelighet.
 
 Følgende metrikker er obligatoriske:
+- **Sources i scope / reviewed:** Antall sourceId-er identifisert og gjennomgått.
 - **Sider visuelt kontrollert:** Antall sider gjennomgått mot faksimile (f.eks. `92/92`).
 - **A-lagskamper oppgitt i sesongfasit:** Totaler oppgitt i kildens årsberetning/tabell.
 - **Eksplisitte samtidige A-lagsresultater:** Konkrete enkeltkamper med score i årgangen.
 - **Retrospektive individuelle kildepåstander:** Historiske kamper fra tidligere år nevnt i teksten.
-- **Kildedokumenterte oppgjør normalisert i source-results:** Totalt antall poster opprettet i `data/source-results/`.
+- **Source-result entries:** Totalt antall resultater oppført i `data/source-results/<sourceId>.yaml`.
 - **Fixture-kilder vurdert:** Antall terminlister/programmer gjennomgått.
 - **Nye canonical matches:** Nye kamper opprettet i `data/seasons/`.
 - **Berikede canonical matches:** Eksisterende kamper tilført nye felter/kilder.
+- **Allerede dokumentert:** Funn som allerede er fullt dekket av eldre primærkilder.
+- **Duplicate / reprint:** Antall identifiserte opptrykk/duplikater.
+- **Person candidates vurdert:** Kandidatliste gjennomgått og disponert.
 - **Nye personer opprettet:** Nye personfiler i `data/people/`.
 - **Unike eksisterende personfiler beriket:** Antall eksisterende personer tilført data.
 - **Personroller opprettet eller beriket:** Roller lagt til i personfiler.
-- **Honors og milepæler:** Tildelte merker, æresmedlemskap og jubileer.
-- **Mentions vurdert eller knyttet:** Omtaler koblet til personfiler.
+- **Honorary roles & milestones:** Æresroller (`category: honorary`) og milepæler.
+- **Mentions vurdert eller knyttet:** Omtaler koblet til personfiler (`sources`).
 - **Historical observations:** Observasjoner opprettet i `data/observations/`.
-- **Organisasjonssnapshots:** Filer opprettet i `data/organizations/`.
+- **Organisasjonssnapshots:** Filer opprettet i `data/organization/snapshots/`.
 - **Konflikter løst / åpne:** Antall kildekonflikter registrert.
 - **Identity uncertain:** Personer/kamper med uavklart identitet.
-- **Duplicate / reprint:** Antall identifiserte opptrykk/duplikater.
 
-*Bruk tankestrek (`—`) dersom en metrikk ikke er relevant for den aktuelle kilden.*
+*Bruk tankestrek (`—`) dersom en metrikk ikke er relevant.*
 
 ---
 
 ## 16. Valideringsstandard og ferdigkontroll
 
-Før en PR kan ferdigmeldes eller merges, **SKAL** samtlige av følgende kommandoer kjøres og passere uten feil:
+Valideringen deles inn i **tekniske krav** og **redaksjonelle rapporter**:
 
+### 1. Tekniske krav (Må passere med 0 feil)
 ```sh
-# 1. Validering av data og dataintegritet
 pnpm validate
 AAFK_DATA_DIR=fixtures/data pnpm validate
-
-# 2. Integritets- og konsistensrapporter
-pnpm data:duplicates
-pnpm data:opponents-unresolved
-pnpm data:contradictions
-
-# 3. Databasebygg og avstemming mot views
 pnpm db:build
 AAFK_DATA_DIR=fixtures/data pnpm db:build
-
-# 4. Typekontroll, linting og enhetstester
 pnpm typecheck
 pnpm lint
 pnpm test
-
-# 5. Applikasjonsbygg og røyktest
-pnpm build
-pnpm smoke
+AAFK_DATA_DIR=fixtures/data pnpm build && pnpm smoke
 ```
 
-Dersom ingest-pakken er modifisert, **SKAL** også følgende kjøres:
+### 2. Redaksjonelle integritetsrapporter (Må kjøres og vurderes)
 ```sh
-pnpm --filter @aafkstats/ingest test
+pnpm data:duplicates
+pnpm data:opponents-unresolved
+pnpm data:contradictions
 ```
+*Krav:* Rapportene trenger ikke nødvendigvis være tomme (da historiske sprik og kjente varianter kan eksistere), men alle nye funn introdusert av batchen **SKAL** være vurdert og dokumentert.
 
 ---
 
@@ -549,7 +613,7 @@ pnpm --filter @aafkstats/ingest test
 
 Denne runbooken dekker den **redaksjonelle og kildekritiske primærkildeinnhøstingen**.
 
-For den helautomatiske maskinelle uttrekkspipelinen (ALTO-spaltelesing, maskinell kandidatgenerering og masseoppslag mot NB-API-er), se:
+For den maskinelle uttrekkspipelinen (ALTO-spaltelesing, kandidatgenerering og masseoppslag mot NB-API-er), se:
 - [`NB_RESOLVE_RUNBOOK.md`](NB_RESOLVE_RUNBOOK.md)
 
 De to runbookene komplementerer hverandre: maskinløypa forbereder kandidater og spaltetekst, mens denne runbooken sikrer sannhet, proveniens, additivitet og fullstendig verifisering.
@@ -558,11 +622,16 @@ De to runbookene komplementerer hverandre: maskinløypa forbereder kandidater og
 
 ## 18. Definition of Done (DoD) for en innhøstings-PR
 
-En innhøstings-PR er ferdig og klar til merge når:
-1. **Full visuell kontroll:** 100 % av sidene i omfanget er visuelt kontrollert mot faksimile.
-2. **Reviewlogg:** Det foreligger en fullstendig reviewlogg i `docs/data/` basert på [`HISTORISK_KILDE_REVIEW_TEMPLATE.md`](data/HISTORISK_KILDE_REVIEW_TEMPLATE.md).
-3. **Batchrapport:** Ved batcher over flere år foreligger en samlet rapport basert på [`HISTORISK_KILDE_BATCH_TEMPLATE.md`](data/HISTORISK_KILDE_BATCH_TEMPLATE.md).
-4. **Ingen udokumentert kanonisering:** Ingen kanoniske kamper eller personer er opprettet uten tilstrekkelig kildedekning.
-5. **Additivitet bekreftet:** Preservation audit bekrefter null uforklarlig tap av eksisterende person-, rolle- eller konfliktdata.
-6. **Validering grønn:** Samtlige sjekker i valideringsstandarden (seksjon 16) passerer med null feil.
-7. **Klar commit-historikk:** Commits er skrevet på norsk imperativ og dokumenterer innhøstingsarbeidet presist.
+En historisk innhøstings-PR er ferdig og klar til merge når:
+- [ ] **Source inventory er komplett:** Alle kilder i scope er identifisert og disponert.
+- [ ] **Full visuell kontroll:** 100 % av tilgjengelige sider i scope er visuelt kontrollert mot faksimile.
+- [ ] **Eksplisitte disposisjoner:** Alle relevante person- og kampfunn har en gyldig disposition.
+- [ ] **Source-results etter schema:** Kildepåstander er lagret i `data/source-results/<sourceId>.yaml` med korrekt `seasons[].year`.
+- [ ] **Ingen udokumentert kanonisering:** Ingen kanoniske kamper, datoer eller rolleperioder er konstruert uten kildedekning.
+- [ ] **Feltspesifikk proveniens:** Kanoniske kamper sporer felt nøyaktig per kilde.
+- [ ] **Additivitet bekreftet:** Preservation audit bekrefter null uforklarlig tap av eksisterende person-, rolle- eller konfliktdata.
+- [ ] **Preservation regressionstester:** Tester er opprettet og passerer ved større personendringer.
+- [ ] **Konflikthistorikk bevart:** Både løste og uløste konflikter er registrert i tråd med schema.
+- [ ] **Integritetsrapporter vurdert:** `data:duplicates`, `data:opponents-unresolved` og `data:contradictions` er gjennomgått.
+- [ ] **Full validering grønn:** Samtlige sjekker og bygg i valideringsstandarden passerer feilfritt.
+- [ ] **Reviewlogg og batchrapport:** Dokumentasjon i `docs/data/` er utfylt etter standardmalene.
