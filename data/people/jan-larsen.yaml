@@ -1,6 +1,5 @@
 id: jan-larsen
 name: Jan Larsen
-position: angrep
 roles:
   - id: trener-1958-1959
     category: coach
@@ -32,7 +31,10 @@ roles:
           - title
           - from
           - to
-    note: Spilte 145 kamper for AaFK og ledet laget som spillende trener i 1958 og 1959 før han flyttet til Bergen.
+        note: Manuelt verifisert.
 coachSpells:
   - fromSeason: 1958
     toSeason: 1959
+position: angrep
+note: Spilte 145 kamper for AaFK og ledet laget som spillende trener i 1958 og
+  1959 før han flyttet til Bergen.

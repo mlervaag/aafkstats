@@ -5,6 +5,90 @@ names:
   - Tobben Aarø
 position: forsvar
 roles:
+  - id: trener-1961
+    category: coach
+    title: Trener
+    from: "1961"
+    to: null
+    sources:
+      - sourceId: tango-siden-1914-2013-806b
+        page: "351"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: year_row). Manuelt
+          verifisert."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
+  - id: kaptein-1961-1962
+    category: player
+    title: Lagkaptein
+    body: A-laget
+    from: "1961"
+    to: "1962"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+        page: "44"
+      - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+        page: "63"
+  - id: spillemerke-300-kamper
+    category: honorary
+    title: Sølvfat for 300 A-kamper
+    from: "1962"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+        page: "63"
+      - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+        page: "81"
+    note: Tildelt gravert sølvfat etter å ha rundet 300 kamper i 1962 (304 A-kamper
+      ved sesongslutt).
+  - id: trener-1964
+    category: coach
+    title: Trener
+    from: "1964"
+    to: null
+    sources:
+      - sourceId: tango-siden-1914-2013-806b
+        page: "351"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: year_row). Manuelt
+          verifisert."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
+  - id: trener-1965
+    category: coach
+    title: Trener
+    from: "1965"
+    to: null
+    sources:
+      - sourceId: tango-siden-1914-2013-806b
+        page: "351"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: year_row). Manuelt
+          verifisert."
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
+  - id: gullmerkeinnehaver-1987
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1987"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
+      - sourceId: tango-siden-1914-2013-806b
+        page: "350"
+        fields:
+          - title
+          - from
+        note: Manuelt verifisert.
   - id: seniorstatuett-1957
     category: honorary
     title: Klubbens statuett for seniorspillere
@@ -38,79 +122,9 @@ roles:
         fields:
           - title
           - from
-    note: Tildelt spillemerket i gull på årsmøtet november 1959 etter å ha passert 200 A-lagskamper for AaFK.
-  - id: trener-1961
-    category: coach
-    title: Trener
-    from: "1961"
-    to: null
-    sources:
-      - sourceId: tango-siden-1914-2013-806b
-        page: "351"
-        fields:
-          - title
-          - from
-  - id: kaptein-1961-1962
-    category: player
-    title: Lagkaptein
-    body: A-laget
-    from: "1961"
-    to: "1962"
-    sources:
-      - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
-        page: "44"
-      - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
-        page: "63"
-  - id: spillemerke-300-kamper
-    category: honorary
-    title: Sølvfat for 300 A-kamper
-    from: "1962"
-    to: null
-    sources:
-      - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
-        page: "63"
-      - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
-        page: "81"
-  - id: trener-1964
-    category: coach
-    title: Trener
-    from: "1964"
-    to: null
-    sources:
-      - sourceId: tango-siden-1914-2013-806b
-        page: "351"
-        fields:
-          - title
-          - from
-  - id: trener-1965
-    category: coach
-    title: Trener
-    from: "1965"
-    to: null
-    sources:
-      - sourceId: tango-siden-1914-2013-806b
-        page: "351"
-        fields:
-          - title
-          - from
-  - id: gullmerkeinnehaver-1987
-    category: honorary
-    title: Gullmerkeinnehaver
-    from: "1987"
-    to: null
-    sources:
-      - sourceId: aafk-historie-utmerkelser
-        fields:
-          - title
-          - from
-      - sourceId: tango-siden-1914-2013-806b
-        page: "350"
-        fields:
-          - title
-          - from
+    note: Tildelt spillemerket i gull på årsmøtet november 1959 etter å ha passert
+      200 A-lagskamper for AaFK.
 sources:
-  - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
-    page: "80"
   - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
     page: "44"
   - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
@@ -118,15 +132,21 @@ sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "2"
     fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
   - sourceId: tango-siden-1914-2013-806b
     page: "135"
     fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
   - sourceId: vi-er-75-ar-1989-aff6
     page: "7"
     fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
   - sourceId: vi-er-80-ar-1914-1994-1994-5e91
     page: "7"
     fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+    page: "80"
 coachSpells:
   - fromSeason: 1961
     toSeason: 1961

@@ -1,7 +1,14 @@
 id: johan-pedersen
 name: Johan Pedersen
-position: forsvar
 roles:
+  - id: spillemerke-150-kamper
+    category: honorary
+    title: Sølvmerke for 150 A-kamper
+    from: "1962"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+        page: "81"
   - id: brusdal-statuetten-1960
     category: honorary
     title: Martin Brusdal-statuetten
@@ -13,17 +20,11 @@ roles:
         fields:
           - title
           - from
-    note: Tildelt Martin Brusdal-statuetten for seniorspillere på årsfesten 1960 (spilte 31 av 33 kamper).
-  - id: spillemerke-150-kamper
-    category: honorary
-    title: Sølvmerke for 150 A-kamper
-    from: "1962"
-    to: null
-    sources:
-      - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
-        page: "81"
+    note: Tildelt Martin Brusdal-statuetten for seniorspillere på årsfesten 1960
+      (spilte 31 av 33 kamper).
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
     page: "77"
   - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
-    page: "81"
+    page: "78"
+position: forsvar

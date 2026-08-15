@@ -1,13 +1,17 @@
 id: elisif-ingebrigtsen
 name: Elisif Ingebrigtsen
 roles:
-  - id: formann-dameavdelingen-1959-1960
+  - id: formann-dameavdelingen-1959
     category: board
     title: Formann
     body: Dameavdelingen
     from: "1959"
     to: "1960"
     sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+        page: "9"
+      - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+        page: "17"
       - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
         page: "10"
         fields:
@@ -18,8 +22,7 @@ roles:
         fields:
           - title
           - to
-      - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
-        page: "9"
-      - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
-        page: "17"
-    note: Formann i Dameavdelingen 1959–1960.
+    note: Formann i Dameavdelingen.
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: "9"

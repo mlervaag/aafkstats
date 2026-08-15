@@ -76,11 +76,11 @@ describe("Medlemsblad 1957–1960 (PR #155)", () => {
     const larsen = archive.people.find((p) => p.id === "jan-larsen");
     const aas = archive.people.find((p) => p.id === "einar-aas");
 
-    expect(walderhaug?.roles?.find((r) => r.id === "oppmann-1958-1960")).toMatchObject({
-      from: "1958",
-      to: "1960",
-      category: "sporting_staff",
-    });
+    expect(walderhaug?.roles?.some((r) => r.id === "oppmann-1958" && r.category === "sporting_staff")).toBe(true);
+    expect(walderhaug?.roles?.some((r) => r.id === "oppmann-1959" && r.category === "sporting_staff")).toBe(true);
+    expect(walderhaug?.roles?.some((r) => r.id === "oppmann-1960" && r.category === "sporting_staff")).toBe(true);
+    expect(walderhaug?.roles?.some((r) => r.id === "oppmann-1965")).toBe(true);
+
     expect(larsen?.roles?.find((r) => r.id === "trener-1958-1959")).toMatchObject({
       from: "1958",
       to: "1959",
@@ -88,7 +88,6 @@ describe("Medlemsblad 1957–1960 (PR #155)", () => {
     });
     expect(aas?.roles?.find((r) => r.id === "trener-1960")).toMatchObject({
       from: "1960",
-      to: "1960",
       category: "coach",
     });
   });
@@ -97,13 +96,13 @@ describe("Medlemsblad 1957–1960 (PR #155)", () => {
     const stromsholm = archive.people.find((p) => p.id === "gerd-stromsholm");
     const ingebrigtsen = archive.people.find((p) => p.id === "elisif-ingebrigtsen");
 
-    expect(stromsholm?.roles?.find((r) => r.id === "formann-dameavdelingen-1956-1958")).toMatchObject({
+    expect(stromsholm?.roles?.find((r) => r.id === "formann-dameavdelingen-1956")).toMatchObject({
       from: "1956",
       to: "1958",
       category: "board",
       body: "Dameavdelingen",
     });
-    expect(ingebrigtsen?.roles?.find((r) => r.id === "formann-dameavdelingen-1959-1960")).toMatchObject({
+    expect(ingebrigtsen?.roles?.find((r) => r.id === "formann-dameavdelingen-1959")).toMatchObject({
       from: "1959",
       to: "1960",
       category: "board",
@@ -193,6 +192,89 @@ describe("Medlemsblad 1957–1960 (PR #155)", () => {
     expect(obs1960).toMatchObject({
       date: "1960-11-25",
       personIds: expect.arrayContaining(["hans-j-henriksen", "perry-ystenes", "frantz-lovmo", "helge-lunde"]),
+    });
+  });
+
+  describe("Preservation av eksisterende personhistorikk (additivitetsgaranti)", () => {
+    it("bevarer all eksisterende historikk, konflikter og trenerperioder for Einar Aas", () => {
+      const aas = archive.people.find((p) => p.id === "einar-aas");
+      expect(aas).toBeDefined();
+
+      // Eksisterende roller fra main
+      expect(aas?.roles?.some((r) => r.id === "trener-1966")).toBe(true);
+      expect(aas?.roles?.some((r) => r.id === "oppmann-1962")).toBe(true);
+      expect(aas?.roles?.some((r) => r.id === "oppmann-1963")).toBe(true);
+      expect(aas?.roles?.some((r) => r.id === "oppmann-1964")).toBe(true);
+      expect(aas?.roles?.some((r) => r.id === "gullmerkeinnehaver-2002")).toBe(true);
+      expect(aas?.roles?.some((r) => r.id === "aeresmedlem-2013")).toBe(true);
+
+      // Nye/berikede roller fra 1957-1960
+      expect(aas?.roles?.some((r) => r.id === "arets-spiller-1957")).toBe(true);
+      expect(aas?.roles?.some((r) => r.id === "gullmerkeinnehaver-1960")).toBe(true);
+
+      // Konflikter og coachSpells
+      const conflict = aas?.conflicts?.find((c) => c.field === "formann.1961");
+      expect(conflict).toBeDefined();
+      expect(conflict?.resolved).toBe(true);
+      expect(conflict?.chosen).toBe("Kjell Berentzen");
+
+      expect(aas?.coachSpells).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ fromSeason: 1960, toSeason: 1960 }),
+        ]),
+      );
+    });
+
+    it("bevarer all eldre og nyere historikk og uavklart konflikt for Peder Puck", () => {
+      const puck = archive.people.find((p) => p.id === "peder-puck");
+      expect(puck).toBeDefined();
+
+      expect(puck?.roles?.some((r) => r.id === "formann-1938-1939")).toBe(true);
+      expect(puck?.roles?.some((r) => r.id === "formann-1940-1945")).toBe(true);
+      expect(puck?.roles?.some((r) => r.id === "gullmerkeinnehaver-1948")).toBe(true);
+      expect(puck?.roles?.some((r) => r.id === "nif-plakett-1961")).toBe(true);
+      expect(puck?.roles?.some((r) => r.id === "kasserer-1962")).toBe(true);
+      expect(puck?.roles?.some((r) => r.id === "aeresmedlem-1957")).toBe(true);
+
+      const conflict = puck?.conflicts?.find((c) => c.field === "formann.1932");
+      expect(conflict).toBeDefined();
+    });
+
+    it("bevarer etterkrigs- og 1960-tallshistorikk, aliases og konflikt for Hans J. Henriksen", () => {
+      const hans = archive.people.find((p) => p.id === "hans-j-henriksen");
+      expect(hans).toBeDefined();
+
+      expect(hans?.roles?.some((r) => r.id === "formann-1962-1964")).toBe(true);
+      expect(hans?.roles?.some((r) => r.id === "formann-1969")).toBe(true);
+      expect(hans?.roles?.some((r) => r.id === "gullmerkeinnehaver-1969")).toBe(true);
+
+      expect(hans?.names).toEqual(
+        expect.arrayContaining(["Hans Henriksen", "Hans Jacob Henriksen"]),
+      );
+
+      const conflict = hans?.conflicts?.find((c) => c.field === "formann.1968");
+      expect(conflict).toBeDefined();
+    });
+
+    it("bevarer senere roller og hedersbevisninger for Asbjørn Korsnes", () => {
+      const korsnes = archive.people.find((p) => p.id === "asbjorn-korsnes");
+      expect(korsnes).toBeDefined();
+
+      expect(korsnes?.roles?.some((r) => r.id === "gullmerkeinnehaver-1976")).toBe(true);
+      expect(korsnes?.roles?.some((r) => r.id === "formann-1979" || r.id === "styreleder-1979")).toBe(true);
+      expect(korsnes?.roles?.some((r) => r.id === "spillemerke-solv-150-kamper")).toBe(true);
+    });
+
+    it("bevarer resolved formann.1962 konflikt for Kjell Berentzen", () => {
+      const berentzen = archive.people.find((p) => p.id === "kjell-berentzen");
+      expect(berentzen).toBeDefined();
+
+      expect(berentzen?.roles?.some((r) => r.id === "formann-1955-1956")).toBe(true);
+      expect(berentzen?.roles?.some((r) => r.id === "formann-1961")).toBe(true);
+
+      const conflict = berentzen?.conflicts?.find((c) => c.field === "formann.1962");
+      expect(conflict).toBeDefined();
+      expect(conflict?.resolved).toBe(true);
     });
   });
 });

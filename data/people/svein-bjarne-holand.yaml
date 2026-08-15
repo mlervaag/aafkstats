@@ -1,9 +1,16 @@
 id: svein-bjarne-holand
 name: Svein Bjarne Holand
-names:
-  - Svein Holand
-position: midtbane
 roles:
+  - id: gullmerkeinnehaver-2016
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "2016"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
   - id: brusdal-statuetten-junior-1959
     category: honorary
     title: Martin Brusdal-statuetten for juniorspillere
@@ -15,14 +22,8 @@ roles:
         fields:
           - title
           - from
-    note: Juniorlagets kaptein tildelt Brusdal-statuetten for fremragende innsats i 1959.
-  - id: gullmerkeinnehaver-2016
-    category: honorary
-    title: Gullmerkeinnehaver
-    from: "2016"
-    to: null
-    sources:
-      - sourceId: aafk-historie-utmerkelser
-        fields:
-          - title
-          - from
+    note: Juniorlagets kaptein tildelt Brusdal-statuetten for fremragende innsats i
+      1959.
+names:
+  - Svein Holand
+position: midtbane

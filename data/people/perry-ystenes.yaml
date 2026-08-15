@@ -1,18 +1,6 @@
 id: perry-ystenes
 name: Perry Ystenes
 roles:
-  - id: tinnvase-kramyra-1960
-    category: honorary
-    title: Hedret med tinnvase for Kråmyra-anlegget
-    from: "1960"
-    to: null
-    sources:
-      - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
-        page: "63"
-        fields:
-          - title
-          - from
-    note: Overrakt tinnvase for formidabel 5-års innsats som leder av banekomiteen på Kråmyra.
   - id: gullmerkeinnehaver-1984
     category: honorary
     title: Gullmerkeinnehaver
@@ -28,3 +16,34 @@ roles:
         fields:
           - title
           - from
+        note: Manuelt verifisert.
+  - id: tinnvase-kramyra-1960
+    category: honorary
+    title: Hedret med tinnvase for Kråmyra-anlegget
+    from: "1960"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+        page: "63"
+        fields:
+          - title
+          - from
+    note: Overrakt tinnvase for formidabel 5-års innsats som leder av banekomiteen
+      på Kråmyra.
+sources:
+  - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
+    page: "28"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1979-9b1b
+    page: "14"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: vi-er-75-ar-1989-aff6
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: vi-er-80-ar-1914-1994-1994-5e91
+    page: "7"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
