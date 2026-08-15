@@ -1,8 +1,8 @@
 # Visuell kontroll og innhøsting av AaFK Medlemsblad 1962 (Vol. 13 Nr. 1–6)
 
-Denne loggen dokumenterer full visuell kontroll og normalisering av **Medlemsblad for Aalesunds Fotballklubb 1962** (Vol. 13, hefte 1–6, 84 sider). Originale ALTO XML- og tekstdata er kontrollert side for side som primærkilde i henhold til arkivets prinsipper:
-- OCR og ALTO brukes som arbeidsindeks.
-- Originalkilden kontrolleres visuelt.
+Denne loggen dokumenterer full visuell kontroll og normalisering av **Medlemsblad for Aalesunds Fotballklubb 1962** (Vol. 13, hefte 1–6, 84 sider). De trykte originalskannene (faksimilene) er kontrollert visuelt side for side som primærkilde, mens ALTO XML og OCR er benyttet som maskinell arbeidsindeks og søkestøtte i henhold til arkivets prinsipper:
+- OCR og ALTO brukes som arbeidsindeks og kandidatgenerator.
+- De trykte faksimilene kontrolleres visuelt som primærkilde.
 - `sourceId + page` brukes som stabil kontrollidentitet.
 - Kildepåstander lagres i `data/source-results/` før eventuell opprettelse av kanoniske kamper.
 - Usikre datoer eller koblinger konstrueres ikke.
@@ -15,7 +15,7 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060283029_001`
 
 ## Sammendrag av innhøstingen
 
-1. **Komplett dekning:** Alle 84 sider i 1962-årgangen er kontrollert.
+1. **Komplett dekning:** Alle 84 sider i 1962-årgangen er kontrollert visuelt mot de trykte sidene.
 2. **Sesongstatistikk 1962 bekreftet av klubben:**
    - 34 A-lagskamper spilt (22 seire, 8 uavgjort, 4 tap, målforhold 85–23).
    - 13 seriekamper (9–3–1, 35–8 mål). Total Maratonserie 1961/62 over 21 kamper: 16–3–2, 51–16, 35 poeng (AaFK ble suveren avdelingsvinner).
@@ -39,7 +39,7 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060283029_001`
 5. **Spiller- og tilskuerstatistikk:**
    - 29 spillere benyttet på A-laget (Oskar Pedersen 31 kamper, Johan Pedersen, Harald Johansen og Svein Rødland 30 kamper).
    - Toppscorere: Kjell Iversen (13), Asbjørn Rutgerson (13), Steinar Nedregård (13), Arne Finsnes (11).
-   - Publikumsbesøk: 48 100 tilskuere på AaFKs 22 hjemmekamper på Aksla stadion i 1962 (gjennomsnitt 2 387).
+   - Publikumsbesøk: 48 100 tilskuere på AaFKs 22 hjemmekamper på Aksla stadion i 1962 (faktisk gjennomsnitt ca. 2 186 tilskuere per kamp; medlemsbladets tekst på s. 76 oppgir 2 387 som en intern beregningsfeil i kildens egen artikkel).
 
 ---
 
@@ -134,8 +134,28 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060283029_001`
 
 ---
 
+## Kjente uløste kildekonflikter (Known External Conflicts)
+
+1962-piloten belyser og bevarer to viktige eksterne datokonflikter mellom etablerte kilder:
+
+1. **NM 4. runde: SK Brann – AaFK (Bergen)**
+   - **Kanonisk/RSSSF-dato:** `1962-09-02` (søndag).
+   - **Avvikende kilder:** SK Branns offisielle kamphistorikk (`historie.brann.no`) og AaFKs egen historiske artikkel oppgir begge lørdag 1. september 1962.
+   - **Medlemsbladets proveniens:** Medlemsbladet (hefte 5 s. 50 og s. 53) dokumenterer og bekrefter selve kampen, resultatet 0–0 e.e.o. og at den ble spilt i Bergen, men oppgir ikke eksplisitt kalenderdato.
+   - **Status:** `known_external_conflict` / `unresolved`. Kanonisk dato beholdes inntil dagsaviser eller primærdokumenter fra NFF entydig fastslår avsparkstidspunktet.
+
+2. **Distriktsmesterskap: Kvik – AaFK (Trondheim)**
+   - **Kanonisk/RSSSF-dato:** `1962-10-06` (lørdag).
+   - **Avvikende kilder:** AaFKs historiske artikkel («Et av de beste i klubbens historie», aafk.no) oppgir fredag 5. oktober 1962.
+   - **Medlemsbladets proveniens:** Medlemsbladet (hefte 5 s. 50 og hefte 6 s. 63/75) bekrefter 0–0 på Lerkendal og at dette var Thorbjørn Aarøs 300. A-kamp, men oppgir ikke sikker kalenderdato.
+   - **Status:** `known_external_conflict` / `unresolved`. Kildedokumentasjonen bekrefter oppgjøret uten å overstyre eller tvinge datoen.
+
+---
+
 ## Konklusjon og videre oppfølging
 
 - **Pilotens mål er oppnådd:** 1962-årgangen er komplett innhøstet og dokumentert fra A til Å.
 - **Kildedokumentasjon:** Alle påstander er forankret med presise sidetall (`sourceId: medlemsblad-for-aalesunds-fotb-1962-5664` + `page`).
 - **Prinsipper ivaretatt:** Ingen datoer er konstruert; uavklarte kamper forblir kildepåstander i `source-results/`, mens entydig identifiserte kamper er beriket og opprettet.
+- **Kildekonflikter bevares:** Eksisterende datokonflikter dokumenteres eksplisitt i stedet for å skjules.
+

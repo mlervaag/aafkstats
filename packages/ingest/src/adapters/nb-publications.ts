@@ -333,7 +333,7 @@ export function candidatesForPage(archive: Archive, source: Source, page: string
       out.push(candidate(source.id, page, "match_result", matchIds.length === 1 ? "high" : "medium", [], extractNames(line), years, scores, [], matchIds));
     }
   }
-  return out;
+  return uniqueCandidates(out);
 }
 
 function matchCandidates(archive: Archive, source: Source, line: string, years: number[], scores: string[]): string[] {
