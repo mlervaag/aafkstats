@@ -1,0 +1,40 @@
+id: 1962-08-05-clausenengen-aalesunds-fk
+date: 1962-08-05
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1962
+  stage: regular_season
+home:
+  clubId: clausenengen
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "48"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Høstterminlisten (s. 48) oppgir Clausenengen mot AaFK 5. august 1962."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "59"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Høstoppsummeringen (s. 59) dokumenterer Clausenengen mot AaFK 0–1."

@@ -307,6 +307,7 @@ export function candidatesForPage(archive: Archive, source: Source, page: string
   const roleTerms = ["formann", "leder", "styreleder", "nestformann", "sekretær", "kasserer", "oppmann", "trener", "direktør", "æresmedlem", "æresmedlemmer", "sportslig leder", "daglig leder"];
   const lineupTerms = ["lagoppstilling", "lagoppstillingen", "laget bestod", "spillertropp", "spillerstall", "troppen", "stallen"];
   const seasonTerms = ["sluttabell", "tabellen", "seriemester", "opprykk", "nedrykk", "poeng", "målforskjell"];
+  const fixtureTerms = ["terminliste", "terminlisten", "termin", "vårens kamper", "høstens kamper", "seriekamper", "vårens seriekamper", "høstens seriekamper", "kampoppsett", "program", "serieprogram", "kamptermin", "kommende kamper"];
 
   // Bygg kombinerte vinduer (enkeltlinjer + 2-linjers glidende vindu) for å fange oppdelte tabellrader
   const windows: string[] = [...lines];
@@ -326,6 +327,7 @@ export function candidatesForPage(archive: Archive, source: Source, page: string
     const roles = roleTerms.filter((term) => containsPhrase(normalized, normalize(term)));
     const lineup = lineupTerms.filter((term) => containsPhrase(normalized, normalize(term)));
     const season = seasonTerms.filter((term) => containsPhrase(normalized, normalize(term)));
+    const fixture = fixtureTerms.filter((term) => containsPhrase(normalized, normalize(term)));
 
     if (people.length > 0) out.push(candidate(source.id, page, "person_mention", people.length === 1 ? "high" : "medium", [], people.map((p) => p.name), years, [], people.map((p) => p.id), []));
     if (roles.length > 0) {
@@ -333,6 +335,7 @@ export function candidatesForPage(archive: Archive, source: Source, page: string
       out.push(candidate(source.id, page, names.length > 0 ? "person_role" : "organization", people.length === 1 && years.length > 0 ? "high" : "medium", roles, names, years, [], people.map((p) => p.id), []));
     }
     if (lineup.length > 0) out.push(candidate(source.id, page, "lineup_or_squad", "medium", lineup, unique(extractNames(line)), years, [], people.map((p) => p.id), []));
+    if (fixture.length > 0) out.push(candidate(source.id, page, "fixture_list", "medium", fixture, unique(extractNames(line)), years, [], people.map((p) => p.id), []));
     if (season.length > 0 && years.length > 0) out.push(candidate(source.id, page, "season_fact", "medium", season, [], years, scores, [], []));
     if (scores.length > 0 && (isAafkPublication || /\b(aafk|aa\.?\s*f\.?\s*k\.?|aalesund|ålesund)\b/i.test(line))) {
       const matchIds = matchCandidates(archive, source, normalized, years, scores);

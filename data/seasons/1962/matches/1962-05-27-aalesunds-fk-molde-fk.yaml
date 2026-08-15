@@ -1,0 +1,40 @@
+id: 1962-05-27-aalesunds-fk-molde-fk
+date: 1962-05-27
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1962
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: molde-fk
+  score: 0
+  halfTimeScore: null
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "27"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Vårterminlisten (s. 27) oppgir AaFK mot Molde 27. mai 1962."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "48"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Våroppsummeringen (s. 48) dokumenterer AaFK mot Molde 2–0."

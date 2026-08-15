@@ -26,8 +26,24 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060283029_001`
    - 8 privatkamper: Željezničar Sarajevo (1–4), Mjøndalen (2–0), KFUM Randers (7–0), Spjelkavik (1–1), Rollon (4–1), Aksla (8–0), Herd (1–0), Herd (2–0).
 3. **Kildedokumenterte oppgjør (`data/source-results/`):**
    - Samtlige 34 A-lagsresultater er strukturert kodet i `data/source-results/medlemsblad-for-aalesunds-fotb-1962-5664.yaml`.
+   - De 13 seriekampene i Landsdelsserien er komplettert med eksakte kalenderdatoer fra vårterminlisten (s. 27) og høstterminlisten (s. 48).
 4. **Kanoniske kamper beriket og opprettet:**
-   - Ny kanonisk kamp opprettet: `1962-07-08-aalesunds-fk-zeljeznicar.yaml` (internasjonal privatkamp mot FK Željezničar Sarajevo på Aksla stadion, 3 900 tilskuere, full lagoppstilling og målscorer).
+   - **13 nye kanoniske seriekamper opprettet:**
+     - `1962-05-06-hodd-aalesunds-fk.yaml` (0–1)
+     - `1962-05-13-aalesunds-fk-clausenengen.yaml` (7–0)
+     - `1962-05-20-langevag-aalesunds-fk.yaml` (1–1)
+     - `1962-05-27-aalesunds-fk-molde-fk.yaml` (2–0)
+     - `1962-05-31-braatt-aalesunds-fk.yaml` (0–3)
+     - `1962-06-03-aalesunds-fk-kfk.yaml` (3–0)
+     - `1962-06-17-skarbovik-aalesunds-fk.yaml` (0–3)
+     - `1962-07-29-aalesunds-fk-hodd.yaml` (0–0)
+     - `1962-08-05-clausenengen-aalesunds-fk.yaml` (0–1)
+     - `1962-08-19-aalesunds-fk-langevag.yaml` (0–2)
+     - `1962-09-09-molde-fk-aalesunds-fk.yaml` (1–1)
+     - `1962-09-23-aalesunds-fk-braatt.yaml` (8–0)
+     - `1962-09-30-kfk-aalesunds-fk.yaml` (4–5)
+     - Alle kamper har streng feltproveniens som skiller planlagt dato fra terminlisten og faktisk resultat fra resultatoversikten.
+   - Ny kanonisk privatkamp opprettet: `1962-07-08-aalesunds-fk-zeljeznicar.yaml` (internasjonal privatkamp mot FK Željezničar Sarajevo på Aksla stadion, 3 900 tilskuere, full lagoppstilling og målscorer).
    - Eksisterende kanoniske kamper beriket med spillested, tilskuertall, lagoppstilling og medlemsbladproveniens:
      - `1962-08-12-aalesunds-fk-nidelv.yaml` (NM 3. runde, Aksla stadion, 2 200 tilskuere).
      - `1962-09-02-sk-brann-aalesunds-fk.yaml` (NM 4. runde, Brann stadion, 0–0 e.e.o.).
@@ -73,12 +89,12 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060283029_001`
 | 24 | Nr. 2 | Annonser | no_action | reviewed | Lokale annonser. |
 | 25 | Nr. 3 | Omslag: Vårsesongen starter | person_candidate | reviewed | Portrettbilde og forventninger foran serieåpningen. |
 | 26 | Nr. 3 | Annonser | no_action | reviewed | Lokale annonser. |
-| 27 | Nr. 3 | Vårterminliste Landsdelsserien 1961/62 | season_fact | reviewed | Terminliste for vårens 7 serierunder. |
+| 27 | Nr. 3 | Vårterminliste Landsdelsserien 1961/62 | fixture_list | reviewed | Vårterminliste for 7 serierunder. Dokumenterer planlagte spilledatoer for vårsesongen. |
 | 28 | Nr. 3 | Oppmann Einar Aas har ordet | person_role | reviewed | Sesongforberedelser og laguttak. |
 | 29 | Nr. 3 | NFF 60 års jubileum | historical | reviewed | Norges Fotballforbunds jubileumsomtale. |
 | 30 | Nr. 3 | Profiler: Oskar Pedersen og Kjell Iversen | person_candidate | reviewed | Presentasjon av unge nøkkelspillere. |
 | 31 | Nr. 3 | Kråmyra og Aksla stadion status | organization | reviewed | Om baneforholdene foran serieåpningen. |
-| 32 | Nr. 3 | Yngres avdeling terminlister | non_senior | reviewed | Kampoppsett for junior og gutt. |
+| 32 | Nr. 3 | Yngres avdeling terminlister | fixture_list | reviewed | Kampoppsett for junior og gutt. |
 | 33 | Nr. 3 | Klubbkontingent og medlemsinformasjon | organization | reviewed | Administrative rutiner. |
 | 34 | Nr. 3 | Håndball og friidrett | non_senior | reviewed | Andre idrettsgrener i klubben. |
 | 35 | Nr. 3 | Annonser | no_action | reviewed | Lokale annonser. |
@@ -94,7 +110,7 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060283029_001`
 | 45 | Nr. 4 | Junioravdelingen sommerstatus | non_senior | reviewed | Junior- og guttekamper. |
 | 46 | Nr. 4 | Kråmyra gressteppe rapport | organization | reviewed | Gressteppestatus og slitasje. |
 | 47 | Nr. 4 | Kansellerte internasjonale privatkamper | organization | reviewed | Notis om at kamper mot Dynamo Zagreb og Norrköping utgikk. |
-| 48 | Nr. 4 | Full oversikt vårkamper og terminliste høst | source_result | reviewed | Oversikt over vårens 7 seriekamper, cup og privatkamper; høstterminliste. |
+| 48 | Nr. 4 | Full oversikt vårkamper og terminliste høst | source_result | reviewed | Oversikt over vårens 7 seriekamper, cup og privatkamper; høstterminliste med 6 serierunder. |
 | 49 | Nr. 5 | Omslag: Distriktsmester Møre–Trøndelag | person_candidate | reviewed | Jubelbilde etter distriktsmesterskapet mot Kvik. |
 | 50 | Nr. 5 | Einar Aas: «En fantastisk sesong» | source_result | reviewed | Full oppsummering av høstsesongen, NM-kampene mot Brann og Kvik-oppgjørene. |
 | 51 | Nr. 5 | Annonser | no_action | reviewed | Lokale annonser. |
@@ -134,6 +150,63 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060283029_001`
 
 ---
 
+## Terminlister som kildetype og proveniensprinsipp
+
+Gjennomgangen av 1962-årgangen etablerer et viktig metodisk skille mellom to typer kildeopplysninger i medlemsbladene:
+
+1. **Terminlisten (s. 27 og s. 48):** Dokumenterer at en kamp var **planlagt/satt opp** på en gitt kalenderdato mellom to lag i en bestemt konkurranse og rekkefølge.
+2. **Resultatlisten/våroppsummeringen (s. 48 og s. 59):** Dokumenterer at kampen **faktisk ble spilt** og hva sluttresultatet ble.
+
+Disse representerer to adskilte kildepåstander, selv om de står i samme hefte/årgang. I de kanoniske kampfilene registreres dette gjennom separat feltproveniens:
+
+```yaml
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "27"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Vårterminlisten (s. 27) oppgir Hødd mot AaFK 6. mai 1962."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "48"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Våroppsummeringen (s. 48) dokumenterer Hødd mot AaFK 0–1."
+```
+
+### Avklaring av sidetall: Side 27 vs. Side 28
+
+I den gjennomgående sidetallsnummereringen for 1962-årgangen (1–84, 6 hefter):
+- **Hefte 3:**
+  - Side 25: Omslag (forside)
+  - Side 26: Annonser (innside forside)
+  - **Side 27:** Første innholdsside med overskrift og **Vårterminlisten for Landsdelsserien 1961/62**.
+  - **Side 28:** Oppmann Einar Aas' sesongforberedelser og laguttak.
+
+Avvikende henvisninger til «side 28» for terminlisten skyldes forskyvning i enkelte uoffisielle indekser der forsiden ikke er talt med som s. 25. Arkivet benytter konsekvent den trykte, gjennomgående sidenummereringen der terminlisten står på **side 27**.
+
+### Kildekritisk beslutningsregel for terminlister
+
+- **Høy sikkerhet (kanonisering godkjent):** Dato fra terminliste kan brukes som ordinær kampdato når terminlisten kan kobles entydig til et dokumentert spilt oppgjør (samme motstander, hjemme/borte, konkurranse, rekkefølge og sesonghalvdel) og det ikke finnes indikasjoner på omberamming, utsettelse eller konflikt med eksterne kilder.
+- **Lavere sikkerhet (beholdes som kandidat/terminopplysning):** Dersom bare terminlisten finnes uten uavhengig dokumentasjon på at kampen ble spilt, konstrueres ingen kanonisk kamp.
+- **Konflikt (faktisk spilledato vinner):** Dersom dagsaviser, kampreferat eller NFF-protokoller dokumenterer en annen spilledato, vinner den faktisk dokumenterte spilledatoen, mens terminlistedatoen dokumenteres som kildeopplysning.
+
+---
+
+## Reconciliation som fast sluttsteg ved medlemsbladinnhøsting
+
+1962-piloten viser at innhøsting av historiske medlemsblad ikke er fullført ved ren side-for-side-gjennomgang. Etter at alle sider er kontrollert skal det gjennomføres et eget **reconciliation-steg**:
+
+- Sammenhold terminlister, resultatlister, kampreferater, sesongoppsummeringer, tabeller og eksisterende arkivdata.
+- Krysskobling avdekker kamper uten dato, kamper uten resultat, feil hjemme/borte og mulige dubletter.
+- Terminlister identifiseres maskinelt via kandidatklassen `fixture_list` og kontrolleres visuelt før de kobles mot spilte resultater.
+
+---
+
 ## Kjente uløste kildekonflikter (Known External Conflicts)
 
 1962-piloten belyser og bevarer to viktige eksterne datokonflikter mellom etablerte kilder:
@@ -156,6 +229,7 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060283029_001`
 
 - **Pilotens mål er oppnådd:** 1962-årgangen er komplett innhøstet og dokumentert fra A til Å.
 - **Kildedokumentasjon:** Alle påstander er forankret med presise sidetall (`sourceId: medlemsblad-for-aalesunds-fotb-1962-5664` + `page`).
-- **Prinsipper ivaretatt:** Ingen datoer er konstruert; uavklarte kamper forblir kildepåstander i `source-results/`, mens entydig identifiserte kamper er beriket og opprettet.
+- **Prinsipper ivaretatt:** Ingen datoer er konstruert; uavklarte kamper forblir kildepåstander i `source-results/`, mens entydig identifiserte kamper er beriket og opprettet med streng feltproveniens.
 - **Kildekonflikter bevares:** Eksisterende datokonflikter dokumenteres eksplisitt i stedet for å skjules.
+
 

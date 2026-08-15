@@ -86,7 +86,7 @@ describe("NB-publikasjonsuttrekk", () => {
     ]));
   });
 
-  it("terminliste uten resultat genererer ikke match_result-kandidat", () => {
+  it("terminliste uten resultat genererer ikke match_result-kandidat, men genererer fixture_list-kandidat", () => {
     const archive = {
       people: [],
       matches: [],
@@ -107,6 +107,14 @@ describe("NB-publikasjonsuttrekk", () => {
 
     const matchResults = candidates.filter((c) => c.kind === "match_result");
     expect(matchResults).toHaveLength(0);
+
+    const fixtureLists = candidates.filter((c) => c.kind === "fixture_list");
+    expect(fixtureLists.length).toBeGreaterThan(0);
+    expect(fixtureLists[0]).toMatchObject({
+      kind: "fixture_list",
+      page: "27",
+      keywords: ["terminliste"],
+    });
   });
 
   it("historisk tilbakeblikk på 1947 i et 1962-blad matches ikke mot 1962-kamp", () => {

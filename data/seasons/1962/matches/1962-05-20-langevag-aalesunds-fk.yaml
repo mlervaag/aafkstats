@@ -1,0 +1,40 @@
+id: 1962-05-20-langevag-aalesunds-fk
+date: 1962-05-20
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1962
+  stage: regular_season
+home:
+  clubId: langevag
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "27"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Vårterminlisten (s. 27) oppgir Langevåg mot AaFK 20. mai 1962."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "43"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Kamprapport (s. 43) og våroppsummeringen (s. 48) dokumenterer Langevåg mot AaFK 1–1."
