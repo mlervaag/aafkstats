@@ -60,3 +60,13 @@ If you add a field to the data model, it must be updated in **four** places:
 - Answers submitted through `/mangler` are verification inputs, not contribution records. Assessing
   one, updating the affected YAML layers, merging after human approval, and closing the inbox issue
   follows [`VERIFISERINGSVURDERING.md`](VERIFISERINGSVURDERING.md).
+
+## 8. Historical Source Harvesting
+When a task involves full harvesting, review or normalization of a historical publication (e.g., club magazines, anniversary books, annual reports, yearbooks):
+1. **Read the main runbook:** [`docs/HISTORISK_KILDEINNHOSTING_RUNBOOK.md`](../docs/HISTORISK_KILDEINNHOSTING_RUNBOOK.md).
+2. **Read the source profile:** Read the source-specific profile if available (e.g., [`docs/MEDLEMSBLAD_INNHOSTING.md`](../docs/MEDLEMSBLAD_INNHOSTING.md)).
+3. **Acceptance criteria are merge requirements:** The acceptance criteria, kildeprinsipper, and validation standards in the runbook are mandatory merge requirements. Do not replace them with ad-hoc heuristics.
+4. **Never declare a batch complete prematurely:** A batch is only complete when 100% of pages are visually reviewed against facsimiles, the completion matrix is filled out, and a preservation audit is performed.
+5. **Strict additivity guarantee:** Existing person roles, sources, conflicts, aliases, and coach spells MUST NOT be deleted or overwritten without explicit documented justification.
+6. **Conflict handling:** If a prompt and the runbook collide on data integrity or provenance rules, the agent MUST STOP and explicitly report the conflict rather than deleting or silently fabricating data.
+
