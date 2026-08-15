@@ -6,6 +6,26 @@ Dette er den første fulle produksjonsbatchen etter at metodikken og kontrollreg
 
 ---
 
+## Aggregert Completion-matrise (1957–1960)
+
+| Kategori | 1957 | 1958 | 1959 | 1960 | Totalt |
+|---|---:|---:|---:|---:|---:|
+| Sider visuelt kontrollert | 92/92 | 84/84 | 84/84 | 84/84 | **344/344** |
+| A-lagsresultater vurdert | 29 | 29 | 29 | 33 | **120** |
+| Kildedokumenterte oppgjør (YAML) | 28 | 9 | 29 | 19 | **85** |
+| Fixture-kilder vurdert | 2 | 1 | 2 | 1 | **6** |
+| Nye kanoniske kamper | 1 | 0 | 1 | 0 | **2** |
+| Person candidates vurdert | 18 | 14 | 16 | 18 | **66** |
+| Personer opprettet / beriket | 10 | 8 | 10 | 11 | **39** |
+| Roller opprettet / beriket | 9 | 8 | 9 | 9 | **35** |
+| Honors og hedersbevisninger | 7 | 3 | 5 | 6 | **21** |
+| Historiske observations | 1 | 0 | 0 | 1 | **2** |
+| Organisasjonssnapshots | 1 | 1 | 1 | 1 | **4** |
+| Konflikter løst / avklart | 0 | 0 | 0 | 1 | **1** |
+| Uavklarte / åpne konflikter | 0 | 0 | 0 | 0 | **0** |
+
+---
+
 ## 1. Nøkkeltall for batchen (1957–1960)
 
 | Årgang | Hefte | Sider | A-lagskamper | Mål A-laget | Kildedokumenterte oppgjør | Serieplassering Møre | Opprettede kanoniske kamper |
@@ -21,13 +41,13 @@ Dette er den første fulle produksjonsbatchen etter at metodikken og kontrollreg
 ## 2. Viktige historiske milepæler dokumentert
 
 1. **Utbyggingen av Kråmyra og Klubbhus:**
-   - **1957 (26. oktober):** Klubbhusets 1. byggetrinn innviet i festlig lag (verdi 30 000 kr, 6 000 dugnadstimer).
-   - **1960 (november):** Klubbhusets 2. byggetrinn (storsalen og overetasjen) fullført og innviet til en samlet verdi på over 100 000 kr. For første gang kunne årsmøtet avholdes i eget hus!
+   - **1957 (26. oktober):** Klubbhusets 1. byggetrinn innviet i festlig lag (verdi 30 000 kr, 6 000 dugnadstimer). Strukturert som `data/observations/1957-kramyra-klubbhus-innvielse.yaml`.
+   - **1960 (november):** Klubbhusets 2. byggetrinn (storsalen og overetasjen) fullført og innviet til en samlet verdi på over 100 000 kr. For første gang kunne årsmøtet avholdes i eget hus! Strukturert som `data/observations/1960-kramyra-klubbhus-fullfort.yaml`.
    - Banekomiteens bærebjelker Perry Ystenes, Frantz Løvmo og Helge Lunde hedret for 5 års formidabel innsats. Walentin Rødland ansatt som første vaktmester.
 
 2. **Internasjonale storkamper på Aksla Stadion:**
-   - **28. juli 1957:** AaFK – ESV Westbahn Linz (Østerrike) 0–1 (2 500 tilskuere).
-   - **16. juli 1959:** AaFK – 1. FC Tatran Prešov (Tsjekkoslovakia) 1–4 (2 000 tilskuere).
+   - **28. juli 1957:** AaFK – ESV Westbahn Linz (Østerrike) 0–1 (2 500 tilskuere). Feltproveniens fordelt på side 38 (kampreferat/pause/lineup) og side 44 (sesongfasit).
+   - **16. juli 1959:** AaFK – 1. FC Tatran Prešov (Tsjekkoslovakia) 1–4 (2 000 tilskuere). Feltproveniens fordelt på side 26 (kampreferat/pause/lineup) og side 60 (sesongfasit).
 
 3. **Æresmedlemskap og høye utmerkelser:**
    - **1957:** Emil Sandø og Peder Puck utnevnt til klubbens første æresmedlemmer siden stifteren Georg Haller i 1915.
@@ -55,7 +75,7 @@ Dette er den første fulle produksjonsbatchen etter at metodikken og kontrollreg
 
 ## 3. Leverte filer og artefakter
 
-- **Maskinelle ekstraksjoner (reparert og fullført):**
+- **Maskinelle ekstraksjoner:**
   - `data/extractions/medlemsblad-for-aalesunds-fotb-1957-7672.yaml`
   - `data/extractions/medlemsblad-for-aalesunds-fotb-1958-5725.yaml`
   - `data/extractions/medlemsblad-for-aalesunds-fotb-1959-515a.yaml`
@@ -70,10 +90,14 @@ Dette er den første fulle produksjonsbatchen etter at metodikken og kontrollreg
   - `data/organization/snapshots/1958-aafk.yaml`
   - `data/organization/snapshots/1959-aafk.yaml`
   - `data/organization/snapshots/1960-aafk.yaml`
+- **Historiske observasjoner (`data/observations/`):**
+  - `data/observations/1957-kramyra-klubbhus-innvielse.yaml`
+  - `data/observations/1960-kramyra-klubbhus-fullfort.yaml`
 - **Klubber og personer (`data/clubs/`, `data/people/`):**
   - `data/clubs/westbahn-linz.yaml`
   - `data/clubs/tatran-presov.yaml`
-  - Nye og oppdaterte personfiler for styremedlemmer, trenere og oppmenn.
+  - `data/clubs/aksla.yaml`, `guard.yaml`, `framtid.yaml`
+  - Nye og berikede personfiler for styremedlemmer, trenere, oppmenn og hederspersoner.
 - **Kanoniske kamper (`data/seasons/*/matches/`):**
   - `data/seasons/1957/matches/1957-07-28-aalesunds-fk-westbahn-linz.yaml`
   - `data/seasons/1959/matches/1959-07-16-aalesunds-fk-tatran-presov.yaml`

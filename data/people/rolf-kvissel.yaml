@@ -1,7 +1,7 @@
 id: rolf-kvissel
 name: Rolf Kvissel
 roles:
-  - id: sekretaer-hovedstyret-1958
+  - id: sekretaer-1958
     category: administration
     title: Sekretær
     body: Hovedstyret
@@ -9,8 +9,13 @@ roles:
     to: "1958"
     sources:
       - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+        page: "65"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
         page: "7"
-    note: Sekretær i hovedstyret.
-sources:
-  - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
-    page: "7"
+        fields:
+          - title
+          - from
+    note: Valgt til sekretær på årsmøtet november 1957 for arbeidsåret 1958.

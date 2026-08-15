@@ -1,18 +1,32 @@
 id: gerd-stromsholm
 name: Gerd Strømsholm
 roles:
-  - id: formann-dameavdelingen-1956
+  - id: formann-dameavdelingen-1956-1958
     category: board
     title: Formann
     body: Dameavdelingen
     from: "1956"
-    to: null
+    to: "1958"
     sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+        page: "79"
+        fields:
+          - title
+      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+        page: "90"
+        fields:
+          - title
+      - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+        page: "83"
+        fields:
+          - title
+      - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+        page: "10"
+        fields:
+          - title
+          - to
       - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
         page: "9"
       - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
         page: "17"
-    note: Formann i Dameavdelingen.
-sources:
-  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
-    page: "9"
+    note: Formann i Dameavdelingen 1956–1958.

@@ -1,18 +1,36 @@
 id: harald-saether
 name: Harald Sæther
 roles:
-  - id: kasserer-hovedstyret-1952-1959
+  - id: kasserer-1953-1960
     category: administration
     title: Kasserer
     body: Hovedstyret
-    from: "1952"
-    to: "1959"
+    from: "1953"
+    to: "1960"
     sources:
       - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
         page: "7"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+        page: "7"
+        fields:
+          - title
+          - from
       - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
         page: "83"
-    note: Kasserer i AaFKs hovedstyre gjennom en årrekke (1952–1959).
-sources:
-  - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
-    page: "83"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+        page: "7"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+        page: "7"
+        fields:
+          - title
+          - to
+    note: Takket av ved utgangen av 1960 etter 8 års sammenhengende innsats som kasserer i Hovedstyret (1953–1960).

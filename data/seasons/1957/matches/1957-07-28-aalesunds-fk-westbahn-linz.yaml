@@ -13,7 +13,7 @@ home:
 away:
   clubId: westbahn-linz
   score: 1
-  halfTimeScore: 1
+  halfTimeScore: 0
 neutralVenue: false
 venueId: aksla-stadion
 attendance: 2500
@@ -35,17 +35,26 @@ externalReports: []
 providers: []
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
-    page: "44"
+    page: "38"
     fields:
       - date
+      - venueId
+      - attendance
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - lineups.home.starters
+    note: "Kampreferat fra internasjonal privatkamp på Aksla stadion: ÅFK–ESV Westbahn Linz (Østerrike) 0–1 (0–0), 2 500 tilskuere."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: "44"
+    fields:
       - status
       - competition
       - home.clubId
       - away.clubId
       - home.score
       - away.score
-      - venueId
-      - attendance
-    note: "Internasjonal privatkamp: ÅFK–ESV Westbahn Linz (Østerrike) 0–1 foran 2 500 tilskuere på Aksla stadion."
+    note: "Sesongstatistikk og kampoversikt for 1957."
 confidence: confirmed
 conflicts: []

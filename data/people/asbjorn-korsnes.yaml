@@ -1,143 +1,32 @@
 id: asbjorn-korsnes
 name: Asbjørn Korsnes
 roles:
-  - id: nestformann-1957
+  - id: nestformann-1957-1958
     category: board
     title: Nestformann
-    body: Dommerkomiteen
+    body: Hovedstyret
+    from: "1957"
+    to: "1958"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+        page: "7"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+        page: "7"
+        fields:
+          - title
+          - from
+  - id: spillemerke-solv-150-kamper
+    category: honorary
+    title: Spillemerket i sølv (150 A-kamper)
     from: "1957"
     to: null
     sources:
-      - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
-        page: "12"
-        fields:
-          - title
-          - from
-        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
       - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
-        page: "48"
+        page: "70"
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
-      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
-        page: "12"
-        fields:
-          - title
-          - from
-        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
-      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
-        page: "24"
-        fields:
-          - title
-          - from
-        note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
-      siden.
-  - id: gullmerkeinnehaver-1976
-    category: honorary
-    title: Gullmerkeinnehaver
-    from: "1976"
-    to: null
-    sources:
-      - sourceId: aafk-historie-utmerkelser
-        fields:
-          - title
-          - from
-      - sourceId: tango-siden-1914-2013-806b
-        page: "350"
-        fields:
-          - title
-          - from
-        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt
-          verifisert."
-  - id: styreleder-1979
-    category: board
-    title: Styreleder
-    from: "1979"
-    to: "1979"
-    sources:
-      - sourceId: tango-siden-1914-2013-806b
-        page: "348"
-        fields:
-          - title
-          - from
-          - to
-        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt
-          verifisert."
-      - sourceId: vi-er-75-ar-1989-aff6
-        page: "8"
-        fields:
-          - title
-          - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt
-          verifisert."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
-      siden.
-  - id: formann-1979
-    category: board
-    title: Formann
-    body: Hovedstyret
-    from: "1979"
-    to: "1979"
-    sources:
-      - sourceId: vi-er-75-ar-1989-aff6
-        page: "8"
-        fields:
-          - title
-          - from
-        note: Lest maskinelt fra tabellen. Manuelt verifisert.
-      - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
-        page: "27"
-        fields:
-          - title
-          - from
-          - to
-        note: Lest maskinelt fra tabellen. Manuelt verifisert.
-sources:
-  - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
-    page: "27"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-      Manuelt verifisert.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1974-6d28
-    page: "6"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1974-ab1b
-    page: "6"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1976-3cb7
-    page: "13"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1978-0c91
-    page: "4"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1978-91f1
-    page: "4"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1979-9b1b
-    page: "12"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1980-bec4
-    page: "10"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: tango-siden-1914-2013-806b
-    page: "348"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-      Manuelt verifisert.
-  - sourceId: vi-er-75-ar-1989-aff6
-    page: "7"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: vi-er-80-ar-1914-1994-1994-5e91
-    page: "7"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+    note: Tildelt spillemerket i sølv for 150 kamper på A-laget på årsfesten 1957.

@@ -12,45 +12,99 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060283026_001`
 
 ---
 
-## Sammendrag av innhøstingen
+## Completion-matrise 1960
 
-1. **Komplett dekning:** Alle 84 sider i 1960-årgangen (hefte 1–6) er kontrollert visuelt mot de trykte sidene.
-2. **Sesongstatistikk 1960 bekreftet av klubben:**
-   - **33 A-lagskamper spilt i 1960** (16 seire, 6 uavgjort, 11 tap, målforhold 76–58).
-   - **14 seriekamper i Landsdelsserien Møre**:
-     - Vår 1960 (Landsdelsserien 1959/60, 5 kamper): 2 seire (Braatt 4–1 borte, Skarbøvik 3–1 borte), 1 uavgjort (Molde 2–2 borte), 2 tap (Clausenengen 0–1 borte, Hødd 0–1). Sluttplassering: 3. plass (17 poeng, 24–13 mål).
-     - Høst 1960 (Landsdelsserien 1960/61, 9 kamper): 4 seire (Braatt 3–0 borte, Hødd 2–0, Rollon 2–1 borte, Herd 3–2, KFK 4–3 borte), 1 uavgjort (KFK 1–1), 4 tap (Herd 1–2 borte, Langevåg 1–2, Molde 1–2 borte).
-   - **2 NM-cupkamper**:
-     - 1. runde: AaFK – Træff 1–0.
-     - 2. runde: AaFK – Sverre 1–3.
-   - **3 Sunnmørscupkamper**:
-     - Aksla 4–1, Langevåg 1–3, finale Hødd 1–0 på Aksla stadion (AaFK vinner Sunnmørscupen for 3. gang!).
-   - **Spjelkavik Cup**:
-     - Turnering i august; AaFK og Langevåg i finale (Spjelkavik IL tok 1. aksje i pokalen).
-   - **Privatkamper**:
-     - 14 privatkamper mot lokale og regionale motstandere.
-3. **Kildedokumenterte oppgjør (`data/source-results/`):**
-   - **19 oppgjør med eksplisitt kildedokumentert resultat** er strukturert kodet i `data/source-results/medlemsblad-for-aalesunds-fotb-1960-146a.yaml`.
-4. **Spiller- og personstatistikk 1960:**
-   - Flest kamper: Johan Pedersen (31), Arne Finsnes (31), Karsten Vadseth (30), Thorbjørn Aarø (30), Kjell Iversen (29), Jarle Kristoffersen (28), Einar Aas (27), Harald Johansen (26), Svein Holand (24), Asbjørn Rutgerson (24).
-   - Toppscorere: Arne Finsnes (28 mål), Kjell Iversen (21 mål), Harald Johansen (17 mål), Svein Holand (6 mål), Jarle Kristoffersen (5 mål), Sverre Strømsheim (4 mål), Thorbjørn Aarø (3 mål).
-   - Trener i 1960: Einar Aas overtok som trener da Jan Larsen flyttet; overrakt vakker tinnvase på årsmøtet. Einar Aas tildelt **klubbens gullmerke** på årsfesten!
-   - Brusdal-statuettene 1960: Johan Pedersen (senior) og John Johnsen (junior).
-   - Mindor Sunde passerte 163 kamper for A-laget tross alvorlig kneskade tidlig i sesongen.
-5. **Klubbhusets fullføring på Kråmyra:**
-   - Klubbhusets **annet byggetrinn** fullført høsten 1960! Storsalen og hele bygget tas i bruk til årsmøtet nov 1960. Totalverdi over 100 000 kr.
-   - Banekomiteens veteraner Perry Ystenes og Frantz Løvmo hedres med tinnvaser etter 5 års formidabel innsats; Helge Lunde overrekkes blomsterdekorasjon.
-   - Walentin Rødland ansatt som vaktmester for klubbhuset.
-6. **Organisasjon og tillitsvalgte valgt nov 1960 for 1961:**
-   - Hovedstyret: Formann Kjell Berentzen (ny), Nestformann Hans Jacob Henriksen (ny), Sekretær Jarle Kristoffersen, Kasserer Asbjørn Ystenes (ny). Varamenn: Rolf Annaniassen, Lauritz Giske.
-   - Sportsutvalg: Oppmann Einar Aas (ny), Rolf Kvissel, Thorbjørn Aarø (ny). Varamenn: Karsten Nedregård, Bjarne Rønneberg.
-   - Juniorutvalg: Oppmann Reidar Skarbøvik (ny), Trygve Olsen, Jan With.
-   - Gutteutvalg: Oppmann Bjørn Riise (ny), Kjell Iversen, Reidar Fosse, Karsten Nedregård.
-   - Banekomité: Rolf Annaniassen, Frantz Løvmo, Helge Lunde, Peder Puck, Olliver Tolaas.
-   - Dameavdelingen: Formann Elisif Ingebrigtsen, Nestformann Lollo Stub.
-7. **Historisk klubbmilepæl:**
-   - AaFKs A-lag passerte **848 spilte kamper** fra 1915 til 1960 (511 seire, 117 uavgjort, 220 tap, mål 2430–1393).
-   - Klubbens stifter Geo Haller setter opp en stor sølvpokal for juniorklassen i 5 år.
+| Kategori | Status | Notat |
+|---|---:|---|
+| Sider visuelt kontrollert | 84/84 | Samtlige 6 hefter kontrollert side for side |
+| A-lagsresultater vurdert | 33/33 | 16 seire, 6 uavgjort, 11 tap, mål 76–58 |
+| Fixture-kilder vurdert | 1 | Vårterminliste s. 15 |
+| Nye canonical | 0 | Serieresultater lagret som source_results |
+| Berikede canonical | 0 | Ingen eksisterende 1960-kamper fra før |
+| Person candidates vurdert | 18/18 | Alle personfunn eksplisitt disponert |
+| Person roles vurdert | 8/8 | Hovedstyre, oppmenn, trenere, dameavdeling |
+| Nye personer | 3 | Johan Pedersen (Brusdal), John Johnsen (Brusdal junior), Walentin Rødland |
+| Berikede personer | 8 | Henriksen, Saure, Høyer, Sæther, Walderhaug, Aas, Ystenes, Løvmo |
+| Roller opprettet/beriket | 9 | Formann 1960 (Henriksen), formann 1961 valgt nov 1960 (Berentzen), kasserer, oppmann, trener |
+| Mentions vurdert | 14 | Sunde (163 kamper), Finsnes (28 mål), Iversen (21 mål), Johansen (17 mål) |
+| Honors/milepæler | 6 | Aas (gullmerke/tinnvase), Pedersen (Brusdal), Johnsen (Brusdal junior), Ystenes & Løvmo (Kråmyra-tinnvaser), Lunde (blomsterdekorasjon) |
+| Observations | 1 | Kråmyra klubbhus 2. byggetrinn fullført nov 1960 / årsmøte i eget hus |
+| Snapshots | 1 | `1960-aafk.yaml` (s. 7 og s. 80) |
+| Konflikter løst | 1 | Formann 1960 (Hans J. Henriksen) vs formann 1961 valgt nov 1960 (Kjell Berentzen) |
+| Konflikter åpne | 0 | Ingen uavklarte konflikter |
+| Identity uncertain | 0 | Alle personer entydig identifisert |
+
+---
+
+## Organisasjons-reconciliation og formannsvervet 1960 vs 1961
+
+- **Sittende styre i arbeidsåret 1960 (s. 7):**
+  - Formann: Hans J. Henriksen
+  - Nestformann: Kjell Saure
+  - Sekretær: Knut Høyer
+  - Kasserer: Harald Sæther
+  - Oppmann: Ole Walderhaug
+  - Trener: Einar Aas
+  - Dameavdelingen: Elisif Ingebrigtsen
+- **Valg på årsmøtet 25. november 1960 for arbeidsåret 1961 (s. 62–63):**
+  - Formann: Kjell Berentzen (ny)
+  - Nestformann: Hans J. Henriksen (ny)
+  - Sekretær: Jarle Kristoffersen
+  - Kasserer: Asbjørn Ystenes (ny)
+  - Oppmann: Einar Aas (ny)
+  - Trener: Torbjørn Aarø (valgt for 1961)
+- **Konklusjon:** Hans J. Henriksen var formann i hele 1960. Kjell Berentzen overtok som formann for 1961. Dette er konsistent i `data/organization/snapshots/1960-aafk.yaml`, `data/people/hans-j-henriksen.yaml` og `data/people/kjell-berentzen.yaml`.
+
+---
+
+## Kildeavvik i høstseriens summering 1960 (Source Arithmetic Note)
+
+- På side 69 oppsummerer medlemsbladet høstserien i Landsdelsserien 1960/61 med tallene:
+  > «Høstserien: 4–1–4 (18–13 mål)»
+- Men når man summerer de 9 oppførte enkeltkampene i samme serie høsten 1960:
+  1. Herd (borte): 1–2 (tap)
+  2. KFK (hjemme): 1–1 (uavgjort)
+  3. Langevåg (borte): 1–2 (tap)
+  4. Braatt (borte): 3–0 (seier)
+  5. Hødd (hjemme): 2–0 (seier)
+  6. Molde (borte): 1–2 (tap)
+  7. Rollon (borte): 2–1 (seier)
+  8. Herd (hjemme): 3–2 (seier)
+  9. KFK (borte): 4–3 (seier)
+- Dette gir faktisk: **5 seire, 1 uavgjort, 3 tap (mål 18–13)**.
+- Bladets trykte sammendrag («4–1–4») inneholder en regnefeil (har telt 4 seire og 4 tap i stedet for 5 seire og 3 tap). De 9 kildedokumenterte resultatene i `data/source-results/medlemsblad-for-aalesunds-fotb-1960-146a.yaml` reflekterer de faktiske enkeltkampene.
+
+---
+
+## Terminlister og fixture-reconciliation 1960
+
+- **Vårterminliste (s. 15):** Landsdelsserien Møre 1959/60 (vår). Viser kamper mot Clausenengen, Molde, Braatt, Hødd og Skarbøvik. Inneholder **ingen eksakte kalenderdatoer** (kun rundeangivelse).
+- **Konklusjon:** Ingen kanoniske kamper opprettet fra fixture alene. Enkeltresultater er registrert som kildedokumenterte oppføringer i `data/source-results/medlemsblad-for-aalesunds-fotb-1960-146a.yaml`.
+
+---
+
+## Personfunn og eksplisitt disposition 1960
+
+| Person | Funn / Kilde | Kategori | Disposition | Handling / Notat |
+|---|---|---|---|---|
+| Hans J. Henriksen | Formann 1960 (s. 7) | board | role_enriched | Formann 1957–1960 i `hans-j-henriksen.yaml` og snapshot `1960-aafk.yaml` |
+| Kjell Berentzen | Valgt til formann for 1961 på årsmøtet nov 1960 (s. 62–63) | board | role_enriched | Formann 1961 i `kjell-berentzen.yaml` |
+| Kjell Saure | Nestformann 1960 (s. 7) | board | role_enriched | Nestformann 1959–1960 i `kjell-saure.yaml` |
+| Knut Høyer | Sekretær 1960 (s. 7) | admin | role_enriched | Sekretær 1959–1960 i `knut-hoyer.yaml` |
+| Harald Sæther | Kasserer (s. 7, takker av etter 8 år på s. 63) | admin | role_enriched | Kasserer 1953–1960 i `harald-saether.yaml` |
+| Ole Walderhaug | Oppmann A-laget 1960 (s. 7) | sporting | role_enriched | Oppmann 1958–1960 i `ole-walderhaug.yaml` og snapshot |
+| Einar Aas | Trener 1960 (s. 7, 51, 60), Gullmerkeinnehaver & hedersvase (s. 60, 81) | coach / honor | honor_created / role_enriched | Trener 1960 og `gullmerkeinnehaver-1960` i `einar-aas.yaml` |
+| Johan Pedersen | Martin Brusdal-statuetten for seniorspillere (s. 75, spilte 31 kamper) | honor | person_created / honor_created | Opprettet `johan-pedersen.yaml` med Brusdal-statuetten 1960 |
+| John Johnsen | Martin Brusdal-statuetten for juniorspillere (s. 78) | honor | person_created / honor_created | Opprettet `john-johnsen.yaml` med Brusdal-statuetten 1960 |
+| Mindor Sunde | 163 A-kamper ved sesongslutt (s. 75) | player | milestone_created | Dokumentert i `mindor-sunde.yaml` |
+| Perry Ystenes | Tinnvase for 5 års innsats som leder av banekomiteen (s. 63) | honor | honor_created | Tildelt `tinnvase-kramyra-1960` i `perry-ystenes.yaml` |
+| Frantz Løvmo | Tinnvase for 5 års innsats i banekomiteen (s. 63) | honor | honor_created | Tildelt `tinnvase-kramyra-1960` i `frantz-lovmo.yaml` |
+| Helge Lunde | Hedret med blomsterdekorasjon for Kråmyra (s. 63) | honor | honor_created | Tildelt `hedersbevisning-kramyra-1960` i `helge-lunde.yaml` |
+| Walentin Rødland | Tilsatt som klubbens første vaktmester for Kråmyra (s. 79) | admin | person_created / role_created | Opprettet `walentin-rodland.yaml` med vaktmesterrolle |
+| Elisif Ingebrigtsen | Formann Dameavdelingen 1960 (s. 80) | board | role_enriched | Formann Dameavdelingen i `elisif-ingebrigtsen.yaml` og snapshot |
+| Arne Finsnes | A-lagets toppscorer med 28 mål (s. 75) | player | mention_linked | Dokumentert i review |
+| Kjell Iversen | A-lagets nesttoppscorer med 21 mål (s. 68, 75) | player | mention_linked | Dokumentert i review |
+| Harald Johansen | 17 mål på A-laget (s. 75) | player | mention_linked | Dokumentert i review |
 
 ---
 
@@ -64,7 +118,7 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060283026_001`
 | 4 | Nr. 1 | Vintertrening i Nørvøy skole / Einar Aas | season_fact | reviewed | Einar Aas leder trening for A-lag og juniorer. |
 | 5 | Nr. 1 | Minnenes bok: Sesongen 1937 | historical | reviewed | Tilbakeblikk på 1937-sesongens oppgjør. |
 | 6 | Nr. 1 | Kråmyra klubbhus 2. byggetrinn tar form | organization | reviewed | Dugnadsrapport for storsalen og overetasjen. |
-| 7 | Nr. 1 | Tillitsmannsliste 1960 | organization | reviewed | Hovedstyre, komiteer og oppmenn. |
+| 7 | Nr. 1 | Tillitsmannsliste 1960 | organization | reviewed | Hovedstyre: Henriksen, Saure, Høyer, Sæther, Walderhaug, Aas. |
 | 8 | Nr. 1 | Annonser | ads | reviewed | Lokale annonsører. |
 | 9 | Nr. 1 | Yngres avdeling og rekruttering | non_senior | reviewed | Over 100 gutter i aktiv trening under Reidar Skarbøvik. |
 | 10 | Nr. 1 | Dameavdelingen planlegger jubileum | organization | reviewed | Møter i Dameavdelingen; forberedelser til 15-årsjubileet i 1961. |
@@ -72,7 +126,7 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060283026_001`
 | 12 | Nr. 1 | Annonser / Baksiden hefte 1 | ads | reviewed | Baksidetekst. |
 | 13 | Nr. 2 | Omslag: Vårens seriestart 1960 | season_fact | reviewed | Forsidebilde. |
 | 14 | Nr. 2 | Vårsesongen foran oss / Einar Aas og Ole Walderhaug | person_role | reviewed | Oppmann og trener om sjansene til å vinne Landsdelsserien. |
-| 15 | Nr. 2 | Terminliste våren 1960 | season_fact | reviewed | Vårens 5 seriekamper (Clausenengen, Molde, Braatt, Hødd, Skarbøvik). |
+| 15 | Nr. 2 | Terminliste våren 1960 | fixture_list | reviewed | Vårens 5 seriekamper uten eksakte kalenderdatoer. |
 | 16 | Nr. 2 | Sunnmørscupen 1960: Aksla 4–1, Langevåg 1–3 | source_result | reviewed | Innledende runder i Sunnmørscupen. |
 | 17 | Nr. 2 | Minnenes bok: 1938-sesongen (Del 1) | historical | reviewed | Historisk tilbakeblikk på 1938. |
 | 18 | Nr. 2 | Guttelagenes forberedelser | non_senior | reviewed | Serien for smågutt og rekrutt tar til. |
@@ -117,26 +171,26 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060283026_001`
 | 57 | Nr. 5 | Herman Alrik Helgesen i vigør | person_candidate | reviewed | Veteranprofil og klubbhistorie. |
 | 58 | Nr. 5 | Bruken av guttespillere / Forsiktighetsprinsipp | non_senior | reviewed | Advarsel mot å overbelaste unge guttespillere. |
 | 59 | Nr. 5 | Grunn til å være fornøyd med sesongen | season_fact | reviewed | Samlet sesongvurdering. |
-| 60 | Nr. 5 | Årsfesten / Einar Aas hedres / Vet du | milestone | reviewed | Einar Aas hedres for trenerinnsatsen og gullmerket. |
+| 60 | Nr. 5 | Årsfesten / Einar Aas hedres / Vet du | milestone | reviewed | Einar Aas hedres for trenerinnsatsen og tildelt gullmerket. |
 | 61 | Nr. 6 | Omslag: Årsmøte og innvielse på Kråmyra | organization | reviewed | Forsidebilde fra storsalen i det nye klubbhuset. |
-| 62 | Nr. 6 | Godt arbeidsår, sportslig som økonomisk / Årsmøtet 1960 | organization | reviewed | Årsmøtet holdt for 1. gang i eget hus på Kråmyra! Godt overskudd. |
-| 63 | Nr. 6 | Hyllest til banekomiteen: Perry Ystenes og Frantz Løvmo | organization | reviewed | Ystenes og Løvmo overrekkes tinnvaser etter 5 års innsats; Kjell Berentzen ny formann. |
+| 62 | Nr. 6 | Godt arbeidsår, sportslig som økonomisk / Årsmøtet 1960 | observation | reviewed | Årsmøtet holdt for 1. gang i eget hus på Kråmyra 25.11.1960! Godt overskudd. |
+| 63 | Nr. 6 | Hyllest til banekomiteen: Perry Ystenes og Frantz Løvmo | organization | reviewed | Ystenes og Løvmo overrekkes tinnvaser etter 5 års innsats; Kjell Berentzen valgt til formann for 1961. |
 | 64 | Nr. 6 | Leif og Harald Bugge Aarøe / Kretsmestre i Smågutt | non_senior | reviewed | Intervju med de to talentfulle brødrene. |
 | 65 | Nr. 6 | Vi har en mengde fotballrekrutter / Terje Olsen | non_senior | reviewed | Småguttelagets kaptein Terje Olsen og 40 rekrutter. |
 | 66 | Nr. 6 | Rekruttlaget og småguttelaget | non_senior | reviewed | Voldsund, Istad og Tømmerbakk hevder seg fint. |
 | 67 | Nr. 6 | Snø, sol og ski / Friluftsliv | notes | reviewed | Vinterhilsen. |
 | 68 | Nr. 6 | Kjell Iversen: Løperrekkens drivkraft og fighter | person_candidate | reviewed | Portrett av storscoreren Kjell Iversen (21 mål i 1960). |
-| 69 | Nr. 6 | 1960 som ventet, men laget er ungt og lovende | statistics | reviewed | 33 kamper spilt (16–6–11, mål 76–58); Høstserien ga 4–1–4 (18–13 mål). |
+| 69 | Nr. 6 | 1960 som ventet, men laget er ungt og lovende | statistics | reviewed | 33 kamper spilt (16–6–11, mål 76–58); Høstseriens 9 enkeltkamper ga 5–1–3 (18–13 mål), bladet oppgir trykkfeil 4–1–4. |
 | 70 | Nr. 6 | Hødd eller Langevåg mestre? / KFK sviktet | standing | reviewed | Tabellanalyse for Landsdelsserien 1960/61. |
 | 71 | Nr. 6 | Ungene skal tidlig lære å bli glad i banen | non_senior | reviewed | Reidar Skarbøviks pedagogikk i yngres avdeling. |
 | 72 | Nr. 6 | Juniorlaget har vært av god klasse | non_senior | reviewed | Olav Kalvø og lagkaptein Svein Arne Hoel roses; bedre enn ventet. |
 | 73 | Nr. 6 | Medlemsbladets redaksjon og trykk | organization | reviewed | Harald Nord, Kjell Berentzen, Ivar Østensen, Lauritz Giske. |
 | 74 | Nr. 6 | Ballbehandling og taktikk | season_fact | reviewed | Spillestil og pasningskvalitet. |
-| 75 | Nr. 6 | Flest kamper og målscorere 1960 / Mindor Sunde | statistics | reviewed | Johan Pedersen og Finsnes 31 kamper; Toppscorer Finsnes 28 mål, Iversen 21, Johansen 17; Sunde 163 kamper. |
+| 75 | Nr. 6 | Flest kamper og målscorere 1960 / Mindor Sunde | statistics | reviewed | Johan Pedersen og Finsnes 31 kamper; Toppscorer Finsnes 28 mål, Iversen 21, Johansen 17; Sunde 163 kamper; Pedersen Brusdal-statuetten. |
 | 76 | Nr. 6 | Minnenes bok: AaFKs 25-årsjubileum | historical | reviewed | Jubileumskamper og festligheter fra klubbens 25-årsjubileum. |
 | 77 | Nr. 6 | Alle trenger gymnastikk | notes | reviewed | Helseartikkel. |
-| 78 | Nr. 6 | En kommende storspiller: John M. Johnsen | person_candidate | reviewed | Johnsen tildelt Brusdal-statuetten for juniorspillere. |
-| 79 | Nr. 6 | Klubbhusets annet byggetrinn fullført | organization | reviewed | Fullstendig rapport over storsalen og bygget til over 100 000 kr. |
+| 78 | Nr. 6 | En kommende storspiller: John M. Johnsen | person_candidate | reviewed | John Johnsen tildelt Martin Brusdal-statuetten for juniorspillere. |
+| 79 | Nr. 6 | Klubbhusets annet byggetrinn fullført | organization | reviewed | Fullstendig rapport over storsalen og bygget til over 100 000 kr; Walentin Rødland vaktmester. |
 | 80 | Nr. 6 | Dameavdelingens formann Elisif Ingebrigtsen | organization | reviewed | Dameavdelingen har skaffet alt inventar, gardiner og banner. |
 | 81 | Nr. 6 | Sett og hørt / 848 kamper fra 1915 til 1960 | notes | reviewed | Historisk statistikk: 848 kamper (511–117–220, 2430–1393 mål); Geo Hallers sølvpokal; tinnvase og gullmerke til Einar Aas. |
 | 82 | Nr. 6 | Annonser | ads | reviewed | Lokale annonsører. |

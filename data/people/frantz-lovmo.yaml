@@ -1,6 +1,18 @@
 id: frantz-lovmo
 name: Frantz Løvmo
 roles:
+  - id: tinnvase-kramyra-1960
+    category: honorary
+    title: Hedret med tinnvase for Kråmyra-anlegget
+    from: "1960"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+        page: "63"
+        fields:
+          - title
+          - from
+    note: Overrakt tinnvase for 5-års innsats i banekomiteen ved fullføringen av klubbhuset på Kråmyra i 1960.
   - id: gullmerkeinnehaver-1964
     category: honorary
     title: Gullmerkeinnehaver
@@ -16,53 +28,3 @@ roles:
         fields:
           - title
           - from
-        note: Manuelt verifisert.
-sources:
-  - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
-    page: "53"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
-    page: "74"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
-    page: "63"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1963-400c
-    page: "11"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1964-9418
-    page: "10"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
-    page: "4"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1972-9160
-    page: "5"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1973-af84
-    page: "6"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1974-6d28
-    page: "20"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1974-ab1b
-    page: "20"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: vi-er-75-ar-1989-aff6
-    page: "7"
-    fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
-    page: "57"
-  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
-    page: "72"

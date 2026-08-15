@@ -1,16 +1,26 @@
 id: kjell-saure
 name: Kjell Saure
 roles:
-  - id: nestformann-hovedstyret-1959
+  - id: nestformann-1959-1960
     category: board
     title: Nestformann
     body: Hovedstyret
     from: "1959"
-    to: "1959"
+    to: "1960"
     sources:
       - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
         page: "64"
-    note: Nestformann i hovedstyret.
-sources:
-  - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
-    page: "64"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+        page: "7"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+        page: "7"
+        fields:
+          - title
+          - to
+    note: Nestformann i Hovedstyret for arbeidsårene 1959 og 1960.

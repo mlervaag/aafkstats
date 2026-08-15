@@ -1,16 +1,48 @@
 id: helge-lunde
 name: Helge Lunde
 roles:
-  - id: banekomite-materialforvalter-1956-1960
+  - id: banekomite-1957-1960
     category: administration
-    title: Materialforvalter
-    body: Hovedstyret
-    from: "1958"
+    title: Medlem av banekomiteen
+    body: Kråmyra idrettsplass
+    from: "1957"
     to: "1960"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+        page: "83"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+        page: "50"
+        fields:
+          - title
+      - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+        page: "63"
+        fields:
+          - title
+          - to
+    note: Sentral dugnadsinnsats for Kråmyra-anlegget og klubbhuset 1957–1960.
+  - id: materialforvalter-1959
+    category: sporting_staff
+    title: Materialforvalter
+    from: "1959"
+    to: "1959"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+        page: "73"
+        fields:
+          - title
+          - from
+  - id: hedersbevisning-kramyra-1960
+    category: honorary
+    title: Hedret for innsatsen på Kråmyra
+    from: "1960"
+    to: null
     sources:
       - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
         page: "63"
-    note: Mangeårig medlem av banekomiteen og materialforvalter.
-sources:
-  - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
-    page: "63"
+        fields:
+          - title
+          - from
+    note: Tildelt blomsterdekorasjon og hedersomtale ved fullføringen av klubbhuset på Kråmyra i 1960.

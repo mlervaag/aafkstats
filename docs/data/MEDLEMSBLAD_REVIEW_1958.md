@@ -12,49 +12,55 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060383003_001`
 
 ---
 
-## Sammendrag av innhøstingen
+## Completion-matrise 1958
 
-1. **Komplett dekning:** Alle 84 sider i 1958-årgangen (hefte 1–6) er kontrollert visuelt mot de trykte sidene.
-2. **Sesongstatistikk 1958 bekreftet av klubben:**
-   - **29 A-lagskamper spilt i 1958** (17 seire, 4 uavgjort, 8 tap, målforhold 57–43).
-   - **14 seriekamper i Landsdelsserien Møre**:
-     - Vår 1958 (Landsdelsserien 1957/58, 5 kamper): 4 seire, 1 uavgjort, 0 tap, målaverage 10–3 (9 av 10 poeng; seier over Hødd 1–0 på Høddvoll, KFK 2–1).
-     - Høst 1958 (Landsdelsserien 1958/59, 9 kamper): 5 seire, 3 uavgjort, 1 tap, målaverage 13–11 (13 poeng, 3. plass; KFK 0–0 på Nørvebanen).
-   - **2 NM-cupkamper**:
-     - 1. runde: AaFK – Rollon 2–0.
-     - 2. runde: AaFK – Molde 0–2 (på Aksla stadion).
-   - **3 Vårcupkamper**:
-     - AaFK vinner Vårcupen for annet år på rad! Finale: AaFK – Skarbøvik 3–1 (totalt 7–1 i målforhold).
-   - **3 Sommercupkamper (Herds cup)**:
-     - Herd 5–4, Aksla 4–2, finale Langevåg 2–3 (målforhold 11–9).
-   - **7 privatkamper**:
-     - 2 seire, 0 uavgjort, 5 tap (målforhold 14–16).
-3. **Kildedokumenterte oppgjør (`data/source-results/`):**
-   - **9 oppgjør med eksplisitt kildedokumentert resultat** er strukturert kodet i `data/source-results/medlemsblad-for-aalesunds-fotb-1958-5725.yaml`.
-4. **Spiller- og personstatistikk 1958:**
-   - 22 spillere benyttet på A-laget i 1958 (inkl. Jacob Sætre).
-   - Thorbjørn Aarø nådde 193 kamper for AaFKs A-lag (mangler kun 7 på gullmerket / 200 kamper).
-   - Mindor Sunde passerte 130 kamper for A-laget (19 kamper i 1958 tross 2 mnd skadeavbrekk; kåret til banens beste for Bylaget).
-   - Trener og kaptein: Jan Larsen. Oppmann: Ole Walderhaug.
-5. **Juniorlagets kretsmesterskap 1958:**
-   - Kretsmester! 19 kamper spilt (13 seire, 2 uavgjort, 4 tap, mål 74–15).
-   - Kretsserien: 5 kamper, 5 seire, mål 29–3.
-   - NM junior: 1. runde mot Høyang (0–0 e.e.o., tap 2–3 på straffespark).
-   - KFKs jubileumsturnering: finale mot Freidig (0–1).
-   - 12 privatkamper: 9 seire, 1 uavgjort, 2 tap (mål 45–12).
-   - Toppscorere junior: Rolf Sperre (30 mål), Per Inge Furseth (11 mål), Bjørn Bigseth (9 mål).
-   - Oppmann: Trygve Olsen.
-6. **Organisasjon og tillitsvalgte valgt 28. nov 1958 for 1959:**
-   - Hovedstyret: Formann Hans Jacob Henriksen (gjenvalgt), Nestformann Kjell Saure (ny), Sekretær Knut Høyer (ny), Kasserer Harald Sæther (gjenvalgt i sitt 7. år). Varamenn: Lauritz Giske, Jan Larsen.
-   - Sportsutvalg: Oppmann Ole Walderhaug, Helge Ødegård, Svein Grimstad. Varamenn: Reidar Skarbøvik, Kjell Berentzen.
-   - Juniorutvalg: Oppmann Trygve Olsen, Einar Aas, Thorbjørn Aarø.
-   - Gutteutvalg: Oppmann Reidar Skarbøvik, Olav Kalvø, Svein Holand. Rekrutt: Bjørn Riise.
-   - Banekomité: Perry Ystenes, Helge Lunde, Frantz Løvmo, Peder Puck, Helmer Lausund, Jarle Vadseth, Rolf Annaniassen.
-   - Dameavdelingen: Formann Gerd Strømsholm, gir fullt kjøkkenutstyr, stoler og 500 kr til Kråmyra.
-7. **Representasjon:**
-   - Mørelaget mot A-landslaget (29.07.1958 på Aksla stadion): Thorbjørn Aarø spilte venstre back, Einar Aas var keeperreserve.
-   - Bylaget/kretslaget: Einar Aas, Thorbjørn Aarø, Mindor Sunde, Jan Larsen.
-   - Juniorkretslaget: Erling Listhaug, Svein Holand, Jostein Thorseth, Jacob Sætre, Kjell Luthentun, Per Inge Furseth, Rolf Sperre.
+| Kategori | Status | Notat |
+|---|---:|---|
+| Sider visuelt kontrollert | 84/84 | Samtlige 6 hefter kontrollert side for side |
+| A-lagsresultater vurdert | 29/29 | 17 seire, 4 uavgjort, 8 tap, mål 57–43 |
+| Fixture-kilder vurdert | 1 | Vårterminliste s. 17 |
+| Nye canonical | 0 | Ingen eksakte datoer utenom NM/terminførte seriekamper |
+| Berikede canonical | 0 | Serieresultater lagret som source_results |
+| Person candidates vurdert | 14/14 | Alle personfunn eksplisitt disponert |
+| Person roles vurdert | 8/8 | Hovedstyre, oppmenn, trenere, dameavdeling |
+| Nye personer | 2 | Rolf Kvissel (sekretær 1958), Mindor Sunde |
+| Berikede personer | 6 | Henriksen, Korsnes, Sæther, Walderhaug, Larsen, Olsen |
+| Roller opprettet/beriket | 8 | Formann, sekretær, oppmann, trener, junioroppmann |
+| Mentions vurdert | 10 | Aarø (193 kamper), Sunde (130 kamper), Sætre, Furseth, Sperre |
+| Honors/milepæler | 3 | Aarø 193 kamper, Sunde 130 kamper, Sæther takket for 6 år som kasserer |
+| Observations | 0 | Banearbeid på Kråmyra dekket i klubbens årsberetninger |
+| Snapshots | 1 | `1958-aafk.yaml` (s. 7 og 1957 s. 65) |
+| Konflikter løst | 0 | Ingen motstridende kilder |
+| Konflikter åpne | 0 | Ingen uavklarte konflikter |
+| Identity uncertain | 0 | Alle personer entydig identifisert |
+
+---
+
+## Terminlister og fixture-reconciliation 1958
+
+- **Vårterminliste (s. 17):** Landsdelsserien Møre 1957/58 (vår). Viser kamper mot Hødd, Braatt, Clausenengen, Spjelkavik og KFK. Inneholder **ingen eksakte kalenderdatoer** (kun rundeangivelse).
+- **Konklusjon:** Ingen kanoniske kamper opprettet fra fixture alene. Enkeltresultater med kjent dato/runde (f.eks. NM-kamper og seieren over Hødd 1–0 på Høddvoll) er ført i `data/source-results/medlemsblad-for-aalesunds-fotb-1958-5725.yaml`.
+
+---
+
+## Personfunn og eksplisitt disposition 1958
+
+| Person | Funn / Kilde | Kategori | Disposition | Handling / Notat |
+|---|---|---|---|---|
+| Hans J. Henriksen | Formann 1958 (s. 7) | board | role_enriched | Formann i `hans-j-henriksen.yaml` og snapshot `1958-aafk.yaml` |
+| Asbjørn Korsnes | Nestformann 1958 (s. 7) | board | role_enriched | Nestformann i `asbjorn-korsnes.yaml` og snapshot `1958-aafk.yaml` |
+| Rolf Kvissel | Sekretær 1958 (1957 s. 65, 1958 s. 7) | admin | person_created / role_created | Opprettet `rolf-kvissel.yaml` med sekretærrolle 1958 |
+| Harald Sæther | Kasserer (s. 7, takket for 6 år på s. 83) | admin | role_enriched | Kasserer 1953–1960 i `harald-saether.yaml` |
+| Ole Walderhaug | Oppmann A-laget 1958 (s. 7, 54) | sporting | role_enriched | Oppmann i `ole-walderhaug.yaml` og snapshot `1958-aafk.yaml` |
+| Jan Larsen | Trener og kaptein 1958 (s. 16, 69) | coach | role_enriched | Trener i `jan-larsen.yaml` og snapshot `1958-aafk.yaml` |
+| Trygve Olsen | Junioroppmann 1958 (s. 7, 76) | sporting | role_enriched | Junioroppmann i `trygve-olsen.yaml` og snapshot |
+| Reidar Skarbøvik | Gutteoppmann 1958 (s. 7, 72) | sporting | role_enriched | Gutteoppmann i `reidar-skarbovik.yaml` og snapshot |
+| Gerd Strømsholm | Formann Dameavdelingen (s. 83) | board | role_enriched | Formann Dameavdelingen i `gerd-stromsholm.yaml` og snapshot |
+| Thorbjørn Aarø | Nådde 193 A-kamper (s. 80), venstre back på Mørelaget mot landslaget (s. 31) | player | milestone_created | Dokumentert i `torbjorn-aaro.yaml` |
+| Mindor Sunde | Nådde 130 A-kamper (s. 80), banens beste på bylaget (s. 80) | player | person_created / milestone_created | Opprettet `mindor-sunde.yaml` med 130-kampers milepæl |
+| Einar Aas | Målvakt, reserve på Mørelaget mot landslaget (s. 31) | player | mention_linked | Dokumentert i `einar-aas.yaml` |
+| Jacob Sætre | 22. benyttede spiller på A-laget i 1958 (s. 83) | player | mention_linked | Dokumentert i review |
+| Rolf Sperre | Juniorlagets toppscorer med 30 mål (s. 76) | non_senior | mention_linked | Dokumentert i review |
 
 ---
 
@@ -68,7 +74,7 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060383003_001`
 | 4 | Nr. 1 | Innendørstrening og instruksjon | season_fact | reviewed | Treningstider på Nørvøy skole for A-lag, junior og gutter. |
 | 5 | Nr. 1 | Minnenes bok: 1920-årenes store kamper | historical | reviewed | Tilbakeblikk på cupkamper mot Drafn og Rollon. |
 | 6 | Nr. 1 | Dugnad på Kråmyra og baneutvidelse | organization | reviewed | Planering av banen og grøfting mot Aksla. |
-| 7 | Nr. 1 | Tillitsmenn for 1958 | organization | reviewed | Oversikt over styre, komiteer og oppmenn valgt nov 1957. |
+| 7 | Nr. 1 | Tillitsmenn for 1958 | organization | reviewed | Oversikt over styre, komiteer og oppmenn valgt nov 1957. Formann: Henriksen, Nestformann: Korsnes, Sekr: Kvissel, Kass: Sæther, Oppmann: Walderhaug. |
 | 8 | Nr. 1 | Annonser | ads | reviewed | Lokale annonsører. |
 | 9 | Nr. 1 | Guttelagene i vintertrening | non_senior | reviewed | Rekrutteringsarbeid under Reidar Skarbøvik. |
 | 10 | Nr. 1 | Sett og hørt / Medlemsnytt | notes | reviewed | NFF-ting, reiser og arrangementer. |
@@ -78,7 +84,7 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060383003_001`
 | 14 | Nr. 1 | Annonser / Baksiden hefte 1 | ads | reviewed | Baksidetekst. |
 | 15 | Nr. 2 | Omslag: Klar for seriestart våren 1958 | season_fact | reviewed | Forsidebilde. |
 | 16 | Nr. 2 | Vårsesongen foran oss / Trener Jan Larsen | person_role | reviewed | Jan Larsen om taktikk, tempo og offensivt spill. |
-| 17 | Nr. 2 | Terminliste våren 1958 | season_fact | reviewed | Vårens 5 seriekamper i Landsdelsserien Møre. |
+| 17 | Nr. 2 | Terminliste våren 1958 | fixture_list | reviewed | Vårens 5 seriekamper i Landsdelsserien Møre uten eksakte kalenderdatoer. |
 | 18 | Nr. 2 | Vårcupen 1958 / AaFK vinner pokalen | source_result | reviewed | AaFK vinner Vårcupen for annet år på rad med 3–1 over Skarbøvik i finalen. |
 | 19 | Nr. 2 | Minnenes bok: 1930-årenes triumfer | historical | reviewed | Historisk tilbakeblikk. |
 | 20 | Nr. 2 | Guttelagenes kamper og serier | non_senior | reviewed | Oppsett for gutte- og småguttelag. |
@@ -141,7 +147,7 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060383003_001`
 | 77 | Nr. 6 | God juniorfotball et resultat av ferdighetsmerkene | non_senior | reviewed | Knut Høyers arbeid med merkeprøvene gir resultater. |
 | 78 | Nr. 6 | Annonser | ads | reviewed | Lokale annonsører. |
 | 79 | Nr. 6 | Turistforeningen og folkeidretten | notes | reviewed | Artikkel om friluftsliv på Sunnmøre. |
-| 80 | Nr. 6 | Kampen om plassene på A-laget / Mindor Sunde | person_candidate | reviewed | Mindor Sunde runder 130 kamper; serieavslutning mot KFK (0–0). |
+| 80 | Nr. 6 | Kampen om plassene på A-laget / Mindor Sunde | person_candidate | reviewed | Mindor Sunde runder 130 kamper; serieavslutning mot KFK (0–0); Aarø 193 kamper. |
 | 81 | Nr. 6 | Fremtidens fotballstil i smeltedigelen | season_fact | reviewed | Taktisk analyse av 4-backssystemet og sonespill. |
 | 82 | Nr. 6 | Annonser | ads | reviewed | Lokale annonsører. |
 | 83 | Nr. 6 | Sett og hørt / Representasjon og tillitsvalgte | notes | reviewed | Harald Sæther takkes for 6 tunge år som kasserer; Jacob Sætre 22. spiller på A-laget; Dameavdelingen gir 500 kr. |

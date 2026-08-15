@@ -1,16 +1,38 @@
 id: trygve-olsen
 name: Trygve Olsen
 roles:
-  - id: junioroppmann-1958-1960
+  - id: oppmann-junior-1958-1960
     category: sporting_staff
     title: Junioroppmann
-    body: Juniorlaget
+    body: Junioravdelingen
     from: "1958"
     to: "1960"
     sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+        page: "66"
+        fields:
+          - title
+          - from
       - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+        page: "7"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+        page: "64"
+        fields:
+          - title
+      - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+        page: "13"
+        fields:
+          - title
+      - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
         page: "76"
-    note: Oppmann for juniorlaget som vant kretsserien i 1958 og 1959.
-sources:
-  - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
-    page: "76"
+        fields:
+          - title
+      - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+        page: "7"
+        fields:
+          - title
+          - to
+    note: Ledet juniorlaget til kretsmesterskap i 1958 og 1959 samt 3. runde i junior-NM 1959.

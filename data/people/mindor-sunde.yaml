@@ -1,0 +1,30 @@
+id: mindor-sunde
+name: Mindor Sunde
+position: forsvar
+roles:
+  - id: a-lagsspiller-milepael-130
+    category: player
+    title: Spiller (130 A-kamper)
+    body: A-laget
+    from: "1958"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+        page: "80"
+        fields:
+          - title
+          - from
+    note: Runder 130 A-kamper for AaFK i 1958 etter sterk innsats tross skadeavbrekk.
+  - id: a-lagsspiller-milepael-163
+    category: player
+    title: Spiller (163 A-kamper)
+    body: A-laget
+    from: "1960"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+        page: "75"
+        fields:
+          - title
+          - from
+    note: Nådde 163 A-kamper ved sesongslutt 1960.

@@ -35,16 +35,26 @@ externalReports: []
 providers: []
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
-    page: "60"
+    page: "26"
     fields:
       - date
+      - venueId
+      - attendance
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - lineups.home.starters
+    note: "Kampreferat fra internasjonal privatkamp på Aksla stadion: ÅFK–1. FC Tatran Prešov (Tsjekkoslovakia) 1–4 (1–2), ca. 2 000 tilskuere."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: "60"
+    fields:
       - status
       - competition
       - home.clubId
       - away.clubId
       - home.score
       - away.score
-      - venueId
-    note: "Internasjonal privatkamp: ÅFK–Tatran Prešov (Tsjekkoslovakia) 1–4 på Aksla stadion."
+    note: "Sesongstatistikk og samlet kampoversikt for 1959."
 confidence: confirmed
 conflicts: []

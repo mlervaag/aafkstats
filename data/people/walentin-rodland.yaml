@@ -1,0 +1,16 @@
+id: walentin-rodland
+name: Walentin Rødland
+roles:
+  - id: vaktmester-kramyra-1960
+    category: administration
+    title: Vaktmester
+    body: Kråmyra klubbhus
+    from: "1960"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+        page: "79"
+        fields:
+          - title
+          - from
+    note: Tilsatt som klubbens første faste vaktmester for det nye klubbhuset på Kråmyra høsten 1960.

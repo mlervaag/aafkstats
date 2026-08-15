@@ -12,40 +12,58 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060283025_001`
 
 ---
 
-## Sammendrag av innhøstingen
+## Completion-matrise 1959
 
-1. **Komplett dekning:** Alle 84 sider i 1959-årgangen (hefte 1–6) er kontrollert visuelt mot de trykte sidene.
-2. **Sesongstatistikk 1959 bekreftet av klubben:**
-   - **29 A-lagskamper spilt i 1959** (18 seire, 5 uavgjort, 6 tap, målforhold 64–31).
-   - **14 seriekamper i Landsdelsserien Møre**:
-     - Vår 1959 (Landsdelsserien 1958/59, 5 kamper): 2 seire (Dahle 1–0 borte, Volda 5–2), 2 uavgjort (Clausenengen 2–2, Molde 1–1 borte), 1 tap (Langevåg 0–4 borte).
-     - Høst 1959 (Landsdelsserien 1959/60, 9 kamper): 6 seire (KFK 2–1 borte, Langevåg 1–0, Clausenengen 2–0, Braatt 3–0, Hødd 4–1 borte, Langevåg 4–1 borte), 2 uavgjort (Molde 0–0, Skarbøvik 1–1), 1 tap (KFK 1–3). AaFK topper tabellen!
-   - **2 NM-cupkamper**:
-     - 1. runde: AaFK – Skarbøvik 2–1 e.e.o.
-     - 2. runde: Kvik Trondheim – AaFK 2–1 e.e.o. (i Trondheim).
-   - **1 Vårcupkamp**:
-     - AaFK – Langevåg 2–0 (2x20 min).
-   - **3 Sommercupkamper (Herds cup)**:
-     - Spjelkavik 6–1, Skarbøvik 3–1, finale Herd 1–0 (AaFK vinner Sommercupen!).
-   - **9 privatkamper**:
-     - Bl.a. internasjonal privatkamp mot 1. FC Tatran Prešov (Tsjekkoslovakia) 1–4 (16.07.1959 på Aksla stadion), Spjelkavik 2–0, Guard 6–2, Skarbøvik 3–1, Rollon 1–0, Hødd 4–0, Ørsta 3–0, Aksla 0–1, Aksla 2–2.
-3. **Kildedokumenterte oppgjør (`data/source-results/`):**
-   - **29 oppgjør med eksplisitt kildedokumentert resultat** er strukturert kodet i `data/source-results/medlemsblad-for-aalesunds-fotb-1959-515a.yaml` (fullstendig gjengitt på side 60).
-4. **Kanoniske kamper beriket og opprettet:**
-   - `1959-07-16-aalesunds-fk-tatran-presov.yaml` (internasjonal privatkamp på Aksla stadion mot tsjekkoslovakiske Tatran Prešov, 1–4).
-5. **Spiller- og personstatistikk 1959:**
-   - Jan Larsen forlater AaFK etter 145 kamper på A-laget og flytter til Bergen/Nesttun (ansatt i Shell).
-   - Thorbjørn Aarø tildelt klubbens **spillemerke i gull** på årsmøtet for over 200 kamper på A-laget!
-   - Karsten Vadseth ("Kakken") tildelt **spillemerket i sølv** for 150 kamper på A-laget og Brusdal-statuetten for seniorspillere.
-   - Svein Holand tildelt Brusdal-statuetten for juniorspillere (kaptein på juniorlaget, kretsmester for 2. år på rad, fast på kretslaget).
-   - Einar Aas, Mindor Sunde og Reidar Skarbøvik hedret på årsfesten (Skarbøvik tildelt **klubbens gullmerke** for sin uvurderlige innsats).
-   - Nye talenter på A-laget: Jakob Sætre, Per Inge Furseth (fast i høst), Jostein Thorseth, Rolf Sperre.
-6. **Juniorlagets suksess 1959:**
-   - Kretsmester for annet år på rad! Nådde 3. runde i NM junior (2–2 mot Brann, tap på straffesparkkonkurranse).
-   - Målvakt Erling Listhaug banens beste i hver kamp; rykker opp som senior til 1960.
-7. **Organisasjon 1959:**
-   - Hovedstyret: Formann Hans Jacob Henriksen, Nestformann Kjell Saure, Sekretær Knut Høyer, Kasserer Harald Sæther, Oppmann Ole Walderhaug, Trener Jan Larsen.
-   - Dameavdelingen: Fru Elisif Ingebrigtsen overtar som formann etter frk. Gerd Strømsholm på årsmøtet i Maskinistforeningen.
+| Kategori | Status | Notat |
+|---|---:|---|
+| Sider visuelt kontrollert | 84/84 | Samtlige 6 hefter kontrollert side for side |
+| A-lagsresultater vurdert | 29/29 | 18 seire, 5 uavgjort, 6 tap, mål 64–31 (side 60) |
+| Fixture-kilder vurdert | 2 | Vårterminliste s. 17, høstterminliste s. 39 |
+| Nye canonical | 1 | AaFK – 1. FC Tatran Prešov (1–4, 16.07.1959) |
+| Berikede canonical | 0 | Ingen eksisterende 1959-kamper fra før |
+| Person candidates vurdert | 16/16 | Alle personfunn eksplisitt disponert |
+| Person roles vurdert | 8/8 | Hovedstyre, oppmenn, trenere, dameavdeling |
+| Nye personer | 2 | Kjell Saure (nestformann), Knut Høyer (sekretær) |
+| Berikede personer | 8 | Henriksen, Sæther, Walderhaug, Larsen, Olsen, Skarbøvik, Vadseth, Holand |
+| Roller opprettet/beriket | 9 | Formann, nestformann, sekretær, kasserer, oppmann, trener |
+| Mentions vurdert | 12 | Aarø, Vadseth, Skarbøvik, Holand, Listhaug, Sætre, Furseth, Thorseth, Sperre |
+| Honors/milepæler | 5 | Aarø (gullmerke 200+ kamper), Vadseth (sølvmerke 150 kamper & Brusdal), Skarbøvik (klubbens gullmerke), Holand (Brusdal junior) |
+| Observations | 0 | Dugnadsarbeid på Kråmyra ført i årsberetning |
+| Snapshots | 1 | `1959-aafk.yaml` (s. 7, 10 og 1958 s. 64) |
+| Konflikter løst | 0 | Ingen motstridende kilder |
+| Konflikter åpne | 0 | Ingen uavklarte konflikter |
+| Identity uncertain | 0 | Alle personer entydig identifisert |
+
+---
+
+## Terminlister og fixture-reconciliation 1959
+
+- **Vårterminliste (s. 17):** Landsdelsserien Møre 1958/59 (vår). Viser kamper mot Langevåg, Dahle, Clausenengen, Molde og Volda. Inneholder **ingen eksakte kalenderdatoer** (kun rundeangivelse).
+- **Høstterminliste (s. 39):** Landsdelsserien Møre 1959/60 (høst). Viser de 9 høstkampene mot KFK, Langevåg, Clausenengen, Molde, Braatt, Hødd, Skarbøvik, KFK og Langevåg. Inneholder **ingen eksakte kalenderdatoer**.
+- **Konklusjon:** Ingen kanoniske kamper opprettet fra fixture alene. Samtlige 29 A-lagskamper er komplett dokumentert med resultater på side 60 og lagret i `data/source-results/medlemsblad-for-aalesunds-fotb-1959-515a.yaml`. Den internasjonale kampen mot Tatran Prešov (16.07.1959) er opprettet som kanonisk kamp med full oppstilling og pausefakta fra side 26 og sesongresultat fra side 60.
+
+---
+
+## Personfunn og eksplisitt disposition 1959
+
+| Person | Funn / Kilde | Kategori | Disposition | Handling / Notat |
+|---|---|---|---|---|
+| Hans J. Henriksen | Formann 1959 (s. 7) | board | role_enriched | Formann i `hans-j-henriksen.yaml` og snapshot `1959-aafk.yaml` |
+| Kjell Saure | Nestformann 1959 (1958 s. 64, 1959 s. 7) | board | person_created / role_created | Opprettet `kjell-saure.yaml` med nestformannrolle 1959–1960 |
+| Knut Høyer | Sekretær 1959 (1958 s. 64, 1959 s. 7) | admin | person_created / role_created | Opprettet `knut-hoyer.yaml` med sekretærrolle 1959–1960 |
+| Harald Sæther | Kasserer (s. 7) | admin | role_enriched | Kasserer 1953–1960 i `harald-saether.yaml` |
+| Ole Walderhaug | Oppmann A-laget 1959 (s. 7) | sporting | role_enriched | Oppmann i `ole-walderhaug.yaml` og snapshot `1959-aafk.yaml` |
+| Jan Larsen | Trener og kaptein 1959 (s. 16, 60, 67), avskjed etter 145 A-kamper | coach / player | role_enriched / milestone_created | Trener og spiller i `jan-larsen.yaml` |
+| Trygve Olsen | Junioroppmann 1959 (s. 13, 76) | sporting | role_enriched | Junioroppmann i `trygve-olsen.yaml` og snapshot |
+| Reidar Skarbøvik | Leder Guttelaget (s. 7), Klubbens gullmerke (s. 64, 74) | sporting / honor | honor_enriched / role_enriched | Tildelt `gullmerkeinnehaver-1959` i `reidar-skarbovik.yaml` |
+| Elisif Ingebrigtsen | Formann Dameavdelingen (s. 10) | board | role_enriched | Formann Dameavdelingen i `elisif-ingebrigtsen.yaml` og snapshot |
+| Thorbjørn Aarø | Spillemerket i gull for 200+ kamper (s. 64) | honor | honor_created | Tildelt `spillemerke-gull-1959` i `torbjorn-aaro.yaml` |
+| Karsten Vadseth | Spillemerket i sølv 150 kamper (s. 64), Brusdal-statuetten (s. 70) | honor | honor_created | Tildelt `spillemerke-solv-150-kamper` og Brusdal-statuetten i `karsten-vadseth.yaml` |
+| Svein Bjarne Holand | Brusdal-statuetten for juniorspillere (s. 70) | honor | honor_created | Tildelt `brusdal-statuetten-junior-1959` i `svein-bjarne-holand.yaml` |
+| Helge Lunde | Materialforvalter (s. 73) | sporting | role_created | Materialforvalter 1959 i `helge-lunde.yaml` |
+| Erling Listhaug | Målvakt på juniorlaget, rykker opp til senior (s. 55) | player | mention_linked | Dokumentert i review |
+| Per Mogstad | 60 år omtale (s. 71) | person | mention_linked | Dokumentert i review |
+| Carlos Koldberg | NIF diplom tildelt (s. 82) | person | mention_linked | Dokumentert i review |
 
 ---
 
@@ -59,7 +77,7 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060283025_001`
 | 4 | Nr. 1 | Vintertrening og instruksjon på Nørvøy skole | season_fact | reviewed | Treningstider for alle lag innendørs. |
 | 5 | Nr. 1 | Minnenes bok: 1920-årenes store oppgjør | historical | reviewed | Historiske tilbakeblikk. |
 | 6 | Nr. 1 | Kråmyra dugnadsrapport og banedekke | organization | reviewed | Banekomiteens planer for våren. |
-| 7 | Nr. 1 | Tillitsmenn og komiteer for 1959 | organization | reviewed | Styre og utvalg valgt nov 1958. |
+| 7 | Nr. 1 | Tillitsmenn og komiteer for 1959 | organization | reviewed | Styre og utvalg valgt nov 1958: Henriksen, Saure, Høyer, Sæther, Walderhaug. |
 | 8 | Nr. 1 | Annonser | ads | reviewed | Lokale annonsører. |
 | 9 | Nr. 1 | Guttelagene i vintertrening | non_senior | reviewed | Rekrutteringsarbeid under Skarbøvik. |
 | 10 | Nr. 1 | Dameavdelingen: Elisif Ingebrigtsen ny formann | organization | reviewed | Gerd Strømsholm takker av; Elisif Ingebrigtsen overtar formannsvervet. |
@@ -69,7 +87,7 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060283025_001`
 | 14 | Nr. 1 | Sett og hørt / Medlemsnytt | notes | reviewed | Notiser og personia. |
 | 15 | Nr. 2 | Omslag: Foran seriestart våren 1959 | season_fact | reviewed | Forsidebilde. |
 | 16 | Nr. 2 | Vårsesongen foran oss / Trener Jan Larsen | person_role | reviewed | Jan Larsen om taktisk disiplin og hurtighet. |
-| 17 | Nr. 2 | Terminliste våren 1959 | season_fact | reviewed | Vårens 5 seriekamper (Langevåg, Dahle, Clausenengen, Molde, Volda). |
+| 17 | Nr. 2 | Terminliste våren 1959 | fixture_list | reviewed | Vårens 5 seriekamper uten eksakte kalenderdatoer. |
 | 18 | Nr. 2 | Privatkamper og Vårcupen | source_result | reviewed | Langevåg 2–0, Spjelkavik 2–0, Guard 6–2, Skarbøvik 3–1. |
 | 19 | Nr. 2 | Minnenes bok: Kampene mot Kristiansund-lagene | historical | reviewed | Historiske oppgjør mot KFK og Braatt. |
 | 20 | Nr. 2 | Guttelagenes kamper og serier | non_senior | reviewed | Terminlister for gutter og smågutter. |
@@ -78,7 +96,7 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060283025_001`
 | 23 | Nr. 2 | Trenerkurs og instruksjon i kretsen | person_role | reviewed | NFF-kurs og lokal instruksjon. |
 | 24 | Nr. 2 | Sett og hørt / Medlemsnytt | notes | reviewed | Notiser og klubbnyheter. |
 | 25 | Nr. 3 | Omslag: Tatran Prešov gjester Ålesund | new_canonical_match | reviewed | Presentasjon av det tsjekkoslovakiske topplaget Tatran Prešov. |
-| 26 | Nr. 3 | Internasjonal kamp: AaFK–Tatran Prešov 1–4 | new_canonical_match | reviewed | Kampreferat fra Aksla stadion 16.07.1959 (1–4). |
+| 26 | Nr. 3 | Internasjonal kamp: AaFK–Tatran Prešov 1–4 | new_canonical_match | reviewed | Kampreferat fra Aksla stadion 16.07.1959: AaFK–Tatran Prešov 1–4 (pause 1–2), ca 2 000 tilsk. Oppstilling: Aas, Vadseth, Aarø, Johansen, Pedersen, Rutgerson, Luthentun, Iversen, Finsnes, Holand, Sperre. |
 | 27 | Nr. 3 | Vårens seriekamper oppsummert | source_result | reviewed | Dahle 1–0, Volda 5–2, Clausenengen 2–2, Molde 1–1, Langevåg 0–4. |
 | 28 | Nr. 3 | Sommercupen: AaFK til topps | source_result | reviewed | Spjelkavik 6–1, Skarbøvik 3–1, finale Herd 1–0 (AaFK cupmester). |
 | 29 | Nr. 3 | NM 1. og 2. runde / Kvik-kampen i Trondheim | source_result | reviewed | 1. runde Skarbøvik 2–1 e.e.o., 2. runde Kvik 1–2 e.e.o. |
@@ -91,7 +109,7 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060283025_001`
 | 36 | Nr. 3 | Sett og hørt / Medlemsnytt | notes | reviewed | Notiser og personia. |
 | 37 | Nr. 4 | Omslag: Høstsesongen starter | season_fact | reviewed | Forsidebilde. |
 | 38 | Nr. 4 | Fantastisk høststart i Landsdelsserien | source_result | reviewed | KFK 2–1 borte, Langevåg 1–0, Clausenengen 2–0, Braatt 3–0, Hødd 4–1 borte. |
-| 39 | Nr. 4 | Høstterminlisten Landsdelsserien 1959/60 | season_fact | reviewed | Terminliste for høstens 9 seriekamper. |
+| 39 | Nr. 4 | Høstterminlisten Landsdelsserien 1959/60 | fixture_list | reviewed | Terminliste for høstens 9 seriekamper uten eksakte kalenderdatoer. |
 | 40 | Nr. 4 | NM junior 3. runde: Brann–AaFK 2–2 (straffespark) | non_senior | reviewed | Dramatisk cupoppgjør mot den senere norgesmesteren Brann. |
 | 41 | Nr. 4 | Juniorlaget sikrer kretsmesterskapet | non_senior | reviewed | Kretsmester 1959 etter uavbrutt seiersrekke. |
 | 42 | Nr. 4 | Dugnad på Kråmyra: 2. etasje reiser seg | organization | reviewed | Klubbhusets storsal tar form. |
@@ -122,7 +140,7 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060283025_001`
 | 67 | Nr. 6 | Trener Jan Larsens avskjedsintervju | person_role | reviewed | Larsen oppsummerer 6 fantastiske år i AaFK; Magne Fylling hedres. |
 | 68 | Nr. 6 | Minner fra turer og kamper / «Lallen» og «Grakså» | historical | reviewed | Morsomme opplevelser fra Kristiansund og Høddvoll. |
 | 69 | Nr. 6 | Mørefotballen trenger impulser og tempo | season_fact | reviewed | Analyse av spillenivået på Møre. |
-| 70 | Nr. 6 | Statuetter til Karsten Vadseth og Svein Holand | milestone | reviewed | Brusdal-statuettene overrakt på årsmøtet. |
+| 70 | Nr. 6 | Statuetter til Karsten Vadseth og Svein Holand | milestone | reviewed | Brusdal-statuettene overrakt på årsmøtet til Vadseth (senior) og Holand (junior). |
 | 71 | Nr. 6 | Per Mogstad 60 år / Spillerprofil i Mjølner | person_candidate | reviewed | Mogstad herjer for Mjølner og Nord-Norges landsdelslag. |
 | 72 | Nr. 6 | Svein Holand: Juniorlagets kaptein og drivkraft | person_candidate | reviewed | Portrett av det store midtbanetalentet. |
 | 73 | Nr. 6 | Materialforvalterne Helge Lunde og Ragnvald Langva hedres | organization | reviewed | Lunde og Langva roses på årsmøtet for mønsterorden på utstyret. |

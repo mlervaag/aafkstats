@@ -1,7 +1,7 @@
 id: ole-aasen
 name: Ole Aasen
 roles:
-  - id: sekretaer-hovedstyret-1957
+  - id: sekretaer-1957
     category: administration
     title: Sekretær
     body: Hovedstyret
@@ -10,7 +10,7 @@ roles:
     sources:
       - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
         page: "7"
-    note: Sekretær i hovedstyret i 1957.
-sources:
-  - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
-    page: "7"
+        fields:
+          - title
+          - from
+    note: Sekretær i Hovedstyret i 1957.
