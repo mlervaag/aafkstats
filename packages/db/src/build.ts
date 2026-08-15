@@ -451,15 +451,16 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
     // skrives; ellers feiler det første kilderesultatet med `matchId` i byggingen.
     const insertSourceResult = db.prepare(
       `INSERT INTO core_source_results
-         (source_id, id, season, source_order, page, opponent, opponent_club_id,
+         (source_id, id, season, source_order, page, date, opponent, opponent_club_id,
           aafk_score, opponent_score, competition_id, status, replay,
           after_extra_time, round, result_group_id, match_id, note)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     );
     for (const collection of archive.sourceResults) {
       for (const result of flattenSourceResults(collection)) {
         insertSourceResult.run(
           result.sourceId, result.id, result.season, result.order, result.page,
+          result.date ?? null,
           result.opponent, result.opponentClubId, result.aafkGoals, result.opponentGoals,
           result.competitionId, result.status, bool(result.replay), bool(result.extraTime),
           result.round, result.resultGroupId ?? null, result.matchId, result.note ?? null,

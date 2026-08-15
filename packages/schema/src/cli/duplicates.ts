@@ -332,8 +332,8 @@ if (possibleDuplicateResults.length > 0) {
   for (const dup of possibleDuplicateResults) {
     const a = dup.first;
     const b = dup.second;
-    const aExtra = [a.competitionId, a.round ? `${a.round}. runde` : null, `s. ${a.page}`].filter(Boolean).join(", ");
-    const bExtra = [b.competitionId, b.round ? `${b.round}. runde` : null, `s. ${b.page}`].filter(Boolean).join(", ");
+    const aExtra = [a.date, a.competitionId, a.round ? `${a.round}. runde` : null, `s. ${a.page}`].filter(Boolean).join(", ");
+    const bExtra = [b.date, b.competitionId, b.round ? `${b.round}. runde` : null, `s. ${b.page}`].filter(Boolean).join(", ");
     console.log(`  ${dup.season} ${dup.opponentClubId} (${dup.scoreText}):`);
     console.log(`    ${a.sourceId} (${aExtra}): «${a.opponent}» ${DIM}(${a.id})${RESET}`);
     console.log(`    ${b.sourceId} (${bExtra}): «${b.opponent}» ${DIM}(${b.id})${RESET}`);
@@ -351,7 +351,7 @@ if (possibleMatchLinks.length > 0) {
   for (const link of possibleMatchLinks) {
     const res = link.sourceResult;
     const match = link.candidateMatch;
-    const resExtra = [res.competitionId, res.round ? `${res.round}. runde` : null, `s. ${res.page}`].filter(Boolean).join(", ");
+    const resExtra = [res.date, res.competitionId, res.round ? `${res.round}. runde` : null, `s. ${res.page}`].filter(Boolean).join(", ");
     const matchExtra = [match.competitionId, match.round ? `${match.round}. runde` : null, match.date].filter(Boolean).join(", ");
     console.log(`  ${link.season} ${match.opponentClubId} (${match.scoreText}):`);
     console.log(`    Kilde: ${res.sourceId} (${resExtra}): «${res.opponent}» ${DIM}(${res.id})${RESET}`);

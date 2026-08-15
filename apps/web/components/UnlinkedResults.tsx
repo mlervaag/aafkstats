@@ -1,4 +1,5 @@
 import type { SourceResult } from "@/lib/archive";
+import { formatDate } from "@/lib/date";
 import { SourceChips, type CitedRef } from "./SourceChips";
 
 export interface UnlinkedHistoricalResult {
@@ -69,8 +70,12 @@ export function groupUnlinkedResults(results: SourceResult[]): UnlinkedHistorica
     const rounds = new Set(group.claims.map((c) => c.round).filter((r): r is number => r !== null));
     const roundDispute = rounds.size > 1;
 
+    const dates = new Set(group.claims.map((c) => c.date).filter((d): d is string => d !== null));
+    const dateDispute = dates.size > 1;
+
     const allAgree =
       !roundDispute &&
+      !dateDispute &&
       group.claims.every(
         (c) =>
           c.status === first.status &&
@@ -90,11 +95,15 @@ function getDisputeLabel(claims: SourceResult[]): string {
   const scores = new Set(claims.map((c) => `${c.aafkScore}–${c.opponentScore}`));
   const statuses = new Set(claims.map((c) => c.status));
   const rounds = new Set(claims.map((c) => c.round).filter((r): r is number => r !== null));
+  const dates = new Set(claims.map((c) => c.date).filter((d): d is string => d !== null));
 
-  if (scores.size > 1 && rounds.size <= 1) {
+  if (dates.size > 1 && scores.size <= 1 && rounds.size <= 1 && statuses.size <= 1) {
+    return "Kildene er uenige om datoen:";
+  }
+  if (scores.size > 1 && rounds.size <= 1 && dates.size <= 1) {
     return "Kildene er uenige om resultatet:";
   }
-  if (rounds.size > 1 && scores.size <= 1 && statuses.size <= 1) {
+  if (rounds.size > 1 && scores.size <= 1 && statuses.size <= 1 && dates.size <= 1) {
     return "Kildene er uenige om runden:";
   }
   return "Kildene er uenige om opplysningene:";
@@ -174,6 +183,7 @@ export function UnlinkedResults({
                       const scoreText = claim.status === "walkover" ? "w.o." : `${claim.aafkScore}–${claim.opponentScore}`;
                       const sourceName = titles.get(claim.sourceId) ?? claim.sourceId;
                       const meta = [
+                        claim.date ? formatDate(claim.date) : null,
                         claim.round ? `${claim.round}. runde` : null,
                         claim.replay ? "omkamp" : null,
                         claim.afterExtraTime ? "ekstraomganger" : null,
@@ -200,7 +210,21 @@ export function UnlinkedResults({
           const primaryClaim = item.claims[0]!;
           const scoreText =
             primaryClaim.status === "walkover" ? "w.o." : `${primaryClaim.aafkScore}–${primaryClaim.opponentScore}`;
+
+          const datesWithClaims = item.claims.filter((c) => c.date !== null);
+          let dateText: string | null = null;
+          if (datesWithClaims.length > 0) {
+            const dateVal = datesWithClaims[0]!.date!;
+            if (item.claims.length > 1 && datesWithClaims.length < item.claims.length) {
+              const srcTitle = titles.get(datesWithClaims[0]!.sourceId) ?? datesWithClaims[0]!.sourceId;
+              dateText = `${formatDate(dateVal)} (iflg. ${srcTitle})`;
+            } else {
+              dateText = formatDate(dateVal);
+            }
+          }
+
           const notes = [
+            dateText,
             primaryClaim.replay ? "omkamp" : null,
             primaryClaim.afterExtraTime ? "ekstraomganger" : null,
             primaryClaim.note,

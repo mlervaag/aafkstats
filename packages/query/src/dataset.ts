@@ -35,7 +35,7 @@ export const views: ViewDoc[] = [
     name: "source_results",
     summary: "Resultater dokumentert i historiske kilder, men uten nok opplysninger til å være kanoniske kamper.",
     caveats: [
-      "aafk_score og opponent_score står alltid fra AaFKs perspektiv. Hjemme/borte og kampdato er ukjent.",
+      "aafk_score og opponent_score står alltid fra AaFKs perspektiv. Hjemme/borte er ukjent, og kampdato er bare satt når kilden oppgir den uttrykkelig.",
       "Radene teller ikke i matches, seasons eller kampstatistikken. Bruk match_id når en rad senere er koblet til en komplett kamp.",
       "competition_id er bare satt når kilden uttrykkelig navngir konkurransen. NULL betyr ukjent.",
     ],
@@ -46,6 +46,7 @@ export const views: ViewDoc[] = [
       { name: "season", type: "integer", description: "Året resultatet står under i kilden." },
       { name: "source_order", type: "integer", description: "Rekkefølgen i resultatlista." },
       { name: "page", type: "integer", description: "Trykt sidetall." },
+      { name: "date", type: "text", description: "Datoen kilden oppgir på formen YYYY-MM-DD. NULL når kilden ikke oppgir eksakt dato." },
       { name: "opponent", type: "text", description: "Kildens motstandernavn. Kan være NULL ved walkover." },
       { name: "opponent_club_id", type: "text", description: "Kjent klubb når avklart." },
       { name: "aafk_score", type: "integer", description: "AaFKs mål. NULL ved walkover." },

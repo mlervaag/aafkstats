@@ -1100,6 +1100,7 @@ CREATE TABLE core_source_results (
   season          INTEGER NOT NULL,
   source_order    INTEGER NOT NULL,
   page            INTEGER NOT NULL,
+  date            TEXT,
   opponent        TEXT,
   opponent_club_id TEXT REFERENCES core_clubs(id),
   aafk_score      INTEGER,
@@ -1242,6 +1243,7 @@ ORDER BY source_id;
 
 CREATE VIEW source_results AS
 SELECT r.source_id, s.title AS source_title, r.id, r.season, r.source_order, r.page,
+       r.date,
        r.opponent, r.opponent_club_id, r.aafk_score, r.opponent_score,
        CASE
          WHEN r.status = 'walkover' THEN NULL

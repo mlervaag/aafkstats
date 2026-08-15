@@ -25,6 +25,7 @@ describe("uavklarte historiske resultater og resultatgrupper", () => {
         sourceId: "nff-arbok-1920",
         season: 1920,
         page: 79,
+        date: null,
         opponent: "Rollon",
         opponentClubId: "rollon",
         aafkScore: 4,
@@ -44,6 +45,7 @@ describe("uavklarte historiske resultater og resultatgrupper", () => {
         sourceId: "aalesunds-fotballklub-gjennem-1939-ec28",
         season: 1920,
         page: 84,
+        date: null,
         opponent: "Rollon",
         opponentClubId: null,
         aafkScore: 4,
@@ -74,6 +76,7 @@ describe("uavklarte historiske resultater og resultatgrupper", () => {
         sourceId: "kilde-1",
         season: 1920,
         page: 10,
+        date: null,
         opponent: "Rollon",
         opponentClubId: "rollon",
         aafkScore: 4,
@@ -93,6 +96,7 @@ describe("uavklarte historiske resultater og resultatgrupper", () => {
         sourceId: "kilde-2",
         season: 1920,
         page: 20,
+        date: null,
         opponent: "Rollon",
         opponentClubId: "rollon",
         aafkScore: 3,
@@ -115,6 +119,55 @@ describe("uavklarte historiske resultater og resultatgrupper", () => {
     expect(unlinked[0]?.claims.map((c) => c.aafkScore)).toEqual([4, 3]);
   });
 
+  it("viser uenighet når kilder har motstridende datoer innen samme gruppe", () => {
+    const results: SourceResult[] = [
+      {
+        id: "1920-001",
+        sourceId: "kilde-1",
+        season: 1920,
+        page: 10,
+        date: "1920-08-15",
+        opponent: "Rollon",
+        opponentClubId: "rollon",
+        aafkScore: 4,
+        opponentScore: 1,
+        result: "S",
+        competitionId: "nm",
+        status: "played",
+        replay: false,
+        afterExtraTime: false,
+        round: 1,
+        resultGroupId: "gruppe-rollon",
+        matchId: null,
+        note: null,
+      },
+      {
+        id: "1920-002",
+        sourceId: "kilde-2",
+        season: 1920,
+        page: 20,
+        date: "1920-08-16",
+        opponent: "Rollon",
+        opponentClubId: "rollon",
+        aafkScore: 4,
+        opponentScore: 1,
+        result: "S",
+        competitionId: "nm",
+        status: "played",
+        replay: false,
+        afterExtraTime: false,
+        round: 1,
+        resultGroupId: "gruppe-rollon",
+        matchId: null,
+        note: null,
+      },
+    ];
+
+    const unlinked = groupUnlinkedResults(results);
+    expect(unlinked).toHaveLength(1);
+    expect(unlinked[0]?.agreement).toBe("sources_disagree");
+  });
+
   it("slår aldri sammen resultater uten resultGroupId automatisk", () => {
     const results: SourceResult[] = [
       {
@@ -122,6 +175,7 @@ describe("uavklarte historiske resultater og resultatgrupper", () => {
         sourceId: "nff-arbok-1920",
         season: 1920,
         page: 99,
+        date: null,
         opponent: "Trygg",
         opponentClubId: null,
         aafkScore: 1,
@@ -141,6 +195,7 @@ describe("uavklarte historiske resultater og resultatgrupper", () => {
         sourceId: "aalesunds-fotballklub-gjennem-1939-ec28",
         season: 1920,
         page: 83,
+        date: null,
         opponent: "Trygg",
         opponentClubId: null,
         aafkScore: 1,
@@ -168,6 +223,7 @@ describe("uavklarte historiske resultater og resultatgrupper", () => {
         sourceId: "nff-arbok-1920",
         season: 1920,
         page: 99,
+        date: null,
         opponent: "Rollon",
         opponentClubId: "rollon",
         aafkScore: 5,
@@ -205,6 +261,26 @@ describe("uavklarte historiske resultater og resultatgrupper", () => {
       expect(u.claims.length).toBe(2);
       expect(u.agreement).toBe("sources_agree");
     }
+  });
+
+  it("laster 1958-sesongen med strukturerte datoer for Åpningscupen", () => {
+    const season = loadSeason(1958);
+    expect(season).toBeDefined();
+    const sfkResults = season!.sourceResults.filter(
+      (r) => r.sourceId === "sunnmore-fotballkrets-arsrapport-1958",
+    );
+    expect(sfkResults).toHaveLength(5);
+    // De tre Åpningscup-kampene har eksakt dato og matchId: null
+    expect(sfkResults[0]?.date).toBe("1958-04-15");
+    expect(sfkResults[0]?.matchId).toBeNull();
+    expect(sfkResults[1]?.date).toBe("1958-04-17");
+    expect(sfkResults[1]?.matchId).toBeNull();
+    expect(sfkResults[2]?.date).toBe("1958-04-19");
+    expect(sfkResults[2]?.matchId).toBeNull();
+
+    // NM-kampene i 1958 har ingen dato i rapporten
+    expect(sfkResults[3]?.date).toBeNull();
+    expect(sfkResults[4]?.date).toBeNull();
   });
 
   it("rangerer Paivas pokal foran generiske privatkamper", () => {

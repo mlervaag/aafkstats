@@ -199,4 +199,160 @@ describe("kildedokumenterte resultater", () => {
     expect(links[0]?.candidateMatch.id).toBe("1917-08-26-aalesunds-fk-sk-brann");
     expect(links[0]?.sourceResult.id).toBe("1917-001");
   });
+
+  describe("strukturerte kampdatoer i source-results", () => {
+    it("aksepterer gyldig ISO-dato og avviser ugyldig dato", () => {
+      const valid = sourceResultCollection.safeParse({
+        sourceId: "sfk-1958",
+        scorePerspective: "aafk",
+        seasons: [
+          {
+            year: 1958,
+            page: 6,
+            results: [
+              { no: 1, date: "1958-04-15", opponent: "Aksla", score: [2, 0], matchId: null },
+            ],
+          },
+        ],
+      });
+      expect(valid.success).toBe(true);
+
+      const invalidDate = sourceResultCollection.safeParse({
+        sourceId: "sfk-1958",
+        scorePerspective: "aafk",
+        seasons: [
+          {
+            year: 1958,
+            page: 6,
+            results: [
+              { no: 1, date: "15. april 1958", opponent: "Aksla", score: [2, 0] },
+            ],
+          },
+        ],
+      });
+      expect(invalidDate.success).toBe(false);
+    });
+
+    it("flater ut dato korrekt og utelater date når den mangler", () => {
+      const collection = sourceResultCollection.parse({
+        sourceId: "sfk-1958",
+        scorePerspective: "aafk",
+        seasons: [
+          {
+            year: 1958,
+            page: 6,
+            results: [
+              { no: 1, date: "1958-04-15", opponent: "Aksla", score: [2, 0] },
+              { no: 2, opponent: "Rollon", score: [2, 0] },
+            ],
+          },
+        ],
+      });
+      const flattened = flattenSourceResults(collection);
+      expect(flattened[0]?.date).toBe("1958-04-15");
+      expect(flattened[1]?.date).toBeUndefined();
+    });
+
+    it("skiller duplikater på dato: ulike datoer avvises som kandidater", () => {
+      const sourceA = sourceResultCollection.parse({
+        sourceId: "kilde-a",
+        scorePerspective: "aafk",
+        seasons: [
+          {
+            year: 1958,
+            page: 6,
+            results: [
+              { no: 1, date: "1958-04-15", opponent: "Aksla", opponentClubId: "aksla-il", score: [2, 0] },
+            ],
+          },
+        ],
+      });
+      const sourceBDiffDate = sourceResultCollection.parse({
+        sourceId: "kilde-b",
+        scorePerspective: "aafk",
+        seasons: [
+          {
+            year: 1958,
+            page: 10,
+            results: [
+              { no: 1, date: "1958-04-20", opponent: "Aksla", opponentClubId: "aksla-il", score: [2, 0] },
+            ],
+          },
+        ],
+      });
+      const sourceBSameDate = sourceResultCollection.parse({
+        sourceId: "kilde-c",
+        scorePerspective: "aafk",
+        seasons: [
+          {
+            year: 1958,
+            page: 20,
+            results: [
+              { no: 1, date: "1958-04-15", opponent: "Aksla", opponentClubId: "aksla-il", score: [2, 0] },
+            ],
+          },
+        ],
+      });
+      const sourceBNoDate = sourceResultCollection.parse({
+        sourceId: "kilde-d",
+        scorePerspective: "aafk",
+        seasons: [
+          {
+            year: 1958,
+            page: 30,
+            results: [
+              { no: 1, opponent: "Aksla", opponentClubId: "aksla-il", score: [2, 0] },
+            ],
+          },
+        ],
+      });
+
+      // Ulike datoer -> ikke kandidater
+      expect(findPossibleDuplicateSourceResults([sourceA, sourceBDiffDate])).toHaveLength(0);
+      // Samme dato -> kandidater
+      expect(findPossibleDuplicateSourceResults([sourceA, sourceBSameDate])).toHaveLength(1);
+      // Én med dato og én uten -> fortsatt kandidater
+      expect(findPossibleDuplicateSourceResults([sourceA, sourceBNoDate])).toHaveLength(1);
+    });
+
+    it("krever samme dato ved kandidatmatching mot kanonisk kamp når dato er oppgitt", () => {
+      const sourceWithDate = sourceResultCollection.parse({
+        sourceId: "sfk-1958",
+        scorePerspective: "aafk",
+        seasons: [
+          {
+            year: 1958,
+            page: 6,
+            results: [
+              { no: 1, date: "1958-04-15", opponent: "Rollon", opponentClubId: "rollon", score: [2, 0], matchId: null },
+            ],
+          },
+        ],
+      });
+
+      const matches = [
+        {
+          id: "1958-04-17-aalesunds-fk-rollon",
+          file: "1958-04-17-aalesunds-fk-rollon.yaml",
+          date: "1958-04-17",
+          competition: { id: "treningskamp", season: 1958 },
+          home: { clubId: "aalesunds-fk", goals: 2 },
+          away: { clubId: "rollon", goals: 0 },
+        },
+        {
+          id: "1958-04-15-aalesunds-fk-rollon",
+          file: "1958-04-15-aalesunds-fk-rollon.yaml",
+          date: "1958-04-15",
+          competition: { id: "treningskamp", season: 1958 },
+          home: { clubId: "aalesunds-fk", goals: 2 },
+          away: { clubId: "rollon", goals: 0 },
+        },
+      ];
+
+      const links = findPossibleCanonicalMatchLinks([sourceWithDate], matches);
+      // Matcher kun kampen på 1958-04-15, ikke 1958-04-17
+      expect(links).toHaveLength(1);
+      expect(links[0]?.candidateMatch.id).toBe("1958-04-15-aalesunds-fk-rollon");
+    });
+  });
 });

@@ -41,4 +41,50 @@ describe("kilderesultat koblet til kanonisk kamp", () => {
 
     expect(rows).toEqual([{ match_id: "1998-01-01-aalesunds-fk-raufoss-il" }]);
   }, 30_000);
+
+  it("lagrer og eksponerer strukturert dato samt NULL for udaterte resultater", async () => {
+    const root = mkdtempSync(join(tmpdir(), "aafk-source-results-date-"));
+    const data = join(root, "data");
+    cpSync(resolve(import.meta.dirname, "../../../fixtures/data"), data, { recursive: true });
+
+    writeFileSync(
+      join(data, "source-results", "aafk-90-ar-1914-2004.yaml"),
+      [
+        "sourceId: aafk-90-ar-1914-2004",
+        "scorePerspective: aafk",
+        "seasons:",
+        "  - year: 1998",
+        "    page: 42",
+        "    results:",
+        "      - no: 1",
+        "        date: 1998-04-15",
+        "        opponent: Raufoss",
+        "        opponentClubId: raufoss-il",
+        "        score: [2, 2]",
+        "        competitionId: treningskamp",
+        "        matchId: 1998-01-01-aalesunds-fk-raufoss-il",
+        "      - no: 2",
+        "        opponent: Rollon",
+        "        opponentClubId: null",
+        "        score: [1, 0]",
+        "        competitionId: null",
+        "        matchId: null",
+        "",
+      ].join("\n"),
+    );
+
+    const dbPath = join(root, "arkiv.sqlite");
+    await loadValidateAndBuild(data, dbPath);
+    const db = open(dbPath);
+    const rows = all<{ id: string; date: string | null }>(
+      db,
+      "SELECT id, date FROM source_results WHERE source_id = 'aafk-90-ar-1914-2004' ORDER BY source_order",
+    );
+    db.close();
+
+    expect(rows).toEqual([
+      { id: "1998-001", date: "1998-04-15" },
+      { id: "1998-002", date: null },
+    ]);
+  }, 30_000);
 });

@@ -1,10 +1,11 @@
 import { z } from "zod";
-import { seasonYear, slug } from "./primitives.js";
+import { isoDate, seasonYear, slug } from "./primitives.js";
 
 /** Et kompakt, menneskelesbart resultat i én årsgruppe. */
 const sourceResultEntry = z
   .object({
     no: z.number().int().min(1),
+    date: isoDate.optional(),
     opponent: z.string().min(1).nullable().default(null),
     /** Målene står alltid som [AaFK, motstander], uavhengig av hjemme/borte. */
     score: z.tuple([z.number().int().min(0), z.number().int().min(0)]).nullable().default(null),
@@ -57,6 +58,7 @@ export type SourceResultCollection = z.infer<typeof sourceResultCollection>;
 
 export interface SourceResult {
   id: string; sourceId: string; season: number; order: number; page: number;
+  date?: string;
   opponent: string | null; opponentClubId: string | null;
   aafkGoals: number | null; opponentGoals: number | null;
   competitionId: string | null; status: "played" | "walkover";
@@ -73,7 +75,9 @@ export function flattenSourceResults(collection: SourceResultCollection): Source
     return {
       id: `${season.year}-${String(result.no).padStart(3, "0")}`,
       sourceId: collection.sourceId, season: season.year, order,
-      page: result.page ?? season.page, opponent: result.opponent,
+      page: result.page ?? season.page,
+      ...(result.date === undefined ? {} : { date: result.date }),
+      opponent: result.opponent,
       opponentClubId: result.opponentClubId,
       aafkGoals: result.score?.[0] ?? null, opponentGoals: result.score?.[1] ?? null,
       competitionId: result.competitionId, status: result.status,
@@ -120,6 +124,7 @@ export interface PossibleCanonicalMatchLink {
  * - samme score (eller begge er walkover)
  * - samme competitionId når oppgitt i begge (eller minst én ukjent)
  * - samme round når oppgitt i begge (eller minst én ukjent)
+ * - ikke motstridende eksplisitte datoer (dersom begge har dato, må datoene være like)
  *
  * Par som allerede deler samme resultGroupId eller samme matchId hoppes over.
  * Setter aldri resultGroupId automatisk — dette krever manuell vurdering.
@@ -137,6 +142,9 @@ export function findPossibleDuplicateSourceResults(
 
       if (a.season !== b.season) continue;
       if (!a.opponentClubId || !b.opponentClubId || a.opponentClubId !== b.opponentClubId) continue;
+
+      // Forskjellige kjente datoer utelukker samme kamp
+      if (a.date && b.date && a.date !== b.date) continue;
 
       const scoreMatch =
         (a.status === "walkover" && b.status === "walkover") ||
@@ -175,6 +183,7 @@ export function findPossibleDuplicateSourceResults(
  * - samme score
  * - samme competitionId når oppgitt i begge (eller minst én ukjent)
  * - samme round når oppgitt i begge (eller minst én ukjent)
+ * - samme date dersom sourceResult har oppgitt en eksplisitt dato
  *
  * Setter aldri matchId automatisk — dette krever manuell kildekontroll.
  */
@@ -199,6 +208,8 @@ export function findPossibleCanonicalMatchLinks(
 
     for (const match of matches) {
       if (match.competition.season !== res.season) continue;
+      if (res.date && match.date !== res.date) continue;
+
       const isHome = match.home.clubId === aafkClubId;
       const oppClubId = isHome ? match.away.clubId : match.home.clubId;
       if (oppClubId !== res.opponentClubId) continue;
