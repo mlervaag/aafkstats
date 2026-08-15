@@ -14,7 +14,8 @@ away:
   clubId: kvik
   score: 0
   halfTimeScore: null
-neutralVenue: false
+venueId: aksla-stadion
+attendance: 3200
 events: []
 externalReports: []
 providers:
@@ -48,3 +49,15 @@ sources:
   - sourceId: sunnmore-fotballkrets-arsrapport-1962
     page: "10"
     fields: *a1
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "50"
+    fields:
+      - venueId
+      - home.score
+      - away.score
+    note: "Medlemsbladet 1962 hefte 5 s. 50 og s. 59: Annen kamp om distriktsmesterskapet spilt på Aksla stadion (2–0). AaFK ble distriktsmester."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "76"
+    fields:
+      - attendance
+    note: "Medlemsbladet 1962 hefte 6 s. 76: Kampen mot Kvik på Aksla stadion samlet 3 200 tilskuere."

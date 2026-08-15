@@ -14,7 +14,7 @@ away:
   clubId: aalesunds-fk
   score: 0
   halfTimeScore: null
-neutralVenue: false
+venueId: lerkendal-stadion
 events: []
 externalReports: []
 providers:
@@ -48,3 +48,10 @@ sources:
   - sourceId: sunnmore-fotballkrets-arsrapport-1962
     page: "10"
     fields: *a1
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "50"
+    fields:
+      - venueId
+      - home.score
+      - away.score
+    note: "Medlemsbladet 1962 hefte 5 s. 50 og s. 59: Første kamp om distriktsmesterskapet spilt på Lerkendal stadion i Trondheim (0–0)."

@@ -48,3 +48,9 @@ sources:
   - sourceId: sunnmore-fotballkrets-arsrapport-1962
     page: "10"
     fields: *a1
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "74"
+    fields:
+      - home.score
+      - away.score
+    note: "Medlemsbladet 1962 hefte 6 s. 74–75: Første kvalifiseringskamp til 1. divisjon (10-klubbserien) på Gjøvik endte uavgjort 1–1."

@@ -302,7 +302,17 @@ export function candidatesForPage(archive: Archive, source: Source, page: string
   const lineupTerms = ["lagoppstilling", "lagoppstillingen", "laget bestod", "spillertropp", "spillerstall", "troppen", "stallen"];
   const seasonTerms = ["sluttabell", "tabellen", "seriemester", "opprykk", "nedrykk", "poeng", "målforskjell"];
 
-  for (const line of lines) {
+  // Bygg kombinerte vinduer (enkeltlinjer + 2-linjers glidende vindu) for å fange oppdelte tabellrader
+  const windows: string[] = [...lines];
+  for (let i = 0; i < lines.length - 1; i++) {
+    windows.push(`${lines[i]} ${lines[i + 1]}`);
+  }
+
+  const isAafkPublication = source.sourceType === "member_magazine" ||
+    source.parentSourceId === "aafk-medlemsblad" ||
+    Boolean(source.publisher && /aalesund|aafk/i.test(source.publisher));
+
+  for (const line of windows) {
     const normalized = normalize(line);
     const years = [...line.matchAll(/\b(19\d{2}|20\d{2})\b/g)].map((match) => Number(match[1])).filter((year) => year >= 1914 && year <= 2100);
     const scores = [...line.matchAll(/\b(\d{1,2})\s*[-–—:]\s*(\d{1,2})\b/g)].map((match) => `${Number(match[1])}-${Number(match[2])}`);
@@ -318,12 +328,12 @@ export function candidatesForPage(archive: Archive, source: Source, page: string
     }
     if (lineup.length > 0) out.push(candidate(source.id, page, "lineup_or_squad", "medium", lineup, unique(extractNames(line)), years, [], people.map((p) => p.id), []));
     if (season.length > 0 && years.length > 0) out.push(candidate(source.id, page, "season_fact", "medium", season, [], years, scores, [], []));
-    if (scores.length > 0 && /\b(aafk|aa\.?\s*f\.?\s*k\.?|aalesund|ålesund)\b/i.test(line)) {
+    if (scores.length > 0 && (isAafkPublication || /\b(aafk|aa\.?\s*f\.?\s*k\.?|aalesund|ålesund)\b/i.test(line))) {
       const matchIds = matchCandidates(archive, source, normalized, years, scores);
       out.push(candidate(source.id, page, "match_result", matchIds.length === 1 ? "high" : "medium", [], extractNames(line), years, scores, [], matchIds));
     }
   }
-  return out;
+  return uniqueCandidates(out);
 }
 
 function matchCandidates(archive: Archive, source: Source, line: string, years: number[], scores: string[]): string[] {
