@@ -12,7 +12,7 @@ Batchen bygger direkte på metodikken etablert i PR #151–#154 og produksjonssi
 |---|---:|---:|---:|---:|---:|
 | Sider visuelt kontrollert | 92 | 148 | 92 | 88 | **420** |
 | A-lagsresultater vurdert | 26 | 33 | 1 | 28 | **88** |
-| Source-results opprettet | 5 | 1 | 1 | 1 | **8** |
+| Kildedokumenterte oppgjør | 5 | 1 | 1 | 1 | **8** |
 | Fixture-kilder vurdert | 2 | 2 | 2 | 2 | **8** |
 | Nye canonical matches | 0 | 0 | 0 | 0 | **0** |
 | Berikede canonical matches | 0 | 1 | 0 | 0 | **1** |
@@ -39,7 +39,7 @@ Perioden 1953–1956 var preget av tøff kamp i Landsdelsserien Møre:
 - **1956:** 28 kamper spilt (7 seire, 9 uavgjort, 12 tap, mål 56–75). Kontrakten i Landsdelsserien ble berget med en 5. plass. Cuptap for Hødd (1–2) i Ulsteinvik.
 
 ### 2. Trener- og oppmannshistorikk
-- **Trenere:** Finn Tollås var hovedtrener i 1953 og 1954, før Øivind Haagensen overtok som trener for A-laget i 1955. I 1956 ble laget instruert og trent med innspill fra den østerrikske treneren Josef Skocik og Finn Tollås.
+- **Trenere:** Finn Tollås var hovedtrener i 1953 og 1954, før Øivind Haagensen overtok som trener for A-laget i 1955. Finn Tollås trente laget videre i 1956. Medlemsbladet publiserte i 1956 dessuten trenerfaglig stoff av den østerrikske treneren Josef Skocik om posisjonsspill og moderne fotball.
 - **Oppmenn:** Ragnvald Langva var oppmann for A-laget i 1953 og ble hyllet som klubbens trofaste ildsjel da han trådte tilbake. Fritz Haagensen overtok som A-lagsoppmann i 1954 og 1955.
 
 ### 3. Hovedstyret og ledelse
@@ -62,7 +62,7 @@ Perioden 1953–1956 var preget av tøff kamp i Landsdelsserien Møre:
 
 ### 6. Kråmyra og anleggsutvikling (forhistorien til 1957/1960)
 Årgangene 1953–1956 gir den dokumenterte forhistorien til anlegget som kulminerte med klubbhusinnvielsen i 1957 og fullføringen i 1960:
-- **1953:** Banekomiteen (Emil Sandø, Peder Puck, Sigurd Nørve, Trygve Stub m.fl.) planerte og ferdigk кульtet et område på ca. 105x55 meter.
+- **1953:** Banekomiteen (Emil Sandø, Peder Puck, Sigurd Nørve, Trygve Stub m.fl.) planerte og kultiverte et område på ca. 105x55 meter.
 - **1954:** Matjord ble kjørt på og banen klargjort for tilsåing under ledelse av Emil Sandø og dugnadsgjengen.
 - **1955 (Observasjon):** Søndag 21. august 1955 ble banens første byggetrinn fullført, og Kråmyra treningsbane ble tatt i bruk til trening og kamper for første gang (`1955-kramyra-forste-bruk.yaml`).
 - **1956:** Rolf Annaniassen overtok som formann for Banekomiteen foran neste byggetrinn.
@@ -76,6 +76,6 @@ I 1954 feiret klubben 40 år (25. juni 1914–1954). Både det ordinære medlems
 
 PR #156 har opprettholdt streng additivitetsgaranti:
 1. Ingen eksisterende personroller, kilder, konflikter, kallenavn eller trenerperioder er slettet eller overskrevet.
-2. Eksisterende konflikter (f.eks. Peder Puck, Hans J. Henriksen, Kjell Berentzen) er bevart uendret.
+2. Eksisterende konflikter (f.eks. Peder Puck, Hans J. Henriksen, Kjell Berentzen, Finn Tollås, Øivind Haagensen) er bevart uendret.
 3. Fire nye personer med dokumentert virke i perioden (`harald-nord`, `trygve-stub`, `rasmus-sulebak`, `ingvald-froysa`) er opprettet med primærkilder.
 4. Alle kildedokumenterte oppgjør er trygt plassert i `data/source-results/` uten å konstruere udokumenterte kanoniske kamper.

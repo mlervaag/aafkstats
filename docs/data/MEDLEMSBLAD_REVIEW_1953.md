@@ -40,7 +40,7 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060183302_001`
 
 - **Vårsesongen 1953 (s. 24):** Landsdelsserien Møre 1952/53 (vår). Omtaler sluttstriden og kampene mot Langevåg, Molde, Clausenengen, Braatt og KFK uten eksakte kalenderdatoer.
 - **Høstsesongen 1953 (s. 64, 80):** Landsdelsserien Møre 1953/54 (høst). Viser de 9 høstkampene mot bl.a. Ørsta, Clausenengen, Langevåg og KFK. 7 seire, 1 uavgjort, 1 tap (mål 28–11).
-- **Konklusjon:** Ingen kanoniske kamper er opprettet på grunnlag av terminlistene alene. Alle serieresultater og cuptap mot Ørsta (1–4) er bevart som kildedokumenterte oppføringer i `data/source-results/medlemsblad-for-aalesunds-fotb-1953-3e9d.yaml`.
+- **Konklusjon:** Ingen kanoniske kamper er opprettet på grunnlag av terminlistene alene. De 5 kampene der kilden dokumenterer både motstander og resultat (cuptapet mot Ørsta 1–4, Aksla-turneringen mot Langevåg 1–0 og Aksla 5–4, privatkampen mot Langevåg 3–3, og seriekampen mot Ørsta 3–1) er bevart som kildedokumenterte oppføringer i `data/source-results/medlemsblad-for-aalesunds-fotb-1953-3e9d.yaml`. Resterende seriekamper omtales kun aggregert i tabell og sesongsummering.
 
 ---
 

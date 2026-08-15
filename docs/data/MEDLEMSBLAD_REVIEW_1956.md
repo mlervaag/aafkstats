@@ -50,16 +50,16 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060183329_001`
 | Person | Funn / Kilde | Kategori | Disposition | Handling / Notat |
 |---|---|---|---|---|
 | Kjell Berentzen | Formann 1956 (s. 16, 43, 64) | board | role_enriched | Formann i `kjell-berentzen.yaml` og snapshot `1956-aafk.yaml` |
-| Lauritz Giske | Nestformann 1956 (s. 37) | board | role_enriched | Nestformann i `lauritz-giske.yaml` og snapshot `1956-aafk.yaml` |
-| Rolf Annaniassen | Formann Banekomiteen 1956 (s. 64) | committee | role_enriched | Banekomiteformann i `rolf-annaniassen.yaml` og snapshot |
-| Einar Aas | Kåret til «Sesongens spiller 1956» for A-laget (s. 75) | honor / player | honor_created | Tildelt `arets-spiller-1956` i `einar-aas.yaml` |
-| Josef Skocik | Østerriksk fotballtrener / instruktør (s. 46) | coach | mention_linked | Taktikk og posisjonsspill omtalt |
+| Lauritz Giske | Nestformann Hovedstyret 1956 (s. 37) | board | role_created | Nestformann i `lauritz-giske.yaml` og snapshot `1956-aafk.yaml` |
+| Rolf Annaniassen | Formann Banekomiteen 1956 (s. 64) | project | role_created | Banekomiteformann i `rolf-annaniassen.yaml` og snapshot |
+| Einar Aas | Kåret til «Sesongens spiller 1956» for A-laget (s. 75) | honor | honor_created | Tildelt `arets-spiller-1956` i `einar-aas.yaml` |
+| Josef Skocik | Østerriksk trener / artikkelforfatter (s. 46) | coach | non_aafk | Fagartikkel om formasjon; ingen AaFK-trenerrolle |
 | Finn Tollås | Trener / instruktør (s. 4) | coach | role_enriched | Kildeberiket i `finn-tollas.yaml` |
-| Harald Nord | Redaktør Medlemsbladet (s. 17, 43, 57) | editorial | role_enriched | Redaktør i `harald-nord.yaml` |
-| Torid Fladmark | Indre venstre på juniorlaget (s. 37) | non_senior | mention_linked | Fremhevet for god teknikk mot Freja |
-| Kjell Iversen | Senterhalf på juniorlaget (s. 37) | non_senior | mention_linked | Fremhevet for solid forsvarsspill |
-| Erling Listhaug | Målvakt på guttelaget (s. 37) | non_senior | mention_linked | Banens beste i kampen mot Nordlandet |
-| Nic. Nilsen | 60 år / Leder Sunnmøre Idrettskrets (s. 41) | organization | mention_linked | Kretsleder feiret |
+| Harald Nord | Redaktør Medlemsbladet (s. 17, 43, 57) | admin | role_enriched | Redaktør i `harald-nord.yaml` |
+| Torid Fladmark | Indre venstre på juniorlaget (s. 37) | player | non_senior | Fremhevet for god teknikk mot Freja |
+| Kjell Iversen | Senterhalf på juniorlaget (s. 37) | player | non_senior | Fremhevet for solid forsvarsspill |
+| Erling Listhaug | Målvakt på guttelaget (s. 37) | player | non_senior | Banens beste i kampen mot Nordlandet |
+| Nic. Nilsen | 60 år / Leder Sunnmøre Idrettskrets (s. 41) | board | non_aafk | Kretsleder feiret; ingen AaFK-rolle |
 
 ---
 

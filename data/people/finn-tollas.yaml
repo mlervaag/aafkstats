@@ -50,6 +50,28 @@ roles:
           - title
           - from
           - to
+  - id: trener-1953-1954
+    category: coach
+    title: Trener
+    from: "1953"
+    to: "1954"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+        page: "12"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+        page: "64"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "30"
+        fields:
+          - title
+          - to
+    note: Trener for AaFKs A-lag i 1953 og 1954.
   - id: trener-1956
     category: coach
     title: Trener
@@ -63,6 +85,11 @@ roles:
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: year_row). Manuelt
           verifisert."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+        page: "4"
+        fields:
+          - title
+          - from
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
       siden.
   - id: trener-1957
@@ -331,5 +358,7 @@ conflicts:
     locked: true
     note: 1947 er fjernet fra Finn Tollås' ordinære roller.
 coachSpells:
+  - fromSeason: 1953
+    toSeason: 1954
   - fromSeason: 1956
     toSeason: 1957

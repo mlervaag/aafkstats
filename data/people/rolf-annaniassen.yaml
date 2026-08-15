@@ -1,6 +1,24 @@
 id: rolf-annaniassen
 name: Rolf Annaniassen
 roles:
+  - id: banekomiteformann-1956-1957
+    category: project
+    title: Formann i banekomiteen
+    body: Kråmyra-prosjektet
+    from: "1956"
+    to: "1957"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+        page: "64"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+        page: "50"
+        fields:
+          - title
+          - to
+    note: Ledet banekomiteen og dugnadsarbeidet for Kråmyra klubbhus.
   - id: sekretaer-1962
     category: administration
     title: Sekretær

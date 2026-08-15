@@ -59,6 +59,31 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
+      - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+        page: "66"
+        fields:
+          - title
+          - from
+        note: Gjenvalgt på årsmøtet 29.11.1953 for arbeidsåret 1954.
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "78"
+        fields:
+          - title
+          - from
+  - id: nestformann-hovedstyret-1956
+    category: board
+    title: Nestformann
+    body: Hovedstyret
+    from: "1956"
+    to: "1956"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+        page: "37"
+        fields:
+          - title
+          - from
+          - to
+    note: Nestformann i Hovedstyret 1956.
   - id: formann-1954
     category: board
     title: Formann

@@ -9,16 +9,27 @@ describe("Medlemsblad 1953–1956 (PR #156)", () => {
     archive = await loadArchive(resolve(import.meta.dirname, "../../../data"));
   }, 30_000);
 
-  it("fører korrekt formann i organisasjonssnapshots for 1953, 1954, 1955 og 1956", () => {
+  it("fører formenn i organisasjonssnapshots med presis distinksjon på organ (Hovedstyret, Banekomiteen, Dameavdelingen)", () => {
     const snap1953 = archive.organizationSnapshots.find((s) => s.date === "1953");
     const snap1954 = archive.organizationSnapshots.find((s) => s.date === "1954");
     const snap1955 = archive.organizationSnapshots.find((s) => s.date === "1955");
     const snap1956 = archive.organizationSnapshots.find((s) => s.date === "1956");
 
-    expect(snap1953?.people.find((p) => p.observedTitle === "Formann")?.personId).toBe("lauritz-giske");
-    expect(snap1954?.people.find((p) => p.observedTitle === "Formann")?.personId).toBe("lauritz-giske");
-    expect(snap1955?.people.find((p) => p.observedTitle === "Formann")?.personId).toBe("kjell-berentzen");
-    expect(snap1956?.people.find((p) => p.observedTitle === "Formann")?.personId).toBe("kjell-berentzen");
+    // Hovedstyrets formann
+    expect(snap1953?.people.find((p) => p.observedTitle === "Formann" && p.body === "Hovedstyret")?.personId).toBe("lauritz-giske");
+    expect(snap1954?.people.find((p) => p.observedTitle === "Formann" && p.body === "Hovedstyret")?.personId).toBe("lauritz-giske");
+    expect(snap1955?.people.find((p) => p.observedTitle === "Formann" && p.body === "Hovedstyret")?.personId).toBe("kjell-berentzen");
+    expect(snap1956?.people.find((p) => p.observedTitle === "Formann" && p.body === "Hovedstyret")?.personId).toBe("kjell-berentzen");
+
+    // Banekomiteens formann
+    expect(snap1953?.people.find((p) => p.observedTitle === "Formann" && p.body === "Banekomiteen")?.personId).toBe("emil-sando");
+    expect(snap1954?.people.find((p) => p.observedTitle === "Formann" && p.body === "Banekomiteen")?.personId).toBe("emil-sando");
+    expect(snap1955?.people.find((p) => p.observedTitle === "Formann" && p.body === "Banekomiteen")?.personId).toBe("emil-sando");
+    expect(snap1956?.people.find((p) => p.observedTitle === "Formann" && p.body === "Banekomiteen")?.personId).toBe("rolf-annaniassen");
+
+    // Dameavdelingens formann
+    expect(snap1953?.people.find((p) => p.observedTitle === "Formann" && p.body === "Dameavdelingen")?.personId).toBe("anita-wold");
+    expect(snap1954?.people.find((p) => p.observedTitle === "Formann" && p.body === "Dameavdelingen")?.personId).toBe("anita-wold");
   });
 
   it("dokumenterer formanns- og nestformannsperioder for Lauritz Giske og Kjell Berentzen", () => {
@@ -31,6 +42,16 @@ describe("Medlemsblad 1953–1956 (PR #156)", () => {
       to: "1954",
       category: "board",
       title: "Formann",
+      body: "Hovedstyret",
+    });
+
+    const giskeNestformann = giske?.roles?.find((r) => r.id === "nestformann-hovedstyret-1956");
+    expect(giskeNestformann).toMatchObject({
+      from: "1956",
+      to: "1956",
+      category: "board",
+      title: "Nestformann",
+      body: "Hovedstyret",
     });
 
     const berentzenFormann = berentzen?.roles?.find((r) => r.id === "formann-1955-1956");
@@ -41,6 +62,7 @@ describe("Medlemsblad 1953–1956 (PR #156)", () => {
       title: "Formann",
     });
     expect(berentzenFormann?.sources.some((s) => s.sourceId === "medlemsblad-for-aalesunds-fotb-1955-8ccc" && s.page === "64")).toBe(true);
+    expect(berentzenFormann?.sources.some((s) => s.sourceId === "medlemsblad-for-aalesunds-fotb-1956-3e52" && s.page === "16")).toBe(true);
   });
 
   it("fører Bernt Sulebust som sekretær og Harald Sæther som kasserer i 1953 og 1954", () => {
@@ -53,16 +75,29 @@ describe("Medlemsblad 1953–1956 (PR #156)", () => {
     expect(snap1954?.people.find((p) => p.observedTitle === "Kasserer")?.personId).toBe("harald-saether");
   });
 
-  it("fører trenere og oppmenn for 1953–1955", () => {
+  it("fører trenere og oppmenn for 1953–1955 med samsvar mellom snapshot og personfiler", () => {
     const snap1953 = archive.organizationSnapshots.find((s) => s.date === "1953");
     const snap1954 = archive.organizationSnapshots.find((s) => s.date === "1954");
     const snap1955 = archive.organizationSnapshots.find((s) => s.date === "1955");
 
     expect(snap1953?.people.find((p) => p.observedTitle === "Oppmann")?.personId).toBe("ragnvald-langva");
     expect(snap1953?.people.find((p) => p.observedTitle === "Trener")?.personId).toBe("finn-tollas");
-
     expect(snap1954?.people.find((p) => p.observedTitle === "Oppmann")?.personId).toBe("fritz-haagensen");
     expect(snap1955?.people.find((p) => p.observedTitle === "Trener")?.personId).toBe("oivind-haagensen");
+
+    // Reell verifikasjon av at personfilene også har rollene
+    const tollas = archive.people.find((p) => p.id === "finn-tollas");
+    expect(tollas?.roles?.some((r) => r.id === "trener-1953-1954" && r.category === "coach")).toBe(true);
+
+    const fritz = archive.people.find((p) => p.id === "fritz-haagensen");
+    expect(fritz?.roles?.some((r) => r.id === "oppmann-1954" && r.category === "sporting_staff")).toBe(true);
+    expect(fritz?.roles?.some((r) => r.id === "oppmann-1955" && r.category === "sporting_staff")).toBe(true);
+
+    const oivind = archive.people.find((p) => p.id === "oivind-haagensen");
+    expect(oivind?.roles?.some((r) => r.id === "trener-1955" && r.category === "coach")).toBe(true);
+
+    const langva = archive.people.find((p) => p.id === "ragnvald-langva");
+    expect(langva?.roles?.some((r) => r.id === "oppmann-1953" && r.category === "sporting_staff")).toBe(true);
   });
 
   it("fører Anita Wold (Anita Olsen-Vold) som formann i Dameavdelingen", () => {
@@ -84,13 +119,10 @@ describe("Medlemsblad 1953–1956 (PR #156)", () => {
       date: "1955-08-21",
       seasonYears: [1955],
     });
-    expect(obs?.personIds).toContain("emil-sando");
-    expect(obs?.personIds).toContain("kjell-berentzen");
+    expect(obs?.personIds).toEqual(["emil-sando"]);
 
-    const snap1953 = archive.organizationSnapshots.find((s) => s.date === "1953");
-    const snap1956 = archive.organizationSnapshots.find((s) => s.date === "1956");
-    expect(snap1953?.people.find((p) => p.body === "Banekomiteen")?.personId).toBe("emil-sando");
-    expect(snap1956?.people.find((p) => p.body === "Banekomiteen")?.personId).toBe("rolf-annaniassen");
+    const rolf = archive.people.find((p) => p.id === "rolf-annaniassen");
+    expect(rolf?.roles?.some((r) => r.id === "banekomiteformann-1956-1957" && r.body === "Kråmyra-prosjektet")).toBe(true);
   });
 
   it("dokumenterer hedersbevisninger, gullmerker og spillemerker", () => {
@@ -119,6 +151,16 @@ describe("Medlemsblad 1953–1956 (PR #156)", () => {
   });
 
   describe("Preservation-garanti mot person-regresjon (sentinel personer)", () => {
+    it("bevarer Karsten Nedregårds 1961-kilde (PR #154) og gullmerkehistorikk", () => {
+      const nedregard = archive.people.find((p) => p.id === "karsten-nedregard");
+      expect(nedregard).toBeDefined();
+      expect(nedregard?.roles?.some((r) => r.id === "gullmerkeinnehaver-1972")).toBe(true);
+      expect(nedregard?.roles?.some((r) => r.id === "spillemerke-gull-1950")).toBe(true);
+      // Eksplisitt vern av kilden lagt inn i PR #154
+      expect(nedregard?.sources.some((s) => s.sourceId === "medlemsblad-for-aalesunds-fotb-1961-a9f8" && s.page === "76")).toBe(true);
+      expect(nedregard?.sources.some((s) => s.sourceId === "medlemsblad-for-aalesunds-fotb-1953-3e9d" && s.page === "74")).toBe(true);
+    });
+
     it("bevarer all eldre og nyere historikk for Einar Aas", () => {
       const aas = archive.people.find((p) => p.id === "einar-aas");
       expect(aas).toBeDefined();
@@ -133,6 +175,9 @@ describe("Medlemsblad 1953–1956 (PR #156)", () => {
       expect(aas?.roles?.some((r) => r.id === "gullmerkeinnehaver-1960")).toBe(true);
       expect(aas?.roles?.some((r) => r.id === "gullmerkeinnehaver-2002")).toBe(true);
       expect(aas?.roles?.some((r) => r.id === "aeresmedlem-2013")).toBe(true);
+      expect(aas?.coachSpells).toEqual([
+        { fromSeason: 1960, toSeason: 1960 },
+      ]);
     });
 
     it("bevarer alle roller og konflikter for Peder Puck", () => {
@@ -143,8 +188,7 @@ describe("Medlemsblad 1953–1956 (PR #156)", () => {
       expect(puck?.roles?.some((r) => r.id === "styreleder-1945")).toBe(true);
       expect(puck?.roles?.some((r) => r.id === "formann-1946")).toBe(true);
       expect(puck?.roles?.some((r) => r.id === "aeresmedlem-1957")).toBe(true);
-      expect(puck?.conflicts).toBeDefined();
-      expect(puck?.conflicts && puck.conflicts.length > 0).toBe(true);
+      expect(puck?.conflicts?.some((c) => c.field === "formann.1932")).toBe(true);
     });
 
     it("bevarer alle roller, konflikter og kilder for Hans J. Henriksen", () => {
@@ -152,14 +196,16 @@ describe("Medlemsblad 1953–1956 (PR #156)", () => {
       expect(hans).toBeDefined();
       expect(hans?.roles?.some((r) => r.id === "formann-1957-1960")).toBe(true);
       expect(hans?.names).toContain("Hans Henriksen");
-      expect(hans?.conflicts).toBeDefined();
+      expect(hans?.conflicts?.some((c) => c.field === "formann.1968")).toBe(true);
     });
 
     it("bevarer alle roller for Lauritz Giske", () => {
       const giske = archive.people.find((p) => p.id === "lauritz-giske");
       expect(giske).toBeDefined();
       expect(giske?.roles?.some((r) => r.id === "formann-1953-1954")).toBe(true);
+      expect(giske?.roles?.some((r) => r.id === "nestformann-hovedstyret-1956")).toBe(true);
       expect(giske?.roles?.some((r) => r.id === "nestformann-1955")).toBe(true);
+      expect(giske?.roles?.some((r) => r.id === "gullmerkeinnehaver-1972")).toBe(true);
     });
 
     it("bevarer alle roller og hedersbevisninger for Asbjørn Korsnes", () => {
@@ -184,6 +230,15 @@ describe("Medlemsblad 1953–1956 (PR #156)", () => {
       expect(aaro?.roles?.some((r) => r.id === "spillemerke-300-kamper")).toBe(true);
       expect(aaro?.roles?.some((r) => r.id === "gullmerkeinnehaver-1987")).toBe(true);
       expect(aaro?.sources.some((s) => s.sourceId === "medlemsblad-for-aalesunds-fotb-1953-3e9d" && s.page === "75")).toBe(true);
+      expect(aaro?.sources.some((s) => s.sourceId === "medlemsblad-for-aalesunds-fotb-1954-cd1c" && s.page === "47")).toBe(true);
+    });
+
+    it("bevarer Kjell Berentzens roller, konflikter og nyere kilder", () => {
+      const berentzen = archive.people.find((p) => p.id === "kjell-berentzen");
+      expect(berentzen).toBeDefined();
+      expect(berentzen?.roles?.some((r) => r.id === "formann-1955-1956")).toBe(true);
+      expect(berentzen?.roles?.some((r) => r.id === "formann-1961")).toBe(true);
+      expect(berentzen?.roles?.find((r) => r.id === "formann-1961")?.sources.some((s) => s.sourceId === "medlemsblad-for-aalesunds-fotb-1961-a9f8")).toBe(true);
     });
   });
 });
