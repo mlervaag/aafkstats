@@ -1,0 +1,34 @@
+# Senioroppgjør fra Sunnmøre Fotballkrets' årsrapport 1974.
+# Rapportens side 13 dokumenterer senior-NM.
+sourceId: sunnmore-fotballkrets-arsrapport-1974
+scorePerspective: aafk
+seasons:
+  - year: 1974
+    page: 13
+    results:
+      - no: 1
+        opponent: Herd
+        opponentClubId: herd
+        score: [4, 0]
+        competitionId: nm
+        round: 1
+        matchId: null
+        note: Norgesmesterskapet 1974, 1. runde (Ålesund - Herd 4-0). Årsrapporten dokumenterer ikke sikker kampdato.
+      - no: 2
+        opponent: Ørsta
+        opponentClubId: orsta
+        score: [3, 3]
+        competitionId: nm
+        round: 2
+        extraTime: true
+        matchId: null
+        note: Norgesmesterskapet 1974, 2. runde (Örsta - Aalesund 3-3 (e.o.)). Årsrapporten dokumenterer ikke sikker kampdato.
+      - no: 3
+        opponent: Ørsta
+        opponentClubId: orsta
+        score: [0, 1]
+        competitionId: nm
+        round: 2
+        replay: true
+        matchId: null
+        note: Norgesmesterskapet 1974, 2. runde omkamp (Aalesund - Örsta 0-1). Årsrapporten dokumenterer ikke sikker kampdato.

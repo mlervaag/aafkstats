@@ -1,0 +1,99 @@
+competitionId: forstedivisjon
+season: 1970
+table:
+  - position: 1
+    name: Lyn
+    clubId: lyn
+    played: 14
+    wins: 8
+    draws: 4
+    losses: 2
+    goalsFor: 28
+    goalsAgainst: 13
+    points: 20
+    outcome: promoted
+  - position: 2
+    name: Steinkjer
+    clubId: steinkjer
+    played: 14
+    wins: 6
+    draws: 7
+    losses: 1
+    goalsFor: 20
+    goalsAgainst: 13
+    points: 19
+    outcome: none
+  - position: 3
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 14
+    wins: 5
+    draws: 6
+    losses: 3
+    goalsFor: 17
+    goalsAgainst: 11
+    points: 16
+    outcome: none
+  - position: 4
+    name: Stabæk
+    clubId: stabaek
+    played: 14
+    wins: 5
+    draws: 4
+    losses: 5
+    goalsFor: 17
+    goalsAgainst: 13
+    points: 14
+    outcome: none
+  - position: 5
+    name: Raufoss
+    clubId: raufoss-il
+    played: 14
+    wins: 5
+    draws: 4
+    losses: 5
+    goalsFor: 26
+    goalsAgainst: 27
+    points: 14
+    outcome: none
+  - position: 6
+    name: Aurskog
+    clubId: null
+    played: 14
+    wins: 3
+    draws: 6
+    losses: 5
+    goalsFor: 13
+    goalsAgainst: 30
+    points: 12
+    outcome: none
+  - position: 7
+    name: Eik
+    clubId: eik-tonsberg
+    played: 14
+    wins: 3
+    draws: 4
+    losses: 7
+    goalsFor: 18
+    goalsAgainst: 20
+    points: 10
+    outcome: relegated
+  - position: 8
+    name: Vålerengen
+    clubId: valerenga
+    played: 14
+    wins: 1
+    draws: 5
+    losses: 8
+    goalsFor: 11
+    goalsAgainst: 23
+    points: 7
+    outcome: relegated
+progression: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1970
+    page: "13"
+    fields:
+      - table
+note: >
+  2. divisjon avdeling B 1970. Sunnmøre Fotballkrets (side 13, s. 6 i rapporten) er primærkilde.

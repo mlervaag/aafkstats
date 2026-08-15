@@ -1,0 +1,121 @@
+competitionId: forstedivisjon
+season: 1975
+table:
+  - position: 1
+    name: Bryne
+    clubId: bryne
+    played: 18
+    wins: 15
+    draws: 2
+    losses: 1
+    goalsFor: 41
+    goalsAgainst: 10
+    points: 32
+    outcome: promoted
+  - position: 2
+    name: Vard
+    clubId: vard
+    played: 18
+    wins: 14
+    draws: 1
+    losses: 3
+    goalsFor: 40
+    goalsAgainst: 15
+    points: 29
+    outcome: promotion_playoff
+  - position: 3
+    name: Lyn
+    clubId: lyn
+    played: 18
+    wins: 11
+    draws: 3
+    losses: 4
+    goalsFor: 38
+    goalsAgainst: 16
+    points: 25
+    outcome: none
+  - position: 4
+    name: Steinkjer
+    clubId: steinkjer
+    played: 18
+    wins: 9
+    draws: 4
+    losses: 5
+    goalsFor: 34
+    goalsAgainst: 22
+    points: 22
+    outcome: none
+  - position: 5
+    name: Varegg
+    clubId: varegg-fotball-men
+    played: 18
+    wins: 5
+    draws: 6
+    losses: 7
+    goalsFor: 23
+    goalsAgainst: 27
+    points: 16
+    outcome: none
+  - position: 6
+    name: Hödd
+    clubId: hodd
+    played: 18
+    wins: 5
+    draws: 6
+    losses: 7
+    goalsFor: 15
+    goalsAgainst: 25
+    points: 16
+    outcome: none
+  - position: 7
+    name: Frigg
+    clubId: frigg
+    played: 18
+    wins: 5
+    draws: 5
+    losses: 8
+    goalsFor: 23
+    goalsAgainst: 33
+    points: 15
+    outcome: none
+  - position: 8
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 18
+    wins: 5
+    draws: 4
+    losses: 9
+    goalsFor: 24
+    goalsAgainst: 23
+    points: 14
+    outcome: none
+  - position: 9
+    name: Sunndal
+    clubId: sunndal
+    played: 18
+    wins: 1
+    draws: 5
+    losses: 12
+    goalsFor: 11
+    goalsAgainst: 36
+    points: 7
+    outcome: relegated
+  - position: 10
+    name: Florvåg
+    clubId: null
+    played: 18
+    wins: 1
+    draws: 2
+    losses: 15
+    goalsFor: 12
+    goalsAgainst: 54
+    points: 4
+    outcome: relegated
+progression: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1975
+    page: "24"
+    fields:
+      - table
+note: >
+  2. divisjon avdeling A 1975. Sunnmøre Fotballkrets (side 24, s. 22 i rapporten) er primærkilde.

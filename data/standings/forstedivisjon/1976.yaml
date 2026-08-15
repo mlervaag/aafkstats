@@ -1,0 +1,121 @@
+competitionId: forstedivisjon
+season: 1976
+table:
+  - position: 1
+    name: Moss
+    clubId: moss
+    played: 18
+    wins: 12
+    draws: 3
+    losses: 3
+    goalsFor: 43
+    goalsAgainst: 11
+    points: 27
+    outcome: promoted
+  - position: 2
+    name: Odd
+    clubId: null
+    played: 18
+    wins: 11
+    draws: 1
+    losses: 6
+    goalsFor: 32
+    goalsAgainst: 24
+    points: 23
+    outcome: promotion_playoff
+  - position: 3
+    name: Hödd
+    clubId: hodd
+    played: 18
+    wins: 8
+    draws: 6
+    losses: 4
+    goalsFor: 34
+    goalsAgainst: 23
+    points: 22
+    outcome: none
+  - position: 4
+    name: Sarpsborg
+    clubId: sarpsborg
+    played: 18
+    wins: 8
+    draws: 3
+    losses: 7
+    goalsFor: 27
+    goalsAgainst: 29
+    points: 19
+    outcome: none
+  - position: 5
+    name: Fram
+    clubId: null
+    played: 18
+    wins: 5
+    draws: 8
+    losses: 5
+    goalsFor: 23
+    goalsAgainst: 18
+    points: 18
+    outcome: none
+  - position: 6
+    name: Larvik Turn
+    clubId: larvik-turn
+    played: 18
+    wins: 6
+    draws: 3
+    losses: 9
+    goalsFor: 21
+    goalsAgainst: 26
+    points: 15
+    outcome: none
+  - position: 7
+    name: Os
+    clubId: os
+    played: 18
+    wins: 6
+    draws: 3
+    losses: 9
+    goalsFor: 25
+    goalsAgainst: 33
+    points: 15
+    outcome: none
+  - position: 8
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 18
+    wins: 4
+    draws: 7
+    losses: 7
+    goalsFor: 19
+    goalsAgainst: 30
+    points: 15
+    outcome: relegation_playoff
+  - position: 9
+    name: Stavanger
+    clubId: stavanger-if
+    played: 18
+    wins: 4
+    draws: 6
+    losses: 8
+    goalsFor: 21
+    goalsAgainst: 30
+    points: 14
+    outcome: relegated
+  - position: 10
+    name: Varegg
+    clubId: varegg-fotball-men
+    played: 18
+    wins: 4
+    draws: 4
+    losses: 10
+    goalsFor: 15
+    goalsAgainst: 36
+    points: 12
+    outcome: relegated
+progression: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1976
+    page: "12"
+    fields:
+      - table
+note: >
+  2. divisjon avdeling A 1976. Sunnmøre Fotballkrets (side 12, s. 10 i rapporten) er primærkilde. AaFK spilte kvalifisering om å bli stående i 2. divisjon mot Nessegutten (0–1, 2–2, tap 2–3 sammenlagt) og rykket ned.
