@@ -16,6 +16,8 @@
     "data:uncertain": "pnpm --filter @aafkstats/schema run uncertain",
     "data:contradictions": "pnpm --filter @aafkstats/schema run contradictions",
     "data:verification-candidates": "pnpm --filter @aafkstats/schema run verification-candidates",
+    "data:historical-preservation": "pnpm --filter @aafkstats/schema run historical-preservation",
+    "data:historical-audit": "pnpm --filter @aafkstats/schema run historical-audit",
     "etter-kamp": "pnpm --filter @aafkstats/ingest run etter-kamp",
     "ingest:fotmob": "pnpm --filter @aafkstats/ingest run fotmob",
     "ingest:fotmob-gap": "pnpm --filter @aafkstats/ingest run fotmob-gap",

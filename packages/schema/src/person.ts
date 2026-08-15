@@ -78,6 +78,8 @@ export const squadNumber = z
   })
   .strict();
 
+export type SquadNumber = z.infer<typeof squadNumber>;
+
 /**
  * En periode personen var hovedtrener, oppgitt av en kilde.
  *
@@ -104,6 +106,8 @@ export const declaredCoachSpell = z
     note: z.string().optional(),
   })
   .strict();
+
+export type DeclaredCoachSpell = z.infer<typeof declaredCoachSpell>;
 
 export const person = z
   .object({
