@@ -56,6 +56,14 @@ sources:
   - sourceId: sunnmore-fotballkrets-arsrapport-1962
     page: "7"
     fields: *a1
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "50"
+    fields:
+      - venueId
+      - extraTime
+      - home.score
+      - away.score
+    note: "Medlemsbladet 1962 hefte 5 s. 50: 'I Bergen greidde vårt lag å spille uavgjort 0–0 mot Brann etter 2 x 15 minutters ekstraomganger.'"
 confidence: probable
 conflicts: []
 tags: []

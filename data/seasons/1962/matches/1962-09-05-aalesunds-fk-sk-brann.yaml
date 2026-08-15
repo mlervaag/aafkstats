@@ -53,6 +53,14 @@ sources:
   - sourceId: sunnmore-fotballkrets-arsrapport-1962
     page: "7"
     fields: *a1
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "53"
+    fields:
+      - venueId
+      - attendance
+      - home.score
+      - away.score
+    note: "Medlemsbladet 1962 hefte 5 s. 53 og hefte 6 s. 75: 'Omkampen på Aksla stadion samlet 11 000 tilskuere (ny publikumsrekord). Sluttresultat 1–2 etter ekstraomganger.'"
 confidence: probable
 conflicts: []
 tags: []

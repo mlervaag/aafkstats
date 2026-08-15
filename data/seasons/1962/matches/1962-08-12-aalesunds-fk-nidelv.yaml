@@ -15,7 +15,8 @@ away:
   clubId: nidelv
   score: 0
   halfTimeScore: null
-neutralVenue: false
+venueId: aksla-stadion
+attendance: 2200
 events: []
 externalReports: []
 providers:
@@ -51,3 +52,16 @@ sources:
   - sourceId: sunnmore-fotballkrets-arsrapport-1962
     page: "7"
     fields: *a1
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "75"
+    fields:
+      - date
+      - venueId
+      - home.score
+      - away.score
+    note: "Medlemsbladet 1962 hefte 6 s. 75: '3. rundekampen mot Nidelv på Aksla stadion ble spilt under helt trøstesløse forhold og ble vunnet 1–0.'"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "76"
+    fields:
+      - attendance
+    note: "Medlemsbladet 1962 hefte 6 s. 76: '3. rundekampen Nidelv samlet 2200 tilskuere.'"

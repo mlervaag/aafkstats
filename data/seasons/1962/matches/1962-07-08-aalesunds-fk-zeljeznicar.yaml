@@ -1,0 +1,73 @@
+id: 1962-07-08-aalesunds-fk-zeljeznicar
+date: 1962-07-08
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1962
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: zeljeznicar
+  score: 4
+  halfTimeScore: 1
+neutralVenue: false
+venueId: aksla-stadion
+attendance: 3900
+events:
+  - minute: 70
+    type: goal
+    team: home
+    player: Arne Finsnes
+    note: Arne Finsnes reduserte til 1–3 etter forarbeid av Terje Hellerud.
+lineups:
+  home:
+    starters:
+      - Einar Aas
+      - Oskar Pedersen
+      - Thorbjørn Aarø
+      - Harald Johansen
+      - Johan Pedersen
+      - Svein Rødland
+      - Terje Hellerud
+      - Asbjørn Rutgerson
+      - Arne Finsnes
+      - Kjell Iversen
+      - Arnfinn Gjerde
+    subs:
+      - Kjell Luthentun
+      - Sigurd Tafjord
+      - Einar With
+      - Thorbjørn Østrem
+externalReports: []
+providers: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "40"
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - venueId
+      - lineups.home
+      - events
+    note: "Internasjonal privatkamp mot det jugoslaviske laget Željezničar Sarajevo (1–4, pause 0–1). Gjestespiller: Terje Hellerud (Frigg)."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "76"
+    fields:
+      - attendance
+    note: Publikumsstatistikken for 1962 oppgir 3 900 tilskuere på Aksla stadion.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []

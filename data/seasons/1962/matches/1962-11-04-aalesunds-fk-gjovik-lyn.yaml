@@ -15,6 +15,22 @@ away:
   score: 2
   halfTimeScore: null
 neutralVenue: false
+venueId: aksla-stadion
+attendance: 12000
+lineups:
+  home:
+    starters:
+      - Einar Aas
+      - Oskar Pedersen
+      - Thorbjørn Aarø
+      - Harald Johansen
+      - Johan Pedersen
+      - Einar With
+      - Svein Rødland
+      - Steinar Nedregård
+      - Kjell Iversen
+      - Arnfinn Gjerde
+      - Arne Finsnes
 events: []
 externalReports: []
 providers:
@@ -48,3 +64,16 @@ sources:
   - sourceId: sunnmore-fotballkrets-arsrapport-1962
     page: "10"
     fields: *a1
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "74"
+    fields:
+      - venueId
+      - home.score
+      - away.score
+      - lineups.home
+    note: "Medlemsbladet 1962 hefte 6 s. 74–75: Bilde og omtale av ÅFKs lag i kampene mot Gjøvik-Lyn (tap 1–2 på Aksla stadion)."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "76"
+    fields:
+      - attendance
+    note: "Medlemsbladet 1962 hefte 6 s. 69 og s. 76: Kvalifiseringskampen mot Gjøvik-Lyn samlet 12 000 tilskuere (ny publikumsrekord for Nord-Vestlandet)."
