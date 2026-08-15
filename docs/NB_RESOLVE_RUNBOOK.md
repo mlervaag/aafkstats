@@ -290,3 +290,12 @@ Uendret fra første gjennomgang, og grensen går samme sted:
 - Det som committes er navn, tittel, årstall, sidetall, ID-er og innholdshasher.
   `resolvedRoles` inneholder aldri løpende tekst fra publikasjonen.
 - Vercel Blob er offentlig og skal ikke brukes til rettighetsbelagt råtekst.
+
+## Forholdet til manuell og redaksjonell kildeinnhøsting
+
+Denne runbooken beskriver den **maskinelle uttrekkspipelinen** for storskala kandidatgenerering og oppslag.
+
+For fullverdig manuell/semi-maskinell innhøsting av historiske publikasjoner med visuell primærkildekontroll, feltspesifikk proveniens, terminliste-reconciliation, additivitetsgaranti og fullstendig verifisering, se:
+- [`HISTORISK_KILDEINNHOSTING_RUNBOOK.md`](HISTORISK_KILDEINNHOSTING_RUNBOOK.md)
+- Kildeprofil for medlemsblad: [`MEDLEMSBLAD_INNHOSTING.md`](MEDLEMSBLAD_INNHOSTING.md)
+
