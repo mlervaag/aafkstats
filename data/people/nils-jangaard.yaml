@@ -57,8 +57,7 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt
-          verifisert."
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt verifisert."
       - sourceId: vi-er-80-ar-1914-1994-1994-5e91
         page: "7"
         fields:
@@ -77,8 +76,7 @@ roles:
           - title
           - from
           - to
-        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt
-          verifisert."
+        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt verifisert."
       - sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
         page: "6"
         fields:
@@ -112,8 +110,7 @@ roles:
           - title
           - from
           - to
-        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt
-          verifisert."
+        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt verifisert."
       - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
         page: "74"
         fields: &a1
@@ -159,8 +156,7 @@ roles:
           - title
           - from
           - to
-        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt
-          verifisert."
+        note: "Lest maskinelt fra spalte 3 på siden (regel: name_then_year). Manuelt verifisert."
       - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
         page: "74"
         fields: *a1
@@ -200,8 +196,7 @@ sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "27"
     fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-      Manuelt verifisert.
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret. Manuelt verifisert.
   - sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
     page: "5"
     fields: []
@@ -282,6 +277,8 @@ sources:
     page: "7"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: "11"
 conflicts:
   - field: oppmann.1917
     values:

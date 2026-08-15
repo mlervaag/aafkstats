@@ -25,7 +25,8 @@ describe("historiske observasjoner", () => {
     expect(observations).toEqual(expect.arrayContaining([
       expect.objectContaining({ id: "georg-haller-romsdalsturneen", text: expect.stringContaining("særskilt takk") }),
     ]));
-    expect(observations[0]!.sources).toEqual(expect.arrayContaining([{ sourceId: "nff-arbok-1914-1915", page: "24", fields: [], note: undefined }]));
+    const hallerTurne = observations.find((entry) => entry.id === "georg-haller-romsdalsturneen");
+    expect(hallerTurne?.sources).toEqual(expect.arrayContaining([{ sourceId: "nff-arbok-1914-1915", page: "24", fields: [], note: undefined }]));
     expect(getPersonRoles("georg-haller").filter((role) => role.title === "Formann")).toHaveLength(1);
   });
 

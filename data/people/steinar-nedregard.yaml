@@ -1,22 +1,25 @@
 id: steinar-nedregard
 name: Steinar Nedregård
 roles:
-  [
-    {
-        id: trener-1975-1976,
-        category: coach,
-        title: Trener,
-        from: "1975",
-        to: "1976",
-        sources:
-          [
-            {
-                sourceId: tango-siden-1914-2013-806b,
-                page: "351",
-                fields: [ title, from, to ],
-                note: Manuelt verifisert.
-              }
-          ]
-      }
-  ]
-coachSpells: [ { fromSeason: 1975, toSeason: 1976 } ]
+  - id: trener-1975-1976
+    category: coach
+    title: Trener
+    from: "1975"
+    to: "1976"
+    sources:
+      - sourceId: tango-siden-1914-2013-806b
+        page: "351"
+        fields:
+          - title
+          - from
+          - to
+        note: Manuelt verifisert.
+coachSpells:
+  - fromSeason: 1975
+    toSeason: 1976
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: "79"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "78"
+note: Debuterte på A-laget mot Østsiden i 1961. Delt toppscorer i 1962 med 13 mål.

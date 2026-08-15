@@ -20,3 +20,19 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
+  - id: spillemerke-150-kamper
+    category: honorary
+    title: Sølvmerke for 150 A-kamper
+    from: "1962"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+        page: "39"
+      - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+        page: "81"
+    note: Spilte sin 150. A-kamp mot Guard i Sommercupen 1962.
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: "77"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "78"

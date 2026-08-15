@@ -1,23 +1,22 @@
 id: frantz-lovmo
 name: Frantz Løvmo
 roles:
-  - {
-      id: gullmerkeinnehaver-1964,
-      category: honorary,
-      title: Gullmerkeinnehaver,
-      from: "1964",
-      to: null,
-      sources:
-        [
-          { sourceId: aafk-historie-utmerkelser, fields: [ title, from ] },
-          {
-              sourceId: tango-siden-1914-2013-806b,
-              page: "350",
-              fields: [ title, from ],
-              note: Manuelt verifisert.
-            }
-        ]
-    }
+  - id: gullmerkeinnehaver-1964
+    category: honorary
+    title: Gullmerkeinnehaver
+    from: "1964"
+    to: null
+    sources:
+      - sourceId: aafk-historie-utmerkelser
+        fields:
+          - title
+          - from
+      - sourceId: tango-siden-1914-2013-806b
+        page: "350"
+        fields:
+          - title
+          - from
+        note: Manuelt verifisert.
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "53"
@@ -63,3 +62,7 @@ sources:
     page: "7"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: "57"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: "72"

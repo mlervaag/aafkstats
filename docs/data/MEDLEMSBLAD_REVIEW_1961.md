@@ -174,10 +174,55 @@ Før manuell review og adapteroptimalisering for 1961:
 
 ---
 
+## Fullføring og normalisering 1961 (PR #154)
+
+I henhold til kravene for PR #154 er samtlige funn i 1961-årgangen ferdig normalisert i det kanoniske arkivet:
+
+### 1. Personer og verv (DEL A & B)
+- **Hovedstyret og ledelse:**
+  - `kjell-berentzen`: Gjenvalgt som formann for 1961 på årsmøtet for 1960 (s. 7, 12, 59, 60). Takket av på årsmøtet 26. november 1961 etter fullføringen av Kråmyra-klubbhuset.
+  - `hans-henriksen`: Nestformann for 1961 (s. 7, 36). Valgt til ny formann for 1962 på årsmøtet 26. november 1961 (s. 59).
+  - `jarle-kristoffersen`: Sekretær for 1961 (s. 7, 36, 63).
+  - `rolf-annaniassen`: Valgt til sekretær for 1962 på årsmøtet 26. november 1961 (s. 59).
+  - `peder-puck`: Hedret med NIF plakett (s. 30), hedret sliter (s. 72).
+  - `frantz-lovmo`: Valgkomité (s. 57), hedret sliter (s. 72).
+  - `bjorn-riise`: Oppmann og leder for guttelaget (s. 24, 36, 72).
+  - `reidar-skarbovik`: Takket av etter 29 års innsats for junioravdelingen (s. 21, 66).
+  - `hans-ole-sodergren`: Autorisert forbundsdommer NFF (s. 4).
+  - `perry-ystenes`: Hedret klubbsliter (s. 72).
+
+- **Kvinneavdelingen / Dameavdelingen (15-årsjubileum 1946–1961):**
+  - `hilda-orheim`: Formann 1961 (s. 9, 17, 36).
+  - `lollo-stub`: Nestformann 1961 (s. 9, 17, 36).
+  - `lilly-annaniassen`: Sekretær 1961 (s. 9, 17, 36).
+  - `else-giske`: Kasserer 1961 (s. 9, 17, 36).
+  - Historiske formenn: `irma-ingebrigtsen` (1946), `mary-vegsund` (1949), `alfhild-ringdal` (1951), `anita-wold` (1954), `gerd-stromsholm` (1956), `elisif-ingebrigtsen` (1959).
+
+### 2. Trener- og oppmannshistorikk (DEL C & D)
+- **Oppmann og trener 1961:** `einar-aas` (oppmann A-laget, s. 10, 19, 36, 64) ledet vintertrening og sportslig opplegg sammen med lagkaptein `torbjorn-aaro` (s. 10, 44). Willy Kment holdt instruksjonskurs (s. 33, 39).
+- **Treneransettelse for 1962:** Årsmøtet 26. november 1961 vedtok å ansette `reidar-steen-jensen` som ny spillende trener for 1962-sesongen (s. 80).
+
+### 3. Spillerstatistikk og debutanter (DEL E & F)
+- **Offisielle tall for A-laget:** 31 kamper (22 seire, 1 uavgjort, 8 tap, 75–58 mål).
+- **Flest kamper:** Arne Finsnes (29), Kjell Iversen (29), Harald Johansen (28), Johan Pedersen (26), Einar Aas (23).
+- **Toppscorere:** Kjell Iversen (27 mål), Arne Finsnes (13 mål), Harald Johansen (10 mål), Thorbjørn Østrem (6 mål), Asbjørn Rutgerson (4 mål).
+- **Nye debutanter på A-laget i 1961:** Svein Arne Hoel, Erling Listhaug, Arnvid Landquist, Einar With, Håkon Garshol, Steinar Nedregård og Svein Rødland (s. 49, 79).
+- **Juniorlandslagsdebut:** `einar-with` ble klubbens første juniorlandslagsspiller i seieren over Danmark (s. 55, 63).
+
+### 4. Historiske tilbakeblikk og klubbhistorie (DEL G & H)
+- `1940-sesongen-bislett-skeid`: Reidar Skarbøvik om NM 5. runde 1940 mot Skeid på Bislett (s. 14–15).
+- `1940-byderby-rollon`: NM 3. runde 1940 AaFK–Rollon 2–0 på Nørvebanen for 1 600 tilskuere (s. 84).
+- `1961-kramyra-klubbhus-innvielse`: Klubbhusinnvielsen 18. februar 1961 på Kråmyra til 110 000 kr (s. 6, 62).
+- `1961-georg-haller-dod`: Klubbens stifter Georg Haller død 25. februar 1961 (s. 5).
+- **Utmerkelser:** Johs. «Hanne» Hollevik tildelt gullmerke (s. 71). Rasmus Eck-Olsen og Nils Jangaard hedret ved 65-årsdager (s. 3, 11). Karsten «Kakken» Nedregård (314 kamper) og Øivind Haagensen (200 kamper) hedret (s. 76, 78).
+
+### 5. Organisasjonsbilde og kryssårskontroll 1961 ↔ 1962 (DEL B & I)
+- `data/organization/snapshots/1961-aafk.yaml` og `data/organization/snapshots/1962-aafk.yaml` dokumenterer overgangen fra Kjell Berentzen (1961) til Hans Henriksen (1962), Reidar Steen Jensens ansettelse (1962), og kontinuiteten for Einar Aas (oppmann), Bjørn Riise (guttelag) og Hilda Orheim (Dameavdelingen).
+
+---
+
 ## Konklusjon
 
-- **1961-innhøstingen er komplett gjennomført.**
-- Metoden etablert i PR #151 (1962) har vist seg fullt generaliserbar for neste årgang.
-- 2 nye kanoniske kamper (`1961-07-06-aalesunds-fk-canto-do-rio` og `1961-06-22-aalesunds-fk-koge-bk`) er opprettet, 1 kanonisk kamp er beriket (`1961-08-06-rosenborg-bk-aalesunds-fk`).
-- **15 oppgjør med eksplisitt score** er registrert i `data/source-results/medlemsblad-for-aalesunds-fotb-1961-a9f8.yaml`.
-- Ytterligere **9 identifiserte oppgjør uten eksplisitt score** er bevart i reviewloggen uten konstruerte resultater.
+- **1961- og 1962-årgangene er fullført som komplette historiske arkivkilder.**
+- Samtlige kamper, personer, verv, årsmøter, spillerfakta, klubbhistoriske hendelser og kildekonflikter er entydig forankret til `sourceId + page` uten konstruerte data.
+

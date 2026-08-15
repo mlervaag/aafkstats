@@ -14,8 +14,7 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
-      siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
   - id: gullmerkeinnehaver-1982
     category: honorary
     title: Gullmerkeinnehaver
@@ -97,12 +96,22 @@ roles:
           - title
           - from
         note: Manuelt verifisert.
+  - id: spillemerke-200-kamper
+    category: honorary
+    title: Gullmerke for 200 A-kamper
+    from: "1962"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+        page: "52"
+      - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+        page: "81"
+    note: Spilte sin 200. A-kamp mot Langevåg i Sommercupen 1962.
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "27"
     fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-      Manuelt verifisert.
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret. Manuelt verifisert.
   - sourceId: medlemsblad-for-aalesunds-fotb-1980-bec4
     page: "1"
     fields: []
@@ -123,3 +132,7 @@ sources:
     page: "7"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: "57"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    page: "52"
