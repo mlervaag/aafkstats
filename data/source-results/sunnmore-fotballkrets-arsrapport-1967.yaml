@@ -1,0 +1,38 @@
+# Senioroppgjør fra Sunnmøre Fotballkrets' årsrapport 1967.
+# Rapportens side 5 dokumenterer senior-NM og opprykkskvalifisering.
+sourceId: sunnmore-fotballkrets-arsrapport-1967
+scorePerspective: aafk
+seasons:
+  - year: 1967
+    page: 5
+    results:
+      - no: 1
+        opponent: Skarbøvik
+        opponentClubId: skarbovik
+        score: [2, 1]
+        competitionId: nm
+        round: 1
+        matchId: null
+        note: Norgesmesterskapet 1967, 1. runde (AAFK - Skarbövik 2–1). Årsrapporten dokumenterer ikke sikker kampdato.
+      - no: 2
+        opponent: Herd
+        opponentClubId: herd
+        score: [1, 2]
+        competitionId: nm
+        round: 2
+        matchId: null
+        note: Norgesmesterskapet 1967, 2. runde (Herd - AAFK 2–1). Årsrapporten dokumenterer ikke sikker kampdato.
+      - no: 3
+        opponent: Falken
+        opponentClubId: falken
+        score: [1, 1]
+        competitionId: forstedivisjon
+        matchId: 1967-10-08-aalesunds-fk-falken
+        note: Opprykk til 2. divisjon 1967 (Aafk - Falken 1–1).
+      - no: 4
+        opponent: Falken
+        opponentClubId: falken
+        score: [1, 0]
+        competitionId: forstedivisjon
+        matchId: 1967-10-15-falken-aalesunds-fk
+        note: Opprykk til 2. divisjon 1967 (Falken - Aafk 0–1). AaFK rykket opp til 2. divisjon.

@@ -1,0 +1,99 @@
+competitionId: forstedivisjon
+season: 1969
+table:
+  - position: 1
+    name: Hamarkameratene
+    clubId: hamarkameratene
+    played: 14
+    wins: 9
+    draws: 4
+    losses: 1
+    goalsFor: 22
+    goalsAgainst: 10
+    points: 22
+    outcome: promoted
+  - position: 2
+    name: Stabæk
+    clubId: stabaek
+    played: 14
+    wins: 8
+    draws: 1
+    losses: 5
+    goalsFor: 28
+    goalsAgainst: 18
+    points: 17
+    outcome: none
+  - position: 3
+    name: Aalesund fk.
+    clubId: aalesunds-fk
+    played: 14
+    wins: 7
+    draws: 3
+    losses: 4
+    goalsFor: 25
+    goalsAgainst: 15
+    points: 17
+    outcome: none
+  - position: 4
+    name: Raufoss
+    clubId: raufoss-il
+    played: 14
+    wins: 6
+    draws: 4
+    losses: 4
+    goalsFor: 32
+    goalsAgainst: 25
+    points: 16
+    outcome: none
+  - position: 5
+    name: Aurskog
+    clubId: null
+    played: 14
+    wins: 6
+    draws: 1
+    losses: 7
+    goalsFor: 14
+    goalsAgainst: 19
+    points: 13
+    outcome: none
+  - position: 6
+    name: Frigg
+    clubId: frigg
+    played: 14
+    wins: 4
+    draws: 4
+    losses: 6
+    goalsFor: 16
+    goalsAgainst: 18
+    points: 12
+    outcome: none
+  - position: 7
+    name: Örn
+    clubId: orn
+    played: 14
+    wins: 5
+    draws: 0
+    losses: 9
+    goalsFor: 21
+    goalsAgainst: 33
+    points: 10
+    outcome: relegated
+  - position: 8
+    name: Falken
+    clubId: falken
+    played: 14
+    wins: 1
+    draws: 3
+    losses: 10
+    goalsFor: 12
+    goalsAgainst: 32
+    points: 5
+    outcome: relegated
+progression: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1969
+    page: "14"
+    fields:
+      - table
+note: >
+  2. divisjon avdeling B 1969. Sunnmøre Fotballkrets er primærkilde.

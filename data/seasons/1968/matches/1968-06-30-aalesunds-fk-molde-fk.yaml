@@ -31,9 +31,23 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: sunnmore-fotballkrets
+    url: https://www.fotball.no/globalassets/krets/sunnmore/om-kretsen/arsrapporter/arsrapport-1968.pdf
+    retrievedAt: 2026-08-15
+    fields: &a1
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1968-cup-1968-06-30-aalesunds-fk-molde
 manual: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1968
+    page: "6"
+    fields: *a1

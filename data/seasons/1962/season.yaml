@@ -1,5 +1,11 @@
 year: 1962
 competitionId: forstedivisjon
-finalPosition: null
+finalPosition: 1
+teamsInLeague: 8
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1962
+    page: "8"
+    fields: [competitionId, finalPosition, teamsInLeague]
 promoted: false
 relegated: false
+note: Sluttabellen gjelder Landsdelsserien Møre 1961/62 («Maratonserien»). AaFK vant divisjonen og ble landsdelsmester.

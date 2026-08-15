@@ -1,0 +1,112 @@
+competitionId: forstedivisjon
+season: 1962
+table:
+  - position: 1
+    name: ÅFK
+    clubId: aalesunds-fk
+    played: 21
+    wins: 16
+    draws: 3
+    losses: 2
+    goalsFor: 51
+    goalsAgainst: 16
+    points: 35
+    outcome: promotion_playoff
+  - position: 2
+    name: Langevåg
+    clubId: langevag
+    played: 21
+    wins: 13
+    draws: 4
+    losses: 4
+    goalsFor: 65
+    goalsAgainst: 31
+    points: 30
+    outcome: none
+  - position: 3
+    name: Hødd
+    clubId: hodd
+    played: 21
+    wins: 13
+    draws: 3
+    losses: 5
+    goalsFor: 66
+    goalsAgainst: 30
+    points: 29
+    outcome: none
+  - position: 4
+    name: Molde Fk.
+    clubId: molde-fk
+    played: 21
+    wins: 8
+    draws: 3
+    losses: 10
+    goalsFor: 42
+    goalsAgainst: 51
+    points: 19
+    outcome: none
+  - position: 5
+    name: KFK
+    clubId: kfk
+    played: 21
+    wins: 8
+    draws: 2
+    losses: 11
+    goalsFor: 39
+    goalsAgainst: 43
+    points: 18
+    outcome: none
+  - position: 6
+    name: CFK
+    clubId: clausenengen
+    played: 21
+    wins: 6
+    draws: 2
+    losses: 13
+    goalsFor: 34
+    goalsAgainst: 50
+    points: 14
+    outcome: none
+  - position: 7
+    name: Braatt
+    clubId: braatt
+    played: 21
+    wins: 5
+    draws: 4
+    losses: 12
+    goalsFor: 35
+    goalsAgainst: 64
+    points: 14
+    outcome: relegated
+  - position: 8
+    name: SIF
+    clubId: skarbovik
+    played: 21
+    wins: 4
+    draws: 1
+    losses: 16
+    goalsFor: 31
+    goalsAgainst: 78
+    points: 9
+    outcome: relegated
+progression: []
+providers:
+  - providerId: sunnmore-fotballkrets
+    url: https://www.fotball.no/globalassets/krets/sunnmore/om-kretsen/arsrapporter/arsrapport-1962.pdf
+    retrievedAt: 2026-08-15
+    fields:
+      - table
+  - providerId: rsssf
+    url: https://www.rsssf.no
+    retrievedAt: 2026-08-15
+    fields:
+      - table
+    note: Kontrollkilde for målstatistikk i 1961/62.
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1962
+    page: "8"
+    fields:
+      - table
+note: >
+  Landsdelsserien Møre 1961/62 («Maratonserien», 21 kamper). Sunnmøre Fotballkrets
+  oppgir kamper, seier, uavgjort, tap og poeng; RSSSF supplerer målkolonnen.

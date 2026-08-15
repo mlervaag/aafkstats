@@ -52,9 +52,9 @@ leser fra.
 | | |
 |---|---|
 | **1 480 kamper** | Kamper registrert totalt i arkivet |
-| **471 kildedokumenterte resultatoppføringer** | Resultatobservasjoner bevart direkte fra historiske kilder; selve oppføringene teller ikke som kamper. **447 mangler fortsatt kobling til en kanonisk kamp.** |
+| **510 kildedokumenterte resultatoppføringer** | Resultatobservasjoner bevart direkte fra historiske kilder; selve oppføringene teller ikke som kamper. **474 mangler fortsatt kobling til en kanonisk kamp.** |
 | **87 år med kanoniske kamper** | 1915–2026, år med minst én registrert kamp. Enkeltkamper tilbake til 1915, cupen til 1917, regionale kretskamper til 1920 og nasjonal serie til 1951 |
-| **97 år med historisk kampinformasjon** | De 87 over pluss årene som foreløpig bare har kildedokumenterte resultater. Sesongoversikten viser disse |
+| **101 år med historisk kampinformasjon** | De 87 over pluss årene som foreløpig bare har kildedokumenterte resultater. Sesongoversikten viser disse |
 | **178 klubber · 97 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
 | **393 personer** | Registrerte spillere, trenere, ledere, stiftere, prosjektpersoner og hederspersoner med kildeførte detaljer eller avvikende navn |
 | **9 dataleverandører** | Der data hentes digitalt fra, hver med rettighetsstatus som data og ikke som prosa |

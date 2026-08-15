@@ -1,0 +1,99 @@
+competitionId: forstedivisjon
+season: 1961
+table:
+  - position: 1
+    name: Langevåg
+    clubId: langevag
+    played: 14
+    wins: 12
+    draws: 0
+    losses: 2
+    goalsFor: 63
+    goalsAgainst: 15
+    points: 24
+    outcome: promotion_playoff
+  - position: 2
+    name: Hødd
+    clubId: hodd
+    played: 14
+    wins: 10
+    draws: 2
+    losses: 2
+    goalsFor: 53
+    goalsAgainst: 20
+    points: 22
+    outcome: none
+  - position: 3
+    name: ÅFK
+    clubId: aalesunds-fk
+    played: 14
+    wins: 9
+    draws: 1
+    losses: 4
+    goalsFor: 32
+    goalsAgainst: 23
+    points: 19
+    outcome: none
+  - position: 4
+    name: Braatt
+    clubId: braatt
+    played: 14
+    wins: 6
+    draws: 2
+    losses: 6
+    goalsFor: 25
+    goalsAgainst: 33
+    points: 14
+    outcome: none
+  - position: 5
+    name: Molde
+    clubId: molde-fk
+    played: 14
+    wins: 4
+    draws: 5
+    losses: 5
+    goalsFor: 26
+    goalsAgainst: 29
+    points: 13
+    outcome: none
+  - position: 6
+    name: KFK
+    clubId: kfk
+    played: 14
+    wins: 3
+    draws: 5
+    losses: 6
+    goalsFor: 25
+    goalsAgainst: 31
+    points: 11
+    outcome: none
+  - position: 7
+    name: Herd
+    clubId: herd
+    played: 14
+    wins: 3
+    draws: 3
+    losses: 8
+    goalsFor: 18
+    goalsAgainst: 32
+    points: 9
+    outcome: relegated
+  - position: 8
+    name: Framtid
+    clubId: null
+    played: 14
+    wins: 0
+    draws: 0
+    losses: 14
+    goalsFor: 9
+    goalsAgainst: 68
+    points: 0
+    outcome: relegated
+progression: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1961
+    page: "6"
+    fields:
+      - table
+note: >
+  Landsdelsserien Møre 1960/61 (2. divisjon). Sunnmøre Fotballkrets er primærkilde.

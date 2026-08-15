@@ -1,5 +1,11 @@
 year: 1967
 competitionId: andredivisjon
-finalPosition: null
-promoted: false
+finalPosition: 1
+teamsInLeague: 8
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1967
+    page: "10"
+    fields: [competitionId, finalPosition, teamsInLeague]
+promoted: true
 relegated: false
+note: Sluttabellen gjelder 3. divisjon Møre 1967. AaFK vant avdelingen og rykket opp til 2. divisjon etter kvalifisering mot Falken.

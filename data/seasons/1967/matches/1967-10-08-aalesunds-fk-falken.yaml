@@ -29,9 +29,22 @@ providers:
       - away.clubId
       - home.score
       - away.score
+  - providerId: sunnmore-fotballkrets
+    url: https://www.fotball.no/globalassets/krets/sunnmore/om-kretsen/arsrapporter/arsrapport-1967.pdf
+    retrievedAt: 2026-08-15
+    fields: &a1
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1967-third-1967-10-08-aalesunds-fk-falken
 manual: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1967
+    page: "5"
+    fields: *a1

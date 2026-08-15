@@ -29,9 +29,22 @@ providers:
       - away.clubId
       - home.score
       - away.score
+  - providerId: sunnmore-fotballkrets
+    url: https://www.fotball.no/globalassets/krets/sunnmore/om-kretsen/arsrapporter/arsrapport-1962.pdf
+    retrievedAt: 2026-08-15
+    fields: &a1
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1962-landsdel-1962-10-21-gjovik-lyn-aalesunds-fk
 manual: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1962
+    page: "10"
+    fields: *a1

@@ -1,0 +1,99 @@
+competitionId: forstedivisjon
+season: 1963
+table:
+  - position: 1
+    name: Raufoss
+    clubId: raufoss-il
+    played: 14
+    wins: 10
+    draws: 1
+    losses: 3
+    goalsFor: 35
+    goalsAgainst: 19
+    points: 21
+    outcome: promoted
+  - position: 2
+    name: Lilleström
+    clubId: lillestrom
+    played: 14
+    wins: 8
+    draws: 4
+    losses: 2
+    goalsFor: 41
+    goalsAgainst: 26
+    points: 20
+    outcome: none
+  - position: 3
+    name: Rosenborg
+    clubId: rosenborg-bk
+    played: 14
+    wins: 6
+    draws: 4
+    losses: 4
+    goalsFor: 36
+    goalsAgainst: 23
+    points: 16
+    outcome: none
+  - position: 4
+    name: Östsiden
+    clubId: null
+    played: 14
+    wins: 7
+    draws: 2
+    losses: 5
+    goalsFor: 37
+    goalsAgainst: 30
+    points: 16
+    outcome: none
+  - position: 5
+    name: Greåker
+    clubId: null
+    played: 14
+    wins: 5
+    draws: 2
+    losses: 7
+    goalsFor: 19
+    goalsAgainst: 26
+    points: 12
+    outcome: none
+  - position: 6
+    name: Kvik
+    clubId: kvik
+    played: 14
+    wins: 3
+    draws: 5
+    losses: 6
+    goalsFor: 16
+    goalsAgainst: 22
+    points: 11
+    outcome: none
+  - position: 7
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 14
+    wins: 4
+    draws: 2
+    losses: 8
+    goalsFor: 11
+    goalsAgainst: 24
+    points: 10
+    outcome: relegated
+  - position: 8
+    name: Lisleby
+    clubId: lisleby
+    played: 14
+    wins: 2
+    draws: 2
+    losses: 10
+    goalsFor: 17
+    goalsAgainst: 37
+    points: 6
+    outcome: relegated
+progression: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1963
+    page: "8"
+    fields:
+      - table
+note: >
+  2. divisjon avdeling B 1963. Sunnmøre Fotballkrets er primærkilde.

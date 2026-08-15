@@ -1,0 +1,52 @@
+# Senioroppgjør fra Sunnmøre Fotballkrets' årsrapport 1968.
+# Rapportens side 6 dokumenterer senior-NM.
+sourceId: sunnmore-fotballkrets-arsrapport-1968
+scorePerspective: aafk
+seasons:
+  - year: 1968
+    page: 6
+    results:
+      - no: 1
+        opponent: V.R.F.
+        opponentClubId: velledalen-ringen
+        score: [2, 2]
+        competitionId: nm
+        round: 1
+        extraTime: true
+        matchId: null
+        note: Norgesmesterskapet 1968, 1. runde (VRF - AAFK 2–2 e.e.o.). Årsrapporten dokumenterer ikke sikker kampdato.
+      - no: 2
+        opponent: V.R.F.
+        opponentClubId: velledalen-ringen
+        score: [2, 0]
+        competitionId: nm
+        round: 1
+        replay: true
+        matchId: null
+        note: Norgesmesterskapet 1968, 1. runde omkamp (AAFK - VRF 2–0). Årsrapporten dokumenterer ikke sikker kampdato.
+      - no: 3
+        opponent: Langevåg
+        opponentClubId: langevag
+        score: [1, 1]
+        competitionId: nm
+        round: 2
+        matchId: null
+        note: Norgesmesterskapet 1968, 2. runde (AAFK - Langevåg 1–1 kamp.avbr.). Kampen ble avbrutt.
+      - no: 4
+        opponent: Langevåg
+        opponentClubId: langevag
+        score: [3, 0]
+        competitionId: nm
+        round: 2
+        extraTime: true
+        replay: true
+        matchId: null
+        note: Norgesmesterskapet 1968, 2. runde omkamp (Langevåg - AAFK 0–3 e.e.o.). Årsrapporten dokumenterer ikke sikker kampdato.
+      - no: 5
+        opponent: Molde
+        opponentClubId: molde-fk
+        score: [0, 1]
+        competitionId: nm
+        round: 3
+        matchId: 1968-06-30-aalesunds-fk-molde-fk
+        note: Norgesmesterskapet 1968, 3. runde (AAFK - Molde 0–1).

@@ -1,0 +1,99 @@
+competitionId: forstedivisjon
+season: 1968
+table:
+  - position: 1
+    name: Hödd
+    clubId: hodd
+    played: 14
+    wins: 7
+    draws: 5
+    losses: 2
+    goalsFor: 22
+    goalsAgainst: 12
+    points: 19
+    outcome: promoted
+  - position: 2
+    name: Ålesund fk.
+    clubId: aalesunds-fk
+    played: 14
+    wins: 8
+    draws: 2
+    losses: 4
+    goalsFor: 27
+    goalsAgainst: 15
+    points: 18
+    outcome: none
+  - position: 3
+    name: Hamarkam.
+    clubId: hamarkameratene
+    played: 14
+    wins: 8
+    draws: 2
+    losses: 4
+    goalsFor: 23
+    goalsAgainst: 17
+    points: 18
+    outcome: none
+  - position: 4
+    name: Mjöndalen
+    clubId: mjondalen
+    played: 14
+    wins: 6
+    draws: 4
+    losses: 4
+    goalsFor: 32
+    goalsAgainst: 18
+    points: 16
+    outcome: none
+  - position: 5
+    name: Raufoss
+    clubId: raufoss-il
+    played: 14
+    wins: 4
+    draws: 5
+    losses: 5
+    goalsFor: 20
+    goalsAgainst: 20
+    points: 13
+    outcome: none
+  - position: 6
+    name: Aurskog
+    clubId: null
+    played: 14
+    wins: 4
+    draws: 3
+    losses: 7
+    goalsFor: 17
+    goalsAgainst: 21
+    points: 11
+    outcome: none
+  - position: 7
+    name: Steinkjer
+    clubId: steinkjer
+    played: 14
+    wins: 3
+    draws: 3
+    losses: 8
+    goalsFor: 18
+    goalsAgainst: 38
+    points: 9
+    outcome: relegated
+  - position: 8
+    name: Gjövik-Lyn
+    clubId: gjovik-lyn
+    played: 14
+    wins: 1
+    draws: 6
+    losses: 7
+    goalsFor: 20
+    goalsAgainst: 38
+    points: 8
+    outcome: relegated
+progression: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1968
+    page: "12"
+    fields:
+      - table
+note: >
+  2. divisjon avdeling B 1968. Sunnmøre Fotballkrets er primærkilde.

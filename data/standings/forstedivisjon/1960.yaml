@@ -1,0 +1,99 @@
+competitionId: forstedivisjon
+season: 1960
+table:
+  - position: 1
+    name: KFK
+    clubId: kfk
+    played: 14
+    wins: 9
+    draws: 3
+    losses: 2
+    goalsFor: 37
+    goalsAgainst: 18
+    points: 21
+    outcome: promotion_playoff
+  - position: 2
+    name: Hødd
+    clubId: hodd
+    played: 14
+    wins: 10
+    draws: 1
+    losses: 3
+    goalsFor: 36
+    goalsAgainst: 19
+    points: 21
+    outcome: none
+  - position: 3
+    name: ÅFK
+    clubId: aalesunds-fk
+    played: 14
+    wins: 7
+    draws: 4
+    losses: 3
+    goalsFor: 24
+    goalsAgainst: 20
+    points: 18
+    outcome: none
+  - position: 4
+    name: Braatt
+    clubId: braatt
+    played: 14
+    wins: 7
+    draws: 3
+    losses: 4
+    goalsFor: 34
+    goalsAgainst: 29
+    points: 17
+    outcome: none
+  - position: 5
+    name: Langevåg
+    clubId: langevag
+    played: 14
+    wins: 5
+    draws: 2
+    losses: 7
+    goalsFor: 26
+    goalsAgainst: 30
+    points: 12
+    outcome: none
+  - position: 6
+    name: Molde
+    clubId: molde-fk
+    played: 14
+    wins: 4
+    draws: 2
+    losses: 8
+    goalsFor: 36
+    goalsAgainst: 38
+    points: 10
+    outcome: none
+  - position: 7
+    name: Skarbøvik
+    clubId: skarbovik
+    played: 14
+    wins: 3
+    draws: 2
+    losses: 9
+    goalsFor: 29
+    goalsAgainst: 38
+    points: 8
+    outcome: relegated
+  - position: 8
+    name: Clausenengen
+    clubId: clausenengen
+    played: 14
+    wins: 2
+    draws: 1
+    losses: 11
+    goalsFor: 12
+    goalsAgainst: 42
+    points: 5
+    outcome: relegated
+progression: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1960
+    page: "5"
+    fields:
+      - table
+note: >
+  Landsdelsserien Møre 1959/60 (2. divisjon). Sunnmøre Fotballkrets er primærkilde.
