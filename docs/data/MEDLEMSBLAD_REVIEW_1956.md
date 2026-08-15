@@ -41,7 +41,7 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060183329_001`
 - **Vårsesongen 1956 (s. 19):** Landsdelsserien Møre 1955/56 (vår). AaFK berget kontrakten med 5. plass etter 3 uavgjort og 2 tap i vårens fem kamper (mål 6–8).
 - **Høstsesongen 1956 (s. 77, 82):** Landsdelsserien Møre 1956/57 (høst). 9 spilte kamper ga 3 seire, 3 uavgjort og 3 tap (mål 17–17).
 - **NM Cup 1956 (s. 82):** 1. runde i Ulsteinvik mot Hødd (tap 1–2).
-- **Internasjonal juniorkamp (s. 37):** Freja Randers (Danmark) på besøk på Aksla stadion. Juniorkampen endte med seier 2–0 til Freja, og guttekampen mot Rollon endte 4–4. Dokumentert som `non_senior` i henhold til kravet om å skille A-lag fra aldersbestemte lag.
+- **Internasjonal juniorkamp og guttekamp (s. 37):** Freja Randers (Danmark) på besøk på Aksla stadion. Juniorkampen endte med seier 2–0 til Freja (AaFK–Freja 0–2), og forkampen for gutter mellom AaFK og Nordlandet endte 2–2 (med keeper Erling Listhaug som banens beste). Dokumentert som `non_senior` i henhold til kravet om å skille A-lag fra aldersbestemte lag.
 
 ---
 
