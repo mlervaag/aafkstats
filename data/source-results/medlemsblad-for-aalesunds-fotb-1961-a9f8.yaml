@@ -1,5 +1,6 @@
 # Senioroppgjør fra Medlemsblad for Aalesunds Fotballklubb 1961 (Vol. 12 Nr. 1–6).
-# Totalt 31 A-lagskamper spilt i sesongen 1961 (22 seire, 1 uavgjort, 8 tap, målforhold 75–58).
+# 15 oppgjør med eksplisitt kildedokumentert resultat. 8 høstkamper (7 serieseiere,
+# 1 serietap) og 1 privatkamp dokumenterer kun seier/tap uten score.
 sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
 scorePerspective: aafk
 seasons:
@@ -113,58 +114,6 @@ seasons:
         opponentClubId: valder
         score: [0, 1]
         note: "Sunnmørscupen på Vigra: Valder–ÅFK 1–0 (ÅFK stilte reserver da A-laget spilte mot Molde)."
-      - no: 16
-        page: 73
-        opponent: Østsiden
-        opponentClubId: ostsiden-il
-        score: [1, 0]
-        note: "Privatkamp på Aksla stadion: ÅFK–Østsiden (seiersmål headet inn av Harald «Bror» Johansen; Nedregård og Rødland debuterte)."
-      - no: 17
-        page: 44
-        opponent: Clausenengen
-        opponentClubId: clausenengen
-        score: [0, 1]
-        competitionId: forstedivisjon
-        note: "Landsdelsserien Møre 1961/62 (høst): Clausenengen–ÅFK (tap i åpningskampen)."
-      - no: 18
-        page: 44
-        opponent: Hødd
-        opponentClubId: hodd
-        score: [1, 0]
-        competitionId: forstedivisjon
-        note: "Landsdelsserien Møre 1961/62 (høst): seier for ÅFK."
-      - no: 19
-        page: 44
-        opponent: Langevåg
-        opponentClubId: langevag
-        score: [1, 0]
-        competitionId: forstedivisjon
-        note: "Landsdelsserien Møre 1961/62 (høst): seier for ÅFK."
-      - no: 20
-        page: 44
-        opponent: Molde
-        opponentClubId: molde-fk
-        score: [1, 0]
-        competitionId: forstedivisjon
-        note: "Landsdelsserien Møre 1961/62 (høst): seier for ÅFK."
-      - no: 21
-        page: 44
-        opponent: Braatt
-        opponentClubId: braatt
-        score: [1, 0]
-        competitionId: forstedivisjon
-        note: "Landsdelsserien Møre 1961/62 (høst): seier for ÅFK."
-      - no: 22
-        page: 44
-        opponent: KFK
-        opponentClubId: kfk
-        score: [1, 0]
-        competitionId: forstedivisjon
-        note: "Landsdelsserien Møre 1961/62 (høst): seier for ÅFK."
-      - no: 23
-        page: 44
-        opponent: Skarbøvik
-        opponentClubId: skarbovik
-        score: [1, 0]
-        competitionId: forstedivisjon
-        note: "Landsdelsserien Møre 1961/62 (høst): seier for ÅFK."
+      # Høstserie og privatkamp mot Østsiden: kilden dokumenterer seier/tap
+      # men ikke eksplisitte resultater. Oppført i reviewloggen som
+      # identifiserte oppgjør uten score. Se MEDLEMSBLAD_REVIEW_1961.md.

@@ -36,7 +36,7 @@ URN: `URN:NBN:no-nb_digitidsskrift_2021060283027_001`
      - Roald IL gressbaneåpning (Vigra): AaFK–Valder 1–1 (loddtrekning til AaFK), finale Langevåg–AaFK 5–1.
      - Privatkamper under forsesong/sommer (bl.a. Molde).
 3. **Kildedokumenterte oppgjør (`data/source-results/`):**
-   - Samtlige 23 sikkert dokumenterte A-lagsoppgjør er strukturert kodet i `data/source-results/medlemsblad-for-aalesunds-fotb-1961-a9f8.yaml`.
+   - **15 oppgjør med eksplisitt kildedokumentert resultat** er strukturert kodet i `data/source-results/medlemsblad-for-aalesunds-fotb-1961-a9f8.yaml`. Ytterligere 8 høstkamper (7 serieseiere, 1 serietap) og 1 privatkamp (Østsiden) er identifisert og dokumentert i reviewloggen, men ikke oppført som source-results fordi kilden bare angir seier/tap uten eksplisitt score.
 4. **Kanoniske kamper beriket og opprettet:**
    - **Nye kanoniske kamper opprettet:**
      - `1961-07-06-aalesunds-fk-canto-do-rio.yaml` (internasjonal storkamp på Aksla stadion mot profesjonelle Canto do Rio fra Brasil, 4 500 tilskuere, full forsterket lagoppstilling).

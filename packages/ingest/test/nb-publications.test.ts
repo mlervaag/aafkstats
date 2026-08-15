@@ -244,4 +244,49 @@ describe("NB-publikasjonsuttrekk", () => {
     expect(matchResult).toBeDefined();
     expect(matchResult?.scores).toEqual(["5-0"]);
   });
+
+  it("kompakt kolon (3:1) fanges ikke opp som resultat — for mange falske positiver i OCR-støy og klokkeslett", () => {
+    const archive = {
+      people: [],
+      matches: [],
+      clubs: [{ id: "herd", name: "Herd", shortName: "Herd", names: [] }],
+    } as unknown as Archive;
+    const source = {
+      id: "medlemsblad-1961",
+      title: "Medlemsblad 1961",
+      sourceType: "member_magazine",
+      year: 1961,
+      providers: [],
+    } satisfies Source;
+
+    const candidates = candidatesForPage(archive, source, "50", [
+      "AaFK slo Herd 3:1 på Aksla stadion",
+    ]);
+
+    const matchResults = candidates.filter((c) => c.kind === "match_result");
+    expect(matchResults).toHaveLength(0);
+  });
+
+  it("kolon med mellomrom (3 : 1) gjenkjennes som resultat", () => {
+    const archive = {
+      people: [],
+      matches: [],
+      clubs: [{ id: "herd", name: "Herd", shortName: "Herd", names: [] }],
+    } as unknown as Archive;
+    const source = {
+      id: "medlemsblad-1961",
+      title: "Medlemsblad 1961",
+      sourceType: "member_magazine",
+      year: 1961,
+      providers: [],
+    } satisfies Source;
+
+    const candidates = candidatesForPage(archive, source, "50", [
+      "AaFK slo Herd 3 : 1 på Aksla stadion",
+    ]);
+
+    const matchResult = candidates.find((c) => c.kind === "match_result");
+    expect(matchResult).toBeDefined();
+    expect(matchResult?.scores).toEqual(["3-1"]);
+  });
 });
