@@ -59,18 +59,18 @@ Utdrag fra Banekomiteens beretning (s. 61–62 og s. 64) dokumenterer en stor me
 |---|---|---|---|---|
 | Kjell Berentzen | Formann Hovedstyret 1955 og gjenvalgt for 1956 (s. 64) | board | role_enriched | Formann i `kjell-berentzen.yaml` og snapshot `1955-aafk.yaml` |
 | Øivind Haagensen | Trener for A-laget i 1955 (s. 64) | coach | role_enriched | Trener i `oivind-haagensen.yaml` og snapshot `1955-aafk.yaml` |
-| Jan Larsen | Kaptein for A-laget 1955 (s. 64) | sporting | role_enriched | Kaptein i `jan-larsen.yaml` og snapshot |
+| Jan Larsen | Kaptein for A-laget 1955 (s. 64) | sporting | role_created | Kaptein opprettet i `jan-larsen.yaml` og snapshot `1955-aafk.yaml` |
 | Emil Sandø | Formann Banekomiteen (s. 61, 64) | committee | role_enriched | Banekomiteformann i `emil-sando.yaml` og snapshot |
 | Rasmus Sulebak | Tildelt klubbens hedersgave Kruset som Dagens navn (s. 82) | honor | person_created / honor_created | Opprettet `rasmus-sulebak.yaml` med hedersgaven Kruset 1955 |
 | Jørgen Hollevik | 50-årsjubileum og heder for storspiller i 20- og 30-årene (s. 72) | honor / player | mention_linked | Dokumentert i `jorgen-hollevik.yaml` |
 | Sverre Volstad | Minneord over gullmerkemann og tidligere formann (s. 64) | historical / person | mention_linked | Dødsfall 1955 kildedokumentert i `sverre-volstad.yaml` |
-| Trygve Stub | Portrettert som Dagens navn i nr. 5 (s. 47) | committee | role_enriched | Kasserer Banekomiteen i `trygve-stub.yaml` |
+| Trygve Stub | Portrettert som Dagens navn i nr. 5 (s. 47) | committee | mention_linked | Dokumentert i `trygve-stub.yaml` |
 | Harald Nord | Redaktør Medlemsbladet (s. 4, 17, 57) | editorial | role_enriched | Redaktør i `harald-nord.yaml` |
 | Sigurd Melsæther | Nye ansikter / spillerprofil (s. 14) | player | mention_linked | Ung spillerprofil dokumentert |
 | Rolf Tøsse | Nye ansikter / spillerprofil (s. 68) | player | mention_linked | Ung spillerprofil dokumentert |
-| Leif Istad | Deltaker NFF landskurs ungdom Slemmestad (s. 29, 64) | non_senior | mention_linked | Dokumentert kursdeltakelse |
-| Torid Fladmark | Målscorer juniorlaget (s. 29, 69) | non_senior | mention_linked | Juniorprofil dokumentert |
-| Kjell Iversen | Tildelt innsatspokal for beste unge spiller (s. 64) | non_senior / honor | mention_linked | Juniorprofil dokumentert |
+| Leif Istad | Deltaker NFF landskurs ungdom Slemmestad (s. 29, 64) | non_senior | non_senior | Dokumentert kursdeltakelse |
+| Torid Fladmark | Målscorer juniorlaget (s. 29, 69) | non_senior | non_senior | Juniorprofil dokumentert |
+| Kjell Iversen | Tildelt innsatspokal for beste unge spiller (s. 64) | non_senior / honor | non_senior | Juniorprofil dokumentert |
 
 ---
 

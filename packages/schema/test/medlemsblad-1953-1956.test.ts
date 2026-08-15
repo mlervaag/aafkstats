@@ -73,9 +73,15 @@ describe("Medlemsblad 1953–1956 (PR #156)", () => {
     const snap1954 = archive.organizationSnapshots.find((s) => s.date === "1954");
     expect(snap1954?.people.find((p) => p.observedTitle === "Sekretær")?.personId).toBe("bernt-sulebust");
     expect(snap1954?.people.find((p) => p.observedTitle === "Kasserer")?.personId).toBe("harald-saether");
+
+    const bernt = archive.people.find((p) => p.id === "bernt-sulebust");
+    expect(bernt?.roles?.some((r) => r.id === "sekretaer-hovedstyret-1953-1954" && r.body === "Hovedstyret")).toBe(true);
+
+    const eriksen = archive.people.find((p) => p.id === "karsten-eriksen");
+    expect(eriksen?.roles?.some((r) => r.id === "nestformann-hovedstyret-1953-1954" && r.body === "Hovedstyret")).toBe(true);
   });
 
-  it("fører trenere og oppmenn for 1953–1955 med samsvar mellom snapshot og personfiler", () => {
+  it("fører trenere, oppmenn og kapteiner for 1953–1955 med samsvar mellom snapshot og personfiler", () => {
     const snap1953 = archive.organizationSnapshots.find((s) => s.date === "1953");
     const snap1954 = archive.organizationSnapshots.find((s) => s.date === "1954");
     const snap1955 = archive.organizationSnapshots.find((s) => s.date === "1955");
@@ -98,6 +104,9 @@ describe("Medlemsblad 1953–1956 (PR #156)", () => {
 
     const langva = archive.people.find((p) => p.id === "ragnvald-langva");
     expect(langva?.roles?.some((r) => r.id === "oppmann-1953" && r.category === "sporting_staff")).toBe(true);
+
+    const larsen = archive.people.find((p) => p.id === "jan-larsen");
+    expect(larsen?.roles?.some((r) => r.id === "kaptein-1955" && r.category === "sporting_staff")).toBe(true);
   });
 
   it("fører Anita Wold (Anita Olsen-Vold) som formann i Dameavdelingen", () => {
@@ -180,7 +189,7 @@ describe("Medlemsblad 1953–1956 (PR #156)", () => {
       ]);
     });
 
-    it("bevarer alle roller og konflikter for Peder Puck", () => {
+    it("bevarer alle roller og konflikter for Peder Puck og beriker Banekomité-vervet med 1953-kilde", () => {
       const puck = archive.people.find((p) => p.id === "peder-puck");
       expect(puck).toBeDefined();
       expect(puck?.roles?.some((r) => r.id === "oppmann-1932")).toBe(true);
@@ -189,6 +198,11 @@ describe("Medlemsblad 1953–1956 (PR #156)", () => {
       expect(puck?.roles?.some((r) => r.id === "formann-1946")).toBe(true);
       expect(puck?.roles?.some((r) => r.id === "aeresmedlem-1957")).toBe(true);
       expect(puck?.conflicts?.some((c) => c.field === "formann.1932")).toBe(true);
+
+      const banekomite = puck?.roles?.find((r) => r.id === "nestformann-1951");
+      expect(banekomite).toBeDefined();
+      expect(banekomite?.body).toBe("Banekomiteen");
+      expect(banekomite?.sources.some((s) => s.sourceId === "medlemsblad-for-aalesunds-fotb-1953-3e9d" && s.page === "87")).toBe(true);
     });
 
     it("bevarer alle roller, konflikter og kilder for Hans J. Henriksen", () => {
@@ -206,6 +220,22 @@ describe("Medlemsblad 1953–1956 (PR #156)", () => {
       expect(giske?.roles?.some((r) => r.id === "nestformann-hovedstyret-1956")).toBe(true);
       expect(giske?.roles?.some((r) => r.id === "nestformann-1955")).toBe(true);
       expect(giske?.roles?.some((r) => r.id === "gullmerkeinnehaver-1972")).toBe(true);
+    });
+
+    it("bevarer roller og dokumenterer NFFs dommerkomité for Øivind Haagensen", () => {
+      const oivind = archive.people.find((p) => p.id === "oivind-haagensen");
+      expect(oivind).toBeDefined();
+      expect(oivind?.roles?.some((r) => r.id === "trener-1955")).toBe(true);
+      expect(oivind?.roles?.some((r) => r.id === "gullmerkeinnehaver-1964")).toBe(true);
+
+      const nffRole = oivind?.roles?.find((r) => r.id === "nff-dommerkomite-1953");
+      expect(nffRole).toMatchObject({
+        category: "administration",
+        title: "Medlem av NFFs dommerkomité",
+        body: "NFFs dommerkomité",
+        from: "1953",
+      });
+      expect(nffRole?.sources.some((s) => s.sourceId === "medlemsblad-for-aalesunds-fotb-1953-3e9d" && s.page === "30")).toBe(true);
     });
 
     it("bevarer alle roller og hedersbevisninger for Asbjørn Korsnes", () => {

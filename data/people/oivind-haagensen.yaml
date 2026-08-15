@@ -120,6 +120,19 @@ roles:
       - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
         page: "74"
     note: Notert med 200 kamper på A-laget i spillemerkestatistikken.
+  - id: nff-dommerkomite-1953
+    category: administration
+    title: Medlem av NFFs dommerkomité
+    body: NFFs dommerkomité
+    from: "1953"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+        page: "30"
+        fields:
+          - title
+          - from
+    note: Gjenvalgt som medlem i Norges Fotballforbunds dommerkomité.
   - id: gullmerkeinnehaver-1964
     category: honorary
     title: Gullmerkeinnehaver

@@ -17,10 +17,11 @@ Batchen bygger direkte på metodikken etablert i PR #151–#154 og produksjonssi
 | Nye canonical matches | 0 | 0 | 0 | 0 | **0** |
 | Berikede canonical matches | 0 | 1 | 0 | 0 | **1** |
 | Nye personer opprettet | 2 | 1 | 1 | 0 | **4** |
-| Berikede personfiler | 10 | 10 | 8 | 6 | **34** |
-| Personroller opprettet/beriket | 9 | 8 | 6 | 5 | **28** |
+| Unike eksisterende personfiler beriket | - | - | - | - | **22** |
+| Personberikelser per år | 10 | 10 | 8 | 6 | **34** |
+| Personroller opprettet eller beriket | 9 | 8 | 6 | 5 | **28** |
 | Honors og milepæler | 5 | 4 | 2 | 2 | **13** |
-| Mentions vurdert/knyttet | 16 | 18 | 14 | 12 | **60** |
+| Mentions vurdert eller knyttet | 16 | 18 | 14 | 12 | **60** |
 | Historical observations | 0 | 0 | 1 | 0 | **1** |
 | Organisasjonssnapshots | 1 | 1 | 1 | 1 | **4** |
 | Konflikter løst | 0 | 0 | 0 | 0 | **0** |
@@ -38,9 +39,10 @@ Perioden 1953–1956 var preget av tøff kamp i Landsdelsserien Møre:
 - **1955:** Vanskeligere sesong for A-laget med 3. plass i vårserien og 5. plass om høsten. Tap 0–1 for Langevåg i cupens 2. runde på Aksla. Juniorlaget tok derimot kretsmesterskapet og nådde 3. runde i juniorcupen.
 - **1956:** 28 kamper spilt (7 seire, 9 uavgjort, 12 tap, mål 56–75). Kontrakten i Landsdelsserien ble berget med en 5. plass. Cuptap for Hødd (1–2) i Ulsteinvik.
 
-### 2. Trener- og oppmannshistorikk
-- **Trenere:** Finn Tollås var hovedtrener i 1953 og 1954, før Øivind Haagensen overtok som trener for A-laget i 1955. Finn Tollås trente laget videre i 1956. Medlemsbladet publiserte i 1956 dessuten trenerfaglig stoff av den østerrikske treneren Josef Skocik om posisjonsspill og moderne fotball.
-- **Oppmenn:** Ragnvald Langva var oppmann for A-laget i 1953 og ble hyllet som klubbens trofaste ildsjel da han trådte tilbake. Fritz Haagensen overtok som A-lagsoppmann i 1954 og 1955.
+### 2. Trener-, oppmanns- og vervhistorikk
+- **Trenere:** Finn Tollås var hovedtrener i 1953 og 1954, før Øivind Haagensen overtok som trener for A-laget i 1955. Finn Tollås instruerte og trente laget videre i 1956. Medlemsbladet publiserte i 1956 dessuten trenerfaglig stoff av den østerrikske treneren Josef Skocik om posisjonsspill og moderne fotball.
+- **Oppmenn og kapteiner:** Ragnvald Langva var oppmann for A-laget i 1953 og ble hyllet som klubbens trofaste ildsjel da han trådte tilbake. Fritz Haagensen overtok som A-lagsoppmann i 1954 og 1955. Jan Larsen ble valgt som lagkaptein for A-laget i 1955.
+- **Nasjonale verv:** Øivind Haagensen ble gjenvalgt til Norges Fotballforbunds dommerkomité i 1953.
 
 ### 3. Hovedstyret og ledelse
 - **1953–1954:** Lauritz Giske var formann, med Karsten Eriksen som nestformann, Bernt Sulebust som sekretær og Harald Sæther som kasserer.
@@ -57,7 +59,7 @@ Perioden 1953–1956 var preget av tøff kamp i Landsdelsserien Møre:
   - Trygve Olsen hadde 226 kamper og var klubbens toppscorer i 1953 med 17 mål.
   - Edvin Løvold (220 kamper), Reidar Skarbøvik (203 kamper), Øivind Haagensen (200 kamper), Jørgen Hollevik (200 kamper), Konrad Korsnes (200 kamper) og Lauritz Gaaseide (192 kamper).
 - **Årets spiller:** Målvaktkjempen Einar Aas ble kåret til «Sesongens spiller» i 1956 (og senere i 1957).
-- **Gullmerker:** Emil Sandø ble tildelt gullmerket i 1953 for sin formidable innsats som formann i Banekomiteen. Tidligere gullmerker til Rasmus Eck-Olsen (1924), Andreas B. Ringdal (1927) og Konrad Korsnes (1935) ble dokumentert og verifisert.
+- **Gullmerker:** Emil Sandø ble tildelt gullmerket i 1953 for sin formidable innsats som formann i Banekomiteen. Tidligere gullmerker til Rasmus Eck-Olsen (1924), Andreas B. Ringdal (1927) og Konrad Korsnes (1935) ble dokumentert og verifisert i 40-årsjubileumsheftet i 1954.
 - **Kruset:** Rasmus Sulebak (91 A-kamper) ble tildelt klubbens hedersgave Kruset i 1955.
 
 ### 6. Kråmyra og anleggsutvikling (forhistorien til 1957/1960)
@@ -78,4 +80,5 @@ PR #156 har opprettholdt streng additivitetsgaranti:
 1. Ingen eksisterende personroller, kilder, konflikter, kallenavn eller trenerperioder er slettet eller overskrevet.
 2. Eksisterende konflikter (f.eks. Peder Puck, Hans J. Henriksen, Kjell Berentzen, Finn Tollås, Øivind Haagensen) er bevart uendret.
 3. Fire nye personer med dokumentert virke i perioden (`harald-nord`, `trygve-stub`, `rasmus-sulebak`, `ingvald-froysa`) er opprettet med primærkilder.
-4. Alle kildedokumenterte oppgjør er trygt plassert i `data/source-results/` uten å konstruere udokumenterte kanoniske kamper.
+4. Totalt 22 unike eksisterende personfiler er beriket med samtidige primærkilder og roller.
+5. Alle kildedokumenterte oppgjør er trygt plassert i `data/source-results/` uten å konstruere udokumenterte kanoniske kamper.

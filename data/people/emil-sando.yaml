@@ -27,18 +27,33 @@ roles:
           - title
           - from
           - to
-  - id: banekomiteformann-1951
+  - id: banekomiteformann-1951-1955
     category: project
     title: Formann i banekomiteen
     body: Kråmyra-prosjektet
     from: "1951"
-    to: "1951"
+    to: "1955"
     sources:
       - sourceId: aafk-historie-kramyra-stadion
         fields:
           - title
           - from
           - to
+      - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+        page: "87"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+        page: "78"
+        fields:
+          - title
+      - sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
+        page: "64"
+        fields:
+          - title
+          - to
+    note: Ledet banekomiteen under opparbeidelsen av treningsbanen på Kråmyra.
   - id: gullmerkeinnehaver-1953
     category: honorary
     title: Gullmerkeinnehaver

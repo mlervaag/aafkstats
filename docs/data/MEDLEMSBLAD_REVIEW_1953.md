@@ -58,30 +58,30 @@ Begge observasjoner bevares:
 
 | Person | Funn / Kilde | Kategori | Disposition | Handling / Notat |
 |---|---|---|---|---|
-| Lauritz Giske | Formann Hovedstyret (s. 12, 66) | board | role_enriched | Formann 1953–1954 i `lauritz-giske.yaml` og snapshot `1953-aafk.yaml` |
-| Karsten Eriksen | Nestformann Hovedstyret (s. 66) | board | role_enriched | Nestformann i `karsten-eriksen.yaml` og snapshot `1953-aafk.yaml` |
-| Bernt Sulebust | Sekretær Hovedstyret (s. 66) | admin | role_enriched | Sekretær i `bernt-sulebust.yaml` og snapshot `1953-aafk.yaml` |
-| Harald Sæther | Kasserer Hovedstyret (s. 66) | admin | role_enriched | Kasserer i `harald-saether.yaml` og snapshot `1953-aafk.yaml` |
-| Ragnvald Langva | Oppmann A-laget 1953 (s. 66) | sporting | role_enriched | Avtroppende oppmann 1953 i `ragnvald-langva.yaml` og snapshot |
-| Fritz Haagensen | Ny oppmann A-laget for 1954 (s. 66), gutteleder (s. 12) | sporting | role_enriched | Valgt nov 1953 i `fritz-haagensen.yaml` |
-| Finn Tollås | Trener A-laget 1953 (s. 12, 64) | coach | role_enriched | Trener i `finn-tollas.yaml` og snapshot `1953-aafk.yaml` |
+| Lauritz Giske | Formann Hovedstyret (s. 12, 66) | board | role_enriched | Formann 1953–1954 beriket i `lauritz-giske.yaml` og snapshot `1953-aafk.yaml` |
+| Karsten Eriksen | Nestformann Hovedstyret (s. 66) | board | role_created | Nestformann 1953–1954 i `karsten-eriksen.yaml` og snapshot `1953-aafk.yaml` |
+| Bernt Sulebust | Sekretær Hovedstyret (s. 66) | admin | role_created | Sekretær 1953–1954 i `bernt-sulebust.yaml` og snapshot `1953-aafk.yaml` |
+| Harald Sæther | Kasserer Hovedstyret (s. 66) | admin | role_enriched | Kasserer 1953–1960 beriket i `harald-saether.yaml` og snapshot `1953-aafk.yaml` |
+| Ragnvald Langva | Oppmann A-laget 1953 (s. 66) | sporting | role_enriched | Avtroppende oppmann 1953 beriket i `ragnvald-langva.yaml` og snapshot |
+| Fritz Haagensen | Ny oppmann A-laget for 1954 (s. 66), gutteleder (s. 12) | sporting | role_enriched | Oppmann 1954 beriket i `fritz-haagensen.yaml` |
+| Finn Tollås | Trener A-laget 1953 (s. 12, 64) | coach | role_created | Trener 1953–1954 opprettet i `finn-tollas.yaml` og snapshot `1953-aafk.yaml` |
 | Emil Sandø | Formann Banekomiteen (s. 66, 87), Gullmerke (s. 74) | committee / honor | role_enriched / honor_enriched | Banekomiteformann og gullmerke 1953 i `emil-sando.yaml` |
-| Peder Puck | Nestformann Banekomiteen (s. 87) | committee | role_enriched | Nestformann Banekomiteen i `peder-puck.yaml` |
-| Sigurd Nørve | Sekretær Banekomiteen (s. 87) | committee | role_enriched | Sekretær Banekomiteen i `sigurd-norve.yaml` |
+| Peder Puck | Nestformann Banekomiteen (s. 87) | committee | role_enriched | Nestformann Banekomiteen beriket med 1953 s. 87 i `peder-puck.yaml` |
+| Sigurd Nørve | Sekretær Banekomiteen (s. 87) | committee | role_enriched | Sekretær Banekomiteen beriket med 1953 s. 87 i `sigurd-norve.yaml` |
 | Trygve Stub | Kasserer Banekomiteen (s. 87) | committee | person_created / role_created | Opprettet `trygve-stub.yaml` med kassererverv i Banekomiteen |
-| Anita Wold | Formann Dameavdelingen (s. 66) | board | role_enriched | Valgt nov 1953 for 1954; alias og kilde i `anita-wold.yaml` |
+| Anita Wold | Formann Dameavdelingen (s. 66) | board | role_created | Valgt nov 1953 for 1954; rolle, alias og kilde i `anita-wold.yaml` |
 | Harald Nord | Redaktør Medlemsbladet (s. 4, 66) | editorial | person_created / role_created | Opprettet `harald-nord.yaml` med redaktørverv 1953–1956 |
 | Karsten Nedregård | Flest A-kamper 1953 (25 kamper), 243 kamper totalt (s. 66, 74) | player / honor | honor_created | Tildelt spillemerke i gull (200 kamper) i `karsten-nedregard.yaml` |
 | Trygve Olsen | Toppscorer 1953 (17 mål), 226 kamper totalt (s. 66, 74) | player / honor | honor_created | Tildelt spillemerke i gull (200 kamper) i `trygve-olsen.yaml` |
 | Reidar Skarbøvik | Fast keeper, 203 kamper totalt (s. 64, 74) | player / honor | mention_linked | Spillemerke i gull dokumentert i `reidar-skarbovik.yaml` |
-| Øivind Haagensen | Gjenvalgt i NFF dommerkomité (s. 30), 200 kamper (s. 74) | admin / player | role_enriched | Representant i NFF og spillemerke i gull i `oivind-haagensen.yaml` |
+| Øivind Haagensen | Gjenvalgt i NFF dommerkomité (s. 30), 200 kamper (s. 74) | admin / honor | role_created / honor_created | NFF dommerkomité og spillemerke i gull opprettet i `oivind-haagensen.yaml` |
 | Konrad Korsnes | 200 kamper på A-laget (s. 74) | player / honor | mention_linked | 14 sesonger og 200 kamper dokumentert |
 | Jørgen Hollevik | 200 kamper på A-laget (s. 74, 75) | player / honor | mention_linked | 16 sesonger og 200 kamper dokumentert |
 | Asbjørn Korsnes | 25 kamper 1953, 138 totalt, tingutsending (s. 66, 74) | player / board | mention_linked | Dokumentert i `asbjorn-korsnes.yaml` |
 | Svein Grimstad | 24 kamper i 1953 (s. 64, 66) | player | mention_linked | Dokumentert som sentral half i 1953 |
 | Lauritz Gaaseide | 22 kamper i 1953, 192 totalt (s. 64, 66, 74) | player | mention_linked | Dokumentert i `lauritz-gaaseide.yaml` |
 | Mindor Sunde | Spillerprofil (s. 62, 64) | player | mention_linked | Dokumentert som fast høyrehalf i 1953 |
-| Svein Bjarne Holand | Kaptein rekruttlaget (s. 79) | player | mention_linked | Intervju og profil som rekruttlagskaptein |
+| Svein Bjarne Holand | Kaptein rekruttlaget (s. 79) | player | non_senior | Intervju og profil som rekruttlagskaptein |
 
 ---
 
