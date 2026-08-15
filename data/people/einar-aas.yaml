@@ -156,6 +156,18 @@ roles:
         page: "28"
       - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
         page: "50"
+  - id: arets-spiller-1956
+    category: honorary
+    title: Årets spiller
+    from: "1956"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+        page: "75"
+        fields:
+          - title
+          - from
+    note: Kåret til sesongens mest framgangsrike spiller i 1956.
   - id: arets-spiller-1957
     category: honorary
     title: Årets spiller

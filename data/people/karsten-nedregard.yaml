@@ -17,6 +17,15 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt verifisert."
+  - id: spillemerke-gull-1950
+    category: honorary
+    title: Spillemerket i gull
+    from: "1950"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+        page: "74"
+    note: Notert med 243 kamper for AaFKs A-lag som klubbens mestspillende spiller ved utgangen av 1953.
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "28"
@@ -66,5 +75,3 @@ sources:
     page: "7"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
-  - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
-    page: "76"
