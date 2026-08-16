@@ -393,6 +393,7 @@ export function crossValidate(archive: Archive): LoadIssue[] {
     for (const season of observation.seasonYears) if (!seasonYears.has(season)) at("seasonYears", `ukjent sesong «${season}»`);
     for (const matchId of observation.matchIds) if (!matchIds.has(matchId)) at("matchIds", `ukjent kamp «${matchId}»`);
     for (const competitionId of observation.competitionIds) if (!competitionIds.has(competitionId)) at("competitionIds", `ukjent konkurranse «${competitionId}»`);
+    for (const venueId of observation.venueIds) if (!venueIds.has(venueId)) at("venueIds", `ukjent bane «${venueId}»`);
   }
   const caseFingerprints = new Map<string, string>();
   for (const item of archive.verificationCases) {

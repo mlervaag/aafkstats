@@ -1,0 +1,22 @@
+# Dekker den fulle relasjonskjeden i observasjonsmodellen: person, sesong, kamp
+# og bane. Uten en slik fil i fixturene bygges nettstedet uten en eneste
+# observasjon, og kamp- og banevisningen av dem blir aldri røyktestet.
+id: 1998-kramyra-rekordoppmote
+title: Rekordoppmøte på Kråmyra mot Molde
+text: Kampen mot Molde 24. mai 1998 trakk fullt hus på Kråmyra, og Jan Jonsson takket publikum for rammen etter kampen.
+date: 1998-05-24
+personIds:
+  - jan-jonsson
+seasonYears:
+  - 1998
+matchIds:
+  - 1998-05-24-aalesunds-fk-molde-fk
+venueIds:
+  - kramyra-stadion
+sources:
+  - sourceId: medlemsblad-1970-1
+    page: "12"
+    fields:
+      - title
+      - text
+      - date

@@ -137,6 +137,11 @@ CREATE TABLE observation_competitions (
   competition_id TEXT NOT NULL REFERENCES core_competitions(id),
   PRIMARY KEY (observation_id, competition_id)
 );
+CREATE TABLE observation_venues (
+  observation_id TEXT NOT NULL REFERENCES core_historical_observations(id),
+  venue_id TEXT NOT NULL REFERENCES core_venues(id),
+  PRIMARY KEY (observation_id, venue_id)
+);
 
 -- Sluttabellen for én konkurranse i én sesong, og AaFKs vei gjennom den.
 --
@@ -1218,9 +1223,16 @@ SELECT o.id, o.title, o.text, o.date, o.note, o.sources,
        coalesce((SELECT json_group_array(season) FROM observation_seasons WHERE observation_id = o.id), '[]') AS season_years,
        coalesce((SELECT json_group_array(match_id) FROM observation_matches WHERE observation_id = o.id), '[]') AS match_ids,
        coalesce((SELECT json_group_array(competition_id) FROM observation_competitions WHERE observation_id = o.id), '[]') AS competition_ids,
+       coalesce((SELECT json_group_array(venue_id) FROM observation_venues WHERE observation_id = o.id), '[]') AS venue_ids,
+       -- Kjeden dekker alle relasjonene som har en side å vise på, og skjemaet
+       -- krever minst én av dem. Sto bare person og sesong her, ville en
+       -- observasjon knyttet til en kamp eller en bane fått url = NULL og blitt
+       -- filtrert stille bort av søket.
        coalesce(
          (SELECT '/personer/' || person_id || '#observasjon-' || o.id FROM observation_people WHERE observation_id = o.id ORDER BY person_id LIMIT 1),
-         (SELECT '/sesong/' || season || '#observasjon-' || o.id FROM observation_seasons WHERE observation_id = o.id ORDER BY season LIMIT 1)
+         (SELECT '/sesong/' || season || '#observasjon-' || o.id FROM observation_seasons WHERE observation_id = o.id ORDER BY season LIMIT 1),
+         (SELECT '/kamp/' || match_id || '#observasjon-' || o.id FROM observation_matches WHERE observation_id = o.id ORDER BY match_id LIMIT 1),
+         (SELECT '/hjemmebaner#observasjon-' || o.id FROM observation_venues WHERE observation_id = o.id ORDER BY venue_id LIMIT 1)
        ) AS url
 FROM core_historical_observations o
 ORDER BY coalesce(o.date, '') DESC, o.id;

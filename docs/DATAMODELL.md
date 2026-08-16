@@ -85,8 +85,10 @@ data/
 ├── venues/         <stadion-id>.yaml        Stadion og baner
 ├── competitions/   <konkurranse-id>.yaml    Serie, cup, europa, trening
 ├── sources/        <kilde-id>.yaml          Kildekatalog med rettighetsstatus
-├── observations/
+├── observations/   <observasjon-id>.yaml    Kildeførte historiske fakta (kanoniske)
 │   └── rsssf/      <ekstern-id>.yaml        Hva kilden sa, før normalisering
+├── harvests/       <batch-id>.yaml          Batchmanifest for en innhøstingsrunde
+├── preservation-exceptions.yaml             Godkjente unntak fra additivitetsvernet
 ├── people/         <person-id>.yaml         Hvem personen er, ikke når hun spilte
 ├── standings/
 │   └── eliteserien/<år>.yaml                Sluttabell og plasseringskurve
@@ -97,13 +99,16 @@ data/
             └── 2019-06-19-aalesunds-fk-molde-fk.yaml
 ```
 
-Tre regler valideringen håndhever på strukturen:
+Fire regler valideringen håndhever på strukturen:
 
 - **Filnavnet er ID-en.** `data/clubs/molde-fk.yaml` må ha `id: molde-fk`, og en kampfil må
   hete `<id>.yaml`.
 - **Mappenavnet er sesongen.** En kamp i `seasons/2019/` må ha `competition.season: 2019`, og
   `season.yaml` må ha `year: 2019`.
 - **Kamp-ID-en starter med datoen.** `2019-06-19-…` for en kamp 19. juni 2019.
+- **Dybden i `observations/` avgjør modellen.** En fil rett i mappa er et kanonisk historisk
+  faktum, og en fil i en undermappe er leverandørens råobservasjon om én kamp. De to har
+  hvert sitt skjema, og en fil på feil nivå blir lest med feil skjema.
 
 ## Fellesregler
 
@@ -639,9 +644,18 @@ hendelser som er relevante for AaFKs historie. En observasjon har alltid `title`
 og minst én `sourceRef`. `date` er valgfri og skrives som år, måned eller eksakt dato med
 den presisjonen kilden faktisk gir.
 
-Relasjonene `personIds`, `seasonYears`, `matchIds` og `competitionIds` er alle valgfrie.
-Samme observasjon kan derfor vises på både en person- og en sesongside uten å kopieres.
-Alle oppgitte ID-er og kilder må finnes i arkivet.
+Relasjonene `personIds`, `seasonYears`, `matchIds`, `venueIds` og `competitionIds` er hver
+for seg valgfrie. Samme observasjon kan derfor vises på både en person-, en sesong-, en
+kamp- og en banevisning uten å kopieres. Alle oppgitte ID-er og kilder må finnes i arkivet.
+
+**Minst én relasjon må ha en side å stå på.** `personIds`, `seasonYears`, `matchIds` eller
+`venueIds` — minst én av dem må være satt. `competitionIds` teller ikke, fordi arkivet ikke
+har noen konkurranseside: en observasjon som bare pekte dit ville blitt lagret og validert
+uten å finnes noe sted for en leser. Kravet håndheves i skjemaet.
+
+Er faktumet allerede skrevet ut i en annen fil — for eksempel som `note` på en `events`-post
+under en bane — hører det hjemme her og ikke begge steder. Poenget med modellen er at en
+retting skal treffe ett sted.
 
 ```yaml
 id: nils-jangaard-kretsinndeling-1919
@@ -655,7 +669,7 @@ sources:
     page: "67-69"
 ```
 
-Modellene betyr forskjellige ting:
+De fire måtene en kilde kan si noe om en person på, betyr forskjellige ting:
 
 - **role:** personen hadde et konkret verv, for eksempel Georg Haller som formann i AaFK.
 - **mention:** personen forekommer i en publikasjon, uten at treffet alene etablerer et faktum.

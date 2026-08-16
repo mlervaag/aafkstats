@@ -157,9 +157,10 @@ på historiske publikasjoner med `sourceRef`; kildesiden viser koblingen tilbake
 Historiske observasjoner ligger som egne kanoniske YAML-filer direkte i
 `data/observations/`, atskilt fra leverandørenes maskinelle råobservasjoner i
 undermapper. De bygges til `core_historical_observations` og normaliserte
-relasjonstabeller for personer, sesonger, kamper og konkurranser. Dermed kan samme
+relasjonstabeller for personer, sesonger, kamper, konkurranser og baner. Dermed kan samme
 kildeførte hendelse vises flere steder uten å kopieres. Det offentlige viewet
-`historical_observations` gjør funnene tilgjengelige for søk og spørringer.
+`historical_observations` gjør funnene tilgjengelige for søk og spørringer, og utleder
+en `url` til den første visningen observasjonen faktisk står på.
 
 Organisasjonsenheter og samtidige organisasjonsbilder ligger i
 `data/organizations/` og `data/organization/snapshots/`. De bygges til

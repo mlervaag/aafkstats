@@ -176,10 +176,13 @@ export const getPersonById = cache(function getPersonById(id: string): PersonDet
     return {
       ...row,
       role_categories: parseStringArray(row.role_categories),
+      // En omtale skjules bare når observasjonen dekker nøyaktig samme belegg:
+      // samme kilde og samme side. Filteret sammenlignet tidligere også mot
+      // «kilden uten side», slik at én sideløs observasjon skjulte samtlige
+      // omtaler fra den kilden — også omtaler fra helt andre sider, som sier
+      // noe annet. Det er tap av opplysninger, ikke deduplisering.
       mentions: parseJson<PersonMention[]>(row.sources, []).filter(
-        (mention) =>
-          !observationSourceKeys.has(`${mention.sourceId}:${mention.page ?? ""}`) &&
-          !observationSourceKeys.has(`${mention.sourceId}:`),
+        (mention) => !observationSourceKeys.has(`${mention.sourceId}:${mention.page ?? ""}`),
       ),
       conflicts: parseJson<PersonConflict[]>(row.conflicts, []),
     };

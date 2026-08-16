@@ -20,12 +20,17 @@ miljøavhengige og behandles ikke som arkivfakta.
 
 **Skillet mellom rådata og publisert datasett ligger i navnet.** SQLite har ingen schemas, så
 tabellene heter `core_*` og er interne, mens viewene uten prefiks er den offentlige
-kontrakten: `matches`, `venues`, `seasons`, `opponents`, `standings`, `squad`, `match_events`,
-`match_conflicts`, `people`, `person_roles`, `person_conflicts`, `organizations`,
-`organization_snapshots`, `providers`, `sources`,
-`contributions`, `publication_extractions`, `fact_candidates`, `source_results`,
-`resolved_roles`, `resolved_lineups` og FTS-tabellen `reports`.
+kontrakten: `matches`, `match_events`, `match_conflicts`, `match_stats`, `venues`, `seasons`,
+`opponents`, `standings`, `standings_progression`, `squad`, `coach_spells`,
+`declared_coach_spells`, `people`, `person_roles`, `person_conflicts`, `organizations`,
+`organization_snapshots`, `providers`, `sources`, `historical_observations`,
+`verification_cases`, `contributions`, `publication_extractions`, `fact_candidates`,
+`source_results`, `resolved_roles`, `resolved_lineups` og FTS-tabellen `reports`.
 Spørrefunksjonen ser bare viewene.
+
+Lista over er ikke skrevet av hukommelsen: `schema.test.ts` sammenligner den med `CREATE VIEW`
+i `schema.sql` og feller bygget når de spriker. Den sto ufullstendig i flere måneder fordi
+ingenting kontrollerte den.
 
 `resolved_roles` og `resolved_lineups` er et eksplisitt kandidatlag. Radene har kilde,
 side og sikkerhetsnivå, men er ikke kanoniske personroller eller kampoppstillinger før de

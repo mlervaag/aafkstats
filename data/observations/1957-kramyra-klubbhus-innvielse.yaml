@@ -7,6 +7,8 @@ personIds:
   - rolf-annaniassen
 seasonYears:
   - 1957
+venueIds:
+  - kramyra-stadion
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
     page: "50"
@@ -15,6 +17,7 @@ sources:
       - text
       - date
       - seasonYears
+      - venueIds
       - personIds
   - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
     page: "77"
@@ -22,3 +25,4 @@ sources:
       - title
       - text
       - seasonYears
+      - venueIds

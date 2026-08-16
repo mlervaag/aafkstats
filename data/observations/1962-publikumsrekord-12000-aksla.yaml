@@ -6,6 +6,8 @@ seasonYears:
   - 1962
 matchIds:
   - 1962-11-04-aalesunds-fk-gjovik-lyn
+venueIds:
+  - aksla-stadion
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
     page: "61"
@@ -14,6 +16,7 @@ sources:
       - text
       - date
       - seasonYears
+      - venueIds
       - matchIds
   - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
     page: "69"
@@ -22,4 +25,5 @@ sources:
       - text
       - date
       - seasonYears
+      - venueIds
       - matchIds

@@ -6,6 +6,7 @@ const valid = {
   id: "testobservasjon",
   title: "Et historisk funn",
   text: "En kort kildebasert parafrase.",
+  seasonYears: [1919],
   sources: [{ sourceId: "nff-arbok-1919", page: "67-69" }],
 };
 
@@ -17,14 +18,35 @@ describe("HistoricalObservation", () => {
     expect(historicalObservation.safeParse({ ...valid, sources: [] }).success).toBe(false);
   });
 
-  it("godtar en observasjon uten person og sesong", () => {
+  it("godtar en observasjon uten person så lenge den har en sesong", () => {
     expect(historicalObservation.safeParse(valid).success).toBe(true);
+  });
+
+  it.each(["personIds", "matchIds", "venueIds"] as const)("godtar %s alene som visningsrelasjon", (field) => {
+    const { seasonYears: _unused, ...rest } = valid;
+    expect(historicalObservation.safeParse({ ...rest, [field]: ["noe"] }).success).toBe(true);
+  });
+
+  it("avviser en observasjon uten noen relasjon som gir den en side", () => {
+    // Uten dette kravet ville observasjonen ligget i basen, validert grønt og
+    // aldri blitt vist noe sted — heller ikke i søket, som filtrerer bort
+    // rader uten url.
+    const { seasonYears: _unused, ...rest } = valid;
+    expect(historicalObservation.safeParse(rest).success).toBe(false);
+  });
+
+  it("avviser en observasjon som bare peker på en konkurranse", () => {
+    // Arkivet har ingen konkurranseside. competitionIds er derfor en relasjon
+    // for spørringer, ikke et sted å bli vist.
+    const { seasonYears: _unused, ...rest } = valid;
+    expect(historicalObservation.safeParse({ ...rest, competitionIds: ["cupen"] }).success).toBe(false);
   });
 
   it.each([
     ["personIds", ["ukjent-person"], "ukjent person"],
     ["matchIds", ["ukjent-kamp"], "ukjent kamp"],
     ["competitionIds", ["ukjent-konkurranse"], "ukjent konkurranse"],
+    ["venueIds", ["ukjent-bane"], "ukjent bane"],
   ] as const)("avviser ukjent relasjon i %s", (field, value, message) => {
     const copy = structuredClone(archive);
     copy.historicalObservations.push({

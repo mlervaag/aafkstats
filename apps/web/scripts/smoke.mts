@@ -80,7 +80,12 @@ const checks: Check[] = [
     page: "hjemmebaner",
     // Sida finnes bare fordi banedataene lå ubrukt i arkivet: perioder,
     // dekkehistorikk, publikumsrekord og milepæler uten noe sted å stå.
-    must: ["Der klubben har spilt", "Kråmyra stadion", "Publikumsrekord", "Milepæler", "1977"],
+    must: [
+      "Der klubben har spilt", "Kråmyra stadion", "Publikumsrekord", "Milepæler", "1977",
+      // Banen er stedet hendelsen skjedde, og skal vise de kildeførte funnene
+      // om seg selv i stedet for å la dem stå bare på personen eller sesongen.
+      "Historiske observasjoner", "Rekordoppmøte på Kråmyra mot Molde",
+    ],
   },
   {
     page: "organisasjon",
@@ -153,6 +158,13 @@ const checks: Check[] = [
     page: "kilder/aafk-medlemsblad",
     // Årsgruppering: to årganger, hver med sitt utgavenummer.
     must: ["AaFK Medlemsblad", "Utgivelser (", "1970", "1971", "Årgang"],
+  },
+  {
+    // Observasjonene har pekt på kamper og baner siden PR 142 uten at noen side
+    // leste relasjonen. Uten en røyktest her er det ingenting som merker om den
+    // faller ut igjen.
+    page: "kamp/1998-05-24-aalesunds-fk-molde-fk",
+    must: ["Historiske observasjoner", "Rekordoppmøte på Kråmyra mot Molde"],
   },
   {
     page: "kamp/2024-11-24-sk-brann-aalesunds-fk",

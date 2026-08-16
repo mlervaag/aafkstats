@@ -117,3 +117,20 @@ export function nowInOslo(now = new Date()): { date: string; time: string } {
   const [date, time] = parts.split(" ");
   return { date: date ?? "", time: (time ?? "").slice(0, 5) };
 }
+
+/**
+ * Datering med den presisjonen kilden faktisk ga.
+ *
+ * Historiske observasjoner er datert som `ÅÅÅÅ`, `ÅÅÅÅ-MM` eller hele datoen,
+ * avhengig av hva kilden sier. `formatDate` kjenner bare hele datoer og skrev
+ * derfor «1919-05» rått midt i norsk prosa. Året alene skrives som året, og en
+ * kjent måned uten dag skrives som måneden — ingen av dem gjettes opp til en dag.
+ */
+export function formatObservationDate(value: string): string {
+  const month = /^(\d{4})-(\d{2})$/.exec(value.trim());
+  if (month) {
+    const index = Number(month[2]) - 1;
+    return MONTHS[index] ? `${MONTHS[index]} ${month[1]}` : value;
+  }
+  return formatDate(value);
+}

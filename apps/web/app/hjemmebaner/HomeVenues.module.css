@@ -46,3 +46,9 @@
    publikumsrekorden om oppmerksomheten. */
 .venueContribute { margin: 1.1rem 0 0; font-size: 0.85rem; }
 .venueContribute a { color: var(--muted); }
+
+/* Observasjonene står under milepælene i kortet og skal leses som en fortsettelse
+   av dem, ikke som en ny blokk med egen luft rundt. */
+.observations { margin-top: 1.3rem; }
+.observations h3 { margin: 0 0 0.6rem; font-size: 0.95rem; }
+.observations h4 { margin: 0.3rem 0; font-size: 1rem; }

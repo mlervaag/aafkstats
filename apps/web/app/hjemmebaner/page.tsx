@@ -4,6 +4,8 @@ import { ArchiveTabs } from "@/components/ArchiveTabs";
 import { SourceChips } from "@/components/SourceChips";
 import { getSourceTitles } from "@/lib/people";
 import { getHomeVenues } from "@/lib/venues";
+import { HistoricalObservations } from "@/components/HistoricalObservations";
+import { getVenueObservations } from "@/lib/historical-observations";
 import { contributionIssueUrl, pageReference } from "@/lib/contribution-links";
 import type { HomeVenue, VenueEvent } from "@/lib/venues";
 import styles from "./HomeVenues.module.css";
@@ -101,10 +103,11 @@ export default function HomeVenuesPage() {
 
 function VenueCard({ venue, titles }: { venue: HomeVenue; titles: Map<string, string> }) {
   const record = venue.attendanceRecords[0];
+  const observations = getVenueObservations(venue.id);
   const surfaces = [...new Set(venue.surfaceHistory.map((entry) => SURFACE_LABELS[entry.surface] ?? entry.surface))];
 
   return (
-    <section className={styles.card}>
+    <section className={styles.card} id={venue.id}>
       <header>
         <p className="eyebrow num">{period(venue)}</p>
         <h2>{venue.name}</h2>
@@ -141,6 +144,12 @@ function VenueCard({ venue, titles }: { venue: HomeVenue; titles: Map<string, st
           </ol>
         </div>
       ) : null}
+
+      {/* Milepælene er banens egne hendelser i korte trekk. De historiske
+          observasjonene er kildeført prosa om det samme stedet, og lå tidligere
+          bare på personen eller sesongen — så banen som faktisk var stedet,
+          viste ingenting. */}
+      <HistoricalObservations observations={observations} titles={titles} className={styles.observations} level={3} />
 
       {venue.note ? <p className="small muted">{venue.note}</p> : null}
 

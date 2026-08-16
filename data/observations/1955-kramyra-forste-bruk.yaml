@@ -6,6 +6,8 @@ personIds:
   - emil-sando
 seasonYears:
   - 1955
+venueIds:
+  - kramyra-stadion
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
     page: "61"
@@ -14,6 +16,7 @@ sources:
       - text
       - date
       - seasonYears
+      - venueIds
       - personIds
   - sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
     page: "64"
@@ -22,3 +25,4 @@ sources:
       - text
       - date
       - seasonYears
+      - venueIds

@@ -26,7 +26,11 @@ const counts = [
   `${archive.providers.length} kilder`,
   // Vises bare når laget er tatt i bruk. Å skrive «0 observasjoner» for hvert
   // kall ville lest som en mangel, ikke som at ingen kilde er høstet inn ennå.
-  ...(archive.observations.length > 0 ? [`${archive.observations.length} observasjoner`] : []),
+  ...(archive.observations.length > 0 ? [`${archive.observations.length} leverandørobservasjoner`] : []),
+  // De kanoniske historiske faktaene er en annen modell enn leverandørenes
+  // råobservasjoner, og telles for seg. Sto de ikke her, hadde README ingen
+  // kilde til tallet — og «pnpm validate skriver ut de gjeldende» ville løyet.
+  ...(archive.historicalObservations.length > 0 ? [`${archive.historicalObservations.length} historiske observasjoner`] : []),
   ...(archive.standings.length > 0 ? [`${archive.standings.length} tabeller`] : []),
   ...(archive.people.length > 0 ? [`${archive.people.length} personer`] : []),
   ...(archive.extractions.length > 0 ? [`${archive.extractions.length} publikasjoner analysert`] : []),

@@ -58,7 +58,9 @@ events:
       - sourceId: aafk-historie-kramyra-stadion
       - sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
         page: "61"
-    note: Gresstreningsbanen ble for første gang tatt i bruk etter fullføringen av banens første byggetrinn under ledelse av banekomiteens formann Emil Sandø.
+    # Prosaen om denne dagen står i observasjonen 1955-kramyra-forste-bruk, som
+    # nå peker hit med venueIds og vises på banen. Sto den begge steder, ville
+    # en retting av den ene etterlatt den andre gal.
   - id: gjenapning-og-klubbhus-1961
     date: "1961"
     kind: clubhouse

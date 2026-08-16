@@ -310,6 +310,9 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
     const insertObservationCompetition = db.prepare(
       `INSERT INTO observation_competitions (observation_id, competition_id) VALUES (?, ?)`,
     );
+    const insertObservationVenue = db.prepare(
+      `INSERT INTO observation_venues (observation_id, venue_id) VALUES (?, ?)`,
+    );
     for (const observation of archive.historicalObservations) {
       insertHistoricalObservation.run(
         observation.id, observation.title, observation.text, observation.date ?? null,
@@ -318,6 +321,7 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
       for (const personId of observation.personIds) insertObservationPerson.run(observation.id, personId);
       for (const season of observation.seasonYears) insertObservationSeason.run(observation.id, season);
       for (const competitionId of observation.competitionIds) insertObservationCompetition.run(observation.id, competitionId);
+      for (const venueId of observation.venueIds) insertObservationVenue.run(observation.id, venueId);
     }
 
     const insertStanding = db.prepare(
