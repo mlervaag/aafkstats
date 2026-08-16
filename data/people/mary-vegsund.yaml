@@ -8,11 +8,50 @@ roles:
     from: "1949"
     to: null
     sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+        page: "5"
+        fields:
+          - title
       - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
         page: "9"
       - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
         page: "17"
-    note: Formann i Dameavdelingen.
+    note: Formann i Dameavdelingen (oppgitt som 1948–1950 i medlemsbladet 1950 nr. 2 s. 5; oppført under 1949 i jubileumsberetningen 1961).
+  - id: nestformann-dameavdelingen-1950-1951
+    category: board
+    title: Nestformann
+    body: Dameavdelingen
+    from: "1950"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+        page: "5"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
 sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+    page: "5"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+    page: "31"
   - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
     page: "9"
+conflicts:
+  - field: roles.formann-dameavdelingen.from
+    values:
+      - value: "1948"
+        providerId: nasjonalbiblioteket
+        note: medlemsblad-for-aalesunds-fotb-1950-1573 s. 5 (oppgir Mary Vegsund som formann 1948–1950)
+      - value: "1949"
+        providerId: nasjonalbiblioteket
+        note: medlemsblad-for-aalesunds-fotb-1961-a9f8 s. 9 (oppfører formann under 1949)
+    resolved: false
+    decision: unresolved
+    locked: false
+    note: Kildene oppgir ulik startdato for formannsvervet (1948 vs 1949).

@@ -1,0 +1,25 @@
+id: karl-slinning
+name: Karl Slinning
+roles:
+  - id: trener-innetrening-1950
+    category: coach
+    title: Idrettsinstruktør og innetrener
+    from: "1950"
+    to: "1950"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+        page: "5"
+        fields:
+          - title
+          - from
+          - to
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "28"
+        fields:
+          - title
+          - from
+          - to
+    note: Ledet AaFKs fysiske innetrening og kondisjonstrening i 1950.
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+    page: "5"

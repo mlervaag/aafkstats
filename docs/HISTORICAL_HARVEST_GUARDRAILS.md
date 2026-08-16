@@ -208,3 +208,50 @@ Identiteten er `entity + id + path + change`. Begrunnelse og kildehenvisninger k
 ### Ubrukte unntak
 
 Et unntak som ikke matcher noen faktisk endring rapporteres som `stale`. Det feller ikke bygget, men bør ryddes bort: et unntak som ligger igjen er en åpen dør ingen lenger holder øye med.
+
+---
+
+## 8. Lærdommer og permanente regler fra produksjonskjøringer (Golden Example: Medlemsblad 1950)
+
+Første fullskala innhøsting av *AaFK Medlemsblad 1950* etablerte følgende normative guardrails og kontroller:
+
+### 8.1 Sidedekning og katalogduplikater
+- Katalogduplikater skal ikke doble kravet til visuell sidegjennomgang når duplikatforholdet er eksplisitt dokumentert og validert.
+- `duplicate_or_reprint` ekskluderes kun fra `coverage.expected` dersom:
+  1. `duplicateOf` finnes.
+  2. `duplicateOf` finnes i batchens `sourceInventory`.
+  3. Originalen har `reviewStatus: reviewed`.
+  4. Det er oppgitt en eksplisitt `reason`.
+- **Regel:** `Source Inventory count != unik visuell sidedekning`.
+
+### 8.2 Semantisk disposisjonsvalidering (Created vs Enriched)
+- `person_created`: Feiler ved `status: complete` dersom personen allerede fantes i BASE (bruk `person_enriched`).
+- `person_enriched`: Feiler dersom personen ikke fantes i BASE (bruk `person_created`).
+- `role_created`: Feiler dersom rollen allerede fantes i BASE på personen (bruk `role_enriched`).
+- `role_enriched`: Feiler dersom rollen ikke fantes i BASE på personen (bruk `role_created`).
+- `canonical_created`: Feiler dersom kampen fantes i BASE (bruk `canonical_enriched`).
+- `canonical_enriched`: Feiler dersom kampen ikke fantes i BASE (bruk `canonical_created`).
+
+### 8.3 Omvendt attribuering for kildekonflikter
+- Nye `person.conflicts[]` som refererer til batchens kilder krever et tilhørende finding med `disposition: conflict_registered`.
+- Konflikter er førsteklasses innhøstingsdata og skal aldri skjules i notater eller feilaktig overskrives.
+
+### 8.4 Retrospektive kildepåstander og faktumår
+- Kilderesultater fra historiske artikler (f.eks. en 1950-artikkel om 1927) skal lagres under sesongen for **faktumåret** (`seasons: [{ year: 1927 }]`), aldri publikasjonsåret.
+- Hver kilde beholder sitt eget kilderesultat uavhengig av om kampen allerede er kanonisk eller omtalt i andre kilder (*multi-source provenance*).
+
+### 8.5 Organisasjonsvalg og arbeidsår
+- Valgdato $\neq$ automatisk snapshot-år. Årsmøtevalg sent på året for kommende sesong (f.eks. 29. november 1950 for arbeidsåret 1951) skal lagres på arbeidsårets snapshot (`1951-aafk.yaml`) og personroller for 1951.
+- Oppgitte komiteer og lister i et snapshot skal være fullstendige iht. kilden innenfor det definerte claimet.
+
+### 8.6 Ingen personperiode-interpolering
+- Diskrete dokumenterte år (f.eks. styremedlem 1925, 1927, 1930, 1931) skal aldri interpoleres til en sammenhengende periode (`1925–1931`) uten eksplisitt kildebelegg for kontinuitet.
+
+### 8.7 Turneringsprogresjon og ScorePerspective
+- I utslagsturneringer (NM cup) kan ikke et lag ha et utslagsgivende tap i runde $N$ dersom kilden dokumenterer deltagelse i runde $N+1$.
+- `scorePerspective: aafk` skal alltid dobbeltsjekkes mot trykt rekkefølge (hjemme/borte vs AaFK-perspektiv).
+
+### 8.8 Firelags-avstemming (Four-Layer Reconciliation)
+Før en batch settes til `status: complete`, skal fire lag fortelle nøyaktig samme historie:
+$$\text{Faksimile} \longrightarrow \text{Review-logg} \longrightarrow \text{Manifest Findings} \longrightarrow \text{Target Data}$$
+

@@ -1,0 +1,38 @@
+id: bjorn-aasen
+name: Bjørn Aasen
+roles:
+  - id: forretningsforer-medlemsbladet-1950-1951
+    category: administration
+    title: Forretningsfører
+    body: Medlemsbladet
+    from: "1950"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+        page: "8"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
+  - id: kasserer-hovedstyret-1951
+    category: administration
+    title: Kasserer
+    body: Hovedstyret
+    from: "1951"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+    page: "8"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+    page: "31"

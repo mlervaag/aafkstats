@@ -1,0 +1,24 @@
+id: aase-gudmundseth
+name: Åse Gudmundseth
+roles:
+  - id: kasserer-dameavdelingen-1950-1951
+    category: administration
+    title: Kasserer
+    body: Dameavdelingen
+    from: "1950"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+        page: "5"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+    page: "5"

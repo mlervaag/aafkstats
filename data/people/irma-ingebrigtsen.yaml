@@ -1,18 +1,28 @@
 id: irma-ingebrigtsen
 name: Irma Ingebrigtsen
+names:
+  - Irma Berger Huseby
 roles:
   - id: formann-dameavdelingen-1946
     category: board
     title: Formann
     body: Dameavdelingen
     from: "1946"
-    to: null
+    to: "1948"
     sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+        page: "5"
+        fields:
+          - title
+          - from
+          - to
       - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
         page: "9"
       - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
         page: "17"
     note: Dameavdelingens første formann ved oppstarten i 1946.
 sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+    page: "5"
   - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
     page: "9"

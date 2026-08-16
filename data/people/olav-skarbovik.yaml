@@ -1,0 +1,30 @@
+id: olav-skarbovik
+name: Olav Skarbøvik
+roles:
+  - id: a-lagsspiller-1929-1938
+    category: player
+    title: A-lagsspiller
+    from: "1929"
+    to: "1938"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+        page: "5"
+        fields:
+          - title
+          - from
+          - to
+    note: Debut på A-laget i 1929 mot Molde. Notert med ca 170 A-kamper over 10 sesonger (1929–1938) og tildelt klubbens spillermerke i sølv.
+  - id: arrangementskomite-1951
+    category: administration
+    title: Medlem av arrangementskomiteen
+    from: "1951"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+    page: "5"

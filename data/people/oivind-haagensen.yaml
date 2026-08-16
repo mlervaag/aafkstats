@@ -1,6 +1,24 @@
 id: oivind-haagensen
 name: Øivind Haagensen
 roles:
+  - id: banekomite-1950-1951
+    category: board
+    title: Medlem av banekomiteen
+    body: Banekomiteen
+    from: "1950"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+        page: "6"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
   - id: oppmann-1940
     category: sporting_staff
     title: Oppmann
@@ -63,6 +81,18 @@ roles:
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+  - id: a-lagsspiller-1930-1949
+    category: player
+    title: A-lagsspiller
+    from: "1930"
+    to: "1949"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-62fa
+        page: "8"
+        fields:
+          - title
+          - from
+          - to
   - id: oppmann-1951
     category: sporting_staff
     title: Oppmann
@@ -303,6 +333,8 @@ sources:
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
   - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
     page: "78"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-62fa
+    page: "8"
 conflicts:
   - field: formann.1940
     values:

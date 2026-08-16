@@ -1,6 +1,19 @@
 id: ingvald-froysa
 name: Ingvald Frøysa
 roles:
+  - id: a-lagskeeper-1923-1928
+    category: player
+    title: Målvakt på A-laget
+    from: "1923"
+    to: "1928"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "4"
+        fields:
+          - title
+          - from
+          - to
+    note: Gikk inn i AaFK i 1922 fra Nørvasund FK. A-lagsdebut i 1923 mot Smart (4–1 på Nørve). Fast målvakt 1923–1928.
   - id: spillemerke-solv-1950
     category: honorary
     title: Spillemerket i sølv
@@ -11,6 +24,8 @@ roles:
         page: "74"
     note: Notert med 100 kamper for AaFKs A-lag i spillemerkestatistikken.
 sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+    page: "4"
   - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
     page: "74"
   - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
