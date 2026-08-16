@@ -118,7 +118,7 @@ describe("Medlemsblad 1950 (Vol. 1, nr. 1–6)", () => {
     expect(mary).toBeDefined();
     expect(mary?.roles.some((r) => r.id === "formann-dameavdelingen-1949")).toBe(true);
     expect(mary?.roles.some((r) => r.id === "nestformann-dameavdelingen-1950-1951")).toBe(true);
-    expect(mary?.conflicts?.some((c) => c.field === "roles.formann-dameavdelingen-1949.from")).toBe(true);
+    expect(mary?.conflicts?.some((c) => c.field === "roles.formann-dameavdelingen.from")).toBe(true);
   });
 
   it("dokumenterer historiske observasjoner for Kråmyra og Dameavdelingen", () => {
