@@ -27,7 +27,7 @@ const source: SourceMatch = {
   kickoff: "17:00",
   status: "played",
   home: { externalId: "8404", name: "Aalesund" },
-  away: { externalId: "9918", name: "Stabæk" },
+  away: { externalId: "9918", name: "Stabæk", country: "NO" },
   homeScore: 1,
   awayScore: 1,
   competitionExternalId: "203",
@@ -39,6 +39,19 @@ const source: SourceMatch = {
 };
 
 describe("reconcile", () => {
+  /**
+   * En klubb uten land fra kilden får «NO» av skjemaet, og den verdien ser
+   * nøyaktig ut som en hentet i den ferdige fila. Tretten utenlandske klubber
+   * ble importert med norsk landkode på den måten før innhøstingen sa fra.
+   */
+  it("sier fra når kilden ikke oppgir land for en ny klubb", () => {
+    const utenLand: SourceMatch = { ...source, away: { externalId: "9918", name: "Stabæk" } };
+    const plan = reconcile(archive, [utenLand], { providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03" });
+    expect(plan.issues).toEqual([
+      "klubb stabaek (Stabæk): kilden oppgir ikke land, «NO» er satt som plassholder",
+    ]);
+  });
+
   it("lager en deterministisk plan med kilde-ID-er og proveniens", () => {
     const first = reconcile(archive, [source], { providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03" });
     const second = reconcile(archive, [source], { providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03" });

@@ -149,6 +149,13 @@ export function reconcile(
     const sourceTeam = sourceMatches
       .flatMap((match) => [match.home, match.away])
       .find((team) => team.externalId === externalId);
+    // Landet skal komme fra kilden. Gjorde den ikke det, er «NO» en gjetning,
+    // og den ser nøyaktig ut som en hentet verdi i den ferdige fila. Tretten
+    // utenlandske klubber fikk norsk landkode på den måten. Nå sier
+    // innhøstingen fra, slik at et menneske retter den før den blir stående.
+    if (!sourceTeam?.country) {
+      issues.push(`klubb ${id} (${name}): kilden oppgir ikke land, «NO» er satt som plassholder`);
+    }
     const club: Club = {
       id,
       name,

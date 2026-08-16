@@ -17,15 +17,79 @@ export const AAFK_FOTMOB_ID = "8404";
  * ikke når en kommentar flyttes. Det er dette som gjør at en verdi hentet før en
  * rettelse kan skilles fra en hentet etter.
  */
-export const FOTMOB_ADAPTER = "fotmob@4";
+export const FOTMOB_ADAPTER = "fotmob@5";
 const BASE = "https://www.fotmob.com/api/data";
-const TEAM_COUNTRIES: Record<string, string> = {
-  "2429": "RO", "5772": "SI", "8014": "SE", "8040": "MT", "8222": "HU",
-  "8248": "SE", "8391": "DK", "8595": "DK", "8621": "CY", "8623": "CN",
-  "8643": "RU", "8691": "UA", "8705": "RU", "8707": "RU", "9728": "UA",
-  "9802": "SE", "9892": "SE", "9927": "GB", "10029": "AL", "10202": "DK",
-  "10229": "NL", "10265": "PL", "80597": "GB", "162162": "FI",
+/**
+ * Landkodene FotMob bruker på lagprofilen, oversatt til ISO 3166-1 alpha-2.
+ *
+ * FotMob blander to systemer: «NOR» og «UKR» er ISO alpha-3, mens «DEN» og
+ * «GER» er FIFA-koder. Tabellen dekker derfor begge formene der de er ulike.
+ * Står en kode ikke her, sier oppslaget fra seg framfor å gjette.
+ */
+const FOTMOB_COUNTRIES: Record<string, string> = {
+  ALB: "AL", AUT: "AT", BEL: "BE", BIH: "BA", BLR: "BY", BUL: "BG", CHN: "CN",
+  CRO: "HR", CYP: "CY", CZE: "CZ", DEN: "DK", DNK: "DK", ENG: "GB", ESP: "ES",
+  EST: "EE", FIN: "FI", FRA: "FR", GER: "DE", GRE: "GR", HUN: "HU", IRL: "IE",
+  ISL: "IS", ISR: "IL", ITA: "IT", KAZ: "KZ", LAT: "LV", LTU: "LT", LUX: "LU",
+  MLT: "MT", MDA: "MD", MKD: "MK", NED: "NL", NIR: "GB", NOR: "NO", POL: "PL",
+  POR: "PT", ROU: "RO", RUS: "RU", SCO: "GB", SRB: "RS", SUI: "CH", SVK: "SK",
+  SVN: "SI", SWE: "SE", TUR: "TR", UKR: "UA", USA: "US", WAL: "GB",
 };
+
+interface RawTeamDetails {
+  details?: { country?: string };
+}
+
+/**
+ * Hjemlandet til ett FotMob-lag, hentet fra lagets egen profil.
+ *
+ * ## Feilen dette retter
+ *
+ * Her sto en håndskrevet tabell med lag-ID-er. Alt utenfor den fikk
+ * `undefined`, og `reconcile` gjorde det om til «NO». Da treningskampene ble
+ * importert, ga det utenlandske klubber norsk landkode: FC København,
+ * Brøndby, Anzhi, Karpaty, Shandong Taishan og flere. Ingenting sa fra, fordi
+ * en gjettet verdi ser nøyaktig ut som en hentet.
+ *
+ * En håndskrevet liste over hvilke lag som er utenlandske kan aldri bli
+ * ferdig — neste ukjente motstander faller utenfor den igjen. Kilden vet det
+ * selv, og ett oppslag per nytt lag er billig: `fetchJson` cacher og holder
+ * fartsgrensa.
+ */
+export async function fetchFotmobTeamCountry(
+  id: string,
+  options: { refresh?: boolean } = {},
+): Promise<string | undefined> {
+  const raw = await fetchJson<RawTeamDetails>(`${BASE}/teams?id=${id}`, options);
+  // FotMob svarer med null for en ID som ikke finnes, ikke med en feil.
+  const code = raw?.details?.country?.toUpperCase();
+  return code ? FOTMOB_COUNTRIES[code] : undefined;
+}
+
+/** Fyller ut land på lagene som mangler det, med ett oppslag per lag. */
+export async function enrichTeamCountries(
+  matches: SourceMatch[],
+  options: { refresh?: boolean } = {},
+): Promise<void> {
+  const unknown = new Set<string>();
+  for (const match of matches) {
+    for (const team of [match.home, match.away]) {
+      if (!team.country && team.externalId) unknown.add(team.externalId);
+    }
+  }
+  const found = new Map<string, string>();
+  for (const id of unknown) {
+    const country = await fetchFotmobTeamCountry(id, options);
+    if (country) found.set(id, country);
+  }
+  for (const match of matches) {
+    for (const team of [match.home, match.away]) {
+      const country = team.externalId ? found.get(team.externalId) : undefined;
+      if (country) team.country = country;
+    }
+    match.venueCountry ??= match.home.country;
+  }
+}
 
 export interface TeamHistoryFetchOptions {
   from: string;
@@ -122,6 +186,7 @@ export async function fetchFotmobTeamHistory(options: TeamHistoryFetchOptions): 
     }
   }
   matches.sort((a, b) => a.date.localeCompare(b.date) || a.externalId.localeCompare(b.externalId));
+  await enrichTeamCountries(matches, { refresh: options.refresh });
   return { matches, failures, requests };
 }
 
@@ -207,6 +272,7 @@ export async function fetchFotmobSeason(options: SeasonFetchOptions): Promise<Fe
   }
 
   matches.sort((a, b) => a.date.localeCompare(b.date));
+  await enrichTeamCountries(matches, { refresh: options.refresh });
   return { matches, failures, requests };
 }
 
@@ -242,8 +308,8 @@ export function normalizeLeagueMatch(
     kickoff: local.kickoff,
     status: normalizeStatus(raw.status),
     rawStatus: raw.status?.reason?.short,
-    home: { externalId: homeId, name: raw.home.name, country: TEAM_COUNTRIES[homeId] ?? (homeId === AAFK_FOTMOB_ID ? "NO" : undefined) },
-    away: { externalId: awayId, name: raw.away.name, country: TEAM_COUNTRIES[awayId] ?? (awayId === AAFK_FOTMOB_ID ? "NO" : undefined) },
+    home: { externalId: homeId, name: raw.home.name, country: homeId === AAFK_FOTMOB_ID ? "NO" : undefined },
+    away: { externalId: awayId, name: raw.away.name, country: awayId === AAFK_FOTMOB_ID ? "NO" : undefined },
     homeScore,
     awayScore,
     competitionExternalId: leagueId,
