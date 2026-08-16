@@ -130,6 +130,14 @@ describe("Medlemsblad 1953–1956 (PR #156)", () => {
     });
     expect(obs?.personIds).toEqual(["emil-sando"]);
 
+    const kramyra = archive.venues.find((v) => v.id === "kramyra-stadion");
+    const event = kramyra?.events.find((e) => e.id === "treningsbane-1955");
+    expect(event).toMatchObject({
+      date: "1955-08-21",
+      kind: "opening",
+      participants: [{ name: "Emil Sandø", affiliation: "Formann i banekomiteen" }],
+    });
+
     const rolf = archive.people.find((p) => p.id === "rolf-annaniassen");
     expect(rolf?.roles?.some((r) => r.id === "banekomiteformann-1956-1957" && r.body === "Kråmyra-prosjektet")).toBe(true);
   });
