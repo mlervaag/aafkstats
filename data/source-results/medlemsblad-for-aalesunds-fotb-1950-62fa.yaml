@@ -1,0 +1,59 @@
+# Senioroppgjør fra Medlemsblad for Aalesunds Fotballklubb 1950 (Vol. 1 Nr. 3).
+# Inneholder distriktskamper 1. div våren 1950, privatkamper og NM cup 1950.
+sourceId: medlemsblad-for-aalesunds-fotb-1950-62fa
+scorePerspective: aafk
+seasons:
+  - year: 1950
+    page: 4
+    results:
+      - no: 1
+        page: 4
+        opponent: Rollon
+        opponentClubId: rollon
+        score: [3, 1]
+        competitionId: forstedivisjon
+        note: "1. div distriktsserie våren 1950 på Aksla stadion: AaFK–Rollon 3–1."
+      - no: 2
+        page: 4
+        opponent: Clausenengen
+        opponentClubId: clausenengen
+        score: [1, 1]
+        competitionId: forstedivisjon
+        note: "1. div distriktsserie våren 1950 i Kristiansund: Clausenengen–AaFK 1–1."
+      - no: 3
+        page: 4
+        opponent: KFK
+        opponentClubId: kfk
+        score: [3, 3]
+        competitionId: forstedivisjon
+        note: "1. div distriktsserie våren 1950 på Aksla stadion: AaFK–KFK 3–3."
+      - no: 4
+        page: 4
+        opponent: Braatt
+        opponentClubId: braatt
+        score: [5, 2]
+        competitionId: forstedivisjon
+        note: "1. div distriktsserie våren 1950 i Kristiansund: Braatt–AaFK 2–5. Mål: Konrad Korsnes (3 mål)."
+      - no: 5
+        page: 16
+        date: 1950-06-27
+        opponent: Ranheim
+        opponentClubId: ranheim
+        score: [0, 3]
+        note: "Privatkamp på Aksla stadion 27. juni 1950: AaFK–Ranheim 0–3."
+      - no: 6
+        page: 16
+        opponent: Sandane
+        opponentClubId: sandane
+        score: [2, 0]
+        competitionId: nm
+        round: 1
+        note: "NM 1950 1. runde på Nørvebanen: AaFK–Sandane 2–0."
+      - no: 7
+        page: 16
+        opponent: Freidig
+        opponentClubId: freidig
+        score: [0, 2]
+        competitionId: nm
+        round: 2
+        note: "NM 1950 2. runde på Lerkendal: Freidig–AaFK 2–0."

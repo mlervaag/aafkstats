@@ -1,0 +1,25 @@
+id: louis-vegsund
+name: Louis Vegsund
+roles:
+  - id: nestformann-hovedstyret-1950
+    category: board
+    title: Nestformann
+    body: Hovedstyret
+    from: "1950"
+    to: "1950"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+        page: "11"
+        fields:
+          - title
+          - from
+          - to
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+    page: "11"

@@ -1,14 +1,45 @@
 id: jorgen-hollevik
 name: Jørgen Hollevik
 roles:
+  - id: a-lagsspiller-1924-1939
+    category: player
+    title: A-lagsspiller
+    from: "1924"
+    to: "1939"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "2"
+        fields:
+          - title
+          - from
+          - to
+    note: Født ca 1906. Spilte ca 250 A-kamper for AaFK fra 1924 til 1939. Spilte prøvelandskamp og B-landskamp mot Finland i 1933.
+  - id: varamann-sportsutvalget-1951
+    category: sporting_staff
+    title: 2. varamann til sportsutvalget
+    body: Sportsutvalget
+    from: "1951"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
   - id: styremedlem-1964-eldres
     category: board
     title: Styremedlem
     body: ÅFKs Eldres gruppe
-    from: '1964'
-    to: '1964'
+    from: "1964"
+    to: "1964"
     sources:
       - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
-        page: '76'
-        fields: [ title, from, to ]
+        page: "76"
+        fields:
+          - title
+          - from
+          - to
         note: Manuelt verifisert.
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+    page: "2"

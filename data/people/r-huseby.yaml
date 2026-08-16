@@ -1,22 +1,47 @@
 id: r-huseby
 name: R. Huseby
+names:
+  - Ragnvald Huseby
 roles:
-  [
-    {
-        id: styremedlem-1939,
-        category: board,
-        title: Styremedlem,
-        body: Hovedstyret,
-        from: "1939",
-        to: "1939",
-        sources:
-          [
-            {
-                sourceId: aalesunds-fotballklub-gjennem-1939-ec28,
-                page: "18",
-                fields: [ title, from, to ],
-                note: Manuelt verifisert.
-              }
-          ]
-      }
-  ]
+  - id: aeresmedlem-1949
+    category: honorary
+    title: Æresmedlem
+    from: "1949"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+        page: "6"
+        fields:
+          - title
+          - from
+    note: Født 1900-04-02 i Bergen. Aktiv spiller 1918–1928, mangeårig revisor og formann i arrangementskomiteen. Utnevnt til æresmedlem på årsmøtet 1949.
+  - id: styremedlem-1939
+    category: board
+    title: Styremedlem
+    body: Hovedstyret
+    from: "1939"
+    to: "1939"
+    sources:
+      - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+        page: "18"
+        fields:
+          - title
+          - from
+          - to
+        note: Manuelt verifisert.
+  - id: valgkomite-1951
+    category: administration
+    title: Medlem av valgkomiteen
+    from: "1951"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+    page: "6"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+    page: "31"

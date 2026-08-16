@@ -1,6 +1,20 @@
 id: mary-vegsund
 name: Mary Vegsund
 roles:
+  - id: formann-dameavdelingen-1948
+    category: board
+    title: Formann
+    body: Dameavdelingen
+    from: "1948"
+    to: "1950"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+        page: "5"
+        fields:
+          - title
+          - from
+          - to
+    note: Formann i Dameavdelingen fra 1948 til 1950.
   - id: formann-dameavdelingen-1949
     category: board
     title: Formann
@@ -13,6 +27,28 @@ roles:
       - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
         page: "17"
     note: Formann i Dameavdelingen.
+  - id: nestformann-dameavdelingen-1950-1951
+    category: board
+    title: Nestformann
+    body: Dameavdelingen
+    from: "1950"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+        page: "5"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
 sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+    page: "5"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+    page: "31"
   - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
     page: "9"

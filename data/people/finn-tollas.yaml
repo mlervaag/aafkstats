@@ -50,6 +50,26 @@ roles:
           - title
           - from
           - to
+  - id: junioroppmann-1949-1950
+    category: sporting_staff
+    title: Junioroppmann
+    body: Junioravdelingen
+    from: "1949"
+    to: "1950"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+        page: "5"
+        fields:
+          - title
+          - from
+          - to
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "28"
+        fields:
+          - title
+          - from
+          - to
+    note: Født ca 1913. A-lagsdebut i 1932 mot Freidig. Fange i Tyskland under krigen, tilbake på A-laget 1946–1949. Junioroppmann 1949–1950.
   - id: trener-1953-1954
     category: coach
     title: Trener
