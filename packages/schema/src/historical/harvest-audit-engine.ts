@@ -13,6 +13,12 @@ import type { Match } from "../match.js";
 import type { PreservationException } from "../preservation-exceptions.js";
 import { runPreservationAudit, type PreservationAuditResult } from "./preservation.js";
 import { calculateHarvestMetrics, type SemanticHarvestMetrics } from "./harvest-diff.js";
+import {
+  collectAttributedAdditions,
+  findUnaccountedAdditions,
+  type AttributedAddition,
+} from "./harvest-attribution.js";
+import { runArchivePreservationAudit, type ArchivePreservationInput } from "./archive-preservation.js";
 
 export interface HarvestAuditIssue {
   type: "error" | "warning";
@@ -62,8 +68,11 @@ export interface HarvestAuditReport {
   preservation: {
     destructiveChanges: number;
     approvedExceptions: number;
+    archiveDestructiveChanges: number;
     passed: boolean;
   };
+  /** Tillegg i arkivet som siterer batchens kilder uten å være dekket av et funn. */
+  unaccountedAdditions: AttributedAddition[];
   metrics: SemanticHarvestMetrics;
   issues: HarvestAuditIssue[];
   passed: boolean;
@@ -91,12 +100,45 @@ export interface HarvestAuditContext {
 }
 
 /**
+ * Kildene i batchen som fortsatt krever visuell kontroll. `out_of_scope` er den
+ * eneste statusen som legitimt tar en kilde ut av dekningsregnskapet.
+ */
+function manifestSourceIdsInScope(manifest: HarvestBatchManifest): string[] {
+  return manifest.sourceInventory
+    .filter((item) => item.reviewStatus !== "out_of_scope")
+    .map((item) => item.sourceId);
+}
+
+/**
+ * Utleder forventet sidetall fra ekstraksjonene i stedet for å stole på
+ * manifestet. Returnerer undefined når ingen av kildene har en ekstraksjon —
+ * da finnes det ikke noe maskinelt sidetall å måle mot, og kravet kan ikke
+ * håndheves.
+ */
+function deriveExpectedPagesFromExtractions(
+  manifest: HarvestBatchManifest,
+  allExtractions: Map<string, PublicationExtraction>,
+): number | undefined {
+  let total = 0;
+  let found = false;
+  for (const sourceId of manifestSourceIdsInScope(manifest)) {
+    const ext = allExtractions.get(sourceId);
+    if (ext) {
+      total += ext.pagesExpected;
+      found = true;
+    }
+  }
+  return found ? total : undefined;
+}
+
+/**
  * Utfører komplett cross-layer audit av et Harvest Batch Manifest mot arkivdataene.
  */
 export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditReport {
   const {
     manifest,
     allSources,
+    allExtractions,
     basePeople,
     headPeople,
     baseSourceResults,
@@ -114,6 +156,12 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
 
   const issues: HarvestAuditIssue[] = [];
   const isCompleteStatus = manifest.status === "complete";
+
+  // Proveniens er ikke en formalitet. Et funn som påstår at en opplysning kom
+  // fra en gitt kilde, men der målet mangler sourceRef til den kilden, er en
+  // udokumentert påstand. Underveis er det en påminnelse; i en batch som
+  // erklæres fullført er det en feil.
+  const provenanceIssueType: "error" | "warning" = isCompleteStatus ? "error" : "warning";
 
   // 1. Profil-validering
   const profileId = manifest.profile ?? inferSourceProfile();
@@ -220,6 +268,51 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
   const isFacsimileUnavailable = manifest.reviewMethod?.facsimile === "unavailable";
   const expectedPages = manifest.coverage?.expected ?? 0;
   const reviewedPages = manifest.coverage?.reviewed ?? 0;
+
+  // Sidetallet kan ikke være en ren påstand. Ekstraksjonene vet hvor mange
+  // sider kilden faktisk har, og manifestet må stemme med dem. Uten dette
+  // holder det å skrive «4/4» for et 62-siders blad for å få 100 % dekning.
+  const derivedExpectedPages = deriveExpectedPagesFromExtractions(manifest, allExtractions);
+
+  if (manifest.coverage?.mode !== "sections" && derivedExpectedPages !== undefined) {
+    if (expectedPages < derivedExpectedPages) {
+      issues.push({
+        type: "error",
+        category: "coverage",
+        message:
+          `coverage.expected (${expectedPages}) er lavere enn sidetallet ekstraksjonene rapporterer ` +
+          `(${derivedExpectedPages}). Dekningen kan ikke settes lavere enn kildens faktiske omfang.`,
+      });
+    } else if (expectedPages > derivedExpectedPages) {
+      issues.push({
+        type: "warning",
+        category: "coverage",
+        message:
+          `coverage.expected (${expectedPages}) er høyere enn sidetallet ekstraksjonene rapporterer ` +
+          `(${derivedExpectedPages}). Kontroller at inventaret og ekstraksjonene er i takt.`,
+      });
+    }
+  }
+
+  // «Faksimile utilgjengelig» er den eneste veien utenom dekningskravet, og
+  // må derfor være et faktum om kilden — ikke et valg. Finnes det ALTO-skann,
+  // finnes det faksimile.
+  if (isFacsimileUnavailable) {
+    const altoSources = manifestSourceIdsInScope(manifest).filter(
+      (sid) => allExtractions.get(sid)?.ocrAccess === "alto",
+    );
+    if (altoSources.length > 0) {
+      issues.push({
+        type: "error",
+        category: "coverage",
+        sourceId: altoSources[0],
+        message:
+          `reviewMethod.facsimile er «unavailable», men ${altoSources.length} kilde(r) i batchen har ` +
+          `ALTO-ekstraksjon og dermed tilgjengelig faksimile (${altoSources.slice(0, 3).join(", ")}). ` +
+          `Dekningskravet kan ikke settes til side for disse.`,
+      });
+    }
+  }
 
   const isFullCoverage =
     manifest.coverage ? reviewedPages >= expectedPages && expectedPages > 0 : expectedPages === 0 || reviewedPages >= expectedPages;
@@ -393,7 +486,7 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
               const matchingSources = r.sources.filter((s) => s.sourceId === primarySourceId);
               if (matchingSources.length === 0) {
                 issues.push({
-                  type: "warning",
+                  type: provenanceIssueType,
                   category: "provenance",
                   findingId: finding.id,
                   targetId: target.id,
@@ -405,7 +498,7 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
                 );
                 if (!hasPageMatch && matchingSources.some((s) => s.page !== undefined && s.page !== null)) {
                   issues.push({
-                    type: "warning",
+                    type: provenanceIssueType,
                     category: "provenance",
                     findingId: finding.id,
                     targetId: target.id,
@@ -418,7 +511,7 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
             const matchingSources = p.sources.filter((s) => s.sourceId === primarySourceId);
             if (matchingSources.length === 0) {
               issues.push({
-                type: "warning",
+                type: provenanceIssueType,
                 category: "provenance",
                 findingId: finding.id,
                 targetId: target.id,
@@ -430,7 +523,7 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
               );
               if (!hasPageMatch && matchingSources.some((s) => s.page !== undefined && s.page !== null)) {
                 issues.push({
-                  type: "warning",
+                  type: provenanceIssueType,
                   category: "provenance",
                   findingId: finding.id,
                   targetId: target.id,
@@ -504,7 +597,7 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
           const matchingSources = m.sources?.filter((s) => s.sourceId === primarySourceId) ?? [];
           if (matchingSources.length === 0) {
             issues.push({
-              type: "warning",
+              type: provenanceIssueType,
               category: "provenance",
               findingId: finding.id,
               targetId: target.id,
@@ -516,7 +609,7 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
             );
             if (!hasPageMatch && matchingSources.some((s) => s.page !== undefined && s.page !== null)) {
               issues.push({
-                type: "warning",
+                type: provenanceIssueType,
                 category: "provenance",
                 findingId: finding.id,
                 targetId: target.id,
@@ -565,6 +658,42 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
     }
   }
 
+  // 5b. Omvendt dekningskontroll: alt som er lagt til i arkivet og som siterer
+  // batchens kilder må gjøres rede for av et funn. Target-valideringen over
+  // sjekker at hvert funn peker på noe ekte; denne sjekker det motsatte, at
+  // ingenting ekte kom uten et funn.
+  const batchSourceIds = new Set(manifestSourceIdsInScope(manifest));
+  const attributedAdditions = collectAttributedAdditions(
+    batchSourceIds,
+    {
+      people: basePeople,
+      sourceResults: baseSourceResults,
+      matches: baseMatches,
+      observations: baseObservations,
+      snapshots: baseSnapshots,
+    },
+    {
+      people: headPeople,
+      sourceResults: headSourceResults,
+      matches: headMatches,
+      observations: headObservations,
+      snapshots: headSnapshots,
+    },
+  );
+  const unaccounted = findUnaccountedAdditions(attributedAdditions, manifest.findings);
+
+  for (const addition of unaccounted) {
+    issues.push({
+      type: isCompleteStatus ? "error" : "warning",
+      category: "coverage",
+      targetId: addition.id,
+      sourceId: addition.sourceId,
+      message:
+        `${addition.label} siterer batchens kilde «${addition.sourceId}», men ingen funn i manifestet ` +
+        `gjør rede for den${addition.path ? ` (${addition.path})` : ""}.`,
+    });
+  }
+
   // 6. Preservation Guardrail (#158)
   const preservationResult: PreservationAuditResult = runPreservationAudit(
     basePeople,
@@ -584,6 +713,27 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
           message: `Destruktiv endring uten unntak: ${record.path} (${record.message})`,
         });
       }
+    }
+  }
+
+  // Bevaringsvernet for resten av arkivet, slik at batchsjekken håndhever det
+  // samme som den harde porten i CI.
+  const archiveInputs: ArchivePreservationInput[] = [
+    { domain: "source_result", base: baseSourceResults, head: headSourceResults },
+    { domain: "match", base: baseMatches, head: headMatches },
+    { domain: "observation", base: baseObservations, head: headObservations },
+    { domain: "organization_snapshot", base: baseSnapshots, head: headSnapshots },
+  ];
+  const archiveResult = runArchivePreservationAudit(archiveInputs, exceptions);
+
+  for (const record of archiveResult.changes) {
+    if (record.status === "DESTRUCTIVE_CHANGE") {
+      issues.push({
+        type: "error",
+        category: "preservation",
+        targetId: record.id,
+        message: `Destruktiv endring uten unntak i ${record.entity} «${record.id}»: ${record.message}`,
+      });
     }
   }
 
@@ -607,7 +757,7 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
 
   // 8. Sluttstatus og samlet pass
   const hasErrors = issues.some((i) => i.type === "error");
-  const passed = !hasErrors && preservationResult.passed;
+  const passed = !hasErrors && preservationResult.passed && archiveResult.destructiveChanges === 0;
 
   return {
     manifest,
@@ -647,9 +797,11 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
     },
     preservation: {
       destructiveChanges: preservationResult.summary.destructiveChanges,
-      approvedExceptions: preservationResult.summary.approvedExceptions,
-      passed: preservationResult.passed,
+      approvedExceptions: preservationResult.summary.approvedExceptions + archiveResult.approvedExceptions,
+      archiveDestructiveChanges: archiveResult.destructiveChanges,
+      passed: preservationResult.passed && archiveResult.destructiveChanges === 0,
     },
+    unaccountedAdditions: unaccounted,
     metrics,
     issues,
     passed,

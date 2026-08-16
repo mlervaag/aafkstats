@@ -55,6 +55,8 @@ export interface SourceInventoryResult {
   scope: HistoricalAuditScope;
   summary: SourceInventorySummary;
   sources: SourceInventoryEntry[];
+  /** Sant når utvalget ikke traff en eneste kilde — nesten alltid en feilskrevet scope. */
+  scopeIsEmpty: boolean;
   allSourcesPassed: boolean;
 }
 
@@ -292,14 +294,20 @@ export function auditSourceInventory(
     failedSources: failedSourcesCount,
   };
 
+  // En audit over null kilder er ikke en bestått audit. Uten dette gir en
+  // skrivefeil i --parent-source grønt lys på et tomt utvalg.
+  const scopeIsEmpty = inScopeCount === 0;
+
   const allSourcesPassed =
     failedSourcesCount === 0 &&
+    !scopeIsEmpty &&
     (!scope.requireCompleteReview || (unknownCount === 0 && reviewedCount + reprintsCount + unavailableCount + outOfScopeCount === inScopeCount));
 
   return {
     scope,
     summary,
     sources: entries,
+    scopeIsEmpty,
     allSourcesPassed,
   };
 }

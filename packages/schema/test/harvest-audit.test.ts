@@ -8,7 +8,15 @@ import type { SourceResultCollection } from "../src/source-result.js";
 import type { OrganizationSnapshot } from "../src/organization.js";
 import type { HistoricalObservation } from "../src/historical-observation.js";
 
-function createMinimalContext(manifest: HarvestBatchManifest): HarvestAuditContext {
+/**
+ * @param options.archiveUnchanged Når true er BASE lik HEAD, altså ingen nye
+ *   opplysninger i arkivet. Brukes av tester der funnene ikke skal produsere
+ *   data (f.eks. uavklart identitet).
+ */
+function createMinimalContext(
+  manifest: HarvestBatchManifest,
+  options: { archiveUnchanged?: boolean } = {},
+): HarvestAuditContext {
   const allSources = new Map<string, Source>([
     [
       "nff-arbok-1923",
@@ -88,9 +96,9 @@ function createMinimalContext(manifest: HarvestBatchManifest): HarvestAuditConte
     allProviders: new Map(),
     allExtractions: new Map(),
     allSourceResults: headSourceResults,
-    basePeople: new Map(),
+    basePeople: options.archiveUnchanged ? headPeople : new Map(),
     headPeople,
-    baseSourceResults: new Map(),
+    baseSourceResults: options.archiveUnchanged ? headSourceResults : new Map(),
     headSourceResults,
     baseSnapshots: new Map(),
     headSnapshots,
@@ -99,6 +107,32 @@ function createMinimalContext(manifest: HarvestBatchManifest): HarvestAuditConte
     baseMatches: new Map(),
     headMatches,
     exceptions: [],
+  };
+}
+
+/** Et gyldig complete-manifest der bare funnlisten varierer. */
+function completeManifestWithFindings(findings: HarvestBatchManifest["findings"]): HarvestBatchManifest {
+  return {
+    version: 1,
+    id: "nff-1923",
+    title: "NFF Årbok 1923",
+    profile: "yearbook",
+    mode: "initial",
+    status: "complete",
+    scope: { sourceIds: ["nff-arbok-1923"] },
+    sourceInventory: [{ sourceId: "nff-arbok-1923", reviewStatus: "reviewed" }],
+    coverage: { mode: "pages", expected: 100, reviewed: 100 },
+    passes: {
+      facsimile_review: { status: "complete", findings: 1 },
+      explicit_results: { status: "complete", findings: 1 },
+      people_and_roles: { status: "complete", findings: 1 },
+      organization: { status: "complete", findings: 0 },
+      retrospectives_and_claims: { status: "complete", findings: 0 },
+      observations: { status: "complete", findings: 0 },
+    },
+    findings,
+    unresolved: [],
+    notes: [],
   };
 }
 
@@ -133,6 +167,16 @@ describe("Cross-Layer Harvest Audit Engine", () => {
           status: "normalized",
           notes: [],
         },
+        {
+          id: "f-002",
+          source: { sourceId: "nff-arbok-1923", page: 117 },
+          type: "match_result",
+          claim: { text: "AaFK - Rollon 2-1" },
+          disposition: "source_result_created",
+          targets: [{ entity: "source_result", id: "nff-arbok-1923" }],
+          status: "normalized",
+          notes: [],
+        },
       ],
       unresolved: [],
       notes: [],
@@ -142,9 +186,84 @@ describe("Cross-Layer Harvest Audit Engine", () => {
     const report = auditHarvestBatch(ctx);
 
     expect(report.passed).toBe(true);
+    expect(report.unaccountedAdditions).toHaveLength(0);
     expect(report.issues.filter((i) => i.type === "error")).toHaveLength(0);
     expect(report.targetsSummary.roles).toBe(1);
     expect(report.targetsSummary.personTargets).toBe(1);
+  });
+
+  it("feiler når arkivet har fått data som ingen funn gjør rede for", () => {
+    // Manifestet gjør rede for rollen, men ikke for kilderesultatet som også
+    // siterer batchens kilde. Uten den omvendte kontrollen ville et manifest
+    // med ett funn kunne ledsage vilkårlig mye udokumentert data.
+    const manifest = completeManifestWithFindings([
+      {
+        id: "f-001",
+        source: { sourceId: "nff-arbok-1923", page: 117 },
+        type: "person_role",
+        claim: { text: "Delegat" },
+        disposition: "role_created",
+        targets: [{ entity: "person", id: "nils-jangaard", path: "roles/nff-delegat-1923" }],
+        status: "normalized",
+        notes: [],
+      },
+    ]);
+
+    const report = auditHarvestBatch(createMinimalContext(manifest));
+
+    expect(report.passed).toBe(false);
+    expect(report.unaccountedAdditions).toHaveLength(1);
+    expect(report.unaccountedAdditions[0]?.entity).toBe("source_result");
+    expect(
+      report.issues.some((i) => i.type === "error" && i.category === "coverage"),
+    ).toBe(true);
+  });
+
+  it("tilskriver ikke batchen data som siterer en helt annen kilde", () => {
+    // En ferdig batch skal ikke felles av at en senere PR legger til data fra
+    // et annet verk. Bare det som siterer batchens egne kilder er dens ansvar.
+    const manifest = completeManifestWithFindings([
+      {
+        id: "f-001",
+        source: { sourceId: "nff-arbok-1923", page: 117 },
+        type: "person_role",
+        claim: { text: "Delegat" },
+        disposition: "role_created",
+        targets: [{ entity: "person", id: "nils-jangaard", path: "roles/nff-delegat-1923" }],
+        status: "normalized",
+        notes: [],
+      },
+      {
+        id: "f-002",
+        source: { sourceId: "nff-arbok-1923", page: 117 },
+        type: "match_result",
+        claim: { text: "AaFK - Rollon 2-1" },
+        disposition: "source_result_created",
+        targets: [{ entity: "source_result", id: "nff-arbok-1923" }],
+        status: "normalized",
+        notes: [],
+      },
+    ]);
+
+    const ctx = createMinimalContext(manifest);
+    ctx.headObservations = new Map([
+      [
+        "fremmed-observasjon",
+        {
+          id: "fremmed-observasjon",
+          title: "Fra et annet verk",
+          text: "Denne opplysningen kommer fra en kilde utenfor batchen.",
+          date: "1930",
+          seasonYears: [],
+          sources: [{ sourceId: "en-helt-annen-kilde", page: "4" }],
+        } as HistoricalObservation,
+      ],
+    ]);
+
+    const report = auditHarvestBatch(ctx);
+
+    expect(report.unaccountedAdditions).toHaveLength(0);
+    expect(report.passed).toBe(true);
   });
 
   it("feiler dersom status er complete men person-target mangler", () => {
@@ -230,7 +349,7 @@ describe("Cross-Layer Harvest Audit Engine", () => {
       notes: [],
     };
 
-    const ctx = createMinimalContext(manifest);
+    const ctx = createMinimalContext(manifest, { archiveUnchanged: true });
     const report = auditHarvestBatch(ctx);
 
     expect(report.passed).toBe(true);

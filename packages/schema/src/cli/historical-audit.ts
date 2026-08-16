@@ -107,6 +107,11 @@ export function formatAuditConsole(report: HistoricalAuditReport): string {
   const pad = (label: string, count: number, color = RESET) =>
     `${label.padEnd(36)} ${color}${String(count).padStart(4)}${RESET}`;
 
+  if (inventory.scopeIsEmpty) {
+    lines.push(`${RED}${BOLD}TOMT UTVALG:${RESET} scope traff ingen kilder. Kontroller --parent-source, --source og årsintervallet.`);
+    lines.push("");
+  }
+
   lines.push(`${BOLD}Sources${RESET}`);
   lines.push(`${DIM}----------------------------------------${RESET}`);
   lines.push(pad("Discovered:", inventory.summary.discovered));
