@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "3333401"
+matchId: 2020-06-06-sogndal-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:84efbc006b4576074946665bbb0cf656c780edf5651aeb1d742893875a7c68ef
+raw:
+  externalId: "3333401"
+  date: 2020-06-06
+  kickoff: 12:00
+  status: FT
+  home: Sogndal
+  homeId: "8616"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 0
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2020
+  venue: Fosshaugane Campus
+  url: https://www.fotmob.com/matches/aalesund-vs-sogndal/2e8smm#3333401
+normalized:
+  date: 2020-06-06
+  kickoff: 12:00
+  status: played
+  home.clubId: sogndal
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 0
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2020
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

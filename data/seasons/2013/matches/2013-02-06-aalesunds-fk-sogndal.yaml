@@ -1,0 +1,60 @@
+id: 2013-02-06-aalesunds-fk-sogndal
+date: 2013-02-06
+dateConfidence: exact
+kickoff: 15:30
+status: played
+competition:
+  id: treningskamp
+  season: 2013
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: sogndal
+  score: 2
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 10
+    type: goal
+    team: away
+    player: Ulrik Flo
+  - minute: 41
+    type: goal
+    team: home
+    player: Leke James
+  - minute: 59
+    type: goal
+    team: away
+    player: Malick Mane
+  - minute: 72
+    type: penalty_goal
+    team: home
+    player: Leke James
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-sogndal/2e8smm#1405291
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1405291"
+manual: []

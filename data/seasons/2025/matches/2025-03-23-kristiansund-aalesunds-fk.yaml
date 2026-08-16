@@ -1,0 +1,57 @@
+id: 2025-03-23-kristiansund-aalesunds-fk
+date: 2025-03-23
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: treningskamp
+  season: 2025
+  stage: regular_season
+home:
+  clubId: kristiansund
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 28
+    type: goal
+    team: home
+    player: Mustapha Isah
+  - minute: 55
+    type: goal
+    team: home
+    player: Mustapha Isah
+  - minute: 80
+    type: penalty_goal
+    team: away
+    player: Claudio Braga
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#4745998
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4745998"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

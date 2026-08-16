@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "2185008"
+matchId: 2016-02-20-aalesunds-fk-koper
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:eda45718e0525917234d326530aad970d89080de7d8f59ff68656fc4cbe63b12
+raw:
+  externalId: "2185008"
+  date: 2016-02-20
+  kickoff: 16:05
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Koper
+  awayId: "5772"
+  homeScore: 2
+  awayScore: 2
+  homeHalfTime: 2
+  awayHalfTime: 2
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2016
+  url: https://www.fotmob.com/matches/koper-vs-aalesund/1ntyf8#2185008
+normalized:
+  date: 2016-02-20
+  kickoff: 16:05
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: koper
+  home.score: 2
+  away.score: 2
+  home.halfTimeScore: 2
+  away.halfTimeScore: 2
+  competition.id: treningskamp
+  competition.season: 2016
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

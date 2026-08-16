@@ -1,0 +1,53 @@
+id: 2022-06-13-rosenborg-bk-aalesunds-fk
+date: 2022-06-13
+dateConfidence: exact
+kickoff: 13:00
+status: played
+competition:
+  id: treningskamp
+  season: 2022
+  stage: regular_season
+home:
+  clubId: rosenborg-bk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 8
+    type: goal
+    team: home
+    player: Ole Christian Sæter
+  - minute: 57
+    type: goal
+    team: home
+    player: Stefano Vecchia
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-rosenborg/2caf6d#3896053
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3896053"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

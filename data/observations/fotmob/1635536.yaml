@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "1635536"
+matchId: 2014-02-14-aalesunds-fk-hodd
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:d7822f1c619f161633bf3e643b34ad108900c2a82c682e5f5b6ba2d685e9ca95
+raw:
+  externalId: "1635536"
+  date: 2014-02-14
+  kickoff: 17:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Hødd
+  awayId: "7937"
+  homeScore: 2
+  awayScore: 0
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2014
+  url: https://www.fotmob.com/matches/hodd-vs-aalesund/27i0yj#1635536
+normalized:
+  date: 2014-02-14
+  kickoff: 17:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: hodd
+  home.score: 2
+  away.score: 0
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2014
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "761924"
+matchId: 2010-08-29-aalesunds-fk-honefoss
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:7c118b06bd847d6c27f2952959c1fed83a049af3292a190298ec7020ee36113c
+raw:
+  externalId: "761924"
+  date: 2010-08-29
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Hønefoss
+  awayId: "8067"
+  homeScore: 1
+  awayScore: 3
+  homeHalfTime: 0
+  awayHalfTime: 2
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2010
+  round: 22
+  venue: Color Line Stadion
+  url: https://www.fotmob.com/matches/honefoss-vs-aalesund/28rqo8#761924
+normalized:
+  date: 2010-08-29
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: honefoss
+  home.score: 1
+  away.score: 3
+  home.halfTimeScore: 0
+  away.halfTimeScore: 2
+  competition.id: eliteserien
+  competition.season: 2010
+  competition.round: 22
+  competition.stage: regular_season
+  venueId: color-line-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

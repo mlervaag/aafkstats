@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "762072"
+matchId: 2010-11-07-rosenborg-bk-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:c3b96e5ff3830a654fcf290a2915ba4c31784b29535127ae91d36f6c5fc24ea6
+raw:
+  externalId: "762072"
+  date: 2010-11-07
+  kickoff: 18:00
+  status: FT
+  home: Rosenborg
+  homeId: "8422"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 2
+  homeHalfTime: 1
+  awayHalfTime: 1
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2010
+  round: 30
+  venue: Lerkendal Stadion
+  url: https://www.fotmob.com/matches/aalesund-vs-rosenborg/2caf6d#762072
+normalized:
+  date: 2010-11-07
+  kickoff: 18:00
+  status: played
+  home.clubId: rosenborg-bk
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 2
+  home.halfTimeScore: 1
+  away.halfTimeScore: 1
+  competition.id: eliteserien
+  competition.season: 2010
+  competition.round: 30
+  competition.stage: regular_season
+  venueId: lerkendal-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

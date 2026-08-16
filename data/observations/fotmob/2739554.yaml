@@ -1,0 +1,52 @@
+providerId: fotmob
+externalId: "2739554"
+matchId: 2018-03-23-bodo-glimt-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:893d1e26d7ec93541fd8e1fdef52f92f397f99f624ee09cced0eee1a4fda793b
+raw:
+  externalId: "2739554"
+  date: 2018-03-23
+  kickoff: 16:00
+  status: FT
+  home: Bodø/Glimt
+  homeId: "8402"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 3
+  awayScore: 0
+  homeHalfTime: 2
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2018
+  round: 1
+  url: https://www.fotmob.com/matches/bodoglimt-vs-aalesund/2c37nd#2739554
+normalized:
+  date: 2018-03-23
+  kickoff: 16:00
+  status: played
+  home.clubId: bodo-glimt
+  away.clubId: aalesunds-fk
+  home.score: 3
+  away.score: 0
+  home.halfTimeScore: 2
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2018
+  competition.round: 1
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

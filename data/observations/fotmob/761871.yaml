@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "761871"
+matchId: 2010-08-01-stromsgodset-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:b1a150df0c52478e6a09d3d0378560b30483c0fb34dd9dd3664c7a56579b8967
+raw:
+  externalId: "761871"
+  date: 2010-08-01
+  kickoff: 18:00
+  status: FT
+  home: Strømsgodset
+  homeId: "8180"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 3
+  awayScore: 1
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2010
+  round: 19
+  venue: Marienlyst stadion
+  url: https://www.fotmob.com/matches/stromsgodset-vs-aalesund/29vrrs#761871
+normalized:
+  date: 2010-08-01
+  kickoff: 18:00
+  status: played
+  home.clubId: stromsgodset
+  away.clubId: aalesunds-fk
+  home.score: 3
+  away.score: 1
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: eliteserien
+  competition.season: 2010
+  competition.round: 19
+  competition.stage: regular_season
+  venueId: marienlyst-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

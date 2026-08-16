@@ -1,0 +1,58 @@
+id: 2014-02-14-aalesunds-fk-hodd
+date: 2014-02-14
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: treningskamp
+  season: 2014
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 0
+away:
+  clubId: hodd
+  score: 0
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 65
+    type: goal
+    team: home
+    player: Fredrik Ulvestad
+  - minute: 77
+    type: goal
+    team: home
+    player: Leke James
+lineups:
+  home:
+    starters: []
+    subs: []
+    coach: Jan Jönsson
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/hodd-vs-aalesund/27i0yj#1635536
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1635536"
+manual: []

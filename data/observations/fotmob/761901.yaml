@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "761901"
+matchId: 2010-08-22-lillestrom-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:bffb19623586f5c58504d837f1478070fe06faaea42b4b6f59c94944431c003b
+raw:
+  externalId: "761901"
+  date: 2010-08-22
+  kickoff: 18:00
+  status: FT
+  home: Lillestrøm
+  homeId: "8476"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 0
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2010
+  round: 21
+  venue: Åråsen
+  url: https://www.fotmob.com/matches/aalesund-vs-lillestrom/2ctxg4#761901
+normalized:
+  date: 2010-08-22
+  kickoff: 18:00
+  status: played
+  home.clubId: lillestrom
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 0
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: eliteserien
+  competition.season: 2010
+  competition.round: 21
+  competition.stage: regular_season
+  venueId: arasen
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

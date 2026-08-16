@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "1151422"
+matchId: 2012-01-10-brondby-if-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:fd0d85d45096ea21bdbbe97eb75df9d5ec0d64564a29309f280e435994e00d26
+raw:
+  externalId: "1151422"
+  date: 2012-01-10
+  kickoff: 19:30
+  status: FT
+  home: Brøndby IF
+  homeId: "8595"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 0
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2012
+  venue: Brøndby Stadion
+  url: https://www.fotmob.com/matches/aalesund-vs-brondby-if/2e14zj#1151422
+normalized:
+  date: 2012-01-10
+  kickoff: 19:30
+  status: played
+  home.clubId: brondby-if
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 0
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2012
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

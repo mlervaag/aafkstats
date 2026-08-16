@@ -1,0 +1,62 @@
+id: 2015-01-30-aalesunds-fk-floro
+date: 2015-01-30
+dateConfidence: exact
+kickoff: 18:30
+status: played
+competition:
+  id: treningskamp
+  season: 2015
+  stage: regular_season
+  round: 1
+home:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: 1
+away:
+  clubId: floro
+  score: 0
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 29
+    type: goal
+    team: home
+    player: Henrik Roervik Bjoerdal
+  - minute: 79
+    type: goal
+    team: home
+    player: Henrik Roervik Bjoerdal
+  - minute: 86
+    type: goal
+    team: home
+    player: Sondre Brunstad Fet
+  - minute: 88
+    type: goal
+    team: home
+    player: Daniel Gretarsson
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/floro-vs-aalesund/1c732a#1892205
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1892205"
+manual: []

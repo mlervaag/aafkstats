@@ -1,0 +1,62 @@
+id: 2014-02-09-sk-brann-aalesunds-fk
+date: 2014-02-09
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: treningskamp
+  season: 2014
+  stage: regular_season
+home:
+  clubId: sk-brann
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 30
+    type: goal
+    team: home
+    player: Erik Huseklepp
+  - minute: 88
+    type: penalty_goal
+    team: away
+    player: Fredrik Ulvestad
+lineups:
+  home:
+    starters: []
+    subs: []
+    coach: Rune Skarsfjord
+  away:
+    starters: []
+    subs: []
+    coach: Jan Jönsson
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-brann/2cr19k#1635535
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1635535"
+manual: []

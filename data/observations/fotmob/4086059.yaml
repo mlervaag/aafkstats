@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "4086059"
+matchId: 2023-03-03-rosenborg-bk-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:6eb820fbbf84f0e7da02895edf22c16f81117926b6b93c871a5894600292bcbe
+raw:
+  externalId: "4086059"
+  date: 2023-03-03
+  kickoff: 15:00
+  status: FT
+  home: Rosenborg
+  homeId: "8422"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 1
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2023
+  venue: Koteng Arena
+  url: https://www.fotmob.com/matches/aalesund-vs-rosenborg/2caf6d#4086059
+normalized:
+  date: 2023-03-03
+  kickoff: 15:00
+  status: played
+  home.clubId: rosenborg-bk
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 1
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2023
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

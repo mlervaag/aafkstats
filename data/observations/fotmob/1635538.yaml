@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "1635538"
+matchId: 2014-02-23-sk-brann-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:8e9f16b025b6ff5b8f59a890d22432aace1fc42f736122037860d5f4fb16bf73
+raw:
+  externalId: "1635538"
+  date: 2014-02-23
+  kickoff: 19:00
+  status: FT
+  home: Brann
+  homeId: "8468"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 1
+  homeHalfTime: 0
+  awayHalfTime: 1
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2014
+  url: https://www.fotmob.com/matches/aalesund-vs-brann/2cr19k#1635538
+normalized:
+  date: 2014-02-23
+  kickoff: 19:00
+  status: played
+  home.clubId: sk-brann
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 1
+  home.halfTimeScore: 0
+  away.halfTimeScore: 1
+  competition.id: treningskamp
+  competition.season: 2014
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

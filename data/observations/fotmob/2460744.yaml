@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "2460744"
+matchId: 2017-02-19-aalesunds-fk-shandong-taishan
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:dfea8fe5b4db6ea7d87894a1d8b253a4fab23ae773eb8ca184c54f2090238079
+raw:
+  externalId: "2460744"
+  date: 2017-02-19
+  kickoff: 17:05
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Shandong Taishan
+  awayId: "8623"
+  homeScore: 1
+  awayScore: 1
+  homeHalfTime: 0
+  awayHalfTime: 1
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2017
+  url: https://www.fotmob.com/matches/aalesund-vs-shandong-taishan/2ebcl1#2460744
+normalized:
+  date: 2017-02-19
+  kickoff: 17:05
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: shandong-taishan
+  home.score: 1
+  away.score: 1
+  home.halfTimeScore: 0
+  away.halfTimeScore: 1
+  competition.id: treningskamp
+  competition.season: 2017
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

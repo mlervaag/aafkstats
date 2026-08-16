@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "3842378"
+matchId: 2022-03-11-hodd-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:0dbc27fb5c7cbd58e711d100fda442d96a9b032bc451a771cec0b418dcb6f337
+raw:
+  externalId: "3842378"
+  date: 2022-03-11
+  kickoff: 16:00
+  status: FT
+  home: Hødd
+  homeId: "7937"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 4
+  homeHalfTime: 1
+  awayHalfTime: 3
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2022
+  url: https://www.fotmob.com/matches/hodd-vs-aalesund/27i0yj#3842378
+normalized:
+  date: 2022-03-11
+  kickoff: 16:00
+  status: played
+  home.clubId: hodd
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 4
+  home.halfTimeScore: 1
+  away.halfTimeScore: 3
+  competition.id: treningskamp
+  competition.season: 2022
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

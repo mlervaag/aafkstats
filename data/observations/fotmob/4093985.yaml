@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "4093985"
+matchId: 2023-02-09-aalesunds-fk-sk-brann
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:1e65d3f232cea366d21d4b93669721a8d08395a175156c3afde595b8c43790c2
+raw:
+  externalId: "4093985"
+  date: 2023-02-09
+  kickoff: 16:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Brann
+  awayId: "8468"
+  homeScore: 0
+  awayScore: 3
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2023
+  venue: Campo La Quinta
+  url: https://www.fotmob.com/matches/aalesund-vs-brann/2cr19k#4093985
+normalized:
+  date: 2023-02-09
+  kickoff: 16:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: sk-brann
+  home.score: 0
+  away.score: 3
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2023
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "2161354"
+matchId: 2016-01-31-aalesunds-fk-hodd
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:12d2cdefd8eb68c0be83965452cd30904233731ecaecfb5352b21ffa28299c81
+raw:
+  externalId: "2161354"
+  date: 2016-01-31
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Hødd
+  awayId: "7937"
+  homeScore: 0
+  awayScore: 2
+  homeHalfTime: 0
+  awayHalfTime: 1
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2016
+  url: https://www.fotmob.com/matches/hodd-vs-aalesund/27i0yj#2161354
+normalized:
+  date: 2016-01-31
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: hodd
+  home.score: 0
+  away.score: 2
+  home.halfTimeScore: 0
+  away.halfTimeScore: 1
+  competition.id: treningskamp
+  competition.season: 2016
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

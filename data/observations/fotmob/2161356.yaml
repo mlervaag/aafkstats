@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "2161356"
+matchId: 2016-03-05-molde-fk-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:62f6c96db87f5252604e012337c4989395ee720885792d574b3d4aefccfffe03
+raw:
+  externalId: "2161356"
+  date: 2016-03-05
+  kickoff: 14:00
+  status: FT
+  home: Molde
+  homeId: "9917"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 0
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2016
+  url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#2161356
+normalized:
+  date: 2016-03-05
+  kickoff: 14:00
+  status: played
+  home.clubId: molde-fk
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 0
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2016
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

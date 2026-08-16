@@ -1,0 +1,58 @@
+id: 2015-03-05-bodo-glimt-aalesunds-fk
+date: 2015-03-05
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: treningskamp
+  season: 2015
+  stage: regular_season
+  round: 1
+home:
+  clubId: bodo-glimt
+  score: 2
+  halfTimeScore: 2
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 14
+    type: goal
+    team: home
+    player: Ulrik Berglann
+  - minute: 25
+    type: goal
+    team: away
+    player: Henrik Roervik Bjoerdal
+  - minute: 26
+    type: goal
+    team: home
+    player: Ulrik Berglann
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/bodoglimt-vs-aalesund/2c37nd#1892209
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1892209"
+manual: []

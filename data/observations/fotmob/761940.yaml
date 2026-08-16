@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "761940"
+matchId: 2010-09-12-odds-ballklubb-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:a269d5306ac01595f5b5556a1b1f71cf859e206239fe2e278fce523f29c3fc97
+raw:
+  externalId: "761940"
+  date: 2010-09-12
+  kickoff: 18:00
+  status: FT
+  home: Odds Ballklubb
+  homeId: "7988"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 1
+  homeHalfTime: 1
+  awayHalfTime: 1
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2010
+  round: 23
+  venue: Skagerak Arena
+  url: https://www.fotmob.com/matches/odds-ballklubb-vs-aalesund/27zx14#761940
+normalized:
+  date: 2010-09-12
+  kickoff: 18:00
+  status: played
+  home.clubId: odds-ballklubb
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 1
+  home.halfTimeScore: 1
+  away.halfTimeScore: 1
+  competition.id: eliteserien
+  competition.season: 2010
+  competition.round: 23
+  competition.stage: regular_season
+  venueId: skagerak-arena
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

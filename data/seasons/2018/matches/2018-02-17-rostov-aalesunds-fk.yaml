@@ -1,0 +1,58 @@
+id: 2018-02-17-rostov-aalesunds-fk
+date: 2018-02-17
+dateConfidence: exact
+kickoff: 16:30
+status: played
+competition:
+  id: treningskamp
+  season: 2018
+  stage: regular_season
+  round: 1
+home:
+  clubId: rostov
+  score: 2
+  halfTimeScore: 2
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 34
+    type: goal
+    team: home
+    player: Sverrir Ingi Ingason
+  - minute: 40
+    type: goal
+    team: home
+    player: Aleksandr Zuev
+  - minute: 69
+    type: penalty_goal
+    team: away
+    player: Vebjørn Hoff
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-fc-rostov/2f5clk#2717427
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2717427"
+manual: []

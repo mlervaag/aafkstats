@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "761821"
+matchId: 2010-07-10-aalesunds-fk-molde-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:254189a42b317de00f1a84d6e674e1d44c38dee016f969ae1d078bba942e4493
+raw:
+  externalId: "761821"
+  date: 2010-07-10
+  kickoff: 16:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Molde
+  awayId: "9917"
+  homeScore: 0
+  awayScore: 0
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2010
+  round: 16
+  venue: Color Line Stadion
+  url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#761821
+normalized:
+  date: 2010-07-10
+  kickoff: 16:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: molde-fk
+  home.score: 0
+  away.score: 0
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: eliteserien
+  competition.season: 2010
+  competition.round: 16
+  competition.stage: regular_season
+  venueId: color-line-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

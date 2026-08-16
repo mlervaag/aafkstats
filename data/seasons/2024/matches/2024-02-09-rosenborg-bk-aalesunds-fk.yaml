@@ -1,0 +1,57 @@
+id: 2024-02-09-rosenborg-bk-aalesunds-fk
+date: 2024-02-09
+dateConfidence: exact
+kickoff: 12:00
+status: played
+competition:
+  id: treningskamp
+  season: 2024
+  stage: regular_season
+home:
+  clubId: rosenborg-bk
+  score: 2
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 45
+    type: goal
+    team: away
+    player: Moctar Diop
+  - minute: 56
+    type: goal
+    team: home
+    player: Ole Kristian Selnæs
+  - minute: 85
+    type: goal
+    team: home
+    player: Sigurd Saeveraas
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-rosenborg/2caf6d#4416772
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4416772"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

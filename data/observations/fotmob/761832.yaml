@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "761832"
+matchId: 2010-07-18-start-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:fb5eef98c972dd802c4d64ad93d3164913ea808bab430b91953dc527246fbb44
+raw:
+  externalId: "761832"
+  date: 2010-07-18
+  kickoff: 18:00
+  status: FT
+  home: Start
+  homeId: "9919"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 0
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2010
+  round: 17
+  venue: Sør Arena
+  url: https://www.fotmob.com/matches/aalesund-vs-start/2ryd31#761832
+normalized:
+  date: 2010-07-18
+  kickoff: 18:00
+  status: played
+  home.clubId: start
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 0
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: eliteserien
+  competition.season: 2010
+  competition.round: 17
+  competition.stage: regular_season
+  venueId: sor-arena
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

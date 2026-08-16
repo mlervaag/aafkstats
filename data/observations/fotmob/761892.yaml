@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "761892"
+matchId: 2010-08-08-aalesunds-fk-tromso
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:bc3dbeaace38234519f429079bbf0c80715465f185ea6f9393633d7123748619
+raw:
+  externalId: "761892"
+  date: 2010-08-08
+  kickoff: 20:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Tromsø
+  awayId: "8608"
+  homeScore: 2
+  awayScore: 0
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2010
+  round: 20
+  venue: Color Line Stadion
+  url: https://www.fotmob.com/matches/aalesund-vs-tromso/2e5vky#761892
+normalized:
+  date: 2010-08-08
+  kickoff: 20:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: tromso
+  home.score: 2
+  away.score: 0
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: eliteserien
+  competition.season: 2010
+  competition.round: 20
+  competition.stage: regular_season
+  venueId: color-line-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

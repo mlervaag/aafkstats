@@ -1,0 +1,57 @@
+id: 2023-02-03-aalesunds-fk-hodd
+date: 2023-02-03
+dateConfidence: exact
+kickoff: 11:30
+status: played
+competition:
+  id: treningskamp
+  season: 2023
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: hodd
+  score: 1
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 20
+    type: goal
+    team: home
+    player: Bjørn Martin Kristensen
+  - minute: 59
+    type: penalty_goal
+    team: away
+    player: Torbjørn Kallevåg
+  - minute: 70
+    type: goal
+    team: home
+    player: Markus Seehusen Karlsbakk
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/hodd-vs-aalesund/27i0yj#4116736
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "4116736"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

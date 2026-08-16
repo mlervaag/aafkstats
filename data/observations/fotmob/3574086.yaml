@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "3574086"
+matchId: 2021-05-02-kristiansund-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:6cc5d5005eb6dd329b6baae4f307272cdac0a5cef5fff5e6d84cc94e4c18f3fb
+raw:
+  externalId: "3574086"
+  date: 2021-05-02
+  kickoff: 16:00
+  status: FT
+  home: Kristiansund
+  homeId: "8605"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 0
+  awayScore: 4
+  homeHalfTime: 0
+  awayHalfTime: 4
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2021
+  venue: Kristiansund Stadion
+  url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#3574086
+normalized:
+  date: 2021-05-02
+  kickoff: 16:00
+  status: played
+  home.clubId: kristiansund
+  away.clubId: aalesunds-fk
+  home.score: 0
+  away.score: 4
+  home.halfTimeScore: 0
+  away.halfTimeScore: 4
+  competition.id: treningskamp
+  competition.season: 2021
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

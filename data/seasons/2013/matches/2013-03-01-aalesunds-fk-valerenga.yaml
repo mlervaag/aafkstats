@@ -1,0 +1,52 @@
+id: 2013-03-01-aalesunds-fk-valerenga
+date: 2013-03-01
+dateConfidence: exact
+kickoff: 17:30
+status: played
+competition:
+  id: treningskamp
+  season: 2013
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: valerenga
+  score: 1
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 25
+    type: goal
+    team: home
+    player: Demar Phillips
+  - minute: 83
+    type: goal
+    team: away
+    player: Torgeir Børven
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/valerenga-vs-aalesund/286lhq#1419245
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1419245"
+manual: []

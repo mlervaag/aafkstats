@@ -1,0 +1,78 @@
+id: 2014-01-31-aalesunds-fk-kristiansund
+date: 2014-01-31
+dateConfidence: exact
+kickoff: 19:10
+status: played
+competition:
+  id: treningskamp
+  season: 2014
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: kristiansund
+  score: 4
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 16
+    type: goal
+    team: away
+    player: Jan Tømmernes
+  - minute: 45
+    type: goal
+    team: home
+    player: Roope Riski
+  - minute: 49
+    type: goal
+    team: away
+    player: Liridon Kalludra
+  - minute: 54
+    type: goal
+    team: away
+    player: Jean Alassane Mendy
+  - minute: 61
+    type: goal
+    team: home
+    player: Tor Hogne Aarøy
+  - minute: 90
+    type: goal
+    team: away
+    player: Jean Alassane Mendy
+lineups:
+  home:
+    starters: []
+    subs: []
+    coach: Jan Jönsson
+  away:
+    starters: []
+    subs: []
+    coach: Geir Bakke
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#1635534
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - lineups
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1635534"
+manual: []

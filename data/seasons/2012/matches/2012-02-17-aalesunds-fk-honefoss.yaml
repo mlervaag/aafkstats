@@ -1,0 +1,65 @@
+id: 2012-02-17-aalesunds-fk-honefoss
+date: 2012-02-17
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: treningskamp
+  season: 2012
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: 1
+away:
+  clubId: honefoss
+  score: 1
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 34
+    type: goal
+    team: away
+    player: Kevin Beugre
+  - minute: 41
+    type: goal
+    team: home
+    player: Magnus Sylling Olsen
+  - minute: 53
+    type: penalty_goal
+    team: home
+    player: Fredrik Ulvestad
+  - minute: 79
+    type: goal
+    team: home
+    player: Michael Barrantes
+  - minute: 86
+    type: own_goal
+    team: home
+    player: Héiner Mora
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/honefoss-vs-aalesund/28rqo8#1161525
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1161525"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

@@ -1,0 +1,61 @@
+id: 2011-03-12-aalesunds-fk-molde-fk
+date: 2011-03-12
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: treningskamp
+  season: 2011
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 2
+away:
+  clubId: molde-fk
+  score: 2
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 2
+    type: goal
+    team: away
+    player: Makhtar Thioune
+  - minute: 12
+    type: goal
+    team: home
+    player: Michael Barrantes
+  - minute: 44
+    type: goal
+    team: home
+    player: Michael Barrantes
+  - minute: 67
+    type: goal
+    team: away
+    player: Pape Pate Diouf
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#957880
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "957880"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

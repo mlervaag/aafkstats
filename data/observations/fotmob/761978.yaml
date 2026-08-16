@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "761978"
+matchId: 2010-09-26-aalesunds-fk-fk-haugesund
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:88658b3f13fb22479a9e58c15b6a6148d4e257aab830c2069ec6a691a5235a35
+raw:
+  externalId: "761978"
+  date: 2010-09-26
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: FK Haugesund
+  awayId: "8512"
+  homeScore: 2
+  awayScore: 1
+  homeHalfTime: 2
+  awayHalfTime: 1
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2010
+  round: 25
+  venue: Color Line Stadion
+  url: https://www.fotmob.com/matches/aalesund-vs-fk-haugesund/2d6yvm#761978
+normalized:
+  date: 2010-09-26
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: fk-haugesund
+  home.score: 2
+  away.score: 1
+  home.halfTimeScore: 2
+  away.halfTimeScore: 1
+  competition.id: eliteserien
+  competition.season: 2010
+  competition.round: 25
+  competition.stage: regular_season
+  venueId: color-line-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

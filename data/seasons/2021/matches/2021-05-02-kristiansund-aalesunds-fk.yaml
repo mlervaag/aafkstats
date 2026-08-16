@@ -1,0 +1,61 @@
+id: 2021-05-02-kristiansund-aalesunds-fk
+date: 2021-05-02
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: treningskamp
+  season: 2021
+  stage: regular_season
+home:
+  clubId: kristiansund
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: 4
+neutralVenue: false
+events:
+  - minute: 13
+    type: goal
+    team: away
+    player: Simen Bolkan Nordli
+  - minute: 21
+    type: goal
+    team: away
+    player: Simen Bolkan Nordli
+  - minute: 37
+    type: goal
+    team: away
+    player: Isak Dybvik
+  - minute: 41
+    type: goal
+    team: away
+    player: Isak Dybvik
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#3574086
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3574086"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

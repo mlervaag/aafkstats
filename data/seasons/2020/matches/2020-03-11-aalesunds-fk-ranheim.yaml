@@ -1,0 +1,60 @@
+id: 2020-03-11-aalesunds-fk-ranheim
+date: 2020-03-11
+dateConfidence: exact
+kickoff: 15:00
+status: played
+competition:
+  id: treningskamp
+  season: 2020
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+away:
+  clubId: ranheim
+  score: 3
+  halfTimeScore: 3
+neutralVenue: false
+events:
+  - minute: 16
+    type: goal
+    team: away
+    player: Erik Tønne
+  - minute: 37
+    type: goal
+    team: away
+    player: Vegard Østraat Erlien
+  - minute: 39
+    type: goal
+    team: away
+    player: Mads Reginiussen
+  - minute: 75
+    type: penalty_goal
+    team: home
+    player: Niklas Castro
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/ranheim-vs-aalesund/1up0ag#3274041
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3274041"
+manual: []

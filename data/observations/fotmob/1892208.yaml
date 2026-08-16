@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "1892208"
+matchId: 2015-02-23-aalesunds-fk-start
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:279c366e1729552876c06b40bcb6078b5c226ab185e19a86c31f3bbe2af70f57
+raw:
+  externalId: "1892208"
+  date: 2015-02-23
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Start
+  awayId: "9919"
+  homeScore: 2
+  awayScore: 2
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2015
+  url: https://www.fotmob.com/matches/aalesund-vs-start/2ryd31#1892208
+normalized:
+  date: 2015-02-23
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: start
+  home.score: 2
+  away.score: 2
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2015
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

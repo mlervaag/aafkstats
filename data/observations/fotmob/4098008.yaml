@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "4098008"
+matchId: 2023-02-13-sandefjord-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:bb77f878fd4db63fe2f5f565bc9290f65ad5d2dd3300ec3a94ff2661ec8f98ac
+raw:
+  externalId: "4098008"
+  date: 2023-02-13
+  kickoff: 16:00
+  status: FT
+  home: Sandefjord
+  homeId: "8609"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 1
+  homeHalfTime: 0
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2023
+  venue: Canchas Río Sotogrande - Santa María Pol
+  url: https://www.fotmob.com/matches/aalesund-vs-sandefjord/2e68pk#4098008
+normalized:
+  date: 2023-02-13
+  kickoff: 16:00
+  status: played
+  home.clubId: sandefjord
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 1
+  home.halfTimeScore: 0
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2023
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

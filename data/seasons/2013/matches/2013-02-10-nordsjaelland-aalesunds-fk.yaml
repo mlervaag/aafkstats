@@ -1,0 +1,64 @@
+id: 2013-02-10-nordsjaelland-aalesunds-fk
+date: 2013-02-10
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: treningskamp
+  season: 2013
+  stage: regular_season
+home:
+  clubId: nordsjaelland
+  score: 2
+  halfTimeScore: 2
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 9
+    type: goal
+    team: home
+  - minute: 18
+    type: goal
+    team: home
+    player: Uffe Bech
+  - minute: 50
+    type: goal
+    team: away
+    player: Leke James
+  - minute: 59
+    type: goal
+    team: away
+    player: Leke James
+  - minute: 61
+    type: goal
+    team: away
+    player: Leke James
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-nordsjaelland/2v2c0d#1389853
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1389853"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "4403263"
+matchId: 2024-03-24-kristiansund-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:28865f6f6a4358b840499e75b37fcc1264ccc41c33006e898f0e01874f32a2b9
+raw:
+  externalId: "4403263"
+  date: 2024-03-24
+  kickoff: 14:00
+  status: FT
+  home: Kristiansund
+  homeId: "8605"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 1
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2024
+  venue: TBC (Norway)
+  url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#4403263
+normalized:
+  date: 2024-03-24
+  kickoff: 14:00
+  status: played
+  home.clubId: kristiansund
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 1
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2024
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

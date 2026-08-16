@@ -1,0 +1,56 @@
+id: 2011-01-31-fc-kobenhavn-aalesunds-fk
+date: 2011-01-31
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: treningskamp
+  season: 2011
+  stage: regular_season
+home:
+  clubId: fc-kobenhavn
+  score: 1
+  halfTimeScore: 1
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+penaltyShootout:
+  home: 5
+  away: 3
+neutralVenue: false
+events:
+  - minute: 4
+    type: goal
+    team: home
+    player: Cesar Santin
+  - minute: 63
+    type: goal
+    team: away
+    player: Kjell Rune Sellin
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/fc-kobenhavn-vs-aalesund/2bz91q#973441
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - penaltyShootout
+      - events
+    note: "Kildestatus: Pen"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "973441"
+manual: []

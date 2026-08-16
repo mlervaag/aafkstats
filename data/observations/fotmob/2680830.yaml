@@ -1,0 +1,52 @@
+providerId: fotmob
+externalId: "2680830"
+matchId: 2018-03-03-molde-fk-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:4cde73dfd00695b5c31e1730d9ab497745af66145408c916925eb57fb628199a
+raw:
+  externalId: "2680830"
+  date: 2018-03-03
+  kickoff: 15:00
+  status: FT
+  home: Molde
+  homeId: "9917"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 0
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2018
+  round: 1
+  url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#2680830
+normalized:
+  date: 2018-03-03
+  kickoff: 15:00
+  status: played
+  home.clubId: molde-fk
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 0
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2018
+  competition.round: 1
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

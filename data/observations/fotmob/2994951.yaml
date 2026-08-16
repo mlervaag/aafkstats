@@ -1,0 +1,49 @@
+providerId: fotmob
+externalId: "2994951"
+matchId: 2019-03-09-aalesunds-fk-viking
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:4e3e9b9b876654b6439c22d1783ccc199d421d6aa3c8d3a0091c4e00f971f7ca
+raw:
+  externalId: "2994951"
+  date: 2019-03-09
+  kickoff: 16:30
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Viking
+  awayId: "8478"
+  homeScore: 2
+  awayScore: 2
+  homeHalfTime: 2
+  awayHalfTime: 0
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2019
+  url: https://www.fotmob.com/matches/aalesund-vs-viking/2cuni1#2994951
+normalized:
+  date: 2019-03-09
+  kickoff: 16:30
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: viking
+  home.score: 2
+  away.score: 2
+  home.halfTimeScore: 2
+  away.halfTimeScore: 0
+  competition.id: treningskamp
+  competition.season: 2019
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+warnings: []

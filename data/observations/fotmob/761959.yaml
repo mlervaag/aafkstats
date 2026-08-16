@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "761959"
+matchId: 2010-09-19-aalesunds-fk-kongsvinger
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:73f0f0fab874ab6a238c97fa515309bbf823118cc7d0126b96c76dc75bb79055
+raw:
+  externalId: "761959"
+  date: 2010-09-19
+  kickoff: 18:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Kongsvinger
+  awayId: "8179"
+  homeScore: 2
+  awayScore: 0
+  homeHalfTime: 1
+  awayHalfTime: 0
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2010
+  round: 24
+  venue: Color Line Stadion
+  url: https://www.fotmob.com/matches/kongsvinger-vs-aalesund/29vez4#761959
+normalized:
+  date: 2010-09-19
+  kickoff: 18:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: kongsvinger
+  home.score: 2
+  away.score: 0
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
+  competition.id: eliteserien
+  competition.season: 2010
+  competition.round: 24
+  competition.stage: regular_season
+  venueId: color-line-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

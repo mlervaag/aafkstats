@@ -1,0 +1,64 @@
+id: 2015-02-13-aalesunds-fk-kristiansund
+date: 2015-02-13
+dateConfidence: exact
+kickoff: 18:30
+status: played
+competition:
+  id: treningskamp
+  season: 2015
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 1
+away:
+  clubId: kristiansund
+  score: 1
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 31
+    type: goal
+    team: home
+    player: Aron Elis Thrándarson
+  - minute: 39
+    type: goal
+    team: away
+    player: Daniel Berg
+  - minute: 53
+    type: red_card
+    team: away
+    player: Espen Næss Lund
+  - minute: 77
+    type: goal
+    team: home
+    player: Sondre Brunstad Fet
+  - minute: 90
+    type: goal
+    team: home
+    player: Peter Orry Larsen
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#1892198
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1892198"
+manual: []

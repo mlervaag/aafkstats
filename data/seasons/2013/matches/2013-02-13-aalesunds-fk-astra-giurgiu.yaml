@@ -1,0 +1,53 @@
+id: 2013-02-13-aalesunds-fk-astra-giurgiu
+date: 2013-02-13
+dateConfidence: exact
+kickoff: 16:00
+status: played
+competition:
+  id: treningskamp
+  season: 2013
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: astra-giurgiu
+  score: 2
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 59
+    type: goal
+    team: away
+    player: Kehinde Fatai
+  - minute: 87
+    type: goal
+    team: away
+    player: Gabriel Enache
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/astra-giurgiu-vs-aalesund/yxy31#1388631
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1388631"
+manual: []
+note: FotMob viser et standardspillested for treningskampen; spillestedet er ikke arkivert uten uavhengig bekreftelse.

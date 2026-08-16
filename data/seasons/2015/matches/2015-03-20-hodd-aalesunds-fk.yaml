@@ -1,0 +1,60 @@
+id: 2015-03-20-hodd-aalesunds-fk
+date: 2015-03-20
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: treningskamp
+  season: 2015
+  stage: regular_season
+home:
+  clubId: hodd
+  score: 2
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 65
+    type: goal
+    team: home
+    player: Eirik Ulland Andersen
+  - minute: 76
+    type: goal
+    team: away
+    player: Jo Nymo Matland
+  - minute: 89
+    type: goal
+    team: home
+    player: Eirik Ulland Andersen
+  - minute: 90
+    type: red_card
+    team: home
+    player: Fredrik Aursnes
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/hodd-vs-aalesund/27i0yj#1892203
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1892203"
+manual: []

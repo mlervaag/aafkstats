@@ -1,0 +1,68 @@
+id: 2020-02-14-aalesunds-fk-hodd
+date: 2020-02-14
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: treningskamp
+  season: 2020
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: 4
+away:
+  clubId: hodd
+  score: 2
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 2
+    type: goal
+    team: home
+    player: Simen Bolkan Nordli
+  - minute: 10
+    type: goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+  - minute: 26
+    type: goal
+    team: home
+    player: Daniel Gretarsson
+  - minute: 42
+    type: goal
+    team: home
+    player: Holmbert Aron Fridjonsson
+  - minute: 70
+    type: goal
+    team: away
+    player: Melvin Frithzell
+  - minute: 78
+    type: goal
+    team: away
+    player: Bendik Rise
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/hodd-vs-aalesund/27i0yj#3256039
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "3256039"
+manual: []

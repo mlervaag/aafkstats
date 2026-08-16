@@ -1,0 +1,68 @@
+id: 2011-02-24-rosenborg-bk-aalesunds-fk
+date: 2011-02-24
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: treningskamp
+  season: 2011
+  stage: regular_season
+home:
+  clubId: rosenborg-bk
+  score: 4
+  halfTimeScore: 3
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 3
+    type: goal
+    team: away
+    player: Kjell Rune Sellin
+  - minute: 5
+    type: goal
+    team: home
+    player: Mushaga Bakenga
+  - minute: 27
+    type: goal
+    team: home
+    player: Rade Prica
+  - minute: 45
+    type: goal
+    team: home
+    player: Rade Prica
+  - minute: 51
+    type: goal
+    team: home
+    player: Rade Prica
+  - minute: 72
+    type: goal
+    team: away
+    player: Michael Barrantes
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-rosenborg/2caf6d#987426
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "987426"
+manual: []

@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "762034"
+matchId: 2010-10-24-viking-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:125b09f6a6ca1f1bc39d0dd3a1bc8467014771955be43c8f98c4d4b7827a236b
+raw:
+  externalId: "762034"
+  date: 2010-10-24
+  kickoff: 18:00
+  status: FT
+  home: Viking
+  homeId: "8478"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 1
+  awayScore: 3
+  homeHalfTime: 0
+  awayHalfTime: 1
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2010
+  round: 28
+  venue: Viking Stadion
+  url: https://www.fotmob.com/matches/aalesund-vs-viking/2cuni1#762034
+normalized:
+  date: 2010-10-24
+  kickoff: 18:00
+  status: played
+  home.clubId: viking
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 3
+  home.halfTimeScore: 0
+  away.halfTimeScore: 1
+  competition.id: eliteserien
+  competition.season: 2010
+  competition.round: 28
+  competition.stage: regular_season
+  venueId: viking-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

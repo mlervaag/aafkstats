@@ -1,0 +1,68 @@
+id: 2014-02-26-aalesunds-fk-start
+date: 2014-02-26
+dateConfidence: exact
+kickoff: 19:00
+status: played
+competition:
+  id: treningskamp
+  season: 2014
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 1
+away:
+  clubId: start
+  score: 4
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 34
+    type: penalty_goal
+    team: home
+    player: Fredrik Ulvestad
+  - minute: 45
+    type: goal
+    team: away
+    player: Gudmundur Kristjansson
+  - minute: 51
+    type: penalty_goal
+    team: away
+    player: Espen Hoff
+  - minute: 55
+    type: goal
+    team: home
+    player: Leke James
+  - minute: 67
+    type: goal
+    team: away
+    player: Matthias Vilhjalmsson
+  - minute: 82
+    type: goal
+    team: away
+    player: Matthias Vilhjalmsson
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-start/2ryd31#1635540
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "1635540"
+manual: []

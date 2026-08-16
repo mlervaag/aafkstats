@@ -1,0 +1,56 @@
+providerId: fotmob
+externalId: "762063"
+matchId: 2010-07-04-tromso-aalesunds-fk
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:4507cc42c7cb7415d0ca45e97e9be374770fe77245febc114944da11e04223cb
+raw:
+  externalId: "762063"
+  date: 2010-07-04
+  kickoff: 18:00
+  status: FT
+  home: Tromsø
+  homeId: "8608"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 0
+  awayScore: 1
+  homeHalfTime: 0
+  awayHalfTime: 1
+  competition: Eliteserien
+  competitionId: "59"
+  season: 2010
+  round: 15
+  venue: Alfheim
+  url: https://www.fotmob.com/matches/aalesund-vs-tromso/2e5vky#762063
+normalized:
+  date: 2010-07-04
+  kickoff: 18:00
+  status: played
+  home.clubId: tromso
+  away.clubId: aalesunds-fk
+  home.score: 0
+  away.score: 1
+  home.halfTimeScore: 0
+  away.halfTimeScore: 1
+  competition.id: eliteserien
+  competition.season: 2010
+  competition.round: 15
+  competition.stage: regular_season
+  venueId: alfheim
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

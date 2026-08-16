@@ -1,0 +1,68 @@
+id: 2016-03-01-aalesunds-fk-kristiansund
+date: 2016-03-01
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: treningskamp
+  season: 2016
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 2
+away:
+  clubId: kristiansund
+  score: 3
+  halfTimeScore: 1
+neutralVenue: false
+events:
+  - minute: 4
+    type: goal
+    team: home
+    player: Mostafa Abdellaoue
+  - minute: 18
+    type: goal
+    team: away
+    player: Liridon Kalludra
+  - minute: 29
+    type: goal
+    team: home
+    player: Sondre Brunstad Fet
+  - minute: 63
+    type: goal
+    team: home
+    player: Carl Björk
+  - minute: 65
+    type: goal
+    team: away
+    player: Daouda Bamba
+  - minute: 90
+    type: goal
+    team: away
+    player: Daouda Bamba
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#2161355
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2161355"
+manual: []

@@ -1,0 +1,50 @@
+providerId: fotmob
+externalId: "1635542"
+matchId: 2014-03-16-aalesunds-fk-ranheim
+retrievedAt: 2026-08-12
+adapter: fotmob@3
+payloadHash: sha256:3e1800c407474d40fc3bb109bd67caf9a8ee32319c64b51f361c2bccfef7d9db
+raw:
+  externalId: "1635542"
+  date: 2014-03-16
+  kickoff: 17:00
+  status: FT
+  home: Aalesund
+  homeId: "8404"
+  away: Ranheim
+  awayId: "6563"
+  homeScore: 2
+  awayScore: 1
+  homeHalfTime: 0
+  awayHalfTime: 1
+  competition: Club Friendlies
+  competitionId: "489"
+  season: 2014
+  url: https://www.fotmob.com/matches/ranheim-vs-aalesund/1up0ag#1635542
+normalized:
+  date: 2014-03-16
+  kickoff: 17:00
+  status: played
+  home.clubId: aalesunds-fk
+  away.clubId: ranheim
+  home.score: 2
+  away.score: 1
+  home.halfTimeScore: 0
+  away.halfTimeScore: 1
+  competition.id: treningskamp
+  competition.season: 2014
+  competition.stage: regular_season
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - lineups
+warnings: []

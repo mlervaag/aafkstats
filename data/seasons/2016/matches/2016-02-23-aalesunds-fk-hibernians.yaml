@@ -1,0 +1,64 @@
+id: 2016-02-23-aalesunds-fk-hibernians
+date: 2016-02-23
+dateConfidence: exact
+kickoff: 18:00
+status: played
+competition:
+  id: treningskamp
+  season: 2016
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: 0
+away:
+  clubId: hibernians
+  score: 1
+  halfTimeScore: 0
+neutralVenue: false
+events:
+  - minute: 47
+    type: goal
+    team: home
+    player: Peter Orry Larsen
+  - minute: 50
+    type: goal
+    team: home
+    player: Franck Boli
+  - minute: 62
+    type: goal
+    team: away
+    player: Jorge Da Silva Pereira
+  - minute: 70
+    type: goal
+    team: home
+    player: Aron Elis Thrándarson
+  - minute: 90
+    type: goal
+    team: home
+    player: Mikkel Kirkeskov
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/hibernians-vs-aalesund/28i7sq#2185009
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "2185009"
+manual: []
