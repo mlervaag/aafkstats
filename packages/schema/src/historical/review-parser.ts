@@ -23,47 +23,10 @@ export interface ReviewParser {
   parseReview(content: string, options?: { knownSourceIds?: Set<string> }): ReviewValidationResult;
 }
 
-export const APPROVED_DISPOSITIONS = new Set([
-  // Kampdisposisjoner
-  "source_result_created",
-  "canonical_created",
-  "canonical_enriched",
-  "fixture_only",
-  "outcome_only",
-  "result_without_date",
-  "date_without_result",
-  "already_documented",
-  "duplicate_publication",
-  "reprint",
-  "identity_uncertain",
-  "not_a_team",
-  "no_structured_action",
-  // Persondisposisjoner & milepæler (fra autoritativ runbook #157)
-  "person_created",
-  "person_enriched",
-  "role_created",
-  "role_enriched",
-  "honor_created",
-  "honor_enriched",
-  "honorary_role_created",
-  "milestone_created",
-  "mention_linked",
-  "observation_created",
-  "historical_observation_created",
-  "organization_snapshot_created",
-  "conflict_registered",
-  "conflict_resolved",
-  "verified_correct",
-  "non_senior",
-  // Prosess- og inventarstatuser
-  "reviewed",
-  "in_scope",
-  "out_of_scope",
-  "unavailable",
-  "source_unavailable",
-  "duplicate_or_reprint",
-  "duplicate",
-]);
+import { historicalDispositionEnum } from "./harvest-finding.js";
+
+export const APPROVED_DISPOSITIONS = new Set<string>(historicalDispositionEnum.options);
+
 
 // Ignorer standard HTML-tagger i markdown
 const HTML_TAG_NAMES = new Set(["br", "hr", "p", "div", "span", "details", "summary", "code", "pre", "b", "i", "strong", "em", "table", "tr", "td", "th", "tbody", "thead"]);

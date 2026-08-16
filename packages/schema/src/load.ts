@@ -29,6 +29,8 @@ import { flattenSourceResults, sourceResultCollection } from "./source-result.js
 import type { SourceResult, SourceResultCollection } from "./source-result.js";
 import { verificationCaseInput, verificationRevision } from "./verification-case.js";
 import type { VerificationCase, VerificationCaseInput } from "./verification-case.js";
+import { harvestBatchManifest } from "./historical/harvest-manifest.js";
+import type { HarvestBatchManifest } from "./historical/harvest-manifest.js";
 
 /** Rota på monorepoet, utledet fra hvor denne filen ligger. */
 export function repoRoot(): string {
@@ -82,6 +84,7 @@ export interface Archive {
   sources: (HistoricalSource & { file: string })[];
   extractions: (PublicationExtraction & { file: string })[];
   sourceResults: (SourceResultCollection & { file: string })[];
+  harvests: (HarvestBatchManifest & { file: string })[];
   /** Konkrete JA/NEI-saker som er redaksjonelt klare for community-kontroll. */
   verificationCases: VerificationCase[];
   issues: LoadIssue[];
@@ -283,6 +286,11 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
     collection.file = relative(root, join(root, "source-results", `${collection.sourceId}.yaml`)).replace(/\\/g, "/");
   }
 
+  const harvests = (await readAll("harvests", harvestBatchManifest)) as (HarvestBatchManifest & { file: string })[];
+  for (const harvest of harvests) {
+    harvest.file = relative(root, join(root, "harvests", `${harvest.id}.yaml`)).replace(/\\/g, "/");
+  }
+
   const caseInputs = (await readAll("verification-cases", verificationCaseInput)) as VerificationCaseInput[];
   const verificationCases: VerificationCase[] = caseInputs.map((entry) => ({
     ...entry,
@@ -290,7 +298,7 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
     file: `verification-cases/${entry.id}.yaml`,
   }));
 
-  return { clubs, venues, competitions, providers, seasons, matches, observations, historicalObservations, standings: tables, people, organizations, organizationSnapshots, contributions, sources, extractions, sourceResults, verificationCases, issues };
+  return { clubs, venues, competitions, providers, seasons, matches, observations, historicalObservations, standings: tables, people, organizations, organizationSnapshots, contributions, sources, extractions, sourceResults, harvests, verificationCases, issues };
 }
 
 /**
@@ -330,6 +338,7 @@ export function crossValidate(archive: Archive): LoadIssue[] {
   duplicates(archive.verificationCases, "verification-cases");
   duplicates(archive.organizations, "organizations");
   duplicates(archive.historicalObservations, "observations");
+  duplicates(archive.harvests, "harvests");
 
   for (const snapshot of archive.organizationSnapshots) {
     const file = organizationSnapshotPath(snapshot.date, snapshot.organizationId);
