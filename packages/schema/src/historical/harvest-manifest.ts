@@ -136,6 +136,18 @@ export const harvestBatchManifest = z
         reason: z.string().optional(),
       })
       .strict()
+      .refine(
+        (val) => {
+          if (val.facsimile === "unavailable") {
+            return typeof val.reason === "string" && val.reason.trim().length > 0;
+          }
+          return true;
+        },
+        {
+          message: "Når reviewMethod.facsimile er «unavailable», må en eksplisitt og ikke-tom «reason» oppgis.",
+          path: ["reason"],
+        },
+      )
       .optional(),
     review: z
       .object({

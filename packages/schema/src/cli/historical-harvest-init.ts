@@ -69,12 +69,30 @@ export async function generateHarvestBatchManifest(
   const sourcesLoad = await loadYamlMap(null, "data/sources", source, root);
   const extractionsLoad = await loadYamlMap(null, "data/extractions", publicationExtraction, root);
 
+  const allInitErrors = [...sourcesLoad.errors, ...extractionsLoad.errors];
+  if (allInitErrors.length > 0) {
+    throw new Error(
+      `Skjema-/lastefeil under innlesing av kildedata:\n${allInitErrors.map((e) => `  ${e.file}: ${e.message}`).join("\n")}`,
+    );
+  }
+
   const sourcesMap = sourcesLoad.items;
   const extractionsMap = extractionsLoad.items;
 
+  const explicitSources = options.sources ?? [];
+
+  // Valider at alle eksplisitt oppgitte sources finnes
+  if (explicitSources.length > 0) {
+    for (const sid of explicitSources) {
+      if (!sourcesMap.has(sid)) {
+        throw new Error(`Eksplisitt oppgitt kilde «${sid}» finnes ikke i data/sources/`);
+      }
+    }
+  }
+
   // Filtrer kilder i scope
   const matchingSources: Source[] = [];
-  const explicitIds = options.sources.length > 0 ? new Set(options.sources) : null;
+  const explicitIds = explicitSources.length > 0 ? new Set(explicitSources) : null;
 
   for (const [sourceId, src] of sourcesMap) {
     let inScope = true;
@@ -95,6 +113,12 @@ export async function generateHarvestBatchManifest(
     if (inScope) {
       matchingSources.push(src);
     }
+  }
+
+  if (matchingSources.length === 0) {
+    throw new Error(
+      "Ingen kilder funnet for det oppgitte scopet. Angi gyldig --source, --parent-source eller årsparametere.",
+    );
   }
 
   matchingSources.sort((a, b) => (a.year ?? 0) - (b.year ?? 0) || a.id.localeCompare(b.id));

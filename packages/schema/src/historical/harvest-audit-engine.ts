@@ -97,7 +97,6 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
   const {
     manifest,
     allSources,
-    allExtractions,
     basePeople,
     headPeople,
     baseSourceResults,
@@ -178,41 +177,62 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
   // Sjekk om scope.sourceIds mangler i frosset inventar
   for (const sid of manifest.scope.sourceIds) {
     if (!inventorySourceIds.has(sid)) {
-      issues.push({
-        type: "warning",
-        category: "inventory",
-        sourceId: sid,
-        message: `Scope inneholder sourceId «${sid}» som ikke er oppført i sourceInventory`,
-      });
+      if (isCompleteStatus) {
+        issues.push({
+          type: "error",
+          category: "inventory",
+          sourceId: sid,
+          message: `Kilde «${sid}» i scope mangler i frosset sourceInventory`,
+        });
+      } else {
+        issues.push({
+          type: "warning",
+          category: "inventory",
+          sourceId: sid,
+          message: `Scope inneholder sourceId «${sid}» som ikke er oppført i sourceInventory`,
+        });
+      }
     }
   }
 
   // 3. Side- og seksjonsdekning
-  let expectedPages = manifest.coverage?.expected ?? 0;
+  const isFacsimileUnavailable = manifest.reviewMethod?.facsimile === "unavailable";
+  const expectedPages = manifest.coverage?.expected ?? 0;
   const reviewedPages = manifest.coverage?.reviewed ?? 0;
-
-  if (!manifest.coverage && manifest.sourceInventory.length > 0) {
-    // Summer forventede sider fra extractions dersom ikke eksplisitt oppgitt
-    for (const item of manifest.sourceInventory) {
-      const ext = allExtractions.get(item.sourceId);
-      if (ext) {
-        expectedPages += ext.pagesExpected;
-      }
-    }
-  }
 
   const isFullCoverage =
     manifest.coverage ? reviewedPages >= expectedPages && expectedPages > 0 : expectedPages === 0 || reviewedPages >= expectedPages;
   const coveragePct = expectedPages > 0 ? Math.min(100, Math.round((reviewedPages / expectedPages) * 100)) : 100;
 
-  if (isCompleteStatus && manifest.coverage && !isFullCoverage) {
-    const isFacsimileUnavailable = manifest.reviewMethod?.facsimile === "unavailable";
-    if (!isFacsimileUnavailable) {
-      issues.push({
-        type: "error",
-        category: "coverage",
-        message: `Visuell sidekontroll er ufullstendig (${reviewedPages}/${expectedPages} sider, ${coveragePct}%)`,
-      });
+  if (isCompleteStatus) {
+    if (isFacsimileUnavailable) {
+      if (!manifest.reviewMethod?.reason || manifest.reviewMethod.reason.trim().length === 0) {
+        issues.push({
+          type: "error",
+          category: "manifest",
+          message: "reviewMethod.facsimile er «unavailable» uten obligatorisk begrunnelse (reason)",
+        });
+      }
+    } else {
+      if (!manifest.coverage) {
+        issues.push({
+          type: "error",
+          category: "coverage",
+          message: "En batch med status: complete og facsimile required krever eksplisitt coverage",
+        });
+      } else if (manifest.coverage.expected <= 0) {
+        issues.push({
+          type: "error",
+          category: "coverage",
+          message: `Visuell kontroll kan ikke ha expected: ${manifest.coverage.expected} når faksimile er påkrevd`,
+        });
+      } else if (!isFullCoverage) {
+        issues.push({
+          type: "error",
+          category: "coverage",
+          message: `Visuell sidekontroll er ufullstendig (${reviewedPages}/${expectedPages} sider/seksjoner, ${coveragePct}%)`,
+        });
+      }
     }
   }
 
@@ -281,17 +301,24 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
       });
     }
 
-    if (isCompleteStatus && finding.status === "observed") {
+    if (isCompleteStatus && (finding.status === "observed" || finding.status === "reviewed")) {
       issues.push({
         type: "error",
         category: "lifecycle",
         findingId: finding.id,
-        message: `Funn «${finding.id}» står fortsatt som «observed» i en fullført batch (må være normalized eller unresolved)`,
+        message: `Funn «${finding.id}» har status «${finding.status}» i en fullført batch (må være normalized eller unresolved)`,
       });
     }
 
-    // Sjekk kildetilgjengelighet
+    // Sjekk kildetilgjengelighet og sidetall
     const primarySourceId = finding.source?.sourceId ?? finding.sources[0]?.sourceId;
+    const findingPage =
+      finding.source?.page !== undefined && finding.source?.page !== null
+        ? String(finding.source.page).trim()
+        : (finding.sources[0]?.page !== undefined && finding.sources[0]?.page !== null
+            ? String(finding.sources[0].page).trim()
+            : undefined);
+
     if (primarySourceId && !allSources.has(primarySourceId)) {
       issues.push({
         type: "error",
@@ -342,9 +369,8 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
                 message: `Target role «${roleId}» finnes ikke på person «${target.id}»`,
               });
             } else if (primarySourceId) {
-              // Provenienssjekk: inneholder rollen finding-kilden?
-              const hasSource = r.sources.some((s) => s.sourceId === primarySourceId);
-              if (!hasSource) {
+              const matchingSources = r.sources.filter((s) => s.sourceId === primarySourceId);
+              if (matchingSources.length === 0) {
                 issues.push({
                   type: "warning",
                   category: "provenance",
@@ -352,11 +378,24 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
                   targetId: target.id,
                   message: `Rolle «${roleId}» på person «${target.id}» mangler sourceRef til kilden «${primarySourceId}»`,
                 });
+              } else if (findingPage) {
+                const hasPageMatch = matchingSources.some(
+                  (s) => s.page !== undefined && s.page !== null && String(s.page).trim() === findingPage,
+                );
+                if (!hasPageMatch && matchingSources.some((s) => s.page !== undefined && s.page !== null)) {
+                  issues.push({
+                    type: "warning",
+                    category: "provenance",
+                    findingId: finding.id,
+                    targetId: target.id,
+                    message: `Proveniens side-avvik for rolle «${roleId}» på person «${target.id}»: funn angir side ${findingPage}, men rollen refererer til side ${matchingSources.map((s) => s.page).join(", ")}`,
+                  });
+                }
               }
             }
           } else if (primarySourceId) {
-            const hasPersonSource = p.sources.some((s) => s.sourceId === primarySourceId);
-            if (!hasPersonSource) {
+            const matchingSources = p.sources.filter((s) => s.sourceId === primarySourceId);
+            if (matchingSources.length === 0) {
               issues.push({
                 type: "warning",
                 category: "provenance",
@@ -364,6 +403,19 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
                 targetId: target.id,
                 message: `Person «${target.id}» mangler top-level sourceRef til kilden «${primarySourceId}»`,
               });
+            } else if (findingPage) {
+              const hasPageMatch = matchingSources.some(
+                (s) => s.page !== undefined && s.page !== null && String(s.page).trim() === findingPage,
+              );
+              if (!hasPageMatch && matchingSources.some((s) => s.page !== undefined && s.page !== null)) {
+                issues.push({
+                  type: "warning",
+                  category: "provenance",
+                  findingId: finding.id,
+                  targetId: target.id,
+                  message: `Proveniens side-avvik for person «${target.id}»: funn angir side ${findingPage}, men person refererer til side ${matchingSources.map((s) => s.page).join(", ")}`,
+                });
+              }
             }
           }
         }
@@ -380,19 +432,40 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
           });
         } else if (target.path) {
           const flat = flattenSourceResults(col);
-          const matchEntry = flat.find((r) => r.id === target.path || `${r.season}/${r.id}` === target.path);
-          if (!matchEntry) {
-            // Hvis path er f.eks. seasons/1954/results/3
-            const pathMatch = target.path.match(/results\/(\d+)/);
-            if (!pathMatch) {
-              issues.push({
-                type: "warning",
-                category: "target",
-                findingId: finding.id,
-                targetId: target.id,
-                message: `Kunne ikke bekrefte resultatsti «${target.path}» i source-results «${target.id}»`,
-              });
+          const normalizedPath = target.path.trim();
+
+          let found = flat.some(
+            (r) =>
+              r.id === normalizedPath ||
+              `${r.season}/${r.id}` === normalizedPath ||
+              `seasons/${r.season}/results/${r.order}` === normalizedPath ||
+              `${r.season}/${r.order}` === normalizedPath ||
+              `${r.season}-${r.order}` === normalizedPath ||
+              `${r.season}-${String(r.order).padStart(3, "0")}` === normalizedPath,
+          );
+
+          if (!found) {
+            const pathMatch =
+              normalizedPath.match(/^(?:seasons\/)?(\d{4})\/(?:results\/)?(\d+)$/) ||
+              normalizedPath.match(/^(\d{4})-(\d+)$/);
+            if (pathMatch) {
+              const year = Number.parseInt(pathMatch[1]!, 10);
+              const no = Number.parseInt(pathMatch[2]!, 10);
+              const seasonObj = col.seasons.find((s) => s.year === year);
+              if (seasonObj) {
+                found = seasonObj.results.some((res, idx) => res.no === no || idx + 1 === no);
+              }
             }
+          }
+
+          if (!found) {
+            issues.push({
+              type: "error",
+              category: "target",
+              findingId: finding.id,
+              targetId: target.id,
+              message: `Target source-result entry «${target.path}» finnes ikke i source-results for «${target.id}»`,
+            });
           }
         }
       } else if (target.entity === "match") {
@@ -407,8 +480,8 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
             message: `Target match «${target.id}» finnes ikke i sesongarkivet (data/seasons/)`,
           });
         } else if (primarySourceId) {
-          const hasMatchSource = m.sources?.some((s) => s.sourceId === primarySourceId);
-          if (!hasMatchSource) {
+          const matchingSources = m.sources?.filter((s) => s.sourceId === primarySourceId) ?? [];
+          if (matchingSources.length === 0) {
             issues.push({
               type: "warning",
               category: "provenance",
@@ -416,6 +489,19 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
               targetId: target.id,
               message: `Kamp «${target.id}» mangler sourceRef til kilden «${primarySourceId}»`,
             });
+          } else if (findingPage) {
+            const hasPageMatch = matchingSources.some(
+              (s) => s.page !== undefined && s.page !== null && String(s.page).trim() === findingPage,
+            );
+            if (!hasPageMatch && matchingSources.some((s) => s.page !== undefined && s.page !== null)) {
+              issues.push({
+                type: "warning",
+                category: "provenance",
+                findingId: finding.id,
+                targetId: target.id,
+                message: `Proveniens side-avvik for kamp «${target.id}»: funn angir side ${findingPage}, men kampen refererer til side ${matchingSources.map((s) => s.page).join(", ")}`,
+              });
+            }
           }
         }
       } else if (target.entity === "observation") {

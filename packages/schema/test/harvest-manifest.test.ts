@@ -138,6 +138,43 @@ describe("Disposisjoner og Target-krav", () => {
     };
     expect(harvestFindingSchema.safeParse(withSource).success).toBe(true);
   });
+
+  it("krever eksplisitt og ikke-tom reason når reviewMethod.facsimile er unavailable", () => {
+    const valid = {
+      version: 1,
+      id: "batch-1",
+      title: "Test",
+      profile: "generic_publication",
+      reviewMethod: {
+        facsimile: "unavailable",
+        reason: "Fysisk hefte tapt i brann",
+      },
+    };
+    expect(harvestBatchManifest.safeParse(valid).success).toBe(true);
+
+    const invalid = {
+      version: 1,
+      id: "batch-1",
+      title: "Test",
+      profile: "generic_publication",
+      reviewMethod: {
+        facsimile: "unavailable",
+      },
+    };
+    expect(harvestBatchManifest.safeParse(invalid).success).toBe(false);
+
+    const emptyReason = {
+      version: 1,
+      id: "batch-1",
+      title: "Test",
+      profile: "generic_publication",
+      reviewMethod: {
+        facsimile: "unavailable",
+        reason: "   ",
+      },
+    };
+    expect(harvestBatchManifest.safeParse(emptyReason).success).toBe(false);
+  });
 });
 
 describe("Source Profiles og Automatisk Profil-inferens", () => {
@@ -156,29 +193,64 @@ describe("Source Profiles og Automatisk Profil-inferens", () => {
     expect(inferSourceProfile({ parentSourceId: "aafk-medlemsblad" })).toBe("member_magazine");
     expect(inferSourceProfile({ sourceType: "annual_report" })).toBe("annual_report");
     expect(inferSourceProfile({ id: "nff-arbok-1925" })).toBe("yearbook");
-    expect(inferSourceProfile({ title: "Aalesunds Fotballklubb 50 år" })).toBe("anniversary_book");
+    expect(inferSourceProfile({ title: "AaFK 50 år" })).toBe("anniversary_book");
+    expect(inferSourceProfile({ title: "Aalesunds FK 100 år" })).toBe("anniversary_book");
+    expect(inferSourceProfile({ title: "Jubileumsbok 1964" })).toBe("anniversary_book");
+    expect(inferSourceProfile({ title: "Festskrift for Aalesunds FK" })).toBe("anniversary_book");
     expect(inferSourceProfile({ sourceType: "match_program" })).toBe("match_program");
-    expect(inferSourceProfile({ sourceType: "other", title: "Ukjent hefte" })).toBe("generic_publication");
+    expect(inferSourceProfile({ sourceType: "other", title: "Vanlig boktittel om fotballhistorie" })).toBe("generic_publication");
     expect(inferSourceProfile()).toBe("generic_publication");
+  });
+
+  it("evaluerer lineært og trygt på ekstremt lange strenger uten ReDoS", () => {
+    const hugeTitle = "9".repeat(500000) + " år";
+    const start = Date.now();
+    const profile = inferSourceProfile({ title: hugeTitle });
+    const duration = Date.now() - start;
+
+    expect(duration).toBeLessThan(100); // Må fullføre på under 100ms
+    expect(profile).toBe("generic_publication"); // Mer enn 4 sifre foran år ignoreres
   });
 });
 
 describe("Init CLI generator", () => {
   it("genererer gyldig manifest med frosset inventar og required passes", async () => {
     const { manifest } = await generateHarvestBatchManifest({
-      profile: "yearbook",
+      profile: "annual_report",
       sources: [],
-      parentSourceId: "nff-yearbooks",
-      yearFrom: 1921,
-      yearTo: 1925,
+      parentSourceId: "sunnmore-fotballkrets-arsrapporter",
+      yearFrom: 1963,
+      yearTo: 1965,
       mode: "initial",
     });
 
     expect(manifest.version).toBe(1);
-    expect(manifest.profile).toBe("yearbook");
+    expect(manifest.profile).toBe("annual_report");
     expect(manifest.mode).toBe("initial");
     expect(manifest.status).toBe("discovered");
+    expect(manifest.sourceInventory.length).toBe(3);
     expect(manifest.passes.facsimile_review).toBeDefined();
     expect(manifest.passes.facsimile_review?.status).toBe("pending");
   }, 20000);
+
+  it("feiler dersom eksplisitt oppgitt sourceId ikke finnes", async () => {
+    await expect(
+      generateHarvestBatchManifest({
+        profile: "yearbook",
+        sources: ["ikke-eksisterende-kilde-12345"],
+        mode: "initial",
+      }),
+    ).rejects.toThrow(/Eksplisitt oppgitt kilde «ikke-eksisterende-kilde-12345» finnes ikke/);
+  });
+
+  it("feiler dersom filter gir 0 matchende kilder", async () => {
+    await expect(
+      generateHarvestBatchManifest({
+        parentSourceId: "nff-yearbooks",
+        yearFrom: 1800,
+        yearTo: 1810,
+        mode: "initial",
+      }),
+    ).rejects.toThrow(/Ingen kilder funnet for det oppgitte scopet/);
+  });
 });

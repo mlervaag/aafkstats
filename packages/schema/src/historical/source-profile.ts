@@ -223,6 +223,24 @@ export const SOURCE_PROFILES: Record<HarvestProfileId, HarvestSourceProfile> = {
 };
 
 /**
+ * Sjekker lineært om en tittel ser ut som en jubileumstittel (f.eks. «50 år», «75 år», «100 år»).
+ */
+function looksLikeAnniversaryTitle(titleLower: string): boolean {
+  const tokens = titleLower.split(/[\s,.:;!?"'()[\]{}<>/\\-]+/).filter(Boolean);
+  for (let i = 0; i < tokens.length; i++) {
+    if (tokens[i] === "år" || tokens[i] === "aar") {
+      if (i > 0) {
+        const prev = tokens[i - 1]!;
+        if (prev.length <= 4 && /^\d+$/.test(prev)) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
+/**
  * Utleder den best egnede kildeprofilen basert på metadata fra kilden eller katalogen.
  */
 export function inferSourceProfile(
@@ -238,7 +256,14 @@ export function inferSourceProfile(
     return "annual_report";
   }
 
-  if (src.sourceType === "anniversary_book" || (src.title && /jubileum|festskrift|\d+\s*år/i.test(src.title))) {
+  const titleLower = src.title?.toLocaleLowerCase("nb-NO") ?? "";
+
+  if (
+    src.sourceType === "anniversary_book" ||
+    titleLower.includes("jubileum") ||
+    titleLower.includes("festskrift") ||
+    looksLikeAnniversaryTitle(titleLower)
+  ) {
     return "anniversary_book";
   }
 
@@ -250,7 +275,9 @@ export function inferSourceProfile(
     src.id?.startsWith("nff-") ||
     src.parentSourceId === "nff-yearbooks" ||
     src.parentSourceId === "nff-arbok" ||
-    (src.title && /årbok|aarbok|yearbook/i.test(src.title))
+    titleLower.includes("årbok") ||
+    titleLower.includes("aarbok") ||
+    titleLower.includes("yearbook")
   ) {
     return "yearbook";
   }

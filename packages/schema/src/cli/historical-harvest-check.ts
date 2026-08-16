@@ -188,6 +188,29 @@ export async function runHarvestCheck(options: HarvestCheckCliOptions, root = re
   const baseMatchesLoad = await loadYamlMap(baseSha, "data/seasons", match, root, (m) => m.id, isMatchFile);
   const headMatchesLoad = await loadYamlMap(headRef === "working-tree" ? null : headSha, "data/seasons", match, root, (m) => m.id, isMatchFile);
 
+  const allLoadErrors = [
+    ...sourcesLoad.errors,
+    ...providersLoad.errors,
+    ...extractionsLoad.errors,
+    ...sourceResultsLoad.errors,
+    ...basePeopleLoad.errors,
+    ...headPeopleLoad.errors,
+    ...baseSourceResultsLoad.errors,
+    ...headSourceResultsLoad.errors,
+    ...baseSnapshotsLoad.errors,
+    ...headSnapshotsLoad.errors,
+    ...baseObservationsLoad.errors,
+    ...headObservationsLoad.errors,
+    ...baseMatchesLoad.errors,
+    ...headMatchesLoad.errors,
+  ];
+
+  if (allLoadErrors.length > 0) {
+    throw new Error(
+      `Skjema-/lastefeil under innlesing av data:\n${allLoadErrors.map((e) => `  ${e.file}: ${e.message}`).join("\n")}`,
+    );
+  }
+
   const { exceptions } = await loadPreservationExceptions(rootDataDir);
 
   const report = auditHarvestBatch({

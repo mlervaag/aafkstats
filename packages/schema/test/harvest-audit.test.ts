@@ -320,4 +320,222 @@ describe("Cross-Layer Harvest Audit Engine", () => {
     expect(report.passed).toBe(false);
     expect(report.issues.some((i) => i.category === "lifecycle" && i.message.includes("observed"))).toBe(true);
   });
+
+  it("feiler dersom status er complete og et funn står som reviewed (ikke-terminal)", () => {
+    const manifest: HarvestBatchManifest = {
+      version: 1,
+      id: "nff-1923",
+      title: "NFF Årbok 1923",
+      profile: "yearbook",
+      mode: "initial",
+      status: "complete",
+      scope: { sourceIds: ["nff-arbok-1923"] },
+      sourceInventory: [{ sourceId: "nff-arbok-1923", reviewStatus: "reviewed" }],
+      coverage: { mode: "pages", expected: 100, reviewed: 100 },
+      passes: {
+        facsimile_review: { status: "complete", findings: 1 },
+        explicit_results: { status: "complete", findings: 0 },
+        people_and_roles: { status: "complete", findings: 1 },
+        organization: { status: "complete", findings: 0 },
+        retrospectives_and_claims: { status: "complete", findings: 0 },
+        observations: { status: "complete", findings: 0 },
+      },
+      findings: [
+        {
+          id: "f-005",
+          source: { sourceId: "nff-arbok-1923", page: 119 },
+          type: "person_role",
+          claim: { text: "Gjennomgått person" },
+          disposition: "role_created",
+          targets: [{ entity: "person", id: "nils-jangaard", path: "roles/nff-delegat-1923" }],
+          status: "reviewed",
+          notes: [],
+        },
+      ],
+      unresolved: [],
+      notes: [],
+    };
+
+    const ctx = createMinimalContext(manifest);
+    const report = auditHarvestBatch(ctx);
+
+    expect(report.passed).toBe(false);
+    expect(report.issues.some((i) => i.category === "lifecycle" && i.message.includes("reviewed"))).toBe(true);
+  });
+
+  it("feiler dersom status er complete og coverage mangler helt", () => {
+    const manifest: HarvestBatchManifest = {
+      version: 1,
+      id: "nff-1923",
+      title: "NFF Årbok 1923",
+      profile: "yearbook",
+      mode: "initial",
+      status: "complete",
+      scope: { sourceIds: ["nff-arbok-1923"] },
+      sourceInventory: [{ sourceId: "nff-arbok-1923", reviewStatus: "reviewed" }],
+      // coverage mangler helt
+      passes: {
+        facsimile_review: { status: "complete", findings: 0 },
+        explicit_results: { status: "complete", findings: 0 },
+        people_and_roles: { status: "complete", findings: 0 },
+        organization: { status: "complete", findings: 0 },
+        retrospectives_and_claims: { status: "complete", findings: 0 },
+        observations: { status: "complete", findings: 0 },
+      },
+      findings: [],
+      unresolved: [],
+      notes: [],
+    };
+
+    const ctx = createMinimalContext(manifest);
+    const report = auditHarvestBatch(ctx);
+
+    expect(report.passed).toBe(false);
+    expect(report.issues.some((i) => i.category === "coverage" && i.message.includes("krever eksplisitt coverage"))).toBe(true);
+  });
+
+  it("feiler dersom status er complete og coverage.expected er 0 ved facsimile required", () => {
+    const manifest: HarvestBatchManifest = {
+      version: 1,
+      id: "nff-1923",
+      title: "NFF Årbok 1923",
+      profile: "yearbook",
+      mode: "initial",
+      status: "complete",
+      scope: { sourceIds: ["nff-arbok-1923"] },
+      sourceInventory: [{ sourceId: "nff-arbok-1923", reviewStatus: "reviewed" }],
+      coverage: { mode: "pages", expected: 0, reviewed: 0 },
+      passes: {
+        facsimile_review: { status: "complete", findings: 0 },
+        explicit_results: { status: "complete", findings: 0 },
+        people_and_roles: { status: "complete", findings: 0 },
+        organization: { status: "complete", findings: 0 },
+        retrospectives_and_claims: { status: "complete", findings: 0 },
+        observations: { status: "complete", findings: 0 },
+      },
+      findings: [],
+      unresolved: [],
+      notes: [],
+    };
+
+    const ctx = createMinimalContext(manifest);
+    const report = auditHarvestBatch(ctx);
+
+    expect(report.passed).toBe(false);
+    expect(report.issues.some((i) => i.category === "coverage" && i.message.includes("expected: 0"))).toBe(true);
+  });
+
+  it("feiler dersom en kilde i scope mangler i frosset sourceInventory ved complete", () => {
+    const manifest: HarvestBatchManifest = {
+      version: 1,
+      id: "nff-1923",
+      title: "NFF Årbok 1923",
+      profile: "yearbook",
+      mode: "initial",
+      status: "complete",
+      scope: { sourceIds: ["nff-arbok-1923", "nff-arbok-1924"] },
+      sourceInventory: [{ sourceId: "nff-arbok-1923", reviewStatus: "reviewed" }], // mangler 1924
+      coverage: { mode: "pages", expected: 100, reviewed: 100 },
+      passes: {
+        facsimile_review: { status: "complete", findings: 0 },
+        explicit_results: { status: "complete", findings: 0 },
+        people_and_roles: { status: "complete", findings: 0 },
+        organization: { status: "complete", findings: 0 },
+        retrospectives_and_claims: { status: "complete", findings: 0 },
+        observations: { status: "complete", findings: 0 },
+      },
+      findings: [],
+      unresolved: [],
+      notes: [],
+    };
+
+    const ctx = createMinimalContext(manifest);
+    const report = auditHarvestBatch(ctx);
+
+    expect(report.passed).toBe(false);
+    expect(report.issues.some((i) => i.category === "inventory" && i.message.includes("nff-arbok-1924"))).toBe(true);
+  });
+
+  it("feiler dersom source-result target path ikke resolve til en reell oppføring", () => {
+    const manifest: HarvestBatchManifest = {
+      version: 1,
+      id: "nff-1923",
+      title: "NFF Årbok 1923",
+      profile: "yearbook",
+      mode: "initial",
+      status: "complete",
+      scope: { sourceIds: ["nff-arbok-1923"] },
+      sourceInventory: [{ sourceId: "nff-arbok-1923", reviewStatus: "reviewed" }],
+      coverage: { mode: "pages", expected: 100, reviewed: 100 },
+      passes: {
+        facsimile_review: { status: "complete", findings: 1 },
+        explicit_results: { status: "complete", findings: 1 },
+        people_and_roles: { status: "complete", findings: 0 },
+        organization: { status: "complete", findings: 0 },
+        retrospectives_and_claims: { status: "complete", findings: 0 },
+        observations: { status: "complete", findings: 0 },
+      },
+      findings: [
+        {
+          id: "f-006",
+          source: { sourceId: "nff-arbok-1923", page: 117 },
+          type: "match_result",
+          claim: { text: "Ugyldig resultatsti" },
+          disposition: "source_result_created",
+          targets: [{ entity: "source_result", id: "nff-arbok-1923", path: "seasons/1923/results/999999" }],
+          status: "normalized",
+          notes: [],
+        },
+      ],
+      unresolved: [],
+      notes: [],
+    };
+
+    const ctx = createMinimalContext(manifest);
+    const report = auditHarvestBatch(ctx);
+
+    expect(report.passed).toBe(false);
+    expect(report.issues.some((i) => i.category === "target" && i.message.includes("999999"))).toBe(true);
+  });
+
+  it("varsler dersom proveniens har samme sourceId men avvikende sidetall", () => {
+    const manifest: HarvestBatchManifest = {
+      version: 1,
+      id: "nff-1923",
+      title: "NFF Årbok 1923",
+      profile: "yearbook",
+      mode: "initial",
+      status: "complete",
+      scope: { sourceIds: ["nff-arbok-1923"] },
+      sourceInventory: [{ sourceId: "nff-arbok-1923", reviewStatus: "reviewed" }],
+      coverage: { mode: "pages", expected: 100, reviewed: 100 },
+      passes: {
+        facsimile_review: { status: "complete", findings: 1 },
+        explicit_results: { status: "complete", findings: 0 },
+        people_and_roles: { status: "complete", findings: 1 },
+        organization: { status: "complete", findings: 0 },
+        retrospectives_and_claims: { status: "complete", findings: 0 },
+        observations: { status: "complete", findings: 0 },
+      },
+      findings: [
+        {
+          id: "f-007",
+          source: { sourceId: "nff-arbok-1923", page: 200 }, // Side 200, mens rollen har side 117
+          type: "person_role",
+          claim: { text: "Delegat" },
+          disposition: "role_created",
+          targets: [{ entity: "person", id: "nils-jangaard", path: "roles/nff-delegat-1923" }],
+          status: "normalized",
+          notes: [],
+        },
+      ],
+      unresolved: [],
+      notes: [],
+    };
+
+    const ctx = createMinimalContext(manifest);
+    const report = auditHarvestBatch(ctx);
+
+    expect(report.issues.some((i) => i.category === "provenance" && i.message.includes("side-avvik"))).toBe(true);
+  });
 });
