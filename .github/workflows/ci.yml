@@ -56,6 +56,21 @@ jobs:
             pnpm data:historical-preservation
           fi
 
+      # Kontrollerer at eventuelle innhøstingsbatcher i data/harvests/ validerer og
+      # at fullførte batcher oppfyller samtlige krav.
+      - name: Kontroller historiske innhøstingsbatcher
+        run: |
+          if [ -d "data/harvests" ] && compgen -G "data/harvests/*.yaml" > /dev/null; then
+            for f in data/harvests/*.yaml; do
+              echo "Sjekker innhøstingsbatch: $f"
+              if [ "${{ github.event_name }}" = "pull_request" ]; then
+                pnpm data:historical-harvest:check --file "$f" --base "${{ github.event.pull_request.base.sha }}" --head "${{ github.sha }}"
+              else
+                pnpm data:historical-harvest:check --file "$f"
+              fi
+            done
+          fi
+
       # Rapporterer, feller ikke bygget. Nesten like klubbnavn kan være samme
       # klubb eller to naboklubber, og bare et menneske kan avgjøre hvilket.
       # Det maskinen er sikker på, feiler pnpm validate allerede på.

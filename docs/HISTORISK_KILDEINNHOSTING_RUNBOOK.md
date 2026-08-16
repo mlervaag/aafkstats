@@ -29,9 +29,14 @@ Ved motstrid mellom dokumenter, schema eller instrukser gjelder følgende autori
      - Terminliste- og resultat-reconciliation
      - Additivitetsgaranti og preservation
      - Completion-metrikker og Definition of Done
-3. **Kildespesifikk profil** (f.eks. [`docs/MEDLEMSBLAD_INNHOSTING.md`](MEDLEMSBLAD_INNHOSTING.md))
-   - Autoritativ kilde for særtrekk, heftegranularitet og spesialregler for den aktuelle kildetypen.
-4. **Oppgaveprompt / brukerinstruks**
+3. **`docs/HISTORICAL_HARVEST_WORKFLOW.md`**
+   - Autoritativ kilde for:
+     - Harvest Batch Manifest (`data/harvests/<batch-id>.yaml`)
+     - Maskinlesbare findings, dispositions, targets og unresolved queue
+     - CLI-verktøy (`pnpm data:historical-harvest:init`, `check`, `report`)
+4. **Kildespesifikk profil** ([`docs/source-profiles/`](source-profiles/))
+   - Autoritativ kilde for særtrekk, heftegranularitet og spesialregler for den aktuelle kildetypen (f.eks. `member_magazine`, `yearbook`, `annual_report`, `anniversary_book`, `match_program`, `generic_publication`).
+5. **Oppgaveprompt / brukerinstruks**
    - Definerer oppgavens omfang (scope), årstall, sourceId-er og ønsket leveranse. Prompten skal normalt ikke repetere eller overstyre runbookens krav.
 
 > [!IMPORTANT]
