@@ -69,9 +69,11 @@ When a task involves harvesting, review or normalization of a historical publica
 4. **Authority order:** `packages/schema/` and `docs/DATAMODELL.md` > runbook > workflow guide > source profile > task prompt.
 5. **Facsimile review against primary source:** Complete all required passes visually against facsimiles/scans. OCR/ALTO is search assistance, never review completion.
 6. **Structured findings & dispositions:** Record all findings with canonical dispositions from `packages/schema/src/historical/harvest-finding.ts` and valid target paths.
-7. **Strict additivity guarantee:** Existing person roles, sources, conflicts, names (`names`), and coach spells MUST NOT be deleted or overwritten without explicit documented justification and preservation exceptions.
-8. **Run harvest check:** Run `pnpm data:historical-harvest:check --batch <id>`. Manifest `status: complete` is strictly forbidden until the check passes with 0 errors.
-9. **Generate completion report:** Run `pnpm data:historical-harvest:report --batch <id>` to generate PR report from semantic diff.
-10. **Conflict handling:** If a prompt and the runbook collide on data integrity or provenance rules, the agent MUST STOP and explicitly report the conflict rather than deleting or silently fabricating data.
+7. **Strict additivity guarantee:** Nothing already in `data/people/`, `data/sources/`, `data/source-results/`, `data/seasons/**/matches/`, `data/observations/` or `data/organization/snapshots/` may be deleted, emptied or overwritten. A preservation exception only takes effect if it already exists in the base commit — adding the exception and using it in the same change is rejected as self-approval, so the exception must land in its own PR first.
+8. **Account for every addition:** Everything you add to the archive that cites one of the batch's sources must be covered by a finding in the manifest. The audit checks both directions — that each finding points at real data, and that no real data arrived without a finding.
+9. **Page coverage is measured, not claimed:** `coverage.expected` is cross-checked against `extraction.pagesExpected`, and `reviewMethod.facsimile: unavailable` is rejected when the source has ALTO scans. Do not lower the number to match the work done; do the work.
+10. **Run harvest check:** Run `pnpm data:historical-harvest:check --batch <id>`. Manifest `status: complete` is strictly forbidden until the check passes with 0 errors.
+11. **Generate completion report:** Run `pnpm data:historical-harvest:report --batch <id>` to generate PR report from semantic diff.
+12. **Conflict handling:** If a prompt and the runbook collide on data integrity or provenance rules, the agent MUST STOP and explicitly report the conflict rather than deleting or silently fabricating data.
 
 
