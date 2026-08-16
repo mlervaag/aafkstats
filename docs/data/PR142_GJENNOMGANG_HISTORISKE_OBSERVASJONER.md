@@ -122,14 +122,49 @@ kolonnene mot `PRAGMA table_info`. Den fanger derfor kolonner som er lagt til i 
 view — men et helt view som finnes i databasen og mangler i `dataset.ts` blir aldri sett. Det er
 nøyaktig hullet `verification_cases` falt gjennom.
 
-## Anbefalte tiltak, prioritert
+## Anbefalte tiltak, og hva som er gjort
 
-1. **Utvid dataset-testen** til å sammenligne alle views i `sqlite_master` (uten `core_`-prefiks) mot
-   `views` i `dataset.ts`. Fanger #126 nå og hindrer neste tilfelle. Billigste tiltak med størst effekt.
-2. **Samme kontroll for view-lista i `packages/db/README.md`**, eller fjern lista og generer den.
-3. **Tell historiske observasjoner** i `validate.ts` og legg raden inn i «Arkivet i tall».
-4. **Legg `venueIds` i observasjonsmodellen** og rydd Kråmyra-dupliseringen.
-5. **Vis observasjoner på kamp- og konkurransesiden**, eller fjern relasjonene til de brukes.
-6. **Rett `sourceId:`-nøkkelen** i `apps/web/lib/people.ts`.
-7. **Oppdater katalogtreet i `DATAMODELL.md`** med toppnivåfilene og `preservation-exceptions.yaml`.
-8. **Ta stilling til de 60,7 MB** døde binærfilene i historikken.
+Punkt 1–7 er utført i PR 165, som denne gjennomgangen hører til. Punkt 8 er en beslutning som må
+tas av et menneske.
+
+| # | Tiltak | Status |
+|---|---|---|
+| 1 | Dataset-testen sammenligner alle views i `sqlite_master` (uten `core_`-prefiks) med `views` i `dataset.ts` | Utført. `verification_cases` er samtidig dokumentert |
+| 2 | View-lista i `packages/db/README.md` kontrolleres mot `schema.sql` i `schema.test.ts` | Utført. Seks views som manglet er skrevet inn |
+| 3 | `validate.ts` teller historiske observasjoner, og README har raden | Utført |
+| 4 | `venueIds` i observasjonsmodellen, og Kråmyra-dupliseringen ryddet | Utført. Fem observasjoner peker nå på banen sin, og `note` på baneposten er fjernet |
+| 5 | Observasjoner vises på kamp- og banesiden | Utført. Konkurransesiden finnes ikke i appen, så skjemaet krever i stedet at hver observasjon har minst én relasjon som gir den en side |
+| 6 | `sourceId:`-nøkkelen i `apps/web/lib/people.ts` | Utført. Omtaler skjules bare ved treff på samme kilde *og* samme side |
+| 7 | Katalogtreet i `DATAMODELL.md` | Utført, inkludert `harvests/` og `preservation-exceptions.yaml` fra PR 158/164 |
+| 8 | De 60,7 MB døde binærfilene i historikken | **Ikke utført — krever en beslutning** |
+
+I tillegg er tre av «mindre punkter» rettet i samme slengen: sorteringen er kronologisk overalt,
+delvise datoer skrives ut på norsk, og årstallsgrensa 1914–2100 i `seasonYears` er fjernet siden
+`crossValidate` allerede krever at sesongen finnes.
+
+### Punkt 8: hvorfor det står igjen
+
+Blobbene ligger i commit-historikken til `main`. Å fjerne dem krever `git filter-repo` eller
+tilsvarende, og det skriver om alle commit-SHA-ene etter PR 140. Konsekvensene er reelle:
+
+- Alle som har en klon må hente på nytt med `--force`, og pågående grener må rebases.
+- SHA-referanser i PR-tekster, issues og `approvedIn`-feltene i `data/preservation-exceptions.yaml`
+  peker på commits som ikke lenger finnes.
+- Bevaringsvernet fra PR 158 sammenligner mot base-commit. En omskrevet historikk må verifiseres
+  mot vernet på nytt før den pushes.
+
+Gevinsten er at `.git` faller fra 91 MB til rundt 30 MB. `.gitignore` hindrer allerede at det
+skjer igjen, så dette haster ikke. Det er en ryddejobb som bør gjøres bevisst, i en egen PR, på et
+tidspunkt uten andre grener i luften — ikke som et biprodukt av en gjennomgang.
+
+## Etterskrift: PR 164
+
+PR 164 ble merget mens denne gjennomgangen pågikk, og dekker to av funnene fra en annen vinkel.
+Den innfører strukturell additivitet på `data/observations/` — BASE må være en delmengde av HEAD —
+og et batchmanifest i `data/harvests/` som CI krever ved endringer i kildedata. Det er sterke
+guardrails på *data*.
+
+De treffer likevel ikke det denne gjennomgangen handler om. Additivitetsvernet ser at en fil ikke
+mister innhold; det ser ikke at et view mangler i `dataset.ts`, at README-lista er ufullstendig,
+eller at en relasjon aldri blir vist. Det er dokumentasjons- og visningsdrift, ikke datatap, og
+den klassen feil trenger sine egne tester. Punkt 1 og 2 er nettopp de testene.
