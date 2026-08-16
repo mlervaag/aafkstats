@@ -27,7 +27,7 @@ export interface SourceInventoryEntry {
   volume?: string;
   inScope: boolean;
   reviewStatus: SourceReviewStatus;
-  extractionMode: "alto" | "manual" | "unavailable";
+  extractionMode: "alto" | "search_only" | "ocr_unavailable" | "manual";
   pagesExpected: number;
   pagesProcessed: number;
   pagesFailed: string[];
@@ -46,6 +46,7 @@ export interface SourceInventorySummary {
   outOfScope: number;
   unknownReviewStatus: number;
   altoComplete: number;
+  altoIncomplete: number;
   manualOrNoAlto: number;
   failedSources: number;
 }
@@ -96,7 +97,48 @@ export function auditSourceInventory(
     }
   }
 
-  // 2. Gå gjennom alle kilder i arkivet
+  // 2. Orphan detection: Ekstraksjoner og source-results uten kilde i data/sources/
+  for (const [extId] of allExtractions) {
+    if (!allSources.has(extId) && !processedSourceIds.has(extId)) {
+      entries.push({
+        sourceId: extId,
+        title: "(Orphan extraction)",
+        inScope: true,
+        reviewStatus: "unknown",
+        extractionMode: "manual",
+        pagesExpected: 0,
+        pagesProcessed: 0,
+        pagesFailed: [],
+        extractionFound: true,
+        sourceResultsFound: allSourceResults.has(extId),
+        errors: [`Orphan extraction: sourceId «${extId}» finnes ikke i data/sources/`],
+        warnings: [],
+      });
+      processedSourceIds.add(extId);
+    }
+  }
+
+  for (const [srId] of allSourceResults) {
+    if (!allSources.has(srId) && !processedSourceIds.has(srId)) {
+      entries.push({
+        sourceId: srId,
+        title: "(Orphan source-result)",
+        inScope: true,
+        reviewStatus: "unknown",
+        extractionMode: "manual",
+        pagesExpected: 0,
+        pagesProcessed: 0,
+        pagesFailed: [],
+        extractionFound: allExtractions.has(srId),
+        sourceResultsFound: true,
+        errors: [`Orphan source-result: sourceId «${srId}» finnes ikke i data/sources/`],
+        warnings: [],
+      });
+      processedSourceIds.add(srId);
+    }
+  }
+
+  // 3. Gå gjennom alle kilder i arkivet
   for (const [sourceId, src] of allSources) {
     let inScope = true;
 
@@ -131,7 +173,7 @@ export function auditSourceInventory(
 
     // Sjekk extraction
     const extraction = allExtractions.get(sourceId);
-    let extractionMode: "alto" | "manual" | "unavailable" = "manual";
+    let extractionMode: "alto" | "search_only" | "ocr_unavailable" | "manual" = "manual";
     let pagesExpected = 0;
     let pagesProcessed = 0;
     let pagesFailed: string[] = [];
@@ -148,16 +190,18 @@ export function auditSourceInventory(
       if (extraction.ocrAccess === "alto") {
         extractionMode = "alto";
         if (pagesFailed.length > 0) {
-          errors.push(`ALTO-extraction har ${pagesFailed.length} feilede sider (${pagesFailed.join(", ")})`);
+          errors.push(`ALTO-ekstraksjon har ${pagesFailed.length} feilede sider (${pagesFailed.join(", ")})`);
         }
-        if (pagesProcessed < pagesExpected) {
-          warnings.push(`Behandlede sider (${pagesProcessed}) er lavere enn forventet (${pagesExpected})`);
+        if (pagesProcessed !== pagesExpected) {
+          errors.push(`ALTO-ekstraksjon ufullstendig: behandlede sider (${pagesProcessed}) matcher ikke forventet (${pagesExpected})`);
         }
         if (extraction.adapter === "nb" && !extraction.contentHash) {
           warnings.push("Mangler contentHash for ALTO-kilde");
         }
+      } else if (extraction.ocrAccess === "search_only") {
+        extractionMode = "search_only";
       } else if (extraction.ocrAccess === "unavailable") {
-        extractionMode = "unavailable";
+        extractionMode = "ocr_unavailable";
       } else {
         extractionMode = "manual";
       }
@@ -173,8 +217,6 @@ export function auditSourceInventory(
     let reviewStatus: SourceReviewStatus = "unknown";
     if (declaredReviewStatuses && declaredReviewStatuses.has(sourceId)) {
       reviewStatus = declaredReviewStatuses.get(sourceId)!;
-    } else if (extractionMode === "unavailable") {
-      reviewStatus = "unavailable";
     }
 
     entries.push({
@@ -207,6 +249,7 @@ export function auditSourceInventory(
   let outOfScopeCount = 0;
   let unknownCount = 0;
   let altoCompleteCount = 0;
+  let altoIncompleteCount = 0;
   let manualOrNoAltoCount = 0;
   let failedSourcesCount = 0;
 
@@ -219,16 +262,17 @@ export function auditSourceInventory(
       else if (e.reviewStatus === "out_of_scope") outOfScopeCount += 1;
       else if (e.reviewStatus === "unknown") unknownCount += 1;
 
+      const isAlto = e.extractionMode === "alto";
       const isAltoComplete =
-        e.extractionMode === "alto" &&
+        isAlto &&
         e.pagesFailed.length === 0 &&
         e.pagesProcessed === e.pagesExpected &&
         e.pagesExpected > 0;
+      const isAltoIncomplete = isAlto && !isAltoComplete;
 
       if (isAltoComplete) altoCompleteCount += 1;
-      else if (e.extractionMode === "manual" || (e.extractionMode === "alto" && !isAltoComplete)) {
-        manualOrNoAltoCount += 1;
-      }
+      else if (isAltoIncomplete) altoIncompleteCount += 1;
+      else manualOrNoAltoCount += 1;
 
       if (e.errors.length > 0) failedSourcesCount += 1;
     }
@@ -243,13 +287,14 @@ export function auditSourceInventory(
     outOfScope: outOfScopeCount,
     unknownReviewStatus: unknownCount,
     altoComplete: altoCompleteCount,
+    altoIncomplete: altoIncompleteCount,
     manualOrNoAlto: manualOrNoAltoCount,
     failedSources: failedSourcesCount,
   };
 
   const allSourcesPassed =
     failedSourcesCount === 0 &&
-    (!scope.requireCompleteReview || unknownCount === 0);
+    (!scope.requireCompleteReview || (unknownCount === 0 && reviewedCount + reprintsCount + unavailableCount + outOfScopeCount === inScopeCount));
 
   return {
     scope,

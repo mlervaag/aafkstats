@@ -1,3 +1,5 @@
+import type { SourceReviewStatus } from "./source-inventory.js";
+
 export interface ReviewValidationIssue {
   type: "placeholder" | "unknown_source" | "incomplete_coverage" | "unchecked_dod" | "invalid_disposition";
   message: string;
@@ -7,6 +9,7 @@ export interface ReviewValidationIssue {
 export interface ReviewValidationResult {
   parserName: string;
   sourceIdsFound: string[];
+  sourceReviewStatuses: Map<string, SourceReviewStatus>;
   pagesReviewedClaim?: { reviewed: number; total: number; isFull: boolean };
   dispositionsFound: string[];
   uncheckedDodCount: number;
@@ -35,23 +38,31 @@ export const APPROVED_DISPOSITIONS = new Set([
   "identity_uncertain",
   "not_a_team",
   "no_structured_action",
-  // Persondisposisjoner
+  // Persondisposisjoner & milepæler (fra autoritativ runbook #157)
   "person_created",
   "person_enriched",
   "role_created",
   "role_enriched",
+  "honor_created",
+  "honor_enriched",
   "honorary_role_created",
-  "organization_snapshot_created",
+  "milestone_created",
+  "mention_linked",
+  "observation_created",
   "historical_observation_created",
+  "organization_snapshot_created",
   "conflict_registered",
   "conflict_resolved",
   "verified_correct",
-  // Prosess-statuser i tabeller
+  "non_senior",
+  // Prosess- og inventarstatuser
   "reviewed",
   "in_scope",
   "out_of_scope",
   "unavailable",
+  "source_unavailable",
   "duplicate_or_reprint",
+  "duplicate",
 ]);
 
 // Ignorer standard HTML-tagger i markdown
@@ -72,13 +83,16 @@ export const markdownV1Parser: ReviewParser = {
     const lines = content.split("\n");
 
     const sourceIdsFound = new Set<string>();
+    const sourceReviewStatuses = new Map<string, SourceReviewStatus>();
     const dispositionsFound = new Set<string>();
     const placeholdersFound: string[] = [];
     let uncheckedDodCount = 0;
     let pagesReviewedClaim: { reviewed: number; total: number; isFull: boolean } | undefined;
 
-    let inDispositionTable = false;
+    let inTable = false;
+    let sourceIdColIndex = -1;
     let dispositionColIndex = -1;
+    let isSourceInventoryTable = false;
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i]!;
@@ -110,34 +124,7 @@ export const markdownV1Parser: ReviewParser = {
         }
       }
 
-      // 2. Check sourceId mentions
-      const sourceMatches = line.matchAll(/\b([a-z0-9]+-(?:19\d\d|20\d\d)(?:-[a-z0-9]+)*)\b/g);
-      for (const m of sourceMatches) {
-        const potentialId = m[1];
-        if (potentialId) {
-          if (options?.knownSourceIds) {
-            if (options.knownSourceIds.has(potentialId)) {
-              sourceIdsFound.add(potentialId);
-            } else if (
-              potentialId.startsWith("aafk-") ||
-              potentialId.startsWith("sfk-") ||
-              potentialId.startsWith("medlemsblad-") ||
-              potentialId.startsWith("sunnmorsposten-") ||
-              potentialId.startsWith("sunnmore-arbeideravis-")
-            ) {
-              issues.push({
-                type: "unknown_source",
-                message: `Ukjent sourceId «${potentialId}» nevnt i reviewet`,
-                line: lineNum,
-              });
-            }
-          } else {
-            sourceIdsFound.add(potentialId);
-          }
-        }
-      }
-
-      // 3. Check page coverage pattern KUN når linjen eksplisitt gjelder visuell sidekontroll
+      // 2. Check page coverage pattern KUN når linjen eksplisitt gjelder visuell sidekontroll
       const lowerLine = line.toLowerCase();
       if (
         (lowerLine.includes("sider visuelt kontrollert") ||
@@ -164,8 +151,8 @@ export const markdownV1Parser: ReviewParser = {
         }
       }
 
-      // 4. Check unchecked DoD checkboxes
-      if (line.match(/^\s*-\s*\[ \]\s+\*\*/)) {
+      // 3. Check unchecked DoD checkboxes
+      if (line.match(/^\s*-\s*\[ \]\s+/)) {
         uncheckedDodCount += 1;
         issues.push({
           type: "unchecked_dod",
@@ -174,35 +161,89 @@ export const markdownV1Parser: ReviewParser = {
         });
       }
 
-      // 5. Check table headers and dispositions
-      if (line.includes("|")) {
-        const cells = line.split("|").map((c) => c.trim()).filter((_, idx, arr) => idx > 0 && idx < arr.length - 1);
-        const headerMatch = cells.findIndex((c) => /^(?:disposisjon|disposition|handling)$/i.test(c));
-        if (headerMatch !== -1) {
-          inDispositionTable = true;
-          dispositionColIndex = headerMatch;
-        } else if (inDispositionTable && cells.length > dispositionColIndex && dispositionColIndex >= 0) {
-          const dispCell = cells[dispositionColIndex];
-          if (dispCell && !dispCell.startsWith("---") && !dispCell.startsWith("===")) {
-            // Trekk ut backtick-tokens eller snake_case ord
-            const tokenMatch = dispCell.match(/`?([a-z0-9_]+)`?/i);
-            const token = tokenMatch ? tokenMatch[1]?.toLowerCase() : undefined;
-            if (token && token.includes("_")) {
-              if (APPROVED_DISPOSITIONS.has(token)) {
-                dispositionsFound.add(token);
+      // 4. Tabell-parsing for Source Inventory og dispositions
+      if (line.trim().startsWith("|") && line.trim().endsWith("|")) {
+        const rawCells = line.split("|").slice(1, -1);
+        const cells = rawCells.map((c) => c.trim());
+
+        // Header-deteksjon
+        const isHeaderRow = cells.some((c) => /^(?:sourceid|kilde-id|kilde|disposisjon|disposition|handling|status)$/i.test(c));
+        const isSeparatorRow = cells.every((c) => /^:?-+:?$/.test(c));
+
+        if (isHeaderRow) {
+          inTable = true;
+          sourceIdColIndex = cells.findIndex((c) => /^(?:sourceid|kilde-id|^kilde)$/i.test(c));
+          dispositionColIndex = cells.findIndex((c) => /^(?:disposisjon|disposition|handling|status)$/i.test(c));
+          isSourceInventoryTable = sourceIdColIndex !== -1 && (
+            dispositionColIndex !== -1 ||
+            cells.some((c) => /^(?:volum|hefte|extraction|sider)$/i.test(c))
+          );
+        } else if (!isSeparatorRow && inTable) {
+          // Data-rad
+          if (sourceIdColIndex >= 0 && sourceIdColIndex < cells.length) {
+            const rawSourceId = cells[sourceIdColIndex]!;
+            const cleanSourceId = rawSourceId.replace(/[`<>[\]]/g, "").trim();
+
+            if (cleanSourceId && !cleanSourceId.startsWith("---") && !cleanSourceId.includes(" ")) {
+              if (options?.knownSourceIds) {
+                if (options.knownSourceIds.has(cleanSourceId)) {
+                  sourceIdsFound.add(cleanSourceId);
+                } else if (!cleanSourceId.startsWith("sourceid-") && cleanSourceId !== "sourceid") {
+                  issues.push({
+                    type: "unknown_source",
+                    message: `Ukjent sourceId «${cleanSourceId}» oppgitt i tabell`,
+                    line: lineNum,
+                  });
+                }
               } else {
-                issues.push({
-                  type: "invalid_disposition",
-                  message: `Ugyldig disposisjon «${token}» i tabell`,
-                  line: lineNum,
-                });
+                sourceIdsFound.add(cleanSourceId);
+              }
+
+              // Hvis Source Inventory-tabell, hent eksplisitt review-status fra disposition-kolonnen
+              if (isSourceInventoryTable && dispositionColIndex >= 0 && dispositionColIndex < cells.length) {
+                const dispRaw = cells[dispositionColIndex]!.replace(/[`<>[\]]/g, "").trim().toLowerCase();
+                if (dispRaw === "reviewed") {
+                  sourceReviewStatuses.set(cleanSourceId, "reviewed");
+                } else if (dispRaw === "duplicate" || dispRaw === "reprint" || dispRaw === "duplicate_publication" || dispRaw === "duplicate_or_reprint") {
+                  sourceReviewStatuses.set(cleanSourceId, "duplicate_or_reprint");
+                } else if (dispRaw === "out_of_scope") {
+                  sourceReviewStatuses.set(cleanSourceId, "out_of_scope");
+                } else if (dispRaw === "unavailable" || dispRaw === "source_unavailable") {
+                  sourceReviewStatuses.set(cleanSourceId, "unavailable");
+                }
+              }
+            }
+          }
+
+          // Valider samtlige disposisjoner i tabellen
+          if (dispositionColIndex >= 0 && dispositionColIndex < cells.length) {
+            const dispCell = cells[dispositionColIndex]!;
+            if (dispCell && !dispCell.startsWith("---")) {
+              // Trekk ut alle backtick-tokens eller ord separert med skråstrek/mellomrom
+              const tokens = dispCell
+                .split(/[/,\s]+/)
+                .map((t) => t.replace(/[`<>[\]]/g, "").trim().toLowerCase())
+                .filter((t) => t.length > 0 && !t.startsWith("---") && !t.startsWith("==="));
+
+              for (const token of tokens) {
+                if (APPROVED_DISPOSITIONS.has(token)) {
+                  dispositionsFound.add(token);
+                } else if (!token.startsWith("disposition") && !token.startsWith("reviewed/duplicate")) {
+                  issues.push({
+                    type: "invalid_disposition",
+                    message: `Ugyldig disposisjon «${token}» i tabell`,
+                    line: lineNum,
+                  });
+                }
               }
             }
           }
         }
       } else {
-        inDispositionTable = false;
+        inTable = false;
+        sourceIdColIndex = -1;
         dispositionColIndex = -1;
+        isSourceInventoryTable = false;
       }
     }
 
@@ -211,6 +252,7 @@ export const markdownV1Parser: ReviewParser = {
     return {
       parserName: "markdown-v1",
       sourceIdsFound: [...sourceIdsFound],
+      sourceReviewStatuses,
       pagesReviewedClaim,
       dispositionsFound: [...dispositionsFound],
       uncheckedDodCount,

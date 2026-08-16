@@ -379,11 +379,9 @@ Sider visuelt kontrollert: 10/10
 
 Total for <År>: <Antall> funn
 
-| Funn | Disposisjon |
-|---|---|
-| Noe | \`ugyldig_disposisjon_verdi\` |
-
-Referanse: \`medlemsblad-1999-feil\`
+| SourceId | Funn | Disposisjon |
+|---|---|---|
+| \`medlemsblad-1999-feil\` | Noe | \`ugyldig_disposisjon_verdi\` |
 `;
     const result = markdownV1Parser.parseReview(badReview, {
       knownSourceIds: new Set(["medlemsblad-1953"]),
@@ -490,6 +488,157 @@ Sider visuelt kontrollert: 100/100
       expect(durationMs).toBeLessThan(100);
       expect(result.pagesReviewedClaim?.isFull).toBe(true);
       expect(result.placeholdersFound).toContain("TODO");
+    });
+  });
+
+  describe("Forbedrede review- og inventory-garantier", () => {
+    it("requireCompleteReview = true feller audit når kilder har unknown reviewStatus", () => {
+      const sources = new Map<string, Source>([
+        ["medlemsblad-1953", { id: "medlemsblad-1953", title: "AaFK 1953", sourceType: "member_magazine", providers: [] }],
+      ]);
+      const resStrict = auditSourceInventory(sources, new Map(), new Map(), new Map(), {
+        sourceIds: ["medlemsblad-1953"],
+        requireCompleteReview: true,
+      });
+      expect(resStrict.allSourcesPassed).toBe(false);
+
+      const resPreflight = auditSourceInventory(sources, new Map(), new Map(), new Map(), {
+        sourceIds: ["medlemsblad-1953"],
+        requireCompleteReview: false,
+      });
+      expect(resPreflight.allSourcesPassed).toBe(true);
+    });
+
+    it("henter reviewStatus fra Source Inventory-tabell for reelle lange sourceId-er", () => {
+      const realSourceId = "medlemsblad-for-aalesunds-fotb-1954-cd1c";
+      const reviewDoc = `
+# Review 1954
+
+Sider visuelt kontrollert: 50/50
+
+## 2. Source inventory
+| sourceId | År | Sider | Extraction | Disposition |
+|---|---|---|---|---|
+| \`${realSourceId}\` | 1954 | 50 | complete | \`duplicate\` |
+
+## 11. Definition of Done
+- [x] Fullført.
+`;
+      const parseResult = markdownV1Parser.parseReview(reviewDoc, {
+        knownSourceIds: new Set([realSourceId]),
+      });
+
+      expect(parseResult.passed).toBe(true);
+      expect(parseResult.sourceReviewStatuses.get(realSourceId)).toBe("duplicate_or_reprint");
+    });
+
+    it("generell tekst-omtale av sourceId gjør den IKKE reviewed", () => {
+      const sourceId = "medlemsblad-for-aalesunds-fotb-1954-cd1c";
+      const textOnlyDoc = `
+# Review
+Sider visuelt kontrollert: 10/10
+Dette er et opptrykk av ${sourceId} fra tidligere år.
+
+- [x] DoD ferdig
+`;
+      const parseResult = markdownV1Parser.parseReview(textOnlyDoc, {
+        knownSourceIds: new Set([sourceId]),
+      });
+
+      // sourceReviewStatuses skal IKKE inneholde sourceId bare fra fritekst
+      expect(parseResult.sourceReviewStatuses.has(sourceId)).toBe(false);
+    });
+
+    it("godtar autoritative runbook-dispositions (honor_created, milestone_created, mention_linked osv.)", () => {
+      const reviewWithRunbookDispositions = `
+# Review
+Sider visuelt kontrollert: 20/20
+
+| Person | Kategori | Disposition |
+|---|---|---|
+| Emil Sandø | honor | \`honor_created\` |
+| Karsten Nedregård | milestone | \`milestone_created\` |
+| Trygve Olsen | mention | \`mention_linked\` |
+| Ny bane | observation | \`observation_created\` |
+| Rekrutt | player | \`non_senior\` |
+
+- [x] DoD ferdig
+`;
+      const parseResult = markdownV1Parser.parseReview(reviewWithRunbookDispositions);
+      expect(parseResult.passed).toBe(true);
+      expect(parseResult.dispositionsFound).toContain("honor_created");
+      expect(parseResult.dispositionsFound).toContain("milestone_created");
+      expect(parseResult.dispositionsFound).toContain("mention_linked");
+      expect(parseResult.dispositionsFound).toContain("observation_created");
+      expect(parseResult.dispositionsFound).toContain("non_senior");
+    });
+
+    it("skiller extractionMode ocr_unavailable fra reviewStatus", () => {
+      const sources = new Map<string, Source>([
+        ["medlemsblad-1953", { id: "medlemsblad-1953", title: "AaFK 1953", sourceType: "member_magazine", providers: [] }],
+      ]);
+      const extractions = new Map<string, PublicationExtraction>([
+        [
+          "medlemsblad-1953",
+          {
+            sourceId: "medlemsblad-1953",
+            providerId: "nasjonalbiblioteket",
+            adapter: "nb",
+            retrievedAt: "2026-08-15",
+            ocrAccess: "unavailable",
+            pagesExpected: 40,
+            pagesProcessed: 0,
+            pagesFailed: [],
+            candidates: [],
+            resolvedRoles: [],
+            resolvedLineups: [],
+          },
+        ],
+      ]);
+
+      const result = auditSourceInventory(sources, new Map(), extractions, new Map(), {
+        sourceIds: ["medlemsblad-1953"],
+      });
+
+      expect(result.sources[0]?.extractionMode).toBe("ocr_unavailable");
+      expect(result.sources[0]?.reviewStatus).toBe("unknown"); // IKKE unavailable!
+    });
+
+    it("fanger orphan ekstraksjon og orphan source-result", () => {
+      const extractions = new Map<string, PublicationExtraction>([
+        [
+          "orphan-kilde-1950",
+          {
+            sourceId: "orphan-kilde-1950",
+            providerId: "nasjonalbiblioteket",
+            adapter: "nb",
+            retrievedAt: "2026-08-15",
+            ocrAccess: "alto",
+            pagesExpected: 10,
+            pagesProcessed: 10,
+            pagesFailed: [],
+            candidates: [],
+            resolvedRoles: [],
+            resolvedLineups: [],
+          },
+        ],
+      ]);
+
+      const sourceResults = new Map<string, SourceResultCollection>([
+        [
+          "orphan-sr-1950",
+          {
+            sourceId: "orphan-sr-1950",
+            scorePerspective: "aafk",
+            seasons: [],
+          },
+        ],
+      ]);
+
+      const result = auditSourceInventory(new Map(), new Map(), extractions, sourceResults, {});
+      expect(result.allSourcesPassed).toBe(false);
+      expect(result.sources.some((s) => s.errors.some((e) => e.includes("Orphan extraction")))).toBe(true);
+      expect(result.sources.some((s) => s.errors.some((e) => e.includes("Orphan source-result")))).toBe(true);
     });
   });
 });

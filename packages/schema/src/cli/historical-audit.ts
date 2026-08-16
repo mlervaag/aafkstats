@@ -31,6 +31,7 @@ export interface HistoricalAuditCliOptions {
   yearFrom?: number;
   yearTo?: number;
   reviewFile?: string;
+  preflightOnly?: boolean;
   base?: string;
   head?: string;
   json?: boolean;
@@ -53,6 +54,8 @@ export function parseHistoricalAuditCliArgs(args: string[]): HistoricalAuditCliO
       options.yearTo = Number.parseInt(val, 10);
     } else if (arg === "--review-file" && args[i + 1] !== undefined) {
       options.reviewFile = args[++i]!;
+    } else if (arg === "--preflight-only") {
+      options.preflightOnly = true;
     } else if (arg === "--base" && args[i + 1] !== undefined) {
       options.base = args[++i]!;
     } else if (arg === "--head" && args[i + 1] !== undefined) {
@@ -122,6 +125,9 @@ export function formatAuditConsole(report: HistoricalAuditReport): string {
   lines.push(`${BOLD}Extraction${RESET}`);
   lines.push(`${DIM}----------------------------------------${RESET}`);
   lines.push(pad("ALTO complete:", inventory.summary.altoComplete, GREEN));
+  if (inventory.summary.altoIncomplete > 0) {
+    lines.push(pad("ALTO incomplete:", inventory.summary.altoIncomplete, RED));
+  }
   lines.push(pad("Manual/no-ALTO:", inventory.summary.manualOrNoAlto));
   lines.push(pad("Failed sources:", inventory.summary.failedSources, inventory.summary.failedSources > 0 ? RED : RESET));
   lines.push("");
@@ -208,21 +214,37 @@ export async function main() {
     const headSha = headRef === "working-tree" ? "working-tree" : await resolveGitSha(headRef, root);
 
     // Last kilder og providers
-    const sourcesMap = (await loadYamlMap(null, "data/sources", source, root)).items;
-    const providersMap = (await loadYamlMap(null, "data/providers", provider, root)).items;
-    const extractionsMap = (await loadYamlMap(null, "data/extractions", publicationExtraction, root)).items;
-    const sourceResultsMap = (await loadYamlMap(null, "data/source-results", sourceResultCollection, root)).items;
+    const sourcesLoad = await loadYamlMap(null, "data/sources", source, root);
+    const providersLoad = await loadYamlMap(null, "data/providers", provider, root);
+    const extractionsLoad = await loadYamlMap(null, "data/extractions", publicationExtraction, root);
+    const sourceResultsLoad = await loadYamlMap(null, "data/source-results", sourceResultCollection, root);
+
+    const schemaErrors = [
+      ...sourcesLoad.errors,
+      ...providersLoad.errors,
+      ...extractionsLoad.errors,
+      ...sourceResultsLoad.errors,
+    ];
+
+    if (schemaErrors.length > 0) {
+      throw new Error(`YAML/Schema-valideringsfeil:\n${schemaErrors.map((e) => `  ${e.file}: ${e.message}`).join("\n")}`);
+    }
+
+    const sourcesMap = sourcesLoad.items;
+    const providersMap = providersLoad.items;
+    const extractionsMap = extractionsLoad.items;
+    const sourceResultsMap = sourceResultsLoad.items;
 
     const scope: HistoricalAuditScope = {
       sourceIds: options.sources.length > 0 ? options.sources : undefined,
       parentSourceId: options.parentSourceId,
       yearFrom: options.yearFrom,
       yearTo: options.yearTo,
+      requireCompleteReview: !options.preflightOnly,
     };
 
     // 1. Review-parser (dersom review-fil er oppgitt)
     let reviewResult: ReviewValidationResult | undefined;
-    const declaredStatuses = new Map<string, "reviewed" | "duplicate_or_reprint" | "unavailable" | "out_of_scope" | "unknown">();
 
     if (options.reviewFile) {
       const reviewPath = resolve(root, options.reviewFile);
@@ -231,34 +253,70 @@ export async function main() {
       }
       const reviewText = await readFile(reviewPath, "utf8");
       reviewResult = markdownV1Parser.parseReview(reviewText, { knownSourceIds: new Set(sourcesMap.keys()) });
-
-      // Merk funnede kilder i review som reviewed
-      for (const sId of reviewResult.sourceIdsFound) {
-        declaredStatuses.set(sId, "reviewed");
-      }
     }
 
     // 2. Source inventory audit
-    const inventory = auditSourceInventory(sourcesMap, providersMap, extractionsMap, sourceResultsMap, scope, declaredStatuses.size > 0 ? declaredStatuses : undefined);
+    const inventory = auditSourceInventory(
+      sourcesMap,
+      providersMap,
+      extractionsMap,
+      sourceResultsMap,
+      scope,
+      reviewResult?.sourceReviewStatuses,
+    );
 
     // 3. Preservation audit
     const { exceptions } = await loadPreservationExceptions(rootDataDir);
-    const basePeople = (await loadYamlMap(baseSha, "data/people", person, root)).items;
-    const headPeople = (await loadYamlMap(headRef === "working-tree" ? null : headSha, "data/people", person, root)).items;
+    const basePeopleLoad = await loadYamlMap(baseSha, "data/people", person, root);
+    const headPeopleLoad = await loadYamlMap(headRef === "working-tree" ? null : headSha, "data/people", person, root);
+
+    if (basePeopleLoad.errors.length > 0 || headPeopleLoad.errors.length > 0) {
+      const pErrors = [...basePeopleLoad.errors, ...headPeopleLoad.errors];
+      throw new Error(`Person-skjemafeil:\n${pErrors.map((e) => `  ${e.file}: ${e.message}`).join("\n")}`);
+    }
+
+    const basePeople = basePeopleLoad.items;
+    const headPeople = headPeopleLoad.items;
     const preservationResult = runPreservationAudit(basePeople, headPeople, exceptions, baseSha, headSha);
 
     // 4. Last øvrige datasett for semantisk harvest diff
-    const baseSourceResults = (await loadYamlMap(baseSha, "data/source-results", sourceResultCollection, root)).items;
-    const headSourceResults = (await loadYamlMap(headRef === "working-tree" ? null : headSha, "data/source-results", sourceResultCollection, root)).items;
+    const baseSourceResultsLoad = await loadYamlMap(baseSha, "data/source-results", sourceResultCollection, root);
+    const headSourceResultsLoad = await loadYamlMap(headRef === "working-tree" ? null : headSha, "data/source-results", sourceResultCollection, root);
 
-    const baseSnapshots = (await loadYamlMap(baseSha, "data/organization/snapshots", organizationSnapshot, root)).items;
-    const headSnapshots = (await loadYamlMap(headRef === "working-tree" ? null : headSha, "data/organization/snapshots", organizationSnapshot, root)).items;
+    const baseSnapshotsLoad = await loadYamlMap(baseSha, "data/organization/snapshots", organizationSnapshot, root);
+    const headSnapshotsLoad = await loadYamlMap(headRef === "working-tree" ? null : headSha, "data/organization/snapshots", organizationSnapshot, root);
 
-    const baseObservations = (await loadYamlMap(baseSha, "data/observations", historicalObservation, root)).items;
-    const headObservations = (await loadYamlMap(headRef === "working-tree" ? null : headSha, "data/observations", historicalObservation, root)).items;
+    const isTopLevelObservation = (f: string) => !f.replace(/^data\/observations\//, "").includes("/");
+    const baseObservationsLoad = await loadYamlMap(baseSha, "data/observations", historicalObservation, root, undefined, isTopLevelObservation);
+    const headObservationsLoad = await loadYamlMap(headRef === "working-tree" ? null : headSha, "data/observations", historicalObservation, root, undefined, isTopLevelObservation);
 
-    const baseMatches = (await loadYamlMap(baseSha, "data/seasons", match, root, (m) => m.id)).items;
-    const headMatches = (await loadYamlMap(headRef === "working-tree" ? null : headSha, "data/seasons", match, root, (m) => m.id)).items;
+    const isMatchFile = (f: string) => f.includes("/matches/");
+    const baseMatchesLoad = await loadYamlMap(baseSha, "data/seasons", match, root, (m) => m.id, isMatchFile);
+    const headMatchesLoad = await loadYamlMap(headRef === "working-tree" ? null : headSha, "data/seasons", match, root, (m) => m.id, isMatchFile);
+
+    const otherErrors = [
+      ...baseSourceResultsLoad.errors,
+      ...headSourceResultsLoad.errors,
+      ...baseSnapshotsLoad.errors,
+      ...headSnapshotsLoad.errors,
+      ...baseObservationsLoad.errors,
+      ...headObservationsLoad.errors,
+      ...baseMatchesLoad.errors,
+      ...headMatchesLoad.errors,
+    ];
+
+    if (otherErrors.length > 0) {
+      throw new Error(`Data-valideringsfeil:\n${otherErrors.map((e) => `  ${e.file}: ${e.message}`).join("\n")}`);
+    }
+
+    const baseSourceResults = baseSourceResultsLoad.items;
+    const headSourceResults = headSourceResultsLoad.items;
+    const baseSnapshots = baseSnapshotsLoad.items;
+    const headSnapshots = headSnapshotsLoad.items;
+    const baseObservations = baseObservationsLoad.items;
+    const headObservations = headObservationsLoad.items;
+    const baseMatches = baseMatchesLoad.items;
+    const headMatches = headMatchesLoad.items;
 
     const metrics = calculateHarvestMetrics(
       {

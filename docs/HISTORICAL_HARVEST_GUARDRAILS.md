@@ -112,28 +112,43 @@ exceptions:
 ## 4. Kommando 2: `pnpm data:historical-audit`
 
 Utfører en samlet historisk batch-audit med fire hovedområder:
-1. **Source Inventory:** Identifiserer alle kilder i det definerte årsscopet (`--parent-source`, `--year-from`, `--year-to` eller `--source`). Skiller mellom `discovered`, `inScope` og faktisk dokumentert `reviewStatus` (`reviewed`, `duplicate_or_reprint`, `unavailable`, `out_of_scope`, `unknown`). Ukjente kilder flagges som `unknownReviewStatus` og tillates ikke som `reviewed`.
-2. **Source preflight & extraction coverage:** Skiller mellom `ALTO` (maskinell lesing), `manual` (ingen ALTO) og `unavailable`. Validerer at extractionens egen `providerId` finnes i katalogen. For ALTO kreves det at `pagesProcessed === pagesExpected` og `pagesFailed.length === 0` for å regnes som `altoComplete`.
-3. **Semantisk harvest-diff:** Sammenligner `BASE` og `HEAD` med robust semantisk claim-identitet (tåler innsetting/renummerering av resultater) og beregner faktiske batchmetrikker (nye personer, berikede personer, kilderesultater, kanoniske kamper, snapshots, observasjoner, konflikter).
-4. **Review-dokumentvalidering (`markdown-v1`):** Sjekker at review-dokumenter ikke inneholder gjenglemte mal-placeholders (`<Antall>`, `<År>`, `<sourceId>`, `<YYYY-MM-DD>`, `TODO`, `XXX`), at visuell sidekontroll (`Sider visuelt kontrollert: X/X`) er 100 % fullført (forveksler ikke med kildedekning), at Definition of Done er fullstendig avkrysset, og at brukte disposisjoner tilhører godkjent vokabular.
+1. **Source Inventory & Orphan Detection:**
+   - Identifiserer alle kilder i det definerte årsscopet (`--parent-source`, `--year-from`, `--year-to` eller `--source`).
+   - Skiller mellom `discovered`, `inScope` og faktisk dokumentert `reviewStatus` (`reviewed`, `duplicate_or_reprint`, `unavailable`, `out_of_scope`, `unknown`).
+   - Kilder med ukjent review-status flagges som `unknownReviewStatus`.
+   - **Strict audit som standard:** `historical-audit` krever komplett review (`requireCompleteReview = true`) og feiler dersom kilder har `unknownReviewStatus`. Bruk `--preflight-only` for tidlig innsjekk før review-dokumentet er ferdigstilt.
+   - **Orphan-deteksjon:** Oppdager automatisk ekstraksjoner eller source-results som refererer til `sourceId`-er som ikke eksisterer i `data/sources/`, og feiler auditen med feilmelding.
+2. **Source preflight & extraction coverage:**
+   - Skiller `extractionMode` (`alto`, `search_only`, `ocr_unavailable`, `manual`) fra `reviewStatus` (OCR-tilgjengelighet forveksles ikke med fysisk kildetilgjengelighet).
+   - Rapporterer `ALTO complete`, `ALTO incomplete` og `Manual/no-ALTO` separat.
+   - Validerer at extractionens egen `providerId` finnes i leverandørkatalogen.
+   - For ALTO kreves `pagesProcessed === pagesExpected && pagesFailed.length === 0` for å være `altoComplete`. Ufullstendig ALTO gir feil under batch-audit.
+3. **Semantisk harvest-diff:**
+   - Sammenligner `BASE` og `HEAD` med robust semantisk claim-identitet (tåler innsetting/renummerering av resultater) og beregner faktiske batchmetrikker (nye personer, berikede personer, kilderesultater, kanoniske kamper, snapshots, observasjoner, konflikter).
+4. **Review-dokumentvalidering (`markdown-v1`):**
+   - Henter kildestatuser direkte fra **Source Inventory-tabellen** og matcher eksakte `sourceId`-er (f.eks. `medlemsblad-for-aalesunds-fotb-1954-cd1c`). En ren tekstomtale markerer ikke en kilde som `reviewed`.
+   - Validerer tabellverdier mot autoritativt runbook-vokabular (`honor_created`, `milestone_created`, `mention_linked`, `observation_created`, `non_senior` m.fl.).
+   - Sjekker at review-dokumenter ikke inneholder uferdige mal-placeholders (`<Antall>`, `<År>`, `<sourceId>`, `<YYYY-MM-DD>`, `TODO`, `XXX`, `[TBD]`).
+   - Sjekker at visuell sidekontroll (`Sider visuelt kontrollert: X/X`) er 100 % fullført (forveksles ikke med kildeantall) og at Definition of Done-sjekkpunkter er avkrysset.
 
 ### CLI-eksempler
 ```sh
-# Kjøring på en konkret årgang / kilde
-pnpm data:historical-audit \
-  --parent-source aafk-medlemsblad \
-  --year-from 1953 \
-  --year-to 1956
-
-# Med tilhørende review-fil
+# Endelig batch-audit (krever review-fil og fullført review)
 pnpm data:historical-audit \
   --parent-source aafk-medlemsblad \
   --year-from 1953 \
   --year-to 1956 \
   --review-file docs/data/MEDLEMSBLAD_1953_1956_REVIEW.md
 
+# Tidlig preflight-audit underveis i innhøstingen (tillater unknown review status)
+pnpm data:historical-audit \
+  --parent-source aafk-medlemsblad \
+  --year-from 1953 \
+  --year-to 1956 \
+  --preflight-only
+
 # Maskinlesbar JSON-rapport
-pnpm data:historical-audit --parent-source aafk-medlemsblad --year-from 1953 --year-to 1956 --json
+pnpm data:historical-audit --parent-source aafk-medlemsblad --year-from 1953 --year-to 1956 --preflight-only --json
 ```
 
 ---

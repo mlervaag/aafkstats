@@ -252,8 +252,12 @@ export async function loadYamlMap<TSchema extends z.ZodTypeAny>(
   schema: TSchema,
   repoRoot: string,
   getId?: (item: z.output<TSchema>, file: string) => string,
+  filterFile?: (file: string) => boolean,
 ): Promise<{ items: Map<string, z.output<TSchema>>; rawYamls: Map<string, unknown>; errors: Array<{ file: string; message: string }> }> {
-  const files = await listYamlFiles(ref, relativeDir, repoRoot);
+  let files = await listYamlFiles(ref, relativeDir, repoRoot);
+  if (filterFile) {
+    files = files.filter(filterFile);
+  }
   const items = new Map<string, z.output<TSchema>>();
   const rawYamls = new Map<string, unknown>();
   const errors: Array<{ file: string; message: string }> = [];
