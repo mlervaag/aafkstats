@@ -57,8 +57,8 @@ export function sourceRefKey(ref: { sourceId: string; page?: string | number | n
 export function isUnicodeRepair(baseStr: unknown, headStr: unknown): boolean {
   if (typeof baseStr !== "string" || typeof headStr !== "string") return false;
   if (!baseStr.includes("\uFFFD")) return false;
-  const baseAscii = baseStr.replace(/\uFFFD+/g, "");
-  const headAscii = headStr.replace(/[^\x00-\x7F]+/g, "");
+  const baseAscii = baseStr.replaceAll("\uFFFD", "");
+  const headAscii = headStr.split("").filter((c) => c.charCodeAt(0) <= 127).join("");
   return baseAscii === headAscii;
 }
 
