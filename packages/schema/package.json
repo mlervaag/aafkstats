@@ -13,7 +13,9 @@
     "contradictions": "tsx src/cli/contradictions.ts",
     "verification-candidates": "tsx src/cli/verification-candidates.ts",
     "opponents:unresolved": "tsx src/cli/opponents-unresolved.ts",
-    "uncertain": "tsx src/cli/uncertain.ts"
+    "uncertain": "tsx src/cli/uncertain.ts",
+    "historical-preservation": "tsx src/cli/historical-preservation.ts",
+    "historical-audit": "tsx src/cli/historical-audit.ts"
   },
   "dependencies": {
     "yaml": "^2.6.1",

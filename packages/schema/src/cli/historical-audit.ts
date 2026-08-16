@@ -1,0 +1,369 @@
+import { readFile } from "node:fs/promises";
+import { existsSync } from "node:fs";
+import { resolve } from "node:path";
+import { source } from "../source.js";
+import { provider } from "../entities.js";
+import { publicationExtraction } from "../extraction.js";
+import { sourceResultCollection } from "../source-result.js";
+import { person } from "../person.js";
+import { organizationSnapshot } from "../organization.js";
+import { historicalObservation } from "../historical-observation.js";
+import { match } from "../match.js";
+import { loadPreservationExceptions } from "../preservation-exceptions.js";
+import { getDefaultBaseRevision, loadYamlMap, resolveGitSha } from "../historical/git.js";
+import { runPreservationAudit } from "../historical/preservation.js";
+import { auditSourceInventory, type HistoricalAuditScope, type SourceInventoryResult } from "../historical/source-inventory.js";
+import { calculateHarvestMetrics, type SemanticHarvestMetrics } from "../historical/harvest-diff.js";
+import { markdownV1Parser, type ReviewValidationResult } from "../historical/review-parser.js";
+import { repoRoot, dataDir } from "../load.js";
+
+const RED = "\x1b[31m";
+const GREEN = "\x1b[32m";
+const YELLOW = "\x1b[33m";
+const CYAN = "\x1b[36m";
+const DIM = "\x1b[2m";
+const BOLD = "\x1b[1m";
+const RESET = "\x1b[0m";
+
+export interface HistoricalAuditCliOptions {
+  sources: string[];
+  parentSourceId?: string;
+  yearFrom?: number;
+  yearTo?: number;
+  reviewFile?: string;
+  preflightOnly?: boolean;
+  base?: string;
+  head?: string;
+  json?: boolean;
+  summaryFile?: string;
+}
+
+export function parseHistoricalAuditCliArgs(args: string[]): HistoricalAuditCliOptions {
+  const options: HistoricalAuditCliOptions = { sources: [] };
+  for (let i = 0; i < args.length; i++) {
+    const arg = args[i];
+    if (arg === "--source" && args[i + 1] !== undefined) {
+      options.sources.push(args[++i]!);
+    } else if (arg === "--parent-source" && args[i + 1] !== undefined) {
+      options.parentSourceId = args[++i]!;
+    } else if (arg === "--year-from" && args[i + 1] !== undefined) {
+      const val = args[++i]!;
+      options.yearFrom = Number.parseInt(val, 10);
+    } else if (arg === "--year-to" && args[i + 1] !== undefined) {
+      const val = args[++i]!;
+      options.yearTo = Number.parseInt(val, 10);
+    } else if (arg === "--review-file" && args[i + 1] !== undefined) {
+      options.reviewFile = args[++i]!;
+    } else if (arg === "--preflight-only") {
+      options.preflightOnly = true;
+    } else if (arg === "--base" && args[i + 1] !== undefined) {
+      options.base = args[++i]!;
+    } else if (arg === "--head" && args[i + 1] !== undefined) {
+      options.head = args[++i]!;
+    } else if (arg === "--summary-file" && args[i + 1] !== undefined) {
+      options.summaryFile = args[++i]!;
+    } else if (arg === "--json") {
+      options.json = true;
+    }
+  }
+  return options;
+}
+
+export interface HistoricalAuditReport {
+  scope: HistoricalAuditScope;
+  baseRef: string;
+  headRef: string;
+  inventory: SourceInventoryResult;
+  metrics: SemanticHarvestMetrics;
+  review?: ReviewValidationResult;
+  passed: boolean;
+}
+
+export function formatAuditConsole(report: HistoricalAuditReport): string {
+  const { scope, inventory, metrics, review, passed } = report;
+  const lines: string[] = [];
+
+  lines.push(`${BOLD}Historical harvest audit${RESET}`);
+  lines.push(`${DIM}────────────────────────────────────────${RESET}`);
+  lines.push("");
+
+  // Scope label
+  let scopeLabel = "Entire catalog";
+  if (scope.parentSourceId) {
+    scopeLabel = scope.parentSourceId;
+    if (scope.yearFrom && scope.yearTo) {
+      scopeLabel += ` ${scope.yearFrom}–${scope.yearTo}`;
+    } else if (scope.yearFrom) {
+      scopeLabel += ` fra ${scope.yearFrom}`;
+    }
+  } else if (scope.sourceIds && scope.sourceIds.length > 0) {
+    scopeLabel = scope.sourceIds.join(", ");
+  }
+
+  lines.push(`${BOLD}Scope:${RESET}`);
+  lines.push(`${CYAN}${scopeLabel}${RESET}`);
+  lines.push("");
+
+  const pad = (label: string, count: number, color = RESET) =>
+    `${label.padEnd(36)} ${color}${String(count).padStart(4)}${RESET}`;
+
+  lines.push(`${BOLD}Sources${RESET}`);
+  lines.push(`${DIM}----------------------------------------${RESET}`);
+  lines.push(pad("Discovered:", inventory.summary.discovered));
+  lines.push(pad("In scope:", inventory.summary.inScope));
+  lines.push(pad("Reviewed:", inventory.summary.reviewed, inventory.summary.reviewed > 0 ? GREEN : RESET));
+  lines.push(pad("Unavailable:", inventory.summary.unavailable));
+  lines.push(pad("Reprints:", inventory.summary.reprints));
+  if (inventory.summary.outOfScope > 0) {
+    lines.push(pad("Out of scope:", inventory.summary.outOfScope));
+  }
+  if (inventory.summary.unknownReviewStatus > 0) {
+    lines.push(pad("Unknown review status:", inventory.summary.unknownReviewStatus, YELLOW));
+  }
+  lines.push("");
+
+  lines.push(`${BOLD}Extraction${RESET}`);
+  lines.push(`${DIM}----------------------------------------${RESET}`);
+  lines.push(pad("ALTO complete:", inventory.summary.altoComplete, GREEN));
+  if (inventory.summary.altoIncomplete > 0) {
+    lines.push(pad("ALTO incomplete:", inventory.summary.altoIncomplete, RED));
+  }
+  lines.push(pad("Manual/no-ALTO:", inventory.summary.manualOrNoAlto));
+  lines.push(pad("Failed sources:", inventory.summary.failedSources, inventory.summary.failedSources > 0 ? RED : RESET));
+  lines.push("");
+
+  if (inventory.sources.some((s) => s.errors.length > 0)) {
+    lines.push(`${BOLD}${RED}Source Errors:${RESET}`);
+    for (const src of inventory.sources) {
+      for (const err of src.errors) {
+        lines.push(`  ${RED}✗${RESET} [${src.sourceId}] ${err}`);
+      }
+    }
+    lines.push("");
+  }
+
+  lines.push(`${BOLD}Harvest diff${RESET}`);
+  lines.push(`${DIM}----------------------------------------${RESET}`);
+  lines.push(pad("New people:", metrics.newPeople, metrics.newPeople > 0 ? GREEN : RESET));
+  lines.push(pad("Existing people enriched:", metrics.existingPeopleEnriched, metrics.existingPeopleEnriched > 0 ? GREEN : RESET));
+  lines.push(pad("Person sourceRefs added:", metrics.personSourceRefsAdded, metrics.personSourceRefsAdded > 0 ? GREEN : RESET));
+  lines.push("");
+  lines.push(pad("Roles created:", metrics.rolesCreated, metrics.rolesCreated > 0 ? GREEN : RESET));
+  lines.push(pad("Roles source-enriched:", metrics.rolesSourceEnriched, metrics.rolesSourceEnriched > 0 ? GREEN : RESET));
+  lines.push(pad("Honorary roles created:", metrics.honoraryRolesCreated, metrics.honoraryRolesCreated > 0 ? GREEN : RESET));
+  lines.push("");
+  lines.push(pad("Source-result entries added:", metrics.sourceResultEntriesAdded, metrics.sourceResultEntriesAdded > 0 ? GREEN : RESET));
+  lines.push(pad("Canonical matches created:", metrics.canonicalMatchesCreated));
+  lines.push(pad("Canonical matches enriched:", metrics.canonicalMatchesEnriched));
+  lines.push("");
+  lines.push(pad("Snapshots added:", metrics.snapshotsAdded, metrics.snapshotsAdded > 0 ? GREEN : RESET));
+  lines.push(pad("Historical observations added:", metrics.historicalObservationsAdded, metrics.historicalObservationsAdded > 0 ? GREEN : RESET));
+  lines.push("");
+  lines.push(pad("Conflicts created:", metrics.conflictsCreated));
+  lines.push(pad("Conflicts resolved:", metrics.conflictsResolved, metrics.conflictsResolved > 0 ? GREEN : RESET));
+  lines.push("");
+
+  lines.push(`${BOLD}Preservation${RESET}`);
+  lines.push(`${DIM}----------------------------------------${RESET}`);
+  lines.push(pad("Destructive changes:", metrics.destructiveChanges, metrics.destructiveChanges > 0 ? RED : GREEN));
+  lines.push(pad("Approved exceptions:", metrics.approvedExceptions));
+  lines.push("");
+
+  if (review) {
+    lines.push(`${BOLD}Review Document Validation (${review.parserName})${RESET}`);
+    lines.push(`${DIM}----------------------------------------${RESET}`);
+    if (review.pagesReviewedClaim) {
+      lines.push(`Sidekontroll: ${review.pagesReviewedClaim.reviewed}/${review.pagesReviewedClaim.total} sider (${review.pagesReviewedClaim.isFull ? "Fullført" : "Ufullstendig"})`);
+    }
+    if (review.issues.length > 0) {
+      for (const issue of review.issues) {
+        lines.push(`  ${issue.type === "placeholder" || issue.type === "unchecked_dod" || issue.type === "invalid_disposition" ? RED : YELLOW}!${RESET} Linje ${issue.line ?? "?"}: ${issue.message}`);
+      }
+    } else {
+      lines.push(`${GREEN}✓${RESET} Review-dokumentet har ingen åpne placeholders eller mangler.`);
+    }
+    lines.push("");
+  }
+
+  if (passed) {
+    lines.push(`${GREEN}✓ PASS${RESET}`);
+  } else {
+    lines.push(`${RED}✗ FAIL${RESET}`);
+  }
+
+  return lines.join("\n");
+}
+
+export async function main() {
+  const options = parseHistoricalAuditCliArgs(process.argv.slice(2));
+  const root = repoRoot();
+  const rootDataDir = dataDir();
+
+  let baseRef = options.base;
+  let headRef = options.head;
+
+  try {
+    if (!baseRef) {
+      baseRef = await getDefaultBaseRevision(root);
+    }
+    if (!headRef) {
+      headRef = "working-tree";
+    }
+
+    const baseSha = await resolveGitSha(baseRef, root);
+    const headSha = headRef === "working-tree" ? "working-tree" : await resolveGitSha(headRef, root);
+
+    // Last kilder og providers
+    const sourcesLoad = await loadYamlMap(null, "data/sources", source, root);
+    const providersLoad = await loadYamlMap(null, "data/providers", provider, root);
+    const extractionsLoad = await loadYamlMap(null, "data/extractions", publicationExtraction, root);
+    const sourceResultsLoad = await loadYamlMap(null, "data/source-results", sourceResultCollection, root);
+
+    const schemaErrors = [
+      ...sourcesLoad.errors,
+      ...providersLoad.errors,
+      ...extractionsLoad.errors,
+      ...sourceResultsLoad.errors,
+    ];
+
+    if (schemaErrors.length > 0) {
+      throw new Error(`YAML/Schema-valideringsfeil:\n${schemaErrors.map((e) => `  ${e.file}: ${e.message}`).join("\n")}`);
+    }
+
+    const sourcesMap = sourcesLoad.items;
+    const providersMap = providersLoad.items;
+    const extractionsMap = extractionsLoad.items;
+    const sourceResultsMap = sourceResultsLoad.items;
+
+    const scope: HistoricalAuditScope = {
+      sourceIds: options.sources.length > 0 ? options.sources : undefined,
+      parentSourceId: options.parentSourceId,
+      yearFrom: options.yearFrom,
+      yearTo: options.yearTo,
+      requireCompleteReview: !options.preflightOnly,
+    };
+
+    // 1. Review-parser (dersom review-fil er oppgitt)
+    let reviewResult: ReviewValidationResult | undefined;
+
+    if (options.reviewFile) {
+      const reviewPath = resolve(root, options.reviewFile);
+      if (!existsSync(reviewPath)) {
+        throw new Error(`Review-fil «${options.reviewFile}» finnes ikke`);
+      }
+      const reviewText = await readFile(reviewPath, "utf8");
+      reviewResult = markdownV1Parser.parseReview(reviewText, { knownSourceIds: new Set(sourcesMap.keys()) });
+    }
+
+    // 2. Source inventory audit
+    const inventory = auditSourceInventory(
+      sourcesMap,
+      providersMap,
+      extractionsMap,
+      sourceResultsMap,
+      scope,
+      reviewResult?.sourceReviewStatuses,
+    );
+
+    // 3. Preservation audit
+    const { exceptions } = await loadPreservationExceptions(rootDataDir);
+    const basePeopleLoad = await loadYamlMap(baseSha, "data/people", person, root);
+    const headPeopleLoad = await loadYamlMap(headRef === "working-tree" ? null : headSha, "data/people", person, root);
+
+    if (basePeopleLoad.errors.length > 0 || headPeopleLoad.errors.length > 0) {
+      const pErrors = [...basePeopleLoad.errors, ...headPeopleLoad.errors];
+      throw new Error(`Person-skjemafeil:\n${pErrors.map((e) => `  ${e.file}: ${e.message}`).join("\n")}`);
+    }
+
+    const basePeople = basePeopleLoad.items;
+    const headPeople = headPeopleLoad.items;
+    const preservationResult = runPreservationAudit(basePeople, headPeople, exceptions, baseSha, headSha);
+
+    // 4. Last øvrige datasett for semantisk harvest diff
+    const baseSourceResultsLoad = await loadYamlMap(baseSha, "data/source-results", sourceResultCollection, root);
+    const headSourceResultsLoad = await loadYamlMap(headRef === "working-tree" ? null : headSha, "data/source-results", sourceResultCollection, root);
+
+    const baseSnapshotsLoad = await loadYamlMap(baseSha, "data/organization/snapshots", organizationSnapshot, root);
+    const headSnapshotsLoad = await loadYamlMap(headRef === "working-tree" ? null : headSha, "data/organization/snapshots", organizationSnapshot, root);
+
+    const isTopLevelObservation = (f: string) => !f.replace(/^data\/observations\//, "").includes("/");
+    const baseObservationsLoad = await loadYamlMap(baseSha, "data/observations", historicalObservation, root, undefined, isTopLevelObservation);
+    const headObservationsLoad = await loadYamlMap(headRef === "working-tree" ? null : headSha, "data/observations", historicalObservation, root, undefined, isTopLevelObservation);
+
+    const isMatchFile = (f: string) => f.includes("/matches/");
+    const baseMatchesLoad = await loadYamlMap(baseSha, "data/seasons", match, root, (m) => m.id, isMatchFile);
+    const headMatchesLoad = await loadYamlMap(headRef === "working-tree" ? null : headSha, "data/seasons", match, root, (m) => m.id, isMatchFile);
+
+    const otherErrors = [
+      ...baseSourceResultsLoad.errors,
+      ...headSourceResultsLoad.errors,
+      ...baseSnapshotsLoad.errors,
+      ...headSnapshotsLoad.errors,
+      ...baseObservationsLoad.errors,
+      ...headObservationsLoad.errors,
+      ...baseMatchesLoad.errors,
+      ...headMatchesLoad.errors,
+    ];
+
+    if (otherErrors.length > 0) {
+      throw new Error(`Data-valideringsfeil:\n${otherErrors.map((e) => `  ${e.file}: ${e.message}`).join("\n")}`);
+    }
+
+    const baseSourceResults = baseSourceResultsLoad.items;
+    const headSourceResults = headSourceResultsLoad.items;
+    const baseSnapshots = baseSnapshotsLoad.items;
+    const headSnapshots = headSnapshotsLoad.items;
+    const baseObservations = baseObservationsLoad.items;
+    const headObservations = headObservationsLoad.items;
+    const baseMatches = baseMatchesLoad.items;
+    const headMatches = headMatchesLoad.items;
+
+    const metrics = calculateHarvestMetrics(
+      {
+        basePeople,
+        headPeople,
+        baseSourceResults,
+        headSourceResults,
+        baseSnapshots,
+        headSnapshots,
+        baseObservations,
+        headObservations,
+        baseMatches,
+        headMatches,
+      },
+      preservationResult.summary.destructiveChanges,
+      preservationResult.summary.approvedExceptions,
+    );
+
+    const passed =
+      inventory.allSourcesPassed &&
+      preservationResult.passed &&
+      (reviewResult ? reviewResult.passed : true);
+
+    const report: HistoricalAuditReport = {
+      scope,
+      baseRef: baseSha,
+      headRef: headSha,
+      inventory,
+      metrics,
+      review: reviewResult,
+      passed,
+    };
+
+    if (options.json) {
+      console.log(JSON.stringify(report, null, 2));
+    } else {
+      console.log(formatAuditConsole(report));
+    }
+
+    if (!passed) {
+      process.exit(1);
+    }
+    process.exit(0);
+  } catch (err) {
+    console.error(`${RED}AUDIT_ERROR:${RESET} ${String(err)}`);
+    process.exit(1);
+  }
+}
+
+await main();

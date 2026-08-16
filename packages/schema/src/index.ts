@@ -13,3 +13,5 @@ export * from "./source.js";
 export * from "./extraction.js";
 export * from "./source-result.js";
 export * from "./verification-case.js";
+export * from "./preservation-exceptions.js";
+export * from "./historical/index.js";

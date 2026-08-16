@@ -233,11 +233,11 @@ flowchart TD
 - **Definition of Done:** Full diff viser utelukkende additive endringer og velbegrunnede korreksjoner.
 
 ### Steg 17: Person preservation audit
-- **Input:** `git diff data/people/`.
+- **Input:** `pnpm data:historical-preservation` og `git diff data/people/`.
 - **Leter etter:** Utilsiktet tap av roller, kilder, konflikter, navnevarianter (`names`), trenerperioder (`coachSpells`) eller metadata.
-- **Tillatte sluttilstander:** Null uforklarlige slettinger.
+- **Tillatte sluttilstander:** Null uforklarlige slettinger (`pnpm data:historical-preservation` rapporterer 0 destructive changes).
 - **Typiske feil:** Å stole på at en editor eller et script ikke har fjernet eldre blokker.
-- **Definition of Done:** Manuell diff-audit bekrefter at all eksisterende historikk består.
+- **Definition of Done:** Både automatisert `pnpm data:historical-preservation` og manuell diff-audit bekrefter at all eksisterende historikk består.
 
 ### Steg 18: Completion matrix
 - **Input:** Samtlige tall og funn fra batchen.
@@ -549,11 +549,12 @@ Regler:
 ## 14. Preservation audit og regresjonstester
 
 ### Preservation audit
-Før en PR erklæres ferdig, **SKAL** agenten kjøre en grundig manuell diff-kontroll:
+Før en PR erklæres ferdig, **SKAL** agenten kjøre den automatiserte bevaringskontrollen samt en visuell diff-kontroll:
 ```sh
+pnpm data:historical-preservation
 git diff data/people/
 ```
-Kontroller linje for linje at ingen eksisterende roller, kilder, navnevarianter eller konfliktblokker er forsvunnet.
+Kontroller at ingen eksisterende roller, kilder, navnevarianter eller konfliktblokker er forsvunnet. `pnpm data:historical-preservation` håndheves i CI som en obligatorisk hard gate.
 
 ### Preservation regressionstester
 Ved større historiske kildebatcher som endrer eksisterende personfiler **SKAL** det opprettes regresjonstester (f.eks. i `packages/schema/test/`).
@@ -563,13 +564,13 @@ Testene skal minimum bevise:
 2. **At eldre roller/historikk på samme person fortsatt består uendret.**
 3. **At eksisterende konflikter og navnevarianter er intakte.**
 
-*(Merk: En automatisert `data:historical-preservation`-sjekk i CI er planlagt for neste PR #158. Inntil da er manuell audit og testfiler obligatoriske).*
+*(Merk: `pnpm data:historical-preservation` kjøres i CI og er et obligatorisk semantisk additivitetsvern innført i PR #158. Manuell diff-audit og batchspesifikke preservation-regresjonstester beholdes som ekstra vern i tråd med defense in depth).*
 
 ---
 
 ## 15. Completion-matrise (standardmetrikker)
 
-Hver kilde og batch **SKAL** dokumenteres med en standardisert completion-matrise for å sikre sammenlignbarhet og etterrettelighet.
+Hver kilde og batch **SKAL** dokumenteres med en standardisert completion-matrise for å sikre sammenlignbarhet og etterrettelighet. Matrisetallene kan genereres eller avstemmes maskinelt ved hjelp av `pnpm data:historical-audit`.
 
 Følgende metrikker er obligatoriske:
 - **Sources i scope / reviewed:** Antall sourceId-er identifisert og gjennomgått.
@@ -606,6 +607,7 @@ Valideringen deles inn i **tekniske krav** og **redaksjonelle rapporter**:
 ```sh
 pnpm validate
 AAFK_DATA_DIR=fixtures/data pnpm validate
+pnpm data:historical-preservation
 pnpm db:build
 AAFK_DATA_DIR=fixtures/data pnpm db:build
 pnpm typecheck
@@ -619,6 +621,7 @@ AAFK_DATA_DIR=fixtures/data pnpm build && pnpm smoke
 pnpm data:duplicates
 pnpm data:opponents-unresolved
 pnpm data:contradictions
+pnpm data:historical-audit <scope>
 ```
 *Krav:* Rapportene trenger ikke nødvendigvis være tomme (da historiske sprik og kjente varianter kan eksistere), men alle nye funn introdusert av batchen **SKAL** være vurdert og dokumentert.
 
