@@ -7,6 +7,8 @@ import {
   ZERO_TARGET_DISPOSITIONS,
   SOURCE_PROFILES,
   inferSourceProfile,
+  type PublicationExtraction,
+  type Source,
 } from "../src/index.js";
 import { generateHarvestBatchManifest } from "../src/cli/historical-harvest-init.js";
 
@@ -214,7 +216,7 @@ describe("Source Profiles og Automatisk Profil-inferens", () => {
 });
 
 describe("Init CLI generator", () => {
-  const mockSourcesMap = new Map([
+  const mockSourcesMap = new Map<string, Source>([
     [
       "sfk-1963",
       {
@@ -250,13 +252,46 @@ describe("Init CLI generator", () => {
     ],
   ]);
 
-  const mockExtractionsMap = new Map([
-    ["sfk-1963", { sourceId: "sfk-1963", pagesExpected: 20, sections: [], tables: [] }],
-    ["sfk-1964", { sourceId: "sfk-1964", pagesExpected: 22, sections: [], tables: [] }],
-    ["sfk-1965", { sourceId: "sfk-1965", pagesExpected: 24, sections: [], tables: [] }],
+  const mockExtractionsMap = new Map<string, PublicationExtraction>([
+    [
+      "sfk-1963",
+      {
+        sourceId: "sfk-1963",
+        pagesExpected: 20,
+        pagesProcessed: 20,
+        pagesFailed: [],
+        candidates: [],
+        resolvedRoles: [],
+        resolvedLineups: [],
+      },
+    ],
+    [
+      "sfk-1964",
+      {
+        sourceId: "sfk-1964",
+        pagesExpected: 22,
+        pagesProcessed: 22,
+        pagesFailed: [],
+        candidates: [],
+        resolvedRoles: [],
+        resolvedLineups: [],
+      },
+    ],
+    [
+      "sfk-1965",
+      {
+        sourceId: "sfk-1965",
+        pagesExpected: 24,
+        pagesProcessed: 24,
+        pagesFailed: [],
+        candidates: [],
+        resolvedRoles: [],
+        resolvedLineups: [],
+      },
+    ],
   ]);
 
-  const mockContext = { sourcesMap: mockSourcesMap, extractionsMap: mockExtractionsMap as any };
+  const mockContext = { sourcesMap: mockSourcesMap, extractionsMap: mockExtractionsMap };
 
   it("genererer gyldig manifest med frosset inventar og required passes", async () => {
     const { manifest } = await generateHarvestBatchManifest(

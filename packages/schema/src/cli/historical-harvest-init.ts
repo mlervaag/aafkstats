@@ -4,7 +4,7 @@ import { resolve, dirname } from "node:path";
 import { stringify as stringifyYaml } from "yaml";
 import { repoRoot } from "../load.js";
 import { source, type Source } from "../source.js";
-import { publicationExtraction } from "../extraction.js";
+import { publicationExtraction, type PublicationExtraction } from "../extraction.js";
 import { loadYamlMap } from "../historical/git.js";
 import { SOURCE_PROFILES, inferSourceProfile, type HarvestProfileId } from "../historical/source-profile.js";
 import type {
