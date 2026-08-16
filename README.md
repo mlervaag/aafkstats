@@ -51,7 +51,7 @@ leser fra.
 
 | | |
 |---|---|
-| **1 499 kamper** | Kamper registrert totalt i arkivet |
+| **1 501 kamper** | Kamper registrert totalt i arkivet |
 | **712 kildedokumenterte resultatoppføringer** | Resultatobservasjoner bevart direkte fra historiske kilder; selve oppføringene teller ikke som kamper. **637 mangler fortsatt kobling til en kanonisk kamp.** |
 | **89 år med kanoniske kamper** | 1915–2026, år med minst én registrert kamp. Enkeltkamper tilbake til 1915, cupen til 1917, regionale kretskamper til 1920 og nasjonal serie til 1951 |
 | **105 år med historisk kampinformasjon** | De kanoniske årene over, pluss år som foreløpig bare har kildedokumenterte resultater. Sesongoversikten viser disse |
