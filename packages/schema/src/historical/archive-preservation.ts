@@ -164,12 +164,26 @@ export function diffStructuralAdditivity(
     }
 
     // Indekser HEAD-elementene på identitet og på dyp likhet.
-    const headById = new Map<string, unknown>();
+    //
+    // Samme identitet kan forekomme flere ganger i én liste: et
+    // organisasjonssnapshot fører den som er kasserer i hovedstyret og
+    // forretningsfører i medlemsbladet som to oppføringer med samme personId.
+    // Derfor er indeksen en kø per identitet — med én verdi per nøkkel ville
+    // den siste oppføringen vunnet, og den første basisoppføringen ville blitt
+    // sammenlignet med feil oppføring og meldt som en destruktiv mutasjon selv
+    // når filen er uendret.
+    const headById = new Map<string, unknown[]>();
     const headByShape = new Map<string, number>();
     for (const item of headValue) {
       const identity = listItemIdentity(item);
       if (identity && isPlainObject(item)) {
-        headById.set(`${identity.key}=${compositeIdentity(item, identity)}`, item);
+        const key = `${identity.key}=${compositeIdentity(item, identity)}`;
+        const queue = headById.get(key);
+        if (queue) {
+          queue.push(item);
+        } else {
+          headById.set(key, [item]);
+        }
       }
       const shape = stableKey(item);
       headByShape.set(shape, (headByShape.get(shape) ?? 0) + 1);
@@ -181,7 +195,9 @@ export function diffStructuralAdditivity(
 
       if (identity && isPlainObject(baseItem)) {
         const lookup = `${identity.key}=${compositeIdentity(baseItem, identity)}`;
-        const headItem = headById.get(lookup);
+        // Basisoppføringene pares mot HEAD-oppføringene i rekkefølge, slik at
+        // n-te forekomst av en identitet møter n-te forekomst i HEAD.
+        const headItem = headById.get(lookup)?.shift();
         if (headItem === undefined) {
           out.push({
             path: `${path}/${compositeIdentity(baseItem, identity)}`,

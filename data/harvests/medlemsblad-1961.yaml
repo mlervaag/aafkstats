@@ -75,7 +75,7 @@ findings:
   type: person_role
   claim:
     text: 'Alfhild Ringdal: Formann (1951)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: alfhild-ringdal
@@ -100,7 +100,7 @@ findings:
   type: person_role
   claim:
     text: 'Anita Wold: Formann (1954)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: anita-wold
@@ -161,7 +161,7 @@ findings:
   type: person_role
   claim:
     text: 'Bjørn Riise: Leder og oppmann (1961–1962)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: bjorn-riise
@@ -186,7 +186,7 @@ findings:
   type: person_role
   claim:
     text: 'Einar Aas: Oppmann (1961–1962)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: einar-aas
@@ -211,7 +211,7 @@ findings:
   type: person_role
   claim:
     text: 'Einar With: Juniorlandslagsspiller (1961–1962)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: einar-with
@@ -236,7 +236,7 @@ findings:
   type: person_role
   claim:
     text: 'Elisif Ingebrigtsen: Formann (1959–1960)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: elisif-ingebrigtsen
@@ -261,7 +261,7 @@ findings:
   type: person_role
   claim:
     text: 'Else Giske: Kasserer (1961)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: else-giske
@@ -334,7 +334,7 @@ findings:
   type: person_role
   claim:
     text: 'Gerd Strømsholm: Formann (1956–1958)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: gerd-stromsholm
@@ -359,7 +359,7 @@ findings:
   type: person_role
   claim:
     text: 'Hans J. Henriksen: Formann (1962–1964)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: hans-j-henriksen
@@ -372,7 +372,7 @@ findings:
   type: person_role
   claim:
     text: 'Hans J. Henriksen: Nestformann (1961)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: hans-j-henriksen
@@ -397,7 +397,7 @@ findings:
   type: person_role
   claim:
     text: 'Hans Ole Sødergren: Autorisert forbundsdommer (NFF) (1961)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: hans-ole-sodergren
@@ -446,7 +446,7 @@ findings:
   type: person_role
   claim:
     text: 'Hilda Orheim: Formann (1961–1962)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: hilda-orheim
@@ -482,8 +482,8 @@ findings:
     page: '9'
   type: person_role
   claim:
-    text: 'Irma Ingebrigtsen: Formann (1946)'
-  disposition: role_created
+    text: 'Irma Ingebrigtsen: Formann (1946–1948)'
+  disposition: role_enriched
   targets:
   - entity: person
     id: irma-ingebrigtsen
@@ -508,7 +508,7 @@ findings:
   type: person_role
   claim:
     text: 'Jarle Kristoffersen: Sekretær (1961)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: jarle-kristoffersen
@@ -521,7 +521,7 @@ findings:
   type: person_role
   claim:
     text: 'Jarle Kristoffersen: Sekretær (1961)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: jarle-kristoffersen
@@ -558,7 +558,7 @@ findings:
   type: person_role
   claim:
     text: 'Johs. Hollevik: Gullmerke (1961)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: johs-hollevik
@@ -607,7 +607,7 @@ findings:
   type: person_role
   claim:
     text: 'Kjell Berentzen: Formann (1961)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: kjell-berentzen
@@ -680,7 +680,7 @@ findings:
   type: person_role
   claim:
     text: 'Lilly Annaniassen: Sekretær (1961–1962)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: lilly-annaniassen
@@ -705,7 +705,7 @@ findings:
   type: person_role
   claim:
     text: 'Lollo Stub: Nestformann (1961–1962)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: lollo-stub
@@ -730,7 +730,7 @@ findings:
   type: person_role
   claim:
     text: 'Mary Vegsund: Formann (1949)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: mary-vegsund
@@ -779,7 +779,7 @@ findings:
   type: person_role
   claim:
     text: 'Peder Puck: Norges Idrettsforbunds hedersplakett (1961)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: peder-puck
@@ -828,7 +828,7 @@ findings:
   type: person_role
   claim:
     text: 'Reidar Steen Jensen: Spillende trener (1962)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: reidar-steen-jensen
@@ -853,7 +853,7 @@ findings:
   type: person_role
   claim:
     text: 'Rolf Annaniassen: Sekretær (1962)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: rolf-annaniassen
@@ -938,7 +938,7 @@ findings:
   type: person_role
   claim:
     text: 'Torbjørn Aarø: Lagkaptein (1961–1962)'
-  disposition: role_created
+  disposition: role_enriched
   targets:
   - entity: person
     id: torbjorn-aaro

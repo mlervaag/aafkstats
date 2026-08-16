@@ -67,6 +67,39 @@ describe("Strukturell additivitet i arkivet", () => {
     expect(removals[0]?.path).toContain("s1:66");
   });
 
+  it("melder ikke endring når samme person står to ganger i et snapshot", () => {
+    // Den som er kasserer i hovedstyret og forretningsfører i medlemsbladet
+    // står som to oppføringer med samme personId. Med én verdi per identitet
+    // ville den første basisoppføringen blitt sammenlignet med den siste
+    // HEAD-oppføringen, og en uendret fil ville blitt meldt som mutasjon.
+    const snapshot = {
+      date: "1951",
+      people: [
+        { personId: "bjorn-aasen", observedTitle: "Kasserer", body: "Hovedstyret" },
+        { personId: "bjorn-aasen", observedTitle: "Forretningsfører", body: "Medlemsbladet" },
+      ],
+    };
+
+    expect(diffStructuralAdditivity(snapshot, structuredClone(snapshot), "")).toHaveLength(0);
+  });
+
+  it("fanger fortsatt at én av to oppføringer med samme identitet forsvinner", () => {
+    const base = {
+      people: [
+        { personId: "bjorn-aasen", observedTitle: "Kasserer", body: "Hovedstyret" },
+        { personId: "bjorn-aasen", observedTitle: "Forretningsfører", body: "Medlemsbladet" },
+      ],
+    };
+    const head = {
+      people: [{ personId: "bjorn-aasen", observedTitle: "Kasserer", body: "Hovedstyret" }],
+    };
+
+    const removals = diffStructuralAdditivity(base, head, "");
+
+    expect(removals).toHaveLength(1);
+    expect(removals[0]?.changeType).toBe("remove");
+  });
+
   it("melder sletting av en hel entitet som destruktiv", () => {
     const result = runArchivePreservationAudit([
       {
