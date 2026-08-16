@@ -1,6 +1,24 @@
 id: oivind-haagensen
 name: Øivind Haagensen
 roles:
+  - id: banekomite-1950-1951
+    category: board
+    title: Medlem av banekomiteen
+    body: Banekomiteen
+    from: "1950"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+        page: "6"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
   - id: oppmann-1940
     category: sporting_staff
     title: Oppmann
@@ -71,20 +89,6 @@ roles:
     sources:
       - sourceId: medlemsblad-for-aalesunds-fotb-1950-62fa
         page: "8"
-        fields:
-          - title
-          - from
-          - to
-    note: Debut mot Braatt i 1930. Spilte ca 270 A-kamper for AaFK fra 1930 til 1949.
-  - id: banekomite-1950
-    category: project
-    title: Medlem av banekomiteen
-    body: Banekomiteen
-    from: "1950"
-    to: "1950"
-    sources:
-      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
-        page: "6"
         fields:
           - title
           - from

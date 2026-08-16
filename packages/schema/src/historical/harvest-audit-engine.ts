@@ -100,12 +100,22 @@ export interface HarvestAuditContext {
 }
 
 /**
- * Kildene i batchen som fortsatt krever visuell kontroll. `out_of_scope` er den
- * eneste statusen som legitimt tar en kilde ut av dekningsregnskapet.
+ * Alle kilder i batchen som ikke er out_of_scope.
  */
 function manifestSourceIdsInScope(manifest: HarvestBatchManifest): string[] {
   return manifest.sourceInventory
     .filter((item) => item.reviewStatus !== "out_of_scope")
+    .map((item) => item.sourceId);
+}
+
+/**
+ * Kildene i batchen som fortsatt krever uavhengig visuell kontroll av egne sider.
+ * `out_of_scope` og verifiserte `duplicate_or_reprint` krever ikke uavhengig
+ * sidetelling i dekningsregnskapet dersom originalen er gjennomgått.
+ */
+function manifestSourceIdsRequiringVisualPages(manifest: HarvestBatchManifest): string[] {
+  return manifest.sourceInventory
+    .filter((item) => item.reviewStatus !== "out_of_scope" && item.reviewStatus !== "duplicate_or_reprint")
     .map((item) => item.sourceId);
 }
 
@@ -121,7 +131,7 @@ function deriveExpectedPagesFromExtractions(
 ): number | undefined {
   let total = 0;
   let found = false;
-  for (const sourceId of manifestSourceIdsInScope(manifest)) {
+  for (const sourceId of manifestSourceIdsRequiringVisualPages(manifest)) {
     const ext = allExtractions.get(sourceId);
     if (ext) {
       total += ext.pagesExpected;
@@ -298,7 +308,7 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
   // må derfor være et faktum om kilden — ikke et valg. Finnes det ALTO-skann,
   // finnes det faksimile.
   if (isFacsimileUnavailable) {
-    const altoSources = manifestSourceIdsInScope(manifest).filter(
+    const altoSources = manifestSourceIdsRequiringVisualPages(manifest).filter(
       (sid) => allExtractions.get(sid)?.ocrAccess === "alto",
     );
     if (altoSources.length > 0) {

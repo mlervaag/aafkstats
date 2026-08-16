@@ -1,6 +1,18 @@
 id: hans-j-henriksen
 name: Hans J. Henriksen
 roles:
+  - id: overgang-wing-1950
+    category: player
+    title: Spiller
+    from: "1950"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+        page: "3"
+        fields:
+          - title
+          - from
+    note: Innvilget overgang fra AaFK til Wing høsten 1950.
   - id: formann-1957-1960
     category: board
     title: Formann
@@ -289,6 +301,9 @@ sources:
     page: "5"
   - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
     page: "62"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+    page: "3"
+    fields: []
 conflicts:
   - field: formann.1968
     values:

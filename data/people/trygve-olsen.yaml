@@ -36,6 +36,18 @@ roles:
           - title
           - to
     note: Ledet juniorlaget til kretsmesterskap i 1958 og 1959 samt 3. runde i junior-NM 1959.
+  - id: a-lagsspiller-1936
+    category: player
+    title: A-lagsspiller
+    from: "1936"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+        page: "8"
+        fields:
+          - title
+          - from
+    note: Født ca 1919. Debuterte på A-laget i 1936 mot Molde.
   - id: spillemerke-gull-1950
     category: honorary
     title: Spillemerket i gull
@@ -46,6 +58,8 @@ roles:
         page: "74"
     note: Notert med 226 kamper på A-laget og toppscorer i 1953 med 17 mål.
 sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+    page: "8"
   - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
     page: "66"
   - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d

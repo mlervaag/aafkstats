@@ -85,29 +85,29 @@ sourceInventory:
     reason: Duplikatskanning hos Nasjonalbiblioteket av hefte nr 6.
 coverage:
   mode: pages
-  expected: 192
-  reviewed: 192
+  expected: 96
+  reviewed: 96
 passes:
   facsimile_review:
     status: complete
     findings: 96
-    note: 100 % visuell sidekontroll gjennomført mot faksimile for alle 6 hefter (96 sider).
+    note: 100 % visuell sidekontroll gjennomført mot faksimile for alle 6 hefter (96 unike sider).
   explicit_results:
     status: complete
-    findings: 8
+    findings: 10
     note: Kampresultater for 1. divisjon våren og høsten 1950, privatkamper og NM cup.
   people_and_roles:
     status: complete
-    findings: 24
-    note: Nye og berikede personer, spillere, tillitsvalgte og æresmedlemmer.
+    findings: 56
+    note: Nye og berikede personer, spillere, overganger, tillitsvalgte og æresmedlemmer.
   organization:
     status: complete
     findings: 2
-    note: Organisasjonsbilde for 1950 og årsmøtevalg 29. november 1950 for 1951.
+    note: Organisasjonsbilde for 1950 og årsmøtevalg 29. november 1950 for arbeidsåret 1951.
   retrospectives_and_claims:
     status: complete
-    findings: 4
-    note: Historiske memoarer og tilbakeblikk (1940-sesongen, veteranpanel 1913-1939).
+    findings: 8
+    note: Historiske memoarer og retrospektive kampoppføringer (1927, 1932, krigsåret 1940, veteranpanel).
   observations:
     status: complete
     findings: 3
@@ -139,83 +139,90 @@ findings:
       page: "7"
     type: person_role
     claim:
-      text: "Lars Tøsse: Æresmedlem (1939) og styremedlem (1925–1931)"
-    disposition: person_created
+      text: "Lars Tøsse: Æresmedlem utnevnt ved 25-årsjubileet 1939"
+    disposition: honor_created
     targets:
       - entity: person
         id: lars-tosse
+        path: roles/aeresmedlem-1939
     status: normalized
   - id: role-003
     source:
-      sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
-      page: "5"
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+      page: "7"
     type: person_role
     claim:
-      text: "Karl Slinning: Idrettsinstruktør og innetrener (1950)"
-    disposition: person_created
+      text: "Lars Tøsse: Styremedlem i Hovedstyret 1925"
+    disposition: role_created
     targets:
       - entity: person
-        id: karl-slinning
+        id: lars-tosse
+        path: roles/styremedlem-1925
     status: normalized
   - id: role-004
     source:
-      sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
-      page: "6"
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+      page: "7"
     type: person_role
     claim:
-      text: "Ragnvald Huseby: Æresmedlem (1949) og aktiv spiller (1918–1928)"
-    disposition: person_enriched
+      text: "Lars Tøsse: Styremedlem i Hovedstyret 1927"
+    disposition: role_created
     targets:
       - entity: person
-        id: r-huseby
+        id: lars-tosse
+        path: roles/styremedlem-1927
     status: normalized
   - id: role-005
     source:
-      sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
-      page: "5"
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+      page: "7"
     type: person_role
     claim:
-      text: "Irma Berger Huseby (Ingebrigtsen): Første formann i Dameavdelingen (1946–1948)"
-    disposition: person_enriched
+      text: "Lars Tøsse: Styremedlem i Hovedstyret 1930"
+    disposition: role_created
     targets:
       - entity: person
-        id: irma-ingebrigtsen
+        id: lars-tosse
+        path: roles/styremedlem-1930
     status: normalized
   - id: role-006
     source:
-      sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
-      page: "5"
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+      page: "7"
     type: person_role
     claim:
-      text: "Mary Vegsund: Formann i Dameavdelingen (1948–1950) og nestformann (1950–1951)"
-    disposition: person_enriched
+      text: "Lars Tøsse: Styremedlem i Hovedstyret 1931"
+    disposition: role_created
     targets:
       - entity: person
-        id: mary-vegsund
+        id: lars-tosse
+        path: roles/styremedlem-1931
     status: normalized
   - id: role-007
     source:
-      sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
-      page: "5"
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+      page: "7"
     type: person_role
     claim:
-      text: "Alfhild Ringdal: Formann i Dameavdelingen (1950–1951)"
-    disposition: person_enriched
+      text: "Lars Tøsse: Revisor 1933"
+    disposition: role_created
     targets:
       - entity: person
-        id: alfhild-ringdal
+        id: lars-tosse
+        path: roles/revisor-1933
     status: normalized
   - id: role-008
     source:
-      sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
-      page: "5"
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+      page: "7"
     type: person_role
     claim:
-      text: "Anita Olsen: Sekretær i Dameavdelingen (1950–1951)"
-    disposition: person_created
+      text: "Lars Tøsse: Medlem av banekomiteen 1939–1940"
+    disposition: role_created
     targets:
       - entity: person
-        id: anita-olsen
+        id: lars-tosse
+        path: roles/banekomite-1939-1940
     status: normalized
   - id: role-009
     source:
@@ -223,143 +230,155 @@ findings:
       page: "5"
     type: person_role
     claim:
+      text: "Karl Slinning: Idrettsinstruktør og innetrener 1950"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: karl-slinning
+        path: roles/trener-innetrening-1950
+    status: normalized
+  - id: role-010
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+      page: "6"
+    type: person_role
+    claim:
+      text: "Ragnvald Huseby: Æresmedlem utnevnt på årsmøtet 1949"
+    disposition: honor_created
+    targets:
+      - entity: person
+        id: r-huseby
+        path: roles/aeresmedlem-1949
+    status: normalized
+  - id: role-011
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Ragnvald Huseby: Medlem av valgkomiteen 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: r-huseby
+        path: roles/valgkomite-1951
+    status: normalized
+  - id: role-012
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+      page: "5"
+    type: person_role
+    claim:
+      text: "Irma Berger Huseby (Ingebrigtsen): Første formann i Dameavdelingen (1946–1948)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: irma-ingebrigtsen
+        path: roles/formann-dameavdelingen-1946
+    status: normalized
+  - id: role-013
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+      page: "5"
+    type: person_role
+    claim:
+      text: "Mary Vegsund: Formann i Dameavdelingen (1948–1950)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: mary-vegsund
+        path: roles/formann-dameavdelingen-1948
+    status: normalized
+  - id: role-014
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+      page: "5"
+    type: person_role
+    claim:
+      text: "Mary Vegsund: Nestformann i Dameavdelingen (1950–1951)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: mary-vegsund
+        path: roles/nestformann-dameavdelingen-1950-1951
+    status: normalized
+  - id: role-015
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+      page: "5"
+    type: person_role
+    claim:
+      text: "Alfhild Ringdal: Formann i Dameavdelingen 1950"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: alfhild-ringdal
+        path: roles/formann-dameavdelingen-1950
+    status: normalized
+  - id: role-016
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Alfhild Ringdal: Gjenvalgt som formann i Dameavdelingen for 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: alfhild-ringdal
+        path: roles/formann-dameavdelingen-1951
+    status: normalized
+  - id: role-017
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+      page: "5"
+    type: person_role
+    claim:
+      text: "Anita Olsen: Sekretær i Dameavdelingen (1950–1951)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: anita-olsen
+        path: roles/sekretaer-dameavdelingen-1950-1951
+    status: normalized
+  - id: role-018
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+      page: "5"
+    type: person_role
+    claim:
       text: "Åse Gudmundseth: Kasserer i Dameavdelingen (1950–1951)"
-    disposition: person_created
+    disposition: role_created
     targets:
       - entity: person
         id: aase-gudmundseth
+        path: roles/kasserer-dameavdelingen-1950-1951
     status: normalized
-  - id: role-010
+  - id: role-019
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
       page: "11"
     type: person_role
     claim:
       text: "Louis Vegsund: Nestformann i Hovedstyret (1950)"
-    disposition: person_created
+    disposition: role_created
     targets:
       - entity: person
         id: louis-vegsund
+        path: roles/nestformann-hovedstyret-1950
     status: normalized
-  - id: role-011
+  - id: role-020
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
       page: "11"
     type: person_role
     claim:
-      text: "Arne Vestad: Kasserer i Hovedstyret (1950) og nestformann (1951)"
-    disposition: person_created
+      text: "Arne Vestad: Kasserer i Hovedstyret (1950)"
+    disposition: role_created
     targets:
       - entity: person
         id: arne-vestad
-    status: normalized
-  - id: role-012
-    source:
-      sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
-      page: "12"
-    type: person_role
-    claim:
-      text: "Edvin Løvold: A-lagsspiller (1933–1949)"
-    disposition: person_enriched
-    targets:
-      - entity: person
-        id: edvind-lovold
-    status: normalized
-  - id: role-013
-    source:
-      sourceId: medlemsblad-for-aalesunds-fotb-1950-62fa
-      page: "8"
-    type: person_role
-    claim:
-      text: "Øivind Haagensen: A-lagsspiller (1930–1949, 270 A-kamper) og banekomiteen (1950)"
-    disposition: person_enriched
-    targets:
-      - entity: person
-        id: oivind-haagensen
-    status: normalized
-  - id: role-014
-    source:
-      sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
-      page: "5"
-    type: person_role
-    claim:
-      text: "Finn Tollås: Junioroppmann (1949–1950) og A-lagsspiller (1932–1949)"
-    disposition: person_enriched
-    targets:
-      - entity: person
-        id: finn-tollas
-    status: normalized
-  - id: role-015
-    source:
-      sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
-      page: "5"
-    type: person_role
-    claim:
-      text: "Olav Skarbøvik: A-lagsspiller (1929–1938, 170 A-kamper) og arrangementskomiteen (1951)"
-    disposition: person_created
-    targets:
-      - entity: person
-        id: olav-skarbovik
-    status: normalized
-  - id: role-016
-    source:
-      sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
-      page: "6"
-    type: person_role
-    claim:
-      text: "Per Mogstad: Nestformann (1927) og A-lagsspiller (1914–1928)"
-    disposition: person_enriched
-    targets:
-      - entity: person
-        id: per-mogstad
-    status: normalized
-  - id: role-017
-    source:
-      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
-      page: "4"
-    type: person_role
-    claim:
-      text: "Ingvald Frøysa: Målvakt på A-laget (1923–1928)"
-    disposition: person_enriched
-    targets:
-      - entity: person
-        id: ingvald-froysa
-    status: normalized
-  - id: role-018
-    source:
-      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
-      page: "6"
-    type: person_role
-    claim:
-      text: "Karl Løvold: A-lagsspiller (1931–1947) og varamann til sportsutvalget (1951)"
-    disposition: person_created
-    targets:
-      - entity: person
-        id: karl-lovold
-    status: normalized
-  - id: role-019
-    source:
-      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
-      page: "31"
-    type: person_role
-    claim:
-      text: "Asbjørn Korsnes: Klubbarkivar (1951)"
-    disposition: person_enriched
-    targets:
-      - entity: person
-        id: asbjorn-korsnes
-    status: normalized
-  - id: role-020
-    source:
-      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
-      page: "31"
-    type: person_role
-    claim:
-      text: "Bjørn Aasen: Forretningsfører Medlemsbladet (1950–1951) og kasserer (1951)"
-    disposition: person_created
-    targets:
-      - entity: person
-        id: bjorn-aasen
+        path: roles/kasserer-hovedstyret-1950
     status: normalized
   - id: role-021
     source:
@@ -367,49 +386,482 @@ findings:
       page: "31"
     type: person_role
     claim:
+      text: "Arne Vestad: Nestformann i Hovedstyret (1951)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: arne-vestad
+        path: roles/nestformann-hovedstyret-1951
+    status: normalized
+  - id: role-022
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+      page: "12"
+    type: person_role
+    claim:
+      text: "Edvin Løvold: A-lagsspiller fra debut 1933 mot Brann til 1949"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: edvind-lovold
+        path: roles/a-lagsspiller-1933-1949
+    status: normalized
+  - id: role-023
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-62fa
+      page: "8"
+    type: person_role
+    claim:
+      text: "Øivind Haagensen: A-lagsspiller (1930–1949, 270 A-kamper)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: oivind-haagensen
+        path: roles/a-lagsspiller-1930-1949
+    status: normalized
+  - id: role-024
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+      page: "6"
+    type: person_role
+    claim:
+      text: "Øivind Haagensen: Medlem av banekomiteen (1950–1951)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: oivind-haagensen
+        path: roles/banekomite-1950-1951
+    status: normalized
+  - id: role-025
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+      page: "5"
+    type: person_role
+    claim:
+      text: "Finn Tollås: Junioroppmann (1949–1950) og A-lagsspiller (1932–1949)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: finn-tollas
+        path: roles/junioroppmann-1949-1950
+    status: normalized
+  - id: role-026
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+      page: "5"
+    type: person_role
+    claim:
+      text: "Olav Skarbøvik: A-lagsspiller (1929–1938, 170 A-kamper)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: olav-skarbovik
+        path: roles/a-lagsspiller-1929-1938
+    status: normalized
+  - id: role-027
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Olav Skarbøvik: Medlem av arrangementskomiteen (1951)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: olav-skarbovik
+        path: roles/arrangementskomite-1951
+    status: normalized
+  - id: role-028
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+      page: "6"
+    type: person_role
+    claim:
+      text: "Per Mogstad: Nestformann (1927) og A-lagsspiller (1914–1928)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: per-mogstad
+        path: roles/nestformann-1927
+    status: normalized
+  - id: role-029
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "4"
+    type: person_role
+    claim:
+      text: "Ingvald Frøysa: Målvakt på A-laget (1923–1928)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: ingvald-froysa
+        path: roles/a-lagskeeper-1923-1928
+    status: normalized
+  - id: role-030
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "6"
+    type: person_role
+    claim:
+      text: "Karl Løvold: A-lagsspiller (1931–1947)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: karl-lovold
+        path: roles/a-lagsspiller-1931-1947
+    status: normalized
+  - id: role-031
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Karl Løvold: 1. varamann til sportsutvalget (1951)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: karl-lovold
+        path: roles/varamann-sportsutvalget-1951
+    status: normalized
+  - id: role-032
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Asbjørn Korsnes: Klubbarkivar (1951)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: asbjorn-korsnes
+        path: roles/arkivar-1951
+    status: normalized
+  - id: role-033
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+      page: "8"
+    type: person_role
+    claim:
+      text: "Bjørn Aasen: Forretningsfører Medlemsbladet (1950–1951)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: bjorn-aasen
+        path: roles/forretningsforer-medlemsbladet-1950-1951
+    status: normalized
+  - id: role-034
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Bjørn Aasen: Kasserer i Hovedstyret (1951)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: bjorn-aasen
+        path: roles/kasserer-hovedstyret-1951
+    status: normalized
+  - id: role-035
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
       text: "Olav Kalvø: Junioroppmann (1951)"
-    disposition: person_created
+    disposition: role_created
     targets:
       - entity: person
         id: olav-kalvo
+        path: roles/junioroppmann-1951
     status: normalized
-  - id: role-022
+  - id: role-036
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
       page: "8"
     type: person_role
     claim:
       text: "Lauritz Giske: Ansvarshavende redaktør for Medlemsbladet (1950–1951)"
-    disposition: person_enriched
+    disposition: role_created
     targets:
       - entity: person
         id: lauritz-giske
+        path: roles/ansvarshavende-medlemsbladet-1950-1951
     status: normalized
-  - id: role-023
+  - id: role-037
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
       page: "12"
     type: person_role
     claim:
-      text: "Bernt Sulebust: A-lagsspiller fra 1946 og redaksjonskomiteen (1950–1951)"
-    disposition: person_enriched
+      text: "Bernt Sulebust: Medlem av redaksjonskomiteen (1950–1951)"
+    disposition: role_created
     targets:
       - entity: person
         id: bernt-sulebust
+        path: roles/redaksjonskomite-medlemsbladet-1950-1951
     status: normalized
-  - id: role-024
+  - id: role-038
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
       page: "2"
     type: person_role
     claim:
-      text: "Jørgen Hollevik: A-lagsspiller (1924–1939, 250 kamper) og varamann sportsutvalget (1951)"
-    disposition: person_enriched
+      text: "Jørgen Hollevik: A-lagsspiller (1924–1939, 250 kamper)"
+    disposition: role_created
     targets:
       - entity: person
         id: jorgen-hollevik
+        path: roles/a-lagsspiller-1924-1939
     status: normalized
-  - id: snap-025
+  - id: role-039
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Jørgen Hollevik: 2. varamann til sportsutvalget (1951)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: jorgen-hollevik
+        path: roles/varamann-sportsutvalget-1951
+    status: normalized
+  - id: role-040
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+      page: "6"
+    type: person_role
+    claim:
+      text: "Odd Østensen: Medlem av banekomiteen (1950–1951)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: odd-ostensen
+        path: roles/banekomite-1950-1951
+    status: normalized
+  - id: role-041
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Odd Østensen: Styremedlem i Hovedstyret (1951)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: odd-ostensen
+        path: roles/styremedlem-hovedstyret-1951
+    status: normalized
+  - id: role-042
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+      page: "6"
+    type: person_role
+    claim:
+      text: "Monrad Orheim: Medlem av banekomiteen (1950–1951)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: monrad-orheim
+        path: roles/banekomite-1950-1951
+    status: normalized
+  - id: role-043
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Monrad Orheim: Styremedlem i Hovedstyret (1951)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: monrad-orheim
+        path: roles/styremedlem-hovedstyret-1951
+    status: normalized
+  - id: role-044
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+      page: "16"
+    type: person_role
+    claim:
+      text: "Ivar Østensen: Medlem av redaksjonskomiteen i Medlemsbladet (1950–1951)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: ivar-ostensen
+        path: roles/redaksjonskomite-medlemsbladet-1950-1951
+    status: normalized
+  - id: role-045
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+      page: "8"
+    type: person_role
+    claim:
+      text: "Harald Nord: Medlem av redaksjonskomiteen i Medlemsbladet (1950–1951)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: harald-nord
+        path: roles/redaksjonskomite-medlemsbladet-1950-1951
+    status: normalized
+  - id: role-046
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Harald Nord: Medlem av sportsutvalget (1951)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: harald-nord
+        path: roles/sportsutvalget-1951
+    status: normalized
+  - id: role-047
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Kåre Brandal: Medlem av sportsutvalget (1951)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: kare-brandal
+        path: roles/sportsutvalget-1951
+    status: normalized
+  - id: role-048
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Gunnar Sæther: Medlem av sportsutvalget (1951)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: gunnar-saether
+        path: roles/sportsutvalget-1951
+    status: normalized
+  - id: role-049
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Gustav Rasmussen: Medlem av valgkomiteen (1951)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: gustav-rasmussen
+        path: roles/valgkomite-1951
+    status: normalized
+  - id: role-050
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Sverre Volstad: 2. varamann til Hovedstyret (1951)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: sverre-volstad
+        path: roles/varamann-hovedstyret-1951
+    status: normalized
+  - id: role-051
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+      page: "6"
+    type: person_role
+    claim:
+      text: "Reidar Skarbøvik: A-lagsspiller fra debut 1933 til 1950"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: reidar-skarbovik
+        path: roles/a-lagsspiller-1933-1950
+    status: normalized
+  - id: role-052
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+      page: "12"
+    type: person_role
+    claim:
+      text: "Reidar Skarbøvik: Overgang fra AaFK til Frigg høsten 1950"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: reidar-skarbovik
+        path: roles/overgang-frigg-1950
+    status: normalized
+  - id: role-053
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Knut Hjelle: A-lagsspiller i 1950"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: knut-hjelle
+        path: roles/a-lagsspiller-1950
+    status: normalized
+  - id: role-054
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+      page: "12"
+    type: person_role
+    claim:
+      text: "Knut Hjelle: Overgang fra AaFK til Volda høsten 1950"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: knut-hjelle
+        path: roles/overgang-volda-1950
+    status: normalized
+  - id: role-055
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+      page: "3"
+    type: person_role
+    claim:
+      text: "Helge Ødegaard: Overgang fra AaFK til Wing høsten 1950"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: helge-odegaard
+        path: roles/overgang-wing-1950
+    status: normalized
+  - id: role-056
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+      page: "3"
+    type: person_role
+    claim:
+      text: "Hans Henriksen: Overgang fra AaFK til Wing høsten 1950"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: hans-j-henriksen
+        path: roles/overgang-wing-1950
+    status: normalized
+  - id: role-057
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+      page: "8"
+    type: person_role
+    claim:
+      text: "Trygve Olsen: A-lagsdebut i 1936 mot Molde"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: trygve-olsen
+        path: roles/a-lagsspiller-1936
+    status: normalized
+  - id: snap-058
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
       page: "11"
@@ -421,31 +873,67 @@ findings:
       - entity: organization_snapshot
         id: 1950-aafk
     status: normalized
-  - id: sres-026
+  - id: snap-059
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: organization
+    claim:
+      text: Organisasjonssnapshot for arbeidsåret 1951 valgt på årsmøtet 29. november 1950
+    disposition: organization_snapshot_created
+    targets:
+      - entity: organization_snapshot
+        id: 1951-aafk
+    status: normalized
+  - id: sres-060
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1950-62fa
       page: "4"
     type: match_result
     claim:
-      text: 7 kilderesultater for sesongen 1950 i hefte 3
+      text: 7 kilderesultater for sesongen 1950 i hefte 3 (1. div våren 1950, Ranheim privatkamp, NM cup 1. og 2. runde)
     disposition: source_result_created
     targets:
       - entity: source_result
         id: medlemsblad-for-aalesunds-fotb-1950-62fa
     status: normalized
-  - id: sres-027
+  - id: sres-061
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+      page: "6"
+    type: match_result
+    claim:
+      text: 2 kilderesultater i hefte 4 for sesongen 1950 (Eid IL 7–2 og Molde 0–1)
+    disposition: source_result_created
+    targets:
+      - entity: source_result
+        id: medlemsblad-for-aalesunds-fotb-1950-3b73
+    status: normalized
+  - id: sres-062
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
       page: "6"
     type: match_result
     claim:
-      text: Kilderesultat for 1. divisjon høsten 1950 i hefte 5
+      text: Kilderesultat for 1. divisjon høsten 1950 i hefte 5 (Braatt–AaFK 0–2)
     disposition: source_result_created
     targets:
       - entity: source_result
         id: medlemsblad-for-aalesunds-fotb-1950-37d9
     status: normalized
-  - id: obs-028
+  - id: sres-063
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "23"
+    type: match_result
+    claim:
+      text: Retrospektive kilderesultater for 1927 (Landslaget 0–3), 1932 (Fredrikstad 1–9) og 1940 (Rollon, Braatt)
+    disposition: source_result_created
+    targets:
+      - entity: source_result
+        id: medlemsblad-for-aalesunds-fotb-1950-083e
+    status: normalized
+  - id: obs-064
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1950-62fa
       page: "6"
@@ -457,7 +945,7 @@ findings:
       - entity: observation
         id: 1950-kramyra-forste-spadestikk
     status: normalized
-  - id: obs-029
+  - id: obs-065
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
       page: "1"
@@ -469,7 +957,7 @@ findings:
       - entity: observation
         id: 1950-kramyr-uka-markedsuke
     status: normalized
-  - id: obs-030
+  - id: obs-066
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
       page: "5"
@@ -480,6 +968,86 @@ findings:
     targets:
       - entity: observation
         id: 1946-dameavdelingen-stiftelse
+    status: normalized
+  - id: retro-067
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "28"
+    type: retrospective_claim
+    claim:
+      text: Sigurd Nørves betraktninger omkring fotballsesongen og okkupasjonsåret 1940
+    disposition: reviewed
+    targets: []
+    status: normalized
+  - id: retro-068
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "22"
+    type: retrospective_claim
+    claim:
+      text: Veteranpanelets tilbakeblikk og historiske beretninger fra 1914–1939
+    disposition: reviewed
+    targets: []
+    status: normalized
+  - id: fix-069
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-62fa
+      page: "3"
+    type: fixture
+    claim:
+      text: Avstemt serietabell for 1. divisjon Møre distrikt 1949/50 våren 1950
+    disposition: already_documented
+    targets: []
+    status: normalized
+  - id: fix-070
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+      page: "2"
+    type: fixture
+    claim:
+      text: Avstemt serietabell og høstterminliste for 1. divisjon Møre distrikt 1950/51
+    disposition: already_documented
+    targets: []
+    status: normalized
+  - id: match-071
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+      page: "12"
+    type: match_result
+    claim:
+      text: AaFK B kretsmester for urene lag etter 6–1 over Rollon B
+    disposition: non_senior
+    targets: []
+    status: normalized
+  - id: match-072
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+      page: "10"
+    type: match_result
+    claim:
+      text: Spjelkavik jr vant 1–0 over AaFK jr i kretsfinalen 30. august 1950
+    disposition: non_senior
+    targets: []
+    status: normalized
+  - id: match-073
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+      page: "10"
+    type: match_result
+    claim:
+      text: Privatkamp AaFK A mot AaFK Old boys 2–1
+    disposition: no_structured_action
+    targets: []
+    status: normalized
+  - id: fact-074
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-62fa
+      page: "3"
+    type: season_fact
+    claim:
+      text: AaFK endte på 2. plass i 1. divisjon Møre distrikt 1949/50 med 15 poeng
+    disposition: already_documented
+    targets: []
     status: normalized
 unresolved: []
 createdAt: 2026-08-16

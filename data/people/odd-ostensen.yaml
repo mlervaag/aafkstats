@@ -1,0 +1,38 @@
+id: odd-ostensen
+name: Odd Østensen
+roles:
+  - id: banekomite-1950-1951
+    category: board
+    title: Medlem av banekomiteen
+    body: Banekomiteen
+    from: "1950"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+        page: "6"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
+  - id: styremedlem-hovedstyret-1951
+    category: board
+    title: Styremedlem
+    body: Hovedstyret
+    from: "1951"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+    page: "6"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+    page: "31"

@@ -1,0 +1,26 @@
+id: ivar-ostensen
+name: Ivar Østensen
+roles:
+  - id: redaksjonskomite-medlemsbladet-1950-1951
+    category: administration
+    title: Medlem av redaksjonskomiteen
+    body: Medlemsbladet
+    from: "1950"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+        page: "16"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+    page: "16"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+    page: "31"

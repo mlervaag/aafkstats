@@ -31,26 +31,26 @@
 
 ## Review Coverage
 
-- **Tilgjengelige sider:** 192
-- **Visuelt gjennomgåtte sider:** 192
+- **Tilgjengelige sider:** 96
+- **Visuelt gjennomgåtte sider:** 96
 - **Dekning:** 100% (Fullført)
 
 ### Gjennomførte Passes
 
 | Pass | Status | Funn | Notat |
 |---|---|---|---|
-| `facsimile_review` | `complete` | 96 | 100 % visuell sidekontroll gjennomført mot faksimile for alle 6 hefter (96 sider). |
-| `explicit_results` | `complete` | 8 | Kampresultater for 1. divisjon våren og høsten 1950, privatkamper og NM cup. |
-| `people_and_roles` | `complete` | 24 | Nye og berikede personer, spillere, tillitsvalgte og æresmedlemmer. |
-| `organization` | `complete` | 2 | Organisasjonsbilde for 1950 og årsmøtevalg 29. november 1950 for 1951. |
-| `retrospectives_and_claims` | `complete` | 4 | Historiske memoarer og tilbakeblikk (1940-sesongen, veteranpanel 1913-1939). |
+| `facsimile_review` | `complete` | 96 | 100 % visuell sidekontroll gjennomført mot faksimile for alle 6 hefter (96 unike sider). |
+| `explicit_results` | `complete` | 10 | Kampresultater for 1. divisjon våren og høsten 1950, privatkamper og NM cup. |
+| `people_and_roles` | `complete` | 56 | Nye og berikede personer, spillere, overganger, tillitsvalgte og æresmedlemmer. |
+| `organization` | `complete` | 2 | Organisasjonsbilde for 1950 og årsmøtevalg 29. november 1950 for arbeidsåret 1951. |
+| `retrospectives_and_claims` | `complete` | 8 | Historiske memoarer og retrospektive kampoppføringer (1927, 1932, krigsåret 1940, veteranpanel). |
 | `observations` | `complete` | 3 | Kråmyra første spadestikk/sprengning, Kråmyr-uka november 1950, Dameavdelingens stiftelse 1946. |
 | `fixture_reconciliation` | `complete` | 6 | Avstemt serietabeller og oppsett for 1. divisjon Møre distrikt 1949/50 og 1950/51. |
 
 ## Findings
 
-- **Totalt antall funn:** 30
-- **Normaliserte:** 30
+- **Totalt antall funn:** 74
+- **Normaliserte:** 74
 - **Uavklarte / usikre:** 0
 - **Mangler disposisjon:** 0
 
@@ -59,30 +59,33 @@
 | Kategori | Antall |
 |---|---|
 | `person` | 1 |
-| `person_role` | 23 |
-| `organization` | 1 |
-| `match_result` | 2 |
+| `person_role` | 56 |
+| `organization` | 2 |
+| `match_result` | 7 |
 | `historical_observation` | 3 |
+| `retrospective_claim` | 2 |
+| `fixture` | 2 |
+| `season_fact` | 1 |
 
 ## Matches
 
-- **Kildedokumenterte resultater (source-results):** 8
+- **Kildedokumenterte resultater (source-results):** 17
 - **Koblede kilderesultater:** 0
 - **Nye kanoniske kamper:** 0
 - **Berikede kanoniske kamper:** 20
 
 ## Persons and Roles
 
-- **Nye personer:** 10
-- **Eksisterende personer kildeberiket:** 14
-- **Kildereferanser lagt til på personer:** 27
-- **Roller opprettet:** 30
+- **Nye personer:** 19
+- **Eksisterende personer kildeberiket:** 18
+- **Kildereferanser lagt til på personer:** 47
+- **Roller opprettet:** 54
 - **Roller kildeberiket:** 3
 - **Æresroller opprettet:** 2
 
 ## Organization
 
-- **Organisasjons-snapshots lagt til:** 1
+- **Organisasjons-snapshots lagt til:** 2
 
 ## Historical Observations
 

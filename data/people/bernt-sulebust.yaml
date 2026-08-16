@@ -76,6 +76,24 @@ roles:
         note: "Lest maskinelt fra spalte 3 på siden (regel: role_then_name)."
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
       siden.
+  - id: redaksjonskomite-medlemsbladet-1950-1951
+    category: administration
+    title: Medlem av redaksjonskomiteen
+    body: Medlemsbladet
+    from: "1950"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+        page: "12"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
   - {
       id: gullmerkeinnehaver-2008,
       category: honorary,

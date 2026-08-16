@@ -1,0 +1,32 @@
+id: knut-hjelle
+name: Knut Hjelle
+roles:
+  - id: a-lagsspiller-1950
+    category: player
+    title: A-lagsspiller
+    from: "1950"
+    to: "1950"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
+  - id: overgang-volda-1950
+    category: player
+    title: Spiller
+    from: "1950"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+        page: "12"
+        fields:
+          - title
+          - from
+    note: Meldte overgang fra AaFK til Volda T. & I.L. høsten 1950.
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+    page: "12"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+    page: "31"
