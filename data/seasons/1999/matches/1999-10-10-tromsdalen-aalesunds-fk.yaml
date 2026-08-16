@@ -1,0 +1,46 @@
+id: 1999-10-10-tromsdalen-aalesunds-fk
+date: 1999-10-10
+dateConfidence: exact
+kickoff: 13:00
+status: played
+competition:
+  id: andredivisjon
+  season: 1999
+  stage: promotion_playoff
+home:
+  clubId: tromsdalen
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers:
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83145&underside=kamper
+    retrievedAt: 2026-08-12
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: Lest av et menneske fra turneringssiden. NFF tillater ikke automatisert henting.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: >-
+  Returkampen. AaFK tapte kvalifiseringen 4-5 sammenlagt og ble stående i 2.
+  divisjon, slik sesongfila allerede sier med promoted: false.
+
+  Banen er utelatt med vilje. Turneringssiden oppgir «TUIL Arena», men den
+  åpnet i 2009 og kan ikke ha vært banen i 1999. Kilden viser dagens navn, ikke
+  navnet som gjaldt på kampdatoen.
