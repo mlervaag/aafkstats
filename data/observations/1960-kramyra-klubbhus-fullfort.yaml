@@ -9,6 +9,8 @@ personIds:
   - helge-lunde
 seasonYears:
   - 1960
+venueIds:
+  - kramyra-stadion
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
     page: "62"
@@ -17,6 +19,7 @@ sources:
       - text
       - date
       - seasonYears
+      - venueIds
       - personIds
   - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
     page: "79"
@@ -24,3 +27,4 @@ sources:
       - title
       - text
       - seasonYears
+      - venueIds

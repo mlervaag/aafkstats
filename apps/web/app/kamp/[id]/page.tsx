@@ -12,6 +12,9 @@ import { breadcrumbJsonLd, matchJsonLd } from "@/lib/jsonld";
 import { matchDescription, matchTitle, pageMetadata } from "@/lib/metadata";
 import type { MatchMetaInput } from "@/lib/metadata";
 import { hasBeenPlayed, statusNote } from "@/lib/status";
+import { HistoricalObservations } from "@/components/HistoricalObservations";
+import { getMatchObservations } from "@/lib/historical-observations";
+import { getSourceTitles } from "@/lib/people";
 
 /**
  * Alle kampsidene forhåndsgenereres.
@@ -255,6 +258,9 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
   if (!match) notFound();
   const { previous, next } = loadNeighbours(match);
   const contributions = loadContributions(match.id, "match");
+  // Observasjonene har pekt på kamper siden PR 142, men ingen side viste dem.
+  // Publikumsrekorden fra 1962 lå i arkivet uten å stå på kampen den gjaldt.
+  const observations = getMatchObservations(match.id);
 
   const events = json<EventRow[]>(match.events, []);
   const lineups = json<{ home?: Lineup; away?: Lineup }>(match.lineups, {});
@@ -486,6 +492,8 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
           ))}
         </section>
       )}
+
+      <HistoricalObservations observations={observations} titles={getSourceTitles()} className="" />
 
       <Contributions contributions={contributions} />
 

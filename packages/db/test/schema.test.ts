@@ -34,3 +34,37 @@ describe("core_played", () => {
     expect(publicViews).not.toMatch(/status\s*=\s*'played'/);
   });
 });
+
+/**
+ * Viewene uten `core_`-prefiks er den offentlige kontrakten, og README-en her
+ * lister dem. Lista sto ufullstendig i flere måneder — `historical_observations`,
+ * `verification_cases`, `match_stats`, `coach_spells`, `declared_coach_spells` og
+ * `standings_progression` ble alle lagt til uten å bli skrevet inn — fordi
+ * ingenting kontrollerte den. Nå gjør denne testen det.
+ */
+describe("README-lista over den offentlige kontrakten", () => {
+  it("nevner nøyaktig de viewene skjemaet lager", () => {
+    const readme = readFileSync(resolve(import.meta.dirname, "../README.md"), "utf8");
+    const start = readme.indexOf("kontrakten:");
+    const end = readme.indexOf("Spørrefunksjonen ser bare viewene.", start);
+    expect(start, "fant ikke kontraktlista i README").toBeGreaterThan(-1);
+    expect(end, "fant ikke slutten på kontraktlista i README").toBeGreaterThan(start);
+
+    // `reports` er en FTS-tabell, ikke et view, og nevnes i lista som nettopp det.
+    const listed = new Set(
+      [...readme.slice(start, end).matchAll(/`([a-z_]+)`/g)].map((m) => m[1]!),
+    );
+    listed.delete("reports");
+
+    const inSchema = new Set(
+      [...schema.matchAll(/CREATE VIEW ([a-z_]+)/g)]
+        .map((m) => m[1]!)
+        .filter((name) => !name.startsWith("core_")),
+    );
+
+    expect({
+      mangler: [...inSchema].filter((name) => !listed.has(name)).sort(),
+      finnesIkke: [...listed].filter((name) => !inSchema.has(name)).sort(),
+    }).toEqual({ mangler: [], finnesIkke: [] });
+  });
+});

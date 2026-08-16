@@ -60,6 +60,26 @@ describe("dokumentasjonen mot faktisk database", () => {
     db.close();
   });
 
+  it("dokumenterer nøyaktig de viewene som finnes", async () => {
+    // Kolonnetesten over itererer over `views` og ser derfor bare inn i de
+    // viewene som allerede er dokumentert. Et helt view som legges til i
+    // schema.sql uten å skrives inn her, var usynlig for den — og
+    // `verification_cases` lå udokumentert fra PR 126 til PR 165 uten at noe
+    // feilet. Denne testen går andre veien: fra databasen til dokumentasjonen.
+    const { createRequire } = await import("node:module");
+    const { DatabaseSync } = createRequire(import.meta.url)("node:sqlite");
+    const db = new DatabaseSync(dbPath, { readOnly: true });
+    const rows = db.prepare(
+      `SELECT name FROM sqlite_master WHERE type = 'view' AND name NOT LIKE 'core!_%' ESCAPE '!' ORDER BY name`,
+    ).all() as { name: string }[];
+    db.close();
+
+    const documented = new Set(views.map((view) => view.name));
+    const udokumentert = rows.map((row) => row.name).filter((name) => !documented.has(name));
+
+    expect({ udokumentert }).toEqual({ udokumentert: [] });
+  });
+
   it("alle eksempelspørringene kjører", async () => {
     // Et eksempel som ikke kjører er verre enn ingen eksempler: modellen kopierer
     // mønsteret og får feil, og brukeren ser en spørring som ikke virker på /data.

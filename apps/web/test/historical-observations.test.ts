@@ -3,7 +3,8 @@ import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
-import { getPersonObservations, getSeasonObservations, getSeasonSources } from "../lib/historical-observations.js";
+import { all, open } from "@aafkstats/db";
+import { getMatchObservations, getPersonObservations, getSeasonObservations, getSeasonSources, getVenueObservations } from "../lib/historical-observations.js";
 import { getPersonRoles } from "../lib/people.js";
 import { searchHistoricalObservations } from "../lib/search.js";
 import { getSourceObservationUsages } from "../lib/sources.js";
@@ -63,5 +64,42 @@ describe("historiske observasjoner", () => {
     ["Romsdalsturneen", "georg-haller-romsdalsturneen"],
   ])("søker etter %s", (query, id) => {
     expect(searchHistoricalObservations(query).map((entry) => entry.observationId)).toContain(id);
+  });
+});
+
+describe("relasjoner med en side å stå på", () => {
+  it("viser publikumsrekorden på kampen den gjaldt", () => {
+    // Relasjonen fantes fra PR 142, men ingen side leste den. Faktumet lå i
+    // basen uten å stå på kampen det handlet om.
+    expect(getMatchObservations("1962-11-04-aalesunds-fk-gjovik-lyn")).toEqual(expect.arrayContaining([
+      expect.objectContaining({ id: "1962-publikumsrekord-12000-aksla" }),
+    ]));
+  });
+
+  it("viser Kråmyra-funnene på banen", () => {
+    const ids = getVenueObservations("kramyra-stadion").map((entry) => entry.id);
+    expect(ids).toContain("1955-kramyra-forste-bruk");
+  });
+
+  it("gir hver observasjon en url", () => {
+    // Søket filtrerer bort rader uten url. Var kjeden ufullstendig, ville
+    // observasjonen forsvunnet stille i stedet for å feile.
+    const db = open();
+    try {
+      const rows = all<{ id: string; url: string | null }>(db, "SELECT id, url FROM historical_observations");
+      expect(rows.length).toBeGreaterThan(0);
+      expect(rows.filter((row) => row.url === null)).toEqual([]);
+    } finally { db.close(); }
+  });
+
+  it("leser observasjonene kronologisk på både person og sesong", () => {
+    // Udaterte funn står sist: de kan ikke plasseres på tidslinjen, og skal
+    // ikke innlede den heller.
+    const dates = (entries: { date: string | null }[]) => entries.map((entry) => entry.date);
+    for (const entries of [getPersonObservations("georg-haller"), getSeasonObservations(1920)]) {
+      const actual = dates(entries);
+      const expected = [...actual].sort((a, b) => (a ?? "\uffff").localeCompare(b ?? "\uffff"));
+      expect(actual).toEqual(expected);
+    }
   });
 });
