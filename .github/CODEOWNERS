@@ -1,0 +1,13 @@
+# Eierskap til de filene som avgjør hva som slipper gjennom bevaringsvernet.
+#
+# Unntaksfilen er den eneste veien rundt kravet om streng historisk additivitet.
+# `resolveAuthorizedExceptions` krever allerede at et unntak finnes i base-commit
+# før det gjelder — denne filen sikrer at endringen som innfører unntaket
+# faktisk blir sett av et menneske.
+/data/preservation-exceptions.yaml @mlervaag
+
+# Guardrails og innhøstingsmotoren. Endres disse, endres definisjonen av hva
+# som er en godkjent innhøsting.
+/packages/schema/src/historical/ @mlervaag
+/packages/schema/src/preservation-exceptions.ts @mlervaag
+/.github/workflows/ @mlervaag

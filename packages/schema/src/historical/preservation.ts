@@ -11,7 +11,7 @@ export type PreservationStatus =
   | "APPROVED_EXCEPTION";
 
 export interface PreservationChangeDetail {
-  entity: "person";
+  entity: "person" | "source" | "source_result" | "match" | "observation" | "organization_snapshot";
   id: string;
   path: string;
   changeType: "remove" | "mutate" | "delete_file" | "add" | "enrich";

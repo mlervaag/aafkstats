@@ -23,47 +23,10 @@ export interface ReviewParser {
   parseReview(content: string, options?: { knownSourceIds?: Set<string> }): ReviewValidationResult;
 }
 
-export const APPROVED_DISPOSITIONS = new Set([
-  // Kampdisposisjoner
-  "source_result_created",
-  "canonical_created",
-  "canonical_enriched",
-  "fixture_only",
-  "outcome_only",
-  "result_without_date",
-  "date_without_result",
-  "already_documented",
-  "duplicate_publication",
-  "reprint",
-  "identity_uncertain",
-  "not_a_team",
-  "no_structured_action",
-  // Persondisposisjoner & milepæler (fra autoritativ runbook #157)
-  "person_created",
-  "person_enriched",
-  "role_created",
-  "role_enriched",
-  "honor_created",
-  "honor_enriched",
-  "honorary_role_created",
-  "milestone_created",
-  "mention_linked",
-  "observation_created",
-  "historical_observation_created",
-  "organization_snapshot_created",
-  "conflict_registered",
-  "conflict_resolved",
-  "verified_correct",
-  "non_senior",
-  // Prosess- og inventarstatuser
-  "reviewed",
-  "in_scope",
-  "out_of_scope",
-  "unavailable",
-  "source_unavailable",
-  "duplicate_or_reprint",
-  "duplicate",
-]);
+import { historicalDispositionEnum } from "./harvest-finding.js";
+
+export const APPROVED_DISPOSITIONS = new Set<string>(historicalDispositionEnum.options);
+
 
 // Ignorer standard HTML-tagger i markdown
 const HTML_TAG_NAMES = new Set(["br", "hr", "p", "div", "span", "details", "summary", "code", "pre", "b", "i", "strong", "em", "table", "tr", "td", "th", "tbody", "thead"]);
@@ -72,6 +35,44 @@ const HTML_TAG_NAMES = new Set(["br", "hr", "p", "div", "span", "details", "summ
 const LITERAL_PLACEHOLDER_REGEX = /\b(?:TODO|XXX|TBD|FIXME)\b|\[TBD\]|<PLACEHOLDER>|<TODO>/i;
 // Bundet tag-regex med maksimal lengde 50 for å unngå polynomial regex runtime
 const BOUNDED_TAG_REGEX = /<([A-ZÆØÅa-zæøå0-9_ -]{1,50})>/g;
+
+/**
+ * Kolonneoverskrifter som identifiserer kilde- og disposisjonskolonnen.
+ *
+ * Overskriftene tillates å ha en presisering etter seg — «Kilde (sourceId)»,
+ * «Disposisjon / handling» — siden den eksakte matchen tidligere gjorde at hele
+ * inventartabellen falt ut av parsingen uten et eneste varsel.
+ */
+const SOURCE_ID_HEADER_REGEX = /^(?:sourceid|kilde-?id|kilde)\b/i;
+const DISPOSITION_HEADER_REGEX = /^(?:disposisjon|disposition|handling|status)\b/i;
+
+/**
+ * Normaliserer én disposisjonscelle til et sammenlignbart token.
+ */
+function normalizeDispositionToken(raw: string): string {
+  return raw
+    .replace(/\([^)]*\)/g, "")
+    // NB: understrek strippes ikke — den er en del av disposisjonsnavnene.
+    .replace(/[`<>[\]*]/g, "")
+    .trim()
+    .toLowerCase();
+}
+
+/**
+ * Trekker disposisjonene ut av en tabellcelle.
+ *
+ * Cellen kan inneholde flere disposisjoner skilt med skråstrek eller komma, og
+ * gjerne en parentes med prosa etterpå. Tidligere ble cellen delt på mellomrom
+ * også, slik at «reviewed (se note)» ga to falske feil og presset
+ * dokumentforfatteren til å skrive etter parseren i stedet for omvendt.
+ */
+function extractDispositionTokens(cell: string): string[] {
+  return cell
+    .split(/[/,]/)
+    .map(normalizeDispositionToken)
+    .map((token) => token.split(/\s+/)[0] ?? "")
+    .filter((token) => token.length > 0 && !token.startsWith("---") && !token.startsWith("==="));
+}
 
 /**
  * Standard Markdown v1 review parser.
@@ -89,6 +90,7 @@ export const markdownV1Parser: ReviewParser = {
     let uncheckedDodCount = 0;
     let pagesReviewedClaim: { reviewed: number; total: number; isFull: boolean } | undefined;
 
+    let inCodeFence = false;
     let inTable = false;
     let sourceIdColIndex = -1;
     let dispositionColIndex = -1;
@@ -99,7 +101,14 @@ export const markdownV1Parser: ReviewParser = {
       const lineNum = i + 1;
 
       // 1. Check placeholders
-      if (!line.includes("APPROVED_DISPOSITIONS") && !line.includes("LITERAL_PLACEHOLDER_REGEX")) {
+      // Kodeblokker og inline-kode er dokumentasjon av parseren selv, ikke
+      // uferdig mal. Alt annet kontrolleres — tidligere holdt det å nevne
+      // «APPROVED_DISPOSITIONS» i en linje for å slå av kontrollen helt.
+      if (line.trim().startsWith("```")) {
+        inCodeFence = !inCodeFence;
+      }
+
+      if (!inCodeFence) {
         const literalMatch = line.match(LITERAL_PLACEHOLDER_REGEX);
         if (literalMatch) {
           placeholdersFound.push(literalMatch[0]);
@@ -127,10 +136,9 @@ export const markdownV1Parser: ReviewParser = {
       // 2. Check page coverage pattern KUN når linjen eksplisitt gjelder visuell sidekontroll
       const lowerLine = line.toLowerCase();
       if (
-        (lowerLine.includes("sider visuelt kontrollert") ||
-          lowerLine.includes("visuell sidekontroll") ||
-          lowerLine.includes("sidekontroll")) &&
-        !pagesReviewedClaim
+        lowerLine.includes("sider visuelt kontrollert") ||
+        lowerLine.includes("visuell sidekontroll") ||
+        lowerLine.includes("sidekontroll")
       ) {
         const delimIdx = Math.max(line.indexOf(":"), line.indexOf("|"));
         const textAfter = delimIdx >= 0 ? line.slice(delimIdx + 1) : line;
@@ -139,7 +147,17 @@ export const markdownV1Parser: ReviewParser = {
           const reviewed = Number.parseInt(pageMatch[1], 10);
           const total = Number.parseInt(pageMatch[2], 10);
           const isFull = reviewed === total && total > 0;
-          pagesReviewedClaim = { reviewed, total, isFull };
+
+          // Aggregeres over alle krav i dokumentet. En batch over fire årganger
+          // har ett krav per årgang, og tidligere avgjorde den første linjen
+          // hele vurderingen.
+          pagesReviewedClaim = pagesReviewedClaim
+            ? {
+                reviewed: pagesReviewedClaim.reviewed + reviewed,
+                total: pagesReviewedClaim.total + total,
+                isFull: pagesReviewedClaim.isFull && isFull,
+              }
+            : { reviewed, total, isFull };
 
           if (!isFull) {
             issues.push({
@@ -167,16 +185,16 @@ export const markdownV1Parser: ReviewParser = {
         const cells = rawCells.map((c) => c.trim());
 
         // Header-deteksjon
-        const isHeaderRow = cells.some((c) => /^(?:sourceid|kilde-id|kilde|disposisjon|disposition|handling|status)$/i.test(c));
+        const isHeaderRow = cells.some((c) => SOURCE_ID_HEADER_REGEX.test(c) || DISPOSITION_HEADER_REGEX.test(c));
         const isSeparatorRow = cells.every((c) => /^:?-+:?$/.test(c));
 
         if (isHeaderRow) {
           inTable = true;
-          sourceIdColIndex = cells.findIndex((c) => /^(?:sourceid|kilde-id|^kilde)$/i.test(c));
-          dispositionColIndex = cells.findIndex((c) => /^(?:disposisjon|disposition|handling|status)$/i.test(c));
+          sourceIdColIndex = cells.findIndex((c) => SOURCE_ID_HEADER_REGEX.test(c));
+          dispositionColIndex = cells.findIndex((c) => DISPOSITION_HEADER_REGEX.test(c));
           isSourceInventoryTable = sourceIdColIndex !== -1 && (
             dispositionColIndex !== -1 ||
-            cells.some((c) => /^(?:volum|hefte|extraction|sider)$/i.test(c))
+            cells.some((c) => /^(?:volum|hefte|extraction|sider)\b/i.test(c))
           );
         } else if (!isSeparatorRow && inTable) {
           // Data-rad
@@ -184,32 +202,42 @@ export const markdownV1Parser: ReviewParser = {
             const rawSourceId = cells[sourceIdColIndex]!;
             const cleanSourceId = rawSourceId.replace(/[`<>[\]]/g, "").trim();
 
-            if (cleanSourceId && !cleanSourceId.startsWith("---") && !cleanSourceId.includes(" ")) {
-              if (options?.knownSourceIds) {
-                if (options.knownSourceIds.has(cleanSourceId)) {
-                  sourceIdsFound.add(cleanSourceId);
-                } else if (!cleanSourceId.startsWith("sourceid-") && cleanSourceId !== "sourceid") {
-                  issues.push({
-                    type: "unknown_source",
-                    message: `Ukjent sourceId «${cleanSourceId}» oppgitt i tabell`,
-                    line: lineNum,
-                  });
-                }
+            if (cleanSourceId && !cleanSourceId.startsWith("---")) {
+              if (cleanSourceId.includes(" ")) {
+                // Tidligere ble slike celler forkastet i stillhet, slik at en
+                // hel inventarrad kunne forsvinne ut av regnskapet.
+                issues.push({
+                  type: "unknown_source",
+                  message: `Kilde-ID «${cleanSourceId}» inneholder mellomrom og er ikke en gyldig sourceId`,
+                  line: lineNum,
+                });
               } else {
-                sourceIdsFound.add(cleanSourceId);
-              }
+                if (options?.knownSourceIds) {
+                  if (options.knownSourceIds.has(cleanSourceId)) {
+                    sourceIdsFound.add(cleanSourceId);
+                  } else {
+                    issues.push({
+                      type: "unknown_source",
+                      message: `Ukjent sourceId «${cleanSourceId}» oppgitt i tabell`,
+                      line: lineNum,
+                    });
+                  }
+                } else {
+                  sourceIdsFound.add(cleanSourceId);
+                }
 
-              // Hvis Source Inventory-tabell, hent eksplisitt review-status fra disposition-kolonnen
-              if (isSourceInventoryTable && dispositionColIndex >= 0 && dispositionColIndex < cells.length) {
-                const dispRaw = cells[dispositionColIndex]!.replace(/[`<>[\]]/g, "").trim().toLowerCase();
-                if (dispRaw === "reviewed") {
-                  sourceReviewStatuses.set(cleanSourceId, "reviewed");
-                } else if (dispRaw === "duplicate" || dispRaw === "reprint" || dispRaw === "duplicate_publication" || dispRaw === "duplicate_or_reprint") {
-                  sourceReviewStatuses.set(cleanSourceId, "duplicate_or_reprint");
-                } else if (dispRaw === "out_of_scope") {
-                  sourceReviewStatuses.set(cleanSourceId, "out_of_scope");
-                } else if (dispRaw === "unavailable" || dispRaw === "source_unavailable") {
-                  sourceReviewStatuses.set(cleanSourceId, "unavailable");
+                // Hvis Source Inventory-tabell, hent eksplisitt review-status fra disposition-kolonnen
+                if (isSourceInventoryTable && dispositionColIndex >= 0 && dispositionColIndex < cells.length) {
+                  const dispRaw = normalizeDispositionToken(cells[dispositionColIndex]!);
+                  if (dispRaw === "reviewed") {
+                    sourceReviewStatuses.set(cleanSourceId, "reviewed");
+                  } else if (dispRaw === "duplicate" || dispRaw === "reprint" || dispRaw === "duplicate_publication" || dispRaw === "duplicate_or_reprint") {
+                    sourceReviewStatuses.set(cleanSourceId, "duplicate_or_reprint");
+                  } else if (dispRaw === "out_of_scope") {
+                    sourceReviewStatuses.set(cleanSourceId, "out_of_scope");
+                  } else if (dispRaw === "unavailable" || dispRaw === "source_unavailable") {
+                    sourceReviewStatuses.set(cleanSourceId, "unavailable");
+                  }
                 }
               }
             }
@@ -219,16 +247,10 @@ export const markdownV1Parser: ReviewParser = {
           if (dispositionColIndex >= 0 && dispositionColIndex < cells.length) {
             const dispCell = cells[dispositionColIndex]!;
             if (dispCell && !dispCell.startsWith("---")) {
-              // Trekk ut alle backtick-tokens eller ord separert med skråstrek/mellomrom
-              const tokens = dispCell
-                .split(/[/,\s]+/)
-                .map((t) => t.replace(/[`<>[\]]/g, "").trim().toLowerCase())
-                .filter((t) => t.length > 0 && !t.startsWith("---") && !t.startsWith("==="));
-
-              for (const token of tokens) {
+              for (const token of extractDispositionTokens(dispCell)) {
                 if (APPROVED_DISPOSITIONS.has(token)) {
                   dispositionsFound.add(token);
-                } else if (!token.startsWith("disposition") && !token.startsWith("reviewed/duplicate")) {
+                } else {
                   issues.push({
                     type: "invalid_disposition",
                     message: `Ugyldig disposisjon «${token}» i tabell`,

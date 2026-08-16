@@ -11,7 +11,14 @@ import { slug, sourceRef } from "./primitives.js";
 export const preservationChangeType = z.enum(["remove", "mutate", "delete_file"]);
 export type PreservationChangeType = z.infer<typeof preservationChangeType>;
 
-export const preservationExceptionEntity = z.enum(["person"]);
+export const preservationExceptionEntity = z.enum([
+  "person",
+  "source",
+  "source_result",
+  "match",
+  "observation",
+  "organization_snapshot",
+]);
 export type PreservationExceptionEntity = z.infer<typeof preservationExceptionEntity>;
 
 /**
@@ -49,6 +56,14 @@ export const preservationExceptionsFile = z
 export type PreservationExceptionsFile = z.infer<typeof preservationExceptionsFile>;
 
 /**
+ * Parser og validerer innholdet i en unntaksfil.
+ */
+export function parsePreservationExceptions(rawText: string): PreservationException[] {
+  const parsedYaml = parseYaml(rawText, { schema: "core" }) ?? {};
+  return preservationExceptionsFile.parse(parsedYaml).exceptions;
+}
+
+/**
  * Leser og validerer unntaksfilen. Returnerer en tom liste dersom filen ikke eksisterer.
  */
 export async function loadPreservationExceptions(
@@ -61,7 +76,49 @@ export async function loadPreservationExceptions(
   }
 
   const rawText = await readFile(filePath, "utf8");
-  const parsedYaml = parseYaml(rawText, { schema: "core" }) ?? {};
-  const validated = preservationExceptionsFile.parse(parsedYaml);
-  return { exceptions: validated.exceptions, fileFound: true };
+  return { exceptions: parsePreservationExceptions(rawText), fileFound: true };
+}
+
+/**
+ * Identiteten til et unntak — det som avgjør om to oppføringer gir samme
+ * dispensasjon. Begrunnelse og kildehenvisninger kan endres uten at
+ * dispensasjonen regnes som en annen.
+ */
+export function preservationExceptionKey(ex: PreservationException): string {
+  const normalizedPath = ex.path.replace(/\[/g, "/").replace(/\]/g, "").replace(/\./g, "/");
+  return `${ex.entity}|${ex.id}|${normalizedPath}|${ex.change}`;
+}
+
+export interface AuthorizedExceptionsResult {
+  /** Unntak som fantes i BASE og dermed er godkjent utenfor denne endringen. */
+  authorized: PreservationException[];
+  /** Unntak som er lagt til i selve endringen, og som derfor ikke gjelder. */
+  selfApproved: PreservationException[];
+}
+
+/**
+ * Skiller godkjente unntak fra selvgodkjente.
+ *
+ * Et unntak gjelder bare dersom det allerede fantes i BASE. Uten dette kunne
+ * samme commit både slette historikk og legge inn dispensasjonen som godkjenner
+ * slettingen — porten ville hatt hengelåsen på innsiden. Et nytt unntak må
+ * derfor inn via en egen endring som blir vurdert for seg.
+ */
+export function resolveAuthorizedExceptions(
+  baseExceptions: PreservationException[],
+  headExceptions: PreservationException[],
+): AuthorizedExceptionsResult {
+  const baseKeys = new Set(baseExceptions.map(preservationExceptionKey));
+  const authorized: PreservationException[] = [];
+  const selfApproved: PreservationException[] = [];
+
+  for (const ex of headExceptions) {
+    if (baseKeys.has(preservationExceptionKey(ex))) {
+      authorized.push(ex);
+    } else {
+      selfApproved.push(ex);
+    }
+  }
+
+  return { authorized, selfApproved };
 }

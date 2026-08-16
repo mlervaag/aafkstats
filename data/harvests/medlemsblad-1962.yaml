@@ -1,0 +1,963 @@
+version: 1
+id: medlemsblad-1962
+title: AaFK Medlemsblad 1962 (Vol. 13, nr. 1–6)
+profile: member_magazine
+mode: reharvest
+status: audited
+scope:
+  years:
+    from: 1962
+    to: 1962
+  sourceIds:
+    - medlemsblad-for-aalesunds-fotb-1962-5664
+  parentSourceId: aafk-medlemsblad
+sourceInventory:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+    title: Medlemsblad for Aalesunds fotballklubb. 1962 Vol. 13 Nr. 1-6
+    year: 1962
+    reviewStatus: reviewed
+coverage:
+  mode: pages
+  expected: 84
+  reviewed: 0
+passes:
+  facsimile_review:
+    status: pending
+    findings: 0
+    note: Ikke gjennomført på nytt i denne rekonstruksjonen.
+  explicit_results:
+    status: complete
+    findings: 22
+  people_and_roles:
+    status: complete
+    findings: 49
+  organization:
+    status: complete
+    findings: 1
+  retrospectives_and_claims:
+    status: complete
+    findings: 0
+  observations:
+    status: complete
+    findings: 2
+reviewMethod:
+  facsimile: required
+previousWork:
+  pullRequests:
+    - 151
+    - 153
+  notes:
+    - Kilden ble innhøstet før batchmanifestet fantes. Dette manifestet er en rekonstruksjon.
+findings:
+  - id: pers-001
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "80"
+    type: person
+    claim:
+      text: Alois Pfeiffer er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: alois-pfeiffer
+    status: normalized
+  - id: role-002
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "80"
+    type: person_role
+    claim:
+      text: "Alois Pfeiffer: Heldagstrener (1963-01-02)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: alois-pfeiffer
+        path: roles/heldagstrener-1963
+    status: normalized
+  - id: pers-003
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "78"
+    type: person
+    claim:
+      text: Arne Finsnes er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: arne-finsnes
+    status: normalized
+  - id: role-004
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "39"
+    type: person_role
+    claim:
+      text: "Arne Finsnes: Sølvmerke for 150 A-kamper (1962)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: arne-finsnes
+        path: roles/spillemerke-150-kamper
+    status: normalized
+  - id: pers-005
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "78"
+    type: person
+    claim:
+      text: Asbjørn Rutgerson er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: asbjorn-rutgerson
+    status: normalized
+  - id: role-006
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "81"
+    type: person_role
+    claim:
+      text: "Asbjørn Rutgerson: Diplom for 100 A-kamper (1962)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: asbjorn-rutgerson
+        path: roles/spillemerke-100-kamper
+    status: normalized
+  - id: role-007
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "2"
+    type: person_role
+    claim:
+      text: "Bjørn Riise: Leder og oppmann (1961–1962)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: bjorn-riise
+        path: roles/leder-guttelaget-1961-1962
+    status: normalized
+  - id: pers-008
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "55"
+    type: person
+    claim:
+      text: Einar Aas er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: einar-aas
+    status: normalized
+  - id: role-009
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "28"
+    type: person_role
+    claim:
+      text: "Einar Aas: Oppmann (1961–1962)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: einar-aas
+        path: roles/oppmann-1961-1962
+    status: normalized
+  - id: pers-010
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "79"
+    type: person
+    claim:
+      text: Einar With er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: einar-with
+    status: normalized
+  - id: role-011
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "79"
+    type: person_role
+    claim:
+      text: "Einar With: Juniorlandslagsspiller (1961–1962)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: einar-with
+        path: roles/juniorlandslag-1961
+    status: normalized
+  - id: pers-012
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "37"
+    type: person
+    claim:
+      text: Emil Sandø er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: emil-sando
+    status: normalized
+  - id: pers-013
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "63"
+    type: person
+    claim:
+      text: Erling Bjørge er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: erling-bjorge
+    status: normalized
+  - id: pers-014
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "2"
+    type: person
+    claim:
+      text: Finn Tollås er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: finn-tollas
+    status: normalized
+  - id: pers-015
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "63"
+    type: person
+    claim:
+      text: Frantz Løvmo er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: frantz-lovmo
+    status: normalized
+  - id: pers-016
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "5"
+    type: person
+    claim:
+      text: Hans J. Henriksen er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: hans-j-henriksen
+    status: normalized
+  - id: role-017
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "5"
+    type: person_role
+    claim:
+      text: "Hans J. Henriksen: Formann (1962–1964)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: hans-j-henriksen
+        path: roles/formann-1962-1964
+    status: normalized
+  - id: pers-018
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "78"
+    type: person
+    claim:
+      text: Harald Johansen er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: harald-johansen
+    status: normalized
+  - id: role-019
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "5"
+    type: person_role
+    claim:
+      text: "Hilda Orheim: Formann (1961–1962)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: hilda-orheim
+        path: roles/formann-dameavdelingen-1961-1962
+    status: normalized
+  - id: role-020
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "81"
+    type: person_role
+    claim:
+      text: "Jarle Kristoffersen: Diplom for 100 A-kamper (1962)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: jarle-kristoffersen
+        path: roles/spillemerke-100-kamper
+    status: normalized
+  - id: pers-021
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "78"
+    type: person
+    claim:
+      text: Johan Pedersen er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: johan-pedersen
+    status: normalized
+  - id: role-022
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "81"
+    type: person_role
+    claim:
+      text: "Johan Pedersen: Sølvmerke for 150 A-kamper (1962)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: johan-pedersen
+        path: roles/spillemerke-150-kamper
+    status: normalized
+  - id: pers-023
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "63"
+    type: person
+    claim:
+      text: Karsten Eriksen er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: karsten-eriksen
+    status: normalized
+  - id: pers-024
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "52"
+    type: person
+    claim:
+      text: Karsten Vadseth er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: karsten-vadseth
+    status: normalized
+  - id: role-025
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "52"
+    type: person_role
+    claim:
+      text: "Karsten Vadseth: Gullmerke for 200 A-kamper (1962)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: karsten-vadseth
+        path: roles/spillemerke-200-kamper
+    status: normalized
+  - id: pers-026
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "12"
+    type: person
+    claim:
+      text: Kjell Berentzen er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: kjell-berentzen
+    status: normalized
+  - id: pers-027
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "30"
+    type: person
+    claim:
+      text: Kjell Iversen er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: kjell-iversen
+    status: normalized
+  - id: role-028
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "81"
+    type: person_role
+    claim:
+      text: "Kjell Iversen: Diplom for 100 A-kamper (1962)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: kjell-iversen
+        path: roles/spillemerke-100-kamper
+    status: normalized
+  - id: pers-029
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "27"
+    type: person
+    claim:
+      text: Knut Gaaseide er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: knut-gaaseide
+    status: normalized
+  - id: pers-030
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "4"
+    type: person
+    claim:
+      text: Konrad Korsnes er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: konrad-korsnes
+    status: normalized
+  - id: pers-031
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "3"
+    type: person
+    claim:
+      text: Lauritz Giske er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: lauritz-giske
+    status: normalized
+  - id: role-032
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "5"
+    type: person_role
+    claim:
+      text: "Lilly Annaniassen: Sekretær (1961–1962)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: lilly-annaniassen
+        path: roles/sekretar-dameavdelingen-1961-1962
+    status: normalized
+  - id: role-033
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "5"
+    type: person_role
+    claim:
+      text: "Lollo Stub: Nestformann (1961–1962)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: lollo-stub
+        path: roles/nestformann-dameavdelingen-1961-1962
+    status: normalized
+  - id: pers-034
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "12"
+    type: person
+    claim:
+      text: Øivind Haagensen er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: oivind-haagensen
+    status: normalized
+  - id: pers-035
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "30"
+    type: person
+    claim:
+      text: Oskar Pedersen er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: oskar-pedersen
+    status: normalized
+  - id: pers-036
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "10"
+    type: person
+    claim:
+      text: Peder Puck er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: peder-puck
+    status: normalized
+  - id: role-037
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "10"
+    type: person_role
+    claim:
+      text: "Peder Puck: Kasserer (1962)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: peder-puck
+        path: roles/kasserer-1962
+    status: normalized
+  - id: pers-038
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "3"
+    type: person
+    claim:
+      text: Per Anker Eriksen er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: per-anker-eriksen
+    status: normalized
+  - id: pers-039
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "4"
+    type: person
+    claim:
+      text: Per Mogstad er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: per-mogstad
+    status: normalized
+  - id: pers-040
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "4"
+    type: person
+    claim:
+      text: Reidar Skarbøvik er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: reidar-skarbovik
+    status: normalized
+  - id: pers-041
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "73"
+    type: person
+    claim:
+      text: Reidar Steen Jensen er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: reidar-steen-jensen
+    status: normalized
+  - id: role-042
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "1"
+    type: person_role
+    claim:
+      text: "Reidar Steen Jensen: Spillende trener (1962)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: reidar-steen-jensen
+        path: roles/spillende-trener-1962
+    status: normalized
+  - id: pers-043
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "3"
+    type: person
+    claim:
+      text: Rolf Annaniassen er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: rolf-annaniassen
+    status: normalized
+  - id: role-044
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "5"
+    type: person_role
+    claim:
+      text: "Rolf Annaniassen: Sekretær (1962)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: rolf-annaniassen
+        path: roles/sekretaer-hovedstyret-1962
+    status: normalized
+  - id: pers-045
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "78"
+    type: person
+    claim:
+      text: Steinar Nedregård er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: steinar-nedregard
+    status: normalized
+  - id: pers-046
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "78"
+    type: person
+    claim:
+      text: Svein Rødland er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: svein-rodland
+    status: normalized
+  - id: pers-047
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "63"
+    type: person
+    claim:
+      text: Torbjørn Aarø er omtalt i medlemsbladet
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: torbjorn-aaro
+    status: normalized
+  - id: role-048
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "63"
+    type: person_role
+    claim:
+      text: "Torbjørn Aarø: Lagkaptein (1961–1962)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: torbjorn-aaro
+        path: roles/kaptein-1961-1962
+    status: normalized
+  - id: role-049
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "63"
+    type: person_role
+    claim:
+      text: "Torbjørn Aarø: Sølvfat for 300 A-kamper (1962)"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: torbjorn-aaro
+        path: roles/spillemerke-300-kamper
+    status: normalized
+  - id: sres-050
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "48"
+    type: match_result
+    claim:
+      text: 34 kilderesultater for sesongen 1962
+    disposition: source_result_created
+    targets:
+      - entity: source_result
+        id: medlemsblad-for-aalesunds-fotb-1962-5664
+    status: normalized
+  - id: kamp-051
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "27"
+    type: match_result
+    claim:
+      text: Kampbelegg for 1962-05-06-hodd-aalesunds-fk
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1962-05-06-hodd-aalesunds-fk
+    status: normalized
+  - id: kamp-052
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "27"
+    type: match_result
+    claim:
+      text: Kampbelegg for 1962-05-13-aalesunds-fk-clausenengen
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1962-05-13-aalesunds-fk-clausenengen
+    status: normalized
+  - id: kamp-053
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "27"
+    type: match_result
+    claim:
+      text: Kampbelegg for 1962-05-20-langevag-aalesunds-fk
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1962-05-20-langevag-aalesunds-fk
+    status: normalized
+  - id: kamp-054
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "27"
+    type: match_result
+    claim:
+      text: Kampbelegg for 1962-05-27-aalesunds-fk-molde-fk
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1962-05-27-aalesunds-fk-molde-fk
+    status: normalized
+  - id: kamp-055
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "27"
+    type: match_result
+    claim:
+      text: Kampbelegg for 1962-05-31-braatt-aalesunds-fk
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1962-05-31-braatt-aalesunds-fk
+    status: normalized
+  - id: kamp-056
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "27"
+    type: match_result
+    claim:
+      text: Kampbelegg for 1962-06-03-aalesunds-fk-kfk
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1962-06-03-aalesunds-fk-kfk
+    status: normalized
+  - id: kamp-057
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "27"
+    type: match_result
+    claim:
+      text: Kampbelegg for 1962-06-17-skarbovik-aalesunds-fk
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1962-06-17-skarbovik-aalesunds-fk
+    status: normalized
+  - id: kamp-058
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "40"
+    type: match_result
+    claim:
+      text: Kampbelegg for 1962-07-08-aalesunds-fk-zeljeznicar
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1962-07-08-aalesunds-fk-zeljeznicar
+    status: normalized
+  - id: kamp-059
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "48"
+    type: match_result
+    claim:
+      text: Kampbelegg for 1962-07-29-aalesunds-fk-hodd
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1962-07-29-aalesunds-fk-hodd
+    status: normalized
+  - id: kamp-060
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "48"
+    type: match_result
+    claim:
+      text: Kampbelegg for 1962-08-05-clausenengen-aalesunds-fk
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1962-08-05-clausenengen-aalesunds-fk
+    status: normalized
+  - id: kamp-061
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "75"
+    type: match_result
+    claim:
+      text: Kampbelegg for 1962-08-12-aalesunds-fk-nidelv
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1962-08-12-aalesunds-fk-nidelv
+    status: normalized
+  - id: kamp-062
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "48"
+    type: match_result
+    claim:
+      text: Kampbelegg for 1962-08-19-aalesunds-fk-langevag
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1962-08-19-aalesunds-fk-langevag
+    status: normalized
+  - id: kamp-063
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "50"
+    type: match_result
+    claim:
+      text: Kampbelegg for 1962-09-02-sk-brann-aalesunds-fk
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1962-09-02-sk-brann-aalesunds-fk
+    status: normalized
+  - id: kamp-064
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "53"
+    type: match_result
+    claim:
+      text: Kampbelegg for 1962-09-05-aalesunds-fk-sk-brann
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1962-09-05-aalesunds-fk-sk-brann
+    status: normalized
+  - id: kamp-065
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "48"
+    type: match_result
+    claim:
+      text: Kampbelegg for 1962-09-09-molde-fk-aalesunds-fk
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1962-09-09-molde-fk-aalesunds-fk
+    status: normalized
+  - id: kamp-066
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "48"
+    type: match_result
+    claim:
+      text: Kampbelegg for 1962-09-23-aalesunds-fk-braatt
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1962-09-23-aalesunds-fk-braatt
+    status: normalized
+  - id: kamp-067
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "48"
+    type: match_result
+    claim:
+      text: Kampbelegg for 1962-09-30-kfk-aalesunds-fk
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1962-09-30-kfk-aalesunds-fk
+    status: normalized
+  - id: kamp-068
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "50"
+    type: match_result
+    claim:
+      text: Kampbelegg for 1962-10-06-kvik-aalesunds-fk
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1962-10-06-kvik-aalesunds-fk
+    status: normalized
+  - id: kamp-069
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "50"
+    type: match_result
+    claim:
+      text: Kampbelegg for 1962-10-14-aalesunds-fk-kvik
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1962-10-14-aalesunds-fk-kvik
+    status: normalized
+  - id: kamp-070
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "74"
+    type: match_result
+    claim:
+      text: Kampbelegg for 1962-10-21-gjovik-lyn-aalesunds-fk
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1962-10-21-gjovik-lyn-aalesunds-fk
+    status: normalized
+  - id: kamp-071
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "74"
+    type: match_result
+    claim:
+      text: Kampbelegg for 1962-11-04-aalesunds-fk-gjovik-lyn
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1962-11-04-aalesunds-fk-gjovik-lyn
+    status: normalized
+  - id: obs-072
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "68"
+    type: historical_observation
+    claim:
+      text: 45 år siden 0–14 mot Brann
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: 1917-sk-brann-0-14
+    status: normalized
+  - id: obs-073
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "61"
+    type: historical_observation
+    claim:
+      text: "Publikumsrekord på Aksla stadion: 12 000 mot Gjøvik-Lyn"
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: 1962-publikumsrekord-12000-aksla
+    status: normalized
+  - id: org-074
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
+      page: "2"
+    type: organization
+    claim:
+      text: Organisasjonsbilde 1962 for aafk
+    disposition: organization_snapshot_created
+    targets:
+      - entity: organization_snapshot
+        id: 1962-aafk
+    status: normalized
+unresolved: []
+notes:
+  - Rekonstruert manifest. Funnene er utledet maskinelt fra kildereferansene som allerede står i arkivet, ikke fra en ny faksimilegjennomgang.
+  - "coverage.reviewed står derfor på 0 og passet facsimile_review er pending: ingen har kontrollert de 84 sidene visuelt under gjeldende runbook."
+  - Status er audited, ikke complete. Batchen kan først settes til complete når faksimilegjennomgangen faktisk er gjort og coverage.reviewed er 84.

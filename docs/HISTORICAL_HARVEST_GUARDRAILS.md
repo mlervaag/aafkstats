@@ -1,6 +1,6 @@
 # Historiske Innhøstings-Guardrails
 
-Dette dokumentet beskriver de automatiserte bevarings- og analyseverktøyene i AaFK-arkivet innført i **PR #158**.
+Dette dokumentet beskriver de automatiserte bevarings- og analyseverktøyene i AaFK-arkivet, innført i **PR #158** og utvidet i **PR #159** og den påfølgende innstrammingen.
 
 Formålet med disse verktøyene er å gjøre de viktigste invariantene fra [`docs/HISTORISK_KILDEINNHOSTING_RUNBOOK.md`](HISTORISK_KILDEINNHOSTING_RUNBOOK.md) **maskinelt kontrollerbare og håndhevet i CI**.
 
@@ -13,8 +13,18 @@ Prinsippet er:
 
 | Kommando | Formål | Kjøres i CI? | Exit-kode ved feil |
 |---|---|---|---|
-| `pnpm data:historical-preservation` | Semantisk regresjonsvern mot utilsiktet tap av personhistorikk, roller, kilder, konflikter og metadata | **Ja** (Hard gate på alle PR-er) | `1` (hvis uautoriserte destruktive endringer) |
-| `pnpm data:historical-audit` | Samlet historisk batch-audit: Source Inventory, preflight, extraction coverage, semantisk harvest-diff og review-validering | Manuelt og i batch-PR-er | `1` (hvis preflight feiler eller uautoriserte slettinger) |
+| `pnpm data:historical-preservation` | Semantisk regresjonsvern for `data/people/` **og** strukturelt additivitetsvern for `data/sources/`, `data/source-results/`, `data/seasons/**/matches/`, `data/observations/` og `data/organization/snapshots/` | **Ja** (hard gate på alle PR-er) | `1` (hvis uautoriserte destruktive endringer eller selvgodkjente unntak) |
+| `pnpm data:historical-harvest:check` | Cross-layer batch-audit mot `data/harvests/<id>.yaml`: inventar, sidedekning mot ekstraksjonene, funn ↔ arkiv i begge retninger, proveniens og bevaring | **Ja** (hard gate; PR-er som endrer kildedata må ha manifest) | `1` (hvis noen kontroll feiler) |
+| `pnpm data:historical-audit` | Scope-basert audit uten manifest: Source Inventory, preflight, extraction coverage og review-validering av et markdown-dokument | Manuelt | `1` (hvis preflight feiler, scope er tomt eller review har mangler) |
+
+### Hva som ikke kan omgås
+
+Fire hull ble lukket etter gjennomgangen av PR #157–#159. De er verdt å kjenne, fordi de alle var måter å få grønt lys uten å ha gjort arbeidet:
+
+1. **Bevaringsvernet dekket bare personer.** Sletting i kildekatalogen, kilderesultatene, kampene, observasjonene og snapshotene passerte grønt. Nå håndheves strukturell additivitet — BASE må være en delmengde av HEAD — for alle fem katalogene.
+2. **Unntak kunne selvgodkjennes.** Samme commit kunne både slette historikk og legge inn dispensasjonen som godkjente slettingen. Et unntak gjelder nå bare dersom det fantes i BASE, og filen er dekket av `CODEOWNERS`.
+3. **Sidedekning var en ren påstand.** `coverage.expected` utledes nå fra `extraction.pagesExpected` ved hver sjekk, og `reviewMethod.facsimile: unavailable` avvises når kilden har ALTO-skann og dermed tilgjengelig faksimile.
+4. **Kontrollen gikk bare én vei.** Auditen sjekket at hvert funn pekte på noe ekte, men ikke at alt ekte kom fra et funn. Nå kreves det at alt som legges til i arkivet og siterer batchens kilder, gjøres rede for av et funn.
 
 ---
 
@@ -162,3 +172,39 @@ Verktøyene er **utelukkende read-only** kontrollmekanismer. De skal **aldri**:
 - Fjerne eller ignorere historiske uenigheter.
 
 Kildekritikken og historieskrivingen forblir et redaksjonelt og menneskelig ansvar etter runbooken i [`docs/HISTORISK_KILDEINNHOSTING_RUNBOOK.md`](HISTORISK_KILDEINNHOSTING_RUNBOOK.md).
+
+---
+
+## 7. Preservation Exceptions
+
+`data/preservation-exceptions.yaml` er den eneste veien rundt kravet om streng historisk additivitet.
+
+### To-trinns godkjenning
+
+Et unntak virker **først når det finnes i BASE-commit**. Det betyr at en endring som trenger et unntak må deles i to:
+
+1. En egen PR som legger inn unntaket i `data/preservation-exceptions.yaml`, med begrunnelse og kildehenvisning. Filen er dekket av `CODEOWNERS`, så et menneske må se den.
+2. PR-en som utfører selve endringen.
+
+Legges unntaket og endringen inn samtidig, rapporteres unntaket som **selvgodkjent**, det gjelder ikke, og kjøringen feller.
+
+```yaml
+exceptions:
+  - entity: source_result          # person | source | source_result | match | observation | organization_snapshot
+    id: aalesunds-fotballklub-gjennem-1939-ec28
+    path: seasons/1915/results/2   # konkret sti; brede wildcards er forbudt
+    change: remove                 # remove | mutate | delete_file
+    reason: Oppføringen var en dublett av nr. 1, bekreftet mot faksimile side 83.
+    sources:
+      - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+        page: "83"
+    approvedIn: 200                # PR-nummer
+```
+
+### Hva som regnes som samme unntak
+
+Identiteten er `entity + id + path + change`. Begrunnelse og kildehenvisninger kan omformuleres uten at dispensasjonen regnes som ny — men endrer du sti eller endringstype, er det et nytt unntak som må godkjennes på nytt.
+
+### Ubrukte unntak
+
+Et unntak som ikke matcher noen faktisk endring rapporteres som `stale`. Det feller ikke bygget, men bør ryddes bort: et unntak som ligger igjen er en åpen dør ingen lenger holder øye med.

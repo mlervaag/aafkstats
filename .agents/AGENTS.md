@@ -62,15 +62,18 @@ If you add a field to the data model, it must be updated in **four** places:
   follows [`VERIFISERINGSVURDERING.md`](VERIFISERINGSVURDERING.md).
 
 ## 8. Historical Source Harvesting
-When a task involves full harvesting, review or normalization of a historical publication (e.g., club magazines, anniversary books, annual reports, yearbooks):
-1. **Read the main runbook:** [`docs/HISTORISK_KILDEINNHOSTING_RUNBOOK.md`](../docs/HISTORISK_KILDEINNHOSTING_RUNBOOK.md).
-2. **Read the source profile:** Read the source-specific profile if available (e.g., [`docs/MEDLEMSBLAD_INNHOSTING.md`](../docs/MEDLEMSBLAD_INNHOSTING.md)).
-3. **Authority order:** `packages/schema/` and `docs/DATAMODELL.md` are authoritative for fields and types. The runbook is authoritative for workflow, reconciliation, preservation and Definition of Done.
-4. **Source Inventory is mandatory:** Identify all publications/sourceIds in scope before starting review.
-5. **Acceptance criteria are merge requirements:** The acceptance criteria, kildeprinsipper, and validation standards in the runbook are mandatory merge requirements. Do not replace them with ad-hoc heuristics.
-6. **Never declare a batch complete prematurely:** A batch is only complete when 100% of available pages are visually reviewed against facsimiles, the completion matrix is filled out, and a preservation audit is performed.
-7. **Strict additivity guarantee:** Existing person roles, sources, conflicts, names (`names`), and coach spells MUST NOT be deleted or overwritten without explicit documented justification.
-8. **Preservation tests:** Large batches modifying existing people MUST include preservation regression tests proving both that new facts are present and existing history remains intact.
-9. **Conflict handling:** If a prompt and the runbook collide on data integrity or provenance rules, the agent MUST STOP and explicitly report the conflict rather than deleting or silently fabricating data.
+When a task involves harvesting, review or normalization of a historical publication (e.g., club magazines, anniversary books, annual reports, yearbooks, match programs):
+1. **Read the main runbook:** [`docs/HISTORISK_KILDEINNHOSTING_RUNBOOK.md`](../docs/HISTORISK_KILDEINNHOSTING_RUNBOOK.md) and [`docs/HISTORICAL_HARVEST_WORKFLOW.md`](../docs/HISTORICAL_HARVEST_WORKFLOW.md).
+2. **Initialize or locate batch manifest:** Use `pnpm data:historical-harvest:init` to create `data/harvests/<batch-id>.yaml` with frozen Source Inventory and profile-defined passes.
+3. **Follow source profile:** Check [`docs/source-profiles/`](../docs/source-profiles/) (`MEMBER_MAGAZINE.md`, `YEARBOOK.md`, `ANNUAL_REPORT.md`, `ANNIVERSARY_BOOK.md`, `MATCH_PROGRAM.md`, `GENERIC_PUBLICATION.md`).
+4. **Authority order:** `packages/schema/` and `docs/DATAMODELL.md` > runbook > workflow guide > source profile > task prompt.
+5. **Facsimile review against primary source:** Complete all required passes visually against facsimiles/scans. OCR/ALTO is search assistance, never review completion.
+6. **Structured findings & dispositions:** Record all findings with canonical dispositions from `packages/schema/src/historical/harvest-finding.ts` and valid target paths.
+7. **Strict additivity guarantee:** Nothing already in `data/people/`, `data/sources/`, `data/source-results/`, `data/seasons/**/matches/`, `data/observations/` or `data/organization/snapshots/` may be deleted, emptied or overwritten. A preservation exception only takes effect if it already exists in the base commit — adding the exception and using it in the same change is rejected as self-approval, so the exception must land in its own PR first.
+8. **Account for every addition:** Everything you add to the archive that cites one of the batch's sources must be covered by a finding in the manifest. The audit checks both directions — that each finding points at real data, and that no real data arrived without a finding.
+9. **Page coverage is measured, not claimed:** `coverage.expected` is cross-checked against `extraction.pagesExpected`, and `reviewMethod.facsimile: unavailable` is rejected when the source has ALTO scans. Do not lower the number to match the work done; do the work.
+10. **Run harvest check:** Run `pnpm data:historical-harvest:check --batch <id>`. Manifest `status: complete` is strictly forbidden until the check passes with 0 errors.
+11. **Generate completion report:** Run `pnpm data:historical-harvest:report --batch <id>` to generate PR report from semantic diff.
+12. **Conflict handling:** If a prompt and the runbook collide on data integrity or provenance rules, the agent MUST STOP and explicitly report the conflict rather than deleting or silently fabricating data.
 
 
