@@ -1,0 +1,33 @@
+id: arne-vestad
+name: Arne Vestad
+names:
+  - Arne Westad
+roles:
+  - id: kasserer-hovedstyret-1950
+    category: administration
+    title: Kasserer
+    body: Hovedstyret
+    from: "1950"
+    to: "1950"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+        page: "11"
+        fields:
+          - title
+          - from
+          - to
+  - id: nestformann-hovedstyret-1951
+    category: board
+    title: Nestformann
+    body: Hovedstyret
+    from: "1951"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+    page: "11"

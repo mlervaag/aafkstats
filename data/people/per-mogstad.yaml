@@ -64,6 +64,20 @@ roles:
           - from
         note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt
           verifisert."
+  - id: nestformann-1927
+    category: board
+    title: Nestformann
+    body: Hovedstyret
+    from: "1927"
+    to: "1927"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+        page: "6"
+        fields:
+          - title
+          - from
+          - to
+    note: Født 1900-10-19. 50-årsomtale i hefte 5 s. 6; spilte på A-laget 1914–1928, nestformann i 1927, gullmerket i 1927 og oppmann i 1925 og 1930. Emigrerte til Vancouver i 1949.
   - id: oppmann-1930
     category: sporting_staff
     title: Oppmann
@@ -118,6 +132,10 @@ sources:
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
   - sourceId: medlemsblad-for-aalesunds-fotb-1950-22ea
     page: "22"
+    fields: []
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+    page: "6"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
   - sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9

@@ -50,6 +50,23 @@ roles:
     sources:
       - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
         page: "4"
+  - id: varamann-junioroppmann-1951
+    category: sporting_staff
+    title: Varamann junioroppmann
+    body: Junioravdelingen
+    from: "1951"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
+    note: Valgt som varamann for junioroppmannen på årsmøtet 29. november 1950.
 sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+    page: "31"
   - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
     page: "4"
+

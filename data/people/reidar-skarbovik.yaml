@@ -29,7 +29,35 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt verifisert."
+  - id: a-lagsspiller-1933-1950
+    category: player
+    title: A-lagsspiller
+    from: "1933"
+    to: "1950"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+        page: "6"
+        fields:
+          - title
+          - from
+    note: Debuterte på A-laget i 1933.
+  - id: overgang-frigg-1950
+    category: player
+    title: Spiller
+    from: "1950"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+        page: "12"
+        fields:
+          - title
+          - from
+    note: Meldte overgang fra AaFK til Frigg høsten 1950.
 sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+    page: "6"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+    page: "12"
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "12"
     fields: []

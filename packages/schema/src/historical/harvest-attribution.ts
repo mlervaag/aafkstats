@@ -90,6 +90,30 @@ export function collectAttributedAdditions(
         });
       }
     }
+
+    const baseConflictFields = new Set((basePerson?.conflicts ?? []).map((c) => c.field));
+    for (const conflict of headPerson.conflicts ?? []) {
+      if (baseConflictFields.has(conflict.field)) continue;
+      let matchedSourceId: string | undefined;
+      for (const sId of batchSourceIds) {
+        if (conflict.note?.includes(sId) || conflict.values.some((v) => v.note?.includes(sId))) {
+          matchedSourceId = sId;
+          break;
+        }
+      }
+      if (!matchedSourceId) {
+        matchedSourceId = citedBatchSource(headPerson, batchSourceIds);
+      }
+      if (matchedSourceId) {
+        additions.push({
+          entity: "person",
+          id,
+          path: "conflicts",
+          sourceId: matchedSourceId,
+          label: `Ny konflikt på felt «${conflict.field}» for «${headPerson.name}»`,
+        });
+      }
+    }
   }
 
   for (const [id, headCol] of head.sourceResults) {
@@ -183,6 +207,13 @@ export function buildFindingCoverage(findings: HarvestFinding[]): {
       } else {
         whole.add(targetKey(target.entity, target.id));
       }
+      if (
+        (finding.disposition === "conflict_registered" || finding.disposition === "conflict_resolved") &&
+        target.entity === "person"
+      ) {
+        exact.add(targetKey(target.entity, target.id, "conflicts"));
+        containers.add(targetKey(target.entity, target.id));
+      }
     }
   }
 
@@ -204,6 +235,9 @@ export function findUnaccountedAdditions(
 
   return additions.filter((addition) => {
     if (exact.has(targetKey(addition.entity, addition.id, addition.path))) return false;
+    // En ny konflikt krever eksplisitt finding (conflict_registered / conflict_resolved)
+    // og dekkes ikke automatisk av en generell whole-person-dekning.
+    if (addition.path === "conflicts") return true;
     if (whole.has(targetKey(addition.entity, addition.id))) return false;
     // Selve entiteten regnes som dekket når et funn peker på noe inne i den.
     if (!addition.path && containers.has(targetKey(addition.entity, addition.id))) return false;

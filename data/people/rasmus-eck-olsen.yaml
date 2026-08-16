@@ -183,6 +183,33 @@ roles:
           - title
           - from
         note: Manuelt verifisert.
+  - id: revisor-1951
+    category: administration
+    title: Revisor
+    from: "1951"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
+    note: Valgt som revisor på årsmøtet 29. november 1950.
+  - id: valgkomite-1951
+    category: administration
+    title: Medlem av valgkomiteen
+    body: Valgkomiteen
+    from: "1951"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
+    note: Valgt inn i valgkomiteen på årsmøtet 29. november 1950.
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "1"

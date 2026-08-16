@@ -43,6 +43,7 @@ export interface HarvestDiffDatasets {
   headObservations: Map<string, HistoricalObservation>;
   baseMatches: Map<string, Match>;
   headMatches: Map<string, Match>;
+  scopeSourceIds?: Set<string>;
 }
 
 /**
@@ -64,6 +65,7 @@ export function calculateHarvestMetrics(
     headObservations,
     baseMatches,
     headMatches,
+    scopeSourceIds,
   } = datasets;
 
   let newPeople = 0;
@@ -215,6 +217,7 @@ export function calculateHarvestMetrics(
       // 1. Sjekk nye eller berikede sources
       const baseSourceMap = new Map((baseMatch.sources ?? []).map((s) => [s.sourceId, s]));
       for (const headSrc of headMatch.sources ?? []) {
+        if (scopeSourceIds && !scopeSourceIds.has(headSrc.sourceId)) continue;
         const baseSrc = baseSourceMap.get(headSrc.sourceId);
         if (!baseSrc) {
           isMatchEnriched = true;

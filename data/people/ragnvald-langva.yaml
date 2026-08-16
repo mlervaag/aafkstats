@@ -80,3 +80,21 @@ roles:
           - title
           - from
         note: Hyllest som trofast oppmann og ildsjel for klubben.
+  - id: sportsutvalg-1951
+    category: sporting_staff
+    title: Medlem av sportsutvalget
+    body: Sportsutvalget
+    from: "1951"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
+    note: Valgt inn i sportsutvalget på årsmøtet 29. november 1950.
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+    page: "31"
+

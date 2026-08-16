@@ -1,0 +1,95 @@
+id: lars-tosse
+name: Lars Tøsse
+roles:
+  - id: aeresmedlem-1939
+    category: honorary
+    title: Æresmedlem
+    from: "1939"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+        page: "7"
+        fields:
+          - title
+          - from
+    note: Født 1900-01-25. Utnevnt til æresmedlem ved 25-årsjubileet i 1939 for sin store administrative og organisatoriske innsats.
+  - id: styremedlem-1925
+    category: board
+    title: Styremedlem
+    body: Hovedstyret
+    from: "1925"
+    to: "1925"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+        page: "7"
+        fields:
+          - title
+          - from
+          - to
+  - id: styremedlem-1927
+    category: board
+    title: Styremedlem
+    body: Hovedstyret
+    from: "1927"
+    to: "1927"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+        page: "7"
+        fields:
+          - title
+          - from
+          - to
+  - id: styremedlem-1930
+    category: board
+    title: Styremedlem
+    body: Hovedstyret
+    from: "1930"
+    to: "1930"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+        page: "7"
+        fields:
+          - title
+          - from
+          - to
+  - id: styremedlem-1931
+    category: board
+    title: Styremedlem
+    body: Hovedstyret
+    from: "1931"
+    to: "1931"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+        page: "7"
+        fields:
+          - title
+          - from
+          - to
+  - id: revisor-1933
+    category: administration
+    title: Revisor
+    from: "1933"
+    to: "1933"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+        page: "7"
+        fields:
+          - title
+          - from
+          - to
+  - id: banekomite-1939-1940
+    category: board
+    title: Medlem av banekomiteen
+    body: Banekomiteen
+    from: "1939"
+    to: "1940"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+        page: "7"
+        fields:
+          - title
+          - from
+          - to
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+    page: "7"

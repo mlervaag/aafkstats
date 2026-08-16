@@ -65,15 +65,19 @@ If you add a field to the data model, it must be updated in **four** places:
 When a task involves harvesting, review or normalization of a historical publication (e.g., club magazines, anniversary books, annual reports, yearbooks, match programs):
 1. **Read the main runbook:** [`docs/HISTORISK_KILDEINNHOSTING_RUNBOOK.md`](../docs/HISTORISK_KILDEINNHOSTING_RUNBOOK.md) and [`docs/HISTORICAL_HARVEST_WORKFLOW.md`](../docs/HISTORICAL_HARVEST_WORKFLOW.md).
 2. **Initialize or locate batch manifest:** Use `pnpm data:historical-harvest:init` to create `data/harvests/<batch-id>.yaml` with frozen Source Inventory and profile-defined passes.
-3. **Follow source profile:** Check [`docs/source-profiles/`](../docs/source-profiles/) (`MEMBER_MAGAZINE.md`, `YEARBOOK.md`, `ANNUAL_REPORT.md`, `ANNIVERSARY_BOOK.md`, `MATCH_PROGRAM.md`, `GENERIC_PUBLICATION.md`).
-4. **Authority order:** `packages/schema/` and `docs/DATAMODELL.md` > runbook > workflow guide > source profile > task prompt.
+3. **Identify catalog duplicates:** Map reprints/duplicates with `duplicate_or_reprint` and valid `duplicateOf` referencing a `reviewed` original so only unique physical pages require visual coverage.
+4. **Follow source profile & authority order:** Check [`docs/source-profiles/`](../docs/source-profiles/). `packages/schema/` and `docs/DATAMODELL.md` > runbook > workflow guide > source profile > task prompt.
 5. **Facsimile review against primary source:** Complete all required passes visually against facsimiles/scans. OCR/ALTO is search assistance, never review completion.
-6. **Structured findings & dispositions:** Record all findings with canonical dispositions from `packages/schema/src/historical/harvest-finding.ts` and valid target paths.
-7. **Strict additivity guarantee:** Nothing already in `data/people/`, `data/sources/`, `data/source-results/`, `data/seasons/**/matches/`, `data/observations/` or `data/organization/snapshots/` may be deleted, emptied or overwritten. A preservation exception only takes effect if it already exists in the base commit — adding the exception and using it in the same change is rejected as self-approval, so the exception must land in its own PR first.
-8. **Account for every addition:** Everything you add to the archive that cites one of the batch's sources must be covered by a finding in the manifest. The audit checks both directions — that each finding points at real data, and that no real data arrived without a finding.
-9. **Page coverage is measured, not claimed:** `coverage.expected` is cross-checked against `extraction.pagesExpected`, and `reviewMethod.facsimile: unavailable` is rejected when the source has ALTO scans. Do not lower the number to match the work done; do the work.
-10. **Run harvest check:** Run `pnpm data:historical-harvest:check --batch <id>`. Manifest `status: complete` is strictly forbidden until the check passes with 0 errors.
-11. **Generate completion report:** Run `pnpm data:historical-harvest:report --batch <id>` to generate PR report from semantic diff.
-12. **Conflict handling:** If a prompt and the runbook collide on data integrity or provenance rules, the agent MUST STOP and explicitly report the conflict rather than deleting or silently fabricating data.
+6. **Structured findings & dispositions for ALL observations:** Record all findings with canonical dispositions from `packages/schema/src/historical/harvest-finding.ts` and valid target paths. Non-senior (junior/B-lag), duplicates, fixtures and out-of-scope items MUST also receive explicit dispositions.
+7. **Reconcile before create:** If a person or role already exists in BASE, enrich with `person_enriched` / `role_enriched` rather than creating semantic duplicates.
+8. **Conflicts as first-class output:** Register source divergences explicitly with `conflict_registered` and matching structured `conflicts[]` on person/match. Never silently overwrite or delete diverging claims.
+9. **No interpolation:** Discrete documented years (e.g., board member in 1925, 1927, 1930) must remain discrete roles. Never interpolate continuous spans (`1925–1930`) without explicit textual continuity evidence.
+10. **Retrospective claims on fact year:** Historical memoirs/retrospectives citing previous seasons belong in `seasons: [{ year: <factYear> }]` under the historical fact year, preserving multi-source provenance.
+11. **Tournament progression & perspective sanity check:** Verify cup rounds (cannot lose in round N and play round N+1) and ensure AaFK perspective vs home/away is checked before normalizing `scorePerspective: aafk`.
+12. **Working year for annual meetings:** Elections held late in the year (e.g., Nov 1950 for work year 1951) belong in the working year's snapshot (`1951-aafk.yaml`) and person roles.
+13. **Strict additivity guarantee & reverse attribution:** Nothing in archive data may be deleted or overwritten. Everything citing batch sources must have a corresponding finding.
+14. **Four-layer reconciliation & final audit:** Ensure Facsimile $\to$ Review Log $\to$ Manifest Findings $\to$ Target Data all tell the identical story. Manifest `status: complete` is strictly forbidden until `pnpm data:historical-harvest:check --batch <id>` passes with 0 errors.
+15. **Generate completion report:** Run `pnpm data:historical-harvest:report --batch <id>` to generate PR report from semantic diff.
+
 
 

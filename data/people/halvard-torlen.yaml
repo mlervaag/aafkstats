@@ -1,0 +1,20 @@
+id: halvard-torlen
+name: Halvard Tørlen
+roles:
+  - id: varamann-hovedstyret-1951
+    category: board
+    title: 2. varamann
+    body: Hovedstyret
+    from: "1951"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
+    note: Valgt som 2. varamann til hovedstyret på årsmøtet 29. november 1950.
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+    page: "31"

@@ -1,0 +1,18 @@
+id: kare-brandal
+name: Kåre Brandal
+roles:
+  - id: sportsutvalget-1951
+    category: sporting_staff
+    title: Medlem av sportsutvalget
+    body: Sportsutvalget
+    from: "1951"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+    page: "31"

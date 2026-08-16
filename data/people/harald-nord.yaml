@@ -1,6 +1,36 @@
 id: harald-nord
 name: Harald Nord
 roles:
+  - id: redaksjonskomite-medlemsbladet-1950-1951
+    category: administration
+    title: Medlem av redaksjonskomiteen
+    body: Medlemsbladet
+    from: "1950"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+        page: "8"
+        fields:
+          - title
+          - from
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
+  - id: sportsutvalget-1951
+    category: sporting_staff
+    title: Medlem av sportsutvalget
+    body: Sportsutvalget
+    from: "1951"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
   - id: redaktor-medlemsbladet-1953-1956
     category: administration
     title: Redaktør
@@ -20,6 +50,10 @@ roles:
         page: "17"
     note: Redaktør for Medlemsblad for Aalesunds Fotballklubb.
 sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+    page: "8"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+    page: "31"
   - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
     page: "4"
   - sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c

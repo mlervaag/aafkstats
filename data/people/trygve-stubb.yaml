@@ -1,0 +1,20 @@
+id: trygve-stubb
+name: Trygve Stubb
+roles:
+  - id: banekomite-1951
+    category: project
+    title: Medlem
+    body: Banekomiteen
+    from: "1951"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
+    note: Valgt inn i banekomiteen på årsmøtet 29. november 1950.
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+    page: "31"

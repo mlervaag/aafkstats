@@ -1,0 +1,19 @@
+id: gustav-rasmussen
+name: Gustav Rasmussen
+roles:
+  - id: valgkomite-1951
+    category: administration
+    title: Medlem av valgkomiteen
+    from: "1951"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-1439
+    page: "1"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+    page: "31"
