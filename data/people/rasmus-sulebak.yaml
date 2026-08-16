@@ -10,6 +10,19 @@ roles:
       - sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
         page: "82"
     note: Tildelt klubbens hedersgave Kruset som Dagens navn i 1955.
+  - id: varamann-revisor-1951
+    category: administration
+    title: Varamann revisor
+    from: "1951"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
+    note: Valgt som varamann for revisorene på årsmøtet 29. november 1950.
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
     page: "74"

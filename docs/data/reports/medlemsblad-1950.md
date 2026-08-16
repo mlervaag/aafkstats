@@ -49,8 +49,8 @@
 
 ## Findings
 
-- **Totalt antall funn:** 74
-- **Normaliserte:** 74
+- **Totalt antall funn:** 89
+- **Normaliserte:** 89
 - **Uavklarte / usikre:** 0
 - **Mangler disposisjon:** 0
 
@@ -59,7 +59,7 @@
 | Kategori | Antall |
 |---|---|
 | `person` | 1 |
-| `person_role` | 56 |
+| `person_role` | 71 |
 | `organization` | 2 |
 | `match_result` | 7 |
 | `historical_observation` | 3 |
@@ -69,18 +69,18 @@
 
 ## Matches
 
-- **Kildedokumenterte resultater (source-results):** 17
-- **Koblede kilderesultater:** 0
+- **Kildedokumenterte resultater (source-results):** 21
+- **Koblede kilderesultater:** 8
 - **Nye kanoniske kamper:** 0
-- **Berikede kanoniske kamper:** 20
+- **Berikede kanoniske kamper:** 0
 
 ## Persons and Roles
 
-- **Nye personer:** 19
-- **Eksisterende personer kildeberiket:** 18
-- **Kildereferanser lagt til på personer:** 47
-- **Roller opprettet:** 54
-- **Roller kildeberiket:** 3
+- **Nye personer:** 24
+- **Eksisterende personer kildeberiket:** 24
+- **Kildereferanser lagt til på personer:** 56
+- **Roller opprettet:** 71
+- **Roller kildeberiket:** 4
 - **Æresroller opprettet:** 2
 
 ## Organization
@@ -93,7 +93,7 @@
 
 ## Conflicts and Uncertainty
 
-- **Nye konflikter registrert:** 0
+- **Nye konflikter registrert:** 1
 - **Konflikter løst med kildegrunnlag:** 0
 - **Uavklarte funn i kø:** 0
 

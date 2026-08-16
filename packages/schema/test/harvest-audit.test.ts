@@ -30,6 +30,18 @@ function createMinimalContext(
     ],
   ]);
 
+  for (const item of manifest.sourceInventory) {
+    if (!allSources.has(item.sourceId)) {
+      allSources.set(item.sourceId, {
+        id: item.sourceId,
+        title: item.sourceId,
+        sourceType: "yearbook",
+        year: 1923,
+        providers: [],
+      });
+    }
+  }
+
   const headPeople = new Map<string, Person>([
     [
       "nils-jangaard",
@@ -691,4 +703,46 @@ describe("Cross-Layer Harvest Audit Engine", () => {
     expect(report.passed).toBe(false);
     expect(report.issues.some((i) => i.category === "inventory" && i.message.includes("nff-arbok-1999") && i.message.includes("out_of_scope"))).toBe(true);
   });
+
+  it("feiler dersom duplicate_or_reprint mangler duplicateOf eller refererer til original som ikke er reviewed i inventory", () => {
+    const manifest: HarvestBatchManifest = {
+      version: 1,
+      id: "nff-1923",
+      title: "NFF Årbok 1923",
+      profile: "yearbook",
+      mode: "initial",
+      status: "complete",
+      scope: { sourceIds: ["nff-arbok-1923", "nff-arbok-1923-dup"] },
+      sourceInventory: [
+        { sourceId: "nff-arbok-1923", reviewStatus: "unavailable" },
+        { sourceId: "nff-arbok-1923-dup", reviewStatus: "duplicate_or_reprint", duplicateOf: "nff-arbok-1923" },
+      ],
+      coverage: { mode: "pages", expected: 100, reviewed: 100 },
+      passes: {
+        facsimile_review: { status: "complete", findings: 0 },
+        explicit_results: { status: "complete", findings: 0 },
+        people_and_roles: { status: "complete", findings: 0 },
+        organization: { status: "complete", findings: 0 },
+        retrospectives_and_claims: { status: "complete", findings: 0 },
+        observations: { status: "complete", findings: 0 },
+      },
+      findings: [],
+      unresolved: [],
+      notes: [],
+    };
+
+    const ctx = createMinimalContext(manifest);
+    const report = auditHarvestBatch(ctx);
+
+    expect(report.passed).toBe(false);
+    expect(
+      report.issues.some(
+        (i) =>
+          i.category === "inventory" &&
+          i.message.includes("nff-arbok-1923-dup") &&
+          i.message.includes("originalen er ikke"),
+      ),
+    ).toBe(true);
+  });
 });
+

@@ -1,0 +1,19 @@
+id: tore-mogstad
+name: Tore Mogstad
+roles:
+  - id: materialforvalter-1951
+    category: sporting_staff
+    title: Materialforvalter
+    from: "1951"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
+    note: Valgt som materialforvalter på årsmøtet 29. november 1950.
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+    page: "31"

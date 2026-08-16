@@ -1,6 +1,80 @@
 sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
 scorePerspective: aafk
 seasons:
+  - year: 1927
+    page: 11
+    results:
+      - no: 1
+        opponent: Landslaget
+        score:
+          - 0
+          - 3
+        status: played
+        replay: false
+        extraTime: false
+        matchId: null
+        page: 11
+        note: Uttakningskamp mot Landslaget i Bergen i 1927 (tap 0–3).
+      - no: 2
+        opponent: Odd
+        opponentClubId: odds-ballklubb
+        score:
+          - 0
+          - 1
+        status: played
+        round: 4
+        replay: false
+        extraTime: false
+        matchId: 1927-09-11-aalesunds-fk-odds-ballklubb
+        page: 11
+        note: NM cup 4. runde på Nørvebanen mot Odd fra Skien (tap 0–1).
+  - year: 1929
+    page: 11
+    results:
+      - no: 1
+        opponent: Kvikk Halden
+        opponentClubId: kvik-halden
+        score:
+          - 2
+          - 2
+        status: played
+        round: 4
+        replay: false
+        extraTime: false
+        matchId: 1929-09-01-aalesunds-fk-kvik-halden
+        page: 11
+        note: NM cup 4. runde i Ålesund mot Kvik Halden (uavgjort 2–2 etter utligning av Olav Skarbøvik).
+  - year: 1932
+    page: 11
+    results:
+      - no: 1
+        opponent: Fredrikstad
+        opponentClubId: fredrikstad
+        score:
+          - 1
+          - 9
+        status: played
+        replay: false
+        extraTime: false
+        matchId: 1932-09-04-fredrikstad-aalesunds-fk
+        page: 11
+        note: NM cup 4. runde mot Fredrikstad FK (tap 1–9).
+  - year: 1933
+    page: 11
+    results:
+      - no: 1
+        opponent: Fremad
+        opponentClubId: fremad
+        score:
+          - 0
+          - 2
+        status: played
+        round: 3
+        replay: false
+        extraTime: false
+        matchId: 1933-08-27-aalesunds-fk-fremad
+        page: 11
+        note: NM cup 3. runde på Nørvebanen mot Fremad Lillehammer (tap 0–2).
   - year: 1950
     page: 1
     results:
@@ -15,7 +89,7 @@ seasons:
         replay: false
         extraTime: false
         matchId: null
-        page: 6
+        page: 8
         note: Privatkamp på Nordfjordeid (seier 7–2 mot Eid A).
       - no: 2
         date: "1950-08-08"

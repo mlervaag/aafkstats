@@ -54,14 +54,21 @@ describe("Medlemsblad 1950 (Vol. 1, nr. 1–6)", () => {
     expect(snap1951?.people.find((p) => p.observedTitle === "Nestformann" && p.body === "Hovedstyret")?.personId).toBe("arne-vestad");
     expect(snap1951?.people.find((p) => p.observedTitle === "Sekretær" && p.body === "Hovedstyret")?.personId).toBe("karsten-eriksen");
     expect(snap1951?.people.find((p) => p.observedTitle === "Kasserer" && p.body === "Hovedstyret")?.personId).toBe("bjorn-aasen");
-    expect(snap1951?.people.find((p) => p.personId === "odd-ostensen" && p.body === "Hovedstyret")).toBeDefined();
-    expect(snap1951?.people.find((p) => p.personId === "monrad-orheim" && p.body === "Hovedstyret")).toBeDefined();
+    expect(snap1951?.people.find((p) => p.observedTitle === "Oppmann" && p.body === "Hovedstyret")?.personId).toBe("oivind-haagensen");
+    expect(snap1951?.people.find((p) => p.observedTitle === "1. varamann" && p.body === "Hovedstyret")?.personId).toBe("lauritz-giske");
+    expect(snap1951?.people.find((p) => p.observedTitle === "2. varamann" && p.body === "Hovedstyret")?.personId).toBe("halvard-torlen");
 
     // Sportsutvalget 1951
-    expect(snap1951?.people.find((p) => p.observedTitle === "Formann" && p.body === "Sportsutvalget")?.personId).toBe("peder-puck");
-    expect(snap1951?.people.find((p) => p.personId === "kare-brandal" && p.body === "Sportsutvalget")).toBeDefined();
-    expect(snap1951?.people.find((p) => p.personId === "gunnar-saether" && p.body === "Sportsutvalget")).toBeDefined();
-    expect(snap1951?.people.find((p) => p.personId === "harald-nord" && p.body === "Sportsutvalget")).toBeDefined();
+    expect(snap1951?.people.find((p) => p.personId === "ragnvald-langva" && p.body === "Sportsutvalget")).toBeDefined();
+    expect(snap1951?.people.find((p) => p.personId === "john-rekdal" && p.body === "Sportsutvalget")).toBeDefined();
+    expect(snap1951?.people.find((p) => p.observedTitle === "1. varamann" && p.body === "Sportsutvalget")?.personId).toBe("karl-lovold");
+    expect(snap1951?.people.find((p) => p.observedTitle === "2. varamann" && p.body === "Sportsutvalget")?.personId).toBe("jorgen-hollevik");
+
+    // Banekomiteen 1951
+    expect(snap1951?.people.find((p) => p.observedTitle === "Formann" && p.body === "Banekomiteen")?.personId).toBe("emil-sando");
+    expect(snap1951?.people.find((p) => p.personId === "harald-mogstad" && p.body === "Banekomiteen")).toBeDefined();
+    expect(snap1951?.people.find((p) => p.personId === "trygve-stubb" && p.body === "Banekomiteen")).toBeDefined();
+    expect(snap1951?.people.find((p) => p.personId === "peder-puck" && p.body === "Banekomiteen")).toBeDefined();
 
     // Klubbarkivar 1951
     expect(snap1951?.people.find((p) => p.observedTitle === "Klubbarkivar")?.personId).toBe("asbjorn-korsnes");
@@ -131,7 +138,11 @@ describe("Medlemsblad 1950 (Vol. 1, nr. 1–6)", () => {
 
     const sresHefte4 = archive.sourceResults.find((s) => s.sourceId === "medlemsblad-for-aalesunds-fotb-1950-3b73");
     expect(sresHefte4).toBeDefined();
-    expect(sresHefte4?.seasons[0]?.results.length).toBe(2);
+    expect(sresHefte4?.seasons.some((s) => s.year === 1927)).toBe(true);
+    expect(sresHefte4?.seasons.some((s) => s.year === 1929)).toBe(true);
+    expect(sresHefte4?.seasons.some((s) => s.year === 1932)).toBe(true);
+    expect(sresHefte4?.seasons.some((s) => s.year === 1933)).toBe(true);
+    expect(sresHefte4?.seasons.some((s) => s.year === 1950 && s.results.length === 2)).toBe(true);
 
     const sresHefte5 = archive.sourceResults.find((s) => s.sourceId === "medlemsblad-for-aalesunds-fotb-1950-37d9");
     expect(sresHefte5).toBeDefined();
@@ -142,6 +153,6 @@ describe("Medlemsblad 1950 (Vol. 1, nr. 1–6)", () => {
     // Inneholder retrospektive kamper fra 1927, 1932 og 1940
     expect(sresHefte6?.seasons.some((s) => s.year === 1927)).toBe(true);
     expect(sresHefte6?.seasons.some((s) => s.year === 1932)).toBe(true);
-    expect(sresHefte6?.seasons.some((s) => s.year === 1940 && s.results.length === 5)).toBe(true);
+    expect(sresHefte6?.seasons.some((s) => s.year === 1940 && s.results.length === 4)).toBe(true);
   });
 });

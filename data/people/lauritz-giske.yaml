@@ -20,6 +20,20 @@ roles:
           - from
           - to
     note: Ansvarshavende for AaFK Medlemsblad fra oppstarten i 1950 og gjenvalgt for 1951.
+  - id: varamann-hovedstyret-1951
+    category: board
+    title: 1. varamann
+    body: Hovedstyret
+    from: "1951"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
+    note: Valgt som 1. varamann til hovedstyret på årsmøtet 29. november 1950.
   - id: formann-1953-1954
     category: board
     title: Formann

@@ -2,7 +2,7 @@ sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
 scorePerspective: aafk
 seasons:
   - year: 1927
-    page: 23
+    page: 29
     results:
       - no: 1
         opponent: Landslaget
@@ -13,10 +13,10 @@ seasons:
         replay: false
         extraTime: false
         matchId: null
-        page: 23
-        note: Privatkamp mot Norges landslag på Aksla stadion i juli 1927 (tap 0–3).
+        page: 29
+        note: Uttakningskamp mot Landslaget i Bergen i 1927 (tap 0–3).
   - year: 1932
-    page: 23
+    page: 29
     results:
       - no: 1
         opponent: Fredrikstad
@@ -27,11 +27,11 @@ seasons:
         status: played
         replay: false
         extraTime: false
-        matchId: null
-        page: 23
-        note: Privatkamp mot Fredrikstad FK på Aksla stadion (tap 1–9).
+        matchId: 1932-09-04-fredrikstad-aalesunds-fk
+        page: 29
+        note: Omtalt i veteranpanelet (tap 1–9).
   - year: 1940
-    page: 28
+    page: 25
     results:
       - no: 1
         date: "1940-06-13"
@@ -44,60 +44,47 @@ seasons:
         replay: false
         extraTime: false
         matchId: null
-        page: 28
-        note: Første privatkamp etter invasjonen, spilt på Aksla stadion (seier 7–1).
+        page: 25
+        note: Første privatkamp etter okkupasjonsutbruddet, spilt 13. juni 1940 (seier 7–1).
       - no: 2
-        date: "1940-06-20"
+        date: "1940-09-03"
         opponent: Rollon
         opponentClubId: rollon
         score:
-          - 4
+          - 2
           - 0
-        status: played
-        replay: false
-        extraTime: false
-        matchId: null
-        page: 28
-        note: Privatkamp på Aksla stadion (seier 4–0).
-      - no: 3
-        date: "1940-08-04"
-        opponent: Rollon
-        opponentClubId: rollon
-        score:
-          - 3
-          - 1
-        status: played
-        round: 1
-        replay: false
-        extraTime: false
-        matchId: null
-        page: 29
-        note: NM cup 1. runde på Aksla stadion.
-      - no: 4
-        date: "1940-08-11"
-        opponent: Rollon
-        opponentClubId: rollon
-        score:
-          - 5
-          - 2
-        status: played
-        round: 2
-        replay: false
-        extraTime: false
-        matchId: null
-        page: 29
-        note: NM cup 2. runde på Aksla stadion.
-      - no: 5
-        date: "1940-08-18"
-        opponent: Braatt
-        opponentClubId: braatt
-        score:
-          - 1
-          - 2
         status: played
         round: 3
         replay: false
         extraTime: false
-        matchId: null
-        page: 29
-        note: NM cup 3. runde på Aksla stadion (tap 1–2).
+        matchId: 1940-09-03-rollon-aalesunds-fk
+        page: 25
+        note: NM cup 3. runde mot Rollon (ledet 2–0 til pause og holdt stillingen ut kampen).
+      - no: 3
+        date: "1940-09-08"
+        opponent: Drafn
+        opponentClubId: drafn
+        score:
+          - 2
+          - 1
+        status: played
+        round: 4
+        replay: false
+        extraTime: false
+        matchId: 1940-09-08-drafn-aalesunds-fk
+        page: 26
+        note: NM cup 4. runde mot Drafn i Drammen (seier 2–1, Karl Løvold seiersmål).
+      - no: 4
+        date: "1940-09-22"
+        opponent: Skeid
+        opponentClubId: skeid
+        score:
+          - 2
+          - 3
+        status: played
+        round: 5
+        replay: false
+        extraTime: false
+        matchId: 1940-09-22-skeid-aalesunds-fk
+        page: 26
+        note: NM cup 5. runde mot Skeid på Bislet foran 17 000 tilskuere (tap 2–3).

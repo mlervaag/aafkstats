@@ -110,12 +110,27 @@ function manifestSourceIdsInScope(manifest: HarvestBatchManifest): string[] {
 
 /**
  * Kildene i batchen som fortsatt krever uavhengig visuell kontroll av egne sider.
- * `out_of_scope` og verifiserte `duplicate_or_reprint` krever ikke uavhengig
- * sidetelling i dekningsregnskapet dersom originalen er gjennomgått.
+ * `out_of_scope` og strengt verifiserte `duplicate_or_reprint` (der originalen finnes i
+ * inventory og er `reviewed`) krever ikke uavhengig sidetelling i dekningsregnskapet.
  */
 function manifestSourceIdsRequiringVisualPages(manifest: HarvestBatchManifest): string[] {
+  const inventoryMap = new Map(manifest.sourceInventory.map((item) => [item.sourceId, item]));
+
   return manifest.sourceInventory
-    .filter((item) => item.reviewStatus !== "out_of_scope" && item.reviewStatus !== "duplicate_or_reprint")
+    .filter((item) => {
+      if (item.reviewStatus === "out_of_scope") {
+        return false;
+      }
+      if (item.reviewStatus === "duplicate_or_reprint") {
+        if (item.duplicateOf) {
+          const original = inventoryMap.get(item.duplicateOf);
+          if (original && original.reviewStatus === "reviewed") {
+            return false;
+          }
+        }
+      }
+      return true;
+    })
     .map((item) => item.sourceId);
 }
 
@@ -205,13 +220,38 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
     } else if (item.reviewStatus === "duplicate_or_reprint") {
       reprintsCount += 1;
       inScopeCount += 1;
-      if (item.duplicateOf && !allSources.has(item.duplicateOf)) {
+      if (!item.duplicateOf) {
         issues.push({
-          type: "warning",
+          type: "error",
           category: "inventory",
           sourceId: item.sourceId,
-          message: `Reprint refererer til ukjent duplicateOf «${item.duplicateOf}»`,
+          message: `Kilde «${item.sourceId}» er oppgitt som «duplicate_or_reprint», men mangler påkrevd duplicateOf`,
         });
+      } else {
+        const originalInInventory = manifest.sourceInventory.find((i) => i.sourceId === item.duplicateOf);
+        if (!originalInInventory) {
+          issues.push({
+            type: "error",
+            category: "inventory",
+            sourceId: item.sourceId,
+            message: `Kilde «${item.sourceId}» oppgir duplicateOf «${item.duplicateOf}» som ikke finnes i batchens sourceInventory`,
+          });
+        } else if (originalInInventory.reviewStatus !== "reviewed") {
+          issues.push({
+            type: "error",
+            category: "inventory",
+            sourceId: item.sourceId,
+            message: `Kilde «${item.sourceId}» oppgir duplicateOf «${item.duplicateOf}», men originalen er ikke «reviewed» (har status «${originalInInventory.reviewStatus}»)`,
+          });
+        }
+        if (!allSources.has(item.duplicateOf)) {
+          issues.push({
+            type: "warning",
+            category: "inventory",
+            sourceId: item.sourceId,
+            message: `Reprint refererer til ukjent duplicateOf «${item.duplicateOf}»`,
+          });
+        }
       }
     } else if (item.reviewStatus === "unavailable") {
       unavailableCount += 1;
@@ -748,6 +788,7 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
   }
 
   // 7. Semantiske metrikker
+  const inScopeSourceIds = new Set(manifestSourceIdsInScope(manifest));
   const metrics = calculateHarvestMetrics(
     {
       basePeople,
@@ -760,6 +801,7 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
       headObservations,
       baseMatches,
       headMatches,
+      scopeSourceIds: inScopeSourceIds,
     },
     preservationResult.summary.destructiveChanges,
     preservationResult.summary.approvedExceptions,

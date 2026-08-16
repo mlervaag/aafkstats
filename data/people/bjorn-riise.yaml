@@ -28,7 +28,23 @@ roles:
         page: "72"
       - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
         page: "2"
+  - id: materialforvalter-1951
+    category: sporting_staff
+    title: Materialforvalter
+    from: "1951"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
+    note: Valgt som materialforvalter på årsmøtet 29. november 1950.
 sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+    page: "31"
+
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "28"
     fields: []

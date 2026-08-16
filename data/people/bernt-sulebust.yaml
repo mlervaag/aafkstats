@@ -94,6 +94,34 @@ roles:
           - title
           - from
           - to
+  - id: valgkomite-1951
+    category: administration
+    title: Medlem av valgkomiteen
+    body: Valgkomiteen
+    from: "1951"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
+    note: Valgt inn i valgkomiteen på årsmøtet 29. november 1950.
+  - id: arrangementskomite-1951
+    category: administration
+    title: Medlem av arrangementskomiteen
+    body: Arrangementskomiteen
+    from: "1951"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+        page: "31"
+        fields:
+          - title
+          - from
+          - to
+    note: Valgt inn i arrangementskomiteen på årsmøtet 29. november 1950.
   - {
       id: gullmerkeinnehaver-2008,
       category: honorary,

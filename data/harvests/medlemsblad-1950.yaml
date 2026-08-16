@@ -287,7 +287,7 @@ findings:
     targets:
       - entity: person
         id: mary-vegsund
-        path: roles/formann-dameavdelingen-1948
+        path: roles/formann-dameavdelingen-1949
     status: normalized
   - id: role-014
     source:
@@ -1048,6 +1048,222 @@ findings:
       text: AaFK endte på 2. plass i 1. divisjon Møre distrikt 1949/50 med 15 poeng
     disposition: already_documented
     targets: []
+    status: normalized
+  - id: role-075
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Asbjørn Korsnes: Medlem av valgkomiteen 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: asbjorn-korsnes
+        path: roles/valgkomite-1951
+    status: normalized
+  - id: role-076
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Bernt Sulebust: Medlem av valgkomiteen 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: bernt-sulebust
+        path: roles/valgkomite-1951
+    status: normalized
+  - id: role-077
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Bernt Sulebust: Medlem av arrangementskomiteen 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: bernt-sulebust
+        path: roles/arrangementskomite-1951
+    status: normalized
+  - id: role-078
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Bjørn Riise: Materialforvalter 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: bjorn-riise
+        path: roles/materialforvalter-1951
+    status: normalized
+  - id: person-079
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Gustav Ringdal: Medlem av arrangementskomiteen 1951"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: gustav-ringdal
+      - entity: person
+        id: gustav-ringdal
+        path: roles/arrangementskomite-1951
+    status: normalized
+  - id: person-080
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Halvard Tørlen: 2. varamann til hovedstyret 1951"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: halvard-torlen
+      - entity: person
+        id: halvard-torlen
+        path: roles/varamann-hovedstyret-1951
+    status: normalized
+  - id: role-081
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Hans Ole Sødergren: Varamann junioroppmann 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: hans-ole-sodergren
+        path: roles/varamann-junioroppmann-1951
+    status: normalized
+  - id: person-082
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Harald Mogstad: Medlem av banekomiteen og valgkomiteen 1951"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: harald-mogstad
+      - entity: person
+        id: harald-mogstad
+        path: roles/banekomite-1951
+      - entity: person
+        id: harald-mogstad
+        path: roles/valgkomite-1951
+    status: normalized
+  - id: person-083
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "John Rekdal: Medlem av sportsutvalget og banekomiteen 1951"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: john-rekdal
+      - entity: person
+        id: john-rekdal
+        path: roles/styremedlem-sportsutvalget-1951
+      - entity: person
+        id: john-rekdal
+        path: roles/banekomite-1951
+    status: normalized
+  - id: role-084
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Lauritz Giske: 1. varamann til hovedstyret 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: lauritz-giske
+        path: roles/varamann-hovedstyret-1951
+    status: normalized
+  - id: role-085
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Ragnvald Langva: Medlem av sportsutvalget 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: ragnvald-langva
+        path: roles/sportsutvalg-1951
+    status: normalized
+  - id: role-086
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Rasmus Eck Olsen: Revisor og medlem av valgkomiteen 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: rasmus-eck-olsen
+        path: roles/revisor-1951
+      - entity: person
+        id: rasmus-eck-olsen
+        path: roles/valgkomite-1951
+    status: normalized
+  - id: role-087
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Rasmus Sulebak: Varamann revisor 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: rasmus-sulebak
+        path: roles/varamann-revisor-1951
+    status: normalized
+  - id: person-088
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Tore Mogstad: Materialforvalter 1951"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: tore-mogstad
+      - entity: person
+        id: tore-mogstad
+        path: roles/materialforvalter-1951
+    status: normalized
+  - id: person-089
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
+      page: "31"
+    type: person_role
+    claim:
+      text: "Trygve Stubb: Medlem av banekomiteen 1951"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: trygve-stubb
+      - entity: person
+        id: trygve-stubb
+        path: roles/banekomite-1951
     status: normalized
 unresolved: []
 createdAt: 2026-08-16
