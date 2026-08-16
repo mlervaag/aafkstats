@@ -1,5 +1,5 @@
 import type { PreservationException } from "../preservation-exceptions.js";
-import type { PreservationChangeDetail, PreservationStatus } from "./preservation.js";
+import { isUnicodeRepair, type PreservationChangeDetail, type PreservationStatus } from "./preservation.js";
 
 /**
  * Arkivdomener som er omfattet av det generelle bevaringsvernet.
@@ -248,6 +248,10 @@ export function diffStructuralAdditivity(
 
   // Skalar: enhver endring av en ikke-tom verdi er tap av informasjon.
   if (stableKey(baseValue) !== stableKey(headValue)) {
+    if (typeof baseValue === "string" && typeof headValue === "string" && isUnicodeRepair(baseValue, headValue)) {
+      // Ren tegnkodingsretting av \uFFFD til gyldig UTF-8
+      return out;
+    }
     out.push({
       path,
       changeType: "mutate",

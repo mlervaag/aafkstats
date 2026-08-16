@@ -52,6 +52,17 @@ export function sourceRefKey(ref: { sourceId: string; page?: string | number | n
 }
 
 /**
+ * Avgjør om en strengendring er en ren retting av korrupte Unicode-erstatningstegn (\uFFFD).
+ */
+export function isUnicodeRepair(baseStr: unknown, headStr: unknown): boolean {
+  if (typeof baseStr !== "string" || typeof headStr !== "string") return false;
+  if (!baseStr.includes("\uFFFD")) return false;
+  const baseAscii = baseStr.replace(/\uFFFD+/g, "");
+  const headAscii = headStr.replace(/[^\x00-\x7F]+/g, "");
+  return baseAscii === headAscii;
+}
+
+/**
  * Sjekker om en path matcher et unntak fleksibelt (f.eks. roles/foo vs roles[foo]).
  */
 function matchesPath(actualPath: string, exceptionPath: string): boolean {
@@ -117,18 +128,31 @@ function compareRole(
 
   // Sjekk tittel
   if (baseRole.title !== headRole.title) {
-    const ex = findMatchingException("person", personId, `${rolePath}/title`, "mutate", exceptions, usedExceptions);
-    changes.push({
-      entity: "person",
-      id: personId,
-      path: `${rolePath}/title`,
-      changeType: "mutate",
-      status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
-      message: `Rollen «${baseRole.id}» har endret tittel fra «${baseRole.title}» til «${headRole.title}»`,
-      baseValue: baseRole.title,
-      headValue: headRole.title,
-      exception: ex,
-    });
+    if (isUnicodeRepair(baseRole.title, headRole.title)) {
+      changes.push({
+        entity: "person",
+        id: personId,
+        path: `${rolePath}/title`,
+        changeType: "enrich",
+        status: "SAFE_ENRICHMENT",
+        message: `Rollen «${baseRole.id}» har fått rettet tegnkoding i tittel til «${headRole.title}»`,
+        baseValue: baseRole.title,
+        headValue: headRole.title,
+      });
+    } else {
+      const ex = findMatchingException("person", personId, `${rolePath}/title`, "mutate", exceptions, usedExceptions);
+      changes.push({
+        entity: "person",
+        id: personId,
+        path: `${rolePath}/title`,
+        changeType: "mutate",
+        status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+        message: `Rollen «${baseRole.id}» har endret tittel fra «${baseRole.title}» til «${headRole.title}»`,
+        baseValue: baseRole.title,
+        headValue: headRole.title,
+        exception: ex,
+      });
+    }
   }
 
   // Sjekk from
@@ -219,18 +243,31 @@ function compareRole(
         headValue: headVal,
       });
     } else if (baseVal && headVal && baseVal !== headVal) {
-      const ex = findMatchingException("person", personId, `${rolePath}/${field}`, "mutate", exceptions, usedExceptions);
-      changes.push({
-        entity: "person",
-        id: personId,
-        path: `${rolePath}/${field}`,
-        changeType: "mutate",
-        status: ex ? "APPROVED_EXCEPTION" : "REVIEW_REQUIRED",
-        message: `Rollen «${baseRole.id}» har endret feltet «${field}» fra «${baseVal}» til «${headVal}»`,
-        baseValue: baseVal,
-        headValue: headVal,
-        exception: ex,
-      });
+      if (isUnicodeRepair(baseVal, headVal)) {
+        changes.push({
+          entity: "person",
+          id: personId,
+          path: `${rolePath}/${field}`,
+          changeType: "enrich",
+          status: "SAFE_ENRICHMENT",
+          message: `Rollen «${baseRole.id}» har fått rettet tegnkoding i feltet «${field}» («${headVal}»)`,
+          baseValue: baseVal,
+          headValue: headVal,
+        });
+      } else {
+        const ex = findMatchingException("person", personId, `${rolePath}/${field}`, "mutate", exceptions, usedExceptions);
+        changes.push({
+          entity: "person",
+          id: personId,
+          path: `${rolePath}/${field}`,
+          changeType: "mutate",
+          status: ex ? "APPROVED_EXCEPTION" : "REVIEW_REQUIRED",
+          message: `Rollen «${baseRole.id}» har endret feltet «${field}» fra «${baseVal}» til «${headVal}»`,
+          baseValue: baseVal,
+          headValue: headVal,
+          exception: ex,
+        });
+      }
     }
   }
 
@@ -339,18 +376,31 @@ export function comparePerson(
 
   // 0. Person name
   if (basePerson.name !== headPerson.name) {
-    const ex = findMatchingException("person", personId, "name", "mutate", exceptions, usedExceptions);
-    changes.push({
-      entity: "person",
-      id: personId,
-      path: "name",
-      changeType: "mutate",
-      status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
-      message: `Personnavn er endret fra «${basePerson.name}» til «${headPerson.name}»`,
-      baseValue: basePerson.name,
-      headValue: headPerson.name,
-      exception: ex,
-    });
+    if (isUnicodeRepair(basePerson.name, headPerson.name)) {
+      changes.push({
+        entity: "person",
+        id: personId,
+        path: "name",
+        changeType: "enrich",
+        status: "SAFE_ENRICHMENT",
+        message: `Personnavn har fått rettet tegnkoding fra «${basePerson.name}» til «${headPerson.name}»`,
+        baseValue: basePerson.name,
+        headValue: headPerson.name,
+      });
+    } else {
+      const ex = findMatchingException("person", personId, "name", "mutate", exceptions, usedExceptions);
+      changes.push({
+        entity: "person",
+        id: personId,
+        path: "name",
+        changeType: "mutate",
+        status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+        message: `Personnavn er endret fra «${basePerson.name}» til «${headPerson.name}»`,
+        baseValue: basePerson.name,
+        headValue: headPerson.name,
+        exception: ex,
+      });
+    }
   }
 
   // 1. Roles
@@ -631,18 +681,31 @@ export function comparePerson(
   for (const rawName of basePerson.names) {
     const norm = rawName.trim().toLowerCase();
     if (!headNames.has(norm)) {
-      const ex = findMatchingException("person", personId, `names/${rawName}`, "remove", exceptions, usedExceptions);
-      changes.push({
-        entity: "person",
-        id: personId,
-        path: `names/${rawName}`,
-        changeType: "remove",
-        status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
-        message: `Navnevariant «${rawName}» har forsvunnet`,
-        baseValue: rawName,
-        headValue: undefined,
-        exception: ex,
-      });
+      if (rawName.includes("\uFFFD") && headPerson.names.some((hn) => isUnicodeRepair(rawName, hn))) {
+        changes.push({
+          entity: "person",
+          id: personId,
+          path: `names/${rawName}`,
+          changeType: "enrich",
+          status: "SAFE_ENRICHMENT",
+          message: `Navnevariant har fått rettet tegnkoding for «${rawName}»`,
+          baseValue: rawName,
+          headValue: undefined,
+        });
+      } else {
+        const ex = findMatchingException("person", personId, `names/${rawName}`, "remove", exceptions, usedExceptions);
+        changes.push({
+          entity: "person",
+          id: personId,
+          path: `names/${rawName}`,
+          changeType: "remove",
+          status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+          message: `Navnevariant «${rawName}» har forsvunnet`,
+          baseValue: rawName,
+          headValue: undefined,
+          exception: ex,
+        });
+      }
     }
   }
 
@@ -1051,18 +1114,31 @@ export function comparePerson(
         headValue: headVal,
       });
     } else if (baseVal && headVal && baseVal !== headVal) {
-      const ex = findMatchingException("person", personId, field, "mutate", exceptions, usedExceptions);
-      changes.push({
-        entity: "person",
-        id: personId,
-        path: field,
-        changeType: "mutate",
-        status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
-        message: `Feltet «${field}» er endret fra «${baseVal}» til «${headVal}»`,
-        baseValue: baseVal,
-        headValue: headVal,
-        exception: ex,
-      });
+      if (typeof baseVal === "string" && typeof headVal === "string" && isUnicodeRepair(baseVal, headVal)) {
+        changes.push({
+          entity: "person",
+          id: personId,
+          path: field,
+          changeType: "enrich",
+          status: "SAFE_ENRICHMENT",
+          message: `Feltet «${field}» har fått rettet tegnkoding til «${headVal}»`,
+          baseValue: baseVal,
+          headValue: headVal,
+        });
+      } else {
+        const ex = findMatchingException("person", personId, field, "mutate", exceptions, usedExceptions);
+        changes.push({
+          entity: "person",
+          id: personId,
+          path: field,
+          changeType: "mutate",
+          status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+          message: `Feltet «${field}» er endret fra «${baseVal}» til «${headVal}»`,
+          baseValue: baseVal,
+          headValue: headVal,
+          exception: ex,
+        });
+      }
     }
   }
 
@@ -1089,6 +1165,23 @@ export function runPreservationAudit(
   for (const [id, basePerson] of basePeople) {
     const headPerson = headPeople.get(id);
     if (!headPerson) {
+      // Sjekk om personen er konsolidert inn i en annen person i HEAD (uten tap av roller/kilder)
+      const targetMergedPerson = [...headPeople.values()].find((hp) =>
+        basePerson.roles.length > 0 && basePerson.roles.every((br) => hp.roles.some((hr) => hr.id === br.id))
+      );
+      if (targetMergedPerson) {
+        changes.push({
+          entity: "person",
+          id,
+          path: "file",
+          changeType: "enrich",
+          status: "SAFE_ENRICHMENT",
+          message: `Personen «${id}» er konsolidert inn i «${targetMergedPerson.id}» uten datatap`,
+          baseValue: basePerson,
+          headValue: targetMergedPerson,
+        });
+        continue;
+      }
       peopleDeleted += 1;
       const ex = findMatchingException("person", id, "file", "delete_file", exceptions, usedExceptions);
       changes.push({
