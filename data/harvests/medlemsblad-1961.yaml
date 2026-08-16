@@ -1,0 +1,1086 @@
+version: 1
+id: medlemsblad-1961
+title: AaFK Medlemsblad 1961 (Vol. 12, nr. 1–6)
+profile: member_magazine
+mode: reharvest
+status: audited
+scope:
+  years:
+    from: 1961
+    to: 1961
+  sourceIds:
+  - medlemsblad-for-aalesunds-fotb-1961-a9f8
+  parentSourceId: aafk-medlemsblad
+sourceInventory:
+- sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+  title: Medlemsblad for Aalesunds fotballklubb. 1961 Vol. 12 Nr. 1-6
+  year: 1961
+  reviewStatus: reviewed
+coverage:
+  mode: pages
+  expected: 84
+  reviewed: 84
+passes:
+  facsimile_review:
+    status: reviewed
+    findings: 83
+    note: 'Sidekontrollen er dokumentert side for side i docs/data/MEDLEMSBLAD_REVIEW_1961.md (84 sider),
+      utført i PR #152, #154 før manifestformatet fantes.'
+  explicit_results:
+    status: complete
+    findings: 4
+  people_and_roles:
+    status: complete
+    findings: 73
+  organization:
+    status: complete
+    findings: 1
+  retrospectives_and_claims:
+    status: complete
+    findings: 0
+  observations:
+    status: complete
+    findings: 5
+  fixture_reconciliation:
+    status: reviewed
+    findings: 0
+    note: Terminlisteavstemmingen er dokumentert i reviewfilen, ikke som egne funn i manifestet.
+reviewMethod:
+  facsimile: required
+review:
+  file: docs/data/MEDLEMSBLAD_REVIEW_1961.md
+previousWork:
+  pullRequests:
+  - 152
+  - 154
+  notes:
+  - Kilden ble innhøstet før batchmanifestet fantes. Dette manifestet er en rekonstruksjon.
+findings:
+- id: pers-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '9'
+  type: person
+  claim:
+    text: Alfhild Ringdal er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: alfhild-ringdal
+  status: normalized
+- id: role-002
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '9'
+  type: person_role
+  claim:
+    text: 'Alfhild Ringdal: Formann (1951)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: alfhild-ringdal
+    path: roles/formann-dameavdelingen-1951
+  status: normalized
+- id: pers-003
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '9'
+  type: person
+  claim:
+    text: Anita Wold er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: anita-wold
+  status: normalized
+- id: role-004
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '9'
+  type: person_role
+  claim:
+    text: 'Anita Wold: Formann (1954)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: anita-wold
+    path: roles/formann-dameavdelingen-1954
+  status: normalized
+- id: pers-005
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '77'
+  type: person
+  claim:
+    text: Arne Finsnes er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: arne-finsnes
+  status: normalized
+- id: pers-006
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '79'
+  type: person
+  claim:
+    text: Arnvid Landquist er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: arnvid-landquist
+  status: normalized
+- id: pers-007
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '79'
+  type: person
+  claim:
+    text: Asbjørn Rutgerson er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: asbjorn-rutgerson
+  status: normalized
+- id: pers-008
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '72'
+  type: person
+  claim:
+    text: Bjørn Riise er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: bjorn-riise
+  status: normalized
+- id: role-009
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '72'
+  type: person_role
+  claim:
+    text: 'Bjørn Riise: Leder og oppmann (1961–1962)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: bjorn-riise
+    path: roles/leder-guttelaget-1961-1962
+  status: normalized
+- id: pers-010
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '64'
+  type: person
+  claim:
+    text: Einar Aas er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: einar-aas
+  status: normalized
+- id: role-011
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '19'
+  type: person_role
+  claim:
+    text: 'Einar Aas: Oppmann (1961–1962)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: einar-aas
+    path: roles/oppmann-1961-1962
+  status: normalized
+- id: pers-012
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '63'
+  type: person
+  claim:
+    text: Einar With er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: einar-with
+  status: normalized
+- id: role-013
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '55'
+  type: person_role
+  claim:
+    text: 'Einar With: Juniorlandslagsspiller (1961–1962)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: einar-with
+    path: roles/juniorlandslag-1961
+  status: normalized
+- id: pers-014
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '9'
+  type: person
+  claim:
+    text: Elisif Ingebrigtsen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: elisif-ingebrigtsen
+  status: normalized
+- id: role-015
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '9'
+  type: person_role
+  claim:
+    text: 'Elisif Ingebrigtsen: Formann (1959–1960)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: elisif-ingebrigtsen
+    path: roles/formann-dameavdelingen-1959
+  status: normalized
+- id: pers-016
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '9'
+  type: person
+  claim:
+    text: Else Giske er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: else-giske
+  status: normalized
+- id: role-017
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '9'
+  type: person_role
+  claim:
+    text: 'Else Giske: Kasserer (1961)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: else-giske
+    path: roles/kasserer-dameavdelingen-1961
+  status: normalized
+- id: pers-018
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '79'
+  type: person
+  claim:
+    text: Erling Listhaug er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: erling-listhaug
+  status: normalized
+- id: pers-019
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '17'
+  type: person
+  claim:
+    text: Finn Tollås er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: finn-tollas
+  status: normalized
+- id: pers-020
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '74'
+  type: person
+  claim:
+    text: Frantz Løvmo er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: frantz-lovmo
+  status: normalized
+- id: pers-021
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '13'
+  type: person
+  claim:
+    text: Georg Haller er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: georg-haller
+  status: normalized
+- id: pers-022
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '9'
+  type: person
+  claim:
+    text: Gerd Strømsholm er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: gerd-stromsholm
+  status: normalized
+- id: role-023
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '9'
+  type: person_role
+  claim:
+    text: 'Gerd Strømsholm: Formann (1956–1958)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: gerd-stromsholm
+    path: roles/formann-dameavdelingen-1956
+  status: normalized
+- id: pers-024
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '59'
+  type: person
+  claim:
+    text: Hans J. Henriksen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: hans-j-henriksen
+  status: normalized
+- id: role-025
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '59'
+  type: person_role
+  claim:
+    text: 'Hans J. Henriksen: Formann (1962–1964)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: hans-j-henriksen
+    path: roles/formann-1962-1964
+  status: normalized
+- id: role-026
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '7'
+  type: person_role
+  claim:
+    text: 'Hans J. Henriksen: Nestformann (1961)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: hans-j-henriksen
+    path: roles/nestformann-1961
+  status: normalized
+- id: pers-027
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '4'
+  type: person
+  claim:
+    text: Hans Ole Sødergren er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: hans-ole-sodergren
+  status: normalized
+- id: role-028
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '4'
+  type: person_role
+  claim:
+    text: 'Hans Ole Sødergren: Autorisert forbundsdommer (NFF) (1961)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: hans-ole-sodergren
+    path: roles/forbundsdommer-1961
+  status: normalized
+- id: pers-029
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '58'
+  type: person
+  claim:
+    text: Harald Hagen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: harald-hagen
+  status: normalized
+- id: pers-030
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '73'
+  type: person
+  claim:
+    text: Harald Johansen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: harald-johansen
+  status: normalized
+- id: pers-031
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '9'
+  type: person
+  claim:
+    text: Hilda Orheim er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: hilda-orheim
+  status: normalized
+- id: role-032
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '9'
+  type: person_role
+  claim:
+    text: 'Hilda Orheim: Formann (1961–1962)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: hilda-orheim
+    path: roles/formann-dameavdelingen-1961-1962
+  status: normalized
+- id: pers-033
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '79'
+  type: person
+  claim:
+    text: Håkon Garshol er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: hakon-garshol
+  status: normalized
+- id: pers-034
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '9'
+  type: person
+  claim:
+    text: Irma Ingebrigtsen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: irma-ingebrigtsen
+  status: normalized
+- id: role-035
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '9'
+  type: person_role
+  claim:
+    text: 'Irma Ingebrigtsen: Formann (1946)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: irma-ingebrigtsen
+    path: roles/formann-dameavdelingen-1946
+  status: normalized
+- id: pers-036
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '7'
+  type: person
+  claim:
+    text: Jarle Kristoffersen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: jarle-kristoffersen
+  status: normalized
+- id: role-037
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '36'
+  type: person_role
+  claim:
+    text: 'Jarle Kristoffersen: Sekretær (1961)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: jarle-kristoffersen
+    path: roles/sekretaer-1961
+  status: normalized
+- id: role-038
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '7'
+  type: person_role
+  claim:
+    text: 'Jarle Kristoffersen: Sekretær (1961)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: jarle-kristoffersen
+    path: roles/sekretar-1961
+  status: normalized
+- id: pers-039
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '77'
+  type: person
+  claim:
+    text: Johan Pedersen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: johan-pedersen
+  status: normalized
+- id: pers-040
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '71'
+  type: person
+  claim:
+    text: Johs. Hollevik er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: johs-hollevik
+  status: normalized
+- id: role-041
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '71'
+  type: person_role
+  claim:
+    text: 'Johs. Hollevik: Gullmerke (1961)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: johs-hollevik
+    path: roles/gullmerke-1961
+  status: normalized
+- id: pers-042
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '76'
+  type: person
+  claim:
+    text: Karsten Nedregård er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: karsten-nedregard
+  status: normalized
+- id: pers-043
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '57'
+  type: person
+  claim:
+    text: Karsten Vadseth er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: karsten-vadseth
+  status: normalized
+- id: pers-044
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '2'
+  type: person
+  claim:
+    text: Kjell Berentzen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: kjell-berentzen
+  status: normalized
+- id: role-045
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '7'
+  type: person_role
+  claim:
+    text: 'Kjell Berentzen: Formann (1961)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: kjell-berentzen
+    path: roles/formann-1961
+  status: normalized
+- id: pers-046
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '77'
+  type: person
+  claim:
+    text: Kjell Iversen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: kjell-iversen
+  status: normalized
+- id: pers-047
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '26'
+  type: person
+  claim:
+    text: Knut Gaaseide er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: knut-gaaseide
+  status: normalized
+- id: pers-048
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '3'
+  type: person
+  claim:
+    text: Lauritz Giske er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: lauritz-giske
+  status: normalized
+- id: pers-049
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '10'
+  type: person
+  claim:
+    text: Leif Olsen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: leif-olsen
+  status: normalized
+- id: pers-050
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '9'
+  type: person
+  claim:
+    text: Lilly Annaniassen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: lilly-annaniassen
+  status: normalized
+- id: role-051
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '9'
+  type: person_role
+  claim:
+    text: 'Lilly Annaniassen: Sekretær (1961–1962)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: lilly-annaniassen
+    path: roles/sekretar-dameavdelingen-1961-1962
+  status: normalized
+- id: pers-052
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '9'
+  type: person
+  claim:
+    text: Lollo Stub er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: lollo-stub
+  status: normalized
+- id: role-053
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '9'
+  type: person_role
+  claim:
+    text: 'Lollo Stub: Nestformann (1961–1962)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: lollo-stub
+    path: roles/nestformann-dameavdelingen-1961-1962
+  status: normalized
+- id: pers-054
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '9'
+  type: person
+  claim:
+    text: Mary Vegsund er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: mary-vegsund
+  status: normalized
+- id: role-055
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '9'
+  type: person_role
+  claim:
+    text: 'Mary Vegsund: Formann (1949)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: mary-vegsund
+    path: roles/formann-dameavdelingen-1949
+  status: normalized
+- id: pers-056
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '19'
+  type: person
+  claim:
+    text: Nils Jangaard er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: nils-jangaard
+  status: normalized
+- id: pers-057
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '70'
+  type: person
+  claim:
+    text: Oskar Pedersen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: oskar-pedersen
+  status: normalized
+- id: pers-058
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '14'
+  type: person
+  claim:
+    text: Peder Puck er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: peder-puck
+  status: normalized
+- id: role-059
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '30'
+  type: person_role
+  claim:
+    text: 'Peder Puck: Norges Idrettsforbunds hedersplakett (1961)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: peder-puck
+    path: roles/nif-plakett-1961
+  status: normalized
+- id: pers-060
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '11'
+  type: person
+  claim:
+    text: Rasmus Eck Olsen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: rasmus-eck-olsen
+  status: normalized
+- id: pers-061
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '6'
+  type: person
+  claim:
+    text: Reidar Skarbøvik er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: reidar-skarbovik
+  status: normalized
+- id: pers-062
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '80'
+  type: person
+  claim:
+    text: Reidar Steen Jensen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: reidar-steen-jensen
+  status: normalized
+- id: role-063
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '80'
+  type: person_role
+  claim:
+    text: 'Reidar Steen Jensen: Spillende trener (1962)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: reidar-steen-jensen
+    path: roles/spillende-trener-1962
+  status: normalized
+- id: pers-064
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '7'
+  type: person
+  claim:
+    text: Rolf Annaniassen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: rolf-annaniassen
+  status: normalized
+- id: role-065
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '59'
+  type: person_role
+  claim:
+    text: 'Rolf Annaniassen: Sekretær (1962)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: rolf-annaniassen
+    path: roles/sekretaer-hovedstyret-1962
+  status: normalized
+- id: pers-066
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '58'
+  type: person
+  claim:
+    text: Sigurd Nørve er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: sigurd-norve
+  status: normalized
+- id: pers-067
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '79'
+  type: person
+  claim:
+    text: Steinar Nedregård er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: steinar-nedregard
+  status: normalized
+- id: pers-068
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '79'
+  type: person
+  claim:
+    text: Svein Arne Hoel er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: svein-arne-hoel
+  status: normalized
+- id: pers-069
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '79'
+  type: person
+  claim:
+    text: Svein Rødland er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: svein-rodland
+  status: normalized
+- id: pers-070
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '57'
+  type: person
+  claim:
+    text: Sverre Mogstad er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: sverre-mogstad
+  status: normalized
+- id: pers-071
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '44'
+  type: person
+  claim:
+    text: Torbjørn Aarø er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: torbjorn-aaro
+  status: normalized
+- id: role-072
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '44'
+  type: person_role
+  claim:
+    text: 'Torbjørn Aarø: Lagkaptein (1961–1962)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: torbjorn-aaro
+    path: roles/kaptein-1961-1962
+  status: normalized
+- id: pers-073
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '8'
+  type: person
+  claim:
+    text: Øivind Haagensen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: oivind-haagensen
+  status: normalized
+- id: sres-074
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '36'
+  type: match_result
+  claim:
+    text: 15 kilderesultater for sesongen 1961
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1961-a9f8
+  status: normalized
+- id: kamp-075
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '38'
+  type: match_result
+  claim:
+    text: Kampbelegg for 1961-06-22-aalesunds-fk-koge-bk
+  disposition: canonical_enriched
+  targets:
+  - entity: match
+    id: 1961-06-22-aalesunds-fk-koge-bk
+  status: normalized
+- id: kamp-076
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '31'
+  type: match_result
+  claim:
+    text: Kampbelegg for 1961-07-06-aalesunds-fk-canto-do-rio
+  disposition: canonical_enriched
+  targets:
+  - entity: match
+    id: 1961-07-06-aalesunds-fk-canto-do-rio
+  status: normalized
+- id: kamp-077
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '44'
+  type: match_result
+  claim:
+    text: Kampbelegg for 1961-08-06-rosenborg-bk-aalesunds-fk
+  disposition: canonical_enriched
+  targets:
+  - entity: match
+    id: 1961-08-06-rosenborg-bk-aalesunds-fk
+  status: normalized
+- id: obs-078
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '84'
+  type: historical_observation
+  claim:
+    text: 'Minnenes bok: Byderby mot Rollon i 1940 (2–0)'
+  disposition: historical_observation_created
+  targets:
+  - entity: observation
+    id: 1940-byderby-rollon
+  status: normalized
+- id: obs-079
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '14'
+  type: historical_observation
+  claim:
+    text: 'Minnenes bok: Sesongen 1940 mot Skeid på Bislett'
+  disposition: historical_observation_created
+  targets:
+  - entity: observation
+    id: 1940-sesongen-bislett-skeid
+  status: normalized
+- id: obs-080
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '79'
+  type: historical_observation
+  claim:
+    text: Nye A-lagsdebutanter i 1961
+  disposition: historical_observation_created
+  targets:
+  - entity: observation
+    id: 1961-a-lagsdebutanter
+  status: normalized
+- id: obs-081
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '5'
+  type: historical_observation
+  claim:
+    text: Klubbens stifter Georg Haller er død
+  disposition: historical_observation_created
+  targets:
+  - entity: observation
+    id: 1961-georg-haller-dod
+  status: normalized
+- id: obs-082
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '6'
+  type: historical_observation
+  claim:
+    text: Innvielse av det nye klubbhuset på Kråmyra
+  disposition: historical_observation_created
+  targets:
+  - entity: observation
+    id: 1961-kramyra-klubbhus-innvielse
+  status: normalized
+- id: org-083
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
+    page: '7'
+  type: organization
+  claim:
+    text: Organisasjonsbilde 1961 for aafk
+  disposition: organization_snapshot_created
+  targets:
+  - entity: organization_snapshot
+    id: 1961-aafk
+  status: normalized
+unresolved: []
+notes:
+- Rekonstruert manifest. Funnene er utledet maskinelt fra kildereferansene som allerede står i arkivet,
+  ikke fra en ny faksimilegjennomgang.
+- coverage.reviewed er satt til 84 fordi den visuelle sidekontrollen er dokumentert side for side i docs/data/MEDLEMSBLAD_REVIEW_1961.md.
+  Manifestet attesterer ikke arbeidet på nytt; det peker på loggen der det ble gjort.
+- 'Status er audited, ikke complete: funnlisten er utledet fra arkivet og kan derfor ikke attestere at
+  den er uttømmende for kilden.'

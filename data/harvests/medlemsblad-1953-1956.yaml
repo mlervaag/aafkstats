@@ -1,0 +1,2007 @@
+version: 1
+id: medlemsblad-1953-1956
+title: AaFK Medlemsblad 1953–1956 (inkl. 40-årsjubileumsnummeret)
+profile: member_magazine
+mode: reharvest
+status: audited
+scope:
+  years:
+    from: 1953
+    to: 1956
+  sourceIds:
+  - medlemsblad-for-aalesunds-fotb-1953-3e9d
+  - medlemsblad-for-aalesunds-fotb-1954-cd1c
+  - medlemsblad-for-aalesunds-fotb-1954-192b
+  - medlemsblad-for-aalesunds-fotb-1955-8ccc
+  - medlemsblad-for-aalesunds-fotb-1956-3e52
+  parentSourceId: aafk-medlemsblad
+sourceInventory:
+- sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+  title: Medlemsblad for Aalesunds fotballklubb. 1953 Vol. 4 Nr. 1-6
+  year: 1953
+  reviewStatus: reviewed
+- sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+  title: Medlemsblad for Aalesunds fotballklubb. 1954 Vol. 5 Nr. 1-6
+  year: 1954
+  reviewStatus: reviewed
+- sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+  title: Medlemsblad for Aalesunds fotballklubb. 1954 Vol. 5 Nr. Jule- og jubileumsnr.
+  year: 1954
+  reviewStatus: reviewed
+- sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
+  title: Medlemsblad for Aalesunds fotballklubb. 1955 Vol. 6 Nr. 1-6
+  year: 1955
+  reviewStatus: reviewed
+- sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+  title: Medlemsblad for Aalesunds fotballklubb. 1956 Vol. 7 Nr. 1-6
+  year: 1956
+  reviewStatus: reviewed
+coverage:
+  mode: pages
+  expected: 420
+  reviewed: 420
+passes:
+  facsimile_review:
+    status: reviewed
+    findings: 153
+    note: 'Sidekontrollen er dokumentert side for side i docs/data/MEDLEMSBLAD_REVIEW_1953_1956.md (420
+      sider), utført i PR #156 før manifestformatet fantes.'
+  explicit_results:
+    status: complete
+    findings: 20
+  people_and_roles:
+    status: complete
+    findings: 128
+  organization:
+    status: complete
+    findings: 4
+  retrospectives_and_claims:
+    status: complete
+    findings: 0
+  observations:
+    status: complete
+    findings: 1
+  fixture_reconciliation:
+    status: reviewed
+    findings: 0
+    note: Terminlisteavstemmingen er dokumentert i reviewfilen, ikke som egne funn i manifestet.
+reviewMethod:
+  facsimile: required
+review:
+  file: docs/data/MEDLEMSBLAD_REVIEW_1953_1956.md
+previousWork:
+  pullRequests:
+  - 156
+  notes:
+  - Kilden ble innhøstet før batchmanifestet fantes. Dette manifestet er en rekonstruksjon.
+findings:
+- id: pers-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '6'
+  type: person
+  claim:
+    text: Anders Mogstad er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: anders-mogstad
+  status: normalized
+- id: role-002
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Anders Mogstad: Oppmann (1921)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: anders-mogstad
+    path: roles/oppmann-1921
+  status: normalized
+- id: pers-003
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '4'
+  type: person
+  claim:
+    text: Anders Todal er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: anders-todal
+  status: normalized
+- id: role-004
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '25'
+  type: person_role
+  claim:
+    text: 'Andreas Ringdal: Gullmerkeinnehaver (1927)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: andreas-ringdal
+    path: roles/gullmerkeinnehaver-1927
+  status: normalized
+- id: pers-005
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '66'
+  type: person
+  claim:
+    text: Anita Wold er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: anita-wold
+  status: normalized
+- id: role-006
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '66'
+  type: person_role
+  claim:
+    text: 'Anita Wold: Formann (1954)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: anita-wold
+    path: roles/formann-dameavdelingen-1954
+  status: normalized
+- id: role-007
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '66'
+  type: person_role
+  claim:
+    text: 'Bernt Sulebust: Sekretær (1953–1954)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: bernt-sulebust
+    path: roles/sekretaer-hovedstyret-1953-1954
+  status: normalized
+- id: role-008
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '60'
+  type: person_role
+  claim:
+    text: 'Bernt Sulebust: Sekretær (1944)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: bernt-sulebust
+    path: roles/sekretaer-1944
+  status: normalized
+- id: role-009
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Christoffer Rønneberg: Oppmann (1926)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: christoffer-ronneberg
+    path: roles/oppmann-1926
+  status: normalized
+- id: role-010
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Christoffer Rønneberg: Oppmann (1927)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: christoffer-ronneberg
+    path: roles/oppmann-1927
+  status: normalized
+- id: role-011
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Christoffer Rønneberg: Oppmann (1928)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: christoffer-ronneberg
+    path: roles/oppmann-1928
+  status: normalized
+- id: pers-012
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '4'
+  type: person
+  claim:
+    text: Edvard Skugvik er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: edvard-skugvik
+  status: normalized
+- id: role-013
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Edvard Skugvik: Oppmann (1920)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: edvard-skugvik
+    path: roles/oppmann-1920
+  status: normalized
+- id: role-014
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Edvard Skugvik: Oppmann (1922)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: edvard-skugvik
+    path: roles/oppmann-1922
+  status: normalized
+- id: role-015
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Edvard Skugvik: Oppmann (1929)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: edvard-skugvik
+    path: roles/oppmann-1929
+  status: normalized
+- id: role-016
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Edvard Skugvik: Oppmann (1934)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: edvard-skugvik
+    path: roles/oppmann-1934
+  status: normalized
+- id: role-017
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+    page: '75'
+  type: person_role
+  claim:
+    text: 'Einar Aas: Årets spiller (1956)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: einar-aas
+    path: roles/arets-spiller-1956
+  status: normalized
+- id: pers-018
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '70'
+  type: person
+  claim:
+    text: Emil Mogstad er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: emil-mogstad
+  status: normalized
+- id: pers-019
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '7'
+  type: person
+  claim:
+    text: Emil Sandø er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: emil-sando
+  status: normalized
+- id: role-020
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '87'
+  type: person_role
+  claim:
+    text: 'Emil Sandø: Formann i banekomiteen (1951–1955)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: emil-sando
+    path: roles/banekomiteformann-1951-1955
+  status: normalized
+- id: role-021
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '30'
+  type: person_role
+  claim:
+    text: 'Emil Sandø: Gullmerkeinnehaver (1953)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: emil-sando
+    path: roles/gullmerkeinnehaver-1953
+  status: normalized
+- id: role-022
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Erling Flem: Oppmann (1935)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: erling-flem
+    path: roles/oppmann-1935
+  status: normalized
+- id: role-023
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Erling Flem: Oppmann (1937)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: erling-flem
+    path: roles/oppmann-1937
+  status: normalized
+- id: pers-024
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '2'
+  type: person
+  claim:
+    text: Finn Tollås er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: finn-tollas
+  status: normalized
+- id: role-025
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Finn Tollås: Oppmann (1946)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: finn-tollas
+    path: roles/oppmann-1946
+  status: normalized
+- id: role-026
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Finn Tollås: Oppmann (1948)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: finn-tollas
+    path: roles/oppmann-1948
+  status: normalized
+- id: role-027
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '12'
+  type: person_role
+  claim:
+    text: 'Finn Tollås: Trener (1953–1954)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: finn-tollas
+    path: roles/trener-1953-1954
+  status: normalized
+- id: role-028
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+    page: '4'
+  type: person_role
+  claim:
+    text: 'Finn Tollås: Trener (1956)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: finn-tollas
+    path: roles/trener-1956
+  status: normalized
+- id: pers-029
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '12'
+  type: person
+  claim:
+    text: Fritz Haagensen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: fritz-haagensen
+  status: normalized
+- id: role-030
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Fritz Haagensen: Oppmann (1954)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: fritz-haagensen
+    path: roles/oppmann-1954
+  status: normalized
+- id: role-031
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
+    page: '64'
+  type: person_role
+  claim:
+    text: 'Fritz Haagensen: Oppmann (1955)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: fritz-haagensen
+    path: roles/oppmann-1955
+  status: normalized
+- id: pers-032
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '6'
+  type: person
+  claim:
+    text: Georg Haller er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: georg-haller
+  status: normalized
+- id: role-033
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '6'
+  type: person_role
+  claim:
+    text: 'Georg Haller: Formann (1914–1915)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: georg-haller
+    path: roles/formann-1914-1915
+  status: normalized
+- id: pers-034
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '5'
+  type: person
+  claim:
+    text: Harald Hagen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: harald-hagen
+  status: normalized
+- id: role-035
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Harald Hagen: Oppmann (1916)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: harald-hagen
+    path: roles/oppmann-1916
+  status: normalized
+- id: pers-036
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '4'
+  type: person
+  claim:
+    text: Harald Nord er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: harald-nord
+  status: normalized
+- id: role-037
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '4'
+  type: person_role
+  claim:
+    text: 'Harald Nord: Redaktør (1953–1956)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: harald-nord
+    path: roles/redaktor-medlemsbladet-1953-1956
+  status: normalized
+- id: pers-038
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '6'
+  type: person
+  claim:
+    text: Harald Riise-Hansen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: harald-riise-hansen
+  status: normalized
+- id: role-039
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Harald Riise-Hansen: Oppmann (1917)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: harald-riise-hansen
+    path: roles/oppmann-1917
+  status: normalized
+- id: role-040
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '66'
+  type: person_role
+  claim:
+    text: 'Harald Sæther: Kasserer (1953–1960)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: harald-saether
+    path: roles/kasserer-1953-1960
+  status: normalized
+- id: pers-041
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '5'
+  type: person
+  claim:
+    text: Hugo Hamre er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: hugo-hamre
+  status: normalized
+- id: pers-042
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '74'
+  type: person
+  claim:
+    text: Ingvald Frøysa er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: ingvald-froysa
+  status: normalized
+- id: role-043
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Ingvald Frøysa: Spillemerket i sølv (1950)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: ingvald-froysa
+    path: roles/spillemerke-solv-1950
+  status: normalized
+- id: role-044
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
+    page: '64'
+  type: person_role
+  claim:
+    text: 'Jan Larsen: Kaptein (1955)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: jan-larsen
+    path: roles/kaptein-1955
+  status: normalized
+- id: pers-045
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '43'
+  type: person
+  claim:
+    text: Johan Keller er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: johan-keller
+  status: normalized
+- id: role-046
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Johs. Hollevik: Oppmann (1936)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: johs-hollevik
+    path: roles/oppmann-1936
+  status: normalized
+- id: pers-047
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '4'
+  type: person
+  claim:
+    text: Karsten Eriksen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: karsten-eriksen
+  status: normalized
+- id: role-048
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '66'
+  type: person_role
+  claim:
+    text: 'Karsten Eriksen: Nestformann (1953–1954)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: karsten-eriksen
+    path: roles/nestformann-hovedstyret-1953-1954
+  status: normalized
+- id: role-049
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '56'
+  type: person_role
+  claim:
+    text: 'Karsten Eriksen: Nestformann (1944)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: karsten-eriksen
+    path: roles/nestformann-1944
+  status: normalized
+- id: pers-050
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '74'
+  type: person
+  claim:
+    text: Karsten Nedregård er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: karsten-nedregard
+  status: normalized
+- id: role-051
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Karsten Nedregård: Spillemerket i gull (1950)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: karsten-nedregard
+    path: roles/spillemerke-gull-1950
+  status: normalized
+- id: pers-052
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '12'
+  type: person
+  claim:
+    text: Kjell Berentzen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: kjell-berentzen
+  status: normalized
+- id: role-053
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
+    page: '64'
+  type: person_role
+  claim:
+    text: 'Kjell Berentzen: Formann (1955–1956)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: kjell-berentzen
+    path: roles/formann-1955-1956
+  status: normalized
+- id: pers-054
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '6'
+  type: person
+  claim:
+    text: Knut Gaaseide er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: knut-gaaseide
+  status: normalized
+- id: role-055
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '6'
+  type: person_role
+  claim:
+    text: 'Knut Gaaseide: Formann (1937)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: knut-gaaseide
+    path: roles/formann-1937
+  status: normalized
+- id: pers-056
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '51'
+  type: person
+  claim:
+    text: Konrad Korsnes er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: konrad-korsnes
+  status: normalized
+- id: role-057
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '34'
+  type: person_role
+  claim:
+    text: 'Konrad Korsnes: Gullmerkeinnehaver (1935)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: konrad-korsnes
+    path: roles/gullmerkeinnehaver-1935
+  status: normalized
+- id: role-058
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Konrad Korsnes: Oppmann (1938)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: konrad-korsnes
+    path: roles/oppmann-1938
+  status: normalized
+- id: role-059
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Konrad Korsnes: Oppmann (1939)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: konrad-korsnes
+    path: roles/oppmann-1939
+  status: normalized
+- id: pers-060
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '4'
+  type: person
+  claim:
+    text: Lars Riise-Hansen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: lars-riise-hansen
+  status: normalized
+- id: pers-061
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '2'
+  type: person
+  claim:
+    text: Lauritz Giske er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: lauritz-giske
+  status: normalized
+- id: role-062
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '60'
+  type: person_role
+  claim:
+    text: 'Lauritz Giske: Formann (1953–1954)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: lauritz-giske
+    path: roles/formann-1953-1954
+  status: normalized
+- id: role-063
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '56'
+  type: person_role
+  claim:
+    text: 'Lauritz Giske: Formann (1954)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: lauritz-giske
+    path: roles/formann-1954
+  status: normalized
+- id: role-064
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+    page: '37'
+  type: person_role
+  claim:
+    text: 'Lauritz Giske: Nestformann (1956)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: lauritz-giske
+    path: roles/nestformann-hovedstyret-1956
+  status: normalized
+- id: role-065
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+    page: '36'
+  type: person_role
+  claim:
+    text: 'Lauritz Giske: Nestformann (1955)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: lauritz-giske
+    path: roles/nestformann-1955
+  status: normalized
+- id: pers-066
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '70'
+  type: person
+  claim:
+    text: Leif Olsen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: leif-olsen
+  status: normalized
+- id: pers-067
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '5'
+  type: person
+  claim:
+    text: Nils Jangaard er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: nils-jangaard
+  status: normalized
+- id: role-068
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Nils Jangaard: Formann (1917)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: nils-jangaard
+    path: roles/formann-1917
+  status: normalized
+- id: role-069
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Nils Jangaard: Formann (1919)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: nils-jangaard
+    path: roles/formann-1919
+  status: normalized
+- id: role-070
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Nils Jangaard: Formann (1929)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: nils-jangaard
+    path: roles/formann-1929
+  status: normalized
+- id: pers-071
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '3'
+  type: person
+  claim:
+    text: Olaf Ingebrigtsen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: olaf-ingebrigtsen
+  status: normalized
+- id: role-072
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Olaf Ingebrigtsen: Formann (1916)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: olaf-ingebrigtsen
+    path: roles/formann-1916
+  status: normalized
+- id: pers-073
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '5'
+  type: person
+  claim:
+    text: Ole Jangaard er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: ole-jangaard
+  status: normalized
+- id: role-074
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Ole Jangaard: Oppmann (1915)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: ole-jangaard
+    path: roles/oppmann-1915
+  status: normalized
+- id: role-075
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Ole Jangaard: Oppmann (1918)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: ole-jangaard
+    path: roles/oppmann-1918
+  status: normalized
+- id: role-076
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Ole Jangaard: Oppmann (1919)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: ole-jangaard
+    path: roles/oppmann-1919
+  status: normalized
+- id: role-077
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Ole Jangaard: Oppmann (1923)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: ole-jangaard
+    path: roles/oppmann-1923
+  status: normalized
+- id: role-078
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Ole Jangaard: Oppmann (1924)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: ole-jangaard
+    path: roles/oppmann-1924
+  status: normalized
+- id: pers-079
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '60'
+  type: person
+  claim:
+    text: Ove Hamre er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: ove-hamre
+  status: normalized
+- id: pers-080
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '34'
+  type: person
+  claim:
+    text: Peder Puck er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: peder-puck
+  status: normalized
+- id: role-081
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '6'
+  type: person_role
+  claim:
+    text: 'Peder Puck: Formann (1938–1939)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: peder-puck
+    path: roles/formann-1938-1939
+  status: normalized
+- id: role-082
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Peder Puck: Formann (1940–1945)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: peder-puck
+    path: roles/formann-1940-1945
+  status: normalized
+- id: role-083
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Peder Puck: Formann (1946)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: peder-puck
+    path: roles/formann-1946
+  status: normalized
+- id: role-084
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '87'
+  type: person_role
+  claim:
+    text: 'Peder Puck: Nestformann (1951)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: peder-puck
+    path: roles/nestformann-1951
+  status: normalized
+- id: role-085
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '6'
+  type: person_role
+  claim:
+    text: 'Peder Puck: Oppmann (1932)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: peder-puck
+    path: roles/oppmann-1932
+  status: normalized
+- id: role-086
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Peder Puck: Oppmann (1933)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: peder-puck
+    path: roles/oppmann-1933
+  status: normalized
+- id: role-087
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Peder Puck: Oppmann (1950)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: peder-puck
+    path: roles/oppmann-1950
+  status: normalized
+- id: pers-088
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '2'
+  type: person
+  claim:
+    text: Per Anker Eriksen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: per-anker-eriksen
+  status: normalized
+- id: role-089
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Per Anker Eriksen: Formann (1950–1952)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: per-anker-eriksen
+    path: roles/formann-1950-1952
+  status: normalized
+- id: pers-090
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '44'
+  type: person
+  claim:
+    text: Per Mogstad er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: per-mogstad
+  status: normalized
+- id: role-091
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Per Mogstad: Oppmann (1925)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: per-mogstad
+    path: roles/oppmann-1925
+  status: normalized
+- id: role-092
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Per Mogstad: Oppmann (1930)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: per-mogstad
+    path: roles/oppmann-1930
+  status: normalized
+- id: role-093
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Ragnvald Langva: Oppmann (1931)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: ragnvald-langva
+    path: roles/oppmann-1931
+  status: normalized
+- id: role-094
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Ragnvald Langva: Oppmann (1952)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: ragnvald-langva
+    path: roles/oppmann-1952
+  status: normalized
+- id: role-095
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Ragnvald Langva: Oppmann (1953)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: ragnvald-langva
+    path: roles/oppmann-1953
+  status: normalized
+- id: pers-096
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '5'
+  type: person
+  claim:
+    text: Rasmus Eck Olsen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: rasmus-eck-olsen
+  status: normalized
+- id: role-097
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Rasmus Eck Olsen: Formann (1920–1924)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: rasmus-eck-olsen
+    path: roles/formann-1920-1924
+  status: normalized
+- id: role-098
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Rasmus Eck Olsen: Formann (1928)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: rasmus-eck-olsen
+    path: roles/formann-1928
+  status: normalized
+- id: role-099
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '13'
+  type: person_role
+  claim:
+    text: 'Rasmus Eck Olsen: Gullmerkeinnehaver (1924)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: rasmus-eck-olsen
+    path: roles/gullmerkeinnehaver-1924
+  status: normalized
+- id: pers-100
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '74'
+  type: person
+  claim:
+    text: Rasmus Sulebak er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: rasmus-sulebak
+  status: normalized
+- id: role-101
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
+    page: '82'
+  type: person_role
+  claim:
+    text: 'Rasmus Sulebak: Kruset (1955)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: rasmus-sulebak
+    path: roles/kruset-1955
+  status: normalized
+- id: pers-102
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '6'
+  type: person
+  claim:
+    text: Reidar Skarbøvik er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: reidar-skarbovik
+  status: normalized
+- id: role-103
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Reidar Skarbøvik: Oppmann (1947)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: reidar-skarbovik
+    path: roles/oppmann-1947
+  status: normalized
+- id: role-104
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+    page: '64'
+  type: person_role
+  claim:
+    text: 'Rolf Annaniassen: Formann i banekomiteen (1956–1957)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: rolf-annaniassen
+    path: roles/banekomiteformann-1956-1957
+  status: normalized
+- id: pers-105
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '6'
+  type: person
+  claim:
+    text: Rolf Mittet er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: rolf-mittet
+  status: normalized
+- id: role-106
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '6'
+  type: person_role
+  claim:
+    text: 'Rolf Mittet: Formann (1927)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: rolf-mittet
+    path: roles/formann-1927
+  status: normalized
+- id: pers-107
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '6'
+  type: person
+  claim:
+    text: Rolf Muriaas er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: rolf-muriaas
+  status: normalized
+- id: role-108
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Rolf Muriaas: Oppmann (1914)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: rolf-muriaas
+    path: roles/oppmann-1914
+  status: normalized
+- id: pers-109
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '88'
+  type: person
+  claim:
+    text: Sigurd Nørve er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: sigurd-norve
+  status: normalized
+- id: role-110
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '6'
+  type: person_role
+  claim:
+    text: 'Sigurd Nørve: Formann (1946–1949)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: sigurd-norve
+    path: roles/formann-1946-1949
+  status: normalized
+- id: role-111
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '87'
+  type: person_role
+  claim:
+    text: 'Sigurd Nørve: Sekretær (1951)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: sigurd-norve
+    path: roles/sekretaer-1951
+  status: normalized
+- id: pers-112
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '5'
+  type: person
+  claim:
+    text: Sverre Mogstad er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: sverre-mogstad
+  status: normalized
+- id: role-113
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Sverre Mogstad: Formann (1925–1926)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: sverre-mogstad
+    path: roles/formann-1925-1926
+  status: normalized
+- id: pers-114
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '4'
+  type: person
+  claim:
+    text: Sverre Volstad er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: sverre-volstad
+  status: normalized
+- id: role-115
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Sverre Volstad: Formann (1930–1936)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: sverre-volstad
+    path: roles/formann-1930-1936
+  status: normalized
+- id: pers-116
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '75'
+  type: person
+  claim:
+    text: Torbjørn Aarø er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: torbjorn-aaro
+  status: normalized
+- id: pers-117
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '66'
+  type: person
+  claim:
+    text: Trygve Olsen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: trygve-olsen
+  status: normalized
+- id: role-118
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Trygve Olsen: Spillemerket i gull (1950)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: trygve-olsen
+    path: roles/spillemerke-gull-1950
+  status: normalized
+- id: pers-119
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '87'
+  type: person
+  claim:
+    text: Trygve Stub er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: trygve-stub
+  status: normalized
+- id: role-120
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '87'
+  type: person_role
+  claim:
+    text: 'Trygve Stub: Kasserer (1953)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: trygve-stub
+    path: roles/kasserer-banekomiteen-1953
+  status: normalized
+- id: pers-121
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '24'
+  type: person
+  claim:
+    text: Øivind Haagensen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: oivind-haagensen
+  status: normalized
+- id: role-122
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '30'
+  type: person_role
+  claim:
+    text: 'Øivind Haagensen: Medlem av NFFs dommerkomité (1953)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: oivind-haagensen
+    path: roles/nff-dommerkomite-1953
+  status: normalized
+- id: role-123
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Øivind Haagensen: Oppmann (1940)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: oivind-haagensen
+    path: roles/oppmann-1940
+  status: normalized
+- id: role-124
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Øivind Haagensen: Oppmann (1945)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: oivind-haagensen
+    path: roles/oppmann-1945
+  status: normalized
+- id: role-125
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '51'
+  type: person_role
+  claim:
+    text: 'Øivind Haagensen: Oppmann (1951)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: oivind-haagensen
+    path: roles/oppmann-1951
+  status: normalized
+- id: role-126
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Øivind Haagensen: Oppmann (1949)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: oivind-haagensen
+    path: roles/oppmann-1949
+  status: normalized
+- id: role-127
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '74'
+  type: person_role
+  claim:
+    text: 'Øivind Haagensen: Spillemerket i gull (1950)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: oivind-haagensen
+    path: roles/spillemerke-gull-1950
+  status: normalized
+- id: role-128
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
+    page: '64'
+  type: person_role
+  claim:
+    text: 'Øivind Haagensen: Trener (1955)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: oivind-haagensen
+    path: roles/trener-1955
+  status: normalized
+- id: sres-129
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '64'
+  type: match_result
+  claim:
+    text: 5 kilderesultater for sesongen 1953
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1953-3e9d
+  status: normalized
+- id: sres-130
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '84'
+  type: match_result
+  claim:
+    text: 1 kilderesultater for sesongen 1920
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1954-cd1c
+  status: normalized
+- id: sres-131
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '85'
+  type: match_result
+  claim:
+    text: 2 kilderesultater for sesongen 1929
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1954-cd1c
+  status: normalized
+- id: sres-132
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '88'
+  type: match_result
+  claim:
+    text: 1 kilderesultater for sesongen 1931
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1954-cd1c
+  status: normalized
+- id: sres-133
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '86'
+  type: match_result
+  claim:
+    text: 3 kilderesultater for sesongen 1933
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1954-cd1c
+  status: normalized
+- id: sres-134
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '91'
+  type: match_result
+  claim:
+    text: 1 kilderesultater for sesongen 1935
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1954-cd1c
+  status: normalized
+- id: sres-135
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '93'
+  type: match_result
+  claim:
+    text: 5 kilderesultater for sesongen 1938
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1954-cd1c
+  status: normalized
+- id: sres-136
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '92'
+  type: match_result
+  claim:
+    text: 1 kilderesultater for sesongen 1939
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1954-cd1c
+  status: normalized
+- id: sres-137
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '95'
+  type: match_result
+  claim:
+    text: 1 kilderesultater for sesongen 1954
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1954-cd1c
+  status: normalized
+- id: sres-138
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '2'
+  type: match_result
+  claim:
+    text: 1 kilderesultater for sesongen 1920
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1954-192b
+  status: normalized
+- id: sres-139
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '2'
+  type: match_result
+  claim:
+    text: 2 kilderesultater for sesongen 1929
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1954-192b
+  status: normalized
+- id: sres-140
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '4'
+  type: match_result
+  claim:
+    text: 1 kilderesultater for sesongen 1931
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1954-192b
+  status: normalized
+- id: sres-141
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '3'
+  type: match_result
+  claim:
+    text: 3 kilderesultater for sesongen 1933
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1954-192b
+  status: normalized
+- id: sres-142
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '7'
+  type: match_result
+  claim:
+    text: 1 kilderesultater for sesongen 1935
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1954-192b
+  status: normalized
+- id: sres-143
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '9'
+  type: match_result
+  claim:
+    text: 5 kilderesultater for sesongen 1938
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1954-192b
+  status: normalized
+- id: sres-144
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '8'
+  type: match_result
+  claim:
+    text: 1 kilderesultater for sesongen 1939
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1954-192b
+  status: normalized
+- id: sres-145
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-192b
+    page: '31'
+  type: match_result
+  claim:
+    text: 1 kilderesultater for sesongen 1954
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1954-192b
+  status: normalized
+- id: sres-146
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
+    page: '29'
+  type: match_result
+  claim:
+    text: 1 kilderesultater for sesongen 1955
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1955-8ccc
+  status: normalized
+- id: sres-147
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+    page: '82'
+  type: match_result
+  claim:
+    text: 1 kilderesultater for sesongen 1956
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1956-3e52
+  status: normalized
+- id: kamp-148
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '95'
+  type: match_result
+  claim:
+    text: Kampbelegg for 1954-08-08-freidig-aalesunds-fk
+  disposition: canonical_enriched
+  targets:
+  - entity: match
+    id: 1954-08-08-freidig-aalesunds-fk
+  status: normalized
+- id: obs-149
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
+    page: '61'
+  type: historical_observation
+  claim:
+    text: Første gangs bruk av Kråmyra treningsbane
+  disposition: historical_observation_created
+  targets:
+  - entity: observation
+    id: 1955-kramyra-forste-bruk
+  status: normalized
+- id: org-150
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
+    page: '12'
+  type: organization
+  claim:
+    text: Organisasjonsbilde 1953 for aafk
+  disposition: organization_snapshot_created
+  targets:
+  - entity: organization_snapshot
+    id: 1953-aafk
+  status: normalized
+- id: org-151
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
+    page: '78'
+  type: organization
+  claim:
+    text: Organisasjonsbilde 1954 for aafk
+  disposition: organization_snapshot_created
+  targets:
+  - entity: organization_snapshot
+    id: 1954-aafk
+  status: normalized
+- id: org-152
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
+    page: '64'
+  type: organization
+  claim:
+    text: Organisasjonsbilde 1955 for aafk
+  disposition: organization_snapshot_created
+  targets:
+  - entity: organization_snapshot
+    id: 1955-aafk
+  status: normalized
+- id: org-153
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+    page: '16'
+  type: organization
+  claim:
+    text: Organisasjonsbilde 1956 for aafk
+  disposition: organization_snapshot_created
+  targets:
+  - entity: organization_snapshot
+    id: 1956-aafk
+  status: normalized
+unresolved: []
+notes:
+- Rekonstruert manifest. Funnene er utledet maskinelt fra kildereferansene som allerede står i arkivet,
+  ikke fra en ny faksimilegjennomgang.
+- coverage.reviewed er satt til 420 fordi den visuelle sidekontrollen er dokumentert side for side i docs/data/MEDLEMSBLAD_REVIEW_1953_1956.md.
+  Manifestet attesterer ikke arbeidet på nytt; det peker på loggen der det ble gjort.
+- 'Status er audited, ikke complete: funnlisten er utledet fra arkivet og kan derfor ikke attestere at
+  den er uttømmende for kilden.'

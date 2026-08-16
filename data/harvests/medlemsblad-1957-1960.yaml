@@ -1,0 +1,1108 @@
+version: 1
+id: medlemsblad-1957-1960
+title: AaFK Medlemsblad 1957–1960 (Vol. 8–11)
+profile: member_magazine
+mode: reharvest
+status: audited
+scope:
+  years:
+    from: 1957
+    to: 1960
+  sourceIds:
+  - medlemsblad-for-aalesunds-fotb-1957-7672
+  - medlemsblad-for-aalesunds-fotb-1958-5725
+  - medlemsblad-for-aalesunds-fotb-1959-515a
+  - medlemsblad-for-aalesunds-fotb-1960-146a
+  parentSourceId: aafk-medlemsblad
+sourceInventory:
+- sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+  title: Medlemsblad for Aalesunds fotballklubb. 1957 Vol. 8 Nr. 1-6
+  year: 1957
+  reviewStatus: reviewed
+- sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+  title: Medlemsblad for Aalesunds fotballklubb. 1958 Vol. 9 Nr. 1-6
+  year: 1958
+  reviewStatus: reviewed
+- sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+  title: Medlemsblad for Aalesunds fotballklubb. 1959 Vol. 10 Nr. 1-6
+  year: 1959
+  reviewStatus: reviewed
+- sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+  title: Medlemsblad for Aalesunds fotballklubb. 1960 Vol. 11 Nr. 1-6
+  year: 1960
+  reviewStatus: reviewed
+coverage:
+  mode: pages
+  expected: 344
+  reviewed: 344
+passes:
+  facsimile_review:
+    status: reviewed
+    findings: 82
+    note: 'Sidekontrollen er dokumentert side for side i docs/data/MEDLEMSBLAD_REVIEW_1957_1960.md (344
+      sider), utført i PR #155 før manifestformatet fantes.'
+  explicit_results:
+    status: complete
+    findings: 6
+  people_and_roles:
+    status: complete
+    findings: 70
+  organization:
+    status: complete
+    findings: 4
+  retrospectives_and_claims:
+    status: complete
+    findings: 0
+  observations:
+    status: complete
+    findings: 2
+  fixture_reconciliation:
+    status: reviewed
+    findings: 0
+    note: Terminlisteavstemmingen er dokumentert i reviewfilen, ikke som egne funn i manifestet.
+reviewMethod:
+  facsimile: required
+review:
+  file: docs/data/MEDLEMSBLAD_REVIEW_1957_1960.md
+previousWork:
+  pullRequests:
+  - 155
+  notes:
+  - Kilden ble innhøstet før batchmanifestet fantes. Dette manifestet er en rekonstruksjon.
+findings:
+- id: pers-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+    page: '4'
+  type: person
+  claim:
+    text: Anders Mogstad er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: anders-mogstad
+  status: normalized
+- id: role-002
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '7'
+  type: person_role
+  claim:
+    text: 'Asbjørn Korsnes: Nestformann (1957–1958)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: asbjorn-korsnes
+    path: roles/nestformann-1957
+  status: normalized
+- id: role-003
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '70'
+  type: person_role
+  claim:
+    text: 'Asbjørn Korsnes: Spillemerket i sølv (150 A-kamper) (1957)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: asbjorn-korsnes
+    path: roles/spillemerke-solv-150-kamper
+  status: normalized
+- id: pers-004
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '45'
+  type: person
+  claim:
+    text: Edvard Skugvik er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: edvard-skugvik
+  status: normalized
+- id: role-005
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: '60'
+  type: person_role
+  claim:
+    text: 'Einar Aas: Gullmerkeinnehaver (1960)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: einar-aas
+    path: roles/gullmerkeinnehaver-1960
+  status: normalized
+- id: role-006
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: '7'
+  type: person_role
+  claim:
+    text: 'Einar Aas: Trener (1960)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: einar-aas
+    path: roles/trener-1960
+  status: normalized
+- id: role-007
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '68'
+  type: person_role
+  claim:
+    text: 'Einar Aas: Årets spiller (1957)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: einar-aas
+    path: roles/arets-spiller-1957
+  status: normalized
+- id: role-008
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '10'
+  type: person_role
+  claim:
+    text: 'Elisif Ingebrigtsen: Formann (1959–1960)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: elisif-ingebrigtsen
+    path: roles/formann-dameavdelingen-1959
+  status: normalized
+- id: pers-009
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '56'
+  type: person
+  claim:
+    text: Emil Sandø er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: emil-sando
+  status: normalized
+- id: role-010
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '81'
+  type: person_role
+  claim:
+    text: 'Emil Sandø: Æresmedlem (1957)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: emil-sando
+    path: roles/aeresmedlem-1957
+  status: normalized
+- id: pers-011
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '3'
+  type: person
+  claim:
+    text: Finn Tollås er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: finn-tollas
+  status: normalized
+- id: role-012
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: '63'
+  type: person_role
+  claim:
+    text: 'Frantz Løvmo: Hedret med tinnvase for Kråmyra-anlegget (1960)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: frantz-lovmo
+    path: roles/tinnvase-kramyra-1960
+  status: normalized
+- id: role-013
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '79'
+  type: person_role
+  claim:
+    text: 'Gerd Strømsholm: Formann (1956–1958)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: gerd-stromsholm
+    path: roles/formann-dameavdelingen-1956
+  status: normalized
+- id: pers-014
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '65'
+  type: person
+  claim:
+    text: Hans J. Henriksen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: hans-j-henriksen
+  status: normalized
+- id: role-015
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '7'
+  type: person_role
+  claim:
+    text: 'Hans J. Henriksen: Formann (1957–1960)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: hans-j-henriksen
+    path: roles/formann-1957-1960
+  status: normalized
+- id: role-016
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: '63'
+  type: person_role
+  claim:
+    text: 'Hans J. Henriksen: Nestformann (1961)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: hans-j-henriksen
+    path: roles/nestformann-1961
+  status: normalized
+- id: role-017
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '7'
+  type: person_role
+  claim:
+    text: 'Hans Ole Sødergren: Oppmann (1957)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: hans-ole-sodergren
+    path: roles/oppmann-1957
+  status: normalized
+- id: role-018
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '7'
+  type: person_role
+  claim:
+    text: 'Harald Sæther: Kasserer (1953–1960)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: harald-saether
+    path: roles/kasserer-1953-1960
+  status: normalized
+- id: role-019
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: '63'
+  type: person_role
+  claim:
+    text: 'Helge Lunde: Hedret for innsatsen på Kråmyra (1960)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: helge-lunde
+    path: roles/hedersbevisning-kramyra-1960
+  status: normalized
+- id: role-020
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '73'
+  type: person_role
+  claim:
+    text: 'Helge Lunde: Materialforvalter (1959)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: helge-lunde
+    path: roles/materialforvalter-1959
+  status: normalized
+- id: role-021
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '83'
+  type: person_role
+  claim:
+    text: 'Helge Lunde: Medlem av banekomiteen (1957–1960)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: helge-lunde
+    path: roles/banekomite-1957-1960
+  status: normalized
+- id: role-022
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+    page: '16'
+  type: person_role
+  claim:
+    text: 'Jan Larsen: Trener (1958–1959)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: jan-larsen
+    path: roles/trener-1958-1959
+  status: normalized
+- id: role-023
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: '60'
+  type: person_role
+  claim:
+    text: 'Jarle Kristoffersen: Sekretær (1960)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: jarle-kristoffersen
+    path: roles/sekretaer-1960
+  status: normalized
+- id: pers-024
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+    page: '33'
+  type: person
+  claim:
+    text: Johan Keller er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: johan-keller
+  status: normalized
+- id: role-025
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: '75'
+  type: person_role
+  claim:
+    text: 'Johan Pedersen: Martin Brusdal-statuetten (1960)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: johan-pedersen
+    path: roles/brusdal-statuetten-1960
+  status: normalized
+- id: role-026
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: '78'
+  type: person_role
+  claim:
+    text: 'John Johnsen: Martin Brusdal-statuetten for juniorspillere (1960)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: john-johnsen
+    path: roles/brusdal-statuetten-junior-1960
+  status: normalized
+- id: pers-027
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '64'
+  type: person
+  claim:
+    text: Karsten Eriksen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: karsten-eriksen
+  status: normalized
+- id: role-028
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '81'
+  type: person_role
+  claim:
+    text: 'Karsten Eriksen: Gullmerkeinnehaver (1957)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: karsten-eriksen
+    path: roles/gullmerkeinnehaver-1957
+  status: normalized
+- id: role-029
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '70'
+  type: person_role
+  claim:
+    text: 'Karsten Vadseth: Martin Brusdal-statuetten (1959)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: karsten-vadseth
+    path: roles/brusdal-statuetten-1959
+  status: normalized
+- id: role-030
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '64'
+  type: person_role
+  claim:
+    text: 'Karsten Vadseth: Spillemerket i sølv (150 A-kamper) (1959)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: karsten-vadseth
+    path: roles/spillemerke-solv-150-kamper
+  status: normalized
+- id: pers-031
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '12'
+  type: person
+  claim:
+    text: Kjell Berentzen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: kjell-berentzen
+  status: normalized
+- id: role-032
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: '63'
+  type: person_role
+  claim:
+    text: 'Kjell Berentzen: Formann (1961)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: kjell-berentzen
+    path: roles/formann-1961
+  status: normalized
+- id: role-033
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+    page: '64'
+  type: person_role
+  claim:
+    text: 'Kjell Saure: Nestformann (1959–1960)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: kjell-saure
+    path: roles/nestformann-1959-1960
+  status: normalized
+- id: pers-034
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '2'
+  type: person
+  claim:
+    text: Knut Gaaseide er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: knut-gaaseide
+  status: normalized
+- id: role-035
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+    page: '64'
+  type: person_role
+  claim:
+    text: 'Knut Høyer: Sekretær (1959–1960)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: knut-hoyer
+    path: roles/sekretaer-1959-1960
+  status: normalized
+- id: pers-036
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '4'
+  type: person
+  claim:
+    text: Konrad Korsnes er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: konrad-korsnes
+  status: normalized
+- id: pers-037
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '12'
+  type: person
+  claim:
+    text: Lauritz Giske er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: lauritz-giske
+  status: normalized
+- id: role-038
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+    page: '80'
+  type: person_role
+  claim:
+    text: 'Mindor Sunde: Spiller (130 A-kamper) (1958)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: mindor-sunde
+    path: roles/a-lagsspiller-milepael-130
+  status: normalized
+- id: role-039
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: '75'
+  type: person_role
+  claim:
+    text: 'Mindor Sunde: Spiller (163 A-kamper) (1960)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: mindor-sunde
+    path: roles/a-lagsspiller-milepael-163
+  status: normalized
+- id: pers-040
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '90'
+  type: person
+  claim:
+    text: Nils Jangaard er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: nils-jangaard
+  status: normalized
+- id: role-041
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '7'
+  type: person_role
+  claim:
+    text: 'Ole Aasen: Sekretær (1957)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: ole-aasen
+    path: roles/sekretaer-1957
+  status: normalized
+- id: pers-042
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+    page: '4'
+  type: person
+  claim:
+    text: Ole Jangaard er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: ole-jangaard
+  status: normalized
+- id: role-043
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '66'
+  type: person_role
+  claim:
+    text: 'Ole Walderhaug: Oppmann (1958)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: ole-walderhaug
+    path: roles/oppmann-1958
+  status: normalized
+- id: role-044
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '7'
+  type: person_role
+  claim:
+    text: 'Ole Walderhaug: Oppmann (1959)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: ole-walderhaug
+    path: roles/oppmann-1959
+  status: normalized
+- id: role-045
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: '7'
+  type: person_role
+  claim:
+    text: 'Ole Walderhaug: Oppmann (1960)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: ole-walderhaug
+    path: roles/oppmann-1960
+  status: normalized
+- id: pers-046
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '26'
+  type: person
+  claim:
+    text: Peder Puck er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: peder-puck
+  status: normalized
+- id: role-047
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '81'
+  type: person_role
+  claim:
+    text: 'Peder Puck: Æresmedlem (1957)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: peder-puck
+    path: roles/aeresmedlem-1957
+  status: normalized
+- id: pers-048
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '4'
+  type: person
+  claim:
+    text: Per Anker Eriksen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: per-anker-eriksen
+  status: normalized
+- id: pers-049
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '4'
+  type: person
+  claim:
+    text: Per Mogstad er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: per-mogstad
+  status: normalized
+- id: role-050
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: '63'
+  type: person_role
+  claim:
+    text: 'Perry Ystenes: Hedret med tinnvase for Kråmyra-anlegget (1960)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: perry-ystenes
+    path: roles/tinnvase-kramyra-1960
+  status: normalized
+- id: pers-051
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+    page: '33'
+  type: person
+  claim:
+    text: Rasmus Eck Olsen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: rasmus-eck-olsen
+  status: normalized
+- id: pers-052
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '4'
+  type: person
+  claim:
+    text: Reidar Skarbøvik er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: reidar-skarbovik
+  status: normalized
+- id: pers-053
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: '6'
+  type: person
+  claim:
+    text: Rolf Annaniassen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: rolf-annaniassen
+  status: normalized
+- id: role-054
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '50'
+  type: person_role
+  claim:
+    text: 'Rolf Annaniassen: Formann i banekomiteen (1956–1957)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: rolf-annaniassen
+    path: roles/banekomiteformann-1956-1957
+  status: normalized
+- id: role-055
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '65'
+  type: person_role
+  claim:
+    text: 'Rolf Kvissel: Sekretær (1958)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: rolf-kvissel
+    path: roles/sekretaer-1958
+  status: normalized
+- id: pers-056
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+    page: '33'
+  type: person
+  claim:
+    text: Rolf Mittet er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: rolf-mittet
+  status: normalized
+- id: pers-057
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '34'
+  type: person
+  claim:
+    text: Rolf Muriaas er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: rolf-muriaas
+  status: normalized
+- id: pers-058
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '64'
+  type: person
+  claim:
+    text: Sigurd Nørve er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: sigurd-norve
+  status: normalized
+- id: role-059
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '81'
+  type: person_role
+  claim:
+    text: 'Sigurd Nørve: Gullmerkeinnehaver (1957)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: sigurd-norve
+    path: roles/gullmerkeinnehaver-1957
+  status: normalized
+- id: role-060
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '70'
+  type: person_role
+  claim:
+    text: 'Svein Bjarne Holand: Martin Brusdal-statuetten for juniorspillere (1959)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: svein-bjarne-holand
+    path: roles/brusdal-statuetten-junior-1959
+  status: normalized
+- id: pers-061
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '40'
+  type: person
+  claim:
+    text: Sverre Mogstad er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: sverre-mogstad
+  status: normalized
+- id: pers-062
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '70'
+  type: person
+  claim:
+    text: Sverre Volstad er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: sverre-volstad
+  status: normalized
+- id: role-063
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '69'
+  type: person_role
+  claim:
+    text: 'Thorid Fladmark: Klubbens statuett for juniorspillere (1957)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: thorid-fladmark
+    path: roles/juniorstatuett-1957
+  status: normalized
+- id: pers-064
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+    page: '80'
+  type: person
+  claim:
+    text: Torbjørn Aarø er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: torbjorn-aaro
+  status: normalized
+- id: role-065
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '69'
+  type: person_role
+  claim:
+    text: 'Torbjørn Aarø: Klubbens statuett for seniorspillere (1957)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: torbjorn-aaro
+    path: roles/seniorstatuett-1957
+  status: normalized
+- id: role-066
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '64'
+  type: person_role
+  claim:
+    text: 'Torbjørn Aarø: Spillemerket i gull (200 A-kamper) (1959)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: torbjorn-aaro
+    path: roles/spillemerke-gull-1959
+  status: normalized
+- id: role-067
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '71'
+  type: person_role
+  claim:
+    text: 'Torbjørn Aarø: Spillemerket i sølv (162 A-kamper) (1957)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: torbjorn-aaro
+    path: roles/spillemerke-solv-1957
+  status: normalized
+- id: role-068
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '66'
+  type: person_role
+  claim:
+    text: 'Trygve Olsen: Junioroppmann (1958–1960)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: trygve-olsen
+    path: roles/oppmann-junior-1958-1960
+  status: normalized
+- id: role-069
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: '79'
+  type: person_role
+  claim:
+    text: 'Walentin Rødland: Vaktmester (1960)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: walentin-rodland
+    path: roles/vaktmester-kramyra-1960
+  status: normalized
+- id: pers-070
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '4'
+  type: person
+  claim:
+    text: Øivind Haagensen er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: oivind-haagensen
+  status: normalized
+- id: sres-071
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '44'
+  type: match_result
+  claim:
+    text: 28 kilderesultater for sesongen 1957
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1957-7672
+  status: normalized
+- id: sres-072
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+    page: '65'
+  type: match_result
+  claim:
+    text: 9 kilderesultater for sesongen 1958
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1958-5725
+  status: normalized
+- id: sres-073
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '60'
+  type: match_result
+  claim:
+    text: 29 kilderesultater for sesongen 1959
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1959-515a
+  status: normalized
+- id: sres-074
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: '69'
+  type: match_result
+  claim:
+    text: 19 kilderesultater for sesongen 1960
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1960-146a
+  status: normalized
+- id: kamp-075
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '38'
+  type: match_result
+  claim:
+    text: Kampbelegg for 1957-07-28-aalesunds-fk-westbahn-linz
+  disposition: canonical_enriched
+  targets:
+  - entity: match
+    id: 1957-07-28-aalesunds-fk-westbahn-linz
+  status: normalized
+- id: kamp-076
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '26'
+  type: match_result
+  claim:
+    text: Kampbelegg for 1959-07-16-aalesunds-fk-tatran-presov
+  disposition: canonical_enriched
+  targets:
+  - entity: match
+    id: 1959-07-16-aalesunds-fk-tatran-presov
+  status: normalized
+- id: obs-077
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '50'
+  type: historical_observation
+  claim:
+    text: Innvielse av Kråmyra klubbhus (første byggetrinn)
+  disposition: historical_observation_created
+  targets:
+  - entity: observation
+    id: 1957-kramyra-klubbhus-innvielse
+  status: normalized
+- id: obs-078
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: '62'
+  type: historical_observation
+  claim:
+    text: Fullføring av Kråmyra klubbhus og årsmøte i eget hus
+  disposition: historical_observation_created
+  targets:
+  - entity: observation
+    id: 1960-kramyra-klubbhus-fullfort
+  status: normalized
+- id: org-079
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '7'
+  type: organization
+  claim:
+    text: Organisasjonsbilde 1957 for aafk
+  disposition: organization_snapshot_created
+  targets:
+  - entity: organization_snapshot
+    id: 1957-aafk
+  status: normalized
+- id: org-080
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '65'
+  type: organization
+  claim:
+    text: Organisasjonsbilde 1958 for aafk
+  disposition: organization_snapshot_created
+  targets:
+  - entity: organization_snapshot
+    id: 1958-aafk
+  status: normalized
+- id: org-081
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+    page: '64'
+  type: organization
+  claim:
+    text: Organisasjonsbilde 1959 for aafk
+  disposition: organization_snapshot_created
+  targets:
+  - entity: organization_snapshot
+    id: 1959-aafk
+  status: normalized
+- id: org-082
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: '7'
+  type: organization
+  claim:
+    text: Organisasjonsbilde 1960 for aafk
+  disposition: organization_snapshot_created
+  targets:
+  - entity: organization_snapshot
+    id: 1960-aafk
+  status: normalized
+unresolved: []
+notes:
+- Rekonstruert manifest. Funnene er utledet maskinelt fra kildereferansene som allerede står i arkivet,
+  ikke fra en ny faksimilegjennomgang.
+- coverage.reviewed er satt til 344 fordi den visuelle sidekontrollen er dokumentert side for side i docs/data/MEDLEMSBLAD_REVIEW_1957_1960.md.
+  Manifestet attesterer ikke arbeidet på nytt; det peker på loggen der det ble gjort.
+- 'Status er audited, ikke complete: funnlisten er utledet fra arkivet og kan derfor ikke attestere at
+  den er uttømmende for kilden.'
