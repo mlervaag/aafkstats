@@ -69,7 +69,8 @@ roles:
           - title
           - from
           - to
-    note: Født ca 1913. A-lagsdebut i 1932 mot Freidig. Fange i Tyskland under krigen, tilbake på A-laget 1946–1949. Junioroppmann 1949–1950.
+    note: Født ca 1913. A-lagsdebut i 1932 mot Freidig. Fange i Tyskland under
+      krigen, tilbake på A-laget 1946–1949. Junioroppmann 1949–1950.
   - id: trener-1953-1954
     category: coach
     title: Trener
@@ -166,6 +167,14 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
+  - id: trener-1951
+    category: coach
+    title: Trener
+    from: "1951"
+    to: "1951"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+        page: "23"
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "11"
@@ -348,6 +357,10 @@ sources:
     page: "7"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    page: "23"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    page: "81"
 conflicts:
   - field: formann.1946
     values:
@@ -372,9 +385,9 @@ conflicts:
     chosen: Reidar Skarbøvik
     chosenProviderId: nasjonalbiblioteket
     decision: manual
-    decidedAt: "2026-08-12"
-    reason: "Sannsynlig kildefeil i 1989. Hverken 1954- eller 2004-kilden knytter
-      Tolaas til 1947, men 1954-kilden knytter Skarbøvik til året."
+    decidedAt: 2026-08-12
+    reason: Sannsynlig kildefeil i 1989. Hverken 1954- eller 2004-kilden knytter
+      Tolaas til 1947, men 1954-kilden knytter Skarbøvik til året.
     locked: true
     note: 1947 er fjernet fra Finn Tollås' ordinære roller.
 coachSpells:
@@ -382,3 +395,5 @@ coachSpells:
     toSeason: 1954
   - fromSeason: 1956
     toSeason: 1957
+  - fromSeason: 1951
+    toSeason: 1951

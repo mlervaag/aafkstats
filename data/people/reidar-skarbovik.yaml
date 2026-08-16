@@ -16,7 +16,8 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt verifisert."
+        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt
+          verifisert."
   - id: oppmann-1947
     category: sporting_staff
     title: Oppmann
@@ -28,7 +29,8 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt verifisert."
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year). Manuelt
+          verifisert."
   - id: a-lagsspiller-1933-1950
     category: player
     title: A-lagsspiller
@@ -326,3 +328,7 @@ sources:
     page: "21"
   - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
     page: "66"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    page: "54"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    page: "81"

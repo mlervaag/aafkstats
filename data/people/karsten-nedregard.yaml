@@ -16,7 +16,8 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt verifisert."
+        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt
+          verifisert."
   - id: spillemerke-gull-1950
     category: honorary
     title: Spillemerket i gull
@@ -25,7 +26,8 @@ roles:
     sources:
       - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
         page: "74"
-    note: Notert med 243 kamper for AaFKs A-lag som klubbens mestspillende spiller ved utgangen av 1953.
+    note: Notert med 243 kamper for AaFKs A-lag som klubbens mestspillende spiller
+      ved utgangen av 1953.
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "28"
@@ -79,3 +81,7 @@ sources:
     page: "76"
   - sourceId: medlemsblad-for-aalesunds-fotb-1953-3e9d
     page: "74"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    page: "29"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    page: "81"

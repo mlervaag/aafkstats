@@ -85,14 +85,17 @@ jobs:
       # at fullførte batcher oppfyller samtlige krav.
       - name: Kontroller historiske innhøstingsbatcher
         run: |
-          if [ -d "data/harvests" ] && compgen -G "data/harvests/*.yaml" > /dev/null; then
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            for f in $(git diff --name-only "${{ github.event.pull_request.base.sha }}" "${{ github.sha }}" -- 'data/harvests/*.yaml'); do
+              if [ -f "$f" ]; then
+                echo "Sjekker innhøstingsbatch for PR: $f"
+                pnpm data:historical-harvest:check --file "$f" --base "${{ github.event.pull_request.base.sha }}" --head "${{ github.sha }}"
+              fi
+            done
+          elif [ -d "data/harvests" ] && compgen -G "data/harvests/*.yaml" > /dev/null; then
             for f in data/harvests/*.yaml; do
               echo "Sjekker innhøstingsbatch: $f"
-              if [ "${{ github.event_name }}" = "pull_request" ]; then
-                pnpm data:historical-harvest:check --file "$f" --base "${{ github.event.pull_request.base.sha }}" --head "${{ github.sha }}"
-              else
-                pnpm data:historical-harvest:check --file "$f"
-              fi
+              pnpm data:historical-harvest:check --file "$f"
             done
           fi
 
