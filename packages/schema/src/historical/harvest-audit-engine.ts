@@ -475,11 +475,11 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
     }
 
     // Sjekk kildetilgjengelighet og sidetall
-    const primarySourceId = finding.source?.sourceId ?? finding.sources[0]?.sourceId;
+    const primarySourceId = finding.source?.sourceId ?? finding.sources?.[0]?.sourceId;
     const findingPage =
       finding.source?.page !== undefined && finding.source?.page !== null
         ? String(finding.source.page).trim()
-        : (finding.sources[0]?.page !== undefined && finding.sources[0]?.page !== null
+        : (finding.sources?.[0]?.page !== undefined && finding.sources?.[0]?.page !== null
             ? String(finding.sources[0].page).trim()
             : undefined);
 
@@ -519,6 +519,24 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
             message: `Target person «${target.id}» finnes ikke i data/people/`,
           });
         } else {
+          if (finding.disposition === "person_created" && basePeople.has(target.id)) {
+            issues.push({
+              type: isCompleteStatus ? "error" : "warning",
+              category: "target",
+              findingId: finding.id,
+              targetId: target.id,
+              message: `Funn «${finding.id}» har disposition «person_created», men personen «${target.id}» finnes allerede i BASE (bruk «person_enriched»)`,
+            });
+          } else if (finding.disposition === "person_enriched" && !basePeople.has(target.id)) {
+            issues.push({
+              type: "error",
+              category: "target",
+              findingId: finding.id,
+              targetId: target.id,
+              message: `Funn «${finding.id}» har disposition «person_enriched», men personen «${target.id}» finnes ikke i BASE (bruk «person_created»)`,
+            });
+          }
+
           // Hvis path er f.eks. roles/formann-1924
           if (target.path?.startsWith("roles/")) {
             rolesCount += 1;
@@ -532,28 +550,50 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
                 targetId: target.id,
                 message: `Target role «${roleId}» finnes ikke på person «${target.id}»`,
               });
-            } else if (primarySourceId) {
-              const matchingSources = r.sources.filter((s) => s.sourceId === primarySourceId);
-              if (matchingSources.length === 0) {
+            } else {
+              const basePerson = basePeople.get(target.id);
+              const existedInBase = basePerson && basePerson.roles.some((role) => role.id === roleId);
+              if (finding.disposition === "role_created" && existedInBase) {
                 issues.push({
-                  type: provenanceIssueType,
-                  category: "provenance",
+                  type: isCompleteStatus ? "error" : "warning",
+                  category: "target",
                   findingId: finding.id,
                   targetId: target.id,
-                  message: `Rolle «${roleId}» på person «${target.id}» mangler sourceRef til kilden «${primarySourceId}»`,
+                  message: `Funn «${finding.id}» har disposition «role_created», men rollen «${roleId}» finnes allerede i BASE på «${target.id}» (bruk «role_enriched»)`,
                 });
-              } else if (findingPage) {
-                const hasPageMatch = matchingSources.some(
-                  (s) => s.page !== undefined && s.page !== null && String(s.page).trim() === findingPage,
-                );
-                if (!hasPageMatch && matchingSources.some((s) => s.page !== undefined && s.page !== null)) {
+              } else if (finding.disposition === "role_enriched" && !existedInBase) {
+                issues.push({
+                  type: "error",
+                  category: "target",
+                  findingId: finding.id,
+                  targetId: target.id,
+                  message: `Funn «${finding.id}» har disposition «role_enriched», men rollen «${roleId}» finnes ikke i BASE på «${target.id}» (bruk «role_created»)`,
+                });
+              }
+
+              if (primarySourceId) {
+                const matchingSources = r.sources.filter((s) => s.sourceId === primarySourceId);
+                if (matchingSources.length === 0) {
                   issues.push({
                     type: provenanceIssueType,
                     category: "provenance",
                     findingId: finding.id,
                     targetId: target.id,
-                    message: `Proveniens side-avvik for rolle «${roleId}» på person «${target.id}»: funn angir side ${findingPage}, men rollen refererer til side ${matchingSources.map((s) => s.page).join(", ")}`,
+                    message: `Rolle «${roleId}» på person «${target.id}» mangler sourceRef til kilden «${primarySourceId}»`,
                   });
+                } else if (findingPage) {
+                  const hasPageMatch = matchingSources.some(
+                    (s) => s.page !== undefined && s.page !== null && String(s.page).trim() === findingPage,
+                  );
+                  if (!hasPageMatch && matchingSources.some((s) => s.page !== undefined && s.page !== null)) {
+                    issues.push({
+                      type: provenanceIssueType,
+                      category: "provenance",
+                      findingId: finding.id,
+                      targetId: target.id,
+                      message: `Proveniens side-avvik for rolle «${roleId}» på person «${target.id}»: funn angir side ${findingPage}, men rollen refererer til side ${matchingSources.map((s) => s.page).join(", ")}`,
+                    });
+                  }
                 }
               }
             }
@@ -641,30 +681,50 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
             category: "target",
             findingId: finding.id,
             targetId: target.id,
-            message: `Target match «${target.id}» finnes ikke i sesongarkivet (data/seasons/)`,
+            message: `Target match «${target.id}» finnes ikke i data/seasons/`,
           });
-        } else if (primarySourceId) {
-          const matchingSources = m.sources?.filter((s) => s.sourceId === primarySourceId) ?? [];
-          if (matchingSources.length === 0) {
+        } else {
+          if (finding.disposition === "canonical_created" && baseMatches.has(target.id)) {
             issues.push({
-              type: provenanceIssueType,
-              category: "provenance",
+              type: isCompleteStatus ? "error" : "warning",
+              category: "target",
               findingId: finding.id,
               targetId: target.id,
-              message: `Kamp «${target.id}» mangler sourceRef til kilden «${primarySourceId}»`,
+              message: `Funn «${finding.id}» har disposition «canonical_created», men kampen «${target.id}» finnes allerede i BASE (bruk «canonical_enriched»)`,
             });
-          } else if (findingPage) {
-            const hasPageMatch = matchingSources.some(
-              (s) => s.page !== undefined && s.page !== null && String(s.page).trim() === findingPage,
-            );
-            if (!hasPageMatch && matchingSources.some((s) => s.page !== undefined && s.page !== null)) {
+          } else if (finding.disposition === "canonical_enriched" && !baseMatches.has(target.id)) {
+            issues.push({
+              type: "error",
+              category: "target",
+              findingId: finding.id,
+              targetId: target.id,
+              message: `Funn «${finding.id}» har disposition «canonical_enriched», men kampen «${target.id}» finnes ikke i BASE (bruk «canonical_created»)`,
+            });
+          }
+
+          if (primarySourceId) {
+            const matchingSources = m.sources?.filter((s) => s.sourceId === primarySourceId) ?? [];
+            if (matchingSources.length === 0) {
               issues.push({
                 type: provenanceIssueType,
                 category: "provenance",
                 findingId: finding.id,
                 targetId: target.id,
-                message: `Proveniens side-avvik for kamp «${target.id}»: funn angir side ${findingPage}, men kampen refererer til side ${matchingSources.map((s) => s.page).join(", ")}`,
+                message: `Kamp «${target.id}» mangler sourceRef til kilden «${primarySourceId}»`,
               });
+            } else if (findingPage) {
+              const hasPageMatch = matchingSources.some(
+                (s) => s.page !== undefined && s.page !== null && String(s.page).trim() === findingPage,
+              );
+              if (!hasPageMatch && matchingSources.some((s) => s.page !== undefined && s.page !== null)) {
+                issues.push({
+                  type: provenanceIssueType,
+                  category: "provenance",
+                  findingId: finding.id,
+                  targetId: target.id,
+                  message: `Proveniens side-avvik for kamp «${target.id}»: funn angir side ${findingPage}, men kampen refererer til side ${matchingSources.map((s) => s.page).join(", ")}`,
+                });
+              }
             }
           }
         }

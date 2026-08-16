@@ -3,7 +3,7 @@
 - **Batch-ID:** `medlemsblad-1950`
 - **Kildeprofil:** `member_magazine` (AaFK Medlemsblad)
 - **Modus:** `initial`
-- **Status:** `audited`
+- **Status:** `complete`
 - **Opprettet:** 2026-08-16
 
 ## Scope
@@ -49,8 +49,8 @@
 
 ## Findings
 
-- **Totalt antall funn:** 89
-- **Normaliserte:** 89
+- **Totalt antall funn:** 90
+- **Normaliserte:** 90
 - **Uavklarte / usikre:** 0
 - **Mangler disposisjon:** 0
 
@@ -66,6 +66,7 @@
 | `retrospective_claim` | 2 |
 | `fixture` | 2 |
 | `season_fact` | 1 |
+| `source_conflict` | 1 |
 
 ## Matches
 

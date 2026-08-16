@@ -744,5 +744,232 @@ describe("Cross-Layer Harvest Audit Engine", () => {
       ),
     ).toBe(true);
   });
+
+  it("feiler dersom role_created brukes på en rolle som allerede finnes i BASE ved status complete", () => {
+    const manifest: HarvestBatchManifest = {
+      version: 1,
+      id: "nff-1923",
+      title: "NFF Årbok 1923",
+      profile: "yearbook",
+      mode: "initial",
+      status: "complete",
+      scope: { sourceIds: ["nff-arbok-1923"] },
+      sourceInventory: [{ sourceId: "nff-arbok-1923", reviewStatus: "reviewed" }],
+      coverage: { mode: "pages", expected: 100, reviewed: 100 },
+      passes: {
+        facsimile_review: { status: "complete", findings: 1 },
+        explicit_results: { status: "complete", findings: 0 },
+        people_and_roles: { status: "complete", findings: 1 },
+        organization: { status: "complete", findings: 0 },
+        retrospectives_and_claims: { status: "complete", findings: 0 },
+        observations: { status: "complete", findings: 0 },
+      },
+      findings: [
+        {
+          id: "role-001",
+          source: { sourceId: "nff-arbok-1923" },
+          type: "person_role",
+          claim: { text: "Nils Jangaard: Formann 1924" },
+          disposition: "role_created",
+          targets: [{ entity: "person", id: "nils-jangaard", path: "roles/formann-1924" }],
+          status: "normalized",
+        },
+      ],
+      unresolved: [],
+      notes: [],
+    };
+
+    const ctx = createMinimalContext(manifest);
+    // Nils Jangaard har formann-1924 i basePeople:
+    ctx.basePeople.set("nils-jangaard", {
+      id: "nils-jangaard",
+      name: "Nils Jangaard",
+      names: [],
+      squadNumbers: [],
+      coachSpells: [],
+      roles: [
+        {
+          id: "formann-1924",
+          title: "Formann",
+          category: "board",
+          year: 1924,
+          sources: [{ sourceId: "nff-arbok-1923" }],
+        },
+      ],
+      providers: [],
+      sources: [{ sourceId: "nff-arbok-1923" }],
+      conflicts: [],
+    });
+    ctx.headPeople.set("nils-jangaard", ctx.basePeople.get("nils-jangaard")!);
+
+    const report = auditHarvestBatch(ctx);
+    expect(report.passed).toBe(false);
+    expect(
+      report.issues.some(
+        (i) =>
+          i.category === "target" &&
+          i.message.includes("role_created") &&
+          i.message.includes("finnes allerede i BASE"),
+      ),
+    ).toBe(true);
+  });
+
+  it("feiler dersom role_enriched brukes på en rolle som ikke finnes i BASE", () => {
+    const manifest: HarvestBatchManifest = {
+      version: 1,
+      id: "nff-1923",
+      title: "NFF Årbok 1923",
+      profile: "yearbook",
+      mode: "initial",
+      status: "complete",
+      scope: { sourceIds: ["nff-arbok-1923"] },
+      sourceInventory: [{ sourceId: "nff-arbok-1923", reviewStatus: "reviewed" }],
+      coverage: { mode: "pages", expected: 100, reviewed: 100 },
+      passes: {
+        facsimile_review: { status: "complete", findings: 1 },
+        explicit_results: { status: "complete", findings: 0 },
+        people_and_roles: { status: "complete", findings: 1 },
+        organization: { status: "complete", findings: 0 },
+        retrospectives_and_claims: { status: "complete", findings: 0 },
+        observations: { status: "complete", findings: 0 },
+      },
+      findings: [
+        {
+          id: "role-001",
+          source: { sourceId: "nff-arbok-1923" },
+          type: "person_role",
+          claim: { text: "Nils Jangaard: Formann 1924" },
+          disposition: "role_enriched",
+          targets: [{ entity: "person", id: "nils-jangaard", path: "roles/formann-1924" }],
+          status: "normalized",
+        },
+      ],
+      unresolved: [],
+      notes: [],
+    };
+
+    const ctx = createMinimalContext(manifest);
+    // Nils Jangaard finnes i BASE men har IKKE rollen formann-1924
+    ctx.basePeople.set("nils-jangaard", {
+      id: "nils-jangaard",
+      name: "Nils Jangaard",
+      names: [],
+      squadNumbers: [],
+      coachSpells: [],
+      roles: [],
+      providers: [],
+      sources: [],
+      conflicts: [],
+    });
+    ctx.headPeople.set("nils-jangaard", {
+      id: "nils-jangaard",
+      name: "Nils Jangaard",
+      names: [],
+      squadNumbers: [],
+      coachSpells: [],
+      roles: [
+        {
+          id: "formann-1924",
+          title: "Formann",
+          category: "board",
+          year: 1924,
+          sources: [{ sourceId: "nff-arbok-1923" }],
+        },
+      ],
+      providers: [],
+      sources: [{ sourceId: "nff-arbok-1923" }],
+      conflicts: [],
+    });
+
+    const report = auditHarvestBatch(ctx);
+    expect(report.passed).toBe(false);
+    expect(
+      report.issues.some(
+        (i) =>
+          i.category === "target" &&
+          i.message.includes("role_enriched") &&
+          i.message.includes("finnes ikke i BASE"),
+      ),
+    ).toBe(true);
+  });
+
+  it("krever conflict_registered dersom det opprettes en ny konflikt fra en batchkilde", () => {
+    const manifest: HarvestBatchManifest = {
+      version: 1,
+      id: "nff-1923",
+      title: "NFF Årbok 1923",
+      profile: "yearbook",
+      mode: "initial",
+      status: "complete",
+      scope: { sourceIds: ["nff-arbok-1923"] },
+      sourceInventory: [{ sourceId: "nff-arbok-1923", reviewStatus: "reviewed" }],
+      coverage: { mode: "pages", expected: 100, reviewed: 100 },
+      passes: {
+        facsimile_review: { status: "complete", findings: 1 },
+        explicit_results: { status: "complete", findings: 0 },
+        people_and_roles: { status: "complete", findings: 1 },
+        organization: { status: "complete", findings: 0 },
+        retrospectives_and_claims: { status: "complete", findings: 0 },
+        observations: { status: "complete", findings: 0 },
+      },
+      findings: [
+        {
+          id: "pers-001",
+          source: { sourceId: "nff-arbok-1923" },
+          type: "person",
+          claim: { text: "Nils Jangaard" },
+          disposition: "person_created",
+          targets: [{ entity: "person", id: "nils-jangaard" }],
+          status: "normalized",
+        },
+      ],
+      unresolved: [],
+      notes: [],
+    };
+
+    const ctx = createMinimalContext(manifest);
+    ctx.headSourceResults = new Map();
+    // HEAD har lagt til en konflikt med kildereferanse til nff-arbok-1923 og ingen ekstra roller
+    ctx.headPeople.set("nils-jangaard", {
+      id: "nils-jangaard",
+      name: "Nils Jangaard",
+      names: [],
+      squadNumbers: [],
+      coachSpells: [],
+      roles: [],
+      providers: [],
+      conflicts: [
+        {
+          field: "birthDate",
+          values: [
+            { value: "1895-01-01", providerId: "manual", note: "Kilde: nff-arbok-1923 s. 10" },
+            { value: "1896-01-01", providerId: "manual", note: "Annen kilde" },
+          ],
+          resolved: false,
+          decision: "unresolved",
+        },
+      ],
+      sources: [{ sourceId: "nff-arbok-1923" }],
+    });
+
+    // Uten et finding for konflikten fanges det opp av attribution
+    const reportWithoutFinding = auditHarvestBatch(ctx);
+    expect(reportWithoutFinding.unaccountedAdditions.length).toBeGreaterThan(0);
+    expect(reportWithoutFinding.passed).toBe(false);
+
+    // Med finding for conflict_registered passerer det
+    manifest.findings.push({
+      id: "confl-001",
+      source: { sourceId: "nff-arbok-1923" },
+      type: "source_conflict",
+      claim: { text: "Uenighet om fødselsdato for Nils Jangaard" },
+      disposition: "conflict_registered",
+      targets: [{ entity: "person", id: "nils-jangaard" }],
+      status: "normalized",
+    });
+    const reportWithFinding = auditHarvestBatch(ctx);
+    expect(reportWithFinding.unaccountedAdditions.length).toBe(0);
+    expect(reportWithFinding.passed).toBe(true);
+  });
 });
 

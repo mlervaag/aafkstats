@@ -3,7 +3,7 @@ id: medlemsblad-1950
 title: AaFK Medlemsblad 1950 (Vol. 1, nr. 1–6)
 profile: member_magazine
 mode: initial
-status: audited
+status: complete
 scope:
   years:
     from: 1950
@@ -270,7 +270,7 @@ findings:
     type: person_role
     claim:
       text: "Irma Berger Huseby (Ingebrigtsen): Første formann i Dameavdelingen (1946–1948)"
-    disposition: role_created
+    disposition: role_enriched
     targets:
       - entity: person
         id: irma-ingebrigtsen
@@ -282,8 +282,8 @@ findings:
       page: "5"
     type: person_role
     claim:
-      text: "Mary Vegsund: Formann i Dameavdelingen (1948–1950)"
-    disposition: role_created
+      text: "Mary Vegsund: Formann i Dameavdelingen (oppgitt som 1948–1950 i hefte 2 s. 5; oppført under 1949 i jubileumsberetningen 1961)"
+    disposition: role_enriched
     targets:
       - entity: person
         id: mary-vegsund
@@ -322,7 +322,7 @@ findings:
     type: person_role
     claim:
       text: "Alfhild Ringdal: Gjenvalgt som formann i Dameavdelingen for 1951"
-    disposition: role_created
+    disposition: role_enriched
     targets:
       - entity: person
         id: alfhild-ringdal
@@ -1264,6 +1264,18 @@ findings:
       - entity: person
         id: trygve-stubb
         path: roles/banekomite-1951
+    status: normalized
+  - id: confl-090
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
+      page: "5"
+    type: source_conflict
+    claim:
+      text: "Kildekonflikt om startår for Mary Vegsund som formann i Dameavdelingen: Medlemsblad 1950 nr. 2 s. 5 oppgir 1948–1950, mens jubileumsberetningen 1961 oppfører vervet under 1949. Konflikten beholdes uløst uten sletting eller overskriving."
+    disposition: conflict_registered
+    targets:
+      - entity: person
+        id: mary-vegsund
     status: normalized
 unresolved: []
 createdAt: 2026-08-16
