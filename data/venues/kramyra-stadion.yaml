@@ -4,13 +4,19 @@ city: Ålesund
 country: NO
 capacity: 10500
 opened: 1955
+openedDate: 1955-08-21
 closed: 2005
 surface: grass
 surfaceHistory:
   - surface: grass
-    from: "1955"
+    from: 1955-08-21
     to: "2004-10-24"
-    sources: [{ sourceId: aafk-historie-kramyra-stadion, fields: [surface, from, to] }]
+    sources:
+      - sourceId: aafk-historie-kramyra-stadion
+        fields: [surface, from, to]
+      - sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
+        page: "61"
+        fields: [surface, from]
 homePeriods:
   - clubId: aalesunds-fk
     from: 1977
@@ -42,10 +48,17 @@ events:
     title: Første mineskudd i anleggsarbeidet
     sources: [{ sourceId: aafk-historie-kramyra-stadion }]
   - id: treningsbane-1955
-    date: "1955"
+    date: 1955-08-21
     kind: opening
     title: Kråmyra tatt i bruk som treningsbane
-    sources: [{ sourceId: aafk-historie-kramyra-stadion }]
+    participants:
+      - name: Emil Sandø
+        affiliation: Formann i banekomiteen
+    sources:
+      - sourceId: aafk-historie-kramyra-stadion
+      - sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
+        page: "61"
+    note: Gresstreningsbanen ble for første gang tatt i bruk etter fullføringen av banens første byggetrinn under ledelse av banekomiteens formann Emil Sandø.
   - id: gjenapning-og-klubbhus-1961
     date: "1961"
     kind: clubhouse
@@ -83,4 +96,7 @@ sources:
     fields: [surface]
   - sourceId: aafk-historie-kramyra-stadion
     fields: [opened, closed, surface]
+  - sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
+    page: "61"
+    fields: [openedDate]
 note: AaFKs hjemmebane fram til Color Line Stadion sto ferdig i 2005.

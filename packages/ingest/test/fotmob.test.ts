@@ -3,6 +3,7 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   enrichFromDetails,
+  fetchFotmobTeamCountry,
   normalizeLeagueMatch,
   parseMinute,
   readAssist,
@@ -284,3 +285,42 @@ describe("straffesparkkonkurranse", () => {
 
 
 
+
+/**
+ * Landet på en ny klubb skal komme fra kilden, ikke fra en håndskrevet liste.
+ *
+ * Her sto lag-ID-ene hardkodet. Alt utenfor lista fikk `undefined`, og
+ * `reconcile` gjorde det om til «NO». Da 105 treningskamper ble importert, ga
+ * det tretten utenlandske klubber norsk landkode uten at noe sa fra.
+ */
+describe("landkoder fra FotMob", () => {
+  it("oversetter både FIFA- og ISO-formen til alpha-2", async () => {
+    const svar: Record<string, string> = { "8391": "DEN", "9728": "UKR", "8605": "NOR" };
+    const original = globalThis.fetch;
+    globalThis.fetch = (async (url: string | URL) => {
+      const id = new URL(String(url)).searchParams.get("id")!;
+      return new Response(JSON.stringify({ details: { country: svar[id] } }), {
+        status: 200, headers: { "content-type": "application/json" },
+      });
+    }) as typeof fetch;
+    try {
+      expect(await fetchFotmobTeamCountry("8391")).toBe("DK");
+      expect(await fetchFotmobTeamCountry("9728")).toBe("UA");
+      expect(await fetchFotmobTeamCountry("8605")).toBe("NO");
+    } finally {
+      globalThis.fetch = original;
+    }
+  });
+
+  it("sier fra seg framfor å gjette når koden er ukjent", async () => {
+    const original = globalThis.fetch;
+    globalThis.fetch = (async () => new Response(JSON.stringify({ details: { country: "XYZ" } }), {
+      status: 200, headers: { "content-type": "application/json" },
+    })) as typeof fetch;
+    try {
+      expect(await fetchFotmobTeamCountry("1")).toBeUndefined();
+    } finally {
+      globalThis.fetch = original;
+    }
+  });
+});
