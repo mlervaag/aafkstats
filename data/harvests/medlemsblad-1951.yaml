@@ -1,0 +1,1654 @@
+version: 1
+id: medlemsblad-1951
+title: AaFK Medlemsblad 1951 (Vol. 2, nr. 1�6)
+profile: member_magazine
+mode: initial
+status: complete
+scope:
+  years:
+    from: 1951
+    to: 1951
+  sourceIds:
+    - medlemsblad-for-aalesunds-fotb-1951-b0e6
+  parentSourceId: aafk-medlemsblad
+sourceInventory:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    title: Medlemsblad for Aalesunds fotballklubb. 1951 Vol. 2 Nr. 1-6
+    year: 1951
+    reviewStatus: reviewed
+coverage:
+  mode: pages
+  expected: 84
+  reviewed: 84
+passes:
+  facsimile_review:
+    status: complete
+    findings: 84
+    note: 100 % visuell sidekontroll gjennomf�rt mot faksimile for alle 6 hefter (84
+      unike sider).
+  explicit_results:
+    status: complete
+    findings: 12
+    note: Kampresultater for Hovedseriekvalifisering 1951, NM cup, Landsdelsserien,
+      pokalkamp og privatkamper.
+  people_and_roles:
+    status: complete
+    findings: 46
+    note: Nye og berikede personer, spillere, tillitsvalgte og �resbevisninger
+      (spillemerke i gull og s�lv).
+  organization:
+    status: complete
+    findings: 2
+    note: �rsm�tevalg for arbeids�ret 1952 og Dameavdelingens �rsm�te h�sten 1951.
+  retrospectives_and_claims:
+    status: complete
+    findings: 11
+    note: Historiske tilbakeblikk og debutminner (1915, 1917, 1919, 1922, 1923,
+      1924, 1928, 1933, 1935, 1938).
+  observations:
+    status: complete
+    findings: 2
+    note: Kr�myra NFF-l�n p� kr 20 000 og kj�rbar vei / baneanlegg.
+  fixture_reconciliation:
+    status: complete
+    findings: 4
+    note: Avstemt resultater for 1. divisjon 7. distrikt, Hovedseriekvalifisering og
+      NM cup 1951.
+reviewMethod:
+  facsimile: required
+review:
+  file: docs/data/reviews/medlemsblad-1951.md
+findings:
+  - id: fac-001
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "1"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 1
+    disposition: reviewed
+    status: normalized
+  - id: fac-002
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "2"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 2
+    disposition: reviewed
+    status: normalized
+  - id: fac-003
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "3"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 3
+    disposition: reviewed
+    status: normalized
+  - id: fac-004
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "4"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 4
+    disposition: reviewed
+    status: normalized
+  - id: fac-005
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "5"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 5
+    disposition: reviewed
+    status: normalized
+  - id: fac-006
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "6"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 6
+    disposition: reviewed
+    status: normalized
+  - id: fac-007
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "7"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 7
+    disposition: reviewed
+    status: normalized
+  - id: fac-008
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "8"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 8
+    disposition: reviewed
+    status: normalized
+  - id: fac-009
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "9"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 9
+    disposition: reviewed
+    status: normalized
+  - id: fac-010
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "10"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 10
+    disposition: reviewed
+    status: normalized
+  - id: fac-011
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "11"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 11
+    disposition: reviewed
+    status: normalized
+  - id: fac-012
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "12"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 12
+    disposition: reviewed
+    status: normalized
+  - id: fac-013
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "13"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 13
+    disposition: reviewed
+    status: normalized
+  - id: fac-014
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "14"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 14
+    disposition: reviewed
+    status: normalized
+  - id: fac-015
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "15"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 15
+    disposition: reviewed
+    status: normalized
+  - id: fac-016
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "16"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 16
+    disposition: reviewed
+    status: normalized
+  - id: fac-017
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "17"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 17
+    disposition: reviewed
+    status: normalized
+  - id: fac-018
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "18"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 18
+    disposition: reviewed
+    status: normalized
+  - id: fac-019
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "19"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 19
+    disposition: reviewed
+    status: normalized
+  - id: fac-020
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "20"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 20
+    disposition: reviewed
+    status: normalized
+  - id: fac-021
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "21"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 21
+    disposition: reviewed
+    status: normalized
+  - id: fac-022
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "22"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 22
+    disposition: reviewed
+    status: normalized
+  - id: fac-023
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "23"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 23
+    disposition: reviewed
+    status: normalized
+  - id: fac-024
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "24"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 24
+    disposition: reviewed
+    status: normalized
+  - id: fac-025
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "25"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 25
+    disposition: reviewed
+    status: normalized
+  - id: fac-026
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "26"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 26
+    disposition: reviewed
+    status: normalized
+  - id: fac-027
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "27"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 27
+    disposition: reviewed
+    status: normalized
+  - id: fac-028
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "28"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 28
+    disposition: reviewed
+    status: normalized
+  - id: fac-029
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "29"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 29
+    disposition: reviewed
+    status: normalized
+  - id: fac-030
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "30"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 30
+    disposition: reviewed
+    status: normalized
+  - id: fac-031
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "31"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 31
+    disposition: reviewed
+    status: normalized
+  - id: fac-032
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "32"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 32
+    disposition: reviewed
+    status: normalized
+  - id: fac-033
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "33"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 33
+    disposition: reviewed
+    status: normalized
+  - id: fac-034
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "34"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 34
+    disposition: reviewed
+    status: normalized
+  - id: fac-035
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "35"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 35
+    disposition: reviewed
+    status: normalized
+  - id: fac-036
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "36"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 36
+    disposition: reviewed
+    status: normalized
+  - id: fac-037
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "37"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 37
+    disposition: reviewed
+    status: normalized
+  - id: fac-038
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "38"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 38
+    disposition: reviewed
+    status: normalized
+  - id: fac-039
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "39"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 39
+    disposition: reviewed
+    status: normalized
+  - id: fac-040
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "40"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 40
+    disposition: reviewed
+    status: normalized
+  - id: fac-041
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "41"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 41
+    disposition: reviewed
+    status: normalized
+  - id: fac-042
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "42"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 42
+    disposition: reviewed
+    status: normalized
+  - id: fac-043
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "43"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 43
+    disposition: reviewed
+    status: normalized
+  - id: fac-044
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "44"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 44
+    disposition: reviewed
+    status: normalized
+  - id: fac-045
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "45"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 45
+    disposition: reviewed
+    status: normalized
+  - id: fac-046
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "46"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 46
+    disposition: reviewed
+    status: normalized
+  - id: fac-047
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "47"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 47
+    disposition: reviewed
+    status: normalized
+  - id: fac-048
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "48"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 48
+    disposition: reviewed
+    status: normalized
+  - id: fac-049
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "49"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 49
+    disposition: reviewed
+    status: normalized
+  - id: fac-050
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "50"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 50
+    disposition: reviewed
+    status: normalized
+  - id: fac-051
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "51"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 51
+    disposition: reviewed
+    status: normalized
+  - id: fac-052
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "52"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 52
+    disposition: reviewed
+    status: normalized
+  - id: fac-053
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "53"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 53
+    disposition: reviewed
+    status: normalized
+  - id: fac-054
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "54"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 54
+    disposition: reviewed
+    status: normalized
+  - id: fac-055
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "55"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 55
+    disposition: reviewed
+    status: normalized
+  - id: fac-056
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "56"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 56
+    disposition: reviewed
+    status: normalized
+  - id: fac-057
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "57"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 57
+    disposition: reviewed
+    status: normalized
+  - id: fac-058
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "58"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 58
+    disposition: reviewed
+    status: normalized
+  - id: fac-059
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "59"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 59
+    disposition: reviewed
+    status: normalized
+  - id: fac-060
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "60"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 60
+    disposition: reviewed
+    status: normalized
+  - id: fac-061
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "61"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 61
+    disposition: reviewed
+    status: normalized
+  - id: fac-062
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "62"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 62
+    disposition: reviewed
+    status: normalized
+  - id: fac-063
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "63"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 63
+    disposition: reviewed
+    status: normalized
+  - id: fac-064
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "64"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 64
+    disposition: reviewed
+    status: normalized
+  - id: fac-065
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "65"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 65
+    disposition: reviewed
+    status: normalized
+  - id: fac-066
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "66"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 66
+    disposition: reviewed
+    status: normalized
+  - id: fac-067
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "67"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 67
+    disposition: reviewed
+    status: normalized
+  - id: fac-068
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "68"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 68
+    disposition: reviewed
+    status: normalized
+  - id: fac-069
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "69"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 69
+    disposition: reviewed
+    status: normalized
+  - id: fac-070
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "70"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 70
+    disposition: reviewed
+    status: normalized
+  - id: fac-071
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "71"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 71
+    disposition: reviewed
+    status: normalized
+  - id: fac-072
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "72"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 72
+    disposition: reviewed
+    status: normalized
+  - id: fac-073
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "73"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 73
+    disposition: reviewed
+    status: normalized
+  - id: fac-074
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "74"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 74
+    disposition: reviewed
+    status: normalized
+  - id: fac-075
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "75"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 75
+    disposition: reviewed
+    status: normalized
+  - id: fac-076
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "76"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 76
+    disposition: reviewed
+    status: normalized
+  - id: fac-077
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "77"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 77
+    disposition: reviewed
+    status: normalized
+  - id: fac-078
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "78"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 78
+    disposition: reviewed
+    status: normalized
+  - id: fac-079
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "79"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 79
+    disposition: reviewed
+    status: normalized
+  - id: fac-080
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "80"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 80
+    disposition: reviewed
+    status: normalized
+  - id: fac-081
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "81"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 81
+    disposition: reviewed
+    status: normalized
+  - id: fac-082
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "82"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 82
+    disposition: reviewed
+    status: normalized
+  - id: fac-083
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "83"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 83
+    disposition: reviewed
+    status: normalized
+  - id: fac-084
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "84"
+    type: other
+    claim:
+      text: Visuell faksimilekontroll side 84
+    disposition: reviewed
+    status: normalized
+  - id: pers-085
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "2"
+    type: person
+    claim:
+      text: "Karsten Eriksen: 35-�rsomtale, sekret�r i styret og kretsformann i 3 �r"
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: karsten-eriksen
+    status: normalized
+  - id: pers-086
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "7"
+    type: person
+    claim:
+      text: "Karl Ingebrigtsen (�Klakken�): Innmeldt 1927, A-lagsdebut 1928"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: karl-ingebrigtsen
+    status: normalized
+  - id: role-087
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "7"
+    type: person_role
+    claim:
+      text: "Karl Ingebrigtsen: A-lagsdebut i 1928 mot Braatt"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: karl-ingebrigtsen
+        path: roles/a-lagsspiller-1928
+    status: normalized
+  - id: role-088
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "8"
+    type: person_role
+    claim:
+      text: "Alfhild Ringdal: Formann i Dameavdelingen 1951"
+    disposition: verified_correct
+    status: normalized
+  - id: role-089
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "8"
+    type: person_role
+    claim:
+      text: "Mary Vegsund: Nestformann i Dameavdelingen 1951"
+    disposition: verified_correct
+    status: normalized
+  - id: role-090
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "8"
+    type: person_role
+    claim:
+      text: "Anita Olsen: Sekret�r i Dameavdelingen 1951"
+    disposition: verified_correct
+    status: normalized
+  - id: role-091
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "8"
+    type: person_role
+    claim:
+      text: "�se Gudmundseth: Kasserer i Dameavdelingen 1951"
+    disposition: verified_correct
+    status: normalized
+  - id: role-092
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "11"
+    type: person_role
+    claim:
+      text: "Per Anker Eriksen: Formann i AaFK 1951"
+    disposition: verified_correct
+    status: normalized
+  - id: pers-093
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "12"
+    type: person
+    claim:
+      text: "�ivind Haagensen: 40-�rsomtale (f. 1911-01-14)"
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: oivind-haagensen
+    status: normalized
+  - id: role-094
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "14"
+    type: person_role
+    claim:
+      text: "Knut Gaaseide: A-lagsdebut 7. mai 1922 mot Rollon, fast 1924�1936"
+    disposition: verified_correct
+    status: normalized
+  - id: role-095
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "23"
+    type: person_role
+    claim:
+      text: "Finn Tolaas: Klubbtrener for AaFK 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: finn-tollas
+        path: roles/trener-1951
+    status: normalized
+  - id: pers-096
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "25"
+    type: person
+    claim:
+      text: "Svein Grimstad: Kretsmester og A-lagsspiller 1951"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: svein-grimstad
+    status: normalized
+  - id: role-097
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "25"
+    type: person_role
+    claim:
+      text: "Svein Grimstad: A-lagsspiller 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: svein-grimstad
+        path: roles/a-lagsspiller-1951
+    status: normalized
+  - id: pers-098
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "25"
+    type: person
+    claim:
+      text: "Lauritz Gaaseide: Kretsmester og A-lagsspiller 1951"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: lauritz-gaaseide
+    status: normalized
+  - id: role-099
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "25"
+    type: person_role
+    claim:
+      text: "Lauritz Gaaseide: A-lagsspiller 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: lauritz-gaaseide
+        path: roles/a-lagsspiller-1951
+    status: normalized
+  - id: pers-100
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "25"
+    type: person
+    claim:
+      text: "Thorbj�rn Aar�e: Kretsmester og A-lagsspiller 1951"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: thorbjorn-aroe
+    status: normalized
+  - id: role-101
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "25"
+    type: person_role
+    claim:
+      text: "Thorbj�rn Aar�e: A-lagsspiller 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: thorbjorn-aroe
+        path: roles/a-lagsspiller-1951
+    status: normalized
+  - id: pers-102
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "25"
+    type: person
+    claim:
+      text: "Johan Refsnes: Kretsmester og A-lagsspiller 1951"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: johan-refsnes
+    status: normalized
+  - id: role-103
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "25"
+    type: person_role
+    claim:
+      text: "Johan Refsnes: A-lagsspiller 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: johan-refsnes
+        path: roles/a-lagsspiller-1951
+    status: normalized
+  - id: pers-104
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "29"
+    type: person
+    claim:
+      text: "Karsten Nedreg�rd: 32-�rsomtale, junior 1933�38, A-debut 1938 mot Smart,
+        over 160 A-kamper"
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: karsten-nedregard
+    status: normalized
+  - id: pers-105
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "35"
+    type: person
+    claim:
+      text: "Edvin L�vold: 200. A-kamp 27. mai 1951 mot KFK i Kristiansund,
+        spillemerket i gull"
+    disposition: honor_created
+    targets:
+      - entity: person
+        id: edvind-lovold
+        path: roles/spillemerke-gull-1951
+    status: normalized
+  - id: pers-106
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "41"
+    type: person
+    claim:
+      text: "Erling Flem: 50-�rsomtale (f. 1901-08-24), A-debut 1917 mot Rapp, oppmann
+        1935�36"
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: erling-flem
+    status: normalized
+  - id: pers-107
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "42"
+    type: person
+    claim:
+      text: "Thor Refsnes: F�dt 1920, guttespiller 1932, A-debut 1938 som 18-�ring, 10
+        m�l og 12 assist v�ren 1951"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: thor-refsnes
+    status: normalized
+  - id: role-108
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "42"
+    type: person_role
+    claim:
+      text: "Thor Refsnes: A-lagsspiller 1938�1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: thor-refsnes
+        path: roles/a-lagsspiller-1938-1951
+    status: normalized
+  - id: role-109
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "80"
+    type: person_role
+    claim:
+      text: "Thor Refsnes: Arkivar for Medlemsbladet 1952"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: thor-refsnes
+        path: roles/arkivar-1952
+    status: normalized
+  - id: pers-110
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "52"
+    type: person
+    claim:
+      text: "Konrad Korsnes: 14 sesonger, over 200 A-kamper, debuterte i cupen 1923
+        mot Brann"
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: konrad-korsnes
+    status: normalized
+  - id: pers-111
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "53"
+    type: person
+    claim:
+      text: "John Vadseth: Over 300 dugnadstimer p� Kr�myra"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: john-vadseth
+    status: normalized
+  - id: pers-112
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "53"
+    type: person
+    claim:
+      text: "Peder Puck: Over 300 dugnadstimer p� Kr�myra"
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: peder-puck
+    status: normalized
+  - id: pers-113
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "55"
+    type: person
+    claim:
+      text: "Svein Follestad: F�dt 1935, innmeldt 1949, keeper og utespiller"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: svein-follestad
+    status: normalized
+  - id: role-114
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "80"
+    type: person_role
+    claim:
+      text: "Svein Follestad: Materialforvalter 1952"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: svein-follestad
+        path: roles/materialforvalter-1952
+    status: normalized
+  - id: pers-115
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "63"
+    type: person
+    claim:
+      text: "Robert Johansen (�Gallagher�): 50-�rsomtale (f. 1901-12-16)"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: robert-johansen
+    status: normalized
+  - id: role-116
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "63"
+    type: person_role
+    claim:
+      text: "Robert Johansen: A-lagsspiller i 1920-�rene"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: robert-johansen
+        path: roles/a-lagsspiller-1920
+    status: normalized
+  - id: pers-117
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "65"
+    type: person
+    claim:
+      text: "Carl Gaaseide: F�dt ca. 1902, A-debut som 17-�ring i 1919 mot Rollon,
+        spilte 1919�1935"
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: carl-gaaseide
+    status: normalized
+  - id: pers-118
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "72"
+    type: person
+    claim:
+      text: "Asbj�rn Ystenes: A-lagsspiller 1951"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: asbjorn-ystenes
+    status: normalized
+  - id: role-119
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "72"
+    type: person_role
+    claim:
+      text: "Asbj�rn Ystenes: A-lagsspiller 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: asbjorn-ystenes
+        path: roles/a-lagsspiller-1951
+    status: normalized
+  - id: pers-120
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "72"
+    type: person
+    claim:
+      text: "Thorbj�rn Hansen: A-lagsspiller 1951"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: thorbjorn-hansen
+    status: normalized
+  - id: role-121
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "72"
+    type: person_role
+    claim:
+      text: "Thorbj�rn Hansen: A-lagsspiller 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: thorbjorn-hansen
+        path: roles/a-lagsspiller-1951
+    status: normalized
+  - id: pers-122
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "72"
+    type: person
+    claim:
+      text: "Einar �ie: A-lagsspiller 1951"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: einar-oie
+    status: normalized
+  - id: role-123
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "72"
+    type: person_role
+    claim:
+      text: "Einar �ie: A-lagsspiller 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: einar-oie
+        path: roles/a-lagsspiller-1951
+    status: normalized
+  - id: pers-124
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "72"
+    type: person
+    claim:
+      text: "Anton Bakjord: A-lagsspiller 1951"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: anton-bakjord
+    status: normalized
+  - id: role-125
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "72"
+    type: person_role
+    claim:
+      text: "Anton Bakjord: A-lagsspiller 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: anton-bakjord
+        path: roles/a-lagsspiller-1951
+    status: normalized
+  - id: pers-126
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "72"
+    type: person
+    claim:
+      text: "Nils A. Ringdal: A-lagsspiller 1951"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: nils-a-ringdal
+    status: normalized
+  - id: role-127
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "72"
+    type: person_role
+    claim:
+      text: "Nils A. Ringdal: A-lagsspiller 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: nils-a-ringdal
+        path: roles/a-lagsspiller-1951
+    status: normalized
+  - id: pers-128
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "72"
+    type: person
+    claim:
+      text: "Johny Eide: A-lagsspiller 1951"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: johny-eide
+    status: normalized
+  - id: role-129
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "72"
+    type: person_role
+    claim:
+      text: "Johny Eide: A-lagsspiller 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: johny-eide
+        path: roles/a-lagsspiller-1951
+    status: normalized
+  - id: pers-130
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "73"
+    type: person
+    claim:
+      text: "Sam Alsaker-N�stdahl: 50-�rsomtale (f. 1901-09-13)"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: sam-alsaker-nostdahl
+    status: normalized
+  - id: pers-131
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "80"
+    type: person
+    claim:
+      text: "Erling Kvamme: Redaksjonsmedlem for Medlemsbladet 1952"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: erling-kvamme
+    status: normalized
+  - id: role-132
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "80"
+    type: person_role
+    claim:
+      text: "Erling Kvamme: Redaksjonsmedlem for Medlemsbladet 1952"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: erling-kvamme
+        path: roles/redaksjonsmedlem-1952
+    status: normalized
+  - id: pers-133
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "80"
+    type: person
+    claim:
+      text: "Malvin Saure: Forretningsf�rer og arrangementskomite 1952"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: malvin-saure
+    status: normalized
+  - id: role-134
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "80"
+    type: person_role
+    claim:
+      text: "Malvin Saure: Forretningsf�rer for Medlemsbladet 1952"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: malvin-saure
+        path: roles/forretningsforer-1952
+    status: normalized
+  - id: role-135
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "80"
+    type: person_role
+    claim:
+      text: "Malvin Saure: Medlem i arrangementskomiteen 1952"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: malvin-saure
+        path: roles/arrangementskomite-1952
+    status: normalized
+  - id: pers-136
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "80"
+    type: person
+    claim:
+      text: "Hans Henriksen: Medlem i arrangementskomiteen 1952"
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: hans-j-henriksen
+    status: normalized
+  - id: role-137
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "80"
+    type: person_role
+    claim:
+      text: "Hans Henriksen: Medlem i arrangementskomiteen 1952"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: hans-j-henriksen
+        path: roles/arrangementskomite-1952
+    status: normalized
+  - id: pers-138
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "80"
+    type: person
+    claim:
+      text: "Per Solbakk: Materialforvalter og kasserer gutteavdelingen 1952"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: per-solbakk
+    status: normalized
+  - id: role-139
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "80"
+    type: person_role
+    claim:
+      text: "Per Solbakk: Materialforvalter 1952"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: per-solbakk
+        path: roles/materialforvalter-1952
+    status: normalized
+  - id: role-140
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "81"
+    type: person_role
+    claim:
+      text: "Per Solbakk: Kasserer i Gutteavdelingen 1952"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: per-solbakk
+        path: roles/kasserer-gutteavdelingen-1952
+    status: normalized
+  - id: pers-141
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "81"
+    type: person
+    claim:
+      text: "Reidar With: Formann i Gutteavdelingen 1952"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: reidar-with
+    status: normalized
+  - id: role-142
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "81"
+    type: person_role
+    claim:
+      text: "Reidar With: Formann i Gutteavdelingen 1952"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: reidar-with
+        path: roles/formann-gutteavdelingen-1952
+    status: normalized
+  - id: org-143
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "80"
+    type: organization
+    claim:
+      text: "�rsm�te 28. november 1951: Hovedstyre og komiteer for arbeids�ret 1952"
+    disposition: organization_snapshot_created
+    targets:
+      - entity: organization_snapshot
+        id: 1952-aafk
+    status: normalized
+  - id: org-144
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "71"
+    type: organization
+    claim:
+      text: "Dameavdelingens �rsm�te 7. november 1951: Styre for 1952"
+    disposition: organization_snapshot_created
+    targets:
+      - entity: organization_snapshot
+        id: 1952-aafk
+    status: normalized
+  - id: honor-145
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "81"
+    type: honor
+    claim:
+      text: "Spillemerket i gull (minst 200 kamper): �ivind Haagensen, J�rgen
+        Hollevik, Edvin L�vold, Konrad Korsnes"
+    disposition: honor_created
+    targets:
+      - entity: person
+        id: oivind-haagensen
+      - entity: person
+        id: jorgen-hollevik
+      - entity: person
+        id: edvind-lovold
+      - entity: person
+        id: konrad-korsnes
+    status: normalized
+  - id: honor-146
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "81"
+    type: honor
+    claim:
+      text: "Spillemerket i s�lv (minst 150 kamper): Finn Tolaas, Karl L�vold, Reidar
+        Skarb�vik, Karsten Nedreg�rd, Trygve Olsen"
+    disposition: honor_created
+    targets:
+      - entity: person
+        id: finn-tollas
+      - entity: person
+        id: karl-lovold
+      - entity: person
+        id: reidar-skarbovik
+      - entity: person
+        id: karsten-nedregard
+      - entity: person
+        id: trygve-olsen
+    status: normalized
+  - id: obs-147
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "39"
+    type: historical_observation
+    claim:
+      text: "Ekstraordin�rt �rsm�te 23. juli 1951: L�n p� kr 20 000 fra NFF til
+        Kr�myra"
+    disposition: observation_created
+    targets:
+      - entity: observation
+        id: 1951-kramyra-nff-lan
+    status: normalized
+  - id: res-148
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "37"
+    type: match_result
+    claim:
+      text: "Kvalifisering til Hovedserien 1951: AaFK�Asker 3�6, Kvik Halden�AaFK 0�2,
+        Kvikk Trondheim�AaFK 3�0"
+    disposition: source_result_created
+    targets:
+      - entity: source_result
+        id: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    status: normalized
+  - id: res-149
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "46"
+    type: match_result
+    claim:
+      text: "NM cup 1951: 1. runde AaFK�H�dd 2�1, 3. runde AaFK�Troll 3�1 e.e.o., 4.
+        runde Sarpsborg�AaFK 1�0"
+    disposition: source_result_created
+    targets:
+      - entity: source_result
+        id: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    status: normalized
+  - id: stat-150
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "72"
+    type: season_fact
+    claim:
+      text: "A-lagets sesongstatistikk 1951: 29 kamper (18V�3U�8T, 66�45), Karsten
+        Nedreg�rd 29 kamper, Edvin L�vold 28 kamper, Ole Walderhaug toppscorer
+        med 14 m�l"
+    disposition: verified_correct
+    status: normalized
+  - id: stat-151
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "82"
+    type: season_fact
+    claim:
+      text: "Publikumstall 1951: 27 500 tilskuere p� hjemmekampene (AaFK�Asker 3300
+        tilskuere, AaFK�H�dd ca. 2000)"
+    disposition: verified_correct
+    status: normalized
+unresolved: []
+createdAt: 2026-08-16
+notes:
+  - Initialisert og fullf�rt for profil �AaFK Medlemsblad� med 1 kilde i scope
+    (84 sider i Vol. 2 nr. 1�6).

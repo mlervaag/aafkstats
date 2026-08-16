@@ -1,0 +1,24 @@
+id: thor-refsnes
+name: Thor Refsnes
+roles:
+  - id: a-lagsspiller-1938-1951
+    category: player
+    title: A-lagsspiller
+    from: "1938"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+        page: "42"
+  - id: arkivar-1952
+    category: administration
+    title: Arkivar
+    body: Medlemsbladet
+    from: "1952"
+    to: "1952"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+        page: "80"
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    page: "42"
+note: F�dt 1920. Guttespiller 1932, junior 1933�1938, A-lagsdebut 1938 som 18-�ring mot Kristiansund.

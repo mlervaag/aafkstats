@@ -102,6 +102,12 @@ function compositeIdentity(item: Record<string, unknown>, identity: { key: strin
   if (identity.key === "sourceId" && item.page !== undefined && item.page !== null) {
     return `${identity.value}:${String(item.page).trim()}`;
   }
+  if (identity.key === "personId" && (item.observedTitle !== undefined || item.body !== undefined)) {
+    const parts = [identity.value];
+    if (item.body !== undefined && item.body !== null) parts.push(String(item.body).trim());
+    if (item.observedTitle !== undefined && item.observedTitle !== null) parts.push(String(item.observedTitle).trim());
+    return parts.join(":");
+  }
   return identity.value;
 }
 

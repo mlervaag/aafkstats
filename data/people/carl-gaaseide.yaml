@@ -5,10 +5,16 @@ roles:
     category: board
     title: Sekretær
     body: ÅFKs Eldres gruppe
-    from: '1964'
-    to: '1964'
+    from: "1964"
+    to: "1964"
     sources:
       - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
-        page: '76'
-        fields: [ title, from, to ]
+        page: "76"
+        fields:
+          - title
+          - from
+          - to
         note: Manuelt verifisert.
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    page: "65"

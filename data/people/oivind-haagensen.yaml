@@ -50,7 +50,8 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: oppmann-1945
     category: sporting_staff
     title: Oppmann
@@ -80,7 +81,8 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: a-lagsspiller-1930-1949
     category: player
     title: A-lagsspiller
@@ -121,7 +123,8 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte siden.
+    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
+      siden.
   - id: trener-1955
     category: coach
     title: Trener
@@ -133,7 +136,8 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 1 på siden (regel: year_row). Manuelt verifisert."
+        note: "Lest maskinelt fra spalte 1 på siden (regel: year_row). Manuelt
+          verifisert."
       - sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
         page: "64"
         fields:
@@ -178,7 +182,8 @@ roles:
         fields:
           - title
           - from
-        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt verifisert."
+        note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt
+          verifisert."
   - id: oppmann-1949
     category: sporting_staff
     title: Oppmann
@@ -222,7 +227,8 @@ sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "27"
     fields: []
-    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret. Manuelt verifisert.
+    note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+      Manuelt verifisert.
   - sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
     page: "12"
     fields: []
@@ -335,6 +341,10 @@ sources:
     page: "78"
   - sourceId: medlemsblad-for-aalesunds-fotb-1950-62fa
     page: "8"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    page: "12"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    page: "81"
 conflicts:
   - field: formann.1940
     values:
