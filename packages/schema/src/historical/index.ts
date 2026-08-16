@@ -3,3 +3,7 @@ export * from "./preservation.js";
 export * from "./source-inventory.js";
 export * from "./harvest-diff.js";
 export * from "./review-parser.js";
+export * from "./harvest-finding.js";
+export * from "./source-profile.js";
+export * from "./harvest-manifest.js";
+export * from "./harvest-audit-engine.js";
