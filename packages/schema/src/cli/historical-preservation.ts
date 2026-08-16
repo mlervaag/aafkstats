@@ -1,10 +1,7 @@
 import { appendFileSync } from "node:fs";
-import { resolve } from "node:path";
-import { person } from "../person.js";
-import { loadPreservationExceptions } from "../preservation-exceptions.js";
-import { getDefaultBaseRevision, loadYamlMap, resolveGitSha } from "../historical/git.js";
-import { runPreservationAudit, type PreservationAuditResult } from "../historical/preservation.js";
-import { repoRoot, dataDir } from "../load.js";
+import { getDefaultBaseRevision, resolveGitSha } from "../historical/git.js";
+import { runFullPreservationAudit, type FullPreservationResult } from "../historical/full-preservation.js";
+import { repoRoot } from "../load.js";
 
 const RED = "\x1b[31m";
 const GREEN = "\x1b[32m";
@@ -41,7 +38,7 @@ export function parsePreservationCliArgs(args: string[]): CliOptions {
   return options;
 }
 
-export function formatPreservationConsole(result: PreservationAuditResult): string {
+export function formatPreservationConsole(result: FullPreservationResult): string {
   const { summary, changes, baseRef, headRef, passed } = result;
   const lines: string[] = [];
 
@@ -57,6 +54,8 @@ export function formatPreservationConsole(result: PreservationAuditResult): stri
 
   lines.push(pad("People checked:", summary.peopleChecked));
   lines.push(pad("Existing people changed:", summary.existingPeopleChanged));
+  lines.push(pad("Archive entities checked:", summary.archiveEntitiesChecked));
+  lines.push(pad("Archive files deleted:", summary.archiveFilesDeleted, summary.archiveFilesDeleted > 0 ? RED : RESET));
   lines.push("");
   lines.push(pad("Additions:", summary.additions, summary.additions > 0 ? GREEN : RESET));
   lines.push(pad("Safe enrichments:", summary.safeEnrichments, summary.safeEnrichments > 0 ? GREEN : RESET));
@@ -64,6 +63,15 @@ export function formatPreservationConsole(result: PreservationAuditResult): stri
   lines.push(pad("Approved exceptions:", summary.approvedExceptions, summary.approvedExceptions > 0 ? CYAN : RESET));
   lines.push(pad("Destructive changes:", summary.destructiveChanges, summary.destructiveChanges > 0 ? RED : RESET));
   lines.push("");
+
+  if (summary.selfApprovedExceptions.length > 0) {
+    lines.push(`${RED}${BOLD}SELF-APPROVED EXCEPTIONS:${RESET} ${summary.selfApprovedExceptions.length} unntak er lagt til i denne endringen og gjelder ikke:`);
+    for (const ex of summary.selfApprovedExceptions) {
+      lines.push(`  ${RED}✗${RESET} ${ex.entity}/${ex.id} (${ex.path}, ${ex.change})`);
+    }
+    lines.push(`  ${DIM}Et unntak må godkjennes i en egen endring før det kan brukes.${RESET}`);
+    lines.push("");
+  }
 
   if (summary.staleExceptions.length > 0) {
     lines.push(`${YELLOW}${BOLD}WARNING:${RESET} ${summary.staleExceptions.length} preservation exception(s) matched no detected change:`);
@@ -79,7 +87,7 @@ export function formatPreservationConsole(result: PreservationAuditResult): stri
     lines.push(`${DIM}────────────────────────────────────────${RESET}`);
     for (const c of destructive) {
       lines.push("");
-      lines.push(`  ${RED}✗${RESET} ${BOLD}Person:${RESET} ${c.id}`);
+      lines.push(`  ${RED}✗${RESET} ${BOLD}${c.entity}:${RESET} ${c.id}`);
       lines.push(`    ${BOLD}Path:${RESET}   ${c.path}`);
       lines.push(`    ${BOLD}Change:${RESET} ${c.changeType}`);
       lines.push(`    ${BOLD}Detail:${RESET} ${c.message}`);
@@ -99,7 +107,7 @@ export function formatPreservationConsole(result: PreservationAuditResult): stri
   if (reviews.length > 0) {
     lines.push(`${YELLOW}${BOLD}REVIEW REQUIRED:${RESET}`);
     for (const c of reviews) {
-      lines.push(`  ${YELLOW}!${RESET} Person «${c.id}» (${c.path}): ${c.message}`);
+      lines.push(`  ${YELLOW}!${RESET} ${c.entity} «${c.id}» (${c.path}): ${c.message}`);
     }
     lines.push("");
   }
@@ -113,7 +121,7 @@ export function formatPreservationConsole(result: PreservationAuditResult): stri
   return lines.join("\n");
 }
 
-export function formatPreservationStepSummary(result: PreservationAuditResult): string {
+export function formatPreservationStepSummary(result: FullPreservationResult): string {
   const { summary, changes, baseRef, headRef, passed } = result;
   const lines: string[] = [];
 
@@ -129,6 +137,8 @@ export function formatPreservationStepSummary(result: PreservationAuditResult): 
   lines.push(`- **Head ref:** \`${headRef.slice(0, 10)}\``);
   lines.push(`- **People checked:** ${summary.peopleChecked}`);
   lines.push(`- **People changed:** ${summary.existingPeopleChanged}`);
+  lines.push(`- **Archive entities checked:** ${summary.archiveEntitiesChecked}`);
+  lines.push(`- **Archive files deleted:** ${summary.archiveFilesDeleted}`);
   lines.push(`- **Safe enrichments:** ${summary.safeEnrichments}`);
   lines.push(`- **Approved exceptions:** ${summary.approvedExceptions}`);
   lines.push(`- **Destructive changes:** ${summary.destructiveChanges}`);
@@ -137,10 +147,10 @@ export function formatPreservationStepSummary(result: PreservationAuditResult): 
   const destructive = changes.filter((c) => c.status === "DESTRUCTIVE_CHANGE");
   if (destructive.length > 0) {
     lines.push("### ❌ Destructive changes");
-    lines.push("| Person | Path | Change | Detail |");
-    lines.push("| --- | --- | --- | --- |");
+    lines.push("| Entity | Id | Path | Change | Detail |");
+    lines.push("| --- | --- | --- | --- | --- |");
     for (const c of destructive) {
-      lines.push(`| \`${c.id}\` | \`${c.path}\` | \`${c.changeType}\` | ${c.message} |`);
+      lines.push(`| \`${c.entity}\` | \`${c.id}\` | \`${c.path}\` | \`${c.changeType}\` | ${c.message} |`);
     }
     lines.push("");
   }
@@ -151,7 +161,6 @@ export function formatPreservationStepSummary(result: PreservationAuditResult): 
 export async function main() {
   const options = parsePreservationCliArgs(process.argv.slice(2));
   const root = repoRoot();
-  const rootDataDir = options.dir ? resolve(root, options.dir) : dataDir();
 
   let baseRef = options.base;
   let headRef = options.head;
@@ -167,27 +176,7 @@ export async function main() {
     const baseSha = await resolveGitSha(baseRef, root);
     const headSha = headRef === "working-tree" ? "working-tree" : await resolveGitSha(headRef, root);
 
-    // Last preservation exceptions
-    const { exceptions } = await loadPreservationExceptions(rootDataDir);
-
-    // Last people fra BASE og HEAD
-    const relativePeopleDir = "data/people";
-    const baseResult = await loadYamlMap(baseSha, relativePeopleDir, person, root);
-    const headResult = await loadYamlMap(headRef === "working-tree" ? null : headSha, relativePeopleDir, person, root);
-
-    if (baseResult.errors.length > 0) {
-      console.error(`${RED}AUDIT_ERROR:${RESET} Feil ved innlasting av BASE-data:`);
-      for (const err of baseResult.errors) console.error(`  ${err.file}: ${err.message}`);
-      process.exit(1);
-    }
-
-    if (headResult.errors.length > 0) {
-      console.error(`${RED}AUDIT_ERROR:${RESET} Feil ved innlasting av HEAD-data:`);
-      for (const err of headResult.errors) console.error(`  ${err.file}: ${err.message}`);
-      process.exit(1);
-    }
-
-    const auditResult = runPreservationAudit(baseResult.items, headResult.items, exceptions, baseSha, headSha);
+    const auditResult = await runFullPreservationAudit(baseSha, headRef, headSha, root);
 
     if (options.json) {
       console.log(JSON.stringify(auditResult, null, 2));

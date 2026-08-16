@@ -244,6 +244,29 @@ export async function readFilesBatchFromGit(
 }
 
 /**
+ * Leser én enkelt fil fra en git-ref. Returnerer null dersom filen ikke fantes
+ * i den revisjonen.
+ */
+export async function readFileFromGit(
+  ref: string,
+  relativeFilePath: string,
+  repoRoot: string,
+): Promise<string | null> {
+  const normalized = validateRepoRelativePath(relativeFilePath);
+  const sha = await resolveGitSha(ref, repoRoot);
+  try {
+    const { stdout } = await execFileAsync(
+      "git",
+      ["show", "--end-of-options", `${sha}:${normalized}`],
+      { cwd: repoRoot, maxBuffer: 64 * 1024 * 1024 },
+    );
+    return stdout;
+  } catch {
+    return null;
+  }
+}
+
+/**
  * Laster og validerer en samling YAML-filer fra git ref eller disk inn i et map etter ID.
  */
 export async function loadYamlMap<TSchema extends z.ZodTypeAny>(
