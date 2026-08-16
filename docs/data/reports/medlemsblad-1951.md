@@ -30,7 +30,7 @@
 |---|---|---|---|
 | `facsimile_review` | `complete` | 84 | 100 % visuell sidekontroll gjennomført mot faksimile for alle 6 hefter (84 unike sider). |
 | `explicit_results` | `complete` | 12 | Kampresultater for Hovedseriekvalifisering 1951, NM cup, Landsdelsserien, pokalkamp og privatkamper. |
-| `people_and_roles` | `complete` | 52 | Nye og berikede personer, spillere, tillitsvalgte, oppmannsavklaring og æresbevisninger (spillemerke i gull og sølv). |
+| `people_and_roles` | `complete` | 54 | Nye og berikede personer, spillere, tillitsvalgte, oppmannsavklaring og æresbevisninger (spillemerke i gull og sølv, innsatspokaler). |
 | `organization` | `complete` | 4 | Årsmøtevalg for arbeidsåret 1952 og Dameavdelingens årsmøte høsten 1951 med full komitédisposisjon. |
 | `retrospectives_and_claims` | `complete` | 14 | Historiske tilbakeblikk og debutminner (1915, 1917, 1919, 1922, 1923, 1924, 1928, 1933, 1935, 1938). |
 | `observations` | `complete` | 5 | Kråmyra NFF-lån på kr 20 000, 1500 dugnadstimer og kjørbar vei / baneanlegg. |
@@ -38,8 +38,8 @@
 
 ## Findings
 
-- **Totalt antall funn:** 215
-- **Normaliserte:** 215
+- **Totalt antall funn:** 227
+- **Normaliserte:** 227
 - **Uavklarte / usikre:** 0
 - **Mangler disposisjon:** 0
 
@@ -47,16 +47,16 @@
 
 | Kategori | Antall |
 |---|---|
-| `other` | 96 |
+| `other` | 103 |
 | `person` | 37 |
-| `meeting` | 4 |
+| `meeting` | 5 |
 | `retrospective_claim` | 4 |
-| `person_role` | 38 |
+| `person_role` | 40 |
 | `organization` | 5 |
 | `match_result` | 11 |
-| `season_fact` | 5 |
+| `season_fact` | 6 |
 | `historical_observation` | 3 |
-| `honor` | 3 |
+| `honor` | 4 |
 | `fixture` | 1 |
 | `non_senior` | 6 |
 | `identity_candidate` | 2 |
@@ -72,7 +72,7 @@
 
 - **Nye personer:** 20
 - **Eksisterende personer kildeberiket:** 19
-- **Kildereferanser lagt til på personer:** 50
+- **Kildereferanser lagt til på personer:** 53
 - **Roller opprettet:** 27
 - **Roller kildeberiket:** 1
 - **Æresroller opprettet:** 1

@@ -33,9 +33,9 @@ passes:
       pokalkamp og privatkamper.
   people_and_roles:
     status: complete
-    findings: 52
+    findings: 54
     note: Nye og berikede personer, spillere, tillitsvalgte, oppmannsavklaring og
-      æresbevisninger (spillemerke i gull og sølv).
+      æresbevisninger (spillemerke i gull og sølv, innsatspokaler).
   organization:
     status: complete
     findings: 4
@@ -823,10 +823,19 @@ findings:
       page: "1"
     type: other
     claim:
+      text: Formann Per Anker Eriksen ser tilbake på arbeidsåret 1950
+    disposition: no_structured_action
+    status: normalized
+  - id: obs-086
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "1"
+    type: other
+    claim:
       text: "Brede Borgen: En ukes instruksjonskurs i Ålesund november 1950"
     disposition: no_structured_action
     status: normalized
-  - id: pers-086
+  - id: pers-087
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "2"
@@ -838,7 +847,7 @@ findings:
       - entity: person
         id: karsten-eriksen
     status: normalized
-  - id: obs-087
+  - id: obs-088
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "4"
@@ -847,7 +856,7 @@ findings:
       text: "Arne Brustad: Hilsen og treningsråd til AaFK"
     disposition: no_structured_action
     status: normalized
-  - id: obs-088
+  - id: obs-089
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "5"
@@ -856,7 +865,7 @@ findings:
       text: Tillitsmannsmøte 12. desember 1950 i Losjen v/formann Per Anker Eriksen
     disposition: no_structured_action
     status: normalized
-  - id: ret-089
+  - id: ret-090
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "6"
@@ -865,7 +874,7 @@ findings:
       text: "Bernt Sulebust: Kampminner fra førkrigstid og 1930-tallet"
     disposition: no_structured_action
     status: normalized
-  - id: ret-090
+  - id: ret-091
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "7"
@@ -875,7 +884,7 @@ findings:
         Møhlenpris i Bergen i 1933 (eller 1932)"
     disposition: no_structured_action
     status: normalized
-  - id: pers-091
+  - id: pers-092
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "7"
@@ -888,7 +897,7 @@ findings:
       - entity: person
         id: karl-ingebrigtsen
     status: normalized
-  - id: role-092
+  - id: role-093
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "7"
@@ -901,7 +910,7 @@ findings:
         id: karl-ingebrigtsen
         path: roles/a-lagsspiller-1928
     status: normalized
-  - id: org-093
+  - id: org-094
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "8"
@@ -911,7 +920,7 @@ findings:
         Alfhild Ringdal, Mary Vegsund, Anita Olsen, Åse Gudmundseth)"
     disposition: already_documented
     status: normalized
-  - id: role-094
+  - id: role-095
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "8"
@@ -920,7 +929,7 @@ findings:
       text: "Alfhild Ringdal: Formann i Dameavdelingen 1951"
     disposition: verified_correct
     status: normalized
-  - id: role-095
+  - id: role-096
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "8"
@@ -929,7 +938,7 @@ findings:
       text: "Mary Vegsund: Nestformann i Dameavdelingen 1951"
     disposition: verified_correct
     status: normalized
-  - id: role-096
+  - id: role-097
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "8"
@@ -938,7 +947,7 @@ findings:
       text: "Anita Olsen: Sekretær i Dameavdelingen 1951"
     disposition: verified_correct
     status: normalized
-  - id: role-097
+  - id: role-098
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "8"
@@ -947,7 +956,7 @@ findings:
       text: "Åse Gudmundseth: Kasserer i Dameavdelingen 1951"
     disposition: verified_correct
     status: normalized
-  - id: obs-098
+  - id: obs-099
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "9"
@@ -957,7 +966,7 @@ findings:
         treningsorganisering"
     disposition: no_structured_action
     status: normalized
-  - id: org-099
+  - id: org-100
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "10"
@@ -966,7 +975,7 @@ findings:
       text: "Banekomité 1951: Emil Sandø, Peder Puck, Sigurd Nørve, Trygve Stub"
     disposition: already_documented
     status: normalized
-  - id: org-100
+  - id: org-101
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "11"
@@ -977,7 +986,7 @@ findings:
         Ringdal"
     disposition: already_documented
     status: normalized
-  - id: role-101
+  - id: role-102
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "11"
@@ -986,7 +995,7 @@ findings:
       text: "Per Anker Eriksen: Formann i AaFK 1951"
     disposition: verified_correct
     status: normalized
-  - id: pers-102
+  - id: pers-103
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "12"
@@ -998,7 +1007,7 @@ findings:
       - entity: person
         id: oivind-haagensen
     status: normalized
-  - id: ret-103
+  - id: ret-104
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "13"
@@ -1008,7 +1017,7 @@ findings:
         kretskamp 1915 i Molde"
     disposition: already_documented
     status: normalized
-  - id: pers-104
+  - id: pers-105
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "14"
@@ -1021,7 +1030,7 @@ findings:
       - entity: person
         id: knut-gaaseide
     status: normalized
-  - id: res-105
+  - id: res-106
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "14"
@@ -1033,7 +1042,7 @@ findings:
       - entity: source_result
         id: medlemsblad-for-aalesunds-fotb-1951-b0e6
     status: normalized
-  - id: role-106
+  - id: role-107
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "14"
@@ -1042,7 +1051,7 @@ findings:
       text: "Knut Gaaseide: A-lagsdebut 7. mai 1922 mot Rollon, fast 1924–1936"
     disposition: verified_correct
     status: normalized
-  - id: obs-107
+  - id: obs-108
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "16"
@@ -1051,7 +1060,16 @@ findings:
       text: Årsfest 10. februar 1951 i Losjen
     disposition: no_structured_action
     status: normalized
-  - id: obs-108
+  - id: obs-109
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "17"
+    type: other
+    claim:
+      text: Vårsesongen 1951 i 1. divisjon (Møre) og terminliste
+    disposition: no_structured_action
+    status: normalized
+  - id: obs-110
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "20"
@@ -1060,7 +1078,7 @@ findings:
       text: Ekstraordinært årsmøte 29. januar 1951 (lovendringer)
     disposition: no_structured_action
     status: normalized
-  - id: obs-109
+  - id: obs-111
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "21"
@@ -1069,7 +1087,7 @@ findings:
       text: Diskusjonsmøte 7. mars 1951 og Dameavdelingens årsmøte 19. januar 1951
     disposition: already_documented
     status: normalized
-  - id: pers-110
+  - id: pers-112
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "23"
@@ -1081,7 +1099,7 @@ findings:
       - entity: person
         id: finn-tollas
     status: normalized
-  - id: role-111
+  - id: role-113
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "23"
@@ -1094,7 +1112,7 @@ findings:
         id: finn-tollas
         path: roles/trener-1951
     status: normalized
-  - id: role-112
+  - id: role-114
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "23"
@@ -1103,7 +1121,7 @@ findings:
       text: "Øivind Hågensen: Autorisert NFF-trener"
     disposition: no_structured_action
     status: normalized
-  - id: stat-113
+  - id: stat-115
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "23"
@@ -1112,7 +1130,7 @@ findings:
       text: "Edvin Løvold: 192 A-lagskamper per mars 1951"
     disposition: no_structured_action
     status: normalized
-  - id: obs-114
+  - id: obs-116
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "24"
@@ -1121,7 +1139,7 @@ findings:
       text: Fremdrift på Kråmyra treningsbane våren 1951
     disposition: no_structured_action
     status: normalized
-  - id: res-115
+  - id: res-117
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "25"
@@ -1134,7 +1152,7 @@ findings:
       - entity: source_result
         id: medlemsblad-for-aalesunds-fotb-1951-b0e6
     status: normalized
-  - id: pers-116
+  - id: pers-118
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "25"
@@ -1146,7 +1164,7 @@ findings:
       - entity: person
         id: trygve-olsen
     status: normalized
-  - id: pers-117
+  - id: pers-119
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "25"
@@ -1158,7 +1176,7 @@ findings:
       - entity: person
         id: svein-grimstad
     status: normalized
-  - id: role-118
+  - id: role-120
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "25"
@@ -1171,7 +1189,7 @@ findings:
         id: svein-grimstad
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: pers-119
+  - id: pers-121
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "25"
@@ -1183,7 +1201,7 @@ findings:
       - entity: person
         id: lauritz-gaaseide
     status: normalized
-  - id: role-120
+  - id: role-122
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "25"
@@ -1196,7 +1214,7 @@ findings:
         id: lauritz-gaaseide
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: pers-121
+  - id: pers-123
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "25"
@@ -1208,7 +1226,7 @@ findings:
       - entity: person
         id: thorbjorn-aroe
     status: normalized
-  - id: role-122
+  - id: role-124
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "25"
@@ -1221,7 +1239,7 @@ findings:
         id: thorbjorn-aroe
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: pers-123
+  - id: pers-125
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "25"
@@ -1233,7 +1251,7 @@ findings:
       - entity: person
         id: johan-refsnes
     status: normalized
-  - id: role-124
+  - id: role-126
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "25"
@@ -1246,7 +1264,7 @@ findings:
         id: johan-refsnes
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: obs-125
+  - id: obs-127
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "26"
@@ -1258,7 +1276,7 @@ findings:
       - entity: observation
         id: 1951-kramyra-nff-lan
     status: normalized
-  - id: pers-126
+  - id: pers-128
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "28"
@@ -1270,7 +1288,7 @@ findings:
       - entity: person
         id: ingvald-froysa
     status: normalized
-  - id: pers-127
+  - id: pers-129
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "29"
@@ -1283,7 +1301,16 @@ findings:
       - entity: person
         id: karsten-nedregard
     status: normalized
-  - id: res-128
+  - id: obs-130
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "31"
+    type: other
+    claim:
+      text: Formann Per Anker Eriksen om opprettelsen av 3. divisjon
+    disposition: no_structured_action
+    status: normalized
+  - id: res-131
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "31"
@@ -1292,7 +1319,7 @@ findings:
       text: "Privatkamp: AaFK A mot Old Boys 2–1"
     disposition: non_senior
     status: normalized
-  - id: honor-129
+  - id: honor-132
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "35"
@@ -1306,7 +1333,7 @@ findings:
         id: edvind-lovold
         path: roles/spillemerke-gull-1951
     status: normalized
-  - id: pers-130
+  - id: pers-133
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "35"
@@ -1318,7 +1345,7 @@ findings:
       - entity: person
         id: edvind-lovold
     status: normalized
-  - id: role-131
+  - id: role-134
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "35"
@@ -1332,7 +1359,7 @@ findings:
         id: ragnvald-langva
         path: roles/oppmann-1951
     status: normalized
-  - id: pers-132
+  - id: pers-135
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "35"
@@ -1344,7 +1371,7 @@ findings:
       - entity: person
         id: ragnvald-langva
     status: normalized
-  - id: role-133
+  - id: role-136
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "35"
@@ -1353,7 +1380,7 @@ findings:
       text: "Karl Løvold: Innvalgt i sportsutvalget våren 1951"
     disposition: verified_correct
     status: normalized
-  - id: res-134
+  - id: res-137
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "37"
@@ -1366,7 +1393,7 @@ findings:
       - entity: source_result
         id: medlemsblad-for-aalesunds-fotb-1951-b0e6
     status: normalized
-  - id: obs-135
+  - id: obs-138
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "39"
@@ -1379,7 +1406,7 @@ findings:
       - entity: observation
         id: 1951-kramyra-nff-lan
     status: normalized
-  - id: res-136
+  - id: res-139
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "40"
@@ -1391,7 +1418,7 @@ findings:
       - entity: source_result
         id: medlemsblad-for-aalesunds-fotb-1951-b0e6
     status: normalized
-  - id: pers-137
+  - id: pers-140
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "41"
@@ -1404,7 +1431,7 @@ findings:
       - entity: person
         id: erling-flem
     status: normalized
-  - id: pers-138
+  - id: pers-141
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "42"
@@ -1417,7 +1444,7 @@ findings:
       - entity: person
         id: thor-refsnes
     status: normalized
-  - id: role-139
+  - id: role-142
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "42"
@@ -1430,7 +1457,7 @@ findings:
         id: thor-refsnes
         path: roles/a-lagsdebut-1938
     status: normalized
-  - id: role-140
+  - id: role-143
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "42"
@@ -1443,7 +1470,7 @@ findings:
         id: thor-refsnes
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: obs-141
+  - id: obs-144
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "43"
@@ -1453,7 +1480,7 @@ findings:
         Korsnes i USA
     disposition: no_structured_action
     status: normalized
-  - id: res-142
+  - id: res-145
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "44"
@@ -1465,7 +1492,16 @@ findings:
       - entity: source_result
         id: medlemsblad-for-aalesunds-fotb-1951-b0e6
     status: normalized
-  - id: role-143
+  - id: obs-146
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "45"
+    type: other
+    claim:
+      text: Finn Tolaas deltok på NFFs trenerleir på Furuset
+    disposition: no_structured_action
+    status: normalized
+  - id: role-147
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "45"
@@ -1478,7 +1514,7 @@ findings:
         id: oivind-haagensen
         path: roles/oppmann-1951
     status: normalized
-  - id: role-144
+  - id: role-148
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "45"
@@ -1487,7 +1523,7 @@ findings:
       text: "Arne Westad: Nestformann i styret etter Politiskolen"
     disposition: verified_correct
     status: normalized
-  - id: role-145
+  - id: role-149
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "45"
@@ -1496,7 +1532,7 @@ findings:
       text: "Halvard Tørlen: Kasserer i styret etter Bjørn Åsen"
     disposition: verified_correct
     status: normalized
-  - id: res-146
+  - id: res-150
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "46"
@@ -1508,7 +1544,7 @@ findings:
       - entity: source_result
         id: medlemsblad-for-aalesunds-fotb-1951-b0e6
     status: normalized
-  - id: fix-147
+  - id: fix-151
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "46"
@@ -1517,7 +1553,7 @@ findings:
       text: NM cup 2. runde mot Spjelkavik (nevnt som oppsett/kamp)
     disposition: fixture_only
     status: normalized
-  - id: res-148
+  - id: res-152
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "49"
@@ -1529,7 +1565,7 @@ findings:
       - entity: source_result
         id: medlemsblad-for-aalesunds-fotb-1951-b0e6
     status: normalized
-  - id: res-149
+  - id: res-153
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "49"
@@ -1541,7 +1577,7 @@ findings:
       - entity: source_result
         id: medlemsblad-for-aalesunds-fotb-1951-b0e6
     status: normalized
-  - id: non-150
+  - id: non-154
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "51"
@@ -1551,7 +1587,7 @@ findings:
         spillerliste"
     disposition: non_senior
     status: normalized
-  - id: pers-151
+  - id: pers-155
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "52"
@@ -1563,7 +1599,7 @@ findings:
       - entity: person
         id: konrad-korsnes
     status: normalized
-  - id: pers-152
+  - id: pers-156
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "53"
@@ -1575,7 +1611,7 @@ findings:
       - entity: person
         id: peder-puck
     status: normalized
-  - id: pers-153
+  - id: pers-157
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "53"
@@ -1587,7 +1623,17 @@ findings:
       - entity: person
         id: john-vadseth
     status: normalized
-  - id: pers-154
+  - id: stat-158
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "54"
+    type: season_fact
+    claim:
+      text: "Sesongoppsummering førstelaget per september 1951: 9 seriekamper, 3
+        privatkamper, 4 cupkamper"
+    disposition: no_structured_action
+    status: normalized
+  - id: pers-159
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "54"
@@ -1599,7 +1645,7 @@ findings:
       - entity: person
         id: reidar-skarbovik
     status: normalized
-  - id: pers-155
+  - id: pers-160
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "55"
@@ -1611,7 +1657,7 @@ findings:
       - entity: person
         id: svein-follestad
     status: normalized
-  - id: res-156
+  - id: res-161
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "56"
@@ -1624,7 +1670,7 @@ findings:
       - entity: source_result
         id: medlemsblad-for-aalesunds-fotb-1951-b0e6
     status: normalized
-  - id: ret-157
+  - id: ret-162
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "57"
@@ -1634,7 +1680,7 @@ findings:
         Melsæther, Skarbøvik)
     disposition: already_documented
     status: normalized
-  - id: obs-158
+  - id: obs-163
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "58"
@@ -1643,7 +1689,7 @@ findings:
       text: Lauritz Gaaseide hedret som trofast spiller. Helge Ødegård og Knut Hjelle
     disposition: no_structured_action
     status: normalized
-  - id: pers-159
+  - id: pers-164
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "59"
@@ -1656,7 +1702,7 @@ findings:
       - entity: person
         id: johs-hollevik
     status: normalized
-  - id: stat-160
+  - id: stat-165
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "60"
@@ -1666,7 +1712,16 @@ findings:
         Nedregård alle 28)
     disposition: no_structured_action
     status: normalized
-  - id: pers-161
+  - id: obs-166
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "61"
+    type: other
+    claim:
+      text: Forsidefoto Magne Flem, dikt Borghild Husby og Th. Westergaard minneord
+    disposition: no_structured_action
+    status: normalized
+  - id: pers-167
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "63"
@@ -1678,7 +1733,7 @@ findings:
       - entity: person
         id: per-anker-eriksen
     status: normalized
-  - id: pers-162
+  - id: pers-168
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "63"
@@ -1690,7 +1745,7 @@ findings:
       - entity: person
         id: robert-johansen
     status: normalized
-  - id: role-163
+  - id: role-169
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "63"
@@ -1703,7 +1758,7 @@ findings:
         id: robert-johansen
         path: roles/a-lagsspiller-1920
     status: normalized
-  - id: obs-164
+  - id: obs-170
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "64"
@@ -1712,7 +1767,7 @@ findings:
       text: "Harald Mogstad: Stor papirinnsamling for Kråmyra"
     disposition: no_structured_action
     status: normalized
-  - id: pers-165
+  - id: pers-171
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "65"
@@ -1724,7 +1779,7 @@ findings:
       - entity: person
         id: carl-gaaseide
     status: normalized
-  - id: obs-166
+  - id: obs-172
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "65"
@@ -1733,16 +1788,17 @@ findings:
       text: Harald Nord hylles for redaktørinnsatsen av Lauritz Giske
     disposition: no_structured_action
     status: normalized
-  - id: non-167
+  - id: non-173
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "66"
     type: non_senior
     claim:
-      text: Sesongtilbakeblikk for reservelag, juniorlag og guttelag 1951
+      text: Sesongtilbakeblikk for reservelag, juniorlag og guttelag 1951 v/Fritz
+        Haagensen
     disposition: non_senior
     status: normalized
-  - id: res-168
+  - id: res-174
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "67"
@@ -1754,7 +1810,7 @@ findings:
       - entity: source_result
         id: medlemsblad-for-aalesunds-fotb-1951-b0e6
     status: normalized
-  - id: obs-169
+  - id: obs-175
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "68"
@@ -1763,7 +1819,7 @@ findings:
       text: Spillerintervjuer (Johan Refsnes, Thorbjørn Hansen, Edvin Løvold m.fl.)
     disposition: no_structured_action
     status: normalized
-  - id: role-170
+  - id: role-176
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "69"
@@ -1773,7 +1829,16 @@ findings:
         Olav Kalvø (junior), Fritz Haagensen (gutt)"
     disposition: already_documented
     status: normalized
-  - id: org-171
+  - id: obs-177
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "70"
+    type: other
+    claim:
+      text: Kjell Berentzen om forslag til felles serie for Møre og Trøndelag
+    disposition: no_structured_action
+    status: normalized
+  - id: org-178
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "71"
@@ -1785,7 +1850,7 @@ findings:
       - entity: organization_snapshot
         id: 1952-aafk
     status: normalized
-  - id: idc-172
+  - id: idc-179
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "71"
@@ -1795,7 +1860,7 @@ findings:
         fru Vadseth, frk. Lausund"
     disposition: identity_uncertain
     status: normalized
-  - id: stat-173
+  - id: stat-180
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
@@ -1806,7 +1871,7 @@ findings:
         med 14 mål"
     disposition: verified_correct
     status: normalized
-  - id: pers-174
+  - id: pers-181
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
@@ -1818,7 +1883,7 @@ findings:
       - entity: person
         id: asbjorn-ystenes
     status: normalized
-  - id: role-175
+  - id: role-182
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
@@ -1831,7 +1896,7 @@ findings:
         id: asbjorn-ystenes
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: pers-176
+  - id: pers-183
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
@@ -1843,7 +1908,7 @@ findings:
       - entity: person
         id: thorbjorn-hansen
     status: normalized
-  - id: role-177
+  - id: role-184
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
@@ -1856,7 +1921,7 @@ findings:
         id: thorbjorn-hansen
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: pers-178
+  - id: pers-185
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
@@ -1868,7 +1933,7 @@ findings:
       - entity: person
         id: einar-oie
     status: normalized
-  - id: role-179
+  - id: role-186
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
@@ -1881,7 +1946,7 @@ findings:
         id: einar-oie
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: pers-180
+  - id: pers-187
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
@@ -1893,7 +1958,7 @@ findings:
       - entity: person
         id: anton-bakjord
     status: normalized
-  - id: role-181
+  - id: role-188
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
@@ -1906,7 +1971,7 @@ findings:
         id: anton-bakjord
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: pers-182
+  - id: pers-189
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
@@ -1918,7 +1983,7 @@ findings:
       - entity: person
         id: nils-a-ringdal
     status: normalized
-  - id: role-183
+  - id: role-190
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
@@ -1931,7 +1996,7 @@ findings:
         id: nils-a-ringdal
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: pers-184
+  - id: pers-191
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
@@ -1943,7 +2008,7 @@ findings:
       - entity: person
         id: johny-eide
     status: normalized
-  - id: role-185
+  - id: role-192
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
@@ -1956,7 +2021,7 @@ findings:
         id: johny-eide
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: pers-186
+  - id: pers-193
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
@@ -1968,7 +2033,7 @@ findings:
       - entity: person
         id: hans-j-henriksen
     status: normalized
-  - id: role-187
+  - id: role-194
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
@@ -1981,7 +2046,42 @@ findings:
         id: hans-j-henriksen
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: pers-188
+  - id: obs-195
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "73"
+    type: other
+    claim:
+      text: "Medlemsbladet 2 år: Opplag økt til 1000, billedarkiv over 200 bilder"
+    disposition: no_structured_action
+    status: normalized
+  - id: role-196
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "73"
+    type: person_role
+    claim:
+      text: "Thor Refsnes: Ny arkivar for Medlemsbladet"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: thor-refsnes
+        path: roles/arkivar-1952
+    status: normalized
+  - id: role-197
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "73"
+    type: person_role
+    claim:
+      text: "Malvin Saure: Forretningsfører for Medlemsbladet"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: malvin-saure
+        path: roles/forretningsforer-1952
+    status: normalized
+  - id: pers-198
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "73"
@@ -1993,7 +2093,7 @@ findings:
       - entity: person
         id: sam-alsaker-nostdahl
     status: normalized
-  - id: obs-189
+  - id: obs-199
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "74"
@@ -2006,7 +2106,7 @@ findings:
       - entity: observation
         id: 1951-kramyra-nff-lan
     status: normalized
-  - id: non-190
+  - id: non-200
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "75"
@@ -2016,7 +2116,7 @@ findings:
         Finnsæther (4), Skuseth (3), Ringdal (2)"
     disposition: non_senior
     status: normalized
-  - id: obs-191
+  - id: obs-201
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "76"
@@ -2026,7 +2126,7 @@ findings:
         og motstandere)"
     disposition: no_structured_action
     status: normalized
-  - id: obs-192
+  - id: obs-202
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "78"
@@ -2035,7 +2135,7 @@ findings:
       text: "Ivar Østensen: «Betrakninger» om sesongen og Peder Puck"
     disposition: no_structured_action
     status: normalized
-  - id: ret-193
+  - id: ret-203
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "79"
@@ -2045,7 +2145,7 @@ findings:
         Falk i Horten (1–0)"
     disposition: non_senior
     status: normalized
-  - id: org-194
+  - id: org-204
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "80"
@@ -2057,7 +2157,7 @@ findings:
       - entity: organization_snapshot
         id: 1952-aafk
     status: normalized
-  - id: pers-195
+  - id: pers-205
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "80"
@@ -2069,7 +2169,7 @@ findings:
       - entity: person
         id: erling-kvamme
     status: normalized
-  - id: role-196
+  - id: role-206
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "80"
@@ -2082,7 +2182,7 @@ findings:
         id: erling-kvamme
         path: roles/redaksjonsmedlem-1952
     status: normalized
-  - id: pers-197
+  - id: pers-207
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "80"
@@ -2095,7 +2195,7 @@ findings:
       - entity: person
         id: malvin-saure
     status: normalized
-  - id: role-198
+  - id: role-208
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "80"
@@ -2108,7 +2208,7 @@ findings:
         id: malvin-saure
         path: roles/forretningsforer-1952
     status: normalized
-  - id: role-199
+  - id: role-209
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "80"
@@ -2121,7 +2221,7 @@ findings:
         id: malvin-saure
         path: roles/arrangementskomite-1952
     status: normalized
-  - id: role-200
+  - id: role-210
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "80"
@@ -2134,7 +2234,7 @@ findings:
         id: hans-j-henriksen
         path: roles/arrangementskomite-1952
     status: normalized
-  - id: role-201
+  - id: role-211
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "80"
@@ -2147,7 +2247,7 @@ findings:
         id: thor-refsnes
         path: roles/arkivar-1952
     status: normalized
-  - id: pers-202
+  - id: pers-212
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "80"
@@ -2159,7 +2259,7 @@ findings:
       - entity: person
         id: per-solbakk
     status: normalized
-  - id: role-203
+  - id: role-213
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "80"
@@ -2172,7 +2272,7 @@ findings:
         id: per-solbakk
         path: roles/materialforvalter-1952
     status: normalized
-  - id: role-204
+  - id: role-214
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "80"
@@ -2185,7 +2285,17 @@ findings:
         id: svein-follestad
         path: roles/materialforvalter-1952
     status: normalized
-  - id: honor-205
+  - id: obs-215
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "80"
+    type: meeting
+    claim:
+      text: Årsfest 24. november 1951 i Losjen v/toastmaster Ragnvald Huseby, Johs.
+        Hollevik hedret
+    disposition: no_structured_action
+    status: normalized
+  - id: honor-216
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "81"
@@ -2204,7 +2314,7 @@ findings:
       - entity: person
         id: konrad-korsnes
     status: normalized
-  - id: honor-206
+  - id: honor-217
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "81"
@@ -2225,7 +2335,17 @@ findings:
       - entity: person
         id: trygve-olsen
     status: normalized
-  - id: pers-207
+  - id: honor-218
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "81"
+    type: honor
+    claim:
+      text: Innsatspokaler utdelt til Trygve Olsen, Thorbjørn Hansen og Reidar
+        Skarbøvik på årsfesten 1951
+    disposition: no_structured_action
+    status: normalized
+  - id: pers-219
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "81"
@@ -2237,7 +2357,7 @@ findings:
       - entity: person
         id: reidar-with
     status: normalized
-  - id: role-208
+  - id: role-220
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "81"
@@ -2250,7 +2370,7 @@ findings:
         id: reidar-with
         path: roles/formann-gutteavdelingen-1952
     status: normalized
-  - id: role-209
+  - id: role-221
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "81"
@@ -2263,7 +2383,7 @@ findings:
         id: per-solbakk
         path: roles/kasserer-gutteavdelingen-1952
     status: normalized
-  - id: idc-210
+  - id: idc-222
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "81"
@@ -2272,7 +2392,7 @@ findings:
       text: Jan With (sekretær) og Magne Knutsen (styremedlem) i Gutteavdelingen 1952
     disposition: identity_uncertain
     status: normalized
-  - id: stat-211
+  - id: stat-223
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "82"
@@ -2282,7 +2402,7 @@ findings:
         tilskuere, AaFK–Hødd ca. 2000)"
     disposition: verified_correct
     status: normalized
-  - id: stat-212
+  - id: stat-224
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "82"
@@ -2291,7 +2411,7 @@ findings:
       text: "Karsten Nedregård: 185 A-kamper på rad uten fravær"
     disposition: no_structured_action
     status: normalized
-  - id: non-213
+  - id: non-225
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "82"
@@ -2300,7 +2420,7 @@ findings:
       text: "Reservelaget 1951: 8 kamper (4V–1U–3T, mål 24–16)"
     disposition: non_senior
     status: normalized
-  - id: non-214
+  - id: non-226
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "82"
@@ -2310,7 +2430,7 @@ findings:
         Slinning"
     disposition: non_senior
     status: normalized
-  - id: obs-215
+  - id: obs-227
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "82"
