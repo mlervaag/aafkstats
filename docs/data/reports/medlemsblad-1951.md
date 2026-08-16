@@ -33,13 +33,13 @@
 | `people_and_roles` | `complete` | 52 | Nye og berikede personer, spillere, tillitsvalgte, oppmannsavklaring og æresbevisninger (spillemerke i gull og sølv). |
 | `organization` | `complete` | 4 | Årsmøtevalg for arbeidsåret 1952 og Dameavdelingens årsmøte høsten 1951 med full komitédisposisjon. |
 | `retrospectives_and_claims` | `complete` | 14 | Historiske tilbakeblikk og debutminner (1915, 1917, 1919, 1922, 1923, 1924, 1928, 1933, 1935, 1938). |
-| `observations` | `complete` | 4 | Kråmyra NFF-lån på kr 20 000, 1500 dugnadstimer og kjørbar vei / baneanlegg. |
+| `observations` | `complete` | 5 | Kråmyra NFF-lån på kr 20 000, 1500 dugnadstimer og kjørbar vei / baneanlegg. |
 | `fixture_reconciliation` | `complete` | 5 | Avstemt resultater for 1. divisjon 7. distrikt, Hovedseriekvalifisering og NM cup 1951 inkl. 2. runde fixture. |
 
 ## Findings
 
-- **Totalt antall funn:** 197
-- **Normaliserte:** 197
+- **Totalt antall funn:** 215
+- **Normaliserte:** 215
 - **Uavklarte / usikre:** 0
 - **Mangler disposisjon:** 0
 
@@ -47,18 +47,18 @@
 
 | Kategori | Antall |
 |---|---|
-| `other` | 87 |
+| `other` | 96 |
 | `person` | 37 |
-| `meeting` | 3 |
-| `retrospective_claim` | 3 |
-| `person_role` | 36 |
+| `meeting` | 4 |
+| `retrospective_claim` | 4 |
+| `person_role` | 38 |
 | `organization` | 5 |
 | `match_result` | 11 |
-| `season_fact` | 3 |
+| `season_fact` | 5 |
+| `historical_observation` | 3 |
 | `honor` | 3 |
-| `historical_observation` | 2 |
 | `fixture` | 1 |
-| `non_senior` | 4 |
+| `non_senior` | 6 |
 | `identity_candidate` | 2 |
 
 ## Matches
@@ -72,7 +72,7 @@
 
 - **Nye personer:** 20
 - **Eksisterende personer kildeberiket:** 19
-- **Kildereferanser lagt til på personer:** 48
+- **Kildereferanser lagt til på personer:** 50
 - **Roller opprettet:** 27
 - **Roller kildeberiket:** 1
 - **Æresroller opprettet:** 1

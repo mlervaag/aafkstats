@@ -474,7 +474,7 @@ describe("Historical Preservation (PR #158)", () => {
       id: "1952-aafk",
       body: "AaFK",
       date: "1952",
-      roles: [
+      people: [
         {
           personId: "malvin-saure",
           body: "Medlemsbladet",
@@ -488,7 +488,7 @@ describe("Historical Preservation (PR #158)", () => {
       id: "1952-aafk",
       body: "AaFK",
       date: "1952",
-      roles: [
+      people: [
         {
           personId: "malvin-saure",
           body: "Medlemsbladet",
