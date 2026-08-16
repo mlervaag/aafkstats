@@ -1,4 +1,4 @@
-# Innhøstingsrapport: AaFK Medlemsblad 1951 (Vol. 2, nr. 1�6)
+# Innhøstingsrapport: AaFK Medlemsblad 1951 (Vol. 2, nr. 1–6)
 
 - **Batch-ID:** `medlemsblad-1951`
 - **Kildeprofil:** `member_magazine` (AaFK Medlemsblad)
@@ -28,18 +28,18 @@
 
 | Pass | Status | Funn | Notat |
 |---|---|---|---|
-| `facsimile_review` | `complete` | 84 | 100 % visuell sidekontroll gjennomf�rt mot faksimile for alle 6 hefter (84 unike sider). |
+| `facsimile_review` | `complete` | 84 | 100 % visuell sidekontroll gjennomført mot faksimile for alle 6 hefter (84 unike sider). |
 | `explicit_results` | `complete` | 12 | Kampresultater for Hovedseriekvalifisering 1951, NM cup, Landsdelsserien, pokalkamp og privatkamper. |
-| `people_and_roles` | `complete` | 46 | Nye og berikede personer, spillere, tillitsvalgte og �resbevisninger (spillemerke i gull og s�lv). |
-| `organization` | `complete` | 2 | �rsm�tevalg for arbeids�ret 1952 og Dameavdelingens �rsm�te h�sten 1951. |
-| `retrospectives_and_claims` | `complete` | 11 | Historiske tilbakeblikk og debutminner (1915, 1917, 1919, 1922, 1923, 1924, 1928, 1933, 1935, 1938). |
-| `observations` | `complete` | 2 | Kr�myra NFF-l�n p� kr 20 000 og kj�rbar vei / baneanlegg. |
-| `fixture_reconciliation` | `complete` | 4 | Avstemt resultater for 1. divisjon 7. distrikt, Hovedseriekvalifisering og NM cup 1951. |
+| `people_and_roles` | `complete` | 52 | Nye og berikede personer, spillere, tillitsvalgte, oppmannsavklaring og æresbevisninger (spillemerke i gull og sølv). |
+| `organization` | `complete` | 4 | Årsmøtevalg for arbeidsåret 1952 og Dameavdelingens årsmøte høsten 1951 med full komitédisposisjon. |
+| `retrospectives_and_claims` | `complete` | 14 | Historiske tilbakeblikk og debutminner (1915, 1917, 1919, 1922, 1923, 1924, 1928, 1933, 1935, 1938). |
+| `observations` | `complete` | 4 | Kråmyra NFF-lån på kr 20 000, 1500 dugnadstimer og kjørbar vei / baneanlegg. |
+| `fixture_reconciliation` | `complete` | 5 | Avstemt resultater for 1. divisjon 7. distrikt, Hovedseriekvalifisering og NM cup 1951 inkl. 2. runde fixture. |
 
 ## Findings
 
-- **Totalt antall funn:** 151
-- **Normaliserte:** 151
+- **Totalt antall funn:** 197
+- **Normaliserte:** 197
 - **Uavklarte / usikre:** 0
 - **Mangler disposisjon:** 0
 
@@ -47,14 +47,19 @@
 
 | Kategori | Antall |
 |---|---|
-| `other` | 84 |
-| `person` | 29 |
-| `person_role` | 29 |
-| `organization` | 2 |
-| `honor` | 2 |
-| `historical_observation` | 1 |
-| `match_result` | 2 |
-| `season_fact` | 2 |
+| `other` | 87 |
+| `person` | 37 |
+| `meeting` | 3 |
+| `retrospective_claim` | 3 |
+| `person_role` | 36 |
+| `organization` | 5 |
+| `match_result` | 11 |
+| `season_fact` | 3 |
+| `honor` | 3 |
+| `historical_observation` | 2 |
+| `fixture` | 1 |
+| `non_senior` | 4 |
+| `identity_candidate` | 2 |
 
 ## Matches
 
@@ -66,10 +71,10 @@
 ## Persons and Roles
 
 - **Nye personer:** 20
-- **Eksisterende personer kildeberiket:** 14
-- **Kildereferanser lagt til på personer:** 41
-- **Roller opprettet:** 25
-- **Roller kildeberiket:** 0
+- **Eksisterende personer kildeberiket:** 19
+- **Kildereferanser lagt til på personer:** 48
+- **Roller opprettet:** 27
+- **Roller kildeberiket:** 1
 - **Æresroller opprettet:** 1
 
 ## Organization

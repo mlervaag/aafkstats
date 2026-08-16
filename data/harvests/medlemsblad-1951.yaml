@@ -1,6 +1,6 @@
 version: 1
 id: medlemsblad-1951
-title: AaFK Medlemsblad 1951 (Vol. 2, nr. 1�6)
+title: AaFK Medlemsblad 1951 (Vol. 2, nr. 1–6)
 profile: member_magazine
 mode: initial
 status: complete
@@ -24,7 +24,7 @@ passes:
   facsimile_review:
     status: complete
     findings: 84
-    note: 100 % visuell sidekontroll gjennomf�rt mot faksimile for alle 6 hefter (84
+    note: 100 % visuell sidekontroll gjennomført mot faksimile for alle 6 hefter (84
       unike sider).
   explicit_results:
     status: complete
@@ -33,27 +33,29 @@ passes:
       pokalkamp og privatkamper.
   people_and_roles:
     status: complete
-    findings: 46
-    note: Nye og berikede personer, spillere, tillitsvalgte og �resbevisninger
-      (spillemerke i gull og s�lv).
+    findings: 52
+    note: Nye og berikede personer, spillere, tillitsvalgte, oppmannsavklaring og
+      æresbevisninger (spillemerke i gull og sølv).
   organization:
     status: complete
-    findings: 2
-    note: �rsm�tevalg for arbeids�ret 1952 og Dameavdelingens �rsm�te h�sten 1951.
+    findings: 4
+    note: Årsmøtevalg for arbeidsåret 1952 og Dameavdelingens årsmøte høsten 1951
+      med full komitédisposisjon.
   retrospectives_and_claims:
     status: complete
-    findings: 11
+    findings: 14
     note: Historiske tilbakeblikk og debutminner (1915, 1917, 1919, 1922, 1923,
       1924, 1928, 1933, 1935, 1938).
   observations:
     status: complete
-    findings: 2
-    note: Kr�myra NFF-l�n p� kr 20 000 og kj�rbar vei / baneanlegg.
+    findings: 4
+    note: Kråmyra NFF-lån på kr 20 000, 1500 dugnadstimer og kjørbar vei /
+      baneanlegg.
   fixture_reconciliation:
     status: complete
-    findings: 4
+    findings: 5
     note: Avstemt resultater for 1. divisjon 7. distrikt, Hovedseriekvalifisering og
-      NM cup 1951.
+      NM cup 1951 inkl. 2. runde fixture.
 reviewMethod:
   facsimile: required
 review:
@@ -821,25 +823,71 @@ findings:
       page: "2"
     type: person
     claim:
-      text: "Karsten Eriksen: 35-�rsomtale, sekret�r i styret og kretsformann i 3 �r"
+      text: "Karsten Eriksen: 35-årsomtale, sekretær i styret og kretsformann i 3 år"
     disposition: person_enriched
     targets:
       - entity: person
         id: karsten-eriksen
     status: normalized
-  - id: pers-086
+  - id: obs-086
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "2"
+    type: other
+    claim:
+      text: "Brede Borgen (SK Freidig): 14 dagers instruksjon i AaFK november 1950"
+    disposition: no_structured_action
+    status: normalized
+  - id: obs-087
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "3"
+    type: meeting
+    claim:
+      text: Tillitsmannsmøte 12. desember 1950 v/formann Per Anker Eriksen
+    disposition: no_structured_action
+    status: normalized
+  - id: obs-088
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "3"
+    type: other
+    claim:
+      text: "Arne Brustad: Hilsen og treningsråd til AaFK"
+    disposition: no_structured_action
+    status: normalized
+  - id: ret-089
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "4"
+    type: retrospective_claim
+    claim:
+      text: "Bernt Sulebust: Kampminner fra førkrigstid og 1930-tallet"
+    disposition: no_structured_action
+    status: normalized
+  - id: ret-090
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "5"
+    type: retrospective_claim
+    claim:
+      text: "Edvin Løvold: «Min første kamp på A-laget» i 1933 i Bergen mot Djerv"
+    disposition: no_structured_action
+    status: normalized
+  - id: pers-091
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "7"
     type: person
     claim:
-      text: "Karl Ingebrigtsen (�Klakken�): Innmeldt 1927, A-lagsdebut 1928"
+      text: "Karl Ingebrigtsen («Klakken»): Innmeldt 1927, junior 1927, A-lagsdebut
+        1928"
     disposition: person_created
     targets:
       - entity: person
         id: karl-ingebrigtsen
     status: normalized
-  - id: role-087
+  - id: role-092
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "7"
@@ -852,7 +900,17 @@ findings:
         id: karl-ingebrigtsen
         path: roles/a-lagsspiller-1928
     status: normalized
-  - id: role-088
+  - id: org-093
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "8"
+    type: organization
+    claim:
+      text: "Dameavdelingen 5 år (stiftet 21. mars 1946 v/Finn Tolaas, styre 1951:
+        Alfhild Ringdal, Mary Vegsund, Anita Olsen, Åse Gudmundseth)"
+    disposition: already_documented
+    status: normalized
+  - id: role-094
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "8"
@@ -861,7 +919,7 @@ findings:
       text: "Alfhild Ringdal: Formann i Dameavdelingen 1951"
     disposition: verified_correct
     status: normalized
-  - id: role-089
+  - id: role-095
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "8"
@@ -870,25 +928,55 @@ findings:
       text: "Mary Vegsund: Nestformann i Dameavdelingen 1951"
     disposition: verified_correct
     status: normalized
-  - id: role-090
+  - id: role-096
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "8"
     type: person_role
     claim:
-      text: "Anita Olsen: Sekret�r i Dameavdelingen 1951"
+      text: "Anita Olsen: Sekretær i Dameavdelingen 1951"
     disposition: verified_correct
     status: normalized
-  - id: role-091
+  - id: role-097
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "8"
     type: person_role
     claim:
-      text: "�se Gudmundseth: Kasserer i Dameavdelingen 1951"
+      text: "Åse Gudmundseth: Kasserer i Dameavdelingen 1951"
     disposition: verified_correct
     status: normalized
-  - id: role-092
+  - id: obs-098
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "9"
+    type: other
+    claim:
+      text: "Finn Tolaas: Artikkel om sportsutvalgets oppgaver og
+        treningsorganisering"
+    disposition: no_structured_action
+    status: normalized
+  - id: org-099
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "10"
+    type: organization
+    claim:
+      text: "Banekomité 1951: Emil Sandø, Peder Puck, Sigurd Nørve, Trygve Stub"
+    disposition: already_documented
+    status: normalized
+  - id: org-100
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "11"
+    type: organization
+    claim:
+      text: "Hovedstyret 1951: Per Anker Eriksen, Arne Westad, Karsten Eriksen, Bjørn
+        Åsen, Øivind Hågensen, Fritz Hågensen, Olav Kalvø, Emil Sandø, Alfhild
+        Ringdal"
+    disposition: already_documented
+    status: normalized
+  - id: role-101
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "11"
@@ -897,28 +985,94 @@ findings:
       text: "Per Anker Eriksen: Formann i AaFK 1951"
     disposition: verified_correct
     status: normalized
-  - id: pers-093
+  - id: pers-102
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "12"
     type: person
     claim:
-      text: "�ivind Haagensen: 40-�rsomtale (f. 1911-01-14)"
+      text: "Øivind Haagensen: 40-årsomtale (f. 1911-01-14)"
     disposition: person_enriched
     targets:
       - entity: person
         id: oivind-haagensen
     status: normalized
-  - id: role-094
+  - id: ret-103
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "13"
+    type: retrospective_claim
+    claim:
+      text: "Georg Haller: Om AaFKs stiftelse 25. juni 1914, Nørvebanen 1915 og
+        kretskamp 1915 i Molde"
+    disposition: already_documented
+    status: normalized
+  - id: pers-104
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "14"
+    type: person
+    claim:
+      text: "Knut Gaaseide: Profil, over 150 kamper, prøvelandskamp 1933, NM 1924
+        kvartfinale"
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: knut-gaaseide
+    status: normalized
+  - id: res-105
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "14"
+    type: match_result
+    claim:
+      text: Knut Gaaseide A-debut 7. mai 1922 mot Rollon (4–0)
+    disposition: source_result_created
+    targets:
+      - entity: source_result
+        id: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    status: normalized
+  - id: role-106
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "14"
     type: person_role
     claim:
-      text: "Knut Gaaseide: A-lagsdebut 7. mai 1922 mot Rollon, fast 1924�1936"
+      text: "Knut Gaaseide: A-lagsdebut 7. mai 1922 mot Rollon, fast 1924–1936"
     disposition: verified_correct
     status: normalized
-  - id: role-095
+  - id: obs-107
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "18"
+    type: meeting
+    claim:
+      text: Årsfest 10. februar 1951, Ekstraordinært årsmøte 29. januar 1951,
+        Diskusjonsmøte 7. mars 1951
+    disposition: no_structured_action
+    status: normalized
+  - id: obs-108
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "21"
+    type: meeting
+    claim:
+      text: Dameavdelingens årsmøte 19. januar 1951
+    disposition: already_documented
+    status: normalized
+  - id: pers-109
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "23"
+    type: person
+    claim:
+      text: "Finn Tolaas: Trener for AaFK 1951"
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: finn-tollas
+    status: normalized
+  - id: role-110
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "23"
@@ -931,7 +1085,50 @@ findings:
         id: finn-tollas
         path: roles/trener-1951
     status: normalized
-  - id: pers-096
+  - id: role-111
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "23"
+    type: person_role
+    claim:
+      text: "Øivind Hågensen: Autorisert NFF-trener"
+    disposition: no_structured_action
+    status: normalized
+  - id: stat-112
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "23"
+    type: season_fact
+    claim:
+      text: "Edvin Løvold: 192 A-lagskamper per mars 1951"
+    disposition: no_structured_action
+    status: normalized
+  - id: res-113
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "25"
+    type: match_result
+    claim:
+      text: "1. divisjon 7. distrikt 1950–51: Molde–AaFK 0–0, AaFK–Rollon 5–1 (AaFK
+        distriktsmester)"
+    disposition: source_result_created
+    targets:
+      - entity: source_result
+        id: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    status: normalized
+  - id: pers-114
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "25"
+    type: person
+    claim:
+      text: "Trygve Olsen: Kretsmester og A-lagsspiller 1951"
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: trygve-olsen
+    status: normalized
+  - id: pers-115
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "25"
@@ -943,7 +1140,7 @@ findings:
       - entity: person
         id: svein-grimstad
     status: normalized
-  - id: role-097
+  - id: role-116
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "25"
@@ -956,7 +1153,7 @@ findings:
         id: svein-grimstad
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: pers-098
+  - id: pers-117
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "25"
@@ -968,7 +1165,7 @@ findings:
       - entity: person
         id: lauritz-gaaseide
     status: normalized
-  - id: role-099
+  - id: role-118
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "25"
@@ -981,32 +1178,32 @@ findings:
         id: lauritz-gaaseide
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: pers-100
+  - id: pers-119
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "25"
     type: person
     claim:
-      text: "Thorbj�rn Aar�e: Kretsmester og A-lagsspiller 1951"
+      text: "Thorbjørn Aarøe: Kretsmester og A-lagsspiller 1951"
     disposition: person_created
     targets:
       - entity: person
         id: thorbjorn-aroe
     status: normalized
-  - id: role-101
+  - id: role-120
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "25"
     type: person_role
     claim:
-      text: "Thorbj�rn Aar�e: A-lagsspiller 1951"
+      text: "Thorbjørn Aarøe: A-lagsspiller 1951"
     disposition: role_created
     targets:
       - entity: person
         id: thorbjorn-aroe
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: pers-102
+  - id: pers-121
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "25"
@@ -1018,7 +1215,7 @@ findings:
       - entity: person
         id: johan-refsnes
     status: normalized
-  - id: role-103
+  - id: role-122
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "25"
@@ -1031,26 +1228,47 @@ findings:
         id: johan-refsnes
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: pers-104
+  - id: pers-123
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "28"
+    type: person
+    claim:
+      text: "Ingvald Frøysa: Keeperprofil 1923–1928, landslagsreserve"
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: ingvald-froysa
+    status: normalized
+  - id: pers-124
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "29"
     type: person
     claim:
-      text: "Karsten Nedreg�rd: 32-�rsomtale, junior 1933�38, A-debut 1938 mot Smart,
-        over 160 A-kamper"
+      text: "Karsten Nedregård («Kakken»): 32-årsomtale, debut 1938 mot Smart, over
+        160 A-kamper"
     disposition: person_enriched
     targets:
       - entity: person
         id: karsten-nedregard
     status: normalized
-  - id: pers-105
+  - id: res-125
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "31"
+    type: match_result
+    claim:
+      text: "Privatkamp: AaFK A mot Old Boys 2–1"
+    disposition: non_senior
+    status: normalized
+  - id: honor-126
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "35"
-    type: person
+    type: honor
     claim:
-      text: "Edvin L�vold: 200. A-kamp 27. mai 1951 mot KFK i Kristiansund,
+      text: "Edvin Løvold: 200. A-kamp 27. mai 1951 mot KFK i Kristiansund, tildelt
         spillemerket i gull"
     disposition: honor_created
     targets:
@@ -1058,234 +1276,496 @@ findings:
         id: edvind-lovold
         path: roles/spillemerke-gull-1951
     status: normalized
-  - id: pers-106
+  - id: pers-127
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "35"
+    type: person
+    claim:
+      text: "Edvin Løvold: 200. A-kamp 27. mai 1951 mot KFK i Kristiansund"
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: edvind-lovold
+    status: normalized
+  - id: role-128
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "35"
+    type: person_role
+    claim:
+      text: "Ragnvald Langva: Valgt til ny oppmann våren 1951 etter at Øivind Hågensen
+        trakk seg"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: ragnvald-langva
+        path: roles/oppmann-1951
+    status: normalized
+  - id: pers-129
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "35"
+    type: person
+    claim:
+      text: "Ragnvald Langva: Oppmann våren 1951"
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: ragnvald-langva
+    status: normalized
+  - id: res-130
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "37"
+    type: match_result
+    claim:
+      text: "Kvalifisering til Hovedserien 1951: AaFK–Asker 3–6, Kvik Halden–AaFK 0–2,
+        Kvikk Trondheim–AaFK 3–0"
+    disposition: source_result_created
+    targets:
+      - entity: source_result
+        id: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    status: normalized
+  - id: obs-131
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "39"
+    type: historical_observation
+    claim:
+      text: "Ekstraordinært årsmøte 23. juli 1951: Fullmakt til lån på kr 20 000 fra
+        NFF for Kråmyra treningsbane"
+    disposition: observation_created
+    targets:
+      - entity: observation
+        id: 1951-kramyra-nff-lan
+    status: normalized
+  - id: res-132
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "40"
+    type: match_result
+    claim:
+      text: Privatkamp mot Boldklubben Freja (Randers) 1–5 på Aksla
+    disposition: source_result_created
+    targets:
+      - entity: source_result
+        id: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    status: normalized
+  - id: pers-133
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "41"
     type: person
     claim:
-      text: "Erling Flem: 50-�rsomtale (f. 1901-08-24), A-debut 1917 mot Rapp, oppmann
-        1935�36"
+      text: "Erling Flem: 50-årsomtale (f. 1901-08-24), A-debut 1917 mot Rapp, oppmann
+        1935–36"
     disposition: person_enriched
     targets:
       - entity: person
         id: erling-flem
     status: normalized
-  - id: pers-107
+  - id: pers-134
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "42"
     type: person
     claim:
-      text: "Thor Refsnes: F�dt 1920, guttespiller 1932, A-debut 1938 som 18-�ring, 10
-        m�l og 12 assist v�ren 1951"
+      text: "Thor Refsnes: Født 1920, guttespiller 1932, A-debut 1938 som 18-åring, 10
+        mål og 12 assist våren 1951"
     disposition: person_created
     targets:
       - entity: person
         id: thor-refsnes
     status: normalized
-  - id: role-108
+  - id: role-135
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "42"
     type: person_role
     claim:
-      text: "Thor Refsnes: A-lagsspiller 1938�1951"
+      text: "Thor Refsnes: A-lagsdebut i 1938"
     disposition: role_created
     targets:
       - entity: person
         id: thor-refsnes
-        path: roles/a-lagsspiller-1938-1951
+        path: roles/a-lagsdebut-1938
     status: normalized
-  - id: role-109
+  - id: role-136
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
-      page: "80"
+      page: "42"
     type: person_role
     claim:
-      text: "Thor Refsnes: Arkivar for Medlemsbladet 1952"
+      text: "Thor Refsnes: A-lagsspiller 1951"
     disposition: role_created
     targets:
       - entity: person
         id: thor-refsnes
-        path: roles/arkivar-1952
+        path: roles/a-lagsspiller-1951
     status: normalized
-  - id: pers-110
+  - id: res-137
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "44"
+    type: match_result
+    claim:
+      text: "Landsdelsserien 1951: AaFK–Langevåg 1–0 (29. juli 1951)"
+    disposition: source_result_created
+    targets:
+      - entity: source_result
+        id: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    status: normalized
+  - id: role-138
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "45"
+    type: person_role
+    claim:
+      text: "Øivind Hågensen: Oppført som oppmann i styret sommeren 1951"
+    disposition: role_enriched
+    targets:
+      - entity: person
+        id: oivind-haagensen
+        path: roles/oppmann-1951
+    status: normalized
+  - id: role-139
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "45"
+    type: person_role
+    claim:
+      text: "Arne Westad: Nestformann i styret etter Politiskolen"
+    disposition: verified_correct
+    status: normalized
+  - id: role-140
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "45"
+    type: person_role
+    claim:
+      text: "Halvard Tørlen: Kasserer i styret etter Bjørn Åsen"
+    disposition: verified_correct
+    status: normalized
+  - id: res-141
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "46"
+    type: match_result
+    claim:
+      text: "NM cup 1. runde: AaFK–Hødd 2–1"
+    disposition: source_result_created
+    targets:
+      - entity: source_result
+        id: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    status: normalized
+  - id: fix-142
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "46"
+    type: fixture
+    claim:
+      text: NM cup 2. runde mot Spjelkavik (nevnt som oppsett/kamp)
+    disposition: fixture_only
+    status: normalized
+  - id: res-143
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "49"
+    type: match_result
+    claim:
+      text: "Landsdelsserien høsten 1951: AaFK–Hødd 4–0, AaFK topper tabellen"
+    disposition: source_result_created
+    targets:
+      - entity: source_result
+        id: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    status: normalized
+  - id: res-144
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "49"
+    type: match_result
+    claim:
+      text: "Nils Jangaards jubileumspokal 7. oktober 1951: AaFK–Rollon 4–0"
+    disposition: source_result_created
+    targets:
+      - entity: source_result
+        id: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    status: normalized
+  - id: non-145
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "51"
+    type: non_senior
+    claim:
+      text: "Gutteavdelingen 1951 v/Fritz Haagensen: 12 kamper, 12 seire, komplett
+        spillerliste"
+    disposition: non_senior
+    status: normalized
+  - id: pers-146
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "52"
     type: person
     claim:
-      text: "Konrad Korsnes: 14 sesonger, over 200 A-kamper, debuterte i cupen 1923
-        mot Brann"
+      text: "Konrad Korsnes: 14 sesonger, over 200 A-kamper, NM-debut 1923 mot Brann"
     disposition: person_enriched
     targets:
       - entity: person
         id: konrad-korsnes
     status: normalized
-  - id: pers-111
+  - id: pers-147
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "53"
     type: person
     claim:
-      text: "John Vadseth: Over 300 dugnadstimer p� Kr�myra"
-    disposition: person_created
-    targets:
-      - entity: person
-        id: john-vadseth
-    status: normalized
-  - id: pers-112
-    source:
-      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
-      page: "53"
-    type: person
-    claim:
-      text: "Peder Puck: Over 300 dugnadstimer p� Kr�myra"
+      text: "Peder Puck: Over 300 dugnadstimer på Kråmyra treningsbane"
     disposition: person_enriched
     targets:
       - entity: person
         id: peder-puck
     status: normalized
-  - id: pers-113
+  - id: pers-148
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "53"
+    type: person
+    claim:
+      text: "John Vadseth: Over 300 dugnadstimer på Kråmyra treningsbane"
+    disposition: person_created
+    targets:
+      - entity: person
+        id: john-vadseth
+    status: normalized
+  - id: pers-149
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "54"
+    type: person
+    claim:
+      text: "Reidar Skarbøvik: Keeperprofil, debut 1935 mot Sarpsborg"
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: reidar-skarbovik
+    status: normalized
+  - id: pers-150
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "55"
     type: person
     claim:
-      text: "Svein Follestad: F�dt 1935, innmeldt 1949, keeper og utespiller"
+      text: "Svein Follestad: Født 1935, innmeldt 1949, keeper og utespiller"
     disposition: person_created
     targets:
       - entity: person
         id: svein-follestad
     status: normalized
-  - id: role-114
+  - id: res-151
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
-      page: "80"
-    type: person_role
+      page: "56"
+    type: match_result
     claim:
-      text: "Svein Follestad: Materialforvalter 1952"
-    disposition: role_created
+      text: "NM cup 4. runde: Sarpsborg–AaFK 1–0 i Sarpsborg (datert 15. september
+        1951 i kilden)"
+    disposition: source_result_created
+    targets:
+      - entity: source_result
+        id: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    status: normalized
+  - id: pers-152
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "58"
+    type: person
+    claim:
+      text: "Johannes «Hanne» Hollevik: 50-årsomtale (f. 1901-11-22)"
+    disposition: person_enriched
     targets:
       - entity: person
-        id: svein-follestad
-        path: roles/materialforvalter-1952
+        id: johs-hollevik
     status: normalized
-  - id: pers-115
+  - id: pers-153
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "61"
+    type: person
+    claim:
+      text: "Per Anker Eriksen: Formannsprofil (medlem 1945, formann fra 1949)"
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: per-anker-eriksen
+    status: normalized
+  - id: pers-154
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "63"
     type: person
     claim:
-      text: "Robert Johansen (�Gallagher�): 50-�rsomtale (f. 1901-12-16)"
+      text: "Robert Johansen («Gallagher»): 50-årsomtale (f. 1901-12-16)"
     disposition: person_created
     targets:
       - entity: person
         id: robert-johansen
     status: normalized
-  - id: role-116
+  - id: role-155
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "63"
     type: person_role
     claim:
-      text: "Robert Johansen: A-lagsspiller i 1920-�rene"
+      text: "Robert Johansen: A-lagsspiller i 1920-årene"
     disposition: role_created
     targets:
       - entity: person
         id: robert-johansen
         path: roles/a-lagsspiller-1920
     status: normalized
-  - id: pers-117
+  - id: pers-156
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "65"
     type: person
     claim:
-      text: "Carl Gaaseide: F�dt ca. 1902, A-debut som 17-�ring i 1919 mot Rollon,
-        spilte 1919�1935"
+      text: "Carl Gaaseide: Født ca. 1902, A-debut 1919 mot Rollon, spilte 1919–1935"
     disposition: person_enriched
     targets:
       - entity: person
         id: carl-gaaseide
     status: normalized
-  - id: pers-118
+  - id: non-157
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "66"
+    type: non_senior
+    claim:
+      text: Sesongtilbakeblikk for reservelag, juniorlag og guttelag 1951
+    disposition: non_senior
+    status: normalized
+  - id: res-158
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "67"
+    type: match_result
+    claim:
+      text: "NM cup 3. runde: AaFK–Troll 3–1 e.e.o. (12. august 1951)"
+    disposition: source_result_created
+    targets:
+      - entity: source_result
+        id: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    status: normalized
+  - id: org-159
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "71"
+    type: organization
+    claim:
+      text: "Dameavdelingens årsmøte 7. november 1951: Styre for 1952"
+    disposition: organization_snapshot_created
+    targets:
+      - entity: organization_snapshot
+        id: 1952-aafk
+    status: normalized
+  - id: idc-160
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "71"
+    type: identity_candidate
+    claim:
+      text: "Dameavdelingens festkomité og arbeidskomité for 1952: fru Ingebrigtsen,
+        fru Vadseth, frk. Lausund"
+    disposition: identity_uncertain
+    status: normalized
+  - id: stat-161
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "72"
+    type: season_fact
+    claim:
+      text: "A-lagets sesongstatistikk 1951: 29 kamper (18V–3U–8T, 66–45), Karsten
+        Nedregård 29 kamper, Edvin Løvold 28 kamper, Ole Walderhaug toppscorer
+        med 14 mål"
+    disposition: verified_correct
+    status: normalized
+  - id: pers-162
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
     type: person
     claim:
-      text: "Asbj�rn Ystenes: A-lagsspiller 1951"
+      text: "Asbjørn Ystenes: A-lagsspiller 1951"
     disposition: person_created
     targets:
       - entity: person
         id: asbjorn-ystenes
     status: normalized
-  - id: role-119
+  - id: role-163
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
     type: person_role
     claim:
-      text: "Asbj�rn Ystenes: A-lagsspiller 1951"
+      text: "Asbjørn Ystenes: A-lagsspiller 1951"
     disposition: role_created
     targets:
       - entity: person
         id: asbjorn-ystenes
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: pers-120
+  - id: pers-164
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
     type: person
     claim:
-      text: "Thorbj�rn Hansen: A-lagsspiller 1951"
+      text: "Thorbjørn Hansen: A-lagsspiller 1951"
     disposition: person_created
     targets:
       - entity: person
         id: thorbjorn-hansen
     status: normalized
-  - id: role-121
+  - id: role-165
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
     type: person_role
     claim:
-      text: "Thorbj�rn Hansen: A-lagsspiller 1951"
+      text: "Thorbjørn Hansen: A-lagsspiller 1951"
     disposition: role_created
     targets:
       - entity: person
         id: thorbjorn-hansen
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: pers-122
+  - id: pers-166
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
     type: person
     claim:
-      text: "Einar �ie: A-lagsspiller 1951"
+      text: "Einar Øie: A-lagsspiller 1951"
     disposition: person_created
     targets:
       - entity: person
         id: einar-oie
     status: normalized
-  - id: role-123
+  - id: role-167
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
     type: person_role
     claim:
-      text: "Einar �ie: A-lagsspiller 1951"
+      text: "Einar Øie: A-lagsspiller 1951"
     disposition: role_created
     targets:
       - entity: person
         id: einar-oie
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: pers-124
+  - id: pers-168
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
@@ -1297,7 +1777,7 @@ findings:
       - entity: person
         id: anton-bakjord
     status: normalized
-  - id: role-125
+  - id: role-169
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
@@ -1310,7 +1790,7 @@ findings:
         id: anton-bakjord
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: pers-126
+  - id: pers-170
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
@@ -1322,7 +1802,7 @@ findings:
       - entity: person
         id: nils-a-ringdal
     status: normalized
-  - id: role-127
+  - id: role-171
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
@@ -1335,7 +1815,7 @@ findings:
         id: nils-a-ringdal
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: pers-128
+  - id: pers-172
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
@@ -1347,7 +1827,7 @@ findings:
       - entity: person
         id: johny-eide
     status: normalized
-  - id: role-129
+  - id: role-173
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "72"
@@ -1360,19 +1840,89 @@ findings:
         id: johny-eide
         path: roles/a-lagsspiller-1951
     status: normalized
-  - id: pers-130
+  - id: pers-174
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "72"
+    type: person
+    claim:
+      text: "Hans J. Henriksen: A-lagsspiller 1951"
+    disposition: person_enriched
+    targets:
+      - entity: person
+        id: hans-j-henriksen
+    status: normalized
+  - id: role-175
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "72"
+    type: person_role
+    claim:
+      text: "Hans J. Henriksen: A-lagsspiller 1951"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: hans-j-henriksen
+        path: roles/a-lagsspiller-1951
+    status: normalized
+  - id: pers-176
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "73"
     type: person
     claim:
-      text: "Sam Alsaker-N�stdahl: 50-�rsomtale (f. 1901-09-13)"
+      text: "Sam Alsaker-Nøstdahl: 50-årsomtale (f. 1901-09-13)"
     disposition: person_created
     targets:
       - entity: person
         id: sam-alsaker-nostdahl
     status: normalized
-  - id: pers-131
+  - id: obs-177
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "74"
+    type: historical_observation
+    claim:
+      text: "Banekomiteens beretning: 1500 dugnadstimer på Kråmyra i 1951, ferdigstilt
+        kjørbar vei"
+    disposition: observation_created
+    targets:
+      - entity: observation
+        id: 1951-kramyra-nff-lan
+    status: normalized
+  - id: non-178
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "75"
+    type: non_senior
+    claim:
+      text: "Juniorlagets sesongrapport 1951: 10 kamper, målscorere Thomassen (5),
+        Finnsæther (4), Skuseth (3), Ringdal (2)"
+    disposition: non_senior
+    status: normalized
+  - id: ret-179
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "79"
+    type: non_senior
+    claim:
+      text: "Trygve Nørve: Historisk tilbakeblikk på B-laget rundt 1930 og seier mot
+        Falk i Horten (1–0)"
+    disposition: non_senior
+    status: normalized
+  - id: org-180
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "80"
+    type: organization
+    claim:
+      text: "Årsmøte 28. november 1951: Hovedstyre og komiteer for arbeidsåret 1952"
+    disposition: organization_snapshot_created
+    targets:
+      - entity: organization_snapshot
+        id: 1952-aafk
+    status: normalized
+  - id: pers-181
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "80"
@@ -1384,7 +1934,7 @@ findings:
       - entity: person
         id: erling-kvamme
     status: normalized
-  - id: role-132
+  - id: role-182
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "80"
@@ -1397,32 +1947,33 @@ findings:
         id: erling-kvamme
         path: roles/redaksjonsmedlem-1952
     status: normalized
-  - id: pers-133
+  - id: pers-183
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "80"
     type: person
     claim:
-      text: "Malvin Saure: Forretningsf�rer og arrangementskomite 1952"
+      text: "Malvin Saure: Forretningsfører for Medlemsbladet og arrangementskomite
+        1952"
     disposition: person_created
     targets:
       - entity: person
         id: malvin-saure
     status: normalized
-  - id: role-134
+  - id: role-184
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "80"
     type: person_role
     claim:
-      text: "Malvin Saure: Forretningsf�rer for Medlemsbladet 1952"
+      text: "Malvin Saure: Forretningsfører for Medlemsbladet 1952"
     disposition: role_created
     targets:
       - entity: person
         id: malvin-saure
         path: roles/forretningsforer-1952
     status: normalized
-  - id: role-135
+  - id: role-185
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "80"
@@ -1435,32 +1986,33 @@ findings:
         id: malvin-saure
         path: roles/arrangementskomite-1952
     status: normalized
-  - id: pers-136
-    source:
-      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
-      page: "80"
-    type: person
-    claim:
-      text: "Hans Henriksen: Medlem i arrangementskomiteen 1952"
-    disposition: person_enriched
-    targets:
-      - entity: person
-        id: hans-j-henriksen
-    status: normalized
-  - id: role-137
+  - id: role-186
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "80"
     type: person_role
     claim:
-      text: "Hans Henriksen: Medlem i arrangementskomiteen 1952"
+      text: "Hans J. Henriksen: Medlem i arrangementskomiteen 1952"
     disposition: role_created
     targets:
       - entity: person
         id: hans-j-henriksen
         path: roles/arrangementskomite-1952
     status: normalized
-  - id: pers-138
+  - id: role-187
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      page: "80"
+    type: person_role
+    claim:
+      text: "Thor Refsnes: Arkivar for Medlemsbladet 1952"
+    disposition: role_created
+    targets:
+      - entity: person
+        id: thor-refsnes
+        path: roles/arkivar-1952
+    status: normalized
+  - id: pers-188
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "80"
@@ -1472,7 +2024,7 @@ findings:
       - entity: person
         id: per-solbakk
     status: normalized
-  - id: role-139
+  - id: role-189
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "80"
@@ -1485,76 +2037,27 @@ findings:
         id: per-solbakk
         path: roles/materialforvalter-1952
     status: normalized
-  - id: role-140
-    source:
-      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
-      page: "81"
-    type: person_role
-    claim:
-      text: "Per Solbakk: Kasserer i Gutteavdelingen 1952"
-    disposition: role_created
-    targets:
-      - entity: person
-        id: per-solbakk
-        path: roles/kasserer-gutteavdelingen-1952
-    status: normalized
-  - id: pers-141
-    source:
-      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
-      page: "81"
-    type: person
-    claim:
-      text: "Reidar With: Formann i Gutteavdelingen 1952"
-    disposition: person_created
-    targets:
-      - entity: person
-        id: reidar-with
-    status: normalized
-  - id: role-142
-    source:
-      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
-      page: "81"
-    type: person_role
-    claim:
-      text: "Reidar With: Formann i Gutteavdelingen 1952"
-    disposition: role_created
-    targets:
-      - entity: person
-        id: reidar-with
-        path: roles/formann-gutteavdelingen-1952
-    status: normalized
-  - id: org-143
+  - id: role-190
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "80"
-    type: organization
+    type: person_role
     claim:
-      text: "�rsm�te 28. november 1951: Hovedstyre og komiteer for arbeids�ret 1952"
-    disposition: organization_snapshot_created
+      text: "Svein Follestad: Materialforvalter 1952"
+    disposition: role_created
     targets:
-      - entity: organization_snapshot
-        id: 1952-aafk
+      - entity: person
+        id: svein-follestad
+        path: roles/materialforvalter-1952
     status: normalized
-  - id: org-144
-    source:
-      sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
-      page: "71"
-    type: organization
-    claim:
-      text: "Dameavdelingens �rsm�te 7. november 1951: Styre for 1952"
-    disposition: organization_snapshot_created
-    targets:
-      - entity: organization_snapshot
-        id: 1952-aafk
-    status: normalized
-  - id: honor-145
+  - id: honor-191
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "81"
     type: honor
     claim:
-      text: "Spillemerket i gull (minst 200 kamper): �ivind Haagensen, J�rgen
-        Hollevik, Edvin L�vold, Konrad Korsnes"
+      text: "Spillemerket i gull (minst 200 kamper): Øivind Haagensen, Jørgen
+        Hollevik, Edvin Løvold, Konrad Korsnes"
     disposition: honor_created
     targets:
       - entity: person
@@ -1566,14 +2069,14 @@ findings:
       - entity: person
         id: konrad-korsnes
     status: normalized
-  - id: honor-146
+  - id: honor-192
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "81"
     type: honor
     claim:
-      text: "Spillemerket i s�lv (minst 150 kamper): Finn Tolaas, Karl L�vold, Reidar
-        Skarb�vik, Karsten Nedreg�rd, Trygve Olsen"
+      text: "Spillemerket i sølv (minst 150 kamper): Finn Tolaas, Karl Løvold, Reidar
+        Skarbøvik, Karsten Nedregård, Trygve Olsen"
     disposition: honor_created
     targets:
       - entity: person
@@ -1587,68 +2090,65 @@ findings:
       - entity: person
         id: trygve-olsen
     status: normalized
-  - id: obs-147
+  - id: pers-193
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
-      page: "39"
-    type: historical_observation
+      page: "81"
+    type: person
     claim:
-      text: "Ekstraordin�rt �rsm�te 23. juli 1951: L�n p� kr 20 000 fra NFF til
-        Kr�myra"
-    disposition: observation_created
+      text: "Reidar With: Formann i Gutteavdelingen 1952"
+    disposition: person_created
     targets:
-      - entity: observation
-        id: 1951-kramyra-nff-lan
+      - entity: person
+        id: reidar-with
     status: normalized
-  - id: res-148
+  - id: role-194
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
-      page: "37"
-    type: match_result
+      page: "81"
+    type: person_role
     claim:
-      text: "Kvalifisering til Hovedserien 1951: AaFK�Asker 3�6, Kvik Halden�AaFK 0�2,
-        Kvikk Trondheim�AaFK 3�0"
-    disposition: source_result_created
+      text: "Reidar With: Formann i Gutteavdelingen 1952"
+    disposition: role_created
     targets:
-      - entity: source_result
-        id: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      - entity: person
+        id: reidar-with
+        path: roles/formann-gutteavdelingen-1952
     status: normalized
-  - id: res-149
+  - id: role-195
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
-      page: "46"
-    type: match_result
+      page: "81"
+    type: person_role
     claim:
-      text: "NM cup 1951: 1. runde AaFK�H�dd 2�1, 3. runde AaFK�Troll 3�1 e.e.o., 4.
-        runde Sarpsborg�AaFK 1�0"
-    disposition: source_result_created
+      text: "Per Solbakk: Kasserer i Gutteavdelingen 1952"
+    disposition: role_created
     targets:
-      - entity: source_result
-        id: medlemsblad-for-aalesunds-fotb-1951-b0e6
+      - entity: person
+        id: per-solbakk
+        path: roles/kasserer-gutteavdelingen-1952
     status: normalized
-  - id: stat-150
+  - id: idc-196
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
-      page: "72"
-    type: season_fact
+      page: "81"
+    type: identity_candidate
     claim:
-      text: "A-lagets sesongstatistikk 1951: 29 kamper (18V�3U�8T, 66�45), Karsten
-        Nedreg�rd 29 kamper, Edvin L�vold 28 kamper, Ole Walderhaug toppscorer
-        med 14 m�l"
-    disposition: verified_correct
+      text: Jan With (sekretær) og Magne Knutsen (styremedlem) i Gutteavdelingen 1952
+    disposition: identity_uncertain
     status: normalized
-  - id: stat-151
+  - id: stat-197
     source:
       sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
       page: "82"
     type: season_fact
     claim:
-      text: "Publikumstall 1951: 27 500 tilskuere p� hjemmekampene (AaFK�Asker 3300
-        tilskuere, AaFK�H�dd ca. 2000)"
+      text: "Publikumstall 1951: 27 500 tilskuere på hjemmekampene (AaFK–Asker 3300
+        tilskuere, AaFK–Hødd ca. 2000)"
     disposition: verified_correct
     status: normalized
 unresolved: []
 createdAt: 2026-08-16
 notes:
-  - Initialisert og fullf�rt for profil �AaFK Medlemsblad� med 1 kilde i scope
-    (84 sider i Vol. 2 nr. 1�6).
+  - Initialisert og fullført for profil «AaFK Medlemsblad» med 1 kilde i scope
+    (84 sider i Vol. 2 nr. 1–6).

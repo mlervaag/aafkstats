@@ -88,7 +88,7 @@ jobs:
           if [ -d "data/harvests" ] && compgen -G "data/harvests/*.yaml" > /dev/null; then
             for f in data/harvests/*.yaml; do
               echo "Sjekker innhøstingsbatch: $f"
-              if [ "${{ github.event_name }}" = "pull_request" ]; then
+              if [ "${{ github.event_name }}" = "pull_request" ] && git diff --name-only "${{ github.event.pull_request.base.sha }}" "${{ github.sha }}" -- "$f" | grep -q "$f"; then
                 pnpm data:historical-harvest:check --file "$f" --base "${{ github.event.pull_request.base.sha }}" --head "${{ github.sha }}"
               else
                 pnpm data:historical-harvest:check --file "$f"

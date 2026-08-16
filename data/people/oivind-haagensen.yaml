@@ -123,8 +123,11 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
+      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+        page: "45"
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
-      siden.
+      siden. Trakk seg som oppmann v�ren 1951 (nr. 3 s. 35), men er oppf�rt som
+      oppmann igjen i styreoversikten sommeren 1951 (nr. 4 s. 45).
   - id: trener-1955
     category: coach
     title: Trener
@@ -345,6 +348,8 @@ sources:
     page: "12"
   - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
     page: "81"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    page: "45"
 conflicts:
   - field: formann.1940
     values:

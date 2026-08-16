@@ -4,7 +4,7 @@
 - **Profil:** `member_magazine` (AaFK Medlemsblad)
 - **Modus:** `initial`
 - **Gjennomført:** 2026-08-16
-- **Status:** `audited`
+- **Status:** `complete`
 
 ---
 
