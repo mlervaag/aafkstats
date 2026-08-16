@@ -172,9 +172,30 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
         });
       }
     }
+
+    // Sjekk om inventaroppføring tilhører scope (retning 2)
+    if (manifest.scope.sourceIds.length > 0 && !manifest.scope.sourceIds.includes(item.sourceId)) {
+      if (item.reviewStatus !== "out_of_scope") {
+        if (isCompleteStatus) {
+          issues.push({
+            type: "error",
+            category: "inventory",
+            sourceId: item.sourceId,
+            message: `Kilde «${item.sourceId}» i sourceInventory tilhører ikke batchens scope og er ikke merket out_of_scope`,
+          });
+        } else {
+          issues.push({
+            type: "warning",
+            category: "inventory",
+            sourceId: item.sourceId,
+            message: `Kilde «${item.sourceId}» i sourceInventory tilhører ikke batchens scope (bør merkes out_of_scope dersom den beholdes)`,
+          });
+        }
+      }
+    }
   }
 
-  // Sjekk om scope.sourceIds mangler i frosset inventar
+  // Sjekk om scope.sourceIds mangler i frosset inventar (retning 1)
   for (const sid of manifest.scope.sourceIds) {
     if (!inventorySourceIds.has(sid)) {
       if (isCompleteStatus) {

@@ -214,15 +214,63 @@ describe("Source Profiles og Automatisk Profil-inferens", () => {
 });
 
 describe("Init CLI generator", () => {
+  const mockSourcesMap = new Map([
+    [
+      "sfk-1963",
+      {
+        id: "sfk-1963",
+        title: "SFK 1963",
+        sourceType: "annual_report" as const,
+        parentSourceId: "sunnmore-fotballkrets-arsrapporter",
+        year: 1963,
+        providers: [],
+      },
+    ],
+    [
+      "sfk-1964",
+      {
+        id: "sfk-1964",
+        title: "SFK 1964",
+        sourceType: "annual_report" as const,
+        parentSourceId: "sunnmore-fotballkrets-arsrapporter",
+        year: 1964,
+        providers: [],
+      },
+    ],
+    [
+      "sfk-1965",
+      {
+        id: "sfk-1965",
+        title: "SFK 1965",
+        sourceType: "annual_report" as const,
+        parentSourceId: "sunnmore-fotballkrets-arsrapporter",
+        year: 1965,
+        providers: [],
+      },
+    ],
+  ]);
+
+  const mockExtractionsMap = new Map([
+    ["sfk-1963", { sourceId: "sfk-1963", pagesExpected: 20, sections: [], tables: [] }],
+    ["sfk-1964", { sourceId: "sfk-1964", pagesExpected: 22, sections: [], tables: [] }],
+    ["sfk-1965", { sourceId: "sfk-1965", pagesExpected: 24, sections: [], tables: [] }],
+  ]);
+
+  const mockContext = { sourcesMap: mockSourcesMap, extractionsMap: mockExtractionsMap as any };
+
   it("genererer gyldig manifest med frosset inventar og required passes", async () => {
-    const { manifest } = await generateHarvestBatchManifest({
-      profile: "annual_report",
-      sources: [],
-      parentSourceId: "sunnmore-fotballkrets-arsrapporter",
-      yearFrom: 1963,
-      yearTo: 1965,
-      mode: "initial",
-    });
+    const { manifest } = await generateHarvestBatchManifest(
+      {
+        profile: "annual_report",
+        sources: [],
+        parentSourceId: "sunnmore-fotballkrets-arsrapporter",
+        yearFrom: 1963,
+        yearTo: 1965,
+        mode: "initial",
+      },
+      undefined,
+      mockContext,
+    );
 
     expect(manifest.version).toBe(1);
     expect(manifest.profile).toBe("annual_report");
@@ -231,26 +279,34 @@ describe("Init CLI generator", () => {
     expect(manifest.sourceInventory.length).toBe(3);
     expect(manifest.passes.facsimile_review).toBeDefined();
     expect(manifest.passes.facsimile_review?.status).toBe("pending");
-  }, 20000);
+  });
 
   it("feiler dersom eksplisitt oppgitt sourceId ikke finnes", async () => {
     await expect(
-      generateHarvestBatchManifest({
-        profile: "yearbook",
-        sources: ["ikke-eksisterende-kilde-12345"],
-        mode: "initial",
-      }),
+      generateHarvestBatchManifest(
+        {
+          profile: "yearbook",
+          sources: ["ikke-eksisterende-kilde-12345"],
+          mode: "initial",
+        },
+        undefined,
+        mockContext,
+      ),
     ).rejects.toThrow(/Eksplisitt oppgitt kilde «ikke-eksisterende-kilde-12345» finnes ikke/);
   });
 
   it("feiler dersom filter gir 0 matchende kilder", async () => {
     await expect(
-      generateHarvestBatchManifest({
-        parentSourceId: "nff-yearbooks",
-        yearFrom: 1800,
-        yearTo: 1810,
-        mode: "initial",
-      }),
+      generateHarvestBatchManifest(
+        {
+          parentSourceId: "nff-yearbooks",
+          yearFrom: 1800,
+          yearTo: 1810,
+          mode: "initial",
+        },
+        undefined,
+        mockContext,
+      ),
     ).rejects.toThrow(/Ingen kilder funnet for det oppgitte scopet/);
   });
 });

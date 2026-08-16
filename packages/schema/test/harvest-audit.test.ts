@@ -538,4 +538,38 @@ describe("Cross-Layer Harvest Audit Engine", () => {
 
     expect(report.issues.some((i) => i.category === "provenance" && i.message.includes("side-avvik"))).toBe(true);
   });
+
+  it("feiler dersom en kilde i sourceInventory ikke tilhører scope og ikke er merket out_of_scope ved complete", () => {
+    const manifest: HarvestBatchManifest = {
+      version: 1,
+      id: "nff-1923",
+      title: "NFF Årbok 1923",
+      profile: "yearbook",
+      mode: "initial",
+      status: "complete",
+      scope: { sourceIds: ["nff-arbok-1923"] },
+      sourceInventory: [
+        { sourceId: "nff-arbok-1923", reviewStatus: "reviewed" },
+        { sourceId: "nff-arbok-1999", reviewStatus: "reviewed" }, // Ikke i scope og ikke out_of_scope
+      ],
+      coverage: { mode: "pages", expected: 100, reviewed: 100 },
+      passes: {
+        facsimile_review: { status: "complete", findings: 0 },
+        explicit_results: { status: "complete", findings: 0 },
+        people_and_roles: { status: "complete", findings: 0 },
+        organization: { status: "complete", findings: 0 },
+        retrospectives_and_claims: { status: "complete", findings: 0 },
+        observations: { status: "complete", findings: 0 },
+      },
+      findings: [],
+      unresolved: [],
+      notes: [],
+    };
+
+    const ctx = createMinimalContext(manifest);
+    const report = auditHarvestBatch(ctx);
+
+    expect(report.passed).toBe(false);
+    expect(report.issues.some((i) => i.category === "inventory" && i.message.includes("nff-arbok-1999") && i.message.includes("out_of_scope"))).toBe(true);
+  });
 });

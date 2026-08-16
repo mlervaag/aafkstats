@@ -61,23 +61,37 @@ export function parseInitCliArgs(args: string[]): HistoricalHarvestInitOptions {
   return options;
 }
 
+export interface HarvestInitContext {
+  sourcesMap?: Map<string, Source>;
+  extractionsMap?: Map<string, PublicationExtraction>;
+}
+
 export async function generateHarvestBatchManifest(
   options: HistoricalHarvestInitOptions,
   root = repoRoot(),
+  context?: HarvestInitContext,
 ): Promise<{ manifest: HarvestBatchManifest; manifestPath: string; reviewPath: string }> {
-  // Last kilder og extractions
-  const sourcesLoad = await loadYamlMap(null, "data/sources", source, root);
-  const extractionsLoad = await loadYamlMap(null, "data/extractions", publicationExtraction, root);
+  let sourcesMap: Map<string, Source>;
+  let extractionsMap: Map<string, PublicationExtraction>;
 
-  const allInitErrors = [...sourcesLoad.errors, ...extractionsLoad.errors];
-  if (allInitErrors.length > 0) {
-    throw new Error(
-      `Skjema-/lastefeil under innlesing av kildedata:\n${allInitErrors.map((e) => `  ${e.file}: ${e.message}`).join("\n")}`,
-    );
+  if (context?.sourcesMap && context?.extractionsMap) {
+    sourcesMap = context.sourcesMap;
+    extractionsMap = context.extractionsMap;
+  } else {
+    // Last kilder og extractions
+    const sourcesLoad = await loadYamlMap(null, "data/sources", source, root);
+    const extractionsLoad = await loadYamlMap(null, "data/extractions", publicationExtraction, root);
+
+    const allInitErrors = [...sourcesLoad.errors, ...extractionsLoad.errors];
+    if (allInitErrors.length > 0) {
+      throw new Error(
+        `Skjema-/lastefeil under innlesing av kildedata:\n${allInitErrors.map((e) => `  ${e.file}: ${e.message}`).join("\n")}`,
+      );
+    }
+
+    sourcesMap = sourcesLoad.items;
+    extractionsMap = extractionsLoad.items;
   }
-
-  const sourcesMap = sourcesLoad.items;
-  const extractionsMap = extractionsLoad.items;
 
   const explicitSources = options.sources ?? [];
 
