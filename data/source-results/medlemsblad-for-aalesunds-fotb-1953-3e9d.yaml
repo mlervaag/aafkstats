@@ -11,7 +11,7 @@ seasons:
         page: 64
         opponent: Ørsta
         opponentClubId: orsta
-        score: [1, 4]
+        score: [ 1, 4 ]
         competitionId: nm
         round: 1
         note: "NM 1953 1. runde: ÅFK–Ørsta 1–4 på Aksla Stadion."
@@ -19,23 +19,28 @@ seasons:
         page: 64
         opponent: Langevåg
         opponentClubId: langevag
-        score: [1, 0]
+        score: [ 1, 0 ]
         note: "Aksla ILs jubileumsturnering innledende: ÅFK–Langevåg 1–0."
+        resultGroupId: 1953-langevag-1-0
       - no: 3
         page: 64
         opponent: Aksla
         opponentClubId: aksla
-        score: [5, 4]
+        score: [ 5, 4 ]
         note: "Aksla ILs jubileumsturnering finale: ÅFK–Aksla 5–4. ÅFK vinner pokalen."
+        resultGroupId: 1953-aksla-5-4
       - no: 4
         page: 66
         opponent: Langevåg
         opponentClubId: langevag
-        score: [3, 3]
-        note: "Privatkamp på Aksla stadion: ÅFK–Langevåg 3–3. Mål: Jan Larsen (2), Trygve Olsen (1)."
+        score: [ 3, 3 ]
+        note: "Privatkamp på Aksla stadion: ÅFK–Langevåg 3–3. Mål: Jan Larsen (2),
+          Trygve Olsen (1)."
+        resultGroupId: 1953-langevag-3-3
       - no: 5
         page: 83
         opponent: Ørsta
         opponentClubId: orsta
-        score: [3, 1]
+        score: [ 3, 1 ]
         note: "Landsdelsserien: ÅFK–Ørsta 3–1 på Aksla Stadion."
+        resultGroupId: 1953-orsta-3-1

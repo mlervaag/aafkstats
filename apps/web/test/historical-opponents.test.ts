@@ -149,13 +149,13 @@ describe("Historiske motstandernavn og klubbidentiteter", () => {
     // NM 1. runde mot Fremad finnes i begge kilder, men grupperes sammen
     const fremadDoc = unlinked.find((r) => r.key === "nm-1919-fremad-runde-1");
     expect(fremadDoc).toBeDefined();
-    expect(fremadDoc!.claims).toHaveLength(2);
+    expect(fremadDoc!.claims).toHaveLength(3);
     expect(fremadDoc!.opponentClubId).toBe("fremad");
 
     // NM 2. runde mot Braatt/Brått finnes i begge kilder, men grupperes sammen
     const braattDoc = unlinked.find((r) => r.key === "nm-1919-braatt-runde-2");
     expect(braattDoc).toBeDefined();
-    expect(braattDoc!.claims).toHaveLength(2);
+    expect(braattDoc!.claims).toHaveLength(3);
     expect(braattDoc!.opponentClubId).toBe("braatt");
   });
 });

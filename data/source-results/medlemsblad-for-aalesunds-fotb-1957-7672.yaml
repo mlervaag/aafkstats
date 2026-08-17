@@ -11,185 +11,206 @@ seasons:
         page: 44
         opponent: Guard
         opponentClubId: guard
-        score: [1, 0]
+        score: [ 1, 0 ]
         note: "Vårcupen 1957 innledende: ÅFK–Guard 1–0."
+        resultGroupId: 1957-guard-1-0
       - no: 2
         page: 44
         opponent: Spjelkavik
         opponentClubId: spjelkavik
-        score: [2, 0]
+        score: [ 2, 0 ]
         note: "Vårcupen 1957 semifinale: ÅFK–Spjelkavik 2–0."
+        resultGroupId: 1957-spjelkavik-2-0
       - no: 3
         page: 44
         opponent: Rollon
         opponentClubId: rollon
-        score: [2, 1]
+        score: [ 2, 1 ]
         note: "Vårcupen 1957 finale: ÅFK–Rollon 2–1. ÅFK vinner Vårcupen."
+        resultGroupId: 1957-rollon-2-1
       - no: 4
         page: 44
         opponent: Aksla
         opponentClubId: aksla
-        score: [4, 1]
+        score: [ 4, 1 ]
         note: "Privatkamp: ÅFK–Aksla 4–1."
+        resultGroupId: 1957-aksla-4-1
       - no: 5
         page: 44
         opponent: Rollon
         opponentClubId: rollon
-        score: [4, 1]
+        score: [ 4, 1 ]
         note: "Privatkamp: ÅFK–Rollon 4–1."
       - no: 6
         page: 44
         opponent: Aksla
         opponentClubId: aksla
-        score: [2, 2]
+        score: [ 2, 2 ]
         note: "Privatkamp: ÅFK–Aksla 2–2."
       - no: 7
         page: 44
         opponent: Aksla
         opponentClubId: aksla
-        score: [2, 1]
+        score: [ 2, 1 ]
         note: "Privatkamp: ÅFK–Aksla 2–1."
+        resultGroupId: 1957-aksla-2-1
       - no: 8
         page: 44
         opponent: Rollon
         opponentClubId: rollon
-        score: [2, 2]
+        score: [ 2, 2 ]
         note: "Privatkamp: ÅFK–Rollon 2–2."
       - no: 9
         page: 44
         opponent: Stranda
         opponentClubId: stranda
-        score: [5, 3]
+        score: [ 5, 3 ]
         note: "Privatkamp borte: Stranda–ÅFK 3–5."
+        resultGroupId: 1957-stranda-5-3
       - no: 10
         page: 44
         opponent: Westbahn Linz
         opponentClubId: westbahn-linz
-        score: [0, 1]
+        score: [ 0, 1 ]
         date: 1957-07-28
         matchId: 1957-07-28-aalesunds-fk-westbahn-linz
-        note: "Internasjonal privatkamp: ÅFK–Westbahn Linz (Østerrike) 0–1 på Aksla stadion, 2 500 tilskuere."
+        note: "Internasjonal privatkamp: ÅFK–Westbahn Linz (Østerrike) 0–1 på Aksla
+          stadion, 2 500 tilskuere."
       - no: 11
         page: 44
         opponent: Spjelkavik
         opponentClubId: spjelkavik
-        score: [2, 2]
+        score: [ 2, 2 ]
         note: "Privatkamp: ÅFK–Spjelkavik 2–2."
+        resultGroupId: 1957-spjelkavik-2-2
       - no: 12
         page: 44
         opponent: Guard
         opponentClubId: guard
-        score: [11, 1]
+        score: [ 11, 1 ]
         note: "Herds sommercup innledende: ÅFK–Guard 11–1."
+        resultGroupId: 1957-guard-11-1
       - no: 13
         page: 44
         opponent: Herd
         opponentClubId: herd
-        score: [0, 1]
+        score: [ 0, 1 ]
         note: "Herds sommercup: ÅFK–Herd 0–1."
+        resultGroupId: 1957-herd-0-1
       - no: 14
         page: 44
         opponent: Eid
         opponentClubId: eid-il
-        score: [1, 2]
+        score: [ 1, 2 ]
         competitionId: nm
         round: 1
         note: "NM 1957 1. runde: Eid–ÅFK 2–1 e.e.o. på Nordfjordeid."
+        resultGroupId: nm-1957-eid-il-runde-1
       - no: 15
         page: 44
         opponent: Hødd
         opponentClubId: hodd
-        score: [2, 0]
+        score: [ 2, 0 ]
         competitionId: forstedivisjon
         note: "Landsdelsserien Møre 1956/57 (vår): ÅFK–Hødd 2–0."
+        resultGroupId: forstedivisjon-1957-hodd-2-0
       - no: 16
         page: 44
         opponent: Framtid
         opponentClubId: framtid
-        score: [0, 0]
+        score: [ 0, 0 ]
         competitionId: forstedivisjon
         note: "Landsdelsserien Møre 1956/57 (vår): Framtid–ÅFK 0–0."
+        resultGroupId: forstedivisjon-1957-framtid-0-0
       - no: 17
         page: 44
         opponent: Molde
         opponentClubId: molde-fk
-        score: [1, 3]
+        score: [ 1, 3 ]
         competitionId: forstedivisjon
         note: "Landsdelsserien Møre 1956/57 (vår): ÅFK–Molde 1–3."
+        resultGroupId: forstedivisjon-1957-molde-fk-1-3
       - no: 18
         page: 44
         opponent: KFK
         opponentClubId: kfk
-        score: [0, 2]
+        score: [ 0, 2 ]
         competitionId: forstedivisjon
         note: "Landsdelsserien Møre 1956/57 (vår): KFK–ÅFK 2–0."
       - no: 19
         page: 44
         opponent: Langevåg
         opponentClubId: langevag
-        score: [2, 2]
+        score: [ 2, 2 ]
         competitionId: forstedivisjon
         note: "Landsdelsserien Møre 1956/57 (vår): ÅFK–Langevåg 2–2."
       - no: 20
         page: 44
         opponent: KFK
         opponentClubId: kfk
-        score: [0, 2]
+        score: [ 0, 2 ]
         competitionId: forstedivisjon
         note: "Landsdelsserien Møre 1957/58 (høst): ÅFK–KFK 0–2."
       - no: 21
         page: 44
         opponent: Langevåg
         opponentClubId: langevag
-        score: [0, 2]
+        score: [ 0, 2 ]
         competitionId: forstedivisjon
         note: "Landsdelsserien Møre 1957/58 (høst): Langevåg–ÅFK 2–0."
+        resultGroupId: forstedivisjon-1957-langevag-0-2
       - no: 22
         page: 44
         opponent: Rollon
         opponentClubId: rollon
-        score: [0, 0]
+        score: [ 0, 0 ]
         competitionId: forstedivisjon
         note: "Landsdelsserien Møre 1957/58 (høst): ÅFK–Rollon 0–0."
       - no: 23
         page: 44
         opponent: Braatt
         opponentClubId: braatt
-        score: [4, 1]
+        score: [ 4, 1 ]
         competitionId: forstedivisjon
         note: "Landsdelsserien Møre 1957/58 (høst): Braatt–ÅFK 1–4 i Kristiansund."
+        resultGroupId: forstedivisjon-1957-braatt-4-1
       - no: 24
         page: 44
         opponent: Hødd
         opponentClubId: hodd
-        score: [2, 2]
+        score: [ 2, 2 ]
         competitionId: forstedivisjon
         note: "Landsdelsserien Møre 1957/58 (høst): ÅFK–Hødd 2–2."
+        resultGroupId: forstedivisjon-1957-hodd-2-2
       - no: 25
         page: 44
         opponent: Spjelkavik
         opponentClubId: spjelkavik
-        score: [1, 0]
+        score: [ 1, 0 ]
         competitionId: forstedivisjon
         note: "Landsdelsserien Møre 1957/58 (høst): ÅFK–Spjelkavik 1–0."
+        resultGroupId: forstedivisjon-1957-spjelkavik-1-0
       - no: 26
         page: 44
         opponent: Clausenengen
         opponentClubId: clausenengen
-        score: [1, 3]
+        score: [ 1, 3 ]
         competitionId: forstedivisjon
         note: "Landsdelsserien Møre 1957/58 (høst): Clausenengen–ÅFK 3–1."
+        resultGroupId: forstedivisjon-1957-clausenengen-1-3
       - no: 27
         page: 44
         opponent: KFK
         opponentClubId: kfk
-        score: [1, 2]
+        score: [ 1, 2 ]
         competitionId: forstedivisjon
         note: "Landsdelsserien Møre 1957/58 (høst): KFK–ÅFK 2–1."
+        resultGroupId: forstedivisjon-1957-kfk-1-2
       - no: 28
         page: 44
         opponent: Langevåg
         opponentClubId: langevag
-        score: [3, 1]
+        score: [ 3, 1 ]
         competitionId: forstedivisjon
         note: "Landsdelsserien Møre 1957/58 (høst): ÅFK–Langevåg 3–1."
+        resultGroupId: forstedivisjon-1957-langevag-3-1

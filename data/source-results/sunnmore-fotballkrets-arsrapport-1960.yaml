@@ -9,49 +9,55 @@ seasons:
       - no: 1
         opponent: Herd
         opponentClubId: herd
-        score: [2, 3]
+        score: [ 2, 3 ]
         competitionId: nm
         round: 1
         extraTime: true
         matchId: null
-        note: Norgesmesterskapet 1960, 1. runde (Herd–Aalesund fk. 3–2 e.o.). Årsrapporten dokumenterer ikke sikker kampdato.
+        note: Norgesmesterskapet 1960, 1. runde (Herd–Aalesund fk. 3–2 e.o.).
+          Årsrapporten dokumenterer ikke sikker kampdato.
+        resultGroupId: nm-1960-herd-runde-1
       - no: 2
         page: 10
         opponent: Herd
         opponentClubId: herd
-        score: [1, 0]
+        score: [ 1, 0 ]
         competitionId: null
         matchId: null
         note: Sunnmørscupen 1960, avdeling VI (AAFK–Herd 1–0).
+        resultGroupId: 1960-herd-1-0
       - no: 3
         page: 10
         opponent: Valder
         opponentClubId: valder
-        score: [3, 0]
+        score: [ 3, 0 ]
         competitionId: null
         matchId: null
         note: Sunnmørscupen 1960, avdeling VI (Valder–AAFK 0–3).
+        resultGroupId: 1960-valder-3-0
       - no: 4
         page: 10
         opponent: Langevåg
         opponentClubId: langevag
-        score: [4, 1]
+        score: [ 4, 1 ]
         competitionId: null
         matchId: null
         note: Sunnmørscupen 1960, avdeling VI (AAFK–Langevåg 4–1).
+        resultGroupId: 1960-langevag-4-1
       - no: 5
         page: 10
         opponent: Spjelkavik
         opponentClubId: spjelkavik
-        score: [3, 0]
+        score: [ 3, 0 ]
         competitionId: null
         matchId: null
         note: Sunnmørscupen 1960, avdeling V/VI (Spjelkavik–AAFK 0–3).
+        resultGroupId: 1960-spjelkavik-3-0
       - no: 6
         page: 10
         opponent: V.R.F.
         opponentClubId: velledalen-ringen
-        score: [8, 3]
+        score: [ 8, 3 ]
         competitionId: null
         matchId: null
         note: Sunnmørscupen 1960, semifinale (VRF–AAFK 3–8).
@@ -59,7 +65,8 @@ seasons:
         page: 10
         opponent: Hødd
         opponentClubId: hodd
-        score: [1, 0]
+        score: [ 1, 0 ]
         competitionId: null
         matchId: null
         note: Finale i Sunnmørscupen 1960 (AAFK–HÖDD 1–0).
+        resultGroupId: 1960-hodd-1-0

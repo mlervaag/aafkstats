@@ -252,13 +252,13 @@ describe("uavklarte historiske resultater og resultatgrupper", () => {
 
     // NM-kampene fra 1920 har resultGroupId og grupperes
     const nmGroups = season!.sourceResults.filter((r) => r.resultGroupId?.startsWith("nm-1920-"));
-    expect(nmGroups.length).toBe(6); // 3 fra NFF + 3 fra 25-årsboka
+    expect(nmGroups.length).toBe(9); // 3 fra NFF + 3 fra 25-årsboka + 3 fra 1965-medlemsbladet
 
     const unlinked = groupUnlinkedResults(season!.sourceResults);
     const nmUnlinked = unlinked.filter((u) => u.key.startsWith("nm-1920-"));
     expect(nmUnlinked).toHaveLength(3);
     for (const u of nmUnlinked) {
-      expect(u.claims.length).toBe(2);
+      expect(u.claims.length).toBe(3);
       expect(u.agreement).toBe("sources_agree");
     }
   });
@@ -320,7 +320,7 @@ describe("uavklarte historiske resultater og resultatgrupper", () => {
     const unlinked = groupUnlinkedResults(season!.sourceResults);
     const kfkNm = unlinked.find((u) => u.key === "nm-1918-kfk-runde-1");
     expect(kfkNm).toBeDefined();
-    expect(kfkNm?.claims).toHaveLength(2);
+    expect(kfkNm?.claims).toHaveLength(3);
     expect(kfkNm?.opponentClubId).toBe("kfk");
   });
 });
