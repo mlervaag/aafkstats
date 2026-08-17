@@ -119,6 +119,25 @@ Tilliten i fordelingen er marginen til nest beste løsning, ikke summen av
 enkeltsignaler. To fordelinger på 190 og 188 poeng er ikke et sikkert svar,
 uansett hvor sterke enkeltkantene er.
 
+## Berikelse med spredning i tid
+
+Hvilke utgaver som får OCR-oppslag avgjør hvilke hendelser som i det hele tatt
+kan bygges. Tar man de N beste i året, blir sesongen dublert der den allerede er
+godt dekket, og tynn der den er tynn.
+
+Derfor velges to kandidater i hver måned først, og deretter fylles budsjettet
+opp etter styrke. Budsjettet vokser med antall kamper i gruppen: skal to kamper
+skilles, må discovery finne minst to hendelser. Blir fordelingen likevel usikker,
+utvides berikelsen rundt de månedene som er i spill — de tildelte hendelsene og
+de som konkurrerte om å bli det, med nabomånedene.
+
+Én per måned var for tynt: en måned har rundt tjuefem utgaver, og kampreferatet
+er ikke alltid den best rangerte av dem etter det grove søket. Med bare én per
+måned falt riktig juniutgave ut, og Raufoss-kampen mistet datoen sin igjen.
+
+Vinduene styrer bare hvilke utgaver som leses, aldri hva som regnes som bevis for
+at kampen fant sted.
+
 ## Målt status
 
 Kontrollert mot NB-API-et:
@@ -127,17 +146,21 @@ Kontrollert mot NB-API-et:
 |---|---|---|
 | Clausenengen 1952 #16 | 1952-05-04, confirmed | **1952-05-04, confirmed** |
 | Raufoss 1963 #27 | 1963-06-16, confirmed | **1963-06-16, confirmed** |
-| Raufoss 1963 #30 | egen hendelse | **egen hendelse, ambiguous** |
+| Raufoss 1963 #30 | egen hendelse | **egen hendelse** |
 | Sarpsborg 1948 #10 | 1948-07-16, conflict | 1948-10-17, ambiguous — **feil hendelse** |
 
 Søskeninvarianten holder: de to Raufoss-radene får hver sin hendelse, og
-junikampen dateres ikke lenger til oktober. Det samme gjelder de to
-Clausenengen-radene, der #22 dessuten melder at avisa oppgir 1-1 mot kildens 0-0.
+junikampen dateres ikke lenger til oktober. Clausenengen-søsknene oppfører seg
+likedan, og #22 melder i tillegg at avisa oppgir 1-1 mot kildens 0-0.
 
-Sarpsborg 1948 står igjen. Forhåndsomtalene 15. og 16. juli finnes i materialet —
-«morgendagens fotballkamp» og «kveldens kamp» — men en oktoberhendelse vinner
-fordelingen, og julihendelsen blir aldri bygget fordi de aktuelle utgavene ikke
-kommer med i berikelsen. Det er et spørsmål om hvilke utgaver som får OCR-oppslag,
-ikke om avstemmingen: mates julitekstene inn direkte, gir de riktig dato og riktig
-konflikt (se testene). Neste steg er å berike ut fra hele årets kandidatsett i
-stedet for de N beste, eller å bruke sesongvinduer slik `nb-newspaper-batch` gjør.
+Sarpsborg 1948 står fortsatt igjen, og spredningen i tid løste det ikke.
+Trengselen er inne i juli, ikke mellom månedene: Sarpsborg FK var på turné på
+Møre sommeren 1948 og spilte mot flere klubber i samme uke, så julitreffene
+handler i stor grad om andre kamper. To kandidater i måneden er ikke nok når
+måneden er full av samme motstander mot andre lag. Neste steg er å la
+utvelgelsen vekte AaFK-nærhet sterkere innenfor måneden, ikke bare på tvers av
+dem.
+
+Avstemmingen er verifisert uavhengig av dette: mates julitekstene inn direkte,
+gir de 1948-07-16 og `conflict` med kildens 1-0 mot avisas 2-1
+(`packages/ingest/test/nb-newspaper-discovery.test.ts`).
