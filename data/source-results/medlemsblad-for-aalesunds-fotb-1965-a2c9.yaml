@@ -217,8 +217,9 @@ seasons:
     page: 8
     opponent: Brage, Tr.heim
     score: [1, 2]
-    opponentClubId: brage
-    note: trykt «AFK—Brage, Tr.heim, 1—2».
+    note: >-
+      trykt «AFK—Brage, Tr.heim, 1—2». Ikke koblet til klubb: Sportsklubben Brage hører til Drammen,
+      og kildens stedsangivelse Trondheim motsier koblingen.
   - no: 4
     page: 8
     opponent: Rollon
@@ -690,14 +691,16 @@ seasons:
     page: 9
     opponent: Brage, Tr.heim
     score: [5, 0]
-    opponentClubId: brage
-    note: trykt «ÅFK—Brage, Tr.heim, 5—0».
+    note: >-
+      trykt «ÅFK—Brage, Tr.heim, 5—0». Ikke koblet til klubb: Sportsklubben Brage hører til Drammen,
+      og kildens stedsangivelse Trondheim motsier koblingen.
   - no: 8
     page: 9
     opponent: Brage, Tr.heim
     score: [4, 2]
-    opponentClubId: brage
-    note: trykt «ÅFK—Brage, Tr.heim, 4—2».
+    note: >-
+      trykt «ÅFK—Brage, Tr.heim, 4—2». Ikke koblet til klubb: Sportsklubben Brage hører til Drammen,
+      og kildens stedsangivelse Trondheim motsier koblingen.
   - no: 9
     page: 9
     opponent: KFK
@@ -1270,8 +1273,9 @@ seasons:
     page: 9
     opponent: Brage, Tr.heim
     score: [3, 4]
-    opponentClubId: brage
-    note: trykt «ÅFK—Brage, Tr.heim, 3—4».
+    note: >-
+      trykt «ÅFK—Brage, Tr.heim, 3—4». Ikke koblet til klubb: Sportsklubben Brage hører til Drammen,
+      og kildens stedsangivelse Trondheim motsier koblingen.
   - no: 12
     page: 9
     opponent: Stavanger IF
@@ -1363,8 +1367,9 @@ seasons:
     page: 10
     opponent: Brage, Tr.heim
     score: [0, 2]
-    opponentClubId: brage
-    note: trykt «ÅFK—Brage, Tr.heim, 0—2».
+    note: >-
+      trykt «ÅFK—Brage, Tr.heim, 0—2». Ikke koblet til klubb: Sportsklubben Brage hører til Drammen,
+      og kildens stedsangivelse Trondheim motsier koblingen.
   - no: 5
     page: 10
     opponent: Tr.heim Bylag
@@ -1843,8 +1848,9 @@ seasons:
     page: 10
     opponent: Brage, Tr.heim
     score: [1, 1]
-    opponentClubId: brage
-    note: trykt «ÅFK—Brage, Tr.heim, 1—1».
+    note: >-
+      trykt «ÅFK—Brage, Tr.heim, 1—1». Ikke koblet til klubb: Sportsklubben Brage hører til Drammen,
+      og kildens stedsangivelse Trondheim motsier koblingen.
   - no: 15
     page: 10
     opponent: Nydalen
@@ -2019,8 +2025,9 @@ seasons:
     page: 10
     opponent: Brage, Tr.heim
     score: [5, 3]
-    opponentClubId: brage
-    note: Cupen. bortekamp. trykt «ÅFK—Brage, Tr.heim,* 5—3».
+    note: >-
+      Cupen. bortekamp. trykt «ÅFK—Brage, Tr.heim,* 5—3». Ikke koblet til klubb: Sportsklubben Brage hører til Drammen,
+      og kildens stedsangivelse Trondheim motsier koblingen.
   - no: 26
     page: 10
     opponent: Lyn, Gjøvik
@@ -4169,8 +4176,10 @@ seasons:
     page: 14
     opponent: Måløy
     score: [3, 2]
-    opponentClubId: tornado-maloy
-    note: bortekamp. trykt «ÅFK—Måløy* 3—2».
+    note: >-
+      bortekamp. trykt «ÅFK—Måløy* 3—2». Ikke koblet til klubb: Måløy IL og Tornado Måløy er to
+      forskjellige klubber, og entiteten tornado-maloy dokumenterer ingen historisk
+      navneform «Måløy».
   - no: 35
     page: 14
     opponent: Herd
@@ -4662,8 +4671,10 @@ seasons:
     page: 15
     opponent: Måløy
     score: [4, 1]
-    opponentClubId: tornado-maloy
-    note: bortekamp. trykt «ÅFK—Måløy* 4—1».
+    note: >-
+      bortekamp. trykt «ÅFK—Måløy* 4—1». Ikke koblet til klubb: Måløy IL og Tornado Måløy er to
+      forskjellige klubber, og entiteten tornado-maloy dokumenterer ingen historisk
+      navneform «Måløy».
   - no: 7
     page: 15
     opponent: Langevåg
@@ -5519,8 +5530,10 @@ seasons:
     page: 16
     opponent: Måløy
     score: [2, 1]
-    opponentClubId: tornado-maloy
-    note: Cupen. trykt «ÅFK—Måløy 2—1».
+    note: >-
+      Cupen. trykt «ÅFK—Måløy 2—1». Ikke koblet til klubb: Måløy IL og Tornado Måløy er to
+      forskjellige klubber, og entiteten tornado-maloy dokumenterer ingen historisk
+      navneform «Måløy».
   - no: 28
     page: 16
     opponent: Freidig
@@ -6132,7 +6145,10 @@ seasons:
   - page: 45
     opponent: Måløy
     score: [4, 1]
-    note: 'Stranda-turneringen: ÅFK–Måløy 4–1. Turneringskamp, borte. Måløy-kampen var finalen (skann 44). Ingen dato i kilden.'
+    note: >-
+      'Stranda-turneringen: ÅFK–Måløy 4–1. Turneringskamp, borte. Måløy-kampen var finalen (skann 44). Ingen dato i kilden.' Ikke koblet til klubb: Måløy IL og Tornado Måløy er to
+      forskjellige klubber, og entiteten tornado-maloy dokumenterer ingen historisk
+      navneform «Måløy».
     no: 20
   - page: 45
     opponent: Bodø-Glimt

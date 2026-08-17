@@ -107,4 +107,59 @@ describe("Medlemsblad 1965 (Vol. 16 nr. 1–6)", () => {
     expect(valerenga?.away.score).toBe(1);
     expect(valerenga?.sources?.some((s) => s.sourceId === SOURCE_ID)).toBe(true);
   });
+
+  it("kobler ikke Måløy til Tornado Måløy, og ikke Brage i Trondheim til Sportsklubben Brage", () => {
+    const rows = (archive.sourceResults.find((c) => c.sourceId === SOURCE_ID)?.seasons ?? [])
+      .flatMap((s) => s.results);
+
+    // Måløy IL og Tornado Måløy er to forskjellige klubber, og entiteten
+    // dokumenterer ingen historisk navneform «Måløy».
+    const maloy = rows.filter((r) => r.opponent === "Måløy");
+    expect(maloy.length).toBeGreaterThan(0);
+    expect(maloy.every((r) => r.opponentClubId === null)).toBe(true);
+
+    // Sportsklubben Brage hører til Drammen; kildens stedsangivelse motsier
+    // koblingen. «Brage» uten sted står fortsatt koblet.
+    const brageTrondheim = rows.filter((r) => r.opponent === "Brage, Tr.heim");
+    expect(brageTrondheim.length).toBeGreaterThan(0);
+    expect(brageTrondheim.every((r) => r.opponentClubId === null)).toBe(true);
+    expect(rows.some((r) => r.opponent === "Brage" && r.opponentClubId === "brage")).toBe(true);
+  });
+
+  it("kobler bare motstandere som treffer en dokumentert navneform på klubben", () => {
+    const rows = (archive.sourceResults.find((c) => c.sourceId === SOURCE_ID)?.seasons ?? [])
+      .flatMap((s) => s.results);
+    const normalize = (value: string) =>
+      value
+        .normalize("NFKD")
+        .replace(/\p{Diacritic}/gu, "")
+        .toLowerCase()
+        .replace(/ø/gu, "o")
+        .replace(/æ/gu, "a")
+        .replace(/å/gu, "a")
+        .replace(/[^a-z0-9]/gu, "");
+
+    // Stedsangivelse og foreningsledd er godtatte avvik; alt annet skal treffe.
+    const accepted = new Set(["eid", "djerv", "kvik", "sverrelevanger"]);
+    const suspicious: string[] = [];
+
+    for (const row of rows) {
+      if (!row.opponentClubId || !row.opponent) continue;
+      const club = archive.clubs.find((c) => c.id === row.opponentClubId);
+      expect(club, `ukjent klubb ${row.opponentClubId}`).toBeDefined();
+      const nameForms = [
+        club!.name,
+        club!.shortName,
+        ...(club!.names ?? []),
+        ...(club!.nameVariants ?? []),
+      ].flatMap((value) => (typeof value === "string" ? [value] : []));
+      const forms = new Set(nameForms.map((value) => normalize(value)));
+      const printed = normalize(row.opponent);
+      const base = normalize(row.opponent.split(",")[0]!);
+      if (forms.has(printed) || forms.has(base) || accepted.has(base)) continue;
+      suspicious.push(`${row.opponent} → ${row.opponentClubId}`);
+    }
+
+    expect([...new Set(suspicious)]).toEqual([]);
+  });
 });

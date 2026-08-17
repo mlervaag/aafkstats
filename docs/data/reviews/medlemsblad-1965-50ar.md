@@ -11,6 +11,7 @@ ikke er.
 | Batch | `medlemsblad-1965` |
 | Oppføringer normalisert | 995, fordelt på 46 sesonger (1915–1964) |
 | Oppføringer utelatt | 6 |
+| Med klubbkobling | 864 av 1031 i filen |
 | Datoer i kilden | ingen |
 
 ---
@@ -140,13 +141,42 @@ Et resultat ingen kan lese er ingen kildepåstand. De står her i stedet.
 
 ## 6. Klubbidentitet
 
-874 av 1031 oppføringer i filen har fått `opponentClubId`. De øvrige står med
-trykt navn og uten klubbkobling — blant dem motstandere som ikke finnes i
+**864 av 1031** oppføringer i filen har `opponentClubId`. De øvrige står med trykt
+navn og uten klubbkobling — blant dem motstandere som ikke finnes i
 klubbkatalogen (Smart, Nordlandet, Veblungsnes, Dr. Ballklubb, VRF, Hardy) og
-utenlandske gjestelag. Ingen kobling er gjort på navnelikhet alene.
+utenlandske gjestelag.
+
+### Audit av koblingene
+
+Alle koblinger er kontrollert mot klubbenes dokumenterte navneformer
+(`name`, `shortName`, `names`, `nameVariants`):
+
+| Kategori | Rader |
+|---|---:|
+| Eksakt treff på dokumentert navneform | 816 |
+| Trykt navn med stedsangivelse, grunnnavnet treffer | 20 |
+| Kjent forkortelse eller foreningsledd (Eid → Eid IL, Djerv Bergen → Djerv 1919, Kvik Tr.heim → Kvik (Trondheim), Sverre Levanger → Sverre) | 18 |
+| **Koblet fra etter audit** | **10** |
+
+To grupper er koblet fra fordi kilden ikke bærer koblingen:
+
+- **«Måløy» (3 rader, 1955–1962).** Koblet til `tornado-maloy`, men Måløy IL og
+  Tornado Måløy er to forskjellige klubber — NFF fører dem som separate lag i
+  samme avdeling så sent som i 2002. Entiteten dokumenterer ingen historisk
+  navneform «Måløy». Oppføringene står nå med trykt navn og uten klubbkobling.
+  En egen entitet for Måløy IL kan opprettes når identiteten kan dokumenteres;
+  et navn i en retrospektiv liste er ikke nok.
+- **«Brage, Tr.heim» (7 rader, 1919–1935).** Koblet til `brage`, altså
+  Sportsklubben Brage, som hører til Drammen. Kildens egen stedsangivelse
+  motsier koblingen. De tre radene der kilden bare skriver «Brage», uten sted,
+  står fortsatt koblet — det er den navneformen entiteten dokumenterer.
+
+Lærdommen er at bulk-tilordning av klubbidentitet må auditeres mot dokumenterte
+navneformer, ikke bare mot normalisert navnelikhet. Måløy passerte
+navnelikhetstesten og var likevel feil.
 
 ## 7. Kontroller
 
-- `pnpm validate` → grønn, 1764 kildedokumenterte resultater (opp fra 769).
+- `pnpm validate` → grønn, 1777 kildedokumenterte resultater i arkivet.
 - `pnpm data:historical-harvest:check --batch medlemsblad-1965` → PASS.
 - `pnpm data:historical-preservation` → PASS, 0 destruktive endringer.

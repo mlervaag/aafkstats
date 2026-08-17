@@ -35,13 +35,20 @@ kontrollidentitet, og arkivets praksis for 1962 er gjennomgående paginering.
 |---|---|
 | Sources i scope / reviewed | 1/1 |
 | Sider visuelt kontrollert | 56/56 (100 %) |
-| Sider uten relevante funn | 13 (annonse- og tomsider, åpnet og notert) |
+| Sider uten relevante funn | 9 (annonse- og forsidesider, åpnet og notert) |
+| Kildepåstander normalisert | 1031 (995 fra skann 8–16, 36 fra skann 45) |
 
 ### Side-for-side-logg
 
 Hver av de 56 skannede sidene er åpnet enkeltvis. Tabellen er loggen: hva som
 står på siden, og hvilke funn den ga. Sider uten klubbstoff står med «ingen
 relevante funn» — de er lest, ikke hoppet over, og de teller i dekningen.
+
+Skann 8–16 er den store statistikkoppstillingen «Våre kamper gjennom 50 år».
+Antallet kilderesultater per side er det som faktisk står i
+`data/source-results/`. Metodikken, dobbeltlesingen og avstemmingen for de
+sidene er dokumentert i
+[`medlemsblad-1965-50ar.md`](medlemsblad-1965-50ar.md).
 
 | Skann | Innhold | Funn |
 |---:|---|---|
@@ -52,15 +59,15 @@ relevante funn» — de er lest, ikke hoppet over, og de teller i dekningen.
 | 5 | Oversatt/generell artikkel «En oppmanns første bud: Vær aldri diktatorisk!» (bygger på erfaringer fra Highbury/engelsk proffklubb). Intet klubbstoff. | ingen relevante funn |
 | 6 | Kolofon (redaktør Helge Stavik m.fl.), Redaktørens spalte, notiser (klubbmerke, klubbhusets telefon, bladets postadresse), «Takk Harald» (Harald Nord takker av etter 15 år), Terminliste vår/høst 1965, notis om Harald Johansen 150 A-kamper, notis om Einar Aas som keepertrener, fortsettelse av «Bare dommeren var møtt fram». | historical_observation, organization, person_role ×8 |
 | 7 | Karsten Vadseth: «Bare dommeren var møtt fram» — tilbakeblikk på kretsfinale i klasse C mot Stranda våren/sommeren 1949. Stort foto. | person, person_role ×2, retrospective_claim ×2 |
-| 8 | Start på den store statistikkoppstillingen «Våre kamper gjennom 50 år». Resultatliste 1915(?)–1924 (uten datoer). Annonser topp/bunn. | historical_observation |
-| 9 | Resultatliste, fortsettelse 1924–1930. | ingen relevante funn |
-| 10 | Resultatliste, fortsettelse 1930–1936. | ingen relevante funn |
-| 11 | Resultatliste, fortsettelse 1936–1946 (inkl. krigsårene/1940 og 1945). | ingen relevante funn |
-| 12 | Resultatliste, fortsettelse 1946–1950. | ingen relevante funn |
-| 13 | Resultatliste, fortsettelse 1950-1954. Annonser topp (Trygd forsikring, Ålesunds Elektrisitetsverk) og bunn (Knut A. Larsen, Borgund Sparebank). NB: siden er trykt med sidetallet «15», ikke 13. | historical_observation ×2, match_result |
-| 14 | Resultatliste, fortsettelse 1954-1957. Annonser topp (Sunnmøre Meieri, Alfr. Nesset) og bunn (Ålesund Samvirkelag, Parkgatens Bensinstasjon). Trykt sidetall 14. | match_result |
-| 15 | Resultatliste, fortsettelse 1957-1961. Annonse bunn (Aalesunds Sparebank). Trykt sidetall 15. | historical_observation |
-| 16 | Resultatliste, avslutning 1961-1964. Tegnforklaring «* betyr bortekamper for ÅFK». Listen slutter med 1964-turneringskampen mot Stranda. Trykt sidetall 16. Siste side i nr. 1/1965. | historical_observation ×4 |
+| 8 | Start på den store statistikkoppstillingen «Våre kamper gjennom 50 år». Resultatliste 1915(?)–1924 (uten datoer). Annonser topp/bunn. | 105 kilderesultater, historical_observation |
+| 9 | Resultatliste, fortsettelse 1924–1930. | 117 kilderesultater |
+| 10 | Resultatliste, fortsettelse 1930–1936. | 127 kilderesultater |
+| 11 | Resultatliste, fortsettelse 1936–1946 (inkl. krigsårene/1940 og 1945). | 114 kilderesultater |
+| 12 | Resultatliste, fortsettelse 1946–1950. | 88 kilderesultater |
+| 13 | Resultatliste, fortsettelse 1950-1954. Annonser topp (Trygd forsikring, Ålesunds Elektrisitetsverk) og bunn (Knut A. Larsen, Borgund Sparebank). NB: siden er trykt med sidetallet «15», ikke 13. | 108 kilderesultater, historical_observation ×2 |
+| 14 | Resultatliste, fortsettelse 1954-1957. Annonser topp (Sunnmøre Meieri, Alfr. Nesset) og bunn (Ålesund Samvirkelag, Parkgatens Bensinstasjon). Trykt sidetall 14. | 101 kilderesultater |
+| 15 | Resultatliste, fortsettelse 1957-1961. Annonse bunn (Aalesunds Sparebank). Trykt sidetall 15. | 111 kilderesultater, historical_observation |
+| 16 | Resultatliste, avslutning 1961-1964. Tegnforklaring «* betyr bortekamper for ÅFK». Listen slutter med 1964-turneringskampen mot Stranda. Trykt sidetall 16. Siste side i nr. 1/1965. | 124 kilderesultater, historical_observation ×4 |
 | 17 | Forside Nr. 2-3, 1965, 16. årgang. Hovedoppslag «Vinker England i det fjerne?» med foto fra landskampen Norge–Jugoslavia (Foto: Tele-Sport). «Kommer ut seks ganger i året. Redigert av en komite.» Stempel Universitetsbiblioteket i Oslo, Aviskontoret. | ingen relevante funn |
 | 18 | «Papir-innsamlingen: Glimrende start — Peder og Co. sier takk til velpakket papir» (Hyttekomitéens dugnad for ny hytte på Ørskogfjellet). Under: «Nye ansikter: Bjarte Remvik — stø senterback på juniorlaget», intervju signert -gren. | historical_observation, organization, person_role, season_fact |
 | 19 | Kjell Berentzen: «Vi på tribunen», del 1 — essay om tribunementalitet, sportsånd og fotballhelter. Portrettfoto av Berentzen, kampfoto nederst. | historical_observation, person_role |
@@ -89,7 +96,7 @@ relevante funn» — de er lest, ikke hoppet over, og de teller i dekningen.
 | 42 | Trykt s. 2. Hovedreferat fra arsmotet 21. november 1965: Stort sett saklige arsmoteforhandlinger. Lovendringer, trenersporsmalet, suspensjonssak, arsberetninger, innledning til valgene. Bilder av Einar Aas, Bjorn Riise, samt Rolf Annaniassen og Asbjorn Rutgersen. | historical_observation, organization ×7, person_role ×2 |
 | 43 | Trykt s. 3. Fullstendig valgliste fra arsmotet; Tre nye solvgutter (150 kamper); intervju En prat med goalgetteren Terje Refsnes; Den ble var! (Hallerpokalen, foto); Nye kretsdommere. | historical_observation ×2, organization ×5, person_role |
 | 44 | Trykt s. 4. Sesongoppsummering A-laget 1965: Resultatmessig jevnt, god sesong for A-laget - 4. runde i cupen og bronse i 3. div. avd. More. Toppfoto fra kamp mot Lisleby der Bror Johansen scorer pa straffespark. | historical_observation ×5, match_result, season_fact |
-| 45 | Trykt s. 5. Jarle Kleive arets AFK-spiller (kaaring 1-2-3), Facts om A-lagets sesong 1965: representasjon, komplett resultatliste (serie, NM cup, turnering, pokal/tippekamper, privatkamper), 3. div. avd. More-tabellen, kamp- og scoringsstatistikk. | historical_observation ×3, match_result ×36, person_role, season_fact ×4 |
+| 45 | Trykt s. 5. Jarle Kleive arets AFK-spiller (kaaring 1-2-3), Facts om A-lagets sesong 1965: representasjon, komplett resultatliste (serie, NM cup, turnering, pokal/tippekamper, privatkamper), 3. div. avd. More-tabellen, kamp- og scoringsstatistikk. | 36 kilderesultater, historical_observation ×3, person_role, season_fact ×4 |
 | 46 | Trykt s. 6. Reidar Skarbovik: Minnenes bok - fortsettelse av 1951-tilbakeblikket (AFK-Rollon og AFK-KFK pa Aksla). Notisen For et medlem! om Jarle Kristoffersen. Notisen Vi vokser! om medlemsutviklingen 1965. | organization, person_role, retrospective_claim ×2 |
 | 47 | Trykt s. 7. Lederartikkel VI KREVER AT: Forstelagsgruppa skal bestaa av 18 mann. Notisen Han Perry om Perry Ystenes. Notisen UNNSKYLD! om manglende vitser fra Paul Urke. Bildesak Boble tilbake i AFK. | historical_observation, organization, person_role |
 | 48 | Trykt s. 8. Aktivitet blant de yngre - full gjennomgang av rekrutt-, smaagutte- og guttelagets sesong 1965 med resultatlister og tabeller. Notisen Hvilken Bjorge? Foto av jublende ungdomslag. | historical_observation, season_fact |
@@ -157,28 +164,36 @@ ikke oppfylt for noen kamp i årgangen.
 
 ## 7. Bevisst uavklart
 
-Tre spor står åpne i manifestets `unresolved`, og er *ikke* normalisert:
+Fire spor står åpne i manifestets `unresolved`, og er *ikke* normalisert:
 
-1. **Personer uten fil.** Jarle Kleive, Kjell Melsæter, Jostein Torset, Asbjørn
-   Hamar, Helge Stavik og Finn Kvello er navngitt med verv eller utmerkelse, men
-   har ingen personfil. De er ikke opprettet her fordi identiteten ikke er
-   avstemt mot eksisterende navneformer, og en falsk sammenslåing er verre enn en
-   manglende kobling. Snapshotet for 1966 er derfor ufullstendig med hensikt, og
-   sier det selv i `note`.
-2. **«Våre kamper gjennom 50 år» (skann 8–16).** Klubbens samlede
-   resultatoppstilling fra 1915 til 1964, uten datoer. Dette er en retrospektiv
-   sekundærframstilling trykt i jubileumsåret, og den må avstemmes mot de
-   årgangsvise primærkildene før den kan bli arkivinnhold. Den er den enkeltvis
-   største uutnyttede ressursen i årgangen.
-3. **Retrospektive kampreferater fra 1940, 1950 og 1951** (skann 22–26 og 46).
-   Reidar Skarbøviks «Minnenes bok» og Finn Tolaas' «Glimt fra året 1940» gir
-   resultater, målscorere og tilskuertall, men ufullstendig datering. De hører
-   hjemme i en gjennomgang av faktumårene, ikke i 1965-batchen.
+1. **Personer uten fil** (`open-001`). Jarle Kleive, Kjell Melsæter, Jostein
+   Torset, Asbjørn Hamar, Helge Stavik og Finn Kvello er navngitt med verv eller
+   utmerkelse, men har ingen personfil. De er ikke opprettet her fordi
+   identiteten ikke er avstemt mot eksisterende navneformer, og en falsk
+   sammenslåing er verre enn en manglende kobling. Snapshotet for 1966 er derfor
+   ufullstendig med hensikt, og sier det selv i `note`.
+2. **Retrospektive kampreferater fra 1940, 1950 og 1951** (`open-003`, skann
+   22–26 og 46). Reidar Skarbøviks «Minnenes bok» og Finn Tolaas' «Glimt fra året
+   1940» gir resultater, målscorere og tilskuertall, men ufullstendig datering.
+   De hører hjemme i en gjennomgang av faktumårene, ikke i 1965-batchen.
+3. **Konflikten mot 1962** (`konf-029`). Se seksjon 4: fire av seks seriekamper
+   høsten 1962 er ført med andre sifre i 50-årslista enn i medlemsbladet fra
+   1962. Begge påstandene står i arkivet, og uenigheten er ikke avgjort.
+4. **Seks uleselige rader** (`uleselig-030`). Tre med skadet siffer og tre
+   walkover-notiser uten navngitt motstander. De er ikke ført som kildepåstander,
+   og er listet i [`medlemsblad-1965-50ar.md`](medlemsblad-1965-50ar.md).
+
+**«Våre kamper gjennom 50 år» er ikke lenger et åpent spor.** Den er innhøstet i
+denne batchen: 995 kildepåstander på 46 sesonger fra 1915 til 1964, normalisert
+under faktumår. Metodikken, dobbeltlesingen, avstemmingen mot arkivet og
+konflikten mot 1962 er dokumentert i sin helhet i
+[`medlemsblad-1965-50ar.md`](medlemsblad-1965-50ar.md).
 
 ## 8. Kontroller
 
 - `pnpm data:historical-harvest:check --batch medlemsblad-1965` → PASS
-  (56/56 sider, 27 funn, 24 normaliserte, 3 uavklarte, 0 destruktive endringer).
+  (56/56 sider, 32 funn, 28 normaliserte, 4 uavklarte, 0 destruktive endringer).
+- `pnpm validate` → grønn, 1777 kildedokumenterte resultater i arkivet.
 - Batchen står som `status: normalized`, ikke `complete`: sidedekningen er
-  fullstendig og funnene er normalisert, men de tre sporene over er bevisst
+  fullstendig og funnene er normalisert, men de fire sporene over er bevisst
   latt stå åpne.
