@@ -1,0 +1,23 @@
+id: per-solbakk
+name: Per Solbakk
+roles:
+  - id: materialforvalter-1952
+    category: sporting_staff
+    title: Materialforvalter
+    from: "1952"
+    to: "1952"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+        page: "80"
+  - id: kasserer-gutteavdelingen-1952
+    category: administration
+    title: Kasserer
+    body: Gutteavdelingen
+    from: "1952"
+    to: "1952"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+        page: "81"
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    page: "80"

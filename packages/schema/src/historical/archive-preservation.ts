@@ -1,5 +1,5 @@
 import type { PreservationException } from "../preservation-exceptions.js";
-import type { PreservationChangeDetail, PreservationStatus } from "./preservation.js";
+import { isUnicodeRepair, type PreservationChangeDetail, type PreservationStatus } from "./preservation.js";
 
 /**
  * Arkivdomener som er omfattet av det generelle bevaringsvernet.
@@ -46,9 +46,14 @@ export const ARCHIVE_DOMAIN_SPECS: ArchiveDomainSpec[] = [
  * Nøkler som brukes til å pare opp elementer i lister av objekter, i prioritert
  * rekkefølge. Arkivet bruker ulike identifikatorer per entitetstype: `id` for
  * kamper og observasjoner, `no` for enkeltresultater i en source-result-sesong,
- * `year` for sesongblokker, `sourceId` for kildereferanser.
+ * `year` for sesongblokker, `sourceId` for kildereferanser, `providerId` for
+ * leverandørreferanser (`providers[]` på kamper, tabeller og personer).
+ *
+ * Uten `providerId` her blir en leverandørreferanse paret på eksakt form, og
+ * enhver oppdatering av `retrievedAt` eller `fields` — nøyaktig det en ny
+ * innhøsting alltid gjør — ser ut som at hele referansen er fjernet.
  */
-const LIST_ITEM_KEYS = ["id", "no", "year", "sourceId", "personId", "date"] as const;
+const LIST_ITEM_KEYS = ["id", "no", "year", "sourceId", "personId", "providerId", "date"] as const;
 
 /**
  * Sjekker om en verdi teller som «tom» — altså om overgangen fra den til en
@@ -102,12 +107,43 @@ function compositeIdentity(item: Record<string, unknown>, identity: { key: strin
   if (identity.key === "sourceId" && item.page !== undefined && item.page !== null) {
     return `${identity.value}:${String(item.page).trim()}`;
   }
+  if (identity.key === "personId" && (item.observedTitle !== undefined || item.body !== undefined)) {
+    const parts = [identity.value];
+    if (item.body !== undefined && item.body !== null) parts.push(String(item.body).trim());
+    if (item.observedTitle !== undefined && item.observedTitle !== null) parts.push(String(item.observedTitle).trim());
+    return parts.join(":");
+  }
   return identity.value;
 }
 
 export interface StructuralDiffOptions {
   /** Maksimal dybde. Beskytter mot patologisk dype YAML-trær. */
   maxDepth?: number;
+  /** Domenet posten hører til. Styrer hvilke feltspesifikke unntak som gjelder. */
+  domain?: ArchiveDomain;
+}
+
+/**
+ * `retrievedAt` på en leverandør- eller kildereferanse sier når vi sist så
+ * etter, ikke hva vi fant. Den skal oppdateres hver gang kilden hentes på
+ * nytt — det er hele poenget med feltet — og er derfor aldri i seg selv tap
+ * av historisk informasjon, uansett hvilket arkivdomene den står i.
+ */
+function isProviderRetrievedAtRefresh(path: string): boolean {
+  return path === "retrievedAt" || path.endsWith("/retrievedAt");
+}
+
+/**
+ * Statusovergangene en kamp kan gjøre uten at noe går tapt: fra `scheduled`
+ * til et hvilket som helst utfall kilden har konkludert med. Motsatt vei —
+ * eller mellom to konkluderte statuser — er nettopp den typen stille
+ * overskriving bevaringsvernet finnes for å fange, og skal fortsatt stanses.
+ */
+const MATCH_STATUS_OUTCOMES = new Set(["played", "abandoned", "awarded", "cancelled", "postponed"]);
+
+function isMatchStatusOutcome(domain: ArchiveDomain | undefined, path: string, baseValue: unknown, headValue: unknown): boolean {
+  if (domain !== "match" || path !== "/status") return false;
+  return baseValue === "scheduled" && typeof headValue === "string" && MATCH_STATUS_OUTCOMES.has(headValue);
 }
 
 interface StructuralRemoval {
@@ -258,6 +294,19 @@ export function diffStructuralAdditivity(
 
   // Skalar: enhver endring av en ikke-tom verdi er tap av informasjon.
   if (stableKey(baseValue) !== stableKey(headValue)) {
+    if (typeof baseValue === "string" && typeof headValue === "string" && isUnicodeRepair(baseValue, headValue)) {
+      // Ren tegnkodingsretting av \uFFFD til gyldig UTF-8
+      return out;
+    }
+    if (isProviderRetrievedAtRefresh(path)) {
+      // En ny hentedato alene er ikke en endring \u2014 det er hele poenget med feltet.
+      return out;
+    }
+    if (isMatchStatusOutcome(options.domain, path, baseValue, headValue)) {
+      // En kamp som g\u00E5r fra planlagt til spilt (eller avlyst/utsatt/tapt p\u00E5
+      // walkover) er kilden som konkluderer, ikke arkivet som mister noe.
+      return out;
+    }
     out.push({
       path,
       changeType: "mutate",
@@ -350,7 +399,7 @@ export function runArchivePreservationAudit(
         continue;
       }
 
-      const removals = diffStructuralAdditivity(baseRaw, headRaw, "");
+      const removals = diffStructuralAdditivity(baseRaw, headRaw, "", { domain: input.domain });
       for (const removal of removals) {
         const normalizedPath = removal.path.replace(/^\//, "") || "root";
         const ex = findArchiveException(

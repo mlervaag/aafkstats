@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { Person } from "../src/person.js";
 import { runPreservationAudit } from "../src/historical/preservation.js";
+import { runArchivePreservationAudit } from "../src/historical/archive-preservation.js";
 import { preservationException, type PreservationException } from "../src/preservation-exceptions.js";
 
 describe("Historical Preservation (PR #158)", () => {
@@ -467,4 +468,50 @@ describe("Historical Preservation (PR #158)", () => {
     expect(result.passed).toBe(false);
     expect(result.summary.destructiveChanges).toBeGreaterThanOrEqual(3);
   });
+
+  it("støtter at samme person har flere distinkte roller i et organisasjonssnapshot uten falske mutasjonsvarsler", () => {
+    const baseSnapshot = {
+      id: "1952-aafk",
+      body: "AaFK",
+      date: "1952",
+      people: [
+        {
+          personId: "malvin-saure",
+          body: "Medlemsbladet",
+          observedTitle: "Forretningsfører",
+        },
+      ],
+    };
+
+    // HEAD legger til et nytt verv for samme person i et annet organ
+    const headSnapshot = {
+      id: "1952-aafk",
+      body: "AaFK",
+      date: "1952",
+      people: [
+        {
+          personId: "malvin-saure",
+          body: "Medlemsbladet",
+          observedTitle: "Forretningsfører",
+        },
+        {
+          personId: "malvin-saure",
+          body: "Arrangementskomiteen",
+          observedTitle: "Medlem",
+        },
+      ],
+    };
+
+    const result = runArchivePreservationAudit([
+      {
+        domain: "organization_snapshot",
+        base: new Map([["1952-aafk", baseSnapshot]]),
+        head: new Map([["1952-aafk", headSnapshot]]),
+      },
+    ]);
+
+    expect(result.destructiveChanges).toBe(0);
+    expect(result.filesDeleted).toBe(0);
+  });
 });
+

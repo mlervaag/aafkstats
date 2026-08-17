@@ -196,6 +196,23 @@ roles:
           - title
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year)."
+  - id: a-lagsspiller-1951
+    category: player
+    title: A-lagsspiller
+    from: "1951"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+        page: "72"
+  - id: arrangementskomite-1952
+    category: administration
+    title: Medlem i arrangementskomiteen
+    body: Arrangementskomiteen
+    from: "1952"
+    to: "1952"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+        page: "80"
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "3"
@@ -303,6 +320,11 @@ sources:
     page: "62"
   - sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
     page: "3"
+    fields: []
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    page: "80"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    page: "72"
     fields: []
 conflicts:
   - field: formann.1968

@@ -15,7 +15,8 @@ roles:
           - title
           - from
           - to
-    note: Født ca 1915. A-lagsdebut i 1933 mot Brann som 18-åring. Spilte fast på A-laget fram til høsten 1949.
+    note: Født ca 1915. A-lagsdebut i 1933 mot Brann som 18-åring. Spilte fast på
+      A-laget fram til høsten 1949.
   - id: gullmerkeinnehaver-1999
     category: honorary
     title: Gullmerkeinnehaver
@@ -32,6 +33,19 @@ roles:
           - title
           - from
         note: Manuelt verifisert.
+  - id: spillemerke-gull-1951
+    category: honorary
+    title: Spillemerket i gull
+    from: "1951"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+        page: "35"
+    note: Tildelt etter 200. A-kamp 27. mai 1951 mot KFK i Kristiansund.
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
     page: "12"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    page: "35"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    page: "81"

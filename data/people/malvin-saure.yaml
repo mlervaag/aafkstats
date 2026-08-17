@@ -1,0 +1,29 @@
+id: malvin-saure
+name: Malvin Saure
+roles:
+  - id: forretningsforer-1952
+    category: administration
+    title: Forretningsfører
+    body: Medlemsbladet
+    from: "1952"
+    to: "1952"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+        page: "73"
+      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+        page: "80"
+  - id: arrangementskomite-1952
+    category: administration
+    title: Medlem i arrangementskomiteen
+    body: Arrangementskomiteen
+    from: "1952"
+    to: "1952"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+        page: "80"
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    page: "73"
+    fields: []
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    page: "80"

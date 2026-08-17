@@ -2,7 +2,7 @@ id: 2026-08-16-aalesunds-fk-valerenga
 date: 2026-08-16
 dateConfidence: exact
 kickoff: 14:30
-status: scheduled
+status: played
 competition:
   id: eliteserien
   season: 2026
@@ -10,27 +10,196 @@ competition:
   round: 18
 home:
   clubId: aalesunds-fk
-  score: null
-  halfTimeScore: null
+  score: 5
+  halfTimeScore: 4
 away:
   clubId: valerenga
-  score: null
-  halfTimeScore: null
+  score: 5
+  halfTimeScore: 2
 venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5197
+referee: Mischa Huru Kellerhals
+events:
+  - minute: 3
+    type: penalty_goal
+    team: home
+    player: Mathias Christensen
+  - minute: 13
+    type: missed_penalty
+    team: away
+    player: Lucas Ravn-Haren
+  - minute: 14
+    type: goal
+    team: away
+    player: Mathias Grundetjern
+  - minute: 16
+    type: goal
+    team: home
+    player: Marcus Haagensen Reed
+    assist: Endre Osenbroch
+  - minute: 29
+    type: goal
+    team: home
+    player: Elias Hagen
+    assist: Marcus Haagensen Reed
+  - minute: 33
+    type: goal
+    team: away
+    player: Lucas Ravn-Haren
+    assist: Mathias Grundetjern
+  - minute: 35
+    type: goal
+    team: home
+    player: Jakob Nyland Ørsahl
+  - minute: 46
+    type: substitution
+    team: away
+    player: Håkon Sjåtil
+    playerOff: Sebastian Jarl
+  - minute: 46
+    type: substitution
+    team: away
+    player: Magnus Westergaard
+    playerOff: Gabriel Larsen Rajkovic
+  - minute: 46
+    type: substitution
+    team: home
+    player: Kristoffer Nessø
+    playerOff: Jakob Nyland Ørsahl
+  - minute: 56
+    type: goal
+    team: home
+    player: Mathias Christensen
+    assist: Uba Charles
+  - minute: 60
+    type: substitution
+    team: home
+    player: Kristian Hemmingsen Lonebu
+    playerOff: Marcus Haagensen Reed
+  - minute: 63
+    type: goal
+    team: away
+    player: Petter Strand
+    assist: Mohamed Ofkir
+  - minute: 71
+    type: goal
+    team: away
+    player: Mathias Grundetjern
+    assist: Mohamed Ofkir
+  - minute: 73
+    type: substitution
+    team: away
+    player: Kevin Tshiembe
+    playerOff: Ivan Näsberg
+  - minute: 73
+    type: substitution
+    team: away
+    player: Ole Christian Sæter
+    playerOff: Lucas Ravn-Haren
+  - minute: 73
+    type: substitution
+    team: home
+    player: Marius Andresen
+    playerOff: Uba Charles
+  - minute: 73
+    type: substitution
+    team: home
+    player: Philip Sandvik Aukland
+    playerOff: Ólafur Gudmundsson
+  - minute: 76
+    type: yellow_card
+    team: away
+    player: Kevin Tshiembe
+  - minute: 85
+    type: substitution
+    team: away
+    player: Ghayas Zahid
+    playerOff: Petter Strand
+  - minute: 85
+    type: goal
+    team: away
+    player: Carl Lange
+    assist: Kolbeinn Finnsson
+  - minute: 90
+    stoppage: 4
+    type: substitution
+    team: home
+    player: Ivan Djantou
+    playerOff: Endre Osenbroch
 lineups:
   home:
-    starters: []
-    subs: []
+    formation: 5-3-2
+    starters:
+      - Luca Podlech
+      - Simen Haram
+      - Emil Engqvist
+      - Ólafur Gudmundsson
+      - Uba Charles
+      - Jakob Nyland Ørsahl
+      - Mathias Christensen
+      - Elias Hagen
+      - Håkon Butli Hammer
+      - Marcus Haagensen Reed
+      - Endre Osenbroch
+    subs:
+      - Kristoffer Nessø
+      - Kristian Hemmingsen Lonebu
+      - Philip Sandvik Aukland
+      - Marius Andresen
+      - Ivan Djantou
+      - Tor Erik Valderhaug Larsen
+      - Mathias Kristensen
+      - Tobias Leikanger
+      - Elias Heggland Myrlid
+    coach: Kjetil Rekdal
   away:
-    starters: []
-    subs: []
+    formation: 4-4-2
+    starters:
+      - Oscar Hedvall
+      - Sebastian Jarl
+      - Aaron Kiil Olsen
+      - Ivan Näsberg
+      - Kolbeinn Finnsson
+      - Mohamed Ofkir
+      - Petter Strand
+      - Carl Lange
+      - Lucas Ravn-Haren
+      - Mathias Grundetjern
+      - Gabriel Larsen Rajkovic
+    subs:
+      - Håkon Sjåtil
+      - Magnus Westergaard
+      - Kevin Tshiembe
+      - Ole Christian Sæter
+      - Ghayas Zahid
+      - Sander Lønning
+      - Vegar Eggen Hedenstad
+      - Odin Thiago Holm
+      - Abdoulie Jatta
+    coach: Johannes Moesgaard
+stats:
+  home:
+    possession: 32
+    shots: 24
+    shotsOnTarget: 8
+    corners: 10
+    fouls: 11
+    offsides: 1
+    xg: 2.08
+  away:
+    possession: 68
+    shots: 22
+    shotsOnTarget: 10
+    corners: 5
+    fouls: 10
+    offsides: 3
+    xg: 3.13
 externalReports: []
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/valerenga-vs-aalesund/286lhq#5104980
-    retrievedAt: 2026-08-09
+    retrievedAt: 2026-08-17
     fields:
       - date
       - kickoff
@@ -38,9 +207,18 @@ providers:
       - competition
       - home.clubId
       - away.clubId
+      - home.score
+      - away.score
       - competition.round
+      - attendance
       - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
       - lineups
+    note: "Kildestatus: FT"
 sources: []
 confidence: probable
 conflicts: []

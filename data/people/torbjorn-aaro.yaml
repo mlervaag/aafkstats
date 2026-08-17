@@ -2,9 +2,19 @@ id: torbjorn-aaro
 name: Torbjørn Aarø
 names:
   - Thorbjørn Aarø
+  - Thorbjørn Aarøe
+  - Thorbjørn Årøe
   - Tobben Aarø
 position: forsvar
 roles:
+  - id: a-lagsspiller-1951
+    category: player
+    title: A-lagsspiller
+    from: "1951"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+        page: "25"
   - id: trener-1961
     category: coach
     title: Trener
@@ -165,6 +175,8 @@ sources:
     note: Fremhevet som solid forsvarsspiller som har spilt seg inn på A-laget.
   - sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
     page: "80"
+  - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
+    page: "25"
 coachSpells:
   - fromSeason: 1961
     toSeason: 1961

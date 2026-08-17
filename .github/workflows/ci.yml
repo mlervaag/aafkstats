@@ -56,7 +56,7 @@ jobs:
             pnpm data:historical-preservation
           fi
 
-      # En PR som endrer kildedata må ha et batchmanifest. Uten dette steget er
+      # En PR som legger til nye kildedata må ha et batchmanifest. Uten dette steget er
       # hele innhøstingsarbeidsflyten frivillig: den som ikke oppretter et
       # manifest slipper unna samtlige kontroller under.
       - name: Krev batchmanifest for kildeendringer
@@ -65,16 +65,16 @@ jobs:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.sha }}
         run: |
-          CHANGED=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA" -- data/sources data/source-results data/extractions)
+          CHANGED=$(git diff --name-only --diff-filter=A "$BASE_SHA" "$HEAD_SHA" -- data/sources data/source-results data/extractions)
           if [ -z "$CHANGED" ]; then
-            echo "Ingen endringer i kildedata — manifest ikke påkrevd."
+            echo "Ingen nye kildedatafiler lagt til — nytt manifest ikke påkrevd."
             exit 0
           fi
-          echo "Endret kildedata:"
+          echo "Nye kildedatafiler:"
           echo "$CHANGED"
           MANIFESTS=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA" -- data/harvests)
           if [ -z "$MANIFESTS" ]; then
-            echo "::error::PR-en endrer kildedata uten å opprette eller oppdatere et batchmanifest i data/harvests/."
+            echo "::error::PR-en legger til kildedata uten å opprette eller oppdatere et batchmanifest i data/harvests/."
             echo "Kjør «pnpm data:historical-harvest:init» og dokumenter innhøstingen."
             exit 1
           fi
@@ -85,14 +85,17 @@ jobs:
       # at fullførte batcher oppfyller samtlige krav.
       - name: Kontroller historiske innhøstingsbatcher
         run: |
-          if [ -d "data/harvests" ] && compgen -G "data/harvests/*.yaml" > /dev/null; then
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            for f in $(git diff --name-only "${{ github.event.pull_request.base.sha }}" "${{ github.sha }}" -- 'data/harvests/*.yaml'); do
+              if [ -f "$f" ]; then
+                echo "Sjekker innhøstingsbatch for PR: $f"
+                pnpm data:historical-harvest:check --file "$f" --base "${{ github.event.pull_request.base.sha }}" --head "${{ github.sha }}"
+              fi
+            done
+          elif [ -d "data/harvests" ] && compgen -G "data/harvests/*.yaml" > /dev/null; then
             for f in data/harvests/*.yaml; do
               echo "Sjekker innhøstingsbatch: $f"
-              if [ "${{ github.event_name }}" = "pull_request" ]; then
-                pnpm data:historical-harvest:check --file "$f" --base "${{ github.event.pull_request.base.sha }}" --head "${{ github.sha }}"
-              else
-                pnpm data:historical-harvest:check --file "$f"
-              fi
+              pnpm data:historical-harvest:check --file "$f"
             done
           fi
 
