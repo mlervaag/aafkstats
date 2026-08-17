@@ -95,6 +95,12 @@ export interface HarvestAuditContext {
   baseMatches: Map<string, Match>;
   headMatches: Map<string, Match>;
   exceptions: PreservationException[];
+  /**
+   * Batchmanifestene slik de sto i BASE. Brukes til å skille funn som innføres
+   * i denne diffen fra funn som allerede er merget, slik at created/enriched-
+   * kontrollen bare måler arbeid som faktisk skjer nå.
+   */
+  baseManifests?: Map<string, HarvestBatchManifest>;
   baseSha?: string;
   headSha?: string;
 }
@@ -175,12 +181,36 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
     baseMatches,
     headMatches,
     exceptions,
+    baseManifests,
     baseSha = "BASE",
     headSha = "HEAD",
   } = context;
 
   const issues: HarvestAuditIssue[] = [];
   const isCompleteStatus = manifest.status === "complete";
+
+  // Skillet mellom created og enriched måler hva batchen gjør med arkivet, og
+  // det kan bare avgjøres mens batchen innføres. Etter at den er merget,
+  // inneholder BASE batchens egne tillegg, og et ærlig «role_created» ville
+  // begynt å felle seg selv ved neste PR. Funn som allerede sto i manifestet i
+  // BASE er derfor ferdig vurdert, og kontrollen gjelder bare nye funn.
+  //
+  // Identiteten må omfatte mer enn ID-en: endres disposisjonen eller målet på
+  // et gammelt funn, er det en ny påstand som skal måles på nytt. Ellers kunne
+  // et «role_enriched» stilles om til «role_created» under samme ID og gå
+  // gjennom uprøvd.
+  const settledFindingKey = (finding: { id: string; disposition: string; targets: { entity: string; id: string; path?: string }[] }) =>
+    [
+      finding.id,
+      finding.disposition,
+      ...finding.targets.map((t) => `${t.entity}:${t.id}:${t.path ?? ""}`).sort(),
+    ].join("|");
+
+  const settledFindings = new Set(
+    (baseManifests?.get(manifest.id)?.findings ?? []).map(settledFindingKey),
+  );
+  const isSettled = (finding: Parameters<typeof settledFindingKey>[0]) =>
+    settledFindings.has(settledFindingKey(finding));
 
   // Proveniens er ikke en formalitet. Et funn som påstår at en opplysning kom
   // fra en gitt kilde, men der målet mangler sourceRef til den kilden, er en
@@ -519,7 +549,9 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
             message: `Target person «${target.id}» finnes ikke i data/people/`,
           });
         } else {
-          if (finding.disposition === "person_created" && basePeople.has(target.id)) {
+          const dispositionIsSettled = isSettled(finding);
+
+          if (!dispositionIsSettled && finding.disposition === "person_created" && basePeople.has(target.id)) {
             issues.push({
               type: isCompleteStatus ? "error" : "warning",
               category: "target",
@@ -527,7 +559,7 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
               targetId: target.id,
               message: `Funn «${finding.id}» har disposition «person_created», men personen «${target.id}» finnes allerede i BASE (bruk «person_enriched»)`,
             });
-          } else if (finding.disposition === "person_enriched" && !basePeople.has(target.id)) {
+          } else if (!dispositionIsSettled && finding.disposition === "person_enriched" && !basePeople.has(target.id)) {
             issues.push({
               type: "error",
               category: "target",
@@ -553,7 +585,7 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
             } else {
               const basePerson = basePeople.get(target.id);
               const existedInBase = basePerson && basePerson.roles.some((role) => role.id === roleId);
-              if (finding.disposition === "role_created" && existedInBase) {
+              if (!dispositionIsSettled && finding.disposition === "role_created" && existedInBase) {
                 issues.push({
                   type: isCompleteStatus ? "error" : "warning",
                   category: "target",
@@ -561,7 +593,7 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
                   targetId: target.id,
                   message: `Funn «${finding.id}» har disposition «role_created», men rollen «${roleId}» finnes allerede i BASE på «${target.id}» (bruk «role_enriched»)`,
                 });
-              } else if (finding.disposition === "role_enriched" && !existedInBase) {
+              } else if (!dispositionIsSettled && finding.disposition === "role_enriched" && !existedInBase) {
                 issues.push({
                   type: "error",
                   category: "target",
@@ -684,7 +716,7 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
             message: `Target match «${target.id}» finnes ikke i data/seasons/`,
           });
         } else {
-          if (finding.disposition === "canonical_created" && baseMatches.has(target.id)) {
+          if (!isSettled(finding) && finding.disposition === "canonical_created" && baseMatches.has(target.id)) {
             issues.push({
               type: isCompleteStatus ? "error" : "warning",
               category: "target",
@@ -692,7 +724,7 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
               targetId: target.id,
               message: `Funn «${finding.id}» har disposition «canonical_created», men kampen «${target.id}» finnes allerede i BASE (bruk «canonical_enriched»)`,
             });
-          } else if (finding.disposition === "canonical_enriched" && !baseMatches.has(target.id)) {
+          } else if (!isSettled(finding) && finding.disposition === "canonical_enriched" && !baseMatches.has(target.id)) {
             issues.push({
               type: "error",
               category: "target",

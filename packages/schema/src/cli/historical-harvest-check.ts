@@ -184,6 +184,8 @@ export async function runHarvestCheck(options: HarvestCheckCliOptions, root = re
   const baseObservationsLoad = await loadYamlMap(baseSha, "data/observations", historicalObservation, root, undefined, isTopLevelObservation);
   const headObservationsLoad = await loadYamlMap(headRef === "working-tree" ? null : headSha, "data/observations", historicalObservation, root, undefined, isTopLevelObservation);
 
+  const baseManifestsLoad = await loadYamlMap(baseSha, "data/harvests", harvestBatchManifest, root);
+
   const isMatchFile = (f: string) => f.includes("/matches/");
   const baseMatchesLoad = await loadYamlMap(baseSha, "data/seasons", match, root, (m) => m.id, isMatchFile);
   const headMatchesLoad = await loadYamlMap(headRef === "working-tree" ? null : headSha, "data/seasons", match, root, (m) => m.id, isMatchFile);
@@ -203,6 +205,9 @@ export async function runHarvestCheck(options: HarvestCheckCliOptions, root = re
     ...headObservationsLoad.errors,
     ...baseMatchesLoad.errors,
     ...headMatchesLoad.errors,
+    // Et BASE-manifest som ikke lastes, gjør created/enriched-kontrollen blind
+    // uten å si det. Da skal kjøringen stoppe, ikke gå videre med tom kunnskap.
+    ...baseManifestsLoad.errors,
   ];
 
   if (allLoadErrors.length > 0) {
@@ -230,6 +235,7 @@ export async function runHarvestCheck(options: HarvestCheckCliOptions, root = re
     baseMatches: baseMatchesLoad.items,
     headMatches: headMatchesLoad.items,
     exceptions,
+    baseManifests: baseManifestsLoad.items,
     baseSha,
     headSha,
   });

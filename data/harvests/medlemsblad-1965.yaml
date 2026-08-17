@@ -1,0 +1,491 @@
+version: 1
+id: medlemsblad-1965
+title: AaFK Medlemsblad 1965 (Vol. 16, nr. 1–6)
+profile: member_magazine
+mode: initial
+status: normalized
+scope:
+  years:
+    from: 1965
+    to: 1965
+  sourceIds:
+  - medlemsblad-for-aalesunds-fotb-1965-a2c9
+  parentSourceId: aafk-medlemsblad
+sourceInventory:
+- sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  title: Medlemsblad for Aalesunds fotballklubb. 1965 Vol. 16 Nr. 1-6
+  year: 1965
+  reviewStatus: reviewed
+coverage:
+  mode: pages
+  expected: 56
+  reviewed: 56
+passes:
+  facsimile_review:
+    status: complete
+    findings: 27
+    note: Samtlige 56 skannede sider åpnet og lest enkeltvis mot faksimilen hos Nasjonalbiblioteket. Side-for-side-loggen
+      med innhold og funn per skann står i docs/data/reviews/medlemsblad-1965.md, inkludert de 13 sidene
+      uten relevante funn.
+  explicit_results:
+    status: complete
+    findings: 4
+    note: Klubbens egen sesongoppstilling for 1965 er kontrollregnet mot bladets egne sammendrag. «Våre
+      kamper gjennom 50 år» er lest to ganger uavhengig, med 99 % samsvar mellom lesingene.
+  people_and_roles:
+    status: complete
+    findings: 21
+  organization:
+    status: complete
+    findings: 1
+  retrospectives_and_claims:
+    status: complete
+    findings: 1
+    note: «Våre kamper gjennom 50 år» er normalisert under faktumår 1915–1964.
+  observations:
+    status: complete
+    findings: 2
+  fixture_reconciliation:
+    status: reviewed
+    findings: 0
+    note: Terminlisten på skann 6 og de planlagte kampene på skann 26 er lest som terminliste. Ingen planlagt
+      dato er gjort om til spilledato, fordi kilden aldri parer dato og resultat.
+reviewMethod:
+  facsimile: required
+review:
+  file: docs/data/reviews/medlemsblad-1965.md
+findings:
+- id: role-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '43'
+  type: person_role
+  claim:
+    text: 'Asbjørn Rutgerson: Nestformann (1966)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: asbjorn-rutgerson
+    path: roles/nestformann-1966
+  status: normalized
+- id: role-002
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '43'
+  type: person_role
+  claim:
+    text: 'Ole-Marius Ringdal: 1. varamann i hovedstyret (1966)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: ole-marius-ringdal
+    path: roles/varamann-hovedstyret-1966
+  status: normalized
+- id: role-003
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '43'
+  type: person_role
+  claim:
+    text: 'Karsten Vadseth: 2. varamann i hovedstyret (1966)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: karsten-vadseth
+    path: roles/varamann-hovedstyret-1966
+  status: normalized
+- id: role-004
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '43'
+  type: person_role
+  claim:
+    text: 'Einar Aas: Oppmann for juniorlaget (1966)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: einar-aas
+    path: roles/junioroppmann-1966
+  status: normalized
+- id: role-005
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '43'
+  type: person_role
+  claim:
+    text: 'Bjørn Riise: Medlem av sportsutvalget (1966)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: bjorn-riise
+    path: roles/sportsutvalg-1966
+  status: normalized
+- id: role-006
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '43'
+  type: person_role
+  claim:
+    text: 'Oddvar Aarø: Medlem av juniorutvalget (1966)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: oddvar-aaro
+    path: roles/juniorutvalg-1966
+  status: normalized
+- id: role-007
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '43'
+  type: person_role
+  claim:
+    text: 'Frantz Løvmo: Medlem av hus- og banekomiteen (1966)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: frantz-lovmo
+    path: roles/hus-og-banekomite-1966
+  status: normalized
+- id: role-008
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '43'
+  type: person_role
+  claim:
+    text: 'Jarle Kristoffersen: Medlem av hus- og banekomiteen (1966)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: jarle-kristoffersen
+    path: roles/hus-og-banekomite-1966
+  status: normalized
+- id: role-009
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '43'
+  type: person_role
+  claim:
+    text: 'Asbjørn Korsnes: Medlem av hyttekomiteen (1966)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: asbjorn-korsnes
+    path: roles/hyttekomite-1966
+  status: normalized
+- id: role-010
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '43'
+  type: person_role
+  claim:
+    text: 'Kjell Saure: Forretningsfører for Medlemsbladet (1966)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: kjell-saure
+    path: roles/forretningsforer-medlemsbladet-1966
+  status: normalized
+- id: role-011
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '43'
+  type: person_role
+  claim:
+    text: 'Lauritz Giske: Utgiver av Medlemsbladet (1966)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: lauritz-giske
+    path: roles/utgiver-medlemsbladet-1966
+  status: normalized
+- id: role-012
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '43'
+  type: person_role
+  claim:
+    text: 'Kjell Iversen: Sølvmerke for 150 A-kamper (1965)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: kjell-iversen
+    path: roles/spillemerke-solv-150-kamper-1965
+  status: normalized
+- id: role-013
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '43'
+  type: person_role
+  claim:
+    text: 'Jarle Kristoffersen: Sølvmerke for 150 A-kamper (1965)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: jarle-kristoffersen
+    path: roles/spillemerke-solv-150-kamper-1965
+  status: normalized
+- id: role-014
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '43'
+  type: person_role
+  claim:
+    text: 'Harald «Bror» Johansen: Sølvmerke for 150 A-kamper (1965)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: harald-johansen
+    path: roles/spillemerke-solv-150-kamper-1965
+  status: normalized
+- id: role-015
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '30'
+  type: person_role
+  claim:
+    text: 'Torbjørn «Tobben» Aarø: Trener for A- og reservelaget (1965) — samtidig bekreftelse av rolle
+      fra jubileumsboka'
+  disposition: role_enriched
+  targets:
+  - entity: person
+    id: torbjorn-aaro
+    path: roles/trener-1965
+  status: normalized
+- id: role-016
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '31'
+  type: person_role
+  claim:
+    text: 'Arnfinn Gjerde: Lagkaptein for A-laget (1965)'
+  disposition: role_created
+  targets:
+  - entity: person
+    id: arnfinn-gjerde
+    path: roles/kaptein-1965
+  status: normalized
+- id: pers-017
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '34'
+  type: person
+  claim:
+    text: Paul Urke er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: paul-urke
+  status: normalized
+- id: pers-018
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '45'
+  type: person
+  claim:
+    text: Steinar Nedregård er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: steinar-nedregard
+  status: normalized
+- id: org-019
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '43'
+  type: organization
+  claim:
+    text: Organisasjonsbilde 1966 for aafk, valgt på årsmøtet 21. november 1965
+  disposition: organization_snapshot_created
+  targets:
+  - entity: organization_snapshot
+    id: 1966-aafk
+  status: normalized
+- id: sres-020
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '45'
+  type: match_result
+  claim:
+    text: 36 kilderesultater for sesongen 1965 fra klubbens egen sesongoppstilling
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  status: normalized
+- id: kamp-021
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '45'
+  type: match_result
+  claim:
+    text: Kampbelegg for 1965-08-01-aalesunds-fk-rosenborg-bk
+  disposition: canonical_enriched
+  targets:
+  - entity: match
+    id: 1965-08-01-aalesunds-fk-rosenborg-bk
+  status: normalized
+- id: kamp-022
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '45'
+  type: match_result
+  claim:
+    text: Kampbelegg for 1965-08-22-valerenga-aalesunds-fk
+  disposition: canonical_enriched
+  targets:
+  - entity: match
+    id: 1965-08-22-valerenga-aalesunds-fk
+  status: normalized
+- id: obs-023
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '42'
+  type: historical_observation
+  claim:
+    text: Årsmøtet 1965 hevet kontingenten og la lagkapteinsvalget til sportsutvalget
+  disposition: historical_observation_created
+  targets:
+  - entity: observation
+    id: 1965-arsmotet-kontingent-og-lovendringer
+  status: normalized
+- id: obs-024
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '45'
+  type: historical_observation
+  claim:
+    text: Jarle Kleive kåret til årets AaFK-spiller 1965
+  disposition: historical_observation_created
+  targets:
+  - entity: observation
+    id: 1965-arets-aafk-spiller-jarle-kleive
+  status: normalized
+- id: open-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '45'
+  type: season_fact
+  claim:
+    text: Seks navngitte personer med verv eller utmerkelse mangler personfil og er ikke opprettet
+  disposition: identity_uncertain
+  targets: []
+  status: unresolved
+- id: open-003
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '45'
+  type: season_fact
+  claim:
+    text: Retrospektive kampreferater fra 1940, 1950 og 1951 gir resultater uten fullstendig datering
+  disposition: identity_uncertain
+  targets: []
+  status: unresolved
+- id: sres-028
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '8'
+  type: match_result
+  claim:
+    text: 995 kilderesultater for sesongene 1915–1964 fra «Våre kamper gjennom 50 år» (skann 8–16)
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  status: normalized
+- id: konf-029
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '16'
+  type: source_conflict
+  claim:
+    text: 'Høsten 1962: fire av seks seriekamper er ført med andre sifre enn i medlemsbladet fra 1962'
+  disposition: identity_uncertain
+  targets: []
+  status: unresolved
+- id: uleselig-030
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '9'
+  type: season_fact
+  claim:
+    text: Seks rader kan ikke leses sikkert og er ikke ført som kildepåstander
+  disposition: identity_uncertain
+  targets: []
+  status: unresolved
+- id: role-031
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '43'
+  type: person_role
+  claim:
+    text: 'Olaf Bigseth: Oppmann (1966) — samtidig bekreftelse av rolle fra jubileumsbøkene'
+  disposition: role_enriched
+  targets:
+  - entity: person
+    id: olaf-bigseth
+    path: roles/oppmann-1966
+  status: normalized
+- id: pers-032
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '42'
+  type: person
+  claim:
+    text: Olaf Bigseth er omtalt i medlemsbladet
+  disposition: person_enriched
+  targets:
+  - entity: person
+    id: olaf-bigseth
+  status: normalized
+- id: role-033
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '42'
+  type: person_role
+  claim:
+    text: 'Rolf Annaniassen: Formann (1965–1966) — samtidig bekreftelse av rolle fra jubileumsbøkene'
+  disposition: role_enriched
+  targets:
+  - entity: person
+    id: rolf-annaniassen
+    path: roles/formann-1965-1966
+  status: normalized
+unresolved:
+- findingId: open-001
+  type: identity
+  note: Jarle Kleive, Kjell Melsæter, Jostein Torset, Asbjørn Hamar, Helge Stavik og Finn Kvello er navngitt
+    med verv eller utmerkelse i kilden, men har ingen personfil i arkivet. De er ikke opprettet i denne
+    batchen fordi identiteten ikke er avstemt mot eksisterende navneformer.
+- findingId: open-003
+  type: retrospective_results
+  note: Retrospektive kampreferater fra 1940, 1950 og 1951 (skann 22–26 og 46) gir resultater uten fullstendig
+    datering. De er ikke ført som kilderesultater i denne batchen, og hører hjemme i en egen gjennomgang
+    av faktumårene.
+- findingId: konf-029
+  type: source_conflict
+  note: Høsten 1962 fører 50-årslista Clausenengen 4–2, Molde 5–1, Braatt 5–1 og KFK 1–1, mens medlemsbladet
+    fra 1962 fører de samme kampene som 1–0, 1–1, 8–0 og 5–4. Begge påstandene står nå i arkivet som hver
+    sin kildepåstand. Den samtidige kilden fra 1962 er den sterkeste, og de kanoniske kampene er ikke
+    endret. Uenigheten er ikke avgjort.
+- findingId: uleselig-030
+  type: legibility
+  note: 'Seks rader i lista er ikke ført som kildepåstander: tre har uleselig resultat (Rollon 1925, Old
+    Boys 1950, Herd 1961) og tre er walkover-notiser uten navngitt motstander (1925, 1926, 1946). De står
+    oppført i review-loggen.'
+notes:
+- Sidetallene i denne batchen er skann-nummer. Pagineringen starter på nytt i hvert hefte i 1965-årgangen,
+  så trykt sidetall er ikke entydig innenfor kilden. Trykt sidetall er ført i review-loggen.
+- 'Status er normalized, ikke complete: sidedekningen er fullstendig og funnene er normalisert, men fire
+  spor er bevisst latt stå åpne og er ført i unresolved — personer uten personfil, de retrospektive kampreferatene
+  fra 1940/1950/1951, konflikten mot medlemsbladet 1962, og seks uleselige rader.'
+- '«Våre kamper gjennom 50 år» (skann 8–16) er innhøstet: 995 kildepåstander fordelt på 46 sesonger fra
+  1915 til 1964. Lista er en retrospektiv sekundærframstilling trykt i jubileumsåret, og skal ikke overstyre
+  samtidige kilder. Avstemmingen mot arkivet står i docs/data/reviews/medlemsblad-1965-50ar.md.'
+- Oppmannsvervet til Olaf Bigseth for 1966 og formannsvervet til Rolf Annaniassen hvilte begge bare på
+  jubileumsbøker lest maskinelt. Valglista fra årsmøtet 21. november 1965 er lagt additivt på de eksisterende
+  rollene som samtidig bekreftelse; ingen rolle er opprettet på nytt.
+- 'Klubbkoblingene i 50-årslista er auditert mot klubbenes dokumenterte navneformer: 816 av 874 treffer
+  eksakt, og resten er stedsangivelser eller kjente forkortelser. To grupper er koblet fra igjen fordi
+  kilden ikke bærer koblingen: «Måløy» (3 rader) — Måløy IL og Tornado Måløy er to forskjellige klubber
+  — og «Brage, Tr.heim» (7 rader), der Sportsklubben Brage hører til Drammen. 864 av 1031 oppføringer
+  har klubbkobling.'

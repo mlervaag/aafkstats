@@ -51,3 +51,10 @@ sources:
   - sourceId: sunnmore-fotballkrets-arsrapport-1965
     page: "4"
     fields: *a1
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: "45"
+    fields:
+      - home.score
+      - away.score
+      - competition
+    note: Klubbens egen sesongoppstilling (skann 45) fører NM 3. runde ÅFK–Rosenborg 3–2 hjemme. Bekrefter resultatet uavhengig av kretsårsrapporten; kilden gir ingen dato.

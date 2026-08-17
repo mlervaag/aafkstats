@@ -971,5 +971,226 @@ describe("Cross-Layer Harvest Audit Engine", () => {
     expect(reportWithFinding.unaccountedAdditions.length).toBe(0);
     expect(reportWithFinding.passed).toBe(true);
   });
-});
 
+  it("gjentar ikke created/enriched-kontrollen for funn som allerede sto i manifestet i BASE", () => {
+    const manifest: HarvestBatchManifest = {
+      version: 1,
+      id: "nff-1923",
+      title: "NFF Årbok 1923",
+      profile: "yearbook",
+      mode: "initial",
+      status: "complete",
+      scope: { sourceIds: ["nff-arbok-1923"] },
+      sourceInventory: [{ sourceId: "nff-arbok-1923", reviewStatus: "reviewed" }],
+      coverage: { mode: "pages", expected: 100, reviewed: 100 },
+      passes: {
+        facsimile_review: { status: "complete", findings: 1 },
+        explicit_results: { status: "complete", findings: 0 },
+        people_and_roles: { status: "complete", findings: 1 },
+        organization: { status: "complete", findings: 0 },
+        retrospectives_and_claims: { status: "complete", findings: 0 },
+        observations: { status: "complete", findings: 0 },
+      },
+      findings: [
+        {
+          id: "role-001",
+          source: { sourceId: "nff-arbok-1923" },
+          type: "person_role",
+          claim: { text: "Nils Jangaard: Formann 1924" },
+          disposition: "role_created",
+          targets: [{ entity: "person", id: "nils-jangaard", path: "roles/formann-1924" }],
+          status: "normalized",
+        },
+      ],
+      unresolved: [],
+      notes: [],
+    };
+
+    const jangaard = {
+      id: "nils-jangaard",
+      name: "Nils Jangaard",
+      names: [],
+      squadNumbers: [],
+      coachSpells: [],
+      roles: [
+        {
+          id: "formann-1924",
+          title: "Formann",
+          category: "board" as const,
+          year: 1924,
+          sources: [{ sourceId: "nff-arbok-1923" }],
+        },
+      ],
+      providers: [],
+      sources: [{ sourceId: "nff-arbok-1923" }],
+      conflicts: [],
+    };
+
+    const ctx = createMinimalContext(manifest);
+    ctx.basePeople.set("nils-jangaard", jangaard);
+    ctx.headPeople.set("nils-jangaard", jangaard);
+
+    // Uten manifestet i BASE er dette den ferske batchen som feilaktig påstår
+    // at den opprettet en rolle som allerede fantes.
+    expect(auditHarvestBatch(ctx).passed).toBe(false);
+
+    // Med manifestet i BASE er batchen allerede merget: BASE inneholder nå
+    // batchens egne tillegg, og et ærlig «role_created» skal ikke begynne å
+    // felle seg selv ved neste PR.
+    ctx.baseManifests = new Map([[manifest.id, manifest]]);
+    const report = auditHarvestBatch(ctx);
+    expect(
+      report.issues.some((i) => i.message.includes("finnes allerede i BASE")),
+    ).toBe(false);
+    expect(report.issues.some((i) => i.findingId === "role-001")).toBe(false);
+  });
+
+  it("håndhever fortsatt created/enriched for nye funn i en batch som finnes i BASE", () => {
+    const baseManifest: HarvestBatchManifest = {
+      version: 1,
+      id: "nff-1923",
+      title: "NFF Årbok 1923",
+      profile: "yearbook",
+      mode: "initial",
+      status: "complete",
+      scope: { sourceIds: ["nff-arbok-1923"] },
+      sourceInventory: [{ sourceId: "nff-arbok-1923", reviewStatus: "reviewed" }],
+      coverage: { mode: "pages", expected: 100, reviewed: 100 },
+      passes: {},
+      findings: [],
+      unresolved: [],
+      notes: [],
+    };
+
+    const manifest: HarvestBatchManifest = {
+      ...baseManifest,
+      passes: {
+        facsimile_review: { status: "complete", findings: 1 },
+        explicit_results: { status: "complete", findings: 0 },
+        people_and_roles: { status: "complete", findings: 1 },
+        organization: { status: "complete", findings: 0 },
+        retrospectives_and_claims: { status: "complete", findings: 0 },
+        observations: { status: "complete", findings: 0 },
+      },
+      findings: [
+        {
+          id: "role-002",
+          source: { sourceId: "nff-arbok-1923" },
+          type: "person_role",
+          claim: { text: "Nils Jangaard: Formann 1924" },
+          disposition: "role_created",
+          targets: [{ entity: "person", id: "nils-jangaard", path: "roles/formann-1924" }],
+          status: "normalized",
+        },
+      ],
+    };
+
+    const jangaard = {
+      id: "nils-jangaard",
+      name: "Nils Jangaard",
+      names: [],
+      squadNumbers: [],
+      coachSpells: [],
+      roles: [
+        {
+          id: "formann-1924",
+          title: "Formann",
+          category: "board" as const,
+          year: 1924,
+          sources: [{ sourceId: "nff-arbok-1923" }],
+        },
+      ],
+      providers: [],
+      sources: [{ sourceId: "nff-arbok-1923" }],
+      conflicts: [],
+    };
+
+    const ctx = createMinimalContext(manifest);
+    ctx.basePeople.set("nils-jangaard", jangaard);
+    ctx.headPeople.set("nils-jangaard", jangaard);
+    // BASE-manifestet kjenner ikke role-002, så funnet er nytt i denne diffen.
+    ctx.baseManifests = new Map([[baseManifest.id, baseManifest]]);
+
+    const report = auditHarvestBatch(ctx);
+    expect(
+      report.issues.some(
+        (i) => i.findingId === "role-002" && i.message.includes("finnes allerede i BASE"),
+      ),
+    ).toBe(true);
+    expect(report.passed).toBe(false);
+  });
+
+  it("måler et gammelt funn på nytt dersom disposisjonen er endret under samme ID", () => {
+    const baseFinding = {
+      id: "role-001",
+      source: { sourceId: "nff-arbok-1923" },
+      type: "person_role" as const,
+      claim: { text: "Nils Jangaard: Formann 1924" },
+      disposition: "role_enriched" as const,
+      targets: [{ entity: "person" as const, id: "nils-jangaard", path: "roles/formann-1924" }],
+      status: "normalized" as const,
+    };
+
+    const baseManifest: HarvestBatchManifest = {
+      version: 1,
+      id: "nff-1923",
+      title: "NFF Årbok 1923",
+      profile: "yearbook",
+      mode: "initial",
+      status: "complete",
+      scope: { sourceIds: ["nff-arbok-1923"] },
+      sourceInventory: [{ sourceId: "nff-arbok-1923", reviewStatus: "reviewed" }],
+      coverage: { mode: "pages", expected: 100, reviewed: 100 },
+      passes: {},
+      findings: [baseFinding],
+      unresolved: [],
+      notes: [],
+    };
+
+    // Samme ID, men disposisjonen er stilt om til created. Det er en ny påstand.
+    const manifest: HarvestBatchManifest = {
+      ...baseManifest,
+      passes: {
+        facsimile_review: { status: "complete", findings: 1 },
+        explicit_results: { status: "complete", findings: 0 },
+        people_and_roles: { status: "complete", findings: 1 },
+        organization: { status: "complete", findings: 0 },
+        retrospectives_and_claims: { status: "complete", findings: 0 },
+        observations: { status: "complete", findings: 0 },
+      },
+      findings: [{ ...baseFinding, disposition: "role_created" }],
+    };
+
+    const jangaard = {
+      id: "nils-jangaard",
+      name: "Nils Jangaard",
+      names: [],
+      squadNumbers: [],
+      coachSpells: [],
+      roles: [
+        {
+          id: "formann-1924",
+          title: "Formann",
+          category: "board" as const,
+          year: 1924,
+          sources: [{ sourceId: "nff-arbok-1923" }],
+        },
+      ],
+      providers: [],
+      sources: [{ sourceId: "nff-arbok-1923" }],
+      conflicts: [],
+    };
+
+    const ctx = createMinimalContext(manifest);
+    ctx.basePeople.set("nils-jangaard", jangaard);
+    ctx.headPeople.set("nils-jangaard", jangaard);
+    ctx.baseManifests = new Map([[baseManifest.id, baseManifest]]);
+
+    const report = auditHarvestBatch(ctx);
+    expect(
+      report.issues.some(
+        (i) => i.findingId === "role-001" && i.message.includes("finnes allerede i BASE"),
+      ),
+    ).toBe(true);
+  });
+});

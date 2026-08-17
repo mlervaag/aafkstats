@@ -37,6 +37,19 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
+  - id: varamann-hovedstyret-1966
+    category: board
+    title: 1. varamann
+    body: Hovedstyret
+    from: "1966"
+    to: "1966"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        page: "43"
+        fields:
+          - title
+          - from
+    note: Valgt på ordinært årsmøte i Klubbhuset på Kråmyra 21. november 1965; valget gjelder arbeidsåret 1966.
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1980-bec4
     page: "5"

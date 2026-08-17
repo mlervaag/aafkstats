@@ -41,6 +41,19 @@ roles:
           - from
           - to
     note: Valgt som materialforvalter på årsmøtet 29. november 1950.
+  - id: sportsutvalg-1966
+    category: sporting_staff
+    title: Medlem av sportsutvalget
+    body: Sportsutvalget
+    from: "1966"
+    to: "1966"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        page: "43"
+        fields:
+          - title
+          - from
+    note: Valgt på ordinært årsmøte i Klubbhuset på Kråmyra 21. november 1965; valget gjelder arbeidsåret 1966.
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
     page: "31"

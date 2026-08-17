@@ -1,22 +1,33 @@
 id: oddvar-aaro
 name: Oddvar Aarø
 roles:
-  [
-    {
-        id: trener-1966,
-        category: coach,
-        title: Trener,
-        from: "1966",
-        to: "1966",
-        sources:
-          [
-            {
-                sourceId: tango-siden-1914-2013-806b,
-                page: "351",
-                fields: [ title, from, to ],
-                note: Manuelt verifisert.
-              }
-          ]
-      }
-  ]
-coachSpells: [ { fromSeason: 1966, toSeason: 1966 } ]
+- id: trener-1966
+  category: coach
+  title: Trener
+  from: '1966'
+  to: '1966'
+  sources:
+  - sourceId: tango-siden-1914-2013-806b
+    page: '351'
+    fields:
+    - title
+    - from
+    - to
+    note: Manuelt verifisert.
+- id: juniorutvalg-1966
+  category: sporting_staff
+  title: Medlem av juniorutvalget
+  body: Juniorutvalget
+  from: '1966'
+  to: '1966'
+  sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '43'
+    fields:
+    - title
+    - from
+  note: Valgt på ordinært årsmøte i Klubbhuset på Kråmyra 21. november 1965; valget gjelder arbeidsåret
+    1966. Aarø var juniortrener i 1964 og 1965 og ble valgt inn i kretsens juniorutvalg (s. 24).
+coachSpells:
+- fromSeason: 1966
+  toSeason: 1966

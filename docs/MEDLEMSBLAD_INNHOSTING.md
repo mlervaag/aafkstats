@@ -49,7 +49,41 @@ Jubileumsnumre og høstnumre inneholder ofte historiske tilbakeblikk med kampref
 
 ---
 
-## 3. Anbefalt batching og arbeidsmetode
+## 3. Innhøstingsstatus
+
+Hver innhøstet årgang har et batchmanifest i `data/harvests/`. Tabellen er
+inngangen for den som skal ta neste runde.
+
+| Batch | Årganger | Sider | Status | Merknad |
+|---|---|---:|---|---|
+| `medlemsblad-1950` | 1950 | 96 | `complete` | PR #166 |
+| `medlemsblad-1951` | 1951 | 84 | `complete` | PR #167 |
+| `medlemsblad-1953-1956` | 1953–1956 | 420 | `audited` | Rekonstruert manifest fra PR #156 |
+| `medlemsblad-1957-1960` | 1957–1960 | 344 | `audited` | Rekonstruert manifest fra PR #155 |
+| `medlemsblad-1961` | 1961 | 84 | `audited` | Rekonstruert manifest fra PR #152/#154 |
+| `medlemsblad-1962` | 1962 | 84 | `audited` | Rekonstruert manifest fra PR #151/#153; faksimilepasset er ikke verifisert på nytt |
+| `medlemsblad-1965` | 1965 | 56 | `normalized` | Inkluderer «Våre kamper gjennom 50 år»; fire spor står åpne i `unresolved` |
+
+Uinnhøstet: **1952, 1963, 1964, og 1966–1980**. Fra 1966 er årgangene
+katalogisert hefte for hefte med fire eller flere `sourceId`-er per år, mot én
+samlet kilde til og med 1965.
+
+### Sidetall er skann-nummer, ikke trykt sidetall
+
+Dette varierer mellom årgangene og **skal kontrolleres per årgang**:
+
+- 1962 og 1963 har gjennomgående paginering, der skann-nummer og trykt sidetall
+  faller sammen.
+- 1965 starter pagineringen på nytt i hvert hefte, så «s. 13» finnes tre ganger i
+  årgangen. Trykt sidetall er da ikke en entydig kontrollidentitet.
+
+Fordi runbooken krever at `sourceId + page` er stabil, føres **skann-nummer** i
+`page` overalt. Forholdet mellom skann og trykt sidetall dokumenteres i
+review-loggen for batchen.
+
+---
+
+## 4. Anbefalt batching og arbeidsmetode
 
 - **Batchstørrelse:** Medlemsbladårganger **BØR** normalt batches i bolker på **3–4 år** (f.eks. 1953–1956, 1957–1960). Batchstørrelsen skal imidlertid tilpasses:
   - Antall sourceId-er og hefter i perioden

@@ -201,6 +201,31 @@ roles:
     sources:
       - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
         page: "81"
+  - id: spillemerke-solv-150-kamper-1965
+    category: honorary
+    title: Sølvmerke for 150 A-kamper
+    from: "1965"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        page: "43"
+        fields:
+          - title
+          - from
+    note: Sølvmerket for 150 A-kamper, delt ut av formannen på årsmøtet 21. november 1965. Bladet omtaler de tre som «tre mann til over listen av sølvmerkespillere».
+  - id: hus-og-banekomite-1966
+    category: project
+    title: Medlem av hus- og banekomiteen
+    body: Hus- og banekomiteen
+    from: "1966"
+    to: "1966"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        page: "43"
+        fields:
+          - title
+          - from
+    note: Valgt på ordinært årsmøte i Klubbhuset på Kråmyra 21. november 1965; valget gjelder arbeidsåret 1966. Framhevet i komiteens årsberetning for 1965 som den av de aktive som la ned mest arbeid i komiteen (s. 46).
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "2"

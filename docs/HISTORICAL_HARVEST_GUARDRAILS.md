@@ -255,3 +255,34 @@ Første fullskala innhøsting av *AaFK Medlemsblad 1950* etablerte følgende nor
 Før en batch settes til `status: complete`, skal fire lag fortelle nøyaktig samme historie:
 $$\text{Faksimile} \longrightarrow \text{Review-logg} \longrightarrow \text{Manifest Findings} \longrightarrow \text{Target Data}$$
 
+
+### 8.9 Created vs. enriched måles bare mens batchen innføres
+
+Kontrollen i 8.2 sammenligner mot BASE, og det er riktig så lenge batchen er
+under arbeid. Etter at den er merget, inneholder BASE batchens egne tillegg:
+et ærlig `role_created` ville da begynt å felle seg selv ved neste PR, siden
+rollen nå «allerede finnes i BASE». Fordi CI kjører `historical-harvest:check`
+på **alle** manifester i `data/harvests/` ved hver PR, ville én merget batch
+gjort alle senere PR-er røde.
+
+Kontrollen gjelder derfor bare funn som er nye i diffen. Manifestene lastes fra
+BASE, og et funn som allerede sto der med samme `id` er ferdig vurdert. Legges
+et nytt funn til i en eksisterende batch, måles det som før.
+
+Konsekvens for rekonstruerte manifester: en batch som dokumenterer arbeid som
+alt står i arkivet, skal bruke `person_enriched` og `role_enriched`. Den
+oppretter ingenting nå, og skal ikke påstå at den gjør det.
+
+### 8.10 Samme identitet kan forekomme flere ganger i én liste
+
+Det strukturelle additivitetsvernet parer listeelementer på identitet
+(`id`, `no`, `year`, `sourceId`, `personId`, `date`). Én identitet kunne bare
+peke på ett element, og den siste forekomsten vant. Et organisasjonssnapshot
+som fører den samme personen både som kasserer i hovedstyret og som
+forretningsfører i medlemsbladet — to legitime verv, én `personId` — fikk
+dermed den første basisoppføringen sammenlignet med den siste HEAD-oppføringen,
+og en helt uendret fil ble meldt som destruktiv mutasjon.
+
+Indeksen er nå en kø per identitet: n-te forekomst i BASE pares mot n-te
+forekomst i HEAD. Forsvinner én av to oppføringer, meldes det fortsatt som
+fjerning.

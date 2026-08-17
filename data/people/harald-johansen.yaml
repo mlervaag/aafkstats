@@ -111,6 +111,18 @@ roles:
           - title
           - from
         note: Manuelt verifisert.
+  - id: spillemerke-solv-150-kamper-1965
+    category: honorary
+    title: Sølvmerke for 150 A-kamper
+    from: "1965"
+    to: null
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        page: "43"
+        fields:
+          - title
+          - from
+    note: Sølvmerket for 150 A-kamper, delt ut av formannen på årsmøtet 21. november 1965. Bladet omtaler de tre som «tre mann til over listen av sølvmerkespillere».
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "2"
