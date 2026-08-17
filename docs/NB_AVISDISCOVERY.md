@@ -153,13 +153,29 @@ Søskeninvarianten holder: de to Raufoss-radene får hver sin hendelse, og
 junikampen dateres ikke lenger til oktober. Clausenengen-søsknene oppfører seg
 likedan, og #22 melder i tillegg at avisa oppgir 1-1 mot kildens 0-0.
 
-Sarpsborg 1948 står fortsatt igjen, og spredningen i tid løste det ikke.
-Trengselen er inne i juli, ikke mellom månedene: Sarpsborg FK var på turné på
-Møre sommeren 1948 og spilte mot flere klubber i samme uke, så julitreffene
-handler i stor grad om andre kamper. To kandidater i måneden er ikke nok når
-måneden er full av samme motstander mot andre lag. Neste steg er å la
-utvelgelsen vekte AaFK-nærhet sterkere innenfor måneden, ikke bare på tvers av
-dem.
+Sarpsborg 1948 står fortsatt igjen, og en måling av alle julikandidatene viser
+hvorfor — det er ikke det man skulle tro.
+
+Utgavene fra 15., 16. og 17. juli **er** i kandidatsettet. Problemet er hva det
+grove søket returnerer som utdrag for dem: annonser og urelaterte spalter.
+
+| Utgave | Grov score | Sjanger | Utdraget det grove søket ga |
+|---|---:|---|---|
+| 19480715 | 8 | fixture_list | «Bakeri og Konditori … Aalesunds Dampbakeri A/S» |
+| 19480716 | 17 | fixture_list | «Aalesund kirke blir åpen hver dag fra kl. 11-14» |
+| 19480709 | 38 | article | landsskytterstevne |
+| 19480730 | 41 | article | «Aalesund—Rollon på Stadion søndag» |
+
+Kampomtalen — «morgendagens fotballkamp mellom Sarpsborg FK og ÅFK på Nørve» —
+finnes i de samme utgavene, men ikke i utdragene søketjenesten valgte. Den
+kommer først fram ved OCR-oppslaget.
+
+Det betyr at den grove poengsummen er en dårlig indikator på om en utgave er verdt
+et OCR-kall, i akkurat de tilfellene der den trengs mest. Turnétrengselen jeg
+antok var forklaringen, er det altså ikke: 13. og 14. juli (Sarpsborg mot Molde og
+Hødd) ligger lavt de også. Utvelgelsen må derfor ikke bare vekte AaFK-nærhet
+høyere — den må kunne bruke et kall på en utgave som ser uinteressant ut i det
+grove søket, når måneden ellers ikke har noe sterkt.
 
 Avstemmingen er verifisert uavhengig av dette: mates julitekstene inn direkte,
 gir de 1948-07-16 og `conflict` med kildens 1-0 mot avisas 2-1
