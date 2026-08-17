@@ -15,6 +15,7 @@ seasons:
         matchId: null
         page: 11
         note: Uttakningskamp mot Landslaget i Bergen i 1927 (tap 0–3).
+        resultGroupId: 1927-landslaget-0-3
       - no: 2
         opponent: Odd
         opponentClubId: odds-ballklubb
@@ -43,7 +44,8 @@ seasons:
         extraTime: false
         matchId: 1929-09-01-aalesunds-fk-kvik-halden
         page: 11
-        note: NM cup 4. runde i Ålesund mot Kvik Halden (uavgjort 2–2 etter utligning av Olav Skarbøvik).
+        note: NM cup 4. runde i Ålesund mot Kvik Halden (uavgjort 2–2 etter utligning av
+          Olav Skarbøvik).
   - year: 1932
     page: 11
     results:
@@ -104,3 +106,4 @@ seasons:
         matchId: null
         page: 1
         note: 1. divisjon Møre distrikt høsten 1950 på Aksla stadion (tap 0–1).
+        resultGroupId: 1950-molde-fk-0-1

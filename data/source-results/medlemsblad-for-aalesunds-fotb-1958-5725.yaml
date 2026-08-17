@@ -11,60 +11,68 @@ seasons:
         page: 65
         opponent: Skarbøvik
         opponentClubId: skarbovik
-        score: [3, 1]
-        note: "Vårcupen 1958 finale: ÅFK–Skarbøvik 3–1. ÅFK vinner Vårcupen for 2. år på rad."
+        score: [ 3, 1 ]
+        note: "Vårcupen 1958 finale: ÅFK–Skarbøvik 3–1. ÅFK vinner Vårcupen for 2. år på
+          rad."
+        resultGroupId: 1958-skarbovik-3-1
       - no: 2
         page: 65
         opponent: Herd
         opponentClubId: herd
-        score: [5, 4]
+        score: [ 5, 4 ]
         note: "Herds sommercup innledende: ÅFK–Herd 5–4."
+        resultGroupId: 1958-herd-5-4
       - no: 3
         page: 65
         opponent: Aksla
         opponentClubId: aksla
-        score: [4, 2]
+        score: [ 4, 2 ]
         note: "Herds sommercup semifinale: ÅFK–Aksla 4–2."
+        resultGroupId: 1958-aksla-4-2
       - no: 4
         page: 65
         opponent: Langevåg
         opponentClubId: langevag
-        score: [2, 3]
+        score: [ 2, 3 ]
         note: "Herds sommercup finale: Langevåg–ÅFK 3–2."
+        resultGroupId: 1958-langevag-2-3
       - no: 5
         page: 65
         opponent: Rollon
         opponentClubId: rollon
-        score: [2, 0]
+        score: [ 2, 0 ]
         competitionId: nm
         round: 1
         note: "NM 1958 1. runde: ÅFK–Rollon 2–0."
+        resultGroupId: nm-1958-rollon-runde-1
       - no: 6
         page: 65
         opponent: Molde
         opponentClubId: molde-fk
-        score: [0, 2]
+        score: [ 0, 2 ]
         competitionId: nm
         round: 2
         note: "NM 1958 2. runde: ÅFK–Molde 0–2 på Aksla stadion."
+        resultGroupId: nm-1958-molde-fk-runde-2
       - no: 7
         page: 75
         opponent: Hødd
         opponentClubId: hodd
-        score: [1, 0]
+        score: [ 1, 0 ]
         competitionId: forstedivisjon
         note: "Landsdelsserien Møre 1957/58 (vår): Hødd–ÅFK 0–1 på Høddvoll."
       - no: 8
         page: 30
         opponent: KFK
         opponentClubId: kfk
-        score: [2, 1]
+        score: [ 2, 1 ]
         competitionId: forstedivisjon
         note: "Landsdelsserien Møre 1957/58 (vår): ÅFK–KFK 2–1."
       - no: 9
         page: 80
         opponent: KFK
         opponentClubId: kfk
-        score: [0, 0]
+        score: [ 0, 0 ]
         competitionId: forstedivisjon
         note: "Landsdelsserien Møre 1958/59 (høst): ÅFK–KFK 0–0 på Nørvebanen."
+        resultGroupId: forstedivisjon-1958-kfk-0-0

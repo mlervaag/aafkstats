@@ -9,32 +9,38 @@ seasons:
       - no: 1
         opponent: V.R.F.
         opponentClubId: velledalen-ringen
-        score: [2, 1]
+        score: [ 2, 1 ]
         competitionId: nm
         round: 1
         matchId: null
-        note: Norgesmesterskapet 1961, 1. runde (V.R.F. / AAFK 1–2). Årsrapporten dokumenterer ikke sikker kampdato.
+        note: Norgesmesterskapet 1961, 1. runde (V.R.F. / AAFK 1–2). Årsrapporten
+          dokumenterer ikke sikker kampdato.
+        resultGroupId: nm-1961-velledalen-ringen-runde-1
       - no: 2
         opponent: Langevåg
         opponentClubId: langevag
-        score: [2, 1]
+        score: [ 2, 1 ]
         competitionId: nm
         round: 2
         matchId: null
-        note: Norgesmesterskapet 1961, 2. runde (AAFK / Langevåg 2–1). Årsrapporten dokumenterer ikke sikker kampdato.
+        note: Norgesmesterskapet 1961, 2. runde (AAFK / Langevåg 2–1). Årsrapporten
+          dokumenterer ikke sikker kampdato.
+        resultGroupId: nm-1961-langevag-runde-2
       - no: 3
         opponent: Rosenborg
         opponentClubId: rosenborg-bk
-        score: [1, 0]
+        score: [ 1, 0 ]
         competitionId: nm
         round: 3
         matchId: 1961-08-06-rosenborg-bk-aalesunds-fk
-        note: Norgesmesterskapet 1961, 3. runde. SFK trykker «Rosenborg / AAFK 0–1» mens RSSSF oppgir Rosenborg–AaFK 1–0; Rosenborg avanserte til 4. runde.
+        note: Norgesmesterskapet 1961, 3. runde. SFK trykker «Rosenborg / AAFK 0–1» mens
+          RSSSF oppgir Rosenborg–AaFK 1–0; Rosenborg avanserte til 4. runde.
       - no: 4
         page: 10
         opponent: Valder
         opponentClubId: valder
-        score: [0, 1]
+        score: [ 0, 1 ]
         competitionId: null
         matchId: null
         note: Sunnmørscupen 1961, avdeling VI (Valder / AAFK 1–0).
+        resultGroupId: 1961-valder-0-1

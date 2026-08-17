@@ -8,7 +8,7 @@ seasons:
         date: 1958-04-15
         opponent: Aksla
         opponentClubId: null
-        score: [2, 0]
+        score: [ 2, 0 ]
         page: 6
         competitionId: null
         round: 1
@@ -17,11 +17,12 @@ seasons:
         extraTime: false
         matchId: null
         note: Åpningscupen 1958.
+        resultGroupId: 1958-aksla-2-0
       - no: 2
         date: 1958-04-17
         opponent: Rollon
         opponentClubId: rollon
-        score: [2, 0]
+        score: [ 2, 0 ]
         page: 6
         competitionId: null
         round: 2
@@ -30,11 +31,12 @@ seasons:
         extraTime: false
         matchId: null
         note: Åpningscupen 1958.
+        resultGroupId: nm-1958-rollon-runde-1
       - no: 3
         date: 1958-04-19
         opponent: Skarbøvik
         opponentClubId: skarbovik
-        score: [3, 1]
+        score: [ 3, 1 ]
         page: 6
         competitionId: null
         round: 3
@@ -43,10 +45,11 @@ seasons:
         extraTime: false
         matchId: null
         note: Finale i Åpningscupen 1958.
+        resultGroupId: 1958-skarbovik-3-1
       - no: 4
         opponent: Rollon
         opponentClubId: rollon
-        score: [2, 1]
+        score: [ 2, 1 ]
         page: 7
         competitionId: nm
         round: 1
@@ -54,11 +57,13 @@ seasons:
         replay: false
         extraTime: false
         matchId: null
-        note: Årsrapporten dokumenterer ikke sikker kampdato; resultatet er derfor ikke løftet til kanonisk kamp.
+        note: Årsrapporten dokumenterer ikke sikker kampdato; resultatet er derfor ikke
+          løftet til kanonisk kamp.
+        resultGroupId: nm-1958-rollon-runde-1
       - no: 5
         opponent: Molde
         opponentClubId: molde-fk
-        score: [0, 2]
+        score: [ 0, 2 ]
         page: 7
         competitionId: nm
         round: 2
@@ -66,4 +71,6 @@ seasons:
         replay: false
         extraTime: false
         matchId: null
-        note: Årsrapporten dokumenterer ikke sikker kampdato; resultatet er derfor ikke løftet til kanonisk kamp.
+        note: Årsrapporten dokumenterer ikke sikker kampdato; resultatet er derfor ikke
+          løftet til kanonisk kamp.
+        resultGroupId: nm-1958-molde-fk-runde-2

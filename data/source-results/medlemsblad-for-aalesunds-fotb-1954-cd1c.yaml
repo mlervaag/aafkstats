@@ -10,9 +10,11 @@ seasons:
         page: 84
         opponent: Rollon
         opponentClubId: rollon
-        score: [3, 0]
+        score: [ 3, 0 ]
         competitionId: paivas-pokal
-        note: "KM-finale 1920 mot Rollon (3–0) og Paiva-pokalen. Retrospektiv omtale ved 40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        note: "KM-finale 1920 mot Rollon (3–0) og Paiva-pokalen. Retrospektiv omtale ved
+          40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        resultGroupId: paivas-pokal-1920-rollon-3-0
   - year: 1929
     page: 85
     results:
@@ -20,20 +22,24 @@ seasons:
         page: 85
         opponent: Rapp
         opponentClubId: rapp
-        score: [1, 1]
+        score: [ 1, 1 ]
         competitionId: nm
         round: 2
         extraTime: true
-        note: "NM 1929 2. runde: Rapp–AaFK 1–1 e.e.o. Retrospektiv omtale ved 40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        note: "NM 1929 2. runde: Rapp–AaFK 1–1 e.e.o. Retrospektiv omtale ved
+          40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        resultGroupId: nm-1929-rapp-runde-2
       - no: 2
         page: 85
         opponent: Rapp
         opponentClubId: rapp
-        score: [1, 0]
+        score: [ 1, 0 ]
         competitionId: nm
         round: 2
         replay: true
-        note: "NM 1929 2. runde omkamp: Rapp–AaFK 0–1 (1–0 seier til AaFK). Retrospektiv omtale ved 40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        note: "NM 1929 2. runde omkamp: Rapp–AaFK 0–1 (1–0 seier til AaFK). Retrospektiv
+          omtale ved 40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        resultGroupId: nm-1929-rapp-runde-2
   - year: 1931
     page: 88
     results:
@@ -41,8 +47,10 @@ seasons:
         page: 88
         opponent: Vålerengen
         opponentClubId: valerenga
-        score: [1, 1]
-        note: "Pinsestevne på Aksla mot Vålerengen (1–1). Retrospektiv omtale ved 40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        score: [ 1, 1 ]
+        note: "Pinsestevne på Aksla mot Vålerengen (1–1). Retrospektiv omtale ved
+          40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        resultGroupId: 1931-valerenga-1-1
   - year: 1933
     page: 86
     results:
@@ -50,26 +58,32 @@ seasons:
         page: 86
         opponent: Gjøvik-Lyn
         opponentClubId: gjovik-lyn
-        score: [2, 2]
+        score: [ 2, 2 ]
         competitionId: nm
         round: 3
         extraTime: true
-        note: "NM 1933 3. runde: Gjøvik-Lyn–AaFK 2–2 e.e.o. på Hamar. Retrospektiv omtale ved 40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        note: "NM 1933 3. runde: Gjøvik-Lyn–AaFK 2–2 e.e.o. på Hamar. Retrospektiv
+          omtale ved 40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        resultGroupId: nm-1933-gjovik-lyn-runde-3
       - no: 2
         page: 86
         opponent: Gjøvik-Lyn
         opponentClubId: gjovik-lyn
-        score: [1, 2]
+        score: [ 1, 2 ]
         competitionId: nm
         round: 3
         replay: true
-        note: "NM 1933 3. runde omkamp: AaFK–Gjøvik-Lyn 1–2. Retrospektiv omtale ved 40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        note: "NM 1933 3. runde omkamp: AaFK–Gjøvik-Lyn 1–2. Retrospektiv omtale ved
+          40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        resultGroupId: nm-1933-gjovik-lyn-runde-3
       - no: 3
         page: 90
         opponent: Rollon
         opponentClubId: rollon
-        score: [3, 2]
-        note: "Kretsserie 1933: AaFK–Rollon 3–2. Retrospektiv omtale ved 40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        score: [ 3, 2 ]
+        note: "Kretsserie 1933: AaFK–Rollon 3–2. Retrospektiv omtale ved 40-årsjubileet
+          1954 (reprint/duplikat i 192b og cd1c)."
+        resultGroupId: 1933-rollon-3-2
   - year: 1935
     page: 91
     results:
@@ -77,54 +91,67 @@ seasons:
         page: 91
         opponent: Braatt
         opponentClubId: braatt
-        score: [1, 2]
-        note: "Seriekamp i Kristiansund: Braatt–AaFK 2–1 (tap 1–2). Retrospektiv omtale ved 40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        score: [ 1, 2 ]
+        note: "Seriekamp i Kristiansund: Braatt–AaFK 2–1 (tap 1–2). Retrospektiv omtale
+          ved 40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        resultGroupId: 1935-braatt-1-2
   - year: 1938
     page: 93
     results:
       - no: 1
         page: 93
         opponent: Glimt
-        score: [3, 0]
-        note: "Storseier 3–0 mot Glimt. Retrospektiv omtale ved 40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        score: [ 3, 0 ]
+        note: "Storseier 3–0 mot Glimt. Retrospektiv omtale ved 40-årsjubileet 1954
+          (reprint/duplikat i 192b og cd1c)."
+        resultGroupId: 1938-glimt-3-0
       - no: 2
         page: 93
         opponent: Lyn
         opponentClubId: lyn
-        score: [4, 1]
-        note: "Storseier 4–1 mot Lyn. Retrospektiv omtale ved 40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        score: [ 4, 1 ]
+        note: "Storseier 4–1 mot Lyn. Retrospektiv omtale ved 40-årsjubileet 1954
+          (reprint/duplikat i 192b og cd1c)."
+        resultGroupId: 1938-lyn-4-1
       - no: 3
         page: 93
         opponent: Sarpsborg
         opponentClubId: sarpsborg
-        score: [2, 1]
-        note: "Seier 2–1 mot Sarpsborg. Retrospektiv omtale ved 40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        score: [ 2, 1 ]
+        note: "Seier 2–1 mot Sarpsborg. Retrospektiv omtale ved 40-årsjubileet 1954
+          (reprint/duplikat i 192b og cd1c)."
+        resultGroupId: 1938-sarpsborg-2-1
       - no: 4
         page: 106
         opponent: Skeid
         opponentClubId: skeid
-        score: [1, 1]
+        score: [ 1, 1 ]
         competitionId: nm
         round: 4
         extraTime: true
-        note: "NM 1938 4. runde på Bislett: Skeid–AaFK 1–1 e.e.o. Retrospektiv omtale ved 40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        note: "NM 1938 4. runde på Bislett: Skeid–AaFK 1–1 e.e.o. Retrospektiv omtale
+          ved 40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        resultGroupId: nm-1938-skeid-runde-4
       - no: 5
         page: 106
         opponent: Skeid
         opponentClubId: skeid
-        score: [1, 2]
+        score: [ 1, 2 ]
         competitionId: nm
         round: 4
         replay: true
-        note: "NM 1938 4. runde omkamp: AaFK–Skeid 1–2. Retrospektiv omtale ved 40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        note: "NM 1938 4. runde omkamp: AaFK–Skeid 1–2. Retrospektiv omtale ved
+          40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        resultGroupId: nm-1938-skeid-runde-4
   - year: 1939
     page: 92
     results:
       - no: 1
         page: 92
         opponent: null
-        score: [3, 2]
-        note: "Seriesesongen 1939: Knepen 3–2-seier omtalt i Oslo-pressen. Retrospektiv omtale ved 40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
+        score: [ 3, 2 ]
+        note: "Seriesesongen 1939: Knepen 3–2-seier omtalt i Oslo-pressen. Retrospektiv
+          omtale ved 40-årsjubileet 1954 (reprint/duplikat i 192b og cd1c)."
   - year: 1954
     page: 95
     results:
@@ -132,9 +159,10 @@ seasons:
         page: 95
         opponent: Freidig
         opponentClubId: freidig
-        score: [1, 3]
+        score: [ 1, 3 ]
         date: "1954-08-08"
         competitionId: nm
         round: 3
         matchId: 1954-08-08-freidig-aalesunds-fk
-        note: "NM 1954 3. runde: Freidig–ÅFK 3–1 i Trondheim. Samtidig sesongomtale (reprint/duplikat i 192b og cd1c)."
+        note: "NM 1954 3. runde: Freidig–ÅFK 3–1 i Trondheim. Samtidig sesongomtale
+          (reprint/duplikat i 192b og cd1c)."
