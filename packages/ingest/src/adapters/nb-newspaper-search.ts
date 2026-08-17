@@ -1,4 +1,6 @@
 import { fetchJson } from "../http.js";
+import { readAccess } from "./nb-newspaper-access.js";
+import type { NbAccessInfo, NewspaperAccess } from "./nb-newspaper-access.js";
 
 const NB_ITEMS = "https://api.nb.no/catalog/v1/items";
 const DEFAULT_NEWSPAPER = "Sunnmørsposten";
@@ -40,6 +42,8 @@ export interface NewspaperCandidate {
   title?: string;
   issued?: string;
   itemUrl: string;
+  /** Hva NB sier om tilgang, lisens og kreditering for akkurat denne utgaven. */
+  access: NewspaperAccess;
   score: number;
   reasons: string[];
   matchedQueries: string[];
@@ -55,6 +59,7 @@ interface NbContentFragment {
 
 interface NbItem {
   id: string;
+  accessInfo?: NbAccessInfo;
   metadata?: {
     title?: string;
     identifiers?: { urn?: string };
@@ -232,6 +237,7 @@ export function rankNewspaperCandidate(
     ...(title ? { title } : {}),
     ...(issued ? { issued } : {}),
     itemUrl: `https://www.nb.no/items/${item.id}`,
+    access: readAccess(item.accessInfo, options.newspaper ?? DEFAULT_NEWSPAPER, issued),
     score,
     reasons,
     matchedQueries: [...matchedQueries],

@@ -12,6 +12,8 @@ import {
 } from "./nb-newspaper-search.js";
 import { SEASON_MONTHS } from "./nb-newspaper-plan.js";
 import { extractMatchFacts } from "./nb-newspaper-facts.js";
+import { accessNote, newspaperPageUrl } from "./nb-newspaper-access.js";
+import type { NewspaperAccess } from "./nb-newspaper-access.js";
 import type { NewspaperCandidate } from "./nb-newspaper-search.js";
 import type { ExtractedFacts } from "./nb-newspaper-facts.js";
 import type { Archive } from "@aafkstats/schema/load";
@@ -58,19 +60,35 @@ export interface BatchEntry {
   newspaper: string;
   outcome: BatchOutcome;
   checkedAt: string;
-  issue?: {
-    id: string;
-    urn?: string;
-    issued?: string;
-    itemUrl: string;
-    score: number;
-    reasons: string[];
-    /** Dager fra kampdato til utgaven. 1 er dagen etter. */
-    dayOffset?: number;
-  };
+  issue?: IssueRef;
   facts?: ExtractedFacts;
   /** Hva utgaven kan tilføre kampen i arkivet, felt for felt. */
   additions?: string[];
+}
+
+/**
+ * Utgaven en kamp ble funnet i, med alt en leser trenger for å komme videre.
+ *
+ * `pageUrl` peker på siden, ikke bare utgaven — for en årgang som krever
+ * innlogging er den lenka det eneste vi kan gi, og da bør den være presis.
+ * `access` er NBs egne rettighetsopplysninger, og `fullText` fylles bare når de
+ * sier at utgaven er åpen for alle.
+ */
+export interface IssueRef {
+  id: string;
+  urn?: string;
+  issued?: string;
+  itemUrl: string;
+  pageUrl: string;
+  page?: string;
+  access: NewspaperAccess;
+  accessNote: string;
+  score: number;
+  reasons: string[];
+  /** Dager fra kampdato til utgaven. 1 er dagen etter. */
+  dayOffset?: number;
+  /** OCR-teksten, bare for årganger NB slipper alle inn i. */
+  fullText?: string[];
 }
 
 export interface BatchReport {
@@ -232,18 +250,37 @@ async function checkMatch(
   const entry: BatchEntry = {
     ...base,
     outcome: best.score >= FOUND_SCORE ? "funnet" : "usikker",
-    issue: {
-      id: best.id,
-      ...(best.urn ? { urn: best.urn } : {}),
-      ...(best.issued ? { issued: best.issued } : {}),
-      itemUrl: best.itemUrl,
-      score: best.score,
-      reasons: best.reasons,
-      ...(dayOffset(match.date, best.issued) === undefined ? {} : { dayOffset: dayOffset(match.date, best.issued)! }),
-    },
+    // Sida i resultatboksen er den leseren skal til, ikke den best rangerte
+    // treffsida. For en stengt årgang er lenka alt vi kan gi.
+    issue: issueRef(best, dayOffset(match.date, best.issued), facts?.sources[0]?.page ?? best.fragments[0]?.pageNumber),
     ...(facts ? { facts } : {}),
   };
   return { ...entry, additions: additionsFor(match, facts) };
+}
+
+/**
+ * Utgaven slik den skal stå i rapporten: lenke til siden, rettigheter, og — når
+ * NB slipper alle inn — teksten selv.
+ */
+export function issueRef(candidate: NewspaperCandidate, offset?: number, page = candidate.fragments[0]?.pageNumber): IssueRef {
+  const fullText = candidate.access.mayStoreFullText
+    ? candidate.fragments.map((fragment) => fragment.text.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim()).filter((text) => text !== "")
+    : undefined;
+
+  return {
+    id: candidate.id,
+    ...(candidate.urn ? { urn: candidate.urn } : {}),
+    ...(candidate.issued ? { issued: candidate.issued } : {}),
+    itemUrl: candidate.itemUrl,
+    pageUrl: newspaperPageUrl(candidate.id, page),
+    ...(page ? { page } : {}),
+    access: candidate.access,
+    accessNote: accessNote(candidate.access),
+    score: candidate.score,
+    reasons: candidate.reasons,
+    ...(offset === undefined ? {} : { dayOffset: offset }),
+    ...(fullText && fullText.length > 0 ? { fullText } : {}),
+  };
 }
 
 /**
@@ -374,24 +411,14 @@ export interface DatelessEntry {
   /** Hvorfor månedene ble prøvd i denne rekkefølgen. Begrunnelsen fra steg 0. */
   plan?: string;
   /** Bare satt når resultatboksen navngir begge lagene med denne stillingen. */
-  confirmed?: {
-    id: string;
-    urn?: string;
+  confirmed?: IssueRef & {
     issued: string;
-    itemUrl: string;
     /** Kampen er spilt før utgaven. Dagen før er vanligst, to dager forekommer. */
     likelyDate: string;
     dateRange: { from: string; to: string };
     facts: ExtractedFacts;
   };
-  shortlist: Array<{
-    id: string;
-    issued?: string;
-    itemUrl: string;
-    month: string;
-    score: number;
-    quote: string;
-  }>;
+  shortlist: Array<IssueRef & { month: string; quote: string }>;
 }
 
 export function monthWindows(season: number, months = SEASON_MONTHS): Array<{ month: string; from: string; to: string }> {
@@ -460,11 +487,8 @@ export async function discoverMatchDate(
 
     for (const [index, candidate] of candidates.slice(0, options.shortlistPerMonth ?? 4).entries()) {
       entry.shortlist.push({
-        id: candidate.id,
-        ...(candidate.issued ? { issued: candidate.issued } : {}),
-        itemUrl: candidate.itemUrl,
+        ...issueRef(candidate),
         month: window.month,
-        score: candidate.score,
         quote: plain(candidate.fragments[0]?.text ?? "").slice(0, 200),
       });
 
@@ -474,10 +498,8 @@ export async function discoverMatchDate(
       if (facts && candidate.issued) {
         entry.outcome = "dato_funnet";
         entry.confirmed = {
-          id: candidate.id,
-          ...(candidate.urn ? { urn: candidate.urn } : {}),
+          ...issueRef(candidate, undefined, facts.sources[0]?.page ?? candidate.fragments[0]?.pageNumber),
           issued: candidate.issued,
-          itemUrl: candidate.itemUrl,
           likelyDate: shiftDate(candidate.issued, -1),
           dateRange: { from: shiftDate(candidate.issued, -3), to: shiftDate(candidate.issued, 0) },
           facts,
