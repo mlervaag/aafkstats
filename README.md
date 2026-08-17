@@ -141,6 +141,7 @@ rettighetsvurdering.
 | `pnpm ingest:rsssf -- --season ÅR --division SIDE --competition ID` | Tørrkjører én eksplisitt RSSSF-sesong |
 | `pnpm ingest:rsssf-discover -- --from ÅR --to ÅR` | Kartlegger hva RSSSF har. Skriver aldri data |
 | `pnpm ingest:fotmob-standings -- --league ID --season ÅR --competition ID` | Tørrkjører tabellen og plasseringskurven for én sesong. Den eneste som kan hente en sesong som pågår |
+| `pnpm ingest:nb-newspaper-search -- --year ÅR --opponent LAG [--score 2-0] [--competition nm] [--round N]` | Leter opp avisutgaven som dekker én kamp, i Nasjonalbibliotekets aviser. Rapporterer bare kandidater — skriver aldri data |
 
 Innhøstingen tørrkjører alltid som standard. `--write` er et eget valg, og det krever at
 kilden er avklart for publisering — se [Kilder og rettigheter](#kilder-og-rettigheter).

@@ -34,6 +34,7 @@
     "ingest:rsssf-discover": "pnpm --filter @aafkstats/ingest run rsssf-discover",
     "ingest:nff": "pnpm --filter @aafkstats/ingest run nff",
     "ingest:nb-extract": "pnpm --filter @aafkstats/ingest run nb-extract",
+    "ingest:nb-newspaper-search": "pnpm --filter @aafkstats/ingest run nb-newspaper-search",
     "ingest:sfk-annual-reports": "pnpm --filter @aafkstats/ingest run sfk-annual-reports",
     "ingest:sfk-annual-report-analysis": "pnpm --filter @aafkstats/ingest run sfk-annual-report-analysis",
     "ingest:sfk-annual-report-candidates": "pnpm --filter @aafkstats/ingest run sfk-annual-report-candidates",
