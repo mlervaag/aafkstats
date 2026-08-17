@@ -11,13 +11,29 @@ describe("Medlemsblad 1965 (Vol. 16 nr. 1–6)", () => {
     archive = await loadArchive(resolve(import.meta.dirname, "../../../data"));
   }, 30_000);
 
-  it("fører alle 36 A-lagskampene i 1965 som kildepåstander, uten å gi dem dato", () => {
+  it("fører alle 36 A-lagskampene i 1965 som kildepåstander uten oppdiktet dato", () => {
     const collection = archive.sourceResults.find((c) => c.sourceId === SOURCE_ID);
     const season = collection?.seasons.find((s) => s.year === 1965);
 
     expect(season?.results).toHaveLength(36);
-    // Kilden parer aldri dato og resultat, så ingen av oppføringene skal ha fått en.
-    expect(season?.results.every((r) => r.matchId === null)).toBe(true);
+    // Kilden parer aldri dato og resultat, så ingen oppføring har egen dato.
+    expect(season?.results.every((r) => r.date === undefined)).toBe(true);
+  });
+
+  it("kobler bare de to oppgjørene der runde og motstander gjør kampen entydig", () => {
+    const season = archive.sourceResults
+      .find((c) => c.sourceId === SOURCE_ID)
+      ?.seasons.find((s) => s.year === 1965);
+    const koblet = (season?.results ?? []).filter((r) => r.matchId !== null);
+
+    // Manglende dato betyr «ikke oppfinn dato», ikke «ikke koble til kjent kamp».
+    // De to NM-kampene står i sesongarkivet, og runden er trykt i kilden.
+    expect(koblet.map((r) => [r.round, r.matchId])).toEqual([
+      [3, "1965-08-01-aalesunds-fk-rosenborg-bk"],
+      [4, "1965-08-22-valerenga-aalesunds-fk"],
+    ]);
+    // De øvrige 34 mangler entydig kampidentitet og skal stå ukoblet.
+    expect((season?.results ?? []).filter((r) => r.matchId === null)).toHaveLength(34);
   });
 
   it("stemmer med bladets egne kontrollsummer for sesongen", () => {

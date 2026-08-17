@@ -205,6 +205,9 @@ export async function runHarvestCheck(options: HarvestCheckCliOptions, root = re
     ...headObservationsLoad.errors,
     ...baseMatchesLoad.errors,
     ...headMatchesLoad.errors,
+    // Et BASE-manifest som ikke lastes, gjør created/enriched-kontrollen blind
+    // uten å si det. Da skal kjøringen stoppe, ikke gå videre med tom kunnskap.
+    ...baseManifestsLoad.errors,
   ];
 
   if (allLoadErrors.length > 0) {

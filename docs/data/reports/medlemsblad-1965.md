@@ -28,9 +28,9 @@
 
 | Pass | Status | Funn | Notat |
 |---|---|---|---|
-| `facsimile_review` | `complete` | 27 | Samtlige 56 skannede sider åpnet og lest enkeltvis mot faksimilen hos Nasjonalbiblioteket. |
+| `facsimile_review` | `complete` | 27 | Samtlige 56 skannede sider åpnet og lest enkeltvis mot faksimilen hos Nasjonalbiblioteket. Side-for-side-loggen med innhold og funn per skann står i docs/data/reviews/medlemsblad-1965.md, inkludert de 13 sidene uten relevante funn. |
 | `explicit_results` | `complete` | 4 | Klubbens egen sesongoppstilling for 1965 er kontrollregnet mot bladets egne sammendrag. «Våre kamper gjennom 50 år» er lest to ganger uavhengig, med 99 % samsvar mellom lesingene. |
-| `people_and_roles` | `complete` | 18 | - |
+| `people_and_roles` | `complete` | 21 | - |
 | `organization` | `complete` | 1 | - |
 | `retrospectives_and_claims` | `complete` | 1 | «Våre kamper gjennom 50 år» er normalisert under faktumår 1915–1964. |
 | `observations` | `complete` | 2 | - |
@@ -38,8 +38,8 @@
 
 ## Findings
 
-- **Totalt antall funn:** 29
-- **Normaliserte:** 25
+- **Totalt antall funn:** 32
+- **Normaliserte:** 28
 - **Uavklarte / usikre:** 4
 - **Mangler disposisjon:** 0
 
@@ -47,8 +47,8 @@
 
 | Kategori | Antall |
 |---|---|
-| `person_role` | 16 |
-| `person` | 2 |
+| `person_role` | 18 |
+| `person` | 3 |
 | `organization` | 1 |
 | `match_result` | 4 |
 | `historical_observation` | 2 |
@@ -58,17 +58,17 @@
 ## Matches
 
 - **Kildedokumenterte resultater (source-results):** 1031
-- **Koblede kilderesultater:** 0
+- **Koblede kilderesultater:** 2
 - **Nye kanoniske kamper:** 0
 - **Berikede kanoniske kamper:** 2
 
 ## Persons and Roles
 
 - **Nye personer:** 0
-- **Eksisterende personer kildeberiket:** 17
-- **Kildereferanser lagt til på personer:** 2
+- **Eksisterende personer kildeberiket:** 19
+- **Kildereferanser lagt til på personer:** 3
 - **Roller opprettet:** 15
-- **Roller kildeberiket:** 1
+- **Roller kildeberiket:** 3
 - **Æresroller opprettet:** 3
 
 ## Organization

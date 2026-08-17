@@ -1119,4 +1119,78 @@ describe("Cross-Layer Harvest Audit Engine", () => {
     ).toBe(true);
     expect(report.passed).toBe(false);
   });
+
+  it("måler et gammelt funn på nytt dersom disposisjonen er endret under samme ID", () => {
+    const baseFinding = {
+      id: "role-001",
+      source: { sourceId: "nff-arbok-1923" },
+      type: "person_role" as const,
+      claim: { text: "Nils Jangaard: Formann 1924" },
+      disposition: "role_enriched" as const,
+      targets: [{ entity: "person" as const, id: "nils-jangaard", path: "roles/formann-1924" }],
+      status: "normalized" as const,
+    };
+
+    const baseManifest: HarvestBatchManifest = {
+      version: 1,
+      id: "nff-1923",
+      title: "NFF Årbok 1923",
+      profile: "yearbook",
+      mode: "initial",
+      status: "complete",
+      scope: { sourceIds: ["nff-arbok-1923"] },
+      sourceInventory: [{ sourceId: "nff-arbok-1923", reviewStatus: "reviewed" }],
+      coverage: { mode: "pages", expected: 100, reviewed: 100 },
+      passes: {},
+      findings: [baseFinding],
+      unresolved: [],
+      notes: [],
+    };
+
+    // Samme ID, men disposisjonen er stilt om til created. Det er en ny påstand.
+    const manifest: HarvestBatchManifest = {
+      ...baseManifest,
+      passes: {
+        facsimile_review: { status: "complete", findings: 1 },
+        explicit_results: { status: "complete", findings: 0 },
+        people_and_roles: { status: "complete", findings: 1 },
+        organization: { status: "complete", findings: 0 },
+        retrospectives_and_claims: { status: "complete", findings: 0 },
+        observations: { status: "complete", findings: 0 },
+      },
+      findings: [{ ...baseFinding, disposition: "role_created" }],
+    };
+
+    const jangaard = {
+      id: "nils-jangaard",
+      name: "Nils Jangaard",
+      names: [],
+      squadNumbers: [],
+      coachSpells: [],
+      roles: [
+        {
+          id: "formann-1924",
+          title: "Formann",
+          category: "board" as const,
+          year: 1924,
+          sources: [{ sourceId: "nff-arbok-1923" }],
+        },
+      ],
+      providers: [],
+      sources: [{ sourceId: "nff-arbok-1923" }],
+      conflicts: [],
+    };
+
+    const ctx = createMinimalContext(manifest);
+    ctx.basePeople.set("nils-jangaard", jangaard);
+    ctx.headPeople.set("nils-jangaard", jangaard);
+    ctx.baseManifests = new Map([[baseManifest.id, baseManifest]]);
+
+    const report = auditHarvestBatch(ctx);
+    expect(
+      report.issues.some(
+        (i) => i.findingId === "role-001" && i.message.includes("finnes allerede i BASE"),
+      ),
+    ).toBe(true);
+  });
 });

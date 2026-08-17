@@ -6101,20 +6101,29 @@ seasons:
     competitionId: nm
     note: 'NM cup: ÅFK–Herd 2–1. 2. runde, hjemme. Ingen dato i kilden.'
     no: 16
-  - page: 45
+  - no: 17
+    page: 45
     opponent: Rosenborg
     score: [3, 2]
     opponentClubId: rosenborg-bk
     competitionId: nm
-    note: 'NM cup: ÅFK–Rosenborg 3–2. 3. runde, hjemme. Ingen dato i kilden.'
-    no: 17
-  - page: 45
+    round: 3
+    matchId: 1965-08-01-aalesunds-fk-rosenborg-bk
+    note: >-
+      NM cup, 3. runde hjemme mot Rosenborg 3–2. Kilden gir ingen dato, men runde,
+      motstander og resultat er entydige mot den kanoniske kampen 1. august 1965.
+  - no: 18
+    page: 45
     opponent: Vålerengen
     score: [1, 4]
     opponentClubId: valerenga
     competitionId: nm
-    note: 'NM cup: ÅFK–Vålerengen 1–4. 4. runde, spilt på Ullevaal, borte. Ingen dato i kilden.'
-    no: 18
+    round: 4
+    matchId: 1965-08-22-valerenga-aalesunds-fk
+    note: >-
+      NM cup, 4. runde som bortekamp på Ullevaal mot Vålerengen 1–4. Kilden gir ingen
+      dato, men runde, motstander, arena og resultat er entydige mot den kanoniske
+      kampen 22. august 1965.
   - page: 45
     opponent: Sykkylven
     score: [8, 2]

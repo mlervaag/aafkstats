@@ -225,14 +225,37 @@ export function diffStructuralAdditivity(
       headByShape.set(shape, (headByShape.get(shape) ?? 0) + 1);
     }
 
+    // Innenfor samme identitet pares først de elementene som er helt like i
+    // BASE og HEAD. Uten dette ville en ren ombytting av to oppføringer med
+    // samme identitet — hvor ingenting er tapt — blitt paret i rekkefølge og
+    // meldt som to mutasjoner. Køen brukes bare på det som står igjen når de
+    // uendrede er tatt ut.
+    const pairedByShape = new Set<number>();
+    for (const [index, baseItem] of baseValue.entries()) {
+      const identity = listItemIdentity(baseItem);
+      if (!identity || !isPlainObject(baseItem)) continue;
+      const lookup = `${identity.key}=${compositeIdentity(baseItem, identity)}`;
+      const queue = headById.get(lookup);
+      if (!queue) continue;
+      const shape = stableKey(baseItem);
+      const hit = queue.findIndex((candidate) => stableKey(candidate) === shape);
+      if (hit >= 0) {
+        queue.splice(hit, 1);
+        pairedByShape.add(index);
+      }
+    }
+
     for (let i = 0; i < baseValue.length; i++) {
       const baseItem = baseValue[i];
       const identity = listItemIdentity(baseItem);
 
+      // Elementet står uendret i HEAD. Ingenting kan være tapt.
+      if (pairedByShape.has(i)) continue;
+
       if (identity && isPlainObject(baseItem)) {
         const lookup = `${identity.key}=${compositeIdentity(baseItem, identity)}`;
-        // Basisoppføringene pares mot HEAD-oppføringene i rekkefølge, slik at
-        // n-te forekomst av en identitet møter n-te forekomst i HEAD.
+        // Det som står igjen pares i rekkefølge, slik at n-te gjenværende
+        // forekomst av en identitet møter n-te gjenværende i HEAD.
         const headItem = headById.get(lookup)?.shift();
         if (headItem === undefined) {
           out.push({

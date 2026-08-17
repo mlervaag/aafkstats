@@ -83,6 +83,25 @@ describe("Strukturell additivitet i arkivet", () => {
     expect(diffStructuralAdditivity(snapshot, structuredClone(snapshot), "")).toHaveLength(0);
   });
 
+  it("melder ikke ombytting av to oppføringer med samme identitet", () => {
+    // Ingenting er tapt, bare rekkefølgen er byttet. Med ren køparing ville
+    // første BASE-oppføring møtt andre HEAD-oppføring og gitt to mutasjoner.
+    const base = {
+      people: [
+        { personId: "bjorn-aasen", observedTitle: "Kasserer", body: "Hovedstyret" },
+        { personId: "bjorn-aasen", observedTitle: "Forretningsfører", body: "Medlemsbladet" },
+      ],
+    };
+    const head = {
+      people: [
+        { personId: "bjorn-aasen", observedTitle: "Forretningsfører", body: "Medlemsbladet" },
+        { personId: "bjorn-aasen", observedTitle: "Kasserer", body: "Hovedstyret" },
+      ],
+    };
+
+    expect(diffStructuralAdditivity(base, head, "")).toHaveLength(0);
+  });
+
   it("fanger fortsatt at én av to oppføringer med samme identitet forsvinner", () => {
     const base = {
       people: [

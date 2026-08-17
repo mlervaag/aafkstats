@@ -57,13 +57,14 @@ inngangen for den som skal ta neste runde.
 | Batch | Årganger | Sider | Status | Merknad |
 |---|---|---:|---|---|
 | `medlemsblad-1950` | 1950 | 96 | `complete` | PR #166 |
+| `medlemsblad-1951` | 1951 | 84 | `complete` | PR #167 |
 | `medlemsblad-1953-1956` | 1953–1956 | 420 | `audited` | Rekonstruert manifest fra PR #156 |
 | `medlemsblad-1957-1960` | 1957–1960 | 344 | `audited` | Rekonstruert manifest fra PR #155 |
 | `medlemsblad-1961` | 1961 | 84 | `audited` | Rekonstruert manifest fra PR #152/#154 |
 | `medlemsblad-1962` | 1962 | 84 | `audited` | Rekonstruert manifest fra PR #151/#153; faksimilepasset er ikke verifisert på nytt |
-| `medlemsblad-1965` | 1965 | 56 | `normalized` | Tre spor står åpne i `unresolved` |
+| `medlemsblad-1965` | 1965 | 56 | `normalized` | Inkluderer «Våre kamper gjennom 50 år»; fire spor står åpne i `unresolved` |
 
-Uinnhøstet: **1951, 1952, 1963, 1964, og 1966–1980**. Fra 1966 er årgangene
+Uinnhøstet: **1952, 1963, 1964, og 1966–1980**. Fra 1966 er årgangene
 katalogisert hefte for hefte med fire eller flere `sourceId`-er per år, mot én
 samlet kilde til og med 1965.
 
