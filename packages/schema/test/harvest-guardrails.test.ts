@@ -108,6 +108,92 @@ describe("Strukturell additivitet i arkivet", () => {
     expect(result.destructiveChanges).toBe(0);
     expect(result.approvedExceptions).toBe(1);
   });
+
+  it("godtar at en kamp går fra planlagt til spilt, avlyst, utsatt eller walkover", () => {
+    for (const outcome of ["played", "abandoned", "awarded", "cancelled", "postponed"]) {
+      const result = runArchivePreservationAudit([
+        {
+          domain: "match",
+          base: new Map([["m-1", { id: "m-1", status: "scheduled" }]]),
+          head: new Map([["m-1", { id: "m-1", status: outcome }]]),
+        },
+      ]);
+
+      expect(result.destructiveChanges).toBe(0);
+    }
+  });
+
+  it("stanser fortsatt en kamp som mister et konkludert utfall", () => {
+    const regressedToScheduled = runArchivePreservationAudit([
+      {
+        domain: "match",
+        base: new Map([["m-1", { id: "m-1", status: "played" }]]),
+        head: new Map([["m-1", { id: "m-1", status: "scheduled" }]]),
+      },
+    ]);
+    expect(regressedToScheduled.destructiveChanges).toBe(1);
+
+    const swappedOutcome = runArchivePreservationAudit([
+      {
+        domain: "match",
+        base: new Map([["m-1", { id: "m-1", status: "played" }]]),
+        head: new Map([["m-1", { id: "m-1", status: "cancelled" }]]),
+      },
+    ]);
+    expect(swappedOutcome.destructiveChanges).toBe(1);
+  });
+
+  it("bruker samme fritak kun for kamper, ikke for et likelydende statusfelt i et annet domene", () => {
+    const result = runArchivePreservationAudit([
+      {
+        domain: "source_result",
+        base: new Map([["sr-1", { sourceId: "sr-1", status: "scheduled" }]]),
+        head: new Map([["sr-1", { sourceId: "sr-1", status: "played" }]]),
+      },
+    ]);
+
+    expect(result.destructiveChanges).toBe(1);
+  });
+
+  it("gjenkjenner en leverandørreferanse på providerId og godtar en frisk hentedato og flere felter", () => {
+    const base = {
+      id: "m-1",
+      providers: [{ providerId: "fotmob", retrievedAt: "2026-08-09", fields: ["date", "status"] }],
+    };
+    const head = {
+      id: "m-1",
+      providers: [
+        { providerId: "fotmob", retrievedAt: "2026-08-17", fields: ["date", "status", "events", "stats"] },
+      ],
+    };
+
+    const result = runArchivePreservationAudit([
+      { domain: "match", base: new Map([["m-1", base]]), head: new Map([["m-1", head]]) },
+    ]);
+
+    expect(result.destructiveChanges).toBe(0);
+  });
+
+  it("melder fortsatt en leverandørreferanse som reelt er borte", () => {
+    const base = {
+      id: "m-1",
+      providers: [
+        { providerId: "fotmob", retrievedAt: "2026-08-09", fields: ["date"] },
+        { providerId: "rsssf", retrievedAt: "2020-01-01", fields: ["date"] },
+      ],
+    };
+    const head = {
+      id: "m-1",
+      providers: [{ providerId: "fotmob", retrievedAt: "2026-08-17", fields: ["date"] }],
+    };
+
+    const result = runArchivePreservationAudit([
+      { domain: "match", base: new Map([["m-1", base]]), head: new Map([["m-1", head]]) },
+    ]);
+
+    expect(result.destructiveChanges).toBe(1);
+    expect(result.changes[0]?.path).toContain("rsssf");
+  });
 });
 
 describe("Unntak kan ikke godkjennes av endringen som bruker dem", () => {
