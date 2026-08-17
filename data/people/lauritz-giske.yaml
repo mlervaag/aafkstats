@@ -193,6 +193,19 @@ roles:
           - from
         note: "Lest maskinelt fra spalte 2 på siden (regel: name_then_year). Manuelt
           verifisert."
+  - id: utgiver-medlemsbladet-1966
+    category: administration
+    title: Utgiver
+    body: Medlemsbladet
+    from: "1966"
+    to: "1966"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        page: "43"
+        fields:
+          - title
+          - from
+    note: Valgt på ordinært årsmøte i Klubbhuset på Kråmyra 21. november 1965; valget gjelder arbeidsåret 1966. Giske var bladets postadresse og distribusjonsansvarlig i 1965 (s. 6).
 sources:
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "2"

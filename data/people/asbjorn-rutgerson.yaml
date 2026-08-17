@@ -9,6 +9,19 @@ roles:
     sources:
       - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
         page: "81"
+  - id: nestformann-1966
+    category: board
+    title: Nestformann
+    body: Hovedstyret
+    from: "1966"
+    to: "1966"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        page: "43"
+        fields:
+          - title
+          - from
+    note: Valgt på ordinært årsmøte i Klubbhuset på Kråmyra 21. november 1965; valget gjelder arbeidsåret 1966.
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
     page: "79"

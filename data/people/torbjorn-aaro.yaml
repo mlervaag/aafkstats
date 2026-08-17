@@ -61,8 +61,9 @@ roles:
   - id: trener-1965
     category: coach
     title: Trener
+    body: A-laget
     from: "1965"
-    to: null
+    to: "1965"
     sources:
       - sourceId: tango-siden-1914-2013-806b
         page: "351"
@@ -71,6 +72,17 @@ roles:
           - from
         note: "Lest maskinelt fra spalte 1 på siden (regel: year_row). Manuelt
           verifisert."
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        page: "30"
+        fields:
+          - title
+          - body
+          - from
+          - to
+        note: Samtidig bekreftelse. Reengasjert som trener for A- og reservelaget i
+          1965 (skann 3), ledet treningen uten økonomisk vederlag mens klubben var i
+          økonomisk krise (skann 49), og trenerspørsmålet for 1966 sto uavklart på
+          årsmøtet 21. november 1965 (skann 42).
     note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
       siden.
   - id: gullmerkeinnehaver-1987
