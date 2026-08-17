@@ -5,8 +5,8 @@ import { stringify } from "yaml";
 import { dataDir, loadArchive } from "@aafkstats/schema/load";
 import { assertMayFetch } from "../policy.js";
 import { newspaperPageUrl } from "../adapters/nb-newspaper-access.js";
-import { createIssueCache, discoverForSourceResult } from "../newspaper/discovery.js";
-import { parseSourceResultId, sourceIdFromPath, sourceResultQueries } from "../newspaper/source-result-query.js";
+import { createIssueCache, discoverForGroup } from "../newspaper/discovery.js";
+import { buildHypotheses, parseSourceResultId, sourceIdFromPath, sourceResultQueries, withSiblings } from "../newspaper/source-result-query.js";
 import type { DiscoveredIssue } from "../newspaper/discovery.js";
 import type { DiscoveryResult } from "../newspaper/reconciliation.js";
 import type { SourceResultQuery } from "../newspaper/source-result-query.js";
@@ -58,14 +58,15 @@ const archive = await loadArchive(dataDir());
 if (archive.issues.length > 0) throw new Error(`arkivet har ${archive.issues.length} valideringsfeil`);
 assertMayFetch(archive, "nasjonalbiblioteket");
 
-const queries = sourceResultQueries(archive, {
+const selection = {
   sourceId,
   ...(season === undefined ? {} : { season }),
   ...(no === undefined ? {} : { no }),
   ...(number(args.values["from-year"]) === undefined ? {} : { fromYear: number(args.values["from-year"])! }),
   ...(number(args.values["to-year"]) === undefined ? {} : { toYear: number(args.values["to-year"])! }),
   ...(args.values["unlinked-only"] ? { unlinkedOnly: true } : {}),
-});
+};
+const queries = sourceResultQueries(archive, selection);
 
 const selected = queries.slice(0, limit ?? queries.length);
 console.log(`${queries.length} kilderesultater valgt fra ${sourceId}${selected.length < queries.length ? `, tar de ${selected.length} første` : ""}.`);
@@ -80,23 +81,32 @@ if (args.values["dry-run"]) {
 
 const cache = createIssueCache();
 let requests = 0;
-const cacheHitsBefore = () => cache.size;
 const records = [];
+const wanted = new Set(selected.map((query) => `${query.year}-${query.ref.no}`));
 
-for (const query of selected) {
-  const before = cacheHitsBefore();
-  const result = await discoverForSourceResult(query, {
+// Fordelingen trenger hele søskengruppen, også når brukeren spurte om én rad.
+// Bare de valgte radene rapporteres, men konkurransen om hendelsene er ekte.
+for (const [, group] of withSiblings(archive, selection)) {
+  const hypotheses = buildHypotheses(group);
+  const results = await discoverForGroup(hypotheses, {
     cache,
     ...(number(args.values.enrich) === undefined ? {} : { enrich: number(args.values.enrich)! }),
     ...(args.values.refresh ? { refresh: true } : {}),
     onRequest: () => { requests += 1; },
   });
-  const reused = cacheHitsBefore() === before;
 
-  records.push(toRecord(query, result, result.issues));
-  console.log(`${query.year} #${query.ref.no} ${query.printedOpponent} ${query.expectedScore?.join("-") ?? "?"}`
-    + ` → ${result.status}${result.matchDate ? ` · ${result.matchDate.value} (${result.matchDate.confidence})` : ""}`
-    + `${result.newspaperScore ? ` · avisa: ${result.newspaperScore.join("-")}` : ""}${reused ? " · gjenbrukt søk" : ""}`);
+  for (const hypothesis of hypotheses) {
+    const result = results.get(hypothesis.id);
+    if (!result) continue;
+    for (const query of hypothesis.queries) {
+      if (!wanted.has(`${query.year}-${query.ref.no}`)) continue;
+      records.push({ ...toRecord(query, result, []), allocation: result.allocation });
+      console.log(`${query.year} #${query.ref.no} ${query.printedOpponent} ${query.expectedScore?.join("-") ?? "?"}`
+        + ` → ${result.status}${result.matchDate ? ` · ${result.matchDate.value} (${result.matchDate.confidence})` : ""}`
+        + `${result.newspaperScore ? ` · avisa: ${result.newspaperScore.join("-")}` : ""}`
+        + ` · fordeling ${result.allocation.confidence} (margin ${result.allocation.margin})`);
+    }
+  }
 }
 
 const summary = summarize(records);

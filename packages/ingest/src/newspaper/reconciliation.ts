@@ -96,7 +96,6 @@ export function reconcile(query: NewspaperQuery, evidence: NewspaperEvidence[]):
       date,
       conflicting: conflicting !== undefined,
       candidates: relevant.length,
-      ambiguousSiblings: (query.siblingCount ?? 1) > 1 && !scoreAgreement,
     }),
     ...(date ? { matchDate: { value: date.date, confidence: date.confidence, agreement: date.agreement, disagreement: date.disagreement } } : {}),
     ...(conflicting ? { newspaperScore: conflicting } : {}),
@@ -113,20 +112,13 @@ function statusFor(input: {
   date: { confidence: DateConfidence } | undefined;
   conflicting: boolean;
   candidates: number;
-  /**
-   * Sesongen har flere kilderesultater mot samme motstander, og ingen av dem
-   * kan skilles på resultatet.
-   *
-   * Da er treffsettet det samme for alle radene, og verktøyet kan ikke vite
-   * hvilken av kampene en utgave omtaler. Første forsøk ga da to Clausenengen-
-   * rader i 1952 samme dato, og en Raufoss-rad fra juni fikk august-kampen med
-   * «høy» tillit. En feil dato med høy tillit er verre enn ingen dato.
-   */
-  ambiguousSiblings: boolean;
 }): DiscoveryStatus {
+  // Søsken håndteres ikke lenger her. Tidligere ga flere kamper mot samme
+  // motstander automatisk «ambiguous», fordi avstemmingen så hele sesongens
+  // treff og ikke kunne vite hvilken kamp de gjaldt. Nå får den bare bevisene
+  // fordelingen har tildelt denne kampen, og usikkerheten i selve fordelingen
+  // rapporteres av den — der den hører hjemme.
   const identified = input.strongest.score >= STRONG_SCORE && input.checks.date !== "unknown";
-
-  if (input.ambiguousSiblings && !input.conflicting) return "ambiguous";
 
   // Konflikt går foran alt annet: kampen er funnet, men kildene er uenige, og
   // det skal ikke kunne skjules bak en «confirmed».

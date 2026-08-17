@@ -78,23 +78,66 @@ pnpm ingest:nb-newspaper-discover -- \
 `--dry-run` viser hvilke rader som ville blitt slått opp, med hintene notatet ga,
 uten å røre nettet.
 
+## Fordelingssteget
+
+Én avishendelse kan bare tilhøre én kamp. Det er hele grepet.
+
+Møtte AaFK Raufoss to ganger i 1963, finnes det to kamper og to sett avisomtale.
+Vurderes hver kilderad for seg, får begge radene den hendelsen som ser sterkest
+ut alene — og da havner begge på samme kamp. Det skjedde: rad #27 fra juni fikk
+oktoberkampen, med «høy» tillit.
+
+Derfor er spørsmålet ikke «hvilken hendelse passer best til denne raden», men
+«hvilken fordeling av alle hendelsene på alle radene er best samlet sett».
+
+```
+kilderader i samme sesong mot samme klubb
+        ↓  buildHypotheses            resultGroupId slår sammen kildepåstander
+kamphypoteser
+        ↓  discoverNewspaperIssues    ett søk for hele gruppen
+avisutgaver
+        ↓  clusterEvidence            forhåndsomtale + kampdag + referat = én hendelse
+avishendelser
+        ↓  allocateEvents             beste én-til-én-fordeling, med margin
+tildeling
+        ↓  reconcile                  bare de bevisene kampen faktisk fikk
+status
+```
+
+Tre detaljer som viste seg å være avgjørende:
+
+- **Søsken telles før brukerfilteret.** Slår man opp bare rad #27, må verktøyet
+  likevel vite at sesongen har en kamp til mot samme motstander. Ellers finnes
+  det ingen konkurranse om hendelsene.
+- **Gruppen nøkles på klubb-ID**, ikke på det trykte navnet. Ellers blir
+  «Clausenengen», «CFK» og «Clausenengen FK» tre forskjellige motstandere.
+- **Kildens rekkefølge er mykt bevis.** Står #27 før #30, teller det at
+  hendelsene ligger i samme rekkefølge — men samtidig avisdekning kan overstyre
+  lista, som allerede er tatt i å ta feil om andre ting.
+
+Tilliten i fordelingen er marginen til nest beste løsning, ikke summen av
+enkeltsignaler. To fordelinger på 190 og 188 poeng er ikke et sikkert svar,
+uansett hvor sterke enkeltkantene er.
+
 ## Målt status
 
-Kontrollert mot NB-API-et med kjente kamper:
+Kontrollert mot NB-API-et:
 
 | Kamp | Forventet | Målt |
 |---|---|---|
 | Clausenengen 1952 #16 | 1952-05-04, confirmed | **1952-05-04, confirmed** |
-| Raufoss 1963 #27 | 1963-06-16, confirmed | 1963-10-20, confirmed — **feil dato** |
-| Sarpsborg 1948 #10 | 1948-07-16, conflict | 1948-06-27, ambiguous — **feil dato** |
+| Raufoss 1963 #27 | 1963-06-16, confirmed | **1963-06-16, confirmed** |
+| Raufoss 1963 #30 | egen hendelse | **egen hendelse, ambiguous** |
+| Sarpsborg 1948 #10 | 1948-07-16, conflict | 1948-10-17, ambiguous — **feil hendelse** |
 
-De to som bommer, bommer av samme grunn: sesongen har to kamper mot den samme
-motstanderen, og begge radene deler treffsett. Verktøyet mangler et steg som
-fordeler utgavene mellom radene — for eksempel ved å kreve at to rader mot samme
-motstander får hver sin dato, og at rekkefølgen i kildens egen liste respekteres.
-Til det er på plass bør funn mot motstandere som går igjen i sesongen leses som
-kandidater, ikke som svar.
+Søskeninvarianten holder: de to Raufoss-radene får hver sin hendelse, og
+junikampen dateres ikke lenger til oktober. Det samme gjelder de to
+Clausenengen-radene, der #22 dessuten melder at avisa oppgir 1-1 mot kildens 0-0.
 
-Avstemmingslogikken i seg selv er verifisert: gitt riktig tekstvindu gir den
-riktig dato, riktig status og riktig konflikt — se
-`packages/ingest/test/nb-newspaper-discovery.test.ts`.
+Sarpsborg 1948 står igjen. Forhåndsomtalene 15. og 16. juli finnes i materialet —
+«morgendagens fotballkamp» og «kveldens kamp» — men en oktoberhendelse vinner
+fordelingen, og julihendelsen blir aldri bygget fordi de aktuelle utgavene ikke
+kommer med i berikelsen. Det er et spørsmål om hvilke utgaver som får OCR-oppslag,
+ikke om avstemmingen: mates julitekstene inn direkte, gir de riktig dato og riktig
+konflikt (se testene). Neste steg er å berike ut fra hele årets kandidatsett i
+stedet for de N beste, eller å bruke sesongvinduer slik `nb-newspaper-batch` gjør.

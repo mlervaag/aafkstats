@@ -5,6 +5,10 @@ import { matchScore, parseScores } from "../src/newspaper/score-parse.js";
 import { parseNote } from "../src/newspaper/note-parser.js";
 import { evidenceForFragment } from "../src/newspaper/evidence.js";
 import { reconcile } from "../src/newspaper/reconciliation.js";
+import { clusterEvidence } from "../src/newspaper/evidence-cluster.js";
+import { allocateEvents } from "../src/newspaper/allocation.js";
+import type { MatchHypothesis } from "../src/newspaper/allocation.js";
+import type { SourceResultQuery } from "../src/newspaper/source-result-query.js";
 import type { NewspaperQuery } from "../src/newspaper/evidence.js";
 
 /**
@@ -190,27 +194,81 @@ describe("reconcile", () => {
     expect(result.checks.score).toBe("conflict");
   });
 
-  /**
-   * Møtte laget den samme motstanderen to ganger i sesongen, og ingen av
-   * kildens resultater kan skille dem, er svaret «ambiguous». Første forsøk ga
-   * her en dato med høy tillit — fra feil kamp.
-   */
-  it("nekter å velge mellom to kamper mot samme motstander", () => {
-    const result = reconcile(query({ opponent: "Raufoss", opponentAliases: [], expectedScore: [1, 0], siblingCount: 2 }), [
-      evidenceForFragment(
-        "ÅFK som kjempet og vant på Raufoss i går, presenteres her",
-        query({ opponent: "Raufoss", opponentAliases: [], expectedScore: [1, 0], siblingCount: 2 }),
-        { issueId: "referat", issueDate: "19631020" },
-      ),
-    ]);
-    expect(result.status).toBe("ambiguous");
-  });
-
   it("sier ikke funnet når ingen kandidat når terskelen", () => {
     const result = reconcile(query({ expectedScore: [1, 0] }), [
       evidenceFrom("Værmeldingen for Sunnmøre neste uke", "19520505"),
     ]);
     expect(result.status).toBe("not_found");
     expect(result.evidence).toEqual([]);
+  });
+});
+
+describe("clusterEvidence", () => {
+  /**
+   * Forhåndsomtale, kampdag og referat er tre utgaver om én kamp. Som
+   * konkurrenter svekker de hverandre; som én hendelse er de tredobbelt belegg.
+   */
+  it("samler utgaver som peker på samme kampdato", () => {
+    const raufoss = query({ opponent: "Raufoss", opponentAliases: [], expectedScore: [1, 0] });
+    const events = clusterEvidence([
+      evidenceForFragment("ÅFK møter Raufoss i morgen, og kampen blir tøff", raufoss, { issueId: "a", issueDate: "19630615" }),
+      evidenceForFragment("Til kveldens kamp mellom Raufoss og ÅFK stiller laget slik", raufoss, { issueId: "b", issueDate: "19630616" }),
+      evidenceForFragment("Raufoss—ÅFK 0—1. Kampen i går ga ÅFK to poeng", raufoss, { issueId: "c", issueDate: "19630617" }),
+      evidenceForFragment("ÅFK vant over Raufoss i går kveld på Kråmyra", raufoss, { issueId: "d", issueDate: "19631021" }),
+    ]);
+
+    expect(events).toHaveLength(2);
+    const june = events.find((event) => event.inferredDate === "1963-06-16")!;
+    expect(june.evidence).toHaveLength(3);
+    expect(june.score).toBeGreaterThan(events.find((event) => event.inferredDate === "1963-10-20")!.score);
+  });
+});
+
+describe("allocateEvents", () => {
+  const hypothesis = (id: string, no: number, score: [number, number]): MatchHypothesis => ({
+    id,
+    order: no,
+    queries: [{ ...query({ opponent: "Raufoss", opponentAliases: [], expectedScore: score }), ref: { sourceId: "kilde", file: "f", season: 1963, no } } as SourceResultQuery],
+  });
+
+  /**
+   * Invarianten som manglet: to kamper mot samme motstander må få hver sin
+   * hendelse. Før fordelingen tok begge radene den hendelsen som så sterkest ut
+   * alene, og junikampen ble datert til oktober.
+   */
+  it("gir to kamper mot samme motstander hver sin hendelse", () => {
+    const raufoss = (score: [number, number]) => query({ opponent: "Raufoss", opponentAliases: [], expectedScore: score });
+    const events = clusterEvidence([
+      evidenceForFragment("Raufoss—ÅFK 0—1. Kampen i går ga ÅFK to poeng", raufoss([1, 0]), { issueId: "juni", issueDate: "19630617" }),
+      evidenceForFragment("ÅFK—Raufoss 0—2 i går. Raufoss tok med seg begge poengene fra Kråmyra", raufoss([0, 2]), { issueId: "oktober", issueDate: "19631021" }),
+    ]);
+
+    const allocations = allocateEvents([hypothesis("A", 27, [1, 0]), hypothesis("B", 30, [0, 2])], events);
+    const [first, second] = allocations;
+
+    expect(first!.eventId).toBeDefined();
+    expect(second!.eventId).toBeDefined();
+    expect(first!.eventId).not.toBe(second!.eventId);
+    // Kronologien i kilden stemmer med datoene: #27 før #30.
+    expect(first!.eventId).toBe("event:1963-06-16");
+    expect(second!.eventId).toBe("event:1963-10-20");
+  });
+
+  it("lar en påstand stå uten hendelse når det ikke finnes flere", () => {
+    const events = clusterEvidence([
+      evidenceForFragment("Raufoss—ÅFK 0—1. Kampen i går ga ÅFK to poeng", query({ opponent: "Raufoss", opponentAliases: [], expectedScore: [1, 0] }), { issueId: "juni", issueDate: "19630617" }),
+    ]);
+    const allocations = allocateEvents([hypothesis("A", 27, [1, 0]), hypothesis("B", 30, [0, 2])], events);
+    expect(allocations.filter((allocation) => allocation.eventId !== undefined)).toHaveLength(1);
+  });
+
+  it("rapporterer marginen til nest beste fordeling", () => {
+    const events = clusterEvidence([
+      evidenceForFragment("Raufoss—ÅFK 0—1. Kampen i går ga ÅFK to poeng", query({ opponent: "Raufoss", opponentAliases: [], expectedScore: [1, 0] }), { issueId: "juni", issueDate: "19630617" }),
+      evidenceForFragment("ÅFK—Raufoss 0—2 i går på Kråmyra", query({ opponent: "Raufoss", opponentAliases: [], expectedScore: [0, 2] }), { issueId: "oktober", issueDate: "19631021" }),
+    ]);
+    const [allocation] = allocateEvents([hypothesis("A", 27, [1, 0]), hypothesis("B", 30, [0, 2])], events);
+    expect(allocation!.margin).toBeGreaterThan(0);
+    expect(allocation!.runnerUpScore).toBeGreaterThan(0);
   });
 });

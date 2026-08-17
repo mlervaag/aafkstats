@@ -7,6 +7,10 @@ import {
 import { readAccess } from "../adapters/nb-newspaper-access.js";
 import { bestEvidence, evidenceForFragment } from "./evidence.js";
 import { reconcile } from "./reconciliation.js";
+import { clusterEvidence } from "./evidence-cluster.js";
+import { allocateEvents } from "./allocation.js";
+import type { MatchHypothesis, Allocation } from "./allocation.js";
+import type { NewspaperEvent } from "./evidence-cluster.js";
 import type { NewspaperEvidence } from "./evidence.js";
 import type { DiscoveryResult } from "./reconciliation.js";
 import type { SourceResultQuery } from "./source-result-query.js";
@@ -210,4 +214,66 @@ function mergeFragments(
   const seen = new Map<string, { page?: string; text: string }>();
   for (const fragment of [...left, ...right]) seen.set(`${fragment.page ?? ""}|${fragment.text}`, fragment);
   return [...seen.values()];
+}
+
+/**
+ * Hele gruppen under ett: ett søk, hendelser, global fordeling, så avstemming.
+ *
+ * Rekkefølgen er poenget. Avstemmingen får bare de bevisene som faktisk ble
+ * tildelt kamppåstanden — ikke alt som nevner motstanderen i sesongen. Da kan
+ * ikke oktoberkampen lenger datere junikampen, uansett hvor sterk den ser ut
+ * alene.
+ */
+export async function discoverForGroup(
+  hypotheses: MatchHypothesis[],
+  options: DiscoveryOptions = {},
+): Promise<Map<string, DiscoveryResult & { allocation: Allocation; event?: NewspaperEvent }>> {
+  const lead = hypotheses[0]?.queries[0];
+  if (!lead) return new Map();
+
+  // Gruppen deler år og motstander, så ett søk dekker alle påstandene i den.
+  const issues = await discoverNewspaperIssues(lead, options);
+  const ranked = issues
+    .map((issue) => ({ issue, evidence: verifyNewspaperCandidate(lead, issue) }))
+    .filter((candidate) => candidate.evidence !== undefined)
+    // Utgaver som alt har begge lagene i samme avsnitt berikes først. De koster
+    // like mye som de andre, men det er blant dem kampomtalen ligger — og en
+    // utgave som aldri blir beriket, får sjelden noe tidsuttrykk å datere med.
+    .sort((a, b) => Number(b.evidence!.sameFragment) - Number(a.evidence!.sameFragment)
+      || b.evidence!.score - a.evidence!.score);
+
+  // Berik flere når gruppen har flere påstander: da skal hendelsene skilles fra
+  // hverandre, og det krever tekst nok til å se hvilken kamp hver omtaler.
+  // Berikelsen er det som skiller hendelsene fra hverandre: uten teksten rundt
+  // treffet har en utgave sjelden noe tidsuttrykk, og da havner den i ingen
+  // hendelse. Fem per påstand er målt til å dekke både forhåndsomtale,
+  // kampdag og referat for de tilfellene som er kontrollert.
+  const budget = (options.enrich ?? 5) * Math.max(1, hypotheses.length);
+  for (const candidate of ranked.slice(0, budget)) {
+    await enrichIssue(candidate.issue, lead, options);
+    candidate.evidence = verifyNewspaperCandidate(lead, candidate.issue);
+  }
+
+  const events = clusterEvidence(ranked.flatMap((candidate) => (candidate.evidence ? [candidate.evidence] : [])));
+  const allocations = allocateEvents(hypotheses, events);
+  const byId = new Map(events.map((event) => [event.id, event]));
+
+  const results = new Map<string, DiscoveryResult & { allocation: Allocation; event?: NewspaperEvent }>();
+  for (const allocation of allocations) {
+    const hypothesis = hypotheses.find((candidate) => candidate.id === allocation.hypothesisId)!;
+    const event = allocation.eventId ? byId.get(allocation.eventId) : undefined;
+    const query = hypothesis.queries[0]!;
+    // Uten tildelt hendelse finnes det ingen bevis for denne påstanden — og det
+    // skal se ut som ingenting, ikke som det nest beste.
+    const reconciled = reconcile(query, event?.evidence ?? []);
+    results.set(allocation.hypothesisId, {
+      ...reconciled,
+      // Fordelingen er usikker når nest beste løsning ligger tett opptil. Da er
+      // ikke en enkelt sterk kant nok til å kalle kampen bekreftet.
+      status: reconciled.status !== "not_found" && allocation.confidence === "low" ? "ambiguous" : reconciled.status,
+      allocation,
+      ...(event ? { event } : {}),
+    });
+  }
+  return results;
 }
