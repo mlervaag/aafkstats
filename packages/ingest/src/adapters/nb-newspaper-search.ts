@@ -2,10 +2,17 @@ import { fetchJson } from "../http.js";
 
 const NB_ITEMS = "https://api.nb.no/catalog/v1/items";
 const DEFAULT_NEWSPAPER = "Sunnmørsposten";
-const AAFK_ALIASES = ["Aalesund", "Aalesunds", "ÅFK", "AAFK"] as const;
+export const AAFK_ALIASES = ["Aalesund", "Aalesunds", "ÅFK", "AAFK"] as const;
 
 export interface NewspaperMatchQuery {
   opponent: string;
+  /**
+   * Andre skrivemåter av motstanderen, typisk `nameVariants` fra klubbregisteret.
+   * De brukes i poengsettingen, ikke i søket: avisa skriver «Lyn» der arkivet
+   * skriver «Gjøvik/Lyn», og «K. F. K.» der arkivet skriver «Kristiansund
+   * Fotballklubb».
+   */
+  opponentAliases?: string[];
   year: number;
   newspaper?: string;
   score?: string;
@@ -72,6 +79,19 @@ interface NbContentFragmentsResponse {
  */
 export function newspaperSearchQueries(opponent: string): string[] {
   return AAFK_ALIASES.map((alias) => `${opponent} ${alias}`);
+}
+
+/**
+ * Avistittelen Nasjonalbiblioteket katalogfører årgangen under.
+ *
+ * Sunnmørsposten het «Søndmørsposten» til og med 1926, og NB katalogfører
+ * årgangene under hvert sitt navn. Søker man på «Sunnmørsposten» i 1920 får man
+ * null treff — ikke fordi årgangen mangler, men fordi den ligger under det
+ * gamle navnet. Digitaliseringen dekker 1914–1926 under det gamle og 1927 og
+ * framover under det nye.
+ */
+export function newspaperTitleForYear(year: number): string {
+  return year < 1927 ? "Søndmørsposten" : DEFAULT_NEWSPAPER;
 }
 
 export function buildNewspaperSearchUrl(
@@ -214,10 +234,12 @@ export function scoreFragment(text: string, options: NewspaperMatchQuery): { sco
   const reasons: string[] = [];
   let score = 0;
 
-  const opponent = normalized.includes(normalize(options.opponent));
+  const opponentName = [options.opponent, ...(options.opponentAliases ?? [])]
+    .find((name) => name.trim() !== "" && normalized.includes(normalize(name)));
+  const opponent = opponentName !== undefined;
   if (opponent) {
     score += 20;
-    reasons.push(`motstander: ${options.opponent}`);
+    reasons.push(`motstander: ${opponentName}`);
   }
 
   const alias = AAFK_ALIASES.find((value) => normalized.includes(normalize(value)));
