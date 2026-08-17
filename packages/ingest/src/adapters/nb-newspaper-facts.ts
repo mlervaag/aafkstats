@@ -72,8 +72,94 @@ export interface FactFragment {
   text: string;
 }
 
-/** Overskriftslinja i en resultatboks: «ÅFK-SUNNDAL 3-0 (1-0)». */
-const HEADER = /([^\s\d][^\d\n]{1,34}?)\s*[-–—]\s*([^\s\d][^\d\n]{1,34}?)\s+(\d{1,2})\s*[-–—]\s*(\d{1,2})\s*(?:\((\d{1,2})\s*[-–—]\s*(\d{1,2})\))?/u;
+/**
+ * Stillingen i en resultatboks: «2-0», med pausestillingen etter når den står der.
+ *
+ * Lagnavnene er med vilje ikke med i uttrykket. Et mønster som skal ta hele
+ * «ÅFK-SUNNDAL 3-0 (1-0)» i én jafs må la navneklassen og mellomromsklassen
+ * overlappe, og et flertydig uttrykk sluppet løs på OCR-tekst vi ikke
+ * kontrollerer er en kostnad ingen har oversikt over. Stillingen er derimot et
+ * entydig mønster. Den finner vi først, og lagnavnene leser vi bakover fra den
+ * med vanlige strengoperasjoner.
+ */
+const HEADER_SCORE = /(?:^| )(\d{1,2}) ?[-–—] ?(\d{1,2})(?: \((\d{1,2}) ?[-–—] ?(\d{1,2})\))?/gu;
+
+/** Lengste lagnavn vi leser ut fra hver side av bindestreken. */
+const NAME_WINDOW = 34;
+
+interface BoxHeader {
+  teams: [string, string];
+  score: string;
+  halfTime?: { home: number; away: number };
+  /** Der overskriften slutter — der arena og tilskuertall begynner. */
+  end: number;
+}
+
+/** Overskriftene i ett tekstvindu, lest ut fra hver stilling som står i det. */
+function headersIn(text: string): BoxHeader[] {
+  const headers: BoxHeader[] = [];
+
+  for (const match of text.matchAll(HEADER_SCORE)) {
+    const index = match.index ?? 0;
+    const before = text.slice(Math.max(0, index - 2 * NAME_WINDOW), index);
+    const dash = lastDashIn(before);
+    if (dash < 0) continue;
+
+    const first = nameBefore(before.slice(0, dash));
+    const second = nameAfter(before.slice(dash + 1));
+    if (first === "" || second === "") continue;
+
+    headers.push({
+      teams: [first, second],
+      score: `${Number(match[1])}-${Number(match[2])}`,
+      ...(match[3] === undefined || match[4] === undefined
+        ? {}
+        : { halfTime: { home: Number(match[3]), away: Number(match[4]) } }),
+      end: index + match[0].length,
+    });
+  }
+
+  return headers;
+}
+
+function lastDashIn(value: string): number {
+  for (let index = value.length - 1; index >= 0; index -= 1) {
+    if ("-–—".includes(value[index]!)) return index;
+  }
+  return -1;
+}
+
+/** Lagnavnet foran bindestreken: det siste stykket, avskåret ved forrige tall. */
+function nameBefore(segment: string): string {
+  const window = segment.slice(-NAME_WINDOW);
+  let start = 0;
+  for (let index = window.length - 1; index >= 0; index -= 1) {
+    const character = window[index]!;
+    if (character >= "0" && character <= "9") {
+      start = index + 1;
+      break;
+    }
+  }
+  return tidyName(window.slice(start));
+}
+
+/** Lagnavnet etter bindestreken, avskåret ved første tall. */
+function nameAfter(segment: string): string {
+  const window = segment.slice(0, NAME_WINDOW);
+  let end = window.length;
+  for (let index = 0; index < window.length; index += 1) {
+    const character = window[index]!;
+    if (character >= "0" && character <= "9") {
+      end = index;
+      break;
+    }
+  }
+  return tidyName(window.slice(0, end));
+}
+
+function tidyName(value: string): string {
+  return value.replace(/^[^\p{L}]+/u, "").replace(/[^\p{L}.]+$/u, "").trim();
+}
 
 export function extractMatchFacts(
   fragments: FactFragment[],
@@ -87,26 +173,20 @@ export function extractMatchFacts(
   const facts: ExtractedFacts = { goals: [], cards: [], lineups: [], sources: [] };
 
   for (const { fragment, text } of anchored) {
-    const header = HEADER.exec(text);
-    if (header?.[5] !== undefined && header[6] !== undefined && facts.halfTime === undefined) {
-      facts.halfTime = { home: Number(header[5]), away: Number(header[6]) };
-    }
+    const header = anchoredHeader(text, options);
+    if (header?.halfTime !== undefined && facts.halfTime === undefined) facts.halfTime = header.halfTime;
 
     // Arena og tilskuertall står mellom overskriften og «Mål:», i to former:
     // «Kråmyra stadion 3200 tilskuere» og «Kuventræ stadion Tilskuere: 650».
     // Pausestillingen i parentes mangler i mange bokser, så den kan ikke være
     // festepunktet — teksten rett etter overskriften er det.
-    const tail = header ? text.slice(header.index + header[0].length) : "";
-    const crowd = /^([^\d]{0,45}?)\s*(?:([\d][\d\s.]{0,7}?)\s*tilskuere|tilskuere:?\s*([\d][\d\s.]{0,7}))/iu.exec(tail);
+    const crowd = crowdIn(header ? text.slice(header.end) : "");
     if (crowd) {
-      const attendance = Number((crowd[2] ?? crowd[3] ?? "").replace(/[\s.]/g, ""));
-      if (facts.venue === undefined && tidy(crowd[1]!) !== "") facts.venue = tidy(crowd[1]!);
-      if (facts.attendance === undefined && Number.isInteger(attendance) && attendance > 0) {
-        facts.attendance = attendance;
-      }
+      if (facts.venue === undefined && crowd.venue !== "") facts.venue = crowd.venue;
+      if (facts.attendance === undefined && crowd.attendance !== undefined) facts.attendance = crowd.attendance;
     }
 
-    const referee = /Dommer:?\s*([^,.;:]{3,40})/u.exec(text);
+    const referee = /Dommer:?([^,.;:]{3,40})/u.exec(text);
     if (referee && facts.referee === undefined) facts.referee = tidy(referee[1]!);
 
     for (const goal of goalsIn(text)) {
@@ -115,7 +195,7 @@ export function extractMatchFacts(
       }
     }
 
-    for (const [type, pattern] of [["yellow", /Gult? kort:?\s*([^.]{3,120})/u], ["red", /Rødt kort:?\s*([^.]{3,120})/u]] as const) {
+    for (const [type, pattern] of [["yellow", /Gult? kort:?([^.:]{3,120})/u], ["red", /Rødt kort:?([^.:]{3,120})/u]] as const) {
       const card = pattern.exec(text);
       if (card && !facts.cards.some((existing) => existing.type === type)) {
         facts.cards.push({ type, players: tidy(card[1]!) });
@@ -144,29 +224,62 @@ export function extractMatchFacts(
  * ikke har fakta ennå; bare stilling treffer en hvilken som helst 3-0 på siden.
  */
 export function isAnchored(text: string, options: FactExtractionOptions): boolean {
-  const header = HEADER.exec(clean(text));
-  if (!header) return false;
+  return anchoredHeader(clean(text), options) !== undefined;
+}
 
-  const [, first, second, home, away] = header;
-  if (`${home}-${away}` !== normalizeScore(options.score)) return false;
-
-  const left = normalize(first!);
-  const right = normalize(second!);
+/** Den første overskriften i teksten som faktisk gjelder kampen vi spør om. */
+function anchoredHeader(text: string, options: FactExtractionOptions): BoxHeader | undefined {
+  const wanted = normalizeScore(options.score);
   const matches = (names: string[], value: string) =>
     names.some((name) => normalize(name) !== "" && (value.includes(normalize(name)) || normalize(name).includes(value)));
 
-  return (matches(options.homeNames, left) && matches(options.awayNames, right))
-    || (matches(options.homeNames, right) && matches(options.awayNames, left));
+  return headersIn(text).find((header) => {
+    if (header.score !== wanted) return false;
+    const left = normalize(header.teams[0]);
+    const right = normalize(header.teams[1]);
+    return (matches(options.homeNames, left) && matches(options.awayNames, right))
+      || (matches(options.homeNames, right) && matches(options.awayNames, left));
+  });
+}
+
+/**
+ * Arena og tilskuertall i teksten rett etter overskriften.
+ *
+ * «tilskuere» er festepunktet, og tallet står enten foran ordet eller etter
+ * kolonet bak det. Begge deler leses fra korte utsnitt rundt ordet, slik at
+ * ingen klasse strekker seg gjennom teksten på leting.
+ */
+function crowdIn(tail: string): { venue: string; attendance?: number } | undefined {
+  const marker = tail.toLocaleLowerCase("nb").indexOf("tilskuere");
+  if (marker < 0 || marker > 60) return undefined;
+
+  const before = tail.slice(Math.max(0, marker - 12), marker);
+  const after = tail.slice(marker + "tilskuere".length, marker + "tilskuere".length + 14);
+  const leading = /(\d[\d .]*)$/u.exec(before)?.[1];
+  const trailing = leading === undefined ? /^:? ?(\d[\d .]*)/u.exec(after)?.[1] : undefined;
+
+  const digits = (leading ?? trailing ?? "").replace(/[\s.]/g, "");
+  const attendance = digits === "" ? undefined : Number(digits);
+  const venueEnd = leading === undefined ? marker : marker - leading.length;
+
+  return {
+    venue: tidy(tail.slice(0, Math.max(0, venueEnd))),
+    ...(attendance !== undefined && Number.isInteger(attendance) && attendance > 0 ? { attendance } : {}),
+  };
 }
 
 function goalsIn(text: string): ExtractedGoal[] {
-  const section = /Mål:?\s*(.{5,400})/su.exec(text);
+  // Målrekka står etter «Mål:» og stopper ved neste kolon, som i praksis er
+  // «Dommer:». Å slutte der holder uttrykket kort og entydig.
+  const section = /Mål:([^:]{5,400})/u.exec(text);
   if (!section) return [];
 
   const goals: ExtractedGoal[] = [];
   // Parentesen har ingen fast rekkefølge: både «(37, straffe)» og
   // «(straffe, 37)» står i samme avis. Innholdet leses derfor som et sett.
-  const pattern = /(\d{1,2})\s*[-–—]\s*(\d{1,2})\s+([^()\d]{3,40}?)\s*\(([^)]{1,25})\)/gu;
+  // Navneklassen er grådig og kan ikke matche parentesen den etterfølges av, så
+  // det finnes bare én måte å dele opp treffet på.
+  const pattern = /(\d{1,2}) ?[-–—] ?(\d{1,2}) ([^()\d]{3,40})\(([^)]{1,25})\)/gu;
   for (const goal of section[1]!.matchAll(pattern)) {
     const note = goal[4]!.toLocaleLowerCase("nb");
     const minute = /(\d{1,3})/u.exec(note)?.[1];
@@ -184,7 +297,7 @@ function goalsIn(text: string): ExtractedGoal[] {
 /** «ÅFK: Sverre …, Bobbo …» — laget, og navnerekka slik OCR-en leste den. */
 function lineupIn(text: string, names: string[]): { team: string; namesRaw: string } | null {
   for (const name of names) {
-    const pattern = new RegExp(`${escapeRegExp(name)}:\\s*([^.:]{20,300})`, "iu");
+    const pattern = new RegExp(`${escapeRegExp(name)}:([^.:]{20,300})`, "iu");
     const found = pattern.exec(text);
     if (found) return { team: name, namesRaw: tidy(found[1]!) };
   }

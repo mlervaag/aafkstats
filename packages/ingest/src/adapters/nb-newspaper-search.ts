@@ -326,13 +326,24 @@ function compactDate(value: string): string {
 }
 
 /**
+ * Uthevingen søketjenesten legger rundt treffordene, fjernet.
+ *
+ * NB merker treffene med `<em>`, og ingenting annet. Et generelt uttrykk for
+ * «fjern alle tagger» ville sett ut som en HTML-vask og blitt lest som en — det
+ * er en helt annen påstand enn den vi kan stå for, og en regex holder den
+ * påstanden dårlig. Her fjernes bare de merkene vi vet at kilden setter.
+ */
+export function stripSearchMarkup(value: string): string {
+  return value.replace(/<\/?(?:em|strong|b|i)>/gi, " ");
+}
+
+/**
  * Teksten uten det som varierer mellom OCR-lesninger: store bokstaver,
- * aksenter, tankestreker, `<em>`-merkingen fra søketjenesten og skilletegn.
+ * aksenter, tankestreker, uthevingen fra søketjenesten og skilletegn.
  * Igjen står ord og tall skilt med enkle mellomrom.
  */
 function normalize(value: string): string {
-  return value
-    .replace(/<[^>]*>/g, " ")
+  return stripSearchMarkup(value)
     .toLocaleLowerCase("nb")
     .normalize("NFKD")
     .replace(/\p{M}/gu, "")

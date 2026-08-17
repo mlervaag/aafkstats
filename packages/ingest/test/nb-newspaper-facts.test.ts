@@ -29,6 +29,22 @@ describe("isAnchored", () => {
     expect(isAnchored(vm, { homeNames: AAFK, awayNames: HODD, score: "1-2" })).toBe(false);
   });
 
+  /**
+   * Sportssidene har flere bokser etter hverandre, og OCR-en leverer dem i ett
+   * tekstvindu. Overskriftene leses derfor ut fra hver stilling i teksten, ikke
+   * bare den første — ellers avgjør det tilfeldige at nabokampen sto øverst.
+   */
+  it("finner riktig boks selv når en annen kamp står foran den", () => {
+    const side = "VALDER-FYLLINGEN 1-1 (0-0) Valdervoll 300 tilskuere Mål: 0-1 Tore Sagstad (10). "
+      + "2. divisjon avd. B ÅFK-HØDD 2-0 (1-0) Kråmyra stadion 3200 tilskuere Mål: 1-0 Arild Holm (37). Dommer: Sjur Hatløy, Hødd.";
+    expect(isAnchored(side, { homeNames: AAFK, awayNames: HODD, score: "2-0" })).toBe(true);
+
+    const facts = extractMatchFacts([{ text: side }], { homeNames: AAFK, awayNames: HODD, score: "2-0" })!;
+    expect(facts.venue).toBe("Kråmyra stadion");
+    expect(facts.attendance).toBe(3200);
+    expect(facts.halfTime).toEqual({ home: 1, away: 0 });
+  });
+
   it("avviser riktig lag med feil stilling", () => {
     expect(isAnchored(BOX, { homeNames: AAFK, awayNames: HODD, score: "3-0" })).toBe(false);
   });

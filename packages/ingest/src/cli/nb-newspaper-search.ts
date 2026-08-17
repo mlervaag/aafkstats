@@ -1,5 +1,5 @@
 import { parseArgs } from "node:util";
-import { searchNewspaperForMatch } from "../adapters/nb-newspaper-search.js";
+import { searchNewspaperForMatch, stripSearchMarkup } from "../adapters/nb-newspaper-search.js";
 
 const args = parseArgs({
   // `pnpm ingest:nb-newspaper-search -- --year 1976` sender skilletegnet videre
@@ -74,7 +74,7 @@ for (const [index, candidate] of candidates.slice(0, 10).entries()) {
   }
 }
 
-/** OCR-teksten uten søketjenestens `<em>`-merking og linjeskift. */
+/** OCR-teksten uten søketjenestens uthevinger og linjeskift. */
 function plainText(text: string): string {
-  return text.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+  return stripSearchMarkup(text).replace(/\s+/g, " ").trim();
 }

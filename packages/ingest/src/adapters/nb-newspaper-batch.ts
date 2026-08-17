@@ -9,6 +9,7 @@ import {
   newspaperTitleCandidates,
   newspaperTitleForYear,
   searchNewspaperForMatch,
+  stripSearchMarkup,
 } from "./nb-newspaper-search.js";
 import { SEASON_MONTHS } from "./nb-newspaper-plan.js";
 import { extractMatchFacts } from "./nb-newspaper-facts.js";
@@ -264,7 +265,7 @@ async function checkMatch(
  */
 export function issueRef(candidate: NewspaperCandidate, offset?: number, page = candidate.fragments[0]?.pageNumber): IssueRef {
   const fullText = candidate.access.mayStoreFullText
-    ? candidate.fragments.map((fragment) => fragment.text.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim()).filter((text) => text !== "")
+    ? candidate.fragments.map((fragment) => plain(fragment.text)).filter((text) => text !== "")
     : undefined;
 
   return {
@@ -555,7 +556,7 @@ function shiftDate(compact: string, days: number): string {
 }
 
 function plain(text: string): string {
-  return text.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+  return stripSearchMarkup(text).replace(/\s+/g, " ").trim();
 }
 
 async function readReport(file: string, options: BatchOptions): Promise<BatchReport> {
