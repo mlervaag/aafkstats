@@ -132,6 +132,7 @@ describe("additionsFor", () => {
 
 describe("datelessQueries", () => {
   const archive = {
+    matches: [],
     clubs: [{ id: "sunndal", name: "Sunndal", shortName: "SIL", nameVariants: [], names: [] }],
     sourceResults: [{
       sourceId: "medlemsblad-1965",
@@ -158,6 +159,36 @@ describe("datelessQueries", () => {
 
   it("respekterer årsavgrensningen", () => {
     expect(datelessQueries(archive, { from: 1970, to: 1980 })).toEqual([]);
+  });
+
+  /**
+   * Kilden er kronologisk, så en kamp uten dato ligger mellom de to nærmeste som
+   * har en. Det er steg 0 sitt sterkeste holdepunkt når det finnes.
+   */
+  it("klemmer et datoløst resultat inn mellom daterte naboer", () => {
+    const bracketed = {
+      matches: [{ id: "1965-07-04-x", date: "1965-07-04" }],
+      clubs: [],
+      sourceResults: [{
+        sourceId: "medlemsblad-1965",
+        scorePerspective: "aafk",
+        seasons: [{
+          year: 1965,
+          page: 12,
+          results: [
+            { no: 1, opponent: "Molde", date: "1965-05-16", opponentClubId: null, score: [1, 0], status: "played", replay: false, extraTime: false, round: null, competitionId: null, matchId: null },
+            { no: 2, opponent: "Sunndal", opponentClubId: null, score: [3, 1], status: "played", replay: false, extraTime: false, round: null, competitionId: null, matchId: null },
+            { no: 3, opponent: "Hødd", opponentClubId: null, score: [0, 0], status: "played", replay: false, extraTime: false, round: null, competitionId: null, matchId: "1965-07-04-x" },
+          ],
+        }],
+      }],
+    } as unknown as Archive;
+
+    const [query] = datelessQueries(bracketed, { season: 1965 });
+    expect(query!.opponent).toBe("Sunndal");
+    expect(query!.after).toBe("1965-05-16");
+    // Naboen etter er datert gjennom kampen den er koblet til.
+    expect(query!.before).toBe("1965-07-04");
   });
 });
 

@@ -4,10 +4,13 @@ import { dirname, join } from "node:path";
 import { dataDir, loadArchive, repoRoot } from "@aafkstats/schema/load";
 import { assertMayFetch } from "../policy.js";
 import { AAFK_CLUB_ID } from "@aafkstats/schema";
+import { planMonths } from "../adapters/nb-newspaper-plan.js";
 import {
   clubNames,
   datelessQueries,
   discoverMatchDate,
+  resolveNewspaperTitle,
+  searchWindow,
   formatBatchReport,
   matchesForBatch,
   runNewspaperBatch,
@@ -24,6 +27,7 @@ const args = parseArgs({
     "skip-facts": { type: "boolean" },
     dateless: { type: "boolean" },
     season: { type: "string" },
+    "likely-months-only": { type: "boolean" },
     refresh: { type: "boolean" },
     "dry-run": { type: "boolean" },
   },
@@ -54,14 +58,37 @@ if (args.values.dateless) {
   console.log(`${queries.length} kildeførte resultater uten dato${season === undefined ? ` i ${from}\u2013${to}` : ` i ${season}`}.`);
 
   const aafkNames = clubNames(archive.clubs.find((club) => club.id === AAFK_CLUB_ID));
+  const titles = new Map<string, string | null>();
   const entries = [];
   for (const query of queries.slice(0, limit ?? queries.length)) {
-    const entry = await discoverMatchDate(query, aafkNames, { ...(args.values.refresh ? { refresh: true } : {}) });
+    // Steg 0: hvilke måneder er kampen sannsynligvis spilt i, og hvilken tittel
+    // katalogfører NB årgangen under. Begge deler før første egentlige søk.
+    const plan = planMonths(archive, {
+      season: query.season,
+      ...(query.competitionId === undefined ? {} : { competitionId: query.competitionId }),
+      ...(query.round === undefined ? {} : { round: query.round }),
+      ...(query.after === undefined ? {} : { after: query.after }),
+      ...(query.before === undefined ? {} : { before: query.before }),
+    });
+    const months = args.values["likely-months-only"] ? plan.months.slice(0, plan.likelyCount) : plan.months;
+    const newspaper = await resolveNewspaperTitle(
+      query.season,
+      searchWindow(`${query.season}-01-01`, 364),
+      { digitized: titles, ...(args.values.refresh ? { refresh: true } : {}) },
+    );
+
+    const entry = await discoverMatchDate(query, aafkNames, {
+      months,
+      planReason: plan.reason,
+      ...(newspaper ? { newspaper } : {}),
+      ...(args.values.refresh ? { refresh: true } : {}),
+    });
     entries.push(entry);
     const found = entry.confirmed
       ? `dato ${entry.confirmed.likelyDate} (utgave ${entry.confirmed.issued})`
       : `${entry.shortlist.length} kandidater`;
     console.log(`${entry.season} ${entry.opponent} ${entry.score} \u2192 ${entry.outcome} \u00b7 ${found}`);
+    console.log(`   steg 0: ${plan.reason}`);
   }
 
   const file = args.values.out ?? join(repoRoot(), ".cache/ingest/nb-newspaper-batch", `datolose-${season ?? `${from}-${to}`}.json`);

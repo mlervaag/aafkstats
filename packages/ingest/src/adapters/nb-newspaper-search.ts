@@ -85,13 +85,30 @@ export function newspaperSearchQueries(opponent: string): string[] {
  * Avistittelen Nasjonalbiblioteket katalogfører årgangen under.
  *
  * Sunnmørsposten het «Søndmørsposten» til og med 1926, og NB katalogfører
- * årgangene under hvert sitt navn. Søker man på «Sunnmørsposten» i 1920 får man
- * null treff — ikke fordi årgangen mangler, men fordi den ligger under det
- * gamle navnet. Digitaliseringen dekker 1914–1926 under det gamle og 1927 og
- * framover under det nye.
+ * årgangene under hvert sitt navn. Skillet er kontrollert mot API-et: 1926 gir
+ * 308 utgaver under det gamle navnet og null under det nye, 1927 gir 308 under
+ * det nye og null under det gamle. Digitaliseringen starter i 1914; 1910 og
+ * tidligere gir ingen treff under noen av navnene.
+ *
+ * Et årstall er en dårlig ting å ha rett i alene. Søker man på feil navn får man
+ * null treff, og null treff ser ut som «avisa skrev ikke om kampen» — ikke som
+ * «vi spurte om feil avis». Derfor finnes `newspaperTitleCandidates`, og derfor
+ * prøver oppslaget det andre navnet når det første ikke gir en eneste utgave.
  */
+export const NEWSPAPER_TITLES = [
+  { title: "Søndmørsposten", from: 1914, to: 1926 },
+  { title: DEFAULT_NEWSPAPER, from: 1927, to: null },
+] as const;
+
 export function newspaperTitleForYear(year: number): string {
-  return year < 1927 ? "Søndmørsposten" : DEFAULT_NEWSPAPER;
+  return newspaperTitleCandidates(year)[0]!;
+}
+
+/** Tittelen året hører til, og deretter de andre som sikkerhetsnett. */
+export function newspaperTitleCandidates(year: number): string[] {
+  const primary = NEWSPAPER_TITLES.find(({ from, to }) => year >= from && (to === null || year <= to));
+  const rest = NEWSPAPER_TITLES.map(({ title }) => title).filter((title) => title !== primary?.title);
+  return primary ? [primary.title, ...rest] : NEWSPAPER_TITLES.map(({ title }) => title);
 }
 
 export function buildNewspaperSearchUrl(

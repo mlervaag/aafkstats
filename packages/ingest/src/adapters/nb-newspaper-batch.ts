@@ -6,9 +6,11 @@ import {
   AAFK_ALIASES,
   buildContentFragmentsUrl,
   buildNewspaperSearchUrl,
+  newspaperTitleCandidates,
   newspaperTitleForYear,
   searchNewspaperForMatch,
 } from "./nb-newspaper-search.js";
+import { SEASON_MONTHS } from "./nb-newspaper-plan.js";
 import { extractMatchFacts } from "./nb-newspaper-facts.js";
 import type { NewspaperCandidate } from "./nb-newspaper-search.js";
 import type { ExtractedFacts } from "./nb-newspaper-facts.js";
@@ -171,7 +173,7 @@ export async function runNewspaperBatch(archive: Archive, options: BatchOptions)
   const report = await readReport(options.reportFile, options);
   const done = new Set(options.refresh ? [] : report.entries.map((entry) => entry.matchId));
   const clubs = new Map(archive.clubs.map((club) => [club.id, club]));
-  const digitized = new Map<string, boolean>();
+  const digitized = new Map<string, string | null>();
 
   const pending = matchesForBatch(archive, options).filter((match) => !done.has(match.id));
   for (const match of pending.slice(0, options.limit ?? pending.length)) {
@@ -188,15 +190,15 @@ export async function runNewspaperBatch(archive: Archive, options: BatchOptions)
 
 async function checkMatch(
   match: Match,
-  context: BatchOptions & { clubs: Map<string, Club>; digitized: Map<string, boolean> },
+  context: BatchOptions & { clubs: Map<string, Club>; digitized: Map<string, string | null> },
 ): Promise<BatchEntry> {
   const year = Number(match.date.slice(0, 4));
-  const newspaper = newspaperTitleForYear(year);
+  const window = searchWindow(match.date);
+  const newspaper = (await resolveNewspaperTitle(year, window, context)) ?? newspaperTitleForYear(year);
   const opponentClubId = match.home.clubId === AAFK_CLUB_ID ? match.away.clubId : match.home.clubId;
   const names = clubNames(context.clubs.get(opponentClubId));
   const opponent = names[0] ?? opponentClubId;
   const score = `${match.home.score}-${match.away.score}`;
-  const window = searchWindow(match.date);
   const base: BatchEntry = {
     matchId: match.id,
     date: match.date,
@@ -207,7 +209,7 @@ async function checkMatch(
     checkedAt: new Date().toISOString(),
   };
 
-  if (!(await hasDigitizedIssues(newspaper, window, context))) {
+  if ((await resolveNewspaperTitle(year, window, context)) === null) {
     return { ...base, outcome: "ikke_digitalisert" };
   }
 
@@ -287,26 +289,37 @@ async function factsFor(
 }
 
 /**
- * Om avisa i det hele tatt finnes digitalisert i vinduet.
+ * Avistittelen som faktisk har utgaver i vinduet.
+ *
+ * Årstallet for navneskiftet er kontrollert mot API-et, men et årstall er en
+ * dårlig ting å ha rett i alene: tar det feil, svarer søket null treff, og null
+ * treff ser ut som «avisa skrev ikke om kampen». Her prøves derfor det andre
+ * navnet før det konkluderes, og svaret huskes for resten av kjøringen.
  *
  * Uten dette blir 1932 og krigsårene rapportert som «ingen treff», og det er
  * feil svar: 1932 har én digitalisert utgave av tre hundre. Forskjellen avgjør
  * om kampen er verdt et nytt forsøk senere eller ikke.
  */
-async function hasDigitizedIssues(
-  newspaper: string,
+export async function resolveNewspaperTitle(
+  year: number,
   window: { from: string; to: string },
-  context: { digitized: Map<string, boolean>; refresh?: boolean },
-): Promise<boolean> {
-  const key = `${newspaper}|${window.from}`;
+  context: { digitized: Map<string, string | null>; refresh?: boolean },
+): Promise<string | null> {
+  const key = `${year}|${window.from}|${window.to}`;
   const cached = context.digitized.get(key);
   if (cached !== undefined) return cached;
 
-  const url = buildNewspaperSearchUrl("*", { year: Number(window.from.slice(0, 4)), newspaper, from: window.from, to: window.to, limit: 1 });
-  const response = await fetchJson<{ page?: { totalElements?: number } }>(url, { ...(context.refresh ? { refresh: true } : {}) });
-  const found = (response.page?.totalElements ?? 0) > 0;
-  context.digitized.set(key, found);
-  return found;
+  for (const newspaper of newspaperTitleCandidates(year)) {
+    const url = buildNewspaperSearchUrl("*", { year, newspaper, from: window.from, to: window.to, limit: 1 });
+    const response = await fetchJson<{ page?: { totalElements?: number } }>(url, { ...(context.refresh ? { refresh: true } : {}) });
+    if ((response.page?.totalElements ?? 0) > 0) {
+      context.digitized.set(key, newspaper);
+      return newspaper;
+    }
+  }
+
+  context.digitized.set(key, null);
+  return null;
 }
 
 /**
@@ -341,6 +354,11 @@ export interface DatelessQuery {
   opponentAliases?: string[];
   /** Målene som i kildene: [AaFK, motstander]. Hjemme eller borte er ukjent. */
   score: [number, number];
+  competitionId?: string | null;
+  round?: number | null;
+  /** Datoen til nærmeste daterte kamp før og etter i kildens egen rekkefølge. */
+  after?: string;
+  before?: string;
 }
 
 export type DatelessOutcome = "dato_funnet" | "kandidatliste" | "ingen_treff" | "ikke_digitalisert";
@@ -353,6 +371,8 @@ export interface DatelessEntry {
   newspaper: string;
   outcome: DatelessOutcome;
   checkedAt: string;
+  /** Hvorfor månedene ble prøvd i denne rekkefølgen. Begrunnelsen fra steg 0. */
+  plan?: string;
   /** Bare satt når resultatboksen navngir begge lagene med denne stillingen. */
   confirmed?: {
     id: string;
@@ -374,9 +394,6 @@ export interface DatelessEntry {
   }>;
 }
 
-/** Månedene det spilles fotball i Norge. Vintermånedene har ingen kamper å finne. */
-const SEASON_MONTHS = [4, 5, 6, 7, 8, 9, 10];
-
 export function monthWindows(season: number, months = SEASON_MONTHS): Array<{ month: string; from: string; to: string }> {
   return months.map((month) => {
     const padded = String(month).padStart(2, "0");
@@ -391,7 +408,12 @@ export function scoreVariants(score: [number, number]): string[] {
 }
 
 export interface DatelessOptions {
+  /** Månedene, i den rekkefølgen steg 0 vil ha dem prøvd. */
   months?: number[];
+  /** Overstyrer avistittelen året ellers ville valgt. */
+  newspaper?: string;
+  /** Begrunnelsen fra steg 0, som følger med i rapporten. */
+  planReason?: string;
   /**
    * Kandidater per måned som blir med på lista. Målt på ni kamper med kjent
    * dato lå riktig utgave på plass én til fire i sin måned — aldri lenger nede.
@@ -408,7 +430,7 @@ export async function discoverMatchDate(
   aafkNames: string[],
   options: DatelessOptions = {},
 ): Promise<DatelessEntry> {
-  const newspaper = newspaperTitleForYear(query.season);
+  const newspaper = options.newspaper ?? newspaperTitleForYear(query.season);
   const names = [query.opponent, ...(query.opponentAliases ?? [])];
   const entry: DatelessEntry = {
     id: query.id,
@@ -418,6 +440,7 @@ export async function discoverMatchDate(
     newspaper,
     outcome: "ingen_treff",
     checkedAt: new Date().toISOString(),
+    ...(options.planReason ? { plan: options.planReason } : {}),
     shortlist: [],
   };
 
@@ -445,6 +468,7 @@ export async function discoverMatchDate(
         quote: plain(candidate.fragments[0]?.text ?? "").slice(0, 200),
       });
 
+      if (index >= (options.probesPerMonth ?? 2)) continue;
       if (index >= (options.probesPerMonth ?? 2)) continue;
       const facts = await anchoredFacts(candidate, query, names, aafkNames, options);
       if (facts && candidate.issued) {
@@ -547,10 +571,20 @@ export function datelessQueries(
   options: { season?: number; from?: number; to?: number },
 ): DatelessQuery[] {
   const clubs = new Map(archive.clubs.map((club) => [club.id, club]));
+  const matchDates = new Map(archive.matches.map((match) => [match.id, match.date]));
   const queries: DatelessQuery[] = [];
 
   for (const collection of archive.sourceResults) {
-    for (const result of flattenSourceResults(collection)) {
+    const results = flattenSourceResults(collection);
+    // Kilden er kronologisk og nummerert, så en kamp uten dato ligger mellom de
+    // to nærmeste som har en. Det er en hardere opplysning enn noen statistikk
+    // over når runder pleier å spilles.
+    const known = results.map((result) => result.date ?? (result.matchId ? matchDates.get(result.matchId) : undefined));
+
+    for (const [index, result] of results.entries()) {
+      // Et resultat som alt er koblet til en kamp er ferdig, også når koblingen
+      // peker på en kamp uten dato. Da er det kampen som skal dateres, ikke
+      // kilderaden.
       if (result.date !== undefined || result.matchId !== null) continue;
       if (result.status !== "played" || result.aafkGoals === null || result.opponentGoals === null) continue;
       if (options.season !== undefined && result.season !== options.season) continue;
@@ -567,11 +601,36 @@ export function datelessQueries(
         opponent: names[0]!,
         ...(names.length > 1 ? { opponentAliases: names.slice(1) } : {}),
         score: [result.aafkGoals, result.opponentGoals],
+        ...(result.competitionId === null ? {} : { competitionId: result.competitionId }),
+        ...(result.round === null ? {} : { round: result.round }),
+        ...neighbourDates(results, known, index, result.season),
       });
     }
   }
 
   return queries.sort((a, b) => a.season - b.season || a.id.localeCompare(b.id));
+}
+
+/** Datoen til nærmeste daterte kamp før og etter, innenfor samme sesong. */
+function neighbourDates(
+  results: Array<{ season: number }>,
+  known: Array<string | undefined>,
+  index: number,
+  season: number,
+): { after?: string; before?: string } {
+  let after: string | undefined;
+  let before: string | undefined;
+
+  for (let step = index - 1; step >= 0; step -= 1) {
+    if (results[step]!.season !== season) break;
+    if (known[step] !== undefined) { after = known[step]; break; }
+  }
+  for (let step = index + 1; step < results.length; step += 1) {
+    if (results[step]!.season !== season) break;
+    if (known[step] !== undefined) { before = known[step]; break; }
+  }
+
+  return { ...(after ? { after } : {}), ...(before ? { before } : {}) };
 }
 
 /** Rapporten som tabell, til å lese i terminalen eller lime inn i en sak. */
