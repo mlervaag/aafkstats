@@ -27,9 +27,9 @@ passes:
     note: Samtlige 56 skannede sider åpnet og lest enkeltvis mot faksimilen hos Nasjonalbiblioteket.
   explicit_results:
     status: complete
-    findings: 3
-    note: Klubbens egen sesongoppstilling på skann 45 er kontrollregnet mot bladets egne sammendrag og
-      sluttabellen.
+    findings: 4
+    note: Klubbens egen sesongoppstilling for 1965 er kontrollregnet mot bladets egne sammendrag. «Våre
+      kamper gjennom 50 år» er lest to ganger uavhengig, med 99 % samsvar mellom lesingene.
   people_and_roles:
     status: complete
     findings: 18
@@ -37,10 +37,9 @@ passes:
     status: complete
     findings: 1
   retrospectives_and_claims:
-    status: reviewed
-    findings: 0
-    note: 'Retrospektivt stoff er lest og beskrevet i review-loggen, men ikke normalisert: se de tre uavklarte
-      punktene.'
+    status: complete
+    findings: 1
+    note: «Våre kamper gjennom 50 år» er normalisert under faktumår 1915–1964.
   observations:
     status: complete
     findings: 2
@@ -305,7 +304,7 @@ findings:
     page: '45'
   type: match_result
   claim:
-    text: 36 kilderesultater for sesongen 1965
+    text: 36 kilderesultater for sesongen 1965 fra klubbens egen sesongoppstilling
   disposition: source_result_created
   targets:
   - entity: source_result
@@ -370,17 +369,6 @@ findings:
   disposition: identity_uncertain
   targets: []
   status: unresolved
-- id: open-002
-  source:
-    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
-    page: '45'
-  type: season_fact
-  claim:
-    text: Den trykte oppstillingen «Våre kamper gjennom 50 år» (skann 8–16) fører klubbens samlede resultater
-      fra 1915 til 1964 ut
-  disposition: identity_uncertain
-  targets: []
-  status: unresolved
 - id: open-003
   source:
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -392,24 +380,65 @@ findings:
   disposition: identity_uncertain
   targets: []
   status: unresolved
+- id: sres-028
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '8'
+  type: match_result
+  claim:
+    text: 995 kilderesultater for sesongene 1915–1964 fra «Våre kamper gjennom 50 år» (skann 8–16)
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  status: normalized
+- id: konf-029
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '16'
+  type: source_conflict
+  claim:
+    text: 'Høsten 1962: fire av seks seriekamper er ført med andre sifre enn i medlemsbladet fra 1962'
+  disposition: identity_uncertain
+  targets: []
+  status: unresolved
+- id: uleselig-030
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: '9'
+  type: season_fact
+  claim:
+    text: Seks rader kan ikke leses sikkert og er ikke ført som kildepåstander
+  disposition: identity_uncertain
+  targets: []
+  status: unresolved
 unresolved:
 - findingId: open-001
   type: identity
   note: Jarle Kleive, Kjell Melsæter, Jostein Torset, Asbjørn Hamar, Helge Stavik og Finn Kvello er navngitt
     med verv eller utmerkelse i kilden, men har ingen personfil i arkivet. De er ikke opprettet i denne
     batchen fordi identiteten ikke er avstemt mot eksisterende navneformer.
-- findingId: open-002
-  type: retrospective_list
-  note: 'Den trykte oppstillingen «Våre kamper gjennom 50 år» (skann 8–16) fører klubbens samlede resultater
-    fra 1915 til 1964 uten datoer. Den er ikke importert: den er en retrospektiv sekundærframstilling
-    som må avstemmes mot de årgangsvise primærkildene før den kan bli arkivinnhold.'
 - findingId: open-003
   type: retrospective_results
   note: Retrospektive kampreferater fra 1940, 1950 og 1951 (skann 22–26 og 46) gir resultater uten fullstendig
     datering. De er ikke ført som kilderesultater i denne batchen, og hører hjemme i en egen gjennomgang
     av faktumårene.
+- findingId: konf-029
+  type: source_conflict
+  note: Høsten 1962 fører 50-årslista Clausenengen 4–2, Molde 5–1, Braatt 5–1 og KFK 1–1, mens medlemsbladet
+    fra 1962 fører de samme kampene som 1–0, 1–1, 8–0 og 5–4. Begge påstandene står nå i arkivet som hver
+    sin kildepåstand. Den samtidige kilden fra 1962 er den sterkeste, og de kanoniske kampene er ikke
+    endret. Uenigheten er ikke avgjort.
+- findingId: uleselig-030
+  type: legibility
+  note: 'Seks rader i lista er ikke ført som kildepåstander: tre har uleselig resultat (Rollon 1925, Old
+    Boys 1950, Herd 1961) og tre er walkover-notiser uten navngitt motstander (1925, 1926, 1946). De står
+    oppført i review-loggen.'
 notes:
 - Sidetallene i denne batchen er skann-nummer. Pagineringen starter på nytt i hvert hefte i 1965-årgangen,
   så trykt sidetall er ikke entydig innenfor kilden. Trykt sidetall er ført i review-loggen.
 - 'Status er normalized, ikke complete: sidedekningen er fullstendig og funnene er normalisert, men tre
   spor er bevisst latt stå åpne og er ført i unresolved.'
+- '«Våre kamper gjennom 50 år» (skann 8–16) er innhøstet: 995 kildepåstander fordelt på 46 sesonger fra
+  1915 til 1964. Lista er en retrospektiv sekundærframstilling trykt i jubileumsåret, og skal ikke overstyre
+  samtidige kilder. Avstemmingen mot arkivet står i docs/data/reviews/medlemsblad-1965-50ar.md.'

@@ -29,18 +29,18 @@
 | Pass | Status | Funn | Notat |
 |---|---|---|---|
 | `facsimile_review` | `complete` | 27 | Samtlige 56 skannede sider åpnet og lest enkeltvis mot faksimilen hos Nasjonalbiblioteket. |
-| `explicit_results` | `complete` | 3 | Klubbens egen sesongoppstilling på skann 45 er kontrollregnet mot bladets egne sammendrag og sluttabellen. |
+| `explicit_results` | `complete` | 4 | Klubbens egen sesongoppstilling for 1965 er kontrollregnet mot bladets egne sammendrag. «Våre kamper gjennom 50 år» er lest to ganger uavhengig, med 99 % samsvar mellom lesingene. |
 | `people_and_roles` | `complete` | 18 | - |
 | `organization` | `complete` | 1 | - |
-| `retrospectives_and_claims` | `reviewed` | 0 | Retrospektivt stoff er lest og beskrevet i review-loggen, men ikke normalisert: se de tre uavklarte punktene. |
+| `retrospectives_and_claims` | `complete` | 1 | «Våre kamper gjennom 50 år» er normalisert under faktumår 1915–1964. |
 | `observations` | `complete` | 2 | - |
 | `fixture_reconciliation` | `reviewed` | 0 | Terminlisten på skann 6 og de planlagte kampene på skann 26 er lest som terminliste. Ingen planlagt dato er gjort om til spilledato, fordi kilden aldri parer dato og resultat. |
 
 ## Findings
 
-- **Totalt antall funn:** 27
-- **Normaliserte:** 24
-- **Uavklarte / usikre:** 3
+- **Totalt antall funn:** 29
+- **Normaliserte:** 25
+- **Uavklarte / usikre:** 4
 - **Mangler disposisjon:** 0
 
 ### Funn per kategori
@@ -50,13 +50,14 @@
 | `person_role` | 16 |
 | `person` | 2 |
 | `organization` | 1 |
-| `match_result` | 3 |
+| `match_result` | 4 |
 | `historical_observation` | 2 |
 | `season_fact` | 3 |
+| `source_conflict` | 1 |
 
 ## Matches
 
-- **Kildedokumenterte resultater (source-results):** 36
+- **Kildedokumenterte resultater (source-results):** 1031
 - **Koblede kilderesultater:** 0
 - **Nye kanoniske kamper:** 0
 - **Berikede kanoniske kamper:** 2
@@ -82,13 +83,14 @@
 
 - **Nye konflikter registrert:** 0
 - **Konflikter løst med kildegrunnlag:** 0
-- **Uavklarte funn i kø:** 3
+- **Uavklarte funn i kø:** 4
 
 | FindingId | Type | Notat |
 |---|---|---|
 | `open-001` | `identity` | Jarle Kleive, Kjell Melsæter, Jostein Torset, Asbjørn Hamar, Helge Stavik og Finn Kvello er navngitt med verv eller utmerkelse i kilden, men har ingen personfil i arkivet. De er ikke opprettet i denne batchen fordi identiteten ikke er avstemt mot eksisterende navneformer. |
-| `open-002` | `retrospective_list` | Den trykte oppstillingen «Våre kamper gjennom 50 år» (skann 8–16) fører klubbens samlede resultater fra 1915 til 1964 uten datoer. Den er ikke importert: den er en retrospektiv sekundærframstilling som må avstemmes mot de årgangsvise primærkildene før den kan bli arkivinnhold. |
 | `open-003` | `retrospective_results` | Retrospektive kampreferater fra 1940, 1950 og 1951 (skann 22–26 og 46) gir resultater uten fullstendig datering. De er ikke ført som kilderesultater i denne batchen, og hører hjemme i en egen gjennomgang av faktumårene. |
+| `konf-029` | `source_conflict` | Høsten 1962 fører 50-årslista Clausenengen 4–2, Molde 5–1, Braatt 5–1 og KFK 1–1, mens medlemsbladet fra 1962 fører de samme kampene som 1–0, 1–1, 8–0 og 5–4. Begge påstandene står nå i arkivet som hver sin kildepåstand. Den samtidige kilden fra 1962 er den sterkeste, og de kanoniske kampene er ikke endret. Uenigheten er ikke avgjort. |
+| `uleselig-030` | `legibility` | Seks rader i lista er ikke ført som kildepåstander: tre har uleselig resultat (Rollon 1925, Old Boys 1950, Herd 1961) og tre er walkover-notiser uten navngitt motstander (1925, 1926, 1946). De står oppført i review-loggen. |
 
 ## Reprints / Retrospectives
 
