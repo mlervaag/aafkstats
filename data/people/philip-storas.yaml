@@ -1,6 +1,7 @@
 id: philip-storas
 name: Philip Storås
-names: []
+names:
+  - Philip Emblem Storaas
 nationality: Norge
 position: keeper
 squadNumbers: []
@@ -15,6 +16,16 @@ providers:
       - position
       - nationality
     note: Navn, hovedposisjon og land fra spillerprofilen. Karriereperioden i Aalesund er brukt til identitetskontroll, ikke kopiert som biografi.
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/person/profil/?fiksId=3328264
+    retrievedAt: 2026-08-16
+    fields:
+      - name
+    note: >-
+      Bekrefter at Philip Emblem Storaas og Philip Storås er samme person: keeper for AaFK,
+      født 2007. Manuelt kontrollert av arkiveier 2026-08-18. Se innboks-issue
+      https://github.com/mlervaag/aafkstats-inbox/issues/6.
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+

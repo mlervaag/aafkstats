@@ -1,5 +1,5 @@
 id: philip-emblem-storaas-samme-som-philip-storas
-status: open
+status: resolved
 category: identity
 claim: Philip Emblem Storaas i lagoppstillingen er samme person som Philip Storås.
 question: Er «Philip Emblem Storaas» i lagoppstillingen samme person som Philip Storås?
@@ -15,3 +15,14 @@ searchHint: Se etter offisiell AaFK-tropp, spillerprofil eller kamprapport som b
 estimatedMinutes: 8
 priority: 84
 publishedAt: 2026-08-13
+resolution:
+  answer: yes
+  reason: >
+    Fotball.no/fiksId=3328264 viser Philip Emblem Storaas som keeper for AaFK, født 2007 —
+    identisk med Philip Storås (FotMob-profil, same posisjon, same klubb, same fødselskull).
+    Innsender bekreftet visuelt at profilene er én og samme person. Navnforskjellen oppsto
+    fordi FotMob brukte fullt registrert dobbelnavn i kampoppstillingen for Bryne–AaFK
+    7. desember 2025, mens personfilen bruker den dagligdagse kortformen. Alias
+    «Philip Emblem Storaas» er lagt til i data/people/philip-storas.yaml.
+  resolvedAt: "2026-08-18"
+  issueUrl: https://github.com/mlervaag/aafkstats-inbox/issues/6

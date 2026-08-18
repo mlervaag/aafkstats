@@ -1346,11 +1346,12 @@ resolvedRoles:
     page: "7"
     column: 1
     personName: Harald Riise Hansen
+    personId: harald-riise-hansen
     category: sporting_staff
     title: Oppmann
-    from: "1918"
+    from: "1917"
     to: null
-    confidence: medium
+    confidence: high
     rule: name_then_year
   - id: rolle-281a7341b86a4c01
     page: "7"
@@ -1359,17 +1360,6 @@ resolvedRoles:
     personId: nils-jangaard
     category: board
     title: Formann
-    from: "1917"
-    to: null
-    confidence: high
-    rule: name_then_year
-  - id: rolle-15cdd58599aa9557
-    page: "7"
-    column: 1
-    personName: Nils Jangaard
-    personId: nils-jangaard
-    category: sporting_staff
-    title: Oppmann
     from: "1917"
     to: null
     confidence: high
