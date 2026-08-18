@@ -209,6 +209,42 @@ describe("arkivet", () => {
     expect(verification).toMatchObject({ status: "resolved", resolution: { answer: "no" } });
   });
 
+  it("fører Harald Riise-Hansen som oppmann i 1917, ikke Nils Jangaard", () => {
+    // 80-årsbokas OCR koblet Nils Jangaard (formann) til oppmann-kolonnen for
+    // 1917. Løsningen fjerner den falske kildepåstanden i stedet for å låse en
+    // konflikt, og fører Harald der de manuelt kontrollerte bøkene gjør det.
+    const harald = archive.people.find((person) => person.id === "harald-riise-hansen");
+    const nils = archive.people.find((person) => person.id === "nils-jangaard");
+    const verification = archive.verificationCases.find((item) => item.id === "nils-jangaard-oppmann-1917");
+    const extraction = archive.extractions.find((item) => item.sourceId === "vi-er-80-ar-1914-1994-1994-5e91");
+
+    expect(harald?.roles).toEqual(expect.arrayContaining([
+      expect.objectContaining({ title: "Oppmann", from: "1917" }),
+    ]));
+    expect(nils?.roles.some((role) => role.title === "Oppmann")).toBe(false);
+    expect(nils?.roles.filter((role) => role.from === "1917").map((role) => role.title)).toContain("Formann");
+    // Den falske konflikten skal være borte, ikke ført som en løst konflikt.
+    expect(nils?.conflicts.some((conflict) => conflict.field === "oppmann.1917")).toBe(false);
+    // Uttrekksartefakten skal ikke lenger hevde Nils som oppmann, og skal føre Harald.
+    expect(extraction?.resolvedRoles.some(
+      (role) => role.personId === "nils-jangaard" && role.title === "Oppmann",
+    )).toBe(false);
+    expect(extraction?.resolvedRoles.some(
+      (role) => role.personId === "harald-riise-hansen" && role.title === "Oppmann" && role.from === "1917",
+    )).toBe(true);
+    expect(verification).toMatchObject({ status: "resolved", resolution: { answer: "no" } });
+  });
+
+  it("kobler Philip Emblem Storaas til Philip Storås som løst identitetssak", () => {
+    const philip = archive.people.find((person) => person.id === "philip-storas");
+    const verification = archive.verificationCases.find(
+      (item) => item.id === "philip-emblem-storaas-samme-som-philip-storas",
+    );
+
+    expect(philip?.names).toContain("Philip Emblem Storaas");
+    expect(verification).toMatchObject({ status: "resolved", resolution: { answer: "yes" } });
+  });
+
   it("har 13 seriekamper i Landsdelsserien 1962 med konsistente datoer og resultater", () => {
     const landsdelOpponents = new Set(["hodd", "clausenengen", "langevag", "molde-fk", "braatt", "kfk", "skarbovik"]);
     const matches1962 = archive.matches.filter(

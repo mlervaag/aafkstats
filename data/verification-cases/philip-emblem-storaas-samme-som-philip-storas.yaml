@@ -10,7 +10,8 @@ noMeaning: En kilde dokumenterer at dette er to forskjellige personer.
 instructions: ["Kontroller kamptroppen og spillerstallen rundt desember 2025.", "Sammenlign mer enn bare navnelikhet."]
 target: { type: person, id: philip-storas, field: identity.philip-emblem-storaas }
 sources:
-  - { providerId: fotmob, role: context, note: Lagoppstillingen i Bryne–AaFK 7. desember 2025 bruker den lange formen. }
+  - { providerId: fotmob, role: context, note: Lagoppstillingen i Bryne–AaFK 7. desember 2025 bruker navneformen «Philip Emblem Storaas». }
+  - { providerId: fotball-no, role: supports, note: "NFF-profilen fiksId=3328264 identifiserer AaFK-spilleren som «Philip Emblem Storås» (keeper, f. 2007). Manuelt kontrollert av arkiveier 2026-08-18." }
 searchHint: Se etter offisiell AaFK-tropp, spillerprofil eller kamprapport som bruker fullt navn.
 estimatedMinutes: 8
 priority: 84
@@ -18,12 +19,13 @@ publishedAt: 2026-08-13
 resolution:
   answer: yes
   reason: >
-    Fotball.no/fiksId=3328264 viser Philip Emblem Storaas som keeper for AaFK, født 2007 —
-    identisk med Philip Storås (FotMob-profil, same posisjon, same klubb, same fødselskull).
-    Innsender bekreftet visuelt at profilene er én og samme person. Navnforskjellen oppsto
-    fordi FotMob brukte fullt registrert dobbelnavn i kampoppstillingen for Bryne–AaFK
-    7. desember 2025, mens personfilen bruker den dagligdagse kortformen. Alias
-    «Philip Emblem Storaas» er lagt til i data/people/philip-storas.yaml.
+    FotMob bruker navneformen «Philip Emblem Storaas» i lagoppstillingen for Bryne–AaFK
+    7. desember 2025, mens NFF (fotball.no, fiksId=3328264) identifiserer AaFK-spilleren som
+    «Philip Emblem Storås» — keeper, født 2007. Den eksisterende FotMob-spillerprofilen heter
+    «Philip Storås». Klubb, posisjon, fødselskull og identitet stemmer sammen på tvers av
+    kildene, så dette er én og samme person. Innsender bekreftet visuelt at profilene er den
+    samme. Navneformen «Philip Emblem Storaas» er lagt til som alias i
+    data/people/philip-storas.yaml fordi den faktisk forekommer i kampdataene.
   resolvedAt: "2026-08-18"
   issueUrl: https://github.com/mlervaag/aafkstats-inbox/issues/6
   pullRequestUrl: https://github.com/mlervaag/aafkstats/pull/174

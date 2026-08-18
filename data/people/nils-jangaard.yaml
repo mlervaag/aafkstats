@@ -279,25 +279,9 @@ sources:
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
   - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
     page: "11"
-conflicts:
-  - field: oppmann.1917
-    values:
-      - value: Nils Jangaard
-        providerId: nasjonalbiblioteket
-        note: vi-er-80-ar-1914-1994-1994-5e91 s. 7 — maskinelt uttrekk, feil spaltelesning
-      - value: Harald Riise-Hansen
-        providerId: nasjonalbiblioteket
-        note: aalesunds-fotballklub-gjennem-1939-ec28 s. 18 (manuelt verifisert), vi-er-75-ar-1989-aff6 s. 8 (manuelt verifisert), aalesunds-fotballklubb-90-ar-1-2004-ad1d s. 27 (manuelt verifisert)
-    resolved: true
-    decision: independent_source
-    chosen: Harald Riise-Hansen
-    chosenProviderId: nasjonalbiblioteket
-    decidedAt: "2026-08-18"
-    reason: >
-      Tre uavhengige manuelt verifiserte kilder (1939-boka, 75-årsboka og 90-årsboka) fører
-      Harald Riise-Hansen som oppmann i 1917. Koblingen til Nils Jangaard kom fra en maskinell
-      OCR-avlesning av 80-årsbokas side 7 der regel name_then_year feilaktig koblet Nils
-      Jangaard til oppmann-kolonnen istedenfor formann-kolonnen. Nils Jangaard var formann i
-      1917, ikke oppmann. Avklart via innboks-issue
-      https://github.com/mlervaag/aafkstats-inbox/issues/5.
-    locked: true
+# Konflikten oppmann.1917 er fjernet, ikke løst: kilden oppga aldri Nils Jangaard
+# som oppmann. Koblingen kom fra en maskinell spalteforveksling i uttrekket av
+# 80-årsboka s. 7 (regel name_then_year leste formann-kolonnen som oppmann).
+# Nils Jangaard var formann i 1917. Se innboks-issue
+# https://github.com/mlervaag/aafkstats-inbox/issues/5.
+conflicts: []
