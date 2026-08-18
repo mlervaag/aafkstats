@@ -138,6 +138,31 @@ måned falt riktig juniutgave ut, og Raufoss-kampen mistet datoen sin igjen.
 Vinduene styrer bare hvilke utgaver som leses, aldri hva som regnes som bevis for
 at kampen fant sted.
 
+## Bevis per avisutgave, ikke per fragment
+
+Én avisutgave er én kildeenhet med flere bevis. Den er ikke det ene tekstvinduet
+som tilfeldigvis scoret høyest.
+
+Skillet er ikke akademisk. Før returnerte verifikasjonen det best scorende
+vinduet i utgaven, og da brøt systemet en invariant det ikke har råd til å bryte:
+
+> Å lese mer av samme avisutgave skal aldri svekke det vi allerede har funnet der.
+
+Raufoss-kampen viste hvorfor. Utgaven hadde ett vindu med «i morgen» — altså
+datoen — og berikelsen la til et sterkere vindu med kampomtale, men uten
+tidsuttrykk. Det nye vant totalscoren, og datoen forsvant. Mer informasjon gjorde
+funnet dårligere, og hver gang recall ble forbedret, svekket det en kamp som
+allerede virket.
+
+Nå velges en vinner per rolle — beste kampidentitet, beste tidsbevis, beste
+resultatbevis — og hver rolle er et maksimum over en mengde som bare vokser.
+Berikelse kan løfte et felt, aldri fjerne det.
+
+Rollene står likevel på egne bein: bare vinduer som selv navngir begge lagene
+kan bidra. Et resultat på side 8 og et tidsuttrykk på side 3 settes ikke sammen
+bare fordi de står i samme avis. Utgaven samler roller; den oppfinner ikke
+koblinger.
+
 ## Målt status
 
 Kontrollert mot NB-API-et:

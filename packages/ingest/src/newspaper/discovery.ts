@@ -148,13 +148,61 @@ export async function enrichIssue(
   return issue;
 }
 
-/** Beviset én utgave gir for kampen — det sterkeste vinduet i den. */
+/**
+ * Beviset én avisutgave gir — som én kildeenhet, ikke som ett fragment.
+ *
+ * ## Hvorfor det ikke kan være «det beste fragmentet»
+ *
+ * Før returnerte denne det høyest scorende tekstvinduet i utgaven. Da brøt
+ * systemet en invariant det ikke har råd til å bryte: **å lese mer av samme
+ * avisutgave skal aldri svekke det vi allerede har funnet der.**
+ *
+ * Raufoss-kampen viste det. Utgaven hadde et vindu med «i morgen» — datoen —
+ * og berikelsen la til et sterkere vindu med kampomtale, men uten tidsuttrykk.
+ * Det nye vant totalscoren, og datoen forsvant. Mer informasjon gjorde funnet
+ * dårligere.
+ *
+ * Nå velges en vinner per rolle: den beste kampidentiteten, det beste
+ * tidsbeviset, det beste resultatbeviset. Hver rolle er et maksimum over en
+ * mengde som bare vokser, så berikelse kan løfte et felt, aldri fjerne det.
+ *
+ * ## Hvorfor rollene likevel må stå på egne bein
+ *
+ * Et resultat på side 8 og et tidsuttrykk på side 3 kan ikke settes sammen bare
+ * fordi de står i samme avis. Derfor teller bare vinduer som selv navngir begge
+ * lagene — den fragmentlokale strengheten fra det opprinnelige søket består.
+ * Utgaven samler roller; den oppfinner ikke koblinger.
+ */
 export function verifyNewspaperCandidate(query: SourceResultQuery, issue: DiscoveredIssue): NewspaperEvidence | undefined {
-  return bestEvidence(issue.fragments.map((fragment) => evidenceForFragment(fragment.text, query, {
+  const fragments = issue.fragments.map((fragment) => evidenceForFragment(fragment.text, query, {
     issueId: issue.id,
     ...(issue.issued ? { issueDate: issue.issued } : {}),
     ...(fragment.page ? { page: fragment.page } : {}),
-  })));
+  }));
+
+  const strongest = bestEvidence(fragments);
+  if (!strongest) return undefined;
+
+  const bestWhere = (predicate: (evidence: NewspaperEvidence) => boolean): NewspaperEvidence | undefined =>
+    bestEvidence(fragments.filter((evidence) => evidence.sameFragment && predicate(evidence)));
+
+  const temporal = bestWhere((evidence) => evidence.temporal !== undefined);
+  const result = bestWhere((evidence) => evidence.scoreFound !== undefined);
+
+  return {
+    ...strongest,
+    // Rollene arves fra de vinduene som faktisk bar dem, med sidetallet sitt.
+    ...(strongest.temporal === undefined && temporal?.temporal
+      ? { temporal: temporal.temporal, reasons: [...strongest.reasons, `tidsbevis fra s. ${temporal.page ?? "?"}: «${temporal.temporal.phrase}»`] }
+      : {}),
+    ...(strongest.scoreFound === undefined && result?.scoreFound
+      ? {
+          scoreFound: result.scoreFound,
+          ...(result.scoreMatchesSource === undefined ? {} : { scoreMatchesSource: result.scoreMatchesSource }),
+          ...(result.homeAwayFound === undefined ? {} : { homeAwayFound: result.homeAwayFound }),
+        }
+      : {}),
+  };
 }
 
 /**

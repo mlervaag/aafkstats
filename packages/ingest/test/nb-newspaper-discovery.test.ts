@@ -7,6 +7,8 @@ import { evidenceForFragment } from "../src/newspaper/evidence.js";
 import { reconcile } from "../src/newspaper/reconciliation.js";
 import { clusterEvidence } from "../src/newspaper/evidence-cluster.js";
 import { allocateEvents } from "../src/newspaper/allocation.js";
+import { verifyNewspaperCandidate } from "../src/newspaper/discovery.js";
+import type { DiscoveredIssue } from "../src/newspaper/discovery.js";
 import type { MatchHypothesis } from "../src/newspaper/allocation.js";
 import type { SourceResultQuery } from "../src/newspaper/source-result-query.js";
 import type { NewspaperQuery } from "../src/newspaper/evidence.js";
@@ -270,5 +272,60 @@ describe("allocateEvents", () => {
     const [allocation] = allocateEvents([hypothesis("A", 27, [1, 0]), hypothesis("B", 30, [0, 2])], events);
     expect(allocation!.margin).toBeGreaterThan(0);
     expect(allocation!.runnerUpScore).toBeGreaterThan(0);
+  });
+});
+
+describe("verifyNewspaperCandidate", () => {
+  const raufoss = { ...query({ opponent: "Raufoss", opponentAliases: [], expectedScore: [1, 0] }), ref: { sourceId: "k", file: "f", season: 1963, no: 27 } } as SourceResultQuery;
+  const issue = (texts: string[]): DiscoveredIssue => ({
+    id: "utgave",
+    issued: "19630615",
+    itemUrl: "https://www.nb.no/items/utgave",
+    newspaper: "Sunnmørsposten",
+    mayStoreFullText: false,
+    fragments: texts.map((text, index) => ({ page: String(index + 2), text })),
+  });
+
+  /**
+   * Invarianten hele denne modellen finnes for: å lese mer av samme avisutgave
+   * skal aldri svekke det vi alt har funnet der. Før vant det høyest scorende
+   * vinduet alene, og et sterkere vindu uten tidsuttrykk kunne slette datoen.
+   */
+  it("mister ikke datoen når berikelsen legger til et sterkere avsnitt", () => {
+    const before = verifyNewspaperCandidate(raufoss, issue([
+      "ÅFK møter Raufoss i morgen på Raufoss stadion",
+    ]))!;
+    expect(before.temporal?.inferredMatchDate).toBe("1963-06-16");
+
+    const after = verifyNewspaperCandidate(raufoss, issue([
+      "ÅFK møter Raufoss i morgen på Raufoss stadion",
+      "Raufoss—ÅFK. Kampen blir avgjørende for serien, og ÅFK stiller med sitt beste lag foran tilskuerne, med dommer fra Oslo",
+    ]))!;
+
+    expect(after.temporal?.inferredMatchDate).toBe("1963-06-16");
+    expect(after.score).toBeGreaterThanOrEqual(before.score);
+  });
+
+  it("mister ikke resultatet når et annet avsnitt scorer høyere", () => {
+    const before = verifyNewspaperCandidate(raufoss, issue([
+      "Raufoss—ÅFK 0—1 var stillingen",
+    ]))!;
+    expect(before.scoreFound).toEqual([0, 1]);
+
+    const after = verifyNewspaperCandidate(raufoss, issue([
+      "Raufoss—ÅFK 0—1 var stillingen",
+      "Kampen mellom Raufoss og ÅFK i går samlet mange tilskuere, og dommeren hadde full kontroll gjennom hele oppgjøret",
+    ]))!;
+    expect(after.scoreFound).toEqual([0, 1]);
+    expect(after.temporal?.inferredMatchDate).toBe("1963-06-14");
+  });
+
+  /** Roller hentes bare fra vinduer som selv navngir begge lagene. */
+  it("henter ikke roller fra avsnitt uten kampidentitet", () => {
+    const evidence = verifyNewspaperCandidate(raufoss, issue([
+      "ÅFK og Raufoss møtes til dyst på lørdag i en viktig kamp for begge lag",
+      "Bygdas historie ble markert i går med tale og korps",
+    ]))!;
+    expect(evidence.temporal?.phrase).not.toBe("i går");
   });
 });
