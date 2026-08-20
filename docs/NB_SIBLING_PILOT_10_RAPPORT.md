@@ -52,11 +52,16 @@ Manuell fasit inneholder 19 avgjorte hypoteser (`exact` eller `unresolved`) og 7
 
 - **Eksakt dato- OG scoretreff:** **3** saker (Aksla 1959 #7 [3–0], Herd 1962 #5 [1–0], Herd 1962 #9 [2–0]).
 - **Eksakt datotreff med kildekonflikt:** **1** sak (Åndalsnes 1964 #16; datert til 1964-05-24, men kilden oppgir 4–0 mens avisen dokumenterer 6–1). Dette er korrekt hendelsesallokering, men en resultatkonflikt.
-- **Kategorisering etter arkivstatus (samme definisjon som singleton):**
-  - **Confirmed (bekreftet):** **2** (Aksla 1959 #7, Herd 1962 #5). Trygge for automatisk skriving.
-  - **Conflict (kildekonflikt):** **3** (Herd 1962 #9, Kvik 1963 #28, Åndalsnes 1964 #16). Korrekt identifisert som avvikende kilder; må behandles som kildekonflikt og ikke blindt overskrive arkivet.
-  - **Løste saker samlet (`confirmed` + `conflict`):** **5 av 26** (19.2 %).
-  - **Krever fortsatt manuell vurdering (`probable` / `ambiguous`):** **21 av 26** (80.8 %).
+- **Råstatus fra reconcile (ikke validert kvalitet):**
+  - **Confirmed:** **2** (Aksla 1959 #7, Herd 1962 #5).
+  - **Conflict:** **3** (Herd 1962 #9, Kvik 1963 #28, Åndalsnes 1964 #16).
+  - **Rå `confirmed` + `conflict`:** **5 av 26** (19.2 %). Dette er hva motoren produserte, ikke hvor mange saker den historisk løste korrekt.
+- **Validert historisk resultat:**
+  - Av de fem rå `confirmed`/`conflict`-utfallene peker **4 av 26** (15.4 % av hele piloten) på korrekt hendelse: Aksla 1959 #7, Herd 1962 #5, Herd 1962 #9 og Åndalsnes 1964 #16. Dette må ikke forveksles med de 11 eksakt korrekte allokeringene i tabellen over; de øvrige korrekte allokeringene fikk ikke en automatisk sluttstatus.
+  - Med automatisk sluttstatus som mål er **22 av 26** (84.6 %) fortsatt manuell vurdering.
+  - Kvik 1963 #28 er en falsk `conflict`: fasiten er `unresolved`, og den tildelte hendelsen er ikke dokumentert som den samme kampen.
+
+Herd 1962 #9 avdekker i tillegg en egen reconcile-feil. Råfilen viser både `sourceScore: [2, 0]` og `newspaperScore: [2, 0]`, men `checks.score: conflict`. Hendelsesbevisene bygges i dag mot gruppens første hypotese (`lead`, Herd #5 med 1–0) og gjenbrukes ved avstemming av Herd #9. Dermed er `scoreMatchesSource: false` beregnet mot feil hypotese. Datoen og 2–0-hendelsen er manuelt verifisert korrekte, men reconcile-statusen er ikke korrekt og kan ikke regnes som en validert kildekonflikt.
 
 ---
 
@@ -87,7 +92,7 @@ Manuell fasit inneholder 19 avgjorte hypoteser (`exact` eller `unresolved`) og 7
 
 ### 6. `1963|kvik` (3 hypoteser, to like scores: 1–1) – **FAILED**
 - **Fasit:** De to 1–1 (#19 og #21) mangler differensierende kildebevis og skal forbli `unresolved`. #28 (2–0) har kildeavvik og skal avvises.
-- **Allokering:** Tildelte hendelser og ga samtlige `confidence: high`.
+- **Allokering:** Tildelte hendelser og ga samtlige `confidence: high`. #28 fikk råstatus `conflict`, men dette er en falsk maskinstatus fordi hendelsesidentiteten ikke er verifisert; saken er fortsatt `unresolved`.
 
 ### 7. `1963|clausenengen` (2 hypoteser, to like scores: 5–1) – **PARTIALLY CORRECT**
 - **Fasit:** #17 (NM 1. runde, 1963-05-30) er verifisert. #5 (treningskamp 5–1) mangler dato og skal avvises.
@@ -103,7 +108,7 @@ Manuell fasit inneholder 19 avgjorte hypoteser (`exact` eller `unresolved`) og 7
 
 ### 10. `1962|herd` (2 treningskamper, distinkte scores) – **FULLY CORRECT**
 - **Fasit:** #5 (1962-04-25, 1–0) og #9 (1962-06-20, 2–0) er begge verifiserte.
-- **Allokering:** Begge hypoteser ble allokert til eksakt riktig dato.
+- **Allokering:** Begge hypoteser ble allokert til eksakt riktig dato. #9 fikk likevel feil reconcile-status `conflict` fordi hendelsesbevisets `scoreMatchesSource` var beregnet mot gruppens lead-hypotese (#5, 1–0) og ikke på nytt mot #9 (2–0).
 
 ---
 
@@ -117,6 +122,7 @@ Manuell fasit inneholder 19 avgjorte hypoteser (`exact` eller `unresolved`) og 7
 3. **Tvungen tildeling mangler rejection threshold:** 0 av 7 hypoteser med fasit `unresolved` ble avvist; alle ble tvunget inn i tildelinger.
 4. **Kunstig oppblåst confidence:** 26 av 26 allokeringer (100 %) fikk `confidence: "high"`. Dette skyldes at `runnerUp` i `allocateEvents` ofte er den tomme tildelingen med totalscore 0, noe som gir en kunstig margin på $80\text{–}300+$ poeng.
 5. **Over-allokering av identiske scores:** Hypoteser med like scores tildeles vilkårlig uten differensierende bevis.
+6. **Reconcile gjenbruker lead-relative scoreflagg:** Herd 1962 #9 viser at `scoreMatchesSource` fra gruppens første hypotese kan følge hendelsen inn i avstemmingen av en annen sibling og skape en falsk konflikt.
 
 **Konklusjon:** Sibling-allokering forblir **strikt opt-in (`--resolve-siblings`)**. Default v1-policy med manuell ruting av siblings opprettholdes. Piloten skal **ikke** utvides til 20–30 grupper før en målrettet retting er implementert og validert.
 
@@ -130,5 +136,6 @@ I neste PR (ikke i denne) skal det implementeres en smal og målrettet retting a
 2. **Krav om tidskausalt bevis for high confidence:** Ingen allokering kan oppnå `high` confidence uten at den underliggende hendelsen har eksplisitt tidsbevis.
 3. **Reell runner-up beregning:** Runner-up margin må beregnes mot reelle alternative ikke-tomme tildelinger, ikke mot 0.
 4. **Symmetrihåndtering / sikker avvisning:** Identiske scores uten differensierende dato/kildehints må forbli `unresolved`.
-5. **Deterministiske tester:** Etablere tester for Raufoss, Sarpsborg og symmetriske scores.
-6. **Re-evaluering:** Kjøre nøyaktig de samme 10 pilotgruppene på nytt og bekrefte at Raufoss og Sarpsborg håndteres trygt, og at det er 0 falske high-confidence allokeringer.
+5. **Query-relativ avstemming:** Evidensfelter som `scoreMatchesSource`, home/away og konkurranse må beregnes mot hypotesen som faktisk avstemmes, ikke arves fra gruppens lead-hypotese.
+6. **Deterministiske tester:** Etablere tester for Raufoss, Sarpsborg, symmetriske scores og Herd 1962 #9. Herd-testen skal sikre at samme rapporterte source-/newspaper-score aldri kan gi `checks.score: conflict` på grunn av et flagg beregnet mot en annen sibling.
+7. **Re-evaluering:** Kjøre nøyaktig de samme 10 pilotgruppene på nytt og bekrefte at Raufoss og Sarpsborg håndteres trygt, Herd #9 avstemmes query-relativt, og at det er 0 falske high-confidence allokeringer.
