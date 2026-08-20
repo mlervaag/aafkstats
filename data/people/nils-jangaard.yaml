@@ -279,15 +279,9 @@ sources:
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
   - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
     page: "11"
-conflicts:
-  - field: oppmann.1917
-    values:
-      - value: Nils Jangaard
-        providerId: nasjonalbiblioteket
-        note: vi-er-80-ar-1914-1994-1994-5e91 s. 7
-      - value: Harald Riise-Hansen
-        providerId: nasjonalbiblioteket
-    resolved: false
-    decision: unresolved
-    locked: false
-    note: Kildene oppgir ulike navn for dette vervet. Ingen av dem er valgt.
+# Konflikten oppmann.1917 er fjernet, ikke løst: kilden oppga aldri Nils Jangaard
+# som oppmann. Koblingen kom fra en maskinell spalteforveksling i uttrekket av
+# 80-årsboka s. 7 (regel name_then_year leste formann-kolonnen som oppmann).
+# Nils Jangaard var formann i 1917. Se innboks-issue
+# https://github.com/mlervaag/aafkstats-inbox/issues/5.
+conflicts: []

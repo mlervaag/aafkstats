@@ -33,8 +33,17 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
-    note: Lest maskinelt fra publikasjonen. Bør etterkontrolleres mot den oppgitte
-      siden.
+      - sourceId: vi-er-80-ar-1914-1994-1994-5e91
+        page: "7"
+        fields:
+          - title
+          - from
+        note: "Lest maskinelt fra spalte 1 på siden (regel: name_then_year).
+          Manuelt kontrollert 2026-08-18: siden fører Harald Riise-Hansen som
+          oppmann i 1917. Se innboks-issue
+          https://github.com/mlervaag/aafkstats-inbox/issues/5."
+    note: Flere kilder fører Harald Riise-Hansen som oppmann i 1917, de fleste
+      manuelt kontrollert mot den oppgitte siden.
   - id: formann-1918
     category: board
     title: Formann
