@@ -4,13 +4,11 @@ Dato: 2026-08-20
 Kilde: `data/source-results/medlemsblad-for-aalesunds-fotb-1965-a2c9.yaml`  
 Utvalg: De resterende 180 ukoblede kamphypotesene i perioden 1945–1964 (58 automatiske singletons og 122 manual siblings), etter at Batch 01 (100) og Batch 02 (260) er ekskludert basert på stabile `hypothesisId`-er.  
 Kodeversjon: Standard v1-modus (uten `--resolve-siblings`, med PR #181 tidskausalitet og PR #183 konservativ home/away-inferens).  
-Kommandolinje:
+Kommandolinje (reproduserbar via stabil ID-liste):
 ```sh
 pnpm ingest:nb-newspaper-discover -- \
   --source-result data/source-results/medlemsblad-for-aalesunds-fotb-1965-a2c9.yaml \
-  --from-year 1945 --to-year 1964 \
-  --unlinked-only \
-  --skip-batches batch-01,batch-02 \
+  --hypothesis-ids-file packages/ingest/test/fixtures/nb-newspaper-batch-03-ids.txt \
   --output .cache/ingest/nb-newspaper-discovery/batch-03.yaml
 ```
 

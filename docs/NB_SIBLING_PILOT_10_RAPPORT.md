@@ -9,98 +9,126 @@ Rådata: `.cache/ingest/nb-newspaper-discovery/sibling-pilot-10.yaml`
 
 ---
 
-## 1. Måledata og Nøkkeltall
+## 1. Nøkkeltall og Målinger
 
-| Parameter | Måleverdi | Forklaring / Kommentar |
+Målingene skiller strengt mellom **hva allokeringsmotoren produserte** (allocator-output) og **hva som faktisk stemmer mot uavhengig historisk fasit** (validert kvalitet).
+
+### A. Allokator-output (Rå oppførsel fra motoren)
+
+| Parameter | Måleverdi | Forklaring |
 | :--- | :---: | :--- |
-| **Totalt antall hypoteser (`hypotheses`)** | **26** | Fordelt på 10 stratifiserte grupper |
-| **Hendelser funnet i avisene (`eventsFound`)** | **37** | Kandidathendelser i søkevinduene |
-| **Fullt løste grupper (`fullyResolvedGroups`)** | **1** | Kun `1962|herd` (2 av 2 løst) |
-| **Delvis løste grupper (`partiallyResolvedGroups`)** | **9** | Minst 1 hendelse allokert, men ikke alle bekreftet |
-| **Uløste grupper (`unresolvedGroups`)** | **0** | Alle grupper fikk tildelinger pga tvungen allokering |
-| **Allokeringer etter confidence:** | | |
-| – High confidence | **26** (100 %) | Svakhet i definisjon av runner-up margin |
+| **Totalt antall hypoteser (`totalHypotheses`)** | **26** | Fordelt på de 10 stratifiserte pilotgruppene |
+| **Hypoteser med tildeling (`hypothesesAssigned`)** | **26** (100 %) | Algoritmen tvang gjennom en tildeling for samtlige hypoteser |
+| **Hypoteser uten tildeling (`hypothesesUnassigned`)** | **0** (0 %) | Ingen saker ble avvist (mangler avvisningsterskel) |
+| **Allokeringer etter tildelt confidence:** | | |
+| – High confidence | **26** (100 %) | Samtlige tildelinger ble feilaktig stemplet som high confidence |
 | – Medium confidence | **0** | |
 | – Low confidence | **0** | |
-| **Korrekte allokeringer mot manuell fasit** | **4** | Herd 1962 #5, Herd 1962 #9, Aksla 1959 #7, Åndalsnes 1964 #16 |
-| **Feilaktige / usikre allokeringer** | **22** | Raufoss 1963, Sarpsborg 1948, m.fl. |
-| **Falske high-confidence allokeringer** | **Minst 6** | Raufoss 1963 #27 & #30, Sarpsborg 1948 #10, Skarbøvik 1959 #3, Langevåg 1960 #26, Kvik 1963 #19 |
-| **Eksakt dato- og scoretreff** | **4** | Aksla 1959 #7 (3-0), Herd 1962 #5 (1-0), Herd 1962 #9 (2-0), Åndalsnes 1964 #16 (konflikt 4-0 vs 6-1) |
-| **Margin mellom valgt og nest beste allokering** | **78 – 315** | Kunstig oppblåst fordi tom tildeling har totalscore 0 |
-| **Grupper med færre hendelser enn hypoteser** | **2** | `1948|sarpsborg` (0 entydige), `1959|aksla` |
-| **Grupper med flere hendelser enn hypoteser** | **6** | `1960|langevag`, `1959|skarbovik`, `1961|molde-fk`, `1963|kvik`, `1963|clausenengen`, `1964|andalsnes` |
+| **Grupper hvor alle hypoteser fikk tildeling** | **10** (100 %) | |
 | **Kandidatutgaver funnet (`candidateIssuesFound`)** | **1 077** | |
-| **Utgaver beriket (`issuesEnriched`)** | **220** | Fulltekstanalyse gjennomført |
-| **NB API-kall (`nbRequests`)** | **643** | |
-| **NB-kall per hypotese** | **24.73** | 643 / 26 |
-| **NB-kall per korrekt allokering** | **160.75** | 643 / 4 |
-| **Faktisk reduksjon i manuell kø** | **2** | Kun 2 saker bekreftet (Aksla 1959 #7 og Herd 1962 #5) |
+| **Utgaver beriket (`issuesEnriched`)** | **220** | |
+| **NB API-kall (`nbRequests`)** | **643** | 24.73 API-kall per hypotese |
+
+### B. Validert kvalitet mot manuell fasit
+
+Manuell fasit inneholder 19 avgjorte hypoteser (`exact` eller `unresolved`) og 7 hypoteser merket `unverified` (som krever videre kildegransking og holdes utenfor presisjonsnevneren).
+
+| Parameter | Måleverdi | Forklaring / Sammenligning mot fasit |
+| :--- | :---: | :--- |
+| **Verifiserte hypoteser i fasit (`verifiedHypotheses`)** | **19** | 12 med fasit `exact`, 7 med fasit `unresolved` |
+| **Ikke-avgjorte hypoteser (`unverifiedHypotheses`)** | **7** | Holdes utenfor presisjonsberegningen |
+| **Eksakt korrekte allokeringer (`exactCorrectAllocations`)** | **11** | 57.9 % av verifiserte (f.eks. Herd 1962, Åndalsnes 1964, Skarbøvik 1959 #12/#25/#28) |
+| **Feilaktige allokeringer (`incorrectAllocations`)** | **8** | 42.1 % av verifiserte (herunder Raufoss 1963, Sarpsborg 1948, Kvik 1963) |
+| **Korrekt avviste allokeringer (`correctlyRejectedAllocations`)** | **0** | Svakhet: 0 av 7 saker som skulle vært avvist ble avvist |
+| **Falske high-confidence allokeringer** | **8** | Alle de 8 feilallokerte/uavviste fikk likevel `confidence: high` |
+| **Allokeringer av uverifiserte hypoteser (`unverifiedAllocations`)** | **7** | |
+| **Gruppekvalitet (10 grupper totalt):** | | |
+| – Fullt korrekte grupper (`fullyCorrectGroups`) | **4** | `1960|langevag`, `1959|skarbovik`, `1964|andalsnes`, `1962|herd` |
+| – Delvis korrekte grupper (`partiallyCorrectGroups`) | **2** | `1963|clausenengen`, `1959|aksla` |
+| – Feilede grupper (`failedGroups`) | **3** | `1963|raufoss-il`, `1948|sarpsborg`, `1963|kvik` |
+| – Uverifiserte grupper (`unverifiedGroups`) | **1** | `1961|molde-fk` (3 uverifiserte hypoteser) |
+
+### C. Dato- og scoretreff samt kildedivergenser
+
+- **Eksakt dato- OG scoretreff:** **3** saker (Aksla 1959 #7 [3–0], Herd 1962 #5 [1–0], Herd 1962 #9 [2–0]).
+- **Eksakt datotreff med kildekonflikt:** **1** sak (Åndalsnes 1964 #16; datert til 1964-05-24, men kilden oppgir 4–0 mens avisen dokumenterer 6–1). Dette er korrekt hendelsesallokering, men en resultatkonflikt.
+- **Kategorisering etter arkivstatus (samme definisjon som singleton):**
+  - **Confirmed (bekreftet):** **2** (Aksla 1959 #7, Herd 1962 #5). Trygge for automatisk skriving.
+  - **Conflict (kildekonflikt):** **3** (Herd 1962 #9, Kvik 1963 #28, Åndalsnes 1964 #16). Korrekt identifisert som avvikende kilder; må behandles som kildekonflikt og ikke blindt overskrive arkivet.
+  - **Løste saker samlet (`confirmed` + `conflict`):** **5 av 26** (19.2 %).
+  - **Krever fortsatt manuell vurdering (`probable` / `ambiguous`):** **21 av 26** (80.8 %).
 
 ---
 
 ## 2. Gruppe-for-gruppe Gjennomgang mot Manuell Fasit
 
-### 1. `1963|raufoss-il` (Kontrollgruppe)
-- **Fasit:** 2. divisjon 1963: Bortekamp på Raufoss 1963-06-09 (tap 0–1 / 1–0), hjemmekamp på Kråmyra 1963-10-06 (tap 0–2).
+### 1. `1963|raufoss-il` (Kontrollgruppe) – **FAILED**
+- **Fasit:** 2. divisjon 1963. Bortekamp på Raufoss 1963-06-09 (tap 0–1 / 1–0), hjemmekamp på Kråmyra 1963-10-06 (tap 0–2).
 - **Allokering:**
   - `1963 #27` (1–0): Allokert til `event:1963-09-21` (low confidence dato) med high confidence allokering (margin 160).
   - `1963 #30` (0–2): Allokert til `event:1963-08-17` med high confidence allokering (margin 160).
-- **Vurdering:** **FEIL ALLOKERING (Brudd på kontroll)**. De allokerte hendelsene er høstoppgjør/andre datoer i stedet for de faktiske kampene i juni og oktober.
+- **Vurdering:** **FEIL ALLOKERING (Brudd på kontroll)**. De tildelte hendelsene er feilaktige høstoppgjør i stedet for de faktiske kampene i juni og oktober.
 
-### 2. `1948|sarpsborg` (Kontroll for sikker failure mode)
-- **Fasit:** Mangler entydig avisdekning for 1–0 resultatet; skal forbli uallokert / unresolved.
-- **Allokering:** Allokert til `event:1948-10-17` med high confidence allokering (margin 78).
-- **Vurdering:** **FEIL ALLOKERING (Brudd på kontroll)**. Algoritmen tvang gjennom en tildeling til en svak kandidat og ga den `confidence: high`.
+### 2. `1948|sarpsborg` (Kontroll for sikker failure mode) – **FAILED**
+- **Fasit:** Mangler entydig verifisert samtidig avisdekning for 1–0 resultatet; skal forbli uallokert / avvist.
+- **Allokering:** Tvangstildelt til `event:1948-10-17` med `confidence: high` (margin 78).
+- **Vurdering:** **FEIL ALLOKERING (Brudd på kontroll)**. Algoritmen tvang gjennom en tildeling til en svak kandidat og stemplet den som high confidence.
 
-### 3. `1960|langevag` (Stor gruppe, 5 hypoteser, like scores: to 4–1)
-- **Fasit:** `partially_resolved`. Unike scores (3–3, 5–4, 2–4) bør skilles, mens like scores (4–1) krever tidsrekkefølge.
-- **Allokering:** Alle 5 hypoteser ble allokert til hendelser (3–3 til 1960-07-06, 5–4 til 1960-05-01, m.fl.), men begge 4–1 fikk vilkårlige hendelser med high confidence.
+### 3. `1960|langevag` (5 hypoteser, to like scores: 4–1) – **FULLY CORRECT** (av verifiserte)
+- **Fasit:** #3 (3–3, 1960-07-06) og #14 (5–4, 1960-05-01) er verifiserte enkelthendelser. De to 4–1 (#1 og #10) og 2–4 (#26) er `unverified`.
+- **Allokering:** Både #3 og #14 traff eksakt korrekt dato.
 
-### 4. `1959|skarbovik` (4 hypoteser, distinkte scores: 3–1, 6–1, 1–1, 1–0)
-- **Fasit:** `fully_resolved` dersom avisene dekker alle 4.
-- **Allokering:** #12 (6–1) allokert til 1959-07-15, #25 (1–1) allokert til 1959-04-16, #28 (1–0 cup) allokert til 1959-05-18, men #3 (3–1) forble ambiguous.
+### 4. `1959|skarbovik` (4 hypoteser, distinkte scores) – **FULLY CORRECT** (av verifiserte)
+- **Fasit:** #12 (6–1, 1959-07-15), #25 (1–1, 1959-04-16), #28 (1–0 cup, 1959-05-18) er verifiserte. #3 (3–1) er `unverified`.
+- **Allokering:** Samtlige 3 verifiserte hypoteser ble allokert til eksakt riktig dato.
 
-### 5. `1961|molde-fk` (3 hypoteser, distinkte scores: 5–3, 3–1, 1–0)
-- **Fasit:** 3 distinkte kamper.
-- **Allokering:** Tildelte utgaver/hendelser for alle 3, men #1 og #3 mangler tidskausalt bevis i brødteksten.
+### 5. `1961|molde-fk` (3 hypoteser, trenings- og seriekamper) – **UNVERIFIED**
+- **Fasit:** Alle 3 hypoteser holdes som `unverified` i påvente av ytterligere avisgransking.
 
-### 6. `1963|kvik` (3 hypoteser, to like scores: 1–1, 1–1, 2–0)
-- **Fasit:** `partially_resolved`.
-- **Allokering:** #28 (2–0) ble flagget som konflikt mot 1963-08-02, mens de to 1–1-hypotesene ble fordelt på en artikkel og 1963-09-21.
+### 6. `1963|kvik` (3 hypoteser, to like scores: 1–1) – **FAILED**
+- **Fasit:** De to 1–1 (#19 og #21) mangler differensierende kildebevis og skal forbli `unresolved`. #28 (2–0) har kildeavvik og skal avvises.
+- **Allokering:** Tildelte hendelser og ga samtlige `confidence: high`.
 
-### 7. `1963|clausenengen` (2 hypoteser, to like scores: 5–1, 5–1)
-- **Fasit:** `unresolved` (en treningskamp og en cupkamp med identisk score).
-- **Allokering:** #5 allokert til 1963-06-03, #17 allokert til 1963-05-30 (begge high confidence allokering).
+### 7. `1963|clausenengen` (2 hypoteser, to like scores: 5–1) – **PARTIALLY CORRECT**
+- **Fasit:** #17 (NM 1. runde, 1963-05-30) er verifisert. #5 (treningskamp 5–1) mangler dato og skal avvises.
+- **Allokering:** #17 traff eksakt 1963-05-30. #5 ble tvangstildelt 1963-06-03.
 
-### 8. `1959|aksla` (2 hypoteser, to like scores: 3–0, 3–0)
-- **Fasit:** `unresolved`.
-- **Allokering:** #7 allokert til 1959-04-13 (og bekreftet), mens #9 allokert til 1959-07-21.
+### 8. `1959|aksla` (2 hypoteser, to like scores: 3–0) – **PARTIALLY CORRECT**
+- **Fasit:** #7 (1959-04-13) er verifisert. #9 (3–0) mangler differensierende kildehints og skal avvises.
+- **Allokering:** #7 traff eksakt 1959-04-13. #9 ble tvangstildelt 1959-07-21.
 
-### 9. `1964|andalsnes` (2 seriekamper, distinkte scores: 4–0, 1–0)
-- **Fasit:** `fully_resolved`.
-- **Allokering:** #16 (4–0) ble conflict mot 1964-05-24 (avis 6–1), #23 (1–0) ble allokert til 1964-09-13.
+### 9. `1964|andalsnes` (2 seriekamper, distinkte scores) – **FULLY CORRECT**
+- **Fasit:** #16 (1964-05-24, kildekonflikt 4–0 vs 6–1) og #23 (1964-09-13, 1–0) er begge verifiserte.
+- **Allokering:** Begge hypoteser ble allokert til eksakt riktig dato.
 
-### 10. `1962|herd` (2 treningskamper, distinkte scores: 1–0, 2–0)
-- **Fasit:** `fully_resolved`.
-- **Allokering:** #5 bekreftet til 1962-04-25 (1–0), #9 conflict/bekreftet mot 1962-06-20 (2–0).
+### 10. `1962|herd` (2 treningskamper, distinkte scores) – **FULLY CORRECT**
+- **Fasit:** #5 (1962-04-25, 1–0) og #9 (1962-06-20, 2–0) er begge verifiserte.
+- **Allokering:** Begge hypoteser ble allokert til eksakt riktig dato.
 
 ---
 
-## 3. Beslutningsport: Evaluering og Konklusjon
+## 3. Beslutningsport
 
 ### Beslutningsstatus: **`NEEDS_TARGETED_SIBLING_FIX`**
 
 **Begrunnelse:**
-1. **Brudd på kontrollkravene:**
-   - **Raufoss 1963:** Algoritmen tildelte feilaktige hendelser (september og august) med `high` confidence, i stedet for å identifisere de historiske kampene i juni og oktober.
-   - **Sarpsborg 1948:** Algoritmen tvang gjennom en tildeling (`event:1948-10-17`) med `high` confidence (margin 78) på et kilderesultat som skulle forbli uavklart.
-2. **Systemisk feil i Margin- og Confidence-beregning:**
-   - Alle 26 allokeringer (100 %) fikk `confidence: "high"`. Dette skyldes at `runnerUp` i `allocateEvents` ofte er den tomme tildelingen med totalscore 0, noe som gir en kunstig margin på $80\text{–}300+$ poeng uansett hvor svak den beste tildelingen faktisk er.
-3. **Mangel på tildelingssperrer (rejection thresholds):**
-   - En hypotese tildeles den beste tilgjengelige hendelsen selv om edge-scoren er lav og mangler tidskausalt belegg.
-4. **Anbefaling før skalering:**
-   - Sibling-allokering må forbli **strikt opt-in (`--resolve-siblings`)**.
-   - Før eventuell produksjonstilpasning av sibling-løseren må:
-     1. Runner-up margin beregnes mot reelle alternative ikke-tomme tildelinger eller ha en absolutt edge-score terskel.
-     2. Tidskausalt bevis kreves som forutsetning for at en sibling-allokering kan oppnå `high` confidence.
-     3. Identiske scores uten differensierende kildehints må forbli `unresolved` (krav om symmetri-håndtering).
+1. **Raufoss-kontrollen feiler:** Tildelte feil datoer (september og august) med `high` confidence i stedet for å identifisere de historiske kampene i juni og oktober.
+2. **Sarpsborg failure-mode-kontrollen feiler:** Tvang gjennom tildeling (`event:1948-10-17`) med `high` confidence på et kilderesultat som skulle forbli uavklart.
+3. **Tvungen tildeling mangler rejection threshold:** 0 av 7 hypoteser med fasit `unresolved` ble avvist; alle ble tvunget inn i tildelinger.
+4. **Kunstig oppblåst confidence:** 26 av 26 allokeringer (100 %) fikk `confidence: "high"`. Dette skyldes at `runnerUp` i `allocateEvents` ofte er den tomme tildelingen med totalscore 0, noe som gir en kunstig margin på $80\text{–}300+$ poeng.
+5. **Over-allokering av identiske scores:** Hypoteser med like scores tildeles vilkårlig uten differensierende bevis.
+
+**Konklusjon:** Sibling-allokering forblir **strikt opt-in (`--resolve-siblings`)**. Default v1-policy med manuell ruting av siblings opprettholdes. Piloten skal **ikke** utvides til 20–30 grupper før en målrettet retting er implementert og validert.
+
+---
+
+## 4. Veikart for Neste PR (Etter at #184 er Merget)
+
+I neste PR (ikke i denne) skal det implementeres en smal og målrettet retting av allokeringsmotoren:
+
+1. **Absolutt minimumsterskel per kant:** En hypotese skal bare kunne kobles til en hendelse dersom kant-scoren oppfyller en streng minimumskvalitet.
+2. **Krav om tidskausalt bevis for high confidence:** Ingen allokering kan oppnå `high` confidence uten at den underliggende hendelsen har eksplisitt tidsbevis.
+3. **Reell runner-up beregning:** Runner-up margin må beregnes mot reelle alternative ikke-tomme tildelinger, ikke mot 0.
+4. **Symmetrihåndtering / sikker avvisning:** Identiske scores uten differensierende dato/kildehints må forbli `unresolved`.
+5. **Deterministiske tester:** Etablere tester for Raufoss, Sarpsborg og symmetriske scores.
+6. **Re-evaluering:** Kjøre nøyaktig de samme 10 pilotgruppene på nytt og bekrefte at Raufoss og Sarpsborg håndteres trygt, og at det er 0 falske high-confidence allokeringer.
