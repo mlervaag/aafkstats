@@ -8,6 +8,7 @@ import { newspaperPageUrl } from "../adapters/nb-newspaper-access.js";
 import { createIssueCache, discoverForGroup, discoverForSourceResult } from "../newspaper/discovery.js";
 import { buildHypotheses, parseSourceResultId, sourceIdFromPath, sourceResultPopulation, withSiblings } from "../newspaper/source-result-query.js";
 import { batchPolicyFor } from "../newspaper/batch-policy.js";
+import { filterHypotheses, readHypothesisIdsFile } from "../newspaper/selection-filter.js";
 import type { Allocation, MatchHypothesis } from "../newspaper/allocation.js";
 import type { DiscoveredIssue } from "../newspaper/discovery.js";
 import type { DiscoveryResult } from "../newspaper/reconciliation.js";
@@ -36,6 +37,9 @@ const args = parseArgs({
     refresh: { type: "boolean" },
     "dry-run": { type: "boolean" },
     "resolve-siblings": { type: "boolean" },
+    "hypothesis-ids-file": { type: "string" },
+    "group-keys": { type: "string" },
+    "hypothesis-ids": { type: "string" },
   },
 });
 
@@ -70,7 +74,21 @@ const selection = {
   ...(args.values["unlinked-only"] ? { unlinkedOnly: true } : {}),
 };
 const population = sourceResultPopulation(archive, selection);
-const selected = population.hypotheses.slice(0, limit ?? population.hypotheses.length);
+
+const fileIds = args.values["hypothesis-ids-file"]
+  ? await readHypothesisIdsFile(resolve(repoRoot(), args.values["hypothesis-ids-file"]))
+  : [];
+const cliIds = args.values["hypothesis-ids"]?.split(",").map((s) => s.trim()).filter(Boolean) ?? [];
+const combinedIds = [...fileIds, ...cliIds];
+
+const groupKeys = args.values["group-keys"]?.split(",").map((s) => s.trim()).filter(Boolean);
+
+const filtered = filterHypotheses(population.hypotheses, {
+  hypothesisIds: combinedIds.length > 0 ? combinedIds : undefined,
+  groupKeys: groupKeys && groupKeys.length > 0 ? groupKeys : undefined,
+});
+
+const selected = filtered.slice(0, limit ?? filtered.length);
 
 console.log(`${population.summary.hypotheses} kamphypoteser valgt fra ${sourceId}${selected.length < population.summary.hypotheses ? `, tar de ${selected.length} første` : ""}.`);
 console.log(stringify({ population: population.summary }).trim());
