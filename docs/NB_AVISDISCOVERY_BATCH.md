@@ -48,3 +48,7 @@ sibling-ranking før målingene viser hvilken flaskehals som faktisk dominerer.
 
 Kontrollsakene ligger maskinlesbart i
 `packages/ingest/test/fixtures/nb-newspaper-acceptance.yaml`.
+
+Evaluering og resultater fra første batch (100 saker) er dokumentert i
+[`docs/NB_AVISDISCOVERY_BATCH_01.md`](NB_AVISDISCOVERY_BATCH_01.md).
+
