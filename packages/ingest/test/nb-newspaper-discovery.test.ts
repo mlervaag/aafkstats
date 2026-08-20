@@ -171,6 +171,94 @@ describe("reconcile", () => {
   });
 
   /**
+   * Clausenengen 1952 #16: bekreftes med dato 1952-05-04.
+   */
+  it("bekrefter Clausenengen 1952 #16 med dato 1952-05-04", () => {
+    const cfk = query({ opponent: "Clausenengen", opponentAliases: ["CFK"], expectedScore: [1, 0], year: 1952 });
+    const result = reconcile(cfk, [
+      evidenceForFragment("AaFK slo Clausenengen 1—0 i går i Kristiansund", cfk, { issueId: "cfk-mai", issueDate: "19520505" }),
+    ]);
+    expect(result.status).toBe("confirmed");
+    expect(result.matchDate?.value).toBe("1952-05-04");
+    expect(result.checks.score).toBe("confirmed");
+  });
+
+  /**
+   * Nordlandet 1948 #15: sammenhengende dato 1948-05-06 og resultat 6-1.
+   */
+  it("bekrefter Nordlandet 1948 #15 med sammenhengende bevis for 1948-05-06", () => {
+    const nordlandet = query({ opponent: "Nordlandet", opponentAliases: [], expectedScore: [6, 1], year: 1948 });
+    const result = reconcile(nordlandet, [
+      evidenceForFragment("AaFK slo Nordlandet 6—1 torsdag i 1. divisjon", nordlandet, { issueId: "n-1", issueDate: "19480511" }),
+      evidenceForFragment("AaFK spilte mot Nordlandet i går i 1. divisjon", nordlandet, { issueId: "n-2", issueDate: "19480507" }),
+    ]);
+    expect(result.status).toBe("confirmed");
+    expect(result.matchDate?.value).toBe("1948-05-06");
+    expect(result.checks.score).toBe("confirmed");
+  });
+
+  /**
+   * Øvre Telemark Kretslag 1949 #5: sammenhengende dato 1949-07-10 og resultat 0-1.
+   */
+  it("bekrefter Øvre Telemark Kretslag 1949 #5 med sammenhengende bevis for 1949-07-10", () => {
+    const telemark = query({ opponent: "Øvre Telemark Kretslag", opponentAliases: [], expectedScore: [0, 1], year: 1949 });
+    const result = reconcile(telemark, [
+      evidenceForFragment("Øvre Telemark Kretslag slo AaFK 1—0 i går", telemark, { issueId: "t-1", issueDate: "19490711" }),
+    ]);
+    expect(result.status).toBe("confirmed");
+    expect(result.matchDate?.value).toBe("1949-07-10");
+    expect(result.checks.score).toBe("confirmed");
+  });
+
+  /**
+   * Ranheim 1946 #15: 2-2-resultatet fra 16. juni skal aldri kobles med 9. juli-datoen.
+   */
+  it("blander ikke dato fra juli med 2-2-resultat fra juni for Ranheim 1946", () => {
+    const ranheim = query({ opponent: "Ranheim", opponentAliases: [], expectedScore: [2, 2], year: 1946 });
+    const result = reconcile(ranheim, [
+      evidenceForFragment("AaFK spilte 2—2 mot Ranheim søndag", ranheim, { issueId: "juni", issueDate: "19460617" }),
+      evidenceForFragment("AaFK spilte kamp i går", ranheim, { issueId: "juli", issueDate: "19460710" }),
+    ]);
+
+    expect(result.matchDate?.value).not.toBe("1946-07-09");
+    if (result.status === "confirmed") {
+      expect(result.matchDate?.value).toBe("1946-06-16");
+    }
+  });
+
+  /**
+   * Herd 1949 #2: August-datoen skal aldri bekreftes med 4-2-resultatet fra 12. juni.
+   */
+  it("blander ikke august-omtale med 4-2-resultat fra juni for Herd 1949", () => {
+    const herd = query({ opponent: "Herd", opponentAliases: [], expectedScore: [2, 4], year: 1949 });
+    const result = reconcile(herd, [
+      evidenceForFragment("Herd slo AaFK 4—2 søndag", herd, { issueId: "juni", issueDate: "19490617" }),
+      evidenceForFragment("AaFK møtte Herd i går på Kråmyra", herd, { issueId: "august", issueDate: "19490822" }),
+    ]);
+
+    expect(result.matchDate?.value).not.toBe("1949-08-21");
+    if (result.status === "confirmed") {
+      expect(result.matchDate?.value).toBe("1949-06-12");
+    }
+  });
+
+  /**
+   * Old Boys 1946 #9: Juli-datoen og oktober-resultatet 5-0 er separate hendelser
+   * og skal ikke gi en falsk datert konflikt eller confirmed.
+   */
+  it("kobler ikke udatert oktober-score 5-0 med juli-dato for Old Boys 1946", () => {
+    const oldBoys = query({ opponent: "Old Boys", opponentAliases: [], expectedScore: [4, 1], year: 1946 });
+    const result = reconcile(oldBoys, [
+      evidenceForFragment("AaFK og Old Boys møttes i går", oldBoys, { issueId: "juli", issueDate: "19460712" }),
+      evidenceForFragment("Old Boys vant 5—0 over AaFK", oldBoys, { issueId: "oktober", issueDate: "19461007" }),
+    ]);
+
+    expect(result.status).toBe("ambiguous");
+    expect(result.checks.score).toBe("unknown");
+    expect(result.newspaperScore).toBeUndefined();
+  });
+
+  /**
    * Sarpsborg-kampen i 1948: kilden sier 1-0, avisa sier 2-1, og kampen er
    * likevel den samme. Det skal rapporteres som konflikt, ikke skjules bak en
    * bekreftelse og ikke forkastes fordi resultatet avviker.

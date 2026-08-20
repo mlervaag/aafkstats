@@ -1,21 +1,21 @@
-import { resolveMatchDate } from "./date-inference.js";
+import { clusterEvidence } from "./evidence-cluster.js";
 import type { NewspaperEvidence, NewspaperQuery } from "./evidence.js";
 import type { DateConfidence } from "./date-inference.js";
+import type { NewspaperEvent } from "./evidence-cluster.js";
 
 /**
  * Hva avisene til sammen sier om ett kilderesultat.
  *
- * ## Hvorfor konflikt er et utfall og ikke en feil
+ * ## Hvorfor avstemmingen må være hendelseskoherent
  *
  * Kilderesultatene er kildeutsagn, ikke kamper. Klubbens jubileumsliste fra 1965
  * er satt sammen i ettertid, og der den er uenig med avisa dagen etter kampen,
  * er det avisa som var til stede. Et verktøy som bare kan si «funnet» og «ikke
  * funnet» må da enten forkaste kampen eller forfalske den.
  *
- * Sarpsborg-kampen i juli 1948 er tilfellet som formet dette: lista sier 1-0,
- * avisa sier 2-1, og datoen er hevet over tvil. Det riktige svaret er ikke å
- * velge — det er å registrere at kampen er funnet, og at kildene er uenige om
- * resultatet. Da kan et menneske avgjøre, med begge tallene foran seg.
+ * Like viktig er det at dato og resultat ikke kan hentes fra forskjellige
+ * hendelser i sesongen: en kamp kan bare bekreftes eller avvises som konflikt
+ * dersom datoen og resultatet stammer fra den samme sammenhengende avishendelsen.
  */
 
 export type DiscoveryStatus = "confirmed" | "probable" | "ambiguous" | "conflict" | "not_found";
@@ -52,6 +52,22 @@ const MINIMUM_SCORE = 30;
 /** Fra dette og opp er kampen funnet, forutsatt at datoen holder. */
 const STRONG_SCORE = 60;
 
+interface EventAnalysis {
+  event: NewspaperEvent;
+  strongest: NewspaperEvidence;
+  inferredDate?: string;
+  dateConfidence?: DateConfidence;
+  scoreAgreement?: NewspaperEvidence;
+  scoreConflict?: [number, number];
+  opponentFound: boolean;
+  homeAway: ReconciliationChecks["homeAway"];
+  competition: ReconciliationChecks["competition"];
+  dateCheck: ReconciliationChecks["date"];
+  isCoherentConfirmed: boolean;
+  isCoherentConflict: boolean;
+  isCoherentProbable: boolean;
+}
+
 export function reconcile(query: NewspaperQuery, evidence: NewspaperEvidence[]): DiscoveryResult {
   const relevant = evidence.filter((item) => item.score >= MINIMUM_SCORE).sort((a, b) => b.score - a.score);
   const sourceScore = query.expectedScore ? [query.expectedScore[0], query.expectedScore[1]] as [number, number] : undefined;
@@ -66,68 +82,205 @@ export function reconcile(query: NewspaperQuery, evidence: NewspaperEvidence[]):
     };
   }
 
-  const date = resolveMatchDate(relevant.flatMap((item) => (item.temporal ? [{ temporal: item.temporal, weight: item.score }] : [])));
-  const strongest = relevant[0]!;
-  // Bare et resultat i løpende tekst eller i resultatbørsen teller som
-  // enighet. Et sifferpar i en tabellrad er ikke et kampresultat, og det skal
-  // ikke kunne oppheve tvilen når sesongen har to kamper mot samme motstander.
-  const scoreAgreement = relevant.find((item) =>
+  const events = clusterEvidence(relevant);
+  const analyses = events.map((event) => analyzeEvent(query, event));
+
+  const confirmedAnalyses = analyses.filter((a) => a.isCoherentConfirmed);
+  const conflictAnalyses = analyses.filter((a) => a.isCoherentConflict);
+
+  // 1. Entydig bekreftet hendelse
+  if (confirmedAnalyses.length === 1 && conflictAnalyses.length === 0) {
+    const chosen = confirmedAnalyses[0]!;
+    return buildResult({
+      status: "confirmed",
+      chosen,
+      allAnalyses: analyses,
+      relevantEvidence: relevant,
+      sourceScore,
+      scoreCheck: "confirmed",
+    });
+  }
+
+  // 2. Entydig konflikt i samme hendelse
+  if (conflictAnalyses.length === 1 && confirmedAnalyses.length === 0) {
+    const chosen = conflictAnalyses[0]!;
+    return buildResult({
+      status: "conflict",
+      chosen,
+      allAnalyses: analyses,
+      relevantEvidence: relevant,
+      sourceScore,
+      newspaperScore: chosen.scoreConflict,
+      scoreCheck: "conflict",
+    });
+  }
+
+  // 3. Flere konkurrerende bekreftelser eller konflikter -> ambiguous
+  if (confirmedAnalyses.length > 1 || conflictAnalyses.length > 1 || (confirmedAnalyses.length > 0 && conflictAnalyses.length > 0)) {
+    const chosen = confirmedAnalyses[0] ?? conflictAnalyses[0] ?? analyses[0]!;
+    return buildResult({
+      status: "ambiguous",
+      chosen,
+      allAnalyses: analyses,
+      relevantEvidence: relevant,
+      sourceScore,
+      scoreCheck: "unknown",
+    });
+  }
+
+  // 4. Ingen hendelse har full score-bekreftelse eller score-konflikt
+  const datedAnalyses = analyses.filter((a) => a.inferredDate !== undefined);
+
+  if (datedAnalyses.length > 1) {
+    // Flere konkurrerende datobevis uten scorebekreftelse -> ambiguous
+    const chosen = analyses[0]!;
+    return buildResult({
+      status: "ambiguous",
+      chosen,
+      allAnalyses: analyses,
+      relevantEvidence: relevant,
+      sourceScore,
+      scoreCheck: "unknown",
+    });
+  }
+
+  if (datedAnalyses.length === 1) {
+    const chosen = datedAnalyses[0]!;
+    if (chosen.isCoherentProbable) {
+      return buildResult({
+        status: "probable",
+        chosen,
+        allAnalyses: analyses,
+        relevantEvidence: relevant,
+        sourceScore,
+        scoreCheck: "unknown",
+      });
+    }
+    const status: DiscoveryStatus = relevant.length > 1 ? "ambiguous" : "probable";
+    return buildResult({
+      status,
+      chosen,
+      allAnalyses: analyses,
+      relevantEvidence: relevant,
+      sourceScore,
+      scoreCheck: "unknown",
+    });
+  }
+
+  // Ingen daterte hendelser
+  const chosen = analyses[0]!;
+  if (chosen.strongest.score >= STRONG_SCORE && chosen.opponentFound) {
+    return buildResult({
+      status: "probable",
+      chosen,
+      allAnalyses: analyses,
+      relevantEvidence: relevant,
+      sourceScore,
+      scoreCheck: "unknown",
+    });
+  }
+
+  const status: DiscoveryStatus = relevant.length > 1 ? "ambiguous" : "probable";
+  return buildResult({
+    status,
+    chosen,
+    allAnalyses: analyses,
+    relevantEvidence: relevant,
+    sourceScore,
+    scoreCheck: "unknown",
+  });
+}
+
+function analyzeEvent(query: NewspaperQuery, event: NewspaperEvent): EventAnalysis {
+  const strongest = event.evidence[0]!;
+  const scoreAgreement = event.evidence.find((item) =>
     item.scoreMatchesSource === true && (item.kind === "article" || item.kind === "result_list"));
-  const conflicting = conflictingScore(query, relevant);
+  const scoreConflict = conflictingScore(query, event.evidence);
+  const opponentFound = event.evidence.some((item) => item.opponentFound);
+  const homeAway = homeAwayCheck(query, event.evidence);
+  const competition = event.evidence.some((item) => item.competitionFound !== undefined) ? "probable" : "unknown";
+  const inferredDate = event.inferredDate;
+  const dateConfidence = event.dateConfidence;
+  const dateCheck: ReconciliationChecks["date"] = inferredDate === undefined ? "unknown" : (dateConfidence === "high" ? "confirmed" : "probable");
 
-  const checks: ReconciliationChecks = {
-    opponent: relevant.some((item) => item.opponentFound) ? "confirmed" : "missing",
-    score: scoreAgreement ? "confirmed" : conflicting ? "conflict" : "unknown",
-    homeAway: homeAwayCheck(query, relevant),
-    competition: relevant.some((item) => item.competitionFound !== undefined) ? "probable" : "unknown",
-    date: date === undefined ? "unknown" : date.confidence === "high" ? "confirmed" : "probable",
-  };
+  const hasStrongEvidence = strongest.score >= STRONG_SCORE || event.score >= STRONG_SCORE;
+  const hasIdentifiedDate = inferredDate !== undefined && dateCheck !== "unknown";
 
-  // Summen av de tre beste vinduene, med avtakende vekt. Fire utgaver som hver
-  // sier litt er sterkere enn én som sier alt — men ikke fire ganger sterkere.
-  const combinedConfidence = relevant
-    .slice(0, 3)
-    .reduce((sum, item, index) => sum + item.score / (index + 1), 0);
+  const isCoherentConfirmed = hasStrongEvidence && hasIdentifiedDate && scoreAgreement !== undefined && opponentFound;
+  const isCoherentConflict = hasStrongEvidence && hasIdentifiedDate && scoreConflict !== undefined && scoreAgreement === undefined && opponentFound;
+  const isCoherentProbable = hasStrongEvidence && hasIdentifiedDate && opponentFound;
 
   return {
-    status: statusFor({
-      strongest,
-      checks,
-      date,
-      conflicting: conflicting !== undefined,
-      candidates: relevant.length,
-    }),
-    ...(date ? { matchDate: { value: date.date, confidence: date.confidence, agreement: date.agreement, disagreement: date.disagreement } } : {}),
-    ...(conflicting ? { newspaperScore: conflicting } : {}),
-    ...(sourceScore ? { sourceScore } : {}),
-    checks,
-    evidence: relevant,
-    combinedConfidence: Math.round(combinedConfidence),
+    event,
+    strongest,
+    inferredDate,
+    dateConfidence,
+    scoreAgreement,
+    scoreConflict,
+    opponentFound,
+    homeAway,
+    competition,
+    dateCheck,
+    isCoherentConfirmed,
+    isCoherentConflict,
+    isCoherentProbable,
   };
 }
 
-function statusFor(input: {
-  strongest: NewspaperEvidence;
-  checks: ReconciliationChecks;
-  date: { confidence: DateConfidence } | undefined;
-  conflicting: boolean;
-  candidates: number;
-}): DiscoveryStatus {
-  // Søsken håndteres ikke lenger her. Tidligere ga flere kamper mot samme
-  // motstander automatisk «ambiguous», fordi avstemmingen så hele sesongens
-  // treff og ikke kunne vite hvilken kamp de gjaldt. Nå får den bare bevisene
-  // fordelingen har tildelt denne kampen, og usikkerheten i selve fordelingen
-  // rapporteres av den — der den hører hjemme.
-  const identified = input.strongest.score >= STRONG_SCORE && input.checks.date !== "unknown";
+function buildResult(input: {
+  status: DiscoveryStatus;
+  chosen: EventAnalysis;
+  allAnalyses: EventAnalysis[];
+  relevantEvidence: NewspaperEvidence[];
+  sourceScore?: [number, number];
+  newspaperScore?: [number, number];
+  scoreCheck: ReconciliationChecks["score"];
+}): DiscoveryResult {
+  const { status, chosen, allAnalyses, relevantEvidence, sourceScore, newspaperScore, scoreCheck } = input;
 
-  // Konflikt går foran alt annet: kampen er funnet, men kildene er uenige, og
-  // det skal ikke kunne skjules bak en «confirmed».
-  if (identified && input.conflicting) return "conflict";
-  if (identified && input.checks.score === "confirmed") return "confirmed";
-  if (identified) return "probable";
-  if (input.strongest.score >= STRONG_SCORE) return "probable";
-  if (input.candidates > 1) return "ambiguous";
-  return "probable";
+  const disagreement = allAnalyses
+    .filter((a) => a.inferredDate !== undefined && a.inferredDate !== chosen.inferredDate)
+    .map((a) => a.inferredDate!);
+
+  const agreement = chosen.inferredDate === undefined
+    ? 0
+    : chosen.event.evidence.filter((item) => item.temporal?.inferredMatchDate === chosen.inferredDate).length;
+
+  const matchDate: MatchDateResolution | undefined = chosen.inferredDate === undefined ? undefined : {
+    value: chosen.inferredDate,
+    confidence: chosen.dateConfidence ?? "high",
+    agreement: Math.max(1, agreement),
+    disagreement: [...new Set(disagreement)],
+  };
+
+  const checks: ReconciliationChecks = {
+    opponent: chosen.opponentFound ? "confirmed" : "missing",
+    score: scoreCheck,
+    homeAway: chosen.homeAway,
+    competition: chosen.competition,
+    date: chosen.dateCheck,
+  };
+
+  const combinedConfidence = relevantEvidence
+    .slice(0, 3)
+    .reduce((sum, item, index) => sum + item.score / (index + 1), 0);
+
+  // Legg valgt hendelses beviser først, deretter eventuelle andre relevante beviser
+  const chosenSet = new Set(chosen.event.evidence);
+  const orderedEvidence = [
+    ...chosen.event.evidence,
+    ...relevantEvidence.filter((item) => !chosenSet.has(item)),
+  ];
+
+  return {
+    status,
+    ...(matchDate ? { matchDate } : {}),
+    ...(newspaperScore ? { newspaperScore } : {}),
+    ...(sourceScore ? { sourceScore } : {}),
+    checks,
+    evidence: orderedEvidence,
+    combinedConfidence: Math.round(combinedConfidence),
+  };
 }
 
 /**
