@@ -40,7 +40,7 @@ describe("NB Newspaper Sibling Pilot Manifest & Pure Evaluator", () => {
   });
 
   describe("Confidence- og margin-regler i allocateEvents", () => {
-    it("gir low/unresolved og aldri medium ved margin <= 0 (f.eks. -5)", () => {
+    it("gir low/unresolved og aldri medium eller high ved margin 0", () => {
       const hypotheses: MatchHypothesis[] = [
         {
           id: "test#1963-1",
@@ -61,7 +61,7 @@ describe("NB Newspaper Sibling Pilot Manifest & Pure Evaluator", () => {
         },
       ];
 
-      // To hendelser med samme eller høyere alternativ score slik at margin blir <= 0
+      // To hendelser med identisk score gir margin 0
       const events: NewspaperEvent[] = [
         {
           id: "event:1963-05-01",
@@ -86,13 +86,13 @@ describe("NB Newspaper Sibling Pilot Manifest & Pure Evaluator", () => {
           id: "event:1963-05-02",
           inferredDate: "1963-05-02",
           dateConfidence: "high",
-          score: 80,
+          score: 70,
           evidence: [
             {
               itemUrl: "https://nb.no/item2",
               newspaper: "Sunnmørsposten",
               mayStoreFullText: false,
-              score: 80,
+              score: 70,
               sameFragment: true,
               opponentFound: true,
               scoreFound: [2, 0],
@@ -107,16 +107,107 @@ describe("NB Newspaper Sibling Pilot Manifest & Pure Evaluator", () => {
       expect(allocations).toHaveLength(1);
       const alloc = allocations[0]!;
 
-      // Hvis margin er under MEDIUM_MARGIN (eller negativ/0), kan den ALDRI bli medium eller high
-      expect(alloc.confidence).not.toBe("high");
-      if (alloc.margin <= 0) {
-        expect(alloc.confidence).toBe("low");
-        expect(alloc.decision).not.toBe("accepted");
+      expect(alloc.margin).toBe(0);
+      expect(alloc.confidence).toBe("low");
+      expect(alloc.decision).not.toBe("accepted");
+      expect(alloc.eventId).toBeUndefined();
+    });
+
+    it("gir ikke kunstig high confidence ved swap med lav margin", () => {
+      const hypotheses: MatchHypothesis[] = [
+        {
+          id: "h1",
+          order: 1,
+          queries: [
+            {
+              ref: { sourceId: "src", season: 1963, no: 1 },
+              year: 1963,
+              groupKey: "1963|rival",
+              opponent: "Rival",
+              linked: false,
+              expectedScore: [2, 0],
+              replay: false,
+              extraTime: false,
+              hints: {},
+            },
+          ],
+        },
+        {
+          id: "h2",
+          order: 2,
+          queries: [
+            {
+              ref: { sourceId: "src", season: 1963, no: 2 },
+              year: 1963,
+              groupKey: "1963|rival",
+              opponent: "Rival",
+              linked: false,
+              expectedScore: [3, 0],
+              replay: false,
+              extraTime: false,
+              hints: {},
+            },
+          ],
+        },
+      ];
+
+      // To hendelser hvor h1 passer best til e1 (score 80) og h2 passer til e2 (score 80),
+      // men en swap (h1->e2, h2->e1) gir score 79 på begge, så swap margin er bare 2.
+      const events: NewspaperEvent[] = [
+        {
+          id: "event:e1",
+          inferredDate: "1963-05-01",
+          dateConfidence: "high",
+          score: 80,
+          evidence: [
+            {
+              itemUrl: "https://nb.no/e1",
+              newspaper: "Sunnmørsposten",
+              mayStoreFullText: false,
+              score: 80,
+              sameFragment: true,
+              opponentFound: true,
+              scoreFound: [2, 0],
+              inferredDate: "1963-05-01",
+              dateConfidence: "high",
+            },
+          ],
+        },
+        {
+          id: "event:e2",
+          inferredDate: "1963-09-01",
+          dateConfidence: "high",
+          score: 80,
+          evidence: [
+            {
+              itemUrl: "https://nb.no/e2",
+              newspaper: "Sunnmørsposten",
+              mayStoreFullText: false,
+              score: 80,
+              sameFragment: true,
+              opponentFound: true,
+              scoreFound: [3, 0],
+              inferredDate: "1963-09-01",
+              dateConfidence: "high",
+            },
+          ],
+        },
+      ];
+
+      const allocations = allocateEvents(hypotheses, events);
+      expect(allocations).toHaveLength(2);
+      for (const alloc of allocations) {
+        // En tett swap gir liten margin og skal aldri få high confidence eller accepted status
+        if (alloc.margin < 8) {
+          expect(alloc.confidence).not.toBe("high");
+          expect(alloc.decision).not.toBe("accepted");
+          expect(alloc.eventId).toBeUndefined();
+        }
       }
     });
   });
 
-  describe("Deterministisk evaluering av syntetiske grupper", () => {
+  describe("Deterministisk evaluering av kontrollgrupper", () => {
     it("evaluerer Herd 1962 (#5 og #9) som fullt korrekt og uten falsk score-konflikt", () => {
       const groupFixture: SiblingPilotGroupFixture = {
         groupKey: "1962|herd",
@@ -131,11 +222,10 @@ describe("NB Newspaper Sibling Pilot Manifest & Pure Evaluator", () => {
 
       const results = new Map<string, SiblingDiscoveryResult>();
       results.set("medlemsblad-for-aalesunds-fotb-1965-a2c9#1962-5", {
-        hypothesis: { id: "h5", queries: [], order: 1 },
         status: "confirmed",
         checks: { opponent: "confirmed", score: "confirmed", homeAway: "unknown", competition: "unknown", date: "confirmed" },
-        sources: [],
         evidence: [],
+        combinedConfidence: 0.9,
         event: { id: "event:1962-04-25", inferredDate: "1962-04-25", dateConfidence: "high", score: 85, evidence: [] },
         allocation: {
           hypothesisId: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1962-5",
@@ -150,11 +240,10 @@ describe("NB Newspaper Sibling Pilot Manifest & Pure Evaluator", () => {
         },
       });
       results.set("medlemsblad-for-aalesunds-fotb-1965-a2c9#1962-9", {
-        hypothesis: { id: "h9", queries: [], order: 2 },
         status: "confirmed",
         checks: { opponent: "confirmed", score: "confirmed", homeAway: "unknown", competition: "unknown", date: "confirmed" },
-        sources: [],
         evidence: [],
+        combinedConfidence: 0.9,
         event: { id: "event:1962-06-20", inferredDate: "1962-06-20", dateConfidence: "high", score: 85, evidence: [] },
         allocation: {
           hypothesisId: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1962-9",
@@ -176,6 +265,65 @@ describe("NB Newspaper Sibling Pilot Manifest & Pure Evaluator", () => {
       expect(evaluated.hypotheses.every((h) => !h.isFalseHighConfidence)).toBe(true);
     });
 
+    it("evaluerer Åndalsnes 1964 #16 med akseptert hendelse og reell kildekonflikt", () => {
+      const groupFixture: SiblingPilotGroupFixture = {
+        groupKey: "1964|andalsnes",
+        sourceId: "medlemsblad-for-aalesunds-fotb-1965-a2c9",
+        season: 1964,
+        opponent: "Åndalsnes",
+        hypotheses: [
+          { id: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1964-16", no: 16, expectedAllocation: "exact", expectedDate: "1964-05-24" },
+          { id: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1964-23", no: 23, expectedAllocation: "exact", expectedDate: "1964-09-13" },
+        ],
+      };
+
+      const results = new Map<string, SiblingDiscoveryResult>();
+      results.set("medlemsblad-for-aalesunds-fotb-1965-a2c9#1964-16", {
+        status: "conflict", // Reell kildekonflikt (4-0 i medlemsblad vs 6-1 i avis)
+        sourceScore: [4, 0],
+        newspaperScore: [6, 1],
+        checks: { opponent: "confirmed", score: "conflict", homeAway: "unknown", competition: "probable", date: "confirmed" },
+        evidence: [],
+        combinedConfidence: 0.85,
+        event: { id: "event:1964-05-24", inferredDate: "1964-05-24", dateConfidence: "high", score: 77, evidence: [] },
+        allocation: {
+          hypothesisId: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1964-16",
+          candidateEventId: "event:1964-05-24",
+          eventId: "event:1964-05-24",
+          decision: "accepted",
+          score: 77,
+          runnerUpScore: 58,
+          margin: 19,
+          confidence: "high",
+          alternatives: [],
+        },
+      });
+      results.set("medlemsblad-for-aalesunds-fotb-1965-a2c9#1964-23", {
+        status: "ambiguous",
+        checks: { opponent: "missing", score: "unknown", homeAway: "unknown", competition: "unknown", date: "unknown" },
+        evidence: [],
+        combinedConfidence: 0,
+        allocation: {
+          hypothesisId: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1964-23",
+          eventId: undefined,
+          decision: "unresolved",
+          score: 58,
+          runnerUpScore: 0,
+          margin: 0,
+          confidence: "low",
+          alternatives: [],
+        },
+      });
+
+      const evaluated = evaluateGroupResults(groupFixture, results);
+      const h16 = evaluated.hypotheses[0]!;
+      expect(h16.classification).toBe("exact_correct");
+      expect(h16.status).toBe("conflict");
+      expect(h16.allocatedDate).toBe("1964-05-24");
+      expect(h16.decision).toBe("accepted");
+      expect(h16.isFalseHighConfidence).toBe(false);
+    });
+
     it("evaluerer Sarpsborg 1948 #10 som correctly_rejected når uallokert/uavklart", () => {
       const groupFixture: SiblingPilotGroupFixture = {
         groupKey: "1948|sarpsborg",
@@ -189,15 +337,14 @@ describe("NB Newspaper Sibling Pilot Manifest & Pure Evaluator", () => {
 
       const results = new Map<string, SiblingDiscoveryResult>();
       results.set("medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-10", {
-        hypothesis: { id: "h10", queries: [], order: 1 },
         status: "ambiguous",
-        checks: { opponent: "unknown", score: "unknown", homeAway: "unknown", competition: "unknown", date: "unknown" },
-        sources: [],
+        checks: { opponent: "missing", score: "unknown", homeAway: "unknown", competition: "unknown", date: "unknown" },
         evidence: [],
-        candidateEvent: { id: "event:1948-06-20", inferredDate: "1948-06-20", dateConfidence: "low", score: 50, evidence: [] },
+        combinedConfidence: 0,
+        candidateEvent: { id: "event:1948-06-03", inferredDate: "1948-06-03", dateConfidence: "low", score: 50, evidence: [] },
         allocation: {
           hypothesisId: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-10",
-          candidateEventId: "event:1948-06-20",
+          candidateEventId: "event:1948-06-03",
           eventId: undefined,
           decision: "unresolved",
           score: 50,
@@ -223,17 +370,16 @@ describe("NB Newspaper Sibling Pilot Manifest & Pure Evaluator", () => {
         hypotheses: [
           { id: "kvik#19", no: 19, expectedAllocation: "unresolved" },
           { id: "kvik#21", no: 21, expectedAllocation: "unresolved" },
-          { id: "kvik#28", no: 28, expectedAllocation: "unverified" },
+          { id: "kvik#28", no: 28, expectedAllocation: "unresolved" },
         ],
       };
 
       const results = new Map<string, SiblingDiscoveryResult>();
       results.set("kvik#19", {
-        hypothesis: { id: "kvik#19", queries: [], order: 1 },
         status: "not_found",
-        checks: { opponent: "unknown", score: "unknown", homeAway: "unknown", competition: "unknown", date: "unknown" },
-        sources: [],
+        checks: { opponent: "missing", score: "unknown", homeAway: "unknown", competition: "unknown", date: "unknown" },
         evidence: [],
+        combinedConfidence: 0,
         allocation: {
           hypothesisId: "kvik#19",
           eventId: undefined,
@@ -246,11 +392,10 @@ describe("NB Newspaper Sibling Pilot Manifest & Pure Evaluator", () => {
         },
       });
       results.set("kvik#21", {
-        hypothesis: { id: "kvik#21", queries: [], order: 2 },
         status: "not_found",
-        checks: { opponent: "unknown", score: "unknown", homeAway: "unknown", competition: "unknown", date: "unknown" },
-        sources: [],
+        checks: { opponent: "missing", score: "unknown", homeAway: "unknown", competition: "unknown", date: "unknown" },
         evidence: [],
+        combinedConfidence: 0,
         allocation: {
           hypothesisId: "kvik#21",
           eventId: undefined,
@@ -263,20 +408,19 @@ describe("NB Newspaper Sibling Pilot Manifest & Pure Evaluator", () => {
         },
       });
       results.set("kvik#28", {
-        hypothesis: { id: "kvik#28", queries: [], order: 3 },
         status: "ambiguous",
-        checks: { opponent: "unknown", score: "unknown", homeAway: "unknown", competition: "unknown", date: "unknown" },
-        sources: [],
+        checks: { opponent: "missing", score: "unknown", homeAway: "unknown", competition: "unknown", date: "unknown" },
         evidence: [],
+        combinedConfidence: 0,
         allocation: {
           hypothesisId: "kvik#28",
-          candidateEventId: "event:1963-10-06",
+          candidateEventId: "event:1963-08-02",
           eventId: undefined,
           decision: "unresolved",
           score: 55,
           runnerUpScore: 0,
           margin: 10,
-          confidence: "low",
+          confidence: "medium",
           alternatives: [],
         },
       });
@@ -285,7 +429,9 @@ describe("NB Newspaper Sibling Pilot Manifest & Pure Evaluator", () => {
       expect(evaluated.classification).toBe("fully_correct");
       expect(evaluated.hypotheses[0]!.classification).toBe("correctly_rejected");
       expect(evaluated.hypotheses[1]!.classification).toBe("correctly_rejected");
-      expect(evaluated.hypotheses[2]!.classification).toBe("unverified");
+      expect(evaluated.hypotheses[2]!.classification).toBe("correctly_rejected");
+      expect(evaluated.hypotheses[2]!.allocatedEventId).toBeUndefined();
+      expect(evaluated.hypotheses[2]!.decision).not.toBe("accepted");
       expect(evaluated.hypotheses.every((h) => !h.isFalseHighConfidence)).toBe(true);
     });
 
@@ -302,11 +448,10 @@ describe("NB Newspaper Sibling Pilot Manifest & Pure Evaluator", () => {
 
       const results = new Map<string, SiblingDiscoveryResult>();
       results.set("raufoss#27", {
-        hypothesis: { id: "raufoss#27", queries: [], order: 1 },
         status: "confirmed",
         checks: { opponent: "confirmed", score: "confirmed", homeAway: "unknown", competition: "unknown", date: "confirmed" },
-        sources: [],
         evidence: [],
+        combinedConfidence: 0.9,
         event: { id: "event:1963-10-06", inferredDate: "1963-10-06", dateConfidence: "high", score: 85, evidence: [] },
         allocation: {
           hypothesisId: "raufoss#27",

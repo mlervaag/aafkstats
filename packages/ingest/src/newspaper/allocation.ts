@@ -54,8 +54,9 @@ const BRUTE_FORCE_LIMIT = 6;
 /** Minste kant-score som kreves for at en hendelse skal kunne tildeles en hypotese. */
 export const MINIMUM_EDGE_SCORE = 45;
 /** Marginen mot nest beste alternativ som kreves for high confidence. */
-export const HIGH_MARGIN = 20;
-export const MEDIUM_MARGIN = 10;
+export const HIGH_MARGIN = 8;
+export const MEDIUM_MARGIN = 4;
+
 
 function scoreMatches(scoreFound: [number, number], expectedScore: readonly [number, number]): boolean {
   return (
@@ -190,60 +191,77 @@ export function allocateEvents(hypotheses: MatchHypothesis[], events: NewspaperE
     const score = candidateEventId ? rawScore : 0;
     const candidateEvent = candidateEventId ? byId.get(candidateEventId) : undefined;
 
-    // Finn reelle alternative hendelser som kunne vært tildelt denne hypotesen
-    // (hendelser med gyldig kant som ikke er sterkere bundet til en annen hypotese).
-    const competingScores = [...row.entries()]
-      .filter(([id, val]) => {
-        if (id === candidateEventId || val < MINIMUM_EDGE_SCORE) return false;
-        // Sjekk om en annen hypotese har sterkere krav på dette eventet
-        for (const other of hypotheses) {
-          if (other.id === hypothesis.id) continue;
-          const otherAssigned = best.assignment.get(other.id);
-          if (otherAssigned === id && (edges.get(other.id)?.get(id) ?? 0) >= val) {
-            return false;
-          }
+    // Beregn margin mot beste reelle alternative fordeling der denne hypotesen
+    // IKKE tildeles candidateEventId.
+    let margin = 0;
+    let runnerUpScore = 0;
+    if (candidateEventId) {
+      if (scored.length > 1) {
+        // Fullstendig søk: finn beste komplette fordeling der hypotesen ikke har denne hendelsen
+        const runnerUpAssignment = scored.find(
+          (a) => a.assignment.get(hypothesis.id) !== candidateEventId,
+        );
+        if (runnerUpAssignment) {
+          margin = Math.max(0, best.total - runnerUpAssignment.total);
+          const altEventId = runnerUpAssignment.assignment.get(hypothesis.id);
+          runnerUpScore = altEventId ? (row.get(altEventId) ?? 0) : 0;
+        } else {
+          margin = score;
         }
-        return true;
-      })
-      .map(([, val]) => val)
-      .sort((a, b) => b - a);
+      } else {
+        // Greedy fallback: konservativ margin mot beste kvalifiserte alternative hendelse
+        const competingScores = [...row.entries()]
+          .filter(([id, val]) => id !== candidateEventId && val >= MINIMUM_EDGE_SCORE)
+          .map(([, val]) => val)
+          .sort((a, b) => b - a);
+        runnerUpScore = competingScores[0] ?? 0;
+        margin = Math.max(0, score - runnerUpScore);
+      }
+    }
 
-    const runnerUpScore = competingScores[0] ?? MINIMUM_EDGE_SCORE;
-    const margin = score > 0 ? score - runnerUpScore : 0;
-
-    // Tidskausalt bevis og kildekobling:
-    // High confidence krever eksplisitt dato med "high" dateConfidence, samt
-    // enten resultatmatch eller bekreftet konkurransematch.
-    const isHighDate = candidateEvent?.inferredDate !== undefined && candidateEvent.dateConfidence === "high";
-    const isMediumDate = candidateEvent?.inferredDate !== undefined &&
+    // Tidskausalt bevis og kildebevis:
+    const isHighDate = candidateEvent?.inferredDate !== undefined &&
       (candidateEvent.dateConfidence === "high" || candidateEvent.dateConfidence === "medium");
+    const isMediumDate = candidateEvent?.inferredDate !== undefined;
 
-    const scores = hypothesis.queries.flatMap((q) => (q.expectedScore ? [q.expectedScore] : []));
-    const printed = candidateEvent?.evidence.find((item) => item.scoreFound !== undefined)?.scoreFound;
-    const hasScoreMatch = printed && scores.some((expected) => scoreMatches(printed, expected));
+
+    const hasSameFragment = candidateEvent?.evidence.some((e) => e.sameFragment) ?? false;
     const hasCompetitionMatch = hypothesis.queries.some(
       (q) => q.competitionHint && candidateEvent?.evidence.some((e) => e.competitionFound === q.competitionHint),
     );
 
+
+
     // Sjekk om det finnes uoppklarte tidligere søsken i samme gruppe.
-    // En senere kildepåstand kan ikke få high confidence uten konkurransebevis
+    // En senere kildepåstand kan ikke få high confidence uten eksplisitt konkurransebevis
     // dersom tidligere kamper mot samme motstander er uavklarte (som Kvik #28 etter #19/#21).
     const hasUnresolvedPrecedingSibling = hypotheses.some(
       (h) => h.order < hypothesis.order && (!best.assignment.get(h.id) || symmetricHypothesisIds.has(h.id)),
     );
 
+    const hasPrintedScore = candidateEvent?.evidence.some((e) => e.scoreFound !== undefined) ?? false;
+
     // Confidence-krav:
     // 1. En negativ eller null margin kan ALDRI gi medium eller high confidence.
-    // 2. High krever tidskausalt bevis (high date), differensierende kildekobling (resultatmatch),
-    //    at foregående søsken ikke er uoppklart (eller bekreftet konkurransematch),
-    //    sterk margin (>= HIGH_MARGIN) og høy absolutt score (>= 80).
-    // 3. Medium krever tidskausalt bevis (medium date), positiv margin (>= MEDIUM_MARGIN) og absolutt score (>= 55).
+    // 2. High krever tidskausalt bevis (high date), felles omtale i samme avsnitt,
+    //    at avisen rapporterer et kampresultat (enten matchende eller reell konflikt),
+    //    at foregående søsken ikke er uoppklart (eller cupmatch),
+    //    sterk margin (>= HIGH_MARGIN) og god score (>= 55).
+    // 3. Reconcile alene avgjør om allokeringen ender som confirmed eller conflict.
+    // 4. Medium krever tidskausalt bevis (medium date), positiv margin (>= MEDIUM_MARGIN) og score (>= 45).
     let confidence: "high" | "medium" | "low" = "low";
     if (candidateEventId && !isSymmetric && margin > 0) {
       const passesPrecedingCheck = !hasUnresolvedPrecedingSibling || hasCompetitionMatch;
-      if (isHighDate && hasScoreMatch && passesPrecedingCheck && margin >= HIGH_MARGIN && score >= 80) {
+      if (
+        isHighDate &&
+        hasSameFragment &&
+        hasPrintedScore &&
+        passesPrecedingCheck &&
+        margin >= HIGH_MARGIN &&
+        score >= 55
+      ) {
         confidence = "high";
-      } else if (isMediumDate && margin >= MEDIUM_MARGIN && score >= 55) {
+      } else if (isMediumDate && margin >= MEDIUM_MARGIN && score >= 45) {
         confidence = "medium";
       }
     }
@@ -262,8 +280,6 @@ export function allocateEvents(hypotheses: MatchHypothesis[], events: NewspaperE
         : "unresolved";
 
     const eventId = isAccepted ? candidateEventId : undefined;
-
-
 
     return {
       hypothesisId: hypothesis.id,
