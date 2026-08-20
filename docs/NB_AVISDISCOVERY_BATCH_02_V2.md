@@ -33,8 +33,11 @@ pnpm ingest:nb-newspaper-discover -- \
 | **NB-kall per confirmed/conflict** | 83.25 | **124.88** | 999 kall fordelt på 8 løste saker |
 | **hypothesesWithTemporalEvidence** | 51 | 51 | 83.6 % har tidsbevis |
 | **hypothesesWithResultAgreement** | 8 | 8 | 6 confirmed + 2 nedgradert pga. `homeAway: conflict` |
-| **hypothesesWithResultConflict** | 6 | **5** | Målt i rårapporten |
+| **hypothesesWithResultConflict** | 6 | **5** | Målt i rå-scorebevisene før klynge- og kildehint-avstemming (se forklaring under) |
 | **siblingGroupsSkipped** | 72 grupper | 72 grupper | Uendret |
+
+> **Forklaring på `hypothesesWithResultConflict: 5` vs 2 endelige `conflict`-statuser:**  
+> Metrikken `hypothesesWithResultConflict` teller alle hypoteser der minst ett gyldig tekstfragment i råmaterialet inneholder et avvikende resultat. Av de 5 sakene med rå-resultatavvik ble 3 saker (Spjelkavik 1953 #8, Guard 1955 #1 og Sykkylven 1955 #12) trygt nedgradert til `ambiguous` under avstemmingen fordi andre hendelser i sesongen hadde entydig scoreenighet eller matchet kildens konkurransehint bedre. Kun de 2 gjenstående sakene (Skarbøvik 1953 #5 og Braatt 1956 #10) oppfylte alle krav til koherent konflikt og fikk endelig status `conflict`.
 
 ---
 
@@ -51,7 +54,7 @@ pnpm ingest:nb-newspaper-discover -- \
 | **`1953 #19` Hødd** | 3–1 | `1953-08-23` (**high**) | 3–1 | **117** | [Sunnmørsposten 24.08.1953 s. 2](https://www.nb.no/items/dd7a9b1eb4db00a7752eebc9aa569ae4?page=2) | Resultatbørs 1. divisjon «i går» |
 | **`1958 #15` Braatt** | 1–1 | `1958-05-11` (**high**) | 1–1 | **80** | [Sunnmørsposten 12.05.1958 s. 2](https://www.nb.no/items/7ddff643a17e4d54af5b9b1cc7202151?page=2) | Referat «i går», cupomtale |
 
-*Vurdering:* 6 av 6 (100 %) er høykvalitets bekreftelser med `matchDate.confidence: high` og fullstendig samsvar med kildens opplysninger.
+*Vurdering:* 6 av 6 i det kontrollerte utvalget er høykvalitets bekreftelser med `matchDate.confidence: high` og fullstendig samsvar med kildens opplysninger.
 
 ### B. Alle 2 `conflict`-saker (programmatisk fra `batch-02-v2.yaml`)
 
@@ -63,11 +66,11 @@ pnpm ingest:nb-newspaper-discover -- \
 ### C. Hvorfor de 4 tidligere conflict-sakene ble trygt nedgradert til `ambiguous`
 
 1. **`1953 #8` Spjelkavik (valgt 3–2):**  
-   Et annet avisavsnitt i sesongen (19. april 1953) dokumenterte det oppgitte kilderesultatet 2–1 (`hasAlternativeScoreAgreement`). Kan ikke erklæres som konflikt mot kilden $\to$ `ambiguous`.
+   Et annet avisavsnitt i sesongen (fra avisutgaven 1953-07-30) dokumenterte det oppgitte kilderesultatet 2–1 (`hasAlternativeScoreAgreement`). Kan ikke erklæres som konflikt mot kilden $\to$ `ambiguous`.
 2. **`1955 #1` Guard (valgt 6–0):**  
-   Et annet avisavsnitt i sesongen (30. april 1955) dokumenterte kilderesultatet 2–0 (`hasAlternativeScoreAgreement`) $\to$ `ambiguous`.
+   Et annet avisavsnitt i sesongen (fra avisutgaven 1955-09-13) dokumenterte kilderesultatet 2–0 (`hasAlternativeScoreAgreement`) $\to$ `ambiguous`.
 3. **`1955 #12` Sykkylven (valgt 3–0):**  
-   Kilden spesifiserer 1. divisjon og bortekamp. Det valgte eventet var en privatkamp i mai, mens en annen hendelse i august matchet både seriekamp og bortekamp (`alternativeHasBetterHints`) $\to$ `ambiguous`.
+   Kilden spesifiserer 1. divisjon og bortekamp. Det valgte eventet var en privatkamp i mai, mens en annen hendelse i august matchet konkurransehintet (1. divisjon) bedre (`alternativeHasBetterHints`), selv om `homeAway` var `unknown` $\to$ `ambiguous`.
 4. **`1959 #2` Guard (valgt 6–3 vs 6–2):**  
    Avisomtalen med resultatet 6–3 sto i avisen 1. juni 1959, mens den utledede kampdatoen var 3. juni 1959. Med tidskausalitetsbeskyttelsen i `evidence-cluster.ts` kan resultatet ikke klynges bakover i tid $\to$ `ambiguous`.
 
@@ -106,11 +109,14 @@ Samtlige 5 saker gjelder sjeldne, utenbys eller utenlandske motstandere som ikke
 | **Løsningsgrad (Confirmed + Conflict)** | 7 (15.6 %) | 8 (13.1 %) | **15** | **14.2 %** |
 | **NB-forespørsler** | 751 | 999 | **1 750** | **16.51 per hypotese** |
 | **NB-forespørsler per løst sak** | 107.3 | 124.9 | **116.7 per sak** | |
-| **Manuell review totalt (inkl. siblings)** | 85 / 100 (85 %) | 244 / 260 (93.8 %) | **329 / 360** | **91.4 % av alle saker** |
+| **Ambiguous-kø inkl. siblings** | 85 / 100 (85.0 %) | 244 / 260 (93.8 %) | **329 / 360** | **91.4 % av utvalget** |
+| **Reell manuell kø (inkl. probable & not_found)** | 93 / 100 (93.0 %) | 252 / 260 (96.9 %) | **345 / 360** | **95.8 % av utvalget** |
 
 ### Kvalitetsvurdering av 106 singletons:
-1. **0 falske bekreftelser og 0 falske konflikter:** 10 av 10 `confirmed` (100 %) og 5 av 5 `conflict` (100 %) er fullstendig fri for kildeavvik, klyngefeil eller usikre allokeringer.
-2. **Sibling groups er den overveldende flaskehalsen:** 254 av 360 saker (70.6 %) i perioden 1945–1964 er kamper mot samme motstander i samme sesong som rutes direkte til manuell review.
+1. **Observert presisjon i manuell revisjon:** 10 av 10 `confirmed` og 5 av 5 `conflict` i det kontrollerte utvalget er fullstendig fri for kildeavvik, klyngefeil eller usikre allokeringer.
+2. **Sibling groups i utvalget vs totalpopulasjon:**
+   - I det kjørte batchutvalget (1945–1964, n=360): 254 av 360 saker (**70.6 %**) er siblings.
+   - I hele arkivets ukoblede populasjon (1915–1964, n=540): 376 av 540 saker (**69.6 %**) er siblings.
 3. **Reconcile-logikken er moden for neste steg.**
 
 ---
@@ -119,4 +125,22 @@ Samtlige 5 saker gjelder sjeldne, utenbys eller utenlandske motstandere som ikke
 
 # `READY_FOR_CONTROLLED_SIBLING_EXPERIMENT`
 
-Avstemmingspipelinen er nå tilstrekkelig streng og kildekritisk på singletons (100 % observert presisjon på confirmed/conflict). Ettersom over 70 % av hele kildematerialet er sibling-grupper, er neste logiske og nødvendige steg å åpne for et **kontrollert eksperiment for sikker sibling-allokering** under strenge margin- og hintkrav.
+Avstemmingspipelinen er nå streng og kildekritisk på singletons (10/10 confirmed og 5/5 conflict holdt under manuell revisjon). Ettersom ca. 70 % av hele kildematerialet (376/540) er sibling-grupper, er neste logiske steg et kontrollert, målbart piloteksperiment for sibling-allokering.
+
+### Rammer og krav for det kontrollerte sibling-eksperimentet:
+1. **Opt-in policy:** Sibling-allokering forblir opt-in (`--resolve-siblings`). Standard default v1-policy skal uendret sende alle siblings direkte til manuell review.
+2. **Trinnvis stratifisert utrulling:**
+   - **Fase 1:** 10 pilotgrupper.
+   - **Fase 2:** 20–30 stratifiserte grupper.
+3. **Dekning av gruppestørrelser:** Eksperimentet skal dekke størrelsene 2, 3 og 4+ kamper per sesong.
+4. **Sikkerhetskontroller:** Raufoss 1963 og Sarpsborg 1948 skal inngå som faste kontrollposter.
+5. **Måleparametere:**
+   - Fullstendig, delvis og uløst gruppe.
+   - Feilallokeringer og margin/confidence per allokering.
+   - Hintkonflikter og kildeavvik.
+   - NB-forespørsler og NB-kostnad per løst sak.
+   - Reell reduksjon i manuell kø.
+6. **Etablering av fasit:** Manuell fasit skal etableres før allokeringsalgoritmens treffsikkerhet evalueres.
+7. **Nulltoleranse:** Det kreves 0 falske high-confidence-allokeringer før eventuell automatikk vurderes.
+8. **Eksplisitte begrensninger:** Det skal ikke innføres `snippetQuality`, ny snippet-ranking, utvidet OCR-budsjett eller Sarpsborg-spesifikke særregler.
+

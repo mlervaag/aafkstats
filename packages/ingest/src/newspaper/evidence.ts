@@ -138,7 +138,6 @@ export function evidenceForFragment(
       evidence.scoreFound = [found.found.home, found.found.away];
       evidence.scoreMatchesSource = true;
       evidence.scoreReversed = found.reversed;
-      evidence.homeAwayFound = found.reversed ? "away" : "home";
       score += WEIGHTS.exactScore;
       reasons.push(`resultat: ${found.found.raw}${found.reversed ? " (motsatt lagrekkefølge)" : ""}`);
     } else {
@@ -153,6 +152,12 @@ export function evidenceForFragment(
         reasons.push(`avisa oppgir ${printed.raw}, kilden ${query.expectedScore.join("-")}`);
       }
     }
+  }
+
+  const homeAway = inferHomeAway(text, query);
+  if (homeAway !== undefined) {
+    evidence.homeAwayFound = homeAway;
+    reasons.push(`bane: ${homeAway}`);
   }
 
   if (query.competitionHint && query.hints?.keywords.some((keyword) => normalized.includes(normalize(keyword)))) {
@@ -191,6 +196,59 @@ function includesName(normalizedText: string, name: string): boolean {
   return needle.length >= 2 && normalizedText.includes(needle);
 }
 
+const HOME_VENUES = /\b(?:p[aå]\s+kr[aå]myra|kr[aå]myra\s+stadion|\bkr[aå]myra\b|p[aå]\s+aksla|aksla\s+stadion|\baksla\b|i\s+[aå]lesund|i\s+aalesund|p[aå]\s+hjemmebane|hjemmekamp|p[aå]\s+eget\s+gras|p[aå]\s+eget\s+gress)\b/iu;
+const AWAY_VENUES = /\b(?:p[aå]\s+bortebane|bortekamp|p[aå]\s+fremmed\s+gras|p[aå]\s+fremmed\s+gress)\b/iu;
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function matchFixtureLine(text: string, query: NewspaperQuery): HomeAwayHint | undefined {
+  for (const aafkName of query.aafkAliases) {
+    const trimmedAafk = aafkName.trim();
+    if (trimmedAafk.length < 2) continue;
+    const aafkEsc = escapeRegExp(trimmedAafk);
+
+    for (const oppName of [query.opponent, ...query.opponentAliases]) {
+      const trimmedOpp = oppName.trim();
+      if (trimmedOpp.length < 2) continue;
+      if (trimmedAafk.toLowerCase() === trimmedOpp.toLowerCase()) continue;
+      const oppEsc = escapeRegExp(trimmedOpp);
+
+      // Oppsettlinje: "AaFK - Motstander" eller "AaFK—Motstander"
+      const homePattern = new RegExp(`(?:^|[\\r\\n•·;.,]|^\\s*|\\b)${aafkEsc}\\s*[-–—:]\\s*${oppEsc}(?:\\b|\\s*[-–—:\\d]|$)`, "iu");
+      if (homePattern.test(text)) return "home";
+
+      // Oppsettlinje: "Motstander - AaFK" eller "Motstander—AaFK"
+      const awayPattern = new RegExp(`(?:^|[\\r\\n•·;.,]|^\\s*|\\b)${oppEsc}\\s*[-–—:]\\s*${aafkEsc}(?:\\b|\\s*[-–—:\\d]|$)`, "iu");
+      if (awayPattern.test(text)) return "away";
+    }
+  }
+  return undefined;
+}
+
+/**
+ * Utleder hjemme/borte fra tekst KUN når det foreligger entydig belegg:
+ * 1. Tydelig oppsettlinje med lagrekkefølge («Lag1 — Lag2» / «Lag1 - Lag2»).
+ * 2. Eksplisitt hjemmekamp/bortekamp eller kjent AaFK-hjemmearena (Kråmyra, Aksla, Ålesund).
+ *
+ * Hvis belegget ikke er entydig, returneres undefined (unknown).
+ */
+export function inferHomeAway(text: string, query: NewspaperQuery): HomeAwayHint | undefined {
+  // 1. Tydelig kampoppsettlinje med lagrekkefølge
+  const fixtureOrder = matchFixtureLine(text, query);
+  if (fixtureOrder !== undefined) return fixtureOrder;
+
+  // 2. Eksplisitte arena- og stedsangivelser
+  const hasHome = HOME_VENUES.test(text);
+  const hasAway = AWAY_VENUES.test(text);
+
+  if (hasHome && !hasAway) return "home";
+  if (hasAway && !hasHome) return "away";
+
+  return undefined;
+}
+
 function normalize(value: string): string {
   return value
     .replace(/<\/?(?:em|strong|b|i)>/gi, " ")
@@ -201,3 +259,4 @@ function normalize(value: string): string {
     .replace(/\s+/g, " ")
     .trim();
 }
+
