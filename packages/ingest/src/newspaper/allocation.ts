@@ -48,38 +48,77 @@ export interface Allocation {
 
 /** Over dette blir fullstendig søk unødvendig dyrt, og grådig tildeling overtar. */
 const BRUTE_FORCE_LIMIT = 6;
-/** Marginen mellom beste og nest beste fordeling som skiller sikkert fra usikkert. */
-const HIGH_MARGIN = 25;
-const MEDIUM_MARGIN = 10;
+/** Minste kant-score som kreves for at en hendelse skal kunne tildeles en hypotese. */
+export const MINIMUM_EDGE_SCORE = 45;
+/** Marginen mot nest beste alternativ som kreves for high confidence. */
+export const HIGH_MARGIN = 20;
+export const MEDIUM_MARGIN = 10;
+
+function scoreMatches(scoreFound: [number, number], expectedScore: readonly [number, number]): boolean {
+  return (
+    (scoreFound[0] === expectedScore[0] && scoreFound[1] === expectedScore[1]) ||
+    (scoreFound[0] === expectedScore[1] && scoreFound[1] === expectedScore[0])
+  );
+}
 
 /**
  * Kompatibiliteten mellom én kamppåstand og én avishendelse.
  *
- * Merk at et avvikende resultat ikke gir fradrag. Kilden kan ta feil av
- * resultatet uten å ta feil av at kampen fant sted — det er hele Sarpsborg-
- * tilfellet — så et avvik skal gi mindre uttelling enn et treff, ikke straff.
+ * Minstekrav for en gyldig kant:
+ * 1. Eventet må ha minst ett fragment som omtaler begge lag (sameFragment),
+ *    eller et eksplisitt resultat som matcher kilden.
+ * 2. Merk at et avvikende resultat ikke gir straffefradrag (kilden kan ta
+ *    feil av sifrene), men treff gir positiv uttelling.
  */
 export function edgeScore(hypothesis: MatchHypothesis, event: NewspaperEvent): number {
   const best = event.evidence[0];
   if (!best) return 0;
 
-  let score = event.score;
-
-  // Enhver av kildepåstandene som stemmer med avisas tall teller. Er kildene
-  // uenige med hverandre, holder det at én av dem treffer.
+  const hasSameFragment = event.evidence.some((item) => item.sameFragment);
   const scores = hypothesis.queries.flatMap((query) => (query.expectedScore ? [query.expectedScore] : []));
   const printed = event.evidence.find((item) => item.scoreFound !== undefined)?.scoreFound;
-  if (printed && scores.some((expected) => expected[0] === printed[0] && expected[1] === printed[1])) score += 20;
-  else if (printed && scores.some((expected) => expected[0] === printed[1] && expected[1] === printed[0])) score += 15;
+  const hasScoreMatch = printed && scores.some((expected) => scoreMatches(printed, expected));
+
+  // Uten felles avsnitt eller resultatmatch er det ingen beviselig kobling til kampen.
+  if (!hasSameFragment && !hasScoreMatch) {
+    return 0;
+  }
+
+  // Hendelser med lav datokonfidens og uten resultatmatch har for svak kvalitet
+  if (!hasScoreMatch && event.dateConfidence === "low" && event.score < 55) {
+    return 0;
+  }
+
+  let score = event.score;
+
+  // Enhver av kildepåstandene som stemmer med avisas tall teller.
+  if (printed && scores.some((expected) => expected[0] === printed[0] && expected[1] === printed[1])) {
+    score += 20;
+  } else if (printed && scores.some((expected) => expected[0] === printed[1] && expected[1] === printed[0])) {
+    score += 15;
+  }
 
   const homeAway = event.evidence.find((item) => item.homeAwayFound !== undefined)?.homeAwayFound;
-  if (homeAway && hypothesis.queries.some((query) => query.homeAwayHint === homeAway)) score += 10;
+  if (homeAway && hypothesis.queries.some((query) => query.homeAwayHint === homeAway)) {
+    score += 10;
+  }
 
-  if (event.evidence.some((item) => item.competitionFound !== undefined)) score += 10;
-  if (event.evidence.some((item) => item.kind === "article")) score += 10;
-  if (event.evidence.length > 1) score += 5;
+  if (hypothesis.queries.some((q) => q.competitionHint && event.evidence.some((e) => e.competitionFound === q.competitionHint))) {
+    score += 15;
+  } else if (event.evidence.some((item) => item.competitionFound !== undefined)) {
+    score += 10;
+  }
 
-  return Math.round(score);
+  if (event.evidence.some((item) => item.kind === "article")) {
+    score += 10;
+  }
+
+  if (event.evidence.length > 1) {
+    score += 5;
+  }
+
+  const finalScore = Math.round(score);
+  return finalScore >= MINIMUM_EDGE_SCORE ? finalScore : 0;
 }
 
 /**
@@ -98,6 +137,35 @@ export function allocateEvents(hypotheses: MatchHypothesis[], events: NewspaperE
     edges.set(hypothesis.id, row);
   }
 
+  // Identifiser symmetriske hypoteser: like scorer og hint med identiske kant-scorer
+  const symmetricHypothesisIds = new Set<string>();
+  for (let i = 0; i < hypotheses.length; i++) {
+    for (let j = i + 1; j < hypotheses.length; j++) {
+      const h1 = hypotheses[i]!;
+      const h2 = hypotheses[j]!;
+      const q1 = h1.queries[0]!;
+      const q2 = h2.queries[0]!;
+      const sameScore = q1.expectedScore && q2.expectedScore &&
+        q1.expectedScore[0] === q2.expectedScore[0] && q1.expectedScore[1] === q2.expectedScore[1];
+      const sameHints = q1.competitionHint === q2.competitionHint && q1.homeAwayHint === q2.homeAwayHint;
+      if (sameScore && sameHints) {
+        const row1 = edges.get(h1.id)!;
+        const row2 = edges.get(h2.id)!;
+        let identical = true;
+        for (const ev of events) {
+          if ((row1.get(ev.id) ?? 0) !== (row2.get(ev.id) ?? 0)) {
+            identical = false;
+            break;
+          }
+        }
+        if (identical) {
+          symmetricHypothesisIds.add(h1.id);
+          symmetricHypothesisIds.add(h2.id);
+        }
+      }
+    }
+  }
+
   const assignments = hypotheses.length <= BRUTE_FORCE_LIMIT && events.length <= BRUTE_FORCE_LIMIT * 2
     ? allAssignments(hypotheses, events)
     : [greedyAssignment(hypotheses, events, edges)];
@@ -107,27 +175,55 @@ export function allocateEvents(hypotheses: MatchHypothesis[], events: NewspaperE
     .sort((a, b) => b.total - a.total);
 
   const best = scored[0]!;
-  const runnerUp = scored.find((candidate) => !sameAssignment(candidate.assignment, best.assignment));
-  const margin = best.total - (runnerUp?.total ?? 0);
+  const byId = new Map(events.map((e) => [e.id, e]));
 
   return hypotheses.map((hypothesis) => {
-    const eventId = best.assignment.get(hypothesis.id);
+    const isSymmetric = symmetricHypothesisIds.has(hypothesis.id);
+    const assignedEventId = isSymmetric ? undefined : best.assignment.get(hypothesis.id);
     const row = edges.get(hypothesis.id)!;
+    const rawScore = assignedEventId ? (row.get(assignedEventId) ?? 0) : 0;
+    const eventId = assignedEventId && rawScore >= MINIMUM_EDGE_SCORE ? assignedEventId : undefined;
+    const score = eventId ? rawScore : 0;
+    const assignedEvent = eventId ? byId.get(eventId) : undefined;
+
+    // Finn runner-up for denne konkrete hypotesen
+    const alternativeScores = [...row.entries()]
+      .filter(([id]) => id !== eventId && (edges.get(hypothesis.id)?.get(id) ?? 0) > 0)
+      .map(([, val]) => val)
+      .sort((a, b) => b - a);
+
+    const runnerUpScore = alternativeScores[0] ?? 0;
+    const margin = score > 0 ? (alternativeScores.length > 0 ? score - runnerUpScore : score - MINIMUM_EDGE_SCORE) : 0;
+
+    // Tidskausalt bevis: krever eksplisitt dato med high eller medium confidence
+    const hasTemporalCausality = assignedEvent?.inferredDate !== undefined &&
+      (assignedEvent.dateConfidence === "high" || assignedEvent.dateConfidence === "medium");
+
+    let confidence: "high" | "medium" | "low" = "low";
+    if (eventId && !isSymmetric) {
+      if (hasTemporalCausality && margin >= HIGH_MARGIN && score >= 65) {
+        confidence = "high";
+      } else if (hasTemporalCausality || margin >= MEDIUM_MARGIN) {
+        confidence = "medium";
+      }
+    }
+
     return {
       hypothesisId: hypothesis.id,
       ...(eventId ? { eventId } : {}),
-      score: eventId ? row.get(eventId)! : 0,
-      runnerUpScore: runnerUp?.total ?? 0,
+      score,
+      runnerUpScore,
       margin,
-      confidence: hypotheses.length === 1 || margin >= HIGH_MARGIN ? "high" : margin >= MEDIUM_MARGIN ? "medium" : "low",
+      confidence,
       alternatives: [...row]
-        .filter(([id, value]) => id !== eventId && value > 0)
+        .filter(([id, val]) => id !== eventId && val > 0)
         .sort((a, b) => b[1] - a[1])
         .slice(0, 3)
-        .map(([id, value]) => ({ eventId: id, score: value })),
+        .map(([id, val]) => ({ eventId: id, score: val })),
     };
   });
 }
+
 
 /** Alle måter hendelsene kan fordeles på, inkludert å la påstander stå tomme. */
 function allAssignments(hypotheses: MatchHypothesis[], events: NewspaperEvent[]): Array<Map<string, string | undefined>> {
@@ -207,7 +303,3 @@ function totalScore(
   return total;
 }
 
-function sameAssignment(left: Map<string, string | undefined>, right: Map<string, string | undefined>): boolean {
-  for (const [key, value] of left) if (right.get(key) !== value) return false;
-  return true;
-}

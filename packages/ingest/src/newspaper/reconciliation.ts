@@ -259,9 +259,18 @@ function analyzeEvent(query: NewspaperQuery, event: NewspaperEvent): EventAnalys
   const validMatchEvidence = event.evidence.filter((item) =>
     item.sameFragment && (item.kind === "article" || item.kind === "result_list"));
 
-  const matchingScoreEvidence = validMatchEvidence.find((item) => item.scoreMatchesSource === true);
-  const conflictingScoreEvidence = validMatchEvidence.find((item) =>
-    item.scoreFound !== undefined && item.scoreMatchesSource === false);
+  const matchingScoreEvidence = query.expectedScore
+    ? validMatchEvidence.find((item) => item.scoreFound !== undefined && (
+        (item.scoreFound[0] === query.expectedScore![0] && item.scoreFound[1] === query.expectedScore![1]) ||
+        (item.scoreFound[0] === query.expectedScore![1] && item.scoreFound[1] === query.expectedScore![0])
+      ))
+    : undefined;
+  const conflictingScoreEvidence = query.expectedScore
+    ? validMatchEvidence.find((item) => item.scoreFound !== undefined && !(
+        (item.scoreFound[0] === query.expectedScore![0] && item.scoreFound[1] === query.expectedScore![1]) ||
+        (item.scoreFound[0] === query.expectedScore![1] && item.scoreFound[1] === query.expectedScore![0])
+      ))
+    : undefined;
 
   const hasScoreContradiction = matchingScoreEvidence !== undefined && conflictingScoreEvidence !== undefined;
 
@@ -270,7 +279,12 @@ function analyzeEvent(query: NewspaperQuery, event: NewspaperEvent): EventAnalys
 
   const opponentFound = event.evidence.some((item) => item.opponentFound);
   const homeAway = homeAwayCheck(query, event.evidence);
-  const competition = event.evidence.some((item) => item.competitionFound !== undefined) ? "probable" : "unknown";
+  const competition = (query.competitionHint && event.evidence.some((item) => item.competitionFound === query.competitionHint)) ||
+    event.evidence.some((item) => item.competitionFound !== undefined)
+    ? "probable"
+    : "unknown";
+
+
   const inferredDate = event.inferredDate;
   const dateConfidence = event.dateConfidence;
   const dateCheck: ReconciliationChecks["date"] = inferredDate === undefined ? "unknown" : (dateConfidence === "high" ? "confirmed" : "probable");

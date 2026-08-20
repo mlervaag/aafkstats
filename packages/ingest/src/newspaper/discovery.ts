@@ -15,6 +15,9 @@ import type { NewspaperEvidence } from "./evidence.js";
 import type { DiscoveryResult } from "./reconciliation.js";
 import type { SourceResultQuery } from "./source-result-query.js";
 
+export type SiblingDiscoveryResult = DiscoveryResult & { allocation: Allocation; event?: NewspaperEvent };
+
+
 /**
  * Discovery: finn utgavene. Verification: se hva de faktisk sier.
  *
