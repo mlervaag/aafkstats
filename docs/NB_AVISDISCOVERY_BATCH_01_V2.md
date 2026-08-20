@@ -38,101 +38,74 @@ pnpm ingest:nb-newspaper-discover -- \
 
 ---
 
-## 2. Statusendringer fra Batch 01 til Batch 01 V2
+## 2. Detaljert kilde- og hintgjennomgang (Confirmed og Conflict)
 
-### A. Hva skjedde med de 10 opprinnelige `confirmed`-sakene?
-* **5 saker forblir `confirmed` (100 % hendelseskoherente):**
-  1. `1946 #15` vs Ranheim (2–2): Korrekt datert til `1946-06-16` (tidligere feilaktig koblet med 9. juli-datoen).
-  2. `1948 #13` vs Langevåg (2–5): Korrekt datert til `1948-05-15`.
-  3. `1948 #15` vs Nordlandet (6–1): Korrekt datert til `1948-05-06`.
-  4. `1949 #2` vs Herd (2–4): Korrekt datert til `1949-06-12` med score 4–2 reversert (tidligere feilaktig koblet med august-datoen).
-  5. `1949 #5` vs Øvre Telemark Kretslag (0–1): Korrekt datert til `1949-07-10`.
-* **5 saker ble korrekt nedgradert fra `confirmed` til `ambiguous`:**
-  * `1946 #24` Clausenengen (3–0): Ingen entydig sammenhengende artikkel med både dato og score 3–0 i samme hendelse.
-  * `1947 #3` Freidig (0–1): Manglet fullstendig scorebekreftelse i samme avisartikkel.
-  * `1947 #17` Aksla (2–4): Bevis spriker over mange ulike kampdatoer i sesongen.
-  * `1948 #1` Skarbøvik (1–0): Bevis spriker over flere datoer.
-  * `1948 #2` Aksla (4–0): Bevis spriker over flere datoer.
+### A. Gjennomgang av de 5 `confirmed`-sakene
 
-### B. Hva skjedde med de 7 opprinnelige `conflict`-sakene?
-* **6 saker forblir `conflict`:** Alle har entydig, sammenhengende avisomtale for én spesifikk kampdato der avisa oppgir et annet resultat enn kilden.
-* **1 sak ble `ambiguous`:** `1946 #23` vs Herd (3–2) pekte mot 7 ulike datoer i sesongen uten entydig isolert hendelse, og ble korrekt klassifisert som `ambiguous`.
+| Sak / Motstander | Kilde-score | Utledet dato | Avis-score | Confidence | Source-hints / Sjekker | Vurdering |
+| :--- | :---: | :---: | :---: | :---: | :--- | :--- |
+| **`1946 #15` Ranheim** | 2–2 | `1946-06-16` (low) | 2–2 | **80** | Ingen hints | Koherent bekreftelse |
+| **`1948 #13` Langevåg** | 2–5 | `1948-05-15` (low) | 2–5 | **78** | `homeAway: away` (avisa: borte ✓) | Koherent bekreftelse |
+| **`1948 #15` Nordlandet** | 6–1 | `1948-05-06` (high) | 6–1 | **129** | `homeAway: away` (avisa: hjemme ✗) | **IKKE FULLSTENDIG BEKREFTET**: `checks.homeAway: conflict` |
+| **`1949 #2` Herd** | 2–4 | `1949-06-12` (low) | 4–2 (rev) | **87** | Ingen hints | Koherent bekreftelse |
+| **`1949 #5` Øvre Telemark Kretslag** | 0–1 | `1949-07-10` (high) | 0–1 | **80** | Ingen hints | Koherent bekreftelse |
 
----
+> **Observasjon (1948 #15 Nordlandet):**  
+> Selv om dato (1948-05-06) og resultat (6–1) er internt koherente fra Sunnmørsposten, oppgir kilden at kampen var en bortekamp, mens avisreferatet dokumenterer en hjemmekamp på Kråmyra (`checks.homeAway: "conflict"`). Saken kan derfor **ikke** godkjennes som en fullstendig kildebekreftelse før homeAway-konflikten fører til `ambiguous`.
 
-## 3. Manuell kontroll av alle `confirmed` (5) og `conflict` (6) i V2
+### B. Gjennomgang av de 6 `conflict`-sakene
 
-Alle 11 saker ble manuelt kontrollert mot følgende 6 kvalitetskriterier:
-1. Dato og resultat tilhører **samme** `NewspaperEvent`.
-2. Hendelsen handler faktisk om **AaFK og forventet motstander**.
-3. Scorebeviset kommer fra **`article` eller `result_list`** i samme fragment.
-4. Tabellstoff har **ikke** opphevet en reell konflikt.
-5. Valgt hendelse alene forsvarer statusen.
-6. `combinedConfidence` inkluderer **ikke** bevis fra andre kamper.
+| Sak / Motstander | Kilde-score | Utledet dato | Avis-score | Confidence | Source-hints / Sjekker | Vurdering |
+| :--- | :---: | :---: | :---: | :---: | :--- | :--- |
+| **`1945 #3` Herd** | 5–1 | `1945-07-08` (high) | 2–0 | **67** | Ingen hints | Koherent konflikt |
+| **`1947 #8` Skarbøvik** | 1–0 | `1947-06-01` (high) | 4–1 | **67** | Ingen hints | Koherent konflikt |
+| **`1947 #11` Nordlandet** | 1–1 | `1947-05-11` (high) | 2–1 | **85** | `competition: serie` | Koherent konflikt |
+| **`1947 #19` Ørsta** | 2–0 | `1947-08-24` (high) | 2–1 | **67** | `competition: cup` | **IKKE SIKKERT ALLOKERT**: Annen sterk cup-event 1947-06-15 finnes |
+| **`1948 #4` Ørsta** | 2–4 | `1948-05-30` (high) | 3–1 | **67** | `homeAway: away` | Koherent konflikt |
+| **`1948 #22` Clausenengen** | 0–3 | `1948-06-29` (medium) | 1–4 | **74** | `competition: 1. divisjon` | Koherent konflikt |
 
-### A. Alle 5 `confirmed`-saker
-
-1. **`1946 #15` vs Ranheim (kilde: 2–2):**
-   * **Dato:** `1946-06-16` | **Score:** `2–2` | **Confidence:** 52
-   * **Kilde:** [Sunnmørsposten 1946-06-17, s. 3](https://www.nb.no/items/a571c6ae78a101fbe025d506927bf3da?page=3)
-   * **Verifikasjon:** Kampreferat omtaler søndagskampen (16. juni) mellom Ranheim og AaFK med sluttresultat 2–2.
-2. **`1948 #13` vs Langevåg (kilde: 2–5):**
-   * **Dato:** `1948-05-15` | **Score:** `2–5` | **Confidence:** 52
-   * **Kilde:** [Sunnmørsposten 1948-05-18, s. 3](https://www.nb.no/items/69b82bbba70c29a8a72382e7b57bfca2?page=3)
-   * **Verifikasjon:** Kampomtale omtaler lørdagskampen (15. mai) der Langevåg slo AaFK 5–2 (AaFK-perspektiv: 2–5).
-3. **`1948 #15` vs Nordlandet (kilde: 6–1):**
-   * **Dato:** `1948-05-06` | **Score:** `6–1` | **Confidence:** 77
-   * **Kilde:** [Sunnmørsposten 1948-05-11, s. 3](https://www.nb.no/items/f63baaebe4fcbb3f9b23b185ec1578d8?page=3) og [1948-05-07, s. 3](https://www.nb.no/items/470870faae6bb7f51152a514d101d2fb?page=3)
-   * **Verifikasjon:** Helhetlig omtale av 1. divisjonskampen torsdag 6. mai der AaFK slo Nordlandet 6–1.
-4. **`1949 #2` vs Herd (kilde: 2–4):**
-   * **Dato:** `1949-06-12` | **Score:** `4–2` (reversert: 2–4) | **Confidence:** 52
-   * **Kilde:** [Sunnmørsposten 1949-06-17, s. 3](https://www.nb.no/items/be1c570e6e541ed3e0e225d039799bc1?page=3)
-   * **Verifikasjon:** Kampomtale dokumenterer kampen søndag 12. juni der Herd slo AaFK 4–2.
-5. **`1949 #5` vs Øvre Telemark Kretslag (kilde: 0–1):**
-   * **Dato:** `1949-07-10` | **Score:** `0–1` | **Confidence:** 77
-   * **Kilde:** [Sunnmørsposten 1949-07-11, s. 2](https://www.nb.no/items/cf2eebe7068fb21da30f785b88cefa37?page=2)
-   * **Verifikasjon:** Referat fra kampen søndag 10. juli på Kråmyra der kretslaget vant 1–0 over AaFK.
-
-### B. Alle 6 `conflict`-saker
-
-1. **`1945 #3` vs Herd (kilde: 5–1):**
-   * **Dato:** `1945-07-08` | **Avisas score:** `2–0` | **Confidence:** 77
-   * **Kilde:** [Sunnmørsposten 1945-07-09, s. 2](https://www.nb.no/items/996171a08ad98118ad1097f4f42254ab?page=2)
-   * **Verifikasjon:** Referat «i går» (8. juli) viser at AaFK vant 2–0, ikke 5–1.
-2. **`1947 #8` vs Skarbøvik (kilde: 1–0):**
-   * **Dato:** `1947-06-01` | **Avisas score:** `4–1` | **Confidence:** 77
-   * **Kilde:** [Sunnmørsposten 1947-06-02, s. 3](https://www.nb.no/items/a30220bab7b19402a6aaaf84544c5fa1?page=3)
-   * **Verifikasjon:** Referat «i går» (1. juni) oppgir 4–1 til AaFK.
-3. **`1947 #11` vs Nordlandet (kilde: 1–1):**
-   * **Dato:** `1947-05-11` | **Avisas score:** `2–1` | **Confidence:** 85
-   * **Kilde:** [Sunnmørsposten 1947-05-12, s. 3](https://www.nb.no/items/87522e2872c1b5d5c9db3fe05b45e91a?page=3)
-   * **Verifikasjon:** Resultatliste fra kamp 11. mai oppgir 2–1 til Nordlandet, kilden oppgir 1–1.
-4. **`1947 #19` vs Ørsta (kilde: 2–0):**
-   * **Dato:** `1947-08-24` | **Avisas score:** `2–1` | **Confidence:** 67
-   * **Kilde:** [Sunnmørsposten 1947-08-25, s. 3](https://www.nb.no/items/6907ff25365ef85e08332b354883414e?page=3)
-   * **Verifikasjon:** Referat fra 24. august oppgir 2–1 til AaFK, kilden oppgir 2–0.
-5. **`1948 #4` vs Ørsta (kilde: 2–4):**
-   * **Dato:** `1948-05-30` | **Avisas score:** `3–1` | **Confidence:** 67
-   * **Kilde:** [Sunnmørsposten 1948-05-31, s. 3](https://www.nb.no/items/72b8ec34ebd51bf2fd363c894e2c23a0?page=3)
-   * **Verifikasjon:** Referat fra 30. mai oppgir 3–1 til Ørsta (kilden oppgir 2–4).
-6. **`1948 #22` vs Clausenengen (kilde: 0–3):**
-   * **Dato:** `1948-06-29` | **Avisas score:** `1–4` | **Confidence:** 74
-   * **Kilde:** [Sunnmørsposten 1948-06-29, s. 4](https://www.nb.no/items/9009b1bab1afdfe073e5a3d3372b8cd0?page=4)
-   * **Verifikasjon:** Omtale av kamp 29. juni oppgir 1–4, kilden oppgir 0–3.
+> **Observasjon (1947 #19 Ørsta):**  
+> Kilden spesifiserer at dette var en cupkamp (`competitionHint: "cup"`). Det valgte eventet 24. august 1947 (2–1) mangler cup-kontekst, mens et annet sterkt bevis i samme sesong på 15. juni 1947 dokumenterer cupkamp mot Ørsta. Saken er internt koherent mot 24. august, men kan ikke entydig allokeres til dette kilderesultatet når det finnes et annet event som matcher source-hintet bedre.
 
 ---
 
-## 4. Konklusjon og beslutning for Batch 02
+## 3. Taksonomi over de 26 automatiske `ambiguous`-sakene
 
-* **Sikkerhetsproblemet er løst:** Ingen `confirmed` eller `conflict` kombinerer lenger dato og resultat fra forskjellige avishendelser.
-* **Presisjon:** 5 av 5 `confirmed` (100 %) og 6 av 6 `conflict` (100 %) er fullstendig hendelseskoherente.
-* **Gjenværende falske bekreftelser/konflikter:** **0**.
-* **Kostnadseffektivitet:** 16.69 NB-kall per automatisk singleton.
+1. **Konkurrerende datobevis fra ulike avishendelser (14 saker):**
+   * `1945 #7` Spjelkavik, `1945 #10` Herd/Aksla Skarbøvik, `1945 #12` Hødd, `1945 #18` Træff, `1946 #7` Reidulf, `1946 #8` Veblungsnes, `1946 #23` Herd (nedgradert fra conflict pga. 7 ulike datoer), `1947 #4` Dr. Ballklubb, `1947 #13` Molde, `1947 #17` Aksla (tidligere confirmed), `1948 #1` Skarbøvik (tidligere confirmed), `1948 #2` Aksla (tidligere confirmed), `1948 #26` Fremad, `1949 #3` Dr. Ballklubb.
+2. **Dato funnet, men mangler parsbar sluttscore i artikkel (8 saker):**
+   * `1946 #6` Kvik Halden, `1946 #24` Clausenengen (tidligere confirmed), `1946 #25` Falken, `1946 #26` Freidig, `1947 #3` Freidig (tidligere confirmed), `1948 #6` Glimt Bodø, `1948 #8` Lyn Oslo, `1949 #4` Halmia.
+3. **Nedgradert fra `probable` til `ambiguous` pga. konkurrerende dateringer (2 saker):**
+   * `1948 #7` Snøgg, Notodden: Sprik mellom 1948-07-06 og 1948-09-12.
+   * `1948 #25` Veblungsnes: Sprik mellom 1948-06-27 og fire andre kampdatoer.
+4. **Event-splitt / uavklart kobling (2 saker):**
+   * `1946 #5` KFK i Molde: Ingen entydig datokandidat.
+   * `1946 #9` Old Boys: Dato fra juli og score fra oktober tilhører separate hendelser.
 
-### Beslutning: `READY_FOR_BATCH_02`
+---
 
-Anbefaling for neste kjøring (Batch 02):
-* **Kilde:** `data/source-results/medlemsblad-for-aalesunds-fotb-1965-a2c9.yaml`
-* **Årsintervall:** 1945–1964
-* **Mål:** Høste inn minst 60 nye automatiske singleton-hypoteser.
-* **Anbefalt `--limit`:** `250` (siden ca. 70 % av hypotesene i perioden er siblings som rutes til manuell behandling).
+## 4. Beslutning: `BLOCKED_FOR_BATCH_02`
+
+Kjøring av Batch 02 er **blokkert** inntil to gjenværende sikkerhetsrisikoer i reconcile er lukket:
+1. **HomeAway-konflikt skal gi `ambiguous`:** En hendelse der `checks.homeAway === "conflict"` må aldri få status `confirmed`.
+2. **Beskyttelse mot feilallokering ved konkurrerende events med bedre hint-match:** En scoreConflict kan bare bli status `conflict` dersom hendelsen er entydig og det ikke finnes et annet sterkt event som matcher `competitionHint` eller `homeAwayHint` bedre.
+
+---
+
+## 5. Anbefalt utvalg for fremtidig Batch 02 (ikke-overlappende)
+
+En naiv utvidelse til `--from-year 1945 --to-year 1964 --limit 250` ville gitt:
+* 88 automatiske totalt
+* 45 allerede evaluerte saker
+* **Kun 43 nye automatiske singletons**
+
+For å oppnå et reelt og ikke-overlappende utvalg på minst 60 nye automatiske singletons, skal Batch 02 defineres som:
+* **Kommando:**
+  ```sh
+  pnpm ingest:nb-newspaper-discover -- \
+    --source-result data/source-results/medlemsblad-for-aalesunds-fotb-1965-a2c9.yaml \
+    --from-year 1950 --to-year 1964 \
+    --unlinked-only --limit 260 \
+    --output .cache/ingest/nb-newspaper-discovery/batch-02.yaml
+  ```
+* **Målt utvalg:** **61 nye automatic singletons** og 199 manual siblings.
