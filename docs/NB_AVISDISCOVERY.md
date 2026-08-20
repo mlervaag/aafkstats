@@ -193,9 +193,24 @@ kan bidra. Et resultat på side 8 og et tidsuttrykk på side 3 settes ikke samme
 bare fordi de står i samme avis. Utgaven samler roller; den oppfinner ikke
 koblinger.
 
-## Målt status
+## Målt status og akseptansekontroll
 
-Kontrollert mot NB-API-et. Tabellen beskriver standardmodus i v1:
+De offisielle kontrollcasene styres av et felles akseptansemanifest i
+`packages/ingest/test/fixtures/nb-newspaper-acceptance.yaml`.
+
+Kontrollene er delt i to lag:
+1. **Deterministisk CI-test:** `packages/ingest/test/nb-newspaper-acceptance.test.ts`
+   kjøres under vanlig `pnpm test` uten eksterne nettverkskall, og validerer
+   struktur, kildeutvalg og batch-policy samt fixturebasert Clausenengen-avstemming.
+2. **Eksplisitt live smoke:** `pnpm --filter @aafkstats/ingest run nb-newspaper-smoke`
+   kjøres manuelt mot live NB-API / disk-cache for å etterprøve at
+   sluttresultatene faktisk oppfyller forventningene:
+
+```sh
+pnpm --filter @aafkstats/ingest run nb-newspaper-smoke
+```
+
+Tabellen beskriver status for standardmodus i v1:
 
 | Kamp | Forventet | Målt |
 |---|---|---|

@@ -3,7 +3,7 @@ import { classifyFragment } from "../src/newspaper/fragment-kind.js";
 import { inferMatchDate, resolveMatchDate } from "../src/newspaper/date-inference.js";
 import { matchScore, parseScores } from "../src/newspaper/score-parse.js";
 import { parseNote } from "../src/newspaper/note-parser.js";
-import { evidenceForFragment } from "../src/newspaper/evidence.js";
+import { evidenceForFragment, inferHomeAway } from "../src/newspaper/evidence.js";
 import { reconcile } from "../src/newspaper/reconciliation.js";
 import { clusterEvidence } from "../src/newspaper/evidence-cluster.js";
 import { allocateEvents } from "../src/newspaper/allocation.js";
@@ -157,6 +157,64 @@ describe("evidenceForFragment", () => {
   });
 });
 
+describe("inferHomeAway", () => {
+  it("utleder ikke automatisk home fra løpende referat med seier 1-0", () => {
+    const cfk = query({ opponent: "Clausenengen", opponentAliases: ["CFK"] });
+    expect(inferHomeAway("AaFK slo Clausenengen 1—0 i går, og seieren var fortjent", cfk)).toBeUndefined();
+    expect(inferHomeAway("Seiren ble så knepen som 1—0, men AaFK var det beste laget", cfk)).toBeUndefined();
+  });
+
+  it("gir ikke homeAwayFound av motstandernavnet Aksla uten stadionord", () => {
+    const aksla = query({ opponent: "Aksla", opponentAliases: [] });
+    expect(inferHomeAway("AaFK slo Aksla 4—0 i går", aksla)).toBeUndefined();
+    expect(inferHomeAway("AaFK møtte Aksla i går", aksla)).toBeUndefined();
+  });
+
+  it("gjenkjenner Aksla stadion som hjemmebane", () => {
+    const aksla = query({ opponent: "Aksla", opponentAliases: [] });
+    expect(inferHomeAway("AaFK møtte Aksla på Aksla stadion", aksla)).toBe("home");
+    expect(inferHomeAway("Kampen på Aksla stadion ble spennende", aksla)).toBe("home");
+  });
+
+  it("gir ikke homeAwayFound av stedsnavn eller 'i Ålesund' i generell/irrelevant kontekst", () => {
+    const cfk = query({ opponent: "Clausenengen", opponentAliases: ["CFK"] });
+    expect(inferHomeAway("Statsministeren besøkte Kristiansund i går. AaFK slo Clausenengen 1—0", cfk)).toBeUndefined();
+    expect(inferHomeAway("AaFK i landsdelsseriekampen mot Clausenengen i Kristiansund i går. Seiren ble 1—0", cfk)).toBeUndefined();
+    expect(inferHomeAway("I Ålesund var det solskinn i går da AaFK slo Clausenengen 1—0", cfk)).toBeUndefined();
+    expect(inferHomeAway("I Aalesund by møttes styrene", cfk)).toBeUndefined();
+  });
+
+  it("gjenkjenner eksplisitt bortekamp og bortebane", () => {
+    const hodd = query({ opponent: "Hødd", opponentAliases: [] });
+    expect(inferHomeAway("AaFK spilte bortekamp mot Hødd", hodd)).toBe("away");
+    expect(inferHomeAway("AaFK på bortebane mot Hødd i går", hodd)).toBe("away");
+  });
+
+  it("gjenkjenner Kråmyra og hjemmekamp som hjemmebane", () => {
+    const hodd = query({ opponent: "Hødd", opponentAliases: [] });
+    expect(inferHomeAway("AaFK møtte Hødd på Kråmyra", hodd)).toBe("home");
+    expect(inferHomeAway("Kampen på Kråmyra stadion", hodd)).toBe("home");
+    expect(inferHomeAway("AaFK spilte hjemmekamp mot Hødd", hodd)).toBe("home");
+  });
+
+  it("utleder home/away fra oppsettlinjer med bindestrek og tankestrek", () => {
+    const hodd = query({ opponent: "Hødd", opponentAliases: [] });
+    expect(inferHomeAway("AaFK — Hødd 2—0", hodd)).toBe("home");
+    expect(inferHomeAway("Hødd — AaFK 0—1", hodd)).toBe("away");
+    expect(inferHomeAway("ÅFK - Hødd 1-0", hodd)).toBe("home");
+  });
+
+  it("behandler klubbnavn med spesialtegn (punktum, parentes) bokstavelig", () => {
+    const kfk = query({ opponent: "K. F. K.", opponentAliases: ["K.F.K."] });
+    expect(inferHomeAway("K. F. K. — AaFK 0—1", kfk)).toBe("away");
+    expect(inferHomeAway("Aa.F.K. — K. F. K. 2—0", kfk)).toBe("home");
+
+    const frigg = query({ opponent: "Frigg (Oslo)", opponentAliases: [] });
+    expect(inferHomeAway("Frigg (Oslo) — AaFK 0—2", frigg)).toBe("away");
+    expect(inferHomeAway("AaFK — Frigg (Oslo) 3—1", frigg)).toBe("home");
+  });
+});
+
 describe("reconcile", () => {
   const evidenceFrom = (text: string, issued: string, options: Partial<NewspaperQuery> = {}) =>
     evidenceForFragment(text, query({ expectedScore: [1, 0], ...options }), { issueId: `utgave-${issued}`, issueDate: issued });
@@ -171,27 +229,29 @@ describe("reconcile", () => {
   });
 
   /**
-   * Clausenengen 1952 #16: bekreftes med dato 1952-05-04.
+   * Clausenengen 1952 #16: bekreftes med dato 1952-05-04 uten falsk homeAway-konflikt
+   * selv om kilden har bortekamphint og referatet ikke har eksplisitt banebelegg (homeAway: unknown).
    */
-  it("bekrefter Clausenengen 1952 #16 med dato 1952-05-04", () => {
-    const cfk = query({ opponent: "Clausenengen", opponentAliases: ["CFK"], expectedScore: [1, 0], year: 1952 });
+  it("bekrefter Clausenengen 1952 #16 med dato 1952-05-04 uten falsk homeAway-konflikt", () => {
+    const cfk = query({ opponent: "Clausenengen", opponentAliases: ["CFK"], expectedScore: [1, 0], homeAwayHint: "away", year: 1952 });
     const result = reconcile(cfk, [
       evidenceForFragment("AaFK slo Clausenengen 1—0 i går i Kristiansund", cfk, { issueId: "cfk-mai", issueDate: "19520505" }),
     ]);
     expect(result.status).toBe("confirmed");
     expect(result.matchDate?.value).toBe("1952-05-04");
     expect(result.checks.score).toBe("confirmed");
+    expect(result.checks.homeAway).toBe("unknown");
   });
 
   /**
    * Nordlandet 1948 #15: sammenhengende dato 1948-05-06 og resultat 6-1,
-   * men kilden sier bortekamp mens avisa sier hjemmekamp -> ambiguous med checks.homeAway: conflict.
+   * men kilden sier bortekamp mens avisa sier hjemmekamp på Kråmyra -> ambiguous med checks.homeAway: conflict.
    */
   it("gir ambiguous for Nordlandet 1948 #15 når kilde og avis har motstridende hjemme/borte", () => {
     const nordlandet = query({ opponent: "Nordlandet", opponentAliases: [], expectedScore: [6, 1], homeAwayHint: "away", year: 1948 });
     const result = reconcile(nordlandet, [
-      evidenceForFragment("AaFK slo Nordlandet 6—1 torsdag i 1. divisjon", nordlandet, { issueId: "n-1", issueDate: "19480511" }),
-      evidenceForFragment("AaFK spilte mot Nordlandet i går i 1. divisjon", nordlandet, { issueId: "n-2", issueDate: "19480507" }),
+      evidenceForFragment("AaFK slo Nordlandet 6—1 torsdag på Kråmyra i 1. divisjon", nordlandet, { issueId: "n-1", issueDate: "19480511" }),
+      evidenceForFragment("AaFK spilte mot Nordlandet i går på Kråmyra i 1. divisjon", nordlandet, { issueId: "n-2", issueDate: "19480507" }),
     ]);
     expect(result.status).toBe("ambiguous");
     expect(result.matchDate?.value).toBe("1948-05-06");
