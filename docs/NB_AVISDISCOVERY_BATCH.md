@@ -53,5 +53,6 @@ Evaluering og resultater fra første batch (100 saker) og andre batch (260 saker
 - [`docs/NB_AVISDISCOVERY_BATCH_01.md`](NB_AVISDISCOVERY_BATCH_01.md) (opprinnelig historisk kjøring)
 - [`docs/NB_AVISDISCOVERY_BATCH_01_V2.md`](NB_AVISDISCOVERY_BATCH_01_V2.md) (hendelseskoherent re-evaluering)
 - [`docs/NB_AVISDISCOVERY_BATCH_01_V3.md`](NB_AVISDISCOVERY_BATCH_01_V3.md) (endelig validert evaluering med kildehint)
-- [`docs/NB_AVISDISCOVERY_BATCH_02.md`](NB_AVISDISCOVERY_BATCH_02.md) (Batch 02 evaluering og aggregert analyse av 106 singletons)
+- [`docs/NB_AVISDISCOVERY_BATCH_02.md`](NB_AVISDISCOVERY_BATCH_02.md) (Batch 02 opprinnelig historisk måling)
+- [`docs/NB_AVISDISCOVERY_BATCH_02_V2.md`](NB_AVISDISCOVERY_BATCH_02_V2.md) (Batch 02 V2 tidskausal og kildehint-avstemt evaluering)
 
