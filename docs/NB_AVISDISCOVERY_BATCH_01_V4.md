@@ -1,9 +1,9 @@
-# Evaluering av NB-avisdiscovery: Batch 01 V4 (Konservativ hjemme/borte-inferens)
+# Evaluering av NB-avisdiscovery: Batch 01 V4 (Kumulativ: Tidskausalitet & Konservativ Home/Away)
 
 Dato: 2026-08-20  
 Kilde: `data/source-results/medlemsblad-for-aalesunds-fotb-1965-a2c9.yaml`  
 Utvalg: De 100 første ukoblede kamphypotesene i perioden 1945–1964  
-Kodeversjon: Konservativ `homeAway`-inferens (ingen antagelse om hjemmebane fra seierssifre, fjerning av `AWAY_CITIES`)  
+Kodeversjon: PR #181 (tidskausal klynging) + PR #183 (konservativ `homeAway`-inferens og regex-escaping)  
 Kommandolinje:
 ```sh
 pnpm ingest:nb-newspaper-discover -- \
@@ -17,12 +17,14 @@ pnpm ingest:nb-newspaper-discover -- \
 
 ## 1. Nøkkeltall: Sammenligning mot tidligere versjoner
 
-| Parameter | Batch 01 V2 (hendelseskoherent) | Batch 01 V3 (hintvalidert) | Batch 01 V4 (konservativ) | Endring fra V3 |
+Batch 01 V3 ble kjørt før PR 181. Batch 01 V4 representerer den kumulative effekten av både tidskausalitetsbeskyttelsen (PR 181) og den konservative home/away-inferensen (PR 183):
+
+| Parameter | Batch 01 V2 (hendelseskoherent) | Batch 01 V3 (hintvalidert) | Batch 01 V4 (kumulativ) | Endring fra V3 |
 | :--- | :---: | :---: | :---: | :--- |
 | **totalHypotheses** | 100 | 100 | **100** | Identisk populasjonsutvalg |
 | **automaticSingletonHypotheses** | 45 | 45 | **45** | 100 % automatisk behandlet |
 | **manualSiblingHypotheses** | 55 | 55 | **55** | Rutet direkte til review (`sibling_group`) |
-| **confirmed** | 5 | 4 | **6** | **+2**: Aksla 1948 #2 og Nordlandet 1948 #15 bekreftes uten falsk konflikt |
+| **confirmed** | 5 | 4 | **6** | **+2**: Aksla 1948 #2 (tidskausalitet) og Nordlandet 1948 #15 (homeAway) |
 | **conflict** | 6 | 3 | **3** | Uendret |
 | **probable** | 3 | 3 | **3** | Uendret |
 | **ambiguous** | 81 (26 auto + 55 man) | 85 (30 auto + 55 man) | **83 (28 auto + 55 man)** | **-2**: Løftet til confirmed |
@@ -51,7 +53,7 @@ pnpm ingest:nb-newspaper-discover -- \
 | **`1949 #2` Herd** | 2–4 | `1949-06-12` (**low**) | 4–2 (rev) | **87** | [Sunnmørsposten 17.06.1949 s. 3](https://www.nb.no/items/be1c570e6e541ed3e0e225d039799bc1?page=3) | Referat fredag om søndagskampen, tap 2–4 |
 | **`1949 #5` Øvre Telemark Kretslag** | 0–1 | `1949-07-10` (**high**) | 0–1 | **80** | [Sunnmørsposten 11.07.1949 s. 2](https://www.nb.no/items/ccc608592b713b4338a54a48a2822378?page=2) | Referat mandag «i går», tap 0–1 på Rjukan |
 
-*Vurdering:* Samtlige 6 saker (100 %) er fullstendig fri for kildeavvik eller allokeringsfeil.
+*Kvalitetsvurdering:* Samtlige 6 saker (100 %) er **observert korrekt etter manuell kontroll**. Flere av sakene (Ranheim, Aksla, Langevåg, Herd) har `matchDate.confidence: low` fordi datoen er utledet fra ukedagsangivelser («søndag», «lørdag») i etterfølgende dagsaviser, men den manuelle kontrollen bekrefter at den utledede kampdatoen og resultatet samsvarer med den historiske virkeligheten.
 
 ### B. Alle 3 `conflict`-saker
 
@@ -61,8 +63,10 @@ pnpm ingest:nb-newspaper-discover -- \
 | **`1947 #8` Skarbøvik** | 1–0 | `1947-06-01` (**high**) | 4–1 | **67** | [Sunnmørsposten 02.06.1947 s. 3](https://www.nb.no/items/a30220bab7b19402a6aaaf84544c5fa1?page=3) | Avisa oppgir 4–1, kilden 1–0. Entydig enkeltkamp. |
 | **`1948 #4` Ørsta** | 2–4 | `1948-05-30` (**high**) | 3–1 | **67** | [Sunnmørsposten 31.05.1948 s. 3](https://www.nb.no/items/72b8ec34ebd51bf2fd363c894e2c23a0?page=3) | Avisa oppgir 3–1, kilden 2–4. Entydig enkeltkamp. |
 
+*Kvalitetsvurdering:* Samtlige 3 saker er **observert korrekt etter manuell kontroll** som reelle kildeavvik mot entydige samtidige kampreferater.
+
 ---
 
-## 3. Endringer fra V3 til V4
-- **Nordlandet 1948 #15:** Kilden oppga bortekamp, men avisen omtalte seieren 6–1 uten eksplisitte ord som «på Kråmyra» eller «bortekamp». I V3 ble `homeAway: home` feilaktig utledet fra sifferrekkefølgen 6–1, som ga en falsk konflikt. I V4 forblir `homeAway: unknown`, og saken bekreftes trygt.
-- **Aksla 1948 #2:** Omtalen i avisen bekrefter seier 4–0 og dato 1948-09-12 uten konflikt.
+## 3. Endringsanalyse: Hvorfor sakene endret status i V4
+- **Aksla 1948 #2 (4–0):** Gikk fra `ambiguous` til `confirmed`. Endringen skyldes tidskausal klynging fra PR #181, som forhindrer at et annet avisresultat senere i måneden feilaktig klynges bakover i tid til denne hendelsen. Med ren klynging bekreftes 4–0 og 1948-09-12.
+- **Nordlandet 1948 #15 (6–1):** Gikk fra `ambiguous` til `confirmed`. Kilden oppga bortekamp, men avisen omtalte seieren 6–1 uten eksplisitte ord som «på Kråmyra» eller «bortekamp». I V3 førte sifferrekkefølgen 6–1 til at `homeAway: home` ble feilaktig satt, som utløste en falsk konflikt. I V4 forblir `homeAway: unknown`, og saken bekreftes trygt med dato `1948-05-06` (`high`).

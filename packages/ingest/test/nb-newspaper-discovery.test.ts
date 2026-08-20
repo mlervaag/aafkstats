@@ -164,10 +164,24 @@ describe("inferHomeAway", () => {
     expect(inferHomeAway("Seiren ble så knepen som 1—0, men AaFK var det beste laget", cfk)).toBeUndefined();
   });
 
-  it("gir ikke homeAwayFound av stedsnavn i irrelevant kontekst", () => {
+  it("gir ikke homeAwayFound av motstandernavnet Aksla uten stadionord", () => {
+    const aksla = query({ opponent: "Aksla", opponentAliases: [] });
+    expect(inferHomeAway("AaFK slo Aksla 4—0 i går", aksla)).toBeUndefined();
+    expect(inferHomeAway("AaFK møtte Aksla i går", aksla)).toBeUndefined();
+  });
+
+  it("gjenkjenner Aksla stadion som hjemmebane", () => {
+    const aksla = query({ opponent: "Aksla", opponentAliases: [] });
+    expect(inferHomeAway("AaFK møtte Aksla på Aksla stadion", aksla)).toBe("home");
+    expect(inferHomeAway("Kampen på Aksla stadion ble spennende", aksla)).toBe("home");
+  });
+
+  it("gir ikke homeAwayFound av stedsnavn eller 'i Ålesund' i generell/irrelevant kontekst", () => {
     const cfk = query({ opponent: "Clausenengen", opponentAliases: ["CFK"] });
     expect(inferHomeAway("Statsministeren besøkte Kristiansund i går. AaFK slo Clausenengen 1—0", cfk)).toBeUndefined();
     expect(inferHomeAway("AaFK i landsdelsseriekampen mot Clausenengen i Kristiansund i går. Seiren ble 1—0", cfk)).toBeUndefined();
+    expect(inferHomeAway("I Ålesund var det solskinn i går da AaFK slo Clausenengen 1—0", cfk)).toBeUndefined();
+    expect(inferHomeAway("I Aalesund by møttes styrene", cfk)).toBeUndefined();
   });
 
   it("gjenkjenner eksplisitt bortekamp og bortebane", () => {
@@ -176,11 +190,10 @@ describe("inferHomeAway", () => {
     expect(inferHomeAway("AaFK på bortebane mot Hødd i går", hodd)).toBe("away");
   });
 
-  it("gjenkjenner Kråmyra, Aksla og Ålesund som hjemmebane", () => {
+  it("gjenkjenner Kråmyra og hjemmekamp som hjemmebane", () => {
     const hodd = query({ opponent: "Hødd", opponentAliases: [] });
     expect(inferHomeAway("AaFK møtte Hødd på Kråmyra", hodd)).toBe("home");
-    expect(inferHomeAway("Kampen på Aksla stadion ble jevn", hodd)).toBe("home");
-    expect(inferHomeAway("I Aalesund vant AaFK mot Hødd", hodd)).toBe("home");
+    expect(inferHomeAway("Kampen på Kråmyra stadion", hodd)).toBe("home");
     expect(inferHomeAway("AaFK spilte hjemmekamp mot Hødd", hodd)).toBe("home");
   });
 

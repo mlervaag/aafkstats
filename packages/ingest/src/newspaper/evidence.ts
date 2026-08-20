@@ -196,8 +196,8 @@ function includesName(normalizedText: string, name: string): boolean {
   return needle.length >= 2 && normalizedText.includes(needle);
 }
 
-const HOME_VENUES = /\b(?:p[aå]\s+kr[aå]myra|kr[aå]myra\s+stadion|\bkr[aå]myra\b|p[aå]\s+aksla|aksla\s+stadion|\baksla\b|i\s+[aå]lesund|i\s+aalesund|p[aå]\s+hjemmebane|hjemmekamp|p[aå]\s+eget\s+gras|p[aå]\s+eget\s+gress)\b/iu;
-const AWAY_VENUES = /\b(?:p[aå]\s+bortebane|bortekamp|p[aå]\s+fremmed\s+gras|p[aå]\s+fremmed\s+gress)\b/iu;
+const HOME_VENUES = /\b(?:hjemmekamp|p[aå]\s+hjemmebane|p[aå]\s+eget\s+gras|p[aå]\s+eget\s+gress|p[aå]\s+kr[aå]myra|kr[aå]myra\s+stadion|kr[aå]myra|aksla\s+stadion|p[aå]\s+aksla\s+stadion)\b/iu;
+const AWAY_VENUES = /\b(?:bortekamp|p[aå]\s+bortebane|p[aå]\s+fremmed\s+gras|p[aå]\s+fremmed\s+gress)\b/iu;
 
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -230,7 +230,7 @@ function matchFixtureLine(text: string, query: NewspaperQuery): HomeAwayHint | u
 /**
  * Utleder hjemme/borte fra tekst KUN når det foreligger entydig belegg:
  * 1. Tydelig oppsettlinje med lagrekkefølge («Lag1 — Lag2» / «Lag1 - Lag2»).
- * 2. Eksplisitt hjemmekamp/bortekamp eller kjent AaFK-hjemmearena (Kråmyra, Aksla, Ålesund).
+ * 2. Eksplisitt hjemmekamp/bortekamp eller kjent AaFK-hjemmearena (Kråmyra, Aksla stadion).
  *
  * Hvis belegget ikke er entydig, returneres undefined (unknown).
  */

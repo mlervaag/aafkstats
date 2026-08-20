@@ -53,7 +53,7 @@ pnpm ingest:nb-newspaper-discover -- \
 | **`1955 #34` Måløy** | 3–2 | `1955-07-24` (**high**) | 3–2 | **92** | [Sunnmørsposten 25.07.1955 s. 2](https://www.nb.no/items/e892c57805177264a7536d7a12eec5bf?page=2) | Referat mandag «i går», turnékamp i Måløy |
 | **`1958 #15` Braatt** | 1–1 | `1958-05-11` (**high**) | 1–1 | **80** | [Sunnmørsposten 12.05.1958 s. 2](https://www.nb.no/items/7ddff643a17e4d54af5b9b1cc7202151?page=2) | Referat «i går», cupomtale |
 
-*Vurdering:* 8 av 8 (100 %) i det kontrollerte utvalget er høykvalitets bekreftelser med `matchDate.confidence: high` og fullstendig samsvar med kildens opplysninger.
+*Kvalitetsvurdering:* 8 av 8 (100 %) i det kontrollerte utvalget er **observert korrekt etter manuell kontroll** med `matchDate.confidence: high` og fullstendig samsvar med kildens opplysninger.
 
 ### B. Alle 2 `conflict`-saker
 
@@ -61,6 +61,8 @@ pnpm ingest:nb-newspaper-discover -- \
 | :--- | :---: | :---: | :---: | :---: | :--- | :--- |
 | **`1953 #5` Skarbøvik** | 4–0 | `1953-08-22` (**low**) | 4–2 | **76** | [Sunnmørsposten 24.08.1953 s. 2](https://www.nb.no/items/dd7a9b1eb4db00a7752eebc9aa569ae4?page=2) | Avisa oppgir 4–2 til AaFK, kilden 4–0. Entydig enkeltkamp. |
 | **`1956 #10` Braatt** | 2–3 | `1956-08-19` (**high**) | 2–2 | **86** | [Sunnmørsposten 20.08.1956 s. 2](https://www.nb.no/items/6c8a954e78462194c98565773b88293e?page=2) | Avisa oppgir 2–2, kilden 2–3 (tap). Entydig enkeltkamp. |
+
+*Kvalitetsvurdering:* Begge sakene er **observert korrekt etter manuell kontroll** som reelle kildeavvik mot entydige samtidige kampreferater.
 
 ---
 
@@ -87,7 +89,7 @@ pnpm ingest:nb-newspaper-discover -- \
 | **Reell manuell kø (inkl. probable & not_found)** | 91 / 100 (91.0 %) | 250 / 260 (96.2 %) | **341 / 360** | **94.7 % av utvalget** |
 
 ### Kvalitetsvurdering:
-1. **Observert presisjon i manuell revisjon:** 14 av 14 `confirmed` (100 %) og 5 av 5 `conflict` (100 %) i det kontrollerte utvalget er fullstendig fri for kildeavvik, klyngefeil eller usikre allokeringer.
+1. **Observert presisjon i manuell revisjon:** 14 av 14 `confirmed` (100 %) og 5 av 5 `conflict` (100 %) i det kontrollerte utvalget er observert korrekt etter manuell kontroll. Flere confirmed-saker i Batch 01 har `matchDate.confidence: low` pga. ukedagsutledning, men manuell kontroll støtter den valgte datoen.
 2. **Reconcile- og inferens-reglene er robuste og deterministiske.**
 
 ---
