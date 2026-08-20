@@ -337,6 +337,57 @@ describe("reconcile", () => {
   });
 
   /**
+   * Spjelkavik 1953: et datert event har scoreConflict 3-2, men et annet event i sesongen
+   * har kildens resultat 2-1 -> ambiguous (ikke konflikt mot kilden).
+   */
+  it("gir ambiguous for Spjelkavik 1953 når et annet event i sesongen har scoreAgreement", () => {
+    const spjelkavik = query({ opponent: "Spjelkavik", opponentAliases: [], expectedScore: [2, 1], year: 1953 });
+    const conflictEvent = evidenceForFragment("Spjelkavik—AaFK 3—2. Kampen i går ga hjemmeseier", spjelkavik, { issueId: "c", issueDate: "19530708" });
+    const agreementEvent = evidenceForFragment("AaFK slo Spjelkavik 2—1 i treningskampen på Kråmyra", spjelkavik, { issueId: "a", issueDate: "19530419" });
+
+    const result = reconcile(spjelkavik, [conflictEvent, agreementEvent]);
+    expect(result.status).toBe("ambiguous");
+  });
+
+  /**
+   * Guard 1955: et datert event har scoreConflict 6-0, men et annet event i sesongen
+   * har kildens resultat 2-0 -> ambiguous.
+   */
+  it("gir ambiguous for Guard 1955 når et annet event i sesongen har scoreAgreement", () => {
+    const guard = query({ opponent: "Guard", opponentAliases: [], expectedScore: [2, 0], year: 1955 });
+    const conflictEvent = evidenceForFragment("AaFK slo Guard 6—0 i går", guard, { issueId: "c", issueDate: "19550830" });
+    const agreementEvent = evidenceForFragment("AaFK slo Guard 2—0 på Kråmyra", guard, { issueId: "a", issueDate: "19550430" });
+
+    const result = reconcile(guard, [conflictEvent, agreementEvent]);
+    expect(result.status).toBe("ambiguous");
+  });
+
+  /**
+   * Sykkylven 1955: kilden spesifiserer 1. divisjon og bortekamp (away),
+   * et privatkampevent har resultatavvik 3-0, men et annet datert event matcher 1. divisjon og away -> ambiguous.
+   */
+  it("gir ambiguous for Sykkylven 1955 når et annet event matcher competitionHint og homeAwayHint bedre", () => {
+    const sykkylven = query({ opponent: "Sykkylven", opponentAliases: [], expectedScore: [2, 2], competitionHint: "1. divisjon", homeAwayHint: "away", year: 1955 });
+    const conflictEvent = evidenceForFragment("AaFK slo Sykkylven 3—0 i privatkampen i går", sykkylven, { issueId: "c", issueDate: "19550520" });
+    const leagueEvent = evidenceForFragment("I 1. divisjonskampen i går spilte Sykkylven mot AaFK", sykkylven, { issueId: "l", issueDate: "19550808" });
+
+    const result = reconcile(sykkylven, [conflictEvent, leagueEvent]);
+    expect(result.status).toBe("ambiguous");
+  });
+
+  /**
+   * Guard 1959: bevis med score publisert 1. juni kan ikke knyttes til en kamp datert 3. juni -> ambiguous.
+   */
+  it("gir ambiguous for Guard 1959 når scorebevis er publisert før den utledede kampdatoen", () => {
+    const guard = query({ opponent: "Guard", opponentAliases: [], expectedScore: [6, 2], year: 1959 });
+    const june1Score = evidenceForFragment("AaFK slo Guard 6—3 i Kristiansund", guard, { issueId: "june1", issueDate: "19590601" });
+    const june4Date = evidenceForFragment("AaFK møtte Guard i går på Kråmyra", guard, { issueId: "june4", issueDate: "19590604" });
+
+    const result = reconcile(guard, [june1Score, june4Date]);
+    expect(result.status).toBe("ambiguous");
+  });
+
+  /**
    * Sarpsborg-kampen i 1948: kilden sier 1-0, avisa sier 2-1, og kampen er
    * likevel den samme. Det skal rapporteres som konflikt, ikke skjules bak en
    * bekreftelse og ikke forkastes fordi resultatet avviker.
@@ -389,6 +440,19 @@ describe("clusterEvidence", () => {
     const june = events.find((event) => event.inferredDate === "1963-06-16")!;
     expect(june.evidence).toHaveLength(3);
     expect(june.score).toBeGreaterThan(events.find((event) => event.inferredDate === "1963-10-20")!.score);
+  });
+
+  /**
+   * Tidskausalitet: Et kampresultat publisert 1. juni kan ikke klynges til en kamp datert 3. juni.
+   */
+  it("klynger ikke et resultat publisert før den utledede kampdatoen", () => {
+    const guard = query({ opponent: "Guard", opponentAliases: [], expectedScore: [6, 2] });
+    const june1Score = evidenceForFragment("AaFK slo Guard 6—3", guard, { issueId: "june1", issueDate: "19590601" });
+    const june4Dated = evidenceForFragment("AaFK møtte Guard i går", guard, { issueId: "june4", issueDate: "19590604" });
+
+    const events = clusterEvidence([june1Score, june4Dated]);
+    expect(events).toHaveLength(2);
+    expect(events.some((e) => e.inferredDate === "1959-06-03" && e.evidence.length === 1)).toBe(true);
   });
 });
 

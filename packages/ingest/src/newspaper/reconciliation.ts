@@ -17,8 +17,9 @@ import type { NewspaperEvent } from "./evidence-cluster.js";
  * 1. Dato og resultat må stamme fra den samme sammenhengende avishendelsen.
  * 2. En kildebekreftelse kan ikke overstyre en motstridende hjemme/borte-angivelse.
  * 3. En resultatkonflikt kan bare rapporteres dersom hendelsen er entydig knyttet
- *    til kilderesultatet og det ikke finnes andre plausible hendelser som matcher
- *    kildens hint (f.eks. cup/serie) bedre.
+ *    til kilderesultatet. Hvis det finnes en separat hendelse med kildens resultat,
+ *    eller andre hendelser som matcher kildehints (cup/serie/bane) bedre, må utfallet
+ *    bli ambiguous.
  */
 
 export type DiscoveryStatus = "confirmed" | "probable" | "ambiguous" | "conflict" | "not_found";
@@ -123,14 +124,16 @@ export function reconcile(query: NewspaperQuery, evidence: NewspaperEvidence[]):
   if (conflictAnalyses.length === 1 && confirmedAnalyses.length === 0) {
     const chosen = conflictAnalyses[0]!;
 
-    // En konflikt krever entydig kobling til kilderesultatet.
-    // Hvis det finnes en annen sterk, datert hendelse mot samme motstander som kan
-    // være kildens kamp (f.eks. matcher cup-hint bedre), blir utfallet ambiguous.
-    const competingStrongEvents = analyses.filter((a) =>
-      a !== chosen && a.opponentFound && a.inferredDate !== undefined &&
-      (a.strongest.score >= STRONG_SCORE || a.event.score >= STRONG_SCORE));
+    // A. Dersom et annet relevant NewspaperEvent i sesongen har gyldig scoreAgreement
+    // med kilderesultatet (selv om det alternative eventet mangler dato), kan vi ikke
+    // erklære konflikt mot kilden.
+    const hasAlternativeScoreAgreement = analyses.some((a) => a !== chosen && a.scoreAgreement !== undefined);
 
-    const alternativeHasBetterHints = competingStrongEvents.some((other) => {
+    // B. Dersom et annet datert og opponent-relevant event eksplisitt matcher competitionHint
+    // eller homeAwayHint bedre, skal dette blokkere conflict selv om event-score ligger under STRONG_SCORE.
+    const alternativeHasBetterHints = analyses.some((other) => {
+      if (other === chosen) return false;
+      if (!other.opponentFound) return false;
       const betterCompetition = query.competitionHint !== undefined &&
         other.competition === "probable" && chosen.competition !== "probable";
       const betterHomeAway = query.homeAwayHint !== undefined &&
@@ -138,7 +141,13 @@ export function reconcile(query: NewspaperQuery, evidence: NewspaperEvidence[]):
       return betterCompetition || betterHomeAway;
     });
 
-    if (competingStrongEvents.length > 0 && (alternativeHasBetterHints || chosen.homeAway === "conflict")) {
+    // C. Dersom det finnes andre sterke daterte events mot samme motstander og kilden
+    // mangler hint til å allokere entydig mellom dem, skal utfallet bli ambiguous.
+    const competingStrongEvents = analyses.filter((a) =>
+      a !== chosen && a.opponentFound && a.inferredDate !== undefined &&
+      (a.strongest.score >= STRONG_SCORE || a.event.score >= STRONG_SCORE));
+
+    if (hasAlternativeScoreAgreement || alternativeHasBetterHints || chosen.homeAway === "conflict" || competingStrongEvents.length > 0) {
       return buildResult({
         status: "ambiguous",
         chosen,
