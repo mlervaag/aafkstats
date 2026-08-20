@@ -15,7 +15,8 @@ import type { NewspaperEvidence } from "./evidence.js";
 import type { DiscoveryResult } from "./reconciliation.js";
 import type { SourceResultQuery } from "./source-result-query.js";
 
-export type SiblingDiscoveryResult = DiscoveryResult & { allocation: Allocation; event?: NewspaperEvent };
+export type SiblingDiscoveryResult = DiscoveryResult & { allocation: Allocation; event?: NewspaperEvent; candidateEvent?: NewspaperEvent };
+
 
 
 /**
@@ -311,7 +312,7 @@ export async function discoverForGroup(
   // Tredje pass: er fordelingen usikker, eller finnes det færre hendelser enn
   // kamper, utvides berikelsen rundt de månedene som er i spill. Ekstra oppslag
   // koster bare noe når de kan endre svaret.
-  const unresolved = allocations.some((allocation) => allocation.confidence === "low" || allocation.eventId === undefined);
+  const unresolved = allocations.some((allocation) => allocation.decision !== "accepted");
   if (unresolved || events.length < hypotheses.length) {
     await enrich(aroundMonths(candidates, monthsInPlay(events, allocations), 2));
     events = clusterEvidence(candidates.map((candidate) => candidate.evidence));
@@ -319,23 +320,48 @@ export async function discoverForGroup(
   }
 
   const byId = new Map(events.map((event) => [event.id, event]));
-  const results = new Map<string, DiscoveryResult & { allocation: Allocation; event?: NewspaperEvent }>();
+  const results = new Map<string, DiscoveryResult & { allocation: Allocation; event?: NewspaperEvent; candidateEvent?: NewspaperEvent }>();
   for (const allocation of allocations) {
     const hypothesis = hypotheses.find((candidate) => candidate.id === allocation.hypothesisId)!;
     const event = allocation.eventId ? byId.get(allocation.eventId) : undefined;
+    const candidateEvent = allocation.candidateEventId ? byId.get(allocation.candidateEventId) : undefined;
     const query = hypothesis.queries[0]!;
-    // Uten tildelt hendelse finnes det ingen bevis for denne påstanden — og det
-    // skal se ut som ingenting, ikke som det nest beste.
-    const reconciled = reconcile(query, event?.evidence ?? []);
-    results.set(allocation.hypothesisId, {
-      ...reconciled,
-      status: reconciled.status !== "not_found" && allocation.confidence === "low" ? "ambiguous" : reconciled.status,
-      allocation,
-      ...(event ? { event } : {}),
-    });
+
+    if (allocation.decision === "accepted" && event) {
+      const reconciled = reconcile(query, event.evidence);
+      results.set(allocation.hypothesisId, {
+        ...reconciled,
+        allocation,
+        event,
+      });
+    } else {
+      // Ikke-aksepterte allokeringer skal aldri produsere terminal confirmed eller conflict.
+      // Har den et uavklart kandidatforslag, merkes status som ambiguous for manuell review.
+      // Er den avvist (symmetri / ingen kant), er status not_found.
+      const candidateReconciled = candidateEvent ? reconcile(query, candidateEvent.evidence) : undefined;
+      results.set(allocation.hypothesisId, {
+        status: candidateEvent ? "ambiguous" : "not_found",
+        ...(candidateReconciled?.matchDate ? { matchDate: candidateReconciled.matchDate } : {}),
+        ...(candidateReconciled?.newspaperScore ? { newspaperScore: candidateReconciled.newspaperScore } : {}),
+        ...(candidateReconciled?.sourceScore ? { sourceScore: candidateReconciled.sourceScore } : {}),
+        checks: candidateReconciled?.checks ?? {
+          opponent: "missing",
+          score: "unknown",
+          homeAway: "unknown",
+          competition: "unknown",
+          date: "unknown",
+        },
+        evidence: candidateEvent?.evidence ?? [],
+        combinedConfidence: candidateReconciled?.combinedConfidence ?? 0,
+        allocation,
+        ...(candidateEvent ? { candidateEvent } : {}),
+      });
+    }
+
   }
   return results;
 }
+
 
 /**
  * Hvilke utgaver som skal få OCR-oppslag: spredning i tid før styrke.

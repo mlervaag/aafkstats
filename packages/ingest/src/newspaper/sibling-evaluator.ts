@@ -39,8 +39,11 @@ export interface HypothesisEvaluationResult {
   no: number;
   expectedAllocation: "exact" | "unresolved" | "unverified";
   expectedDate?: string;
+  candidateEventId?: string;
+  candidateDate?: string;
   allocatedEventId?: string;
   allocatedDate?: string;
+  decision: "accepted" | "unresolved" | "rejected";
   confidence: "high" | "medium" | "low";
   margin: number;
   status: string;
@@ -80,7 +83,23 @@ export function loadSiblingPilotManifest(filePath: string): SiblingPilotManifest
     throw new Error(`Ugyldig pilot-manifest i ${filePath}: mangler groups-array`);
   }
 
-  // Valider unike ID-er på tvers av alle hypoteser
+  if (data.totalGroups !== undefined && data.groups.length !== data.totalGroups) {
+    throw new Error(`Uoverensstemmelse i antall grupper: manifest oppgir ${data.totalGroups}, fant ${data.groups.length}`);
+  }
+
+  // Valider unike groupKeys
+  const seenGroupKeys = new Set<string>();
+  for (const group of data.groups) {
+    if (!group.groupKey) {
+      throw new Error(`Gruppe mangler groupKey i ${filePath}`);
+    }
+    if (seenGroupKeys.has(group.groupKey)) {
+      throw new Error(`Duplikat groupKey i pilot-manifest: ${group.groupKey}`);
+    }
+    seenGroupKeys.add(group.groupKey);
+  }
+
+  // Valider unike ID-er og forventningskrav på tvers av alle hypoteser
   const seenIds = new Set<string>();
   let hypothesisCount = 0;
   for (const group of data.groups) {
@@ -90,6 +109,10 @@ export function loadSiblingPilotManifest(filePath: string): SiblingPilotManifest
       }
       seenIds.add(h.id);
       hypothesisCount++;
+
+      if (h.expectedAllocation === "exact" && (!h.expectedDate || !/^\d{4}-\d{2}-\d{2}$/.test(h.expectedDate))) {
+        throw new Error(`Hypotese ${h.id} har expectedAllocation: exact, men mangler gyldig expectedDate (YYYY-MM-DD)`);
+      }
     }
   }
 
@@ -114,8 +137,11 @@ export function evaluateGroupResults(
 
   for (const hFixture of groupFixture.hypotheses) {
     const res = results.get(hFixture.id);
+    const candidateEventId = res?.allocation.candidateEventId;
+    const candidateDate = res?.candidateEvent?.inferredDate ?? res?.event?.inferredDate;
     const allocatedEventId = res?.allocation.eventId;
     const allocatedDate = res?.event?.inferredDate;
+    const decision = res?.allocation.decision ?? "unresolved";
     const confidence = res?.allocation.confidence ?? "low";
     const margin = res?.allocation.margin ?? 0;
     const status = res?.status ?? "not_found";
@@ -152,8 +178,11 @@ export function evaluateGroupResults(
       no: hFixture.no,
       expectedAllocation: hFixture.expectedAllocation,
       expectedDate: hFixture.expectedDate,
+      candidateEventId,
+      candidateDate,
       allocatedEventId,
       allocatedDate,
+      decision,
       confidence,
       margin,
       status,
@@ -182,6 +211,7 @@ export function evaluateGroupResults(
 
 /**
  * Kjører full evaluering av alle grupper i manifestet.
+
  */
 export async function evaluateSiblingPilot(
   archive: Archive,

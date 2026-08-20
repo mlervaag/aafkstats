@@ -37,9 +37,12 @@ export interface MatchHypothesis {
 
 export interface Allocation {
   hypothesisId: string;
+  /** Den foreslåtte kandidathendelsen fra én-til-én-fordelingen (for inspeksjon og rapportering). */
+  candidateEventId?: string;
+  /** Akseptert hendelsestildeling (KUN satt dersom alle sikkerhetskrav er oppfylt). */
   eventId?: string;
+  decision: "accepted" | "unresolved" | "rejected";
   score: number;
-  /** Nest beste fordeling totalt, og avstanden opp til den beste. */
   runnerUpScore: number;
   margin: number;
   confidence: "high" | "medium" | "low";
@@ -72,6 +75,7 @@ function scoreMatches(scoreFound: [number, number], expectedScore: readonly [num
  */
 export function edgeScore(hypothesis: MatchHypothesis, event: NewspaperEvent): number {
   const best = event.evidence[0];
+
   if (!best) return 0;
 
   const hasSameFragment = event.evidence.some((item) => item.sameFragment);
@@ -182,41 +186,96 @@ export function allocateEvents(hypotheses: MatchHypothesis[], events: NewspaperE
     const assignedEventId = isSymmetric ? undefined : best.assignment.get(hypothesis.id);
     const row = edges.get(hypothesis.id)!;
     const rawScore = assignedEventId ? (row.get(assignedEventId) ?? 0) : 0;
-    const eventId = assignedEventId && rawScore >= MINIMUM_EDGE_SCORE ? assignedEventId : undefined;
-    const score = eventId ? rawScore : 0;
-    const assignedEvent = eventId ? byId.get(eventId) : undefined;
+    const candidateEventId = assignedEventId && rawScore >= MINIMUM_EDGE_SCORE ? assignedEventId : undefined;
+    const score = candidateEventId ? rawScore : 0;
+    const candidateEvent = candidateEventId ? byId.get(candidateEventId) : undefined;
 
-    // Finn runner-up for denne konkrete hypotesen
-    const alternativeScores = [...row.entries()]
-      .filter(([id]) => id !== eventId && (edges.get(hypothesis.id)?.get(id) ?? 0) > 0)
+    // Finn reelle alternative hendelser som kunne vært tildelt denne hypotesen
+    // (hendelser med gyldig kant som ikke er sterkere bundet til en annen hypotese).
+    const competingScores = [...row.entries()]
+      .filter(([id, val]) => {
+        if (id === candidateEventId || val < MINIMUM_EDGE_SCORE) return false;
+        // Sjekk om en annen hypotese har sterkere krav på dette eventet
+        for (const other of hypotheses) {
+          if (other.id === hypothesis.id) continue;
+          const otherAssigned = best.assignment.get(other.id);
+          if (otherAssigned === id && (edges.get(other.id)?.get(id) ?? 0) >= val) {
+            return false;
+          }
+        }
+        return true;
+      })
       .map(([, val]) => val)
       .sort((a, b) => b - a);
 
-    const runnerUpScore = alternativeScores[0] ?? 0;
-    const margin = score > 0 ? (alternativeScores.length > 0 ? score - runnerUpScore : score - MINIMUM_EDGE_SCORE) : 0;
+    const runnerUpScore = competingScores[0] ?? MINIMUM_EDGE_SCORE;
+    const margin = score > 0 ? score - runnerUpScore : 0;
 
-    // Tidskausalt bevis: krever eksplisitt dato med high eller medium confidence
-    const hasTemporalCausality = assignedEvent?.inferredDate !== undefined &&
-      (assignedEvent.dateConfidence === "high" || assignedEvent.dateConfidence === "medium");
+    // Tidskausalt bevis og kildekobling:
+    // High confidence krever eksplisitt dato med "high" dateConfidence, samt
+    // enten resultatmatch eller bekreftet konkurransematch.
+    const isHighDate = candidateEvent?.inferredDate !== undefined && candidateEvent.dateConfidence === "high";
+    const isMediumDate = candidateEvent?.inferredDate !== undefined &&
+      (candidateEvent.dateConfidence === "high" || candidateEvent.dateConfidence === "medium");
 
+    const scores = hypothesis.queries.flatMap((q) => (q.expectedScore ? [q.expectedScore] : []));
+    const printed = candidateEvent?.evidence.find((item) => item.scoreFound !== undefined)?.scoreFound;
+    const hasScoreMatch = printed && scores.some((expected) => scoreMatches(printed, expected));
+    const hasCompetitionMatch = hypothesis.queries.some(
+      (q) => q.competitionHint && candidateEvent?.evidence.some((e) => e.competitionFound === q.competitionHint),
+    );
+
+    // Sjekk om det finnes uoppklarte tidligere søsken i samme gruppe.
+    // En senere kildepåstand kan ikke få high confidence uten konkurransebevis
+    // dersom tidligere kamper mot samme motstander er uavklarte (som Kvik #28 etter #19/#21).
+    const hasUnresolvedPrecedingSibling = hypotheses.some(
+      (h) => h.order < hypothesis.order && (!best.assignment.get(h.id) || symmetricHypothesisIds.has(h.id)),
+    );
+
+    // Confidence-krav:
+    // 1. En negativ eller null margin kan ALDRI gi medium eller high confidence.
+    // 2. High krever tidskausalt bevis (high date), differensierende kildekobling (resultatmatch),
+    //    at foregående søsken ikke er uoppklart (eller bekreftet konkurransematch),
+    //    sterk margin (>= HIGH_MARGIN) og høy absolutt score (>= 80).
+    // 3. Medium krever tidskausalt bevis (medium date), positiv margin (>= MEDIUM_MARGIN) og absolutt score (>= 55).
     let confidence: "high" | "medium" | "low" = "low";
-    if (eventId && !isSymmetric) {
-      if (hasTemporalCausality && margin >= HIGH_MARGIN && score >= 65) {
+    if (candidateEventId && !isSymmetric && margin > 0) {
+      const passesPrecedingCheck = !hasUnresolvedPrecedingSibling || hasCompetitionMatch;
+      if (isHighDate && hasScoreMatch && passesPrecedingCheck && margin >= HIGH_MARGIN && score >= 80) {
         confidence = "high";
-      } else if (hasTemporalCausality || margin >= MEDIUM_MARGIN) {
+      } else if (isMediumDate && margin >= MEDIUM_MARGIN && score >= 55) {
         confidence = "medium";
       }
     }
 
+
+
+
+
+    // Akseptert tildeling krever at sikkerhetskravene er oppfylt (high confidence).
+    // Ikke-aksepterte allokeringer forblir uavklarte eller avviste.
+    const isAccepted = confidence === "high" && candidateEventId !== undefined && !isSymmetric;
+    const decision: Allocation["decision"] = isAccepted
+      ? "accepted"
+      : isSymmetric || !candidateEventId
+        ? "rejected"
+        : "unresolved";
+
+    const eventId = isAccepted ? candidateEventId : undefined;
+
+
+
     return {
       hypothesisId: hypothesis.id,
+      ...(candidateEventId ? { candidateEventId } : {}),
       ...(eventId ? { eventId } : {}),
+      decision,
       score,
       runnerUpScore,
       margin,
       confidence,
       alternatives: [...row]
-        .filter(([id, val]) => id !== eventId && val > 0)
+        .filter(([id, val]) => id !== candidateEventId && val > 0)
         .sort((a, b) => b[1] - a[1])
         .slice(0, 3)
         .map(([id, val]) => ({ eventId: id, score: val })),
@@ -224,8 +283,8 @@ export function allocateEvents(hypotheses: MatchHypothesis[], events: NewspaperE
   });
 }
 
-
 /** Alle måter hendelsene kan fordeles på, inkludert å la påstander stå tomme. */
+
 function allAssignments(hypotheses: MatchHypothesis[], events: NewspaperEvent[]): Array<Map<string, string | undefined>> {
   const results: Array<Map<string, string | undefined>> = [];
 
