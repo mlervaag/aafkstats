@@ -211,42 +211,43 @@ describe("reconcile", () => {
   });
 
   /**
-   * Ranheim 1946 #15: 2-2-resultatet fra 16. juni skal aldri kobles med 9. juli-datoen.
+   * Ranheim 1946 #15: Juni-hendelsen bekreftes med 1946-06-16 og 2-2,
+   * juli-hendelsen mangler score.
    */
-  it("blander ikke dato fra juli med 2-2-resultat fra juni for Ranheim 1946", () => {
+  it("bekrefter Ranheim 1946 #15 på juni-datoen 1946-06-16 med 2-2", () => {
     const ranheim = query({ opponent: "Ranheim", opponentAliases: [], expectedScore: [2, 2], year: 1946 });
     const result = reconcile(ranheim, [
       evidenceForFragment("AaFK spilte 2—2 mot Ranheim søndag", ranheim, { issueId: "juni", issueDate: "19460617" }),
       evidenceForFragment("AaFK spilte kamp i går", ranheim, { issueId: "juli", issueDate: "19460710" }),
     ]);
 
-    expect(result.matchDate?.value).not.toBe("1946-07-09");
-    if (result.status === "confirmed") {
-      expect(result.matchDate?.value).toBe("1946-06-16");
-    }
+    expect(result.status).toBe("confirmed");
+    expect(result.matchDate?.value).toBe("1946-06-16");
+    expect(result.checks.score).toBe("confirmed");
+    expect(result.checks.opponent).toBe("confirmed");
   });
 
   /**
-   * Herd 1949 #2: August-datoen skal aldri bekreftes med 4-2-resultatet fra 12. juni.
+   * Herd 1949 #2: Juni-hendelsen inneholder 4-2 (reversert 2-4) og peker på 1949-06-12,
+   * august-hendelsen mangler sammenhengende resultatbevis.
    */
-  it("blander ikke august-omtale med 4-2-resultat fra juni for Herd 1949", () => {
+  it("bekrefter Herd 1949 #2 på juni-datoen 1949-06-12 med 4-2 (reversert 2-4)", () => {
     const herd = query({ opponent: "Herd", opponentAliases: [], expectedScore: [2, 4], year: 1949 });
     const result = reconcile(herd, [
       evidenceForFragment("Herd slo AaFK 4—2 søndag", herd, { issueId: "juni", issueDate: "19490617" }),
       evidenceForFragment("AaFK møtte Herd i går på Kråmyra", herd, { issueId: "august", issueDate: "19490822" }),
     ]);
 
-    expect(result.matchDate?.value).not.toBe("1949-08-21");
-    if (result.status === "confirmed") {
-      expect(result.matchDate?.value).toBe("1949-06-12");
-    }
+    expect(result.status).toBe("confirmed");
+    expect(result.matchDate?.value).toBe("1949-06-12");
+    expect(result.checks.score).toBe("confirmed");
+    expect(result.checks.opponent).toBe("confirmed");
   });
 
   /**
-   * Old Boys 1946 #9: Juli-datoen og oktober-resultatet 5-0 er separate hendelser
-   * og skal ikke gi en falsk datert konflikt eller confirmed.
+   * Old Boys 1946 #9: Juli-dato og oktober-resultat er separate hendelser -> ambiguous.
    */
-  it("kobler ikke udatert oktober-score 5-0 med juli-dato for Old Boys 1946", () => {
+  it("gir ambiguous for Old Boys 1946 #9 når juli-dato og oktober-score er separate hendelser", () => {
     const oldBoys = query({ opponent: "Old Boys", opponentAliases: [], expectedScore: [4, 1], year: 1946 });
     const result = reconcile(oldBoys, [
       evidenceForFragment("AaFK og Old Boys møttes i går", oldBoys, { issueId: "juli", issueDate: "19460712" }),
@@ -256,6 +257,68 @@ describe("reconcile", () => {
     expect(result.status).toBe("ambiguous");
     expect(result.checks.score).toBe("unknown");
     expect(result.newspaperScore).toBeUndefined();
+  });
+
+  /**
+   * Scorebevis: Tabellscore skal ikke oppheve eller bekrefte en konflikt fra artikkel.
+   */
+  it("lar ikke en tabellscore oppheve en resultatkonflikt fra en artikkel", () => {
+    const cfk = query({ opponent: "Clausenengen", opponentAliases: [], expectedScore: [1, 0], year: 1952 });
+    const tableEvidence = evidenceForFragment("Tabell: CFK 7 4 2 1 12 8 10 AaFK 7 3 1 3 9 11 7", cfk, { issueId: "tabell", issueDate: "19520505" });
+    tableEvidence.scoreMatchesSource = true;
+    tableEvidence.temporal = { phrase: "i går", offset: -1, inferredMatchDate: "1952-05-04", confidence: "high" };
+
+    const articleEvidence = evidenceForFragment("I kampen i går slo Clausenengen AaFK 2—1 i Kristiansund", cfk, { issueId: "referat", issueDate: "19520505" });
+
+    const result = reconcile(cfk, [tableEvidence, articleEvidence]);
+    expect(result.status).toBe("conflict");
+    expect(result.checks.score).toBe("conflict");
+    expect(result.newspaperScore).toEqual([2, 1]);
+  });
+
+  /**
+   * Scorebevis: Motstridende artikler i samme hendelse gir ambiguous.
+   */
+  it("gir ambiguous dersom samme hendelse inneholder motstridende kampbevis", () => {
+    const cfk = query({ opponent: "Clausenengen", opponentAliases: [], expectedScore: [1, 0], year: 1952 });
+    const article1 = evidenceForFragment("AaFK slo Clausenengen 1—0 i går", cfk, { issueId: "artikkel-1", issueDate: "19520505" });
+    const article2 = evidenceForFragment("Clausenengen slo AaFK 2—1 i går", cfk, { issueId: "artikkel-2", issueDate: "19520505" });
+
+    const result = reconcile(cfk, [article1, article2]);
+    expect(result.status).toBe("ambiguous");
+    expect(result.checks.score).toBe("unknown");
+  });
+
+  /**
+   * Hendelseslokal confidence: Blåses ikke opp av sterke bevis fra andre kamper.
+   */
+  it("beregner combinedConfidence kun fra den valgte hendelsen, ikke fra andre kamper", () => {
+    const cfk = query({ opponent: "Clausenengen", opponentAliases: [], expectedScore: [1, 0], year: 1952 });
+    const mayMatch = evidenceForFragment("AaFK slo Clausenengen 1—0 i går i Kristiansund", cfk, { issueId: "mai", issueDate: "19520505" });
+    const octMatch1 = evidenceForFragment("AaFK og Clausenengen spilte høstkamp i går", cfk, { issueId: "okt-1", issueDate: "19521020" });
+    const octMatch2 = evidenceForFragment("Clausenengen og AaFK møttes igjen i går", cfk, { issueId: "okt-2", issueDate: "19521020" });
+
+    const singleResult = reconcile(cfk, [mayMatch]);
+    const multiResult = reconcile(cfk, [mayMatch, octMatch1, octMatch2]);
+
+    expect(multiResult.status).toBe("confirmed");
+    expect(multiResult.combinedConfidence).toBe(singleResult.combinedConfidence);
+  });
+
+  /**
+   * Representativ datovisning for ambiguous med flere daterte hendelser.
+   */
+  it("velger en representativ datert hendelse (og ikke en udatert) ved ambiguous med flere daterte hendelser", () => {
+    const dr = query({ opponent: "Dr. Ballklubb", opponentAliases: [], expectedScore: [3, 2], year: 1947 });
+    const dated1 = evidenceForFragment("AaFK møtte Dr. Ballklubb fredag", dr, { issueId: "d1", issueDate: "19470708" });
+    const dated2 = evidenceForFragment("Dr. Ballklubb og AaFK spilte søndag", dr, { issueId: "d2", issueDate: "19471027" });
+    const undatedStrong = evidenceForFragment("Dr. Ballklubb og AaFK spilte en fantastisk fotballkamp med mange mål foran publikum", dr, { issueId: "u", issueDate: "19470811" });
+
+    const result = reconcile(dr, [dated1, dated2, undatedStrong]);
+    expect(result.status).toBe("ambiguous");
+    expect(result.matchDate).toBeDefined();
+    expect(["1947-07-04", "1947-10-26"]).toContain(result.matchDate?.value);
+    expect(result.matchDate?.disagreement.length).toBeGreaterThan(0);
   });
 
   /**

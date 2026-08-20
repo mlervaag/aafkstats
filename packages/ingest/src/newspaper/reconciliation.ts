@@ -59,6 +59,7 @@ interface EventAnalysis {
   dateConfidence?: DateConfidence;
   scoreAgreement?: NewspaperEvidence;
   scoreConflict?: [number, number];
+  hasScoreContradiction: boolean;
   opponentFound: boolean;
   homeAway: ReconciliationChecks["homeAway"];
   competition: ReconciliationChecks["competition"];
@@ -117,7 +118,8 @@ export function reconcile(query: NewspaperQuery, evidence: NewspaperEvidence[]):
 
   // 3. Flere konkurrerende bekreftelser eller konflikter -> ambiguous
   if (confirmedAnalyses.length > 1 || conflictAnalyses.length > 1 || (confirmedAnalyses.length > 0 && conflictAnalyses.length > 0)) {
-    const chosen = confirmedAnalyses[0] ?? conflictAnalyses[0] ?? analyses[0]!;
+    const dated = analyses.filter((a) => a.inferredDate !== undefined);
+    const chosen = confirmedAnalyses[0] ?? conflictAnalyses[0] ?? dated[0] ?? analyses[0]!;
     return buildResult({
       status: "ambiguous",
       chosen,
@@ -132,8 +134,9 @@ export function reconcile(query: NewspaperQuery, evidence: NewspaperEvidence[]):
   const datedAnalyses = analyses.filter((a) => a.inferredDate !== undefined);
 
   if (datedAnalyses.length > 1) {
-    // Flere konkurrerende datobevis uten scorebekreftelse -> ambiguous
-    const chosen = analyses[0]!;
+    // Flere konkurrerende datobevis uten entydig scorebekreftelse -> ambiguous
+    // Velg blant de daterte hendelsene for representativ datovisning
+    const chosen = datedAnalyses[0]!;
     return buildResult({
       status: "ambiguous",
       chosen,
@@ -146,7 +149,7 @@ export function reconcile(query: NewspaperQuery, evidence: NewspaperEvidence[]):
 
   if (datedAnalyses.length === 1) {
     const chosen = datedAnalyses[0]!;
-    if (chosen.isCoherentProbable) {
+    if (chosen.isCoherentProbable && !chosen.hasScoreContradiction) {
       return buildResult({
         status: "probable",
         chosen,
@@ -156,7 +159,7 @@ export function reconcile(query: NewspaperQuery, evidence: NewspaperEvidence[]):
         scoreCheck: "unknown",
       });
     }
-    const status: DiscoveryStatus = relevant.length > 1 ? "ambiguous" : "probable";
+    const status: DiscoveryStatus = relevant.length > 1 || chosen.hasScoreContradiction ? "ambiguous" : "probable";
     return buildResult({
       status,
       chosen,
@@ -169,7 +172,7 @@ export function reconcile(query: NewspaperQuery, evidence: NewspaperEvidence[]):
 
   // Ingen daterte hendelser
   const chosen = analyses[0]!;
-  if (chosen.strongest.score >= STRONG_SCORE && chosen.opponentFound) {
+  if (chosen.strongest.score >= STRONG_SCORE && chosen.opponentFound && !chosen.hasScoreContradiction) {
     return buildResult({
       status: "probable",
       chosen,
@@ -180,7 +183,7 @@ export function reconcile(query: NewspaperQuery, evidence: NewspaperEvidence[]):
     });
   }
 
-  const status: DiscoveryStatus = relevant.length > 1 ? "ambiguous" : "probable";
+  const status: DiscoveryStatus = relevant.length > 1 || chosen.hasScoreContradiction ? "ambiguous" : "probable";
   return buildResult({
     status,
     chosen,
@@ -193,9 +196,21 @@ export function reconcile(query: NewspaperQuery, evidence: NewspaperEvidence[]):
 
 function analyzeEvent(query: NewspaperQuery, event: NewspaperEvent): EventAnalysis {
   const strongest = event.evidence[0]!;
-  const scoreAgreement = event.evidence.find((item) =>
-    item.scoreMatchesSource === true && (item.kind === "article" || item.kind === "result_list"));
-  const scoreConflict = conflictingScore(query, event.evidence);
+
+  // Bare gyldig kampomtale (artikkel eller resultatliste) i samme fragment teller som scorebevis.
+  // Tabeller, kuponger og terminlister skal aldri bekrefte kilden eller oppheve en konflikt.
+  const validMatchEvidence = event.evidence.filter((item) =>
+    item.sameFragment && (item.kind === "article" || item.kind === "result_list"));
+
+  const matchingScoreEvidence = validMatchEvidence.find((item) => item.scoreMatchesSource === true);
+  const conflictingScoreEvidence = validMatchEvidence.find((item) =>
+    item.scoreFound !== undefined && item.scoreMatchesSource === false);
+
+  const hasScoreContradiction = matchingScoreEvidence !== undefined && conflictingScoreEvidence !== undefined;
+
+  const scoreAgreement = hasScoreContradiction ? undefined : matchingScoreEvidence;
+  const scoreConflict = hasScoreContradiction ? undefined : conflictingScoreEvidence?.scoreFound;
+
   const opponentFound = event.evidence.some((item) => item.opponentFound);
   const homeAway = homeAwayCheck(query, event.evidence);
   const competition = event.evidence.some((item) => item.competitionFound !== undefined) ? "probable" : "unknown";
@@ -206,8 +221,8 @@ function analyzeEvent(query: NewspaperQuery, event: NewspaperEvent): EventAnalys
   const hasStrongEvidence = strongest.score >= STRONG_SCORE || event.score >= STRONG_SCORE;
   const hasIdentifiedDate = inferredDate !== undefined && dateCheck !== "unknown";
 
-  const isCoherentConfirmed = hasStrongEvidence && hasIdentifiedDate && scoreAgreement !== undefined && opponentFound;
-  const isCoherentConflict = hasStrongEvidence && hasIdentifiedDate && scoreConflict !== undefined && scoreAgreement === undefined && opponentFound;
+  const isCoherentConfirmed = hasStrongEvidence && hasIdentifiedDate && scoreAgreement !== undefined && !hasScoreContradiction && opponentFound;
+  const isCoherentConflict = hasStrongEvidence && hasIdentifiedDate && scoreConflict !== undefined && scoreAgreement === undefined && !hasScoreContradiction && opponentFound;
   const isCoherentProbable = hasStrongEvidence && hasIdentifiedDate && opponentFound;
 
   return {
@@ -217,6 +232,7 @@ function analyzeEvent(query: NewspaperQuery, event: NewspaperEvent): EventAnalys
     dateConfidence,
     scoreAgreement,
     scoreConflict,
+    hasScoreContradiction,
     opponentFound,
     homeAway,
     competition,
@@ -261,7 +277,8 @@ function buildResult(input: {
     date: chosen.dateCheck,
   };
 
-  const combinedConfidence = relevantEvidence
+  // Beregn combinedConfidence KUN fra bevisene i den valgte hendelsen
+  const combinedConfidence = chosen.event.evidence
     .slice(0, 3)
     .reduce((sum, item, index) => sum + item.score / (index + 1), 0);
 
@@ -281,21 +298,6 @@ function buildResult(input: {
     evidence: orderedEvidence,
     combinedConfidence: Math.round(combinedConfidence),
   };
-}
-
-/**
- * Resultatet avisa oppgir når det er et annet enn kildens.
- *
- * Bare avsnitt som nevner begge lagene teller, og bare når de faktisk har et
- * resultat. Et avvik fra en tabellrad er ikke en konflikt, det er en tabellrad.
- */
-function conflictingScore(query: NewspaperQuery, evidence: NewspaperEvidence[]): [number, number] | undefined {
-  if (!query.expectedScore) return undefined;
-  if (evidence.some((item) => item.scoreMatchesSource === true)) return undefined;
-
-  const candidate = evidence.find((item) =>
-    item.sameFragment && item.scoreFound !== undefined && (item.kind === "article" || item.kind === "result_list"));
-  return candidate?.scoreFound;
 }
 
 function homeAwayCheck(query: NewspaperQuery, evidence: NewspaperEvidence[]): ReconciliationChecks["homeAway"] {
