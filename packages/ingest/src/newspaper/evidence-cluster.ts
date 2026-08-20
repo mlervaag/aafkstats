@@ -24,6 +24,11 @@ import type { NewspaperEvidence } from "./evidence.js";
  * tidsuttrykk knyttes til en hendelse de ligger tett nok på i tid til å kunne
  * handle om — og står de alene, blir de sin egen hendelse uten dato. En hendelse
  * uten dato kan fortsatt tildeles en kamp, den kan bare ikke datere den.
+ *
+ * Tidsmessig kausalitet:
+ * Et avisavsnitt med et ferdigspilt kampresultat kan aldri knyttes til en kamp
+ * som ble spilt etter avisens utgivelsesdato (f.eks. kan en avis fra 1. juni aldri
+ * inneholde sluttresultatet fra en kamp spilt 3. juni).
  */
 
 export interface NewspaperEvent {
@@ -61,10 +66,41 @@ export function clusterEvidence(evidence: NewspaperEvidence[]): NewspaperEvent[]
   });
 
   for (const item of undated) {
-    const near = events.find((event) => event.inferredDate !== undefined && item.issueDate !== undefined
-      && Math.abs(daysBetween(event.inferredDate, item.issueDate)) <= NEARBY_DAYS);
-    if (near) near.evidence.push(item);
-    else events.push({ id: `issue:${item.issueId}`, evidence: [item], score: 0 });
+    if (item.issueDate === undefined) {
+      events.push({ id: `issue:${item.issueId}`, evidence: [item], score: 0 });
+      continue;
+    }
+
+    const hasScoreResult = item.scoreFound !== undefined || item.scoreMatchesSource !== undefined;
+
+    // Finn alle daterte hendelser som tidsmessig er mulige for dette beviset
+    const validCandidates: { event: NewspaperEvent; distance: number }[] = [];
+
+    for (const event of events) {
+      if (event.inferredDate === undefined) continue;
+      const diff = daysBetween(event.inferredDate, item.issueDate);
+
+      if (hasScoreResult) {
+        // Et kampresultat kan bare festes til en kamp som ble spilt samme dag eller FØR avisutgaven
+        // (diff >= 0). En avis trykket 1. juni kan aldri omtale resultatet av en kamp 3. juni.
+        if (diff >= 0 && diff <= NEARBY_DAYS) {
+          validCandidates.push({ event, distance: diff });
+        }
+      } else {
+        // Forhåndsomtaler eller generelle omtaler kan ligge inntil NEARBY_DAYS før eller etter
+        if (Math.abs(diff) <= NEARBY_DAYS) {
+          validCandidates.push({ event, distance: Math.abs(diff) });
+        }
+      }
+    }
+
+    if (validCandidates.length > 0) {
+      // Velg nærmeste gyldige event
+      validCandidates.sort((a, b) => a.distance - b.distance);
+      validCandidates[0]!.event.evidence.push(item);
+    } else {
+      events.push({ id: `issue:${item.issueId}`, evidence: [item], score: 0 });
+    }
   }
 
   for (const event of events) {
