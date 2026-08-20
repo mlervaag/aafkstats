@@ -36,6 +36,9 @@ const args = parseArgs({
     refresh: { type: "boolean" },
     "dry-run": { type: "boolean" },
     "resolve-siblings": { type: "boolean" },
+    "skip-batches": { type: "string" },
+    "group-keys": { type: "string" },
+    "hypothesis-ids": { type: "string" },
   },
 });
 
@@ -70,7 +73,33 @@ const selection = {
   ...(args.values["unlinked-only"] ? { unlinkedOnly: true } : {}),
 };
 const population = sourceResultPopulation(archive, selection);
-const selected = population.hypotheses.slice(0, limit ?? population.hypotheses.length);
+
+const skipBatches = args.values["skip-batches"]?.split(",").map((s) => s.trim().toLowerCase()) ?? [];
+const excludedHypothesisIds = new Set<string>();
+if (skipBatches.some((b) => ["batch-01", "batch-1", "batch-01-v4", "batch-01-v3"].includes(b))) {
+  const b1 = sourceResultPopulation(archive, { sourceId, fromYear: 1945, toYear: 1964, unlinkedOnly: true }).hypotheses.slice(0, 100);
+  for (const h of b1) excludedHypothesisIds.add(h.hypothesis.id);
+}
+if (skipBatches.some((b) => ["batch-02", "batch-2", "batch-02-v3", "batch-02-v2"].includes(b))) {
+  const b2 = sourceResultPopulation(archive, { sourceId, fromYear: 1950, toYear: 1964, unlinkedOnly: true }).hypotheses.slice(0, 260);
+  for (const h of b2) excludedHypothesisIds.add(h.hypothesis.id);
+}
+
+const allowedGroupKeys = args.values["group-keys"] ? new Set(args.values["group-keys"].split(",").map((s) => s.trim())) : undefined;
+const allowedHypothesisIds = args.values["hypothesis-ids"] ? new Set(args.values["hypothesis-ids"].split(",").map((s) => s.trim())) : undefined;
+
+let candidateHypotheses = population.hypotheses;
+if (excludedHypothesisIds.size > 0) {
+  candidateHypotheses = candidateHypotheses.filter((item) => !excludedHypothesisIds.has(item.hypothesis.id));
+}
+if (allowedGroupKeys) {
+  candidateHypotheses = candidateHypotheses.filter((item) => allowedGroupKeys.has(item.groupKey));
+}
+if (allowedHypothesisIds) {
+  candidateHypotheses = candidateHypotheses.filter((item) => allowedHypothesisIds.has(item.hypothesis.id));
+}
+
+const selected = candidateHypotheses.slice(0, limit ?? candidateHypotheses.length);
 
 console.log(`${population.summary.hypotheses} kamphypoteser valgt fra ${sourceId}${selected.length < population.summary.hypotheses ? `, tar de ${selected.length} første` : ""}.`);
 console.log(stringify({ population: population.summary }).trim());

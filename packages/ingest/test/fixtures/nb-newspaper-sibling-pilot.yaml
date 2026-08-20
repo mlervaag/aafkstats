@@ -1,0 +1,193 @@
+version: 1
+groups:
+  - groupKey: "1963|raufoss-il"
+    hypotheses:
+      - id: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1963-27"
+        year: 1963
+        no: 27
+        opponent: "Raufoss"
+        score: [ 1, 0 ]
+        expectedDate: "1963-06-09"
+      - id: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1963-30"
+        year: 1963
+        no: 30
+        opponent: "Raufoss"
+        score: [ 0, 2 ]
+        expectedDate: "1963-10-06"
+    expectedEvents: 2
+    expectedOutcome: fully_resolved
+    notes: "Kjent kontrollcase. To kamper i 2. divisjon 1963 med distinkte scores og hjemme/borte."
+
+  - groupKey: "1948|sarpsborg"
+    hypotheses:
+      - id: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-10"
+        year: 1948
+        no: 10
+        opponent: "Sarpsborg"
+        score: [ 1, 0 ]
+    expectedEvents: 1
+    expectedOutcome: unresolved
+    notes: "Kontroll på sikker failure mode. Skal ikke over-allokeres eller gjette ved manglende bevis."
+
+  - groupKey: "1960|langevag"
+    hypotheses:
+      - id: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1960-1"
+        year: 1960
+        no: 1
+        opponent: "Langevåg"
+        score: [ 4, 1 ]
+      - id: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1960-3"
+        year: 1960
+        no: 3
+        opponent: "Langevåg"
+        score: [ 3, 3 ]
+      - id: "1960-langevag-4-1"
+        year: 1960
+        no: 10
+        opponent: "Langevåg"
+        score: [ 4, 1 ]
+      - id: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1960-14"
+        year: 1960
+        no: 14
+        opponent: "Langevåg"
+        score: [ 5, 4 ]
+      - id: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1960-26"
+        year: 1960
+        no: 26
+        opponent: "Langevåg"
+        score: [ 2, 4 ]
+    expectedEvents: 5
+    expectedOutcome: partially_resolved
+    notes: "Stor gruppe med 5 hypoteser og to like scores (4-1). Ulike scores bør kunne matches."
+
+  - groupKey: "1959|skarbovik"
+    hypotheses:
+      - id: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1959-3"
+        year: 1959
+        no: 3
+        opponent: "Skarbøvik"
+        score: [ 3, 1 ]
+      - id: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1959-12"
+        year: 1959
+        no: 12
+        opponent: "Skarbøvik"
+        score: [ 6, 1 ]
+      - id: "forstedivisjon-1959-skarbovik-1-1"
+        year: 1959
+        no: 25
+        opponent: "Skarbøvik"
+        score: [ 1, 1 ]
+      - id: "nm-1959-skarbovik-runde-1"
+        year: 1959
+        no: 28
+        opponent: "Skarbøvik"
+        score: [ 1, 0 ]
+    expectedEvents: 4
+    expectedOutcome: fully_resolved
+    notes: "Fire hypoteser med distinkte scores (3-1, 6-1, 1-1, 1-0) fordelt på serie, cup og treningskamp."
+
+  - groupKey: "1961|molde-fk"
+    hypotheses:
+      - id: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1961-1"
+        year: 1961
+        no: 1
+        opponent: "Molde"
+        score: [ 5, 3 ]
+      - id: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1961-3"
+        year: 1961
+        no: 3
+        opponent: "Molde"
+        score: [ 3, 1 ]
+      - id: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1961-27"
+        year: 1961
+        no: 27
+        opponent: "Molde"
+        score: [ 1, 0 ]
+    expectedEvents: 3
+    expectedOutcome: fully_resolved
+    notes: "Tre hypoteser med distinkte scores (5-3, 3-1, 1-0) og borte-hints."
+
+  - groupKey: "1963|kvik"
+    hypotheses:
+      - id: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1963-19"
+        year: 1963
+        no: 19
+        opponent: "Kvik"
+        score: [ 1, 1 ]
+      - id: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1963-21"
+        year: 1963
+        no: 21
+        opponent: "Kvik"
+        score: [ 1, 1 ]
+      - id: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1963-28"
+        year: 1963
+        no: 28
+        opponent: "Kvik"
+        score: [ 2, 0 ]
+    expectedEvents: 3
+    expectedOutcome: partially_resolved
+    notes: "Tre hypoteser hvor to har identisk score (1-1)."
+
+  - groupKey: "1963|clausenengen"
+    hypotheses:
+      - id: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1963-5"
+        year: 1963
+        no: 5
+        opponent: "CFK"
+        score: [ 5, 1 ]
+      - id: "nm-1963-clausenengen-runde-1"
+        year: 1963
+        no: 17
+        opponent: "CFK"
+        score: [ 5, 1 ]
+    expectedEvents: 2
+    expectedOutcome: unresolved
+    notes: "To hypoteser med identisk score (5-1) i 1963 (en treningskamp og en cupkamp)."
+
+  - groupKey: "1959|aksla"
+    hypotheses:
+      - id: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1959-7"
+        year: 1959
+        no: 7
+        opponent: "Aksla"
+        score: [ 3, 0 ]
+      - id: "1959-aksla-3-0"
+        year: 1959
+        no: 9
+        opponent: "Aksla"
+        score: [ 3, 0 ]
+    expectedEvents: 2
+    expectedOutcome: unresolved
+    notes: "To hypoteser med identisk score (3-0) uten kildehints."
+
+  - groupKey: "1964|andalsnes"
+    hypotheses:
+      - id: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1964-16"
+        year: 1964
+        no: 16
+        opponent: "Åndalsnes"
+        score: [ 4, 0 ]
+      - id: "medlemsblad-for-aalesunds-fotb-1965-a2c9#1964-23"
+        year: 1964
+        no: 23
+        opponent: "Åndalsnes"
+        score: [ 1, 0 ]
+    expectedEvents: 2
+    expectedOutcome: fully_resolved
+    notes: "To seriekamper i 3. divisjon 1964 med distinkte scores (4-0 og 1-0) og hjemme/borte-hints."
+
+  - groupKey: "1962|herd"
+    hypotheses:
+      - id: "treningskamp-1962-herd-1-0"
+        year: 1962
+        no: 5
+        opponent: "Herd"
+        score: [ 1, 0 ]
+      - id: "treningskamp-1962-herd-2-0"
+        year: 1962
+        no: 9
+        opponent: "Herd"
+        score: [ 2, 0 ]
+    expectedEvents: 2
+    expectedOutcome: fully_resolved
+    notes: "To treningskamper mot Herd i 1962 med distinkte scores (1-0 og 2-0)."
