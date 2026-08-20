@@ -78,7 +78,37 @@ pnpm ingest:nb-newspaper-discover -- \
 `--dry-run` viser hvilke rader som ville blitt slått opp, med hintene notatet ga,
 uten å røre nettet.
 
-## Fordelingssteget
+## V1-policy for batch
+
+Standardmodusen er bevisst enkel og konservativ:
+
+1. Rå source-results slås først sammen til kamphypoteser med `resultGroupId`.
+2. En singleton går direkte gjennom discovery, enrichment, dato-utledning og
+   reconcile. Den går ikke gjennom global allokering.
+3. Flere hypoteser med samme år og `opponentClubId` er en sibling-gruppe. Uten
+   klubb-ID brukes normalisert trykt motstandernavn.
+4. Sibling-grupper gjør ingen NB-kall og ingen automatisk allokering i
+   standardmodus. Hver valgt hypotese rapporteres som `ambiguous` med
+   `reviewReason: sibling_group`.
+5. `--resolve-siblings` slår på den eksisterende allokeringsmotoren for
+   eksperimentelle kontrollkjøringer. Flagget skal ikke brukes i første batch.
+
+Sibling-klassifiseringen bruker hele kildefila før `--year`, `--no`,
+`--unlinked-only` og `--limit` snevrer inn hva som rapporteres. Dermed kan et
+filter aldri gjøre en sibling om til en tilsynelatende singleton.
+
+To eksplisitte kontrollrekkverk ligger i `batch-policy.ts`, i samsvar med
+akseptansemanifestet: Clausenengen 1952 #16 er den live-verifiserte automatiske
+fast path-saken, mens Sarpsborg 1948 #10 alltid går til manuell vurdering i v1.
+Dette er policy, ikke Sarpsborg-spesifikk ranking.
+
+Dry-run og rapporten viser populasjonstall på hypotesenivå, blant annet antall
+singletons, sibling-hypoteser, gruppestørrelser og hvor mange sibling-grupper
+som har ulike resultater. Den vanlige rapporten viser i tillegg NB-kall,
+berikede utgaver og hvor ofte det ble funnet tidsbevis, resultatsamsvar eller
+resultatkonflikt. Tallene er observability; de endrer ingen beslutninger.
+
+## Det eksperimentelle fordelingssteget
 
 Én avishendelse kan bare tilhøre én kamp. Det er hele grepet.
 
@@ -165,21 +195,20 @@ koblinger.
 
 ## Målt status
 
-Kontrollert mot NB-API-et:
+Kontrollert mot NB-API-et. Tabellen beskriver standardmodus i v1:
 
 | Kamp | Forventet | Målt |
 |---|---|---|
-| Clausenengen 1952 #16 | 1952-05-04, confirmed | **1952-05-04, confirmed** |
-| Raufoss 1963 #27 | 1963-06-16, confirmed | **1963-06-16, confirmed** |
-| Raufoss 1963 #30 | egen hendelse | **egen hendelse** |
-| Sarpsborg 1948 #10 | 1948-07-16, conflict | 1948-10-17, ambiguous — **feil hendelse** |
+| Clausenengen 1952 #16 | automatic, 1952-05-04, confirmed | **automatic, 1952-05-04, confirmed** |
+| Raufoss 1963 #27 | manual, sibling_group | **manual, sibling_group** |
+| Raufoss 1963 #30 | manual, sibling_group | **manual, sibling_group** |
+| Sarpsborg 1948 #10 | manual, sibling_group | **manual, sibling_group** |
 
-Søskeninvarianten holder: de to Raufoss-radene får hver sin hendelse, og
-junikampen dateres ikke lenger til oktober. Clausenengen-søsknene oppfører seg
-likedan, og #22 melder i tillegg at avisa oppgir 1-1 mot kildens 0-0.
+Den avanserte motoren og testene er beholdt: bak opt-in får de to Raufoss-radene
+hver sin hendelse. Dette er ikke mergekrav eller standardadferd i v1.
 
-Sarpsborg 1948 står fortsatt igjen, og en måling av alle julikandidatene viser
-hvorfor — det er ikke det man skulle tro.
+Sarpsborg 1948 er nå en test på sikker failure mode, ikke en golden auto-case.
+Den står i manuell kø uten at defaultmodusen prøver å løse den.
 
 Utgavene fra 15., 16. og 17. juli **er** i kandidatsettet. Problemet er hva det
 grove søket returnerer som utdrag for dem: annonser og urelaterte spalter.

@@ -1,0 +1,23 @@
+version: 1
+cases:
+  - sourceResultFile: data/source-results/medlemsblad-for-aalesunds-fotb-1965-a2c9.yaml
+    year: 1952
+    no: 16
+    expectedPolicy: automatic
+    expectedStatus: confirmed
+    expectedDate: 1952-05-04
+  - sourceResultFile: data/source-results/medlemsblad-for-aalesunds-fotb-1965-a2c9.yaml
+    year: 1963
+    no: 27
+    expectedPolicy: manual
+    expectedReviewReason: sibling_group
+  - sourceResultFile: data/source-results/medlemsblad-for-aalesunds-fotb-1965-a2c9.yaml
+    year: 1963
+    no: 30
+    expectedPolicy: manual
+    expectedReviewReason: sibling_group
+  - sourceResultFile: data/source-results/medlemsblad-for-aalesunds-fotb-1965-a2c9.yaml
+    year: 1948
+    no: 10
+    expectedPolicy: manual
+    expectedReviewReason: sibling_group

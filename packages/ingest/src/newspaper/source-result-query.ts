@@ -5,6 +5,7 @@ import type { Archive } from "@aafkstats/schema/load";
 import type { Club } from "@aafkstats/schema";
 import type { NewspaperQuery } from "./evidence.js";
 import type { NoteHints } from "./note-parser.js";
+import type { MatchHypothesis } from "./allocation.js";
 
 /**
  * Et kilderesultat oversatt til noe NB-søket kan bruke.
@@ -175,16 +176,111 @@ export function withSiblings(archive: Archive, options: SelectOptions): Map<stri
  * fordelingen, ikke tre. Da vet discovery dessuten før søket at kildene selv er
  * uenige, og avisa kan bli den som avgjør.
  */
-export function buildHypotheses(queries: SourceResultQuery[]): Array<{ id: string; queries: SourceResultQuery[]; order: number }> {
+export function hypothesisId(query: SourceResultQuery): string {
+  return query.resultGroupId ?? `${query.ref.sourceId}#${query.ref.season}-${query.ref.no}`;
+}
+
+export function buildHypotheses(queries: SourceResultQuery[]): MatchHypothesis[] {
   const byGroup = new Map<string, SourceResultQuery[]>();
   for (const query of queries) {
-    const key = query.resultGroupId ?? `${query.ref.sourceId}#${query.ref.season}-${query.ref.no}`;
+    const key = hypothesisId(query);
     byGroup.set(key, [...(byGroup.get(key) ?? []), query]);
   }
 
   return [...byGroup]
     .map(([id, members]) => ({ id, queries: members, order: Math.min(...members.map((member) => member.ref.no)) }))
     .sort((a, b) => a.order - b.order);
+}
+
+export interface SourceResultPopulationSummary {
+  rawSourceResults: number;
+  unlinkedSourceResults: number;
+  hypotheses: number;
+  singletonHypotheses: number;
+  siblingHypotheses: number;
+  siblingGroups: number;
+  siblingGroupsBySize: Record<string, number>;
+  siblingGroupsWithDistinctScores: number;
+  siblingGroupsWithIdenticalOrUnknownScores: number;
+}
+
+export interface PlannedHypothesis {
+  hypothesis: MatchHypothesis;
+  groupKey: string;
+  siblingGroupSize: number;
+  groupHypotheses: MatchHypothesis[];
+}
+
+export interface SourceResultPopulation {
+  selectedQueries: SourceResultQuery[];
+  hypotheses: PlannedHypothesis[];
+  summary: SourceResultPopulationSummary;
+}
+
+/**
+ * Planlegg batchen uten nettverkskall.
+ *
+ * Brukerfilteret velger hvilke hypoteser som rapporteres. Sibling-størrelsen
+ * beregnes alltid fra hele kildefila, slik at `--no` og `--limit` ikke kan gjøre
+ * en vanskelig gruppe om til en tilsynelatende singleton.
+ */
+export function sourceResultPopulation(archive: Archive, options: SelectOptions): SourceResultPopulation {
+  const scope = sourceResultQueries(archive, { ...(options.sourceId ? { sourceId: options.sourceId } : {}) });
+  const selectedQueries = sourceResultQueries(archive, options);
+  const selectedIds = new Set(selectedQueries.map(hypothesisId));
+  const allHypotheses = buildHypotheses(scope);
+  const groups = new Map<string, MatchHypothesis[]>();
+
+  for (const hypothesis of allHypotheses) {
+    const groupKey = hypothesis.queries[0]!.groupKey;
+    groups.set(groupKey, [...(groups.get(groupKey) ?? []), hypothesis]);
+  }
+
+  const hypotheses = allHypotheses
+    .filter((hypothesis) => selectedIds.has(hypothesis.id))
+    .map((hypothesis) => ({
+      hypothesis,
+      groupKey: hypothesis.queries[0]!.groupKey,
+      siblingGroupSize: groups.get(hypothesis.queries[0]!.groupKey)?.length ?? 1,
+      groupHypotheses: groups.get(hypothesis.queries[0]!.groupKey) ?? [hypothesis],
+    }))
+    .sort((left, right) => left.hypothesis.queries[0]!.year - right.hypothesis.queries[0]!.year
+      || left.hypothesis.order - right.hypothesis.order);
+
+  const siblingGroups = new Map<string, MatchHypothesis[]>();
+  for (const planned of hypotheses) {
+    const group = groups.get(planned.groupKey) ?? [];
+    if (group.length > 1) siblingGroups.set(planned.groupKey, group);
+  }
+
+  const siblingGroupsBySize: Record<string, number> = {};
+  let siblingGroupsWithDistinctScores = 0;
+  let siblingGroupsWithIdenticalOrUnknownScores = 0;
+  for (const group of siblingGroups.values()) {
+    siblingGroupsBySize[String(group.length)] = (siblingGroupsBySize[String(group.length)] ?? 0) + 1;
+    const scores = group.flatMap((hypothesis) => {
+      const score = hypothesis.queries.find((query) => query.expectedScore !== undefined)?.expectedScore;
+      return score ? [`${score[0]}-${score[1]}`] : [];
+    });
+    if (scores.length === group.length && new Set(scores).size > 1) siblingGroupsWithDistinctScores += 1;
+    else siblingGroupsWithIdenticalOrUnknownScores += 1;
+  }
+
+  return {
+    selectedQueries,
+    hypotheses,
+    summary: {
+      rawSourceResults: selectedQueries.length,
+      unlinkedSourceResults: selectedQueries.filter((query) => !query.linked).length,
+      hypotheses: hypotheses.length,
+      singletonHypotheses: hypotheses.filter((planned) => planned.siblingGroupSize === 1).length,
+      siblingHypotheses: hypotheses.filter((planned) => planned.siblingGroupSize > 1).length,
+      siblingGroups: siblingGroups.size,
+      siblingGroupsBySize,
+      siblingGroupsWithDistinctScores,
+      siblingGroupsWithIdenticalOrUnknownScores,
+    },
+  };
 }
 
 function normalizeName(value: string): string {

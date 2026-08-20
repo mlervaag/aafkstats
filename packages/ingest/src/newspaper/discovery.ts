@@ -72,6 +72,8 @@ export interface DiscoveryOptions {
   refresh?: boolean;
   cache?: IssueCache;
   onRequest?: (url: string) => void;
+  onIssuesDiscovered?: (count: number) => void;
+  onIssueEnriched?: (issueId: string) => void;
 }
 
 /** Treffsettet for ett år og én motstander, delt mellom alle radene som gjelder det. */
@@ -114,8 +116,13 @@ export async function discoverNewspaperIssues(
   }
 
   const issues = [...byId.values()];
+  options.onIssuesDiscovered?.(issues.length);
   options.cache?.set(key, issues);
   return issues;
+}
+
+export function enrichmentTerms(opponent: string): string[] {
+  return [`${opponent} Aalesund`, `${opponent} ÅFK`, opponent];
 }
 
 /**
@@ -131,7 +138,7 @@ export async function enrichIssue(
   query: SourceResultQuery,
   options: DiscoveryOptions = {},
 ): Promise<DiscoveredIssue> {
-  const terms = [`${query.opponent} ${query.aafkAliases[0] ?? "ÅFK"}`, query.opponent];
+  const terms = enrichmentTerms(query.opponent);
   for (const term of terms) {
     const url = buildContentFragmentsUrl(issue.id, term);
     options.onRequest?.(url);
@@ -143,8 +150,10 @@ export async function enrichIssue(
       .filter((fragment): fragment is { pageNumber?: string; text: string } => typeof fragment.text === "string")
       .map((fragment) => ({ ...(fragment.pageNumber ? { page: fragment.pageNumber } : {}), text: fragment.text }));
     issue.fragments = mergeFragments(issue.fragments, found);
-    if (found.length > 0) break;
+    const evidence = verifyNewspaperCandidate(query, issue);
+    if (evidence?.sameFragment && evidence.matchTalk) break;
   }
+  options.onIssueEnriched?.(issue.id);
   return issue;
 }
 
