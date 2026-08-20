@@ -61,9 +61,10 @@ Målt fra hele kildedokumentet for det angitte tidsrommet:
 | **siblingGroupsSkipped** | 22 grupper |
 
 ### Forklaring på avviket mellom `conflict: 7` og `hypothesesWithResultConflict: 8`
-* Metrikken `hypothesesWithResultConflict` telte alle hypoteser der minst ett beriket bevis inneholdt et avvikende resultat (totalt 8).
-* Statusen `conflict` krever i tillegg at det finnes en bekreftet kampdato som samsvarer med konflikten.
-* Den 8. saken var **1946 #9 (Old Boys)**: Valgt dato (1946-07-11) stammet fra en juli-avis, mens resultatkonflikten (5–0 mot kildens 4–1) stammet fra en helt annen utgave i oktober. Fordi dato og resultat tilhørte ulike hendelser, fikk saken status `ambiguous`, selv om den telte med under den globale metrikken `hypothesesWithResultConflict`.
+* Den opprinnelige reconcile-logikken satte `status: "conflict"` dersom en kandidat var sterk nok og det fantes en dato, samtidig som et vilkårlig bevis i treffmengden hadde et avvikende resultat (`checks.score: "conflict"`). Den krevde ikke at datoen og resultatkonflikten kom fra samme avishendelse.
+* Metrikken `hypothesesWithResultConflict` talte opp alle saker der `checks.score === "conflict"` (totalt 8).
+* Avviket skyldes at 7 av disse 8 sakene oppnådde tilstrekkelig samlet score til å få `status: "conflict"`, mens den 8. saken — **1946 #9 (Old Boys)** — falt tilbake til `status: "ambiguous"` fordi ingen enkeltkandidat nådde terskelen `STRONG_SCORE` (60), til tross for at resultatkonflikten (5–0) fra oktober og datoen (1946-07-11) fra juli ble aggregert globalt.
+* Verken de 7 `conflict`-statusene eller de 10 `confirmed`-statusene i Batch 01 var dermed garantert hendelseskoherente i den opprinnelige kjøringen.
 
 ### Effektivitet
 * **Gjennomsnittlig antall NB-forespørsler per automatisk hypotese:** 16.69
