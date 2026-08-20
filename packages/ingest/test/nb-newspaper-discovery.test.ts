@@ -163,7 +163,7 @@ describe("reconcile", () => {
 
   it("bekrefter kampen når dato og resultat begge holder", () => {
     const result = reconcile(query({ expectedScore: [1, 0], homeAwayHint: "away" }), [
-      evidenceFrom("AaFK i landsdelsseriekampen mot Clausenengen i Kristiansund i går. Seiren ble så knepen som 1—0", "19520505", { homeAwayHint: "away" }),
+      evidenceFrom("CFK—AaFK 0—1 i landsdelsseriekampen i Kristiansund i går. Seiren ble så knepen som 0—1", "19520505", { homeAwayHint: "away" }),
     ]);
     expect(result.status).toBe("confirmed");
     expect(result.matchDate?.value).toBe("1952-05-04");
@@ -184,17 +184,32 @@ describe("reconcile", () => {
   });
 
   /**
-   * Nordlandet 1948 #15: sammenhengende dato 1948-05-06 og resultat 6-1.
+   * Nordlandet 1948 #15: sammenhengende dato 1948-05-06 og resultat 6-1,
+   * men kilden sier bortekamp mens avisa sier hjemmekamp -> ambiguous med checks.homeAway: conflict.
    */
-  it("bekrefter Nordlandet 1948 #15 med sammenhengende bevis for 1948-05-06", () => {
-    const nordlandet = query({ opponent: "Nordlandet", opponentAliases: [], expectedScore: [6, 1], year: 1948 });
+  it("gir ambiguous for Nordlandet 1948 #15 når kilde og avis har motstridende hjemme/borte", () => {
+    const nordlandet = query({ opponent: "Nordlandet", opponentAliases: [], expectedScore: [6, 1], homeAwayHint: "away", year: 1948 });
     const result = reconcile(nordlandet, [
       evidenceForFragment("AaFK slo Nordlandet 6—1 torsdag i 1. divisjon", nordlandet, { issueId: "n-1", issueDate: "19480511" }),
       evidenceForFragment("AaFK spilte mot Nordlandet i går i 1. divisjon", nordlandet, { issueId: "n-2", issueDate: "19480507" }),
     ]);
-    expect(result.status).toBe("confirmed");
+    expect(result.status).toBe("ambiguous");
     expect(result.matchDate?.value).toBe("1948-05-06");
+    expect(result.checks.homeAway).toBe("conflict");
     expect(result.checks.score).toBe("confirmed");
+  });
+
+  /**
+   * Ørsta 1947 #19: kilden spesifiserer cupkamp, et udatert/senere event har resultatavvik,
+   * men et annet sterkt event i sesongen matcher cup-hintet bedre -> ambiguous.
+   */
+  it("gir ambiguous for Ørsta 1947 #19 når et annet sterkt event matcher cup-hintet", () => {
+    const orsta = query({ opponent: "Ørsta", opponentAliases: [], expectedScore: [2, 0], competitionHint: "cup", hints: { keywords: ["cup"] }, year: 1947 });
+    const cupEvent = evidenceForFragment("I cupkampen i går slo AaFK Ørsta", orsta, { issueId: "cup", issueDate: "19470616" });
+    const conflictEvent = evidenceForFragment("I kampen i går slo AaFK Ørsta 2—1", orsta, { issueId: "serie", issueDate: "19470825" });
+
+    const result = reconcile(orsta, [cupEvent, conflictEvent]);
+    expect(result.status).toBe("ambiguous");
   });
 
   /**

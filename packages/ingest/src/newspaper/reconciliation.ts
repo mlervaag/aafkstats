@@ -6,16 +6,19 @@ import type { NewspaperEvent } from "./evidence-cluster.js";
 /**
  * Hva avisene til sammen sier om ett kilderesultat.
  *
- * ## Hvorfor avstemmingen må være hendelseskoherent
+ * ## Hvorfor avstemmingen må være hendelseskoherent og kildekritisk
  *
  * Kilderesultatene er kildeutsagn, ikke kamper. Klubbens jubileumsliste fra 1965
  * er satt sammen i ettertid, og der den er uenig med avisa dagen etter kampen,
  * er det avisa som var til stede. Et verktøy som bare kan si «funnet» og «ikke
  * funnet» må da enten forkaste kampen eller forfalske den.
  *
- * Like viktig er det at dato og resultat ikke kan hentes fra forskjellige
- * hendelser i sesongen: en kamp kan bare bekreftes eller avvises som konflikt
- * dersom datoen og resultatet stammer fra den samme sammenhengende avishendelsen.
+ * Like viktig er det at:
+ * 1. Dato og resultat må stamme fra den samme sammenhengende avishendelsen.
+ * 2. En kildebekreftelse kan ikke overstyre en motstridende hjemme/borte-angivelse.
+ * 3. En resultatkonflikt kan bare rapporteres dersom hendelsen er entydig knyttet
+ *    til kilderesultatet og det ikke finnes andre plausible hendelser som matcher
+ *    kildens hint (f.eks. cup/serie) bedre.
  */
 
 export type DiscoveryStatus = "confirmed" | "probable" | "ambiguous" | "conflict" | "not_found";
@@ -92,6 +95,20 @@ export function reconcile(query: NewspaperQuery, evidence: NewspaperEvidence[]):
   // 1. Entydig bekreftet hendelse
   if (confirmedAnalyses.length === 1 && conflictAnalyses.length === 0) {
     const chosen = confirmedAnalyses[0]!;
+
+    // Dersom kilden angir hjemme/borte og avisa entydig dokumenterer det motsatte,
+    // kan saken ikke bekreftes automatisk — den må til manuell avklaring (ambiguous).
+    if (chosen.homeAway === "conflict") {
+      return buildResult({
+        status: "ambiguous",
+        chosen,
+        allAnalyses: analyses,
+        relevantEvidence: relevant,
+        sourceScore,
+        scoreCheck: "confirmed",
+      });
+    }
+
     return buildResult({
       status: "confirmed",
       chosen,
@@ -105,6 +122,34 @@ export function reconcile(query: NewspaperQuery, evidence: NewspaperEvidence[]):
   // 2. Entydig konflikt i samme hendelse
   if (conflictAnalyses.length === 1 && confirmedAnalyses.length === 0) {
     const chosen = conflictAnalyses[0]!;
+
+    // En konflikt krever entydig kobling til kilderesultatet.
+    // Hvis det finnes en annen sterk, datert hendelse mot samme motstander som kan
+    // være kildens kamp (f.eks. matcher cup-hint bedre), blir utfallet ambiguous.
+    const competingStrongEvents = analyses.filter((a) =>
+      a !== chosen && a.opponentFound && a.inferredDate !== undefined &&
+      (a.strongest.score >= STRONG_SCORE || a.event.score >= STRONG_SCORE));
+
+    const alternativeHasBetterHints = competingStrongEvents.some((other) => {
+      const betterCompetition = query.competitionHint !== undefined &&
+        other.competition === "probable" && chosen.competition !== "probable";
+      const betterHomeAway = query.homeAwayHint !== undefined &&
+        other.homeAway === "confirmed" && chosen.homeAway !== "confirmed";
+      return betterCompetition || betterHomeAway;
+    });
+
+    if (competingStrongEvents.length > 0 && (alternativeHasBetterHints || chosen.homeAway === "conflict")) {
+      return buildResult({
+        status: "ambiguous",
+        chosen,
+        allAnalyses: analyses,
+        relevantEvidence: relevant,
+        sourceScore,
+        newspaperScore: chosen.scoreConflict,
+        scoreCheck: "conflict",
+      });
+    }
+
     return buildResult({
       status: "conflict",
       chosen,
@@ -135,7 +180,6 @@ export function reconcile(query: NewspaperQuery, evidence: NewspaperEvidence[]):
 
   if (datedAnalyses.length > 1) {
     // Flere konkurrerende datobevis uten entydig scorebekreftelse -> ambiguous
-    // Velg blant de daterte hendelsene for representativ datovisning
     const chosen = datedAnalyses[0]!;
     return buildResult({
       status: "ambiguous",
@@ -149,7 +193,7 @@ export function reconcile(query: NewspaperQuery, evidence: NewspaperEvidence[]):
 
   if (datedAnalyses.length === 1) {
     const chosen = datedAnalyses[0]!;
-    if (chosen.isCoherentProbable && !chosen.hasScoreContradiction) {
+    if (chosen.isCoherentProbable && !chosen.hasScoreContradiction && chosen.homeAway !== "conflict") {
       return buildResult({
         status: "probable",
         chosen,
@@ -159,7 +203,9 @@ export function reconcile(query: NewspaperQuery, evidence: NewspaperEvidence[]):
         scoreCheck: "unknown",
       });
     }
-    const status: DiscoveryStatus = relevant.length > 1 || chosen.hasScoreContradiction ? "ambiguous" : "probable";
+    const status: DiscoveryStatus = relevant.length > 1 || chosen.hasScoreContradiction || chosen.homeAway === "conflict"
+      ? "ambiguous"
+      : "probable";
     return buildResult({
       status,
       chosen,
@@ -172,7 +218,7 @@ export function reconcile(query: NewspaperQuery, evidence: NewspaperEvidence[]):
 
   // Ingen daterte hendelser
   const chosen = analyses[0]!;
-  if (chosen.strongest.score >= STRONG_SCORE && chosen.opponentFound && !chosen.hasScoreContradiction) {
+  if (chosen.strongest.score >= STRONG_SCORE && chosen.opponentFound && !chosen.hasScoreContradiction && chosen.homeAway !== "conflict") {
     return buildResult({
       status: "probable",
       chosen,
@@ -183,7 +229,9 @@ export function reconcile(query: NewspaperQuery, evidence: NewspaperEvidence[]):
     });
   }
 
-  const status: DiscoveryStatus = relevant.length > 1 || chosen.hasScoreContradiction ? "ambiguous" : "probable";
+  const status: DiscoveryStatus = relevant.length > 1 || chosen.hasScoreContradiction || chosen.homeAway === "conflict"
+    ? "ambiguous"
+    : "probable";
   return buildResult({
     status,
     chosen,
