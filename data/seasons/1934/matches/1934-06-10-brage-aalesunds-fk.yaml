@@ -1,0 +1,57 @@
+id: 1934-06-10-brage-aalesunds-fk
+date: 1934-06-10
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1934
+  stage: regular_season
+home:
+  clubId: brage
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Brage-Aalesund 1—1. Våre gutter får god kritikk. Brages mål på straffespark
+    date: 1934-06-11
+    url: https://www.nb.no/items/5aabdbf0ab2e2ab7c747eb14b6a27a8a?page=3
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/5aabdbf0ab2e2ab7c747eb14b6a27a8a?page=3
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - attendance
+sources:
+  - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+    page: "114"
+    fields:
+      - home.score
+      - away.score
+    note: Privatkamp trykt «Brage, Trondhjem 1-1».
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: "8"
+    fields:
+      - home.score
+      - away.score
+    note: Privatkamp trykt «Brage, Trondheim 1-1».
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+attendance: 700
+note: Privatkamp spilt i Trondheim søndag 10. juni 1934 foran 700 tilskuere.
+  AaFKs mål ble scoret av Sperre.

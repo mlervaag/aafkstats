@@ -1,0 +1,62 @@
+id: 1935-08-18-aalesunds-fk-brage
+date: 1935-08-18
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1935
+  stage: regular_season
+  round: 3
+home:
+  clubId: aalesunds-fk
+  score: 5
+  halfTimeScore: 1
+away:
+  clubId: brage
+  score: 3
+  halfTimeScore: 2
+extraTime:
+  home: 5
+  away: 3
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Ålesund—Brage 5—3 etter ekstraomganger. Skarbøvik reddet to straffespark
+      fenomenalt
+    date: 1935-08-19
+    url: https://www.nb.no/items/1790becdcaafd9da217c760b94e947b3?page=5
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/1790becdcaafd9da217c760b94e947b3?page=5
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - venueId
+sources:
+  - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+    page: "115"
+    fields:
+      - home.score
+      - away.score
+    note: Cupen. trykt «Brage, Trondhjem 5-3».
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: "9"
+    fields:
+      - home.score
+      - away.score
+    note: Cupen. trykt «Brage, Trondheim 5-3».
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+venueId: norvebana
+note: NM 3. runde spilt på Nørvebana søndag 18. august 1935. Stillingen ved
+  ordinær tid var 3–3. AaFK vant 5–3 etter ekstraomganger.

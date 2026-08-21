@@ -1,0 +1,27 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1934-06-11-s3-brage
+matchId: 1934-06-10-brage-aalesunds-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:098a06320ff62396bfde31cc38c0d2de35431072a8e3d5f2177467638aef16a6
+raw:
+  avis: Sunnmørsposten
+  dato: 11. juni 1934
+  side: "3"
+  tittel: Brage-Aalesund 1—1. Våre gutter får god kritikk. Brages mål på straffespark
+  kamp: Brage - AaFK 1-1
+normalized:
+  date: 1934-06-10
+  home.clubId: brage
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 1
+  attendance: 700
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - attendance
+warnings: []

@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1935-08-19-s5-brage
+matchId: 1935-08-18-aalesunds-fk-brage
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:0262006a7d9f1f3284ef711411305c31046f0223434831be911b0ddaf3d60351
+raw:
+  avis: Sunnmørsposten
+  dato: 19. august 1935
+  side: "5"
+  tittel: Ålesund—Brage 5—3 etter ekstraomganger. Skarbøvik reddet to straffespark
+    fenomenalt
+  kamp: AaFK - Brage 5-3
+normalized:
+  date: 1935-08-18
+  home.clubId: aalesunds-fk
+  away.clubId: brage
+  home.score: 5
+  away.score: 3
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

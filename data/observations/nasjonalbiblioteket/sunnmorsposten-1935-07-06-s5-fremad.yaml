@@ -1,0 +1,25 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1935-07-06-s5-fremad
+matchId: 1935-07-05-aalesunds-fk-fremad
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:ec329a40727df569244c83590a47180409735a9f471f220609cb78332879267d
+raw:
+  avis: Sunnmørsposten
+  dato: 6. juli 1935
+  side: "5"
+  tittel: I en jevnspilt kamp vant igår Ålesund over Fremad med 4—1
+  kamp: AaFK - Fremad 4-1
+normalized:
+  date: 1935-07-05
+  home.clubId: aalesunds-fk
+  away.clubId: fremad
+  home.score: 4
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

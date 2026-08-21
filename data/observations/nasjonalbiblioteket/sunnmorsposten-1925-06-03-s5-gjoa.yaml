@@ -1,0 +1,25 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1925-06-03-s5-gjoa
+matchId: 1925-06-01-aalesunds-fk-sk-gjoa
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:ed7f5c0538dccbe707ef77e0d06fc529117a29db036834b4b421eb2bcbf985c7
+raw:
+  avis: Sunnmørsposten
+  dato: 3. juni 1925
+  side: "5"
+  tittel: 2nen pinsedag. Aales. Fotballklub – Gjøa 4-0
+  kamp: AaFK - Gjøa 4-0
+normalized:
+  date: 1925-06-01
+  home.clubId: aalesunds-fk
+  away.clubId: sk-gjoa
+  home.score: 4
+  away.score: 0
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []
