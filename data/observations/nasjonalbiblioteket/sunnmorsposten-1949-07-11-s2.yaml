@@ -1,0 +1,28 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1949-07-11-s2
+matchId: 1949-07-10-aalesunds-fk-ovre-telemark-kretslag
+retrievedAt: "2026-08-21"
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:d54c4931f075066a831466fa741321a107058e318727a54099a254ea7ff95c14
+raw:
+  avis: Sunnmørsposten
+  bane: Aksla stadion
+  dato: 11. juli 1949
+  kamp: Aalesund FK - Øvre Telemark kretslag 0-1
+  side: "2"
+  tittel: Telemarks-laget vant 1-0 over AaFK
+normalized:
+  date: "1949-07-10"
+  home.clubId: aalesunds-fk
+  away.clubId: ovre-telemark-kretslag
+  home.score: 0
+  away.score: 1
+  venueId: aksla-stadion
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - venueId
+warnings: []

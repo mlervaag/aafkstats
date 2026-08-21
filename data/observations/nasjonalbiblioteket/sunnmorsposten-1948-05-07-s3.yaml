@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1948-05-07-s3
+matchId: 1948-05-06-nordlandet-aalesunds-fk
+retrievedAt: "2026-08-21"
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:27406d5fc543a913ac86782fcbbea32b61fc96d46974cc6342bc6a704df9748d
+raw:
+  avis: Sunnmørsposten
+  dato: 7. mai 1948
+  kamp: Nordlandet - ÅFK 1-6
+  side: "3"
+  tilskuere: over 2000
+  tittel: 1. divisjon. Å. F. K.-Nordlandet
+normalized:
+  date: "1948-05-06"
+  home.clubId: nordlandet
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 6
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

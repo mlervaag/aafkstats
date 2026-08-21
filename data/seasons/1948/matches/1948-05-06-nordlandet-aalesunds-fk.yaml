@@ -1,0 +1,49 @@
+id: 1948-05-06-nordlandet-aalesunds-fk
+date: "1948-05-06"
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1948
+  stage: regular_season
+home:
+  clubId: nordlandet
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 6
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: 1. divisjon. Å. F. K.-Nordlandet
+    date: "1948-05-07"
+    url: https://www.nb.no/items/7cda78a78859ee7142e92f2c724d4122?page=3
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/7cda78a78859ee7142e92f2c724d4122?page=3
+    retrievedAt: "2026-08-21"
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: "12"
+    fields:
+      - home.score
+      - away.score
+      - competition
+    note: 1. divisjon. bortekamp. trykt «ÅFK—Nordlandet* 6—1».
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: 1. divisjonskamp spilt i Kristiansund Kr. Himmelfartsdag 6. mai 1948. Sunnmørsposten oppgir «over 2000 tilskuere».
