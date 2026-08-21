@@ -1,6 +1,7 @@
 import type { ArchiveMatch } from "@/lib/archive";
 import { formatDateShort } from "@/lib/date";
 import { readableScore } from "@/lib/score";
+import { NewspaperArticleBadge } from "./NewspaperArticleBadge";
 
 export function MatchList({ matches }: { matches: ArchiveMatch[] }) {
   return (
@@ -28,8 +29,13 @@ export function MatchList({ matches }: { matches: ArchiveMatch[] }) {
                 {qualifier && <span className="score-qualifier"> {qualifier}</span>}
               </strong>
               <span className="match-meta muted">
-                {upcoming ? "Ikke spilt · " : ""}
-                {match.isHome ? "Hjemme" : "Borte"} · {match.competition}
+                <span>
+                  {upcoming ? "Ikke spilt · " : ""}
+                  {match.isHome ? "Hjemme" : "Borte"} · {match.competition}
+                </span>
+                {match.newspaperArticleCount > 0 ? (
+                  <NewspaperArticleBadge count={match.newspaperArticleCount} compact />
+                ) : null}
               </span>
             </a>
           </li>

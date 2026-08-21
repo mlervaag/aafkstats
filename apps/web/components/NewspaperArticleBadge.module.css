@@ -1,0 +1,44 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: fit-content;
+  padding: 0.42rem 0.68rem;
+  color: var(--text);
+  background: color-mix(in srgb, var(--accent) 9%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--accent) 38%, var(--border));
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+}
+
+a.badge:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+a.badge:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.mark {
+  width: 0.48rem;
+  height: 0.48rem;
+  flex: 0 0 auto;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.compact {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 650;
+}
+
+.compact .mark {
+  width: 0.38rem;
+  height: 0.38rem;
+}

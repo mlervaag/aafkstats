@@ -23,6 +23,8 @@ export interface ArchiveMatch {
   afterExtraTime: boolean;
   decidedOnPenalties: boolean;
   wonOnPenalties: boolean | null;
+  /** Sunnmørsposten-faksimiler som er redaksjonelt knyttet til kampen. */
+  newspaperArticleCount: number;
   url: string;
 }
 
@@ -41,6 +43,7 @@ interface MatchRow {
   after_extra_time: number;
   decided_on_penalties: number;
   won_on_penalties: number | null;
+  newspaper_article_count: number;
   url: string;
 }
 
@@ -246,7 +249,13 @@ const SPILT = PLAYED_SQL;
 
 const matchColumns = `match_id, date, kickoff, competition, status, is_home, opponent,
   opponent_club_id, aafk_score, opponent_score, result, after_extra_time,
-  decided_on_penalties, won_on_penalties, url`;
+  decided_on_penalties, won_on_penalties,
+  (SELECT count(*)
+     FROM core_matches article_match
+     JOIN json_each(article_match.external_reports) report
+    WHERE article_match.id = matches.match_id
+      AND json_extract(report.value, '$.publisher') = 'Sunnmørsposten') AS newspaper_article_count,
+  url`;
 
 function mapMatch(row: MatchRow): ArchiveMatch {
   return {
@@ -264,6 +273,7 @@ function mapMatch(row: MatchRow): ArchiveMatch {
     afterExtraTime: row.after_extra_time === 1,
     decidedOnPenalties: row.decided_on_penalties === 1,
     wonOnPenalties: row.won_on_penalties === null ? null : row.won_on_penalties === 1,
+    newspaperArticleCount: row.newspaper_article_count,
     url: row.url,
   };
 }
