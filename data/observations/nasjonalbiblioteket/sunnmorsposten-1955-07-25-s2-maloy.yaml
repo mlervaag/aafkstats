@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1955-07-25-s2-maloy
+matchId: 1955-07-24-maloy-il-aalesunds-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:a90ab24dd450b435111504b9fcb31d34395545f84f1e52d99947babefc9b2380
+raw:
+  avis: Sunnmørsposten
+  dato: 25. juli 1955
+  side: "2"
+  tittel: ÅFK vant 3-2 over Måløy IL
+  kamp: Måløy IL - AaFK 2-3
+  bane: Måløy
+normalized:
+  date: 1955-07-24
+  home.clubId: maloy-il
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 3
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

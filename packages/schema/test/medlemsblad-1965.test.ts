@@ -113,10 +113,10 @@ describe("Medlemsblad 1965 (Vol. 16 nr. 1–6)", () => {
       .flatMap((s) => s.results);
 
     // Måløy IL og Tornado Måløy er to forskjellige klubber, og entiteten
-    // dokumenterer ingen historisk navneform «Måløy».
+    // tornado-maloy dokumenterer ingen historisk navneform «Måløy».
     const maloy = rows.filter((r) => r.opponent === "Måløy");
     expect(maloy.length).toBeGreaterThan(0);
-    expect(maloy.every((r) => r.opponentClubId === null)).toBe(true);
+    expect(maloy.every((r) => r.opponentClubId !== "tornado-maloy")).toBe(true);
 
     // Sportsklubben Brage hører til Drammen; kildens stedsangivelse motsier
     // koblingen. «Brage» uten sted står fortsatt koblet.

@@ -1,0 +1,51 @@
+id: 1952-07-04-aalesunds-fk-arstad-il
+date: 1952-07-04
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1952
+  stage: friendly
+home:
+  clubId: aalesunds-fk
+  score: 5
+  halfTimeScore: null
+away:
+  clubId: arstad-il
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: ÅFK. vant 5-1 over Årstad. God innsats av Aalesunds-laget
+    date: 1952-07-05
+    url: https://www.nb.no/items/d8a17ff56d2c49d69b2a1efb2ed354dc?page=3
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/d8a17ff56d2c49d69b2a1efb2ed354dc?page=3
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - venueId
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: "13"
+    fields:
+      - home.score
+      - away.score
+    note: trykt «ÅFK—Årstad 5—1».
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Privatkamp mot hovedserielaget Årstad spilt på Aksla stadion fredag 4.
+  juli 1952.
+venueId: aksla-stadion

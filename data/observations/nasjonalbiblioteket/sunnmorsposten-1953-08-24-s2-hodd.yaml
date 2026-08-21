@@ -1,0 +1,28 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1953-08-24-s2-hodd
+matchId: 1953-08-23-aalesunds-fk-hodd
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:e11fb17596a5fae48b4f6156263795a59742e6ddd544ea7bef8feec587706064
+raw:
+  avis: Sunnmørsposten
+  dato: 24. august 1953
+  side: "2"
+  tittel: 3—1 over Hødd på sin gode 1. omgang. ÅFK-HØDD 3—1
+  kamp: AaFK - Hødd 3-1
+  bane: Aksla stadion
+normalized:
+  date: 1953-08-23
+  home.clubId: aalesunds-fk
+  away.clubId: hodd
+  home.score: 3
+  away.score: 1
+  venueId: aksla-stadion
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - venueId
+warnings: []

@@ -1,0 +1,29 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1963-03-25-s3-spjelkavik
+matchId: 1963-03-23-aalesunds-fk-spjelkavik
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:35c0f33d44e08f1c5f6f60c618880eccf79856a32841bb5d19667916a65160a6
+raw:
+  avis: Sunnmørsposten
+  dato: 25. mars 1963
+  side: "3"
+  tittel: Treningskampen mellom ÅFK og Spjelkavik på Nørve lørdag. 2. div.-laget
+    vant 4—1
+  kamp: AaFK - Spjelkavik 4-1
+  bane: Nørve
+normalized:
+  date: 1963-03-23
+  home.clubId: aalesunds-fk
+  away.clubId: spjelkavik
+  home.score: 4
+  away.score: 1
+  venueId: norvebana
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - venueId
+warnings: []

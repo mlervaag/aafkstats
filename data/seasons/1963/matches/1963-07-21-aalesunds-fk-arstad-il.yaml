@@ -1,0 +1,55 @@
+id: 1963-07-21-aalesunds-fk-arstad-il
+date: 1963-07-21
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1963
+  stage: friendly
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: arstad-il
+  score: 4
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Et uhyre svakt ÅFK-lag hadde ingen ting å stille opp mot Årstad på Aksla
+      i går. Bergenserne vant 4-0
+    date: 1963-07-22
+    url: https://www.nb.no/items/4ec32ae7ea9824af72ed1ef01dc8a888?page=3
+  - publisher: Sunnmørsposten
+    title: Langevåg i slag 4-0 mot Årstad
+    date: 1963-07-24
+    url: https://www.nb.no/items/59176c73daddb07addb585f031be62ad?page=6
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/4ec32ae7ea9824af72ed1ef01dc8a888?page=3
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - venueId
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: "16"
+    fields:
+      - home.score
+      - away.score
+    note: trykt «ÅFK—Årstad 0—4».
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Privatkamp spilt på Aksla stadion søndag 21. juli 1963.
+venueId: aksla-stadion

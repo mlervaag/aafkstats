@@ -1,0 +1,28 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1953-09-07-s2-kfk
+matchId: 1953-09-06-aalesunds-fk-kfk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:0dea894426c27eaca6c90c086cf75dedd3477a684865ae68f933aeded811e35c
+raw:
+  avis: Sunnmørsposten
+  dato: 7. september 1953
+  side: "2"
+  tittel: Seire for KFK, Halsa, Molde og Langevåg. AaFK—KFK 1—3
+  kamp: AaFK - KFK 1-3
+  bane: Aksla stadion
+normalized:
+  date: 1953-09-06
+  home.clubId: aalesunds-fk
+  away.clubId: kfk
+  home.score: 1
+  away.score: 3
+  venueId: aksla-stadion
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - venueId
+warnings: []

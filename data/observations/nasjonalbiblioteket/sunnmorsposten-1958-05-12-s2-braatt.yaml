@@ -1,0 +1,28 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1958-05-12-s2-braatt
+matchId: 1958-05-11-aalesunds-fk-braatt
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:99e821dfe62dea5148153da218b21d565f365f4c3558f187536333a2a1a5c473
+raw:
+  avis: Sunnmørsposten
+  dato: 12. mai 1958
+  side: "2"
+  tittel: Ineffektivt angrepsspill på stadion. ÅFK og Braatt delte poengene 1-1
+  kamp: AaFK - Braatt 1-1
+  bane: Aksla stadion
+normalized:
+  date: 1958-05-11
+  home.clubId: aalesunds-fk
+  away.clubId: braatt
+  home.score: 1
+  away.score: 1
+  venueId: aksla-stadion
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - venueId
+warnings: []

@@ -1,0 +1,29 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1952-05-05-s3-clausenengen
+matchId: 1952-05-04-clausenengen-aalesunds-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:ca180a9cbc4ba4a6ecd7b474d7d9b7ca377140a1128150ca76e94a6b32591955
+raw:
+  avis: Sunnmørsposten
+  dato: 5. mai 1952
+  side: "3"
+  tittel: AaFK i landsdelsseriekampen mot Clausenengen i Kristiansund i går.
+    Seiren ble 1—0
+  kamp: Clausenengen - AaFK 0-1
+  bane: Kristiansund
+normalized:
+  date: 1952-05-04
+  home.clubId: clausenengen
+  away.clubId: aalesunds-fk
+  home.score: 0
+  away.score: 1
+  venueId: kristiansund-stadion
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - venueId
+warnings: []

@@ -1,0 +1,29 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1953-07-08-s3-moss
+matchId: 1953-07-07-aalesunds-fk-moss
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:a89af8a968cc4dfa56eade3c3c0c343152e013dee5b8faed845e95eb8fda813e
+raw:
+  avis: Sunnmørsposten
+  dato: 8. juli 1953
+  side: "3"
+  tittel: Aalesund overrasket og slo Moss 2—0
+  kamp: AaFK - Moss FK 2-0
+  bane: Aksla stadion
+  tilskuere: nesten 2 000
+normalized:
+  date: 1953-07-07
+  home.clubId: aalesunds-fk
+  away.clubId: moss
+  home.score: 2
+  away.score: 0
+  venueId: aksla-stadion
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - venueId
+warnings: []

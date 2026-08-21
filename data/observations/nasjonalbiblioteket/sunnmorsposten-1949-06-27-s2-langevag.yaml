@@ -1,0 +1,31 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1949-06-27-s2-langevag
+matchId: 1949-06-26-aalesunds-fk-langevag
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:eab5bb29a02b9a398f1f3526786afc8504173dfc6740d777714808d53b410862
+raw:
+  avis: Sunnmørsposten
+  dato: 27. juni 1949
+  side: "2"
+  tittel: 1. runde. Aalesund vant en solid seir 4—0 over Langevåg IL.
+  kamp: Aalesund - Langevåg 4-0
+  tilskuere: 2 300
+  bane: Aksla stadion
+normalized:
+  date: 1949-06-26
+  home.clubId: aalesunds-fk
+  away.clubId: langevag
+  home.score: 4
+  away.score: 0
+  venueId: aksla-stadion
+  attendance: 2300
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - venueId
+  - attendance
+warnings: []

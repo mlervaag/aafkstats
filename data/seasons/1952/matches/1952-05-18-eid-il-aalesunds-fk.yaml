@@ -1,0 +1,54 @@
+id: 1952-05-18-eid-il-aalesunds-fk
+date: 1952-05-18
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1952
+  stage: friendly
+home:
+  clubId: eid-il
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Eid vont 3—2 over ÅFK i privatkamp
+    date: 1952-05-19
+    url: https://www.nb.no/items/860e6053c29be84051f099a53d5fb617?page=3
+  - publisher: Sunnmørsposten
+    title: AaFK dokumenterte svak form på Nordfjordeid søndag, der Eid vant 3—2
+    date: 1952-05-20
+    url: https://www.nb.no/items/81734ca7a21d09f8d002f20d25fd16f8?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/860e6053c29be84051f099a53d5fb617?page=3
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - venueId
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: "13"
+    fields:
+      - home.score
+      - away.score
+    note: bortekamp. trykt «ÅFK—Eid* 2—3».
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Privatkamp spilt på Nordfjordeid søndag 18. mai 1952.
+venueId: eid-stadion
