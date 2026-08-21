@@ -1,0 +1,44 @@
+id: 1947-05-26-aalesunds-fk-freidig
+date: 1947-05-26
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1947
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: freidig
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1947-05-27 s. 1
+    date: 1947-05-27
+    url: https://www.nb.no/items/09ea0074947dcf87a3989d629c6a3d1b?page=1
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/09ea0074947dcf87a3989d629c6a3d1b?page=1
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Siden omtaler pinsekampen annen pinsedag (mandag 26. mai 1947) i Ålesund
+  mellom AaFK og Freidig med sluttresultat 0-1 (Freidig-seier 1-0).

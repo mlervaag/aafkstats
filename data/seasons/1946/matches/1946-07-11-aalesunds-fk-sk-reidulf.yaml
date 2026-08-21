@@ -1,0 +1,44 @@
+id: 1946-07-11-aalesunds-fk-sk-reidulf
+date: 1946-07-11
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1946
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: sk-reidulf
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1946-07-12 s. 2
+    date: 1946-07-12
+    url: https://www.nb.no/items/ee4ec332eb33fc5f8b82d0e5708a7262?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/ee4ec332eb33fc5f8b82d0e5708a7262?page=2
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Siden omtaler privatkampen torsdag 11. juli 1946 på Nørve der Reidulf
+  (Oslo) og Aa.F.K. spilte uavgjort 1-1.

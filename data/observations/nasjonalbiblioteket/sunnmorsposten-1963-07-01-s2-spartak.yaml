@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1963-07-01-s2-spartak
+matchId: 1963-06-30-aalesunds-fk-spartak
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:c2749131f5643fa47ff0277e68819b4dfada1dec5759e2a456d8ec8ec6dd56af
+raw:
+  avis: Sunnmørsposten
+  dato: 1963-07-01
+  side: "2"
+  tittel: Sunnmørsposten 1963-07-01 s. 2
+  kamp: aalesunds-fk - spartak 1-6
+  url: https://www.nb.no/items/10e9775744a50cdc21aa7e90591dc7b3?page=2
+normalized:
+  date: 1963-06-30
+  home.clubId: aalesunds-fk
+  away.clubId: spartak
+  home.score: 1
+  away.score: 6
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

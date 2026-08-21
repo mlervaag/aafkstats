@@ -1271,6 +1271,8 @@ seasons:
           - 2
         extraTime: true
         note: Cupen. bortekamp. trykt «ÅFK—Viking, Stavanger,* 1—2 (Ekstraomganger).».
+        matchId: 1925-09-13-viking-aalesunds-fk
+        opponentClubId: viking
   - year: 1926
     page: 9
     results:
@@ -3778,6 +3780,7 @@ seasons:
           - 3
         opponentClubId: spjelkavik
         note: trykt «AFK—Spjelkavik 5—3».
+        matchId: 1940-10-06-aalesunds-fk-spjelkavik
       - no: 5
         page: 11
         opponent: Ørsta
@@ -4055,6 +4058,8 @@ seasons:
           - 1
           - 1
         note: trykt «AFK—Reidulf, Oslo, 1—1».
+        matchId: 1946-07-11-aalesunds-fk-sk-reidulf
+        opponentClubId: sk-reidulf
       - no: 8
         page: 11
         opponent: Veblungsnes
@@ -4195,6 +4200,8 @@ seasons:
           - 2
           - 1
         note: 1. kval. runde. trykt «ÅFK—Falken, Høyanger, 2—1».
+        matchId: 1946-08-11-aalesunds-fk-il-falken-hoyanger
+        opponentClubId: il-falken-hoyanger
       - no: 26
         page: 12
         opponent: Freidig, Trondheim
@@ -4202,6 +4209,8 @@ seasons:
           - 2
           - 3
         note: 1. kval. runde. trykt «ÅFK—Freidig, Trondheim, 2—3».
+        matchId: 1946-08-25-aalesunds-fk-freidig
+        opponentClubId: freidig
   - year: 1947
     page: 12
     results:
@@ -4229,6 +4238,7 @@ seasons:
           - 1
         opponentClubId: freidig
         note: trykt «ÅFK—Freidig, Tr.heim, 0—1».
+        matchId: 1947-05-26-aalesunds-fk-freidig
       - no: 4
         page: 12
         opponent: Dr. Ballklubb
@@ -4290,6 +4300,8 @@ seasons:
           - 1
           - 1
         note: Seriekamper. trykt «ÅFK—Nordlandet 1—1».
+        matchId: 1947-08-24-aalesunds-fk-nordlandet
+        opponentClubId: nordlandet
       - no: 12
         page: 12
         opponent: Clausenengen
@@ -4338,6 +4350,7 @@ seasons:
           - 4
         opponentClubId: aksla
         note: Krets- og pokalkamper. trykt «ÅFK—Aksla 2—4».
+        matchId: 1947-06-13-aksla-aalesunds-fk
       - no: 18
         page: 12
         opponent: Rollon
@@ -4354,6 +4367,7 @@ seasons:
           - 0
         opponentClubId: orsta
         note: Cupen. trykt «ÅFK—Ørsta 2—0».
+        matchId: 1947-06-15-aalesunds-fk-orsta
       - no: 20
         page: 12
         opponent: Clausenengen
@@ -4922,6 +4936,7 @@ seasons:
           - 1
         opponentClubId: aksla
         note: trykt «ÅFK—Aksla 5—1».
+        matchId: 1951-04-15-aalesunds-fk-aksla
       - no: 2
         page: 13
         opponent: Langevåg
@@ -4969,6 +4984,7 @@ seasons:
           - 4
         opponentClubId: fremad
         note: trykt «ÅFK—Fremad 2—4».
+        matchId: 1951-07-13-aalesunds-fk-fremad
       - no: 8
         page: 13
         opponent: Langevåg
@@ -7172,6 +7188,8 @@ seasons:
           - 13
           - 1
         note: bortekamp. trykt «ÅFK—Vigra* 13—1».
+        matchId: 1960-07-24-vigra-il-aalesunds-fk
+        opponentClubId: vigra-il
       - no: 8
         page: 15
         opponent: Herd
@@ -8019,6 +8037,7 @@ seasons:
           - 6
         opponentClubId: spartak
         note: trykt «ÅFK—Spartak 1—6».
+        matchId: 1963-06-30-aalesunds-fk-spartak
       - no: 10
         page: 16
         opponent: Langevåg
@@ -8817,6 +8836,8 @@ seasons:
         note: "Privatkamp: ÅFK–Stålkameratene 1–7. borte. Spilt i Mo i Rana under
           Nord-Norge-turneen, jf. skann 30. Ingen dato i kilden."
         no: 32
+        matchId: 1965-07-12-stalkameratene-aalesunds-fk
+        opponentClubId: stalkameratene
       - page: 45
         opponent: Valder
         score:

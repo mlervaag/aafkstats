@@ -1,0 +1,44 @@
+id: 1938-06-06-fk-sykkylven-aalesunds-fk
+date: 1938-06-06
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1938
+  stage: regular_season
+home:
+  clubId: fk-sykkylven
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 8
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1938-06-07 s. 8
+    date: 1938-06-07
+    url: https://www.nb.no/items/cd276a4fae82a5ce817e292bbc8bcab1?page=8
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/cd276a4fae82a5ce817e292bbc8bcab1?page=8
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Siden omtaler 2. pinsedag-kampen mandag 6. juni 1938 i Sykkylven der AaFK
+  slo Sykkylven IL 8-2.

@@ -7,7 +7,9 @@ seasons:
       - no: 1
         opponent: Hødd
         opponentClubId: hodd
-        score: [1, 5]
+        score:
+          - 1
+          - 5
         page: 9
         competitionId: nm
         round: 1
@@ -15,4 +17,5 @@ seasons:
         replay: false
         extraTime: false
         matchId: null
-        note: Årsrapporten dokumenterer ikke sikker kampdato; resultatet er derfor ikke løftet til kanonisk kamp.
+        note: Årsrapporten dokumenterer ikke sikker kampdato; resultatet er derfor ikke
+          løftet til kanonisk kamp.

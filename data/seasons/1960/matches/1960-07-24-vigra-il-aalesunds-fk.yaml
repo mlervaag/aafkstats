@@ -1,0 +1,44 @@
+id: 1960-07-24-vigra-il-aalesunds-fk
+date: 1960-07-24
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1960
+  stage: regular_season
+home:
+  clubId: vigra-il
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 13
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1960-07-25 s. 6
+    date: 1960-07-25
+    url: https://www.nb.no/items/29c24c0aa3f49f41c0a4a36618f67665?page=6
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/29c24c0aa3f49f41c0a4a36618f67665?page=6
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Siden inneholder referat og bilde fra privatkampen på nye Vigra-bana
+  søndag 24. juli 1960 der AaFK vant 13-1 over Vigra.

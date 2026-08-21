@@ -27,13 +27,13 @@ describe("Medlemsblad 1965 (Vol. 16 nr. 1–6)", () => {
     const koblet = (season?.results ?? []).filter((r) => r.matchId !== null);
 
     // Manglende dato betyr «ikke oppfinn dato», ikke «ikke koble til kjent kamp».
-    // De to NM-kampene står i sesongarkivet, og runden er trykt i kilden.
     expect(koblet.map((r) => [r.round, r.matchId])).toEqual([
       [3, "1965-08-01-aalesunds-fk-rosenborg-bk"],
       [4, "1965-08-22-valerenga-aalesunds-fk"],
+      [null, "1965-07-12-stalkameratene-aalesunds-fk"],
     ]);
-    // De øvrige 34 mangler entydig kampidentitet og skal stå ukoblet.
-    expect((season?.results ?? []).filter((r) => r.matchId === null)).toHaveLength(34);
+    // De øvrige 33 mangler entydig kampidentitet og skal stå ukoblet.
+    expect((season?.results ?? []).filter((r) => r.matchId === null)).toHaveLength(33);
   });
 
   it("stemmer med bladets egne kontrollsummer for sesongen", () => {

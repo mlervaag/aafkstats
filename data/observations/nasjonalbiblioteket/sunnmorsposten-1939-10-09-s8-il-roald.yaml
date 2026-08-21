@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1939-10-09-s8-il-roald
+matchId: 1939-10-08-aalesunds-fk-il-roald
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:60d2f77caa252089207c7c90cc086dc1b7a50765c449a014899312d665ed3b18
+raw:
+  avis: Sunnmørsposten
+  dato: 1939-10-09
+  side: "8"
+  tittel: Sunnmørsposten 1939-10-09 s. 8
+  kamp: aalesunds-fk - il-roald 3-2
+  url: https://www.nb.no/items/be9550733f4899fa43bc569d9edc6e36?page=8
+normalized:
+  date: 1939-10-08
+  home.clubId: aalesunds-fk
+  away.clubId: il-roald
+  home.score: 3
+  away.score: 2
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

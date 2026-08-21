@@ -7,14 +7,18 @@ seasons:
       - no: 1
         opponent: Rollon
         opponentClubId: rollon
-        score: [3, 2]
+        score:
+          - 3
+          - 2
         competitionId: nm
         round: 1
         note: Jubileumsskriftet fra 1939 oppgir 1–0; konflikten er uløst.
       - no: 2
         opponent: Brann
         opponentClubId: sk-brann
-        score: [0, 14]
+        score:
+          - 0
+          - 14
         competitionId: nm
         round: 2
         page: 69
@@ -22,7 +26,9 @@ seasons:
       - no: 3
         opponent: Kristiansunds Fotballklub
         opponentClubId: kfk
-        score: [4, 1]
+        score:
+          - 4
+          - 1
         competitionId: romsdalske-kreds
         page: 72
         note: >

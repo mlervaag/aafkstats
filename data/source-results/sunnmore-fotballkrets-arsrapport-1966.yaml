@@ -7,7 +7,9 @@ seasons:
       - no: 1
         opponent: Åndalsnes
         opponentClubId: andalsnes
-        score: [7, 1]
+        score:
+          - 7
+          - 1
         competitionId: nm
         round: 1
         status: played
@@ -20,7 +22,9 @@ seasons:
       - no: 2
         opponent: Eid
         opponentClubId: eid-il
-        score: [3, 2]
+        score:
+          - 3
+          - 2
         competitionId: nm
         round: 2
         status: played
@@ -33,7 +37,9 @@ seasons:
       - no: 3
         opponent: Frigg
         opponentClubId: frigg
-        score: [1, 2]
+        score:
+          - 1
+          - 2
         competitionId: nm
         round: 3
         status: played

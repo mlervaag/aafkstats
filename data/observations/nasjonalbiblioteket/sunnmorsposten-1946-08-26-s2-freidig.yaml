@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1946-08-26-s2-freidig
+matchId: 1946-08-25-aalesunds-fk-freidig
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:d60a33c20acc67363df2d5ca994edadcbaca36d3434bf89333fedb4eed12e652
+raw:
+  avis: Sunnmørsposten
+  dato: 1946-08-26
+  side: "2"
+  tittel: Sunnmørsposten 1946-08-26 s. 2
+  kamp: aalesunds-fk - freidig 2-3
+  url: https://www.nb.no/items/2ffab381c3eeeb980689adba79b8dde4?page=2
+normalized:
+  date: 1946-08-25
+  home.clubId: aalesunds-fk
+  away.clubId: freidig
+  home.score: 2
+  away.score: 3
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

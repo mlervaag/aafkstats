@@ -1,0 +1,44 @@
+id: 1946-08-11-aalesunds-fk-il-falken-hoyanger
+date: 1946-08-11
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1946
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: il-falken-hoyanger
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1946-08-12 s. 2
+    date: 1946-08-12
+    url: https://www.nb.no/items/dfb43e3d1a08e151a41e9d144093a731?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/dfb43e3d1a08e151a41e9d144093a731?page=2
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Siden omtaler 2. runde i NM søndag 11. august 1946 på Nørve der AaFK slo
+  Falken (Høyanger) 2-1 (1-1).

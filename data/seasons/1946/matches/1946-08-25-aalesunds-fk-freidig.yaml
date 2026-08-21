@@ -17,7 +17,11 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1946-08-26 s. 2
+    date: 1946-08-26
+    url: https://www.nb.no/items/2ffab381c3eeeb980689adba79b8dde4?page=2
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1946/Cup.html
@@ -31,13 +35,26 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/2ffab381c3eeeb980689adba79b8dde4?page=2
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
 sources:
   - sourceId: tango-siden-1914-2013-806b
     page: "233"
     fields:
       - home.score
       - away.score
-    note: Entydig maskinelt treff på år, motstander og resultat; bør redaksjonelt etterkontrolleres.
+    note: Entydig maskinelt treff på år, motstander og resultat; bør redaksjonelt
+      etterkontrolleres.
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
 confidence: probable
 conflicts: []
 tags: []

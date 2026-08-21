@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1950-07-03-s5-freidig
+matchId: 1950-07-02-freidig-aalesunds-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:ab6f3179586a8d9a00e87dd79d100424d18f3b5bf677ec2dc0aa2ab87552c857
+raw:
+  avis: Sunnmørsposten
+  dato: 1950-07-03
+  side: "5"
+  tittel: Sunnmørsposten 1950-07-03 s. 5
+  kamp: freidig - aalesunds-fk 2-0
+  url: https://www.nb.no/items/8f77f6a54287930c55cd7ae462aca146?page=5
+normalized:
+  date: 1950-07-02
+  home.clubId: freidig
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 0
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1947-06-16-s2-orsta
+matchId: 1947-06-15-aalesunds-fk-orsta
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:1f34d34f280ea957f82076f7b1db0dcf699185088ee484b953f7f592f854eac1
+raw:
+  avis: Sunnmørsposten
+  dato: 1947-06-16
+  side: "2"
+  tittel: Sunnmørsposten 1947-06-16 s. 2
+  kamp: aalesunds-fk - orsta 2-0
+  url: https://www.nb.no/items/b9f26b17b28591454cc2728abf168881?page=2
+normalized:
+  date: 1947-06-15
+  home.clubId: aalesunds-fk
+  away.clubId: orsta
+  home.score: 2
+  away.score: 0
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

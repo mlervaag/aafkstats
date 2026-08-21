@@ -15,7 +15,7 @@ src/
 
 **Arkivfilen bygges fra bunnen, aldri inkrementelt.** Resultatet avhenger da bare av
 innholdet i `data/`: to bygg av samme commit gir samme fil, og en slettet YAML-fil forsvinner
-faktisk. De 1 524 kampene og 1 777 kildedokumenterte resultatoppføringene bygges lokalt til én liten SQLite-fil; byggetid og filstørrelse er
+faktisk. De 1 545 kampene og 1 777 kildedokumenterte resultatoppføringene bygges lokalt til én liten SQLite-fil; byggetid og filstørrelse er
 miljøavhengige og behandles ikke som arkivfakta.
 
 **Skillet mellom rådata og publisert datasett ligger i navnet.** SQLite har ingen schemas, så

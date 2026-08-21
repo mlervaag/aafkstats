@@ -1,0 +1,44 @@
+id: 1940-10-06-aalesunds-fk-spjelkavik
+date: 1940-10-06
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1940
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 5
+  halfTimeScore: null
+away:
+  clubId: spjelkavik
+  score: 3
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1940-10-07 s. 3
+    date: 1940-10-07
+    url: https://www.nb.no/items/258238d06e015ab915ef294411af0996?page=3
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/258238d06e015ab915ef294411af0996?page=3
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Siden omtaler privatkampen søndag 6. oktober 1940 på Nørve der AaFK slo
+  Spjelkavik 5-3.

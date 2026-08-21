@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1965-07-13-s6-stalkameratene
+matchId: 1965-07-12-stalkameratene-aalesunds-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:95abb2d56b8d7dfcf5cbff84dfa3449951d693551375ff46bb08bc3eac0b37cf
+raw:
+  avis: Sunnmørsposten
+  dato: 1965-07-13
+  side: "6"
+  tittel: Sunnmørsposten 1965-07-13 s. 6
+  kamp: stalkameratene - aalesunds-fk 7-1
+  url: https://www.nb.no/items/6254a1a9054ba3c3e852293b098cd6cc?page=6
+normalized:
+  date: 1965-07-12
+  home.clubId: stalkameratene
+  away.clubId: aalesunds-fk
+  home.score: 7
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

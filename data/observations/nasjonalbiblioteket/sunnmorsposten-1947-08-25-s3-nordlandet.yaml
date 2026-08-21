@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1947-08-25-s3-nordlandet
+matchId: 1947-08-24-aalesunds-fk-nordlandet
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:b3f6af9e88e6e8258ae7c4e3f1d5b0f2f49f221062a20166e0d699d25d230e56
+raw:
+  avis: Sunnmørsposten
+  dato: 1947-08-25
+  side: "3"
+  tittel: Sunnmørsposten 1947-08-25 s. 3
+  kamp: aalesunds-fk - nordlandet 1-1
+  url: https://www.nb.no/items/6907ff25365ef85e08332b354883414e?page=3
+normalized:
+  date: 1947-08-24
+  home.clubId: aalesunds-fk
+  away.clubId: nordlandet
+  home.score: 1
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

@@ -7,7 +7,9 @@ seasons:
       - no: 1
         opponent: Guard
         opponentClubId: null
-        score: [ 2, 0 ]
+        score:
+          - 2
+          - 0
         page: 8
         competitionId: null
         round: 1
@@ -19,7 +21,9 @@ seasons:
       - no: 2
         opponent: Spjelkavik
         opponentClubId: spjelkavik
-        score: [ 2, 0 ]
+        score:
+          - 2
+          - 0
         page: 8
         competitionId: null
         round: 2
@@ -32,7 +36,9 @@ seasons:
       - no: 3
         opponent: Rollon
         opponentClubId: rollon
-        score: [ 2, 1 ]
+        score:
+          - 2
+          - 1
         page: 8
         competitionId: null
         round: 3
@@ -45,7 +51,9 @@ seasons:
       - no: 4
         opponent: Eid
         opponentClubId: eid-il
-        score: [ 1, 2 ]
+        score:
+          - 1
+          - 2
         page: 9
         competitionId: nm
         round: 1

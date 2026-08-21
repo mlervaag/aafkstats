@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1961-12-07-s1-velledalen-ringen
+matchId: 1961-04-30-velledalen-ringen-aalesunds-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:383d05655ecfcf51dab411bbebb16a9f4c5d556846a48e9e4f61a3e39465eb8c
+raw:
+  avis: Sunnmørsposten
+  dato: 1961-12-07
+  side: "1"
+  tittel: Sunnmørsposten 1961-12-07 s. 1
+  kamp: velledalen-ringen - aalesunds-fk 1-2
+  url: https://www.nb.no/items/ec190cbc572498198cd7bf891a22cd4b?page=1
+normalized:
+  date: 1961-04-30
+  home.clubId: velledalen-ringen
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 2
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

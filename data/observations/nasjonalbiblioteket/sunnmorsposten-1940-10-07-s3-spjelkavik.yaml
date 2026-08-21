@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1940-10-07-s3-spjelkavik
+matchId: 1940-10-06-aalesunds-fk-spjelkavik
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:59ad6143132e9b22045bb8fde0f784b922c9b3d49acf4bcd384c63cbfde5aa0f
+raw:
+  avis: Sunnmørsposten
+  dato: 1940-10-07
+  side: "3"
+  tittel: Sunnmørsposten 1940-10-07 s. 3
+  kamp: aalesunds-fk - spjelkavik 5-3
+  url: https://www.nb.no/items/258238d06e015ab915ef294411af0996?page=3
+normalized:
+  date: 1940-10-06
+  home.clubId: aalesunds-fk
+  away.clubId: spjelkavik
+  home.score: 5
+  away.score: 3
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

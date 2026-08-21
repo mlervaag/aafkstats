@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1947-05-27-s1-freidig
+matchId: 1947-05-26-aalesunds-fk-freidig
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:645b6e0949ecf60af8ae4b569648d1a77019be8c9579f031cc540d9292255427
+raw:
+  avis: Sunnmørsposten
+  dato: 1947-05-27
+  side: "1"
+  tittel: Sunnmørsposten 1947-05-27 s. 1
+  kamp: aalesunds-fk - freidig 0-1
+  url: https://www.nb.no/items/09ea0074947dcf87a3989d629c6a3d1b?page=1
+normalized:
+  date: 1947-05-26
+  home.clubId: aalesunds-fk
+  away.clubId: freidig
+  home.score: 0
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []
