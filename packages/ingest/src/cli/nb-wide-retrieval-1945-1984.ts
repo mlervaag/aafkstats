@@ -417,8 +417,10 @@ export async function runWideRetrieval() {
         const leadRef = curHyp.sourceResults[0];
         const sourceIdStr = leadRef?.sourceId ?? "unknown";
         const noStr = leadRef ? String(leadRef.no).padStart(3, "0") : "001";
+        const itemShort = p.itemId.replace(/[^a-z0-9]/gi, "").slice(0, 8).toLowerCase();
+        const pageStr = String(p.page || "1").replace(/[^a-z0-9]/gi, "").toLowerCase();
         return {
-          candidateId: `nb-cand-${sourceIdStr}-${curHyp.season}-${noStr}-rank${idx + 1}`,
+          candidateId: `nb-cand-${sourceIdStr}-${curHyp.season}-${noStr}-${itemShort}-p${pageStr}`,
           rank: idx + 1,
           newspaper: {
             title: "Sunnmørsposten",
