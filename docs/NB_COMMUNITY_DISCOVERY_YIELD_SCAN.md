@@ -11,7 +11,7 @@ Denne rapporten dokumenterer en total kartlegging og analyse av hele den histori
 Discovery-motoren brukes her som:
 1. Rangeringsmotor og kandidatgenerator
 2. Verktøy for automatiske/AI-sikre funn
-3. Produsent av en maskinlesbar produksjonskø for neste steg i community-verifiseringen (`/mangler`).
+3. Produsent av en maskinlesbar produksjonskø (`nb-newspaper-community-candidates@1`) for neste steg i community-verifiseringen (`/mangler`).
 
 ---
 
@@ -78,8 +78,8 @@ Discovery ble kjørt for alle **294** automatiske singletons mot Nasjonalbibliot
 | **1975–1984** | 6 | 1 | 0 | 5 | 0 | 0 | **6** | 0 | 0 | 100.0 % | 0.050 | 120 |
 | **TOTALT** | **294** | **2** | **69** | **172** | **4** | **47** | **247** | **1** | **47** | **84.0 %** | **0.051** | **4 875** |
 
-### Hovedmetrikker:
-1. **Community Review Yield:** **84.0 %** (247 av 294 hypoteser har en konkret avisside som kan legges frem for menneskelig kontroll).
+### Hovedmetrikker og presisering:
+1. **Maskinelt Community Review Yield:** **84.0 %** (247 av 294 hypoteser har en konkret avisside som oppfyller de tekniske kravene til en avgrenset community-oppgave). *Dette er en maskinell genereringsrate, ikke en empirisk garanti for at siden beviser kampen.*
 2. **Auto-Harvest Yield:** **0.3 %** (1 av 294 tilfredsstilte de strenge kravene til umiddelbar AI-kanonisering uten manuell gjennomgang).
 3. **Request Efficiency:** **0.051** community-kandidater per NB API-forespørsel (gjennomsnittlig 19.7 HTTP-forespørsler per godkjent community-kandidat inkludert fulltekstberikelse og negative søkevarianter).
 
@@ -108,13 +108,13 @@ Et representativt utvalg på 16 kandidater på tvers av perioder, statuser og pr
 | `1959 #18 Volda (5-2)` | 1955–1964 | Sunnmørsposten 03.08.1959 s. 2 | `probable` | «Herd nedsablet redusert Volda-lag 10-1...» (Herd vs Volda, ikke AaFK) | **False reviewable (Naborival)** | < 30 sek |
 | `1965 #23 Brage (7-1)` | 1965–1974 | Sunnmørsposten 26.04.1965 s. 3 | `ambiguous` | «...seriemesteren står rede til å møte trøndervinneren (Brage?)...» | **Inconclusive (Spekulasjon)** | < 30 sek |
 
-### Resultater av stikkprøven:
-* **True Reviewable (klart JA eller NEI/merknad):** **62.5 %** (10 av 16)
-  * Direkte bekreftelse av kamp og dato: 37.5 % (6 av 16)
-  * Klart avvisende svar (avlyst, rekruttlag, kombinert lag, kildedivergens): 25.0 % (4 av 16)
+### Empirisk fordeling i stikkprøven:
+* **Faktisk avgjørbar (tydelig JA eller NEI):** **62.5 %** (10 av 16)
+  * Direkte bekreftelse av kamp og dato: **37.5 %** (6 av 16)
+  * Klart avvisende svar (avlyst kamp, rekruttlag, kombinert lag, kildedivergens): **25.0 %** (4 av 16)
 * **False Reviewable / Støy (resultatbørs / uavhengig tekst på samme side):** **25.0 %** (4 av 16)
 * **Inconclusive (forhåndsspekulasjon / trekning):** **12.5 %** (2 av 16)
-* **Gjennomsnittlig tidsbruk for et menneske:** **30–45 sekunder per sak**.
+* **Gjennomsnittlig tidsbruk for et menneske:** **30–45 sekunder per oppgave**.
 
 ---
 
@@ -140,62 +140,57 @@ Analysen viser en markant forskjell mellom periodene før og etter 1945:
 
 ---
 
-## 8. Maskinlesbar eksport og produksjonskø
+## 8. Kontrakt og produksjonskø (`nb-newspaper-community-candidates@1`)
 
-Kandidatgrunnlaget er eksportert som maskinlesbar YAML i:
+Kandidatgrunnlaget er transformert og validert mot den formelle kontrakten i:
 * `data/discovery/community-candidate-queue.yaml`
 
-Formatet er strukturert i henhold til spesifikasjonen for PR #192:
+Formatet oppfyller nøyaktig `nb-newspaper-community-candidates@1`:
 ```yaml
-id: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-015
-period: "1955-1964"
-sourceResult:
-  sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
-  file: data/source-results/medlemsblad-for-aalesunds-fotb-1965-a2c9.yaml
-  season: 1955
-  no: 15
-hypothesis:
-  id: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-15
-  opponent: Clausenengen
-  opponentClubId: clausenengen
-  expectedScore: [2, 1]
-  competitionHint: 1. divisjon
-newspaperCandidate:
-  providerId: nasjonalbiblioteket
-  issueId: 0afbec77a99ee59b4c9be1c4104cc87a
-  publication: Sunnmørsposten
-  issueDate: "19550919"
-  page: "2"
-  url: https://www.nb.no/items/0afbec77a99ee59b4c9be1c4104cc87a?page=2
-discovery:
-  status: confirmed
-  proposedDate:
-    value: "1955-09-18"
-    confidence: high
-  scoreCheck: confirmed
-  evidenceScore: 92
-  reasons:
-    - "motstander: Clausenengen"
-    - "AaFK-navn: ÅFK"
-    - "motstander og AaFK i samme avsnitt"
-    - "resultat: 2-1"
-review:
-  category: auto_review_candidate
-  communityReviewable: true
-  priority: high
-  reasons:
-    - "Høy prioritet: scoresamsvar, kampomtale/tidsuttrykk og konkret side"
-    - "Klassifisert som auto_review_candidate: pipeline confirmed med dato og side"
+contract: nb-newspaper-community-candidates@1
+candidates:
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-015
+    communityReviewable: true
+    visibility: community_reviewable
+    publication:
+      status: open
+      approvedAt: "2026-08-21"
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1955
+      no: 15
+      opponent: Clausenengen
+      expectedScore:
+        aafk: 2
+        opponent: 1
+      competition: 1. divisjon
+    hypothesis:
+      id: medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-15
+      discoveryStatus: confirmed
+      matchDate: "1955-09-18"
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: "1955-09-19"
+      page: "2"
+      pageUrl: https://www.nb.no/items/0afbec77a99ee59b4c9be1c4104cc87a?page=2
 ```
 
-### Nøkkeltall for den genererte køen:
-* **Totalt antall kandidater eksportert:** **294**
-* **Kandidater klare for community-kø (`community_reviewable`):** **247**
-  * Høy prioritet: **70**
-  * Middels prioritet: **57**
-  * Lav prioritet: **120**
-* **Auto-review kandidater:** **1**
-* **Discovery-only (forkastet/støy/mangler side):** **47**
+### Nøkkeltall for produksjonskøen:
+* **Totalt antall kandidater i manifestet:** **294**
+* **Kandidater med `visibility: community_reviewable`:** **247**
+  * **Første godkjente åpne pulje (`status: open`):** **50** (de beste high-priority kandidatene fra 1945–1964)
+  * **Kandidater i utkast (`status: draft`):** **197**
+* **Kandidater med `visibility: discovery_only`:** **47**
+
+### Integrasjonstest mot verifiseringsgeneratoren:
+Når `generateNewspaperVerificationCases(manifest, existingCases)` kjøres mot produksjonskøen:
+* **Genererte verifiseringssaker:** **247**
+  * Åpne saker klare for publisering under `/mangler`: **50**
+  * Utkastsaker: **197**
+* **Skippede kandidater:** **47** (alle med årsak `not_reviewable` fordi de har `visibility: discovery_only`)
+* **Dedupliserte / duplikater:** **0**
+* **Overskriving av eksisterende manuelle saker:** **0** (ingen konflikter med eksisterende 25 pilotsaker)
+* **Lagring av OCR/fulltekst:** **0** (kun metadata og permalenker)
 
 ---
 
@@ -209,7 +204,7 @@ review:
    * *Håndtering i community-kø:* Filtrering på `scoreNonSenior` tar bort opplagte tilfeller; resterende avklares raskt som NEI av frivillige.
 3. **Resultatbørser med mange lagpar:**
    * Særlig i 1925–1934 gir landskamp- eller NM-runderesultater treff på bynavn.
-   * *Håndtering i community-kø:* Nedprioriteres til `priority: low`.
+   * *Håndtering i community-kø:* Nedprioriteres til `priority: low` og holdes i draft.
 
 ---
 
@@ -218,8 +213,7 @@ review:
 ### **Beslutning: `READY_FOR_COMMUNITY_QUEUE`**
 
 **Begrunnelse:**
-1. **Høy treffsikkerhet og lav tidsbruk:** 84 % av singletons gir en konkret side, og stikkprøven viser at over 60 % lar seg entydig avgjøre (JA eller NEI) på under 45 sekunder uten at brukeren behøver å søke i arkivet.
-2. **Klart prioritert kø:** De 70 høy-prioriterte sakene gir umiddelbar avkastning og kan rulles ut i puljer.
-3. **Anbefalt startområde:** Produksjonsbølge 1 bør starte med **1945–1964** (127 kandidater, hvorav 55 har høy/middels prioritet).
+1. **Høy maskinell avgrensing:** 247 kandidater er avgrenset til én konkret side hos Nasjonalbiblioteket.
+2. **Kontrollert første pulje:** De 50 beste kandidatene fra 1945–1964 er satt som `open` med `approvedAt: 2026-08-21`, mens resten (197) holdes som `draft`.
+3. **Full kontrakt- og schemakompatibilitet:** Manifestet validerer 100 % mot `nb-newspaper-community-candidates@1` og generatoren fra PR #191.
 4. **Ingen lagring av opphavsrettsbeskyttet fulltekst:** Eksporten inneholder kun metadata og permanente lenker i tråd med arkivets opphavsrettspolicy.
-5. **Klar for konsum i PR #192:** Datagrunnlaget er ferdig serialisert i `data/discovery/community-candidate-queue.yaml`.

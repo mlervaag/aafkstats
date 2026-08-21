@@ -1,6 +1,7 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
+import { parse } from "yaml";
 import { generateNewspaperVerificationCases } from "../src/newspaper-verification-candidates.js";
 
 const manifest = JSON.parse(readFileSync(resolve(import.meta.dirname, "fixtures/newspaper-community-candidates.json"), "utf8")) as unknown;
@@ -28,4 +29,17 @@ describe("generator for avisverifisering", () => {
     const protectedResult = generateNewspaperVerificationCases(manifest, [generated.cases[0]!]);
     expect(protectedResult.skipped.some((item) => item.reason === "manual_case_exists")).toBe(true);
   });
+
+  it("parser og genererer saker for den faktiske produksjonskøen", () => {
+    const queueFile = resolve(import.meta.dirname, "../../../data/discovery/community-candidate-queue.yaml");
+    if (!existsSync(queueFile)) return;
+    const raw = parse(readFileSync(queueFile, "utf8")) as unknown;
+    const generation = generateNewspaperVerificationCases(raw);
+    expect(generation.cases).toHaveLength(247);
+    expect(generation.cases.filter((item) => item.status === "open")).toHaveLength(50);
+    expect(generation.cases.filter((item) => item.status === "draft")).toHaveLength(197);
+    expect(generation.skipped).toHaveLength(47);
+    expect(generation.skipped.every((item) => item.reason === "not_reviewable")).toBe(true);
+  });
 });
+
