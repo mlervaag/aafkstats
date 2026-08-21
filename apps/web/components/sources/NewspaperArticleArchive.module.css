@@ -1,0 +1,129 @@
+.section {
+  margin: 0 0 3.75rem;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  background:
+    linear-gradient(125deg, color-mix(in srgb, var(--accent) 8%, transparent), transparent 58%),
+    var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.heading p {
+  margin: 0 0 0.35rem;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.heading h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+}
+
+.heading > span {
+  flex: 0 0 auto;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.lede {
+  max-width: 48rem;
+  margin: 0.8rem 0 1.5rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.decades {
+  border-top: 1px solid var(--border);
+}
+
+.decades details {
+  border-bottom: 1px solid var(--border);
+}
+
+.decades summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  cursor: pointer;
+}
+
+.decades summary::marker {
+  color: var(--accent);
+}
+
+.decades summary span {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.decades ol {
+  margin: 0;
+  padding: 0 0 0.35rem;
+  list-style: none;
+}
+
+.decades li {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr) auto;
+  gap: 0.85rem 1rem;
+  align-items: start;
+  padding: 0.85rem 0;
+  border-top: 1px solid color-mix(in srgb, var(--border) 65%, transparent);
+}
+
+.decades time {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.decades li > div {
+  display: grid;
+  gap: 0.28rem;
+  min-width: 0;
+}
+
+.decades li strong {
+  line-height: 1.35;
+}
+
+.decades li > div a {
+  width: fit-content;
+  color: var(--muted);
+  font-size: 0.82rem;
+  text-underline-offset: 0.2em;
+}
+
+.facsimile {
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+  text-underline-offset: 0.2em;
+}
+
+@media (max-width: 680px) {
+  .heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .decades li {
+    grid-template-columns: 1fr auto;
+  }
+
+  .decades time {
+    grid-column: 1 / -1;
+  }
+}

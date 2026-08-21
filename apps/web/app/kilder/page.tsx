@@ -4,11 +4,13 @@ import { JsonLd } from "@/components/JsonLd";
 import { collectionJsonLd } from "@/lib/jsonld";
 import { SourceListClient, type HistoricalSourceData } from "@/components/sources/SourceListClient";
 import { ContributionCallToAction } from "@/components/ContributionCallToAction";
+import { NewspaperArticleArchive } from "@/components/sources/NewspaperArticleArchive";
+import { getSunnmorspostenArticles } from "@/lib/newspaper-articles";
 import { getSources } from "@/lib/sources";
 
 export const metadata: Metadata = pageMetadata(
   "Historisk kildearkiv",
-  "Bøker, medlemsblad, jubileumsskrift, årsmeldinger og andre kilder til AaFKs historie.",
+  "Bøker, medlemsblad, årsmeldinger og Sunnmørsposten-artikler knyttet til AaFK-kamper.",
   "/kilder",
   "website",
 );
@@ -31,13 +33,14 @@ export default function ArkivetPage() {
     cover_url: source.cover_url,
     access_url: source.access_url,
   }));
+  const newspaperArticles = getSunnmorspostenArticles();
 
   return (
     <>
       <JsonLd
         data={collectionJsonLd({
           name: "Historisk kildearkiv om Aalesunds Fotballklubb",
-          description: "Bøker, medlemsblad, jubileumsskrift, årsmeldinger og andre kilder til AaFKs historie.",
+          description: "Bøker, medlemsblad, årsmeldinger og Sunnmørsposten-artikler knyttet til AaFK-kamper.",
           path: "/kilder",
           size: sources.length,
         })}
@@ -45,14 +48,18 @@ export default function ArkivetPage() {
       {/* Kildesidene kom til senere og hadde sine egne klassenavn for det samme.
           Nå er innledningen den samme som på sesonger, motstandere og datasettet. */}
       <header className="page-intro">
-        <p className="eyebrow">{sources.length} registrerte kilder</p>
+        <p className="eyebrow">
+          {sources.length} registrerte kilder · {newspaperArticles.length} avisartikler
+        </p>
         <h1>Historisk kildearkiv</h1>
         <p className="lede">
-          Bøker, medlemsblad, jubileumsskrift, årsmeldinger og andre kilder til AaFKs historie.
-          Dette er dokumentene om klubben, ikke datakildene bak kamptallene. De står{" "}
-          <a href="/om">på om-siden</a>.
+          Bøker, medlemsblad, jubileumsskrift og årsmeldinger om AaFKs historie –
+          sammen med avissider som er koblet direkte til konkrete kamper. Datakildene
+          bak kamptallene står <a href="/om">på om-siden</a>.
         </p>
       </header>
+
+      <NewspaperArticleArchive articles={newspaperArticles} />
 
       <SourceListClient sources={sources} />
 

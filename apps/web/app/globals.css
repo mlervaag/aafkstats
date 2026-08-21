@@ -1195,7 +1195,7 @@ a.card-fragment:hover .card-title { color: var(--text); }
 .match-date { grid-column: 1; grid-row: 1 / span 2; color: var(--muted); }
 .match-opponent { grid-column: 2; display: flex; align-items: center; gap: 0.55rem; min-width: 0; }
 .match-score { grid-column: 3; grid-row: 1 / span 2; justify-self: end; font-size: 1.1rem; }
-.match-meta { grid-column: 2; font-size: 0.78rem; }
+.match-meta { grid-column: 2; display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; font-size: 0.78rem; }
 
 .article-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(15rem, 0.65fr); gap: clamp(2rem, 6vw, 5rem); }
 .prose-stack { max-width: var(--measure); }

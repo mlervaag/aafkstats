@@ -13,7 +13,10 @@ import { matchDescription, matchTitle, pageMetadata } from "@/lib/metadata";
 import type { MatchMetaInput } from "@/lib/metadata";
 import { hasBeenPlayed, statusNote } from "@/lib/status";
 import { HistoricalObservations } from "@/components/HistoricalObservations";
+import { MatchNewspaperArticles } from "@/components/MatchNewspaperArticles";
+import { NewspaperArticleBadge } from "@/components/NewspaperArticleBadge";
 import { getMatchObservations } from "@/lib/historical-observations";
+import type { NewspaperReport } from "@/lib/newspaper-articles";
 import { getSourceTitles } from "@/lib/people";
 
 /**
@@ -96,6 +99,7 @@ interface MatchDetail {
   lineups: string | null;
   stats: string | null;
   providers: string;
+  external_reports: string;
   conflicts: string;
   sources: string;
   confidence: string;
@@ -133,7 +137,7 @@ function loadMatch(id: string): MatchDetail | undefined {
               m.home_ht_score, m.away_ht_score, m.home_et_score, m.away_et_score,
               m.home_pens, m.away_pens,
               m.venue_name, m.attendance, m.referee, m.note,
-              m.events, m.lineups, m.stats, m.providers, m.sources, m.conflicts, m.confidence
+              m.events, m.lineups, m.stats, m.external_reports, m.providers, m.sources, m.conflicts, m.confidence
        FROM core_matches m
        JOIN core_clubs h ON h.id = m.home_club_id
        JOIN core_clubs a ON a.id = m.away_club_id
@@ -266,6 +270,8 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
   const lineups = json<{ home?: Lineup; away?: Lineup }>(match.lineups, {});
   const stats = json<{ home?: TeamStats; away?: TeamStats }>(match.stats, {});
   const providers = json<ProviderRef[]>(match.providers, []);
+  const newspaperArticles = json<NewspaperReport[]>(match.external_reports, [])
+    .filter((report) => report.publisher === "Sunnmørsposten");
   const sources = json<SourceRef[]>(match.sources, []);
   const conflicts = json<ConflictRow[]>(match.conflicts, []);
 
@@ -399,6 +405,11 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
             <a href="#kildekonflikter">{conflictSummary(conflicts)}</a>
           </p>
         )}
+        {newspaperArticles.length > 0 ? (
+          <div style={{ marginTop: "0.9rem" }}>
+            <NewspaperArticleBadge count={newspaperArticles.length} href="#avisartikler" />
+          </div>
+        ) : null}
         <div style={{ marginTop: "1.5rem" }}>
           <ContributionButton 
             scope="match" 
@@ -414,6 +425,8 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
         {match.attendance !== null && <><dt>Tilskuere</dt><dd className="num">{match.attendance.toLocaleString("nb-NO")}</dd></>}
         {match.referee && <><dt>Dommer</dt><dd>{match.referee}</dd></>}
       </dl>
+
+      <MatchNewspaperArticles articles={newspaperArticles} />
 
       {/* Hendelser, oppstilling og statistikk finnes ikke før kampen er spilt.
           «Ingen hendelser registrert» under en kamp som er tre uker unna er ikke
