@@ -3,8 +3,8 @@
 **Dato:** 21. august 2026  
 **Scope:** Alle 247 community-reviewable kandidater i `data/discovery/community-candidate-queue.yaml`  
 **Gjennomføring:**
-- **Wave 1:** 50 kandidater med åpne rettigheter (`data/discovery/community-ai-review-wave-1.yaml`)
-- **Wave 2:** 197 resterende kandidater (`data/discovery/community-ai-review-wave-2.yaml`)
+- **Wave 1:** 50 kandidater med åpne rettigheter ([`data/discovery/community-ai-review-wave-1.yaml`](file:///c:/Users/Mlerv/OneDrive/Documents/aafkstats/aafkstats/data/discovery/community-ai-review-wave-1.yaml))
+- **Wave 2:** 197 resterende kandidater ([`data/discovery/community-ai-review-wave-2.yaml`](file:///c:/Users/Mlerv/OneDrive/Documents/aafkstats/aafkstats/data/discovery/community-ai-review-wave-2.yaml))
 
 ---
 
@@ -12,12 +12,16 @@
 
 Gjennom en 100 % heldekkende visuell og tekstlig AI-gjennomgang av samtlige 247 `visibility: community_reviewable`-kandidater fra Nasjonalbibliotek-aviser er statusen for hele singletons-populasjonen fastslått:
 
-- **Totalt antall kandidater vurdert:** 247
-- **Faktiske kamper bekreftet (YES):** 109 (44,1 %)
+- **Totalt antall kandidat-relasjoner vurdert:** 247
+- **Positive source-result/avis-relasjoner (YES):** 109 (44,1 %)
 - **Klart avvist støy / ikke-treff (NO):** 138 (55,9 %)
 - **Uavklarte tilfeller (INCONCLUSIVE):** 0 (0,0 %)
 - **Andel med høy konfidens:** 247 / 247 (100,0 %)
-- **Behov for manuell community-triage:** 0 (hele køen er ferdig triagert og avklart)
+- **Gjenværende behov for manuell community-triage:** 0 (hele kandidatkøen er ferdig triagert og avklart)
+
+> **Presisering om relasjoner vs. unike kamper:**  
+> De 109 `YES`-vurderingene representerer **109 positive source-result/avis-relasjoner**. Samme historiske kamp kan forekomme gjennom flere kilder (f.eks. både jubileumsbøker og klubbmedlemsblad).  
+> Etter deterministisk deduplisering og canonical-eligibility-kontroll utgjør disse **107 unike event-kandidater**, hvorav **100 er direkte klare uten avvik** og **7 krever avviksavklaring** (5 med kildeavvik på resultat og 2 med middels datopresisjon).
 
 ---
 
@@ -25,12 +29,17 @@ Gjennom en 100 % heldekkende visuell og tekstlig AI-gjennomgang av samtlige 247 
 
 | Metrikk | Verdi | Kommentar |
 | :--- | :--- | :--- |
-| **Total populasjon** | 247 | Alle singletons med avisreferanse i kandidatkøen |
-| **Real Match Hit Rate** | **44,1 %** (109 / 247) | Faktisk påviste, spilte AaFK-kamper i avismaterialet |
-| **Clear Rejection Rate** | **55,9 %** (138 / 247) | Dokumentert støy (forhåndsomtaler, andre klubber, tabeller osv.) |
-| **Unresolved Rate** | **0,0 %** (0 / 247) | Ingen tilfeller trengte `inconclusive` |
-| **Exact Date Hit Rate** | **98,2 %** (107 / 109) | 107 kamper med eksakt bekreftet dato |
-| **Score Contradiction Rate** | **4,6 %** (5 / 109) | 5 kamper der kilden avvek fra avisens referat |
+| **Total populasjon vurdert** | 247 relasjoner | Alle singletons med avisreferanse i kandidatkøen |
+| **Positive relasjoner (YES)** | **109** (44,1 %) | Bekreftede treff mellom source-result og avisartikkel |
+| **Klart avvist støy (NO)** | **138** (55,9 %) | Dokumentert støy (forhåndsomtaler, andre klubber, tabeller osv.) |
+| **Uavklarte tilfeller (INCONCLUSIVE)** | **0** (0,0 %) | Ingen tilfeller trengte `inconclusive` |
+| **Unike event-kandidater etter dedupe** | **107** | Konservativ dedupe basert på dato, motstander, bane og score |
+| **Multi-source event-klynger** | **2 eventer** (4 relasjoner) | 1929 vs Djerv (2 relasjoner) og 1960 vs V.R.F. (2 relasjoner) |
+| **Treff i eksisterende kanoniske kamper** | **0** | Ingen av de 107 eventene finnes i `data/seasons/` fra før |
+| **Potensielt nye kanoniske kamper** | **107** | 100 direkte klare, 7 med blokkeringer / avvikshåndtering |
+| **Score-konflikter (avvik mot kilde)** | **5** (4,6 %) | Kilden oppga avvikende resultat ift. avisreferatet |
+| **Eksakt kampdato (High)** | **105 eventer** (98,1 %) | Nøyaktig kampdato bekreftet i avisreferat |
+| **Eksakt kampdato (Medium)** | **2 eventer** (1,9 %) | Dato utledet fra relativ tidsangivelse i avisen |
 
 ---
 
@@ -47,9 +56,10 @@ Gjennom en 100 % heldekkende visuell og tekstlig AI-gjennomgang av samtlige 247 
 | **1975–1984** | 6 | 4 | 2 | 0 | 6 | 0 | 66,7 % |
 | **Totalt** | **247** | **109** | **138** | **0** | **247** | **0** | **44,1 %** |
 
-### Observasjoner om Perioder
-1. **Førkrigstiden (1915–1944):** Lav treffprosent (0–20 %). Dette skyldes at eldre avissider ofte nevnte stedsnavn i utenrikstelegrammer, auksjonsannonser eller kretsturnstevner, samt at mange søketreff traff forhåndsomtaler før kampene ble spilt.
-2. **Etterkrigstiden og gullalderen for lokalavisdekning (1945–1984):** Høy treffprosent (53–68 %). Sunnmørsposten hadde fast mandagssport med fyldige kampreferater, nøyaktige lagoppstillinger, målscorere og publikumstall.
+### Viktig observasjon om retrieval-effektivitet per epoke
+- **1915–1924 (0 % hit rate):** Dagens søkestrategi traff primært telegrammer, kunngjøringer og kretsturnstevner, eller forhåndsomtaler før kampene.
+- **1925–1944 (~19 % hit rate):** Moderat treffsikkerhet; mange treff på forhåndsomtaler og resultatbørser for andre oppgjør.
+- **1945–1984 (53–68 % hit rate):** Svært høy treffsikkerhet drevet av fyldige mandagsreferater i Sunnmørsposten.
 
 ---
 
@@ -63,14 +73,35 @@ Gjennom en 100 % heldekkende visuell og tekstlig AI-gjennomgang av samtlige 247 
 | `conflict` | 4 | 2 | 2 | 0 | 50,0 % |
 | **Totalt** | **247** | **109** | **138** | **0** | **44,1 %** |
 
-> **Viktig metodisk innsikt:**  
-> Merk at `probable` (43,5 %) og `ambiguous` (43,6 %) har tilnærmet **identisk** empirisk treffprosent. Discovery-algoritmens heuristiske klassifisering skilte ikke reelle kamper fra støy i denne gruppen. Det var den **visuelle sideinspeksjonen** som avgjorde saken.
+> **Metodisk innsikt:**  
+> `probable` (43,5 %) og `ambiguous` (43,6 %) har tilnærmet **identisk** empirisk treffprosent. Discovery-algoritmens heuristiske klassifisering skilte ikke reelle kamper fra støy i denne gruppen. Det var den **visuelle sideinspeksjonen** som avgjorde sakene.
 
 ---
 
-## 5. Støyklasser og Avvisningsårsaker (NO-tilfeller, N=138)
+## 5. Dedupliserings- og Kanoniseringsanalyse (Dedupe & Canonical Eligibility)
 
-En kandidat kan ha flere støyflagg:
+### Multi-source event-klynger (2 unike eventer, 4 kandidater)
+1. **1929-09-01 vs Djerv (Bergen), NM 4. runde (sluttresultat 2–3):**
+   - `nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1929-020` (1939-jubileumsbok)
+   - `nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1929-020` (1965-medlemsblad)
+2. **1960-08-28 vs V.R.F., 1. divisjon (sluttresultat 4–1):**
+   - `nb-cand-sunnmore-fotballkrets-arsrapport-1960-1960-006` (Kretsens årsrapport)
+   - `nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1960-012` (1965-medlemsblad)
+
+### Blokkeringer og avvik som må avklares før kanonisering (7 eventer)
+1. **Score-konflikter mot opprinnelig kilde (5 eventer):**
+   - `1954-08-11 vs Rollon`: Kilde oppga 1–0, avisen dokumenterer 5–3.
+   - `1956-08-19 vs Braatt`: Kilde oppga 2–3, avisen dokumenterer 2–2.
+   - `1958-05-23 vs Rollon`: Kilde oppga 2–0, avisen dokumenterer 2–1.
+   - `1958-08-31 vs Dahle`: Kilde oppga 2–1, avisen dokumenterer 2–2.
+   - `1958-05-23 vs Herd`: Kilde oppga 5–4, avisen dokumenterer 2–1.
+2. **Datopresisjon middels (2 eventer):**
+   - `1948-04-18 vs Skarbøvik` (treningskamp med omtale i påfølgende ukes avis).
+   - `1950-08-20 vs Molde` (seriekamp med relativ tidsangivelse).
+
+---
+
+## 6. Støyklasser og Avvisningsårsaker (NO-tilfeller, N=138)
 
 | Støyflagg | Antall | Forklaring |
 | :--- | :---: | :--- |
@@ -86,30 +117,9 @@ En kandidat kan ha flere støyflagg:
 
 ---
 
-## 6. Nyoppdagede Fakta fra Bekreftede Kamper (YES-tilfeller, N=109)
+## 7. Separat Kontrollpass (Independent Second-Pass Agent Review)
 
-Gjennomgangen tilførte betydelig ny historisk kunnskap:
-
-- **Eksakt kampdato:**
-  - 107 kamper fikk eksakt bekreftet dato med høy konfidens.
-  - 2 kamper fikk dato med medium konfidens.
-- **Hjemme/Borte-status:**
-  - 71 kamper bekreftet på hjemmebane (Aksla stadion, Nørve, Kråmyra).
-  - 37 kamper bekreftet på bortebane (Kristiansund, Molde, Stavanger, Ulsteinvik, osv.).
-  - 1 kamp på nøytral bane.
-- **Turneringstype bekreftet:**
-  - NM (Norgesmesterskapet): 26 kamper
-  - 1. divisjon / Hovedserien / Landsdelsserien: 42 kamper
-  - 2. divisjon / 3. divisjon: 24 kamper
-  - Privatkamper og bykamper: 17 kamper
-- **Score-avvik identifisert (5 kamper):**
-  - F.eks. 1958 #2 vs Rollon: kilden oppga 2-0, avisreferatet dokumenterer 2-1.
-
----
-
-## 7. Separat Kontrollpass (Independent Second-Pass Review)
-
-For å sikre maksimal metodisk pålitelighet ble det gjennomført et separat, uavhengig kontrollpass av et stratifisert utvalg på **28 kandidater** fra Wave 2:
+For å sikre metodisk konsistens ble det gjennomført et separat, uavhengig kontrollpass av et stratifisert utvalg på **28 kandidater** fra Wave 2:
 
 - **Utvalg:**
   - 14 `YES`-kandidater
@@ -118,33 +128,29 @@ For å sikre maksimal metodisk pålitelighet ble det gjennomført et separat, ua
 - **Resultat:**
   - **Overensstemmelse (Agreement):** 28 / 28 (**100,0 %**)
   - Ingen falske positive med høy konfidens.
-  - Ingen uoverensstemmelser mellom første og andre pass.
+  - Ingen uoverensstemmelser mellom første og andre kontrollpass.
 
 ---
 
-## 8. Betydning for Sibling-hypoteser (~777 kandidater)
+## 8. Strategisk Beslutningsport
 
-Erfaringene fra singletons-gjennomgangen gir klare føringer for de ca. 777 sibling-kandidatene:
-1. **Dato-anker eliminerer `preview` og `other_pair`:** Fordi siblings ofte har flere avis- eller kildeindikasjoner på samme dato, kan forhåndsomtaler og tilfeldige andre kamper filtreres bort mer effektivt.
-2. **Kandidater etter 1945 har svært høy signalkvalitet:** I perioden 1945–1984 er over 60 % av kandidatene ekte kamper. Automatisk visuell ekstraksjon kan rulles ut i full bredde for denne perioden.
+### Valgt beslutning:
+> **`READY_FOR_SOURCE_RESULT_WIDE_VISUAL_PIPELINE` (med periodetilpasset retrieval)**
 
----
-
-## 9. Strategisk Beslutningsport
-
-### Valgt opsjon:
-> **`A: READY_FOR_SOURCE_RESULT_WIDE_VISUAL_PIPELINE`**
-
-### Begrunnelse:
-1. AI-gjennomgangen av alle 247 kandidater er fullført med 100 % konfidens og 0 % uavklarte tilfeller.
-2. 109 faktiske kamper med fullstendige referater, datoer, arenaer og turneringer er nå klare for kanonisk innrulling via standard historisk innhøstingsflyt.
-3. Systemet har demonstrert robusthet og presisjon på tvers av samtlige tidsaldre fra 1915 til 1984.
-4. Neste logiske steg er å etablere den bredere visuelle innhøstingspipelinen for source-results og søskenhypoteser.
+### Begrunnelse og strategi:
+1. **Visuell AI fungerer optimalt:** Når avissiden først foreligger, er den visuelle AI-evalueringen presis og robust (100 % konfidens og 0 % uavklarte saker).
+2. **Periodetilpasset retrieval:**
+   - **For perioden 1945–1984 (53–68 % hit rate):** Dagens retrieval-metode fungerer svært godt og kan rulles ut i full bredde for søskenhypoteser og source-results.
+   - **For perioden før 1945 (0–19 % hit rate):** Retrieval må forbedres med fokus på bedre recall:
+     - Hente flere kandidatsider per hypotese (Top-N i stedet for kun Top-1).
+     - Bredere tidsvinduer rundt antatt kampdato.
+     - Automatisk oppfølging av avisutgaven uken etter ved treff på forhåndsomtaler (`preview`).
+     - Bruke visuell AI som en billig resolver over et bredere kandidatsett.
 
 ---
 
-## 10. Videre Tiltaksplan
+## 9. Videre Tiltaksplan
 
-1. **Arkivering av review-manifestene:** Beholde `data/discovery/community-ai-review-wave-1.yaml` og `data/discovery/community-ai-review-wave-2.yaml` som permanente referanse- og triage-dokumenter.
-2. **Kanonisering i neste PR:** Opprette egne PR-er for kanonisering av de 109 bekreftede kampene til `data/matches/` med korrekte kildereferanser.
-3. **Oppdatering av discovery-filtere:** Ta i bruk støyflaggene (`other_pair`, `preview`, `result_board`) for å forbedre forkasting av falske treff i fremtidige batcher.
+1. **Arkivering av review-manifestene:** Beholde [`data/discovery/community-ai-review-wave-1.yaml`](file:///c:/Users/Mlerv/OneDrive/Documents/aafkstats/aafkstats/data/discovery/community-ai-review-wave-1.yaml) og [`data/discovery/community-ai-review-wave-2.yaml`](file:///c:/Users/Mlerv/OneDrive/Documents/aafkstats/aafkstats/data/discovery/community-ai-review-wave-2.yaml) som permanente triage-dokumenter.
+2. **Kanonisering i neste PR:** Opprette egne dedikerte PR-er for kanonisering av de 100 avklarte nye eventene til `data/seasons/*/matches/` med korrekte kildereferanser, og egne vurderingssaker for de 7 eventene med avvik.
+3. **Ingen endring av kanoniske kampdata i denne PR-en:** Denne PR-en begrenser seg strengt til review-manifestet og analysedokumentasjonen.
