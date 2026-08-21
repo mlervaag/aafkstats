@@ -109,6 +109,25 @@ export function reconcile(query: NewspaperQuery, evidence: NewspaperEvidence[]):
     });
   }
 
+  // En udatert scoreclaim og et datobevis fra en annen lokal claim er
+  // uallokerte, selv når klyngingen legger dem i samme hendelse.
+  // Å vise datoen som source-resultets kandidat ville gjenskape KFK-feilen fra
+  // 1953. Behold relasjonsfunnet, men abstainer både fra full status og dato.
+  const unboundScore = analyses.find((analysis) =>
+    analysis.scoreEvidence !== undefined && analysis.scoreEvidence.scoreEventBound !== true);
+  const hasUnallocatedDate = analyses.some((analysis) => analysis.inferredDate !== undefined);
+  if (unboundScore && hasUnallocatedDate && confirmedAnalyses.length === 0 && conflictAnalyses.length === 0) {
+    return buildResult({
+      status: "ambiguous",
+      chosen: unboundScore,
+      allAnalyses: analyses,
+      relevantEvidence: relevant,
+      sourceScore,
+      scoreCheck: "unknown",
+      suppressDate: true,
+    });
+  }
+
   // 1. Entydig bekreftet hendelse
   if (confirmedAnalyses.length === 1 && conflictAnalyses.length === 0) {
     const chosen = confirmedAnalyses[0]!;
@@ -309,7 +328,13 @@ function analyzeEvent(query: NewspaperQuery, event: NewspaperEvent): EventAnalys
   const hasStrongEvidence = strongest.score >= STRONG_SCORE || event.score >= STRONG_SCORE;
   const hasIdentifiedDate = inferredDate !== undefined && dateCheck !== "unknown";
 
-  const scoreCanUseEventDate = (scoreAgreement ?? conflictingScoreEvidence)?.scoreRetrospective !== true;
+  // Nærhet i utgivelsesdato eller lik motstander er ikke eventidentitet. En
+  // score kan bare bekrefte/konflikte med en eksakt dato når scoreclaimet selv
+  // bar tidsuttrykket som utledet akkurat den eventdatoen.
+  const scoreEvidenceForDecision = scoreAgreement ?? conflictingScoreEvidence;
+  const scoreCanUseEventDate = scoreEvidenceForDecision?.scoreRetrospective !== true &&
+    scoreEvidenceForDecision?.scoreEventBound === true &&
+    scoreEvidenceForDecision.temporal?.inferredMatchDate === inferredDate;
   const isCoherentConfirmed = hasStrongEvidence && hasIdentifiedDate && scoreCanUseEventDate && scoreAgreement !== undefined && !hasScoreContradiction && opponentFound;
   const isCoherentConflict = hasStrongEvidence && hasIdentifiedDate && scoreCanUseEventDate && scoreConflict !== undefined && scoreAgreement === undefined && !hasScoreContradiction && opponentFound;
   const isCoherentProbable = hasStrongEvidence && hasIdentifiedDate && opponentFound;

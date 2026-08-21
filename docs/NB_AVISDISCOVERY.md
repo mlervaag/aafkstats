@@ -193,8 +193,9 @@ Nå velges en vinner per rolle — beste kampidentitet, beste tidsbevis, beste
 resultatbevis — og hver rolle er et maksimum over en mengde som bare vokser.
 Berikelse kan løfte et felt, aldri fjerne det. Resultatrollen er likevel
 hendelsesbærende: finnes et resultat, kan en dato bare komplettere det fra den
-samme lokale påstanden eller fra et annet lagpar-vindu på samme avisside.
-Retrospektive resultater arver aldri dato på denne måten.
+samme lokale kampclaimen. Samme side og samme motstander er ikke
+eventidentitet. Retrospektive resultater arver aldri dato fra den aktuelle eller
+kommende kampen som omtales rundt dem.
 
 Rollene står likevel på egne bein: bare vinduer som selv navngir begge lagene
 kan bidra. Et resultat på side 8 og et tidsuttrykk på side 3 settes ikke sammen
@@ -204,6 +205,9 @@ oppfinner ikke koblinger.
 
 Faksimile-fasiten fra PR #186 og den etterfølgende rekalibreringen er dokumentert
 i [NB_AVISDISCOVERY_GROUND_TRUTH_RECALIBRATION.md](NB_AVISDISCOVERY_GROUND_TRUTH_RECALIBRATION.md).
+Sluttkalibreringen mot de 22 kontrollerte sakene fra PR #186 og #188 er
+dokumentert i
+[NB_AVISDISCOVERY_GROUND_TRUTH_FINAL_CALIBRATION.md](NB_AVISDISCOVERY_GROUND_TRUTH_FINAL_CALIBRATION.md).
 
 ## Målt status og akseptansekontroll
 

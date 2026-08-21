@@ -201,22 +201,15 @@ export function verifyNewspaperCandidate(query: SourceResultQuery, issue: Discov
 
   const temporal = bestWhere((evidence) => evidence.temporal !== undefined);
   const result = bestWhere((evidence) => evidence.scoreFound !== undefined);
-  const samePageTemporal = result?.page === undefined
-    ? undefined
-    : bestWhere((evidence) => evidence.temporal !== undefined && evidence.page === result.page);
-  // Et resultatvindu er selve hendelsespåstanden. Det kan bare kompletteres av
-  // et annet lagpar-vindu på samme side; resultatbørser og kampnotiser på andre
-  // sider kan beskrive forskjellige møter. Uten en slik lokal dato må
-  // resultatet forbli udaterbart.
+  // Et resultatvindu er selve hendelsespåstanden. Sideidentitet er ikke
+  // eventidentitet: samme side kan ha resultatbørser, previews og flere møter
+  // mot samme motstander. En score får derfor bare dato fra sitt eget claim.
   const base = { ...(result ?? strongest) };
   if (base.scoreRetrospective === true) delete base.temporal;
 
   return {
     ...base,
     // Rollene arves fra de vinduene som faktisk bar dem, med sidetallet sitt.
-    ...(result !== undefined && result.scoreRetrospective !== true && result.temporal === undefined && samePageTemporal?.temporal
-      ? { temporal: samePageTemporal.temporal, reasons: [...result.reasons, `tidsbevis fra samme side: «${samePageTemporal.temporal.phrase}»`] }
-      : {}),
     ...(result === undefined && strongest.temporal === undefined && temporal?.temporal
       ? { temporal: temporal.temporal, reasons: [...strongest.reasons, `tidsbevis fra s. ${temporal.page ?? "?"}: «${temporal.temporal.phrase}»`] }
       : {}),

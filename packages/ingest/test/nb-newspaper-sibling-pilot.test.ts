@@ -263,6 +263,7 @@ describe("NB Newspaper Sibling Pilot Manifest & Pure Evaluator", () => {
             sameFragment: true,
             opponentFound: true,
             scoreFound: [6, 1], // Avisen dokumenterer 6-1
+            scoreEventBound: true, // Score og dato står i samme eksplisitte kampclaim
             inferredDate: "1964-05-24",
             dateConfidence: "high",
             temporal: { inferredMatchDate: "1964-05-24", dateConfidence: "high" },
