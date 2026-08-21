@@ -263,6 +263,25 @@ export async function auditVisualReviewManifest(): Promise<{
       }
     }
 
+    // Collision Gates: applies to ALL visually reviewed exact event claims (ready or conflict)
+    const isExactEventClaim = (c.claimResolution === "exact_match" || c.claimResolution === "exact_sibling" || c.claimResolution === "same_event_score_conflict") && activeCand?.visuallyReviewed && obs && obs.matchDate?.value && obs.opponent?.clubId;
+
+    if (isExactEventClaim) {
+      const eventKey = `${c.season}|${obs.opponent.clubId}|${obs.matchDate.value}`;
+      if (claimedEventMap.has(eventKey)) {
+        errors.push(`Observed event collision detected: Case ${c.hypothesisId} and ${claimedEventMap.get(eventKey)} both claim historical event on ${eventKey}`);
+      } else {
+        claimedEventMap.set(eventKey, c.hypothesisId);
+      }
+
+      const pageKey = extractPhysicalPageKey(activeCand);
+      if (claimedPageMap.has(pageKey)) {
+        errors.push(`Physical page collision detected: Case ${c.hypothesisId} and ${claimedPageMap.get(pageKey)} both claim physical page ${pageKey}`);
+      } else {
+        claimedPageMap.set(pageKey, c.hypothesisId);
+      }
+    }
+
     if (c.canonicalEligibility === "ready") {
       canonicalReadyCount++;
 
@@ -323,22 +342,6 @@ export async function auditVisualReviewManifest(): Promise<{
       }
       if (obs.homeAwayResolution === "conflict") {
         errors.push(`Case ${c.hypothesisId} is marked ready despite homeAwayResolution being 'conflict'`);
-      }
-
-      // Check collision on observed event
-      const eventKey = `${c.season}|${obs.opponent.clubId}|${obs.matchDate.value}|${obs.homeAway}|${obs.competition.competitionId}`;
-      if (claimedEventMap.has(eventKey)) {
-        errors.push(`Event collision detected: Case ${c.hypothesisId} and ${claimedEventMap.get(eventKey)} both claim event ${eventKey} as ready`);
-      } else {
-        claimedEventMap.set(eventKey, c.hypothesisId);
-      }
-
-      // Check physical page collision
-      const pageKey = extractPhysicalPageKey(activeCand);
-      if (claimedPageMap.has(pageKey)) {
-        errors.push(`Physical page collision detected: Case ${c.hypothesisId} and ${claimedPageMap.get(pageKey)} both claim page ${pageKey} without pageObservedEvents`);
-      } else {
-        claimedPageMap.set(pageKey, c.hypothesisId);
       }
     }
 

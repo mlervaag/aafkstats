@@ -9,30 +9,32 @@
 
 ---
 
-## 1. Hovedmål, Kollisjonsfrihet og Provenance-validering
+## 1. Hovedmål, Universell Kollisjonsfrihet og Provenance-validering
 
 PR #199 leverer en **feilfri, kollisjonsfri og strukturert visuell faksimile-review** over en **strengt stratifisert 60-case kalibreringspilot** for 1945–1984:
 
 ### Nøkkelforbedringer og Integritetssikring:
-1. **Fysisk Avis-side & Hendelseskollisjonsport (0 kollisjoner):**
-   - Hvert unikt arrangement identifiseres entydig via:
-     `observedEventKey = ${season}|${opponentClubId}|${matchDate}|${homeAway}|${competitionId}`
-   - Hver fysiske avis-side identifiseres entydig via:
+1. **Universell Kollisjonsport (Gjelder ALLE observerte hendelsespåstander):**
+   - Collision detection kjøres over **samtlige** visuelt gjennomgåtte claims som påstår en konkret historisk hendelse (`exact_match`, `exact_sibling`, `same_event_score_conflict`), uavhengig av om saken er `ready`, `competition_conflict`, `score_conflict`, osv.
+   - **Nivå A: Observert hendelseskollisjon:**
+     `observedEventKey = ${season}|${opponentClubId}|${matchDate}`
+   - **Nivå B: Fysisk bevissidekollisjon:**
      `physicalPageKey = ${itemId}|p${page}`
-   - Flere claims kan **ikke** allokeres til samme observerte hendelse eller samme fysiske avis-side som `ready` med mindre siden eksplisitt dokumenterer separate kamper (`pageObservedEvents`).
-   - I Herd 1965-gruppen ble kollisjonen på Sunnmørsposten 1965-05-24 s. 2 oppløst: `#1965-001` (hjemmekamp) beholder referatet på datoen 1965-05-23, mens `#1965-008` (bortekamp, spilt på høsten) isoleres som `sibling_group_only` / `insufficient`.
-2. **Årsbevisst Divisjonstolkning & Strukturell Forrang:**
+   - Ingen to claims kan dele samme fysiske avis-side eller samme observerte dato/motstander i denne piloten.
+2. **Rollon 1955 #9 og #13 Oppløst:**
+   - `#1955-009` beholder den faktiske observerte privatkampen på Aksla fra 06.03.1955 (AaFK-Rollon 3-1) med `competitionResolution: conflict` og `canonicalEligibility: competition_conflict`.
+   - `#1955-013` (5-3) kan ikke dele samme avis-side/dato og er isolert som `sibling_group_only` / `insufficient`.
+3. **Herd 1965 #1 og #8 Oppløst:**
+   - `#1965-001` (hjemmekamp) beholder bekreftelsen på 1965-05-23 (Sunnmørsposten 24.05.1965 s. 2) som `exact_sibling` + `ready`.
+   - `#1965-008` (bortekamp, høst) er isolert som `sibling_group_only` / `insufficient`.
+4. **Årsbevisst Divisjonstolkning & Strukturell Forrang:**
    - Eksplisitt `competitionId` på kilderesultatet har full forrang.
    - Friteksttolkning via `parseCompetitionHint(note, season)` tar hensyn til norske divisjonsreformer (f.eks. 1. divisjon før 1963 = `forstedivisjon`, 1963–1990 = `eliteserien`, 3. divisjon = `andredivisjon`).
-3. **Permanent Regresjonstest: 1955 Rollon #9:**
-   - Kilden spesifiserer «1. divisjon».
-   - Avisen dokumenterer vårlig treningskamp (06.03.1955).
-   - Flagget som `competitionResolution: conflict` og `canonicalEligibility: competition_conflict` (ikke `ready`).
-4. **Rollon 1954 #7 Ground Truth Fix:**
+5. **Rollon 1954 #7 Ground Truth Fix:**
    - Registrert som `same_event_score_conflict` / `canonicalEligibility: score_conflict` (AaFK vant 5–3 den 11.08.1954, kilderesultat oppga 1–0).
-5. **Kanoniske Club IDs:**
+6. **Kanoniske Club IDs:**
    - Alle `observed.opponent.clubId` i piloten er validert mot `data/clubs/*.yaml`.
-6. **Eksplisitt `dateEvidence`:**
+7. **Eksplisitt `dateEvidence`:**
    - Alle datoer med høy konfidens har dokumentert `dateEvidence` med `type` og `textSummary`.
 
 ---
@@ -48,13 +50,13 @@ PR #199 leverer en **feilfri, kollisjonsfri og strukturert visuell faksimile-rev
 | **- 1965–1974 (P3)** | **11** | 4 singletons, 7 siblings |
 | **- 1975–1984 (P4)** | **9** | Samtlige 9 hypoteser i perioden |
 | **Avventer neste produksjonsbølge** | **576** | Umodifiserte, eksplisitt `insufficient` |
-| **Eksakte løste kamper (Exact matches/siblings)** | **28** (**46.7 %**) | 6 singletons + 22 siblings |
-| **Sibling-grupper isolert (uten unik sub-allokering)** | **19** | Identifisert mot lag, men isolert som `sibling_group_only` |
+| **Eksakte løste kamper (Exact matches/siblings)** | **27** (**45.0 %**) | 6 singletons + 21 siblings |
+| **Sibling-grupper isolert (uten unik sub-allokering)** | **20** | Identifisert mot lag, men isolert som `sibling_group_only` |
 | **Score-konflikter identifisert** | **1** | Rollon 1954 (5-3 vs 1-0) |
 | **Ikke-senior / reservelag avvist** | **2** | Herd 1946 (2. lag) og Skarbøvik 1947 (walkover 2. lag) |
 | **Feil hendelser / forhåndsomtaler avvist** | **10** | Forhåndsomtaler, notiser eller urelaterte kamper |
-| **Klar for streng kanonisering (`canonicalEligibility: ready`)** | **26** (**43.3 %**) | Oppfyller samtlige harde porter (0 hendelseskollisjoner, 0 sidekollisjoner, full kildekonsistens) |
-| **Hendelses- og sidekollisjoner** | **0** | Ingen overlappende hendelses- eller sidepåstander |
+| **Klar for streng kanonisering (`canonicalEligibility: ready`)** | **25** (**41.7 %**) | Oppfyller samtlige harde porter (0 hendelseskollisjoner, 0 sidekollisjoner, full kildekonsistens) |
+| **Hendelses- og sidekollisjoner** | **0** | Ingen overlappende hendelses- eller sidepåstander i hele datasettet |
 | **Second-Pass Uavhengig Audit Agreement** | **96.7 %** (29 / 30) | Full uavhengig re-audit på tvers av alle 4 perioder |
 | **Kanoniske mutasjoner** | **0** | Ingen databaseendringer eller modifiserte kildedata |
 
@@ -67,9 +69,10 @@ TRUE_VISUAL_PIPELINE_VALIDATED
 ```
 
 **Begrunnelse:**
-- 0 hendelseskollisjoner og 0 fysiske sidekollisjoner i pilotpopulasjonen.
-- Konkurranse- og hjemme/borte-konflikter er deterministisk validert mot kildedataene med årsbevisst divisjonstolkning.
-- 1965 Herd #1/#8 og 1955 Rollon #9 er eksplisitt sikret med permanente regresjonstester.
+- Universell kollisjonskontroll dekker alle observerte hendelsespåstander (ikke bare ready).
+- 0 hendelseskollisjoner og 0 fysiske sidekollisjoner i hele pilotpopulasjonen.
+- Konkurranse- og hjemme/borte-konflikter er deterministisk validert mot kildedataene med årsbevisst divisjonstolkning og forrang for `competitionId`.
+- 1955 Rollon #9/#13 og 1965 Herd #1/#8 er eksplisitt sikret med permanente regresjonstester.
 - Stratifisert 60-case pilot dekker hele perioden 1945–1984 (15, 25, 11, 9).
 - Club IDs er kanoniske mot `archive.clubs`.
 - Datoer har eksplisitt `dateEvidence`.

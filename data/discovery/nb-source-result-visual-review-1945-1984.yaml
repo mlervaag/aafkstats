@@ -10,9 +10,9 @@ pilotSelection:
     1965-1974: 11
     1975-1984: 9
   priority:
-    high: 29
+    high: 28
     medium: 18
-    low: 13
+    low: 14
   singleton: 13
   sibling: 47
   externalRegressionControls:
@@ -243,11 +243,11 @@ secondPassAudit:
       isSingleton: false
       candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-013-17ef7f34-p2
       firstPass:
-        claimResolution: exact_sibling
-        canonicalEligibility: ready
+        claimResolution: sibling_group_only
+        canonicalEligibility: insufficient
       secondPass:
-        claimResolution: exact_sibling
-        canonicalEligibility: ready
+        claimResolution: sibling_group_only
+        canonicalEligibility: insufficient
         visuallyReviewed: true
         notes: Uavhengig re-inspeksjon av faksimile bekrefter first-pass observasjon for
           Rollon (1955).
@@ -8039,41 +8039,14 @@ cases:
           page: "2"
           pageUrl: https://www.nb.no/items/17ef7f346c197c17bca60c500af144e9?page=2
         visuallyReviewed: true
-        observed:
-          aafkPresent: true
-          opponent:
-            name: Rollon
-            clubId: rollon
-            confidence: high
-          seniorAteam: true
-          score:
-            aafk: 5
-            opponent: 3
-            confidence: high
-          matchDate:
-            value: 1955-03-06
-            confidence: high
-          dateEvidence:
-            type: yesterday_reference
-            textSummary: "Sunnmørsposten 1955-03-07 s. 2: Referat fra møtet spilt 1955-03-06
-              entydig tilordnet kamp #13."
-          homeAway: home
-          competition:
-            value: 1. divisjon
-            competitionId: forstedivisjon
-            confidence: high
-          competitionResolution: agrees
-          homeAwayResolution: agrees
-          evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1955-03-07 s. 2: Kampreferat for AaFK mot
-          Rollon (5–3) spilt 1955-03-06."
-    claimResolution: exact_sibling
-    matchedSourceResult:
-      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
-      no: 13
-    canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-03-07 s. 2: Kampreferat for AaFK mot Rollon (5–3)
-      spilt 1955-03-06."
+        visualEvidenceSummary: "Sunnmørsposten 07.03.1955 s. 2: Dokumenterer sesongens
+          første seniorkamp spilt 06.03.1955 (3-1). 5-3-kampen var et annet møte
+          og kan ikke allokeres til denne siden/datoen."
+    claimResolution: sibling_group_only
+    canonicalEligibility: insufficient
+    notes: "Sunnmørsposten 07.03.1955 s. 2: Dokumenterer sesongens første seniorkamp
+      spilt 06.03.1955 (3-1). 5-3-kampen var et annet møte og kan ikke allokeres
+      til denne siden/datoen."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-036
     season: 1955
     isSingleton: false
@@ -8515,7 +8488,8 @@ cases:
             confidence: medium
           dateEvidence:
             type: yesterday_reference
-            textSummary: Kollisjon på fysisk avis-side med annet møte.
+            textSummary: Kollisjon på fysisk avis-side med
+              medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-004.
           homeAway: home
           competition:
             value: privatkamp
@@ -8805,7 +8779,8 @@ cases:
             confidence: medium
           dateEvidence:
             type: yesterday_reference
-            textSummary: Kollisjon på fysisk avis-side med annet møte.
+            textSummary: Kollisjon på fysisk avis-side med
+              medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-007.
           homeAway: away
           competition:
             value: 1. divisjon
@@ -8977,7 +8952,8 @@ cases:
             confidence: medium
           dateEvidence:
             type: yesterday_reference
-            textSummary: Kollisjon på fysisk avis-side med annet møte.
+            textSummary: Kollisjon på fysisk avis-side med
+              medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-008.
           homeAway: away
           competition:
             value: 1. divisjon
@@ -9056,7 +9032,8 @@ cases:
             confidence: medium
           dateEvidence:
             type: yesterday_reference
-            textSummary: Kollisjon på fysisk avis-side med annet møte.
+            textSummary: Kollisjon på fysisk avis-side med
+              medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-008.
           homeAway: home
           competition:
             value: 1. divisjon
@@ -9297,7 +9274,8 @@ cases:
             confidence: medium
           dateEvidence:
             type: yesterday_reference
-            textSummary: Kollisjon på fysisk avis-side med annet møte.
+            textSummary: Kollisjon på fysisk avis-side med
+              medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-025.
           homeAway: away
           competition:
             value: privatkamp
@@ -22600,7 +22578,8 @@ cases:
             confidence: medium
           dateEvidence:
             type: yesterday_reference
-            textSummary: Kollisjon på fysisk avis-side med annet møte.
+            textSummary: Kollisjon på fysisk avis-side med
+              medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-003.
           homeAway: away
           competition:
             value: 3. divisjon Møre
@@ -22736,7 +22715,8 @@ cases:
             confidence: medium
           dateEvidence:
             type: yesterday_reference
-            textSummary: Kollisjon på fysisk avis-side med annet møte.
+            textSummary: Kollisjon på fysisk avis-side med
+              medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-001.
           homeAway: away
           competition:
             value: 3. divisjon Møre

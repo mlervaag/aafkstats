@@ -59,29 +59,55 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
     }
   });
 
-  it("enforces Event and Physical Page Collision Gates: 0 duplicate events or physical pages among ready claims", async () => {
+  it("enforces Event and Physical Page Collision Gates across ALL visually reviewed event claims (ready or conflict)", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
     const manifest = parseYaml(manifestRaw, { schema: "core" });
 
-    const readyCases = manifest.cases.filter((c: any) => c.canonicalEligibility === "ready");
-    expect(readyCases.length).toBeGreaterThan(0);
+    const eventClaims = manifest.cases.filter((c: any) => {
+      const isExact = c.claimResolution === "exact_match" || c.claimResolution === "exact_sibling" || c.claimResolution === "same_event_score_conflict";
+      const cand = c.reviewedCandidates?.[0];
+      return isExact && cand?.visuallyReviewed && cand.observed?.matchDate?.value && cand.observed?.opponent?.clubId;
+    });
+    expect(eventClaims.length).toBeGreaterThan(0);
 
-    const eventSet = new Set<string>();
-    const pageSet = new Set<string>();
+    const eventSet = new Map<string, string>();
+    const pageSet = new Map<string, string>();
 
-    for (const c of readyCases) {
+    for (const c of eventClaims) {
       const activeCand = c.reviewedCandidates[0];
       const obs = activeCand.observed;
 
-      const eventKey = `${c.season}|${obs.opponent.clubId}|${obs.matchDate.value}|${obs.homeAway}|${obs.competition.competitionId}`;
-      expect(eventSet.has(eventKey)).toBe(false);
-      eventSet.add(eventKey);
+      const eventKey = `${c.season}|${obs.opponent.clubId}|${obs.matchDate.value}`;
+      expect(eventSet.has(eventKey), `Duplicate event claimed by ${c.hypothesisId} and ${eventSet.get(eventKey)} on ${eventKey}`).toBe(false);
+      eventSet.set(eventKey, c.hypothesisId);
 
       const pageKey = getPhysicalPageKey(activeCand);
-      expect(pageSet.has(pageKey)).toBe(false);
-      pageSet.add(pageKey);
+      expect(pageSet.has(pageKey), `Duplicate physical page claimed by ${c.hypothesisId} and ${pageSet.get(pageKey)} on ${pageKey}`).toBe(false);
+      pageSet.set(pageKey, c.hypothesisId);
     }
+  });
+
+  it("regression: Rollon 1955 #9 and #13 cannot both claim the same 1955-03-06 match on the same physical page with conflicting scores", async () => {
+    const root = repoRoot();
+    const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
+    const manifest = parseYaml(manifestRaw, { schema: "core" });
+
+    const rollon9 = manifest.cases.find((c: any) => c.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-009");
+    const rollon13 = manifest.cases.find((c: any) => c.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-013");
+
+    expect(rollon9).toBeDefined();
+    expect(rollon13).toBeDefined();
+
+    // #9 is the actual match from 1955-03-06 (3-1, competition conflict)
+    expect(rollon9.claimResolution).toBe("exact_sibling");
+    expect(rollon9.canonicalEligibility).toBe("competition_conflict");
+    expect(rollon9.reviewedCandidates[0].observed.score.aafk).toBe(3);
+    expect(rollon9.reviewedCandidates[0].observed.score.opponent).toBe(1);
+
+    // #13 must not collide on the same date/page
+    expect(rollon13.claimResolution).toBe("sibling_group_only");
+    expect(rollon13.canonicalEligibility).toBe("insufficient");
   });
 
   it("regression: Herd 1965 #1 and #8 cannot both claim the 1965-05-23 newspaper page as ready", async () => {
