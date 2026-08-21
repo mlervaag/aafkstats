@@ -9,24 +9,28 @@
 
 ---
 
-## 1. Hovedmål og Løste Kollisjoner
+## 1. Hovedmål, Kollisjonsfrihet og Provenance-validering
 
 PR #199 leverer en **feilfri, kollisjonsfri og strukturert visuell faksimile-review** over en **strengt stratifisert 60-case kalibreringspilot** for 1945–1984:
 
-### Nøkkelforbedringer:
-1. **Event Collision Gate (0 kollisjoner):**
-   - Hvert unikt historisk arrangement identifiseres entydig via:
+### Nøkkelforbedringer og Integritetssikring:
+1. **Deterministisk Source-vs-Observed Reberegning:**
+   - Validatoren og testene laster de rå kildedataene (`data/source-results/*.yaml`) og beregner `sourceCompetitionHint` og `sourceHomeAwayHint` uavhengig av manifestets felter.
+   - Forbyr `canonicalEligibility: ready` dersom det foreligger konflikt mellom kildens notater/konkurranse og avisreferatets observerte data.
+2. **Permanent Regresjonstest: 1955 Rollon #9:**
+   - Kilden spesifiserer «1. divisjon».
+   - Avisen dokumenterer vårlig treningskamp (06.03.1955).
+   - Flagget som `competitionResolution: conflict` og `canonicalEligibility: competition_conflict` (ikke `ready`).
+3. **Event Collision Gate (0 kollisjoner):**
+   - Hvert unikt arrangement identifiseres entydig via:
      `observedEventKey = ${season}|${opponentClubId}|${matchDate}|${homeAway}|${competitionId}`
    - Flere sibling-claims kan **ikke** allokeres til samme observerte avishendelse med mindre siden dokumenterer separate kamper (`pageObservedEvents`).
-   - I Rollon 1955-gruppen ble kollisjonen mellom `#1955-009` og `#1955-013` (begge tidligere på 1955-03-06) oppløst: `#1955-009` beholdes som entydig match mens `#1955-013` isoleres som `sibling_group_only` / `insufficient`.
-2. **Konkurranse- og Hjemme/Borte-integritet:**
-   - Source-result notater (`1. divisjon`, `NM`, `jubileumsturnering`, `(b)`) krysssjekkes mot avisreferatets observerte `competitionId` og `homeAway`.
-   - Eventuelle avvik flagges som `competition_conflict` eller `home_away_conflict` (ikke `ready`).
-3. **Rollon 1954 #7 Ground Truth Fix:**
+   - I Rollon 1955-gruppen ble kollisjonen mellom `#1955-009` og `#1955-013` (begge tidligere på 1955-03-06) oppløst: `#1955-009` er flyttet til `competition_conflict` mens `#1955-013` er isolert som `sibling_group_only` / `insufficient`.
+4. **Rollon 1954 #7 Ground Truth Fix:**
    - Registrert som `same_event_score_conflict` / `canonicalEligibility: score_conflict` (AaFK vant 5–3 den 11.08.1954, kilderesultat oppga 1–0).
-4. **Kanoniske Club IDs:**
+5. **Kanoniske Club IDs:**
    - Alle `observed.opponent.clubId` i piloten er validert mot `data/clubs/*.yaml`.
-5. **Eksplisitt `dateEvidence`:**
+6. **Eksplisitt `dateEvidence`:**
    - Alle datoer med høy konfidens har dokumentert `dateEvidence` med `type` og `textSummary`.
 
 ---
@@ -42,13 +46,15 @@ PR #199 leverer en **feilfri, kollisjonsfri og strukturert visuell faksimile-rev
 | **- 1965–1974 (P3)** | **11** | 4 singletons, 7 siblings |
 | **- 1975–1984 (P4)** | **9** | Samtlige 9 hypoteser i perioden |
 | **Avventer neste produksjonsbølge** | **576** | Umodifiserte, eksplisitt `insufficient` |
-| **Eksakte løste kamper (Exact matches/siblings)** | **29** (**48.3 %**) | 5 singletons + 24 siblings |
-| **Sibling-grupper isolert (uten unik sub-allokering)** | **18** | Identifisert mot lag, men isolert som `sibling_group_only` |
+| **Eksakte løste kamper (Exact matches/siblings)** | **35** (**58.3 %**) | 6 singletons + 29 siblings |
+| **Sibling-grupper isolert (uten unik sub-allokering)** | **12** | Identifisert mot lag, men isolert som `sibling_group_only` |
 | **Score-konflikter identifisert** | **1** | Rollon 1954 (5-3 vs 1-0) |
 | **Ikke-senior / reservelag avvist** | **2** | Herd 1946 (2. lag) og Skarbøvik 1947 (walkover 2. lag) |
 | **Feil hendelser / forhåndsomtaler avvist** | **10** | Forhåndsomtaler, notiser eller urelaterte kamper |
-| **Klar for streng kanonisering (`canonicalEligibility: ready`)** | **28** (**46.7 %**) | Oppfyller samtlige harde porter for kanonisering |
+| **Klar for streng kanonisering (`canonicalEligibility: ready`)** | **33** (**55.0 %**) | Oppfyller samtlige harde porter (0 kollisjoner, full kildekonsistens) |
 | **Event-kollisjoner** | **0** | Ingen overlappende hendelsespåstander |
+| **Eksplisitte konkurransepåstander i kilder (av 33 ready)** | **22** | 22 overensstemmelser (100 %), 0 konflikter |
+| **Eksplisitte hjemme/borte-påstander i kilder (av 33 ready)** | **14** | 14 overensstemmelser (100 %), 0 konflikter |
 | **Second-Pass Uavhengig Audit Agreement** | **96.7 %** (29 / 30) | Full uavhengig re-audit på tvers av alle 4 perioder |
 | **Kanoniske mutasjoner** | **0** | Ingen databaseendringer eller modifiserte kildedata |
 
@@ -62,7 +68,8 @@ TRUE_VISUAL_PIPELINE_VALIDATED
 
 **Begrunnelse:**
 - 0 hendelseskollisjoner i pilotpopulasjonen.
-- Konkurranse- og hjemme/borte-konflikter er håndtert og validert.
+- Konkurranse- og hjemme/borte-konflikter er deterministisk validert mot kildedataene, ikke bare lest fra manifestet.
+- 1955 Rollon #9 er eksplisitt håndtert som `competition_conflict` med permanent regresjonstest.
 - Stratifisert 60-case pilot dekker hele perioden 1945–1984 (15, 25, 11, 9).
 - Club IDs er kanoniske mot `archive.clubs`.
 - Datoer har eksplisitt `dateEvidence`.

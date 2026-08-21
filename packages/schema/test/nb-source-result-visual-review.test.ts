@@ -3,6 +3,7 @@ import { readFile, readdir } from "node:fs/promises";
 import { basename } from "node:path";
 import { parse as parseYaml } from "yaml";
 import { repoRoot, dataDir } from "../src/load.js";
+import { parseCompetitionHint, parseHomeAwayHint } from "../src/source-result.js";
 
 describe("NB Source-Result Visual Review (1945-1984)", () => {
   it("validates that visual review manifest adheres to contract nb-source-result-visual-review@1 and decision gate TRUE_VISUAL_PIPELINE_VALIDATED", async () => {
@@ -73,6 +74,84 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
     expect(cand.observed.score.opponent).toBe(3);
   });
 
+  it("regression: 1955 Rollon #9 source-result says 1. divisjon while observed is treningskamp -> competition conflict and never ready", async () => {
+    const root = repoRoot();
+    const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
+    const manifest = parseYaml(manifestRaw, { schema: "core" });
+
+    const case1955Rollon9 = manifest.cases.find((c: any) => c.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-009");
+    expect(case1955Rollon9).toBeDefined();
+
+    // Source result note specifies 1. divisjon
+    const medlemsbladRaw = await readFile(`${root}/data/source-results/medlemsblad-for-aalesunds-fotb-1965-a2c9.yaml`, "utf8");
+    const medlemsblad = parseYaml(medlemsbladRaw, { schema: "core" });
+    const s1955 = medlemsblad.seasons.find((s: any) => s.year === 1955);
+    const r9 = s1955.results.find((r: any) => r.no === 9);
+    expect(r9.note).toContain("1. divisjon");
+
+    const compHint = parseCompetitionHint(r9.note);
+    expect(compHint).toBe("forstedivisjon");
+
+    // Observed from newspaper is treningskamp/privatkamp
+    const cand = case1955Rollon9.reviewedCandidates[0];
+    expect(cand.observed.competition.competitionId).toBe("treningskamp");
+
+    // Must be flagged as conflict and NOT ready
+    expect(cand.observed.competitionResolution).toBe("conflict");
+    expect(case1955Rollon9.canonicalEligibility).toBe("competition_conflict");
+    expect(case1955Rollon9.canonicalEligibility).not.toBe("ready");
+  });
+
+  it("recomputes source-vs-observed consistency directly from raw source-result YAMLs and forbids ready on conflict", async () => {
+    const root = repoRoot();
+    const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
+    const manifest = parseYaml(manifestRaw, { schema: "core" });
+
+    // Load all source-results directly from filesystem
+    const srDir = `${dataDir()}/source-results`;
+    const srFiles = await readdir(srDir);
+    const rawSourceMap = new Map<string, any>();
+
+    for (const f of srFiles) {
+      if (!f.endsWith(".yaml") && !f.endsWith(".yml")) continue;
+      const content = await readFile(`${srDir}/${f}`, "utf8");
+      const parsed = parseYaml(content, { schema: "core" });
+      if (!parsed || !parsed.sourceId || !parsed.seasons) continue;
+      for (const season of parsed.seasons) {
+        for (const res of season.results || []) {
+          rawSourceMap.set(`${parsed.sourceId}#${season.year}-${res.no}`, res);
+        }
+      }
+    }
+
+    const readyCases = manifest.cases.filter((c: any) => c.canonicalEligibility === "ready");
+    expect(readyCases.length).toBeGreaterThan(0);
+
+    for (const c of readyCases) {
+      const msr = c.matchedSourceResult || c.sourceResults[0];
+      expect(msr).toBeDefined();
+
+      const rawSr = rawSourceMap.get(`${msr.sourceId}#${c.season}-${msr.no}`);
+      expect(rawSr).toBeDefined();
+
+      const sourceCompHint = parseCompetitionHint(rawSr.note) || (rawSr.competitionId === "nm" ? "nm" : null);
+      const sourceHaHint = parseHomeAwayHint(rawSr.note, rawSr.opponent);
+
+      const activeCand = c.reviewedCandidates[0];
+      const obs = activeCand.observed;
+
+      if (sourceCompHint) {
+        expect(obs.competition.competitionId).toBe(sourceCompHint);
+        expect(obs.competitionResolution).toBe("agrees");
+      }
+
+      if (sourceHaHint) {
+        expect(obs.homeAway).toBe(sourceHaHint);
+        expect(obs.homeAwayResolution).toBe("agrees");
+      }
+    }
+  });
+
   it("enforces canonical club IDs from archive.clubs for all ready records", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
@@ -113,20 +192,6 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
     }
   });
 
-  it("enforces Competition and Home/Away agreement for all ready records", async () => {
-    const root = repoRoot();
-    const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
-    const manifest = parseYaml(manifestRaw, { schema: "core" });
-
-    const readyCases = manifest.cases.filter((c: any) => c.canonicalEligibility === "ready");
-    for (const c of readyCases) {
-      const activeCand = c.reviewedCandidates[0];
-      const obs = activeCand.observed;
-      expect(obs.competitionResolution).not.toBe("conflict");
-      expect(obs.homeAwayResolution).not.toBe("conflict");
-    }
-  });
-
   it("verifies second-pass audit coverage across all 4 periods and checks adjudication propagation", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
@@ -146,7 +211,6 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
     expect(p3Count).toBeGreaterThan(0);
     expect(p4Count).toBeGreaterThan(0);
 
-    // Any disagreement must have adjudication
     for (const s of audit.cases) {
       if (!s.agreed) {
         expect(s.adjudication).toBeDefined();

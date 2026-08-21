@@ -246,3 +246,29 @@ export function findPossibleCanonicalMatchLinks(
   return links;
 }
 
+export function parseCompetitionHint(note?: string | null): string | null {
+  if (!note) return null;
+  const n = note.toLowerCase();
+  if (n.includes("1. div") || n.includes("1.div") || n.includes("landsdelsserie")) return "forstedivisjon";
+  if (n.includes("2. div") || n.includes("2.div") || n.includes("3. div") || n.includes("3.div")) return "andredivisjon";
+  if (n.includes("nm") || n.includes("n.m.") || n.includes("norgesmesterskap") || n.includes("cup")) return "nm";
+  if (n.includes("jubileum") || n.includes("pokal") || n.includes("privat") || n.includes("treningskamp")) return "treningskamp";
+  return null;
+}
+
+export function parseHomeAwayHint(note?: string | null, opponent?: string | null): "home" | "away" | null {
+  if (note) {
+    const n = note.toLowerCase();
+    if (n.includes("hjemmekamp") || n.includes("hjemme") || n.includes("(h)") || n.includes("på nørve") || n.includes("på aksla") || n.includes("i ålesund")) {
+      return "home";
+    }
+    if (n.includes("bortekamp") || n.includes("borte") || n.includes("(b)") || n.includes("i trondheim") || n.includes("i oslo") || n.includes("i fosnavåg") || n.includes("i mo i rana") || n.includes("på veblungsnes") || n.includes("på straumgjerde") || n.includes("på vigra")) {
+      return "away";
+    }
+  }
+  if (opponent && opponent.includes("*")) {
+    return "away";
+  }
+  return null;
+}
+

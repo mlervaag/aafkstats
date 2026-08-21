@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { parse as parseYaml } from "yaml";
 import { repoRoot, loadArchive } from "@aafkstats/schema/load";
+import { parseCompetitionHint, parseHomeAwayHint } from "@aafkstats/schema";
 
 export interface ReviewedCandidate {
   candidateId: string;
@@ -39,6 +40,8 @@ export interface ReviewedCandidate {
       competitionId: string | null;
       confidence: "high" | "medium" | "low";
     };
+    competitionResolution?: "agrees" | "conflict" | "source_unspecified" | "observed_uncertain";
+    homeAwayResolution?: "agrees" | "conflict" | "source_unspecified" | "observed_uncertain";
     evidenceType: "report" | "result_board" | "retrospective" | "preview" | "fixture" | "unrelated" | "other";
   };
   visualEvidenceSummary?: string;
@@ -56,6 +59,8 @@ export type ClaimResolution =
 export type CanonicalEligibility =
   | "ready"
   | "score_conflict"
+  | "competition_conflict"
+  | "home_away_conflict"
   | "date_uncertain"
   | "opponent_uncertain"
   | "home_away_uncertain"
@@ -148,6 +153,16 @@ export async function auditVisualReviewManifest(): Promise<{
   const archive = await loadArchive();
   const validClubIds = new Set(archive.clubs.map((c) => c.id));
 
+  // Build index over raw source results to audit notes deterministically
+  const rawSourceMap = new Map<string, any>();
+  for (const col of archive.sourceResults || []) {
+    for (const season of col.seasons || []) {
+      for (const res of season.results || []) {
+        rawSourceMap.set(`${col.sourceId}#${season.year}-${res.no}`, res);
+      }
+    }
+  }
+
   const validCandidateIds = new Set<string>();
   for (const h of candidatesData.hypotheses) {
     if (h.candidates) {
@@ -203,6 +218,40 @@ export async function auditVisualReviewManifest(): Promise<{
     else if (c.claimResolution === "different_event") wrongEventCount++;
     else insufficientCount++;
 
+    const activeCand = c.reviewedCandidates?.[0];
+    const obs = activeCand?.observed;
+
+    // Cross-check source-result competition and homeAway against observed
+    const msr = c.matchedSourceResult || c.sourceResults[0];
+    if (msr) {
+      const srKey = `${msr.sourceId}#${c.season}-${msr.no}`;
+      const rawSr = rawSourceMap.get(srKey);
+      const leadSr = c.sourceResults.find((sr) => sr.sourceId === msr.sourceId && sr.no === msr.no) || c.sourceResults[0];
+      const sourceNote = rawSr?.note;
+      const sourceOpponent = rawSr?.opponent || leadSr?.opponent;
+      const sourceCompId = rawSr?.competitionId || null;
+
+      const sourceCompHint = parseCompetitionHint(sourceNote) || (sourceCompId === "nm" ? "nm" : null);
+      const sourceHomeAwayHint = parseHomeAwayHint(sourceNote, sourceOpponent);
+
+      if (obs) {
+        if (sourceCompHint) {
+          const isCompMatch = sourceCompHint === obs.competition.competitionId;
+          const expectedCompRes = isCompMatch ? "agrees" : "conflict";
+          if (obs.competitionResolution !== expectedCompRes) {
+            errors.push(`Case ${c.hypothesisId} has competitionResolution '${obs.competitionResolution}', but source note specifies '${sourceCompHint}' vs observed '${obs.competition.competitionId}' (expected '${expectedCompRes}')`);
+          }
+        }
+        if (sourceHomeAwayHint) {
+          const isHaMatch = sourceHomeAwayHint === obs.homeAway;
+          const expectedHaRes = isHaMatch ? "agrees" : "conflict";
+          if (obs.homeAwayResolution !== expectedHaRes) {
+            errors.push(`Case ${c.hypothesisId} has homeAwayResolution '${obs.homeAwayResolution}', but source note/opponent specifies '${sourceHomeAwayHint}' vs observed '${obs.homeAway}' (expected '${expectedHaRes}')`);
+          }
+        }
+      }
+    }
+
     if (c.canonicalEligibility === "ready") {
       canonicalReadyCount++;
 
@@ -212,7 +261,6 @@ export async function auditVisualReviewManifest(): Promise<{
         continue;
       }
 
-      const activeCand = c.reviewedCandidates[0];
       if (!activeCand) {
         errors.push(`Case ${c.hypothesisId} is marked ready but active candidate is undefined`);
         continue;
@@ -220,12 +268,11 @@ export async function auditVisualReviewManifest(): Promise<{
       if (!activeCand.visuallyReviewed) {
         errors.push(`Case ${c.hypothesisId} is ready but candidate is not visuallyReviewed`);
       }
-      if (!activeCand.observed) {
+      if (!obs) {
         errors.push(`Case ${c.hypothesisId} is ready but lacks observed object`);
         continue;
       }
 
-      const obs = activeCand.observed;
       if (obs.seniorAteam !== true) {
         errors.push(`Case ${c.hypothesisId} is ready but seniorAteam is ${obs.seniorAteam}`);
       }
@@ -257,6 +304,14 @@ export async function auditVisualReviewManifest(): Promise<{
       }
       if (!activeCand.visualEvidenceSummary || activeCand.visualEvidenceSummary.length < 15) {
         errors.push(`Case ${c.hypothesisId} is ready but has inadequate visualEvidenceSummary`);
+      }
+
+      // Hard conflict gates for ready
+      if (obs.competitionResolution === "conflict") {
+        errors.push(`Case ${c.hypothesisId} is marked ready despite competitionResolution being 'conflict'`);
+      }
+      if (obs.homeAwayResolution === "conflict") {
+        errors.push(`Case ${c.hypothesisId} is marked ready despite homeAwayResolution being 'conflict'`);
       }
 
       // Check collision on observed event
