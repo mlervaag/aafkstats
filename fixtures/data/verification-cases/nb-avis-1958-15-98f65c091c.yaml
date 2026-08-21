@@ -1,0 +1,46 @@
+id: nb-avis-1958-15-98f65c091c
+status: draft
+category: match
+claim: Kilderesultatet oppgir AaFK–Braatt 1–1 i 1958.
+question: Dokumenterer denne avissiden AaFK–Braatt 1–1?
+context: Kontroller om avissiden beskriver akkurat denne kampen og sluttresultatet. Ikke bruk andre kampnotiser på samme side.
+whyItMatters: Svaret hjelper redaksjonen å vurdere en NB-kandidat, men endrer aldri kampdata automatisk.
+yesMeaning: Siden dokumenterer samme lagpar og sluttresultat.
+noMeaning: Siden dokumenterer en annen kamp eller et annet sluttresultat.
+inconclusiveMeaning: Siden kan ikke leses sikkert nok til å avgjøre påstanden.
+instructions:
+  - Åpne avissiden hos Nasjonalbiblioteket.
+  - Finn lagparet og sluttresultatet i samme kampomtale.
+  - Svar bare på spørsmålet over.
+target:
+  type: source
+  id: aafk-90-ar-1914-2004
+  field: results.15.matchIdentity
+sources:
+  - providerId: nasjonalbiblioteket
+    page: "8"
+    role: context
+    note: Sunnmørsposten 1958-06-02.
+estimatedMinutes: 3
+priority: 85
+newspaper:
+  candidateId: fixture-braatt-1958-15
+  communityReviewable: true
+  sourceResult:
+    sourceId: aafk-90-ar-1914-2004
+    year: 1958
+    no: 15
+    opponent: Braatt
+    expectedScore:
+      aafk: 1
+      opponent: 1
+    homeAway: home
+    competition: Serie
+  hypothesis:
+    id: fixture-braatt-1958
+    discoveryStatus: probable
+  newspaper:
+    title: Sunnmørsposten
+    issueDate: 1958-06-02
+    page: "8"
+    pageUrl: https://www.nb.no/items/fixture-braatt?page=7

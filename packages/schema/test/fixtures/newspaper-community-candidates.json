@@ -1,0 +1,86 @@
+{
+  "contract": "nb-newspaper-community-candidates@1",
+  "candidates": [
+    {
+      "candidateId": "fixture-ranheim-1946-15",
+      "communityReviewable": true,
+      "visibility": "community_reviewable",
+      "publication": { "status": "open", "approvedAt": "2026-08-21" },
+      "sourceResult": { "sourceId": "aafk-90-ar-1914-2004", "year": 1946, "no": 15, "opponent": "Ranheim", "expectedScore": { "aafk": 2, "opponent": 2 }, "homeAway": "neutral", "competition": "Turneringskamp" },
+      "hypothesis": { "id": "fixture-ranheim-1946", "discoveryStatus": "confirmed", "matchDate": "1946-06-15" },
+      "newspaper": { "title": "Sunnmørsposten", "issueDate": "1946-06-17", "page": "4", "pageUrl": "https://www.nb.no/items/fixture-ranheim?page=3" }
+    },
+    {
+      "candidateId": "fixture-eid-1952-4",
+      "communityReviewable": true,
+      "visibility": "community_reviewable",
+      "publication": { "status": "draft" },
+      "sourceResult": { "sourceId": "aafk-90-ar-1914-2004", "year": 1952, "no": 4, "opponent": "Eid", "expectedScore": { "aafk": 3, "opponent": 1 }, "homeAway": "home", "competition": "Serie" },
+      "hypothesis": { "id": "fixture-eid-1952", "discoveryStatus": "probable" },
+      "newspaper": { "title": "Sunnmørsposten", "issueDate": "1952-05-12", "page": "6", "pageUrl": "https://www.nb.no/items/fixture-eid?page=5" }
+    },
+    {
+      "candidateId": "fixture-kfk-1953-21",
+      "communityReviewable": true,
+      "visibility": "community_reviewable",
+      "publication": { "status": "draft" },
+      "sourceResult": { "sourceId": "aafk-90-ar-1914-2004", "year": 1953, "no": 21, "opponent": "KFK", "expectedScore": { "aafk": 1, "opponent": 3 }, "homeAway": "home", "competition": "Serie" },
+      "hypothesis": { "id": "fixture-kfk-1953", "discoveryStatus": "ambiguous" },
+      "newspaper": { "title": "Sunnmørsposten", "issueDate": "1953-09-07", "page": "5", "pageUrl": "https://www.nb.no/items/fixture-kfk?page=4" }
+    },
+    {
+      "candidateId": "fixture-herd-1955-35",
+      "communityReviewable": true,
+      "visibility": "community_reviewable",
+      "publication": { "status": "draft" },
+      "sourceResult": { "sourceId": "aafk-90-ar-1914-2004", "year": 1955, "no": 35, "opponent": "Herd", "expectedScore": { "aafk": 4, "opponent": 3 }, "homeAway": "unknown", "competition": "Ukjent" },
+      "hypothesis": { "id": "fixture-herd-1955", "discoveryStatus": "ambiguous" },
+      "newspaper": { "title": "Sunnmørsposten", "issueDate": "1955-10-03", "page": "7", "pageUrl": "https://www.nb.no/items/fixture-herd?page=6" }
+    },
+    {
+      "candidateId": "fixture-braatt-1958-15",
+      "communityReviewable": true,
+      "visibility": "community_reviewable",
+      "publication": { "status": "draft" },
+      "sourceResult": { "sourceId": "aafk-90-ar-1914-2004", "year": 1958, "no": 15, "opponent": "Braatt", "expectedScore": { "aafk": 1, "opponent": 1 }, "homeAway": "home", "competition": "Serie" },
+      "hypothesis": { "id": "fixture-braatt-1958", "discoveryStatus": "probable" },
+      "newspaper": { "title": "Sunnmørsposten", "issueDate": "1958-06-02", "page": "8", "pageUrl": "https://www.nb.no/items/fixture-braatt?page=7" }
+    },
+    {
+      "candidateId": "fixture-herd-1961-noise",
+      "communityReviewable": true,
+      "visibility": "community_reviewable",
+      "publication": { "status": "draft" },
+      "sourceResult": { "sourceId": "aafk-90-ar-1914-2004", "year": 1961, "no": 12, "opponent": "Herd", "expectedScore": { "aafk": 2, "opponent": 0 }, "homeAway": "away", "competition": "Serie" },
+      "hypothesis": { "id": "fixture-herd-1961", "discoveryStatus": "ambiguous" },
+      "newspaper": { "title": "Sunnmørsposten", "issueDate": "1961-05-29", "page": "9", "pageUrl": "https://www.nb.no/items/fixture-herd-1961?page=8" }
+    },
+    {
+      "candidateId": "fixture-sunnmoringen-1963-14",
+      "communityReviewable": true,
+      "visibility": "community_reviewable",
+      "publication": { "status": "draft" },
+      "sourceResult": { "sourceId": "aafk-90-ar-1914-2004", "year": 1963, "no": 14, "opponent": "Sunnmøringen", "expectedScore": { "aafk": 2, "opponent": 2 }, "homeAway": "neutral", "competition": "Privatkamp" },
+      "hypothesis": { "id": "fixture-sunnmoringen-1963", "discoveryStatus": "probable" },
+      "newspaper": { "title": "Sunnmørsposten", "issueDate": "1963-07-01", "page": "10", "pageUrl": "https://www.nb.no/items/fixture-sunnmoringen?page=9" }
+    },
+    {
+      "candidateId": "fixture-hodd-1963-18",
+      "communityReviewable": true,
+      "visibility": "community_reviewable",
+      "publication": { "status": "draft" },
+      "sourceResult": { "sourceId": "aafk-90-ar-1914-2004", "year": 1963, "no": 18, "opponent": "Hødd", "expectedScore": { "aafk": 2, "opponent": 5 }, "homeAway": "away", "competition": "NM 2. runde" },
+      "hypothesis": { "id": "fixture-hodd-1963", "discoveryStatus": "ambiguous" },
+      "newspaper": { "title": "Sunnmørsposten", "issueDate": "1963-06-24", "page": "12", "pageUrl": "https://www.nb.no/items/fixture-hodd?page=11" }
+    },
+    {
+      "candidateId": "fixture-hidden-discovery-only",
+      "communityReviewable": true,
+      "visibility": "discovery_only",
+      "publication": { "status": "open", "approvedAt": "2026-08-21" },
+      "sourceResult": { "sourceId": "aafk-90-ar-1914-2004", "year": 1964, "no": 1, "opponent": "Skjult", "expectedScore": { "aafk": 1, "opponent": 0 } },
+      "hypothesis": { "id": "fixture-hidden-1964", "discoveryStatus": "probable" },
+      "newspaper": { "title": "Sunnmørsposten", "issueDate": "1964-04-01", "page": "11", "pageUrl": "https://www.nb.no/items/fixture-hidden?page=10" }
+    }
+  ]
+}

@@ -28,6 +28,34 @@ const verificationSource = z
     }
   });
 
+export const newspaperVerification = z.object({
+  candidateId: slug,
+  communityReviewable: z.literal(true),
+  sourceResult: z.object({
+    sourceId: slug,
+    year: z.number().int().min(1900).max(2100),
+    no: z.number().int().positive(),
+    opponent: z.string().min(1).max(120),
+    expectedScore: z.object({
+      aafk: z.number().int().nonnegative(),
+      opponent: z.number().int().nonnegative(),
+    }).strict(),
+    homeAway: z.enum(["home", "away", "neutral", "unknown"]).optional(),
+    competition: z.string().min(1).max(120).optional(),
+  }).strict(),
+  hypothesis: z.object({
+    id: slug,
+    discoveryStatus: z.enum(["confirmed", "probable", "ambiguous", "conflict", "not_found"]),
+    matchDate: isoDate.optional(),
+  }).strict(),
+  newspaper: z.object({
+    title: z.string().min(1).max(120),
+    issueDate: isoDate,
+    page: z.string().min(1).max(40),
+    pageUrl: z.string().url().refine((url) => /^https:\/\/www\.nb\.no\//i.test(url), "avislenken må peke til nb.no"),
+  }).strict(),
+}).strict();
+
 export const verificationCaseInput = z
   .object({
     id: slug,
@@ -39,6 +67,7 @@ export const verificationCaseInput = z
     whyItMatters: z.string().min(1).max(500),
     yesMeaning: z.string().min(1).max(500),
     noMeaning: z.string().min(1).max(500),
+    inconclusiveMeaning: z.string().min(1).max(500).optional(),
     instructions: z.array(z.string().min(1).max(500)).min(1).max(6),
     target: z
       .object({
@@ -49,6 +78,7 @@ export const verificationCaseInput = z
       .strict(),
     sources: z.array(verificationSource).max(10).default([]),
     searchHint: z.string().min(1).max(700).optional(),
+    newspaper: newspaperVerification.optional(),
     estimatedMinutes: z.number().int().min(1).max(60),
     priority: z.number().int().min(0).max(100),
     publishedAt: isoDate.optional(),
@@ -94,11 +124,21 @@ export const verificationCaseInput = z
         message: "en åpen sak må ha publiseringsdato",
       });
     }
+    if (value.newspaper) {
+      if (value.category !== "match") ctx.addIssue({ code: z.ZodIssueCode.custom, path: ["category"], message: "avisverifisering må ha kategorien match" });
+      if (value.target.type !== "source" || value.target.id !== value.newspaper.sourceResult.sourceId) {
+        ctx.addIssue({ code: z.ZodIssueCode.custom, path: ["target"], message: "avisverifisering må peke på kilderesultatets kilde" });
+      }
+      if (value.estimatedMinutes < 2 || value.estimatedMinutes > 5) {
+        ctx.addIssue({ code: z.ZodIssueCode.custom, path: ["estimatedMinutes"], message: "avisverifisering skal ta 2–5 minutter" });
+      }
+    }
   });
 
 export type VerificationCaseInput = z.infer<typeof verificationCaseInput>;
 export type VerificationSource = z.infer<typeof verificationSource>;
-export type VerificationAnswer = "yes" | "no";
+export type NewspaperVerification = z.infer<typeof newspaperVerification>;
+export type VerificationAnswer = "yes" | "no" | "inconclusive";
 export type VerificationStatus = VerificationCaseInput["status"];
 export type VerificationCategory = VerificationCaseInput["category"];
 

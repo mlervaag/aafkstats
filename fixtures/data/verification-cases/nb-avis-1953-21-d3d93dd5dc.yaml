@@ -1,0 +1,46 @@
+id: nb-avis-1953-21-d3d93dd5dc
+status: draft
+category: match
+claim: Kilderesultatet oppgir AaFK–KFK 1–3 i 1953.
+question: Dokumenterer denne avissiden AaFK–KFK 1–3?
+context: Kontroller om avissiden beskriver akkurat denne kampen og sluttresultatet. Ikke bruk andre kampnotiser på samme side.
+whyItMatters: Svaret hjelper redaksjonen å vurdere en NB-kandidat, men endrer aldri kampdata automatisk.
+yesMeaning: Siden dokumenterer samme lagpar og sluttresultat.
+noMeaning: Siden dokumenterer en annen kamp eller et annet sluttresultat.
+inconclusiveMeaning: Siden kan ikke leses sikkert nok til å avgjøre påstanden.
+instructions:
+  - Åpne avissiden hos Nasjonalbiblioteket.
+  - Finn lagparet og sluttresultatet i samme kampomtale.
+  - Svar bare på spørsmålet over.
+target:
+  type: source
+  id: aafk-90-ar-1914-2004
+  field: results.21.matchIdentity
+sources:
+  - providerId: nasjonalbiblioteket
+    page: "5"
+    role: context
+    note: Sunnmørsposten 1953-09-07.
+estimatedMinutes: 3
+priority: 85
+newspaper:
+  candidateId: fixture-kfk-1953-21
+  communityReviewable: true
+  sourceResult:
+    sourceId: aafk-90-ar-1914-2004
+    year: 1953
+    no: 21
+    opponent: KFK
+    expectedScore:
+      aafk: 1
+      opponent: 3
+    homeAway: home
+    competition: Serie
+  hypothesis:
+    id: fixture-kfk-1953
+    discoveryStatus: ambiguous
+  newspaper:
+    title: Sunnmørsposten
+    issueDate: 1953-09-07
+    page: "5"
+    pageUrl: https://www.nb.no/items/fixture-kfk?page=4

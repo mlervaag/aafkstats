@@ -66,6 +66,26 @@ interface EventProperties {
     status: "ok" | "error";
     seconds: number;
   };
+  "newspaper-verification-open-source": {
+    category: "match";
+    year: number;
+    discovery_status: "confirmed" | "probable" | "ambiguous" | "conflict" | "not_found";
+  };
+  "newspaper-verification-answer": {
+    category: "match";
+    answer: "yes" | "no" | "inconclusive";
+    year: number;
+    discovery_status: "confirmed" | "probable" | "ambiguous" | "conflict" | "not_found";
+    seconds: number;
+  };
+  "newspaper-verification-submitted": {
+    category: "match";
+    answer: "yes" | "no" | "inconclusive";
+    year: number;
+    discovery_status: "confirmed" | "probable" | "ambiguous" | "conflict" | "not_found";
+    seconds: number;
+    submission_status: "ok" | "error";
+  };
   /** Det innebygde skjemaet for minner og observasjoner ble åpnet. */
   "contribution-opened": { scope: "match" | "season" | "person" };
   /** Et bidrag ble sendt, eller forsøket feilet. Innhold og mål-ID sendes aldri. */

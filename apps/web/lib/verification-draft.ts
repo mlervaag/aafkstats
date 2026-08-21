@@ -1,4 +1,4 @@
-export type VerificationAnswer = "yes" | "no";
+export type VerificationAnswer = "yes" | "no" | "inconclusive";
 export type VerificationEvidenceKind = "listed_source" | "new_url" | "bibliographic";
 
 export interface VerificationDraft {
@@ -10,6 +10,12 @@ export interface VerificationDraft {
   finding: string;
   comment: string;
   contributor: string;
+  scoreAgreement: "" | "yes" | "no" | "uncertain";
+  matchDate: string;
+  dateReadable: "" | "yes" | "no" | "uncertain";
+  homeAway: "" | "home" | "away" | "neutral" | "uncertain";
+  competition: string;
+  reasons: string[];
   clientSubmissionId: string;
 }
 
@@ -22,6 +28,12 @@ export const EMPTY_VERIFICATION_DRAFT: VerificationDraft = {
   finding: "",
   comment: "",
   contributor: "",
+  scoreAgreement: "",
+  matchDate: "",
+  dateReadable: "",
+  homeAway: "",
+  competition: "",
+  reasons: [],
   clientSubmissionId: "",
 };
 

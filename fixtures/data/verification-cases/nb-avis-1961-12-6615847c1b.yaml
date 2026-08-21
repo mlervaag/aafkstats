@@ -1,0 +1,46 @@
+id: nb-avis-1961-12-6615847c1b
+status: draft
+category: match
+claim: Kilderesultatet oppgir AaFK–Herd 2–0 i 1961.
+question: Dokumenterer denne avissiden AaFK–Herd 2–0?
+context: Kontroller om avissiden beskriver akkurat denne kampen og sluttresultatet. Ikke bruk andre kampnotiser på samme side.
+whyItMatters: Svaret hjelper redaksjonen å vurdere en NB-kandidat, men endrer aldri kampdata automatisk.
+yesMeaning: Siden dokumenterer samme lagpar og sluttresultat.
+noMeaning: Siden dokumenterer en annen kamp eller et annet sluttresultat.
+inconclusiveMeaning: Siden kan ikke leses sikkert nok til å avgjøre påstanden.
+instructions:
+  - Åpne avissiden hos Nasjonalbiblioteket.
+  - Finn lagparet og sluttresultatet i samme kampomtale.
+  - Svar bare på spørsmålet over.
+target:
+  type: source
+  id: aafk-90-ar-1914-2004
+  field: results.12.matchIdentity
+sources:
+  - providerId: nasjonalbiblioteket
+    page: "9"
+    role: context
+    note: Sunnmørsposten 1961-05-29.
+estimatedMinutes: 3
+priority: 85
+newspaper:
+  candidateId: fixture-herd-1961-noise
+  communityReviewable: true
+  sourceResult:
+    sourceId: aafk-90-ar-1914-2004
+    year: 1961
+    no: 12
+    opponent: Herd
+    expectedScore:
+      aafk: 2
+      opponent: 0
+    homeAway: away
+    competition: Serie
+  hypothesis:
+    id: fixture-herd-1961
+    discoveryStatus: ambiguous
+  newspaper:
+    title: Sunnmørsposten
+    issueDate: 1961-05-29
+    page: "9"
+    pageUrl: https://www.nb.no/items/fixture-herd-1961?page=8

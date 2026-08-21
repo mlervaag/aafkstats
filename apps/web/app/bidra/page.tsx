@@ -37,6 +37,16 @@ export default function ContributePage() {
         maximumMinutes={estimatedMinutes.length ? Math.max(...estimatedMinutes) : 0}
       />
 
+      <section className="content-section prose-stack">
+          <p className="eyebrow">Kamp fra avis</p>
+          <h2>Les én avisside og kontroller en kamp</h2>
+          <p>
+            Åpne en kandidat fra Sunnmørsposten hos Nasjonalbiblioteket, sammenlign lag og
+            resultat, og svar på noen få minutter. Du trenger ikke konto eller forkunnskaper.
+          </p>
+          <p><a className="button-link" href="/mangler/saker">Finn en avis å kontrollere</a></p>
+      </section>
+
       <div className="contribute-grid">
         <section className="archive-card">
           <span className="card-kicker">Har du noe å fortelle?</span>

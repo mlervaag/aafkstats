@@ -1,5 +1,5 @@
 import { all, one, open } from "@aafkstats/db";
-import type { VerificationCategory, VerificationStatus } from "@aafkstats/schema";
+import type { NewspaperVerification, VerificationCategory, VerificationStatus } from "@aafkstats/schema";
 
 export interface VerificationEvidenceSource {
   key: string;
@@ -22,6 +22,7 @@ export interface VerificationCaseView {
   whyItMatters: string;
   yesMeaning: string;
   noMeaning: string;
+  inconclusiveMeaning: string;
   instructions: string[];
   target: {
     type: "person" | "match" | "season" | "club" | "source";
@@ -31,6 +32,7 @@ export interface VerificationCaseView {
   };
   sources: VerificationEvidenceSource[];
   searchHint: string | null;
+  newspaper: NewspaperVerification | null;
   estimatedMinutes: number;
   priority: number;
   revision: string;
@@ -55,12 +57,14 @@ interface CaseRow {
   why_it_matters: string;
   yes_meaning: string;
   no_meaning: string;
+  inconclusive_meaning: string | null;
   instructions: string;
   target_type: VerificationCaseView["target"]["type"];
   target_id: string;
   target_field: string;
   sources: string;
   search_hint: string | null;
+  newspaper: string | null;
   estimated_minutes: number;
   priority: number;
   revision: string;
@@ -122,6 +126,7 @@ function hydrate(row: CaseRow, sourceRows: Map<string, { title: string; href: st
     whyItMatters: row.why_it_matters,
     yesMeaning: row.yes_meaning,
     noMeaning: row.no_meaning,
+    inconclusiveMeaning: row.inconclusive_meaning ?? "Dokumentasjonen er ikke tydelig nok til å bestemme svaret.",
     instructions: parseJson<string[]>(row.instructions, []),
     target: {
       type: row.target_type,
@@ -131,6 +136,7 @@ function hydrate(row: CaseRow, sourceRows: Map<string, { title: string; href: st
     },
     sources,
     searchHint: row.search_hint,
+    newspaper: parseJson<NewspaperVerification | null>(row.newspaper, null),
     estimatedMinutes: row.estimated_minutes,
     priority: row.priority,
     revision: row.revision,

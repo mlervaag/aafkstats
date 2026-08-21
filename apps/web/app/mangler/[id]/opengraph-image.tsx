@@ -64,7 +64,7 @@ export default async function Image({ params }: { params: Promise<{ id: string }
       }
       subtitle={
         <span style={{ color: "#e2570f", fontSize: 38, fontWeight: 800 }}>
-          {isResolved ? resolvedAnswer(item) : "JA eller NEI?"}
+          {isResolved ? resolvedAnswer(item) : "JA, NEI eller usikkert?"}
         </span>
       }
       footer={isResolved ? "Se kildene bak svaret" : "Historien trenger en kilde"}

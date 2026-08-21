@@ -637,6 +637,18 @@ entydig treff på år, AaFK, motstander og resultat kan automatisk legge til en
 Rå ALTO og OCR-prosa er ikke del av modellen. Cachen ligger under
 `.cache/nb-extract/`, og er ignorert av Git.
 
+## Verifiseringssaker
+
+`data/verification-cases/<id>.yaml` er versjonerte spørsmål til manuell kontroll. Det
+valgfrie `newspaper`-feltet markerer en NB-avissak og bevarer kandidat-ID, stabil
+kilderesultatnøkkel, discovery-hypotese og avisens utgavedato, side og direkte NB-lenke.
+Feltet inneholder aldri OCR eller fulltekst. `inconclusiveMeaning` forklarer hva svaret
+KAN IKKE BESTEMMES betyr; eldre saker bruker en felles standardtekst når feltet mangler.
+
+Avissaken peker på kilden som eier kilderesultatet. Koblingen er arbeidsmetadata og gjør
+verken kilderesultatet eller en foreslått kamp kanonisk. Community-svar går til redaksjonell
+behandling og kan ikke skrive til arkivdata.
+
 ## Historisk observasjon
 
 `data/observations/<id>.yaml` inneholder korte, redaksjonelt kontrollerte fakta eller

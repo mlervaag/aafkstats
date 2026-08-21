@@ -1,0 +1,46 @@
+id: nb-avis-1963-14-5f713bfbd5
+status: draft
+category: match
+claim: Kilderesultatet oppgir AaFK–Sunnmøringen 2–2 i 1963.
+question: Dokumenterer denne avissiden AaFK–Sunnmøringen 2–2?
+context: Kontroller om avissiden beskriver akkurat denne kampen og sluttresultatet. Ikke bruk andre kampnotiser på samme side.
+whyItMatters: Svaret hjelper redaksjonen å vurdere en NB-kandidat, men endrer aldri kampdata automatisk.
+yesMeaning: Siden dokumenterer samme lagpar og sluttresultat.
+noMeaning: Siden dokumenterer en annen kamp eller et annet sluttresultat.
+inconclusiveMeaning: Siden kan ikke leses sikkert nok til å avgjøre påstanden.
+instructions:
+  - Åpne avissiden hos Nasjonalbiblioteket.
+  - Finn lagparet og sluttresultatet i samme kampomtale.
+  - Svar bare på spørsmålet over.
+target:
+  type: source
+  id: aafk-90-ar-1914-2004
+  field: results.14.matchIdentity
+sources:
+  - providerId: nasjonalbiblioteket
+    page: "10"
+    role: context
+    note: Sunnmørsposten 1963-07-01.
+estimatedMinutes: 3
+priority: 85
+newspaper:
+  candidateId: fixture-sunnmoringen-1963-14
+  communityReviewable: true
+  sourceResult:
+    sourceId: aafk-90-ar-1914-2004
+    year: 1963
+    no: 14
+    opponent: Sunnmøringen
+    expectedScore:
+      aafk: 2
+      opponent: 2
+    homeAway: neutral
+    competition: Privatkamp
+  hypothesis:
+    id: fixture-sunnmoringen-1963
+    discoveryStatus: probable
+  newspaper:
+    title: Sunnmørsposten
+    issueDate: 1963-07-01
+    page: "10"
+    pageUrl: https://www.nb.no/items/fixture-sunnmoringen?page=9

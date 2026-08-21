@@ -9,7 +9,7 @@ import styles from "./Missing.module.css";
 
 export const metadata: Metadata = pageMetadata(
   "Hjelp AaFK-arkivet",
-  "Kontroller ett konkret ja-eller-nei-spørsmål i en historisk kilde. Ingen konto kreves, og alle funn vurderes før arkivet endres.",
+  "Kontroller ett konkret spørsmål i en historisk kilde. Ingen konto kreves, og alle funn vurderes før arkivet endres.",
   "/mangler",
   "website",
 );
