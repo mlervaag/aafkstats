@@ -204,6 +204,16 @@ export async function auditVisualReviewManifest(): Promise<{
   let insufficientCount = 0;
   let canonicalReadyCount = 0;
   const claimedEventMap = new Map<string, string>();
+  const claimedPageMap = new Map<string, string>();
+
+  function extractPhysicalPageKey(cand: ReviewedCandidate): string {
+    const url = cand.newspaper?.pageUrl || "";
+    const match = url.match(/\/items\/([a-f0-9]+)/i);
+    if (match) {
+      return `${match[1]}|p${cand.newspaper.page}`;
+    }
+    return `${cand.newspaper.title}|${cand.newspaper.issueDate}|p${cand.newspaper.page}`;
+  }
 
   for (const c of cases) {
     if (c.reviewStatus === "visually_reviewed_pilot") {
@@ -231,7 +241,8 @@ export async function auditVisualReviewManifest(): Promise<{
       const sourceOpponent = rawSr?.opponent || leadSr?.opponent;
       const sourceCompId = rawSr?.competitionId || null;
 
-      const sourceCompHint = parseCompetitionHint(sourceNote) || (sourceCompId === "nm" ? "nm" : null);
+      // Structural competitionId has precedence, else year-aware parseCompetitionHint
+      const sourceCompHint = sourceCompId ?? parseCompetitionHint(sourceNote, c.season);
       const sourceHomeAwayHint = parseHomeAwayHint(sourceNote, sourceOpponent);
 
       if (obs) {
@@ -320,6 +331,14 @@ export async function auditVisualReviewManifest(): Promise<{
         errors.push(`Event collision detected: Case ${c.hypothesisId} and ${claimedEventMap.get(eventKey)} both claim event ${eventKey} as ready`);
       } else {
         claimedEventMap.set(eventKey, c.hypothesisId);
+      }
+
+      // Check physical page collision
+      const pageKey = extractPhysicalPageKey(activeCand);
+      if (claimedPageMap.has(pageKey)) {
+        errors.push(`Physical page collision detected: Case ${c.hypothesisId} and ${claimedPageMap.get(pageKey)} both claim page ${pageKey} without pageObservedEvents`);
+      } else {
+        claimedPageMap.set(pageKey, c.hypothesisId);
       }
     }
 

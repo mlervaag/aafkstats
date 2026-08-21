@@ -246,13 +246,41 @@ export function findPossibleCanonicalMatchLinks(
   return links;
 }
 
-export function parseCompetitionHint(note?: string | null): string | null {
+export function parseCompetitionHint(note?: string | null, season?: number | null): string | null {
   if (!note) return null;
   const n = note.toLowerCase();
-  if (n.includes("1. div") || n.includes("1.div") || n.includes("landsdelsserie")) return "forstedivisjon";
-  if (n.includes("2. div") || n.includes("2.div") || n.includes("3. div") || n.includes("3.div")) return "andredivisjon";
-  if (n.includes("nm") || n.includes("n.m.") || n.includes("norgesmesterskap") || n.includes("cup")) return "nm";
-  if (n.includes("jubileum") || n.includes("pokal") || n.includes("privat") || n.includes("treningskamp")) return "treningskamp";
+
+  // Cup / NM
+  if (n.includes("nm") || n.includes("n.m.") || n.includes("norgesmesterskap") || n.includes("cup") || n.includes("cupen")) {
+    return "nm";
+  }
+
+  // Friendly / tournament
+  if (n.includes("jubileum") || n.includes("pokal") || n.includes("privat") || n.includes("treningskamp")) {
+    return "treningskamp";
+  }
+
+  // Historical division names based on season year:
+  const year = season ?? null;
+
+  if (n.includes("3. div") || n.includes("3.div") || n.includes("3. divisjon") || n.includes("3. division")) {
+    return "andredivisjon";
+  }
+
+  if (n.includes("2. div") || n.includes("2.div") || n.includes("2. divisjon") || n.includes("2. division")) {
+    if (year !== null && year < 1963) {
+      return "andredivisjon";
+    }
+    return "forstedivisjon";
+  }
+
+  if (n.includes("1. div") || n.includes("1.div") || n.includes("1. divisjon") || n.includes("1. division") || n.includes("landsdelsserie")) {
+    if (year !== null && year >= 1963 && year <= 1990) {
+      return "eliteserien";
+    }
+    return "forstedivisjon";
+  }
+
   return null;
 }
 

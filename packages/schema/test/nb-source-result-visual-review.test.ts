@@ -5,6 +5,15 @@ import { parse as parseYaml } from "yaml";
 import { repoRoot, dataDir } from "../src/load.js";
 import { parseCompetitionHint, parseHomeAwayHint } from "../src/source-result.js";
 
+function getPhysicalPageKey(cand: any): string {
+  const url = cand.newspaper?.pageUrl || "";
+  const match = url.match(/\/items\/([a-f0-9]+)/i);
+  if (match) {
+    return `${match[1]}|p${cand.newspaper.page}`;
+  }
+  return `${cand.newspaper?.title}|${cand.newspaper?.issueDate}|p${cand.newspaper?.page}`;
+}
+
 describe("NB Source-Result Visual Review (1945-1984)", () => {
   it("validates that visual review manifest adheres to contract nb-source-result-visual-review@1 and decision gate TRUE_VISUAL_PIPELINE_VALIDATED", async () => {
     const root = repoRoot();
@@ -16,6 +25,16 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
     expect(manifest.cases.length).toBe(636);
     expect(manifest.scope.visuallyReviewedPilotCases).toBe(60);
     expect(manifest.scope.unreviewedAwaitingBatch).toBe(576);
+  });
+
+  it("verifies year-aware historical division parsing logic", () => {
+    expect(parseCompetitionHint("1. divisjon", 1955)).toBe("forstedivisjon");
+    expect(parseCompetitionHint("1. divisjon", 1965)).toBe("eliteserien");
+    expect(parseCompetitionHint("2. divisjon", 1965)).toBe("forstedivisjon");
+    expect(parseCompetitionHint("3. divisjon avd. Møre", 1965)).toBe("andredivisjon");
+    expect(parseCompetitionHint("3. divisjon Møre", 1977)).toBe("andredivisjon");
+    expect(parseCompetitionHint("NM 1. runde", 1975)).toBe("nm");
+    expect(parseCompetitionHint("ÅFK's jubileumsturnering", 1955)).toBe("treningskamp");
   });
 
   it("verifies that pilotSelection is strictly stratified across all 4 periods with external controls separate", async () => {
@@ -40,7 +59,7 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
     }
   });
 
-  it("enforces Collision Gate: no two ready claims can claim the exact same observed event", async () => {
+  it("enforces Event and Physical Page Collision Gates: 0 duplicate events or physical pages among ready claims", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
     const manifest = parseYaml(manifestRaw, { schema: "core" });
@@ -49,13 +68,65 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
     expect(readyCases.length).toBeGreaterThan(0);
 
     const eventSet = new Set<string>();
+    const pageSet = new Set<string>();
+
     for (const c of readyCases) {
       const activeCand = c.reviewedCandidates[0];
       const obs = activeCand.observed;
-      const key = `${c.season}|${obs.opponent.clubId}|${obs.matchDate.value}|${obs.homeAway}|${obs.competition.competitionId}`;
-      expect(eventSet.has(key)).toBe(false);
-      eventSet.add(key);
+
+      const eventKey = `${c.season}|${obs.opponent.clubId}|${obs.matchDate.value}|${obs.homeAway}|${obs.competition.competitionId}`;
+      expect(eventSet.has(eventKey)).toBe(false);
+      eventSet.add(eventKey);
+
+      const pageKey = getPhysicalPageKey(activeCand);
+      expect(pageSet.has(pageKey)).toBe(false);
+      pageSet.add(pageKey);
     }
+  });
+
+  it("regression: Herd 1965 #1 and #8 cannot both claim the 1965-05-23 newspaper page as ready", async () => {
+    const root = repoRoot();
+    const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
+    const manifest = parseYaml(manifestRaw, { schema: "core" });
+
+    const herd1 = manifest.cases.find((c: any) => c.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-001");
+    const herd8 = manifest.cases.find((c: any) => c.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-008");
+
+    expect(herd1).toBeDefined();
+    expect(herd8).toBeDefined();
+
+    expect(herd1.canonicalEligibility).toBe("ready");
+    expect(herd1.claimResolution).toBe("exact_sibling");
+
+    // Sibling #8 must not collide on the same physical page as ready
+    expect(herd8.canonicalEligibility).not.toBe("ready");
+    expect(herd8.canonicalEligibility).toBe("insufficient");
+    expect(herd8.claimResolution).toBe("sibling_group_only");
+  });
+
+  it("regression: 1955 Rollon #9 source-result says 1. divisjon while observed is treningskamp -> competition conflict and never ready", async () => {
+    const root = repoRoot();
+    const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
+    const manifest = parseYaml(manifestRaw, { schema: "core" });
+
+    const case1955Rollon9 = manifest.cases.find((c: any) => c.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-009");
+    expect(case1955Rollon9).toBeDefined();
+
+    const medlemsbladRaw = await readFile(`${root}/data/source-results/medlemsblad-for-aalesunds-fotb-1965-a2c9.yaml`, "utf8");
+    const medlemsblad = parseYaml(medlemsbladRaw, { schema: "core" });
+    const s1955 = medlemsblad.seasons.find((s: any) => s.year === 1955);
+    const r9 = s1955.results.find((r: any) => r.no === 9);
+    expect(r9.note).toContain("1. divisjon");
+
+    const compHint = parseCompetitionHint(r9.note, 1955);
+    expect(compHint).toBe("forstedivisjon");
+
+    const cand = case1955Rollon9.reviewedCandidates[0];
+    expect(cand.observed.competition.competitionId).toBe("treningskamp");
+
+    expect(cand.observed.competitionResolution).toBe("conflict");
+    expect(case1955Rollon9.canonicalEligibility).toBe("competition_conflict");
+    expect(case1955Rollon9.canonicalEligibility).not.toBe("ready");
   });
 
   it("verifies known ground truth consistency and checks Rollon 1954 score conflict fix", async () => {
@@ -74,40 +145,11 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
     expect(cand.observed.score.opponent).toBe(3);
   });
 
-  it("regression: 1955 Rollon #9 source-result says 1. divisjon while observed is treningskamp -> competition conflict and never ready", async () => {
-    const root = repoRoot();
-    const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
-    const manifest = parseYaml(manifestRaw, { schema: "core" });
-
-    const case1955Rollon9 = manifest.cases.find((c: any) => c.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-009");
-    expect(case1955Rollon9).toBeDefined();
-
-    // Source result note specifies 1. divisjon
-    const medlemsbladRaw = await readFile(`${root}/data/source-results/medlemsblad-for-aalesunds-fotb-1965-a2c9.yaml`, "utf8");
-    const medlemsblad = parseYaml(medlemsbladRaw, { schema: "core" });
-    const s1955 = medlemsblad.seasons.find((s: any) => s.year === 1955);
-    const r9 = s1955.results.find((r: any) => r.no === 9);
-    expect(r9.note).toContain("1. divisjon");
-
-    const compHint = parseCompetitionHint(r9.note);
-    expect(compHint).toBe("forstedivisjon");
-
-    // Observed from newspaper is treningskamp/privatkamp
-    const cand = case1955Rollon9.reviewedCandidates[0];
-    expect(cand.observed.competition.competitionId).toBe("treningskamp");
-
-    // Must be flagged as conflict and NOT ready
-    expect(cand.observed.competitionResolution).toBe("conflict");
-    expect(case1955Rollon9.canonicalEligibility).toBe("competition_conflict");
-    expect(case1955Rollon9.canonicalEligibility).not.toBe("ready");
-  });
-
   it("recomputes source-vs-observed consistency directly from raw source-result YAMLs and forbids ready on conflict", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
     const manifest = parseYaml(manifestRaw, { schema: "core" });
 
-    // Load all source-results directly from filesystem
     const srDir = `${dataDir()}/source-results`;
     const srFiles = await readdir(srDir);
     const rawSourceMap = new Map<string, any>();
@@ -134,7 +176,7 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
       const rawSr = rawSourceMap.get(`${msr.sourceId}#${c.season}-${msr.no}`);
       expect(rawSr).toBeDefined();
 
-      const sourceCompHint = parseCompetitionHint(rawSr.note) || (rawSr.competitionId === "nm" ? "nm" : null);
+      const sourceCompHint = rawSr.competitionId ?? parseCompetitionHint(rawSr.note, c.season);
       const sourceHaHint = parseHomeAwayHint(rawSr.note, rawSr.opponent);
 
       const activeCand = c.reviewedCandidates[0];

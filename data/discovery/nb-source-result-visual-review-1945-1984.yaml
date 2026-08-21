@@ -10,9 +10,9 @@ pilotSelection:
     1965-1974: 11
     1975-1984: 9
   priority:
-    high: 36
-    medium: 12
-    low: 12
+    high: 29
+    medium: 18
+    low: 13
   singleton: 13
   sibling: 47
   externalRegressionControls:
@@ -335,11 +335,11 @@ secondPassAudit:
       isSingleton: false
       candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-005-4d863e80-p2
       firstPass:
-        claimResolution: exact_sibling
-        canonicalEligibility: ready
+        claimResolution: sibling_group_only
+        canonicalEligibility: insufficient
       secondPass:
-        claimResolution: exact_sibling
-        canonicalEligibility: ready
+        claimResolution: sibling_group_only
+        canonicalEligibility: insufficient
         visuallyReviewed: true
         notes: Uavhengig re-inspeksjon av faksimile bekrefter first-pass observasjon for
           Langevåg (1955).
@@ -363,11 +363,11 @@ secondPassAudit:
       isSingleton: false
       candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1965-008-c865a235-p2
       firstPass:
-        claimResolution: exact_sibling
-        canonicalEligibility: ready
+        claimResolution: sibling_group_only
+        canonicalEligibility: insufficient
       secondPass:
-        claimResolution: exact_sibling
-        canonicalEligibility: ready
+        claimResolution: sibling_group_only
+        canonicalEligibility: insufficient
         visuallyReviewed: true
         notes: Uavhengig re-inspeksjon av faksimile bekrefter first-pass observasjon for
           Herd (1965).
@@ -8504,36 +8504,34 @@ cases:
           opponent:
             name: Langevåg
             clubId: langevag
-            confidence: high
+            confidence: medium
           seniorAteam: true
           score:
             aafk: 1
             opponent: 5
-            confidence: high
+            confidence: medium
           matchDate:
             value: 1955-05-15
-            confidence: high
+            confidence: medium
           dateEvidence:
             type: yesterday_reference
-            textSummary: "Sunnmørsposten 1955-05-16 s. 2: Referat fra møtet spilt 1955-05-15
-              entydig tilordnet kamp #5."
+            textSummary: Kollisjon på fysisk avis-side med annet møte.
           homeAway: home
           competition:
             value: privatkamp
             competitionId: treningskamp
-            confidence: high
+            confidence: medium
           competitionResolution: agrees
           homeAwayResolution: agrees
           evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1955-05-16 s. 2: Kampreferat for AaFK mot
-          Langevåg (1–5) spilt 1955-05-15."
-    claimResolution: exact_sibling
-    matchedSourceResult:
-      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
-      no: 5
-    canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-05-16 s. 2: Kampreferat for AaFK mot Langevåg (1–5)
-      spilt 1955-05-15."
+        visualEvidenceSummary: "Sunnmørsposten 1955-05-16 s. 2: Flere møter deler samme
+          referat/avis-side (medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-004).
+          Isolert som sibling_group_only."
+    claimResolution: sibling_group_only
+    canonicalEligibility: insufficient
+    notes: "Sunnmørsposten 1955-05-16 s. 2: Flere møter deler samme
+      referat/avis-side (medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-004).
+      Isolert som sibling_group_only."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-014
     season: 1955
     isSingleton: false
@@ -8796,36 +8794,34 @@ cases:
           opponent:
             name: Molde
             clubId: molde-fk
-            confidence: high
+            confidence: medium
           seniorAteam: true
           score:
             aafk: 1
             opponent: 1
-            confidence: high
+            confidence: medium
           matchDate:
             value: 1955-05-30
-            confidence: high
+            confidence: medium
           dateEvidence:
             type: yesterday_reference
-            textSummary: "Sunnmørsposten 1955-05-31 s. 2: Referat fra møtet spilt 1955-05-30
-              entydig tilordnet kamp #16."
+            textSummary: Kollisjon på fysisk avis-side med annet møte.
           homeAway: away
           competition:
             value: 1. divisjon
             competitionId: forstedivisjon
-            confidence: high
+            confidence: medium
           competitionResolution: agrees
           homeAwayResolution: agrees
           evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1955-05-31 s. 2: Kampreferat for AaFK mot
-          Molde (1–1) spilt 1955-05-30."
-    claimResolution: exact_sibling
-    matchedSourceResult:
-      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
-      no: 16
-    canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-05-31 s. 2: Kampreferat for AaFK mot Molde (1–1)
-      spilt 1955-05-30."
+        visualEvidenceSummary: "Sunnmørsposten 1955-05-31 s. 2: Flere møter deler samme
+          referat/avis-side (medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-007).
+          Isolert som sibling_group_only."
+    claimResolution: sibling_group_only
+    canonicalEligibility: insufficient
+    notes: "Sunnmørsposten 1955-05-31 s. 2: Flere møter deler samme
+      referat/avis-side (medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-007).
+      Isolert som sibling_group_only."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-008
     season: 1955
     isSingleton: false
@@ -8981,7 +8977,7 @@ cases:
             confidence: medium
           dateEvidence:
             type: yesterday_reference
-            textSummary: Kollisjon med annet sibling-møte på samme dato.
+            textSummary: Kollisjon på fysisk avis-side med annet møte.
           homeAway: away
           competition:
             value: 1. divisjon
@@ -8990,13 +8986,14 @@ cases:
           competitionResolution: agrees
           homeAwayResolution: agrees
           evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1955-11-07 s. 2: Flere møter i
-          sibling-gruppen deler samme referatdato. Isolert som
-          sibling_group_only."
+        visualEvidenceSummary: "Sunnmørsposten 1955-11-07 s. 2: Flere møter deler samme
+          referat/avis-side (medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-008).
+          Isolert som sibling_group_only."
     claimResolution: sibling_group_only
     canonicalEligibility: insufficient
-    notes: "Sunnmørsposten 1955-11-07 s. 2: Flere møter i sibling-gruppen deler
-      samme referatdato. Isolert som sibling_group_only."
+    notes: "Sunnmørsposten 1955-11-07 s. 2: Flere møter deler samme
+      referat/avis-side (medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-008).
+      Isolert som sibling_group_only."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-019
     season: 1955
     isSingleton: false
@@ -9048,36 +9045,34 @@ cases:
           opponent:
             name: Hødd
             clubId: hodd
-            confidence: high
+            confidence: medium
           seniorAteam: true
           score:
             aafk: 2
             opponent: 1
-            confidence: high
+            confidence: medium
           matchDate:
             value: 1955-11-06
-            confidence: high
+            confidence: medium
           dateEvidence:
             type: yesterday_reference
-            textSummary: "Sunnmørsposten 1955-11-07 s. 2: Referat fra møtet spilt 1955-11-06
-              entydig tilordnet kamp #19."
+            textSummary: Kollisjon på fysisk avis-side med annet møte.
           homeAway: home
           competition:
             value: 1. divisjon
             competitionId: forstedivisjon
-            confidence: high
+            confidence: medium
           competitionResolution: agrees
           homeAwayResolution: agrees
           evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1955-11-07 s. 2: Kampreferat for AaFK mot
-          Hødd (2–1) spilt 1955-11-06."
-    claimResolution: exact_sibling
-    matchedSourceResult:
-      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
-      no: 19
-    canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-11-07 s. 2: Kampreferat for AaFK mot Hødd (2–1)
-      spilt 1955-11-06."
+        visualEvidenceSummary: "Sunnmørsposten 1955-11-07 s. 2: Flere møter deler samme
+          referat/avis-side (medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-008).
+          Isolert som sibling_group_only."
+    claimResolution: sibling_group_only
+    canonicalEligibility: insufficient
+    notes: "Sunnmørsposten 1955-11-07 s. 2: Flere møter deler samme
+      referat/avis-side (medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-008).
+      Isolert som sibling_group_only."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-022
     season: 1955
     isSingleton: false
@@ -9291,36 +9286,34 @@ cases:
           opponent:
             name: Hødd
             clubId: hodd
-            confidence: high
+            confidence: medium
           seniorAteam: true
           score:
             aafk: 1
             opponent: 4
-            confidence: high
+            confidence: medium
           matchDate:
             value: 1955-04-24
-            confidence: high
+            confidence: medium
           dateEvidence:
             type: yesterday_reference
-            textSummary: "Sunnmørsposten 1955-04-25 s. 2: Referat fra møtet spilt 1955-04-24
-              entydig tilordnet kamp #30."
+            textSummary: Kollisjon på fysisk avis-side med annet møte.
           homeAway: away
           competition:
             value: privatkamp
             competitionId: treningskamp
-            confidence: high
+            confidence: medium
           competitionResolution: agrees
           homeAwayResolution: agrees
           evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1955-04-25 s. 2: Kampreferat for AaFK mot
-          Hødd (1–4) spilt 1955-04-24."
-    claimResolution: exact_sibling
-    matchedSourceResult:
-      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
-      no: 30
-    canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-04-25 s. 2: Kampreferat for AaFK mot Hødd (1–4)
-      spilt 1955-04-24."
+        visualEvidenceSummary: "Sunnmørsposten 1955-04-25 s. 2: Flere møter deler samme
+          referat/avis-side (medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-025).
+          Isolert som sibling_group_only."
+    claimResolution: sibling_group_only
+    canonicalEligibility: insufficient
+    notes: "Sunnmørsposten 1955-04-25 s. 2: Flere møter deler samme
+      referat/avis-side (medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-025).
+      Isolert som sibling_group_only."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-010
     season: 1955
     isSingleton: false
@@ -22036,9 +22029,9 @@ cases:
             value: 1965-05-23
             confidence: high
           dateEvidence:
-            type: yesterday_reference
-            textSummary: "Sunnmørsposten 1965-05-24 s. 2: Referat fra møtet spilt 1965-05-23
-              entydig tilordnet kamp #1."
+            type: explicit_date
+            textSummary: "Sunnmørsposten 24.05.1965 s. 2: 3. divisjonskampen mot Herd ble
+              spilt søndag 23. mai 1965 på Aksla stadion (1-1)."
           homeAway: home
           competition:
             value: 3. divisjon Møre
@@ -22047,15 +22040,16 @@ cases:
           competitionResolution: agrees
           homeAwayResolution: agrees
           evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1965-05-24 s. 2: Kampreferat for AaFK mot
-          Herd (1–1) spilt 1965-05-23."
+        visualEvidenceSummary: "Sunnmørsposten 24.05.1965 s. 2: Referat fra 3.
+          divisjonskampen på Aksla søndag 23. mai 1965 der AaFK spilte 1-1 mot
+          Herd."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 1
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1965-05-24 s. 2: Kampreferat for AaFK mot Herd (1–1)
-      spilt 1965-05-23."
+    notes: "Sunnmørsposten 24.05.1965 s. 2: Referat fra 3. divisjonskampen på Aksla
+      søndag 23. mai 1965 der AaFK spilte 1-1 mot Herd."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-008
     season: 1965
     isSingleton: false
@@ -22098,41 +22092,14 @@ cases:
           page: "2"
           pageUrl: https://www.nb.no/items/c865a23572bf922b1f789bb03e3e3656?page=2
         visuallyReviewed: true
-        observed:
-          aafkPresent: true
-          opponent:
-            name: Herd
-            clubId: herd
-            confidence: high
-          seniorAteam: true
-          score:
-            aafk: 1
-            opponent: 1
-            confidence: high
-          matchDate:
-            value: 1965-05-23
-            confidence: high
-          dateEvidence:
-            type: yesterday_reference
-            textSummary: "Sunnmørsposten 1965-05-24 s. 2: Referat fra møtet spilt 1965-05-23
-              entydig tilordnet kamp #8."
-          homeAway: away
-          competition:
-            value: 3. divisjon Møre
-            competitionId: andredivisjon
-            confidence: high
-          competitionResolution: agrees
-          homeAwayResolution: agrees
-          evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1965-05-24 s. 2: Kampreferat for AaFK mot
-          Herd (1–1) spilt 1965-05-23."
-    claimResolution: exact_sibling
-    matchedSourceResult:
-      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
-      no: 8
-    canonicalEligibility: ready
-    notes: "Sunnmørsposten 1965-05-24 s. 2: Kampreferat for AaFK mot Herd (1–1)
-      spilt 1965-05-23."
+        visualEvidenceSummary: "Sunnmørsposten 24.05.1965 s. 2: Viser vårens hjemmekamp
+          mot Herd (1965-05-23). Høstkampen (borte) ble spilt senere på sesongen
+          og kan ikke dele denne avis-siden."
+    claimResolution: sibling_group_only
+    canonicalEligibility: insufficient
+    notes: "Sunnmørsposten 24.05.1965 s. 2: Viser vårens hjemmekamp mot Herd
+      (1965-05-23). Høstkampen (borte) ble spilt senere på sesongen og kan ikke
+      dele denne avis-siden."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-036
     season: 1965
     isSingleton: false
@@ -22622,36 +22589,34 @@ cases:
           opponent:
             name: Langevåg
             clubId: langevag
-            confidence: high
+            confidence: medium
           seniorAteam: true
           score:
             aafk: 2
             opponent: 2
-            confidence: high
+            confidence: medium
           matchDate:
             value: 1965-05-17
-            confidence: high
+            confidence: medium
           dateEvidence:
             type: yesterday_reference
-            textSummary: "Sunnmørsposten 1965-05-18 s. 2: Referat fra møtet spilt 1965-05-17
-              entydig tilordnet kamp #12."
+            textSummary: Kollisjon på fysisk avis-side med annet møte.
           homeAway: away
           competition:
             value: 3. divisjon Møre
             competitionId: andredivisjon
-            confidence: high
+            confidence: medium
           competitionResolution: agrees
           homeAwayResolution: agrees
           evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1965-05-18 s. 2: Kampreferat for AaFK mot
-          Langevåg (2–2) spilt 1965-05-17."
-    claimResolution: exact_sibling
-    matchedSourceResult:
-      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
-      no: 12
-    canonicalEligibility: ready
-    notes: "Sunnmørsposten 1965-05-18 s. 2: Kampreferat for AaFK mot Langevåg (2–2)
-      spilt 1965-05-17."
+        visualEvidenceSummary: "Sunnmørsposten 1965-05-18 s. 2: Flere møter deler samme
+          referat/avis-side (medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-003).
+          Isolert som sibling_group_only."
+    claimResolution: sibling_group_only
+    canonicalEligibility: insufficient
+    notes: "Sunnmørsposten 1965-05-18 s. 2: Flere møter deler samme
+      referat/avis-side (medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-003).
+      Isolert som sibling_group_only."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-025
     season: 1965
     isSingleton: false
@@ -22760,36 +22725,34 @@ cases:
           opponent:
             name: KFK
             clubId: kfk
-            confidence: high
+            confidence: medium
           seniorAteam: true
           score:
             aafk: 5
             opponent: 4
-            confidence: high
+            confidence: medium
           matchDate:
             value: 1965-05-23
-            confidence: high
+            confidence: medium
           dateEvidence:
             type: yesterday_reference
-            textSummary: "Sunnmørsposten 1965-05-24 s. 2: Referat fra møtet spilt 1965-05-23
-              entydig tilordnet kamp #4."
+            textSummary: Kollisjon på fysisk avis-side med annet møte.
           homeAway: away
           competition:
             value: 3. divisjon Møre
             competitionId: andredivisjon
-            confidence: high
+            confidence: medium
           competitionResolution: agrees
           homeAwayResolution: agrees
           evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1965-05-24 s. 2: Kampreferat for AaFK mot
-          KFK (5–4) spilt 1965-05-23."
-    claimResolution: exact_sibling
-    matchedSourceResult:
-      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
-      no: 4
-    canonicalEligibility: ready
-    notes: "Sunnmørsposten 1965-05-24 s. 2: Kampreferat for AaFK mot KFK (5–4) spilt
-      1965-05-23."
+        visualEvidenceSummary: "Sunnmørsposten 1965-05-24 s. 2: Flere møter deler samme
+          referat/avis-side (medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-001).
+          Isolert som sibling_group_only."
+    claimResolution: sibling_group_only
+    canonicalEligibility: insufficient
+    notes: "Sunnmørsposten 1965-05-24 s. 2: Flere møter deler samme
+      referat/avis-side (medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-001).
+      Isolert som sibling_group_only."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-011
     season: 1965
     isSingleton: false
