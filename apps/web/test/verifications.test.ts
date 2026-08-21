@@ -42,7 +42,8 @@ afterEach(() => {
 describe("verifiseringskøen", () => {
   it("publiserer pilotkøen i prioritert rekkefølge", () => {
     const cases = loadVerificationCases("open");
-    expect(cases).toHaveLength(2);
+    expect(loadVerificationCases("all")).toHaveLength(11);
+    expect(cases).toHaveLength(3);
     expect(cases[0]?.id).toBe("fixture-open-high");
     expect(cases.every((item, index) => index === 0 || cases[index - 1]!.priority >= item.priority)).toBe(true);
   });
@@ -52,6 +53,18 @@ describe("verifiseringskøen", () => {
     expect(item?.revision).toMatch(/^sha256:[a-f0-9]{64}$/);
     expect(item?.sources[0]).toMatchObject({ title: expect.any(String), page: "10" });
     expect(item?.target.href).toBe("/personer/tor-hogne-aaroy");
+  });
+
+  it("viser en avisoppgave med direkte NB-lenke og tre svar", () => {
+    const item = loadVerificationCase("nb-avis-1946-15-4ee1a1e2f3")!;
+    expect(item.newspaper).toMatchObject({
+      sourceResult: { year: 1946, no: 15, opponent: "Ranheim" },
+      newspaper: { title: "Sunnmørsposten", page: "4" },
+    });
+    const html = renderToStaticMarkup(React.createElement(VerificationExperience, { cases: [item] }));
+    expect(html).toContain("Åpne avissiden hos NB");
+    expect(html).toContain("KAN IKKE BESTEMMES");
+    expect(html).not.toContain("avis-OCR");
   });
 
   it("beholder en permanent side når en publisert sak er løst", async () => {
@@ -97,7 +110,7 @@ describe("verifiseringskøen", () => {
 
   it("trekker ventende innsendelser fra køtellingen", () => {
     const cases = loadVerificationCases("open");
-    expect(availableVerificationCases(cases, ["fixture-open-high"])).toHaveLength(1);
+    expect(availableVerificationCases(cases, ["fixture-open-high"])).toHaveLength(2);
   });
 });
 
@@ -136,6 +149,40 @@ function request(body: unknown, ip: string): Request {
 }
 
 describe("verifiseringsinnsending", () => {
+  it("sender avisfunn strukturert og godtar kan ikke bestemmes uten fritekst", async () => {
+    process.env.GITHUB_INBOX_TOKEN = "test-token";
+    process.env.GITHUB_INBOX_REPO = "mlervaag/aafkstats";
+    const item = loadVerificationCase("nb-avis-1946-15-4ee1a1e2f3")!;
+    let createdBody = "";
+    vi.stubGlobal("fetch", vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
+      const url = String(input);
+      if (url.includes("/search/issues")) return new Response(JSON.stringify({ items: [] }), { status: 200 });
+      if (url.includes("/issues?state=open")) return new Response(JSON.stringify([]), { status: 200 });
+      if (url.endsWith("/issues") && init?.method === "POST") {
+        createdBody = String(init.body);
+        return new Response(JSON.stringify({ html_url: "https://github.com/mlervaag/aafkstats/issues/1000" }), { status: 201 });
+      }
+      throw new Error(`Uventet GitHub-kall: ${url}`);
+    }));
+    const response = await POST(request({
+      caseId: item.id,
+      revision: item.revision,
+      answer: "inconclusive",
+      evidence: { kind: "listed_source", sourceKey: item.sources[0]!.key },
+      finding: "",
+      communityFinding: { reasons: ["Utydelig faksimile"], dateReadable: "uncertain" },
+      clientSubmissionId: "aa5e52d8-4c91-4b53-bb56-f83688b9db2a",
+      company: "",
+    }, "10.20.0.9"));
+    expect(response.status).toBe(200);
+    const issue = JSON.parse(createdBody) as { body: string; labels: string[] };
+    expect(issue.body).toContain('"verificationCaseId"');
+    expect(issue.body).toContain('"sourceResult"');
+    expect(issue.body).toContain('"newspaperCandidate"');
+    expect(issue.body).toContain('"communityFinding"');
+    expect(issue.labels).toContain("inconclusive");
+  });
+
   it("avviser en foreldet revisjon med 409 før GitHub kalles", async () => {
     const fetchSpy = vi.fn();
     vi.stubGlobal("fetch", fetchSpy);

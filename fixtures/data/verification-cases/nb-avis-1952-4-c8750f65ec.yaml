@@ -1,0 +1,46 @@
+id: nb-avis-1952-4-c8750f65ec
+status: draft
+category: match
+claim: Kilderesultatet oppgir AaFK–Eid 3–1 i 1952.
+question: Dokumenterer denne avissiden AaFK–Eid 3–1?
+context: Kontroller om avissiden beskriver akkurat denne kampen og sluttresultatet. Ikke bruk andre kampnotiser på samme side.
+whyItMatters: Svaret hjelper redaksjonen å vurdere en NB-kandidat, men endrer aldri kampdata automatisk.
+yesMeaning: Siden dokumenterer samme lagpar og sluttresultat.
+noMeaning: Siden dokumenterer en annen kamp eller et annet sluttresultat.
+inconclusiveMeaning: Siden kan ikke leses sikkert nok til å avgjøre påstanden.
+instructions:
+  - Åpne avissiden hos Nasjonalbiblioteket.
+  - Finn lagparet og sluttresultatet i samme kampomtale.
+  - Svar bare på spørsmålet over.
+target:
+  type: source
+  id: aafk-90-ar-1914-2004
+  field: results.4.matchIdentity
+sources:
+  - providerId: nasjonalbiblioteket
+    page: "6"
+    role: context
+    note: Sunnmørsposten 1952-05-12.
+estimatedMinutes: 3
+priority: 85
+newspaper:
+  candidateId: fixture-eid-1952-4
+  communityReviewable: true
+  sourceResult:
+    sourceId: aafk-90-ar-1914-2004
+    year: 1952
+    no: 4
+    opponent: Eid
+    expectedScore:
+      aafk: 3
+      opponent: 1
+    homeAway: home
+    competition: Serie
+  hypothesis:
+    id: fixture-eid-1952
+    discoveryStatus: probable
+  newspaper:
+    title: Sunnmørsposten
+    issueDate: 1952-05-12
+    page: "6"
+    pageUrl: https://www.nb.no/items/fixture-eid?page=5

@@ -6,6 +6,38 @@ Datagrunnlag: `main` ved commit `ae542b9` (PR #122 inkludert)
 
 Sist kontrollert: 2026-08-13
 
+## Aviskandidater fra NB (PR #192)
+
+Den samme verifiseringsflyten kan nå publisere redaksjonelt godkjente kampkandidater fra
+NB-discovery. Dette er fortsatt verifiseringsinnspill, ikke kampdata. Svarene er **JA**,
+**NEI** og **KAN IKKE BESTEMMES**; hopp over er en egen lokal handling.
+
+- **JA:** Siden støtter den konkrete kampidentiteten og resultatpåstanden.
+- **NEI:** Siden dokumenterer at kandidaten gjelder en annen kamp eller et annet resultat.
+- **KAN IKKE BESTEMMES:** Siden er kontrollert, men avgjør ikke påstanden sikkert.
+- **Hopp over:** Saken er ikke faglig vurdert og sender ikke inn noe svar.
+
+Generatoren tar kontrakten `nb-newspaper-community-candidates@1`. Den publiserer bare
+kandidater med `communityReviewable: true` og `visibility: community_reviewable`.
+Standardstatus er `draft`; `open` krever en eksplisitt `approvedAt`. Kandidat-ID og stabil
+kilderesultatnøkkel dedupliseres, og eksisterende manuelle saker overskrives aldri.
+
+En avissak viser bare metadata som trengs for kontrollen: sesong, motstander, forventet
+resultat, konkurranse, avis, utgavedato, side og direkte NB-lenke. OCR eller avisfulltekst
+lagres ikke. Et JA kan suppleres med resultat, kampdato, hjemme/borte og konkurranse. NEI
+og KAN IKKE BESTEMMES kan få strukturerte årsaker. Innsendingen blir et GitHub-issue med
+`verificationCaseId`, revisjon, kilderesultat, hypotese, aviskandidat og community-funn.
+Ingen av delene endrer canonical matches eller source-results automatisk.
+
+Kjør generatoren som tørrkjøring:
+
+```sh
+pnpm data:newspaper-verification-candidates -- --input <manifest.json>
+```
+
+Legg til `--write` og eventuelt `--output <mappe>` først etter redaksjonell gjennomgang.
+Vanlige tester bruker bare fixtures og gjør ingen kall til NB.
+
 ### 0.1 Leveransegrense for PR #126
 
 Denne spesifikasjonen beskriver både den kjørbare førstegangsleveransen og retningen etter

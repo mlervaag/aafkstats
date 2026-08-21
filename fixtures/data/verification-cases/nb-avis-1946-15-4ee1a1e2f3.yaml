@@ -1,0 +1,48 @@
+id: nb-avis-1946-15-4ee1a1e2f3
+status: open
+category: match
+claim: Kilderesultatet oppgir AaFK–Ranheim 2–2 i 1946.
+question: Dokumenterer denne avissiden AaFK–Ranheim 2–2?
+context: Kontroller om avissiden beskriver akkurat denne kampen og sluttresultatet. Ikke bruk andre kampnotiser på samme side.
+whyItMatters: Svaret hjelper redaksjonen å vurdere en NB-kandidat, men endrer aldri kampdata automatisk.
+yesMeaning: Siden dokumenterer samme lagpar og sluttresultat.
+noMeaning: Siden dokumenterer en annen kamp eller et annet sluttresultat.
+inconclusiveMeaning: Siden kan ikke leses sikkert nok til å avgjøre påstanden.
+instructions:
+  - Åpne avissiden hos Nasjonalbiblioteket.
+  - Finn lagparet og sluttresultatet i samme kampomtale.
+  - Svar bare på spørsmålet over.
+target:
+  type: source
+  id: aafk-90-ar-1914-2004
+  field: results.15.matchIdentity
+sources:
+  - providerId: nasjonalbiblioteket
+    page: "4"
+    role: context
+    note: Sunnmørsposten 1946-06-17.
+estimatedMinutes: 3
+priority: 85
+publishedAt: 2026-08-21
+newspaper:
+  candidateId: fixture-ranheim-1946-15
+  communityReviewable: true
+  sourceResult:
+    sourceId: aafk-90-ar-1914-2004
+    year: 1946
+    no: 15
+    opponent: Ranheim
+    expectedScore:
+      aafk: 2
+      opponent: 2
+    homeAway: neutral
+    competition: Turneringskamp
+  hypothesis:
+    id: fixture-ranheim-1946
+    discoveryStatus: confirmed
+    matchDate: 1946-06-15
+  newspaper:
+    title: Sunnmørsposten
+    issueDate: 1946-06-17
+    page: "4"
+    pageUrl: https://www.nb.no/items/fixture-ranheim?page=3

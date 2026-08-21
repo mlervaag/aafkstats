@@ -56,7 +56,7 @@ export function VerificationHistory({ cases }: { cases: VerificationCaseView[] }
 
       <ol className={styles.guide} aria-label="Slik behandles et bidrag">
         <li><span>1</span><strong>Kontroller</strong><small>Finn den konkrete siden eller kilden.</small></li>
-        <li><span>2</span><strong>Dokumenter</strong><small>Svar JA eller NEI og beskriv funnet.</small></li>
+        <li><span>2</span><strong>Dokumenter</strong><small>Svar JA, NEI eller KAN IKKE BESTEMMES.</small></li>
         <li><span>3</span><strong>Avgjør</strong><small>En redaktør vurderer belegget og oppdaterer arkivet.</small></li>
       </ol>
 

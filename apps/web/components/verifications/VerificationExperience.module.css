@@ -73,6 +73,15 @@
 }
 .questionBlock > p:not(.claimLabel) { max-width: 66ch; margin: 1.4rem 0 1rem; color: var(--muted); }
 .questionBlock a, .source a { color: var(--accent); text-underline-offset: 0.2em; }
+.newspaperFacts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; margin: 1.5rem 0 0; background: var(--border); border: 1px solid var(--border); }
+.newspaperFacts div { padding: 0.75rem; background: var(--surface); }
+.newspaperFacts dt { color: var(--muted); font-size: 0.76rem; text-transform: uppercase; }
+.newspaperFacts dd { margin: 0.2rem 0 0; font-weight: 700; }
+.newspaperSource { display: flex; justify-content: space-between; gap: 1rem; align-items: center; margin: 0 clamp(1.1rem, 6vw, 5rem) 2.5rem; padding: 1.1rem; border: 1px solid var(--border); background: var(--surface-2); }
+.newspaperSource h3, .newspaperSource p { margin: 0; }
+.newspaperSource h3 { font-family: var(--font-display); font-size: 1.4rem; }
+.newspaperSource p:last-child { color: var(--muted); font-size: 0.875rem; }
+.newspaperSource a { flex: 0 0 auto; min-height: 3rem; padding: 0.75rem 1rem; background: var(--accent); color: var(--on-accent); border-radius: var(--radius); font-weight: 800; text-decoration: none; }
 
 .helpBox {
   margin: 0 clamp(1.1rem, 6vw, 5rem) 2rem;
@@ -108,7 +117,7 @@
 .sectionHeading h3 { margin: 0; font-family: var(--font-display); font-size: clamp(1.35rem, 3vw, 1.8rem); }
 .sectionHeading p { margin: 0; color: var(--muted); font-size: 0.875rem; }
 
-.answerGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+.answerGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; }
 .answerButton {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -129,8 +138,11 @@
 .answerWord { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); line-height: 1; }
 .selectedYes { border-color: var(--win); background: color-mix(in srgb, var(--win) 9%, var(--surface)); }
 .selectedNo { border-color: var(--loss); background: color-mix(in srgb, var(--loss) 8%, var(--surface)); }
+.selectedInconclusive { border-color: var(--muted); background: var(--surface-2); }
 .selectedYes .answerWord { color: var(--win); }
 .selectedNo .answerWord { color: var(--loss); }
+.selectedInconclusive .answerWord { color: var(--muted); }
+.answerButton:last-child .answerWord { font-family: inherit; font-size: 1rem; font-weight: 800; }
 
 .evidenceForm { scroll-margin-top: 1rem; }
 .evidenceChoices { display: grid; gap: 0.45rem; margin: 0 0 1.25rem; padding: 0; border: 0; }
@@ -153,6 +165,11 @@
 .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); outline: 2px solid color-mix(in srgb, var(--accent) 25%, transparent); outline-offset: 1px; }
 .optionalFields { margin-top: 1.2rem; padding-top: 0.9rem; border-top: 1px solid var(--border); }
 .optionalFields summary { cursor: pointer; color: var(--muted); }
+.structuredFinding { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1rem; }
+.reasonChoices { display: grid; gap: 0.55rem; margin: 0; padding: 0; border: 0; }
+.reasonChoices legend { margin-bottom: 0.6rem; font-weight: 700; }
+.reasonChoices label { display: flex; gap: 0.6rem; align-items: center; }
+.reasonChoices input { width: 1.1rem; height: 1.1rem; }
 
 .submitRow { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 1.5rem; }
 .submitRow > a { color: var(--muted); font-size: 0.875rem; }
@@ -211,6 +228,10 @@
   .source { grid-template-columns: 1fr auto; }
   .source p { grid-column: 1 / -1; }
   .answerGrid { grid-template-columns: 1fr; }
+  .newspaperFacts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .newspaperSource { align-items: stretch; flex-direction: column; }
+  .newspaperSource a { text-align: center; }
+  .structuredFinding { grid-template-columns: 1fr; }
   .answerButton { min-height: 5.8rem; }
   .sectionHeading { display: block; }
   .sectionHeading > p { margin: 0.5rem 0 0 2.5rem; }

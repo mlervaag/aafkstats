@@ -1,0 +1,46 @@
+id: nb-avis-1955-35-69ba648016
+status: draft
+category: match
+claim: Kilderesultatet oppgir AaFK–Herd 4–3 i 1955.
+question: Dokumenterer denne avissiden AaFK–Herd 4–3?
+context: Kontroller om avissiden beskriver akkurat denne kampen og sluttresultatet. Ikke bruk andre kampnotiser på samme side.
+whyItMatters: Svaret hjelper redaksjonen å vurdere en NB-kandidat, men endrer aldri kampdata automatisk.
+yesMeaning: Siden dokumenterer samme lagpar og sluttresultat.
+noMeaning: Siden dokumenterer en annen kamp eller et annet sluttresultat.
+inconclusiveMeaning: Siden kan ikke leses sikkert nok til å avgjøre påstanden.
+instructions:
+  - Åpne avissiden hos Nasjonalbiblioteket.
+  - Finn lagparet og sluttresultatet i samme kampomtale.
+  - Svar bare på spørsmålet over.
+target:
+  type: source
+  id: aafk-90-ar-1914-2004
+  field: results.35.matchIdentity
+sources:
+  - providerId: nasjonalbiblioteket
+    page: "7"
+    role: context
+    note: Sunnmørsposten 1955-10-03.
+estimatedMinutes: 3
+priority: 85
+newspaper:
+  candidateId: fixture-herd-1955-35
+  communityReviewable: true
+  sourceResult:
+    sourceId: aafk-90-ar-1914-2004
+    year: 1955
+    no: 35
+    opponent: Herd
+    expectedScore:
+      aafk: 4
+      opponent: 3
+    homeAway: unknown
+    competition: Ukjent
+  hypothesis:
+    id: fixture-herd-1955
+    discoveryStatus: ambiguous
+  newspaper:
+    title: Sunnmørsposten
+    issueDate: 1955-10-03
+    page: "7"
+    pageUrl: https://www.nb.no/items/fixture-herd?page=6

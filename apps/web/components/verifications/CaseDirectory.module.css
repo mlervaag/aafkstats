@@ -1,7 +1,7 @@
-.filters { display: grid; grid-template-columns: minmax(16rem, 1fr) minmax(0, 1.5fr); gap: 1.25rem; align-items: end; margin: 2rem 0 0; padding: 1rem 0; border-block: 1px solid var(--border); }
+.filters { display: grid; grid-template-columns: minmax(16rem, 1fr) minmax(0, 1.5fr) minmax(9rem, auto) minmax(9rem, auto); gap: 1.25rem; align-items: end; margin: 2rem 0 0; padding: 1rem 0; border-block: 1px solid var(--border); }
 .filters label { display: grid; gap: 0.35rem; color: var(--muted); font-size: 0.82rem; }
-.filters input { min-height: 2.65rem; padding: 0.6rem 0.75rem; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); font: inherit; }
-.filters input:focus { border-color: var(--accent); outline: 2px solid color-mix(in srgb, var(--accent) 25%, transparent); }
+.filters input, .filters select { min-height: 2.65rem; padding: 0.6rem 0.75rem; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); font: inherit; }
+.filters input:focus, .filters select:focus { border-color: var(--accent); outline: 2px solid color-mix(in srgb, var(--accent) 25%, transparent); }
 .chips { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.45rem; }
 .chips button { padding: 0.5rem 0.72rem; background: transparent; color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); font: inherit; cursor: pointer; }
 .chips button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }

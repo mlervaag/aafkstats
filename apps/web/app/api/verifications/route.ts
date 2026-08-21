@@ -31,9 +31,17 @@ const evidence = z.discriminatedUnion("kind", [
 const submissionSchema = z.object({
   caseId: z.string().min(1).max(100).regex(/^[a-z0-9-]+$/),
   revision: z.string().regex(/^sha256:[a-f0-9]{64}$/),
-  answer: z.enum(["yes", "no"]),
+  answer: z.enum(["yes", "no", "inconclusive"]),
   evidence,
-  finding: z.string().trim().min(3, "Beskriv kort hva du fant.").max(1500),
+  finding: z.string().trim().max(1500),
+  communityFinding: z.object({
+    scoreAgreement: z.enum(["yes", "no", "uncertain"]).optional(),
+    matchDate: z.string().date().optional(),
+    dateReadable: z.enum(["yes", "no", "uncertain"]).optional(),
+    homeAway: z.enum(["home", "away", "neutral", "uncertain"]).optional(),
+    competition: z.string().trim().max(120).optional(),
+    reasons: z.array(z.string().trim().min(1).max(120)).max(8).optional(),
+  }).strict().optional(),
   comment: z.string().trim().max(1000).optional(),
   contributor: z.string().trim().max(100).optional(),
   clientSubmissionId: z.string().uuid(),
@@ -48,6 +56,15 @@ function quote(raw: string): string {
 
 function oneLine(raw: string, max = 160): string {
   return raw.replace(/\s+/g, " ").trim().slice(0, max);
+}
+
+function safeCommunityFinding(value: z.infer<typeof submissionSchema>["communityFinding"]) {
+  if (!value) return {};
+  return {
+    ...value,
+    ...(value.competition ? { competition: oneLine(value.competition, 120).replaceAll("`", "") } : {}),
+    ...(value.reasons ? { reasons: value.reasons.map((reason) => oneLine(reason, 120).replaceAll("`", "")) } : {}),
+  };
 }
 
 function sourceDescription(data: z.infer<typeof submissionSchema>, item: VerificationCaseView): string {
@@ -95,6 +112,9 @@ async function handlePost(req: Request) {
     if (verificationCase.revision !== data.revision) {
       return fallbackError("Saken er oppdatert siden du åpnet den. Last siden på nytt og kontroller formuleringen.", 409);
     }
+    if (!verificationCase.newspaper && data.finding.length < 3) {
+      return fallbackError("Beskriv kort hva du fant.", 400);
+    }
     if (data.evidence.kind === "listed_source") {
       const selectedSourceKey = data.evidence.sourceKey;
       if (!verificationCase.sources.some((source) => source.key === selectedSourceKey)) {
@@ -135,7 +155,7 @@ async function handlePost(req: Request) {
       return fallbackError("Denne saken er allerede sendt inn og venter på vurdering.", 409);
     }
 
-    const answerLabel = data.answer === "yes" ? "JA" : "NEI";
+    const answerLabel = data.answer === "yes" ? "JA" : data.answer === "no" ? "NEI" : "KAN IKKE BESTEMMES";
     const contributor = data.contributor ? oneLine(data.contributor, 100) : "Anonym";
     const issueBody = [
       marker,
@@ -143,6 +163,24 @@ async function handlePost(req: Request) {
       `**Revisjon:** \`${verificationCase.revision}\``,
       `**Kategori:** ${verificationCase.category}`,
       `**Svar:** **${answerLabel}**`,
+      ...(verificationCase.newspaper ? [
+        "",
+        "### Strukturert avisverifisering",
+        "```json",
+        JSON.stringify({
+          verificationCaseId: verificationCase.id,
+          revision: verificationCase.revision,
+          answer: data.answer,
+          sourceResult: verificationCase.newspaper.sourceResult,
+          hypothesis: verificationCase.newspaper.hypothesis,
+          newspaperCandidate: {
+            candidateId: verificationCase.newspaper.candidateId,
+            ...verificationCase.newspaper.newspaper,
+          },
+          communityFinding: safeCommunityFinding(data.communityFinding),
+        }, null, 2),
+        "```",
+      ] : []),
       "",
       "### Påstand",
       verificationCase.claim,
@@ -151,7 +189,7 @@ async function handlePost(req: Request) {
       quote(sourceDescription(data, verificationCase)),
       "",
       "### Dette fant bidragsyteren",
-      quote(data.finding),
+      data.finding ? quote(data.finding) : "> Ikke oppgitt",
       "",
       "### Eventuell kommentar",
       data.comment ? quote(data.comment) : "> Ikke oppgitt",

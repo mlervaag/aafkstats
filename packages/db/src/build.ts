@@ -146,17 +146,17 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
     const insertVerificationCase = db.prepare(
       `INSERT INTO core_verification_cases
          (id, status, category, claim, question, context, why_it_matters,
-          yes_meaning, no_meaning, instructions, target_type, target_id,
-          target_field, sources, search_hint, estimated_minutes, priority,
+          yes_meaning, no_meaning, inconclusive_meaning, instructions, target_type, target_id,
+          target_field, sources, search_hint, newspaper, estimated_minutes, priority,
           revision, published_at, resolution, source_file)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     );
     for (const item of archive.verificationCases) {
       insertVerificationCase.run(
         item.id, item.status, item.category, item.claim, item.question,
-        item.context, item.whyItMatters, item.yesMeaning, item.noMeaning,
+        item.context, item.whyItMatters, item.yesMeaning, item.noMeaning, item.inconclusiveMeaning ?? null,
         json(item.instructions), item.target.type, item.target.id, item.target.field,
-        json(item.sources), item.searchHint ?? null, item.estimatedMinutes,
+        json(item.sources), item.searchHint ?? null, item.newspaper ? json(item.newspaper) : null, item.estimatedMinutes,
         item.priority, item.revision, item.publishedAt ?? null,
         item.resolution ? json(item.resolution) : null, item.file,
       );

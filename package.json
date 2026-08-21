@@ -16,6 +16,7 @@
     "data:uncertain": "pnpm --filter @aafkstats/schema run uncertain",
     "data:contradictions": "pnpm --filter @aafkstats/schema run contradictions",
     "data:verification-candidates": "pnpm --filter @aafkstats/schema run verification-candidates",
+    "data:newspaper-verification-candidates": "pnpm --filter @aafkstats/schema run newspaper-verification-candidates",
     "data:historical-preservation": "pnpm --filter @aafkstats/schema run historical-preservation",
     "data:historical-audit": "pnpm --filter @aafkstats/schema run historical-audit",
     "data:historical-harvest:init": "pnpm --filter @aafkstats/schema run historical-harvest:init",

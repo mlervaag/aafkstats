@@ -52,7 +52,7 @@ export function ContributeVerificationCard({
         <span className="card-kicker">Enkleste måten å bidra</span>
         <h2 id="verification-contribution-title">Kontroller én konkret sak</h2>
         <p>
-          Du får ett JA/NEI-spørsmål og leter etter svaret i en kilde eller et gammelt
+          Du får ett konkret spørsmål og leter etter svaret i en kilde eller et gammelt
           medlemsblad. Ingen forkunnskaper eller konto kreves.
         </p>
         <p className={styles.safety}>

@@ -1068,12 +1068,14 @@ CREATE TABLE core_verification_cases (
   why_it_matters    TEXT NOT NULL,
   yes_meaning       TEXT NOT NULL,
   no_meaning        TEXT NOT NULL,
+  inconclusive_meaning TEXT,
   instructions      TEXT NOT NULL DEFAULT '[]',
   target_type       TEXT NOT NULL CHECK (target_type IN ('person','match','season','club','source')),
   target_id         TEXT NOT NULL,
   target_field      TEXT NOT NULL,
   sources           TEXT NOT NULL DEFAULT '[]',
   search_hint       TEXT,
+  newspaper         TEXT,
   estimated_minutes INTEGER NOT NULL CHECK (estimated_minutes BETWEEN 1 AND 60),
   priority          INTEGER NOT NULL CHECK (priority BETWEEN 0 AND 100),
   revision          TEXT NOT NULL,
@@ -1239,8 +1241,8 @@ ORDER BY coalesce(o.date, '') DESC, o.id;
 
 CREATE VIEW verification_cases AS
 SELECT id, status, category, claim, question, context, why_it_matters,
-       yes_meaning, no_meaning, instructions, target_type, target_id,
-       target_field, sources, search_hint, estimated_minutes, priority,
+       yes_meaning, no_meaning, inconclusive_meaning, instructions, target_type, target_id,
+       target_field, sources, search_hint, newspaper, estimated_minutes, priority,
        revision, published_at, resolution, source_file,
        '/mangler/' || id AS url
 FROM core_verification_cases

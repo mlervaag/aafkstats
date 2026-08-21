@@ -396,6 +396,7 @@ export function crossValidate(archive: Archive): LoadIssue[] {
     for (const venueId of observation.venueIds) if (!venueIds.has(venueId)) at("venueIds", `ukjent bane «${venueId}»`);
   }
   const caseFingerprints = new Map<string, string>();
+  const newspaperFingerprints = new Map<string, string>();
   for (const item of archive.verificationCases) {
     const at = (path: string, message: string) => issues.push({ file: item.file, path, message });
     const targetIds: Record<typeof item.target.type, Set<string>> = {
@@ -420,6 +421,12 @@ export function crossValidate(archive: Archive): LoadIssue[] {
     const existing = caseFingerprints.get(fingerprint);
     if (existing) at("claim", `samme aktive påstand som ${existing}`);
     else if (item.status === "open") caseFingerprints.set(fingerprint, item.file);
+    if (item.newspaper) {
+      const newspaperFingerprint = `${item.newspaper.candidateId}|${item.newspaper.sourceResult.sourceId}|${item.newspaper.sourceResult.year}|${item.newspaper.sourceResult.no}`;
+      const duplicate = newspaperFingerprints.get(newspaperFingerprint);
+      if (duplicate) at("newspaper.candidateId", `samme aviskandidat og kilderesultat som ${duplicate}`);
+      else newspaperFingerprints.set(newspaperFingerprint, item.file);
+    }
   }
 
   for (const person of archive.people) {
