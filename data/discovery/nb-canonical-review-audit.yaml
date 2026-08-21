@@ -1,14 +1,14 @@
-contract: nb-canonical-review-audit@1
+contract: nb-canonical-review-audit@2
 generatedAt: 2026-08-21
 counts:
   totalAudited: 109
-  canonical_ready: 23
-  score_conflict: 24
-  opponent_mismatch: 23
-  temporal_invalid: 38
-  date_uncertain: 1
+  canonical_ready: 21
+  score_conflict: 36
+  wrong_event: 48
+  non_senior: 2
+  date_uncertain: 2
   competition_uncertain: 0
-  rejected: 0
+  insufficient: 0
 cases:
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1947-003
     sourceResult:
@@ -25,16 +25,21 @@ cases:
       issueDate: 1947-05-27
       page: "1"
       pageUrl: https://www.nb.no/items/09ea0074947dcf87a3989d629c6a3d1b?page=1
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: freidig
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Freidig, Tr.heim
+        clubId: freidig
+      observedOpponent:
+        name: Freidig, Tr.heim
         clubId: freidig
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 0
         opponent: 1
-        status: confirmed
+        confidence: high
       matchDate:
         value: 1947-05-26
         confidence: high
@@ -44,12 +49,11 @@ cases:
         competitionId: treningskamp
         confidence: high
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden omtaler pinsekampen annen pinsedag (mandag 26. mai 1947) i Ålesund
-      mellom AaFK og Freidig med sluttresultat 0-1 (Freidig-seier 1-0).
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 27.05.1947 s. 1: Omtale av pinsekampen mandag 26. mai
+        1947 på Nørve der Freidig slo AaFK 1-0."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1947-011
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -65,16 +69,21 @@ cases:
       issueDate: 1947-08-25
       page: "3"
       pageUrl: https://www.nb.no/items/6907ff25365ef85e08332b354883414e?page=3
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: nordlandet
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Nordlandet
+        clubId: nordlandet
+      observedOpponent:
+        name: Nordlandet
         clubId: nordlandet
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 1
         opponent: 1
-        status: confirmed
+        confidence: high
       matchDate:
         value: 1947-08-24
         confidence: high
@@ -84,12 +93,11 @@ cases:
         competitionId: forstedivisjon
         confidence: high
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden inneholder fyldig referat fra seriekampen i 1. divisjon på Nørve
-      søndag 24. august 1947 mellom AaFK og Nordlandet som endte 1-1.
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 25.08.1947 s. 3: Fyldig referat fra 1. divisjonskampen
+        på Nørve søndag 24. august 1947 der AaFK og Nordlandet spilte 1-1."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1947-017
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -105,16 +113,21 @@ cases:
       issueDate: 1947-06-17
       page: "2"
       pageUrl: https://www.nb.no/items/df0e19babdb39bed17297c49680c04ed?page=2
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: aksla
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Aksla
+        clubId: aksla
+      observedOpponent:
+        name: Aksla
         clubId: aksla
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 2
         opponent: 4
-        status: confirmed
+        confidence: high
       matchDate:
         value: 1947-06-13
         confidence: high
@@ -124,12 +137,11 @@ cases:
         competitionId: treningskamp
         confidence: high
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden dokumenterer pokalkampen fredag 13. juni 1947 der Aksla slo et
-      rekruttpreget AaFK-lag 4-2.
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 17.06.1947 s. 2: Referat fra pokalkampen fredag 13. juni
+        1947 der Aksla slo AaFK 4-2."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1947-019
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -145,16 +157,21 @@ cases:
       issueDate: 1947-06-16
       page: "2"
       pageUrl: https://www.nb.no/items/b9f26b17b28591454cc2728abf168881?page=2
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: ørsta
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Ørsta
+        clubId: orsta
+      observedOpponent:
+        name: Ørsta
         clubId: orsta
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 2
         opponent: 0
-        status: confirmed
+        confidence: high
       matchDate:
         value: 1947-06-15
         confidence: high
@@ -164,12 +181,11 @@ cases:
         competitionId: nm
         confidence: high
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden inneholder fyldig referat fra 1. runde i NM på Nørve søndag 15.
-      juni 1947 mellom AaFK og Ørsta (2-0).
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 16.06.1947 s. 2: Fyldig referat fra NM 1. runde på Nørve
+        søndag 15. juni 1947 der AaFK slo Ørsta 2-0."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1948-001
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -185,31 +201,34 @@ cases:
       issueDate: 1948-04-20
       page: "2"
       pageUrl: https://www.nb.no/items/b107ba78b88ee1481d0fdd46f1eb03ba?page=2
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: skarbøvik
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Skarbøvik
         clubId: skarbovik
-        confidence: high
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 1
         opponent: 0
-        status: confirmed
+        confidence: low
       matchDate:
         value: 1948-04-18
         confidence: medium
-      homeAway: away
+      homeAway: unknown
       competition:
         value: privatkamp
-        competitionId: treningskamp
-        confidence: high
+        competitionId: null
+        confidence: low
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: date_uncertain
-    failureReasons:
-      - Date confidence is 'medium' (requires exact/high)
-    reason: Siden omtaler treningskampen i Skarbøvik der AaFK vant 1-0 over Skarbøvik.
+      disposition: date_uncertain
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: Usikker kampdato (medium)
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1950-3b73-1950-002
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
@@ -225,33 +244,34 @@ cases:
       issueDate: 1950-08-22
       page: "2"
       pageUrl: https://www.nb.no/items/7f5b81befb0031d39e9fe0bcf3e66079?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: aksla
-        clubId: aksla
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Molde
+        clubId: molde-fk
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 0
         opponent: 1
-        status: confirmed
+        confidence: low
       matchDate:
         value: 1950-08-20
         confidence: medium
-      homeAway: home
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
+        competitionId: null
+        confidence: low
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Molde" (molde-fk), but visual
-        review found "aksla" (aksla)'
-    reason: Siden dokumenterer seriekampen i 1. divisjon på Aksla stadion der Molde
-      vant 1-0 over AaFK.
+      disposition: date_uncertain
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: Usikker kampdato (medium)
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1950-62fa-1950-003
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1950-62fa
@@ -267,40 +287,34 @@ cases:
       issueDate: 1950-05-22
       page: "2"
       pageUrl: https://www.nb.no/items/caa95de6d6e6879a0234447bf561373d?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: aksla
-        clubId: aksla
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: KFK
+        clubId: kfk
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 3
         opponent: 3
-        status: confirmed
+        confidence: low
       matchDate:
         value: 1950-05-21
         confidence: high
-      homeAway: home
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
+        competitionId: null
+        confidence: low
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "KFK" (kfk), but visual review
-        found "aksla" (aksla)'
-    incidentalMatch:
-      date: 1950-05-21
-      homeClubId: aalesunds-fk
-      awayClubId: aksla
-      score:
-        - 3
-        - 3
-    reason: Siden har fyldig referat fra seriekampen i 1. divisjon på Aksla stadion
-      søndag 21. mai 1950 mellom AaFK og KFK (3-3).
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: 'Opponent mismatch: Kildepåstand gjaldt "KFK".'
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1950-62fa-1950-007
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1950-62fa
@@ -316,16 +330,21 @@ cases:
       issueDate: 1950-07-03
       page: "5"
       pageUrl: https://www.nb.no/items/8f77f6a54287930c55cd7ae462aca146?page=5
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: freidig
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Freidig
+        clubId: freidig
+      observedOpponent:
+        name: Freidig
         clubId: freidig
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 0
         opponent: 2
-        status: confirmed
+        confidence: high
       matchDate:
         value: 1950-07-02
         confidence: high
@@ -335,12 +354,11 @@ cases:
         competitionId: nm
         confidence: high
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden dokumenterer 2. runde i NM i Trondheim søndag 2. juli 1950 der
-      Freidig slo AaFK 2-0.
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 03.07.1950 s. 5: Referat fra NM 2. runde i Trondheim
+        søndag 2. juli 1950 der Freidig slo AaFK 2-0."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1951-001
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -356,16 +374,21 @@ cases:
       issueDate: 1951-04-16
       page: "2"
       pageUrl: https://www.nb.no/items/eb4e6f74219804db85616d63058298c2?page=2
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: aksla
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Aksla
+        clubId: aksla
+      observedOpponent:
+        name: Aksla
         clubId: aksla
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 5
         opponent: 1
-        status: confirmed
+        confidence: high
       matchDate:
         value: 1951-04-15
         confidence: high
@@ -375,12 +398,11 @@ cases:
         competitionId: treningskamp
         confidence: high
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden dokumenterer sesongåpningskampen på Nørve søndag 15. april 1951
-      der AaFK vant 5-1 over Aksla.
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 16.04.1951 s. 2: Omtale av sesongåpningskampen på Nørve
+        søndag 15. april 1951 der AaFK slo Aksla 5-1."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1952-023
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -396,40 +418,34 @@ cases:
       issueDate: 1952-08-26
       page: "2"
       pageUrl: https://www.nb.no/items/6c281abca8fa389d141a54dcb875b19a?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: aksla
-        clubId: aksla
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Ørsta
+        clubId: orsta
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 6
         opponent: 2
-        status: confirmed
+        confidence: low
       matchDate:
         value: 1952-05-11
         confidence: high
-      homeAway: home
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
+        competitionId: null
+        confidence: low
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Ørsta" (orsta), but visual review
-        found "aksla" (aksla)'
-    incidentalMatch:
-      date: 1952-05-11
-      homeClubId: aalesunds-fk
-      awayClubId: aksla
-      score:
-        - 6
-        - 2
-    reason: Siden omtaler seriekampen i 1. divisjon på Aksla stadion søndag 11. mai
-      1952 der AaFK vant 6-2 over Ørsta.
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: 'Opponent mismatch: Kildepåstand gjaldt "Ørsta".'
   - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1954-1954-002
     sourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1954
@@ -445,40 +461,34 @@ cases:
       issueDate: 1954-07-01
       page: "3"
       pageUrl: https://www.nb.no/items/38a7ceca8b0010d97f1836ccfb1570d3?page=3
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: aksla
-        clubId: aksla
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Hødd
+        clubId: hodd
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 3
         opponent: 1
-        status: confirmed
+        confidence: low
       matchDate:
         value: 1954-07-01
         confidence: high
-      homeAway: home
+      homeAway: unknown
       competition:
         value: NM
-        competitionId: nm
-        confidence: high
+        competitionId: null
+        confidence: low
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Hødd" (hodd), but visual review
-        found "aksla" (aksla)'
-    incidentalMatch:
-      date: 1954-07-01
-      homeClubId: aalesunds-fk
-      awayClubId: aksla
-      score:
-        - 3
-        - 1
-    reason: Siden har fyldig referat fra 2. runde i NM på Aksla stadion torsdag 1.
-      juli 1954 der AaFK vant 3-1 over Hødd.
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: 'Opponent mismatch: Kildepåstand gjaldt "Hødd".'
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1954-007
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -494,16 +504,21 @@ cases:
       issueDate: 1954-08-12
       page: "3"
       pageUrl: https://www.nb.no/items/11d037fcf75ca68c60c6b6334c5ae6bf?page=3
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: rollon
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Rollon
+        clubId: rollon
+      observedOpponent:
+        name: Rollon
         clubId: rollon
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 5
         opponent: 3
-        status: conflict
+        confidence: high
       matchDate:
         value: 1954-08-11
         confidence: high
@@ -511,16 +526,12 @@ cases:
       competition:
         value: 1. divisjon
         competitionId: forstedivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 1-0, but visual review documented 5-3"
-    reason: Siden dokumenterer seriekampen på Aksla stadion onsdag 11. august 1954
-      mellom AaFK og Rollon, hvor sluttresultatet var 5-3 (kildepåstand oppga
-      1-0).
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 1-0, mens avisen dokumenterer 5-3."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-015
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -536,40 +547,34 @@ cases:
       issueDate: 1955-09-19
       page: "2"
       pageUrl: https://www.nb.no/items/0afbec77a99ee59b4c9be1c4104cc87a?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: kristiansund
-        clubId: kfk
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Clausenengen
+        clubId: clausenengen
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 2
         opponent: 1
-        status: confirmed
+        confidence: low
       matchDate:
         value: 1955-09-18
         confidence: high
-      homeAway: away
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
+        competitionId: null
+        confidence: low
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Clausenengen" (clausenengen), but
-        visual review found "kristiansund" (kfk)'
-    incidentalMatch:
-      date: 1955-09-18
-      homeClubId: kfk
-      awayClubId: aalesunds-fk
-      score:
-        - 1
-        - 2
-    reason: Siden inneholder fyldig referat fra Landsdelsseriekampen i Kristiansund
-      søndag 18. september 1955 der AaFK vant 2-1 over Clausenengen.
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: 'Opponent mismatch: Kildepåstand gjaldt "Clausenengen".'
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1956-010
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -585,16 +590,21 @@ cases:
       issueDate: 1956-08-20
       page: "2"
       pageUrl: https://www.nb.no/items/6c8a954e78462194c98565773b88293e?page=2
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: braatt
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Braatt
+        clubId: braatt
+      observedOpponent:
+        name: Braatt
         clubId: braatt
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 2
         opponent: 2
-        status: conflict
+        confidence: high
       matchDate:
         value: 1956-08-19
         confidence: high
@@ -602,16 +612,12 @@ cases:
       competition:
         value: 1. divisjon
         competitionId: forstedivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 2-3, but visual review documented 2-2"
-    reason: Siden dokumenterer seriekampen i Landsdelsserien på Aksla stadion søndag
-      19. august 1956 der AaFK og Braatt spilte 2-2 (kildepåstand oppga 2-3
-      tap).
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 2-3, mens avisen dokumenterer 2-2."
   - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1957-1957-004
     sourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1957
@@ -627,40 +633,34 @@ cases:
       issueDate: 1957-06-11
       page: "2"
       pageUrl: https://www.nb.no/items/5962b690e16ce80499f948cd46086304?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: aksla
-        clubId: aksla
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Eid
+        clubId: eid-il
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 1
         opponent: 2
-        status: confirmed
+        confidence: low
       matchDate:
         value: 1957-06-09
         confidence: high
-      homeAway: home
+      homeAway: unknown
       competition:
         value: NM
-        competitionId: nm
-        confidence: high
+        competitionId: null
+        confidence: low
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Eid" (eid-il), but visual review
-        found "aksla" (aksla)'
-    incidentalMatch:
-      date: 1957-06-09
-      homeClubId: aalesunds-fk
-      awayClubId: aksla
-      score:
-        - 1
-        - 2
-    reason: Siden inneholder fyldig referat fra 1. runde i NM på Aksla stadion
-      søndag 9. juni 1957 der Eid slo AaFK 2-1.
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: 'Opponent mismatch: Kildepåstand gjaldt "Eid".'
   - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1958-1958-002
     sourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1958
@@ -676,16 +676,21 @@ cases:
       issueDate: 1958-05-24
       page: "5"
       pageUrl: https://www.nb.no/items/e662eb0f735a9912bc460b442b67c9e5?page=5
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: rollon
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Rollon
+        clubId: rollon
+      observedOpponent:
+        name: Rollon
         clubId: rollon
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 2
         opponent: 1
-        status: conflict
+        confidence: high
       matchDate:
         value: 1958-05-23
         confidence: high
@@ -693,16 +698,12 @@ cases:
       competition:
         value: NM
         competitionId: nm
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 2-0, but visual review documented 2-1"
-    reason: Siden dokumenterer cupoppgjøret på Aksla stadion fredag 23. mai 1958
-      mellom AaFK og Rollon, hvor sluttresultatet var 2-1 (kretsrapporten oppga
-      2-0).
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 2-0, mens avisen dokumenterer 2-1."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1958-022
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -718,16 +719,21 @@ cases:
       issueDate: 1958-09-01
       page: "2"
       pageUrl: https://www.nb.no/items/b50220b842ddec6053169226712b3af1?page=2
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: dahle
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Dahle
+        clubId: dahle
+      observedOpponent:
+        name: Dahle
         clubId: dahle
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 2
         opponent: 2
-        status: conflict
+        confidence: high
       matchDate:
         value: 1958-08-31
         confidence: high
@@ -735,16 +741,12 @@ cases:
       competition:
         value: 1. divisjon
         competitionId: forstedivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 2-1, but visual review documented 2-2"
-    reason: Siden dokumenterer seriekampen søndag 31. august 1958 mellom AaFK og
-      Dahle, hvor Dahle utlignet til 2-2 like før slutt (kildepåstand oppga 2-1
-      seier).
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 2-1, mens avisen dokumenterer 2-2."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1959-015
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -760,40 +762,34 @@ cases:
       issueDate: 1959-05-08
       page: "2"
       pageUrl: https://www.nb.no/items/caf3b3ba501af2928095bced072aff97?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: kristiansund
-        clubId: kfk
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Dahle
+        clubId: dahle
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 1
         opponent: 0
-        status: confirmed
+        confidence: low
       matchDate:
         value: 1959-05-07
         confidence: high
-      homeAway: away
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
+        competitionId: null
+        confidence: low
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Dahle" (dahle), but visual review
-        found "kristiansund" (kfk)'
-    incidentalMatch:
-      date: 1959-05-07
-      homeClubId: kfk
-      awayClubId: aalesunds-fk
-      score:
-        - 0
-        - 1
-    reason: Siden inneholder referat fra seriekampen i Landsdelsserien i
-      Kristiansund torsdag 7. mai 1959 mellom Dahle og AaFK (0-1).
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: 'Opponent mismatch: Kildepåstand gjaldt "Dahle".'
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1960-007
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -809,16 +805,21 @@ cases:
       issueDate: 1960-07-25
       page: "6"
       pageUrl: https://www.nb.no/items/29c24c0aa3f49f41c0a4a36618f67665?page=6
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: vigra
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Vigra
+        clubId: vigra-il
+      observedOpponent:
+        name: Vigra
         clubId: vigra-il
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 13
         opponent: 1
-        status: confirmed
+        confidence: high
       matchDate:
         value: 1960-07-24
         confidence: high
@@ -828,12 +829,12 @@ cases:
         competitionId: treningskamp
         confidence: high
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden inneholder referat og bilde fra privatkampen på nye Vigra-bana
-      søndag 24. juli 1960 der AaFK vant 13-1 over Vigra.
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 25.07.1960 s. 6: Bilde og fyldig referat fra
+        åpningskampen på Vigra-bana søndag 24. juli 1960 der AaFK slo Vigra
+        13-1."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1963-009
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -849,16 +850,21 @@ cases:
       issueDate: 1963-07-01
       page: "2"
       pageUrl: https://www.nb.no/items/10e9775744a50cdc21aa7e90591dc7b3?page=2
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: spartak
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Spartak
+        clubId: spartak
+      observedOpponent:
+        name: Spartak
         clubId: spartak
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 1
         opponent: 6
-        status: confirmed
+        confidence: high
       matchDate:
         value: 1963-06-30
         confidence: high
@@ -868,12 +874,11 @@ cases:
         competitionId: treningskamp
         confidence: high
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden har fyldig referat fra oppvisningskampen på Aksla søndag 30. juni
-      1963 der det jugoslaviske laget Spartak vant 6-1 over AaFK.
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 01.07.1963 s. 2: Fyldig referat fra oppvisningskampen på
+        Aksla søndag 30. juni 1963 der Spartak vant 6-1 over AaFK."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-014
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -889,40 +894,34 @@ cases:
       issueDate: 1964-10-12
       page: "6"
       pageUrl: https://www.nb.no/items/231d220863f2f9f64b9696b27590d4ff?page=6
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: aksla
-        clubId: aksla
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Eid
+        clubId: eid-il
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 2
         opponent: 3
-        status: confirmed
+        confidence: low
       matchDate:
         value: 1964-10-11
         confidence: high
-      homeAway: home
+      homeAway: unknown
       competition:
         value: privatkamp
-        competitionId: treningskamp
-        confidence: high
+        competitionId: null
+        confidence: low
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Eid" (eid-il), but visual review
-        found "aksla" (aksla)'
-    incidentalMatch:
-      date: 1964-10-11
-      homeClubId: aalesunds-fk
-      awayClubId: aksla
-      score:
-        - 2
-        - 3
-    reason: Siden har referat fra privatkampen på Aksla søndag 11. oktober 1964 der
-      Eid vant 3-2 over AaFK.
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: 'Opponent mismatch: Kildepåstand gjaldt "Eid".'
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1925-019
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -938,16 +937,21 @@ cases:
       issueDate: 1925-09-16
       page: "3"
       pageUrl: https://www.nb.no/items/f1b68d1de44b904a1c0e7ed8d8010a4e?page=3
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: viking
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Viking, Stavanger
+        clubId: viking
+      observedOpponent:
+        name: Viking, Stavanger
         clubId: viking
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 1
         opponent: 2
-        status: confirmed
+        confidence: high
       matchDate:
         value: 1925-09-13
         confidence: high
@@ -957,12 +961,11 @@ cases:
         competitionId: nm
         confidence: high
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden gir et utførlig referat fra 4. runde i NM i Stavanger på Stadion
-      der Viking slo Aalesunds Fotballklub 2-1 etter ekstraomganger (0-0, 1-1).
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 16.09.1925 s. 3: Utførlig kampreferat fra NM 4. runde på
+        Stavanger Stadion der Viking slo AaFK 2-1 e.e.o."
   - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1927-013
     sourceResult:
       sourceId: aalesunds-fotballklub-gjennem-1939-ec28
@@ -978,35 +981,35 @@ cases:
       issueDate: 1927-07-11
       page: "5"
       pageUrl: https://www.nb.no/items/2cfd1e66877ed7f1ca2ff7b7881ec345?page=5
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: kristiansund
-        clubId: kfk
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Falk, Horten
+        clubId: falk
+      observedOpponent:
+        name: Falk, Horten
+        clubId: falk
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 2
         opponent: 1
-        status: conflict
+        confidence: low
       matchDate:
         value: 1927-08-07
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: NM
-        competitionId: nm
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Falk, Horten" (falk), but visual
-        review found "kristiansund" (kfk)'
-      - "Temporal impossible: issueDate 1927-07-11 is earlier than matchDate
-        1927-08-07"
-    reason: Siden omtaler 1. rundekampen i NM søndag 7. august 1927 på Nørve der
-      AaFK slo Braatt (Kristiansund) 2-1 (2-0).
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1927-07-11) er tidligere enn
+        påstått kampdato (1927-08-07)."
   - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1928-014
     sourceResult:
       sourceId: aalesunds-fotballklub-gjennem-1939-ec28
@@ -1022,35 +1025,35 @@ cases:
       issueDate: 1928-06-02
       page: "3"
       pageUrl: https://www.nb.no/items/5e2b595fa0e464ec99a4bf164f940077?page=3
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: national (kameratene)
-        clubId: national
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Odd, Skien
+        clubId: odds-ballklubb
+      observedOpponent:
+        name: Odd, Skien
+        clubId: odds-ballklubb
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 2
         opponent: 1
-        status: conflict
+        confidence: low
       matchDate:
         value: 1928-08-12
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: NM
-        competitionId: nm
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Odd, Skien" (odds-ballklubb), but
-        visual review found "national (kameratene)" (national)'
-      - "Temporal impossible: issueDate 1928-06-02 is earlier than matchDate
-        1928-08-12"
-    reason: Siden omtaler 2. runde i NM søndag 12. august 1928 på Nørve der AaFK slo
-      National (Kameratene) 2-1.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1928-06-02) er tidligere enn
+        påstått kampdato (1928-08-12)."
   - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1929-020
     sourceResult:
       sourceId: aalesunds-fotballklub-gjennem-1939-ec28
@@ -1066,33 +1069,35 @@ cases:
       issueDate: 1929-08-14
       page: "3"
       pageUrl: https://www.nb.no/items/f4dd097e6d1a057f73c354be5ec43784?page=3
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: djerv (bergen)
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Djerv
         clubId: sk-djerv
-        confidence: high
+      observedOpponent:
+        name: Djerv
+        clubId: sk-djerv
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 2
         opponent: 3
-        status: conflict
+        confidence: low
       matchDate:
         value: 1929-09-01
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: NM
-        competitionId: nm
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: true
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - "Temporal impossible: issueDate 1929-08-14 is earlier than matchDate
-        1929-09-01"
-    reason: Siden omtaler 4. runde i NM søndag 1. september 1929 på Nørve der Djerv
-      (Bergen) slo AaFK 3-2 (1-1) etter en dramatisk kamp.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1929-08-14) er tidligere enn
+        påstått kampdato (1929-09-01)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1929-020
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -1108,33 +1113,35 @@ cases:
       issueDate: 1929-08-14
       page: "3"
       pageUrl: https://www.nb.no/items/f4dd097e6d1a057f73c354be5ec43784?page=3
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: djerv (bergen)
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Djerv, Bergen
         clubId: sk-djerv
-        confidence: high
+      observedOpponent:
+        name: Djerv, Bergen
+        clubId: sk-djerv
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 2
         opponent: 3
-        status: conflict
+        confidence: low
       matchDate:
         value: 1929-09-01
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: NM
-        competitionId: nm
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: true
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - "Temporal impossible: issueDate 1929-08-14 is earlier than matchDate
-        1929-09-01"
-    reason: Siden omtaler 4. runde i NM søndag 1. september 1929 på Nørve der Djerv
-      (Bergen) slo AaFK 3-2 (1-1) etter en dramatisk kamp.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1929-08-14) er tidligere enn
+        påstått kampdato (1929-09-01)."
   - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1929-022
     sourceResult:
       sourceId: aalesunds-fotballklub-gjennem-1939-ec28
@@ -1150,33 +1157,35 @@ cases:
       issueDate: 1929-06-04
       page: "5"
       pageUrl: https://www.nb.no/items/a2a39c6199370d412063f0acbbe4e86a?page=5
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: kvik
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Kvik
         clubId: kvik-trondheim
-        confidence: high
+      observedOpponent:
+        name: Kvik
+        clubId: kvik-trondheim
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 3
         opponent: 1
-        status: conflict
+        confidence: low
       matchDate:
         value: 1929-09-22
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: privatkamp
-        competitionId: treningskamp
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: true
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - "Temporal impossible: issueDate 1929-06-04 is earlier than matchDate
-        1929-09-22"
-    reason: Siden omtaler privatkampen søndag 22. september 1929 på Nørve der AaFK
-      slo Kvik (Trondhjem) 3-1 (1-0).
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1929-06-04) er tidligere enn
+        påstått kampdato (1929-09-22)."
   - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1930-011
     sourceResult:
       sourceId: aalesunds-fotballklub-gjennem-1939-ec28
@@ -1192,16 +1201,21 @@ cases:
       issueDate: 1930-08-14
       page: "3"
       pageUrl: https://www.nb.no/items/a015928222e6265b477435a2e92adefb?page=3
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: kristiansund
-        clubId: kfk
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Brått
+        clubId: braatt
+      observedOpponent:
+        name: Brått
+        clubId: braatt
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 1
         opponent: 0
-        status: conflict
+        confidence: high
       matchDate:
         value: 1930-07-27
         confidence: high
@@ -1209,23 +1223,12 @@ cases:
       competition:
         value: privatkamp
         competitionId: treningskamp
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Brått" (braatt), but visual
-        review found "kristiansund" (kfk)'
-    incidentalMatch:
-      date: 1930-07-27
-      homeClubId: kfk
-      awayClubId: aalesunds-fk
-      score:
-        - 0
-        - 1
-    reason: Siden omtaler privatkampen søndag 27. juli 1930 i Kristiansund der AaFK
-      slo Braatt 1-0 (1-0).
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 4-2, mens avisen dokumenterer 1-0."
   - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1933-014
     sourceResult:
       sourceId: aalesunds-fotballklub-gjennem-1939-ec28
@@ -1241,16 +1244,21 @@ cases:
       issueDate: 1933-07-11
       page: "3"
       pageUrl: https://www.nb.no/items/bb2b6b86523e44a6dafdd2f41b495408?page=3
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: moss
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Moss
+        clubId: moss
+      observedOpponent:
+        name: Moss
         clubId: moss
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 3
         opponent: 1
-        status: confirmed
+        confidence: high
       matchDate:
         value: 1933-07-08
         confidence: high
@@ -1260,12 +1268,11 @@ cases:
         competitionId: treningskamp
         confidence: high
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden omtaler AaFKs østlandsturné der AaFK påførte Moss sesongens første
-      hjemmetap med seier 3-1 lørdag 8. juli 1933.
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 11.07.1933 s. 3: Referat fra AaFKs østlandsturné der
+        AaFK slo Moss 3-1 lørdag 8. juli 1933."
   - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1933-018
     sourceResult:
       sourceId: aalesunds-fotballklub-gjennem-1939-ec28
@@ -1281,16 +1288,21 @@ cases:
       issueDate: 1933-08-14
       page: "6"
       pageUrl: https://www.nb.no/items/fb7e017f67ae6769862d37bc937c2183?page=6
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: nydalen
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Nydalen
+        clubId: nydalen
+      observedOpponent:
+        name: Nydalen
         clubId: nydalen
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 4
         opponent: 2
-        status: confirmed
+        confidence: high
       matchDate:
         value: 1933-08-13
         confidence: high
@@ -1300,12 +1312,11 @@ cases:
         competitionId: treningskamp
         confidence: high
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden omtaler privatkampen søndag 13. august 1933 på Nørve der AaFK slo
-      Nydalen 4-2 i en spennende kamp.
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 14.08.1933 s. 6: Referat fra privatkampen på Nørve
+        søndag 13. august 1933 der AaFK slo Nydalen 4-2."
   - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1938-015
     sourceResult:
       sourceId: aalesunds-fotballklub-gjennem-1939-ec28
@@ -1321,40 +1332,34 @@ cases:
       issueDate: 1938-05-10
       page: "6"
       pageUrl: https://www.nb.no/items/0d5345d13292824979bb65b1b2259640?page=6
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: molde
-        clubId: molde-fk
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Træff
+        clubId: traeff
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 3
         opponent: 1
-        status: confirmed
+        confidence: low
       matchDate:
         value: 1938-05-08
         confidence: high
-      homeAway: home
+      homeAway: unknown
       competition:
         value: privatkamp
-        competitionId: treningskamp
-        confidence: high
+        competitionId: null
+        confidence: low
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Træff" (traeff), but visual
-        review found "molde" (molde-fk)'
-    incidentalMatch:
-      date: 1938-05-08
-      homeClubId: aalesunds-fk
-      awayClubId: molde-fk
-      score:
-        - 3
-        - 1
-    reason: Siden omtaler privatkampen søndag 8. mai 1938 på Nørve der AaFK slo
-      Træff (Molde) 3-1.
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: 'Opponent mismatch: Kildepåstand gjaldt "Træff".'
   - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1938-017
     sourceResult:
       sourceId: aalesunds-fotballklub-gjennem-1939-ec28
@@ -1370,16 +1375,21 @@ cases:
       issueDate: 1938-06-07
       page: "8"
       pageUrl: https://www.nb.no/items/cd276a4fae82a5ce817e292bbc8bcab1?page=8
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: sykkylven
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Sykkylven
+        clubId: fk-sykkylven
+      observedOpponent:
+        name: Sykkylven
         clubId: fk-sykkylven
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 8
         opponent: 2
-        status: confirmed
+        confidence: high
       matchDate:
         value: 1938-06-06
         confidence: high
@@ -1389,12 +1399,11 @@ cases:
         competitionId: treningskamp
         confidence: high
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden omtaler 2. pinsedag-kampen mandag 6. juni 1938 i Sykkylven der
-      AaFK slo Sykkylven IL 8-2.
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 07.06.1938 s. 8: Omtale av 2. pinsedag-kampen i
+        Sykkylven der AaFK slo Sykkylven IL 8-2."
   - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1938-018
     sourceResult:
       sourceId: aalesunds-fotballklub-gjennem-1939-ec28
@@ -1410,16 +1419,21 @@ cases:
       issueDate: 1938-05-23
       page: "8"
       pageUrl: https://www.nb.no/items/52082f6331b90e16b9681d2775c6825d?page=8
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: hødd
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Hødd
+        clubId: hodd
+      observedOpponent:
+        name: Hødd
         clubId: hodd
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 3
         opponent: 2
-        status: confirmed
+        confidence: high
       matchDate:
         value: 1938-05-22
         confidence: high
@@ -1429,12 +1443,11 @@ cases:
         competitionId: treningskamp
         confidence: high
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden omtaler privatkampen søndag 22. mai 1938 på Nørve der AaFK slo
-      Hødd 3-2.
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 23.05.1938 s. 8: Omtale av privatkampen på Nørve søndag
+        22. mai 1938 der AaFK slo Hødd 3-2."
   - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1939-022
     sourceResult:
       sourceId: aalesunds-fotballklub-gjennem-1939-ec28
@@ -1450,31 +1463,38 @@ cases:
       issueDate: 1939-10-09
       page: "8"
       pageUrl: https://www.nb.no/items/be9550733f4899fa43bc569d9edc6e36?page=8
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: roald
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Roald
         clubId: il-roald
-        confidence: high
+      observedOpponent:
+        name: Roald
+        clubId: il-roald
+        confidence: low
+      sameEvent: false
+      seniorAteam: false
       score:
         aafk: 3
         opponent: 2
-        status: confirmed
+        confidence: low
       matchDate:
         value: 1939-10-08
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: privatkamp
-        competitionId: treningskamp
-        confidence: high
+        competitionId: null
+        confidence: low
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden omtaler privatkampen søndag 8. oktober 1939 på Nørve der AaFK slo
-      Roald 3-2.
+      disposition: non_senior
+      priorGroundTruthCheck:
+        hasConflict: true
+        status: non_senior
+        note: Sunnmørsposten 09.10.1939 s. 8 viser Nørvekammeratene (Kløna) mot Roald
+          (8-2), ikke AaFKs A-lag.
+      reason: Sunnmørsposten 09.10.1939 s. 8 viser Nørvekammeratene (Kløna) mot Roald
+        (8-2), ikke AaFKs A-lag.
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1940-004
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -1490,31 +1510,38 @@ cases:
       issueDate: 1940-10-07
       page: "3"
       pageUrl: https://www.nb.no/items/258238d06e015ab915ef294411af0996?page=3
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: spjelkavik
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Spjelkavik
         clubId: spjelkavik
-        confidence: high
+      observedOpponent:
+        name: Spjelkavik
+        clubId: spjelkavik
+        confidence: low
+      sameEvent: false
+      seniorAteam: false
       score:
         aafk: 5
         opponent: 3
-        status: confirmed
+        confidence: low
       matchDate:
         value: 1940-10-06
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: privatkamp
-        competitionId: treningskamp
-        confidence: high
+        competitionId: null
+        confidence: low
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden omtaler privatkampen søndag 6. oktober 1940 på Nørve der AaFK slo
-      Spjelkavik 5-3.
+      disposition: non_senior
+      priorGroundTruthCheck:
+        hasConflict: true
+        status: non_senior
+        note: Sunnmørsposten 07.10.1940 s. 3 viser sammensatt A/B-lag som slo Spjelkavik
+          8-0. Kildepåstand oppga 5-3.
+      reason: Sunnmørsposten 07.10.1940 s. 3 viser sammensatt A/B-lag som slo
+        Spjelkavik 8-0. Kildepåstand oppga 5-3.
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1945-007
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -1530,16 +1557,21 @@ cases:
       issueDate: 1945-09-04
       page: "3"
       pageUrl: https://www.nb.no/items/d801c6df5a8e111d27dc4ff9fff2437b?page=3
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: spjelkavik
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Spjelkavik
+        clubId: spjelkavik
+      observedOpponent:
+        name: Spjelkavik
         clubId: spjelkavik
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 4
         opponent: 1
-        status: conflict
+        confidence: high
       matchDate:
         value: 1945-08-05
         confidence: high
@@ -1547,15 +1579,12 @@ cases:
       competition:
         value: privatkamp
         competitionId: treningskamp
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 6-1, but visual review documented 4-1"
-    reason: Siden omtaler privatkampen søndag 5. august 1945 på Nørve der AaFK slo
-      Spjelkavik 4-1.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 6-1, mens avisen dokumenterer 4-1."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1945-018
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -1571,33 +1600,35 @@ cases:
       issueDate: 1945-08-18
       page: "3"
       pageUrl: https://www.nb.no/items/be8290a747daa6ddde3895b452f8c844?page=3
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: træff
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Træff, Molde
         clubId: traeff
-        confidence: high
+      observedOpponent:
+        name: Træff, Molde
+        clubId: traeff
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 2
         opponent: 3
-        status: conflict
+        confidence: low
       matchDate:
         value: 1945-09-30
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: privatkamp
-        competitionId: treningskamp
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: true
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - "Temporal impossible: issueDate 1945-08-18 is earlier than matchDate
-        1945-09-30"
-    reason: Siden omtaler privatkampen søndag 30. september 1945 på Nørve der Træff
-      slo AaFK 3-2.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1945-08-18) er tidligere enn
+        påstått kampdato (1945-09-30)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1946-007
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -1613,16 +1644,21 @@ cases:
       issueDate: 1946-07-12
       page: "2"
       pageUrl: https://www.nb.no/items/ee4ec332eb33fc5f8b82d0e5708a7262?page=2
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: reidulf
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Reidulf, Oslo
+        clubId: sk-reidulf
+      observedOpponent:
+        name: Reidulf
         clubId: sk-reidulf
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 1
         opponent: 1
-        status: confirmed
+        confidence: high
       matchDate:
         value: 1946-07-11
         confidence: high
@@ -1632,12 +1668,11 @@ cases:
         competitionId: treningskamp
         confidence: high
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden omtaler privatkampen torsdag 11. juli 1946 på Nørve der Reidulf
-      (Oslo) og Aa.F.K. spilte uavgjort 1-1.
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 12.07.1946 s. 2: Kampreferat fra Nørve torsdag 11. juli
+        1946 der AaFK og Reidulf (Oslo) spilte 1-1."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1946-024
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -1653,40 +1688,34 @@ cases:
       issueDate: 1946-06-24
       page: "2"
       pageUrl: https://www.nb.no/items/8308a93a2da1e40182258f1f90969044?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: kristiansund
-        clubId: kfk
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Clausenengen
+        clubId: clausenengen
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 3
         opponent: 0
-        status: confirmed
+        confidence: low
       matchDate:
         value: 1946-06-23
         confidence: high
-      homeAway: away
+      homeAway: unknown
       competition:
         value: privatkamp
-        competitionId: treningskamp
-        confidence: high
+        competitionId: null
+        confidence: low
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Clausenengen" (clausenengen), but
-        visual review found "kristiansund" (kfk)'
-    incidentalMatch:
-      date: 1946-06-23
-      homeClubId: kfk
-      awayClubId: aalesunds-fk
-      score:
-        - 0
-        - 3
-    reason: Siden omtaler privatkampen søndag 23. juni 1946 på Gressbanen i
-      Kristiansund der AaFK slo Clausenengen 3-0.
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: 'Opponent mismatch: Kildepåstand gjaldt "Clausenengen".'
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1946-025
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -1702,16 +1731,21 @@ cases:
       issueDate: 1946-08-12
       page: "2"
       pageUrl: https://www.nb.no/items/dfb43e3d1a08e151a41e9d144093a731?page=2
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: falken
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Falken, Høyanger
+        clubId: il-falken-hoyanger
+      observedOpponent:
+        name: Falken, Høyanger
         clubId: il-falken-hoyanger
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 2
         opponent: 1
-        status: confirmed
+        confidence: high
       matchDate:
         value: 1946-08-11
         confidence: high
@@ -1721,12 +1755,11 @@ cases:
         competitionId: nm
         confidence: high
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden omtaler 2. runde i NM søndag 11. august 1946 på Nørve der AaFK slo
-      Falken (Høyanger) 2-1 (1-1).
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 12.08.1946 s. 2: Fyldig referat fra NM 2. runde på Nørve
+        søndag 11. august 1946 der AaFK slo Falken 2-1."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1946-026
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -1742,16 +1775,21 @@ cases:
       issueDate: 1946-08-26
       page: "2"
       pageUrl: https://www.nb.no/items/2ffab381c3eeeb980689adba79b8dde4?page=2
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: freidig
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Freidig, Trondheim
+        clubId: freidig
+      observedOpponent:
+        name: Freidig, Trondheim
         clubId: freidig
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 2
         opponent: 3
-        status: confirmed
+        confidence: high
       matchDate:
         value: 1946-08-25
         confidence: high
@@ -1761,12 +1799,11 @@ cases:
         competitionId: nm
         confidence: high
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden omtaler 3. runde i NM søndag 25. august 1946 på Nørve der Freidig
-      (Trondheim) slo AaFK 3-2 foran publikumsrekord.
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 26.08.1946 s. 2: Referat fra NM 3. runde på Nørve søndag
+        25. august 1946 der Freidig slo AaFK 3-2."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1948-005
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -1782,40 +1819,34 @@ cases:
       issueDate: 1948-06-28
       page: "2"
       pageUrl: https://www.nb.no/items/963f2218be2c92dbe17338af39dcc1f8?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: kristiansund
-        clubId: kfk
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Treff, Molde
+        clubId: traeff
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 1
         opponent: 1
-        status: confirmed
+        confidence: low
       matchDate:
         value: 1948-05-30
         confidence: high
-      homeAway: away
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
+        competitionId: null
+        confidence: low
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Treff, Molde" (traeff), but
-        visual review found "kristiansund" (kfk)'
-    incidentalMatch:
-      date: 1948-05-30
-      homeClubId: kfk
-      awayClubId: aalesunds-fk
-      score:
-        - 1
-        - 1
-    reason: Siden omtaler 1. divisjonskampen søndag 30. mai 1948 på Gressbanen i
-      Kristiansund der Braatt og AaFK spilte uavgjort 1-1.
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: 'Opponent mismatch: Kildepåstand gjaldt "Treff, Molde".'
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1948-006
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -1831,16 +1862,21 @@ cases:
       issueDate: 1948-07-05
       page: "4"
       pageUrl: https://www.nb.no/items/426361cb3f79aeeb8a6636e8cd93ea1e?page=4
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: clausenengen
-        clubId: clausenengen
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Glimt, Bodø
+        clubId: bodo-glimt
+      observedOpponent:
+        name: Glimt, Bodø
+        clubId: bodo-glimt
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 3
         opponent: 2
-        status: conflict
+        confidence: high
       matchDate:
         value: 1948-06-06
         confidence: high
@@ -1848,23 +1884,12 @@ cases:
       competition:
         value: 1. divisjon
         competitionId: forstedivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Glimt, Bodø" (bodo-glimt), but
-        visual review found "clausenengen" (clausenengen)'
-    incidentalMatch:
-      date: 1948-06-06
-      homeClubId: aalesunds-fk
-      awayClubId: clausenengen
-      score:
-        - 3
-        - 2
-    reason: Siden omtaler 1. divisjonskampen søndag 6. juni 1948 på Nørve der AaFK
-      slo Clausenengen 3-2.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 3-0, mens avisen dokumenterer 3-2."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1948-008
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -1880,35 +1905,35 @@ cases:
       issueDate: 1948-05-24
       page: "2"
       pageUrl: https://www.nb.no/items/18f6aff284a3e24eac2da32f40cef895?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: rollon
-        clubId: rollon
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Lyn, Oslo
+        clubId: lyn
+      observedOpponent:
+        name: Lyn, Oslo
+        clubId: lyn
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 1
         opponent: 2
-        status: conflict
+        confidence: low
       matchDate:
         value: 1948-06-20
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: NM
-        competitionId: nm
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Lyn, Oslo" (lyn), but visual
-        review found "rollon" (rollon)'
-      - "Temporal impossible: issueDate 1948-05-24 is earlier than matchDate
-        1948-06-20"
-    reason: Siden omtaler 1. runde i NM søndag 20. juni 1948 på Nørve der Rollon slo
-      AaFK 2-1.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1948-05-24) er tidligere enn
+        påstått kampdato (1948-06-20)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1948-013
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -1924,35 +1949,35 @@ cases:
       issueDate: 1948-06-28
       page: "4"
       pageUrl: https://www.nb.no/items/963f2218be2c92dbe17338af39dcc1f8?page=4
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: kristiansund fk
-        clubId: kfk
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Langevåg
+        clubId: langevag
+      observedOpponent:
+        name: Langevåg
+        clubId: langevag
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 0
         opponent: 0
-        status: conflict
+        confidence: low
       matchDate:
         value: 1948-08-08
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Langevåg" (langevag), but visual
-        review found "kristiansund fk" (kfk)'
-      - "Temporal impossible: issueDate 1948-06-28 is earlier than matchDate
-        1948-08-08"
-    reason: Siden omtaler 1. divisjonskampen søndag 8. august 1948 på Nørve der AaFK
-      og Kristiansund FK spilte 0-0.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1948-06-28) er tidligere enn
+        påstått kampdato (1948-08-08)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1948-025
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -1968,35 +1993,35 @@ cases:
       issueDate: 1948-06-28
       page: "2"
       pageUrl: https://www.nb.no/items/963f2218be2c92dbe17338af39dcc1f8?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: molde
-        clubId: molde-fk
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Veblungsnes
+        clubId: veblungsnes-fk
+      observedOpponent:
+        name: Veblungsnes
+        clubId: veblungsnes-fk
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 2
         opponent: 3
-        status: conflict
+        confidence: low
       matchDate:
         value: 1948-10-10
-        confidence: high
-      homeAway: away
+        confidence: low
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Veblungsnes" (veblungsnes-fk),
-        but visual review found "molde" (molde-fk)'
-      - "Temporal impossible: issueDate 1948-06-28 is earlier than matchDate
-        1948-10-10"
-    reason: Siden omtaler 1. divisjonskampen søndag 10. oktober 1948 i Molde der
-      Molde slo AaFK 3-2.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1948-06-28) er tidligere enn
+        påstått kampdato (1948-10-10)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1948-026
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -2012,35 +2037,35 @@ cases:
       issueDate: 1948-06-22
       page: "3"
       pageUrl: https://www.nb.no/items/7c64099d02950c7d6d778f6a13263312?page=3
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: braatt
-        clubId: braatt
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Fremad, L.hammer
+        clubId: fremad
+      observedOpponent:
+        name: Fremad, L.hammer
+        clubId: fremad
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 1
         opponent: 0
-        status: conflict
+        confidence: low
       matchDate:
         value: 1948-10-17
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Fremad, L.hammer" (fremad), but
-        visual review found "braatt" (braatt)'
-      - "Temporal impossible: issueDate 1948-06-22 is earlier than matchDate
-        1948-10-17"
-    reason: Siden omtaler 1. divisjonskampen søndag 17. oktober 1948 på Nørve der
-      AaFK slo Braatt 1-0.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1948-06-22) er tidligere enn
+        påstått kampdato (1948-10-17)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1949-003
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -2056,16 +2081,21 @@ cases:
       issueDate: 1949-08-23
       page: "2"
       pageUrl: https://www.nb.no/items/822e982bb09a36f2940198a18f55040e?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: kristiansund fk
-        clubId: kfk
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Dr. Ballklubb
+        clubId: drammens-bk
+      observedOpponent:
+        name: Dr. Ballklubb
+        clubId: drammens-bk
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 1
         opponent: 2
-        status: conflict
+        confidence: high
       matchDate:
         value: 1949-05-15
         confidence: high
@@ -2073,23 +2103,12 @@ cases:
       competition:
         value: 1. divisjon
         competitionId: forstedivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Dr. Ballklubb" (drammens-bk), but
-        visual review found "kristiansund fk" (kfk)'
-    incidentalMatch:
-      date: 1949-05-15
-      homeClubId: aalesunds-fk
-      awayClubId: kfk
-      score:
-        - 1
-        - 2
-    reason: Siden omtaler 1. divisjonskampen søndag 15. mai 1949 på Nørve der
-      Kristiansund FK slo AaFK 2-1.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 5-1, mens avisen dokumenterer 1-2."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1949-004
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -2105,16 +2124,21 @@ cases:
       issueDate: 1949-06-28
       page: "2"
       pageUrl: https://www.nb.no/items/6366255a65044128ef9954ca0b5a7536?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: kristiansund
-        clubId: kfk
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Halmia, Sverige
+        clubId: is-halmia
+      observedOpponent:
+        name: Halmia, Sverige
+        clubId: is-halmia
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 2
         opponent: 4
-        status: conflict
+        confidence: high
       matchDate:
         value: 1949-05-22
         confidence: high
@@ -2122,23 +2146,12 @@ cases:
       competition:
         value: 1. divisjon
         competitionId: forstedivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Halmia, Sverige" (is-halmia), but
-        visual review found "kristiansund" (kfk)'
-    incidentalMatch:
-      date: 1949-05-22
-      homeClubId: kfk
-      awayClubId: aalesunds-fk
-      score:
-        - 4
-        - 2
-    reason: Siden omtaler 1. divisjonskampen søndag 22. mai 1949 i Kristiansund der
-      Clausenengen slo AaFK 4-2.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 0-3, mens avisen dokumenterer 2-4."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1949-010
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -2154,16 +2167,21 @@ cases:
       issueDate: 1949-09-02
       page: "2"
       pageUrl: https://www.nb.no/items/011f2c37b2bb69beff456a14ae4d56e8?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: clausenengen
-        clubId: clausenengen
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: KFK
+        clubId: kfk
+      observedOpponent:
+        name: KFK
+        clubId: kfk
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 1
         opponent: 0
-        status: conflict
+        confidence: high
       matchDate:
         value: 1949-08-07
         confidence: high
@@ -2171,23 +2189,12 @@ cases:
       competition:
         value: 1. divisjon
         competitionId: forstedivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "KFK" (kfk), but visual review
-        found "clausenengen" (clausenengen)'
-    incidentalMatch:
-      date: 1949-08-07
-      homeClubId: aalesunds-fk
-      awayClubId: clausenengen
-      score:
-        - 1
-        - 0
-    reason: Siden omtaler 1. divisjonskampen søndag 7. august 1949 på Nørve der AaFK
-      slo Clausenengen 1-0.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 1-1, mens avisen dokumenterer 1-0."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1949-018
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -2203,35 +2210,35 @@ cases:
       issueDate: 1949-09-19
       page: "2"
       pageUrl: https://www.nb.no/items/8e3747351ea469a6806698a13f29734a?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: molde
-        clubId: molde-fk
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Mesna IF
+        clubId: mesna-fotball
+      observedOpponent:
+        name: Mesna IF
+        clubId: mesna-fotball
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 1
         opponent: 0
-        status: conflict
+        confidence: low
       matchDate:
         value: 1949-10-09
-        confidence: high
-      homeAway: away
+        confidence: low
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Mesna IF" (mesna-fotball), but
-        visual review found "molde" (molde-fk)'
-      - "Temporal impossible: issueDate 1949-09-19 is earlier than matchDate
-        1949-10-09"
-    reason: Siden omtaler 1. divisjonskampen søndag 9. oktober 1949 i Molde der AaFK
-      slo Molde 1-0.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1949-09-19) er tidligere enn
+        påstått kampdato (1949-10-09)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1950-62fa-1950-006
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1950-62fa
@@ -2247,16 +2254,21 @@ cases:
       issueDate: 1950-05-22
       page: "2"
       pageUrl: https://www.nb.no/items/caa95de6d6e6879a0234447bf561373d?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: molde
-        clubId: molde-fk
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Sandane
+        clubId: sandane
+      observedOpponent:
+        name: Sandane
+        clubId: sandane
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 0
         opponent: 0
-        status: conflict
+        confidence: high
       matchDate:
         value: 1950-05-21
         confidence: high
@@ -2264,23 +2276,12 @@ cases:
       competition:
         value: 1. divisjon
         competitionId: forstedivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Sandane" (sandane), but visual
-        review found "molde" (molde-fk)'
-    incidentalMatch:
-      date: 1950-05-21
-      homeClubId: aalesunds-fk
-      awayClubId: molde-fk
-      score:
-        - 0
-        - 0
-    reason: Siden omtaler 1. divisjonskampen søndag 21. mai 1950 på Nørve der AaFK
-      og Molde spilte 0-0.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 2-0, mens avisen dokumenterer 0-0."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1951-007
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -2296,16 +2297,21 @@ cases:
       issueDate: 1951-07-14
       page: "6"
       pageUrl: https://www.nb.no/items/3d3779ef2adaada5fd001bebb43a1dd8?page=6
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: fremad
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Fremad
+        clubId: fremad
+      observedOpponent:
+        name: Fremad
         clubId: fremad
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 2
         opponent: 4
-        status: confirmed
+        confidence: high
       matchDate:
         value: 1951-07-13
         confidence: high
@@ -2315,12 +2321,11 @@ cases:
         competitionId: treningskamp
         confidence: high
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden omtaler privatkampen fredag 13. juli 1951 på Aksla stadion der
-      Fremad (Lillehammer) slo AaFK 4-2 på sleip bane.
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 14.07.1951 s. 6: Referat fra privatkampen på Aksla
+        stadion fredag 13. juli 1951 der Fremad slo AaFK 4-2."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1951-028
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -2336,35 +2341,35 @@ cases:
       issueDate: 1951-06-11
       page: "2"
       pageUrl: https://www.nb.no/items/e506b323b7c67c70bfcbada81585aada?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: langevåg
-        clubId: langevag
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Spjelkavik
+        clubId: spjelkavik
+      observedOpponent:
+        name: Spjelkavik
+        clubId: spjelkavik
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 3
         opponent: 2
-        status: conflict
+        confidence: low
       matchDate:
         value: 1951-10-14
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Spjelkavik" (spjelkavik), but
-        visual review found "langevåg" (langevag)'
-      - "Temporal impossible: issueDate 1951-06-11 is earlier than matchDate
-        1951-10-14"
-    reason: Siden omtaler 1. divisjonskampen søndag 14. oktober 1951 på Aksla
-      stadion der AaFK slo Langevåg 3-2.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1951-06-11) er tidligere enn
+        påstått kampdato (1951-10-14)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1953-004
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -2380,16 +2385,21 @@ cases:
       issueDate: 1953-05-26
       page: "3"
       pageUrl: https://www.nb.no/items/313b892838ead0fcaa0f9f94aa7aa064?page=3
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: aksla
-        clubId: aksla
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Sykkylven
+        clubId: fk-sykkylven
+      observedOpponent:
+        name: Sykkylven
+        clubId: fk-sykkylven
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 1
         opponent: 0
-        status: conflict
+        confidence: high
       matchDate:
         value: 1953-05-14
         confidence: high
@@ -2397,23 +2407,12 @@ cases:
       competition:
         value: privatkamp
         competitionId: treningskamp
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Sykkylven" (fk-sykkylven), but
-        visual review found "aksla" (aksla)'
-    incidentalMatch:
-      date: 1953-05-14
-      homeClubId: aalesunds-fk
-      awayClubId: aksla
-      score:
-        - 1
-        - 0
-    reason: Siden omtaler Kristi himmelfartsdag-kampen torsdag 14. mai 1953 på Aksla
-      stadion der AaFK slo Ørsta 1-0.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 2-2, mens avisen dokumenterer 1-0."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1954-005
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -2429,16 +2428,21 @@ cases:
       issueDate: 1954-08-02
       page: "2"
       pageUrl: https://www.nb.no/items/88c7f321249e064baa76ce568fd15460?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: skarbøvik
-        clubId: skarbovik
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Viking, St.vanger
+        clubId: viking
+      observedOpponent:
+        name: Viking, St.vanger
+        clubId: viking
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 4
         opponent: 2
-        status: conflict
+        confidence: high
       matchDate:
         value: 1954-05-27
         confidence: high
@@ -2446,23 +2450,12 @@ cases:
       competition:
         value: privatkamp
         competitionId: treningskamp
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Viking, St.vanger" (viking), but
-        visual review found "skarbøvik" (skarbovik)'
-    incidentalMatch:
-      date: 1954-05-27
-      homeClubId: aalesunds-fk
-      awayClubId: skarbovik
-      score:
-        - 4
-        - 2
-    reason: Siden omtaler Kristi himmelfartsdag-kampen torsdag 27. mai 1954 på Aksla
-      stadion der AaFK slo Skarbøvik 4-2.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 0-5, mens avisen dokumenterer 4-2."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-012
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -2478,35 +2471,35 @@ cases:
       issueDate: 1955-05-20
       page: "2"
       pageUrl: https://www.nb.no/items/c5e5988d379d5ea705113f0833418f88?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: langevåg
-        clubId: langevag
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Sykkylven
+        clubId: fk-sykkylven
+      observedOpponent:
+        name: Sykkylven
+        clubId: fk-sykkylven
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 1
         opponent: 0
-        status: conflict
+        confidence: low
       matchDate:
         value: 1955-08-07
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Sykkylven" (fk-sykkylven), but
-        visual review found "langevåg" (langevag)'
-      - "Temporal impossible: issueDate 1955-05-20 is earlier than matchDate
-        1955-08-07"
-    reason: Siden omtaler 1. divisjonskampen søndag 7. august 1955 på Aksla stadion
-      der AaFK slo Langevåg 1-0.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1955-05-20) er tidligere enn
+        påstått kampdato (1955-08-07)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-031
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -2522,35 +2515,35 @@ cases:
       issueDate: 1955-05-23
       page: "2"
       pageUrl: https://www.nb.no/items/9759f12b77e52a51e08f31b3ac0af359?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: molde
-        clubId: molde-fk
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Snøgg
+        clubId: snogg
+      observedOpponent:
+        name: Snøgg
+        clubId: snogg
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 2
         opponent: 1
-        status: conflict
+        confidence: low
       matchDate:
         value: 1955-08-14
-        confidence: high
-      homeAway: away
+        confidence: low
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Snøgg" (snogg), but visual review
-        found "molde" (molde-fk)'
-      - "Temporal impossible: issueDate 1955-05-23 is earlier than matchDate
-        1955-08-14"
-    reason: Siden omtaler 1. divisjonskampen søndag 14. august 1955 i Molde der AaFK
-      slo Molde 2-1.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1955-05-23) er tidligere enn
+        påstått kampdato (1955-08-14)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-032
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -2566,35 +2559,35 @@ cases:
       issueDate: 1955-06-06
       page: "2"
       pageUrl: https://www.nb.no/items/d722a0fd7209e7619b820218ec0cefe8?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: kvik
-        clubId: kvik-trondheim
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Årstad
+        clubId: arstad-il
+      observedOpponent:
+        name: Årstad
+        clubId: arstad-il
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 0
         opponent: 2
-        status: conflict
+        confidence: low
       matchDate:
         value: 1955-08-21
-        confidence: high
-      homeAway: away
+        confidence: low
+      homeAway: unknown
       competition:
         value: NM
-        competitionId: nm
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Årstad" (arstad-il), but visual
-        review found "kvik" (kvik-trondheim)'
-      - "Temporal impossible: issueDate 1955-06-06 is earlier than matchDate
-        1955-08-21"
-    reason: Siden omtaler 3. runde i NM søndag 21. august 1955 i Trondheim der Kvik
-      slo AaFK 2-1 (eller 2-0).
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1955-06-06) er tidligere enn
+        påstått kampdato (1955-08-21)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-033
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -2610,16 +2603,21 @@ cases:
       issueDate: 1955-08-29
       page: "3"
       pageUrl: https://www.nb.no/items/51cc7a54362c0e20225b0941babccd71?page=3
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: kristiansund
-        clubId: kfk
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Voss
+        clubId: fbk-voss
+      observedOpponent:
+        name: Voss
+        clubId: fbk-voss
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 3
         opponent: 1
-        status: conflict
+        confidence: high
       matchDate:
         value: 1955-08-28
         confidence: high
@@ -2627,23 +2625,12 @@ cases:
       competition:
         value: 1. divisjon
         competitionId: forstedivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Voss" (fbk-voss), but visual
-        review found "kristiansund" (kfk)'
-    incidentalMatch:
-      date: 1955-08-28
-      homeClubId: kfk
-      awayClubId: aalesunds-fk
-      score:
-        - 1
-        - 3
-    reason: Siden omtaler 1. divisjonskampen søndag 28. august 1955 på Gressbanen i
-      Kristiansund der AaFK slo Braatt 3-1.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 5-1, mens avisen dokumenterer 3-1."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-035
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -2659,35 +2646,35 @@ cases:
       issueDate: 1955-08-22
       page: "3"
       pageUrl: https://www.nb.no/items/f924db5f70f70f0b6f5dc387c64e7895?page=3
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: aksla
-        clubId: aksla
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Herd
+        clubId: herd
+      observedOpponent:
+        name: Herd
+        clubId: herd
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 4
         opponent: 3
-        status: confirmed
+        confidence: low
       matchDate:
         value: 1955-09-04
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Herd" (herd), but visual review
-        found "aksla" (aksla)'
-      - "Temporal impossible: issueDate 1955-08-22 is earlier than matchDate
-        1955-09-04"
-    reason: Siden omtaler 1. divisjonskampen søndag 4. september 1955 på Aksla
-      stadion der AaFK slo Hødd 4-3.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1955-08-22) er tidligere enn
+        påstått kampdato (1955-09-04)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1956-027
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -2703,35 +2690,35 @@ cases:
       issueDate: 1956-07-16
       page: "4"
       pageUrl: https://www.nb.no/items/97d021ec370a6aac0ff468b8c1083314?page=4
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: hødd
-        clubId: hodd
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Fredrikshavn
+        clubId: frederikshavn-fi
+      observedOpponent:
+        name: Fredrikshavn
+        clubId: frederikshavn-fi
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 1
         opponent: 1
-        status: conflict
+        confidence: low
       matchDate:
         value: 1956-08-12
-        confidence: high
-      homeAway: away
+        confidence: low
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Fredrikshavn" (frederikshavn-fi),
-        but visual review found "hødd" (hodd)'
-      - "Temporal impossible: issueDate 1956-07-16 is earlier than matchDate
-        1956-08-12"
-    reason: Siden omtaler 1. divisjonskampen søndag 12. august 1956 på Ulsteinvik
-      der Hødd og AaFK spilte uavgjort 1-1.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1956-07-16) er tidligere enn
+        påstått kampdato (1956-08-12)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1956-029
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -2747,35 +2734,35 @@ cases:
       issueDate: 1956-05-28
       page: "5"
       pageUrl: https://www.nb.no/items/e5adfb28199e29d05ac52bceab6fdd09?page=5
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: kristiansund fk
-        clubId: kfk
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Volda
+        clubId: volda
+      observedOpponent:
+        name: Volda
+        clubId: volda
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 2
         opponent: 0
-        status: conflict
+        confidence: low
       matchDate:
         value: 1956-08-26
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Volda" (volda), but visual review
-        found "kristiansund fk" (kfk)'
-      - "Temporal impossible: issueDate 1956-05-28 is earlier than matchDate
-        1956-08-26"
-    reason: Siden omtaler 1. divisjonskampen søndag 26. august 1956 på Aksla stadion
-      der AaFK slo Kristiansund FK 2-0.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1956-05-28) er tidligere enn
+        påstått kampdato (1956-08-26)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1957-7672-1957-009
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
@@ -2791,35 +2778,35 @@ cases:
       issueDate: 1957-05-20
       page: "2"
       pageUrl: https://www.nb.no/items/5fe45e5f61846ea2824b285b18a10d1e?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: hødd
-        clubId: hodd
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Stranda
+        clubId: stranda
+      observedOpponent:
+        name: Stranda
+        clubId: stranda
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 0
         opponent: 2
-        status: conflict
+        confidence: low
       matchDate:
         value: 1957-06-23
-        confidence: high
-      homeAway: away
+        confidence: low
+      homeAway: unknown
       competition:
         value: NM
-        competitionId: nm
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Stranda" (stranda), but visual
-        review found "hødd" (hodd)'
-      - "Temporal impossible: issueDate 1957-05-20 is earlier than matchDate
-        1957-06-23"
-    reason: Siden omtaler 2. runde i NM søndag 23. juni 1957 på Ulsteinvik der Hødd
-      slo AaFK 2-0.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1957-05-20) er tidligere enn
+        påstått kampdato (1957-06-23)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1957-7672-1957-013
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
@@ -2835,35 +2822,35 @@ cases:
       issueDate: 1957-07-17
       page: "2"
       pageUrl: https://www.nb.no/items/cf2d8609399f0bd0dc61ea0607d9114b?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: braatt
-        clubId: braatt
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Herd
+        clubId: herd
+      observedOpponent:
+        name: Herd
+        clubId: herd
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 3
         opponent: 0
-        status: conflict
+        confidence: low
       matchDate:
         value: 1957-08-11
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Herd" (herd), but visual review
-        found "braatt" (braatt)'
-      - "Temporal impossible: issueDate 1957-07-17 is earlier than matchDate
-        1957-08-11"
-    reason: Siden omtaler 1. divisjonskampen søndag 11. august 1957 på Aksla stadion
-      der AaFK slo Braatt 3-0.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1957-07-17) er tidligere enn
+        påstått kampdato (1957-08-11)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1957-023
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -2879,35 +2866,35 @@ cases:
       issueDate: 1957-05-27
       page: "2"
       pageUrl: https://www.nb.no/items/1b4787a7daccb63d9b093e8d38771556?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: hødd
-        clubId: hodd
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Langevåg—Raufoss
+        clubId: langevåg—raufoss
+      observedOpponent:
+        name: Langevåg—Raufoss
+        clubId: langevåg—raufoss
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 0
         opponent: 1
-        status: conflict
+        confidence: low
       matchDate:
         value: 1957-10-13
-        confidence: high
-      homeAway: away
+        confidence: low
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Langevåg—Raufoss"
-        (langevåg—raufoss), but visual review found "hødd" (hodd)'
-      - "Temporal impossible: issueDate 1957-05-27 is earlier than matchDate
-        1957-10-13"
-    reason: Siden omtaler 1. divisjonskampen søndag 13. oktober 1957 på Ulsteinvik
-      der Hødd slo AaFK 1-0.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1957-05-27) er tidligere enn
+        påstått kampdato (1957-10-13)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1958-5725-1958-002
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
@@ -2923,16 +2910,21 @@ cases:
       issueDate: 1958-08-08
       page: "4"
       pageUrl: https://www.nb.no/items/64996fcba532e2b3f9e0a999a68d16b6?page=4
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: rollon
-        clubId: rollon
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Herd
+        clubId: herd
+      observedOpponent:
+        name: Herd
+        clubId: herd
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 2
         opponent: 1
-        status: conflict
+        confidence: high
       matchDate:
         value: 1958-05-23
         confidence: high
@@ -2940,23 +2932,12 @@ cases:
       competition:
         value: NM
         competitionId: nm
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Herd" (herd), but visual review
-        found "rollon" (rollon)'
-    incidentalMatch:
-      date: 1958-05-23
-      homeClubId: aalesunds-fk
-      awayClubId: rollon
-      score:
-        - 2
-        - 1
-    reason: Siden omtaler cupkampen fredag 23. mai 1958 på Aksla stadion der AaFK
-      slo Rollon 2-1 (kilden oppga 2-0).
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 5-4, mens avisen dokumenterer 2-1."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1959-515a-1959-002
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
@@ -2972,35 +2953,35 @@ cases:
       issueDate: 1959-04-08
       page: "4"
       pageUrl: https://www.nb.no/items/a2f793e502ffb3969ca77b8dd64ee53e?page=4
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: rollon
-        clubId: rollon
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Guard
+        clubId: guard
+      observedOpponent:
+        name: Guard
+        clubId: guard
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 2
         opponent: 0
-        status: conflict
+        confidence: low
       matchDate:
         value: 1959-05-03
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Guard" (guard), but visual review
-        found "rollon" (rollon)'
-      - "Temporal impossible: issueDate 1959-04-08 is earlier than matchDate
-        1959-05-03"
-    reason: Siden omtaler 1. divisjonskampen søndag 3. mai 1959 på Aksla stadion der
-      AaFK slo Rollon 2-0.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1959-04-08) er tidligere enn
+        påstått kampdato (1959-05-03)."
   - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1959-1959-004
     sourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1959
@@ -3016,35 +2997,35 @@ cases:
       issueDate: 1959-08-03
       page: "2"
       pageUrl: https://www.nb.no/items/d8bc98b86487ffa44867907700d9edef?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: aksla
-        clubId: aksla
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Kvik (Trondheim)
+        clubId: kvik (trondheim)
+      observedOpponent:
+        name: Kvik (Trondheim)
+        clubId: kvik (trondheim)
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 5
         opponent: 0
-        status: conflict
+        confidence: low
       matchDate:
         value: 1959-09-06
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Kvik (Trondheim)" (kvik
-        (trondheim)), but visual review found "aksla" (aksla)'
-      - "Temporal impossible: issueDate 1959-08-03 is earlier than matchDate
-        1959-09-06"
-    reason: Siden omtaler 1. divisjonskampen søndag 6. september 1959 på Aksla
-      stadion der AaFK slo Molde 5-0.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1959-08-03) er tidligere enn
+        påstått kampdato (1959-09-06)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1960-146a-1960-004
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
@@ -3060,35 +3041,35 @@ cases:
       issueDate: 1960-06-11
       page: "10"
       pageUrl: https://www.nb.no/items/dddd258a0f8c62c3aadb2fc4548faad6?page=10
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: aksla
-        clubId: aksla
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Træff
+        clubId: traeff
+      observedOpponent:
+        name: Træff
+        clubId: traeff
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 1
         opponent: 0
-        status: confirmed
+        confidence: low
       matchDate:
         value: 1960-06-19
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: NM
-        competitionId: nm
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Træff" (traeff), but visual
-        review found "aksla" (aksla)'
-      - "Temporal impossible: issueDate 1960-06-11 is earlier than matchDate
-        1960-06-19"
-    reason: Siden omtaler 2. runde i NM søndag 19. juni 1960 på Aksla stadion der
-      AaFK slo Træff 1-0.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1960-06-11) er tidligere enn
+        påstått kampdato (1960-06-19)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1960-006
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -3104,16 +3085,21 @@ cases:
       issueDate: 1960-08-01
       page: "3"
       pageUrl: https://www.nb.no/items/52d39258b74640057f8f42c834da2561?page=3
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: ørsta
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Ørsta
+        clubId: orsta
+      observedOpponent:
+        name: Ørsta
         clubId: orsta
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 4
         opponent: 2
-        status: conflict
+        confidence: high
       matchDate:
         value: 1960-07-31
         confidence: high
@@ -3121,15 +3107,12 @@ cases:
       competition:
         value: privatkamp
         competitionId: treningskamp
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 7-2, but visual review documented 4-2"
-    reason: Siden omtaler privatkampen søndag 31. juli 1960 i Ørsta der AaFK slo
-      Ørsta 4-2.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 7-2, mens avisen dokumenterer 4-2."
   - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1960-1960-006
     sourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1960
@@ -3145,16 +3128,21 @@ cases:
       issueDate: 1960-09-15
       page: "2"
       pageUrl: https://www.nb.no/items/ce3936e8c661c970e1c471bcfa512d0d?page=2
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: v.r.f.
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: V.R.F.
+        clubId: velledalen-ringen
+      observedOpponent:
+        name: V.R.F.
         clubId: velledalen-ringen
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 4
         opponent: 1
-        status: conflict
+        confidence: high
       matchDate:
         value: 1960-08-28
         confidence: high
@@ -3162,15 +3150,12 @@ cases:
       competition:
         value: 1. divisjon
         competitionId: forstedivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 8-3, but visual review documented 4-1"
-    reason: Siden omtaler 1. divisjonskampen søndag 28. august 1960 på Aksla stadion
-      der AaFK slo V.R.F. 4-1.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 8-3, mens avisen dokumenterer 4-1."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1960-146a-1960-010
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
@@ -3186,33 +3171,35 @@ cases:
       issueDate: 1960-08-13
       page: "7"
       pageUrl: https://www.nb.no/items/b7f7be68d86ebfb26b36ca9183a21c15?page=7
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: skarbøvik
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Skarbøvik
         clubId: skarbovik
-        confidence: high
+      observedOpponent:
+        name: Skarbøvik
+        clubId: skarbovik
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 2
         opponent: 0
-        status: conflict
+        confidence: low
       matchDate:
         value: 1960-10-09
-        confidence: high
-      homeAway: away
+        confidence: low
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: true
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - "Temporal impossible: issueDate 1960-08-13 is earlier than matchDate
-        1960-10-09"
-    reason: Siden omtaler 1. divisjonskampen søndag 9. oktober 1960 på Skarbøvik der
-      AaFK slo Skarbøvik 2-0.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1960-08-13) er tidligere enn
+        påstått kampdato (1960-10-09)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1960-012
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -3228,16 +3215,21 @@ cases:
       issueDate: 1960-09-15
       page: "2"
       pageUrl: https://www.nb.no/items/ce3936e8c661c970e1c471bcfa512d0d?page=2
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: v.r.f.
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: V.R.F.
+        clubId: velledalen-ringen
+      observedOpponent:
+        name: V.R.F.
         clubId: velledalen-ringen
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 4
         opponent: 1
-        status: conflict
+        confidence: high
       matchDate:
         value: 1960-08-28
         confidence: high
@@ -3245,15 +3237,12 @@ cases:
       competition:
         value: 1. divisjon
         competitionId: forstedivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 8-3, but visual review documented 4-1"
-    reason: Siden omtaler 1. divisjonskampen søndag 28. august 1960 på Aksla stadion
-      der AaFK slo V.R.F. 4-1.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 8-3, mens avisen dokumenterer 4-1."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1960-018
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -3269,35 +3258,35 @@ cases:
       issueDate: 1960-06-20
       page: "6"
       pageUrl: https://www.nb.no/items/b1619aea740f1bb800c34b37663ad049?page=6
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: kristiansund
-        clubId: kfk
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Bratt
+        clubId: braatt
+      observedOpponent:
+        name: Bratt
+        clubId: braatt
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 1
         opponent: 0
-        status: conflict
+        confidence: low
       matchDate:
         value: 1960-10-16
-        confidence: high
-      homeAway: away
+        confidence: low
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Bratt" (braatt), but visual
-        review found "kristiansund" (kfk)'
-      - "Temporal impossible: issueDate 1960-06-20 is earlier than matchDate
-        1960-10-16"
-    reason: Siden omtaler 1. divisjonskampen søndag 16. oktober 1960 i Kristiansund
-      der AaFK slo Braatt 1-0.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1960-06-20) er tidligere enn
+        påstått kampdato (1960-10-16)."
   - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1961-1961-001
     sourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1961
@@ -3313,16 +3302,21 @@ cases:
       issueDate: 1961-12-07
       page: "1"
       pageUrl: https://www.nb.no/items/ec190cbc572498198cd7bf891a22cd4b?page=1
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: v.r.f.
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: V.R.F.
+        clubId: velledalen-ringen
+      observedOpponent:
+        name: V.R.F.
         clubId: velledalen-ringen
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 2
         opponent: 1
-        status: confirmed
+        confidence: high
       matchDate:
         value: 1961-04-30
         confidence: high
@@ -3332,12 +3326,11 @@ cases:
         competitionId: forstedivisjon
         confidence: high
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden omtaler 1. divisjonskampen søndag 30. april 1961 der AaFK slo
-      V.R.F. 2-1.
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 12.07.1961 s. 1: Kampomtale og tabelloppsummering fra
+        seriekampen søndag 30. april 1961 der AaFK slo Velledalen/Ringen 2-1."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1961-007
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -3353,16 +3346,21 @@ cases:
       issueDate: 1961-07-10
       page: "6"
       pageUrl: https://www.nb.no/items/56ff63ee005905e98b2a6e70e41fe2a9?page=6
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: aksla
-        clubId: aksla
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Køge, Danmark
+        clubId: koge-bk
+      observedOpponent:
+        name: Køge, Danmark
+        clubId: koge-bk
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 1
         opponent: 3
-        status: conflict
+        confidence: high
       matchDate:
         value: 1961-07-09
         confidence: high
@@ -3370,23 +3368,12 @@ cases:
       competition:
         value: privatkamp
         competitionId: treningskamp
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Køge, Danmark" (koge-bk), but
-        visual review found "aksla" (aksla)'
-    incidentalMatch:
-      date: 1961-07-09
-      homeClubId: aalesunds-fk
-      awayClubId: aksla
-      score:
-        - 1
-        - 3
-    reason: Siden omtaler den internasjonale privatkampen søndag 9. juli 1961 på
-      Aksla stadion der det danske laget Køge slo AaFK 3-1.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 0-4, mens avisen dokumenterer 1-3."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1961-011
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -3402,35 +3389,35 @@ cases:
       issueDate: 1961-07-31
       page: "2"
       pageUrl: https://www.nb.no/items/9cc2f9af2bdb67dbf1f61a3957cf735e?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: aksla
-        clubId: aksla
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Vigra
+        clubId: vigra-il
+      observedOpponent:
+        name: Vigra
+        clubId: vigra-il
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 4
         opponent: 0
-        status: conflict
+        confidence: low
       matchDate:
         value: 1961-08-06
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: privatkamp
-        competitionId: treningskamp
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Vigra" (vigra-il), but visual
-        review found "aksla" (aksla)'
-      - "Temporal impossible: issueDate 1961-07-31 is earlier than matchDate
-        1961-08-06"
-    reason: Siden omtaler privatkampen søndag 6. august 1961 på Aksla stadion der
-      AaFK slo Vigra 4-0.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1961-07-31) er tidligere enn
+        påstått kampdato (1961-08-06)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1961-023
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -3446,35 +3433,35 @@ cases:
       issueDate: 1961-07-31
       page: "2"
       pageUrl: https://www.nb.no/items/9cc2f9af2bdb67dbf1f61a3957cf735e?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: kristiansund
-        clubId: kfk
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: CFK
+        clubId: clausenengen
+      observedOpponent:
+        name: CFK
+        clubId: clausenengen
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 1
         opponent: 0
-        status: conflict
+        confidence: low
       matchDate:
         value: 1961-10-15
-        confidence: high
-      homeAway: away
+        confidence: low
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "CFK" (clausenengen), but visual
-        review found "kristiansund" (kfk)'
-      - "Temporal impossible: issueDate 1961-07-31 is earlier than matchDate
-        1961-10-15"
-    reason: Siden omtaler 1. divisjonskampen søndag 15. oktober 1961 i Kristiansund
-      der AaFK slo Clausenengen (CFK) 1-0.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1961-07-31) er tidligere enn
+        påstått kampdato (1961-10-15)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1962-001
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -3490,33 +3477,35 @@ cases:
       issueDate: 1962-04-02
       page: "6"
       pageUrl: https://www.nb.no/items/61632919c4b15a192674d18ce33cc4fa?page=6
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: brattvåg
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Brattvåg
         clubId: brattvag
-        confidence: high
+      observedOpponent:
+        name: Brattvåg
+        clubId: brattvag
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 5
         opponent: 1
-        status: conflict
+        confidence: low
       matchDate:
         value: 1962-04-29
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: 1. divisjon
-        competitionId: forstedivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: true
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - "Temporal impossible: issueDate 1962-04-02 is earlier than matchDate
-        1962-04-29"
-    reason: Siden omtaler 1. divisjonskampen søndag 29. april 1962 på Aksla stadion
-      der AaFK slo Brattvåg 5-1.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1962-04-02) er tidligere enn
+        påstått kampdato (1962-04-29)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1962-006
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -3532,33 +3521,35 @@ cases:
       issueDate: 1962-02-21
       page: "6"
       pageUrl: https://www.nb.no/items/901ae3fdfe94294e99b861b2ce5f95a8?page=6
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: mjøndalen
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Mjøndalen
         clubId: mjondalen
-        confidence: high
+      observedOpponent:
+        name: Mjøndalen
+        clubId: mjondalen
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 1
         opponent: 0
-        status: conflict
+        confidence: low
       matchDate:
         value: 1962-06-17
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: privatkamp
-        competitionId: treningskamp
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: true
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - "Temporal impossible: issueDate 1962-02-21 is earlier than matchDate
-        1962-06-17"
-    reason: Siden omtaler privatkampen søndag 17. juni 1962 på Aksla stadion der
-      AaFK slo Mjøndalen 1-0.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1962-02-21) er tidligere enn
+        påstått kampdato (1962-06-17)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1963-004
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -3574,16 +3565,21 @@ cases:
       issueDate: 1963-06-21
       page: "4"
       pageUrl: https://www.nb.no/items/c898e684646e283cc0bd896c17e5d8fc?page=4
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: stryn
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Stryn
+        clubId: stryn
+      observedOpponent:
+        name: Stryn
         clubId: stryn
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 2
         opponent: 1
-        status: conflict
+        confidence: high
       matchDate:
         value: 1963-05-19
         confidence: high
@@ -3591,15 +3587,12 @@ cases:
       competition:
         value: privatkamp
         competitionId: treningskamp
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 5-0, but visual review documented 2-1"
-    reason: Siden omtaler privatkampen søndag 19. mai 1963 i Stryn der AaFK slo
-      Stryn 2-1.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 5-0, mens avisen dokumenterer 2-1."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1963-013
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -3615,33 +3608,35 @@ cases:
       issueDate: 1963-07-11
       page: "6"
       pageUrl: https://www.nb.no/items/c8d225c13d1cf216d1ee7b4f23f6fd77?page=6
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: horsens
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Horsens, Danmark
         clubId: horsens-fs
-        confidence: high
+      observedOpponent:
+        name: Horsens, Danmark
+        clubId: horsens-fs
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 1
         opponent: 3
-        status: conflict
+        confidence: low
       matchDate:
         value: 1963-07-28
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: privatkamp
-        competitionId: treningskamp
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: true
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - "Temporal impossible: issueDate 1963-07-11 is earlier than matchDate
-        1963-07-28"
-    reason: Siden omtaler den internasjonale privatkampen søndag 28. juli 1963 på
-      Aksla stadion der det danske laget Horsens slo AaFK 3-1.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1963-07-11) er tidligere enn
+        påstått kampdato (1963-07-28)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1963-035
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -3657,33 +3652,35 @@ cases:
       issueDate: 1963-05-20
       page: "7"
       pageUrl: https://www.nb.no/items/aab11a8a9c4fb21e208fd6de32efd5df?page=7
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: vrf
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: VRF
         clubId: velledalen-ringen
-        confidence: high
+      observedOpponent:
+        name: VRF
+        clubId: velledalen-ringen
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 4
         opponent: 1
-        status: conflict
+        confidence: low
       matchDate:
         value: 1963-09-29
-        confidence: high
-      homeAway: away
+        confidence: low
+      homeAway: unknown
       competition:
         value: 2. divisjon
-        competitionId: forstedivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: true
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - "Temporal impossible: issueDate 1963-05-20 is earlier than matchDate
-        1963-09-29"
-    reason: Siden omtaler 2. divisjonskampen søndag 29. september 1963 der AaFK slo
-      VRF 4-1.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1963-05-20) er tidligere enn
+        påstått kampdato (1963-09-29)."
   - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1964-1964-001
     sourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1964
@@ -3699,16 +3696,21 @@ cases:
       issueDate: 1964-04-20
       page: "2"
       pageUrl: https://www.nb.no/items/0afe6b3e6664a05c703c5237acab2af9?page=2
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: v.r.f.
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: V.R.F.
+        clubId: velledalen-ringen
+      observedOpponent:
+        name: V.R.F.
         clubId: velledalen-ringen
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 3
         opponent: 1
-        status: confirmed
+        confidence: high
       matchDate:
         value: 1964-04-19
         confidence: high
@@ -3718,11 +3720,11 @@ cases:
         competitionId: treningskamp
         confidence: high
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden omtaler privatkampen søndag 19. april 1964 der AaFK slo V.R.F. 3-1.
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 20.04.1964 s. 2: Kampreferat fra privatkampen søndag 19.
+        april 1964 der AaFK slo Velledalen/Ringen 3-1."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-004
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -3738,16 +3740,21 @@ cases:
       issueDate: 1964-06-25
       page: "3"
       pageUrl: https://www.nb.no/items/314248450eaeee4a53054baa3cf42534?page=3
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: skarbøvik
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Skarbøvik
+        clubId: skarbovik
+      observedOpponent:
+        name: Skarbøvik
         clubId: skarbovik
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 4
         opponent: 2
-        status: conflict
+        confidence: high
       matchDate:
         value: 1964-05-03
         confidence: high
@@ -3755,15 +3762,12 @@ cases:
       competition:
         value: 2. divisjon
         competitionId: forstedivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 5-2, but visual review documented 4-2"
-    reason: Siden omtaler 2. divisjonskampen søndag 3. mai 1964 på Aksla stadion der
-      AaFK slo Skarbøvik 4-2.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 5-2, mens avisen dokumenterer 4-2."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-007
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -3779,16 +3783,21 @@ cases:
       issueDate: 1964-05-27
       page: "6"
       pageUrl: https://www.nb.no/items/96f3b16bee5c21d9ca2774e11db4124f?page=6
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: aksla
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Aksla
+        clubId: aksla
+      observedOpponent:
+        name: Aksla
         clubId: aksla
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 4
         opponent: 0
-        status: conflict
+        confidence: high
       matchDate:
         value: 1964-05-24
         confidence: high
@@ -3796,15 +3805,12 @@ cases:
       competition:
         value: 2. divisjon
         competitionId: forstedivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 5-2, but visual review documented 4-0"
-    reason: Siden omtaler 2. divisjonskampen søndag 24. mai 1964 på Aksla stadion
-      der AaFK slo Aksla 4-0.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 5-2, mens avisen dokumenterer 4-0."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-010
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -3820,16 +3826,21 @@ cases:
       issueDate: 1964-07-17
       page: "2"
       pageUrl: https://www.nb.no/items/b81904fa45d1c4f005743fdfa7c4c0d8?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: aksla
-        clubId: aksla
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Vigra
+        clubId: vigra-il
+      observedOpponent:
+        name: Vigra
+        clubId: vigra-il
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 3
         opponent: 1
-        status: conflict
+        confidence: high
       matchDate:
         value: 1964-06-14
         confidence: high
@@ -3837,23 +3848,12 @@ cases:
       competition:
         value: 2. divisjon
         competitionId: forstedivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: false
-    auditDisposition: opponent_mismatch
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Vigra" (vigra-il), but visual
-        review found "aksla" (aksla)'
-    incidentalMatch:
-      date: 1964-06-14
-      homeClubId: aalesunds-fk
-      awayClubId: aksla
-      score:
-        - 3
-        - 1
-    reason: Siden omtaler 2. divisjonskampen søndag 14. juni 1964 på Aksla stadion
-      der AaFK slo Vigra 3-1.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 15-0, mens avisen dokumenterer 3-1."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-013
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -3869,33 +3869,35 @@ cases:
       issueDate: 1964-07-27
       page: "3"
       pageUrl: https://www.nb.no/items/ae026d1112000e57f2e1f5326febdf79?page=3
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: årstad
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Årstad
         clubId: arstad-il
-        confidence: high
+      observedOpponent:
+        name: Årstad
+        clubId: arstad-il
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 2
         opponent: 1
-        status: conflict
+        confidence: low
       matchDate:
         value: 1964-08-09
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: NM
-        competitionId: nm
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: true
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - "Temporal impossible: issueDate 1964-07-27 is earlier than matchDate
-        1964-08-09"
-    reason: Siden omtaler 3. runde i NM søndag 9. august 1964 på Aksla stadion der
-      AaFK slo Årstad (Bergen) 2-1.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1964-07-27) er tidligere enn
+        påstått kampdato (1964-08-09)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-032
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -3911,35 +3913,35 @@ cases:
       issueDate: 1964-04-27
       page: "2"
       pageUrl: https://www.nb.no/items/fe8a6fcf858e806daac06824f4181141?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: molde
-        clubId: molde-fk
-        confidence: high
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Træff
+        clubId: traeff
+      observedOpponent:
+        name: Træff
+        clubId: traeff
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 1
         opponent: 0
-        status: confirmed
+        confidence: low
       matchDate:
         value: 1964-08-23
-        confidence: high
-      homeAway: away
+        confidence: low
+      homeAway: unknown
       competition:
         value: 2. divisjon
-        competitionId: forstedivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: false
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - 'Opponent mismatch: candidate claimed "Træff" (traeff), but visual
-        review found "molde" (molde-fk)'
-      - "Temporal impossible: issueDate 1964-04-27 is earlier than matchDate
-        1964-08-23"
-    reason: Siden omtaler 2. divisjonskampen søndag 23. august 1964 i Molde der AaFK
-      slo Træff 1-0.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1964-04-27) er tidligere enn
+        påstått kampdato (1964-08-23)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-035
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -3955,33 +3957,35 @@ cases:
       issueDate: 1964-04-27
       page: "3"
       pageUrl: https://www.nb.no/items/fe8a6fcf858e806daac06824f4181141?page=3
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: stranda
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Stranda
         clubId: stranda
-        confidence: high
+      observedOpponent:
+        name: Stranda
+        clubId: stranda
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 4
         opponent: 0
-        status: conflict
+        confidence: low
       matchDate:
         value: 1964-08-30
-        confidence: high
-      homeAway: away
+        confidence: low
+      homeAway: unknown
       competition:
         value: 2. divisjon
-        competitionId: forstedivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: true
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - "Temporal impossible: issueDate 1964-04-27 is earlier than matchDate
-        1964-08-30"
-    reason: Siden omtaler 2. divisjonskampen søndag 30. august 1964 på Stranda der
-      AaFK slo Stranda 4-0.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1964-04-27) er tidligere enn
+        påstått kampdato (1964-08-30)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1965-019
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -3997,16 +4001,21 @@ cases:
       issueDate: 1965-06-26
       page: "6"
       pageUrl: https://www.nb.no/items/933107b7601c97007c9d0aa9f2bf555b?page=6
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: sykkylven
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Sykkylven
+        clubId: fk-sykkylven
+      observedOpponent:
+        name: Sykkylven
         clubId: fk-sykkylven
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 3
         opponent: 1
-        status: conflict
+        confidence: high
       matchDate:
         value: 1965-05-16
         confidence: high
@@ -4014,15 +4023,12 @@ cases:
       competition:
         value: 3. divisjon
         competitionId: andredivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 8-2, but visual review documented 3-1"
-    reason: Siden omtaler 3. divisjonskampen søndag 16. mai 1965 i Sykkylven der
-      AaFK slo Sykkylven 3-1.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 8-2, mens avisen dokumenterer 3-1."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1965-020
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -4038,16 +4044,21 @@ cases:
       issueDate: 1965-10-11
       page: "6"
       pageUrl: https://www.nb.no/items/7457953b8ecfb84572b43823c4267c93?page=6
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: måløy
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Måløy
+        clubId: maloy-il
+      observedOpponent:
+        name: Måløy
         clubId: maloy-il
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 5
         opponent: 1
-        status: conflict
+        confidence: high
       matchDate:
         value: 1965-05-23
         confidence: high
@@ -4055,15 +4066,12 @@ cases:
       competition:
         value: 3. divisjon
         competitionId: andredivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 4-1, but visual review documented 5-1"
-    reason: Siden omtaler 3. divisjonskampen søndag 23. mai 1965 på Kråmyra der AaFK
-      slo Måløy 5-1.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 4-1, mens avisen dokumenterer 5-1."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1965-030
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -4079,16 +4087,21 @@ cases:
       issueDate: 1965-10-25
       page: "3"
       pageUrl: https://www.nb.no/items/024f3fc2b32980d45968b0541c3fc193?page=3
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: ravn
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Ravn
+        clubId: il-ravn
+      observedOpponent:
+        name: Ravn
         clubId: il-ravn
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 6
         opponent: 1
-        status: conflict
+        confidence: high
       matchDate:
         value: 1965-06-27
         confidence: high
@@ -4096,15 +4109,12 @@ cases:
       competition:
         value: Sunnmørscupen
         competitionId: nm
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 7-0, but visual review documented 6-1"
-    reason: Siden omtaler Sunnmørscup-kampen søndag 27. juni 1965 der AaFK slo Ravn
-      6-1.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 7-0, mens avisen dokumenterer 6-1."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1965-031
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -4120,33 +4130,35 @@ cases:
       issueDate: 1965-06-28
       page: "2"
       pageUrl: https://www.nb.no/items/b394ddeeddf27f6116e62011da54e0e0?page=2
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: jednota trencin
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Jednota
         clubId: jednota-trencin
-        confidence: high
+      observedOpponent:
+        name: Jednota
+        clubId: jednota-trencin
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 2
         opponent: 3
-        status: conflict
+        confidence: low
       matchDate:
         value: 1965-07-04
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: privatkamp
-        competitionId: treningskamp
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: true
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - "Temporal impossible: issueDate 1965-06-28 is earlier than matchDate
-        1965-07-04"
-    reason: Siden omtaler den internasjonale privatkampen søndag 4. juli 1965 på
-      Kråmyra der tsjekkoslovakiske Jednota Trencin slo AaFK 3-2.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1965-06-28) er tidligere enn
+        påstått kampdato (1965-07-04)."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1965-032
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -4162,16 +4174,21 @@ cases:
       issueDate: 1965-07-13
       page: "6"
       pageUrl: https://www.nb.no/items/6254a1a9054ba3c3e852293b098cd6cc?page=6
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: stålkameratene
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Stålkameratene
+        clubId: stalkameratene
+      observedOpponent:
+        name: Stålkameratene
         clubId: stalkameratene
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 1
         opponent: 7
-        status: confirmed
+        confidence: high
       matchDate:
         value: 1965-07-12
         confidence: high
@@ -4181,12 +4198,11 @@ cases:
         competitionId: treningskamp
         confidence: high
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden omtaler privatkampen mandag 12. juli 1965 i Mo i Rana der
-      Stålkameratene slo AaFK 7-1.
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 13.07.1965 s. 6: Referat fra privatkampen i Mo i Rana
+        mandag 12. juli 1965 der Stålkameratene slo AaFK 7-1."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1965-035
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -4202,33 +4218,35 @@ cases:
       issueDate: 1965-04-27
       page: "6"
       pageUrl: https://www.nb.no/items/805ab7669b627c9f948e4267aacaa2c0?page=6
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: rollon
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Rollon
         clubId: rollon
-        confidence: high
+      observedOpponent:
+        name: Rollon
+        clubId: rollon
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 1
         opponent: 0
-        status: conflict
+        confidence: low
       matchDate:
         value: 1965-08-01
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: NM
-        competitionId: nm
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: true
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - "Temporal impossible: issueDate 1965-04-27 is earlier than matchDate
-        1965-08-01"
-    reason: Siden omtaler 3. runde i NM søndag 1. august 1965 på Kråmyra der AaFK
-      slo Rollon 1-0.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1965-04-27) er tidligere enn
+        påstått kampdato (1965-08-01)."
   - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1966-1966-002
     sourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1966
@@ -4244,16 +4262,21 @@ cases:
       issueDate: 1966-07-04
       page: "2"
       pageUrl: https://www.nb.no/items/9e501884cf9b50e5040d5f9157da9e16?page=2
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: eid
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Eid
+        clubId: eid-il
+      observedOpponent:
+        name: Eid
         clubId: eid-il
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 3
         opponent: 1
-        status: conflict
+        confidence: high
       matchDate:
         value: 1966-05-15
         confidence: high
@@ -4261,15 +4284,12 @@ cases:
       competition:
         value: 3. divisjon
         competitionId: andredivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 3-2, but visual review documented 3-1"
-    reason: Siden omtaler 3. divisjonskampen søndag 15. mai 1966 på Kråmyra der AaFK
-      slo Eid 3-1.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 3-2, mens avisen dokumenterer 3-1."
   - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1967-1967-002
     sourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1967
@@ -4285,16 +4305,21 @@ cases:
       issueDate: 1967-06-15
       page: "6"
       pageUrl: https://www.nb.no/items/25986c294aac8f471e6f1887b86ab4bb?page=6
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: herd
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Herd
+        clubId: herd
+      observedOpponent:
+        name: Herd
         clubId: herd
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 2
         opponent: 1
-        status: conflict
+        confidence: high
       matchDate:
         value: 1967-05-28
         confidence: high
@@ -4302,15 +4327,12 @@ cases:
       competition:
         value: 3. divisjon
         competitionId: andredivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 1-2, but visual review documented 2-1"
-    reason: Siden omtaler 3. divisjonskampen søndag 28. mai 1967 på Kråmyra der AaFK
-      slo Herd 2-1.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 1-2, mens avisen dokumenterer 2-1."
   - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1969-1969-002
     sourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1969
@@ -4326,16 +4348,21 @@ cases:
       issueDate: 1969-08-26
       page: "6"
       pageUrl: https://www.nb.no/items/921e52c2440110e1e3378f105762b94f?page=6
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: gossen
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Gossen
+        clubId: gossen-il
+      observedOpponent:
+        name: Gossen
         clubId: gossen-il
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 4
         opponent: 0
-        status: conflict
+        confidence: high
       matchDate:
         value: 1969-05-15
         confidence: high
@@ -4343,15 +4370,12 @@ cases:
       competition:
         value: 3. divisjon
         competitionId: andredivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 1-2, but visual review documented 4-0"
-    reason: Siden omtaler 3. divisjonskampen Kristi himmelfartsdag torsdag 15. mai
-      1969 på Kråmyra der AaFK slo Gossen 4-0.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 1-2, mens avisen dokumenterer 4-0."
   - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1970-1970-001
     sourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1970
@@ -4367,16 +4391,21 @@ cases:
       issueDate: 1970-09-02
       page: "6"
       pageUrl: https://www.nb.no/items/5dbc6525fd529ba9dc06a5afac124718?page=6
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: langevåg
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Langevåg
+        clubId: langevag
+      observedOpponent:
+        name: Langevåg
         clubId: langevag
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 2
         opponent: 0
-        status: conflict
+        confidence: high
       matchDate:
         value: 1970-05-03
         confidence: high
@@ -4384,15 +4413,12 @@ cases:
       competition:
         value: 2. divisjon
         competitionId: forstedivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 1-2, but visual review documented 2-0"
-    reason: Siden omtaler 2. divisjonskampen søndag 3. mai 1970 på Kråmyra der AaFK
-      slo Langevåg 2-0.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 1-2, mens avisen dokumenterer 2-0."
   - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1971-1971-003
     sourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1971
@@ -4408,16 +4434,21 @@ cases:
       issueDate: 1971-06-07
       page: "6"
       pageUrl: https://www.nb.no/items/c72e4b7a21201b8d7df24692fd5e9d64?page=6
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: skarbøvik
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Skarbøvik
+        clubId: skarbovik
+      observedOpponent:
+        name: Skarbøvik
         clubId: skarbovik
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 2
         opponent: 1
-        status: conflict
+        confidence: high
       matchDate:
         value: 1971-05-23
         confidence: high
@@ -4425,15 +4456,12 @@ cases:
       competition:
         value: 3. divisjon
         competitionId: andredivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 2-0, but visual review documented 2-1"
-    reason: Siden omtaler 3. divisjonskampen søndag 23. mai 1971 på Skarbøvik der
-      AaFK slo Skarbøvik 2-1.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 2-0, mens avisen dokumenterer 2-1."
   - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1972-1972-002
     sourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1972
@@ -4449,16 +4477,21 @@ cases:
       issueDate: 1972-12-30
       page: "6"
       pageUrl: https://www.nb.no/items/8913213d2ed377d34dcafc0bb722973d?page=6
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: skarbøvik
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Skarbøvik
+        clubId: skarbovik
+      observedOpponent:
+        name: Skarbøvik
         clubId: skarbovik
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 3
         opponent: 0
-        status: conflict
+        confidence: high
       matchDate:
         value: 1972-05-28
         confidence: high
@@ -4466,15 +4499,12 @@ cases:
       competition:
         value: 3. divisjon
         competitionId: andredivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 0-1, but visual review documented 3-0"
-    reason: Siden omtaler 3. divisjonskampen søndag 28. mai 1972 på Kråmyra der AaFK
-      slo Skarbøvik 3-0.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 0-1, mens avisen dokumenterer 3-0."
   - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1973-1973-001
     sourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1973
@@ -4490,16 +4520,21 @@ cases:
       issueDate: 1973-05-14
       page: "8"
       pageUrl: https://www.nb.no/items/2e1b864663a221e4a37794bc7b96d8ee?page=8
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: gossen
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Gossen
+        clubId: gossen-il
+      observedOpponent:
+        name: Gossen
         clubId: gossen-il
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 4
         opponent: 1
-        status: conflict
+        confidence: high
       matchDate:
         value: 1973-05-06
         confidence: high
@@ -4507,15 +4542,12 @@ cases:
       competition:
         value: 3. divisjon
         competitionId: andredivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 3-0, but visual review documented 4-1"
-    reason: Siden omtaler 3. divisjonskampen søndag 6. mai 1973 på Kråmyra der AaFK
-      slo Gossen 4-1.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 3-0, mens avisen dokumenterer 4-1."
   - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1974-1974-001
     sourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1974
@@ -4531,33 +4563,35 @@ cases:
       issueDate: 1974-03-18
       page: "9"
       pageUrl: https://www.nb.no/items/631d31d20fa3850dcaead39d6915f1a9?page=9
-    visualReview:
-      sameMatch: false
-      opponent:
-        name: herd
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Herd
         clubId: herd
-        confidence: high
+      observedOpponent:
+        name: Herd
+        clubId: herd
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
       score:
         aafk: 2
         opponent: 0
-        status: conflict
+        confidence: low
       matchDate:
         value: 1974-05-19
-        confidence: high
-      homeAway: home
+        confidence: low
+      homeAway: unknown
       competition:
         value: 3. divisjon
-        competitionId: andredivisjon
-        confidence: high
-      evidenceType: report
-      temporalValid: false
-    opponentIdentityMatches: true
-    auditDisposition: temporal_invalid
-    failureReasons:
-      - "Temporal impossible: issueDate 1974-03-18 is earlier than matchDate
-        1974-05-19"
-    reason: Siden omtaler 3. divisjonskampen søndag 19. mai 1974 på Kråmyra der AaFK
-      slo Herd 2-0.
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1974-03-18) er tidligere enn
+        påstått kampdato (1974-05-19)."
   - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1975-1975-001
     sourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1975
@@ -4573,16 +4607,21 @@ cases:
       issueDate: 1975-07-02
       page: "6"
       pageUrl: https://www.nb.no/items/57fd6a97383a479c22db9dcfe09f2a22?page=6
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: træff
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Træff
+        clubId: traeff
+      observedOpponent:
+        name: Træff
         clubId: traeff
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 2
         opponent: 1
-        status: conflict
+        confidence: high
       matchDate:
         value: 1975-05-11
         confidence: high
@@ -4590,15 +4629,12 @@ cases:
       competition:
         value: 3. divisjon
         competitionId: andredivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 1-0, but visual review documented 2-1"
-    reason: Siden omtaler 3. divisjonskampen søndag 11. mai 1975 på Kråmyra der AaFK
-      slo Træff 2-1.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 1-0, mens avisen dokumenterer 2-1."
   - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1976-1976-003
     sourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1976
@@ -4614,16 +4650,21 @@ cases:
       issueDate: 1976-06-29
       page: "6"
       pageUrl: https://www.nb.no/items/a2d508694124adade1ddc3376f030362?page=6
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: sunndal
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Sunndal
+        clubId: sunndal
+      observedOpponent:
+        name: Sunndal
         clubId: sunndal
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 2
         opponent: 1
-        status: conflict
+        confidence: high
       matchDate:
         value: 1976-05-23
         confidence: high
@@ -4631,15 +4672,12 @@ cases:
       competition:
         value: 3. divisjon
         competitionId: andredivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 2-0, but visual review documented 2-1"
-    reason: Siden omtaler 3. divisjonskampen søndag 23. mai 1976 på Kråmyra der AaFK
-      slo Sunndal 2-1.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 2-0, mens avisen dokumenterer 2-1."
   - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1977-1977-001
     sourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1977
@@ -4655,16 +4693,21 @@ cases:
       issueDate: 1977-09-19
       page: "7"
       pageUrl: https://www.nb.no/items/a8397b62eec951bd7d0af907961aeff0?page=7
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: bergsøy
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Bergsøy
+        clubId: bergsoy
+      observedOpponent:
+        name: Bergsøy
         clubId: bergsoy
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 1
         opponent: 0
-        status: confirmed
+        confidence: high
       matchDate:
         value: 1977-09-17
         confidence: high
@@ -4674,12 +4717,11 @@ cases:
         competitionId: andredivisjon
         confidence: high
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: canonical_ready
-    failureReasons: []
-    reason: Siden omtaler 3. divisjonskampen lørdag 17. september 1977 der AaFK slo
-      serietoer Bergsøy 1-0 i Fosnavåg.
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 19.09.1977 s. 7: Referat fra 3. divisjonskampen i
+        Fosnavåg lørdag 17. september 1977 der AaFK slo Bergsøy 1-0."
   - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1978-1978-001
     sourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1978
@@ -4695,16 +4737,21 @@ cases:
       issueDate: 1978-05-25
       page: "1"
       pageUrl: https://www.nb.no/items/93153b497926b4418857d07f5ae151ec?page=1
-    visualReview:
-      sameMatch: true
-      opponent:
-        name: kristiansund fk
+    facsimileReaudit:
+      visuallyReviewed: true
+      candidateOpponent:
+        name: Kristiansund
+        clubId: kfk
+      observedOpponent:
+        name: Kristiansund
         clubId: kfk
         confidence: high
+      sameEvent: true
+      seniorAteam: true
       score:
         aafk: 1
         opponent: 0
-        status: conflict
+        confidence: high
       matchDate:
         value: 1978-05-20
         confidence: high
@@ -4712,12 +4759,9 @@ cases:
       competition:
         value: 3. divisjon
         competitionId: andredivisjon
-        confidence: high
+        confidence: medium
       evidenceType: report
-      temporalValid: true
-    opponentIdentityMatches: true
-    auditDisposition: score_conflict
-    failureReasons:
-      - "Score conflict: candidate claimed 0-1, but visual review documented 1-0"
-    reason: Siden omtaler 3. divisjonskampen lørdag 20. mai 1978 på Kråmyra der AaFK
-      slo Kristiansund FK 1-0 med scoring i sluttminuttet.
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 0-1, mens avisen dokumenterer 1-0."

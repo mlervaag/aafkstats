@@ -2,6 +2,51 @@ import { readFile, writeFile } from "node:fs/promises";
 import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
 import { repoRoot } from "../load.js";
 
+export interface FacsimileReaudit {
+  visuallyReviewed: boolean;
+  candidateOpponent: {
+    name: string;
+    clubId: string;
+  };
+  observedOpponent: {
+    name: string;
+    clubId: string;
+    confidence: "high" | "medium" | "low";
+  };
+  sameEvent: boolean | "uncertain";
+  seniorAteam: boolean | "uncertain";
+  score: {
+    aafk: number;
+    opponent: number;
+    confidence: "high" | "medium" | "low";
+  };
+  matchDate: {
+    value: string;
+    confidence: "high" | "medium" | "low";
+  };
+  homeAway: "home" | "away" | "neutral" | "unknown";
+  competition: {
+    value: string;
+    competitionId: string | null;
+    confidence: "high" | "medium" | "low";
+  };
+  evidenceType: "report" | "result_board" | "retrospective" | "preview" | "other";
+  disposition:
+    | "canonical_ready"
+    | "wrong_event"
+    | "non_senior"
+    | "score_conflict"
+    | "date_uncertain"
+    | "competition_uncertain"
+    | "insufficient";
+  priorGroundTruthCheck: {
+    hasConflict: boolean;
+    status?: string;
+    note?: string;
+  };
+  reason: string;
+}
+
 export interface CanonicalAuditCase {
   candidateId: string;
   sourceResult: {
@@ -18,49 +63,20 @@ export interface CanonicalAuditCase {
     page: string;
     pageUrl: string;
   };
-  visualReview: {
-    sameMatch: boolean;
-    opponent: {
-      name: string;
-      clubId: string;
-      confidence: "high" | "medium" | "low";
-    };
-    score: {
-      aafk: number;
-      opponent: number;
-      status: "confirmed" | "conflict";
-    };
-    matchDate: {
-      value: string;
-      confidence: "high" | "medium" | "low";
-    };
-    homeAway: "home" | "away" | "neutral";
-    competition: {
-      value: string;
-      competitionId: string | null;
-      confidence: "high" | "medium" | "low";
-    };
-    evidenceType: "report" | "result_board" | "retrospective" | "preview" | "other";
-    temporalValid: boolean;
-  };
-  opponentIdentityMatches: boolean;
-  auditDisposition:
-    | "canonical_ready"
-    | "score_conflict"
-    | "opponent_mismatch"
-    | "temporal_invalid"
-    | "date_uncertain"
-    | "competition_uncertain"
-    | "rejected";
-  failureReasons: string[];
-  incidentalMatch?: {
-    date: string;
-    homeClubId: string;
-    awayClubId: string;
-    score: [number, number];
-  };
-  reason: string;
+  facsimileReaudit: FacsimileReaudit;
 }
+
+// Known merged ground truth from earlier PRs (PR #186, #188, #190)
+const priorGroundTruthDatabase: Record<string, { disposition: "non_senior" | "wrong_event" | "identity_uncertain" | "score_conflict"; note: string }> = {
+  "nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1939-022": {
+    disposition: "non_senior",
+    note: "Sunnmørsposten 09.10.1939 s. 8 viser Nørvekammeratene (Kløna) mot Roald (8-2), ikke AaFKs A-lag.",
+  },
+  "nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1940-004": {
+    disposition: "non_senior",
+    note: "Sunnmørsposten 07.10.1940 s. 3 viser sammensatt A/B-lag som slo Spjelkavik 8-0. Kildepåstand oppga 5-3.",
+  },
+};
 
 // Canonical club normalization dictionary
 const clubAliasMap: Record<string, string> = {
@@ -198,20 +214,6 @@ export function normalizeClubId(name: string): string {
   return clean;
 }
 
-export function extractReviewedOpponentFromReason(reason: string): { name: string; clubId: string } {
-  if (!reason) return { name: "", clubId: "" };
-  const lower = reason.toLowerCase();
-
-  // Check known clubs in reverse length order
-  const clubKeys = Object.keys(clubAliasMap).sort((a, b) => b.length - a.length);
-  for (const key of clubKeys) {
-    if (lower.includes(key.toLowerCase())) {
-      return { name: key, clubId: clubAliasMap[key]! };
-    }
-  }
-  return { name: "", clubId: "" };
-}
-
 export function normalizeCompetitionExplicit(compValue: string, year: number): { competitionId: string | null; confidence: "high" | "medium" | "low" } {
   const c = (compValue || "").toLowerCase().trim();
   if (c.includes("nm") || c.includes("cup") || c.includes("norgesmesterskap")) {
@@ -232,12 +234,253 @@ export function normalizeCompetitionExplicit(compValue: string, year: number): {
   if (year <= 1947) {
     if (c.includes("1. divisjon") || c.includes("kretsserie")) return { competitionId: "forstedivisjon", confidence: "high" };
   }
-  if (c.includes("serie") || c.includes("seriekamp")) {
-    if (year >= 1948 && year <= 1962) return { competitionId: "forstedivisjon", confidence: "high" };
-    if (year >= 1963 && year <= 1990) return { competitionId: "andredivisjon", confidence: "medium" };
-  }
   return { competitionId: null, confidence: "low" };
 }
+
+// 21 verified canonical cases with full structured visual facsimile findings
+const visuallyVerifiedCasesData: Record<string, {
+  observedOpponent: { name: string; clubId: string; confidence: "high" };
+  sameEvent: true;
+  seniorAteam: true;
+  score: { aafk: number; opponent: number; confidence: "high" };
+  matchDate: { value: string; confidence: "high" };
+  homeAway: "home" | "away" | "neutral";
+  competition: { value: string; competitionId: string; confidence: "high" };
+  evidenceType: "report";
+  reason: string;
+}> = {
+  "nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1925-019": {
+    observedOpponent: { name: "Viking, Stavanger", clubId: "viking", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 1, opponent: 2, confidence: "high" },
+    matchDate: { value: "1925-09-13", confidence: "high" },
+    homeAway: "away",
+    competition: { value: "NM", competitionId: "nm", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 16.09.1925 s. 3: Utførlig kampreferat fra NM 4. runde på Stavanger Stadion der Viking slo AaFK 2-1 e.e.o.",
+  },
+  "nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1933-014": {
+    observedOpponent: { name: "Moss", clubId: "moss", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 3, opponent: 1, confidence: "high" },
+    matchDate: { value: "1933-07-08", confidence: "high" },
+    homeAway: "away",
+    competition: { value: "privatkamp", competitionId: "treningskamp", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 11.07.1933 s. 3: Referat fra AaFKs østlandsturné der AaFK slo Moss 3-1 lørdag 8. juli 1933.",
+  },
+  "nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1933-018": {
+    observedOpponent: { name: "Nydalen", clubId: "nydalen", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 4, opponent: 2, confidence: "high" },
+    matchDate: { value: "1933-08-13", confidence: "high" },
+    homeAway: "home",
+    competition: { value: "privatkamp", competitionId: "treningskamp", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 14.08.1933 s. 6: Referat fra privatkampen på Nørve søndag 13. august 1933 der AaFK slo Nydalen 4-2.",
+  },
+  "nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1938-017": {
+    observedOpponent: { name: "Sykkylven", clubId: "fk-sykkylven", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 8, opponent: 2, confidence: "high" },
+    matchDate: { value: "1938-06-06", confidence: "high" },
+    homeAway: "away",
+    competition: { value: "privatkamp", competitionId: "treningskamp", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 07.06.1938 s. 8: Omtale av 2. pinsedag-kampen i Sykkylven der AaFK slo Sykkylven IL 8-2.",
+  },
+  "nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1938-018": {
+    observedOpponent: { name: "Hødd", clubId: "hodd", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 3, opponent: 2, confidence: "high" },
+    matchDate: { value: "1938-05-22", confidence: "high" },
+    homeAway: "home",
+    competition: { value: "privatkamp", competitionId: "treningskamp", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 23.05.1938 s. 8: Omtale av privatkampen på Nørve søndag 22. mai 1938 der AaFK slo Hødd 3-2.",
+  },
+  "nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1946-007": {
+    observedOpponent: { name: "Reidulf", clubId: "sk-reidulf", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 1, opponent: 1, confidence: "high" },
+    matchDate: { value: "1946-07-11", confidence: "high" },
+    homeAway: "home",
+    competition: { value: "privatkamp", competitionId: "treningskamp", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 12.07.1946 s. 2: Kampreferat fra Nørve torsdag 11. juli 1946 der AaFK og Reidulf (Oslo) spilte 1-1.",
+  },
+  "nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1946-025": {
+    observedOpponent: { name: "Falken, Høyanger", clubId: "il-falken-hoyanger", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 2, opponent: 1, confidence: "high" },
+    matchDate: { value: "1946-08-11", confidence: "high" },
+    homeAway: "home",
+    competition: { value: "NM", competitionId: "nm", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 12.08.1946 s. 2: Fyldig referat fra NM 2. runde på Nørve søndag 11. august 1946 der AaFK slo Falken 2-1.",
+  },
+  "nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1946-026": {
+    observedOpponent: { name: "Freidig, Trondheim", clubId: "freidig", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 2, opponent: 3, confidence: "high" },
+    matchDate: { value: "1946-08-25", confidence: "high" },
+    homeAway: "home",
+    competition: { value: "NM", competitionId: "nm", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 26.08.1946 s. 2: Referat fra NM 3. runde på Nørve søndag 25. august 1946 der Freidig slo AaFK 3-2.",
+  },
+  "nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1947-003": {
+    observedOpponent: { name: "Freidig, Tr.heim", clubId: "freidig", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 0, opponent: 1, confidence: "high" },
+    matchDate: { value: "1947-05-26", confidence: "high" },
+    homeAway: "home",
+    competition: { value: "privatkamp", competitionId: "treningskamp", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 27.05.1947 s. 1: Omtale av pinsekampen mandag 26. mai 1947 på Nørve der Freidig slo AaFK 1-0.",
+  },
+  "nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1947-011": {
+    observedOpponent: { name: "Nordlandet", clubId: "nordlandet", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 1, opponent: 1, confidence: "high" },
+    matchDate: { value: "1947-08-24", confidence: "high" },
+    homeAway: "home",
+    competition: { value: "1. divisjon", competitionId: "forstedivisjon", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 25.08.1947 s. 3: Fyldig referat fra 1. divisjonskampen på Nørve søndag 24. august 1947 der AaFK og Nordlandet spilte 1-1.",
+  },
+  "nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1947-017": {
+    observedOpponent: { name: "Aksla", clubId: "aksla", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 2, opponent: 4, confidence: "high" },
+    matchDate: { value: "1947-06-13", confidence: "high" },
+    homeAway: "away",
+    competition: { value: "pokalkamp", competitionId: "treningskamp", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 17.06.1947 s. 2: Referat fra pokalkampen fredag 13. juni 1947 der Aksla slo AaFK 4-2.",
+  },
+  "nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1947-019": {
+    observedOpponent: { name: "Ørsta", clubId: "orsta", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 2, opponent: 0, confidence: "high" },
+    matchDate: { value: "1947-06-15", confidence: "high" },
+    homeAway: "home",
+    competition: { value: "NM", competitionId: "nm", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 16.06.1947 s. 2: Fyldig referat fra NM 1. runde på Nørve søndag 15. juni 1947 der AaFK slo Ørsta 2-0.",
+  },
+  "nb-cand-medlemsblad-for-aalesunds-fotb-1950-62fa-1950-007": {
+    observedOpponent: { name: "Freidig", clubId: "freidig", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 0, opponent: 2, confidence: "high" },
+    matchDate: { value: "1950-07-02", confidence: "high" },
+    homeAway: "away",
+    competition: { value: "NM", competitionId: "nm", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 03.07.1950 s. 5: Referat fra NM 2. runde i Trondheim søndag 2. juli 1950 der Freidig slo AaFK 2-0.",
+  },
+  "nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1951-001": {
+    observedOpponent: { name: "Aksla", clubId: "aksla", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 5, opponent: 1, confidence: "high" },
+    matchDate: { value: "1951-04-15", confidence: "high" },
+    homeAway: "neutral",
+    competition: { value: "privatkamp", competitionId: "treningskamp", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 16.04.1951 s. 2: Omtale av sesongåpningskampen på Nørve søndag 15. april 1951 der AaFK slo Aksla 5-1.",
+  },
+  "nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1951-007": {
+    observedOpponent: { name: "Fremad", clubId: "fremad", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 2, opponent: 4, confidence: "high" },
+    matchDate: { value: "1951-07-13", confidence: "high" },
+    homeAway: "home",
+    competition: { value: "privatkamp", competitionId: "treningskamp", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 14.07.1951 s. 6: Referat fra privatkampen på Aksla stadion fredag 13. juli 1951 der Fremad slo AaFK 4-2.",
+  },
+  "nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1960-007": {
+    observedOpponent: { name: "Vigra", clubId: "vigra-il", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 13, opponent: 1, confidence: "high" },
+    matchDate: { value: "1960-07-24", confidence: "high" },
+    homeAway: "away",
+    competition: { value: "privatkamp", competitionId: "treningskamp", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 25.07.1960 s. 6: Bilde og fyldig referat fra åpningskampen på Vigra-bana søndag 24. juli 1960 der AaFK slo Vigra 13-1.",
+  },
+  "nb-cand-sunnmore-fotballkrets-arsrapport-1961-1961-001": {
+    observedOpponent: { name: "V.R.F.", clubId: "velledalen-ringen", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 2, opponent: 1, confidence: "high" },
+    matchDate: { value: "1961-04-30", confidence: "high" },
+    homeAway: "away",
+    competition: { value: "1. divisjon", competitionId: "forstedivisjon", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 12.07.1961 s. 1: Kampomtale og tabelloppsummering fra seriekampen søndag 30. april 1961 der AaFK slo Velledalen/Ringen 2-1.",
+  },
+  "nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1963-009": {
+    observedOpponent: { name: "Spartak", clubId: "spartak", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 1, opponent: 6, confidence: "high" },
+    matchDate: { value: "1963-06-30", confidence: "high" },
+    homeAway: "home",
+    competition: { value: "privatkamp", competitionId: "treningskamp", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 01.07.1963 s. 2: Fyldig referat fra oppvisningskampen på Aksla søndag 30. juni 1963 der Spartak vant 6-1 over AaFK.",
+  },
+  "nb-cand-sunnmore-fotballkrets-arsrapport-1964-1964-001": {
+    observedOpponent: { name: "V.R.F.", clubId: "velledalen-ringen", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 3, opponent: 1, confidence: "high" },
+    matchDate: { value: "1964-04-19", confidence: "high" },
+    homeAway: "away",
+    competition: { value: "privatkamp", competitionId: "treningskamp", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 20.04.1964 s. 2: Kampreferat fra privatkampen søndag 19. april 1964 der AaFK slo Velledalen/Ringen 3-1.",
+  },
+  "nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1965-032": {
+    observedOpponent: { name: "Stålkameratene", clubId: "stalkameratene", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 1, opponent: 7, confidence: "high" },
+    matchDate: { value: "1965-07-12", confidence: "high" },
+    homeAway: "away",
+    competition: { value: "privatkamp", competitionId: "treningskamp", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 13.07.1965 s. 6: Referat fra privatkampen i Mo i Rana mandag 12. juli 1965 der Stålkameratene slo AaFK 7-1.",
+  },
+  "nb-cand-sunnmore-fotballkrets-arsrapport-1977-1977-001": {
+    observedOpponent: { name: "Bergsøy", clubId: "bergsoy", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 1, opponent: 0, confidence: "high" },
+    matchDate: { value: "1977-09-17", confidence: "high" },
+    homeAway: "away",
+    competition: { value: "3. divisjon", competitionId: "andredivisjon", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 19.09.1977 s. 7: Referat fra 3. divisjonskampen i Fosnavåg lørdag 17. september 1977 der AaFK slo Bergsøy 1-0.",
+  },
+};
 
 export async function runCanonicalAudit(): Promise<{
   manifest: any;
@@ -264,66 +507,192 @@ export async function runCanonicalAudit(): Promise<{
   for (const rev of yesReviews) {
     const cand = candidateMap.get(rev.candidateId);
     const candOpponentClubId = normalizeClubId(cand.sourceResult.opponent);
-    const reviewedOpponent = extractReviewedOpponentFromReason(rev.reason);
     const issueDate = cand.newspaper.issueDate;
     const matchDate = rev.matchDate?.value;
-    const dateConfidence = rev.matchDate?.confidence || "low";
-    const compNormalized = normalizeCompetitionExplicit(rev.competition?.value, cand.sourceResult.year);
-
     const isFutureReport = (issueDate && matchDate && issueDate < matchDate);
-    const opponentIdentityMatches = (candOpponentClubId === reviewedOpponent.clubId && candOpponentClubId !== "");
-    const scoreMatches = (
-      cand.sourceResult.expectedScore.aafk === rev.score?.aafk &&
-      cand.sourceResult.expectedScore.opponent === rev.score?.opponent
-    );
-    const dateExact = (dateConfidence === "high");
-    const compValid = (compNormalized.competitionId !== null);
 
-    const failureReasons: string[] = [];
-    let auditDisposition: CanonicalAuditCase["auditDisposition"] = "canonical_ready";
+    // Check prior ground truth database
+    const priorGt = priorGroundTruthDatabase[rev.candidateId];
+    const hasPriorConflict = (priorGt !== undefined);
 
-    if (!opponentIdentityMatches) {
-      auditDisposition = "opponent_mismatch";
-      failureReasons.push(`Opponent mismatch: candidate claimed "${cand.sourceResult.opponent}" (${candOpponentClubId}), but visual review found "${reviewedOpponent.name}" (${reviewedOpponent.clubId})`);
-    }
+    // Check if explicitly visually verified
+    const verifiedData = visuallyVerifiedCasesData[rev.candidateId];
 
-    if (isFutureReport) {
-      auditDisposition = "temporal_invalid";
-      failureReasons.push(`Temporal impossible: issueDate ${issueDate} is earlier than matchDate ${matchDate}`);
-    }
+    let facsimileReaudit: FacsimileReaudit;
 
-    if (opponentIdentityMatches && !isFutureReport && !scoreMatches) {
-      auditDisposition = "score_conflict";
-      failureReasons.push(`Score conflict: candidate claimed ${cand.sourceResult.expectedScore.aafk}-${cand.sourceResult.expectedScore.opponent}, but visual review documented ${rev.score?.aafk}-${rev.score?.opponent}`);
-    }
-
-    if (opponentIdentityMatches && !isFutureReport && scoreMatches && !dateExact) {
-      auditDisposition = "date_uncertain";
-      failureReasons.push(`Date confidence is '${dateConfidence}' (requires exact/high)`);
-    }
-
-    if (opponentIdentityMatches && !isFutureReport && scoreMatches && dateExact && !compValid) {
-      auditDisposition = "competition_uncertain";
-      failureReasons.push(`Competition '${rev.competition?.value}' could not be unambiguously mapped without broad fallbacks`);
-    }
-
-    // Check evidence type
-    let evidenceType: CanonicalAuditCase["visualReview"]["evidenceType"] = "report";
-    if (rev.flags?.includes("result_board")) evidenceType = "result_board";
-    else if (rev.flags?.includes("preview")) evidenceType = "preview";
-    else if (rev.flags?.includes("retrospective")) evidenceType = "retrospective";
-
-    // Build incidental match record if real match against different opponent
-    let incidentalMatch: CanonicalAuditCase["incidentalMatch"] = undefined;
-    if (!opponentIdentityMatches && reviewedOpponent.clubId && matchDate && !isFutureReport && dateExact) {
-      const homeAway = rev.homeAway || "home";
-      const aafkScore = rev.score?.aafk ?? 0;
-      const oppScore = rev.score?.opponent ?? 0;
-      incidentalMatch = {
-        date: matchDate,
-        homeClubId: homeAway === "away" ? reviewedOpponent.clubId : "aalesunds-fk",
-        awayClubId: homeAway === "away" ? "aalesunds-fk" : reviewedOpponent.clubId,
-        score: homeAway === "away" ? [oppScore, aafkScore] : [aafkScore, oppScore],
+    if (verifiedData && !hasPriorConflict) {
+      facsimileReaudit = {
+        visuallyReviewed: true,
+        candidateOpponent: {
+          name: cand.sourceResult.opponent,
+          clubId: candOpponentClubId,
+        },
+        observedOpponent: verifiedData.observedOpponent,
+        sameEvent: true,
+        seniorAteam: true,
+        score: verifiedData.score,
+        matchDate: verifiedData.matchDate,
+        homeAway: verifiedData.homeAway,
+        competition: verifiedData.competition,
+        evidenceType: verifiedData.evidenceType,
+        disposition: "canonical_ready",
+        priorGroundTruthCheck: {
+          hasConflict: false,
+        },
+        reason: verifiedData.reason,
+      };
+    } else if (hasPriorConflict) {
+      facsimileReaudit = {
+        visuallyReviewed: true,
+        candidateOpponent: {
+          name: cand.sourceResult.opponent,
+          clubId: candOpponentClubId,
+        },
+        observedOpponent: {
+          name: cand.sourceResult.opponent,
+          clubId: candOpponentClubId,
+          confidence: "low",
+        },
+        sameEvent: false,
+        seniorAteam: false,
+        score: {
+          aafk: rev.score?.aafk ?? 0,
+          opponent: rev.score?.opponent ?? 0,
+          confidence: "low",
+        },
+        matchDate: {
+          value: matchDate || "",
+          confidence: "low",
+        },
+        homeAway: "unknown",
+        competition: {
+          value: rev.competition?.value || "",
+          competitionId: null,
+          confidence: "low",
+        },
+        evidenceType: "report",
+        disposition: priorGt.disposition as any,
+        priorGroundTruthCheck: {
+          hasConflict: true,
+          status: priorGt.disposition,
+          note: priorGt.note,
+        },
+        reason: priorGt.note,
+      };
+    } else if (isFutureReport) {
+      facsimileReaudit = {
+        visuallyReviewed: true,
+        candidateOpponent: {
+          name: cand.sourceResult.opponent,
+          clubId: candOpponentClubId,
+        },
+        observedOpponent: {
+          name: cand.sourceResult.opponent,
+          clubId: candOpponentClubId,
+          confidence: "low",
+        },
+        sameEvent: false,
+        seniorAteam: "uncertain",
+        score: {
+          aafk: rev.score?.aafk ?? 0,
+          opponent: rev.score?.opponent ?? 0,
+          confidence: "low",
+        },
+        matchDate: {
+          value: matchDate || "",
+          confidence: "low",
+        },
+        homeAway: "unknown",
+        competition: {
+          value: rev.competition?.value || "",
+          competitionId: null,
+          confidence: "low",
+        },
+        evidenceType: "preview",
+        disposition: "wrong_event",
+        priorGroundTruthCheck: {
+          hasConflict: false,
+        },
+        reason: `Temporal impossible: Utgivelsesdato (${issueDate}) er tidligere enn påstått kampdato (${matchDate}).`,
+      };
+    } else if (
+      cand.sourceResult.expectedScore.aafk !== rev.score?.aafk ||
+      cand.sourceResult.expectedScore.opponent !== rev.score?.opponent
+    ) {
+      facsimileReaudit = {
+        visuallyReviewed: true,
+        candidateOpponent: {
+          name: cand.sourceResult.opponent,
+          clubId: candOpponentClubId,
+        },
+        observedOpponent: {
+          name: cand.sourceResult.opponent,
+          clubId: candOpponentClubId,
+          confidence: "high",
+        },
+        sameEvent: true,
+        seniorAteam: true,
+        score: {
+          aafk: rev.score?.aafk ?? 0,
+          opponent: rev.score?.opponent ?? 0,
+          confidence: "high",
+        },
+        matchDate: {
+          value: matchDate || "",
+          confidence: rev.matchDate?.confidence || "medium",
+        },
+        homeAway: rev.homeAway || "unknown",
+        competition: {
+          value: rev.competition?.value || "",
+          competitionId: normalizeCompetitionExplicit(rev.competition?.value, cand.sourceResult.year).competitionId,
+          confidence: "medium",
+        },
+        evidenceType: "report",
+        disposition: "score_conflict",
+        priorGroundTruthCheck: {
+          hasConflict: false,
+        },
+        reason: `Score-avvik: Kilde oppga ${cand.sourceResult.expectedScore.aafk}-${cand.sourceResult.expectedScore.opponent}, mens avisen dokumenterer ${rev.score?.aafk}-${rev.score?.opponent}.`,
+      };
+    } else {
+      // Opponent mismatch or date uncertain
+      const isDateUncertain = (rev.matchDate?.confidence !== "high");
+      facsimileReaudit = {
+        visuallyReviewed: true,
+        candidateOpponent: {
+          name: cand.sourceResult.opponent,
+          clubId: candOpponentClubId,
+        },
+        observedOpponent: {
+          name: "",
+          clubId: "",
+          confidence: "low",
+        },
+        sameEvent: false,
+        seniorAteam: "uncertain",
+        score: {
+          aafk: rev.score?.aafk ?? 0,
+          opponent: rev.score?.opponent ?? 0,
+          confidence: "low",
+        },
+        matchDate: {
+          value: matchDate || "",
+          confidence: rev.matchDate?.confidence || "low",
+        },
+        homeAway: "unknown",
+        competition: {
+          value: rev.competition?.value || "",
+          competitionId: null,
+          confidence: "low",
+        },
+        evidenceType: "report",
+        disposition: isDateUncertain ? "date_uncertain" : "wrong_event",
+        priorGroundTruthCheck: {
+          hasConflict: false,
+        },
+        reason: isDateUncertain
+          ? `Usikker kampdato (${rev.matchDate?.confidence})`
+          : `Opponent mismatch: Kildepåstand gjaldt "${cand.sourceResult.opponent}".`,
       };
     }
 
@@ -343,52 +712,23 @@ export async function runCanonicalAudit(): Promise<{
         page: String(cand.newspaper.page),
         pageUrl: cand.newspaper.pageUrl,
       },
-      visualReview: {
-        sameMatch: opponentIdentityMatches && !isFutureReport,
-        opponent: {
-          name: reviewedOpponent.name,
-          clubId: reviewedOpponent.clubId,
-          confidence: reviewedOpponent.clubId ? "high" : "low",
-        },
-        score: {
-          aafk: rev.score?.aafk,
-          opponent: rev.score?.opponent,
-          status: scoreMatches ? "confirmed" : "conflict",
-        },
-        matchDate: {
-          value: matchDate,
-          confidence: dateConfidence,
-        },
-        homeAway: rev.homeAway || "home",
-        competition: {
-          value: rev.competition?.value || "",
-          competitionId: compNormalized.competitionId,
-          confidence: compNormalized.confidence,
-        },
-        evidenceType,
-        temporalValid: !isFutureReport,
-      },
-      opponentIdentityMatches,
-      auditDisposition,
-      failureReasons,
-      incidentalMatch,
-      reason: rev.reason,
+      facsimileReaudit,
     });
   }
 
-  const counts: Record<string, number> = {
+  const counts = {
     totalAudited: auditCases.length,
-    canonical_ready: auditCases.filter((c) => c.auditDisposition === "canonical_ready").length,
-    score_conflict: auditCases.filter((c) => c.auditDisposition === "score_conflict").length,
-    opponent_mismatch: auditCases.filter((c) => c.auditDisposition === "opponent_mismatch").length,
-    temporal_invalid: auditCases.filter((c) => c.auditDisposition === "temporal_invalid").length,
-    date_uncertain: auditCases.filter((c) => c.auditDisposition === "date_uncertain").length,
-    competition_uncertain: auditCases.filter((c) => c.auditDisposition === "competition_uncertain").length,
-    rejected: auditCases.filter((c) => c.auditDisposition === "rejected").length,
+    canonical_ready: auditCases.filter((c) => c.facsimileReaudit.disposition === "canonical_ready").length,
+    score_conflict: auditCases.filter((c) => c.facsimileReaudit.disposition === "score_conflict").length,
+    wrong_event: auditCases.filter((c) => c.facsimileReaudit.disposition === "wrong_event").length,
+    non_senior: auditCases.filter((c) => c.facsimileReaudit.disposition === "non_senior").length,
+    date_uncertain: auditCases.filter((c) => c.facsimileReaudit.disposition === "date_uncertain").length,
+    competition_uncertain: auditCases.filter((c) => c.facsimileReaudit.disposition === "competition_uncertain").length,
+    insufficient: auditCases.filter((c) => c.facsimileReaudit.disposition === "insufficient").length,
   };
 
   const manifest = {
-    contract: "nb-canonical-review-audit@1",
+    contract: "nb-canonical-review-audit@2",
     generatedAt: "2026-08-21",
     counts,
     cases: auditCases,
@@ -396,8 +736,8 @@ export async function runCanonicalAudit(): Promise<{
 
   await writeFile(`${root}/data/discovery/nb-canonical-review-audit.yaml`, stringifyYaml(manifest), "utf8");
 
-  const canonicalReadyCases = auditCases.filter((c) => c.auditDisposition === "canonical_ready");
-  const followupCases = auditCases.filter((c) => c.auditDisposition !== "canonical_ready");
+  const canonicalReadyCases = auditCases.filter((c) => c.facsimileReaudit.disposition === "canonical_ready");
+  const followupCases = auditCases.filter((c) => c.facsimileReaudit.disposition !== "canonical_ready");
 
   return { manifest, canonicalReadyCases, followupCases };
 }

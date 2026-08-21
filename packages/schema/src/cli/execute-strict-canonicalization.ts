@@ -12,9 +12,6 @@ const newClubsData: Record<string, { name: string; identityKey?: string }> = {
   nydalen: {
     name: "Nydalen",
   },
-  "il-roald": {
-    name: "Roald",
-  },
   "sk-reidulf": {
     name: "Reidulf",
   },
@@ -80,12 +77,12 @@ async function main() {
 
   // Process canonical ready cases
   for (const item of canonicalReadyCases) {
-    const { sourceResult, newspaper, visualReview, reason } = item;
-    const matchDate = visualReview.matchDate.value;
+    const { sourceResult, newspaper, facsimileReaudit } = item;
+    const matchDate = facsimileReaudit.matchDate.value;
     const matchYear = Number(matchDate.slice(0, 4));
-    const compId = visualReview.competition.competitionId!;
-    const homeAway = visualReview.homeAway;
-    const oppClubId = visualReview.opponent.clubId;
+    const compId = facsimileReaudit.competition.competitionId!;
+    const homeAway = facsimileReaudit.homeAway;
+    const oppClubId = facsimileReaudit.observedOpponent.clubId;
 
     let homeClubId: string;
     let awayClubId: string;
@@ -96,19 +93,19 @@ async function main() {
     if (homeAway === "away") {
       homeClubId = oppClubId;
       awayClubId = "aalesunds-fk";
-      homeScore = visualReview.score.opponent;
-      awayScore = visualReview.score.aafk;
+      homeScore = facsimileReaudit.score.opponent;
+      awayScore = facsimileReaudit.score.aafk;
     } else if (homeAway === "neutral") {
       homeClubId = "aalesunds-fk";
       awayClubId = oppClubId;
-      homeScore = visualReview.score.aafk;
-      awayScore = visualReview.score.opponent;
+      homeScore = facsimileReaudit.score.aafk;
+      awayScore = facsimileReaudit.score.opponent;
       neutralVenue = true;
     } else {
       homeClubId = "aalesunds-fk";
       awayClubId = oppClubId;
-      homeScore = visualReview.score.aafk;
-      awayScore = visualReview.score.opponent;
+      homeScore = facsimileReaudit.score.aafk;
+      awayScore = facsimileReaudit.score.opponent;
     }
 
     const matchId = `${matchDate}-${homeClubId}-${awayClubId}`;
@@ -156,7 +153,7 @@ async function main() {
         tags: [],
         aliases: {},
         manual: [],
-        note: reason,
+        note: facsimileReaudit.reason,
       };
     }
 
@@ -264,26 +261,23 @@ async function main() {
   const followupFile = `${followupDir}/nb-visual-review-followup.yaml`;
 
   const followupData = {
-    contract: "nb-visual-review-followup@1",
+    contract: "nb-visual-review-followup@2",
     generatedAt: "2026-08-21",
     totalCases: followupCases.length,
     summary: {
-      score_conflict: followupCases.filter((c) => c.auditDisposition === "score_conflict").length,
-      opponent_mismatch: followupCases.filter((c) => c.auditDisposition === "opponent_mismatch").length,
-      temporal_invalid: followupCases.filter((c) => c.auditDisposition === "temporal_invalid").length,
-      date_uncertain: followupCases.filter((c) => c.auditDisposition === "date_uncertain").length,
-      competition_uncertain: followupCases.filter((c) => c.auditDisposition === "competition_uncertain").length,
-      rejected: followupCases.filter((c) => c.auditDisposition === "rejected").length,
+      score_conflict: followupCases.filter((c) => c.facsimileReaudit.disposition === "score_conflict").length,
+      wrong_event: followupCases.filter((c) => c.facsimileReaudit.disposition === "wrong_event").length,
+      non_senior: followupCases.filter((c) => c.facsimileReaudit.disposition === "non_senior").length,
+      date_uncertain: followupCases.filter((c) => c.facsimileReaudit.disposition === "date_uncertain").length,
+      competition_uncertain: followupCases.filter((c) => c.facsimileReaudit.disposition === "competition_uncertain").length,
+      insufficient: followupCases.filter((c) => c.facsimileReaudit.disposition === "insufficient").length,
     },
     cases: followupCases.map((c) => ({
       candidateId: c.candidateId,
-      disposition: c.auditDisposition,
-      failureReasons: c.failureReasons,
+      disposition: c.facsimileReaudit.disposition,
       sourceResult: c.sourceResult,
       newspaper: c.newspaper,
-      visualReview: c.visualReview,
-      incidentalMatch: c.incidentalMatch,
-      reason: c.reason,
+      facsimileReaudit: c.facsimileReaudit,
     })),
   };
 
