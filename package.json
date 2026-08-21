@@ -25,6 +25,8 @@
     "data:historical-harvest:report": "pnpm --filter @aafkstats/schema run historical-harvest:report",
     "data:nb-wide-retrieval": "pnpm --filter @aafkstats/ingest run nb-wide-retrieval",
     "data:nb-visual-review": "pnpm --filter @aafkstats/ingest run nb-visual-review",
+    "data:nb-visual-canonicalization": "pnpm --filter @aafkstats/ingest run nb-visual-canonicalization",
+    "ingest:nb-visual-canonicalization": "pnpm --filter @aafkstats/ingest run nb-visual-canonicalization",
     "etter-kamp": "pnpm --filter @aafkstats/ingest run etter-kamp",
     "ingest:fotmob": "pnpm --filter @aafkstats/ingest run fotmob",
     "ingest:fotmob-gap": "pnpm --filter @aafkstats/ingest run fotmob-gap",

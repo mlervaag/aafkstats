@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1975-05-29-s6-traeff
+matchId: 1975-05-29-traeff-aalesunds-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:0076dfd07391779811ae51ee581bbf857a046cf8d924c3bf8fc54509f16a5483
+raw:
+  avis: Sunnmørsposten
+  dato: 1975-05-29
+  side: "6"
+  tittel: Sunnmørsposten 1975-05-29 s. 6
+  kamp: traeff - aalesunds-fk 0-1
+  url: https://www.nb.no/items/0b911b2a223d8848f72e06df3f60df6d?page=6
+normalized:
+  date: 1975-05-29
+  home.clubId: traeff
+  away.clubId: aalesunds-fk
+  home.score: 0
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

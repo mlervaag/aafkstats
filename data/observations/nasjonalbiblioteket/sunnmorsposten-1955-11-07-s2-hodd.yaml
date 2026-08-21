@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1955-11-07-s2-hodd
+matchId: 1955-11-06-hodd-aalesunds-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:26b709445dd395d11a6cc9ae5bec7b40cbaf47f8fbba07056969332066a8794f
+raw:
+  avis: Sunnmørsposten
+  dato: 1955-11-07
+  side: "2"
+  tittel: Sunnmørsposten 1955-11-07 s. 2
+  kamp: hodd - aalesunds-fk 1-2
+  url: https://www.nb.no/items/0618e8ea83cbc8b5739f892f5d280755?page=2
+normalized:
+  date: 1955-11-06
+  home.clubId: hodd
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 2
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

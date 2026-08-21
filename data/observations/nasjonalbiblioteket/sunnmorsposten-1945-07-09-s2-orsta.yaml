@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1945-07-09-s2-orsta
+matchId: 1945-07-08-orsta-aalesunds-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:8900e35e48db59ad2c50d4e0430498ab15c2ab56c1c2b1b59ef700f0e90ec9ce
+raw:
+  avis: Sunnmørsposten
+  dato: 1945-07-09
+  side: "2"
+  tittel: Sunnmørsposten 1945-07-09 s. 2
+  kamp: orsta - aalesunds-fk 2-3
+  url: https://www.nb.no/items/996171a08ad98118ad1097f4f42254ab?page=2
+normalized:
+  date: 1945-07-08
+  home.clubId: orsta
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 3
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

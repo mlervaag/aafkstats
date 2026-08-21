@@ -1,0 +1,44 @@
+id: 1965-06-27-aalesunds-fk-herd
+date: 1965-06-27
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1965
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: herd
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1965-06-28 s. 3
+    date: 1965-06-28
+    url: https://www.nb.no/items/b394ddeeddf27f6116e62011da54e0e0?page=3
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/b394ddeeddf27f6116e62011da54e0e0?page=3
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1965-06-28 s. 3: Kampreferat for AaFK mot Herd (2–1) spilt
+  1965-06-27."

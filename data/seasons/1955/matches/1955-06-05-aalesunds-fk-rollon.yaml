@@ -1,0 +1,44 @@
+id: 1955-06-05-aalesunds-fk-rollon
+date: 1955-06-05
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1955
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: rollon
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1955-06-06 s. 2
+    date: 1955-06-06
+    url: https://www.nb.no/items/d722a0fd7209e7619b820218ec0cefe8?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/d722a0fd7209e7619b820218ec0cefe8?page=2
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1955
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1955-06-06 s. 2: Kampreferat for AaFK mot Rollon (2–0)
+  spilt 1955-06-05."

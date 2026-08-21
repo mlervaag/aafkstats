@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1965-05-24-s2-herd
+matchId: 1965-05-23-aalesunds-fk-herd
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:1307f4c2a2ba0d3d340b6c377ebdd62d8576ae0bfc24f38bd7c562e95eee697f
+raw:
+  avis: Sunnmørsposten
+  dato: 1965-05-24
+  side: "2"
+  tittel: Sunnmørsposten 1965-05-24 s. 2
+  kamp: aalesunds-fk - herd 1-1
+  url: https://www.nb.no/items/c865a23572bf922b1f789bb03e3e3656?page=2
+normalized:
+  date: 1965-05-23
+  home.clubId: aalesunds-fk
+  away.clubId: herd
+  home.score: 1
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

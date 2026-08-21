@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1955-05-20-s2-rollon
+matchId: 1955-05-19-aalesunds-fk-rollon
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:a0b52fae3b184889e82cad656e23ddba033c8b39ba3b9c3d10feeba2cd102940
+raw:
+  avis: Sunnmørsposten
+  dato: 1955-05-20
+  side: "2"
+  tittel: Sunnmørsposten 1955-05-20 s. 2
+  kamp: aalesunds-fk - rollon 3-0
+  url: https://www.nb.no/items/c5e5988d379d5ea705113f0833418f88?page=2
+normalized:
+  date: 1955-05-19
+  home.clubId: aalesunds-fk
+  away.clubId: rollon
+  home.score: 3
+  away.score: 0
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

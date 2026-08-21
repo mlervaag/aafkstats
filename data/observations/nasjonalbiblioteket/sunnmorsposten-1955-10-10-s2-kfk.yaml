@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1955-10-10-s2-kfk
+matchId: 1955-10-09-aalesunds-fk-kfk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:1a23a475b1b21d18d48ece74d6b03d75af3e4dd36f9e07a92c47b7c15f98ab35
+raw:
+  avis: Sunnmørsposten
+  dato: 1955-10-10
+  side: "2"
+  tittel: Sunnmørsposten 1955-10-10 s. 2
+  kamp: aalesunds-fk - kfk 2-3
+  url: https://www.nb.no/items/a9aedb2a5737c37138532bb2910ad384?page=2
+normalized:
+  date: 1955-10-09
+  home.clubId: aalesunds-fk
+  away.clubId: kfk
+  home.score: 2
+  away.score: 3
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

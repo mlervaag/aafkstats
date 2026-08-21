@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1955-07-12-s3-hodd
+matchId: 1955-07-11-aalesunds-fk-hodd
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:c3a9c14afe50f1fc031e568bd6beb5c270bfda98ef7190725c80f26db1e0cbca
+raw:
+  avis: Sunnmørsposten
+  dato: 1955-07-12
+  side: "3"
+  tittel: Sunnmørsposten 1955-07-12 s. 3
+  kamp: aalesunds-fk - hodd 3-1
+  url: https://www.nb.no/items/72ce25c9d52ad9c0c0937ee36af075e5?page=3
+normalized:
+  date: 1955-07-11
+  home.clubId: aalesunds-fk
+  away.clubId: hodd
+  home.score: 3
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

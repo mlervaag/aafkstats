@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1955-08-15-s2-kfk
+matchId: 1955-08-14-kfk-aalesunds-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:45f5c657b140466abc711715a0b35f3c97bf66822ec715cbfae57a418b77dda1
+raw:
+  avis: Sunnmørsposten
+  dato: 1955-08-15
+  side: "2"
+  tittel: Sunnmørsposten 1955-08-15 s. 2
+  kamp: kfk - aalesunds-fk 2-0
+  url: https://www.nb.no/items/4d9e84e740e2ec7eabec81360c84b413?page=2
+normalized:
+  date: 1955-08-14
+  home.clubId: kfk
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 0
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

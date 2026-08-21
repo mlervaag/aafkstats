@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1977-06-22-s7-rollon
+matchId: 1977-06-21-aalesunds-fk-rollon
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:848124f20d725b11511f424ccf102f4805ed3ec16d0cee751eb96e0647c84559
+raw:
+  avis: Sunnmørsposten
+  dato: 1977-06-22
+  side: "7"
+  tittel: Sunnmørsposten 1977-06-22 s. 7
+  kamp: aalesunds-fk - rollon 1-0
+  url: https://www.nb.no/items/0285dd33df575cee3de59d621eb2a09f?page=7
+normalized:
+  date: 1977-06-21
+  home.clubId: aalesunds-fk
+  away.clubId: rollon
+  home.score: 1
+  away.score: 0
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

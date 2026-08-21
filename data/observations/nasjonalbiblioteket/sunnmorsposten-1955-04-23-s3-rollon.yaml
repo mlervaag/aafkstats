@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1955-04-23-s3-rollon
+matchId: 1955-04-22-aalesunds-fk-rollon
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:70bc049b43a16afab5342a8c8ae130626cc172754135fa409672f2f85c782d66
+raw:
+  avis: Sunnmørsposten
+  dato: 1955-04-23
+  side: "3"
+  tittel: Sunnmørsposten 1955-04-23 s. 3
+  kamp: aalesunds-fk - rollon 1-0
+  url: https://www.nb.no/items/e1f024e700ce5eda531ad45522f794bd?page=3
+normalized:
+  date: 1955-04-22
+  home.clubId: aalesunds-fk
+  away.clubId: rollon
+  home.score: 1
+  away.score: 0
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

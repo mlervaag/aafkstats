@@ -1,0 +1,44 @@
+id: 1965-05-23-aalesunds-fk-herd
+date: 1965-05-23
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 1965
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: herd
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1965-05-24 s. 2
+    date: 1965-05-24
+    url: https://www.nb.no/items/c865a23572bf922b1f789bb03e3e3656?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/c865a23572bf922b1f789bb03e3e3656?page=2
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 24.05.1965 s. 2: Referat fra 3. divisjonskampen på Aksla
+  søndag 23. mai 1965 der AaFK spilte 1-1 mot Herd."

@@ -1,0 +1,44 @@
+id: 1965-05-17-aalesunds-fk-langevag
+date: 1965-05-17
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 1965
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: langevag
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1965-05-18 s. 2
+    date: 1965-05-18
+    url: https://www.nb.no/items/07ddd40c04152b51b259cf3c46e8d152?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/07ddd40c04152b51b259cf3c46e8d152?page=2
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1965-05-18 s. 2: Kampreferat for AaFK mot Langevåg (0–2)
+  spilt 1965-05-17."

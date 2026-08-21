@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1945-07-06-s2-herd
+matchId: 1945-07-05-aalesunds-fk-herd
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:efc0d6829578dd3719b771f683d5a9254561f70db27b8cf7215746b6be70f744
+raw:
+  avis: Sunnmørsposten
+  dato: 1945-07-06
+  side: "2"
+  tittel: Sunnmørsposten 1945-07-06 s. 2
+  kamp: aalesunds-fk - herd 5-1
+  url: https://www.nb.no/items/765a56686c17016d340469b4ffcf71af?page=2
+normalized:
+  date: 1945-07-05
+  home.clubId: aalesunds-fk
+  away.clubId: herd
+  home.score: 5
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []
