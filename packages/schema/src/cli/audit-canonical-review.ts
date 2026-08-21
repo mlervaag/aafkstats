@@ -4,6 +4,13 @@ import { repoRoot } from "../load.js";
 
 export interface FacsimileReaudit {
   visuallyReviewed: boolean;
+  reviewBasis: "new_facsimile_reaudit" | "prior_ground_truth" | "prior_wave_review" | "deterministic_gate";
+  provisional?: boolean;
+  followupReason?:
+    | "temporal_invalid"
+    | "score_conflict_from_prior_review"
+    | "date_uncertain"
+    | "suspected_wrong_event";
   candidateOpponent: {
     name: string;
     clubId: string;
@@ -523,6 +530,8 @@ export async function runCanonicalAudit(): Promise<{
     if (verifiedData && !hasPriorConflict) {
       facsimileReaudit = {
         visuallyReviewed: true,
+        reviewBasis: "new_facsimile_reaudit",
+        provisional: false,
         candidateOpponent: {
           name: cand.sourceResult.opponent,
           clubId: candOpponentClubId,
@@ -544,6 +553,8 @@ export async function runCanonicalAudit(): Promise<{
     } else if (hasPriorConflict) {
       facsimileReaudit = {
         visuallyReviewed: true,
+        reviewBasis: "prior_ground_truth",
+        provisional: false,
         candidateOpponent: {
           name: cand.sourceResult.opponent,
           clubId: candOpponentClubId,
@@ -581,7 +592,10 @@ export async function runCanonicalAudit(): Promise<{
       };
     } else if (isFutureReport) {
       facsimileReaudit = {
-        visuallyReviewed: true,
+        visuallyReviewed: false,
+        reviewBasis: "deterministic_gate",
+        provisional: true,
+        followupReason: "temporal_invalid",
         candidateOpponent: {
           name: cand.sourceResult.opponent,
           clubId: candOpponentClubId,
@@ -620,7 +634,10 @@ export async function runCanonicalAudit(): Promise<{
       cand.sourceResult.expectedScore.opponent !== rev.score?.opponent
     ) {
       facsimileReaudit = {
-        visuallyReviewed: true,
+        visuallyReviewed: false,
+        reviewBasis: "prior_wave_review",
+        provisional: true,
+        followupReason: "score_conflict_from_prior_review",
         candidateOpponent: {
           name: cand.sourceResult.opponent,
           clubId: candOpponentClubId,
@@ -658,7 +675,10 @@ export async function runCanonicalAudit(): Promise<{
       // Opponent mismatch or date uncertain
       const isDateUncertain = (rev.matchDate?.confidence !== "high");
       facsimileReaudit = {
-        visuallyReviewed: true,
+        visuallyReviewed: false,
+        reviewBasis: "prior_wave_review",
+        provisional: true,
+        followupReason: isDateUncertain ? "date_uncertain" : "suspected_wrong_event",
         candidateOpponent: {
           name: cand.sourceResult.opponent,
           clubId: candOpponentClubId,

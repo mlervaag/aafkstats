@@ -27,6 +27,8 @@ cases:
       pageUrl: https://www.nb.no/items/09ea0074947dcf87a3989d629c6a3d1b?page=1
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
       candidateOpponent:
         name: Freidig, Tr.heim
         clubId: freidig
@@ -71,6 +73,8 @@ cases:
       pageUrl: https://www.nb.no/items/6907ff25365ef85e08332b354883414e?page=3
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
       candidateOpponent:
         name: Nordlandet
         clubId: nordlandet
@@ -115,6 +119,8 @@ cases:
       pageUrl: https://www.nb.no/items/df0e19babdb39bed17297c49680c04ed?page=2
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
       candidateOpponent:
         name: Aksla
         clubId: aksla
@@ -159,6 +165,8 @@ cases:
       pageUrl: https://www.nb.no/items/b9f26b17b28591454cc2728abf168881?page=2
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
       candidateOpponent:
         name: Ørsta
         clubId: orsta
@@ -202,7 +210,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/b107ba78b88ee1481d0fdd46f1eb03ba?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: date_uncertain
       candidateOpponent:
         name: Skarbøvik
         clubId: skarbovik
@@ -245,7 +256,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/7f5b81befb0031d39e9fe0bcf3e66079?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: date_uncertain
       candidateOpponent:
         name: Molde
         clubId: molde-fk
@@ -288,7 +302,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/caa95de6d6e6879a0234447bf561373d?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: suspected_wrong_event
       candidateOpponent:
         name: KFK
         clubId: kfk
@@ -332,6 +349,8 @@ cases:
       pageUrl: https://www.nb.no/items/8f77f6a54287930c55cd7ae462aca146?page=5
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
       candidateOpponent:
         name: Freidig
         clubId: freidig
@@ -376,6 +395,8 @@ cases:
       pageUrl: https://www.nb.no/items/eb4e6f74219804db85616d63058298c2?page=2
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
       candidateOpponent:
         name: Aksla
         clubId: aksla
@@ -419,7 +440,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/6c281abca8fa389d141a54dcb875b19a?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: suspected_wrong_event
       candidateOpponent:
         name: Ørsta
         clubId: orsta
@@ -462,7 +486,10 @@ cases:
       page: "3"
       pageUrl: https://www.nb.no/items/38a7ceca8b0010d97f1836ccfb1570d3?page=3
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: suspected_wrong_event
       candidateOpponent:
         name: Hødd
         clubId: hodd
@@ -505,7 +532,10 @@ cases:
       page: "3"
       pageUrl: https://www.nb.no/items/11d037fcf75ca68c60c6b6334c5ae6bf?page=3
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Rollon
         clubId: rollon
@@ -548,7 +578,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/0afbec77a99ee59b4c9be1c4104cc87a?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: suspected_wrong_event
       candidateOpponent:
         name: Clausenengen
         clubId: clausenengen
@@ -591,7 +624,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/6c8a954e78462194c98565773b88293e?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Braatt
         clubId: braatt
@@ -634,7 +670,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/5962b690e16ce80499f948cd46086304?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: suspected_wrong_event
       candidateOpponent:
         name: Eid
         clubId: eid-il
@@ -677,7 +716,10 @@ cases:
       page: "5"
       pageUrl: https://www.nb.no/items/e662eb0f735a9912bc460b442b67c9e5?page=5
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Rollon
         clubId: rollon
@@ -720,7 +762,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/b50220b842ddec6053169226712b3af1?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Dahle
         clubId: dahle
@@ -763,7 +808,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/caf3b3ba501af2928095bced072aff97?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: suspected_wrong_event
       candidateOpponent:
         name: Dahle
         clubId: dahle
@@ -807,6 +855,8 @@ cases:
       pageUrl: https://www.nb.no/items/29c24c0aa3f49f41c0a4a36618f67665?page=6
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
       candidateOpponent:
         name: Vigra
         clubId: vigra-il
@@ -852,6 +902,8 @@ cases:
       pageUrl: https://www.nb.no/items/10e9775744a50cdc21aa7e90591dc7b3?page=2
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
       candidateOpponent:
         name: Spartak
         clubId: spartak
@@ -895,7 +947,10 @@ cases:
       page: "6"
       pageUrl: https://www.nb.no/items/231d220863f2f9f64b9696b27590d4ff?page=6
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: suspected_wrong_event
       candidateOpponent:
         name: Eid
         clubId: eid-il
@@ -939,6 +994,8 @@ cases:
       pageUrl: https://www.nb.no/items/f1b68d1de44b904a1c0e7ed8d8010a4e?page=3
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
       candidateOpponent:
         name: Viking, Stavanger
         clubId: viking
@@ -982,7 +1039,10 @@ cases:
       page: "5"
       pageUrl: https://www.nb.no/items/2cfd1e66877ed7f1ca2ff7b7881ec345?page=5
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Falk, Horten
         clubId: falk
@@ -1026,7 +1086,10 @@ cases:
       page: "3"
       pageUrl: https://www.nb.no/items/5e2b595fa0e464ec99a4bf164f940077?page=3
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Odd, Skien
         clubId: odds-ballklubb
@@ -1070,7 +1133,10 @@ cases:
       page: "3"
       pageUrl: https://www.nb.no/items/f4dd097e6d1a057f73c354be5ec43784?page=3
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Djerv
         clubId: sk-djerv
@@ -1114,7 +1180,10 @@ cases:
       page: "3"
       pageUrl: https://www.nb.no/items/f4dd097e6d1a057f73c354be5ec43784?page=3
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Djerv, Bergen
         clubId: sk-djerv
@@ -1158,7 +1227,10 @@ cases:
       page: "5"
       pageUrl: https://www.nb.no/items/a2a39c6199370d412063f0acbbe4e86a?page=5
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Kvik
         clubId: kvik-trondheim
@@ -1202,7 +1274,10 @@ cases:
       page: "3"
       pageUrl: https://www.nb.no/items/a015928222e6265b477435a2e92adefb?page=3
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Brått
         clubId: braatt
@@ -1246,6 +1321,8 @@ cases:
       pageUrl: https://www.nb.no/items/bb2b6b86523e44a6dafdd2f41b495408?page=3
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
       candidateOpponent:
         name: Moss
         clubId: moss
@@ -1290,6 +1367,8 @@ cases:
       pageUrl: https://www.nb.no/items/fb7e017f67ae6769862d37bc937c2183?page=6
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
       candidateOpponent:
         name: Nydalen
         clubId: nydalen
@@ -1333,7 +1412,10 @@ cases:
       page: "6"
       pageUrl: https://www.nb.no/items/0d5345d13292824979bb65b1b2259640?page=6
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: suspected_wrong_event
       candidateOpponent:
         name: Træff
         clubId: traeff
@@ -1377,6 +1459,8 @@ cases:
       pageUrl: https://www.nb.no/items/cd276a4fae82a5ce817e292bbc8bcab1?page=8
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
       candidateOpponent:
         name: Sykkylven
         clubId: fk-sykkylven
@@ -1421,6 +1505,8 @@ cases:
       pageUrl: https://www.nb.no/items/52082f6331b90e16b9681d2775c6825d?page=8
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
       candidateOpponent:
         name: Hødd
         clubId: hodd
@@ -1465,6 +1551,8 @@ cases:
       pageUrl: https://www.nb.no/items/be9550733f4899fa43bc569d9edc6e36?page=8
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: prior_ground_truth
+      provisional: false
       candidateOpponent:
         name: Roald
         clubId: il-roald
@@ -1512,6 +1600,8 @@ cases:
       pageUrl: https://www.nb.no/items/258238d06e015ab915ef294411af0996?page=3
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: prior_ground_truth
+      provisional: false
       candidateOpponent:
         name: Spjelkavik
         clubId: spjelkavik
@@ -1558,7 +1648,10 @@ cases:
       page: "3"
       pageUrl: https://www.nb.no/items/d801c6df5a8e111d27dc4ff9fff2437b?page=3
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Spjelkavik
         clubId: spjelkavik
@@ -1601,7 +1694,10 @@ cases:
       page: "3"
       pageUrl: https://www.nb.no/items/be8290a747daa6ddde3895b452f8c844?page=3
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Træff, Molde
         clubId: traeff
@@ -1646,6 +1742,8 @@ cases:
       pageUrl: https://www.nb.no/items/ee4ec332eb33fc5f8b82d0e5708a7262?page=2
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
       candidateOpponent:
         name: Reidulf, Oslo
         clubId: sk-reidulf
@@ -1689,7 +1787,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/8308a93a2da1e40182258f1f90969044?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: suspected_wrong_event
       candidateOpponent:
         name: Clausenengen
         clubId: clausenengen
@@ -1733,6 +1834,8 @@ cases:
       pageUrl: https://www.nb.no/items/dfb43e3d1a08e151a41e9d144093a731?page=2
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
       candidateOpponent:
         name: Falken, Høyanger
         clubId: il-falken-hoyanger
@@ -1777,6 +1880,8 @@ cases:
       pageUrl: https://www.nb.no/items/2ffab381c3eeeb980689adba79b8dde4?page=2
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
       candidateOpponent:
         name: Freidig, Trondheim
         clubId: freidig
@@ -1820,7 +1925,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/963f2218be2c92dbe17338af39dcc1f8?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: suspected_wrong_event
       candidateOpponent:
         name: Treff, Molde
         clubId: traeff
@@ -1863,7 +1971,10 @@ cases:
       page: "4"
       pageUrl: https://www.nb.no/items/426361cb3f79aeeb8a6636e8cd93ea1e?page=4
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Glimt, Bodø
         clubId: bodo-glimt
@@ -1906,7 +2017,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/18f6aff284a3e24eac2da32f40cef895?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Lyn, Oslo
         clubId: lyn
@@ -1950,7 +2064,10 @@ cases:
       page: "4"
       pageUrl: https://www.nb.no/items/963f2218be2c92dbe17338af39dcc1f8?page=4
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Langevåg
         clubId: langevag
@@ -1994,7 +2111,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/963f2218be2c92dbe17338af39dcc1f8?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Veblungsnes
         clubId: veblungsnes-fk
@@ -2038,7 +2158,10 @@ cases:
       page: "3"
       pageUrl: https://www.nb.no/items/7c64099d02950c7d6d778f6a13263312?page=3
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Fremad, L.hammer
         clubId: fremad
@@ -2082,7 +2205,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/822e982bb09a36f2940198a18f55040e?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Dr. Ballklubb
         clubId: drammens-bk
@@ -2125,7 +2251,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/6366255a65044128ef9954ca0b5a7536?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Halmia, Sverige
         clubId: is-halmia
@@ -2168,7 +2297,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/011f2c37b2bb69beff456a14ae4d56e8?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: KFK
         clubId: kfk
@@ -2211,7 +2343,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/8e3747351ea469a6806698a13f29734a?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Mesna IF
         clubId: mesna-fotball
@@ -2255,7 +2390,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/caa95de6d6e6879a0234447bf561373d?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Sandane
         clubId: sandane
@@ -2299,6 +2437,8 @@ cases:
       pageUrl: https://www.nb.no/items/3d3779ef2adaada5fd001bebb43a1dd8?page=6
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
       candidateOpponent:
         name: Fremad
         clubId: fremad
@@ -2342,7 +2482,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/e506b323b7c67c70bfcbada81585aada?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Spjelkavik
         clubId: spjelkavik
@@ -2386,7 +2529,10 @@ cases:
       page: "3"
       pageUrl: https://www.nb.no/items/313b892838ead0fcaa0f9f94aa7aa064?page=3
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Sykkylven
         clubId: fk-sykkylven
@@ -2429,7 +2575,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/88c7f321249e064baa76ce568fd15460?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Viking, St.vanger
         clubId: viking
@@ -2472,7 +2621,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/c5e5988d379d5ea705113f0833418f88?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Sykkylven
         clubId: fk-sykkylven
@@ -2516,7 +2668,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/9759f12b77e52a51e08f31b3ac0af359?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Snøgg
         clubId: snogg
@@ -2560,7 +2715,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/d722a0fd7209e7619b820218ec0cefe8?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Årstad
         clubId: arstad-il
@@ -2604,7 +2762,10 @@ cases:
       page: "3"
       pageUrl: https://www.nb.no/items/51cc7a54362c0e20225b0941babccd71?page=3
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Voss
         clubId: fbk-voss
@@ -2647,7 +2808,10 @@ cases:
       page: "3"
       pageUrl: https://www.nb.no/items/f924db5f70f70f0b6f5dc387c64e7895?page=3
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Herd
         clubId: herd
@@ -2691,7 +2855,10 @@ cases:
       page: "4"
       pageUrl: https://www.nb.no/items/97d021ec370a6aac0ff468b8c1083314?page=4
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Fredrikshavn
         clubId: frederikshavn-fi
@@ -2735,7 +2902,10 @@ cases:
       page: "5"
       pageUrl: https://www.nb.no/items/e5adfb28199e29d05ac52bceab6fdd09?page=5
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Volda
         clubId: volda
@@ -2779,7 +2949,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/5fe45e5f61846ea2824b285b18a10d1e?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Stranda
         clubId: stranda
@@ -2823,7 +2996,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/cf2d8609399f0bd0dc61ea0607d9114b?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Herd
         clubId: herd
@@ -2867,7 +3043,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/1b4787a7daccb63d9b093e8d38771556?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Langevåg—Raufoss
         clubId: langevåg—raufoss
@@ -2911,7 +3090,10 @@ cases:
       page: "4"
       pageUrl: https://www.nb.no/items/64996fcba532e2b3f9e0a999a68d16b6?page=4
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Herd
         clubId: herd
@@ -2954,7 +3136,10 @@ cases:
       page: "4"
       pageUrl: https://www.nb.no/items/a2f793e502ffb3969ca77b8dd64ee53e?page=4
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Guard
         clubId: guard
@@ -2998,7 +3183,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/d8bc98b86487ffa44867907700d9edef?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Kvik (Trondheim)
         clubId: kvik (trondheim)
@@ -3042,7 +3230,10 @@ cases:
       page: "10"
       pageUrl: https://www.nb.no/items/dddd258a0f8c62c3aadb2fc4548faad6?page=10
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Træff
         clubId: traeff
@@ -3086,7 +3277,10 @@ cases:
       page: "3"
       pageUrl: https://www.nb.no/items/52d39258b74640057f8f42c834da2561?page=3
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Ørsta
         clubId: orsta
@@ -3129,7 +3323,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/ce3936e8c661c970e1c471bcfa512d0d?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: V.R.F.
         clubId: velledalen-ringen
@@ -3172,7 +3369,10 @@ cases:
       page: "7"
       pageUrl: https://www.nb.no/items/b7f7be68d86ebfb26b36ca9183a21c15?page=7
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Skarbøvik
         clubId: skarbovik
@@ -3216,7 +3416,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/ce3936e8c661c970e1c471bcfa512d0d?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: V.R.F.
         clubId: velledalen-ringen
@@ -3259,7 +3462,10 @@ cases:
       page: "6"
       pageUrl: https://www.nb.no/items/b1619aea740f1bb800c34b37663ad049?page=6
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Bratt
         clubId: braatt
@@ -3304,6 +3510,8 @@ cases:
       pageUrl: https://www.nb.no/items/ec190cbc572498198cd7bf891a22cd4b?page=1
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
       candidateOpponent:
         name: V.R.F.
         clubId: velledalen-ringen
@@ -3347,7 +3555,10 @@ cases:
       page: "6"
       pageUrl: https://www.nb.no/items/56ff63ee005905e98b2a6e70e41fe2a9?page=6
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Køge, Danmark
         clubId: koge-bk
@@ -3390,7 +3601,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/9cc2f9af2bdb67dbf1f61a3957cf735e?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Vigra
         clubId: vigra-il
@@ -3434,7 +3648,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/9cc2f9af2bdb67dbf1f61a3957cf735e?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: CFK
         clubId: clausenengen
@@ -3478,7 +3695,10 @@ cases:
       page: "6"
       pageUrl: https://www.nb.no/items/61632919c4b15a192674d18ce33cc4fa?page=6
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Brattvåg
         clubId: brattvag
@@ -3522,7 +3742,10 @@ cases:
       page: "6"
       pageUrl: https://www.nb.no/items/901ae3fdfe94294e99b861b2ce5f95a8?page=6
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Mjøndalen
         clubId: mjondalen
@@ -3566,7 +3789,10 @@ cases:
       page: "4"
       pageUrl: https://www.nb.no/items/c898e684646e283cc0bd896c17e5d8fc?page=4
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Stryn
         clubId: stryn
@@ -3609,7 +3835,10 @@ cases:
       page: "6"
       pageUrl: https://www.nb.no/items/c8d225c13d1cf216d1ee7b4f23f6fd77?page=6
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Horsens, Danmark
         clubId: horsens-fs
@@ -3653,7 +3882,10 @@ cases:
       page: "7"
       pageUrl: https://www.nb.no/items/aab11a8a9c4fb21e208fd6de32efd5df?page=7
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: VRF
         clubId: velledalen-ringen
@@ -3698,6 +3930,8 @@ cases:
       pageUrl: https://www.nb.no/items/0afe6b3e6664a05c703c5237acab2af9?page=2
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
       candidateOpponent:
         name: V.R.F.
         clubId: velledalen-ringen
@@ -3741,7 +3975,10 @@ cases:
       page: "3"
       pageUrl: https://www.nb.no/items/314248450eaeee4a53054baa3cf42534?page=3
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Skarbøvik
         clubId: skarbovik
@@ -3784,7 +4021,10 @@ cases:
       page: "6"
       pageUrl: https://www.nb.no/items/96f3b16bee5c21d9ca2774e11db4124f?page=6
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Aksla
         clubId: aksla
@@ -3827,7 +4067,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/b81904fa45d1c4f005743fdfa7c4c0d8?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Vigra
         clubId: vigra-il
@@ -3870,7 +4113,10 @@ cases:
       page: "3"
       pageUrl: https://www.nb.no/items/ae026d1112000e57f2e1f5326febdf79?page=3
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Årstad
         clubId: arstad-il
@@ -3914,7 +4160,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/fe8a6fcf858e806daac06824f4181141?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Træff
         clubId: traeff
@@ -3958,7 +4207,10 @@ cases:
       page: "3"
       pageUrl: https://www.nb.no/items/fe8a6fcf858e806daac06824f4181141?page=3
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Stranda
         clubId: stranda
@@ -4002,7 +4254,10 @@ cases:
       page: "6"
       pageUrl: https://www.nb.no/items/933107b7601c97007c9d0aa9f2bf555b?page=6
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Sykkylven
         clubId: fk-sykkylven
@@ -4045,7 +4300,10 @@ cases:
       page: "6"
       pageUrl: https://www.nb.no/items/7457953b8ecfb84572b43823c4267c93?page=6
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Måløy
         clubId: maloy-il
@@ -4088,7 +4346,10 @@ cases:
       page: "3"
       pageUrl: https://www.nb.no/items/024f3fc2b32980d45968b0541c3fc193?page=3
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Ravn
         clubId: il-ravn
@@ -4131,7 +4392,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/b394ddeeddf27f6116e62011da54e0e0?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Jednota
         clubId: jednota-trencin
@@ -4176,6 +4440,8 @@ cases:
       pageUrl: https://www.nb.no/items/6254a1a9054ba3c3e852293b098cd6cc?page=6
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
       candidateOpponent:
         name: Stålkameratene
         clubId: stalkameratene
@@ -4219,7 +4485,10 @@ cases:
       page: "6"
       pageUrl: https://www.nb.no/items/805ab7669b627c9f948e4267aacaa2c0?page=6
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Rollon
         clubId: rollon
@@ -4263,7 +4532,10 @@ cases:
       page: "2"
       pageUrl: https://www.nb.no/items/9e501884cf9b50e5040d5f9157da9e16?page=2
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Eid
         clubId: eid-il
@@ -4306,7 +4578,10 @@ cases:
       page: "6"
       pageUrl: https://www.nb.no/items/25986c294aac8f471e6f1887b86ab4bb?page=6
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Herd
         clubId: herd
@@ -4349,7 +4624,10 @@ cases:
       page: "6"
       pageUrl: https://www.nb.no/items/921e52c2440110e1e3378f105762b94f?page=6
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Gossen
         clubId: gossen-il
@@ -4392,7 +4670,10 @@ cases:
       page: "6"
       pageUrl: https://www.nb.no/items/5dbc6525fd529ba9dc06a5afac124718?page=6
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Langevåg
         clubId: langevag
@@ -4435,7 +4716,10 @@ cases:
       page: "6"
       pageUrl: https://www.nb.no/items/c72e4b7a21201b8d7df24692fd5e9d64?page=6
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Skarbøvik
         clubId: skarbovik
@@ -4478,7 +4762,10 @@ cases:
       page: "6"
       pageUrl: https://www.nb.no/items/8913213d2ed377d34dcafc0bb722973d?page=6
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Skarbøvik
         clubId: skarbovik
@@ -4521,7 +4808,10 @@ cases:
       page: "8"
       pageUrl: https://www.nb.no/items/2e1b864663a221e4a37794bc7b96d8ee?page=8
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Gossen
         clubId: gossen-il
@@ -4564,7 +4854,10 @@ cases:
       page: "9"
       pageUrl: https://www.nb.no/items/631d31d20fa3850dcaead39d6915f1a9?page=9
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
       candidateOpponent:
         name: Herd
         clubId: herd
@@ -4608,7 +4901,10 @@ cases:
       page: "6"
       pageUrl: https://www.nb.no/items/57fd6a97383a479c22db9dcfe09f2a22?page=6
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Træff
         clubId: traeff
@@ -4651,7 +4947,10 @@ cases:
       page: "6"
       pageUrl: https://www.nb.no/items/a2d508694124adade1ddc3376f030362?page=6
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Sunndal
         clubId: sunndal
@@ -4695,6 +4994,8 @@ cases:
       pageUrl: https://www.nb.no/items/a8397b62eec951bd7d0af907961aeff0?page=7
     facsimileReaudit:
       visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
       candidateOpponent:
         name: Bergsøy
         clubId: bergsoy
@@ -4738,7 +5039,10 @@ cases:
       page: "1"
       pageUrl: https://www.nb.no/items/93153b497926b4418857d07f5ae151ec?page=1
     facsimileReaudit:
-      visuallyReviewed: true
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
       candidateOpponent:
         name: Kristiansund
         clubId: kfk

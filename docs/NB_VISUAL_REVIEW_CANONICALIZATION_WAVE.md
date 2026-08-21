@@ -11,7 +11,10 @@
 
 Tidligere heuristikk og fritekst-parsing (`extractReviewedOpponentFromReason`) førte til at feilaktige kandidater og ikke-senior-kamper ble foreslått kanonisert (f.eks. Roald 1939 der avisen viste Kløna/Nørvekammeratene 8-2, og Spjelkavik 1940 der avisen viste sammensatt A/B-lag 8-0).
 
-Denne bølgen har gjennomført en **ekte visuell faksimile-reaudit** med strukturerte felt (`facsimileReaudit`), fjerning av all fritekst-avhengighet for autoritativ identitet, og kryss-sjekk mot etablert *ground truth* fra tidligere innhøstinger (PR #186, #188, #190).
+Denne bølgen har gjennomført en **streng faksimile-reaudit med presise semantiske ansvarsgrenser**:
+- **21 kandidater** gjennomgikk ny strukturert faksimile-reaudit med visuell bekreftelse og er klassifisert som `canonical_ready` (`reviewBasis: new_facsimile_reaudit`, `visuallyReviewed: true`, `provisional: false`).
+- **2 kandidater** ble stoppet av tidligere etablert ground truth fra PR #190 (`reviewBasis: prior_ground_truth`, `visuallyReviewed: true`, `provisional: false`): Roald 1939 og Spjelkavik 1940.
+- **De øvrige 86 sakene** ble konservativt sendt til oppfølgingskøen gjennom deterministiske porter og eksisterende Wave-review-data (`reviewBasis: prior_wave_review` / `deterministic_gate`, `visuallyReviewed: false`, `provisional: true`), uten at det påstås ny full faksimile-reaudit for disse.
 
 ---
 

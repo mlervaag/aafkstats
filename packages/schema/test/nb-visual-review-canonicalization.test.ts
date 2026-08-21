@@ -81,6 +81,26 @@ describe("kanonisering av visuell NB-review med streng faksimile-reaudit (PR 196
     }
   });
 
+  it("F. visuallyReviewed er true KUN for de 21 nylig auditerte og de 2 med prior ground-truth", () => {
+    const verifiedCases = auditManifest.cases.filter((c: any) => c.facsimileReaudit.visuallyReviewed === true);
+    expect(verifiedCases.length).toBe(23); // 21 canonical ready + 2 prior ground truth stopped
+
+    for (const vc of verifiedCases) {
+      const isCanonicalReady = vc.facsimileReaudit.disposition === "canonical_ready";
+      const isPriorConflict = vc.facsimileReaudit.priorGroundTruthCheck.hasConflict === true;
+      expect(isCanonicalReady || isPriorConflict).toBe(true);
+      expect(["new_facsimile_reaudit", "prior_ground_truth"]).toContain(vc.facsimileReaudit.reviewBasis);
+      expect(vc.facsimileReaudit.provisional).toBe(false);
+    }
+
+    const nonReviewed = auditManifest.cases.filter((c: any) => c.facsimileReaudit.visuallyReviewed === false);
+    expect(nonReviewed.length).toBe(86);
+    for (const nr of nonReviewed) {
+      expect(nr.facsimileReaudit.provisional).toBe(true);
+      expect(["deterministic_gate", "prior_wave_review"]).toContain(nr.facsimileReaudit.reviewBasis);
+    }
+  });
+
   it("oppretter gyldige NB-observasjoner med payloadHash for alle 21 kanoniserte saker", () => {
     const readyCases = auditManifest.cases.filter((c: any) => c.facsimileReaudit.disposition === "canonical_ready");
     for (const rc of readyCases) {
