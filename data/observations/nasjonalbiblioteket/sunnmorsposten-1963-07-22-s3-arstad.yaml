@@ -1,0 +1,29 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1963-07-22-s3-arstad
+matchId: 1963-07-21-aalesunds-fk-arstad-il
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:8692fe64dab82dbc6b6f2806a1ffef2bcfdd37d35de0437d6b706c803992caa3
+raw:
+  avis: Sunnmørsposten
+  dato: 22. juli 1963
+  side: "3"
+  tittel: Et uhyre svakt ÅFK-lag hadde ingen ting å stille opp mot Årstad på Aksla
+    i går. Bergenserne vant 4-0
+  kamp: AaFK - Årstad 0-4
+  bane: Aksla stadion
+normalized:
+  date: 1963-07-21
+  home.clubId: aalesunds-fk
+  away.clubId: arstad-il
+  home.score: 0
+  away.score: 4
+  venueId: aksla-stadion
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - venueId
+warnings: []

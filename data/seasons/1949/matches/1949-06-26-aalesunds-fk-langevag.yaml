@@ -1,0 +1,58 @@
+id: 1949-06-26-aalesunds-fk-langevag
+date: 1949-06-26
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1949
+  stage: regular_season
+  round: 1
+home:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: 1
+away:
+  clubId: langevag
+  score: 0
+  halfTimeScore: 0
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: 1. runde. Aalesund vant en solid seir 4—0 over Langevåg IL.
+    date: 1949-06-27
+    url: https://www.nb.no/items/91ccd057a5ebf1ad9ae97ba6101aea32?page=2
+  - publisher: Sunnmørsposten
+    title: Stadion-kampen ga Aalesund 4—0 over Langevåg
+    date: 1949-06-28
+    url: https://www.nb.no/items/6366255a65044128ef9954ca0b5a7536?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/91ccd057a5ebf1ad9ae97ba6101aea32?page=2
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - venueId
+      - attendance
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: "12"
+    fields:
+      - home.score
+      - away.score
+    note: Cupen. trykt «ÅFK—Langevåg 4—0».
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: NM 1. runde spilt på Aksla stadion søndag 26. juni 1949. Sunnmørsposten
+  oppgir 2 300 tilskuere.
+venueId: aksla-stadion
+attendance: 2300

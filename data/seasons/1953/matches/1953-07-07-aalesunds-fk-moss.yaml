@@ -1,0 +1,53 @@
+id: 1953-07-07-aalesunds-fk-moss
+date: 1953-07-07
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1953
+  stage: friendly
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: moss
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Aalesund overrasket og slo Moss 2—0
+    date: 1953-07-08
+    url: https://www.nb.no/items/b97694a34074db019578c785cee664dd?page=3
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/b97694a34074db019578c785cee664dd?page=3
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - venueId
+      - attendance
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: "13"
+    fields:
+      - home.score
+      - away.score
+    note: trykt «ÅFK—Moss FK 2—0».
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Privatkamp spilt på Aksla stadion tirsdag kveld 7. juli 1953 for nesten 2
+  000 tilskuere.
+venueId: aksla-stadion
+attendance: 2000

@@ -1,0 +1,51 @@
+id: 1952-05-04-clausenengen-aalesunds-fk
+date: 1952-05-04
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1952
+  stage: regular_season
+home:
+  clubId: clausenengen
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: AaFK i landsdelsseriekampen mot Clausenengen i Kristiansund i går. Seiren
+      ble 1—0
+    date: 1952-05-05
+    url: https://www.nb.no/items/5b8959a8ca5ec6b642000e0a06061afa?page=3
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/5b8959a8ca5ec6b642000e0a06061afa?page=3
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - venueId
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: "13"
+    fields:
+      - home.score
+      - away.score
+    note: 1. divisjon. bortekamp. trykt «ÅFK—Clausenengen* 1—0».
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Landsdelsseriekamp (1. divisjon Møre) spilt i Kristiansund søndag 4. mai 1952.
+venueId: kristiansund-stadion

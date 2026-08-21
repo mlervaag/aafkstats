@@ -1,0 +1,28 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1952-05-19-s3-eid
+matchId: 1952-05-18-eid-il-aalesunds-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:0e1acb45a127752ea45e159780cba3c1636b7bb6a74c2318ffb1c3911990fd93
+raw:
+  avis: Sunnmørsposten
+  dato: 19. mai 1952
+  side: "3"
+  tittel: Eid vont 3—2 over ÅFK i privatkamp
+  kamp: Eid - AaFK 3-2
+  bane: Nordfjordeid
+normalized:
+  date: 1952-05-18
+  home.clubId: eid-il
+  away.clubId: aalesunds-fk
+  home.score: 3
+  away.score: 2
+  venueId: eid-stadion
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - venueId
+warnings: []

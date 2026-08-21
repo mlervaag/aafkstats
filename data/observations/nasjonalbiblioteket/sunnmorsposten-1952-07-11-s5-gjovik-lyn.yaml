@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1952-07-11-s5-gjovik-lyn
+matchId: 1952-07-10-gjovik-lyn-aalesunds-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:c79a788a75fad364682b2f1302facad9932446c06d00ea6abfdbceef8c473a6a
+raw:
+  avis: Sunnmørsposten
+  dato: 11. juli 1952
+  side: "5"
+  tittel: Gjøvik—Lyn vant 3—1 over AaFK
+  kamp: Gjøvik-Lyn - AaFK 3-1
+  bane: Gjøvik
+normalized:
+  date: 1952-07-10
+  home.clubId: gjovik-lyn
+  away.clubId: aalesunds-fk
+  home.score: 3
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

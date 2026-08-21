@@ -1,0 +1,49 @@
+id: 1955-07-24-maloy-il-aalesunds-fk
+date: 1955-07-24
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1955
+  stage: friendly
+home:
+  clubId: maloy-il
+  score: 2
+  halfTimeScore: 2
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: 0
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: ÅFK vant 3-2 over Måløy IL
+    date: 1955-07-25
+    url: https://www.nb.no/items/5e6a96f781d36f3370b73553dbf331fe?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/5e6a96f781d36f3370b73553dbf331fe?page=2
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: "14"
+    fields:
+      - home.score
+      - away.score
+    note: bortekamp. trykt «ÅFK—Måløy* 3—2».
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Privatkamp under AaFKs turné i Måløy spilt søndag 24. juli 1955. Måløy IL
+  ledet 2-0 ved pause.

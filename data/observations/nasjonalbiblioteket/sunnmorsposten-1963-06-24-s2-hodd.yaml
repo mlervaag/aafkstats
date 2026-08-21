@@ -1,0 +1,28 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1963-06-24-s2-hodd
+matchId: 1963-06-23-hodd-aalesunds-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:611e02d21c2477984b7f3d66473e74c659132561f423ee01f5a402ab16c29ce8
+raw:
+  avis: Sunnmørsposten
+  dato: 24. juni 1963
+  side: "2"
+  tittel: Hødd videre i cupen. Hødd—ÅFK 5—2
+  kamp: Hødd - AaFK 5-2
+  bane: Høddvoll
+normalized:
+  date: 1963-06-23
+  home.clubId: hodd
+  away.clubId: aalesunds-fk
+  home.score: 5
+  away.score: 2
+  venueId: hoddvoll-stadion
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - venueId
+warnings: []

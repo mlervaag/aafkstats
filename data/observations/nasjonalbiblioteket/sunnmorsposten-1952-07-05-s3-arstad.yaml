@@ -1,0 +1,28 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1952-07-05-s3-arstad
+matchId: 1952-07-04-aalesunds-fk-arstad-il
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:d9e916f6e2b741828c3de52684516ebee0c8d1f505f3460439ddcb4a2b0e3b9d
+raw:
+  avis: Sunnmørsposten
+  dato: 5. juli 1952
+  side: "3"
+  tittel: ÅFK. vant 5-1 over Årstad. God innsats av Aalesunds-laget
+  kamp: ÅFK - Årstad 5-1
+  bane: Aksla stadion
+normalized:
+  date: 1952-07-04
+  home.clubId: aalesunds-fk
+  away.clubId: arstad-il
+  home.score: 5
+  away.score: 1
+  venueId: aksla-stadion
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - venueId
+warnings: []

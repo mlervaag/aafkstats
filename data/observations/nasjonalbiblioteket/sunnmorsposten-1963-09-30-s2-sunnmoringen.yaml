@@ -1,0 +1,28 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1963-09-30-s2-sunnmoringen
+matchId: 1963-09-29-aalesunds-fk-sunnmoringen
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:cafd4b255fa92f0d41cf0e4fad59b02842cedb2b237d27d89e3552faa53c9793
+raw:
+  avis: Sunnmørsposten
+  dato: 30. september 1963
+  side: "2"
+  tittel: Sunnmøringen slo ÅFK 2-0
+  kamp: AaFK - Sunnmøringen 0-2
+  bane: Aksla stadion
+normalized:
+  date: 1963-09-29
+  home.clubId: aalesunds-fk
+  away.clubId: sunnmoringen
+  home.score: 0
+  away.score: 2
+  venueId: aksla-stadion
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - venueId
+warnings: []

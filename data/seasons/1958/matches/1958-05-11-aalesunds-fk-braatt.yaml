@@ -1,0 +1,51 @@
+id: 1958-05-11-aalesunds-fk-braatt
+date: 1958-05-11
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1958
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: braatt
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Ineffektivt angrepsspill på stadion. ÅFK og Braatt delte poengene 1-1
+    date: 1958-05-12
+    url: https://www.nb.no/items/7ddff643a17e4d54af5b9b1cc7202151?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/7ddff643a17e4d54af5b9b1cc7202151?page=2
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - venueId
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: "15"
+    fields:
+      - home.score
+      - away.score
+    note: Sommer-cupen. trykt «ÅFK—Braatt 1—1».
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Landsdelsseriekamp (1. divisjon Møre) spilt på Aksla stadion søndag 11.
+  mai 1958.
+venueId: aksla-stadion
