@@ -98,18 +98,22 @@ export function inferMatchDate(text: string, issued: string): TemporalEvidence |
  */
 function weekdayEvidence(text: string, issueDate: Date): TemporalEvidence | undefined {
   const lower = text.toLocaleLowerCase("nb");
-  for (const [index, weekday] of WEEKDAYS.entries()) {
-    if (!lower.includes(weekday)) continue;
-    const difference = (issueDate.getUTCDay() - index + 7) % 7;
-    const offset = difference === 0 ? -7 : -difference;
-    return {
-      phrase: weekday,
-      offset,
-      inferredMatchDate: shift(issueDate, offset),
-      confidence: "low",
-    };
-  }
-  return undefined;
+  const mentioned = WEEKDAYS
+    .map((weekday, weekdayIndex) => ({ weekday, weekdayIndex, textIndex: lower.indexOf(weekday) }))
+    .filter((candidate) => candidate.textIndex >= 0)
+    .sort((left, right) => left.textIndex - right.textIndex)[0];
+  if (!mentioned) return undefined;
+
+  // Flere ukedager kan stå i samme OCR-vindu. Den første tekstlige referansen
+  // beskriver hovedpåstanden; kalenderrekkefølgen søndag–lørdag må ikke avgjøre.
+  const difference = (issueDate.getUTCDay() - mentioned.weekdayIndex + 7) % 7;
+  const offset = difference === 0 ? -7 : -difference;
+  return {
+    phrase: mentioned.weekday,
+    offset,
+    inferredMatchDate: shift(issueDate, offset),
+    confidence: "low",
+  };
 }
 
 export function parseCompact(issued: string): Date | undefined {

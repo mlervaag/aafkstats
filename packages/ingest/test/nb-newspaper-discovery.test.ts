@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { classifyFragment } from "../src/newspaper/fragment-kind.js";
 import { inferMatchDate, resolveMatchDate } from "../src/newspaper/date-inference.js";
-import { matchScore, parseScores } from "../src/newspaper/score-parse.js";
+import { findTeamPairScore, matchScore, parseScores } from "../src/newspaper/score-parse.js";
 import { parseNote } from "../src/newspaper/note-parser.js";
 import { evidenceForFragment, inferHomeAway } from "../src/newspaper/evidence.js";
 import { reconcile } from "../src/newspaper/reconciliation.js";
@@ -92,6 +92,71 @@ describe("inferMatchDate", () => {
   it("gir ukedag lav tillit, og gjetter ikke uten holdepunkt", () => {
     expect(inferMatchDate("kampen søndag ble jevn", "19520505")).toMatchObject({ confidence: "low" });
     expect(inferMatchDate("Aalesund har prestert endel i det siste", "19520505")).toBeUndefined();
+  });
+
+  it("binder ikke score fra en annen kampnotis til lagparet", () => {
+    expect(findTeamPairScore(
+      "AaFK slo Hødd 4—0 i går. Aksla møtte Sykkylven i en annen notis.",
+      AAFK,
+      ["Aksla"],
+      [4, 0],
+    )).toBeUndefined();
+    expect(findTeamPairScore(
+      "Sykkylven—Langevåg 5—2 søndag. Skarbøvik slo AaFK 4—1.",
+      AAFK,
+      ["Langevåg"],
+      [2, 5],
+    )).toBeUndefined();
+  });
+
+  it("binder eksplisitt score og markerer et retrospektivt møte", () => {
+    expect(findTeamPairScore("Nordlandet—AaFK 1—6 i går", AAFK, ["Nordlandet"], [6, 1]))
+      .toMatchObject({ found: { home: 1, away: 6 }, reversed: true, matchesExpected: true, retrospective: false });
+    expect(findTeamPairScore(
+      "I første møte mellom AaFK og Herd vant Herd 4—2.",
+      AAFK,
+      ["Herd"],
+      [2, 4],
+    )).toMatchObject({ matchesExpected: true, retrospective: true });
+  });
+
+  it("avstår når samme vindu har flere separate scorepåstander om lagparet", () => {
+    expect(findTeamPairScore(
+      "AaFK slo Herd 2—0 i vår. Herd slo AaFK 4—2 i høst.",
+      AAFK,
+      ["Herd"],
+      [2, 0],
+    )).toBeUndefined();
+  });
+
+  it("binder riktig oppsettlinje i en tett resultatbørs", () => {
+    expect(findTeamPairScore(
+      "Hødd—Aksla 6—1 Sykkylven—Langevåg 5—2 AaFK—Ørsta 3—1",
+      AAFK,
+      ["Ørsta"],
+      [2, 4],
+    )).toMatchObject({ found: { home: 3, away: 1 }, matchesExpected: false });
+  });
+
+  it("tolker ikke bynavnet Aalesund som AaFK i en annen kampnotis", () => {
+    expect(findTeamPairScore(
+      "I B-mesterskapet for Aalesund vant Herd over Skarbøvik 3—0.",
+      AAFK,
+      ["Herd"],
+      [2, 0],
+    )).toBeUndefined();
+  });
+
+  it("utleder lørdag 15. juni fra mandagsutgaven 17. juni 1946", () => {
+    expect(inferMatchDate("AaFK spilte mot Ranheim lørdag", "19460617"))
+      .toMatchObject({ inferredMatchDate: "1946-06-15", confidence: "low" });
+  });
+
+  it("velger første ukedagsreferanse i teksten, ikke kalenderrekkefølgen", () => {
+    expect(inferMatchDate(
+      "Lørdag møttes AaFK og Ranheim. Ranheim kom fredag, mens AaFK ankom senere.",
+      "19460617",
+    )).toMatchObject({ phrase: "lørdag", inferredMatchDate: "1946-06-15" });
   });
 
   /** To utgaver som peker samme vei er sterkere enn hver for seg. */
@@ -285,11 +350,7 @@ describe("reconcile", () => {
     expect(result.checks.score).toBe("confirmed");
   });
 
-  /**
-   * Ranheim 1946 #15: Juni-hendelsen bekreftes med 1946-06-16 og 2-2,
-   * juli-hendelsen mangler score.
-   */
-  it("bekrefter Ranheim 1946 #15 på juni-datoen 1946-06-16 med 2-2", () => {
+  it("kan bekrefte en direkte samtidspåstand med søndag og 2-2", () => {
     const ranheim = query({ opponent: "Ranheim", opponentAliases: [], expectedScore: [2, 2], year: 1946 });
     const result = reconcile(ranheim, [
       evidenceForFragment("AaFK spilte 2—2 mot Ranheim søndag", ranheim, { issueId: "juni", issueDate: "19460617" }),
@@ -302,11 +363,7 @@ describe("reconcile", () => {
     expect(result.checks.opponent).toBe("confirmed");
   });
 
-  /**
-   * Herd 1949 #2: Juni-hendelsen inneholder 4-2 (reversert 2-4) og peker på 1949-06-12,
-   * august-hendelsen mangler sammenhengende resultatbevis.
-   */
-  it("bekrefter Herd 1949 #2 på juni-datoen 1949-06-12 med 4-2 (reversert 2-4)", () => {
+  it("kan bekrefte en direkte samtidspåstand med reversert 4-2", () => {
     const herd = query({ opponent: "Herd", opponentAliases: [], expectedScore: [2, 4], year: 1949 });
     const result = reconcile(herd, [
       evidenceForFragment("Herd slo AaFK 4—2 søndag", herd, { issueId: "juni", issueDate: "19490617" }),
@@ -596,7 +653,7 @@ describe("verifyNewspaperCandidate", () => {
     expect(after.score).toBeGreaterThanOrEqual(before.score);
   });
 
-  it("mister ikke resultatet når et annet avsnitt scorer høyere", () => {
+  it("beholder resultatet, men arver ikke dato fra et annet avsnitt", () => {
     const before = verifyNewspaperCandidate(raufoss, issue([
       "Raufoss—ÅFK 0—1 var stillingen",
     ]))!;
@@ -607,7 +664,8 @@ describe("verifyNewspaperCandidate", () => {
       "Kampen mellom Raufoss og ÅFK i går samlet mange tilskuere, og dommeren hadde full kontroll gjennom hele oppgjøret",
     ]))!;
     expect(after.scoreFound).toEqual([0, 1]);
-    expect(after.temporal?.inferredMatchDate).toBe("1963-06-14");
+    expect(after.temporal).toBeUndefined();
+    expect(reconcile(raufoss, [after]).status).not.toBe("confirmed");
   });
 
   /** Roller hentes bare fra vinduer som selv navngir begge lagene. */
@@ -617,5 +675,21 @@ describe("verifyNewspaperCandidate", () => {
       "Bygdas historie ble markert i går med tale og korps",
     ]))!;
     expect(evidence.temporal?.phrase).not.toBe("i går");
+  });
+
+  it("overfører ikke samme sides kommende dato til et retrospektivt resultat", () => {
+    const herd = { ...query({ opponent: "Herd", opponentAliases: [], expectedScore: [2, 4], year: 1949 }), ref: { sourceId: "k", file: "f", season: 1949, no: 2 } } as SourceResultQuery;
+    const newspaperIssue = issue([
+      "Søndagens kamp mellom AaFK og Herd er utsatt.",
+      "I første møte mellom AaFK og Herd vant Herd 4—2.",
+    ]);
+    newspaperIssue.fragments = newspaperIssue.fragments.map((fragment) => ({ ...fragment, page: "4" }));
+
+    const evidence = verifyNewspaperCandidate(herd, newspaperIssue)!;
+    expect(evidence.scoreRetrospective).toBe(true);
+    expect(evidence.temporal).toBeUndefined();
+    const result = reconcile(herd, [evidence]);
+    expect(result.status).not.toBe("confirmed");
+    expect(result.matchDate).toBeUndefined();
   });
 });

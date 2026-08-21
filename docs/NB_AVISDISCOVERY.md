@@ -38,6 +38,11 @@ Et resultat som stemmer gir uttelling; et som ikke stemmer gir en merknad. Uten
 denne regelen ville en kamp der kilden og avisa er uenige forsvunnet helt — og
 det er nettopp de kampene som er mest verdt å finne.
 
+**Resultatet må være bundet til lagparet.** Det holder ikke at AaFK,
+motstanderen og en passende score finnes et sted i samme OCR-vindu. Discovery
+foretrekker eksplisitte oppsettlinjer og avstår når flere kampoppgjør gjør
+tilordningen uklar. En reversert score teller bare når lagrekkefølgen er tydelig.
+
 **Utgivelsesdato er ikke kampdato.** Datoen settes bare når teksten sier noe om
 tid: «i går» gir dagen før, «morgendagens» dagen etter, «kveldens kamp» samme
 dag. Ukedagsnavn alene gir lav tillit og aldri en dato på egen hånd. Uten
@@ -186,12 +191,19 @@ allerede virket.
 
 Nå velges en vinner per rolle — beste kampidentitet, beste tidsbevis, beste
 resultatbevis — og hver rolle er et maksimum over en mengde som bare vokser.
-Berikelse kan løfte et felt, aldri fjerne det.
+Berikelse kan løfte et felt, aldri fjerne det. Resultatrollen er likevel
+hendelsesbærende: finnes et resultat, kan en dato bare komplettere det fra den
+samme lokale påstanden eller fra et annet lagpar-vindu på samme avisside.
+Retrospektive resultater arver aldri dato på denne måten.
 
 Rollene står likevel på egne bein: bare vinduer som selv navngir begge lagene
 kan bidra. Et resultat på side 8 og et tidsuttrykk på side 3 settes ikke sammen
-bare fordi de står i samme avis. Utgaven samler roller; den oppfinner ikke
-koblinger.
+bare fordi de står i samme avis. Et tidligere møte og en kommende kamp settes
+heller ikke sammen selv om de står på samme side. Utgaven samler roller; den
+oppfinner ikke koblinger.
+
+Faksimile-fasiten fra PR #186 og den etterfølgende rekalibreringen er dokumentert
+i [NB_AVISDISCOVERY_GROUND_TRUTH_RECALIBRATION.md](NB_AVISDISCOVERY_GROUND_TRUTH_RECALIBRATION.md).
 
 ## Målt status og akseptansekontroll
 
