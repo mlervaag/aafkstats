@@ -32,7 +32,7 @@ Hver enkelt sak er kontrollert visuelt mot Nasjonalbibliotekets avisfaksimiler i
 | **1955** | #34 | Måløy | [3, 2] | `confirmed` | 25.07.1955 s. 2 | Referat: Privatkamp/turné i Måløy søndag 24. juli 1955 («i går»). AaFK vant 3–2 (Måløy ledet 2–0 ved pause). | 1955-07-24, Måløy, Privatkamp, 3–2 (Måløy 2–3) | `facsimile_verified_canonicalizable` |
 | **1955** | #35 | Herd | [4, 3] | `confirmed` *(ny)* | 20.05.1955 s. 2 | Notiser på samme side: 1) «Aa.F.K. og Herd spilte uavgjort 1—1 i en privat-reservelagskamp på Nørve onsdag kveld». 2) «Ørsta-Herd 3-4 ... i går». Pipeline klynget scoren 4–3 fra Ørsta–Herd til AaFK–Herd! | **Falsk positiv i pipeline.** Ingen AaFK 4–3-seier i avisen. | `false_positive` (Avvist fra kanonisering) |
 | **1958** | #15 | Braatt | [1, 1] | `probable` *(nedgradert)* | 12.05.1958 s. 2 | Referat: Landsdelsseriekamp på Aksla stadion søndag 11. mai 1958 («i går»). AaFK og Braatt delte poengene 1–1. | 1958-05-11, Aksla, 1. divisjon, 1–1 | `facsimile_verified_canonicalizable` (Over-abstention) |
-| **1961** | #17 | Herd | [1, 2] | `ambiguous` *(nedgradert)* | 17.06.1961 s. 6 | Notis: «... at Langevågs lilleputter serievant 3—1 over Herd fredag ... at ÅFKs lilleputter slo Spjelkavik 2—1». To separate lilleputtkamper. Ingen senior-kamp. | **Falsk positiv i eldre discovery.** Korrekt nedgradert i PR #187. | `relationship_verified_but_insufficient` / `correct_abstention` |
+| **1961** | #17 | Herd | [1, 2] | `ambiguous` *(nedgradert)* | 17.06.1961 s. 6 | Notis: «... at Langevågs lilleputter serievant 3—1 over Herd fredag ... at ÅFKs lilleputter slo Spjelkavik 2—1». To separate lilleputtkamper. Ingen senior-kamp. | **Falsk positiv i eldre discovery.** Korrekt nedgradert i PR #187. | `false_positive_older_discovery` / `correct_abstention` |
 | **1963** | #1 | Spjelkavik | [4, 1] | `confirmed` *(ny)* | 25.03.1963 s. 3 | Referat: Treningskamp (3x25 min) på Nørve lørdag 23. mars 1963. AaFK (2. div.) vant 4–1 over Spjelkavik. | 1963-03-23, Nørve, Treningskamp, 4–1 | `facsimile_verified_canonicalizable` |
 | **1963** | #11 | Årstad | [0, 4] | `confirmed` | 22.07.1963 s. 3 / 24.07.1963 s. 6 | Referat: Privatkamp på Aksla stadion søndag 21. juli 1963 («i går»). Årstad vant 4–0 over et svakt AaFK-lag. | 1963-07-21, Aksla, Privatkamp, 0–4 | `facsimile_verified_canonicalizable` |
 | **1963** | #14 | Sunnmøringen | [0, 2] | `ambiguous` *(nedgradert)* | 28.09.1963 s. 6 / 30.09.1963 s. 2 | Forhåndsomtale 28.09 for søndag 29.09. Referat 30.09 s. 2: «Sunnmøringen slo ÅFK 2-0» på Aksla søndag 29. september 1963. | 1963-09-29, Aksla, Privatkamp, 0–2 | `facsimile_verified_canonicalizable` (Over-abstention) |
@@ -80,7 +80,7 @@ PR #187 løftet fire spesifikke saker fra `ambiguous` til `confirmed`:
 
 PR #187 nedgraderte fire saker for å unngå usikre koblinger:
 
-- **1961 #17 Herd [1, 2]**: **Korrekt abstention (True negative / correct rejection)**. Avisnotisen 17.06.1961 s. 6 omhandlet utelukkende lilleputtkamper (Langevåg–Herd og AaFK–Spjelkavik). Den tidligere confirmed-statusen var en ren hallusinasjon/støy. Nedgraderingen reddet arkivet fra feilaktig kanonisering.
+- **1961 #17 Herd [1, 2]**: **Falsk positiv i eldre discovery / korrekt abstention (False positive older discovery / correct abstention)**. Avisnotisen 17.06.1961 s. 6 omhandlet utelukkende to separate lilleputtkamper (Langevåg–Herd og AaFK–Spjelkavik). Den tidligere confirmed-statusen var en ren hallusinasjon/støy. Nedgraderingen i PR #187 var helt korrekt og avverget en feilkanonisering.
 - **1952 #9 Lyn, Gjøvik [1, 3]**: **Over-abstention**. Kampen fant sted torsdag 10. juli 1952 på Gjøvik (Sunnmørsposten 11.07.1952 s. 5). Pipelinen avsto fordi «i går» sto i brødteksten og ikke i samme setning som scoren i tittelblokken.
 - **1958 #15 Braatt [1, 1]**: **Over-abstention**. Kampen fant sted søndag 11. mai 1958 på Aksla stadion (Sunnmørsposten 12.05.1958 s. 2). Pipelinen avsto fordi setningsbindingen var for snever.
 - **1963 #14 Sunnmøringen [0, 2]**: **Over-abstention**. Kampen fant sted søndag 29. september 1963 på Aksla stadion (Sunnmørsposten 28.09.1963 s. 6 og 30.09.1963 s. 2). Pipelinen feiltolket en forhåndsomtale eller manglet temporalt fremover-oppslag.
@@ -114,7 +114,7 @@ Følgende 14 verifiserte kamper er kanonisert og beriket med kilde- og observasj
 3. `1952-05-18-eid-il-aalesunds-fk.yaml` (Privatkamp, 3–2 til Eid)
 4. `1952-07-04-aalesunds-fk-arstad-il.yaml` (Privatkamp, 5–1)
 5. `1952-07-10-gjovik-lyn-aalesunds-fk.yaml` (Privatkamp, 3–1 til Gjøvik-Lyn)
-6. `1953-07-07-aalesunds-fk-moss.yaml` (Privatkamp, 2–0, 2 000 tilskuere)
+6. `1953-07-07-aalesunds-fk-moss.yaml` (Privatkamp, 2–0, nesten 2 000 tilskuere)
 7. `1953-08-23-aalesunds-fk-hodd.yaml` (1. divisjon Møre, 3–1)
 8. `1953-09-06-aalesunds-fk-kfk.yaml` (1. divisjon Møre, 1–3)
 9. `1955-07-24-maloy-il-aalesunds-fk.yaml` (Privatkamp, 2–3 til AaFK)

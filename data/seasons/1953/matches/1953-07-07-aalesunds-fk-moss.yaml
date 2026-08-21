@@ -34,7 +34,6 @@ providers:
       - home.score
       - away.score
       - venueId
-      - attendance
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
     page: "13"
@@ -50,4 +49,3 @@ manual: []
 note: Privatkamp spilt på Aksla stadion tirsdag kveld 7. juli 1953 for nesten 2
   000 tilskuere.
 venueId: aksla-stadion
-attendance: 2000

@@ -19,7 +19,6 @@ normalized:
   home.score: 2
   away.score: 0
   venueId: aksla-stadion
-  attendance: 2000
 fields:
   - date
   - home.clubId
@@ -27,5 +26,4 @@ fields:
   - home.score
   - away.score
   - venueId
-  - attendance
 warnings: []
