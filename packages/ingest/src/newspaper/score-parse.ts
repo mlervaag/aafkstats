@@ -37,6 +37,8 @@ export interface TeamPairScoreBinding {
   context: string;
   /** Påstanden beskriver uttrykkelig et tidligere møte. */
   retrospective: boolean;
+  /** Påstanden gjelder uttrykkelig reserve-, alders- eller annet ikke-seniorlag. */
+  nonSenior: boolean;
 }
 
 /** Tegnene OCR bruker mellom måltallene. */
@@ -88,8 +90,21 @@ export function matchScore(
   return reversed ? { found: reversed, reversed: true } : undefined;
 }
 
-const RETROSPECTIVE = /\b(?:første|forrige|tidligere)\s+(?:møte|oppgjør|kamp)|\bsist\s+(?:lagene\s+)?møttes|\btidligere\s+i\s+sesongen\b/iu;
+const RETROSPECTIVE_PATTERNS = [
+  /\b(?:første|forrige|tidligere)\s+(?:møte|oppgjør|kamp)(?:en|et)?\b/iu,
+  /\bi\s+det\s+første\s+møtet\b/iu,
+  /\bi\s+forrige\s+oppgjør\b/iu,
+  /\bforrige\s+gang\b/iu,
+  /\bsist\s+(?:laga|lagene|de)\s+(?:spilte\s+mot\s+hverandre|møttes)\b/iu,
+  /\bsist\s+møttes\b/iu,
+  /\bden\s+gang\b/iu,
+  /\bi\s+(?:vår|høst)kampen\b/iu,
+  /\btidligere\s+i\s+(?:år|sesongen)\b/iu,
+  /\bi\s+cupen\s+tidligere\b/iu,
+] as const;
+const NON_SENIOR = /\b(?:reserve(?:lags)?(?:kamp|match)?|b\s*[-–—]?\s*lag(?:s(?:kamp|match))?|junior(?:lag|kamp|match)?|lilleputt(?:lag|kamp|match|er)?|guttelag(?:skamp)?|gutte(?:lag|kamp))\b/iu;
 const ANAPHORIC_RESULT = /^\s*(?:seieren|seiren|tapet|kampen|oppgjøret|resultatet|sluttresultatet|stillingen)\b/iu;
+const ANAPHORIC_RETROSPECTIVE = /^\s*(?:sist\b|den\s+gang\b|forrige\s+gang\b|i\s+(?:det\s+første\s+møtet|forrige\s+oppgjør|vårkampen|høstkampen|cupen\s+tidligere)\b|tidligere\s+i\s+(?:år|sesongen)\b)/iu;
 
 /**
  * Finn en score som er bundet til det konkrete lagparet, ikke bare til hele
@@ -107,6 +122,7 @@ export function findTeamPairScore(
   const bindings = explicit.length > 0
     ? explicit
     : teamPairClaimContexts(text, aafkNames, opponentNames)
+      .filter((context) => !hasForeignOpponentPairScore(context, aafkNames, opponentNames))
       .map((context) => ({ context, scores: parseScores(context) }))
       .filter((binding) => binding.scores.length > 0);
 
@@ -132,6 +148,7 @@ export function findTeamPairScore(
     matchesExpected: straight || reversed,
     context: binding.context,
     retrospective: isRetrospectiveTeamPairContext(binding.context, opponentNames),
+    nonSenior: isNonSeniorTeamPairContext(binding.context),
   };
 }
 
@@ -187,7 +204,9 @@ export function teamPairClaimContexts(text: string, aafkNames: string[], opponen
   for (const [index, claim] of claims.entries()) {
     if (!containsAnyName(claim, aafkNames, true) || !containsAnyName(claim, opponentNames, false)) continue;
     const continuation = claims[index + 1];
-    contexts.push(continuation && ANAPHORIC_RESULT.test(continuation) ? `${claim} ${continuation}` : claim);
+    contexts.push(continuation && (ANAPHORIC_RESULT.test(continuation) || ANAPHORIC_RETROSPECTIVE.test(continuation))
+      ? `${claim} ${continuation}`
+      : claim);
   }
   const unique = [...new Set(contexts)];
   // Når fortsettelsen selv gjentar begge lagnavnene, er den allerede del av
@@ -196,12 +215,42 @@ export function teamPairClaimContexts(text: string, aafkNames: string[], opponen
 }
 
 export function isRetrospectiveTeamPairContext(context: string, opponentNames: string[]): boolean {
-  if (RETROSPECTIVE.test(context)) return true;
+  if (RETROSPECTIVE_PATTERNS.some((pattern) => pattern.test(context))) return true;
   const normalized = normalizeName(context);
   return opponentNames.some((name) => {
     const opponent = normalizeName(name);
     return opponent.length >= 2 && new RegExp(`\\b(?:etter|siden)\\s+${escapeRegExp(opponent)}\\s+kamp(?:en)?\\b`, "iu").test(normalized);
   });
+}
+
+export function isNonSeniorTeamPairContext(context: string): boolean {
+  return NON_SENIOR.test(context);
+}
+
+/**
+ * Et eksplisitt oppsett med motstanderen og et tredje lag er negativt
+ * identitetsbevis. Scoren i oppsettet kan ikke arves av en løs AaFK-omtale i
+ * samme OCR-claim.
+ */
+function hasForeignOpponentPairScore(context: string, aafkNames: string[], opponentNames: string[]): boolean {
+  const clean = context.replace(/<\/?(?:em|strong|b|i)>/gi, " ");
+  const score = "[\\dOoIl]{1,2}\\s*[-–—−:]\\s*[\\dOoIl]{1,2}";
+  const team = "[\\p{L}][\\p{L}.]{1,24}(?:\\s+[\\p{L}][\\p{L}.]{1,24}){0,2}";
+  for (const opponentName of opponentNames) {
+    const opponent = flexibleNamePattern(opponentName);
+    if (!opponent) continue;
+    const patterns = [
+      new RegExp(`(${team})\\s*[-–—:]\\s*${opponent}\\s*(?:[-–—:]\\s*)?${score}`, "giu"),
+      new RegExp(`${opponent}\\s*[-–—:]\\s*(${team})\\s*(?:[-–—:]\\s*)?${score}`, "giu"),
+    ];
+    for (const pattern of patterns) {
+      for (const match of clean.matchAll(pattern)) {
+        const participant = match[1] ?? "";
+        if (!containsAnyName(participant, aafkNames, false)) return true;
+      }
+    }
+  }
+  return false;
 }
 
 function splitClaims(text: string): string[] {

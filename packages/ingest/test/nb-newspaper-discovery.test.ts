@@ -147,6 +147,58 @@ describe("inferMatchDate", () => {
     )).toBeUndefined();
   });
 
+  it("avviser score fra et annet eksplisitt lagpar med samme motstander", () => {
+    expect(findTeamPairScore(
+      "AaFK og Herd spilte 1—1 i en privat reservelagskamp Ørsta—Herd 3—4.",
+      AAFK,
+      ["Herd"],
+      [4, 3],
+    )).toBeUndefined();
+  });
+
+  it("avviser KFK-resultatbørs med markert motstander og score fra AaFK–Hødd", () => {
+    expect(findTeamPairScore(
+      "Ørsta— <em>KFK</em> 2—1. Landsdelsserien på Aksla i går mellom Hødd og <em>AaFK</em> endte med seier for AaFK 3—1.",
+      AAFK,
+      ["KFK"],
+      [1, 3],
+    )).toBeUndefined();
+  });
+
+  it.each([
+    "reservelagskamp",
+    "reservekamp",
+    "reservematch",
+    "B-lagskamp",
+    "juniorkamp",
+    "lilleputtkamp",
+    "guttelagskamp",
+  ])("markerer eksplisitt ikke-senior kampclaim: %s", (marker) => {
+    expect(findTeamPairScore(
+      `AaFK—Herd 4—3 i en privat ${marker} i går.`,
+      AAFK,
+      ["Herd"],
+      [4, 3],
+    )).toMatchObject({ nonSenior: true });
+  });
+
+  it.each([
+    "Sist laga spilte mot hverandre var i cupen, og den gang vant Hødd 5—2.",
+    "Sist lagene spilte mot hverandre vant Hødd 5—2.",
+    "Sist de møttes vant Hødd 5—2.",
+    "I det første møtet vant Hødd 5—2.",
+    "I vårkampen vant Hødd 5—2.",
+    "I høstkampen vant Hødd 5—2.",
+    "I forrige oppgjør vant Hødd 5—2.",
+  ])("binder anaforisk retrospektiv score til lagparet: %s", (retrospectiveClaim) => {
+    expect(findTeamPairScore(
+      `Kampen mellom AaFK og Hødd spilles lørdag. ${retrospectiveClaim}`,
+      AAFK,
+      ["Hødd"],
+      [2, 5],
+    )).toMatchObject({ matchesExpected: true, retrospective: true });
+  });
+
   it("utleder lørdag 15. juni fra mandagsutgaven 17. juni 1946", () => {
     expect(inferMatchDate("AaFK spilte mot Ranheim lørdag", "19460617"))
       .toMatchObject({ inferredMatchDate: "1946-06-15", confidence: "low" });
@@ -209,6 +261,19 @@ describe("evidenceForFragment", () => {
       { issueId: "annen", issueDate: "19520505" },
     );
     expect(evidence.scoreMatchesSource).toBeUndefined();
+  });
+
+  it("bruker ikke en eksplisitt reservelagskamp som seniorbevis", () => {
+    const herd = query({ opponent: "Herd", opponentAliases: [], expectedScore: [4, 3], year: 1955 });
+    const evidence = evidenceForFragment(
+      "AaFK og Herd spilte 1—1 i en privat reservelagskamp. Ørsta—Herd 3—4 i går.",
+      herd,
+      { issueId: "herd-1955", issueDate: "19550620" },
+    );
+
+    expect(evidence.scoreFound).toBeUndefined();
+    expect(evidence.scoreMatchesSource).toBeUndefined();
+    expect(reconcile(herd, [evidence]).status).not.toMatch(/^(?:confirmed|conflict)$/u);
   });
 
   it("ser bort fra støy der navnene betyr noe annet", () => {
@@ -504,6 +569,24 @@ describe("reconcile", () => {
     expect(result.status).toBe("ambiguous");
   });
 
+  it("bruker ikke nærliggende eventdato for en udatert KFK-score", () => {
+    const kfk = query({ opponent: "KFK", opponentAliases: [], expectedScore: [1, 3], year: 1953 });
+    const wrongEventDate = evidenceForFragment(
+      "I seriekampen i går mellom AaFK og KFK så mange tilskuere et jevnt oppgjør.",
+      kfk,
+      { issueId: "kfk-feil-event", issueDate: "19530824" },
+    );
+    const undatedScore = evidenceForFragment(
+      "AaFK—KFK 1—3 var sluttresultatet. Kampen var jevn foran mange tilskuere.",
+      kfk,
+      { issueId: "kfk-resultatbors", issueDate: "19530907" },
+    );
+
+    const result = reconcile(kfk, [wrongEventDate, undatedScore]);
+    expect(result.status).toBe("ambiguous");
+    expect(result.matchDate).toBeUndefined();
+  });
+
   /**
    * Sarpsborg-kampen i 1948: kilden sier 1-0, avisa sier 2-1, og kampen er
    * likevel den samme. Det skal rapporteres som konflikt, ikke skjules bak en
@@ -691,5 +774,48 @@ describe("verifyNewspaperCandidate", () => {
     const result = reconcile(herd, [evidence]);
     expect(result.status).not.toBe("confirmed");
     expect(result.matchDate).toBeUndefined();
+  });
+
+  it("binder ikke KFK-score til datoen for et annet event med samme motstander", () => {
+    const kfk = { ...query({ opponent: "KFK", opponentAliases: [], expectedScore: [1, 3], year: 1953 }), ref: { sourceId: "k", file: "f", season: 1953, no: 21 } } as SourceResultQuery;
+    const newspaperIssue = issue([
+      "AaFK og KFK spilte søndag og endte 2—2.",
+      "AaFK—KFK 1—3 var resultatet i et tidligere oppgjør.",
+    ]);
+    newspaperIssue.issued = "19530824";
+    newspaperIssue.fragments = newspaperIssue.fragments.map((fragment) => ({ ...fragment, page: "4" }));
+
+    const evidence = verifyNewspaperCandidate(kfk, newspaperIssue)!;
+    const result = reconcile(kfk, [evidence]);
+    expect(result.status).not.toBe("confirmed");
+    expect(result.matchDate?.value).not.toBe("1953-08-23");
+  });
+
+  it("lar ikke kommende septemberdato følge retrospektiv Hødd-score", () => {
+    const hodd = { ...query({ opponent: "Hødd", opponentAliases: [], expectedScore: [2, 5], year: 1963 }), ref: { sourceId: "k", file: "f", season: 1963, no: 18 } } as SourceResultQuery;
+    const evidence = verifyNewspaperCandidate(hodd, {
+      ...issue([
+        "Kampen mellom AaFK og Hødd spilles lørdag. Sist laga spilte mot hverandre var i cupen, og den gang vant Hødd 5—2.",
+      ]),
+      issued: "19630909",
+    })!;
+
+    expect(evidence.scoreRetrospective).toBe(true);
+    expect(evidence.temporal).toBeUndefined();
+    const result = reconcile(hodd, [evidence]);
+    expect(result.status).not.toBe("confirmed");
+    expect(result.matchDate?.value).not.toBe("1963-09-07");
+  });
+
+  it("bekrefter fortsatt et direkte event med score og lokal dato", () => {
+    const hodd = { ...query({ opponent: "Hødd", opponentAliases: [], expectedScore: [2, 5], year: 1963 }), ref: { sourceId: "k", file: "f", season: 1963, no: 18 } } as SourceResultQuery;
+    const evidence = verifyNewspaperCandidate(hodd, {
+      ...issue(["Hødd—AaFK 5—2 i NM-kampen i går."]),
+      issued: "19630624",
+    })!;
+
+    const result = reconcile(hodd, [evidence]);
+    expect(result.status).toBe("confirmed");
+    expect(result.matchDate?.value).toBe("1963-06-23");
   });
 });

@@ -55,6 +55,10 @@ export interface NewspaperEvidence {
   scoreReversed?: boolean;
   /** Scoren beskriver uttrykkelig et tidligere møte. */
   scoreRetrospective?: boolean;
+  /** Den lokale scorepåstanden gjelder uttrykkelig et ikke-seniorlag. */
+  scoreNonSenior?: boolean;
+  /** Score og tidsuttrykk er utledet fra den samme lokale kamp-påstanden. */
+  scoreEventBound?: boolean;
 
   competitionFound?: string;
   homeAwayFound?: HomeAwayHint;
@@ -138,7 +142,10 @@ export function evidenceForFragment(
     ? findTeamPairScore(text, query.aafkAliases, [query.opponent, ...query.opponentAliases], query.expectedScore)
     : undefined;
 
-  if (query.expectedScore && scoreBinding) {
+  if (query.expectedScore && scoreBinding?.nonSenior === true) {
+    evidence.scoreNonSenior = true;
+    reasons.push("resultatpåstanden gjelder eksplisitt ikke-seniorlag");
+  } else if (query.expectedScore && scoreBinding) {
     evidence.scoreFound = [scoreBinding.found.home, scoreBinding.found.away];
     evidence.scoreMatchesSource = scoreBinding.matchesExpected;
     evidence.scoreReversed = scoreBinding.reversed;
@@ -172,7 +179,9 @@ export function evidenceForFragment(
     // Når vinduet også har en bundet score, må tidsuttrykket finnes i den samme
     // lokale kamp-påstanden. Dette hindrer at datoen for en utsatt/kommende kamp
     // overføres til et retrospektivt resultat i neste setning.
-    const pairContexts = scoreBinding
+    const pairContexts = scoreBinding?.nonSenior === true
+      ? []
+      : scoreBinding
       ? [scoreBinding.context]
       : teamPairClaimContexts(text, query.aafkAliases, [query.opponent, ...query.opponentAliases]);
     const temporal = pairContexts
@@ -182,6 +191,9 @@ export function evidenceForFragment(
       .sort((left, right) => temporalWeight(right.confidence) - temporalWeight(left.confidence))[0];
     if (temporal && (sameFragment || evidence.matchTalk)) {
       evidence.temporal = temporal;
+      if (scoreBinding && scoreBinding.nonSenior !== true && scoreBinding.retrospective !== true) {
+        evidence.scoreEventBound = true;
+      }
       score += temporal.confidence === "high"
         ? WEIGHTS.temporalHigh
         : temporal.confidence === "medium" ? WEIGHTS.temporalMedium : WEIGHTS.temporalLow;

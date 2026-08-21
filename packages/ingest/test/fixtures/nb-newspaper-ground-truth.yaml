@@ -1,4 +1,4 @@
-version: 1
+version: 2
 sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
 cases:
   - year: 1946
@@ -71,3 +71,192 @@ cases:
         text: Øvre Telemark Kretslag slo AaFK 1–0 i går på Aksla stadion.
     allowedStatuses: [confirmed]
     expectedDate: "1949-07-10"
+
+  - year: 1949
+    no: 17
+    opponent: Langevåg
+    expectedScore: [4, 0]
+    fragments:
+      - issueId: langevag-1949
+        issueDate: "19490627"
+        text: AaFK slo Langevåg 4–0 i NM-kampen i går på Aksla stadion.
+    allowedStatuses: [confirmed, probable, ambiguous]
+    expectedDateIfConfirmed: "1949-06-26"
+
+  - year: 1952
+    no: 4
+    opponent: Eid
+    expectedScore: [2, 3]
+    fragments:
+      - issueId: eid-1952
+        issueDate: "19520519"
+        text: Eid slo AaFK 3–2 i privatkampen i går på Nordfjordeid.
+    allowedStatuses: [confirmed, probable, ambiguous]
+    expectedDateIfConfirmed: "1952-05-18"
+
+  - year: 1952
+    no: 8
+    opponent: Årstad
+    expectedScore: [5, 1]
+    fragments:
+      - issueId: arstad-1952
+        issueDate: "19520705"
+        text: AaFK slo Årstad 5–1 i privatkampen i går på Aksla stadion.
+    allowedStatuses: [confirmed, probable, ambiguous]
+    expectedDateIfConfirmed: "1952-07-04"
+
+  - year: 1952
+    no: 9
+    opponent: Lyn, Gjøvik
+    expectedScore: [1, 3]
+    fragments:
+      - issueId: lyn-1952
+        issueDate: "19520711"
+        text: Lyn, Gjøvik slo AaFK 3–1 i privatkampen i går på Gjøvik.
+    allowedStatuses: [confirmed, probable, ambiguous]
+    expectedDateIfConfirmed: "1952-07-10"
+
+  - year: 1952
+    no: 16
+    opponent: Clausenengen
+    expectedScore: [1, 0]
+    fragments:
+      - issueId: clausenengen-1952
+        issueDate: "19520505"
+        text: AaFK slo Clausenengen 1–0 i landsdelsseriekampen i går i Kristiansund.
+    allowedStatuses: [confirmed, probable, ambiguous]
+    expectedDateIfConfirmed: "1952-05-04"
+
+  - year: 1953
+    no: 6
+    opponent: Moss FK
+    expectedScore: [2, 0]
+    fragments:
+      - issueId: moss-1953
+        issueDate: "19530708"
+        text: AaFK slo Moss FK 2–0 i privatkampen i går kveld på Aksla stadion.
+    allowedStatuses: [confirmed, probable, ambiguous]
+    expectedDateIfConfirmed: "1953-07-07"
+
+  - year: 1953
+    no: 19
+    opponent: Hødd
+    expectedScore: [3, 1]
+    fragments:
+      - issueId: hodd-1953
+        issueDate: "19530824"
+        text: AaFK slo Hødd 3–1 i landsdelsseriekampen i går på Aksla stadion.
+    allowedStatuses: [confirmed, probable, ambiguous]
+    expectedDateIfConfirmed: "1953-08-23"
+
+  - year: 1953
+    no: 21
+    opponent: KFK
+    expectedScore: [1, 3]
+    fragments:
+      - issueId: kfk-feil-event-1953
+        issueDate: "19530824"
+        text: Ørsta–<em>KFK</em> 2–1. Landsdelsserien på Aksla i går mellom Hødd og <em>AaFK</em> endte med seier for AaFK 3–1.
+      - issueId: kfk-riktig-event-1953
+        issueDate: "19530907"
+        text: KFK slo AaFK 3–1 i landsdelsseriekampen i går på Aksla stadion.
+    allowedStatuses: [confirmed, probable, ambiguous]
+    expectedDateIfConfirmed: "1953-09-06"
+    forbiddenDate: "1953-08-23"
+
+  - year: 1955
+    no: 34
+    opponent: Måløy
+    expectedScore: [3, 2]
+    fragments:
+      - issueId: maloy-1955
+        issueDate: "19550725"
+        text: AaFK slo Måløy 3–2 i privatkampen i går i Måløy.
+    allowedStatuses: [confirmed, probable, ambiguous]
+    expectedDateIfConfirmed: "1955-07-24"
+
+  - year: 1955
+    no: 35
+    opponent: Herd
+    expectedScore: [4, 3]
+    fragments:
+      - issueId: herd-1955
+        issueDate: "19550520"
+        text: |-
+          AaFK og Herd spilte 1–1 i en privat reservelagskamp.
+          Ørsta–Herd 3–4 i går.
+    allowedStatuses: [ambiguous, probable, not_found]
+    expectedScoreCheck: unknown
+
+  - year: 1958
+    no: 15
+    opponent: Braatt
+    expectedScore: [1, 1]
+    fragments:
+      - issueId: braatt-1958
+        issueDate: "19580512"
+        text: AaFK–Braatt 1–1 i landsdelsseriekampen i går på Aksla stadion.
+    allowedStatuses: [confirmed, probable, ambiguous]
+    expectedDateIfConfirmed: "1958-05-11"
+
+  - year: 1961
+    no: 17
+    opponent: Herd
+    expectedScore: [1, 2]
+    fragments:
+      - issueId: herd-1961
+        issueDate: "19610617"
+        text: |-
+          Langevågs lilleputter slo Herd 3–1 fredag.
+          AaFKs lilleputter slo Spjelkavik 2–1.
+    allowedStatuses: [ambiguous, probable, not_found]
+    expectedScoreCheck: unknown
+
+  - year: 1963
+    no: 1
+    opponent: Spjelkavik
+    expectedScore: [4, 1]
+    fragments:
+      - issueId: spjelkavik-1963
+        issueDate: "19630325"
+        text: AaFK slo Spjelkavik 4–1 i treningskampen lørdag på Nørve.
+    allowedStatuses: [confirmed, probable, ambiguous]
+    expectedDateIfConfirmed: "1963-03-23"
+
+  - year: 1963
+    no: 11
+    opponent: Årstad
+    expectedScore: [0, 4]
+    fragments:
+      - issueId: arstad-1963
+        issueDate: "19630722"
+        text: Årstad slo AaFK 4–0 i privatkampen i går på Aksla stadion.
+    allowedStatuses: [confirmed, probable, ambiguous]
+    expectedDateIfConfirmed: "1963-07-21"
+
+  - year: 1963
+    no: 14
+    opponent: Sunnmøringen
+    expectedScore: [0, 2]
+    fragments:
+      - issueId: sunnmoringen-1963
+        issueDate: "19630930"
+        text: Sunnmøringen slo AaFK 2–0 i privatkampen i går på Aksla stadion.
+    allowedStatuses: [confirmed, probable, ambiguous]
+    expectedDateIfConfirmed: "1963-09-29"
+
+  - year: 1963
+    no: 18
+    hypothesisId: nm-1963-hodd-runde-2
+    opponent: Hødd
+    expectedScore: [2, 5]
+    fragments:
+      - issueId: hodd-feil-event-1963
+        issueDate: "19630909"
+        text: Kampen mellom AaFK og Hødd spilles lørdag. Sist laga spilte mot hverandre var i cupen, og den gang vant Hødd 5–2.
+      - issueId: hodd-riktig-event-1963
+        issueDate: "19630624"
+        text: Hødd slo AaFK 5–2 i NM-kampen i går på Høddvoll.
+    allowedStatuses: [confirmed, probable, ambiguous]
+    expectedDateIfConfirmed: "1963-06-23"
+    forbiddenDate: "1963-09-07"
