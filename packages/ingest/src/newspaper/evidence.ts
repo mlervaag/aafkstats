@@ -1,6 +1,6 @@
 import { classifyFragment, KIND_WEIGHT } from "./fragment-kind.js";
 import { inferMatchDate } from "./date-inference.js";
-import { matchScore, parseScores } from "./score-parse.js";
+import { findTeamPairScore, isRetrospectiveTeamPairContext, teamPairClaimContexts } from "./score-parse.js";
 import type { FragmentKind } from "./fragment-kind.js";
 import type { TemporalEvidence } from "./date-inference.js";
 import type { HomeAwayHint, NoteHints } from "./note-parser.js";
@@ -51,8 +51,10 @@ export interface NewspaperEvidence {
 
   scoreFound?: [number, number];
   scoreMatchesSource?: boolean;
-  /** Avisa førte lagene motsatt vei av kilden — altså bortekamp for AaFK. */
+  /** Sifferrekkefølgen er motsatt av source-resultets AaFK-perspektiv. */
   scoreReversed?: boolean;
+  /** Scoren beskriver uttrykkelig et tidligere møte. */
+  scoreRetrospective?: boolean;
 
   competitionFound?: string;
   homeAwayFound?: HomeAwayHint;
@@ -132,25 +134,20 @@ export function evidenceForFragment(
 
   // Resultatet teller bare i et avsnitt som nevner begge lagene. Ellers er det
   // et hvilket som helst sifferpar på en sportsside.
-  if (query.expectedScore && sameFragment) {
-    const found = matchScore(text, query.expectedScore);
-    if (found) {
-      evidence.scoreFound = [found.found.home, found.found.away];
-      evidence.scoreMatchesSource = true;
-      evidence.scoreReversed = found.reversed;
+  const scoreBinding = query.expectedScore && sameFragment
+    ? findTeamPairScore(text, query.aafkAliases, [query.opponent, ...query.opponentAliases], query.expectedScore)
+    : undefined;
+
+  if (query.expectedScore && scoreBinding) {
+    evidence.scoreFound = [scoreBinding.found.home, scoreBinding.found.away];
+    evidence.scoreMatchesSource = scoreBinding.matchesExpected;
+    evidence.scoreReversed = scoreBinding.reversed;
+    evidence.scoreRetrospective = scoreBinding.retrospective;
+    if (scoreBinding.matchesExpected) {
       score += WEIGHTS.exactScore;
-      reasons.push(`resultat: ${found.found.raw}${found.reversed ? " (motsatt lagrekkefølge)" : ""}`);
+      reasons.push(`resultat: ${scoreBinding.found.raw}${scoreBinding.reversed ? " (motsatt lagrekkefølge)" : ""}`);
     } else {
-      // Avisa har et resultat, men et annet enn kilden. Det er ikke en grunn til
-      // å forkaste utgaven — det er selve funnet. Uten at tallet registreres her
-      // finnes det ingen konflikt å melde senere, bare en kamp som ikke ble
-      // bekreftet.
-      const printed = parseScores(text)[0];
-      if (printed && (kind === "article" || kind === "result_list")) {
-        evidence.scoreFound = [printed.home, printed.away];
-        evidence.scoreMatchesSource = false;
-        reasons.push(`avisa oppgir ${printed.raw}, kilden ${query.expectedScore.join("-")}`);
-      }
+      reasons.push(`avisa oppgir ${scoreBinding.found.raw}, kilden ${query.expectedScore.join("-")}`);
     }
   }
 
@@ -172,7 +169,17 @@ export function evidenceForFragment(
   }
 
   if (context.issueDate) {
-    const temporal = inferMatchDate(text, context.issueDate);
+    // Når vinduet også har en bundet score, må tidsuttrykket finnes i den samme
+    // lokale kamp-påstanden. Dette hindrer at datoen for en utsatt/kommende kamp
+    // overføres til et retrospektivt resultat i neste setning.
+    const pairContexts = scoreBinding
+      ? [scoreBinding.context]
+      : teamPairClaimContexts(text, query.aafkAliases, [query.opponent, ...query.opponentAliases]);
+    const temporal = pairContexts
+      .filter((claim) => !isRetrospectiveTeamPairContext(claim, [query.opponent, ...query.opponentAliases]))
+      .map((claim) => inferMatchDate(claim, context.issueDate!))
+      .filter((candidate): candidate is TemporalEvidence => candidate !== undefined)
+      .sort((left, right) => temporalWeight(right.confidence) - temporalWeight(left.confidence))[0];
     if (temporal && (sameFragment || evidence.matchTalk)) {
       evidence.temporal = temporal;
       score += temporal.confidence === "high"
@@ -184,6 +191,10 @@ export function evidenceForFragment(
 
   evidence.score = score;
   return evidence;
+}
+
+function temporalWeight(confidence: TemporalEvidence["confidence"]): number {
+  return confidence === "high" ? 3 : confidence === "medium" ? 2 : 1;
 }
 
 /** Det sterkeste beviset blant vinduene i én utgave. */

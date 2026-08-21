@@ -1,0 +1,73 @@
+version: 1
+sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+cases:
+  - year: 1946
+    no: 15
+    opponent: Ranheim
+    expectedScore: [2, 2]
+    fragments:
+      - issueId: ranheim-1946
+        issueDate: "19460617"
+        text: I turneringen lørdag spilte AaFK 2–2 mot Ranheim.
+    allowedStatuses: [confirmed]
+    expectedDate: "1946-06-15"
+
+  - year: 1948
+    no: 2
+    opponent: Aksla
+    expectedScore: [4, 0]
+    fragments:
+      - issueId: aksla-1948
+        issueDate: "19480913"
+        text: |-
+          AaFK slo Hødd 4–0 i går.
+          I en annen notis møtte Aksla Sykkylven.
+    allowedStatuses: [ambiguous, probable, not_found]
+    expectedScoreCheck: unknown
+
+  - year: 1948
+    no: 13
+    opponent: Langevåg
+    expectedScore: [2, 5]
+    fragments:
+      - issueId: langevag-1948
+        issueDate: "19480518"
+        text: |-
+          Sykkylven–Langevåg 5–2 søndag.
+          I en annen kamp slo Skarbøvik AaFK 4–1.
+    allowedStatuses: [ambiguous, probable, not_found]
+    expectedScoreCheck: unknown
+
+  - year: 1948
+    no: 15
+    opponent: Nordlandet
+    expectedScore: [6, 1]
+    homeAwayHint: away
+    fragments:
+      - issueId: nordlandet-1948
+        issueDate: "19480507"
+        text: Nordlandet–AaFK 1–6 i 1. divisjonskampen i går i Kristiansund.
+    allowedStatuses: [confirmed]
+    expectedDate: "1948-05-06"
+
+  - year: 1949
+    no: 2
+    opponent: Herd
+    expectedScore: [2, 4]
+    fragments:
+      - issueId: herd-1949
+        issueDate: "19490617"
+        text: Den utsatte kampen mellom AaFK og Herd skal spilles søndag. I første møte mellom AaFK og Herd vant Herd 4–2.
+    allowedStatuses: [ambiguous, probable, not_found]
+    forbiddenDate: "1949-06-12"
+
+  - year: 1949
+    no: 5
+    opponent: Øvre Telemark Kretslag
+    expectedScore: [0, 1]
+    fragments:
+      - issueId: telemark-1949
+        issueDate: "19490711"
+        text: Øvre Telemark Kretslag slo AaFK 1–0 i går på Aksla stadion.
+    allowedStatuses: [confirmed]
+    expectedDate: "1949-07-10"

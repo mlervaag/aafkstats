@@ -28,6 +28,17 @@ export interface ParsedScore {
   raw: string;
 }
 
+export interface TeamPairScoreBinding {
+  found: ParsedScore;
+  /** Om sifrene står motsatt av source-resultets AaFK-perspektiv. */
+  reversed: boolean;
+  matchesExpected: boolean;
+  /** Den minste tekstlige påstanden som binder lagparet til sifrene. */
+  context: string;
+  /** Påstanden beskriver uttrykkelig et tidligere møte. */
+  retrospective: boolean;
+}
+
 /** Tegnene OCR bruker mellom måltallene. */
 const SEPARATORS = "-–—−:";
 
@@ -75,6 +86,166 @@ export function matchScore(
 
   const reversed = scores.find((parsed) => parsed.home === expected[1] && parsed.away === expected[0]);
   return reversed ? { found: reversed, reversed: true } : undefined;
+}
+
+const RETROSPECTIVE = /\b(?:første|forrige|tidligere)\s+(?:møte|oppgjør|kamp)|\bsist\s+(?:lagene\s+)?møttes|\btidligere\s+i\s+sesongen\b/iu;
+const ANAPHORIC_RESULT = /^\s*(?:seieren|seiren|tapet|kampen|oppgjøret|resultatet|sluttresultatet|stillingen)\b/iu;
+
+/**
+ * Finn en score som er bundet til det konkrete lagparet, ikke bare til hele
+ * OCR-vinduet. Separate notiser og setninger er separate påstander. En kort
+ * anaforisk fortsettelse (f.eks. «Seieren ble 1–0») får arve lagparet fra
+ * setningen rett foran, men en vilkårlig sifferkombinasjon får ikke det.
+ */
+export function findTeamPairScore(
+  text: string,
+  aafkNames: string[],
+  opponentNames: string[],
+  expected: readonly [number, number],
+): TeamPairScoreBinding | undefined {
+  const explicit = explicitTeamPairScores(text, aafkNames, opponentNames);
+  const bindings = explicit.length > 0
+    ? explicit
+    : teamPairClaimContexts(text, aafkNames, opponentNames)
+      .map((context) => ({ context, scores: parseScores(context) }))
+      .filter((binding) => binding.scores.length > 0);
+
+  // Flere separate påstander om samme lagpar i ett vindu kan være forskjellige
+  // møter. Uten hendelsesidentitet er riktig failure mode ukjent score.
+  if (bindings.length !== 1) return undefined;
+
+  const binding = bindings[0]!;
+  const distinctScores = [...new Map(binding.scores.map((score) => [`${score.home}-${score.away}`, score])).values()];
+  const matching = distinctScores.filter((score) =>
+    (score.home === expected[0] && score.away === expected[1]) ||
+    (score.home === expected[1] && score.away === expected[0]));
+  const found = matching.length === 1
+    ? matching[0]
+    : distinctScores.length === 1 ? distinctScores[0] : undefined;
+  if (!found) return undefined;
+
+  const straight = found.home === expected[0] && found.away === expected[1];
+  const reversed = found.home === expected[1] && found.away === expected[0] && !straight;
+  return {
+    found,
+    reversed,
+    matchesExpected: straight || reversed,
+    context: binding.context,
+    retrospective: isRetrospectiveTeamPairContext(binding.context, opponentNames),
+  };
+}
+
+function explicitTeamPairScores(
+  text: string,
+  aafkNames: string[],
+  opponentNames: string[],
+): Array<{ context: string; scores: ParsedScore[] }> {
+  const clean = text.replace(/<\/?(?:em|strong|b|i)>/gi, " ");
+  const pairContexts = teamPairClaimContexts(clean, aafkNames, opponentNames);
+  const scorePattern = "[\\dOoIl]{1,2}\\s*[-–—−:]\\s*[\\dOoIl]{1,2}";
+  const found = new Map<string, { context: string; scores: ParsedScore[] }>();
+
+  for (const aafkName of aafkNames) {
+    const aafk = flexibleNamePattern(aafkName);
+    if (!aafk) continue;
+    for (const opponentName of opponentNames) {
+      const opponent = flexibleNamePattern(opponentName);
+      if (!opponent) continue;
+      for (const pair of [`${aafk}\\s*[-–—:]\\s*${opponent}`, `${opponent}\\s*[-–—:]\\s*${aafk}`]) {
+        const pattern = new RegExp(`${pair}\\s*(?:[-–—:]\\s*)?(${scorePattern})([^\\r\\n.!?;]{0,160})`, "giu");
+        for (const match of clean.matchAll(pattern)) {
+          const scores = parseScores(match[1]!);
+          if (scores.length !== 1) continue;
+          const tail = match[2] ?? "";
+          const nextScore = /[\dOoIl]{1,2}\s*[-–—−:]\s*[\dOoIl]{1,2}/u.exec(tail);
+          const localTail = nextScore ? tail.slice(0, nextScore.index) : tail;
+          const localContext = `${match[0].slice(0, match[0].length - tail.length)}${localTail}`.trim();
+          const broaderContext = pairContexts.find((candidate) => {
+            if (!candidate.includes(match[1]!)) return false;
+            const distinct = new Set(parseScores(candidate).map((score) => `${score.home}-${score.away}`));
+            return distinct.size === 1;
+          });
+          const context = broaderContext ?? localContext;
+          found.set(`${match.index ?? 0}|${scores[0]!.home}-${scores[0]!.away}`, { context, scores });
+        }
+      }
+    }
+  }
+  return [...found.values()];
+}
+
+function flexibleNamePattern(name: string): string {
+  const words = name.trim().split(/[^\p{L}\p{N}]+/u).filter(Boolean);
+  if (words.length === 0) return "";
+  return words.map((word) => [...word].map(escapeRegExp).join("\\s*\\.?\\s*")).join("\\s+");
+}
+
+/** Lokale tekstpåstander som faktisk navngir begge lagene. */
+export function teamPairClaimContexts(text: string, aafkNames: string[], opponentNames: string[]): string[] {
+  const claims = splitClaims(text);
+  const contexts: string[] = [];
+  for (const [index, claim] of claims.entries()) {
+    if (!containsAnyName(claim, aafkNames, true) || !containsAnyName(claim, opponentNames, false)) continue;
+    const continuation = claims[index + 1];
+    contexts.push(continuation && ANAPHORIC_RESULT.test(continuation) ? `${claim} ${continuation}` : claim);
+  }
+  const unique = [...new Set(contexts)];
+  // Når fortsettelsen selv gjentar begge lagnavnene, er den allerede del av
+  // den lengre anaforiske konteksten og skal ikke telles som et nytt møte.
+  return unique.filter((context) => !unique.some((other) => other !== context && other.includes(context)));
+}
+
+export function isRetrospectiveTeamPairContext(context: string, opponentNames: string[]): boolean {
+  if (RETROSPECTIVE.test(context)) return true;
+  const normalized = normalizeName(context);
+  return opponentNames.some((name) => {
+    const opponent = normalizeName(name);
+    return opponent.length >= 2 && new RegExp(`\\b(?:etter|siden)\\s+${escapeRegExp(opponent)}\\s+kamp(?:en)?\\b`, "iu").test(normalized);
+  });
+}
+
+function splitClaims(text: string): string[] {
+  const abbreviationMarker = "\uE000";
+  return text
+    .replace(/\b(?:dr|st|jr|sr|kl|ca|bl|dvs|feks|mfl|osv|fk|aa|a|f|k)\./giu, (abbreviation) => `${abbreviation.slice(0, -1)}${abbreviationMarker}`)
+    .split(/[\r\n]+|(?<=[.!?])\s+(?=[A-ZÆØÅ])|;\s+|\s+(?:mens|derimot)\s+|\s+i\s+en\s+annen\s+(?:kamp|notis)\s+/u)
+    .map((claim) => claim.replaceAll(abbreviationMarker, ".").trim())
+    .filter((claim) => claim !== "");
+}
+
+function containsAnyName(text: string, names: string[], rejectAalesundAsPlace: boolean): boolean {
+  const normalizedText = normalizeName(text);
+  return names.some((name) => {
+    const needle = normalizeName(name);
+    if (needle.length < 2) return false;
+    let index = normalizedText.indexOf(needle);
+    while (index >= 0) {
+      const before = normalizedText.slice(Math.max(0, index - 4), index);
+      const after = normalizedText.slice(index + needle.length);
+      const boundaryBefore = index === 0 || /\s$/u.test(before);
+      const boundaryAfter = after === "" || /^\s/u.test(after);
+      const isPlace = rejectAalesundAsPlace && (needle === "aalesund" || needle === "alesund") && /(?:^|\s)(?:i|på|fra|for)\s$/u.test(before);
+      if (boundaryBefore && boundaryAfter && !isPlace) return true;
+      index = normalizedText.indexOf(needle, index + 1);
+    }
+    return false;
+  });
+}
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function normalizeName(value: string): string {
+  return value
+    .replace(/<\/?(?:em|strong|b|i)>/gi, " ")
+    .toLocaleLowerCase("nb")
+    .replace(/å/gu, "aa")
+    .normalize("NFKD")
+    .replace(/\p{M}/gu, "")
+    .replace(/[^a-z0-9æøå]+/giu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function digitsFrom(group: string): number | undefined {

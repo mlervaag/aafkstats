@@ -62,6 +62,7 @@ interface EventAnalysis {
   inferredDate?: string;
   dateConfidence?: DateConfidence;
   scoreAgreement?: NewspaperEvidence;
+  scoreEvidence?: NewspaperEvidence;
   scoreConflict?: [number, number];
   hasScoreContradiction: boolean;
   opponentFound: boolean;
@@ -92,6 +93,21 @@ export function reconcile(query: NewspaperQuery, evidence: NewspaperEvidence[]):
 
   const confirmedAnalyses = analyses.filter((a) => a.isCoherentConfirmed);
   const conflictAnalyses = analyses.filter((a) => a.isCoherentConflict);
+
+  // Et uttrykkelig tidligere møte kan dokumentere relasjonen og resultatet,
+  // men får ikke arve en representativ dato fra en annen aktuell kampomtale.
+  const retrospective = analyses.find((analysis) => analysis.scoreEvidence?.scoreRetrospective === true);
+  if (retrospective && confirmedAnalyses.length === 0 && conflictAnalyses.length === 0) {
+    return buildResult({
+      status: "ambiguous",
+      chosen: retrospective,
+      allAnalyses: analyses,
+      relevantEvidence: relevant,
+      sourceScore,
+      scoreCheck: "unknown",
+      suppressDate: true,
+    });
+  }
 
   // 1. Entydig bekreftet hendelse
   if (confirmedAnalyses.length === 1 && conflictAnalyses.length === 0) {
@@ -276,6 +292,7 @@ function analyzeEvent(query: NewspaperQuery, event: NewspaperEvent): EventAnalys
 
   const scoreAgreement = hasScoreContradiction ? undefined : matchingScoreEvidence;
   const scoreConflict = hasScoreContradiction ? undefined : conflictingScoreEvidence?.scoreFound;
+  const scoreEvidence = hasScoreContradiction ? undefined : (matchingScoreEvidence ?? conflictingScoreEvidence);
 
   const opponentFound = event.evidence.some((item) => item.opponentFound);
   const homeAway = homeAwayCheck(query, event.evidence);
@@ -292,8 +309,9 @@ function analyzeEvent(query: NewspaperQuery, event: NewspaperEvent): EventAnalys
   const hasStrongEvidence = strongest.score >= STRONG_SCORE || event.score >= STRONG_SCORE;
   const hasIdentifiedDate = inferredDate !== undefined && dateCheck !== "unknown";
 
-  const isCoherentConfirmed = hasStrongEvidence && hasIdentifiedDate && scoreAgreement !== undefined && !hasScoreContradiction && opponentFound;
-  const isCoherentConflict = hasStrongEvidence && hasIdentifiedDate && scoreConflict !== undefined && scoreAgreement === undefined && !hasScoreContradiction && opponentFound;
+  const scoreCanUseEventDate = (scoreAgreement ?? conflictingScoreEvidence)?.scoreRetrospective !== true;
+  const isCoherentConfirmed = hasStrongEvidence && hasIdentifiedDate && scoreCanUseEventDate && scoreAgreement !== undefined && !hasScoreContradiction && opponentFound;
+  const isCoherentConflict = hasStrongEvidence && hasIdentifiedDate && scoreCanUseEventDate && scoreConflict !== undefined && scoreAgreement === undefined && !hasScoreContradiction && opponentFound;
   const isCoherentProbable = hasStrongEvidence && hasIdentifiedDate && opponentFound;
 
   return {
@@ -302,6 +320,7 @@ function analyzeEvent(query: NewspaperQuery, event: NewspaperEvent): EventAnalys
     inferredDate,
     dateConfidence,
     scoreAgreement,
+    scoreEvidence,
     scoreConflict,
     hasScoreContradiction,
     opponentFound,
@@ -322,8 +341,9 @@ function buildResult(input: {
   sourceScore?: [number, number];
   newspaperScore?: [number, number];
   scoreCheck: ReconciliationChecks["score"];
+  suppressDate?: boolean;
 }): DiscoveryResult {
-  const { status, chosen, allAnalyses, relevantEvidence, sourceScore, newspaperScore, scoreCheck } = input;
+  const { status, chosen, allAnalyses, relevantEvidence, sourceScore, newspaperScore, scoreCheck, suppressDate = false } = input;
 
   const disagreement = allAnalyses
     .filter((a) => a.inferredDate !== undefined && a.inferredDate !== chosen.inferredDate)
@@ -333,7 +353,7 @@ function buildResult(input: {
     ? 0
     : chosen.event.evidence.filter((item) => item.temporal?.inferredMatchDate === chosen.inferredDate).length;
 
-  const matchDate: MatchDateResolution | undefined = chosen.inferredDate === undefined ? undefined : {
+  const matchDate: MatchDateResolution | undefined = suppressDate || chosen.inferredDate === undefined ? undefined : {
     value: chosen.inferredDate,
     confidence: chosen.dateConfidence ?? "high",
     agreement: Math.max(1, agreement),
