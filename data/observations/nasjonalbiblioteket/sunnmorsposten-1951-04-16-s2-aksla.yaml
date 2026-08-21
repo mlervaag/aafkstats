@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1951-04-16-s2-aksla
+matchId: 1951-04-15-aalesunds-fk-aksla
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:a0493cd50e62a9b6fdc1b17012b4a945f6d37a0c0125cd44e79fa7904773f6e9
+raw:
+  avis: Sunnmørsposten
+  dato: 1951-04-16
+  side: "2"
+  tittel: Sunnmørsposten 1951-04-16 s. 2
+  kamp: aalesunds-fk - aksla 5-1
+  url: https://www.nb.no/items/eb4e6f74219804db85616d63058298c2?page=2
+normalized:
+  date: 1951-04-15
+  home.clubId: aalesunds-fk
+  away.clubId: aksla
+  home.score: 5
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

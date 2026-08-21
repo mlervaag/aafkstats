@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1925-09-16-s3-viking
+matchId: 1925-09-13-viking-aalesunds-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:94904a6fe96c4e710686b387879ded40d17d18b9b9e7e881141c6d733b6ebfd5
+raw:
+  avis: Sunnmørsposten
+  dato: 1925-09-16
+  side: "3"
+  tittel: Sunnmørsposten 1925-09-16 s. 3
+  kamp: viking - aalesunds-fk 2-1
+  url: https://www.nb.no/items/f1b68d1de44b904a1c0e7ed8d8010a4e?page=3
+normalized:
+  date: 1925-09-13
+  home.clubId: viking
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

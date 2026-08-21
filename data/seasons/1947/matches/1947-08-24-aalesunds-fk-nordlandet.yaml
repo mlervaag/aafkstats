@@ -1,0 +1,44 @@
+id: 1947-08-24-aalesunds-fk-nordlandet
+date: 1947-08-24
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1947
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: nordlandet
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1947-08-25 s. 3
+    date: 1947-08-25
+    url: https://www.nb.no/items/6907ff25365ef85e08332b354883414e?page=3
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/6907ff25365ef85e08332b354883414e?page=3
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Siden inneholder fyldig referat fra seriekampen i 1. divisjon på Nørve
+  søndag 24. august 1947 mellom AaFK og Nordlandet som endte 1-1.

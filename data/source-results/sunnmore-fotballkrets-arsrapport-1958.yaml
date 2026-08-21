@@ -8,7 +8,9 @@ seasons:
         date: 1958-04-15
         opponent: Aksla
         opponentClubId: null
-        score: [ 2, 0 ]
+        score:
+          - 2
+          - 0
         page: 6
         competitionId: null
         round: 1
@@ -22,7 +24,9 @@ seasons:
         date: 1958-04-17
         opponent: Rollon
         opponentClubId: rollon
-        score: [ 2, 0 ]
+        score:
+          - 2
+          - 0
         page: 6
         competitionId: null
         round: 2
@@ -36,7 +40,9 @@ seasons:
         date: 1958-04-19
         opponent: Skarbøvik
         opponentClubId: skarbovik
-        score: [ 3, 1 ]
+        score:
+          - 3
+          - 1
         page: 6
         competitionId: null
         round: 3
@@ -49,7 +55,9 @@ seasons:
       - no: 4
         opponent: Rollon
         opponentClubId: rollon
-        score: [ 2, 1 ]
+        score:
+          - 2
+          - 1
         page: 7
         competitionId: nm
         round: 1
@@ -63,7 +71,9 @@ seasons:
       - no: 5
         opponent: Molde
         opponentClubId: molde-fk
-        score: [ 0, 2 ]
+        score:
+          - 0
+          - 2
         page: 7
         competitionId: nm
         round: 2

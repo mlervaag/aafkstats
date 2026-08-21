@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1938-05-23-s8-hodd
+matchId: 1938-05-22-aalesunds-fk-hodd
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:100dedcc55dca2fad0d28e8811a96933bcd0c0dbea287cb0f95e56b73054122e
+raw:
+  avis: Sunnmørsposten
+  dato: 1938-05-23
+  side: "8"
+  tittel: Sunnmørsposten 1938-05-23 s. 8
+  kamp: aalesunds-fk - hodd 3-2
+  url: https://www.nb.no/items/52082f6331b90e16b9681d2775c6825d?page=8
+normalized:
+  date: 1938-05-22
+  home.clubId: aalesunds-fk
+  away.clubId: hodd
+  home.score: 3
+  away.score: 2
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

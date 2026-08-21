@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1946-07-12-s2-sk-reidulf
+matchId: 1946-07-11-aalesunds-fk-sk-reidulf
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:7e3c49007d5501abc47fa0bea70776a131b9f4f412077f972e6d2e07abc89a92
+raw:
+  avis: Sunnmørsposten
+  dato: 1946-07-12
+  side: "2"
+  tittel: Sunnmørsposten 1946-07-12 s. 2
+  kamp: aalesunds-fk - sk-reidulf 1-1
+  url: https://www.nb.no/items/ee4ec332eb33fc5f8b82d0e5708a7262?page=2
+normalized:
+  date: 1946-07-11
+  home.clubId: aalesunds-fk
+  away.clubId: sk-reidulf
+  home.score: 1
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

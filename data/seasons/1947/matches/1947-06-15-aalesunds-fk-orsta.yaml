@@ -1,0 +1,44 @@
+id: 1947-06-15-aalesunds-fk-orsta
+date: 1947-06-15
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1947
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: orsta
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1947-06-16 s. 2
+    date: 1947-06-16
+    url: https://www.nb.no/items/b9f26b17b28591454cc2728abf168881?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/b9f26b17b28591454cc2728abf168881?page=2
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Siden inneholder fyldig referat fra 1. runde i NM på Nørve søndag 15. juni
+  1947 mellom AaFK og Ørsta (2-0).

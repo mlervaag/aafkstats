@@ -1,5 +1,3 @@
-# Senioroppgjør fra Medlemsblad for Aalesunds Fotballklubb 1955 (Vol. 6 Nr. 1–6).
-# Sesongoversikt og kampfasit gjengitt på side 29, side 64 og side 75.
 sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
 scorePerspective: aafk
 seasons:
@@ -10,7 +8,9 @@ seasons:
         page: 29
         opponent: Langevåg
         opponentClubId: langevag
-        score: [ 0, 1 ]
+        score:
+          - 0
+          - 1
         competitionId: nm
         round: 2
         note: "NM 1955 2. runde: ÅFK–Langevåg 0–1 på Aksla Stadion. Karsten Molværsmyr

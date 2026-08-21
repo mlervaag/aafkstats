@@ -1,5 +1,3 @@
-# Senioroppgjør fra Sunnmøre Fotballkrets' årsrapport 1973.
-# Rapportens side 15 (s. 13) dokumenterer senior-NM.
 sourceId: sunnmore-fotballkrets-arsrapport-1973
 scorePerspective: aafk
 seasons:
@@ -9,16 +7,22 @@ seasons:
       - no: 1
         opponent: Gossen
         opponentClubId: null
-        score: [3, 0]
+        score:
+          - 3
+          - 0
         competitionId: nm
         round: 1
         matchId: null
-        note: Norgesmesterskapet 1973, 1. runde (Gossen - Aafk 0-3). Årsrapporten dokumenterer ikke sikker kampdato.
+        note: Norgesmesterskapet 1973, 1. runde (Gossen - Aafk 0-3). Årsrapporten
+          dokumenterer ikke sikker kampdato.
       - no: 2
         opponent: Langevåg
         opponentClubId: langevag
-        score: [0, 3]
+        score:
+          - 0
+          - 3
         competitionId: nm
         round: 2
         matchId: null
-        note: Norgesmesterskapet 1973, 2. runde (Aafk - Langevåg 0-3 (0-0)). Årsrapporten dokumenterer ikke sikker kampdato.
+        note: Norgesmesterskapet 1973, 2. runde (Aafk - Langevåg 0-3 (0-0)).
+          Årsrapporten dokumenterer ikke sikker kampdato.

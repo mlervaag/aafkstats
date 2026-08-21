@@ -1,0 +1,44 @@
+id: 1951-04-15-aalesunds-fk-aksla
+date: 1951-04-15
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1951
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 5
+  halfTimeScore: null
+away:
+  clubId: aksla
+  score: 1
+  halfTimeScore: null
+neutralVenue: true
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1951-04-16 s. 2
+    date: 1951-04-16
+    url: https://www.nb.no/items/eb4e6f74219804db85616d63058298c2?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/eb4e6f74219804db85616d63058298c2?page=2
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Siden dokumenterer sesongåpningskampen på Nørve søndag 15. april 1951 der
+  AaFK vant 5-1 over Aksla.

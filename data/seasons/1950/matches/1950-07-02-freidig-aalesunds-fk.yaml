@@ -1,0 +1,44 @@
+id: 1950-07-02-freidig-aalesunds-fk
+date: 1950-07-02
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1950
+  stage: regular_season
+home:
+  clubId: freidig
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1950-07-03 s. 5
+    date: 1950-07-03
+    url: https://www.nb.no/items/8f77f6a54287930c55cd7ae462aca146?page=5
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/8f77f6a54287930c55cd7ae462aca146?page=5
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1950-62fa
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Siden dokumenterer 2. runde i NM i Trondheim søndag 2. juli 1950 der
+  Freidig slo AaFK 2-0.

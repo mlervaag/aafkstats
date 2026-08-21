@@ -1,0 +1,44 @@
+id: 1933-07-08-moss-aalesunds-fk
+date: 1933-07-08
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1933
+  stage: regular_season
+home:
+  clubId: moss
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1933-07-11 s. 3
+    date: 1933-07-11
+    url: https://www.nb.no/items/bb2b6b86523e44a6dafdd2f41b495408?page=3
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/bb2b6b86523e44a6dafdd2f41b495408?page=3
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Siden omtaler AaFKs østlandsturné der AaFK påførte Moss sesongens første
+  hjemmetap med seier 3-1 lørdag 8. juli 1933.

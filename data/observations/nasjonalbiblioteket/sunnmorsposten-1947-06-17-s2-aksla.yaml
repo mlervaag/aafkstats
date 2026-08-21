@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1947-06-17-s2-aksla
+matchId: 1947-06-13-aksla-aalesunds-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:ef9ba07f816b1aac5d88ae6c8bf4bfecd76293bc148878d6e13d4f06ef4a4a33
+raw:
+  avis: Sunnmørsposten
+  dato: 1947-06-17
+  side: "2"
+  tittel: Sunnmørsposten 1947-06-17 s. 2
+  kamp: aksla - aalesunds-fk 4-2
+  url: https://www.nb.no/items/df0e19babdb39bed17297c49680c04ed?page=2
+normalized:
+  date: 1947-06-13
+  home.clubId: aksla
+  away.clubId: aalesunds-fk
+  home.score: 4
+  away.score: 2
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

@@ -1,0 +1,43 @@
+id: 1961-04-30-velledalen-ringen-aalesunds-fk
+date: 1961-04-30
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1961
+  stage: regular_season
+home:
+  clubId: velledalen-ringen
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1961-12-07 s. 1
+    date: 1961-12-07
+    url: https://www.nb.no/items/ec190cbc572498198cd7bf891a22cd4b?page=1
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/ec190cbc572498198cd7bf891a22cd4b?page=1
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1961
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Siden omtaler 1. divisjonskampen søndag 30. april 1961 der AaFK slo V.R.F. 2-1.

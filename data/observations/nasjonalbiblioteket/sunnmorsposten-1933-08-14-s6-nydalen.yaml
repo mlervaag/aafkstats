@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1933-08-14-s6-nydalen
+matchId: 1933-08-13-aalesunds-fk-nydalen
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:89d0e2c7219d7de4236d27db959fbc4d82d91431ea4ee304ce5d8715e91543e3
+raw:
+  avis: Sunnmørsposten
+  dato: 1933-08-14
+  side: "6"
+  tittel: Sunnmørsposten 1933-08-14 s. 6
+  kamp: aalesunds-fk - nydalen 4-2
+  url: https://www.nb.no/items/fb7e017f67ae6769862d37bc937c2183?page=6
+normalized:
+  date: 1933-08-13
+  home.clubId: aalesunds-fk
+  away.clubId: nydalen
+  home.score: 4
+  away.score: 2
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

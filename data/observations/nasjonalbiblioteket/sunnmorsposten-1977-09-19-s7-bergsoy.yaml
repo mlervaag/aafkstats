@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1977-09-19-s7-bergsoy
+matchId: 1977-09-17-bergsoy-aalesunds-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:9dbbb683fb2360ddf9ce37cffb3843dfc6adcfde009d7e0d21b9a6c130246e5f
+raw:
+  avis: Sunnmørsposten
+  dato: 1977-09-19
+  side: "7"
+  tittel: Sunnmørsposten 1977-09-19 s. 7
+  kamp: bergsoy - aalesunds-fk 0-1
+  url: https://www.nb.no/items/a8397b62eec951bd7d0af907961aeff0?page=7
+normalized:
+  date: 1977-09-17
+  home.clubId: bergsoy
+  away.clubId: aalesunds-fk
+  home.score: 0
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

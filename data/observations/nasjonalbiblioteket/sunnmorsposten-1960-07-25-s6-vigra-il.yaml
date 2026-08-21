@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1960-07-25-s6-vigra-il
+matchId: 1960-07-24-vigra-il-aalesunds-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:6a2bb6afc5acb977c43291ff946585d808ac94f1ba9df9b89a7b54d1aeadb251
+raw:
+  avis: Sunnmørsposten
+  dato: 1960-07-25
+  side: "6"
+  tittel: Sunnmørsposten 1960-07-25 s. 6
+  kamp: vigra-il - aalesunds-fk 1-13
+  url: https://www.nb.no/items/29c24c0aa3f49f41c0a4a36618f67665?page=6
+normalized:
+  date: 1960-07-24
+  home.clubId: vigra-il
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 13
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

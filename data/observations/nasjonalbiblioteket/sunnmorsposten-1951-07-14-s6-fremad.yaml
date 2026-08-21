@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1951-07-14-s6-fremad
+matchId: 1951-07-13-aalesunds-fk-fremad
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:a209f5c76dee922d20e63a02fe9fac42b10abda66008ba9d6e7da9ad75abbf8e
+raw:
+  avis: Sunnmørsposten
+  dato: 1951-07-14
+  side: "6"
+  tittel: Sunnmørsposten 1951-07-14 s. 6
+  kamp: aalesunds-fk - fremad 2-4
+  url: https://www.nb.no/items/3d3779ef2adaada5fd001bebb43a1dd8?page=6
+normalized:
+  date: 1951-07-13
+  home.clubId: aalesunds-fk
+  away.clubId: fremad
+  home.score: 2
+  away.score: 4
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

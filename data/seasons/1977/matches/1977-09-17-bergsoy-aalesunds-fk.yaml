@@ -1,0 +1,44 @@
+id: 1977-09-17-bergsoy-aalesunds-fk
+date: 1977-09-17
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 1977
+  stage: regular_season
+home:
+  clubId: bergsoy
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1977-09-19 s. 7
+    date: 1977-09-19
+    url: https://www.nb.no/items/a8397b62eec951bd7d0af907961aeff0?page=7
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/a8397b62eec951bd7d0af907961aeff0?page=7
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1977
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Siden omtaler 3. divisjonskampen lørdag 17. september 1977 der AaFK slo
+  serietoer Bergsøy 1-0 i Fosnavåg.

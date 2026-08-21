@@ -1,5 +1,3 @@
-# Senioroppgjør fra Sunnmøre Fotballkrets' årsrapport 1969.
-# Rapportens side 6 dokumenterer senior-NM.
 sourceId: sunnmore-fotballkrets-arsrapport-1969
 scorePerspective: aafk
 seasons:
@@ -9,16 +7,22 @@ seasons:
       - no: 1
         opponent: Skarbøvik
         opponentClubId: skarbovik
-        score: [2, 1]
+        score:
+          - 2
+          - 1
         competitionId: nm
         round: 1
         matchId: null
-        note: Norgesmesterskapet 1969, 1. runde (Skarbövik IF - Aalesund fk. 1–2). Årsrapporten dokumenterer ikke sikker kampdato.
+        note: Norgesmesterskapet 1969, 1. runde (Skarbövik IF - Aalesund fk. 1–2).
+          Årsrapporten dokumenterer ikke sikker kampdato.
       - no: 2
         opponent: Gossen
         opponentClubId: null
-        score: [1, 2]
+        score:
+          - 1
+          - 2
         competitionId: nm
         round: 2
         matchId: null
-        note: Norgesmesterskapet 1969, 2. runde (Aalesund fk. - Gossen 1–2). Årsrapporten dokumenterer ikke sikker kampdato.
+        note: Norgesmesterskapet 1969, 2. runde (Aalesund fk. - Gossen 1–2).
+          Årsrapporten dokumenterer ikke sikker kampdato.

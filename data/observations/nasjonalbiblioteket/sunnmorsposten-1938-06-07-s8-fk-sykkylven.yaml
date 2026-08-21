@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1938-06-07-s8-fk-sykkylven
+matchId: 1938-06-06-fk-sykkylven-aalesunds-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:5fb71b631230ae7b32e285d71fafe81b36dfce729383ce22ba7302373f3dc03f
+raw:
+  avis: Sunnmørsposten
+  dato: 1938-06-07
+  side: "8"
+  tittel: Sunnmørsposten 1938-06-07 s. 8
+  kamp: fk-sykkylven - aalesunds-fk 2-8
+  url: https://www.nb.no/items/cd276a4fae82a5ce817e292bbc8bcab1?page=8
+normalized:
+  date: 1938-06-06
+  home.clubId: fk-sykkylven
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 8
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

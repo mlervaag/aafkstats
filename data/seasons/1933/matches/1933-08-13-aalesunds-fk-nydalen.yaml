@@ -1,0 +1,44 @@
+id: 1933-08-13-aalesunds-fk-nydalen
+date: 1933-08-13
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1933
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: nydalen
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1933-08-14 s. 6
+    date: 1933-08-14
+    url: https://www.nb.no/items/fb7e017f67ae6769862d37bc937c2183?page=6
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/fb7e017f67ae6769862d37bc937c2183?page=6
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Siden omtaler privatkampen søndag 13. august 1933 på Nørve der AaFK slo
+  Nydalen 4-2 i en spennende kamp.

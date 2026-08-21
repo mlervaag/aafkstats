@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1946-08-12-s2-il-falken-hoyanger
+matchId: 1946-08-11-aalesunds-fk-il-falken-hoyanger
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:db1ff8ba3198f3f4258f2c162e7cb210515e4cd77c8b588963130a84272d4257
+raw:
+  avis: Sunnmørsposten
+  dato: 1946-08-12
+  side: "2"
+  tittel: Sunnmørsposten 1946-08-12 s. 2
+  kamp: aalesunds-fk - il-falken-hoyanger 2-1
+  url: https://www.nb.no/items/dfb43e3d1a08e151a41e9d144093a731?page=2
+normalized:
+  date: 1946-08-11
+  home.clubId: aalesunds-fk
+  away.clubId: il-falken-hoyanger
+  home.score: 2
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

@@ -1,0 +1,5071 @@
+contract: nb-canonical-review-audit@2
+generatedAt: 2026-08-21
+counts:
+  totalAudited: 109
+  canonical_ready: 21
+  score_conflict: 36
+  wrong_event: 48
+  non_senior: 2
+  date_uncertain: 2
+  competition_uncertain: 0
+  insufficient: 0
+cases:
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1947-003
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1947
+      no: 3
+      opponent: Freidig, Tr.heim
+      opponentClubId: freidig
+      expectedScore:
+        aafk: 0
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1947-05-27
+      page: "1"
+      pageUrl: https://www.nb.no/items/09ea0074947dcf87a3989d629c6a3d1b?page=1
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
+      candidateOpponent:
+        name: Freidig, Tr.heim
+        clubId: freidig
+      observedOpponent:
+        name: Freidig, Tr.heim
+        clubId: freidig
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 0
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1947-05-26
+        confidence: high
+      homeAway: home
+      competition:
+        value: privatkamp
+        competitionId: treningskamp
+        confidence: high
+      evidenceType: report
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 27.05.1947 s. 1: Omtale av pinsekampen mandag 26. mai
+        1947 på Nørve der Freidig slo AaFK 1-0."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1947-011
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1947
+      no: 11
+      opponent: Nordlandet
+      opponentClubId: nordlandet
+      expectedScore:
+        aafk: 1
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1947-08-25
+      page: "3"
+      pageUrl: https://www.nb.no/items/6907ff25365ef85e08332b354883414e?page=3
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
+      candidateOpponent:
+        name: Nordlandet
+        clubId: nordlandet
+      observedOpponent:
+        name: Nordlandet
+        clubId: nordlandet
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 1
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1947-08-24
+        confidence: high
+      homeAway: home
+      competition:
+        value: 1. divisjon
+        competitionId: forstedivisjon
+        confidence: high
+      evidenceType: report
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 25.08.1947 s. 3: Fyldig referat fra 1. divisjonskampen
+        på Nørve søndag 24. august 1947 der AaFK og Nordlandet spilte 1-1."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1947-017
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1947
+      no: 17
+      opponent: Aksla
+      opponentClubId: aksla
+      expectedScore:
+        aafk: 2
+        opponent: 4
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1947-06-17
+      page: "2"
+      pageUrl: https://www.nb.no/items/df0e19babdb39bed17297c49680c04ed?page=2
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
+      candidateOpponent:
+        name: Aksla
+        clubId: aksla
+      observedOpponent:
+        name: Aksla
+        clubId: aksla
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 2
+        opponent: 4
+        confidence: high
+      matchDate:
+        value: 1947-06-13
+        confidence: high
+      homeAway: away
+      competition:
+        value: pokalkamp
+        competitionId: treningskamp
+        confidence: high
+      evidenceType: report
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 17.06.1947 s. 2: Referat fra pokalkampen fredag 13. juni
+        1947 der Aksla slo AaFK 4-2."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1947-019
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1947
+      no: 19
+      opponent: Ørsta
+      opponentClubId: orsta
+      expectedScore:
+        aafk: 2
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1947-06-16
+      page: "2"
+      pageUrl: https://www.nb.no/items/b9f26b17b28591454cc2728abf168881?page=2
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
+      candidateOpponent:
+        name: Ørsta
+        clubId: orsta
+      observedOpponent:
+        name: Ørsta
+        clubId: orsta
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 2
+        opponent: 0
+        confidence: high
+      matchDate:
+        value: 1947-06-15
+        confidence: high
+      homeAway: home
+      competition:
+        value: NM
+        competitionId: nm
+        confidence: high
+      evidenceType: report
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 16.06.1947 s. 2: Fyldig referat fra NM 1. runde på Nørve
+        søndag 15. juni 1947 der AaFK slo Ørsta 2-0."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1948-001
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1948
+      no: 1
+      opponent: Skarbøvik
+      opponentClubId: skarbovik
+      expectedScore:
+        aafk: 1
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1948-04-20
+      page: "2"
+      pageUrl: https://www.nb.no/items/b107ba78b88ee1481d0fdd46f1eb03ba?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: date_uncertain
+      candidateOpponent:
+        name: Skarbøvik
+        clubId: skarbovik
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 1
+        opponent: 0
+        confidence: low
+      matchDate:
+        value: 1948-04-18
+        confidence: medium
+      homeAway: unknown
+      competition:
+        value: privatkamp
+        competitionId: null
+        confidence: low
+      evidenceType: report
+      disposition: date_uncertain
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: Usikker kampdato (medium)
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1950-3b73-1950-002
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+      year: 1950
+      no: 2
+      opponent: Molde
+      opponentClubId: molde-fk
+      expectedScore:
+        aafk: 0
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1950-08-22
+      page: "2"
+      pageUrl: https://www.nb.no/items/7f5b81befb0031d39e9fe0bcf3e66079?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: date_uncertain
+      candidateOpponent:
+        name: Molde
+        clubId: molde-fk
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 0
+        opponent: 1
+        confidence: low
+      matchDate:
+        value: 1950-08-20
+        confidence: medium
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: report
+      disposition: date_uncertain
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: Usikker kampdato (medium)
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1950-62fa-1950-003
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-62fa
+      year: 1950
+      no: 3
+      opponent: KFK
+      opponentClubId: kfk
+      expectedScore:
+        aafk: 3
+        opponent: 3
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1950-05-22
+      page: "2"
+      pageUrl: https://www.nb.no/items/caa95de6d6e6879a0234447bf561373d?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: suspected_wrong_event
+      candidateOpponent:
+        name: KFK
+        clubId: kfk
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 3
+        opponent: 3
+        confidence: low
+      matchDate:
+        value: 1950-05-21
+        confidence: high
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: report
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: 'Opponent mismatch: Kildepåstand gjaldt "KFK".'
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1950-62fa-1950-007
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-62fa
+      year: 1950
+      no: 7
+      opponent: Freidig
+      opponentClubId: freidig
+      expectedScore:
+        aafk: 0
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1950-07-03
+      page: "5"
+      pageUrl: https://www.nb.no/items/8f77f6a54287930c55cd7ae462aca146?page=5
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
+      candidateOpponent:
+        name: Freidig
+        clubId: freidig
+      observedOpponent:
+        name: Freidig
+        clubId: freidig
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 0
+        opponent: 2
+        confidence: high
+      matchDate:
+        value: 1950-07-02
+        confidence: high
+      homeAway: away
+      competition:
+        value: NM
+        competitionId: nm
+        confidence: high
+      evidenceType: report
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 03.07.1950 s. 5: Referat fra NM 2. runde i Trondheim
+        søndag 2. juli 1950 der Freidig slo AaFK 2-0."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1951-001
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1951
+      no: 1
+      opponent: Aksla
+      opponentClubId: aksla
+      expectedScore:
+        aafk: 5
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1951-04-16
+      page: "2"
+      pageUrl: https://www.nb.no/items/eb4e6f74219804db85616d63058298c2?page=2
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
+      candidateOpponent:
+        name: Aksla
+        clubId: aksla
+      observedOpponent:
+        name: Aksla
+        clubId: aksla
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 5
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1951-04-15
+        confidence: high
+      homeAway: neutral
+      competition:
+        value: privatkamp
+        competitionId: treningskamp
+        confidence: high
+      evidenceType: report
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 16.04.1951 s. 2: Omtale av sesongåpningskampen på Nørve
+        søndag 15. april 1951 der AaFK slo Aksla 5-1."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1952-023
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1952
+      no: 23
+      opponent: Ørsta
+      opponentClubId: orsta
+      expectedScore:
+        aafk: 6
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1952-08-26
+      page: "2"
+      pageUrl: https://www.nb.no/items/6c281abca8fa389d141a54dcb875b19a?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: suspected_wrong_event
+      candidateOpponent:
+        name: Ørsta
+        clubId: orsta
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 6
+        opponent: 2
+        confidence: low
+      matchDate:
+        value: 1952-05-11
+        confidence: high
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: report
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: 'Opponent mismatch: Kildepåstand gjaldt "Ørsta".'
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1954-1954-002
+    sourceResult:
+      sourceId: sunnmore-fotballkrets-arsrapport-1954
+      year: 1954
+      no: 2
+      opponent: Hødd
+      opponentClubId: hodd
+      expectedScore:
+        aafk: 3
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1954-07-01
+      page: "3"
+      pageUrl: https://www.nb.no/items/38a7ceca8b0010d97f1836ccfb1570d3?page=3
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: suspected_wrong_event
+      candidateOpponent:
+        name: Hødd
+        clubId: hodd
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 3
+        opponent: 1
+        confidence: low
+      matchDate:
+        value: 1954-07-01
+        confidence: high
+      homeAway: unknown
+      competition:
+        value: NM
+        competitionId: null
+        confidence: low
+      evidenceType: report
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: 'Opponent mismatch: Kildepåstand gjaldt "Hødd".'
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1954-007
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1954
+      no: 7
+      opponent: Rollon
+      opponentClubId: rollon
+      expectedScore:
+        aafk: 1
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1954-08-12
+      page: "3"
+      pageUrl: https://www.nb.no/items/11d037fcf75ca68c60c6b6334c5ae6bf?page=3
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Rollon
+        clubId: rollon
+      observedOpponent:
+        name: Rollon
+        clubId: rollon
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 5
+        opponent: 3
+        confidence: high
+      matchDate:
+        value: 1954-08-11
+        confidence: high
+      homeAway: home
+      competition:
+        value: 1. divisjon
+        competitionId: forstedivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 1-0, mens avisen dokumenterer 5-3."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-015
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1955
+      no: 15
+      opponent: Clausenengen
+      opponentClubId: clausenengen
+      expectedScore:
+        aafk: 2
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1955-09-19
+      page: "2"
+      pageUrl: https://www.nb.no/items/0afbec77a99ee59b4c9be1c4104cc87a?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: suspected_wrong_event
+      candidateOpponent:
+        name: Clausenengen
+        clubId: clausenengen
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 2
+        opponent: 1
+        confidence: low
+      matchDate:
+        value: 1955-09-18
+        confidence: high
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: report
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: 'Opponent mismatch: Kildepåstand gjaldt "Clausenengen".'
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1956-010
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1956
+      no: 10
+      opponent: Braatt
+      opponentClubId: braatt
+      expectedScore:
+        aafk: 2
+        opponent: 3
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1956-08-20
+      page: "2"
+      pageUrl: https://www.nb.no/items/6c8a954e78462194c98565773b88293e?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Braatt
+        clubId: braatt
+      observedOpponent:
+        name: Braatt
+        clubId: braatt
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 2
+        opponent: 2
+        confidence: high
+      matchDate:
+        value: 1956-08-19
+        confidence: high
+      homeAway: home
+      competition:
+        value: 1. divisjon
+        competitionId: forstedivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 2-3, mens avisen dokumenterer 2-2."
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1957-1957-004
+    sourceResult:
+      sourceId: sunnmore-fotballkrets-arsrapport-1957
+      year: 1957
+      no: 4
+      opponent: Eid
+      opponentClubId: eid-il
+      expectedScore:
+        aafk: 1
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1957-06-11
+      page: "2"
+      pageUrl: https://www.nb.no/items/5962b690e16ce80499f948cd46086304?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: suspected_wrong_event
+      candidateOpponent:
+        name: Eid
+        clubId: eid-il
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 1
+        opponent: 2
+        confidence: low
+      matchDate:
+        value: 1957-06-09
+        confidence: high
+      homeAway: unknown
+      competition:
+        value: NM
+        competitionId: null
+        confidence: low
+      evidenceType: report
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: 'Opponent mismatch: Kildepåstand gjaldt "Eid".'
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1958-1958-002
+    sourceResult:
+      sourceId: sunnmore-fotballkrets-arsrapport-1958
+      year: 1958
+      no: 2
+      opponent: Rollon
+      opponentClubId: rollon
+      expectedScore:
+        aafk: 2
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1958-05-24
+      page: "5"
+      pageUrl: https://www.nb.no/items/e662eb0f735a9912bc460b442b67c9e5?page=5
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Rollon
+        clubId: rollon
+      observedOpponent:
+        name: Rollon
+        clubId: rollon
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 2
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1958-05-23
+        confidence: high
+      homeAway: home
+      competition:
+        value: NM
+        competitionId: nm
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 2-0, mens avisen dokumenterer 2-1."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1958-022
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1958
+      no: 22
+      opponent: Dahle
+      opponentClubId: dahle
+      expectedScore:
+        aafk: 2
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1958-09-01
+      page: "2"
+      pageUrl: https://www.nb.no/items/b50220b842ddec6053169226712b3af1?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Dahle
+        clubId: dahle
+      observedOpponent:
+        name: Dahle
+        clubId: dahle
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 2
+        opponent: 2
+        confidence: high
+      matchDate:
+        value: 1958-08-31
+        confidence: high
+      homeAway: home
+      competition:
+        value: 1. divisjon
+        competitionId: forstedivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 2-1, mens avisen dokumenterer 2-2."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1959-015
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1959
+      no: 15
+      opponent: Dahle
+      opponentClubId: dahle
+      expectedScore:
+        aafk: 1
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1959-05-08
+      page: "2"
+      pageUrl: https://www.nb.no/items/caf3b3ba501af2928095bced072aff97?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: suspected_wrong_event
+      candidateOpponent:
+        name: Dahle
+        clubId: dahle
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 1
+        opponent: 0
+        confidence: low
+      matchDate:
+        value: 1959-05-07
+        confidence: high
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: report
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: 'Opponent mismatch: Kildepåstand gjaldt "Dahle".'
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1960-007
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1960
+      no: 7
+      opponent: Vigra
+      opponentClubId: vigra-il
+      expectedScore:
+        aafk: 13
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1960-07-25
+      page: "6"
+      pageUrl: https://www.nb.no/items/29c24c0aa3f49f41c0a4a36618f67665?page=6
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
+      candidateOpponent:
+        name: Vigra
+        clubId: vigra-il
+      observedOpponent:
+        name: Vigra
+        clubId: vigra-il
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 13
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1960-07-24
+        confidence: high
+      homeAway: away
+      competition:
+        value: privatkamp
+        competitionId: treningskamp
+        confidence: high
+      evidenceType: report
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 25.07.1960 s. 6: Bilde og fyldig referat fra
+        åpningskampen på Vigra-bana søndag 24. juli 1960 der AaFK slo Vigra
+        13-1."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1963-009
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1963
+      no: 9
+      opponent: Spartak
+      opponentClubId: spartak
+      expectedScore:
+        aafk: 1
+        opponent: 6
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1963-07-01
+      page: "2"
+      pageUrl: https://www.nb.no/items/10e9775744a50cdc21aa7e90591dc7b3?page=2
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
+      candidateOpponent:
+        name: Spartak
+        clubId: spartak
+      observedOpponent:
+        name: Spartak
+        clubId: spartak
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 1
+        opponent: 6
+        confidence: high
+      matchDate:
+        value: 1963-06-30
+        confidence: high
+      homeAway: home
+      competition:
+        value: privatkamp
+        competitionId: treningskamp
+        confidence: high
+      evidenceType: report
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 01.07.1963 s. 2: Fyldig referat fra oppvisningskampen på
+        Aksla søndag 30. juni 1963 der Spartak vant 6-1 over AaFK."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-014
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1964
+      no: 14
+      opponent: Eid
+      opponentClubId: eid-il
+      expectedScore:
+        aafk: 2
+        opponent: 3
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1964-10-12
+      page: "6"
+      pageUrl: https://www.nb.no/items/231d220863f2f9f64b9696b27590d4ff?page=6
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: suspected_wrong_event
+      candidateOpponent:
+        name: Eid
+        clubId: eid-il
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 2
+        opponent: 3
+        confidence: low
+      matchDate:
+        value: 1964-10-11
+        confidence: high
+      homeAway: unknown
+      competition:
+        value: privatkamp
+        competitionId: null
+        confidence: low
+      evidenceType: report
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: 'Opponent mismatch: Kildepåstand gjaldt "Eid".'
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1925-019
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1925
+      no: 19
+      opponent: Viking, Stavanger
+      opponentClubId: viking
+      expectedScore:
+        aafk: 1
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1925-09-16
+      page: "3"
+      pageUrl: https://www.nb.no/items/f1b68d1de44b904a1c0e7ed8d8010a4e?page=3
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
+      candidateOpponent:
+        name: Viking, Stavanger
+        clubId: viking
+      observedOpponent:
+        name: Viking, Stavanger
+        clubId: viking
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 1
+        opponent: 2
+        confidence: high
+      matchDate:
+        value: 1925-09-13
+        confidence: high
+      homeAway: away
+      competition:
+        value: NM
+        competitionId: nm
+        confidence: high
+      evidenceType: report
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 16.09.1925 s. 3: Utførlig kampreferat fra NM 4. runde på
+        Stavanger Stadion der Viking slo AaFK 2-1 e.e.o."
+  - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1927-013
+    sourceResult:
+      sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+      year: 1927
+      no: 13
+      opponent: Falk, Horten
+      opponentClubId: falk
+      expectedScore:
+        aafk: 1
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1927-07-11
+      page: "5"
+      pageUrl: https://www.nb.no/items/2cfd1e66877ed7f1ca2ff7b7881ec345?page=5
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Falk, Horten
+        clubId: falk
+      observedOpponent:
+        name: Falk, Horten
+        clubId: falk
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 2
+        opponent: 1
+        confidence: low
+      matchDate:
+        value: 1927-08-07
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: NM
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1927-07-11) er tidligere enn
+        påstått kampdato (1927-08-07)."
+  - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1928-014
+    sourceResult:
+      sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+      year: 1928
+      no: 14
+      opponent: Odd, Skien
+      opponentClubId: odds-ballklubb
+      expectedScore:
+        aafk: 0
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1928-06-02
+      page: "3"
+      pageUrl: https://www.nb.no/items/5e2b595fa0e464ec99a4bf164f940077?page=3
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Odd, Skien
+        clubId: odds-ballklubb
+      observedOpponent:
+        name: Odd, Skien
+        clubId: odds-ballklubb
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 2
+        opponent: 1
+        confidence: low
+      matchDate:
+        value: 1928-08-12
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: NM
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1928-06-02) er tidligere enn
+        påstått kampdato (1928-08-12)."
+  - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1929-020
+    sourceResult:
+      sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+      year: 1929
+      no: 20
+      opponent: Djerv
+      opponentClubId: sk-djerv
+      expectedScore:
+        aafk: 8
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1929-08-14
+      page: "3"
+      pageUrl: https://www.nb.no/items/f4dd097e6d1a057f73c354be5ec43784?page=3
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Djerv
+        clubId: sk-djerv
+      observedOpponent:
+        name: Djerv
+        clubId: sk-djerv
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 2
+        opponent: 3
+        confidence: low
+      matchDate:
+        value: 1929-09-01
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: NM
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1929-08-14) er tidligere enn
+        påstått kampdato (1929-09-01)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1929-020
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1929
+      no: 20
+      opponent: Djerv, Bergen
+      opponentClubId: sk-djerv
+      expectedScore:
+        aafk: 8
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1929-08-14
+      page: "3"
+      pageUrl: https://www.nb.no/items/f4dd097e6d1a057f73c354be5ec43784?page=3
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Djerv, Bergen
+        clubId: sk-djerv
+      observedOpponent:
+        name: Djerv, Bergen
+        clubId: sk-djerv
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 2
+        opponent: 3
+        confidence: low
+      matchDate:
+        value: 1929-09-01
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: NM
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1929-08-14) er tidligere enn
+        påstått kampdato (1929-09-01)."
+  - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1929-022
+    sourceResult:
+      sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+      year: 1929
+      no: 22
+      opponent: Kvik
+      opponentClubId: kvik-trondheim
+      expectedScore:
+        aafk: 2
+        opponent: 3
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1929-06-04
+      page: "5"
+      pageUrl: https://www.nb.no/items/a2a39c6199370d412063f0acbbe4e86a?page=5
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Kvik
+        clubId: kvik-trondheim
+      observedOpponent:
+        name: Kvik
+        clubId: kvik-trondheim
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 3
+        opponent: 1
+        confidence: low
+      matchDate:
+        value: 1929-09-22
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: privatkamp
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1929-06-04) er tidligere enn
+        påstått kampdato (1929-09-22)."
+  - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1930-011
+    sourceResult:
+      sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+      year: 1930
+      no: 11
+      opponent: Brått
+      opponentClubId: braatt
+      expectedScore:
+        aafk: 4
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1930-08-14
+      page: "3"
+      pageUrl: https://www.nb.no/items/a015928222e6265b477435a2e92adefb?page=3
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Brått
+        clubId: braatt
+      observedOpponent:
+        name: Brått
+        clubId: braatt
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 1
+        opponent: 0
+        confidence: high
+      matchDate:
+        value: 1930-07-27
+        confidence: high
+      homeAway: away
+      competition:
+        value: privatkamp
+        competitionId: treningskamp
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 4-2, mens avisen dokumenterer 1-0."
+  - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1933-014
+    sourceResult:
+      sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+      year: 1933
+      no: 14
+      opponent: Moss
+      opponentClubId: moss
+      expectedScore:
+        aafk: 3
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1933-07-11
+      page: "3"
+      pageUrl: https://www.nb.no/items/bb2b6b86523e44a6dafdd2f41b495408?page=3
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
+      candidateOpponent:
+        name: Moss
+        clubId: moss
+      observedOpponent:
+        name: Moss
+        clubId: moss
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 3
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1933-07-08
+        confidence: high
+      homeAway: away
+      competition:
+        value: privatkamp
+        competitionId: treningskamp
+        confidence: high
+      evidenceType: report
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 11.07.1933 s. 3: Referat fra AaFKs østlandsturné der
+        AaFK slo Moss 3-1 lørdag 8. juli 1933."
+  - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1933-018
+    sourceResult:
+      sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+      year: 1933
+      no: 18
+      opponent: Nydalen
+      opponentClubId: nydalen
+      expectedScore:
+        aafk: 4
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1933-08-14
+      page: "6"
+      pageUrl: https://www.nb.no/items/fb7e017f67ae6769862d37bc937c2183?page=6
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
+      candidateOpponent:
+        name: Nydalen
+        clubId: nydalen
+      observedOpponent:
+        name: Nydalen
+        clubId: nydalen
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 4
+        opponent: 2
+        confidence: high
+      matchDate:
+        value: 1933-08-13
+        confidence: high
+      homeAway: home
+      competition:
+        value: privatkamp
+        competitionId: treningskamp
+        confidence: high
+      evidenceType: report
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 14.08.1933 s. 6: Referat fra privatkampen på Nørve
+        søndag 13. august 1933 der AaFK slo Nydalen 4-2."
+  - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1938-015
+    sourceResult:
+      sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+      year: 1938
+      no: 15
+      opponent: Træff
+      opponentClubId: traeff
+      expectedScore:
+        aafk: 3
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1938-05-10
+      page: "6"
+      pageUrl: https://www.nb.no/items/0d5345d13292824979bb65b1b2259640?page=6
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: suspected_wrong_event
+      candidateOpponent:
+        name: Træff
+        clubId: traeff
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 3
+        opponent: 1
+        confidence: low
+      matchDate:
+        value: 1938-05-08
+        confidence: high
+      homeAway: unknown
+      competition:
+        value: privatkamp
+        competitionId: null
+        confidence: low
+      evidenceType: report
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: 'Opponent mismatch: Kildepåstand gjaldt "Træff".'
+  - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1938-017
+    sourceResult:
+      sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+      year: 1938
+      no: 17
+      opponent: Sykkylven
+      opponentClubId: fk-sykkylven
+      expectedScore:
+        aafk: 8
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1938-06-07
+      page: "8"
+      pageUrl: https://www.nb.no/items/cd276a4fae82a5ce817e292bbc8bcab1?page=8
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
+      candidateOpponent:
+        name: Sykkylven
+        clubId: fk-sykkylven
+      observedOpponent:
+        name: Sykkylven
+        clubId: fk-sykkylven
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 8
+        opponent: 2
+        confidence: high
+      matchDate:
+        value: 1938-06-06
+        confidence: high
+      homeAway: away
+      competition:
+        value: privatkamp
+        competitionId: treningskamp
+        confidence: high
+      evidenceType: report
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 07.06.1938 s. 8: Omtale av 2. pinsedag-kampen i
+        Sykkylven der AaFK slo Sykkylven IL 8-2."
+  - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1938-018
+    sourceResult:
+      sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+      year: 1938
+      no: 18
+      opponent: Hødd
+      opponentClubId: hodd
+      expectedScore:
+        aafk: 3
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1938-05-23
+      page: "8"
+      pageUrl: https://www.nb.no/items/52082f6331b90e16b9681d2775c6825d?page=8
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
+      candidateOpponent:
+        name: Hødd
+        clubId: hodd
+      observedOpponent:
+        name: Hødd
+        clubId: hodd
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 3
+        opponent: 2
+        confidence: high
+      matchDate:
+        value: 1938-05-22
+        confidence: high
+      homeAway: home
+      competition:
+        value: privatkamp
+        competitionId: treningskamp
+        confidence: high
+      evidenceType: report
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 23.05.1938 s. 8: Omtale av privatkampen på Nørve søndag
+        22. mai 1938 der AaFK slo Hødd 3-2."
+  - candidateId: nb-cand-aalesunds-fotballklub-gjennem-1939-ec28-1939-022
+    sourceResult:
+      sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+      year: 1939
+      no: 22
+      opponent: Roald
+      opponentClubId: il-roald
+      expectedScore:
+        aafk: 3
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1939-10-09
+      page: "8"
+      pageUrl: https://www.nb.no/items/be9550733f4899fa43bc569d9edc6e36?page=8
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: prior_ground_truth
+      provisional: false
+      candidateOpponent:
+        name: Roald
+        clubId: il-roald
+      observedOpponent:
+        name: Roald
+        clubId: il-roald
+        confidence: low
+      sameEvent: false
+      seniorAteam: false
+      score:
+        aafk: 3
+        opponent: 2
+        confidence: low
+      matchDate:
+        value: 1939-10-08
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: privatkamp
+        competitionId: null
+        confidence: low
+      evidenceType: report
+      disposition: non_senior
+      priorGroundTruthCheck:
+        hasConflict: true
+        status: non_senior
+        note: Sunnmørsposten 09.10.1939 s. 8 viser Nørvekammeratene (Kløna) mot Roald
+          (8-2), ikke AaFKs A-lag.
+      reason: Sunnmørsposten 09.10.1939 s. 8 viser Nørvekammeratene (Kløna) mot Roald
+        (8-2), ikke AaFKs A-lag.
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1940-004
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1940
+      no: 4
+      opponent: Spjelkavik
+      opponentClubId: spjelkavik
+      expectedScore:
+        aafk: 5
+        opponent: 3
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1940-10-07
+      page: "3"
+      pageUrl: https://www.nb.no/items/258238d06e015ab915ef294411af0996?page=3
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: prior_ground_truth
+      provisional: false
+      candidateOpponent:
+        name: Spjelkavik
+        clubId: spjelkavik
+      observedOpponent:
+        name: Spjelkavik
+        clubId: spjelkavik
+        confidence: low
+      sameEvent: false
+      seniorAteam: false
+      score:
+        aafk: 5
+        opponent: 3
+        confidence: low
+      matchDate:
+        value: 1940-10-06
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: privatkamp
+        competitionId: null
+        confidence: low
+      evidenceType: report
+      disposition: non_senior
+      priorGroundTruthCheck:
+        hasConflict: true
+        status: non_senior
+        note: Sunnmørsposten 07.10.1940 s. 3 viser sammensatt A/B-lag som slo Spjelkavik
+          8-0. Kildepåstand oppga 5-3.
+      reason: Sunnmørsposten 07.10.1940 s. 3 viser sammensatt A/B-lag som slo
+        Spjelkavik 8-0. Kildepåstand oppga 5-3.
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1945-007
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1945
+      no: 7
+      opponent: Spjelkavik
+      opponentClubId: spjelkavik
+      expectedScore:
+        aafk: 6
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1945-09-04
+      page: "3"
+      pageUrl: https://www.nb.no/items/d801c6df5a8e111d27dc4ff9fff2437b?page=3
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Spjelkavik
+        clubId: spjelkavik
+      observedOpponent:
+        name: Spjelkavik
+        clubId: spjelkavik
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 4
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1945-08-05
+        confidence: high
+      homeAway: home
+      competition:
+        value: privatkamp
+        competitionId: treningskamp
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 6-1, mens avisen dokumenterer 4-1."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1945-018
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1945
+      no: 18
+      opponent: Træff, Molde
+      opponentClubId: traeff
+      expectedScore:
+        aafk: 3
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1945-08-18
+      page: "3"
+      pageUrl: https://www.nb.no/items/be8290a747daa6ddde3895b452f8c844?page=3
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Træff, Molde
+        clubId: traeff
+      observedOpponent:
+        name: Træff, Molde
+        clubId: traeff
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 2
+        opponent: 3
+        confidence: low
+      matchDate:
+        value: 1945-09-30
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: privatkamp
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1945-08-18) er tidligere enn
+        påstått kampdato (1945-09-30)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1946-007
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1946
+      no: 7
+      opponent: Reidulf, Oslo
+      opponentClubId: sk-reidulf
+      expectedScore:
+        aafk: 1
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1946-07-12
+      page: "2"
+      pageUrl: https://www.nb.no/items/ee4ec332eb33fc5f8b82d0e5708a7262?page=2
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
+      candidateOpponent:
+        name: Reidulf, Oslo
+        clubId: sk-reidulf
+      observedOpponent:
+        name: Reidulf
+        clubId: sk-reidulf
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 1
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1946-07-11
+        confidence: high
+      homeAway: home
+      competition:
+        value: privatkamp
+        competitionId: treningskamp
+        confidence: high
+      evidenceType: report
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 12.07.1946 s. 2: Kampreferat fra Nørve torsdag 11. juli
+        1946 der AaFK og Reidulf (Oslo) spilte 1-1."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1946-024
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1946
+      no: 24
+      opponent: Clausenengen
+      opponentClubId: clausenengen
+      expectedScore:
+        aafk: 3
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1946-06-24
+      page: "2"
+      pageUrl: https://www.nb.no/items/8308a93a2da1e40182258f1f90969044?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: suspected_wrong_event
+      candidateOpponent:
+        name: Clausenengen
+        clubId: clausenengen
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 3
+        opponent: 0
+        confidence: low
+      matchDate:
+        value: 1946-06-23
+        confidence: high
+      homeAway: unknown
+      competition:
+        value: privatkamp
+        competitionId: null
+        confidence: low
+      evidenceType: report
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: 'Opponent mismatch: Kildepåstand gjaldt "Clausenengen".'
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1946-025
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1946
+      no: 25
+      opponent: Falken, Høyanger
+      opponentClubId: il-falken-hoyanger
+      expectedScore:
+        aafk: 2
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1946-08-12
+      page: "2"
+      pageUrl: https://www.nb.no/items/dfb43e3d1a08e151a41e9d144093a731?page=2
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
+      candidateOpponent:
+        name: Falken, Høyanger
+        clubId: il-falken-hoyanger
+      observedOpponent:
+        name: Falken, Høyanger
+        clubId: il-falken-hoyanger
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 2
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1946-08-11
+        confidence: high
+      homeAway: home
+      competition:
+        value: NM
+        competitionId: nm
+        confidence: high
+      evidenceType: report
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 12.08.1946 s. 2: Fyldig referat fra NM 2. runde på Nørve
+        søndag 11. august 1946 der AaFK slo Falken 2-1."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1946-026
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1946
+      no: 26
+      opponent: Freidig, Trondheim
+      opponentClubId: freidig
+      expectedScore:
+        aafk: 2
+        opponent: 3
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1946-08-26
+      page: "2"
+      pageUrl: https://www.nb.no/items/2ffab381c3eeeb980689adba79b8dde4?page=2
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
+      candidateOpponent:
+        name: Freidig, Trondheim
+        clubId: freidig
+      observedOpponent:
+        name: Freidig, Trondheim
+        clubId: freidig
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 2
+        opponent: 3
+        confidence: high
+      matchDate:
+        value: 1946-08-25
+        confidence: high
+      homeAway: home
+      competition:
+        value: NM
+        competitionId: nm
+        confidence: high
+      evidenceType: report
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 26.08.1946 s. 2: Referat fra NM 3. runde på Nørve søndag
+        25. august 1946 der Freidig slo AaFK 3-2."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1948-005
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1948
+      no: 5
+      opponent: Treff, Molde
+      opponentClubId: traeff
+      expectedScore:
+        aafk: 1
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1948-06-28
+      page: "2"
+      pageUrl: https://www.nb.no/items/963f2218be2c92dbe17338af39dcc1f8?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: suspected_wrong_event
+      candidateOpponent:
+        name: Treff, Molde
+        clubId: traeff
+      observedOpponent:
+        name: ""
+        clubId: ""
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 1
+        opponent: 1
+        confidence: low
+      matchDate:
+        value: 1948-05-30
+        confidence: high
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: report
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: 'Opponent mismatch: Kildepåstand gjaldt "Treff, Molde".'
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1948-006
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1948
+      no: 6
+      opponent: Glimt, Bodø
+      opponentClubId: bodo-glimt
+      expectedScore:
+        aafk: 3
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1948-07-05
+      page: "4"
+      pageUrl: https://www.nb.no/items/426361cb3f79aeeb8a6636e8cd93ea1e?page=4
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Glimt, Bodø
+        clubId: bodo-glimt
+      observedOpponent:
+        name: Glimt, Bodø
+        clubId: bodo-glimt
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 3
+        opponent: 2
+        confidence: high
+      matchDate:
+        value: 1948-06-06
+        confidence: high
+      homeAway: home
+      competition:
+        value: 1. divisjon
+        competitionId: forstedivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 3-0, mens avisen dokumenterer 3-2."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1948-008
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1948
+      no: 8
+      opponent: Lyn, Oslo
+      opponentClubId: lyn
+      expectedScore:
+        aafk: 4
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1948-05-24
+      page: "2"
+      pageUrl: https://www.nb.no/items/18f6aff284a3e24eac2da32f40cef895?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Lyn, Oslo
+        clubId: lyn
+      observedOpponent:
+        name: Lyn, Oslo
+        clubId: lyn
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 1
+        opponent: 2
+        confidence: low
+      matchDate:
+        value: 1948-06-20
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: NM
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1948-05-24) er tidligere enn
+        påstått kampdato (1948-06-20)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1948-013
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1948
+      no: 13
+      opponent: Langevåg
+      opponentClubId: langevag
+      expectedScore:
+        aafk: 2
+        opponent: 5
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1948-06-28
+      page: "4"
+      pageUrl: https://www.nb.no/items/963f2218be2c92dbe17338af39dcc1f8?page=4
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Langevåg
+        clubId: langevag
+      observedOpponent:
+        name: Langevåg
+        clubId: langevag
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 0
+        opponent: 0
+        confidence: low
+      matchDate:
+        value: 1948-08-08
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1948-06-28) er tidligere enn
+        påstått kampdato (1948-08-08)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1948-025
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1948
+      no: 25
+      opponent: Veblungsnes
+      opponentClubId: veblungsnes-fk
+      expectedScore:
+        aafk: 1
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1948-06-28
+      page: "2"
+      pageUrl: https://www.nb.no/items/963f2218be2c92dbe17338af39dcc1f8?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Veblungsnes
+        clubId: veblungsnes-fk
+      observedOpponent:
+        name: Veblungsnes
+        clubId: veblungsnes-fk
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 2
+        opponent: 3
+        confidence: low
+      matchDate:
+        value: 1948-10-10
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1948-06-28) er tidligere enn
+        påstått kampdato (1948-10-10)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1948-026
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1948
+      no: 26
+      opponent: Fremad, L.hammer
+      opponentClubId: fremad
+      expectedScore:
+        aafk: 2
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1948-06-22
+      page: "3"
+      pageUrl: https://www.nb.no/items/7c64099d02950c7d6d778f6a13263312?page=3
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Fremad, L.hammer
+        clubId: fremad
+      observedOpponent:
+        name: Fremad, L.hammer
+        clubId: fremad
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 1
+        opponent: 0
+        confidence: low
+      matchDate:
+        value: 1948-10-17
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1948-06-22) er tidligere enn
+        påstått kampdato (1948-10-17)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1949-003
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1949
+      no: 3
+      opponent: Dr. Ballklubb
+      opponentClubId: drammens-bk
+      expectedScore:
+        aafk: 5
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1949-08-23
+      page: "2"
+      pageUrl: https://www.nb.no/items/822e982bb09a36f2940198a18f55040e?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Dr. Ballklubb
+        clubId: drammens-bk
+      observedOpponent:
+        name: Dr. Ballklubb
+        clubId: drammens-bk
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 1
+        opponent: 2
+        confidence: high
+      matchDate:
+        value: 1949-05-15
+        confidence: high
+      homeAway: home
+      competition:
+        value: 1. divisjon
+        competitionId: forstedivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 5-1, mens avisen dokumenterer 1-2."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1949-004
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1949
+      no: 4
+      opponent: Halmia, Sverige
+      opponentClubId: is-halmia
+      expectedScore:
+        aafk: 0
+        opponent: 3
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1949-06-28
+      page: "2"
+      pageUrl: https://www.nb.no/items/6366255a65044128ef9954ca0b5a7536?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Halmia, Sverige
+        clubId: is-halmia
+      observedOpponent:
+        name: Halmia, Sverige
+        clubId: is-halmia
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 2
+        opponent: 4
+        confidence: high
+      matchDate:
+        value: 1949-05-22
+        confidence: high
+      homeAway: away
+      competition:
+        value: 1. divisjon
+        competitionId: forstedivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 0-3, mens avisen dokumenterer 2-4."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1949-010
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1949
+      no: 10
+      opponent: KFK
+      opponentClubId: kfk
+      expectedScore:
+        aafk: 1
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1949-09-02
+      page: "2"
+      pageUrl: https://www.nb.no/items/011f2c37b2bb69beff456a14ae4d56e8?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: KFK
+        clubId: kfk
+      observedOpponent:
+        name: KFK
+        clubId: kfk
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 1
+        opponent: 0
+        confidence: high
+      matchDate:
+        value: 1949-08-07
+        confidence: high
+      homeAway: home
+      competition:
+        value: 1. divisjon
+        competitionId: forstedivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 1-1, mens avisen dokumenterer 1-0."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1949-018
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1949
+      no: 18
+      opponent: Mesna IF
+      opponentClubId: mesna-fotball
+      expectedScore:
+        aafk: 3
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1949-09-19
+      page: "2"
+      pageUrl: https://www.nb.no/items/8e3747351ea469a6806698a13f29734a?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Mesna IF
+        clubId: mesna-fotball
+      observedOpponent:
+        name: Mesna IF
+        clubId: mesna-fotball
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 1
+        opponent: 0
+        confidence: low
+      matchDate:
+        value: 1949-10-09
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1949-09-19) er tidligere enn
+        påstått kampdato (1949-10-09)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1950-62fa-1950-006
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-62fa
+      year: 1950
+      no: 6
+      opponent: Sandane
+      opponentClubId: sandane
+      expectedScore:
+        aafk: 2
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1950-05-22
+      page: "2"
+      pageUrl: https://www.nb.no/items/caa95de6d6e6879a0234447bf561373d?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Sandane
+        clubId: sandane
+      observedOpponent:
+        name: Sandane
+        clubId: sandane
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 0
+        opponent: 0
+        confidence: high
+      matchDate:
+        value: 1950-05-21
+        confidence: high
+      homeAway: home
+      competition:
+        value: 1. divisjon
+        competitionId: forstedivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 2-0, mens avisen dokumenterer 0-0."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1951-007
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1951
+      no: 7
+      opponent: Fremad
+      opponentClubId: fremad
+      expectedScore:
+        aafk: 2
+        opponent: 4
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1951-07-14
+      page: "6"
+      pageUrl: https://www.nb.no/items/3d3779ef2adaada5fd001bebb43a1dd8?page=6
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
+      candidateOpponent:
+        name: Fremad
+        clubId: fremad
+      observedOpponent:
+        name: Fremad
+        clubId: fremad
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 2
+        opponent: 4
+        confidence: high
+      matchDate:
+        value: 1951-07-13
+        confidence: high
+      homeAway: home
+      competition:
+        value: privatkamp
+        competitionId: treningskamp
+        confidence: high
+      evidenceType: report
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 14.07.1951 s. 6: Referat fra privatkampen på Aksla
+        stadion fredag 13. juli 1951 der Fremad slo AaFK 4-2."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1951-028
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1951
+      no: 28
+      opponent: Spjelkavik
+      opponentClubId: spjelkavik
+      expectedScore:
+        aafk: 4
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1951-06-11
+      page: "2"
+      pageUrl: https://www.nb.no/items/e506b323b7c67c70bfcbada81585aada?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Spjelkavik
+        clubId: spjelkavik
+      observedOpponent:
+        name: Spjelkavik
+        clubId: spjelkavik
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 3
+        opponent: 2
+        confidence: low
+      matchDate:
+        value: 1951-10-14
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1951-06-11) er tidligere enn
+        påstått kampdato (1951-10-14)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1953-004
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1953
+      no: 4
+      opponent: Sykkylven
+      opponentClubId: fk-sykkylven
+      expectedScore:
+        aafk: 2
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1953-05-26
+      page: "3"
+      pageUrl: https://www.nb.no/items/313b892838ead0fcaa0f9f94aa7aa064?page=3
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Sykkylven
+        clubId: fk-sykkylven
+      observedOpponent:
+        name: Sykkylven
+        clubId: fk-sykkylven
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 1
+        opponent: 0
+        confidence: high
+      matchDate:
+        value: 1953-05-14
+        confidence: high
+      homeAway: home
+      competition:
+        value: privatkamp
+        competitionId: treningskamp
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 2-2, mens avisen dokumenterer 1-0."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1954-005
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1954
+      no: 5
+      opponent: Viking, St.vanger
+      opponentClubId: viking
+      expectedScore:
+        aafk: 0
+        opponent: 5
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1954-08-02
+      page: "2"
+      pageUrl: https://www.nb.no/items/88c7f321249e064baa76ce568fd15460?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Viking, St.vanger
+        clubId: viking
+      observedOpponent:
+        name: Viking, St.vanger
+        clubId: viking
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 4
+        opponent: 2
+        confidence: high
+      matchDate:
+        value: 1954-05-27
+        confidence: high
+      homeAway: home
+      competition:
+        value: privatkamp
+        competitionId: treningskamp
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 0-5, mens avisen dokumenterer 4-2."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-012
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1955
+      no: 12
+      opponent: Sykkylven
+      opponentClubId: fk-sykkylven
+      expectedScore:
+        aafk: 2
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1955-05-20
+      page: "2"
+      pageUrl: https://www.nb.no/items/c5e5988d379d5ea705113f0833418f88?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Sykkylven
+        clubId: fk-sykkylven
+      observedOpponent:
+        name: Sykkylven
+        clubId: fk-sykkylven
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 1
+        opponent: 0
+        confidence: low
+      matchDate:
+        value: 1955-08-07
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1955-05-20) er tidligere enn
+        påstått kampdato (1955-08-07)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-031
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1955
+      no: 31
+      opponent: Snøgg
+      opponentClubId: snogg
+      expectedScore:
+        aafk: 0
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1955-05-23
+      page: "2"
+      pageUrl: https://www.nb.no/items/9759f12b77e52a51e08f31b3ac0af359?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Snøgg
+        clubId: snogg
+      observedOpponent:
+        name: Snøgg
+        clubId: snogg
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 2
+        opponent: 1
+        confidence: low
+      matchDate:
+        value: 1955-08-14
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1955-05-23) er tidligere enn
+        påstått kampdato (1955-08-14)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-032
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1955
+      no: 32
+      opponent: Årstad
+      opponentClubId: arstad-il
+      expectedScore:
+        aafk: 0
+        opponent: 5
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1955-06-06
+      page: "2"
+      pageUrl: https://www.nb.no/items/d722a0fd7209e7619b820218ec0cefe8?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Årstad
+        clubId: arstad-il
+      observedOpponent:
+        name: Årstad
+        clubId: arstad-il
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 0
+        opponent: 2
+        confidence: low
+      matchDate:
+        value: 1955-08-21
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: NM
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1955-06-06) er tidligere enn
+        påstått kampdato (1955-08-21)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-033
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1955
+      no: 33
+      opponent: Voss
+      opponentClubId: fbk-voss
+      expectedScore:
+        aafk: 5
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1955-08-29
+      page: "3"
+      pageUrl: https://www.nb.no/items/51cc7a54362c0e20225b0941babccd71?page=3
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Voss
+        clubId: fbk-voss
+      observedOpponent:
+        name: Voss
+        clubId: fbk-voss
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 3
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1955-08-28
+        confidence: high
+      homeAway: away
+      competition:
+        value: 1. divisjon
+        competitionId: forstedivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 5-1, mens avisen dokumenterer 3-1."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-035
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1955
+      no: 35
+      opponent: Herd
+      opponentClubId: herd
+      expectedScore:
+        aafk: 4
+        opponent: 3
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1955-08-22
+      page: "3"
+      pageUrl: https://www.nb.no/items/f924db5f70f70f0b6f5dc387c64e7895?page=3
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Herd
+        clubId: herd
+      observedOpponent:
+        name: Herd
+        clubId: herd
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 4
+        opponent: 3
+        confidence: low
+      matchDate:
+        value: 1955-09-04
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1955-08-22) er tidligere enn
+        påstått kampdato (1955-09-04)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1956-027
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1956
+      no: 27
+      opponent: Fredrikshavn
+      opponentClubId: frederikshavn-fi
+      expectedScore:
+        aafk: 2
+        opponent: 7
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1956-07-16
+      page: "4"
+      pageUrl: https://www.nb.no/items/97d021ec370a6aac0ff468b8c1083314?page=4
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Fredrikshavn
+        clubId: frederikshavn-fi
+      observedOpponent:
+        name: Fredrikshavn
+        clubId: frederikshavn-fi
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 1
+        opponent: 1
+        confidence: low
+      matchDate:
+        value: 1956-08-12
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1956-07-16) er tidligere enn
+        påstått kampdato (1956-08-12)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1956-029
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1956
+      no: 29
+      opponent: Volda
+      opponentClubId: volda
+      expectedScore:
+        aafk: 0
+        opponent: 3
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1956-05-28
+      page: "5"
+      pageUrl: https://www.nb.no/items/e5adfb28199e29d05ac52bceab6fdd09?page=5
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Volda
+        clubId: volda
+      observedOpponent:
+        name: Volda
+        clubId: volda
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 2
+        opponent: 0
+        confidence: low
+      matchDate:
+        value: 1956-08-26
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1956-05-28) er tidligere enn
+        påstått kampdato (1956-08-26)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1957-7672-1957-009
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+      year: 1957
+      no: 9
+      opponent: Stranda
+      opponentClubId: stranda
+      expectedScore:
+        aafk: 5
+        opponent: 3
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1957-05-20
+      page: "2"
+      pageUrl: https://www.nb.no/items/5fe45e5f61846ea2824b285b18a10d1e?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Stranda
+        clubId: stranda
+      observedOpponent:
+        name: Stranda
+        clubId: stranda
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 0
+        opponent: 2
+        confidence: low
+      matchDate:
+        value: 1957-06-23
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: NM
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1957-05-20) er tidligere enn
+        påstått kampdato (1957-06-23)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1957-7672-1957-013
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+      year: 1957
+      no: 13
+      opponent: Herd
+      opponentClubId: herd
+      expectedScore:
+        aafk: 0
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1957-07-17
+      page: "2"
+      pageUrl: https://www.nb.no/items/cf2d8609399f0bd0dc61ea0607d9114b?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Herd
+        clubId: herd
+      observedOpponent:
+        name: Herd
+        clubId: herd
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 3
+        opponent: 0
+        confidence: low
+      matchDate:
+        value: 1957-08-11
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1957-07-17) er tidligere enn
+        påstått kampdato (1957-08-11)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1957-023
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1957
+      no: 23
+      opponent: Langevåg—Raufoss
+      opponentClubId: langevåg—raufoss
+      expectedScore:
+        aafk: 3
+        opponent: 6
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1957-05-27
+      page: "2"
+      pageUrl: https://www.nb.no/items/1b4787a7daccb63d9b093e8d38771556?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Langevåg—Raufoss
+        clubId: langevåg—raufoss
+      observedOpponent:
+        name: Langevåg—Raufoss
+        clubId: langevåg—raufoss
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 0
+        opponent: 1
+        confidence: low
+      matchDate:
+        value: 1957-10-13
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1957-05-27) er tidligere enn
+        påstått kampdato (1957-10-13)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1958-5725-1958-002
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1958-5725
+      year: 1958
+      no: 2
+      opponent: Herd
+      opponentClubId: herd
+      expectedScore:
+        aafk: 5
+        opponent: 4
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1958-08-08
+      page: "4"
+      pageUrl: https://www.nb.no/items/64996fcba532e2b3f9e0a999a68d16b6?page=4
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Herd
+        clubId: herd
+      observedOpponent:
+        name: Herd
+        clubId: herd
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 2
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1958-05-23
+        confidence: high
+      homeAway: home
+      competition:
+        value: NM
+        competitionId: nm
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 5-4, mens avisen dokumenterer 2-1."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1959-515a-1959-002
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+      year: 1959
+      no: 2
+      opponent: Guard
+      opponentClubId: guard
+      expectedScore:
+        aafk: 6
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1959-04-08
+      page: "4"
+      pageUrl: https://www.nb.no/items/a2f793e502ffb3969ca77b8dd64ee53e?page=4
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Guard
+        clubId: guard
+      observedOpponent:
+        name: Guard
+        clubId: guard
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 2
+        opponent: 0
+        confidence: low
+      matchDate:
+        value: 1959-05-03
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1959-04-08) er tidligere enn
+        påstått kampdato (1959-05-03)."
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1959-1959-004
+    sourceResult:
+      sourceId: sunnmore-fotballkrets-arsrapport-1959
+      year: 1959
+      no: 4
+      opponent: Kvik (Trondheim)
+      opponentClubId: kvik (trondheim)
+      expectedScore:
+        aafk: 1
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1959-08-03
+      page: "2"
+      pageUrl: https://www.nb.no/items/d8bc98b86487ffa44867907700d9edef?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Kvik (Trondheim)
+        clubId: kvik (trondheim)
+      observedOpponent:
+        name: Kvik (Trondheim)
+        clubId: kvik (trondheim)
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 5
+        opponent: 0
+        confidence: low
+      matchDate:
+        value: 1959-09-06
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1959-08-03) er tidligere enn
+        påstått kampdato (1959-09-06)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1960-146a-1960-004
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+      year: 1960
+      no: 4
+      opponent: Træff
+      opponentClubId: traeff
+      expectedScore:
+        aafk: 1
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1960-06-11
+      page: "10"
+      pageUrl: https://www.nb.no/items/dddd258a0f8c62c3aadb2fc4548faad6?page=10
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Træff
+        clubId: traeff
+      observedOpponent:
+        name: Træff
+        clubId: traeff
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 1
+        opponent: 0
+        confidence: low
+      matchDate:
+        value: 1960-06-19
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: NM
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1960-06-11) er tidligere enn
+        påstått kampdato (1960-06-19)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1960-006
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1960
+      no: 6
+      opponent: Ørsta
+      opponentClubId: orsta
+      expectedScore:
+        aafk: 7
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1960-08-01
+      page: "3"
+      pageUrl: https://www.nb.no/items/52d39258b74640057f8f42c834da2561?page=3
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Ørsta
+        clubId: orsta
+      observedOpponent:
+        name: Ørsta
+        clubId: orsta
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 4
+        opponent: 2
+        confidence: high
+      matchDate:
+        value: 1960-07-31
+        confidence: high
+      homeAway: away
+      competition:
+        value: privatkamp
+        competitionId: treningskamp
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 7-2, mens avisen dokumenterer 4-2."
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1960-1960-006
+    sourceResult:
+      sourceId: sunnmore-fotballkrets-arsrapport-1960
+      year: 1960
+      no: 6
+      opponent: V.R.F.
+      opponentClubId: velledalen-ringen
+      expectedScore:
+        aafk: 8
+        opponent: 3
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1960-09-15
+      page: "2"
+      pageUrl: https://www.nb.no/items/ce3936e8c661c970e1c471bcfa512d0d?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: V.R.F.
+        clubId: velledalen-ringen
+      observedOpponent:
+        name: V.R.F.
+        clubId: velledalen-ringen
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 4
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1960-08-28
+        confidence: high
+      homeAway: home
+      competition:
+        value: 1. divisjon
+        competitionId: forstedivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 8-3, mens avisen dokumenterer 4-1."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1960-146a-1960-010
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+      year: 1960
+      no: 10
+      opponent: Skarbøvik
+      opponentClubId: skarbovik
+      expectedScore:
+        aafk: 3
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1960-08-13
+      page: "7"
+      pageUrl: https://www.nb.no/items/b7f7be68d86ebfb26b36ca9183a21c15?page=7
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Skarbøvik
+        clubId: skarbovik
+      observedOpponent:
+        name: Skarbøvik
+        clubId: skarbovik
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 2
+        opponent: 0
+        confidence: low
+      matchDate:
+        value: 1960-10-09
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1960-08-13) er tidligere enn
+        påstått kampdato (1960-10-09)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1960-012
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1960
+      no: 12
+      opponent: V.R.F.
+      opponentClubId: velledalen-ringen
+      expectedScore:
+        aafk: 8
+        opponent: 3
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1960-09-15
+      page: "2"
+      pageUrl: https://www.nb.no/items/ce3936e8c661c970e1c471bcfa512d0d?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: V.R.F.
+        clubId: velledalen-ringen
+      observedOpponent:
+        name: V.R.F.
+        clubId: velledalen-ringen
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 4
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1960-08-28
+        confidence: high
+      homeAway: home
+      competition:
+        value: 1. divisjon
+        competitionId: forstedivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 8-3, mens avisen dokumenterer 4-1."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1960-018
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1960
+      no: 18
+      opponent: Bratt
+      opponentClubId: braatt
+      expectedScore:
+        aafk: 1
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1960-06-20
+      page: "6"
+      pageUrl: https://www.nb.no/items/b1619aea740f1bb800c34b37663ad049?page=6
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Bratt
+        clubId: braatt
+      observedOpponent:
+        name: Bratt
+        clubId: braatt
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 1
+        opponent: 0
+        confidence: low
+      matchDate:
+        value: 1960-10-16
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1960-06-20) er tidligere enn
+        påstått kampdato (1960-10-16)."
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1961-1961-001
+    sourceResult:
+      sourceId: sunnmore-fotballkrets-arsrapport-1961
+      year: 1961
+      no: 1
+      opponent: V.R.F.
+      opponentClubId: velledalen-ringen
+      expectedScore:
+        aafk: 2
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1961-12-07
+      page: "1"
+      pageUrl: https://www.nb.no/items/ec190cbc572498198cd7bf891a22cd4b?page=1
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
+      candidateOpponent:
+        name: V.R.F.
+        clubId: velledalen-ringen
+      observedOpponent:
+        name: V.R.F.
+        clubId: velledalen-ringen
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 2
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1961-04-30
+        confidence: high
+      homeAway: away
+      competition:
+        value: 1. divisjon
+        competitionId: forstedivisjon
+        confidence: high
+      evidenceType: report
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 12.07.1961 s. 1: Kampomtale og tabelloppsummering fra
+        seriekampen søndag 30. april 1961 der AaFK slo Velledalen/Ringen 2-1."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1961-007
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1961
+      no: 7
+      opponent: Køge, Danmark
+      opponentClubId: koge-bk
+      expectedScore:
+        aafk: 0
+        opponent: 4
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1961-07-10
+      page: "6"
+      pageUrl: https://www.nb.no/items/56ff63ee005905e98b2a6e70e41fe2a9?page=6
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Køge, Danmark
+        clubId: koge-bk
+      observedOpponent:
+        name: Køge, Danmark
+        clubId: koge-bk
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 1
+        opponent: 3
+        confidence: high
+      matchDate:
+        value: 1961-07-09
+        confidence: high
+      homeAway: home
+      competition:
+        value: privatkamp
+        competitionId: treningskamp
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 0-4, mens avisen dokumenterer 1-3."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1961-011
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1961
+      no: 11
+      opponent: Vigra
+      opponentClubId: vigra-il
+      expectedScore:
+        aafk: 0
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1961-07-31
+      page: "2"
+      pageUrl: https://www.nb.no/items/9cc2f9af2bdb67dbf1f61a3957cf735e?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Vigra
+        clubId: vigra-il
+      observedOpponent:
+        name: Vigra
+        clubId: vigra-il
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 4
+        opponent: 0
+        confidence: low
+      matchDate:
+        value: 1961-08-06
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: privatkamp
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1961-07-31) er tidligere enn
+        påstått kampdato (1961-08-06)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1961-023
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1961
+      no: 23
+      opponent: CFK
+      opponentClubId: clausenengen
+      expectedScore:
+        aafk: 1
+        opponent: 4
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1961-07-31
+      page: "2"
+      pageUrl: https://www.nb.no/items/9cc2f9af2bdb67dbf1f61a3957cf735e?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: CFK
+        clubId: clausenengen
+      observedOpponent:
+        name: CFK
+        clubId: clausenengen
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 1
+        opponent: 0
+        confidence: low
+      matchDate:
+        value: 1961-10-15
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1961-07-31) er tidligere enn
+        påstått kampdato (1961-10-15)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1962-001
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1962
+      no: 1
+      opponent: Brattvåg
+      opponentClubId: brattvag
+      expectedScore:
+        aafk: 4
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1962-04-02
+      page: "6"
+      pageUrl: https://www.nb.no/items/61632919c4b15a192674d18ce33cc4fa?page=6
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Brattvåg
+        clubId: brattvag
+      observedOpponent:
+        name: Brattvåg
+        clubId: brattvag
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 5
+        opponent: 1
+        confidence: low
+      matchDate:
+        value: 1962-04-29
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 1. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1962-04-02) er tidligere enn
+        påstått kampdato (1962-04-29)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1962-006
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1962
+      no: 6
+      opponent: Mjøndalen
+      opponentClubId: mjondalen
+      expectedScore:
+        aafk: 2
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1962-02-21
+      page: "6"
+      pageUrl: https://www.nb.no/items/901ae3fdfe94294e99b861b2ce5f95a8?page=6
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Mjøndalen
+        clubId: mjondalen
+      observedOpponent:
+        name: Mjøndalen
+        clubId: mjondalen
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 1
+        opponent: 0
+        confidence: low
+      matchDate:
+        value: 1962-06-17
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: privatkamp
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1962-02-21) er tidligere enn
+        påstått kampdato (1962-06-17)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1963-004
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1963
+      no: 4
+      opponent: Stryn
+      opponentClubId: stryn
+      expectedScore:
+        aafk: 5
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1963-06-21
+      page: "4"
+      pageUrl: https://www.nb.no/items/c898e684646e283cc0bd896c17e5d8fc?page=4
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Stryn
+        clubId: stryn
+      observedOpponent:
+        name: Stryn
+        clubId: stryn
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 2
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1963-05-19
+        confidence: high
+      homeAway: away
+      competition:
+        value: privatkamp
+        competitionId: treningskamp
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 5-0, mens avisen dokumenterer 2-1."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1963-013
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1963
+      no: 13
+      opponent: Horsens, Danmark
+      opponentClubId: horsens-fs
+      expectedScore:
+        aafk: 3
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1963-07-11
+      page: "6"
+      pageUrl: https://www.nb.no/items/c8d225c13d1cf216d1ee7b4f23f6fd77?page=6
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Horsens, Danmark
+        clubId: horsens-fs
+      observedOpponent:
+        name: Horsens, Danmark
+        clubId: horsens-fs
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 1
+        opponent: 3
+        confidence: low
+      matchDate:
+        value: 1963-07-28
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: privatkamp
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1963-07-11) er tidligere enn
+        påstått kampdato (1963-07-28)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1963-035
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1963
+      no: 35
+      opponent: VRF
+      opponentClubId: velledalen-ringen
+      expectedScore:
+        aafk: 3
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1963-05-20
+      page: "7"
+      pageUrl: https://www.nb.no/items/aab11a8a9c4fb21e208fd6de32efd5df?page=7
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: VRF
+        clubId: velledalen-ringen
+      observedOpponent:
+        name: VRF
+        clubId: velledalen-ringen
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 4
+        opponent: 1
+        confidence: low
+      matchDate:
+        value: 1963-09-29
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 2. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1963-05-20) er tidligere enn
+        påstått kampdato (1963-09-29)."
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1964-1964-001
+    sourceResult:
+      sourceId: sunnmore-fotballkrets-arsrapport-1964
+      year: 1964
+      no: 1
+      opponent: V.R.F.
+      opponentClubId: velledalen-ringen
+      expectedScore:
+        aafk: 3
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1964-04-20
+      page: "2"
+      pageUrl: https://www.nb.no/items/0afe6b3e6664a05c703c5237acab2af9?page=2
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
+      candidateOpponent:
+        name: V.R.F.
+        clubId: velledalen-ringen
+      observedOpponent:
+        name: V.R.F.
+        clubId: velledalen-ringen
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 3
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1964-04-19
+        confidence: high
+      homeAway: away
+      competition:
+        value: privatkamp
+        competitionId: treningskamp
+        confidence: high
+      evidenceType: report
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 20.04.1964 s. 2: Kampreferat fra privatkampen søndag 19.
+        april 1964 der AaFK slo Velledalen/Ringen 3-1."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-004
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1964
+      no: 4
+      opponent: Skarbøvik
+      opponentClubId: skarbovik
+      expectedScore:
+        aafk: 5
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1964-06-25
+      page: "3"
+      pageUrl: https://www.nb.no/items/314248450eaeee4a53054baa3cf42534?page=3
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Skarbøvik
+        clubId: skarbovik
+      observedOpponent:
+        name: Skarbøvik
+        clubId: skarbovik
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 4
+        opponent: 2
+        confidence: high
+      matchDate:
+        value: 1964-05-03
+        confidence: high
+      homeAway: home
+      competition:
+        value: 2. divisjon
+        competitionId: forstedivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 5-2, mens avisen dokumenterer 4-2."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-007
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1964
+      no: 7
+      opponent: Aksla
+      opponentClubId: aksla
+      expectedScore:
+        aafk: 5
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1964-05-27
+      page: "6"
+      pageUrl: https://www.nb.no/items/96f3b16bee5c21d9ca2774e11db4124f?page=6
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Aksla
+        clubId: aksla
+      observedOpponent:
+        name: Aksla
+        clubId: aksla
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 4
+        opponent: 0
+        confidence: high
+      matchDate:
+        value: 1964-05-24
+        confidence: high
+      homeAway: away
+      competition:
+        value: 2. divisjon
+        competitionId: forstedivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 5-2, mens avisen dokumenterer 4-0."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-010
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1964
+      no: 10
+      opponent: Vigra
+      opponentClubId: vigra-il
+      expectedScore:
+        aafk: 15
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1964-07-17
+      page: "2"
+      pageUrl: https://www.nb.no/items/b81904fa45d1c4f005743fdfa7c4c0d8?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Vigra
+        clubId: vigra-il
+      observedOpponent:
+        name: Vigra
+        clubId: vigra-il
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 3
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1964-06-14
+        confidence: high
+      homeAway: home
+      competition:
+        value: 2. divisjon
+        competitionId: forstedivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 15-0, mens avisen dokumenterer 3-1."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-013
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1964
+      no: 13
+      opponent: Årstad
+      opponentClubId: arstad-il
+      expectedScore:
+        aafk: 1
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1964-07-27
+      page: "3"
+      pageUrl: https://www.nb.no/items/ae026d1112000e57f2e1f5326febdf79?page=3
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Årstad
+        clubId: arstad-il
+      observedOpponent:
+        name: Årstad
+        clubId: arstad-il
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 2
+        opponent: 1
+        confidence: low
+      matchDate:
+        value: 1964-08-09
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: NM
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1964-07-27) er tidligere enn
+        påstått kampdato (1964-08-09)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-032
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1964
+      no: 32
+      opponent: Træff
+      opponentClubId: traeff
+      expectedScore:
+        aafk: 1
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1964-04-27
+      page: "2"
+      pageUrl: https://www.nb.no/items/fe8a6fcf858e806daac06824f4181141?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Træff
+        clubId: traeff
+      observedOpponent:
+        name: Træff
+        clubId: traeff
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 1
+        opponent: 0
+        confidence: low
+      matchDate:
+        value: 1964-08-23
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 2. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1964-04-27) er tidligere enn
+        påstått kampdato (1964-08-23)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-035
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1964
+      no: 35
+      opponent: Stranda
+      opponentClubId: stranda
+      expectedScore:
+        aafk: 5
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1964-04-27
+      page: "3"
+      pageUrl: https://www.nb.no/items/fe8a6fcf858e806daac06824f4181141?page=3
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Stranda
+        clubId: stranda
+      observedOpponent:
+        name: Stranda
+        clubId: stranda
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 4
+        opponent: 0
+        confidence: low
+      matchDate:
+        value: 1964-08-30
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 2. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1964-04-27) er tidligere enn
+        påstått kampdato (1964-08-30)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1965-019
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1965
+      no: 19
+      opponent: Sykkylven
+      opponentClubId: fk-sykkylven
+      expectedScore:
+        aafk: 8
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1965-06-26
+      page: "6"
+      pageUrl: https://www.nb.no/items/933107b7601c97007c9d0aa9f2bf555b?page=6
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Sykkylven
+        clubId: fk-sykkylven
+      observedOpponent:
+        name: Sykkylven
+        clubId: fk-sykkylven
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 3
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1965-05-16
+        confidence: high
+      homeAway: away
+      competition:
+        value: 3. divisjon
+        competitionId: andredivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 8-2, mens avisen dokumenterer 3-1."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1965-020
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1965
+      no: 20
+      opponent: Måløy
+      opponentClubId: maloy-il
+      expectedScore:
+        aafk: 4
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1965-10-11
+      page: "6"
+      pageUrl: https://www.nb.no/items/7457953b8ecfb84572b43823c4267c93?page=6
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Måløy
+        clubId: maloy-il
+      observedOpponent:
+        name: Måløy
+        clubId: maloy-il
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 5
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1965-05-23
+        confidence: high
+      homeAway: home
+      competition:
+        value: 3. divisjon
+        competitionId: andredivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 4-1, mens avisen dokumenterer 5-1."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1965-030
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1965
+      no: 30
+      opponent: Ravn
+      opponentClubId: il-ravn
+      expectedScore:
+        aafk: 7
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1965-10-25
+      page: "3"
+      pageUrl: https://www.nb.no/items/024f3fc2b32980d45968b0541c3fc193?page=3
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Ravn
+        clubId: il-ravn
+      observedOpponent:
+        name: Ravn
+        clubId: il-ravn
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 6
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1965-06-27
+        confidence: high
+      homeAway: away
+      competition:
+        value: Sunnmørscupen
+        competitionId: nm
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 7-0, mens avisen dokumenterer 6-1."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1965-031
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1965
+      no: 31
+      opponent: Jednota
+      opponentClubId: jednota-trencin
+      expectedScore:
+        aafk: 2
+        opponent: 5
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1965-06-28
+      page: "2"
+      pageUrl: https://www.nb.no/items/b394ddeeddf27f6116e62011da54e0e0?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Jednota
+        clubId: jednota-trencin
+      observedOpponent:
+        name: Jednota
+        clubId: jednota-trencin
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 2
+        opponent: 3
+        confidence: low
+      matchDate:
+        value: 1965-07-04
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: privatkamp
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1965-06-28) er tidligere enn
+        påstått kampdato (1965-07-04)."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1965-032
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1965
+      no: 32
+      opponent: Stålkameratene
+      opponentClubId: stalkameratene
+      expectedScore:
+        aafk: 1
+        opponent: 7
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1965-07-13
+      page: "6"
+      pageUrl: https://www.nb.no/items/6254a1a9054ba3c3e852293b098cd6cc?page=6
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
+      candidateOpponent:
+        name: Stålkameratene
+        clubId: stalkameratene
+      observedOpponent:
+        name: Stålkameratene
+        clubId: stalkameratene
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 1
+        opponent: 7
+        confidence: high
+      matchDate:
+        value: 1965-07-12
+        confidence: high
+      homeAway: away
+      competition:
+        value: privatkamp
+        competitionId: treningskamp
+        confidence: high
+      evidenceType: report
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 13.07.1965 s. 6: Referat fra privatkampen i Mo i Rana
+        mandag 12. juli 1965 der Stålkameratene slo AaFK 7-1."
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1965-035
+    sourceResult:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      year: 1965
+      no: 35
+      opponent: Rollon
+      opponentClubId: rollon
+      expectedScore:
+        aafk: 3
+        opponent: 3
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1965-04-27
+      page: "6"
+      pageUrl: https://www.nb.no/items/805ab7669b627c9f948e4267aacaa2c0?page=6
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Rollon
+        clubId: rollon
+      observedOpponent:
+        name: Rollon
+        clubId: rollon
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 1
+        opponent: 0
+        confidence: low
+      matchDate:
+        value: 1965-08-01
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: NM
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1965-04-27) er tidligere enn
+        påstått kampdato (1965-08-01)."
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1966-1966-002
+    sourceResult:
+      sourceId: sunnmore-fotballkrets-arsrapport-1966
+      year: 1966
+      no: 2
+      opponent: Eid
+      opponentClubId: eid-il
+      expectedScore:
+        aafk: 3
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1966-07-04
+      page: "2"
+      pageUrl: https://www.nb.no/items/9e501884cf9b50e5040d5f9157da9e16?page=2
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Eid
+        clubId: eid-il
+      observedOpponent:
+        name: Eid
+        clubId: eid-il
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 3
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1966-05-15
+        confidence: high
+      homeAway: home
+      competition:
+        value: 3. divisjon
+        competitionId: andredivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 3-2, mens avisen dokumenterer 3-1."
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1967-1967-002
+    sourceResult:
+      sourceId: sunnmore-fotballkrets-arsrapport-1967
+      year: 1967
+      no: 2
+      opponent: Herd
+      opponentClubId: herd
+      expectedScore:
+        aafk: 1
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1967-06-15
+      page: "6"
+      pageUrl: https://www.nb.no/items/25986c294aac8f471e6f1887b86ab4bb?page=6
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Herd
+        clubId: herd
+      observedOpponent:
+        name: Herd
+        clubId: herd
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 2
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1967-05-28
+        confidence: high
+      homeAway: home
+      competition:
+        value: 3. divisjon
+        competitionId: andredivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 1-2, mens avisen dokumenterer 2-1."
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1969-1969-002
+    sourceResult:
+      sourceId: sunnmore-fotballkrets-arsrapport-1969
+      year: 1969
+      no: 2
+      opponent: Gossen
+      opponentClubId: gossen-il
+      expectedScore:
+        aafk: 1
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1969-08-26
+      page: "6"
+      pageUrl: https://www.nb.no/items/921e52c2440110e1e3378f105762b94f?page=6
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Gossen
+        clubId: gossen-il
+      observedOpponent:
+        name: Gossen
+        clubId: gossen-il
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 4
+        opponent: 0
+        confidence: high
+      matchDate:
+        value: 1969-05-15
+        confidence: high
+      homeAway: home
+      competition:
+        value: 3. divisjon
+        competitionId: andredivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 1-2, mens avisen dokumenterer 4-0."
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1970-1970-001
+    sourceResult:
+      sourceId: sunnmore-fotballkrets-arsrapport-1970
+      year: 1970
+      no: 1
+      opponent: Langevåg
+      opponentClubId: langevag
+      expectedScore:
+        aafk: 1
+        opponent: 2
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1970-09-02
+      page: "6"
+      pageUrl: https://www.nb.no/items/5dbc6525fd529ba9dc06a5afac124718?page=6
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Langevåg
+        clubId: langevag
+      observedOpponent:
+        name: Langevåg
+        clubId: langevag
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 2
+        opponent: 0
+        confidence: high
+      matchDate:
+        value: 1970-05-03
+        confidence: high
+      homeAway: home
+      competition:
+        value: 2. divisjon
+        competitionId: forstedivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 1-2, mens avisen dokumenterer 2-0."
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1971-1971-003
+    sourceResult:
+      sourceId: sunnmore-fotballkrets-arsrapport-1971
+      year: 1971
+      no: 3
+      opponent: Skarbøvik
+      opponentClubId: skarbovik
+      expectedScore:
+        aafk: 2
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1971-06-07
+      page: "6"
+      pageUrl: https://www.nb.no/items/c72e4b7a21201b8d7df24692fd5e9d64?page=6
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Skarbøvik
+        clubId: skarbovik
+      observedOpponent:
+        name: Skarbøvik
+        clubId: skarbovik
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 2
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1971-05-23
+        confidence: high
+      homeAway: away
+      competition:
+        value: 3. divisjon
+        competitionId: andredivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 2-0, mens avisen dokumenterer 2-1."
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1972-1972-002
+    sourceResult:
+      sourceId: sunnmore-fotballkrets-arsrapport-1972
+      year: 1972
+      no: 2
+      opponent: Skarbøvik
+      opponentClubId: skarbovik
+      expectedScore:
+        aafk: 0
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1972-12-30
+      page: "6"
+      pageUrl: https://www.nb.no/items/8913213d2ed377d34dcafc0bb722973d?page=6
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Skarbøvik
+        clubId: skarbovik
+      observedOpponent:
+        name: Skarbøvik
+        clubId: skarbovik
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 3
+        opponent: 0
+        confidence: high
+      matchDate:
+        value: 1972-05-28
+        confidence: high
+      homeAway: home
+      competition:
+        value: 3. divisjon
+        competitionId: andredivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 0-1, mens avisen dokumenterer 3-0."
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1973-1973-001
+    sourceResult:
+      sourceId: sunnmore-fotballkrets-arsrapport-1973
+      year: 1973
+      no: 1
+      opponent: Gossen
+      opponentClubId: gossen-il
+      expectedScore:
+        aafk: 3
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1973-05-14
+      page: "8"
+      pageUrl: https://www.nb.no/items/2e1b864663a221e4a37794bc7b96d8ee?page=8
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Gossen
+        clubId: gossen-il
+      observedOpponent:
+        name: Gossen
+        clubId: gossen-il
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 4
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1973-05-06
+        confidence: high
+      homeAway: home
+      competition:
+        value: 3. divisjon
+        competitionId: andredivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 3-0, mens avisen dokumenterer 4-1."
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1974-1974-001
+    sourceResult:
+      sourceId: sunnmore-fotballkrets-arsrapport-1974
+      year: 1974
+      no: 1
+      opponent: Herd
+      opponentClubId: herd
+      expectedScore:
+        aafk: 4
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1974-03-18
+      page: "9"
+      pageUrl: https://www.nb.no/items/631d31d20fa3850dcaead39d6915f1a9?page=9
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: deterministic_gate
+      provisional: true
+      followupReason: temporal_invalid
+      candidateOpponent:
+        name: Herd
+        clubId: herd
+      observedOpponent:
+        name: Herd
+        clubId: herd
+        confidence: low
+      sameEvent: false
+      seniorAteam: uncertain
+      score:
+        aafk: 2
+        opponent: 0
+        confidence: low
+      matchDate:
+        value: 1974-05-19
+        confidence: low
+      homeAway: unknown
+      competition:
+        value: 3. divisjon
+        competitionId: null
+        confidence: low
+      evidenceType: preview
+      disposition: wrong_event
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Temporal impossible: Utgivelsesdato (1974-03-18) er tidligere enn
+        påstått kampdato (1974-05-19)."
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1975-1975-001
+    sourceResult:
+      sourceId: sunnmore-fotballkrets-arsrapport-1975
+      year: 1975
+      no: 1
+      opponent: Træff
+      opponentClubId: traeff
+      expectedScore:
+        aafk: 1
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1975-07-02
+      page: "6"
+      pageUrl: https://www.nb.no/items/57fd6a97383a479c22db9dcfe09f2a22?page=6
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Træff
+        clubId: traeff
+      observedOpponent:
+        name: Træff
+        clubId: traeff
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 2
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1975-05-11
+        confidence: high
+      homeAway: home
+      competition:
+        value: 3. divisjon
+        competitionId: andredivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 1-0, mens avisen dokumenterer 2-1."
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1976-1976-003
+    sourceResult:
+      sourceId: sunnmore-fotballkrets-arsrapport-1976
+      year: 1976
+      no: 3
+      opponent: Sunndal
+      opponentClubId: sunndal
+      expectedScore:
+        aafk: 2
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1976-06-29
+      page: "6"
+      pageUrl: https://www.nb.no/items/a2d508694124adade1ddc3376f030362?page=6
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Sunndal
+        clubId: sunndal
+      observedOpponent:
+        name: Sunndal
+        clubId: sunndal
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 2
+        opponent: 1
+        confidence: high
+      matchDate:
+        value: 1976-05-23
+        confidence: high
+      homeAway: home
+      competition:
+        value: 3. divisjon
+        competitionId: andredivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 2-0, mens avisen dokumenterer 2-1."
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1977-1977-001
+    sourceResult:
+      sourceId: sunnmore-fotballkrets-arsrapport-1977
+      year: 1977
+      no: 1
+      opponent: Bergsøy
+      opponentClubId: bergsoy
+      expectedScore:
+        aafk: 1
+        opponent: 0
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1977-09-19
+      page: "7"
+      pageUrl: https://www.nb.no/items/a8397b62eec951bd7d0af907961aeff0?page=7
+    facsimileReaudit:
+      visuallyReviewed: true
+      reviewBasis: new_facsimile_reaudit
+      provisional: false
+      candidateOpponent:
+        name: Bergsøy
+        clubId: bergsoy
+      observedOpponent:
+        name: Bergsøy
+        clubId: bergsoy
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 1
+        opponent: 0
+        confidence: high
+      matchDate:
+        value: 1977-09-17
+        confidence: high
+      homeAway: away
+      competition:
+        value: 3. divisjon
+        competitionId: andredivisjon
+        confidence: high
+      evidenceType: report
+      disposition: canonical_ready
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Sunnmørsposten 19.09.1977 s. 7: Referat fra 3. divisjonskampen i
+        Fosnavåg lørdag 17. september 1977 der AaFK slo Bergsøy 1-0."
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1978-1978-001
+    sourceResult:
+      sourceId: sunnmore-fotballkrets-arsrapport-1978
+      year: 1978
+      no: 1
+      opponent: Kristiansund
+      opponentClubId: kfk
+      expectedScore:
+        aafk: 0
+        opponent: 1
+    newspaper:
+      title: Sunnmørsposten
+      issueDate: 1978-05-25
+      page: "1"
+      pageUrl: https://www.nb.no/items/93153b497926b4418857d07f5ae151ec?page=1
+    facsimileReaudit:
+      visuallyReviewed: false
+      reviewBasis: prior_wave_review
+      provisional: true
+      followupReason: score_conflict_from_prior_review
+      candidateOpponent:
+        name: Kristiansund
+        clubId: kfk
+      observedOpponent:
+        name: Kristiansund
+        clubId: kfk
+        confidence: high
+      sameEvent: true
+      seniorAteam: true
+      score:
+        aafk: 1
+        opponent: 0
+        confidence: high
+      matchDate:
+        value: 1978-05-20
+        confidence: high
+      homeAway: home
+      competition:
+        value: 3. divisjon
+        competitionId: andredivisjon
+        confidence: medium
+      evidenceType: report
+      disposition: score_conflict
+      priorGroundTruthCheck:
+        hasConflict: false
+      reason: "Score-avvik: Kilde oppga 0-1, mens avisen dokumenterer 1-0."

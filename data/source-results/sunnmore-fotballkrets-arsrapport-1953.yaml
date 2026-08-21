@@ -7,7 +7,9 @@ seasons:
       - no: 1
         opponent: Ørsta
         opponentClubId: orsta
-        score: [ 2, 4 ]
+        score:
+          - 2
+          - 4
         page: 8
         competitionId: nm
         round: 1

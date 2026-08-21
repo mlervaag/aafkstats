@@ -1,0 +1,44 @@
+id: 1965-07-12-stalkameratene-aalesunds-fk
+date: 1965-07-12
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1965
+  stage: regular_season
+home:
+  clubId: stalkameratene
+  score: 7
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1965-07-13 s. 6
+    date: 1965-07-13
+    url: https://www.nb.no/items/6254a1a9054ba3c3e852293b098cd6cc?page=6
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/6254a1a9054ba3c3e852293b098cd6cc?page=6
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Siden omtaler privatkampen mandag 12. juli 1965 i Mo i Rana der
+  Stålkameratene slo AaFK 7-1.

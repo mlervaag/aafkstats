@@ -7,7 +7,9 @@ seasons:
       - no: 1
         opponent: Aksla
         opponentClubId: null
-        score: [ 3, 0 ]
+        score:
+          - 3
+          - 0
         page: 5
         competitionId: null
         round: 1
@@ -20,7 +22,9 @@ seasons:
       - no: 2
         opponent: Langevåg
         opponentClubId: langevag
-        score: [ 0, 1 ]
+        score:
+          - 0
+          - 1
         page: 5
         competitionId: null
         round: 2
@@ -33,7 +37,9 @@ seasons:
       - no: 3
         opponent: Skarbøvik (SIF)
         opponentClubId: skarbovik
-        score: [ 1, 0 ]
+        score:
+          - 1
+          - 0
         page: 9
         competitionId: nm
         round: 1
@@ -47,7 +53,9 @@ seasons:
       - no: 4
         opponent: Kvik (Trondheim)
         opponentClubId: kvik-trondheim
-        score: [ 1, 2 ]
+        score:
+          - 1
+          - 2
         page: 9
         competitionId: nm
         round: 2
