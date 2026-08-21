@@ -80,13 +80,23 @@ export function generateNewspaperVerificationCases(
     }
     seen.add(dedupeKey);
     const id = newspaperVerificationCaseId(value);
-    const target = { type: "source" as const, id: value.sourceResult.sourceId, field: `results.${value.sourceResult.no}.matchIdentity` };
-    if (existingIds.has(id) || existingTargets.has(`${target.type}|${target.id}|${target.field}`)) {
-      skipped.push({ candidateId: value.candidateId, reason: "manual_case_exists" });
+    const target = {
+      type: "source" as const,
+      id: value.sourceResult.sourceId,
+      field: `seasons.${value.sourceResult.year}.results.${value.sourceResult.no}.matchIdentity`,
+    };
+    const targetKey = `${target.type}|${target.id}|${target.field}`;
+    if (existingIds.has(id) || existingTargets.has(targetKey)) {
+      skipped.push({
+        candidateId: value.candidateId,
+        reason: existing.some((item) => item.id === id || `${item.target.type}|${item.target.id}|${item.target.field}` === targetKey)
+          ? "manual_case_exists"
+          : "duplicate",
+      });
       continue;
     }
     const score = `${value.sourceResult.expectedScore.aafk}–${value.sourceResult.expectedScore.opponent}`;
-    cases.push(verificationCaseInput.parse({
+    const generatedCase = verificationCaseInput.parse({
       id,
       status: value.publication.status,
       category: "match",
@@ -110,7 +120,10 @@ export function generateNewspaperVerificationCases(
         hypothesis: value.hypothesis,
         newspaper: value.newspaper,
       },
-    }));
+    });
+    cases.push(generatedCase);
+    existingIds.add(id);
+    existingTargets.add(targetKey);
   }
   return { cases, skipped };
 }

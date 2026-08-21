@@ -50,6 +50,11 @@ Rå OCR-treff og navnelikhet fra CLI-rapportene er bevisst ikke publisert som op
 De er forslag til en redaktør, ikke mangler arkivet har slått fast. Neste arbeid her er
 å gjøre identitetsjobbene mer konkrete når de er menneskelig bekreftet.
 
+NB-community-køen er også en førsteklasses arkivinput. Åpne kandidater vises som konkrete
+avisoppgaver, mens draft-kandidater forblir skjult til en senere data-PR åpner dem.
+Community-svar går til GitHub og kan forberedes som en redaksjonell draft-PR; de endrer
+aldri canonical data eller discovery-manifestet automatisk.
+
 ### 3. Fortellingslaget
 
 Ingen kampreferat ennå. Dette er ikke lenger et problem med datamodellen, men med innhold.

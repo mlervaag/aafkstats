@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { formatNewspaperVerificationIssuePayload } from "@aafkstats/schema";
 import { isCrossSite, isJsonRequest, readBodyLimited } from "@/lib/chat-request";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { createRequestLogger, logUpstreamFailure } from "@/lib/runtime-logging";
@@ -56,15 +57,6 @@ function quote(raw: string): string {
 
 function oneLine(raw: string, max = 160): string {
   return raw.replace(/\s+/g, " ").trim().slice(0, max);
-}
-
-function safeCommunityFinding(value: z.infer<typeof submissionSchema>["communityFinding"]) {
-  if (!value) return {};
-  return {
-    ...value,
-    ...(value.competition ? { competition: oneLine(value.competition, 120).replaceAll("`", "") } : {}),
-    ...(value.reasons ? { reasons: value.reasons.map((reason) => oneLine(reason, 120).replaceAll("`", "")) } : {}),
-  };
 }
 
 function sourceDescription(data: z.infer<typeof submissionSchema>, item: VerificationCaseView): string {
@@ -166,20 +158,25 @@ async function handlePost(req: Request) {
       ...(verificationCase.newspaper ? [
         "",
         "### Strukturert avisverifisering",
-        "```json",
-        JSON.stringify({
+        formatNewspaperVerificationIssuePayload({
           verificationCaseId: verificationCase.id,
           revision: verificationCase.revision,
           answer: data.answer,
+          candidate: { candidateId: verificationCase.newspaper.candidateId },
           sourceResult: verificationCase.newspaper.sourceResult,
           hypothesis: verificationCase.newspaper.hypothesis,
-          newspaperCandidate: {
-            candidateId: verificationCase.newspaper.candidateId,
-            ...verificationCase.newspaper.newspaper,
+          newspaper: verificationCase.newspaper.newspaper,
+          communityFinding: {
+            answer: data.answer,
+            ...(data.communityFinding?.scoreAgreement === "yes" ? { scoreConfirmed: true } : {}),
+            ...(data.communityFinding?.scoreAgreement === "no" ? { scoreConfirmed: false } : {}),
+            ...(data.communityFinding?.matchDate ? { matchDate: data.communityFinding.matchDate } : {}),
+            ...(data.communityFinding?.homeAway ? { homeAway: data.communityFinding.homeAway } : {}),
+            ...(data.communityFinding?.competition ? { competition: oneLine(data.communityFinding.competition, 120).replaceAll("`", "") } : {}),
+            ...(data.communityFinding?.reasons?.length ? { reason: data.communityFinding.reasons.map((reason) => oneLine(reason, 120).replaceAll("`", "")).join("; ") } : {}),
+            ...([data.finding, data.comment].filter(Boolean).length ? { comment: [data.finding, data.comment].filter(Boolean).join(" — ") } : {}),
           },
-          communityFinding: safeCommunityFinding(data.communityFinding),
-        }, null, 2),
-        "```",
+        }),
       ] : []),
       "",
       "### Påstand",
