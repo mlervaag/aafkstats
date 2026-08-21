@@ -37,7 +37,9 @@
     "ingest:nb-newspaper-search": "pnpm --filter @aafkstats/ingest run nb-newspaper-search",
     "ingest:nb-newspaper-batch": "pnpm --filter @aafkstats/ingest run nb-newspaper-batch",
     "ingest:nb-newspaper-discover": "pnpm --filter @aafkstats/ingest run nb-newspaper-discover",
+    "ingest:nb-newspaper-sibling-pilot": "pnpm --filter @aafkstats/ingest run nb-newspaper-sibling-pilot",
     "ingest:sfk-annual-reports": "pnpm --filter @aafkstats/ingest run sfk-annual-reports",
+
     "ingest:sfk-annual-report-analysis": "pnpm --filter @aafkstats/ingest run sfk-annual-report-analysis",
     "ingest:sfk-annual-report-candidates": "pnpm --filter @aafkstats/ingest run sfk-annual-report-candidates",
     "ingest:sfk-annual-report-ocr": "pnpm --filter @aafkstats/ingest run sfk-annual-report-ocr",

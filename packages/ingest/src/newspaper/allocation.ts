@@ -37,9 +37,12 @@ export interface MatchHypothesis {
 
 export interface Allocation {
   hypothesisId: string;
+  /** Den foreslåtte kandidathendelsen fra én-til-én-fordelingen (for inspeksjon og rapportering). */
+  candidateEventId?: string;
+  /** Akseptert hendelsestildeling (KUN satt dersom alle sikkerhetskrav er oppfylt). */
   eventId?: string;
+  decision: "accepted" | "unresolved" | "rejected";
   score: number;
-  /** Nest beste fordeling totalt, og avstanden opp til den beste. */
   runnerUpScore: number;
   margin: number;
   confidence: "high" | "medium" | "low";
@@ -48,38 +51,79 @@ export interface Allocation {
 
 /** Over dette blir fullstendig søk unødvendig dyrt, og grådig tildeling overtar. */
 const BRUTE_FORCE_LIMIT = 6;
-/** Marginen mellom beste og nest beste fordeling som skiller sikkert fra usikkert. */
-const HIGH_MARGIN = 25;
-const MEDIUM_MARGIN = 10;
+/** Minste kant-score som kreves for at en hendelse skal kunne tildeles en hypotese. */
+export const MINIMUM_EDGE_SCORE = 45;
+/** Marginen mot nest beste alternativ som kreves for high confidence. */
+export const HIGH_MARGIN = 8;
+export const MEDIUM_MARGIN = 4;
+
+
+function scoreMatches(scoreFound: [number, number], expectedScore: readonly [number, number]): boolean {
+  return (
+    (scoreFound[0] === expectedScore[0] && scoreFound[1] === expectedScore[1]) ||
+    (scoreFound[0] === expectedScore[1] && scoreFound[1] === expectedScore[0])
+  );
+}
 
 /**
  * Kompatibiliteten mellom én kamppåstand og én avishendelse.
  *
- * Merk at et avvikende resultat ikke gir fradrag. Kilden kan ta feil av
- * resultatet uten å ta feil av at kampen fant sted — det er hele Sarpsborg-
- * tilfellet — så et avvik skal gi mindre uttelling enn et treff, ikke straff.
+ * Minstekrav for en gyldig kant:
+ * 1. Eventet må ha minst ett fragment som omtaler begge lag (sameFragment),
+ *    eller et eksplisitt resultat som matcher kilden.
+ * 2. Merk at et avvikende resultat ikke gir straffefradrag (kilden kan ta
+ *    feil av sifrene), men treff gir positiv uttelling.
  */
 export function edgeScore(hypothesis: MatchHypothesis, event: NewspaperEvent): number {
   const best = event.evidence[0];
+
   if (!best) return 0;
+
+  const hasSameFragment = event.evidence.some((item) => item.sameFragment);
+  const scores = hypothesis.queries.flatMap((query) => (query.expectedScore ? [query.expectedScore] : []));
+  const printed = event.evidence.find((item) => item.scoreFound !== undefined)?.scoreFound;
+  const hasScoreMatch = printed && scores.some((expected) => scoreMatches(printed, expected));
+
+  // Uten felles avsnitt eller resultatmatch er det ingen beviselig kobling til kampen.
+  if (!hasSameFragment && !hasScoreMatch) {
+    return 0;
+  }
+
+  // Hendelser med lav datokonfidens og uten resultatmatch har for svak kvalitet
+  if (!hasScoreMatch && event.dateConfidence === "low" && event.score < 55) {
+    return 0;
+  }
 
   let score = event.score;
 
-  // Enhver av kildepåstandene som stemmer med avisas tall teller. Er kildene
-  // uenige med hverandre, holder det at én av dem treffer.
-  const scores = hypothesis.queries.flatMap((query) => (query.expectedScore ? [query.expectedScore] : []));
-  const printed = event.evidence.find((item) => item.scoreFound !== undefined)?.scoreFound;
-  if (printed && scores.some((expected) => expected[0] === printed[0] && expected[1] === printed[1])) score += 20;
-  else if (printed && scores.some((expected) => expected[0] === printed[1] && expected[1] === printed[0])) score += 15;
+  // Enhver av kildepåstandene som stemmer med avisas tall teller.
+  if (printed && scores.some((expected) => expected[0] === printed[0] && expected[1] === printed[1])) {
+    score += 20;
+  } else if (printed && scores.some((expected) => expected[0] === printed[1] && expected[1] === printed[0])) {
+    score += 15;
+  }
 
   const homeAway = event.evidence.find((item) => item.homeAwayFound !== undefined)?.homeAwayFound;
-  if (homeAway && hypothesis.queries.some((query) => query.homeAwayHint === homeAway)) score += 10;
+  if (homeAway && hypothesis.queries.some((query) => query.homeAwayHint === homeAway)) {
+    score += 10;
+  }
 
-  if (event.evidence.some((item) => item.competitionFound !== undefined)) score += 10;
-  if (event.evidence.some((item) => item.kind === "article")) score += 10;
-  if (event.evidence.length > 1) score += 5;
+  if (hypothesis.queries.some((q) => q.competitionHint && event.evidence.some((e) => e.competitionFound === q.competitionHint))) {
+    score += 15;
+  } else if (event.evidence.some((item) => item.competitionFound !== undefined)) {
+    score += 10;
+  }
 
-  return Math.round(score);
+  if (event.evidence.some((item) => item.kind === "article")) {
+    score += 10;
+  }
+
+  if (event.evidence.length > 1) {
+    score += 5;
+  }
+
+  const finalScore = Math.round(score);
+  return finalScore >= MINIMUM_EDGE_SCORE ? finalScore : 0;
 }
 
 /**
@@ -98,38 +142,188 @@ export function allocateEvents(hypotheses: MatchHypothesis[], events: NewspaperE
     edges.set(hypothesis.id, row);
   }
 
+  // Identifiser symmetriske hypoteser: like scorer og hint med identiske kant-scorer
+  const symmetricHypothesisIds = new Set<string>();
+  for (let i = 0; i < hypotheses.length; i++) {
+    for (let j = i + 1; j < hypotheses.length; j++) {
+      const h1 = hypotheses[i]!;
+      const h2 = hypotheses[j]!;
+      const q1 = h1.queries[0]!;
+      const q2 = h2.queries[0]!;
+      const sameScore = q1.expectedScore && q2.expectedScore &&
+        q1.expectedScore[0] === q2.expectedScore[0] && q1.expectedScore[1] === q2.expectedScore[1];
+      const sameHints = q1.competitionHint === q2.competitionHint && q1.homeAwayHint === q2.homeAwayHint;
+      if (sameScore && sameHints) {
+        const row1 = edges.get(h1.id)!;
+        const row2 = edges.get(h2.id)!;
+        let identical = true;
+        for (const ev of events) {
+          if ((row1.get(ev.id) ?? 0) !== (row2.get(ev.id) ?? 0)) {
+            identical = false;
+            break;
+          }
+        }
+        if (identical) {
+          symmetricHypothesisIds.add(h1.id);
+          symmetricHypothesisIds.add(h2.id);
+        }
+      }
+    }
+  }
+
   const assignments = hypotheses.length <= BRUTE_FORCE_LIMIT && events.length <= BRUTE_FORCE_LIMIT * 2
     ? allAssignments(hypotheses, events)
     : [greedyAssignment(hypotheses, events, edges)];
 
   const scored = assignments
-    .map((assignment) => ({ assignment, total: totalScore(assignment, edges, hypotheses, events) }))
+    .map((assignment) => ({
+      assignment,
+      total: totalScore(assignment, edges, hypotheses, events),
+      evidenceTotal: evidenceTotal(assignment, edges),
+    }))
     .sort((a, b) => b.total - a.total);
 
   const best = scored[0]!;
-  const runnerUp = scored.find((candidate) => !sameAssignment(candidate.assignment, best.assignment));
-  const margin = best.total - (runnerUp?.total ?? 0);
+  const bestEvidenceTotal = best.evidenceTotal;
+  const byId = new Map(events.map((e) => [e.id, e]));
 
-  return hypotheses.map((hypothesis) => {
-    const eventId = best.assignment.get(hypothesis.id);
+  // Pass 1: Beregn kandidat, råscore, evidensmargin og råconfidence
+  const provisional = hypotheses.map((hypothesis) => {
+    const isSymmetric = symmetricHypothesisIds.has(hypothesis.id);
+    const assignedEventId = isSymmetric ? undefined : best.assignment.get(hypothesis.id);
     const row = edges.get(hypothesis.id)!;
+    const rawScore = assignedEventId ? (row.get(assignedEventId) ?? 0) : 0;
+    const candidateEventId = assignedEventId && rawScore >= MINIMUM_EDGE_SCORE ? assignedEventId : undefined;
+    const score = candidateEventId ? rawScore : 0;
+    const candidateEvent = candidateEventId ? byId.get(candidateEventId) : undefined;
+
+    // Beregn margin mot beste reelle alternative fordeling der denne hypotesen
+    // IKKE tildeles candidateEventId, utelukkende basert på evidenssummer (uten kronologibonus).
+    let margin = 0;
+    let runnerUpScore = 0;
+    if (candidateEventId) {
+      if (scored.length > 1) {
+        // Fullstendig søk: finn beste komplette fordeling der hypotesen ikke har denne hendelsen
+        const runnerUpAssignment = scored.find(
+          (a) => a.assignment.get(hypothesis.id) !== candidateEventId,
+        );
+        if (runnerUpAssignment) {
+          margin = Math.max(0, bestEvidenceTotal - runnerUpAssignment.evidenceTotal);
+          const altEventId = runnerUpAssignment.assignment.get(hypothesis.id);
+          runnerUpScore = altEventId ? (row.get(altEventId) ?? 0) : 0;
+        } else {
+          margin = score;
+        }
+      } else {
+        // Greedy fallback: konservativ margin mot beste kvalifiserte alternative hendelse
+        const competingScores = [...row.entries()]
+          .filter(([id, val]) => id !== candidateEventId && val >= MINIMUM_EDGE_SCORE)
+          .map(([, val]) => val)
+          .sort((a, b) => b - a);
+        runnerUpScore = competingScores[0] ?? 0;
+        margin = Math.max(0, score - runnerUpScore);
+      }
+    }
+
+    // Tidskausalt bevis og kildebevis:
+    const isHighDate = candidateEvent?.inferredDate !== undefined &&
+      (candidateEvent.dateConfidence === "high" || candidateEvent.dateConfidence === "medium");
+    const isMediumDate = candidateEvent?.inferredDate !== undefined;
+
+    const hasSameFragment = candidateEvent?.evidence.some((e) => e.sameFragment) ?? false;
+    const hasCompetitionMatch = hypothesis.queries.some(
+      (q) => q.competitionHint && candidateEvent?.evidence.some((e) => e.competitionFound === q.competitionHint),
+    );
+
+    const hasPrintedScore = candidateEvent?.evidence.some((e) => e.scoreFound !== undefined) ?? false;
+
+    // Råconfidence:
+    // 1. En negativ eller null evidensmargin kan ALDRI gi medium eller high confidence.
+    // 2. High krever tidskausalt bevis (high date), felles omtale i samme avsnitt,
+    //    avisrapportert resultat, sterk evidensmargin (>= HIGH_MARGIN) og god score (>= 55).
+    // 3. Medium krever tidskausalt bevis (medium date), positiv evidensmargin (>= MEDIUM_MARGIN) og score (>= 45).
+    let rawConfidence: "high" | "medium" | "low" = "low";
+    if (candidateEventId && !isSymmetric && margin > 0) {
+      if (
+        isHighDate &&
+        hasSameFragment &&
+        hasPrintedScore &&
+        margin >= HIGH_MARGIN &&
+        score >= 55
+      ) {
+        rawConfidence = "high";
+      } else if (isMediumDate && margin >= MEDIUM_MARGIN && score >= 45) {
+        rawConfidence = "medium";
+      }
+    }
+
     return {
-      hypothesisId: hypothesis.id,
-      ...(eventId ? { eventId } : {}),
-      score: eventId ? row.get(eventId)! : 0,
-      runnerUpScore: runnerUp?.total ?? 0,
+      hypothesis,
+      isSymmetric,
+      candidateEventId,
+      candidateEvent,
+      score,
+      runnerUpScore,
       margin,
-      confidence: hypotheses.length === 1 || margin >= HIGH_MARGIN ? "high" : margin >= MEDIUM_MARGIN ? "medium" : "low",
-      alternatives: [...row]
-        .filter(([id, value]) => id !== eventId && value > 0)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 3)
-        .map(([id, value]) => ({ eventId: id, score: value })),
+      rawConfidence,
+      hasCompetitionMatch,
+      row,
     };
   });
+
+  // Pass 2: Sekvensiell acceptance i source-order med kjennskap til tidligere faktiske beslutninger
+  const sorted = [...provisional].sort((a, b) => a.hypothesis.order - b.hypothesis.order);
+  const acceptedHypothesisIds = new Set<string>();
+  const allocationsMap = new Map<string, Allocation>();
+
+  for (const item of sorted) {
+    const { hypothesis, isSymmetric, candidateEventId, score, runnerUpScore, margin, rawConfidence, hasCompetitionMatch, row } = item;
+
+    // En foregående sibling er uoppklart dersom den ikke endte som accepted
+    const hasUnresolvedPrecedingSibling = hypotheses.some(
+      (h) => h.order < hypothesis.order && !acceptedHypothesisIds.has(h.id),
+    );
+    const passesPrecedingCheck = !hasUnresolvedPrecedingSibling || hasCompetitionMatch;
+
+    let confidence: "high" | "medium" | "low" = "low";
+    let decision: Allocation["decision"] = "unresolved";
+
+    if (rawConfidence === "high" && passesPrecedingCheck && candidateEventId && !isSymmetric) {
+      confidence = "high";
+      decision = "accepted";
+      acceptedHypothesisIds.add(hypothesis.id);
+    } else if ((rawConfidence === "high" || rawConfidence === "medium") && candidateEventId && !isSymmetric) {
+      confidence = "medium";
+      decision = "unresolved";
+    } else {
+      confidence = "low";
+      decision = isSymmetric || !candidateEventId ? "rejected" : "unresolved";
+    }
+
+    const eventId = decision === "accepted" ? candidateEventId : undefined;
+
+    allocationsMap.set(hypothesis.id, {
+      hypothesisId: hypothesis.id,
+      ...(candidateEventId ? { candidateEventId } : {}),
+      ...(eventId ? { eventId } : {}),
+      decision,
+      score,
+      runnerUpScore,
+      margin,
+      confidence,
+      alternatives: [...row]
+        .filter(([id, val]) => id !== candidateEventId && val > 0)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 3)
+        .map(([id, val]) => ({ eventId: id, score: val })),
+    });
+  }
+
+  return hypotheses.map((h) => allocationsMap.get(h.id)!);
 }
 
 /** Alle måter hendelsene kan fordeles på, inkludert å la påstander stå tomme. */
+
 function allAssignments(hypotheses: MatchHypothesis[], events: NewspaperEvent[]): Array<Map<string, string | undefined>> {
   const results: Array<Map<string, string | undefined>> = [];
 
@@ -174,7 +368,24 @@ function greedyAssignment(
 }
 
 /**
- * Summen av en fordeling, med kronologi som mykt tillegg.
+ * Ren evidenssum for en fordeling (uten kronologitillegg).
+ * Brukes til objektiv evidensmarginberegning for confidence.
+ */
+function evidenceTotal(
+  assignment: Map<string, string | undefined>,
+  edges: Map<string, Map<string, number>>,
+): number {
+  let total = 0;
+  for (const [hypothesisId, eventId] of assignment) {
+    if (eventId) {
+      total += edges.get(hypothesisId)?.get(eventId) ?? 0;
+    }
+  }
+  return total;
+}
+
+/**
+ * Summen av en fordeling, med kronologi som mykt tillegg ved valg mellom fordelinger.
  *
  * Kildens rekkefølge er et signal, ikke en lov: den retrospektive lista er alt
  * tatt i å ta feil om andre ting. Står to kamper i rekkefølge og hendelsene
@@ -188,11 +399,7 @@ function totalScore(
   events: NewspaperEvent[],
 ): number {
   const dates = new Map(events.map((event) => [event.id, event.inferredDate]));
-  let total = 0;
-
-  for (const [hypothesisId, eventId] of assignment) {
-    if (eventId) total += edges.get(hypothesisId)!.get(eventId)!;
-  }
+  let total = evidenceTotal(assignment, edges);
 
   for (const [index, first] of hypotheses.entries()) {
     for (const second of hypotheses.slice(index + 1)) {
@@ -205,9 +412,4 @@ function totalScore(
   }
 
   return total;
-}
-
-function sameAssignment(left: Map<string, string | undefined>, right: Map<string, string | undefined>): boolean {
-  for (const [key, value] of left) if (right.get(key) !== value) return false;
-  return true;
 }
