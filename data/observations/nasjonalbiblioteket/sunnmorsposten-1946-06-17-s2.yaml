@@ -1,0 +1,31 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1946-06-17-s2
+matchId: 1946-06-15-aalesunds-fk-ranheim
+retrievedAt: "2026-08-21"
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:73552da4a1c154ed817ff1842c66b4f4a34b32cca5b71a345b5fe6154534612c
+raw:
+  avis: Sunnmørsposten
+  dato: 17. juni 1946
+  kamp: Ranheim—Aa.F.K. 2—2
+  side: "2"
+  tittel: Clausenengens fireklubbsturnering
+normalized:
+  date: "1946-06-15"
+  home.clubId: aalesunds-fk
+  away.clubId: ranheim
+  home.score: 2
+  away.score: 2
+  home.halfTimeScore: 0
+  away.halfTimeScore: 1
+  neutralVenue: true
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - neutralVenue
+warnings: []

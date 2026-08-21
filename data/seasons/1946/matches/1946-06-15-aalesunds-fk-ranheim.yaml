@@ -1,0 +1,67 @@
+id: 1946-06-15-aalesunds-fk-ranheim
+date: "1946-06-15"
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1946
+  stage: friendly
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 0
+away:
+  clubId: ranheim
+  score: 2
+  halfTimeScore: 1
+neutralVenue: true
+events:
+  - minute: 32
+    type: goal
+    team: away
+  - minute: 65
+    type: goal
+    team: away
+  - minute: 75
+    type: goal
+    team: home
+    player: Thor Tolaas
+  - minute: 82
+    type: goal
+    team: home
+    player: Karl Løvold
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Clausenengens fireklubbsturnering
+    date: "1946-06-17"
+    url: https://www.nb.no/items/af8f813e3c216326b9ee3e0de58ae934?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/af8f813e3c216326b9ee3e0de58ae934?page=2
+    retrievedAt: "2026-08-21"
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - neutralVenue
+      - events
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: "12"
+    fields:
+      - home.score
+      - away.score
+      - away.clubId
+    note: Clausenengens jubileumsturnering. trykt «ÅFK—Ranheim 2—2 (Ranheim vant på poeng).».
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Clausenengens jubileumsturnering i Kristiansund. Ranheim ble tilkjent seieren på poeng etter 2-2 ved full tid.
