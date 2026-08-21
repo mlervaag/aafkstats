@@ -4,7 +4,7 @@
 
 Denne rapporten dokumenterer den første nye produksjonsbølgen for historisk avisdiscovery mot Nasjonalbiblioteket etter fullført kalibrering og validering i PR #186, #187, #188 og #189.
 
-Beslutningsporten fra PR #189 var **`READY_FOR_NEW_NB_DISCOVERY`**, med følgende ufravikelige premisser:
+Premisser for bølgen:
 1. **Beslutningsstøtte, ikke automatisk sannhetsmaskin:** Ingen pipeline-status (`confirmed`, `probable` e.l.) fører direkte til kanoniske data uten manuell/visuell kontroll mot faktisk avisfaksimile.
 2. **Høsteagent-rolle:** Oppdraget utføres som historisk innhøsting og validering, uten å endre kildekoden til discovery-motoren i `packages/ingest/src/`.
 3. **Målperiode:** 1925–1944 (hvor 1941–1944 var preget av idrettsstreiken med null ordinære A-kamper).
@@ -64,7 +64,7 @@ Discovery ble kjørt for alle 105 automatiske singletons i perioden 1925–1944 
 
 ## 4. Visuell faksimilekontroll & Ground-Truth klassifisering
 
-Alle saker med status `confirmed`, samtlige relevante saker i `probable`-utvalget og utvalgte `ambiguous`-tilfeller ble visuelt kontrollert mot faktiske avissider i Sunnmørsposten via Nasjonalbiblioteket.
+Alle saker med status `confirmed`, et kontrollutvalg på 10 `probable`-saker og utvalgte `ambiguous`-tilfeller ble visuelt kontrollert mot faktiske avissider i *Sunnmørsposten* via Nasjonalbiblioteket.
 
 ### 4.1 Gjennomgang av kontrollerte saker
 
@@ -76,14 +76,14 @@ Alle saker med status `confirmed`, samtlige relevante saker i `probable`-utvalge
 | **1934** | #14 Brage, Trondheim | 1–1 uavgjort | `probable`<br>Dato: 1934-06-10 | Sunnmørsposten 11.06.1934 s. 3:<br>«Brage–Aalesund 1–1... spilt igår [søndag 10.06.1934] i Trondheim foran 700 tilskuere. Sperre målscorer for AaFK». | `facsimile_verified_canonicalizable` | **Kanonisert** |
 | **1935** | #18 Fremad, Lillehammer | 4–1 seier | `probable`<br>Ingen dato funnet | Sunnmørsposten 06.07.1935 s. 5 (og 05.07.1935 s. 3):<br>«I en jevnspilt kamp vant igår [fredag 05.07.1935] Ålesund over Fremad med 4–1 på Nørvebana kl. 20.00». | `facsimile_verified_canonicalizable` | **Kanonisert** |
 | **1935** | #25 Brage, Trondheim | 5–3 seier e.e.o. | `probable`<br>Ingen dato i sammendrag | Sunnmørsposten 19.08.1935 s. 5:<br>«Ålesund–Brage 5–3 etter ekstraomganger. NM 3. runde spilt igår [søndag 18.08.1935] på Nørve. Stillingen e.o. 3–3». | `facsimile_verified_canonicalizable` | **Kanonisert** |
-| **1928** | #13 Drammens BK | 3–1 seier | `probable`<br>Ingen dato | Sunnmørsposten 25.06.1928 s. 4:<br>«Aalesunds Fotballklub begynte sin tur godt. Slog Drammens Ballklub med 3–1...». Østlandstur, spilt 24.06.1928 på Marienlyst. | `facsimile_verified_enrichable`<br>*(Holdt tilbake i kanonisering inntil Marienlyst/motstander-identitet er fullt etablert)* | Venter på neste bølge |
+| **1928** | #13 Drammens BK | 3–1 seier | `probable`<br>Ingen dato | Sunnmørsposten 25.06.1928 s. 4:<br>«Aalesunds Fotballklub begynte sin tur godt. Slog Drammens Ballklub med 3–1...». Østlandstur, spilt 24.06.1928 på Marienlyst. | `facsimile_verified_enrichable`<br>*(Holdt tilbake i kanonisering inntil motstander-identitet/arena er fullt etablert)* | Holdt tilbake |
 | **1935** | #17 Hødd | 2–4 | `probable` | Sunnmørsposten 09.09.1935 s. 5:<br>«Pokalkampen i kl. B igår... Ålesund B slo Hødd 4–3». B-kamp i annen divisjon. | `correct_abstention` / `identity_uncertain` | Ikke kanonisert (B-lag) |
 | **1935** | #16 Xerxes | 4–4 | `probable` | Sunnmørsposten 29.06.1935 s. 3:<br>Omtale av Xerxes–SIF (4–2) i Stavanger under turnéen. Ikke AaFKs oppgjør. | `correct_abstention` | Ikke kanonisert |
 | **1938** | #15 Treff | 3–1 | `probable` | Sunnmørsposten 30.05.1938 s. 8:<br>Resultatbørs med «Treff B slo Farstad 8–0» og separat «Aalesund vant 7–2 mot Smart». | `correct_abstention` | Ikke kanonisert |
 | **1939** | #22 Roald | 3–2 | `probable` | Sunnmørsposten 09.10.1939 s. 8:<br>«Nørvekammeratene (Kløna) spilte mot Roald (8–2)». Ikke AaFKs A-lag. | `correct_abstention` | Ikke kanonisert |
 | **1936** | #17 Ørsta | 2–1 | `ambiguous` | Sunnmørsposten 13.07.1936 s. 5:<br>«Aalesund–Ørsta 7–1 i C-kamp (old boys)». | `correct_abstention` | Ikke kanonisert |
 | **1939** | #24 Lyn, Gjøvik | 0–3 | `ambiguous` | Sunnmørsposten 11.09.1939 s. 7:<br>Resultatbørs med AaFK–CFK 5–1 og Briskebyen–Gjøvik-Lyn 2–3. | `correct_abstention` | Ikke kanonisert |
-| **1940** | #4 Spjelkavik | 5–3 | `ambiguous` | Sunnmørsposten 07.10.1940 s. 3:<br>«Sammensatt A-B-lag fra Å.F.K. vant 8–0 over Spjelkavik». Avisen rapporterer 8–0 for A/B-lag, kilden har 5–3. | `genuine_source_conflict` / `correct_abstention` | Ikke kanonisert |
+| **1940** | #4 Spjelkavik | 5–3 | `ambiguous` | Sunnmørsposten 07.10.1940 s. 3:<br>«Sammensatt A-B-lag fra Å.F.K. vant 8–0 over Spjelkavik». Avisen rapporterer 8–0 for et sammensatt A/B-lag, mens kilden har 5–3. | `identity_uncertain` / `correct_abstention` | Ikke kanonisert |
 
 ---
 
@@ -107,28 +107,42 @@ Følgende 6 nye kamper er visuelt verifisert og kanonisert i arkivet med tilhør
 - Antall ukoblede kildedokumenterte oppføringer er redusert fra **1 582** til **1 570**.
 - Antall kanoniske kamper i arkivet er økt fra **1 518** til **1 524**.
 - Antall klubber er økt fra **194** til **196**.
+- Eksisterende kildepåstander (inkludert `opponentClubId: mjondalen` for 1925) er fullt bevart uten utilsiktede modifikasjoner.
 
 ---
 
 ## 6. Presisjonsmålinger for NB-discovery i produksjon
 
-| Måling | Definisjon | Resultat (Bølge 1) |
-|---|---|---|
-| **Relation Precision (Confirmed)** | Antall `confirmed` med korrekt kamp + motstander + score / Alle `confirmed` | **100.0 %** (1/1) |
-| **Full Precision (Confirmed)** | Antall `confirmed` med korrekt kamp + score + eksakt maskinell dato / Alle `confirmed` | **0.0 %** (0/1)* |
-| **Falske positive kanonisert** | Ubekreftede/feilaktige oppføringer sluppet inn i kanoniske data | **0.0 %** (0) |
-| **Abstention Precision** | Reell støy / B-kamper / resultatbørser korrekt holdt tilbake som `probable`/`ambiguous` | **100.0 %** |
+### 6.1 Confirmed Precision
+- **Relation Precision (Confirmed):** **100.0 %** (1/1) – Kampidentitet, motstander og målscore var korrekt funnet.
+- **Full Confirmed Precision (Eksakt dato):** **0.0 %** (0/1) – Pipeline foreslo `1929-05-14`, mens faksimile-ground-truth er `1929-05-19`.
+- **Falske positive kanonisert:** **0.0 %** (0/6) – Ingen feilaktige oppføringer ble sluppet inn i kanoniske data takket være manuell faksimilekontroll.
 
-*\* Merknad om dato-presisjon:* Pipeline identifiserte riktig avisartikkel og riktig kamp/score for 1929 Brage, men ukedagsberegningen trakk fra 7 dager basert på «Tirsdag 21. mai» i avisheaderen fremfor pinsedatoen (19. mai). Dette beviser verdien av agentur-regelen: **Visuell faksimilekontroll må alltid foretas før kanonisering.**
+### 6.2 Probable Sample Evaluering (10 visuelt kontrollerte saker)
+- **Reelle AaFK A-kamper / relasjoner:** 6 av 10 (60.0 %)
+- **Kanoniserbare (sikker dato + arena + fullstendig kontekst):** 5 av 10 (50.0 %: 1925 Gjøa, 1927 Hardy, 1934 Brage, 1935 Fremad, 1935 Brage)
+- **Holdt tilbake pga. uavklart motstander/arena:** 1 av 10 (10.0 %: 1928 Drammens BK)
+- **Støy / B-lag / andre klubbers kamper:** 4 av 10 (40.0 %: 1935 Hødd B-lag, 1935 Xerxes–SIF i Stavanger, 1938 Treff B-lag, 1939 Roald Nørvekammeratene)
 
 ---
 
-## 7. Beslutningsport
+## 7. Ny feilklasse avdekket: Weekday inference fra avisutgave/header
 
-### **Beslutning: `CONTINUE_NEW_NB_DISCOVERY`**
+### Analyse av 1929 Brage:
+- **Avisutgave:** *Sunnmørsposten*, tirsdag 21. mai 1929 (`date: 1929-05-21`).
+- **Pipeline-utfall:** Dato utledet til tirsdag 14. mai 1929 (`1929-05-14`).
+- **Faktisk kampdato:** 1. pinsedag, søndag 19. mai 1929 (`1929-05-19`).
+- **Feilmekanisme:** Discovery-motorens ukedagsutleder har fanget opp ukedagen «tirsdag» fra avisens utgivelsesdag / topptekst / OCR-kontekst, tolket det som at kampen ble spilt på en tirsdag, og trukket fra 7 dager ($21 - 7 = 14$). Referatet omtalte imidlertid *«Jubileumskampene i pinsen»*, hvor 1. pinsedag var søndag 19. mai.
+- **Konklusjon:** Discovery-koden i `packages/ingest/src/` skal **ikke** endres i denne innhøstings-PR-en, men denne feilklassen dokumenteres som grunnlag for en separat utvikler-PR for å forbedre ukedagskontekst og pinnedags-/høytidskontekst.
+
+---
+
+## 8. Beslutningsport
+
+### **Beslutning: `PAUSE_AND_FIX_DISCOVERY`**
 
 **Begrunnelse:**
-1. NB-discovery fungerer stabilt og presist som beslutningsstøtte i produksjon for perioden 1925–1944.
-2. Filteret for B-lag, resultatbørser og temporale distanser holder støy unna `confirmed`.
-3. Prosessen bevarer usikkerhet, fører 0 falske kanoniseringer, og kobler kilderesultater sikkert.
-4. Neste trinn kan fortsette med påfølgende singleton-bølger for andre historiske tidsrom (f.eks. 1915–1924 og 1950–1965), samt forberedelse av en dedikert strategi for sibling-grupper.
+1. Eneste nye pipeline-`confirmed` i denne bølgen (Brage 1929) hadde korrekt kamp og score, men feilet på eksakt dato (`1929-05-14` vs. faktisk `1929-05-19`), slik at Full Confirmed Precision var 0/1.
+2. Manuell faksimilekontroll fungerte etter hensikten og forhindret feilaktig datokanonisering.
+3. De 6 manuelt verifiserte kanoniske kampene beholdes uendret i arkivet, da de har 100 % verifisert faksimile-ground-truth.
+4. Ytterligere automatiske discovery-bølger pauses inntil ukedagsutledningen fra avisheader/dato i discovery-motoren er utbedret og testet i en egen utvikler-PR.
