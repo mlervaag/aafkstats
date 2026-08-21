@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { MissingOverviewContent } from "../page";
+import { MissingOverviewContent } from "../MissingOverviewContent";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata(

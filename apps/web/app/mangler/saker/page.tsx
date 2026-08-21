@@ -17,7 +17,10 @@ export default function VerificationCasesPage() {
       <header className="page-intro">
         <p className="eyebrow">Manuell kildekontroll</p>
         <h1>Velg en sak</h1>
-        <p className="lede">Kontroller en kilde og svar JA, NEI eller KAN IKKE BESTEMMES. Start med et navn, år eller tema du kjenner.</p>
+        <p className="lede">
+          Kontroller en kilde og svar JA, NEI eller KAN IKKE BESTEMMES. Velg mellom en
+          konkret avisside om en kamp og direkte kildekontroll av en påstand eller konflikt.
+        </p>
       </header>
       <CaseDirectory cases={cases} />
     </>

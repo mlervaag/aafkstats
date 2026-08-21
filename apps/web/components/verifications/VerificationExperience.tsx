@@ -74,6 +74,7 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
   const [reservation, setReservation] = useState<"idle" | "checking" | "acquired" | "unavailable">("idle");
   const [reservationNotice, setReservationNotice] = useState<string | null>(null);
   const verificationStartedAt = useRef<number | null>(null);
+  const newspaperShownAt = useRef<number | null>(null);
 
   const current = orderedCases[index];
   const availableCases = useMemo(
@@ -154,10 +155,18 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
     if (!current) return;
     const key = progressKey(current.id, current.revision);
     verificationStartedAt.current = null;
+    newspaperShownAt.current = current.newspaper ? Date.now() : null;
     setError(null);
     setSuccessUrl(null);
     setShowEvidence(false);
     setReservation("idle");
+    if (current.newspaper) {
+      trackEvent("newspaper-verification-shown", {
+        category: "match",
+        year: current.newspaper.sourceResult.year,
+        discovery_status: current.newspaper.hypothesis.discoveryStatus,
+      });
+    }
     try {
       const saved = sessionStorage.getItem(key);
       const nextDraft = restoreVerificationDraft(saved, current.sources[0]?.key ?? "", current.sources.length > 0);
@@ -206,7 +215,7 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
         answer,
         year: current.newspaper.sourceResult.year,
         discovery_status: current.newspaper.hypothesis.discoveryStatus,
-        seconds: Math.max(0, Math.round((Date.now() - (verificationStartedAt.current ?? Date.now())) / 1000)),
+        seconds: Math.max(0, Math.round((Date.now() - (newspaperShownAt.current ?? Date.now())) / 1000)),
       });
     }
     setShowEvidence(true);
@@ -254,6 +263,14 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
     const id = current.id;
     if (kind === "skipped" && !successUrl) {
       trackEvent("verification-skipped", { category: current.category });
+      if (current.newspaper) {
+        trackEvent("newspaper-verification-skipped", {
+          category: "match",
+          year: current.newspaper.sourceResult.year,
+          discovery_status: current.newspaper.hypothesis.discoveryStatus,
+          seconds: Math.max(0, Math.round((Date.now() - (newspaperShownAt.current ?? Date.now())) / 1000)),
+        });
+      }
     }
     const nextCompleted = kind === "completed" ? [...new Set([...completed, id])] : completed;
     const nextSkipped = kind === "skipped" ? [...new Set([...skipped, id])] : skipped;
@@ -348,7 +365,7 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
         answer: draft.answer,
         year: current.newspaper.sourceResult.year,
         discovery_status: current.newspaper.hypothesis.discoveryStatus,
-        seconds: Math.max(0, Math.round((Date.now() - (verificationStartedAt.current ?? Date.now())) / 1000)),
+        seconds: Math.max(0, Math.round((Date.now() - (newspaperShownAt.current ?? Date.now())) / 1000)),
         submission_status: "ok",
       });
       if (checkoutOwner) {
@@ -377,7 +394,7 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
         answer: draft.answer,
         year: current.newspaper.sourceResult.year,
         discovery_status: current.newspaper.hypothesis.discoveryStatus,
-        seconds: Math.max(0, Math.round((Date.now() - (verificationStartedAt.current ?? Date.now())) / 1000)),
+        seconds: Math.max(0, Math.round((Date.now() - (newspaperShownAt.current ?? Date.now())) / 1000)),
         submission_status: "error",
       });
     } finally {
@@ -419,7 +436,7 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
 
       <article className={styles.caseCard} aria-labelledby="case-question" aria-busy={reservation === "checking"}>
         <div className={styles.caseMeta}>
-          <span>{CATEGORY_LABELS[current.category]}</span>
+          <span>{current.newspaper ? "Kamp fra avis" : `Direkte kildekontroll · ${CATEGORY_LABELS[current.category]}`}</span>
           <span>ca. {current.estimatedMinutes} min</span>
           <span>
             {availabilityChecked && currentPosition > 0

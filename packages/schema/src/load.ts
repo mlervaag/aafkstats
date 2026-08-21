@@ -29,6 +29,10 @@ import { flattenSourceResults, sourceResultCollection } from "./source-result.js
 import type { SourceResult, SourceResultCollection } from "./source-result.js";
 import { verificationCaseInput, verificationRevision } from "./verification-case.js";
 import type { VerificationCase, VerificationCaseInput } from "./verification-case.js";
+import {
+  generateNewspaperVerificationCases,
+  newspaperVerificationCandidateManifest,
+} from "./newspaper-verification-candidates.js";
 import { harvestBatchManifest } from "./historical/harvest-manifest.js";
 import type { HarvestBatchManifest } from "./historical/harvest-manifest.js";
 
@@ -291,11 +295,29 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
     harvest.file = relative(root, join(root, "harvests", `${harvest.id}.yaml`)).replace(/\\/g, "/");
   }
 
-  const caseInputs = (await readAll("verification-cases", verificationCaseInput)) as VerificationCaseInput[];
+  const manualCaseInputs = (await readAll("verification-cases", verificationCaseInput)) as VerificationCaseInput[];
+  const generatedCaseInputs: VerificationCaseInput[] = [];
+  const communityQueueFile = join(root, "discovery", "community-candidate-queue.yaml");
+  if (existsSync(communityQueueFile)) {
+    const manifest = await parseFile(
+      communityQueueFile,
+      newspaperVerificationCandidateManifest,
+      root,
+      issues,
+    );
+    if (manifest !== null) {
+      generatedCaseInputs.push(
+        ...generateNewspaperVerificationCases(manifest, manualCaseInputs).cases,
+      );
+    }
+  }
+  const caseInputs = [...manualCaseInputs, ...generatedCaseInputs];
   const verificationCases: VerificationCase[] = caseInputs.map((entry) => ({
     ...entry,
     revision: verificationRevision(entry),
-    file: `verification-cases/${entry.id}.yaml`,
+    file: manualCaseInputs.includes(entry)
+      ? `verification-cases/${entry.id}.yaml`
+      : `discovery/community-candidate-queue.yaml#${entry.newspaper?.candidateId ?? entry.id}`,
   }));
 
   return { clubs, venues, competitions, providers, seasons, matches, observations, historicalObservations, standings: tables, people, organizations, organizationSnapshots, contributions, sources, extractions, sourceResults, harvests, verificationCases, issues };

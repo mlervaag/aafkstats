@@ -1,8 +1,10 @@
-import { existsSync, readFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join, resolve } from "node:path";
 import { describe, expect, it } from "vitest";
-import { parse } from "yaml";
+import { parse, stringify } from "yaml";
 import { generateNewspaperVerificationCases } from "../src/newspaper-verification-candidates.js";
+import { loadArchive } from "../src/load.js";
 
 const manifest = JSON.parse(readFileSync(resolve(import.meta.dirname, "fixtures/newspaper-community-candidates.json"), "utf8")) as unknown;
 
@@ -28,6 +30,35 @@ describe("generator for avisverifisering", () => {
     expect(withDuplicate.skipped.some((item) => item.reason === "duplicate")).toBe(true);
     const protectedResult = generateNewspaperVerificationCases(manifest, [generated.cases[0]!]);
     expect(protectedResult.skipped.some((item) => item.reason === "manual_case_exists")).toBe(true);
+  });
+
+  it("lar en manuell sak overstyre både stabil ID og kilderesultat-claim", () => {
+    const generated = generateNewspaperVerificationCases(manifest);
+    const first = generated.cases[0]!;
+    const sameId = generateNewspaperVerificationCases(manifest, [first]);
+    expect(sameId.cases).not.toContainEqual(first);
+    expect(sameId.skipped).toContainEqual({ candidateId: first.newspaper!.candidateId, reason: "manual_case_exists" });
+    const sameTarget = generateNewspaperVerificationCases(manifest, [{ id: "manuell-avisvurdering", target: first.target }]);
+    expect(sameTarget.skipped).toContainEqual({ candidateId: first.newspaper!.candidateId, reason: "manual_case_exists" });
+  });
+
+  it("lar loaderen bruke en manuell sak framfor kandidaten i manifestet", async () => {
+    const root = mkdtempSync(join(tmpdir(), "aafk-manual-newspaper-case-"));
+    try {
+      mkdirSync(join(root, "discovery"), { recursive: true });
+      mkdirSync(join(root, "verification-cases"), { recursive: true });
+      writeFileSync(join(root, "discovery", "community-candidate-queue.yaml"), stringify(manifest), "utf8");
+      const generated = generateNewspaperVerificationCases(manifest).cases[0]!;
+      const manual = { ...generated, context: "Manuell redaksjonell vurdering vinner." };
+      writeFileSync(join(root, "verification-cases", `${manual.id}.yaml`), stringify(manual), "utf8");
+      const archive = await loadArchive(root);
+      expect(archive.issues).toEqual([]);
+      expect(archive.verificationCases.filter((item) => item.id === manual.id)).toHaveLength(1);
+      expect(archive.verificationCases.find((item) => item.id === manual.id)?.context).toBe("Manuell redaksjonell vurdering vinner.");
+      expect(archive.verificationCases.find((item) => item.id === manual.id)?.file).toBe(`verification-cases/${manual.id}.yaml`);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it("parser og genererer saker for den faktiske produksjonskøen", () => {

@@ -5,6 +5,7 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
+import { parseNewspaperVerificationIssue } from "@aafkstats/schema";
 import VerificationCasePage, { generateStaticParams } from "../app/mangler/[id]/page.js";
 import { GET as getCheckout, POST as postCheckout } from "../app/api/verifications/checkout/route.js";
 import { POST } from "../app/api/verifications/route.js";
@@ -89,12 +90,17 @@ describe("verifiseringskøen", () => {
   it("presenterer kildekontroll som et lavterskel bidrag", () => {
     const html = renderToStaticMarkup(React.createElement(ContributeVerificationCard, {
       openCaseIds: ["fixture-open-high", "fixture-open-low"],
+      newspaperCaseCount: 1,
+      directCaseCount: 1,
       minimumMinutes: 5,
       maximumMinutes: 15,
     }));
     expect(html).toContain("Enkleste måten å bidra");
     expect(html).toContain("2 saker trenger hjelp");
     expect(html).toContain("Ingen forkunnskaper eller konto kreves");
+    expect(html).toContain("Kamp fra avis");
+    expect(html).toContain("Direkte kildekontroll");
+    expect(html).toContain("Se absolutt alle mangler og lister");
     expect(html).toContain('href="/mangler"');
     expect(html).toContain('href="/mangler/saker"');
   });
@@ -178,9 +184,17 @@ describe("verifiseringsinnsending", () => {
     const issue = JSON.parse(createdBody) as { body: string; labels: string[] };
     expect(issue.body).toContain('"verificationCaseId"');
     expect(issue.body).toContain('"sourceResult"');
-    expect(issue.body).toContain('"newspaperCandidate"');
+    expect(issue.body).toContain('"candidate"');
+    expect(issue.body).toContain("newspaper-verification-payload:v1");
     expect(issue.body).toContain('"communityFinding"');
     expect(issue.labels).toContain("inconclusive");
+    expect(parseNewspaperVerificationIssue(issue.body)).toMatchObject({
+      verificationCaseId: item.id,
+      revision: item.revision,
+      answer: "inconclusive",
+      candidate: { candidateId: item.newspaper!.candidateId },
+      communityFinding: { answer: "inconclusive", reason: "Utydelig faksimile" },
+    });
   });
 
   it("avviser en foreldet revisjon med 409 før GitHub kalles", async () => {

@@ -17,7 +17,8 @@ NB-discovery. Dette er fortsatt verifiseringsinnspill, ikke kampdata. Svarene er
 - **KAN IKKE BESTEMMES:** Siden er kontrollert, men avgjør ikke påstanden sikkert.
 - **Hopp over:** Saken er ikke faglig vurdert og sender ikke inn noe svar.
 
-Generatoren tar kontrakten `nb-newspaper-community-candidates@1`. Den publiserer bare
+Produksjonsloaderen leser `data/discovery/community-candidate-queue.yaml` direkte og
+gjenbruker generatoren for kontrakten `nb-newspaper-community-candidates@1`. Den publiserer bare
 kandidater med `communityReviewable: true` og `visibility: community_reviewable`.
 Standardstatus er `draft`; `open` krever en eksplisitt `approvedAt`. Kandidat-ID og stabil
 kilderesultatnøkkel dedupliseres, og eksisterende manuelle saker overskrives aldri.
@@ -29,14 +30,25 @@ og KAN IKKE BESTEMMES kan få strukturerte årsaker. Innsendingen blir et GitHub
 `verificationCaseId`, revisjon, kilderesultat, hypotese, aviskandidat og community-funn.
 Ingen av delene endrer canonical matches eller source-results automatisk.
 
-Kjør generatoren som tørrkjøring:
+Kjør generatoren som tørrkjøring eller preview:
 
 ```sh
-pnpm data:newspaper-verification-candidates -- --input <manifest.json>
+pnpm data:newspaper-verification-candidates -- --input <manifest.yaml>
 ```
 
 Legg til `--write` og eventuelt `--output <mappe>` først etter redaksjonell gjennomgang.
 Vanlige tester bruker bare fixtures og gjør ingen kall til NB.
+
+Et innsendt avisfunn får en versjonert, maskinlesbar issue-blokk. Redaksjonell behandling
+starter med:
+
+```sh
+pnpm data:newspaper-verification-review -- --issue <issue.md> --issue-url <issue-url>
+```
+
+Kommandoen stopper gammel revisjon, skiller reviewhistorikk fra canonical data og lager et
+manuelt case-utkast som overstyrer den genererte kandidaten. Hele rutinen står i
+[`NEWSPAPER_COMMUNITY_EDITORIAL_WORKFLOW.md`](NEWSPAPER_COMMUNITY_EDITORIAL_WORKFLOW.md).
 
 ### 0.1 Leveransegrense for PR #126
 

@@ -71,6 +71,11 @@ interface EventProperties {
     year: number;
     discovery_status: "confirmed" | "probable" | "ambiguous" | "conflict" | "not_found";
   };
+  "newspaper-verification-shown": {
+    category: "match";
+    year: number;
+    discovery_status: "confirmed" | "probable" | "ambiguous" | "conflict" | "not_found";
+  };
   "newspaper-verification-answer": {
     category: "match";
     answer: "yes" | "no" | "inconclusive";
@@ -85,6 +90,12 @@ interface EventProperties {
     discovery_status: "confirmed" | "probable" | "ambiguous" | "conflict" | "not_found";
     seconds: number;
     submission_status: "ok" | "error";
+  };
+  "newspaper-verification-skipped": {
+    category: "match";
+    year: number;
+    discovery_status: "confirmed" | "probable" | "ambiguous" | "conflict" | "not_found";
+    seconds: number;
   };
   /** Det innebygde skjemaet for minner og observasjoner ble åpnet. */
   "contribution-opened": { scope: "match" | "season" | "person" };

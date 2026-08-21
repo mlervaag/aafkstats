@@ -5,6 +5,8 @@ import styles from "./ContributeVerificationCard.module.css";
 
 interface ContributeVerificationCardProps {
   openCaseIds: string[];
+  newspaperCaseCount: number;
+  directCaseCount: number;
   minimumMinutes: number;
   maximumMinutes: number;
 }
@@ -15,6 +17,8 @@ function caseCount(count: number): string {
 
 export function ContributeVerificationCard({
   openCaseIds,
+  newspaperCaseCount,
+  directCaseCount,
   minimumMinutes,
   maximumMinutes,
 }: ContributeVerificationCardProps) {
@@ -59,6 +63,18 @@ export function ContributeVerificationCard({
           Du beskriver funnet og hvor du fant det. En redaktør vurderer dokumentasjonen
           før arkivet endres.
         </p>
+        <div className={styles.caseTypes} aria-label="Typer saker du kan kontrollere">
+          <div>
+            <strong>Kamp fra avis</strong>
+            <span>{caseCount(newspaperCaseCount)}</span>
+            <p>Åpne en bestemt Sunnmørsposten-side og kontroller lagpar og resultat.</p>
+          </div>
+          <div>
+            <strong>Direkte kildekontroll</strong>
+            <span>{caseCount(directCaseCount)}</span>
+            <p>Avklar en konkret kildekonflikt om kamp, person, verv eller klubb.</p>
+          </div>
+        </div>
       </div>
 
       <div className={styles.action}>
@@ -77,6 +93,7 @@ export function ContributeVerificationCard({
           {availableCount > 0 ? "Finn en sak å kontrollere" : "Se bidrag og historikk"}
         </a>
         <a className={styles.directoryLink} href="/mangler/saker">Se alle åpne saker</a>
+        <a className={styles.directoryLink} href="/mangler/oversikt">Se absolutt alle mangler og lister</a>
       </div>
     </section>
   );

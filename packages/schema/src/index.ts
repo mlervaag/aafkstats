@@ -14,5 +14,6 @@ export * from "./extraction.js";
 export * from "./source-result.js";
 export * from "./verification-case.js";
 export * from "./newspaper-verification-candidates.js";
+export * from "./newspaper-verification-editorial.js";
 export * from "./preservation-exceptions.js";
 export * from "./historical/index.js";

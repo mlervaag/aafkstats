@@ -59,7 +59,10 @@ export function CaseDirectory({ cases }: { cases: VerificationCaseView[] }) {
   const visible = useMemo(() => {
     const normalized = query.trim().toLocaleLowerCase("nb");
     return cases.filter((item) => !unavailable.includes(item.id) && !completed.includes(item.id) &&
-      (category === "all" || (category === "newspaper_match" ? Boolean(item.newspaper) : item.category === category && !item.newspaper)) &&
+      (category === "all"
+        || (category === "newspaper_match" ? Boolean(item.newspaper)
+          : category === "direct" ? !item.newspaper
+            : item.category === category && !item.newspaper)) &&
       (newspaper === "all" || item.newspaper?.newspaper.title === newspaper) &&
       (period === "all" || (item.newspaper && Math.floor(item.newspaper.sourceResult.year / 10) * 10 === Number(period))) &&
       (!normalized || `${item.question} ${item.context} ${item.newspaper?.sourceResult.opponent ?? ""} ${item.newspaper?.sourceResult.year ?? ""}`.toLocaleLowerCase("nb").includes(normalized)),
@@ -69,8 +72,24 @@ export function CaseDirectory({ cases }: { cases: VerificationCaseView[] }) {
   const categories = [...new Set(cases.map((item) => item.newspaper ? "newspaper_match" : item.category))];
   const newspapers = [...new Set(cases.flatMap((item) => item.newspaper ? [item.newspaper.newspaper.title] : []))];
   const periods = [...new Set(cases.flatMap((item) => item.newspaper ? [Math.floor(item.newspaper.sourceResult.year / 10) * 10] : []))].sort((a, b) => a - b);
+  const newspaperCount = cases.filter((item) => item.newspaper).length;
+  const directCount = cases.length - newspaperCount;
   return (
     <>
+      <div className={styles.caseGuide}>
+        <div>
+          <span>{newspaperCount} saker</span>
+          <strong>Kamp fra avis</strong>
+          <p>Du får én bestemt avisside og kontrollerer om lagpar og resultat stemmer.</p>
+          <button type="button" onClick={() => setCategory("newspaper_match")}>Vis avissakene</button>
+        </div>
+        <div>
+          <span>{directCount} saker</span>
+          <strong>Direkte JA/NEI-kontroll</strong>
+          <p>Du sammenligner en konkret påstand med en oppgitt kilde, ofte der kilder er uenige.</p>
+          <button type="button" onClick={() => setCategory("direct")}>Vis de direkte sakene</button>
+        </div>
+      </div>
       <div className={styles.filters}>
         <label>Søk i sakene<input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Navn, år eller motstander" /></label>
         <div className={styles.chips} aria-label="Filtrer etter type">
@@ -94,6 +113,13 @@ export function CaseDirectory({ cases }: { cases: VerificationCaseView[] }) {
         ))}
       </ol>
       {visible.length === 0 && <p className={styles.empty}>Ingen saker passer filteret. Prøv et annet ord eller vis alle kategorier.</p>}
+      <aside className={styles.allMissing}>
+        <div>
+          <strong>Leter du etter hele arbeidslista?</strong>
+          <p>Den komplette oversikten viser også historiske resultater, manglende kampfelt, sesongdekning, personkonflikter og lagoppstillingskandidater.</p>
+        </div>
+        <a href="/mangler/oversikt">Se absolutt alle mangler og lister <span aria-hidden="true">→</span></a>
+      </aside>
     </>
   );
 }
