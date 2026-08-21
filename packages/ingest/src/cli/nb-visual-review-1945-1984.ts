@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { parse as parseYaml } from "yaml";
-import { repoRoot } from "@aafkstats/schema/load";
+import { repoRoot, loadArchive } from "@aafkstats/schema/load";
 
 export interface ReviewedCandidate {
   candidateId: string;
@@ -28,6 +28,10 @@ export interface ReviewedCandidate {
     matchDate: {
       value: string;
       confidence: "high" | "medium" | "low";
+    };
+    dateEvidence?: {
+      type: "explicit_date" | "yesterday_reference" | "weekday_reference" | "fixture_plus_report" | "other";
+      textSummary: string;
     };
     homeAway: "home" | "away" | "neutral" | "unknown";
     competition: {
@@ -100,6 +104,13 @@ export interface SecondPassAuditEntry {
     notes: string;
   };
   agreed: boolean;
+  adjudication?: {
+    field: string;
+    firstPass: CanonicalEligibility;
+    secondPass: CanonicalEligibility;
+    final: CanonicalEligibility;
+    evidenceBasis: string;
+  };
 }
 
 /**
@@ -107,7 +118,21 @@ export interface SecondPassAuditEntry {
  */
 export async function auditVisualReviewManifest(): Promise<{
   manifestPath: string;
-  summary: any;
+  summary: {
+    totalHypotheses: number;
+    visuallyReviewedPilotCases: number;
+    unreviewedAwaitingBatch: number;
+    exactMatchCount: number;
+    exactSiblingCount: number;
+    siblingGroupOnlyCount: number;
+    scoreConflictCount: number;
+    nonSeniorCount: number;
+    wrongEventCount: number;
+    insufficientCount: number;
+    canonicalReadyCount: number;
+    pilotVisualResolutionRate: number;
+    secondPassAgreementRate: number;
+  };
   errors: string[];
 }> {
   const root = repoRoot();
@@ -120,6 +145,9 @@ export async function auditVisualReviewManifest(): Promise<{
   const candidatesRaw = await readFile(candidatesPath, "utf8");
   const candidatesData = parseYaml(candidatesRaw, { schema: "core" });
 
+  const archive = await loadArchive();
+  const validClubIds = new Set(archive.clubs.map((c) => c.id));
+
   const validCandidateIds = new Set<string>();
   for (const h of candidatesData.hypotheses) {
     if (h.candidates) {
@@ -131,6 +159,25 @@ export async function auditVisualReviewManifest(): Promise<{
 
   const errors: string[] = [];
   const cases: VisualReviewCase[] = manifest.cases || [];
+
+  // 1. Validate pilot selection stratification
+  const pilotSel = manifest.pilotSelection;
+  if (!pilotSel) {
+    errors.push("Manifest is missing pilotSelection metadata");
+  } else {
+    if (pilotSel.periods?.["1945-1954"] !== 15) {
+      errors.push(`Pilot selection period 1945-1954 expected 15, found ${pilotSel.periods?.["1945-1954"]}`);
+    }
+    if (pilotSel.periods?.["1955-1964"] !== 25) {
+      errors.push(`Pilot selection period 1955-1964 expected 25, found ${pilotSel.periods?.["1955-1964"]}`);
+    }
+    if (pilotSel.periods?.["1965-1974"] !== 11) {
+      errors.push(`Pilot selection period 1965-1974 expected 11, found ${pilotSel.periods?.["1965-1974"]}`);
+    }
+    if (pilotSel.periods?.["1975-1984"] !== 9) {
+      errors.push(`Pilot selection period 1975-1984 expected 9, found ${pilotSel.periods?.["1975-1984"]}`);
+    }
+  }
 
   let visuallyReviewedCasesCount = 0;
   let exactMatchCount = 0;
@@ -184,17 +231,31 @@ export async function auditVisualReviewManifest(): Promise<{
       if (obs.opponent.confidence !== "high") {
         errors.push(`Case ${c.hypothesisId} is ready but opponent confidence is ${obs.opponent.confidence}`);
       }
+      // Validate opponent clubId against canonical clubs
+      if (!validClubIds.has(obs.opponent.clubId)) {
+        errors.push(`Case ${c.hypothesisId} is ready but clubId '${obs.opponent.clubId}' does not exist in canonical archive clubs`);
+      }
       if (obs.score.confidence !== "high") {
         errors.push(`Case ${c.hypothesisId} is ready but score confidence is ${obs.score.confidence}`);
       }
       if (obs.matchDate.confidence !== "high") {
         errors.push(`Case ${c.hypothesisId} is ready but matchDate confidence is ${obs.matchDate.confidence}`);
       }
+      // Date evidence validation
+      if (!obs.dateEvidence || !obs.dateEvidence.textSummary) {
+        errors.push(`Case ${c.hypothesisId} is ready with high confidence date but lacks dateEvidence`);
+      }
+      if (obs.matchDate.value === activeCand.newspaper.issueDate && obs.dateEvidence?.type !== "explicit_date") {
+        errors.push(`Case ${c.hypothesisId} has matchDate equal to issueDate without explicit dateEvidence`);
+      }
       if (obs.homeAway === "unknown") {
         errors.push(`Case ${c.hypothesisId} is ready but homeAway is unknown`);
       }
       if (!obs.competition.competitionId || obs.competition.confidence !== "high") {
         errors.push(`Case ${c.hypothesisId} is ready but competition is invalid or not high confidence`);
+      }
+      if (!activeCand.visualEvidenceSummary || activeCand.visualEvidenceSummary.length < 15) {
+        errors.push(`Case ${c.hypothesisId} is ready but has inadequate visualEvidenceSummary`);
       }
     }
 
@@ -220,7 +281,25 @@ export async function auditVisualReviewManifest(): Promise<{
     }
   }
 
+  // 2. Validate second-pass audit coverage
   const secondPassAudit = manifest.secondPassAudit;
+  if (secondPassAudit) {
+    const p1Count = secondPassAudit.cases.filter((s: SecondPassAuditEntry) => s.season >= 1945 && s.season <= 1954).length;
+    const p2Count = secondPassAudit.cases.filter((s: SecondPassAuditEntry) => s.season >= 1955 && s.season <= 1964).length;
+    const p3Count = secondPassAudit.cases.filter((s: SecondPassAuditEntry) => s.season >= 1965 && s.season <= 1974).length;
+    const p4Count = secondPassAudit.cases.filter((s: SecondPassAuditEntry) => s.season >= 1975 && s.season <= 1984).length;
+
+    if (p1Count === 0 || p2Count === 0 || p3Count === 0 || p4Count === 0) {
+      errors.push(`Second-pass audit does not cover all 4 periods: P1=${p1Count}, P2=${p2Count}, P3=${p3Count}, P4=${p4Count}`);
+    }
+
+    for (const entry of secondPassAudit.cases) {
+      if (!entry.agreed && !entry.adjudication) {
+        errors.push(`Second-pass disagreement on ${entry.hypothesisId} is not adjudicated or propagated`);
+      }
+    }
+  }
+
   const summary = {
     totalHypotheses: cases.length,
     visuallyReviewedPilotCases: visuallyReviewedCasesCount,
