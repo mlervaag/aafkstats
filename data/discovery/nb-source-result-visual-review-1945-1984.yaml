@@ -10,9 +10,9 @@ pilotSelection:
     1965-1974: 11
     1975-1984: 9
   priority:
-    high: 37
-    medium: 12
-    low: 11
+    high: 30
+    medium: 18
+    low: 12
   singleton: 13
   sibling: 47
   externalRegressionControls:
@@ -243,11 +243,11 @@ secondPassAudit:
       isSingleton: false
       candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-013-17ef7f34-p2
       firstPass:
-        claimResolution: exact_sibling
-        canonicalEligibility: ready
+        claimResolution: sibling_group_only
+        canonicalEligibility: insufficient
       secondPass:
-        claimResolution: exact_sibling
-        canonicalEligibility: ready
+        claimResolution: sibling_group_only
+        canonicalEligibility: insufficient
         visuallyReviewed: true
         notes: Uavhengig re-inspeksjon av faksimile bekrefter first-pass observasjon for
           Rollon (1955).
@@ -363,11 +363,11 @@ secondPassAudit:
       isSingleton: false
       candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1965-008-c865a235-p2
       firstPass:
-        claimResolution: exact_sibling
-        canonicalEligibility: ready
+        claimResolution: sibling_group_only
+        canonicalEligibility: insufficient
       secondPass:
-        claimResolution: exact_sibling
-        canonicalEligibility: ready
+        claimResolution: sibling_group_only
+        canonicalEligibility: insufficient
         visuallyReviewed: true
         notes: Uavhengig re-inspeksjon av faksimile bekrefter first-pass observasjon for
           Herd (1965).
@@ -548,6 +548,8 @@ cases:
             value: ""
             competitionId: null
             confidence: low
+          competitionResolution: source_unspecified
+          homeAwayResolution: source_unspecified
           evidenceType: result_board
         visualEvidenceSummary: "Sunnmørsposten 1945-05-31 s. 2: Tabellnotis eller delvis
           referat for Rollon, utilstrekkelig for umiddelbar kanonisering."
@@ -611,16 +613,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1945-07-14 s. 4: Kampreferat for AaFK mot
-          Rollon (4–0), entydig tilordnet møte #8."
+          Rollon (4–0) spilt 1945-07-13."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 8
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1945-07-14 s. 4: Kampreferat for AaFK mot Rollon (4–0),
-      entydig tilordnet møte #8."
+    notes: "Sunnmørsposten 1945-07-14 s. 4: Kampreferat for AaFK mot Rollon (4–0)
+      spilt 1945-07-13."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-013
     season: 1945
     isSingleton: false
@@ -678,16 +682,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1945-09-24 s. 2: Kampreferat for AaFK mot
-          Rollon (1–3), entydig tilordnet møte #13."
+          Rollon (1–3) spilt 1945-09-22."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 13
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1945-09-24 s. 2: Kampreferat for AaFK mot Rollon (1–3),
-      entydig tilordnet møte #13."
+    notes: "Sunnmørsposten 1945-09-24 s. 2: Kampreferat for AaFK mot Rollon (1–3)
+      spilt 1945-09-22."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-002
     season: 1945
     isSingleton: false
@@ -806,23 +812,25 @@ cases:
             confidence: high
           dateEvidence:
             type: yesterday_reference
-            textSummary: "Sunnmørsposten 1945-07-06 s. 2: Artikkelen refererer til kamp
-              spilt foregående dag (1945-07-05)."
+            textSummary: "Sunnmørsposten 1945-07-06 s. 2: Referat fra møtet spilt 1945-07-05
+              entydig tilordnet kamp #3."
           homeAway: home
           competition:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1945-07-06 s. 2: Fullt kampreferat for
-          A-lagskampen AaFK - Herd (5–1) spilt 1945-07-05."
+        visualEvidenceSummary: "Sunnmørsposten 1945-07-06 s. 2: Kampreferat for AaFK mot
+          Herd (5–1) spilt 1945-07-05."
     claimResolution: exact_match
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 3
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1945-07-06 s. 2: Fullt kampreferat for A-lagskampen AaFK
-      - Herd (5–1) spilt 1945-07-05."
+    notes: "Sunnmørsposten 1945-07-06 s. 2: Kampreferat for AaFK mot Herd (5–1)
+      spilt 1945-07-05."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-004
     season: 1945
     isSingleton: false
@@ -880,16 +888,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1945-07-09 s. 2: Kampreferat for AaFK mot
-          Ørsta (3–2), entydig tilordnet møte #4."
+          Ørsta (3–2) spilt 1945-07-08."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 4
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1945-07-09 s. 2: Kampreferat for AaFK mot Ørsta (3–2),
-      entydig tilordnet møte #4."
+    notes: "Sunnmørsposten 1945-07-09 s. 2: Kampreferat for AaFK mot Ørsta (3–2)
+      spilt 1945-07-08."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-015
     season: 1945
     isSingleton: false
@@ -943,6 +953,8 @@ cases:
             value: ""
             competitionId: null
             confidence: low
+          competitionResolution: source_unspecified
+          homeAwayResolution: source_unspecified
           evidenceType: result_board
         visualEvidenceSummary: "Sunnmørsposten 1945-07-09 s. 2: Tabellnotis eller delvis
           referat for Ørsta, utilstrekkelig for umiddelbar kanonisering."
@@ -1041,6 +1053,8 @@ cases:
             value: ""
             competitionId: null
             confidence: low
+          competitionResolution: source_unspecified
+          homeAwayResolution: source_unspecified
           evidenceType: result_board
         visualEvidenceSummary: "Sunnmørsposten 1945-03-07 s. 2: Tabellnotis eller delvis
           referat for Molde, utilstrekkelig for umiddelbar kanonisering."
@@ -1050,7 +1064,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-006
     season: 1945
     isSingleton: true
-    reviewStatus: unreviewed_awaiting_visual_batch
+    reviewStatus: visually_reviewed_pilot
     siblingGroup:
       id: 1945|politiaspirantene
       size: 1
@@ -1067,14 +1081,13 @@ cases:
         opponent: Politiaspirantene
         expectedScore: *a11
     reviewedCandidates: []
-    claimResolution: insufficient
+    claimResolution: different_event
     canonicalEligibility: insufficient
-    notes: "Unreviewed: awaiting visual facsimile inspection in subsequent
-      production batch."
+    notes: Generelt oppslag uten kampreferat.
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-007
     season: 1945
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: unreviewed_awaiting_visual_batch
     siblingGroup:
       id: 1945|spjelkavik
       size: 1
@@ -1090,44 +1103,11 @@ cases:
         no: 7
         opponent: Spjelkavik
         expectedScore: *a12
-    reviewedCandidates:
-      - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1945-007-e0f36d21-p2
-        rank: 1
-        newspaper:
-          title: Sunnmørsposten
-          issueDate: 1945-10-01
-          page: "2"
-          pageUrl: https://www.nb.no/items/e0f36d21423b5538a6acd28c751c55f7?page=2
-        visuallyReviewed: true
-        observed:
-          aafkPresent: true
-          opponent:
-            name: Spjelkavik
-            clubId: spjelkavik
-            confidence: medium
-          seniorAteam: true
-          score:
-            aafk: 6
-            opponent: 1
-            confidence: medium
-          matchDate:
-            value: 1945-10-01
-            confidence: medium
-          dateEvidence:
-            type: other
-            textSummary: Tabelloversikt/terminliste uten eksakt bekreftet kampdato for fullt
-              A-lagsreferat.
-          homeAway: unknown
-          competition:
-            value: ""
-            competitionId: null
-            confidence: low
-          evidenceType: result_board
-        visualEvidenceSummary: "Sunnmørsposten 1945-10-01 s. 2: Tabellnotis eller delvis
-          referat for Spjelkavik, utilstrekkelig for umiddelbar kanonisering."
-    claimResolution: different_event
+    reviewedCandidates: []
+    claimResolution: insufficient
     canonicalEligibility: insufficient
-    notes: Sunnmørsposten gir ikke entydig A-lagsreferat.
+    notes: "Unreviewed: awaiting visual facsimile inspection in subsequent
+      production batch."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-010
     season: 1945
     isSingleton: true
@@ -7445,26 +7425,26 @@ cases:
           dateEvidence:
             type: explicit_date
             textSummary: "Sunnmørsposten 12.08.1954 s. 4: Referat fra kampen onsdag 11.
-              august 1954 på Aksla stadion der AaFK slo Rollon 5-3.
-              Kilderesultatet oppga feilaktig 1-0."
+              august 1954 på Aksla stadion der AaFK slo Rollon 5-3."
           homeAway: home
           competition:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 12.08.1954 s. 4: Fullt referat fra
           privatkampen onsdag 11. august 1954 på Aksla stadion der AaFK slo
-          Rollon 5-3. Dette etablerer en eksplisitt score-konflikt mot
-          medlemsbladets 1-0."
+          Rollon 5-3. Etablerer score-konflikt mot medlemsbladets 1-0."
     claimResolution: same_event_score_conflict
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 7
     canonicalEligibility: score_conflict
     notes: "Sunnmørsposten 12.08.1954 s. 4: Fullt referat fra privatkampen onsdag
-      11. august 1954 på Aksla stadion der AaFK slo Rollon 5-3. Dette etablerer
-      en eksplisitt score-konflikt mot medlemsbladets 1-0."
+      11. august 1954 på Aksla stadion der AaFK slo Rollon 5-3. Etablerer
+      score-konflikt mot medlemsbladets 1-0."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-008
     season: 1954
     isSingleton: true
@@ -7557,23 +7537,25 @@ cases:
             confidence: high
           dateEvidence:
             type: yesterday_reference
-            textSummary: "Sunnmørsposten 1955-09-13 s. 5: Artikkelen refererer til kamp
-              spilt foregående dag (1955-09-12)."
+            textSummary: "Sunnmørsposten 1955-09-13 s. 5: Referat fra møtet spilt 1955-09-12
+              entydig tilordnet kamp #1."
           homeAway: home
           competition:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1955-09-13 s. 5: Fullt kampreferat for
-          A-lagskampen AaFK - Guard (2–0) spilt 1955-09-12."
+        visualEvidenceSummary: "Sunnmørsposten 1955-09-13 s. 5: Kampreferat for AaFK mot
+          Guard (2–0) spilt 1955-09-12."
     claimResolution: exact_match
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 1
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-09-13 s. 5: Fullt kampreferat for A-lagskampen AaFK
-      - Guard (2–0) spilt 1955-09-12."
+    notes: "Sunnmørsposten 1955-09-13 s. 5: Kampreferat for AaFK mot Guard (2–0)
+      spilt 1955-09-12."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-002
     season: 1955
     isSingleton: false
@@ -7661,16 +7643,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1955-05-20 s. 2: Kampreferat for AaFK mot
-          Rollon (3–0), entydig tilordnet møte #2."
+          Rollon (3–0) spilt 1955-05-19."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 2
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-05-20 s. 2: Kampreferat for AaFK mot Rollon (3–0),
-      entydig tilordnet møte #2."
+    notes: "Sunnmørsposten 1955-05-20 s. 2: Kampreferat for AaFK mot Rollon (3–0)
+      spilt 1955-05-19."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-004
     season: 1955
     isSingleton: false
@@ -7744,16 +7728,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1955-05-16 s. 2: Kampreferat for AaFK mot
-          Rollon (2–4), entydig tilordnet møte #4."
+          Rollon (2–4) spilt 1955-05-15."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 4
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-05-16 s. 2: Kampreferat for AaFK mot Rollon (2–4),
-      entydig tilordnet møte #4."
+    notes: "Sunnmørsposten 1955-05-16 s. 2: Kampreferat for AaFK mot Rollon (2–4)
+      spilt 1955-05-15."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-006
     season: 1955
     isSingleton: false
@@ -7827,16 +7813,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1955-04-23 s. 3: Kampreferat for AaFK mot
-          Rollon (1–0), entydig tilordnet møte #6."
+          Rollon (1–0) spilt 1955-04-22."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 6
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-04-23 s. 3: Kampreferat for AaFK mot Rollon (1–0),
-      entydig tilordnet møte #6."
+    notes: "Sunnmørsposten 1955-04-23 s. 3: Kampreferat for AaFK mot Rollon (1–0)
+      spilt 1955-04-22."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-009
     season: 1955
     isSingleton: false
@@ -7910,16 +7898,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1955-03-07 s. 2: Kampreferat for AaFK mot
-          Rollon (3–1), entydig tilordnet møte #9."
+          Rollon (3–1) spilt 1955-03-06."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 9
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-03-07 s. 2: Kampreferat for AaFK mot Rollon (3–1),
-      entydig tilordnet møte #9."
+    notes: "Sunnmørsposten 1955-03-07 s. 2: Kampreferat for AaFK mot Rollon (3–1)
+      spilt 1955-03-06."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-013
     season: 1955
     isSingleton: false
@@ -7975,34 +7965,33 @@ cases:
           opponent:
             name: Rollon
             clubId: rollon
-            confidence: high
+            confidence: medium
           seniorAteam: true
           score:
             aafk: 5
             opponent: 3
-            confidence: high
+            confidence: medium
           matchDate:
             value: 1955-03-06
-            confidence: high
+            confidence: medium
           dateEvidence:
             type: yesterday_reference
-            textSummary: "Sunnmørsposten 1955-03-07 s. 2: Referat fra møtet spilt 1955-03-06
-              entydig tilordnet kamp #13."
+            textSummary: Kollisjon med annet sibling-møte på samme dato.
           homeAway: home
           competition:
             value: privatkamp
             competitionId: treningskamp
-            confidence: high
+            confidence: medium
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1955-03-07 s. 2: Kampreferat for AaFK mot
-          Rollon (5–3), entydig tilordnet møte #13."
-    claimResolution: exact_sibling
-    matchedSourceResult:
-      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
-      no: 13
-    canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-03-07 s. 2: Kampreferat for AaFK mot Rollon (5–3),
-      entydig tilordnet møte #13."
+        visualEvidenceSummary: "Sunnmørsposten 1955-03-07 s. 2: Flere møter i
+          sibling-gruppen deler samme referatdato. Isolert som
+          sibling_group_only."
+    claimResolution: sibling_group_only
+    canonicalEligibility: insufficient
+    notes: "Sunnmørsposten 1955-03-07 s. 2: Flere møter i sibling-gruppen deler
+      samme referatdato. Isolert som sibling_group_only."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-036
     season: 1955
     isSingleton: false
@@ -8076,16 +8065,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1955-08-03 s. 3: Kampreferat for AaFK mot
-          Rollon (4–0), entydig tilordnet møte #36."
+          Rollon (4–0) spilt 1955-08-02."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 36
     canonicalEligibility: date_uncertain
-    notes: "Sunnmørsposten 1955-08-03 s. 3: Kampreferat for AaFK mot Rollon (4–0),
-      entydig tilordnet møte #36. [Adjudication: Tredje uavhengig gjennomgang av
+    notes: "Sunnmørsposten 1955-08-03 s. 3: Kampreferat for AaFK mot Rollon (4–0)
+      spilt 1955-08-02. [Adjudication: Tredje uavhengig gjennomgang av
       faksimilen bekrefter at teksten kun oppgir 'i helgen'. Hovedcasen er
       derfor konservativt oppdatert til date_uncertain.]"
   - hypothesisId: sunnmore-fotballkrets-arsrapport-1955#1955-001
@@ -8161,16 +8152,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1955-06-06 s. 2: Kampreferat for AaFK mot
-          Rollon (2–0), entydig tilordnet møte #1."
+          Rollon (2–0) spilt 1955-06-05."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1955
       no: 1
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-06-06 s. 2: Kampreferat for AaFK mot Rollon (2–0),
-      entydig tilordnet møte #1."
+    notes: "Sunnmørsposten 1955-06-06 s. 2: Kampreferat for AaFK mot Rollon (2–0)
+      spilt 1955-06-05."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-003
     season: 1955
     isSingleton: false
@@ -8234,6 +8227,8 @@ cases:
             value: ""
             competitionId: null
             confidence: low
+          competitionResolution: source_unspecified
+          homeAwayResolution: source_unspecified
           evidenceType: result_board
         visualEvidenceSummary: "Sunnmørsposten 1955-08-23 s. 3: Tabellnotis eller delvis
           referat for Skarbøvik, utilstrekkelig for umiddelbar kanonisering."
@@ -8297,6 +8292,8 @@ cases:
             value: ""
             competitionId: null
             confidence: low
+          competitionResolution: source_unspecified
+          homeAwayResolution: source_unspecified
           evidenceType: result_board
         visualEvidenceSummary: "Sunnmørsposten 1955-08-23 s. 3: Tabellnotis eller delvis
           referat for Skarbøvik, utilstrekkelig for umiddelbar kanonisering."
@@ -8360,6 +8357,8 @@ cases:
             value: ""
             competitionId: null
             confidence: low
+          competitionResolution: source_unspecified
+          homeAwayResolution: source_unspecified
           evidenceType: result_board
         visualEvidenceSummary: "Sunnmørsposten 1955-08-23 s. 3: Tabellnotis eller delvis
           referat for Skarbøvik, utilstrekkelig for umiddelbar kanonisering."
@@ -8441,16 +8440,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1955-05-16 s. 2: Kampreferat for AaFK mot
-          Langevåg (1–5), entydig tilordnet møte #5."
+          Langevåg (1–5) spilt 1955-05-15."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 5
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-05-16 s. 2: Kampreferat for AaFK mot Langevåg (1–5),
-      entydig tilordnet møte #5."
+    notes: "Sunnmørsposten 1955-05-16 s. 2: Kampreferat for AaFK mot Langevåg (1–5)
+      spilt 1955-05-15."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-014
     season: 1955
     isSingleton: false
@@ -8516,16 +8517,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1955-09-26 s. 2: Kampreferat for AaFK mot
-          Langevåg (0–2), entydig tilordnet møte #14."
+          Langevåg (0–2) spilt 1955-09-25."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 14
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-09-26 s. 2: Kampreferat for AaFK mot Langevåg (0–2),
-      entydig tilordnet møte #14."
+    notes: "Sunnmørsposten 1955-09-26 s. 2: Kampreferat for AaFK mot Langevåg (0–2)
+      spilt 1955-09-25."
   - hypothesisId: nm-1955-langevag-runde-2
     season: 1955
     isSingleton: false
@@ -8599,6 +8602,8 @@ cases:
             value: ""
             competitionId: null
             confidence: low
+          competitionResolution: source_unspecified
+          homeAwayResolution: source_unspecified
           evidenceType: result_board
         visualEvidenceSummary: "Sunnmørsposten 1955-05-09 s. 2: Tabellnotis eller delvis
           referat for Langevåg, utilstrekkelig for umiddelbar kanonisering."
@@ -8662,16 +8667,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1955-05-31 s. 2: Kampreferat for AaFK mot
-          Molde (1–1), entydig tilordnet møte #7."
+          Molde (1–1) spilt 1955-05-30."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 7
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-05-31 s. 2: Kampreferat for AaFK mot Molde (1–1),
-      entydig tilordnet møte #7."
+    notes: "Sunnmørsposten 1955-05-31 s. 2: Kampreferat for AaFK mot Molde (1–1)
+      spilt 1955-05-30."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-016
     season: 1955
     isSingleton: false
@@ -8707,34 +8714,33 @@ cases:
           opponent:
             name: Molde
             clubId: molde-fk
-            confidence: high
+            confidence: medium
           seniorAteam: true
           score:
             aafk: 1
             opponent: 1
-            confidence: high
+            confidence: medium
           matchDate:
             value: 1955-05-30
-            confidence: high
+            confidence: medium
           dateEvidence:
             type: yesterday_reference
-            textSummary: "Sunnmørsposten 1955-05-31 s. 2: Referat fra møtet spilt 1955-05-30
-              entydig tilordnet kamp #16."
+            textSummary: Kollisjon med annet sibling-møte på samme dato.
           homeAway: home
           competition:
             value: privatkamp
             competitionId: treningskamp
-            confidence: high
+            confidence: medium
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1955-05-31 s. 2: Kampreferat for AaFK mot
-          Molde (1–1), entydig tilordnet møte #16."
-    claimResolution: exact_sibling
-    matchedSourceResult:
-      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
-      no: 16
-    canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-05-31 s. 2: Kampreferat for AaFK mot Molde (1–1),
-      entydig tilordnet møte #16."
+        visualEvidenceSummary: "Sunnmørsposten 1955-05-31 s. 2: Flere møter i
+          sibling-gruppen deler samme referatdato. Isolert som
+          sibling_group_only."
+    claimResolution: sibling_group_only
+    canonicalEligibility: insufficient
+    notes: "Sunnmørsposten 1955-05-31 s. 2: Flere møter i sibling-gruppen deler
+      samme referatdato. Isolert som sibling_group_only."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-008
     season: 1955
     isSingleton: false
@@ -8816,16 +8822,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1955-11-07 s. 2: Kampreferat for AaFK mot
-          Hødd (2–1), entydig tilordnet møte #8."
+          Hødd (2–1) spilt 1955-11-06."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 8
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-11-07 s. 2: Kampreferat for AaFK mot Hødd (2–1),
-      entydig tilordnet møte #8."
+    notes: "Sunnmørsposten 1955-11-07 s. 2: Kampreferat for AaFK mot Hødd (2–1)
+      spilt 1955-11-06."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-018
     season: 1955
     isSingleton: false
@@ -8877,34 +8885,33 @@ cases:
           opponent:
             name: Hødd
             clubId: hodd
-            confidence: high
+            confidence: medium
           seniorAteam: true
           score:
             aafk: 2
             opponent: 3
-            confidence: high
+            confidence: medium
           matchDate:
             value: 1955-11-06
-            confidence: high
+            confidence: medium
           dateEvidence:
             type: yesterday_reference
-            textSummary: "Sunnmørsposten 1955-11-07 s. 2: Referat fra møtet spilt 1955-11-06
-              entydig tilordnet kamp #18."
+            textSummary: Kollisjon med annet sibling-møte på samme dato.
           homeAway: home
           competition:
             value: privatkamp
             competitionId: treningskamp
-            confidence: high
+            confidence: medium
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1955-11-07 s. 2: Kampreferat for AaFK mot
-          Hødd (2–3), entydig tilordnet møte #18."
-    claimResolution: exact_sibling
-    matchedSourceResult:
-      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
-      no: 18
-    canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-11-07 s. 2: Kampreferat for AaFK mot Hødd (2–3),
-      entydig tilordnet møte #18."
+        visualEvidenceSummary: "Sunnmørsposten 1955-11-07 s. 2: Flere møter i
+          sibling-gruppen deler samme referatdato. Isolert som
+          sibling_group_only."
+    claimResolution: sibling_group_only
+    canonicalEligibility: insufficient
+    notes: "Sunnmørsposten 1955-11-07 s. 2: Flere møter i sibling-gruppen deler
+      samme referatdato. Isolert som sibling_group_only."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-019
     season: 1955
     isSingleton: false
@@ -8956,34 +8963,33 @@ cases:
           opponent:
             name: Hødd
             clubId: hodd
-            confidence: high
+            confidence: medium
           seniorAteam: true
           score:
             aafk: 2
             opponent: 1
-            confidence: high
+            confidence: medium
           matchDate:
             value: 1955-11-06
-            confidence: high
+            confidence: medium
           dateEvidence:
             type: yesterday_reference
-            textSummary: "Sunnmørsposten 1955-11-07 s. 2: Referat fra møtet spilt 1955-11-06
-              entydig tilordnet kamp #19."
+            textSummary: Kollisjon med annet sibling-møte på samme dato.
           homeAway: home
           competition:
             value: privatkamp
             competitionId: treningskamp
-            confidence: high
+            confidence: medium
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1955-11-07 s. 2: Kampreferat for AaFK mot
-          Hødd (2–1), entydig tilordnet møte #19."
-    claimResolution: exact_sibling
-    matchedSourceResult:
-      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
-      no: 19
-    canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-11-07 s. 2: Kampreferat for AaFK mot Hødd (2–1),
-      entydig tilordnet møte #19."
+        visualEvidenceSummary: "Sunnmørsposten 1955-11-07 s. 2: Flere møter i
+          sibling-gruppen deler samme referatdato. Isolert som
+          sibling_group_only."
+    claimResolution: sibling_group_only
+    canonicalEligibility: insufficient
+    notes: "Sunnmørsposten 1955-11-07 s. 2: Flere møter i sibling-gruppen deler
+      samme referatdato. Isolert som sibling_group_only."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-022
     season: 1955
     isSingleton: false
@@ -9053,16 +9059,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1955-07-12 s. 3: Kampreferat for AaFK mot
-          Hødd (3–1), entydig tilordnet møte #22."
+          Hødd (3–1) spilt 1955-07-11."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 22
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-07-12 s. 3: Kampreferat for AaFK mot Hødd (3–1),
-      entydig tilordnet møte #22."
+    notes: "Sunnmørsposten 1955-07-12 s. 3: Kampreferat for AaFK mot Hødd (3–1)
+      spilt 1955-07-11."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-025
     season: 1955
     isSingleton: false
@@ -9132,16 +9140,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1955-04-25 s. 2: Kampreferat for AaFK mot
-          Hødd (2–0), entydig tilordnet møte #25."
+          Hødd (2–0) spilt 1955-04-24."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 25
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-04-25 s. 2: Kampreferat for AaFK mot Hødd (2–0),
-      entydig tilordnet møte #25."
+    notes: "Sunnmørsposten 1955-04-25 s. 2: Kampreferat for AaFK mot Hødd (2–0)
+      spilt 1955-04-24."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-030
     season: 1955
     isSingleton: false
@@ -9193,34 +9203,33 @@ cases:
           opponent:
             name: Hødd
             clubId: hodd
-            confidence: high
+            confidence: medium
           seniorAteam: true
           score:
             aafk: 1
             opponent: 4
-            confidence: high
+            confidence: medium
           matchDate:
             value: 1955-04-24
-            confidence: high
+            confidence: medium
           dateEvidence:
             type: yesterday_reference
-            textSummary: "Sunnmørsposten 1955-04-25 s. 2: Referat fra møtet spilt 1955-04-24
-              entydig tilordnet kamp #30."
+            textSummary: Kollisjon med annet sibling-møte på samme dato.
           homeAway: home
           competition:
             value: privatkamp
             competitionId: treningskamp
-            confidence: high
+            confidence: medium
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1955-04-25 s. 2: Kampreferat for AaFK mot
-          Hødd (1–4), entydig tilordnet møte #30."
-    claimResolution: exact_sibling
-    matchedSourceResult:
-      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
-      no: 30
-    canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-04-25 s. 2: Kampreferat for AaFK mot Hødd (1–4),
-      entydig tilordnet møte #30."
+        visualEvidenceSummary: "Sunnmørsposten 1955-04-25 s. 2: Flere møter i
+          sibling-gruppen deler samme referatdato. Isolert som
+          sibling_group_only."
+    claimResolution: sibling_group_only
+    canonicalEligibility: insufficient
+    notes: "Sunnmørsposten 1955-04-25 s. 2: Flere møter i sibling-gruppen deler
+      samme referatdato. Isolert som sibling_group_only."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-010
     season: 1955
     isSingleton: false
@@ -9284,16 +9293,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1955-08-15 s. 2: Kampreferat for AaFK mot
-          KFK (0–2), entydig tilordnet møte #10."
+          KFK (0–2) spilt 1955-08-14."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 10
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-08-15 s. 2: Kampreferat for AaFK mot KFK (0–2),
-      entydig tilordnet møte #10."
+    notes: "Sunnmørsposten 1955-08-15 s. 2: Kampreferat for AaFK mot KFK (0–2) spilt
+      1955-08-14."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-017
     season: 1955
     isSingleton: false
@@ -9351,16 +9362,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1955-10-10 s. 2: Kampreferat for AaFK mot
-          KFK (2–3), entydig tilordnet møte #17."
+          KFK (2–3) spilt 1955-10-09."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 17
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1955-10-10 s. 2: Kampreferat for AaFK mot KFK (2–3),
-      entydig tilordnet møte #17."
+    notes: "Sunnmørsposten 1955-10-10 s. 2: Kampreferat for AaFK mot KFK (2–3) spilt
+      1955-10-09."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-020
     season: 1955
     isSingleton: false
@@ -21940,16 +21953,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1965-05-24 s. 2: Kampreferat for AaFK mot
-          Herd (1–1), entydig tilordnet møte #1."
+          Herd (1–1) spilt 1965-05-23."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 1
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1965-05-24 s. 2: Kampreferat for AaFK mot Herd (1–1),
-      entydig tilordnet møte #1."
+    notes: "Sunnmørsposten 1965-05-24 s. 2: Kampreferat for AaFK mot Herd (1–1)
+      spilt 1965-05-23."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-008
     season: 1965
     isSingleton: false
@@ -21997,34 +22012,33 @@ cases:
           opponent:
             name: Herd
             clubId: herd
-            confidence: high
+            confidence: medium
           seniorAteam: true
           score:
             aafk: 1
             opponent: 1
-            confidence: high
+            confidence: medium
           matchDate:
             value: 1965-05-23
-            confidence: high
+            confidence: medium
           dateEvidence:
             type: yesterday_reference
-            textSummary: "Sunnmørsposten 1965-05-24 s. 2: Referat fra møtet spilt 1965-05-23
-              entydig tilordnet kamp #8."
+            textSummary: Kollisjon med annet sibling-møte på samme dato.
           homeAway: home
           competition:
             value: privatkamp
             competitionId: treningskamp
-            confidence: high
+            confidence: medium
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1965-05-24 s. 2: Kampreferat for AaFK mot
-          Herd (1–1), entydig tilordnet møte #8."
-    claimResolution: exact_sibling
-    matchedSourceResult:
-      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
-      no: 8
-    canonicalEligibility: ready
-    notes: "Sunnmørsposten 1965-05-24 s. 2: Kampreferat for AaFK mot Herd (1–1),
-      entydig tilordnet møte #8."
+        visualEvidenceSummary: "Sunnmørsposten 1965-05-24 s. 2: Flere møter i
+          sibling-gruppen deler samme referatdato. Isolert som
+          sibling_group_only."
+    claimResolution: sibling_group_only
+    canonicalEligibility: insufficient
+    notes: "Sunnmørsposten 1965-05-24 s. 2: Flere møter i sibling-gruppen deler
+      samme referatdato. Isolert som sibling_group_only."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-036
     season: 1965
     isSingleton: false
@@ -22090,16 +22104,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1965-06-21 s. 2: Kampreferat for AaFK mot
-          Herd (3–0), entydig tilordnet møte #36."
+          Herd (3–0) spilt 1965-06-20."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 36
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1965-06-21 s. 2: Kampreferat for AaFK mot Herd (3–0),
-      entydig tilordnet møte #36."
+    notes: "Sunnmørsposten 1965-06-21 s. 2: Kampreferat for AaFK mot Herd (3–0)
+      spilt 1965-06-20."
   - hypothesisId: nm-1965-herd-runde-2
     season: 1965
     isSingleton: false
@@ -22169,16 +22185,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1965-06-28 s. 3: Kampreferat for AaFK mot
-          Herd (2–1), entydig tilordnet møte #16."
+          Herd (2–1) spilt 1965-06-27."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 16
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1965-06-28 s. 3: Kampreferat for AaFK mot Herd (2–1),
-      entydig tilordnet møte #16."
+    notes: "Sunnmørsposten 1965-06-28 s. 3: Kampreferat for AaFK mot Herd (2–1)
+      spilt 1965-06-27."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-002
     season: 1965
     isSingleton: false
@@ -22338,6 +22356,8 @@ cases:
             value: ""
             competitionId: null
             confidence: low
+          competitionResolution: source_unspecified
+          homeAwayResolution: source_unspecified
           evidenceType: result_board
         visualEvidenceSummary: "Sunnmørsposten 1965-05-28 s. 6: Tabellnotis eller delvis
           referat for Nord-Gossen, utilstrekkelig for umiddelbar kanonisering."
@@ -22407,16 +22427,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1965-05-18 s. 2: Kampreferat for AaFK mot
-          Langevåg (0–2), entydig tilordnet møte #3."
+          Langevåg (0–2) spilt 1965-05-17."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 3
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1965-05-18 s. 2: Kampreferat for AaFK mot Langevåg (0–2),
-      entydig tilordnet møte #3."
+    notes: "Sunnmørsposten 1965-05-18 s. 2: Kampreferat for AaFK mot Langevåg (0–2)
+      spilt 1965-05-17."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-012
     season: 1965
     isSingleton: false
@@ -22456,34 +22478,33 @@ cases:
           opponent:
             name: Langevåg
             clubId: langevag
-            confidence: high
+            confidence: medium
           seniorAteam: true
           score:
             aafk: 2
             opponent: 2
-            confidence: high
+            confidence: medium
           matchDate:
             value: 1965-05-17
-            confidence: high
+            confidence: medium
           dateEvidence:
             type: yesterday_reference
-            textSummary: "Sunnmørsposten 1965-05-18 s. 2: Referat fra møtet spilt 1965-05-17
-              entydig tilordnet kamp #12."
+            textSummary: Kollisjon med annet sibling-møte på samme dato.
           homeAway: home
           competition:
             value: privatkamp
             competitionId: treningskamp
-            confidence: high
+            confidence: medium
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1965-05-18 s. 2: Kampreferat for AaFK mot
-          Langevåg (2–2), entydig tilordnet møte #12."
-    claimResolution: exact_sibling
-    matchedSourceResult:
-      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
-      no: 12
-    canonicalEligibility: ready
-    notes: "Sunnmørsposten 1965-05-18 s. 2: Kampreferat for AaFK mot Langevåg (2–2),
-      entydig tilordnet møte #12."
+        visualEvidenceSummary: "Sunnmørsposten 1965-05-18 s. 2: Flere møter i
+          sibling-gruppen deler samme referatdato. Isolert som
+          sibling_group_only."
+    claimResolution: sibling_group_only
+    canonicalEligibility: insufficient
+    notes: "Sunnmørsposten 1965-05-18 s. 2: Flere møter i sibling-gruppen deler
+      samme referatdato. Isolert som sibling_group_only."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-025
     season: 1965
     isSingleton: false
@@ -22541,16 +22562,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1965-08-16 s. 2: Kampreferat for AaFK mot
-          Langevåg (1–3), entydig tilordnet møte #25."
+          Langevåg (1–3) spilt 1965-08-15."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 25
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1965-08-16 s. 2: Kampreferat for AaFK mot Langevåg (1–3),
-      entydig tilordnet møte #25."
+    notes: "Sunnmørsposten 1965-08-16 s. 2: Kampreferat for AaFK mot Langevåg (1–3)
+      spilt 1965-08-15."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-004
     season: 1965
     isSingleton: false
@@ -22608,16 +22631,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1965-05-24 s. 2: Kampreferat for AaFK mot
-          KFK (5–4), entydig tilordnet møte #4."
+          KFK (5–4) spilt 1965-05-23."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
       no: 4
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1965-05-24 s. 2: Kampreferat for AaFK mot KFK (5–4),
-      entydig tilordnet møte #4."
+    notes: "Sunnmørsposten 1965-05-24 s. 2: Kampreferat for AaFK mot KFK (5–4) spilt
+      1965-05-23."
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-011
     season: 1965
     isSingleton: false
@@ -23816,23 +23841,25 @@ cases:
             confidence: high
           dateEvidence:
             type: yesterday_reference
-            textSummary: "Sunnmørsposten 1975-05-29 s. 6: Artikkelen refererer til kamp
-              spilt foregående dag (1975-05-28)."
+            textSummary: "Sunnmørsposten 1975-05-29 s. 6: Referat fra møtet spilt 1975-05-28
+              entydig tilordnet kamp #1."
           homeAway: home
           competition:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1975-05-29 s. 6: Fullt kampreferat for
-          A-lagskampen AaFK - Træff (1–0) spilt 1975-05-28."
+        visualEvidenceSummary: "Sunnmørsposten 1975-05-29 s. 6: Kampreferat for AaFK mot
+          Træff (1–0) spilt 1975-05-28."
     claimResolution: exact_match
     matchedSourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1975
       no: 1
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1975-05-29 s. 6: Fullt kampreferat for A-lagskampen AaFK
-      - Træff (1–0) spilt 1975-05-28."
+    notes: "Sunnmørsposten 1975-05-29 s. 6: Kampreferat for AaFK mot Træff (1–0)
+      spilt 1975-05-28."
   - hypothesisId: sunnmore-fotballkrets-arsrapport-1975#1975-002
     season: 1975
     isSingleton: true
@@ -23877,23 +23904,25 @@ cases:
             confidence: high
           dateEvidence:
             type: yesterday_reference
-            textSummary: "Sunnmørsposten 1975-06-12 s. 6: Artikkelen refererer til kamp
-              spilt foregående dag (1975-06-11)."
+            textSummary: "Sunnmørsposten 1975-06-12 s. 6: Referat fra møtet spilt 1975-06-11
+              entydig tilordnet kamp #2."
           homeAway: home
           competition:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1975-06-12 s. 6: Fullt kampreferat for
-          A-lagskampen AaFK - Eid (3–0) spilt 1975-06-11."
+        visualEvidenceSummary: "Sunnmørsposten 1975-06-12 s. 6: Kampreferat for AaFK mot
+          Eid (3–0) spilt 1975-06-11."
     claimResolution: exact_match
     matchedSourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1975
       no: 2
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1975-06-12 s. 6: Fullt kampreferat for A-lagskampen AaFK
-      - Eid (3–0) spilt 1975-06-11."
+    notes: "Sunnmørsposten 1975-06-12 s. 6: Kampreferat for AaFK mot Eid (3–0) spilt
+      1975-06-11."
   - hypothesisId: sunnmore-fotballkrets-arsrapport-1976#1976-001
     season: 1976
     isSingleton: false
@@ -23951,6 +23980,8 @@ cases:
             value: ""
             competitionId: null
             confidence: low
+          competitionResolution: source_unspecified
+          homeAwayResolution: source_unspecified
           evidenceType: result_board
         visualEvidenceSummary: "Sunnmørsposten 1976-03-22 s. 6: Tabellnotis eller delvis
           referat for Skarbøvik, utilstrekkelig for umiddelbar kanonisering."
@@ -24010,16 +24041,18 @@ cases:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
         visualEvidenceSummary: "Sunnmørsposten 1976-03-22 s. 6: Kampreferat for AaFK mot
-          Skarbøvik (2–1), entydig tilordnet møte #2."
+          Skarbøvik (2–1) spilt 1976-03-21."
     claimResolution: exact_sibling
     matchedSourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1976
       no: 2
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1976-03-22 s. 6: Kampreferat for AaFK mot Skarbøvik
-      (2–1), entydig tilordnet møte #2."
+    notes: "Sunnmørsposten 1976-03-22 s. 6: Kampreferat for AaFK mot Skarbøvik (2–1)
+      spilt 1976-03-21."
   - hypothesisId: sunnmore-fotballkrets-arsrapport-1976#1976-003
     season: 1976
     isSingleton: true
@@ -24110,6 +24143,8 @@ cases:
             value: ""
             competitionId: null
             confidence: low
+          competitionResolution: source_unspecified
+          homeAwayResolution: source_unspecified
           evidenceType: result_board
         visualEvidenceSummary: "Sunnmørsposten 1976-10-04 s. 6: Tabellnotis eller delvis
           referat for Nessegutten, utilstrekkelig for umiddelbar kanonisering."
@@ -24169,6 +24204,8 @@ cases:
             value: ""
             competitionId: null
             confidence: low
+          competitionResolution: source_unspecified
+          homeAwayResolution: source_unspecified
           evidenceType: result_board
         visualEvidenceSummary: "Sunnmørsposten 1976-10-04 s. 6: Tabellnotis eller delvis
           referat for Nessegutten, utilstrekkelig for umiddelbar kanonisering."
@@ -24219,23 +24256,25 @@ cases:
             confidence: high
           dateEvidence:
             type: yesterday_reference
-            textSummary: "Sunnmørsposten 1977-06-22 s. 7: Artikkelen refererer til kamp
-              spilt foregående dag (1977-06-21)."
+            textSummary: "Sunnmørsposten 1977-06-22 s. 7: Referat fra møtet spilt 1977-06-21
+              entydig tilordnet kamp #2."
           homeAway: home
           competition:
             value: privatkamp
             competitionId: treningskamp
             confidence: high
+          competitionResolution: agrees
+          homeAwayResolution: agrees
           evidenceType: report
-        visualEvidenceSummary: "Sunnmørsposten 1977-06-22 s. 7: Fullt kampreferat for
-          A-lagskampen AaFK - Rollon (1–0) spilt 1977-06-21."
+        visualEvidenceSummary: "Sunnmørsposten 1977-06-22 s. 7: Kampreferat for AaFK mot
+          Rollon (1–0) spilt 1977-06-21."
     claimResolution: exact_match
     matchedSourceResult:
       sourceId: sunnmore-fotballkrets-arsrapport-1977
       no: 2
     canonicalEligibility: ready
-    notes: "Sunnmørsposten 1977-06-22 s. 7: Fullt kampreferat for A-lagskampen AaFK
-      - Rollon (1–0) spilt 1977-06-21."
+    notes: "Sunnmørsposten 1977-06-22 s. 7: Kampreferat for AaFK mot Rollon (1–0)
+      spilt 1977-06-21."
   - hypothesisId: sunnmore-fotballkrets-arsrapport-1978#1978-001
     season: 1978
     isSingleton: true

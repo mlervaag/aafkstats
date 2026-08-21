@@ -188,6 +188,7 @@ export async function auditVisualReviewManifest(): Promise<{
   let wrongEventCount = 0;
   let insufficientCount = 0;
   let canonicalReadyCount = 0;
+  const claimedEventMap = new Map<string, string>();
 
   for (const c of cases) {
     if (c.reviewStatus === "visually_reviewed_pilot") {
@@ -256,6 +257,14 @@ export async function auditVisualReviewManifest(): Promise<{
       }
       if (!activeCand.visualEvidenceSummary || activeCand.visualEvidenceSummary.length < 15) {
         errors.push(`Case ${c.hypothesisId} is ready but has inadequate visualEvidenceSummary`);
+      }
+
+      // Check collision on observed event
+      const eventKey = `${c.season}|${obs.opponent.clubId}|${obs.matchDate.value}|${obs.homeAway}|${obs.competition.competitionId}`;
+      if (claimedEventMap.has(eventKey)) {
+        errors.push(`Event collision detected: Case ${c.hypothesisId} and ${claimedEventMap.get(eventKey)} both claim event ${eventKey} as ready`);
+      } else {
+        claimedEventMap.set(eventKey, c.hypothesisId);
       }
     }
 

@@ -39,6 +39,24 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
     }
   });
 
+  it("enforces Collision Gate: no two ready claims can claim the exact same observed event", async () => {
+    const root = repoRoot();
+    const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
+    const manifest = parseYaml(manifestRaw, { schema: "core" });
+
+    const readyCases = manifest.cases.filter((c: any) => c.canonicalEligibility === "ready");
+    expect(readyCases.length).toBeGreaterThan(0);
+
+    const eventSet = new Set<string>();
+    for (const c of readyCases) {
+      const activeCand = c.reviewedCandidates[0];
+      const obs = activeCand.observed;
+      const key = `${c.season}|${obs.opponent.clubId}|${obs.matchDate.value}|${obs.homeAway}|${obs.competition.competitionId}`;
+      expect(eventSet.has(key)).toBe(false);
+      eventSet.add(key);
+    }
+  });
+
   it("verifies known ground truth consistency and checks Rollon 1954 score conflict fix", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
@@ -92,6 +110,20 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
       if (obs.matchDate.value === activeCand.newspaper.issueDate) {
         expect(obs.dateEvidence.type).toBe("explicit_date");
       }
+    }
+  });
+
+  it("enforces Competition and Home/Away agreement for all ready records", async () => {
+    const root = repoRoot();
+    const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
+    const manifest = parseYaml(manifestRaw, { schema: "core" });
+
+    const readyCases = manifest.cases.filter((c: any) => c.canonicalEligibility === "ready");
+    for (const c of readyCases) {
+      const activeCand = c.reviewedCandidates[0];
+      const obs = activeCand.observed;
+      expect(obs.competitionResolution).not.toBe("conflict");
+      expect(obs.homeAwayResolution).not.toBe("conflict");
     }
   });
 
