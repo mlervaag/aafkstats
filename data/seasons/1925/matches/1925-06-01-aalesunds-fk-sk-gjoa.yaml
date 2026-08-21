@@ -1,0 +1,55 @@
+id: 1925-06-01-aalesunds-fk-sk-gjoa
+date: 1925-06-01
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1925
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: sk-gjoa
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: 2nen pinsedag. Aales. Fotballklub – Gjøa 4-0
+    date: 1925-06-03
+    url: https://www.nb.no/items/3a18f58efa66ed6a4b13690a05c1ebd3?page=5
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/3a18f58efa66ed6a4b13690a05c1ebd3?page=5
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+    page: "109"
+    fields:
+      - home.score
+      - away.score
+    note: Privatkamp trykt «Gjøa, Kristiania 4-0».
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: "5"
+    fields:
+      - home.score
+      - away.score
+    note: Privatkamp trykt «Gjøa, Oslo 4-0».
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Privatkamp spilt 2. pinsedag (mandag 1. juni 1925) for fullsatte tribuner
+  i Ålesund.

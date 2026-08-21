@@ -1,0 +1,25 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1927-08-22-s5-hardy
+matchId: 1927-08-21-aalesunds-fk-sk-hardy
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:73dd6d42a6d7c84a27e63120ad73db17f200b500e92b2106eed48b6d20ce521b
+raw:
+  avis: Sunnmørsposten
+  dato: 22. august 1927
+  side: "5"
+  tittel: Aalesunds Fotballklub slog Hardy, Bergen 8-1
+  kamp: AaFK - Hardy 8-1
+normalized:
+  date: 1927-08-21
+  home.clubId: aalesunds-fk
+  away.clubId: sk-hardy
+  home.score: 8
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

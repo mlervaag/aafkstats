@@ -1,0 +1,55 @@
+id: 1927-08-21-aalesunds-fk-sk-hardy
+date: 1927-08-21
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1927
+  stage: regular_season
+  round: 2
+home:
+  clubId: aalesunds-fk
+  score: 8
+  halfTimeScore: null
+away:
+  clubId: sk-hardy
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Aalesunds Fotballklub slog Hardy, Bergen 8-1
+    date: 1927-08-22
+    url: https://www.nb.no/items/4f1b628c77e8cf9425eca19ebd8e9f41?page=5
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/4f1b628c77e8cf9425eca19ebd8e9f41?page=5
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+    page: "110"
+    fields:
+      - home.score
+      - away.score
+    note: Cupen. trykt «Hardy, Bergen 8-1».
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: "6"
+    fields:
+      - home.score
+      - away.score
+    note: Cupen. trykt «Hardy, Bergen 8-1».
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: NM 2. runde spilt på Nørve/Aksla søndag 21. august 1927. AaFK vant 8–1.

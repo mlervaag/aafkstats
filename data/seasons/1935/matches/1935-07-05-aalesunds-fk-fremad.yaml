@@ -1,0 +1,56 @@
+id: 1935-07-05-aalesunds-fk-fremad
+date: 1935-07-05
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1935
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: fremad
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: I en jevnspilt kamp vant igår Ålesund over Fremad med 4—1
+    date: 1935-07-06
+    url: https://www.nb.no/items/c9f16545422d626c6c5e21782839314f?page=5
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/c9f16545422d626c6c5e21782839314f?page=5
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - venueId
+sources:
+  - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+    page: "115"
+    fields:
+      - home.score
+      - away.score
+    note: Privatkamp trykt «Fremad, Lillehammer 4-1».
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+    page: "8"
+    fields:
+      - home.score
+      - away.score
+    note: Privatkamp trykt «Fremad, Lillehammer 4-1».
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+venueId: norvebana
+note: Privatkamp spilt på Nørvebana fredag 5. juli 1935 kl. 20.00.
