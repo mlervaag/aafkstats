@@ -50,7 +50,7 @@ pnpm ingest:nb-newspaper-discover -- \
 | **`1963 #14` Sunnmøringen** | 0–2 | `1963-09-29` (**high**) | 2–0 (rev) | **77** | [Sunnmørsposten 30.09.1963 s. 2](https://www.nb.no/items/19487f9ee69ed326bca1b4e93ae20c7a?page=2) | Mandagsavis refererer kampen «i går», Sunnmøringen slo AaFK 2–0. Korrekt. |
 | **`1963 #18` Hødd** | 2–5 | `1963-09-07` (**low**) | 5–2 (rev) | **78** | [Sunnmørsposten 11.09.1963 s. 6](https://www.nb.no/items/dca714f3de453690ab577b4622fe49ae?page=6) | NM-kamp 2. runde på Høddvoll lørdag 7. september, Hødd vant 5–2. Korrekt. |
 
-*Kvalitetsvurdering:* 4 av 4 (100 %) er **observert korrekt etter manuell kontroll**. Presisjon for `confirmed`: **100 %** (0 falske positive).
+*Kvalitetsvurdering for Batch 03:* 4 av 4 saker fra Batch 03 fremstår som plausible treff ved preliminær kontroll. Endelig kanonisering forutsetter full visuell faksimilekontroll mot primærkilden i produksjon.
 
 ### B. Alle 3 `conflict`-saker
 
@@ -88,7 +88,7 @@ pnpm ingest:nb-newspaper-discover -- \
 Med fullføringen av Batch 03 er **samtlige 164 automatiske singletons** i hele populasjonen (1945–1964) ferdig innhøstet og vurdert:
 
 | Parameter | Batch 01 V4 (100) | Batch 02 V3 (260) | Batch 03 (180) | **Totalt / Kumulativt (164 singletons)** |
-| :--- | :---: | :---: | :---: | :---: |
+| :--- | :---: | :---: | :---: | :--- |
 | **Automatiske singletons** | 45 | 61 | 58 | **164** (100 % dekning) |
 | **Confirmed** | 6 | 8 | 4 | **18** |
 | **Conflict** | 3 | 2 | 3 | **8** |
@@ -97,15 +97,20 @@ Med fullføringen av Batch 03 er **samtlige 164 automatiske singletons** i hele 
 | **Not Found** | 5 | 5 | 2 | **12** |
 | **NB-forespørsler (requests)** | 751 | 999 | 929 | **2 679** |
 
-### Samlede Nøkkeltall og Metrikker:
+### Samlede Nøkkeltall og Erfaringer fra Produksjonskontroll (PR #186):
 
-1. **Observert presisjon for Confirmed:** **100.0 %** (18 av 18 saker manuelt verifisert korrekte; 0 falske positive).
-2. **Observert presisjon for Conflict:** **100.0 %** (8 av 8 saker representerer reelle kildedivergenser; 0 falske konflikter).
-3. **Løsningsgrad (Confirmed + Conflict):** **15.9 %** (26 av 164 singletons løst automatisk).
-4. **Manuell køandel (Probable + Ambiguous + Not Found):** **84.1 %** (138 av 164 singletons trygt rutet til manuell inspeksjon).
-5. **NB-kostnad per automatisk hypotese:** **16.34** API-kall (2 679 / 164).
-6. **NB-kostnad per løst sak (confirmed/conflict):** **103.04** API-kall (2 679 / 26).
-7. **Fordeling av Date Confidence for alle 26 løste saker:**
+1. **Pipeline-identifiserte Confirmed:** Totalt **18 saker** klassifisert som `confirmed` av discovery-algoritmen.
+2. **Erfaring fra første fullstendige faksimilekontroll (Batch 01 i PR #186):**
+   - **3 av 6 kanonisert direkte (50.0 %):** Ranheim, Nordlandet og Øvre Telemark ble fullt verifisert mot Nasjonalbibliotekets avisfaksimiler.
+   - **2 av 6 falske positive (33.3 %):** Aksla 1948 #2 og Langevåg 1948 #13 skyldtes at discovery klynget tall og klubbnavn på tvers av separate notiser på samme avisside.
+   - **1 av 6 manglende eksakt dato (16.7 %):** Herd 1949 #2 omtaler det historiske møtet, men mangler sikker kampdato.
+   - **Endelig precision for alle 18 `confirmed`:** Må anses som *ikke ferdig målt* inntil samtlige saker har gjennomgått tilsvarende full visuell faksimilekontroll i produksjon.
+3. **Observert presisjon for Conflict:** **100.0 %** (8 av 8 saker representerer reelle kildedivergenser; 0 falske konflikter).
+4. **Løsningsgrad i discovery (Confirmed + Conflict):** **15.9 %** (26 av 164 singletons rutet til løsningskandidater).
+5. **Manuell køandel (Probable + Ambiguous + Not Found):** **84.1 %** (138 av 164 singletons trygt rutet til manuell inspeksjon).
+6. **NB-kostnad per automatisk hypotese:** **16.34** API-kall (2 679 / 164).
+7. **NB-kostnad per discovery-kandidat (confirmed/conflict):** **103.04** API-kall (2 679 / 26).
+8. **Fordeling av Date Confidence for alle 26 løste saker:**
    - **High confidence:** **16 / 26** (61.5 %)
    - **Low confidence:** **10 / 26** (38.5 %) (utledet fra ukedag som «søndag/lørdag» i påfølgende mandagsavis)
    - **Medium confidence:** 0 / 26

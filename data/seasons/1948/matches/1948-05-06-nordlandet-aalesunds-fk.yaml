@@ -14,7 +14,6 @@ away:
   clubId: aalesunds-fk
   score: 6
   halfTimeScore: null
-attendance: 2000
 neutralVenue: false
 events: []
 externalReports:
@@ -34,7 +33,6 @@ providers:
       - away.clubId
       - home.score
       - away.score
-      - attendance
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
     page: "12"
@@ -48,4 +46,4 @@ conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: 1. divisjonskamp spilt i Kristiansund Kr. Himmelfartsdag 6. mai 1948.
+note: 1. divisjonskamp spilt i Kristiansund Kr. Himmelfartsdag 6. mai 1948. Sunnmørsposten oppgir «over 2000 tilskuere».

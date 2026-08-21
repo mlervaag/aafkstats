@@ -12,12 +12,12 @@ raw:
   tittel: Clausenengens fireklubbsturnering
 normalized:
   date: "1946-06-15"
-  home.clubId: aalesunds-fk
-  away.clubId: ranheim
+  home.clubId: ranheim
+  away.clubId: aalesunds-fk
   home.score: 2
   away.score: 2
-  home.halfTimeScore: 0
-  away.halfTimeScore: 1
+  home.halfTimeScore: 1
+  away.halfTimeScore: 0
   neutralVenue: true
 fields:
   - date
