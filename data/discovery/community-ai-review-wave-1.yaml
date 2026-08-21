@@ -1,0 +1,662 @@
+contract: nb-newspaper-community-ai-review@1
+reviewedAt: '2026-08-21'
+input:
+  contract: nb-newspaper-community-candidates@1
+  scope: open
+  candidates: 50
+reviews:
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1946-009
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    seniorTeam: false
+    reason: Siden er en forhåndsomtale og laguttak før kampen 6. oktober 1946 mot KFK og KFK Old Boys på Nørve, ikke et spilt kampreferat med resultat 4-1.
+    flags:
+      - preview
+      - non_senior
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1946-023
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    seniorTeam: false
+    reason: Siden omtaler en 2. divisjonskamp for AaFKs 2.-lag (reservelag) mot Herd på Nørve (5-2), ikke senior cupkamp.
+    flags:
+      - non_senior
+      - other_pair
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1947-003
+    answer: 'yes'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: true
+    score:
+      status: confirmed
+      aafk: 0
+      opponent: 1
+    matchDate:
+      value: '1947-05-26'
+      confidence: high
+    homeAway: home
+    competition:
+      value: privatkamp
+      confidence: high
+    seniorTeam: true
+    reason: Siden omtaler pinsekampen annen pinsedag (mandag 26. mai 1947) i Ålesund mellom AaFK og Freidig med sluttresultat 0-1 (Freidig-seier 1-0).
+    flags: []
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1947-008
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    seniorTeam: false
+    reason: Siden dokumenterer en 2. divisjonskamp der AaFK (2.-lag) ikke stilte mot Skarbøvik (walkover), ikke en spilt seniorkamp 1-0.
+    flags:
+      - non_senior
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1947-011
+    answer: 'yes'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: true
+    score:
+      status: confirmed
+      aafk: 1
+      opponent: 1
+    matchDate:
+      value: '1947-08-24'
+      confidence: high
+    homeAway: home
+    competition:
+      value: 1. divisjon
+      confidence: high
+    seniorTeam: true
+    reason: Siden inneholder fyldig referat fra seriekampen i 1. divisjon på Nørve søndag 24. august 1947 mellom AaFK og Nordlandet som endte 1-1.
+    flags: []
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1947-013
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden er en serierundeoppsummering der Molde (slo Nordlandet i Kristiansund) og AaFK (spilte i Ålesund) omtales i parallelle kamper, ikke innbyrdes oppgjør.
+    flags:
+      - other_pair
+      - result_board
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1947-017
+    answer: 'yes'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: true
+    score:
+      status: confirmed
+      aafk: 2
+      opponent: 4
+    matchDate:
+      value: '1947-06-13'
+      confidence: high
+    homeAway: away
+    competition:
+      value: pokalkamp
+      confidence: high
+    seniorTeam: false
+    reason: Siden dokumenterer pokalkampen fredag 13. juni 1947 der Aksla slo et rekruttpreget AaFK-lag 4-2.
+    flags:
+      - non_senior
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1947-019
+    answer: 'yes'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: true
+    score:
+      status: confirmed
+      aafk: 2
+      opponent: 0
+    matchDate:
+      value: '1947-06-15'
+      confidence: high
+    homeAway: home
+    competition:
+      value: NM
+      confidence: high
+    seniorTeam: true
+    reason: Siden inneholder fyldig referat fra 1. runde i NM på Nørve søndag 15. juni 1947 mellom AaFK og Ørsta (2-0).
+    flags: []
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1948-001
+    answer: 'yes'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: true
+    score:
+      status: confirmed
+      aafk: 1
+      opponent: 0
+    matchDate:
+      value: '1948-04-18'
+      confidence: medium
+    homeAway: away
+    competition:
+      value: privatkamp
+      confidence: medium
+    seniorTeam: true
+    reason: Siden omtaler treningskampen i Skarbøvik der AaFK vant 1-0 over Skarbøvik.
+    flags: []
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1948-004
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden omtaler omkamp i NM-kvalifisering mellom Hødd og Ørsta (2-2), ikke AaFK mot Ørsta.
+    flags:
+      - other_pair
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1948-007
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden omtaler Snøggs turnékamp mot Sykkylven (Snøgg vant 4-2), ikke AaFK mot Snøgg.
+    flags:
+      - other_pair
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1948-022
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden omtaler cuprunden der AaFK slo Fremad Lillehammer 2-1 og Clausenengen slo Rollon 4-1 i parallelle kamper, ikke innbyrdes oppgjør.
+    flags:
+      - other_pair
+      - result_board
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1949-002
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden dokumenterer at den planlagte privatkampen mellom Herd og AaFK ble utsatt, ikke et spilt kampreferat.
+    flags:
+      - preview
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1949-013
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden omtaler parallelle cupkamper der Veblungsnes møtte Braatt og AaFK møtte Sandane, ikke AaFK mot Braatt.
+    flags:
+      - other_pair
+      - result_board
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1949-016
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden er en forhåndsomtale og omberammingsnotis før cupkampen mot Sandane, uten sluttresultat.
+    flags:
+      - preview
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1950-3b73-1950-002
+    answer: 'yes'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: true
+    score:
+      status: confirmed
+      aafk: 0
+      opponent: 1
+    matchDate:
+      value: '1950-08-20'
+      confidence: medium
+    homeAway: home
+    competition:
+      value: 1. divisjon
+      confidence: high
+    seniorTeam: true
+    reason: Siden dokumenterer seriekampen i 1. divisjon på Aksla stadion der Molde vant 1-0 over AaFK.
+    flags: []
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1950-62fa-1950-003
+    answer: 'yes'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: true
+    score:
+      status: confirmed
+      aafk: 3
+      opponent: 3
+    matchDate:
+      value: '1950-05-21'
+      confidence: high
+    homeAway: home
+    competition:
+      value: 1. divisjon
+      confidence: high
+    seniorTeam: true
+    reason: Siden har fyldig referat fra seriekampen i 1. divisjon på Aksla stadion søndag 21. mai 1950 mellom AaFK og KFK (3-3).
+    flags: []
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1950-62fa-1950-007
+    answer: 'yes'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: true
+    score:
+      status: confirmed
+      aafk: 0
+      opponent: 2
+    matchDate:
+      value: '1950-07-02'
+      confidence: high
+    homeAway: away
+    competition:
+      value: NM
+      confidence: high
+    seniorTeam: true
+    reason: Siden dokumenterer 2. runde i NM i Trondheim søndag 2. juli 1950 der Freidig slo AaFK 2-0.
+    flags: []
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1951-001
+    answer: 'yes'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: true
+    score:
+      status: confirmed
+      aafk: 5
+      opponent: 1
+    matchDate:
+      value: '1951-04-15'
+      confidence: high
+    homeAway: neutral
+    competition:
+      value: privatkamp
+      confidence: high
+    seniorTeam: true
+    reason: Siden dokumenterer sesongåpningskampen på Nørve søndag 15. april 1951 der AaFK vant 5-1 over Aksla.
+    flags: []
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1952-018
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden omtaler seriekampene KFK mot AaFK og Molde mot Braatt som to separate oppgjør, ikke AaFK mot Braatt.
+    flags:
+      - other_pair
+      - result_board
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1952-023
+    answer: 'yes'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: true
+    score:
+      status: confirmed
+      aafk: 6
+      opponent: 2
+    matchDate:
+      value: '1952-05-11'
+      confidence: high
+    homeAway: home
+    competition:
+      value: 1. divisjon
+      confidence: high
+    seniorTeam: true
+    reason: Siden omtaler seriekampen i 1. divisjon på Aksla stadion søndag 11. mai 1952 der AaFK vant 6-2 over Ørsta.
+    flags: []
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1953-005
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: 'Siden omtaler to separate kamper: AaFK mot Hødd (3-1) og Skarbøvik mot Sykkylven (4-2), ikke AaFK mot Skarbøvik.'
+    flags:
+      - other_pair
+      - result_board
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1953-008
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden omtaler AaFK mot Ørsta og Spjelkavik mot Isfjorden som separate kamper, ikke AaFK mot Spjelkavik.
+    flags:
+      - other_pair
+      - result_board
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1953-013
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden er resultatbørs/runderapport der Ørsta møtte Clausenengen og AaFK møtte Molde, ikke innbyrdes oppgjør.
+    flags:
+      - other_pair
+      - result_board
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1953-020
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden omtaler seriekamper der AaFK spilte mot Hødd (3-1) og Rollon spilte mot Langevåg (1-4), ikke AaFK mot Rollon.
+    flags:
+      - other_pair
+      - result_board
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1954-1954-002
+    answer: 'yes'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: true
+    score:
+      status: confirmed
+      aafk: 3
+      opponent: 1
+    matchDate:
+      value: '1954-07-01'
+      confidence: high
+    homeAway: home
+    competition:
+      value: NM
+      confidence: high
+    seniorTeam: true
+    reason: Siden har fyldig referat fra 2. runde i NM på Aksla stadion torsdag 1. juli 1954 der AaFK vant 3-1 over Hødd.
+    flags: []
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1954-007
+    answer: 'yes'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: true
+    score:
+      status: contradicted
+      aafk: 5
+      opponent: 3
+    matchDate:
+      value: '1954-08-11'
+      confidence: high
+    homeAway: home
+    competition:
+      value: 1. divisjon
+      confidence: high
+    seniorTeam: true
+    reason: Siden dokumenterer seriekampen på Aksla stadion onsdag 11. august 1954 mellom AaFK og Rollon, hvor sluttresultatet var 5-3 (kildepåstand oppga 1-0).
+    flags: []
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1954-008
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden omtaler en treningskamp med reserver i Langevåg der Langevåg vant 5-1, samt gutte-/juniorkamper, som ikke matcher seniorclaim 2-3.
+    flags:
+      - score_uncertain
+      - non_senior
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-001
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    seniorTeam: false
+    reason: Siden omtaler utelukkende rekrutt- og småguttekamper mellom AaFK og Guard på Kråmyra (6-0), ikke seniorkamp.
+    flags:
+      - non_senior
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-015
+    answer: 'yes'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: true
+    score:
+      status: confirmed
+      aafk: 2
+      opponent: 1
+    matchDate:
+      value: '1955-09-18'
+      confidence: high
+    homeAway: away
+    competition:
+      value: 1. divisjon
+      confidence: high
+    seniorTeam: true
+    reason: Siden inneholder fyldig referat fra Landsdelsseriekampen i Kristiansund søndag 18. september 1955 der AaFK vant 2-1 over Clausenengen.
+    flags: []
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-029
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden omtaler seriekampen AaFK mot Rollon (1-2) og inneholder Stranda i tabelloppsett og friidrettsnotiser, ikke kamp AaFK mot Stranda.
+    flags:
+      - result_board
+      - other_pair
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1956-010
+    answer: 'yes'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: true
+    score:
+      status: contradicted
+      aafk: 2
+      opponent: 2
+    matchDate:
+      value: '1956-08-19'
+      confidence: high
+    homeAway: home
+    competition:
+      value: 1. divisjon
+      confidence: high
+    seniorTeam: true
+    reason: Siden dokumenterer seriekampen i Landsdelsserien på Aksla stadion søndag 19. august 1956 der AaFK og Braatt spilte 2-2 (kildepåstand oppga 2-3 tap).
+    flags: []
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1956-026
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden er en forhåndsomtale for den kommende oppvisningskampen mot Wiener Sportclub søndag kveld, uten kampresultat.
+    flags:
+      - preview
+      - combined_team
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1957-1957-004
+    answer: 'yes'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: true
+    score:
+      status: confirmed
+      aafk: 1
+      opponent: 2
+    matchDate:
+      value: '1957-06-09'
+      confidence: high
+    homeAway: home
+    competition:
+      value: NM
+      confidence: high
+    seniorTeam: true
+    reason: Siden inneholder fyldig referat fra 1. runde i NM på Aksla stadion søndag 9. juni 1957 der Eid slo AaFK 2-1.
+    flags: []
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1958-1958-002
+    answer: 'yes'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: true
+    score:
+      status: contradicted
+      aafk: 2
+      opponent: 1
+    matchDate:
+      value: '1958-05-23'
+      confidence: high
+    homeAway: home
+    competition:
+      value: NM
+      confidence: high
+    seniorTeam: true
+    reason: Siden dokumenterer cupoppgjøret på Aksla stadion fredag 23. mai 1958 mellom AaFK og Rollon, hvor sluttresultatet var 2-1 (kretsrapporten oppga 2-0).
+    flags: []
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1958-022
+    answer: 'yes'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: true
+    score:
+      status: contradicted
+      aafk: 2
+      opponent: 2
+    matchDate:
+      value: '1958-08-31'
+      confidence: high
+    homeAway: home
+    competition:
+      value: 1. divisjon
+      confidence: high
+    seniorTeam: true
+    reason: Siden dokumenterer seriekampen søndag 31. august 1958 mellom AaFK og Dahle, hvor Dahle utlignet til 2-2 like før slutt (kildepåstand oppga 2-1 seier).
+    flags: []
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1959-015
+    answer: 'yes'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: true
+    score:
+      status: confirmed
+      aafk: 1
+      opponent: 0
+    matchDate:
+      value: '1959-05-07'
+      confidence: high
+    homeAway: away
+    competition:
+      value: 1. divisjon
+      confidence: high
+    seniorTeam: true
+    reason: Siden inneholder referat fra seriekampen i Landsdelsserien i Kristiansund torsdag 7. mai 1959 mellom Dahle og AaFK (0-1).
+    flags: []
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1959-018
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden omtaler seriekampen mellom Herd og Volda (10-1), ikke AaFK mot Volda.
+    flags:
+      - other_pair
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1960-1960-003
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden omtaler Mauseidvåg mot Valder samt fotballskolering mot Vigra, ikke kamp mellom AaFK og Valder.
+    flags:
+      - other_pair
+      - unrelated_notice
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1960-146a-1960-005
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden inneholder treff på spilleren Sverre Strømsheim, ikke klubben Sverre (Levanger).
+    flags:
+      - unrelated_notice
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1960-007
+    answer: 'yes'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: true
+    score:
+      status: confirmed
+      aafk: 13
+      opponent: 1
+    matchDate:
+      value: '1960-07-24'
+      confidence: high
+    homeAway: away
+    competition:
+      value: privatkamp
+      confidence: high
+    seniorTeam: true
+    reason: Siden inneholder referat og bilde fra privatkampen på nye Vigra-bana søndag 24. juli 1960 der AaFK vant 13-1 over Vigra.
+    flags: []
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1961-010
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden er et formannskapsreferat om nedsatt baneleie for en tidligere kamp mot Østsiden, uten kampreferat eller resultat.
+    flags:
+      - retrospective
+      - unrelated_notice
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1961-012
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden er en forhåndskommentar om berammingskonflikt for den planlagte cupkampen mot Brage, uten kampresultat.
+    flags:
+      - preview
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1962-003
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden dokumenterer at den planlagte kampen mellom AaFK og Rollon ble avlyst fordi Rollon ikke kunne stille lag.
+    flags:
+      - unrelated_notice
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1962-004
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden omtaler Aksla som stadionnavn i forkant av kvalifiseringskampen mot Gjøvik/Lyn, ikke klubben Aksla IL.
+    flags:
+      - unrelated_notice
+      - preview
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1963-009
+    answer: 'yes'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: true
+    score:
+      status: confirmed
+      aafk: 1
+      opponent: 6
+    matchDate:
+      value: '1963-06-30'
+      confidence: high
+    homeAway: home
+    competition:
+      value: privatkamp
+      confidence: high
+    seniorTeam: true
+    reason: Siden har fyldig referat fra oppvisningskampen på Aksla søndag 30. juni 1963 der det jugoslaviske laget Spartak vant 6-1 over AaFK.
+    flags: []
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1963-016
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden omtaler 2. divisjonstabellen der Os møtte Larvik Turn og AaFK møtte Rosenborg, ikke kamp mellom AaFK og Os.
+    flags:
+      - other_pair
+      - result_board
+  - candidateId: nb-cand-sunnmore-fotballkrets-arsrapport-1964-1964-002
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    seniorTeam: false
+    reason: Siden er en forhåndsomtale for en old boys-kamp mellom AaFK og Rollon, uten kampresultat.
+    flags:
+      - preview
+      - non_senior
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-003
+    answer: 'no'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: false
+    reason: Siden omtaler kampen mellom Valder og Ellingsøy (4-0), ikke AaFK mot Valder.
+    flags:
+      - other_pair
+  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-014
+    answer: 'yes'
+    confidence: high
+    visuallyReviewed: true
+    sameMatch: true
+    score:
+      status: confirmed
+      aafk: 2
+      opponent: 3
+    matchDate:
+      value: '1964-10-11'
+      confidence: high
+    homeAway: home
+    competition:
+      value: privatkamp
+      confidence: high
+    seniorTeam: true
+    reason: Siden har referat fra privatkampen på Aksla søndag 11. oktober 1964 der Eid vant 3-2 over AaFK.
+    flags: []
