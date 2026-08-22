@@ -1,0 +1,2232 @@
+contract: medlemsblad-1965-year-shift-repair@1
+generatedAt: 2026-08-22T07:24:20.643Z
+summary:
+  totalMovedRows: 54
+  totalRenumberedRows: 55
+  seasonCountsBefore:
+    "1954": 9
+    "1955": 36
+    "1956": 29
+    "1957": 44
+  seasonCountsAfter:
+    "1954": 32
+    "1955": 29
+    "1956": 28
+    "1957": 29
+  matchesUpdated: 0
+  matchesRemovedMedlemsbladSource: 10
+movedItems:
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 1
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-001
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 10
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-010
+    claim:
+      opponent: Guard
+      score:
+        - 2
+        - 0
+      page: 14
+      note: ÅFK's jubileumsturnering. trykt «ÅFK—Guard 2—0».
+      opponentClubId: guard
+    hadMatchId: 1955-09-12-aalesunds-fk-guard
+    action: MOVED_SEASON
+    matchAction: KEEP_MATCH_REMOVE_SOURCE_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 2
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-002
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 11
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-011
+    claim:
+      opponent: Rollon
+      score:
+        - 3
+        - 0
+      page: 14
+      note: ÅFK's jubileumsturnering. trykt «ÅFK—Rollon 3—0».
+      opponentClubId: rollon
+    hadMatchId: 1955-05-19-aalesunds-fk-rollon
+    action: MOVED_SEASON
+    matchAction: KEEP_MATCH_REMOVE_SOURCE_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 3
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-003
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 12
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-012
+    claim:
+      opponent: Skarbøvik
+      score:
+        - 1
+        - 0
+      page: 14
+      note: ÅFK's jubileumsturnering. trykt «ÅFK—Skarbøvik 1—0».
+      opponentClubId: skarbovik
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 4
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-004
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 13
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-013
+    claim:
+      opponent: Rollon
+      score:
+        - 2
+        - 4
+      page: 14
+      note: ÅFK's jubileumsturnering. trykt «ÅFK—Rollon 2—4».
+      opponentClubId: rollon
+    hadMatchId: 1955-05-15-aalesunds-fk-rollon
+    action: MOVED_SEASON
+    matchAction: KEEP_MATCH_REMOVE_SOURCE_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 5
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-005
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 14
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-014
+    claim:
+      opponent: Langevåg
+      score:
+        - 1
+        - 5
+      page: 14
+      note: ÅFK's jubileumsturnering. trykt «ÅFK—Langevåg 1—5».
+      opponentClubId: langevag
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 6
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-006
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 15
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-015
+    claim:
+      opponent: Rollon
+      score:
+        - 1
+        - 0
+      page: 14
+      note: ÅFK's jubileumsturnering. trykt «ÅFK—Rollon 1—0».
+      opponentClubId: rollon
+    hadMatchId: 1955-04-22-aalesunds-fk-rollon
+    action: MOVED_SEASON
+    matchAction: KEEP_MATCH_REMOVE_SOURCE_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 7
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-007
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 16
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-016
+    claim:
+      opponent: Molde
+      score:
+        - 1
+        - 1
+      page: 14
+      note: 1. divisjon. trykt «ÅFK—Molde 1—1».
+      opponentClubId: molde-fk
+    hadMatchId: 1955-05-30-aalesunds-fk-molde-fk
+    action: MOVED_SEASON
+    matchAction: KEEP_MATCH_REMOVE_SOURCE_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 8
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-008
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 17
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-017
+    claim:
+      opponent: Hødd
+      score:
+        - 2
+        - 1
+      page: 14
+      note: 1. divisjon. bortekamp. trykt «ÅFK—Hødd* 2—1».
+      opponentClubId: hodd
+    hadMatchId: 1955-11-06-hodd-aalesunds-fk
+    action: MOVED_SEASON
+    matchAction: KEEP_MATCH_REMOVE_SOURCE_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 9
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-009
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 18
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-018
+    claim:
+      opponent: Rollon
+      score:
+        - 3
+        - 1
+      page: 14
+      note: 1. divisjon. trykt «ÅFK—Rollon 3—1».
+      opponentClubId: rollon
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 10
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-010
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 19
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-019
+    claim:
+      opponent: KFK
+      score:
+        - 0
+        - 2
+      page: 14
+      note: 1. divisjon. bortekamp. trykt «ÅFK—KFK* 0—2».
+      opponentClubId: kfk
+    hadMatchId: 1955-08-14-kfk-aalesunds-fk
+    action: MOVED_SEASON
+    matchAction: KEEP_MATCH_REMOVE_SOURCE_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 11
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-011
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 20
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-020
+    claim:
+      opponent: Langevåg
+      score:
+        - 0
+        - 1
+      page: 14
+      note: 1. divisjon. trykt «ÅFK—Langevåg 0—1».
+      opponentClubId: langevag
+      resultGroupId: nm-1955-langevag-runde-2
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 12
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-012
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 21
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-021
+    claim:
+      opponent: Sykkylven
+      score:
+        - 2
+        - 2
+      page: 14
+      note: 1. divisjon. bortekamp. trykt «ÅFK—Sykkylven* 2—2».
+      opponentClubId: fk-sykkylven
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 13
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-013
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 22
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-022
+    claim:
+      opponent: Rollon
+      score:
+        - 5
+        - 3
+      page: 14
+      note: 1. divisjon. trykt «ÅFK—Rollon 5—3».
+      opponentClubId: rollon
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 14
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-014
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 23
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-023
+    claim:
+      opponent: Langevåg
+      score:
+        - 0
+        - 2
+      page: 14
+      note: 1. divisjon. bortekamp. trykt «ÅFK—Langevåg* 0—2».
+      opponentClubId: langevag
+    hadMatchId: 1955-09-25-langevag-aalesunds-fk
+    action: MOVED_SEASON
+    matchAction: KEEP_MATCH_REMOVE_SOURCE_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 15
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-015
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 24
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-024
+    claim:
+      opponent: Clausenengen
+      score:
+        - 2
+        - 1
+      page: 14
+      note: 1. divisjon. trykt «ÅFK—Clausenengen 2—1».
+      opponentClubId: clausenengen
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 16
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-016
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 25
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-025
+    claim:
+      opponent: Molde
+      score:
+        - 1
+        - 1
+      page: 14
+      note: 1. divisjon. bortekamp. trykt «ÅFK—Molde* 1—1».
+      opponentClubId: molde-fk
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 17
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-017
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 26
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-026
+    claim:
+      opponent: KFK
+      score:
+        - 2
+        - 3
+      page: 14
+      note: 1. divisjon. trykt «ÅFK—KFK 2—3».
+      opponentClubId: kfk
+    hadMatchId: 1955-10-09-aalesunds-fk-kfk
+    action: MOVED_SEASON
+    matchAction: KEEP_MATCH_REMOVE_SOURCE_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 18
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-018
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 27
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-027
+    claim:
+      opponent: Hødd
+      score:
+        - 2
+        - 3
+      page: 14
+      note: 1. divisjon. bortekamp. trykt «ÅFK—Hødd* 2—3».
+      opponentClubId: hodd
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 19
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-019
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 28
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-028
+    claim:
+      opponent: Hødd
+      score:
+        - 2
+        - 1
+      page: 14
+      note: 1. divisjon. trykt «ÅFK—Hødd 2—1».
+      opponentClubId: hodd
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 20
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-020
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 29
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-029
+    claim:
+      opponent: KFK
+      score:
+        - 0
+        - 2
+      page: 14
+      note: 1. divisjon. trykt «ÅFK—KFK 0—2».
+      opponentClubId: kfk
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 21
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-021
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 30
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-030
+    claim:
+      opponent: Aksla
+      score:
+        - 5
+        - 1
+      page: 14
+      note: Cupen. trykt «ÅFK—Aksla 5—1».
+      opponentClubId: aksla
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 22
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-022
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 31
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-031
+    claim:
+      opponent: Hødd
+      score:
+        - 3
+        - 1
+      page: 14
+      note: Cupen. trykt «ÅFK—Hødd 3—1».
+      opponentClubId: hodd
+    hadMatchId: 1955-07-11-aalesunds-fk-hodd
+    action: MOVED_SEASON
+    matchAction: KEEP_MATCH_REMOVE_SOURCE_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 23
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-023
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1954
+      no: 32
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-032
+    claim:
+      opponent: Freidig
+      score:
+        - 1
+        - 3
+      page: 14
+      note: Cupen. trykt «ÅFK—Freidig, Tr.heim, 1—3».
+      opponentClubId: freidig
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 1
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-001
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 14
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-014
+    claim:
+      opponent: Langevåg
+      score:
+        - 2
+        - 2
+      page: 14
+      note: 1. division. bortekamp. trykt «ÅFK—Langevåg* 2—2».
+      opponentClubId: langevag
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 2
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-002
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 15
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-015
+    claim:
+      opponent: Rollon
+      score:
+        - 1
+        - 1
+      page: 14
+      note: 1. division. trykt «ÅFK—Rollon 1—1».
+      opponentClubId: rollon
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 3
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-003
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 16
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-016
+    claim:
+      opponent: Sykkylven
+      score:
+        - 3
+        - 0
+      page: 14
+      note: 1. division. trykt «ÅFK—Sykkylven 3—0».
+      opponentClubId: fk-sykkylven
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 4
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-004
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 17
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-017
+    claim:
+      opponent: Clausenengen
+      score:
+        - 2
+        - 1
+      page: 14
+      note: 1. division. bortekamp. trykt «ÅFK—Clausenengen* 2—1».
+      opponentClubId: clausenengen
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 5
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-005
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 18
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-018
+    claim:
+      opponent: Molde
+      score:
+        - 1
+        - 1
+      page: 14
+      note: 1. division. trykt «ÅFK—Molde 1—1».
+      opponentClubId: molde-fk
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 6
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-006
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 19
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-019
+    claim:
+      opponent: Træff
+      score:
+        - 0
+        - 0
+      page: 14
+      note: 1. division. bortekamp. trykt «ÅFK—Træff* 0—0».
+      opponentClubId: traeff
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 7
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-007
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 20
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-020
+    claim:
+      opponent: KFK
+      score:
+        - 2
+        - 0
+      page: 14
+      note: 1. division. trykt «ÅFK—KFK 2—0».
+      opponentClubId: kfk
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 8
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-008
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 21
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-021
+    claim:
+      opponent: Langevåg
+      score:
+        - 1
+        - 3
+      page: 14
+      note: 1. division. bortekamp. trykt «ÅFK—Langevåg* 1—3».
+      opponentClubId: langevag
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 9
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-009
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 22
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-022
+    claim:
+      opponent: Hødd
+      score:
+        - 0
+        - 4
+      page: 14
+      note: 1. division. bortekamp. trykt «ÅFK—Hødd* 0—4».
+      opponentClubId: hodd
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 10
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-010
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 23
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-023
+    claim:
+      opponent: Braatt
+      score:
+        - 2
+        - 3
+      page: 14
+      note: 1. division. trykt «ÅFK—Braatt 2—3».
+      opponentClubId: braatt
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 11
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-011
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 24
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-024
+    claim:
+      opponent: Clausenengen
+      score:
+        - 2
+        - 1
+      page: 14
+      note: 1. division. bortekamp. trykt «ÅFK—Clausenengen* 2—1».
+      opponentClubId: clausenengen
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 12
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-012
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 25
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-025
+    claim:
+      opponent: Molde
+      score:
+        - 0
+        - 1
+      page: 14
+      note: 1. division. trykt «ÅFK—Molde 0—1».
+      opponentClubId: molde-fk
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 13
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-013
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 26
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-026
+    claim:
+      opponent: Træff
+      score:
+        - 5
+        - 0
+      page: 14
+      note: 1. division. trykt «ÅFK—Træff 5—0».
+      opponentClubId: traeff
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 14
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-014
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 27
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-027
+    claim:
+      opponent: KFK
+      score:
+        - 2
+        - 3
+      page: 14
+      note: 1. division. bortekamp. trykt «ÅFK—KFK* 2—3».
+      opponentClubId: kfk
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 15
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-015
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 28
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-028
+    claim:
+      opponent: Rollon
+      score:
+        - 2
+        - 0
+      page: 14
+      note: Cupen. trykt «ÅFK—Rollon 2—0».
+      opponentClubId: rollon
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 16
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-016
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 29
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-029
+    claim:
+      opponent: Langevåg
+      score:
+        - 0
+        - 1
+      page: 14
+      note: Cupen. trykt «ÅFK—Langevåg 0—1».
+      opponentClubId: langevag
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 1
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-001
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 14
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-014
+    claim:
+      opponent: Langevåg
+      score:
+        - 2
+        - 2
+      page: 14
+      note: 1. divisjon. trykt «ÅFK—Langevåg 2—2».
+      opponentClubId: langevag
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 2
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-002
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 15
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-015
+    claim:
+      opponent: Hødd
+      score:
+        - 1
+        - 2
+      page: 14
+      note: 1. divisjon. trykt «ÅFK—Hødd 1—2».
+      opponentClubId: hodd
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 3
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-003
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 16
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-016
+    claim:
+      opponent: Braatt
+      score:
+        - 1
+        - 1
+      page: 14
+      note: 1. divisjon. bortekamp. trykt «ÅFK—Braatt* 1—1».
+      opponentClubId: braatt
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 4
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-004
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 17
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-017
+    claim:
+      opponent: Clausenengen
+      score:
+        - 2
+        - 2
+      page: 14
+      note: 1. divisjon. trykt «ÅFK—Clausenengen 2—2».
+      opponentClubId: clausenengen
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 5
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-005
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 18
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-018
+    claim:
+      opponent: Molde
+      score:
+        - 0
+        - 1
+      page: 14
+      note: 1. divisjon. trykt «ÅFK—Molde 0—1».
+      opponentClubId: molde-fk
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 6
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-006
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 19
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-019
+    claim:
+      opponent: Rollon
+      score:
+        - 0
+        - 0
+      page: 14
+      note: Høst. trykt «ÅFK—Rollon 0—0».
+      opponentClubId: rollon
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 7
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-007
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 20
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-020
+    claim:
+      opponent: Braatt
+      score:
+        - 2
+        - 2
+      page: 14
+      note: Høst. trykt «ÅFK—Braatt 2—2».
+      opponentClubId: braatt
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 8
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-008
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 21
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-021
+    claim:
+      opponent: Hødd
+      score:
+        - 1
+        - 6
+      page: 14
+      note: Høst. bortekamp. trykt «ÅFK—Hødd* 1—6».
+      opponentClubId: hodd
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 9
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-009
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 22
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-022
+    claim:
+      opponent: Framtid
+      score:
+        - 4
+        - 0
+      page: 14
+      note: Høst. trykt «ÅFK—Framtid 4—0».
+      opponentClubId: framtid
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 10
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-010
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 23
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-023
+    claim:
+      opponent: Molde
+      score:
+        - 2
+        - 3
+      page: 14
+      note: Høst. bortekamp. trykt «ÅFK—Molde* 2—3».
+      opponentClubId: molde-fk
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 11
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-011
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 24
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-024
+    claim:
+      opponent: KFK
+      score:
+        - 2
+        - 2
+      page: 14
+      note: Høst. trykt «ÅFK—KFK 2—2».
+      opponentClubId: kfk
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 12
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-012
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 25
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-025
+    claim:
+      opponent: Rollon
+      score:
+        - 4
+        - 1
+      page: 14
+      note: Høst. trykt «ÅFK—Rollon 4—1».
+      opponentClubId: rollon
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 13
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-013
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 26
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-026
+    claim:
+      opponent: Braatt
+      score:
+        - 0
+        - 2
+      page: 14
+      note: Høst. trykt «ÅFK—Braatt 0—2».
+      opponentClubId: braatt
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 14
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-014
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 27
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-027
+    claim:
+      opponent: Langevåg
+      score:
+        - 2
+        - 1
+      page: 14
+      note: Høst. bortekamp. trykt «ÅFK—Langevåg* 2—1».
+      opponentClubId: langevag
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 15
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-015
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 28
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-028
+    claim:
+      opponent: Hødd
+      score:
+        - 1
+        - 5
+      page: 14
+      note: Cupkamper. bortekamp. trykt «ÅFK—Hødd* 1—5».
+      opponentClubId: hodd
+    action: MOVED_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+renumberedItems:
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 24
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-024
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 1
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-001
+    claim:
+      opponent: Aksla
+      score:
+        - 6
+        - 2
+      page: 14
+      note: trykt «ÅFK—Aksla 6—2».
+      opponentClubId: aksla
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 25
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-025
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 2
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-002
+    claim:
+      opponent: Hødd
+      score:
+        - 2
+        - 0
+      page: 14
+      note: trykt «ÅFK—Hødd 2—0».
+      opponentClubId: hodd
+    hadMatchId: 1955-04-24-aalesunds-fk-hodd
+    action: RENUMBERED_IN_SEASON
+    matchAction: KEEP_MATCH_RELINK_CORRECTED_SOURCE
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 26
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-026
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 3
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-003
+    claim:
+      opponent: Skarbøvik
+      score:
+        - 7
+        - 2
+      page: 14
+      note: bortekamp. trykt «ÅFK—Skarbøvik* 7—2».
+      opponentClubId: skarbovik
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 27
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-027
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 4
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-004
+    claim:
+      opponent: Skarbøvik
+      score:
+        - 1
+        - 2
+      page: 14
+      note: trykt «ÅFK—Skarbøvik 1—2».
+      opponentClubId: skarbovik
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 28
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-028
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 5
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-005
+    claim:
+      opponent: Aksla
+      score:
+        - 5
+        - 4
+      page: 14
+      note: trykt «ÅFK—Aksla 5—4».
+      opponentClubId: aksla
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 29
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-029
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 6
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-006
+    claim:
+      opponent: Stranda
+      score:
+        - 8
+        - 1
+      page: 14
+      note: bortekamp. trykt «ÅFK—Stranda* 8—1».
+      opponentClubId: stranda
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 30
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-030
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 7
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-007
+    claim:
+      opponent: Hødd
+      score:
+        - 1
+        - 4
+      page: 14
+      note: bortekamp. trykt «ÅFK—Hødd* 1—4».
+      opponentClubId: hodd
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 31
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-031
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 8
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-008
+    claim:
+      opponent: Snøgg
+      score:
+        - 0
+        - 0
+      page: 14
+      note: trykt «ÅFK—Snøgg 0—0».
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 32
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-032
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 9
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-009
+    claim:
+      opponent: Årstad
+      score:
+        - 0
+        - 5
+      page: 14
+      note: bortekamp. trykt «ÅFK—Årstad* 0—5».
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 33
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-033
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 10
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-010
+    claim:
+      opponent: Voss
+      score:
+        - 5
+        - 1
+      page: 14
+      note: bortekamp. trykt «ÅFK—Voss* 5—1».
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 34
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-034
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 11
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-011
+    claim:
+      opponent: Måløy
+      score:
+        - 3
+        - 2
+      page: 14
+      note: "bortekamp. trykt «ÅFK—Måløy* 3—2». Ikke koblet til klubb: Måløy IL og
+        Tornado Måløy er to forskjellige klubber, og entiteten tornado-maloy
+        dokumenterer ingen historisk navneform «Måløy»."
+      opponentClubId: maloy-il
+    hadMatchId: 1955-07-24-maloy-il-aalesunds-fk
+    action: RENUMBERED_IN_SEASON
+    matchAction: KEEP_MATCH_RELINK_CORRECTED_SOURCE
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 35
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-035
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 12
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-012
+    claim:
+      opponent: Herd
+      score:
+        - 4
+        - 3
+      page: 14
+      note: trykt «ÅFK—Herd 4—3».
+      opponentClubId: herd
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 36
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-036
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1955
+      no: 13
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-013
+    claim:
+      opponent: Rollon
+      score:
+        - 4
+        - 0
+      page: 14
+      note: trykt «ÅFK—Rollon 4—0».
+      opponentClubId: rollon
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 17
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-017
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 1
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-001
+    claim:
+      opponent: Rollon
+      score:
+        - 1
+        - 3
+      page: 14
+      note: trykt «ÅFK—Rollon 1—3».
+      opponentClubId: rollon
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 18
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-018
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 2
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-002
+    claim:
+      opponent: Spjelkavik
+      score:
+        - 3
+        - 3
+      page: 14
+      note: bortekamp. trykt «ÅFK—Spjelkavik* 3—3».
+      opponentClubId: spjelkavik
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 19
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-019
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 3
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-003
+    claim:
+      opponent: Aksla
+      score:
+        - 6
+        - 3
+      page: 14
+      note: trykt «ÅFK—Aksla 6—3».
+      opponentClubId: aksla
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 20
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-020
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 4
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-004
+    claim:
+      opponent: Aksla
+      score:
+        - 2
+        - 2
+      page: 14
+      note: trykt «ÅFK—Aksla 2—2».
+      opponentClubId: aksla
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 21
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-021
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 5
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-005
+    claim:
+      opponent: Rollon
+      score:
+        - 7
+        - 1
+      page: 14
+      note: trykt «ÅFK—Rollon 7—1».
+      opponentClubId: rollon
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 22
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-022
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 6
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-006
+    claim:
+      opponent: Spjelkavik
+      score:
+        - 5
+        - 1
+      page: 14
+      note: trykt «ÅFK—Spjelkavik 5—1».
+      opponentClubId: spjelkavik
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 23
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-023
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 7
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-007
+    claim:
+      opponent: Sykkylven
+      score:
+        - 4
+        - 3
+      page: 14
+      note: Sykkylvens jubileumsturnering. bortekamp. trykt «ÅFK—Sykkylven* 4—3».
+      opponentClubId: fk-sykkylven
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 24
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-024
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 8
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-008
+    claim:
+      opponent: Langevåg
+      score:
+        - 1
+        - 4
+      page: 14
+      note: Sykkylvens jubileumsturnering. trykt «ÅFK—Langevåg 1—4 (Finale).».
+      opponentClubId: langevag
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 25
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-025
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 9
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-009
+    claim:
+      opponent: Langevåg
+      score:
+        - 1
+        - 5
+      page: 14
+      note: Sykkylvens jubileumsturnering. bortekamp. trykt «ÅFK—Langevåg* 1—5».
+      opponentClubId: langevag
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 26
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-026
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 10
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-010
+    claim:
+      opponent: Wiener Sportclub
+      score:
+        - 0
+        - 7
+      page: 14
+      note: Sykkylvens jubileumsturnering. trykt «ÅFK forsterket—Wiener Sportclub
+        0—7».
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 27
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-027
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 11
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-011
+    claim:
+      opponent: Fredrikshavn
+      score:
+        - 2
+        - 7
+      page: 14
+      note: Sykkylvens jubileumsturnering. trykt «ÅFK—Fredrikshavn, Danmark, 2—7».
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 28
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-028
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 12
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-012
+    claim:
+      opponent: Hødd
+      score:
+        - 2
+        - 2
+      page: 14
+      note: Volda Turn- og Idr.lags jubileumsturnering. trykt «ÅFK—Hødd 2—2 (ÅFK vant
+        straffespark).».
+      opponentClubId: hodd
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 29
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-029
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1956
+      no: 13
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-013
+    claim:
+      opponent: Volda
+      score:
+        - 0
+        - 3
+      page: 14
+      note: Volda Turn- og Idr.lags jubileumsturnering. trykt «ÅFK—Volda 0—3
+        (Finale).».
+      opponentClubId: volda
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 16
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-016
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 1
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-001
+    claim:
+      opponent: Aksla
+      score:
+        - 4
+        - 1
+      page: 14
+      note: trykt «ÅFK—Aksla 4—1».
+      opponentClubId: aksla
+      resultGroupId: 1957-aksla-4-1
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 17
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-017
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 2
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-002
+    claim:
+      opponent: Rollon
+      score:
+        - 2
+        - 0
+      page: 14
+      note: trykt «ÅFK—Rollon 2—0».
+      opponentClubId: rollon
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 18
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-018
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 3
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-003
+    claim:
+      opponent: Rollon
+      score:
+        - 4
+        - 1
+      page: 14
+      note: trykt «ÅFK—Rollon 4—1».
+      opponentClubId: rollon
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 19
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-019
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 4
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-004
+    claim:
+      opponent: Aksla
+      score:
+        - 2
+        - 1
+      page: 14
+      note: trykt «ÅFK—Aksla 2—1».
+      opponentClubId: aksla
+      resultGroupId: 1957-aksla-2-1
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 20
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-020
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 5
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-005
+    claim:
+      opponent: Rollon
+      score:
+        - 4
+        - 1
+      page: 14
+      note: trykt «ÅFK—Rollon 4—1».
+      opponentClubId: rollon
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 21
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-021
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 6
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-006
+    claim:
+      opponent: Stranda
+      score:
+        - 5
+        - 3
+      page: 14
+      note: bortekamp. trykt «ÅFK—Stranda* 5—3».
+      opponentClubId: stranda
+      resultGroupId: 1957-stranda-5-3
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 22
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-022
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 7
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-007
+    claim:
+      opponent: Westbahn/Linz
+      score:
+        - 0
+        - 1
+      page: 14
+      note: trykt «ÅFK—Westbahn/Linz 0—1».
+      opponentClubId: westbahn-linz
+    hadMatchId: 1957-07-28-aalesunds-fk-westbahn-linz
+    action: RENUMBERED_IN_SEASON
+    matchAction: KEEP_MATCH_RELINK_CORRECTED_SOURCE
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 23
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-023
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 8
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-008
+    claim:
+      opponent: Langevåg—Raufoss
+      score:
+        - 3
+        - 6
+      page: 14
+      note: trykt «ÅFK—Langevåg—Raufoss 3—6».
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 24
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-024
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 9
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-009
+    claim:
+      opponent: Spjelkavik
+      score:
+        - 2
+        - 2
+      page: 14
+      note: trykt «ÅFK—Spjelkavik 2—2».
+      opponentClubId: spjelkavik
+      resultGroupId: 1957-spjelkavik-2-2
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 25
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-025
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 10
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-010
+    claim:
+      opponent: Guard
+      score:
+        - 1
+        - 0
+      page: 14
+      note: Vår-cupen. trykt «ÅFK—Guard 1—0».
+      opponentClubId: guard
+      resultGroupId: 1957-guard-1-0
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 26
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-026
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 11
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-011
+    claim:
+      opponent: Spjelkavik
+      score:
+        - 2
+        - 0
+      page: 14
+      note: Vår-cupen. trykt «ÅFK—Spjelkavik 2—0».
+      opponentClubId: spjelkavik
+      resultGroupId: 1957-spjelkavik-2-0
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 27
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-027
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 12
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-012
+    claim:
+      opponent: Rollon
+      score:
+        - 2
+        - 1
+      page: 14
+      note: Vår-cupen. trykt «ÅFK—Rollon 2—1 (Finale).».
+      opponentClubId: rollon
+      resultGroupId: 1957-rollon-2-1
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 28
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-028
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 13
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-013
+    claim:
+      opponent: Guard
+      score:
+        - 11
+        - 1
+      page: 14
+      note: Sommer-cupen. trykt «ÅFK—Guard 11—1».
+      opponentClubId: guard
+      resultGroupId: 1957-guard-11-1
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 29
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-029
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 14
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-014
+    claim:
+      opponent: Herd
+      score:
+        - 0
+        - 1
+      page: 14
+      note: Sommer-cupen. trykt «ÅFK—Herd 0—1».
+      opponentClubId: herd
+      resultGroupId: 1957-herd-0-1
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 30
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-030
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 15
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-015
+    claim:
+      opponent: Hødd
+      score:
+        - 2
+        - 0
+      page: 14
+      note: Landsdelsserien. trykt «ÅFK—Hødd 2—0».
+      opponentClubId: hodd
+      resultGroupId: forstedivisjon-1957-hodd-2-0
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 31
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-031
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 16
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-016
+    claim:
+      opponent: Framtid
+      score:
+        - 0
+        - 0
+      page: 14
+      note: Landsdelsserien. bortekamp. trykt «ÅFK—Framtid* 0—0».
+      opponentClubId: framtid
+      resultGroupId: forstedivisjon-1957-framtid-0-0
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 32
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-032
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 17
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-017
+    claim:
+      opponent: Molde
+      score:
+        - 1
+        - 3
+      page: 14
+      note: Landsdelsserien. trykt «ÅFK—Molde 1—3».
+      opponentClubId: molde-fk
+      resultGroupId: forstedivisjon-1957-molde-fk-1-3
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 33
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-033
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 18
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-018
+    claim:
+      opponent: KFK
+      score:
+        - 0
+        - 2
+      page: 14
+      note: Landsdelsserien. trykt «ÅFK—KFK 0—2».
+      opponentClubId: kfk
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 34
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-034
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 19
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-019
+    claim:
+      opponent: Langevåg
+      score:
+        - 2
+        - 2
+      page: 14
+      note: Landsdelsserien. trykt «ÅFK—Langevåg 2—2».
+      opponentClubId: langevag
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 35
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-035
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 20
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-020
+    claim:
+      opponent: KFK
+      score:
+        - 0
+        - 2
+      page: 14
+      note: Høst. trykt «ÅFK—KFK 0—2».
+      opponentClubId: kfk
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 36
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-036
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 21
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-021
+    claim:
+      opponent: Langevåg
+      score:
+        - 0
+        - 2
+      page: 14
+      note: Høst. bortekamp. trykt «ÅFK—Langevåg* 0—2».
+      opponentClubId: langevag
+      resultGroupId: forstedivisjon-1957-langevag-0-2
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 37
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-037
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 22
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-022
+    claim:
+      opponent: Rollon
+      score:
+        - 0
+        - 0
+      page: 15
+      note: trykt «ÅFK—Rollon 0—0».
+      opponentClubId: rollon
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 38
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-038
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 23
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-023
+    claim:
+      opponent: Braatt
+      score:
+        - 4
+        - 1
+      page: 15
+      note: bortekamp. trykt «ÅFK—Braatt* 4—1».
+      opponentClubId: braatt
+      resultGroupId: forstedivisjon-1957-braatt-4-1
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 39
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-039
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 24
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-024
+    claim:
+      opponent: Hødd
+      score:
+        - 2
+        - 2
+      page: 15
+      note: trykt «ÅFK—Hødd 2—2».
+      opponentClubId: hodd
+      resultGroupId: forstedivisjon-1957-hodd-2-2
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 40
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-040
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 25
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-025
+    claim:
+      opponent: Spjelkavik
+      score:
+        - 1
+        - 0
+      page: 15
+      note: bortekamp. trykt «ÅFK—Spjelkavik* 1—0».
+      opponentClubId: spjelkavik
+      resultGroupId: forstedivisjon-1957-spjelkavik-1-0
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 41
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-041
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 26
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-026
+    claim:
+      opponent: Clausenengen
+      score:
+        - 1
+        - 3
+      page: 15
+      note: bortekamp. trykt «ÅFK—Clausenengen* 1—3».
+      opponentClubId: clausenengen
+      resultGroupId: forstedivisjon-1957-clausenengen-1-3
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 42
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-042
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 27
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-027
+    claim:
+      opponent: KFK
+      score:
+        - 1
+        - 2
+      page: 15
+      note: trykt «ÅFK—KFK 1—2».
+      opponentClubId: kfk
+      resultGroupId: forstedivisjon-1957-kfk-1-2
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 43
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-043
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 28
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-028
+    claim:
+      opponent: Langevåg
+      score:
+        - 3
+        - 1
+      page: 15
+      note: trykt «ÅFK—Langevåg 3—1».
+      opponentClubId: langevag
+      resultGroupId: forstedivisjon-1957-langevag-3-1
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK
+  - oldCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 44
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-044
+    newCoordinate:
+      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+      season: 1957
+      no: 29
+      hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-029
+    claim:
+      opponent: Eid
+      score:
+        - 1
+        - 2
+      page: 15
+      note: Cupen. trykt «ÅFK—Eid 1—2 (Ekstraomganger).».
+      opponentClubId: eid-il
+      resultGroupId: nm-1957-eid-il-runde-1
+    action: RENUMBERED_IN_SEASON
+    matchAction: NO_EXISTING_MATCH_LINK

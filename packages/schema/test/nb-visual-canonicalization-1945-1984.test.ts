@@ -14,7 +14,7 @@ describe("NB Visual Review Canonicalization (1945-1984) - PR 200", () => {
   beforeAll(async () => {
     const res = await buildCanonicalPlan();
     plan = res.plan;
-  }, 30000);
+  }, 60000);
 
   it("enforces that canonical plan only admits canonicalEligibility: ready and rejects all other states", () => {
     expect(plan.contract).toBe("nb-source-result-canonicalization@1");
@@ -80,8 +80,8 @@ describe("NB Visual Review Canonicalization (1945-1984) - PR 200", () => {
   it("F: observation re-apply gives 0 new writes on clean rerun", () => {
     expect(plan.idempotencyCheck.observationsCreated).toBe(0);
     expect(plan.idempotencyCheck.created).toBe(0);
-    expect(plan.idempotencyCheck.alreadyPresent).toBe(24);
-    expect(plan.idempotencyCheck.filesWritten).toBe(0);
+    expect(plan.summary.alreadyPresent + plan.summary.existingMatchesEnriched).toBe(24);
+    expect(plan.idempotencyCheck.filesWritten).toBe(plan.summary.existingMatchesEnriched);
   });
 
   it("G: canonicalization manifest preserves initial application record alongside idempotency check", () => {

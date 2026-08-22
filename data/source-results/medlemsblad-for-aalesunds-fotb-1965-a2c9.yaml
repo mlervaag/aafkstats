@@ -5731,10 +5731,7 @@ seasons:
           - 4
         opponentClubId: skarbovik
         note: Rollons jubileumsturnering. bortekamp. trykt «ÅFK—Skarbøvik* 5—4».
-  - year: 1955
-    page: 14
-    results:
-      - no: 1
+      - no: 10
         page: 14
         opponent: Guard
         score:
@@ -5742,8 +5739,7 @@ seasons:
           - 0
         opponentClubId: guard
         note: ÅFK's jubileumsturnering. trykt «ÅFK—Guard 2—0».
-        matchId: 1955-09-12-aalesunds-fk-guard
-      - no: 2
+      - no: 11
         page: 14
         opponent: Rollon
         score:
@@ -5751,8 +5747,7 @@ seasons:
           - 0
         opponentClubId: rollon
         note: ÅFK's jubileumsturnering. trykt «ÅFK—Rollon 3—0».
-        matchId: 1955-05-19-aalesunds-fk-rollon
-      - no: 3
+      - no: 12
         page: 14
         opponent: Skarbøvik
         score:
@@ -5760,7 +5755,7 @@ seasons:
           - 0
         opponentClubId: skarbovik
         note: ÅFK's jubileumsturnering. trykt «ÅFK—Skarbøvik 1—0».
-      - no: 4
+      - no: 13
         page: 14
         opponent: Rollon
         score:
@@ -5768,8 +5763,7 @@ seasons:
           - 4
         opponentClubId: rollon
         note: ÅFK's jubileumsturnering. trykt «ÅFK—Rollon 2—4».
-        matchId: 1955-05-15-aalesunds-fk-rollon
-      - no: 5
+      - no: 14
         page: 14
         opponent: Langevåg
         score:
@@ -5777,7 +5771,7 @@ seasons:
           - 5
         opponentClubId: langevag
         note: ÅFK's jubileumsturnering. trykt «ÅFK—Langevåg 1—5».
-      - no: 6
+      - no: 15
         page: 14
         opponent: Rollon
         score:
@@ -5785,84 +5779,6 @@ seasons:
           - 0
         opponentClubId: rollon
         note: ÅFK's jubileumsturnering. trykt «ÅFK—Rollon 1—0».
-        matchId: 1955-04-22-aalesunds-fk-rollon
-      - no: 7
-        page: 14
-        opponent: Molde
-        score:
-          - 1
-          - 1
-        opponentClubId: molde-fk
-        note: 1. divisjon. trykt «ÅFK—Molde 1—1».
-        matchId: 1955-05-30-aalesunds-fk-molde-fk
-      - no: 8
-        page: 14
-        opponent: Hødd
-        score:
-          - 2
-          - 1
-        opponentClubId: hodd
-        note: 1. divisjon. bortekamp. trykt «ÅFK—Hødd* 2—1».
-        matchId: 1955-11-06-hodd-aalesunds-fk
-      - no: 9
-        page: 14
-        opponent: Rollon
-        score:
-          - 3
-          - 1
-        opponentClubId: rollon
-        note: 1. divisjon. trykt «ÅFK—Rollon 3—1».
-      - no: 10
-        page: 14
-        opponent: KFK
-        score:
-          - 0
-          - 2
-        opponentClubId: kfk
-        note: 1. divisjon. bortekamp. trykt «ÅFK—KFK* 0—2».
-        matchId: 1955-08-14-kfk-aalesunds-fk
-      - no: 11
-        page: 14
-        opponent: Langevåg
-        score:
-          - 0
-          - 1
-        opponentClubId: langevag
-        note: 1. divisjon. trykt «ÅFK—Langevåg 0—1».
-        resultGroupId: nm-1955-langevag-runde-2
-      - no: 12
-        page: 14
-        opponent: Sykkylven
-        score:
-          - 2
-          - 2
-        opponentClubId: fk-sykkylven
-        note: 1. divisjon. bortekamp. trykt «ÅFK—Sykkylven* 2—2».
-      - no: 13
-        page: 14
-        opponent: Rollon
-        score:
-          - 5
-          - 3
-        opponentClubId: rollon
-        note: 1. divisjon. trykt «ÅFK—Rollon 5—3».
-      - no: 14
-        page: 14
-        opponent: Langevåg
-        score:
-          - 0
-          - 2
-        opponentClubId: langevag
-        note: 1. divisjon. bortekamp. trykt «ÅFK—Langevåg* 0—2».
-        matchId: 1955-09-25-langevag-aalesunds-fk
-      - no: 15
-        page: 14
-        opponent: Clausenengen
-        score:
-          - 2
-          - 1
-        opponentClubId: clausenengen
-        note: 1. divisjon. trykt «ÅFK—Clausenengen 2—1».
       - no: 16
         page: 14
         opponent: Molde
@@ -5870,8 +5786,80 @@ seasons:
           - 1
           - 1
         opponentClubId: molde-fk
-        note: 1. divisjon. bortekamp. trykt «ÅFK—Molde* 1—1».
+        note: 1. divisjon. trykt «ÅFK—Molde 1—1».
       - no: 17
+        page: 14
+        opponent: Hødd
+        score:
+          - 2
+          - 1
+        opponentClubId: hodd
+        note: 1. divisjon. bortekamp. trykt «ÅFK—Hødd* 2—1».
+      - no: 18
+        page: 14
+        opponent: Rollon
+        score:
+          - 3
+          - 1
+        opponentClubId: rollon
+        note: 1. divisjon. trykt «ÅFK—Rollon 3—1».
+      - no: 19
+        page: 14
+        opponent: KFK
+        score:
+          - 0
+          - 2
+        opponentClubId: kfk
+        note: 1. divisjon. bortekamp. trykt «ÅFK—KFK* 0—2».
+      - no: 20
+        page: 14
+        opponent: Langevåg
+        score:
+          - 0
+          - 1
+        opponentClubId: langevag
+        note: 1. divisjon. trykt «ÅFK—Langevåg 0—1».
+      - no: 21
+        page: 14
+        opponent: Sykkylven
+        score:
+          - 2
+          - 2
+        opponentClubId: fk-sykkylven
+        note: 1. divisjon. bortekamp. trykt «ÅFK—Sykkylven* 2—2».
+      - no: 22
+        page: 14
+        opponent: Rollon
+        score:
+          - 5
+          - 3
+        opponentClubId: rollon
+        note: 1. divisjon. trykt «ÅFK—Rollon 5—3».
+      - no: 23
+        page: 14
+        opponent: Langevåg
+        score:
+          - 0
+          - 2
+        opponentClubId: langevag
+        note: 1. divisjon. bortekamp. trykt «ÅFK—Langevåg* 0—2».
+      - no: 24
+        page: 14
+        opponent: Clausenengen
+        score:
+          - 2
+          - 1
+        opponentClubId: clausenengen
+        note: 1. divisjon. trykt «ÅFK—Clausenengen 2—1».
+      - no: 25
+        page: 14
+        opponent: Molde
+        score:
+          - 1
+          - 1
+        opponentClubId: molde-fk
+        note: 1. divisjon. bortekamp. trykt «ÅFK—Molde* 1—1».
+      - no: 26
         page: 14
         opponent: KFK
         score:
@@ -5879,8 +5867,7 @@ seasons:
           - 3
         opponentClubId: kfk
         note: 1. divisjon. trykt «ÅFK—KFK 2—3».
-        matchId: 1955-10-09-aalesunds-fk-kfk
-      - no: 18
+      - no: 27
         page: 14
         opponent: Hødd
         score:
@@ -5888,7 +5875,7 @@ seasons:
           - 3
         opponentClubId: hodd
         note: 1. divisjon. bortekamp. trykt «ÅFK—Hødd* 2—3».
-      - no: 19
+      - no: 28
         page: 14
         opponent: Hødd
         score:
@@ -5896,7 +5883,7 @@ seasons:
           - 1
         opponentClubId: hodd
         note: 1. divisjon. trykt «ÅFK—Hødd 2—1».
-      - no: 20
+      - no: 29
         page: 14
         opponent: KFK
         score:
@@ -5904,7 +5891,7 @@ seasons:
           - 2
         opponentClubId: kfk
         note: 1. divisjon. trykt «ÅFK—KFK 0—2».
-      - no: 21
+      - no: 30
         page: 14
         opponent: Aksla
         score:
@@ -5912,7 +5899,7 @@ seasons:
           - 1
         opponentClubId: aksla
         note: Cupen. trykt «ÅFK—Aksla 5—1».
-      - no: 22
+      - no: 31
         page: 14
         opponent: Hødd
         score:
@@ -5920,8 +5907,7 @@ seasons:
           - 1
         opponentClubId: hodd
         note: Cupen. trykt «ÅFK—Hødd 3—1».
-        matchId: 1955-07-11-aalesunds-fk-hodd
-      - no: 23
+      - no: 32
         page: 14
         opponent: Freidig
         score:
@@ -5929,7 +5915,10 @@ seasons:
           - 3
         opponentClubId: freidig
         note: Cupen. trykt «ÅFK—Freidig, Tr.heim, 1—3».
-      - no: 24
+  - year: 1955
+    page: 14
+    results:
+      - no: 1
         page: 14
         opponent: Aksla
         score:
@@ -5937,7 +5926,7 @@ seasons:
           - 2
         opponentClubId: aksla
         note: trykt «ÅFK—Aksla 6—2».
-      - no: 25
+      - no: 2
         page: 14
         opponent: Hødd
         score:
@@ -5946,7 +5935,7 @@ seasons:
         opponentClubId: hodd
         note: trykt «ÅFK—Hødd 2—0».
         matchId: 1955-04-24-aalesunds-fk-hodd
-      - no: 26
+      - no: 3
         page: 14
         opponent: Skarbøvik
         score:
@@ -5954,7 +5943,7 @@ seasons:
           - 2
         opponentClubId: skarbovik
         note: bortekamp. trykt «ÅFK—Skarbøvik* 7—2».
-      - no: 27
+      - no: 4
         page: 14
         opponent: Skarbøvik
         score:
@@ -5962,7 +5951,7 @@ seasons:
           - 2
         opponentClubId: skarbovik
         note: trykt «ÅFK—Skarbøvik 1—2».
-      - no: 28
+      - no: 5
         page: 14
         opponent: Aksla
         score:
@@ -5970,7 +5959,7 @@ seasons:
           - 4
         opponentClubId: aksla
         note: trykt «ÅFK—Aksla 5—4».
-      - no: 29
+      - no: 6
         page: 14
         opponent: Stranda
         score:
@@ -5978,7 +5967,7 @@ seasons:
           - 1
         opponentClubId: stranda
         note: bortekamp. trykt «ÅFK—Stranda* 8—1».
-      - no: 30
+      - no: 7
         page: 14
         opponent: Hødd
         score:
@@ -5986,28 +5975,28 @@ seasons:
           - 4
         opponentClubId: hodd
         note: bortekamp. trykt «ÅFK—Hødd* 1—4».
-      - no: 31
+      - no: 8
         page: 14
         opponent: Snøgg
         score:
           - 0
           - 0
         note: trykt «ÅFK—Snøgg 0—0».
-      - no: 32
+      - no: 9
         page: 14
         opponent: Årstad
         score:
           - 0
           - 5
         note: bortekamp. trykt «ÅFK—Årstad* 0—5».
-      - no: 33
+      - no: 10
         page: 14
         opponent: Voss
         score:
           - 5
           - 1
         note: bortekamp. trykt «ÅFK—Voss* 5—1».
-      - no: 34
+      - no: 11
         page: 14
         opponent: Måløy
         score:
@@ -6018,7 +6007,7 @@ seasons:
           dokumenterer ingen historisk navneform «Måløy»."
         matchId: 1955-07-24-maloy-il-aalesunds-fk
         opponentClubId: maloy-il
-      - no: 35
+      - no: 12
         page: 14
         opponent: Herd
         score:
@@ -6026,7 +6015,7 @@ seasons:
           - 3
         opponentClubId: herd
         note: trykt «ÅFK—Herd 4—3».
-      - no: 36
+      - no: 13
         page: 14
         opponent: Rollon
         score:
@@ -6034,10 +6023,7 @@ seasons:
           - 0
         opponentClubId: rollon
         note: trykt «ÅFK—Rollon 4—0».
-  - year: 1956
-    page: 14
-    results:
-      - no: 1
+      - no: 14
         page: 14
         opponent: Langevåg
         score:
@@ -6045,7 +6031,7 @@ seasons:
           - 2
         opponentClubId: langevag
         note: 1. division. bortekamp. trykt «ÅFK—Langevåg* 2—2».
-      - no: 2
+      - no: 15
         page: 14
         opponent: Rollon
         score:
@@ -6053,7 +6039,7 @@ seasons:
           - 1
         opponentClubId: rollon
         note: 1. division. trykt «ÅFK—Rollon 1—1».
-      - no: 3
+      - no: 16
         page: 14
         opponent: Sykkylven
         score:
@@ -6061,7 +6047,7 @@ seasons:
           - 0
         opponentClubId: fk-sykkylven
         note: 1. division. trykt «ÅFK—Sykkylven 3—0».
-      - no: 4
+      - no: 17
         page: 14
         opponent: Clausenengen
         score:
@@ -6069,7 +6055,7 @@ seasons:
           - 1
         opponentClubId: clausenengen
         note: 1. division. bortekamp. trykt «ÅFK—Clausenengen* 2—1».
-      - no: 5
+      - no: 18
         page: 14
         opponent: Molde
         score:
@@ -6077,7 +6063,7 @@ seasons:
           - 1
         opponentClubId: molde-fk
         note: 1. division. trykt «ÅFK—Molde 1—1».
-      - no: 6
+      - no: 19
         page: 14
         opponent: Træff
         score:
@@ -6085,7 +6071,7 @@ seasons:
           - 0
         opponentClubId: traeff
         note: 1. division. bortekamp. trykt «ÅFK—Træff* 0—0».
-      - no: 7
+      - no: 20
         page: 14
         opponent: KFK
         score:
@@ -6093,7 +6079,7 @@ seasons:
           - 0
         opponentClubId: kfk
         note: 1. division. trykt «ÅFK—KFK 2—0».
-      - no: 8
+      - no: 21
         page: 14
         opponent: Langevåg
         score:
@@ -6101,7 +6087,7 @@ seasons:
           - 3
         opponentClubId: langevag
         note: 1. division. bortekamp. trykt «ÅFK—Langevåg* 1—3».
-      - no: 9
+      - no: 22
         page: 14
         opponent: Hødd
         score:
@@ -6109,7 +6095,7 @@ seasons:
           - 4
         opponentClubId: hodd
         note: 1. division. bortekamp. trykt «ÅFK—Hødd* 0—4».
-      - no: 10
+      - no: 23
         page: 14
         opponent: Braatt
         score:
@@ -6117,7 +6103,7 @@ seasons:
           - 3
         opponentClubId: braatt
         note: 1. division. trykt «ÅFK—Braatt 2—3».
-      - no: 11
+      - no: 24
         page: 14
         opponent: Clausenengen
         score:
@@ -6125,7 +6111,7 @@ seasons:
           - 1
         opponentClubId: clausenengen
         note: 1. division. bortekamp. trykt «ÅFK—Clausenengen* 2—1».
-      - no: 12
+      - no: 25
         page: 14
         opponent: Molde
         score:
@@ -6133,7 +6119,7 @@ seasons:
           - 1
         opponentClubId: molde-fk
         note: 1. division. trykt «ÅFK—Molde 0—1».
-      - no: 13
+      - no: 26
         page: 14
         opponent: Træff
         score:
@@ -6141,7 +6127,7 @@ seasons:
           - 0
         opponentClubId: traeff
         note: 1. division. trykt «ÅFK—Træff 5—0».
-      - no: 14
+      - no: 27
         page: 14
         opponent: KFK
         score:
@@ -6149,7 +6135,7 @@ seasons:
           - 3
         opponentClubId: kfk
         note: 1. division. bortekamp. trykt «ÅFK—KFK* 2—3».
-      - no: 15
+      - no: 28
         page: 14
         opponent: Rollon
         score:
@@ -6157,7 +6143,7 @@ seasons:
           - 0
         opponentClubId: rollon
         note: Cupen. trykt «ÅFK—Rollon 2—0».
-      - no: 16
+      - no: 29
         page: 14
         opponent: Langevåg
         score:
@@ -6165,7 +6151,10 @@ seasons:
           - 1
         opponentClubId: langevag
         note: Cupen. trykt «ÅFK—Langevåg 0—1».
-      - no: 17
+  - year: 1956
+    page: 14
+    results:
+      - no: 1
         page: 14
         opponent: Rollon
         score:
@@ -6173,7 +6162,7 @@ seasons:
           - 3
         opponentClubId: rollon
         note: trykt «ÅFK—Rollon 1—3».
-      - no: 18
+      - no: 2
         page: 14
         opponent: Spjelkavik
         score:
@@ -6181,7 +6170,7 @@ seasons:
           - 3
         opponentClubId: spjelkavik
         note: bortekamp. trykt «ÅFK—Spjelkavik* 3—3».
-      - no: 19
+      - no: 3
         page: 14
         opponent: Aksla
         score:
@@ -6189,7 +6178,7 @@ seasons:
           - 3
         opponentClubId: aksla
         note: trykt «ÅFK—Aksla 6—3».
-      - no: 20
+      - no: 4
         page: 14
         opponent: Aksla
         score:
@@ -6197,7 +6186,7 @@ seasons:
           - 2
         opponentClubId: aksla
         note: trykt «ÅFK—Aksla 2—2».
-      - no: 21
+      - no: 5
         page: 14
         opponent: Rollon
         score:
@@ -6205,7 +6194,7 @@ seasons:
           - 1
         opponentClubId: rollon
         note: trykt «ÅFK—Rollon 7—1».
-      - no: 22
+      - no: 6
         page: 14
         opponent: Spjelkavik
         score:
@@ -6213,7 +6202,7 @@ seasons:
           - 1
         opponentClubId: spjelkavik
         note: trykt «ÅFK—Spjelkavik 5—1».
-      - no: 23
+      - no: 7
         page: 14
         opponent: Sykkylven
         score:
@@ -6221,7 +6210,7 @@ seasons:
           - 3
         opponentClubId: fk-sykkylven
         note: Sykkylvens jubileumsturnering. bortekamp. trykt «ÅFK—Sykkylven* 4—3».
-      - no: 24
+      - no: 8
         page: 14
         opponent: Langevåg
         score:
@@ -6229,7 +6218,7 @@ seasons:
           - 4
         opponentClubId: langevag
         note: Sykkylvens jubileumsturnering. trykt «ÅFK—Langevåg 1—4 (Finale).».
-      - no: 25
+      - no: 9
         page: 14
         opponent: Langevåg
         score:
@@ -6237,7 +6226,7 @@ seasons:
           - 5
         opponentClubId: langevag
         note: Sykkylvens jubileumsturnering. bortekamp. trykt «ÅFK—Langevåg* 1—5».
-      - no: 26
+      - no: 10
         page: 14
         opponent: Wiener Sportclub
         score:
@@ -6245,14 +6234,14 @@ seasons:
           - 7
         note: Sykkylvens jubileumsturnering. trykt «ÅFK forsterket—Wiener Sportclub
           0—7».
-      - no: 27
+      - no: 11
         page: 14
         opponent: Fredrikshavn
         score:
           - 2
           - 7
         note: Sykkylvens jubileumsturnering. trykt «ÅFK—Fredrikshavn, Danmark, 2—7».
-      - no: 28
+      - no: 12
         page: 14
         opponent: Hødd
         score:
@@ -6261,7 +6250,7 @@ seasons:
         opponentClubId: hodd
         note: Volda Turn- og Idr.lags jubileumsturnering. trykt «ÅFK—Hødd 2—2 (ÅFK vant
           straffespark).».
-      - no: 29
+      - no: 13
         page: 14
         opponent: Volda
         score:
@@ -6270,10 +6259,7 @@ seasons:
         opponentClubId: volda
         note: Volda Turn- og Idr.lags jubileumsturnering. trykt «ÅFK—Volda 0—3
           (Finale).».
-  - year: 1957
-    page: 14
-    results:
-      - no: 1
+      - no: 14
         page: 14
         opponent: Langevåg
         score:
@@ -6281,7 +6267,7 @@ seasons:
           - 2
         opponentClubId: langevag
         note: 1. divisjon. trykt «ÅFK—Langevåg 2—2».
-      - no: 2
+      - no: 15
         page: 14
         opponent: Hødd
         score:
@@ -6289,7 +6275,7 @@ seasons:
           - 2
         opponentClubId: hodd
         note: 1. divisjon. trykt «ÅFK—Hødd 1—2».
-      - no: 3
+      - no: 16
         page: 14
         opponent: Braatt
         score:
@@ -6297,7 +6283,7 @@ seasons:
           - 1
         opponentClubId: braatt
         note: 1. divisjon. bortekamp. trykt «ÅFK—Braatt* 1—1».
-      - no: 4
+      - no: 17
         page: 14
         opponent: Clausenengen
         score:
@@ -6305,7 +6291,7 @@ seasons:
           - 2
         opponentClubId: clausenengen
         note: 1. divisjon. trykt «ÅFK—Clausenengen 2—2».
-      - no: 5
+      - no: 18
         page: 14
         opponent: Molde
         score:
@@ -6313,7 +6299,7 @@ seasons:
           - 1
         opponentClubId: molde-fk
         note: 1. divisjon. trykt «ÅFK—Molde 0—1».
-      - no: 6
+      - no: 19
         page: 14
         opponent: Rollon
         score:
@@ -6321,7 +6307,7 @@ seasons:
           - 0
         opponentClubId: rollon
         note: Høst. trykt «ÅFK—Rollon 0—0».
-      - no: 7
+      - no: 20
         page: 14
         opponent: Braatt
         score:
@@ -6329,7 +6315,7 @@ seasons:
           - 2
         opponentClubId: braatt
         note: Høst. trykt «ÅFK—Braatt 2—2».
-      - no: 8
+      - no: 21
         page: 14
         opponent: Hødd
         score:
@@ -6337,7 +6323,7 @@ seasons:
           - 6
         opponentClubId: hodd
         note: Høst. bortekamp. trykt «ÅFK—Hødd* 1—6».
-      - no: 9
+      - no: 22
         page: 14
         opponent: Framtid
         score:
@@ -6345,7 +6331,7 @@ seasons:
           - 0
         opponentClubId: framtid
         note: Høst. trykt «ÅFK—Framtid 4—0».
-      - no: 10
+      - no: 23
         page: 14
         opponent: Molde
         score:
@@ -6353,7 +6339,7 @@ seasons:
           - 3
         opponentClubId: molde-fk
         note: Høst. bortekamp. trykt «ÅFK—Molde* 2—3».
-      - no: 11
+      - no: 24
         page: 14
         opponent: KFK
         score:
@@ -6361,7 +6347,7 @@ seasons:
           - 2
         opponentClubId: kfk
         note: Høst. trykt «ÅFK—KFK 2—2».
-      - no: 12
+      - no: 25
         page: 14
         opponent: Rollon
         score:
@@ -6369,7 +6355,7 @@ seasons:
           - 1
         opponentClubId: rollon
         note: Høst. trykt «ÅFK—Rollon 4—1».
-      - no: 13
+      - no: 26
         page: 14
         opponent: Braatt
         score:
@@ -6377,7 +6363,7 @@ seasons:
           - 2
         opponentClubId: braatt
         note: Høst. trykt «ÅFK—Braatt 0—2».
-      - no: 14
+      - no: 27
         page: 14
         opponent: Langevåg
         score:
@@ -6385,7 +6371,7 @@ seasons:
           - 1
         opponentClubId: langevag
         note: Høst. bortekamp. trykt «ÅFK—Langevåg* 2—1».
-      - no: 15
+      - no: 28
         page: 14
         opponent: Hødd
         score:
@@ -6393,7 +6379,10 @@ seasons:
           - 5
         opponentClubId: hodd
         note: Cupkamper. bortekamp. trykt «ÅFK—Hødd* 1—5».
-      - no: 16
+  - year: 1957
+    page: 14
+    results:
+      - no: 1
         page: 14
         opponent: Aksla
         score:
@@ -6402,7 +6391,7 @@ seasons:
         opponentClubId: aksla
         note: trykt «ÅFK—Aksla 4—1».
         resultGroupId: 1957-aksla-4-1
-      - no: 17
+      - no: 2
         page: 14
         opponent: Rollon
         score:
@@ -6410,7 +6399,7 @@ seasons:
           - 0
         opponentClubId: rollon
         note: trykt «ÅFK—Rollon 2—0».
-      - no: 18
+      - no: 3
         page: 14
         opponent: Rollon
         score:
@@ -6418,7 +6407,7 @@ seasons:
           - 1
         opponentClubId: rollon
         note: trykt «ÅFK—Rollon 4—1».
-      - no: 19
+      - no: 4
         page: 14
         opponent: Aksla
         score:
@@ -6427,7 +6416,7 @@ seasons:
         opponentClubId: aksla
         note: trykt «ÅFK—Aksla 2—1».
         resultGroupId: 1957-aksla-2-1
-      - no: 20
+      - no: 5
         page: 14
         opponent: Rollon
         score:
@@ -6435,7 +6424,7 @@ seasons:
           - 1
         opponentClubId: rollon
         note: trykt «ÅFK—Rollon 4—1».
-      - no: 21
+      - no: 6
         page: 14
         opponent: Stranda
         score:
@@ -6444,7 +6433,7 @@ seasons:
         opponentClubId: stranda
         note: bortekamp. trykt «ÅFK—Stranda* 5—3».
         resultGroupId: 1957-stranda-5-3
-      - no: 22
+      - no: 7
         page: 14
         opponent: Westbahn/Linz
         score:
@@ -6453,14 +6442,14 @@ seasons:
         opponentClubId: westbahn-linz
         note: trykt «ÅFK—Westbahn/Linz 0—1».
         matchId: 1957-07-28-aalesunds-fk-westbahn-linz
-      - no: 23
+      - no: 8
         page: 14
         opponent: Langevåg—Raufoss
         score:
           - 3
           - 6
         note: trykt «ÅFK—Langevåg—Raufoss 3—6».
-      - no: 24
+      - no: 9
         page: 14
         opponent: Spjelkavik
         score:
@@ -6469,7 +6458,7 @@ seasons:
         opponentClubId: spjelkavik
         note: trykt «ÅFK—Spjelkavik 2—2».
         resultGroupId: 1957-spjelkavik-2-2
-      - no: 25
+      - no: 10
         page: 14
         opponent: Guard
         score:
@@ -6478,7 +6467,7 @@ seasons:
         opponentClubId: guard
         note: Vår-cupen. trykt «ÅFK—Guard 1—0».
         resultGroupId: 1957-guard-1-0
-      - no: 26
+      - no: 11
         page: 14
         opponent: Spjelkavik
         score:
@@ -6487,7 +6476,7 @@ seasons:
         opponentClubId: spjelkavik
         note: Vår-cupen. trykt «ÅFK—Spjelkavik 2—0».
         resultGroupId: 1957-spjelkavik-2-0
-      - no: 27
+      - no: 12
         page: 14
         opponent: Rollon
         score:
@@ -6496,7 +6485,7 @@ seasons:
         opponentClubId: rollon
         note: Vår-cupen. trykt «ÅFK—Rollon 2—1 (Finale).».
         resultGroupId: 1957-rollon-2-1
-      - no: 28
+      - no: 13
         page: 14
         opponent: Guard
         score:
@@ -6505,7 +6494,7 @@ seasons:
         opponentClubId: guard
         note: Sommer-cupen. trykt «ÅFK—Guard 11—1».
         resultGroupId: 1957-guard-11-1
-      - no: 29
+      - no: 14
         page: 14
         opponent: Herd
         score:
@@ -6514,7 +6503,7 @@ seasons:
         opponentClubId: herd
         note: Sommer-cupen. trykt «ÅFK—Herd 0—1».
         resultGroupId: 1957-herd-0-1
-      - no: 30
+      - no: 15
         page: 14
         opponent: Hødd
         score:
@@ -6523,7 +6512,7 @@ seasons:
         opponentClubId: hodd
         note: Landsdelsserien. trykt «ÅFK—Hødd 2—0».
         resultGroupId: forstedivisjon-1957-hodd-2-0
-      - no: 31
+      - no: 16
         page: 14
         opponent: Framtid
         score:
@@ -6532,7 +6521,7 @@ seasons:
         opponentClubId: framtid
         note: Landsdelsserien. bortekamp. trykt «ÅFK—Framtid* 0—0».
         resultGroupId: forstedivisjon-1957-framtid-0-0
-      - no: 32
+      - no: 17
         page: 14
         opponent: Molde
         score:
@@ -6541,7 +6530,7 @@ seasons:
         opponentClubId: molde-fk
         note: Landsdelsserien. trykt «ÅFK—Molde 1—3».
         resultGroupId: forstedivisjon-1957-molde-fk-1-3
-      - no: 33
+      - no: 18
         page: 14
         opponent: KFK
         score:
@@ -6549,7 +6538,7 @@ seasons:
           - 2
         opponentClubId: kfk
         note: Landsdelsserien. trykt «ÅFK—KFK 0—2».
-      - no: 34
+      - no: 19
         page: 14
         opponent: Langevåg
         score:
@@ -6557,7 +6546,7 @@ seasons:
           - 2
         opponentClubId: langevag
         note: Landsdelsserien. trykt «ÅFK—Langevåg 2—2».
-      - no: 35
+      - no: 20
         page: 14
         opponent: KFK
         score:
@@ -6565,7 +6554,7 @@ seasons:
           - 2
         opponentClubId: kfk
         note: Høst. trykt «ÅFK—KFK 0—2».
-      - no: 36
+      - no: 21
         page: 14
         opponent: Langevåg
         score:
@@ -6574,7 +6563,7 @@ seasons:
         opponentClubId: langevag
         note: Høst. bortekamp. trykt «ÅFK—Langevåg* 0—2».
         resultGroupId: forstedivisjon-1957-langevag-0-2
-      - no: 37
+      - no: 22
         page: 15
         opponent: Rollon
         score:
@@ -6582,7 +6571,7 @@ seasons:
           - 0
         opponentClubId: rollon
         note: trykt «ÅFK—Rollon 0—0».
-      - no: 38
+      - no: 23
         page: 15
         opponent: Braatt
         score:
@@ -6591,7 +6580,7 @@ seasons:
         opponentClubId: braatt
         note: bortekamp. trykt «ÅFK—Braatt* 4—1».
         resultGroupId: forstedivisjon-1957-braatt-4-1
-      - no: 39
+      - no: 24
         page: 15
         opponent: Hødd
         score:
@@ -6600,7 +6589,7 @@ seasons:
         opponentClubId: hodd
         note: trykt «ÅFK—Hødd 2—2».
         resultGroupId: forstedivisjon-1957-hodd-2-2
-      - no: 40
+      - no: 25
         page: 15
         opponent: Spjelkavik
         score:
@@ -6609,7 +6598,7 @@ seasons:
         opponentClubId: spjelkavik
         note: bortekamp. trykt «ÅFK—Spjelkavik* 1—0».
         resultGroupId: forstedivisjon-1957-spjelkavik-1-0
-      - no: 41
+      - no: 26
         page: 15
         opponent: Clausenengen
         score:
@@ -6618,7 +6607,7 @@ seasons:
         opponentClubId: clausenengen
         note: bortekamp. trykt «ÅFK—Clausenengen* 1—3».
         resultGroupId: forstedivisjon-1957-clausenengen-1-3
-      - no: 42
+      - no: 27
         page: 15
         opponent: KFK
         score:
@@ -6627,7 +6616,7 @@ seasons:
         opponentClubId: kfk
         note: trykt «ÅFK—KFK 1—2».
         resultGroupId: forstedivisjon-1957-kfk-1-2
-      - no: 43
+      - no: 28
         page: 15
         opponent: Langevåg
         score:
@@ -6636,7 +6625,7 @@ seasons:
         opponentClubId: langevag
         note: trykt «ÅFK—Langevåg 3—1».
         resultGroupId: forstedivisjon-1957-langevag-3-1
-      - no: 44
+      - no: 29
         page: 15
         opponent: Eid
         score:
