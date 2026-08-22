@@ -4,7 +4,8 @@ seasons:
   - year: 1927
     page: 11
     results:
-      - no: 1
+      - claimId: srcclaim-670f516b18cd3ed8197965863800fd69
+        no: 1
         opponent: Landslaget
         score:
           - 0
@@ -16,7 +17,8 @@ seasons:
         page: 11
         note: Uttakningskamp mot Landslaget i Bergen i 1927 (tap 0–3).
         resultGroupId: 1927-landslaget-0-3
-      - no: 2
+      - claimId: srcclaim-bfe2d74f4c7167d7c014060ca7549edb
+        no: 2
         opponent: Odd
         opponentClubId: odds-ballklubb
         score:
@@ -32,7 +34,8 @@ seasons:
   - year: 1929
     page: 11
     results:
-      - no: 1
+      - claimId: srcclaim-3b62998747b32c706e774ef2e2235f1c
+        no: 1
         opponent: Kvikk Halden
         opponentClubId: kvik-halden
         score:
@@ -44,12 +47,12 @@ seasons:
         extraTime: false
         matchId: 1929-09-01-aalesunds-fk-kvik-halden
         page: 11
-        note: NM cup 4. runde i Ålesund mot Kvik Halden (uavgjort 2–2 etter utligning av
-          Olav Skarbøvik).
+        note: NM cup 4. runde i Ålesund mot Kvik Halden (uavgjort 2–2 etter utligning av Olav Skarbøvik).
   - year: 1932
     page: 11
     results:
-      - no: 1
+      - claimId: srcclaim-43d800c79c3647d65c52a0f066f3dbce
+        no: 1
         opponent: Fredrikstad
         opponentClubId: fredrikstad
         score:
@@ -64,7 +67,8 @@ seasons:
   - year: 1933
     page: 11
     results:
-      - no: 1
+      - claimId: srcclaim-0f323a56515281098b8953e612240b71
+        no: 1
         opponent: Fremad
         opponentClubId: fremad
         score:
@@ -80,7 +84,8 @@ seasons:
   - year: 1950
     page: 1
     results:
-      - no: 1
+      - claimId: srcclaim-6fbc1e4774f10113bc14a1b46ba7112b
+        no: 1
         date: 1950-08-06
         opponent: Eid
         opponentClubId: eid-il
@@ -93,7 +98,8 @@ seasons:
         matchId: null
         page: 8
         note: Privatkamp på Nordfjordeid (seier 7–2 mot Eid A).
-      - no: 2
+      - claimId: srcclaim-89a643e243829739857eeec89257cb27
+        no: 2
         date: 1950-08-08
         opponent: Molde
         opponentClubId: molde-fk

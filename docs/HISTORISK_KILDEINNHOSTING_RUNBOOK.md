@@ -95,7 +95,7 @@ Disse kjernereglene er etablert direkte på grunnlag av erfaringer og avdekkede 
 | Sesongtotal og eksplisitte enkeltresultater ble blandet | PR #156 | Én metrikk har én entydig definisjon; sesongtotaler brukes som kontrollsum |
 | Én gjennomgått sourceId er ikke nødvendigvis hele årgangen | Videre analyse | Obligatorisk Source Inventory før review starter |
 | Årskontekst-lekkasje ved spalte- eller sideskift i retrospektive tabeller | PR #205 | For retrospektive flerspalters resultatlister er årstallet en del av kildepåstandens evidens. Ved side- eller spalteskift skal parser/reviewer eksplisitt føre `activeYearHeading`, og representativ grensekontroll (første/siste rad før og etter skifte) er obligatorisk |
-| Source-result-koordinater er del av claim-identiteten; review kan ikke arves blindt ved flytting | PR #205 | En source-result-koordinat (`sourceId + season + no`) er en uatskillelig del av claim-identiteten. Hvis en kildepåstand flyttes eller renummereres, må tidligere visuell review aldri automatisk migreres til den nye claimen. Gammel review bevares som superseded, og den nye claimen krever ny visuell review (`REQUIRES_REVIEW`). |
+| Source-coordinate er review-kontekst, ikke claim-identitet; review kan ikke arves blindt ved årsskifte | PR #205, PR #207 | En kildekoordinat (`sourceId + season + no`) er en lokator og en del av review-konteksten, ikke den permanente claim-identiteten (`claimId`). Kildepåstanden beholder sin stabile `claimId` ved koordinatkorreksjoner, men hvis en påstand flyttes til et annet år/sesong (f.eks. årsskifterapporter), kan tidligere visuell review basert på gammel årskontekst ikke arves blindt (`claim identity != review context identity`). Gammel review bevares med sin historiske kontekst, og den flyttede claimen krever ny vurdering mot det korrigerte året (`requires_revalidation`). |
 
 ---
 
@@ -324,7 +324,13 @@ Det er avgjørende å skille mellom to ulike provenienslag i arkivet:
 ### 1. Source-results (kildepåstander)
 Filplassering: `data/source-results/<sourceId>.yaml`
 
-Dokumenterer hva én enkelt kilde påstår om et oppgjør. Source-results har **IKKE** en `sources[].fields`-struktur. Strukturen følger schemaet:
+Dokumenterer hva én enkelt kilde påstår om et oppgjør. 
+
+> [!IMPORTANT]
+> **Kildekoordinater er lokatorer, ikke identiteter:**
+> `season`, `no` og `page` angir hvor i det fysiske trykket påstanden står. Kildepåstandens permanente identitet er `claimId` (`srcclaim-...`). Dersom en kildekorrigering flytter et oppgjør fra en sesong til en annen (f.eks. ved årsskifterapporter), beholder påstanden samme `claimId`, mens koordinatendringen spores i `data/migrations/source-claim-lineage.yaml`.
+
+Strukturen følger schemaet:
 
 ```yaml
 sourceId: medlemsblad-for-aalesunds-fotb-1954-cd1c
@@ -333,7 +339,8 @@ seasons:
   - year: 1954
     page: 95
     results:
-      - no: 1
+      - claimId: srcclaim-8e6f0dcdeb5b
+        no: 1
         page: 95
         opponent: Freidig
         opponentClubId: freidig

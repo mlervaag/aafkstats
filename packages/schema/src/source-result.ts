@@ -4,6 +4,7 @@ import { isoDate, seasonYear, slug } from "./primitives.js";
 /** Et kompakt, menneskelesbart resultat i én årsgruppe. */
 const sourceResultEntry = z
   .object({
+    claimId: z.string().regex(/^srcclaim-[a-f0-9]{32}$/),
     no: z.number().int().min(1),
     date: isoDate.optional(),
     opponent: z.string().min(1).nullable().default(null),
@@ -48,16 +49,27 @@ export const sourceResultCollection = z
   .strict()
   .superRefine((value, ctx) => {
     const years = new Set<number>();
+    const claimIds = new Set<string>();
     for (const [index, season] of value.seasons.entries()) {
       if (years.has(season.year)) ctx.addIssue({ code: z.ZodIssueCode.custom, path: ["seasons", index, "year"], message: `duplikat år ${season.year}` });
       years.add(season.year);
+      for (const [rIdx, result] of season.results.entries()) {
+        if (claimIds.has(result.claimId)) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: ["seasons", index, "results", rIdx, "claimId"],
+            message: `duplikat claimId «${result.claimId}» innen kilde`,
+          });
+        }
+        claimIds.add(result.claimId);
+      }
     }
   });
 
 export type SourceResultCollection = z.infer<typeof sourceResultCollection>;
 
 export interface SourceResult {
-  id: string; sourceId: string; season: number; order: number; page: number;
+  id: string; claimId: string; sourceId: string; season: number; order: number; page: number;
   date?: string;
   opponent: string | null; opponentClubId: string | null;
   aafkGoals: number | null; opponentGoals: number | null;
@@ -67,13 +79,14 @@ export interface SourceResult {
   matchId: string | null; note?: string;
 }
 
-/** Flat form for database og visning. ID-en er stabil innen kilde og sesong. */
+/** Flat form for database og visning. ID-en er stabil innen kilde og sesong, mens claimId er globalt stabil identitet. */
 export function flattenSourceResults(collection: SourceResultCollection): SourceResult[] {
   let order = 0;
   return collection.seasons.flatMap((season) => season.results.map((result) => {
     order += 1;
     return {
       id: `${season.year}-${String(result.no).padStart(3, "0")}`,
+      claimId: result.claimId,
       sourceId: collection.sourceId, season: season.year, order,
       page: result.page ?? season.page,
       ...(result.date === undefined ? {} : { date: result.date }),

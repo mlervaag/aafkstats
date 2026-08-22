@@ -4,7 +4,8 @@ seasons:
   - year: 1958
     page: 6
     results:
-      - no: 1
+      - claimId: srcclaim-da8948e2347f1031d0e808196dd279c0
+        no: 1
         date: 1958-04-15
         opponent: Aksla
         opponentClubId: null
@@ -20,7 +21,8 @@ seasons:
         matchId: null
         note: Åpningscupen 1958.
         resultGroupId: 1958-aksla-2-0
-      - no: 2
+      - claimId: srcclaim-1dbfaf5803c9c0fdd0eaac7d59f0396c
+        no: 2
         date: 1958-04-17
         opponent: Rollon
         opponentClubId: rollon
@@ -36,7 +38,8 @@ seasons:
         matchId: null
         note: Åpningscupen 1958.
         resultGroupId: nm-1958-rollon-runde-1
-      - no: 3
+      - claimId: srcclaim-d6a2d77a639ea2f6d0d300270a873430
+        no: 3
         date: 1958-04-19
         opponent: Skarbøvik
         opponentClubId: skarbovik
@@ -52,7 +55,8 @@ seasons:
         matchId: null
         note: Finale i Åpningscupen 1958.
         resultGroupId: 1958-skarbovik-3-1
-      - no: 4
+      - claimId: srcclaim-1fa4a3854ec76a2d1dac60da7b4ea7fd
+        no: 4
         opponent: Rollon
         opponentClubId: rollon
         score:
@@ -65,10 +69,10 @@ seasons:
         replay: false
         extraTime: false
         matchId: null
-        note: Årsrapporten dokumenterer ikke sikker kampdato; resultatet er derfor ikke
-          løftet til kanonisk kamp.
+        note: Årsrapporten dokumenterer ikke sikker kampdato; resultatet er derfor ikke løftet til kanonisk kamp.
         resultGroupId: nm-1958-rollon-runde-1
-      - no: 5
+      - claimId: srcclaim-59cb78a05b26667536e7c92584f171aa
+        no: 5
         opponent: Molde
         opponentClubId: molde-fk
         score:
@@ -81,6 +85,5 @@ seasons:
         replay: false
         extraTime: false
         matchId: null
-        note: Årsrapporten dokumenterer ikke sikker kampdato; resultatet er derfor ikke
-          løftet til kanonisk kamp.
+        note: Årsrapporten dokumenterer ikke sikker kampdato; resultatet er derfor ikke løftet til kanonisk kamp.
         resultGroupId: nm-1958-molde-fk-runde-2

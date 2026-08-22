@@ -487,6 +487,7 @@ export function crossValidate(archive: Archive): LoadIssue[] {
   }
 
   const seenSourceResultIds = new Set<string>();
+  const seenClaimIds = new Map<string, string>();
   const sourceResultsByGroup = new Map<string, { file: string; result: SourceResult }[]>();
   for (const collection of archive.sourceResults) {
     const at = (path: string, message: string) => issues.push({ file: collection.file, path, message });
@@ -495,6 +496,10 @@ export function crossValidate(archive: Archive): LoadIssue[] {
       const key = `${collection.sourceId}|${result.id}`;
       if (seenSourceResultIds.has(key)) at(`results.${index}.id`, `duplikat kilderesultat «${result.id}»`);
       seenSourceResultIds.add(key);
+      if (seenClaimIds.has(result.claimId)) {
+        at(`results.${index}.claimId`, `duplikat global claimId «${result.claimId}» (først sett i ${seenClaimIds.get(result.claimId)})`);
+      }
+      seenClaimIds.set(result.claimId, collection.file);
       if (result.opponentClubId !== null && !clubIds.has(result.opponentClubId)) at(`results.${index}.opponentClubId`, `ukjent klubb «${result.opponentClubId}»`);
       if (result.competitionId !== null && !competitionIds.has(result.competitionId)) at(`results.${index}.competitionId`, `ukjent konkurranse «${result.competitionId}»`);
       if (result.matchId !== null && !matchIds.has(result.matchId)) at(`results.${index}.matchId`, `ukjent kamp «${result.matchId}»`);

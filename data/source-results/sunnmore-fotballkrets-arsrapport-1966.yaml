@@ -4,7 +4,8 @@ seasons:
   - year: 1966
     page: 4
     results:
-      - no: 1
+      - claimId: srcclaim-ae4a41d77fb009f216104bea3443d6ca
+        no: 1
         opponent: Åndalsnes
         opponentClubId: andalsnes
         score:
@@ -16,10 +17,10 @@ seasons:
         replay: false
         extraTime: false
         matchId: null
-        note: >
-          Årsrapporten dokumenterer resultat og cuprunde, men kampen er ikke
-          løftet til kanonisk kamp fordi eksakt dato ikke er avklart.
-      - no: 2
+        note: |
+          Årsrapporten dokumenterer resultat og cuprunde, men kampen er ikke løftet til kanonisk kamp fordi eksakt dato ikke er avklart.
+      - claimId: srcclaim-4b40c9fa586a72be3850d441f2f89261
+        no: 2
         opponent: Eid
         opponentClubId: eid-il
         score:
@@ -31,10 +32,10 @@ seasons:
         replay: false
         extraTime: false
         matchId: null
-        note: >
-          Årsrapporten dokumenterer resultat og cuprunde, men kampen er ikke
-          løftet til kanonisk kamp fordi eksakt dato ikke er avklart.
-      - no: 3
+        note: |
+          Årsrapporten dokumenterer resultat og cuprunde, men kampen er ikke løftet til kanonisk kamp fordi eksakt dato ikke er avklart.
+      - claimId: srcclaim-b4262fb35933cef09934beec4c2a626e
+        no: 3
         opponent: Frigg
         opponentClubId: frigg
         score:

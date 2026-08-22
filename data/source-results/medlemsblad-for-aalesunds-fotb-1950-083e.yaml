@@ -4,7 +4,8 @@ seasons:
   - year: 1927
     page: 29
     results:
-      - no: 1
+      - claimId: srcclaim-0821385fa7087806dcf384075c0fc43e
+        no: 1
         opponent: Landslaget
         score:
           - 0
@@ -19,7 +20,8 @@ seasons:
   - year: 1932
     page: 29
     results:
-      - no: 1
+      - claimId: srcclaim-5ab5aa4c28f75083b728021c481931b8
+        no: 1
         opponent: Fredrikstad
         opponentClubId: fredrikstad
         score:
@@ -34,7 +36,8 @@ seasons:
   - year: 1940
     page: 25
     results:
-      - no: 1
+      - claimId: srcclaim-be4f3d7cdae3e2994cdef64fdf58c9cf
+        no: 1
         date: 1940-06-13
         opponent: Rollon
         opponentClubId: rollon
@@ -46,10 +49,10 @@ seasons:
         extraTime: false
         matchId: null
         page: 25
-        note: Første privatkamp etter okkupasjonsutbruddet, spilt 13. juni 1940 (seier
-          7–1).
+        note: Første privatkamp etter okkupasjonsutbruddet, spilt 13. juni 1940 (seier 7–1).
         resultGroupId: 1940-rollon-7-1
-      - no: 2
+      - claimId: srcclaim-433e63ff56ed8968b096fc8ade1d80b3
+        no: 2
         date: 1940-09-03
         opponent: Rollon
         opponentClubId: rollon
@@ -62,9 +65,9 @@ seasons:
         extraTime: false
         matchId: 1940-09-03-rollon-aalesunds-fk
         page: 25
-        note: NM cup 3. runde mot Rollon (ledet 2–0 til pause og holdt stillingen ut
-          kampen).
-      - no: 3
+        note: NM cup 3. runde mot Rollon (ledet 2–0 til pause og holdt stillingen ut kampen).
+      - claimId: srcclaim-709249993c7dae3a86cc89dd47b9c2fe
+        no: 3
         date: 1940-09-08
         opponent: Drafn
         opponentClubId: drafn
@@ -78,7 +81,8 @@ seasons:
         matchId: 1940-09-08-drafn-aalesunds-fk
         page: 26
         note: NM cup 4. runde mot Drafn i Drammen (seier 2–1, Karl Løvold seiersmål).
-      - no: 4
+      - claimId: srcclaim-41baf8e69a3f496b52b2bc5b3c396157
+        no: 4
         date: 1940-09-22
         opponent: Skeid
         opponentClubId: skeid

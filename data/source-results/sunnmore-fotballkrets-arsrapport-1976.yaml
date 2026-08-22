@@ -4,7 +4,8 @@ seasons:
   - year: 1976
     page: 11
     results:
-      - no: 1
+      - claimId: srcclaim-63a469ed8519ea4ff07ee64b885cecc0
+        no: 1
         opponent: Skarbøvik
         opponentClubId: skarbovik
         score:
@@ -14,9 +15,9 @@ seasons:
         round: 1
         extraTime: true
         matchId: null
-        note: Norgesmesterskapet 1976, 1. runde (Skarbövik - Aalesund 2-2 e.e.omg).
-          Årsrapporten dokumenterer ikke sikker kampdato.
-      - no: 2
+        note: Norgesmesterskapet 1976, 1. runde (Skarbövik - Aalesund 2-2 e.e.omg). Årsrapporten dokumenterer ikke sikker kampdato.
+      - claimId: srcclaim-b227025ac3a81b92d2f85a8cf7b21bc4
+        no: 2
         page: 12
         opponent: Skarbøvik
         opponentClubId: skarbovik
@@ -27,9 +28,9 @@ seasons:
         round: 1
         replay: true
         matchId: null
-        note: Norgesmesterskapet 1976, 1. runde omkamp (Aalesund - Skarbövik 2-1).
-          Årsrapporten dokumenterer ikke sikker kampdato.
-      - no: 3
+        note: Norgesmesterskapet 1976, 1. runde omkamp (Aalesund - Skarbövik 2-1). Årsrapporten dokumenterer ikke sikker kampdato.
+      - claimId: srcclaim-177e8ce6133a18cf3ca0a6c3b5acbbbb
+        no: 3
         page: 12
         opponent: Sunndal
         opponentClubId: sunndal
@@ -39,9 +40,9 @@ seasons:
         competitionId: nm
         round: 2
         matchId: null
-        note: Norgesmesterskapet 1976, 2. runde (Aalesund - Sunndal 2-0). Årsrapporten
-          dokumenterer ikke sikker kampdato.
-      - no: 4
+        note: Norgesmesterskapet 1976, 2. runde (Aalesund - Sunndal 2-0). Årsrapporten dokumenterer ikke sikker kampdato.
+      - claimId: srcclaim-45e3891ce0cc0b7412d5c3e3f932f357
+        no: 4
         page: 12
         opponent: Folldal
         opponentClubId: folldal
@@ -53,7 +54,8 @@ seasons:
         extraTime: true
         matchId: 1976-07-25-folldal-aalesunds-fk
         note: Norgesmesterskapet 1976, 3. runde (Folldal - Aalesund 2-2 e e.omg. 3-3).
-      - no: 5
+      - claimId: srcclaim-723cf7549431d9926edb3946227a1d07
+        no: 5
         page: 12
         opponent: Folldal
         opponentClubId: folldal
@@ -65,7 +67,8 @@ seasons:
         replay: true
         matchId: 1976-07-29-aalesunds-fk-folldal
         note: Norgesmesterskapet 1976, 3. runde omkamp (Aalesund - Folldal 1-0).
-      - no: 6
+      - claimId: srcclaim-730a06b0e51dcefdc8882d6d60fc603c
+        no: 6
         page: 12
         opponent: Brann
         opponentClubId: sk-brann
@@ -76,7 +79,8 @@ seasons:
         round: 4
         matchId: 1976-08-15-aalesunds-fk-sk-brann
         note: Norgesmesterskapet 1976, 4. runde (Aalesund - Brann 2-4).
-      - no: 7
+      - claimId: srcclaim-f3b6a54f71f748b4d0c07a1bf71bd6a4
+        no: 7
         page: 12
         opponent: Nessegutten
         opponentClubId: nessegutten
@@ -85,9 +89,9 @@ seasons:
           - 1
         competitionId: forstedivisjon
         matchId: null
-        note: Kamper om å bli stående i 2. divisjon (Aalesund - Nessegutten 0-1).
-          Årsrapporten dokumenterer ikke sikker kampdato.
-      - no: 8
+        note: Kamper om å bli stående i 2. divisjon (Aalesund - Nessegutten 0-1). Årsrapporten dokumenterer ikke sikker kampdato.
+      - claimId: srcclaim-0f04fc4aed1cbf23f6e644d32541ecbe
+        no: 8
         page: 12
         opponent: Nessegutten
         opponentClubId: nessegutten
@@ -96,5 +100,4 @@ seasons:
           - 2
         competitionId: forstedivisjon
         matchId: null
-        note: Kamper om å bli stående i 2. divisjon (Nessegutten - Aalesund 2-2).
-          Årsrapporten dokumenterer ikke sikker kampdato.
+        note: Kamper om å bli stående i 2. divisjon (Nessegutten - Aalesund 2-2). Årsrapporten dokumenterer ikke sikker kampdato.

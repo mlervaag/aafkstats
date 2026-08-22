@@ -10,3 +10,5 @@ export * from "./harvest-finding.js";
 export * from "./source-profile.js";
 export * from "./harvest-manifest.js";
 export * from "./harvest-audit-engine.js";
+export * from "./source-claim-lineage.js";
+export * from "./source-claim-registry.js";

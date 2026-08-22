@@ -4,7 +4,8 @@ seasons:
   - year: 1952
     page: 10
     results:
-      - no: 1
+      - claimId: srcclaim-00d8c1c5e9a04da55133298f62316ee3
+        no: 1
         opponent: Træff
         opponentClubId: traeff
         score:
@@ -17,9 +18,9 @@ seasons:
         replay: false
         extraTime: false
         matchId: null
-        note: Årsrapporten dokumenterer ikke sikker kampdato; resultatet er derfor ikke
-          løftet til kanonisk kamp.
-      - no: 2
+        note: Årsrapporten dokumenterer ikke sikker kampdato; resultatet er derfor ikke løftet til kanonisk kamp.
+      - claimId: srcclaim-15d616eaffb37716297a9fc08803b2f7
+        no: 2
         opponent: Langevåg
         opponentClubId: langevag
         score:
@@ -32,10 +33,10 @@ seasons:
         replay: false
         extraTime: false
         matchId: null
-        note: Årsrapporten dokumenterer ikke sikker kampdato; resultatet er derfor ikke
-          løftet til kanonisk kamp.
+        note: Årsrapporten dokumenterer ikke sikker kampdato; resultatet er derfor ikke løftet til kanonisk kamp.
         resultGroupId: nm-1952-langevag-runde-2
-      - no: 3
+      - claimId: srcclaim-18ad304ab758a5892d85bcc6eb90da02
+        no: 3
         opponent: Kvik (Trondheim)
         opponentClubId: kvik-trondheim
         score:

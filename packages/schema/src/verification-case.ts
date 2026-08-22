@@ -33,6 +33,7 @@ export const newspaperVerification = z.object({
   candidateId: slug,
   communityReviewable: z.literal(true),
   sourceResult: z.object({
+    sourceClaimId: z.string().regex(/^srcclaim-[a-f0-9]{32}$/).optional(),
     sourceId: slug,
     year: z.number().int().min(1900).max(2100),
     no: z.number().int().positive(),
@@ -60,6 +61,7 @@ export const newspaperVerification = z.object({
 export const verificationCaseInput = z
   .object({
     id: slug,
+    sourceClaimId: z.string().regex(/^srcclaim-[a-f0-9]{32}$/).optional(),
     status: z.enum(["draft", "open", "paused", "resolved", "rejected", "superseded"]),
     category: z.enum(["role", "identity", "match", "source_reading", "club"]),
     claim: z.string().min(1).max(220),

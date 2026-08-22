@@ -7,20 +7,20 @@ describe("kildedokumenterte resultater", () => {
       sourceId: "jubileumsbok",
       scorePerspective: "aafk",
       seasons: [{ year: 1915, page: 83, results: [
-        { no: 1, opponent: "Rollon", score: [2, 2] },
-        { no: 2, opponent: null, score: null, status: "walkover", competitionId: "nm", round: 1 },
+        { claimId: "srcclaim-1915001a1a1a00000000000000000000", no: 1, opponent: "Rollon", score: [2, 2] },
+        { claimId: "srcclaim-1915002b2b2b00000000000000000000", no: 2, opponent: null, score: null, status: "walkover", competitionId: "nm", round: 1 },
       ] }],
     });
     expect(flattenSourceResults(collection)).toMatchObject([
-      { id: "1915-001", aafkGoals: 2, opponentGoals: 2, page: 83 },
-      { id: "1915-002", status: "walkover", competitionId: "nm", round: 1 },
+      { id: "1915-001", claimId: "srcclaim-1915001a1a1a00000000000000000000", aafkGoals: 2, opponentGoals: 2, page: 83 },
+      { id: "1915-002", claimId: "srcclaim-1915002b2b2b00000000000000000000", status: "walkover", competitionId: "nm", round: 1 },
     ]);
   });
 
   it("avviser hull i nummereringen og spilte kamper uten score", () => {
     const parsed = sourceResultCollection.safeParse({
       sourceId: "jubileumsbok", scorePerspective: "aafk",
-      seasons: [{ year: 1915, page: 83, results: [{ no: 2, opponent: "Rollon", score: null }] }],
+      seasons: [{ year: 1915, page: 83, results: [{ claimId: "srcclaim-1915002b2b2b00000000000000000000", no: 2, opponent: "Rollon", score: null }] }],
     });
     expect(parsed.success).toBe(false);
   });
@@ -35,6 +35,7 @@ describe("kildedokumenterte resultater", () => {
           page: 79,
           results: [
             {
+              claimId: "srcclaim-1920001c1c1c00000000000000000000",
               no: 1,
               opponent: "Rollon",
               score: [4, 1],
@@ -58,7 +59,7 @@ describe("kildedokumenterte resultater", () => {
           year: 1918,
           page: 100,
           results: [
-            { no: 1, opponent: "Kristiansund", opponentClubId: "kfk", score: [4, 3], competitionId: "nm", round: 1 },
+            { claimId: "srcclaim-1918001a1a1a00000000000000000000", no: 1, opponent: "Kristiansund", opponentClubId: "kfk", score: [4, 3], competitionId: "nm", round: 1 },
           ],
         },
       ],
@@ -71,7 +72,7 @@ describe("kildedokumenterte resultater", () => {
           year: 1918,
           page: 83,
           results: [
-            { no: 1, opponent: "K. F. K.", opponentClubId: "kfk", score: [4, 3], competitionId: "nm" },
+            { claimId: "srcclaim-1918001b1b1b00000000000000000000", no: 1, opponent: "K. F. K.", opponentClubId: "kfk", score: [4, 3], competitionId: "nm" },
           ],
         },
       ],
@@ -93,6 +94,7 @@ describe("kildedokumenterte resultater", () => {
           page: 83,
           results: [
             {
+              claimId: "srcclaim-1918001b1b1b00000000000000000000",
               no: 1,
               opponent: "K. F. K.",
               opponentClubId: "kfk",
@@ -113,6 +115,7 @@ describe("kildedokumenterte resultater", () => {
           page: 100,
           results: [
             {
+              claimId: "srcclaim-1918001a1a1a00000000000000000000",
               no: 1,
               opponent: "Kristiansund",
               opponentClubId: "kfk",
@@ -137,7 +140,7 @@ describe("kildedokumenterte resultater", () => {
           year: 1919,
           page: 83,
           results: [
-            { no: 1, opponent: "Brått", opponentClubId: "braatt", score: [4, 1] },
+            { claimId: "srcclaim-1919001a1a1a00000000000000000000", no: 1, opponent: "Brått", opponentClubId: "braatt", score: [4, 1] },
           ],
         },
       ],
@@ -150,7 +153,7 @@ describe("kildedokumenterte resultater", () => {
           year: 1919,
           page: 100,
           results: [
-            { no: 1, opponent: "Braatt", opponentClubId: "braatt", score: [4, 1] },
+            { claimId: "srcclaim-1919001b1b1b00000000000000000000", no: 1, opponent: "Braatt", opponentClubId: "braatt", score: [4, 1] },
           ],
         },
       ],
@@ -172,8 +175,8 @@ describe("kildedokumenterte resultater", () => {
           year: 1917,
           page: 83,
           results: [
-            { no: 1, opponent: "Brann", opponentClubId: "sk-brann", score: [0, 14], competitionId: "nm", matchId: null },
-            { no: 2, opponent: "Rollon", opponentClubId: "rollon", score: [1, 0], matchId: "1917-08-12-aalesunds-fk-rollon" },
+            { claimId: "srcclaim-1917001a1a1a00000000000000000000", no: 1, opponent: "Brann", opponentClubId: "sk-brann", score: [0, 14], competitionId: "nm", matchId: null },
+            { claimId: "srcclaim-1917002b2b2b00000000000000000000", no: 2, opponent: "Rollon", opponentClubId: "rollon", score: [1, 0], matchId: "1917-08-12-aalesunds-fk-rollon" },
           ],
         },
       ],
@@ -210,7 +213,7 @@ describe("kildedokumenterte resultater", () => {
             year: 1958,
             page: 6,
             results: [
-              { no: 1, date: "1958-04-15", opponent: "Aksla", score: [2, 0], matchId: null },
+              { claimId: "srcclaim-1958001a1a1a00000000000000000000", no: 1, date: "1958-04-15", opponent: "Aksla", score: [2, 0], matchId: null },
             ],
           },
         ],
@@ -225,7 +228,7 @@ describe("kildedokumenterte resultater", () => {
             year: 1958,
             page: 6,
             results: [
-              { no: 1, date: "15. april 1958", opponent: "Aksla", score: [2, 0] },
+              { claimId: "srcclaim-1958001a1a1a00000000000000000000", no: 1, date: "15. april 1958", opponent: "Aksla", score: [2, 0] },
             ],
           },
         ],
@@ -242,8 +245,8 @@ describe("kildedokumenterte resultater", () => {
             year: 1958,
             page: 6,
             results: [
-              { no: 1, date: "1958-04-15", opponent: "Aksla", score: [2, 0] },
-              { no: 2, opponent: "Rollon", score: [2, 0] },
+              { claimId: "srcclaim-1958001a1a1a00000000000000000000", no: 1, date: "1958-04-15", opponent: "Aksla", score: [2, 0] },
+              { claimId: "srcclaim-1958002b2b2b00000000000000000000", no: 2, opponent: "Rollon", score: [2, 0] },
             ],
           },
         ],
@@ -262,7 +265,7 @@ describe("kildedokumenterte resultater", () => {
             year: 1958,
             page: 6,
             results: [
-              { no: 1, date: "1958-04-15", opponent: "Aksla", opponentClubId: "aksla-il", score: [2, 0] },
+              { claimId: "srcclaim-1958001a1a1a00000000000000000000", no: 1, date: "1958-04-15", opponent: "Aksla", opponentClubId: "aksla-il", score: [2, 0] },
             ],
           },
         ],
@@ -275,7 +278,7 @@ describe("kildedokumenterte resultater", () => {
             year: 1958,
             page: 10,
             results: [
-              { no: 1, date: "1958-04-20", opponent: "Aksla", opponentClubId: "aksla-il", score: [2, 0] },
+              { claimId: "srcclaim-1958001b1b1b00000000000000000000", no: 1, date: "1958-04-20", opponent: "Aksla", opponentClubId: "aksla-il", score: [2, 0] },
             ],
           },
         ],
@@ -288,7 +291,7 @@ describe("kildedokumenterte resultater", () => {
             year: 1958,
             page: 20,
             results: [
-              { no: 1, date: "1958-04-15", opponent: "Aksla", opponentClubId: "aksla-il", score: [2, 0] },
+              { claimId: "srcclaim-1958001c1c1c00000000000000000000", no: 1, date: "1958-04-15", opponent: "Aksla", opponentClubId: "aksla-il", score: [2, 0] },
             ],
           },
         ],
@@ -301,7 +304,7 @@ describe("kildedokumenterte resultater", () => {
             year: 1958,
             page: 30,
             results: [
-              { no: 1, opponent: "Aksla", opponentClubId: "aksla-il", score: [2, 0] },
+              { claimId: "srcclaim-1958001d1d1d00000000000000000000", no: 1, opponent: "Aksla", opponentClubId: "aksla-il", score: [2, 0] },
             ],
           },
         ],
@@ -324,7 +327,7 @@ describe("kildedokumenterte resultater", () => {
             year: 1958,
             page: 6,
             results: [
-              { no: 1, date: "1958-04-15", opponent: "Rollon", opponentClubId: "rollon", score: [2, 0], matchId: null },
+              { claimId: "srcclaim-1958001a1a1a00000000000000000000", no: 1, date: "1958-04-15", opponent: "Rollon", opponentClubId: "rollon", score: [2, 0], matchId: null },
             ],
           },
         ],

@@ -22,6 +22,7 @@ import type { MatchHypothesis } from "./allocation.js";
  */
 
 export interface SourceResultRef {
+  sourceClaimId?: string;
   sourceId: string;
   file: string;
   season: number;
@@ -103,6 +104,7 @@ export function sourceResultQueries(archive: Archive, options: SelectOptions): S
         linked: result.matchId !== null,
         ...(result.resultGroupId ? { resultGroupId: result.resultGroupId } : {}),
         ref: {
+          sourceClaimId: result.claimId,
           sourceId: collection.sourceId,
           file: collection.file,
           season: result.season,
