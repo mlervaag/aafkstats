@@ -1,0 +1,44 @@
+id: 1975-05-29-traeff-aalesunds-fk
+date: 1975-05-29
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1975
+  stage: regular_season
+home:
+  clubId: traeff
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1975-05-30 s. 7
+    date: 1975-05-30
+    url: https://www.nb.no/items/0b911b2a223d8848f72e06df3f60df6d?page=6
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/0b911b2a223d8848f72e06df3f60df6d?page=6
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1975
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 30.05.1975 s. 7: NM 1. runde torsdag 29. mai 1975 i Molde
+  der AaFK slo Træff 1-0."

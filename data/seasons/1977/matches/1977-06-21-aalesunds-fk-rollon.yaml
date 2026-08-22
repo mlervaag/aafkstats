@@ -1,0 +1,44 @@
+id: 1977-06-21-aalesunds-fk-rollon
+date: 1977-06-21
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1977
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: rollon
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1977-06-22 s. 7
+    date: 1977-06-22
+    url: https://www.nb.no/items/0285dd33df575cee3de59d621eb2a09f?page=7
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/0285dd33df575cee3de59d621eb2a09f?page=7
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1977
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1977-06-22 s. 7: Kampreferat for AaFK mot Rollon (1–0)
+  spilt 1977-06-21."

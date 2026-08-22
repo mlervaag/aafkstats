@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1955-04-25-s2-hodd
+matchId: 1955-04-24-aalesunds-fk-hodd
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:899d75df941f390e1b930d642c8330a983a9fd0d4b1262ea2c95a5ac19adaf6e
+raw:
+  avis: Sunnmørsposten
+  dato: 1955-04-25
+  side: "2"
+  tittel: Sunnmørsposten 1955-04-25 s. 2
+  kamp: aalesunds-fk - hodd 2-0
+  url: https://www.nb.no/items/7356e8553f2494d1ffa4fb88a7cd7be0?page=2
+normalized:
+  date: 1955-04-24
+  home.clubId: aalesunds-fk
+  away.clubId: hodd
+  home.score: 2
+  away.score: 0
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

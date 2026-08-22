@@ -1,0 +1,44 @@
+id: 1975-06-11-eid-il-aalesunds-fk
+date: 1975-06-11
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1975
+  stage: regular_season
+home:
+  clubId: eid-il
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1975-06-12 s. 7
+    date: 1975-06-12
+    url: https://www.nb.no/items/0b5e2ab245509c572d2009ded2071116?page=6
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/0b5e2ab245509c572d2009ded2071116?page=6
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1975
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 12.06.1975 s. 7: NM 2. runde onsdag 11. juni 1975 på Eid
+  der AaFK vant 3-0."

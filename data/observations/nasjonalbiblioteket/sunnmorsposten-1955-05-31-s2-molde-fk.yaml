@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1955-05-31-s2-molde-fk
+matchId: 1955-05-30-aalesunds-fk-molde-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:a0c37ec548891d4fc457a7ee175dd5259ee424df5e602779d1378ebda28f3890
+raw:
+  avis: Sunnmørsposten
+  dato: 1955-05-31
+  side: "2"
+  tittel: Sunnmørsposten 1955-05-31 s. 2
+  kamp: aalesunds-fk - molde-fk 1-1
+  url: https://www.nb.no/items/dba658412ebb2075db8ee91cb3f1a2d1?page=2
+normalized:
+  date: 1955-05-30
+  home.clubId: aalesunds-fk
+  away.clubId: molde-fk
+  home.score: 1
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

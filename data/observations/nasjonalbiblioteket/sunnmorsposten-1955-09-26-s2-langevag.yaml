@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1955-09-26-s2-langevag
+matchId: 1955-09-25-langevag-aalesunds-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:ddfea6bcd9bbdd3236fbf86a5f0450ce191d04263163895d52a19665ff98953b
+raw:
+  avis: Sunnmørsposten
+  dato: 1955-09-26
+  side: "2"
+  tittel: Sunnmørsposten 1955-09-26 s. 2
+  kamp: langevag - aalesunds-fk 2-0
+  url: https://www.nb.no/items/42bce078984125437bdf8b777334c675?page=2
+normalized:
+  date: 1955-09-25
+  home.clubId: langevag
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 0
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

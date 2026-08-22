@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1945-07-14-s4-rollon
+matchId: 1945-07-13-aalesunds-fk-rollon
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:8a188ced0ebc28dfb790919e42440b88e275b95add94f62c52ab5db0a4e09c62
+raw:
+  avis: Sunnmørsposten
+  dato: 1945-07-14
+  side: "4"
+  tittel: Sunnmørsposten 1945-07-14 s. 4
+  kamp: aalesunds-fk - rollon 4-0
+  url: https://www.nb.no/items/cd629b2edfcad8274f4733965722c1b4?page=4
+normalized:
+  date: 1945-07-13
+  home.clubId: aalesunds-fk
+  away.clubId: rollon
+  home.score: 4
+  away.score: 0
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

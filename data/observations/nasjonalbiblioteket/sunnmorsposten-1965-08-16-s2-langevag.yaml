@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1965-08-16-s2-langevag
+matchId: 1965-08-15-langevag-aalesunds-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:0d75ad02269cd941a8ebf4d9ff2dc5340806237a9cf44cc89f33d8bb3efeecb5
+raw:
+  avis: Sunnmørsposten
+  dato: 1965-08-16
+  side: "2"
+  tittel: Sunnmørsposten 1965-08-16 s. 2
+  kamp: langevag - aalesunds-fk 3-1
+  url: https://www.nb.no/items/0215d405e84a1ec2f4dfea8e76734305?page=2
+normalized:
+  date: 1965-08-15
+  home.clubId: langevag
+  away.clubId: aalesunds-fk
+  home.score: 3
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

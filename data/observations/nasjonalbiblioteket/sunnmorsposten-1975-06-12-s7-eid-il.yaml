@@ -1,0 +1,27 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1975-06-12-s7-eid-il
+matchId: 1975-06-11-eid-il-aalesunds-fk
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:6b3b5f84b33d408cc4de44f6e4dcdf50fd00e2954255b8cbc9eed5923a2c279e
+raw:
+  avis: Sunnmørsposten
+  dato: 1975-06-12
+  side: "7"
+  tittel: Sunnmørsposten 1975-06-12 s. 7
+  kamp: eid-il - aalesunds-fk 0-3
+  url: https://www.nb.no/items/0b5e2ab245509c572d2009ded2071116?page=6
+  viewerPage: "6"
+normalized:
+  date: 1975-06-11
+  home.clubId: eid-il
+  away.clubId: aalesunds-fk
+  home.score: 0
+  away.score: 3
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1965-05-18-s2-langevag
+matchId: 1965-05-17-aalesunds-fk-langevag
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:c05b9ba8e2a5c5d8c0cf1fd6251edaf32ebde04594993fa9097bc403d2486d94
+raw:
+  avis: Sunnmørsposten
+  dato: 1965-05-18
+  side: "2"
+  tittel: Sunnmørsposten 1965-05-18 s. 2
+  kamp: aalesunds-fk - langevag 0-2
+  url: https://www.nb.no/items/07ddd40c04152b51b259cf3c46e8d152?page=2
+normalized:
+  date: 1965-05-17
+  home.clubId: aalesunds-fk
+  away.clubId: langevag
+  home.score: 0
+  away.score: 2
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

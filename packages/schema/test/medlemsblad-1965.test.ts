@@ -20,7 +20,7 @@ describe("Medlemsblad 1965 (Vol. 16 nr. 1–6)", () => {
     expect(season?.results.every((r) => r.date === undefined)).toBe(true);
   });
 
-  it("kobler bare de to oppgjørene der runde og motstander gjør kampen entydig", () => {
+  it("kobler de entydige og nå visuelt verifiserte oppgjørene", () => {
     const season = archive.sourceResults
       .find((c) => c.sourceId === SOURCE_ID)
       ?.seasons.find((s) => s.year === 1965);
@@ -28,12 +28,17 @@ describe("Medlemsblad 1965 (Vol. 16 nr. 1–6)", () => {
 
     // Manglende dato betyr «ikke oppfinn dato», ikke «ikke koble til kjent kamp».
     expect(koblet.map((r) => [r.round, r.matchId])).toEqual([
+      [null, "1965-05-23-aalesunds-fk-herd"],
+      [null, "1965-05-17-aalesunds-fk-langevag"],
+      [null, "1965-06-27-aalesunds-fk-herd"],
       [3, "1965-08-01-aalesunds-fk-rosenborg-bk"],
       [4, "1965-08-22-valerenga-aalesunds-fk"],
+      [null, "1965-08-15-langevag-aalesunds-fk"],
       [null, "1965-07-12-stalkameratene-aalesunds-fk"],
+      [null, "1965-06-20-aalesunds-fk-herd"],
     ]);
-    // De øvrige 33 mangler entydig kampidentitet og skal stå ukoblet.
-    expect((season?.results ?? []).filter((r) => r.matchId === null)).toHaveLength(33);
+    // De øvrige 28 mangler entydig kampidentitet og står ukoblet.
+    expect((season?.results ?? []).filter((r) => r.matchId === null)).toHaveLength(28);
   });
 
   it("stemmer med bladets egne kontrollsummer for sesongen", () => {

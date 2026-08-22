@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1955-05-16-s2-rollon
+matchId: 1955-05-15-aalesunds-fk-rollon
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:cd220d59126443b9caf1019d09337532031049f2c5052c0da7aa92b95d83fff1
+raw:
+  avis: Sunnmørsposten
+  dato: 1955-05-16
+  side: "2"
+  tittel: Sunnmørsposten 1955-05-16 s. 2
+  kamp: aalesunds-fk - rollon 2-4
+  url: https://www.nb.no/items/4d863e801d0be7f77540793da36ed141?page=2
+normalized:
+  date: 1955-05-15
+  home.clubId: aalesunds-fk
+  away.clubId: rollon
+  home.score: 2
+  away.score: 4
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

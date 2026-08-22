@@ -1,0 +1,44 @@
+id: 1945-07-08-orsta-aalesunds-fk
+date: 1945-07-08
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1945
+  stage: friendly
+home:
+  clubId: orsta
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1945-07-09 s. 2
+    date: 1945-07-09
+    url: https://www.nb.no/items/996171a08ad98118ad1097f4f42254ab?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/996171a08ad98118ad1097f4f42254ab?page=2
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1945-07-09 s. 2: Kampreferat for AaFK mot Ørsta (3–2)
+  spilt 1945-07-08."

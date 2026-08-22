@@ -1,0 +1,44 @@
+id: 1955-07-11-aalesunds-fk-hodd
+date: 1955-07-11
+dateConfidence: exact
+status: played
+competition:
+  id: nm
+  season: 1955
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: hodd
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1955-07-12 s. 3
+    date: 1955-07-12
+    url: https://www.nb.no/items/72ce25c9d52ad9c0c0937ee36af075e5?page=3
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/72ce25c9d52ad9c0c0937ee36af075e5?page=3
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1955-07-12 s. 3: Kampreferat for AaFK mot Hødd (3–1) spilt
+  1955-07-11."

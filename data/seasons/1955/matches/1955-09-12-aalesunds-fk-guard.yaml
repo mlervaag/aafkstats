@@ -1,0 +1,44 @@
+id: 1955-09-12-aalesunds-fk-guard
+date: 1955-09-12
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1955
+  stage: friendly
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: guard
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1955-09-13 s. 5
+    date: 1955-09-13
+    url: https://www.nb.no/items/f25f16820b9ba21e4af3720d4e8b2f19?page=5
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/f25f16820b9ba21e4af3720d4e8b2f19?page=5
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1955-09-13 s. 5: Kampreferat for AaFK mot Guard (2–0)
+  spilt 1955-09-12."

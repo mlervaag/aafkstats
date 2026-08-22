@@ -1,0 +1,44 @@
+id: 1955-05-30-aalesunds-fk-molde-fk
+date: 1955-05-30
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1955
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: molde-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1955-05-31 s. 2
+    date: 1955-05-31
+    url: https://www.nb.no/items/dba658412ebb2075db8ee91cb3f1a2d1?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/dba658412ebb2075db8ee91cb3f1a2d1?page=2
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1955-05-31 s. 2: Kampreferat for AaFK mot Molde (1–1)
+  spilt 1955-05-30."

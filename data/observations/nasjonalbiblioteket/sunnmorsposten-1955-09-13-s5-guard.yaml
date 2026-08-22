@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1955-09-13-s5-guard
+matchId: 1955-09-12-aalesunds-fk-guard
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:3f5c6d9ef97c6b7b07807ef67914488d0ffd13e028ea1f48268a544389fbda2d
+raw:
+  avis: Sunnmørsposten
+  dato: 1955-09-13
+  side: "5"
+  tittel: Sunnmørsposten 1955-09-13 s. 5
+  kamp: aalesunds-fk - guard 2-0
+  url: https://www.nb.no/items/f25f16820b9ba21e4af3720d4e8b2f19?page=5
+normalized:
+  date: 1955-09-12
+  home.clubId: aalesunds-fk
+  away.clubId: guard
+  home.score: 2
+  away.score: 0
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

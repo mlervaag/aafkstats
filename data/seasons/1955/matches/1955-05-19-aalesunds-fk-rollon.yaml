@@ -1,0 +1,44 @@
+id: 1955-05-19-aalesunds-fk-rollon
+date: 1955-05-19
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1955
+  stage: friendly
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: rollon
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1955-05-20 s. 2
+    date: 1955-05-20
+    url: https://www.nb.no/items/c5e5988d379d5ea705113f0833418f88?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/c5e5988d379d5ea705113f0833418f88?page=2
+    retrievedAt: 2026-08-21
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1955-05-20 s. 2: Kampreferat for AaFK mot Rollon (3–0)
+  spilt 1955-05-19."

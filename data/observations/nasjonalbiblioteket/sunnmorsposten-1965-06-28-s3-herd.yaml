@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1965-06-28-s3-herd
+matchId: 1965-06-27-aalesunds-fk-herd
+retrievedAt: 2026-08-21
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:250e69e5654deb05dadb96cc0326ba0d3fa711f12818cebad96c30cecb08ab90
+raw:
+  avis: Sunnmørsposten
+  dato: 1965-06-28
+  side: "3"
+  tittel: Sunnmørsposten 1965-06-28 s. 3
+  kamp: aalesunds-fk - herd 2-1
+  url: https://www.nb.no/items/b394ddeeddf27f6116e62011da54e0e0?page=3
+normalized:
+  date: 1965-06-27
+  home.clubId: aalesunds-fk
+  away.clubId: herd
+  home.score: 2
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []
