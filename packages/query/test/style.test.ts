@@ -140,4 +140,14 @@ describe("systemPrompt", () => {
     expect(prompt).toContain("ikke en grunn til å skjule resultatet");
     expect(prompt).toContain("https://aafkarkivet.no/kilder/kilde-id");
   });
+
+  it("holder motstanderstatistikk i separate evidenslag", () => {
+    const prompt = systemPrompt();
+    expect(prompt).toContain("alltid bruke head_to_head");
+    expect(prompt).toContain("Legg aldri played og unlinked_results sammen");
+    expect(prompt).toContain("Molde FK og Molde 2");
+    expect(prompt).toContain("komplette historiske totalen ikke");
+    expect(prompt).toContain("search_all_results med");
+    expect(prompt).toContain("opponentClubId fra head_to_head");
+  });
 });

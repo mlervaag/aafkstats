@@ -53,6 +53,10 @@ describe("verktøy mot ekte arkivfil", () => {
     const r = await call("head_to_head", { opponent: "brann" });
     const rows = (r.content as { rows: Record<string, unknown>[] }).rows;
     expect(rows[0]!.opponent).toBe("SK Brann");
+    expect(rows[0]).toHaveProperty("unlinked_results");
+    expect((r.content as { evidencePolicy: Record<string, unknown> }).evidencePolicy).toMatchObject({
+      contract: "archive-head-to-head-evidence@1",
+    });
   });
 
   it("get_match henter kamp, hendelser og referat", async () => {
@@ -226,6 +230,36 @@ describe("verktøy mot det historiske kandidatlaget", () => {
 
     const content = response.content as { evidencePolicy: Record<string, unknown> };
     expect(content.evidencePolicy).toMatchObject({ contract: "archive-result-evidence@1" });
+  });
+
+  it("holder kanonisk og ukoblet Molde-statistikk adskilt", async () => {
+    const response = await call("head_to_head", { opponent: "Molde" });
+    const result = rows(response);
+    const molde = result.find((row) => row.opponent_club_id === "molde-fk");
+    const molde2 = result.find((row) => row.opponent_club_id === "molde-2");
+
+    expect(molde).toBeDefined();
+    expect(molde2).toBeDefined();
+    expect(Number(molde!.unlinked_results)).toBeGreaterThan(0);
+    expect(Number(molde!.unlinked_wins) + Number(molde!.unlinked_draws) + Number(molde!.unlinked_losses))
+      .toBe(Number(molde!.unlinked_consistent_results));
+    expect(JSON.parse(String(molde!.unlinked_source_references)).length).toBeGreaterThan(0);
+    expect(molde).not.toHaveProperty("combined_played");
+    expect(Number(molde2!.played)).toBeLessThan(Number(molde!.played));
+  });
+
+  it("filtrerer konkrete motstanderresultater på kanonisk klubb-ID", async () => {
+    const response = await call("search_all_results", {
+      opponentClubId: "molde-fk",
+      ranking: "newest",
+      limit: 100,
+    });
+    const result = rows(response);
+
+    expect(result.length).toBeGreaterThan(0);
+    expect(result.every((row) => row.opponent_club_id === "molde-fk")).toBe(true);
+    expect(result.some((row) => row.opponent === "Molde 2")).toBe(false);
+    expect(result.some((row) => String(row.opponent).includes("Træff"))).toBe(false);
   });
 
   it("bevarer kilde, side og sikkerhet for rollekandidater", async () => {

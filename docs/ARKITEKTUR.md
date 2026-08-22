@@ -235,6 +235,11 @@ allerede har `match_id` utelates for å unngå dobbelttelling, mens flere kildep
 samme `result_group_id` samles som ett mulig oppgjør. Verktøyet legger ved regler som krever
 at en ukoblet rad omtales som det kilden oppgir, aldri som en fullidentifisert kamp.
 
+`head_to_head` bruker den samme evidensgrensen for komplett motstanderhistorikk. Kanoniske
+summer og grupperte, ukoblede kilderesultater returneres hver for seg og skal aldri adderes.
+Kildelaget kobles bare med `opponent_club_id`, slik at navnelikhet eller stedsnavn ikke kan
+blande for eksempel Molde FK, Molde 2 og andre klubber fra Molde.
+
 | Lag | Håndheves av | Hva det stopper |
 |---|---|---|
 | Filen åpnes med `readOnly` | **SQLite** | All skriving, uansett hvor den kommer fra |

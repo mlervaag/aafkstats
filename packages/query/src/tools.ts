@@ -140,6 +140,18 @@ const RESULT_EVIDENCE_POLICY = {
     "Ikke bland source_claim inn i summer over kanoniske kamper. Flere kilder med samme result_group_id er samlet som ett mulig oppgjør, ikke flere kamper.",
 } as const;
 
+const HEAD_TO_HEAD_EVIDENCE_POLICY = {
+  contract: "archive-head-to-head-evidence@1",
+  canonical:
+    "played, wins, draws, losses og mål uten prefiks kommer bare fra identifiserte kamper i kampmodellen.",
+  unlinked:
+    "Feltene med unlinked_ kommer fra ukoblede source_results, gruppert på result_group_id når den finnes. De er kildedokumenterte resultater, ikke sikkert flere kamper enn de kanoniske.",
+  aggregation:
+    "Ikke legg canonical og unlinked_ sammen til ett totalt kamp-, resultat- eller måltall. Noen ukoblede resultater kan gjelde kamper som allerede finnes uten at koblingen er avklart.",
+  identity:
+    "Bare source_results med samme opponent_club_id er tatt med. Flere returnerte klubber, som Molde FK og Molde 2, skal holdes helt adskilt.",
+} as const;
+
 /**
  * Søker begge resultatlagene i ett kall, slik at rekordspørsmål ikke stopper ved
  * den enkleste tabellen og dermed skjuler eldre, ufullstendige kilderesultater.
@@ -155,6 +167,7 @@ const searchAllResults = defineTool({
     seasonFrom: z.number().int().min(1914).max(2100).optional(),
     seasonTo: z.number().int().min(1914).max(2100).optional(),
     opponent: z.string().optional().describe("Motstander, delvis treff holder"),
+    opponentClubId: z.string().optional().describe("Eksakt kanonisk klubb-ID når identiteten er avklart"),
     result: z.enum(["S", "U", "T"]).optional().describe("S seier, U uavgjort, T tap"),
     ranking: z
       .enum(["largest_win", "largest_defeat", "most_goals_for", "most_goals_total", "newest", "oldest"])
@@ -168,6 +181,7 @@ const searchAllResults = defineTool({
     if (input.seasonFrom !== undefined) where.push(`season >= ${input.seasonFrom}`);
     if (input.seasonTo !== undefined) where.push(`season <= ${input.seasonTo}`);
     if (input.opponent) where.push(`lower(coalesce(opponent, '')) LIKE ${lit(`%${input.opponent.toLowerCase()}%`)}`);
+    if (input.opponentClubId) where.push(`opponent_club_id = ${lit(input.opponentClubId)}`);
     if (input.result) where.push(`result = ${lit(input.result)}`);
     if (input.ranking === "largest_win") where.push("result = 'S'");
     if (input.ranking === "largest_defeat") where.push("result = 'T'");
@@ -295,18 +309,85 @@ const getSeasonSummary = defineTool({
 
 const headToHead = defineTool({
   name: "head_to_head",
-  description: "Innbyrdes statistikk mot én motstander gjennom hele historien.",
+  description:
+    "Innbyrdes statistikk mot en motstander gjennom hele historien. Returnerer kanoniske " +
+    "kampsummer og ukoblede, kildedokumenterte resultater som to separate lag. Bruk alltid " +
+    "dette ved spørsmål om alle oppgjør, komplett historikk eller statistikk mot en motstander.",
   inputSchema: z.object({
     opponent: z.string().describe("Motstanderens navn eller ID, delvis treff holder"),
   }),
   async run(input, ctx) {
     const needle = lit(`%${input.opponent.toLowerCase()}%`);
-    return query(
+    const result = await query(
       ctx,
-      `SELECT * FROM opponents
-       WHERE lower(opponent) LIKE ${needle} OR opponent_club_id LIKE ${needle}
-       ORDER BY played DESC LIMIT 10`,
+      `WITH claim_variants AS (
+         SELECT opponent_club_id, coalesce(result_group_id, claim_id) AS record_id,
+                season, aafk_score, opponent_score, result
+         FROM source_results
+         WHERE match_id IS NULL AND status = 'played' AND opponent_club_id IS NOT NULL
+         GROUP BY opponent_club_id, coalesce(result_group_id, claim_id),
+                  season, aafk_score, opponent_score, result
+       ), claim_groups AS (
+         SELECT opponent_club_id, record_id, min(season) AS season,
+                count(*) AS variants,
+                CASE WHEN count(*) = 1 THEN max(aafk_score) END AS aafk_score,
+                CASE WHEN count(*) = 1 THEN max(opponent_score) END AS opponent_score,
+                CASE WHEN count(*) = 1 THEN max(result) END AS result
+         FROM claim_variants
+         GROUP BY opponent_club_id, record_id
+       ), claim_stats AS (
+         SELECT opponent_club_id,
+                count(*) AS unlinked_results,
+                sum(CASE WHEN variants = 1 THEN 1 ELSE 0 END) AS unlinked_consistent_results,
+                sum(CASE WHEN variants > 1 THEN 1 ELSE 0 END) AS unlinked_disputed_results,
+                sum(CASE WHEN variants = 1 AND result = 'S' THEN 1 ELSE 0 END) AS unlinked_wins,
+                sum(CASE WHEN variants = 1 AND result = 'U' THEN 1 ELSE 0 END) AS unlinked_draws,
+                sum(CASE WHEN variants = 1 AND result = 'T' THEN 1 ELSE 0 END) AS unlinked_losses,
+                sum(CASE WHEN variants = 1 THEN aafk_score ELSE 0 END) AS unlinked_goals_for,
+                sum(CASE WHEN variants = 1 THEN opponent_score ELSE 0 END) AS unlinked_goals_against,
+                min(season) AS unlinked_first_season,
+                max(season) AS unlinked_last_season
+         FROM claim_groups
+         GROUP BY opponent_club_id
+       ), distinct_references AS (
+         SELECT DISTINCT opponent_club_id, source_id, source_title, source_url, url
+         FROM source_results
+         WHERE match_id IS NULL AND status = 'played' AND opponent_club_id IS NOT NULL
+       ), source_references AS (
+         SELECT opponent_club_id,
+                json_group_array(json_object(
+                  'sourceId', source_id,
+                  'title', source_title,
+                  'sourceUrl', source_url,
+                  'url', url
+                )) AS unlinked_source_references
+         FROM distinct_references
+         GROUP BY opponent_club_id
+       )
+       SELECT o.*,
+              coalesce(s.unlinked_results, 0) AS unlinked_results,
+              coalesce(s.unlinked_consistent_results, 0) AS unlinked_consistent_results,
+              coalesce(s.unlinked_disputed_results, 0) AS unlinked_disputed_results,
+              coalesce(s.unlinked_wins, 0) AS unlinked_wins,
+              coalesce(s.unlinked_draws, 0) AS unlinked_draws,
+              coalesce(s.unlinked_losses, 0) AS unlinked_losses,
+              coalesce(s.unlinked_goals_for, 0) AS unlinked_goals_for,
+              coalesce(s.unlinked_goals_against, 0) AS unlinked_goals_against,
+              s.unlinked_first_season, s.unlinked_last_season,
+              coalesce(r.unlinked_source_references, '[]') AS unlinked_source_references
+       FROM opponents o
+       LEFT JOIN claim_stats s ON s.opponent_club_id = o.opponent_club_id
+       LEFT JOIN source_references r ON r.opponent_club_id = o.opponent_club_id
+       WHERE lower(o.opponent) LIKE ${needle} OR o.opponent_club_id LIKE ${needle}
+       ORDER BY o.played DESC LIMIT 10`,
     );
+    if (result.isError) return result;
+    return {
+      content: {
+        ...(result.content as Record<string, unknown>),
+        evidencePolicy: HEAD_TO_HEAD_EVIDENCE_POLICY,
+      },
+    };
   },
 });
 
