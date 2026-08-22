@@ -2,8 +2,8 @@ contract: nb-canonical-review-audit@2
 generatedAt: 2026-08-21
 counts:
   totalAudited: 109
-  canonical_ready: 21
-  score_conflict: 36
+  canonical_ready: 22
+  score_conflict: 35
   wrong_event: 48
   non_senior: 2
   date_uncertain: 2
@@ -4095,7 +4095,8 @@ cases:
       disposition: canonical_ready
       priorGroundTruthCheck:
         hasConflict: false
-      reason: "Sunnmørsposten dokumenterer Vigra–AaFK 0-15 på Roald 16. juli 1964. Tidligere review hadde feilallokert siden til en annen Vigra-kamp."
+      reason: "Sunnmørsposten 17.07.1964 s. 2: Kampreferat fra Roald torsdag 16. juli
+        1964 der AaFK som gjester slo Vigra 15-0 og satte klubbrekord."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-013
     sourceResult:
       sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9

@@ -1,8 +1,8 @@
 contract: nb-visual-review-followup@2
 generatedAt: 2026-08-21
-totalCases: 88
+totalCases: 87
 summary:
-  score_conflict: 36
+  score_conflict: 35
   wrong_event: 48
   non_senior: 2
   date_uncertain: 2
@@ -3243,52 +3243,6 @@ cases:
       priorGroundTruthCheck:
         hasConflict: false
       reason: "Score-avvik: Kilde oppga 5-2, mens avisen dokumenterer 4-0."
-  - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-010
-    disposition: canonical_ready
-    sourceResult:
-      sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
-      year: 1964
-      no: 10
-      opponent: Vigra
-      opponentClubId: vigra-il
-      expectedScore:
-        aafk: 15
-        opponent: 0
-    newspaper:
-      title: Sunnmørsposten
-      issueDate: 1964-07-17
-      page: "2"
-      pageUrl: https://www.nb.no/items/b81904fa45d1c4f005743fdfa7c4c0d8?page=2
-    facsimileReaudit:
-      visuallyReviewed: true
-      reviewBasis: new_facsimile_reaudit
-      provisional: false
-      candidateOpponent:
-        name: Vigra
-        clubId: vigra-il
-      observedOpponent:
-        name: Vigra
-        clubId: vigra-il
-        confidence: high
-      sameEvent: true
-      seniorAteam: true
-      score:
-        aafk: 15
-        opponent: 0
-        confidence: high
-      matchDate:
-        value: 1964-07-16
-        confidence: high
-      homeAway: away
-      competition:
-        value: treningskamp
-        competitionId: treningskamp
-        confidence: high
-      evidenceType: report
-      disposition: canonical_ready
-      priorGroundTruthCheck:
-        hasConflict: false
-      reason: "Sunnmørsposten dokumenterer Vigra–AaFK 0-15 på Roald 16. juli 1964. Tidligere review hadde feilallokert siden til en annen Vigra-kamp."
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-013
     disposition: wrong_event
     sourceResult:

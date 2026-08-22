@@ -25,9 +25,9 @@ describe("produksjonskøen for avisverifisering", () => {
   it("laster manifestet sammen med manuelle saker uten duplikater", () => {
     expect([...archive.issues, ...crossValidate(archive)]).toEqual([]);
     const newspaperCases = archive.verificationCases.filter((item) => item.newspaper);
-    expect(newspaperCases).toHaveLength(247);
+    expect(newspaperCases).toHaveLength(246);
     expect(newspaperCases.filter((item) => item.status === "open")).toHaveLength(46);
-    expect(newspaperCases.filter((item) => item.status === "draft")).toHaveLength(201);
+    expect(newspaperCases.filter((item) => item.status === "draft")).toHaveLength(200);
     expect(new Set(archive.verificationCases.map((item) => item.id)).size).toBe(archive.verificationCases.length);
     expect(new Set(archive.verificationCases.map((item) => `${item.target.type}|${item.target.id}|${item.target.field}`)).size)
       .toBe(archive.verificationCases.length);
@@ -52,9 +52,9 @@ describe("produksjonskøen for avisverifisering", () => {
       const newspaperRows = all<{ status: string }>(db, "SELECT status FROM verification_cases WHERE newspaper IS NOT NULL");
       const publicRows = all<{ status: string }>(db, "SELECT status FROM verification_cases WHERE newspaper IS NOT NULL AND status = 'open'");
       const researchRows = all<{ status: string }>(db, "SELECT status FROM verification_cases WHERE research_task IS NOT NULL");
-      expect(newspaperRows).toHaveLength(247);
+      expect(newspaperRows).toHaveLength(246);
       expect(publicRows).toHaveLength(46);
-      expect(newspaperRows.filter((item) => item.status === "draft")).toHaveLength(201);
+      expect(newspaperRows.filter((item) => item.status === "draft")).toHaveLength(200);
       expect(researchRows).toHaveLength(24);
     } finally {
       db.close();

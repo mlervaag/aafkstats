@@ -244,7 +244,7 @@ export function normalizeCompetitionExplicit(compValue: string, year: number): {
   return { competitionId: null, confidence: "low" };
 }
 
-// 21 verified canonical cases with full structured visual facsimile findings
+// 22 verified canonical cases with full structured visual facsimile findings
 const visuallyVerifiedCasesData: Record<string, {
   observedOpponent: { name: string; clubId: string; confidence: "high" };
   sameEvent: true;
@@ -464,6 +464,17 @@ const visuallyVerifiedCasesData: Record<string, {
     competition: { value: "privatkamp", competitionId: "treningskamp", confidence: "high" },
     evidenceType: "report",
     reason: "Sunnmørsposten 20.04.1964 s. 2: Kampreferat fra privatkampen søndag 19. april 1964 der AaFK slo Velledalen/Ringen 3-1.",
+  },
+  "nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-010": {
+    observedOpponent: { name: "Vigra", clubId: "vigra-il", confidence: "high" },
+    sameEvent: true,
+    seniorAteam: true,
+    score: { aafk: 15, opponent: 0, confidence: "high" },
+    matchDate: { value: "1964-07-16", confidence: "high" },
+    homeAway: "away",
+    competition: { value: "treningskamp", competitionId: "treningskamp", confidence: "high" },
+    evidenceType: "report",
+    reason: "Sunnmørsposten 17.07.1964 s. 2: Kampreferat fra Roald torsdag 16. juli 1964 der AaFK som gjester slo Vigra 15-0 og satte klubbrekord.",
   },
   "nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1965-032": {
     observedOpponent: { name: "Stålkameratene", clubId: "stalkameratene", confidence: "high" },
