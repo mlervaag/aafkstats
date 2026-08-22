@@ -19,12 +19,13 @@ Et konkret eksempel er Sunnmøre Fotballkrets' årsrapport 1958, som dokumentere
 for Åpningscupen (15., 17. og 19. april 1958), men der vi ikke har nok opplysninger (hjemme/borte,
 stadion, fullstendig kampkontekst) til å opprette kanoniske kampfiler.
 
-Arkivet opererer med **fire adskilte nivåer** for kildedata og kampidentiteter som aldri skal blandes sammen:
+Arkivet opererer med **fem adskilte nivåer** for kildedata og kampidentiteter som aldri skal blandes sammen:
 
-1. **Kildetekst (`opponent` og eventuell `date`):** Nøyaktig hva kilden dokumenterte (f.eks. `"Brått"`, `"K. F. K."`, `"C. F. K."`, `"S.K. Rollon"`, samt eventuell dato som `1958-04-15`). Original kildepåstand skal alltid bevares uendret.
-2. **Identifisert klubb (`opponentClubId`):** Arkivets kanoniske klubb-ID (f.eks. `"braatt"`, `"kfk"`, `"clausenengen"`, `"rollon"`). Gjør at alternative skrivemåter samles under samme motstanderidentitet uten å miste kildens egen tekst.
-3. **Samme uavklarte oppgjør (`resultGroupId`):** En redaksjonelt tildelt ID som samler flere kildepåstander om samme historiske oppgjør før dato og detaljer er fullt avklart (f.eks. `"nm-1919-braatt-runde-2"`).
-4. **Kanonisk kamp (`matchId`):** Sikker kobling til en komplett kampfil i `seasons/<år>/matches/` (f.eks. `"1917-08-26-aalesunds-fk-sk-brann"`). Når et kilderesultat (eller en hel resultatgruppe) har fått `matchId`, ekskluderes det automatisk fra listen over uavklarte resultater på sesongsiden.
+1. **Stabil claim-identitet (`claimId`):** Permanent, globalt unik identifikator (`srcclaim-...`) som tildeles hver enkelt historisk kildepåstand. Den forblir uendret selv om kildens sidetall, sesong eller rekkefølgenummer korrigeres. Se [`docs/SOURCE_CLAIM_STABLE_IDENTITY.md`](SOURCE_CLAIM_STABLE_IDENTITY.md) og [`data/migrations/source-claim-lineage.yaml`](../data/migrations/source-claim-lineage.yaml).
+2. **Kildetekst (`opponent` og eventuell `date`):** Nøyaktig hva kilden dokumenterte (f.eks. `"Brått"`, `"K. F. K."`, `"C. F. K."`, `"S.K. Rollon"`, samt eventuell dato som `1958-04-15`). Original kildepåstand skal alltid bevares uendret.
+3. **Identifisert klubb (`opponentClubId`):** Arkivets kanoniske klubb-ID (f.eks. `"braatt"`, `"kfk"`, `"clausenengen"`, `"rollon"`). Gjør at alternative skrivemåter samles under samme motstanderidentitet uten å miste kildens egen tekst.
+4. **Samme uavklarte oppgjør (`resultGroupId`):** En redaksjonelt tildelt ID som samler flere kildepåstander om samme historiske oppgjør før dato og detaljer er fullt avklart (f.eks. `"nm-1919-braatt-runde-2"`).
+5. **Kanonisk kamp (`matchId`):** Sikker kobling til en komplett kampfil i `seasons/<år>/matches/` (f.eks. `"1917-08-26-aalesunds-fk-sk-brann"`). Når et kilderesultat (eller en hel resultatgruppe) har fått `matchId`, ekskluderes det automatisk fra listen over uavklarte resultater på sesongsiden.
 
 Progresjonen i datamodellen er:
 

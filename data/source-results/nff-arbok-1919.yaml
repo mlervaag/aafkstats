@@ -4,7 +4,8 @@ seasons:
   - year: 1919
     page: 82
     results:
-      - no: 1
+      - claimId: srcclaim-34637b30c83f57f20aa09288c1e7bd12
+        no: 1
         opponent: Fremad
         opponentClubId: fremad
         score:
@@ -13,10 +14,10 @@ seasons:
         competitionId: nm
         round: 1
         resultGroupId: nm-1919-fremad-runde-1
-        note: >
-          AaFK spilte på egen bane. Årbokas protestreferat på side 27
-          dokumenterer at P. Mogstad spilte for AaFK i kampen.
-      - no: 2
+        note: |
+          AaFK spilte på egen bane. Årbokas protestreferat på side 27 dokumenterer at P. Mogstad spilte for AaFK i kampen.
+      - claimId: srcclaim-2f111ef2c1ae318a4255bfd585bd89e0
+        no: 2
         opponent: Braatt
         opponentClubId: braatt
         score:
@@ -27,7 +28,8 @@ seasons:
         resultGroupId: nm-1919-braatt-runde-2
         page: 83
         note: AaFK spilte på egen bane.
-      - no: 3
+      - claimId: srcclaim-9735e57182240574335ed6625f212cf0
+        no: 3
         opponent: Sverre
         opponentClubId: sverre
         score:

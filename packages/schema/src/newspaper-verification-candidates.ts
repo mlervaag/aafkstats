@@ -11,6 +11,7 @@ const candidate = z.object({
     approvedAt: z.string().date().optional(),
   }).strict().default({ status: "draft" }),
   sourceResult: z.object({
+    sourceClaimId: z.string().regex(/^srcclaim-[a-f0-9]{32}$/).optional(),
     sourceId: z.string().min(1).regex(/^[a-z0-9-]+$/),
     year: z.number().int().min(1900).max(2100),
     no: z.number().int().positive(),

@@ -10,6 +10,7 @@ export const nbResearchCategory = z.enum([
 ]);
 
 export const nbResearchSourceResult = z.object({
+  sourceClaimId: z.string().regex(/^srcclaim-[a-f0-9]{32}$/).optional(),
   sourceId: slug,
   year: z.number().int().min(1900).max(2100),
   no: z.number().int().positive(),

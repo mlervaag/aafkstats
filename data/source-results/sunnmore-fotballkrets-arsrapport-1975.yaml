@@ -4,7 +4,8 @@ seasons:
   - year: 1975
     page: 22
     results:
-      - no: 1
+      - claimId: srcclaim-d08c8b24a563e220d0dd70cec776ead2
+        no: 1
         opponent: Træff
         opponentClubId: traeff
         score:
@@ -13,9 +14,9 @@ seasons:
         competitionId: nm
         round: 1
         matchId: 1975-05-29-traeff-aalesunds-fk
-        note: Norgesmesterskapet 1975, 1. runde (Træff - Aalesund 0-1). Årsrapporten
-          dokumenterer ikke sikker kampdato.
-      - no: 2
+        note: Norgesmesterskapet 1975, 1. runde (Træff - Aalesund 0-1). Årsrapporten dokumenterer ikke sikker kampdato.
+      - claimId: srcclaim-22bbe481c71dc971647ea2517351c35e
+        no: 2
         opponent: Eid
         opponentClubId: eid-il
         score:
@@ -24,9 +25,9 @@ seasons:
         competitionId: nm
         round: 2
         matchId: 1975-06-11-eid-il-aalesunds-fk
-        note: Norgesmesterskapet 1975, 2. runde (Eid - Aalesund 0-3). Årsrapporten
-          dokumenterer ikke sikker kampdato.
-      - no: 3
+        note: Norgesmesterskapet 1975, 2. runde (Eid - Aalesund 0-3). Årsrapporten dokumenterer ikke sikker kampdato.
+      - claimId: srcclaim-801445ba2c8b18cacebd73509fcfd932
+        no: 3
         opponent: Molde
         opponentClubId: molde-fk
         score:
@@ -36,7 +37,8 @@ seasons:
         round: 3
         matchId: 1975-06-25-aalesunds-fk-molde-fk
         note: Norgesmesterskapet 1975, 3. runde (Aalesund - Molde 1-0).
-      - no: 4
+      - claimId: srcclaim-a9ff7c33ee10d7e87d1fa24208c71c35
+        no: 4
         opponent: Start
         opponentClubId: start
         score:

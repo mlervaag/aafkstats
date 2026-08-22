@@ -53,7 +53,7 @@ export const ARCHIVE_DOMAIN_SPECS: ArchiveDomainSpec[] = [
  * enhver oppdatering av `retrievedAt` eller `fields` — nøyaktig det en ny
  * innhøsting alltid gjør — ser ut som at hele referansen er fjernet.
  */
-const LIST_ITEM_KEYS = ["id", "no", "year", "sourceId", "personId", "providerId", "date"] as const;
+const LIST_ITEM_KEYS = ["claimId", "id", "no", "year", "sourceId", "personId", "providerId", "date"] as const;
 
 /**
  * Sjekker om en verdi teller som «tom» — altså om overgangen fra den til en
@@ -88,12 +88,39 @@ function stableKey(value: unknown): string {
 /**
  * Finner identifikatoren for et listeelement, dersom det har en.
  */
-function listItemIdentity(item: unknown): { key: string; value: string } | undefined {
-  if (!isPlainObject(item)) return undefined;
+function listItemIdentities(item: unknown): Array<{ key: string; value: string }> {
+  if (!isPlainObject(item)) return [];
+  const list: Array<{ key: string; value: string }> = [];
   for (const key of LIST_ITEM_KEYS) {
     const raw = item[key];
     if (raw !== undefined && raw !== null && String(raw).trim() !== "") {
-      return { key, value: String(raw).trim() };
+      list.push({ key, value: String(raw).trim() });
+    }
+  }
+  return list;
+}
+
+function removeItemFromHeadQueues(headById: Map<string, unknown[]>, item: unknown) {
+  if (!isPlainObject(item)) return;
+  for (const identity of listItemIdentities(item)) {
+    const key = `${identity.key}=${compositeIdentity(item, identity)}`;
+    const queue = headById.get(key);
+    if (queue) {
+      const idx = queue.indexOf(item);
+      if (idx >= 0) queue.splice(idx, 1);
+    }
+  }
+}
+
+function findHeadQueueForBaseItem(
+  headById: Map<string, unknown[]>,
+  baseItem: Record<string, unknown>,
+): { key: string; queue: unknown[] } | undefined {
+  for (const identity of listItemIdentities(baseItem)) {
+    const key = `${identity.key}=${compositeIdentity(baseItem, identity)}`;
+    const queue = headById.get(key);
+    if (queue && queue.length > 0) {
+      return { key, queue };
     }
   }
   return undefined;
@@ -211,14 +238,15 @@ export function diffStructuralAdditivity(
     const headById = new Map<string, unknown[]>();
     const headByShape = new Map<string, number>();
     for (const item of headValue) {
-      const identity = listItemIdentity(item);
-      if (identity && isPlainObject(item)) {
-        const key = `${identity.key}=${compositeIdentity(item, identity)}`;
-        const queue = headById.get(key);
-        if (queue) {
-          queue.push(item);
-        } else {
-          headById.set(key, [item]);
+      if (isPlainObject(item)) {
+        for (const identity of listItemIdentities(item)) {
+          const key = `${identity.key}=${compositeIdentity(item, identity)}`;
+          const queue = headById.get(key);
+          if (queue) {
+            queue.push(item);
+          } else {
+            headById.set(key, [item]);
+          }
         }
       }
       const shape = stableKey(item);
@@ -232,50 +260,52 @@ export function diffStructuralAdditivity(
     // uendrede er tatt ut.
     const pairedByShape = new Set<number>();
     for (const [index, baseItem] of baseValue.entries()) {
-      const identity = listItemIdentity(baseItem);
-      if (!identity || !isPlainObject(baseItem)) continue;
-      const lookup = `${identity.key}=${compositeIdentity(baseItem, identity)}`;
-      const queue = headById.get(lookup);
-      if (!queue) continue;
+      if (!isPlainObject(baseItem)) continue;
+      const hitInfo = findHeadQueueForBaseItem(headById, baseItem);
+      if (!hitInfo) continue;
       const shape = stableKey(baseItem);
-      const hit = queue.findIndex((candidate) => stableKey(candidate) === shape);
+      const hit = hitInfo.queue.findIndex((candidate) => stableKey(candidate) === shape);
       if (hit >= 0) {
-        queue.splice(hit, 1);
+        const matchedItem = hitInfo.queue[hit];
+        removeItemFromHeadQueues(headById, matchedItem);
         pairedByShape.add(index);
       }
     }
 
     for (let i = 0; i < baseValue.length; i++) {
       const baseItem = baseValue[i];
-      const identity = listItemIdentity(baseItem);
 
       // Elementet står uendret i HEAD. Ingenting kan være tapt.
       if (pairedByShape.has(i)) continue;
 
-      if (identity && isPlainObject(baseItem)) {
-        const lookup = `${identity.key}=${compositeIdentity(baseItem, identity)}`;
-        // Det som står igjen pares i rekkefølge, slik at n-te gjenværende
-        // forekomst av en identitet møter n-te gjenværende i HEAD.
-        const headItem = headById.get(lookup)?.shift();
-        if (headItem === undefined) {
+      if (isPlainObject(baseItem)) {
+        const hitInfo = findHeadQueueForBaseItem(headById, baseItem);
+        if (hitInfo) {
+          const headItem = hitInfo.queue[0];
+          removeItemFromHeadQueues(headById, headItem);
+          out.push(
+            ...diffStructuralAdditivity(
+              baseItem,
+              headItem,
+              `${path}/${hitInfo.key}`,
+              options,
+              depth + 1,
+            ),
+          );
+          continue;
+        }
+
+        const primaryIdentities = listItemIdentities(baseItem);
+        if (primaryIdentities.length > 0) {
+          const primary = primaryIdentities[0]!;
           out.push({
-            path: `${path}/${compositeIdentity(baseItem, identity)}`,
+            path: `${path}/${compositeIdentity(baseItem, primary)}`,
             changeType: "remove",
-            message: `Elementet «${identity.key}=${compositeIdentity(baseItem, identity)}» under «${path}» er fjernet`,
+            message: `Elementet «${primary.key}=${compositeIdentity(baseItem, primary)}» under «${path}» er fjernet`,
             baseValue: baseItem,
           });
           continue;
         }
-        out.push(
-          ...diffStructuralAdditivity(
-            baseItem,
-            headItem,
-            `${path}/${compositeIdentity(baseItem, identity)}`,
-            options,
-            depth + 1,
-          ),
-        );
-        continue;
       }
 
       // Uten identitet krever vi at den eksakte verdien fortsatt finnes.
@@ -491,6 +521,14 @@ export function verifySourceResultMigration(
     const headClaim = headClaims.get(newKey);
     if (!headClaim) {
       return { valid: false, error: `New claim ${newKey} not found in HEAD` };
+    }
+
+    // Identity check if claimId is present in both
+    if (baseClaim.claimId && headClaim.claimId && baseClaim.claimId !== headClaim.claimId) {
+      return {
+        valid: false,
+        error: `claimId mismatch at ${oldKey} -> ${newKey}: BASE='${baseClaim.claimId}', HEAD='${headClaim.claimId}'`,
+      };
     }
 
     // Historical facts comparison

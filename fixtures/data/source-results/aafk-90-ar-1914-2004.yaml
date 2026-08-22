@@ -1,13 +1,14 @@
-# Ett kontrollert historisk resultat som mangler sikker dato og hjemme/borte.
-# Fixture-raden gjør at arbeidskøen tester innhold, telling og sesonglenke.
 sourceId: aafk-90-ar-1914-2004
 scorePerspective: aafk
 seasons:
   - year: 1914
     page: 42
     results:
-      - no: 1
+      - claimId: srcclaim-00000000000000000000000000001914
+        no: 1
         opponent: Molde
         opponentClubId: molde-fk
-        score: [2, 1]
+        score:
+          - 2
+          - 1
         competitionId: nm

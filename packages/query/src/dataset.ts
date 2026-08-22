@@ -40,6 +40,7 @@ export const views: ViewDoc[] = [
       "competition_id er bare satt når kilden uttrykkelig navngir konkurransen. NULL betyr ukjent.",
     ],
     columns: [
+      { name: "claim_id", type: "text", description: "Globalt stabil claim-identifikator (srcclaim-...) uavhengig av kildekoordinater." },
       { name: "source_id", type: "text", description: "Historisk kilde." },
       { name: "source_title", type: "text", description: "Lesbar tittel på den historiske kilden." },
       { name: "id", type: "text", description: "Stabil ID innen kilden." },

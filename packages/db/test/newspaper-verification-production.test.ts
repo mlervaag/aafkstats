@@ -35,15 +35,14 @@ describe("produksjonskøen for avisverifisering", () => {
     const researchCases = archive.verificationCases.filter((item) => item.researchTask);
     expect(researchCases).toHaveLength(23);
     expect(researchCases.filter((item) => item.status === "open")).toHaveLength(23);
-    expect(archive.verificationCases.filter((item) => !item.newspaper && !item.researchTask)).toHaveLength(25);
+    expect(archive.verificationCases.filter((item) => !item.newspaper && !item.researchTask)).toHaveLength(26);
     const casesById = new Map(archive.verificationCases.map((item) => [item.id, item]));
     expect([
       "nb-avis-1946-23-e5805ff7ec",
       "nb-avis-1947-8-2baa8fe66e",
-      "nb-avis-1954-7-71f95989eb",
       "nb-avis-1955-1-7874478aa3",
-    ].map((id) => casesById.get(id)?.status)).toEqual(["draft", "draft", "draft", "draft"]);
-    expect(casesById.get("nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1954-7-score-conflict")?.status).toBe("open");
+    ].map((id) => casesById.get(id)?.status)).toEqual(["draft", "draft", "draft"]);
+    expect(casesById.get("nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1954-7-score-conflict")?.status).toBe("resolved");
   });
 
   it("bygger alle genererte saker, men gjør bare åpne saker offentlige", () => {

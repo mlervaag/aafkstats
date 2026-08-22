@@ -4,7 +4,8 @@ seasons:
   - year: 1959
     page: 5
     results:
-      - no: 1
+      - claimId: srcclaim-0827524e59cb20069cee8b657f041d88
+        no: 1
         opponent: Aksla
         opponentClubId: null
         score:
@@ -19,7 +20,8 @@ seasons:
         matchId: null
         note: Sunnmørscupen 1959, avdeling VI.
         resultGroupId: 1959-aksla-3-0
-      - no: 2
+      - claimId: srcclaim-c719c3114f2439f88e3867c5a1bc256a
+        no: 2
         opponent: Langevåg
         opponentClubId: langevag
         score:
@@ -34,7 +36,8 @@ seasons:
         matchId: null
         note: Sunnmørscupen 1959, avdeling VI.
         resultGroupId: 1959-langevag-0-1
-      - no: 3
+      - claimId: srcclaim-85adfdef946cf9a6c16581567c57a00a
+        no: 3
         opponent: Skarbøvik (SIF)
         opponentClubId: skarbovik
         score:
@@ -47,10 +50,10 @@ seasons:
         replay: false
         extraTime: true
         matchId: null
-        note: Årsrapporten dokumenterer ikke sikker kampdato; resultatet er derfor ikke
-          løftet til kanonisk kamp.
+        note: Årsrapporten dokumenterer ikke sikker kampdato; resultatet er derfor ikke løftet til kanonisk kamp.
         resultGroupId: nm-1959-skarbovik-runde-1
-      - no: 4
+      - claimId: srcclaim-83b67b0d41801f3bc9644f45d8180258
+        no: 4
         opponent: Kvik (Trondheim)
         opponentClubId: kvik-trondheim
         score:
@@ -63,6 +66,5 @@ seasons:
         replay: false
         extraTime: true
         matchId: null
-        note: Årsrapporten dokumenterer ikke sikker kampdato; resultatet er derfor ikke
-          løftet til kanonisk kamp.
+        note: Årsrapporten dokumenterer ikke sikker kampdato; resultatet er derfor ikke løftet til kanonisk kamp.
         resultGroupId: nm-1959-kvik-trondheim-runde-2

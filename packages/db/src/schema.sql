@@ -1103,6 +1103,7 @@ CREATE TABLE core_publication_extractions (
 -- Resultater en historisk kilde dokumenterer uten nok opplysninger til å bli
 -- kanoniske kamper. De holdes utenfor all kamp- og sesongstatistikk.
 CREATE TABLE core_source_results (
+  claim_id        TEXT NOT NULL UNIQUE,
   source_id       TEXT NOT NULL REFERENCES core_sources(id) ON DELETE CASCADE,
   id              TEXT NOT NULL,
   season          INTEGER NOT NULL,
@@ -1124,6 +1125,7 @@ CREATE TABLE core_source_results (
   PRIMARY KEY (source_id, id)
 );
 
+CREATE INDEX source_results_claim_id_idx ON core_source_results(claim_id);
 CREATE INDEX source_results_season_idx ON core_source_results(season, source_order);
 CREATE INDEX source_results_result_group_idx ON core_source_results(result_group_id);
 CREATE INDEX source_results_match_idx ON core_source_results(match_id);
@@ -1257,7 +1259,7 @@ FROM core_publication_extractions
 ORDER BY source_id;
 
 CREATE VIEW source_results AS
-SELECT r.source_id, s.title AS source_title, r.id, r.season, r.source_order, r.page,
+SELECT r.claim_id, r.source_id, s.title AS source_title, r.id, r.season, r.source_order, r.page,
        r.date,
        r.opponent, r.opponent_club_id, r.aafk_score, r.opponent_score,
        CASE

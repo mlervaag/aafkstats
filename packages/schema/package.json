@@ -20,7 +20,10 @@
     "historical-audit": "tsx src/cli/historical-audit.ts",
     "historical-harvest:init": "tsx src/cli/historical-harvest-init.ts",
     "historical-harvest:check": "tsx src/cli/historical-harvest-check.ts",
-    "historical-harvest:report": "tsx src/cli/historical-harvest-report.ts"
+    "historical-harvest:report": "tsx src/cli/historical-harvest-report.ts",
+    "backfill-source-claim-ids": "tsx src/cli/backfill-source-claim-ids.ts",
+    "source-claim-integrity": "tsx src/cli/source-claim-integrity.ts",
+    "source-claim": "tsx src/cli/source-claim.ts"
   },
   "dependencies": {
     "yaml": "^2.6.1",
