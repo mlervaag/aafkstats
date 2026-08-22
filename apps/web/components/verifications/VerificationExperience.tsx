@@ -470,17 +470,19 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
           <h1>Kan du kontrollere dette?</h1>
           <p>Undersøk én konkret kildeoppgave. Noen saker har JA/NEI, mens avisresearch ber deg velge riktig kamp, dato eller kildepåstand.</p>
         </div>
-        <div className={styles.progress} aria-label={`${doneCount} saker fullført i denne nettleseren`}>
-          <span>{doneCount}</span>
-          <small>kontrollert av deg</small>
-        </div>
+        {doneCount > 0 ? (
+          <div className={styles.progress} aria-label={`${doneCount} saker fullført i denne nettleseren`}>
+            <span>{doneCount}</span>
+            <small>kontrollert denne økten</small>
+          </div>
+        ) : null}
       </header>
 
       <nav className={styles.utilityNav} aria-label="Arbeidskø">
         <a href="/mangler/saker">
-          {availabilityChecked ? `Se alle ${availableCases.length} saker` : "Se alle saker"}
+          {availabilityChecked ? `Velg blant ${availableCases.length} kontrollsaker` : "Velg en annen kontrollsak"}
         </a>
-        <a href="/mangler/oversikt">Hele mangellista</a>
+        <a href="/mangler/oversikt">Se hele arbeidskøen</a>
       </nav>
 
       {reservationNotice && <p className={styles.reservationNotice} role="status">{reservationNotice}</p>}

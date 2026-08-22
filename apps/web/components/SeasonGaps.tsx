@@ -84,7 +84,7 @@ export function SeasonGaps({ year, gaps }: { year: number; gaps: SeasonGapsData 
     return (
       <div className="season-gaps">
         <p className="small muted">
-          Alt arkivet pleier å registrere er på plass for {year}, på{" "}
+          Ingen registrerte hull i opplysningene arkivet følger for {year}, på{" "}
           {gaps.played === 1 ? "den ene kampen året har" : `hver av de ${gaps.played} kampene`}.
         </p>
         {contribute("Del et sesongminne")}

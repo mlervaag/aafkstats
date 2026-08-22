@@ -23,6 +23,9 @@
 .sportSection { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
 .sportSection h2 { margin: 0.1rem 0 0; }
 .sectionLead { color: var(--muted); }
+.roleDisclosure { margin-top: 1rem; }
+.roleDisclosure > summary { color: var(--accent); cursor: pointer; font-weight: 750; }
+.roleDisclosure[open] > summary { margin-bottom: 0.5rem; }
 .snapshotGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 1rem; margin-top: 1.5rem; }
 .snapshotCard { padding: 1.2rem; border: 1px solid var(--border); background: var(--surface-2); }
 .snapshotCard h3 { margin: 0.15rem 0 1rem; }
@@ -42,4 +45,4 @@
 }
 
 /* Hoppelenkene lander på overskrifta, ikke i kanten av den. */
-.introGrid, .sportSection, .columns > section { scroll-margin-top: 1.5rem; }
+.introGrid, .sportSection, .columns > section { scroll-margin-top: 6rem; }

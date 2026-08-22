@@ -16,7 +16,6 @@ export default function ClubPage() {
   const people = getPeople();
   const roles = getPersonRoles();
   const venues = getHomeVenues();
-  const rolePeople = new Set(roles.map((role) => role.person_id)).size;
   const milestones = venues.reduce((sum, venue) => sum + venue.events.length, 0);
 
   return (
@@ -40,8 +39,8 @@ export default function ClubPage() {
         <Link className={styles.entry} href="/organisasjon">
           <span className={styles.index}>02</span>
           <h2>Organisasjon</h2>
-          <p>Kildeførte verv, styrer, administrasjon, sportslig apparat og heder.</p>
-          <dl><div><dt>Personer med verv</dt><dd>{rolePeople}</dd></div></dl>
+          <p>Klubbens øverste ledere, styreverv, drift, sportslig apparat og heder – organisert etter hva du vil følge.</p>
+          <dl><div><dt>Kildeførte verv</dt><dd>{roles.length}</dd></div></dl>
         </Link>
         <Link className={styles.entry} href="/hjemmebaner">
           <span className={styles.index}>03</span>

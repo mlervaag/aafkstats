@@ -128,12 +128,14 @@ export default function OrganizationPage() {
   const roles = mergeRoleSpells(registered);
   const sourceTitles = getSourceTitles();
   const chairs = roles.filter((role) => role.category === "board" && isChair(role.title));
-  const administration = roles.filter((role) => ["administration", "sporting_staff", "project"].includes(role.category));
+  const board = roles.filter((role) => role.category === "board" && !isChair(role.title));
+  const administration = roles.filter((role) => ["administration", "project"].includes(role.category));
   const sporting = roles.filter((role) => ["coach", "sporting_staff"].includes(role.category));
   const honorary = roles.filter((role) => role.category === "honorary");
   const founders = roles.filter((role) => role.category === "founder");
   const firstYear = chairs[0]?.from_date.slice(0, 4) ?? "–";
   const lastYear = chairs.at(-1)?.to_date?.slice(0, 4) ?? chairs.at(-1)?.from_date.slice(0, 4) ?? "–";
+  const snapshotMoments = new Set(snapshots.map((entry) => `${entry.snapshot_date}|${entry.organization_name}`)).size;
 
   return (
     <article>
@@ -142,9 +144,9 @@ export default function OrganizationPage() {
           <p className="eyebrow">Klubben utenfor banen</p>
           <h1>Organisasjon</h1>
           <p className={styles.lead}>
-            En tidslinje over ledelse, administrasjon og heder. Oversikten viser bare verv
-            som er funnet i en navngitt kilde, så tomme år betyr at vervet er ukjent for oss,
-            ikke at det sto tomt.
+            Følg klubbens øverste ledere, se hvem som drev og utviklet klubben, eller gå til
+            et dokumentert organisasjonsbilde fra én bestemt dato. Historiske titler beholdes
+            slik kilden skrev dem.
           </p>
         </div>
         <div className={styles.coverage}>
@@ -159,20 +161,21 @@ export default function OrganizationPage() {
       <SectionIndex
         label="Seksjoner på organisasjonssida"
         sections={[
-          { id: "formenn", label: "Formenn", count: chairs.length },
+          { id: "ledere", label: "Øverste ledere", count: chairs.length },
+          { id: "styreverv", label: "Øvrige styreverv", count: board.length },
+          { id: "organisasjonsbilder", label: "Organisasjonsbilder", count: snapshotMoments },
+          { id: "drift", label: "Drift og utvikling", count: administration.length },
+          { id: "sportslig", label: "Sportslig apparat", count: sporting.length },
           { id: "stifterne", label: "Stifterne", count: founders.length },
-          { id: "administrasjon", label: "Administrasjon", count: administration.length },
-          { id: "organisasjonsbilder", label: "Organisasjonsbilder", count: snapshots.length },
           { id: "heder", label: "Heder", count: honorary.length },
-          { id: "trenere", label: "Trenere", count: sporting.length },
         ]}
       />
 
-      <section className={styles.introGrid} id="formenn">
+      <section className={styles.introGrid} id="ledere">
         <div>
           <p className="eyebrow">Historisk ledelse</p>
-          <h2>Formenn</h2>
-          <p>År for år fra jubileumsskriftene og klubbens offisielle historiske lederliste.</p>
+          <h2>Klubbens øverste ledere</h2>
+          <p>Formenn og styreledere, år for år, fra jubileumsskrifter og klubbens egne historiske oversikter.</p>
         </div>
         <div className={styles.legend}>
           <span><i className={styles.confirmed} /> Kildeført periode</span>
@@ -184,27 +187,17 @@ export default function OrganizationPage() {
         <RoleList roles={chairs} sourceTitles={sourceTitles} showTitle={false} />
       </section>
 
-      {founders.length > 0 ? (
-        <section className={styles.sportSection} id="stifterne">
-          <p className="eyebrow">25. juni 1914</p>
-          <h2>Stifterne</h2>
-          <p className={styles.sectionLead}>Personene som undertegnet protokollen ved klubbens konstituerende generalforsamling.</p>
-          <RoleList roles={founders} sourceTitles={sourceTitles} />
+      {board.length > 0 ? (
+        <section className={styles.sportSection} id="styreverv">
+          <p className="eyebrow">Hovedstyret over tid</p>
+          <h2>Øvrige styreverv</h2>
+          <p className={styles.sectionLead}>Nestformenn, styremedlemmer, sekretærer, kasserere og varamedlemmer som er navngitt i kildene.</p>
+          <details className={styles.roleDisclosure}>
+            <summary>Vis {board.length} kildeførte styreverv</summary>
+            <RoleList roles={board} sourceTitles={sourceTitles} />
+          </details>
         </section>
       ) : null}
-
-      <div className={styles.columns}>
-        <section id="administrasjon">
-          <p className="eyebrow">Driften av klubben</p>
-          <h2>Administrasjon, anlegg og øvrige verv</h2>
-          {administration.length > 0 ? <RoleList roles={administration} sourceTitles={sourceTitles} /> : <p className="muted">Ingen roller registrert ennå.</p>}
-        </section>
-        <section id="heder">
-          <p className="eyebrow">Klubbens heder</p>
-          <h2>Heder og utmerkelser</h2>
-          {honorary.length > 0 ? <RoleList roles={honorary} sourceTitles={sourceTitles} /> : <p className="muted">Ingen roller registrert ennå.</p>}
-        </section>
-      </div>
 
       {snapshots.length > 0 ? (
         <section className={styles.sportSection} id="organisasjonsbilder">
@@ -215,12 +208,37 @@ export default function OrganizationPage() {
         </section>
       ) : null}
 
-      <section className={styles.sportSection} id="trenere">
-        <p className="eyebrow">Sportslig ledelse</p>
-        <h2>Trenere og sportslig apparat</h2>
-        <p className={styles.sectionLead}>Oppgitte trenerperioder suppleres av kamp-for-kamp-data fra 2010.</p>
-        <RoleList roles={sporting} sourceTitles={sourceTitles} />
-      </section>
+      <div className={styles.columns}>
+        <section id="drift">
+          <p className="eyebrow">Klubben i arbeid</p>
+          <h2>Drift, anlegg og utvikling</h2>
+          <p className={styles.sectionLead}>Administrasjon, økonomi, arrangement, arkivarbeid og tidsavgrensede prosjekter.</p>
+          {administration.length > 0 ? <details className={styles.roleDisclosure}><summary>Vis {administration.length} kildeførte verv</summary><RoleList roles={administration} sourceTitles={sourceTitles} /></details> : <p className="muted">Ingen roller registrert ennå.</p>}
+        </section>
+        <section id="sportslig">
+          <p className="eyebrow">Laget rundt laget</p>
+          <h2>Trenere og sportslig apparat</h2>
+          <p className={styles.sectionLead}>Trenere, oppmenn, sportslig ledelse, utviklingsroller og støtteapparat.</p>
+          {sporting.length > 0 ? <details className={styles.roleDisclosure}><summary>Vis {sporting.length} kildeførte verv</summary><RoleList roles={sporting} sourceTitles={sourceTitles} /></details> : <p className="muted">Ingen roller registrert ennå.</p>}
+        </section>
+      </div>
+
+      <div className={styles.columns}>
+        {founders.length > 0 ? (
+          <section id="stifterne">
+            <p className="eyebrow">25. juni 1914</p>
+            <h2>Stifterne</h2>
+            <p className={styles.sectionLead}>Personene som undertegnet protokollen ved klubbens konstituerende generalforsamling.</p>
+            <RoleList roles={founders} sourceTitles={sourceTitles} />
+          </section>
+        ) : <section />}
+        <section id="heder">
+          <p className="eyebrow">Klubbens heder</p>
+          <h2>Heder og utmerkelser</h2>
+          <p className={styles.sectionLead}>Æresmedlemskap, merker, statuetter og andre dokumenterte utmerkelser.</p>
+          {honorary.length > 0 ? <details className={styles.roleDisclosure}><summary>Vis {honorary.length} utmerkelser</summary><RoleList roles={honorary} sourceTitles={sourceTitles} /></details> : <p className="muted">Ingen roller registrert ennå.</p>}
+        </section>
+      </div>
 
       <aside className={styles.pilotNote}>
         <div><p className="eyebrow">Kildekritisk arkiv</p><h2>Fra dokument til struktur</h2></div>

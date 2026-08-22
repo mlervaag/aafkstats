@@ -33,13 +33,21 @@ export default function SeasonsPage() {
         <p className="eyebrow">Sesong for sesong</p>
         <h1>Sesonger</h1>
         <p className="lede">
-          {years.length} år er representert, fra {oldest} til {newest}. Velg et år for
-          kampdata, sesongtall og kildedokumenterte resultater.
+          Velg et år for kamper, tabell, resultater og kilder. Arkivet har materiale fra
+          {" "}{oldest} til {newest}.
         </p>
-        <CoverageSummary seasons={years.flatMap((y) => y.primary ? [y.primary] : [])} />
       </header>
 
       <CoverageStrip years={years} />
+
+      <details className="coverage-explanation">
+        <summary>Les mer om dekningen</summary>
+        <CoverageSummary seasons={years.flatMap((y) => y.primary ? [y.primary] : [])} />
+        <p className="small muted">
+          «Historisk resultatliste» betyr resultater med en historisk kilde, men uten nok
+          opplysninger til å knytte dem sikkert til en full kampoppføring.
+        </p>
+      </details>
 
       <nav className="decade-jumps" aria-label="Hopp til tiår">
         {decades.map(([decade]) => (

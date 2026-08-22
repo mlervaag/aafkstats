@@ -1,6 +1,7 @@
 import { contributionIssueUrl } from "@/lib/contribution-links";
 import { loadMissingOverview } from "@/lib/missing";
 import styles from "./Missing.module.css";
+import { SectionIndex } from "@/components/SectionIndex";
 
 const FIELD_LABELS: Record<string, string> = {
   report: "Kampreferat",
@@ -70,6 +71,23 @@ export function MissingOverviewContent() {
           menneske kan kontrollere dem. Ingen oppgave her løses ved å gjette.
         </p>
       </section>
+
+      <p className="prose muted">
+        Kontrollsakene er små oppgaver som kan løses én for én. Hele arbeidskøen viser også
+        større hull, ufullstendige sesonger og kildekonflikter.
+      </p>
+
+      <SectionIndex
+        label="Gå til en del av arbeidskøen"
+        sections={[
+          { id: "historiske-resultater", label: "Historiske resultater", count: missing.historicalResults.total },
+          { id: "sesongdekning", label: "Ufullstendige sesonger", count: missing.incompleteSeasons.length },
+          { id: "kampdetaljer", label: "Kampdetaljer", count: missing.matchFields.reduce((sum, gap) => sum + gap.matches, 0) },
+          { id: "personkonflikter", label: "Historiske verv", count: missing.unresolvedPeople.conflicts },
+          { id: "identitet", label: "Personidentitet", count: missing.identity.playersWithoutFile.length + missing.identity.filesWithoutMatches.length },
+          { id: "kildekontroll", label: "Kildekontroll", count: missing.lineupReview.candidates },
+        ]}
+      />
 
       <dl className={styles.summary} aria-label="Arbeidskø i tall">
         <div>

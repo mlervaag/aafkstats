@@ -230,6 +230,15 @@ table,
 .primary-nav a:hover {
   color: var(--text);
 }
+.project-links { display: grid; gap: 0.7rem; margin-bottom: 1.5rem; }
+.source-paths { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-bottom: 3rem; }
+.source-section { scroll-margin-top: 6rem; }
+.coverage-explanation { max-width: 62rem; margin: -1rem 0 2rem; }
+.coverage-explanation summary { color: var(--accent); cursor: pointer; font-weight: 700; }
+.coverage-explanation[open] summary { margin-bottom: 0.75rem; }
+.season-help { padding-top: 1.25rem; border-top: 3px double var(--border); }
+@media (max-width: 760px) { .source-paths { grid-template-columns: 1fr; } }
+.primary-nav a[aria-current="page"] { color: var(--text); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 0.35rem; }
 .masthead-actions {
   display: flex;
   align-items: center;
@@ -653,7 +662,8 @@ th { font-weight: 600; }
   align-items: center;
   gap: 1rem;
 }
-.scoreboard h1 { font-size: clamp(1.2rem, 3vw, 1.7rem); }
+.scoreboard { margin-block: 0.67em; }
+.scoreboard-team { font-size: clamp(1.2rem, 3vw, 1.7rem); }
 /* Resultatet får være stort. Det er sidens eneste virkelige poeng, og til
    forskjell fra en overskrift er det ett tall som skal leses på et blunk. */
 .scoreline {
@@ -1846,7 +1856,7 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
     color: var(--text);
     text-decoration: none;
   }
-  .mobile-menu nav a:hover { color: var(--accent); background: var(--surface-2); }
+  .mobile-menu nav a:hover, .mobile-menu nav a[aria-current="page"] { color: var(--accent); background: var(--surface-2); }
   .mobile-menu-divider {
     grid-column: 1 / -1;
     margin-top: 0.35rem;

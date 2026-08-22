@@ -7,10 +7,11 @@ import { ContributionCallToAction } from "@/components/ContributionCallToAction"
 import { NewspaperArticleArchive } from "@/components/sources/NewspaperArticleArchive";
 import { getSunnmorspostenArticles } from "@/lib/newspaper-articles";
 import { getSources } from "@/lib/sources";
+import { SourceRights } from "@/components/SourceRights";
 
 export const metadata: Metadata = pageMetadata(
-  "Historisk kildearkiv",
-  "Bøker, medlemsblad, årsmeldinger og Sunnmørsposten-artikler knyttet til AaFK-kamper.",
+  "Kilder",
+  "Historiske publikasjoner, avisartikler og datakildene bak AaFK-arkivet.",
   "/kilder",
   "website",
 );
@@ -39,8 +40,8 @@ export default function ArkivetPage() {
     <>
       <JsonLd
         data={collectionJsonLd({
-          name: "Historisk kildearkiv om Aalesunds Fotballklubb",
-          description: "Bøker, medlemsblad, årsmeldinger og Sunnmørsposten-artikler knyttet til AaFK-kamper.",
+          name: "Kilder til AaFK-arkivet",
+          description: "Historiske publikasjoner, avisartikler og datakildene bak AaFK-arkivet.",
           path: "/kilder",
           size: sources.length,
         })}
@@ -51,17 +52,52 @@ export default function ArkivetPage() {
         <p className="eyebrow">
           {sources.length} registrerte kilder · {newspaperArticles.length} avisartikler
         </p>
-        <h1>Historisk kildearkiv</h1>
+        <h1>Kilder</h1>
         <p className="lede">
-          Bøker, medlemsblad, jubileumsskrift og årsmeldinger om AaFKs historie –
-          sammen med avissider som er koblet direkte til konkrete kamper. Datakildene
-          bak kamptallene står <a href="/om">på om-siden</a>.
+          AaFK-arkivet bygger på historiske publikasjoner, fotballdatabaser og samtidige
+          kilder. Her kan du både utforske originalmaterialet og se hvor kampopplysningene
+          kommer fra.
         </p>
       </header>
 
-      <NewspaperArticleArchive articles={newspaperArticles} />
+      <nav className="source-paths" aria-label="Velg type kilde">
+        <a className="archive-card" href="#historiske-kilder"><span className="card-kicker">01</span><strong className="card-title">Historiske kilder</strong><span className="card-meta">Bøker, medlemsblad, årsmeldinger og programmer</span></a>
+        <a className="archive-card" href="#avisarkivet"><span className="card-kicker">02</span><strong className="card-title">Avisarkivet</strong><span className="card-meta">Sunnmørsposten-sider koblet til konkrete kamper</span></a>
+        <a className="archive-card" href="#datakilder"><span className="card-kicker">03</span><strong className="card-title">Datakilder og kildebruk</strong><span className="card-meta">Kryssjekk, forbehold, rettigheter og vilkår</span></a>
+      </nav>
 
-      <SourceListClient sources={sources} />
+      <section id="historiske-kilder" className="source-section">
+        <SourceListClient sources={sources} />
+      </section>
+
+      <section id="avisarkivet" className="source-section">
+        <NewspaperArticleArchive articles={newspaperArticles} />
+      </section>
+
+      <section id="datakilder" className="content-section source-section rights-section">
+        <p className="eyebrow">Etterprøvbarhet</p>
+        <h2>Datakilder, metode og rettigheter</h2>
+        <div className="prose-stack">
+          <p>
+            Kampdata kommer blant annet fra RSSSF, NFF Fotballdata og fotball.no,
+            Sunnmøre Fotballkrets, NFF-årbøker i Nasjonalbiblioteket og FotMob. Person- og
+            treneropplysninger suppleres fra Wikipedia og Wikidata. Hver kamp viser hvilke
+            kilder og leverandører som har levert opplysningene.
+          </p>
+          <p>
+            Arkivet kryssjekker mot NIFS, klubbkilder, Nasjonalbiblioteket og samtidige
+            kamprapporter. Når kilder er uenige, vises begge verdiene til konflikten kan
+            avgjøres med belegg. FotMob gir mye av detaljdybden i nyere kamper, men er en
+            sekundærkilde med uavklarte vilkår for systematisk gjenbruk.
+          </p>
+          <p>
+            Tabellen skiller mellom hva en kilde tillater, hva motparten har svart, og hva
+            prosjektet selv har besluttet. Innhøstingen stopper når en kilde er blokkert
+            eller har sagt nei; risikobeslutninger krever navn, dato og begrunnelse.
+          </p>
+        </div>
+        <SourceRights />
+      </section>
 
       <ContributionCallToAction />
     </>

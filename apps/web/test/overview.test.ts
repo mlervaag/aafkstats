@@ -41,7 +41,9 @@ describe("forsidetallene", () => {
   it("teller alle registrerte kamper i overskriften", () => {
     const { totals } = loadOverview();
     expect(totals.matches).toBe(15);
+    expect(totals.played).toBe(11);
     expect(totals.upcoming).toBe(1);
+    expect(totals.otherStatus).toBe(3);
   });
 
   it("henter siste årstall fra siste spilte kamp, ikke fra terminlista", () => {

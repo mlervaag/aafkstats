@@ -225,8 +225,12 @@ export interface ArchiveCoverage {
 export interface ArchiveTotals {
   /** Alle registrerte kamper, også kamper på terminlista. */
   matches: number;
+  /** Kamper som følger arkivets felles definisjon av «spilt». */
+  played: number;
   /** Kamper på terminlista som ikke er spilt ennå. */
   upcoming: number;
+  /** Avlyste, utsatte og andre registrerte oppføringer som verken er spilt eller planlagt. */
+  otherStatus: number;
   seasons: number;
   opponents: number;
   first: string | null;
@@ -358,12 +362,18 @@ export function loadOverview(): { recent: ArchiveMatch[]; totals: ArchiveTotals 
               count(DISTINCT opponent_club_id) AS opponents,
               (SELECT min(date) FROM matches WHERE ${SPILT}) AS first,
               (SELECT max(date) FROM matches WHERE ${SPILT}) AS last,
+              (SELECT count(*) FROM matches WHERE ${SPILT}) AS played,
               (SELECT count(*) FROM matches WHERE status = 'scheduled') AS upcoming
        FROM matches`,
     );
+    const fallback = { matches: 0, played: 0, upcoming: 0, otherStatus: 0, seasons: 0, opponents: 0, first: null, last: null };
+    if (!totals) return { recent: recent.map(mapMatch), totals: fallback };
     return {
       recent: recent.map(mapMatch),
-      totals: totals ?? { matches: 0, upcoming: 0, seasons: 0, opponents: 0, first: null, last: null },
+      totals: {
+        ...totals,
+        otherStatus: Math.max(0, totals.matches - totals.played - totals.upcoming),
+      },
     };
   } finally {
     db.close();
