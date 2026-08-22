@@ -4,12 +4,12 @@
 .caseGuide strong { grid-row: 1; font-family: var(--font-display); font-size: 1.25rem; }
 .caseGuide p { grid-column: 1 / -1; margin: 0.4rem 0 0; color: var(--muted); font-size: 0.88rem; }
 .caseGuide button { grid-column: 1 / -1; justify-self: start; padding: 0; background: transparent; color: var(--accent); border: 0; font: inherit; font-size: 0.875rem; text-decoration: underline; text-underline-offset: 0.18em; cursor: pointer; }
-.filters { display: grid; grid-template-columns: minmax(16rem, 1fr) minmax(0, 1.5fr) minmax(9rem, auto) minmax(9rem, auto); gap: 1.25rem; align-items: end; margin: 2rem 0 0; padding: 1rem 0; border-block: 1px solid var(--border); }
+.filters { display: grid; grid-template-columns: minmax(16rem, 1fr) minmax(9rem, auto) minmax(9rem, auto); gap: 1rem 1.25rem; align-items: end; margin: 2rem 0 0; padding: 1rem 0; border-block: 1px solid var(--border); }
 .filters label { display: grid; gap: 0.35rem; color: var(--muted); font-size: 0.82rem; }
 .filters input, .filters select { min-height: 2.65rem; padding: 0.6rem 0.75rem; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); font: inherit; }
 .filters input:focus, .filters select:focus { border-color: var(--accent); outline: 2px solid color-mix(in srgb, var(--accent) 25%, transparent); }
-.chips { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.45rem; }
-.chips button { padding: 0.5rem 0.72rem; background: transparent; color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); font: inherit; cursor: pointer; }
+.chips { display: flex; grid-column: 1 / -1; gap: 0.45rem; overflow-x: auto; padding-bottom: 0.25rem; scrollbar-width: thin; }
+.chips button { flex: 0 0 auto; padding: 0.5rem 0.72rem; background: transparent; color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); font: inherit; white-space: nowrap; cursor: pointer; }
 .chips button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 .count { margin: 1.5rem 0 0.7rem; color: var(--muted); font-size: 0.875rem; }
 .list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; margin: 0; padding: 0; list-style: none; counter-reset: cases; }
@@ -25,4 +25,4 @@
 .allMissing { display: flex; justify-content: space-between; gap: 1.5rem; align-items: center; margin-top: 2rem; padding: 1.15rem; background: var(--accent-soft); border-left: 3px solid var(--accent); }
 .allMissing p { max-width: 60ch; margin: 0.25rem 0 0; color: var(--muted); font-size: 0.875rem; }
 .allMissing a { flex: 0 0 auto; color: var(--accent); font-weight: 700; }
-@media (max-width: 720px) { .caseGuide { grid-template-columns: 1fr; } .filters { grid-template-columns: 1fr; } .chips { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 0.2rem; } .chips button { flex: 0 0 auto; } .list { grid-template-columns: 1fr; } .list a { min-height: 0; } .allMissing { align-items: flex-start; flex-direction: column; } }
+@media (max-width: 720px) { .caseGuide { grid-template-columns: 1fr; } .filters { grid-template-columns: 1fr; } .list { grid-template-columns: 1fr; } .list a { min-height: 0; } .allMissing { align-items: flex-start; flex-direction: column; } }
