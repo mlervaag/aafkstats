@@ -33,8 +33,8 @@ describe("produksjonskøen for avisverifisering", () => {
       .toBe(archive.verificationCases.length);
     expect(newspaperCases.every((item) => item.revision.match(/^sha256:[a-f0-9]{64}$/))).toBe(true);
     const researchCases = archive.verificationCases.filter((item) => item.researchTask);
-    expect(researchCases).toHaveLength(24);
-    expect(researchCases.filter((item) => item.status === "open")).toHaveLength(24);
+    expect(researchCases).toHaveLength(23);
+    expect(researchCases.filter((item) => item.status === "open")).toHaveLength(23);
     expect(archive.verificationCases.filter((item) => !item.newspaper && !item.researchTask)).toHaveLength(25);
     const casesById = new Map(archive.verificationCases.map((item) => [item.id, item]));
     expect([
@@ -55,7 +55,7 @@ describe("produksjonskøen for avisverifisering", () => {
       expect(newspaperRows).toHaveLength(246);
       expect(publicRows).toHaveLength(46);
       expect(newspaperRows.filter((item) => item.status === "draft")).toHaveLength(200);
-      expect(researchRows).toHaveLength(24);
+      expect(researchRows).toHaveLength(23);
     } finally {
       db.close();
     }
