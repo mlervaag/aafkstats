@@ -1,13 +1,29 @@
 contract: nb-source-result-canonicalization@1
 generatedAt: 2026-08-21
 mode: applied
+application:
+  readyInput: 25
+  created: 24
+  enriched: 0
+  invalid: 1
+  sourceResultsLinked: 24
+  observationsCreated: 24
+  newClubs: 0
+  canonicalMatchesDeleted: 0
+idempotencyCheck:
+  created: 0
+  enriched: 0
+  alreadyPresent: 24
+  sourceResultsLinked: 0
+  observationsCreated: 0
+  filesWritten: 0
 summary:
   pr199ReadyInput: 25
   newCanonicalMatches: 0
   existingMatchesEnriched: 0
   alreadyPresent: 24
   sourceResultsLinked: 0
-  nbObservationsCreated: 24
+  nbObservationsCreated: 0
   blockedExistingConflicts: 0
   skippedInvalid: 1
   newClubs: 0
@@ -26,11 +42,11 @@ communityRestQueue:
     competition_conflict: 1
     score_conflict: 1
     home_away_research: 0
-    source_reconciliation: 0
+    source_reconciliation: 1
     non_senior: 2
     different_event: 10
     unreviewed_awaiting_visual_batch: 576
-  candidateCount: 23
+  candidateCount: 24
   nonCommunityCount: 588
 items:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-008
@@ -49,13 +65,14 @@ items:
         opponent: 0
         confidence: high
       competitionId: treningskamp
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1945-07-14
-      page: "4"
+      printedPage: "4"
+      viewerPage: "4"
       pageUrl: https://www.nb.no/items/cd629b2edfcad8274f4733965722c1b4?page=4
-      evidenceType: report
     proposedMatchId: 1945-07-13-aalesunds-fk-rollon
+    canonicalMatchId: 1945-07-13-aalesunds-fk-rollon
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-013
@@ -74,13 +91,14 @@ items:
         opponent: 3
         confidence: high
       competitionId: treningskamp
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1945-09-24
-      page: "2"
+      printedPage: "2"
+      viewerPage: "2"
       pageUrl: https://www.nb.no/items/ac1930ce85ae61e7d60b0d3b61161fd0?page=2
-      evidenceType: report
     proposedMatchId: 1945-09-22-aalesunds-fk-rollon
+    canonicalMatchId: 1945-09-22-aalesunds-fk-rollon
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-003
@@ -99,13 +117,14 @@ items:
         opponent: 1
         confidence: high
       competitionId: treningskamp
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1945-07-06
-      page: "2"
+      printedPage: "2"
+      viewerPage: "2"
       pageUrl: https://www.nb.no/items/765a56686c17016d340469b4ffcf71af?page=2
-      evidenceType: report
     proposedMatchId: 1945-07-05-aalesunds-fk-herd
+    canonicalMatchId: 1945-07-05-aalesunds-fk-herd
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-004
@@ -124,13 +143,14 @@ items:
         opponent: 2
         confidence: high
       competitionId: treningskamp
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1945-07-09
-      page: "2"
+      printedPage: "2"
+      viewerPage: "2"
       pageUrl: https://www.nb.no/items/996171a08ad98118ad1097f4f42254ab?page=2
-      evidenceType: report
     proposedMatchId: 1945-07-08-orsta-aalesunds-fk
+    canonicalMatchId: 1945-07-08-orsta-aalesunds-fk
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-001
@@ -149,13 +169,14 @@ items:
         opponent: 0
         confidence: high
       competitionId: treningskamp
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1955-09-13
-      page: "5"
+      printedPage: "5"
+      viewerPage: "5"
       pageUrl: https://www.nb.no/items/f25f16820b9ba21e4af3720d4e8b2f19?page=5
-      evidenceType: report
     proposedMatchId: 1955-09-12-aalesunds-fk-guard
+    canonicalMatchId: 1955-09-12-aalesunds-fk-guard
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-002
@@ -174,13 +195,14 @@ items:
         opponent: 0
         confidence: high
       competitionId: treningskamp
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1955-05-20
-      page: "2"
+      printedPage: "2"
+      viewerPage: "2"
       pageUrl: https://www.nb.no/items/c5e5988d379d5ea705113f0833418f88?page=2
-      evidenceType: report
     proposedMatchId: 1955-05-19-aalesunds-fk-rollon
+    canonicalMatchId: 1955-05-19-aalesunds-fk-rollon
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-004
@@ -199,13 +221,14 @@ items:
         opponent: 4
         confidence: high
       competitionId: treningskamp
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1955-05-16
-      page: "2"
+      printedPage: "2"
+      viewerPage: "2"
       pageUrl: https://www.nb.no/items/4d863e801d0be7f77540793da36ed141?page=2
-      evidenceType: report
     proposedMatchId: 1955-05-15-aalesunds-fk-rollon
+    canonicalMatchId: 1955-05-15-aalesunds-fk-rollon
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-006
@@ -224,13 +247,14 @@ items:
         opponent: 0
         confidence: high
       competitionId: treningskamp
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1955-04-23
-      page: "3"
+      printedPage: "3"
+      viewerPage: "3"
       pageUrl: https://www.nb.no/items/e1f024e700ce5eda531ad45522f794bd?page=3
-      evidenceType: report
     proposedMatchId: 1955-04-22-aalesunds-fk-rollon
+    canonicalMatchId: 1955-04-22-aalesunds-fk-rollon
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: sunnmore-fotballkrets-arsrapport-1955#1955-001
@@ -249,13 +273,14 @@ items:
         opponent: 0
         confidence: high
       competitionId: nm
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1955-06-06
-      page: "2"
+      printedPage: "2"
+      viewerPage: "2"
       pageUrl: https://www.nb.no/items/d722a0fd7209e7619b820218ec0cefe8?page=2
-      evidenceType: report
     proposedMatchId: 1955-06-05-aalesunds-fk-rollon
+    canonicalMatchId: 1955-06-05-aalesunds-fk-rollon
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-014
@@ -274,13 +299,14 @@ items:
         opponent: 2
         confidence: high
       competitionId: forstedivisjon
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1955-09-26
-      page: "2"
+      printedPage: "2"
+      viewerPage: "2"
       pageUrl: https://www.nb.no/items/42bce078984125437bdf8b777334c675?page=2
-      evidenceType: report
     proposedMatchId: 1955-09-25-langevag-aalesunds-fk
+    canonicalMatchId: 1955-09-25-langevag-aalesunds-fk
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-007
@@ -299,13 +325,14 @@ items:
         opponent: 1
         confidence: high
       competitionId: forstedivisjon
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1955-05-31
-      page: "2"
+      printedPage: "2"
+      viewerPage: "2"
       pageUrl: https://www.nb.no/items/dba658412ebb2075db8ee91cb3f1a2d1?page=2
-      evidenceType: report
     proposedMatchId: 1955-05-30-aalesunds-fk-molde-fk
+    canonicalMatchId: 1955-05-30-aalesunds-fk-molde-fk
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-008
@@ -324,13 +351,14 @@ items:
         opponent: 1
         confidence: high
       competitionId: forstedivisjon
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1955-11-07
-      page: "2"
+      printedPage: "2"
+      viewerPage: "2"
       pageUrl: https://www.nb.no/items/0618e8ea83cbc8b5739f892f5d280755?page=2
-      evidenceType: report
     proposedMatchId: 1955-11-06-hodd-aalesunds-fk
+    canonicalMatchId: 1955-11-06-hodd-aalesunds-fk
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-022
@@ -349,13 +377,14 @@ items:
         opponent: 1
         confidence: high
       competitionId: nm
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1955-07-12
-      page: "3"
+      printedPage: "3"
+      viewerPage: "3"
       pageUrl: https://www.nb.no/items/72ce25c9d52ad9c0c0937ee36af075e5?page=3
-      evidenceType: report
     proposedMatchId: 1955-07-11-aalesunds-fk-hodd
+    canonicalMatchId: 1955-07-11-aalesunds-fk-hodd
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-025
@@ -374,13 +403,14 @@ items:
         opponent: 0
         confidence: high
       competitionId: treningskamp
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1955-04-25
-      page: "2"
+      printedPage: "2"
+      viewerPage: "2"
       pageUrl: https://www.nb.no/items/7356e8553f2494d1ffa4fb88a7cd7be0?page=2
-      evidenceType: report
     proposedMatchId: 1955-04-24-aalesunds-fk-hodd
+    canonicalMatchId: 1955-04-24-aalesunds-fk-hodd
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-010
@@ -399,13 +429,14 @@ items:
         opponent: 2
         confidence: high
       competitionId: forstedivisjon
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1955-08-15
-      page: "2"
+      printedPage: "2"
+      viewerPage: "2"
       pageUrl: https://www.nb.no/items/4d9e84e740e2ec7eabec81360c84b413?page=2
-      evidenceType: report
     proposedMatchId: 1955-08-14-kfk-aalesunds-fk
+    canonicalMatchId: 1955-08-14-kfk-aalesunds-fk
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-017
@@ -424,13 +455,14 @@ items:
         opponent: 3
         confidence: high
       competitionId: forstedivisjon
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1955-10-10
-      page: "2"
+      printedPage: "2"
+      viewerPage: "2"
       pageUrl: https://www.nb.no/items/a9aedb2a5737c37138532bb2910ad384?page=2
-      evidenceType: report
     proposedMatchId: 1955-10-09-aalesunds-fk-kfk
+    canonicalMatchId: 1955-10-09-aalesunds-fk-kfk
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-001
@@ -449,13 +481,14 @@ items:
         opponent: 1
         confidence: high
       competitionId: andredivisjon
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1965-05-24
-      page: "2"
+      printedPage: "2"
+      viewerPage: "2"
       pageUrl: https://www.nb.no/items/c865a23572bf922b1f789bb03e3e3656?page=2
-      evidenceType: report
     proposedMatchId: 1965-05-23-aalesunds-fk-herd
+    canonicalMatchId: 1965-05-23-aalesunds-fk-herd
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-036
@@ -474,13 +507,14 @@ items:
         opponent: 0
         confidence: high
       competitionId: treningskamp
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1965-06-21
-      page: "2"
+      printedPage: "2"
+      viewerPage: "2"
       pageUrl: https://www.nb.no/items/d5f31de4f519d29bd5dbb64494622de4?page=2
-      evidenceType: report
     proposedMatchId: 1965-06-20-aalesunds-fk-herd
+    canonicalMatchId: 1965-06-20-aalesunds-fk-herd
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: nm-1965-herd-runde-2
@@ -499,13 +533,14 @@ items:
         opponent: 1
         confidence: high
       competitionId: nm
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1965-06-28
-      page: "3"
+      printedPage: "3"
+      viewerPage: "3"
       pageUrl: https://www.nb.no/items/b394ddeeddf27f6116e62011da54e0e0?page=3
-      evidenceType: report
     proposedMatchId: 1965-06-27-aalesunds-fk-herd
+    canonicalMatchId: 1965-06-27-aalesunds-fk-herd
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-003
@@ -524,13 +559,14 @@ items:
         opponent: 2
         confidence: high
       competitionId: andredivisjon
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1965-05-18
-      page: "2"
+      printedPage: "2"
+      viewerPage: "2"
       pageUrl: https://www.nb.no/items/07ddd40c04152b51b259cf3c46e8d152?page=2
-      evidenceType: report
     proposedMatchId: 1965-05-17-aalesunds-fk-langevag
+    canonicalMatchId: 1965-05-17-aalesunds-fk-langevag
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-025
@@ -549,13 +585,14 @@ items:
         opponent: 3
         confidence: high
       competitionId: treningskamp
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1965-08-16
-      page: "2"
+      printedPage: "2"
+      viewerPage: "2"
       pageUrl: https://www.nb.no/items/0215d405e84a1ec2f4dfea8e76734305?page=2
-      evidenceType: report
     proposedMatchId: 1965-08-15-langevag-aalesunds-fk
+    canonicalMatchId: 1965-08-15-langevag-aalesunds-fk
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: sunnmore-fotballkrets-arsrapport-1975#1975-001
@@ -574,13 +611,14 @@ items:
         opponent: 0
         confidence: high
       competitionId: nm
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
-      issueDate: 1975-05-29
-      page: "6"
+      issueDate: 1975-05-30
+      printedPage: "7"
+      viewerPage: "6"
       pageUrl: https://www.nb.no/items/0b911b2a223d8848f72e06df3f60df6d?page=6
-      evidenceType: report
     proposedMatchId: 1975-05-29-traeff-aalesunds-fk
+    canonicalMatchId: 1975-05-29-traeff-aalesunds-fk
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: sunnmore-fotballkrets-arsrapport-1975#1975-002
@@ -599,21 +637,32 @@ items:
         opponent: 0
         confidence: high
       competitionId: nm
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1975-06-12
-      page: "6"
+      printedPage: "7"
+      viewerPage: "6"
       pageUrl: https://www.nb.no/items/0b5e2ab245509c572d2009ded2071116?page=6
-      evidenceType: report
     proposedMatchId: 1975-06-11-eid-il-aalesunds-fk
+    canonicalMatchId: 1975-06-11-eid-il-aalesunds-fk
     action: already_present
     isIdempotentNoOp: true
   - hypothesisId: sunnmore-fotballkrets-arsrapport-1976#1976-002
     season: 1976
     claimResolution: exact_match
     canonicalEligibility: ready
+    matchedSourceResult:
+      sourceId: sunnmore-fotballkrets-arsrapport-1976
+      no: 2
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1976-06-17
+      printedPage: "9"
+      viewerPage: "6"
+      pageUrl: https://www.nb.no/items/a804147572e74928645d24f850d9b3a6?page=6
     action: invalid_input
-    conflictReason: Source-result expectedScore (2-1) diverges from observed score (2-0)
+    conflictReason: "opponent_conflict: source has 'skarbovik' vs observed
+      'clausenengen'; score_conflict: source has 2-1 vs observed 2-0"
   - hypothesisId: sunnmore-fotballkrets-arsrapport-1977#1977-002
     season: 1977
     claimResolution: exact_match
@@ -630,12 +679,13 @@ items:
         opponent: 0
         confidence: high
       competitionId: nm
-    newspaper:
+    actualVisualSource:
       title: Sunnmørsposten
       issueDate: 1977-06-22
-      page: "7"
+      printedPage: "7"
+      viewerPage: "7"
       pageUrl: https://www.nb.no/items/0285dd33df575cee3de59d621eb2a09f?page=7
-      evidenceType: report
     proposedMatchId: 1977-06-21-aalesunds-fk-rollon
+    canonicalMatchId: 1977-06-21-aalesunds-fk-rollon
     action: already_present
     isIdempotentNoOp: true

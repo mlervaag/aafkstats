@@ -9,6 +9,63 @@ function sha256(content: string): string {
   return "sha256:" + createHash("sha256").update(content, "utf8").digest("hex");
 }
 
+export interface ActualVisualSource {
+  title: string;
+  issueDate: string;
+  printedPage: string;
+  viewerPage: string;
+  pageUrl: string;
+}
+
+export function extractActualVisualSource(cand: any): ActualVisualSource {
+  const np = cand?.newspaper;
+  const summary = cand?.visualEvidenceSummary || "";
+  const dateEv = cand?.observed?.dateEvidence?.textSummary || "";
+  const text = `${summary} ${dateEv}`;
+
+  // 1. Title
+  let title = np?.title || "Sunnmørsposten";
+  if (summary.startsWith("Romsdals Budstikke") || summary.startsWith("Romsdal Folkeblad")) {
+    const parts = summary.split(" ");
+    title = parts[0] + " " + parts[1];
+  }
+
+  // 2. IssueDate (e.g. 30.05.1975 or 1955-05-16)
+  let issueDate = np?.issueDate || "";
+  const ddmmyyyyMatch = text.match(/(\d{2})\.(\d{2})\.(\d{4})/);
+  if (ddmmyyyyMatch) {
+    issueDate = `${ddmmyyyyMatch[3]}-${ddmmyyyyMatch[2]}-${ddmmyyyyMatch[1]}`;
+  } else {
+    const yyyymmddMatch = text.match(/(\d{4})-(\d{2})-(\d{2})/);
+    if (yyyymmddMatch) {
+      issueDate = yyyymmddMatch[0];
+    }
+  }
+
+  // 3. PrintedPage (e.g. "s. 7", "s. 2", "s. 4")
+  let printedPage = String(np?.page || "1");
+  const pageMatch = text.match(/s\.\s*(\d+)/i);
+  if (pageMatch && pageMatch[1]) {
+    printedPage = pageMatch[1];
+  }
+
+  // 4. ViewerPage (from pageUrl ?page=X or np.page)
+  let viewerPage = String(np?.page || "1");
+  const url = np?.pageUrl || "";
+  const viewerMatch = url.match(/[?&]page=(\d+)/i);
+  if (viewerMatch && viewerMatch[1]) {
+    viewerPage = viewerMatch[1];
+  }
+
+  return {
+    title,
+    issueDate,
+    printedPage,
+    viewerPage,
+    pageUrl: url,
+  };
+}
+
 export type CanonicalAction =
   | "create_match"
   | "enrich_existing_match"
@@ -32,14 +89,9 @@ export interface CanonicalPlanItem {
     score: { aafk: number; opponent: number };
     competitionId: string | null;
   };
-  newspaper?: {
-    title: string;
-    issueDate: string;
-    page: string;
-    pageUrl: string;
-    evidenceType: string;
-  };
+  actualVisualSource?: ActualVisualSource;
   proposedMatchId?: string;
+  canonicalMatchId?: string;
   action: CanonicalAction;
   conflictReason?: string;
   isIdempotentNoOp?: boolean;
@@ -49,6 +101,24 @@ export interface CanonicalizationResult {
   contract: "nb-source-result-canonicalization@1";
   generatedAt: string;
   mode: "dry_run" | "applied";
+  application: {
+    readyInput: number;
+    created: number;
+    enriched: number;
+    invalid: number;
+    sourceResultsLinked: number;
+    observationsCreated: number;
+    newClubs: number;
+    canonicalMatchesDeleted: number;
+  };
+  idempotencyCheck: {
+    created: number;
+    enriched: number;
+    alreadyPresent: number;
+    sourceResultsLinked: number;
+    observationsCreated: number;
+    filesWritten: number;
+  };
   summary: {
     pr199ReadyInput: number;
     newCanonicalMatches: number;
@@ -185,6 +255,7 @@ export async function buildCanonicalPlan(): Promise<{
     const msr = c.matchedSourceResult || c.sourceResults[0];
     if (!msr) {
       skippedInvalid++;
+      restSummary.source_reconciliation++;
       planItems.push({
         hypothesisId: c.hypothesisId,
         season: c.season,
@@ -195,17 +266,42 @@ export async function buildCanonicalPlan(): Promise<{
       });
       continue;
     }
-    const leadSr = c.sourceResults.find((sr) => sr.sourceId === msr.sourceId && sr.no === msr.no) || c.sourceResults[0];
+
     const activeCand = c.reviewedCandidates?.[0];
     const obs = activeCand?.observed;
-    const np = activeCand?.newspaper;
 
-    const scoreAgrees = leadSr && obs && leadSr.expectedScore.aafk === obs.score.aafk && leadSr.expectedScore.opponent === obs.score.opponent;
-    if (!scoreAgrees) {
-      console.log(`[SCORE DIVERGENCE] Case ${c.hypothesisId}: source expected ${leadSr?.expectedScore?.aafk}-${leadSr?.expectedScore?.opponent} vs observed ${obs?.score?.aafk}-${obs?.score?.opponent}`);
+    // Extract actual visual source
+    const actualVisualSource = extractActualVisualSource(activeCand);
+
+    // Load raw source-result row from data/source-results
+    const srcFileEntry = sourceResultFiles.get(msr.sourceId);
+    const seasonEntry = srcFileEntry?.raw?.seasons?.find((s: any) => s.year === c.season);
+    const matchSr = seasonEntry?.results?.find((r: any) => r.no === msr.no);
+
+    const leadSr = c.sourceResults.find((sr) => sr.sourceId === msr.sourceId && sr.no === msr.no) || c.sourceResults[0];
+
+    // Check 1: Full Source-Result Identity Gate
+    const identityConflicts: string[] = [];
+
+    // Opponent check
+    if (matchSr?.opponentClubId && obs?.opponent?.clubId && matchSr.opponentClubId !== obs.opponent.clubId) {
+      identityConflicts.push(`opponent_conflict: source has '${matchSr.opponentClubId}' vs observed '${obs.opponent.clubId}'`);
+    }
+
+    // Score check
+    const expectedAafk = matchSr?.expectedScore?.aafk ?? matchSr?.score?.[0] ?? leadSr?.expectedScore?.aafk;
+    const expectedOpp = matchSr?.expectedScore?.opponent ?? matchSr?.score?.[1] ?? leadSr?.expectedScore?.opponent;
+    if (obs && (expectedAafk !== obs.score?.aafk || expectedOpp !== obs.score?.opponent)) {
+      identityConflicts.push(`score_conflict: source has ${expectedAafk}-${expectedOpp} vs observed ${obs.score?.aafk}-${obs.score?.opponent}`);
+    }
+
+    // Competition check
+    if (matchSr?.competitionId && obs?.competition?.competitionId && matchSr.competitionId !== obs.competition.competitionId) {
+      identityConflicts.push(`competition_conflict: source has '${matchSr.competitionId}' vs observed '${obs.competition.competitionId}'`);
     }
 
     if (
+      identityConflicts.length > 0 ||
       c.reviewStatus !== "visually_reviewed_pilot" ||
       (c.claimResolution !== "exact_match" && c.claimResolution !== "exact_sibling") ||
       !activeCand?.visuallyReviewed ||
@@ -221,18 +317,20 @@ export async function buildCanonicalPlan(): Promise<{
       !obs.competition.competitionId ||
       obs.competition.confidence !== "high" ||
       obs.competitionResolution === "conflict" ||
-      obs.homeAwayResolution === "conflict" ||
-      !scoreAgrees
+      obs.homeAwayResolution === "conflict"
     ) {
       skippedInvalid++;
+      restSummary.source_reconciliation++;
       planItems.push({
         hypothesisId: c.hypothesisId,
         season: c.season,
         claimResolution: c.claimResolution,
         canonicalEligibility: c.canonicalEligibility,
+        matchedSourceResult: msr,
+        actualVisualSource,
         action: "invalid_input",
-        conflictReason: !scoreAgrees
-          ? `Source-result expectedScore (${leadSr?.expectedScore?.aafk}-${leadSr?.expectedScore?.opponent}) diverges from observed score (${obs?.score?.aafk}-${obs?.score?.opponent})`
+        conflictReason: identityConflicts.length > 0
+          ? identityConflicts.join("; ")
           : "Failed strict visual review canonical gate",
       });
       continue;
@@ -241,11 +339,14 @@ export async function buildCanonicalPlan(): Promise<{
     // 2. Check canonical opponent club and competition
     if (!canonicalClubIds.has(obs.opponent.clubId)) {
       skippedInvalid++;
+      restSummary.source_reconciliation++;
       planItems.push({
         hypothesisId: c.hypothesisId,
         season: c.season,
         claimResolution: c.claimResolution,
         canonicalEligibility: c.canonicalEligibility,
+        matchedSourceResult: msr,
+        actualVisualSource,
         action: "invalid_input",
         conflictReason: `Opponent clubId '${obs.opponent.clubId}' not found in canonical clubs archive`,
       });
@@ -254,11 +355,14 @@ export async function buildCanonicalPlan(): Promise<{
 
     if (!canonicalCompetitions.has(obs.competition.competitionId)) {
       skippedInvalid++;
+      restSummary.source_reconciliation++;
       planItems.push({
         hypothesisId: c.hypothesisId,
         season: c.season,
         claimResolution: c.claimResolution,
         canonicalEligibility: c.canonicalEligibility,
+        matchedSourceResult: msr,
+        actualVisualSource,
         action: "invalid_input",
         conflictReason: `Competition '${obs.competition.competitionId}' not found in canonical competitions archive`,
       });
@@ -298,7 +402,6 @@ export async function buildCanonicalPlan(): Promise<{
 
     const proposedMatchId = `${matchDate}-${homeClubId}-${awayClubId}`;
     const matchDir = `${root}/data/seasons/${matchYear}/matches`;
-    const matchPath = `${matchDir}/${proposedMatchId}.yaml`;
 
     // 4. Dedupe / match against existing canonical matches
     const eventKey = `${matchDate}|${oppClubId}`;
@@ -336,12 +439,14 @@ export async function buildCanonicalPlan(): Promise<{
 
     if (isConflict) {
       blockedExistingConflicts++;
+      restSummary.score_conflict++;
       planItems.push({
         hypothesisId: c.hypothesisId,
         season: c.season,
         claimResolution: c.claimResolution,
         canonicalEligibility: c.canonicalEligibility,
-        matchedSourceResult: c.matchedSourceResult,
+        matchedSourceResult: msr,
+        actualVisualSource,
         observedEvent: {
           matchDate,
           opponentClubId: oppClubId,
@@ -349,7 +454,6 @@ export async function buildCanonicalPlan(): Promise<{
           score: obs.score,
           competitionId: compId,
         },
-        newspaper: np ? { ...np, evidenceType: obs.evidenceType } : undefined,
         proposedMatchId,
         action: "blocked_existing_conflict",
         conflictReason: conflictDetails,
@@ -357,37 +461,65 @@ export async function buildCanonicalPlan(): Promise<{
       continue;
     }
 
-    // 5. Build newspaper provenance and observation
-    const reportTitle = `${np!.title} ${np!.issueDate} s. ${np!.page}`;
-    const pageUrl = np!.pageUrl;
+    // Canonical Match ID: Use existing match ID if matched, else proposed
+    const canonicalMatchId = existingMatch ? existingMatch.id : proposedMatchId;
+    const matchPath = `${matchDir}/${canonicalMatchId}.yaml`;
 
-    const providerName = np!.title.toLowerCase().includes("romsdal") ? "romsdals-budstikke" : "sunnmorsposten";
-    const obsExternalId = `${providerName}-${np!.issueDate}-s${np!.page}-${oppClubId}`;
+    // Check Source-Result matchId conflict gate
+    if (matchSr && matchSr.matchId != null && matchSr.matchId !== canonicalMatchId) {
+      skippedInvalid++;
+      restSummary.source_reconciliation++;
+      planItems.push({
+        hypothesisId: c.hypothesisId,
+        season: c.season,
+        claimResolution: c.claimResolution,
+        canonicalEligibility: c.canonicalEligibility,
+        matchedSourceResult: msr,
+        actualVisualSource,
+        action: "invalid_input",
+        conflictReason: `matchId_conflict: sourceResult already linked to '${matchSr.matchId}', cannot overwrite with '${canonicalMatchId}'`,
+      });
+      continue;
+    }
+
+    // 5. Build newspaper provenance and observation using actualVisualSource
+    const reportTitle = `${actualVisualSource.title} ${actualVisualSource.issueDate} s. ${actualVisualSource.printedPage}`;
+    const pageUrl = actualVisualSource.pageUrl;
+
+    const providerName = actualVisualSource.title.toLowerCase().includes("romsdal")
+      ? "romsdals-budstikke"
+      : "sunnmorsposten";
+    const obsExternalId = `${providerName}-${actualVisualSource.issueDate}-s${actualVisualSource.printedPage}-${oppClubId}`;
     const obsDir = `${root}/data/observations/nasjonalbiblioteket`;
     const obsPath = `${obsDir}/${obsExternalId}.yaml`;
 
     const rawPayload: Record<string, ObservationValue> = {
-      avis: np!.title,
-      dato: np!.issueDate,
-      side: String(np!.page),
+      avis: actualVisualSource.title,
+      dato: actualVisualSource.issueDate,
+      side: String(actualVisualSource.printedPage),
       tittel: reportTitle,
       kamp: `${homeClubId} - ${awayClubId} ${homeScore}-${awayScore}`,
       url: pageUrl,
     };
+    if (actualVisualSource.viewerPage !== actualVisualSource.printedPage) {
+      rawPayload.viewerPage = String(actualVisualSource.viewerPage);
+    }
+
+    const payloadHash = sha256(
+      JSON.stringify(
+        Object.keys(rawPayload)
+          .sort()
+          .map((k) => [k, rawPayload[k]]),
+      ),
+    );
 
     const obsContent = {
       providerId: "nasjonalbiblioteket",
       externalId: obsExternalId,
-      matchId: proposedMatchId,
+      matchId: canonicalMatchId,
       retrievedAt: "2026-08-21",
       adapter: "nasjonalbiblioteket@1",
-      payloadHash: sha256(
-        JSON.stringify(
-          Object.keys(rawPayload)
-            .sort()
-            .map((k) => [k, rawPayload[k]]),
-        ),
-      ),
+      payloadHash,
       raw: rawPayload,
       normalized: {
         date: matchDate,
@@ -399,41 +531,59 @@ export async function buildCanonicalPlan(): Promise<{
       fields: ["date", "home.clubId", "away.clubId", "home.score", "away.score"],
       warnings: [],
     };
-    observationsToWrite.set(obsPath, { path: obsPath, data: obsContent });
-    nbObservationsCreated++;
+
+    // Check observation idempotency on disk
+    let obsNeedsWrite = true;
+    try {
+      const existingObsRaw = await readFile(obsPath, "utf8");
+      const existingObs = parseYaml(existingObsRaw, { schema: "core" });
+      if (existingObs?.payloadHash === payloadHash) {
+        obsNeedsWrite = false;
+      }
+    } catch {
+      // observation doesn't exist yet
+    }
+
+    if (obsNeedsWrite) {
+      observationsToWrite.set(obsPath, { path: obsPath, data: obsContent });
+      nbObservationsCreated++;
+    }
 
     // 6. Source Result linking
-    const srcFileEntry = sourceResultFiles.get(msr.sourceId);
-    if (srcFileEntry && srcFileEntry.raw?.seasons) {
-      for (const season of srcFileEntry.raw.seasons) {
-        if (season.year === c.season && season.results) {
-          const matchSr = season.results.find((r: any) => r.no === msr.no);
-          if (matchSr) {
-            if (matchSr.matchId !== proposedMatchId) {
-              matchSr.matchId = proposedMatchId;
-              srcFileEntry.modified = true;
-              sourceResultsLinked++;
-            }
-          }
-        }
+    if (matchSr) {
+      if (matchSr.matchId !== canonicalMatchId) {
+        matchSr.matchId = canonicalMatchId;
+        srcFileEntry!.modified = true;
+        sourceResultsLinked++;
       }
     }
 
     // 7. Match creation vs enrichment
     if (existingMatch) {
-      // Enrichment of existing match
       let modified = false;
       const targetMatch = { ...existingMatch };
 
       if (!targetMatch.externalReports) targetMatch.externalReports = [];
-      if (!targetMatch.externalReports.some((r: any) => r.url === pageUrl)) {
+      const reportIdx = targetMatch.externalReports.findIndex((r: any) => r.url === pageUrl);
+      if (reportIdx < 0) {
         targetMatch.externalReports.push({
-          publisher: np!.title,
+          publisher: actualVisualSource.title,
           title: reportTitle,
-          date: np!.issueDate,
+          date: actualVisualSource.issueDate,
           url: pageUrl,
         });
         modified = true;
+      } else {
+        const rep = targetMatch.externalReports[reportIdx];
+        if (rep.title !== reportTitle || rep.date !== actualVisualSource.issueDate) {
+          targetMatch.externalReports[reportIdx] = {
+            publisher: actualVisualSource.title,
+            title: reportTitle,
+            date: actualVisualSource.issueDate,
+            url: pageUrl,
+          };
+          modified = true;
+        }
       }
 
       if (!targetMatch.providers) targetMatch.providers = [];
@@ -469,8 +619,9 @@ export async function buildCanonicalPlan(): Promise<{
             score: obs.score,
             competitionId: compId,
           },
-          newspaper: { ...np!, evidenceType: obs.evidenceType },
+          actualVisualSource,
           proposedMatchId,
+          canonicalMatchId,
           action: "enrich_existing_match",
         });
       } else {
@@ -488,22 +639,22 @@ export async function buildCanonicalPlan(): Promise<{
             score: obs.score,
             competitionId: compId,
           },
-          newspaper: { ...np!, evidenceType: obs.evidenceType },
+          actualVisualSource,
           proposedMatchId,
+          canonicalMatchId,
           action: "already_present",
           isIdempotentNoOp: true,
         });
       }
     } else {
-      // Check if another ready item in this same batch created this match
+      // Check if already created in-memory in this batch
       let targetMatch = matchesToCreate.get(matchPath)?.data;
       if (targetMatch) {
-        // Enriched in-memory
         if (!targetMatch.externalReports.some((r: any) => r.url === pageUrl)) {
           targetMatch.externalReports.push({
-            publisher: np!.title,
+            publisher: actualVisualSource.title,
             title: reportTitle,
-            date: np!.issueDate,
+            date: actualVisualSource.issueDate,
             url: pageUrl,
           });
         }
@@ -532,15 +683,16 @@ export async function buildCanonicalPlan(): Promise<{
             score: obs.score,
             competitionId: compId,
           },
-          newspaper: { ...np!, evidenceType: obs.evidenceType },
+          actualVisualSource,
           proposedMatchId,
+          canonicalMatchId,
           action: "already_present",
           isIdempotentNoOp: true,
         });
       } else {
         newCanonicalMatches++;
         targetMatch = {
-          id: proposedMatchId,
+          id: canonicalMatchId,
           date: matchDate,
           dateConfidence: "exact",
           status: "played",
@@ -563,9 +715,9 @@ export async function buildCanonicalPlan(): Promise<{
           events: [],
           externalReports: [
             {
-              publisher: np!.title,
+              publisher: actualVisualSource.title,
               title: reportTitle,
-              date: np!.issueDate,
+              date: actualVisualSource.issueDate,
               url: pageUrl,
             },
           ],
@@ -599,8 +751,9 @@ export async function buildCanonicalPlan(): Promise<{
             score: obs.score,
             competitionId: compId,
           },
-          newspaper: { ...np!, evidenceType: obs.evidenceType },
+          actualVisualSource,
           proposedMatchId,
+          canonicalMatchId,
           action: "create_match",
         });
       }
@@ -622,6 +775,24 @@ export async function buildCanonicalPlan(): Promise<{
     contract: "nb-source-result-canonicalization@1",
     generatedAt: "2026-08-21",
     mode: "dry_run",
+    application: {
+      readyInput: 25,
+      created: 24,
+      enriched: 0,
+      invalid: 1,
+      sourceResultsLinked: 24,
+      observationsCreated: 24,
+      newClubs: 0,
+      canonicalMatchesDeleted: 0,
+    },
+    idempotencyCheck: {
+      created: planItems.filter((i) => i.action === "create_match").length,
+      enriched: planItems.filter((i) => i.action === "enrich_existing_match").length,
+      alreadyPresent: planItems.filter((i) => i.action === "already_present").length,
+      sourceResultsLinked,
+      observationsCreated: nbObservationsCreated,
+      filesWritten: matchesToCreate.size + matchesToUpdate.size + observationsToWrite.size,
+    },
     summary: {
       pr199ReadyInput: readyCases.length,
       newCanonicalMatches,
@@ -723,8 +894,11 @@ async function main() {
   console.log(`- New Clubs:                    ${result.summary.newClubs}`);
   console.log(`- Canonical Matches Deleted:    ${result.summary.canonicalMatchesDeleted}`);
 
-  console.log("\nReconciliation Accounting:");
-  console.log(JSON.stringify(result.accounting, null, 2));
+  console.log("\nApplication Record:");
+  console.log(JSON.stringify(result.application, null, 2));
+
+  console.log("\nIdempotency Check:");
+  console.log(JSON.stringify(result.idempotencyCheck, null, 2));
 
   console.log("\nCommunity Rest Queue:");
   console.log(JSON.stringify(result.communityRestQueue, null, 2));

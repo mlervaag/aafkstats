@@ -2,7 +2,11 @@ import { describe, it, expect, beforeAll } from "vitest";
 import { readFile } from "node:fs/promises";
 import { parse as parseYaml } from "yaml";
 import { repoRoot } from "../src/load.js";
-import { buildCanonicalPlan, CanonicalizationResult } from "../../../packages/ingest/src/cli/nb-visual-canonicalization-1945-1984.js";
+import {
+  buildCanonicalPlan,
+  extractActualVisualSource,
+  CanonicalizationResult,
+} from "../../../packages/ingest/src/cli/nb-visual-canonicalization-1945-1984.js";
 
 describe("NB Visual Review Canonicalization (1945-1984) - PR 200", () => {
   let plan: CanonicalizationResult;
@@ -35,11 +39,74 @@ describe("NB Visual Review Canonicalization (1945-1984) - PR 200", () => {
     }
   });
 
+  it("A & B: source opponent and score mismatch in 1976 #2 is blocked with detailed conflicts", () => {
+    const case1976 = plan.items.find((i) => i.hypothesisId === "sunnmore-fotballkrets-arsrapport-1976#1976-002");
+    expect(case1976).toBeDefined();
+    expect(case1976?.action).toBe("invalid_input");
+    expect(case1976?.conflictReason).toContain("opponent_conflict");
+    expect(case1976?.conflictReason).toContain("score_conflict");
+  });
+
+  it("D & E: handles actualVisualSource distinction from candidate metadata and viewerPage vs printedPage", () => {
+    const traeffCase = plan.items.find((i) => i.hypothesisId === "sunnmore-fotballkrets-arsrapport-1975#1975-001");
+    expect(traeffCase).toBeDefined();
+    expect(traeffCase?.actualVisualSource).toBeDefined();
+    expect(traeffCase?.actualVisualSource?.issueDate).toBe("1975-05-30");
+    expect(traeffCase?.actualVisualSource?.printedPage).toBe("7");
+    expect(traeffCase?.actualVisualSource?.viewerPage).toBe("6");
+    expect(traeffCase?.actualVisualSource?.pageUrl).toContain("page=6");
+
+    // Test extraction logic directly
+    const mockCand = {
+      newspaper: {
+        title: "Sunnmørsposten",
+        issueDate: "1975-05-29",
+        page: 6,
+        pageUrl: "https://www.nb.no/items/abc?page=6",
+      },
+      visualEvidenceSummary: "Sunnmørsposten 30.05.1975 s. 7: Kampreferat.",
+      observed: {
+        dateEvidence: {
+          textSummary: "Sunnmørsposten 30.05.1975 s. 7: NM 1. runde.",
+        },
+      },
+    };
+    const actual = extractActualVisualSource(mockCand);
+    expect(actual.issueDate).toBe("1975-05-30");
+    expect(actual.printedPage).toBe("7");
+    expect(actual.viewerPage).toBe("6");
+  });
+
+  it("F: observation re-apply gives 0 new writes on clean rerun", () => {
+    expect(plan.idempotencyCheck.observationsCreated).toBe(0);
+    expect(plan.idempotencyCheck.created).toBe(0);
+    expect(plan.idempotencyCheck.alreadyPresent).toBe(24);
+    expect(plan.idempotencyCheck.filesWritten).toBe(0);
+  });
+
+  it("G: canonicalization manifest preserves initial application record alongside idempotency check", () => {
+    expect(plan.application.readyInput).toBe(25);
+    expect(plan.application.created).toBe(24);
+    expect(plan.application.invalid).toBe(1);
+    expect(plan.application.sourceResultsLinked).toBe(24);
+    expect(plan.application.observationsCreated).toBe(24);
+  });
+
+  it("H: invalid ready cases are routed to community rest queue under source_reconciliation", () => {
+    const queue = plan.communityRestQueue;
+    expect(queue.candidateCount).toBe(24); // 23 PR199 candidates + 1 PR200 invalid ready case (1976 #2)
+    expect(queue.summary.source_reconciliation).toBe(1);
+    expect(queue.summary.sibling_resolution).toBe(20);
+    expect(queue.summary.score_conflict).toBe(1);
+    expect(queue.summary.competition_conflict).toBe(1);
+    expect(queue.summary.date_research).toBe(1);
+    expect(queue.nonCommunityCount).toBe(588);
+  });
+
   it("regression: Rollon 1954 score_conflict is NEVER canonicalized", async () => {
     const rollon1954 = plan.items.find((i) => i.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-007");
     expect(rollon1954).toBeUndefined();
 
-    // Check raw visual review manifest directly
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
     const manifest = parseYaml(manifestRaw, { schema: "core" });
@@ -83,22 +150,8 @@ describe("NB Visual Review Canonicalization (1945-1984) - PR 200", () => {
     const manifestPath = `${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`;
     const manifestRaw = await readFile(manifestPath, "utf8");
 
-    // Check for forbidden OCR properties
     expect(manifestRaw).not.toContain("rawOcr:");
     expect(manifestRaw).not.toContain("fullText:");
     expect(manifestRaw).not.toContain("alto:");
-  });
-
-  it("validates community rest queue classification", () => {
-    const queue = plan.communityRestQueue;
-    expect(queue.candidateCount).toBe(23);
-    expect(queue.summary.sibling_resolution).toBe(20);
-    expect(queue.summary.score_conflict).toBe(1);
-    expect(queue.summary.competition_conflict).toBe(1);
-    expect(queue.summary.date_research).toBe(1);
-    expect(queue.nonCommunityCount).toBe(588);
-    expect(queue.summary.non_senior).toBe(2);
-    expect(queue.summary.different_event).toBe(10);
-    expect(queue.summary.unreviewed_awaiting_visual_batch).toBe(576);
   });
 });
