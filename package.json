@@ -26,6 +26,7 @@
     "data:backfill-source-claim-ids": "pnpm --filter @aafkstats/schema run backfill-source-claim-ids",
     "data:source-claim-integrity": "pnpm --filter @aafkstats/schema run source-claim-integrity",
     "data:source-claim": "pnpm --filter @aafkstats/schema run source-claim",
+    "data:discovery-status": "pnpm --filter @aafkstats/schema run discovery-status",
     "data:nb-wide-retrieval": "pnpm --filter @aafkstats/ingest run nb-wide-retrieval",
     "data:nb-visual-review": "pnpm --filter @aafkstats/ingest run nb-visual-review",
     "data:nb-visual-canonicalization": "pnpm --filter @aafkstats/ingest run nb-visual-canonicalization",
