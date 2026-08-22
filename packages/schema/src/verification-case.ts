@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { z } from "zod";
 import { isoDate, slug } from "./primitives.js";
+import { nbCommunityResearchTask } from "./nb-community-research.js";
 
 const verificationSource = z
   .object({
@@ -79,6 +80,7 @@ export const verificationCaseInput = z
     sources: z.array(verificationSource).max(10).default([]),
     searchHint: z.string().min(1).max(700).optional(),
     newspaper: newspaperVerification.optional(),
+    researchTask: nbCommunityResearchTask.optional(),
     estimatedMinutes: z.number().int().min(1).max(60),
     priority: z.number().int().min(0).max(100),
     publishedAt: isoDate.optional(),
@@ -131,6 +133,13 @@ export const verificationCaseInput = z
       }
       if (value.estimatedMinutes < 2 || value.estimatedMinutes > 5) {
         ctx.addIssue({ code: z.ZodIssueCode.custom, path: ["estimatedMinutes"], message: "avisverifisering skal ta 2–5 minutter" });
+      }
+    }
+    if (value.researchTask) {
+      if (value.category !== "match") ctx.addIssue({ code: z.ZodIssueCode.custom, path: ["category"], message: "avisresearch må ha kategorien match" });
+      if (value.newspaper) ctx.addIssue({ code: z.ZodIssueCode.custom, path: ["researchTask"], message: "bruk enten vanlig avisverifisering eller research-oppgave" });
+      if (value.target.type !== "source" || value.target.id !== value.researchTask.sourceResults[0]?.sourceId) {
+        ctx.addIssue({ code: z.ZodIssueCode.custom, path: ["target"], message: "avisresearch må peke på første kildedokumenterte oppføring" });
       }
     }
   });

@@ -95,7 +95,7 @@ const checks: Check[] = [
     page: "mangler",
     must: [
       "Kan du kontrollere dette?", "Er Tor Hogne Aarøy riktig person i fixture-arkivet?",
-      "Finn dokumentasjonen. Svar JA, NEI eller KAN IKKE BESTEMMES", "Arbeidskø", "Hele mangellista",
+      "Undersøk én konkret kildeoppgave", "Noen saker har JA/NEI", "Arbeidskø", "Hele mangellista",
     ],
   },
   {

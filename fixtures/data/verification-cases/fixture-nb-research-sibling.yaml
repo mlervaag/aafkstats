@@ -1,0 +1,44 @@
+id: fixture-nb-research-sibling
+status: open
+category: match
+claim: Arkivets kildedokumenterte oppføring sier 4–0 mot Rollon i 1955.
+question: Hvilket av de registrerte møtene mot Rollon omtaler avisen?
+context: AaFK møtte Rollon flere ganger. Avissiden dokumenterer en kamp, men riktig oppføring må velges.
+whyItMatters: Riktig kobling hindrer at dato og avisreferanse havner på feil kamp.
+yesMeaning: Researchen støtter en konkret kobling.
+noMeaning: Researchen viser at ingen av alternativene gjelder.
+inconclusiveMeaning: Avissiden skiller ikke møtene sikkert.
+instructions:
+  - Åpne avissiden og finn den konkrete kampomtalen.
+  - Velg bare en oppføring når dato eller annen kontekst skiller den sikkert.
+target: { type: source, id: aafk-90-ar-1914-2004, field: research.sibling_resolution.1955.2 }
+sources:
+  - { providerId: nasjonalbiblioteket, page: "7", role: context, note: "Sunnmørsposten 1955-05-09, trykt side 7." }
+estimatedMinutes: 4
+priority: 85
+publishedAt: 2026-08-22
+researchTask:
+  contract: nb-community-research-task@1
+  hypothesisId: fixture-rollon-1955
+  season: 1955
+  category: sibling_resolution
+  sourceResults:
+    - { sourceId: aafk-90-ar-1914-2004, year: 1955, no: 2, opponent: Rollon, expectedScore: { aafk: 4, opponent: 0 }, label: "4–0 mot Rollon" }
+  observedEvent:
+    opponent: Rollon
+    score: { aafk: 4, opponent: 0 }
+    description: Avissiden viser et senioroppgjør mellom AaFK og Rollon, men datoen skiller ikke alene mellom oppføringene.
+  actualVisualSource:
+    title: Sunnmørsposten
+    issueDate: 1955-05-09
+    printedPage: "7"
+    viewerPage: "6"
+    pageUrl: https://www.nb.no/items/fixture?page=6
+  candidateOptions:
+    - { sourceId: aafk-90-ar-1914-2004, year: 1955, no: 2, opponent: Rollon, expectedScore: { aafk: 4, opponent: 0 }, label: "4–0 mot Rollon" }
+    - { sourceId: aafk-90-ar-1914-2004, year: 1955, no: 4, opponent: Rollon, expectedScore: { aafk: 2, opponent: 1 }, label: "2–1 mot Rollon" }
+    - { sourceId: aafk-90-ar-1914-2004, year: 1955, no: 6, opponent: Rollon, expectedScore: { aafk: 1, opponent: 1 }, label: "1–1 mot Rollon" }
+    - { sourceId: aafk-90-ar-1914-2004, year: 1955, no: 9, opponent: Rollon, expectedScore: { aafk: 3, opponent: 2 }, label: "3–2 mot Rollon" }
+    - { sourceId: aafk-90-ar-1914-2004, year: 1955, no: 13, opponent: Rollon, expectedScore: { aafk: 2, opponent: 2 }, label: "2–2 mot Rollon" }
+    - { sourceId: aafk-90-ar-1914-2004, year: 1955, no: 36, opponent: Rollon, expectedScore: { aafk: 1, opponent: 0 }, label: "1–0 mot Rollon" }
+  expectedAnswerShape: [matched_source_result, none_of_these, inconclusive]

@@ -1,5 +1,5 @@
 import { all, one, open } from "@aafkstats/db";
-import type { NewspaperVerification, VerificationCategory, VerificationStatus } from "@aafkstats/schema";
+import type { NbCommunityResearchTask, NewspaperVerification, VerificationCategory, VerificationStatus } from "@aafkstats/schema";
 
 export interface VerificationEvidenceSource {
   key: string;
@@ -33,6 +33,7 @@ export interface VerificationCaseView {
   sources: VerificationEvidenceSource[];
   searchHint: string | null;
   newspaper: NewspaperVerification | null;
+  researchTask: NbCommunityResearchTask | null;
   estimatedMinutes: number;
   priority: number;
   revision: string;
@@ -65,6 +66,7 @@ interface CaseRow {
   sources: string;
   search_hint: string | null;
   newspaper: string | null;
+  research_task: string | null;
   estimated_minutes: number;
   priority: number;
   revision: string;
@@ -137,6 +139,7 @@ function hydrate(row: CaseRow, sourceRows: Map<string, { title: string; href: st
     sources,
     searchHint: row.search_hint,
     newspaper: parseJson<NewspaperVerification | null>(row.newspaper, null),
+    researchTask: parseJson<NbCommunityResearchTask | null>(row.research_task, null),
     estimatedMinutes: row.estimated_minutes,
     priority: row.priority,
     revision: row.revision,

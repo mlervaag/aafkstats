@@ -33,6 +33,8 @@ import {
   generateNewspaperVerificationCases,
   newspaperVerificationCandidateManifest,
 } from "./newspaper-verification-candidates.js";
+import { nbCommunityResearchManifest } from "./nb-community-research.js";
+import { generateNbCommunityResearchCases } from "./nb-community-research-cases.js";
 import { harvestBatchManifest } from "./historical/harvest-manifest.js";
 import type { HarvestBatchManifest } from "./historical/harvest-manifest.js";
 
@@ -311,13 +313,22 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
       );
     }
   }
+  const researchQueueFile = join(root, "discovery", "nb-community-research-wave-1.yaml");
+  if (existsSync(researchQueueFile)) {
+    const manifest = await parseFile(researchQueueFile, nbCommunityResearchManifest, root, issues);
+    if (manifest !== null) {
+      generatedCaseInputs.push(...generateNbCommunityResearchCases(manifest, manualCaseInputs).cases);
+    }
+  }
   const caseInputs = [...manualCaseInputs, ...generatedCaseInputs];
   const verificationCases: VerificationCase[] = caseInputs.map((entry) => ({
     ...entry,
     revision: verificationRevision(entry),
     file: manualCaseInputs.includes(entry)
       ? `verification-cases/${entry.id}.yaml`
-      : `discovery/community-candidate-queue.yaml#${entry.newspaper?.candidateId ?? entry.id}`,
+      : entry.researchTask
+        ? `discovery/nb-community-research-wave-1.yaml#${entry.id}`
+        : `discovery/community-candidate-queue.yaml#${entry.newspaper?.candidateId ?? entry.id}`,
   }));
 
   return { clubs, venues, competitions, providers, seasons, matches, observations, historicalObservations, standings: tables, people, organizations, organizationSnapshots, contributions, sources, extractions, sourceResults, harvests, verificationCases, issues };

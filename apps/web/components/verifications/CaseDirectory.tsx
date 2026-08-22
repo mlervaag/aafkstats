@@ -12,8 +12,26 @@ const LABELS: Record<VerificationCaseView["category"], string> = {
   club: "Klubber",
 };
 
-export function CaseDirectory({ cases }: { cases: VerificationCaseView[] }) {
-  const [category, setCategory] = useState<string>("all");
+const RESEARCH_LABELS = {
+  sibling_resolution: "Avis – finn riktig kamp",
+  date_research: "Avis – finn dato",
+  score_conflict: "Avis – resultatkonflikt",
+  competition_conflict: "Avis – konkurransekonflikt",
+  source_reconciliation: "Avis – finn riktig kildeoppføring",
+} as const;
+
+function caseType(item: VerificationCaseView): string {
+  if (item.researchTask) return `research:${item.researchTask.category}`;
+  if (item.newspaper) return "newspaper_match";
+  return "direct";
+}
+
+function caseTypeLabel(item: VerificationCaseView): string {
+  return item.researchTask ? RESEARCH_LABELS[item.researchTask.category] : item.newspaper ? "Kamp fra avis" : LABELS[item.category];
+}
+
+export function CaseDirectory({ cases, initialCategory = "all" }: { cases: VerificationCaseView[]; initialCategory?: string }) {
+  const [category, setCategory] = useState<string>(initialCategory);
   const [newspaper, setNewspaper] = useState("all");
   const [period, setPeriod] = useState("all");
   const [query, setQuery] = useState("");
@@ -59,24 +77,28 @@ export function CaseDirectory({ cases }: { cases: VerificationCaseView[] }) {
   const visible = useMemo(() => {
     const normalized = query.trim().toLocaleLowerCase("nb");
     return cases.filter((item) => !unavailable.includes(item.id) && !completed.includes(item.id) &&
-      (category === "all"
-        || (category === "newspaper_match" ? Boolean(item.newspaper)
-          : category === "direct" ? !item.newspaper
-            : item.category === category && !item.newspaper)) &&
-      (newspaper === "all" || item.newspaper?.newspaper.title === newspaper) &&
-      (period === "all" || (item.newspaper && Math.floor(item.newspaper.sourceResult.year / 10) * 10 === Number(period))) &&
-      (!normalized || `${item.question} ${item.context} ${item.newspaper?.sourceResult.opponent ?? ""} ${item.newspaper?.sourceResult.year ?? ""}`.toLocaleLowerCase("nb").includes(normalized)),
+      (category === "all" || category === caseType(item) || (category === "research" && Boolean(item.researchTask))) &&
+      (newspaper === "all" || item.newspaper?.newspaper.title === newspaper || item.researchTask?.actualVisualSource.title === newspaper) &&
+      (period === "all" || Math.floor((item.newspaper?.sourceResult.year ?? item.researchTask?.season ?? 0) / 10) * 10 === Number(period)) &&
+      (!normalized || `${item.question} ${item.context} ${item.newspaper?.sourceResult.opponent ?? ""} ${item.researchTask?.sourceResults[0]?.opponent ?? ""} ${item.newspaper?.sourceResult.year ?? item.researchTask?.season ?? ""}`.toLocaleLowerCase("nb").includes(normalized)),
     );
   }, [cases, category, completed, newspaper, period, query, unavailable]);
 
-  const categories = [...new Set(cases.map((item) => item.newspaper ? "newspaper_match" : item.category))];
-  const newspapers = [...new Set(cases.flatMap((item) => item.newspaper ? [item.newspaper.newspaper.title] : []))];
-  const periods = [...new Set(cases.flatMap((item) => item.newspaper ? [Math.floor(item.newspaper.sourceResult.year / 10) * 10] : []))].sort((a, b) => a - b);
+  const categories = [...new Set(cases.map(caseType))];
+  const newspapers = [...new Set(cases.flatMap((item) => item.newspaper ? [item.newspaper.newspaper.title] : item.researchTask ? [item.researchTask.actualVisualSource.title] : []))];
+  const periods = [...new Set(cases.flatMap((item) => item.newspaper ? [Math.floor(item.newspaper.sourceResult.year / 10) * 10] : item.researchTask ? [Math.floor(item.researchTask.season / 10) * 10] : []))].sort((a, b) => a - b);
+  const researchCount = cases.filter((item) => item.researchTask).length;
   const newspaperCount = cases.filter((item) => item.newspaper).length;
-  const directCount = cases.length - newspaperCount;
+  const directCount = cases.length - newspaperCount - researchCount;
   return (
     <>
       <div className={styles.caseGuide}>
+        <div>
+          <span>{researchCount} saker</span>
+          <strong>Avisresearch</strong>
+          <p>Skill mellom historiske møter, finn datoer og løs kildekonflikter på en konkret avisside.</p>
+          <button type="button" onClick={() => setCategory("research")}>Vis research-sakene</button>
+        </div>
         <div>
           <span>{newspaperCount} saker</span>
           <strong>Kamp fra avis</strong>
@@ -94,7 +116,7 @@ export function CaseDirectory({ cases }: { cases: VerificationCaseView[] }) {
         <label>Søk i sakene<input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Navn, år eller motstander" /></label>
         <div className={styles.chips} aria-label="Filtrer etter type">
           <button type="button" aria-pressed={category === "all"} onClick={() => setCategory("all")}>Alle</button>
-          {categories.map((value) => <button type="button" aria-pressed={category === value} onClick={() => setCategory(value)} key={value}>{value === "newspaper_match" ? "Kamp fra avis" : LABELS[value as VerificationCaseView["category"]]}</button>)}
+          {categories.map((value) => <button type="button" aria-pressed={category === value} onClick={() => setCategory(value)} key={value}>{value.startsWith("research:") ? RESEARCH_LABELS[value.slice(9) as keyof typeof RESEARCH_LABELS] : value === "newspaper_match" ? "Kamp fra avis" : "Direkte kildekontroll"}</button>)}
         </div>
         {newspapers.length > 0 && <label>Avis<select value={newspaper} onChange={(event) => setNewspaper(event.target.value)}><option value="all">Alle aviser</option>{newspapers.map((value) => <option key={value}>{value}</option>)}</select></label>}
         {periods.length > 0 && <label>Periode<select value={period} onChange={(event) => setPeriod(event.target.value)}><option value="all">Alle år</option>{periods.map((value) => <option value={value} key={value}>{value}–{value + 9}</option>)}</select></label>}
@@ -104,7 +126,7 @@ export function CaseDirectory({ cases }: { cases: VerificationCaseView[] }) {
         {visible.map((item) => (
           <li key={item.id}>
             <a href={`/mangler/${item.id}`}>
-              <div className={styles.meta}><span>{item.newspaper ? "Kamp fra avis" : LABELS[item.category]}</span><span>ca. {item.estimatedMinutes} min</span></div>
+              <div className={styles.meta}><span>{caseTypeLabel(item)}</span><span>ca. {item.estimatedMinutes} min</span></div>
               <h2>{item.question}</h2>
               <p>{item.context}</p>
               <strong>Start kontrollen <span aria-hidden="true">→</span></strong>

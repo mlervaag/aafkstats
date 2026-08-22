@@ -1,13 +1,14 @@
 import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { formatNewspaperVerificationIssuePayload } from "@aafkstats/schema";
+import { formatNewspaperVerificationIssuePayload, nbCommunityResearchSubmission } from "@aafkstats/schema";
 import { isCrossSite, isJsonRequest, readBodyLimited } from "@/lib/chat-request";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { createRequestLogger, logUpstreamFailure } from "@/lib/runtime-logging";
 import { SITE_ORIGIN } from "@/lib/site";
 import { markVerificationCasePending, pendingVerificationCaseIds } from "@/lib/verification-submissions";
 import { loadVerificationCase } from "@/lib/verifications";
+import { validateResearchSubmission } from "@/lib/research-submission";
 import type { VerificationCaseView } from "@/lib/verifications";
 
 const MAX_BODY_BYTES = 20 * 1024;
@@ -43,6 +44,7 @@ const submissionSchema = z.object({
     competition: z.string().trim().max(120).optional(),
     reasons: z.array(z.string().trim().min(1).max(120)).max(8).optional(),
   }).strict().optional(),
+  researchSubmission: nbCommunityResearchSubmission.optional(),
   comment: z.string().trim().max(1000).optional(),
   contributor: z.string().trim().max(100).optional(),
   clientSubmissionId: z.string().uuid(),
@@ -104,8 +106,14 @@ async function handlePost(req: Request) {
     if (verificationCase.revision !== data.revision) {
       return fallbackError("Saken er oppdatert siden du åpnet den. Last siden på nytt og kontroller formuleringen.", 409);
     }
-    if (!verificationCase.newspaper && data.finding.length < 3) {
+    if (!verificationCase.newspaper && !verificationCase.researchTask && data.finding.length < 3) {
       return fallbackError("Beskriv kort hva du fant.", 400);
+    }
+    if (verificationCase.researchTask) {
+      const researchError = validateResearchSubmission(verificationCase.researchTask, data.researchSubmission);
+      if (researchError) return fallbackError(researchError, 400);
+    } else if (data.researchSubmission) {
+      return fallbackError("Denne saken bruker ikke research-svar.", 400);
     }
     if (data.evidence.kind === "listed_source") {
       const selectedSourceKey = data.evidence.sourceKey;
@@ -178,6 +186,26 @@ async function handlePost(req: Request) {
           },
         }),
       ] : []),
+      ...(verificationCase.researchTask && data.researchSubmission ? [
+        "",
+        "### Strukturert community research",
+        "<!-- nb-community-research-payload:v1 -->",
+        "```json",
+        JSON.stringify({
+          verificationSubmissionVersion: 2,
+          caseId: verificationCase.id,
+          caseRevision: verificationCase.revision,
+          hypothesisId: verificationCase.researchTask.hypothesisId,
+          category: verificationCase.researchTask.category,
+          sourceResults: verificationCase.researchTask.sourceResults.map(({ sourceId, year, no }) => ({ sourceId, year, no })),
+          answer: data.researchSubmission.answer,
+          ...(data.researchSubmission.selectedSourceResult ? { selectedSourceResult: data.researchSubmission.selectedSourceResult } : {}),
+          ...(data.researchSubmission.structuredFindings ? { structuredFindings: data.researchSubmission.structuredFindings } : {}),
+          actualVisualSource: verificationCase.researchTask.actualVisualSource,
+          ...(data.researchSubmission.evidenceNote ? { evidenceNote: data.researchSubmission.evidenceNote } : {}),
+        }, null, 2),
+        "```",
+      ] : []),
       "",
       "### Påstand",
       verificationCase.claim,
@@ -204,7 +232,7 @@ async function handlePost(req: Request) {
       body: JSON.stringify({
         title: `Verifisering ${answerLabel}: ${oneLine(verificationCase.question, 110)}`,
         body: issueBody,
-        labels: ["verifisering", data.answer, verificationCase.category],
+        labels: ["verifisering", data.answer, verificationCase.researchTask?.category ?? verificationCase.category],
       }),
     });
     if (!response.ok) {

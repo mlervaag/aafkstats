@@ -1076,6 +1076,7 @@ CREATE TABLE core_verification_cases (
   sources           TEXT NOT NULL DEFAULT '[]',
   search_hint       TEXT,
   newspaper         TEXT,
+  research_task     TEXT,
   estimated_minutes INTEGER NOT NULL CHECK (estimated_minutes BETWEEN 1 AND 60),
   priority          INTEGER NOT NULL CHECK (priority BETWEEN 0 AND 100),
   revision          TEXT NOT NULL,
@@ -1242,7 +1243,7 @@ ORDER BY coalesce(o.date, '') DESC, o.id;
 CREATE VIEW verification_cases AS
 SELECT id, status, category, claim, question, context, why_it_matters,
        yes_meaning, no_meaning, inconclusive_meaning, instructions, target_type, target_id,
-       target_field, sources, search_hint, newspaper, estimated_minutes, priority,
+       target_field, sources, search_hint, newspaper, research_task, estimated_minutes, priority,
        revision, published_at, resolution, source_file,
        '/mangler/' || id AS url
 FROM core_verification_cases
