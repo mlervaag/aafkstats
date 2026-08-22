@@ -67,8 +67,16 @@ describe("generator for avisverifisering", () => {
     const raw = parse(readFileSync(queueFile, "utf8")) as unknown;
     const generation = generateNewspaperVerificationCases(raw);
     expect(generation.cases).toHaveLength(247);
-    expect(generation.cases.filter((item) => item.status === "open")).toHaveLength(50);
-    expect(generation.cases.filter((item) => item.status === "draft")).toHaveLength(197);
+    expect(generation.cases.filter((item) => item.status === "open")).toHaveLength(46);
+    expect(generation.cases.filter((item) => item.status === "draft")).toHaveLength(201);
+    for (const id of [
+      "nb-avis-1946-23-e5805ff7ec",
+      "nb-avis-1947-8-2baa8fe66e",
+      "nb-avis-1954-7-71f95989eb",
+      "nb-avis-1955-1-7874478aa3",
+    ]) {
+      expect(generation.cases.find((item) => item.id === id)?.status).toBe("draft");
+    }
     expect(generation.skipped).toHaveLength(47);
     expect(generation.skipped.every((item) => item.reason === "not_reviewable")).toBe(true);
   });
