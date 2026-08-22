@@ -1,0 +1,44 @@
+id: 1946-07-09-aalesunds-fk-kvik-halden
+date: 1946-07-09
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1946
+  stage: friendly
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: kvik-halden
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1946-07-10 s. 2
+    date: 1946-07-10
+    url: https://www.nb.no/items/d9c564e9a1673473bf18cd492ae874a4?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/d9c564e9a1673473bf18cd492ae874a4?page=2
+    retrievedAt: 2026-08-22
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1946-07-10 s. 2: Kampreferat for AaFK mot Kvik, Halden
+  (2–1) privatkamp spilt 1946-07-09."

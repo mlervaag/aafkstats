@@ -121,6 +121,7 @@ export interface CanonicalizationResult {
   };
   summary: {
     pr199ReadyInput: number;
+    readyInput: number;
     newCanonicalMatches: number;
     existingMatchesEnriched: number;
     alreadyPresent: number;
@@ -157,17 +158,42 @@ export interface CanonicalizationResult {
   items: CanonicalPlanItem[];
 }
 
-export async function buildCanonicalPlan(): Promise<{
+export interface CanonicalPlanOptions {
+  batch?: "pilot" | "wave_2" | "wave_2_1945_1954" | "all";
+  reviewStatus?: "visually_reviewed_pilot" | "visually_reviewed_wave_2";
+  minYear?: number;
+  maxYear?: number;
+  manifestPath?: string;
+  manifestOutputPath?: string;
+}
+
+export async function buildCanonicalPlan(options?: CanonicalPlanOptions): Promise<{
   plan: CanonicalizationResult;
   sourceResultFiles: Map<string, { path: string; raw: any; modified: boolean }>;
   matchesToCreate: Map<string, { path: string; data: any }>;
   matchesToUpdate: Map<string, { path: string; data: any }>;
   observationsToWrite: Map<string, { path: string; data: any }>;
+  manifestOutputPath: string;
 }> {
   const root = repoRoot();
-  const manifestPath = `${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`;
+  const manifestPath = options?.manifestPath || `${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`;
   const manifestRaw = await readFile(manifestPath, "utf8");
   const manifest = parseYaml(manifestRaw, { schema: "core" });
+
+  const isWave2 =
+    options?.reviewStatus === "visually_reviewed_wave_2" ||
+    options?.batch === "wave_2" ||
+    options?.batch === "wave_2_1945_1954";
+
+  const targetReviewStatus = options?.reviewStatus || (isWave2 ? "visually_reviewed_wave_2" : "visually_reviewed_pilot");
+  const minYear = options?.minYear ?? 1945;
+  const maxYear = options?.maxYear ?? (isWave2 ? 1954 : 1984);
+
+  const manifestOutputPath =
+    options?.manifestOutputPath ||
+    (isWave2
+      ? `${root}/data/discovery/nb-source-result-canonicalization-wave2-1945-1954.yaml`
+      : `${root}/data/discovery/nb-source-result-canonicalization-1945-1984.yaml`);
 
   const archive = await loadArchive();
   const canonicalClubIds = new Set(archive.clubs.map((c) => c.id));
@@ -198,11 +224,13 @@ export async function buildCanonicalPlan(): Promise<{
   }
 
   const allCases: VisualReviewCase[] = manifest.cases || [];
-  const pilotCases = allCases.filter((c) => c.reviewStatus === "visually_reviewed_pilot");
-  const readyCases = pilotCases.filter((c) => c.canonicalEligibility === "ready");
+  const batchCases = allCases.filter(
+    (c) => c.reviewStatus === targetReviewStatus && c.season >= minYear && c.season <= maxYear
+  );
+  const readyCases = batchCases.filter((c) => c.canonicalEligibility === "ready");
 
   // Community rest queue accounting
-  const nonReadyCases = pilotCases.filter((c) => c.canonicalEligibility !== "ready");
+  const nonReadyCases = batchCases.filter((c) => c.canonicalEligibility !== "ready");
   const restSummary = {
     sibling_resolution: 0,
     date_research: 0,
@@ -301,7 +329,7 @@ export async function buildCanonicalPlan(): Promise<{
 
     if (
       identityConflicts.length > 0 ||
-      c.reviewStatus !== "visually_reviewed_pilot" ||
+      c.reviewStatus !== targetReviewStatus ||
       (c.claimResolution !== "exact_match" && c.claimResolution !== "exact_sibling") ||
       !activeCand?.visuallyReviewed ||
       !obs ||
@@ -516,7 +544,7 @@ export async function buildCanonicalPlan(): Promise<{
       providerId: "nasjonalbiblioteket",
       externalId: obsExternalId,
       matchId: canonicalMatchId,
-      retrievedAt: "2026-08-21",
+      retrievedAt: "2026-08-22",
       adapter: "nasjonalbiblioteket@1",
       payloadHash,
       raw: rawPayload,
@@ -590,7 +618,7 @@ export async function buildCanonicalPlan(): Promise<{
         targetMatch.providers.push({
           providerId: "nasjonalbiblioteket",
           url: pageUrl,
-          retrievedAt: "2026-08-21",
+          retrievedAt: "2026-08-22",
           fields: ["date", "status", "competition", "home.clubId", "away.clubId", "home.score", "away.score"],
         });
         modified = true;
@@ -646,27 +674,40 @@ export async function buildCanonicalPlan(): Promise<{
         });
       }
     } else {
-      // Check if already created in-memory in this batch
+      // Check if already created in-memory in this batch or already exists on disk
+      let isAlreadyOnDisk = false;
+      try {
+        const existingOnDiskRaw = await readFile(matchPath, "utf8");
+        const existingOnDisk = parseYaml(existingOnDiskRaw, { schema: "core" });
+        if (existingOnDisk?.id === canonicalMatchId) {
+          isAlreadyOnDisk = true;
+        }
+      } catch {
+        // file does not exist on disk
+      }
+
       let targetMatch = matchesToCreate.get(matchPath)?.data;
-      if (targetMatch) {
-        if (!targetMatch.externalReports.some((r: any) => r.url === pageUrl)) {
-          targetMatch.externalReports.push({
-            publisher: actualVisualSource.title,
-            title: reportTitle,
-            date: actualVisualSource.issueDate,
-            url: pageUrl,
-          });
-        }
-        if (!targetMatch.providers.some((p: any) => p.providerId === "nasjonalbiblioteket" && p.url === pageUrl)) {
-          targetMatch.providers.push({
-            providerId: "nasjonalbiblioteket",
-            url: pageUrl,
-            retrievedAt: "2026-08-21",
-            fields: ["date", "status", "competition", "home.clubId", "away.clubId", "home.score", "away.score"],
-          });
-        }
-        if (msr && !targetMatch.sources.some((s: any) => s.sourceId === msr.sourceId)) {
-          targetMatch.sources.push({ sourceId: msr.sourceId });
+      if (targetMatch || isAlreadyOnDisk) {
+        if (targetMatch) {
+          if (!targetMatch.externalReports.some((r: any) => r.url === pageUrl)) {
+            targetMatch.externalReports.push({
+              publisher: actualVisualSource.title,
+              title: reportTitle,
+              date: actualVisualSource.issueDate,
+              url: pageUrl,
+            });
+          }
+          if (!targetMatch.providers.some((p: any) => p.providerId === "nasjonalbiblioteket" && p.url === pageUrl)) {
+            targetMatch.providers.push({
+              providerId: "nasjonalbiblioteket",
+              url: pageUrl,
+              retrievedAt: "2026-08-22",
+              fields: ["date", "status", "competition", "home.clubId", "away.clubId", "home.score", "away.score"],
+            });
+          }
+          if (msr && !targetMatch.sources.some((s: any) => s.sourceId === msr.sourceId)) {
+            targetMatch.sources.push({ sourceId: msr.sourceId });
+          }
         }
         alreadyPresentCount++;
         planItems.push({
@@ -724,7 +765,7 @@ export async function buildCanonicalPlan(): Promise<{
             {
               providerId: "nasjonalbiblioteket",
               url: pageUrl,
-              retrievedAt: "2026-08-21",
+              retrievedAt: "2026-08-22",
               fields: ["date", "status", "competition", "home.clubId", "away.clubId", "home.score", "away.score"],
             },
           ],
@@ -768,22 +809,37 @@ export async function buildCanonicalPlan(): Promise<{
     restSummary.source_reconciliation;
 
   const nonCommunityCount =
-    restSummary.non_senior + restSummary.different_event + (allCases.length - pilotCases.length);
+    restSummary.non_senior + restSummary.different_event + (allCases.length - batchCases.length);
+
+  let applicationRecord = {
+    readyInput: readyCases.length,
+    created: planItems.filter((i) => i.action === "create_match").length,
+    enriched: planItems.filter((i) => i.action === "enrich_existing_match").length,
+    alreadyPresent: planItems.filter((i) => i.action === "already_present").length,
+    blockedExistingConflict: planItems.filter((i) => i.action === "blocked_existing_conflict").length,
+    invalid: planItems.filter((i) => i.action === "invalid_input").length,
+    sourceResultsLinked,
+    observationsCreated: nbObservationsCreated,
+    filesWritten: matchesToCreate.size + matchesToUpdate.size + observationsToWrite.size,
+    newClubs,
+    canonicalMatchesDeleted,
+  };
+
+  try {
+    const existingRaw = await readFile(manifestOutputPath, "utf8");
+    const existing = parseYaml(existingRaw, { schema: "core" }) as any;
+    if (existing?.application && typeof existing.application === "object") {
+      applicationRecord = existing.application;
+    }
+  } catch {
+    // No previous manifest
+  }
 
   const plan: CanonicalizationResult = {
     contract: "nb-source-result-canonicalization@1",
-    generatedAt: "2026-08-21",
+    generatedAt: "2026-08-22",
     mode: "dry_run",
-    application: {
-      readyInput: 25,
-      created: 24,
-      enriched: 0,
-      invalid: 1,
-      sourceResultsLinked: 24,
-      observationsCreated: 24,
-      newClubs: 0,
-      canonicalMatchesDeleted: 0,
-    },
+    application: applicationRecord,
     idempotencyCheck: {
       created: planItems.filter((i) => i.action === "create_match").length,
       enriched: planItems.filter((i) => i.action === "enrich_existing_match").length,
@@ -794,6 +850,7 @@ export async function buildCanonicalPlan(): Promise<{
     },
     summary: {
       pr199ReadyInput: readyCases.length,
+      readyInput: readyCases.length,
       newCanonicalMatches,
       existingMatchesEnriched,
       alreadyPresent: alreadyPresentCount,
@@ -826,12 +883,16 @@ export async function buildCanonicalPlan(): Promise<{
     matchesToCreate,
     matchesToUpdate,
     observationsToWrite,
+    manifestOutputPath,
   };
 }
 
-export async function executeCanonicalization(apply: boolean = false): Promise<CanonicalizationResult> {
-  const root = repoRoot();
-  const { plan, sourceResultFiles, matchesToCreate, matchesToUpdate, observationsToWrite } = await buildCanonicalPlan();
+export async function executeCanonicalization(
+  apply: boolean = false,
+  options?: CanonicalPlanOptions
+): Promise<CanonicalizationResult> {
+  const { plan, sourceResultFiles, matchesToCreate, matchesToUpdate, observationsToWrite, manifestOutputPath } =
+    await buildCanonicalPlan(options);
 
   if (apply) {
     plan.mode = "applied";
@@ -865,9 +926,8 @@ export async function executeCanonicalization(apply: boolean = false): Promise<C
     }
 
     // 5. Write canonicalization manifest artifact
-    const manifestPath = `${root}/data/discovery/nb-source-result-canonicalization-1945-1984.yaml`;
-    await writeFile(manifestPath, stringifyYaml(plan), "utf8");
-    console.log(`\nSaved canonicalization manifest to ${manifestPath}`);
+    await writeFile(manifestOutputPath, stringifyYaml(plan), "utf8");
+    console.log(`\nSaved canonicalization manifest to ${manifestOutputPath}`);
   }
 
   return plan;
@@ -876,13 +936,32 @@ export async function executeCanonicalization(apply: boolean = false): Promise<C
 async function main() {
   const args = process.argv.slice(2);
   const isApply = args.includes("--apply");
+  const isWave2 =
+    args.includes("--wave2") ||
+    args.includes("--wave-2") ||
+    args.includes("wave_2") ||
+    args.includes("wave_2_1945_1954");
 
-  console.log(`=== NB Visual Review Canonicalization (1945-1984) [${isApply ? "APPLY" : "DRY-RUN / PLAN"}] ===\n`);
+  const options: CanonicalPlanOptions = isWave2
+    ? {
+        batch: "wave_2_1945_1954",
+        reviewStatus: "visually_reviewed_wave_2",
+        minYear: 1945,
+        maxYear: 1954,
+      }
+    : {
+        batch: "pilot",
+        reviewStatus: "visually_reviewed_pilot",
+        minYear: 1945,
+        maxYear: 1984,
+      };
 
-  const result = await executeCanonicalization(isApply);
+  console.log(`=== NB Visual Review Canonicalization [${options.batch}] [${isApply ? "APPLY" : "DRY-RUN / PLAN"}] ===\n`);
+
+  const result = await executeCanonicalization(isApply, options);
 
   console.log("Summary Metrics:");
-  console.log(`- PR199 Ready Input:            ${result.summary.pr199ReadyInput}`);
+  console.log(`- Ready Input:                  ${result.summary.readyInput}`);
   console.log(`- New Canonical Matches:        ${result.summary.newCanonicalMatches}`);
   console.log(`- Existing Matches Enriched:    ${result.summary.existingMatchesEnriched}`);
   console.log(`- Already Present / Idempotent: ${result.summary.alreadyPresent}`);

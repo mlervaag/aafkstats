@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1947-08-25-s2-molde-fk
+matchId: 1947-08-24-aalesunds-fk-molde-fk
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:dad91b801f57b8405a66ac219f1d0cd74e15b75be30246fc47c59325187238c9
+raw:
+  avis: Sunnmørsposten
+  dato: 1947-08-25
+  side: "2"
+  tittel: Sunnmørsposten 1947-08-25 s. 2
+  kamp: aalesunds-fk - molde-fk 3-0
+  url: https://www.nb.no/items/6907ff25365ef85e08332b354883414e?page=2
+normalized:
+  date: 1947-08-24
+  home.clubId: aalesunds-fk
+  away.clubId: molde-fk
+  home.score: 3
+  away.score: 0
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

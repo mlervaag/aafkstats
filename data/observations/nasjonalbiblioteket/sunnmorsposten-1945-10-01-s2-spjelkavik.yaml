@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1945-10-01-s2-spjelkavik
+matchId: 1945-09-30-spjelkavik-aalesunds-fk
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:6668f7573ef290762b28030a0a9d5c767b3638d3b17eada22e5dbcbaec1838bc
+raw:
+  avis: Sunnmørsposten
+  dato: 1945-10-01
+  side: "2"
+  tittel: Sunnmørsposten 1945-10-01 s. 2
+  kamp: spjelkavik - aalesunds-fk 1-6
+  url: https://www.nb.no/items/e0f36d21423b5538a6acd28c751c55f7?page=2
+normalized:
+  date: 1945-09-30
+  home.clubId: spjelkavik
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 6
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

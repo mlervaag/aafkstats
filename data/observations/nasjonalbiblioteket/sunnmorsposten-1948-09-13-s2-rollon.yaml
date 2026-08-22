@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1948-09-13-s2-rollon
+matchId: 1948-09-12-aalesunds-fk-rollon
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:1be79cb98ae56a3c2fd58008770897f79d8ec8e54d2176363b50c2ad4d9bc14b
+raw:
+  avis: Sunnmørsposten
+  dato: 1948-09-13
+  side: "2"
+  tittel: Sunnmørsposten 1948-09-13 s. 2
+  kamp: aalesunds-fk - rollon 1-0
+  url: https://www.nb.no/items/112690786cd38ed0c597a058310a7e76?page=2
+normalized:
+  date: 1948-09-12
+  home.clubId: aalesunds-fk
+  away.clubId: rollon
+  home.score: 1
+  away.score: 0
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

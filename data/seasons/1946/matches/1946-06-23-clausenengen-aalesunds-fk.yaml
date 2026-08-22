@@ -1,0 +1,44 @@
+id: 1946-06-23-clausenengen-aalesunds-fk
+date: 1946-06-23
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1946
+  stage: regular_season
+home:
+  clubId: clausenengen
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1946-06-24 s. 2
+    date: 1946-06-24
+    url: https://www.nb.no/items/8308a93a2da1e40182258f1f90969044?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/8308a93a2da1e40182258f1f90969044?page=2
+    retrievedAt: 2026-08-22
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1946-06-24 s. 2: Kampreferat for Clausenengen mot AaFK
+  (0–3) Norgesseriekvalifisering spilt 1946-06-23."

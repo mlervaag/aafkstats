@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1947-06-23-s3-clausenengen
+matchId: 1947-06-22-clausenengen-aalesunds-fk
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:8d23862a5bc6d39ff3a238c5eb71ab64367a85ae3ef44e29f75e7282477100a3
+raw:
+  avis: Sunnmørsposten
+  dato: 1947-06-23
+  side: "3"
+  tittel: Sunnmørsposten 1947-06-23 s. 3
+  kamp: clausenengen - aalesunds-fk 3-1
+  url: https://www.nb.no/items/b6cced862a3349fd201a3489760ec6ce?page=3
+normalized:
+  date: 1947-06-22
+  home.clubId: clausenengen
+  away.clubId: aalesunds-fk
+  home.score: 3
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

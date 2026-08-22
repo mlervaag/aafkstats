@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1945-07-30-s4-hodd
+matchId: 1945-07-29-hodd-aalesunds-fk
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:6faa6eda7314cb48bf89ddc676e409c95e279ab6960aa4ccd49cfb076633e0a5
+raw:
+  avis: Sunnmørsposten
+  dato: 1945-07-30
+  side: "4"
+  tittel: Sunnmørsposten 1945-07-30 s. 4
+  kamp: hodd - aalesunds-fk 2-1
+  url: https://www.nb.no/items/60424741dbae0cb92cc4bd2f47f52bf1?page=4
+normalized:
+  date: 1945-07-29
+  home.clubId: hodd
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

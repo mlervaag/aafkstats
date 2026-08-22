@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1948-04-22-s2-rollon
+matchId: 1948-04-21-aalesunds-fk-rollon
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:dca2d9d9b3c456d45deb88e8c13b5cfdae0a7f332b91d98fc39ce018fc829edc
+raw:
+  avis: Sunnmørsposten
+  dato: 1948-04-22
+  side: "2"
+  tittel: Sunnmørsposten 1948-04-22 s. 2
+  kamp: aalesunds-fk - rollon 7-0
+  url: https://www.nb.no/items/08c9a0530843ba6b7e1c703f4ac0b582?page=2
+normalized:
+  date: 1948-04-21
+  home.clubId: aalesunds-fk
+  away.clubId: rollon
+  home.score: 7
+  away.score: 0
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

@@ -61,6 +61,7 @@ export function formatPreservationConsole(result: FullPreservationResult): strin
   lines.push(pad("Safe enrichments:", summary.safeEnrichments, summary.safeEnrichments > 0 ? GREEN : RESET));
   lines.push(pad("Review required:", summary.reviewRequired, summary.reviewRequired > 0 ? YELLOW : RESET));
   lines.push(pad("Approved exceptions:", summary.approvedExceptions, summary.approvedExceptions > 0 ? CYAN : RESET));
+  lines.push(pad("Approved coordinate migrations:", summary.approvedCoordinateMigrations, summary.approvedCoordinateMigrations > 0 ? GREEN : RESET));
   lines.push(pad("Destructive changes:", summary.destructiveChanges, summary.destructiveChanges > 0 ? RED : RESET));
   lines.push("");
 
@@ -141,6 +142,7 @@ export function formatPreservationStepSummary(result: FullPreservationResult): s
   lines.push(`- **Archive files deleted:** ${summary.archiveFilesDeleted}`);
   lines.push(`- **Safe enrichments:** ${summary.safeEnrichments}`);
   lines.push(`- **Approved exceptions:** ${summary.approvedExceptions}`);
+  lines.push(`- **Approved coordinate migrations:** ${summary.approvedCoordinateMigrations}`);
   lines.push(`- **Destructive changes:** ${summary.destructiveChanges}`);
   lines.push("");
 

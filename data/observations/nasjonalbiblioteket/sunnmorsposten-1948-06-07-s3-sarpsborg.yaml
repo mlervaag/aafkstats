@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1948-06-07-s3-sarpsborg
+matchId: 1948-06-06-aalesunds-fk-sarpsborg
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:654d55845a0179f2790d046c0a4f48e71ca23d339cf86fab6dab69aa3029a879
+raw:
+  avis: Sunnmørsposten
+  dato: 1948-06-07
+  side: "3"
+  tittel: Sunnmørsposten 1948-06-07 s. 3
+  kamp: aalesunds-fk - sarpsborg 1-0
+  url: https://www.nb.no/items/832385a0c5b7df46d002cbdad244ab2c?page=3
+normalized:
+  date: 1948-06-06
+  home.clubId: aalesunds-fk
+  away.clubId: sarpsborg
+  home.score: 1
+  away.score: 0
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

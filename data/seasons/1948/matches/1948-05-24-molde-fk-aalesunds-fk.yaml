@@ -1,0 +1,44 @@
+id: 1948-05-24-molde-fk-aalesunds-fk
+date: 1948-05-24
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1948
+  stage: regular_season
+home:
+  clubId: molde-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1948-05-25 s. 2
+    date: 1948-05-25
+    url: https://www.nb.no/items/369d69683e89ce3530bc9f919893e497?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/369d69683e89ce3530bc9f919893e497?page=2
+    retrievedAt: 2026-08-22
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1948-05-25 s. 2: Kampreferat for Molde mot AaFK (0–1) 1.
+  divisjon spilt 1948-05-24."

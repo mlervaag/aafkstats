@@ -1,0 +1,44 @@
+id: 1947-10-05-aalesunds-fk-clausenengen
+date: 1947-10-05
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1947
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 5
+  halfTimeScore: null
+away:
+  clubId: clausenengen
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1947-10-07 s. 2
+    date: 1947-10-07
+    url: https://www.nb.no/items/9d85cccdb561bff9502b52fc81e9ae86?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/9d85cccdb561bff9502b52fc81e9ae86?page=2
+    retrievedAt: 2026-08-22
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1947-10-07 s. 2: Kampreferat for AaFK mot Clausenengen
+  (5–1) 1. divisjon spilt 1947-10-05."

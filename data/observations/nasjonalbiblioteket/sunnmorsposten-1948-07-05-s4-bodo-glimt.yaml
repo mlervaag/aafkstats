@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1948-07-05-s4-bodo-glimt
+matchId: 1948-07-04-aalesunds-fk-bodo-glimt
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:e9e8e907f3686def3ca5172385a2d84d0f9e5b19e8a5b32c87c339d3eb801424
+raw:
+  avis: Sunnmørsposten
+  dato: 1948-07-05
+  side: "4"
+  tittel: Sunnmørsposten 1948-07-05 s. 4
+  kamp: aalesunds-fk - bodo-glimt 3-0
+  url: https://www.nb.no/items/426361cb3f79aeeb8a6636e8cd93ea1e?page=4
+normalized:
+  date: 1948-07-04
+  home.clubId: aalesunds-fk
+  away.clubId: bodo-glimt
+  home.score: 3
+  away.score: 0
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

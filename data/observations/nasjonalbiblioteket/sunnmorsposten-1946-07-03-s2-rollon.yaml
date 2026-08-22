@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1946-07-03-s2-rollon
+matchId: 1946-07-02-aalesunds-fk-rollon
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:41b5462ea0b5e03a0ca734bdcd1a5d8fff233b23178466a3c96b3befb58e5fdf
+raw:
+  avis: Sunnmørsposten
+  dato: 1946-07-03
+  side: "2"
+  tittel: Sunnmørsposten 1946-07-03 s. 2
+  kamp: aalesunds-fk - rollon 6-0
+  url: https://www.nb.no/items/64e7e414e8d045f5e3f470cdc226b68d?page=2
+normalized:
+  date: 1946-07-02
+  home.clubId: aalesunds-fk
+  away.clubId: rollon
+  home.score: 6
+  away.score: 0
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

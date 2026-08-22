@@ -8,7 +8,8 @@ export type PreservationStatus =
   | "SAFE_ENRICHMENT"
   | "REVIEW_REQUIRED"
   | "DESTRUCTIVE_CHANGE"
-  | "APPROVED_EXCEPTION";
+  | "APPROVED_EXCEPTION"
+  | "APPROVED_COORDINATE_MIGRATION";
 
 export interface PreservationChangeDetail {
   entity: "person" | "source" | "source_result" | "match" | "observation" | "organization_snapshot";

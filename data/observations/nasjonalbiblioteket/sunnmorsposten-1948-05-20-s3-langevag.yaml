@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1948-05-20-s3-langevag
+matchId: 1948-05-17-langevag-aalesunds-fk
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:234eeb6c6d53ab50d5e0bc48644b36b812994a669e4c0c18988257b87f62741b
+raw:
+  avis: Sunnmørsposten
+  dato: 1948-05-20
+  side: "3"
+  tittel: Sunnmørsposten 1948-05-20 s. 3
+  kamp: langevag - aalesunds-fk 5-2
+  url: https://www.nb.no/items/7296eeedf43258308f8872c3ab3b4fda?page=3
+normalized:
+  date: 1948-05-17
+  home.clubId: langevag
+  away.clubId: aalesunds-fk
+  home.score: 5
+  away.score: 2
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

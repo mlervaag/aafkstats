@@ -36,8 +36,7 @@ describe("NB community research wave 1", () => {
     );
 
     expect(rollon?.category).toBe("sibling_resolution");
-    expect(rollon?.candidateOptions.map((option) => option.no)).toEqual([2, 4, 6, 9, 13, 36]);
-    expect(rollon?.candidateOptions.find((option) => option.no === 9)?.label).toContain("3–1 mot Rollon");
+    expect(rollon?.candidateOptions.map((option) => option.no)).toEqual([13, 15, 28]);
     expect(rollon?.expectedAnswerShape).toContain("none_of_these");
     expect(rollon?.expectedAnswerShape).toContain("inconclusive");
   });

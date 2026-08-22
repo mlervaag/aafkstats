@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1947-07-08-s2-drafn
+matchId: 1947-07-07-aalesunds-fk-drafn
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:acf6685d25895d7af2f76cbd13d9b3dd173890da68cf812646013df8cc69e493
+raw:
+  avis: Sunnmørsposten
+  dato: 1947-07-08
+  side: "2"
+  tittel: Sunnmørsposten 1947-07-08 s. 2
+  kamp: aalesunds-fk - drafn 3-2
+  url: https://www.nb.no/items/01e473e5fa6692201018538cf037503e?page=2
+normalized:
+  date: 1947-07-07
+  home.clubId: aalesunds-fk
+  away.clubId: drafn
+  home.score: 3
+  away.score: 2
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

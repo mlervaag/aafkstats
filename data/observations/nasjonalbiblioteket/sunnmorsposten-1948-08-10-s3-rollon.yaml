@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1948-08-10-s3-rollon
+matchId: 1948-08-09-aalesunds-fk-rollon
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:ad79b9c8457ff2efb0818c84ce316905e57cd4b412d88e713edde337d48dfc99
+raw:
+  avis: Sunnmørsposten
+  dato: 1948-08-10
+  side: "3"
+  tittel: Sunnmørsposten 1948-08-10 s. 3
+  kamp: aalesunds-fk - rollon 6-3
+  url: https://www.nb.no/items/f54e090366a31bf62854d5ddd9e7d71e?page=3
+normalized:
+  date: 1948-08-09
+  home.clubId: aalesunds-fk
+  away.clubId: rollon
+  home.score: 6
+  away.score: 3
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

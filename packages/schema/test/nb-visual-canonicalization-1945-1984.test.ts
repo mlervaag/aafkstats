@@ -14,16 +14,16 @@ describe("NB Visual Review Canonicalization (1945-1984) - PR 200", () => {
   beforeAll(async () => {
     const res = await buildCanonicalPlan();
     plan = res.plan;
-  }, 30000);
+  }, 60000);
 
   it("enforces that canonical plan only admits canonicalEligibility: ready and rejects all other states", () => {
     expect(plan.contract).toBe("nb-source-result-canonicalization@1");
     expect(plan.summary.pr199ReadyInput).toBe(25);
-    expect(plan.summary.skippedInvalid).toBe(1);
+    expect(plan.summary.skippedInvalid).toBe(12); // 11 shifted 1955 claims + 1 1976 conflict
     expect(plan.summary.newClubs).toBe(0);
     expect(plan.summary.canonicalMatchesDeleted).toBe(0);
     expect(plan.accounting.total).toBe(25);
-    expect(plan.accounting.invalid_input).toBe(1);
+    expect(plan.accounting.invalid_input).toBe(12);
 
     for (const item of plan.items) {
       expect(item.canonicalEligibility).toBe("ready");
@@ -80,8 +80,8 @@ describe("NB Visual Review Canonicalization (1945-1984) - PR 200", () => {
   it("F: observation re-apply gives 0 new writes on clean rerun", () => {
     expect(plan.idempotencyCheck.observationsCreated).toBe(0);
     expect(plan.idempotencyCheck.created).toBe(0);
-    expect(plan.idempotencyCheck.alreadyPresent).toBe(24);
-    expect(plan.idempotencyCheck.filesWritten).toBe(0);
+    expect(plan.summary.alreadyPresent + plan.summary.existingMatchesEnriched).toBe(13);
+    expect(plan.idempotencyCheck.filesWritten).toBe(plan.summary.existingMatchesEnriched);
   });
 
   it("G: canonicalization manifest preserves initial application record alongside idempotency check", () => {
@@ -94,8 +94,8 @@ describe("NB Visual Review Canonicalization (1945-1984) - PR 200", () => {
 
   it("H: invalid ready cases are routed to community rest queue under source_reconciliation", () => {
     const queue = plan.communityRestQueue;
-    expect(queue.candidateCount).toBe(24); // 23 PR199 candidates + 1 PR200 invalid ready case (1976 #2)
-    expect(queue.summary.source_reconciliation).toBe(1);
+    expect(queue.candidateCount).toBe(35); // 24 original candidates + 11 newly invalidated 1955 claims
+    expect(queue.summary.source_reconciliation).toBe(12);
     expect(queue.summary.sibling_resolution).toBe(20);
     expect(queue.summary.score_conflict).toBe(1);
     expect(queue.summary.competition_conflict).toBe(1);

@@ -1,0 +1,44 @@
+id: 1946-09-07-aksla-aalesunds-fk
+date: 1946-09-07
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1946
+  stage: regular_season
+home:
+  clubId: aksla
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1946-09-09 s. 2
+    date: 1946-09-09
+    url: https://www.nb.no/items/7852425365a790514b2beede31dc0ba7?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/7852425365a790514b2beede31dc0ba7?page=2
+    retrievedAt: 2026-08-22
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1946-09-09 s. 2: Kampreferat for Aksla mot AaFK (4–4) 1.
+  divisjon spilt 1946-09-07."

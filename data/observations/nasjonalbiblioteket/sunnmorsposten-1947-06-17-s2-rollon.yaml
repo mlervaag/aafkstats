@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1947-06-17-s2-rollon
+matchId: 1947-06-15-aalesunds-fk-rollon
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:fd91b1817f7cdaa53417a27943f0b71bfc44c39b0683e632daaf27a40b51b5eb
+raw:
+  avis: Sunnmørsposten
+  dato: 1947-06-17
+  side: "2"
+  tittel: Sunnmørsposten 1947-06-17 s. 2
+  kamp: aalesunds-fk - rollon 3-0
+  url: https://www.nb.no/items/df0e19babdb39bed17297c49680c04ed?page=2
+normalized:
+  date: 1947-06-15
+  home.clubId: aalesunds-fk
+  away.clubId: rollon
+  home.score: 3
+  away.score: 0
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

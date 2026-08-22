@@ -367,6 +367,225 @@ function findArchiveException(
   return undefined;
 }
 
+export interface CoordinateMigrationItem {
+  oldCoordinate: {
+    sourceId: string;
+    season: number;
+    no: number;
+    hypothesisId?: string;
+  };
+  newCoordinate: {
+    sourceId: string;
+    season: number;
+    no: number;
+    hypothesisId?: string;
+  };
+  claim?: {
+    opponent?: string;
+    score?: [number, number] | string;
+    page?: number | string;
+    note?: string;
+    opponentClubId?: string;
+    extraTime?: boolean;
+    resultGroupId?: string;
+  };
+  hadMatchId?: string;
+  action?: string;
+  matchAction?: string;
+}
+
+export interface CoordinateMigrationManifest {
+  contract: string;
+  summary?: {
+    totalMovedRows?: number;
+    totalRenumberedRows?: number;
+  };
+  movedItems?: CoordinateMigrationItem[];
+  renumberedItems?: CoordinateMigrationItem[];
+}
+
+export interface VerifiedMigration {
+  manifest: CoordinateMigrationManifest;
+  sourceId: string;
+  normalizedBaseRaw: any;
+  movedItems: CoordinateMigrationItem[];
+  renumberedItems: CoordinateMigrationItem[];
+  matchUnlinks: Map<string, CoordinateMigrationItem>;
+}
+
+export function verifySourceResultMigration(
+  manifest: CoordinateMigrationManifest,
+  baseRaw: unknown,
+  headRaw: unknown,
+): { valid: boolean; error?: string; verified?: VerifiedMigration } {
+  if (!isPlainObject(baseRaw) || !isPlainObject(headRaw)) {
+    return { valid: false, error: "BASE or HEAD source_result is not an object" };
+  }
+
+  const sourceId = ((headRaw as any).sourceId || (baseRaw as any).sourceId) as string;
+  if (!sourceId) return { valid: false, error: "Missing sourceId" };
+
+  const moved = manifest.movedItems || [];
+  const renumbered = manifest.renumberedItems || [];
+  const allItems = [...moved, ...renumbered];
+  if (allItems.length === 0) return { valid: false, error: "No items in migration manifest" };
+
+  // Check 1: Bijection - unique old coordinates
+  const oldKeys = new Set<string>();
+  for (const item of allItems) {
+    const key = `${item.oldCoordinate.season}:${item.oldCoordinate.no}`;
+    if (oldKeys.has(key)) {
+      return { valid: false, error: `Duplicate oldCoordinate ${key} in migration manifest` };
+    }
+    oldKeys.add(key);
+  }
+
+  // Check 2: Bijection - unique new coordinates
+  const newKeys = new Set<string>();
+  for (const item of allItems) {
+    const key = `${item.newCoordinate.season}:${item.newCoordinate.no}`;
+    if (newKeys.has(key)) {
+      return { valid: false, error: `Duplicate newCoordinate ${key} in migration manifest` };
+    }
+    newKeys.add(key);
+  }
+
+  // Check 3: Index all base claims
+  const baseSeasons = ((baseRaw as any).seasons || []) as any[];
+  const baseClaims = new Map<string, any>();
+  for (const s of baseSeasons) {
+    for (const r of s.results || []) {
+      baseClaims.set(`${s.year}:${r.no}`, { season: s.year, ...r });
+    }
+  }
+
+  // Check 4: Index all head claims
+  const headSeasons = ((headRaw as any).seasons || []) as any[];
+  const headClaims = new Map<string, any>();
+  for (const s of headSeasons) {
+    for (const r of s.results || []) {
+      headClaims.set(`${s.year}:${r.no}`, { season: s.year, ...r });
+    }
+  }
+
+  // Check 5: Total claim count invariant
+  if (baseClaims.size !== headClaims.size) {
+    return {
+      valid: false,
+      error: `Total claims count changed from ${baseClaims.size} in BASE to ${headClaims.size} in HEAD`,
+    };
+  }
+
+  // Check 6: Validate each migrated claim against BASE and HEAD
+  const matchUnlinks = new Map<string, CoordinateMigrationItem>();
+
+  for (const item of allItems) {
+    const oldKey = `${item.oldCoordinate.season}:${item.oldCoordinate.no}`;
+    const newKey = `${item.newCoordinate.season}:${item.newCoordinate.no}`;
+
+    const baseClaim = baseClaims.get(oldKey);
+    if (!baseClaim) {
+      return { valid: false, error: `Old claim ${oldKey} not found in BASE` };
+    }
+
+    const headClaim = headClaims.get(newKey);
+    if (!headClaim) {
+      return { valid: false, error: `New claim ${newKey} not found in HEAD` };
+    }
+
+    // Historical facts comparison
+    if (baseClaim.opponent !== headClaim.opponent) {
+      return {
+        valid: false,
+        error: `Opponent mismatch at ${oldKey} -> ${newKey}: BASE='${baseClaim.opponent}', HEAD='${headClaim.opponent}'`,
+      };
+    }
+    if (stableKey(baseClaim.score) !== stableKey(headClaim.score)) {
+      return {
+        valid: false,
+        error: `Score mismatch at ${oldKey} -> ${newKey}: BASE=${stableKey(baseClaim.score)}, HEAD=${stableKey(headClaim.score)}`,
+      };
+    }
+    if (String(baseClaim.page ?? "") !== String(headClaim.page ?? "")) {
+      return {
+        valid: false,
+        error: `Page mismatch at ${oldKey} -> ${newKey}: BASE='${baseClaim.page}', HEAD='${headClaim.page}'`,
+      };
+    }
+    if ((baseClaim.note || "") !== (headClaim.note || "")) {
+      return {
+        valid: false,
+        error: `Note mismatch at ${oldKey} -> ${newKey}: BASE='${baseClaim.note}', HEAD='${headClaim.note}'`,
+      };
+    }
+    if (baseClaim.opponentClubId && baseClaim.opponentClubId !== headClaim.opponentClubId) {
+      return {
+        valid: false,
+        error: `opponentClubId mismatch at ${oldKey} -> ${newKey}`,
+      };
+    }
+    if (baseClaim.extraTime !== undefined && baseClaim.extraTime !== headClaim.extraTime) {
+      return {
+        valid: false,
+        error: `extraTime mismatch at ${oldKey} -> ${newKey}`,
+      };
+    }
+
+    if (item.hadMatchId && item.matchAction === "KEEP_MATCH_REMOVE_SOURCE_LINK") {
+      matchUnlinks.set(item.hadMatchId, item);
+    }
+  }
+
+  // Construct normalized baseRaw where claims are at new coordinates
+  const newBaseSeasonsMap = new Map<number, any[]>();
+
+  for (const [key, claim] of baseClaims) {
+    const migration = allItems.find(
+      (m) => `${m.oldCoordinate.season}:${m.oldCoordinate.no}` === key,
+    );
+    const targetSeason = migration ? migration.newCoordinate.season : claim.season;
+    const targetNo = migration ? migration.newCoordinate.no : claim.no;
+
+    const normalizedClaim = { ...claim, no: targetNo };
+    delete normalizedClaim.season;
+    if (migration?.matchAction === "KEEP_MATCH_REMOVE_SOURCE_LINK") {
+      delete normalizedClaim.matchId;
+    }
+    if (migration && migration.oldCoordinate.season !== migration.newCoordinate.season) {
+      delete normalizedClaim.resultGroupId;
+    }
+
+    if (!newBaseSeasonsMap.has(targetSeason)) {
+      newBaseSeasonsMap.set(targetSeason, []);
+    }
+    newBaseSeasonsMap.get(targetSeason)!.push(normalizedClaim);
+  }
+
+  const normalizedBaseSeasons = Array.from(newBaseSeasonsMap.entries())
+    .sort(([y1], [y2]) => y1 - y2)
+    .map(([year, results]) => ({
+      year,
+      results: results.sort((a, b) => a.no - b.no),
+    }));
+
+  const normalizedBaseRaw = {
+    ...(baseRaw as any),
+    seasons: normalizedBaseSeasons,
+  };
+
+  return {
+    valid: true,
+    verified: {
+      manifest,
+      sourceId,
+      normalizedBaseRaw,
+      movedItems: moved,
+      renumberedItems: renumbered,
+      matchUnlinks,
+    },
+  };
+}
+
 export interface ArchivePreservationInput {
   domain: ArchiveDomain;
   /** Rådata fra BASE, nøklet på entitets-ID. */
@@ -382,24 +601,48 @@ export interface ArchivePreservationResult {
   filesDeleted: number;
   destructiveChanges: number;
   approvedExceptions: number;
+  approvedCoordinateMigrations: number;
 }
 
 /**
  * Kjører bevaringskontroll over alle arkivdomener utenom `data/people/`.
- *
- * Kontrollen er bevisst generisk: den kjenner ikke feltene i den enkelte
- * entiteten, men håndhever at BASE er en strukturell delmengde av HEAD. Det
- * gjør at nye felter i datamodellen automatisk får bevaringsvern uten at denne
- * filen må oppdateres.
  */
 export function runArchivePreservationAudit(
   inputs: ArchivePreservationInput[],
   exceptions: PreservationException[] = [],
+  migrations: CoordinateMigrationManifest[] = [],
 ): ArchivePreservationResult {
   const changes: PreservationChangeDetail[] = [];
   const usedExceptions = new Set<PreservationException>();
   let entitiesChecked = 0;
   let filesDeleted = 0;
+  let approvedCoordinateMigrations = 0;
+
+  // Validate all migration manifests against source_result domain
+  const verifiedMigrationsBySource = new Map<string, VerifiedMigration>();
+  const matchUnlinks = new Map<string, { item: CoordinateMigrationItem; sourceId: string }>();
+
+  const sourceResultInput = inputs.find((i) => i.domain === "source_result");
+  if (sourceResultInput) {
+    for (const manifest of migrations) {
+      const sourceId =
+        manifest.movedItems?.[0]?.oldCoordinate?.sourceId ||
+        manifest.renumberedItems?.[0]?.oldCoordinate?.sourceId;
+      if (!sourceId) continue;
+
+      const baseRaw = sourceResultInput.base.get(sourceId);
+      const headRaw = sourceResultInput.head.get(sourceId);
+      if (baseRaw && headRaw) {
+        const verifyRes = verifySourceResultMigration(manifest, baseRaw, headRaw);
+        if (verifyRes.valid && verifyRes.verified) {
+          verifiedMigrationsBySource.set(sourceId, verifyRes.verified);
+          for (const [mId, item] of verifyRes.verified.matchUnlinks) {
+            matchUnlinks.set(mId, { item, sourceId });
+          }
+        }
+      }
+    }
+  }
 
   for (const input of inputs) {
     for (const [id, baseRaw] of input.base) {
@@ -422,9 +665,86 @@ export function runArchivePreservationAudit(
         continue;
       }
 
+      // Check if this entity is a source_result covered by verified migration
+      if (input.domain === "source_result" && verifiedMigrationsBySource.has(id)) {
+        const verified = verifiedMigrationsBySource.get(id)!;
+        const removals = diffStructuralAdditivity(verified.normalizedBaseRaw, headRaw, "", {
+          domain: input.domain,
+        });
+
+        // Add approved migration details
+        for (const item of [...verified.movedItems, ...verified.renumberedItems]) {
+          approvedCoordinateMigrations += 1;
+          changes.push({
+            entity: "source_result",
+            id,
+            path: `seasons/${item.newCoordinate.season}/results/${item.newCoordinate.no}`,
+            changeType: "mutate",
+            status: "APPROVED_COORDINATE_MIGRATION",
+            message: `Kildepåstand ${item.oldCoordinate.season} #${item.oldCoordinate.no} («${item.claim?.opponent || ""} ${Array.isArray(item.claim?.score) ? item.claim?.score.join("-") : item.claim?.score || ""}») er flyttet til ${item.newCoordinate.season} #${item.newCoordinate.no} via godkjent koordinatmigrering`,
+            baseValue: { season: item.oldCoordinate.season, no: item.oldCoordinate.no },
+            headValue: { season: item.newCoordinate.season, no: item.newCoordinate.no },
+          });
+        }
+
+        // Report any other removals
+        for (const removal of removals) {
+          const normalizedPath = removal.path.replace(/^\//, "") || "root";
+          const ex = findArchiveException(
+            input.domain,
+            id,
+            normalizedPath,
+            removal.changeType,
+            exceptions,
+            usedExceptions,
+          );
+          changes.push({
+            entity: input.domain,
+            id,
+            path: normalizedPath,
+            changeType: removal.changeType,
+            status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+            message: `${input.domain} «${id}»: ${removal.message}`,
+            baseValue: removal.baseValue,
+            headValue: removal.headValue,
+            exception: ex,
+          });
+        }
+        continue;
+      }
+
       const removals = diffStructuralAdditivity(baseRaw, headRaw, "", { domain: input.domain });
       for (const removal of removals) {
         const normalizedPath = removal.path.replace(/^\//, "") || "root";
+
+        // Special handling for match source unlinking caused by verified coordinate migration
+        if (
+          input.domain === "match" &&
+          (normalizedPath === "sources" || normalizedPath.startsWith("sources/")) &&
+          matchUnlinks.has(id)
+        ) {
+          const unlinkInfo = matchUnlinks.get(id)!;
+          const headMatch = headRaw as any;
+          const hasIndependentEvidence =
+            (Array.isArray(headMatch.providers) && headMatch.providers.length > 0) ||
+            (Array.isArray(headMatch.externalReports) && headMatch.externalReports.length > 0);
+
+          if (hasIndependentEvidence) {
+            approvedCoordinateMigrations += 1;
+            changes.push({
+              entity: "match",
+              id,
+              path: normalizedPath,
+              changeType: removal.changeType,
+              status: "APPROVED_COORDINATE_MIGRATION",
+              message: `match «${id}»: Kildereferanse til «${unlinkInfo.sourceId}» fjernet etter godkjent årsforskyvning. Kampens uavhengige bevisgrunnlag er bevart.`,
+              baseValue: removal.baseValue,
+              headValue: removal.headValue,
+            });
+            continue;
+          }
+        }
+
         const ex = findArchiveException(
           input.domain,
           id,
@@ -463,5 +783,6 @@ export function runArchivePreservationAudit(
     filesDeleted,
     destructiveChanges,
     approvedExceptions,
+    approvedCoordinateMigrations,
   };
 }

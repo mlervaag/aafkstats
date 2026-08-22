@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1946-07-10-s2-kvik-halden
+matchId: 1946-07-09-aalesunds-fk-kvik-halden
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:273b358005474269469799de6018e66c17c61667ebc4b53aafca6795d08bcb02
+raw:
+  avis: Sunnmørsposten
+  dato: 1946-07-10
+  side: "2"
+  tittel: Sunnmørsposten 1946-07-10 s. 2
+  kamp: aalesunds-fk - kvik-halden 2-1
+  url: https://www.nb.no/items/d9c564e9a1673473bf18cd492ae874a4?page=2
+normalized:
+  date: 1946-07-09
+  home.clubId: aalesunds-fk
+  away.clubId: kvik-halden
+  home.score: 2
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

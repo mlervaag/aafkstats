@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1945-09-24-s2-volda
+matchId: 1945-09-22-aalesunds-fk-volda
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:6b5a9c5905dc058dca081b0eff9b52665e6c7b11e1643c4a50fcb96f52ab815f
+raw:
+  avis: Sunnmørsposten
+  dato: 1945-09-24
+  side: "2"
+  tittel: Sunnmørsposten 1945-09-24 s. 2
+  kamp: aalesunds-fk - volda 3-1
+  url: https://www.nb.no/items/ac1930ce85ae61e7d60b0d3b61161fd0?page=2
+normalized:
+  date: 1945-09-22
+  home.clubId: aalesunds-fk
+  away.clubId: volda
+  home.score: 3
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

@@ -1,0 +1,44 @@
+id: 1947-05-11-aalesunds-fk-kfk
+date: 1947-05-11
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1947
+  stage: friendly
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: kfk
+  score: 3
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1947-05-13 s. 2
+    date: 1947-05-13
+    url: https://www.nb.no/items/40cfa2eaed29bfd2d3fbf079d35fb813?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/40cfa2eaed29bfd2d3fbf079d35fb813?page=2
+    retrievedAt: 2026-08-22
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1947-05-13 s. 2: Kampreferat for AaFK mot KFK (3–3)
+  privatkamp spilt 1947-05-11."

@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1948-04-20-s2-skarbovik
+matchId: 1948-04-18-aalesunds-fk-skarbovik
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:5c2adf38a707da5b270c12dba28d21f51bf40d8c46b8c6767c6a444453e12c29
+raw:
+  avis: Sunnmørsposten
+  dato: 1948-04-20
+  side: "2"
+  tittel: Sunnmørsposten 1948-04-20 s. 2
+  kamp: aalesunds-fk - skarbovik 1-0
+  url: https://www.nb.no/items/b107ba78b88ee1481d0fdd46f1eb03ba?page=2
+normalized:
+  date: 1948-04-18
+  home.clubId: aalesunds-fk
+  away.clubId: skarbovik
+  home.score: 1
+  away.score: 0
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

@@ -1,0 +1,44 @@
+id: 1947-06-15-aalesunds-fk-rollon
+date: 1947-06-15
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1947
+  stage: friendly
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: rollon
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1947-06-17 s. 2
+    date: 1947-06-17
+    url: https://www.nb.no/items/df0e19babdb39bed17297c49680c04ed?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/df0e19babdb39bed17297c49680c04ed?page=2
+    retrievedAt: 2026-08-22
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1947-06-17 s. 2: Kampreferat for AaFK mot Rollon (3–0)
+  finale Skarbøvik IFs baneinnvielse spilt 1947-06-15."

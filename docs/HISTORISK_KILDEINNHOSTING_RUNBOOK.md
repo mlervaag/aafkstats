@@ -94,6 +94,8 @@ Disse kjernereglene er etablert direkte på grunnlag av erfaringer og avdekkede 
 | Identisk opptrykk (reprint) ser ut som to uavhengige kilder | PR #156 | Reprints merkes eksplisitt med `duplicate_publication` / `reprint` |
 | Sesongtotal og eksplisitte enkeltresultater ble blandet | PR #156 | Én metrikk har én entydig definisjon; sesongtotaler brukes som kontrollsum |
 | Én gjennomgått sourceId er ikke nødvendigvis hele årgangen | Videre analyse | Obligatorisk Source Inventory før review starter |
+| Årskontekst-lekkasje ved spalte- eller sideskift i retrospektive tabeller | PR #205 | For retrospektive flerspalters resultatlister er årstallet en del av kildepåstandens evidens. Ved side- eller spalteskift skal parser/reviewer eksplisitt føre `activeYearHeading`, og representativ grensekontroll (første/siste rad før og etter skifte) er obligatorisk |
+| Source-result-koordinater er del av claim-identiteten; review kan ikke arves blindt ved flytting | PR #205 | En source-result-koordinat (`sourceId + season + no`) er en uatskillelig del av claim-identiteten. Hvis en kildepåstand flyttes eller renummereres, må tidligere visuell review aldri automatisk migreres til den nye claimen. Gammel review bevares som superseded, og den nye claimen krever ny visuell review (`REQUIRES_REVIEW`). |
 
 ---
 

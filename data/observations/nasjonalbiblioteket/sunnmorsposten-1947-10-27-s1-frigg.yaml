@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1947-10-27-s1-frigg
+matchId: 1947-10-26-aalesunds-fk-frigg
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:409dfe18c380aa1fe8c4287a27c1e7ba27c6c5d7c42c1bf6a3a69ae2fc1d4974
+raw:
+  avis: Sunnmørsposten
+  dato: 1947-10-27
+  side: "1"
+  tittel: Sunnmørsposten 1947-10-27 s. 1
+  kamp: aalesunds-fk - frigg 3-3
+  url: https://www.nb.no/items/06c6294bc3f1fc99072c75ca51bf3494?page=1
+normalized:
+  date: 1947-10-26
+  home.clubId: aalesunds-fk
+  away.clubId: frigg
+  home.score: 3
+  away.score: 3
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

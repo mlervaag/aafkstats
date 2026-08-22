@@ -1,0 +1,44 @@
+id: 1948-04-18-aalesunds-fk-skarbovik
+date: 1948-04-18
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1948
+  stage: friendly
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: skarbovik
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1948-04-20 s. 2
+    date: 1948-04-20
+    url: https://www.nb.no/items/b107ba78b88ee1481d0fdd46f1eb03ba?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/b107ba78b88ee1481d0fdd46f1eb03ba?page=2
+    retrievedAt: 2026-08-22
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1948-04-20 s. 2: Kampreferat for AaFK mot Skarbøvik (1–0)
+  privatkamp spilt 1948-04-18."
