@@ -1,0 +1,40 @@
+id: 1964-07-16-vigra-il-aalesunds-fk
+date: 1964-07-16
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1964
+  stage: regular_season
+home:
+  clubId: vigra-il
+  score: 0
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 15
+  halfTimeScore: 8
+neutralVenue: false
+events: []
+report:
+  summary: AaFK vant 15-0 over Vigra på Roald og ledet 8-0 ved pause.
+  body: Sunnmørsposten omtalte seieren som ny klubbrekord, men skrev bare at den visstnok forbedret en rekord fra 1920-årene. AaFK spilte 4-2-4 og brente et straffespark. Etter omtrent 20 minutter av andre omgang kom det niende målet. Oskar Pedersen ble flyttet fram de siste 20 minuttene og scoret fire, inkludert det 15. målet. Stakkeng scoret fire, Garshol to og Finnes ett. Leif B. Aarø og Bror Johansen nevnes også blant målscorerne, uten sikre individuelle tall. Godo og Sigm. Andersen delte dommeroppgaven.
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Klubbrekord av ÅFK - 15-0 mot Vigra
+    date: 1964-07-17
+    url: https://www.nb.no/items/b81904fa45d1c4f005743fdfa7c4c0d8?page=2
+    quote: ÅFKs kamp mot Vigra på Roald endte 15-0 for gjestene.
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/b81904fa45d1c4f005743fdfa7c4c0d8?page=2
+    retrievedAt: 2026-08-22
+    fields: [date, status, competition, home.clubId, away.clubId, home.score, away.score, home.halfTimeScore, away.halfTimeScore]
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: Kampen ble spilt på Roald; avisen identifiserer ikke sikkert et formelt stadionnavn.

@@ -2187,17 +2187,17 @@ reviews:
     sameMatch: true
     score:
       status: confirmed
-      aafk: 3
-      opponent: 1
+      aafk: 15
+      opponent: 0
     matchDate:
-      value: '1964-06-14'
+      value: '1964-07-16'
       confidence: high
-    homeAway: home
+    homeAway: away
     competition:
-      value: 2. divisjon
-      confidence: high
+      value: treningskamp
+      confidence: medium
     seniorTeam: true
-    reason: Siden omtaler 2. divisjonskampen søndag 14. juni 1964 på Aksla stadion der AaFK slo Vigra 3-1.
+    reason: Sunnmørsposten 17.07.1964 s. 2 omtaler kampen på Roald dagen før, der AaFK som gjester slo Vigra 15-0. Resultatet samsvarer med source-resultet og avisen omtaler seieren som ny klubbrekord.
     flags: []
   - candidateId: nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-013
     answer: 'yes'
