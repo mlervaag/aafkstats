@@ -198,10 +198,11 @@ export async function buildCanonicalPlan(): Promise<{
   }
 
   const allCases: VisualReviewCase[] = manifest.cases || [];
-  const readyCases = allCases.filter((c) => c.canonicalEligibility === "ready");
+  const pilotCases = allCases.filter((c) => c.reviewStatus === "visually_reviewed_pilot");
+  const readyCases = pilotCases.filter((c) => c.canonicalEligibility === "ready");
 
   // Community rest queue accounting
-  const nonReadyCases = allCases.filter((c) => c.canonicalEligibility !== "ready");
+  const nonReadyCases = pilotCases.filter((c) => c.canonicalEligibility !== "ready");
   const restSummary = {
     sibling_resolution: 0,
     date_research: 0,
@@ -215,9 +216,7 @@ export async function buildCanonicalPlan(): Promise<{
   };
 
   for (const c of nonReadyCases) {
-    if (c.reviewStatus === "unreviewed_awaiting_visual_batch") {
-      restSummary.unreviewed_awaiting_visual_batch++;
-    } else if (c.claimResolution === "non_senior" || c.canonicalEligibility === "non_senior") {
+    if (c.claimResolution === "non_senior" || c.canonicalEligibility === "non_senior") {
       restSummary.non_senior++;
     } else if (c.claimResolution === "different_event") {
       restSummary.different_event++;
@@ -769,7 +768,7 @@ export async function buildCanonicalPlan(): Promise<{
     restSummary.source_reconciliation;
 
   const nonCommunityCount =
-    restSummary.non_senior + restSummary.different_event + restSummary.unreviewed_awaiting_visual_batch;
+    restSummary.non_senior + restSummary.different_event + (allCases.length - pilotCases.length);
 
   const plan: CanonicalizationResult = {
     contract: "nb-source-result-canonicalization@1",

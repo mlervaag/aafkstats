@@ -135,12 +135,12 @@ describe("NB Visual Review Canonicalization (1945-1984) - PR 200", () => {
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
     const manifest = parseYaml(manifestRaw, { schema: "core" });
 
-    const nonReady = manifest.cases.filter((c: any) => c.canonicalEligibility !== "ready");
-    expect(nonReady.length).toBe(611); // 636 total - 25 ready = 611
+    const pilotNonReady = manifest.cases.filter((c: any) => c.reviewStatus === "visually_reviewed_pilot" && c.canonicalEligibility !== "ready");
+    expect(pilotNonReady.length).toBe(35); // 60 pilot total - 25 ready = 35
 
     const canonicalHypothesisIds = new Set(plan.items.map((i) => i.hypothesisId));
 
-    for (const nr of nonReady) {
+    for (const nr of pilotNonReady) {
       expect(canonicalHypothesisIds.has(nr.hypothesisId)).toBe(false);
     }
   });

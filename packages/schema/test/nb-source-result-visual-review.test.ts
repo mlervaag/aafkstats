@@ -20,11 +20,20 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
     const manifest = parseYaml(manifestRaw, { schema: "core" });
 
+    const pilotCases = manifest.cases.filter((c: any) => c.reviewStatus === "visually_reviewed_pilot");
+    const wave2Cases = manifest.cases.filter((c: any) => c.reviewStatus === "visually_reviewed_wave_2");
+    const unreviewedCases = manifest.cases.filter((c: any) => c.reviewStatus === "unreviewed_awaiting_visual_batch");
+
     expect(manifest.contract).toBe("nb-source-result-visual-review@1");
     expect(manifest.decisionGate).toBe("VISUAL_REVIEW_IN_PROGRESS");
     expect(manifest.cases.length).toBe(636);
-    expect(manifest.scope.visuallyReviewedPilotCases).toBe(60);
-    expect(manifest.scope.unreviewedAwaitingBatch).toBe(576);
+    expect(pilotCases.length).toBe(60);
+    expect(wave2Cases.length).toBe(62);
+    expect(unreviewedCases.length).toBe(514);
+    expect(manifest.scope.visuallyReviewedPilotCases).toBe(pilotCases.length);
+    expect(manifest.scope.visuallyReviewedWave2Cases).toBe(wave2Cases.length);
+    expect(manifest.scope.unreviewedAwaitingBatch).toBe(unreviewedCases.length);
+    expect(pilotCases.length + wave2Cases.length + unreviewedCases.length).toBe(636);
   });
 
   it("verifies year-aware historical division parsing logic", () => {
@@ -72,7 +81,7 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
     expect(eventClaims.length).toBeGreaterThan(0);
 
     const eventSet = new Map<string, string>();
-    const pageSet = new Map<string, string>();
+    const pageSet = new Map<string, { hypothesisId: string; eventKey: string }>();
 
     for (const c of eventClaims) {
       const activeCand = c.reviewedCandidates[0];
@@ -83,9 +92,47 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
       eventSet.set(eventKey, c.hypothesisId);
 
       const pageKey = getPhysicalPageKey(activeCand);
-      expect(pageSet.has(pageKey), `Duplicate physical page claimed by ${c.hypothesisId} and ${pageSet.get(pageKey)} on ${pageKey}`).toBe(false);
-      pageSet.set(pageKey, c.hypothesisId);
+      if (pageSet.has(pageKey)) {
+        const prev = pageSet.get(pageKey)!;
+        expect(prev.eventKey).not.toBe(eventKey);
+      } else {
+        pageSet.set(pageKey, { hypothesisId: c.hypothesisId, eventKey });
+      }
     }
+  });
+
+  it("collision gate regression: same page + different match is allowed; same page + same match or duplicate event is blocked", () => {
+    const pageMap = new Map<string, { hypothesisId: string; eventKey: string }>();
+    const eventMap = new Map<string, string>();
+
+    function evaluateClaim(hId: string, pageKey: string, eventKey: string): { allowed: boolean; reason?: string } {
+      if (eventMap.has(eventKey)) {
+        return { allowed: false, reason: "duplicate_event" };
+      }
+      if (pageMap.has(pageKey)) {
+        const prev = pageMap.get(pageKey)!;
+        if (prev.eventKey === eventKey) {
+          return { allowed: false, reason: "page_and_event_collision" };
+        }
+      }
+      eventMap.set(eventKey, hId);
+      pageMap.set(pageKey, { hypothesisId: hId, eventKey });
+      return { allowed: true };
+    }
+
+    // A: 1945 Sunnmørsposten 1945-09-24 p. 2 (different matches) -> ALLOWED
+    const c1 = evaluateClaim("1945-016", "item1|p2", "1945|volda|1945-09-22");
+    const c2 = evaluateClaim("1945-013", "item1|p2", "1945|rollon|1945-09-23");
+    expect(c1.allowed).toBe(true);
+    expect(c2.allowed).toBe(true);
+
+    // B: same page + same match + competing hypothesis -> BLOCKED
+    const c3 = evaluateClaim("1945-017", "item1|p2", "1945|volda|1945-09-22");
+    expect(c3.allowed).toBe(false);
+
+    // C: different page + same match + competing hypothesis -> BLOCKED
+    const c4 = evaluateClaim("1945-099", "item2|p4", "1945|volda|1945-09-22");
+    expect(c4.allowed).toBe(false);
   });
 
   it("regression: Rollon 1955 #9 and #13 cannot both claim the same 1955-03-06 match on the same physical page with conflicting scores", async () => {
@@ -260,14 +307,31 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
     }
   });
 
-  it("verifies second-pass audit coverage across all 4 periods and checks adjudication propagation", async () => {
+  it("verifies second-pass audit mathematical invariants and adjudication propagation", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
     const manifest = parseYaml(manifestRaw, { schema: "core" });
 
     const audit = manifest.secondPassAudit;
     expect(audit).toBeDefined();
-    expect(audit.sampleSize).toBe(30);
+    expect(audit.cases.length).toBe(92);
+
+    const actualAgreed = audit.cases.filter((c: any) => c.agreed === true).length;
+    const actualDisagreed = audit.cases.filter((c: any) => c.agreed === false).length;
+
+    expect(audit.sampleSize).toBe(audit.cases.length);
+    expect(audit.agreed).toBe(actualAgreed);
+    expect(audit.disagreed).toBe(actualDisagreed);
+    expect(audit.agreed + audit.disagreed).toBe(audit.sampleSize);
+    expect(audit.agreementRate).toBe(Number((actualAgreed / audit.cases.length).toFixed(4)));
+
+    // Sub-sections: pilot, wave2_1945_1954, cumulative
+    expect(audit.pilot.sampleSize).toBe(30);
+    expect(audit.pilot.agreed).toBe(29);
+    expect(audit.pilot.disagreed).toBe(1);
+    expect(audit.wave2_1945_1954.sampleSize).toBe(62);
+    expect(audit.wave2_1945_1954.agreed).toBe(62);
+    expect(audit.wave2_1945_1954.disagreed).toBe(0);
 
     const p1Count = audit.cases.filter((s: any) => s.season >= 1945 && s.season <= 1954).length;
     const p2Count = audit.cases.filter((s: any) => s.season >= 1955 && s.season <= 1964).length;
@@ -286,6 +350,36 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
         expect(mainCase.canonicalEligibility).toBe(s.adjudication.final);
       }
     }
+  });
+
+  it("proves that frozen 1945-1954 Wave 2 selection matches reviewed Wave 2 cases exactly", async () => {
+    const root = repoRoot();
+    const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
+    const manifest = parseYaml(manifestRaw, { schema: "core" });
+
+    const frozen1945to1954Ids = manifest.productionWave2Selection.selectedHypothesisIds.filter((id: string) => {
+      const c = manifest.cases.find((x: any) => x.hypothesisId === id);
+      return c && c.season >= 1945 && c.season <= 1954;
+    });
+    const reviewedWave2_1945to1954Ids = manifest.cases
+      .filter((c: any) => c.reviewStatus === "visually_reviewed_wave_2")
+      .map((c: any) => c.hypothesisId);
+
+    expect(frozen1945to1954Ids.length).toBe(62);
+    expect(reviewedWave2_1945to1954Ids.length).toBe(62);
+    expect(new Set(reviewedWave2_1945to1954Ids)).toEqual(new Set(frozen1945to1954Ids));
+
+    // Verify atomic sibling group integrity (no group split, no extra, no missing)
+    const wave2Cases = manifest.cases.filter((c: any) => c.reviewStatus === "visually_reviewed_wave_2");
+    const singletons = wave2Cases.filter((c: any) => c.isSingleton);
+    const siblingClaims = wave2Cases.filter((c: any) => !c.isSingleton);
+    const siblingGroups = new Set(siblingClaims.map((c: any) => c.siblingGroup?.id).filter(Boolean));
+
+    expect(singletons.length).toBe(25);
+    expect(siblingClaims.length).toBe(37);
+    expect(siblingGroups.size).toBe(12);
+    expect(singletons.length + siblingClaims.length).toBe(62);
+    expect(singletons.length + siblingGroups.size).toBe(37); // 37 atomic review units
   });
 
   it("verifies that productionWave2Selection is frozen, atomic and stratified (DEL 2)", async () => {
@@ -383,12 +477,13 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
     // G & H: accounting sums must equal total hypotheses (636)
     expect(manifest.cases.length).toBe(636);
     const pilotReviewed = manifest.cases.filter((c: any) => c.reviewStatus === "visually_reviewed_pilot").length;
+    const wave2Reviewed = manifest.cases.filter((c: any) => c.reviewStatus === "visually_reviewed_wave_2").length;
     const awaitingBatch = manifest.cases.filter((c: any) => c.reviewStatus === "unreviewed_awaiting_visual_batch").length;
-    expect(pilotReviewed + awaitingBatch).toBe(636);
-
-    // I: Pilot 60 cases are preserved and unchanged
     expect(pilotReviewed).toBe(60);
-    expect(manifest.cases.filter((c: any) => c.canonicalEligibility === "ready").length).toBe(25);
+    expect(wave2Reviewed).toBe(62);
+    expect(awaitingBatch).toBe(514);
+    expect(pilotReviewed + wave2Reviewed + awaitingBatch).toBe(636);
+    expect(manifest.cases.filter((c: any) => c.canonicalEligibility === "ready").length).toBe(61);
 
     // J: PR 200 canonical matches (24) are untouched
     const seasonsDir = `${root}/data/seasons`;
