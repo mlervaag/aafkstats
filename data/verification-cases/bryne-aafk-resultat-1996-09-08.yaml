@@ -1,5 +1,5 @@
 id: bryne-aafk-resultat-1996-09-08
-status: open
+status: resolved
 category: match
 claim: AaFK vant 14–0 borte mot Bryne 8. september 1996.
 question: Vant AaFK 14–0 borte mot Bryne 8. september 1996?
@@ -15,3 +15,8 @@ searchHint: Se i Sunnmørsposten 9. september 1996, Stavanger Aftenblad, Brynes 
 estimatedMinutes: 15
 priority: 100
 publishedAt: 2026-08-13
+resolution:
+  answer: no
+  reason: NIFS-kampfakta for kamp 8381 oppgir Bryne–AaFK 1–4. Det tidligere 0–14-resultatet var en feil i NFF-datasettet og er erstattet med det dokumenterte resultatet.
+  resolvedAt: 2026-08-22
+  issueUrl: https://github.com/mlervaag/aafkstats-inbox/issues/10

@@ -1,0 +1,22 @@
+id: nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1954-7-score-conflict
+status: resolved
+category: match
+claim: Arkivets kildedokumenterte oppføring sier 1–0 mot Rollon i 1954.
+question: Hvilket resultat mot Rollon kan kildene samlet sett støtte?
+context: Medlemsbladets kampoversikt fortsetter over et sideskift uten gjentatt årsoverskrift og inneholder flere separate Rollon-kamper.
+whyItMatters: Kampene må beholdes som separate hendelser med riktig turnering og resultat.
+yesMeaning: Avisen og medlemsbladet beskriver samme kamp med samme resultat.
+noMeaning: Kildene beskriver forskjellige kamper.
+instructions: ["Skill seriekampen fra jubileumsturneringene.", "Bevar alle separate kildepåstander."]
+target: { type: source, id: medlemsblad-for-aalesunds-fotb-1965-a2c9, field: seasons.1954.results.7.matchIdentity }
+sources:
+  - { sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9, page: "13", role: context, note: Fører 1–0-kampen i Rollons jubileumsturnering. }
+  - { providerId: nasjonalbiblioteket, page: "4", role: contradicts, note: Sunnmørsposten 12. august 1954 dokumenterer en annen Rollon-kamp. }
+estimatedMinutes: 5
+priority: 85
+publishedAt: 2026-08-22
+resolution:
+  answer: no
+  reason: Kildene beskriver forskjellige hendelser. Medlemsbladets 1–0 gjelder Rollons jubileumsturnering, mens seriekampen mot Rollon endte 5–3; sideskiftet i årsoversikten forklarer sammenblandingen.
+  resolvedAt: 2026-08-22
+  issueUrl: https://github.com/mlervaag/aafkstats-inbox/issues/9
