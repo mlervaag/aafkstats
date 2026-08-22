@@ -170,6 +170,9 @@ describe("verifiseringskøen", () => {
     expect(html).toContain("Se absolutt alle mangler og lister");
     expect(html).toContain('href="/mangler"');
     expect(html).toContain('href="/mangler/saker"');
+    expect(html).toContain('href="/mangler/saker?type=avisresearch"');
+    expect(html).toContain('href="/mangler/saker?type=avis"');
+    expect(html).toContain('href="/mangler/saker?type=direkte"');
   });
 
   it("lover ikke et totaltall før ventende innsendelser er kontrollert", () => {

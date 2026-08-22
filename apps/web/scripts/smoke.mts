@@ -138,7 +138,7 @@ const checks: Check[] = [
   // hele tatt. At denne filen finnes er halve testen.
   {
     page: "kilder",
-    must: ["Datakilder og kildebruk", "AaFK Medlemsblad", "Serier og faste utgivelser", "akseptert risiko"],
+    must: ["Datakilder og kildebruk", "AaFK Medlemsblad", "Serier og faste utgivelser", "Vår beslutning"],
   },
   {
     page: "kilder/aafk-90-ar-1914-2004",
