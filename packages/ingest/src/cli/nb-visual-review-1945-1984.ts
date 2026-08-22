@@ -82,7 +82,7 @@ export interface VisualReviewCase {
   hypothesisId: string;
   season: number;
   isSingleton: boolean;
-  reviewStatus: "visually_reviewed_pilot" | "unreviewed_awaiting_visual_batch";
+  reviewStatus: "visually_reviewed_pilot" | "visually_reviewed_wave_2" | "unreviewed_awaiting_visual_batch";
   selectedForWave2?: boolean;
   siblingGroup?: {
     id: string;
@@ -137,6 +137,7 @@ export async function auditVisualReviewManifest(): Promise<{
   summary: {
     totalHypotheses: number;
     visuallyReviewedPilotCases: number;
+    visuallyReviewedWave2Cases: number;
     unreviewedAwaitingBatch: number;
     exactMatchCount: number;
     exactSiblingCount: number;
@@ -146,7 +147,7 @@ export async function auditVisualReviewManifest(): Promise<{
     wrongEventCount: number;
     insufficientCount: number;
     canonicalReadyCount: number;
-    pilotVisualResolutionRate: number;
+    visualResolutionRate: number;
     secondPassAgreementRate: number;
   };
   errors: string[];
@@ -174,22 +175,20 @@ export async function auditVisualReviewManifest(): Promise<{
     }
   }
 
-  const validCandidateIds = new Set<string>();
-  for (const h of candidatesData.hypotheses) {
-    if (h.candidates) {
-      for (const cand of h.candidates) {
-        validCandidateIds.add(cand.candidateId);
-      }
-    }
-  }
-
   const errors: string[] = [];
   const cases: VisualReviewCase[] = manifest.cases || [];
 
-  // 1. Validate pilot selection stratification
+  const validCandidateIds = new Set<string>();
+  for (const c of candidatesData.hypotheses || []) {
+    for (const cand of c.candidates || []) {
+      validCandidateIds.add(cand.candidateId);
+    }
+  }
+
+  // 1. Validate Stratified Pilot Selection
   const pilotSel = manifest.pilotSelection;
   if (!pilotSel) {
-    errors.push("Manifest is missing pilotSelection metadata");
+    errors.push("Missing pilotSelection section in manifest");
   } else {
     if (pilotSel.periods?.["1945-1954"] !== 15) {
       errors.push(`Pilot selection period 1945-1954 expected 15, found ${pilotSel.periods?.["1945-1954"]}`);
@@ -205,7 +204,8 @@ export async function auditVisualReviewManifest(): Promise<{
     }
   }
 
-  let visuallyReviewedCasesCount = 0;
+  let visuallyReviewedPilotCasesCount = 0;
+  let visuallyReviewedWave2CasesCount = 0;
   let exactMatchCount = 0;
   let exactSiblingCount = 0;
   let siblingGroupOnlyCount = 0;
@@ -253,7 +253,9 @@ export async function auditVisualReviewManifest(): Promise<{
 
   for (const c of cases) {
     if (c.reviewStatus === "visually_reviewed_pilot") {
-      visuallyReviewedCasesCount++;
+      visuallyReviewedPilotCasesCount++;
+    } else if (c.reviewStatus === "visually_reviewed_wave_2") {
+      visuallyReviewedWave2CasesCount++;
     }
 
     if (c.claimResolution === "exact_match") exactMatchCount++;
@@ -427,8 +429,9 @@ export async function auditVisualReviewManifest(): Promise<{
 
   const summary = {
     totalHypotheses: cases.length,
-    visuallyReviewedPilotCases: visuallyReviewedCasesCount,
-    unreviewedAwaitingBatch: cases.length - visuallyReviewedCasesCount,
+    visuallyReviewedPilotCases: visuallyReviewedPilotCasesCount,
+    visuallyReviewedWave2Cases: visuallyReviewedWave2CasesCount,
+    unreviewedAwaitingBatch: cases.length - (visuallyReviewedPilotCasesCount + visuallyReviewedWave2CasesCount),
     exactMatchCount,
     exactSiblingCount,
     siblingGroupOnlyCount,
@@ -437,8 +440,8 @@ export async function auditVisualReviewManifest(): Promise<{
     wrongEventCount,
     insufficientCount,
     canonicalReadyCount,
-    pilotVisualResolutionRate: visuallyReviewedCasesCount > 0
-      ? Number(((exactMatchCount + exactSiblingCount) / visuallyReviewedCasesCount).toFixed(4))
+    visualResolutionRate: (visuallyReviewedPilotCasesCount + visuallyReviewedWave2CasesCount) > 0
+      ? Number(((exactMatchCount + exactSiblingCount) / (visuallyReviewedPilotCasesCount + visuallyReviewedWave2CasesCount)).toFixed(4))
       : 0,
     secondPassAgreementRate: secondPassAudit?.agreementRate ?? 0,
   };

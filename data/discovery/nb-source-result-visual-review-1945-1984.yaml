@@ -47,14 +47,33 @@ blindGroundTruthSample:
     - sunnmore-fotballkrets-arsrapport-1977#1977-001 (Bergsøy 1977 1-0)
     - sunnmore-fotballkrets-arsrapport-1975#1975-001 (Træff 1975)
 scope:
+  fromYear: 1945
+  toYear: 1984
+  totalUnlinkedSourceResults: 636
   totalHypotheses: 636
-  visuallyReviewedPilotCases: 122
+  visuallyReviewedPilotCases: 60
+  visuallyReviewedWave2Cases: 62
   unreviewedAwaitingBatch: 514
 secondPassAudit:
   sampleSize: 92
-  agreed: 29
+  agreed: 91
   disagreed: 1
   agreementRate: 0.9891
+  pilot:
+    sampleSize: 30
+    agreed: 29
+    disagreed: 1
+    agreementRate: 0.9667
+  wave2_1945_1954:
+    sampleSize: 62
+    agreed: 62
+    disagreed: 0
+    agreementRate: 1
+  cumulative:
+    sampleSize: 92
+    agreed: 91
+    disagreed: 1
+    agreementRate: 0.9891
   cases:
     - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-001
       season: 1945
@@ -1331,8 +1350,6 @@ secondPassAudit:
         notes: Uavhengig re-inspeksjon av faksimile bekrefter first-pass observasjon for
           Langevåg (1948).
       agreed: true
-  agreements: 91
-  disagreements: 1
 cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-001
     season: 1945
@@ -2011,7 +2028,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-007
     season: 1945
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1945|spjelkavik
       size: 1
@@ -2063,8 +2080,8 @@ cases:
               spilt i Spjelkavik søndag 1945-09-30 (Spjelkavik-AFK 1-6)."
           homeAway: away
           competition:
-            value: kretskamp A-klassen
-            competitionId: treningskamp
+            value: Kretskamp A-klassen
+            competitionId: sondmore-kreds-klasse-a
             confidence: high
           competitionResolution: source_unspecified
           homeAwayResolution: agrees
@@ -2082,7 +2099,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-010
     season: 1945
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1945|herdakslaskarbvik
       size: 1
@@ -2149,7 +2166,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-011
     season: 1945
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1945|kfk
       size: 1
@@ -2220,7 +2237,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-012
     season: 1945
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1945|hodd
       size: 1
@@ -2272,8 +2289,8 @@ cases:
               spilt i Ulsteinvik søndag 1945-07-29 (Hødd-AFK 2-1)."
           homeAway: away
           competition:
-            value: kretskamp A-klassen
-            competitionId: treningskamp
+            value: Kretskamp A-klassen
+            competitionId: sondmore-kreds-klasse-a
             confidence: high
           competitionResolution: source_unspecified
           homeAwayResolution: agrees
@@ -2291,7 +2308,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-016
     season: 1945
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1945|volda
       size: 2
@@ -2350,8 +2367,8 @@ cases:
               3-1)."
           homeAway: home
           competition:
-            value: kretskamp A-klassen
-            competitionId: treningskamp
+            value: Kretskamp A-klassen
+            competitionId: sondmore-kreds-klasse-a
             confidence: high
           competitionResolution: source_unspecified
           homeAwayResolution: source_unspecified
@@ -2369,7 +2386,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-017
     season: 1945
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1945|volda
       size: 2
@@ -2438,7 +2455,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-018
     season: 1945
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1945|trffmolde
       size: 1
@@ -2509,7 +2526,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-001
     season: 1946
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1946|rollon
       size: 4
@@ -2593,7 +2610,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-018
     season: 1946
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1946|rollon
       size: 4
@@ -2674,7 +2691,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-019
     season: 1946
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1946|rollon
       size: 4
@@ -2749,7 +2766,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-022
     season: 1946
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1946|rollon
       size: 4
@@ -2830,7 +2847,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-002
     season: 1946
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1946|molde-fk
       size: 2
@@ -2903,7 +2920,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-004
     season: 1946
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1946|molde-fk
       size: 2
@@ -2972,7 +2989,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-003
     season: 1946
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1946|kfk
       size: 3
@@ -3055,7 +3072,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-013
     season: 1946
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1946|kfk
       size: 3
@@ -3128,7 +3145,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-016
     season: 1946
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1946|kfk
       size: 3
@@ -3200,7 +3217,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-005
     season: 1946
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1946|kfkimolde
       size: 1
@@ -3265,7 +3282,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-006
     season: 1946
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1946|kvik-halden
       size: 1
@@ -3336,7 +3353,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-008
     season: 1946
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1946|veblungsnes
       size: 1
@@ -3440,7 +3457,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-010
     season: 1946
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1946|skjermdanmark
       size: 1
@@ -3505,7 +3522,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-011
     season: 1946
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1946|braatt
       size: 1
@@ -3571,7 +3588,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-012
     season: 1946
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1946|nordsjklubben
       size: 2
@@ -3642,7 +3659,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-014
     season: 1946
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1946|nordsjklubben
       size: 2
@@ -3709,7 +3726,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-017
     season: 1946
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1946|aksla
       size: 3
@@ -3786,7 +3803,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-020
     season: 1946
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1946|aksla
       size: 3
@@ -3863,7 +3880,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-021
     season: 1946
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1946|aksla
       size: 3
@@ -3969,7 +3986,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-024
     season: 1946
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1946|clausenengen
       size: 1
@@ -4041,7 +4058,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-001
     season: 1947
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1947|rollon
       size: 5
@@ -4130,7 +4147,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-009
     season: 1947
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1947|rollon
       size: 5
@@ -4216,7 +4233,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-010
     season: 1947
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1947|rollon
       size: 5
@@ -4295,7 +4312,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-016
     season: 1947
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1947|rollon
       size: 5
@@ -4375,7 +4392,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-018
     season: 1947
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1947|rollon
       size: 5
@@ -4454,7 +4471,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-002
     season: 1947
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1947|kfk
       size: 3
@@ -4537,7 +4554,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-007
     season: 1947
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1947|kfk
       size: 3
@@ -4614,7 +4631,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-014
     season: 1947
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1947|kfk
       size: 3
@@ -4691,7 +4708,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-004
     season: 1947
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1947|drballklubb
       size: 1
@@ -4762,7 +4779,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-005
     season: 1947
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1947|frigg
       size: 1
@@ -4833,7 +4850,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-006
     season: 1947
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1947|valdemarsviksverige
       size: 1
@@ -4935,7 +4952,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-012
     season: 1947
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1947|clausenengen
       size: 3
@@ -5018,7 +5035,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-015
     season: 1947
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1947|clausenengen
       size: 3
@@ -5095,7 +5112,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-020
     season: 1947
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1947|clausenengen
       size: 3
@@ -5172,7 +5189,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-013
     season: 1947
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1947|molde-fk
       size: 1
@@ -5243,7 +5260,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-001
     season: 1948
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1948|skarbovik
       size: 1
@@ -5314,7 +5331,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-002
     season: 1948
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1948|aksla
       size: 1
@@ -5380,7 +5397,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-003
     season: 1948
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1948|molde-fk
       size: 3
@@ -5457,7 +5474,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-017
     season: 1948
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1948|molde-fk
       size: 3
@@ -5534,7 +5551,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-021
     season: 1948
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1948|molde-fk
       size: 3
@@ -5611,7 +5628,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-004
     season: 1948
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1948|orsta
       size: 1
@@ -5682,7 +5699,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-005
     season: 1948
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1948|treffmolde
       size: 1
@@ -5753,7 +5770,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-006
     season: 1948
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1948|glimtbod
       size: 1
@@ -5824,7 +5841,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-007
     season: 1948
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1948|snggnotodden
       size: 1
@@ -5892,7 +5909,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-008
     season: 1948
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1948|lynoslo
       size: 1
@@ -5963,7 +5980,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-009
     season: 1948
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1948|halsinglandkretslagsverige
       size: 1
@@ -5987,7 +6004,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-010
     season: 1948
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1948|sarpsborg
       size: 1
@@ -6058,7 +6075,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-011
     season: 1948
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1948|rollon
       size: 5
@@ -6153,7 +6170,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-012
     season: 1948
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1948|rollon
       size: 5
@@ -6238,7 +6255,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-014
     season: 1948
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1948|rollon
       size: 5
@@ -6324,7 +6341,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-016
     season: 1948
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1948|rollon
       size: 5
@@ -6406,7 +6423,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-019
     season: 1948
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1948|rollon
       size: 5
@@ -6491,7 +6508,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-013
     season: 1948
     isSingleton: true
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1948|langevag
       size: 1
@@ -6562,7 +6579,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-018
     season: 1948
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1948|kfk
       size: 2
@@ -6639,7 +6656,7 @@ cases:
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-023
     season: 1948
     isSingleton: false
-    reviewStatus: visually_reviewed_pilot
+    reviewStatus: visually_reviewed_wave_2
     siblingGroup:
       id: 1948|kfk
       size: 2
@@ -28757,3 +28774,8 @@ productionWave2Selection:
     - medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-027
     - medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-029
     - medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-034
+wave2Progress:
+  1945-1954: complete
+  1955-1964: pending
+  1965-1974: pending
+  1975-1984: not_applicable
