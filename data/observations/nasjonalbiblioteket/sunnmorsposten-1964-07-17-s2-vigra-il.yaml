@@ -1,0 +1,21 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1964-07-17-s2-vigra-il
+matchId: 1964-07-16-vigra-il-aalesunds-fk
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:789b6310c2eebe75d7c4f53007f6280ced5ee4e5c9908159fd6ae840c8db2d5a
+raw:
+  avis: Sunnmørsposten
+  dato: 1964-07-17
+  side: "2"
+  tittel: Klubbrekord av ÅFK - 15-0 mot Vigra
+  kamp: vigra-il - aalesunds-fk 0-15
+  url: https://www.nb.no/items/b81904fa45d1c4f005743fdfa7c4c0d8?page=2
+normalized:
+  date: 1964-07-16
+  home.clubId: vigra-il
+  away.clubId: aalesunds-fk
+  home.score: 0
+  away.score: 15
+fields: [date, home.clubId, away.clubId, home.score, away.score]
+warnings: []

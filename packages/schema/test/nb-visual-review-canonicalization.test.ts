@@ -11,6 +11,10 @@ describe("kanonisering av visuell NB-review med streng faksimile-reaudit (PR 196
     await readFile(`${root}/data/discovery/nb-canonical-review-audit.yaml`, "utf8"),
     { schema: "core" }
   );
+  const followupManifest = parseYaml(
+    await readFile(`${root}/data/discovery/nb-visual-review-followup.yaml`, "utf8"),
+    { schema: "core" },
+  );
 
   it("A. Tidligere ground-truth-abstentions kan ikke bli canonical_ready uten eksplisitt overstyring", () => {
     const priorCases = auditManifest.cases.filter((c: any) => c.facsimileReaudit.priorGroundTruthCheck.hasConflict);
@@ -63,9 +67,9 @@ describe("kanonisering av visuell NB-review med streng faksimile-reaudit (PR 196
     }
   });
 
-  it("E. Strukturert facsimileReaudit med alle porter bestått kanoniserer nøyaktig 21 kamper", () => {
+  it("E. Strukturert facsimileReaudit med alle porter bestått kanoniserer nøyaktig 22 kamper", () => {
     const readyCases = auditManifest.cases.filter((c: any) => c.facsimileReaudit.disposition === "canonical_ready");
-    expect(readyCases.length).toBe(21);
+    expect(readyCases.length).toBe(22);
 
     for (const rc of readyCases) {
       expect(rc.facsimileReaudit.visuallyReviewed).toBe(true);
@@ -81,9 +85,9 @@ describe("kanonisering av visuell NB-review med streng faksimile-reaudit (PR 196
     }
   });
 
-  it("F. visuallyReviewed er true KUN for de 21 nylig auditerte og de 2 med prior ground-truth", () => {
+  it("F. visuallyReviewed er true KUN for de 22 nylig auditerte og de 2 med prior ground-truth", () => {
     const verifiedCases = auditManifest.cases.filter((c: any) => c.facsimileReaudit.visuallyReviewed === true);
-    expect(verifiedCases.length).toBe(23); // 21 canonical ready + 2 prior ground truth stopped
+    expect(verifiedCases.length).toBe(24); // 22 canonical ready + 2 prior ground truth stopped
 
     for (const vc of verifiedCases) {
       const isCanonicalReady = vc.facsimileReaudit.disposition === "canonical_ready";
@@ -94,14 +98,14 @@ describe("kanonisering av visuell NB-review med streng faksimile-reaudit (PR 196
     }
 
     const nonReviewed = auditManifest.cases.filter((c: any) => c.facsimileReaudit.visuallyReviewed === false);
-    expect(nonReviewed.length).toBe(86);
+    expect(nonReviewed.length).toBe(85);
     for (const nr of nonReviewed) {
       expect(nr.facsimileReaudit.provisional).toBe(true);
       expect(["deterministic_gate", "prior_wave_review"]).toContain(nr.facsimileReaudit.reviewBasis);
     }
   });
 
-  it("oppretter gyldige NB-observasjoner med payloadHash for alle 21 kanoniserte saker", () => {
+  it("oppretter gyldige NB-observasjoner med payloadHash for alle 22 kanoniserte saker", () => {
     const readyCases = auditManifest.cases.filter((c: any) => c.facsimileReaudit.disposition === "canonical_ready");
     for (const rc of readyCases) {
       const matchDate = rc.facsimileReaudit.matchDate.value;
@@ -112,5 +116,19 @@ describe("kanonisering av visuell NB-review med streng faksimile-reaudit (PR 196
       expect(match).toBeDefined();
       expect(match?.providers.some((p) => p.providerId === "nasjonalbiblioteket")).toBe(true);
     }
+  });
+
+  it("bevarer fasit for Vigra 1964 ved regenerering", () => {
+    const vigra = auditManifest.cases.find(
+      (item: any) => item.candidateId === "nb-cand-medlemsblad-for-aalesunds-fotb-1965-a2c9-1964-010",
+    );
+    expect(vigra?.facsimileReaudit).toMatchObject({
+      disposition: "canonical_ready",
+      score: { aafk: 15, opponent: 0 },
+      matchDate: { value: "1964-07-16" },
+      homeAway: "away",
+      competition: { competitionId: "treningskamp" },
+    });
+    expect(followupManifest.cases.some((item: any) => item.candidateId === vigra.candidateId)).toBe(false);
   });
 });
