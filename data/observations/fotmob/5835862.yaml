@@ -1,18 +1,22 @@
 providerId: fotmob
 externalId: "5835862"
 matchId: 2026-08-22-langevag-aalesunds-fk
-retrievedAt: 2026-08-12
-adapter: fotmob@3
-payloadHash: sha256:3a55be7cea0e843edf70833c3794f019823bd32e306281d947f2ab7f3bcc76e8
+retrievedAt: 2026-08-22
+adapter: fotmob@5
+payloadHash: sha256:7b0d64da69e3be7d99fc356ae67b6cd92f2e55a9dc9c0c15eabaa00384e5fabc
 raw:
   externalId: "5835862"
   date: 2026-08-22
   kickoff: 14:00
-  status: scheduled
+  status: FT
   home: Langevåg
   homeId: "2307"
   away: Aalesund
   awayId: "8404"
+  homeScore: 0
+  awayScore: 13
+  homeHalfTime: 0
+  awayHalfTime: 5
   competition: Cup
   competitionId: "206"
   season: 2026
@@ -22,9 +26,13 @@ raw:
 normalized:
   date: 2026-08-22
   kickoff: 14:00
-  status: scheduled
+  status: played
   home.clubId: langevag
   away.clubId: aalesunds-fk
+  home.score: 0
+  away.score: 13
+  home.halfTimeScore: 0
+  away.halfTimeScore: 5
   competition.id: nm
   competition.season: 2026
   competition.round: 1
@@ -37,6 +45,11 @@ fields:
   - competition
   - home.clubId
   - away.clubId
+  - home.score
+  - away.score
   - competition.round
   - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
 warnings: []
