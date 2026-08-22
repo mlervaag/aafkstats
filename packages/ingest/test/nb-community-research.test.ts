@@ -32,11 +32,11 @@ describe("NB community research wave 1", () => {
 
   it("viser alle seks Rollon-alternativene uten å forhåndsvelge scoretreffet", async () => {
     const rollon = manifest.items.find((item) =>
-      item.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-022",
+      item.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-013",
     );
 
     expect(rollon?.category).toBe("sibling_resolution");
-    expect(rollon?.candidateOptions.map((option) => option.no)).toEqual([7, 11, 13, 15, 18, 22]);
+    expect(rollon?.candidateOptions.map((option) => option.no)).toEqual([13, 15, 28]);
     expect(rollon?.expectedAnswerShape).toContain("none_of_these");
     expect(rollon?.expectedAnswerShape).toContain("inconclusive");
   });

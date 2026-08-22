@@ -11,28 +11,28 @@ application:
   newClubs: 0
   canonicalMatchesDeleted: 0
 idempotencyCheck:
-  created: 36
+  created: 0
   enriched: 0
-  alreadyPresent: 0
-  sourceResultsLinked: 36
-  observationsCreated: 36
-  filesWritten: 72
+  alreadyPresent: 36
+  sourceResultsLinked: 0
+  observationsCreated: 0
+  filesWritten: 0
 summary:
   pr199ReadyInput: 36
   readyInput: 36
-  newCanonicalMatches: 36
+  newCanonicalMatches: 0
   existingMatchesEnriched: 0
-  alreadyPresent: 0
-  sourceResultsLinked: 36
-  nbObservationsCreated: 36
+  alreadyPresent: 36
+  sourceResultsLinked: 0
+  nbObservationsCreated: 0
   blockedExistingConflicts: 0
   skippedInvalid: 0
   newClubs: 0
   canonicalMatchesDeleted: 0
 accounting:
-  created: 36
+  created: 0
   enriched_existing: 0
-  already_present: 0
+  already_present: 36
   blocked_existing_conflict: 0
   invalid_input: 0
   total: 36
@@ -74,7 +74,8 @@ items:
       pageUrl: https://www.nb.no/items/e0f36d21423b5538a6acd28c751c55f7?page=2
     proposedMatchId: 1945-09-30-spjelkavik-aalesunds-fk
     canonicalMatchId: 1945-09-30-spjelkavik-aalesunds-fk
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-011
     season: 1945
     claimResolution: exact_match
@@ -99,7 +100,8 @@ items:
       pageUrl: https://www.nb.no/items/4076b5718933169ce47626e61f265d43?page=2
     proposedMatchId: 1945-10-20-aalesunds-fk-kfk
     canonicalMatchId: 1945-10-20-aalesunds-fk-kfk
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-012
     season: 1945
     claimResolution: exact_match
@@ -124,7 +126,8 @@ items:
       pageUrl: https://www.nb.no/items/60424741dbae0cb92cc4bd2f47f52bf1?page=4
     proposedMatchId: 1945-07-29-hodd-aalesunds-fk
     canonicalMatchId: 1945-07-29-hodd-aalesunds-fk
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-016
     season: 1945
     claimResolution: exact_sibling
@@ -149,7 +152,8 @@ items:
       pageUrl: https://www.nb.no/items/ac1930ce85ae61e7d60b0d3b61161fd0?page=2
     proposedMatchId: 1945-09-22-aalesunds-fk-volda
     canonicalMatchId: 1945-09-22-aalesunds-fk-volda
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-018
     season: 1945
     claimResolution: exact_match
@@ -174,7 +178,8 @@ items:
       pageUrl: https://www.nb.no/items/11a29034fa2faf989c0c10710dfd8815?page=2
     proposedMatchId: 1945-08-05-traeff-aalesunds-fk
     canonicalMatchId: 1945-08-05-traeff-aalesunds-fk
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-018
     season: 1946
     claimResolution: exact_sibling
@@ -199,7 +204,8 @@ items:
       pageUrl: https://www.nb.no/items/66af0f03cb9dab2bf482eb16e1056d9a?page=4
     proposedMatchId: 1946-06-27-aalesunds-fk-rollon
     canonicalMatchId: 1946-06-27-aalesunds-fk-rollon
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-022
     season: 1946
     claimResolution: exact_sibling
@@ -224,7 +230,8 @@ items:
       pageUrl: https://www.nb.no/items/64e7e414e8d045f5e3f470cdc226b68d?page=2
     proposedMatchId: 1946-07-02-aalesunds-fk-rollon
     canonicalMatchId: 1946-07-02-aalesunds-fk-rollon
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-003
     season: 1946
     claimResolution: exact_sibling
@@ -249,7 +256,8 @@ items:
       pageUrl: https://www.nb.no/items/9bd2e67d47eb15e7a525b64565e6e9e3?page=2
     proposedMatchId: 1946-05-26-kfk-aalesunds-fk
     canonicalMatchId: 1946-05-26-kfk-aalesunds-fk
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-006
     season: 1946
     claimResolution: exact_match
@@ -274,7 +282,8 @@ items:
       pageUrl: https://www.nb.no/items/d9c564e9a1673473bf18cd492ae874a4?page=2
     proposedMatchId: 1946-07-09-aalesunds-fk-kvik-halden
     canonicalMatchId: 1946-07-09-aalesunds-fk-kvik-halden
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-020
     season: 1946
     claimResolution: exact_sibling
@@ -299,7 +308,8 @@ items:
       pageUrl: https://www.nb.no/items/7852425365a790514b2beede31dc0ba7?page=2
     proposedMatchId: 1946-09-07-aksla-aalesunds-fk
     canonicalMatchId: 1946-09-07-aksla-aalesunds-fk
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1946-024
     season: 1946
     claimResolution: exact_match
@@ -324,7 +334,8 @@ items:
       pageUrl: https://www.nb.no/items/8308a93a2da1e40182258f1f90969044?page=2
     proposedMatchId: 1946-06-23-clausenengen-aalesunds-fk
     canonicalMatchId: 1946-06-23-clausenengen-aalesunds-fk
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-009
     season: 1947
     claimResolution: exact_sibling
@@ -349,7 +360,8 @@ items:
       pageUrl: https://www.nb.no/items/df0e19babdb39bed17297c49680c04ed?page=2
     proposedMatchId: 1947-06-15-aalesunds-fk-rollon
     canonicalMatchId: 1947-06-15-aalesunds-fk-rollon
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-002
     season: 1947
     claimResolution: exact_sibling
@@ -374,7 +386,8 @@ items:
       pageUrl: https://www.nb.no/items/40cfa2eaed29bfd2d3fbf079d35fb813?page=2
     proposedMatchId: 1947-05-11-aalesunds-fk-kfk
     canonicalMatchId: 1947-05-11-aalesunds-fk-kfk
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-007
     season: 1947
     claimResolution: exact_sibling
@@ -399,7 +412,8 @@ items:
       pageUrl: https://www.nb.no/items/615037d700dcdbd7d732b0f4198039a2?page=2
     proposedMatchId: 1947-06-07-kfk-aalesunds-fk
     canonicalMatchId: 1947-06-07-kfk-aalesunds-fk
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-014
     season: 1947
     claimResolution: exact_sibling
@@ -424,7 +438,8 @@ items:
       pageUrl: https://www.nb.no/items/fa60bed4c30c4024892174fd264e095c?page=3
     proposedMatchId: 1947-09-21-kfk-aalesunds-fk
     canonicalMatchId: 1947-09-21-kfk-aalesunds-fk
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-004
     season: 1947
     claimResolution: exact_match
@@ -449,7 +464,8 @@ items:
       pageUrl: https://www.nb.no/items/01e473e5fa6692201018538cf037503e?page=2
     proposedMatchId: 1947-07-07-aalesunds-fk-drafn
     canonicalMatchId: 1947-07-07-aalesunds-fk-drafn
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-005
     season: 1947
     claimResolution: exact_match
@@ -474,7 +490,8 @@ items:
       pageUrl: https://www.nb.no/items/06c6294bc3f1fc99072c75ca51bf3494?page=1
     proposedMatchId: 1947-10-26-aalesunds-fk-frigg
     canonicalMatchId: 1947-10-26-aalesunds-fk-frigg
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-012
     season: 1947
     claimResolution: exact_sibling
@@ -499,7 +516,8 @@ items:
       pageUrl: https://www.nb.no/items/f1735aff0cc9b6f9f36cfc04be4bafe5?page=2
     proposedMatchId: 1947-09-07-clausenengen-aalesunds-fk
     canonicalMatchId: 1947-09-07-clausenengen-aalesunds-fk
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-015
     season: 1947
     claimResolution: exact_sibling
@@ -524,7 +542,8 @@ items:
       pageUrl: https://www.nb.no/items/9d85cccdb561bff9502b52fc81e9ae86?page=2
     proposedMatchId: 1947-10-05-aalesunds-fk-clausenengen
     canonicalMatchId: 1947-10-05-aalesunds-fk-clausenengen
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-020
     season: 1947
     claimResolution: exact_sibling
@@ -549,7 +568,8 @@ items:
       pageUrl: https://www.nb.no/items/b6cced862a3349fd201a3489760ec6ce?page=3
     proposedMatchId: 1947-06-22-clausenengen-aalesunds-fk
     canonicalMatchId: 1947-06-22-clausenengen-aalesunds-fk
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1947-013
     season: 1947
     claimResolution: exact_match
@@ -574,7 +594,8 @@ items:
       pageUrl: https://www.nb.no/items/6907ff25365ef85e08332b354883414e?page=2
     proposedMatchId: 1947-08-24-aalesunds-fk-molde-fk
     canonicalMatchId: 1947-08-24-aalesunds-fk-molde-fk
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-001
     season: 1948
     claimResolution: exact_match
@@ -599,7 +620,8 @@ items:
       pageUrl: https://www.nb.no/items/b107ba78b88ee1481d0fdd46f1eb03ba?page=2
     proposedMatchId: 1948-04-18-aalesunds-fk-skarbovik
     canonicalMatchId: 1948-04-18-aalesunds-fk-skarbovik
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-017
     season: 1948
     claimResolution: exact_sibling
@@ -624,7 +646,8 @@ items:
       pageUrl: https://www.nb.no/items/369d69683e89ce3530bc9f919893e497?page=2
     proposedMatchId: 1948-05-24-molde-fk-aalesunds-fk
     canonicalMatchId: 1948-05-24-molde-fk-aalesunds-fk
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-021
     season: 1948
     claimResolution: exact_sibling
@@ -649,7 +672,8 @@ items:
       pageUrl: https://www.nb.no/items/fc779a42f527bb18aed76dd96cbfb9ea?page=2
     proposedMatchId: 1948-10-03-molde-fk-aalesunds-fk
     canonicalMatchId: 1948-10-03-molde-fk-aalesunds-fk
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-004
     season: 1948
     claimResolution: exact_match
@@ -674,7 +698,8 @@ items:
       pageUrl: https://www.nb.no/items/b959f07acc112cf0b9224341523ed312?page=2
     proposedMatchId: 1948-10-17-orsta-aalesunds-fk
     canonicalMatchId: 1948-10-17-orsta-aalesunds-fk
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-005
     season: 1948
     claimResolution: exact_match
@@ -699,7 +724,8 @@ items:
       pageUrl: https://www.nb.no/items/2366ab2d6e108cb67b57b382ddd3bc7d?page=3
     proposedMatchId: 1948-06-13-traeff-aalesunds-fk
     canonicalMatchId: 1948-06-13-traeff-aalesunds-fk
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-006
     season: 1948
     claimResolution: exact_match
@@ -724,7 +750,8 @@ items:
       pageUrl: https://www.nb.no/items/426361cb3f79aeeb8a6636e8cd93ea1e?page=4
     proposedMatchId: 1948-07-04-aalesunds-fk-bodo-glimt
     canonicalMatchId: 1948-07-04-aalesunds-fk-bodo-glimt
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-008
     season: 1948
     claimResolution: exact_match
@@ -749,7 +776,8 @@ items:
       pageUrl: https://www.nb.no/items/18f6aff284a3e24eac2da32f40cef895?page=2
     proposedMatchId: 1948-05-23-aalesunds-fk-lyn
     canonicalMatchId: 1948-05-23-aalesunds-fk-lyn
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-010
     season: 1948
     claimResolution: exact_match
@@ -774,7 +802,8 @@ items:
       pageUrl: https://www.nb.no/items/832385a0c5b7df46d002cbdad244ab2c?page=3
     proposedMatchId: 1948-06-06-aalesunds-fk-sarpsborg
     canonicalMatchId: 1948-06-06-aalesunds-fk-sarpsborg
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-011
     season: 1948
     claimResolution: exact_sibling
@@ -799,7 +828,8 @@ items:
       pageUrl: https://www.nb.no/items/112690786cd38ed0c597a058310a7e76?page=2
     proposedMatchId: 1948-09-12-aalesunds-fk-rollon
     canonicalMatchId: 1948-09-12-aalesunds-fk-rollon
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-012
     season: 1948
     claimResolution: exact_sibling
@@ -824,7 +854,8 @@ items:
       pageUrl: https://www.nb.no/items/08c9a0530843ba6b7e1c703f4ac0b582?page=2
     proposedMatchId: 1948-04-21-aalesunds-fk-rollon
     canonicalMatchId: 1948-04-21-aalesunds-fk-rollon
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-014
     season: 1948
     claimResolution: exact_sibling
@@ -849,7 +880,8 @@ items:
       pageUrl: https://www.nb.no/items/d18a465b9bac52c306b69640aa565014?page=4
     proposedMatchId: 1948-05-18-aalesunds-fk-rollon
     canonicalMatchId: 1948-05-18-aalesunds-fk-rollon
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-019
     season: 1948
     claimResolution: exact_sibling
@@ -874,7 +906,8 @@ items:
       pageUrl: https://www.nb.no/items/f54e090366a31bf62854d5ddd9e7d71e?page=3
     proposedMatchId: 1948-08-09-aalesunds-fk-rollon
     canonicalMatchId: 1948-08-09-aalesunds-fk-rollon
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-013
     season: 1948
     claimResolution: exact_match
@@ -899,7 +932,8 @@ items:
       pageUrl: https://www.nb.no/items/7296eeedf43258308f8872c3ab3b4fda?page=3
     proposedMatchId: 1948-05-17-langevag-aalesunds-fk
     canonicalMatchId: 1948-05-17-langevag-aalesunds-fk
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-018
     season: 1948
     claimResolution: exact_sibling
@@ -924,7 +958,8 @@ items:
       pageUrl: https://www.nb.no/items/228bfee5ab419294c75267f49503f739?page=2
     proposedMatchId: 1948-05-30-aalesunds-fk-kfk
     canonicalMatchId: 1948-05-30-aalesunds-fk-kfk
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true
   - hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1948-023
     season: 1948
     claimResolution: exact_sibling
@@ -949,4 +984,5 @@ items:
       pageUrl: https://www.nb.no/items/ea5e1e5d2b772d4b9e68f91c00bf1c52?page=3
     proposedMatchId: 1948-08-22-kfk-aalesunds-fk
     canonicalMatchId: 1948-08-22-kfk-aalesunds-fk
-    action: create_match
+    action: already_present
+    isIdempotentNoOp: true

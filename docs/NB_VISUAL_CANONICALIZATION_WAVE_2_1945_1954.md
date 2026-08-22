@@ -1,4 +1,4 @@
-# NB Visual Review Canonicalization (Wave 2: 1945–1954)
+# NB Visual Review Canonicalization (Wave 2: 1945–1954 / Faktisk snitt: 1945–1948)
 
 ## 1. Bakgrunn og Mål
 
@@ -7,6 +7,7 @@ Denne rapporten dokumenterer kanoniseringen av verifiserte Wave 2-hypoteser fra 
 Kanoniseringen følger de strenge prinsippene fra PR #200:
 - **Ekte avisartikler er primærbeviset (`actualVisualSource`).**
 - **Full Source-Result Identity Gate:** Kun observasjoner der motstander, dato, bane og score matcher eksakt uten uavklarte konflikter blir kanonisert.
+- **Faktisk kanoniseringssnitt:** Samtlige 36 ready-saker fra Wave 2-utvalget 1945–1954 tilhører sesongene **1945–1948**. Ingen tilhører 1954–1957, og det er **0 overlap** med de 54 forskjøvede radene i Medlemsblad 1965.
 - **Idempotens:** Kjøring mot et allerede oppdatert arkiv produserer 0 nye skrivinger.
 
 ---
@@ -15,9 +16,10 @@ Kanoniseringen følger de strenge prinsippene fra PR #200:
 
 | Kategori | Antall | Beskrivelse |
 |---|---|---|
-| **Totalt Wave 2 reviewet (1945–1954)** | **62** | Fullført visuell review i PR #203 |
-| **Kanonisk kvalifisert (`canonicalEligibility: ready`)** | **36** | Sikre funn med fullstendig avisbevis |
+| **Totalt Wave 2 reviewet (1945–1954)** | **62** | Fullført visuell review i PR #203 (fordelt på 1945–1948) |
+| **Kanonisk kvalifisert (`canonicalEligibility: ready`)** | **36** | Sikre funn med fullstendig avisbevis (1945–1948) |
 | **Ekskludert fra kanonisering (ikke ready)** | **26** | Saker med konflikter, søskentvetydighet eller utilstrekkelig bevis |
+| **Skjæringspunkt med forskjøvede Medlemsblad-rader** | **0** | Ingen overlap med 1954–1957 reparasjonen |
 
 ### Fordeling av ekskluderte saker (Community Rest Queue)
 - **Søskentvetydighet (`sibling_resolution`):** 16
@@ -57,17 +59,18 @@ Kanoniseringen følger de strenge prinsippene fra PR #200:
 
 ## 5. Idempotens og Verifikasjon
 
-| Kjøring | Nye kamper | Nye observasjoner | Nye koblinger | Filer skrevet |
-|---|---|---|---|---|
-| **Første kjøring (`--apply`)** | 36 | 36 | 36 | 72 |
-| **Andre kjøring (Idempotens-test)** | 0 | 0 | 0 | **0** |
+| Kjøring | Nye kamper | Nye observasjoner | Nye koblinger | Filer skrevet | Allerede tilstede |
+|---|---|---|---|---|---|
+| **Første kjøring (`--apply`)** | 36 | 36 | 36 | 72 | 0 |
+| **Andre kjøring (Idempotens-test)** | 0 | 0 | 0 | **0** | **36** |
 
 ---
 
 ## 6. Sjekkliste for Kvalitetskrav
 
-- [x] Kun Wave 2 ready-saker fra 1945–1954 er behandlet.
-- [x] Frozen Wave 2 selection er 100 % bevart.
+- [x] Kun Wave 2 ready-saker fra 1945–1954 er behandlet (faktisk 1945–1948).
+- [x] Frozen Wave 2 selection er 100 % bevart historisk.
+- [x] Skjæringspunkt med de 54 forskjøvede Medlemsblad-radene er beviselig 0.
 - [x] Avisbevis (`actualVisualSource`) benyttet som autoritativ provenienskilde.
 - [x] `matchDate` hentet fra visuelt observert dato og bevis, aldri implisitt fra avisens utgivelsesdato (`issueDate`).
 - [x] 0 nye klubber og 0 nye turneringer opprettet.

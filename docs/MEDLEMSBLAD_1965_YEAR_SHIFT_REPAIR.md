@@ -1,9 +1,9 @@
 # Reparasjonsrapport: Korreksjon av årsforskyvning i Medlemsblad 1965 (Skann 14)
 
 **Dato:** 2026-08-22  
-**Opphav:** PR 204  
+**Opphav:** PR 205  
 **Berørt kilde:** `data/source-results/medlemsblad-for-aalesunds-fotb-1965-a2c9.yaml` («Våre kamper gjennom 50 år»)  
-**Beslutningsport:** `REPAIR_COMPLETE_ADDITIONAL_VISUAL_REVIEW_REQUIRED`
+**Beslutningsport:** `SOURCE_YEAR_SHIFT_REPAIRED`
 
 ---
 
@@ -31,7 +31,7 @@ Totalt 54 kildepåstander er flyttet til sitt korrekte sesongår, og de gjenvær
 | **1957 #16 – #44** | **1957 #1 – #29** | **29** | Den faktiske 1957-sesongen (begynner med Aksla 4–1) |
 
 Fullstendig maskinlesbar mapping mellom alle gamle og nye koordinater er lagret i:
-[`data/discovery/medlemsblad-1965-year-shift-mapping.yaml`](file:///c:/Users/Mlerv/OneDrive/Documents/aafkstats/aafkstats/data/discovery/medlemsblad-1965-year-shift-mapping.yaml)
+`data/discovery/medlemsblad-1965-year-shift-mapping.yaml`
 
 ---
 
@@ -89,18 +89,18 @@ En ekte avisartikkel funnet i en 1955-avis beviser at det fant sted en reell kam
 | :--- | :---: | :---: | :---: | :--- |
 | **1945–1954 Unifiserte hypoteser** | 225 | **248** | +23 | Utvidet med 23 nye 1954-hypoteser |
 | **1955–1964 Unifiserte hypoteser** | 354 | **425** | +71 | Regenerert etter renummerering og kildejustering |
-| **PR 203 gjennomførte reviews** | 62 | 62 | 0 | Ekte avisobservasjoner bevares, men populasjonsregnskap er superseded |
-| **1945–1954 Nye saker som krever review** | 0 | **23** | +23 | Må visuelt reviewes mot faksimiler |
+| **PR 203 gjennomførte Wave 2 reviews** | 62 | 62 | 0 | 100 % i 1945–1948; uberørt av årsforskyvningen |
+| **1945–1954 Nye saker som krever review** | 0 | **23** | +23 | Må visuelt reviewes mot faksimiler fra 1954 |
 
-### Status for 36-kamps kanoniseringen:
-Kanoniseringsforsøket fra forrige iterasjon er stanset. Ingen kanoniske kamper fra Wave 2 skrives i denne PR-en før de 23 nye 1954-kandidatene er fullstendig visuelt reviewet.
+### Status for kanoniseringen av de 36 Wave 2-kampene:
+De 23 korrigerte 1954-kildepåstandene krever ny visuell review før de selv kan kanoniseres. Dette blokkerer derimot **ikke** kanoniseringen av de 36 sikre Wave 2-funnene fra 1945–1948, ettersom disse 36 er 100 % uberørt av årsforskyvningen på skann 14 (`canonicalized36 intersect shiftedClaims = 0`).
 
 ---
 
 ## 7. Ny Guardrail mot Årskontekst-Lekkasje
 
-1. **Regresjonstest:** [`packages/schema/test/medlemsblad-1965-shift-guardrails.test.ts`](file:///c:/Users/Mlerv/OneDrive/Documents/aafkstats/aafkstats/packages/schema/test/medlemsblad-1965-shift-guardrails.test.ts) låser radantallene 32, 29, 28, 29 for 1954–1957 og kontrollerer grensene på skann 14.
-2. **Runbook-oppdatering:** [`docs/HISTORISK_KILDEINNHOSTING_RUNBOOK.md`](file:///c:/Users/Mlerv/OneDrive/Documents/aafkstats/aafkstats/docs/HISTORISK_KILDEINNHOSTING_RUNBOOK.md) er oppdatert i *Lessons Ledger* med eksplisitt krav om spalte-/sideskiftskontroll av aktiv årsoverskrift (`activeYearHeading`).
+1. **Regresjonstest:** `packages/schema/test/medlemsblad-1965-shift-guardrails.test.ts` låser radantallene 32, 29, 28, 29 for 1954–1957 og kontrollerer grensene på skann 14.
+2. **Runbook-oppdatering:** `docs/HISTORISK_KILDEINNHOSTING_RUNBOOK.md` er oppdatert i *Lessons Ledger* med eksplisitt krav om spalte-/sideskiftskontroll av aktiv årsoverskrift (`activeYearHeading`).
 
 ---
 
@@ -114,7 +114,8 @@ Kanoniseringsforsøket fra forrige iterasjon er stanset. Ingen kanoniske kamper 
 | Eksplisitt migreringsmapping lagret | **Fullført** |
 | 10 uavhengige 1955-kamper bevart uten feil kildereferanse | **Fullført** |
 | 0 kanoniske kamper slettet | **Fullført** |
+| 36 Wave 2-kamper (1945–1948) kanonisert uten kollisjoner | **Fullført** |
 | `pnpm validate` passerer med 0 feil | **Fullført** |
 | Guardrails og regresjonstester etablert | **Fullført** |
 
-**Beslutningsport:** `REPAIR_COMPLETE_ADDITIONAL_VISUAL_REVIEW_REQUIRED`
+**Beslutningsport:** `SOURCE_YEAR_SHIFT_REPAIRED`
