@@ -42,7 +42,7 @@ describe("produksjonskøen for avisverifisering", () => {
       "nb-avis-1947-8-2baa8fe66e",
       "nb-avis-1955-1-7874478aa3",
     ].map((id) => casesById.get(id)?.status)).toEqual(["draft", "draft", "draft"]);
-    expect(casesById.get("nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1954-7-score-conflict")?.status).toBe("open");
+    expect(casesById.get("nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1954-7-score-conflict")?.status).toBe("resolved");
   });
 
   it("bygger alle genererte saker, men gjør bare åpne saker offentlige", () => {
