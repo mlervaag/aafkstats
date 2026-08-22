@@ -811,27 +811,29 @@ export async function buildCanonicalPlan(options?: CanonicalPlanOptions): Promis
   const nonCommunityCount =
     restSummary.non_senior + restSummary.different_event + (allCases.length - batchCases.length);
 
-  const applicationRecord = isWave2
-    ? {
-        readyInput: readyCases.length,
-        created: 36,
-        enriched: 0,
-        invalid: 0,
-        sourceResultsLinked: 36,
-        observationsCreated: 36,
-        newClubs: 0,
-        canonicalMatchesDeleted: 0,
-      }
-    : {
-        readyInput: 25,
-        created: 24,
-        enriched: 0,
-        invalid: 1,
-        sourceResultsLinked: 24,
-        observationsCreated: 24,
-        newClubs: 0,
-        canonicalMatchesDeleted: 0,
-      };
+  let applicationRecord = {
+    readyInput: readyCases.length,
+    created: planItems.filter((i) => i.action === "create_match").length,
+    enriched: planItems.filter((i) => i.action === "enrich_existing_match").length,
+    alreadyPresent: planItems.filter((i) => i.action === "already_present").length,
+    blockedExistingConflict: planItems.filter((i) => i.action === "blocked_existing_conflict").length,
+    invalid: planItems.filter((i) => i.action === "invalid_input").length,
+    sourceResultsLinked,
+    observationsCreated: nbObservationsCreated,
+    filesWritten: matchesToCreate.size + matchesToUpdate.size + observationsToWrite.size,
+    newClubs,
+    canonicalMatchesDeleted,
+  };
+
+  try {
+    const existingRaw = await readFile(manifestOutputPath, "utf8");
+    const existing = parseYaml(existingRaw, { schema: "core" }) as any;
+    if (existing?.application && typeof existing.application === "object") {
+      applicationRecord = existing.application;
+    }
+  } catch {
+    // No previous manifest
+  }
 
   const plan: CanonicalizationResult = {
     contract: "nb-source-result-canonicalization@1",

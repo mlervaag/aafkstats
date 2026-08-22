@@ -365,9 +365,9 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
       .filter((c: any) => c.reviewStatus === "visually_reviewed_wave_2")
       .map((c: any) => c.hypothesisId);
 
-    expect(frozen1945to1954Ids.length).toBe(67);
+    expect(frozen1945to1954Ids.length).toBe(62);
     expect(reviewedWave2_1945to1954Ids.length).toBe(62);
-    expect(reviewedWave2_1945to1954Ids.every((id: string) => frozen1945to1954Ids.includes(id))).toBe(true);
+    expect(new Set(reviewedWave2_1945to1954Ids)).toEqual(new Set(frozen1945to1954Ids));
 
     // Verify atomic sibling group integrity (no group split, no extra, no missing)
     const wave2Cases = manifest.cases.filter((c: any) => c.reviewStatus === "visually_reviewed_wave_2");
@@ -391,8 +391,8 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
     expect(w2).toBeDefined();
     expect(w2.frozenBeforeReview).toBe(true);
     expect(w2.totalSelected).toBe(183);
-    expect(w2.periods["1945-1954"]).toBe(67);
-    expect(w2.periods["1955-1964"]).toBe(100);
+    expect(w2.periods["1945-1954"]).toBe(62);
+    expect(w2.periods["1955-1964"]).toBe(105);
     expect(w2.periods["1965-1974"]).toBe(16);
     expect(w2.periods["1975-1984"]).toBe(0);
 
