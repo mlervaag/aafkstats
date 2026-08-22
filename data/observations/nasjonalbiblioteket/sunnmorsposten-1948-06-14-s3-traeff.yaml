@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1948-06-14-s3-traeff
+matchId: 1948-06-13-traeff-aalesunds-fk
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:93cccdd215712693232ad0f2fb80779a4253b1210e3f62ac5f7e013ecb9a5fc3
+raw:
+  avis: Sunnmørsposten
+  dato: 1948-06-14
+  side: "3"
+  tittel: Sunnmørsposten 1948-06-14 s. 3
+  kamp: traeff - aalesunds-fk 1-1
+  url: https://www.nb.no/items/2366ab2d6e108cb67b57b382ddd3bc7d?page=3
+normalized:
+  date: 1948-06-13
+  home.clubId: traeff
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

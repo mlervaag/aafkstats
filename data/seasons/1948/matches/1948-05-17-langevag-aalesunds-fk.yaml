@@ -1,0 +1,44 @@
+id: 1948-05-17-langevag-aalesunds-fk
+date: 1948-05-17
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1948
+  stage: friendly
+home:
+  clubId: langevag
+  score: 5
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1948-05-20 s. 3
+    date: 1948-05-20
+    url: https://www.nb.no/items/7296eeedf43258308f8872c3ab3b4fda?page=3
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/7296eeedf43258308f8872c3ab3b4fda?page=3
+    retrievedAt: 2026-08-22
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1948-05-20 s. 3: Kampreferat for Langevåg mot AaFK (5–2)
+  privatkamp spilt 1948-05-17."

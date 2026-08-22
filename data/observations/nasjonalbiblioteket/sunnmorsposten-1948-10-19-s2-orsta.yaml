@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1948-10-19-s2-orsta
+matchId: 1948-10-17-orsta-aalesunds-fk
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:1314ca72ae25170cebe47c1fdfb552a1e8ac952e124d8e1bab2b699c372cc8cf
+raw:
+  avis: Sunnmørsposten
+  dato: 1948-10-19
+  side: "2"
+  tittel: Sunnmørsposten 1948-10-19 s. 2
+  kamp: orsta - aalesunds-fk 4-2
+  url: https://www.nb.no/items/b959f07acc112cf0b9224341523ed312?page=2
+normalized:
+  date: 1948-10-17
+  home.clubId: orsta
+  away.clubId: aalesunds-fk
+  home.score: 4
+  away.score: 2
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

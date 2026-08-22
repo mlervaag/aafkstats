@@ -498,6 +498,6 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
         // no matches directory
       }
     }
-    expect(totalMatches).toBe(1567);
+    expect(totalMatches).toBe(1603);
   });
 });

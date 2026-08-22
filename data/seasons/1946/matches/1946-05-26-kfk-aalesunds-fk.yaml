@@ -1,0 +1,44 @@
+id: 1946-05-26-kfk-aalesunds-fk
+date: 1946-05-26
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1946
+  stage: friendly
+home:
+  clubId: kfk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1946-05-27 s. 2
+    date: 1946-05-27
+    url: https://www.nb.no/items/9bd2e67d47eb15e7a525b64565e6e9e3?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/9bd2e67d47eb15e7a525b64565e6e9e3?page=2
+    retrievedAt: 2026-08-22
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1946-05-27 s. 2: Kampreferat for KFK mot AaFK (1–3)
+  privatkamp spilt 1946-05-26."

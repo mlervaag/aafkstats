@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1947-05-13-s2-kfk
+matchId: 1947-05-11-aalesunds-fk-kfk
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:5d68e2340e11a8f94dc455ab285229f39101f6243239abe24855dee1b2c50a88
+raw:
+  avis: Sunnmørsposten
+  dato: 1947-05-13
+  side: "2"
+  tittel: Sunnmørsposten 1947-05-13 s. 2
+  kamp: aalesunds-fk - kfk 3-3
+  url: https://www.nb.no/items/40cfa2eaed29bfd2d3fbf079d35fb813?page=2
+normalized:
+  date: 1947-05-11
+  home.clubId: aalesunds-fk
+  away.clubId: kfk
+  home.score: 3
+  away.score: 3
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

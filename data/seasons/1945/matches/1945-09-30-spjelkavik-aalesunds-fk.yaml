@@ -1,0 +1,44 @@
+id: 1945-09-30-spjelkavik-aalesunds-fk
+date: 1945-09-30
+dateConfidence: exact
+status: played
+competition:
+  id: sondmore-kreds-klasse-a
+  season: 1945
+  stage: regular_season
+home:
+  clubId: spjelkavik
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 6
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1945-10-01 s. 2
+    date: 1945-10-01
+    url: https://www.nb.no/items/e0f36d21423b5538a6acd28c751c55f7?page=2
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/e0f36d21423b5538a6acd28c751c55f7?page=2
+    retrievedAt: 2026-08-22
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1945-10-01 s. 2: Kampreferat for Spjelkavik mot AaFK (1–6)
+  spilt 1945-09-30."

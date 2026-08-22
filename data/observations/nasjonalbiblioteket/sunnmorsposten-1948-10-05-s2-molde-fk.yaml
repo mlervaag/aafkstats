@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1948-10-05-s2-molde-fk
+matchId: 1948-10-03-molde-fk-aalesunds-fk
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:9b9c60fa968dbc801008febf28bf3ce0a72f7434b42683ca24a3ba21948fab6e
+raw:
+  avis: Sunnmørsposten
+  dato: 1948-10-05
+  side: "2"
+  tittel: Sunnmørsposten 1948-10-05 s. 2
+  kamp: molde-fk - aalesunds-fk 2-1
+  url: https://www.nb.no/items/fc779a42f527bb18aed76dd96cbfb9ea?page=2
+normalized:
+  date: 1948-10-03
+  home.clubId: molde-fk
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

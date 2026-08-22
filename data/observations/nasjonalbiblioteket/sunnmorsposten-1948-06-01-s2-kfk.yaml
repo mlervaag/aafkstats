@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1948-06-01-s2-kfk
+matchId: 1948-05-30-aalesunds-fk-kfk
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:84038a79d1d3cb977e0fd2731d116f667161a2d028435d89e6e4a388049e3590
+raw:
+  avis: Sunnmørsposten
+  dato: 1948-06-01
+  side: "2"
+  tittel: Sunnmørsposten 1948-06-01 s. 2
+  kamp: aalesunds-fk - kfk 1-2
+  url: https://www.nb.no/items/228bfee5ab419294c75267f49503f739?page=2
+normalized:
+  date: 1948-05-30
+  home.clubId: aalesunds-fk
+  away.clubId: kfk
+  home.score: 1
+  away.score: 2
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

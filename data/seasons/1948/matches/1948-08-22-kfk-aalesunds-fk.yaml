@@ -1,0 +1,44 @@
+id: 1948-08-22-kfk-aalesunds-fk
+date: 1948-08-22
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1948
+  stage: regular_season
+home:
+  clubId: kfk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1948-08-23 s. 3
+    date: 1948-08-23
+    url: https://www.nb.no/items/ea5e1e5d2b772d4b9e68f91c00bf1c52?page=3
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/ea5e1e5d2b772d4b9e68f91c00bf1c52?page=3
+    retrievedAt: 2026-08-22
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1948-08-23 s. 3: Kampreferat for KFK mot AaFK (1–1) 1.
+  divisjon spilt 1948-08-22."

@@ -1,0 +1,44 @@
+id: 1945-07-29-hodd-aalesunds-fk
+date: 1945-07-29
+dateConfidence: exact
+status: played
+competition:
+  id: sondmore-kreds-klasse-a
+  season: 1945
+  stage: regular_season
+home:
+  clubId: hodd
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1945-07-30 s. 4
+    date: 1945-07-30
+    url: https://www.nb.no/items/60424741dbae0cb92cc4bd2f47f52bf1?page=4
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/60424741dbae0cb92cc4bd2f47f52bf1?page=4
+    retrievedAt: 2026-08-22
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1945-07-30 s. 4: Kampreferat for Hødd mot AaFK (2–1)
+  kretskamp spilt 1945-07-29."

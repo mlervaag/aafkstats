@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1948-05-25-s2-molde-fk
+matchId: 1948-05-24-molde-fk-aalesunds-fk
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:9318da2c44566eb2cb127975398ea3d462775ab597330270e07711701d173b00
+raw:
+  avis: Sunnmørsposten
+  dato: 1948-05-25
+  side: "2"
+  tittel: Sunnmørsposten 1948-05-25 s. 2
+  kamp: molde-fk - aalesunds-fk 0-1
+  url: https://www.nb.no/items/369d69683e89ce3530bc9f919893e497?page=2
+normalized:
+  date: 1948-05-24
+  home.clubId: molde-fk
+  away.clubId: aalesunds-fk
+  home.score: 0
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

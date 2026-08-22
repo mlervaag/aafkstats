@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1947-09-08-s2-clausenengen
+matchId: 1947-09-07-clausenengen-aalesunds-fk
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:154640e36bf0c8e8fed8514d24d2aa7fb421283ec507ec5c52b68c2299848250
+raw:
+  avis: Sunnmørsposten
+  dato: 1947-09-08
+  side: "2"
+  tittel: Sunnmørsposten 1947-09-08 s. 2
+  kamp: clausenengen - aalesunds-fk 2-1
+  url: https://www.nb.no/items/f1735aff0cc9b6f9f36cfc04be4bafe5?page=2
+normalized:
+  date: 1947-09-07
+  home.clubId: clausenengen
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

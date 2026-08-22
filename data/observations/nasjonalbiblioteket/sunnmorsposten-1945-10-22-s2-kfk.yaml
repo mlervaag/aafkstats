@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1945-10-22-s2-kfk
+matchId: 1945-10-20-aalesunds-fk-kfk
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:c4fafa8630ee3dad1c8e37eaa310e9fa871187d9138005e71aa8055417de3d87
+raw:
+  avis: Sunnmørsposten
+  dato: 1945-10-22
+  side: "2"
+  tittel: Sunnmørsposten 1945-10-22 s. 2
+  kamp: aalesunds-fk - kfk 2-2
+  url: https://www.nb.no/items/4076b5718933169ce47626e61f265d43?page=2
+normalized:
+  date: 1945-10-20
+  home.clubId: aalesunds-fk
+  away.clubId: kfk
+  home.score: 2
+  away.score: 2
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

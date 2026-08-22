@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1948-08-23-s3-kfk
+matchId: 1948-08-22-kfk-aalesunds-fk
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:cc6ef68a4f402bb382645c737fa6183312e1dab7fa2e4b69ac50ab19a1e8219c
+raw:
+  avis: Sunnmørsposten
+  dato: 1948-08-23
+  side: "3"
+  tittel: Sunnmørsposten 1948-08-23 s. 3
+  kamp: kfk - aalesunds-fk 1-1
+  url: https://www.nb.no/items/ea5e1e5d2b772d4b9e68f91c00bf1c52?page=3
+normalized:
+  date: 1948-08-22
+  home.clubId: kfk
+  away.clubId: aalesunds-fk
+  home.score: 1
+  away.score: 1
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

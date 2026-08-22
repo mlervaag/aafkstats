@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1947-09-22-s3-kfk
+matchId: 1947-09-21-kfk-aalesunds-fk
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:5694df83f15cef0c75409479291dcecdc3d3fd0074b208cfc47b2eb8977ac2f8
+raw:
+  avis: Sunnmørsposten
+  dato: 1947-09-22
+  side: "3"
+  tittel: Sunnmørsposten 1947-09-22 s. 3
+  kamp: kfk - aalesunds-fk 2-0
+  url: https://www.nb.no/items/fa60bed4c30c4024892174fd264e095c?page=3
+normalized:
+  date: 1947-09-21
+  home.clubId: kfk
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 0
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

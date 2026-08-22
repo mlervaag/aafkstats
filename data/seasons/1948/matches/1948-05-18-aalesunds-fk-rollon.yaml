@@ -1,0 +1,44 @@
+id: 1948-05-18-aalesunds-fk-rollon
+date: 1948-05-18
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1948
+  stage: friendly
+home:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: rollon
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: Sunnmørsposten 1948-05-19 s. 4
+    date: 1948-05-19
+    url: https://www.nb.no/items/d18a465b9bac52c306b69640aa565014?page=4
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/d18a465b9bac52c306b69640aa565014?page=4
+    retrievedAt: 2026-08-22
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+note: "Sunnmørsposten 1948-05-19 s. 4: Kampreferat for AaFK mot Rollon (4–0)
+  Jubileumspokalen spilt 1948-05-18."

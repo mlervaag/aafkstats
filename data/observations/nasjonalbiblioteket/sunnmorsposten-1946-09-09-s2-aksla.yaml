@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1946-09-09-s2-aksla
+matchId: 1946-09-07-aksla-aalesunds-fk
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:5e0b903b54b47518dcffd43caab941a2f96059010b3263be8f719055d6bcfdf7
+raw:
+  avis: Sunnmørsposten
+  dato: 1946-09-09
+  side: "2"
+  tittel: Sunnmørsposten 1946-09-09 s. 2
+  kamp: aksla - aalesunds-fk 4-4
+  url: https://www.nb.no/items/7852425365a790514b2beede31dc0ba7?page=2
+normalized:
+  date: 1946-09-07
+  home.clubId: aksla
+  away.clubId: aalesunds-fk
+  home.score: 4
+  away.score: 4
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []
