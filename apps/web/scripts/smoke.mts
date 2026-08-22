@@ -44,7 +44,7 @@ const checks: Check[] = [
   },
   {
     page: "om",
-    must: ["Aktivt, åpent supporterarkiv", "terminlista", "akseptert risiko"],
+    must: ["Aktivt, åpent supporterarkiv", "Hva er dette?", "Hvor sikkert er innholdet?", "Hvem står bak"],
     mustNot: ["MVP"],
   },
   {
@@ -89,13 +89,13 @@ const checks: Check[] = [
   },
   {
     page: "organisasjon",
-    must: ["Klubben utenfor banen", "Formenn", "Trenere og sportslig apparat", "Fra dokument til struktur"],
+    must: ["Klubben utenfor banen", "Klubbens øverste ledere", "Trenere og sportslig apparat", "Fra dokument til struktur"],
   },
   {
     page: "mangler",
     must: [
       "Kan du kontrollere dette?", "Er Tor Hogne Aarøy riktig person i fixture-arkivet?",
-      "Undersøk én konkret kildeoppgave", "Noen saker har JA/NEI", "Arbeidskø", "Hele mangellista",
+      "Undersøk én konkret kildeoppgave", "Noen saker har JA/NEI", "Arbeidskø", "Se hele arbeidskøen",
     ],
   },
   {
@@ -138,7 +138,7 @@ const checks: Check[] = [
   // hele tatt. At denne filen finnes er halve testen.
   {
     page: "kilder",
-    must: ["Historisk kildearkiv", "AaFK Medlemsblad", "Serier og faste utgivelser"],
+    must: ["Datakilder og kildebruk", "AaFK Medlemsblad", "Serier og faste utgivelser", "akseptert risiko"],
   },
   {
     page: "kilder/aafk-90-ar-1914-2004",

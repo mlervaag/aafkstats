@@ -322,6 +322,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
   const played = hasBeenPlayed(match.status);
   const status = statusNote(match.status);
   const metaInput = matchMetaInput(match);
+  const breadcrumbName = `${match.home_name} mot ${match.away_name}`;
 
   return (
     <article className="match-page">
@@ -346,7 +347,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
           breadcrumbJsonLd([
             { name: "Sesonger", path: "/sesonger" },
             { name: String(match.season), path: `/sesong/${match.season}` },
-            { name: match.opponent_name, path: `/motstander/${match.opponent_club_id}` },
+            { name: breadcrumbName, path: `/kamp/${id}` },
           ]),
         ]}
       />
@@ -355,22 +356,22 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
           og begge har en side å gå til. */}
       <p className="breadcrumb">
         <a href="/sesonger">Sesonger</a> / <a href={`/sesong/${match.season}`}>{match.season}</a> /{" "}
-        <a href={`/motstander/${match.opponent_club_id}`}>{match.opponent_name}</a>
+        {breadcrumbName}
       </p>
       <header className="match-header">
         <p className="small muted num">
           {formatDate(match.match_date)}{match.kickoff ? ` kl. ${match.kickoff}` : ""} · {match.competition_name}
           {stageLabel ? ` · ${stageLabel}` : match.round ? ` · Runde ${match.round}` : ""}
         </p>
-        <div className="scoreboard">
-          <h1>{match.home_name}</h1>
+        <h1 className="scoreboard">
+          <span className="scoreboard-team">{match.home_name}</span>
           {/* Avsparket står der resultatet ellers ville stått. En tankestrek her
               leses som et tall vi mangler. */}
           <strong className={played ? "scoreline" : "scoreline scoreline-upcoming"}>
             {played ? score : match.kickoff ?? "mot"}
           </strong>
-          <h1>{match.away_name}</h1>
-        </div>
+          <span className="scoreboard-team">{match.away_name}</span>
+        </h1>
         {status && (
           <p className={`match-status match-status-${match.status}`}>
             <strong>{status.label}.</strong> {status.note}
@@ -418,6 +419,9 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
             label="Bidra om kampen"
           />
         </div>
+        <p className="small muted match-opponent-link">
+          <Link href={`/motstander/${match.opponent_club_id}`}>Se alle kamper mot {match.opponent_name}</Link>
+        </p>
       </header>
 
       <dl className="facts">

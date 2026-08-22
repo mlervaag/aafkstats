@@ -20,12 +20,12 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: { absolute: "AaFK-arkivet – Aalesunds Fotballklubbs kamphistorie" },
   description:
-    "Alle AaFKs kamper, sesonger, spillere og ledere samlet ett sted. Uoffisielt, kildeført og åpent arkiv du kan søke i og stille spørsmål til.",
+    "AaFKs kamper, sesonger, personer og historie samlet i et åpent, kildeført arkiv du kan søke i og stille spørsmål til.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "AaFK-arkivet – Aalesunds Fotballklubbs kamphistorie",
     description:
-      "Alle AaFKs kamper, sesonger, spillere og ledere samlet ett sted. Uoffisielt, kildeført og åpent.",
+      "AaFKs kamper, sesonger, personer og historie samlet i et åpent, kildeført arkiv.",
     url: "/",
     type: "website",
     locale: "nb_NO",
@@ -66,7 +66,7 @@ export default function Home() {
       <section className="hero">
         <div>
           <p className="eyebrow">Uoffisielt historisk arkiv</p>
-          <h1>{totals.matches} AaFK-kamper.<br />Ett sted å lete.</h1>
+          <h1>{totals.matches} kampoppføringer.<br />Ett sted å lete.</h1>
           {/* «Serie og cup» sto her mens arkivet også hadde europacup og
               treningskamper. Setningen leses av hver besøkende og var det siste
               stedet dekningen fortsatt ble påstått for hånd. */}
@@ -81,7 +81,7 @@ export default function Home() {
             opplysningen som endrer seg mellom besøkene. */}
         <div className="hero-side">
           <dl className="hero-stats">
-            <div><dt>Kamper</dt><dd>{totals.matches}</dd></div>
+            <div><dt>Registrert</dt><dd>{totals.matches}</dd></div>
             {/* «Sesonger» leses som hele sesonger, og tallet er noe annet: år
                 med minst én registrert kamp. Ordet er byttet, ikke tallet. */}
             <div><dt>År</dt><dd>{totals.seasons}</dd></div>
@@ -90,9 +90,10 @@ export default function Home() {
           {/* Overskriften teller alt som er registrert, dekningsnotisen lenger
               nede teller bare det som er spilt. To tall om det samme uten noe
               som binder dem sammen leses som en feil. Her står forskjellen. */}
-          {totals.upcoming > 0 && (
+          {(totals.upcoming > 0 || totals.otherStatus > 0) && (
             <p className="small muted hero-stats-note">
-              {totals.matches - totals.upcoming} spilte · {totals.upcoming} på terminlista
+              {totals.played} spilte · {totals.upcoming} på terminlista
+              {totals.otherStatus > 0 ? ` · ${totals.otherStatus} med annen status` : ""}
             </p>
           )}
           <NextMatch match={next} />

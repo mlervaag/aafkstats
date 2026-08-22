@@ -82,7 +82,7 @@ export function VerificationCaseOutcome({ item }: { item: VerificationCaseView }
       <footer className={styles.footer}>
         <a href="/mangler">Ta en åpen sak</a>
         <a href="/mangler/saker">Se alle åpne saker</a>
-        <a href="/mangler/oversikt">Hele mangellista</a>
+        <a href="/mangler/oversikt">Se hele arbeidskøen</a>
       </footer>
     </article>
   );

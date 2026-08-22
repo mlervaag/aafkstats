@@ -75,24 +75,22 @@ export default function ContributePage() {
       </div>
 
       <section className="content-section prose-stack">
-        <h2>Vil du heller sende e-post?</h2>
+        <h2>Hva skjer med bidraget mitt?</h2>
         <p>
-          Har du bilder, dokumenter, et tips som ikke passer i skjemaene, eller vil du
-          kontakte oss direkte? Skriv til{" "}
-          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+          Ingenting publiseres automatisk. Bidrag blir kontrollert før de blir en del av
+          arkivet. Minner vises som observasjoner, mens faktarettelser oppdaterer selve
+          arkivdataene og beholder kildesporet.
         </p>
       </section>
 
-      <section className="content-section prose-stack">
-        <h2>Hva som skjer etterpå</h2>
+      <details className="content-section advanced-contribution other-contributions">
+        <summary>Andre måter å bidra på</summary>
+        <div className="advanced-contribution-content">
+      <section className="prose-stack">
+        <h2>Send e-post</h2>
         <p>
-          Ingenting går rett inn i arkivet. Minner havner i en egen innboks, mens feil og
-          nye data blir saker på GitHub. Begge deler blir kontrollert før noe publiseres.
-        </p>
-        <p>
-          Et godkjent minne vises under «Observasjoner og minner», merket med hvor sikkert
-          det er. En datarettelse endrer i stedet selve kampen, personen, rollen eller
-          kilden, og endringen får et synlig spor i historikken.
+          Har du bilder, dokumenter, et tips som ikke passer i skjemaene, eller vil du
+          kontakte oss direkte? Skriv til <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
         </p>
       </section>
 
@@ -101,26 +99,11 @@ export default function ContributePage() {
           personside å stå på. Den som satt med et navn fra en årsmelding, fant
           ingen knapp som passet. */}
       <section className="content-section prose-stack">
-        <h2>Personer i arkivet</h2>
+        <h2>Mangler en person?</h2>
         <p>
-          Personregisteret er ikke en liste over alle som har spilt for klubben. En person får
-          en egen oppføring når det er noe å si om henne eller ham: et verv, en trenerperiode,
-          en skrivemåte av navnet som må knyttes til riktig person, eller et draktnummer. En
-          spiller som bare står som et navn i en lagoppstilling, er allerede med i statistikken
-          uten å ha en oppføring.
-        </p>
-        <p>
-          Mangler noen helt, bruk{" "}
-          <a href={contributionIssueUrl("manglende-person")}>Person som mangler</a>. Står
-          personen der med feil årstall eller feil verv, bruk{" "}
-          <a href={contributionIssueUrl("datafeil")}>Meld en feil</a>. Har du et minne om en
-          person som allerede har en side, finner du «Bidra»-knappen på siden hennes eller hans.
-        </p>
-        <p>
-          Vi fører bare det som knytter personen til AaFK. Fødselsdato, karriere og
-          klubbhistorikk hører hjemme på Wikipedia og Wikidata, og arkivet lenker dit framfor
-          å kopiere det hit. Historiske titler beholdes slik kilden skriver dem: sto det
-          «Formann», står det «Formann».
+          Bruk skjemaet <a href={contributionIssueUrl("manglende-person")}>Person som mangler</a>,
+          eller gå til <a href="/personer">personregisteret</a> hvis du vil rette en som
+          allerede finnes.
         </p>
       </section>
 
@@ -139,16 +122,13 @@ export default function ContributePage() {
         </div>
       </section>
 
-      <details className="content-section advanced-contribution">
-        <summary>Vil du gjøre en større datajobb med AI?</summary>
-        <div className="advanced-contribution-content">
-          <h2 className="sr-only">Bruk AI-en du allerede har</h2>
+      <section className="content-section">
+          <h2>Bidra direkte med større datamengder</h2>
           <div className="prose-stack">
             <p>
-              Du trenger ikke kunne YAML for å bidra. Kopier en av promptene under inn i den
-              modellen du bruker til vanlig, fyll inn det du vet om kampen eller personen, og
-              la modellen skrive filen. Da holder det at <em>du</em> har kildene og
-              kontrollerer resultatet.
+              Skal du registrere mye på én gang, kan du arbeide direkte med datafilene. Du kan
+              bruke AI som hjelp hvis du ønsker det; promptene under forklarer formatet og
+              grensene modellen må følge.
             </p>
             <p>
               Promptene forteller modellen hvordan arkivet er bygget opp, og, enda viktigere,
@@ -172,8 +152,7 @@ export default function ContributePage() {
               </div>
             ))}
           </div>
-        </div>
-      </details>
+      </section>
 
       {/* Nettstedet hadde ingen vei til «feil-i-koden» eller «forslag». De to
           malene fantes bare for den som allerede sto i GitHubs malvelger, og en
@@ -199,10 +178,12 @@ export default function ContributePage() {
           Den komplette <a href="/mangler/oversikt">mangellista</a> viser historiske resultater
           som trenger identifisering, kampdetaljer som mangler og kildekonflikter
           som må avklares. For korte, konkrete oppgaver kan du bruke{" "}
-          <a href="/mangler">community-køen</a>, eller gå rett til{" "}
+          <a href="/mangler">kontrollkøen</a>, eller gå rett til{" "}
           <a href="/mangler/saker?type=avisresearch">avisresearch</a>.
         </p>
       </section>
+        </div>
+      </details>
     </>
   );
 }

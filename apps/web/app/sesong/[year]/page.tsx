@@ -81,9 +81,6 @@ export default async function SeasonPage({ params }: Props) {
         </p>
         <h1>Sesongen {year}</h1>
         <SeasonCoaches coaches={coaches} declared={declaredCoaches} season={year} />
-        {/* «Bidra til 1977-sesongen» sto her som en knapp uten kontekst. Nå står det
-            hva som faktisk mangler først, og knappen er svaret på den setningen. */}
-        {lead && <div style={{ marginTop: "1rem" }}><SeasonGaps year={year} gaps={gaps} /></div>}
       </header>
 
       {/* Én seksjon per konkurranse, hver med sine egne tall over sine egne kamper.
@@ -171,6 +168,14 @@ export default async function SeasonPage({ params }: Props) {
           </section>
         );
       })()}
+
+      {lead ? (
+        <section className="content-section season-help">
+          <p className="eyebrow">Gjør arkivet bedre</p>
+          <h2>Kan du hjelpe oss å dokumentere {year} bedre?</h2>
+          <SeasonGaps year={year} gaps={gaps} />
+        </section>
+      ) : null}
 
       <HistoricalObservations observations={observations} titles={sourceTitles} />
 

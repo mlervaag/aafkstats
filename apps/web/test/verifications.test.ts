@@ -176,7 +176,7 @@ describe("verifiseringskøen", () => {
     const html = renderToStaticMarkup(React.createElement(VerificationExperience, {
       cases: loadVerificationCases("open"),
     }));
-    expect(html).toContain("Se alle saker");
+    expect(html).toContain("Velg en annen kontrollsak");
     expect(html).toContain("Sak i arbeidskøen");
     expect(html).not.toContain("Se alle 2 saker");
   });
