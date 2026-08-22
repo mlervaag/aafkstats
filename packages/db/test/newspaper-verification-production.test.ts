@@ -35,7 +35,7 @@ describe("produksjonskøen for avisverifisering", () => {
     const researchCases = archive.verificationCases.filter((item) => item.researchTask);
     expect(researchCases).toHaveLength(23);
     expect(researchCases.filter((item) => item.status === "open")).toHaveLength(23);
-    expect(archive.verificationCases.filter((item) => !item.newspaper && !item.researchTask)).toHaveLength(25);
+    expect(archive.verificationCases.filter((item) => !item.newspaper && !item.researchTask)).toHaveLength(26);
     const casesById = new Map(archive.verificationCases.map((item) => [item.id, item]));
     expect([
       "nb-avis-1946-23-e5805ff7ec",
