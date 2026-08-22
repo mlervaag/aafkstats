@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1929-08-05-s3-langevag
+matchId: 1929-08-04-langevag-aalesunds-fk
+retrievedAt: 2026-08-22
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:d8c47b528b14e591789c629ebf77c3e59ea217b702484a0d91d6bf37aa15dc71
+raw:
+  avis: Sunnmørsposten
+  dato: 1929-08-05
+  side: "3"
+  tittel: Sunnmørsposten 1929-08-05 s. 3
+  kamp: langevag - aalesunds-fk 0-7
+  url: https://www.nb.no/items/59cbd92ee3b6f4fe7bb494c9ea463608?page=1
+normalized:
+  date: 1929-08-04
+  home.clubId: langevag
+  away.clubId: aalesunds-fk
+  home.score: 0
+  away.score: 7
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []
