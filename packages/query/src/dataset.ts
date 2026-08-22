@@ -235,6 +235,7 @@ export const views: ViewDoc[] = [
     caveats: [
       "played, wins, draws og losses regnes over de samme kampene, statusene 'played' og 'awarded'. wins + draws + losses er derfor alltid lik played.",
       "first_meeting ser også kamper som ikke er spilt. En motstander vi har på terminlista uten å ha møtt står med played = 0 og last_meeting = NULL.",
+      "Viewet summerer bare kanoniske kamper. Ved spørsmål om komplett historikk må ukoblede source_results vises separat, aldri legges direkte til disse tallene.",
     ],
     columns: [
       { name: "opponent_club_id", type: "text", description: "Motstanderens ID." },

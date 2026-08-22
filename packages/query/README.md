@@ -36,7 +36,7 @@ Legger du til en kolonne i `packages/db/src/schema.sql`, skal den også inn her.
 | `search_all_results` | Rekorder og hele historien, samlet fra kanoniske kamper og grupperte, ukoblede kilderesultater |
 | `get_match` | Alt om én kamp, inkludert kampstatistikk, hendelser og referat |
 | `get_season_summary` | Plassering, resultatfordeling og målforskjell for én sesong |
-| `head_to_head` | Innbyrdes statistikk mot én motstander gjennom hele historien |
+| `head_to_head` | Innbyrdes statistikk med kanoniske kamper og ukoblede kilderesultater som separate lag |
 | `search_reports` | Fritekstsøk i kampreferatene (FTS5) |
 | `search_people` | Personer og kontrollerte roller eller verv |
 | `search_historical_results` | Kildedokumenterte resultater som mangler full kampkobling |
@@ -52,6 +52,12 @@ andre spørsmål om hele historien. Verktøyet utelater `source_results` som all
 `match_id`, slik at samme kamp ikke kommer både som kamp og kildepåstand. Ukoblede rader
 grupperes på `result_group_id` når den finnes, og svaret inneholder en serverstyrt
 evidenskontrakt som skiller `canonical_match` fra `source_claim`.
+
+`head_to_head` følger samme prinsipp for motstanderstatistikk. Det grupperer ukoblede
+kilderesultater på `result_group_id`, tar bare med sikkert identifisert `opponent_club_id`
+og returnerer dem ved siden av den kanoniske statistikken. Lagene skal ikke summeres, fordi
+en ukoblet rad kan gjelde en kamp som allerede finnes i kampmodellen. Konkrete resultater
+kan deretter hentes med samme klubb-ID i `search_all_results`, uten et tvetydig navnesøk.
 
 Alle verktøyene kjører gjennom den samme guardrailen i
 [`@aafkstats/db/sql`](../db/README.md#guardrailen) — også de vi har skrevet selv. Ett sted å
