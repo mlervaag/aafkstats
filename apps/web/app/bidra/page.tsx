@@ -18,6 +18,9 @@ export const metadata: Metadata = pageMetadata(
 export default function ContributePage() {
   const verificationCases = loadVerificationCases("open");
   const estimatedMinutes = verificationCases.map((item) => item.estimatedMinutes);
+  const researchCaseCount = verificationCases.filter((item) => item.researchTask).length;
+  const newspaperCaseCount = verificationCases.filter((item) => item.newspaper && !item.researchTask).length;
+  const directCaseCount = verificationCases.filter((item) => !item.newspaper && !item.researchTask).length;
 
   return (
     <>
@@ -33,8 +36,9 @@ export default function ContributePage() {
 
       <ContributeVerificationCard
         openCaseIds={verificationCases.map((item) => item.id)}
-        newspaperCaseCount={verificationCases.filter((item) => item.newspaper).length}
-        directCaseCount={verificationCases.filter((item) => !item.newspaper).length}
+        researchCaseCount={researchCaseCount}
+        newspaperCaseCount={newspaperCaseCount}
+        directCaseCount={directCaseCount}
         minimumMinutes={estimatedMinutes.length ? Math.min(...estimatedMinutes) : 0}
         maximumMinutes={estimatedMinutes.length ? Math.max(...estimatedMinutes) : 0}
       />
@@ -194,8 +198,9 @@ export default function ContributePage() {
         <p>
           Den komplette <a href="/mangler/oversikt">mangellista</a> viser historiske resultater
           som trenger identifisering, kampdetaljer som mangler og kildekonflikter
-          som må avklares. For korte, konkrete JA/NEI-saker kan du bruke{" "}
-          <a href="/mangler">community-køen</a>.
+          som må avklares. For korte, konkrete oppgaver kan du bruke{" "}
+          <a href="/mangler">community-køen</a>, eller gå rett til{" "}
+          <a href="/mangler/saker?type=avisresearch">avisresearch</a>.
         </p>
       </section>
     </>

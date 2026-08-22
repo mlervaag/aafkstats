@@ -1,0 +1,1693 @@
+contract: nb-community-research-wave@1
+generatedFrom:
+  canonicalizationManifest: data/discovery/nb-source-result-canonicalization-1945-1984.yaml
+  visualReviewManifest: data/discovery/nb-source-result-visual-review-1945-1984.yaml
+generatedAt: 2026-08-21
+summary:
+  sibling_resolution: 20
+  date_research: 1
+  score_conflict: 1
+  competition_conflict: 1
+  source_reconciliation: 1
+  total: 24
+items:
+  - id: nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1945-15-sibling-resolution
+    hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-015
+    season: 1945
+    category: sibling_resolution
+    status: open
+    question: Hvilket av de registrerte møtene mot Ørsta omtaler avisen?
+    context: AaFK møtte Ørsta flere ganger i 1945. Avisen dokumenterer én konkret kamp, men opplysningene kan ikke knyttes sikkert til den riktige kildedokumenterte oppføringen.
+    whyItMatters: Riktig kobling gjør at dato og avisreferanse kan vurderes uten å blande sammen flere møter.
+    sourceResults:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1945
+        no: 15
+        opponent: Ørsta
+        expectedScore:
+          aafk: 4
+          opponent: 4
+        competition: Kretskamper
+        label: 4–4 mot Ørsta – registrert som Kretskamper
+    observedEvent:
+      opponent: Ørsta
+      matchDate: 1945-07-09
+      homeAway: unknown
+      score:
+        aafk: 4
+        opponent: 4
+      description: "Sunnmørsposten 1945-07-09 s. 2: Tabellnotis eller delvis referat for Ørsta, utilstrekkelig for umiddelbar kanonisering."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1945-07-09
+      printedPage: "2"
+      viewerPage: "2"
+      pageUrl: https://www.nb.no/items/996171a08ad98118ad1097f4f42254ab?page=2
+    candidateOptions:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1945
+        no: 4
+        opponent: Ørsta
+        expectedScore:
+          aafk: 3
+          opponent: 2
+        competition: bortekamp
+        label: 3–2 mot Ørsta – registrert som bortekamp
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1945
+        no: 15
+        opponent: Ørsta
+        expectedScore:
+          aafk: 4
+          opponent: 4
+        competition: Kretskamper
+        label: 4–4 mot Ørsta – registrert som Kretskamper
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - matched_source_result
+      - none_of_these
+      - inconclusive
+    priority: 94
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1945-9-sibling-resolution
+    hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-009
+    season: 1945
+    category: sibling_resolution
+    status: open
+    question: Hvilket av de registrerte møtene mot Molde omtaler avisen?
+    context: AaFK møtte Molde flere ganger i 1945. Avisen dokumenterer én konkret kamp, men opplysningene kan ikke knyttes sikkert til den riktige kildedokumenterte oppføringen.
+    whyItMatters: Riktig kobling gjør at dato og avisreferanse kan vurderes uten å blande sammen flere møter.
+    sourceResults:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1945
+        no: 9
+        opponent: Molde
+        expectedScore:
+          aafk: 5
+          opponent: 3
+        label: 5–3 mot Molde
+    observedEvent:
+      opponent: Molde
+      matchDate: 1945-03-07
+      homeAway: unknown
+      score:
+        aafk: 5
+        opponent: 3
+      description: "Sunnmørsposten 1945-03-07 s. 2: Tabellnotis eller delvis referat for Molde, utilstrekkelig for umiddelbar kanonisering."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1945-03-07
+      printedPage: "2"
+      viewerPage: "2"
+      pageUrl: https://www.nb.no/items/ecfe9d7057db320315993380b3d62333?page=2
+    candidateOptions:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1945
+        no: 5
+        opponent: Molde
+        expectedScore:
+          aafk: 0
+          opponent: 2
+        competition: bortekamp
+        label: 0–2 mot Molde – registrert som bortekamp
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1945
+        no: 9
+        opponent: Molde
+        expectedScore:
+          aafk: 5
+          opponent: 3
+        label: 5–3 mot Molde
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - matched_source_result
+      - none_of_these
+      - inconclusive
+    priority: 94
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-16-sibling-resolution
+    hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-016
+    season: 1955
+    category: sibling_resolution
+    status: open
+    question: Hvilket av de registrerte møtene mot Molde omtaler avisen?
+    context: AaFK møtte Molde flere ganger i 1955. Avisen dokumenterer én konkret kamp, men opplysningene kan ikke knyttes sikkert til den riktige kildedokumenterte oppføringen.
+    whyItMatters: Riktig kobling gjør at dato og avisreferanse kan vurderes uten å blande sammen flere møter.
+    sourceResults:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 16
+        opponent: Molde
+        expectedScore:
+          aafk: 1
+          opponent: 1
+        competition: 1. divisjon. bortekamp
+        label: 1–1 mot Molde – registrert som 1. divisjon. bortekamp
+    observedEvent:
+      opponent: Molde
+      matchDate: 1955-05-30
+      homeAway: away
+      score:
+        aafk: 1
+        opponent: 1
+      competition: 1. divisjon
+      description: "Sunnmørsposten 1955-05-31 s. 2: Flere møter deler samme referat/avis-side (medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-007). Isolert som sibling_group_only."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1955-05-31
+      printedPage: "2"
+      viewerPage: "2"
+      pageUrl: https://www.nb.no/items/dba658412ebb2075db8ee91cb3f1a2d1?page=2
+    candidateOptions:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 7
+        opponent: Molde
+        expectedScore:
+          aafk: 1
+          opponent: 1
+        competition: 1. divisjon
+        label: 1–1 mot Molde – registrert som 1. divisjon
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 16
+        opponent: Molde
+        expectedScore:
+          aafk: 1
+          opponent: 1
+        competition: 1. divisjon. bortekamp
+        label: 1–1 mot Molde – registrert som 1. divisjon. bortekamp
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - matched_source_result
+      - none_of_these
+      - inconclusive
+    priority: 94
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1965-15-sibling-resolution
+    hypothesisId: nm-1965-nord-gossen-runde-1
+    season: 1965
+    category: sibling_resolution
+    status: open
+    question: Hvilket av de registrerte møtene mot Nord-Gossen omtaler avisen?
+    context: AaFK møtte Nord-Gossen flere ganger i 1965. Avisen dokumenterer én konkret kamp, men opplysningene kan ikke knyttes sikkert til den riktige kildedokumenterte oppføringen.
+    whyItMatters: Riktig kobling gjør at dato og avisreferanse kan vurderes uten å blande sammen flere møter.
+    sourceResults:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1965
+        no: 15
+        opponent: Nord-Gossen
+        expectedScore:
+          aafk: 7
+          opponent: 0
+        competition: NM Menn
+        label: 7–0 mot Nord-Gossen – registrert som NM Menn
+      - sourceId: sunnmore-fotballkrets-arsrapport-1965
+        year: 1965
+        no: 1
+        opponent: Nord Gossen
+        expectedScore:
+          aafk: 7
+          opponent: 0
+        competition: NM Menn
+        label: 7–0 mot Nord Gossen – registrert som NM Menn
+    observedEvent:
+      opponent: Nord-Gossen
+      matchDate: 1965-05-28
+      homeAway: unknown
+      score:
+        aafk: 7
+        opponent: 0
+      description: "Sunnmørsposten 1965-05-28 s. 6: Tabellnotis eller delvis referat for Nord-Gossen, utilstrekkelig for umiddelbar kanonisering."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1965-05-28
+      printedPage: "6"
+      viewerPage: "6"
+      pageUrl: https://www.nb.no/items/3f063211304c06b5fb3390ac800a2d56?page=6
+    candidateOptions:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1965
+        no: 15
+        opponent: Nord-Gossen
+        expectedScore:
+          aafk: 7
+          opponent: 0
+        competition: NM Menn
+        label: 7–0 mot Nord-Gossen – registrert som NM Menn
+      - sourceId: sunnmore-fotballkrets-arsrapport-1965
+        year: 1965
+        no: 1
+        opponent: Nord Gossen
+        expectedScore:
+          aafk: 7
+          opponent: 0
+        competition: NM Menn
+        label: 7–0 mot Nord Gossen – registrert som NM Menn
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - matched_source_result
+      - none_of_these
+      - inconclusive
+    priority: 94
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1965-4-sibling-resolution
+    hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-004
+    season: 1965
+    category: sibling_resolution
+    status: open
+    question: Hvilket av de registrerte møtene mot KFK omtaler avisen?
+    context: AaFK møtte KFK flere ganger i 1965. Avisen dokumenterer én konkret kamp, men opplysningene kan ikke knyttes sikkert til den riktige kildedokumenterte oppføringen.
+    whyItMatters: Riktig kobling gjør at dato og avisreferanse kan vurderes uten å blande sammen flere møter.
+    sourceResults:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1965
+        no: 4
+        opponent: KFK
+        expectedScore:
+          aafk: 5
+          opponent: 4
+        competition: 2. divisjon
+        label: 5–4 mot KFK – registrert som 2. divisjon
+    observedEvent:
+      opponent: KFK
+      matchDate: 1965-05-23
+      homeAway: away
+      score:
+        aafk: 5
+        opponent: 4
+      competition: 3. divisjon Møre
+      description: "Sunnmørsposten 1965-05-24 s. 2: Flere møter deler samme referat/avis-side (medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-001). Isolert som sibling_group_only."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1965-05-24
+      printedPage: "2"
+      viewerPage: "2"
+      pageUrl: https://www.nb.no/items/c865a23572bf922b1f789bb03e3e3656?page=2
+    candidateOptions:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1965
+        no: 4
+        opponent: KFK
+        expectedScore:
+          aafk: 5
+          opponent: 4
+        competition: 2. divisjon
+        label: 5–4 mot KFK – registrert som 2. divisjon
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1965
+        no: 11
+        opponent: KFK
+        expectedScore:
+          aafk: 1
+          opponent: 1
+        competition: 2. divisjon
+        label: 1–1 mot KFK – registrert som 2. divisjon
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - matched_source_result
+      - none_of_these
+      - inconclusive
+    priority: 94
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-sunnmore-fotballkrets-arsrapport-1976-1976-1-sibling-resolution
+    hypothesisId: sunnmore-fotballkrets-arsrapport-1976#1976-001
+    season: 1976
+    category: sibling_resolution
+    status: open
+    question: Hvilket av de registrerte møtene mot Skarbøvik omtaler avisen?
+    context: AaFK møtte Skarbøvik flere ganger i 1976. Avisen dokumenterer én konkret kamp, men opplysningene kan ikke knyttes sikkert til den riktige kildedokumenterte oppføringen.
+    whyItMatters: Riktig kobling gjør at dato og avisreferanse kan vurderes uten å blande sammen flere møter.
+    sourceResults:
+      - sourceId: sunnmore-fotballkrets-arsrapport-1976
+        year: 1976
+        no: 1
+        opponent: Skarbøvik
+        expectedScore:
+          aafk: 2
+          opponent: 2
+        competition: NM Menn
+        label: 2–2 mot Skarbøvik – registrert som NM Menn
+    observedEvent:
+      opponent: Skarbøvik
+      matchDate: 1976-03-22
+      homeAway: unknown
+      score:
+        aafk: 2
+        opponent: 2
+      description: "Sunnmørsposten 1976-03-22 s. 6: Tabellnotis eller delvis referat for Skarbøvik, utilstrekkelig for umiddelbar kanonisering."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1976-03-22
+      printedPage: "6"
+      viewerPage: "6"
+      pageUrl: https://www.nb.no/items/a804147572e74928645d24f850d9b3a6?page=6
+    candidateOptions:
+      - sourceId: sunnmore-fotballkrets-arsrapport-1976
+        year: 1976
+        no: 1
+        opponent: Skarbøvik
+        expectedScore:
+          aafk: 2
+          opponent: 2
+        competition: NM Menn
+        label: 2–2 mot Skarbøvik – registrert som NM Menn
+      - sourceId: sunnmore-fotballkrets-arsrapport-1976
+        year: 1976
+        no: 2
+        opponent: Skarbøvik
+        expectedScore:
+          aafk: 2
+          opponent: 1
+        competition: NM Menn
+        label: 2–1 mot Skarbøvik – registrert som NM Menn
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - matched_source_result
+      - none_of_these
+      - inconclusive
+    priority: 94
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-sunnmore-fotballkrets-arsrapport-1976-1976-7-sibling-resolution
+    hypothesisId: sunnmore-fotballkrets-arsrapport-1976#1976-007
+    season: 1976
+    category: sibling_resolution
+    status: open
+    question: Hvilket av de registrerte møtene mot Nessegutten omtaler avisen?
+    context: AaFK møtte Nessegutten flere ganger i 1976. Avisen dokumenterer én konkret kamp, men opplysningene kan ikke knyttes sikkert til den riktige kildedokumenterte oppføringen.
+    whyItMatters: Riktig kobling gjør at dato og avisreferanse kan vurderes uten å blande sammen flere møter.
+    sourceResults:
+      - sourceId: sunnmore-fotballkrets-arsrapport-1976
+        year: 1976
+        no: 7
+        opponent: Nessegutten
+        expectedScore:
+          aafk: 0
+          opponent: 1
+        competition: 1. divisjon
+        label: 0–1 mot Nessegutten – registrert som 1. divisjon
+    observedEvent:
+      opponent: Nessegutten
+      matchDate: 1976-10-04
+      homeAway: unknown
+      score:
+        aafk: 0
+        opponent: 1
+      description: "Sunnmørsposten 1976-10-04 s. 6: Tabellnotis eller delvis referat for Nessegutten, utilstrekkelig for umiddelbar kanonisering."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1976-10-04
+      printedPage: "6"
+      viewerPage: "6"
+      pageUrl: https://www.nb.no/items/a8dca32b80943ff5d747702e063c1943?page=6
+    candidateOptions:
+      - sourceId: sunnmore-fotballkrets-arsrapport-1976
+        year: 1976
+        no: 7
+        opponent: Nessegutten
+        expectedScore:
+          aafk: 0
+          opponent: 1
+        competition: 1. divisjon
+        label: 0–1 mot Nessegutten – registrert som 1. divisjon
+      - sourceId: sunnmore-fotballkrets-arsrapport-1976
+        year: 1976
+        no: 8
+        opponent: Nessegutten
+        expectedScore:
+          aafk: 2
+          opponent: 2
+        competition: 1. divisjon
+        label: 2–2 mot Nessegutten – registrert som 1. divisjon
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - matched_source_result
+      - none_of_these
+      - inconclusive
+    priority: 94
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-sunnmore-fotballkrets-arsrapport-1976-1976-8-sibling-resolution
+    hypothesisId: sunnmore-fotballkrets-arsrapport-1976#1976-008
+    season: 1976
+    category: sibling_resolution
+    status: open
+    question: Hvilket av de registrerte møtene mot Nessegutten omtaler avisen?
+    context: AaFK møtte Nessegutten flere ganger i 1976. Avisen dokumenterer én konkret kamp, men opplysningene kan ikke knyttes sikkert til den riktige kildedokumenterte oppføringen.
+    whyItMatters: Riktig kobling gjør at dato og avisreferanse kan vurderes uten å blande sammen flere møter.
+    sourceResults:
+      - sourceId: sunnmore-fotballkrets-arsrapport-1976
+        year: 1976
+        no: 8
+        opponent: Nessegutten
+        expectedScore:
+          aafk: 2
+          opponent: 2
+        competition: 1. divisjon
+        label: 2–2 mot Nessegutten – registrert som 1. divisjon
+    observedEvent:
+      opponent: Nessegutten
+      matchDate: 1976-10-04
+      homeAway: unknown
+      score:
+        aafk: 2
+        opponent: 2
+      description: "Sunnmørsposten 1976-10-04 s. 6: Tabellnotis eller delvis referat for Nessegutten, utilstrekkelig for umiddelbar kanonisering."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1976-10-04
+      printedPage: "6"
+      viewerPage: "6"
+      pageUrl: https://www.nb.no/items/a8dca32b80943ff5d747702e063c1943?page=6
+    candidateOptions:
+      - sourceId: sunnmore-fotballkrets-arsrapport-1976
+        year: 1976
+        no: 7
+        opponent: Nessegutten
+        expectedScore:
+          aafk: 0
+          opponent: 1
+        competition: 1. divisjon
+        label: 0–1 mot Nessegutten – registrert som 1. divisjon
+      - sourceId: sunnmore-fotballkrets-arsrapport-1976
+        year: 1976
+        no: 8
+        opponent: Nessegutten
+        expectedScore:
+          aafk: 2
+          opponent: 2
+        competition: 1. divisjon
+        label: 2–2 mot Nessegutten – registrert som 1. divisjon
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - matched_source_result
+      - none_of_these
+      - inconclusive
+    priority: 94
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1945-1-sibling-resolution
+    hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-001
+    season: 1945
+    category: sibling_resolution
+    status: open
+    question: Hvilket av de registrerte møtene mot Rollon omtaler avisen?
+    context: AaFK møtte Rollon flere ganger i 1945. Avisen dokumenterer én konkret kamp, men opplysningene kan ikke knyttes sikkert til den riktige kildedokumenterte oppføringen.
+    whyItMatters: Riktig kobling gjør at dato og avisreferanse kan vurderes uten å blande sammen flere møter.
+    sourceResults:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1945
+        no: 1
+        opponent: Rollon
+        expectedScore:
+          aafk: 1
+          opponent: 2
+        label: 1–2 mot Rollon
+    observedEvent:
+      opponent: Rollon
+      matchDate: 1945-05-31
+      homeAway: unknown
+      score:
+        aafk: 1
+        opponent: 2
+      description: "Sunnmørsposten 1945-05-31 s. 2: Tabellnotis eller delvis referat for Rollon, utilstrekkelig for umiddelbar kanonisering."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1945-05-31
+      printedPage: "2"
+      viewerPage: "2"
+      pageUrl: https://www.nb.no/items/23c86123dc486e81618f1b1065184a96?page=2
+    candidateOptions:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1945
+        no: 1
+        opponent: Rollon
+        expectedScore:
+          aafk: 1
+          opponent: 2
+        label: 1–2 mot Rollon
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1945
+        no: 8
+        opponent: Rollon
+        expectedScore:
+          aafk: 4
+          opponent: 0
+        label: 4–0 mot Rollon
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1945
+        no: 13
+        opponent: Rollon
+        expectedScore:
+          aafk: 1
+          opponent: 3
+        competition: Kretskamper
+        label: 1–3 mot Rollon – registrert som Kretskamper
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - matched_source_result
+      - none_of_these
+      - inconclusive
+    priority: 93
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-medlemsblad-for-aalesunds-fotb-1955-8ccc-1955-1-sibling-resolution
+    hypothesisId: nm-1955-langevag-runde-2
+    season: 1955
+    category: sibling_resolution
+    status: open
+    question: Hvilket av de registrerte møtene mot Langevåg omtaler avisen?
+    context: AaFK møtte Langevåg flere ganger i 1955. Avisen dokumenterer én konkret kamp, men opplysningene kan ikke knyttes sikkert til den riktige kildedokumenterte oppføringen.
+    whyItMatters: Riktig kobling gjør at dato og avisreferanse kan vurderes uten å blande sammen flere møter.
+    sourceResults:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
+        year: 1955
+        no: 1
+        opponent: Langevåg
+        expectedScore:
+          aafk: 0
+          opponent: 1
+        competition: NM Menn
+        label: 0–1 mot Langevåg – registrert som NM Menn
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 11
+        opponent: Langevåg
+        expectedScore:
+          aafk: 0
+          opponent: 1
+        competition: 1. divisjon
+        label: 0–1 mot Langevåg – registrert som 1. divisjon
+      - sourceId: sunnmore-fotballkrets-arsrapport-1955
+        year: 1955
+        no: 2
+        opponent: Langevåg
+        expectedScore:
+          aafk: 0
+          opponent: 1
+        competition: NM Menn
+        label: 0–1 mot Langevåg – registrert som NM Menn
+    observedEvent:
+      opponent: Langevåg
+      matchDate: 1955-05-09
+      homeAway: unknown
+      score:
+        aafk: 0
+        opponent: 1
+      description: "Sunnmørsposten 1955-05-09 s. 2: Tabellnotis eller delvis referat for Langevåg, utilstrekkelig for umiddelbar kanonisering."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1955-05-09
+      printedPage: "2"
+      viewerPage: "2"
+      pageUrl: https://www.nb.no/items/082e8eb5428c791f658887bf4396edbb?page=2
+    candidateOptions:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1955-8ccc
+        year: 1955
+        no: 1
+        opponent: Langevåg
+        expectedScore:
+          aafk: 0
+          opponent: 1
+        competition: NM Menn
+        label: 0–1 mot Langevåg – registrert som NM Menn
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 11
+        opponent: Langevåg
+        expectedScore:
+          aafk: 0
+          opponent: 1
+        competition: 1. divisjon
+        label: 0–1 mot Langevåg – registrert som 1. divisjon
+      - sourceId: sunnmore-fotballkrets-arsrapport-1955
+        year: 1955
+        no: 2
+        opponent: Langevåg
+        expectedScore:
+          aafk: 0
+          opponent: 1
+        competition: NM Menn
+        label: 0–1 mot Langevåg – registrert som NM Menn
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - matched_source_result
+      - none_of_these
+      - inconclusive
+    priority: 93
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-26-sibling-resolution
+    hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-026
+    season: 1955
+    category: sibling_resolution
+    status: open
+    question: Hvilket av de registrerte møtene mot Skarbøvik omtaler avisen?
+    context: AaFK møtte Skarbøvik flere ganger i 1955. Avisen dokumenterer én konkret kamp, men opplysningene kan ikke knyttes sikkert til den riktige kildedokumenterte oppføringen.
+    whyItMatters: Riktig kobling gjør at dato og avisreferanse kan vurderes uten å blande sammen flere møter.
+    sourceResults:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 26
+        opponent: Skarbøvik
+        expectedScore:
+          aafk: 7
+          opponent: 2
+        competition: bortekamp
+        label: 7–2 mot Skarbøvik – registrert som bortekamp
+    observedEvent:
+      opponent: Skarbøvik
+      matchDate: 1955-08-23
+      homeAway: unknown
+      score:
+        aafk: 7
+        opponent: 2
+      description: "Sunnmørsposten 1955-08-23 s. 3: Tabellnotis eller delvis referat for Skarbøvik, utilstrekkelig for umiddelbar kanonisering."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1955-08-23
+      printedPage: "3"
+      viewerPage: "3"
+      pageUrl: https://www.nb.no/items/60bb2ce01d207759af7d240265a981cd?page=3
+    candidateOptions:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 3
+        opponent: Skarbøvik
+        expectedScore:
+          aafk: 1
+          opponent: 0
+        competition: ÅFK's jubileumsturnering
+        label: 1–0 mot Skarbøvik – registrert som ÅFK's jubileumsturnering
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 26
+        opponent: Skarbøvik
+        expectedScore:
+          aafk: 7
+          opponent: 2
+        competition: bortekamp
+        label: 7–2 mot Skarbøvik – registrert som bortekamp
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 27
+        opponent: Skarbøvik
+        expectedScore:
+          aafk: 1
+          opponent: 2
+        label: 1–2 mot Skarbøvik
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - matched_source_result
+      - none_of_these
+      - inconclusive
+    priority: 93
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-27-sibling-resolution
+    hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-027
+    season: 1955
+    category: sibling_resolution
+    status: open
+    question: Hvilket av de registrerte møtene mot Skarbøvik omtaler avisen?
+    context: AaFK møtte Skarbøvik flere ganger i 1955. Avisen dokumenterer én konkret kamp, men opplysningene kan ikke knyttes sikkert til den riktige kildedokumenterte oppføringen.
+    whyItMatters: Riktig kobling gjør at dato og avisreferanse kan vurderes uten å blande sammen flere møter.
+    sourceResults:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 27
+        opponent: Skarbøvik
+        expectedScore:
+          aafk: 1
+          opponent: 2
+        label: 1–2 mot Skarbøvik
+    observedEvent:
+      opponent: Skarbøvik
+      matchDate: 1955-08-23
+      homeAway: unknown
+      score:
+        aafk: 1
+        opponent: 2
+      description: "Sunnmørsposten 1955-08-23 s. 3: Tabellnotis eller delvis referat for Skarbøvik, utilstrekkelig for umiddelbar kanonisering."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1955-08-23
+      printedPage: "3"
+      viewerPage: "3"
+      pageUrl: https://www.nb.no/items/60bb2ce01d207759af7d240265a981cd?page=3
+    candidateOptions:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 3
+        opponent: Skarbøvik
+        expectedScore:
+          aafk: 1
+          opponent: 0
+        competition: ÅFK's jubileumsturnering
+        label: 1–0 mot Skarbøvik – registrert som ÅFK's jubileumsturnering
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 26
+        opponent: Skarbøvik
+        expectedScore:
+          aafk: 7
+          opponent: 2
+        competition: bortekamp
+        label: 7–2 mot Skarbøvik – registrert som bortekamp
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 27
+        opponent: Skarbøvik
+        expectedScore:
+          aafk: 1
+          opponent: 2
+        label: 1–2 mot Skarbøvik
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - matched_source_result
+      - none_of_these
+      - inconclusive
+    priority: 93
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-3-sibling-resolution
+    hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-003
+    season: 1955
+    category: sibling_resolution
+    status: open
+    question: Hvilket av de registrerte møtene mot Skarbøvik omtaler avisen?
+    context: AaFK møtte Skarbøvik flere ganger i 1955. Avisen dokumenterer én konkret kamp, men opplysningene kan ikke knyttes sikkert til den riktige kildedokumenterte oppføringen.
+    whyItMatters: Riktig kobling gjør at dato og avisreferanse kan vurderes uten å blande sammen flere møter.
+    sourceResults:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 3
+        opponent: Skarbøvik
+        expectedScore:
+          aafk: 1
+          opponent: 0
+        competition: ÅFK's jubileumsturnering
+        label: 1–0 mot Skarbøvik – registrert som ÅFK's jubileumsturnering
+    observedEvent:
+      opponent: Skarbøvik
+      matchDate: 1955-08-23
+      homeAway: unknown
+      score:
+        aafk: 1
+        opponent: 0
+      description: "Sunnmørsposten 1955-08-23 s. 3: Tabellnotis eller delvis referat for Skarbøvik, utilstrekkelig for umiddelbar kanonisering."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1955-08-23
+      printedPage: "3"
+      viewerPage: "3"
+      pageUrl: https://www.nb.no/items/60bb2ce01d207759af7d240265a981cd?page=3
+    candidateOptions:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 3
+        opponent: Skarbøvik
+        expectedScore:
+          aafk: 1
+          opponent: 0
+        competition: ÅFK's jubileumsturnering
+        label: 1–0 mot Skarbøvik – registrert som ÅFK's jubileumsturnering
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 26
+        opponent: Skarbøvik
+        expectedScore:
+          aafk: 7
+          opponent: 2
+        competition: bortekamp
+        label: 7–2 mot Skarbøvik – registrert som bortekamp
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 27
+        opponent: Skarbøvik
+        expectedScore:
+          aafk: 1
+          opponent: 2
+        label: 1–2 mot Skarbøvik
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - matched_source_result
+      - none_of_these
+      - inconclusive
+    priority: 93
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-5-sibling-resolution
+    hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-005
+    season: 1955
+    category: sibling_resolution
+    status: open
+    question: Hvilket av de registrerte møtene mot Langevåg omtaler avisen?
+    context: AaFK møtte Langevåg flere ganger i 1955. Avisen dokumenterer én konkret kamp, men opplysningene kan ikke knyttes sikkert til den riktige kildedokumenterte oppføringen.
+    whyItMatters: Riktig kobling gjør at dato og avisreferanse kan vurderes uten å blande sammen flere møter.
+    sourceResults:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 5
+        opponent: Langevåg
+        expectedScore:
+          aafk: 1
+          opponent: 5
+        competition: ÅFK's jubileumsturnering
+        label: 1–5 mot Langevåg – registrert som ÅFK's jubileumsturnering
+    observedEvent:
+      opponent: Langevåg
+      matchDate: 1955-05-15
+      homeAway: home
+      score:
+        aafk: 1
+        opponent: 5
+      competition: privatkamp
+      description: "Sunnmørsposten 1955-05-16 s. 2: Flere møter deler samme referat/avis-side (medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-004). Isolert som sibling_group_only."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1955-05-16
+      printedPage: "2"
+      viewerPage: "2"
+      pageUrl: https://www.nb.no/items/4d863e801d0be7f77540793da36ed141?page=2
+    candidateOptions:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 5
+        opponent: Langevåg
+        expectedScore:
+          aafk: 1
+          opponent: 5
+        competition: ÅFK's jubileumsturnering
+        label: 1–5 mot Langevåg – registrert som ÅFK's jubileumsturnering
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 11
+        opponent: Langevåg
+        expectedScore:
+          aafk: 0
+          opponent: 1
+        competition: 1. divisjon
+        label: 0–1 mot Langevåg – registrert som 1. divisjon
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 14
+        opponent: Langevåg
+        expectedScore:
+          aafk: 0
+          opponent: 2
+        competition: 1. divisjon. bortekamp
+        label: 0–2 mot Langevåg – registrert som 1. divisjon. bortekamp
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - matched_source_result
+      - none_of_these
+      - inconclusive
+    priority: 93
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1965-12-sibling-resolution
+    hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-012
+    season: 1965
+    category: sibling_resolution
+    status: open
+    question: Hvilket av de registrerte møtene mot Langevåg omtaler avisen?
+    context: AaFK møtte Langevåg flere ganger i 1965. Avisen dokumenterer én konkret kamp, men opplysningene kan ikke knyttes sikkert til den riktige kildedokumenterte oppføringen.
+    whyItMatters: Riktig kobling gjør at dato og avisreferanse kan vurderes uten å blande sammen flere møter.
+    sourceResults:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1965
+        no: 12
+        opponent: Langevåg
+        expectedScore:
+          aafk: 2
+          opponent: 2
+        competition: 2. divisjon
+        label: 2–2 mot Langevåg – registrert som 2. divisjon
+    observedEvent:
+      opponent: Langevåg
+      matchDate: 1965-05-17
+      homeAway: away
+      score:
+        aafk: 2
+        opponent: 2
+      competition: 3. divisjon Møre
+      description: "Sunnmørsposten 1965-05-18 s. 2: Flere møter deler samme referat/avis-side (medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-003). Isolert som sibling_group_only."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1965-05-18
+      printedPage: "2"
+      viewerPage: "2"
+      pageUrl: https://www.nb.no/items/07ddd40c04152b51b259cf3c46e8d152?page=2
+    candidateOptions:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1965
+        no: 3
+        opponent: Langevåg
+        expectedScore:
+          aafk: 0
+          opponent: 2
+        competition: 2. divisjon
+        label: 0–2 mot Langevåg – registrert som 2. divisjon
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1965
+        no: 12
+        opponent: Langevåg
+        expectedScore:
+          aafk: 2
+          opponent: 2
+        competition: 2. divisjon
+        label: 2–2 mot Langevåg – registrert som 2. divisjon
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1965
+        no: 25
+        opponent: Langevåg
+        expectedScore:
+          aafk: 1
+          opponent: 3
+        label: 1–3 mot Langevåg
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - matched_source_result
+      - none_of_these
+      - inconclusive
+    priority: 93
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1965-8-sibling-resolution
+    hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-008
+    season: 1965
+    category: sibling_resolution
+    status: open
+    question: Hvilket av de registrerte møtene mot Herd omtaler avisen?
+    context: AaFK møtte Herd flere ganger i 1965. Avisen dokumenterer én konkret kamp, men opplysningene kan ikke knyttes sikkert til den riktige kildedokumenterte oppføringen.
+    whyItMatters: Riktig kobling gjør at dato og avisreferanse kan vurderes uten å blande sammen flere møter.
+    sourceResults:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1965
+        no: 8
+        opponent: Herd
+        expectedScore:
+          aafk: 1
+          opponent: 1
+        competition: 2. divisjon
+        label: 1–1 mot Herd – registrert som 2. divisjon
+    observedEvent:
+      description: "Sunnmørsposten 24.05.1965 s. 2: Viser vårens hjemmekamp mot Herd (1965-05-23). Høstkampen (borte) ble spilt senere på sesongen og kan ikke dele denne avis-siden."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1965-05-24
+      printedPage: "2"
+      viewerPage: "2"
+      pageUrl: https://www.nb.no/items/c865a23572bf922b1f789bb03e3e3656?page=2
+    candidateOptions:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1965
+        no: 1
+        opponent: Herd
+        expectedScore:
+          aafk: 1
+          opponent: 1
+        competition: 2. divisjon
+        label: 1–1 mot Herd – registrert som 2. divisjon
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1965
+        no: 8
+        opponent: Herd
+        expectedScore:
+          aafk: 1
+          opponent: 1
+        competition: 2. divisjon
+        label: 1–1 mot Herd – registrert som 2. divisjon
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1965
+        no: 16
+        opponent: Herd
+        expectedScore:
+          aafk: 2
+          opponent: 1
+        competition: NM Menn
+        label: 2–1 mot Herd – registrert som NM Menn
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1965
+        no: 36
+        opponent: Herd
+        expectedScore:
+          aafk: 3
+          opponent: 0
+        label: 3–0 mot Herd
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - matched_source_result
+      - none_of_these
+      - inconclusive
+    priority: 92
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-13-sibling-resolution
+    hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-013
+    season: 1955
+    category: sibling_resolution
+    status: open
+    question: Hvilket av de registrerte møtene mot Rollon omtaler avisen?
+    context: AaFK møtte Rollon flere ganger i 1955. Avisen dokumenterer én konkret kamp, men opplysningene kan ikke knyttes sikkert til den riktige kildedokumenterte oppføringen.
+    whyItMatters: Riktig kobling gjør at dato og avisreferanse kan vurderes uten å blande sammen flere møter.
+    sourceResults:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 13
+        opponent: Rollon
+        expectedScore:
+          aafk: 5
+          opponent: 3
+        competition: 1. divisjon
+        label: 5–3 mot Rollon – registrert som 1. divisjon
+    observedEvent:
+      description: "Sunnmørsposten 07.03.1955 s. 2: Dokumenterer sesongens første seniorkamp spilt 06.03.1955 (3-1). 5-3-kampen var et annet møte og kan ikke allokeres til denne siden/datoen."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1955-03-07
+      printedPage: "2"
+      viewerPage: "2"
+      pageUrl: https://www.nb.no/items/17ef7f346c197c17bca60c500af144e9?page=2
+    candidateOptions:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 2
+        opponent: Rollon
+        expectedScore:
+          aafk: 3
+          opponent: 0
+        competition: ÅFK's jubileumsturnering
+        label: 3–0 mot Rollon – registrert som ÅFK's jubileumsturnering
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 4
+        opponent: Rollon
+        expectedScore:
+          aafk: 2
+          opponent: 4
+        competition: ÅFK's jubileumsturnering
+        label: 2–4 mot Rollon – registrert som ÅFK's jubileumsturnering
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 6
+        opponent: Rollon
+        expectedScore:
+          aafk: 1
+          opponent: 0
+        competition: ÅFK's jubileumsturnering
+        label: 1–0 mot Rollon – registrert som ÅFK's jubileumsturnering
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 9
+        opponent: Rollon
+        expectedScore:
+          aafk: 3
+          opponent: 1
+        competition: 1. divisjon
+        label: 3–1 mot Rollon – registrert som 1. divisjon
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 13
+        opponent: Rollon
+        expectedScore:
+          aafk: 5
+          opponent: 3
+        competition: 1. divisjon
+        label: 5–3 mot Rollon – registrert som 1. divisjon
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 36
+        opponent: Rollon
+        expectedScore:
+          aafk: 4
+          opponent: 0
+        label: 4–0 mot Rollon
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - matched_source_result
+      - none_of_these
+      - inconclusive
+    priority: 90
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-18-sibling-resolution
+    hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-018
+    season: 1955
+    category: sibling_resolution
+    status: open
+    question: Hvilket av de registrerte møtene mot Hødd omtaler avisen?
+    context: AaFK møtte Hødd flere ganger i 1955. Avisen dokumenterer én konkret kamp, men opplysningene kan ikke knyttes sikkert til den riktige kildedokumenterte oppføringen.
+    whyItMatters: Riktig kobling gjør at dato og avisreferanse kan vurderes uten å blande sammen flere møter.
+    sourceResults:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 18
+        opponent: Hødd
+        expectedScore:
+          aafk: 2
+          opponent: 3
+        competition: 1. divisjon. bortekamp
+        label: 2–3 mot Hødd – registrert som 1. divisjon. bortekamp
+    observedEvent:
+      opponent: Hødd
+      matchDate: 1955-11-06
+      homeAway: away
+      score:
+        aafk: 2
+        opponent: 3
+      competition: 1. divisjon
+      description: "Sunnmørsposten 1955-11-07 s. 2: Flere møter deler samme referat/avis-side (medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-008). Isolert som sibling_group_only."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1955-11-07
+      printedPage: "2"
+      viewerPage: "2"
+      pageUrl: https://www.nb.no/items/0618e8ea83cbc8b5739f892f5d280755?page=2
+    candidateOptions:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 8
+        opponent: Hødd
+        expectedScore:
+          aafk: 2
+          opponent: 1
+        competition: 1. divisjon. bortekamp
+        label: 2–1 mot Hødd – registrert som 1. divisjon. bortekamp
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 18
+        opponent: Hødd
+        expectedScore:
+          aafk: 2
+          opponent: 3
+        competition: 1. divisjon. bortekamp
+        label: 2–3 mot Hødd – registrert som 1. divisjon. bortekamp
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 19
+        opponent: Hødd
+        expectedScore:
+          aafk: 2
+          opponent: 1
+        competition: 1. divisjon
+        label: 2–1 mot Hødd – registrert som 1. divisjon
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 22
+        opponent: Hødd
+        expectedScore:
+          aafk: 3
+          opponent: 1
+        competition: Cupen
+        label: 3–1 mot Hødd – registrert som Cupen
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 25
+        opponent: Hødd
+        expectedScore:
+          aafk: 2
+          opponent: 0
+        label: 2–0 mot Hødd
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 30
+        opponent: Hødd
+        expectedScore:
+          aafk: 1
+          opponent: 4
+        competition: bortekamp
+        label: 1–4 mot Hødd – registrert som bortekamp
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - matched_source_result
+      - none_of_these
+      - inconclusive
+    priority: 90
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-19-sibling-resolution
+    hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-019
+    season: 1955
+    category: sibling_resolution
+    status: open
+    question: Hvilket av de registrerte møtene mot Hødd omtaler avisen?
+    context: AaFK møtte Hødd flere ganger i 1955. Avisen dokumenterer én konkret kamp, men opplysningene kan ikke knyttes sikkert til den riktige kildedokumenterte oppføringen.
+    whyItMatters: Riktig kobling gjør at dato og avisreferanse kan vurderes uten å blande sammen flere møter.
+    sourceResults:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 19
+        opponent: Hødd
+        expectedScore:
+          aafk: 2
+          opponent: 1
+        competition: 1. divisjon
+        label: 2–1 mot Hødd – registrert som 1. divisjon
+    observedEvent:
+      opponent: Hødd
+      matchDate: 1955-11-06
+      homeAway: home
+      score:
+        aafk: 2
+        opponent: 1
+      competition: 1. divisjon
+      description: "Sunnmørsposten 1955-11-07 s. 2: Flere møter deler samme referat/avis-side (medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-008). Isolert som sibling_group_only."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1955-11-07
+      printedPage: "2"
+      viewerPage: "2"
+      pageUrl: https://www.nb.no/items/0618e8ea83cbc8b5739f892f5d280755?page=2
+    candidateOptions:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 8
+        opponent: Hødd
+        expectedScore:
+          aafk: 2
+          opponent: 1
+        competition: 1. divisjon. bortekamp
+        label: 2–1 mot Hødd – registrert som 1. divisjon. bortekamp
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 18
+        opponent: Hødd
+        expectedScore:
+          aafk: 2
+          opponent: 3
+        competition: 1. divisjon. bortekamp
+        label: 2–3 mot Hødd – registrert som 1. divisjon. bortekamp
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 19
+        opponent: Hødd
+        expectedScore:
+          aafk: 2
+          opponent: 1
+        competition: 1. divisjon
+        label: 2–1 mot Hødd – registrert som 1. divisjon
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 22
+        opponent: Hødd
+        expectedScore:
+          aafk: 3
+          opponent: 1
+        competition: Cupen
+        label: 3–1 mot Hødd – registrert som Cupen
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 25
+        opponent: Hødd
+        expectedScore:
+          aafk: 2
+          opponent: 0
+        label: 2–0 mot Hødd
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 30
+        opponent: Hødd
+        expectedScore:
+          aafk: 1
+          opponent: 4
+        competition: bortekamp
+        label: 1–4 mot Hødd – registrert som bortekamp
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - matched_source_result
+      - none_of_these
+      - inconclusive
+    priority: 90
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-30-sibling-resolution
+    hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-030
+    season: 1955
+    category: sibling_resolution
+    status: open
+    question: Hvilket av de registrerte møtene mot Hødd omtaler avisen?
+    context: AaFK møtte Hødd flere ganger i 1955. Avisen dokumenterer én konkret kamp, men opplysningene kan ikke knyttes sikkert til den riktige kildedokumenterte oppføringen.
+    whyItMatters: Riktig kobling gjør at dato og avisreferanse kan vurderes uten å blande sammen flere møter.
+    sourceResults:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 30
+        opponent: Hødd
+        expectedScore:
+          aafk: 1
+          opponent: 4
+        competition: bortekamp
+        label: 1–4 mot Hødd – registrert som bortekamp
+    observedEvent:
+      opponent: Hødd
+      matchDate: 1955-04-24
+      homeAway: away
+      score:
+        aafk: 1
+        opponent: 4
+      competition: privatkamp
+      description: "Sunnmørsposten 1955-04-25 s. 2: Flere møter deler samme referat/avis-side (medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-025). Isolert som sibling_group_only."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1955-04-25
+      printedPage: "2"
+      viewerPage: "2"
+      pageUrl: https://www.nb.no/items/7356e8553f2494d1ffa4fb88a7cd7be0?page=2
+    candidateOptions:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 8
+        opponent: Hødd
+        expectedScore:
+          aafk: 2
+          opponent: 1
+        competition: 1. divisjon. bortekamp
+        label: 2–1 mot Hødd – registrert som 1. divisjon. bortekamp
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 18
+        opponent: Hødd
+        expectedScore:
+          aafk: 2
+          opponent: 3
+        competition: 1. divisjon. bortekamp
+        label: 2–3 mot Hødd – registrert som 1. divisjon. bortekamp
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 19
+        opponent: Hødd
+        expectedScore:
+          aafk: 2
+          opponent: 1
+        competition: 1. divisjon
+        label: 2–1 mot Hødd – registrert som 1. divisjon
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 22
+        opponent: Hødd
+        expectedScore:
+          aafk: 3
+          opponent: 1
+        competition: Cupen
+        label: 3–1 mot Hødd – registrert som Cupen
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 25
+        opponent: Hødd
+        expectedScore:
+          aafk: 2
+          opponent: 0
+        label: 2–0 mot Hødd
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 30
+        opponent: Hødd
+        expectedScore:
+          aafk: 1
+          opponent: 4
+        competition: bortekamp
+        label: 1–4 mot Hødd – registrert som bortekamp
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - matched_source_result
+      - none_of_these
+      - inconclusive
+    priority: 90
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-36-date-research
+    hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-036
+    season: 1955
+    category: date_research
+    status: open
+    question: Kan kampdatoen mot Rollon fastslås?
+    context: Lagpar og resultat er identifisert, men den eksakte kampdatoen er fortsatt usikker.
+    whyItMatters: En dokumentert dato er nødvendig før kampen kan kobles sikkert til resten av arkivet.
+    sourceResults:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 36
+        opponent: Rollon
+        expectedScore:
+          aafk: 4
+          opponent: 0
+        label: 4–0 mot Rollon
+    observedEvent:
+      opponent: Rollon
+      matchDate: 1955-08-02
+      homeAway: home
+      score:
+        aafk: 4
+        opponent: 0
+      competition: privatkamp
+      description: "Sunnmørsposten 1955-08-03 s. 3: Kampreferat for AaFK mot Rollon (4–0) spilt 1955-08-02."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1955-08-03
+      printedPage: "3"
+      viewerPage: "3"
+      pageUrl: https://www.nb.no/items/4b4eaab5f3ec83ee3a84cf0b0819dada?page=3
+    candidateOptions: []
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - exact_date
+      - period_only
+      - inconclusive
+    priority: 88
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-sunnmore-fotballkrets-arsrapport-1976-1976-2-source-reconciliation
+    hypothesisId: sunnmore-fotballkrets-arsrapport-1976#1976-002
+    season: 1976
+    category: source_reconciliation
+    status: open
+    question: Hvilken kamp gjelder denne avisartikkelen egentlig?
+    context: Kildedokumentert oppføring og avisobservasjon beskriver tydelig forskjellige hendelser. Finn ut om avisen hører til en annen oppføring eller en kamp som mangler.
+    whyItMatters: Avisreferansen må ikke kobles til feil kamp, men kan fortsatt dokumentere en annen historisk hendelse.
+    sourceResults:
+      - sourceId: sunnmore-fotballkrets-arsrapport-1976
+        year: 1976
+        no: 2
+        opponent: Skarbøvik
+        expectedScore:
+          aafk: 2
+          opponent: 1
+        competition: NM Menn
+        label: 2–1 mot Skarbøvik – registrert som NM Menn
+    observedEvent:
+      opponent: Clausenengen
+      matchDate: 1976-06-16
+      homeAway: home
+      score:
+        aafk: 2
+        opponent: 0
+      competition: NM
+      description: "Sunnmørsposten 17.06.1976 s. 9: NM 2. runde på Aksla onsdag 16. juni 1976 der AaFK slo Clausenengen 2-0."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1976-06-17
+      printedPage: "9"
+      viewerPage: "6"
+      pageUrl: https://www.nb.no/items/a804147572e74928645d24f850d9b3a6?page=6
+    candidateOptions: []
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - matched_other_source_result
+      - missing_source_result
+      - irrelevant
+      - inconclusive
+    priority: 84
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1954-7-score-conflict
+    hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-007
+    season: 1954
+    category: score_conflict
+    status: open
+    question: Hvilket resultat mot Rollon kan kildene samlet sett støtte?
+    context: Den kildedokumenterte oppføringen og avisobservasjonen oppgir ulike resultater for det som kan være samme kamp.
+    whyItMatters: Konflikten må forstås før en kildepåstand kan knyttes til en konkret kamp.
+    sourceResults:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1954
+        no: 7
+        opponent: Rollon
+        expectedScore:
+          aafk: 1
+          opponent: 0
+        competition: Rollons jubileumsturnering
+        label: 1–0 mot Rollon – registrert som Rollons jubileumsturnering
+    observedEvent:
+      opponent: Rollon
+      matchDate: 1954-08-11
+      homeAway: home
+      score:
+        aafk: 5
+        opponent: 3
+      competition: privatkamp
+      description: "Sunnmørsposten 12.08.1954 s. 4: Fullt referat fra privatkampen onsdag 11. august 1954 på Aksla stadion der AaFK slo Rollon 5-3. Etablerer score-konflikt mot medlemsbladets 1-0."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1954-08-12
+      printedPage: "4"
+      viewerPage: "4"
+      pageUrl: https://www.nb.no/items/03e32e85d8f5abb8d80e7be07c8a4eb7?page=4
+    candidateOptions: []
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - newspaper_score
+      - source_result_score
+      - different_events
+      - inconclusive
+    priority: 80
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null
+  - id: nb-research-medlemsblad-for-aalesunds-fotb-1965-a2c9-1955-9-competition-conflict
+    hypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-009
+    season: 1955
+    category: competition_conflict
+    status: open
+    question: Hvilken konkurransetype gjelder denne kampen mot Rollon?
+    context: Den kildedokumenterte oppføringen og avisobservasjonen beskriver konkurransen ulikt.
+    whyItMatters: Riktig konkurransetype skiller serie-, cup- og treningskamper som ellers kan se like ut.
+    sourceResults:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+        year: 1955
+        no: 9
+        opponent: Rollon
+        expectedScore:
+          aafk: 3
+          opponent: 1
+        competition: 1. divisjon
+        label: 3–1 mot Rollon – registrert som 1. divisjon
+    observedEvent:
+      opponent: Rollon
+      matchDate: 1955-03-06
+      homeAway: home
+      score:
+        aafk: 3
+        opponent: 1
+      competition: privatkamp
+      description: "Sunnmørsposten 07.03.1955 s. 2: Referat fra sesongens første treningskamp søndag 6. mars 1955 der AaFK slo Rollon 3-1. Kilden oppgir feilaktig '1. divisjon' for denne vårlige treningskampen, noe som utgjør en eksplisitt konkurransekonflikt."
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1955-03-07
+      printedPage: "2"
+      viewerPage: "2"
+      pageUrl: https://www.nb.no/items/17ef7f346c197c17bca60c500af144e9?page=2
+    candidateOptions: []
+    instructions:
+      - Åpne avissiden og finn kampomtalen som den visuelle kildekontrollen beskriver.
+      - Se etter dato, konkurranse og hjemme/borte som skiller møtene.
+      - Velg bare et alternativ når kilden faktisk skiller det fra de andre.
+    expectedAnswerShape:
+      - league
+      - nm
+      - friendly
+      - other
+      - different_events
+      - inconclusive
+    priority: 76
+    published: true
+    publishedAt: 2026-08-21
+    resolution: null

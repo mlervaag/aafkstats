@@ -10,7 +10,13 @@ export const metadata: Metadata = pageMetadata(
   "website",
 );
 
-export default function VerificationCasesPage() {
+export default async function VerificationCasesPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ type?: string | string[] }>;
+}) {
+  const params = await searchParams;
+  const type = Array.isArray(params.type) ? params.type[0] : params.type;
   const cases = loadVerificationCases("open");
   return (
     <>
@@ -18,11 +24,12 @@ export default function VerificationCasesPage() {
         <p className="eyebrow">Manuell kildekontroll</p>
         <h1>Velg en sak</h1>
         <p className="lede">
-          Kontroller en kilde og svar JA, NEI eller KAN IKKE BESTEMMES. Velg mellom en
-          konkret avisside om en kamp og direkte kildekontroll av en påstand eller konflikt.
+          Velg mellom avisresearch, en konkret JA/NEI-sak fra en avisside og direkte
+          kildekontroll. Research-sakene hjelper deg å velge riktig kamp, dato eller
+          kildepåstand uten å late som kilden er sikrere enn den er.
         </p>
       </header>
-      <CaseDirectory cases={cases} />
+      <CaseDirectory cases={cases} initialCategory={type === "avisresearch" ? "research" : "all"} />
     </>
   );
 }

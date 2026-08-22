@@ -10,6 +10,7 @@ import {
   type VerificationDraft,
 } from "@/lib/verification-draft";
 import type { VerificationCaseView } from "@/lib/verifications";
+import { ResearchTaskPanel } from "./ResearchTaskPanel";
 import styles from "./VerificationExperience.module.css";
 
 const CATEGORY_LABELS: Record<VerificationCaseView["category"], string> = {
@@ -33,12 +34,21 @@ function githubFallback(current: VerificationCaseView, draft: VerificationDraft)
     : draft.evidenceKind === "listed_source"
       ? [draft.sourceKey, draft.reference].filter(Boolean).join(" — ")
       : draft.reference;
+  const research = current.researchTask
+    ? [
+        `Kategori: ${current.researchTask.category}`,
+        `Svar: ${draft.researchAnswer || "ikke valgt"}`,
+        draft.selectedSourceResultKey ? `Valgt kildeoppføring: ${draft.selectedSourceResultKey}` : "",
+        draft.matchDate ? `Dato: ${draft.matchDate}` : "",
+        draft.researchPeriod ? `Periode: ${draft.researchPeriod}` : "",
+      ].filter(Boolean).join("\n")
+    : "";
   return contributionIssueUrl("verifisering", current.question, {
     sak: `${current.id} — /mangler/${current.id}`,
     revisjon: current.revision,
     svar: draft.answer === "yes" ? "JA" : draft.answer === "no" ? "NEI" : draft.answer === "inconclusive" ? "KAN IKKE BESTEMMES" : "",
     dokumentasjon: documentation,
-    funn: draft.finding,
+    funn: [research, draft.finding].filter(Boolean).join("\n\n"),
     kommentar: draft.comment,
     navn: draft.contributor,
   });
@@ -259,6 +269,20 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
     }
   }
 
+  function chooseResearchAnswer(answer: string, selectedSourceResultKey?: string) {
+    setDraft((value) => ({
+      ...value,
+      researchAnswer: answer,
+      selectedSourceResultKey: selectedSourceResultKey ?? "",
+    }));
+    const legacyAnswer: VerificationAnswer = answer === "inconclusive"
+      ? "inconclusive"
+      : ["none_of_these", "different_events", "irrelevant"].includes(answer)
+        ? "no"
+        : "yes";
+    void chooseAnswer(legacyAnswer);
+  }
+
   function moveNext(kind: "completed" | "skipped") {
     const id = current.id;
     if (kind === "skipped" && !successUrl) {
@@ -314,8 +338,13 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
 
   async function submit(event: React.FormEvent) {
     event.preventDefault();
-    if (!draft.answer) return setError("Velg JA, NEI eller KAN IKKE BESTEMMES først.");
-    if (!current.newspaper && draft.finding.trim().length < 3) return setError("Beskriv kort hva du fant i kilden.");
+    if (!draft.answer) return setError(current.researchTask ? "Velg det kildene støtter først." : "Velg JA, NEI eller KAN IKKE BESTEMMES først.");
+    if (current.researchTask && !draft.researchAnswer) return setError("Velg det kildene støtter først.");
+    if (!current.newspaper && !current.researchTask && draft.finding.trim().length < 3) return setError("Beskriv kort hva du fant i kilden.");
+    if (current.researchTask && ["score_conflict", "competition_conflict", "source_reconciliation"].includes(current.researchTask.category) && draft.finding.trim().length < 3) return setError("Beskriv kort hva som avgjør vurderingen.");
+    if (current.researchTask && draft.researchAnswer === "exact_date" && !draft.matchDate) return setError("Oppgi den eksakte kampdatoen.");
+    if (current.researchTask && draft.researchAnswer === "period_only" && !draft.researchPeriod.trim()) return setError("Oppgi måneden eller perioden kilden støtter.");
+    if (current.researchTask && draft.researchAnswer === "other" && !draft.competition.trim()) return setError("Oppgi konkurransetypen.");
     if (draft.evidenceKind === "listed_source" && !draft.sourceKey) return setError("Velg kilden du kontrollerte.");
     if (draft.evidenceKind === "new_url" && !/^https?:\/\/\S+$/i.test(draft.url.trim())) return setError("Skriv inn en gyldig nettlenke.");
     if (draft.evidenceKind === "bibliographic" && draft.reference.trim().length < 3) return setError("Oppgi publikasjon, dato og side.");
@@ -328,6 +357,11 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
         ? { kind: "new_url", url: draft.url, reference: draft.reference || undefined }
         : { kind: "bibliographic", reference: draft.reference };
     try {
+      const selectedSeparator = draft.selectedSourceResultKey.lastIndexOf(":");
+      const selectedSourceResult = selectedSeparator > 0 ? {
+        sourceId: draft.selectedSourceResultKey.slice(0, selectedSeparator),
+        no: Number(draft.selectedSourceResultKey.slice(selectedSeparator + 1)),
+      } : undefined;
       const response = await fetch("/api/verifications", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -344,6 +378,23 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
             homeAway: draft.homeAway || undefined,
             competition: draft.competition || undefined,
             reasons: draft.reasons.length ? draft.reasons : undefined,
+          } : undefined,
+          researchSubmission: current.researchTask ? {
+            verificationSubmissionVersion: 2,
+            category: current.researchTask.category,
+            answer: draft.researchAnswer,
+            selectedSourceResult,
+            structuredFindings: {
+              date: draft.matchDate || undefined,
+              period: draft.researchPeriod || undefined,
+              homeAway: draft.homeAway === "uncertain" ? "unknown" : draft.homeAway || undefined,
+              competition: draft.competition || undefined,
+              score: draft.scoreAafk !== "" && draft.scoreOpponent !== "" ? {
+                aafk: Number(draft.scoreAafk),
+                opponent: Number(draft.scoreOpponent),
+              } : undefined,
+            },
+            evidenceNote: draft.finding || undefined,
           } : undefined,
           comment: draft.comment || undefined,
           contributor: draft.contributor || undefined,
@@ -417,7 +468,7 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
         <div>
           <p className="eyebrow">Hjelp arkivet — ett svar om gangen</p>
           <h1>Kan du kontrollere dette?</h1>
-          <p>Finn dokumentasjonen. Svar JA, NEI eller KAN IKKE BESTEMMES. Arkivredaksjonen vurderer funnet før data endres.</p>
+          <p>Undersøk én konkret kildeoppgave. Noen saker har JA/NEI, mens avisresearch ber deg velge riktig kamp, dato eller kildepåstand.</p>
         </div>
         <div className={styles.progress} aria-label={`${doneCount} saker fullført i denne nettleseren`}>
           <span>{doneCount}</span>
@@ -436,7 +487,7 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
 
       <article className={styles.caseCard} aria-labelledby="case-question" aria-busy={reservation === "checking"}>
         <div className={styles.caseMeta}>
-          <span>{current.newspaper ? "Kamp fra avis" : `Direkte kildekontroll · ${CATEGORY_LABELS[current.category]}`}</span>
+          <span>{current.researchTask ? "Avisresearch" : current.newspaper ? "Kamp fra avis" : `Direkte kildekontroll · ${CATEGORY_LABELS[current.category]}`}</span>
           <span>ca. {current.estimatedMinutes} min</span>
           <span>
             {availabilityChecked && currentPosition > 0
@@ -446,10 +497,10 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
         </div>
 
         <div className={styles.questionBlock}>
-          <p className={styles.claimLabel}>Påstanden er</p>
+          <p className={styles.claimLabel}>{current.researchTask ? "Research-oppgaven" : "Påstanden er"}</p>
           <h2 id="case-question">{current.question}</h2>
           <p>{current.context}</p>
-          {current.newspaper ? (
+          {current.researchTask ? null : current.newspaper ? (
             <dl className={styles.newspaperFacts}>
               <div><dt>Sesong</dt><dd>{current.newspaper.sourceResult.year}</dd></div>
               <div><dt>Motstander</dt><dd>{current.newspaper.sourceResult.opponent}</dd></div>
@@ -465,7 +516,15 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
           {current.searchHint && <p><strong>Tips:</strong> {current.searchHint}</p>}
         </details>
 
-        {current.newspaper ? (
+        {current.researchTask ? (
+          <ResearchTaskPanel
+            task={current.researchTask}
+            answer={draft.researchAnswer}
+            selectedSourceResultKey={draft.selectedSourceResultKey}
+            disabled={reservation === "checking"}
+            onChoose={chooseResearchAnswer}
+          />
+        ) : current.newspaper ? (
           <section className={styles.newspaperSource} aria-labelledby="newspaper-source-title">
             <div>
               <p className="eyebrow">Aviskilde</p>
@@ -505,7 +564,7 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
           </section>
         )}
 
-        <section className={styles.answerSection} aria-labelledby="answer-title">
+        {!current.researchTask && <section className={styles.answerSection} aria-labelledby="answer-title">
           <div className={styles.sectionHeading}>
             <div><span>1</span><h3 id="answer-title">Hva viser dokumentasjonen?</h3></div>
             <p>Ikke svar ut fra hva som virker sannsynlig.</p>
@@ -521,7 +580,7 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
               <span className={styles.answerWord}>KAN IKKE BESTEMMES</span><span>{current.inconclusiveMeaning}</span>
             </button>
           </div>
-        </section>
+        </section>}
 
         {showEvidence && (
           <form id="dokumentasjon" className={styles.evidenceForm} onSubmit={submit}>
@@ -530,22 +589,22 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
               <p>Et svar endrer aldri arkivet automatisk.</p>
             </div>
 
-            {!current.newspaper && <fieldset className={styles.evidenceChoices}>
+            {!current.newspaper && !current.researchTask && <fieldset className={styles.evidenceChoices}>
               <legend>Type dokumentasjon</legend>
               {current.sources.length > 0 && <label><input type="radio" name="evidence" checked={draft.evidenceKind === "listed_source"} onChange={() => setDraft((value) => ({ ...value, evidenceKind: "listed_source" }))} /> En kilde som er oppgitt over</label>}
               <label><input type="radio" name="evidence" checked={draft.evidenceKind === "new_url"} onChange={() => setDraft((value) => ({ ...value, evidenceKind: "new_url" }))} /> En annen nettlenke</label>
               <label><input type="radio" name="evidence" checked={draft.evidenceKind === "bibliographic"} onChange={() => setDraft((value) => ({ ...value, evidenceKind: "bibliographic" }))} /> Avis, bok eller blad uten nettlenke</label>
             </fieldset>}
 
-            {!current.newspaper && draft.evidenceKind === "listed_source" && (
+            {!current.newspaper && !current.researchTask && draft.evidenceKind === "listed_source" && (
               <label className={styles.field}>Hvilken kilde?
                 <select value={draft.sourceKey} onChange={(event) => setDraft((value) => ({ ...value, sourceKey: event.target.value }))}>
                   {current.sources.map((source) => <option value={source.key} key={source.key}>{source.title}{source.page ? `, side ${source.page}` : ""}</option>)}
                 </select>
               </label>
             )}
-            {!current.newspaper && draft.evidenceKind === "new_url" && <label className={styles.field}>Lenke <input type="url" inputMode="url" placeholder="https://…" value={draft.url} onChange={(event) => setDraft((value) => ({ ...value, url: event.target.value }))} required /></label>}
-            {!current.newspaper && <label className={styles.field}>{draft.evidenceKind === "bibliographic" ? "Publikasjon, dato og side" : "Side, dato eller annen presisering (valgfritt)"}
+            {!current.newspaper && !current.researchTask && draft.evidenceKind === "new_url" && <label className={styles.field}>Lenke <input type="url" inputMode="url" placeholder="https://…" value={draft.url} onChange={(event) => setDraft((value) => ({ ...value, url: event.target.value }))} required /></label>}
+            {!current.newspaper && !current.researchTask && <label className={styles.field}>{draft.evidenceKind === "bibliographic" ? "Publikasjon, dato og side" : "Side, dato eller annen presisering (valgfritt)"}
               <input value={draft.reference} onChange={(event) => setDraft((value) => ({ ...value, reference: event.target.value }))} placeholder={draft.evidenceKind === "bibliographic" ? "Sunnmørsposten 12.03.1968, side 7" : "Side 18, venstre spalte"} required={draft.evidenceKind === "bibliographic"} />
             </label>}
             {current.newspaper && draft.answer === "yes" && <div className={styles.structuredFinding}>
@@ -556,8 +615,17 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
               <label className={styles.field}>Konkurranse<input maxLength={120} value={draft.competition} onChange={(event) => setDraft((value) => ({ ...value, competition: event.target.value }))} /></label>
             </div>}
             {current.newspaper && draft.answer !== "yes" && <fieldset className={styles.reasonChoices}><legend>Hva gjorde at du valgte dette? (valgfritt)</legend>{(draft.answer === "no" ? NO_REASONS : INCONCLUSIVE_REASONS).map((reason) => <label key={reason}><input type="checkbox" checked={draft.reasons.includes(reason)} onChange={() => toggleReason(reason)} /> {reason}</label>)}</fieldset>}
-            <label className={styles.field}>{current.newspaper ? "Kort kommentar (valgfritt)" : "Hva fant du?"} {!current.newspaper && <span>Beskriv bare det som avgjør svaret.</span>}
-              <textarea rows={current.newspaper ? 3 : 4} maxLength={1500} value={draft.finding} onChange={(event) => setDraft((value) => ({ ...value, finding: event.target.value }))} placeholder={current.newspaper ? "Bare hvis noe trenger en forklaring …" : "Årsoversikten oppgir …"} required={!current.newspaper} />
+            {current.researchTask && <div className={styles.structuredFinding}>
+              {draft.researchAnswer === "exact_date" && <label className={styles.field}>Eksakt kampdato<input type="date" value={draft.matchDate} onChange={(event) => setDraft((value) => ({ ...value, matchDate: event.target.value }))} required /></label>}
+              {draft.researchAnswer === "period_only" && <label className={styles.field}>Måned eller periode<input maxLength={120} value={draft.researchPeriod} onChange={(event) => setDraft((value) => ({ ...value, researchPeriod: event.target.value }))} placeholder="For eksempel august 1955" required /></label>}
+              {draft.researchAnswer === "other" && <label className={styles.field}>Konkurransetype<input maxLength={120} value={draft.competition} onChange={(event) => setDraft((value) => ({ ...value, competition: event.target.value }))} required /></label>}
+              <label className={styles.field}>Hjemme/borte (valgfritt)<select value={draft.homeAway} onChange={(event) => setDraft((value) => ({ ...value, homeAway: event.target.value as VerificationDraft["homeAway"] }))}><option value="">Ikke oppgitt</option><option value="home">Hjemme</option><option value="away">Borte</option><option value="neutral">Nøytral bane</option><option value="uncertain">Usikkert</option></select></label>
+              {draft.researchAnswer !== "other" && <label className={styles.field}>Konkurranse (valgfritt)<input maxLength={120} value={draft.competition} onChange={(event) => setDraft((value) => ({ ...value, competition: event.target.value }))} /></label>}
+              <label className={styles.field}>AaFK-mål (valgfritt)<input type="number" min="0" value={draft.scoreAafk} onChange={(event) => setDraft((value) => ({ ...value, scoreAafk: event.target.value }))} /></label>
+              <label className={styles.field}>Motstandermål (valgfritt)<input type="number" min="0" value={draft.scoreOpponent} onChange={(event) => setDraft((value) => ({ ...value, scoreOpponent: event.target.value }))} /></label>
+            </div>}
+            <label className={styles.field}>{current.newspaper ? "Kort kommentar (valgfritt)" : current.researchTask ? "Hva fant du i kilden?" : "Hva fant du?"} {!current.newspaper && <span>Beskriv bare det som avgjør svaret.</span>}
+              <textarea rows={current.newspaper ? 3 : 4} maxLength={1500} value={draft.finding} onChange={(event) => setDraft((value) => ({ ...value, finding: event.target.value }))} placeholder={current.newspaper ? "Bare hvis noe trenger en forklaring …" : "Kilden viser …"} required={!current.newspaper && (!current.researchTask || ["score_conflict", "competition_conflict", "source_reconciliation"].includes(current.researchTask.category))} />
             </label>
 
             <details className={styles.optionalFields}>

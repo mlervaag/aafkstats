@@ -16,6 +16,11 @@ export interface VerificationDraft {
   homeAway: "" | "home" | "away" | "neutral" | "uncertain";
   competition: string;
   reasons: string[];
+  researchAnswer: string;
+  selectedSourceResultKey: string;
+  researchPeriod: string;
+  scoreAafk: string;
+  scoreOpponent: string;
   clientSubmissionId: string;
 }
 
@@ -34,6 +39,11 @@ export const EMPTY_VERIFICATION_DRAFT: VerificationDraft = {
   homeAway: "",
   competition: "",
   reasons: [],
+  researchAnswer: "",
+  selectedSourceResultKey: "",
+  researchPeriod: "",
+  scoreAafk: "",
+  scoreOpponent: "",
   clientSubmissionId: "",
 };
 

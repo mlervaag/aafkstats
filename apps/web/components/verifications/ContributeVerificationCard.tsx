@@ -5,6 +5,7 @@ import styles from "./ContributeVerificationCard.module.css";
 
 interface ContributeVerificationCardProps {
   openCaseIds: string[];
+  researchCaseCount: number;
   newspaperCaseCount: number;
   directCaseCount: number;
   minimumMinutes: number;
@@ -17,6 +18,7 @@ function caseCount(count: number): string {
 
 export function ContributeVerificationCard({
   openCaseIds,
+  researchCaseCount,
   newspaperCaseCount,
   directCaseCount,
   minimumMinutes,
@@ -56,14 +58,20 @@ export function ContributeVerificationCard({
         <span className="card-kicker">Enkleste måten å bidra</span>
         <h2 id="verification-contribution-title">Kontroller én konkret sak</h2>
         <p>
-          Du får ett konkret spørsmål og leter etter svaret i en kilde eller et gammelt
-          medlemsblad. Ingen forkunnskaper eller konto kreves.
+          Du får ett konkret spørsmål og leter etter svaret i en avis eller en annen
+          historisk kilde. Ingen forkunnskaper eller konto kreves.
         </p>
         <p className={styles.safety}>
           Du beskriver funnet og hvor du fant det. En redaktør vurderer dokumentasjonen
           før arkivet endres.
         </p>
         <div className={styles.caseTypes} aria-label="Typer saker du kan kontrollere">
+          <div>
+            <strong>Avisresearch</strong>
+            <span>{caseCount(researchCaseCount)}</span>
+            <p>Finn riktig kamp, dato eller kildepåstand på en kontrollert avisside.</p>
+            <a href="/mangler/saker?type=avisresearch">Se research-sakene</a>
+          </div>
           <div>
             <strong>Kamp fra avis</strong>
             <span>{caseCount(newspaperCaseCount)}</span>

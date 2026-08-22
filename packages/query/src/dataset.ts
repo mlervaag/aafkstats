@@ -677,6 +677,7 @@ export const views: ViewDoc[] = [
       { name: "sources", type: "JSON", description: "Kilder som støtter, motsier eller gir kontekst, hver med rolle og note." },
       { name: "search_hint", type: "text", description: "Hvor det er verdt å lete. NULL når ingen er skrevet." },
       { name: "newspaper", type: "JSON", description: "Intern kandidat-, kilderesultat- og NB-metadata for en avisverifisering. NULL for andre saker." },
+      { name: "research_task", type: "JSON", description: "Strukturert oppgave, alternativer og kontrollert avisproveniens for community research. NULL for andre saker." },
       { name: "estimated_minutes", type: "integer", description: "Anslått arbeid for å svare, i minutter." },
       { name: "priority", type: "integer", description: "0–100. Høyere tall er viktigere." },
       { name: "revision", type: "text", description: "Fingeravtrykk av saksinnholdet, så et svar kan knyttes til versjonen det gjaldt." },

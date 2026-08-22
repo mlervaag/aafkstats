@@ -16,6 +16,7 @@ import { restoreVerificationDraft } from "../lib/verification-draft.js";
 import { checkedOutCaseIds, claimVerificationCase, releaseVerificationCase } from "../lib/verification-checkout.js";
 import { resetVerificationSubmissionCache } from "../lib/verification-submissions.js";
 import { loadVerificationCase, loadVerificationCases } from "../lib/verifications.js";
+import { validateResearchSubmission } from "../lib/research-submission.js";
 
 const previousDbPath = process.env.AAFK_DB_PATH;
 let fixtureDbDir: string;
@@ -43,8 +44,8 @@ afterEach(() => {
 describe("verifiseringskøen", () => {
   it("publiserer pilotkøen i prioritert rekkefølge", () => {
     const cases = loadVerificationCases("open");
-    expect(loadVerificationCases("all")).toHaveLength(11);
-    expect(cases).toHaveLength(3);
+    expect(loadVerificationCases("all")).toHaveLength(12);
+    expect(cases).toHaveLength(4);
     expect(cases[0]?.id).toBe("fixture-open-high");
     expect(cases.every((item, index) => index === 0 || cases[index - 1]!.priority >= item.priority)).toBe(true);
   });
@@ -66,6 +67,70 @@ describe("verifiseringskøen", () => {
     expect(html).toContain("Åpne avissiden hos NB");
     expect(html).toContain("KAN IKKE BESTEMMES");
     expect(html).not.toContain("avis-OCR");
+  });
+
+  it("viser en strukturert research-sak med seks møter og riktig sidehenvisning", () => {
+    const item = loadVerificationCase("fixture-nb-research-sibling")!;
+    expect(item.researchTask).toMatchObject({
+      category: "sibling_resolution",
+      actualVisualSource: { printedPage: "7", viewerPage: "6" },
+    });
+    expect(item.researchTask?.candidateOptions).toHaveLength(6);
+    const html = renderToStaticMarkup(React.createElement(VerificationExperience, { cases: [item] }));
+    expect(html).toContain("Dette trenger vi hjelp til");
+    expect(html).toContain("Det kildekontrollen fant på siden");
+    expect(html).toContain("trykt side 7");
+    expect(html).toContain("page=6");
+    expect(html).toContain("Ingen av disse");
+    expect(html).toContain("Kan ikke bestemmes");
+    expect(html).toContain("Hopp over");
+    expect(html).not.toContain("visual review");
+  });
+
+  it("validerer alle strukturerte research-svar uten å redusere dem til JA/NEI", () => {
+    const base = loadVerificationCase("fixture-nb-research-sibling")!.researchTask!;
+    expect(validateResearchSubmission(base, {
+      verificationSubmissionVersion: 2,
+      category: "sibling_resolution",
+      answer: "none_of_these",
+    })).toBeUndefined();
+    expect(validateResearchSubmission(base, {
+      verificationSubmissionVersion: 2,
+      category: "sibling_resolution",
+      answer: "inconclusive",
+    })).toBeUndefined();
+
+    const dateTask = { ...base, category: "date_research" as const, expectedAnswerShape: ["exact_date", "period_only", "inconclusive"] };
+    expect(validateResearchSubmission(dateTask, {
+      verificationSubmissionVersion: 2,
+      category: "date_research",
+      answer: "exact_date",
+      structuredFindings: { date: "1955-05-08" },
+    })).toBeUndefined();
+
+    const scoreTask = { ...base, category: "score_conflict" as const, expectedAnswerShape: ["newspaper_score", "source_result_score", "different_events", "inconclusive"] };
+    expect(validateResearchSubmission(scoreTask, {
+      verificationSubmissionVersion: 2,
+      category: "score_conflict",
+      answer: "different_events",
+      evidenceNote: "Kildene beskriver to forskjellige kampdatoer.",
+    })).toBeUndefined();
+
+    const competitionTask = { ...base, category: "competition_conflict" as const, expectedAnswerShape: ["league", "nm", "friendly", "other", "different_events", "inconclusive"] };
+    expect(validateResearchSubmission(competitionTask, {
+      verificationSubmissionVersion: 2,
+      category: "competition_conflict",
+      answer: "friendly",
+      evidenceNote: "Avisen omtaler kampen uttrykkelig som privatkamp.",
+    })).toBeUndefined();
+
+    const reconciliationTask = { ...base, category: "source_reconciliation" as const, expectedAnswerShape: ["matched_other_source_result", "missing_source_result", "irrelevant", "inconclusive"] };
+    expect(validateResearchSubmission(reconciliationTask, {
+      verificationSubmissionVersion: 2,
+      category: "source_reconciliation",
+      answer: "missing_source_result",
+      evidenceNote: "Lagparet finnes ikke blant de kildedokumenterte oppføringene.",
+    })).toBeUndefined();
   });
 
   it("beholder en permanent side når en publisert sak er løst", async () => {
@@ -90,6 +155,7 @@ describe("verifiseringskøen", () => {
   it("presenterer kildekontroll som et lavterskel bidrag", () => {
     const html = renderToStaticMarkup(React.createElement(ContributeVerificationCard, {
       openCaseIds: ["fixture-open-high", "fixture-open-low"],
+      researchCaseCount: 1,
       newspaperCaseCount: 1,
       directCaseCount: 1,
       minimumMinutes: 5,
@@ -99,6 +165,7 @@ describe("verifiseringskøen", () => {
     expect(html).toContain("2 saker trenger hjelp");
     expect(html).toContain("Ingen forkunnskaper eller konto kreves");
     expect(html).toContain("Kamp fra avis");
+    expect(html).toContain("Avisresearch");
     expect(html).toContain("Direkte kildekontroll");
     expect(html).toContain("Se absolutt alle mangler og lister");
     expect(html).toContain('href="/mangler"');
@@ -116,7 +183,7 @@ describe("verifiseringskøen", () => {
 
   it("trekker ventende innsendelser fra køtellingen", () => {
     const cases = loadVerificationCases("open");
-    expect(availableVerificationCases(cases, ["fixture-open-high"])).toHaveLength(2);
+    expect(availableVerificationCases(cases, ["fixture-open-high"])).toHaveLength(3);
   });
 });
 
@@ -155,6 +222,73 @@ function request(body: unknown, ip: string): Request {
 }
 
 describe("verifiseringsinnsending", () => {
+  it("sender valgt research-møte som en maskinlesbar GitHub-payload", async () => {
+    process.env.GITHUB_INBOX_TOKEN = "test-token";
+    process.env.GITHUB_INBOX_REPO = "mlervaag/aafkstats";
+    const item = loadVerificationCase("fixture-nb-research-sibling")!;
+    let createdBody = "";
+    vi.stubGlobal("fetch", vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
+      const url = String(input);
+      if (url.includes("/search/issues")) return new Response(JSON.stringify({ items: [] }), { status: 200 });
+      if (url.includes("/issues?state=open")) return new Response(JSON.stringify([]), { status: 200 });
+      if (url.endsWith("/issues") && init?.method === "POST") {
+        createdBody = String(init.body);
+        return new Response(JSON.stringify({ html_url: "https://github.com/mlervaag/aafkstats/issues/1001" }), { status: 201 });
+      }
+      throw new Error(`Uventet GitHub-kall: ${url}`);
+    }));
+
+    const response = await POST(request({
+      caseId: item.id,
+      revision: item.revision,
+      answer: "yes",
+      evidence: { kind: "listed_source", sourceKey: item.sources[0]!.key },
+      finding: "Datoen og resultatet skiller oppføring nummer 4 fra de andre.",
+      researchSubmission: {
+        verificationSubmissionVersion: 2,
+        category: "sibling_resolution",
+        answer: "matched_source_result",
+        selectedSourceResult: { sourceId: "aafk-90-ar-1914-2004", no: 4 },
+        structuredFindings: { date: "1955-05-08", homeAway: "home" },
+        evidenceNote: "Datoen og resultatet skiller oppføring nummer 4 fra de andre.",
+      },
+      clientSubmissionId: "ba5e52d8-4c91-4b53-bb56-f83688b9db2a",
+      company: "",
+    }, "10.20.0.10"));
+
+    expect(response.status).toBe(200);
+    const issue = JSON.parse(createdBody) as { body: string; labels: string[] };
+    expect(issue.body).toContain("nb-community-research-payload:v1");
+    expect(issue.body).toContain('"answer": "matched_source_result"');
+    expect(issue.body).toContain('"no": 4');
+    expect(issue.body).toContain('"printedPage": "7"');
+    expect(issue.body).toContain('"viewerPage": "6"');
+    expect(issue.labels).toContain("sibling_resolution");
+  });
+
+  it("avviser et research-møte som ikke finnes blant kandidatene", async () => {
+    const item = loadVerificationCase("fixture-nb-research-sibling")!;
+    const fetchSpy = vi.fn();
+    vi.stubGlobal("fetch", fetchSpy);
+    const response = await POST(request({
+      caseId: item.id,
+      revision: item.revision,
+      answer: "yes",
+      evidence: { kind: "listed_source", sourceKey: item.sources[0]!.key },
+      finding: "Forsøker en ugyldig kandidat.",
+      researchSubmission: {
+        verificationSubmissionVersion: 2,
+        category: "sibling_resolution",
+        answer: "matched_source_result",
+        selectedSourceResult: { sourceId: "aafk-90-ar-1914-2004", no: 999 },
+      },
+      clientSubmissionId: "ca5e52d8-4c91-4b53-bb56-f83688b9db2a",
+      company: "",
+    }, "10.20.0.11"));
+    expect(response.status).toBe(400);
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
   it("sender avisfunn strukturert og godtar kan ikke bestemmes uten fritekst", async () => {
     process.env.GITHUB_INBOX_TOKEN = "test-token";
     process.env.GITHUB_INBOX_REPO = "mlervaag/aafkstats";

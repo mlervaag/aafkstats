@@ -27,6 +27,7 @@
     "data:nb-visual-review": "pnpm --filter @aafkstats/ingest run nb-visual-review",
     "data:nb-visual-canonicalization": "pnpm --filter @aafkstats/ingest run nb-visual-canonicalization",
     "ingest:nb-visual-canonicalization": "pnpm --filter @aafkstats/ingest run nb-visual-canonicalization",
+    "ingest:nb-community-research": "pnpm --filter @aafkstats/ingest run nb-community-research",
     "etter-kamp": "pnpm --filter @aafkstats/ingest run etter-kamp",
     "ingest:fotmob": "pnpm --filter @aafkstats/ingest run fotmob",
     "ingest:fotmob-gap": "pnpm --filter @aafkstats/ingest run fotmob-gap",
