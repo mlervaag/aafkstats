@@ -46,7 +46,7 @@ interface CanonicalManifest {
 }
 
 function categoryFor(item: VisualCase): NbResearchCategory | null {
-  if (item.reviewStatus === "unreviewed_awaiting_visual_batch") return null;
+  if (item.reviewStatus !== "visually_reviewed_pilot") return null;
   if (item.claimResolution === "non_senior" || item.canonicalEligibility === "non_senior") return null;
   if (item.claimResolution === "different_event") return null;
   if (item.canonicalEligibility === "score_conflict" || item.claimResolution === "same_event_score_conflict") return "score_conflict";
