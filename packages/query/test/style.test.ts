@@ -131,4 +131,13 @@ describe("systemPrompt", () => {
     expect(prompt).toContain("Jeg søker etter dem nå");
     expect(prompt).toContain("Det finnes ingen jobb som fortsetter etter at meldingen er sendt");
   });
+
+  it("krever begge resultatlagene ved rekorder", () => {
+    const prompt = systemPrompt();
+    expect(prompt).toContain("største seier");
+    expect(prompt).toContain("alltid bruke search_all_results");
+    expect(prompt).toMatch(/En source_claim betyr bare at den oppgitte kilden\s+dokumenterer resultatet/);
+    expect(prompt).toContain("ikke en grunn til å skjule resultatet");
+    expect(prompt).toContain("https://aafkarkivet.no/kilder/kilde-id");
+  });
 });

@@ -182,6 +182,50 @@ describe("verktøy mot det historiske kandidatlaget", () => {
     expect(result.length).toBeGreaterThan(0);
     expect(result[0]).toMatchObject({ season: 1915 });
     expect(result[0]).toHaveProperty("source_title");
+    expect(result[0]).toHaveProperty("claim_id");
+    expect(result[0]).toHaveProperty("date");
+    expect(result[0]).toHaveProperty("result_group_id");
+  });
+
+  it("finner rekordresultater i både kampmodellen og kildelaget", async () => {
+    const response = await call("search_all_results", { ranking: "largest_win", limit: 10 });
+    const result = rows(response);
+
+    expect(result[0]).toMatchObject({
+      evidence_level: "canonical_match",
+      opponent: "Vigra",
+      aafk_score: 15,
+      opponent_score: 0,
+      goal_difference: 15,
+    });
+
+    const langevaag1924 = result.filter((row) =>
+      row.evidence_level === "source_claim" && row.season === 1924 && row.opponent === "Langevåg",
+    );
+    expect(langevaag1924).toHaveLength(1);
+    expect(langevaag1924[0]).toMatchObject({
+      aafk_score: 14,
+      opponent_score: 0,
+      result_group_id: "1924-langevag-14-0",
+      source_count: 2,
+      match_id: null,
+    });
+    expect(JSON.parse(String(langevaag1924[0]!.missing_fields))).toEqual([
+      "canonical_match",
+      "home_away",
+      "date",
+      "competition",
+    ]);
+    expect(JSON.parse(String(langevaag1924[0]!.sources))).toHaveLength(2);
+
+    const vigra1964 = result.filter((row) =>
+      row.season === 1964 && row.opponent === "Vigra" && row.aafk_score === 15,
+    );
+    expect(vigra1964).toHaveLength(1);
+    expect(vigra1964[0]!.evidence_level).toBe("canonical_match");
+
+    const content = response.content as { evidencePolicy: Record<string, unknown> };
+    expect(content.evidencePolicy).toMatchObject({ contract: "archive-result-evidence@1" });
   });
 
   it("bevarer kilde, side og sikkerhet for rollekandidater", async () => {
