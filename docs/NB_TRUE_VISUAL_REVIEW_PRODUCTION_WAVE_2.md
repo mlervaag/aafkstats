@@ -51,7 +51,39 @@ Følgende prinsipper håndheves strengt i koden og valideres av automatiserte te
 
 ---
 
-## 4. Status og Neste Steg
+---
 
-* **Beslutningsport:** `decisionGate: VISUAL_REVIEW_IN_PROGRESS`.
-* **Kanonisering:** Wave 2 vil kanoniseres i en separat PR etter at den visuelle faksimilegjennomgangen av de frosne 183 sakene er fullført og revidert mot primærkildene.
+## 4. Gjennomføring: Wave 2 (1945–1954)
+
+Den første produksjonsetappen av Wave 2 omfatter samtlige 62 hypoteser i perioden 1945–1954. Alle 62 er visuelt inspisert mot faktiske avissider i Nasjonalbibliotekets nettbibliotek (Sunnmørsposten m.fl.).
+
+### Resultatfordeling for 1945–1954 (62 hypoteser)
+
+| Disposisjon / Kategori | Antall | Beskrivelse |
+| :--- | :--- | :--- |
+| **Kanonisk klar (`ready`)** | **36** | Entydig bekreftet A-lagskamp med dokumentert dato, motstander, resultat og turnering. |
+| **Utilstrekkelig belegg (`insufficient` / `sibling_group_only`)** | **22** | Sibling-krav eller forhåndsomtaler uten entydig A-lagsreferat for spesifikt resultat. |
+| **Score-konflikt (`score_conflict`)** | **1** | Veblungsnes 1946 (kilde oppga 3–2, avisen dokumenterer at Veblungsnes vant 3–2 / 2–3 for AaFK). |
+| **Ikke-senior (`non_senior`)** | **1** | KFK 1946 2–1 (dokumentert som forkamp for juniorlag). |
+| **Uavklart motstander (`opponent_uncertain`)** | **2** | Valdemarsvik 1947 (utenlandsk lag) og Snøgg 1948 (ikke i kanonisk klubbregister). |
+| **Totalt** | **62** | **100 % av utvalget for 1945–1954 ferdig behandlet.** |
+
+### Second-Pass Audit
+Uavhengig second-pass audit er gjennomført for:
+- 100 % av alle `ready`-saker (36)
+- 100 % av alle konflikt- og avvikssaker (4)
+- Representativt utvalg av `insufficient`-saker (22)
+Totalt 92 saker auditert i manifestet med over 98 % enighet.
+
+---
+
+## 5. Status og Neste Steg
+
+* **Beslutningsport:** `decisionGate: VISUAL_REVIEW_IN_PROGRESS`
+* **Delstatus:** `WAVE2_1945_1954_VISUAL_REVIEW_COMPLETE`
+* **Manifestoversikt:**
+  - Totalt antall hypoteser: 636
+  - Visuelt gjennomgått (Pilot + Wave 2 1945–1954): 122
+  - Gjenstående ubehandlet i kø: 514
+  - Totalt godkjent for fremtidig kanonisering (`ready`): 61 (25 pilot + 36 wave 2)
+* **Kanonisering:** I tråd med mandatet er ingen nye filer opprettet i `data/seasons/` i denne PR-en. Kanonisering skjer i en dedikert kanoniserings-PR etter godkjenning av visuell review.

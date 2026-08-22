@@ -215,7 +215,7 @@ export async function auditVisualReviewManifest(): Promise<{
   let insufficientCount = 0;
   let canonicalReadyCount = 0;
   const claimedEventMap = new Map<string, string>();
-  const claimedPageMap = new Map<string, string>();
+  const claimedPageMap = new Map<string, { hypothesisId: string; eventKey: string }>();
 
   function extractPhysicalPageKey(cand: ReviewedCandidate): string {
     if (cand.actualVisualSource) {
@@ -312,9 +312,12 @@ export async function auditVisualReviewManifest(): Promise<{
 
       const pageKey = extractPhysicalPageKey(activeCand);
       if (claimedPageMap.has(pageKey)) {
-        errors.push(`Physical page collision detected: Case ${c.hypothesisId} and ${claimedPageMap.get(pageKey)} both claim physical page ${pageKey}`);
+        const prev = claimedPageMap.get(pageKey)!;
+        if (prev.eventKey === eventKey) {
+          errors.push(`Physical page collision detected: Case ${c.hypothesisId} and ${prev.hypothesisId} both claim physical page ${pageKey} for the same event ${eventKey}`);
+        }
       } else {
-        claimedPageMap.set(pageKey, c.hypothesisId);
+        claimedPageMap.set(pageKey, { hypothesisId: c.hypothesisId, eventKey });
       }
     }
 

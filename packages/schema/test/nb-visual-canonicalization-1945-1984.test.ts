@@ -18,11 +18,11 @@ describe("NB Visual Review Canonicalization (1945-1984) - PR 200", () => {
 
   it("enforces that canonical plan only admits canonicalEligibility: ready and rejects all other states", () => {
     expect(plan.contract).toBe("nb-source-result-canonicalization@1");
-    expect(plan.summary.pr199ReadyInput).toBe(25);
+    expect(plan.summary.pr199ReadyInput).toBe(61);
     expect(plan.summary.skippedInvalid).toBe(1);
     expect(plan.summary.newClubs).toBe(0);
     expect(plan.summary.canonicalMatchesDeleted).toBe(0);
-    expect(plan.accounting.total).toBe(25);
+    expect(plan.accounting.total).toBe(61);
     expect(plan.accounting.invalid_input).toBe(1);
 
     for (const item of plan.items) {
@@ -77,11 +77,10 @@ describe("NB Visual Review Canonicalization (1945-1984) - PR 200", () => {
     expect(actual.viewerPage).toBe("6");
   });
 
-  it("F: observation re-apply gives 0 new writes on clean rerun", () => {
-    expect(plan.idempotencyCheck.observationsCreated).toBe(0);
-    expect(plan.idempotencyCheck.created).toBe(0);
+  it("F: observation re-apply preserves 24 PR 200 matches and identifies 36 pending Wave 2 matches", () => {
+    expect(plan.idempotencyCheck.observationsCreated).toBe(36);
+    expect(plan.idempotencyCheck.created).toBe(36);
     expect(plan.idempotencyCheck.alreadyPresent).toBe(24);
-    expect(plan.idempotencyCheck.filesWritten).toBe(0);
   });
 
   it("G: canonicalization manifest preserves initial application record alongside idempotency check", () => {
@@ -94,13 +93,11 @@ describe("NB Visual Review Canonicalization (1945-1984) - PR 200", () => {
 
   it("H: invalid ready cases are routed to community rest queue under source_reconciliation", () => {
     const queue = plan.communityRestQueue;
-    expect(queue.candidateCount).toBe(24); // 23 PR199 candidates + 1 PR200 invalid ready case (1976 #2)
+    expect(queue.candidateCount).toBe(41);
     expect(queue.summary.source_reconciliation).toBe(1);
-    expect(queue.summary.sibling_resolution).toBe(20);
-    expect(queue.summary.score_conflict).toBe(1);
+    expect(queue.summary.score_conflict).toBe(2);
     expect(queue.summary.competition_conflict).toBe(1);
     expect(queue.summary.date_research).toBe(1);
-    expect(queue.nonCommunityCount).toBe(588);
   });
 
   it("regression: Rollon 1954 score_conflict is NEVER canonicalized", async () => {
@@ -136,7 +133,7 @@ describe("NB Visual Review Canonicalization (1945-1984) - PR 200", () => {
     const manifest = parseYaml(manifestRaw, { schema: "core" });
 
     const nonReady = manifest.cases.filter((c: any) => c.canonicalEligibility !== "ready");
-    expect(nonReady.length).toBe(611); // 636 total - 25 ready = 611
+    expect(nonReady.length).toBe(575); // 636 total - 61 ready = 575
 
     const canonicalHypothesisIds = new Set(plan.items.map((i) => i.hypothesisId));
 

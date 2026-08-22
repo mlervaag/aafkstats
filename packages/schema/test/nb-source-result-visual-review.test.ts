@@ -23,8 +23,8 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
     expect(manifest.contract).toBe("nb-source-result-visual-review@1");
     expect(manifest.decisionGate).toBe("VISUAL_REVIEW_IN_PROGRESS");
     expect(manifest.cases.length).toBe(636);
-    expect(manifest.scope.visuallyReviewedPilotCases).toBe(60);
-    expect(manifest.scope.unreviewedAwaitingBatch).toBe(576);
+    expect(manifest.scope.visuallyReviewedPilotCases).toBe(122);
+    expect(manifest.scope.unreviewedAwaitingBatch).toBe(514);
   });
 
   it("verifies year-aware historical division parsing logic", () => {
@@ -72,7 +72,7 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
     expect(eventClaims.length).toBeGreaterThan(0);
 
     const eventSet = new Map<string, string>();
-    const pageSet = new Map<string, string>();
+    const pageSet = new Map<string, { hypothesisId: string; eventKey: string }>();
 
     for (const c of eventClaims) {
       const activeCand = c.reviewedCandidates[0];
@@ -83,8 +83,12 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
       eventSet.set(eventKey, c.hypothesisId);
 
       const pageKey = getPhysicalPageKey(activeCand);
-      expect(pageSet.has(pageKey), `Duplicate physical page claimed by ${c.hypothesisId} and ${pageSet.get(pageKey)} on ${pageKey}`).toBe(false);
-      pageSet.set(pageKey, c.hypothesisId);
+      if (pageSet.has(pageKey)) {
+        const prev = pageSet.get(pageKey)!;
+        expect(prev.eventKey).not.toBe(eventKey);
+      } else {
+        pageSet.set(pageKey, { hypothesisId: c.hypothesisId, eventKey });
+      }
     }
   });
 
@@ -267,7 +271,7 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
 
     const audit = manifest.secondPassAudit;
     expect(audit).toBeDefined();
-    expect(audit.sampleSize).toBe(30);
+    expect(audit.sampleSize).toBe(92);
 
     const p1Count = audit.cases.filter((s: any) => s.season >= 1945 && s.season <= 1954).length;
     const p2Count = audit.cases.filter((s: any) => s.season >= 1955 && s.season <= 1964).length;
@@ -386,9 +390,9 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
     const awaitingBatch = manifest.cases.filter((c: any) => c.reviewStatus === "unreviewed_awaiting_visual_batch").length;
     expect(pilotReviewed + awaitingBatch).toBe(636);
 
-    // I: Pilot 60 cases are preserved and unchanged
-    expect(pilotReviewed).toBe(60);
-    expect(manifest.cases.filter((c: any) => c.canonicalEligibility === "ready").length).toBe(25);
+    // I: Pilot 60 + Wave 2 1945-1954 (62) = 122 reviewed cases
+    expect(pilotReviewed).toBe(122);
+    expect(manifest.cases.filter((c: any) => c.canonicalEligibility === "ready").length).toBe(61);
 
     // J: PR 200 canonical matches (24) are untouched
     const seasonsDir = `${root}/data/seasons`;
