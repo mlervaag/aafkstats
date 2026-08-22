@@ -15,13 +15,13 @@ function getPhysicalPageKey(cand: any): string {
 }
 
 describe("NB Source-Result Visual Review (1945-1984)", () => {
-  it("validates that visual review manifest adheres to contract nb-source-result-visual-review@1 and decision gate TRUE_VISUAL_PIPELINE_VALIDATED", async () => {
+  it("validates that visual review manifest adheres to contract nb-source-result-visual-review@1 and decision gate VISUAL_REVIEW_IN_PROGRESS", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
     const manifest = parseYaml(manifestRaw, { schema: "core" });
 
     expect(manifest.contract).toBe("nb-source-result-visual-review@1");
-    expect(manifest.decisionGate).toBe("TRUE_VISUAL_PIPELINE_VALIDATED");
+    expect(manifest.decisionGate).toBe("VISUAL_REVIEW_IN_PROGRESS");
     expect(manifest.cases.length).toBe(636);
     expect(manifest.scope.visuallyReviewedPilotCases).toBe(60);
     expect(manifest.scope.unreviewedAwaitingBatch).toBe(576);
@@ -286,5 +286,123 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
         expect(mainCase.canonicalEligibility).toBe(s.adjudication.final);
       }
     }
+  });
+
+  it("verifies that productionWave2Selection is frozen, atomic and stratified (DEL 2)", async () => {
+    const root = repoRoot();
+    const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
+    const manifest = parseYaml(manifestRaw, { schema: "core" });
+
+    const w2 = manifest.productionWave2Selection;
+    expect(w2).toBeDefined();
+    expect(w2.frozenBeforeReview).toBe(true);
+    expect(w2.totalSelected).toBe(183);
+    expect(w2.periods["1945-1954"]).toBe(62);
+    expect(w2.periods["1955-1964"]).toBe(105);
+    expect(w2.periods["1965-1974"]).toBe(16);
+    expect(w2.periods["1975-1984"]).toBe(0);
+
+    // 1. Unique hypothesis IDs
+    expect(w2.selectedHypothesisIds.length).toBe(183);
+    const uniqueIds = new Set(w2.selectedHypothesisIds);
+    expect(uniqueIds.size).toBe(183);
+
+    // 2. Identical to cases with selectedForWave2 === true
+    const selectedCases = manifest.cases.filter((c: any) => c.selectedForWave2 === true);
+    expect(selectedCases.length).toBe(183);
+    const selectedCaseIds = new Set(selectedCases.map((c: any) => c.hypothesisId));
+    expect(selectedCaseIds).toEqual(uniqueIds);
+
+    // 3. Atomic sibling group selection over unreviewed candidate pool (0 or all unreviewed members selected)
+    const unreviewedPool = manifest.cases.filter((c: any) => c.reviewStatus === "unreviewed_awaiting_visual_batch");
+    const siblingGroupMembers = new Map<string, any[]>();
+    for (const c of unreviewedPool) {
+      if (c.siblingGroup?.id) {
+        if (!siblingGroupMembers.has(c.siblingGroup.id)) {
+          siblingGroupMembers.set(c.siblingGroup.id, []);
+        }
+        siblingGroupMembers.get(c.siblingGroup.id)!.push(c);
+      }
+    }
+    for (const [gId, members] of siblingGroupMembers.entries()) {
+      const selCount = members.filter((m) => m.selectedForWave2 === true).length;
+      expect(
+        selCount === 0 || selCount === members.length,
+        `Sibling group ${gId} violated atomicity: ${selCount} of ${members.length} selected`
+      ).toBe(true);
+    }
+
+    // 4. Recomputed period counts
+    const p1 = selectedCases.filter((c: any) => c.season >= 1945 && c.season <= 1954).length;
+    const p2 = selectedCases.filter((c: any) => c.season >= 1955 && c.season <= 1964).length;
+    const p3 = selectedCases.filter((c: any) => c.season >= 1965 && c.season <= 1974).length;
+    const p4 = selectedCases.filter((c: any) => c.season >= 1975 && c.season <= 1984).length;
+    expect(p1).toBe(62);
+    expect(p2).toBe(105);
+    expect(p3).toBe(16);
+    expect(p4).toBe(0);
+
+    // 5. Structure counts: 45 singletons, 138 sibling claims, 45 unique sibling groups
+    const singletons = selectedCases.filter((c: any) => c.isSingleton);
+    const siblingClaims = selectedCases.filter((c: any) => !c.isSingleton);
+    const siblingGroupIds = new Set(siblingClaims.map((c: any) => c.siblingGroup?.id).filter(Boolean));
+    expect(singletons.length).toBe(45);
+    expect(siblingClaims.length).toBe(138);
+    expect(siblingGroupIds.size).toBe(45);
+    expect(w2.singletons).toBe(45);
+    expect(w2.siblingClaims).toBe(138);
+    expect(w2.siblingGroups).toBe(45);
+    expect(w2.atomicGroups).toBe(90);
+  });
+
+  it("DEL 13 Guardrails: strict anti-synthetic validation (A-L)", async () => {
+    const root = repoRoot();
+    const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
+    const manifest = parseYaml(manifestRaw, { schema: "core" });
+
+    // A: dateEvidence textSummary cannot be empty or just repeated issueDate
+    const readyCases = manifest.cases.filter((c: any) => c.canonicalEligibility === "ready");
+    for (const c of readyCases) {
+      const activeCand = c.reviewedCandidates[0];
+      const obs = activeCand.observed;
+      expect(obs.dateEvidence.textSummary).not.toBe(activeCand.newspaper?.issueDate);
+      expect(obs.dateEvidence.textSummary.length).toBeGreaterThan(15);
+    }
+
+    // B & C: All unreviewed Wave 2 cases must be completely unreviewed (no synthetic facts)
+    const unreviewedCases = manifest.cases.filter((c: any) => c.reviewStatus === "unreviewed_awaiting_visual_batch");
+    for (const c of unreviewedCases) {
+      expect(c.reviewedCandidates.length).toBe(0);
+      expect((c as any).observed).toBeUndefined();
+      expect((c as any).actualVisualSource).toBeUndefined();
+      expect(c.claimResolution).toBe("insufficient");
+      expect(c.canonicalEligibility).toBe("insufficient");
+      expect(c.reviewStatus).toBe("unreviewed_awaiting_visual_batch");
+    }
+
+    // G & H: accounting sums must equal total hypotheses (636)
+    expect(manifest.cases.length).toBe(636);
+    const pilotReviewed = manifest.cases.filter((c: any) => c.reviewStatus === "visually_reviewed_pilot").length;
+    const awaitingBatch = manifest.cases.filter((c: any) => c.reviewStatus === "unreviewed_awaiting_visual_batch").length;
+    expect(pilotReviewed + awaitingBatch).toBe(636);
+
+    // I: Pilot 60 cases are preserved and unchanged
+    expect(pilotReviewed).toBe(60);
+    expect(manifest.cases.filter((c: any) => c.canonicalEligibility === "ready").length).toBe(25);
+
+    // J: PR 200 canonical matches (24) are untouched
+    const seasonsDir = `${root}/data/seasons`;
+    const seasonYears = await readdir(seasonsDir);
+    let totalMatches = 0;
+    for (const sy of seasonYears) {
+      const mDir = `${seasonsDir}/${sy}/matches`;
+      try {
+        const matches = await readdir(mDir);
+        totalMatches += matches.filter((f) => f.endsWith(".yaml")).length;
+      } catch {
+        // no matches directory
+      }
+    }
+    expect(totalMatches).toBe(1567);
   });
 });

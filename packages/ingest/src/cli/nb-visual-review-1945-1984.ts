@@ -3,6 +3,15 @@ import { parse as parseYaml } from "yaml";
 import { repoRoot, loadArchive } from "@aafkstats/schema/load";
 import { parseCompetitionHint, parseHomeAwayHint } from "@aafkstats/schema";
 
+export interface ActualVisualSource {
+  title: string;
+  issueDate: string;
+  itemId: string;
+  viewerPage: string;
+  printedPage: string;
+  pageUrl: string;
+}
+
 export interface ReviewedCandidate {
   candidateId: string;
   rank: number;
@@ -12,6 +21,7 @@ export interface ReviewedCandidate {
     page: string;
     pageUrl: string;
   };
+  actualVisualSource?: ActualVisualSource;
   visuallyReviewed: boolean;
   observed?: {
     aafkPresent: boolean | "uncertain";
@@ -73,6 +83,7 @@ export interface VisualReviewCase {
   season: number;
   isSingleton: boolean;
   reviewStatus: "visually_reviewed_pilot" | "unreviewed_awaiting_visual_batch";
+  selectedForWave2?: boolean;
   siblingGroup?: {
     id: string;
     size: number;
@@ -207,12 +218,37 @@ export async function auditVisualReviewManifest(): Promise<{
   const claimedPageMap = new Map<string, string>();
 
   function extractPhysicalPageKey(cand: ReviewedCandidate): string {
+    if (cand.actualVisualSource) {
+      return `${cand.actualVisualSource.itemId}|p${cand.actualVisualSource.viewerPage || cand.actualVisualSource.printedPage}`;
+    }
     const url = cand.newspaper?.pageUrl || "";
     const match = url.match(/\/items\/([a-f0-9]+)/i);
     if (match) {
       return `${match[1]}|p${cand.newspaper.page}`;
     }
     return `${cand.newspaper.title}|${cand.newspaper.issueDate}|p${cand.newspaper.page}`;
+  }
+
+  const wave2Sel = manifest.productionWave2Selection;
+  if (wave2Sel) {
+    if (wave2Sel.totalSelected !== 183) {
+      errors.push(`productionWave2Selection.totalSelected is ${wave2Sel.totalSelected}, expected 183`);
+    }
+    if (wave2Sel.periods?.["1945-1954"] !== 62) {
+      errors.push(`productionWave2Selection periods[1945-1954] is ${wave2Sel.periods?.["1945-1954"]}, expected 62`);
+    }
+    if (wave2Sel.periods?.["1955-1964"] !== 105) {
+      errors.push(`productionWave2Selection periods[1955-1964] is ${wave2Sel.periods?.["1955-1964"]}, expected 105`);
+    }
+    if (wave2Sel.periods?.["1965-1974"] !== 16) {
+      errors.push(`productionWave2Selection periods[1965-1974] is ${wave2Sel.periods?.["1965-1974"]}, expected 16`);
+    }
+    if (wave2Sel.periods?.["1975-1984"] !== 0) {
+      errors.push(`productionWave2Selection periods[1975-1984] is ${wave2Sel.periods?.["1975-1984"]}, expected 0`);
+    }
+    if (!wave2Sel.frozenBeforeReview) {
+      errors.push(`productionWave2Selection.frozenBeforeReview must be true`);
+    }
   }
 
   for (const c of cases) {
