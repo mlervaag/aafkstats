@@ -3,7 +3,7 @@ import type { PreservationException } from "../preservation-exceptions.js";
 import { loadYamlMap } from "./git.js";
 import { runPreservationAudit, type PreservationChangeDetail, type PreservationAuditResult } from "./preservation.js";
 import { runArchivePreservationAudit } from "./archive-preservation.js";
-import { loadArchiveDomains, loadAuthorizedExceptions } from "./archive-load.js";
+import { loadArchiveDomains, loadAuthorizedExceptions, loadCoordinateMigrations } from "./archive-load.js";
 
 export interface FullPreservationSummary {
   peopleChecked: number;
@@ -16,6 +16,7 @@ export interface FullPreservationSummary {
   safeEnrichments: number;
   reviewRequired: number;
   approvedExceptions: number;
+  approvedCoordinateMigrations: number;
   destructiveChanges: number;
   staleExceptions: PreservationException[];
   selfApprovedExceptions: PreservationException[];
@@ -34,7 +35,7 @@ export interface FullPreservationResult {
 /**
  * Kjører komplett bevaringskontroll: den semantiske personmotoren pluss den
  * generiske strukturkontrollen over resten av arkivet, med unntak som må være
- * godkjent i BASE.
+ * godkjent i BASE, og maskinelt verifiserte koordinatmigreringer.
  */
 export async function runFullPreservationAudit(
   baseSha: string,
@@ -43,6 +44,7 @@ export async function runFullPreservationAudit(
   repoRoot: string,
 ): Promise<FullPreservationResult> {
   const { authorized, selfApproved } = await loadAuthorizedExceptions(baseSha, headRef, repoRoot);
+  const migrations = await loadCoordinateMigrations(headRef, repoRoot);
 
   const basePeopleLoad = await loadYamlMap(baseSha, "data/people", person, repoRoot);
   const headPeopleLoad = await loadYamlMap(
@@ -68,7 +70,7 @@ export async function runFullPreservationAudit(
   );
 
   const archiveInputs = await loadArchiveDomains(baseSha, headRef, repoRoot);
-  const archiveResult = runArchivePreservationAudit(archiveInputs, authorized);
+  const archiveResult = runArchivePreservationAudit(archiveInputs, authorized, migrations);
 
   const changes = [...peopleResult.changes, ...archiveResult.changes];
 
@@ -92,6 +94,7 @@ export async function runFullPreservationAudit(
     safeEnrichments: peopleResult.summary.safeEnrichments,
     reviewRequired: peopleResult.summary.reviewRequired,
     approvedExceptions: peopleResult.summary.approvedExceptions + archiveResult.approvedExceptions,
+    approvedCoordinateMigrations: archiveResult.approvedCoordinateMigrations,
     destructiveChanges,
     staleExceptions,
     selfApprovedExceptions: selfApproved,

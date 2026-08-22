@@ -1,5 +1,5 @@
 contract: medlemsblad-1965-year-shift-repair@1
-generatedAt: 2026-08-22T10:54:47.176Z
+generatedAt: 2026-08-22T11:39:35.792Z
 summary:
   totalMovedRows: 54
   totalRenumberedRows: 55
@@ -43,7 +43,7 @@ postRepairEffectiveSelection:
   totalMappedClaims: 183
   periods:
     1945-1954: 67
-    1955-1964: 74
+    1955-1964: 100
     1965-1974: 16
     1975-1984: 0
 selectionRepairMapping:
@@ -674,14 +674,14 @@ selectionRepairMapping:
   - frozenHypothesisId: 1957-aksla-2-1
     repairedHypothesisId: 1957-aksla-2-1
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1957
+    newSeason: 1957
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: 1957-aksla-4-1
     repairedHypothesisId: 1957-aksla-4-1
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1957
+    newSeason: 1957
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: medlemsblad-for-aalesunds-fotb-1957-7672#1957-006
     repairedHypothesisId: medlemsblad-for-aalesunds-fotb-1957-7672#1957-006
@@ -692,14 +692,14 @@ selectionRepairMapping:
   - frozenHypothesisId: 1957-guard-1-0
     repairedHypothesisId: 1957-guard-1-0
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1957
+    newSeason: 1957
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: 1957-guard-11-1
     repairedHypothesisId: 1957-guard-11-1
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1957
+    newSeason: 1957
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: sunnmore-fotballkrets-arsrapport-1957#1957-001
     repairedHypothesisId: sunnmore-fotballkrets-arsrapport-1957#1957-001
@@ -710,14 +710,14 @@ selectionRepairMapping:
   - frozenHypothesisId: 1957-herd-0-1
     repairedHypothesisId: 1957-herd-0-1
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1957
+    newSeason: 1957
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: 1957-rollon-2-1
     repairedHypothesisId: 1957-rollon-2-1
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1957
+    newSeason: 1957
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: medlemsblad-for-aalesunds-fotb-1957-7672#1957-005
     repairedHypothesisId: medlemsblad-for-aalesunds-fotb-1957-7672#1957-005
@@ -776,32 +776,32 @@ selectionRepairMapping:
   - frozenHypothesisId: 1957-spjelkavik-2-0
     repairedHypothesisId: 1957-spjelkavik-2-0
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1957
+    newSeason: 1957
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: 1957-spjelkavik-2-2
     repairedHypothesisId: 1957-spjelkavik-2-2
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1957
+    newSeason: 1957
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: forstedivisjon-1957-spjelkavik-1-0
     repairedHypothesisId: forstedivisjon-1957-spjelkavik-1-0
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1957
+    newSeason: 1957
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: 1957-stranda-5-3
     repairedHypothesisId: 1957-stranda-5-3
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1957
+    newSeason: 1957
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: forstedivisjon-1957-braatt-4-1
     repairedHypothesisId: forstedivisjon-1957-braatt-4-1
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1957
+    newSeason: 1957
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-003
     repairedHypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-016
@@ -824,8 +824,8 @@ selectionRepairMapping:
   - frozenHypothesisId: forstedivisjon-1957-clausenengen-1-3
     repairedHypothesisId: forstedivisjon-1957-clausenengen-1-3
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1957
+    newSeason: 1957
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-004
     repairedHypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-017
@@ -836,8 +836,8 @@ selectionRepairMapping:
   - frozenHypothesisId: forstedivisjon-1957-framtid-0-0
     repairedHypothesisId: forstedivisjon-1957-framtid-0-0
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1957
+    newSeason: 1957
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-009
     repairedHypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-022
@@ -848,14 +848,14 @@ selectionRepairMapping:
   - frozenHypothesisId: forstedivisjon-1957-hodd-2-0
     repairedHypothesisId: forstedivisjon-1957-hodd-2-0
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1957
+    newSeason: 1957
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: forstedivisjon-1957-hodd-2-2
     repairedHypothesisId: forstedivisjon-1957-hodd-2-2
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1957
+    newSeason: 1957
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-002
     repairedHypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-015
@@ -878,8 +878,8 @@ selectionRepairMapping:
   - frozenHypothesisId: forstedivisjon-1957-kfk-1-2
     repairedHypothesisId: forstedivisjon-1957-kfk-1-2
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1957
+    newSeason: 1957
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: medlemsblad-for-aalesunds-fotb-1957-7672#1957-018
     repairedHypothesisId: medlemsblad-for-aalesunds-fotb-1957-7672#1957-018
@@ -914,14 +914,14 @@ selectionRepairMapping:
   - frozenHypothesisId: forstedivisjon-1957-langevag-0-2
     repairedHypothesisId: forstedivisjon-1957-langevag-0-2
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1957
+    newSeason: 1957
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: forstedivisjon-1957-langevag-3-1
     repairedHypothesisId: forstedivisjon-1957-langevag-3-1
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1957
+    newSeason: 1957
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: medlemsblad-for-aalesunds-fotb-1957-7672#1957-019
     repairedHypothesisId: medlemsblad-for-aalesunds-fotb-1957-7672#1957-019
@@ -950,8 +950,8 @@ selectionRepairMapping:
   - frozenHypothesisId: forstedivisjon-1957-molde-fk-1-3
     repairedHypothesisId: forstedivisjon-1957-molde-fk-1-3
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1957
+    newSeason: 1957
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1957-005
     repairedHypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-018
@@ -974,32 +974,32 @@ selectionRepairMapping:
   - frozenHypothesisId: nm-1957-eid-il-runde-1
     repairedHypothesisId: nm-1957-eid-il-runde-1
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1957
+    newSeason: 1957
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: 1958-aksla-2-0
     repairedHypothesisId: 1958-aksla-2-0
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1958
+    newSeason: 1958
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: 1958-aksla-4-2
     repairedHypothesisId: 1958-aksla-4-2
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1958
+    newSeason: 1958
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: 1958-herd-5-4
     repairedHypothesisId: 1958-herd-5-4
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1958
+    newSeason: 1958
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: 1958-langevag-2-3
     repairedHypothesisId: 1958-langevag-2-3
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1958
+    newSeason: 1958
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1958-007
     repairedHypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1958-007
@@ -1016,8 +1016,8 @@ selectionRepairMapping:
   - frozenHypothesisId: 1958-skarbovik-3-1
     repairedHypothesisId: 1958-skarbovik-3-1
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1958
+    newSeason: 1958
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1958-004
     repairedHypothesisId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1958-004
@@ -1028,8 +1028,8 @@ selectionRepairMapping:
   - frozenHypothesisId: forstedivisjon-1958-kfk-0-0
     repairedHypothesisId: forstedivisjon-1958-kfk-0-0
     reason: unchanged_identity
-    oldSeason: 0
-    newSeason: 0
+    oldSeason: 1958
+    newSeason: 1958
     reviewDisposition: unchanged_valid
   - frozenHypothesisId: medlemsblad-for-aalesunds-fotb-1958-5725#1958-008
     repairedHypothesisId: medlemsblad-for-aalesunds-fotb-1958-5725#1958-008

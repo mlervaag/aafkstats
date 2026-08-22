@@ -85,6 +85,48 @@ export interface ShiftRepairReport {
   renumberedItems: MigrationMappingItem[];
 }
 
+export function inferHypothesisSeason(id: string, manifestCase?: any): number {
+  if (
+    manifestCase?.season &&
+    Number.isInteger(manifestCase.season) &&
+    manifestCase.season >= 1945 &&
+    manifestCase.season <= 1984
+  ) {
+    return manifestCase.season;
+  }
+  if (
+    manifestCase?.sourceResults?.[0]?.season &&
+    Number.isInteger(manifestCase.sourceResults[0].season) &&
+    manifestCase.sourceResults[0].season >= 1945 &&
+    manifestCase.sourceResults[0].season <= 1984
+  ) {
+    return manifestCase.sourceResults[0].season;
+  }
+  if (
+    manifestCase?.matchedSourceResult?.season &&
+    Number.isInteger(manifestCase.matchedSourceResult.season) &&
+    manifestCase.matchedSourceResult.season >= 1945 &&
+    manifestCase.matchedSourceResult.season <= 1984
+  ) {
+    return manifestCase.matchedSourceResult.season;
+  }
+
+  // Fallback pattern matching on hypothesisId
+  const parts = id.split("#");
+  if (parts[1]) {
+    const y = parseInt(parts[1].split("-")[0] || "", 10);
+    if (Number.isInteger(y) && y >= 1945 && y <= 1984) return y;
+  }
+
+  const match = id.match(/(?:^|[#\-_/])(19[4-8]\d)(?:[#\-_/]|$)/);
+  if (match && match[1]) {
+    const y = parseInt(match[1], 10);
+    if (Number.isInteger(y) && y >= 1945 && y <= 1984) return y;
+  }
+
+  throw new Error(`FAIL: Cannot infer valid season for hypothesis ID: ${id}`);
+}
+
 export async function executeYearShiftRepair(apply: boolean = false): Promise<ShiftRepairReport> {
   const root = repoRoot();
   const sourceFilePath = `${root}/data/source-results/medlemsblad-for-aalesunds-fotb-1965-a2c9.yaml`;
@@ -414,6 +456,11 @@ export async function executeYearShiftRepair(apply: boolean = false): Promise<Sh
     }
   }
 
+  const caseMap = new Map<string, any>();
+  for (const c of visualReview.cases || []) {
+    caseMap.set(c.hypothesisId, c);
+  }
+
   // Selection repair mapping across all 183 frozen hypothesis IDs
   const selectionRepairMapping: SelectionRepairMappingItem[] = frozenIds.map((id: string) => {
     const moved = movedItems.find((s) => s.oldCoordinate?.hypothesisId === id);
@@ -438,8 +485,8 @@ export async function executeYearShiftRepair(apply: boolean = false): Promise<Sh
         reviewDisposition: "requires_new_visual_review",
       };
     }
-    const parts = id.split("#");
-    const season = parseInt(parts[1]?.split("-")[0] || "0", 10);
+    const c = caseMap.get(id);
+    const season = inferHypothesisSeason(id, c);
     return {
       frozenHypothesisId: id,
       repairedHypothesisId: id,

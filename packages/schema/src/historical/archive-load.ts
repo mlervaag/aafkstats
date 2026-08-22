@@ -109,3 +109,45 @@ export async function loadAuthorizedExceptions(
     baseFileFound: baseText !== null,
   };
 }
+
+/**
+ * Laster deklarerte koordinat-migreringsmanifester fra data/discovery/.
+ */
+export async function loadCoordinateMigrations(
+  headRef: string | "working-tree",
+  repoRoot: string,
+): Promise<any[]> {
+  const dir = "data/discovery";
+  const files = await listYamlFiles(headRef === "working-tree" ? null : headRef, dir, repoRoot);
+  const manifests: any[] = [];
+
+  for (const file of files) {
+    let rawText: string | null = null;
+    if (headRef === "working-tree") {
+      const fullPath = join(repoRoot, file);
+      if (existsSync(fullPath)) {
+        rawText = await readFile(fullPath, "utf8");
+      }
+    } else {
+      rawText = await readFileFromGit(headRef, file, repoRoot);
+    }
+    if (!rawText) continue;
+
+    try {
+      const doc = parseYaml(rawText, { schema: "core" }) as any;
+      if (
+        doc &&
+        typeof doc === "object" &&
+        (doc.contract?.includes("year-shift-repair") ||
+          doc.contract?.includes("source-coordinate-migration") ||
+          (Array.isArray(doc.movedItems) && Array.isArray(doc.renumberedItems)))
+      ) {
+        manifests.push(doc);
+      }
+    } catch {
+      // Ignorer uleselig YAML her
+    }
+  }
+
+  return manifests;
+}

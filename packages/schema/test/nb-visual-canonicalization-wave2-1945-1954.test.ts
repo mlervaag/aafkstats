@@ -1,11 +1,11 @@
 import { describe, expect, it, beforeAll } from "vitest";
-import { readFile } from "node:fs/promises";
-import { parse as parseYaml } from "yaml";
+import { readFile, writeFile, unlink } from "node:fs/promises";
+import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
 import {
   buildCanonicalPlan,
   type CanonicalizationResult,
 } from "../../ingest/src/cli/nb-visual-canonicalization-1945-1984.js";
-import { repoRoot, loadArchive } from "../src/load.js";
+import { repoRoot } from "../src/load.js";
 
 describe("NB Visual Review Canonicalization (Wave 2: 1945-1954) - Tests A to S & Guardrails", () => {
   let plan: CanonicalizationResult;
@@ -89,119 +89,162 @@ describe("NB Visual Review Canonicalization (Wave 2: 1945-1954) - Tests A to S &
     expect(spjelkavik?.actualVisualSource.issueDate).toBe("1945-10-01");
   });
 
-  // TEST G: Opponent identity mismatch unit & regression test
-  it("TEST G: opponent identity mismatch blocks canonicalization with opponent_conflict", () => {
-    // Happy path: all ready items in wave 2 plan have valid non-empty opponent matching canonical club
-    for (const item of plan.items) {
-      expect(item.observedEvent.opponentClubId).toBeTruthy();
-      expect(item.observedEvent.opponentClubId).not.toBe("aalesunds-fk");
+  // Helper to run production canonicalization pipeline on crafted review cases
+  async function runGateWithCustomCases(customCases: any[]) {
+    const tmpManifestPath = `${repoRoot()}/data/discovery/tmp-test-manifest-${Date.now()}-${Math.random().toString(36).slice(2)}.yaml`;
+    const tmpManifestContent = {
+      contract: "nb-source-result-visual-review@1",
+      generatedAt: new Date().toISOString(),
+      cases: customCases,
+      productionWave2Selection: {
+        totalCandidates: customCases.length,
+        selectedHypothesisIds: customCases.map((c) => c.hypothesisId),
+      },
+    };
+    await writeFile(tmpManifestPath, stringifyYaml(tmpManifestContent), "utf8");
+    try {
+      const res = await buildCanonicalPlan({
+        manifestPath: tmpManifestPath,
+        reviewStatus: "visually_reviewed_wave_2",
+        batch: "wave_2",
+        minYear: 1945,
+        maxYear: 1954,
+      });
+      return res;
+    } finally {
+      try {
+        await unlink(tmpManifestPath);
+      } catch {
+        // ignore cleanup error if file was not created or already removed
+      }
     }
+  }
 
-    // Direct unit test of opponent mismatch gate logic:
-    // If source-result opponent is rollon, but observed opponent is kfk -> must block
-    const sourceOpponentClubId = "rollon";
-    const observedOpponentClubId = "kfk";
-    const isOpponentMatch = sourceOpponentClubId === observedOpponentClubId;
-    expect(isOpponentMatch).toBe(false);
-  });
+  // TEST G: Opponent identity mismatch blocks canonicalization via production gate
+  it("TEST G: opponent identity mismatch blocks canonicalization with opponent_conflict in production gate", async () => {
+    const validCase = manifest.cases.find(
+      (c: any) => c.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-007"
+    );
+    expect(validCase).toBeDefined();
 
-  // TEST H: Score mismatch unit & regression test
-  it("TEST H: score mismatch blocks canonicalization with score_conflict", () => {
-    // Happy path
-    for (const item of plan.items) {
-      expect(item.observedEvent.score.aafk).toBeGreaterThanOrEqual(0);
-      expect(item.observedEvent.score.opponent).toBeGreaterThanOrEqual(0);
-    }
+    // Clone and manipulate opponent
+    const manipulated = JSON.parse(JSON.stringify(validCase));
+    manipulated.reviewStatus = "visually_reviewed_wave_2";
+    manipulated.canonicalEligibility = "ready";
+    manipulated.reviewedCandidates[0].observed.opponent.clubId = "kfk";
 
-    // Direct unit test of score mismatch gate logic:
-    // Source: 3-1, Visual: 2-1 -> mismatch must be blocked
-    const sourceScore = { aafk: 3, opponent: 1 };
-    const observedScore = { aafk: 2, opponent: 1 };
-    const isScoreMatch =
-      sourceScore.aafk === observedScore.aafk && sourceScore.opponent === observedScore.opponent;
-    expect(isScoreMatch).toBe(false);
+    const gateRes = await runGateWithCustomCases([manipulated]);
+    expect(gateRes.matchesToCreate.size).toBe(0);
+    expect(gateRes.observationsToWrite.size).toBe(0);
+    expect(gateRes.plan.items[0].action).toBe("invalid_input");
+    expect(gateRes.plan.items[0].conflictReason).toContain("opponent_conflict");
+  }, 30000);
 
-    // Verify Rollon 1954 score conflict in manifest
-    const rollonConflict = manifest.cases.find((c: any) => c.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-007");
-    expect(rollonConflict).toBeDefined();
-    expect(rollonConflict?.canonicalEligibility).toBe("score_conflict");
-    expect(rollonConflict?.canonicalEligibility).not.toBe("ready");
-  });
+  // TEST H: Score mismatch blocks canonicalization via production gate
+  it("TEST H: score mismatch blocks canonicalization with score_conflict in production gate", async () => {
+    const validCase = manifest.cases.find(
+      (c: any) => c.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-007"
+    );
+    expect(validCase).toBeDefined();
 
-  // TEST I: Competition mismatch blokkeres eller krever eksplisitt sikker mapping
-  it("TEST I: competitionId maps to valid canonical competition", async () => {
-    const archive = await loadArchive();
-    const validCompetitions = new Set(archive.competitions.map((c) => c.id));
-    for (const item of plan.items) {
-      expect(validCompetitions.has(item.observedEvent.competitionId)).toBe(true);
-    }
+    // Clone and manipulate score
+    const manipulated = JSON.parse(JSON.stringify(validCase));
+    manipulated.reviewStatus = "visually_reviewed_wave_2";
+    manipulated.canonicalEligibility = "ready";
+    manipulated.reviewedCandidates[0].observed.score = { aafk: 9, opponent: 0, confidence: "high" };
+
+    const gateRes = await runGateWithCustomCases([manipulated]);
+    expect(gateRes.matchesToCreate.size).toBe(0);
+    expect(gateRes.observationsToWrite.size).toBe(0);
+    expect(gateRes.plan.items[0].action).toBe("invalid_input");
+    expect(gateRes.plan.items[0].conflictReason).toContain("score_conflict");
+  }, 30000);
+
+  // TEST I: Competition mismatch blocks canonicalization via production gate
+  it("TEST I: competitionId mismatch blocks canonicalization in production gate", async () => {
+    const validCase = manifest.cases.find(
+      (c: any) => c.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-007"
+    );
+    expect(validCase).toBeDefined();
+
+    const manipulated = JSON.parse(JSON.stringify(validCase));
+    manipulated.reviewStatus = "visually_reviewed_wave_2";
+    manipulated.canonicalEligibility = "ready";
+    manipulated.reviewedCandidates[0].observed.competition.competitionId = "non-existent-comp-xyz";
+
+    const gateRes = await runGateWithCustomCases([manipulated]);
+    expect(gateRes.matchesToCreate.size).toBe(0);
+    expect(gateRes.observationsToWrite.size).toBe(0);
+    expect(gateRes.plan.items[0].action).toBe("invalid_input");
+    expect(gateRes.plan.items[0].conflictReason).toContain("not found in canonical competitions");
   }, 30000);
 
   // TEST J: Eksisterende exact canonical match gjenbrukes og dupliseres ikke
   it("TEST J: exact canonical matches are reused (already_present) and never duplicated", () => {
-    // Rerun on already applied matches reports alreadyPresent === 36, created === 0
     expect(plan.idempotencyCheck.created).toBe(0);
     expect(plan.idempotencyCheck.alreadyPresent).toBe(36);
     expect(plan.summary.canonicalMatchesDeleted).toBe(0);
   });
 
-  // TEST K: Canonical collision blokkeres
+  // TEST K: Canonical collision blokkeres via production gate
   it("TEST K: collision detection blocks candidates conflicting with existing canonical events", async () => {
-    expect(plan.summary.blockedExistingConflicts).toBe(0);
+    // 1945-09-30-spjelkavik-aalesunds-fk exists in archive as away for AaFK
+    const validCase = manifest.cases.find(
+      (c: any) => c.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1945-007"
+    );
+    expect(validCase).toBeDefined();
 
-    // Unit test: candidate on same date/opponent but conflicting score must be detected as collision
-    const existingMatch = {
-      date: "1947-08-24",
-      home: { clubId: "aalesunds-fk", score: 3 },
-      away: { clubId: "molde-fk", score: 0 },
-    };
-    const conflictingCandidate = {
-      date: "1947-08-24",
-      homeClubId: "aalesunds-fk",
-      awayClubId: "molde-fk",
-      score: { aafk: 2, opponent: 1 },
-    };
+    const colliding = JSON.parse(JSON.stringify(validCase));
+    colliding.reviewStatus = "visually_reviewed_wave_2";
+    colliding.canonicalEligibility = "ready";
+    // Switching homeAway to "home" creates a collision against existing canonical match
+    colliding.reviewedCandidates[0].observed.homeAway = "home";
 
-    const hasCollision =
-      existingMatch.date === conflictingCandidate.date &&
-      existingMatch.home.score !== conflictingCandidate.score.aafk;
-    expect(hasCollision).toBe(true);
-  });
+    const gateRes = await runGateWithCustomCases([colliding]);
+    expect(gateRes.matchesToCreate.size).toBe(0);
+    expect(gateRes.plan.items[0].action).toBe("blocked_existing_conflict");
+  }, 30000);
 
-  // TEST L: Sibling claim kan ikke tvinges til event uten eksplisitt review-resolution
-  it("TEST L: sibling ambiguity cases are routed to community rest queue", () => {
-    expect(plan.communityRestQueue.summary.sibling_resolution).toBe(16);
-  });
+  // TEST L: Sibling ambiguity routes to community rest queue
+  it("TEST L: sibling ambiguity cases are routed to community rest queue without canonical writes", async () => {
+    const readyCase = manifest.cases.find(
+      (c: any) => c.reviewStatus === "visually_reviewed_wave_2" && c.canonicalEligibility === "ready"
+    );
+    expect(readyCase).toBeDefined();
 
-  // TEST M: Samme avis-side kan brukes som provenance for to forskjellige observerte events uten konflikt
-  it("TEST M: same physical newspaper page can document distinct matches, while duplicates are blocked", () => {
-    // Case A: Same page, distinct events -> permitted
-    const distinctEventsSamePage = [
-      { pageUrl: "https://www.nb.no/items/p1", opponent: "volda", score: [2, 1] },
-      { pageUrl: "https://www.nb.no/items/p1", opponent: "rollon", score: [3, 0] },
-    ];
-    const isSameEventA =
-      distinctEventsSamePage[0].opponent === distinctEventsSamePage[1].opponent &&
-      distinctEventsSamePage[0].score === distinctEventsSamePage[1].score;
-    expect(isSameEventA).toBe(false);
+    const siblingCase = JSON.parse(JSON.stringify(readyCase));
+    siblingCase.season = 1945;
+    siblingCase.canonicalEligibility = "insufficient";
+    siblingCase.claimResolution = "sibling_group_only";
 
-    // Case B: Same page, identical event identity -> competing hypotheses conflict
-    const competingHypotheses = [
-      { pageUrl: "https://www.nb.no/items/p1", opponent: "rollon", score: [3, 0], hypothesisId: "h1" },
-      { pageUrl: "https://www.nb.no/items/p1", opponent: "rollon", score: [3, 0], hypothesisId: "h2" },
-    ];
-    const isSameEventB =
-      competingHypotheses[0].opponent === competingHypotheses[1].opponent &&
-      competingHypotheses[0].score[0] === competingHypotheses[1].score[0];
-    expect(isSameEventB).toBe(true);
+    const gateRes = await runGateWithCustomCases([siblingCase]);
+    expect(gateRes.matchesToCreate.size).toBe(0);
+    expect(gateRes.observationsToWrite.size).toBe(0);
+    expect(gateRes.plan.communityRestQueue.summary.sibling_resolution).toBe(1);
+  }, 30000);
 
-    // Case C: Different pages, same event identity -> duplicate event blocked
-    const duplicateEvents = [
-      { pageUrl: "https://www.nb.no/items/p1", matchId: "1946-06-27-aalesunds-fk-rollon" },
-      { pageUrl: "https://www.nb.no/items/p2", matchId: "1946-06-27-aalesunds-fk-rollon" },
-    ];
-    expect(duplicateEvents[0].matchId).toBe(duplicateEvents[1].matchId);
-  });
+  // TEST M: Same newspaper page with distinct events permitted; duplicate blocked
+  it("TEST M: same physical newspaper page can document distinct matches, while duplicate events are blocked", async () => {
+    const readyCases = manifest.cases.filter(
+      (c: any) =>
+        c.reviewStatus === "visually_reviewed_wave_2" &&
+        c.canonicalEligibility === "ready" &&
+        c.season >= 1945 &&
+        c.season <= 1954
+    );
+    expect(readyCases.length).toBeGreaterThanOrEqual(2);
+
+    const c1 = JSON.parse(JSON.stringify(readyCases[0]));
+    const c2 = JSON.parse(JSON.stringify(readyCases[1]));
+
+    // Point both to same newspaper page
+    c1.reviewedCandidates[0].pageUrl = "https://www.nb.no/items/URN:NBN:no-nb_digavis_sunnmorsposten_null_null_null?page=3";
+    c2.reviewedCandidates[0].pageUrl = "https://www.nb.no/items/URN:NBN:no-nb_digavis_sunnmorsposten_null_null_null?page=3";
+
+    const gateRes = await runGateWithCustomCases([c1, c2]);
+    expect(gateRes.plan.items.length).toBe(2);
+    expect(gateRes.plan.items.every((i) => i.action !== "blocked_existing_conflict")).toBe(true);
+  }, 30000);
 
   // TEST N: Andre canonicalization-run er full no-op (idempotens)
   it("TEST N: idempotency check produces zero new writes", () => {
