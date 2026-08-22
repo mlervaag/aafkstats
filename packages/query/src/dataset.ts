@@ -38,6 +38,7 @@ export const views: ViewDoc[] = [
       "aafk_score og opponent_score står alltid fra AaFKs perspektiv. Hjemme/borte er ukjent, og kampdato er bare satt når kilden oppgir den uttrykkelig.",
       "Radene teller ikke i matches, seasons eller kampstatistikken. Bruk match_id når en rad senere er koblet til en komplett kamp.",
       "competition_id er bare satt når kilden uttrykkelig navngir konkurransen. NULL betyr ukjent.",
+      "Ved rekorder og spørsmål om hele historien må ukoblede rader vurderes sammen med matches. Omtal dem som resultater kilden oppgir, ikke som fullstendig identifiserte kamper.",
     ],
     columns: [
       { name: "claim_id", type: "text", description: "Globalt stabil claim-identifikator (srcclaim-...) uavhengig av kildekoordinater." },

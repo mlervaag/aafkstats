@@ -229,6 +229,12 @@ modell handler på den.
 Chatten kan skrive og kjøre egne SELECT-spørringer. Det er dét som gjør at den kan svare på
 spørsmål ingen har laget et ferdig oppslag for. Seks lag holder det trygt:
 
+Rekordspørsmål bruker et eget `search_all_results`-verktøy. Det leser både `matches` og
+ukoblede `source_results`, men holder bevisnivåene adskilt i resultatet. Kilderesultater som
+allerede har `match_id` utelates for å unngå dobbelttelling, mens flere kildepåstander med
+samme `result_group_id` samles som ett mulig oppgjør. Verktøyet legger ved regler som krever
+at en ukoblet rad omtales som det kilden oppgir, aldri som en fullidentifisert kamp.
+
 | Lag | Håndheves av | Hva det stopper |
 |---|---|---|
 | Filen åpnes med `readOnly` | **SQLite** | All skriving, uansett hvor den kommer fra |

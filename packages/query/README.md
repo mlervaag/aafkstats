@@ -33,6 +33,7 @@ Legger du til en kolonne i `packages/db/src/schema.sql`, skal den også inn her.
 | Verktøy | Til hva |
 |---|---|
 | `search_matches` | Kamper filtrert på sesong, motstander, konkurranse, resultat, hjemme/borte, statistikkdekning og AaFKs xG |
+| `search_all_results` | Rekorder og hele historien, samlet fra kanoniske kamper og grupperte, ukoblede kilderesultater |
 | `get_match` | Alt om én kamp, inkludert kampstatistikk, hendelser og referat |
 | `get_season_summary` | Plassering, resultatfordeling og målforskjell for én sesong |
 | `head_to_head` | Innbyrdes statistikk mot én motstander gjennom hele historien |
@@ -45,6 +46,12 @@ Legger du til en kolonne i `packages/db/src/schema.sql`, skal den også inn her.
 
 De strukturerte verktøyene er raskest når spørsmålet passer dem. `run_sql` er for alt annet:
 aggregeringer, uvanlige kombinasjoner, «hvor mange ganger har vi …». Det er derfor det finnes.
+
+`search_all_results` er den obligatoriske veien for rekorder, største seier eller tap og
+andre spørsmål om hele historien. Verktøyet utelater `source_results` som allerede har
+`match_id`, slik at samme kamp ikke kommer både som kamp og kildepåstand. Ukoblede rader
+grupperes på `result_group_id` når den finnes, og svaret inneholder en serverstyrt
+evidenskontrakt som skiller `canonical_match` fra `source_claim`.
 
 Alle verktøyene kjører gjennom den samme guardrailen i
 [`@aafkstats/db/sql`](../db/README.md#guardrailen) — også de vi har skrevet selv. Ett sted å

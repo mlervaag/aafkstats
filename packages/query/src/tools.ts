@@ -124,6 +124,130 @@ const searchMatches = defineTool({
   },
 });
 
+const RESULT_EVIDENCE_POLICY = {
+  contract: "archive-result-evidence@1",
+  levels: {
+    canonical_match: {
+      meaning: "En identifisert kamp i kampmodellen.",
+      wording: "Kan omtales som en kamp. Oppgi fortsatt confidence, note og konflikter når feltene krever det.",
+    },
+    source_claim: {
+      meaning: "En historisk kilde oppgir resultatet, men oppgjøret mangler sikker kobling til en kanonisk kamp.",
+      wording: "Skriv at kilden oppgir eller dokumenterer resultatet. Forklar relevante missing_fields. Ikke påstå dato, hjemme eller borte, konkurranse eller kampidentitet når feltet mangler.",
+    },
+  },
+  aggregation:
+    "Ikke bland source_claim inn i summer over kanoniske kamper. Flere kilder med samme result_group_id er samlet som ett mulig oppgjør, ikke flere kamper.",
+} as const;
+
+/**
+ * Søker begge resultatlagene i ett kall, slik at rekordspørsmål ikke stopper ved
+ * den enkleste tabellen og dermed skjuler eldre, ufullstendige kilderesultater.
+ */
+const searchAllResults = defineTool({
+  name: "search_all_results",
+  description:
+    "Søk samlet i kanoniske kamper og ukoblede, kildedokumenterte resultater. Bruk alltid " +
+    "dette ved rekorder, største seier eller tap, flest mål og spørsmål om hele historien. " +
+    "Resultatet merker hver rad som canonical_match eller source_claim og grupperer flere kilder til samme uavklarte oppgjør.",
+  inputSchema: z.object({
+    season: z.number().int().min(1914).max(2100).optional(),
+    seasonFrom: z.number().int().min(1914).max(2100).optional(),
+    seasonTo: z.number().int().min(1914).max(2100).optional(),
+    opponent: z.string().optional().describe("Motstander, delvis treff holder"),
+    result: z.enum(["S", "U", "T"]).optional().describe("S seier, U uavgjort, T tap"),
+    ranking: z
+      .enum(["largest_win", "largest_defeat", "most_goals_for", "most_goals_total", "newest", "oldest"])
+      .default("newest")
+      .describe("Hvordan treffene skal rangeres"),
+    limit: z.number().int().min(1).max(100).default(20),
+  }),
+  async run(input, ctx) {
+    const where: string[] = [];
+    if (input.season !== undefined) where.push(`season = ${input.season}`);
+    if (input.seasonFrom !== undefined) where.push(`season >= ${input.seasonFrom}`);
+    if (input.seasonTo !== undefined) where.push(`season <= ${input.seasonTo}`);
+    if (input.opponent) where.push(`lower(coalesce(opponent, '')) LIKE ${lit(`%${input.opponent.toLowerCase()}%`)}`);
+    if (input.result) where.push(`result = ${lit(input.result)}`);
+    if (input.ranking === "largest_win") where.push("result = 'S'");
+    if (input.ranking === "largest_defeat") where.push("result = 'T'");
+
+    const orderBy: Record<typeof input.ranking, string> = {
+      largest_win: "goal_difference DESC, aafk_score DESC, season ASC",
+      largest_defeat: "goal_difference ASC, opponent_score DESC, season ASC",
+      most_goals_for: "aafk_score DESC, goal_difference DESC, season ASC",
+      most_goals_total: "(aafk_score + opponent_score) DESC, season ASC",
+      newest: "coalesce(date, printf('%04d-12-31', season)) DESC, evidence_level ASC",
+      oldest: "coalesce(date, printf('%04d-01-01', season)) ASC, evidence_level ASC",
+    };
+
+    const result = await query(
+      ctx,
+      `WITH source_claims AS (
+         SELECT 'source_claim' AS evidence_level,
+                coalesce(result_group_id, claim_id) AS record_id,
+                date, CASE WHEN date IS NULL THEN 'season_only' ELSE 'exact' END AS date_precision,
+                season, opponent, opponent_club_id,
+                aafk_score, opponent_score,
+                aafk_score - opponent_score AS goal_difference,
+                result, competition_id AS competition, NULL AS competition_type,
+                NULL AS is_home, NULL AS confidence, 0 AS has_conflicts,
+                NULL AS match_id, result_group_id,
+                group_concat(DISTINCT note) AS note,
+                NULL AS completeness,
+                '["canonical_match","home_away"' ||
+                  CASE WHEN date IS NULL THEN ',"date"' ELSE '' END ||
+                  CASE WHEN competition_id IS NULL THEN ',"competition"' ELSE '' END ||
+                  ']' AS missing_fields,
+                count(*) AS source_count,
+                json_group_array(json_object(
+                  'claimId', claim_id,
+                  'sourceId', source_id,
+                  'title', source_title,
+                  'page', page,
+                  'sourceUrl', source_url,
+                  'url', url
+                )) AS sources,
+                min(url) AS url
+         FROM source_results
+         WHERE match_id IS NULL AND status = 'played'
+         GROUP BY coalesce(result_group_id, claim_id), date, season, opponent,
+                  opponent_club_id, aafk_score, opponent_score, result,
+                  competition_id, result_group_id
+       ), all_results AS (
+         SELECT 'canonical_match' AS evidence_level, match_id AS record_id,
+                date, date_confidence AS date_precision, season, opponent, opponent_club_id,
+                aafk_score, opponent_score, goal_difference,
+                result, competition, competition_type, is_home, confidence,
+                has_conflicts, match_id, NULL AS result_group_id, note,
+                completeness, missing_fields,
+                NULL AS source_count, sources, url
+         FROM matches
+         WHERE status IN ('played', 'awarded')
+         UNION ALL
+         SELECT * FROM source_claims
+       )
+       SELECT evidence_level, record_id, date, date_precision, season, opponent, opponent_club_id,
+              aafk_score, opponent_score, goal_difference, result,
+              competition, competition_type, is_home, confidence, has_conflicts,
+              match_id, result_group_id, note, completeness, missing_fields,
+              source_count, sources, url
+       FROM all_results
+       ${where.length > 0 ? `WHERE ${where.join(" AND ")}` : ""}
+       ORDER BY ${orderBy[input.ranking]}
+       LIMIT ${input.limit}`,
+    );
+
+    if (result.isError) return result;
+    return {
+      content: {
+        ...(result.content as Record<string, unknown>),
+        evidencePolicy: RESULT_EVIDENCE_POLICY,
+      },
+    };
+  },
+});
+
 const getMatch = defineTool({
   name: "get_match",
   description: "Hent alle detaljer om én kamp, inkludert hendelser og referat.",
@@ -260,9 +384,10 @@ const searchHistoricalResults = defineTool({
     if (input.opponent) where.push(`lower(coalesce(opponent, '')) LIKE ${lit(`%${input.opponent.toLowerCase()}%`)}`);
     return query(
       ctx,
-      `SELECT source_id, source_title, season, source_order, page, opponent,
-              aafk_score, opponent_score, result, competition_id, status,
-              replay, after_extra_time, round, match_id, note, source_url, url
+      `SELECT claim_id, source_id, source_title, season, source_order, page, date,
+              opponent, opponent_club_id, aafk_score, opponent_score, result,
+              competition_id, status, replay, after_extra_time, round,
+              result_group_id, match_id, note, source_url, url
        FROM source_results
        ${where.length > 0 ? `WHERE ${where.join(" AND ")}` : ""}
        ORDER BY season DESC, source_order
@@ -377,6 +502,7 @@ const runSql = defineTool({
 
 export const tools: ToolDef[] = [
   searchMatches,
+  searchAllResults,
   getMatch,
   getSeasonSummary,
   headToHead,
