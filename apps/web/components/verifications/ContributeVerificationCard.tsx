@@ -66,22 +66,24 @@ export function ContributeVerificationCard({
           før arkivet endres.
         </p>
         <div className={styles.caseTypes} aria-label="Typer saker du kan kontrollere">
-          <div>
+          <a href="/mangler/saker?type=avisresearch">
             <strong>Avisresearch</strong>
             <span>{caseCount(researchCaseCount)}</span>
             <p>Finn riktig kamp, dato eller kildepåstand på en kontrollert avisside.</p>
-            <a href="/mangler/saker?type=avisresearch">Se research-sakene</a>
-          </div>
-          <div>
+            <span className={styles.caseTypeAction}>Se research-sakene</span>
+          </a>
+          <a href="/mangler/saker?type=avis">
             <strong>Kamp fra avis</strong>
             <span>{caseCount(newspaperCaseCount)}</span>
             <p>Åpne en bestemt Sunnmørsposten-side og kontroller lagpar og resultat.</p>
-          </div>
-          <div>
+            <span className={styles.caseTypeAction}>Se avissakene</span>
+          </a>
+          <a href="/mangler/saker?type=direkte">
             <strong>Direkte kildekontroll</strong>
             <span>{caseCount(directCaseCount)}</span>
             <p>Avklar en konkret kildekonflikt om kamp, person, verv eller klubb.</p>
-          </div>
+            <span className={styles.caseTypeAction}>Se de direkte sakene</span>
+          </a>
         </div>
       </div>
 

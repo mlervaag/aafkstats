@@ -17,6 +17,13 @@ export default async function VerificationCasesPage({
 }) {
   const params = await searchParams;
   const type = Array.isArray(params.type) ? params.type[0] : params.type;
+  const initialCategory = type === "avisresearch"
+    ? "research"
+    : type === "avis"
+      ? "newspaper_match"
+      : type === "direkte"
+        ? "direct"
+        : "all";
   const cases = loadVerificationCases("open");
   return (
     <>
@@ -29,7 +36,7 @@ export default async function VerificationCasesPage({
           kildepåstand uten å late som kilden er sikrere enn den er.
         </p>
       </header>
-      <CaseDirectory cases={cases} initialCategory={type === "avisresearch" ? "research" : "all"} />
+      <CaseDirectory cases={cases} initialCategory={initialCategory} />
     </>
   );
 }
