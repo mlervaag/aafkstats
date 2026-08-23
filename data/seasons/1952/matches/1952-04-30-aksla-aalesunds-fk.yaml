@@ -1,0 +1,36 @@
+id: 1952-04-30-aksla-aalesunds-fk
+date: 1952-04-30
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1952
+  stage: friendly
+home:
+  clubId: aksla
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1952-7c90
+    page: "48"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: "Medlemsbladets dagsdaterte A-lagsresultater for 1952 (s. 48) fører kampen med dato, motstander og resultat."

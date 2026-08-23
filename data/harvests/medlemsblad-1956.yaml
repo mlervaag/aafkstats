@@ -1,0 +1,58 @@
+version: 1
+id: medlemsblad-1956
+title: AaFK Medlemsblad 1956
+profile: member_magazine
+mode: reharvest
+status: normalized
+scope:
+  years:
+    from: 1956
+    to: 1956
+  sourceIds:
+  - medlemsblad-for-aalesunds-fotb-1956-3e52
+  parentSourceId: aafk-medlemsblad
+sourceInventory:
+- sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+  title: Medlemsblad for Aalesunds fotballklubb 1956
+  year: 1956
+  reviewStatus: reviewed
+coverage:
+  mode: pages
+  expected: 88
+  reviewed: 88
+passes:
+  facsimile_review:
+    status: pending
+    findings: 0
+    note: Ikke gjennomført. Spaltekorrigert ALTO for alle sider, ikke faksimile.
+  explicit_results:
+    status: complete
+    findings: 6
+    note: A-lagsresultatene lest koordinatbasert med lagnavn og score paret på vertikal posisjon.
+  fixture_reconciliation:
+    status: complete
+    findings: 5
+    note: Terminliste avstemt mot resultatoversikt etter de ni sjekkpunktene.
+reviewMethod:
+  facsimile: required
+review:
+  file: docs/data/MEDLEMSBLAD_TERMINLISTESKANN_1952_1961.md
+findings:
+- id: fix-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+    page: '24'
+  type: fixture
+  claim:
+    text: Datert terminliste for vårens seriekamper
+  disposition: reviewed
+  status: normalized
+- id: res-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+    page: '60'
+  type: match_result
+  claim:
+    text: A-lagsresultater for sesongen
+  disposition: reviewed
+  status: normalized

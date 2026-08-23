@@ -35,7 +35,8 @@ kontrolleres mot to kilder i samme bind.
 
 ## 2. Kanonisert i denne runden
 
-Fem nye kamper, i tillegg til de fem fra 1959-piloten.
+Fem nye kamper fra 1957 og 1960, i tillegg til de fem fra 1959-piloten. Seksjon 5
+legger elleve til fra 1952 og 1956.
 
 | Dato | Kamp | Resultat | Terminliste | Resultatkilde |
 |---|---|---|---|---|
@@ -78,25 +79,64 @@ Dette er verdt å merke seg som et generelt forhold: **der Sunnmørsposten aller
 er høstet, er terminlisten overflødig.** Terminlistemetoden er billigst i årganger
 avisarbeidet ikke har vært innom.
 
-## 5. Det som gjenstår: 1952, 1954 og 1956
+## 5. Kjørt i andre runde: 1952, 1954 og 1956
 
-Alle tre har datert terminliste, men **ingen harvestet resultatoversikt** å
-avstemme mot. Sjekkpunkt 6 krever at kampen er dokumentert spilt.
+Resultatoversiktene ble funnet maskinelt ved å telle ÅFK-linjer og scorelinjer per
+side, og deretter lest koordinatbasert.
 
-| Årgang | Terminliste | Kanoniske kamper i dag | Kildepåstander fra sesongen i dag |
-|---|---|---:|---:|
-| 1952 | s. 48, 13 daterte kamper | 5 | 0 — årgangen er aldri innhøstet |
-| 1954 | s. 24, 3 daterte kamper | 1 | 0 fra 1954-sesongen |
-| 1956 | s. 24, 5 daterte kamper | 0 | 0 fra 1956-sesongen |
+### 1952 — elleve nye kamper er unødvendig; seks er kanonisert
 
-1952-årgangen er den mest lovende av dem: side 48 er overskrevet
-«Fotballresultater» og fører dato for tretten kamper, både A-lag og reservelag,
-med seriekamp markert. Side 60 fører ytterligere ti daterte kamper med resultat.
-Årgangen står som uinnhøstet i medlemsbladprofilen, og en full 21-trinns kjøring
-der vil trolig gi mer enn terminlisten alene.
+Side 48 er ikke en terminliste, men noe bedre: **dagsdaterte A-lagsresultater med
+kamptype**, der hver linje fører dato, motstander, resultat og om det var
+seriekamp, treningskamp eller privatkamp. Motstanderen er trykt først, altså som
+hjemmelag.
 
-1956 er den eneste sesongen i hele arkivet uten en eneste kanonisk kamp. Fem
-daterte seriekamper ligger på side 24 og venter på en resultatoversikt.
+To av kampene på lista finnes allerede i arkivet fra andre kilder — Clausenengen
+4. mai og Eid 18. mai — og **begge stemmer eksakt på dato, lag, resultat og
+kamptype**. Det er fasit på at lesingen er riktig.
+
+Seks nye kamper er kanonisert: Langevåg 20/4 (3–1), Rollon 27/4 (2–3), Aksla 30/4
+(2–1), Rollon 11/5 (2–0, seriekamp), Herd 20/5 (1–2) og Brått 25/5 (1–1,
+seriekamp).
+
+Tre linjer er **ikke** kanonisert fordi det trykte resultatet ikke er leselig i
+skannet: Molde 1/6, Rollon 5/6 og KFK 8/6. Sidens egen målaverage for A-laget,
+19–17, lar seg ikke avstemme mot de leselige kampene, og avviket er ikke forsøkt
+regnet bort. Ørsta 21/5 er ført som walkover — motstanderen trakk seg, og ingen
+kamp ble spilt.
+
+Årgangen var aldri innhøstet. Den har nå en `source-results`-fil med ni
+kildepåstander.
+
+### 1956 — fem kamper, i sesongen som var helt tom
+
+Terminlisten på side 24 og A-lagsresultatene på side 60 avstemmer perfekt. Begge
+bortemarkeringene i resultatoversikten, Braatt og Molde, samsvarer med
+hjemmelaget i terminlisten, og de tre andre er hjemmekamper i begge kildene.
+
+| Dato | Kamp | Resultat |
+|---|---|---|
+| 1956-05-05 | AaFK–Langevåg | 2–2 |
+| 1956-05-10 | AaFK–Hødd | 1–2 |
+| 1956-05-13 | Braatt–AaFK | 1–1 |
+| 1956-05-20 | AaFK–Clausenengen | 2–2 |
+| 1956-05-27 | Molde–AaFK | 1–0 |
+
+**1956 var den eneste sesongen i arkivet uten en eneste kanonisk kamp.** Den har
+nå fem.
+
+### 1954 — ikke kanonisert, og det er riktig
+
+Terminlisten på side 24 gir tre AaFK-kamper: 2/5 AaFK–Molde FK, 23/5 AaFK–Rollon
+og 30/5 AaFK–Langevåg. A-lagsresultatene står på side 56, men uten dato, uten
+hjemme/borte-markering og uten synlige konkurranseoverskrifter. Lista har fem
+kamper mot Rollon, fire mot Skarbøvik og tre mot Langevåg, og seks av scorene er
+uleselige i skannet.
+
+Sjekkpunkt 7 — at ingen annen kamp mot samme motstander kan forveksles — svikter
+for alle tre. Ingenting er kanonisert, og lista er ikke normalisert til
+kildepåstander. Neste skritt for 1954 er et faksimilepass på side 56, der de
+uleselige scorene og konkurranseinndelingen trolig lar seg lese.
 
 ## 6. Hva skannet koster og gir
 
