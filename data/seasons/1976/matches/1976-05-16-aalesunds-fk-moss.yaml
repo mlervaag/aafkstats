@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/f40d9fa2d00da5f577c52ea4d52a7251?page=6
+    date: 1976-05-14
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/f40d9fa2d00da5f577c52ea4d52a7251?page=6
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -31,11 +39,16 @@ sources:
       - competition
       - home.clubId
       - away.clubId
-    note: "Terminlisten (s. 4) oppgir «16. mai AAFK—Moss»."
+    note: Terminlisten (s. 4) oppgir «16. mai AAFK—Moss».
   - sourceId: medlemsblad-for-aalesunds-fotb-1976-3cb7
     page: "5"
     fields:
       - status
       - home.score
       - away.score
-    note: "Sesongoversiktens seriekamper (s. 5) fører kampen mot Moss hjemme med 1–3 sett fra AaFK."
+    note: Sesongoversiktens seriekamper (s. 5) fører kampen mot Moss hjemme med 1–3 sett fra AaFK.
+  - sourceId: sunnmorsposten-19760514-f40d9fa2d00da5f577c52ea4d52a7251
+    page: "6"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

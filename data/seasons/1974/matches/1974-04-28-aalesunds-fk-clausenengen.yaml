@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/087df7c7372fb742fe9f0834f2a51a47?page=1
+    date: 1974-04-29
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/087df7c7372fb742fe9f0834f2a51a47?page=1
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -38,4 +46,9 @@ sources:
       - status
       - home.score
       - away.score
-    note: "Sesongoversiktens seriekamper (s. 7) fører kampen mot Clausenengen hjemme med 0–0 sett fra AaFK."
+    note: Sesongoversiktens seriekamper (s. 7) fører kampen mot Clausenengen hjemme med 0–0 sett fra AaFK.
+  - sourceId: sunnmorsposten-19740429-087df7c7372fb742fe9f0834f2a51a47
+    page: "1"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

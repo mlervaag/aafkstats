@@ -1,0 +1,314 @@
+version: 1
+id: sunnmorsposten-1972-1978-production
+title: Datoankret Sunnmørsposten-berikelse 1972–1978
+profile: generic_publication
+mode: initial
+status: normalized
+scope:
+  years:
+    from: 1972
+    to: 1978
+  sourceIds:
+    - sunnmorsposten-19720502-002f89f098db9d26927f113ff3fadf7f
+    - sunnmorsposten-19720505-6fd019eda2dad5437035e0c1fd0d4644
+    - sunnmorsposten-19720515-dacbe2b045e95f7a39bba7702d9fdfc9
+    - sunnmorsposten-19720626-c75cc5ba67ef5ae8fa5fdde9a77206b5
+    - sunnmorsposten-19730604-8f2a53d73c1314f858dec79c5818520d
+    - sunnmorsposten-19740429-087df7c7372fb742fe9f0834f2a51a47
+    - sunnmorsposten-19740506-56ada4c9d6c7079f4326c3294522688e
+    - sunnmorsposten-19740513-6dedb88fbcb676acf528273727a04f38
+    - sunnmorsposten-19740520-bf7a1d8933c42fc527df9c00bbd07635
+    - sunnmorsposten-19740527-bb55adf047e69bf6bfaac8cbaf2a3e07
+    - sunnmorsposten-19740604-2933de88b36573496d46fd8713074dd3
+    - sunnmorsposten-19750428-08359e53bbf8dc83521fa5c7aceaf4fa
+    - sunnmorsposten-19750502-4977d80dc21d1aa72d2f562cfd8aa040
+    - sunnmorsposten-19750509-59afb070ebc147db97a8c2bfa6b9e387
+    - sunnmorsposten-19750529-0b911b2a223d8848f72e06df3f60df6d
+    - sunnmorsposten-19750613-1e2080cebac365255ca09725f75fdacd
+    - sunnmorsposten-19750616-bbb5383a6fdc7e7df945415526de7a69
+    - sunnmorsposten-19750626-4b291efe8351de0dd201b380cc90a80b
+    - sunnmorsposten-19750818-c11c2e4168731cd68985f77c4ad2c19a
+    - sunnmorsposten-19760514-f40d9fa2d00da5f577c52ea4d52a7251
+    - sunnmorsposten-19760531-215fc85ea29191350b3e3dbad6a1d2eb
+    - sunnmorsposten-19760614-4168abf2efb85c783876940384be99fd
+    - sunnmorsposten-19760626-5dabbfa494f5e2e0da13802dcc4505ab
+    - sunnmorsposten-19760726-e6f17e09ddbc2f2c3983b7367528dd47
+    - sunnmorsposten-19760730-a780635f4e111c01794f9ccabed36ddf
+    - sunnmorsposten-19760809-61f826c64730e751920ef282f34f20a3
+    - sunnmorsposten-19760813-6a6285b9b2aec16faae2309f74a7b995
+    - sunnmorsposten-19760823-3164360bda62d529f6e5c194e8ea048e
+    - sunnmorsposten-19770622-0285dd33df575cee3de59d621eb2a09f
+    - sunnmorsposten-19770728-79d5d00433370bc257cd2307d9a8a503
+    - sunnmorsposten-19770801-75651e9433166714a59915e86fc4ea16
+    - sunnmorsposten-19770808-a4b4cba558dc9a6531ce1d57ab9f9e3c
+    - sunnmorsposten-19770812-9ea1547ddaa2d4647e13216bad368402
+    - sunnmorsposten-19770919-a8397b62eec951bd7d0af907961aeff0
+    - sunnmorsposten-19781009-94a4f0a6926e32bded400e5af598463d
+    - sunnmorsposten-19781016-242bddbe45016cf45db57bcf4772e412
+sourceInventory:
+  - sourceId: sunnmorsposten-19720502-002f89f098db9d26927f113ff3fadf7f
+    title: Sunnmørsposten 1972-05-02
+    year: 1972
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19720505-6fd019eda2dad5437035e0c1fd0d4644
+    title: Sunnmørsposten 1972-05-05
+    year: 1972
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19720515-dacbe2b045e95f7a39bba7702d9fdfc9
+    title: Sunnmørsposten 1972-05-15
+    year: 1972
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19720626-c75cc5ba67ef5ae8fa5fdde9a77206b5
+    title: Sunnmørsposten 1972-06-26
+    year: 1972
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19730604-8f2a53d73c1314f858dec79c5818520d
+    title: Sunnmørsposten 1973-06-04
+    year: 1973
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19740429-087df7c7372fb742fe9f0834f2a51a47
+    title: Sunnmørsposten 1974-04-29
+    year: 1974
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19740506-56ada4c9d6c7079f4326c3294522688e
+    title: Sunnmørsposten 1974-05-06
+    year: 1974
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19740513-6dedb88fbcb676acf528273727a04f38
+    title: Sunnmørsposten 1974-05-13
+    year: 1974
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19740520-bf7a1d8933c42fc527df9c00bbd07635
+    title: Sunnmørsposten 1974-05-20
+    year: 1974
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19740527-bb55adf047e69bf6bfaac8cbaf2a3e07
+    title: Sunnmørsposten 1974-05-27
+    year: 1974
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19740604-2933de88b36573496d46fd8713074dd3
+    title: Sunnmørsposten 1974-06-04
+    year: 1974
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19750428-08359e53bbf8dc83521fa5c7aceaf4fa
+    title: Sunnmørsposten 1975-04-28
+    year: 1975
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19750502-4977d80dc21d1aa72d2f562cfd8aa040
+    title: Sunnmørsposten 1975-05-02
+    year: 1975
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19750509-59afb070ebc147db97a8c2bfa6b9e387
+    title: Sunnmørsposten 1975-05-09
+    year: 1975
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19750529-0b911b2a223d8848f72e06df3f60df6d
+    title: Sunnmørsposten 1975-05-29
+    year: 1975
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19750613-1e2080cebac365255ca09725f75fdacd
+    title: Sunnmørsposten 1975-06-13
+    year: 1975
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19750616-bbb5383a6fdc7e7df945415526de7a69
+    title: Sunnmørsposten 1975-06-16
+    year: 1975
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19750626-4b291efe8351de0dd201b380cc90a80b
+    title: Sunnmørsposten 1975-06-26
+    year: 1975
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19750818-c11c2e4168731cd68985f77c4ad2c19a
+    title: Sunnmørsposten 1975-08-18
+    year: 1975
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19760514-f40d9fa2d00da5f577c52ea4d52a7251
+    title: Sunnmørsposten 1976-05-14
+    year: 1976
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19760531-215fc85ea29191350b3e3dbad6a1d2eb
+    title: Sunnmørsposten 1976-05-31
+    year: 1976
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19760614-4168abf2efb85c783876940384be99fd
+    title: Sunnmørsposten 1976-06-14
+    year: 1976
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19760626-5dabbfa494f5e2e0da13802dcc4505ab
+    title: Sunnmørsposten 1976-06-26
+    year: 1976
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19760726-e6f17e09ddbc2f2c3983b7367528dd47
+    title: Sunnmørsposten 1976-07-26
+    year: 1976
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19760730-a780635f4e111c01794f9ccabed36ddf
+    title: Sunnmørsposten 1976-07-30
+    year: 1976
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19760809-61f826c64730e751920ef282f34f20a3
+    title: Sunnmørsposten 1976-08-09
+    year: 1976
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19760813-6a6285b9b2aec16faae2309f74a7b995
+    title: Sunnmørsposten 1976-08-13
+    year: 1976
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19760823-3164360bda62d529f6e5c194e8ea048e
+    title: Sunnmørsposten 1976-08-23
+    year: 1976
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19770622-0285dd33df575cee3de59d621eb2a09f
+    title: Sunnmørsposten 1977-06-22
+    year: 1977
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19770728-79d5d00433370bc257cd2307d9a8a503
+    title: Sunnmørsposten 1977-07-28
+    year: 1977
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19770801-75651e9433166714a59915e86fc4ea16
+    title: Sunnmørsposten 1977-08-01
+    year: 1977
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19770808-a4b4cba558dc9a6531ce1d57ab9f9e3c
+    title: Sunnmørsposten 1977-08-08
+    year: 1977
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19770812-9ea1547ddaa2d4647e13216bad368402
+    title: Sunnmørsposten 1977-08-12
+    year: 1977
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19770919-a8397b62eec951bd7d0af907961aeff0
+    title: Sunnmørsposten 1977-09-19
+    year: 1977
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19781009-94a4f0a6926e32bded400e5af598463d
+    title: Sunnmørsposten 1978-10-09
+    year: 1978
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19781016-242bddbe45016cf45db57bcf4772e412
+    title: Sunnmørsposten 1978-10-16
+    year: 1978
+    reviewStatus: reviewed
+coverage:
+  mode: sections
+  expected: 48
+  reviewed: 48
+passes:
+  facsimile_review:
+    status: skipped
+    findings: 0
+    note: Produksjonspolicyen godkjenner NB OCR-API; facsimileReviewed er false.
+  explicit_results:
+    status: reviewed
+    findings: 36
+    note: 48 canonical kamper ble søkt; 36 samtidige aviskilder ble koblet.
+  people_and_roles:
+    status: skipped
+    findings: 0
+    note: Ingen personer ble skrevet uten entydig identitets- og rollebinding.
+  organization:
+    status: skipped
+    findings: 0
+    note: Årsmøter, styresammensetning, utvalg og organisatoriske endringer.
+  retrospectives_and_claims:
+    status: skipped
+    findings: 0
+    note: Historiske tilbakeblikk og memoarer (faktum-år skilles fra utgivelsesår).
+  observations:
+    status: skipped
+    findings: 0
+    note: Milepæler, anlegg, baner, arrangementer og administrative vedtak.
+reviewMethod:
+  facsimile: unavailable
+  reason: Produksjonspolicyen for canonical datoankret avisberikelse bruker NB OCR-API; ingen poster er merket visuelt kontrollert.
+review:
+  file: docs/data/reviews/sunnmorsposten-1972-1978-production.md
+findings:
+  - id: fact-1976-05-30
+    source:
+      sourceId: sunnmorsposten-19760531-215fc85ea29191350b3e3dbad6a1d2eb
+      page: "7"
+    type: match_result
+    claim:
+      text: Den lokalt forankrede kampboksen tilfører pauseresultatet.
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1976-05-30-aalesunds-fk-hodd
+    status: normalized
+  - id: fact-1977-07-27
+    source:
+      sourceId: sunnmorsposten-19770728-79d5d00433370bc257cd2307d9a8a503
+      page: "6"
+    type: match_result
+    claim:
+      text: Den lokalt forankrede kampboksen tilfører pauseresultatet.
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1977-07-27-aalesunds-fk-vard
+    status: normalized
+  - id: fact-1978-10-08
+    source:
+      sourceId: sunnmorsposten-19781009-94a4f0a6926e32bded400e5af598463d
+      page: "8"
+    type: match_result
+    claim:
+      text: Den lokalt forankrede kampboksen tilfører pauseresultatet.
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1978-10-08-neset-aalesunds-fk
+    status: normalized
+  - id: conflict-1974-05-11
+    source:
+      sourceId: sunnmorsposten-19740513-6dedb88fbcb676acf528273727a04f38
+      page: "6"
+    type: source_conflict
+    claim:
+      text: OCR-kandidaten viser et resultatavvik mot canonical kampdata.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1977-07-29
+    source:
+      sourceId: sunnmorsposten-19770801-75651e9433166714a59915e86fc4ea16
+      page: "6"
+    type: source_conflict
+    claim:
+      text: OCR-kandidaten viser et resultatavvik mot canonical kampdata.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1977-08-06
+    source:
+      sourceId: sunnmorsposten-19770808-a4b4cba558dc9a6531ce1d57ab9f9e3c
+      page: "6"
+    type: source_conflict
+    claim:
+      text: OCR-kandidaten viser et resultatavvik mot canonical kampdata.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+unresolved:
+  - findingId: conflict-1974-05-11
+    type: score-conflict-candidate
+    note: Canonical resultat er ikke endret.
+  - findingId: conflict-1977-07-29
+    type: score-conflict-candidate
+    note: Canonical resultat er ikke endret.
+  - findingId: conflict-1977-08-06
+    type: score-conflict-candidate
+    note: Canonical resultat er ikke endret.
+previousWork:
+  pullRequests:
+    - 217
+    - 219
+  notes:
+    - PR #217 etablerte løypa; PR #219 kalibrerte produksjonspolicyen på 1979.
+baseRevision: 8e43894b5a775625ba42892846abed0a36fdec0a
+createdAt: 2026-08-23
+notes:
+  - Alle 48 kvalifiserte kamper ble kjørt; 36 kilder ble koblet og 12 fikk no_ocr_candidate.
+  - Ingen beskyttet OCR-tekst er lagret.

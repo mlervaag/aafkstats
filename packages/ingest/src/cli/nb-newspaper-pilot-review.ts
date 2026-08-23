@@ -85,7 +85,7 @@ if (args.values.write) {
       match.externalReports.push({ publisher: "Sunnmørsposten", url: issue.pageUrl, date: review.issued });
     }
     if (!match.providers.some((provider) => provider.providerId === "nasjonalbiblioteket" && provider.url === issue.pageUrl)) {
-      match.providers.push({ providerId: "nasjonalbiblioteket", url: issue.pageUrl, retrievedAt: "2026-08-23", fields: [...(isReport ? ["externalReports"] : []), ...fields] });
+      match.providers.push({ providerId: "nasjonalbiblioteket", url: issue.pageUrl, retrievedAt: report.createdAt.slice(0, 10), fields: [...(isReport ? ["externalReports"] : []), ...fields] });
     }
     if (!match.sources.some((sourceRef) => sourceRef.sourceId === sourceId)) {
       match.sources.push({

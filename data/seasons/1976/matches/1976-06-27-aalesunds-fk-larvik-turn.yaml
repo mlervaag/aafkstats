@@ -17,7 +17,11 @@ away:
 neutralVenue: false
 events: []
 externalReports: []
-providers: []
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/5dabbfa494f5e2e0da13802dcc4505ab?page=17
+    retrievedAt: 2026-08-23
+    fields: []
 confidence: confirmed
 conflicts: []
 tags: []
@@ -31,11 +35,15 @@ sources:
       - competition
       - home.clubId
       - away.clubId
-    note: "Terminlisten (s. 4) oppgir «27. juni AAFK—Larvik Turn»."
+    note: Terminlisten (s. 4) oppgir «27. juni AAFK—Larvik Turn».
   - sourceId: medlemsblad-for-aalesunds-fotb-1976-3cb7
     page: "5"
     fields:
       - status
       - home.score
       - away.score
-    note: "Sesongoversiktens seriekamper (s. 5) fører kampen mot Larvik Turn hjemme med 0–2 sett fra AaFK."
+    note: Sesongoversiktens seriekamper (s. 5) fører kampen mot Larvik Turn hjemme med 0–2 sett fra AaFK.
+  - sourceId: sunnmorsposten-19760626-5dabbfa494f5e2e0da13802dcc4505ab
+    page: "17"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

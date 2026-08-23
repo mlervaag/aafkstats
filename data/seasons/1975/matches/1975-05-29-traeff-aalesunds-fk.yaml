@@ -35,10 +35,13 @@ providers:
       - away.score
 sources:
   - sourceId: sunnmore-fotballkrets-arsrapport-1975
+  - sourceId: sunnmorsposten-19750529-0b911b2a223d8848f72e06df3f60df6d
+    page: "6"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 30.05.1975 s. 7: NM 1. runde torsdag 29. mai 1975 i Molde
-  der AaFK slo Træff 1-0."
+note: "Sunnmørsposten 30.05.1975 s. 7: NM 1. runde torsdag 29. mai 1975 i Molde der AaFK slo Træff 1-0."

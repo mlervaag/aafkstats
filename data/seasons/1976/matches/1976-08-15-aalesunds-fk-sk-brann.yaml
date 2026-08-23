@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/6a6285b9b2aec16faae2309f74a7b995?page=6
+    date: 1976-08-13
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1976/Cup.html
@@ -31,6 +34,11 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/6a6285b9b2aec16faae2309f74a7b995?page=6
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 sources:
   - sourceId: sunnmore-fotballkrets-arsrapport-1976
     page: "12"
@@ -44,6 +52,11 @@ sources:
       - home.score
       - away.score
     note: Entydig maskinelt treff på år, motstander og resultat; bør redaksjonelt etterkontrolleres.
+  - sourceId: sunnmorsposten-19760813-6a6285b9b2aec16faae2309f74a7b995
+    page: "6"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: probable
 conflicts: []
 tags: []

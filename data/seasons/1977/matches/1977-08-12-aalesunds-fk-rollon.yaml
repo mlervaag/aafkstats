@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/9ea1547ddaa2d4647e13216bad368402?page=6
+    date: 1977-08-12
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/9ea1547ddaa2d4647e13216bad368402?page=6
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -38,4 +46,9 @@ sources:
       - status
       - home.score
       - away.score
-    note: "Sesongoversiktens seriekamper (s. 11) fører kampen mot Rollon hjemme med 1–0 sett fra AaFK."
+    note: Sesongoversiktens seriekamper (s. 11) fører kampen mot Rollon hjemme med 1–0 sett fra AaFK.
+  - sourceId: sunnmorsposten-19770812-9ea1547ddaa2d4647e13216bad368402
+    page: "6"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

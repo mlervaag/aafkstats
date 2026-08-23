@@ -16,7 +16,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/242bddbe45016cf45db57bcf4772e412?page=6
+    date: 1978-10-16
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1978/Third.html
@@ -29,6 +32,11 @@ providers:
       - away.clubId
       - home.score
       - away.score
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/242bddbe45016cf45db57bcf4772e412?page=6
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 sources:
   - sourceId: sunnmore-fotballkrets-arsrapport-1978
     page: "20"
@@ -36,6 +44,11 @@ sources:
       - home.score
       - away.score
       - competition
+  - sourceId: sunnmorsposten-19781016-242bddbe45016cf45db57bcf4772e412
+    page: "6"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: probable
 conflicts: []
 tags: []

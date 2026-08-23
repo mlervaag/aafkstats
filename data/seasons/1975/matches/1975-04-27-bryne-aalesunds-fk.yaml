@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/08359e53bbf8dc83521fa5c7aceaf4fa?page=1
+    date: 1975-04-28
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/08359e53bbf8dc83521fa5c7aceaf4fa?page=1
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -38,4 +46,9 @@ sources:
       - status
       - home.score
       - away.score
-    note: "Sesongoversiktens seriekamper (s. 7) fører kampen mot Bryne borte med 1–2 sett fra AaFK."
+    note: Sesongoversiktens seriekamper (s. 7) fører kampen mot Bryne borte med 1–2 sett fra AaFK.
+  - sourceId: sunnmorsposten-19750428-08359e53bbf8dc83521fa5c7aceaf4fa
+    page: "1"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

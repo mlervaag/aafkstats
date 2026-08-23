@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/75651e9433166714a59915e86fc4ea16?page=6
+    date: 1977-08-01
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/75651e9433166714a59915e86fc4ea16?page=6
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -38,4 +46,9 @@ sources:
       - status
       - home.score
       - away.score
-    note: "Sesongoversiktens seriekamper (s. 11) fører kampen mot Skarbøvik hjemme med 1–2 sett fra AaFK."
+    note: Sesongoversiktens seriekamper (s. 11) fører kampen mot Skarbøvik hjemme med 1–2 sett fra AaFK.
+  - sourceId: sunnmorsposten-19770801-75651e9433166714a59915e86fc4ea16
+    page: "6"
+    fields:
+      - externalReports
+    note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.

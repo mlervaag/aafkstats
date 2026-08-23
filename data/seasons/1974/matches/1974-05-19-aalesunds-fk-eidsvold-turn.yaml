@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/bf7a1d8933c42fc527df9c00bbd07635?page=6
+    date: 1974-05-20
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/bf7a1d8933c42fc527df9c00bbd07635?page=6
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -38,4 +46,9 @@ sources:
       - status
       - home.score
       - away.score
-    note: "Sesongoversiktens seriekamper (s. 7) fører kampen mot Eidsvold Turn hjemme med 0–1 sett fra AaFK."
+    note: Sesongoversiktens seriekamper (s. 7) fører kampen mot Eidsvold Turn hjemme med 0–1 sett fra AaFK.
+  - sourceId: sunnmorsposten-19740520-bf7a1d8933c42fc527df9c00bbd07635
+    page: "6"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
