@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19450714-cd629b2edfcad8274f4733965722c1b4
+    page: "4"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1945-07-14 s. 4: Kampreferat for AaFK mot Rollon (4–0)
-  spilt 1945-07-13."
+note: "Sunnmørsposten 1945-07-14 s. 4: Kampreferat for AaFK mot Rollon (4–0) spilt 1945-07-13."

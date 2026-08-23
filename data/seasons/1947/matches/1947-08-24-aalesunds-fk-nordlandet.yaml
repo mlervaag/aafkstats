@@ -21,6 +21,9 @@ externalReports:
     title: Sunnmørsposten 1947-08-25 s. 3
     date: 1947-08-25
     url: https://www.nb.no/items/6907ff25365ef85e08332b354883414e?page=3
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/e9be772c18dce1d34feb4ba1024a0c3c?page=5
+    date: 1947-08-26
 providers:
   - providerId: nasjonalbiblioteket
     url: https://www.nb.no/items/6907ff25365ef85e08332b354883414e?page=3
@@ -33,12 +36,21 @@ providers:
       - away.clubId
       - home.score
       - away.score
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/e9be772c18dce1d34feb4ba1024a0c3c?page=5
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19470826-e9be772c18dce1d34feb4ba1024a0c3c
+    page: "5"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: Siden inneholder fyldig referat fra seriekampen i 1. divisjon på Nørve
-  søndag 24. august 1947 mellom AaFK og Nordlandet som endte 1-1.
+note: Siden inneholder fyldig referat fra seriekampen i 1. divisjon på Nørve søndag 24. august 1947 mellom AaFK og Nordlandet som endte 1-1.

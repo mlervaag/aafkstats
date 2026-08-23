@@ -21,6 +21,9 @@ externalReports:
     title: Sunnmørsposten 1948-05-19 s. 4
     date: 1948-05-19
     url: https://www.nb.no/items/d18a465b9bac52c306b69640aa565014?page=4
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/d18a465b9bac52c306b69640aa565014?page=3
+    date: 1948-05-19
 providers:
   - providerId: nasjonalbiblioteket
     url: https://www.nb.no/items/d18a465b9bac52c306b69640aa565014?page=4
@@ -33,12 +36,21 @@ providers:
       - away.clubId
       - home.score
       - away.score
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/d18a465b9bac52c306b69640aa565014?page=3
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19480519-d18a465b9bac52c306b69640aa565014
+    page: "3"
+    fields:
+      - externalReports
+    note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1948-05-19 s. 4: Kampreferat for AaFK mot Rollon (4–0)
-  Jubileumspokalen spilt 1948-05-18."
+note: "Sunnmørsposten 1948-05-19 s. 4: Kampreferat for AaFK mot Rollon (4–0) Jubileumspokalen spilt 1948-05-18."

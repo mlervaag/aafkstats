@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19470609-615037d700dcdbd7d732b0f4198039a2
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1947-06-09 s. 2: Kampreferat for KFK mot AaFK (3–0)
-  jubileumskamp spilt 1947-06-07."
+note: "Sunnmørsposten 1947-06-09 s. 2: Kampreferat for KFK mot AaFK (3–0) jubileumskamp spilt 1947-06-07."

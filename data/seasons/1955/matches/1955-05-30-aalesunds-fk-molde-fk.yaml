@@ -33,11 +33,15 @@ providers:
       - away.clubId
       - home.score
       - away.score
-sources: []
+sources:
+  - sourceId: sunnmorsposten-19550531-dba658412ebb2075db8ee91cb3f1a2d1
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1955-05-31 s. 2: Kampreferat for AaFK mot Molde (1–1)
-  spilt 1955-05-30."
+note: "Sunnmørsposten 1955-05-31 s. 2: Kampreferat for AaFK mot Molde (1–1) spilt 1955-05-30."

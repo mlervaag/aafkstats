@@ -156,7 +156,7 @@ export async function buildNewspaperEnrichmentStatus(repo: string): Promise<News
         homeAway: isHome ? "home" : "away",
         score: `${match.home.score}-${match.away.score}`,
         hasSmpMention: sourceCoverage,
-        hasMatchReport: hasReport(review),
+        hasMatchReport: hasReport(match.date, review),
         hasPostMatchEvidence: hasPostMatchEvidence(match.date, review),
         canonicalLinked: review?.canonicalLinked ?? false,
         ...(review ? { reviewMethod: review.reviewMethod } : {}),
@@ -219,8 +219,9 @@ function dayDistance(left: string, right: string): number {
   return Math.round((Date.parse(`${right}T00:00:00Z`) - Date.parse(`${left}T00:00:00Z`)) / 86_400_000);
 }
 
-function hasReport(review: NewspaperReviewEntry | undefined): boolean {
-  return review?.genres.some((genre) => genre === "match_report" || genre === "result_note") ?? false;
+function hasReport(matchDate: string, review: NewspaperReviewEntry | undefined): boolean {
+  if (!review?.issued || dayDistance(matchDate, review.issued) < 0) return false;
+  return review.genres.some((genre) => genre === "match_report" || genre === "result_note");
 }
 
 function hasPostMatchEvidence(matchDate: string, review: NewspaperReviewEntry | undefined): boolean {
@@ -229,7 +230,7 @@ function hasPostMatchEvidence(matchDate: string, review: NewspaperReviewEntry | 
 }
 
 function completionFor(matchDate: string, review: NewspaperReviewEntry | undefined): Pick<NewspaperEnrichmentStatusEntry, "enrichmentStatus" | "residualReason"> {
-  if (review?.status === "ocr_correlated" && review.canonicalLinked && hasReport(review) && hasPostMatchEvidence(matchDate, review)) {
+  if (review?.status === "ocr_correlated" && review.canonicalLinked && hasReport(matchDate, review) && hasPostMatchEvidence(matchDate, review)) {
     return { enrichmentStatus: "complete", residualReason: "complete" };
   }
   if (!review) return { enrichmentStatus: "residual", residualReason: "pending" };

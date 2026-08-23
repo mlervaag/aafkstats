@@ -16,7 +16,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/f1fe0fd578a85cf5478e6378376ceb35?page=1
+    date: 1940-09-23
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1940/Cup.html
@@ -30,11 +33,24 @@ providers:
       - home.score
       - away.score
       - competition.stage
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/f1fe0fd578a85cf5478e6378376ceb35?page=1
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 sources:
   - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
     page: "10"
-    fields: [home.clubId, away.clubId, competition.stage]
+    fields:
+      - home.clubId
+      - away.clubId
+      - competition.stage
     note: Beretningen identifiserer Skeid-kampen som klubbens første femterundekamp.
+  - sourceId: sunnmorsposten-19400923-f1fe0fd578a85cf5478e6378376ceb35
+    page: "1"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: probable
 conflicts: []
 tags: []

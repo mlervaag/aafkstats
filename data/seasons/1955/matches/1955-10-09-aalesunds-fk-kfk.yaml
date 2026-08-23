@@ -33,11 +33,15 @@ providers:
       - away.clubId
       - home.score
       - away.score
-sources: []
+sources:
+  - sourceId: sunnmorsposten-19551010-a9aedb2a5737c37138532bb2910ad384
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1955-10-10 s. 2: Kampreferat for AaFK mot KFK (2–3) spilt
-  1955-10-09."
+note: "Sunnmørsposten 1955-10-10 s. 2: Kampreferat for AaFK mot KFK (2–3) spilt 1955-10-09."

@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/f4997dd07e6d1b8196898be8b6c96fa1?page=5
+    date: 1928-08-27
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1928/Cup.html
@@ -31,9 +34,20 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/f4997dd07e6d1b8196898be8b6c96fa1?page=5
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1928-cup-1928-08-26-aalesunds-fk-national
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19280827-f4997dd07e6d1b8196898be8b6c96fa1
+    page: "5"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

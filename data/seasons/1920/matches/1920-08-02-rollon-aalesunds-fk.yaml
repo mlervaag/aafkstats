@@ -1,12 +1,52 @@
 id: 1920-08-02-rollon-aalesunds-fk
 date: 1920-08-02
 status: played
-competition: { id: sondmore-kreds-klasse-a, season: 1920, stage: regular_season }
-home: { clubId: rollon, score: 1 }
-away: { clubId: aalesunds-fk, score: 4 }
+competition:
+  id: sondmore-kreds-klasse-a
+  season: 1920
+  stage: regular_season
+home:
+  clubId: rollon
+  score: 1
+away:
+  clubId: aalesunds-fk
+  score: 4
 venueId: norvebana
 referee: Mr. Burges
 sources:
-  - { sourceId: nff-arbok-1920, page: "100", fields: [date, competition, home.clubId, away.clubId, home.score, away.score, venueId, referee] }
+  - sourceId: nff-arbok-1920
+    page: "100"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - venueId
+      - referee
+  - sourceId: sunnmorsposten-19200803-85086d15d7792fbcb14a9ebca196a689
+    page: "4"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
-manual: [date, competition, home.clubId, away.clubId, home.score, away.score, venueId, referee]
+manual:
+  - date
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - venueId
+  - referee
+externalReports:
+  - publisher: Søndmørsposten
+    url: https://www.nb.no/items/85086d15d7792fbcb14a9ebca196a689?page=4
+    date: 1920-08-03
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/85086d15d7792fbcb14a9ebca196a689?page=4
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports

@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/665b7de7458e20a10c992e57bfc2aff1?page=2
+    date: 1957-05-06
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/665b7de7458e20a10c992e57bfc2aff1?page=2
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -38,4 +46,9 @@ sources:
       - status
       - home.score
       - away.score
-    note: "Sesongoversikten dokumenterer landsdelsseriekampen mot Hødd hjemme med 2–0 sett fra AaFK."
+    note: Sesongoversikten dokumenterer landsdelsseriekampen mot Hødd hjemme med 2–0 sett fra AaFK.
+  - sourceId: sunnmorsposten-19570506-665b7de7458e20a10c992e57bfc2aff1
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

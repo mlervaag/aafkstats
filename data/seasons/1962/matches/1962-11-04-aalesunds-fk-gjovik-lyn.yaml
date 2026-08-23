@@ -32,7 +32,10 @@ lineups:
       - Arnfinn Gjerde
       - Arne Finsnes
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/d6bbeacfc0855c5ac120e41ecea40d5a?page=9
+    date: 1962-11-06
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1962/Landsdel.html
@@ -54,6 +57,11 @@ providers:
       - away.clubId
       - home.score
       - away.score
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/d6bbeacfc0855c5ac120e41ecea40d5a?page=9
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
@@ -77,3 +85,8 @@ sources:
     fields:
       - attendance
     note: "Medlemsbladet 1962 hefte 6 s. 69 og s. 76: Kvalifiseringskampen mot Gjøvik-Lyn samlet 12 000 tilskuere (ny publikumsrekord for Nord-Vestlandet)."
+  - sourceId: sunnmorsposten-19621106-d6bbeacfc0855c5ac120e41ecea40d5a
+    page: "9"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

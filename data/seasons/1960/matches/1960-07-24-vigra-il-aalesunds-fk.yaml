@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19600725-29c24c0aa3f49f41c0a4a36618f67665
+    page: "6"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: Siden inneholder referat og bilde fra privatkampen på nye Vigra-bana
-  søndag 24. juli 1960 der AaFK vant 13-1 over Vigra.
+note: Siden inneholder referat og bilde fra privatkampen på nye Vigra-bana søndag 24. juli 1960 der AaFK vant 13-1 over Vigra.

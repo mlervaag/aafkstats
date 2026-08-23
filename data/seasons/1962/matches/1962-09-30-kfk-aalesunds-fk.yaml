@@ -16,7 +16,11 @@ away:
   halfTimeScore: null
 events: []
 externalReports: []
-providers: []
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/18586f12ec0a927ed4a3c0305d7b0f30?page=9
+    retrievedAt: 2026-08-23
+    fields: []
 confidence: confirmed
 conflicts: []
 tags: []
@@ -30,11 +34,15 @@ sources:
       - competition
       - home.clubId
       - away.clubId
-    note: "Høstterminlisten (s. 48) oppgir KFK mot AaFK 30. september 1962."
+    note: Høstterminlisten (s. 48) oppgir KFK mot AaFK 30. september 1962.
   - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
     page: "59"
     fields:
       - status
       - home.score
       - away.score
-    note: "Høstoppsummeringen (s. 59) dokumenterer KFK mot AaFK 4–5."
+    note: Høstoppsummeringen (s. 59) dokumenterer KFK mot AaFK 4–5.
+  - sourceId: sunnmorsposten-19620928-18586f12ec0a927ed4a3c0305d7b0f30
+    page: "9"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

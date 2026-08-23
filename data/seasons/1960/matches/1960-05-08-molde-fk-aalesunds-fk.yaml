@@ -17,7 +17,11 @@ away:
 neutralVenue: false
 events: []
 externalReports: []
-providers: []
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/57fe28ee9f99d55aaab18f6bb2c2a52a?page=5
+    retrievedAt: 2026-08-23
+    fields: []
 confidence: confirmed
 conflicts: []
 tags: []
@@ -38,11 +42,15 @@ sources:
       - date
       - home.clubId
       - away.clubId
-    note: "Landsdelsseriens samlede vårterminliste (s. 16) oppgir samme kamp og samme hjemmelag."
+    note: Landsdelsseriens samlede vårterminliste (s. 16) oppgir samme kamp og samme hjemmelag.
   - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
     page: "69"
     fields:
       - status
       - home.score
       - away.score
-    note: "Sesongoversikten dokumenterer landsdelsseriekampen mot Molde borte med 2–2 sett fra AaFK."
+    note: Sesongoversikten dokumenterer landsdelsseriekampen mot Molde borte med 2–2 sett fra AaFK.
+  - sourceId: sunnmorsposten-19600509-57fe28ee9f99d55aaab18f6bb2c2a52a
+    page: "5"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

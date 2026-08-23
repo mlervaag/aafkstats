@@ -29,7 +29,7 @@ describe("newspaper enrichment status", () => {
     expect(entries).toHaveLength(39);
     expect(status.pilot1979.canonicalMatchesInScope).toBe(39);
     expect(status.pilot1979.withSmpMention).toBe(31);
-    expect(status.pilot1979.matchReports).toBe(24);
+    expect(status.pilot1979.matchReports).toBe(23);
     expect(status.pilot1979.postMatchEvidence).toBe(28);
     expect(status.pilot1979.ocrCorrelated).toBe(30);
     expect(status.pilot1979.noOcrCandidate).toBe(8);
@@ -77,7 +77,7 @@ describe("newspaper enrichment status", () => {
     expect(scaled.filter((entry) => entry.reviewStatus === "ocr_correlated")).toHaveLength(33);
     expect(scaled.filter((entry) => entry.conflictCandidate)).toHaveLength(3);
     expect(scaled.filter((entry) => entry.reviewStatus === "no_ocr_candidate")).toHaveLength(12);
-    expect(scaled.filter((entry) => entry.hasMatchReport)).toHaveLength(31);
+    expect(scaled.filter((entry) => entry.hasMatchReport)).toHaveLength(29);
     expect(scaled.filter((entry) => entry.hasPostMatchEvidence)).toHaveLength(31);
     expect(scaled.filter((entry) => entry.enrichmentStatus === "complete")).toHaveLength(26);
     expect(scaled.filter((entry) => entry.enrichmentStatus === "residual")).toHaveLength(22);
@@ -87,7 +87,7 @@ describe("newspaper enrichment status", () => {
     expect(status.seasons["1979"]).toMatchObject({
       canonicalMatchesInScope: 39,
       withSmpMention: 31,
-      matchReports: 24,
+      matchReports: 23,
       postMatchEvidence: 28,
       ocrCorrelated: 30,
       noOcrCandidate: 8,
@@ -114,7 +114,7 @@ describe("newspaper enrichment status", () => {
     expect(scaled.filter((entry) => entry.reviewStatus === "ocr_correlated")).toHaveLength(25);
     expect(scaled.filter((entry) => entry.conflictCandidate)).toHaveLength(2);
     expect(scaled.filter((entry) => entry.reviewStatus === "no_ocr_candidate")).toHaveLength(15);
-    expect(scaled.filter((entry) => entry.hasMatchReport)).toHaveLength(24);
+    expect(scaled.filter((entry) => entry.hasMatchReport)).toHaveLength(22);
     expect(scaled.filter((entry) => entry.hasPostMatchEvidence)).toHaveLength(23);
     expect(scaled.filter((entry) => entry.enrichmentStatus === "complete")).toHaveLength(20);
     expect(scaled.filter((entry) => entry.enrichmentStatus === "residual")).toHaveLength(22);
@@ -127,5 +127,41 @@ describe("newspaper enrichment status", () => {
       enrichmentComplete: 22,
       residualQueue: 17,
     });
+  });
+
+  it("låser massebatchen 1915–1962 og avistittelgrensen", async () => {
+    const raw = await readFile(join(repoRoot(), "data", "discovery", "newspaper-enrichment-status.yaml"), "utf8");
+    const status = parseYaml(raw, { schema: "core" }) as NewspaperEnrichmentStatus;
+    const scaled = status.entries.filter((entry) => entry.season >= 1915 && entry.season <= 1962);
+    const reviewRaw = await readFile(join(repoRoot(), "data", "discovery", "newspaper-enrichment-reviews.yaml"), "utf8");
+    const reviews = (parseYaml(reviewRaw, { schema: "core" }) as { entries: Array<{ matchId: string; canonicalLinked: boolean; fieldsAdded: string[] }> }).entries
+      .filter((entry) => Number(entry.matchId.slice(0, 4)) >= 1915 && Number(entry.matchId.slice(0, 4)) <= 1962);
+
+    expect([[1915, 1924], [1925, 1934], [1935, 1944], [1945, 1951], [1952, 1962]].map(([from, to]) =>
+      scaled.filter((entry) => entry.season >= from! && entry.season <= to!).length)).toEqual([20, 22, 12, 62, 72]);
+    expect([1916, 1931, 1939, 1941, 1942, 1943, 1944].map((year) => scaled.filter((entry) => entry.season === year).length)).toEqual([0, 0, 0, 0, 0, 0, 0]);
+    expect(scaled).toHaveLength(188);
+    expect(scaled.filter((entry) => entry.hasSmpMention)).toHaveLength(148);
+    expect(reviews.filter((entry) => entry.canonicalLinked)).toHaveLength(129);
+    expect(scaled.filter((entry) => entry.reviewStatus === "ocr_correlated")).toHaveLength(119);
+    expect(scaled.filter((entry) => entry.conflictCandidate)).toHaveLength(10);
+    expect(scaled.filter((entry) => entry.reviewStatus === "no_ocr_candidate")).toHaveLength(57);
+    expect(scaled.filter((entry) => entry.reviewStatus === "not_digitized")).toHaveLength(2);
+    expect(scaled.filter((entry) => entry.hasMatchReport)).toHaveLength(120);
+    expect(scaled.filter((entry) => entry.hasPostMatchEvidence)).toHaveLength(120);
+    expect(scaled.filter((entry) => entry.enrichmentStatus === "complete")).toHaveLength(110);
+    expect(scaled.filter((entry) => entry.enrichmentStatus === "residual")).toHaveLength(78);
+    expect(scaled.filter((entry) => entry.conflictCandidate && entry.enrichmentStatus !== "residual")).toHaveLength(0);
+    expect(reviews.filter((entry) => entry.fieldsAdded.length > 0)).toHaveLength(0);
+    expect(scaled.find((entry) => entry.matchId === "1962-09-05-aalesunds-fk-sk-brann")).toMatchObject({
+      reviewStatus: "ocr_correlated",
+      conflictCandidate: false,
+      hasMatchReport: false,
+    });
+
+    const oldTitle = await readFile(join(repoRoot(), "data", "sources", "sunnmorsposten-19260906-88cb85c15a5067aee5fd3c089913cd98.yaml"), "utf8");
+    const newTitle = await readFile(join(repoRoot(), "data", "sources", "sunnmorsposten-19280827-f4997dd07e6d1b8196898be8b6c96fa1.yaml"), "utf8");
+    expect(oldTitle).toContain("title: Søndmørsposten 1926-09-06");
+    expect(newTitle).toContain("title: Sunnmørsposten 1928-08-27");
   });
 });

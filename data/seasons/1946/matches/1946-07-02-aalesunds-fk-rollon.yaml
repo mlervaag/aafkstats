@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19460703-64e7e414e8d045f5e3f470cdc226b68d
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1946-07-03 s. 2: Kampreferat for AaFK mot Rollon (6–0)
-  pokalkamp spilt 1946-07-02."
+note: "Sunnmørsposten 1946-07-03 s. 2: Kampreferat for AaFK mot Rollon (6–0) pokalkamp spilt 1946-07-02."

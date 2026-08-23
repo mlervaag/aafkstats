@@ -6,27 +6,63 @@ competition:
   id: sondmore-kreds-klasse-a
   season: 1920
   stage: regular_season
-home: { clubId: aalesunds-fk, score: 3, halfTimeScore: null }
-away: { clubId: rollon, score: 1, halfTimeScore: null }
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: rollon
+  score: 1
+  halfTimeScore: null
 venueId: norvebana
 referee: Th. Høgberg
 sources:
   - sourceId: aafk-historie-norvebana
-    fields: [date, home.clubId, away.clubId, home.score, away.score, venueId]
+    fields:
+      - date
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - venueId
   - sourceId: nff-arbok-1920
     page: "100"
-    fields: [date, competition, home.clubId, away.clubId, home.score, away.score, venueId, referee]
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - venueId
+      - referee
     note: Årboka daterer kampen 14. juni og fører den i Klasse A.
+  - sourceId: sunnmorsposten-19200612-3c5a94ce042e6c4992219d21e59fece9
+    page: "3"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts:
   - field: date
     values:
-      - { value: "1920-06-13", providerId: aafk-no, note: AaFKs historieside om Nørvebana. }
-      - { value: "1920-06-14", providerId: nasjonalbiblioteket, note: "NFF-årboka 1920, trykt side 100." }
+      - value: 1920-06-13
+        providerId: aafk-no
+        note: AaFKs historieside om Nørvebana.
+      - value: 1920-06-14
+        providerId: nasjonalbiblioteket
+        note: NFF-årboka 1920, trykt side 100.
     resolved: false
     decision: unresolved
     locked: false
-manual: [competition.id, competition.stage, referee]
-note: >
-  Resultat, motstander og arena viser at kildene beskriver samme kamp. Datoen
-  står som en uløst konflikt; filen beholder foreløpig 13. juni.
+manual:
+  - competition.id
+  - competition.stage
+  - referee
+note: |
+  Resultat, motstander og arena viser at kildene beskriver samme kamp. Datoen står som en uløst konflikt; filen beholder foreløpig 13. juni.
+externalReports: []
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/3c5a94ce042e6c4992219d21e59fece9?page=3
+    retrievedAt: 2026-08-23
+    fields: []

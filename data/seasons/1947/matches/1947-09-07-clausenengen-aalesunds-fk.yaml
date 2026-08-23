@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19470908-f1735aff0cc9b6f9f36cfc04be4bafe5
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1947-09-08 s. 2: Kampreferat for Clausenengen mot AaFK
-  (2–1) 1. divisjon spilt 1947-09-07."
+note: "Sunnmørsposten 1947-09-08 s. 2: Kampreferat for Clausenengen mot AaFK (2–1) 1. divisjon spilt 1947-09-07."

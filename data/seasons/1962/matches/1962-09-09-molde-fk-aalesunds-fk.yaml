@@ -15,8 +15,16 @@ away:
   score: 1
   halfTimeScore: null
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/4f0445715b278790f48c24d6b8cf9e55?page=2
+    date: 1962-09-10
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/4f0445715b278790f48c24d6b8cf9e55?page=2
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -30,11 +38,16 @@ sources:
       - competition
       - home.clubId
       - away.clubId
-    note: "Høstterminlisten (s. 48) oppgir Molde mot AaFK 9. september 1962."
+    note: Høstterminlisten (s. 48) oppgir Molde mot AaFK 9. september 1962.
   - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
     page: "59"
     fields:
       - status
       - home.score
       - away.score
-    note: "Høstoppsummeringen (s. 59) dokumenterer Molde mot AaFK 1–1."
+    note: Høstoppsummeringen (s. 59) dokumenterer Molde mot AaFK 1–1.
+  - sourceId: sunnmorsposten-19620910-4f0445715b278790f48c24d6b8cf9e55
+    page: "2"
+    fields:
+      - externalReports
+    note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.

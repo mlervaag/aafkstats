@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19450706-765a56686c17016d340469b4ffcf71af
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1945-07-06 s. 2: Kampreferat for AaFK mot Herd (5–1) spilt
-  1945-07-05."
+note: "Sunnmørsposten 1945-07-06 s. 2: Kampreferat for AaFK mot Herd (5–1) spilt 1945-07-05."

@@ -43,6 +43,10 @@ providers:
       - away.clubId
       - home.score
       - away.score
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/64aa44b5160ea36c01026642aa125f97?page=2
+    retrievedAt: 2026-08-23
+    fields: []
 sources:
   - sourceId: aafk-historie-aksla-stadion
     fields:
@@ -61,6 +65,10 @@ sources:
       - home.score
       - away.score
     note: "Medlemsbladet 1962 hefte 5 s. 53 og hefte 6 s. 75: 'Omkampen på Aksla stadion samlet 11 000 tilskuere (ny publikumsrekord). Sluttresultat 1–2 etter ekstraomganger.'"
+  - sourceId: sunnmorsposten-19620903-64aa44b5160ea36c01026642aa125f97
+    page: "2"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: probable
 conflicts: []
 tags: []

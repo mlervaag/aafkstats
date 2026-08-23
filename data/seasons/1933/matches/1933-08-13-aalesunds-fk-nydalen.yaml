@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+  - sourceId: sunnmorsposten-19330814-fb7e017f67ae6769862d37bc937c2183
+    page: "6"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: Siden omtaler privatkampen søndag 13. august 1933 på Nørve der AaFK slo
-  Nydalen 4-2 i en spennende kamp.
+note: Siden omtaler privatkampen søndag 13. august 1933 på Nørve der AaFK slo Nydalen 4-2 i en spennende kamp.

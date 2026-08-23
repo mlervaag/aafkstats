@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19510714-3d3779ef2adaada5fd001bebb43a1dd8
+    page: "6"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: Siden omtaler privatkampen fredag 13. juli 1951 på Aksla stadion der
-  Fremad (Lillehammer) slo AaFK 4-2 på sleip bane.
+note: Siden omtaler privatkampen fredag 13. juli 1951 på Aksla stadion der Fremad (Lillehammer) slo AaFK 4-2 på sleip bane.

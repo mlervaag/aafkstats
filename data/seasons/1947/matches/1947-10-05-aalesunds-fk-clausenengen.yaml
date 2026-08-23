@@ -21,6 +21,9 @@ externalReports:
     title: Sunnmørsposten 1947-10-07 s. 2
     date: 1947-10-07
     url: https://www.nb.no/items/9d85cccdb561bff9502b52fc81e9ae86?page=2
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/263f3a579ba0ea66eb4ee13948e22293?page=2
+    date: 1947-10-06
 providers:
   - providerId: nasjonalbiblioteket
     url: https://www.nb.no/items/9d85cccdb561bff9502b52fc81e9ae86?page=2
@@ -33,12 +36,21 @@ providers:
       - away.clubId
       - home.score
       - away.score
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/263f3a579ba0ea66eb4ee13948e22293?page=2
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19471006-263f3a579ba0ea66eb4ee13948e22293
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1947-10-07 s. 2: Kampreferat for AaFK mot Clausenengen
-  (5–1) 1. divisjon spilt 1947-10-05."
+note: "Sunnmørsposten 1947-10-07 s. 2: Kampreferat for AaFK mot Clausenengen (5–1) 1. divisjon spilt 1947-10-05."

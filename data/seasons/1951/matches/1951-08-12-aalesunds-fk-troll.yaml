@@ -20,7 +20,10 @@ extraTime:
   away: 0
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/d7a10b62ef94ef64e0a182f4d0493918?page=2
+    date: 1951-08-13
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1951/Cup.html
@@ -35,6 +38,11 @@ providers:
       - away.score
       - competition.round
       - extraTime
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/d7a10b62ef94ef64e0a182f4d0493918?page=2
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
@@ -42,3 +50,9 @@ aliases:
   rsssf: 1951-cup-1951-08-12-aalesunds-fk-troll
 manual: []
 note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.
+sources:
+  - sourceId: sunnmorsposten-19510813-d7a10b62ef94ef64e0a182f4d0493918
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

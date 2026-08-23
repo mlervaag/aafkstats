@@ -15,8 +15,24 @@ away:
   score: 1
   halfTimeScore: null
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/7b09f7ba71f1a3d0a05aa408320917b0?page=2
+    date: 1962-08-06
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/51686921650b60342ca4762f4eae27b3?page=6
+    date: 1962-08-07
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/7b09f7ba71f1a3d0a05aa408320917b0?page=2
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/51686921650b60342ca4762f4eae27b3?page=6
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -30,11 +46,21 @@ sources:
       - competition
       - home.clubId
       - away.clubId
-    note: "Høstterminlisten (s. 48) oppgir Clausenengen mot AaFK 5. august 1962."
+    note: Høstterminlisten (s. 48) oppgir Clausenengen mot AaFK 5. august 1962.
   - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
     page: "59"
     fields:
       - status
       - home.score
       - away.score
-    note: "Høstoppsummeringen (s. 59) dokumenterer Clausenengen mot AaFK 0–1."
+    note: Høstoppsummeringen (s. 59) dokumenterer Clausenengen mot AaFK 0–1.
+  - sourceId: sunnmorsposten-19620806-7b09f7ba71f1a3d0a05aa408320917b0
+    page: "2"
+    fields:
+      - externalReports
+    note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.
+  - sourceId: sunnmorsposten-19620807-51686921650b60342ca4762f4eae27b3
+    page: "6"
+    fields:
+      - externalReports
+    note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.

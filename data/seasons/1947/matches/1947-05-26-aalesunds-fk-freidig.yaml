@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19470527-09ea0074947dcf87a3989d629c6a3d1b
+    page: "1"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: Siden omtaler pinsekampen annen pinsedag (mandag 26. mai 1947) i Ålesund
-  mellom AaFK og Freidig med sluttresultat 0-1 (Freidig-seier 1-0).
+note: Siden omtaler pinsekampen annen pinsedag (mandag 26. mai 1947) i Ålesund mellom AaFK og Freidig med sluttresultat 0-1 (Freidig-seier 1-0).

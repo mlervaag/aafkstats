@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/06c4aa55a60f08921c473c9cb2e3a994?page=2
+    date: 1952-07-29
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1952/Cup.html
@@ -43,6 +46,11 @@ providers:
       - away.score
       - competition.round
     note: Årsrapporten oppgir ikke kampdato.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/06c4aa55a60f08921c473c9cb2e3a994?page=2
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 sources:
   - sourceId: sunnmore-fotballkrets-arsrapport-1952
     page: "11"
@@ -54,6 +62,11 @@ sources:
       - home.score
       - away.score
       - competition.round
+  - sourceId: sunnmorsposten-19520729-06c4aa55a60f08921c473c9cb2e3a994
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: probable
 conflicts: []
 tags: []

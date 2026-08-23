@@ -21,6 +21,9 @@ externalReports:
     title: Sunnmørsposten 1947-08-25 s. 2
     date: 1947-08-25
     url: https://www.nb.no/items/6907ff25365ef85e08332b354883414e?page=2
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/e9be772c18dce1d34feb4ba1024a0c3c?page=4
+    date: 1947-08-26
 providers:
   - providerId: nasjonalbiblioteket
     url: https://www.nb.no/items/6907ff25365ef85e08332b354883414e?page=2
@@ -33,12 +36,21 @@ providers:
       - away.clubId
       - home.score
       - away.score
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/e9be772c18dce1d34feb4ba1024a0c3c?page=4
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19470826-e9be772c18dce1d34feb4ba1024a0c3c
+    page: "4"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1947-08-25 s. 2: Kampreferat for AaFK mot Molde (3–0) 1.
-  divisjon spilt 1947-08-24."
+note: "Sunnmørsposten 1947-08-25 s. 2: Kampreferat for AaFK mot Molde (3–0) 1. divisjon spilt 1947-08-24."

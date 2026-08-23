@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/9cedf3e498ab0bf26b183df47694dc37?page=6
+    date: 1960-05-16
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/9cedf3e498ab0bf26b183df47694dc37?page=6
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -38,11 +46,16 @@ sources:
       - date
       - home.clubId
       - away.clubId
-    note: "Landsdelsseriens samlede vårterminliste (s. 16) oppgir samme kamp og samme hjemmelag."
+    note: Landsdelsseriens samlede vårterminliste (s. 16) oppgir samme kamp og samme hjemmelag.
   - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
     page: "69"
     fields:
       - status
       - home.score
       - away.score
-    note: "Sesongoversikten dokumenterer landsdelsseriekampen mot Braatt borte med 4–1 sett fra AaFK."
+    note: Sesongoversikten dokumenterer landsdelsseriekampen mot Braatt borte med 4–1 sett fra AaFK.
+  - sourceId: sunnmorsposten-19600516-9cedf3e498ab0bf26b183df47694dc37
+    page: "6"
+    fields:
+      - externalReports
+    note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.

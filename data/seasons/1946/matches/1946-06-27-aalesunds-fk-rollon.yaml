@@ -21,6 +21,9 @@ externalReports:
     title: Sunnmørsposten 1946-06-28 s. 3
     date: 1946-06-28
     url: https://www.nb.no/items/66af0f03cb9dab2bf482eb16e1056d9a?page=4
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/f2d44fed3dcf1329cb90f15591dc87a2?page=3
+    date: 1946-06-28
 providers:
   - providerId: nasjonalbiblioteket
     url: https://www.nb.no/items/66af0f03cb9dab2bf482eb16e1056d9a?page=4
@@ -33,12 +36,21 @@ providers:
       - away.clubId
       - home.score
       - away.score
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/f2d44fed3dcf1329cb90f15591dc87a2?page=3
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19460628-f2d44fed3dcf1329cb90f15591dc87a2
+    page: "3"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1946-06-28 s. 3: Kampreferat for Rollon mot AaFK (0–1) 1.
-  divisjon spilt 1946-06-27."
+note: "Sunnmørsposten 1946-06-28 s. 3: Kampreferat for Rollon mot AaFK (0–1) 1. divisjon spilt 1946-06-27."

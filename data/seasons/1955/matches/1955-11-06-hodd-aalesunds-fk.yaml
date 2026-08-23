@@ -33,11 +33,15 @@ providers:
       - away.clubId
       - home.score
       - away.score
-sources: []
+sources:
+  - sourceId: sunnmorsposten-19551107-0618e8ea83cbc8b5739f892f5d280755
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1955-11-07 s. 2: Kampreferat for AaFK mot Hødd (2–1) spilt
-  1955-11-06."
+note: "Sunnmørsposten 1955-11-07 s. 2: Kampreferat for AaFK mot Hødd (2–1) spilt 1955-11-06."

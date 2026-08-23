@@ -15,8 +15,16 @@ away:
   score: 0
   halfTimeScore: null
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/6db46db382f6c1aed1deb3d303b7cd36?page=8
+    date: 1962-09-24
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/6db46db382f6c1aed1deb3d303b7cd36?page=8
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -30,11 +38,16 @@ sources:
       - competition
       - home.clubId
       - away.clubId
-    note: "Høstterminlisten (s. 48) oppgir AaFK mot Braatt 23. september 1962."
+    note: Høstterminlisten (s. 48) oppgir AaFK mot Braatt 23. september 1962.
   - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
     page: "59"
     fields:
       - status
       - home.score
       - away.score
-    note: "Høstoppsummeringen (s. 59) dokumenterer AaFK mot Braatt 8–0."
+    note: Høstoppsummeringen (s. 59) dokumenterer AaFK mot Braatt 8–0.
+  - sourceId: sunnmorsposten-19620924-6db46db382f6c1aed1deb3d303b7cd36
+    page: "8"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

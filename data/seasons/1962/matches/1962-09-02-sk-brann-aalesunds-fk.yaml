@@ -21,7 +21,10 @@ extraTime:
 neutralVenue: false
 venueId: brann-stadion
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/64aa44b5160ea36c01026642aa125f97?page=2
+    date: 1962-09-03
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1962/Cup.html
@@ -46,13 +49,17 @@ providers:
       - away.clubId
       - home.score
       - away.score
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/64aa44b5160ea36c01026642aa125f97?page=2
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 sources:
   - sourceId: aafk-historie-aksla-stadion
     fields:
       - venueId
       - extraTime
-    note: Artikkelen identifiserer 0–0-kampen etter ekstraomganger som bortekampen
-      på Brann Stadion.
+    note: Artikkelen identifiserer 0–0-kampen etter ekstraomganger som bortekampen på Brann Stadion.
   - sourceId: sunnmore-fotballkrets-arsrapport-1962
     page: "7"
     fields: *a1
@@ -64,11 +71,15 @@ sources:
       - home.score
       - away.score
     note: "Medlemsbladet 1962 hefte 5 s. 50: 'I Bergen greidde vårt lag å spille uavgjort 0–0 mot Brann etter 2 x 15 minutters ekstraomganger.'"
+  - sourceId: sunnmorsposten-19620903-64aa44b5160ea36c01026642aa125f97
+    page: "2"
+    fields:
+      - externalReports
+    note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1962-cup-1962-09-02-brann-aalesunds-fk
 manual: []
-note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter
-  ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.
+note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.

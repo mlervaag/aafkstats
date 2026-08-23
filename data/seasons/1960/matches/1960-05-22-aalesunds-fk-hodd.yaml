@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/548315c78608312cb783a126dca6a565?page=6
+    date: 1960-05-23
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/548315c78608312cb783a126dca6a565?page=6
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -38,11 +46,16 @@ sources:
       - date
       - home.clubId
       - away.clubId
-    note: "Landsdelsseriens samlede vårterminliste (s. 16) oppgir samme kamp og samme hjemmelag."
+    note: Landsdelsseriens samlede vårterminliste (s. 16) oppgir samme kamp og samme hjemmelag.
   - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
     page: "69"
     fields:
       - status
       - home.score
       - away.score
-    note: "Sesongoversikten dokumenterer landsdelsseriekampen mot Hødd hjemme med 0–1 sett fra AaFK."
+    note: Sesongoversikten dokumenterer landsdelsseriekampen mot Hødd hjemme med 0–1 sett fra AaFK.
+  - sourceId: sunnmorsposten-19600523-548315c78608312cb783a126dca6a565
+    page: "6"
+    fields:
+      - externalReports
+    note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.

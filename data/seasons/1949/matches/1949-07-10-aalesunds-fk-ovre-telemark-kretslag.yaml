@@ -1,5 +1,5 @@
 id: 1949-07-10-aalesunds-fk-ovre-telemark-kretslag
-date: "1949-07-10"
+date: 1949-07-10
 dateConfidence: exact
 status: played
 competition:
@@ -20,12 +20,12 @@ events: []
 externalReports:
   - publisher: Sunnmørsposten
     title: Telemarks-laget vant 1-0 over AaFK
-    date: "1949-07-11"
+    date: 1949-07-11
     url: https://www.nb.no/items/ccc608592b713b4338a54a48a2822378?page=2
 providers:
   - providerId: nasjonalbiblioteket
     url: https://www.nb.no/items/ccc608592b713b4338a54a48a2822378?page=2
-    retrievedAt: "2026-08-21"
+    retrievedAt: 2026-08-21
     fields:
       - date
       - status
@@ -42,6 +42,11 @@ sources:
       - home.score
       - away.score
     note: trykt «ÅFK—Øvre Telemark Kretslag 0—1».
+  - sourceId: sunnmorsposten-19490711-ccc608592b713b4338a54a48a2822378
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []

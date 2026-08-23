@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19480420-b107ba78b88ee1481d0fdd46f1eb03ba
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1948-04-20 s. 2: Kampreferat for AaFK mot Skarbøvik (1–0)
-  privatkamp spilt 1948-04-18."
+note: "Sunnmørsposten 1948-04-20 s. 2: Kampreferat for AaFK mot Skarbøvik (1–0) privatkamp spilt 1948-04-18."

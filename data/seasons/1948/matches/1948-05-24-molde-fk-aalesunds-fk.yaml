@@ -33,12 +33,19 @@ providers:
       - away.clubId
       - home.score
       - away.score
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/18f6aff284a3e24eac2da32f40cef895?page=2
+    retrievedAt: 2026-08-23
+    fields: []
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19480524-18f6aff284a3e24eac2da32f40cef895
+    page: "2"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1948-05-25 s. 2: Kampreferat for Molde mot AaFK (0–1) 1.
-  divisjon spilt 1948-05-24."
+note: "Sunnmørsposten 1948-05-25 s. 2: Kampreferat for Molde mot AaFK (0–1) 1. divisjon spilt 1948-05-24."

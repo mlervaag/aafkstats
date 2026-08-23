@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/ce9283667ba2bc0d859fdd99ea77c5bc?page=2
+    date: 1956-05-22
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/ce9283667ba2bc0d859fdd99ea77c5bc?page=2
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -38,4 +46,9 @@ sources:
       - status
       - home.score
       - away.score
-    note: "A-lagsresultatene (s. 60) fører seriekampen mot Clausenengen hjemme med 2–2 sett fra AaFK."
+    note: A-lagsresultatene (s. 60) fører seriekampen mot Clausenengen hjemme med 2–2 sett fra AaFK.
+  - sourceId: sunnmorsposten-19560522-ce9283667ba2bc0d859fdd99ea77c5bc
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

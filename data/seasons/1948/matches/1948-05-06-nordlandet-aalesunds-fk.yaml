@@ -1,5 +1,5 @@
 id: 1948-05-06-nordlandet-aalesunds-fk
-date: "1948-05-06"
+date: 1948-05-06
 dateConfidence: exact
 status: played
 competition:
@@ -19,12 +19,12 @@ events: []
 externalReports:
   - publisher: Sunnmørsposten
     title: 1. divisjon. Å. F. K.-Nordlandet
-    date: "1948-05-07"
+    date: 1948-05-07
     url: https://www.nb.no/items/7cda78a78859ee7142e92f2c724d4122?page=3
 providers:
   - providerId: nasjonalbiblioteket
     url: https://www.nb.no/items/7cda78a78859ee7142e92f2c724d4122?page=3
-    retrievedAt: "2026-08-21"
+    retrievedAt: 2026-08-21
     fields:
       - date
       - status
@@ -41,6 +41,11 @@ sources:
       - away.score
       - competition
     note: 1. divisjon. bortekamp. trykt «ÅFK—Nordlandet* 6—1».
+  - sourceId: sunnmorsposten-19480507-7cda78a78859ee7142e92f2c724d4122
+    page: "3"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []

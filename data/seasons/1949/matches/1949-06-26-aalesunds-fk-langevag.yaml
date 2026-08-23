@@ -47,12 +47,16 @@ sources:
       - home.score
       - away.score
     note: Cupen. trykt «ÅFK—Langevåg 4—0».
+  - sourceId: sunnmorsposten-19490627-91ccd057a5ebf1ad9ae97ba6101aea32
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: NM 1. runde spilt på Aksla stadion søndag 26. juni 1949. Sunnmørsposten
-  oppgir 2 300 tilskuere.
+note: NM 1. runde spilt på Aksla stadion søndag 26. juni 1949. Sunnmørsposten oppgir 2 300 tilskuere.
 venueId: aksla-stadion
 attendance: 2300

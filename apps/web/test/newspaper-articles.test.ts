@@ -25,9 +25,9 @@ afterAll(() => {
 describe("Sunnmørsposten-artikler i webarkivet", () => {
   it("lister alle kampkoblede artikler med kamp og faksimile", () => {
     const articles = getSunnmorspostenArticles();
-    expect(articles).toHaveLength(180);
-    expect(new Set(articles.map((article) => article.matchId)).size).toBe(173);
-    expect(articles.every((article) => article.publisher === "Sunnmørsposten")).toBe(true);
+    expect(articles).toHaveLength(231);
+    expect(new Set(articles.map((article) => article.matchId)).size).toBe(214);
+    expect(articles.every((article) => ["Søndmørsposten", "Sunnmørsposten"].includes(article.publisher))).toBe(true);
     expect(articles.every((article) => article.url?.startsWith("https://www.nb.no/"))).toBe(true);
   });
 

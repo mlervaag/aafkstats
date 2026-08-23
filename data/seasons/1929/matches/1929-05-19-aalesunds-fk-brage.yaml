@@ -18,8 +18,7 @@ neutralVenue: false
 events: []
 externalReports:
   - publisher: Sunnmørsposten
-    title: Jubileumskampene i pinsen. „Brage“ tok pokalen med seire over Aa. F. K.
-      (4-3) og „Rollon“ (4 — 1)
+    title: Jubileumskampene i pinsen. „Brage“ tok pokalen med seire over Aa. F. K. (4-3) og „Rollon“ (4 — 1)
     date: 1929-05-21
     url: https://www.nb.no/items/a1e0dfcd8b68d032cc5c22568510b153?page=3
 providers:
@@ -47,6 +46,11 @@ sources:
       - home.score
       - away.score
     note: Privatkamp trykt «Brage, Trondheim 3-4».
+  - sourceId: sunnmorsposten-19290521-a1e0dfcd8b68d032cc5c22568510b153
+    page: "3"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []

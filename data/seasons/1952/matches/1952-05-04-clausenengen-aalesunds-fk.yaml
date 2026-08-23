@@ -18,8 +18,7 @@ neutralVenue: false
 events: []
 externalReports:
   - publisher: Sunnmørsposten
-    title: AaFK i landsdelsseriekampen mot Clausenengen i Kristiansund i går. Seiren
-      ble 1—0
+    title: AaFK i landsdelsseriekampen mot Clausenengen i Kristiansund i går. Seiren ble 1—0
     date: 1952-05-05
     url: https://www.nb.no/items/5b8959a8ca5ec6b642000e0a06061afa?page=3
 providers:
@@ -42,6 +41,11 @@ sources:
       - home.score
       - away.score
     note: 1. divisjon. bortekamp. trykt «ÅFK—Clausenengen* 1—0».
+  - sourceId: sunnmorsposten-19520505-5b8959a8ca5ec6b642000e0a06061afa
+    page: "3"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
