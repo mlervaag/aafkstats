@@ -47,6 +47,7 @@ function haystack(article: NewspaperArticle): string {
   return normalize(
     [
       article.title ?? "",
+      article.publisher,
       article.opponent,
       matchLabel(article),
       iso,
@@ -55,6 +56,13 @@ function haystack(article: NewspaperArticle): string {
       article.isHome ? "hjemme" : "borte",
     ].join(" "),
   );
+}
+
+/** Avis og overskrift under kampen, når de sier noe raden ikke allerede viser. */
+function meta(article: NewspaperArticle, withPublisher: boolean): string {
+  return [withPublisher ? article.publisher : "", article.title ?? ""]
+    .filter(Boolean)
+    .join(" · ");
 }
 
 function byYear(articles: NewspaperArticle[]): [number, NewspaperArticle[]][] {
@@ -80,6 +88,17 @@ export function NewspaperArticleArchive({ articles }: { articles: NewspaperArtic
   const [decade, setDecade] = useState<number | "all">("all");
   const [limit, setLimit] = useState(PAGE);
   const deferredQuery = useDeferredValue(query);
+
+  // Avisene arkivet faktisk har, største først. «Sunnmørsposten» sto skrevet inn
+  // i overskriften, men de eldste sidene er fra Søndmørsposten — samme avis, navnet
+  // den hadde før 1927 — og arkivet skal få flere aviser enn den ene.
+  const publishers = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const article of articles) {
+      counts.set(article.publisher, (counts.get(article.publisher) ?? 0) + 1);
+    }
+    return [...counts.entries()].sort(([, a], [, b]) => b - a);
+  }, [articles]);
 
   const decades = useMemo(() => {
     const counts = new Map<number, number>();
@@ -113,13 +132,18 @@ export function NewspaperArticleArchive({ articles }: { articles: NewspaperArtic
       <div className={styles.heading}>
         <div>
           <p>Avisarkiv</p>
-          <h2 id="avisarkiv-tittel">Sunnmørsposten om AaFK-kamper</h2>
+          <h2 id="avisarkiv-tittel">
+            {publishers.length === 1 ? `${publishers[0][0]} om AaFK-kamper` : "Avissider om AaFK-kamper"}
+          </h2>
         </div>
         <span>{articles.length} artikler · {matchCount} kamper</span>
       </div>
       <p className={styles.lede}>
         Disse avissidene er koblet til konkrete kamper etter kildekontroll. Gå til
         kampen for sammenhengen, eller åpne originalen hos Nasjonalbiblioteket.
+        {publishers.length > 1
+          ? ` Arkivet har sider fra ${publishers.map(([name, count]) => `${name} (${count})`).join(" og ")}.`
+          : ""}
       </p>
 
       <div className={styles.controls}>
@@ -168,23 +192,29 @@ export function NewspaperArticleArchive({ articles }: { articles: NewspaperArtic
                 <span>{items.length} {items.length === 1 ? "artikkel" : "artikler"}</span>
               </div>
               <ol>
-                {items.map((article, articleIndex) => (
-                  <li key={`${article.matchId}-${article.url ?? articleDate(article)}-${articleIndex}`}>
-                    <time dateTime={articleDate(article)}>{formatDate(articleDate(article))}</time>
-                    <div>
-                      {/* Kampen står først, ikke overskriften: de aller fleste sidene er
-                          registrert uten egen tittel, og «Sunnmørsposten om kampen» på
-                          hver rad sier ingenting om hvilken kamp raden gjelder. */}
-                      <Link href={`/kamp/${article.matchId}`}>{matchLabel(article)}</Link>
-                      {article.title ? <span>{article.title}</span> : null}
-                    </div>
-                    {article.url ? (
-                      <a className={styles.facsimile} href={article.url} target="_blank" rel="noreferrer">
-                        Faksimile <span aria-hidden="true">↗</span>
-                      </a>
-                    ) : null}
-                  </li>
-                ))}
+                {items.map((article, articleIndex) => {
+                  // Avisa navngis bare når arkivet har flere enn én. Med bare
+                  // Sunnmørsposten i lista ville navnet stått på hver eneste rad uten
+                  // å skille noen av dem fra hverandre.
+                  const line = meta(article, publishers.length > 1);
+                  return (
+                    <li key={`${article.matchId}-${article.url ?? articleDate(article)}-${articleIndex}`}>
+                      <time dateTime={articleDate(article)}>{formatDate(articleDate(article))}</time>
+                      <div>
+                        {/* Kampen står først, ikke overskriften: de aller fleste sidene er
+                            registrert uten egen tittel, og «Sunnmørsposten om kampen» på
+                            hver rad sier ingenting om hvilken kamp raden gjelder. */}
+                        <Link href={`/kamp/${article.matchId}`}>{matchLabel(article)}</Link>
+                        {line ? <span>{line}</span> : null}
+                      </div>
+                      {article.url ? (
+                        <a className={styles.facsimile} href={article.url} target="_blank" rel="noreferrer">
+                          Faksimile <span aria-hidden="true">↗</span>
+                        </a>
+                      ) : null}
+                    </li>
+                  );
+                })}
               </ol>
             </section>
           ))}

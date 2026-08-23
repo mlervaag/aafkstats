@@ -5,7 +5,7 @@ import { collectionJsonLd } from "@/lib/jsonld";
 import { SourceListClient, type HistoricalSourceData } from "@/components/sources/SourceListClient";
 import { ContributionCallToAction } from "@/components/ContributionCallToAction";
 import { NewspaperArticleArchive } from "@/components/sources/NewspaperArticleArchive";
-import { getSunnmorspostenArticles } from "@/lib/newspaper-articles";
+import { getNewspaperArticles } from "@/lib/newspaper-articles";
 import { getSources } from "@/lib/sources";
 import { SourceRights } from "@/components/SourceRights";
 
@@ -34,7 +34,8 @@ export default function ArkivetPage() {
     cover_url: source.cover_url,
     access_url: source.access_url,
   }));
-  const newspaperArticles = getSunnmorspostenArticles();
+  const newspaperArticles = getNewspaperArticles();
+  const matchesWithArticles = new Set(newspaperArticles.map((article) => article.matchId)).size;
 
   return (
     <>
@@ -60,9 +61,12 @@ export default function ArkivetPage() {
         </p>
       </header>
 
+      {/* Veivalgene fra PR 210 sa hva som lå bak hver inngang, men ikke hvor mye.
+          Nå som begge arkivene er store nok til å måtte filtreres, er antallet
+          det som skiller et oppslagsverk fra en håndfull dokumenter. */}
       <nav className="source-paths" aria-label="Velg type kilde">
-        <a className="archive-card" href="#historiske-kilder"><span className="card-kicker">01</span><strong className="card-title">Historiske kilder</strong><span className="card-meta">Bøker, medlemsblad, årsmeldinger og programmer</span></a>
-        <a className="archive-card" href="#avisarkivet"><span className="card-kicker">02</span><strong className="card-title">Avisarkivet</strong><span className="card-meta">Sunnmørsposten-sider koblet til konkrete kamper</span></a>
+        <a className="archive-card" href="#historiske-kilder"><span className="card-kicker">01</span><strong className="card-title">Historiske kilder</strong><span className="card-meta">{sources.length} bøker, medlemsblad, årsmeldinger, avissider og nettsaker</span></a>
+        <a className="archive-card" href="#avisarkivet"><span className="card-kicker">02</span><strong className="card-title">Avisarkivet</strong><span className="card-meta">{newspaperArticles.length} avissider koblet til {matchesWithArticles} konkrete kamper</span></a>
         <a className="archive-card" href="#datakilder"><span className="card-kicker">03</span><strong className="card-title">Datakilder og kildebruk</strong><span className="card-meta">Kryssjekk, forbehold, rettigheter og vilkår</span></a>
       </nav>
 

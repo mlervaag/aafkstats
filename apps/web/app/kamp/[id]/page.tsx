@@ -270,8 +270,12 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
   const lineups = json<{ home?: Lineup; away?: Lineup }>(match.lineups, {});
   const stats = json<{ home?: TeamStats; away?: TeamStats }>(match.stats, {});
   const providers = json<ProviderRef[]>(match.providers, []);
+  // Avisfaksimilene skilles på lenken til Nasjonalbiblioteket, ikke på avisnavnet.
+  // Sidene fra før 1927 står under det gamle navnet Søndmørsposten og forsvant da
+  // filteret var avisnavnet; databaseoppslag som NIFS hører ikke hjemme her.
   const newspaperArticles = json<NewspaperReport[]>(match.external_reports, [])
-    .filter((report) => report.publisher === "Sunnmørsposten");
+    .filter((report) => report.url?.startsWith("https://www.nb.no/"));
+  const newspaperPublishers = [...new Set(newspaperArticles.map((report) => report.publisher))];
   const sources = json<SourceRef[]>(match.sources, []);
   const conflicts = json<ConflictRow[]>(match.conflicts, []);
 
@@ -408,7 +412,11 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
         )}
         {newspaperArticles.length > 0 ? (
           <div style={{ marginTop: "0.9rem" }}>
-            <NewspaperArticleBadge count={newspaperArticles.length} href="#avisartikler" />
+            <NewspaperArticleBadge
+              count={newspaperArticles.length}
+              publisher={newspaperPublishers.length === 1 ? newspaperPublishers[0] : null}
+              href="#avisartikler"
+            />
           </div>
         ) : null}
         <div style={{ marginTop: "1.5rem" }}>

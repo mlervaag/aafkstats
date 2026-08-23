@@ -4,7 +4,7 @@ import { join, resolve } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
 import { loadSeason } from "../lib/archive.js";
-import { getSunnmorspostenArticles } from "../lib/newspaper-articles.js";
+import { getNewspaperArticles } from "../lib/newspaper-articles.js";
 
 const previousDbPath = process.env.AAFK_DB_PATH;
 let databaseDir: string;
@@ -22,13 +22,27 @@ afterAll(() => {
   rmSync(databaseDir, { recursive: true, force: true });
 });
 
-describe("Sunnmørsposten-artikler i webarkivet", () => {
+describe("Avisartikler i webarkivet", () => {
   it("lister alle kampkoblede artikler med kamp og faksimile", () => {
-    const articles = getSunnmorspostenArticles();
-    expect(articles).toHaveLength(231);
-    expect(new Set(articles.map((article) => article.matchId)).size).toBe(214);
+    const articles = getNewspaperArticles();
+    expect(articles).toHaveLength(239);
+    expect(new Set(articles.map((article) => article.matchId)).size).toBe(222);
     expect(articles.every((article) => ["Søndmørsposten", "Sunnmørsposten"].includes(article.publisher))).toBe(true);
     expect(articles.every((article) => article.url?.startsWith("https://www.nb.no/"))).toBe(true);
+  });
+
+  /**
+   * Avisarkivet plukket ut rapporter der utgiveren het «Sunnmørsposten». Fram til
+   * 1920-tallet het avisa Søndmørsposten, så de åtte eldste faksimilene i arkivet
+   * lå i dataene uten å vises noe sted. Kriteriet er nå lenken til
+   * Nasjonalbiblioteket, som også holder databaseoppslag ute.
+   */
+  it("tar med faksimiler under avisas gamle navn, men ikke databaseoppslag", () => {
+    const articles = getNewspaperArticles();
+    const gamle = articles.filter((article) => article.publisher === "Søndmørsposten");
+    expect(gamle).toHaveLength(8);
+    expect(gamle.map((article) => article.matchId)).toContain("1915-06-06-aalesunds-fk-rollon");
+    expect(articles.some((article) => article.publisher === "NIFS")).toBe(false);
   });
 
   it("merker kampene i sesonglista med antall artikler", () => {

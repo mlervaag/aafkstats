@@ -1,4 +1,5 @@
 import { PLAYED_SQL, all, one, open } from "@aafkstats/db";
+import { NEWSPAPER_FACSIMILE } from "./newspaper-articles";
 
 export interface ArchiveMatch {
   matchId: string;
@@ -23,7 +24,7 @@ export interface ArchiveMatch {
   afterExtraTime: boolean;
   decidedOnPenalties: boolean;
   wonOnPenalties: boolean | null;
-  /** Sunnmørsposten-faksimiler som er redaksjonelt knyttet til kampen. */
+  /** Avisfaksimiler som er redaksjonelt knyttet til kampen. */
   newspaperArticleCount: number;
   url: string;
 }
@@ -258,7 +259,7 @@ const matchColumns = `match_id, date, kickoff, competition, status, is_home, opp
      FROM core_matches article_match
      JOIN json_each(article_match.external_reports) report
     WHERE article_match.id = matches.match_id
-      AND json_extract(report.value, '$.publisher') = 'Sunnmørsposten') AS newspaper_article_count,
+      AND ${NEWSPAPER_FACSIMILE}) AS newspaper_article_count,
   url`;
 
 function mapMatch(row: MatchRow): ArchiveMatch {

@@ -2,6 +2,17 @@ import { formatDate } from "@/lib/date";
 import type { NewspaperReport } from "@/lib/newspaper-articles";
 import styles from "./MatchNewspaperArticles.module.css";
 
+/**
+ * Overskriften navnga Sunnmørsposten. Faksimilene fra før 1927 står under det
+ * gamle navnet Søndmørsposten, og arkivet skal få flere aviser — så navnet
+ * hentes fra kampen, og faller tilbake på det generelle når de er flere.
+ */
+function heading(articles: NewspaperReport[]): string {
+  const publishers = [...new Set(articles.map((article) => article.publisher))];
+  const where = publishers.length === 1 ? ` i ${publishers[0]}` : "";
+  return articles.length === 1 ? `Les om kampen${where}` : `Artikler om kampen${where}`;
+}
+
 export function MatchNewspaperArticles({ articles }: { articles: NewspaperReport[] }) {
   if (articles.length === 0) return null;
 
@@ -9,9 +20,7 @@ export function MatchNewspaperArticles({ articles }: { articles: NewspaperReport
     <section className={styles.section} id="avisartikler" aria-labelledby="avisartikler-tittel">
       <div className={styles.intro}>
         <p>Fra avisarkivet</p>
-        <h2 id="avisartikler-tittel">
-          {articles.length === 1 ? "Les om kampen i Sunnmørsposten" : "Artikler om kampen i Sunnmørsposten"}
-        </h2>
+        <h2 id="avisartikler-tittel">{heading(articles)}</h2>
         <span>
           Faksimilen åpnes hos Nasjonalbiblioteket. Artikkelen er knyttet til
           kampen etter kildekontroll.

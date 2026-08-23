@@ -8,7 +8,10 @@
 
 .controls {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(12rem, 0.42fr);
+  /* Søkefeltet, kildetypen og tidsrommet på én linje. Tidsrommet kom til da
+     kildene spente over hundre år, og skal stå ved siden av det andre filteret,
+     ikke på en egen rad under søkefeltet. */
+  grid-template-columns: minmax(0, 1fr) minmax(11rem, 0.32fr) minmax(11rem, 0.32fr);
   gap: 1rem;
   margin-bottom: 1rem;
   padding: 1.1rem;
@@ -133,6 +136,28 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.75rem;
+}
+
+/*
+ * «Vis alle» per gruppe. Knappen står under kortene i sin egen gruppe, ikke som
+ * én felles paginering: gruppene er så ulike i størrelse at et felles vindu
+ * enten hadde skjult bøkene eller sluppet gjennom to hundre avissider.
+ */
+.groupMore {
+  margin-top: 0.85rem;
+  padding: 0.6rem 1rem;
+  color: var(--accent);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.groupMore:hover {
+  border-color: var(--accent);
 }
 
 .empty {
