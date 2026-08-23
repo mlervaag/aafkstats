@@ -8,15 +8,33 @@ import { loadArchive } from "../load.js";
 
 export const newspaperReviewStatus = z.enum([
   "candidate_found",
+  "ocr_correlated",
   "visually_confirmed",
+  "no_ocr_candidate",
   "not_found",
-  "conflict",
+  "conflict_candidate",
   "not_digitized",
 ]);
 
 const reviewEntry = z.object({
   matchId: z.string().min(1),
   status: newspaperReviewStatus,
+  reviewMethod: z.enum(["ocr_api", "facsimile"]),
+  facsimileReviewed: z.boolean().default(false),
+  confidence: z.enum(["high", "medium", "low"]).default("low"),
+  canonicalLinked: z.boolean().default(false),
+  evidenceIssues: z.array(z.object({
+    issueId: z.string().min(1),
+    urn: z.string().min(1).optional(),
+    url: z.string().url(),
+    issued: z.string().regex(/^\d{4}-?\d{2}-?\d{2}$/).optional(),
+    page: z.string().min(1).optional(),
+    reviewMethod: z.enum(["ocr_api", "facsimile"]),
+    facsimileReviewed: z.boolean(),
+    canonicalLinked: z.boolean().default(false),
+    confidence: z.enum(["high", "medium", "low"]),
+    genres: z.array(z.enum(["match_report", "result_note", "preview", "lineup", "results_board", "standings", "fixture_list", "advertisement", "unknown"])),
+  }).strict()).default([]),
   issueId: z.string().min(1).optional(),
   urn: z.string().min(1).optional(),
   url: z.string().url().optional(),
@@ -33,11 +51,12 @@ const reviewEntry = z.object({
   newHistoricalObservations: z.number().int().nonnegative().default(0),
   falsePositive: z.boolean().default(false),
   differentMatch: z.boolean().default(false),
+  conflict: z.object({ field: z.literal("score"), canonical: z.string(), newspaper: z.string() }).strict().optional(),
   note: z.string().max(500).optional(),
 }).strict();
 
 const reviewLedger = z.object({
-  contract: z.literal("newspaper-enrichment-reviews@1"),
+  contract: z.union([z.literal("newspaper-enrichment-reviews@1"), z.literal("newspaper-enrichment-reviews@2")]),
   entries: z.array(reviewEntry).default([]),
 }).strict();
 
@@ -52,19 +71,43 @@ export interface NewspaperEnrichmentStatusEntry {
   competition: string;
   homeAway: "home" | "away";
   score: string;
-  existingSmpSource: boolean;
+  hasSmpMention: boolean;
+  hasMatchReport: boolean;
+  hasPostMatchEvidence: boolean;
+  canonicalLinked: boolean;
+  reviewMethod?: "ocr_api" | "facsimile";
+  facsimileReviewed: boolean;
+  ocrCorrelated: boolean;
+  conflictCandidate: boolean;
   lineup: boolean;
   goalscorers: boolean;
   arena: boolean;
   attendance: boolean;
+  referee: boolean;
+  halfTimeScore: boolean;
   reviewStatus: "pending" | z.infer<typeof newspaperReviewStatus>;
-  review?: Omit<NewspaperReviewEntry, "matchId" | "status">;
+  enrichmentStatus: "complete" | "residual";
+  residualReason: "complete" | "no_ocr_candidate" | "conflict_candidate" | "preview_only" | "fixture_only" | "weak_candidate" | "pending" | "not_digitized" | "not_found";
+  review?: Omit<NewspaperReviewEntry, "matchId" | "status" | "evidenceIssues">;
 }
 
 export interface NewspaperEnrichmentStatus {
-  contract: "newspaper-enrichment-status@1";
+  contract: "newspaper-enrichment-status@3";
   generatedFrom: { authoritativeAsOf: "working-tree"; inputs: string[] };
-  searchPolicy: { initialWindowDays: number; expandedWindowDays: number; resultIsRequired: false; visualReviewRequired: true };
+  searchPolicy: {
+    initialWindowDays: number;
+    expandedWindowDays: number;
+    resultIsRequired: false;
+    pipeline: "canonical_match_date_anchored";
+    reviewMethod: "ocr_api";
+    facsimileReviewRequired: false;
+    reviewBasis: "nb_ocr_api_production_policy";
+    calibration: {
+      season: 1979;
+      facsimileSampleMatchLinkAccuracyPercent: 100;
+      allMatchesFacsimileReviewed: false;
+    };
+  };
   totals: Record<string, number>;
   pilot1979: Record<string, number>;
   queue: string[];
@@ -111,30 +154,53 @@ export async function buildNewspaperEnrichmentStatus(repo: string): Promise<News
         competition: match.competition.id,
         homeAway: isHome ? "home" : "away",
         score: `${match.home.score}-${match.away.score}`,
-        existingSmpSource: sourceCoverage || review?.status === "visually_confirmed",
+        hasSmpMention: sourceCoverage,
+        hasMatchReport: hasReport(review),
+        hasPostMatchEvidence: hasPostMatchEvidence(match.date, review),
+        canonicalLinked: review?.canonicalLinked ?? false,
+        ...(review ? { reviewMethod: review.reviewMethod } : {}),
+        facsimileReviewed: review?.facsimileReviewed ?? false,
+        ocrCorrelated: review?.status === "ocr_correlated" || review?.status === "conflict_candidate",
+        conflictCandidate: review?.status === "conflict_candidate",
         lineup: (aafkLineup?.starters.length ?? 0) > 0,
         goalscorers,
         arena: match.venueId !== undefined,
         attendance: match.attendance !== undefined,
+        referee: match.referee !== undefined,
+        halfTimeScore: match.home.halfTimeScore !== null && match.away.halfTimeScore !== null,
         reviewStatus: review?.status ?? "pending",
+        ...completionFor(match.date, review),
         ...(review ? { review: withoutIdentity(review) } : {}),
       };
     })
     .sort((left, right) => left.date.localeCompare(right.date) || left.matchId.localeCompare(right.matchId));
 
-  const queue = entries.filter((entry) => !entry.existingSmpSource && entry.reviewStatus !== "not_found" && entry.reviewStatus !== "not_digitized")
+  const queue = entries.filter((entry) => entry.enrichmentStatus === "residual")
     .map((entry) => entry.matchId);
   const totals = summarize(entries, queue.length);
   const pilot = entries.filter((entry) => entry.season === 1979);
   const pilotQueue = pilot.filter((entry) => queue.includes(entry.matchId)).length;
 
   return {
-    contract: "newspaper-enrichment-status@1",
+    contract: "newspaper-enrichment-status@3",
     generatedFrom: {
       authoritativeAsOf: "working-tree",
       inputs: ["data/seasons/*/matches/*.yaml", "data/clubs/*.yaml", "data/sources/*.yaml", "data/discovery/newspaper-enrichment-reviews.yaml"],
     },
-    searchPolicy: { initialWindowDays: 2, expandedWindowDays: 3, resultIsRequired: false, visualReviewRequired: true },
+    searchPolicy: {
+      initialWindowDays: 2,
+      expandedWindowDays: 3,
+      resultIsRequired: false,
+      pipeline: "canonical_match_date_anchored",
+      reviewMethod: "ocr_api",
+      facsimileReviewRequired: false,
+      reviewBasis: "nb_ocr_api_production_policy",
+      calibration: {
+        season: 1979,
+        facsimileSampleMatchLinkAccuracyPercent: 100,
+        allMatchesFacsimileReviewed: false,
+      },
+    },
     totals,
     pilot1979: summarize(pilot, pilotQueue),
     queue,
@@ -146,13 +212,38 @@ function dayDistance(left: string, right: string): number {
   return Math.round((Date.parse(`${right}T00:00:00Z`) - Date.parse(`${left}T00:00:00Z`)) / 86_400_000);
 }
 
+function hasReport(review: NewspaperReviewEntry | undefined): boolean {
+  return review?.genres.some((genre) => genre === "match_report" || genre === "result_note") ?? false;
+}
+
+function hasPostMatchEvidence(matchDate: string, review: NewspaperReviewEntry | undefined): boolean {
+  if (!review?.issued || dayDistance(matchDate, review.issued) < 0) return false;
+  return review.genres.some((genre) => genre === "match_report" || genre === "result_note" || genre === "results_board");
+}
+
+function completionFor(matchDate: string, review: NewspaperReviewEntry | undefined): Pick<NewspaperEnrichmentStatusEntry, "enrichmentStatus" | "residualReason"> {
+  if (review?.status === "ocr_correlated" && review.canonicalLinked && hasReport(review) && hasPostMatchEvidence(matchDate, review)) {
+    return { enrichmentStatus: "complete", residualReason: "complete" };
+  }
+  if (!review) return { enrichmentStatus: "residual", residualReason: "pending" };
+  if (review.status === "conflict_candidate") return { enrichmentStatus: "residual", residualReason: "conflict_candidate" };
+  if (review.status === "no_ocr_candidate") return { enrichmentStatus: "residual", residualReason: "no_ocr_candidate" };
+  if (review.status === "not_digitized") return { enrichmentStatus: "residual", residualReason: "not_digitized" };
+  if (review.status === "not_found") return { enrichmentStatus: "residual", residualReason: "not_found" };
+  if (review.genres.includes("preview")) return { enrichmentStatus: "residual", residualReason: "preview_only" };
+  if (review.genres.includes("fixture_list") && !review.genres.some((genre) => genre === "match_report" || genre === "result_note" || genre === "results_board")) {
+    return { enrichmentStatus: "residual", residualReason: "fixture_only" };
+  }
+  return { enrichmentStatus: "residual", residualReason: "weak_candidate" };
+}
+
 async function readReviewLedger(path: string): Promise<z.infer<typeof reviewLedger>> {
-  if (!existsSync(path)) return { contract: "newspaper-enrichment-reviews@1", entries: [] };
+  if (!existsSync(path)) return { contract: "newspaper-enrichment-reviews@2", entries: [] };
   return reviewLedger.parse(parseYaml(await readFile(path, "utf8"), { schema: "core" }));
 }
 
-function withoutIdentity(entry: NewspaperReviewEntry): Omit<NewspaperReviewEntry, "matchId" | "status"> {
-  const { matchId: _matchId, status: _status, ...rest } = entry;
+function withoutIdentity(entry: NewspaperReviewEntry): Omit<NewspaperReviewEntry, "matchId" | "status" | "evidenceIssues"> {
+  const { matchId: _matchId, status: _status, evidenceIssues: _evidenceIssues, ...rest } = entry;
   return rest;
 }
 
@@ -161,15 +252,29 @@ function summarize(entries: NewspaperEnrichmentStatusEntry[], queue: number): Re
   const ocrCandidates = reviewed.reduce((sum, entry) => sum + (entry.review?.ocrCandidates ?? 0), 0);
   return {
     canonicalMatchesInScope: entries.length,
-    withSmpSource: entries.filter((entry) => entry.existingSmpSource).length,
-    matchReports: reviewed.filter((entry) => entry.review?.genres.includes("match_report")).length,
+    withSmpMention: entries.filter((entry) => entry.hasSmpMention).length,
+    matchReports: entries.filter((entry) => entry.hasMatchReport).length,
+    postMatchEvidence: entries.filter((entry) => entry.hasPostMatchEvidence).length,
+    canonicalLinked: entries.filter((entry) => entry.canonicalLinked).length,
+    ocrCorrelated: entries.filter((entry) => entry.reviewStatus === "ocr_correlated").length,
+    facsimileReviewed: entries.filter((entry) => entry.facsimileReviewed).length,
+    noOcrCandidate: entries.filter((entry) => entry.reviewStatus === "no_ocr_candidate").length,
     notFound: entries.filter((entry) => entry.reviewStatus === "not_found").length,
-    pending: queue,
+    pending: entries.filter((entry) => entry.reviewStatus === "pending").length,
+    residualQueue: queue,
+    enrichmentComplete: entries.filter((entry) => entry.enrichmentStatus === "complete").length,
+    residualNoOcrCandidate: entries.filter((entry) => entry.residualReason === "no_ocr_candidate").length,
+    residualConflictCandidate: entries.filter((entry) => entry.residualReason === "conflict_candidate").length,
+    residualPreviewOnly: entries.filter((entry) => entry.residualReason === "preview_only").length,
+    residualFixtureOnly: entries.filter((entry) => entry.residualReason === "fixture_only").length,
+    residualWeakCandidate: entries.filter((entry) => entry.residualReason === "weak_candidate").length,
     lineups: entries.filter((entry) => entry.lineup).length,
     goalscorers: entries.filter((entry) => entry.goalscorers).length,
     arenas: entries.filter((entry) => entry.arena).length,
     attendances: entries.filter((entry) => entry.attendance).length,
-    conflicts: entries.filter((entry) => entry.reviewStatus === "conflict").length,
+    referees: entries.filter((entry) => entry.referee).length,
+    halfTimeScores: entries.filter((entry) => entry.halfTimeScore).length,
+    conflictCandidates: entries.filter((entry) => entry.reviewStatus === "conflict_candidate").length,
     newLineups: reviewed.filter((entry) => entry.review?.fieldsAdded.includes("lineups")).length,
     newPlayers: reviewed.reduce((sum, entry) => sum + (entry.review?.newPlayers ?? 0), 0),
     newGoalscorers: reviewed.filter((entry) => entry.review?.fieldsAdded.includes("goalscorers")).length,
@@ -177,6 +282,7 @@ function summarize(entries: NewspaperEnrichmentStatusEntry[], queue: number): Re
     newArenas: reviewed.filter((entry) => entry.review?.fieldsAdded.includes("venueId")).length,
     newAttendances: reviewed.filter((entry) => entry.review?.fieldsAdded.includes("attendance")).length,
     newReferees: reviewed.filter((entry) => entry.review?.fieldsAdded.includes("referee")).length,
+    newHalfTimeScores: reviewed.filter((entry) => entry.review?.fieldsAdded.includes("home.halfTimeScore")).length,
     newHistoricalObservations: reviewed.reduce((sum, entry) => sum + (entry.review?.newHistoricalObservations ?? 0), 0),
     ocrFalsePositives: reviewed.filter((entry) => entry.review?.falsePositive).length,
     differentMatch: reviewed.filter((entry) => entry.review?.differentMatch).length,

@@ -71,6 +71,7 @@ export interface BatchEntry {
   outcome: BatchOutcome;
   visualReviewStatus: VisualReviewStatus;
   checkedAt: string;
+  candidateIssuesFound: number;
   /** Behold flere utgaver. OCR brukes bare til å prioritere denne review-køen. */
   candidates: IssueRef[];
   issue?: IssueRef;
@@ -127,6 +128,7 @@ export interface BatchOptions {
   windowDays?: number;
   expandedWindowDays?: number;
   candidateLimit?: number;
+  searchQueryLimit?: number;
   refresh?: boolean;
   reportFile: string;
   onProgress?: (entry: BatchEntry) => void;
@@ -270,6 +272,7 @@ async function checkMatch(
     newspaper,
     searchContext: { aafkAliases: aafkNames, opponentAliases: names, existingSourceIds: match.sources.map((source) => source.sourceId) },
     checkedAt: new Date().toISOString(),
+    candidateIssuesFound: 0,
     candidates: [],
   };
 
@@ -309,6 +312,7 @@ async function checkMatch(
     outcome: best.score >= FOUND_SCORE ? "candidate_found" : "candidate_review",
     visualReviewStatus: "pending",
     candidates: issueRefs,
+    candidateIssuesFound: candidates.length,
     // Sida i resultatboksen er den leseren skal til, ikke den best rangerte
     // treffsida. For en stengt årgang er lenka alt vi kan gi.
     issue: issueRefs[0],
@@ -337,6 +341,8 @@ async function findCandidates(
     from: window.from,
     to: window.to,
     detailsLimit: 3,
+    queryLimit: context.searchQueryLimit ?? 8,
+    targetDate: match.date,
     ...(context.refresh ? { refresh: true } : {}),
   });
   return candidates.sort((left, right) =>

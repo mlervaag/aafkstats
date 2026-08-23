@@ -1,3 +1,1305 @@
-contract: newspaper-enrichment-reviews@1
-# Fylles bare etter faksimilereview. Ingen OCR-tekst skal lagres her.
-entries: []
+contract: newspaper-enrichment-reviews@2
+entries:
+  - matchId: 1979-02-24-molde-fk-aalesunds-fk
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: medium
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: b69711619e7850f7bb74642354d724e8
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790226_97_48_1
+        url: https://www.nb.no/items/b69711619e7850f7bb74642354d724e8?page=7
+        issued: 1979-02-26
+        page: "7"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: medium
+        genres: &a1
+          - results_board
+          - unknown
+          - fixture_list
+    issueId: b69711619e7850f7bb74642354d724e8
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790226_97_48_1
+    url: https://www.nb.no/items/b69711619e7850f7bb74642354d724e8?page=7
+    issued: 1979-02-26
+    page: "7"
+    searchedIssues: 6
+    ocrCandidates: 5
+    visuallyReviewedPages: 0
+    genres: *a1
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-03-01-aalesunds-fk-aksla
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: high
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 8394a1b792d587371559d8f603973230
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790302_97_52_1
+        url: https://www.nb.no/items/8394a1b792d587371559d8f603973230?page=6
+        issued: 1979-03-02
+        page: "6"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: high
+        genres: &a2
+          - unknown
+          - match_report
+          - fixture_list
+    issueId: 8394a1b792d587371559d8f603973230
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790302_97_52_1
+    url: https://www.nb.no/items/8394a1b792d587371559d8f603973230?page=6
+    issued: 1979-03-02
+    page: "6"
+    searchedIssues: 4
+    ocrCandidates: 4
+    visuallyReviewedPages: 0
+    genres: *a2
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-03-03-aalesunds-fk-velledalen-ringen
+    status: no_ocr_candidate
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: low
+    canonicalLinked: false
+    evidenceIssues: []
+    searchedIssues: 2
+    ocrCandidates: 2
+    visuallyReviewedPages: 0
+    genres: []
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
+  - matchId: 1979-03-04-aalesunds-fk-traeff
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: high
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 17e0ca6eba11040169a46bb2bcd44e18
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790305_97_54_1
+        url: https://www.nb.no/items/17e0ca6eba11040169a46bb2bcd44e18?page=10
+        issued: 1979-03-05
+        page: "10"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: high
+        genres: &a3
+          - match_report
+          - results_board
+          - fixture_list
+    issueId: 17e0ca6eba11040169a46bb2bcd44e18
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790305_97_54_1
+    url: https://www.nb.no/items/17e0ca6eba11040169a46bb2bcd44e18?page=10
+    issued: 1979-03-05
+    page: "10"
+    searchedIssues: 1
+    ocrCandidates: 1
+    visuallyReviewedPages: 0
+    genres: *a3
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-03-10-aalesunds-fk-hareid
+    status: no_ocr_candidate
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: low
+    canonicalLinked: false
+    evidenceIssues: []
+    searchedIssues: 6
+    ocrCandidates: 5
+    visuallyReviewedPages: 0
+    genres: []
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
+  - matchId: 1979-03-10-aalesunds-fk-herd
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: medium
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 81069f6ed1d30c28b7c0448b4f580d36
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790312_97_60_1
+        url: https://www.nb.no/items/81069f6ed1d30c28b7c0448b4f580d36?page=10
+        issued: 1979-03-12
+        page: "10"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: medium
+        genres: &a4
+          - results_board
+          - fixture_list
+    issueId: 81069f6ed1d30c28b7c0448b4f580d36
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790312_97_60_1
+    url: https://www.nb.no/items/81069f6ed1d30c28b7c0448b4f580d36?page=10
+    issued: 1979-03-12
+    page: "10"
+    searchedIssues: 1
+    ocrCandidates: 1
+    visuallyReviewedPages: 0
+    genres: *a4
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-03-17-aalesunds-fk-kfk
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: medium
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 5d67ea2554b84b6ad94e9a7fb7a91956
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790319_97_66_1
+        url: https://www.nb.no/items/5d67ea2554b84b6ad94e9a7fb7a91956?page=8
+        issued: 1979-03-19
+        page: "8"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: medium
+        genres: &a5
+          - match_report
+          - results_board
+          - fixture_list
+          - unknown
+    issueId: 5d67ea2554b84b6ad94e9a7fb7a91956
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790319_97_66_1
+    url: https://www.nb.no/items/5d67ea2554b84b6ad94e9a7fb7a91956?page=8
+    issued: 1979-03-19
+    page: "8"
+    searchedIssues: 2
+    ocrCandidates: 2
+    visuallyReviewedPages: 0
+    genres: *a5
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-03-18-aalesunds-fk-bergsoy
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: medium
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 5d67ea2554b84b6ad94e9a7fb7a91956
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790319_97_66_1
+        url: https://www.nb.no/items/5d67ea2554b84b6ad94e9a7fb7a91956?page=8
+        issued: 1979-03-19
+        page: "8"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: medium
+        genres: &a6
+          - match_report
+          - unknown
+          - fixture_list
+          - results_board
+    issueId: 5d67ea2554b84b6ad94e9a7fb7a91956
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790319_97_66_1
+    url: https://www.nb.no/items/5d67ea2554b84b6ad94e9a7fb7a91956?page=8
+    issued: 1979-03-19
+    page: "8"
+    searchedIssues: 1
+    ocrCandidates: 1
+    visuallyReviewedPages: 0
+    genres: *a6
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-03-25-mjondalen-aalesunds-fk
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: medium
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 95d652d53a5e3636dfb5f433ca610c86
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790326_97_72_1
+        url: https://www.nb.no/items/95d652d53a5e3636dfb5f433ca610c86?page=7
+        issued: 1979-03-26
+        page: "7"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: medium
+        genres: &a7
+          - results_board
+          - unknown
+          - fixture_list
+          - result_note
+    issueId: 95d652d53a5e3636dfb5f433ca610c86
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790326_97_72_1
+    url: https://www.nb.no/items/95d652d53a5e3636dfb5f433ca610c86?page=7
+    issued: 1979-03-26
+    page: "7"
+    searchedIssues: 3
+    ocrCandidates: 3
+    visuallyReviewedPages: 0
+    genres: *a7
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-03-31-aalesunds-fk-valder
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: high
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 59e01fe4619207e68dbd852a0c8e70bf
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790402_97_78_1
+        url: https://www.nb.no/items/59e01fe4619207e68dbd852a0c8e70bf?page=7
+        issued: 1979-04-02
+        page: "7"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: high
+        genres: &a8
+          - match_report
+          - results_board
+          - unknown
+          - fixture_list
+    issueId: 59e01fe4619207e68dbd852a0c8e70bf
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790402_97_78_1
+    url: https://www.nb.no/items/59e01fe4619207e68dbd852a0c8e70bf?page=7
+    issued: 1979-04-02
+    page: "7"
+    searchedIssues: 3
+    ocrCandidates: 3
+    visuallyReviewedPages: 0
+    genres: *a8
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-04-01-raufoss-il-aalesunds-fk
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: medium
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 59e01fe4619207e68dbd852a0c8e70bf
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790402_97_78_1
+        url: https://www.nb.no/items/59e01fe4619207e68dbd852a0c8e70bf?page=7
+        issued: 1979-04-02
+        page: "7"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: medium
+        genres: &a9
+          - results_board
+          - match_report
+          - fixture_list
+          - unknown
+    issueId: 59e01fe4619207e68dbd852a0c8e70bf
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790402_97_78_1
+    url: https://www.nb.no/items/59e01fe4619207e68dbd852a0c8e70bf?page=7
+    issued: 1979-04-02
+    page: "7"
+    searchedIssues: 1
+    ocrCandidates: 1
+    visuallyReviewedPages: 0
+    genres: *a9
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-04-10-orsta-aalesunds-fk
+    status: no_ocr_candidate
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: low
+    canonicalLinked: false
+    evidenceIssues: []
+    searchedIssues: 4
+    ocrCandidates: 4
+    visuallyReviewedPages: 0
+    genres: []
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
+  - matchId: 1979-04-16-aalesunds-fk-bodo-glimt
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: high
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 0412af79f28950750847b95b18347813
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790417_97_87_1
+        url: https://www.nb.no/items/0412af79f28950750847b95b18347813?page=6
+        issued: 1979-04-17
+        page: "6"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: high
+        genres: &a10
+          - results_board
+          - fixture_list
+          - match_report
+          - result_note
+    issueId: 0412af79f28950750847b95b18347813
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790417_97_87_1
+    url: https://www.nb.no/items/0412af79f28950750847b95b18347813?page=6
+    issued: 1979-04-17
+    page: "6"
+    searchedIssues: 2
+    ocrCandidates: 2
+    visuallyReviewedPages: 0
+    genres: *a10
+    fieldsAdded:
+      - home.halfTimeScore
+      - away.halfTimeScore
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-04-19-valder-aalesunds-fk
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: medium
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 0412af79f28950750847b95b18347813
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790417_97_87_1
+        url: https://www.nb.no/items/0412af79f28950750847b95b18347813?page=6
+        issued: 1979-04-17
+        page: "6"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: medium
+        genres: &a11
+          - results_board
+          - fixture_list
+          - match_report
+          - unknown
+    issueId: 0412af79f28950750847b95b18347813
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790417_97_87_1
+    url: https://www.nb.no/items/0412af79f28950750847b95b18347813?page=6
+    issued: 1979-04-17
+    page: "6"
+    searchedIssues: 3
+    ocrCandidates: 3
+    visuallyReviewedPages: 0
+    genres: *a11
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-04-29-aalesunds-fk-hodd
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: high
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 4e1c1f44cfa796656dc1ab5fb22116ad
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790430_97_98_1
+        url: https://www.nb.no/items/4e1c1f44cfa796656dc1ab5fb22116ad?page=7
+        issued: 1979-04-30
+        page: "7"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: high
+        genres: &a12
+          - match_report
+          - unknown
+          - fixture_list
+    issueId: 4e1c1f44cfa796656dc1ab5fb22116ad
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790430_97_98_1
+    url: https://www.nb.no/items/4e1c1f44cfa796656dc1ab5fb22116ad?page=7
+    issued: 1979-04-30
+    page: "7"
+    searchedIssues: 3
+    ocrCandidates: 3
+    visuallyReviewedPages: 0
+    genres: *a12
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-05-06-mo-il-aalesunds-fk
+    status: no_ocr_candidate
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: low
+    canonicalLinked: false
+    evidenceIssues: []
+    searchedIssues: 6
+    ocrCandidates: 5
+    visuallyReviewedPages: 0
+    genres: []
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
+  - matchId: 1979-05-12-steinkjer-aalesunds-fk
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: medium
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 2d377b6c6039ea0acc97346a80161152
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790514_97_109_1
+        url: https://www.nb.no/items/2d377b6c6039ea0acc97346a80161152?page=7
+        issued: 1979-05-14
+        page: "7"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: medium
+        genres: &a13
+          - fixture_list
+          - unknown
+          - match_report
+    issueId: 2d377b6c6039ea0acc97346a80161152
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790514_97_109_1
+    url: https://www.nb.no/items/2d377b6c6039ea0acc97346a80161152?page=7
+    issued: 1979-05-14
+    page: "7"
+    searchedIssues: 5
+    ocrCandidates: 5
+    visuallyReviewedPages: 0
+    genres: *a13
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-05-20-aalesunds-fk-stjordals-blink
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: medium
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 246ad4ff8570d6263984bf944e936747
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790523_97_116_1
+        url: https://www.nb.no/items/246ad4ff8570d6263984bf944e936747?page=7
+        issued: 1979-05-23
+        page: "7"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: medium
+        genres: &a14
+          - match_report
+          - fixture_list
+          - unknown
+    issueId: 246ad4ff8570d6263984bf944e936747
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790523_97_116_1
+    url: https://www.nb.no/items/246ad4ff8570d6263984bf944e936747?page=7
+    issued: 1979-05-23
+    page: "7"
+    searchedIssues: 3
+    ocrCandidates: 3
+    visuallyReviewedPages: 0
+    genres: *a14
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-05-24-frigg-aalesunds-fk
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: high
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 43d8d52dce9d31f1a0f79833dc992ed6
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790525_97_117_1
+        url: https://www.nb.no/items/43d8d52dce9d31f1a0f79833dc992ed6?page=7
+        issued: 1979-05-25
+        page: "7"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: high
+        genres: &a15
+          - result_note
+          - match_report
+          - fixture_list
+    issueId: 43d8d52dce9d31f1a0f79833dc992ed6
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790525_97_117_1
+    url: https://www.nb.no/items/43d8d52dce9d31f1a0f79833dc992ed6?page=7
+    issued: 1979-05-25
+    page: "7"
+    searchedIssues: 2
+    ocrCandidates: 2
+    visuallyReviewedPages: 0
+    genres: *a15
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-05-27-aalesunds-fk-molde-fk
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: medium
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: bcdd1050e987adcaa7413b0de068212f
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790526_97_118_1
+        url: https://www.nb.no/items/bcdd1050e987adcaa7413b0de068212f?page=1
+        issued: 1979-05-26
+        page: "1"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: medium
+        genres: &a16
+          - fixture_list
+          - preview
+    issueId: bcdd1050e987adcaa7413b0de068212f
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790526_97_118_1
+    url: https://www.nb.no/items/bcdd1050e987adcaa7413b0de068212f?page=1
+    issued: 1979-05-26
+    page: "1"
+    searchedIssues: 5
+    ocrCandidates: 5
+    visuallyReviewedPages: 0
+    genres: *a16
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-05-31-aalesunds-fk-skarbovik
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: medium
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: b8a3b94ec3b7b54de0740b56230a5e01
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790601_97_123_1
+        url: https://www.nb.no/items/b8a3b94ec3b7b54de0740b56230a5e01?page=7
+        issued: 1979-06-01
+        page: "7"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: medium
+        genres: &a17
+          - results_board
+          - fixture_list
+    issueId: b8a3b94ec3b7b54de0740b56230a5e01
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790601_97_123_1
+    url: https://www.nb.no/items/b8a3b94ec3b7b54de0740b56230a5e01?page=7
+    issued: 1979-06-01
+    page: "7"
+    searchedIssues: 5
+    ocrCandidates: 5
+    visuallyReviewedPages: 0
+    genres: *a17
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-06-04-tromso-aalesunds-fk
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: high
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 52d59cbb2329ea882bc7d4f7092f2bce
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790605_97_125_1
+        url: https://www.nb.no/items/52d59cbb2329ea882bc7d4f7092f2bce?page=7
+        issued: 1979-06-05
+        page: "7"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: high
+        genres: &a18
+          - results_board
+          - fixture_list
+          - match_report
+          - standings
+    issueId: 52d59cbb2329ea882bc7d4f7092f2bce
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790605_97_125_1
+    url: https://www.nb.no/items/52d59cbb2329ea882bc7d4f7092f2bce?page=7
+    issued: 1979-06-05
+    page: "7"
+    searchedIssues: 3
+    ocrCandidates: 3
+    visuallyReviewedPages: 0
+    genres: *a18
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-06-10-aalesunds-fk-mjolner
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: high
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 0f933cca00653593e7453f6718c337a8
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790611_97_130_1
+        url: https://www.nb.no/items/0f933cca00653593e7453f6718c337a8?page=8
+        issued: 1979-06-11
+        page: "8"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: high
+        genres: &a19
+          - match_report
+          - fixture_list
+          - unknown
+    issueId: 0f933cca00653593e7453f6718c337a8
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790611_97_130_1
+    url: https://www.nb.no/items/0f933cca00653593e7453f6718c337a8?page=8
+    issued: 1979-06-11
+    page: "8"
+    searchedIssues: 3
+    ocrCandidates: 3
+    visuallyReviewedPages: 0
+    genres: *a19
+    fieldsAdded:
+      - referee
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-06-17-strindheim-aalesunds-fk
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: medium
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 5f31dac3eaf873cc59b8eed572fc47ba
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790618_97_136_1
+        url: https://www.nb.no/items/5f31dac3eaf873cc59b8eed572fc47ba?page=8
+        issued: 1979-06-18
+        page: "8"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: medium
+        genres: &a20
+          - fixture_list
+          - unknown
+          - match_report
+          - results_board
+    issueId: 5f31dac3eaf873cc59b8eed572fc47ba
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790618_97_136_1
+    url: https://www.nb.no/items/5f31dac3eaf873cc59b8eed572fc47ba?page=8
+    issued: 1979-06-18
+    page: "8"
+    searchedIssues: 4
+    ocrCandidates: 4
+    visuallyReviewedPages: 0
+    genres: *a20
+    fieldsAdded:
+      - home.halfTimeScore
+      - away.halfTimeScore
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-06-24-aalesunds-fk-nessegutten
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: high
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: f1390d74bdcf5737c4e4421dc668495c
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790625_97_142_1
+        url: https://www.nb.no/items/f1390d74bdcf5737c4e4421dc668495c?page=7
+        issued: 1979-06-25
+        page: "7"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: high
+        genres: &a21
+          - match_report
+          - fixture_list
+          - results_board
+          - unknown
+    issueId: f1390d74bdcf5737c4e4421dc668495c
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790625_97_142_1
+    url: https://www.nb.no/items/f1390d74bdcf5737c4e4421dc668495c?page=7
+    issued: 1979-06-25
+    page: "7"
+    searchedIssues: 3
+    ocrCandidates: 3
+    visuallyReviewedPages: 0
+    genres: *a21
+    fieldsAdded:
+      - attendance
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-07-01-lyn-aalesunds-fk
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: high
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: e8ba1911021746ff066b40693491febb
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790702_97_148_1
+        url: https://www.nb.no/items/e8ba1911021746ff066b40693491febb?page=6
+        issued: 1979-07-02
+        page: "6"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: high
+        genres: &a22
+          - unknown
+          - results_board
+          - standings
+          - fixture_list
+          - result_note
+          - match_report
+    issueId: e8ba1911021746ff066b40693491febb
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790702_97_148_1
+    url: https://www.nb.no/items/e8ba1911021746ff066b40693491febb?page=6
+    issued: 1979-07-02
+    page: "6"
+    searchedIssues: 4
+    ocrCandidates: 4
+    visuallyReviewedPages: 0
+    genres: *a22
+    fieldsAdded:
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-07-18-lillehammer-aalesunds-fk
+    status: no_ocr_candidate
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: low
+    canonicalLinked: false
+    evidenceIssues: []
+    searchedIssues: 4
+    ocrCandidates: 4
+    visuallyReviewedPages: 0
+    genres: []
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
+  - matchId: 1979-07-22-moelven-aalesunds-fk
+    status: no_ocr_candidate
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: low
+    canonicalLinked: false
+    evidenceIssues: []
+    searchedIssues: 1
+    ocrCandidates: 1
+    visuallyReviewedPages: 0
+    genres: []
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
+  - matchId: 1979-07-29-hodd-aalesunds-fk
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: medium
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: e2f1010e31f46c825bf27b781a75b3c9
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790730_97_172_1
+        url: https://www.nb.no/items/e2f1010e31f46c825bf27b781a75b3c9?page=6
+        issued: 1979-07-30
+        page: "6"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: medium
+        genres: &a23
+          - fixture_list
+          - unknown
+          - results_board
+          - standings
+          - match_report
+    issueId: e2f1010e31f46c825bf27b781a75b3c9
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790730_97_172_1
+    url: https://www.nb.no/items/e2f1010e31f46c825bf27b781a75b3c9?page=6
+    issued: 1979-07-30
+    page: "6"
+    searchedIssues: 6
+    ocrCandidates: 5
+    visuallyReviewedPages: 0
+    genres: *a23
+    fieldsAdded:
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-07-30-spjelkavik-aalesunds-fk
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: medium
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 19df61960aa326426ee93930ef220ad0
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790802_97_175_1
+        url: https://www.nb.no/items/19df61960aa326426ee93930ef220ad0?page=7
+        issued: 1979-08-02
+        page: "7"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: medium
+        genres: &a24
+          - results_board
+          - fixture_list
+          - unknown
+    issueId: 19df61960aa326426ee93930ef220ad0
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790802_97_175_1
+    url: https://www.nb.no/items/19df61960aa326426ee93930ef220ad0?page=7
+    issued: 1979-08-02
+    page: "7"
+    searchedIssues: 6
+    ocrCandidates: 5
+    visuallyReviewedPages: 0
+    genres: *a24
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-08-06-aalesunds-fk-mo-il
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: high
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 1e33d3bcbaa235c312f0f415cb119ffc
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790806_97_178_1
+        url: https://www.nb.no/items/1e33d3bcbaa235c312f0f415cb119ffc?page=6
+        issued: 1979-08-06
+        page: "6"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: high
+        genres: &a25
+          - results_board
+          - preview
+          - fixture_list
+          - match_report
+    issueId: 1e33d3bcbaa235c312f0f415cb119ffc
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790806_97_178_1
+    url: https://www.nb.no/items/1e33d3bcbaa235c312f0f415cb119ffc?page=6
+    issued: 1979-08-06
+    page: "6"
+    searchedIssues: 4
+    ocrCandidates: 4
+    visuallyReviewedPages: 0
+    genres: *a25
+    fieldsAdded:
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-08-18-stjordals-blink-aalesunds-fk
+    status: conflict_candidate
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: high
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: d02ab37c3da9e9f534d70d2494612577
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790820_97_190_1
+        url: https://www.nb.no/items/d02ab37c3da9e9f534d70d2494612577?page=6
+        issued: 1979-08-20
+        page: "6"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: high
+        genres: &a26
+          - match_report
+          - fixture_list
+          - unknown
+    issueId: d02ab37c3da9e9f534d70d2494612577
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790820_97_190_1
+    url: https://www.nb.no/items/d02ab37c3da9e9f534d70d2494612577?page=6
+    issued: 1979-08-20
+    page: "6"
+    searchedIssues: 3
+    ocrCandidates: 3
+    visuallyReviewedPages: 0
+    genres: *a26
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    conflict:
+      field: score
+      canonical: 0-0
+      newspaper: 0-6
+    note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.
+  - matchId: 1979-08-26-aalesunds-fk-frigg
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: high
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 97a3fe28528c1cde40d562b909f98fba
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790827_97_196_1
+        url: https://www.nb.no/items/97a3fe28528c1cde40d562b909f98fba?page=6
+        issued: 1979-08-27
+        page: "6"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: high
+        genres: &a27
+          - results_board
+          - match_report
+          - fixture_list
+          - unknown
+    issueId: 97a3fe28528c1cde40d562b909f98fba
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790827_97_196_1
+    url: https://www.nb.no/items/97a3fe28528c1cde40d562b909f98fba?page=6
+    issued: 1979-08-27
+    page: "6"
+    searchedIssues: 4
+    ocrCandidates: 4
+    visuallyReviewedPages: 0
+    genres: *a27
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-09-02-molde-fk-aalesunds-fk
+    status: no_ocr_candidate
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: low
+    canonicalLinked: false
+    evidenceIssues: []
+    searchedIssues: 6
+    ocrCandidates: 5
+    visuallyReviewedPages: 0
+    genres: []
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
+  - matchId: 1979-09-09-aalesunds-fk-tromso
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: high
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: d9f0bd82b5be495635b97b0b87e93bd0
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790910_97_208_1
+        url: https://www.nb.no/items/d9f0bd82b5be495635b97b0b87e93bd0?page=8
+        issued: 1979-09-10
+        page: "8"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: high
+        genres: &a28
+          - results_board
+          - fixture_list
+          - standings
+          - match_report
+          - unknown
+    issueId: d9f0bd82b5be495635b97b0b87e93bd0
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790910_97_208_1
+    url: https://www.nb.no/items/d9f0bd82b5be495635b97b0b87e93bd0?page=8
+    issued: 1979-09-10
+    page: "8"
+    searchedIssues: 4
+    ocrCandidates: 4
+    visuallyReviewedPages: 0
+    genres: *a28
+    fieldsAdded:
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-09-23-aalesunds-fk-strindheim
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: high
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 27d29247c3d0707f7ce90a79013d51e1
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790924_97_220_1
+        url: https://www.nb.no/items/27d29247c3d0707f7ce90a79013d51e1?page=8
+        issued: 1979-09-24
+        page: "8"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: high
+        genres: &a29
+          - results_board
+          - fixture_list
+          - standings
+    issueId: 27d29247c3d0707f7ce90a79013d51e1
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790924_97_220_1
+    url: https://www.nb.no/items/27d29247c3d0707f7ce90a79013d51e1?page=8
+    issued: 1979-09-24
+    page: "8"
+    searchedIssues: 3
+    ocrCandidates: 3
+    visuallyReviewedPages: 0
+    genres: *a29
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-09-30-nessegutten-aalesunds-fk
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: medium
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 9c55cd5bdb658cedc4a562dfb3c277e7
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790929_97_225_1
+        url: https://www.nb.no/items/9c55cd5bdb658cedc4a562dfb3c277e7?page=7
+        issued: 1979-09-29
+        page: "7"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: medium
+        genres: &a30
+          - fixture_list
+          - preview
+    issueId: 9c55cd5bdb658cedc4a562dfb3c277e7
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790929_97_225_1
+    url: https://www.nb.no/items/9c55cd5bdb658cedc4a562dfb3c277e7?page=7
+    issued: 1979-09-29
+    page: "7"
+    searchedIssues: 2
+    ocrCandidates: 2
+    visuallyReviewedPages: 0
+    genres: *a30
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-10-06-aalesunds-fk-lyn
+    status: ocr_correlated
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: high
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: ccae94a38af8f0261942c28126c44573
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19791008_97_232_1
+        url: https://www.nb.no/items/ccae94a38af8f0261942c28126c44573?page=7
+        issued: 1979-10-08
+        page: "7"
+        reviewMethod: ocr_api
+        facsimileReviewed: false
+        canonicalLinked: true
+        confidence: high
+        genres: &a31
+          - match_report
+          - results_board
+          - standings
+          - fixture_list
+          - unknown
+    issueId: ccae94a38af8f0261942c28126c44573
+    urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19791008_97_232_1
+    url: https://www.nb.no/items/ccae94a38af8f0261942c28126c44573?page=7
+    issued: 1979-10-08
+    page: "7"
+    searchedIssues: 4
+    ocrCandidates: 4
+    visuallyReviewedPages: 0
+    genres: *a31
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - matchId: 1979-10-27-vigra-il-aalesunds-fk
+    status: no_ocr_candidate
+    reviewMethod: ocr_api
+    facsimileReviewed: false
+    confidence: low
+    canonicalLinked: false
+    evidenceIssues: []
+    searchedIssues: 4
+    ocrCandidates: 4
+    visuallyReviewedPages: 0
+    genres: []
+    fieldsAdded: []
+    newPlayers: 0
+    newEvents: 0
+    newHistoricalObservations: 0
+    falsePositive: false
+    differentMatch: false
+    note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.

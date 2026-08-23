@@ -24,6 +24,10 @@ export interface NewspaperMatchQuery {
   to?: string;
   limit?: number;
   detailsLimit?: number;
+  /** Maks antall klubbnavn-kombinasjoner. Brukes for å holde produksjonsbatcher bounded. */
+  queryLimit?: number;
+  /** Kampdato. Når den er kjent, berikes D+1/D+2 før eldre kandidater. */
+  targetDate?: string;
   refresh?: boolean;
 }
 
@@ -149,7 +153,8 @@ export function buildContentFragmentsUrl(id: string, query: string): string {
 export async function searchNewspaperForMatch(options: NewspaperMatchQuery): Promise<NewspaperCandidate[]> {
   const byId = new Map<string, { item: NbItem; matchedQueries: string[]; fragments: NbContentFragment[] }>();
 
-  for (const query of newspaperSearchQueries(options.opponent, options.opponentAliases)) {
+  const queries = newspaperSearchQueries(options.opponent, options.opponentAliases);
+  for (const query of options.queryLimit === undefined ? queries : queries.slice(0, options.queryLimit)) {
     const url = buildNewspaperSearchUrl(query, options);
     const response = await fetchJson<NbSearchResponse>(url, { refresh: options.refresh });
 
@@ -165,7 +170,7 @@ export async function searchNewspaperForMatch(options: NewspaperMatchQuery): Pro
     [...byId].map(([id, entry]) => [id, { ...entry, candidate: rankNewspaperCandidate(entry.item, entry.matchedQueries, entry.fragments, options) }]),
   );
   const candidates = [...raw.values()].map((entry) => entry.candidate);
-  candidates.sort(candidateSort);
+  candidates.sort((left, right) => candidateSort(left, right, options.targetDate));
 
   // Søk i OCR-en til bare de beste kandidatene. Dette gir sidepeker og større
   // tekstvindu uten å gjøre en hel avisårgang til en crawlerjobb.
@@ -180,7 +185,7 @@ export async function searchNewspaperForMatch(options: NewspaperMatchQuery): Pro
     candidates[index] = rankNewspaperCandidate(entry.item, entry.matchedQueries, entry.fragments, options);
   }
 
-  candidates.sort(candidateSort);
+  candidates.sort((left, right) => candidateSort(left, right, options.targetDate));
   return candidates;
 }
 
@@ -299,8 +304,19 @@ export function scoreFragment(text: string, options: NewspaperMatchQuery): { sco
   return { score, reasons };
 }
 
-function candidateSort(a: NewspaperCandidate, b: NewspaperCandidate): number {
-  return b.score - a.score || (a.issued ?? "").localeCompare(b.issued ?? "") || a.id.localeCompare(b.id);
+function candidateSort(a: NewspaperCandidate, b: NewspaperCandidate, targetDate?: string): number {
+  return b.score - a.score
+    || temporalPriority(a.issued, targetDate) - temporalPriority(b.issued, targetDate)
+    || (a.issued ?? "").localeCompare(b.issued ?? "")
+    || a.id.localeCompare(b.id);
+}
+
+function temporalPriority(issued: string | undefined, targetDate: string | undefined): number {
+  if (!issued || !targetDate || !/^\d{8}$/.test(issued)) return 99;
+  const issueDate = `${issued.slice(0, 4)}-${issued.slice(4, 6)}-${issued.slice(6, 8)}`;
+  const offset = Math.round((Date.parse(`${issueDate}T00:00:00Z`) - Date.parse(`${targetDate}T00:00:00Z`)) / 86_400_000);
+  const order = new Map([[1, 0], [2, 1], [0, 2], [-1, 3], [3, 4], [-2, 5], [-3, 6]]);
+  return order.get(offset) ?? 20 + Math.abs(offset);
 }
 
 function toFragments(fragments: NbContentFragment[]): Array<{ pageId?: string; pageNumber?: string; text: string }> {

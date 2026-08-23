@@ -9,15 +9,27 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: mjolner
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/0f933cca00653593e7453f6718c337a8?page=8
+    date: 1979-06-11
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/0f933cca00653593e7453f6718c337a8?page=8
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
+      - referee
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: confirmed
 conflicts: []
 tags: []
@@ -33,4 +45,15 @@ sources:
       - away.clubId
       - home.score
       - away.score
-    note: "Årsberetningens statistikk for A-laget 1979 (s. 3) fører kampen med dato, motstander og resultat. Stjerne betyr bortekamp."
+    note: Årsberetningens statistikk for A-laget 1979 (s. 3) fører kampen med dato, motstander og resultat. Stjerne betyr bortekamp.
+  - sourceId: sunnmorsposten-19790611-0f933cca00653593e7453f6718c337a8
+    page: "8"
+    fields:
+      - externalReports
+      - referee
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+referee: Per-Bjørn Aspehaug
+venueId: kramyra-stadion

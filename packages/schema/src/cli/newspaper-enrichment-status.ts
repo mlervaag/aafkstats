@@ -11,7 +11,8 @@ await writeFile(outputPath, stringifyYaml(report, { lineWidth: 0 }), "utf8");
 
 console.log("NEWSPAPER_ENRICHMENT_QUEUE_ESTABLISHED");
 console.log(`Kamper i scope: ${report.totals.canonicalMatchesInScope}`);
-console.log(`Med samtidig Smp-kilde: ${report.totals.withSmpSource}`);
+console.log(`Med samtidig Smp-omtale: ${report.totals.withSmpMention}`);
+console.log(`Komplett avisberikelse: ${report.totals.enrichmentComplete}`);
 console.log(`I kø: ${report.queue.length}`);
 console.log(`1979 i scope: ${report.pilot1979.canonicalMatchesInScope}`);
 console.log(`Skrev ${outputPath}`);

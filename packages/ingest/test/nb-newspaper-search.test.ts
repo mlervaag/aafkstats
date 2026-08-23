@@ -269,6 +269,23 @@ describe("searchNewspaperForMatch", () => {
     expect(candidates[0]!.fragments[0]!.pageNumber).toBe("7");
   });
 
+  it("beriker dagen etter kampen før en like sterk forhåndskandidat", async () => {
+    fetched.mockImplementation(async (url: string) => {
+      if (url.includes("/contentfragments")) return { contentFragments: [] };
+      return {
+        _embedded: { items: [
+          { id: "for", metadata: { title: "Sunnmørsposten", originInfo: { issued: "19760628" } }, contentFragments: [{ text: "Sunndal møter ÅFK" }] },
+          { id: "etter", metadata: { title: "Sunnmørsposten", originInfo: { issued: "19760630" } }, contentFragments: [{ text: "Sunndal møter ÅFK" }] },
+        ] },
+      };
+    });
+
+    await searchNewspaperForMatch({ ...SUNNDAL_1976, targetDate: "1976-06-29", queryLimit: 1, detailsLimit: 1 });
+    const detailUrl = fetched.mock.calls.map(([url]) => String(url)).find((url) => url.includes("/contentfragments"));
+    expect(detailUrl).toContain("/etter/contentfragments");
+    expect(fetched.mock.calls).toHaveLength(2);
+  });
+
   it("hopper over OCR-oppslaget når --details er 0", async () => {
     fetched.mockResolvedValue({ _embedded: { items: [] } });
     await searchNewspaperForMatch({ ...SUNNDAL_1976, detailsLimit: 0 });

@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/d02ab37c3da9e9f534d70d2494612577?page=6
+    date: 1979-08-20
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/d02ab37c3da9e9f534d70d2494612577?page=6
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -33,4 +41,9 @@ sources:
       - away.clubId
       - home.score
       - away.score
-    note: "Årsberetningens statistikk for A-laget 1979 (s. 3) fører kampen med dato, motstander og resultat. Stjerne betyr bortekamp."
+    note: Årsberetningens statistikk for A-laget 1979 (s. 3) fører kampen med dato, motstander og resultat. Stjerne betyr bortekamp.
+  - sourceId: sunnmorsposten-19790820-d02ab37c3da9e9f534d70d2494612577
+    page: "6"
+    fields:
+      - externalReports
+    note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.
