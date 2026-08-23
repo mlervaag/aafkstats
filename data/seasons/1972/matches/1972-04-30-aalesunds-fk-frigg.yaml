@@ -1,0 +1,41 @@
+id: 1972-04-30-aalesunds-fk-frigg
+date: 1972-04-30
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 1972
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: frigg
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1972-4638
+    page: "2"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Vårterminlisten (s. 2) oppgir «30. april: AAFK—Frigg»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1972-10d9
+    page: "2"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 2) fører kampen mot Frigg hjemme med 0–2 sett fra AaFK."

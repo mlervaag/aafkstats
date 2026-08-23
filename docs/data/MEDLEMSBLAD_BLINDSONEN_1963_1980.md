@@ -100,3 +100,46 @@ Rekkefølgen bør følge hvor tomt arkivet er i dag:
 1972, 1973 og 1974 er de beste kandidatene: null kamper i arkivet, og alle tre
 har både vår- og høstterminliste, altså dobbelt så mange datoer per årgang som
 1959 og 1960 ga.
+
+---
+
+## 5. Sesongen 1972 — seks seriekamper
+
+Vårterminlisten står i vårnummeret (`1972-4638`, s. 2) med ni seriekamper:
+30. april AAFK–Frigg, 7. mai Steinkjer–AAFK, 14. mai Clausenengen–AAFK, 22. mai
+AAFK–Molde, 4. juni Raufoss–AAFK, 11. juni AAFK–Vålerengen, 18. juni
+Stabæk–AAFK, 25. juni AAFK–Brumunddal og 2. juli Verdal–AAFK.
+
+Sesongoversikten står i høstnummeret (`1972-10d9`, s. 2), delt i PRIVATKAMPER,
+SERIEKAMPER og «Cupens 1. runde», med fotnoten «* betyr bortekamper for AAFK».
+
+Seks av de ni lot seg avstemme. For alle seks samsvarer bortemarkeringen i
+resultatoversikten med hjemmelaget i terminlisten:
+
+| Dato | Kamp | Resultat |
+|---|---|---|
+| 1972-04-30 | AaFK–Frigg | 0–2 |
+| 1972-05-07 | Steinkjer–AaFK | 2–0 |
+| 1972-05-14 | Clausenengen–AaFK | 0–0 |
+| 1972-05-22 | AaFK–Molde | 0–2 |
+| 1972-06-11 | AaFK–Vålerengen | 3–0 |
+| 1972-06-25 | AaFK–Brumunddal | 0–0 |
+
+**Sesongen 1972 hadde null kanoniske kamper før dette. Den har nå seks.**
+
+Tre står igjen: Raufoss 4. juni og Stabæk 18. juni har uleselig resultat i
+skannet, og Verdal 2. juli står ikke i den delen av sesongoversikten som lot seg
+lese. Cupkampene mot Herd (1–0 etter ekstraomganger) og Skarbøvik (0–1 etter
+ekstraomganger) er heller ikke datert i kilden, og er derfor ikke kanonisert.
+
+## 6. Metodemerknad om resultatoversiktene fra 1970-årene
+
+Sesongoversiktene i 1972–1974 ligger i smale spalter der scorekolonnen står
+langt til høyre for lagnavnet, og bortemarkeringen i en egen kolonne mellom dem.
+En paring som antar at score følger tett på navnet finner ingenting. Riktig
+framgangsmåte er å finne lagnavnenes HPOS, lete etter score i et bredt bånd til
+høyre, og markeringen i båndet mellom.
+
+Det er også grunnen til at 1973 og 1974 ikke er kjørt i denne runden: begge har
+terminlister og resultatlister, men resultatlistene har flere kamper mot samme
+motstander i samme spalte, og krever mer nøyaktig kolonneanalyse enn 1972.
