@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19450924-ac1930ce85ae61e7d60b0d3b61161fd0
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1945-09-24 s. 2: Kampreferat for AaFK mot Volda (3–1)
-  kretskamp spilt 1945-09-22."
+note: "Sunnmørsposten 1945-09-24 s. 2: Kampreferat for AaFK mot Volda (3–1) kretskamp spilt 1945-09-22."

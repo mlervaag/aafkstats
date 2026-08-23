@@ -5,7 +5,7 @@ import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
 import { dataDir, loadArchive, repoRoot } from "@aafkstats/schema/load";
 import type { Match, Source } from "@aafkstats/schema";
 import type { BatchReport } from "../adapters/nb-newspaper-batch.js";
-import { buildPilotReviewEntries } from "../newspaper/pilot-review.js";
+import { buildPilotReviewEntries, isSameNewspaperDocument, prepareMatchForNewspaperWrite, reconcilePrematchExternalReport } from "../newspaper/pilot-review.js";
 import { assertMayPublish } from "../policy.js";
 
 const args = parseArgs({
@@ -26,7 +26,9 @@ for (const entry of entries) {
     const sameClassification = prior.status === entry.status
       && prior.confidence === entry.confidence
       && prior.genres.join("|") === entry.genres.join("|");
-    if (!sameClassification) {
+    const correctedConflictPolicy = prior.status === "conflict_candidate"
+      && entry.status === "ocr_correlated";
+    if (!sameClassification && !correctedConflictPolicy) {
       throw new Error(`Tidligere kobling har endret evidensklassifisering og krever manuell avstemming: ${entry.matchId}`);
     }
     entry.canonicalLinked = true;
@@ -60,12 +62,13 @@ if (args.values.write) {
     const issue = batchEntry?.candidates.find((candidate) => candidate.id === review.issueId);
     const matchFile = files.get(review.matchId);
     if (!batchEntry || !issue || !matchFile || !issue.issued) continue;
+    const publication = batchEntry.newspaper;
     const sourceId = `sunnmorsposten-${issue.issued}-${issue.id}`;
     const source: Source = {
       id: sourceId,
-      title: `Sunnmørsposten ${review.issued}`,
+      title: `${publication} ${review.issued}`,
       sourceType: "other",
-      publisher: "Sunnmørsposten",
+      publisher: publication,
       year: Number(issue.issued.slice(0, 4)),
       ...(issue.urn ? { urn: issue.urn } : {}),
       accessUrl: issue.pageUrl,
@@ -77,23 +80,36 @@ if (args.values.write) {
 
     const absoluteMatchFile = join(dataDir(), matchFile);
     const match = parseYaml(await readFile(absoluteMatchFile, "utf8"), { schema: "core" }) as Match;
-    const isReport = review.genres.some((genre) => genre === "match_report" || genre === "result_note");
+    prepareMatchForNewspaperWrite(match);
+    const prior = previousByMatch.get(review.matchId);
+    for (const evidence of prior?.evidenceIssues ?? []) {
+      if (!evidence.canonicalLinked || !evidence.issued) continue;
+      const priorSourceId = `sunnmorsposten-${evidence.issued.replaceAll("-", "")}-${evidence.issueId}`;
+      const postmatch = evidence.issued >= review.matchId.slice(0, 10)
+        && evidence.genres.some((genre) => genre === "match_report" || genre === "result_note");
+      reconcilePrematchExternalReport(match, { pageUrl: evidence.url }, priorSourceId, postmatch);
+    }
+    const isReport = isPostMatchReportIssue(issue);
+    reconcilePrematchExternalReport(match, issue, sourceId, isReport);
     const fields = review.status === "ocr_correlated" && isReport && review.issueId === batchEntry.issue?.id
       ? applyFacts(match, batchEntry, venues)
       : [];
     if (isReport && !match.externalReports.some((external) => external.url === issue.pageUrl)) {
-      match.externalReports.push({ publisher: "Sunnmørsposten", url: issue.pageUrl, date: review.issued });
+      match.externalReports.push({ publisher: publication, url: issue.pageUrl, date: review.issued });
     }
     if (!match.providers.some((provider) => provider.providerId === "nasjonalbiblioteket" && provider.url === issue.pageUrl)) {
       match.providers.push({ providerId: "nasjonalbiblioteket", url: issue.pageUrl, retrievedAt: report.createdAt.slice(0, 10), fields: [...(isReport ? ["externalReports"] : []), ...fields] });
     }
-    if (!match.sources.some((sourceRef) => sourceRef.sourceId === sourceId)) {
+    const existingSourceRef = match.sources.find((sourceRef) => sourceRef.sourceId === sourceId);
+    if (!existingSourceRef) {
       match.sources.push({
         sourceId,
         ...(issue.page ? { page: issue.page } : {}),
         fields: [...(isReport ? ["externalReports"] : []), ...fields],
         note: review.note,
       });
+    } else {
+      existingSourceRef.note = review.note;
     }
     await writeFile(absoluteMatchFile, stringifyYaml(match, { lineWidth: 0 }), "utf8");
     review.canonicalLinked = true;
@@ -117,6 +133,13 @@ const counts = new Map<string, number>();
 for (const entry of entries) counts.set(entry.status, (counts.get(entry.status) ?? 0) + 1);
 console.log(`Skrev ${entries.length} reviewutfall til ${output}`);
 for (const [status, count] of counts) console.log(`${status}: ${count}`);
+
+function isPostMatchReportIssue(issue: BatchReport["entries"][number]["candidates"][number]): boolean {
+  return (issue.dayOffset ?? -1) >= 0
+    && issue.evidence.some((evidence) =>
+      (evidence.genre === "match_report" || evidence.genre === "result_note")
+      && evidence.reasons.includes("motstander og AaFK i samme avsnitt"));
+}
 
 function applyFacts(match: Match, entry: BatchReport["entries"][number], venues: Map<string, string>): string[] {
   const facts = entry.facts;
@@ -181,7 +204,7 @@ async function readExistingEntries(path: string): Promise<ReturnType<typeof buil
 async function writeSourceOnce(path: string, source: Source): Promise<void> {
   try {
     const existing = parseYaml(await readFile(path, "utf8"), { schema: "core" }) as Source;
-    if (existing.id !== source.id || existing.urn !== source.urn || existing.accessUrl !== source.accessUrl) {
+    if (!isSameNewspaperDocument(existing, source)) {
       throw new Error(`Kilde-ID kolliderer med annet NB-dokument: ${source.id}`);
     }
   } catch (error) {

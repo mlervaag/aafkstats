@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/229bf18755022959aa7e4cbdce889d30?page=2
+    date: 1956-05-14
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/229bf18755022959aa7e4cbdce889d30?page=2
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -38,4 +46,9 @@ sources:
       - status
       - home.score
       - away.score
-    note: "A-lagsresultatene (s. 60) fører seriekampen mot Braatt borte med 1–1 sett fra AaFK."
+    note: A-lagsresultatene (s. 60) fører seriekampen mot Braatt borte med 1–1 sett fra AaFK.
+  - sourceId: sunnmorsposten-19560514-229bf18755022959aa7e4cbdce889d30
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

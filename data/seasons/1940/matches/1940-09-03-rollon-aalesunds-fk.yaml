@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/f45d12f207dc3cfb82b480e4041184ed?page=6
+    date: 1940-09-04
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1940/Cup.html
@@ -31,9 +34,20 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/f45d12f207dc3cfb82b480e4041184ed?page=6
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1940-cup-1940-09-03-rollon-aalesunds-fk
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19400904-f45d12f207dc3cfb82b480e4041184ed
+    page: "6"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

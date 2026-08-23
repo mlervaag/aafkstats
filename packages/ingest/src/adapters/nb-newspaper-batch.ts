@@ -365,7 +365,7 @@ export function issueRef(
     const genre = newspaperGenre(fragment.text, offset);
     return { ...(fragment.pageNumber ? { page: fragment.pageNumber } : {}), genre, score: fragment.score, reasons: fragment.reasons };
   });
-  const conflict = match ? candidateScoreConflict(candidate, match, opponentNames) : undefined;
+  const conflict = match ? candidateScoreConflict(candidate, match, opponentNames, offset) : undefined;
   return {
     id: candidate.id,
     ...(candidate.urn ? { urn: candidate.urn } : {}),
@@ -419,7 +419,7 @@ export function canonicalCandidateScore(candidate: NewspaperCandidate, match: Ma
   // Dagen etter er normalt sterkest. For søndagskamper gjør dette mandagsutgaven
   // eksplisitt prioritert uten å filtrere bort de andre dagene.
   const temporal = offset === 1 ? 12 : offset === 0 ? 8 : offset !== undefined && Math.abs(offset) <= 2 ? 4 : 0;
-  const conflict = candidateScoreConflict(candidate, match, opponentNames);
+  const conflict = candidateScoreConflict(candidate, match, opponentNames, offset);
   return candidate.score + genre + temporal + (conflict ? 15 : 0);
 }
 
@@ -427,13 +427,19 @@ function candidateScoreConflict(
   candidate: NewspaperCandidate,
   match: Match,
   opponentNames: string[],
+  offset?: number,
 ): { canonical: string; newspaper: string } | undefined {
+  // En utgave fÃ¸r kampen kan omtale et tidligere oppgjÃ¸r mot samme klubb. Den
+  // kan vÃ¦re en verdifull preview, men aldri grunnlag for resultatkonflikt.
+  if (offset === undefined || offset < 0) return undefined;
   const aafkIsHome = match.home.clubId === AAFK_CLUB_ID;
   const expected = [
     aafkIsHome ? match.home.score! : match.away.score!,
     aafkIsHome ? match.away.score! : match.home.score!,
   ] as const;
   for (const fragment of candidate.fragments) {
+    const genre = newspaperGenre(fragment.text, offset);
+    if (genre !== "match_report" && genre !== "result_note" && genre !== "results_board") continue;
     const evidence = evidenceForFragment(fragment.text, {
       year: match.competition.season,
       opponent: opponentNames[0] ?? "",

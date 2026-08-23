@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19550425-7356e8553f2494d1ffa4fb88a7cd7be0
+    page: "2"
+    fields:
+      - externalReports
+    note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1955-04-25 s. 2: Kampreferat for AaFK mot Hødd (2–0) spilt
-  1955-04-24."
+note: "Sunnmørsposten 1955-04-25 s. 2: Kampreferat for AaFK mot Hødd (2–0) spilt 1955-04-24."

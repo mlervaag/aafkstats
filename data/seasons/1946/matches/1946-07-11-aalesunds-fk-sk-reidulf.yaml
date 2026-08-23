@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19460712-ee4ec332eb33fc5f8b82d0e5708a7262
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: Siden omtaler privatkampen torsdag 11. juli 1946 på Nørve der Reidulf
-  (Oslo) og Aa.F.K. spilte uavgjort 1-1.
+note: Siden omtaler privatkampen torsdag 11. juli 1946 på Nørve der Reidulf (Oslo) og Aa.F.K. spilte uavgjort 1-1.

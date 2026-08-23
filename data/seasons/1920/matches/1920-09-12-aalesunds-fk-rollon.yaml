@@ -1,10 +1,46 @@
 id: 1920-09-12-aalesunds-fk-rollon
 date: 1920-09-12
 status: played
-competition: { id: treningskamp, season: 1920, stage: friendly }
-home: { clubId: aalesunds-fk, score: 2 }
-away: { clubId: rollon, score: 1 }
+competition:
+  id: treningskamp
+  season: 1920
+  stage: friendly
+home:
+  clubId: aalesunds-fk
+  score: 2
+away:
+  clubId: rollon
+  score: 1
 sources:
-  - { sourceId: nff-arbok-1920, page: "100", fields: [date, competition, home.clubId, away.clubId, home.score, away.score] }
+  - sourceId: nff-arbok-1920
+    page: "100"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+  - sourceId: sunnmorsposten-19200913-603ada2555691303c68cf925c1b27d58
+    page: "4"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
-manual: [date, competition, home.clubId, away.clubId, home.score, away.score]
+manual:
+  - date
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+externalReports:
+  - publisher: Søndmørsposten
+    url: https://www.nb.no/items/603ada2555691303c68cf925c1b27d58?page=4
+    date: 1920-09-13
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/603ada2555691303c68cf925c1b27d58?page=4
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports

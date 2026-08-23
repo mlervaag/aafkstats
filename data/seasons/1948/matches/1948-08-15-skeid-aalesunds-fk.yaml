@@ -20,7 +20,10 @@ extraTime:
   away: 0
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/6b6e4b54e59bd08b8e45c40b11f63cfb?page=1
+    date: 1948-08-16
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1948/Cup.html
@@ -35,6 +38,11 @@ providers:
       - away.score
       - competition.round
       - extraTime
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/6b6e4b54e59bd08b8e45c40b11f63cfb?page=1
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
@@ -42,3 +50,9 @@ aliases:
   rsssf: 1948-cup-1948-08-15-skeid-aalesunds-fk
 manual: []
 note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.
+sources:
+  - sourceId: sunnmorsposten-19480816-6b6e4b54e59bd08b8e45c40b11f63cfb
+    page: "1"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

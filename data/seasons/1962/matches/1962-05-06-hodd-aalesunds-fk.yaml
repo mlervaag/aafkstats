@@ -15,8 +15,16 @@ away:
   score: 1
   halfTimeScore: null
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/7042d892bb1b50791f446be4ee84779b?page=8
+    date: 1962-05-07
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/7042d892bb1b50791f446be4ee84779b?page=8
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -30,11 +38,16 @@ sources:
       - competition
       - home.clubId
       - away.clubId
-    note: "Vårterminlisten (s. 27) oppgir Hødd mot AaFK 6. mai 1962."
+    note: Vårterminlisten (s. 27) oppgir Hødd mot AaFK 6. mai 1962.
   - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
     page: "48"
     fields:
       - status
       - home.score
       - away.score
-    note: "Våroppsummeringen (s. 48) dokumenterer Hødd mot AaFK 0–1."
+    note: Våroppsummeringen (s. 48) dokumenterer Hødd mot AaFK 0–1.
+  - sourceId: sunnmorsposten-19620507-7042d892bb1b50791f446be4ee84779b
+    page: "8"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

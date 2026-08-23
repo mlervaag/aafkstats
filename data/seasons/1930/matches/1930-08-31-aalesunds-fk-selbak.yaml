@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/d414002cccb9f5a807736ed6f6b2c115?page=7
+    date: 1930-09-01
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1930/Cup.html
@@ -31,9 +34,20 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/d414002cccb9f5a807736ed6f6b2c115?page=7
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1930-cup-1930-08-31-aalesunds-fk-selbak
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19300901-d414002cccb9f5a807736ed6f6b2c115
+    page: "7"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

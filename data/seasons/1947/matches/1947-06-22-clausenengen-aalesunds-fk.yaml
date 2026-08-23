@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19470623-b6cced862a3349fd201a3489760ec6ce
+    page: "3"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1947-06-23 s. 3: Kampreferat for Clausenengen mot AaFK
-  (3–1) NM 1. runde spilt 1947-06-22."
+note: "Sunnmørsposten 1947-06-23 s. 3: Kampreferat for Clausenengen mot AaFK (3–1) NM 1. runde spilt 1947-06-22."

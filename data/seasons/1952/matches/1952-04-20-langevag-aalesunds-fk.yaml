@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/f50a5c21758697a0c4102caf395fc6e6?page=3
+    date: 1952-04-21
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/f50a5c21758697a0c4102caf395fc6e6?page=3
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -33,4 +41,9 @@ sources:
       - away.clubId
       - home.score
       - away.score
-    note: "Medlemsbladets dagsdaterte A-lagsresultater for 1952 (s. 48) fører kampen med dato, motstander og resultat."
+    note: Medlemsbladets dagsdaterte A-lagsresultater for 1952 (s. 48) fører kampen med dato, motstander og resultat.
+  - sourceId: sunnmorsposten-19520421-f50a5c21758697a0c4102caf395fc6e6
+    page: "3"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

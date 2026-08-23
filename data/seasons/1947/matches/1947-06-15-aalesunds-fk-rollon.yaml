@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19470617-df0e19babdb39bed17297c49680c04ed
+    page: "2"
+    fields:
+      - externalReports
+    note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1947-06-17 s. 2: Kampreferat for AaFK mot Rollon (3–0)
-  finale Skarbøvik IFs baneinnvielse spilt 1947-06-15."
+note: "Sunnmørsposten 1947-06-17 s. 2: Kampreferat for AaFK mot Rollon (3–0) finale Skarbøvik IFs baneinnvielse spilt 1947-06-15."

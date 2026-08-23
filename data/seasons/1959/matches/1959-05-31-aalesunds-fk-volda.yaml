@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/ada96ee6fbb74f3919e76c2a5957feac?page=5
+    date: 1959-06-01
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/ada96ee6fbb74f3919e76c2a5957feac?page=5
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -31,18 +39,23 @@ sources:
       - competition
       - home.clubId
       - away.clubId
-    note: "Vårterminlisten «Å.F.K.s serieprogram i vår» (s. 12) oppgir 31/5 Volda (hjemme)."
+    note: Vårterminlisten «Å.F.K.s serieprogram i vår» (s. 12) oppgir 31/5 Volda (hjemme).
   - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
     page: "16"
     fields:
       - date
       - home.clubId
       - away.clubId
-    note: "Landsdelsseriens vårterminliste (s. 16) oppgir samme kamp og samme hjemmelag på 31/5."
+    note: Landsdelsseriens vårterminliste (s. 16) oppgir samme kamp og samme hjemmelag på 31/5.
   - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
     page: "60"
     fields:
       - status
       - home.score
       - away.score
-    note: "A-lagsresultatene (s. 60) dokumenterer seriekampen mot Volda hjemme med 5–2 sett fra AaFK."
+    note: A-lagsresultatene (s. 60) dokumenterer seriekampen mot Volda hjemme med 5–2 sett fra AaFK.
+  - sourceId: sunnmorsposten-19590601-ada96ee6fbb74f3919e76c2a5957feac
+    page: "5"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

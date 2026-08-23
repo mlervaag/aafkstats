@@ -33,11 +33,15 @@ providers:
       - away.clubId
       - home.score
       - away.score
-sources: []
+sources:
+  - sourceId: sunnmorsposten-19550520-c5e5988d379d5ea705113f0833418f88
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1955-05-20 s. 2: Kampreferat for AaFK mot Rollon (3–0)
-  spilt 1955-05-19."
+note: "Sunnmørsposten 1955-05-20 s. 2: Kampreferat for AaFK mot Rollon (3–0) spilt 1955-05-19."

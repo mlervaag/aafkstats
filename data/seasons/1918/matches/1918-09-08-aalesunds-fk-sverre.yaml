@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Søndmørsposten
+    url: https://www.nb.no/items/ecd7ceb2751ea8ef8da2e6713ac714d0?page=3
+    date: 1918-09-09
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1918/Cup.html
@@ -31,41 +34,69 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/ecd7ceb2751ea8ef8da2e6713ac714d0?page=3
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 sources:
   - sourceId: nff-arbok-1918
-    page: "100–101"
-    fields: [home.score, away.score, competition.round]
-    note: >
-      Diagrammet gjelder NM 1918 selv om den trykte overskriften feilaktig sier
-      1919. Årboka oppgir 0–9 i andre runde.
+    page: 100–101
+    fields:
+      - home.score
+      - away.score
+      - competition.round
+    note: |
+      Diagrammet gjelder NM 1918 selv om den trykte overskriften feilaktig sier 1919. Årboka oppgir 0–9 i andre runde.
   - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
     page: "83"
-    fields: [home.score, away.score]
+    fields:
+      - home.score
+      - away.score
     note: Jubileumsskriftet oppgir 1–5.
+  - sourceId: sunnmorsposten-19180909-ecd7ceb2751ea8ef8da2e6713ac714d0
+    page: "3"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: disputed
 conflicts:
   - field: home.score
     values:
-      - { value: 0, providerId: rsssf, note: RSSSF og dagens kanoniske kamp. }
-      - { value: 1, providerId: nasjonalbiblioteket, note: "Jubileumsskriftet fra 1939, side 83." }
-      - { value: 0, providerId: nasjonalbiblioteket, note: "NFF-årboka 1918, side 100–101." }
+      - value: 0
+        providerId: rsssf
+        note: RSSSF og dagens kanoniske kamp.
+      - value: 1
+        providerId: nasjonalbiblioteket
+        note: Jubileumsskriftet fra 1939, side 83.
+      - value: 0
+        providerId: nasjonalbiblioteket
+        note: NFF-årboka 1918, side 100–101.
     resolved: false
     decision: unresolved
     locked: false
     note: Samtidig avis bør kontrolleres før resultatet avgjøres.
   - field: away.score
     values:
-      - { value: 5, providerId: rsssf }
-      - { value: 5, providerId: nasjonalbiblioteket, note: "Jubileumsskriftet fra 1939, side 83." }
-      - { value: 9, providerId: nasjonalbiblioteket, note: "NFF-årboka 1918, side 100–101." }
+      - value: 5
+        providerId: rsssf
+      - value: 5
+        providerId: nasjonalbiblioteket
+        note: Jubileumsskriftet fra 1939, side 83.
+      - value: 9
+        providerId: nasjonalbiblioteket
+        note: NFF-årboka 1918, side 100–101.
     resolved: false
     decision: unresolved
     locked: false
     note: Samtidig avis bør kontrolleres før resultatet avgjøres.
   - field: competition.round
     values:
-      - { value: 3, providerId: rsssf }
-      - { value: 2, providerId: nasjonalbiblioteket, note: "NFF-årboka 1918, side 100–101." }
+      - value: 3
+        providerId: rsssf
+      - value: 2
+        providerId: nasjonalbiblioteket
+        note: NFF-årboka 1918, side 100–101.
     resolved: false
     decision: unresolved
     locked: false
@@ -73,7 +104,5 @@ tags: []
 aliases:
   rsssf: 1918-cup-1918-09-08-aalesunds-fk-sverre
 manual: []
-note: >
-  Resultat og runde er omstridt. Arkivet beholder foreløpig RSSSF-verdiene 0–5
-  og tredje runde, men NFF-årboka og jubileumsskriftet er bevart som motstridende
-  påstander.
+note: |
+  Resultat og runde er omstridt. Arkivet beholder foreløpig RSSSF-verdiene 0–5 og tredje runde, men NFF-årboka og jubileumsskriftet er bevart som motstridende påstander.

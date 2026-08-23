@@ -8,6 +8,7 @@ import {
   dayOffset,
   discoverMatchDate,
   canonicalCandidateScore,
+  issueRef,
   matchesForBatch,
   monthWindows,
   newspaperGenre,
@@ -133,6 +134,28 @@ describe("canonical kandidatklassifisering", () => {
     const sunday = match({ id: "1979-04-29-aalesunds-fk-hodd", date: "1979-04-29" });
     expect(canonicalCandidateScore(candidate("mandag", "19790430"), sunday, ["Hødd"]))
       .toBeGreaterThan(canonicalCandidateScore(candidate("tirsdag", "19790501"), sunday, ["Hødd"]));
+  });
+  it("does not use match A's result as a conflict on a later match B", () => {
+    const nextMatch = match({
+      id: "1962-09-05-aalesunds-fk-brann",
+      date: "1962-09-05",
+      home: { clubId: "aalesunds-fk", score: 1, halfTimeScore: null },
+      away: { clubId: "brann", score: 2, halfTimeScore: null },
+    });
+    const previousResult = {
+      id: "issue-after-match-a",
+      issued: "19620903",
+      itemUrl: "https://www.nb.no/items/issue-after-match-a",
+      access: { viewability: "NONE" as const, isPublicDomain: false, mayStoreFullText: false, attribution: "test" },
+      score: 90,
+      reasons: [],
+      matchedQueries: [],
+      fragments: [{ text: "AaFK og Brann spilte 0-0 i sondagens kamp.", score: 90, reasons: [] }],
+    };
+
+    expect(issueRef(previousResult, nextMatch, ["Brann"], -2).scoreConflict).toBeUndefined();
+    expect(issueRef({ ...previousResult, issued: "19620906" }, nextMatch, ["Brann"], 1).scoreConflict)
+      .toEqual({ canonical: "1-2", newspaper: "0-0" });
   });
 });
 

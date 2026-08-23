@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: sunnmore-fotballkrets-arsrapport-1955
+  - sourceId: sunnmorsposten-19550606-d722a0fd7209e7619b820218ec0cefe8
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1955-06-06 s. 2: Kampreferat for AaFK mot Rollon (2–0)
-  spilt 1955-06-05."
+note: "Sunnmørsposten 1955-06-06 s. 2: Kampreferat for AaFK mot Rollon (2–0) spilt 1955-06-05."

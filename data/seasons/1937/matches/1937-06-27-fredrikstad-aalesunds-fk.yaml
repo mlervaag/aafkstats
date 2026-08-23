@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/2694a8cc6f6077b18eedc32f1dfa804e?page=5
+    date: 1937-06-29
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1937/Cup.html
@@ -31,10 +34,24 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/2694a8cc6f6077b18eedc32f1dfa804e?page=5
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 sources:
   - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
     page: "58"
-    fields: [home.clubId, away.clubId, home.score, away.score]
+    fields:
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+  - sourceId: sunnmorsposten-19370629-2694a8cc6f6077b18eedc32f1dfa804e
+    page: "5"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: probable
 conflicts: []
 tags: []

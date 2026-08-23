@@ -15,8 +15,16 @@ away:
   score: 1
   halfTimeScore: null
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/e8cfaf8298746fb2984241bf382df744?page=1
+    date: 1962-05-21
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/e8cfaf8298746fb2984241bf382df744?page=1
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -30,11 +38,16 @@ sources:
       - competition
       - home.clubId
       - away.clubId
-    note: "Vårterminlisten (s. 27) oppgir Langevåg mot AaFK 20. mai 1962."
+    note: Vårterminlisten (s. 27) oppgir Langevåg mot AaFK 20. mai 1962.
   - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
     page: "43"
     fields:
       - status
       - home.score
       - away.score
-    note: "Kamprapport (s. 43) og våroppsummeringen (s. 48) dokumenterer Langevåg mot AaFK 1–1."
+    note: Kamprapport (s. 43) og våroppsummeringen (s. 48) dokumenterer Langevåg mot AaFK 1–1.
+  - sourceId: sunnmorsposten-19620521-e8cfaf8298746fb2984241bf382df744
+    page: "1"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

@@ -46,15 +46,22 @@ providers:
       - away.clubId
       - home.score
       - away.score
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/b2d57b4ca37b95f78d562ec85ec2ac90?page=3
+    retrievedAt: 2026-08-23
+    fields: []
 sources:
   - sourceId: tango-siden-1914-2013-806b
     page: "233"
     fields:
       - home.score
       - away.score
-    note: Entydig maskinelt treff på år, motstander og resultat; bør redaksjonelt
-      etterkontrolleres.
+    note: Entydig maskinelt treff på år, motstander og resultat; bør redaksjonelt etterkontrolleres.
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19460823-b2d57b4ca37b95f78d562ec85ec2ac90
+    page: "3"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: probable
 conflicts: []
 tags: []

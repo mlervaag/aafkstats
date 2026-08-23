@@ -6,11 +6,38 @@ competition:
   id: treningskamp
   season: 1915
   stage: friendly
-home: { clubId: aalesunds-fk, score: 2, halfTimeScore: null }
-away: { clubId: rollon, score: 2, halfTimeScore: null }
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: rollon
+  score: 2
+  halfTimeScore: null
 venueId: norvebana
 sources:
   - sourceId: aafk-historie-norvebana
-    fields: [date, home.clubId, away.clubId, home.score, away.score, venueId]
+    fields:
+      - date
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - venueId
+  - sourceId: sunnmorsposten-19150607-678ad7069a0a1617240792e71bce6b9d
+    page: "3"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 note: Kilden omtaler kampen som den neste kampen på Nørvebana etter åpningsoppgjøret mot Lyn.
+externalReports:
+  - publisher: Søndmørsposten
+    url: https://www.nb.no/items/678ad7069a0a1617240792e71bce6b9d?page=3
+    date: 1915-06-07
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/678ad7069a0a1617240792e71bce6b9d?page=3
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports

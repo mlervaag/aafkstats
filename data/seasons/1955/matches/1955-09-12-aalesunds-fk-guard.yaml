@@ -33,11 +33,15 @@ providers:
       - away.clubId
       - home.score
       - away.score
-sources: []
+sources:
+  - sourceId: sunnmorsposten-19550913-f25f16820b9ba21e4af3720d4e8b2f19
+    page: "5"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1955-09-13 s. 5: Kampreferat for AaFK mot Guard (2–0)
-  spilt 1955-09-12."
+note: "Sunnmørsposten 1955-09-13 s. 5: Kampreferat for AaFK mot Guard (2–0) spilt 1955-09-12."

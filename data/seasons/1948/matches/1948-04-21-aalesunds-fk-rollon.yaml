@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19480422-08c9a0530843ba6b7e1c703f4ac0b582
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1948-04-22 s. 2: Kampreferat for AaFK mot Rollon (7–0)
-  privatkamp spilt 1948-04-21."
+note: "Sunnmørsposten 1948-04-22 s. 2: Kampreferat for AaFK mot Rollon (7–0) privatkamp spilt 1948-04-21."

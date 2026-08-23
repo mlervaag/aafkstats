@@ -16,7 +16,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/8b1bf6508899704c12d95bd7e9532881?page=3
+    date: 1962-10-23
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1962/Landsdel.html
@@ -38,6 +41,11 @@ providers:
       - away.clubId
       - home.score
       - away.score
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/8b1bf6508899704c12d95bd7e9532881?page=3
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
@@ -54,3 +62,8 @@ sources:
       - home.score
       - away.score
     note: "Medlemsbladet 1962 hefte 6 s. 74–75: Første kvalifiseringskamp til 1. divisjon (10-klubbserien) på Gjøvik endte uavgjort 1–1."
+  - sourceId: sunnmorsposten-19621023-8b1bf6508899704c12d95bd7e9532881
+    page: "3"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

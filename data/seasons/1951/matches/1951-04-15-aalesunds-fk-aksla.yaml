@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19510416-eb4e6f74219804db85616d63058298c2
+    page: "2"
+    fields:
+      - externalReports
+    note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: Siden dokumenterer sesongåpningskampen på Nørve søndag 15. april 1951 der
-  AaFK vant 5-1 over Aksla.
+note: Siden dokumenterer sesongåpningskampen på Nørve søndag 15. april 1951 der AaFK vant 5-1 over Aksla.

@@ -21,6 +21,9 @@ externalReports:
     title: Sunnmørsposten 1947-06-17 s. 2
     date: 1947-06-17
     url: https://www.nb.no/items/df0e19babdb39bed17297c49680c04ed?page=2
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/c3c9bfecd495882ac4d0dc44abc9ae8e?page=5
+    date: 1947-06-14
 providers:
   - providerId: nasjonalbiblioteket
     url: https://www.nb.no/items/df0e19babdb39bed17297c49680c04ed?page=2
@@ -33,12 +36,21 @@ providers:
       - away.clubId
       - home.score
       - away.score
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/c3c9bfecd495882ac4d0dc44abc9ae8e?page=5
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19470614-c3c9bfecd495882ac4d0dc44abc9ae8e
+    page: "5"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: Siden dokumenterer pokalkampen fredag 13. juni 1947 der Aksla slo et
-  rekruttpreget AaFK-lag 4-2.
+note: Siden dokumenterer pokalkampen fredag 13. juni 1947 der Aksla slo et rekruttpreget AaFK-lag 4-2.

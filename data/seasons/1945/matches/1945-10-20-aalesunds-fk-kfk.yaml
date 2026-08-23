@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19451022-4076b5718933169ce47626e61f265d43
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1945-10-22 s. 2: Kampreferat for AaFK mot KFK (2–2)
-  privatkamp spilt 1945-10-20."
+note: "Sunnmørsposten 1945-10-22 s. 2: Kampreferat for AaFK mot KFK (2–2) privatkamp spilt 1945-10-20."

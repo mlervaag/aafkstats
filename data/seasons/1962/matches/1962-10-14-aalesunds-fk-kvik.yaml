@@ -17,7 +17,10 @@ away:
 venueId: aksla-stadion
 attendance: 3200
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/4ca25c03ac1afc9a1975883024c8be41?page=6
+    date: 1962-10-15
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1962/Landsdel.html
@@ -39,6 +42,11 @@ providers:
       - away.clubId
       - home.score
       - away.score
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/4ca25c03ac1afc9a1975883024c8be41?page=6
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
@@ -61,3 +69,8 @@ sources:
     fields:
       - attendance
     note: "Medlemsbladet 1962 hefte 6 s. 76: Kampen mot Kvik på Aksla stadion samlet 3 200 tilskuere."
+  - sourceId: sunnmorsposten-19621015-4ca25c03ac1afc9a1975883024c8be41
+    page: "6"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

@@ -17,7 +17,11 @@ away:
 neutralVenue: false
 events: []
 externalReports: []
-providers: []
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/84977f41aa99b45805fa180739426d6b?page=2
+    retrievedAt: 2026-08-23
+    fields: []
 confidence: confirmed
 conflicts: []
 tags: []
@@ -38,4 +42,8 @@ sources:
       - status
       - home.score
       - away.score
-    note: "A-lagsresultatene (s. 60) fører seriekampen mot Langevåg hjemme med 2–2 sett fra AaFK."
+    note: A-lagsresultatene (s. 60) fører seriekampen mot Langevåg hjemme med 2–2 sett fra AaFK.
+  - sourceId: sunnmorsposten-19560507-84977f41aa99b45805fa180739426d6b
+    page: "2"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

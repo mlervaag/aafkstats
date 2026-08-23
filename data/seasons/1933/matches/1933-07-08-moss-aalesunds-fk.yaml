@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
+  - sourceId: sunnmorsposten-19330711-bb2b6b86523e44a6dafdd2f41b495408
+    page: "3"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: Siden omtaler AaFKs østlandsturné der AaFK påførte Moss sesongens første
-  hjemmetap med seier 3-1 lørdag 8. juli 1933.
+note: Siden omtaler AaFKs østlandsturné der AaFK påførte Moss sesongens første hjemmetap med seier 3-1 lørdag 8. juli 1933.

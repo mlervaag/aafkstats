@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19451001-e0f36d21423b5538a6acd28c751c55f7
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1945-10-01 s. 2: Kampreferat for Spjelkavik mot AaFK (1–6)
-  spilt 1945-09-30."
+note: "Sunnmørsposten 1945-10-01 s. 2: Kampreferat for Spjelkavik mot AaFK (1–6) spilt 1945-09-30."

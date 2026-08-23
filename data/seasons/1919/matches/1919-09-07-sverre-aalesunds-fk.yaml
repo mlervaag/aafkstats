@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Søndmørsposten
+    url: https://www.nb.no/items/3e05e6890d610f305b02497a7bd58383?page=4
+    date: 1919-09-08
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1919/Cup.html
@@ -31,20 +34,40 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/3e05e6890d610f305b02497a7bd58383?page=4
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 sources:
   - sourceId: nff-arbok-1919
-    page: "82–83"
-    fields: [home.clubId, away.clubId, home.score, away.score, competition.round]
+    page: 82–83
+    fields:
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
     note: Manuelt lest fra NM-diagrammet.
   - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
     page: "83"
-    fields: [home.score, away.score]
+    fields:
+      - home.score
+      - away.score
+  - sourceId: sunnmorsposten-19190908-3e05e6890d610f305b02497a7bd58383
+    page: "4"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts:
   - field: away.score
     values:
-      - { value: 0, providerId: rsssf }
-      - { value: 2, providerId: nasjonalbiblioteket, note: NFF-årboka 1919 og jubileumsskriftet fra 1939 oppgir begge 3–2. }
+      - value: 0
+        providerId: rsssf
+      - value: 2
+        providerId: nasjonalbiblioteket
+        note: NFF-årboka 1919 og jubileumsskriftet fra 1939 oppgir begge 3–2.
     resolved: true
     chosen: 2
     chosenProviderId: nasjonalbiblioteket
@@ -55,5 +78,6 @@ conflicts:
 tags: []
 aliases:
   rsssf: 1919-cup-1919-09-07-sverre-aalesunds-fk
-manual: [away.score]
+manual:
+  - away.score
 note: Resultatkonflikten er redaksjonelt avgjort til 3–2 i favør av de to historiske kildene.

@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/c33a056e51c4e4b03a14b1d4cd107036?page=8
+    date: 1933-08-28
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1933/Cup.html
@@ -31,9 +34,20 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/c33a056e51c4e4b03a14b1d4cd107036?page=8
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1933-cup-1933-08-27-aalesunds-fk-fremad
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19330828-c33a056e51c4e4b03a14b1d4cd107036
+    page: "8"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

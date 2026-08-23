@@ -33,12 +33,24 @@ providers:
       - away.clubId
       - home.score
       - away.score
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/07c78784d6a99f667ae461b8201d3299?page=2
+    retrievedAt: 2026-08-23
+    fields: []
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19450921-07c78784d6a99f667ae461b8201d3299
+    page: "2"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - sourceId: sunnmorsposten-19450924-ac1930ce85ae61e7d60b0d3b61161fd0
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1945-09-24 s. 2: Kampreferat for AaFK mot Rollon (1–3)
-  spilt 1945-09-22."
+note: "Sunnmørsposten 1945-09-24 s. 2: Kampreferat for AaFK mot Rollon (1–3) spilt 1945-09-22."

@@ -1,4 +1,5 @@
 import type { BatchEntry, BatchReport, IssueRef, NewspaperGenre } from "../adapters/nb-newspaper-batch.js";
+import type { Match, Source } from "@aafkstats/schema";
 
 export interface PilotReviewEntry {
   matchId: string;
@@ -41,6 +42,32 @@ export interface PilotReviewEvidence {
 }
 
 const NON_EVENT_GENRES = new Set<NewspaperGenre>(["standings", "fixture_list", "advertisement", "unknown"]);
+const POSTMATCH_GENRES = new Set<NewspaperGenre>(["match_report", "result_note", "results_board"]);
+
+export function prepareMatchForNewspaperWrite(match: Match): void {
+  match.externalReports ??= [];
+  match.providers ??= [];
+  match.sources ??= [];
+}
+
+export function isSameNewspaperDocument(existing: Source, expected: Source): boolean {
+  return existing.id === expected.id && existing.urn === expected.urn;
+}
+
+/** Keep the source mention, but remove a machine-derived report marker from non-reports. */
+export function reconcilePrematchExternalReport(match: Match, issue: { pageUrl: string }, sourceId: string, isReport: boolean): void {
+  if (isReport) return;
+  // Reports with titles may be older curated data. Only remove the writer's
+  // own neutral, OCR-derived report links.
+  match.externalReports = match.externalReports.filter((report) => report.url !== issue.pageUrl || report.title !== undefined);
+  if (match.externalReports.some((report) => report.url === issue.pageUrl)) return;
+  for (const provider of match.providers.filter((item) => item.providerId === "nasjonalbiblioteket" && item.url === issue.pageUrl)) {
+    provider.fields = provider.fields.filter((field) => field !== "externalReports");
+  }
+  for (const source of match.sources.filter((item) => item.sourceId === sourceId)) {
+    source.fields = source.fields.filter((field) => field !== "externalReports");
+  }
+}
 
 export function buildPilotReviewEntries(report: BatchReport): PilotReviewEntry[] {
   return report.entries.map(reviewEntry).sort((left, right) => left.matchId.localeCompare(right.matchId));
@@ -48,10 +75,14 @@ export function buildPilotReviewEntries(report: BatchReport): PilotReviewEntry[]
 
 function reviewEntry(entry: BatchEntry): PilotReviewEntry {
   if (entry.outcome === "not_digitized") return terminal(entry, "not_digitized", "Ingen digitalisert utgave i søkevinduet.");
-  const candidate = entry.candidates.find((issue) => isLocallyCorrelated(issue));
+  const correlated = entry.candidates.filter((issue) => isLocallyCorrelated(issue));
+  // Et referat etter kampen slÃ¥r en forhÃ¥ndsomtale, selv om preview-fragmentet
+  // tilfeldigvis har hÃ¸yere OCR-score. Dette er sÃ¦rlig viktig ved to kamper mot
+  // samme motstander med fÃ¥ dagers mellomrom.
+  const candidate = correlated.find((issue) => isPostMatchEvidence(issue)) ?? correlated[0];
   if (!candidate) return terminal(entry, "no_ocr_candidate", "Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.");
 
-  const conflict = candidate.scoreConflict !== undefined;
+  const conflict = candidate.scoreConflict !== undefined && isPostMatchEvidence(candidate);
   const exactScore = candidate.reasons.some((reason) => reason.startsWith("resultat:"));
   const confidence = conflict || exactScore ? "high" : candidate.score >= 70 ? "high" : "medium";
   const evidence = evidenceFor(candidate, confidence);
@@ -78,7 +109,7 @@ function reviewEntry(entry: BatchEntry): PilotReviewEntry {
     newHistoricalObservations: 0,
     falsePositive: false,
     differentMatch: false,
-    ...(candidate.scoreConflict ? { conflict: { field: "score" as const, ...candidate.scoreConflict } } : {}),
+    ...(conflict ? { conflict: { field: "score" as const, ...candidate.scoreConflict! } } : {}),
     note: conflict
       ? "OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving."
       : "Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.",
@@ -128,6 +159,14 @@ function isLocallyCorrelated(issue: IssueRef): boolean {
   return issue.evidence.some((evidence) =>
     !NON_EVENT_GENRES.has(evidence.genre)
     && evidence.reasons.includes("motstander og AaFK i samme avsnitt"));
+}
+
+function isPostMatchEvidence(issue: IssueRef): boolean {
+  return issue.dayOffset !== undefined
+    && issue.dayOffset >= 0
+    && issue.evidence.some((evidence) =>
+      POSTMATCH_GENRES.has(evidence.genre)
+      && evidence.reasons.includes("motstander og AaFK i samme avsnitt"));
 }
 
 function compactToIso(value: string): string {

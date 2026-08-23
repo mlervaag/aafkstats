@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Søndmørsposten
+    url: https://www.nb.no/items/f56660529b2b0c241f7e29f05d959191?page=3
+    date: 1922-08-21
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1922/Cup.html
@@ -31,9 +34,20 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/f56660529b2b0c241f7e29f05d959191?page=3
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1922-cup-1922-08-20-aalesunds-fk-rollon
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19220821-f56660529b2b0c241f7e29f05d959191
+    page: "3"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

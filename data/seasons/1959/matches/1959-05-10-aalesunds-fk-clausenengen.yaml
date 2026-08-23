@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/c36a6a59caa72339fa5572cdd39da2aa?page=2
+    date: 1959-05-11
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/c36a6a59caa72339fa5572cdd39da2aa?page=2
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -31,18 +39,23 @@ sources:
       - competition
       - home.clubId
       - away.clubId
-    note: "Vårterminlisten «Å.F.K.s serieprogram i vår» (s. 12) oppgir 10/5 Clausenengen (hjemme)."
+    note: Vårterminlisten «Å.F.K.s serieprogram i vår» (s. 12) oppgir 10/5 Clausenengen (hjemme).
   - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
     page: "16"
     fields:
       - date
       - home.clubId
       - away.clubId
-    note: "Landsdelsseriens vårterminliste (s. 16) oppgir samme kamp og samme hjemmelag på 10/5."
+    note: Landsdelsseriens vårterminliste (s. 16) oppgir samme kamp og samme hjemmelag på 10/5.
   - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
     page: "60"
     fields:
       - status
       - home.score
       - away.score
-    note: "A-lagsresultatene (s. 60) dokumenterer seriekampen mot Clausenengen hjemme med 2–2 sett fra AaFK."
+    note: A-lagsresultatene (s. 60) dokumenterer seriekampen mot Clausenengen hjemme med 2–2 sett fra AaFK.
+  - sourceId: sunnmorsposten-19590511-c36a6a59caa72339fa5572cdd39da2aa
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

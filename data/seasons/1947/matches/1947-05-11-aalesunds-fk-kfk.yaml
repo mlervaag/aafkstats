@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19470513-40cfa2eaed29bfd2d3fbf079d35fb813
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1947-05-13 s. 2: Kampreferat for AaFK mot KFK (3–3)
-  privatkamp spilt 1947-05-11."
+note: "Sunnmørsposten 1947-05-13 s. 2: Kampreferat for AaFK mot KFK (3–3) privatkamp spilt 1947-05-11."

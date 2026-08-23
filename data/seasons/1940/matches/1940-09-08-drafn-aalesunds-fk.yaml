@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/1922fd4aab842ac0ba6a5adaebb517ef?page=5
+    date: 1940-09-09
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1940/Cup.html
@@ -31,6 +34,11 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/1922fd4aab842ac0ba6a5adaebb517ef?page=5
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 sources:
   - sourceId: aalesunds-fotballklubb-35-ar-e-1950-2e6c
     page: "10"
@@ -46,6 +54,11 @@ sources:
       - home.score
       - away.score
     note: Entydig maskinelt treff på år, motstander og resultat; bør redaksjonelt etterkontrolleres.
+  - sourceId: sunnmorsposten-19400909-1922fd4aab842ac0ba6a5adaebb517ef
+    page: "5"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: probable
 conflicts: []
 tags: []

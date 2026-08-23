@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/8f387f00c1f1e59ce19bc43495baba3d?page=6
+    date: 1934-08-28
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1934/Cup.html
@@ -31,9 +34,20 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/8f387f00c1f1e59ce19bc43495baba3d?page=6
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1934-cup-1934-08-26-sarpsborg-aalesunds-fk
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19340828-8f387f00c1f1e59ce19bc43495baba3d
+    page: "6"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
