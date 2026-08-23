@@ -1,0 +1,69 @@
+version: 1
+id: medlemsblad-1980
+title: AaFK Medlemsblad 1980 — årsberetningen for sesongen 1979
+profile: member_magazine
+mode: initial
+status: normalized
+scope:
+  years:
+    from: 1979
+    to: 1980
+  sourceIds:
+  - medlemsblad-for-aalesunds-fotb-1980-bec4
+  parentSourceId: aafk-medlemsblad
+sourceInventory:
+- sourceId: medlemsblad-for-aalesunds-fotb-1980-bec4
+  title: Medlemsblad for Aalesunds fotballklubb 1980
+  year: 1980
+  reviewStatus: reviewed
+coverage:
+  mode: pages
+  expected: 12
+  reviewed: 12
+passes:
+  facsimile_review:
+    status: pending
+    findings: 0
+    note: Ikke gjennomført. Spaltekorrigert ALTO, ikke faksimile.
+  explicit_results:
+    status: complete
+    findings: 39
+    note: Årsberetningens statistikk for A-laget 1979 (s. 3) fører 39 kamper med dato, motstander,
+      resultat og bortemarkering. Kildens egne målsummer for privatkamper og for tippekamp og NM
+      stemmer eksakt med de leste kampene.
+  observations:
+    status: complete
+    findings: 1
+    note: Årsberetningen for 1979 med nedrykk, kampregnskap, toppscorer og kampjubilanter.
+reviewMethod:
+  facsimile: required
+review:
+  file: docs/data/MEDLEMSBLAD_TERMINLISTESKANN_1952_1961.md
+findings:
+- id: res-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1980-bec4
+    page: '3'
+  type: match_result
+  claim:
+    text: Statistikk A-laget 1979 med 39 daterte kamper og bortemarkering
+  disposition: reviewed
+  status: normalized
+- id: con-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1980-bec4
+    page: '3'
+  type: match_result
+  claim:
+    text: Kilden oppgir 22 seriekamper, men fører 20 daterte serielinjer
+  disposition: conflict_registered
+  status: unresolved
+- id: per-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1980-bec4
+    page: '3'
+  type: person
+  claim:
+    text: Kamp- og malstatistikk for A-laget 1979 med karrieretall per spiller
+  disposition: reviewed
+  status: normalized
