@@ -142,7 +142,8 @@ rettighetsvurdering.
 | `pnpm ingest:rsssf-discover -- --from ÅR --to ÅR` | Kartlegger hva RSSSF har. Skriver aldri data |
 | `pnpm ingest:fotmob-standings -- --league ID --season ÅR --competition ID` | Tørrkjører tabellen og plasseringskurven for én sesong. Den eneste som kan hente en sesong som pågår |
 | `pnpm ingest:nb-newspaper-search -- --year ÅR --opponent LAG [--score 2-0] [--competition nm] [--round N]` | Leter opp avisutgaven som dekker én kamp, i Nasjonalbibliotekets aviser. Rapporterer bare kandidater — skriver aldri data |
-| `pnpm ingest:nb-newspaper-batch -- --from ÅR --to ÅR [--only-missing-sources]` | Samme oppslag for hver kamp i årsspennet, med kampfakta fra avisas resultatboks. Gjenopptakbar rapport, skriver aldri data |
+| `pnpm ingest:nb-newspaper-batch -- --from ÅR --to ÅR [--window-days 2]` | Datoankret canonical→NB-discovery med OCR-fri, gjenopptakbar kandidatreport. Skriver aldri canonical data |
+| `pnpm data:newspaper-enrichment-status` | Regenererer maskinlesbar kø og 1979-pilotmetrikk for canonical kamper uten samtidig Smp-dekning |
 | `pnpm ingest:nb-newspaper-discover -- --source-result FIL [--year ÅR] [--no N] [--unlinked-only]` | Avisdiscovery for kildeførte resultater: automatisk singleton-sti og manuell sibling-kø som standard. Se [NB_AVISDISCOVERY.md](docs/NB_AVISDISCOVERY.md) og [batchinstruksen](docs/NB_AVISDISCOVERY_BATCH.md). Skriver aldri data |
 | `pnpm ingest:nb-newspaper-batch -- --dateless --season ÅR [--likely-months-only]` | For kildeførte resultater uten dato: månedsvis kandidatliste, og bekreftet dato der resultatboksen navngir kampen. Månedene prøves i sannsynlighetsrekkefølge |
 

@@ -4,7 +4,7 @@ import type { NbAccessInfo, NewspaperAccess } from "./nb-newspaper-access.js";
 
 const NB_ITEMS = "https://api.nb.no/catalog/v1/items";
 const DEFAULT_NEWSPAPER = "Sunnmørsposten";
-export const AAFK_ALIASES = ["Aalesund", "Aalesunds", "ÅFK", "AAFK"] as const;
+export const AAFK_ALIASES = ["Aalesund", "Aalesunds", "Aalesunds FK", "ÅFK", "AaFK", "A.F.K."] as const;
 
 export interface NewspaperMatchQuery {
   opponent: string;
@@ -82,8 +82,11 @@ interface NbContentFragmentsResponse {
  * «AAFK» forekommer om hverandre. Separate søk gjør også hvert treff enklere
  * å forklare i rapporten.
  */
-export function newspaperSearchQueries(opponent: string): string[] {
-  return AAFK_ALIASES.map((alias) => `${opponent} ${alias}`);
+export function newspaperSearchQueries(opponent: string, opponentAliases: string[] = []): string[] {
+  // Tre motstandernavn holder søkebudsjettet avgrenset, men lar historiske navn
+  // og avisforkortelser delta i selve discovery — ikke bare i etterrangeringen.
+  const opponents = [...new Set([opponent, ...opponentAliases].map((name) => name.trim()).filter(Boolean))].slice(0, 3);
+  return [...new Set(opponents.flatMap((name) => AAFK_ALIASES.map((alias) => `${name} ${alias}`)))];
 }
 
 /**
@@ -146,7 +149,7 @@ export function buildContentFragmentsUrl(id: string, query: string): string {
 export async function searchNewspaperForMatch(options: NewspaperMatchQuery): Promise<NewspaperCandidate[]> {
   const byId = new Map<string, { item: NbItem; matchedQueries: string[]; fragments: NbContentFragment[] }>();
 
-  for (const query of newspaperSearchQueries(options.opponent)) {
+  for (const query of newspaperSearchQueries(options.opponent, options.opponentAliases)) {
     const url = buildNewspaperSearchUrl(query, options);
     const response = await fetchJson<NbSearchResponse>(url, { refresh: options.refresh });
 

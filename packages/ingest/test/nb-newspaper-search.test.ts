@@ -23,9 +23,19 @@ describe("newspaperSearchQueries", () => {
     expect(newspaperSearchQueries("Sunndal")).toEqual([
       "Sunndal Aalesund",
       "Sunndal Aalesunds",
+      "Sunndal Aalesunds FK",
       "Sunndal ÅFK",
-      "Sunndal AAFK",
+      "Sunndal AaFK",
+      "Sunndal A.F.K.",
     ]);
+  });
+
+  it("søker historiske motstandernavn, med et avgrenset budsjett", () => {
+    const queries = newspaperSearchQueries("Kristiansund FK", ["KFK", "K. F. K.", "fjerde alias"]);
+    expect(queries).toContain("KFK ÅFK");
+    expect(queries).toContain("K. F. K. Aalesund");
+    expect(queries.some((query) => query.startsWith("fjerde alias"))).toBe(false);
+    expect(queries).toHaveLength(18);
   });
 });
 
@@ -251,9 +261,9 @@ describe("searchNewspaperForMatch", () => {
 
     expect(candidates.map((candidate) => candidate.id)).toEqual(["felles", "bare-en"]);
     expect(candidates[0]!.matchedQueries).toEqual(["Sunndal Aalesund", "Sunndal ÅFK"]);
-    // Fire søk og nøyaktig ett OCR-oppslag: detaljene hentes bare for toppen.
+    // Seks AaFK-varianter og nøyaktig ett OCR-oppslag: detaljene hentes bare for toppen.
     expect(fetched.mock.calls.filter(([url]) => (url as string).includes("/contentfragments"))).toHaveLength(1);
-    expect(fetched.mock.calls).toHaveLength(5);
+    expect(fetched.mock.calls).toHaveLength(7);
     // OCR-en ga et sterkere avsnitt enn søketreffet, og kandidaten er rangert på nytt.
     expect(candidates[0]!.reasons).toContain("resultat: 2-0");
     expect(candidates[0]!.fragments[0]!.pageNumber).toBe("7");

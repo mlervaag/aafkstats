@@ -12,3 +12,4 @@ export * from "./harvest-manifest.js";
 export * from "./harvest-audit-engine.js";
 export * from "./source-claim-lineage.js";
 export * from "./source-claim-registry.js";
+export * from "./newspaper-enrichment-status.js";
