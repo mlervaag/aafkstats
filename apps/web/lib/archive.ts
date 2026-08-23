@@ -621,6 +621,59 @@ export function loadSeasonGaps(year: number): SeasonGaps {
   }
 }
 
+/** Hvor mye som står på kampene i én konkurranse, ett år. */
+export interface SeasonDetailLevel {
+  /** Spilte kamper i konkurransen. */
+  played: number;
+  /** Felt fra `missing_fields` som mangler på hver eneste av dem, flest kamper først. */
+  missingOnAll: string[];
+}
+
+/**
+ * Hva dekningsmerket ikke måler.
+ *
+ * «Komplett» teller kamper: hver runde fra første til siste, like mange som
+ * sluttabellen sier. Alle de 22 kampene i 1982 er likevel uten lagoppstilling,
+ * dommer og tilskuertall — sesongen er en komplett resultatliste og et tynt
+ * sesongarkiv på samme tid. Merket kan ikke si begge deler, så det andre tallet
+ * hentes her og skrives ut ved siden av.
+ *
+ * Bare felt som mangler på *alle* kampene tas med. Et felt som mangler på noen av
+ * dem er et hull `SeasonGaps` allerede lister opp, med veien videre for den som
+ * vil fylle det; her er poenget hva merket over ikke har sett på i det hele tatt.
+ */
+export function loadSeasonDetailLevel(year: number, competitionId: string): SeasonDetailLevel {
+  const db = open();
+  try {
+    const played = one<{ n: number }>(
+      db,
+      `SELECT count(*) AS n FROM core_matches
+        WHERE season = ? AND competition_id = ? AND ${PLAYED_SQL}`,
+      year,
+      competitionId,
+    )?.n ?? 0;
+    if (played === 0) return { played, missingOnAll: [] };
+
+    const missingOnAll = all<{ field: string }>(
+      db,
+      `SELECT field.value AS field, count(*) AS matches
+         FROM core_matches m
+         JOIN json_each(m.missing_fields) field
+        WHERE m.season = ? AND m.competition_id = ? AND m.${PLAYED_SQL}
+        GROUP BY field.value
+       HAVING matches = ?
+        ORDER BY field`,
+      year,
+      competitionId,
+      played,
+    ).map((row) => row.field);
+
+    return { played, missingOnAll };
+  } finally {
+    db.close();
+  }
+}
+
 /**
  * Året før og året etter, blant de årene arkivet faktisk har.
  *

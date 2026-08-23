@@ -1586,6 +1586,21 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
 
 .coverage-summary { max-width: var(--measure); margin-top: 0.9rem; }
 
+/*
+ * Setningen som sier hva dekningsmerket har målt, og hva det ikke har målt. Står
+ * mellom tallstripa og sluttabellen, der de to tallsettene ellers motsier
+ * hverandre uten forklaring.
+ */
+.season-measure {
+  max-width: var(--measure);
+  margin: 0.85rem 0 0;
+  padding-left: 0.85rem;
+  border-left: 3px solid var(--border);
+}
+
+.season-sources { margin-top: 1.75rem; }
+.season-sources p { max-width: var(--measure); margin: 0 0 0.6rem; }
+
 /* ── Sluttabell ──────────────────────────────────────────────────────── */
 .season-standings { margin-top: 1.75rem; }
 .standings-table { font-variant-numeric: tabular-nums; font-size: 0.9rem; }

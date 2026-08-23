@@ -1,5 +1,6 @@
 import { PLAYED_SQL, all, open } from "@aafkstats/db";
-import type { SeasonSummary, SeasonYear } from "@/lib/archive";
+import type { SeasonDetailLevel, SeasonSummary, SeasonYear } from "@/lib/archive";
+import { FIELD_NAMES } from "@/components/SeasonGaps";
 
 /** AaFK ble stiftet i 1914. Alt før det er ikke et hull, det er før klubben fantes. */
 const FOUNDED = 1914;
@@ -94,7 +95,7 @@ function stripTitle(year: number, entry: SeasonYear): string {
 function coverageWord(season: SeasonSummary): string {
   switch (season.coverage) {
     case "complete":
-      return "komplett sesong";
+      return "komplett kampliste i serien";
     case "in_progress":
       return "sesongen pågår";
     case "partial":
@@ -102,7 +103,9 @@ function coverageWord(season: SeasonSummary): string {
     case "unverified":
       return "sammenhengende runder, ukjent omfang";
     default:
-      return "løsrevne kamper";
+      return season.expectedMatches
+        ? `${season.played} av ${season.expectedMatches} seriekamper`
+        : "løsrevne kamper";
   }
 }
 
@@ -139,13 +142,24 @@ export function CoverageTag({ season }: { season: SeasonSummary }) {
   );
 }
 
+/**
+ * Merket sier nå hva det har telt, ikke bare hvor godt det gikk.
+ *
+ * «Komplett · 26 runder» leses som at sesongen 1997 er ferdig dokumentert. Det
+ * merket måler er kamplista i serien: at arkivet har hver runde fra første til
+ * siste, og like mange kamper som sluttabellen sier. Det sier ingenting om cupen,
+ * og ingenting om hva som står på hver kamp — de 22 kampene i 1982 er alle uten
+ * lagoppstilling, dommer og tilskuertall. «26 av 26 seriekamper» er den samme
+ * påstanden med målestokken skrevet ut, og den kan leseren etterprøve mot
+ * sluttabellen rett under.
+ */
 function coverageText(season: SeasonSummary): string {
   switch (season.coverage) {
     case "complete":
-      return `Komplett · ${season.lastRound} runder`;
+      return `Komplett · ${season.played} av ${season.expectedMatches ?? season.played} seriekamper`;
     case "partial":
       return season.expectedMatches
-        ? `Delvis · ${season.played} av ${season.expectedMatches} kamper`
+        ? `Delvis · ${season.played} av ${season.expectedMatches} seriekamper`
         : `Delvis · ${season.played} av ${season.lastRound ?? "?"} runder`;
     case "unverified":
       // Merket sier hva vi har og hva vi ikke vet, ikke «komplett». Sesongen kan
@@ -154,7 +168,12 @@ function coverageText(season: SeasonSummary): string {
     case "in_progress":
       return `Pågår · ${season.played} kamper spilt`;
     default:
-      return `${season.played} kjente ${season.played === 1 ? "kamp" : "kamper"}`;
+      // Uten rundetall het dette «5 kjente kamper», også for 1955, der
+      // sluttabellen i arkivet sier at AaFK spilte fjorten. Nevneren fantes; den
+      // ble bare ikke brukt. Da sa merket mindre enn arkivet vet.
+      return season.expectedMatches
+        ? `${season.played} av ${season.expectedMatches} seriekamper`
+        : `${season.played} ${season.played === 1 ? "kjent kamp" : "kjente kamper"}`;
   }
 }
 
@@ -168,9 +187,10 @@ function coverageText(season: SeasonSummary): string {
 function coverageExplanation(season: SeasonSummary): string {
   switch (season.coverage) {
     case "complete":
-      return season.coverageEvidence === "rounds_and_standings"
+      return `${season.coverageEvidence === "rounds_and_standings"
         ? `Sluttabellen sier at AaFK spilte ${season.expectedMatches} kamper, og arkivet har like mange, med hver runde fra første til siste.`
-        : `Arkivet har hver runde fra første til siste, ${season.expectedMatches} kamper, som er det omfanget sesongfila oppgir.`;
+        : `Arkivet har hver runde fra første til siste, ${season.expectedMatches} kamper, som er det omfanget sesongfila oppgir.`
+      } Merket gjelder kamplista i serien, ikke hvor mye som står på hver kamp.`;
     case "partial":
       return season.expectedMatches
         ? `Sesongen hadde ${season.expectedMatches} kamper. Arkivet har ${season.played}.`
@@ -180,8 +200,93 @@ function coverageExplanation(season: SeasonSummary): string {
     case "in_progress":
       return "Sesongen pågår. Resten står på terminlista.";
     default:
-      return "Kampene mangler rundenummer, så arkivet vet bare at de ble spilt.";
+      return season.expectedMatches
+        ? `Sluttabellen sier at AaFK spilte ${season.expectedMatches} kamper. Arkivet har ${season.played}, og de mangler rundenummer, så vi vet ikke hvilke av rundene de var.`
+        : "Kampene mangler rundenummer, så arkivet vet bare at de ble spilt.";
   }
+}
+
+/**
+ * Hva merket over ikke har målt, i én setning.
+ *
+ * Sesongsiden viste stripa med seire, uavgjorte og mål rett over sluttabellen. For
+ * 1955 sto det 1 seier, 1 uavgjort, 3 tap og 5–9 i mål — over en tabell der AaFK
+ * står med 5-4-5 og 25–24. Begge var riktige: stripa teller de fem kampene
+ * arkivet har, tabellen hele sesongen. Ingenting på sida sa det, så to tallsett
+ * motsa hverandre en halv skjerm fra hverandre.
+ *
+ * Den andre halvdelen gjelder de komplette sesongene. «Komplett» teller kamper, og
+ * alle de 22 kampene i 1982 er uten lagoppstilling, dommer og tilskuertall.
+ * Sesongen er en hel resultatliste og et tynt sesongarkiv på samme tid, og
+ * merkelappen har bare plass til det ene.
+ */
+export function SeasonMeasure({
+  season,
+  detail,
+  detailed,
+}: {
+  season: SeasonSummary;
+  detail: SeasonDetailLevel;
+  /**
+   * Om setningen om detaljnivået skal med. Den gjelder hele sesongen like mye,
+   * men står bare én gang: gjentatt under cupen og treningskampene sier den det
+   * samme tre ganger på samme side.
+   */
+  detailed: boolean;
+}) {
+  const short = season.expectedMatches !== null
+    && season.coverage !== "complete"
+    && season.coverage !== "not_applicable"
+    && season.scheduled === 0
+    && season.expectedMatches > season.played;
+
+  const missing = detailed ? missingWords(detail.missingOnAll) : [];
+  if (!short && missing.length === 0) return null;
+
+  return (
+    <p className="small muted season-measure">
+      {short ? (
+        <>
+          Tallene over gjelder {season.played === 1 ? "den ene kampen" : `de ${season.played} kampene`}{" "}
+          arkivet har. Sluttabellen sier at AaFK spilte {season.expectedMatches}.{" "}
+        </>
+      ) : null}
+      {missing.length > 0 ? (
+        <>
+          {season.played === 1 ? "Kampen mangler " : `Ingen av de ${season.played} kampene har `}
+          {joinWords(missing)}.
+        </>
+      ) : null}
+    </p>
+  );
+}
+
+/** Hvor mange felt setningen rekker å nevne før den slutter å bli lest. */
+const MAX_FIELDS = 4;
+
+/**
+ * Feltene som mangler, i den rekkefølgen en leser savner dem.
+ *
+ * `missing_fields` kommer alfabetisk sortert fra spørringen, og «tilskuertall,
+ * mål og kort, lagoppstilling, dommer, kampreferat og stadion» er seks ledd der
+ * det viktigste står tredje. Rekkefølgen her er den samme som i
+ * `COMPLETENESS_FIELDS`, altså den arkivet selv vekter etter.
+ */
+function missingWords(fields: string[]): string[] {
+  const order = Object.keys(FIELD_NAMES);
+  const named = fields
+    .filter((field) => FIELD_NAMES[field] !== undefined)
+    .sort((a, b) => order.indexOf(a) - order.indexOf(b))
+    .map((field) => FIELD_NAMES[field]!);
+  if (named.length <= MAX_FIELDS) return named;
+  const rest = named.length - MAX_FIELDS;
+  return [...named.slice(0, MAX_FIELDS), `${rest} felt til`];
+}
+
+/** «lagoppstilling, dommer og tilskuertall» — norsk oppramsing, ikke kommaliste. */
+function joinWords(words: string[]): string {
+  if (words.length === 1) return words[0]!;
+  return `${words.slice(0, -1).join(", ")} og ${words.at(-1)}`;
 }
 
 /**
@@ -204,7 +309,8 @@ export function CoverageSummary({ seasons }: { seasons: SeasonSummary[] }) {
   return (
     <p className="small muted coverage-summary">
       {complete} av {leagues.length} seriesesonger ligger inne komplett. Det betyr hver runde
-      fra første til siste, og like mange kamper som sluttabellen sier at AaFK spilte.
+      fra første til siste, og like mange kamper som sluttabellen sier at AaFK spilte — en
+      hel kampliste, ikke en sesong der alt er kjent om hver kamp.
       {unverified > 0 && (
         <> {unverified} {unverified === 1 ? "sesong har" : "sesonger har"} sammenhengende runder
         uten at noen kilde sier hvor mange det skulle vært.</>

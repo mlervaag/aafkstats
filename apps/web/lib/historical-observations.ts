@@ -6,7 +6,7 @@ export interface HistoricalObservation {
 }
 interface ObservationRow extends Omit<HistoricalObservation, "sources"> { sources: string }
 
-function parseSources(value: string): CitedRef[] {
+function parseSources(value: string): (CitedRef & { fields?: unknown })[] {
   try {
     const parsed: unknown = JSON.parse(value);
     return Array.isArray(parsed) ? parsed.filter((ref): ref is CitedRef =>
@@ -50,8 +50,25 @@ export function getVenueObservations(venueId: string): HistoricalObservation[] {
     WHERE v.venue_id = ? ${ORDER}`, venueId);
 }
 
-export function getSeasonSources(year: number): CitedRef[] {
+/** En kilde til sesongposten, med feltene den faktisk belegger. */
+export interface SeasonSourceRef extends CitedRef {
+  fields: string[];
+}
+
+/**
+ * Kildene bak sesongposten — sluttplass, lagtall, forventet omfang.
+ *
+ * `fields` blir med. Overskriften over brikkene het «Kilder til sesongoversikten»
+ * og sto i store bokstaver over én eneste brikke på 31 av de 35 sesongene som har
+ * en kilde i det hele tatt. Den fortalte hverken hvor mange kilder det var eller
+ * hva de belegger, og «sesongoversikten» finnes ikke som noe på sida. Feltlista
+ * ligger i dataene og sier det presist.
+ */
+export function getSeasonSources(year: number): SeasonSourceRef[] {
   const db = open();
-  try { return all<{ sources: string }>(db, "SELECT sources FROM core_seasons WHERE year = ?", year).flatMap((row) => parseSources(row.sources)); }
-  finally { db.close(); }
+  try {
+    return all<{ sources: string }>(db, "SELECT sources FROM core_seasons WHERE year = ?", year)
+      .flatMap((row) => parseSources(row.sources))
+      .map((ref) => ({ ...ref, fields: Array.isArray(ref.fields) ? ref.fields : [] }));
+  } finally { db.close(); }
 }
