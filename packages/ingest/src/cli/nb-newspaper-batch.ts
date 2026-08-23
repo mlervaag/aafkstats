@@ -27,6 +27,7 @@ const args = parseArgs({
     "window-days": { type: "string" },
     "expanded-window-days": { type: "string" },
     "candidate-limit": { type: "string" },
+    "search-query-limit": { type: "string" },
     dateless: { type: "boolean" },
     season: { type: "string" },
     "likely-months-only": { type: "boolean" },
@@ -119,6 +120,7 @@ const positiveInteger = (valueText: string | undefined, name: string, fallback: 
 const windowDays = positiveInteger(args.values["window-days"], "window-days", 2);
 const expandedWindowDays = positiveInteger(args.values["expanded-window-days"], "expanded-window-days", 3);
 const candidateLimit = positiveInteger(args.values["candidate-limit"], "candidate-limit", 5);
+const searchQueryLimit = positiveInteger(args.values["search-query-limit"], "search-query-limit", 8);
 if (expandedWindowDays < windowDays) throw new Error("--expanded-window-days må være minst --window-days");
 
 // Rapporten inneholder OCR-utdrag til kontroll og hører derfor hjemme i den
@@ -132,6 +134,7 @@ const report = await runNewspaperBatch(archive, {
   windowDays,
   expandedWindowDays,
   candidateLimit,
+  searchQueryLimit,
   ...(args.values.refresh ? { refresh: true } : {}),
   reportFile,
   onProgress: (entry) => {

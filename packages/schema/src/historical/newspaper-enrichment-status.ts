@@ -8,15 +8,21 @@ import { loadArchive } from "../load.js";
 
 export const newspaperReviewStatus = z.enum([
   "candidate_found",
+  "ocr_correlated",
   "visually_confirmed",
+  "no_ocr_candidate",
   "not_found",
-  "conflict",
+  "conflict_candidate",
   "not_digitized",
 ]);
 
 const reviewEntry = z.object({
   matchId: z.string().min(1),
   status: newspaperReviewStatus,
+  reviewMethod: z.enum(["ocr_api", "facsimile"]),
+  facsimileReviewed: z.boolean().default(false),
+  confidence: z.enum(["high", "medium", "low"]).default("low"),
+  canonicalLinked: z.boolean().default(false),
   issueId: z.string().min(1).optional(),
   urn: z.string().min(1).optional(),
   url: z.string().url().optional(),
@@ -53,18 +59,30 @@ export interface NewspaperEnrichmentStatusEntry {
   homeAway: "home" | "away";
   score: string;
   existingSmpSource: boolean;
+  facsimileVerified: boolean;
   lineup: boolean;
   goalscorers: boolean;
   arena: boolean;
   attendance: boolean;
+  referee: boolean;
+  halfTimeScore: boolean;
   reviewStatus: "pending" | z.infer<typeof newspaperReviewStatus>;
   review?: Omit<NewspaperReviewEntry, "matchId" | "status">;
 }
 
 export interface NewspaperEnrichmentStatus {
-  contract: "newspaper-enrichment-status@1";
+  contract: "newspaper-enrichment-status@2";
   generatedFrom: { authoritativeAsOf: "working-tree"; inputs: string[] };
-  searchPolicy: { initialWindowDays: number; expandedWindowDays: number; resultIsRequired: false; visualReviewRequired: true };
+  searchPolicy: {
+    initialWindowDays: number;
+    expandedWindowDays: number;
+    resultIsRequired: false;
+    visualReviewRequired: true;
+    pilot1979: {
+      visualReviewRequired: false;
+      reviewBasis: "nb_ocr_api_user_waiver";
+    };
+  };
   totals: Record<string, number>;
   pilot1979: Record<string, number>;
   queue: string[];
@@ -111,11 +129,14 @@ export async function buildNewspaperEnrichmentStatus(repo: string): Promise<News
         competition: match.competition.id,
         homeAway: isHome ? "home" : "away",
         score: `${match.home.score}-${match.away.score}`,
-        existingSmpSource: sourceCoverage || review?.status === "visually_confirmed",
+        existingSmpSource: sourceCoverage,
+        facsimileVerified: review?.status === "visually_confirmed" || review?.facsimileReviewed === true,
         lineup: (aafkLineup?.starters.length ?? 0) > 0,
         goalscorers,
         arena: match.venueId !== undefined,
         attendance: match.attendance !== undefined,
+        referee: match.referee !== undefined,
+        halfTimeScore: match.home.halfTimeScore !== null && match.away.halfTimeScore !== null,
         reviewStatus: review?.status ?? "pending",
         ...(review ? { review: withoutIdentity(review) } : {}),
       };
@@ -129,12 +150,21 @@ export async function buildNewspaperEnrichmentStatus(repo: string): Promise<News
   const pilotQueue = pilot.filter((entry) => queue.includes(entry.matchId)).length;
 
   return {
-    contract: "newspaper-enrichment-status@1",
+    contract: "newspaper-enrichment-status@2",
     generatedFrom: {
       authoritativeAsOf: "working-tree",
       inputs: ["data/seasons/*/matches/*.yaml", "data/clubs/*.yaml", "data/sources/*.yaml", "data/discovery/newspaper-enrichment-reviews.yaml"],
     },
-    searchPolicy: { initialWindowDays: 2, expandedWindowDays: 3, resultIsRequired: false, visualReviewRequired: true },
+    searchPolicy: {
+      initialWindowDays: 2,
+      expandedWindowDays: 3,
+      resultIsRequired: false,
+      visualReviewRequired: true,
+      pilot1979: {
+        visualReviewRequired: false,
+        reviewBasis: "nb_ocr_api_user_waiver",
+      },
+    },
     totals,
     pilot1979: summarize(pilot, pilotQueue),
     queue,
@@ -162,14 +192,20 @@ function summarize(entries: NewspaperEnrichmentStatusEntry[], queue: number): Re
   return {
     canonicalMatchesInScope: entries.length,
     withSmpSource: entries.filter((entry) => entry.existingSmpSource).length,
+    ocrCorrelated: entries.filter((entry) => entry.reviewStatus === "ocr_correlated").length,
+    facsimileVerified: entries.filter((entry) => entry.facsimileVerified).length,
+    noOcrCandidate: entries.filter((entry) => entry.reviewStatus === "no_ocr_candidate").length,
     matchReports: reviewed.filter((entry) => entry.review?.genres.includes("match_report")).length,
     notFound: entries.filter((entry) => entry.reviewStatus === "not_found").length,
-    pending: queue,
+    pending: entries.filter((entry) => entry.reviewStatus === "pending").length,
+    residualQueue: queue,
     lineups: entries.filter((entry) => entry.lineup).length,
     goalscorers: entries.filter((entry) => entry.goalscorers).length,
     arenas: entries.filter((entry) => entry.arena).length,
     attendances: entries.filter((entry) => entry.attendance).length,
-    conflicts: entries.filter((entry) => entry.reviewStatus === "conflict").length,
+    referees: entries.filter((entry) => entry.referee).length,
+    halfTimeScores: entries.filter((entry) => entry.halfTimeScore).length,
+    conflictCandidates: entries.filter((entry) => entry.reviewStatus === "conflict_candidate").length,
     newLineups: reviewed.filter((entry) => entry.review?.fieldsAdded.includes("lineups")).length,
     newPlayers: reviewed.reduce((sum, entry) => sum + (entry.review?.newPlayers ?? 0), 0),
     newGoalscorers: reviewed.filter((entry) => entry.review?.fieldsAdded.includes("goalscorers")).length,
@@ -177,6 +213,7 @@ function summarize(entries: NewspaperEnrichmentStatusEntry[], queue: number): Re
     newArenas: reviewed.filter((entry) => entry.review?.fieldsAdded.includes("venueId")).length,
     newAttendances: reviewed.filter((entry) => entry.review?.fieldsAdded.includes("attendance")).length,
     newReferees: reviewed.filter((entry) => entry.review?.fieldsAdded.includes("referee")).length,
+    newHalfTimeScores: reviewed.filter((entry) => entry.review?.fieldsAdded.includes("home.halfTimeScore")).length,
     newHistoricalObservations: reviewed.reduce((sum, entry) => sum + (entry.review?.newHistoricalObservations ?? 0), 0),
     ocrFalsePositives: reviewed.filter((entry) => entry.review?.falsePositive).length,
     differentMatch: reviewed.filter((entry) => entry.review?.differentMatch).length,

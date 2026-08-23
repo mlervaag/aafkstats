@@ -17,7 +17,10 @@ away:
 neutralVenue: false
 events: []
 externalReports: []
-providers: []
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/19df61960aa326426ee93930ef220ad0?page=7
+    retrievedAt: 2026-08-23
 confidence: confirmed
 conflicts: []
 tags: []
@@ -33,4 +36,8 @@ sources:
       - away.clubId
       - home.score
       - away.score
-    note: "Årsberetningens statistikk for A-laget 1979 (s. 3) fører kampen med dato, motstander og resultat. Stjerne betyr bortekamp."
+    note: Årsberetningens statistikk for A-laget 1979 (s. 3) fører kampen med dato, motstander og resultat. Stjerne betyr bortekamp.
+  - sourceId: sunnmorsposten-19790802-19df61960aa326426ee93930ef220ad0
+    page: "7"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
