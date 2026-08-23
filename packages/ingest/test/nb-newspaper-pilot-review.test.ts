@@ -54,6 +54,7 @@ describe("1979 OCR pilot review", () => {
       confidence: "high",
       canonicalLinked: false,
       visuallyReviewedPages: 0,
+      evidenceIssues: [{ issueId: "issue", reviewMethod: "ocr_api", facsimileReviewed: false, canonicalLinked: false }],
     });
   });
 
@@ -63,5 +64,6 @@ describe("1979 OCR pilot review", () => {
     const [fixtureReview, conflictReview] = buildPilotReviewEntries(report([entry(fixture), { ...entry(conflict), matchId: "1979-07-29-hodd-aalesunds-fk" }]));
     expect(fixtureReview?.status).toBe("no_ocr_candidate");
     expect(conflictReview?.status).toBe("conflict_candidate");
+    expect(conflictReview?.conflict).toEqual({ field: "score", canonical: "0-1", newspaper: "2-1" });
   });
 });

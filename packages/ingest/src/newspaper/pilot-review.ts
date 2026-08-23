@@ -3,10 +3,11 @@ import type { BatchEntry, BatchReport, IssueRef, NewspaperGenre } from "../adapt
 export interface PilotReviewEntry {
   matchId: string;
   status: "ocr_correlated" | "no_ocr_candidate" | "conflict_candidate" | "not_digitized";
-  reviewMethod: "ocr_api";
-  facsimileReviewed: false;
+  reviewMethod: "ocr_api" | "facsimile";
+  facsimileReviewed: boolean;
   confidence: "high" | "medium" | "low";
   canonicalLinked: boolean;
+  evidenceIssues: PilotReviewEvidence[];
   issueId?: string;
   urn?: string;
   url?: string;
@@ -22,7 +23,21 @@ export interface PilotReviewEntry {
   newHistoricalObservations: 0;
   falsePositive: boolean;
   differentMatch: boolean;
+  conflict?: { field: "score"; canonical: string; newspaper: string };
   note: string;
+}
+
+export interface PilotReviewEvidence {
+  issueId: string;
+  urn?: string;
+  url: string;
+  issued?: string;
+  page?: string;
+  reviewMethod: "ocr_api" | "facsimile";
+  facsimileReviewed: boolean;
+  canonicalLinked: boolean;
+  confidence: "high" | "medium" | "low";
+  genres: NewspaperGenre[];
 }
 
 const NON_EVENT_GENRES = new Set<NewspaperGenre>(["standings", "fixture_list", "advertisement", "unknown"]);
@@ -39,6 +54,7 @@ function reviewEntry(entry: BatchEntry): PilotReviewEntry {
   const conflict = candidate.scoreConflict !== undefined;
   const exactScore = candidate.reasons.some((reason) => reason.startsWith("resultat:"));
   const confidence = conflict || exactScore ? "high" : candidate.score >= 70 ? "high" : "medium";
+  const evidence = evidenceFor(candidate, confidence);
   return {
     matchId: entry.matchId,
     status: conflict ? "conflict_candidate" : "ocr_correlated",
@@ -46,6 +62,7 @@ function reviewEntry(entry: BatchEntry): PilotReviewEntry {
     facsimileReviewed: false,
     confidence,
     canonicalLinked: false,
+    evidenceIssues: [evidence],
     issueId: candidate.id,
     ...(candidate.urn ? { urn: candidate.urn } : {}),
     url: candidate.pageUrl,
@@ -61,6 +78,7 @@ function reviewEntry(entry: BatchEntry): PilotReviewEntry {
     newHistoricalObservations: 0,
     falsePositive: false,
     differentMatch: false,
+    ...(candidate.scoreConflict ? { conflict: { field: "score" as const, ...candidate.scoreConflict } } : {}),
     note: conflict
       ? "OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving."
       : "Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.",
@@ -75,6 +93,7 @@ function terminal(entry: BatchEntry, status: PilotReviewEntry["status"], note: s
     facsimileReviewed: false,
     confidence: "low",
     canonicalLinked: false,
+    evidenceIssues: [],
     searchedIssues: entry.candidateIssuesFound,
     ocrCandidates: entry.candidates.length,
     visuallyReviewedPages: 0,
@@ -86,6 +105,21 @@ function terminal(entry: BatchEntry, status: PilotReviewEntry["status"], note: s
     falsePositive: false,
     differentMatch: false,
     note,
+  };
+}
+
+function evidenceFor(issue: IssueRef, confidence: PilotReviewEvidence["confidence"]): PilotReviewEvidence {
+  return {
+    issueId: issue.id,
+    ...(issue.urn ? { urn: issue.urn } : {}),
+    url: issue.pageUrl,
+    ...(issue.issued ? { issued: compactToIso(issue.issued) } : {}),
+    ...(issue.page ? { page: issue.page } : {}),
+    reviewMethod: "ocr_api",
+    facsimileReviewed: false,
+    canonicalLinked: false,
+    confidence,
+    genres: issue.genres,
   };
 }
 

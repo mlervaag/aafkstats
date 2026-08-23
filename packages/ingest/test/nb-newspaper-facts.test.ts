@@ -111,6 +111,20 @@ describe("extractMatchFacts", () => {
     )).toBeNull();
   });
 
+  it("krever eksplisitt dommerrolle og holder personnavnet i riktig kampboks", () => {
+    const utenRolle = extractMatchFacts(
+      [{ text: "ÅFK-HØDD 2-0 (1-0) Kråmyra 3200 tilskuere Sjur Hatløy var sikker." }],
+      { homeNames: AAFK, awayNames: HODD, score: "2-0" },
+    )!;
+    expect(utenRolle.referee).toBeUndefined();
+
+    const toBokser = extractMatchFacts(
+      [{ text: "ÅFK-HØDD 2-0 (1-0) Kråmyra 3200 tilskuere VALDER-FYLLINGEN 1-1 (0-0) Valdervoll 300 tilskuere Dommer: Ola Nordmann" }],
+      { homeNames: AAFK, awayNames: HODD, score: "2-0" },
+    )!;
+    expect(toBokser.referee).toBeUndefined();
+  });
+
   it("tar med laguppstillingen som ukontrollert OCR", () => {
     const facts = extractMatchFacts(
       [{ text: "ÅFK-HØDD 2-0 (1-0) Kråmyra 3200 tilskuere ÅFK: Sverre kngeskar, Bobbo Aam, Eivind Syversen, Øyvind Lervåg" }],

@@ -33,6 +33,15 @@ for (const entry of entries) {
     entry.fieldsAdded = prior.fieldsAdded;
     entry.newEvents = prior.newEvents;
   }
+  if (prior) {
+    entry.canonicalLinked ||= prior.canonicalLinked;
+    entry.fieldsAdded = [...new Set([...prior.fieldsAdded, ...entry.fieldsAdded])];
+    entry.evidenceIssues = mergeEvidence(prior.evidenceIssues ?? [], entry.evidenceIssues);
+  }
+  if (entry.canonicalLinked) {
+    const primary = entry.evidenceIssues.find((evidence) => evidence.issueId === entry.issueId);
+    if (primary) primary.canonicalLinked = true;
+  }
 }
 
 if (args.values.write) {
@@ -88,6 +97,8 @@ if (args.values.write) {
     }
     await writeFile(absoluteMatchFile, stringifyYaml(match, { lineWidth: 0 }), "utf8");
     review.canonicalLinked = true;
+    const linkedEvidence = review.evidenceIssues.find((evidence) => evidence.issueId === issue.id);
+    if (linkedEvidence) linkedEvidence.canonicalLinked = true;
     if (fields.length > 0) review.fieldsAdded = fields;
     linked += 1;
     if (fields.length > 0) factsWritten += 1;
@@ -100,7 +111,7 @@ const merged = [...previous.filter((entry) => !currentIds.has(entry.matchId)), .
   .sort((left, right) => left.matchId.localeCompare(right.matchId));
 await mkdir(dirname(output), { recursive: true });
 const temporary = `${output}.tmp`;
-await writeFile(temporary, stringifyYaml({ contract: "newspaper-enrichment-reviews@1", entries: merged }, { lineWidth: 0 }), "utf8");
+await writeFile(temporary, stringifyYaml({ contract: "newspaper-enrichment-reviews@2", entries: merged }, { lineWidth: 0 }), "utf8");
 await rename(temporary, output);
 const counts = new Map<string, number>();
 for (const entry of entries) counts.set(entry.status, (counts.get(entry.status) ?? 0) + 1);
@@ -147,6 +158,12 @@ function isSafeRefereeName(value: string): boolean {
   if (normalized.split(/\s+/u).length < 2) return false;
   const plain = normalized.toLocaleLowerCase("nb").normalize("NFKD").replace(/\p{M}/gu, "");
   return !/[bcdfghjklmnpqrstvwxz]{4}/u.test(plain);
+}
+
+function mergeEvidence<T extends { issueId: string }>(prior: T[], current: T[]): T[] {
+  const byIssue = new Map(prior.map((item) => [item.issueId, item]));
+  for (const item of current) byIssue.set(item.issueId, item);
+  return [...byIssue.values()].sort((left, right) => left.issueId.localeCompare(right.issueId));
 }
 
 async function readExistingEntries(path: string): Promise<ReturnType<typeof buildPilotReviewEntries>> {

@@ -91,6 +91,7 @@ interface BoxHeader {
   teams: [string, string];
   score: string;
   halfTime?: { home: number; away: number };
+  start: number;
   /** Der overskriften slutter — der arena og tilskuertall begynner. */
   end: number;
 }
@@ -115,6 +116,7 @@ function headersIn(text: string): BoxHeader[] {
       ...(match[3] === undefined || match[4] === undefined
         ? {}
         : { halfTime: { home: Number(match[3]), away: Number(match[4]) } }),
+      start: index,
       end: index + match[0].length,
     });
   }
@@ -175,35 +177,40 @@ export function extractMatchFacts(
   for (const { fragment, text } of anchored) {
     const header = anchoredHeader(text, options);
     if (header?.halfTime !== undefined && facts.halfTime === undefined) facts.halfTime = header.halfTime;
+    if (!header) continue;
+    const nextHeader = headersIn(text).find((candidate) => candidate.start > header.start);
+    const claim = text.slice(header.end, nextHeader?.start ?? text.length);
 
     // Arena og tilskuertall står mellom overskriften og «Mål:», i to former:
     // «Kråmyra stadion 3200 tilskuere» og «Kuventræ stadion Tilskuere: 650».
     // Pausestillingen i parentes mangler i mange bokser, så den kan ikke være
     // festepunktet — teksten rett etter overskriften er det.
-    const crowd = crowdIn(header ? text.slice(header.end) : "");
+    const crowd = crowdIn(claim);
     if (crowd) {
       if (facts.venue === undefined && crowd.venue !== "") facts.venue = crowd.venue;
       if (facts.attendance === undefined && crowd.attendance !== undefined) facts.attendance = crowd.attendance;
     }
 
-    const referee = /Dommer:?([^,.;:]{3,40})/u.exec(text);
+    // Personnavn krever en eksplisitt rollemarkør. Et navn som bare står i
+    // nærheten av kampboksen er ikke tilstrekkelig personbinding.
+    const referee = /\bDommer\s*[:\u2013\u2014-]\s*([^,.;:]{3,40})/iu.exec(claim);
     if (referee && facts.referee === undefined) facts.referee = tidy(referee[1]!);
 
-    for (const goal of goalsIn(text)) {
+    for (const goal of goalsIn(claim)) {
       if (!facts.goals.some((existing) => existing.standing === goal.standing && existing.minute === goal.minute)) {
         facts.goals.push(goal);
       }
     }
 
     for (const [type, pattern] of [["yellow", /Gult? kort:?([^.:]{3,120})/u], ["red", /Rødt kort:?([^.:]{3,120})/u]] as const) {
-      const card = pattern.exec(text);
+      const card = pattern.exec(claim);
       if (card && !facts.cards.some((existing) => existing.type === type)) {
         facts.cards.push({ type, players: tidy(card[1]!) });
       }
     }
 
     for (const team of [options.homeNames, options.awayNames]) {
-      const lineup = lineupIn(text, team);
+      const lineup = lineupIn(claim, team);
       if (lineup && !facts.lineups.some((existing) => existing.team === lineup.team)) facts.lineups.push(lineup);
     }
 
