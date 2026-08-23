@@ -135,8 +135,8 @@ testene og av visningslaget. Én implementasjon kan ikke bli uenig med seg selv.
 SQLite har ingen schemas, så skillet mellom internt og publisert uttrykkes med navn:
 
 - **`core_*`** er interne tabeller. Rådata, alle kolonner, ingen garantier.
-- **Viewene uten prefiks** — `matches`, `match_stats`, `seasons`, `opponents`, `match_events`, `sources` og
-  FTS-tabellen `reports` — er den offentlige kontrakten.
+- **Viewene uten prefiks** — `matches`, `match_stats`, `seasons`, `season_coverage`, `opponents`,
+  `match_events`, `sources` og FTS-tabellen `reports` — er den offentlige kontrakten.
 
 ### Proveniens: Providers vs Sources
 

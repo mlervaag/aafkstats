@@ -1,5 +1,5 @@
 import { PLAYED_SQL, all, open } from "@aafkstats/db";
-import type { SeasonDetailLevel, SeasonSummary, SeasonYear } from "@/lib/archive";
+import type { SeasonCoverage, SeasonDetailLevel, SeasonSummary, SeasonYear } from "@/lib/archive";
 import { FIELD_NAMES } from "@/components/SeasonGaps";
 
 /** AaFK ble stiftet i 1914. Alt før det er ikke et hull, det er før klubben fantes. */
@@ -156,7 +156,7 @@ export function CoverageTag({ season }: { season: SeasonSummary }) {
 function coverageText(season: SeasonSummary): string {
   switch (season.coverage) {
     case "complete":
-      return `Komplett · ${season.played} av ${season.expectedMatches ?? season.played} seriekamper`;
+      return `${season.played} av ${season.expectedMatches ?? season.played} seriekamper`;
     case "partial":
       return season.expectedMatches
         ? `Delvis · ${season.played} av ${season.expectedMatches} seriekamper`
@@ -204,6 +204,52 @@ function coverageExplanation(season: SeasonSummary): string {
         ? `Sluttabellen sier at AaFK spilte ${season.expectedMatches} kamper. Arkivet har ${season.played}, og de mangler rundenummer, så vi vet ikke hvilke av rundene de var.`
         : "Kampene mangler rundenummer, så arkivet vet bare at de ble spilt.";
   }
+}
+
+/**
+ * Er hele sesongen kanonisert?
+ *
+ * «Komplett» sto på konkurransemerket, ved siden av «1. divisjon», og målte
+ * kamplista i serien. En leser leser det som året. 2019 hadde hele serien inne
+ * og sto som komplett, mens cupkvartfinalen mot Viking ligger i arkivet som 1–1
+ * uten straffesparkkonkurranse — sesongen var merket komplett med et cupresultat
+ * arkivet ikke kjenner.
+ *
+ * Ordet hører derfor til her, på året, og betyr det samme som det ser ut som:
+ * serien hel, cupen spilt til laget røk ut, europacupen likeså. Konkurransemerket
+ * sier fortsatt hva det har, bare uten å låne ordet.
+ */
+export function SeasonCoverageTag({ coverage }: { coverage: SeasonCoverage | null }) {
+  if (!coverage) return null;
+
+  if (coverage.status === "complete") {
+    const parts = ["Serien er hel: hver runde fra første til siste, like mange kamper som"
+      + (coverage.hasStandings ? " sluttabellen sier." : " omfanget sesongfila oppgir.")];
+    if (coverage.cupMatches > 0) parts.push("Cupen er spilt til laget røk ut.");
+    if (coverage.europeanMatches > 0) parts.push("Europacupen likeså.");
+    parts.push("Treningskamper teller ikke: ingen kilde sier hvor mange de var.");
+    return (
+      <span className="coverage-tag coverage-complete" title={parts.join(" ")}>
+        Komplett sesong{coverage.hasStandings ? "" : " · uten tabell"}
+      </span>
+    );
+  }
+
+  // Står serien igjen, sier konkurransemerket det allerede, med tall. To merker
+  // som sier det samme ved siden av hverandre er ett merke for mye.
+  const unfinished = coverage.status === "partial"
+    && (coverage.blocker === "cup_unfinished" || coverage.blocker === "european_unfinished");
+  if (!unfinished) return null;
+
+  const cup = coverage.blocker === "cup_unfinished";
+  return (
+    <span
+      className="coverage-tag coverage-partial"
+      title={`Den siste ${cup ? "cupkampen" : "europacupkampen"} i arkivet er verken et tap, en finale eller en uavgjort avgjort på straffer. Enten mangler neste kamp, eller så mangler resultatet av den siste. Serien er hel.`}
+    >
+      {cup ? "Cupen" : "Europacupen"} står åpen
+    </span>
+  );
 }
 
 /**
@@ -295,7 +341,8 @@ function joinWords(words: string[]): string {
  * Står under sesongoversikten, der påstanden «85 sesonger» ellers ville stått
  * alene og lovet mer enn arkivet har.
  */
-export function CoverageSummary({ seasons }: { seasons: SeasonSummary[] }) {
+export function CoverageSummary({ years }: { years: SeasonYear[] }) {
+  const seasons = years.flatMap((year) => (year.primary ? [year.primary] : []));
   // Sesonger som pågår holdes utenfor. De kan ikke være komplette ennå, og telt
   // med ville de trukket ned et tall som skal si noe om hva arkivet mangler.
   const leagues = seasons.filter(
@@ -306,20 +353,33 @@ export function CoverageSummary({ seasons }: { seasons: SeasonSummary[] }) {
   const unverified = leagues.filter((season) => season.coverage === "unverified").length;
   if (leagues.length === 0) return null;
 
+  // Året sett under ett, ikke bare serien. Forskjellen på de to tallene er hele
+  // poenget: en hel serie er ikke en hel sesong.
+  const whole = years.filter((year) => year.coverage?.status === "complete").length;
+  const cupOpen = years.filter(
+    (year) => year.coverage?.blocker === "cup_unfinished"
+      || year.coverage?.blocker === "european_unfinished",
+  ).length;
+
   return (
     <p className="small muted coverage-summary">
-      {complete} av {leagues.length} seriesesonger ligger inne komplett. Det betyr hver runde
+      {whole} år er komplette: serien hel, cupen spilt til laget røk ut, og europacupen
+      likeså de årene den ble spilt. Treningskamper teller ikke — ingen kilde sier hvor
+      mange de var, så et krav om dem ville gjort hvert år ufullstendig for alltid.{" "}
+      {complete} av {leagues.length} seriesesonger er hele hver for seg. Det betyr hver runde
       fra første til siste, og like mange kamper som sluttabellen sier at AaFK spilte — en
       hel kampliste, ikke en sesong der alt er kjent om hver kamp.
+      {cupOpen > 0 && (
+        <> {cupOpen} {cupOpen === 1 ? "år har hel serie, men" : "år har hel serie, men"} en
+        cuprekke som slutter et sted laget ikke røk ut.</>
+      )}
       {unverified > 0 && (
         <> {unverified} {unverified === 1 ? "sesong har" : "sesonger har"} sammenhengende runder
         uten at noen kilde sier hvor mange det skulle vært.</>
       )}
       {fragments > 0 && (
         <> {fragments} år har bare enkeltkamper vi kjenner til.</>
-      )}{" "}
-      Cupen telles ikke her: den slutter når laget ryker ut, så det finnes ingen komplett
-      cupsesong å måle mot.
+      )}
     </p>
   );
 }

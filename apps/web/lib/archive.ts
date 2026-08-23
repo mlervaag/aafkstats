@@ -441,6 +441,73 @@ export function loadCoverage(): ArchiveCoverage {
  * som skjer i tillegg. Grensesnittet må vise begge uten å blande dem, og uten å
  * la et cupexit på én kamp se ut som en hel sesong.
  */
+/**
+ * Ett svar for hele sesongåret, fra `season_coverage`.
+ *
+ * `SeasonSummary.coverage` gjelder én konkurranse. «Komplett» på serieraden
+ * betyr at serien er hel, ikke at året er det — 2019 hadde hele serien inne
+ * mens cupkvartfinalen mot Viking står som 1–1 uten straffesparkkonkurranse.
+ */
+export interface SeasonCoverage {
+  season: number;
+  status: "complete" | "partial" | "in_progress" | "unknown";
+  blocker:
+    | "none"
+    | "season_in_progress"
+    | "no_league_season"
+    | "league_incomplete"
+    | "cup_unfinished"
+    | "european_unfinished";
+  leagueCompetitions: number;
+  leagueComplete: number;
+  cupMatches: number;
+  cupClosed: boolean | null;
+  europeanMatches: number;
+  europeanClosed: boolean | null;
+  hasStandings: boolean;
+  scheduled: number;
+}
+
+interface SeasonCoverageRow {
+  season: number;
+  status: SeasonCoverage["status"];
+  blocker: SeasonCoverage["blocker"];
+  league_competitions: number;
+  league_complete: number;
+  cup_matches: number;
+  cup_closed: number | null;
+  european_matches: number;
+  european_closed: number | null;
+  has_standings: number;
+  scheduled: number;
+}
+
+function mapSeasonCoverage(row: SeasonCoverageRow): SeasonCoverage {
+  return {
+    season: row.season,
+    status: row.status,
+    blocker: row.blocker,
+    leagueCompetitions: row.league_competitions,
+    leagueComplete: row.league_complete,
+    cupMatches: row.cup_matches,
+    cupClosed: row.cup_closed === null ? null : row.cup_closed === 1,
+    europeanMatches: row.european_matches,
+    europeanClosed: row.european_closed === null ? null : row.european_closed === 1,
+    hasStandings: row.has_standings === 1,
+    scheduled: row.scheduled,
+  };
+}
+
+export function loadSeasonCoverage(year: number): SeasonCoverage | null {
+  const db = open();
+  try {
+    const row = one<SeasonCoverageRow>(db, "SELECT * FROM season_coverage WHERE season = ?", year);
+    return row ? mapSeasonCoverage(row) : null;
+  } finally {
+    db.close();
+  }
+}
+
 export interface SeasonYear {
   year: number;
   /** Serien når den finnes, ellers den konkurransen med flest kamper. */
@@ -450,6 +517,8 @@ export interface SeasonYear {
   totalMatches: number;
   /** Kildedokumenterte resultater som ennå mangler dato eller hjemme/borte. */
   documentedResults: number;
+  /** Året sett under ett: serie, cup og europacup. Null for år uten kamper. */
+  coverage: SeasonCoverage | null;
 }
 
 function competitionPriority(s: SeasonSummary): number {
@@ -505,6 +574,17 @@ export function loadSeasonYears(): SeasonYear[] {
   for (const row of documented) if (!byYear.has(row.season)) byYear.set(row.season, []);
   const documentedByYear = new Map(documented.map((row) => [row.season, row.results]));
 
+  const coverageDb = open();
+  let seasonCoverage: Map<number, SeasonCoverage>;
+  try {
+    seasonCoverage = new Map(
+      all<SeasonCoverageRow>(coverageDb, "SELECT * FROM season_coverage")
+        .map((row) => [row.season, mapSeasonCoverage(row)]),
+    );
+  } finally {
+    coverageDb.close();
+  }
+
   return [...byYear.entries()]
     .map(([year, rows]) => {
       const sorted = [...rows].sort(seasonRank);
@@ -514,6 +594,7 @@ export function loadSeasonYears(): SeasonYear[] {
         others: sorted.slice(1),
         totalMatches: rows.reduce((sum, r) => sum + r.played, 0),
         documentedResults: documentedByYear.get(year) ?? 0,
+        coverage: seasonCoverage.get(year) ?? null,
       };
     })
     .sort((a, b) => b.year - a.year);

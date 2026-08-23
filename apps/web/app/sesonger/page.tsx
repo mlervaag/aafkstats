@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import { JsonLd } from "@/components/JsonLd";
 import { collectionJsonLd } from "@/lib/jsonld";
-import { CompetitionSpread, CoverageStrip, CoverageSummary, CoverageTag } from "@/components/Coverage";
+import { CompetitionSpread, CoverageStrip, CoverageSummary, CoverageTag, SeasonCoverageTag } from "@/components/Coverage";
 import { loadSeasonYears } from "@/lib/archive";
 import type { SeasonSummary, SeasonYear } from "@/lib/archive";
 
@@ -42,7 +42,7 @@ export default function SeasonsPage() {
 
       <details className="coverage-explanation">
         <summary>Les mer om dekningen</summary>
-        <CoverageSummary seasons={years.flatMap((y) => y.primary ? [y.primary] : [])} />
+        <CoverageSummary years={years} />
         <p className="small muted">
           «Historisk resultatliste» betyr resultater med en historisk kilde, men uten nok
           opplysninger til å knytte dem sikkert til en full kampoppføring.
@@ -122,6 +122,9 @@ function SeasonCard({ entry }: { entry: SeasonYear }) {
         {primary.goalsFor}–{primary.goalsAgainst} mål · {primary.played}{" "}
         {primary.played === 1 ? "kamp" : "kamper"}
       </span>
+      {/* Sesongmerket først: det gjelder året, som er det kortet handler om.
+          Konkurransemerket under sier hva serien har. */}
+      <SeasonCoverageTag coverage={entry.coverage} />
       <CoverageTag season={primary} />
       {others.length > 0 && (
         <span className="card-extra muted">+ {extras(others)}</span>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CoverageTag, SeasonMeasure } from "@/components/Coverage";
+import { CoverageTag, SeasonCoverageTag, SeasonMeasure } from "@/components/Coverage";
 import { MatchList } from "@/components/MatchList";
 import { Contributions } from "@/components/Contributions";
 import { SeasonGaps } from "@/components/SeasonGaps";
@@ -13,6 +13,7 @@ import {
   loadSeasonGaps,
   loadSeasonCoaches,
   loadSeasonDetailLevel,
+  loadSeasonCoverage,
   loadSeasonYears,
   loadSquad,
   loadStandings,
@@ -59,6 +60,7 @@ export default async function SeasonPage({ params }: Props) {
   const coaches = loadSeasonCoaches(year);
   const declaredCoaches = loadDeclaredCoaches(year);
   const gaps = loadSeasonGaps(year);
+  const seasonCoverage = loadSeasonCoverage(year);
   const squad = loadSquad(year);
   const contributions = loadContributions(year.toString(), "season");
   const observations = getSeasonObservations(year);
@@ -81,6 +83,9 @@ export default async function SeasonPage({ params }: Props) {
           {lead?.competitionTier ? ` · nivå ${lead.competitionTier}` : ""}
         </p>
         <h1>Sesongen {year}</h1>
+        {/* Merket for året står ved årstallet. Merket ved hver konkurranse under
+            sier hva den ene konkurransen har. */}
+        <SeasonCoverageTag coverage={seasonCoverage} />
         <SeasonCoaches coaches={coaches} declared={declaredCoaches} season={year} />
       </header>
 

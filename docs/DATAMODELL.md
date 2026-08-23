@@ -406,6 +406,44 @@ treningskamper samme år ligger i samme mappe, men er ikke dekket av `finalPosit
 `teamsInLeague`. `seasons`-viewet i databasen utleder derfor konkurransene fra kampene og
 låner sesongmeta bare til den raden den faktisk gjelder.
 
+### Når er en sesong komplett?
+
+`seasons.coverage` svarer per konkurranse, og bare serien får et svar: cup og
+treningskamper står som `not_applicable` fordi de ikke har serierunder. Det er én
+konkurranse, ikke ett år, og forskjellen er ikke akademisk. 2019 hadde hele serien inne
+og sto som komplett mens cupkvartfinalen mot Viking ligger i arkivet som 1–1 uten
+straffesparkkonkurranse — merket lovet en sesong arkivet ikke hadde.
+
+`season_coverage` svarer for året. Det er `complete` når:
+
+1. hver seriesesong året har er `complete` i `seasons` — sammenhengende runder og like
+   mange kamper som det kjente omfanget,
+2. cuprekka er spilt ferdig,
+3. et eventuelt europacupeventyr er spilt ferdig, og
+4. ingen kamper står igjen på terminlista.
+
+**Hvordan vi vet at en cuprekke er ferdig.** En cup har ikke et forventet antall kamper:
+den slutter når laget ryker ut, og hvilken runde AaFK gikk inn i varierte med år og
+divisjon. Sluttpunktet er derimot entydig, og det er nok. Den siste spilte kampen i
+turneringen er enten et tap (laget røk ut der), en finale (uansett hvordan den gikk),
+eller en uavgjort avgjort på straffer. Slutter rekka på en seier som ikke er en finale,
+mangler arkivet minst én kamp. Regelen kan bare ta feil i én retning, og det er den vi vil
+ta feil i: den sier aldri «ferdig» om en rekke som fortsetter. At vi ikke kan se om de
+*første* rundene mangler, er en begrensning i dataene — ingen kilde i arkivet sier hvilken
+runde laget gikk inn i.
+
+**Treningskamper teller ikke.** Det finnes ikke noe fasitsvar på hvor mange treningskamper
+laget spilte i 1963, så et krav om dem ville gjort hver eneste sesong ufullstendig for
+alltid.
+
+**Uten seriesesong svarer viewet `unknown`, ikke `partial`.** Har arkivet ingen serierad
+for året, vet vi ikke om det ble spilt en serie. Da er «komplett» en påstand om noe ingen
+har sett etter, og «delvis» en påstand om et hull vi ikke kan belegge.
+
+`has_standings` skiller det sterkeste belegget fra det nest sterkeste. Sluttabellen er
+førstevalget for omfanget; uten den kan sesongfila oppgi `expectedMatches` med en note om
+hvor tallet kommer fra, og året kan fortsatt være komplett — merket sier da «uten tabell».
+
 ## Klubb
 
 `data/clubs/<id>.yaml`
