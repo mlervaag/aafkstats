@@ -1,0 +1,41 @@
+id: 1975-06-15-sunndal-aalesunds-fk
+date: 1975-06-15
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 1975
+  stage: regular_season
+home:
+  clubId: sunndal
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1975-0ee3
+    page: "4"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Terminlisten (s. 4) oppgir «15. juni: Sunndal—AAFK»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1975-5323
+    page: "7"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 7) fører kampen mot Sunndal borte med 3–1 sett fra AaFK."

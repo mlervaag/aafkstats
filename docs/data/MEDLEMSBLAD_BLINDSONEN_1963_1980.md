@@ -246,3 +246,48 @@ med samme vertikale posisjon, slik at rader fra de to spaltene smelter sammen �
 «AFK—Valder 4—2» og «AFK—Hødd 4—2» leses på samme linje. En pålitelig lesing
 krever at spaltene skilles på HPOS før radene bygges. Ingenting er kanonisert
 derfra.
+
+## 9. Sesongene 1975 og 1977
+
+Spaltesplitting på HPOS før radene bygges — jf. problemet i 1963 — gjorde begge
+årgangene lesbare.
+
+### 1975 — sju kamper
+
+Vårterminlisten (`1975-0ee3`, s. 4) har ni seriekamper. Resultatoversikten
+(`1975-5323`, s. 7) ligger i to spalter. Sju av ni har både leselig resultat og
+samsvarende hjemme/borte:
+
+| Dato | Kamp | Resultat |
+|---|---|---|
+| 1975-04-27 | Bryne–AaFK | 2–1 |
+| 1975-05-01 | AaFK–Lyn | 2–2 |
+| 1975-05-08 | Steinkjer–AaFK | 4–0 |
+| 1975-06-03 | Varegg–AaFK | 1–1 |
+| 1975-06-12 | AaFK–Frigg | 0–1 |
+| 1975-06-15 | Sunndal–AaFK | 1–3 |
+| 1975-06-29 | Vard–AaFK | 0–0 |
+
+Hødd 16. mai og Florvåg 22. juni står igjen med uleselig resultat.
+
+### 1977 — fire kamper
+
+Høstterminlisten (`1977-f5fc`, s. 10) har ni kamper, og resultatoversikten
+(`1977-fbae`, s. 11) har en SERIEKAMPER-blokk. Fire har leselig resultat, og
+hver av de fire motstanderne står nøyaktig én gang i terminlisten, slik at
+koblingen er entydig uten å måtte lese bortemerket:
+
+| Dato | Kamp | Resultat |
+|---|---|---|
+| 1977-07-29 | AaFK–Skarbøvik | 1–2 |
+| 1977-08-06 | Bud–AaFK | 0–3 |
+| 1977-08-12 | AaFK–Rollon | 1–0 |
+| 1977-08-20 | AaFK–Ørsta | 0–1 |
+
+**Merknad om konkurransen:** AaFK spilte 3. divisjon i 1977, men arkivet har
+ingen konkurranse med den id-en, og den eksisterende 1977-kampen mot Bergsøy —
+hentet fra kretsens årsrapport — er ført som `andredivisjon`. De fire nye er
+ført likt for konsistens. **Dette bør rettes samlet for hele sesongen**, ikke
+kamp for kamp.
+
+Klubben Bud er opprettet.
