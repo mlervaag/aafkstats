@@ -1,0 +1,41 @@
+id: 1967-08-20-herd-aalesunds-fk
+date: 1967-08-20
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1967
+  stage: regular_season
+home:
+  clubId: herd
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1967-4999
+    page: "3"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Terminlisten (s. 3) oppgir «20/8 Herd—AFK»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1967-bebf
+    page: "5"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 5) fører kampen mot Herd borte med 3–0 sett fra AaFK."

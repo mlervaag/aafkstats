@@ -1,0 +1,36 @@
+id: 1979-07-01-lyn-aalesunds-fk
+date: 1979-07-01
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 1979
+  stage: regular_season
+home:
+  clubId: lyn
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1980-bec4
+    page: "3"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: "Årsberetningens statistikk for A-laget 1979 (s. 3) fører kampen med dato, motstander og resultat. Stjerne betyr bortekamp."

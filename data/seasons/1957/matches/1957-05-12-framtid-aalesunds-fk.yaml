@@ -1,0 +1,41 @@
+id: 1957-05-12-framtid-aalesunds-fk
+date: 1957-05-12
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1957
+  stage: regular_season
+home:
+  clubId: framtid
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: "30"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Vårterminlisten (s. 30) oppgir «12. mai: Framtid—AFK»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: "44"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversikten dokumenterer landsdelsseriekampen mot Framtid borte med 0–0 sett fra AaFK."

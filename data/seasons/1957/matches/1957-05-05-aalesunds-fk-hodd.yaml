@@ -1,0 +1,41 @@
+id: 1957-05-05-aalesunds-fk-hodd
+date: 1957-05-05
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1957
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: hodd
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: "30"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Vårterminlisten (s. 30) oppgir «5. mai: AFK—Hødd»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: "44"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversikten dokumenterer landsdelsseriekampen mot Hødd hjemme med 2–0 sett fra AaFK."

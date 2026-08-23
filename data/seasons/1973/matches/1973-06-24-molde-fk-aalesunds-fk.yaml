@@ -1,0 +1,41 @@
+id: 1973-06-24-molde-fk-aalesunds-fk
+date: 1973-06-24
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 1973
+  stage: regular_season
+home:
+  clubId: molde-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1973-af84
+    page: "4"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Vårterminlisten (s. 4) oppgir «24. juni: Molde—AAFK»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1973-d4e1
+    page: "2"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 2) fører kampen mot Molde borte med 0–1 sett fra AaFK."

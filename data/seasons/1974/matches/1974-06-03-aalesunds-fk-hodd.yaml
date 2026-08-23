@@ -1,0 +1,41 @@
+id: 1974-06-03-aalesunds-fk-hodd
+date: 1974-06-03
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 1974
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: hodd
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-4178
+    page: "9"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Vårterminlisten (s. 9) oppgir «3. juni: AAFK—Hødd»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-db4e
+    page: "7"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 7) fører kampen mot Hødd hjemme med 1–2 sett fra AaFK."

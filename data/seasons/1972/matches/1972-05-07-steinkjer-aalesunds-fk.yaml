@@ -1,0 +1,41 @@
+id: 1972-05-07-steinkjer-aalesunds-fk
+date: 1972-05-07
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 1972
+  stage: regular_season
+home:
+  clubId: steinkjer
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1972-4638
+    page: "2"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Vårterminlisten (s. 2) oppgir «7. mai. Steinkjer—AAFK»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1972-10d9
+    page: "2"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 2) fører kampen mot Steinkjer borte med 0–2 sett fra AaFK."

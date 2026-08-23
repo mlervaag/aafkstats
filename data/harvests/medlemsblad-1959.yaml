@@ -1,0 +1,157 @@
+version: 1
+id: medlemsblad-1959
+title: AaFK Medlemsblad 1959 (Vol. 10, nr. 1–6)
+profile: member_magazine
+mode: reharvest
+status: normalized
+scope:
+  years:
+    from: 1959
+    to: 1959
+  sourceIds:
+  - medlemsblad-for-aalesunds-fotb-1959-515a
+  parentSourceId: aafk-medlemsblad
+sourceInventory:
+- sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+  title: Medlemsblad for Aalesunds fotballklubb. 1959 Vol. 10 Nr. 1-6
+  year: 1959
+  reviewStatus: reviewed
+coverage:
+  mode: sections
+  expected: 9
+  reviewed: 9
+passes:
+  facsimile_review:
+    status: complete
+    findings: 9
+    note: Oppdragsgiver bekreftet 2026-08-23 visuell kontroll av terminlistene s. 12 og 16, resultatoversikten s. 60 og observasjonssidene 6, 8, 46, 47, 72 og 73. Dekningen gjelder disse funnsidene, ikke hele årgangen.
+  explicit_results:
+    status: complete
+    findings: 29
+    note: A-lagsresultatene på s. 60 er lest på nytt med koordinatbasert paring av lagnavn og score.
+      De 29 kildepåstandene fra tidligere innhøsting står uendret.
+  fixture_reconciliation:
+    status: complete
+    findings: 5
+    note: Vårterminlisten «Å.F.K.s serieprogram i vår» (s. 12) og landsdelsseriens samlede vårterminliste
+      (s. 16) avstemt mot resultatoversikten (s. 60). Fem vårseriekamper fikk eksakt dato.
+  people_and_roles:
+    status: reviewed
+    findings: 62
+    note: Spillestatistikken på s. 8 gir A-kamptall for 62 navngitte spillere. Ikke løftet til
+      personfiler i denne runden.
+  organization:
+    status: reviewed
+    findings: 2
+    note: Årsmøtet 27. november 1959 og styrets arbeidsår. Snapshot ikke oppdatert i denne runden.
+  retrospectives_and_claims:
+    status: reviewed
+    findings: 4
+    note: Tilbakeblikk på 1935-laget, Hødds historie, Tatran Presov og minneord over Hagbart Benneche.
+  observations:
+    status: complete
+    findings: 7
+    note: Kråmyra-leieavtalen, spillestatistikken, publikumsutviklingen, sommercupseieren,
+      de aldersbestemte lagene, minneordet og årsmøtet.
+reviewMethod:
+  facsimile: required
+review:
+  file: docs/data/reviews/medlemsblad-1959.md
+findings:
+- id: fix-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '12'
+  type: fixture
+  claim:
+    text: Vårterminliste med fem seriekamper og hjemme/borte-markering
+  disposition: reviewed
+  status: normalized
+- id: fix-002
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '16'
+  type: fixture
+  claim:
+    text: Landsdelsseriens samlede vårterminliste, uavhengig bekreftelse av de samme fem datoene
+  disposition: reviewed
+  status: normalized
+- id: res-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '60'
+  type: match_result
+  claim:
+    text: A-lagsresultater 1959, 29 kampresultater med bortekampmarkering og målaverage 64-31
+  disposition: reviewed
+  status: normalized
+- id: con-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '60'
+  type: match_result
+  claim:
+    text: Privatkampblokken på s. 60 avviker mellom koordinatbasert lesing og tidligere innhøsting
+  disposition: no_structured_action
+  status: unresolved
+- id: per-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '8'
+  type: person
+  claim:
+    text: Spillestatistikk med A-kamptall for 62 navngitte spillere, 8 gull- og 11 solvmerkespillere
+  disposition: reviewed
+  status: normalized
+- id: can-001
+  sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '12'
+  - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '16'
+  - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '60'
+  type: match_result
+  claim:
+    text: Fem vårseriekamper er visuelt bekreftet gjennom terminliste/resultat-avstemming.
+  disposition: canonical_created
+  targets:
+  - entity: match
+    id: 1959-05-03-langevag-aalesunds-fk
+  - entity: match
+    id: 1959-05-07-dahle-aalesunds-fk
+  - entity: match
+    id: 1959-05-10-aalesunds-fk-clausenengen
+  - entity: match
+    id: 1959-05-24-molde-fk-aalesunds-fk
+  - entity: match
+    id: 1959-05-31-aalesunds-fk-volda
+  status: normalized
+- id: obs-001
+  sources:
+  - { sourceId: medlemsblad-for-aalesunds-fotb-1959-515a, page: '6' }
+  - { sourceId: medlemsblad-for-aalesunds-fotb-1959-515a, page: '8' }
+  - { sourceId: medlemsblad-for-aalesunds-fotb-1959-515a, page: '46' }
+  - { sourceId: medlemsblad-for-aalesunds-fotb-1959-515a, page: '47' }
+  - { sourceId: medlemsblad-for-aalesunds-fotb-1959-515a, page: '60' }
+  - { sourceId: medlemsblad-for-aalesunds-fotb-1959-515a, page: '72' }
+  - { sourceId: medlemsblad-for-aalesunds-fotb-1959-515a, page: '73' }
+  type: historical_observation
+  claim:
+    text: Sju historiske observasjoner fra årgangen er registrert og visuelt kontrollert.
+  disposition: historical_observation_created
+  targets:
+  - { entity: observation, id: 1959-aldersbestemte-lag }
+  - { entity: observation, id: 1959-arsmotet }
+  - { entity: observation, id: 1959-hagbart-benneche-minneord }
+  - { entity: observation, id: 1959-kramyra-leieavtale }
+  - { entity: observation, id: 1959-publikumsutvikling-aksla }
+  - { entity: observation, id: 1959-sommercupen }
+  - { entity: observation, id: 1959-spillestatistikk-merkespillere }
+  status: normalized
+notes:
+- Faksimilekontrollen omfatter bare sidene som bærer normaliserte påstander; ALTO-gjennomgangen av 84 sider er discovery, ikke visuell sidedekning.
+unresolved:
+- findingId: con-001
+  type: score-reading
+  note: Privatkampblokken på s. 60 avviker mellom koordinatbasert lesing og tidligere innhøsting; konflikten er ikke brukt til kanonisering.

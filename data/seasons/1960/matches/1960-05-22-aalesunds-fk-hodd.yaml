@@ -1,0 +1,48 @@
+id: 1960-05-22-aalesunds-fk-hodd
+date: 1960-05-22
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1960
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: hodd
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: "5"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Vårterminlisten (s. 5) oppgir «22/5: AFK—HØDD»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: "16"
+    fields:
+      - date
+      - home.clubId
+      - away.clubId
+    note: "Landsdelsseriens samlede vårterminliste (s. 16) oppgir samme kamp og samme hjemmelag."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: "69"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversikten dokumenterer landsdelsseriekampen mot Hødd hjemme med 0–1 sett fra AaFK."

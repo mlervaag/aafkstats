@@ -1,0 +1,41 @@
+id: 1967-08-27-aalesunds-fk-velledalen-ringen
+date: 1967-08-27
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1967
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: velledalen-ringen
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1967-4999
+    page: "3"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Terminlisten (s. 3) oppgir «27/8 AFK—VRF»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1967-bebf
+    page: "5"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 5) fører kampen mot VRF hjemme med 2–1 sett fra AaFK."

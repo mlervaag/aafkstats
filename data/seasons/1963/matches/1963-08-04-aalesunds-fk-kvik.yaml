@@ -1,0 +1,41 @@
+id: 1963-08-04-aalesunds-fk-kvik
+date: 1963-08-04
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1963
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: kvik
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1963-400c
+    page: "35"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Terminlisten (s. 35) oppgir «4 aug. AFK—Kvik»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1963-400c
+    page: "48"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 48) fører kampen mot Kvik hjemme med 2–0 sett fra AaFK."

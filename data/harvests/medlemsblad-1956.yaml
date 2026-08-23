@@ -1,0 +1,83 @@
+version: 1
+id: medlemsblad-1956
+title: AaFK Medlemsblad 1956
+profile: member_magazine
+mode: reharvest
+status: normalized
+scope:
+  years:
+    from: 1956
+    to: 1956
+  sourceIds:
+  - medlemsblad-for-aalesunds-fotb-1956-3e52
+  parentSourceId: aafk-medlemsblad
+sourceInventory:
+- sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+  title: Medlemsblad for Aalesunds fotballklubb 1956
+  year: 1956
+  reviewStatus: reviewed
+coverage:
+  mode: sections
+  expected: 2
+  reviewed: 2
+passes:
+  facsimile_review:
+    status: complete
+    findings: 2
+    note: Oppdragsgiver bekreftet 2026-08-23 visuell kontroll av terminlisten s. 24 og resultatoversikten s. 60. Dekningen gjelder disse funnsidene, ikke hele årgangen.
+  explicit_results:
+    status: complete
+    findings: 6
+    note: A-lagsresultatene lest koordinatbasert med lagnavn og score paret på vertikal posisjon.
+  fixture_reconciliation:
+    status: complete
+    findings: 5
+    note: Terminliste avstemt mot resultatoversikt etter de ni sjekkpunktene.
+reviewMethod:
+  facsimile: required
+review:
+  file: docs/data/MEDLEMSBLAD_TERMINLISTESKANN_1952_1961.md
+findings:
+- id: fix-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+    page: '24'
+  type: fixture
+  claim:
+    text: Datert terminliste for vårens seriekamper
+  disposition: reviewed
+  status: normalized
+- id: res-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+    page: '60'
+  type: match_result
+  claim:
+    text: A-lagsresultater for sesongen
+  disposition: canonical_created
+  targets:
+  - entity: match
+    id: 1956-05-05-aalesunds-fk-langevag
+  - entity: match
+    id: 1956-05-10-aalesunds-fk-hodd
+  - entity: match
+    id: 1956-05-13-braatt-aalesunds-fk
+  - entity: match
+    id: 1956-05-20-aalesunds-fk-clausenengen
+  - entity: match
+    id: 1956-05-27-molde-fk-aalesunds-fk
+  status: normalized
+- id: src-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+    page: '60'
+  type: match_result
+  claim:
+    text: Fem nye source-result-oppføringer fra resultatoversikten er registrert additivt.
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1956-3e52
+  status: normalized
+notes:
+- Faksimilekontrollen omfatter bare sidene som bærer de kanoniske påstandene; ALTO-gjennomgangen av 88 sider er discovery, ikke visuell sidedekning.

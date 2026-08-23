@@ -1,0 +1,41 @@
+id: 1963-09-08-ostsiden-il-aalesunds-fk
+date: 1963-09-08
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1963
+  stage: regular_season
+home:
+  clubId: ostsiden-il
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1963-400c
+    page: "35"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Terminlisten (s. 35) oppgir «8. sept. Østsiden—ÅFK»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1963-400c
+    page: "48"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 48) fører kampen mot Østsiden borte med 1–4 sett fra AaFK."

@@ -1,0 +1,41 @@
+id: 1972-06-11-aalesunds-fk-valerenga
+date: 1972-06-11
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 1972
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+away:
+  clubId: valerenga
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1972-4638
+    page: "2"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Vårterminlisten (s. 2) oppgir «11. juni: AAFK—Vålerengen»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1972-10d9
+    page: "2"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 2) fører kampen mot Vålerengen hjemme med 3–0 sett fra AaFK."

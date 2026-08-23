@@ -1,0 +1,41 @@
+id: 1977-07-29-aalesunds-fk-skarbovik
+date: 1977-07-29
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 1977
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: skarbovik
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1977-f5fc
+    page: "10"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Terminlisten (s. 10) oppgir «29. juli: AaFK—Skarbøvik»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1977-fbae
+    page: "11"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 11) fører kampen mot Skarbøvik hjemme med 1–2 sett fra AaFK."

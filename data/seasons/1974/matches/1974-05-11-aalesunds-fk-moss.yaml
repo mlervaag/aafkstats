@@ -1,0 +1,41 @@
+id: 1974-05-11-aalesunds-fk-moss
+date: 1974-05-11
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 1974
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: moss
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-4178
+    page: "9"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Vårterminlisten (s. 9) oppgir «11. mai: AAFK—Moss»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-db4e
+    page: "7"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 7) fører kampen mot Moss hjemme med 2–1 sett fra AaFK."

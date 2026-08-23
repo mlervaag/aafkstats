@@ -1,0 +1,96 @@
+version: 1
+id: medlemsblad-pr216-1957-1960
+title: PR #216 - faksimilekontroll av kanoniserende sider 1957 og 1960
+profile: member_magazine
+mode: supplement
+status: normalized
+scope:
+  years:
+    from: 1957
+    to: 1960
+  sourceIds:
+  - medlemsblad-for-aalesunds-fotb-1957-7672
+  - medlemsblad-for-aalesunds-fotb-1960-146a
+  parentSourceId: aafk-medlemsblad
+sourceInventory:
+- sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+  year: 1957
+  reviewStatus: reviewed
+- sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+  year: 1960
+  reviewStatus: reviewed
+coverage:
+  mode: sections
+  expected: 5
+  reviewed: 5
+passes:
+  facsimile_review:
+    status: complete
+    findings: 5
+    note: Oppdragsgiver bekreftet 2026-08-23 visuell kontroll av de fem sidene som bærer kanonisering (1957 s. 30 og 44; 1960 s. 5, 16 og 69).
+  explicit_results:
+    status: complete
+    findings: 5
+  fixture_reconciliation:
+    status: complete
+    findings: 5
+  people_and_roles:
+    status: skipped
+    findings: 0
+    note: Supplementet gjelder bare kampkanonisering.
+  organization:
+    status: skipped
+    findings: 0
+    note: Supplementet gjelder bare kampkanonisering.
+  retrospectives_and_claims:
+    status: skipped
+    findings: 0
+    note: Supplementet gjelder bare kampkanonisering.
+  observations:
+    status: skipped
+    findings: 0
+    note: Supplementet gjelder bare kampkanonisering.
+reviewMethod:
+  facsimile: required
+review:
+  file: docs/data/MEDLEMSBLAD_TERMINLISTESKANN_1952_1961.md
+findings:
+- id: can-1957
+  sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '30'
+  - sourceId: medlemsblad-for-aalesunds-fotb-1957-7672
+    page: '44'
+  type: match_result
+  claim:
+    text: To vårseriekamper er visuelt bekreftet gjennom terminliste/resultat-avstemming.
+  disposition: canonical_created
+  targets:
+  - entity: match
+    id: 1957-05-05-aalesunds-fk-hodd
+  - entity: match
+    id: 1957-05-12-framtid-aalesunds-fk
+  status: normalized
+- id: can-1960
+  sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: '5'
+  - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: '16'
+  - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: '69'
+  type: match_result
+  claim:
+    text: Tre vårseriekamper er visuelt bekreftet gjennom terminliste/resultat-avstemming.
+  disposition: canonical_created
+  targets:
+  - entity: match
+    id: 1960-05-08-molde-fk-aalesunds-fk
+  - entity: match
+    id: 1960-05-15-braatt-aalesunds-fk
+  - entity: match
+    id: 1960-05-22-aalesunds-fk-hodd
+  status: normalized
+unresolved: []
+notes:
+- Dekningen gjelder bare fem kanoniserende sider. Den innebærer ikke full visuell gjennomgang av de to årgangene.

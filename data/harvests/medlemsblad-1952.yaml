@@ -1,0 +1,85 @@
+version: 1
+id: medlemsblad-1952
+title: AaFK Medlemsblad 1952
+profile: member_magazine
+mode: initial
+status: normalized
+scope:
+  years:
+    from: 1952
+    to: 1952
+  sourceIds:
+  - medlemsblad-for-aalesunds-fotb-1952-7c90
+  parentSourceId: aafk-medlemsblad
+sourceInventory:
+- sourceId: medlemsblad-for-aalesunds-fotb-1952-7c90
+  title: Medlemsblad for Aalesunds fotballklubb 1952
+  year: 1952
+  reviewStatus: reviewed
+coverage:
+  mode: sections
+  expected: 1
+  reviewed: 1
+passes:
+  facsimile_review:
+    status: complete
+    findings: 1
+    note: Oppdragsgiver bekreftet 2026-08-23 visuell kontroll av den kanoniserende resultatsiden 48. Dekningen gjelder denne funnsiden, ikke hele årgangen.
+  explicit_results:
+    status: complete
+    findings: 9
+    note: A-lagsresultatene lest koordinatbasert med lagnavn og score paret på vertikal posisjon.
+  fixture_reconciliation:
+    status: complete
+    findings: 6
+    note: Terminliste avstemt mot resultatoversikt etter de ni sjekkpunktene.
+reviewMethod:
+  facsimile: required
+review:
+  file: docs/data/MEDLEMSBLAD_TERMINLISTESKANN_1952_1961.md
+findings:
+- id: fix-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1952-7c90
+    page: '48'
+  type: fixture
+  claim:
+    text: Dagsdaterte A-lagsresultater med kamptype
+  disposition: reviewed
+  status: normalized
+- id: res-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1952-7c90
+    page: '48'
+  type: match_result
+  claim:
+    text: A-lagsresultater for sesongen
+  disposition: canonical_created
+  targets:
+  - entity: match
+    id: 1952-04-20-langevag-aalesunds-fk
+  - entity: match
+    id: 1952-04-27-rollon-aalesunds-fk
+  - entity: match
+    id: 1952-04-30-aksla-aalesunds-fk
+  - entity: match
+    id: 1952-05-11-rollon-aalesunds-fk
+  - entity: match
+    id: 1952-05-20-herd-aalesunds-fk
+  - entity: match
+    id: 1952-05-25-braatt-aalesunds-fk
+  status: normalized
+- id: src-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1952-7c90
+    page: '48'
+  type: match_result
+  claim:
+    text: Kildens ni dagsdaterte A-lagsresultater er bevart i en ny source-result-samling.
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1952-7c90
+  status: normalized
+notes:
+- Faksimilekontrollen omfatter bare siden som bærer de kanoniske påstandene; ALTO-gjennomgangen av 92 sider er discovery, ikke visuell sidedekning.

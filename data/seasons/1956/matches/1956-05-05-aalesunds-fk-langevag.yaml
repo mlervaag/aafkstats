@@ -1,0 +1,41 @@
+id: 1956-05-05-aalesunds-fk-langevag
+date: 1956-05-05
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1956
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: langevag
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+    page: "24"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Terminlisten «Å.F.K.s seriekamper» (s. 24) oppgir «5. mai: AFK—Langevåg»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+    page: "60"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "A-lagsresultatene (s. 60) fører seriekampen mot Langevåg hjemme med 2–2 sett fra AaFK."

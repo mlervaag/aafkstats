@@ -1,0 +1,41 @@
+id: 1964-06-14-aalesunds-fk-braatt
+date: 1964-06-14
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1964
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: braatt
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1964-9418
+    page: "20"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Terminlisten (s. 20) oppgir «14. juni: AFK—Braatt»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1964-9418
+    page: "48"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 48) fører kampen mot Braatt hjemme med 2–0 sett fra AaFK."

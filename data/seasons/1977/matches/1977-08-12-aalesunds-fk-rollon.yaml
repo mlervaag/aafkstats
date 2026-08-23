@@ -1,0 +1,41 @@
+id: 1977-08-12-aalesunds-fk-rollon
+date: 1977-08-12
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 1977
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: rollon
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1977-f5fc
+    page: "10"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Terminlisten (s. 10) oppgir «12. august: AaFK—Rollon»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1977-fbae
+    page: "11"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 11) fører kampen mot Rollon hjemme med 1–0 sett fra AaFK."

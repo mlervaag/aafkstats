@@ -1,0 +1,48 @@
+id: 1959-05-07-dahle-aalesunds-fk
+date: 1959-05-07
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1959
+  stage: regular_season
+home:
+  clubId: dahle
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: "12"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Vårterminlisten «Å.F.K.s serieprogram i vår» (s. 12) oppgir 7/5 Dahle (borte)."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: "16"
+    fields:
+      - date
+      - home.clubId
+      - away.clubId
+    note: "Landsdelsseriens vårterminliste (s. 16) oppgir samme kamp og samme hjemmelag på 7/5."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: "60"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "A-lagsresultatene (s. 60) dokumenterer seriekampen mot Dahle borte med 1–0 sett fra AaFK."
