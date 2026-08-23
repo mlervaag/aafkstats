@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/3164360bda62d529f6e5c194e8ea048e?page=6
+    date: 1976-08-23
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/3164360bda62d529f6e5c194e8ea048e?page=6
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -31,11 +39,16 @@ sources:
       - competition
       - home.clubId
       - away.clubId
-    note: "Terminlisten (s. 3) oppgir «21. august Moss—AAFK»."
+    note: Terminlisten (s. 3) oppgir «21. august Moss—AAFK».
   - sourceId: medlemsblad-for-aalesunds-fotb-1976-3cb7
     page: "5"
     fields:
       - status
       - home.score
       - away.score
-    note: "Sesongoversiktens seriekamper (s. 5) fører kampen mot Moss borte med 0–8 sett fra AaFK."
+    note: Sesongoversiktens seriekamper (s. 5) fører kampen mot Moss borte med 0–8 sett fra AaFK.
+  - sourceId: sunnmorsposten-19760823-3164360bda62d529f6e5c194e8ea048e
+    page: "6"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: sunnmore-fotballkrets-arsrapport-1977
+  - sourceId: sunnmorsposten-19770919-a8397b62eec951bd7d0af907961aeff0
+    page: "7"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: Siden omtaler 3. divisjonskampen lørdag 17. september 1977 der AaFK slo
-  serietoer Bergsøy 1-0 i Fosnavåg.
+note: Siden omtaler 3. divisjonskampen lørdag 17. september 1977 der AaFK slo serietoer Bergsøy 1-0 i Fosnavåg.

@@ -17,7 +17,11 @@ away:
 neutralVenue: false
 events: []
 externalReports: []
-providers: []
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/6fd019eda2dad5437035e0c1fd0d4644?page=6
+    retrievedAt: 2026-08-23
+    fields: []
 confidence: confirmed
 conflicts: []
 tags: []
@@ -31,11 +35,15 @@ sources:
       - competition
       - home.clubId
       - away.clubId
-    note: "Vårterminlisten (s. 2) oppgir «7. mai. Steinkjer—AAFK»."
+    note: Vårterminlisten (s. 2) oppgir «7. mai. Steinkjer—AAFK».
   - sourceId: medlemsblad-for-aalesunds-fotb-1972-10d9
     page: "2"
     fields:
       - status
       - home.score
       - away.score
-    note: "Sesongoversiktens seriekamper (s. 2) fører kampen mot Steinkjer borte med 0–2 sett fra AaFK."
+    note: Sesongoversiktens seriekamper (s. 2) fører kampen mot Steinkjer borte med 0–2 sett fra AaFK.
+  - sourceId: sunnmorsposten-19720505-6fd019eda2dad5437035e0c1fd0d4644
+    page: "6"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

@@ -109,6 +109,7 @@ export interface NewspaperEnrichmentStatus {
     };
   };
   totals: Record<string, number>;
+  seasons: Record<string, Record<string, number>>;
   pilot1979: Record<string, number>;
   queue: string[];
   entries: NewspaperEnrichmentStatusEntry[];
@@ -202,6 +203,12 @@ export async function buildNewspaperEnrichmentStatus(repo: string): Promise<News
       },
     },
     totals,
+    seasons: Object.fromEntries([...new Set(entries.map((entry) => entry.season))]
+      .sort((left, right) => left - right)
+      .map((season) => {
+        const seasonEntries = entries.filter((entry) => entry.season === season);
+        return [String(season), summarize(seasonEntries, seasonEntries.filter((entry) => entry.enrichmentStatus === "residual").length)];
+      })),
     pilot1979: summarize(pilot, pilotQueue),
     queue,
     entries,

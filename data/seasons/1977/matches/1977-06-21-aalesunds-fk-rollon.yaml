@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: sunnmore-fotballkrets-arsrapport-1977
+  - sourceId: sunnmorsposten-19770622-0285dd33df575cee3de59d621eb2a09f
+    page: "7"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1977-06-22 s. 7: Kampreferat for AaFK mot Rollon (1–0)
-  spilt 1977-06-21."
+note: "Sunnmørsposten 1977-06-22 s. 7: Kampreferat for AaFK mot Rollon (1–0) spilt 1977-06-21."

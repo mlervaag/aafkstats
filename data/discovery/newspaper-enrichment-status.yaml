@@ -20,29 +20,29 @@ searchPolicy:
     allMatchesFacsimileReviewed: false
 totals:
   canonicalMatchesInScope: 1700
-  withSmpMention: 164
-  matchReports: 24
-  postMatchEvidence: 28
-  canonicalLinked: 31
-  ocrCorrelated: 30
+  withSmpMention: 197
+  matchReports: 55
+  postMatchEvidence: 59
+  canonicalLinked: 67
+  ocrCorrelated: 63
   facsimileReviewed: 0
-  noOcrCandidate: 8
+  noOcrCandidate: 20
   notFound: 0
-  pending: 1661
-  residualQueue: 1678
-  enrichmentComplete: 22
-  residualNoOcrCandidate: 8
-  residualConflictCandidate: 1
-  residualPreviewOnly: 2
+  pending: 1613
+  residualQueue: 1652
+  enrichmentComplete: 48
+  residualNoOcrCandidate: 20
+  residualConflictCandidate: 4
+  residualPreviewOnly: 7
   residualFixtureOnly: 0
-  residualWeakCandidate: 6
+  residualWeakCandidate: 8
   lineups: 528
   goalscorers: 624
   arenas: 577
   attendances: 335
   referees: 231
-  halfTimeScores: 668
-  conflictCandidates: 1
+  halfTimeScores: 671
+  conflictCandidates: 4
   newLineups: 0
   newPlayers: 0
   newGoalscorers: 0
@@ -50,14 +50,4135 @@ totals:
   newArenas: 2
   newAttendances: 5
   newReferees: 1
-  newHalfTimeScores: 7
+  newHalfTimeScores: 10
   newHistoricalObservations: 0
   ocrFalsePositives: 0
   differentMatch: 0
-  searchedIssues: 136
-  ocrCandidates: 130
+  searchedIssues: 318
+  ocrCandidates: 306
   visuallyReviewedPages: 0
-  averageCandidatesPerReviewedMatch: 3.33
+  averageCandidatesPerReviewedMatch: 3.52
+seasons:
+  "1915":
+    canonicalMatchesInScope: 1
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 1
+    residualQueue: 1
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 1
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1917":
+    canonicalMatchesInScope: 1
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 1
+    residualQueue: 1
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1918":
+    canonicalMatchesInScope: 1
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 1
+    residualQueue: 1
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1919":
+    canonicalMatchesInScope: 1
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 1
+    residualQueue: 1
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1920":
+    canonicalMatchesInScope: 8
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 8
+    residualQueue: 8
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 2
+    attendances: 0
+    referees: 2
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1921":
+    canonicalMatchesInScope: 3
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 3
+    residualQueue: 3
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1922":
+    canonicalMatchesInScope: 2
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 2
+    residualQueue: 2
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1923":
+    canonicalMatchesInScope: 1
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 1
+    residualQueue: 1
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1924":
+    canonicalMatchesInScope: 2
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 2
+    residualQueue: 2
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1925":
+    canonicalMatchesInScope: 3
+    withSmpMention: 2
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 3
+    residualQueue: 3
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1926":
+    canonicalMatchesInScope: 1
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 1
+    residualQueue: 1
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1927":
+    canonicalMatchesInScope: 3
+    withSmpMention: 1
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 3
+    residualQueue: 3
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1928":
+    canonicalMatchesInScope: 2
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 2
+    residualQueue: 2
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1929":
+    canonicalMatchesInScope: 4
+    withSmpMention: 2
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 4
+    residualQueue: 4
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 1
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1930":
+    canonicalMatchesInScope: 2
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 2
+    residualQueue: 2
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1932":
+    canonicalMatchesInScope: 2
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 2
+    residualQueue: 2
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1933":
+    canonicalMatchesInScope: 3
+    withSmpMention: 2
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 3
+    residualQueue: 3
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1934":
+    canonicalMatchesInScope: 2
+    withSmpMention: 1
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 2
+    residualQueue: 2
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 1
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1935":
+    canonicalMatchesInScope: 4
+    withSmpMention: 2
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 4
+    residualQueue: 4
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 2
+    attendances: 0
+    referees: 0
+    halfTimeScores: 1
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1936":
+    canonicalMatchesInScope: 2
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 2
+    residualQueue: 2
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1937":
+    canonicalMatchesInScope: 1
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 1
+    residualQueue: 1
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1938":
+    canonicalMatchesInScope: 2
+    withSmpMention: 2
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 2
+    residualQueue: 2
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1940":
+    canonicalMatchesInScope: 3
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 3
+    residualQueue: 3
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1945":
+    canonicalMatchesInScope: 10
+    withSmpMention: 9
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 10
+    residualQueue: 10
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1946":
+    canonicalMatchesInScope: 10
+    withSmpMention: 10
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 10
+    residualQueue: 10
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 1
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 1
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1947":
+    canonicalMatchesInScope: 14
+    withSmpMention: 14
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 14
+    residualQueue: 14
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1948":
+    canonicalMatchesInScope: 17
+    withSmpMention: 16
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 17
+    residualQueue: 17
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1949":
+    canonicalMatchesInScope: 3
+    withSmpMention: 2
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 3
+    residualQueue: 3
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 2
+    attendances: 1
+    referees: 0
+    halfTimeScores: 1
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1950":
+    canonicalMatchesInScope: 1
+    withSmpMention: 1
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 1
+    residualQueue: 1
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1951":
+    canonicalMatchesInScope: 7
+    withSmpMention: 2
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 7
+    residualQueue: 7
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1952":
+    canonicalMatchesInScope: 11
+    withSmpMention: 4
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 11
+    residualQueue: 11
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 3
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1953":
+    canonicalMatchesInScope: 3
+    withSmpMention: 3
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 3
+    residualQueue: 3
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 3
+    attendances: 0
+    referees: 0
+    halfTimeScores: 1
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1954":
+    canonicalMatchesInScope: 1
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 1
+    residualQueue: 1
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1955":
+    canonicalMatchesInScope: 13
+    withSmpMention: 13
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 13
+    residualQueue: 13
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 1
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1956":
+    canonicalMatchesInScope: 5
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 5
+    residualQueue: 5
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1957":
+    canonicalMatchesInScope: 3
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 3
+    residualQueue: 3
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 1
+    goalscorers: 0
+    arenas: 1
+    attendances: 1
+    referees: 0
+    halfTimeScores: 1
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1958":
+    canonicalMatchesInScope: 1
+    withSmpMention: 1
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 1
+    residualQueue: 1
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 1
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1959":
+    canonicalMatchesInScope: 6
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 6
+    residualQueue: 6
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 1
+    goalscorers: 0
+    arenas: 1
+    attendances: 1
+    referees: 0
+    halfTimeScores: 1
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1960":
+    canonicalMatchesInScope: 4
+    withSmpMention: 1
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 4
+    residualQueue: 4
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1961":
+    canonicalMatchesInScope: 4
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 4
+    residualQueue: 4
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 1
+    goalscorers: 0
+    arenas: 2
+    attendances: 1
+    referees: 0
+    halfTimeScores: 1
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1962":
+    canonicalMatchesInScope: 21
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 21
+    residualQueue: 21
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 2
+    goalscorers: 1
+    arenas: 7
+    attendances: 5
+    referees: 0
+    halfTimeScores: 1
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1963":
+    canonicalMatchesInScope: 10
+    withSmpMention: 5
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 10
+    residualQueue: 10
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 4
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1964":
+    canonicalMatchesInScope: 7
+    withSmpMention: 2
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 7
+    residualQueue: 7
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 1
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1965":
+    canonicalMatchesInScope: 8
+    withSmpMention: 6
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 8
+    residualQueue: 8
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1966":
+    canonicalMatchesInScope: 1
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 1
+    residualQueue: 1
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1967":
+    canonicalMatchesInScope: 13
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 13
+    residualQueue: 13
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1968":
+    canonicalMatchesInScope: 1
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 1
+    residualQueue: 1
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1971":
+    canonicalMatchesInScope: 2
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 2
+    residualQueue: 2
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1972":
+    canonicalMatchesInScope: 6
+    withSmpMention: 4
+    matchReports: 3
+    postMatchEvidence: 3
+    canonicalLinked: 4
+    ocrCorrelated: 4
+    facsimileReviewed: 0
+    noOcrCandidate: 2
+    notFound: 0
+    pending: 0
+    residualQueue: 3
+    enrichmentComplete: 3
+    residualNoOcrCandidate: 2
+    residualConflictCandidate: 0
+    residualPreviewOnly: 1
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 17
+    ocrCandidates: 17
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 2.83
+  "1973":
+    canonicalMatchesInScope: 4
+    withSmpMention: 1
+    matchReports: 1
+    postMatchEvidence: 1
+    canonicalLinked: 1
+    ocrCorrelated: 1
+    facsimileReviewed: 0
+    noOcrCandidate: 3
+    notFound: 0
+    pending: 0
+    residualQueue: 3
+    enrichmentComplete: 1
+    residualNoOcrCandidate: 3
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 20
+    ocrCandidates: 18
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 4.5
+  "1974":
+    canonicalMatchesInScope: 6
+    withSmpMention: 6
+    matchReports: 6
+    postMatchEvidence: 6
+    canonicalLinked: 6
+    ocrCorrelated: 5
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 0
+    residualQueue: 1
+    enrichmentComplete: 5
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 1
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 1
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 23
+    ocrCandidates: 23
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 3.83
+  "1975":
+    canonicalMatchesInScope: 11
+    withSmpMention: 9
+    matchReports: 6
+    postMatchEvidence: 7
+    canonicalLinked: 8
+    ocrCorrelated: 8
+    facsimileReviewed: 0
+    noOcrCandidate: 3
+    notFound: 0
+    pending: 0
+    residualQueue: 5
+    enrichmentComplete: 6
+    residualNoOcrCandidate: 3
+    residualConflictCandidate: 0
+    residualPreviewOnly: 1
+    residualFixtureOnly: 0
+    residualWeakCandidate: 1
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 45
+    ocrCandidates: 43
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 3.91
+  "1976":
+    canonicalMatchesInScope: 12
+    withSmpMention: 9
+    matchReports: 7
+    postMatchEvidence: 6
+    canonicalLinked: 9
+    ocrCorrelated: 9
+    facsimileReviewed: 0
+    noOcrCandidate: 3
+    notFound: 0
+    pending: 0
+    residualQueue: 7
+    enrichmentComplete: 5
+    residualNoOcrCandidate: 3
+    residualConflictCandidate: 0
+    residualPreviewOnly: 3
+    residualFixtureOnly: 0
+    residualWeakCandidate: 1
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 1
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 1
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 39
+    ocrCandidates: 38
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 3.17
+  "1977":
+    canonicalMatchesInScope: 7
+    withSmpMention: 6
+    matchReports: 6
+    postMatchEvidence: 6
+    canonicalLinked: 6
+    ocrCorrelated: 4
+    facsimileReviewed: 0
+    noOcrCandidate: 1
+    notFound: 0
+    pending: 0
+    residualQueue: 3
+    enrichmentComplete: 4
+    residualNoOcrCandidate: 1
+    residualConflictCandidate: 2
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 1
+    conflictCandidates: 2
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 1
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 30
+    ocrCandidates: 29
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 4.14
+  "1978":
+    canonicalMatchesInScope: 2
+    withSmpMention: 2
+    matchReports: 2
+    postMatchEvidence: 2
+    canonicalLinked: 2
+    ocrCorrelated: 2
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 0
+    residualQueue: 0
+    enrichmentComplete: 2
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 1
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 1
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 8
+    ocrCandidates: 8
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 4
+  "1979":
+    canonicalMatchesInScope: 39
+    withSmpMention: 31
+    matchReports: 24
+    postMatchEvidence: 28
+    canonicalLinked: 31
+    ocrCorrelated: 30
+    facsimileReviewed: 0
+    noOcrCandidate: 8
+    notFound: 0
+    pending: 0
+    residualQueue: 17
+    enrichmentComplete: 22
+    residualNoOcrCandidate: 8
+    residualConflictCandidate: 1
+    residualPreviewOnly: 2
+    residualFixtureOnly: 0
+    residualWeakCandidate: 6
+    lineups: 0
+    goalscorers: 0
+    arenas: 2
+    attendances: 5
+    referees: 1
+    halfTimeScores: 7
+    conflictCandidates: 1
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 2
+    newAttendances: 5
+    newReferees: 1
+    newHalfTimeScores: 7
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 136
+    ocrCandidates: 130
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 3.33
+  "1980":
+    canonicalMatchesInScope: 2
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 2
+    residualQueue: 2
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1981":
+    canonicalMatchesInScope: 3
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 3
+    residualQueue: 3
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1982":
+    canonicalMatchesInScope: 24
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 24
+    residualQueue: 24
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1983":
+    canonicalMatchesInScope: 24
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 24
+    residualQueue: 24
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1984":
+    canonicalMatchesInScope: 4
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 4
+    residualQueue: 4
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1985":
+    canonicalMatchesInScope: 22
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 22
+    residualQueue: 22
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1986":
+    canonicalMatchesInScope: 22
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 22
+    residualQueue: 22
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1987":
+    canonicalMatchesInScope: 22
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 22
+    residualQueue: 22
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1988":
+    canonicalMatchesInScope: 2
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 2
+    residualQueue: 2
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1989":
+    canonicalMatchesInScope: 22
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 22
+    residualQueue: 22
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1990":
+    canonicalMatchesInScope: 26
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 26
+    residualQueue: 26
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1991":
+    canonicalMatchesInScope: 25
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 25
+    residualQueue: 25
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1992":
+    canonicalMatchesInScope: 24
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 24
+    residualQueue: 24
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1993":
+    canonicalMatchesInScope: 25
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 25
+    residualQueue: 25
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1994":
+    canonicalMatchesInScope: 2
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 2
+    residualQueue: 2
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1995":
+    canonicalMatchesInScope: 25
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 25
+    residualQueue: 25
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1996":
+    canonicalMatchesInScope: 23
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 23
+    residualQueue: 23
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1997":
+    canonicalMatchesInScope: 27
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 27
+    residualQueue: 27
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1998":
+    canonicalMatchesInScope: 29
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 29
+    residualQueue: 29
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "1999":
+    canonicalMatchesInScope: 25
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 25
+    residualQueue: 25
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 1
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2000":
+    canonicalMatchesInScope: 23
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 23
+    residualQueue: 23
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2001":
+    canonicalMatchesInScope: 33
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 33
+    residualQueue: 33
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2002":
+    canonicalMatchesInScope: 36
+    withSmpMention: 27
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 36
+    residualQueue: 36
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 1
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2003":
+    canonicalMatchesInScope: 31
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 31
+    residualQueue: 31
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 1
+    attendances: 1
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2004":
+    canonicalMatchesInScope: 33
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 33
+    residualQueue: 33
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 1
+    attendances: 1
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2005":
+    canonicalMatchesInScope: 30
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 30
+    residualQueue: 30
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 1
+    arenas: 2
+    attendances: 2
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2006":
+    canonicalMatchesInScope: 34
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 34
+    residualQueue: 34
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2007":
+    canonicalMatchesInScope: 30
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 30
+    residualQueue: 30
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2008":
+    canonicalMatchesInScope: 32
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 32
+    residualQueue: 32
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2009":
+    canonicalMatchesInScope: 37
+    withSmpMention: 1
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 37
+    residualQueue: 37
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 0
+    goalscorers: 0
+    arenas: 0
+    attendances: 0
+    referees: 0
+    halfTimeScores: 0
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2010":
+    canonicalMatchesInScope: 32
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 32
+    residualQueue: 32
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 16
+    goalscorers: 17
+    arenas: 18
+    attendances: 0
+    referees: 0
+    halfTimeScores: 18
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2011":
+    canonicalMatchesInScope: 50
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 50
+    residualQueue: 50
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 32
+    goalscorers: 46
+    arenas: 41
+    attendances: 0
+    referees: 0
+    halfTimeScores: 48
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2012":
+    canonicalMatchesInScope: 48
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 48
+    residualQueue: 48
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 34
+    goalscorers: 43
+    arenas: 36
+    attendances: 0
+    referees: 0
+    halfTimeScores: 47
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2013":
+    canonicalMatchesInScope: 42
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 42
+    residualQueue: 42
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 30
+    goalscorers: 37
+    arenas: 31
+    attendances: 15
+    referees: 0
+    halfTimeScores: 39
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2014":
+    canonicalMatchesInScope: 43
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 43
+    residualQueue: 43
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 31
+    goalscorers: 39
+    arenas: 32
+    attendances: 19
+    referees: 0
+    halfTimeScores: 41
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2015":
+    canonicalMatchesInScope: 42
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 42
+    residualQueue: 42
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 32
+    goalscorers: 40
+    arenas: 29
+    attendances: 30
+    referees: 0
+    halfTimeScores: 41
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2016":
+    canonicalMatchesInScope: 42
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 42
+    residualQueue: 42
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 33
+    goalscorers: 42
+    arenas: 30
+    attendances: 30
+    referees: 30
+    halfTimeScores: 42
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2017":
+    canonicalMatchesInScope: 42
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 42
+    residualQueue: 42
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 32
+    goalscorers: 41
+    arenas: 30
+    attendances: 30
+    referees: 30
+    halfTimeScores: 42
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2018":
+    canonicalMatchesInScope: 40
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 40
+    residualQueue: 40
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 34
+    goalscorers: 37
+    arenas: 34
+    attendances: 4
+    referees: 0
+    halfTimeScores: 38
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2019":
+    canonicalMatchesInScope: 39
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 39
+    residualQueue: 39
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 34
+    goalscorers: 35
+    arenas: 30
+    attendances: 4
+    referees: 0
+    halfTimeScores: 37
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2020":
+    canonicalMatchesInScope: 37
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 37
+    residualQueue: 37
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 30
+    goalscorers: 36
+    arenas: 30
+    attendances: 30
+    referees: 29
+    halfTimeScores: 37
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2021":
+    canonicalMatchesInScope: 34
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 34
+    residualQueue: 34
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 33
+    goalscorers: 32
+    arenas: 32
+    attendances: 20
+    referees: 0
+    halfTimeScores: 34
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2022":
+    canonicalMatchesInScope: 41
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 41
+    residualQueue: 41
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 33
+    goalscorers: 37
+    arenas: 33
+    attendances: 30
+    referees: 30
+    halfTimeScores: 41
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2023":
+    canonicalMatchesInScope: 42
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 42
+    residualQueue: 42
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 31
+    goalscorers: 41
+    arenas: 33
+    attendances: 30
+    referees: 30
+    halfTimeScores: 42
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2024":
+    canonicalMatchesInScope: 37
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 37
+    residualQueue: 37
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 30
+    goalscorers: 35
+    arenas: 32
+    attendances: 30
+    referees: 29
+    halfTimeScores: 37
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2025":
+    canonicalMatchesInScope: 49
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 49
+    residualQueue: 49
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 41
+    goalscorers: 43
+    arenas: 45
+    attendances: 28
+    referees: 33
+    halfTimeScores: 46
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
+  "2026":
+    canonicalMatchesInScope: 26
+    withSmpMention: 0
+    matchReports: 0
+    postMatchEvidence: 0
+    canonicalLinked: 0
+    ocrCorrelated: 0
+    facsimileReviewed: 0
+    noOcrCandidate: 0
+    notFound: 0
+    pending: 26
+    residualQueue: 26
+    enrichmentComplete: 0
+    residualNoOcrCandidate: 0
+    residualConflictCandidate: 0
+    residualPreviewOnly: 0
+    residualFixtureOnly: 0
+    residualWeakCandidate: 0
+    lineups: 17
+    goalscorers: 20
+    arenas: 24
+    attendances: 16
+    referees: 17
+    halfTimeScores: 20
+    conflictCandidates: 0
+    newLineups: 0
+    newPlayers: 0
+    newGoalscorers: 0
+    newEvents: 0
+    newArenas: 0
+    newAttendances: 0
+    newReferees: 0
+    newHalfTimeScores: 0
+    newHistoricalObservations: 0
+    ocrFalsePositives: 0
+    differentMatch: 0
+    searchedIssues: 0
+    ocrCandidates: 0
+    visuallyReviewedPages: 0
+    averageCandidatesPerReviewedMatch: 0
 pilot1979:
   canonicalMatchesInScope: 39
   withSmpMention: 31
@@ -329,54 +4450,28 @@ queue:
   - 1968-06-30-aalesunds-fk-molde-fk
   - 1971-08-01-aalesunds-fk-bodo-glimt
   - 1971-08-15-mjolner-aalesunds-fk
-  - 1972-04-30-aalesunds-fk-frigg
   - 1972-05-07-steinkjer-aalesunds-fk
-  - 1972-05-14-clausenengen-aalesunds-fk
   - 1972-05-22-aalesunds-fk-molde-fk
   - 1972-06-11-aalesunds-fk-valerenga
-  - 1972-06-25-aalesunds-fk-brumunddal
   - 1973-05-13-skarbovik-aalesunds-fk
   - 1973-05-27-aalesunds-fk-vard-haugesund
-  - 1973-06-03-aalesunds-fk-clausenengen
   - 1973-06-24-molde-fk-aalesunds-fk
-  - 1974-04-28-aalesunds-fk-clausenengen
-  - 1974-05-05-steinkjer-aalesunds-fk
   - 1974-05-11-aalesunds-fk-moss
-  - 1974-05-19-aalesunds-fk-eidsvold-turn
-  - 1974-05-26-frigg-aalesunds-fk
-  - 1974-06-03-aalesunds-fk-hodd
-  - 1975-04-27-bryne-aalesunds-fk
   - 1975-05-01-aalesunds-fk-lyn
-  - 1975-05-08-steinkjer-aalesunds-fk
   - 1975-05-29-traeff-aalesunds-fk
   - 1975-06-03-varegg-fotball-men-aalesunds-fk
   - 1975-06-11-eid-il-aalesunds-fk
-  - 1975-06-12-aalesunds-fk-frigg
-  - 1975-06-15-sunndal-aalesunds-fk
-  - 1975-06-25-aalesunds-fk-molde-fk
   - 1975-06-29-vard-haugesund-aalesunds-fk
-  - 1975-08-17-start-aalesunds-fk
   - 1976-05-16-aalesunds-fk-moss
-  - 1976-05-30-aalesunds-fk-hodd
-  - 1976-06-13-aalesunds-fk-sarpsborg
   - 1976-06-27-aalesunds-fk-larvik-turn
-  - 1976-07-25-folldal-aalesunds-fk
-  - 1976-07-29-aalesunds-fk-folldal
   - 1976-08-02-varegg-fotball-men-aalesunds-fk
   - 1976-08-08-aalesunds-fk-stavanger-if
   - 1976-08-15-aalesunds-fk-sk-brann
-  - 1976-08-21-moss-aalesunds-fk
   - 1976-08-29-aalesunds-fk-fram-larvik
   - 1976-09-26-aalesunds-fk-os
-  - 1977-06-21-aalesunds-fk-rollon
-  - 1977-07-27-aalesunds-fk-vard
   - 1977-07-29-aalesunds-fk-skarbovik
   - 1977-08-06-bud-aalesunds-fk
-  - 1977-08-12-aalesunds-fk-rollon
   - 1977-08-20-aalesunds-fk-orsta
-  - 1977-09-17-bergsoy-aalesunds-fk
-  - 1978-10-08-neset-aalesunds-fk
-  - 1978-10-15-aalesunds-fk-neset
   - 1979-02-24-molde-fk-aalesunds-fk
   - 1979-03-03-aalesunds-fk-velledalen-ringen
   - 1979-03-10-aalesunds-fk-hareid
@@ -7306,12 +11401,13 @@ entries:
     competition: andredivisjon
     homeAway: home
     score: 0-2
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -7319,9 +11415,34 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 002f89f098db9d26927f113ff3fadf7f
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19720502_90_100_1
+      url: https://www.nb.no/items/002f89f098db9d26927f113ff3fadf7f?page=6
+      issued: 1972-05-02
+      page: "6"
+      searchedIssues: 1
+      ocrCandidates: 1
+      visuallyReviewedPages: 0
+      genres:
+        - unknown
+        - match_report
+        - fixture_list
+        - results_board
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1972-05-07-steinkjer-aalesunds-fk
     date: 1972-05-07
     season: 1972
@@ -7330,12 +11451,13 @@ entries:
     competition: andredivisjon
     homeAway: away
     score: 2-0
-    hasSmpMention: false
+    hasSmpMention: true
     hasMatchReport: false
     hasPostMatchEvidence: false
-    canonicalLinked: false
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -7343,9 +11465,33 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: ocr_correlated
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: preview_only
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 6fd019eda2dad5437035e0c1fd0d4644
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19720505_90_103_1
+      url: https://www.nb.no/items/6fd019eda2dad5437035e0c1fd0d4644?page=6
+      issued: 1972-05-05
+      page: "6"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - fixture_list
+        - preview
+        - unknown
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1972-05-14-clausenengen-aalesunds-fk
     date: 1972-05-14
     season: 1972
@@ -7354,12 +11500,13 @@ entries:
     competition: andredivisjon
     homeAway: away
     score: 0-0
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -7367,9 +11514,34 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: dacbe2b045e95f7a39bba7702d9fdfc9
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19720515_90_110_1
+      url: https://www.nb.no/items/dacbe2b045e95f7a39bba7702d9fdfc9?page=6
+      issued: 1972-05-15
+      page: "6"
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres:
+        - unknown
+        - results_board
+        - fixture_list
+        - match_report
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1972-05-22-aalesunds-fk-molde-fk
     date: 1972-05-22
     season: 1972
@@ -7382,6 +11554,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -7391,9 +11564,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1972-06-11-aalesunds-fk-valerenga
     date: 1972-06-11
     season: 1972
@@ -7406,6 +11595,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -7415,9 +11605,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 2
+      ocrCandidates: 2
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1972-06-25-aalesunds-fk-brumunddal
     date: 1972-06-25
     season: 1972
@@ -7426,12 +11632,13 @@ entries:
     competition: andredivisjon
     homeAway: home
     score: 0-0
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -7439,9 +11646,33 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: c75cc5ba67ef5ae8fa5fdde9a77206b5
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19720626_90_144_1
+      url: https://www.nb.no/items/c75cc5ba67ef5ae8fa5fdde9a77206b5?page=6
+      issued: 1972-06-26
+      page: "6"
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - fixture_list
+        - standings
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1973-05-13-skarbovik-aalesunds-fk
     date: 1973-05-13
     season: 1973
@@ -7454,6 +11685,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -7463,9 +11695,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 6
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1973-05-27-aalesunds-fk-vard-haugesund
     date: 1973-05-27
     season: 1973
@@ -7478,6 +11726,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -7487,9 +11736,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1973-06-03-aalesunds-fk-clausenengen
     date: 1973-06-03
     season: 1973
@@ -7498,12 +11763,13 @@ entries:
     competition: andredivisjon
     homeAway: home
     score: 0-0
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -7511,9 +11777,34 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 8f2a53d73c1314f858dec79c5818520d
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19730604_91_126_1
+      url: https://www.nb.no/items/8f2a53d73c1314f858dec79c5818520d?page=6
+      issued: 1973-06-04
+      page: "6"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - results_board
+        - standings
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1973-06-24-molde-fk-aalesunds-fk
     date: 1973-06-24
     season: 1973
@@ -7526,6 +11817,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -7535,9 +11827,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 6
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1974-04-28-aalesunds-fk-clausenengen
     date: 1974-04-28
     season: 1974
@@ -7546,12 +11854,13 @@ entries:
     competition: andredivisjon
     homeAway: home
     score: 0-0
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -7559,9 +11868,33 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 087df7c7372fb742fe9f0834f2a51a47
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740429_92_98_1
+      url: https://www.nb.no/items/087df7c7372fb742fe9f0834f2a51a47?page=1
+      issued: 1974-04-29
+      page: "1"
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - unknown
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1974-05-05-steinkjer-aalesunds-fk
     date: 1974-05-05
     season: 1974
@@ -7570,12 +11903,13 @@ entries:
     competition: andredivisjon
     homeAway: away
     score: 1-1
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -7583,9 +11917,36 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 56ada4c9d6c7079f4326c3294522688e
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740506_92_103_1
+      url: https://www.nb.no/items/56ada4c9d6c7079f4326c3294522688e?page=6
+      issued: 1974-05-06
+      page: "6"
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - result_note
+        - fixture_list
+        - results_board
+        - standings
+        - unknown
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1974-05-11-aalesunds-fk-moss
     date: 1974-05-11
     season: 1974
@@ -7594,22 +11955,53 @@ entries:
     competition: andredivisjon
     homeAway: home
     score: 2-1
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
-    conflictCandidate: false
+    ocrCorrelated: true
+    conflictCandidate: true
     lineup: false
     goalscorers: false
     arena: false
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: conflict_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: conflict_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 6dedb88fbcb676acf528273727a04f38
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740513_92_109_1
+      url: https://www.nb.no/items/6dedb88fbcb676acf528273727a04f38?page=6
+      issued: 1974-05-13
+      page: "6"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - unknown
+        - results_board
+        - standings
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      conflict:
+        field: score
+        canonical: 2-1
+        newspaper: 3-1
+      note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.
   - matchId: 1974-05-19-aalesunds-fk-eidsvold-turn
     date: 1974-05-19
     season: 1974
@@ -7618,12 +12010,13 @@ entries:
     competition: andredivisjon
     homeAway: home
     score: 0-1
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -7631,9 +12024,35 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: bf7a1d8933c42fc527df9c00bbd07635
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740520_92_114_1
+      url: https://www.nb.no/items/bf7a1d8933c42fc527df9c00bbd07635?page=6
+      issued: 1974-05-20
+      page: "6"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - results_board
+        - fixture_list
+        - unknown
+        - standings
+        - match_report
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1974-05-26-frigg-aalesunds-fk
     date: 1974-05-26
     season: 1974
@@ -7642,12 +12061,13 @@ entries:
     competition: andredivisjon
     homeAway: away
     score: 1-1
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -7655,9 +12075,32 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: bb55adf047e69bf6bfaac8cbaf2a3e07
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740527_92_119_1
+      url: https://www.nb.no/items/bb55adf047e69bf6bfaac8cbaf2a3e07?page=6
+      issued: 1974-05-27
+      page: "6"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1974-06-03-aalesunds-fk-hodd
     date: 1974-06-03
     season: 1974
@@ -7666,12 +12109,13 @@ entries:
     competition: andredivisjon
     homeAway: home
     score: 1-2
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -7679,9 +12123,34 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 2933de88b36573496d46fd8713074dd3
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740604_92_125_1
+      url: https://www.nb.no/items/2933de88b36573496d46fd8713074dd3?page=6
+      issued: 1974-06-04
+      page: "6"
+      searchedIssues: 5
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres:
+        - unknown
+        - results_board
+        - fixture_list
+        - match_report
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1975-04-27-bryne-aalesunds-fk
     date: 1975-04-27
     season: 1975
@@ -7690,12 +12159,13 @@ entries:
     competition: andredivisjon
     homeAway: away
     score: 2-1
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -7703,9 +12173,34 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 08359e53bbf8dc83521fa5c7aceaf4fa
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750428_93_97_1
+      url: https://www.nb.no/items/08359e53bbf8dc83521fa5c7aceaf4fa?page=1
+      issued: 1975-04-28
+      page: "1"
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - results_board
+        - unknown
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1975-05-01-aalesunds-fk-lyn
     date: 1975-05-01
     season: 1975
@@ -7714,12 +12209,13 @@ entries:
     competition: andredivisjon
     homeAway: home
     score: 2-2
-    hasSmpMention: false
+    hasSmpMention: true
     hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -7727,9 +12223,32 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: ocr_correlated
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: weak_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 4977d80dc21d1aa72d2f562cfd8aa040
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750502_93_100_1
+      url: https://www.nb.no/items/4977d80dc21d1aa72d2f562cfd8aa040?page=7
+      issued: 1975-05-02
+      page: "7"
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres:
+        - results_board
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1975-05-08-steinkjer-aalesunds-fk
     date: 1975-05-08
     season: 1975
@@ -7738,12 +12257,13 @@ entries:
     competition: andredivisjon
     homeAway: away
     score: 4-0
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -7751,9 +12271,34 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 59afb070ebc147db97a8c2bfa6b9e387
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750509_93_105_1
+      url: https://www.nb.no/items/59afb070ebc147db97a8c2bfa6b9e387?page=8
+      issued: 1975-05-09
+      page: "8"
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - fixture_list
+        - standings
+        - results_board
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1975-05-29-traeff-aalesunds-fk
     date: 1975-05-29
     season: 1975
@@ -7765,9 +12310,10 @@ entries:
     hasSmpMention: true
     hasMatchReport: false
     hasPostMatchEvidence: false
-    canonicalLinked: false
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -7775,9 +12321,33 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: ocr_correlated
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: preview_only
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 0b911b2a223d8848f72e06df3f60df6d
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750529_93_120_1
+      url: https://www.nb.no/items/0b911b2a223d8848f72e06df3f60df6d?page=6
+      issued: 1975-05-29
+      page: "6"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - fixture_list
+        - unknown
+        - preview
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1975-06-03-varegg-fotball-men-aalesunds-fk
     date: 1975-06-03
     season: 1975
@@ -7790,6 +12360,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -7799,9 +12370,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1975-06-11-eid-il-aalesunds-fk
     date: 1975-06-11
     season: 1975
@@ -7814,6 +12401,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -7823,9 +12411,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 6
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1975-06-12-aalesunds-fk-frigg
     date: 1975-06-12
     season: 1975
@@ -7834,12 +12438,13 @@ entries:
     competition: andredivisjon
     homeAway: home
     score: 0-1
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -7847,9 +12452,32 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 1e2080cebac365255ca09725f75fdacd
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750613_93_133_1
+      url: https://www.nb.no/items/1e2080cebac365255ca09725f75fdacd?page=6
+      issued: 1975-06-13
+      page: "6"
+      searchedIssues: 5
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1975-06-15-sunndal-aalesunds-fk
     date: 1975-06-15
     season: 1975
@@ -7858,12 +12486,13 @@ entries:
     competition: andredivisjon
     homeAway: away
     score: 1-3
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -7871,9 +12500,35 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: bbb5383a6fdc7e7df945415526de7a69
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750616_93_135_1
+      url: https://www.nb.no/items/bbb5383a6fdc7e7df945415526de7a69?page=6
+      issued: 1975-06-16
+      page: "6"
+      searchedIssues: 6
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres:
+        - results_board
+        - fixture_list
+        - unknown
+        - standings
+        - match_report
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1975-06-25-aalesunds-fk-molde-fk
     date: 1975-06-25
     season: 1975
@@ -7882,12 +12537,13 @@ entries:
     competition: nm
     homeAway: home
     score: 1-0
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -7895,9 +12551,32 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 4b291efe8351de0dd201b380cc90a80b
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750626_93_144_1
+      url: https://www.nb.no/items/4b291efe8351de0dd201b380cc90a80b?page=1
+      issued: 1975-06-26
+      page: "1"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1975-06-29-vard-haugesund-aalesunds-fk
     date: 1975-06-29
     season: 1975
@@ -7910,6 +12589,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -7919,9 +12599,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1975-08-17-start-aalesunds-fk
     date: 1975-08-17
     season: 1975
@@ -7930,12 +12626,13 @@ entries:
     competition: nm
     homeAway: away
     score: 3-1
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -7943,9 +12640,33 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: c11c2e4168731cd68985f77c4ad2c19a
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750818_93_189_1
+      url: https://www.nb.no/items/c11c2e4168731cd68985f77c4ad2c19a?page=6
+      issued: 1975-08-18
+      page: "6"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - fixture_list
+        - unknown
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1976-05-16-aalesunds-fk-moss
     date: 1976-05-16
     season: 1976
@@ -7954,12 +12675,13 @@ entries:
     competition: andredivisjon
     homeAway: home
     score: 1-3
-    hasSmpMention: false
-    hasMatchReport: false
+    hasSmpMention: true
+    hasMatchReport: true
     hasPostMatchEvidence: false
-    canonicalLinked: false
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -7967,9 +12689,34 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: ocr_correlated
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: preview_only
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: f40d9fa2d00da5f577c52ea4d52a7251
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760514_94_110_1
+      url: https://www.nb.no/items/f40d9fa2d00da5f577c52ea4d52a7251?page=6
+      issued: 1976-05-14
+      page: "6"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - fixture_list
+        - preview
+        - unknown
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1976-05-30-aalesunds-fk-hodd
     date: 1976-05-30
     season: 1976
@@ -7978,22 +12725,51 @@ entries:
     competition: andredivisjon
     homeAway: home
     score: 2-1
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
     arena: false
     attendance: false
     referee: false
-    halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    halfTimeScore: true
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 215fc85ea29191350b3e3dbad6a1d2eb
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760531_94_122_1
+      url: https://www.nb.no/items/215fc85ea29191350b3e3dbad6a1d2eb?page=7
+      issued: 1976-05-31
+      page: "7"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - results_board
+        - fixture_list
+        - match_report
+        - unknown
+        - standings
+      fieldsAdded:
+        - home.halfTimeScore
+        - away.halfTimeScore
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1976-06-13-aalesunds-fk-sarpsborg
     date: 1976-06-13
     season: 1976
@@ -8002,12 +12778,13 @@ entries:
     competition: andredivisjon
     homeAway: home
     score: 2-2
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -8015,9 +12792,35 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 4168abf2efb85c783876940384be99fd
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760614_94_133_1
+      url: https://www.nb.no/items/4168abf2efb85c783876940384be99fd?page=6
+      issued: 1976-06-14
+      page: "6"
+      searchedIssues: 2
+      ocrCandidates: 2
+      visuallyReviewedPages: 0
+      genres:
+        - unknown
+        - results_board
+        - fixture_list
+        - standings
+        - match_report
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1976-06-27-aalesunds-fk-larvik-turn
     date: 1976-06-27
     season: 1976
@@ -8026,12 +12829,13 @@ entries:
     competition: andredivisjon
     homeAway: home
     score: 0-2
-    hasSmpMention: false
+    hasSmpMention: true
     hasMatchReport: false
     hasPostMatchEvidence: false
-    canonicalLinked: false
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -8039,9 +12843,32 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: ocr_correlated
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: preview_only
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 5dabbfa494f5e2e0da13802dcc4505ab
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760626_94_144_1
+      url: https://www.nb.no/items/5dabbfa494f5e2e0da13802dcc4505ab?page=17
+      issued: 1976-06-26
+      page: "17"
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres:
+        - preview
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1976-07-25-folldal-aalesunds-fk
     date: 1976-07-25
     season: 1976
@@ -8050,12 +12877,13 @@ entries:
     competition: nm
     homeAway: away
     score: 3-3
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -8063,9 +12891,34 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: e6f17e09ddbc2f2c3983b7367528dd47
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760726_94_169_1
+      url: https://www.nb.no/items/e6f17e09ddbc2f2c3983b7367528dd47?page=6
+      issued: 1976-07-26
+      page: "6"
+      searchedIssues: 2
+      ocrCandidates: 2
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - results_board
+        - unknown
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1976-07-29-aalesunds-fk-folldal
     date: 1976-07-29
     season: 1976
@@ -8074,12 +12927,13 @@ entries:
     competition: nm
     homeAway: home
     score: 1-0
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -8087,9 +12941,33 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: a780635f4e111c01794f9ccabed36ddf
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760730_94_173_1
+      url: https://www.nb.no/items/a780635f4e111c01794f9ccabed36ddf?page=9
+      issued: 1976-07-30
+      page: "9"
+      searchedIssues: 2
+      ocrCandidates: 2
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - results_board
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1976-08-02-varegg-fotball-men-aalesunds-fk
     date: 1976-08-02
     season: 1976
@@ -8102,6 +12980,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -8111,9 +12990,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1976-08-08-aalesunds-fk-stavanger-if
     date: 1976-08-08
     season: 1976
@@ -8122,12 +13017,13 @@ entries:
     competition: andredivisjon
     homeAway: home
     score: 1-1
-    hasSmpMention: false
+    hasSmpMention: true
     hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -8135,9 +13031,33 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: ocr_correlated
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: weak_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 61f826c64730e751920ef282f34f20a3
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760809_94_181_1
+      url: https://www.nb.no/items/61f826c64730e751920ef282f34f20a3?page=6
+      issued: 1976-08-09
+      page: "6"
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres:
+        - results_board
+        - fixture_list
+        - standings
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1976-08-15-aalesunds-fk-sk-brann
     date: 1976-08-15
     season: 1976
@@ -8146,12 +13066,13 @@ entries:
     competition: nm
     homeAway: home
     score: 2-4
-    hasSmpMention: false
-    hasMatchReport: false
+    hasSmpMention: true
+    hasMatchReport: true
     hasPostMatchEvidence: false
-    canonicalLinked: false
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -8159,9 +13080,33 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: ocr_correlated
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: preview_only
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 6a6285b9b2aec16faae2309f74a7b995
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760813_94_185_1
+      url: https://www.nb.no/items/6a6285b9b2aec16faae2309f74a7b995?page=6
+      issued: 1976-08-13
+      page: "6"
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres:
+        - preview
+        - match_report
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1976-08-21-moss-aalesunds-fk
     date: 1976-08-21
     season: 1976
@@ -8170,12 +13115,13 @@ entries:
     competition: andredivisjon
     homeAway: away
     score: 8-0
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -8183,9 +13129,34 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 3164360bda62d529f6e5c194e8ea048e
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760823_94_193_1
+      url: https://www.nb.no/items/3164360bda62d529f6e5c194e8ea048e?page=6
+      issued: 1976-08-23
+      page: "6"
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres:
+        - unknown
+        - fixture_list
+        - results_board
+        - match_report
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1976-08-29-aalesunds-fk-fram-larvik
     date: 1976-08-29
     season: 1976
@@ -8198,6 +13169,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -8207,9 +13179,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 6
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1976-09-26-aalesunds-fk-os
     date: 1976-09-26
     season: 1976
@@ -8222,6 +13210,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -8231,9 +13220,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1977-06-21-aalesunds-fk-rollon
     date: 1977-06-21
     season: 1977
@@ -8243,11 +13248,12 @@ entries:
     homeAway: home
     score: 1-0
     hasSmpMention: true
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -8255,9 +13261,32 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 0285dd33df575cee3de59d621eb2a09f
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19770622_95_139_1
+      url: https://www.nb.no/items/0285dd33df575cee3de59d621eb2a09f?page=7
+      issued: 1977-06-22
+      page: "7"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1977-07-27-aalesunds-fk-vard
     date: 1977-07-27
     season: 1977
@@ -8266,22 +13295,49 @@ entries:
     competition: nm
     homeAway: home
     score: 1-2
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
     arena: false
     attendance: false
     referee: false
-    halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    halfTimeScore: true
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 79d5d00433370bc257cd2307d9a8a503
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19770728_95_170_1
+      url: https://www.nb.no/items/79d5d00433370bc257cd2307d9a8a503?page=6
+      issued: 1977-07-28
+      page: "6"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - results_board
+        - fixture_list
+        - match_report
+      fieldsAdded:
+        - home.halfTimeScore
+        - away.halfTimeScore
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1977-07-29-aalesunds-fk-skarbovik
     date: 1977-07-29
     season: 1977
@@ -8290,22 +13346,51 @@ entries:
     competition: andredivisjon
     homeAway: home
     score: 1-2
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
-    conflictCandidate: false
+    ocrCorrelated: true
+    conflictCandidate: true
     lineup: false
     goalscorers: false
     arena: false
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: conflict_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: conflict_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 75651e9433166714a59915e86fc4ea16
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19770801_95_173_1
+      url: https://www.nb.no/items/75651e9433166714a59915e86fc4ea16?page=6
+      issued: 1977-08-01
+      page: "6"
+      searchedIssues: 5
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres:
+        - results_board
+        - match_report
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      conflict:
+        field: score
+        canonical: 1-2
+        newspaper: 0-1
+      note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.
   - matchId: 1977-08-06-bud-aalesunds-fk
     date: 1977-08-06
     season: 1977
@@ -8314,22 +13399,53 @@ entries:
     competition: andredivisjon
     homeAway: away
     score: 0-3
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
-    conflictCandidate: false
+    ocrCorrelated: true
+    conflictCandidate: true
     lineup: false
     goalscorers: false
     arena: false
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: conflict_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: conflict_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: a4b4cba558dc9a6531ce1d57ab9f9e3c
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19770808_95_178_1
+      url: https://www.nb.no/items/a4b4cba558dc9a6531ce1d57ab9f9e3c?page=6
+      issued: 1977-08-08
+      page: "6"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - results_board
+        - fixture_list
+        - unknown
+        - standings
+        - match_report
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      conflict:
+        field: score
+        canonical: 0-3
+        newspaper: 2-2
+      note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.
   - matchId: 1977-08-12-aalesunds-fk-rollon
     date: 1977-08-12
     season: 1977
@@ -8338,12 +13454,13 @@ entries:
     competition: andredivisjon
     homeAway: home
     score: 1-0
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -8351,9 +13468,32 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 9ea1547ddaa2d4647e13216bad368402
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19770812_95_182_1
+      url: https://www.nb.no/items/9ea1547ddaa2d4647e13216bad368402?page=6
+      issued: 1977-08-12
+      page: "6"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1977-08-20-aalesunds-fk-orsta
     date: 1977-08-20
     season: 1977
@@ -8366,6 +13506,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -8375,9 +13516,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 6
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1977-09-17-bergsoy-aalesunds-fk
     date: 1977-09-17
     season: 1977
@@ -8387,11 +13544,12 @@ entries:
     homeAway: away
     score: 0-1
     hasSmpMention: true
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -8399,9 +13557,35 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: a8397b62eec951bd7d0af907961aeff0
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19770919_95_216_1
+      url: https://www.nb.no/items/a8397b62eec951bd7d0af907961aeff0?page=7
+      issued: 1977-09-19
+      page: "7"
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - unknown
+        - standings
+        - fixture_list
+        - results_board
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1978-10-08-neset-aalesunds-fk
     date: 1978-10-08
     season: 1978
@@ -8410,22 +13594,49 @@ entries:
     competition: andredivisjon
     homeAway: away
     score: 1-0
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
     arena: false
     attendance: false
     referee: false
-    halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    halfTimeScore: true
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 94a4f0a6926e32bded400e5af598463d
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19781009_96_233_1
+      url: https://www.nb.no/items/94a4f0a6926e32bded400e5af598463d?page=8
+      issued: 1978-10-09
+      page: "8"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - results_board
+        - fixture_list
+        - match_report
+      fieldsAdded:
+        - home.halfTimeScore
+        - away.halfTimeScore
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1978-10-15-aalesunds-fk-neset
     date: 1978-10-15
     season: 1978
@@ -8434,12 +13645,13 @@ entries:
     competition: andredivisjon
     homeAway: home
     score: 2-0
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -8447,9 +13659,33 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 242bddbe45016cf45db57bcf4772e412
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19781016_96_239_1
+      url: https://www.nb.no/items/242bddbe45016cf45db57bcf4772e412?page=6
+      issued: 1978-10-16
+      page: "6"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - fixture_list
+        - match_report
+        - unknown
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1979-02-24-molde-fk-aalesunds-fk
     date: 1979-02-24
     season: 1979

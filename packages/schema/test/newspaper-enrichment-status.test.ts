@@ -63,4 +63,41 @@ describe("newspaper enrichment status", () => {
     const raw = await readFile(join(repoRoot(), "data", "discovery", "newspaper-enrichment-status.yaml"), "utf8");
     expect(raw).not.toMatch(/fullText|rawOcr|quote:/u);
   });
+
+  it("låser produksjonsbatchen 1972–1978 og 1979-kalibreringen", async () => {
+    const raw = await readFile(join(repoRoot(), "data", "discovery", "newspaper-enrichment-status.yaml"), "utf8");
+    const status = parseYaml(raw, { schema: "core" }) as NewspaperEnrichmentStatus;
+    const scaled = status.entries.filter((entry) => entry.season >= 1972 && entry.season <= 1978);
+
+    expect([1972, 1973, 1974, 1975, 1976, 1977, 1978].map((year) => status.seasons[String(year)]?.canonicalMatchesInScope))
+      .toEqual([6, 4, 6, 11, 12, 7, 2]);
+    expect(scaled).toHaveLength(48);
+    expect(scaled.filter((entry) => entry.hasSmpMention)).toHaveLength(37);
+    expect(scaled.filter((entry) => entry.canonicalLinked)).toHaveLength(36);
+    expect(scaled.filter((entry) => entry.reviewStatus === "ocr_correlated")).toHaveLength(33);
+    expect(scaled.filter((entry) => entry.conflictCandidate)).toHaveLength(3);
+    expect(scaled.filter((entry) => entry.reviewStatus === "no_ocr_candidate")).toHaveLength(12);
+    expect(scaled.filter((entry) => entry.hasMatchReport)).toHaveLength(31);
+    expect(scaled.filter((entry) => entry.hasPostMatchEvidence)).toHaveLength(31);
+    expect(scaled.filter((entry) => entry.enrichmentStatus === "complete")).toHaveLength(26);
+    expect(scaled.filter((entry) => entry.enrichmentStatus === "residual")).toHaveLength(22);
+    expect(scaled.filter((entry) => entry.halfTimeScore)).toHaveLength(3);
+    expect(scaled.filter((entry) => entry.lineup || entry.goalscorers || entry.arena || entry.attendance || entry.referee)).toHaveLength(0);
+
+    expect(status.seasons["1979"]).toMatchObject({
+      canonicalMatchesInScope: 39,
+      withSmpMention: 31,
+      matchReports: 24,
+      postMatchEvidence: 28,
+      ocrCorrelated: 30,
+      noOcrCandidate: 8,
+      conflictCandidates: 1,
+      enrichmentComplete: 22,
+      residualQueue: 17,
+      newHalfTimeScores: 7,
+      newAttendances: 5,
+      newArenas: 2,
+      newReferees: 1,
+    });
+  });
 });

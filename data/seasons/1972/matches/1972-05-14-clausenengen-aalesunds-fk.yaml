@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/dacbe2b045e95f7a39bba7702d9fdfc9?page=6
+    date: 1972-05-15
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/dacbe2b045e95f7a39bba7702d9fdfc9?page=6
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -38,4 +46,9 @@ sources:
       - status
       - home.score
       - away.score
-    note: "Sesongoversiktens seriekamper (s. 2) fører kampen mot Clausenengen borte med 0–0 sett fra AaFK."
+    note: Sesongoversiktens seriekamper (s. 2) fører kampen mot Clausenengen borte med 0–0 sett fra AaFK.
+  - sourceId: sunnmorsposten-19720515-dacbe2b045e95f7a39bba7702d9fdfc9
+    page: "6"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

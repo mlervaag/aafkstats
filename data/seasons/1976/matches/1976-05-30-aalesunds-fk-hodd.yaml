@@ -9,15 +9,25 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: hodd
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/215fc85ea29191350b3e3dbad6a1d2eb?page=7
+    date: 1976-05-31
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/215fc85ea29191350b3e3dbad6a1d2eb?page=7
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: confirmed
 conflicts: []
 tags: []
@@ -31,11 +41,18 @@ sources:
       - competition
       - home.clubId
       - away.clubId
-    note: "Terminlisten (s. 4) oppgir «30. mai AAFK—Hødd»."
+    note: Terminlisten (s. 4) oppgir «30. mai AAFK—Hødd».
   - sourceId: medlemsblad-for-aalesunds-fotb-1976-3cb7
     page: "5"
     fields:
       - status
       - home.score
       - away.score
-    note: "Sesongoversiktens seriekamper (s. 5) fører kampen mot Hødd hjemme med 2–1 sett fra AaFK."
+    note: Sesongoversiktens seriekamper (s. 5) fører kampen mot Hødd hjemme med 2–1 sett fra AaFK.
+  - sourceId: sunnmorsposten-19760531-215fc85ea29191350b3e3dbad6a1d2eb
+    page: "7"
+    fields:
+      - externalReports
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

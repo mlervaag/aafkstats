@@ -9,14 +9,17 @@ competition:
 home:
   clubId: neset
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/94a4f0a6926e32bded400e5af598463d?page=8
+    date: 1978-10-09
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1978/Third.html
@@ -29,6 +32,13 @@ providers:
       - away.clubId
       - home.score
       - away.score
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/94a4f0a6926e32bded400e5af598463d?page=8
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
+      - home.halfTimeScore
+      - away.halfTimeScore
 sources:
   - sourceId: sunnmore-fotballkrets-arsrapport-1978
     page: "20"
@@ -36,6 +46,13 @@ sources:
       - home.score
       - away.score
       - competition
+  - sourceId: sunnmorsposten-19781009-94a4f0a6926e32bded400e5af598463d
+    page: "8"
+    fields:
+      - externalReports
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: probable
 conflicts: []
 tags: []
