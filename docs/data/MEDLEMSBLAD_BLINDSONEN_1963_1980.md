@@ -291,3 +291,49 @@ ført likt for konsistens. **Dette bør rettes samlet for hele sesongen**, ikke
 kamp for kamp.
 
 Klubben Bud er opprettet.
+
+## 10. Sesongene 1963 og 1967
+
+### 1967 — elleve kamper, avklart av rekkefølge
+
+Den reneste årgangen i hele blindsonen. Terminlisten (`1967-4999`, s. 3) har
+fjorten seriekamper, sju i vår og sju i høst, og resultatoversikten
+(`1967-bebf`, s. 5) har en «Vår:»-blokk og en «Høst:»-blokk med **samme
+motstandere i samme rekkefølge som terminlisten**. Koblingen er dermed entydig
+på rekkefølge alene, uten å måtte lese bortemerker.
+
+Elleve er kanonisert — fem i vår mot Langevåg, Herd, VRF, Spjelkavik og Molde,
+og seks i høst mot Clausenengen, Langevåg, Herd, VRF, Spjelkavik og KFK.
+
+Tre står igjen: Clausenengen 7. mai har ikke resultat i oversikten, og KFK
+25. juni («7—92») og Molde 17. september («6—9») har skadet resultat i skannet.
+
+Kilden skriver «SIL» i terminlisten der resultatoversikten skriver Spjelkavik.
+Klubben er ført som Spjelkavik, siden rekkefølgen i begge blokkene plasserer den
+samme motstanderen på samme sted.
+
+### 1963 — fem kamper
+
+Resultatoversikten på side 48 er den som krevde spaltesplitting: to spalter med
+sammenfallende vertikal posisjon, slik at rader fra begge smeltet sammen i en
+naiv lesing. Med spaltene skilt lar begge seg lese hver for seg.
+
+Fem kamper mot lag utenfor kretsen lot seg koble mot terminlistene i vår- og
+høstnummeret:
+
+| Dato | Kamp | Resultat |
+|---|---|---|
+| 1963-05-05 | Kvik–AaFK | 1–1 |
+| 1963-08-04 | AaFK–Kvik | 2–0 |
+| 1963-08-18 | Lillestrøm–AaFK | 4–0 |
+| 1963-09-08 | Østsiden–AaFK | 4–1 |
+| 1963-10-13 | Rosenborg–AaFK | 2–0 |
+
+Kvik står to ganger i sesongen, én gang hjemme og én gang borte, og skilles av
+bortemerket i oversikten.
+
+### 1968 og 1969 gir ingenting her
+
+Begge årgangene har terminliste, men de identifiserte sidene er
+kampoppsett-sider uten resultater. Ingen resultatoversikt er funnet i det
+skannede materialet, og ingenting er kanonisert.

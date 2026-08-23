@@ -1,0 +1,41 @@
+id: 1963-10-13-rosenborg-bk-aalesunds-fk
+date: 1963-10-13
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1963
+  stage: regular_season
+home:
+  clubId: rosenborg-bk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1963-400c
+    page: "35"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Terminlisten (s. 35) oppgir «13. okt. Rosenborg—AFK»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1963-400c
+    page: "48"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 48) fører kampen mot Rosenborg borte med 0–2 sett fra AaFK."

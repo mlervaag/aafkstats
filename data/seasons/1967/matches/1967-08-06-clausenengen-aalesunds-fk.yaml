@@ -1,0 +1,41 @@
+id: 1967-08-06-clausenengen-aalesunds-fk
+date: 1967-08-06
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1967
+  stage: regular_season
+home:
+  clubId: clausenengen
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 3
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1967-4999
+    page: "3"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Terminlisten (s. 3) oppgir «6/8 CFK—AFK»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1967-bebf
+    page: "5"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 5) fører kampen mot Clausenengen borte med 3–1 sett fra AaFK."

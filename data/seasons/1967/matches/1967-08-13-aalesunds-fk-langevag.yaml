@@ -1,0 +1,41 @@
+id: 1967-08-13-aalesunds-fk-langevag
+date: 1967-08-13
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1967
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: langevag
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1967-4999
+    page: "3"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Terminlisten (s. 3) oppgir «13/8 AFK—Langevåg»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1967-bebf
+    page: "5"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 5) fører kampen mot Langevåg hjemme med 4–1 sett fra AaFK."
