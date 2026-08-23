@@ -7,8 +7,10 @@ import {
   datelessQueries,
   dayOffset,
   discoverMatchDate,
+  canonicalCandidateScore,
   matchesForBatch,
   monthWindows,
+  newspaperGenre,
   scoreVariants,
   searchWindow,
 } from "../src/adapters/nb-newspaper-batch.js";
@@ -43,9 +45,10 @@ describe("matchesForBatch", () => {
       match({ id: "1980-05-01-uten-dato", date: "1980-05-01", dateConfidence: "month" }),
       match({ id: "1981-05-01-ikke-spilt", date: "1981-05-01", status: "postponed" }),
       match({ id: "1982-05-01-uten-resultat", date: "1982-05-01", home: { clubId: "aalesunds-fk", score: null, halfTimeScore: null } }),
-      match({ id: "1983-05-01-med-kilde", date: "1983-05-01", sources: [{ sourceId: "en-kilde", fields: ["home.score"] }] }),
+      match({ id: "1983-05-01-med-kilde", date: "1983-05-01", sources: [{ sourceId: "smp-1983", fields: ["home.score"] }] }),
       match({ id: "1999-05-01-utenfor", date: "1999-05-01" }),
     ],
+    sources: [{ id: "smp-1983", title: "Sunnmørsposten 2. mai 1983", sourceType: "other", year: 1983, providers: [] }],
   } as unknown as Archive;
 
   it("tar bare spilte kamper med eksakt dato og resultat i årsspennet", () => {
@@ -53,7 +56,7 @@ describe("matchesForBatch", () => {
       .toEqual(["1976-06-29-aafk-sunndal", "1983-05-01-med-kilde"]);
   });
 
-  it("kan avgrenses til kamper uten kildehenvisning", () => {
+  it("kan avgrenses til kamper uten samtidig Sunnmørsposten-kilde", () => {
     expect(matchesForBatch(archive, { from: 1976, to: 1990, onlyMissingSources: true }).map((entry) => entry.id))
       .toEqual(["1976-06-29-aafk-sunndal"]);
   });
@@ -83,8 +86,9 @@ describe("clubNames", () => {
 });
 
 describe("søkevindu og datoregning", () => {
-  it("dekker kampdagen og tre dager etter", () => {
-    expect(searchWindow("1976-06-29")).toEqual({ from: "1976-06-29", to: "1976-07-02" });
+  it("dekker D-2 til D+2 som standard og kan utvides", () => {
+    expect(searchWindow("1976-06-29")).toEqual({ from: "1976-06-27", to: "1976-07-01" });
+    expect(searchWindow("1976-06-29", 3)).toEqual({ from: "1976-06-26", to: "1976-07-02" });
   });
 
   it("regner ut hvor mange dager etter kampen utgaven kom", () => {
@@ -104,6 +108,31 @@ describe("søkevindu og datoregning", () => {
   it("prøver resultatet i begge lagrekkefølger", () => {
     expect(scoreVariants([2, 0])).toEqual(["2-0", "0-2"]);
     expect(scoreVariants([1, 1])).toEqual(["1-1"]);
+  });
+});
+
+describe("canonical kandidatklassifisering", () => {
+  it("rangerer referat over resultatbørs, tabell og terminliste", () => {
+    expect(newspaperGenre("ÅFK slo Hødd 2-0 etter en sterk andre omgang", 1)).toBe("match_report");
+    expect(newspaperGenre("Resultater: ÅFK-Hødd 2-0 Molde-Lyn 1-1 Brann-Viking 3-2", 1)).toBe("results_board");
+    expect(newspaperGenre("Tabell ÅFK 4 2 1 1 7 5 5 Hødd 4 1 1 2 4 7 3", 1)).toBe("standings");
+    expect(newspaperGenre("Terminliste: ÅFK - Hødd", -1)).toBe("fixture_list");
+  });
+
+  it("prioriterer mandagsreferatet etter en søndagskamp", () => {
+    const candidate = (id: string, issued: string) => ({
+      id,
+      issued,
+      itemUrl: `https://www.nb.no/items/${id}`,
+      access: { viewability: "NONE", isPublicDomain: false, mayStoreFullText: false, attribution: "test" },
+      score: 70,
+      reasons: [],
+      matchedQueries: [],
+      fragments: [{ text: "ÅFK slo Hødd 2-0 etter en god omgang", score: 70, reasons: [] }],
+    });
+    const sunday = match({ id: "1979-04-29-aalesunds-fk-hodd", date: "1979-04-29" });
+    expect(canonicalCandidateScore(candidate("mandag", "19790430"), sunday, ["Hødd"]))
+      .toBeGreaterThan(canonicalCandidateScore(candidate("tirsdag", "19790501"), sunday, ["Hødd"]));
   });
 });
 

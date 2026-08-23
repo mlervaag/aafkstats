@@ -10,7 +10,6 @@ import {
   datelessQueries,
   discoverMatchDate,
   resolveNewspaperTitle,
-  searchWindow,
   formatBatchReport,
   matchesForBatch,
   runNewspaperBatch,
@@ -25,6 +24,9 @@ const args = parseArgs({
     out: { type: "string" },
     "only-missing-sources": { type: "boolean" },
     "skip-facts": { type: "boolean" },
+    "window-days": { type: "string" },
+    "expanded-window-days": { type: "string" },
+    "candidate-limit": { type: "string" },
     dateless: { type: "boolean" },
     season: { type: "string" },
     "likely-months-only": { type: "boolean" },
@@ -46,11 +48,8 @@ if (limit !== undefined && (!Number.isInteger(limit) || limit < 1)) throw new Er
 const archive = await loadArchive(dataDir());
 if (archive.issues.length > 0) throw new Error(`arkivet har ${archive.issues.length} valideringsfeil`);
 
-// Samme port som resten av innhøstingen. Verktøyet skriver aldri data, men det
-// henter fra en kilde, og det spørsmålet stilles ett sted.
-assertMayFetch(archive, "nasjonalbiblioteket");
-
 if (args.values.dateless) {
+  assertMayFetch(archive, "nasjonalbiblioteket");
   const season = args.values.season === undefined ? undefined : Number(args.values.season);
   const queries = datelessQueries(archive, {
     ...(season === undefined ? { from, to } : { season }),
@@ -73,7 +72,7 @@ if (args.values.dateless) {
     const months = args.values["likely-months-only"] ? plan.months.slice(0, plan.likelyCount) : plan.months;
     const newspaper = await resolveNewspaperTitle(
       query.season,
-      searchWindow(`${query.season}-01-01`, 364),
+      { from: `${query.season}-01-01`, to: `${query.season}-12-31` },
       { digitized: titles, ...(args.values.refresh ? { refresh: true } : {}) },
     );
 
@@ -109,6 +108,19 @@ if (args.values["dry-run"]) {
   process.exit(0);
 }
 
+// Samme port som resten av innhøstingen. Tørrkjøringen over gjør ingen NB-kall.
+assertMayFetch(archive, "nasjonalbiblioteket");
+
+const positiveInteger = (valueText: string | undefined, name: string, fallback: number): number => {
+  const value = Number(valueText ?? fallback);
+  if (!Number.isInteger(value) || value < 1) throw new Error(`--${name} må være et positivt heltall`);
+  return value;
+};
+const windowDays = positiveInteger(args.values["window-days"], "window-days", 2);
+const expandedWindowDays = positiveInteger(args.values["expanded-window-days"], "expanded-window-days", 3);
+const candidateLimit = positiveInteger(args.values["candidate-limit"], "candidate-limit", 5);
+if (expandedWindowDays < windowDays) throw new Error("--expanded-window-days må være minst --window-days");
+
 // Rapporten inneholder OCR-utdrag til kontroll og hører derfor hjemme i den
 // hurtiglagrede, uversjonerte delen av treet — ikke i data/.
 const reportFile = args.values.out ?? join(repoRoot(), ".cache/ingest/nb-newspaper-batch", `${from}-${to}.json`);
@@ -117,6 +129,9 @@ const report = await runNewspaperBatch(archive, {
   ...selection,
   ...(limit === undefined ? {} : { limit }),
   facts: !args.values["skip-facts"],
+  windowDays,
+  expandedWindowDays,
+  candidateLimit,
   ...(args.values.refresh ? { refresh: true } : {}),
   reportFile,
   onProgress: (entry) => {

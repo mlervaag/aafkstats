@@ -24,7 +24,8 @@
     "backfill-source-claim-ids": "tsx src/cli/backfill-source-claim-ids.ts",
     "source-claim-integrity": "tsx src/cli/source-claim-integrity.ts",
     "source-claim": "tsx src/cli/source-claim.ts",
-    "discovery-status": "tsx src/cli/discovery-status.ts"
+    "discovery-status": "tsx src/cli/discovery-status.ts",
+    "newspaper-enrichment-status": "tsx src/cli/newspaper-enrichment-status.ts"
   },
   "dependencies": {
     "yaml": "^2.6.1",
