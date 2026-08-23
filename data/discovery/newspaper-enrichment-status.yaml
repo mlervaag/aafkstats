@@ -20,29 +20,29 @@ searchPolicy:
     allMatchesFacsimileReviewed: false
 totals:
   canonicalMatchesInScope: 1700
-  withSmpMention: 197
-  matchReports: 55
-  postMatchEvidence: 59
-  canonicalLinked: 67
-  ocrCorrelated: 63
+  withSmpMention: 214
+  matchReports: 79
+  postMatchEvidence: 82
+  canonicalLinked: 94
+  ocrCorrelated: 88
   facsimileReviewed: 0
-  noOcrCandidate: 20
+  noOcrCandidate: 35
   notFound: 0
-  pending: 1613
-  residualQueue: 1652
-  enrichmentComplete: 48
-  residualNoOcrCandidate: 20
-  residualConflictCandidate: 4
-  residualPreviewOnly: 7
+  pending: 1571
+  residualQueue: 1632
+  enrichmentComplete: 68
+  residualNoOcrCandidate: 35
+  residualConflictCandidate: 6
+  residualPreviewOnly: 10
   residualFixtureOnly: 0
-  residualWeakCandidate: 8
+  residualWeakCandidate: 10
   lineups: 528
   goalscorers: 624
   arenas: 577
   attendances: 335
   referees: 231
   halfTimeScores: 671
-  conflictCandidates: 4
+  conflictCandidates: 6
   newLineups: 0
   newPlayers: 0
   newGoalscorers: 0
@@ -54,8 +54,8 @@ totals:
   newHistoricalObservations: 0
   ocrFalsePositives: 0
   differentMatch: 0
-  searchedIssues: 318
-  ocrCandidates: 306
+  searchedIssues: 475
+  ocrCandidates: 454
   visuallyReviewedPages: 0
   averageCandidatesPerReviewedMatch: 3.52
 seasons:
@@ -1701,19 +1701,19 @@ seasons:
     averageCandidatesPerReviewedMatch: 0
   "1963":
     canonicalMatchesInScope: 10
-    withSmpMention: 5
-    matchReports: 0
-    postMatchEvidence: 0
-    canonicalLinked: 0
-    ocrCorrelated: 0
+    withSmpMention: 10
+    matchReports: 10
+    postMatchEvidence: 10
+    canonicalLinked: 10
+    ocrCorrelated: 8
     facsimileReviewed: 0
     noOcrCandidate: 0
     notFound: 0
-    pending: 10
-    residualQueue: 10
-    enrichmentComplete: 0
+    pending: 0
+    residualQueue: 2
+    enrichmentComplete: 8
     residualNoOcrCandidate: 0
-    residualConflictCandidate: 0
+    residualConflictCandidate: 2
     residualPreviewOnly: 0
     residualFixtureOnly: 0
     residualWeakCandidate: 0
@@ -1723,7 +1723,7 @@ seasons:
     attendances: 0
     referees: 0
     halfTimeScores: 0
-    conflictCandidates: 0
+    conflictCandidates: 2
     newLineups: 0
     newPlayers: 0
     newGoalscorers: 0
@@ -1735,28 +1735,28 @@ seasons:
     newHistoricalObservations: 0
     ocrFalsePositives: 0
     differentMatch: 0
-    searchedIssues: 0
-    ocrCandidates: 0
+    searchedIssues: 37
+    ocrCandidates: 36
     visuallyReviewedPages: 0
-    averageCandidatesPerReviewedMatch: 0
+    averageCandidatesPerReviewedMatch: 3.6
   "1964":
     canonicalMatchesInScope: 7
-    withSmpMention: 2
-    matchReports: 0
-    postMatchEvidence: 0
-    canonicalLinked: 0
-    ocrCorrelated: 0
+    withSmpMention: 5
+    matchReports: 2
+    postMatchEvidence: 3
+    canonicalLinked: 3
+    ocrCorrelated: 3
     facsimileReviewed: 0
-    noOcrCandidate: 0
+    noOcrCandidate: 4
     notFound: 0
-    pending: 7
-    residualQueue: 7
-    enrichmentComplete: 0
-    residualNoOcrCandidate: 0
+    pending: 0
+    residualQueue: 5
+    enrichmentComplete: 2
+    residualNoOcrCandidate: 4
     residualConflictCandidate: 0
     residualPreviewOnly: 0
     residualFixtureOnly: 0
-    residualWeakCandidate: 0
+    residualWeakCandidate: 1
     lineups: 0
     goalscorers: 0
     arenas: 0
@@ -1775,24 +1775,24 @@ seasons:
     newHistoricalObservations: 0
     ocrFalsePositives: 0
     differentMatch: 0
-    searchedIssues: 0
-    ocrCandidates: 0
+    searchedIssues: 22
+    ocrCandidates: 21
     visuallyReviewedPages: 0
-    averageCandidatesPerReviewedMatch: 0
+    averageCandidatesPerReviewedMatch: 3
   "1965":
     canonicalMatchesInScope: 8
     withSmpMention: 6
-    matchReports: 0
-    postMatchEvidence: 0
-    canonicalLinked: 0
-    ocrCorrelated: 0
+    matchReports: 5
+    postMatchEvidence: 5
+    canonicalLinked: 5
+    ocrCorrelated: 5
     facsimileReviewed: 0
-    noOcrCandidate: 0
+    noOcrCandidate: 3
     notFound: 0
-    pending: 8
-    residualQueue: 8
-    enrichmentComplete: 0
-    residualNoOcrCandidate: 0
+    pending: 0
+    residualQueue: 3
+    enrichmentComplete: 5
+    residualNoOcrCandidate: 3
     residualConflictCandidate: 0
     residualPreviewOnly: 0
     residualFixtureOnly: 0
@@ -1815,23 +1815,23 @@ seasons:
     newHistoricalObservations: 0
     ocrFalsePositives: 0
     differentMatch: 0
-    searchedIssues: 0
-    ocrCandidates: 0
+    searchedIssues: 33
+    ocrCandidates: 32
     visuallyReviewedPages: 0
-    averageCandidatesPerReviewedMatch: 0
+    averageCandidatesPerReviewedMatch: 4
   "1966":
     canonicalMatchesInScope: 1
-    withSmpMention: 0
-    matchReports: 0
-    postMatchEvidence: 0
-    canonicalLinked: 0
-    ocrCorrelated: 0
+    withSmpMention: 1
+    matchReports: 1
+    postMatchEvidence: 1
+    canonicalLinked: 1
+    ocrCorrelated: 1
     facsimileReviewed: 0
     noOcrCandidate: 0
     notFound: 0
-    pending: 1
-    residualQueue: 1
-    enrichmentComplete: 0
+    pending: 0
+    residualQueue: 0
+    enrichmentComplete: 1
     residualNoOcrCandidate: 0
     residualConflictCandidate: 0
     residualPreviewOnly: 0
@@ -1855,26 +1855,26 @@ seasons:
     newHistoricalObservations: 0
     ocrFalsePositives: 0
     differentMatch: 0
-    searchedIssues: 0
-    ocrCandidates: 0
+    searchedIssues: 4
+    ocrCandidates: 4
     visuallyReviewedPages: 0
-    averageCandidatesPerReviewedMatch: 0
+    averageCandidatesPerReviewedMatch: 4
   "1967":
     canonicalMatchesInScope: 13
-    withSmpMention: 0
-    matchReports: 0
-    postMatchEvidence: 0
-    canonicalLinked: 0
-    ocrCorrelated: 0
+    withSmpMention: 6
+    matchReports: 5
+    postMatchEvidence: 4
+    canonicalLinked: 6
+    ocrCorrelated: 6
     facsimileReviewed: 0
-    noOcrCandidate: 0
+    noOcrCandidate: 7
     notFound: 0
-    pending: 13
-    residualQueue: 13
-    enrichmentComplete: 0
-    residualNoOcrCandidate: 0
+    pending: 0
+    residualQueue: 9
+    enrichmentComplete: 4
+    residualNoOcrCandidate: 7
     residualConflictCandidate: 0
-    residualPreviewOnly: 0
+    residualPreviewOnly: 2
     residualFixtureOnly: 0
     residualWeakCandidate: 0
     lineups: 0
@@ -1895,28 +1895,28 @@ seasons:
     newHistoricalObservations: 0
     ocrFalsePositives: 0
     differentMatch: 0
-    searchedIssues: 0
-    ocrCandidates: 0
+    searchedIssues: 50
+    ocrCandidates: 45
     visuallyReviewedPages: 0
-    averageCandidatesPerReviewedMatch: 0
+    averageCandidatesPerReviewedMatch: 3.46
   "1968":
     canonicalMatchesInScope: 1
-    withSmpMention: 0
-    matchReports: 0
+    withSmpMention: 1
+    matchReports: 1
     postMatchEvidence: 0
-    canonicalLinked: 0
-    ocrCorrelated: 0
+    canonicalLinked: 1
+    ocrCorrelated: 1
     facsimileReviewed: 0
     noOcrCandidate: 0
     notFound: 0
-    pending: 1
+    pending: 0
     residualQueue: 1
     enrichmentComplete: 0
     residualNoOcrCandidate: 0
     residualConflictCandidate: 0
     residualPreviewOnly: 0
     residualFixtureOnly: 0
-    residualWeakCandidate: 0
+    residualWeakCandidate: 1
     lineups: 0
     goalscorers: 0
     arenas: 0
@@ -1935,26 +1935,26 @@ seasons:
     newHistoricalObservations: 0
     ocrFalsePositives: 0
     differentMatch: 0
-    searchedIssues: 0
-    ocrCandidates: 0
+    searchedIssues: 6
+    ocrCandidates: 5
     visuallyReviewedPages: 0
-    averageCandidatesPerReviewedMatch: 0
+    averageCandidatesPerReviewedMatch: 5
   "1971":
     canonicalMatchesInScope: 2
-    withSmpMention: 0
+    withSmpMention: 1
     matchReports: 0
     postMatchEvidence: 0
-    canonicalLinked: 0
-    ocrCorrelated: 0
+    canonicalLinked: 1
+    ocrCorrelated: 1
     facsimileReviewed: 0
-    noOcrCandidate: 0
+    noOcrCandidate: 1
     notFound: 0
-    pending: 2
+    pending: 0
     residualQueue: 2
     enrichmentComplete: 0
-    residualNoOcrCandidate: 0
+    residualNoOcrCandidate: 1
     residualConflictCandidate: 0
-    residualPreviewOnly: 0
+    residualPreviewOnly: 1
     residualFixtureOnly: 0
     residualWeakCandidate: 0
     lineups: 0
@@ -1975,10 +1975,10 @@ seasons:
     newHistoricalObservations: 0
     ocrFalsePositives: 0
     differentMatch: 0
-    searchedIssues: 0
-    ocrCandidates: 0
+    searchedIssues: 5
+    ocrCandidates: 5
     visuallyReviewedPages: 0
-    averageCandidatesPerReviewedMatch: 0
+    averageCandidatesPerReviewedMatch: 2.5
   "1972":
     canonicalMatchesInScope: 6
     withSmpMention: 4
@@ -4408,44 +4408,24 @@ queue:
   - 1962-10-14-aalesunds-fk-kvik
   - 1962-10-21-gjovik-lyn-aalesunds-fk
   - 1962-11-04-aalesunds-fk-gjovik-lyn
-  - 1963-03-23-aalesunds-fk-spjelkavik
-  - 1963-05-05-kvik-aalesunds-fk
-  - 1963-06-23-hodd-aalesunds-fk
   - 1963-06-30-aalesunds-fk-spartak
-  - 1963-07-21-aalesunds-fk-arstad-il
-  - 1963-08-04-aalesunds-fk-kvik
   - 1963-08-18-lillestrom-aalesunds-fk
-  - 1963-09-08-ostsiden-il-aalesunds-fk
-  - 1963-09-29-aalesunds-fk-sunnmoringen
-  - 1963-10-13-rosenborg-bk-aalesunds-fk
   - 1964-04-19-velledalen-ringen-aalesunds-fk
   - 1964-05-10-aalesunds-fk-hodd
   - 1964-05-24-kfk-aalesunds-fk
-  - 1964-05-31-aalesunds-fk-langevag
-  - 1964-06-14-aalesunds-fk-braatt
   - 1964-07-16-vigra-il-aalesunds-fk
   - 1964-08-30-aalesunds-fk-herd
-  - 1965-05-17-aalesunds-fk-langevag
-  - 1965-05-23-aalesunds-fk-herd
-  - 1965-06-20-aalesunds-fk-herd
-  - 1965-06-27-aalesunds-fk-herd
-  - 1965-07-12-stalkameratene-aalesunds-fk
   - 1965-08-01-aalesunds-fk-rosenborg-bk
   - 1965-08-15-langevag-aalesunds-fk
   - 1965-08-22-valerenga-aalesunds-fk
-  - 1966-07-31-frigg-aalesunds-fk
   - 1967-05-15-langevag-aalesunds-fk
-  - 1967-05-21-aalesunds-fk-herd
   - 1967-06-04-velledalen-ringen-aalesunds-fk
   - 1967-06-11-aalesunds-fk-spjelkavik
   - 1967-06-18-aalesunds-fk-molde-fk
   - 1967-08-06-clausenengen-aalesunds-fk
   - 1967-08-13-aalesunds-fk-langevag
-  - 1967-08-20-herd-aalesunds-fk
   - 1967-08-27-aalesunds-fk-velledalen-ringen
-  - 1967-09-10-spjelkavik-aalesunds-fk
   - 1967-10-01-aalesunds-fk-kfk
-  - 1967-10-08-aalesunds-fk-falken
   - 1967-10-15-falken-aalesunds-fk
   - 1968-06-30-aalesunds-fk-molde-fk
   - 1971-08-01-aalesunds-fk-bodo-glimt
@@ -10394,11 +10374,12 @@ entries:
     homeAway: home
     score: 4-1
     hasSmpMention: true
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -10406,9 +10387,32 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 6f8b89454d952a0de56b2e2c04ef899f
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630325_81_71_1
+      url: https://www.nb.no/items/6f8b89454d952a0de56b2e2c04ef899f?page=3
+      issued: 1963-03-25
+      page: "3"
+      searchedIssues: 6
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1963-05-05-kvik-aalesunds-fk
     date: 1963-05-05
     season: 1963
@@ -10417,12 +10421,13 @@ entries:
     competition: forstedivisjon
     homeAway: away
     score: 1-1
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -10430,9 +10435,32 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 10f82ed8295833c176f6c603a88007e9
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630506_81_103_1
+      url: https://www.nb.no/items/10f82ed8295833c176f6c603a88007e9?page=2
+      issued: 1963-05-06
+      page: "2"
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1963-06-23-hodd-aalesunds-fk
     date: 1963-06-23
     season: 1963
@@ -10442,11 +10470,12 @@ entries:
     homeAway: away
     score: 5-2
     hasSmpMention: true
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -10454,9 +10483,32 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 32aea16a3c0b35d79e4313b52d9cea98
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630624_81_142_1
+      url: https://www.nb.no/items/32aea16a3c0b35d79e4313b52d9cea98?page=3
+      issued: 1963-06-24
+      page: "3"
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1963-06-30-aalesunds-fk-spartak
     date: 1963-06-30
     season: 1963
@@ -10466,21 +10518,51 @@ entries:
     homeAway: home
     score: 1-6
     hasSmpMention: true
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
-    conflictCandidate: false
+    ocrCorrelated: true
+    conflictCandidate: true
     lineup: false
     goalscorers: false
     arena: false
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: conflict_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: conflict_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 10e9775744a50cdc21aa7e90591dc7b3
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630701_81_148_1
+      url: https://www.nb.no/items/10e9775744a50cdc21aa7e90591dc7b3?page=2
+      issued: 1963-07-01
+      page: "2"
+      searchedIssues: 2
+      ocrCandidates: 2
+      visuallyReviewedPages: 0
+      genres:
+        - results_board
+        - match_report
+        - fixture_list
+        - unknown
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      conflict:
+        field: score
+        canonical: 1-6
+        newspaper: 7-1
+      note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.
   - matchId: 1963-07-21-aalesunds-fk-arstad-il
     date: 1963-07-21
     season: 1963
@@ -10490,11 +10572,12 @@ entries:
     homeAway: home
     score: 0-4
     hasSmpMention: true
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -10502,9 +10585,33 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 4ec32ae7ea9824af72ed1ef01dc8a888
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630722_81_166_1
+      url: https://www.nb.no/items/4ec32ae7ea9824af72ed1ef01dc8a888?page=3
+      issued: 1963-07-22
+      page: "3"
+      searchedIssues: 5
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - unknown
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1963-08-04-aalesunds-fk-kvik
     date: 1963-08-04
     season: 1963
@@ -10513,12 +10620,13 @@ entries:
     competition: forstedivisjon
     homeAway: home
     score: 2-0
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -10526,9 +10634,35 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 512fa3ae75a99ac6388202d8f9052140
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630805_81_178_1
+      url: https://www.nb.no/items/512fa3ae75a99ac6388202d8f9052140?page=2
+      issued: 1963-08-05
+      page: "2"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - results_board
+        - match_report
+        - fixture_list
+        - unknown
+        - standings
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1963-08-18-lillestrom-aalesunds-fk
     date: 1963-08-18
     season: 1963
@@ -10537,22 +10671,52 @@ entries:
     competition: forstedivisjon
     homeAway: away
     score: 4-0
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
-    conflictCandidate: false
+    ocrCorrelated: true
+    conflictCandidate: true
     lineup: false
     goalscorers: false
     arena: false
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: conflict_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: conflict_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 8b5400967e0db728dad3d9b08ad0aaa6
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630819_81_190_1
+      url: https://www.nb.no/items/8b5400967e0db728dad3d9b08ad0aaa6?page=2
+      issued: 1963-08-19
+      page: "2"
+      searchedIssues: 2
+      ocrCandidates: 2
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - unknown
+        - standings
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      conflict:
+        field: score
+        canonical: 4-0
+        newspaper: 2-0
+      note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.
   - matchId: 1963-09-08-ostsiden-il-aalesunds-fk
     date: 1963-09-08
     season: 1963
@@ -10561,12 +10725,13 @@ entries:
     competition: forstedivisjon
     homeAway: away
     score: 4-1
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -10574,9 +10739,35 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 21f4201f3a7bfc63f1aa4807cfda8c3f
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630909_81_208_1
+      url: https://www.nb.no/items/21f4201f3a7bfc63f1aa4807cfda8c3f?page=2
+      issued: 1963-09-09
+      page: "2"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - fixture_list
+        - match_report
+        - results_board
+        - standings
+        - unknown
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1963-09-29-aalesunds-fk-sunnmoringen
     date: 1963-09-29
     season: 1963
@@ -10586,11 +10777,12 @@ entries:
     homeAway: home
     score: 0-2
     hasSmpMention: true
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -10598,9 +10790,33 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 19487f9ee69ed326bca1b4e93ae20c7a
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630930_81_226_1
+      url: https://www.nb.no/items/19487f9ee69ed326bca1b4e93ae20c7a?page=2
+      issued: 1963-09-30
+      page: "2"
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - unknown
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1963-10-13-rosenborg-bk-aalesunds-fk
     date: 1963-10-13
     season: 1963
@@ -10609,12 +10825,13 @@ entries:
     competition: forstedivisjon
     homeAway: away
     score: 2-0
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -10622,9 +10839,32 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 6637461fd4997dff99668dadd021d44e
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19631016_81_240_1
+      url: https://www.nb.no/items/6637461fd4997dff99668dadd021d44e?page=9
+      issued: 1963-10-16
+      page: "9"
+      searchedIssues: 5
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1964-04-19-velledalen-ringen-aalesunds-fk
     date: 1964-04-19
     season: 1964
@@ -10637,6 +10877,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -10646,9 +10887,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 0
+      ocrCandidates: 0
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1964-05-10-aalesunds-fk-hodd
     date: 1964-05-10
     season: 1964
@@ -10661,6 +10918,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -10670,9 +10928,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 2
+      ocrCandidates: 2
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1964-05-24-kfk-aalesunds-fk
     date: 1964-05-24
     season: 1964
@@ -10681,12 +10955,13 @@ entries:
     competition: forstedivisjon
     homeAway: away
     score: 2-1
-    hasSmpMention: false
+    hasSmpMention: true
     hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -10694,9 +10969,33 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: ocr_correlated
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: weak_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: d9c8cddedbfbd314610918f2b88dae3e
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19640525_82_118_1
+      url: https://www.nb.no/items/d9c8cddedbfbd314610918f2b88dae3e?page=2
+      issued: 1964-05-25
+      page: "2"
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres:
+        - results_board
+        - standings
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1964-05-31-aalesunds-fk-langevag
     date: 1964-05-31
     season: 1964
@@ -10705,12 +11004,13 @@ entries:
     competition: forstedivisjon
     homeAway: home
     score: 1-2
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -10718,9 +11018,34 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 407f748470b9cc075f4127aaef03c64e
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19640601_82_124_1
+      url: https://www.nb.no/items/407f748470b9cc075f4127aaef03c64e?page=3
+      issued: 1964-06-01
+      page: "3"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - unknown
+        - match_report
+        - results_board
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1964-06-14-aalesunds-fk-braatt
     date: 1964-06-14
     season: 1964
@@ -10729,12 +11054,13 @@ entries:
     competition: forstedivisjon
     homeAway: home
     score: 2-0
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -10742,9 +11068,34 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 7f97181e379880fafaaf1a3f713c6755
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19640615_82_136_1
+      url: https://www.nb.no/items/7f97181e379880fafaaf1a3f713c6755?page=2
+      issued: 1964-06-15
+      page: "2"
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres:
+        - results_board
+        - standings
+        - match_report
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1964-07-16-vigra-il-aalesunds-fk
     date: 1964-07-16
     season: 1964
@@ -10757,6 +11108,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -10766,9 +11118,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: true
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 6
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1964-08-30-aalesunds-fk-herd
     date: 1964-08-30
     season: 1964
@@ -10781,6 +11149,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -10790,9 +11159,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1965-05-17-aalesunds-fk-langevag
     date: 1965-05-17
     season: 1965
@@ -10802,11 +11187,12 @@ entries:
     homeAway: home
     score: 0-2
     hasSmpMention: true
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -10814,9 +11200,33 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 07ddd40c04152b51b259cf3c46e8d152
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19650518_83_112_1
+      url: https://www.nb.no/items/07ddd40c04152b51b259cf3c46e8d152?page=2
+      issued: 1965-05-18
+      page: "2"
+      searchedIssues: 5
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres:
+        - results_board
+        - fixture_list
+        - match_report
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1965-05-23-aalesunds-fk-herd
     date: 1965-05-23
     season: 1965
@@ -10826,11 +11236,12 @@ entries:
     homeAway: home
     score: 1-1
     hasSmpMention: true
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -10838,9 +11249,34 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: c865a23572bf922b1f789bb03e3e3656
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19650524_83_117_1
+      url: https://www.nb.no/items/c865a23572bf922b1f789bb03e3e3656?page=2
+      issued: 1965-05-24
+      page: "2"
+      searchedIssues: 5
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres:
+        - results_board
+        - match_report
+        - unknown
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1965-06-20-aalesunds-fk-herd
     date: 1965-06-20
     season: 1965
@@ -10850,11 +11286,12 @@ entries:
     homeAway: home
     score: 3-0
     hasSmpMention: true
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -10862,9 +11299,35 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: d5f31de4f519d29bd5dbb64494622de4
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19650621_83_139_1
+      url: https://www.nb.no/items/d5f31de4f519d29bd5dbb64494622de4?page=2
+      issued: 1965-06-21
+      page: "2"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - standings
+        - fixture_list
+        - match_report
+        - unknown
+        - results_board
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1965-06-27-aalesunds-fk-herd
     date: 1965-06-27
     season: 1965
@@ -10874,11 +11337,12 @@ entries:
     homeAway: home
     score: 2-1
     hasSmpMention: true
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -10886,9 +11350,33 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: b394ddeeddf27f6116e62011da54e0e0
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19650628_83_145_1
+      url: https://www.nb.no/items/b394ddeeddf27f6116e62011da54e0e0?page=3
+      issued: 1965-06-28
+      page: "3"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - unknown
+        - match_report
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1965-07-12-stalkameratene-aalesunds-fk
     date: 1965-07-12
     season: 1965
@@ -10898,11 +11386,12 @@ entries:
     homeAway: away
     score: 7-1
     hasSmpMention: true
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -10910,9 +11399,33 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 6254a1a9054ba3c3e852293b098cd6cc
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19650713_83_158_1
+      url: https://www.nb.no/items/6254a1a9054ba3c3e852293b098cd6cc?page=6
+      issued: 1965-07-13
+      page: "6"
+      searchedIssues: 2
+      ocrCandidates: 2
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - unknown
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1965-08-01-aalesunds-fk-rosenborg-bk
     date: 1965-08-01
     season: 1965
@@ -10925,6 +11438,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -10934,9 +11448,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1965-08-15-langevag-aalesunds-fk
     date: 1965-08-15
     season: 1965
@@ -10949,6 +11479,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -10958,9 +11489,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 6
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1965-08-22-valerenga-aalesunds-fk
     date: 1965-08-22
     season: 1965
@@ -10973,6 +11520,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -10982,9 +11530,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1966-07-31-frigg-aalesunds-fk
     date: 1966-07-31
     season: 1966
@@ -10993,12 +11557,13 @@ entries:
     competition: nm
     homeAway: away
     score: 2-1
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -11006,9 +11571,34 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 111e03a78b75d782bb8adbbbfdbcf1e5
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19660801_84_175_1
+      url: https://www.nb.no/items/111e03a78b75d782bb8adbbbfdbcf1e5?page=2
+      issued: 1966-08-01
+      page: "2"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - fixture_list
+        - unknown
+        - results_board
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1967-05-15-langevag-aalesunds-fk
     date: 1967-05-15
     season: 1967
@@ -11021,6 +11611,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -11030,9 +11621,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1967-05-21-aalesunds-fk-herd
     date: 1967-05-21
     season: 1967
@@ -11041,12 +11648,13 @@ entries:
     competition: forstedivisjon
     homeAway: home
     score: 0-0
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -11054,9 +11662,34 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: b25b5bba1990f2921947dd6c0ecf6be8
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19670522_85_114_1
+      url: https://www.nb.no/items/b25b5bba1990f2921947dd6c0ecf6be8?page=2
+      issued: 1967-05-22
+      page: "2"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - unknown
+        - results_board
+        - fixture_list
+        - match_report
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1967-06-04-velledalen-ringen-aalesunds-fk
     date: 1967-06-04
     season: 1967
@@ -11069,6 +11702,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -11078,9 +11712,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 0
+      ocrCandidates: 0
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1967-06-11-aalesunds-fk-spjelkavik
     date: 1967-06-11
     season: 1967
@@ -11093,6 +11743,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -11102,9 +11753,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 6
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1967-06-18-aalesunds-fk-molde-fk
     date: 1967-06-18
     season: 1967
@@ -11117,6 +11784,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -11126,9 +11794,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 6
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1967-08-06-clausenengen-aalesunds-fk
     date: 1967-08-06
     season: 1967
@@ -11141,6 +11825,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -11150,9 +11835,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1967-08-13-aalesunds-fk-langevag
     date: 1967-08-13
     season: 1967
@@ -11165,6 +11866,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -11174,9 +11876,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 6
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1967-08-20-herd-aalesunds-fk
     date: 1967-08-20
     season: 1967
@@ -11185,12 +11903,13 @@ entries:
     competition: forstedivisjon
     homeAway: away
     score: 0-3
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -11198,9 +11917,34 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: high
+      canonicalLinked: true
+      issueId: 7be953cc92b9aa384d37680809a680c6
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19670821_85_192_1
+      url: https://www.nb.no/items/7be953cc92b9aa384d37680809a680c6?page=2
+      issued: 1967-08-21
+      page: "2"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - results_board
+        - match_report
+        - fixture_list
+        - unknown
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1967-08-27-aalesunds-fk-velledalen-ringen
     date: 1967-08-27
     season: 1967
@@ -11213,6 +11957,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -11222,9 +11967,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 0
+      ocrCandidates: 0
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1967-09-10-spjelkavik-aalesunds-fk
     date: 1967-09-10
     season: 1967
@@ -11233,12 +11994,13 @@ entries:
     competition: forstedivisjon
     homeAway: away
     score: 1-2
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -11246,9 +12008,35 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 442e3fe69984bea9f6c6d3f5fc5c25b2
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19670911_85_210_1
+      url: https://www.nb.no/items/442e3fe69984bea9f6c6d3f5fc5c25b2?page=2
+      issued: 1967-09-11
+      page: "2"
+      searchedIssues: 6
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres:
+        - results_board
+        - match_report
+        - standings
+        - unknown
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1967-10-01-aalesunds-fk-kfk
     date: 1967-10-01
     season: 1967
@@ -11257,12 +12045,13 @@ entries:
     competition: forstedivisjon
     homeAway: home
     score: 8-1
-    hasSmpMention: false
+    hasSmpMention: true
     hasMatchReport: false
     hasPostMatchEvidence: false
-    canonicalLinked: false
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -11270,9 +12059,32 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: ocr_correlated
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: preview_only
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 7a86ad63afa4f1de06f4ec55d0ffa55d
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19670930_85_227_1
+      url: https://www.nb.no/items/7a86ad63afa4f1de06f4ec55d0ffa55d?page=6
+      issued: 1967-09-30
+      page: "6"
+      searchedIssues: 1
+      ocrCandidates: 1
+      visuallyReviewedPages: 0
+      genres:
+        - preview
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1967-10-08-aalesunds-fk-falken
     date: 1967-10-08
     season: 1967
@@ -11281,12 +12093,13 @@ entries:
     competition: andredivisjon
     homeAway: home
     score: 1-1
-    hasSmpMention: false
-    hasMatchReport: false
-    hasPostMatchEvidence: false
-    canonicalLinked: false
+    hasSmpMention: true
+    hasMatchReport: true
+    hasPostMatchEvidence: true
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -11294,9 +12107,33 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
-    enrichmentStatus: residual
-    residualReason: pending
+    reviewStatus: ocr_correlated
+    enrichmentStatus: complete
+    residualReason: complete
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 27900a530c582e3b4903219c6edb4e38
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19671010_85_235_1
+      url: https://www.nb.no/items/27900a530c582e3b4903219c6edb4e38?page=5
+      issued: 1967-10-10
+      page: "5"
+      searchedIssues: 6
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - fixture_list
+        - unknown
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1967-10-15-falken-aalesunds-fk
     date: 1967-10-15
     season: 1967
@@ -11305,12 +12142,13 @@ entries:
     competition: andredivisjon
     homeAway: away
     score: 0-1
-    hasSmpMention: false
-    hasMatchReport: false
+    hasSmpMention: true
+    hasMatchReport: true
     hasPostMatchEvidence: false
-    canonicalLinked: false
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -11318,9 +12156,34 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: ocr_correlated
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: preview_only
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 019a6c0b38ec8a065e7cac91b9474715
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19671014_85_239_1
+      url: https://www.nb.no/items/019a6c0b38ec8a065e7cac91b9474715?page=6
+      issued: 1967-10-14
+      page: "6"
+      searchedIssues: 4
+      ocrCandidates: 4
+      visuallyReviewedPages: 0
+      genres:
+        - fixture_list
+        - preview
+        - match_report
+        - unknown
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1968-06-30-aalesunds-fk-molde-fk
     date: 1968-06-30
     season: 1968
@@ -11329,12 +12192,13 @@ entries:
     competition: nm
     homeAway: home
     score: 0-1
-    hasSmpMention: false
-    hasMatchReport: false
+    hasSmpMention: true
+    hasMatchReport: true
     hasPostMatchEvidence: false
-    canonicalLinked: false
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -11342,9 +12206,33 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: ocr_correlated
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: weak_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: ef4a36f7aee35868409b81ff964d350e
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19680628_86_147_1
+      url: https://www.nb.no/items/ef4a36f7aee35868409b81ff964d350e?page=6
+      issued: 1968-06-28
+      page: "6"
+      searchedIssues: 6
+      ocrCandidates: 5
+      visuallyReviewedPages: 0
+      genres:
+        - match_report
+        - unknown
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1971-08-01-aalesunds-fk-bodo-glimt
     date: 1971-08-01
     season: 1971
@@ -11353,12 +12241,13 @@ entries:
     competition: nm
     homeAway: home
     score: 1-0
-    hasSmpMention: false
+    hasSmpMention: true
     hasMatchReport: false
     hasPostMatchEvidence: false
-    canonicalLinked: false
+    canonicalLinked: true
+    reviewMethod: ocr_api
     facsimileReviewed: false
-    ocrCorrelated: false
+    ocrCorrelated: true
     conflictCandidate: false
     lineup: false
     goalscorers: false
@@ -11366,9 +12255,32 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: ocr_correlated
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: preview_only
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: medium
+      canonicalLinked: true
+      issueId: 99980ccc4318be062c0f476a4d7758f5
+      urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19710731_89_174_1
+      url: https://www.nb.no/items/99980ccc4318be062c0f476a4d7758f5?page=12
+      issued: 1971-07-31
+      page: "12"
+      searchedIssues: 3
+      ocrCandidates: 3
+      visuallyReviewedPages: 0
+      genres:
+        - preview
+        - fixture_list
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1971-08-15-mjolner-aalesunds-fk
     date: 1971-08-15
     season: 1971
@@ -11381,6 +12293,7 @@ entries:
     hasMatchReport: false
     hasPostMatchEvidence: false
     canonicalLinked: false
+    reviewMethod: ocr_api
     facsimileReviewed: false
     ocrCorrelated: false
     conflictCandidate: false
@@ -11390,9 +12303,25 @@ entries:
     attendance: false
     referee: false
     halfTimeScore: false
-    reviewStatus: pending
+    reviewStatus: no_ocr_candidate
     enrichmentStatus: residual
-    residualReason: pending
+    residualReason: no_ocr_candidate
+    review:
+      reviewMethod: ocr_api
+      facsimileReviewed: false
+      confidence: low
+      canonicalLinked: false
+      searchedIssues: 2
+      ocrCandidates: 2
+      visuallyReviewedPages: 0
+      genres: []
+      fieldsAdded: []
+      newPlayers: 0
+      newEvents: 0
+      newHistoricalObservations: 0
+      falsePositive: false
+      differentMatch: false
+      note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
   - matchId: 1972-04-30-aalesunds-fk-frigg
     date: 1972-04-30
     season: 1972

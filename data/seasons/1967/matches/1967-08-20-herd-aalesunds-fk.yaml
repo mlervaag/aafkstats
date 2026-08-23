@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/7be953cc92b9aa384d37680809a680c6?page=2
+    date: 1967-08-21
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/7be953cc92b9aa384d37680809a680c6?page=2
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -31,11 +39,16 @@ sources:
       - competition
       - home.clubId
       - away.clubId
-    note: "Terminlisten (s. 3) oppgir «20/8 Herd—AFK»."
+    note: Terminlisten (s. 3) oppgir «20/8 Herd—AFK».
   - sourceId: medlemsblad-for-aalesunds-fotb-1967-bebf
     page: "5"
     fields:
       - status
       - home.score
       - away.score
-    note: "Sesongoversiktens seriekamper (s. 5) fører kampen mot Herd borte med 3–0 sett fra AaFK."
+    note: Sesongoversiktens seriekamper (s. 5) fører kampen mot Herd borte med 3–0 sett fra AaFK.
+  - sourceId: sunnmorsposten-19670821-7be953cc92b9aa384d37680809a680c6
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

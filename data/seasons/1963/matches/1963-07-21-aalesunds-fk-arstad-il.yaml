@@ -18,8 +18,7 @@ neutralVenue: false
 events: []
 externalReports:
   - publisher: Sunnmørsposten
-    title: Et uhyre svakt ÅFK-lag hadde ingen ting å stille opp mot Årstad på Aksla
-      i går. Bergenserne vant 4-0
+    title: Et uhyre svakt ÅFK-lag hadde ingen ting å stille opp mot Årstad på Aksla i går. Bergenserne vant 4-0
     date: 1963-07-22
     url: https://www.nb.no/items/4ec32ae7ea9824af72ed1ef01dc8a888?page=3
   - publisher: Sunnmørsposten
@@ -46,6 +45,11 @@ sources:
       - home.score
       - away.score
     note: trykt «ÅFK—Årstad 0—4».
+  - sourceId: sunnmorsposten-19630722-4ec32ae7ea9824af72ed1ef01dc8a888
+    page: "3"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []

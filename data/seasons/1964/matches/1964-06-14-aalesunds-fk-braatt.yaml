@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/7f97181e379880fafaaf1a3f713c6755?page=2
+    date: 1964-06-15
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/7f97181e379880fafaaf1a3f713c6755?page=2
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -38,4 +46,9 @@ sources:
       - status
       - home.score
       - away.score
-    note: "Sesongoversiktens seriekamper (s. 48) fører kampen mot Braatt hjemme med 2–0 sett fra AaFK."
+    note: Sesongoversiktens seriekamper (s. 48) fører kampen mot Braatt hjemme med 2–0 sett fra AaFK.
+  - sourceId: sunnmorsposten-19640615-7f97181e379880fafaaf1a3f713c6755
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

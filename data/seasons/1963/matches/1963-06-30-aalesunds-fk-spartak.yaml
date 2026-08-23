@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19630701-10e9775744a50cdc21aa7e90591dc7b3
+    page: "2"
+    fields:
+      - externalReports
+    note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: Siden har fyldig referat fra oppvisningskampen på Aksla søndag 30. juni
-  1963 der det jugoslaviske laget Spartak vant 6-1 over AaFK.
+note: Siden har fyldig referat fra oppvisningskampen på Aksla søndag 30. juni 1963 der det jugoslaviske laget Spartak vant 6-1 over AaFK.

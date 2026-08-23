@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/ef4a36f7aee35868409b81ff964d350e?page=6
+    date: 1968-06-28
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1968/Cup.html
@@ -41,6 +44,11 @@ providers:
       - away.clubId
       - home.score
       - away.score
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/ef4a36f7aee35868409b81ff964d350e?page=6
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
@@ -51,3 +59,8 @@ sources:
   - sourceId: sunnmore-fotballkrets-arsrapport-1968
     page: "6"
     fields: *a1
+  - sourceId: sunnmorsposten-19680628-ef4a36f7aee35868409b81ff964d350e
+    page: "6"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

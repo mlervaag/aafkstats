@@ -23,10 +23,12 @@ externalReports:
     date: 1963-06-24
     url: https://www.nb.no/items/32aea16a3c0b35d79e4313b52d9cea98?page=2
   - publisher: Sunnmørsposten
-    title: ÅFK-HØDD lørdag. Sist laga spilte mot hverandre var i 2. runde i cupen,
-      og den gang vant som kjent Hødd 5—2
+    title: ÅFK-HØDD lørdag. Sist laga spilte mot hverandre var i 2. runde i cupen, og den gang vant som kjent Hødd 5—2
     date: 1963-09-11
     url: https://www.nb.no/items/dca714f3de453690ab577b4622fe49ae?page=6
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/32aea16a3c0b35d79e4313b52d9cea98?page=3
+    date: 1963-06-24
 providers:
   - providerId: nasjonalbiblioteket
     url: https://www.nb.no/items/32aea16a3c0b35d79e4313b52d9cea98?page=2
@@ -40,6 +42,11 @@ providers:
       - home.score
       - away.score
       - venueId
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/32aea16a3c0b35d79e4313b52d9cea98?page=3
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
     page: "16"
@@ -52,8 +59,12 @@ sources:
     fields:
       - home.score
       - away.score
-    note: Norgesmesterskapet 1963, 2. runde (Hødd - AAFK 5–2). Årsrapporten
-      dokumenterer ikke sikker kampdato.
+    note: Norgesmesterskapet 1963, 2. runde (Hødd - AAFK 5–2). Årsrapporten dokumenterer ikke sikker kampdato.
+  - sourceId: sunnmorsposten-19630624-32aea16a3c0b35d79e4313b52d9cea98
+    page: "3"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []

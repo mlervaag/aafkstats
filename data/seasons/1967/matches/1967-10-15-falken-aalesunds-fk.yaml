@@ -16,7 +16,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/019a6c0b38ec8a065e7cac91b9474715?page=6
+    date: 1967-10-14
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1967/Third.html
@@ -38,6 +41,11 @@ providers:
       - away.clubId
       - home.score
       - away.score
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/019a6c0b38ec8a065e7cac91b9474715?page=6
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
@@ -48,3 +56,8 @@ sources:
   - sourceId: sunnmore-fotballkrets-arsrapport-1967
     page: "5"
     fields: *a1
+  - sourceId: sunnmorsposten-19671014-019a6c0b38ec8a065e7cac91b9474715
+    page: "6"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

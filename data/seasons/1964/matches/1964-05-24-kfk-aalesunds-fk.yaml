@@ -17,7 +17,11 @@ away:
 neutralVenue: false
 events: []
 externalReports: []
-providers: []
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/d9c8cddedbfbd314610918f2b88dae3e?page=2
+    retrievedAt: 2026-08-23
+    fields: []
 confidence: confirmed
 conflicts: []
 tags: []
@@ -38,4 +42,8 @@ sources:
       - status
       - home.score
       - away.score
-    note: "Sesongoversiktens seriekamper (s. 48) fører kampen mot KFK borte med 1–2 sett fra AaFK."
+    note: Sesongoversiktens seriekamper (s. 48) fører kampen mot KFK borte med 1–2 sett fra AaFK.
+  - sourceId: sunnmorsposten-19640525-d9c8cddedbfbd314610918f2b88dae3e
+    page: "2"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
