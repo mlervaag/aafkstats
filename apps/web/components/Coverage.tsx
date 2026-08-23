@@ -5,10 +5,20 @@ import { FIELD_NAMES } from "@/components/SeasonGaps";
 /** AaFK ble stiftet i 1914. Alt før det er ikke et hull, det er før klubben fantes. */
 const FOUNDED = 1914;
 
-type YearKind = "league" | "fragments" | "missing";
+type YearKind = "complete" | "league" | "fragments" | "missing";
 
+/**
+ * Hvilket nivå året havner på i stripa.
+ *
+ * Fargen svarte på «fantes det en seriesesong dette året». Det gjorde at 70 av
+ * merkene var like: 2019 og 2024 hadde samme farge, og 1952 med tre av fjorten
+ * kamper hadde samme farge som 2011. Spørsmålet er nå det samme som
+ * merkelappene svarer på — er året ferdig kanonisert — og «fantes det en serie»
+ * ser man uansett av at merket ikke er grått.
+ */
 function kindOf(entry: SeasonYear | undefined): YearKind {
   if (!entry) return "missing";
+  if (entry.coverage?.status === "complete") return "complete";
   return entry.primary?.competitionType === "league" ? "league" : "fragments";
 }
 
@@ -63,8 +73,12 @@ export function CoverageStrip({ years }: { years: SeasonYear[] }) {
           </li>
         ))}
       </ol>
+      {/* Fire nivåer, og de er en lysstyrkerampe på ett spørsmål — ikke fire
+          kulører. Sterkest farge er året som er ferdig, som er slik en leser
+          uansett tolker den sterkeste fargen. */}
       <figcaption className="strip-legend small muted">
-        <span><i className="strip-year strip-league" /> Sesong i serien</span>
+        <span><i className="strip-year strip-complete" /> Komplett sesong</span>
+        <span><i className="strip-year strip-league" /> Serie, ikke komplett</span>
         <span><i className="strip-year strip-fragments" /> Bare enkeltkamper</span>
         <span><i className="strip-year strip-missing" /> Ingenting ennå</span>
         <span className="strip-ends num">{FOUNDED}–{newest}</span>
@@ -76,19 +90,43 @@ export function CoverageStrip({ years }: { years: SeasonYear[] }) {
 /**
  * Teksten bak hvert merke i stripa.
  *
- * Stripa har tre farger, ikke seks. Den skal svare på ett spørsmål — hvor er
- * arkivet tykt, hvor er det tynt, hvor mangler det helt — og seks farger på 113
- * merker à åtte piksler gjør den til et mønster ingen kan lese. Detaljene ligger
+ * Stripa har fire nivåer, ikke ni. Den skal svare på ett spørsmål — hvor er
+ * arkivet ferdig, hvor er det tynt, hvor mangler det helt — og ni farger på 113
+ * merker à tolv piksler gjør den til et mønster ingen kan lese. Detaljene ligger
  * i teksten her, som både skjermlesere og et musepek får, og i merkelappen på
  * hvert sesongkort under.
+ *
+ * Teksten sier først det fargen sier, så det den ikke har plass til.
  */
 function stripTitle(year: number, entry: SeasonYear): string {
   const kamper = `${entry.totalMatches} ${entry.totalMatches === 1 ? "kamp" : "kamper"}`;
   if (!entry.primary) return `${year}: ${entry.documentedResults} kildedokumenterte resultater uten full kampdato`;
+  if (entry.coverage?.status === "complete") {
+    return `${year}: ${entry.primary.competition}, ${kamper}, komplett sesong`;
+  }
   if (entry.primary.competitionType !== "league") {
     return `${year}: ${kamper}, ingen seriesesong`;
   }
-  return `${year}: ${entry.primary.competition}, ${kamper}, ${coverageWord(entry.primary)}`;
+  return `${year}: ${entry.primary.competition}, ${kamper}, ${blockerWord(entry)}`;
+}
+
+/**
+ * Hvorfor året ikke er komplett, som ett ledd.
+ *
+ * Cupen er tatt med fordi den nå kan være grunnen alene: 2019 har hele serien
+ * inne og et merke som ikke er sterkest, og da må teksten kunne si hvorfor.
+ */
+function blockerWord(entry: SeasonYear): string {
+  switch (entry.coverage?.blocker) {
+    case "season_in_progress":
+      return "sesongen pågår";
+    case "cup_unfinished":
+      return "serien er hel, cupen står åpen";
+    case "european_unfinished":
+      return "serien er hel, europacupen står åpen";
+    default:
+      return coverageWord(entry.primary!);
+  }
 }
 
 /** Dekningen som ett ord, til stripa. Merkelappen på kortet sier det samme lengre. */

@@ -1086,16 +1086,21 @@ a.card-fragment:hover .card-title { color: var(--text); }
   border-radius: 2px;
   background: var(--border);
 }
-/* Tre nivåer, ikke fem. Stripa skal kunne leses på et halvt sekund, og
-   forskjellen mellom «komplett» og «nesten komplett» hører hjemme på kortet. */
-.strip-league { background: var(--accent); }
+/* Fire nivåer, og de er én rampe på ett spørsmål: hvor langt er året kommet.
+   Sterkest farge er året som er ferdig — det er slik en leser uansett tolker
+   den sterkeste fargen, og det var ikke det stripa mente før. Fire kulører
+   ville vært uleselig på 113 merker; fire trinn av den samme er ikke det. */
+.strip-complete { background: var(--accent); }
+.strip-league { background: color-mix(in srgb, var(--accent) 64%, var(--border)); }
 .strip-fragments { background: color-mix(in srgb, var(--accent) 34%, var(--border)); }
 .strip-missing { background: var(--border); }
-/* I mørk modus ligger rammefargen nær aksenten i luminans, og 34 % blandet ut
-   ble ikke til å skille fra «ingenting». Blandingen må lenger opp for at de tre
-   nivåene skal være tre nivåer. */
+/* Trinnene er valgt på målt luminans, ikke på øyemål: hvert steg ligger på 1,5
+   til 1,9 i kontrast mot naboen i begge temaer. En jevn rampe er det som gjør
+   at fire nivåer kan telles på et blikk. I mørk modus snur retningen — aksenten
+   er lysere enn bakgrunnen — så blandingene må være andre tall for samme steg. */
 @media (prefers-color-scheme: dark) {
-  .strip-fragments { background: color-mix(in srgb, var(--accent) 55%, var(--border)); }
+  .strip-league { background: color-mix(in srgb, var(--accent) 60%, var(--border)); }
+  .strip-fragments { background: color-mix(in srgb, var(--accent) 33%, var(--border)); }
 }
 .coverage-strip a:hover .strip-year { outline: 2px solid var(--text); outline-offset: 1px; }
 .coverage-strip a:focus-visible .strip-year { outline: 2px solid var(--accent); outline-offset: 2px; }
