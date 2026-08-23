@@ -1,0 +1,106 @@
+version: 1
+id: medlemsblad-1959
+title: AaFK Medlemsblad 1959 (Vol. 10, nr. 1–6)
+profile: member_magazine
+mode: reharvest
+status: normalized
+scope:
+  years:
+    from: 1959
+    to: 1959
+  sourceIds:
+  - medlemsblad-for-aalesunds-fotb-1959-515a
+  parentSourceId: aafk-medlemsblad
+sourceInventory:
+- sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+  title: Medlemsblad for Aalesunds fotballklubb. 1959 Vol. 10 Nr. 1-6
+  year: 1959
+  reviewStatus: reviewed
+coverage:
+  mode: pages
+  expected: 84
+  reviewed: 84
+passes:
+  facsimile_review:
+    status: pending
+    findings: 0
+    note: Ikke gjennomført. Denne runden leste spaltekorrigert ALTO for alle 84 skannsider,
+      ikke faksimile. Kildehierarkiet krever visuell kontroll før noe her regnes som endelig.
+  explicit_results:
+    status: complete
+    findings: 29
+    note: A-lagsresultatene på s. 60 er lest på nytt med koordinatbasert paring av lagnavn og score.
+      De 29 kildepåstandene fra tidligere innhøsting står uendret.
+  fixture_reconciliation:
+    status: complete
+    findings: 5
+    note: Vårterminlisten «Å.F.K.s serieprogram i vår» (s. 12) og landsdelsseriens samlede vårterminliste
+      (s. 16) avstemt mot resultatoversikten (s. 60). Fem vårseriekamper fikk eksakt dato.
+  people_and_roles:
+    status: reviewed
+    findings: 62
+    note: Spillestatistikken på s. 8 gir A-kamptall for 62 navngitte spillere. Ikke løftet til
+      personfiler i denne runden.
+  organization:
+    status: reviewed
+    findings: 2
+    note: Årsmøtet 27. november 1959 og styrets arbeidsår. Snapshot ikke oppdatert i denne runden.
+  retrospectives_and_claims:
+    status: reviewed
+    findings: 4
+    note: Tilbakeblikk på 1935-laget, Hødds historie, Tatran Presov og minneord over Hagbart Benneche.
+  observations:
+    status: complete
+    findings: 7
+    note: Kråmyra-leieavtalen, spillestatistikken, publikumsutviklingen, sommercupseieren,
+      de aldersbestemte lagene, minneordet og årsmøtet.
+reviewMethod:
+  facsimile: required
+review:
+  file: docs/data/reviews/medlemsblad-1959.md
+findings:
+- id: fix-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '12'
+  type: fixture
+  claim:
+    text: Vårterminliste med fem seriekamper og hjemme/borte-markering
+  disposition: reviewed
+  status: normalized
+- id: fix-002
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '16'
+  type: fixture
+  claim:
+    text: Landsdelsseriens samlede vårterminliste, uavhengig bekreftelse av de samme fem datoene
+  disposition: reviewed
+  status: normalized
+- id: res-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '60'
+  type: match_result
+  claim:
+    text: A-lagsresultater 1959, 29 kampresultater med bortekampmarkering og målaverage 64-31
+  disposition: reviewed
+  status: normalized
+- id: con-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '60'
+  type: match_result
+  claim:
+    text: Privatkampblokken på s. 60 avviker mellom koordinatbasert lesing og tidligere innhøsting
+  disposition: conflict_registered
+  status: unresolved
+- id: per-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: '8'
+  type: person
+  claim:
+    text: Spillestatistikk med A-kamptall for 62 navngitte spillere, 8 gull- og 11 solvmerkespillere
+  disposition: reviewed
+  status: normalized

@@ -1,0 +1,48 @@
+id: 1959-05-03-langevag-aalesunds-fk
+date: 1959-05-03
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1959
+  stage: regular_season
+home:
+  clubId: langevag
+  score: 4
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: "12"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Vårterminlisten «Å.F.K.s serieprogram i vår» (s. 12) oppgir 3/5 Langevåg (borte)."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: "16"
+    fields:
+      - date
+      - home.clubId
+      - away.clubId
+    note: "Landsdelsseriens vårterminliste (s. 16) oppgir samme kamp og samme hjemmelag på 3/5."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: "60"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "A-lagsresultatene (s. 60) dokumenterer seriekampen mot Langevåg borte med 0–4 sett fra AaFK."
