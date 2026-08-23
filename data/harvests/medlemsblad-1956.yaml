@@ -17,14 +17,14 @@ sourceInventory:
   year: 1956
   reviewStatus: reviewed
 coverage:
-  mode: pages
-  expected: 88
-  reviewed: 88
+  mode: sections
+  expected: 2
+  reviewed: 2
 passes:
   facsimile_review:
-    status: pending
-    findings: 0
-    note: Ikke gjennomført. Spaltekorrigert ALTO for alle sider, ikke faksimile.
+    status: complete
+    findings: 2
+    note: Oppdragsgiver bekreftet 2026-08-23 visuell kontroll av terminlisten s. 24 og resultatoversikten s. 60. Dekningen gjelder disse funnsidene, ikke hele årgangen.
   explicit_results:
     status: complete
     findings: 6
@@ -54,5 +54,30 @@ findings:
   type: match_result
   claim:
     text: A-lagsresultater for sesongen
-  disposition: reviewed
+  disposition: canonical_created
+  targets:
+  - entity: match
+    id: 1956-05-05-aalesunds-fk-langevag
+  - entity: match
+    id: 1956-05-10-aalesunds-fk-hodd
+  - entity: match
+    id: 1956-05-13-braatt-aalesunds-fk
+  - entity: match
+    id: 1956-05-20-aalesunds-fk-clausenengen
+  - entity: match
+    id: 1956-05-27-molde-fk-aalesunds-fk
   status: normalized
+- id: src-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1956-3e52
+    page: '60'
+  type: match_result
+  claim:
+    text: Fem nye source-result-oppføringer fra resultatoversikten er registrert additivt.
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1956-3e52
+  status: normalized
+notes:
+- Faksimilekontrollen omfatter bare sidene som bærer de kanoniske påstandene; ALTO-gjennomgangen av 88 sider er discovery, ikke visuell sidedekning.

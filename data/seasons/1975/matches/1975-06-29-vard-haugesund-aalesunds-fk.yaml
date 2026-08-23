@@ -1,17 +1,17 @@
-id: 1973-05-27-aalesunds-fk-vard
-date: 1973-05-27
+id: 1975-06-29-vard-haugesund-aalesunds-fk
+date: 1975-06-29
 dateConfidence: exact
 status: played
 competition:
   id: andredivisjon
-  season: 1973
+  season: 1975
   stage: regular_season
 home:
-  clubId: aalesunds-fk
-  score: 1
+  clubId: vard-haugesund
+  score: 0
   halfTimeScore: null
 away:
-  clubId: vard
+  clubId: aalesunds-fk
   score: 0
   halfTimeScore: null
 neutralVenue: false
@@ -24,18 +24,18 @@ tags: []
 aliases: {}
 manual: []
 sources:
-  - sourceId: medlemsblad-for-aalesunds-fotb-1973-af84
+  - sourceId: medlemsblad-for-aalesunds-fotb-1975-0ee3
     page: "4"
     fields:
       - date
       - competition
       - home.clubId
       - away.clubId
-    note: "Vårterminlisten (s. 4) oppgir «27. mai: AAFK—Vard»."
-  - sourceId: medlemsblad-for-aalesunds-fotb-1973-d4e1
-    page: "2"
+    note: "Terminlisten (s. 4) oppgir «29. juni: Vard—AAFK»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1975-5323
+    page: "7"
     fields:
       - status
       - home.score
       - away.score
-    note: "Sesongoversiktens seriekamper (s. 2) fører kampen mot Vard hjemme med 1–0 sett fra AaFK."
+    note: "Sesongoversiktens seriekamper (s. 7) fører kampen mot Vard borte med 0–0 sett fra AaFK."

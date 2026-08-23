@@ -4,7 +4,10 @@
 **Metode:** Alle 856 skannsider i ti årganger hentet som ALTO fra
 Nasjonalbiblioteket og skannet maskinelt etter linjer som inneholder både en dato
 og et klubbnavn. Treffsidene er deretter rendret koordinatbasert og lest.
-Faksimilepasset er ikke gjennomført.
+Oppdragsgiver bekreftet 23. august 2026 visuell faksimilekontroll av de sidene
+som bærer kanoniske påstander: 1952 s. 48, 1956 s. 24 og 60, 1957 s. 30 og 44,
+1959 s. 12, 16 og 60 og 1960 s. 5, 16 og 69. Dette er ikke et fullstendig
+visuelt pass av alle 856 sidene.
 
 Dette er oppfølgingen av [1959-piloten](reviews/medlemsblad-1959.md).
 

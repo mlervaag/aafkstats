@@ -58,7 +58,7 @@ claims:
 ```
 
 ### 2.3 Formelle garantier (Invarianter)
-1. **Unisiat**: Hver `claimId` er unik på tvers av alle kilder og sesonger i hele arkivet (1777 unike IDs).
+1. **Unisitet**: Hver `claimId` er unik på tvers av alle kilder og sesonger i hele arkivet (1 887 unike ID-er).
 2. **Bijeksjon**: Én claimId har nøyaktig én nåværende koordinat, og hver koordinathistorikk er entydig knyttet til sin claimId.
 3. **Sykkelfrihet og tvetydighetsdeteksjon**: En claim kan ikke ha samme koordinat både som sin egen nåværende og historiske koordinat. En historisk koordinat kan senere gjenbrukes av en annen claim; dette fanges opp og markeres som tvetydighet ved legacy-oppslag (`ambiguous_reused_coordinate`), uten at systemet gjetter.
 4. **Bevaringsvern (`archive-preservation.ts`)**: Bevaringsvernet pares på `claimId` (første prioritet i `LIST_ITEM_KEYS`). Koordinatmigrering og renummerering godkjennes så lenge historiske fakta (`opponent`, `score`, osv.) ikke muteres.
@@ -79,7 +79,7 @@ pnpm data:backfill-source-claim-ids [--apply]
 ```sh
 pnpm data:source-claim-integrity
 ```
-- Verifiserer at alle 1777 kilderesultater har gyldig 32-hex `claimId`.
+- Verifiserer at alle 1 887 kilderesultater har gyldig 32-hex `claimId`.
 - Kontrollerer global unisiat, lineage-konsistens og fravær av sykluser.
 - Skanner samtlige downstream-referanser (`sourceClaimId`) i `data/discovery/`, `data/verification-cases/` og `data/harvests/`.
 

@@ -17,14 +17,14 @@ sourceInventory:
   year: 1980
   reviewStatus: reviewed
 coverage:
-  mode: pages
-  expected: 12
-  reviewed: 12
+  mode: sections
+  expected: 1
+  reviewed: 1
 passes:
   facsimile_review:
-    status: pending
-    findings: 0
-    note: Ikke gjennomført. Spaltekorrigert ALTO, ikke faksimile.
+    status: complete
+    findings: 1
+    note: Oppdragsgiver bekreftet 2026-08-23 visuell kontroll av årsberetningens kampoversikt på s. 3. Dekningen gjelder denne funnsiden, ikke hele årgangen.
   explicit_results:
     status: complete
     findings: 39
@@ -38,7 +38,7 @@ passes:
 reviewMethod:
   facsimile: required
 review:
-  file: docs/data/MEDLEMSBLAD_TERMINLISTESKANN_1952_1961.md
+  file: docs/data/MEDLEMSBLAD_BLINDSONEN_1963_1980.md
 findings:
 - id: res-001
   source:
@@ -47,7 +47,86 @@ findings:
   type: match_result
   claim:
     text: Statistikk A-laget 1979 med 39 daterte kamper og bortemarkering
-  disposition: reviewed
+  disposition: canonical_created
+  targets:
+  - entity: match
+    id: 1979-02-24-molde-fk-aalesunds-fk
+  - entity: match
+    id: 1979-03-01-aalesunds-fk-aksla
+  - entity: match
+    id: 1979-03-03-aalesunds-fk-velledalen-ringen
+  - entity: match
+    id: 1979-03-04-aalesunds-fk-traeff
+  - entity: match
+    id: 1979-03-10-aalesunds-fk-hareid
+  - entity: match
+    id: 1979-03-10-aalesunds-fk-herd
+  - entity: match
+    id: 1979-03-17-aalesunds-fk-kfk
+  - entity: match
+    id: 1979-03-18-aalesunds-fk-bergsoy
+  - entity: match
+    id: 1979-03-25-mjondalen-aalesunds-fk
+  - entity: match
+    id: 1979-03-31-aalesunds-fk-valder
+  - entity: match
+    id: 1979-04-01-raufoss-il-aalesunds-fk
+  - entity: match
+    id: 1979-04-10-orsta-aalesunds-fk
+  - entity: match
+    id: 1979-04-16-aalesunds-fk-bodo-glimt
+  - entity: match
+    id: 1979-04-19-valder-aalesunds-fk
+  - entity: match
+    id: 1979-04-29-aalesunds-fk-hodd
+  - entity: match
+    id: 1979-05-06-mo-il-aalesunds-fk
+  - entity: match
+    id: 1979-05-12-steinkjer-aalesunds-fk
+  - entity: match
+    id: 1979-05-20-aalesunds-fk-stjordals-blink
+  - entity: match
+    id: 1979-05-24-frigg-aalesunds-fk
+  - entity: match
+    id: 1979-05-27-aalesunds-fk-molde-fk
+  - entity: match
+    id: 1979-05-31-aalesunds-fk-skarbovik
+  - entity: match
+    id: 1979-06-04-tromso-aalesunds-fk
+  - entity: match
+    id: 1979-06-10-aalesunds-fk-mjolner
+  - entity: match
+    id: 1979-06-17-strindheim-aalesunds-fk
+  - entity: match
+    id: 1979-06-24-aalesunds-fk-nessegutten
+  - entity: match
+    id: 1979-07-01-lyn-aalesunds-fk
+  - entity: match
+    id: 1979-07-18-lillehammer-aalesunds-fk
+  - entity: match
+    id: 1979-07-22-moelven-aalesunds-fk
+  - entity: match
+    id: 1979-07-29-hodd-aalesunds-fk
+  - entity: match
+    id: 1979-07-30-spjelkavik-aalesunds-fk
+  - entity: match
+    id: 1979-08-06-aalesunds-fk-mo-il
+  - entity: match
+    id: 1979-08-18-stjordals-blink-aalesunds-fk
+  - entity: match
+    id: 1979-08-26-aalesunds-fk-frigg
+  - entity: match
+    id: 1979-09-02-molde-fk-aalesunds-fk
+  - entity: match
+    id: 1979-09-09-aalesunds-fk-tromso
+  - entity: match
+    id: 1979-09-23-aalesunds-fk-strindheim
+  - entity: match
+    id: 1979-09-30-nessegutten-aalesunds-fk
+  - entity: match
+    id: 1979-10-06-aalesunds-fk-lyn
+  - entity: match
+    id: 1979-10-27-vigra-il-aalesunds-fk
   status: normalized
 - id: con-001
   source:
@@ -56,7 +135,7 @@ findings:
   type: match_result
   claim:
     text: Kilden oppgir 22 seriekamper, men fører 20 daterte serielinjer
-  disposition: conflict_registered
+  disposition: no_structured_action
   status: unresolved
 - id: per-001
   source:
@@ -67,3 +146,31 @@ findings:
     text: Kamp- og malstatistikk for A-laget 1979 med karrieretall per spiller
   disposition: reviewed
   status: normalized
+- id: src-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1980-bec4
+    page: '3'
+  type: match_result
+  claim:
+    text: Årsberetningens 39 daterte kampresultater er registrert i source-results.
+  disposition: source_result_created
+  targets:
+  - { entity: source_result, id: medlemsblad-for-aalesunds-fotb-1980-bec4 }
+  status: normalized
+- id: obs-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1980-bec4
+    page: '3'
+  type: historical_observation
+  claim:
+    text: Sesongberetningens summer, nedrykk, toppscorer og jubilanter er registrert som observasjon.
+  disposition: historical_observation_created
+  targets:
+  - { entity: observation, id: 1979-arsberetning-a-laget }
+  status: normalized
+unresolved:
+- findingId: con-001
+  type: season-match-count
+  note: Årsberetningen oppgir 22 seriekamper, mens den visuelt kontrollerte oversikten bare har 20 daterte serielinjer. Faksimilen løser ikke avviket.
+notes:
+- Faksimilekontrollen omfatter bare siden som bærer de kanoniske påstandene; ALTO-gjennomgangen av 12 sider er discovery, ikke visuell sidedekning.

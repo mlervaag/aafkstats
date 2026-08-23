@@ -17,14 +17,14 @@ sourceInventory:
   year: 1952
   reviewStatus: reviewed
 coverage:
-  mode: pages
-  expected: 92
-  reviewed: 92
+  mode: sections
+  expected: 1
+  reviewed: 1
 passes:
   facsimile_review:
-    status: pending
-    findings: 0
-    note: Ikke gjennomført. Spaltekorrigert ALTO for alle sider, ikke faksimile.
+    status: complete
+    findings: 1
+    note: Oppdragsgiver bekreftet 2026-08-23 visuell kontroll av den kanoniserende resultatsiden 48. Dekningen gjelder denne funnsiden, ikke hele årgangen.
   explicit_results:
     status: complete
     findings: 9
@@ -54,5 +54,32 @@ findings:
   type: match_result
   claim:
     text: A-lagsresultater for sesongen
-  disposition: reviewed
+  disposition: canonical_created
+  targets:
+  - entity: match
+    id: 1952-04-20-langevag-aalesunds-fk
+  - entity: match
+    id: 1952-04-27-rollon-aalesunds-fk
+  - entity: match
+    id: 1952-04-30-aksla-aalesunds-fk
+  - entity: match
+    id: 1952-05-11-rollon-aalesunds-fk
+  - entity: match
+    id: 1952-05-20-herd-aalesunds-fk
+  - entity: match
+    id: 1952-05-25-braatt-aalesunds-fk
   status: normalized
+- id: src-001
+  source:
+    sourceId: medlemsblad-for-aalesunds-fotb-1952-7c90
+    page: '48'
+  type: match_result
+  claim:
+    text: Kildens ni dagsdaterte A-lagsresultater er bevart i en ny source-result-samling.
+  disposition: source_result_created
+  targets:
+  - entity: source_result
+    id: medlemsblad-for-aalesunds-fotb-1952-7c90
+  status: normalized
+notes:
+- Faksimilekontrollen omfatter bare siden som bærer de kanoniske påstandene; ALTO-gjennomgangen av 92 sider er discovery, ikke visuell sidedekning.

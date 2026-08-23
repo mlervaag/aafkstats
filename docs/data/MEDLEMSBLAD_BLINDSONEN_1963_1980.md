@@ -4,7 +4,9 @@
 **Metode:** 54 medlemsbladutgaver fra 1963, 1964 og 1966–1980 hentet som ALTO fra
 Nasjonalbiblioteket — 858 skannsider — og skannet maskinelt etter linjer som
 inneholder både en dato og et klubbnavn, i begge datoformene (`3/5` og `5. mai`).
-Faksimilepasset er ikke gjennomført.
+Oppdragsgiver bekreftet 23. august 2026 visuell kontroll av de 22 sidene som
+bærer kanoniske påstander for 1963–1977 og 1979. Dette er ikke et fullstendig
+visuelt pass av alle 858 sidene.
 
 ## 1. Spørsmålet som var åpent
 
@@ -64,8 +66,9 @@ Kilden skriver at det ble spilt **22 seriekamper**, men fører 20 daterte
 serielinjer. Målsummen bekrefter at noe mangler: mål mot summerer seg til
 nøyaktig 24 som trykt, mens mål for kommer til 12 mot trykte 15. De to kampene
 som ikke er lest må altså ha endt uten baklengsmål og med tre mål for AaFK.
-Avviket er registrert som `con-001` i batchmanifestet med status `unresolved`, og
-løses av et faksimilepass på siden.
+Avviket er registrert som `con-001` i batchmanifestet med status `unresolved`.
+Faksimilekontrollen bekrefter de 20 synlige linjene, men identifiserer ikke de
+to kampene som mangler fra den trykte sesongsummen.
 
 Tre klubber er opprettet for anledningen: Moelven IL, Lillehammer FK og
 Velledalen/Ringen ble gjenbrukt fra eksisterende `velledalen-ringen`.
@@ -80,9 +83,10 @@ mål og Leif Nærø ble kåret til årets spiller med sølvpokal fra Fiskernes B
 
 Dette er lagt inn som historisk observasjon. Karrieretallene er ikke løftet til
 personfiler — personmodellen har ikke noe felt for kamptall, og tallene bør
-uansett kontrolleres mot faksimilen før de brukes.
+er visuelt kontrollert på siden, men er ikke løftet til personfiler fordi
+personmodellen ikke har et felt for karrieretall.
 
-## 4. Hva som gjenstår, og hvor det er billigst
+## 4. Mellomstatus før reconciliation-passene
 
 De tolv øvrige årgangene har terminliste, men ikke resultater i samme linje. De
 krever samme avstemming som 1952–1960: finn resultatoversikten i årgangen og par
@@ -140,9 +144,8 @@ En paring som antar at score følger tett på navnet finner ingenting. Riktig
 framgangsmåte er å finne lagnavnenes HPOS, lete etter score i et bredt bånd til
 høyre, og markeringen i båndet mellom.
 
-Det er også grunnen til at 1973 og 1974 ikke er kjørt i denne runden: begge har
-terminlister og resultatlister, men resultatlistene har flere kamper mot samme
-motstander i samme spalte, og krever mer nøyaktig kolonneanalyse enn 1972.
+Dette var grunnen til at 1973 og 1974 først ble holdt tilbake. Den etterfølgende
+kolonneanalysen i seksjon 7 gjorde begge årgangene lesbare.
 
 ## 7. Sesongene 1973 og 1974
 
@@ -194,8 +197,10 @@ oversikten.
 
 **Sesongene 1973 og 1974 hadde begge null kanoniske kamper før dette.**
 
-Klubben Eidsvold Turn er opprettet. «Vard» er ført mot den generiske
-`vard`-klubben og ikke mot `vard-haugesund`, fordi kilden bare skriver «Vard».
+Klubben Eidsvold Turn er opprettet. Ligatabellen identifiserer «Vard» som
+klubben fra Haugesund; den nye kampen bruker derfor `vard-haugesund`. Den eldre
+`vard`-identiteten beholdes urørt av preservation-hensyn, men skal ikke brukes
+på nye funn fra disse sesongene.
 
 ## 8. Sesongene 1964 og 1976
 
@@ -231,15 +236,17 @@ hverandre.
 
 Ni kamper er kanonisert: hjemmekampene i vårsesongen mot Moss, Hødd, Sarpsborg
 og Larvik Turn, og høstkampene mot Varegg, Stavanger IF, Moss, Fram og Os.
+Det uvanlige 0–8-tapet borte mot Moss 21. august er kontrollert i både
+terminlisten og den visuelle resultatoversikten og beholdes som `confirmed`.
 
 Fire vårkamper står igjen — Stavanger IF, Fram, Odd og Os — fordi
 bortemarkeringen i vårblokken er skrevet inntil lagnavnet og ikke lot seg lese
 sikkert. De er borteoppgjør etter terminlisten, men sjekkpunkt 2 kan ikke
-bekreftes mot resultatoversikten uten faksimile.
+bekreftes sikkert mot resultatoversikten, heller ikke etter faksimilekontrollen.
 
 Klubben Fram er opprettet som `fram-larvik`.
 
-### 1963 er ikke kjørt
+### Metodestoppet før 1963-passet
 
 Resultatoversikten på side 48 i 1963-årgangen ligger i to spalter side om side
 med samme vertikale posisjon, slik at rader fra de to spaltene smelter sammen —
@@ -284,11 +291,11 @@ koblingen er entydig uten å måtte lese bortemerket:
 | 1977-08-12 | AaFK–Rollon | 1–0 |
 | 1977-08-20 | AaFK–Ørsta | 0–1 |
 
-**Merknad om konkurransen:** AaFK spilte 3. divisjon i 1977, men arkivet har
-ingen konkurranse med den id-en, og den eksisterende 1977-kampen mot Bergsøy —
-hentet fra kretsens årsrapport — er ført som `andredivisjon`. De fire nye er
-ført likt for konsistens. **Dette bør rettes samlet for hele sesongen**, ikke
-kamp for kamp.
+**Merknad om konkurransen:** AaFK spilte 3. divisjon avdeling Møre i 1977.
+Repoets stabile konkurranseidentitet er `andredivisjon`; konkurransefilen bruker
+det historiske navnet «3. divisjon» til og med 1990 og «2. divisjon» fra 1991.
+Sesongfilen, sluttabellen, Bergsøy-kampen og de fire nye kampene er dermed
+modellert samlet med korrekt identitet og historisk navn.
 
 Klubben Bud er opprettet.
 

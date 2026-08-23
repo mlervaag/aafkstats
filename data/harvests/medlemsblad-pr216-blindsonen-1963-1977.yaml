@@ -1,0 +1,295 @@
+version: 1
+id: medlemsblad-pr216-blindsonen-1963-1977
+title: PR #216 - kampkanonisering fra medlemsblad 1963-1977
+profile: member_magazine
+mode: supplement
+status: normalized
+scope:
+  years:
+    from: 1963
+    to: 1977
+  sourceIds:
+  - medlemsblad-for-aalesunds-fotb-1963-400c
+  - medlemsblad-for-aalesunds-fotb-1964-9418
+  - medlemsblad-for-aalesunds-fotb-1967-4999
+  - medlemsblad-for-aalesunds-fotb-1967-bebf
+  - medlemsblad-for-aalesunds-fotb-1972-10d9
+  - medlemsblad-for-aalesunds-fotb-1972-4638
+  - medlemsblad-for-aalesunds-fotb-1973-af84
+  - medlemsblad-for-aalesunds-fotb-1973-d4e1
+  - medlemsblad-for-aalesunds-fotb-1974-4178
+  - medlemsblad-for-aalesunds-fotb-1974-db4e
+  - medlemsblad-for-aalesunds-fotb-1975-0ee3
+  - medlemsblad-for-aalesunds-fotb-1975-5323
+  - medlemsblad-for-aalesunds-fotb-1976-2c84
+  - medlemsblad-for-aalesunds-fotb-1976-3cb7
+  - medlemsblad-for-aalesunds-fotb-1976-e3df
+  - medlemsblad-for-aalesunds-fotb-1977-f5fc
+  - medlemsblad-for-aalesunds-fotb-1977-fbae
+  parentSourceId: aafk-medlemsblad
+sourceInventory:
+- { sourceId: medlemsblad-for-aalesunds-fotb-1963-400c, year: 1963, reviewStatus: reviewed }
+- { sourceId: medlemsblad-for-aalesunds-fotb-1964-9418, year: 1964, reviewStatus: reviewed }
+- { sourceId: medlemsblad-for-aalesunds-fotb-1967-4999, year: 1967, reviewStatus: reviewed }
+- { sourceId: medlemsblad-for-aalesunds-fotb-1967-bebf, year: 1967, reviewStatus: reviewed }
+- { sourceId: medlemsblad-for-aalesunds-fotb-1972-10d9, year: 1972, reviewStatus: reviewed }
+- { sourceId: medlemsblad-for-aalesunds-fotb-1972-4638, year: 1972, reviewStatus: reviewed }
+- { sourceId: medlemsblad-for-aalesunds-fotb-1973-af84, year: 1973, reviewStatus: reviewed }
+- { sourceId: medlemsblad-for-aalesunds-fotb-1973-d4e1, year: 1973, reviewStatus: reviewed }
+- { sourceId: medlemsblad-for-aalesunds-fotb-1974-4178, year: 1974, reviewStatus: reviewed }
+- { sourceId: medlemsblad-for-aalesunds-fotb-1974-db4e, year: 1974, reviewStatus: reviewed }
+- { sourceId: medlemsblad-for-aalesunds-fotb-1975-0ee3, year: 1975, reviewStatus: reviewed }
+- { sourceId: medlemsblad-for-aalesunds-fotb-1975-5323, year: 1975, reviewStatus: reviewed }
+- { sourceId: medlemsblad-for-aalesunds-fotb-1976-2c84, year: 1976, reviewStatus: reviewed }
+- { sourceId: medlemsblad-for-aalesunds-fotb-1976-3cb7, year: 1976, reviewStatus: reviewed }
+- { sourceId: medlemsblad-for-aalesunds-fotb-1976-e3df, year: 1976, reviewStatus: reviewed }
+- { sourceId: medlemsblad-for-aalesunds-fotb-1977-f5fc, year: 1977, reviewStatus: reviewed }
+- { sourceId: medlemsblad-for-aalesunds-fotb-1977-fbae, year: 1977, reviewStatus: reviewed }
+coverage:
+  mode: sections
+  expected: 21
+  reviewed: 21
+passes:
+  facsimile_review:
+    status: complete
+    findings: 21
+    note: Oppdragsgiver bekreftet 2026-08-23 visuell kontroll av alle 21 terminliste- og resultatsider som bærer de 57 kanoniske kampene.
+  explicit_results:
+    status: complete
+    findings: 57
+  fixture_reconciliation:
+    status: complete
+    findings: 57
+  people_and_roles: { status: skipped, findings: 0, note: Supplementet gjelder bare kampkanonisering. }
+  organization: { status: skipped, findings: 0, note: Supplementet gjelder bare kampkanonisering. }
+  retrospectives_and_claims: { status: skipped, findings: 0, note: Supplementet gjelder bare kampkanonisering. }
+  observations: { status: skipped, findings: 0, note: Supplementet gjelder bare kampkanonisering. }
+reviewMethod:
+  facsimile: required
+review:
+  file: docs/data/MEDLEMSBLAD_BLINDSONEN_1963_1980.md
+findings:
+- id: can-1963-var
+  sources: [{ sourceId: medlemsblad-for-aalesunds-fotb-1963-400c, page: '3' }, { sourceId: medlemsblad-for-aalesunds-fotb-1963-400c, page: '48' }]
+  type: match_result
+  claim: { text: Vårkampen mot Kvik er visuelt bekreftet etter spaltesplitting og avstemming. }
+  disposition: canonical_created
+  targets:
+  - { entity: match, id: 1963-05-05-kvik-aalesunds-fk }
+  status: normalized
+- id: can-1963-host
+  sources: [{ sourceId: medlemsblad-for-aalesunds-fotb-1963-400c, page: '35' }, { sourceId: medlemsblad-for-aalesunds-fotb-1963-400c, page: '48' }]
+  type: match_result
+  claim: { text: Fire høstkamper er visuelt bekreftet etter spaltesplitting og avstemming. }
+  disposition: canonical_created
+  targets:
+  - { entity: match, id: 1963-08-04-aalesunds-fk-kvik }
+  - { entity: match, id: 1963-08-18-lillestrom-aalesunds-fk }
+  - { entity: match, id: 1963-09-08-ostsiden-il-aalesunds-fk }
+  - { entity: match, id: 1963-10-13-rosenborg-bk-aalesunds-fk }
+  status: normalized
+- id: src-1963
+  source: { sourceId: medlemsblad-for-aalesunds-fotb-1963-400c, page: '48' }
+  type: match_result
+  claim: { text: Resultatpåstandene er registrert i source-results. }
+  disposition: source_result_created
+  targets: [{ entity: source_result, id: medlemsblad-for-aalesunds-fotb-1963-400c }]
+  status: normalized
+- id: can-1964-var
+  sources: [{ sourceId: medlemsblad-for-aalesunds-fotb-1964-9418, page: '20' }, { sourceId: medlemsblad-for-aalesunds-fotb-1964-9418, page: '48' }]
+  type: match_result
+  claim: { text: Fire vårkamper er visuelt bekreftet gjennom terminliste/resultat-avstemming. }
+  disposition: canonical_created
+  targets:
+  - { entity: match, id: 1964-05-10-aalesunds-fk-hodd }
+  - { entity: match, id: 1964-05-24-kfk-aalesunds-fk }
+  - { entity: match, id: 1964-05-31-aalesunds-fk-langevag }
+  - { entity: match, id: 1964-06-14-aalesunds-fk-braatt }
+  status: normalized
+- id: can-1964-host
+  sources: [{ sourceId: medlemsblad-for-aalesunds-fotb-1964-9418, page: '32' }, { sourceId: medlemsblad-for-aalesunds-fotb-1964-9418, page: '48' }]
+  type: match_result
+  claim: { text: Høstkampen mot Herd er visuelt bekreftet gjennom terminliste/resultat-avstemming. }
+  disposition: canonical_created
+  targets:
+  - { entity: match, id: 1964-08-30-aalesunds-fk-herd }
+  status: normalized
+- id: src-1964
+  source: { sourceId: medlemsblad-for-aalesunds-fotb-1964-9418, page: '48' }
+  type: match_result
+  claim: { text: Resultatpåstandene er registrert i source-results. }
+  disposition: source_result_created
+  targets: [{ entity: source_result, id: medlemsblad-for-aalesunds-fotb-1964-9418 }]
+  status: normalized
+- id: can-1967
+  sources: [{ sourceId: medlemsblad-for-aalesunds-fotb-1967-4999, page: '3' }, { sourceId: medlemsblad-for-aalesunds-fotb-1967-bebf, page: '5' }]
+  type: match_result
+  claim: { text: Elleve kamper er visuelt bekreftet gjennom rekkefølge- og resultatavstemming. }
+  disposition: canonical_created
+  targets:
+  - { entity: match, id: 1967-05-15-langevag-aalesunds-fk }
+  - { entity: match, id: 1967-05-21-aalesunds-fk-herd }
+  - { entity: match, id: 1967-06-04-velledalen-ringen-aalesunds-fk }
+  - { entity: match, id: 1967-06-11-aalesunds-fk-spjelkavik }
+  - { entity: match, id: 1967-06-18-aalesunds-fk-molde-fk }
+  - { entity: match, id: 1967-08-06-clausenengen-aalesunds-fk }
+  - { entity: match, id: 1967-08-13-aalesunds-fk-langevag }
+  - { entity: match, id: 1967-08-20-herd-aalesunds-fk }
+  - { entity: match, id: 1967-08-27-aalesunds-fk-velledalen-ringen }
+  - { entity: match, id: 1967-09-10-spjelkavik-aalesunds-fk }
+  - { entity: match, id: 1967-10-01-aalesunds-fk-kfk }
+  status: normalized
+- id: src-1967
+  source: { sourceId: medlemsblad-for-aalesunds-fotb-1967-bebf, page: '5' }
+  type: match_result
+  claim: { text: Resultatpåstandene er registrert i source-results. }
+  disposition: source_result_created
+  targets: [{ entity: source_result, id: medlemsblad-for-aalesunds-fotb-1967-bebf }]
+  status: normalized
+- id: can-1972
+  sources: [{ sourceId: medlemsblad-for-aalesunds-fotb-1972-4638, page: '2' }, { sourceId: medlemsblad-for-aalesunds-fotb-1972-10d9, page: '2' }]
+  type: match_result
+  claim: { text: Seks kamper er visuelt bekreftet gjennom terminliste/resultat-avstemming. }
+  disposition: canonical_created
+  targets:
+  - { entity: match, id: 1972-04-30-aalesunds-fk-frigg }
+  - { entity: match, id: 1972-05-07-steinkjer-aalesunds-fk }
+  - { entity: match, id: 1972-05-14-clausenengen-aalesunds-fk }
+  - { entity: match, id: 1972-05-22-aalesunds-fk-molde-fk }
+  - { entity: match, id: 1972-06-11-aalesunds-fk-valerenga }
+  - { entity: match, id: 1972-06-25-aalesunds-fk-brumunddal }
+  status: normalized
+- id: src-1972
+  source: { sourceId: medlemsblad-for-aalesunds-fotb-1972-10d9, page: '2' }
+  type: match_result
+  claim: { text: Resultatpåstandene er registrert i source-results. }
+  disposition: source_result_created
+  targets: [{ entity: source_result, id: medlemsblad-for-aalesunds-fotb-1972-10d9 }]
+  status: normalized
+- id: can-1973
+  sources: [{ sourceId: medlemsblad-for-aalesunds-fotb-1973-af84, page: '4' }, { sourceId: medlemsblad-for-aalesunds-fotb-1973-d4e1, page: '2' }]
+  type: match_result
+  claim: { text: Fire kamper er visuelt bekreftet gjennom terminliste/resultat-avstemming; Vard er identifisert som Vard Haugesund via sesongens liga. }
+  disposition: canonical_created
+  targets:
+  - { entity: match, id: 1973-05-13-skarbovik-aalesunds-fk }
+  - { entity: match, id: 1973-05-27-aalesunds-fk-vard-haugesund }
+  - { entity: match, id: 1973-06-03-aalesunds-fk-clausenengen }
+  - { entity: match, id: 1973-06-24-molde-fk-aalesunds-fk }
+  status: normalized
+- id: src-1973
+  source: { sourceId: medlemsblad-for-aalesunds-fotb-1973-d4e1, page: '2' }
+  type: match_result
+  claim: { text: Resultatpåstandene er registrert i source-results. }
+  disposition: source_result_created
+  targets: [{ entity: source_result, id: medlemsblad-for-aalesunds-fotb-1973-d4e1 }]
+  status: normalized
+- id: can-1974
+  sources: [{ sourceId: medlemsblad-for-aalesunds-fotb-1974-4178, page: '9' }, { sourceId: medlemsblad-for-aalesunds-fotb-1974-db4e, page: '7' }]
+  type: match_result
+  claim: { text: Seks kamper er visuelt bekreftet gjennom terminliste/resultat-avstemming. }
+  disposition: canonical_created
+  targets:
+  - { entity: match, id: 1974-04-28-aalesunds-fk-clausenengen }
+  - { entity: match, id: 1974-05-05-steinkjer-aalesunds-fk }
+  - { entity: match, id: 1974-05-11-aalesunds-fk-moss }
+  - { entity: match, id: 1974-05-19-aalesunds-fk-eidsvold-turn }
+  - { entity: match, id: 1974-05-26-frigg-aalesunds-fk }
+  - { entity: match, id: 1974-06-03-aalesunds-fk-hodd }
+  status: normalized
+- id: src-1974
+  source: { sourceId: medlemsblad-for-aalesunds-fotb-1974-db4e, page: '7' }
+  type: match_result
+  claim: { text: Resultatpåstandene er registrert i source-results. }
+  disposition: source_result_created
+  targets: [{ entity: source_result, id: medlemsblad-for-aalesunds-fotb-1974-db4e }]
+  status: normalized
+- id: unresolved-1974-henning
+  sources: [{ sourceId: medlemsblad-for-aalesunds-fotb-1974-4178, page: '9' }, { sourceId: medlemsblad-for-aalesunds-fotb-1974-db4e, page: '7' }]
+  type: source_conflict
+  claim: { text: Henning 9. juni har motstridende hjemme/borte-markering og er ikke kanonisert. }
+  confidence: uncertain
+  disposition: no_structured_action
+  status: unresolved
+- id: can-1975
+  sources: [{ sourceId: medlemsblad-for-aalesunds-fotb-1975-0ee3, page: '4' }, { sourceId: medlemsblad-for-aalesunds-fotb-1975-5323, page: '7' }]
+  type: match_result
+  claim: { text: Sju kamper er visuelt bekreftet; Vard er identifisert som Vard Haugesund via sesongens liga. }
+  disposition: canonical_created
+  targets:
+  - { entity: match, id: 1975-04-27-bryne-aalesunds-fk }
+  - { entity: match, id: 1975-05-01-aalesunds-fk-lyn }
+  - { entity: match, id: 1975-05-08-steinkjer-aalesunds-fk }
+  - { entity: match, id: 1975-06-03-varegg-fotball-men-aalesunds-fk }
+  - { entity: match, id: 1975-06-12-aalesunds-fk-frigg }
+  - { entity: match, id: 1975-06-15-sunndal-aalesunds-fk }
+  - { entity: match, id: 1975-06-29-vard-haugesund-aalesunds-fk }
+  status: normalized
+- id: src-1975
+  source: { sourceId: medlemsblad-for-aalesunds-fotb-1975-5323, page: '7' }
+  type: match_result
+  claim: { text: Resultatpåstandene er registrert i source-results. }
+  disposition: source_result_created
+  targets: [{ entity: source_result, id: medlemsblad-for-aalesunds-fotb-1975-5323 }]
+  status: normalized
+- id: can-1976-var
+  sources: [{ sourceId: medlemsblad-for-aalesunds-fotb-1976-2c84, page: '4' }, { sourceId: medlemsblad-for-aalesunds-fotb-1976-3cb7, page: '5' }]
+  type: match_result
+  claim: { text: Fire vårkamper er visuelt bekreftet gjennom terminliste/resultat-avstemming. }
+  disposition: canonical_created
+  targets:
+  - { entity: match, id: 1976-05-16-aalesunds-fk-moss }
+  - { entity: match, id: 1976-05-30-aalesunds-fk-hodd }
+  - { entity: match, id: 1976-06-13-aalesunds-fk-sarpsborg }
+  - { entity: match, id: 1976-06-27-aalesunds-fk-larvik-turn }
+  status: normalized
+- id: can-1976-host
+  sources: [{ sourceId: medlemsblad-for-aalesunds-fotb-1976-e3df, page: '3' }, { sourceId: medlemsblad-for-aalesunds-fotb-1976-3cb7, page: '5' }]
+  type: match_result
+  claim: { text: Fem høstkamper er visuelt bekreftet gjennom terminliste/resultat-avstemming. }
+  disposition: canonical_created
+  targets:
+  - { entity: match, id: 1976-08-02-varegg-fotball-men-aalesunds-fk }
+  - { entity: match, id: 1976-08-08-aalesunds-fk-stavanger-if }
+  - { entity: match, id: 1976-08-21-moss-aalesunds-fk }
+  - { entity: match, id: 1976-08-29-aalesunds-fk-fram-larvik }
+  - { entity: match, id: 1976-09-26-aalesunds-fk-os }
+  status: normalized
+- id: src-1976
+  source: { sourceId: medlemsblad-for-aalesunds-fotb-1976-3cb7, page: '5' }
+  type: match_result
+  claim: { text: Resultatpåstandene er registrert i source-results. }
+  disposition: source_result_created
+  targets: [{ entity: source_result, id: medlemsblad-for-aalesunds-fotb-1976-3cb7 }]
+  status: normalized
+- id: unresolved-1976-home-away
+  source: { sourceId: medlemsblad-for-aalesunds-fotb-1976-3cb7, page: '5' }
+  type: source_conflict
+  claim: { text: Fire vårkamper har bortemerke som ikke kan leses sikkert og er ikke kanonisert. }
+  confidence: uncertain
+  disposition: no_structured_action
+  status: unresolved
+- id: can-1977
+  sources: [{ sourceId: medlemsblad-for-aalesunds-fotb-1977-f5fc, page: '10' }, { sourceId: medlemsblad-for-aalesunds-fotb-1977-fbae, page: '11' }]
+  type: match_result
+  claim: { text: "Fire kamper er visuelt bekreftet i 3. divisjon avdeling Møre, modellert med den stabile konkurranseidentiteten andredivisjon." }
+  disposition: canonical_created
+  targets:
+  - { entity: match, id: 1977-07-29-aalesunds-fk-skarbovik }
+  - { entity: match, id: 1977-08-06-bud-aalesunds-fk }
+  - { entity: match, id: 1977-08-12-aalesunds-fk-rollon }
+  - { entity: match, id: 1977-08-20-aalesunds-fk-orsta }
+  status: normalized
+- id: src-1977
+  source: { sourceId: medlemsblad-for-aalesunds-fotb-1977-fbae, page: '11' }
+  type: match_result
+  claim: { text: Resultatpåstandene er registrert i source-results. }
+  disposition: source_result_created
+  targets: [{ entity: source_result, id: medlemsblad-for-aalesunds-fotb-1977-fbae }]
+  status: normalized
+unresolved:
+- { findingId: unresolved-1974-henning, type: home-away, note: Henning 9. juni 1974 er holdt utenfor kanonisk lag til hjemme/borte-avviket kan løses. }
+- { findingId: unresolved-1976-home-away, type: home-away, note: Fire vårkamper i 1976 er holdt utenfor fordi bortemerket ikke kan leses sikkert. }
+notes:
+- Dekningen gjelder 21 sider som bærer kanoniske påstander, ikke full visuell gjennomgang av alle heftene.
+- ALTO ble brukt til discovery og navigasjon; statusene exact og confirmed bygger på oppdragsgivers visuelle kontroll av de oppgitte sidene.

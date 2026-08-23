@@ -1,7 +1,7 @@
 # Review: AaFK Medlemsblad 1959
 
 **Batch:** `medlemsblad-1959` · **Kilde:** `medlemsblad-for-aalesunds-fotb-1959-515a`
-**Dato:** 23. august 2026 · **Status:** `normalized` — faksimilepasset gjenstår
+**Dato:** 23. august 2026 · **Status:** `normalized` — funnsidene er faksimilekontrollert
 
 Dette er piloten beskrevet i
 [`MEDLEMSBLAD_METODE_OG_REHOSTINGSPLAN.md`](MEDLEMSBLAD_METODE_OG_REHOSTINGSPLAN.md).
@@ -16,9 +16,10 @@ to gjengivelser: spaltevis for løpende tekst, og radvis for tabellsider, der
 linjer settes sammen på tvers etter vertikal posisjon. Resultatsiden ble i
 tillegg lest koordinatbasert, med lagnavn og score paret på VPOS.
 
-**Faksimilepasset er ikke gjennomført.** Kildehierarkiet setter faksimilen over
-OCR, og ingenting her er endelig før sidene er sett. Rå ALTO og OCR-prosa er ikke
-lagt i repoet.
+Oppdragsgiver bekreftet 23. august 2026 visuell kontroll av terminlistene s. 12
+og 16, resultatoversikten s. 60 og observasjonssidene 6, 8, 46, 47, 72 og 73.
+Dekningen gjelder disse ni funnsidene, ikke alle 84 sidene i årgangen. Rå ALTO
+og OCR-prosa er ikke lagt i repoet.
 
 ## Resultat: fem kamper fikk eksakt dato
 
@@ -69,8 +70,9 @@ Seriekampene lenger nede på samme side stemmer derimot eksakt mellom de to
 lesingene, så det er ikke en gjennomgående forskyvning. Side 48 gjengir de samme
 kampene tidligere i sesongen og oppgir der Hødd 1–0.
 
-**Ingenting er endret.** Avviket er registrert som `con-001` med disposisjon
-`conflict_registered` og status `unresolved`, og må avgjøres mot faksimilen.
+**Ingenting er endret.** Avviket er registrert som `con-001` med status
+`unresolved`. Faksimilekontrollen ga ikke sikkert grunnlag for å overskrive den
+eldre kildepåstanden.
 
 ## Øvrig innhold
 
