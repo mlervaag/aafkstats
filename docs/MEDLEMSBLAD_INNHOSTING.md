@@ -92,4 +92,8 @@ review-loggen for batchen.
 - **Reviewformat:**
   - Hver enkelt årgang dokumenteres etter [`docs/data/HISTORISK_KILDE_REVIEW_TEMPLATE.md`](data/HISTORISK_KILDE_REVIEW_TEMPLATE.md).
   - Den samlede batchen oppsummeres i en batchrapport etter [`docs/data/HISTORISK_KILDE_BATCH_TEMPLATE.md`](data/HISTORISK_KILDE_BATCH_TEMPLATE.md).
+- **Metodemåling og rehøstingsplan:** Batchene 1953–1962 er innhøstet før 21-trinns
+  løypa fantes og har retrofittede manifester. Se
+  [](data/MEDLEMSBLAD_METODE_OG_REHOSTINGSPLAN.md)
+  for hvilke pass som faktisk er kjørt, og hvorfor `audited` ikke betyr ferdig.
 - **Kryssreferanse:** For alle andre innhøstingsregler, se hovedrunbooken [`docs/HISTORISK_KILDEINNHOSTING_RUNBOOK.md`](HISTORISK_KILDEINNHOSTING_RUNBOOK.md).
