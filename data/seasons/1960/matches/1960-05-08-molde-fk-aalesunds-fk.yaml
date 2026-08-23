@@ -1,0 +1,47 @@
+id: 1960-05-08-molde-fk-aalesunds-fk
+date: 1960-05-08
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1960
+  stage: regular_season
+home:
+  clubId: molde-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: "5"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Vårterminlisten (s. 5) oppgir «8/5: Molde—ÅFK»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    page: "16"
+    fields:
+      - date
+      - home.clubId
+      - away.clubId
+    note: "Landsdelsseriens samlede vårterminliste (s. 16) oppgir samme kamp og samme hjemmelag."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1960-146a
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversikten dokumenterer landsdelsseriekampen mot Molde borte med 2–2 sett fra AaFK."
