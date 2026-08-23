@@ -1,0 +1,41 @@
+id: 1964-05-10-aalesunds-fk-hodd
+date: 1964-05-10
+dateConfidence: exact
+status: played
+competition:
+  id: forstedivisjon
+  season: 1964
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: hodd
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1964-9418
+    page: "20"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Terminlisten (s. 20) oppgir «10. mai: AFK—Hødd»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1964-9418
+    page: "48"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 48) fører kampen mot Hødd hjemme med 1–1 sett fra AaFK."

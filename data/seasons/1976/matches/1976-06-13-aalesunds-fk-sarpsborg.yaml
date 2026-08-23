@@ -1,0 +1,41 @@
+id: 1976-06-13-aalesunds-fk-sarpsborg
+date: 1976-06-13
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 1976
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: sarpsborg
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1976-2c84
+    page: "4"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Terminlisten (s. 4) oppgir «13. juni: AAFK—Sarpsborg»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1976-3cb7
+    page: "5"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 5) fører kampen mot Sarpsborg hjemme med 2–2 sett fra AaFK."

@@ -1,0 +1,41 @@
+id: 1976-08-29-aalesunds-fk-fram-larvik
+date: 1976-08-29
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 1976
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: fram-larvik
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1976-e3df
+    page: "3"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Terminlisten (s. 3) oppgir «29. august AAFK—Fram»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1976-3cb7
+    page: "5"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 5) fører kampen mot Fram hjemme med 0–0 sett fra AaFK."

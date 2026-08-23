@@ -196,3 +196,53 @@ oversikten.
 
 Klubben Eidsvold Turn er opprettet. «Vard» er ført mot den generiske
 `vard`-klubben og ikke mot `vard-haugesund`, fordi kilden bare skriver «Vard».
+
+## 8. Sesongene 1964 og 1976
+
+### 1964 — fem kamper, avklart av hjemme/borte
+
+Årgangen trykker **to** terminlister: vårens serieprogram (s. 20) og høstens
+(s. 32). Resultatoversikten står på s. 48.
+
+Hver motstander møtes to ganger i sesongen, én gang hjemme og én gang borte, og
+det er nettopp det som gjør koblingen entydig: resultatoversikten fører
+hjemme/borte, og for hver motstander finnes bare én av de to kampene med den
+markeringen.
+
+| Dato | Kamp | Resultat | Avklart av |
+|---|---|---|---|
+| 1964-05-10 | AaFK–Hødd | 1–1 | hjemme, altså våromgangen |
+| 1964-05-24 | KFK–AaFK | 2–1 | borte, altså våromgangen |
+| 1964-05-31 | AaFK–Langevåg | 1–2 | hjemme, altså våromgangen |
+| 1964-06-14 | AaFK–Braatt | 2–0 | hjemme, altså våromgangen |
+| 1964-08-30 | AaFK–Herd | 1–1 | hjemme, altså høstomgangen |
+
+Molde er ikke kanonisert: lagnavnet er skadet i skannet («ÅFK-Moldet o—3o»), og
+både dato og resultat er dermed usikre. Åndalsnes står i begge terminlistene,
+men er ikke funnet i den leste delen av resultatoversikten.
+
+### 1976 — ni kamper
+
+Både vårterminlisten (`1976-2c84`, s. 4) og høstterminlisten (`1976-e3df`, s. 3)
+er trykt, og resultatoversikten (`1976-3cb7`, s. 5) er delt i vår- og høstblokk.
+Høstblokkens bortemarkeringer er den nøyaktige speilingen av vårterminlistens
+hjemmelag for samtlige motstandere, noe som bekrefter begge lesingene mot
+hverandre.
+
+Ni kamper er kanonisert: hjemmekampene i vårsesongen mot Moss, Hødd, Sarpsborg
+og Larvik Turn, og høstkampene mot Varegg, Stavanger IF, Moss, Fram og Os.
+
+Fire vårkamper står igjen — Stavanger IF, Fram, Odd og Os — fordi
+bortemarkeringen i vårblokken er skrevet inntil lagnavnet og ikke lot seg lese
+sikkert. De er borteoppgjør etter terminlisten, men sjekkpunkt 2 kan ikke
+bekreftes mot resultatoversikten uten faksimile.
+
+Klubben Fram er opprettet som `fram-larvik`.
+
+### 1963 er ikke kjørt
+
+Resultatoversikten på side 48 i 1963-årgangen ligger i to spalter side om side
+med samme vertikale posisjon, slik at rader fra de to spaltene smelter sammen —
+«AFK—Valder 4—2» og «AFK—Hødd 4—2» leses på samme linje. En pålitelig lesing
+krever at spaltene skilles på HPOS før radene bygges. Ingenting er kanonisert
+derfra.

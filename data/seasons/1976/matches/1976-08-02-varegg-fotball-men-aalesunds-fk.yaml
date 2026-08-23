@@ -1,0 +1,41 @@
+id: 1976-08-02-varegg-fotball-men-aalesunds-fk
+date: 1976-08-02
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 1976
+  stage: regular_season
+home:
+  clubId: varegg-fotball-men
+  score: 1
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1976-e3df
+    page: "3"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Terminlisten (s. 3) oppgir «2. august Varegg—AAFK»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1976-3cb7
+    page: "5"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 5) fører kampen mot Varegg borte med 1–1 sett fra AaFK."
