@@ -1,13 +1,24 @@
 import { PLAYED_SQL, all, open } from "@aafkstats/db";
-import type { SeasonSummary, SeasonYear } from "@/lib/archive";
+import type { SeasonCoverage, SeasonDetailLevel, SeasonSummary, SeasonYear } from "@/lib/archive";
+import { FIELD_NAMES } from "@/components/SeasonGaps";
 
 /** AaFK ble stiftet i 1914. Alt før det er ikke et hull, det er før klubben fantes. */
 const FOUNDED = 1914;
 
-type YearKind = "league" | "fragments" | "missing";
+type YearKind = "complete" | "league" | "fragments" | "missing";
 
+/**
+ * Hvilket nivå året havner på i stripa.
+ *
+ * Fargen svarte på «fantes det en seriesesong dette året». Det gjorde at 70 av
+ * merkene var like: 2019 og 2024 hadde samme farge, og 1952 med tre av fjorten
+ * kamper hadde samme farge som 2011. Spørsmålet er nå det samme som
+ * merkelappene svarer på — er året ferdig kanonisert — og «fantes det en serie»
+ * ser man uansett av at merket ikke er grått.
+ */
 function kindOf(entry: SeasonYear | undefined): YearKind {
   if (!entry) return "missing";
+  if (entry.coverage?.status === "complete") return "complete";
   return entry.primary?.competitionType === "league" ? "league" : "fragments";
 }
 
@@ -62,8 +73,12 @@ export function CoverageStrip({ years }: { years: SeasonYear[] }) {
           </li>
         ))}
       </ol>
+      {/* Fire nivåer, og de er en lysstyrkerampe på ett spørsmål — ikke fire
+          kulører. Sterkest farge er året som er ferdig, som er slik en leser
+          uansett tolker den sterkeste fargen. */}
       <figcaption className="strip-legend small muted">
-        <span><i className="strip-year strip-league" /> Sesong i serien</span>
+        <span><i className="strip-year strip-complete" /> Komplett sesong</span>
+        <span><i className="strip-year strip-league" /> Serie, ikke komplett</span>
         <span><i className="strip-year strip-fragments" /> Bare enkeltkamper</span>
         <span><i className="strip-year strip-missing" /> Ingenting ennå</span>
         <span className="strip-ends num">{FOUNDED}–{newest}</span>
@@ -75,26 +90,50 @@ export function CoverageStrip({ years }: { years: SeasonYear[] }) {
 /**
  * Teksten bak hvert merke i stripa.
  *
- * Stripa har tre farger, ikke seks. Den skal svare på ett spørsmål — hvor er
- * arkivet tykt, hvor er det tynt, hvor mangler det helt — og seks farger på 113
- * merker à åtte piksler gjør den til et mønster ingen kan lese. Detaljene ligger
+ * Stripa har fire nivåer, ikke ni. Den skal svare på ett spørsmål — hvor er
+ * arkivet ferdig, hvor er det tynt, hvor mangler det helt — og ni farger på 113
+ * merker à tolv piksler gjør den til et mønster ingen kan lese. Detaljene ligger
  * i teksten her, som både skjermlesere og et musepek får, og i merkelappen på
  * hvert sesongkort under.
+ *
+ * Teksten sier først det fargen sier, så det den ikke har plass til.
  */
 function stripTitle(year: number, entry: SeasonYear): string {
   const kamper = `${entry.totalMatches} ${entry.totalMatches === 1 ? "kamp" : "kamper"}`;
   if (!entry.primary) return `${year}: ${entry.documentedResults} kildedokumenterte resultater uten full kampdato`;
+  if (entry.coverage?.status === "complete") {
+    return `${year}: ${entry.primary.competition}, ${kamper}, komplett sesong`;
+  }
   if (entry.primary.competitionType !== "league") {
     return `${year}: ${kamper}, ingen seriesesong`;
   }
-  return `${year}: ${entry.primary.competition}, ${kamper}, ${coverageWord(entry.primary)}`;
+  return `${year}: ${entry.primary.competition}, ${kamper}, ${blockerWord(entry)}`;
+}
+
+/**
+ * Hvorfor året ikke er komplett, som ett ledd.
+ *
+ * Cupen er tatt med fordi den nå kan være grunnen alene: 2019 har hele serien
+ * inne og et merke som ikke er sterkest, og da må teksten kunne si hvorfor.
+ */
+function blockerWord(entry: SeasonYear): string {
+  switch (entry.coverage?.blocker) {
+    case "season_in_progress":
+      return "sesongen pågår";
+    case "cup_unfinished":
+      return "serien er hel, cupen står åpen";
+    case "european_unfinished":
+      return "serien er hel, europacupen står åpen";
+    default:
+      return coverageWord(entry.primary!);
+  }
 }
 
 /** Dekningen som ett ord, til stripa. Merkelappen på kortet sier det samme lengre. */
 function coverageWord(season: SeasonSummary): string {
   switch (season.coverage) {
     case "complete":
-      return "komplett sesong";
+      return "komplett kampliste i serien";
     case "in_progress":
       return "sesongen pågår";
     case "partial":
@@ -102,7 +141,9 @@ function coverageWord(season: SeasonSummary): string {
     case "unverified":
       return "sammenhengende runder, ukjent omfang";
     default:
-      return "løsrevne kamper";
+      return season.expectedMatches
+        ? `${season.played} av ${season.expectedMatches} seriekamper`
+        : "løsrevne kamper";
   }
 }
 
@@ -139,13 +180,24 @@ export function CoverageTag({ season }: { season: SeasonSummary }) {
   );
 }
 
+/**
+ * Merket sier nå hva det har telt, ikke bare hvor godt det gikk.
+ *
+ * «Komplett · 26 runder» leses som at sesongen 1997 er ferdig dokumentert. Det
+ * merket måler er kamplista i serien: at arkivet har hver runde fra første til
+ * siste, og like mange kamper som sluttabellen sier. Det sier ingenting om cupen,
+ * og ingenting om hva som står på hver kamp — de 22 kampene i 1982 er alle uten
+ * lagoppstilling, dommer og tilskuertall. «26 av 26 seriekamper» er den samme
+ * påstanden med målestokken skrevet ut, og den kan leseren etterprøve mot
+ * sluttabellen rett under.
+ */
 function coverageText(season: SeasonSummary): string {
   switch (season.coverage) {
     case "complete":
-      return `Komplett · ${season.lastRound} runder`;
+      return `${season.played} av ${season.expectedMatches ?? season.played} seriekamper`;
     case "partial":
       return season.expectedMatches
-        ? `Delvis · ${season.played} av ${season.expectedMatches} kamper`
+        ? `Delvis · ${season.played} av ${season.expectedMatches} seriekamper`
         : `Delvis · ${season.played} av ${season.lastRound ?? "?"} runder`;
     case "unverified":
       // Merket sier hva vi har og hva vi ikke vet, ikke «komplett». Sesongen kan
@@ -154,7 +206,12 @@ function coverageText(season: SeasonSummary): string {
     case "in_progress":
       return `Pågår · ${season.played} kamper spilt`;
     default:
-      return `${season.played} kjente ${season.played === 1 ? "kamp" : "kamper"}`;
+      // Uten rundetall het dette «5 kjente kamper», også for 1955, der
+      // sluttabellen i arkivet sier at AaFK spilte fjorten. Nevneren fantes; den
+      // ble bare ikke brukt. Da sa merket mindre enn arkivet vet.
+      return season.expectedMatches
+        ? `${season.played} av ${season.expectedMatches} seriekamper`
+        : `${season.played} ${season.played === 1 ? "kjent kamp" : "kjente kamper"}`;
   }
 }
 
@@ -168,9 +225,10 @@ function coverageText(season: SeasonSummary): string {
 function coverageExplanation(season: SeasonSummary): string {
   switch (season.coverage) {
     case "complete":
-      return season.coverageEvidence === "rounds_and_standings"
+      return `${season.coverageEvidence === "rounds_and_standings"
         ? `Sluttabellen sier at AaFK spilte ${season.expectedMatches} kamper, og arkivet har like mange, med hver runde fra første til siste.`
-        : `Arkivet har hver runde fra første til siste, ${season.expectedMatches} kamper, som er det omfanget sesongfila oppgir.`;
+        : `Arkivet har hver runde fra første til siste, ${season.expectedMatches} kamper, som er det omfanget sesongfila oppgir.`
+      } Merket gjelder kamplista i serien, ikke hvor mye som står på hver kamp.`;
     case "partial":
       return season.expectedMatches
         ? `Sesongen hadde ${season.expectedMatches} kamper. Arkivet har ${season.played}.`
@@ -180,8 +238,139 @@ function coverageExplanation(season: SeasonSummary): string {
     case "in_progress":
       return "Sesongen pågår. Resten står på terminlista.";
     default:
-      return "Kampene mangler rundenummer, så arkivet vet bare at de ble spilt.";
+      return season.expectedMatches
+        ? `Sluttabellen sier at AaFK spilte ${season.expectedMatches} kamper. Arkivet har ${season.played}, og de mangler rundenummer, så vi vet ikke hvilke av rundene de var.`
+        : "Kampene mangler rundenummer, så arkivet vet bare at de ble spilt.";
   }
+}
+
+/**
+ * Er hele sesongen kanonisert?
+ *
+ * «Komplett» sto på konkurransemerket, ved siden av «1. divisjon», og målte
+ * kamplista i serien. En leser leser det som året. 2019 hadde hele serien inne
+ * og sto som komplett, mens cupkvartfinalen mot Viking ligger i arkivet som 1–1
+ * uten straffesparkkonkurranse — sesongen var merket komplett med et cupresultat
+ * arkivet ikke kjenner.
+ *
+ * Ordet hører derfor til her, på året, og betyr det samme som det ser ut som:
+ * serien hel, cupen spilt til laget røk ut, europacupen likeså. Konkurransemerket
+ * sier fortsatt hva det har, bare uten å låne ordet.
+ */
+export function SeasonCoverageTag({ coverage }: { coverage: SeasonCoverage | null }) {
+  if (!coverage) return null;
+
+  if (coverage.status === "complete") {
+    const parts = ["Serien er hel: hver runde fra første til siste, like mange kamper som"
+      + (coverage.hasStandings ? " sluttabellen sier." : " omfanget sesongfila oppgir.")];
+    if (coverage.cupMatches > 0) parts.push("Cupen er spilt til laget røk ut.");
+    if (coverage.europeanMatches > 0) parts.push("Europacupen likeså.");
+    parts.push("Treningskamper teller ikke: ingen kilde sier hvor mange de var.");
+    return (
+      <span className="coverage-tag coverage-complete" title={parts.join(" ")}>
+        Komplett sesong{coverage.hasStandings ? "" : " · uten tabell"}
+      </span>
+    );
+  }
+
+  // Står serien igjen, sier konkurransemerket det allerede, med tall. To merker
+  // som sier det samme ved siden av hverandre er ett merke for mye.
+  const unfinished = coverage.status === "partial"
+    && (coverage.blocker === "cup_unfinished" || coverage.blocker === "european_unfinished");
+  if (!unfinished) return null;
+
+  const cup = coverage.blocker === "cup_unfinished";
+  return (
+    <span
+      className="coverage-tag coverage-partial"
+      title={`Den siste ${cup ? "cupkampen" : "europacupkampen"} i arkivet er verken et tap, en finale eller en uavgjort avgjort på straffer. Enten mangler neste kamp, eller så mangler resultatet av den siste. Serien er hel.`}
+    >
+      {cup ? "Cupen" : "Europacupen"} står åpen
+    </span>
+  );
+}
+
+/**
+ * Hva merket over ikke har målt, i én setning.
+ *
+ * Sesongsiden viste stripa med seire, uavgjorte og mål rett over sluttabellen. For
+ * 1955 sto det 1 seier, 1 uavgjort, 3 tap og 5–9 i mål — over en tabell der AaFK
+ * står med 5-4-5 og 25–24. Begge var riktige: stripa teller de fem kampene
+ * arkivet har, tabellen hele sesongen. Ingenting på sida sa det, så to tallsett
+ * motsa hverandre en halv skjerm fra hverandre.
+ *
+ * Den andre halvdelen gjelder de komplette sesongene. «Komplett» teller kamper, og
+ * alle de 22 kampene i 1982 er uten lagoppstilling, dommer og tilskuertall.
+ * Sesongen er en hel resultatliste og et tynt sesongarkiv på samme tid, og
+ * merkelappen har bare plass til det ene.
+ */
+export function SeasonMeasure({
+  season,
+  detail,
+  detailed,
+}: {
+  season: SeasonSummary;
+  detail: SeasonDetailLevel;
+  /**
+   * Om setningen om detaljnivået skal med. Den gjelder hele sesongen like mye,
+   * men står bare én gang: gjentatt under cupen og treningskampene sier den det
+   * samme tre ganger på samme side.
+   */
+  detailed: boolean;
+}) {
+  const short = season.expectedMatches !== null
+    && season.coverage !== "complete"
+    && season.coverage !== "not_applicable"
+    && season.scheduled === 0
+    && season.expectedMatches > season.played;
+
+  const missing = detailed ? missingWords(detail.missingOnAll) : [];
+  if (!short && missing.length === 0) return null;
+
+  return (
+    <p className="small muted season-measure">
+      {short ? (
+        <>
+          Tallene over gjelder {season.played === 1 ? "den ene kampen" : `de ${season.played} kampene`}{" "}
+          arkivet har. Sluttabellen sier at AaFK spilte {season.expectedMatches}.{" "}
+        </>
+      ) : null}
+      {missing.length > 0 ? (
+        <>
+          {season.played === 1 ? "Kampen mangler " : `Ingen av de ${season.played} kampene har `}
+          {joinWords(missing)}.
+        </>
+      ) : null}
+    </p>
+  );
+}
+
+/** Hvor mange felt setningen rekker å nevne før den slutter å bli lest. */
+const MAX_FIELDS = 4;
+
+/**
+ * Feltene som mangler, i den rekkefølgen en leser savner dem.
+ *
+ * `missing_fields` kommer alfabetisk sortert fra spørringen, og «tilskuertall,
+ * mål og kort, lagoppstilling, dommer, kampreferat og stadion» er seks ledd der
+ * det viktigste står tredje. Rekkefølgen her er den samme som i
+ * `COMPLETENESS_FIELDS`, altså den arkivet selv vekter etter.
+ */
+function missingWords(fields: string[]): string[] {
+  const order = Object.keys(FIELD_NAMES);
+  const named = fields
+    .filter((field) => FIELD_NAMES[field] !== undefined)
+    .sort((a, b) => order.indexOf(a) - order.indexOf(b))
+    .map((field) => FIELD_NAMES[field]!);
+  if (named.length <= MAX_FIELDS) return named;
+  const rest = named.length - MAX_FIELDS;
+  return [...named.slice(0, MAX_FIELDS), `${rest} felt til`];
+}
+
+/** «lagoppstilling, dommer og tilskuertall» — norsk oppramsing, ikke kommaliste. */
+function joinWords(words: string[]): string {
+  if (words.length === 1) return words[0]!;
+  return `${words.slice(0, -1).join(", ")} og ${words.at(-1)}`;
 }
 
 /**
@@ -190,7 +379,8 @@ function coverageExplanation(season: SeasonSummary): string {
  * Står under sesongoversikten, der påstanden «85 sesonger» ellers ville stått
  * alene og lovet mer enn arkivet har.
  */
-export function CoverageSummary({ seasons }: { seasons: SeasonSummary[] }) {
+export function CoverageSummary({ years }: { years: SeasonYear[] }) {
+  const seasons = years.flatMap((year) => (year.primary ? [year.primary] : []));
   // Sesonger som pågår holdes utenfor. De kan ikke være komplette ennå, og telt
   // med ville de trukket ned et tall som skal si noe om hva arkivet mangler.
   const leagues = seasons.filter(
@@ -201,19 +391,33 @@ export function CoverageSummary({ seasons }: { seasons: SeasonSummary[] }) {
   const unverified = leagues.filter((season) => season.coverage === "unverified").length;
   if (leagues.length === 0) return null;
 
+  // Året sett under ett, ikke bare serien. Forskjellen på de to tallene er hele
+  // poenget: en hel serie er ikke en hel sesong.
+  const whole = years.filter((year) => year.coverage?.status === "complete").length;
+  const cupOpen = years.filter(
+    (year) => year.coverage?.blocker === "cup_unfinished"
+      || year.coverage?.blocker === "european_unfinished",
+  ).length;
+
   return (
     <p className="small muted coverage-summary">
-      {complete} av {leagues.length} seriesesonger ligger inne komplett. Det betyr hver runde
-      fra første til siste, og like mange kamper som sluttabellen sier at AaFK spilte.
+      {whole} år er komplette: serien hel, cupen spilt til laget røk ut, og europacupen
+      likeså de årene den ble spilt. Treningskamper teller ikke — ingen kilde sier hvor
+      mange de var, så et krav om dem ville gjort hvert år ufullstendig for alltid.{" "}
+      {complete} av {leagues.length} seriesesonger er hele hver for seg. Det betyr hver runde
+      fra første til siste, og like mange kamper som sluttabellen sier at AaFK spilte — en
+      hel kampliste, ikke en sesong der alt er kjent om hver kamp.
+      {cupOpen > 0 && (
+        <> {cupOpen} {cupOpen === 1 ? "år har hel serie, men" : "år har hel serie, men"} en
+        cuprekke som slutter et sted laget ikke røk ut.</>
+      )}
       {unverified > 0 && (
         <> {unverified} {unverified === 1 ? "sesong har" : "sesonger har"} sammenhengende runder
         uten at noen kilde sier hvor mange det skulle vært.</>
       )}
       {fragments > 0 && (
         <> {fragments} år har bare enkeltkamper vi kjenner til.</>
-      )}{" "}
-      Cupen telles ikke her: den slutter når laget ryker ut, så det finnes ingen komplett
-      cupsesong å måle mot.
+      )}
     </p>
   );
 }

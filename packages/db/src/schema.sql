@@ -660,6 +660,121 @@ LEFT JOIN core_seasons s
 WHERE (c.type <> 'league' OR m.stage = 'regular_season')
 GROUP BY m.season, m.competition_id;
 
+-- Er hele sesongen kanonisert?
+--
+-- `seasons.coverage` svarer per konkurranse, og bare serien får et svar: cup og
+-- treningskamper står som 'not_applicable' fordi de ikke har serierunder. En
+-- leser som ser «Komplett» på et sesongkort leser det som året, ikke som
+-- serietabellen, og 2019 sto slik — hele serien inne, mens cupkvartfinalen mot
+-- Viking ligger i arkivet som 1–1 uten straffesparkkonkurranse. Sesongen var
+-- merket komplett med et cupresultat arkivet ikke kjenner.
+--
+-- Dette viewet svarer for året: serien komplett, cupen spilt ferdig, og et
+-- eventuelt europacupeventyr spilt ferdig.
+--
+-- ## Hvordan vi vet at en cupsesong er ferdig
+--
+-- En cup har ikke et forventet antall kamper — den slutter når laget ryker ut,
+-- og hvilken runde AaFK gikk inn i varierer med år og divisjon. Sluttpunktet er
+-- derimot entydig, og det er nok: den siste kampen i turneringen er enten et tap
+-- (laget røk ut der), en finale (uansett hvordan den gikk), eller en uavgjort
+-- som ble avgjort på straffer. Slutter rekka på en seier som ikke er en finale,
+-- mangler arkivet minst én kamp — laget gikk videre til noe vi ikke har.
+--
+-- Regelen kan bare ta feil i én retning, og det er den vi vil ta feil i: den
+-- sier aldri «ferdig» om en rekke som fortsetter. At vi ikke kan se om de
+-- første rundene mangler, er en begrensning i dataene, ikke i regelen — ingen
+-- kilde i arkivet sier hvilken runde laget gikk inn i.
+--
+-- Treningskamper holdes utenfor. Det finnes ikke noe fasitsvar på hvor mange
+-- treningskamper et lag spilte i 1963, så et krav om dem ville gjort hver
+-- eneste sesong ufullstendig for alltid.
+CREATE VIEW season_coverage AS
+WITH league AS (
+  SELECT season,
+         count(*)                                                  AS competitions,
+         sum(CASE WHEN coverage = 'complete' THEN 1 ELSE 0 END)    AS complete
+    FROM seasons
+   WHERE competition_type = 'league'
+   GROUP BY season
+),
+-- Siste spilte kamp i cupen og i europacupen, hver for seg. Avlyste kamper og
+-- terminlistekamper er ikke sluttpunkter: en avlyst kamp avgjorde ingenting.
+knockout AS (
+  SELECT m.season,
+         c.type                                                    AS type,
+         m.stage,
+         m.result,
+         m.decided_on_pens,
+         count(*) OVER (PARTITION BY m.season, c.type)             AS matches,
+         row_number() OVER (
+           PARTITION BY m.season, c.type
+           ORDER BY m.match_date DESC, m.id DESC
+         )                                                         AS rn
+    FROM core_matches m
+    JOIN core_competitions c ON c.id = m.competition_id
+   WHERE c.type IN ('national_cup', 'european')
+     AND m.status IN ('played', 'awarded')
+),
+knockout_end AS (
+  SELECT season,
+         type,
+         matches,
+         CASE
+           WHEN stage = 'final' THEN 1
+           WHEN result = 'T' THEN 1
+           WHEN result = 'U' AND decided_on_pens = 1 THEN 1
+           ELSE 0
+         END                                                       AS closed
+    FROM knockout
+   WHERE rn = 1
+),
+pending AS (
+  SELECT season, count(*) AS n FROM core_matches WHERE status = 'scheduled' GROUP BY season
+)
+SELECT
+  y.season                                                         AS season,
+
+  -- Året sett under ett.
+  CASE
+    WHEN coalesce(p.n, 0) > 0 THEN 'in_progress'
+    -- Uten en seriesesong i arkivet vet vi ikke om det ble spilt en serie det
+    -- året. Da er «komplett» en påstand om noe vi ikke har sett etter.
+    WHEN l.season IS NULL THEN 'unknown'
+    WHEN l.complete < l.competitions THEN 'partial'
+    WHEN coalesce(cup.closed, 1) = 0 THEN 'partial'
+    WHEN coalesce(eu.closed, 1) = 0 THEN 'partial'
+    ELSE 'complete'
+  END                                                              AS status,
+
+  -- Hva som står igjen, i den rekkefølgen det bør rettes.
+  CASE
+    WHEN coalesce(p.n, 0) > 0 THEN 'season_in_progress'
+    WHEN l.season IS NULL THEN 'no_league_season'
+    WHEN l.complete < l.competitions THEN 'league_incomplete'
+    WHEN coalesce(cup.closed, 1) = 0 THEN 'cup_unfinished'
+    WHEN coalesce(eu.closed, 1) = 0 THEN 'european_unfinished'
+    ELSE 'none'
+  END                                                              AS blocker,
+
+  coalesce(l.competitions, 0)                                      AS league_competitions,
+  coalesce(l.complete, 0)                                          AS league_complete,
+  coalesce(cup.matches, 0)                                         AS cup_matches,
+  cup.closed                                                       AS cup_closed,
+  coalesce(eu.matches, 0)                                          AS european_matches,
+  eu.closed                                                        AS european_closed,
+  -- Sluttabellen er det sterkeste belegget for at serien er hel, men ikke det
+  -- eneste: sesongfila kan oppgi omfanget med en note om hvor tallet kommer fra.
+  -- Kolonnen skiller de to, slik at «komplett uten tabell» kan sies som det.
+  CASE WHEN t.season IS NULL THEN 0 ELSE 1 END                     AS has_standings,
+  coalesce(p.n, 0)                                                 AS scheduled
+FROM (SELECT DISTINCT season FROM core_matches) y
+LEFT JOIN league l ON l.season = y.season
+LEFT JOIN knockout_end cup ON cup.season = y.season AND cup.type = 'national_cup'
+LEFT JOIN knockout_end eu ON eu.season = y.season AND eu.type = 'european'
+LEFT JOIN pending p ON p.season = y.season
+LEFT JOIN (SELECT DISTINCT season FROM core_standings) t ON t.season = y.season;
+
 -- Innbyrdes statistikk mot hver motstander, hele arkivet og alle konkurranser.
 --
 -- Kampantallet og seierstatistikken kommer fra det samme radsettet, `core_played`.

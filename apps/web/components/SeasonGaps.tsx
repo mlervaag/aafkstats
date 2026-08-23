@@ -9,7 +9,7 @@ import { contributionIssueUrl } from "@/lib/contribution-links";
  * Et felt uten oppføring her nevnes ikke: et navn arkivet ikke kan si på norsk er
  * ikke et hull noen kan hjelpe med å fylle.
  */
-const FIELD_NAMES: Record<string, string> = {
+export const FIELD_NAMES: Record<string, string> = {
   score: "resultat",
   attendance: "tilskuertall",
   lineups: "lagoppstilling",

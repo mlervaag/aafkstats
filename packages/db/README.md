@@ -21,7 +21,7 @@ miljøavhengige og behandles ikke som arkivfakta.
 **Skillet mellom rådata og publisert datasett ligger i navnet.** SQLite har ingen schemas, så
 tabellene heter `core_*` og er interne, mens viewene uten prefiks er den offentlige
 kontrakten: `matches`, `match_events`, `match_conflicts`, `match_stats`, `venues`, `seasons`,
-`opponents`, `standings`, `standings_progression`, `squad`, `coach_spells`,
+`season_coverage`, `opponents`, `standings`, `standings_progression`, `squad`, `coach_spells`,
 `declared_coach_spells`, `people`, `person_roles`, `person_conflicts`, `organizations`,
 `organization_snapshots`, `providers`, `sources`, `historical_observations`,
 `verification_cases`, `contributions`, `publication_extractions`, `fact_candidates`,

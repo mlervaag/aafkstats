@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CoverageTag } from "@/components/Coverage";
+import { CoverageTag, SeasonCoverageTag, SeasonMeasure } from "@/components/Coverage";
 import { MatchList } from "@/components/MatchList";
 import { Contributions } from "@/components/Contributions";
 import { SeasonGaps } from "@/components/SeasonGaps";
@@ -12,6 +12,8 @@ import {
   loadSeason,
   loadSeasonGaps,
   loadSeasonCoaches,
+  loadSeasonDetailLevel,
+  loadSeasonCoverage,
   loadSeasonYears,
   loadSquad,
   loadStandings,
@@ -22,7 +24,7 @@ import {
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
 import { pageMetadata, seasonDescription, seasonTitle } from "@/lib/metadata";
-import { SourceChips } from "@/components/SourceChips";
+import { SeasonSources } from "@/components/SeasonSources";
 import { HistoricalObservations } from "@/components/HistoricalObservations";
 import { UnlinkedResults } from "@/components/UnlinkedResults";
 import { getSeasonObservations, getSeasonSources } from "@/lib/historical-observations";
@@ -58,6 +60,7 @@ export default async function SeasonPage({ params }: Props) {
   const coaches = loadSeasonCoaches(year);
   const declaredCoaches = loadDeclaredCoaches(year);
   const gaps = loadSeasonGaps(year);
+  const seasonCoverage = loadSeasonCoverage(year);
   const squad = loadSquad(year);
   const contributions = loadContributions(year.toString(), "season");
   const observations = getSeasonObservations(year);
@@ -80,6 +83,9 @@ export default async function SeasonPage({ params }: Props) {
           {lead?.competitionTier ? ` · nivå ${lead.competitionTier}` : ""}
         </p>
         <h1>Sesongen {year}</h1>
+        {/* Merket for året står ved årstallet. Merket ved hver konkurranse under
+            sier hva den ene konkurransen har. */}
+        <SeasonCoverageTag coverage={seasonCoverage} />
         <SeasonCoaches coaches={coaches} declared={declaredCoaches} season={year} />
       </header>
 
@@ -115,6 +121,12 @@ export default async function SeasonPage({ params }: Props) {
               )}
             </div>
 
+            <SeasonMeasure
+              season={summary}
+              detail={loadSeasonDetailLevel(year, summary.competitionId)}
+              detailed={summary === lead}
+            />
+
             {summary.note && (
               <div className="notice prose" style={{ marginTop: "1rem" }}>
                 <strong>Forbehold:</strong> {summary.note}
@@ -141,11 +153,8 @@ export default async function SeasonPage({ params }: Props) {
               </>
             )}
 
-            {summary === lead && seasonSources.length > 0 ? (
-              <div style={{ marginTop: "1.25rem" }}>
-                <h3 className="subsection-heading">Kilder til sesongoversikten</h3>
-                <SourceChips refs={seasonSources} titles={sourceTitles} />
-              </div>
+            {summary === lead ? (
+              <SeasonSources refs={seasonSources} titles={sourceTitles} />
             ) : null}
           </section>
         );
