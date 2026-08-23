@@ -17,7 +17,11 @@ away:
 neutralVenue: false
 events: []
 externalReports: []
-providers: []
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/7a86ad63afa4f1de06f4ec55d0ffa55d?page=6
+    retrievedAt: 2026-08-23
+    fields: []
 confidence: confirmed
 conflicts: []
 tags: []
@@ -31,11 +35,15 @@ sources:
       - competition
       - home.clubId
       - away.clubId
-    note: "Terminlisten (s. 3) oppgir «1/10 AFK—KFK»."
+    note: Terminlisten (s. 3) oppgir «1/10 AFK—KFK».
   - sourceId: medlemsblad-for-aalesunds-fotb-1967-bebf
     page: "5"
     fields:
       - status
       - home.score
       - away.score
-    note: "Sesongoversiktens seriekamper (s. 5) fører kampen mot KFK hjemme med 8–1 sett fra AaFK."
+    note: Sesongoversiktens seriekamper (s. 5) fører kampen mot KFK hjemme med 8–1 sett fra AaFK.
+  - sourceId: sunnmorsposten-19670930-7a86ad63afa4f1de06f4ec55d0ffa55d
+    page: "6"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

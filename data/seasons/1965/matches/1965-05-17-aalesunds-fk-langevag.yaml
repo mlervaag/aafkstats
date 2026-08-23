@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19650518-07ddd40c04152b51b259cf3c46e8d152
+    page: "2"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: "Sunnmørsposten 1965-05-18 s. 2: Kampreferat for AaFK mot Langevåg (0–2)
-  spilt 1965-05-17."
+note: "Sunnmørsposten 1965-05-18 s. 2: Kampreferat for AaFK mot Langevåg (0–2) spilt 1965-05-17."

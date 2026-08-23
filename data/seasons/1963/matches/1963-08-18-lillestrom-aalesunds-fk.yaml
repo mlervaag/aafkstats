@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/8b5400967e0db728dad3d9b08ad0aaa6?page=2
+    date: 1963-08-19
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/8b5400967e0db728dad3d9b08ad0aaa6?page=2
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -31,11 +39,16 @@ sources:
       - competition
       - home.clubId
       - away.clubId
-    note: "Terminlisten (s. 35) oppgir «18. aug. Lillestrøm—ÅAFK»."
+    note: Terminlisten (s. 35) oppgir «18. aug. Lillestrøm—ÅAFK».
   - sourceId: medlemsblad-for-aalesunds-fotb-1963-400c
     page: "48"
     fields:
       - status
       - home.score
       - away.score
-    note: "Sesongoversiktens seriekamper (s. 48) fører kampen mot Lillestrøm borte med 0–4 sett fra AaFK."
+    note: Sesongoversiktens seriekamper (s. 48) fører kampen mot Lillestrøm borte med 0–4 sett fra AaFK.
+  - sourceId: sunnmorsposten-19630819-8b5400967e0db728dad3d9b08ad0aaa6
+    page: "2"
+    fields:
+      - externalReports
+    note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.

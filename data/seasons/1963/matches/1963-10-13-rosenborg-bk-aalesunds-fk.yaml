@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/6637461fd4997dff99668dadd021d44e?page=9
+    date: 1963-10-16
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/6637461fd4997dff99668dadd021d44e?page=9
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -31,11 +39,16 @@ sources:
       - competition
       - home.clubId
       - away.clubId
-    note: "Terminlisten (s. 35) oppgir «13. okt. Rosenborg—AFK»."
+    note: Terminlisten (s. 35) oppgir «13. okt. Rosenborg—AFK».
   - sourceId: medlemsblad-for-aalesunds-fotb-1963-400c
     page: "48"
     fields:
       - status
       - home.score
       - away.score
-    note: "Sesongoversiktens seriekamper (s. 48) fører kampen mot Rosenborg borte med 0–2 sett fra AaFK."
+    note: Sesongoversiktens seriekamper (s. 48) fører kampen mot Rosenborg borte med 0–2 sett fra AaFK.
+  - sourceId: sunnmorsposten-19631016-6637461fd4997dff99668dadd021d44e
+    page: "9"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

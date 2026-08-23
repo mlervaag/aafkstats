@@ -1,0 +1,128 @@
+version: 1
+id: sunnmorsposten-1963-1971-production
+title: Datoankret Sunnmørsposten-berikelse 1963–1971
+profile: generic_publication
+mode: initial
+status: normalized
+scope:
+  years:
+    from: 1963
+    to: 1971
+  sourceIds:
+    - sunnmorsposten-19630325-6f8b89454d952a0de56b2e2c04ef899f
+    - sunnmorsposten-19630506-10f82ed8295833c176f6c603a88007e9
+    - sunnmorsposten-19630624-32aea16a3c0b35d79e4313b52d9cea98
+    - sunnmorsposten-19630701-10e9775744a50cdc21aa7e90591dc7b3
+    - sunnmorsposten-19630722-4ec32ae7ea9824af72ed1ef01dc8a888
+    - sunnmorsposten-19630805-512fa3ae75a99ac6388202d8f9052140
+    - sunnmorsposten-19630819-8b5400967e0db728dad3d9b08ad0aaa6
+    - sunnmorsposten-19630909-21f4201f3a7bfc63f1aa4807cfda8c3f
+    - sunnmorsposten-19630930-19487f9ee69ed326bca1b4e93ae20c7a
+    - sunnmorsposten-19631016-6637461fd4997dff99668dadd021d44e
+    - sunnmorsposten-19640525-d9c8cddedbfbd314610918f2b88dae3e
+    - sunnmorsposten-19640601-407f748470b9cc075f4127aaef03c64e
+    - sunnmorsposten-19640615-7f97181e379880fafaaf1a3f713c6755
+    - sunnmorsposten-19650518-07ddd40c04152b51b259cf3c46e8d152
+    - sunnmorsposten-19650524-c865a23572bf922b1f789bb03e3e3656
+    - sunnmorsposten-19650621-d5f31de4f519d29bd5dbb64494622de4
+    - sunnmorsposten-19650628-b394ddeeddf27f6116e62011da54e0e0
+    - sunnmorsposten-19650713-6254a1a9054ba3c3e852293b098cd6cc
+    - sunnmorsposten-19660801-111e03a78b75d782bb8adbbbfdbcf1e5
+    - sunnmorsposten-19670522-b25b5bba1990f2921947dd6c0ecf6be8
+    - sunnmorsposten-19670821-7be953cc92b9aa384d37680809a680c6
+    - sunnmorsposten-19670911-442e3fe69984bea9f6c6d3f5fc5c25b2
+    - sunnmorsposten-19670930-7a86ad63afa4f1de06f4ec55d0ffa55d
+    - sunnmorsposten-19671010-27900a530c582e3b4903219c6edb4e38
+    - sunnmorsposten-19671014-019a6c0b38ec8a065e7cac91b9474715
+    - sunnmorsposten-19680628-ef4a36f7aee35868409b81ff964d350e
+    - sunnmorsposten-19710731-99980ccc4318be062c0f476a4d7758f5
+sourceInventory:
+  - { sourceId: sunnmorsposten-19630325-6f8b89454d952a0de56b2e2c04ef899f, title: Sunnmørsposten 1963-03-25, year: 1963, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19630506-10f82ed8295833c176f6c603a88007e9, title: Sunnmørsposten 1963-05-06, year: 1963, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19630624-32aea16a3c0b35d79e4313b52d9cea98, title: Sunnmørsposten 1963-06-24, year: 1963, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19630701-10e9775744a50cdc21aa7e90591dc7b3, title: Sunnmørsposten 1963-07-01, year: 1963, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19630722-4ec32ae7ea9824af72ed1ef01dc8a888, title: Sunnmørsposten 1963-07-22, year: 1963, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19630805-512fa3ae75a99ac6388202d8f9052140, title: Sunnmørsposten 1963-08-05, year: 1963, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19630819-8b5400967e0db728dad3d9b08ad0aaa6, title: Sunnmørsposten 1963-08-19, year: 1963, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19630909-21f4201f3a7bfc63f1aa4807cfda8c3f, title: Sunnmørsposten 1963-09-09, year: 1963, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19630930-19487f9ee69ed326bca1b4e93ae20c7a, title: Sunnmørsposten 1963-09-30, year: 1963, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19631016-6637461fd4997dff99668dadd021d44e, title: Sunnmørsposten 1963-10-16, year: 1963, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19640525-d9c8cddedbfbd314610918f2b88dae3e, title: Sunnmørsposten 1964-05-25, year: 1964, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19640601-407f748470b9cc075f4127aaef03c64e, title: Sunnmørsposten 1964-06-01, year: 1964, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19640615-7f97181e379880fafaaf1a3f713c6755, title: Sunnmørsposten 1964-06-15, year: 1964, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19650518-07ddd40c04152b51b259cf3c46e8d152, title: Sunnmørsposten 1965-05-18, year: 1965, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19650524-c865a23572bf922b1f789bb03e3e3656, title: Sunnmørsposten 1965-05-24, year: 1965, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19650621-d5f31de4f519d29bd5dbb64494622de4, title: Sunnmørsposten 1965-06-21, year: 1965, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19650628-b394ddeeddf27f6116e62011da54e0e0, title: Sunnmørsposten 1965-06-28, year: 1965, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19650713-6254a1a9054ba3c3e852293b098cd6cc, title: Sunnmørsposten 1965-07-13, year: 1965, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19660801-111e03a78b75d782bb8adbbbfdbcf1e5, title: Sunnmørsposten 1966-08-01, year: 1966, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19670522-b25b5bba1990f2921947dd6c0ecf6be8, title: Sunnmørsposten 1967-05-22, year: 1967, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19670821-7be953cc92b9aa384d37680809a680c6, title: Sunnmørsposten 1967-08-21, year: 1967, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19670911-442e3fe69984bea9f6c6d3f5fc5c25b2, title: Sunnmørsposten 1967-09-11, year: 1967, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19670930-7a86ad63afa4f1de06f4ec55d0ffa55d, title: Sunnmørsposten 1967-09-30, year: 1967, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19671010-27900a530c582e3b4903219c6edb4e38, title: Sunnmørsposten 1967-10-10, year: 1967, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19671014-019a6c0b38ec8a065e7cac91b9474715, title: Sunnmørsposten 1967-10-14, year: 1967, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19680628-ef4a36f7aee35868409b81ff964d350e, title: Sunnmørsposten 1968-06-28, year: 1968, reviewStatus: reviewed }
+  - { sourceId: sunnmorsposten-19710731-99980ccc4318be062c0f476a4d7758f5, title: Sunnmørsposten 1971-07-31, year: 1971, reviewStatus: reviewed }
+coverage:
+  mode: sections
+  expected: 42
+  reviewed: 42
+passes:
+  facsimile_review:
+    status: skipped
+    findings: 0
+    note: Produksjonspolicyen godkjenner NB OCR-API; facsimileReviewed er false.
+  explicit_results:
+    status: reviewed
+    findings: 27
+    note: 42 canonical kamper ble søkt; 27 samtidige aviskilder ble koblet i batchen.
+  people_and_roles:
+    status: skipped
+    findings: 0
+    note: Ingen personer ble skrevet uten entydig identitets- og rollebinding.
+  organization: { status: skipped, findings: 0, note: Ikke del av kampberikelsen. }
+  retrospectives_and_claims: { status: skipped, findings: 0, note: Ikke del av datoankret samtidig omtale. }
+  observations: { status: skipped, findings: 0, note: Ingen eksplisitte historiske observasjoner ble skrevet. }
+reviewMethod:
+  facsimile: unavailable
+  reason: Produksjonspolicyen for canonical datoankret avisberikelse bruker NB OCR-API; ingen poster er merket visuelt kontrollert.
+review:
+  file: docs/data/reviews/sunnmorsposten-1963-1971-production.md
+findings:
+  - id: conflict-1963-06-30
+    source:
+      sourceId: sunnmorsposten-19630701-10e9775744a50cdc21aa7e90591dc7b3
+      page: "2"
+    type: source_conflict
+    claim:
+      text: OCR-kandidaten leser 7–1 der canonical kampdata har 1–6.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1963-08-18
+    source:
+      sourceId: sunnmorsposten-19630819-8b5400967e0db728dad3d9b08ad0aaa6
+      page: "2"
+    type: source_conflict
+    claim:
+      text: OCR-kandidaten leser 2–0 der canonical kampdata har 4–0.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+unresolved:
+  - findingId: conflict-1963-06-30
+    type: score-conflict-candidate
+    note: Canonical resultat er ikke endret.
+  - findingId: conflict-1963-08-18
+    type: score-conflict-candidate
+    note: Canonical resultat er ikke endret.
+previousWork:
+  pullRequests: [217, 219, 220]
+  notes:
+    - PR #217 etablerte løypa; PR #219 kalibrerte policyen på 1979; PR #220 skalerte den til 1972–1978.
+baseRevision: 6f65d7e2bfd345194f5a213976fe1a885170be11
+createdAt: 2026-08-23
+notes:
+  - Alle 42 kvalifiserte kamper ble kjørt; 27 kilder ble koblet og 15 fikk no_ocr_candidate.
+  - Ingen beskyttet OCR-tekst er lagret.

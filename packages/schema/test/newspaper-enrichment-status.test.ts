@@ -100,4 +100,32 @@ describe("newspaper enrichment status", () => {
       newReferees: 1,
     });
   });
+
+  it("låser produksjonsbatchen 1963–1971 uten å endre senere regresjonssett", async () => {
+    const raw = await readFile(join(repoRoot(), "data", "discovery", "newspaper-enrichment-status.yaml"), "utf8");
+    const status = parseYaml(raw, { schema: "core" }) as NewspaperEnrichmentStatus;
+    const scaled = status.entries.filter((entry) => entry.season >= 1963 && entry.season <= 1971);
+
+    expect([1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971].map((year) => status.seasons[String(year)]?.canonicalMatchesInScope ?? 0))
+      .toEqual([10, 7, 8, 1, 13, 1, 0, 0, 2]);
+    expect(scaled).toHaveLength(42);
+    expect(scaled.filter((entry) => entry.hasSmpMention)).toHaveLength(30);
+    expect(scaled.filter((entry) => entry.canonicalLinked)).toHaveLength(27);
+    expect(scaled.filter((entry) => entry.reviewStatus === "ocr_correlated")).toHaveLength(25);
+    expect(scaled.filter((entry) => entry.conflictCandidate)).toHaveLength(2);
+    expect(scaled.filter((entry) => entry.reviewStatus === "no_ocr_candidate")).toHaveLength(15);
+    expect(scaled.filter((entry) => entry.hasMatchReport)).toHaveLength(24);
+    expect(scaled.filter((entry) => entry.hasPostMatchEvidence)).toHaveLength(23);
+    expect(scaled.filter((entry) => entry.enrichmentStatus === "complete")).toHaveLength(20);
+    expect(scaled.filter((entry) => entry.enrichmentStatus === "residual")).toHaveLength(22);
+    expect(scaled.filter((entry) => entry.conflictCandidate && entry.enrichmentStatus !== "residual")).toHaveLength(0);
+
+    expect(status.seasons["1972"]).toMatchObject({ canonicalMatchesInScope: 6, withSmpMention: 4 });
+    expect(status.seasons["1979"]).toMatchObject({
+      canonicalMatchesInScope: 39,
+      withSmpMention: 31,
+      enrichmentComplete: 22,
+      residualQueue: 17,
+    });
+  });
 });

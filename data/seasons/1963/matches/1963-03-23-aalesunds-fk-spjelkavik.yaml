@@ -18,8 +18,7 @@ neutralVenue: false
 events: []
 externalReports:
   - publisher: Sunnmørsposten
-    title: Treningskampen mellom ÅFK og Spjelkavik på Nørve lørdag. 2. div.-laget
-      vant 4—1 etter 3x25 min.
+    title: Treningskampen mellom ÅFK og Spjelkavik på Nørve lørdag. 2. div.-laget vant 4—1 etter 3x25 min.
     date: 1963-03-25
     url: https://www.nb.no/items/6f8b89454d952a0de56b2e2c04ef899f?page=3
 providers:
@@ -42,6 +41,11 @@ sources:
       - home.score
       - away.score
     note: trykt «ÅFK—Spjelkavik 4—1».
+  - sourceId: sunnmorsposten-19630325-6f8b89454d952a0de56b2e2c04ef899f
+    page: "3"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []

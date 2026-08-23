@@ -35,10 +35,14 @@ providers:
       - away.score
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
+  - sourceId: sunnmorsposten-19650713-6254a1a9054ba3c3e852293b098cd6cc
+    page: "6"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: Siden omtaler privatkampen mandag 12. juli 1965 i Mo i Rana der
-  Stålkameratene slo AaFK 7-1.
+note: Siden omtaler privatkampen mandag 12. juli 1965 i Mo i Rana der Stålkameratene slo AaFK 7-1.

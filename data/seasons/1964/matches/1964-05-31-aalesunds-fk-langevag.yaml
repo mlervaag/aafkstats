@@ -16,8 +16,16 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
-providers: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/407f748470b9cc075f4127aaef03c64e?page=3
+    date: 1964-06-01
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/407f748470b9cc075f4127aaef03c64e?page=3
+    retrievedAt: 2026-08-23
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -38,4 +46,9 @@ sources:
       - status
       - home.score
       - away.score
-    note: "Sesongoversiktens seriekamper (s. 48) fører kampen mot Langevåg hjemme med 1–2 sett fra AaFK."
+    note: Sesongoversiktens seriekamper (s. 48) fører kampen mot Langevåg hjemme med 1–2 sett fra AaFK.
+  - sourceId: sunnmorsposten-19640601-407f748470b9cc075f4127aaef03c64e
+    page: "3"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
