@@ -107,14 +107,18 @@ side, men langt billigere per komplett kampside, og den er den eneste veien inn 
 Dette er den viktigste enkeltobservasjonen i vurderingen.
 
 `docs/data/SFK_ARSRAPPORTER_DEKNING.md` viser 74 årsrapporter fra Sunnmøre
-Fotballkrets, 1952–2025, 3 356 sider, allerede nedlastet. **51 av dem har ikke
-tekstlag** og står som «OCR pending». De 23 med tekstlag er alle fra 2002 og
-senere. Med andre ord: hele det historiske materialet er uåpnet, og det dekker
-nøyaktig 1952–2001 — både det egentlige hullet og ørkenbeltet.
+Fotballkrets, 1952–2025, 3 356 sider, allerede nedlastet. 51 av dem har ikke
+tekstlag; de 23 med tekstlag er alle fra 2002 og senere.
+
+**Innhøstet er 1952–1978 — 27 sammenhengende rapporter.** De 47 fra 1979 til 2025
+er ikke gjennomgått, og 23 av dem mangler tekstlag.
 
 Rettighetene er avklart i direkte dialog med kretsens daglige leder 12. august
-2026. Det er ingen juridisk, teknisk eller økonomisk hindring. Det er 2 600 sider
-som venter på OCR.
+2026. Det er ingen juridisk, teknisk eller økonomisk hindring.
+
+Men se seksjon 7 før dette prioriteres: de innhøstede rapportene viser at
+kretsrapporter **ikke bærer kampdato**, og de kan derfor ikke alene løfte et
+resultat til kanonisk kamp.
 
 Kretsen har i tillegg ikke-digitaliserte protokoller fra 1927 og dommerkort fra
 1990-årene, tilgjengelig på kretskontoret.
@@ -166,17 +170,23 @@ Datamodellen er klar; innholdet finnes ikke. Dette er som beskrevet i
 Prioritert etter kamper og felter per arbeidstime, ikke etter hva som er
 interessant.
 
-### Steg 1 — OCR av 51 SFK-årsrapporter
+### Steg 1 — Terminlistene i medlemsbladene 1953–1960
 
-**Hvorfor først:** Rettighetsklarert, allerede nedlastet, ingen ekstern
-avhengighet, dekker både 1949–1981 og 1982–2001, og er ren maskinjobb før
-mennesket kobles inn. Kretsrapporter gir seriekamper med dato og tabell —
-altså kanoniske kamper, ikke bare kildedokumenterte resultater.
+**Hvorfor først:** Det er den eneste kjente kilden til *dato* i arkivet utenom
+avisene, metoden er allerede skrevet ned og bevist, og materialet er innhøstet.
+Se seksjon 7.
 
-**Mål:** 2 600 sider OCR-et, uttrekk normalisert til `source-results`, og et
-kildeført estimat per sesong over hvor mange kamper AaFK faktisk spilte.
+**Mål:** samme behandling som 1962 fikk, for åtte årganger.
 
-**Beslutningsport:** når estimatet står, vet vi for første gang hva nevneren er.
+**Beslutningsport:** når 1953 er ferdig, vet vi treffraten og kan skalere.
+
+### Steg 1b — OCR av SFK-årsrapportene 1979–2025
+
+**Hvorfor parallelt:** Rettighetsklarert og ren maskinjobb, men verdien er
+tabeller og kamptall, ikke datoer. Den gir **nevneren** — hvor mange kamper AaFK
+faktisk spilte — ikke kampene selv.
+
+**Mål:** kildeført estimat per sesong over antall spilte kamper.
 
 ### Steg 2 — Åpne dialogen med Sunnmørsposten/Polaris
 
@@ -248,3 +258,125 @@ ikoniske kamper og gjør dem helt ferdige, framfor å fylle tynt overalt.
 Det er en hårete ambisjon. Den er ikke urealistisk. Men den er avhengig av at
 tyngdepunktet flyttes fra å verifisere gamle boklister til å lese kildene
 framlengs — og av at noen ringer Sunnmørsposten.
+
+---
+
+## 7. Tillegg: hva medlemsblad, kretsrapporter og NFF-årbøker faktisk kan gi
+
+Lagt til 23. august 2026 etter spørsmål om potensialet i de mange uinnhøstede
+medlemsbladene, kretsrapportene og NFF-årbøkene, og om antakelsen om at de gir
+kamper, men sjelden dato, holder.
+
+**Antakelsen holder.** Målt over alt som er innhøstet:
+
+| Kildefamilie | Påstander | Med dato fra kilden | Koblet til kanonisk kamp |
+|---|---:|---:|---:|
+| Medlemsblad 1965, retrospektiv 50-årsliste | 1 031 | 0 (0 %) | 145 (14 %) |
+| Jubileumsboka 1939, retrospektiv | 422 | 0 (0 %) | 49 (11 %) |
+| Medlemsblad, samtidige årganger | 205 | 36 (17 %) | 42 (20 %) |
+| SFK årsrapporter | 96 | 3 (3 %) | 34 (35 %) |
+| NFF-årbøker | 23 | 0 (0 %) | 11 (47 %) |
+| **Sum** | **1 777** | **39 (2 %)** | **281 (15 %)** |
+
+**Bare 2 % av alle innhøstede påstander bærer dato fra kilden selv.** Koblingsraten
+er høyere enn datoraten, men den måler noe annet: en påstand kobles først og fremst
+når kampen allerede fantes i arkivet fra en annen kilde. NFF-årbøkenes 47 % er ikke
+et tegn på at årbøker gir datoer — det er et tegn på at cupkamper er godt dokumentert
+andre steder.
+
+Formen på kildene forklarer tallene. SFK-rapportene sier det selv, ordrett, i note
+etter note: *«Årsrapporten dokumenterer ikke sikker kampdato.»* NFF-årbøkene gir
+cupdiagram med runder og kretstabeller, ikke kampkalender. De retrospektive
+klubbbøkene er nummererte lister over motstander og resultat.
+
+### 7.1 Unntaket: terminlisten
+
+Det finnes én kildetype i dette materialet som *er* en kalender, og den ligger
+inne i de samme publikasjonene: **terminlisten**.
+
+1962-årgangen er beviset. Der ble vårterminlisten på side 27 og høstterminlisten
+på side 48 koblet mot resultatoversikten, og 13 seriekamper som sto uten dato fikk
+eksakt kalenderdato. Metoden er skrevet ned med kildekritisk beslutningsregel i
+`docs/data/MEDLEMSBLAD_REVIEW_1962.md` — inkludert at terminlistedato bare gjelder
+når kampen er dokumentert spilt, og at en dokumentert faktisk spilledato alltid
+vinner over den planlagte.
+
+**1962 er det eneste året metoden er brukt.** Uttrekkslaget viser 305
+terminliste-signaler i årgangene 1953–1960, og ingen av dem er tatt i bruk:
+
+| Årgang | Sider | Terminliste-signaler | Lagoppstillinger | Kamper i arkivet i dag |
+|---:|---:|---:|---:|---:|
+| 1953 | 92 | 25 | 4 | 3 |
+| 1954 | 148 | 56 | 6 | 1 |
+| 1955 | 92 | 37 | 3 | 13 |
+| 1956 | 88 | 23 | 0 | 0 |
+| 1957 | 92 | 33 | 1 | 1 |
+| 1958 | 84 | 37 | 4 | 1 |
+| 1959 | 84 | 39 | 9 | 1 |
+| 1960 | 84 | 55 | 3 | 1 |
+| **Sum** | **764** | **305** | **30** | **21** |
+| *1962, der metoden ble brukt* | *84* | *terminliste brukt* | *1* | ***21*** |
+
+Den ene årgangen der terminlisten ble brukt har like mange kanoniske kamper som
+alle åtte årgangene der den ikke ble brukt. 1959-årgangen alene har 39
+terminliste-signaler fordelt på 20 sider, mens innhøstingen bare brukte side 60 —
+sesongoppsummeringens resultatliste uten datoer. Resultatet er 29 påstander og
+én kobling.
+
+Et forsiktig anslag: 1953–1960 kan gå fra 21 til **120–180 kanoniske kamper med
+eksakt dato**. Det er den klart største kjente dato-reserven utenom avisene, og
+den krever ingen ny kilde, ingen avtale og ingen OCR.
+
+### 7.2 Blindsonen 1966–1980: kamper ja, dato usikkert
+
+Her har antakelsen mest rett, og her er også det største ukjente.
+
+52 medlemsbladutgaver fra 1966 til 1980 er uttrekkslest — 702 sider, 499
+resultatkandidater, 28 lagoppstillingssignaler og 1 022 personomtaler. **Ikke én
+av dem er innhøstet til `source-results`.** Arkivet har 20 kanoniske kamper fra de
+15 årene.
+
+Ingen av årgangene viser terminliste-signaler. Men det betyr ikke sikkert at
+datoene mangler: dette er kvartalsvise blad utgitt *mens sesongen pågikk*, og et
+samtidig kampreferat nevner ofte datoen i prosa. **Uttrekkslaget kan ikke svare på
+det**, fordi kandidatskjemaet bare bevarer sider, navn, årstall og siffer — ikke
+OCR-prosaen. Spørsmålet kan bare avgjøres ved å åpne sidene.
+
+Det bør avgjøres tidlig, med én årgang som prøve. Faller den ut positivt, er
+1966–1980 langt billigere å lukke enn en systematisk avisgjennomgang. Faller den
+ut negativt, vet vi at avisen er eneste vei, og 499 resultatkandidater blir
+kildedokumenterte resultater i stedet for kamper — fortsatt verdt å ha, men noe
+annet enn kanoniske sider.
+
+### 7.3 Der potensialet faktisk er størst: personene
+
+Uttrekkene fra de 98 publikasjonene inneholder **6 381 personomtaler, 2 139
+verv-signaler og 117 lagoppstillingssignaler**. Innhøstingen har hittil hentet
+kampresultater ut av dem og latt personmaterialet ligge — også i publikasjoner som
+allerede *er* innhøstet: de har 3 772 personomtaler og 1 358 verv-signaler som
+ikke er brukt.
+
+Sett mot personlaget slik det står — 469 filer, ingen med fødselsdato eller
+biografi, og 892 av 897 kamper før 2010 uten et eneste navn — er dette det største
+enkeltpotensialet i hele materialet. Og det er den delen som er *minst* avhengig
+av dato: en person kan knyttes til en sesong, et verv eller en klubb uten at noen
+kamp dateres.
+
+For 1966–1980 finnes 1 022 personomtaler og 28 lagoppstillingssignaler fra
+nøyaktig de årene arkivet ikke kjenner en eneste spiller. Selv om ingen av kampene
+i den perioden lar seg datere, kan personene stå.
+
+### 7.4 Hva de tre kildefamiliene bør brukes til
+
+| Kildefamilie | Uinnhøstet | Gir dato | Bør brukes til |
+|---|---|---|---|
+| Medlemsblad 1953–1960 | Terminlistene | **Ja** | Kanoniske kamper med eksakt dato. Første prioritet |
+| Medlemsblad 1966–1980 | 52 utgaver, 702 sider | Ukjent | Prøv én årgang. Kamplista uansett, personene sikkert |
+| Medlemsblad, bøker og jubileumsskrift | 80 utgivelser, 2 063 sider | Nei | Personer, verv, minner og sesongfakta |
+| SFK årsrapporter 1979–2025 | 47 rapporter | **Nei** (3 %) | Nevneren: hvor mange kamper ble spilt. Tabeller og kretsstruktur |
+| NFF-årbøker 1921– | ~100 årganger | **Nei** (0 %) | Nevneren for cup og krets, tabeller, tillitsvalgte |
+
+De to siste linjene er en korreksjon av seksjon 5 slik den sto 23. august om
+morgenen. Kretsrapportene og NFF-årbøkene er verdt å hente, men ikke fordi de
+gir kanoniske kamper — de gir oss retten til å si hvor mange kamper vi mangler.
+Det er en forutsetning for å kunne måle «100 %», ikke en snarvei til det.
