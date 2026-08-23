@@ -1,0 +1,41 @@
+id: 1973-05-13-skarbovik-aalesunds-fk
+date: 1973-05-13
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 1973
+  stage: regular_season
+home:
+  clubId: skarbovik
+  score: 2
+  halfTimeScore: null
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1973-af84
+    page: "4"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Vårterminlisten (s. 4) oppgir «13. mai: Skarbøvik—AAFK»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1973-d4e1
+    page: "2"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 2) fører kampen mot Skarbøvik borte med 1–2 sett fra AaFK."

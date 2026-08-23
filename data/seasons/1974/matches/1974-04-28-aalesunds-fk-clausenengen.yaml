@@ -1,0 +1,41 @@
+id: 1974-04-28-aalesunds-fk-clausenengen
+date: 1974-04-28
+dateConfidence: exact
+status: played
+competition:
+  id: andredivisjon
+  season: 1974
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 0
+  halfTimeScore: null
+away:
+  clubId: clausenengen
+  score: 0
+  halfTimeScore: null
+neutralVenue: false
+events: []
+externalReports: []
+providers: []
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-4178
+    page: "9"
+    fields:
+      - date
+      - competition
+      - home.clubId
+      - away.clubId
+    note: "Vårterminlisten (s. 9) oppgir «28. april: AAFK—Clausenengen»."
+  - sourceId: medlemsblad-for-aalesunds-fotb-1974-db4e
+    page: "7"
+    fields:
+      - status
+      - home.score
+      - away.score
+    note: "Sesongoversiktens seriekamper (s. 7) fører kampen mot Clausenengen hjemme med 0–0 sett fra AaFK."

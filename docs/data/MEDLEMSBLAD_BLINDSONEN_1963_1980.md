@@ -143,3 +143,56 @@ høyre, og markeringen i båndet mellom.
 Det er også grunnen til at 1973 og 1974 ikke er kjørt i denne runden: begge har
 terminlister og resultatlister, men resultatlistene har flere kamper mot samme
 motstander i samme spalte, og krever mer nøyaktig kolonneanalyse enn 1972.
+
+## 7. Sesongene 1973 og 1974
+
+Med kolonnemetoden fra seksjon 6 lot begge årgangene seg lese.
+
+### 1973 — fire kamper
+
+Vårterminlisten (`1973-af84`, s. 4) har ni seriekamper, og sesongoversikten
+(`1973-d4e1`, s. 2) fører dem igjen med bortemarkering. **Alle åtte
+vårseriekampene som står i begge kildene samsvarer på hjemme/borte** — Hødd
+hjemme, Skarbøvik borte, Sogndal borte, Vard hjemme, Clausenengen hjemme,
+Florvåg borte, Steinkjer hjemme, Molde borte.
+
+Fire er kanonisert. De øvrige står igjen fordi resultatet ikke er leselig i
+skannet (Hødd, Sogndal, Steinkjer) eller fordi terminlistens dag er uleselig
+(Florvåg, «. JUNI»). Bryne 29. april står i terminlisten, men resultatet er ikke
+funnet i den delen av oversikten som lot seg lese.
+
+| Dato | Kamp | Resultat |
+|---|---|---|
+| 1973-05-13 | Skarbøvik–AaFK | 2–1 |
+| 1973-05-27 | AaFK–Vard | 1–0 |
+| 1973-06-03 | AaFK–Clausenengen | 0–0 |
+| 1973-06-24 | Molde–AaFK | 1–0 |
+
+### 1974 — seks kamper
+
+Vårterminlisten (`1974-4178`, s. 9) har ni seriekamper, og sesongoversikten
+(`1974-db4e`, s. 7) har en egen SERIEKAMPER-blokk. Her er bortemarkeringen
+skrevet inntil lagnavnet — «AAFK—Steinkjer*» — og ikke som egen kolonne.
+
+Seks samsvarer og er kanonisert:
+
+| Dato | Kamp | Resultat |
+|---|---|---|
+| 1974-04-28 | AaFK–Clausenengen | 0–0 |
+| 1974-05-05 | Steinkjer–AaFK | 1–1 |
+| 1974-05-11 | AaFK–Moss | 2–1 |
+| 1974-05-19 | AaFK–Eidsvold Turn | 0–1 |
+| 1974-05-26 | Frigg–AaFK | 1–1 |
+| 1974-06-03 | AaFK–Hødd | 1–2 |
+
+Henning 9. juni er **ikke** kanonisert: terminlisten oppgir Henning–AAFK, altså
+bortekamp, mens sesongoversikten fører kampen uten bortemerke. Fordi merket i
+denne årgangen står inntil lagnavnet, kan et manglende merke like gjerne være en
+lesefeil som en faktisk hjemmekamp. Sjekkpunkt 2 er ikke oppfylt. Lillestrøm
+16. juni og Lyn 20. juni står i terminlisten, men ikke i den leste delen av
+oversikten.
+
+**Sesongene 1973 og 1974 hadde begge null kanoniske kamper før dette.**
+
+Klubben Eidsvold Turn er opprettet. «Vard» er ført mot den generiske
+`vard`-klubben og ikke mot `vard-haugesund`, fordi kilden bare skriver «Vard».
