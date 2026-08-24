@@ -7,6 +7,7 @@ import {
   datelessQueries,
   dayOffset,
   discoverMatchDate,
+  existingMatchForDatelessQuery,
   canonicalCandidateScore,
   issueRef,
   matchesForBatch,
@@ -193,8 +194,8 @@ describe("datelessQueries", () => {
         year: 1965,
         page: 12,
         results: [
-          { no: 1, opponent: "Sunndal", opponentClubId: "sunndal", score: [3, 1], status: "played", replay: false, extraTime: false, round: null, competitionId: null, matchId: null },
-          { no: 2, opponent: "Molde", opponentClubId: null, score: [0, 2], status: "played", replay: false, extraTime: false, round: null, competitionId: null, matchId: null },
+          { claimId: "srcclaim-00000000000000000000000000000001", no: 1, opponent: "Sunndal", opponentClubId: "sunndal", score: [3, 1], status: "played", replay: false, extraTime: false, round: null, competitionId: null, matchId: null },
+          { claimId: "srcclaim-00000000000000000000000000000002", no: 2, opponent: "Molde", opponentClubId: null, score: [0, 2], status: "played", replay: false, extraTime: false, round: null, competitionId: null, matchId: null },
           { no: 3, opponent: "Alt kanonisert", opponentClubId: null, score: [1, 1], status: "played", replay: false, extraTime: false, round: null, competitionId: null, matchId: "1965-01-01-x" },
           { no: 4, opponent: "Med dato", date: "1965-06-01", opponentClubId: null, score: [1, 0], status: "played", replay: false, extraTime: false, round: null, competitionId: null, matchId: null },
         ],
@@ -207,6 +208,7 @@ describe("datelessQueries", () => {
     expect(queries.map((query) => query.opponent)).toEqual(["Sunndal", "Molde"]);
     expect(queries[0]!.opponentAliases).toEqual(["SIL"]);
     expect(queries[0]!.score).toEqual([3, 1]);
+    expect(queries[0]!.sourceClaimId).toBe("srcclaim-00000000000000000000000000000001");
   });
 
   it("respekterer årsavgrensningen", () => {
@@ -244,12 +246,36 @@ describe("datelessQueries", () => {
   });
 });
 
+describe("existingMatchForDatelessQuery", () => {
+  const query = {
+    id: "kilde#1965-001",
+    sourceClaimId: "srcclaim-00000000000000000000000000000004",
+    season: 1965,
+    opponent: "Hødd",
+    opponentClubId: "hodd",
+    score: [2, 0] as [number, number],
+    competitionId: "forstedivisjon",
+  };
+
+  it("foreslår bare ett entydig eksisterende oppgjør", () => {
+    const candidate = match({ id: "1965-05-01-aafk-hodd", date: "1965-05-01" });
+    const archive = { matches: [candidate] } as unknown as Archive;
+    expect(existingMatchForDatelessQuery(archive, query)?.id).toBe(candidate.id);
+    expect(existingMatchForDatelessQuery({ matches: [candidate, { ...candidate, id: "1965-06-01-aafk-hodd" }] } as unknown as Archive, query)).toBeUndefined();
+  });
+
+  it("krever stabil motstander-ID", () => {
+    const archive = { matches: [match({ id: "1965-05-01-aafk-hodd", date: "1965-05-01" })] } as unknown as Archive;
+    expect(existingMatchForDatelessQuery(archive, { ...query, opponentClubId: undefined })).toBeUndefined();
+  });
+});
+
 describe("discoverMatchDate", () => {
   beforeEach(() => {
     fetched.mockReset();
   });
 
-  const query = { id: "kilde#1965-001", season: 1986, opponent: "Hødd", score: [2, 0] as [number, number] };
+  const query = { id: "kilde#1965-001", sourceClaimId: "srcclaim-00000000000000000000000000000003", season: 1986, opponent: "Hødd", score: [2, 0] as [number, number] };
   const aafk = ["Aalesunds FK", "AaFK", "ÅFK"];
 
   it("bekrefter datoen når resultatboksen navngir kampen", async () => {
@@ -271,7 +297,8 @@ describe("discoverMatchDate", () => {
 
     const entry = await discoverMatchDate(query, aafk, { months: [5, 6] });
 
-    expect(entry.outcome).toBe("dato_funnet");
+    expect(entry.outcome).toBe("datoevidens_funnet");
+    expect(entry.sourceClaimId).toBe(query.sourceClaimId);
     expect(entry.confirmed?.issued).toBe("19860509");
     // Kampen er spilt før utgaven. Dagen før er vanligst, to dager forekommer,
     // så lista over mulige datoer følger med forslaget.

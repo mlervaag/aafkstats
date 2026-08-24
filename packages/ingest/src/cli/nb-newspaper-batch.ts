@@ -1,6 +1,7 @@
 import { parseArgs } from "node:util";
-import { mkdir, writeFile } from "node:fs/promises";
-import { dirname, join } from "node:path";
+import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
+import { dirname, join, resolve } from "node:path";
+import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
 import { dataDir, loadArchive, repoRoot } from "@aafkstats/schema/load";
 import { assertMayFetch } from "../policy.js";
 import { AAFK_CLUB_ID } from "@aafkstats/schema";
@@ -9,10 +10,13 @@ import {
   clubNames,
   datelessQueries,
   discoverMatchDate,
+  existingMatchDatelessEntry,
+  existingMatchForDatelessQuery,
   resolveNewspaperTitle,
   formatBatchReport,
   matchesForBatch,
   runNewspaperBatch,
+  type DatelessEntry,
 } from "../adapters/nb-newspaper-batch.js";
 
 const args = parseArgs({
@@ -31,6 +35,13 @@ const args = parseArgs({
     dateless: { type: "boolean" },
     season: { type: "string" },
     "likely-months-only": { type: "boolean" },
+    "closure-queue-only": { type: "boolean" },
+    "newest-first": { type: "boolean" },
+    offset: { type: "string" },
+    "probes-per-month": { type: "string" },
+    "shortlist-per-month": { type: "string" },
+    "publish-out": { type: "string" },
+    "local-only": { type: "boolean" },
     refresh: { type: "boolean" },
     "dry-run": { type: "boolean" },
   },
@@ -50,17 +61,74 @@ const archive = await loadArchive(dataDir());
 if (archive.issues.length > 0) throw new Error(`arkivet har ${archive.issues.length} valideringsfeil`);
 
 if (args.values.dateless) {
-  assertMayFetch(archive, "nasjonalbiblioteket");
   const season = args.values.season === undefined ? undefined : Number(args.values.season);
-  const queries = datelessQueries(archive, {
+  let queries = datelessQueries(archive, {
     ...(season === undefined ? { from, to } : { season }),
   });
-  console.log(`${queries.length} kildeførte resultater uten dato${season === undefined ? ` i ${from}\u2013${to}` : ` i ${season}`}.`);
+  if (args.values["closure-queue-only"]) {
+    const closure = parseYaml(await readFile(join(dataDir(), "discovery", "discovery-closure-status.yaml"), "utf8"), { schema: "core" }) as {
+      closureQueue?: { needsVisualReview?: string[]; requiresRevalidation?: string[] };
+    };
+    const active = new Set([
+      ...(closure.closureQueue?.needsVisualReview ?? []),
+      ...(closure.closureQueue?.requiresRevalidation ?? []),
+    ]);
+    queries = queries.filter((query) => query.sourceClaimId !== undefined && active.has(query.sourceClaimId));
+  }
+  if (args.values["newest-first"]) {
+    queries.sort((left, right) => right.season - left.season || left.id.localeCompare(right.id));
+  }
+  const offset = nonNegativeInteger(args.values.offset, "offset", 0);
+  const selected = queries.slice(offset, limit === undefined ? undefined : offset + limit);
+  console.log(`${queries.length} aktuelle kildeførte resultater uten dato${season === undefined ? ` i ${from}\u2013${to}` : ` i ${season}`}; ${selected.length} valgt.`);
+
+  if (args.values["dry-run"]) {
+    for (const query of selected) console.log(`  ${query.sourceClaimId ?? query.id} · ${query.season} · ${query.opponent} ${query.score.join("-")}`);
+    process.exit(0);
+  }
+
+  if (args.values["local-only"]) {
+    const entries = selected.flatMap((query) => {
+      const existing = existingMatchForDatelessQuery(archive, query);
+      return existing ? [existingMatchDatelessEntry(query, existing)] : [];
+    });
+    if (args.values["publish-out"]) {
+      const publishFile = resolve(repoRoot(), args.values["publish-out"]);
+      await writeDatelessLedger(publishFile, entries, {
+        from: season ?? from,
+        to: season ?? to,
+        closureQueueOnly: args.values["closure-queue-only"] ?? false,
+        likelyMonthsOnly: false,
+      });
+      console.log(`Publiserbar ledger: ${publishFile}`);
+    }
+    console.log(`${entries.length} entydige eksisterende match-kandidater funnet uten NB-kall.`);
+    process.exit(0);
+  }
+
+  assertMayFetch(archive, "nasjonalbiblioteket");
 
   const aafkNames = clubNames(archive.clubs.find((club) => club.id === AAFK_CLUB_ID));
   const titles = new Map<string, string | null>();
-  const entries = [];
-  for (const query of queries.slice(0, limit ?? queries.length)) {
+  const rawFile = resolve(repoRoot(), args.values.out ?? join(".cache", "ingest", "nb-newspaper-batch", `datolose-${season ?? `${from}-${to}`}.json`));
+  const report = await readDatelessReport(rawFile);
+  const done = new Set(args.values.refresh ? [] : report.entries.map((entry) => entry.sourceClaimId ?? entry.id));
+  const probesPerMonth = positiveInteger(args.values["probes-per-month"], "probes-per-month", 2);
+  const shortlistPerMonth = positiveInteger(args.values["shortlist-per-month"], "shortlist-per-month", 4);
+  const datelessQueryLimit = positiveInteger(args.values["search-query-limit"], "search-query-limit", 8);
+  for (const query of selected.filter((item) => !done.has(item.sourceClaimId ?? item.id))) {
+    const existingMatch = existingMatchForDatelessQuery(archive, query);
+    if (existingMatch) {
+      const entry = existingMatchDatelessEntry(query, existingMatch);
+      report.entries = [
+        ...report.entries.filter((prior) => (prior.sourceClaimId ?? prior.id) !== (entry.sourceClaimId ?? entry.id)),
+        entry,
+      ].sort((left, right) => left.season - right.season || left.id.localeCompare(right.id));
+      report.updatedAt = new Date().toISOString();
+      await writeJsonAtomic(rawFile, report);
+      console.log(`${entry.season} ${entry.opponent} ${entry.score} → existing_match_candidate · ${entry.existingMatchId}`);
+      continue;
+    }
     // Steg 0: hvilke måneder er kampen sannsynligvis spilt i, og hvilken tittel
     // katalogfører NB årgangen under. Begge deler før første egentlige søk.
     const plan = planMonths(archive, {
@@ -81,9 +149,17 @@ if (args.values.dateless) {
       months,
       planReason: plan.reason,
       ...(newspaper ? { newspaper } : {}),
+      probesPerMonth,
+      shortlistPerMonth,
+      queryLimit: datelessQueryLimit,
       ...(args.values.refresh ? { refresh: true } : {}),
     });
-    entries.push(entry);
+    report.entries = [
+      ...report.entries.filter((existing) => (existing.sourceClaimId ?? existing.id) !== (entry.sourceClaimId ?? entry.id)),
+      entry,
+    ].sort((left, right) => left.season - right.season || left.id.localeCompare(right.id));
+    report.updatedAt = new Date().toISOString();
+    await writeJsonAtomic(rawFile, report);
     const found = entry.confirmed
       ? `dato ${entry.confirmed.likelyDate} (utgave ${entry.confirmed.issued})`
       : `${entry.shortlist.length} kandidater`;
@@ -91,10 +167,17 @@ if (args.values.dateless) {
     console.log(`   steg 0: ${plan.reason}`);
   }
 
-  const file = args.values.out ?? join(repoRoot(), ".cache/ingest/nb-newspaper-batch", `datolose-${season ?? `${from}-${to}`}.json`);
-  await mkdir(dirname(file), { recursive: true });
-  await writeFile(file, `${JSON.stringify({ version: 1, createdAt: new Date().toISOString(), entries }, null, 2)}\n`, "utf8");
-  console.log(`\nRapport: ${file}`);
+  if (args.values["publish-out"]) {
+    const publishFile = resolve(repoRoot(), args.values["publish-out"]);
+    await writeDatelessLedger(publishFile, report.entries, {
+      from: season ?? from,
+      to: season ?? to,
+      closureQueueOnly: args.values["closure-queue-only"] ?? false,
+      likelyMonthsOnly: args.values["likely-months-only"] ?? false,
+    });
+    console.log(`Publiserbar ledger uten OCR-tekst: ${publishFile}`);
+  }
+  console.log(`\nRapport: ${rawFile}`);
   process.exit(0);
 }
 
@@ -112,11 +195,11 @@ if (args.values["dry-run"]) {
 // Samme port som resten av innhøstingen. Tørrkjøringen over gjør ingen NB-kall.
 assertMayFetch(archive, "nasjonalbiblioteket");
 
-const positiveInteger = (valueText: string | undefined, name: string, fallback: number): number => {
+function positiveInteger(valueText: string | undefined, name: string, fallback: number): number {
   const value = Number(valueText ?? fallback);
   if (!Number.isInteger(value) || value < 1) throw new Error(`--${name} må være et positivt heltall`);
   return value;
-};
+}
 const windowDays = positiveInteger(args.values["window-days"], "window-days", 2);
 const expandedWindowDays = positiveInteger(args.values["expanded-window-days"], "expanded-window-days", 3);
 const candidateLimit = positiveInteger(args.values["candidate-limit"], "candidate-limit", 5);
@@ -146,3 +229,103 @@ const report = await runNewspaperBatch(archive, {
 
 console.log(`\n${formatBatchReport(report)}`);
 console.log(`\nRapport: ${reportFile}`);
+
+function nonNegativeInteger(valueText: string | undefined, name: string, fallback: number): number {
+  const value = Number(valueText ?? fallback);
+  if (!Number.isInteger(value) || value < 0) throw new Error(`--${name} må være et ikke-negativt heltall`);
+  return value;
+}
+
+interface DatelessReport {
+  version: 2;
+  createdAt: string;
+  updatedAt: string;
+  entries: DatelessEntry[];
+}
+
+async function readDatelessReport(file: string): Promise<DatelessReport> {
+  try {
+    const report = JSON.parse(await readFile(file, "utf8")) as DatelessReport;
+    if (report.version === 2 && Array.isArray(report.entries)) {
+      for (const entry of report.entries) {
+        if ((entry.outcome as string) === "dato_funnet") entry.outcome = "datoevidens_funnet";
+      }
+      return report;
+    }
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+  }
+  const now = new Date().toISOString();
+  return { version: 2, createdAt: now, updatedAt: now, entries: [] };
+}
+
+async function writeJsonAtomic(file: string, value: unknown): Promise<void> {
+  await mkdir(dirname(file), { recursive: true });
+  const temporary = `${file}.${process.pid}.tmp`;
+  await writeFile(temporary, `${JSON.stringify(value, null, 2)}\n`, "utf8");
+  await rename(temporary, file);
+}
+
+async function writeDatelessLedger(
+  file: string,
+  entries: DatelessEntry[],
+  scope: { from: number; to: number; closureQueueOnly: boolean; likelyMonthsOnly: boolean },
+): Promise<void> {
+  const counts = Object.fromEntries(["existing_match_candidate", "datoevidens_funnet", "kandidatliste", "ingen_treff", "ikke_digitalisert"].map((outcome) => [
+    outcome,
+    entries.filter((entry) => entry.outcome === outcome).length,
+  ]));
+  const publishedEntries = entries.map((entry) => ({
+    sourceClaimId: entry.sourceClaimId ?? null,
+    legacyQueryId: entry.id,
+    season: entry.season,
+    opponent: entry.opponent,
+    score: entry.score,
+    outcome: entry.outcome,
+    ...(entry.existingMatchId ? { existingMatchId: entry.existingMatchId } : {}),
+    ...(entry.plan ? { plan: entry.plan } : {}),
+    ...(entry.confirmed ? { confirmed: {
+      issueId: entry.confirmed.id,
+      issued: entry.confirmed.issued,
+      likelyDate: entry.confirmed.likelyDate,
+      dateRange: entry.confirmed.dateRange,
+      pageUrl: entry.confirmed.pageUrl,
+      ...(entry.confirmed.page ? { page: entry.confirmed.page } : {}),
+      score: entry.confirmed.score,
+      reasons: entry.confirmed.reasons,
+      genres: entry.confirmed.genres,
+    } } : {}),
+    shortlist: entry.shortlist.slice(0, 4).map((candidate) => ({
+      issueId: candidate.id,
+      ...(candidate.urn ? { urn: candidate.urn } : {}),
+      ...(candidate.issued ? { issued: candidate.issued } : {}),
+      pageUrl: candidate.pageUrl,
+      ...(candidate.page ? { page: candidate.page } : {}),
+      month: candidate.month,
+      score: candidate.score,
+      reasons: candidate.reasons,
+      genres: candidate.genres,
+      access: {
+        viewability: candidate.access.viewability,
+        accessAllowedFrom: candidate.access.accessAllowedFrom,
+      },
+    })),
+  }));
+  const ledger = {
+    contract: "nb-dateless-discovery@1",
+    generatedAt: new Date().toISOString().slice(0, 10),
+    scope,
+    totals: { checked: entries.length, ...counts },
+    queues: {
+      existingMatchReview: publishedEntries.filter((entry) => entry.outcome === "existing_match_candidate").map((entry) => entry.sourceClaimId),
+      dateEvidenceReview: publishedEntries.filter((entry) => entry.outcome === "datoevidens_funnet").map((entry) => entry.sourceClaimId),
+      candidateReview: publishedEntries.filter((entry) => entry.outcome === "kandidatliste").map((entry) => entry.sourceClaimId),
+      exhausted: publishedEntries.filter((entry) => entry.outcome === "ingen_treff" || entry.outcome === "ikke_digitalisert").map((entry) => entry.sourceClaimId),
+    },
+    entries: publishedEntries,
+  };
+  await mkdir(dirname(file), { recursive: true });
+  const temporary = `${file}.${process.pid}.tmp`;
+  await writeFile(temporary, stringifyYaml(ledger, { lineWidth: 0 }), "utf8");
+  await rename(temporary, file);
+}

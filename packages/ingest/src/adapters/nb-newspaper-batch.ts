@@ -562,8 +562,11 @@ export async function resolveNewspaperTitle(
  */
 export interface DatelessQuery {
   id: string;
+  /** Permanent identity. `id` beholdes bare for kompatibilitet med eldre rapporter. */
+  sourceClaimId?: string;
   season: number;
   opponent: string;
+  opponentClubId?: string;
   opponentAliases?: string[];
   /** Målene som i kildene: [AaFK, motstander]. Hjemme eller borte er ukjent. */
   score: [number, number];
@@ -574,15 +577,17 @@ export interface DatelessQuery {
   before?: string;
 }
 
-export type DatelessOutcome = "dato_funnet" | "kandidatliste" | "ingen_treff" | "ikke_digitalisert";
+export type DatelessOutcome = "existing_match_candidate" | "datoevidens_funnet" | "kandidatliste" | "ingen_treff" | "ikke_digitalisert";
 
 export interface DatelessEntry {
   id: string;
+  sourceClaimId?: string;
   season: number;
   opponent: string;
   score: string;
   newspaper: string;
   outcome: DatelessOutcome;
+  existingMatchId?: string;
   checkedAt: string;
   /** Hvorfor månedene ble prøvd i denne rekkefølgen. Begrunnelsen fra steg 0. */
   plan?: string;
@@ -625,7 +630,41 @@ export interface DatelessOptions {
   shortlistPerMonth?: number;
   /** Kandidater per måned som får et OCR-oppslag. Hver koster én forespørsel. */
   probesPerMonth?: number;
+  /** Hvor mange alias-/resultatspørringer som prøves per måned. */
+  queryLimit?: number;
   refresh?: boolean;
+}
+
+/** Gratis første pass: eksakt klubb-ID, sesong, score og eventuell konkurranse. */
+export function existingMatchForDatelessQuery(archive: Archive, query: DatelessQuery): Match | undefined {
+  if (!query.opponentClubId) return undefined;
+  const candidates = archive.matches.filter((match) => {
+    if (match.status !== "played" || match.competition.season !== query.season) return false;
+    if (match.home.score === null || match.away.score === null) return false;
+    if (query.competitionId && match.competition.id !== query.competitionId) return false;
+    const aafkIsHome = match.home.clubId === AAFK_CLUB_ID && match.away.clubId === query.opponentClubId;
+    const aafkIsAway = match.away.clubId === AAFK_CLUB_ID && match.home.clubId === query.opponentClubId;
+    if (!aafkIsHome && !aafkIsAway) return false;
+    const aafkGoals = aafkIsHome ? match.home.score : match.away.score;
+    const opponentGoals = aafkIsHome ? match.away.score : match.home.score;
+    return aafkGoals === query.score[0] && opponentGoals === query.score[1];
+  });
+  return candidates.length === 1 ? candidates[0] : undefined;
+}
+
+export function existingMatchDatelessEntry(query: DatelessQuery, match: Match): DatelessEntry {
+  return {
+    id: query.id,
+    ...(query.sourceClaimId ? { sourceClaimId: query.sourceClaimId } : {}),
+    season: query.season,
+    opponent: query.opponent,
+    score: `${query.score[0]}-${query.score[1]}`,
+    newspaper: newspaperTitleForYear(query.season),
+    outcome: "existing_match_candidate",
+    existingMatchId: match.id,
+    checkedAt: new Date().toISOString(),
+    shortlist: [],
+  };
 }
 
 export async function discoverMatchDate(
@@ -637,6 +676,7 @@ export async function discoverMatchDate(
   const names = [query.opponent, ...(query.opponentAliases ?? [])];
   const entry: DatelessEntry = {
     id: query.id,
+    ...(query.sourceClaimId ? { sourceClaimId: query.sourceClaimId } : {}),
     season: query.season,
     opponent: query.opponent,
     score: `${query.score[0]}-${query.score[1]}`,
@@ -657,6 +697,7 @@ export async function discoverMatchDate(
       from: window.from,
       to: window.to,
       detailsLimit: 0,
+      queryLimit: options.queryLimit ?? 8,
       ...(options.refresh ? { refresh: true } : {}),
     });
     if (candidates.length > 0) anyIssues = true;
@@ -669,10 +710,9 @@ export async function discoverMatchDate(
       });
 
       if (index >= (options.probesPerMonth ?? 2)) continue;
-      if (index >= (options.probesPerMonth ?? 2)) continue;
       const facts = await anchoredFacts(candidate, query, names, aafkNames, options);
       if (facts && candidate.issued) {
-        entry.outcome = "dato_funnet";
+        entry.outcome = "datoevidens_funnet";
         entry.confirmed = {
           ...issueRef(candidate, undefined, [], undefined, facts.sources[0]?.page ?? candidate.fragments[0]?.pageNumber),
           issued: candidate.issued,
@@ -801,8 +841,10 @@ export function datelessQueries(
 
       queries.push({
         id: `${collection.sourceId}#${result.id}`,
+        sourceClaimId: result.claimId,
         season: result.season,
         opponent: names[0]!,
+        ...(result.opponentClubId ? { opponentClubId: result.opponentClubId } : {}),
         ...(names.length > 1 ? { opponentAliases: names.slice(1) } : {}),
         score: [result.aafkGoals, result.opponentGoals],
         ...(result.competitionId === null ? {} : { competitionId: result.competitionId }),
