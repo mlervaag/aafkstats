@@ -12,3 +12,53 @@ seasons:
           - 2
           - 1
         competitionId: nm
+  # Radene community-sakene i fixture-arkivet spør om. Uten dem ville
+  # integritetskontrollen med rette meldt at saken peker i tomme luften.
+  - year: 1946
+    page: 61
+    results:
+      - claimId: srcclaim-00000000000000000000000000194601
+        no: 1
+        opponent: Ranheim
+        score:
+          - 2
+          - 2
+  - year: 1955
+    page: 88
+    results:
+      - claimId: srcclaim-00000000000000000000000000195501
+        no: 1
+        opponent: Rollon
+        score:
+          - 4
+          - 0
+      - claimId: srcclaim-00000000000000000000000000195502
+        no: 2
+        opponent: Rollon
+        score:
+          - 2
+          - 1
+      - claimId: srcclaim-00000000000000000000000000195503
+        no: 3
+        opponent: Rollon
+        score:
+          - 1
+          - 1
+      - claimId: srcclaim-00000000000000000000000000195504
+        no: 4
+        opponent: Rollon
+        score:
+          - 3
+          - 2
+      - claimId: srcclaim-00000000000000000000000000195505
+        no: 5
+        opponent: Rollon
+        score:
+          - 2
+          - 2
+      - claimId: srcclaim-00000000000000000000000000195506
+        no: 6
+        opponent: Rollon
+        score:
+          - 1
+          - 0

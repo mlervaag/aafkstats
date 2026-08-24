@@ -22,6 +22,28 @@ Discovery-manifestet er regenererbart kandidatgrunnlag. Redaksjonelle beslutning
 separat i `data/verification-cases/`. En manuell sak med samme stabile ID vinner over den
 genererte. Runtime og API skriver aldri til discovery-manifestet.
 
+## Køen må følge arkivet
+
+En publisert kandidat fryser et øyeblikksbilde av kilderesultatet den spør om. Arkivet
+endrer seg videre — årsforskyvninger repareres, funn kanoniseres — og da kan køen bli
+stående og be frivillige om å kontrollere en påstand arkivet ikke lenger fører.
+
+`auditCommunityCases` kjører derfor som en del av `pnpm validate` og stopper fire avvik i
+åpne, publiserte saker:
+
+| Funn | Betyr |
+| --- | --- |
+| `missing_claim` | kilderesultatet saken peker på finnes ikke lenger |
+| `stale_snapshot` | motstander eller resultat i saken er ikke lenger det arkivet fører |
+| `already_canonicalized` | kilderesultatet er koblet til en kamp, så et «ja» blir uansett blokkert i review-steget |
+| `impossible_newspaper_date` | avisen er datert før den antatte kampdatoen |
+
+En kandidat eller research-oppgave som ikke lenger holder mål tas ut av køen med et
+`retirement`-felt (`reason`, `retiredAt`, `note`). Generatoren hopper over pensjonerte
+oppføringer, så saken forsvinner fra `/mangler` samtidig som begrunnelsen blir stående i
+manifestet. Feltet er ikke en resolusjon: kandidaten kan bygges opp igjen mot dagens
+kilderesultater når grunnlaget er ryddet.
+
 ## Kontroller issuet
 
 Lagre issue-bodyen lokalt og kjør:

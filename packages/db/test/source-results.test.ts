@@ -1,4 +1,4 @@
-import { cpSync, mkdtempSync, writeFileSync } from "node:fs";
+import { cpSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { describe, expect, it } from "vitest";
@@ -10,6 +10,12 @@ describe("kilderesultat koblet til kanonisk kamp", () => {
     const root = mkdtempSync(join(tmpdir(), "aafk-source-results-"));
     const data = join(root, "data");
     cpSync(resolve(import.meta.dirname, "../../../fixtures/data"), data, { recursive: true });
+    // Testen bytter ut hele kildens resultatliste. Community-sakene i fixturen
+    // spør om rader som da forsvinner, og integritetskontrollen ville med rette
+    // stoppe bygget — de hører ikke til det denne testen kontrollerer.
+    for (const caseFile of ["nb-avis-1946-15-4ee1a1e2f3.yaml", "fixture-nb-research-sibling.yaml"]) {
+      rmSync(join(data, "verification-cases", caseFile), { force: true });
+    }
 
     writeFileSync(
       join(data, "source-results", "aafk-90-ar-1914-2004.yaml"),
@@ -47,6 +53,12 @@ describe("kilderesultat koblet til kanonisk kamp", () => {
     const root = mkdtempSync(join(tmpdir(), "aafk-source-results-date-"));
     const data = join(root, "data");
     cpSync(resolve(import.meta.dirname, "../../../fixtures/data"), data, { recursive: true });
+    // Testen bytter ut hele kildens resultatliste. Community-sakene i fixturen
+    // spør om rader som da forsvinner, og integritetskontrollen ville med rette
+    // stoppe bygget — de hører ikke til det denne testen kontrollerer.
+    for (const caseFile of ["nb-avis-1946-15-4ee1a1e2f3.yaml", "fixture-nb-research-sibling.yaml"]) {
+      rmSync(join(data, "verification-cases", caseFile), { force: true });
+    }
 
     writeFileSync(
       join(data, "source-results", "aafk-90-ar-1914-2004.yaml"),

@@ -66,8 +66,8 @@ describe("generator for avisverifisering", () => {
     if (!existsSync(queueFile)) return;
     const raw = parse(readFileSync(queueFile, "utf8")) as unknown;
     const generation = generateNewspaperVerificationCases(raw);
-    expect(generation.cases).toHaveLength(247);
-    expect(generation.cases.filter((item) => item.status === "open")).toHaveLength(46);
+    expect(generation.cases).toHaveLength(230);
+    expect(generation.cases.filter((item) => item.status === "open")).toHaveLength(29);
     expect(generation.cases.filter((item) => item.status === "draft")).toHaveLength(201);
     for (const id of [
       "nb-avis-1946-23-e5805ff7ec",
@@ -77,8 +77,9 @@ describe("generator for avisverifisering", () => {
     ]) {
       expect(generation.cases.find((item) => item.id === id)?.status).toBe("draft");
     }
-    expect(generation.skipped).toHaveLength(47);
-    expect(generation.skipped.every((item) => item.reason === "not_reviewable")).toBe(true);
+    expect(generation.skipped).toHaveLength(64);
+    expect(generation.skipped.filter((item) => item.reason === "retired")).toHaveLength(17);
+    expect(generation.skipped.every((item) => item.reason === "not_reviewable" || item.reason === "retired")).toBe(true);
   });
 });
 

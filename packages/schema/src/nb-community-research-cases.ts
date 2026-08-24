@@ -19,6 +19,8 @@ export function generateNbCommunityResearchCases(
   const cases: VerificationCaseInput[] = [];
 
   for (const item of manifest.items) {
+    // Pensjonerte oppgaver skal ikke lenger vises til frivillige.
+    if (item.retirement) continue;
     const lead = item.sourceResults[0]!;
     const target = {
       type: "source" as const,

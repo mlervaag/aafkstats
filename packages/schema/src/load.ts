@@ -27,6 +27,7 @@ import { publicationExtraction } from "./extraction.js";
 import type { PublicationExtraction } from "./extraction.js";
 import { flattenSourceResults, sourceResultCollection } from "./source-result.js";
 import type { SourceResult, SourceResultCollection } from "./source-result.js";
+import { auditCommunityCases } from "./community-case-integrity.js";
 import { verificationCaseInput, verificationRevision } from "./verification-case.js";
 import type { VerificationCase, VerificationCaseInput } from "./verification-case.js";
 import {
@@ -795,6 +796,11 @@ export function crossValidate(archive: Archive): LoadIssue[] {
     if (source.sourceType === "series" && source.parentSourceId !== undefined) {
       issues.push({ file: source.file, path: "parentSourceId", message: "en kildeserie kan ikke selv være del av en annen serie" });
     }
+  }
+
+  // Publiserte community-saker må fortsatt stemme med kilderesultatene de spør om.
+  for (const finding of auditCommunityCases(archive)) {
+    issues.push({ file: finding.file, path: finding.path, message: `${finding.message} (${finding.caseId})` });
   }
 
   return issues;

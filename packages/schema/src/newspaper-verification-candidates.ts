@@ -1,9 +1,11 @@
 import { createHash } from "node:crypto";
 import { z } from "zod";
+import { communityCaseRetirement } from "./community-case-retirement.js";
 import { verificationCaseInput, type VerificationCaseInput } from "./verification-case.js";
 
 const candidate = z.object({
   candidateId: z.string().min(1).regex(/^[a-z0-9-]+$/),
+  retirement: communityCaseRetirement.optional(),
   communityReviewable: z.boolean(),
   visibility: z.enum(["community_reviewable", "discovery_only"]),
   publication: z.object({
@@ -55,7 +57,7 @@ export function newspaperVerificationCaseId(value: NewspaperVerificationCandidat
 
 export interface NewspaperCandidateGeneration {
   cases: VerificationCaseInput[];
-  skipped: { candidateId: string; reason: "not_reviewable" | "duplicate" | "manual_case_exists" }[];
+  skipped: { candidateId: string; reason: "not_reviewable" | "duplicate" | "manual_case_exists" | "retired" }[];
 }
 
 export function generateNewspaperVerificationCases(
@@ -70,6 +72,10 @@ export function generateNewspaperVerificationCases(
   const skipped: NewspaperCandidateGeneration["skipped"] = [];
 
   for (const value of [...manifest.candidates].sort((a, b) => a.sourceResult.year - b.sourceResult.year || a.sourceResult.no - b.sourceResult.no || a.candidateId.localeCompare(b.candidateId))) {
+    if (value.retirement) {
+      skipped.push({ candidateId: value.candidateId, reason: "retired" });
+      continue;
+    }
     if (!value.communityReviewable || value.visibility === "discovery_only") {
       skipped.push({ candidateId: value.candidateId, reason: "not_reviewable" });
       continue;

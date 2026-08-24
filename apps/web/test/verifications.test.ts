@@ -60,7 +60,7 @@ describe("verifiseringskøen", () => {
   it("viser en avisoppgave med direkte NB-lenke og tre svar", () => {
     const item = loadVerificationCase("nb-avis-1946-15-4ee1a1e2f3")!;
     expect(item.newspaper).toMatchObject({
-      sourceResult: { year: 1946, no: 15, opponent: "Ranheim" },
+      sourceResult: { year: 1946, no: 1, opponent: "Ranheim" },
       newspaper: { title: "Sunnmørsposten", page: "4" },
     });
     const html = renderToStaticMarkup(React.createElement(VerificationExperience, { cases: [item] }));

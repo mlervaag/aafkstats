@@ -688,6 +688,12 @@ Avissaken peker på kilden som eier kilderesultatet. Koblingen er arbeidsmetadat
 verken kilderesultatet eller en foreslått kamp kanonisk. Community-svar går til redaksjonell
 behandling og kan ikke skrive til arkivdata.
 
+Genererte saker kommer fra `data/discovery/community-candidate-queue.yaml` og
+`data/discovery/nb-community-research-wave-1.yaml`. Begge manifestene har et valgfritt
+`retirement` (`reason`, `retiredAt`, `note`) som tar en oppføring ut av community-køen uten
+å slette den. `pnpm validate` kontrollerer at hver åpen, publisert sak fortsatt stemmer med
+kilderesultatet den spør om — se `docs/NEWSPAPER_COMMUNITY_EDITORIAL_WORKFLOW.md`.
+
 ## Historisk observasjon
 
 `data/observations/<id>.yaml` inneholder korte, redaksjonelt kontrollerte fakta eller
