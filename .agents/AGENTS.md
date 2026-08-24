@@ -48,7 +48,12 @@ If you add a field to the data model, it must be updated in **four** places:
   `permissionStatus` is only what the counterparty said. Our own decision is `ingestDecision`.
   Never set either to `allowed`/`granted` without proof, and `accepted_risk` requires a date and a name.
 
-## 7. User Contributions and Verifications
+## 7. User Contributions, Verifications and the Inbox Routine
+- The daily inbox routine triages **every** kind of incoming issue — the web-form submissions
+  in the inbox repo (`GITHUB_INBOX_REPO`) and the template issues in the main repo (data,
+  bug, suggestion). [`INNBOKSRUTINE.md`](INNBOKSRUTINE.md) is the map: which type is routed
+  where, which ones become a data PR and which are triage-only, and the boundaries that hold
+  for all of them. Read it first when handling the inbox as a whole.
 - Contributions submitted through the website's form become issues in a GitHub inbox
   (`GITHUB_INBOX_REPO`). Assessing one and turning it into `data/contributions/*.yaml` follows
   [`BIDRAGSVURDERING.md`](BIDRAGSVURDERING.md) — read it before you touch a contribution.
