@@ -46,6 +46,10 @@ aliases:
   rsssf: 1990-cup-1990-07-01-hodd-aalesunds-fk
 manual: []
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1990
+    page: "17"
+    fields: [home.score, away.score, competition, competition.round]
+    note: Senior NM-resultat kontrollert mot original årsrapport.
   - sourceId: sunnmorsposten-19900702-3a44a75d4f17f237ec4163e7cb7b8f98
     page: "13"
     fields:

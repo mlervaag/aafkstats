@@ -46,6 +46,10 @@ aliases:
   rsssf: 1990-cup-1990-05-24-brattvag-aalesunds-fk
 manual: []
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1990
+    page: "17"
+    fields: [home.score, away.score, competition, competition.round]
+    note: Senior NM-resultat kontrollert mot original årsrapport.
   - sourceId: sunnmorsposten-19900526-1d1f8eff34908c6ce8ba131b1e252506
     page: "17"
     fields:
