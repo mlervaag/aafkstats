@@ -49,7 +49,8 @@ describe("accessNote", () => {
 describe("newspaperPageUrl", () => {
   /** For en stengt årgang er lenka alt leseren får. Da må den treffe siden. */
   it("peker på siden når sidetallet er kjent", () => {
-    expect(newspaperPageUrl("abc123", "6")).toBe("https://www.nb.no/items/abc123?page=6");
+    expect(newspaperPageUrl("abc123", "6")).toBe("https://www.nb.no/items/abc123?page=5");
+    expect(newspaperPageUrl("abc123", "1")).toBe("https://www.nb.no/items/abc123?page=0");
   });
 
   it("faller tilbake til utgaven uten brukbart sidetall", () => {

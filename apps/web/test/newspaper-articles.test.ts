@@ -25,22 +25,22 @@ afterAll(() => {
 describe("Avisartikler i webarkivet", () => {
   it("lister alle kampkoblede artikler med kamp og faksimile", () => {
     const articles = getNewspaperArticles();
-    expect(articles).toHaveLength(239);
-    expect(new Set(articles.map((article) => article.matchId)).size).toBe(222);
+    expect(articles).toHaveLength(240);
+    expect(new Set(articles.map((article) => article.matchId)).size).toBe(223);
     expect(articles.every((article) => ["Søndmørsposten", "Sunnmørsposten"].includes(article.publisher))).toBe(true);
     expect(articles.every((article) => article.url?.startsWith("https://www.nb.no/"))).toBe(true);
   });
 
   /**
    * Avisarkivet plukket ut rapporter der utgiveren het «Sunnmørsposten». Fram til
-   * 1920-tallet het avisa Søndmørsposten, så de åtte eldste faksimilene i arkivet
+   * 1920-tallet het avisa Søndmørsposten, så de ni eldste faksimilene i arkivet
    * lå i dataene uten å vises noe sted. Kriteriet er nå lenken til
    * Nasjonalbiblioteket, som også holder databaseoppslag ute.
    */
   it("tar med faksimiler under avisas gamle navn, men ikke databaseoppslag", () => {
     const articles = getNewspaperArticles();
     const gamle = articles.filter((article) => article.publisher === "Søndmørsposten");
-    expect(gamle).toHaveLength(8);
+    expect(gamle).toHaveLength(9);
     expect(gamle.map((article) => article.matchId)).toContain("1915-06-06-aalesunds-fk-rollon");
     expect(articles.some((article) => article.publisher === "NIFS")).toBe(false);
   });

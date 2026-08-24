@@ -22,7 +22,7 @@ neutralVenue: false
 events: []
 externalReports:
   - publisher: Sunnmørsposten
-    url: https://www.nb.no/items/d7a10b62ef94ef64e0a182f4d0493918?page=2
+    url: https://www.nb.no/items/d7a10b62ef94ef64e0a182f4d0493918?page=1
     date: 1951-08-13
 providers:
   - providerId: rsssf
@@ -39,7 +39,7 @@ providers:
       - competition.round
       - extraTime
   - providerId: nasjonalbiblioteket
-    url: https://www.nb.no/items/d7a10b62ef94ef64e0a182f4d0493918?page=2
+    url: https://www.nb.no/items/d7a10b62ef94ef64e0a182f4d0493918?page=1
     retrievedAt: 2026-08-23
     fields:
       - externalReports

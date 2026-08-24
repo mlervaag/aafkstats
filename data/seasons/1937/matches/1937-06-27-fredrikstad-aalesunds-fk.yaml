@@ -19,7 +19,7 @@ neutralVenue: false
 events: []
 externalReports:
   - publisher: Sunnmørsposten
-    url: https://www.nb.no/items/2694a8cc6f6077b18eedc32f1dfa804e?page=5
+    url: https://www.nb.no/items/2694a8cc6f6077b18eedc32f1dfa804e?page=4
     date: 1937-06-29
 providers:
   - providerId: rsssf
@@ -35,7 +35,7 @@ providers:
       - away.score
       - competition.round
   - providerId: nasjonalbiblioteket
-    url: https://www.nb.no/items/2694a8cc6f6077b18eedc32f1dfa804e?page=5
+    url: https://www.nb.no/items/2694a8cc6f6077b18eedc32f1dfa804e?page=4
     retrievedAt: 2026-08-23
     fields:
       - externalReports

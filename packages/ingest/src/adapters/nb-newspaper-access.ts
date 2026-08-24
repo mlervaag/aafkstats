@@ -103,7 +103,9 @@ function licenseLabel(license: string): string {
 export function newspaperPageUrl(itemId: string, page?: string): string {
   const base = `https://www.nb.no/items/${itemId}`;
   const number = page === undefined ? undefined : Number(page);
-  return number !== undefined && Number.isInteger(number) && number > 0 ? `${base}?page=${number}` : base;
+  // OCR-feltet er trykt sidenummer, mens dokumentviseren bruker nullbasert
+  // sideindeks. Direkte bruk av sidetallet åpner derfor neste side.
+  return number !== undefined && Number.isInteger(number) && number > 0 ? `${base}?page=${number - 1}` : base;
 }
 
 /** Hva leseren skal få vite om tilgangen, på norsk. */

@@ -34,6 +34,10 @@ Policyen registreres ærlig som `reviewMethod: ocr_api` og `facsimileReviewed: f
 - Skalarfakta kan skrives additivt når de kommer fra den samme lokalt forankrede kampboksen, har én plausibel tolkning og canonical felt mangler. Personnavn krever i tillegg en eksplisitt rollemarkør, som `Dommer: Navn`.
 - Avis-OCR lagres ikke i repoet. Reviewledgeren kan lagre NB-id, URN, permanent lenke, utgivelsesdato, side, sikker tittel, strukturerte fakta og en kort note.
 
+OCR-feltets sidenummer er det trykte sidenummeret. NB-viseren bruker nullbasert
+`page`-parameter, slik at trykt side 1 lenkes med `?page=0`. Den visuelle
+kalibreringen er dokumentert i `docs/NB_NEWSPAPER_FACSIMILE_PILOT.md`.
+
 `canonicalLinked` betyr bare at avisutgaven er knyttet til kampen. Statusen skiller dette fra `hasSmpMention`, `hasMatchReport`, `hasPostMatchEvidence`, faktaskriv, konflikt og `enrichmentStatus`. Konflikter, preview-only, fixture-only, svake kandidater og manglende OCR-kandidat blir i residualkøen. Et sterkt, etterkampbasert kampreferat eller resultatnotis kan gjøre berikelsen komplett.
 
 Denne policyen gjelder bare `canonical kamp -> datoankret samtidig avis -> OCR-berikelse`, fordi kampidentiteten allerede er etablert uavhengig. Den gjelder ikke udaterte source-results, ukjent kampidentitet, medlemsblad-OCR, retrospektive lister, personhistorikk uten kjent hendelse eller PR #212-hypoteser. De generelle kildekritiske guardrails gjelder uendret der.

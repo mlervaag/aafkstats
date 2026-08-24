@@ -18,7 +18,7 @@ venueId: lerkendal-stadion
 events: []
 externalReports:
   - publisher: Sunnmørsposten
-    url: https://www.nb.no/items/a9708a37bf68d712d996f914112a9794?page=7
+    url: https://www.nb.no/items/a9708a37bf68d712d996f914112a9794?page=6
     date: 1962-10-08
 providers:
   - providerId: rsssf
@@ -42,7 +42,7 @@ providers:
       - home.score
       - away.score
   - providerId: nasjonalbiblioteket
-    url: https://www.nb.no/items/a9708a37bf68d712d996f914112a9794?page=7
+    url: https://www.nb.no/items/a9708a37bf68d712d996f914112a9794?page=6
     retrievedAt: 2026-08-23
     fields:
       - externalReports

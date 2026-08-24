@@ -18,11 +18,11 @@ neutralVenue: false
 events: []
 externalReports:
   - publisher: Sunnmørsposten
-    url: https://www.nb.no/items/087df7c7372fb742fe9f0834f2a51a47?page=1
+    url: https://www.nb.no/items/087df7c7372fb742fe9f0834f2a51a47?page=0
     date: 1974-04-29
 providers:
   - providerId: nasjonalbiblioteket
-    url: https://www.nb.no/items/087df7c7372fb742fe9f0834f2a51a47?page=1
+    url: https://www.nb.no/items/087df7c7372fb742fe9f0834f2a51a47?page=0
     retrievedAt: 2026-08-23
     fields:
       - externalReports

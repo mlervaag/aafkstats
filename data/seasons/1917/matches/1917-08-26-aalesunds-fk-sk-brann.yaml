@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Søndmørsposten
+    url: https://www.nb.no/items/3d6b8fc047e7a6c781962ff1d274bff3?page=3
+    date: 1917-08-27
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1917/Cup.html
@@ -31,6 +34,11 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/3d6b8fc047e7a6c781962ff1d274bff3?page=3
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
 sources:
   - sourceId: nff-arbok-1917
     page: "68–69"
@@ -40,6 +48,11 @@ sources:
     page: "34"
     fields: [away.clubId, competition.round]
     note: Jubileumsskriftet omtaler Brann som motstander i andre runde.
+  - sourceId: sunnmorsposten-19170827-3d6b8fc047e7a6c781962ff1d274bff3
+    page: "4"
+    fields:
+      - externalReports
+    note: Faksimilen er kontrollert; kampreferatet bekrefter AaFK–Brann 0–14.
 confidence: probable
 conflicts: []
 tags: []

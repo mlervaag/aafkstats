@@ -129,8 +129,8 @@ coverage:
 passes:
   facsimile_review:
     status: skipped
-    findings: 0
-    note: Faksimilen krever innlogging og særskilt tilgang; eieren fritok 1979-piloten fra visuell kontroll.
+    findings: 1
+    note: Full faksimiledekning inngår ikke; AaFK–Hødd 29. april er visuelt kontrollert som kalibreringssak.
   explicit_results:
     status: reviewed
     findings: 31
@@ -150,7 +150,7 @@ passes:
     findings: 0
 reviewMethod:
   facsimile: unavailable
-  reason: Faksimilen krever innlogging og søknad til Nasjonalbiblioteket; eieren godkjente eksplisitt OCR-API-review for 1979-piloten.
+  reason: Batchen krever ikke full faksimiledekning; én kampjobb er visuelt kontrollert som kalibreringssak.
 review:
   file: docs/NB_CANONICAL_NEWSPAPER_1979_PILOT.md
 findings:

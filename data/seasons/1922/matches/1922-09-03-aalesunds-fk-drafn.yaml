@@ -10,16 +10,16 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: drafn
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 neutralVenue: false
 events: []
 externalReports:
   - publisher: Søndmørsposten
-    url: https://www.nb.no/items/ed591ad4a2216bdd3aa749c21a4b4ce9?page=3
+    url: https://www.nb.no/items/ed591ad4a2216bdd3aa749c21a4b4ce9?page=2
     date: 1922-09-04
 providers:
   - providerId: rsssf
@@ -35,10 +35,12 @@ providers:
       - away.score
       - competition.round
   - providerId: nasjonalbiblioteket
-    url: https://www.nb.no/items/ed591ad4a2216bdd3aa749c21a4b4ce9?page=3
+    url: https://www.nb.no/items/ed591ad4a2216bdd3aa749c21a4b4ce9?page=2
     retrievedAt: 2026-08-23
     fields:
       - externalReports
+      - home.halfTimeScore
+      - away.halfTimeScore
 sources:
   - sourceId: aalesunds-fotballklubb-90-ar-1-2004-ad1d
     page: "14"
@@ -50,6 +52,8 @@ sources:
     page: "3"
     fields:
       - externalReports
+      - home.halfTimeScore
+      - away.halfTimeScore
     note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.
 confidence: probable
 conflicts: []

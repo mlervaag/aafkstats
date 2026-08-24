@@ -19,7 +19,7 @@ neutralVenue: false
 events: []
 externalReports:
   - publisher: Søndmørsposten
-    url: https://www.nb.no/items/3e05e6890d610f305b02497a7bd58383?page=4
+    url: https://www.nb.no/items/3e05e6890d610f305b02497a7bd58383?page=3
     date: 1919-09-08
 providers:
   - providerId: rsssf
@@ -35,7 +35,7 @@ providers:
       - away.score
       - competition.round
   - providerId: nasjonalbiblioteket
-    url: https://www.nb.no/items/3e05e6890d610f305b02497a7bd58383?page=4
+    url: https://www.nb.no/items/3e05e6890d610f305b02497a7bd58383?page=3
     retrievedAt: 2026-08-23
     fields:
       - externalReports

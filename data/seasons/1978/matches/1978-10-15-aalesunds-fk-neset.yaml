@@ -18,7 +18,7 @@ neutralVenue: false
 events: []
 externalReports:
   - publisher: Sunnmørsposten
-    url: https://www.nb.no/items/242bddbe45016cf45db57bcf4772e412?page=6
+    url: https://www.nb.no/items/242bddbe45016cf45db57bcf4772e412?page=5
     date: 1978-10-16
 providers:
   - providerId: rsssf
@@ -33,7 +33,7 @@ providers:
       - home.score
       - away.score
   - providerId: nasjonalbiblioteket
-    url: https://www.nb.no/items/242bddbe45016cf45db57bcf4772e412?page=6
+    url: https://www.nb.no/items/242bddbe45016cf45db57bcf4772e412?page=5
     retrievedAt: 2026-08-23
     fields:
       - externalReports

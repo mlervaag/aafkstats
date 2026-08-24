@@ -1,6 +1,6 @@
 # Review: Datoankret Sunnmørsposten-berikelse 1915–1962
 
-Reviewgrunnlag: NB OCR-API. `facsimileReviewed: false`. Ingen OCR-tekst er lagret.
+Reviewgrunnlag: NB OCR-API, supplert med 3 visuelt kontrollerte kampjobber. Ingen OCR-tekst er lagret.
 
 ## Per sesong
 
@@ -8,12 +8,12 @@ Reviewgrunnlag: NB OCR-API. `facsimileReviewed: false`. Ingen OCR-tekst er lagre
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1915 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 |
 | 1916 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| 1917 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 1 |
+| 1917 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 |
 | 1918 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 |
 | 1919 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 |
 | 1920 | 8 | 4 | 4 | 3 | 0 | 1 | 4 | 0 | 0 | 0 | 3 | 5 |
 | 1921 | 3 | 0 | 0 | 0 | 0 | 0 | 3 | 0 | 0 | 0 | 0 | 3 |
-| 1922 | 2 | 1 | 2 | 2 | 0 | 0 | 0 | 0 | 1 | 0 | 1 | 1 |
+| 1922 | 2 | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 0 | 1 | 2 | 0 |
 | 1923 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 1 |
 | 1924 | 2 | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 2 |
 | 1925 | 3 | 2 | 2 | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 2 | 1 |
@@ -54,13 +54,13 @@ Reviewgrunnlag: NB OCR-API. `facsimileReviewed: false`. Ingen OCR-tekst er lagre
 | 1960 | 4 | 2 | 4 | 4 | 0 | 0 | 0 | 0 | 2 | 0 | 2 | 2 |
 | 1961 | 4 | 0 | 0 | 0 | 0 | 0 | 4 | 0 | 0 | 0 | 0 | 4 |
 | 1962 | 21 | 12 | 15 | 11 | 0 | 4 | 6 | 0 | 3 | 0 | 8 | 13 |
-| **Sum** | 188 | 119 | 148 | 120 | 4 | 9 | 57 | 2 | 10 | 0 | 110 | 78 |
+| **Sum** | 188 | 121 | 149 | 121 | 4 | 9 | 56 | 2 | 9 | 1 | 112 | 76 |
 
 ## Produksjonsblokker
 
 | Periode | Scope | Smp | Referat | Ingen kandidat | Ikke digitalisert | Complete | Residual | D+1 | Hovedvindu | Kandidater/kamp |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 1915–1924 | 20 | 9 | 8 | 11 | 0 | 7 | 13 | 8 | 9 | 2.70 |
+| 1915–1924 | 20 | 10 | 9 | 10 | 0 | 9 | 11 | 9 | 10 | 2.70 |
 | 1925–1934 | 22 | 13 | 11 | 9 | 2 | 11 | 11 | 6 | 9 | 3.05 |
 | 1935–1944 | 12 | 9 | 4 | 7 | 0 | 4 | 8 | 3 | 5 | 4.08 |
 | 1945–1951 | 62 | 60 | 46 | 13 | 0 | 43 | 19 | 33 | 48 | 3.55 |
@@ -70,7 +70,7 @@ Reviewgrunnlag: NB OCR-API. `facsimileReviewed: false`. Ingen OCR-tekst er lagre
 
 | Periode | Omtale | Referat | Complete | Ingen OCR | Konflikt | D+1 | Hovedvindu | Kandidater/kamp | Skalar-yield |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 1915–1924 | 45.0 % | 40.0 % | 35.0 % | 55.0 % | 5.0 % | 88.9 % | 100.0 % | 2.70 | 0.0 % |
+| 1915–1924 | 50.0 % | 45.0 % | 45.0 % | 50.0 % | 0.0 % | 90.0 % | 100.0 % | 2.70 | 5.0 % |
 | 1925–1934 | 59.1 % | 50.0 % | 50.0 % | 40.9 % | 0.0 % | 54.5 % | 81.8 % | 3.05 | 0.0 % |
 | 1935–1944 | 75.0 % | 33.3 % | 33.3 % | 58.3 % | 0.0 % | 60.0 % | 100.0 % | 4.08 | 0.0 % |
 | 1945–1951 | 96.8 % | 74.2 % | 69.4 % | 21.0 % | 4.8 % | 67.3 % | 98.0 % | 3.55 | 0.0 % |
@@ -81,12 +81,12 @@ Reviewgrunnlag: NB OCR-API. `facsimileReviewed: false`. Ingen OCR-tekst er lagre
 
 ## Kvalitet og avstemming
 
-10 resultatavvik er uløste konfliktkandidater; ingen canonical resultater ble overskrevet. Ingen nye skalarfakta ble skrevet.
+9 resultatavvik er uløste konfliktkandidater. 3 kampjobber er visuelt kontrollert; sikre skalarfakta er skrevet additivt.
 
-651 utgaver ble undersøkt og 633 OCR-kandidater bevart. 91/129 koblinger var D+1; 125/129 lå innen D−2 til D+2.
+651 utgaver ble undersøkt og 633 OCR-kandidater bevart. 92/130 koblinger var D+1; 126/130 lå innen D−2 til D+2.
 
 Regresjonssettene 1963–1979 er uendret. PR #212-ledgeren regenereres og sammenlignes maskinelt.
 
 ## Source Inventory
 
-Manifestet er autoritativt for 127 unike utgaver: [sunnmorsposten-1915-1962-production.yaml](../../../data/harvests/sunnmorsposten-1915-1962-production.yaml).
+Manifestet er autoritativt for 128 unike utgaver: [sunnmorsposten-1915-1962-production.yaml](../../../data/harvests/sunnmorsposten-1915-1962-production.yaml).

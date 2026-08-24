@@ -97,7 +97,34 @@ function listItemIdentities(item: unknown): Array<{ key: string; value: string }
       list.push({ key, value: String(raw).trim() });
     }
   }
+  const nbItemId = typeof item.url === "string" ? nbItemIdentity(item.url) : undefined;
+  if (nbItemId) list.push({ key: "nbItemId", value: nbItemId });
   return list;
+}
+
+function nbItemIdentity(value: string): string | undefined {
+  try {
+    const url = new URL(value);
+    if (url.protocol !== "https:" || url.hostname !== "www.nb.no") return undefined;
+    return url.pathname.match(/^\/items\/([a-f0-9]+)\/?$/u)?.[1];
+  } catch {
+    return undefined;
+  }
+}
+
+function isNbViewerPageCorrection(path: string, baseValue: unknown, headValue: unknown): boolean {
+  if (!/(?:^|\/)(?:accessUrl|pageUrl|url)$/u.test(path)) return false;
+  if (typeof baseValue !== "string" || typeof headValue !== "string") return false;
+  if (!nbItemIdentity(baseValue) || nbItemIdentity(baseValue) !== nbItemIdentity(headValue)) return false;
+
+  const base = new URL(baseValue);
+  const head = new URL(headValue);
+  const basePage = base.searchParams.get("page");
+  const headPage = head.searchParams.get("page");
+  if (!basePage || !headPage || !/^\d+$/u.test(basePage) || !/^\d+$/u.test(headPage) || basePage === headPage) return false;
+  base.searchParams.delete("page");
+  head.searchParams.delete("page");
+  return base.toString() === head.toString();
 }
 
 function removeItemFromHeadQueues(headById: Map<string, unknown[]>, item: unknown) {
@@ -353,6 +380,11 @@ export function diffStructuralAdditivity(
     }
     if (isProviderRetrievedAtRefresh(path)) {
       // En ny hentedato alene er ikke en endring \u2014 det er hele poenget med feltet.
+      return out;
+    }
+    if (isNbViewerPageCorrection(path, baseValue, headValue)) {
+      // NB sin dokumentviser bruker en egen sideindeks. En korrigert `page`-
+      // parameter på samme item endrer pekeren, ikke det historiske belegget.
       return out;
     }
     if (isMatchStatusOutcome(options.domain, path, baseValue, headValue)) {
